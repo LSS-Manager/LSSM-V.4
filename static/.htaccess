@@ -1,0 +1,3 @@
+RewriteEngine On
+RewriteRule "^(docs/)?$" "docs/de/"
+ErrorDocument 404 "/docs/de/index.html"
