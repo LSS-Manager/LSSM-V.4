@@ -31,6 +31,13 @@
                     :module="moduleId"
                     labels
                 ></toggle-button>
+                <a
+                    :href="$store.getters['wikiModul'](moduleId)"
+                    class="pull-right lightbox-open"
+                    style="margin-right: 1rem;"
+                >
+                    <span class="glyphicon glyphicon-info-sign"></span>
+                </a>
                 <h4>
                     <b>{{ $t(`modules.${moduleId}.name`) }}</b>
                 </h4>

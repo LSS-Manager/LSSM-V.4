@@ -1,5 +1,5 @@
 {
-    "version": "4.0.0+20200210.1605",
+    "version": "4.0.0+20200211.0922",
     "scripts": {
         "build": "node build",
         "build-production": "node build production",

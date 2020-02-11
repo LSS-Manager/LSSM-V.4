@@ -55,6 +55,9 @@ export default new Vuex.Store({
         wiki: state => {
             return `${config.server}docs/${state.lang}`;
         },
+        wikiModul: (_, getters) => module => {
+            return `${getters['wiki']}/modules/${module}.html`;
+        },
         appModules: state => {
             let modules = {};
             Object.keys(state.modules).forEach(

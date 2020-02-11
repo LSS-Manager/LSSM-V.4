@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const copydir = require('copy-dir');
 
 const config = require('../../src/config');
 const packageJson = require('../../package');
@@ -8,17 +9,22 @@ const langModules = fs.readdirSync('./docs/').filter(x => Object.keys(config.gam
 
 const emptyFolder = require('../../prebuild/emptyDir').emptyFolder;
 Object.keys(langModules).forEach(x => emptyFolder(`${x}/modules`));
+emptyFolder('./docs/.vuepress/public/assets', false);
 
 const moduleDirs = fs.readdirSync('./src/modules');
 moduleDirs.forEach(module => {
-    if (fs.existsSync(`./src/modules/${module}/docs`)) {
+    if (module !== 'template' && fs.existsSync(`./src/modules/${module}/docs`)) {
         const docs = fs.readdirSync(`./src/modules/${module}/docs`)
             .filter(f => f.match(new RegExp(`^${module}\...(_..)?\..*$`)));
         docs.forEach(f => {
             const lang = f.split('.')[1];
             if (!fs.existsSync(`./docs/${lang}/modules`)) fs.mkdirSync(`./docs/${lang}/modules`);
             fs.copyFileSync(path.join(__dirname, `../../src/modules/${module}/docs/${f}`), `./docs/${lang}/modules/${f.replace(new RegExp(`\.${lang}`), '')}`);
-        })
+        });
+        if (fs.existsSync(`./src/modules/${module}/docs/assets`)) {
+            if (!fs.existsSync(`./docs/.vuepress/public/assets/${module}`)) fs.mkdirSync(`./docs/.vuepress/public/assets/${module}`);
+            copydir.sync(`./src/modules/${module}/docs/assets`, `./docs/.vuepress/public/assets/${module}`);
+        }
     }
 });
 
