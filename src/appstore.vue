@@ -121,6 +121,7 @@ export default {
                 )
                     input.click();
             });
+            this.save();
         },
     },
 };

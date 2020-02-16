@@ -15,7 +15,8 @@ module.exports = {
         'process': 'readonly',
         '__dirname': 'readonly',
         'VERSION': 'readonly',
-        'BUILD_LANG': 'readonly'
+        'BUILD_LANG': 'readonly',
+        'MODULE_ID': 'readonly'
     },
     'parserOptions': {
         'ecmaVersion': 2018,

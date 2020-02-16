@@ -1,9 +1,11 @@
 {
-    "version": "4.0.0+20200211.0922",
+    "version": "4.0.0+20200216.1532",
     "scripts": {
-        "build": "node build",
-        "build-production": "node build production",
+        "predev": "node prebuild",
+        "dev": "node build",
+        "postdev": "vuepress build docs",
         "prebuild": "node prebuild",
+        "build": "node build production",
         "postbuild": "vuepress build docs"
     },
     "dependencies": {

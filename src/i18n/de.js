@@ -41,6 +41,11 @@ files.keys().forEach(key => (modules[key.split('/')[2]] = files(key)));
 
 module.exports = {
     modules,
+    error: {
+        title: 'LSS-Manager: Fehler',
+        msg:
+            'Sollte dieser Fehler öfters auftreten, so melde ihn bitte an das LSSM-Team!',
+    },
     vehicles: [
         'LF 20',
         'LF 10',
@@ -202,9 +207,4 @@ module.exports = {
 //             ...releasenotes,
 //         },
 //     },
-//     error: {
-//         title: 'LSS-Manager: Fehler',
-//         msg:
-//             'Sollte dieser Fehler öfters auftreten, so melde ihn bitte an das LSSM-Team!',
-//     }
 // };

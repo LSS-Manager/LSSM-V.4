@@ -2,9 +2,9 @@ export default {
     namespaced: true,
     state: {
         buildingCooldown: new Date().getTime(),
-        buildings: {},
+        buildings: [],
         vehiclesCooldown: new Date().getTime(),
-        vehicles: {},
+        vehicles: [],
     },
     mutations: {
         setBuildings(state, buildings) {

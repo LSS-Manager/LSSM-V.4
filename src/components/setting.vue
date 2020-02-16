@@ -3,6 +3,14 @@
         <h4>
             <b>{{ title }}</b>
         </h4>
+        <span
+            v-if="
+                description &&
+                    description !==
+                        `modules.${moduleId}.settings.${settingId}.description`
+            "
+            >{{ description }}<br
+        /></span>
         <slot></slot>
     </div>
 </template>
@@ -11,9 +19,22 @@
 export default {
     name: 'setting',
     props: {
+        moduleId: {
+            type: String,
+            required: true,
+        },
+        settingId: {
+            type: String,
+            required: true,
+        },
         title: {
             type: String,
             required: true,
+        },
+        description: {
+            type: String,
+            required: false,
+            default: '',
         },
     },
 };

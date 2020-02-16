@@ -8,7 +8,7 @@ const packageJson = require('../../package');
 const langModules = fs.readdirSync('./docs/').filter(x => Object.keys(config.games).indexOf(x) >= 0);
 
 const emptyFolder = require('../../prebuild/emptyDir').emptyFolder;
-Object.keys(langModules).forEach(x => emptyFolder(`${x}/modules`));
+langModules.forEach(x => emptyFolder(`./docs/${x}/modules`));
 emptyFolder('./docs/.vuepress/public/assets', false);
 
 const moduleDirs = fs.readdirSync('./src/modules');

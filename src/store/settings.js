@@ -41,13 +41,12 @@ export default {
                 );
             });
         },
-        register({ commit, dispatch }, { moduleId, settings, sidebar }) {
+        register({ commit, dispatch }, { moduleId, settings }) {
             dispatch('storage/get', `settings_${moduleId}`, {
                 root: true,
             }).then(value => {
                 let module = {
                     settings,
-                    sidebar,
                 };
                 if (value)
                     Object.keys(value).forEach(setting => {

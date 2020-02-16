@@ -1,4 +1,9 @@
 {
     "name": "User-ID",
-    "description": "Zeigt die eigene ID in der Kopfzeile, und die jeweilige User-ID im Profil an."
+    "description": "Zeigt die jeweilige User-ID im Profil an und bei Bedarf auch die eigene in der Navigationsleiste",
+    "settings": {
+        "navbar": {
+            "title": "Eigene ID in der Navigationsleiste anzeigen"
+        }
+    }
 }

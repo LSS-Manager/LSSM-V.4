@@ -31,7 +31,7 @@ const entries = Object.keys(config.games).map(game => {
 const moduleDirs = fs.readdirSync('./src/modules');
 const modules = moduleDirs.map(module => {
     if (fs.existsSync(`./src/modules/${module}/main.js`)) {
-        return {
+        const entry = {
             mode: process.argv[2] || 'development',
             entry: { [module]: `./src/modules/${module}/main.js` },
             output: {
@@ -40,6 +40,12 @@ const modules = moduleDirs.map(module => {
             },
             ...lodash.cloneDeep(webpackConfig),
         };
+        entry.plugins.push(
+            new webpack.DefinePlugin({
+                MODULE_ID: JSON.stringify(module),
+            })
+        );
+        return entry;
     }
 });
 

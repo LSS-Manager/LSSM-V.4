@@ -83,7 +83,6 @@ store.dispatch('storage/get', 'active').then(activeModules => {
             val: activeModules,
         });
     }
-
     activeModules.forEach(
         module =>
             window.location.href.match(store.state.modules[module].location) &&

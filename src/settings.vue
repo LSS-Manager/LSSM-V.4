@@ -24,28 +24,25 @@
                 v-for="moduleId in modulesSorted"
                 :title="$t(`modules.${moduleId}.name`)"
                 :key="moduleId"
-                :class="{
-                    'has-sidebar-open': sidebarIsOpen,
-                }"
                 :module="moduleId"
             >
-                <sidebar
-                    v-if="settings[moduleId].sidebar"
-                    :title="settings[moduleId].sidebar.title"
-                    :class="{ open: sidebars[moduleId] }"
-                >
-                    <div v-html="settings[moduleId].sidebar.content"></div>
-                </sidebar>
-                <span
-                    class="glyphicon glyphicon-info-sign pull-right toggle-sidebar"
-                    @click="toggleSidebar(moduleId, $event)"
-                ></span>
                 <div class="auto-sized-grid">
                     <setting
                         v-for="(setting, settingId) in settings[moduleId]
                             .settings"
                         :key="settingId"
-                        :title="$t(`modules.${moduleId}.settings.${settingId}`)"
+                        :moduleId="moduleId"
+                        :settingId="settingId"
+                        :title="
+                            $t(
+                                `modules.${moduleId}.settings.${settingId}.title`
+                            )
+                        "
+                        :description="
+                            $t(
+                                `modules.${moduleId}.settings.${settingId}.description`
+                            )
+                        "
                     >
                         <settings-text
                             v-if="setting.type === 'text'"
@@ -81,7 +78,6 @@
 <script>
 import Lightbox from './components/lightbox.vue';
 import Setting from './components/setting.vue';
-import Sidebar from './components/sidebar.vue';
 import SettingsText from './components/setting/text.vue';
 import SettingsToggle from './components/setting/toggle.vue';
 
@@ -89,13 +85,11 @@ import cloneDeep from 'lodash/cloneDeep';
 
 export default {
     name: 'settings',
-    components: { SettingsToggle, SettingsText, Sidebar, Setting, Lightbox },
+    components: { SettingsToggle, SettingsText, Setting, Lightbox },
     data() {
         return {
             settings: cloneDeep(this.$store.state.settings.settings),
             settingsUpdate: cloneDeep(this.$store.state.settings.settings),
-            sidebars: {},
-            sidebarIsOpen: false,
         };
     },
     computed: {
@@ -126,12 +120,6 @@ export default {
         },
     },
     methods: {
-        toggleSidebar(moduleId, event) {
-            this.$set(this.sidebars, moduleId, !this.sidebars[moduleId]);
-            this.sidebarIsOpen = !this.sidebarIsOpen;
-            event.currentTarget.classList.toggle('glyphicon-info-sign');
-            event.currentTarget.classList.toggle('glyphicon-remove-sign');
-        },
         getValue(moduleId, settingId) {
             return (
                 this.settings[moduleId].settings[settingId].value ||
@@ -232,9 +220,6 @@ export default {
 .vue-tabpanel
     transition: 0.5s
 
-    &.has-sidebar-open
-        margin-right: 250px
-
 .auto-sized-grid
     display: grid
     grid-gap: 16px
@@ -243,9 +228,4 @@ export default {
     padding-left: 0
     margin-top: 10px
     margin-bottom: 10px
-
-.toggle-sidebar
-    cursor: pointer
-    transform: scale(1.2)
-    padding-right: 1rem
 </style>
