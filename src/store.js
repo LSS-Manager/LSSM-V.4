@@ -47,6 +47,9 @@ export default new Vuex.Store({
         addHook(state, event) {
             state.hooks[event] = window[event];
         },
+        setModuleActive(state, moduleId) {
+            state.modules[moduleId].active = true;
+        },
     },
     getters: {
         nodeId: state => id => {

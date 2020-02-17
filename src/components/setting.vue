@@ -9,8 +9,10 @@
                     description !==
                         `modules.${moduleId}.settings.${settingId}.description`
             "
-            >{{ description }}<br
-        /></span>
+            v-html="description"
+        >
+            <br />
+        </span>
         <slot></slot>
     </div>
 </template>

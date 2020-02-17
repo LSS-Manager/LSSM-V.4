@@ -40,7 +40,10 @@
                         "
                         :description="
                             $t(
-                                `modules.${moduleId}.settings.${settingId}.description`
+                                `modules.${moduleId}.settings.${settingId}.description`,
+                                {
+                                    wiki: $store.getters.wiki,
+                                }
                             )
                         "
                     >
@@ -48,7 +51,9 @@
                             v-if="setting.type === 'text'"
                             :name="`${moduleId}.${settingId}`"
                             :placeholder="
-                                $t(`modules.${moduleId}.settings.${settingId}`)
+                                $t(
+                                    `modules.${moduleId}.settings.${settingId}.title`
+                                )
                             "
                             :value="getValue(moduleId, settingId)"
                             @change="

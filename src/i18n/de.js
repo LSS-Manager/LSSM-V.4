@@ -173,12 +173,6 @@ module.exports = {
 //                 'Zeigt bei jedem Gebäude eine Kurzinformation an, wenn man auf der Karte mit der Maus darüber fährt.',
 //             ...buildingHover,
 //         },
-//         clock: {
-//             name: 'Uhr',
-//             description:
-//                 'Zeigt eine Konfigurierbare Uhr in der Navigationsleiste und/oder auf der Karte an.',
-//             ...clock,
-//         },
 //         dashboard: {
 //             name: 'Dashboard',
 //             description:

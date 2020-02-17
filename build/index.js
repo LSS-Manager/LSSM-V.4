@@ -3,9 +3,10 @@ const webpack = require('webpack');
 const lodash = require('lodash');
 const path = require('path');
 const config = require('../src/config');
+const packageJson = require('../package');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
-console.log('Lets build that stuff');
+console.log(`Lets build that stuff in Version ${packageJson.version}`);
 
 const webpackConfig = require('../webpack.config');
 
@@ -72,4 +73,6 @@ webpack([...entries, ...modules], (err, stats) => {
 
     console.log('Stats:');
     console.log(stats.toString({ colors: true }));
+
+    console.log(`LSSM Version ${packageJson.version} successfully built!`);
 });
