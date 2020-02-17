@@ -33,4 +33,11 @@ module.exports = {
      * set this value to true to prevent it from being listed in Appstore. Active is recommended to be set to true then
      */
     noapp: true,
+
+    /***
+     * type:    Boolean
+     * default: false
+     * set this value to true if it is not available with the mapkit map
+     */
+    noMapkit: false,
 };

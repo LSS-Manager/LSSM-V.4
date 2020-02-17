@@ -167,12 +167,6 @@ module.exports = {
 //
 // export default {
 //     modules: {
-//         buildingHover: {
-//             name: 'Gebäude-Kurzinfos',
-//             description:
-//                 'Zeigt bei jedem Gebäude eine Kurzinformation an, wenn man auf der Karte mit der Maus darüber fährt.',
-//             ...buildingHover,
-//         },
 //         dashboard: {
 //             name: 'Dashboard',
 //             description:

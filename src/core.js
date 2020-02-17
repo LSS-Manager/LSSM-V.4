@@ -73,19 +73,40 @@ if (window.location.pathname === '/') {
     }).$mount(indicator);
 }
 
-store.dispatch('storage/get', 'active').then(activeModules => {
-    if (!activeModules) {
-        activeModules = Object.keys(store.state.modules).filter(
-            m => store.state.modules[m].active
-        );
-        store.dispatch('storage/set', {
-            key: 'active',
-            val: activeModules,
-        });
-    }
-    activeModules.forEach(module => {
-        store.commit('setModuleActive', module);
-        window.location.pathname.match(store.state.modules[module].location);
-        store.dispatch('loadModule', { module });
+(async () => {
+    await store.dispatch('api/buildings');
+    await store.dispatch('api/vehicles');
+
+    await store.dispatch('hook', {
+        event: 'radioMessage',
+        post: false,
+        callback({ fms, fms_real, id }) {
+            store.commit('api/setVehicleState', { fms, fms_real, id });
+        },
     });
-});
+
+    store.dispatch('storage/get', 'active').then(activeModules => {
+        if (!activeModules) {
+            activeModules = Object.keys(store.state.modules).filter(
+                m => store.state.modules[m].active
+            );
+            store.dispatch('storage/set', {
+                key: 'active',
+                val: activeModules,
+            });
+        }
+        activeModules = [...new Set(activeModules)];
+        if (typeof mapkit !== 'undefined') {
+            activeModules = activeModules.filter(
+                x => !store.state.modules[x].noMapkit
+            );
+        }
+        activeModules.forEach(module => {
+            store.commit('setModuleActive', module);
+            window.location.pathname.match(
+                store.state.modules[module].location
+            );
+            store.dispatch('loadModule', { module });
+        });
+    });
+})();

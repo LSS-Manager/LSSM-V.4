@@ -121,7 +121,7 @@ export default new Vuex.Store({
         },
         loadModule({ state }, { module, async = true }) {
             const script = document.createElement('script');
-            script.src = `${state.server}/modules/${module}/main.js`;
+            script.src = `${state.server}modules/${module}/main.js`;
             async && script.setAttribute('async', '');
             document.querySelector('body').appendChild(script);
         },

@@ -16,41 +16,42 @@
                 class="card"
                 :class="{
                     dev: modules[moduleId].dev,
-                    mapkit:
-                        modules[moduleId].noMapkit &&
-                        'undefined' !== typeof mapkit,
+                    mapkit: hasMapkitConflict(moduleId),
                 }"
             >
                 <toggle-button
                     @change="toggleModule(moduleId, $event)"
                     class="pull-right appstore-toggle"
-                    :value="active.indexOf(moduleId) >= 0"
+                    :active="active.indexOf(moduleId) >= 0"
+                    :mapkit="hasMapkitConflict(moduleId)"
+                    :value="
+                        hasMapkitConflict(moduleId)
+                            ? false
+                            : active.indexOf(moduleId) >= 0
+                    "
                     :id="
                         $store.getters['nodeId'](`appstore-toggle-${moduleId}`)
                     "
                     :module="moduleId"
+                    :disabled="hasMapkitConflict(moduleId)"
                     labels
                 ></toggle-button>
                 <a
                     :href="$store.getters['wikiModul'](moduleId)"
-                    class="pull-right lightbox-open"
-                    style="margin-right: 1rem;"
+                    class="pull-right lightbox-open wiki-btn"
                 >
                     <span class="glyphicon glyphicon-info-sign"></span>
                 </a>
-                <h4>
-                    <b>{{ $t(`modules.${moduleId}.name`) }}</b>
-                </h4>
-                <small
-                    v-if="
-                        modules[moduleId].noMapkit &&
-                            'undefined' !== typeof mapkit
-                    "
-                >
+                <small v-if="hasMapkitConflict(moduleId)" class="mapkit-notice">
                     {{ $t('modules.appstore.noMapkit') }}
                 </small>
-                <br />
-                {{ $t(`modules.${moduleId}.description`) }}
+                <div class="appstore-content">
+                    <h4>
+                        <b>{{ $t(`modules.${moduleId}.name`) }}</b>
+                    </h4>
+                    <br />
+                    {{ $t(`modules.${moduleId}.description`) }}
+                </div>
             </li>
         </ul>
     </lightbox>
@@ -97,21 +98,26 @@ export default {
             }
             this.$store.commit('appStoreState', this.changes);
         },
+        hasMapkitConflict(moduleId) {
+            return (
+                this.modules[moduleId].noMapkit && 'undefined' !== typeof mapkit
+            );
+        },
         save() {
             this.$store
                 .dispatch('storage/set', {
                     key: 'active',
-                    val: this.active,
+                    val: [...new Set(this.active)],
                 })
                 .then(() => {
-                    this.activeStart = [...this.active];
+                    this.activeStart = [...new Set(this.active)];
                     this.$store.commit('appStoreState', this.changes);
                     this.$store.commit('appStoreReload', true);
                 })
                 .catch(err => console.error(err));
         },
         reset() {
-            this.active = [...this.activeStart];
+            this.active = [...new Set(this.activeStart)];
             this.$store.commit('appStoreState', this.changes);
             document.querySelectorAll('.appstore-toggle').forEach(el => {
                 let input = el.querySelector('input[type="checkbox"]');
@@ -145,10 +151,34 @@ export default {
 
         &.dev,
         &.mapkit
-            cursor: not-allowed
-            pointer-events: none
-            opacity: 0.5
+
+            .appstore-content
+                cursor: not-allowed
+                pointer-events: none
+                opacity: 0.5
+                font-size: unset
+                display: inline-block
+                transition: 0.3s
+
+            .mapkit-notice
+                display: inline-block
+                transition: 0.3s
+                font-size: 0
+                color: red
 
         &:hover
             box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2)
+
+            &.mapkit
+
+                .mapkit-notice
+                    font-size: small
+
+                &:hover
+
+                    .appstore-content
+                        font-size: 0
+
+        .wiki-btn
+            margin-right: 1rem
 </style>
