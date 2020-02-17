@@ -40,6 +40,8 @@ const sidebar_others = [
     'support',
     'error_report',
     'faq',
+    'appstore',
+    'settings'
 ];
 
 Object.keys(config.games).forEach(lang => {
@@ -68,7 +70,7 @@ Object.keys(config.games).forEach(lang => {
             ...sidebar_others.filter(f => fs.existsSync(`./docs${langPath}${f || 'README'}.md`))
                 .map(f => `${langPath}${f}`),
             {
-                title: 'Appstore 📦',
+                title: 'Apps 📦',
                 collapsable: true,
                 children: fs.existsSync(`./docs${langPath}modules`) ? fs.readdirSync(`./docs${langPath}modules`).map(file => `${langPath}modules/${file.replace(/\..*?$/, '').replace(/README/, '')}`) : [],
             }

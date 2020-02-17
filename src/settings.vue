@@ -222,6 +222,8 @@ export default {
 </script>
 
 <style lang="sass">
+.vue-tab[aria-selected="true"]
+    border-bottom-color: white !important
 .vue-tabpanel
     transition: 0.5s
 
