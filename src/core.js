@@ -74,6 +74,7 @@ if (window.location.pathname === '/') {
 }
 
 (async () => {
+    if (window.location.pathname.match(/^\/users\//)) return;
     await store.dispatch('api/buildings');
     await store.dispatch('api/vehicles');
 
@@ -103,10 +104,12 @@ if (window.location.pathname === '/') {
         }
         activeModules.forEach(module => {
             store.commit('setModuleActive', module);
-            window.location.pathname.match(
-                store.state.modules[module].location
-            );
-            store.dispatch('loadModule', { module });
+            if (
+                window.location.pathname.match(
+                    store.state.modules[module].location
+                )
+            )
+                store.dispatch('loadModule', { module });
         });
     });
 })();

@@ -20,8 +20,10 @@ export default {
             state.vehiclesCooldown = new Date().getTime() + 5 * 60 * 1000; // 5 mins
         },
         setVehicleState(state, { id, fms, fms_real }) {
-            state.vehicles.find(x => x.id === id).fms_show = fms;
-            state.vehicles.find(x => x.id === id).fms_real = fms_real;
+            const vehicle = state.vehicles.find(x => x.id === id);
+            if (!vehicle) return;
+            vehicle.fms_show = fms;
+            vehicle.fms_real = fms_real;
         },
     },
     getters: {
