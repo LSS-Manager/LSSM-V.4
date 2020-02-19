@@ -12,7 +12,7 @@
             "locale_fallback": "en_US"
         },
         "en_US": {
-            "shortUrl": "missionchief.com",
+            "shortURL": "missionchief.com",
             "name": "Missionschief.com",
             "flag": "\uD83C\uDDFA\uD83C\uDDF8",
             "locale_fallback": "de"
@@ -72,7 +72,7 @@
             "locale_fallback": "en_US"
         },
         "nb_NO": {
-            "shortUrl": "nodsentralspillet.com",
+            "shortURL": "nodsentralspillet.com",
             "name": "Nodsentralspillet.com",
             "flag": "\uD83C\uDDF3\uD83C\uDDF4",
             "locale_fallback": "en_US"
@@ -100,6 +100,18 @@
             "name": "Operador193.com",
             "flag": "\uD83C\uDDE7\uD83C\uDDF7",
             "locale_fallback": "pt_PT"
+        },
+        "es_MX": {
+            "shortURL": "centro-de-mando.mx",
+            "name": "Centro-de-Mando.mx",
+            "flag": "\uD83C\uDDF2\uD83C\uDDFD",
+            "locale_fallback": "es_ES"
+        },
+        "uk_UA": {
+            "shortUrl": "dyspetcher101-game.com",
+            "name": "Dyspetcher101-game.com",
+            "flag": "\uD83C\uDDFA\uD83C\uDDE6",
+            "locale_fallback": "en_US"
         }
     },
     "server": "https://v4.lssm.ledbrain.de/",

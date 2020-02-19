@@ -1,10 +1,10 @@
 // ==UserScript==
 // @name         LSS-Manager V.4 - Dev Version
-// @version      4.0.0+de-nl-US-UK-AU-ES-PL-SE-IT-FR-RU-DK-NO-CZ-TR-PT-BR
+// @version      4.0.0+de-nl-US-UK-AU-ES-PL-SE-IT-FR-RU-DK-NO-CZ-TR-PT-BR-MX-UA
 // @description  Das Tool für das LSS in der Version 4
 // @include      *://www.leitstellenspiel.de/*
 // @include      *://www.meldkamerspel.com/*
-// @include      *://www.undefined/*
+// @include      *://www.missionchief.com/*
 // @include      *://www.missionchief.co.uk/*
 // @include      *://www.missionchief-australia.com/*
 // @include      *://www.centro-de-mando.es/*
@@ -14,11 +14,13 @@
 // @include      *://www.operateur112.fr/*
 // @include      *://www.dispetcher112.ru/*
 // @include      *://www.alarmcentral-spil.dk/*
-// @include      *://www.undefined/*
+// @include      *://www.nodsentralspillet.com/*
 // @include      *://www.operacni-stredisko.cz/*
 // @include      *://www.112-merkez.com/*
 // @include      *://www.operador112.pt/*
 // @include      *://www.operador193.com/*
+// @include      *://www.centro-de-mando.mx/*
+// @include      *://www.undefined/*
 // @homepage     https://lss-manager.de
 // @updateURL    https://v4.lssm.ledbrain.de/lssm-v4.user.js
 // @grant        none
