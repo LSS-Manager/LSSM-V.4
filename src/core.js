@@ -13,7 +13,7 @@ Vue.use(VueJSModal, {
     dynamicDefaults: {
         adaptive: true,
         scrollable: true,
-        clickToClose: false,
+        clickToClose: true,
     },
     dialog: true,
 });
@@ -87,15 +87,19 @@ if (window.location.pathname === '/') {
     });
 
     store.dispatch('storage/get', 'active').then(activeModules => {
-        if (!activeModules) {
-            activeModules = Object.keys(store.state.modules).filter(
-                m => store.state.modules[m].active
-            );
-            store.dispatch('storage/set', {
-                key: 'active',
-                val: activeModules,
-            });
-        }
+        if (!activeModules) activeModules = [];
+        activeModules = [
+            ...new Set([
+                ...activeModules,
+                ...Object.keys(store.state.modules).filter(
+                    m => store.state.modules[m].active
+                ),
+            ]),
+        ];
+        store.dispatch('storage/set', {
+            key: 'active',
+            val: activeModules,
+        });
         activeModules = [...new Set(activeModules)];
         if (typeof mapkit !== 'undefined') {
             activeModules = activeModules.filter(

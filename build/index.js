@@ -5,6 +5,7 @@ const path = require('path');
 const config = require('../src/config');
 const packageJson = require('../package');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const moment = require('moment');
 
 console.log(`Lets build that stuff in Version ${packageJson.version}`);
 
@@ -26,10 +27,22 @@ const entries = Object.keys(config.games).map(game => {
         })
     );
     entry.plugins.push(new CleanWebpackPlugin());
+    entry.plugins.push(
+        new webpack.ContextReplacementPlugin(
+            /moment\/locale$/,
+            new RegExp(
+                `${moment.localeData(game)._abbr}|${
+                    moment.localeData(config.games[game].locale_fallback)._abbr
+                }`
+            )
+        )
+    );
     return entry;
 });
 
-const moduleDirs = fs.readdirSync('./src/modules');
+const moduleDirs = fs
+    .readdirSync('./src/modules')
+    .filter(x => x !== 'template');
 const modules = moduleDirs.map(module => {
     if (fs.existsSync(`./src/modules/${module}/main.js`)) {
         const entry = {
@@ -45,6 +58,16 @@ const modules = moduleDirs.map(module => {
             new webpack.DefinePlugin({
                 MODULE_ID: JSON.stringify(module),
             })
+        );
+        entry.plugins.push(
+            new webpack.ContextReplacementPlugin(
+                /moment\/locale$/,
+                new RegExp(
+                    Object.keys(config.games)
+                        .map(g => moment.localeData(g)._abbr)
+                        .join('|')
+                )
+            )
         );
         return entry;
     }

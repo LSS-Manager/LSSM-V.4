@@ -1,0 +1,10 @@
+{
+    "name": "Releasenotes",
+    "notes": [
+        {
+            "version": "4.0.0+20200219.1935",
+            "title": "Releasenotes",
+            "description": "Die Releasenotes sind nun über das LSSM-Menü erreichbar. Sie erscheinen ebenfalls automatisch beim Laden der Seite, wenn es ungelesene Notizen gibt."
+        }
+    ]
+}

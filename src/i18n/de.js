@@ -190,9 +190,5 @@ module.exports = {
 //                 'Fügt der Seite "Lehrgänge" eine Zusammenfassung hinzu.',
 //             ...schoolingOverview,
 //         },
-//         releasenotes: {
-//             name: 'Releasenotes',
-//             ...releasenotes,
-//         },
 //     },
 // };
