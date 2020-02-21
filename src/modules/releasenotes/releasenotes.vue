@@ -7,7 +7,7 @@
                 >:
                 {{ note.title }}
             </h4>
-            <div>{{ note.description }}</div>
+            <div v-html="note.description"></div>
         </div>
     </lightbox>
 </template>

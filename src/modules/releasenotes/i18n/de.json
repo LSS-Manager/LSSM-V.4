@@ -5,6 +5,11 @@
             "version": "4.0.0+20200219.1935",
             "title": "Releasenotes",
             "description": "Die Releasenotes sind nun über das LSSM-Menü erreichbar. Sie erscheinen ebenfalls automatisch beim Laden der Seite, wenn es ungelesene Notizen gibt."
+        },
+        {
+            "version": "4.0.0+20200220.0908",
+            "title": "Übersicht",
+            "description": "Das Modul \"Übersicht\" ist nun verfügbar und lässt sich über den Appstore aktivieren. Um mit Mapkit kompatibel zu sein, ist die Übersicht über das LSSM-Menü erreichbar. Für weitere Informationen, siehe den <a href=\"https://v4.lssm.ledbrain.de/docs/de/modules/overview.html\" class=\"lightbox-open\">Wiki-Artikel zu diesem Modul</a>."
         }
     ]
 }

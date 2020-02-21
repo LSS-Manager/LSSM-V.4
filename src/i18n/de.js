@@ -178,12 +178,6 @@ module.exports = {
 //             description:
 //                 'Erleichtert das Setzen von POIs durch kleine, nützliche Features',
 //         },
-//         overview: {
-//             name: 'Übersicht',
-//             description:
-//                 'Gibt Informationen über alle möglichen Fahrzeug- und Gebäudetypen im Spiel.',
-//             ...overview,
-//         },
 //         schoolingOverview: {
 //             name: 'Lehrgangsübersicht',
 //             description:

@@ -31,16 +31,6 @@ window[store.state.prefix] = new Vue({
     render: h => h(App),
 }).$mount(lssm);
 
-let consoleError = window.console.error;
-
-window.console.error = (...args) => {
-    args.forEach(err =>
-        store.dispatch('error', { vm: window[store.state.prefix], err })
-    );
-    consoleError(...args);
-};
-window.console.exception = window.console.error;
-
 store.dispatch('hook', {
     event: 'lightboxOpen',
     callback(e) {

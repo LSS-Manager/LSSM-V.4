@@ -6,8 +6,6 @@ import storage from './store/storage';
 import settings from './store/settings';
 import api from './store/api';
 
-import error from './components/error.vue';
-
 const config = require('./config');
 
 Vue.use(Vuex);
@@ -78,15 +76,6 @@ export default new Vuex.Store({
             }),
     },
     actions: {
-        error(_, { vm, err }) {
-            vm.$modal.show(
-                error,
-                {
-                    err,
-                },
-                {}
-            );
-        },
         addMenuItem({ getters }, { menuItem }) {
             let splitter = document.getElementById(
                 getters.nodeId('indicator_menu-modules')
