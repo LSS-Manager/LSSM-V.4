@@ -20,10 +20,10 @@ fs.writeFileSync(
         .join('-')}
 // @description  ${script.description}
 ${gameIncludes.join('\n')}
-// @homepage     https://lss-manager.de
+// @homepage     ${config.server}
 // @updateURL    ${config.server}lssm-v4.user.js
 // @grant        none
-// @run          document-start
+// @run-at       document-idle
 // ==/UserScript==
 ${
     Terser.minify(fs.readFileSync('./src/userscript.js').toString(), {

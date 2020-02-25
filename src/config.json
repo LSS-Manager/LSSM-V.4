@@ -108,9 +108,15 @@
             "locale_fallback": "es_ES"
         },
         "uk_UA": {
-            "shortUrl": "dyspetcher101-game.com",
+            "shortURL": "dyspetcher101-game.com",
             "name": "Dyspetcher101-game.com",
             "flag": "\uD83C\uDDFA\uD83C\uDDE6",
+            "locale_fallback": "en_US"
+        },
+        "ja_JP": {
+            "shortURL": "missionchief-japan.com",
+            "name": "Missionchief-Japan.com",
+            "flag": "\uD83C\uDDEF\uD83C\uDDF5",
             "locale_fallback": "en_US"
         }
     },
