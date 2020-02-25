@@ -173,11 +173,6 @@ module.exports = {
 //                 'Fügt eine Übersicht über eigene Gebäude und Fahrzeuge dem Spiel hinzu',
 //             ...dashboard,
 //         },
-//         enhancedPOI: {
-//             name: 'Verbesserte POI',
-//             description:
-//                 'Erleichtert das Setzen von POIs durch kleine, nützliche Features',
-//         },
 //         schoolingOverview: {
 //             name: 'Lehrgangsübersicht',
 //             description:
