@@ -12,9 +12,9 @@
             "description": "Das Modul \"Übersicht\" ist nun verfügbar und lässt sich über den Appstore aktivieren. Um mit Mapkit kompatibel zu sein, ist die Übersicht über das LSSM-Menü erreichbar. Für weitere Informationen, siehe den <a href=\"https://v4.lssm.ledbrain.de/docs/de/modules/overview.html\" class=\"lightbox-open\">Wiki-Artikel zu diesem Modul</a>."
         },
         {
-            "version": "4.0.0+20200220.0908",
+            "version": "4.0.0+20200225.1324",
             "title": "Japan: Update Installationsscript",
-            "description": "Es gibt eine neue Version des Installationsscripts, um die japanische Version des Spiels zu unterstützen. Sollte Tampermonkey nicht automatisch aktualisiert haben, so aktuallisiere manuell über den Installationslink. Die neueste Version lautet \"4.0.1+de+uk+us+nl+es+au+pl+se\""
+            "description": "Es gibt eine neue Version des Installationsscripts, um die japanische Version des Spiels zu unterstützen. Sollte Tampermonkey nicht automatisch aktualisiert haben, so aktuallisiere manuell über den Installationslink. Die neueste Version lautet \"4.0.0+de-NL-US-UK-AU-ES-PL-SE-IT-FR-RU-DK-NO-CZ-TR-PT-BR-MX-UA-JP\""
         }
     ]
 }
