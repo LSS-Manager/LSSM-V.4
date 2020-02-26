@@ -29,7 +29,7 @@ body.dark
         color: #fff
 
 .v--modal-overlay
-    z-index: 2501 !important
+    z-index: 5001 !important
 
     .v--modal-background-click
         background-color: rgba(0, 0, 0, 0.7)

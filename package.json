@@ -1,5 +1,5 @@
 {
-    "version": "4.0.0+20200225.1324",
+    "version": "4.0.0+20200226.1652",
     "scripts": {
         "predev": "node prebuild",
         "dev": "node build",
