@@ -15,6 +15,11 @@
             "version": "4.0.0+20200225.1324",
             "title": "Japan: Update Installationsscript",
             "description": "Es gibt eine neue Version des Installationsscripts, um die japanische Version des Spiels zu unterstützen. Sollte Tampermonkey nicht automatisch aktualisiert haben, so aktuallisiere manuell über den Installationslink. Die neueste Version lautet \"4.0.0+de-NL-US-UK-AU-ES-PL-SE-IT-FR-RU-DK-NO-CZ-TR-PT-BR-MX-UA-JP\""
+        },
+        {
+            "version": "4.0.0+20200229.1724",
+            "title": "Suche im AppStore",
+            "description": "Der AppStore hat jetzt eine kleine Suche, um Module einfacher zu filtern."
         }
     ]
 }

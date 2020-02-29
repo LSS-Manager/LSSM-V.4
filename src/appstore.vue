@@ -9,9 +9,17 @@
                 {{ $t('modules.appstore.reset') }}
             </button>
         </h1>
+        <label class="search_label">
+            <input
+                type="search"
+                class="search_input_field"
+                v-model="moduleSearch"
+                :placeholder="$t('modules.appstore.search')"
+            />
+        </label>
         <ul class="auto-sized-grid">
             <li
-                v-for="moduleId in modulesSorted"
+                v-for="moduleId in modulesFiltered"
                 :key="moduleId"
                 class="card"
                 :class="{
@@ -77,6 +85,7 @@ export default {
                 x => this.$store.state.modules[x].active
             ),
             mapkit: window.mapkit,
+            moduleSearch: '',
         };
     },
     computed: {
@@ -86,6 +95,19 @@ export default {
                 this.active.every(
                     (value, index) => value === this.activeStart[index]
                 )
+            );
+        },
+        modulesFiltered() {
+            return this.modulesSorted.filter(m =>
+                this.moduleSearch.length > 0
+                    ? JSON.stringify([
+                          m,
+                          this.$t(`modules.${m}.name`),
+                          this.$t(`modules.${m}.description`),
+                      ])
+                          .toLowerCase()
+                          .match(this.moduleSearch.toLowerCase())
+                    : true
             );
         },
     },
@@ -134,6 +156,11 @@ export default {
 </script>
 
 <style scoped lang="sass">
+.search_label
+    position: absolute
+    right: 1em
+    top: calc(1em + 32px)
+
 .auto-sized-grid
     display: grid
     grid-gap: 16px
