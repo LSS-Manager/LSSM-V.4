@@ -1,0 +1,8 @@
+{
+    "name": "Telemetrie",
+    "info": {
+        "title": "Information zur Erhebung von Metadaten",
+        "text": "Der LSS-Manager erhebt Metadaten, wie im <a href='{wiki}/metadata.html' class='lightbox-open'>Wiki</a> beschrieben. Während der Entwicklungsphase ist das Erheben nicht abstellbar!",
+        "close": "Diesen Hinweis nichtmehr anzeigen"
+    }
+}
