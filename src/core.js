@@ -31,6 +31,8 @@ window[store.state.prefix] = new Vue({
     render: h => h(App),
 }).$mount(lssm);
 
+window[store.state.prefix].Vue = Vue;
+
 store.dispatch('hook', {
     event: 'lightboxOpen',
     callback(e) {

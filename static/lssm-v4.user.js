@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         LSS-Manager V.4 - Dev Version
-// @version      4.0.0+de-NL-US-UK-AU-ES-PL-SE-IT-FR-RU-DK-NO-CZ-TR-PT-BR-MX-UA-JP
+// @version      4.0.1+de-NL-US-UK-AU-ES-PL-SE-IT-FR-RU-DK-NO-CZ-TR-PT-BR-MX-UA-JP
 // @description  Das Tool für das LSS in der Version 4
 // @include      *://www.leitstellenspiel.de/*
 // @include      *://www.meldkamerspel.com/*

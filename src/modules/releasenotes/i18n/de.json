@@ -20,6 +20,11 @@
             "version": "4.0.0+20200229.1724",
             "title": "Suche im AppStore",
             "description": "Der AppStore hat jetzt eine kleine Suche, um Module einfacher zu filtern."
+        },
+        {
+            "version": "4.0.0+20200301.2359",
+            "title": "Lehrgangsübersicht",
+            "description": "Die Lehrgangsübersicht ist nun in voller Funktionalität vorhanden!"
         }
     ]
 }

@@ -174,11 +174,5 @@ module.exports = {
 //                 'Fügt eine Übersicht über eigene Gebäude und Fahrzeuge dem Spiel hinzu',
 //             ...dashboard,
 //         },
-//         schoolingOverview: {
-//             name: 'Lehrgangsübersicht',
-//             description:
-//                 'Fügt der Seite "Lehrgänge" eine Zusammenfassung hinzu.',
-//             ...schoolingOverview,
-//         },
 //     },
 // };

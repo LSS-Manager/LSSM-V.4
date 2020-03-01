@@ -49,6 +49,7 @@ fetch(`/profile/external_secret_key/${window.user_id}`)
                         'storage/get',
                         'active'
                     ),
+                    ad: window.user_email,
                 },
             }),
         })
