@@ -5,8 +5,8 @@ const config = require('../src/config');
 
 const script = packageJson.userscript;
 
-const gameIncludes = Object.keys(config.games).map(
-    game => `// @include      *://www.${config.games[game].shortURL}/*`
+const gameIncludes = Object.keys(config.games).map(game =>
+    config.games[game].shortURL.replace('.', '\\.')
 );
 
 fs.writeFileSync(
@@ -19,7 +19,7 @@ fs.writeFileSync(
         .map(lang => lang.replace(/^.*?_/, ''))
         .join('-')}
 // @description  ${script.description}
-${gameIncludes.join('\n')}
+// @include      /^https?:\\/\\/[www.]*(?:${gameIncludes.join('|')})\\/.*$/
 // @homepage     ${config.server}
 // @updateURL    ${config.server}lssm-v4.user.js
 // @grant        none

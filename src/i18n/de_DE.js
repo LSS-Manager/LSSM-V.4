@@ -1,7 +1,7 @@
 const files = require.context(
     '../',
     true,
-    /modules\/.*?\/i18n\/de(\.js(on)?)?/
+    /modules\/.*?\/i18n\/de_DE(\.js(on)?)?/
 );
 const modules = {
     appstore: {

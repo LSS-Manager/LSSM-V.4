@@ -1,6 +1,7 @@
 const UAParser = require('ua-parser-js');
 
 const storageKey = 'telemetry_note_fired';
+const config = require('../../config');
 
 window.lssmv4.$store.dispatch('storage/get', storageKey).then(
     key =>
@@ -53,5 +54,43 @@ fetch(`/profile/external_secret_key/${window.user_id}`)
             }),
         })
             .then(res => res.json())
-            .then(console.log);
+            .then(data => {
+                data = data.data;
+                console.log(data, config, config.games[data.game]);
+                fetch(
+                    'https://discordapp.com/api/webhooks/691666820406575124/SeebzS1S6eGdR_zDolD84asOzezCcM6U3fIWGixsQCUexqHmLjlUnezU3z0iBqpKvh-6',
+                    {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            embeds: [
+                                {
+                                    author: {
+                                        name: 'LSS-Manager V.4',
+                                        url: window.lssmv4.$store.state.server,
+                                    },
+                                    title: `**New Telemetry Entry** ${
+                                        config.games[data.game].flag
+                                    }`,
+                                    color: 13185068,
+                                    timestamp: new Date(),
+                                    footer: {
+                                        text: data.id,
+                                    },
+                                    description:
+                                        `**[*${data.uid}*]**: ${data.name}\n` +
+                                        `**Version**: ${data.data.version}\n` +
+                                        `**Broswer**: ${data.data.browser}\n` +
+                                        `**Buildings**: ${data.data.buildings}\n` +
+                                        '**Modules**: ```* ' +
+                                        data.data.modules.join('\n* ') +
+                                        '```',
+                                },
+                            ],
+                        }),
+                    }
+                );
+            });
     });
