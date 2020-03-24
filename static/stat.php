@@ -10,6 +10,7 @@ $required = [
     'name',
     'uid',
     'data',
+    'flag',
 ];
 $result = [];
 $data = [];
@@ -17,7 +18,6 @@ foreach($required as $key) {
     if (!isset($post->$key) || empty($post->$key)) die(json_encode(['Access denied!']));
     $data[$key] = $post->$key;
 }
-$result['data'] = $data;
 $data['data'] = json_encode($data['data']);
 
 $mysqli = new mysqli('localhost:3306', $db_user, $db_pass, $db_name);
@@ -43,7 +43,44 @@ if (empty($res->fetch_all())) {
         die(json_encode(['Execute failed!']));
     }
     $insert->close();
-    $result['success'] = true;
+
+    require 'php_configs.php';
+
+    $data['data'] = json_decode($data['data']);
+    $webhook_body = json_encode([
+        'embeds' => [
+            [
+                'author' => [
+                    'name' => 'LSS-Manager V.4',
+                ],
+                'title' => '**New Telemetry Entry** '.$data['flag'],
+                'color' => 13185068,
+                'description' => '**[*'.$data['uid'].'*]**: '.$data['name']."\n".
+                    '**Version**: '.$data['data']->version."\n".
+                    '**Broswer**: '.$data['data']->browser."\n".
+                    '**Buildings**: '.$data['data']->buildings."\n".
+                    "**Modules**: ```md\n* ".join("\n* ", $data['data']->modules).'```',
+                'timestamp' => date(DATE_ATOM),
+                'footer' => [
+                    'text' => $data['id'],
+                ]
+            ]
+        ]
+    ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+    $webhook_curl = curl_init();
+    curl_setopt_array($webhook_curl, [
+        CURLOPT_URL => $discord_webhook_url,
+        CURLOPT_POST => true, CURLOPT_POSTFIELDS => $webhook_body,
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_HTTPHEADER =>[
+            'Content-Type:application/json',
+        ]
+    ]);
+
+    $webhook_response = curl_exec($webhook_curl);
+    curl_close($webhook_curl);
+
+    $result['success'] = $webhook_response == '';
 } else {
     if (!($update = $mysqli->prepare('UPDATE `user` SET `name`=?, `data`=?, `timestamp`=CURRENT_TIMESTAMP() WHERE `id`=?'))) {
         die(json_encode(['Preparing Statement failed!']));
