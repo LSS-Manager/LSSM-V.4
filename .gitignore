@@ -5,7 +5,7 @@ package-lock.json
 /docs/*/modules
 /docs/.vuepress/public/assets/*
 /static/db_access.php
-/static/php_configs.php
+/static/.configs.json
 
 # local env files
 .env.local

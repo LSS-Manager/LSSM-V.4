@@ -69,7 +69,7 @@ if (empty($res->fetch_all())) {
     ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
     $webhook_curl = curl_init();
     curl_setopt_array($webhook_curl, [
-        CURLOPT_URL => $discord_webhook_url,
+        CURLOPT_URL => $configs->discord_webhook_url,
         CURLOPT_POST => true, CURLOPT_POSTFIELDS => $webhook_body,
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_HTTPHEADER =>[

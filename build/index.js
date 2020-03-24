@@ -3,9 +3,11 @@ const webpack = require('webpack');
 const lodash = require('lodash');
 const path = require('path');
 const config = require('../src/config');
+const serverConfig = require('../static/.configs');
 const packageJson = require('../package');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const moment = require('moment');
+const axios = require('axios');
 
 console.log(`Lets build that stuff in Version ${packageJson.version}`);
 
@@ -97,5 +99,27 @@ webpack([...entries, ...modules], (err, stats) => {
     console.log('Stats:');
     console.log(stats.toString({ colors: true }));
 
-    console.log(`LSSM Version ${packageJson.version} successfully built!`);
+    axios
+        .post(serverConfig.discord_webhook_url, {
+            embeds: [
+                {
+                    author: {
+                        name: 'LSS-Manager V.4',
+                    },
+                    title: 'New Build',
+                    color: 13185068,
+                    description: `The latest Version of the LSSM is **${packageJson.version}**`,
+                    timestamp: new Date(),
+                },
+            ],
+        })
+        .then(() =>
+            console.log(
+                `LSSM Version ${packageJson.version} successfully built!`
+            )
+        )
+        .catch(error => {
+            console.error(error);
+            process.abort();
+        });
 });

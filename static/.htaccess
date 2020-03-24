@@ -1,3 +1,8 @@
 RewriteEngine On
 RewriteRule "^(docs/)?$" "docs/de_DE/"
 ErrorDocument 404 "/docs/de_DE/index.html"
+# Deny access to filenames starting with dot(.)
+<FilesMatch "^\.">
+	Order allow,deny
+	Deny from all
+</FilesMatch>
