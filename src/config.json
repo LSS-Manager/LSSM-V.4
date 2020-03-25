@@ -118,7 +118,13 @@
             "name": "Missionchief-Japan.com",
             "flag": "\uD83C\uDDEF\uD83C\uDDF5",
             "locale_fallback": "en_US"
-        }
+        },
+		"ro_RO":  {
+			"shortURL": "jocdispecerat112.com",
+			"name": "Jocdispecerat112.com",
+			"flag": "\uD83C\uDDF7\uD83C\uDDF4",
+			"locale_fallback": "en_US"
+		}
     },
     "server": "https://v4.lssm.ledbrain.de/",
     "discord": "https://discord.gg/RcTNjpB",
