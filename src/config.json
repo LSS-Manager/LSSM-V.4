@@ -131,5 +131,11 @@
     "discord_support": "https://discordapp.com/channels/254167535446917120/607913643140579348",
     "github": {
         "repo": ""
-    }
+    },
+	"modules": {
+		"core-modules": [
+			"telemetry",
+			"releasenotes"
+		]
+	}
 }

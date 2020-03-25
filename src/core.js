@@ -8,6 +8,8 @@ import VueJSModal from 'vue-js-modal';
 import ToggleButton from 'vue-js-toggle-button';
 import * as Tabs from 'vue-slim-tabs';
 
+const config = require('./config');
+
 Vue.use(VueJSModal, {
     dynamic: true,
     dynamicDefaults: {
@@ -78,6 +80,9 @@ if (window.location.pathname === '/') {
         },
     });
 
+    require('./modules/telemetry/main');
+    require('./modules/releasenotes/main');
+
     store.dispatch('storage/get', 'active').then(activeModules => {
         if (!activeModules) activeModules = [];
         activeModules = [
@@ -92,7 +97,9 @@ if (window.location.pathname === '/') {
             key: 'active',
             val: activeModules,
         });
-        activeModules = [...new Set(activeModules)];
+        activeModules = [...new Set(activeModules)].filter(
+            m => !config.modules['core-modules'].includes(m)
+        );
         if (typeof mapkit !== 'undefined') {
             activeModules = activeModules.filter(
                 x => !store.state.modules[x].noMapkit

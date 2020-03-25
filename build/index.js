@@ -44,7 +44,8 @@ const entries = Object.keys(config.games).map(game => {
 
 const moduleDirs = fs
     .readdirSync('./src/modules')
-    .filter(x => x !== 'template');
+    .filter(x => x !== 'template')
+    .filter(m => !config.modules['core-modules'].includes(m));
 const modules = moduleDirs.map(module => {
     if (fs.existsSync(`./src/modules/${module}/main.js`)) {
         const entry = {
@@ -99,27 +100,31 @@ webpack([...entries, ...modules], (err, stats) => {
     console.log('Stats:');
     console.log(stats.toString({ colors: true }));
 
-    axios
-        .post(serverConfig.discord_webhook_url, {
-            embeds: [
-                {
-                    author: {
-                        name: 'LSS-Manager V.4',
+    if (process.argv[2] === 'production') {
+        axios
+            .post(serverConfig.discord_webhook_url, {
+                embeds: [
+                    {
+                        author: {
+                            name: 'LSS-Manager V.4',
+                        },
+                        title: 'New Build',
+                        color: 13185068,
+                        description: `The latest Version of the LSSM is **${packageJson.version}**`,
+                        timestamp: new Date(),
                     },
-                    title: 'New Build',
-                    color: 13185068,
-                    description: `The latest Version of the LSSM is **${packageJson.version}**`,
-                    timestamp: new Date(),
-                },
-            ],
-        })
-        .then(() =>
-            console.log(
-                `LSSM Version ${packageJson.version} successfully built!`
+                ],
+            })
+            .then(() =>
+                console.log(
+                    `LSSM Version ${packageJson.version} successfully built!`
+                )
             )
-        )
-        .catch(error => {
-            console.error(error);
-            process.abort();
-        });
+            .catch(error => {
+                console.error(error);
+                process.abort();
+            });
+    } else {
+        console.log(`LSSM Version ${packageJson.version} successfully built!`);
+    }
 });
