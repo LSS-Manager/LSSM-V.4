@@ -127,6 +127,7 @@
 		}
     },
     "server": "https://v4.lssm.ledbrain.de/",
+	"websocket": "ws://v4.lssm.ledbrain.de/support.php",
     "discord": "https://discord.gg/RcTNjpB",
     "discord_support": "https://discordapp.com/channels/254167535446917120/607913643140579348",
     "github": {

@@ -83,6 +83,7 @@ if (window.location.pathname === '/') {
     if (window.location.pathname === '/') {
         require('./modules/telemetry/main');
         require('./modules/releasenotes/main');
+        require('./modules/support/main');
     }
 
     store.dispatch('storage/get', 'active').then(activeModules => {

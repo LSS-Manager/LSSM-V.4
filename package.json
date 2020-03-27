@@ -1,5 +1,5 @@
 {
-    "version": "4.0.1+20200327.1432",
+    "version": "4.0.1+20200328.0021",
     "scripts": {
         "predev": "node prebuild",
         "dev": "node build",
@@ -52,7 +52,7 @@
     },
     "userscript": {
         "name": "LSS-Manager V.4",
-        "author": "Aisaka | Sanni | Jan (KBOE2)",
+        "author": "Aisaka | Sanni | Jan (jxn_30)",
         "description": "Das Tool für das LSS in der Version 4"
     }
 }

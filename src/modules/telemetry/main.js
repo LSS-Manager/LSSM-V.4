@@ -46,10 +46,14 @@ window.lssmv4.$store
                         id: data.code,
                         uid: window.user_id,
                         game: window.lssmv4.$i18n.locale,
-                        name: window.user_name,
+                        name: window.username,
                         data: {
                             browser: `${ua.browser.name} ${ua.browser.major}`,
                             premium: window.user_premium,
+                            map:
+                                typeof window.mapkit !== 'undefined'
+                                    ? 'mapkit'
+                                    : 'osm',
                             buildings:
                                 window.lssmv4.$store.state.api.buildings.length,
                             version: window.lssmv4.$store.state.version,
