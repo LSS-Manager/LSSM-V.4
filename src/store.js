@@ -5,6 +5,7 @@ import localforage from 'localforage';
 import storage from './store/storage';
 import settings from './store/settings';
 import api from './store/api';
+import console from './store/console';
 
 const config = require('./config');
 
@@ -20,6 +21,7 @@ export default new Vuex.Store({
         storage,
         settings,
         api,
+        console,
     },
     state: {
         discord: config.discord,

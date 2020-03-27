@@ -135,7 +135,8 @@
 	"modules": {
 		"core-modules": [
 			"telemetry",
-			"releasenotes"
+			"releasenotes",
+			"support"
 		]
 	}
 }

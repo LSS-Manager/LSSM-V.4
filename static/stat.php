@@ -1,6 +1,5 @@
 <?php
-header('Access-Control-Allow-Methods: POST');
-header('Access-Control-Allow-Headers: content-type');
+require './.check_request.php';
 require './db_access.php';
 
 $post = json_decode(file_get_contents('php://input'));
@@ -43,8 +42,6 @@ if (empty($res->fetch_all())) {
         die(json_encode(['Execute failed!']));
     }
     $insert->close();
-
-    require 'php_configs.php';
 
     $data['data'] = json_decode($data['data']);
     $webhook_body = json_encode([

@@ -53,27 +53,62 @@ export default {
             state.vehicles.find(x => x.id === vehicleId),
     },
     actions: {
-        buildings: async ({ state, commit }) => {
+        buildings: async ({ state, commit, dispatch }) => {
             if (new Date().getTime() > state.buildingCooldown) {
-                const buildings = await fetch('/api/buildings').then(res =>
-                    res.json()
-                );
+                const buildings = await dispatch('request', {
+                    url: '/api/buildings',
+                }).then(res => res.json());
                 commit('setBuildings', buildings);
                 commit('setBuildingCooldown');
                 return buildings;
             }
             return state.buildings;
         },
-        vehicles: async ({ state, commit }) => {
+        vehicles: async ({ state, commit, dispatch }) => {
             if (new Date().getTime() > state.vehiclesCooldown) {
-                const vehicles = await fetch('/api/vehicles').then(res =>
-                    res.json()
-                );
+                const vehicles = await dispatch('request', {
+                    url: '/api/vehicles',
+                }).then(res => res.json());
                 commit('setVehicles', vehicles);
                 commit('setVehicleCooldown');
                 return vehicles;
             }
             return state.vehicles;
+        },
+        request({ rootState, dispatch }, { input, url = '', init }) {
+            input &&
+                url &&
+                dispatch(
+                    'console/warn',
+                    [
+                        `Request was initialized with both, input and URL, input object will be used!`,
+                        'input:',
+                        input,
+                        'URL:',
+                        url,
+                    ],
+                    {
+                        root: true,
+                    }
+                );
+            init = init || {};
+            init.headers = init.headers || {};
+            init.headers.hasOwnProperty('X-LSS-Manager') &&
+                dispatch(
+                    'console/warn',
+                    [
+                        `Request Header "X-LSS-Manager" with value ${JSON.stringify(
+                            init.headers['X-LSS-Manager']
+                        )} will be overwritten by ${JSON.stringify(
+                            rootState.version
+                        )}!`,
+                    ],
+                    {
+                        root: true,
+                    }
+                );
+            init.headers['X-LSS-Manager'] = rootState.version;
+            return fetch(input || url, init);
         },
     },
 };

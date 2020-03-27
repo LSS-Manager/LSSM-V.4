@@ -80,8 +80,10 @@ if (window.location.pathname === '/') {
         },
     });
 
-    require('./modules/telemetry/main');
-    require('./modules/releasenotes/main');
+    if (window.location.pathname === '/') {
+        require('./modules/telemetry/main');
+        require('./modules/releasenotes/main');
+    }
 
     store.dispatch('storage/get', 'active').then(activeModules => {
         if (!activeModules) activeModules = [];
