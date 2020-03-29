@@ -28,7 +28,11 @@
                 </span>
                 <div class="chat-body clearfix">
                     <div class="header">
-                        <small class="text-muted" v-if="message.self">
+                        <small
+                            class="text-muted"
+                            v-if="message.self"
+                            :title="moment(message.time).format('LLLL:ss')"
+                        >
                             <span class="glyphicon glyphicon-time"></span>
                             {{ moment(message.time).fromNow() }}
                         </small>
@@ -40,6 +44,7 @@
                         <small
                             class="text-muted pull-right"
                             v-if="!message.self"
+                            :title="moment(message.time).format('LLLL:ss')"
                         >
                             <span class="glyphicon glyphicon-time"></span>
                             {{ moment(message.time).fromNow() }}
