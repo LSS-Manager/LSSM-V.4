@@ -9,7 +9,6 @@
                 :key="index"
                 :self="(message.self = message.user === window.username)"
                 :color="(message.color = getColor(message.user, message.self))"
-                :class="message.self ? 'right' : 'left'"
             >
                 <span
                     class="chat-img"
@@ -17,7 +16,7 @@
                 >
                     <img
                         :src="
-                            `http://placehold.it/50/${
+                            `https://placehold.it/50/${
                                 message.color
                             }/${getRColor(
                                 message.color
@@ -35,7 +34,7 @@
                         </small>
                         <strong
                             class="primary-font"
-                            :class="message.self ? 'pull-right' : ''"
+                            :class="{ 'pull-right': message.self }"
                             >{{ message.user }}</strong
                         >
                         <small
@@ -46,7 +45,9 @@
                             {{ moment(message.time).fromNow() }}
                         </small>
                     </div>
-                    <p>{{ message.content }}</p>
+                    <p :class="{ 'pull-right': message.self }">
+                        {{ message.content }}
+                    </p>
                 </div>
             </li>
         </ul>
@@ -175,11 +176,11 @@ export default {
         padding-bottom: 5px
         border-bottom: 1px dotted #B3A9A9
 
-        &.left
+        &:not([self])
             .chat-body
                 margin-left: 60px
 
-        &.right
+        &[self]
             .chat-body
                 margin-right: 60px
 
