@@ -108,7 +108,12 @@ export default {
                     }
                 );
             init.headers['X-LSS-Manager'] = rootState.version;
-            return fetch(input || url, init);
+            const target = input || url;
+            target.toString().startsWith(rootState.server) &&
+                (init.headers['X-LSSM-User'] = btoa(
+                    `${rootState.key}:${rootState.version}`
+                ));
+            return fetch(target, init);
         },
     },
 };

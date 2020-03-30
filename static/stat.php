@@ -1,6 +1,13 @@
 <?php
+$method = 'POST';
 require './.check_request.php';
-require './db_access.php';
+
+$USER_KEY = $USER_KEY || null;
+
+$MYSQLI = new mysqli('localhost:3306', $db_user, $db_pass, $db_name);
+if ($MYSQLI->connect_errno) {
+    http_response_code(500) && die(json_encode(['Failed to connect to MySQL!']));
+}
 
 $post = json_decode(file_get_contents('php://input'));
 $required = [
@@ -14,32 +21,20 @@ $required = [
 $result = [];
 $data = [];
 foreach($required as $key) {
-    if (!isset($post->$key) || empty($post->$key)) die(json_encode(['Access denied!']));
+    if (!isset($post->$key) || empty($post->$key)) http_response_code(403) && die(json_encode(['Access denied!']));
     $data[$key] = $post->$key;
 }
 $data['data'] = json_encode($data['data']);
 
-$mysqli = new mysqli('localhost:3306', $db_user, $db_pass, $db_name);
-if ($mysqli->connect_errno) {
-    die(json_encode(['Failed to connect to MySQL!']));
-}
-if (!($search = $mysqli->prepare('SELECT `id` FROM `user` WHERE `id`=?'))) {
-    die(json_encode(['Preparing Statement failed!']));
-}
-$search->bind_param('s', $data['id']);
-if (!$search->execute()) {
-    die(json_encode(['Execute failed!']));
-}
-if (!($res = $search->get_result())) {
-    die(json_encode(['Getting result set failed!']));
-}
-if (empty($res->fetch_all())) {
-    if (!($insert = $mysqli->prepare('INSERT INTO `user`(`id`, `game`, `uid`, `name`, `data`) VALUES (?, ?, ?, ?, ?)'))) {
-        die(json_encode(['Preparing Statement failed!']));
+if ($data['id'] != $USER_KEY) http_response_code(403) && die(json_encode(['Access denied!']));
+
+if (!$USER) {
+    if (!($insert = $MYSQLI->prepare('INSERT INTO `user`(`id`, `game`, `uid`, `name`, `data`) VALUES (?, ?, ?, ?, ?)'))) {
+        http_response_code(500) && die(json_encode(['Preparing Statement failed!']));
     }
-    $insert->bind_param('ssiss', $data['id'], $data['game'], $data['uid'], $data['name'], $data['data']);
+    $insert->bind_param('ssiss', $USER_KEY, $data['game'], $data['uid'], $data['name'], $data['data']);
     if (!$insert->execute()) {
-        die(json_encode(['Execute failed!']));
+        http_response_code(500) && die(json_encode(['Execute failed!']));
     }
     $insert->close();
 
@@ -59,7 +54,7 @@ if (empty($res->fetch_all())) {
                     "**Modules**: ```md\n* ".join("\n* ", $data['data']->modules).'```',
                 'timestamp' => date(DATE_ATOM),
                 'footer' => [
-                    'text' => $data['id'],
+                    'text' => $USER_KEY,
                 ]
             ]
         ]
@@ -79,12 +74,12 @@ if (empty($res->fetch_all())) {
 
     $result['success'] = $webhook_response == '';
 } else {
-    if (!($update = $mysqli->prepare('UPDATE `user` SET `name`=?, `data`=?, `timestamp`=CURRENT_TIMESTAMP() WHERE `id`=?'))) {
-        die(json_encode(['Preparing Statement failed!']));
+    if (!($update = $MYSQLI->prepare('UPDATE `user` SET `name`=?, `data`=?, `timestamp`=CURRENT_TIMESTAMP() WHERE `id`=?'))) {
+        http_response_code(500) && die(json_encode(['Preparing Statement failed!']));
     }
-    $update->bind_param('sss', $data['name'], $data['data'], $data['id']);
+    $update->bind_param('sss', $data['name'], $data['data'], $USER_KEY);
     if (!$update->execute()) {
-        die(json_encode(['Execute failed!']));
+        http_response_code(500) && die(json_encode(['Execute failed!']));
     }
     $update->close();
     $result['success'] = true;

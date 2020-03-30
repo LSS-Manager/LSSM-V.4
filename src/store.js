@@ -35,6 +35,7 @@ export default new Vuex.Store({
         localforage,
         appstoreUpdate: false,
         appstoreReload: false,
+        key: null,
         modules: require('./registerModules'),
         hooks: {},
     },
@@ -50,6 +51,9 @@ export default new Vuex.Store({
         },
         setModuleActive(state, moduleId) {
             state.modules[moduleId].active = true;
+        },
+        setKey(state, key) {
+            state.key = key;
         },
     },
     getters: {

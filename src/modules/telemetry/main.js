@@ -34,6 +34,7 @@ window.lssmv4.$store
     .then(res => res.json())
     .then(async data => {
         const ua = UAParser(window.navigator.userAgent);
+        window.lssmv4.$store.commit('setKey', data.code);
         window.lssmv4.$store
             .dispatch('api/request', {
                 url: `${window.lssmv4.$store.state.server}stat.php`,
