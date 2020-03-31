@@ -26,46 +26,39 @@ window.lssmv4.$store.dispatch('storage/get', storageKey).then(
             ],
         })
 );
-
-window.lssmv4.$store
-    .dispatch('api/request', {
-        url: `/profile/external_secret_key/${window.user_id}`,
-    })
-    .then(res => res.json())
-    .then(async data => {
-        const ua = UAParser(window.navigator.userAgent);
-        window.lssmv4.$store.commit('setKey', data.code);
-        window.lssmv4.$store
-            .dispatch('api/request', {
-                url: `${window.lssmv4.$store.state.server}stat.php`,
-                init: {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        id: data.code,
-                        uid: window.user_id,
-                        game: window.lssmv4.$i18n.locale,
-                        name: window.username,
-                        data: {
-                            browser: `${ua.browser.name} ${ua.browser.major}`,
-                            premium: window.user_premium,
-                            map:
-                                typeof window.mapkit !== 'undefined'
-                                    ? 'mapkit'
-                                    : 'osm',
-                            buildings:
-                                window.lssmv4.$store.state.api.buildings.length,
-                            version: window.lssmv4.$store.state.version,
-                            modules: await window.lssmv4.$store.dispatch(
-                                'storage/get',
-                                'active'
-                            ),
-                        },
-                        flag: config.games[window.lssmv4.$i18n.locale].flag,
-                    }),
+module.exports = async () => {
+    const ua = UAParser(window.navigator.userAgent);
+    window.lssmv4.$store
+        .dispatch('api/request', {
+            url: `${window.lssmv4.$store.state.server}stat.php`,
+            init: {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
                 },
-            })
-            .then(res => res.json());
-    });
+                body: JSON.stringify({
+                    id: window.lssmv4.$store.state.key,
+                    uid: window.user_id,
+                    game: window.lssmv4.$i18n.locale,
+                    name: window.username,
+                    version: window.lssmv4.$store.state.version,
+                    data: {
+                        browser: `${ua.browser.name} ${ua.browser.major}`,
+                        premium: window.user_premium,
+                        map:
+                            typeof window.mapkit !== 'undefined'
+                                ? 'mapkit'
+                                : 'osm',
+                        buildings:
+                            window.lssmv4.$store.state.api.buildings.length,
+                        modules: await window.lssmv4.$store.dispatch(
+                            'storage/get',
+                            'active'
+                        ),
+                    },
+                    flag: config.games[window.lssmv4.$i18n.locale].flag,
+                }),
+            },
+        })
+        .then(res => res.json());
+};

@@ -2,11 +2,9 @@
 $method = 'POST';
 require './.check_request.php';
 
-$USER_KEY = $USER_KEY || null;
-
 $MYSQLI = new mysqli('localhost:3306', $db_user, $db_pass, $db_name);
 if ($MYSQLI->connect_errno) {
-    http_response_code(500) && die(json_encode(['Failed to connect to MySQL!']));
+    http_response_code(505) && die(json_encode(['Failed to connect to MySQL!']));
 }
 
 $post = json_decode(file_get_contents('php://input'));
@@ -15,6 +13,7 @@ $required = [
     'game',
     'name',
     'uid',
+    'version',
     'data',
     'flag',
 ];
@@ -26,15 +25,15 @@ foreach($required as $key) {
 }
 $data['data'] = json_encode($data['data']);
 
-if ($data['id'] != $USER_KEY) http_response_code(403) && die(json_encode(['Access denied!']));
+if (!isset($USER_KEY) || $data['id'] != $USER_KEY) http_response_code(403) && die(json_encode(['Access denied!']));
 
-if (!$USER) {
-    if (!($insert = $MYSQLI->prepare('INSERT INTO `user`(`id`, `game`, `uid`, `name`, `data`) VALUES (?, ?, ?, ?, ?)'))) {
-        http_response_code(500) && die(json_encode(['Preparing Statement failed!']));
+if ($USER == null) {
+    if (!($insert = $MYSQLI->prepare('INSERT INTO `user`(`id`, `game`, `uid`, `version`, `name`, `data`) VALUES (?, ?, ?, ?, ?, ?)'))) {
+        http_response_code(501) && die(json_encode(['Preparing Statement failed!']));
     }
-    $insert->bind_param('ssiss', $USER_KEY, $data['game'], $data['uid'], $data['name'], $data['data']);
+    $insert->bind_param('ssisss', $USER_KEY, $data['game'], $data['uid'], $data['version'], $data['name'], $data['data']);
     if (!$insert->execute()) {
-        http_response_code(500) && die(json_encode(['Execute failed!']));
+        die(json_encode(['Execute failed!', $insert->error]));
     }
     $insert->close();
 
@@ -48,7 +47,7 @@ if (!$USER) {
                 'title' => '**New Telemetry Entry** '.$data['flag'],
                 'color' => 13185068,
                 'description' => '**[*'.$data['uid'].'*]**: '.$data['name']."\n".
-                    '**Version**: '.$data['data']->version."\n".
+                    '**Version**: '.$data['version']."\n".
                     '**Broswer**: '.$data['data']->browser."\n".
                     '**Buildings**: '.$data['data']->buildings."\n".
                     "**Modules**: ```md\n* ".join("\n* ", $data['data']->modules).'```',
@@ -74,12 +73,12 @@ if (!$USER) {
 
     $result['success'] = $webhook_response == '';
 } else {
-    if (!($update = $MYSQLI->prepare('UPDATE `user` SET `name`=?, `data`=?, `timestamp`=CURRENT_TIMESTAMP() WHERE `id`=?'))) {
-        http_response_code(500) && die(json_encode(['Preparing Statement failed!']));
+    if (!($update = $MYSQLI->prepare('UPDATE `user` SET `name`=?, `version`=?, `data`=?, `timestamp`=CURRENT_TIMESTAMP() WHERE `id`=?'))) {
+        http_response_code(503) && die(json_encode(['Preparing Statement failed!']));
     }
-    $update->bind_param('sss', $data['name'], $data['data'], $USER_KEY);
+    $update->bind_param('ssss', $data['name'], $data['version'], $data['data'], $USER_KEY);
     if (!$update->execute()) {
-        http_response_code(500) && die(json_encode(['Execute failed!']));
+        http_response_code(504) && die(json_encode(['Execute failed!']));
     }
     $update->close();
     $result['success'] = true;

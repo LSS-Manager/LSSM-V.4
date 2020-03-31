@@ -80,10 +80,20 @@ if (window.location.pathname === '/') {
         },
     });
 
+    const keyData = await store
+        .dispatch('api/request', {
+            url: `/profile/external_secret_key/${window.user_id}`,
+        })
+        .then(res => res.json());
+
+    store.commit('setKey', keyData.code);
+
     if (window.location.pathname === '/') {
-        require('./modules/telemetry/main');
-        require('./modules/releasenotes/main');
-        require('./modules/support/main');
+        (async () => {
+            await require('./modules/telemetry/main')();
+            require('./modules/releasenotes/main');
+            require('./modules/support/main');
+        })();
     }
 
     store.dispatch('storage/get', 'active').then(activeModules => {
