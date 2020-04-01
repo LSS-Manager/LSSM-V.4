@@ -2,11 +2,6 @@
 $method = 'POST';
 require './.check_request.php';
 
-$MYSQLI = new mysqli('localhost:3306', $db_user, $db_pass, $db_name);
-if ($MYSQLI->connect_errno) {
-    http_response_code(505) && die(json_encode(['Failed to connect to MySQL!']));
-}
-
 $post = json_decode(file_get_contents('php://input'));
 $required = [
     'id',
@@ -26,6 +21,11 @@ foreach($required as $key) {
 $data['data'] = json_encode($data['data']);
 
 if (!isset($USER_KEY) || $data['id'] != $USER_KEY) http_response_code(403) && die(json_encode(['Access denied!']));
+
+$MYSQLI = new mysqli('localhost:3306', $db_user, $db_pass, $db_name);
+if ($MYSQLI->connect_errno) {
+    http_response_code(505) && die(json_encode(['Failed to connect to MySQL!']));
+}
 
 if ($USER == null) {
     if (!($insert = $MYSQLI->prepare('INSERT INTO `user`(`id`, `game`, `uid`, `version`, `name`, `data`) VALUES (?, ?, ?, ?, ?, ?)'))) {

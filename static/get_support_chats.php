@@ -2,7 +2,7 @@
 $method = 'GET';
 require './.check_request.php';
 
-$result = array();
+$result = [];
 
 $MYSQLI = new mysqli('localhost:3306', $db_user, $db_pass, $db_name);
 if ($MYSQLI->connect_errno) {
@@ -10,7 +10,7 @@ if ($MYSQLI->connect_errno) {
 }
 $query = 'SELECT `name`, `content`, `support_message`.`timestamp`, `status`, `support_chat`.`uid` AS `member`, `user`.`uid` AS `author`, `user`.`name` AS `memberName` FROM `support_chat`, `support_message`, `user` WHERE ';
 if (!in_array($U_LANG_ID, $configs->admins)) $query .= '`support_chat`.`uid`=? AND ';
-$query .= '`chat`=`support_chat`.`id` AND `author`=`user`.`id` AND `support_chat`.`uid`=`user`.`id`';
+$query .= '`chat`=`support_chat`.`id` AND `author`=`user`.`id` ORDER BY `support_message`.`timestamp`';
 if (!($search = $MYSQLI->prepare($query))) {
     die(json_encode(['Preparing Statement failed!', $query]));
 }
@@ -28,11 +28,13 @@ while($r = $res->fetch_assoc()) {
             'name' => $r['name'],
             'uid' => $r['author'],
         ],
-        'content' => $r['content'],
+        'content' => html_entity_decode($r['content'], ENT_QUOTES, 'UTF-8'),
         'timestamp' => $r['timestamp'],
     ];
     $result[$r['member']]['status'] = $r['status'];
-    $result[$r['member']]['user'] = $r['memberName'];
 }
+if (empty($result)) $result[$USER_KEY] = [
+    'messages' => [],
+];
 
 echo json_encode($result);
