@@ -8,6 +8,7 @@ document.head.insertAdjacentHTML(
 );
 
 let setTooltip = marker => {
+    if (!marker) return;
     let hasTt = !!marker.getTooltip();
     let reopen = hasTt && marker.isTooltipOpen();
     if (hasTt && reopen) marker.closeTooltip();
