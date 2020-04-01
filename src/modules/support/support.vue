@@ -2,13 +2,19 @@
     <lightbox name="support" no-fullscreen>
         <h1>{{ $t('modules.support.name') }}</h1>
         <small v-html="$t('modules.support.note')"></small>
-        <v-select
-            v-if="window.lssmv4.$store.state.lssm_admin"
-            v-model="selectedChat"
-            :options="chatSelection"
-            :reduce="chat => chat.value"
-            :clearable="false"
-        ></v-select>
+        <form class="chat-control">
+            <v-select
+                v-if="window.lssmv4.$store.state.lssm_admin"
+                v-model="selectedChat"
+                :options="chatSelection"
+                :reduce="chat => chat.value"
+                :clearable="false"
+                @input="update"
+            ></v-select>
+            <button class="btn btn-danger chat-delete" disabled>
+                <i class="fas fa-trash-alt"></i>
+            </button>
+        </form>
         <chat :messages="chats[selectedChat].messages"></chat>
         <label class="input-group">
             <input
@@ -115,6 +121,16 @@ export default {
 </script>
 
 <style scoped lang="sass">
+.chat-control
+    display: flex
+
+    .v-select
+        width: 100%
+        height: 34px
+
+    .chat-delete
+        margin-left: 1rem
+
 input
     height: 34px
 </style>

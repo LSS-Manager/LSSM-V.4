@@ -10,7 +10,7 @@ $required = [
 $result = [];
 $data = [];
 foreach($required as $key) {
-    if (!isset($post->$key) || empty($post->$key)) http_response_code(403) && die(json_encode(['Access denied!']));
+    if (!isset($post->$key) || empty($post->$key) || !strlen($post->$key)) http_response_code(403) && die(json_encode(['Access denied!']));
     $data[$key] = $post->$key;
 }
 if (isset($post->username)) $data['username'] = $post->username;
