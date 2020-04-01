@@ -23,7 +23,7 @@ if (!($res = $search->get_result())) {
 }
 $search->close();
 while($r = $res->fetch_assoc()) {
-    $result[$r['uid']]['messages'] = [
+    $result[$r['uid']]['messages'][] = [
         'author' => $r['author'],
         'content' => $r['content'],
         'timestamp' => $r['timestamp'],

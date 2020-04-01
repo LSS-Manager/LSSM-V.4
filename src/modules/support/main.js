@@ -36,7 +36,7 @@ const get_support_chats = () =>
                 'lssm_notice_bg',
                 'highlight'
             );
-            setTimeout(async () => await get_support_chats(), 1000);
+            setTimeout(async () => await get_support_chats(), 10000);
         });
 
 get_support_chats();

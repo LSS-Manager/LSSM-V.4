@@ -52,7 +52,7 @@ The translations must be directly accessible via the language-code used ingame.
 
 ### template.vue
 If a module needs its own vue component, it may be stored as a single-file-component. If so, it must be the name of the module followed by the `.vue` extension.
-Any further components that are used only in this module must be in `assets/components`.
+Any further components that are used only in this module must be in `components`.
 
 ### assets
 This folder stores all assets, such as extra JS-Files, more Vue-components, images and more.
