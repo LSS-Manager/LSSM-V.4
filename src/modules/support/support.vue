@@ -89,15 +89,27 @@ export default {
                         }),
                     },
                 })
-                .then(this.updateFn)
+                .then(this.update)
                 .then(() => {
                     this.message = '';
                     this.sending = false;
                 });
         },
+        update() {
+            return this.updateFn().then(() => {
+                const chat = document.querySelector('.support-chat');
+                chat.scrollTo({
+                    top:
+                        chat.scrollMaxY ||
+                        chat.scrollHeight - chat.clientHeight,
+                    left: 0,
+                    behavior: 'smooth',
+                });
+            });
+        },
     },
     mounted() {
-        this.updateFn();
+        this.update();
     },
 };
 </script>
