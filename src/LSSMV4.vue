@@ -23,6 +23,8 @@ export default {
 </script>
 
 <style lang="sass">
+@import "~vue-select/src/scss/vue-select.scss"
+
 body.dark
     .v--modal-box
         background-color: #505050

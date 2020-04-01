@@ -41,6 +41,9 @@ export default new Vuex.Store({
         support: {
             chats: {},
         },
+        lssm_admin: config.admins.includes(
+            `${window.I18n.locale}-${window.user_id}`
+        ),
     },
     mutations: {
         appStoreState(state, mode) {
@@ -89,9 +92,7 @@ export default new Vuex.Store({
             }),
         supportCounter: state =>
             Object.values(state.support.chats).filter(
-                c =>
-                    c.status ===
-                    (config.admins.includes(window.user_id) ? 'new' : 'unread')
+                c => c.status === (state.lssm_admin ? 'new' : 'unread')
             ).length,
         badge: (_, getters) => getters.supportCounter,
     },

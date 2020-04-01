@@ -4,8 +4,10 @@
             class="clearfix"
             v-for="(message, index) in messages"
             :key="index"
-            :self="(message.self = message.author === window.username)"
-            :color="(message.color = getColor(message.author, message.self))"
+            :self="(message.self = message.author.name === window.username)"
+            :color="
+                (message.color = getColor(message.author.name, message.self))
+            "
         >
             <span
                 class="chat-img"
@@ -15,7 +17,9 @@
                     :src="
                         `https://placehold.it/50/${message.color}/${getRColor(
                             message.color
-                        )}?text=${message.author.split('')[0].toUpperCase()}`
+                        )}?text=${message.author.name
+                            .split('')[0]
+                            .toUpperCase()}`
                     "
                     alt="User Avatar"
                     class="img-circle"
@@ -34,8 +38,14 @@
                     <strong
                         class="primary-font"
                         :class="{ 'pull-right': message.self }"
-                        >{{ message.author }}</strong
                     >
+                        <a
+                            :href="`/profile/${message.author.uid}`"
+                            class="lightbox-open"
+                        >
+                            {{ message.author.name }}
+                        </a>
+                    </strong>
                     <small
                         class="text-muted pull-right"
                         v-if="!message.self"

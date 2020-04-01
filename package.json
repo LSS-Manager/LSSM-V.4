@@ -1,5 +1,5 @@
 {
-    "version": "4.0.1+20200401.1506",
+    "version": "4.0.1+20200401.1641",
     "scripts": {
         "predev": "node prebuild",
         "dev": "node build",
@@ -21,6 +21,7 @@
         "vue-i18n": "^8.15.0",
         "vue-js-modal": "^1.3.31",
         "vue-js-toggle-button": "^1.3.3",
+        "vue-select": "^3.9.5",
         "vue-slim-tabs": "^0.4.0",
         "vuex": "^3.1.1"
     },
