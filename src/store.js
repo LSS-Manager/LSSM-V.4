@@ -38,6 +38,9 @@ export default new Vuex.Store({
         key: null,
         modules: require('./registerModules'),
         hooks: {},
+        support: {
+            chats: {},
+        },
     },
     mutations: {
         appStoreState(state, mode) {
@@ -54,6 +57,9 @@ export default new Vuex.Store({
         },
         setKey(state, key) {
             state.key = key;
+        },
+        updateSupportChats(state, chats) {
+            state.support.chats = chats;
         },
     },
     getters: {
@@ -81,6 +87,13 @@ export default new Vuex.Store({
                 b = window[state.prefix].$t(`modules.${b}.name`);
                 return a < b ? -1 : a > b ? 1 : 0;
             }),
+        supportCounter: state =>
+            Object.values(state.support.chats).filter(
+                c =>
+                    c.status ===
+                    (config.admins.includes(window.user_id) ? 'new' : 'unread')
+            ).length,
+        badge: (_, getters) => getters.supportCounter,
     },
     actions: {
         addMenuItem({ getters }, { menuItem }) {

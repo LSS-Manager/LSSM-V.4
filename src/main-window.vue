@@ -8,6 +8,15 @@
             data-toggle="dropdown"
         >
             <span class="label label-success">LSSM V.4</span>
+            <span
+                class="badge"
+                :class="{
+                    lssm_notice_bg: !!$store.getters.badge,
+                    highlight: !!$store.getters.badge,
+                }"
+            >
+                {{ $store.getters.badge }}
+            </span>
             <b class="caret"></b>
         </a>
         <ul class="dropdown-menu" role="menu" :aria-labelledby="menuId">

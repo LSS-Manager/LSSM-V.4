@@ -6,6 +6,7 @@ const fs = require('fs');
 staticConfigs.acao = `^https://(?:www.)?(?:${Object.values(config.games)
     .map(g => g.shortURL)
     .join('|')})$`;
+staticConfigs.admins = config.admins;
 
 fs.writeFileSync(
     './static/.configs.json',

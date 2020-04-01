@@ -126,13 +126,6 @@ export default {
                         'Irgendwie scheinen hier Zeitreisen normal zu sein?...',
                     time: new Date().getTime() * -1,
                 },
-                {
-                    user:
-                        'Irgend ein random Username ohne sonstige Bedeutung!!elf!!',
-                    content:
-                        'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.\nDuis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. ',
-                    time: 1335363998530,
-                },
             ],
         };
     },
@@ -192,8 +185,11 @@ export default {
         .chat-body p
             margin: 0
 
-    .glyphicon
-        margin-right: 5px
+    .header .text-muted
+        cursor: pointer
+
+        .glyphicon
+            margin-right: 5px
 
 .loading
     display: flex

@@ -37,4 +37,7 @@ body.dark
         .v--modal-box
             padding: 1rem
             overflow: auto !important
+
+.lssm_notice_bg
+    background-color: #77dc81
 </style>
