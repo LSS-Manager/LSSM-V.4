@@ -9,7 +9,7 @@ sidebarDepth: 2
 
 ## Über den LSSM
 
-Der LSS MANAGER V.4 ist eine Erweiterung für das [Leitstellenspiel.de](www.leitstellenspiel.de) und dessen anderssprachige Versionen.
+Der LSS MANAGER V.4 ist eine Erweiterung für das [Leitstellenspiel.de](https://www.leitstellenspiel.de) und dessen anderssprachige Versionen.
 
 Mit dieser Erweiterung wird ein Appstore zum Spiel hinzugefügt, welcher das Installieren von Plugins ermöglicht. Dabei sind alle Funktionen modular aufgebaut - man kann bis auf den letzten Baustein bestimmen, was alles aktiviert werden soll.
 
@@ -17,9 +17,9 @@ Plugins die nicht aktiviert sind, werden auch nicht geladen - das macht die Verw
 
 
 ## Installation :inbox_tray:
-Mit der Nutzung des LSSM bist du damit einverstanden, dass wir Metadaten erheben. Mehr Informationen hierzu findest du unter [Metadaten](./metadaten)
+Mit der Nutzung des LSSM bist du damit einverstanden, dass wir Metadaten erheben. Mehr Informationen hierzu findest du unter [Metadaten](metadata.md)
 
-Eine Tabelle mit welchen Browsern der LSSM kompatibel ist, findest du in unseren [FAQ](./faq#in-welchen-browsern-funktioniert-der-lss-manager)
+Eine Tabelle mit welchen Browsern der LSSM kompatibel ist, findest du in unseren [FAQ](faq.md#in-welchen-browsern-funktioniert-der-lss-manager)
 
 ::: tip Den LSSM am Handy nutzen
 Offiziell unterstützen wir keine mobile Version. Jedoch bietet der Browser Firefox auch in seiner mobilen Version die Möglichkeit, Add-Ons zu nutzen. Wir übernehmen jeddoch keine Garantie für ein ansprechendes Design, sowie die volle Funktionalität bei mobilen Browsern.
@@ -52,4 +52,4 @@ Wenn Tampermonkey in deinem Browser erfolgreich installiert wurde, kannst du ent
 Der LSSM-Indikator ist ein grün hinterlegter Text `LSSM V.4`.
 Solltest du dich im Leitstellenspiel befinden, aber diesen Indikator nicht in der oberen rechten Ecke sehen, so klicke auf das Tampermonkey-Icon in deinem Browser und überprüfe, ob der Schalter für das LSS-Manager Script auf "an" gestellt ist.
 
-Bei Problemen kannst du dich jederzeit an den [Support](./support) wenden.
+Bei Problemen kannst du dich jederzeit an den [Support](support.md) wenden.

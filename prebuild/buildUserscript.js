@@ -18,11 +18,11 @@ fs.writeFileSync(
     )
         .map(lang => lang.replace(/^.*?_/, ''))
         .join('-')}
+// @author       ${script.author}
 // @description  ${script.description}
 // @include      /^https?:\\/\\/[www.]*(?:${gameIncludes.join('|')})\\/.*$/
 // @homepage     ${config.server}
 // @updateURL    ${config.server}lssm-v4.user.js
-// @grant        none
 // @run-at       document-idle
 // ==/UserScript==
 ${
