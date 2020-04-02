@@ -21,7 +21,6 @@ foreach($required as $key) {
 if (!($update = $MYSQLI->prepare('UPDATE `support_chat` SET `status`="archived" WHERE `uid`=?'))) {
     http_response_code(501) && die(json_encode(['Preparing Statement failed!']));
 }
-$status = 'archived';
 $update->bind_param('s', $data['chat']);
 if (!$update->execute()) {
     die(json_encode(['Execute failed!']));
@@ -33,9 +32,9 @@ $webhook_body = json_encode([
             'author' => [
                 'name' => 'LSS-Manager V.4',
             ],
-            'title' => '**Support closed**',
+            'title' => '**Support archived**',
             'color' => 13185068,
-            'description' => '*'.$data['admin'].'* closed the support chat with *'.$data['username'].'*',
+            'description' => '*'.$data['admin'].'* archived the support chat with *'.$data['username'].'*',
             'timestamp' => date(DATE_ATOM),
         ]
     ]

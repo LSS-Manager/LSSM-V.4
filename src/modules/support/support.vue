@@ -145,6 +145,22 @@ export default {
     },
     mounted() {
         this.update();
+        if (!this.$store.state.lssm_admin)
+            window.lssmv4.$store
+                .dispatch('api/request', {
+                    url: `${window.lssmv4.$store.state.server}support/support_mark_as_read.php`,
+                    init: {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            chat: this.selectedChat,
+                        }),
+                    },
+                })
+                .then(this.update)
+                .catch(() => {});
     },
 };
 </script>
