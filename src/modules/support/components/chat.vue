@@ -60,6 +60,9 @@
                 </p>
             </div>
         </li>
+        <li v-if="!messages.length">
+            {{ $t('modules.support.empty') }}
+        </li>
     </ul>
 </template>
 

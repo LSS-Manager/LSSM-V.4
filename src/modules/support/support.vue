@@ -2,20 +2,19 @@
     <lightbox name="support" no-fullscreen>
         <h1>{{ $t('modules.support.name') }}</h1>
         <small v-html="$t('modules.support.note')"></small>
-        <form class="chat-control">
+        <form class="chat-control" v-if="window.lssmv4.$store.state.lssm_admin">
             <v-select
-                v-if="window.lssmv4.$store.state.lssm_admin"
                 v-model="selectedChat"
                 :options="chatSelection"
                 :reduce="chat => chat.value"
                 :clearable="false"
                 @input="update"
             ></v-select>
-            <button class="btn btn-danger chat-delete" disabled>
-                <i class="fas fa-trash-alt"></i>
+            <button class="btn btn-danger chat-archive" @click="archive">
+                <i class="fas fa-file-archive"></i>
             </button>
         </form>
-        <chat :messages="chats[selectedChat].messages"></chat>
+        <chat :messages="shownChat.messages"></chat>
         <label class="input-group">
             <input
                 class="form-control input-sm"
@@ -69,13 +68,22 @@ export default {
         chats: () => window.lssmv4.$store.state.support.chats,
         chatSelection: () =>
             Object.keys(window.lssmv4.$store.state.support.chats).map(c => {
+                const fm =
+                    window.lssmv4.$store.state.support.chats[c].messages[0];
+                const author = fm && fm.author ? fm.author : { name: '' };
                 return {
-                    label:
-                        window.lssmv4.$store.state.support.chats[c].messages[0]
-                            .author.name,
+                    label: author.name || '',
                     value: c,
                 };
             }),
+        shownChat() {
+            if (this.chats.hasOwnProperty(this.selectedChat)) {
+                return this.chats[this.selectedChat];
+            }
+            return this.chats[
+                Object.keys(window.lssmv4.$store.state.support.chats)[0]
+            ];
+        },
     },
     methods: {
         send() {
@@ -114,6 +122,26 @@ export default {
                 });
             });
         },
+        archive() {
+            window.lssmv4.$store
+                .dispatch('api/request', {
+                    url: `${window.lssmv4.$store.state.server}support/archive_support_chat.php`,
+                    init: {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            chat: this.selectedChat,
+                            username: this.chats[this.selectedChat].messages[0]
+                                .author.name,
+                            admin: window.username,
+                        }),
+                    },
+                })
+                .then(this.update)
+                .catch(() => {});
+        },
     },
     mounted() {
         this.update();
@@ -129,7 +157,7 @@ export default {
         width: 100%
         height: 34px
 
-    .chat-delete
+    .chat-archive
         margin-left: 1rem
 
 input

@@ -44,7 +44,7 @@ if (!isset($chat)) {
     }
     $insert->bind_param('s', $data['chat']);
     if (!$insert->execute()) {
-        die(json_encode(['Execute failed!', $insert->error]));
+        die(json_encode(['Execute failed!']));
     }
     $chat_id = $insert->insert_id;
     $insert->close();
