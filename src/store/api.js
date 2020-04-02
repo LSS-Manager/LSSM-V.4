@@ -113,7 +113,45 @@ export default {
                 (init.headers['X-LSSM-User'] = btoa(
                     `${rootState.key}:${rootState.version}`
                 ));
-            return fetch(target, init);
+            return fetch(target, init).then(
+                res =>
+                    new Promise((resolve, reject) => {
+                        if (!res.ok) {
+                            return res.json().then(data => {
+                                if (data.error === 'outdated version') {
+                                    const vm = window.lssmv4;
+                                    vm.$modal.show('dialog', {
+                                        title: vm.$t('warnings.version.title'),
+                                        text: vm.$t('warnings.version.text', {
+                                            version: data.version,
+                                            curver: rootState.version,
+                                        }),
+                                        buttons: [
+                                            {
+                                                title: vm.$t(
+                                                    'warnings.version.close'
+                                                ),
+                                                default: true,
+                                                handler() {
+                                                    window.location.reload(
+                                                        true
+                                                    );
+                                                },
+                                            },
+                                            {
+                                                title: vm.$t(
+                                                    'warnings.version.abort'
+                                                ),
+                                            },
+                                        ],
+                                    });
+                                }
+                                return reject(res);
+                            });
+                        }
+                        return resolve(res);
+                    })
+            );
         },
     },
 };

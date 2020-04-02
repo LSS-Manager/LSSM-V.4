@@ -1,6 +1,7 @@
 <?php
 $method = 'POST';
-require './.check_request.php';
+require '../.check_request.php';
+require '../utils/webhook.php';
 
 $post = json_decode(file_get_contents('php://input'));
 $required = [
@@ -63,7 +64,7 @@ if (!($update = $MYSQLI->prepare('UPDATE `support_chat` SET `status`=? WHERE `id
 }
 $update->bind_param('ss', $status, $chat_id);
 if (!$update->execute()) {
-    die(json_encode(['Execute failed!', $insert->error]));
+    die(json_encode(['Execute failed!', $update->error]));
 }
 $update->close();
 $webhook_body = json_encode([
@@ -80,17 +81,7 @@ $webhook_body = json_encode([
         ]
     ]
 ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
-$webhook_curl = curl_init();
-curl_setopt_array($webhook_curl, [
-    CURLOPT_URL => $configs->discord_webhook_url,
-    CURLOPT_POST => true, CURLOPT_POSTFIELDS => $webhook_body,
-    CURLOPT_RETURNTRANSFER => true,
-    CURLOPT_HTTPHEADER =>[
-        'Content-Type:application/json',
-    ]
-]);
-$webhook_response = curl_exec($webhook_curl);
-curl_close($webhook_curl);
+$webhook_response = webhook($webhook_body, $configs->discord_webhook_url);
 
 $result['success'] = $webhook_response == '';
 

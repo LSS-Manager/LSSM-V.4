@@ -58,18 +58,8 @@ if ($USER == null) {
             ]
         ]
     ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
-    $webhook_curl = curl_init();
-    curl_setopt_array($webhook_curl, [
-        CURLOPT_URL => $configs->discord_webhook_url,
-        CURLOPT_POST => true, CURLOPT_POSTFIELDS => $webhook_body,
-        CURLOPT_RETURNTRANSFER => true,
-        CURLOPT_HTTPHEADER =>[
-            'Content-Type:application/json',
-        ]
-    ]);
-
-    $webhook_response = curl_exec($webhook_curl);
-    curl_close($webhook_curl);
+    require './utils/webhook.php';
+    $webhook_response = webhook($webhook_body, $configs->discord_webhook_url);
 
     $result['success'] = $webhook_response == '';
 } else {

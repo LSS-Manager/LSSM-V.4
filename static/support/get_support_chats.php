@@ -1,6 +1,6 @@
 <?php
 $method = 'GET';
-require './.check_request.php';
+require '../.check_request.php';
 
 $result = [];
 
@@ -10,7 +10,7 @@ if ($MYSQLI->connect_errno) {
 }
 $query = 'SELECT `name`, `content`, `support_message`.`timestamp`, `status`, `support_chat`.`uid` AS `member`, `user`.`uid` AS `author`, `user`.`name` AS `memberName` FROM `support_chat`, `support_message`, `user` WHERE ';
 if (!in_array($U_LANG_ID, $configs->admins)) $query .= '`support_chat`.`uid`=? AND ';
-$query .= '`chat`=`support_chat`.`id` AND `author`=`user`.`id` ORDER BY `support_message`.`timestamp`';
+$query .= '`chat`=`support_chat`.`id` AND `author`=`user`.`id` AND `status`!="archived" ORDER BY `support_message`.`timestamp`';
 if (!($search = $MYSQLI->prepare($query))) {
     die(json_encode(['Preparing Statement failed!', $query]));
 }

@@ -3,7 +3,7 @@ import support from './support.vue';
 const get_support_chats = (loop = false) =>
     window.lssmv4.$store
         .dispatch('api/request', {
-            url: `${window.lssmv4.$store.state.server}get_support_chats.php`,
+            url: `${window.lssmv4.$store.state.server}support/get_support_chats.php`,
         })
         .then(res => res.json())
         .then(data => {
@@ -19,7 +19,8 @@ const get_support_chats = (loop = false) =>
             );
             if (loop)
                 setTimeout(async () => await get_support_chats(loop), 10000);
-        });
+        })
+        .catch(() => {});
 
 const openSupport = () =>
     window.lssmv4.$modal.show(

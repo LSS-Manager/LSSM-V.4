@@ -47,6 +47,15 @@ module.exports = {
         msg:
             'Sollte dieser Fehler öfters auftreten, so melde ihn bitte an das LSSM-Team!',
     },
+    warnings: {
+        version: {
+            title: 'Falsche LSS-Manager Version',
+            text:
+                'Lieber Nutzer, leider mussten wir fetstellen, dass du nicht die neueste Version vom LSS-Manager hast. Die neuste Version ist {version}, du hast aber erst {curver}. Bitte lade das Spiel ohne Cache (mit Strg + F5, bei Apple-Geräten command + R) neu, das sollte den Fehler beheben. Sollte der Fehler weiterhin bestehen, bitte melde das an das Team! Bei der Nutzung einer falschen Version können wir nicht die volle Funktionalität des LSS_Managers gewährleisten.',
+            close: 'Meldung schließen und Spiel neu laden (empfohlen)',
+            abort: 'Meldung schließen ohne Spiel neu zu laden',
+        },
+    },
     vehicles: [
         'LF 20',
         'LF 10',

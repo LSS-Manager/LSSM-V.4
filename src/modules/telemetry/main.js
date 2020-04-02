@@ -60,5 +60,6 @@ module.exports = async () => {
                 }),
             },
         })
-        .then(res => res.json());
+        .then(res => res.json())
+        .catch(() => {});
 };

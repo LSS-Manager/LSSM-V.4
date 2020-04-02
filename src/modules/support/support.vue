@@ -82,7 +82,7 @@ export default {
             this.sending = true;
             window.lssmv4.$store
                 .dispatch('api/request', {
-                    url: `${window.lssmv4.$store.state.server}support_message.php`,
+                    url: `${window.lssmv4.$store.state.server}support/support_message.php`,
                     init: {
                         method: 'POST',
                         headers: {
@@ -99,7 +99,8 @@ export default {
                 .then(() => {
                     this.message = '';
                     this.sending = false;
-                });
+                })
+                .catch(() => {});
         },
         update() {
             return this.updateFn().then(() => {
