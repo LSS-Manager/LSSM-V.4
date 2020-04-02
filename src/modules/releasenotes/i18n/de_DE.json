@@ -25,6 +25,16 @@
             "version": "4.0.0+20200301.2359",
             "title": "Lehrgangsübersicht",
             "description": "Die Lehrgangsübersicht ist nun in voller Funktionalität vorhanden!"
-        }
+        },
+	    {
+		    "version": "4.0.1+20200402.1356",
+		    "title": "Support-Chat",
+		    "description": "Der LSSM hat jetzt seinen eigenen, persönlichen Support-Chat, der direkt vom Menü aus erreichbar ist!"
+	    },
+	    {
+		    "version": "4.0.1+20200402.1707",
+		    "title": "Liste der Open-Source Libraries",
+		    "description": "Im Menü ist ab jetzt auch eine Liste der verwendeten Open-Source Libraries zu finden."
+	    }
     ]
 }

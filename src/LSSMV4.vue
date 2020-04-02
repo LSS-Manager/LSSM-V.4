@@ -16,7 +16,7 @@ export default {
     },
     beforeMount() {
         let fa = document.createElement('script');
-        fa.src = 'https://use.fontawesome.com/releases/v5.11.2/js/all.js';
+        fa.src = 'https://use.fontawesome.com/releases/v5.13.0/js/all.js';
         document.head.appendChild(fa);
     },
 };

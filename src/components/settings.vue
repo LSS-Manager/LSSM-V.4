@@ -81,10 +81,10 @@
 </template>
 
 <script>
-import Lightbox from './components/lightbox.vue';
-import Setting from './components/setting.vue';
-import SettingsText from './components/setting/text.vue';
-import SettingsToggle from './components/setting/toggle.vue';
+import Lightbox from './lightbox.vue';
+import Setting from './setting.vue';
+import SettingsText from './setting/text.vue';
+import SettingsToggle from './setting/toggle.vue';
 
 import cloneDeep from 'lodash/cloneDeep';
 

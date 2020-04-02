@@ -51,13 +51,19 @@
                     Wiki
                 </a>
             </li>
+            <li role="presentation">
+                <a href="#" @click.prevent.stop.self="showLibraries">
+                    Open-Source Libraries
+                </a>
+            </li>
         </ul>
     </li>
 </template>
 
 <script>
-import Appstore from './appstore.vue';
-import Settings from './settings.vue';
+import Appstore from './components/appstore.vue';
+import Settings from './components/settings.vue';
+import LibraryOverview from './components/libraryOverview.vue';
 
 export default {
     name: 'main-window',
@@ -72,7 +78,7 @@ export default {
     },
     methods: {
         showAppstore() {
-            let vm = this;
+            const vm = this;
             this.$modal.show(
                 Appstore,
                 {},
@@ -108,7 +114,7 @@ export default {
             );
         },
         showSettings() {
-            let vm = this;
+            const vm = this;
             this.$modal.show(
                 Settings,
                 {},
@@ -140,6 +146,17 @@ export default {
                             ],
                         });
                     },
+                }
+            );
+        },
+        showLibraries() {
+            this.$modal.show(
+                LibraryOverview,
+                {},
+                {
+                    name: 'libraryOverview',
+                    height: '96%',
+                    width: '96%',
                 }
             );
         },

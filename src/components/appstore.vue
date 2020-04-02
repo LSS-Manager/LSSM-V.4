@@ -66,7 +66,7 @@
 </template>
 
 <script>
-import Lightbox from './components/lightbox.vue';
+import Lightbox from './lightbox.vue';
 
 export default {
     name: 'appstore',
