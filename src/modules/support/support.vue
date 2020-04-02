@@ -111,16 +111,35 @@ export default {
                 .catch(() => {});
         },
         update() {
-            return this.updateFn().then(() => {
-                const chat = document.querySelector('.support-chat');
-                chat.scrollTo({
-                    top:
-                        chat.scrollMaxY ||
-                        chat.scrollHeight - chat.clientHeight,
-                    left: 0,
-                    behavior: 'smooth',
-                });
-            });
+            return this.updateFn()
+                .then(() => {
+                    const chat = document.querySelector('.support-chat');
+                    chat.scrollTo({
+                        top:
+                            chat.scrollMaxY ||
+                            chat.scrollHeight - chat.clientHeight,
+                        left: 0,
+                        behavior: 'smooth',
+                    });
+                })
+                .then(this.markAsRead);
+        },
+        markAsRead() {
+            window.lssmv4.$store
+                .dispatch('api/request', {
+                    url: `${window.lssmv4.$store.state.server}support/support_mark_as_read.php`,
+                    init: {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            chat: this.selectedChat,
+                        }),
+                    },
+                })
+                .then(this.update)
+                .catch(() => {});
         },
         archive() {
             window.lssmv4.$store
@@ -145,22 +164,6 @@ export default {
     },
     mounted() {
         this.update();
-        if (!this.$store.state.lssm_admin)
-            window.lssmv4.$store
-                .dispatch('api/request', {
-                    url: `${window.lssmv4.$store.state.server}support/support_mark_as_read.php`,
-                    init: {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify({
-                            chat: this.selectedChat,
-                        }),
-                    },
-                })
-                .then(this.update)
-                .catch(() => {});
     },
 };
 </script>

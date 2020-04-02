@@ -13,15 +13,17 @@ foreach($required as $key) {
     $data[$key] = $post->$key;
 }
 
-if (!($update = $MYSQLI->prepare('UPDATE `support_chat` SET `status`="read" WHERE `uid`=?'))) {
-    http_response_code(501) && die(json_encode(['Preparing Statement failed!']));
-}
-$update->bind_param('s', $data['chat']);
-if (!$update->execute()) {
-    die(json_encode(['Execute failed!']));
-}
-$update->close();
+if (!in_array($U_LANG_ID, $configs->admins)) {
+    if (!($update = $MYSQLI->prepare('UPDATE `support_chat` SET `status`="read" WHERE `uid`=? AND `status`="unread"'))) {
+        http_response_code(501) && die(json_encode(['Preparing Statement failed!']));
+    }
+    $update->bind_param('s', $data['chat']);
+    if (!$update->execute()) {
+        die(json_encode(['Execute failed!']));
+    }
+    $update->close();
 
-$result['success'] = true;
+    $result['success'] = true;
+}
 
 echo json_encode($result);

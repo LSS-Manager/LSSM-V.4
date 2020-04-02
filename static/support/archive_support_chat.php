@@ -17,7 +17,7 @@ foreach($required as $key) {
     if (!isset($post->$key) || empty($post->$key) || !strlen($post->$key)) http_response_code(403) && die(json_encode(['Access denied!']));
     $data[$key] = $post->$key;
 }
-
+if (!in_array($U_LANG_ID, $configs->admins)) http_response_code(403) && die(json_encode(['Access denied!']));
 if (!($update = $MYSQLI->prepare('UPDATE `support_chat` SET `status`="archived" WHERE `uid`=?'))) {
     http_response_code(501) && die(json_encode(['Preparing Statement failed!']));
 }
