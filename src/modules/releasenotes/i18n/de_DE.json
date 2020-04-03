@@ -35,6 +35,11 @@
 		    "version": "4.0.1+20200402.1707",
 		    "title": "Liste der Open-Source Libraries",
 		    "description": "Im Menü ist ab jetzt auch eine Liste der verwendeten Open-Source Libraries zu finden."
+	    },
+	    {
+		    "version": "4.0.2+20200403.1006",
+		    "title": "Update Installationsscript",
+		    "description": "Es gibt eine neue Version des Installationsscripts, um Probleme mit Versionsunterschieden zu vermeiden. Sollte Tampermonkey nicht automatisch aktualisiert haben, so aktuallisiere manuell über den Installationslink. Die neueste Version lautet \"4.0.2+DE-NL-US-UK-AU-ES-PL-SE-IT-FR-RU-DK-NO-CZ-TR-PT-BR-MX-UA-JP-RO\""
 	    }
     ]
 }
