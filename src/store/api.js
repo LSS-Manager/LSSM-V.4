@@ -145,6 +145,7 @@ export default {
                                             },
                                         ],
                                     });
+                                    window.focus();
                                 }
                                 return reject(res);
                             });

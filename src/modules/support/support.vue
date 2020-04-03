@@ -104,6 +104,15 @@ export default {
                             chat: this.selectedChat,
                             message: this.message,
                             username: window.username,
+                            flag:
+                                config.games[
+                                    window.lssmv4.$store.state.lssm_admin
+                                        ? this.selectedChat.replace(
+                                              /-\d+-[a-z0-9]{40}$/,
+                                              ''
+                                          )
+                                        : window.I18n.locale
+                                ].flag,
                         }),
                     },
                 })
@@ -158,6 +167,13 @@ export default {
                             username: this.chats[this.selectedChat].messages[0]
                                 .author.name,
                             admin: window.username,
+                            flag:
+                                config.games[
+                                    this.selectedChat.replace(
+                                        /-\d+-[a-z0-9]{40}$/,
+                                        ''
+                                    )
+                                ].flag,
                         }),
                     },
                 })

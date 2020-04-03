@@ -6,6 +6,7 @@ require '../utils/webhook.php';
 $post = json_decode(file_get_contents('php://input'));
 $required = [
     'chat',
+    'flag',
 ];
 $result = [];
 $data = [];
@@ -32,7 +33,7 @@ $webhook_body = json_encode([
             'author' => [
                 'name' => 'LSS-Manager V.4',
             ],
-            'title' => '**Support archived**',
+            'title' => '**Support archived** '.$data['flag'],
             'color' => 13185068,
             'description' => '*'.$data['admin'].'* archived the support chat with *'.$data['username'].'*',
             'timestamp' => date(DATE_ATOM),

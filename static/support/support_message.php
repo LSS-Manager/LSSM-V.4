@@ -6,7 +6,8 @@ require '../utils/webhook.php';
 $post = json_decode(file_get_contents('php://input'));
 $required = [
     'chat',
-    'message'
+    'message',
+    'flag',
 ];
 $result = [];
 $data = [];
@@ -73,7 +74,7 @@ $webhook_body = json_encode([
             'author' => [
                 'name' => 'LSS-Manager V.4',
             ],
-            'title' => '**New Message in Support**',
+            'title' => '**New Message in Support** '.$data['flag'],
             'color' => 13185068,
             'description' => '**'.$data['username'].'** just answered in the Support Chat:'.
                 "\n```".preg_replace('/`/m', "\`", html_entity_decode($data['message'], ENT_QUOTES, 'UTF-8')).'```',
