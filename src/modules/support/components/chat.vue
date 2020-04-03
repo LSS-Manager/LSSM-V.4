@@ -115,6 +115,10 @@ export default {
 </script>
 
 <style scoped lang="sass">
+body.dark
+    .chat-body .header a
+        color: lightblue
+
 .support-chat
     min-height: 10ch
     height: auto

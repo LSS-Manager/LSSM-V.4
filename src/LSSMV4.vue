@@ -30,6 +30,9 @@ body.dark
         background-color: #505050
         color: #fff
 
+    .vs__selected
+        color: white
+
 .v--modal-overlay
     z-index: 5001 !important
 
