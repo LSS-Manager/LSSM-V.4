@@ -103,12 +103,13 @@ const options = {
             version: packageJson.version,
         },
         locales: themeLocales,
+        activeHeaderLinks: true,
+        repo: config.github.repo,
+        editLinks: false,
     },
     locales,
     plugins: {
-        'vuepress-plugin-redirect': {
-            locales: true,
-        },
+        '@vuepress/active-header-links': {},
         '@vuepress/back-to-top': {},
         '@vuepress/last-updated': {
             transformer(timestamp, lang) {
@@ -117,12 +118,15 @@ const options = {
                 return moment(timestamp).fromNow();
             }
         },
+        'vuepress-plugin-redirect': {
+            locales: true,
+        },
         'vuepress-plugin-smooth-scroll': {},
         'vuepress-plugin-zooming': {
             options: {
                 bgColor: 'black',
             }
-        }
+        },
     },
 };
 

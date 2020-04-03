@@ -1,4 +1,9 @@
 {
+	"@vuepress/plugin-active-header-links": {
+		"url": "https://v1.vuepress.vuejs.org/plugin/official/plugin-active-header-links.html",
+		"icon": "https://vuepress.vuejs.org/hero.png",
+		"version": "1.4.0"
+	},
 	"@vuepress/plugin-back-to-top": {
 		"url": "https://v1.vuepress.vuejs.org/plugin/official/plugin-back-to-top.html",
 		"icon": "https://vuepress.vuejs.org/hero.png",
