@@ -15,7 +15,7 @@
 			"shortURL": "missionchief.com",
 			"name": "Missionschief.com",
 			"flag": "\uD83C\uDDFA\uD83C\uDDF8",
-			"locale_fallback": "de"
+			"locale_fallback": "de_DE"
 		},
 		"en_GB": {
 			"shortURL": "missionchief.co.uk",
@@ -90,8 +90,8 @@
 			"locale_fallback": "en_US"
 		},
 		"pt_PT": {
-			"shortURL": "operador112.pt",
-			"name": "Operador112.pt",
+			"shortURL": "jogo-operador112.com",
+			"name": "Jogo-operador112.com",
 			"flag": "\uD83C\uDDF5\uD83C\uDDF9",
 			"locale_fallback": "en_US"
 		},
@@ -123,6 +123,12 @@
 			"shortURL": "jocdispecerat112.com",
 			"name": "Jocdispecerat112.com",
 			"flag": "\uD83C\uDDF7\uD83C\uDDF4",
+			"locale_fallback": "en_US"
+		},
+		"ko_KR": {
+			"shortURL": "missionchief-korea.com",
+			"name": "Missionchief-Korea.com",
+			"flag": "\uD83C\uDDF0\uD83C\uDDF7",
 			"locale_fallback": "en_US"
 		}
 	},
