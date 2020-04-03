@@ -12,4 +12,4 @@ Um das Setzen ein wenig zu erleichtern, bietet dieses Modul daher folgende Verei
 * Um herauszufinden, welcher Marker welcher POI ist, reicht es nun mit der Maus über den Marker zu fahren, er muss nicht erst angeklickt werden.
 * Alle bisherigen POI der aktuell ausgewählten Art werden farblich hervorgehoben.
 
-![Beispiel: Stadion](/docs/assets/enhancedPOI/img/de.png)
+![Beispiel: Stadion](/docs/assets/enhancedPOI/img/de_DE.png)

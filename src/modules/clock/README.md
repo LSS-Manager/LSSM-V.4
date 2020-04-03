@@ -1,4 +1,4 @@
 Allows to show customizable clocks at the following positions:
-* navbar-brand (=> optionally clear brand before)
+* navbar-brand
 
 Formats are customizable with [Moment.js](https://momentjs.com/)

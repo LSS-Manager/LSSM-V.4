@@ -138,7 +138,6 @@ export default {
                         }),
                     },
                 })
-                .then(this.update)
                 .catch(() => {});
         },
         archive() {
