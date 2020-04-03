@@ -17,7 +17,7 @@
 			"flag": "\uD83C\uDDFA\uD83C\uDDF8",
 			"locale_fallback": "de"
 		},
-		"en_UK": {
+		"en_GB": {
 			"shortURL": "missionchief.co.uk",
 			"name": "Missionchief.co.uk",
 			"flag": "\uD83C\uDDEC\uD83C\uDDE7",
@@ -27,7 +27,7 @@
 			"shortURL": "missionchief-australia.com",
 			"name": "Missionchief-Australia.com",
 			"flag": "\uD83C\uDDE6\uD83C\uDDFA",
-			"locale_fallback": "en_UK"
+			"locale_fallback": "en_GB"
 		},
 		"es_ES": {
 			"shortURL": "centro-de-mando.es",
