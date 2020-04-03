@@ -42,9 +42,15 @@
                         <a
                             :href="`/profile/${message.author.uid}`"
                             class="lightbox-open"
+                            v-if="message.author.game === window.I18n.locale"
                         >
                             {{ message.author.name }}
+                            {{ config.games[message.author.game].flag }}
                         </a>
+                        <span v-else>
+                            {{ message.author.name }}
+                            {{ config.games[message.author.game].flag }}
+                        </span>
                     </strong>
                     <small
                         class="text-muted pull-right"
@@ -68,6 +74,7 @@
 
 <script>
 const moment = require('moment');
+const config = require('../../../config');
 
 moment.locale(window.I18n.locale);
 
@@ -84,6 +91,7 @@ export default {
         return {
             window,
             moment,
+            config,
         };
     },
     methods: {
@@ -117,7 +125,7 @@ export default {
 <style scoped lang="sass">
 body.dark
     .chat-body .header
-        a
+        strong
             color: lightblue
 
         .text-muted

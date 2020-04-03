@@ -8,7 +8,7 @@ $MYSQLI = new mysqli('localhost:3306', $db_user, $db_pass, $db_name);
 if ($MYSQLI->connect_errno) {
     http_response_code(500) && die(json_encode(['Failed to connect to MySQL!']));
 }
-$query = 'SELECT `name`, `content`, `support_message`.`timestamp`, `status`, `support_chat`.`uid` AS `member`, `user`.`uid` AS `author`, `user`.`name` AS `memberName` FROM `support_chat`, `support_message`, `user` WHERE ';
+$query = 'SELECT `name`, `content`, `support_message`.`timestamp`, `status`, `support_chat`.`uid` AS `member`, `user`.`uid` AS `author`, `user`.`name` AS `memberName`, `user`.`game` AS `game` FROM `support_chat`, `support_message`, `user` WHERE ';
 if (!in_array($U_LANG_ID, $configs->admins)) $query .= '`support_chat`.`uid`=? AND ';
 $query .= '`chat`=`support_chat`.`id` AND `author`=`user`.`id` AND `status`!="archived" ORDER BY `support_message`.`timestamp`';
 if (!($search = $MYSQLI->prepare($query))) {
@@ -27,6 +27,7 @@ while($r = $res->fetch_assoc()) {
         'author' => [
             'name' => $r['name'],
             'uid' => $r['author'],
+            'game' => $r['game'],
         ],
         'content' => html_entity_decode($r['content'], ENT_QUOTES, 'UTF-8'),
         'timestamp' => $r['timestamp'],

@@ -44,6 +44,8 @@ import Lightbox from '../../components/lightbox.vue';
 import Chat from './components/chat.vue';
 import VSelect from 'vue-select';
 
+const config = require('../../config');
+
 export default {
     name: 'support',
     components: { Chat, Lightbox, VSelect },
@@ -72,7 +74,9 @@ export default {
                     window.lssmv4.$store.state.support.chats[c].messages[0];
                 const author = fm && fm.author ? fm.author : { name: '' };
                 return {
-                    label: author.name || '',
+                    label:
+                        `${author.name} ${config.games[author.game].flag}` ||
+                        '',
                     value: c,
                 };
             }),
