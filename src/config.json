@@ -1,140 +1,140 @@
 {
-    "games": {
-        "de_DE": {
-            "shortURL": "leitstellenspiel.de",
-            "name": "Leitstellenspiel.de",
-            "flag": "\uD83C\uDDE9\uD83C\uDDEA"
-        },
-        "nl_NL": {
-            "shortURL":  "meldkamerspel.com",
-            "name":  "Meldkamerspel.com",
-            "flag":  "\uD83C\uDDF3\uD83C\uDDF1",
-            "locale_fallback": "en_US"
-        },
-        "en_US": {
-            "shortURL": "missionchief.com",
-            "name": "Missionschief.com",
-            "flag": "\uD83C\uDDFA\uD83C\uDDF8",
-            "locale_fallback": "de"
-        },
-        "en_UK": {
-            "shortURL": "missionchief.co.uk",
-            "name": "Missionchief.co.uk",
-            "flag": "\uD83C\uDDEC\uD83C\uDDE7",
-            "locale_fallback": "en_US"
-        },
-        "en_AU": {
-            "shortURL": "missionchief-australia.com",
-            "name": "Missionchief-Australia.com",
-            "flag": "\uD83C\uDDE6\uD83C\uDDFA",
-            "locale_fallback": "en_UK"
-        },
-        "es_ES": {
-            "shortURL": "centro-de-mando.es",
-            "name": "Centro-de-Mando.es",
-            "flag": "\uD83C\uDDEA\uD83C\uDDF8",
-            "locale_fallback": "en_US"
-        },
-        "pl_PL": {
-            "shortURL": "operatorratunkowy.pl",
-            "name": "Operatorraunkowy.pl",
-            "flag": "\uD83C\uDDF5\uD83C\uDDF1",
-            "locale_fallback": "en_US"
-        },
-        "sv_SE": {
-            "shortURL": "larmcentralen-spelet.se",
-            "name": "Larmcentralen-spelet.se",
-            "flag": "\uD83C\uDDF8\uD83C\uDDEA",
-            "locale_fallback": "en_US"
-        },
-        "it_IT": {
-            "shortURL": "operatore112.it",
-            "name": "Operatore112.it",
-            "flag": "\uD83C\uDDEE\uD83C\uDDF9",
-            "locale_fallback": "en_US"
-        },
-        "fr_FR": {
-            "shortURL": "operateur112.fr",
-            "name": "Operateur112.fr",
-            "flag": "\uD83C\uDDEB\uD83C\uDDF7",
-            "locale_fallback": "en_US"
-        },
-        "ru_RU": {
-            "shortURL": "dispetcher112.ru",
-            "name": "Dispetcher112.ru",
-            "flag": "\uD83C\uDDF7\uD83C\uDDFA",
-            "locale_fallback": "en_US"
-        },
-        "da_DK": {
-            "shortURL": "alarmcentral-spil.dk",
-            "name": "Alarmcentral-Spil.dk",
-            "flag": "\uD83C\uDDE9\uD83C\uDDF0",
-            "locale_fallback": "en_US"
-        },
-        "nb_NO": {
-            "shortURL": "nodsentralspillet.com",
-            "name": "Nodsentralspillet.com",
-            "flag": "\uD83C\uDDF3\uD83C\uDDF4",
-            "locale_fallback": "en_US"
-        },
-        "cs_CZ": {
-            "shortURL": "operacni-stredisko.cz",
-            "name": "Operacni-Stredisko.cz",
-            "flag": "\uD83C\uDDE8\uD83C\uDDFF",
-            "locale_fallback": "en_US"
-        },
-        "tr_TR": {
-            "shortURL": "112-merkez.com",
-            "name": "112-Merkez.com",
-            "flag": "\uD83C\uDDF9\uD83C\uDDF7",
-            "locale_fallback": "en_US"
-        },
-        "pt_PT": {
-            "shortURL": "operador112.pt",
-            "name": "Operador112.pt",
-            "flag": "\uD83C\uDDF5\uD83C\uDDF9",
-            "locale_fallback": "en_US"
-        },
-        "pt_BR": {
-            "shortURL": "operador193.com",
-            "name": "Operador193.com",
-            "flag": "\uD83C\uDDE7\uD83C\uDDF7",
-            "locale_fallback": "pt_PT"
-        },
-        "es_MX": {
-            "shortURL": "centro-de-mando.mx",
-            "name": "Centro-de-Mando.mx",
-            "flag": "\uD83C\uDDF2\uD83C\uDDFD",
-            "locale_fallback": "es_ES"
-        },
-        "uk_UA": {
-            "shortURL": "dyspetcher101-game.com",
-            "name": "Dyspetcher101-game.com",
-            "flag": "\uD83C\uDDFA\uD83C\uDDE6",
-            "locale_fallback": "en_US"
-        },
-        "ja_JP": {
-            "shortURL": "missionchief-japan.com",
-            "name": "Missionchief-Japan.com",
-            "flag": "\uD83C\uDDEF\uD83C\uDDF5",
-            "locale_fallback": "en_US"
-        },
+	"games": {
+		"de_DE": {
+			"shortURL": "leitstellenspiel.de",
+			"name": "Leitstellenspiel.de",
+			"flag": "\uD83C\uDDE9\uD83C\uDDEA"
+		},
+		"nl_NL": {
+			"shortURL":  "meldkamerspel.com",
+			"name":  "Meldkamerspel.com",
+			"flag":  "\uD83C\uDDF3\uD83C\uDDF1",
+			"locale_fallback": "en_US"
+		},
+		"en_US": {
+			"shortURL": "missionchief.com",
+			"name": "Missionschief.com",
+			"flag": "\uD83C\uDDFA\uD83C\uDDF8",
+			"locale_fallback": "de"
+		},
+		"en_UK": {
+			"shortURL": "missionchief.co.uk",
+			"name": "Missionchief.co.uk",
+			"flag": "\uD83C\uDDEC\uD83C\uDDE7",
+			"locale_fallback": "en_US"
+		},
+		"en_AU": {
+			"shortURL": "missionchief-australia.com",
+			"name": "Missionchief-Australia.com",
+			"flag": "\uD83C\uDDE6\uD83C\uDDFA",
+			"locale_fallback": "en_UK"
+		},
+		"es_ES": {
+			"shortURL": "centro-de-mando.es",
+			"name": "Centro-de-Mando.es",
+			"flag": "\uD83C\uDDEA\uD83C\uDDF8",
+			"locale_fallback": "en_US"
+		},
+		"pl_PL": {
+			"shortURL": "operatorratunkowy.pl",
+			"name": "Operatorraunkowy.pl",
+			"flag": "\uD83C\uDDF5\uD83C\uDDF1",
+			"locale_fallback": "en_US"
+		},
+		"sv_SE": {
+			"shortURL": "larmcentralen-spelet.se",
+			"name": "Larmcentralen-spelet.se",
+			"flag": "\uD83C\uDDF8\uD83C\uDDEA",
+			"locale_fallback": "en_US"
+		},
+		"it_IT": {
+			"shortURL": "operatore112.it",
+			"name": "Operatore112.it",
+			"flag": "\uD83C\uDDEE\uD83C\uDDF9",
+			"locale_fallback": "en_US"
+		},
+		"fr_FR": {
+			"shortURL": "operateur112.fr",
+			"name": "Operateur112.fr",
+			"flag": "\uD83C\uDDEB\uD83C\uDDF7",
+			"locale_fallback": "en_US"
+		},
+		"ru_RU": {
+			"shortURL": "dispetcher112.ru",
+			"name": "Dispetcher112.ru",
+			"flag": "\uD83C\uDDF7\uD83C\uDDFA",
+			"locale_fallback": "en_US"
+		},
+		"da_DK": {
+			"shortURL": "alarmcentral-spil.dk",
+			"name": "Alarmcentral-Spil.dk",
+			"flag": "\uD83C\uDDE9\uD83C\uDDF0",
+			"locale_fallback": "en_US"
+		},
+		"nb_NO": {
+			"shortURL": "nodsentralspillet.com",
+			"name": "Nodsentralspillet.com",
+			"flag": "\uD83C\uDDF3\uD83C\uDDF4",
+			"locale_fallback": "en_US"
+		},
+		"cs_CZ": {
+			"shortURL": "operacni-stredisko.cz",
+			"name": "Operacni-Stredisko.cz",
+			"flag": "\uD83C\uDDE8\uD83C\uDDFF",
+			"locale_fallback": "en_US"
+		},
+		"tr_TR": {
+			"shortURL": "112-merkez.com",
+			"name": "112-Merkez.com",
+			"flag": "\uD83C\uDDF9\uD83C\uDDF7",
+			"locale_fallback": "en_US"
+		},
+		"pt_PT": {
+			"shortURL": "operador112.pt",
+			"name": "Operador112.pt",
+			"flag": "\uD83C\uDDF5\uD83C\uDDF9",
+			"locale_fallback": "en_US"
+		},
+		"pt_BR": {
+			"shortURL": "operador193.com",
+			"name": "Operador193.com",
+			"flag": "\uD83C\uDDE7\uD83C\uDDF7",
+			"locale_fallback": "pt_PT"
+		},
+		"es_MX": {
+			"shortURL": "centro-de-mando.mx",
+			"name": "Centro-de-Mando.mx",
+			"flag": "\uD83C\uDDF2\uD83C\uDDFD",
+			"locale_fallback": "es_ES"
+		},
+		"uk_UA": {
+			"shortURL": "dyspetcher101-game.com",
+			"name": "Dyspetcher101-game.com",
+			"flag": "\uD83C\uDDFA\uD83C\uDDE6",
+			"locale_fallback": "en_US"
+		},
+		"ja_JP": {
+			"shortURL": "missionchief-japan.com",
+			"name": "Missionchief-Japan.com",
+			"flag": "\uD83C\uDDEF\uD83C\uDDF5",
+			"locale_fallback": "en_US"
+		},
 		"ro_RO":  {
 			"shortURL": "jocdispecerat112.com",
 			"name": "Jocdispecerat112.com",
 			"flag": "\uD83C\uDDF7\uD83C\uDDF4",
 			"locale_fallback": "en_US"
 		}
-    },
-    "server": "https://v4.lssm.ledbrain.de/",
-    "discord": "https://discord.gg/RcTNjpB",
-    "discord_support": "https://discordapp.com/channels/254167535446917120/607913643140579348",
-    "github": {
-        "repo": "KBOE2/LSSM-V.4"
-    },
+	},
+	"server": "https://v4.lssm.ledbrain.de/",
+	"discord": "https://discord.gg/RcTNjpB",
+	"discord_support": "https://discordapp.com/channels/254167535446917120/607913643140579348",
+	"github": {
+		"repo": "KBOE2/LSSM-V.4"
+	},
 	"admins": [
 		"de_DE-205976",
-		"de_675"
+		"de_DE-675"
 	],
 	"modules": {
 		"core-modules": [
