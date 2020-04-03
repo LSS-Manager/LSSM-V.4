@@ -116,8 +116,12 @@ export default {
 
 <style scoped lang="sass">
 body.dark
-    .chat-body .header a
-        color: lightblue
+    .chat-body .header
+        a
+            color: lightblue
+
+        .text-muted
+            color: darkgray
 
 .support-chat
     min-height: 10ch
