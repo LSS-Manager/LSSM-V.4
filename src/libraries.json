@@ -43,6 +43,11 @@
 		"icon": "https://kazupon.github.io/vue-i18n/vue-i18n-logo.png",
 		"version": "8.16.0"
 	},
+	"Vue Select": {
+		"url": "https://vue-select.org/",
+		"icon": "https://vuejs.org/images/logo.png",
+		"version": "3.9.5"
+	},
 	"Vue.js Modal": {
 		"url": "http://vue-js-modal.yev.io/",
 		"version": "1.3.33"
