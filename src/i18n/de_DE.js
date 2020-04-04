@@ -10,6 +10,8 @@ const modules = {
         search: 'Suche',
         noMapkit:
             'Dieses Modul funktioniert mit dem Kartentyp "Mapkit" wegen Beschränkungen seitens Mapkit nicht!',
+        dev:
+            'Dieses Modul befindet sich aktuell noch in der Entwicklung. Ein Aktivieren kann zu unvollständigen und fehlerhaften Funktionen führen!',
         closeWarning: {
             title: 'Ungespeicherte Änderungen',
             text:

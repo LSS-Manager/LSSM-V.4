@@ -53,6 +53,9 @@
                 <small v-if="hasMapkitConflict(moduleId)" class="mapkit-notice">
                     {{ $t('modules.appstore.noMapkit') }}
                 </small>
+                <small v-if="modules[moduleId].dev" class="dev-notice">
+                    {{ $t('modules.appstore.dev') }}
+                </small>
                 <div class="appstore-content">
                     <h4>
                         <b>{{ $t(`modules.${moduleId}.name`) }}</b>
@@ -187,18 +190,26 @@ export default {
                 display: inline-block
                 transition: 0.3s
 
-            .mapkit-notice
+            .mapkit-notice,
+            .dev-notice
                 display: inline-block
                 transition: 0.3s
                 font-size: 0
+
+            .mapkit-notice
                 color: red
+
+            .dev-notice
+                color: yellowgreen
 
         &:hover
             box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2)
 
+            &.dev,
             &.mapkit
 
-                .mapkit-notice
+                .mapkit-notice,
+                .dev-notice
                     font-size: small
 
                 &:hover
