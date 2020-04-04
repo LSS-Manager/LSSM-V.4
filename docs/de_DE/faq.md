@@ -1,5 +1,5 @@
 ---
-title: FAQ ❓ 👨‍💻
+title: FAQ ❓ 👨‍
 lang: de
 sidebarDepth: 3
 ---
@@ -35,7 +35,7 @@ Bitte schaue dir unsere Seite [Fehler melden][error] an.
 Über unseren Support. Nähere Infos dazu gibt es [hier][support]
 
 ### Wie kann ich Vorschläge einreichen?
-Auf der Seite [Vorschläge einreichen][suggestions] haben wir dir Informationen darüber zusammengestellt.
+Auf der Seite [Vorschläge][suggestions] haben wir dir Informationen darüber zusammengestellt.
 
 ### In welchen Browsern funktioniert der LSS-Manager?
 Hier werden nur Desktop Browser aufgelistet, da mobile Browser nicht offiziell unterstützt werden.

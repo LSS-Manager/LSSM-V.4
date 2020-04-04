@@ -20,7 +20,26 @@ export default {
         return {
             isHidden: true,
             templates: {
-                test1: [],
+                test1: [
+                    {
+                        type: 'terminal',
+                        content: 'Florian',
+                    },
+                    {
+                        type: 'variable',
+                        content: 'vehicleType',
+                    },
+                    {
+                        type: 'function',
+                        content: 'counter',
+                        params: {
+                            prepend: {
+                                content: '-',
+                                condition: 'not 0',
+                            },
+                        },
+                    },
+                ],
             },
         };
     },
