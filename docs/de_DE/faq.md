@@ -1,5 +1,5 @@
 ---
-title: FAQ ❓ 👨‍
+title: FAQ ❓
 lang: de
 sidebarDepth: 3
 ---

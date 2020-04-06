@@ -41,7 +41,8 @@ const sidebar_others = [
     'error_report',
     'faq',
     'appstore',
-    'settings'
+    'settings',
+    'other',
 ];
 
 Object.keys(config.games).forEach(lang => {

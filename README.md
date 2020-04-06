@@ -3,7 +3,7 @@
 ![](./docs/.vuepress/public/img/lssm.png)
 
 *[![](https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.eu.svg)][1]
-This work is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License][1]*
+This work is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0) ][1]*
 
 Der LSS-MANAGER V.4 ist eine Erweiterung für das Leitstellenspiel.de und dessen anderssprachige Versionen.
 
