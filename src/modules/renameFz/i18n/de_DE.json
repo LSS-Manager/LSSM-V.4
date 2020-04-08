@@ -2,6 +2,7 @@
 	"name": "Fahrzeuge umbenennen",
 	"description": "Benenne viele Fahrzeuge auf einmal nach deinem System!",
 	"templates": {
-		"selection": "Template wählen..."
+		"selection": "Template wählen...",
+		"selectionHint": "Neues Template anlegen? Einfach den Namen eingeben und auswählen!"
 	}
 }

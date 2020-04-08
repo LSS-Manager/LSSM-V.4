@@ -2,7 +2,7 @@
     <lightbox name="support" no-fullscreen>
         <h1>{{ $t('modules.support.name') }}</h1>
         <small v-html="$t('modules.support.note')"></small>
-        <form class="chat-control" v-if="window.lssmv4.$store.state.lssm_admin">
+        <form class="chat-control" v-if="$store.state.lssm_admin">
             <v-select
                 v-model="selectedChat"
                 :options="chatSelection"
@@ -51,9 +51,7 @@ export default {
     components: { Chat, Lightbox, VSelect },
     data() {
         return {
-            selectedChat: Object.keys(
-                window.lssmv4.$store.state.support.chats
-            )[0],
+            selectedChat: Object.keys(this.$store.state.support.chats)[0],
             message: '',
             sending: false,
             window,
@@ -67,11 +65,10 @@ export default {
         },
     },
     computed: {
-        chats: () => window.lssmv4.$store.state.support.chats,
+        chats: () => this.$store.state.support.chats,
         chatSelection: () =>
-            Object.keys(window.lssmv4.$store.state.support.chats).map(c => {
-                const fm =
-                    window.lssmv4.$store.state.support.chats[c].messages[0];
+            Object.keys(this.$store.state.support.chats).map(c => {
+                const fm = this.$store.state.support.chats[c].messages[0];
                 const author = fm && fm.author ? fm.author : { name: '' };
                 return {
                     label:
@@ -84,17 +81,15 @@ export default {
             if (this.chats.hasOwnProperty(this.selectedChat)) {
                 return this.chats[this.selectedChat];
             }
-            return this.chats[
-                Object.keys(window.lssmv4.$store.state.support.chats)[0]
-            ];
+            return this.chats[Object.keys(this.$store.state.support.chats)[0]];
         },
     },
     methods: {
         send() {
             this.sending = true;
-            window.lssmv4.$store
+            this.$store
                 .dispatch('api/request', {
-                    url: `${window.lssmv4.$store.state.server}support/support_message.php`,
+                    url: `${this.$store.state.server}support/support_message.php`,
                     init: {
                         method: 'POST',
                         headers: {
@@ -106,7 +101,7 @@ export default {
                             username: window.username,
                             flag:
                                 config.games[
-                                    window.lssmv4.$store.state.lssm_admin
+                                    this.$store.state.lssm_admin
                                         ? this.selectedChat.replace(
                                               /-\d+-[a-z0-9]{40}$/,
                                               ''
@@ -138,9 +133,9 @@ export default {
                 .then(this.markAsRead);
         },
         markAsRead() {
-            window.lssmv4.$store
+            this.$store
                 .dispatch('api/request', {
-                    url: `${window.lssmv4.$store.state.server}support/support_mark_as_read.php`,
+                    url: `${this.$store.state.server}support/support_mark_as_read.php`,
                     init: {
                         method: 'POST',
                         headers: {
@@ -154,9 +149,9 @@ export default {
                 .catch(() => {});
         },
         archive() {
-            window.lssmv4.$store
+            this.$store
                 .dispatch('api/request', {
-                    url: `${window.lssmv4.$store.state.server}support/archive_support_chat.php`,
+                    url: `${this.$store.state.server}support/archive_support_chat.php`,
                     init: {
                         method: 'POST',
                         headers: {

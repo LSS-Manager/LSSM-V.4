@@ -128,9 +128,6 @@ body.dark
         strong
             color: lightblue
 
-        .text-muted
-            color: darkgray
-
 .support-chat
     min-height: 10ch
     height: auto

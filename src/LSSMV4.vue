@@ -37,6 +37,9 @@ body.dark
             .vs__selected
                 color: white
 
+    .text-muted
+        color: darkgray
+
 .v--modal-overlay
     z-index: 5001 !important
 

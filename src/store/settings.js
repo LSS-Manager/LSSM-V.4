@@ -41,10 +41,32 @@ export default {
                 );
             });
         },
+        setModule({ dispatch }, { moduleId, settings }) {
+            dispatch(
+                'storage/set',
+                {
+                    key: `settings_${moduleId}`,
+                    val: settings,
+                },
+                { root: true }
+            );
+        },
+        setSetting({ dispatch }, { moduleId, settingId, value }) {
+            return new Promise(resolve =>
+                dispatch('getModule', moduleId).then(settings => {
+                    settings[settingId] = value;
+                    resolve(dispatch('setModule', { moduleId, settings }));
+                })
+            );
+        },
         register({ commit, dispatch }, { moduleId, settings }) {
-            dispatch('storage/get', `settings_${moduleId}`, {
-                root: true,
-            }).then(value => {
+            dispatch(
+                'storage/get',
+                { key: `settings_${moduleId}`, defaultValue: {} },
+                {
+                    root: true,
+                }
+            ).then(value => {
                 let module = {
                     settings,
                 };
@@ -56,14 +78,27 @@ export default {
                 commit('register', { moduleId, module });
             });
         },
-        getSetting({ dispatch }, { moduleId, settingId }) {
-            return new Promise(resolve => {
-                dispatch('storage/get', `settings_${moduleId}`, {
+        getModule({ dispatch }, moduleId) {
+            return dispatch(
+                'storage/get',
+                { key: `settings_${moduleId}`, defaultValue: {} },
+                {
                     root: true,
-                }).then(value => {
-                    if (!value) return resolve(null);
-                    if (!value.hasOwnProperty(settingId)) return resolve(null);
-                    return resolve(value[settingId]);
+                }
+            );
+        },
+        getSetting({ dispatch }, { moduleId, settingId, defaultValue = null }) {
+            return new Promise(resolve => {
+                dispatch(
+                    'storage/get',
+                    { key: `settings_${moduleId}`, defaultValue: {} },
+                    {
+                        root: true,
+                    }
+                ).then(value => {
+                    if (!value.hasOwnProperty(settingId))
+                        return resolve(defaultValue);
+                    return resolve(value[settingId] || defaultValue);
                 });
             });
         },
