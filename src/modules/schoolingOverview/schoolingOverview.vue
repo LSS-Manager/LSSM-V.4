@@ -185,6 +185,11 @@ export default {
                     schooling.querySelector('td:nth-of-type(2)').innerText
                 );
             });
+        this.$t('modules.schoolingOverview.schoolings').forEach(
+            schooling =>
+                !this.openSchoolings.hasOwnProperty(schooling) &&
+                (this.openSchoolings[schooling] = { amount: 0, seats: 0 })
+        );
     },
 };
 </script>
