@@ -5,9 +5,17 @@ const config = require('../src/config');
 
 const script = packageJson.userscript;
 
-const gameIncludes = Object.keys(config.games).map(game =>
-    config.games[game].shortURL.replace('.', '\\.')
-);
+const tlds = [];
+
+const gameIncludes = Object.keys(config.games).map(game => {
+    const tld = config.games[game].shortURL
+        .replace(/^.*(?=\.)/, '')
+        .replace(/^\./, '');
+    if (!tlds.includes(tld)) tlds.push(tld);
+    return config.games[game].shortURL
+        .replace(/\.[^.]*$/, '')
+        .replace('.', '\\.');
+});
 
 fs.writeFileSync(
     './static/lssm-v4.user.js',
@@ -20,7 +28,9 @@ fs.writeFileSync(
         .join('-')}
 // @author       ${script.author}
 // @description  ${script.description}
-// @include      /^https?:\\/\\/[www.]*(?:${gameIncludes.join('|')})\\/.*$/
+// @include      /^https?:\\/\\/[www.]*(${gameIncludes.join('|')}).(${tlds.join(
+        '|'
+    )})\\/.*$/
 // @homepage     ${config.server}
 // @updateURL    ${config.server}lssm-v4.user.js
 // @run-at       document-idle

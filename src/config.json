@@ -130,6 +130,12 @@
 			"name": "Missionchief-Korea.com",
 			"flag": "\uD83C\uDDF0\uD83C\uDDF7",
 			"locale_fallback": "en_US"
+		},
+		"fi_FI": {
+			"shortURL": "hatakeskuspeli.com",
+			"name": "Hätäkeskuspeli.com",
+			"flag": "\uD83C\uDDEB\uD83C\uDDEE",
+			"locale_fallback": "en_US"
 		}
 	},
 	"server": "https://v4.lssm.ledbrain.de/",

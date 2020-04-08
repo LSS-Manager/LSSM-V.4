@@ -57,12 +57,10 @@ const modules = moduleDirs.map(module => {
             },
             ...lodash.cloneDeep(webpackConfig),
         };
-        entry.plugins.push(
+        entry.plugins = [
             new webpack.DefinePlugin({
                 MODULE_ID: JSON.stringify(module),
-            })
-        );
-        entry.plugins.push(
+            }),
             new webpack.ContextReplacementPlugin(
                 /moment\/locale$/,
                 new RegExp(
@@ -70,8 +68,9 @@ const modules = moduleDirs.map(module => {
                         .map(g => moment.localeData(g)._abbr)
                         .join('|')
                 )
-            )
-        );
+            ),
+            ...entry.plugins,
+        ];
         return entry;
     }
 });
