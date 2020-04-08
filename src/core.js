@@ -96,7 +96,7 @@ if (window.location.pathname === '/') {
         })();
     }
 
-    store.dispatch('storage/get', 'active').then(activeModules => {
+    store.dispatch('storage/get', { key: 'active' }).then(activeModules => {
         if (!activeModules) activeModules = [];
         activeModules = [
             ...new Set([

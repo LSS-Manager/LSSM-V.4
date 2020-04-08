@@ -3,7 +3,7 @@ const UAParser = require('ua-parser-js');
 const storageKey = 'telemetry_note_fired';
 const config = require('../../config');
 
-window.lssmv4.$store.dispatch('storage/get', storageKey).then(
+window.lssmv4.$store.dispatch('storage/get', { key: storageKey }).then(
     key =>
         !key &&
         window.lssmv4.$modal.show('dialog', {

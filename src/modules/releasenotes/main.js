@@ -31,5 +31,5 @@ window.lssmv4.$store.dispatch('addMenuItem', { menuItem });
 menuItem.onclick = openNotes;
 
 window.lssmv4.$store
-    .dispatch('storage/get', storageKey)
+    .dispatch('storage/get', { key: storageKey })
     .then(key => (key || 0).toString() < notes[0].version && openNotes());
