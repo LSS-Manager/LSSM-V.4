@@ -47,7 +47,7 @@ Drei Monate später begann das Projekt `LSS Manager V2` - neue Funktionen und ei
 
 Es war nun möglich, die verschiedenen Layouts direkt im Spiel zu ändern, ohne vorher mehrere Erweiterungen installieren zu müssen. Man konnte nun alles an einem Ort verwalten und aktivieren. Die neuen Funktionen waren: Einstellungspanel, Dashboard, Nightmode, Redesigns, Layouts, Wachenplanung, etc.
 
-30. März 2017 - der Support für die Version 2 wurde eingestellt. Da ein paar Monate zu vor, viele Neuerungen für Leitstellenspiel.de, den `LSSM V2` leider komplett zerschossen haben, sahen wir uns gezwungen ihn vom Netz zu nehmen. Bis zum letzten Augenblick hatte der `LSSM V2` 3000 User.
+30. März 2017 - der Support für die Version 2 wurde eingestellt. Da ein paar Monate zuvor viele Neuerungen für Leitstellenspiel.de den `LSSM V2` leider komplett zerschossen haben, sahen wir uns gezwungen ihn vom Netz zu nehmen. Bis zum letzten Augenblick hatte der `LSSM V2` 3000 User.
 
 Da wir unsere User nicht enttäuschen wollten, wollten wir das Projekt nicht komplett sterben lassen. So haben wir uns entschlossen das Script von 0 auf neu zuschreiben. Schon zwei Monate später sollte der `LSSM V3` folgen.
 
