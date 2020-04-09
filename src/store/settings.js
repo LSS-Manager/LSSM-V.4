@@ -28,8 +28,7 @@ export default {
                 let moduleSettings = {};
                 Object.keys(settings[module].settings).forEach(settingId => {
                     moduleSettings[settingId] =
-                        settings[module].settings[settingId].value ||
-                        settings[module].settings[settingId].default;
+                        settings[module].settings[settingId].value;
                 });
                 dispatch(
                     'storage/set',
@@ -87,7 +86,10 @@ export default {
                 }
             );
         },
-        getSetting({ dispatch }, { moduleId, settingId, defaultValue = null }) {
+        getSetting(
+            { dispatch, state },
+            { moduleId, settingId, defaultValue = null }
+        ) {
             return new Promise(resolve => {
                 dispatch(
                     'storage/get',
@@ -96,9 +98,19 @@ export default {
                         root: true,
                     }
                 ).then(value => {
-                    if (!value.hasOwnProperty(settingId))
-                        return resolve(defaultValue);
-                    return resolve(value[settingId] || defaultValue);
+                    if (
+                        !value.hasOwnProperty(settingId) ||
+                        typeof value[settingId] === 'undefined'
+                    ) {
+                        const setting =
+                            state.settings[moduleId].settings[settingId];
+                        return resolve(
+                            setting.hasOwnProperty('default')
+                                ? setting.default
+                                : defaultValue
+                        );
+                    }
+                    return resolve(value[settingId]);
                 });
             });
         },

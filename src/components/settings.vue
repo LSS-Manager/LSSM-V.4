@@ -126,10 +126,11 @@ export default {
     },
     methods: {
         getValue(moduleId, settingId) {
-            return (
-                this.settings[moduleId].settings[settingId].value ||
-                this.settings[moduleId].settings[settingId].default
-            );
+            const setting = this.settings[moduleId].settings[settingId];
+            return setting.hasOwnProperty('value') &&
+                typeof setting.value !== 'undefined'
+                ? setting.value
+                : setting.default;
         },
         save() {
             this.$store.dispatch('settings/save', {
