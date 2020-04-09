@@ -64,6 +64,7 @@
                         <tr
                             v-for="schooling in sortedOpen"
                             :key="schooling.key"
+                            :class="{ 'empty-schooling': !schooling.amount }"
                         >
                             <td>{{ schooling.key }}</td>
                             <td>{{ schooling.amount }}</td>
@@ -198,4 +199,8 @@ export default {
 th,
 .glyphicon-info-sign
     cursor: pointer
+
+.empty-schooling
+    td:not(:first-of-type)
+        color: red
 </style>
