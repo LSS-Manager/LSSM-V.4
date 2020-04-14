@@ -59,6 +59,11 @@ Gegen Ende 2019 begannen dann die ersten Planungen für eine `V.4`, um eine sch�
 
 Seit dem läuft die Entwicklung am `LSS-Manager V.4`, um den Nutzern ein völlig neues Gefühl bei der Nutzung des LSSM zu bieten.
 
+## Open-Source Libraries
+Der LSSM verwendet natürlich auch öffentliche Libraries von dritten - sonst wären einige Funktionen einfach viel zu viel zu programmieren.
+
+Eine Liste, welche Libraries wir nutzen findest du direkt im Spiel im LSSM-Menü schön aufgelistet und stetig aktuell gehalten :)
+
 ## Danksagungen
 Auch wir müssen manchmal einfach ein ganz großes Dankeschön aussprechen!
 
