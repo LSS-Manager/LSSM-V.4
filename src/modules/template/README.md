@@ -11,6 +11,7 @@ In this case, the module is named `template`. Further explanations below.
 |   │   │   ├── part1.json
 |   │   │   ├── part2.json
 |   |   |   └── index.js
+|   │   ├── de.root.js
 │   │   ├── nl.js
 │   │   ├── en_US.json
 │   │   └── ...
@@ -49,6 +50,8 @@ This file contains necessary information on the module for the core. This may al
 This folder contains Files that return JSON-Objects. That may either be a `json`-File or a `js`-File.
 It is also allowed to split up the translations of a language when put inside the correspondending folder.
 The translations must be directly accessible via the language-code used ingame.
+
+Any translations that need to be available on root level (without the module being active on main page), need to be avaiable via `xx_XX.root` where `xx_XX` is the current language-code
 
 ### template.vue
 If a module needs its own vue component, it may be stored as a single-file-component. If so, it must be the name of the module followed by the `.vue` extension.

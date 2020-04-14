@@ -1,7 +1,4 @@
 module.exports = {
-    name: 'Uhr',
-    description:
-        'Zeigt eine Konfigurierbare Uhr an verschiedenen Stellen nach Bedarf an.',
     settings: {
         displayNav: {
             title: 'Uhr in der Navigationsleiste anzeigen',

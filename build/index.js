@@ -13,6 +13,12 @@ console.log(`Lets build that stuff in Version ${packageJson.version}`);
 
 const webpackConfig = require('../webpack.config');
 
+const moduleDirs = fs
+    .readdirSync('./src/modules')
+    .filter(x => x !== 'template')
+    .filter(m => !config.modules['core-modules'].includes(m));
+const modules = [];
+
 const entries = Object.keys(config.games).map(game => {
     const entry = {
         mode: process.argv[2] || 'development',
@@ -23,13 +29,11 @@ const entries = Object.keys(config.games).map(game => {
         },
         ...lodash.cloneDeep(webpackConfig),
     };
-    entry.plugins.push(
+    entry.plugins = [
         new webpack.DefinePlugin({
             BUILD_LANG: JSON.stringify(game),
-        })
-    );
-    entry.plugins.push(new CleanWebpackPlugin());
-    entry.plugins.push(
+        }),
+        new CleanWebpackPlugin(),
         new webpack.ContextReplacementPlugin(
             /moment\/locale$/,
             new RegExp(
@@ -37,42 +41,47 @@ const entries = Object.keys(config.games).map(game => {
                     moment.localeData(config.games[game].locale_fallback)._abbr
                 }`
             )
-        )
-    );
-    return entry;
-});
-
-const moduleDirs = fs
-    .readdirSync('./src/modules')
-    .filter(x => x !== 'template')
-    .filter(m => !config.modules['core-modules'].includes(m));
-const modules = moduleDirs.map(module => {
-    if (fs.existsSync(`./src/modules/${module}/main.js`)) {
-        const entry = {
-            mode: process.argv[2] || 'development',
-            entry: { [module]: `./src/modules/${module}/main.js` },
-            output: {
-                path: path.resolve(__dirname, `../dist/modules/${module}`),
+        ),
+        ...entry.plugins,
+    ];
+    moduleDirs.forEach(module => {
+        if (fs.existsSync(`./src/modules/${module}/main.js`)) {
+            const moduleEntry = lodash.cloneDeep(entry);
+            moduleEntry.entry = {
+                [`${game}_${module}`]: `./src/modules/${module}/main.js`,
+            };
+            moduleEntry.output = {
+                path: path.resolve(
+                    __dirname,
+                    `../dist/${game}/modules/${module}`
+                ),
                 filename: 'main.js',
-            },
-            ...lodash.cloneDeep(webpackConfig),
-        };
-        entry.plugins = [
-            new webpack.DefinePlugin({
-                MODULE_ID: JSON.stringify(module),
-            }),
-            new webpack.ContextReplacementPlugin(
-                /moment\/locale$/,
-                new RegExp(
-                    Object.keys(config.games)
-                        .map(g => moment.localeData(g)._abbr)
-                        .join('|')
-                )
-            ),
-            ...entry.plugins,
-        ];
-        return entry;
-    }
+            };
+            if (
+                fs.existsSync(`./src/modules/${module}/i18n/${game}.js`) ||
+                fs.existsSync(`./src/modules/${module}/i18n/${game}.json`) ||
+                fs.existsSync(
+                    `./src/modules/${module}/i18n/${game}/index.js`
+                ) ||
+                fs.existsSync(`./src/modules/${module}/i18n/${game}/index.json`)
+            ) {
+                moduleEntry.module.rules.push({
+                    test: /main\.js/,
+                    loader: 'webpack-append',
+                    query: `window.lssmv4.$i18n.mergeLocaleMessage(${JSON.stringify(
+                        game
+                    )},{modules:{${module}: require(\`./i18n/${game}\`),},});`,
+                });
+            }
+            moduleEntry.plugins.push(
+                new webpack.DefinePlugin({
+                    MODULE_ID: JSON.stringify(module),
+                })
+            );
+            modules.push(moduleEntry);
+        }
+    });
+    return entry;
 });
 
 webpack([...entries, ...modules], (err, stats) => {

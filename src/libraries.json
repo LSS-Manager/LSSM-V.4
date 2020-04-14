@@ -41,7 +41,7 @@
 	"Vue I18n": {
 		"url": "https://kazupon.github.io/vue-i18n/",
 		"icon": "https://kazupon.github.io/vue-i18n/vue-i18n-logo.png",
-		"version": "8.16.0"
+		"version": "8.17.0"
 	},
 	"Vue Select": {
 		"url": "https://vue-select.org/",
@@ -156,6 +156,10 @@
 		"url": "https://webpack.js.org/api/cli/",
 		"icon": "https://webpack.js.org/assets/icon-square-big.svg",
 		"version": "3.3.11"
+	},
+	"webpack-append": {
+		"url": "https://github.com/dumconstantin/webpack-append",
+		"version": "0.1.2"
 	},
 	"webpack": {
 		"url": "https://webpack.js.org",

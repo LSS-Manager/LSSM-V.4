@@ -1,6 +1,4 @@
 {
-    "name": "Lehrgangsübersicht",
-    "description": "Fügt der Seite \"Lehrgänge\" eine Zusammenfassung hinzu.",
     "own": "Lehrgänge mit eigenen Teilnehmern",
     "open": "Offene Lehrgänge",
     "schooling": "Lehrgang",
