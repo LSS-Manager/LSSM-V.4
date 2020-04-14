@@ -1,0 +1,14 @@
+{
+	"tabs": {
+		"chart-summary": "Zusammenfassung"
+	},
+	"chart-summaries": {
+		"buildings": {
+			"title": "Gebäude",
+			"subtitle": "Klicke auf eine Säule für genauere Informationen"
+		},
+		"vehicles": {
+			"title": "Fahrzeuge"
+		}
+	}
+}

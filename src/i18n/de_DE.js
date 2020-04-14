@@ -174,6 +174,29 @@ module.exports = {
         'Polizeiwache (Kleinwache)',
         'Rettungswache (Kleinwache)',
     ],
+    buildingCategories: {
+        Feuerwehr: {
+            buildings: [0, 1, 18],
+            color: '#f00',
+        },
+        Rettungsdienst: {
+            buildings: [2, 3, 5, 12, 15, 20],
+            color: '#ffa500',
+        },
+        Polizei: {
+            buildings: [6, 8, 11, 13, 17, 19],
+            color: '#080',
+        },
+        THW: {
+            buildings: [9, 10],
+            color: '#00f',
+        },
+        Sonstiges: {
+            buildings: [4, 7, 14],
+            color: '#02a18c',
+        },
+    },
+    amount: 'Anzahl',
 };
 
 //

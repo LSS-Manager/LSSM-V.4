@@ -23,6 +23,11 @@
 		"icon": "https://fontawesome.com/images/favicons/apple-icon-180x180.png",
 		"version": "5.13"
 	},
+	"Highcharts": {
+		"url": "https://www.highcharts.com/",
+		"icon": "https://www.highcharts.com/images/ico/favicon-192x192.png",
+		"version": "8.0.4"
+	},
 	"Lodash": {
 		"url": "https://lodash.com/",
 		"icon": "https://lodash.com/assets/img/lodash.svg",

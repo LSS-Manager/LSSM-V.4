@@ -9,6 +9,7 @@ import ToggleButton from 'vue-js-toggle-button';
 import * as Tabs from 'vue-slim-tabs';
 
 const config = require('./config');
+const utils = require('./utils');
 
 Vue.use(VueJSModal, {
     dynamic: true,
@@ -26,6 +27,10 @@ let lssm = document.createElement('div');
 document.querySelector('body').appendChild(lssm);
 
 i18n.locale = store.state.lang;
+
+Vue.mixin({
+    methods: utils,
+});
 
 window[store.state.prefix] = new Vue({
     store,

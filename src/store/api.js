@@ -38,6 +38,27 @@ export default {
         },
         buildingById: state => buildingId =>
             state.buildings.find(x => x.id === buildingId),
+        buildingsByCategory(_, getters, rootState) {
+            const categoriesToType = window[rootState.prefix].$t(
+                'buildingCategories'
+            );
+            const categories = {};
+            const typeToCategory = {};
+            Object.keys(categoriesToType).forEach(category => {
+                Object.values(categoriesToType[category].buildings).forEach(
+                    type => (typeToCategory[type] = category)
+                );
+            });
+            const buildingsByType = getters.buildingsByType;
+            Object.keys(buildingsByType).forEach(type => {
+                if (!categories.hasOwnProperty(typeToCategory[type]))
+                    categories[typeToCategory[type]] = [];
+                buildingsByType[type].forEach(building =>
+                    categories[typeToCategory[type]].push(building)
+                );
+            });
+            return categories;
+        },
         vehiclesByType(state) {
             let types = {};
             state.vehicles.forEach(vehicle => {

@@ -1,5 +1,5 @@
 {
-    "version": "4.0.2+20200414.1116",
+    "version": "4.0.2+20200415.0001",
     "scripts": {
         "predev": "node prebuild",
         "dev": "node build",
@@ -9,6 +9,7 @@
         "postbuild": "vuepress build docs"
     },
     "dependencies": {
+        "highcharts": "^8.0.4",
         "localforage": "^1.7.3",
         "lodash": "^4.17.15",
         "moment": "^2.24.0",

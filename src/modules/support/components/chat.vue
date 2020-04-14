@@ -5,9 +5,7 @@
             v-for="(message, index) in messages"
             :key="index"
             :self="(message.self = message.author.name === window.username)"
-            :color="
-                (message.color = getColor(message.author.name, message.self))
-            "
+            :color="(message.color = getColorFromString(message.author.name))"
         >
             <span
                 class="chat-img"
@@ -15,7 +13,9 @@
             >
                 <img
                     :src="
-                        `https://placehold.it/50/${message.color}/${getRColor(
+                        `https://placehold.it/50/${
+                            message.color
+                        }/${getTextColor(
                             message.color
                         )}?text=${message.author.name
                             .split('')[0]
@@ -93,31 +93,6 @@ export default {
             moment,
             config,
         };
-    },
-    methods: {
-        getColor(username, self) {
-            let hash = 0;
-            for (let i = 0; i < username.length; i++) {
-                hash = username.charCodeAt(i) + ((hash << 5) - hash);
-            }
-            if (self) {
-                hash += 0x10eeef;
-            } else {
-                hash -= 0x10ef11;
-            }
-            hash = (hash & 0x00ffffff).toString(16).toUpperCase();
-            return '00000'.substring(0, 6 - hash.length) + hash;
-        },
-        getRColor(color) {
-            color = parseInt(color, 16);
-            return Math.sqrt(
-                (color & 0xff0000) ** 2 * 0.241 +
-                    (color & 0xff00) ** 2 * 0.691 +
-                    (color & 0xff) ** 2 * 0.068
-            ) < 130
-                ? 'fff'
-                : '000';
-        },
     },
 };
 </script>
