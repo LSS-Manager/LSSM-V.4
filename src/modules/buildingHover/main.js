@@ -36,9 +36,9 @@ let setTooltip = marker => {
 
     if (!building.isAlliance) {
         if (
-            window.lssmv4
-                .$t('modules.buildingHover.vehicleBuildings')
-                .indexOf(building.building_type) >= 0
+            Object.values(
+                window.lssmv4.$t('modules.buildingHover.vehicleBuildings')
+            ).indexOf(building.building_type) >= 0
         ) {
             data += `<br><i class="fa fa-parking"></i>&nbsp;${building.level +
                 1}&nbsp;<i class="fa fa-car"></i>&nbsp;${
@@ -64,16 +64,16 @@ let setTooltip = marker => {
             });
             data += `</table>`;
         } else if (
-            window.lssmv4
-                .$t('modules.buildingHover.bedBuildings')
-                .indexOf(building.building_type) >= 0
+            Object.values(
+                window.lssmv4.$t('modules.buildingHover.bedBuildings')
+            ).indexOf(building.building_type) >= 0
         ) {
             data += `<br><i class="fa fa-procedures"></i>&nbsp;${building.level +
                 10}`;
         } else if (
-            window.lssmv4
-                .$t('modules.buildingHover.schoolBuildings')
-                .indexOf(building.building_type) >= 0
+            Object.values(
+                window.lssmv4.$t('modules.buildingHover.schoolBuildings')
+            ).indexOf(building.building_type) >= 0
         ) {
             data += `<br><i class="fa fa-chalkboard-teacher"></i>&nbsp;${building
                 .extensions.length + 1}`;
