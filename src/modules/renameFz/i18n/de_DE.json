@@ -1,6 +1,10 @@
 {
 	"templates": {
 		"selection": "Template wählen...",
-		"selectionHint": "Neues Template anlegen? Einfach den Namen eingeben und auswählen!"
+		"selectionHint": "Neues Template anlegen? Einfach den Namen eingeben und auswählen!",
+		"status": {
+			"template": "Warte auf Template-Auswahl…",
+			"waiting": "Warte auf Eingabe…"
+		}
 	}
 }

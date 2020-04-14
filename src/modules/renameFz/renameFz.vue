@@ -17,7 +17,9 @@
                 :taggable="true"
                 :key="templateSelection.key"
                 :loading="templateSelection.loading"
+                v-model="templateSelection.template"
                 @option:created="checkSelection"
+                @input="selectedTemplate"
             >
                 <template #header>
                     <p class="text-muted">
@@ -28,6 +30,14 @@
                     <i v-if="loading" class="fas fa-sync fa-spin"></i>
                 </template>
             </v-select>
+            <p>
+                Status:
+                {{
+                    $t('modules.renameFz.templates.status')[
+                        templateSelection.status
+                    ]
+                }}
+            </p>
         </div>
     </div>
 </template>
@@ -44,6 +54,8 @@ export default {
             templateSelection: {
                 key: 0,
                 loading: false,
+                template: null,
+                status: 'template',
             },
             settings: {},
         };
@@ -67,6 +79,9 @@ export default {
                 this.templates[input] = [];
                 this.saveTemplates();
             }
+        },
+        selectedTemplate(input) {
+            this.templateSelection.status = input ? 'waiting' : 'template';
         },
         saveTemplates() {
             this.templateSelection.loading = true;
