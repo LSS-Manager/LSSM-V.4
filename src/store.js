@@ -56,7 +56,8 @@ export default new Vuex.Store({
             state.hooks[event] = window[event];
         },
         setModuleActive(state, moduleId) {
-            state.modules[moduleId].active = true;
+            if (state.modules.hasOwnProperty(moduleId))
+                state.modules[moduleId].active = true;
         },
         setKey(state, key) {
             state.key = key;
@@ -95,6 +96,10 @@ export default new Vuex.Store({
                 c => c.status === (state.lssm_admin ? 'new' : 'unread')
             ).length,
         badge: (_, getters) => getters.supportCounter,
+        activeModules: state =>
+            Object.keys(state.modules).filter(
+                module => state.modules[module].active
+            ),
     },
     actions: {
         addMenuItem({ getters }, { menuItem }) {

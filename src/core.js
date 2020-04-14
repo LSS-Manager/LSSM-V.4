@@ -119,6 +119,7 @@ if (window.location.pathname === '/') {
             );
         }
         activeModules.forEach(module => {
+            if (!store.state.modules.hasOwnProperty(module)) return;
             store.commit('setModuleActive', module);
             if (
                 window.location.pathname.match(
@@ -126,6 +127,10 @@ if (window.location.pathname === '/') {
                 )
             )
                 store.dispatch('loadModule', { module });
+        });
+        store.dispatch('storage/set', {
+            key: 'active',
+            val: store.getters.activeModules,
         });
     });
 })();
