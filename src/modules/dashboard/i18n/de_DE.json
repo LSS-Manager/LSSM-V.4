@@ -4,8 +4,7 @@
 	},
 	"chart-summaries": {
 		"buildings": {
-			"title": "Gebäude",
-			"subtitle": "Klicke auf eine Säule für genauere Informationen"
+			"title": "Gebäude"
 		},
 		"vehicles": {
 			"title": "Fahrzeuge"

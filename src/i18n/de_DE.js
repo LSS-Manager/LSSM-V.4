@@ -192,7 +192,64 @@ module.exports = {
             color: '#00f',
         },
         Sonstiges: {
-            buildings: [4, 7, 14],
+            buildings: [4, 7],
+            color: '#02a18c',
+        },
+    },
+    vehicleCategories: {
+        Feuerwehr: {
+            vehicles: {
+                ['Löschfahrzeuge']: [90, 30, 1, 0, 37, 88, 89, 6, 7, 8, 9],
+                ['Tanklöschfahrzeuge']: [
+                    17,
+                    18,
+                    19,
+                    20,
+                    21,
+                    22,
+                    23,
+                    24,
+                    25,
+                    26,
+                    87,
+                ],
+                Schlauchwagen: [11, 13, 14, 15, 16],
+                Sonderfahrzeuge: [2, 3, 4, 5, 10, 12, 27, 33, 34, 36, 53, 57],
+                ['WLF & Abrollbehälter']: [46, 47, 48, 49, 54, 62, 71, 77, 78],
+                Flughafenfeuerwehr: [75, 76],
+                Werkfeuerwehr: [83, 84, 85, 86],
+            },
+            color: '#f00',
+        },
+        Rettungsdienst: {
+            vehicles: {
+                'Rettungsdienstfahrzeuge': [28, 29, 55, 56, 73, 74],
+                'Rettungshubschrauber': [31],
+                'KTW': [38, 58],
+                'SEG-Fahrzeuge': [59, 60],
+            },
+            color: '#ffa500',
+        },
+        Polizei: {
+            vehicles: {
+                'Funkstreifenwagen': [32],
+                'Bereitschaftspolizei-Fahrzeuge': [35, 50, 51, 52, 72],
+                'Polizeihubschrauber': [61],
+                'SEK': [79, 80],
+                'MEK': [81, 82],
+            },
+            color: '#080',
+        },
+        THW: {
+            vehicles: {
+                'THW-Fahrzeuge': [39, 40, 41, 42, 43, 44, 45],
+            },
+            color: '#00f',
+        },
+        Wasserrettung: {
+            vehicles: {
+                Wasserrettungsfahrzeuge: [63, 64, 65, 66, 67, 68, 69, 70],
+            },
             color: '#02a18c',
         },
     },

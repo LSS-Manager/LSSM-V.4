@@ -18,8 +18,18 @@
                     {{ $t('modules.dashboard.chart-summaries.vehicles.title') }}
                 </h5>
             </div>
-            <div class="panel-body">
-                <div :id="vehiclesId"></div>
+            <div class="panel-body sunburst-grid">
+                <div
+                    v-for="(_, category) in vehicleCategories"
+                    :key="category"
+                    :id="`${vehiclesId}_${category}`"
+                    class="sunburst-chart"
+                    :style="
+                        `flex: 1 0 min(100%, max(250px, calc(100%/${
+                            Object.keys(vehicleCategories).length
+                        })))`
+                    "
+                ></div>
             </div>
         </div>
     </div>
@@ -28,31 +38,31 @@
 <script>
 const Highcharts = require('highcharts');
 
-require('highcharts/modules/drilldown')(Highcharts);
 require('highcharts/highcharts-more')(Highcharts);
+require('highcharts/modules/drilldown')(Highcharts);
+require('highcharts/modules/sunburst')(Highcharts);
 
 export default {
     name: 'chart-summary',
     data() {
         return {
             buildingsId: this.$store.getters.nodeId('chart-summary-buildings'),
-            vehiclesId: this.$store.getters.nodeId('chart-summary-vehicles'),
             buildings: this.$store.getters['api/buildingsByCategory'],
             buildingCategories: this.$t('buildingCategories'),
             buildingTypeNames: this.$t('buildings'),
-            buildingchart: null,
+            vehiclesId: this.$store.getters.nodeId('chart-summary-vehicles'),
+            vehicles: this.$store.getters['api/vehiclesByCategory'],
+            vehicleCategories: this.$t('vehicleCategories'),
+            vehicleTypeNames: this.$t('vehicles'),
         };
     },
     mounted() {
+        this.highChartsDarkMode(this, Highcharts);
         Highcharts.chart(this.buildingsId, {
             chart: {
                 type: 'waterfall',
             },
-            title: {
-                text: this.$t(
-                    'modules.dashboard.chart-summaries.buildings.title'
-                ),
-            },
+            title: null,
             legend: {
                 enabled: false,
             },
@@ -114,8 +124,73 @@ export default {
                 }),
             },
         });
+
+        Highcharts.getOptions().colors.splice(0, 0, 'transparent');
+        Object.keys(this.vehicleCategories).map(category => {
+            const data = [
+                {
+                    id: category,
+                    name: category,
+                },
+                {
+                    id: `${category}_1`,
+                    parent: category,
+                    value: 13,
+                },
+            ];
+            Highcharts.chart(`${this.vehiclesId}_${category}`, {
+                chart: {
+                    height: '100%',
+                    type: 'sunburst',
+                },
+                title: null,
+                series: [
+                    {
+                        data,
+                        allowDrillToNode: true,
+                        cursor: 'pointer',
+                        levels: [
+                            {
+                                level: 1,
+                                levelIsConstant: false,
+                            },
+                            {
+                                level: 2,
+                                color: this.vehicleCategories[category].color,
+                            },
+                            {
+                                level: 3,
+                                colorVariation: {
+                                    key: 'brightness',
+                                    to: -0.5,
+                                },
+                            },
+                            {
+                                level: 4,
+                                colorVariation: {
+                                    key: 'brightness',
+                                    to: 0.5,
+                                },
+                            },
+                        ],
+                    },
+                ],
+            });
+        });
     },
 };
 </script>
 
-<style scoped></style>
+<style scoped lang="sass">
+.sunburst-grid
+    display: flex
+    flex-flow: row wrap
+    justify-content: space-evenly
+
+    &::before,
+    &::after
+        display: none
+
+    .sunburst-chart
+        max-width: 500px
+</style>

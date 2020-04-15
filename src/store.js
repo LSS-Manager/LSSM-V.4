@@ -30,7 +30,7 @@ export default new Vuex.Store({
         lang: window.I18n.locale,
         prefix: 'lssmv4',
         server: config.server,
-        websocket: config.websocket,
+        darkmode: window.document.body.classList.contains('dark'),
         lssm: {},
         localforage,
         appstoreUpdate: false,
