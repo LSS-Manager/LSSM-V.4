@@ -33,7 +33,6 @@ const entries = Object.keys(config.games).map(game => {
         new webpack.DefinePlugin({
             BUILD_LANG: JSON.stringify(game),
         }),
-        new CleanWebpackPlugin(),
         new webpack.ContextReplacementPlugin(
             /moment\/locale$/,
             new RegExp(

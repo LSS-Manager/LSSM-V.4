@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="panel">
+        <div class="panel panel-default">
             <div class="panel-heading">
                 <h5>
                     {{
@@ -12,7 +12,7 @@
                 <div :id="buildingsId"></div>
             </div>
         </div>
-        <div class="panel">
+        <div class="panel panel-default">
             <div class="panel-heading">
                 <h5>
                     {{ $t('modules.dashboard.chart-summaries.vehicles.title') }}
@@ -29,6 +29,7 @@
 const Highcharts = require('highcharts');
 
 require('highcharts/modules/drilldown')(Highcharts);
+require('highcharts/highcharts-more')(Highcharts);
 
 export default {
     name: 'chart-summary',
@@ -43,18 +44,13 @@ export default {
         };
     },
     mounted() {
-        this.buildingchart = Highcharts.chart(this.buildingsId, {
+        Highcharts.chart(this.buildingsId, {
             chart: {
-                type: 'column',
+                type: 'waterfall',
             },
             title: {
                 text: this.$t(
                     'modules.dashboard.chart-summaries.buildings.title'
-                ),
-            },
-            subtitle: {
-                text: this.$t(
-                    'modules.dashboard.chart-summaries.buildings.subtitle'
                 ),
             },
             legend: {
@@ -68,21 +64,37 @@ export default {
                     text: this.$t('amount'),
                 },
             },
-            series: [
-                {
-                    name: this.$t(
-                        'modules.dashboard.chart-summaries.buildings.title'
-                    ),
-                    data: Object.keys(this.buildingCategories).map(category => {
-                        return {
+            tooltip: {
+                headerFormat:
+                    '<span style="font-size:11px">{series.name}</span><br>',
+                pointFormat:
+                    '<span style="color:{point.color}">{point.name}</span>: <b>{point.y}</b>',
+            },
+            series: Object.keys(this.buildingCategories).map(category => {
+                const types = Object.values(
+                    this.buildingCategories[category].buildings
+                );
+                return {
+                    name: category,
+                    data: [
+                        ...types.map(type => {
+                            return {
+                                name: this.buildingTypeNames[type],
+                                y: (this.buildings[category] || []).filter(
+                                    building => building.building_type === type
+                                ).length,
+                                color: this.buildingCategories[category].color,
+                            };
+                        }),
+                        {
                             name: category,
-                            y: (this.buildings[category] || []).length,
-                            drilldown: category,
+                            isSum: true,
                             color: this.buildingCategories[category].color,
-                        };
-                    }),
-                },
-            ],
+                            drilldown: category,
+                        },
+                    ],
+                };
+            }),
             drilldown: {
                 series: Object.keys(this.buildingCategories).map(category => {
                     const types = Object.values(
@@ -91,6 +103,7 @@ export default {
                     return {
                         name: category,
                         id: category,
+                        type: 'column',
                         data: types.map(type => [
                             this.buildingTypeNames[type],
                             (this.buildings[category] || []).filter(
