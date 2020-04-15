@@ -7,7 +7,8 @@
 			"title": "Gebäude"
 		},
 		"vehicles": {
-			"title": "Fahrzeuge"
+			"title": "Fahrzeuge",
+			"empty": "Du hast in der Kategorie {category} noch keine Fahrzeuge!"
 		}
 	}
 }

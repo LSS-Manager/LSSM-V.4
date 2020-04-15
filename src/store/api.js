@@ -72,9 +72,6 @@ export default {
             state.vehicles.filter(v => v.building_id === buildingId),
         vehicleById: state => vehicleId =>
             state.vehicles.find(x => x.id === vehicleId),
-        vehiclesByCategory() {
-            return {};
-        },
     },
     actions: {
         buildings: async ({ state, commit, dispatch }) => {

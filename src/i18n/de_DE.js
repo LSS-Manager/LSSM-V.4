@@ -177,7 +177,7 @@ module.exports = {
     buildingCategories: {
         Feuerwehr: {
             buildings: [0, 1, 18],
-            color: '#f00',
+            color: '#ff0000',
         },
         Rettungsdienst: {
             buildings: [2, 3, 5, 12, 15, 20],
@@ -185,11 +185,11 @@ module.exports = {
         },
         Polizei: {
             buildings: [6, 8, 11, 13, 17, 19],
-            color: '#080',
+            color: '#008800',
         },
         THW: {
             buildings: [9, 10],
-            color: '#00f',
+            color: '#0000ff',
         },
         Sonstiges: {
             buildings: [4, 7],
@@ -219,14 +219,14 @@ module.exports = {
                 Flughafenfeuerwehr: [75, 76],
                 Werkfeuerwehr: [83, 84, 85, 86],
             },
-            color: '#f00',
+            color: '#ff0000',
         },
         Rettungsdienst: {
             vehicles: {
                 'Rettungsdienstfahrzeuge': [28, 29, 55, 56, 73, 74],
                 'Rettungshubschrauber': [31],
-                'KTW': [38, 58],
-                'SEG-Fahrzeuge': [59, 60],
+                'KTW': [38],
+                'SEG-Fahrzeuge': [58, 59, 60],
             },
             color: '#ffa500',
         },
@@ -238,17 +238,21 @@ module.exports = {
                 'SEK': [79, 80],
                 'MEK': [81, 82],
             },
-            color: '#080',
+            color: '#008800',
         },
         THW: {
             vehicles: {
-                'THW-Fahrzeuge': [39, 40, 41, 42, 43, 44, 45],
+                GKW: [39],
+                Bergungsgruppe: [41],
+                Zugtrupp: [40],
+                ['Fachgruppe Räumen']: [42, 43, 44, 45],
             },
-            color: '#00f',
+            color: '#0000ff',
         },
         Wasserrettung: {
             vehicles: {
-                Wasserrettungsfahrzeuge: [63, 64, 65, 66, 67, 68, 69, 70],
+                ['Rettungsdienst & Feuerwehr']: [63, 64, 70],
+                THW: [65, 66, 67, 68, 69],
             },
             color: '#02a18c',
         },

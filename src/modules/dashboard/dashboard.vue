@@ -16,5 +16,8 @@ import ChartSummary from './components/chart-summary.vue';
 export default {
     name: 'dashboard',
     components: { ChartSummary, Lightbox },
+    mounted() {
+        this.$store.dispatch('api/buildings');
+    },
 };
 </script>

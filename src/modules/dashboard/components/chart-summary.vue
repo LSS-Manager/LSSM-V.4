@@ -29,7 +29,16 @@
                             Object.keys(vehicleCategories).length
                         })))`
                     "
-                ></div>
+                >
+                    <div class="alert alert-danger">
+                        {{
+                            $t(
+                                'modules.dashboard.chart-summaries.vehicles.empty',
+                                { category }
+                            )
+                        }}
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -51,7 +60,7 @@ export default {
             buildingCategories: this.$t('buildingCategories'),
             buildingTypeNames: this.$t('buildings'),
             vehiclesId: this.$store.getters.nodeId('chart-summary-vehicles'),
-            vehicles: this.$store.getters['api/vehiclesByCategory'],
+            vehicles: this.$store.getters['api/vehiclesByType'],
             vehicleCategories: this.$t('vehicleCategories'),
             vehicleTypeNames: this.$t('vehicles'),
         };
@@ -93,7 +102,15 @@ export default {
                                 y: (this.buildings[category] || []).filter(
                                     building => building.building_type === type
                                 ).length,
-                                color: this.buildingCategories[category].color,
+                                color: `#${this.getColorFromString(
+                                    this.buildingTypeNames[type],
+                                    parseInt(
+                                        this.buildingCategories[
+                                            category
+                                        ].color.replace('#', ''),
+                                        16
+                                    )
+                                )}`,
                             };
                         }),
                         {
@@ -114,30 +131,106 @@ export default {
                         name: category,
                         id: category,
                         type: 'column',
-                        data: types.map(type => [
-                            this.buildingTypeNames[type],
-                            (this.buildings[category] || []).filter(
-                                building => building.building_type === type
-                            ).length,
-                        ]),
+                        data: types.map(type => {
+                            return {
+                                name: this.buildingTypeNames[type],
+                                y: (this.buildings[category] || []).filter(
+                                    building => building.building_type === type
+                                ).length,
+                                color: `#${this.getColorFromString(
+                                    this.buildingTypeNames[type],
+                                    parseInt(
+                                        this.buildingCategories[
+                                            category
+                                        ].color.replace('#', ''),
+                                        16
+                                    )
+                                )}`,
+                            };
+                        }),
                     };
                 }),
             },
         });
 
         Highcharts.getOptions().colors.splice(0, 0, 'transparent');
-        Object.keys(this.vehicleCategories).map(category => {
+        Object.keys(this.vehicleCategories).forEach(category => {
+            const groups = Object.keys(
+                this.vehicleCategories[category].vehicles
+            );
             const data = [
                 {
                     id: category,
                     name: category,
                 },
-                {
-                    id: `${category}_1`,
-                    parent: category,
-                    value: 13,
-                },
             ];
+            let sum = 0;
+            if (groups.length > 1) {
+                groups.forEach(group => {
+                    const types = [];
+                    Object.values(
+                        this.vehicleCategories[category].vehicles[group]
+                    ).forEach(type => {
+                        const value = (this.vehicles[type] || []).length;
+                        sum += value;
+                        types.push({
+                            id: `${category}_${group}_${type}`,
+                            name: this.vehicleTypeNames[type],
+                            parent: `${category}_${group}`,
+                            value,
+                            color: `#${this.getColorFromString(
+                                this.vehicleTypeNames[type],
+                                parseInt(
+                                    this.vehicleCategories[
+                                        category
+                                    ].color.replace('#', ''),
+                                    16
+                                )
+                            )}`,
+                        });
+                    });
+                    data.push({
+                        id: `${category}_${group}`,
+                        name: group,
+                        parent: category,
+                        color: `#${this.getColorFromString(
+                            group,
+                            parseInt(
+                                this.vehicleCategories[category].color.replace(
+                                    '#',
+                                    ''
+                                ),
+                                16
+                            )
+                        )}`,
+                    });
+                    types.forEach(type => data.push(type));
+                });
+            } else {
+                Object.values(
+                    this.vehicleCategories[category].vehicles[groups[0]]
+                ).forEach(type => {
+                    const value = (this.vehicles[type] || []).length;
+                    sum += value;
+                    data.push({
+                        id: `${category}_${type}`,
+                        name: this.vehicleTypeNames[type],
+                        value,
+                        parent: category,
+                        color: `#${this.getColorFromString(
+                            this.vehicleTypeNames[type],
+                            parseInt(
+                                this.vehicleCategories[category].color.replace(
+                                    '#',
+                                    ''
+                                ),
+                                16
+                            )
+                        )}`,
+                    });
+                });
+            }
+            if (!sum) return;
             Highcharts.chart(`${this.vehiclesId}_${category}`, {
                 chart: {
                     height: '100%',
@@ -186,6 +279,7 @@ export default {
     display: flex
     flex-flow: row wrap
     justify-content: space-evenly
+    align-items: center
 
     &::before,
     &::after
@@ -193,4 +287,7 @@ export default {
 
     .sunburst-chart
         max-width: 500px
+
+        .alert.alert-danger
+            margin: 4rem
 </style>
