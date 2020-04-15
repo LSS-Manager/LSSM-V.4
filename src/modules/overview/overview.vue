@@ -171,7 +171,7 @@ export default {
     },
     computed: {
         buildings() {
-            return this.$t('modules.overview.buildings')
+            return Object.values(this.$t('modules.overview.buildings'))
                 .sort((a, b) => {
                     let modifier = this.sortVehicleDir === 'desc' ? -1 : 1;
                     a = a[this.sortVehicle] || '';
@@ -189,12 +189,13 @@ export default {
         vehicles() {
             let vehicles = cloneDeep(this.$t(`modules.overview.vehicles`));
             Object.keys(vehicles).forEach(category => {
-                vehicles[category] = vehicles[category].filter(a =>
-                    this.vehicleSearch.length > 0
-                        ? JSON.stringify(Object.values(a))
-                              .toLowerCase()
-                              .match(this.vehicleSearch.toLowerCase())
-                        : true
+                vehicles[category] = Object.values(vehicles[category]).filter(
+                    a =>
+                        this.vehicleSearch.length > 0
+                            ? JSON.stringify(Object.values(a))
+                                  .toLowerCase()
+                                  .match(this.vehicleSearch.toLowerCase())
+                            : true
                 );
                 return vehicles[category].sort((a, b) => {
                     let modifier = this.sortVehicleDir === 'desc' ? -1 : 1;
