@@ -1,11 +1,10 @@
 module.exports = {
-    getColorFromString(string = '', shift = null) {
+    getColorFromString: function(string = '', shift = 0) {
         let hash = 0;
         for (let i = 0; i < string.length; i++) {
             hash = string.charCodeAt(i) + ((hash << 5) - hash);
         }
-        if (shift !== null) hash = shift & hash;
-        if (hash < shift / 3) hash += shift / 3;
+        hash = (hash + 2 * shift) / 3;
         hash = (hash & 0x00ffffff).toString(16).toUpperCase();
         return '00000'.substring(0, 6 - hash.length) + hash;
     },

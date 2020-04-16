@@ -1,4 +1,6 @@
-const vehicleTypes = window.lssmv4.$t('vehicles');
+const vehicleTypes = Object.values(window.lssmv4.$t('vehicles')).map(
+    type => type.caption
+);
 
 document.head.insertAdjacentHTML(
     'beforeend',

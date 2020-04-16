@@ -66,11 +66,21 @@ export default {
             buildingsId: this.$store.getters.nodeId('chart-summary-buildings'),
             buildings: this.$store.getters['api/buildingsByCategory'],
             buildingCategories: this.$t('buildingCategories'),
-            buildingTypeNames: this.$t('buildings'),
+            buildingTypeNames: Object.values(this.$t('buildings')).map(
+                type => type.caption
+            ),
+            buildingTypeColors: Object.values(this.$t('buildings')).map(
+                type => type.color
+            ),
             vehiclesId: this.$store.getters.nodeId('chart-summary-vehicles'),
             vehicles: this.$store.getters['api/vehiclesByType'],
             vehicleCategories: this.$t('vehicleCategories'),
-            vehicleTypeNames: this.$t('vehicles'),
+            vehicleTypeNames: Object.values(this.$t('vehicles')).map(
+                type => type.caption
+            ),
+            vehicleTypeColors: Object.values(this.$t('vehicles')).map(
+                type => type.color
+            ),
             vehiclesByBuilding: this.$store.getters['api/vehiclesByBuilding'],
         };
     },
@@ -118,15 +128,17 @@ export default {
                                 y: (this.buildings[category] || []).filter(
                                     building => building.building_type === type
                                 ).length,
-                                color: `#${this.getColorFromString(
-                                    this.buildingTypeNames[type],
-                                    parseInt(
-                                        this.buildingCategories[
-                                            category
-                                        ].color.replace('#', ''),
-                                        16
-                                    )
-                                )}`,
+                                color:
+                                    this.buildingTypeColors[type] ||
+                                    `#${this.getColorFromString(
+                                        this.buildingTypeNames[type],
+                                        parseInt(
+                                            this.buildingCategories[
+                                                category
+                                            ].color.replace('#', ''),
+                                            16
+                                        )
+                                    )}`,
                             };
                         }),
                         {
@@ -149,15 +161,6 @@ export default {
                             id: category,
                             type: 'column',
                             data: types.map(building_type => {
-                                const building_type_color = this.getColorFromString(
-                                    this.buildingTypeNames[building_type],
-                                    parseInt(
-                                        this.buildingCategories[
-                                            category
-                                        ].color.replace('#', ''),
-                                        16
-                                    )
-                                );
                                 const buildings = (
                                     this.buildings[category] || []
                                 ).filter(
@@ -204,12 +207,25 @@ export default {
                                                         vehicle_types[
                                                             vehicle_type
                                                         ],
-                                                    color: this.getColorFromString(
-                                                        this.vehicleTypeNames[
+                                                    color:
+                                                        this.vehicleTypeColors[
                                                             vehicle_type
-                                                        ],
-                                                        building_type_color
-                                                    ),
+                                                        ] ||
+                                                        `#${this.getColorFromString(
+                                                            this
+                                                                .vehicleTypeNames[
+                                                                vehicle_type
+                                                            ],
+                                                            parseInt(
+                                                                this.vehicleCategories[
+                                                                    category
+                                                                ].color.replace(
+                                                                    '#',
+                                                                    ''
+                                                                ),
+                                                                16
+                                                            )
+                                                        )}`,
                                                 };
                                             }
                                         ),
@@ -219,7 +235,21 @@ export default {
                                 return {
                                     name: this.buildingTypeNames[building_type],
                                     y: buildings.length,
-                                    color: `#${building_type_color}`,
+                                    color:
+                                        this.buildingTypeColors[
+                                            building_type
+                                        ] ||
+                                        `#${this.getColorFromString(
+                                            this.buildingTypeNames[
+                                                building_type
+                                            ],
+                                            parseInt(
+                                                this.buildingCategories[
+                                                    category
+                                                ].color.replace('#', ''),
+                                                16
+                                            )
+                                        )}`,
                                     drilldown:
                                         Object.keys(vehicle_types).length &&
                                         `${category}_${building_type}`,
@@ -246,32 +276,39 @@ export default {
             if (groups.length > 1) {
                 groups.forEach(group => {
                     const types = [];
+                    let groupColor = 0xffffff;
                     Object.values(
                         this.vehicleCategories[category].vehicles[group]
                     ).forEach(type => {
                         const value = (this.vehicles[type] || []).length;
                         sum += value;
+                        const color =
+                            this.vehicleTypeColors[type] ||
+                            `#${this.getColorFromString(
+                                this.vehicleTypeNames[type],
+                                parseInt(
+                                    this.vehicleCategories[
+                                        category
+                                    ].color.replace('#', ''),
+                                    16
+                                )
+                            )}`;
+                        groupColor += parseInt(color.replace(/^#/, ''), 16);
+                        groupColor /= 2;
+                        // console.log(color, groupColor);
                         types.push({
                             id: `${category}_${group}_${type}`,
                             name: this.vehicleTypeNames[type],
                             parent: `${category}_${group}`,
                             value,
+                            color,
                         });
                     });
                     data.push({
                         id: `${category}_${group}`,
                         name: group,
                         parent: category,
-                        color: `#${this.getColorFromString(
-                            group,
-                            parseInt(
-                                this.vehicleCategories[category].color.replace(
-                                    '#',
-                                    ''
-                                ),
-                                16
-                            )
-                        )}`,
+                        color: `#${Math.floor(groupColor).toString(16)}`,
                     });
                     types.forEach(type => data.push(type));
                 });
@@ -286,16 +323,12 @@ export default {
                         name: this.vehicleTypeNames[type],
                         value,
                         parent: category,
-                        color: `#${this.getColorFromString(
-                            this.vehicleTypeNames[type],
-                            parseInt(
-                                this.vehicleCategories[category].color.replace(
-                                    '#',
-                                    ''
-                                ),
-                                16
-                            )
-                        )}`,
+                        color:
+                            this.vehicleTypeColors[type] ||
+                            `#${this.getColorFromString(
+                                this.vehicleTypeNames[type],
+                                this.vehicleCategories[category].color
+                            )}`,
                     });
                 });
             }
@@ -313,23 +346,7 @@ export default {
                         data,
                         allowDrillToNode: true,
                         cursor: 'pointer',
-                        levels: [
-                            {
-                                level: 1,
-                                levelIsConstant: false,
-                            },
-                            {
-                                level: 2,
-                                color: this.vehicleCategories[category].color,
-                            },
-                            {
-                                level: 3,
-                                colorVariation: {
-                                    key: 'brightness',
-                                    to: 0.5,
-                                },
-                            },
-                        ],
+                        levelIsConstant: false,
                     },
                 ],
             });

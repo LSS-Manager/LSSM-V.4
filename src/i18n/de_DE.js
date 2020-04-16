@@ -59,120 +59,363 @@ module.exports = {
         },
     },
     vehicles: [
-        'LF 20',
-        'LF 10',
-        'DLK 23',
-        'ELW 1',
-        'RW',
-        'GW-A',
-        'LF 8/6',
-        'LF 20/16',
-        'LF 10/6',
-        'LF 16-TS',
-        'GW-Öl',
-        'GW-L2-Wasser',
-        'GW-Messtechnik',
-        'SW 1000',
-        'SW 2000',
-        'SW 2000-Tr',
-        'SW Kats',
-        'TLF 2000',
-        'TLF 3000',
-        'TLF 8/8',
-        'TLF 8/18',
-        'TLF 16/24-Tr',
-        'TLF 16/25',
-        'TLF 16/45',
-        'TLF 20/40',
-        'TLF 20/40-SL',
-        'TLF 16',
-        'GW-Gefahrgut',
-        'RTW',
-        'NEF',
-        'HLF 20',
-        'RTH',
-        'FuStW',
-        'GW-Höhenrettung',
-        'ELW 2',
-        'leBefKw',
-        'MTW',
-        'TSF-W',
-        'KTW',
-        'GKW',
-        'MTW-TZ',
-        'MzKW',
-        'LKW K 9',
-        'BRmG R',
-        'Anh DLE',
-        'MLW 5',
-        'WLF',
-        'AB-Rüst',
-        'AB-Atemschutz',
-        'AB-Öl',
-        'GruKw',
-        'FüKw',
-        'GefKw',
-        'Dekon-P',
-        'AB-Dekon-P',
-        'KdoW-LNA',
-        'KdoW-OrgL',
-        'FwK',
-        'KTW Typ B',
-        'ELW 1 (SEG)',
-        'GW-San',
-        'Polizeihubschrauber',
-        'AB-Schlauch',
-        'GW-Taucher',
-        'GW-Wasserrettung',
-        'LKW 7 Lkr 19 tm',
-        'Anh MzB',
-        'Anh SchlB',
-        'Anh MzAB',
-        'Tauchkraftwagen',
-        'MZB',
-        'AB-MZB',
-        'WaWe 10',
-        'GRTW',
-        'NAW',
-        'FLF',
-        'Rettungstreppe',
-        'AB-Gefahrgut',
-        'AB-Einsatzleitung',
-        'SEK - ZF',
-        'SEK - MTF',
-        'MEK - ZF',
-        'MEK - MTF',
-        'GW-Werkfeuerwehr',
-        'ULF mit Löscharm',
-        'TM 50',
-        'Turbolöscher',
-        'TLF 4000',
-        'KLF',
-        'MLF',
-        'HLF 10',
+        {
+            caption: 'LF 20',
+        },
+        {
+            caption: 'LF 10',
+        },
+        {
+            caption: 'DLK 23',
+        },
+        {
+            caption: 'ELW 1',
+        },
+        {
+            caption: 'RW',
+        },
+        {
+            caption: 'GW-A',
+        },
+        {
+            caption: 'LF 8/6',
+        },
+        {
+            caption: 'LF 20/16',
+        },
+        {
+            caption: 'LF 10/6',
+        },
+        {
+            caption: 'LF 16-TS',
+        },
+        {
+            caption: 'GW-Öl',
+        },
+        {
+            caption: 'GW-L2-Wasser',
+        },
+        {
+            caption: 'GW-Messtechnik',
+        },
+        {
+            caption: 'SW 1000',
+        },
+        {
+            caption: 'SW 2000',
+        },
+        {
+            caption: 'SW 2000-Tr',
+        },
+        {
+            caption: 'SW Kats',
+        },
+        {
+            caption: 'TLF 2000',
+        },
+        {
+            caption: 'TLF 3000',
+        },
+        {
+            caption: 'TLF 8/8',
+        },
+        {
+            caption: 'TLF 8/18',
+        },
+        {
+            caption: 'TLF 16/24-Tr',
+        },
+        {
+            caption: 'TLF 16/25',
+        },
+        {
+            caption: 'TLF 16/45',
+        },
+        {
+            caption: 'TLF 20/40',
+        },
+        {
+            caption: 'TLF 20/40-SL',
+        },
+        {
+            caption: 'TLF 16',
+        },
+        {
+            caption: 'GW-Gefahrgut',
+        },
+        {
+            caption: 'RTW',
+        },
+        {
+            caption: 'NEF',
+        },
+        {
+            caption: 'HLF 20',
+        },
+        {
+            caption: 'RTH',
+        },
+        {
+            caption: 'FuStW',
+        },
+        {
+            caption: 'GW-Höhenrettung',
+        },
+        {
+            caption: 'ELW 2',
+        },
+        {
+            caption: 'leBefKw',
+        },
+        {
+            caption: 'MTW',
+        },
+        {
+            caption: 'TSF-W',
+        },
+        {
+            caption: 'KTW',
+        },
+        {
+            caption: 'GKW',
+        },
+        {
+            caption: 'MTW-TZ',
+        },
+        {
+            caption: 'MzKW',
+        },
+        {
+            caption: 'LKW K 9',
+        },
+        {
+            caption: 'BRmG R',
+        },
+        {
+            caption: 'Anh DLE',
+        },
+        {
+            caption: 'MLW 5',
+        },
+        {
+            caption: 'WLF',
+        },
+        {
+            caption: 'AB-Rüst',
+        },
+        {
+            caption: 'AB-Atemschutz',
+        },
+        {
+            caption: 'AB-Öl',
+        },
+        {
+            caption: 'GruKw',
+        },
+        {
+            caption: 'FüKw',
+        },
+        {
+            caption: 'GefKw',
+        },
+        {
+            caption: 'Dekon-P',
+        },
+        {
+            caption: 'AB-Dekon-P',
+        },
+        {
+            caption: 'KdoW-LNA',
+        },
+        {
+            caption: 'KdoW-OrgL',
+        },
+        {
+            caption: 'FwK',
+        },
+        {
+            caption: 'KTW Typ B',
+        },
+        {
+            caption: 'ELW 1 (SEG)',
+        },
+        {
+            caption: 'GW-San',
+        },
+        {
+            caption: 'Polizeihubschrauber',
+        },
+        {
+            caption: 'AB-Schlauch',
+        },
+        {
+            caption: 'GW-Taucher',
+        },
+        {
+            caption: 'GW-Wasserrettung',
+        },
+        {
+            caption: 'LKW 7 Lkr 19 tm',
+        },
+        {
+            caption: 'Anh MzB',
+        },
+        {
+            caption: 'Anh SchlB',
+        },
+        {
+            caption: 'Anh MzAB',
+        },
+        {
+            caption: 'Tauchkraftwagen',
+        },
+        {
+            caption: 'MZB',
+        },
+        {
+            caption: 'AB-MZB',
+        },
+        {
+            caption: 'WaWe 10',
+        },
+        {
+            caption: 'GRTW',
+        },
+        {
+            caption: 'NAW',
+        },
+        {
+            caption: 'FLF',
+        },
+        {
+            caption: 'Rettungstreppe',
+        },
+        {
+            caption: 'AB-Gefahrgut',
+        },
+        {
+            caption: 'AB-Einsatzleitung',
+        },
+        {
+            caption: 'SEK - ZF',
+        },
+        {
+            caption: 'SEK - MTF',
+        },
+        {
+            caption: 'MEK - ZF',
+        },
+        {
+            caption: 'MEK - MTF',
+        },
+        {
+            caption: 'GW-Werkfeuerwehr',
+        },
+        {
+            caption: 'ULF mit Löscharm',
+        },
+        {
+            caption: 'TM 50',
+        },
+        {
+            caption: 'Turbolöscher',
+        },
+        {
+            caption: 'TLF 4000',
+        },
+        {
+            caption: 'KLF',
+        },
+        {
+            caption: 'MLF',
+        },
+        {
+            caption: 'HLF 10',
+        },
     ],
     buildings: [
-        'Feuerwache',
-        'Feuerwehrschule',
-        'Rettungswache',
-        'Rettungsschule',
-        'Krankenhaus',
-        'Rettungshubschrauber-Station',
-        'Polizeiwache',
-        'Leitstelle',
-        'Polizeischule',
-        'THW-Ortsverein',
-        'THW Bundesschule',
-        'Bereitschaftspolizei',
-        'Schnelleinsatzgruppe (SEG)',
-        'Polizeihubschrauberstation',
-        'Bereitstellungsraum',
-        'Wasserrettung',
-        'Verbandszellen',
-        'Polizei-Sondereinheiten',
-        'Feuerwache (Kleinwache)',
-        'Polizeiwache (Kleinwache)',
-        'Rettungswache (Kleinwache)',
+        {
+            caption: 'Feuerwache',
+            color: '#bb0000',
+        },
+        {
+            caption: 'Feuerwehrschule',
+            color: '#992222',
+        },
+        {
+            caption: 'Rettungswache',
+            color: '#ffa500',
+        },
+        {
+            caption: 'Rettungsschule',
+            color: '#ddc722',
+        },
+        {
+            caption: 'Krankenhaus',
+            color: '#bbe944',
+        },
+        {
+            caption: 'Rettungshubschrauber-Station',
+            color: '#e7ad2f',
+        },
+        {
+            caption: 'Polizeiwache',
+            color: '#007700',
+        },
+        {
+            caption: 'Leitstelle',
+            color: '#24c3ae',
+        },
+        {
+            caption: 'Polizeischule',
+            color: '#225522',
+        },
+        {
+            caption: 'THW-Ortsverein',
+            color: '#000f76',
+        },
+        {
+            caption: 'THW Bundesschule',
+            color: '#222d54',
+        },
+        {
+            caption: 'Bereitschaftspolizei',
+            color: '#227722',
+        },
+        {
+            caption: 'Schnelleinsatzgruppe (SEG)',
+            color: '#e05b00',
+        },
+        {
+            caption: 'Polizeihubschrauberstation',
+            color: '#148423',
+        },
+        {
+            caption: 'Bereitstellungsraum',
+        },
+        {
+            caption: 'Wasserrettung',
+            color: '#7fffd4',
+        },
+        {
+            caption: 'Verbandszellen',
+        },
+        {
+            caption: 'Polizei-Sondereinheiten',
+            color: '#1a7e23',
+        },
+        {
+            caption: 'Feuerwache (Kleinwache)',
+            color: '#aa1111',
+        },
+        {
+            caption: 'Polizeiwache (Kleinwache)',
+            color: '#116611',
+        },
+        {
+            caption: 'Rettungswache (Kleinwache)',
+            color: '#eeb611',
+        },
     ],
     small_buildings: {
         0: 18,
