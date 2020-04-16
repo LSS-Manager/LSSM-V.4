@@ -174,6 +174,11 @@ module.exports = {
         'Polizeiwache (Kleinwache)',
         'Rettungswache (Kleinwache)',
     ],
+    small_buildings: {
+        0: 18,
+        2: 20,
+        6: 19,
+    },
     buildingCategories: {
         Feuerwehr: {
             buildings: [0, 1, 18],

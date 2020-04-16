@@ -74,11 +74,22 @@ export default {
             state.vehicles.find(x => x.id === vehicleId),
     },
     actions: {
-        buildings: async ({ state, commit, dispatch }) => {
+        buildings: async ({ state, commit, dispatch, rootState }) => {
             if (new Date().getTime() > state.buildingCooldown) {
                 const buildings = await dispatch('request', {
                     url: '/api/buildings',
                 }).then(res => res.json());
+                const small_buildings = window[rootState.prefix].$t(
+                    'small_buildings'
+                );
+                buildings.forEach(building => {
+                    if (
+                        building.small_building &&
+                        small_buildings.hasOwnProperty(building.building_type)
+                    )
+                        building.building_type =
+                            small_buildings[building.building_type];
+                });
                 commit('setBuildings', buildings);
                 commit('setBuildingCooldown');
                 return buildings;
