@@ -4,8 +4,8 @@ module.exports = {
         for (let i = 0; i < string.length; i++) {
             hash = string.charCodeAt(i) + ((hash << 5) - hash);
         }
-        console.log(shift, shift.toString(16));
-        if (shift !== null) hash = hash & shift;
+        if (shift !== null) hash = shift & hash;
+        if (hash < shift / 3) hash += shift / 3;
         hash = (hash & 0x00ffffff).toString(16).toUpperCase();
         return '00000'.substring(0, 6 - hash.length) + hash;
     },

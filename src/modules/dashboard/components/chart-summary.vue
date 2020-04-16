@@ -22,8 +22,8 @@
                 <div
                     v-for="(_, category) in vehicleCategories"
                     :key="category"
-                    :id="`${vehiclesId}_${category}`"
                     class="sunburst-chart"
+                    :id="`${vehiclesId}_${category}`"
                     :style="
                         `flex: 1 0 min(100%, max(250px, calc(100%/${
                             Object.keys(vehicleCategories).length
@@ -88,6 +88,12 @@ export default {
                     '<span style="font-size:11px">{series.name}</span><br>',
                 pointFormat:
                     '<span style="color:{point.color}">{point.name}</span>: <b>{point.y}</b>',
+            },
+            plotOptions: {
+                waterfall: {
+                    pointPadding: 0,
+                    groupPadding: 0,
+                },
             },
             series: Object.keys(this.buildingCategories).map(category => {
                 const types = Object.values(
@@ -161,7 +167,6 @@ export default {
             const data = [
                 {
                     id: category,
-                    name: category,
                 },
             ];
             let sum = 0;
@@ -178,15 +183,6 @@ export default {
                             name: this.vehicleTypeNames[type],
                             parent: `${category}_${group}`,
                             value,
-                            color: `#${this.getColorFromString(
-                                this.vehicleTypeNames[type],
-                                parseInt(
-                                    this.vehicleCategories[
-                                        category
-                                    ].color.replace('#', ''),
-                                    16
-                                )
-                            )}`,
                         });
                     });
                     data.push({
@@ -236,7 +232,9 @@ export default {
                     height: '100%',
                     type: 'sunburst',
                 },
-                title: null,
+                title: {
+                    text: `${category}: ${sum}`,
+                },
                 series: [
                     {
                         data,
@@ -253,13 +251,6 @@ export default {
                             },
                             {
                                 level: 3,
-                                colorVariation: {
-                                    key: 'brightness',
-                                    to: -0.5,
-                                },
-                            },
-                            {
-                                level: 4,
                                 colorVariation: {
                                     key: 'brightness',
                                     to: 0.5,
