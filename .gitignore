@@ -7,6 +7,7 @@ package-lock.json
 /static/db_access.php
 /static/.configs.json
 /static/.check_request.php
+/static/beta.php
 
 # local env files
 .env.local
