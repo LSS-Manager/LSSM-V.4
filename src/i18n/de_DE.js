@@ -163,7 +163,7 @@ module.exports = {
         'Polizeischule',
         'THW-Ortsverein',
         'THW Bundesschule',
-        'Bereitschatspolizei',
+        'Bereitschaftspolizei',
         'Schnelleinsatzgruppe (SEG)',
         'Polizeihubschrauberstation',
         'Bereitstellungsraum',

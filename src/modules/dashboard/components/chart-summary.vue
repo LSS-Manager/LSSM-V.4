@@ -2,11 +2,15 @@
     <div>
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h5>
+                <b>
                     {{
                         $t('modules.dashboard.chart-summaries.buildings.title')
                     }}
-                </h5>
+                </b>
+                <span class="glyphicon glyphicon-info-sign tip-btn"></span>
+                <div class="alert alert-info">
+                    Tipp: Blablabla
+                </div>
             </div>
             <div class="panel-body">
                 <div :id="buildingsId"></div>
@@ -14,9 +18,13 @@
         </div>
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h5>
+                <b>
                     {{ $t('modules.dashboard.chart-summaries.vehicles.title') }}
-                </h5>
+                </b>
+                <span class="glyphicon glyphicon-info-sign tip-btn"></span>
+                <div class="alert alert-info">
+                    Tipp: Blablabla
+                </div>
             </div>
             <div class="panel-body sunburst-grid">
                 <div
@@ -63,10 +71,12 @@ export default {
             vehicles: this.$store.getters['api/vehiclesByType'],
             vehicleCategories: this.$t('vehicleCategories'),
             vehicleTypeNames: this.$t('vehicles'),
+            vehiclesByBuilding: this.$store.getters['api/vehiclesByBuilding'],
         };
     },
     mounted() {
         this.highChartsDarkMode(this, Highcharts);
+        const buildingVehicleDrilldowns = [];
         Highcharts.chart(this.buildingsId, {
             chart: {
                 type: 'waterfall',
@@ -129,33 +139,96 @@ export default {
                 };
             }),
             drilldown: {
-                series: Object.keys(this.buildingCategories).map(category => {
-                    const types = Object.values(
-                        this.buildingCategories[category].buildings
-                    );
-                    return {
-                        name: category,
-                        id: category,
-                        type: 'column',
-                        data: types.map(type => {
-                            return {
-                                name: this.buildingTypeNames[type],
-                                y: (this.buildings[category] || []).filter(
-                                    building => building.building_type === type
-                                ).length,
-                                color: `#${this.getColorFromString(
-                                    this.buildingTypeNames[type],
+                series: [
+                    ...Object.keys(this.buildingCategories).map(category => {
+                        const types = Object.values(
+                            this.buildingCategories[category].buildings
+                        );
+                        return {
+                            name: category,
+                            id: category,
+                            type: 'column',
+                            data: types.map(building_type => {
+                                const building_type_color = this.getColorFromString(
+                                    this.buildingTypeNames[building_type],
                                     parseInt(
                                         this.buildingCategories[
                                             category
                                         ].color.replace('#', ''),
                                         16
                                     )
-                                )}`,
-                            };
-                        }),
-                    };
-                }),
+                                );
+                                const buildings = (
+                                    this.buildings[category] || []
+                                ).filter(
+                                    building =>
+                                        building.building_type === building_type
+                                );
+                                const vehicle_types = {};
+                                buildings.forEach(building => {
+                                    if (
+                                        !this.vehiclesByBuilding.hasOwnProperty(
+                                            building.id
+                                        )
+                                    )
+                                        return;
+                                    this.vehiclesByBuilding[
+                                        building.id
+                                    ].forEach(vehicle => {
+                                        if (
+                                            !vehicle_types.hasOwnProperty(
+                                                vehicle.vehicle_type
+                                            )
+                                        )
+                                            vehicle_types[
+                                                vehicle.vehicle_type
+                                            ] = 0;
+                                        vehicle_types[vehicle.vehicle_type]++;
+                                    });
+                                });
+                                if (Object.keys(vehicle_types).length) {
+                                    const drilldown = {
+                                        id: `${category}_${building_type}`,
+                                        name: this.buildingTypeNames[
+                                            building_type
+                                        ],
+                                        type: 'column',
+                                        data: Object.keys(vehicle_types).map(
+                                            vehicle_type => {
+                                                return {
+                                                    id: `${category}_${building_type}_${vehicle_type}`,
+                                                    name: this.vehicleTypeNames[
+                                                        vehicle_type
+                                                    ],
+                                                    y:
+                                                        vehicle_types[
+                                                            vehicle_type
+                                                        ],
+                                                    color: this.getColorFromString(
+                                                        this.vehicleTypeNames[
+                                                            vehicle_type
+                                                        ],
+                                                        building_type_color
+                                                    ),
+                                                };
+                                            }
+                                        ),
+                                    };
+                                    buildingVehicleDrilldowns.push(drilldown);
+                                }
+                                return {
+                                    name: this.buildingTypeNames[building_type],
+                                    y: buildings.length,
+                                    color: `#${building_type_color}`,
+                                    drilldown:
+                                        Object.keys(vehicle_types).length &&
+                                        `${category}_${building_type}`,
+                                };
+                            }),
+                        };
+                    }),
+                    ...buildingVehicleDrilldowns,
+                ],
             },
         });
 
@@ -266,6 +339,18 @@ export default {
 </script>
 
 <style scoped lang="sass">
+.tip-btn
+    cursor: pointer
+
+    &:hover
+        &+ .alert
+            display: block
+
+    &+ .alert
+        display: none
+        position: absolute
+        z-index: 1
+
 .sunburst-grid
     display: flex
     flex-flow: row wrap

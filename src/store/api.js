@@ -72,6 +72,15 @@ export default {
             state.vehicles.filter(v => v.building_id === buildingId),
         vehicleById: state => vehicleId =>
             state.vehicles.find(x => x.id === vehicleId),
+        vehiclesByBuilding(state) {
+            const data = {};
+            state.vehicles.forEach(vehicle => {
+                if (!data.hasOwnProperty(vehicle.building_id))
+                    data[vehicle.building_id] = [];
+                data[vehicle.building_id].push(vehicle);
+            });
+            return data;
+        },
     },
     actions: {
         buildings: async ({ state, commit, dispatch, rootState }) => {
