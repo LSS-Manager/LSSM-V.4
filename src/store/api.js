@@ -5,6 +5,8 @@ export default {
         buildings: [],
         vehiclesCooldown: new Date().getTime(),
         vehicles: [],
+        vehicleStates: {},
+        vehicleStatesCooldown: new Date().getTime(),
     },
     mutations: {
         setBuildings(state, buildings) {
@@ -19,11 +21,22 @@ export default {
         setVehicleCooldown(state) {
             state.vehiclesCooldown = new Date().getTime() + 5 * 60 * 1000; // 5 mins
         },
+        setVehicleStates(state, states) {
+            state.vehicleStates = states;
+        },
         setVehicleState(state, { id, fms, fms_real }) {
             const vehicle = state.vehicles.find(x => x.id === id);
             if (!vehicle) return;
+            const prevState = vehicle.fms_real;
             vehicle.fms_show = fms;
             vehicle.fms_real = fms_real;
+            state.vehicleStates[prevState]--;
+            if (!state.vehicleStates.hasOwnProperty(fms_real))
+                state.vehicleStates[fms_real] = 0;
+            state.vehicleStates[fms_real]++;
+        },
+        setVehicleStatesCooldown(state) {
+            state.vehicleStateCooldown = new Date().getTime() + 5 * 60 * 1000; // 5 mins
         },
     },
     getters: {
@@ -113,6 +126,17 @@ export default {
                 commit('setVehicles', vehicles);
                 commit('setVehicleCooldown');
                 return vehicles;
+            }
+            return state.vehicles;
+        },
+        vehicleStates: async ({ state, commit, dispatch }) => {
+            if (new Date().getTime() > state.vehicleStatesCooldown) {
+                const states = await dispatch('request', {
+                    url: '/api/vehicle_states',
+                }).then(res => res.json());
+                commit('setVehicleStates', states);
+                commit('setVehicleStatesCooldown');
+                return states;
             }
             return state.vehicles;
         },

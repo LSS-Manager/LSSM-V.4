@@ -76,6 +76,7 @@ if (window.location.pathname === '/') {
     if (window.location.pathname.match(/^\/users\//)) return;
     await store.dispatch('api/buildings');
     await store.dispatch('api/vehicles');
+    await store.dispatch('api/vehicleStates');
 
     await store.dispatch('hook', {
         event: 'radioMessage',

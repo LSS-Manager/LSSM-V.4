@@ -1,6 +1,7 @@
 {
 	"tabs": {
-		"chart-summary": "Zusammenfassung"
+		"chart-summary": "Zusammenfassung",
+		"vehicle-types": "Statusübersicht"
 	},
 	"chart-summaries": {
 		"buildings": {
@@ -12,5 +13,40 @@
 			"empty": "Du hast in der Kategorie {category} noch keine Fahrzeuge!",
 			"tip": "Klicke auf eine Gruppe von Fahrzeugtypen, um nur diese Gruppe anzuzeigen."
 		}
+	},
+	"vehicle-types": {
+		"sum": "Summe",
+		"type": "Fahrzeugtyp",
+		"status": "Status",
+		"statuses": [1, 2, 3, 4, 5, 6, 7, 9],
+		"cols": [
+			{
+				"title": "Fahrzeugtyp"
+			},
+			{
+				"1": "Status 1"
+			},
+			{
+				"2": "Status 2"
+			},
+			{
+				"3": "Status 3"
+			},
+			{
+				"4": "Status 4"
+			},
+			{
+				"5": "Status 5"
+			},
+			{
+				"6": "Status 6"
+			},
+			{
+				"7": "Status 7"
+			},
+			{
+				"9": "Status 9"
+			}
+		]
 	}
 }
