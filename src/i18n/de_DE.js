@@ -7,7 +7,6 @@ const modules = {
     appstore: {
         save: 'Speichern',
         reset: 'Reset',
-        search: 'Suche',
         noMapkit:
             'Dieses Modul funktioniert mit dem Kartentyp "Mapkit" wegen Beschränkungen seitens Mapkit nicht!',
         dev:
@@ -597,6 +596,7 @@ module.exports = {
         },
     },
     amount: 'Anzahl',
+    search: 'Suche',
 };
 
 //

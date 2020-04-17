@@ -14,7 +14,7 @@
                 type="search"
                 class="search_input_field"
                 v-model="moduleSearch"
-                :placeholder="$t('modules.appstore.search')"
+                :placeholder="$t('search')"
             />
         </label>
         <ul class="auto-sized-grid">

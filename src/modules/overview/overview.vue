@@ -14,7 +14,7 @@
                                 type="search"
                                 class="search_input_field"
                                 v-model="vehicleSearch"
-                                :placeholder="$t('modules.overview.search')"
+                                :placeholder="$t('search')"
                             />
                         </label>
                         <table
@@ -105,7 +105,7 @@
                         type="search"
                         class="search_input_field"
                         v-model="buildingSearch"
-                        :placeholder="$t('modules.overview.search')"
+                        :placeholder="$t('search')"
                     />
                 </label>
                 <table

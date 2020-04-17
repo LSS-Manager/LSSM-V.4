@@ -1,24 +1,39 @@
 <template>
     <div>
+        <label class="pull-right">
+            <input
+                type="search"
+                class="search_input_field"
+                v-model="search"
+                :placeholder="$t('search')"
+            />
+        </label>
         <table
             :id="$store.getters.nodeId('dashboard-vehicle-types')"
             class="table table-striped"
         >
             <thead>
                 <tr>
-                    <th>{{ $t('modules.dashboard.vehicle-types.type') }}</th>
-                    <th v-for="status in statuses" :key="status">
+                    <th @click="setSort('title')">
+                        {{ $t('modules.dashboard.vehicle-types.type') }}
+                    </th>
+                    <th
+                        v-for="status in statuses"
+                        :key="status"
+                        @click="setSort(status)"
+                    >
                         {{ $t('modules.dashboard.vehicle-types.status') }}
                         &nbsp;{{ status }}
                     </th>
-                    <th>
+                    <th @click="setSort('sum')">
                         {{ $t('modules.dashboard.vehicle-types.sum') }}
                     </th>
                 </tr>
             </thead>
             <tbody>
                 <tr
-                    v-for="(stats, vehicleType) in vehicleTypes"
+                    v-for="vehicleType in vehicleTypesSorted"
+                    :stats="(stats = vehicleTypes[vehicleType])"
                     :key="`vehicles_${vehicleType}`"
                 >
                     <td>{{ stats.title }}</td>
@@ -26,7 +41,7 @@
                         v-for="status in statuses"
                         :key="`${vehicleType}_${status}`"
                     >
-                        {{ (stats[status] || 0).toLocaleString() }}
+                        {{ stats[status].toLocaleString() }}
                     </td>
                     <td>
                         {{ stats.sum.toLocaleString() }}
@@ -59,6 +74,9 @@ export default {
                 type => type.caption
             ),
             statuses: this.$t('modules.dashboard.vehicle-types.statuses'),
+            search: '',
+            sort: 'title',
+            sortDir: 'asc',
         };
     },
     computed: {
@@ -67,9 +85,10 @@ export default {
             const types = {};
             Object.keys(vbt).forEach(type => {
                 const fms = {};
+                Object.values(this.statuses).forEach(
+                    status => (fms[status] = 0)
+                );
                 Object.values(vbt[type]).forEach(vehicle => {
-                    if (!fms.hasOwnProperty(vehicle.fms_real))
-                        fms[vehicle.fms_real] = 0;
                     fms[vehicle.fms_real]++;
                 });
                 types[type] = {
@@ -80,8 +99,39 @@ export default {
             });
             return types;
         },
+        vehicleTypesFiltered() {
+            const vehicleTypes = this.vehicleTypes;
+            const filtered = {};
+            Object.keys(vehicleTypes).filter(
+                type =>
+                    JSON.stringify(Object.values(vehicleTypes[type]))
+                        .toLowerCase()
+                        .match(this.search.toLowerCase()) &&
+                    (filtered[type] = vehicleTypes[type])
+            );
+            return filtered;
+        },
+        vehicleTypesSorted() {
+            const vehicleTypes = this.search
+                ? this.vehicleTypesFiltered
+                : this.vehicleTypes;
+            return Object.keys(vehicleTypes).sort((a, b) => {
+                let modifier = this.sortDir === 'desc' ? -1 : 1;
+                a = vehicleTypes[a][this.sort] || '';
+                b = vehicleTypes[b][this.sort] || '';
+                return a < b ? -1 * modifier : a > b ? modifier : 0;
+            });
+        },
         sum() {
             return this.$store.state.api.vehicleStates;
+        },
+    },
+    methods: {
+        setSort(type) {
+            if (this.sort === type)
+                return (this.sortDir = this.sortDir === 'asc' ? 'desc' : 'asc');
+            this.sort = type;
+            this.sortDir = 'asc';
         },
     },
 };
@@ -89,6 +139,10 @@ export default {
 
 <style scoped lang="sass">
 table
+
+    thead th
+        cursor: pointer
+
     td:first-child,
     td:last-child
         font-weight: bold
