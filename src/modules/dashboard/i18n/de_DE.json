@@ -4,11 +4,13 @@
 	},
 	"chart-summaries": {
 		"buildings": {
-			"title": "Gebäude"
+			"title": "Gebäude",
+			"tip": "Klicke auf eine der Kategorien (z.B. Feuerwehr oder Polizei), werden die dieser Kategorie zugeordneten Gebäudetypen vergrößert dargestellt. Klickst du anschließend auf einen Gebäudetyp, kannst du sehen, wie viele Fahrzeuge der einzelnen Fahrzeugtypen an den Gebäuden dieses Typs stehen. Somit kannst du z.B. schnell herausfinden, wie viele FuStW an Polizeiwachen und wie viele an Polizei-Kleinwachen stehen."
 		},
 		"vehicles": {
 			"title": "Fahrzeuge",
-			"empty": "Du hast in der Kategorie {category} noch keine Fahrzeuge!"
+			"empty": "Du hast in der Kategorie {category} noch keine Fahrzeuge!",
+			"tip": "Klicke auf eine Gruppe von Fahrzeugtypen, um nur diese Gruppe anzuzeigen."
 		}
 	}
 }

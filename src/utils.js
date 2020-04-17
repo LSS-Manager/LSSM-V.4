@@ -25,6 +25,11 @@ module.exports = {
                     backgroundColor: 'transparent',
                     plotBorderColor: '#606063',
                 },
+                title: {
+                    style: {
+                        color: '#ddd',
+                    },
+                },
                 xAxis: {
                     gridLineColor: '#707073',
                     labels: {

@@ -9,7 +9,7 @@
                 </b>
                 <span class="glyphicon glyphicon-info-sign tip-btn"></span>
                 <div class="alert alert-info">
-                    Tipp: Blablabla
+                    {{ $t('modules.dashboard.chart-summaries.buildings.tip') }}
                 </div>
             </div>
             <div class="panel-body">
@@ -23,7 +23,7 @@
                 </b>
                 <span class="glyphicon glyphicon-info-sign tip-btn"></span>
                 <div class="alert alert-info">
-                    Tipp: Blablabla
+                    {{ $t('modules.dashboard.chart-summaries.vehicles.tip') }}
                 </div>
             </div>
             <div class="panel-body sunburst-grid">
@@ -276,7 +276,7 @@ export default {
             if (groups.length > 1) {
                 groups.forEach(group => {
                     const types = [];
-                    let groupColor = 0xffffff;
+                    let groupColor = 0;
                     Object.values(
                         this.vehicleCategories[category].vehicles[group]
                     ).forEach(type => {
@@ -294,7 +294,6 @@ export default {
                                 )
                             )}`;
                         groupColor += parseInt(color.replace(/^#/, ''), 16);
-                        groupColor /= 2;
                         // console.log(color, groupColor);
                         types.push({
                             id: `${category}_${group}_${type}`,
@@ -304,11 +303,15 @@ export default {
                             color,
                         });
                     });
+                    const color = Math.floor(
+                        groupColor / types.length
+                    ).toString(16);
                     data.push({
                         id: `${category}_${group}`,
                         name: group,
                         parent: category,
-                        color: `#${Math.floor(groupColor).toString(16)}`,
+                        color: `#${'00000'.substring(0, 6 - color.length) +
+                            color}`,
                     });
                     types.forEach(type => data.push(type));
                 });

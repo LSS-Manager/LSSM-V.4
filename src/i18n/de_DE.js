@@ -61,276 +61,367 @@ module.exports = {
     vehicles: [
         {
             caption: 'LF 20',
+            color: '#cc0000',
         },
         {
             caption: 'LF 10',
+            color: '#bb0000',
         },
         {
             caption: 'DLK 23',
+            color: '#d92626',
         },
         {
             caption: 'ELW 1',
+            color: '#d02525',
         },
         {
             caption: 'RW',
+            color: '#ad1f1f',
         },
         {
             caption: 'GW-A',
+            color: '#9c1c1c',
         },
         {
             caption: 'LF 8/6',
+            color: '#aa0000',
         },
         {
             caption: 'LF 20/16',
+            color: '#990000',
         },
         {
             caption: 'LF 10/6',
+            color: '#880000',
         },
         {
             caption: 'LF 16-TS',
+            color: '#770000',
         },
         {
             caption: 'GW-Öl',
+            color: '#8b1818',
         },
         {
             caption: 'GW-L2-Wasser',
+            color: '#e61919',
         },
         {
             caption: 'GW-Messtechnik',
+            color: '#791515',
         },
         {
             caption: 'SW 1000',
+            color: '#dc1818',
         },
         {
             caption: 'SW 2000',
+            color: '#ca1616',
         },
         {
             caption: 'SW 2000-Tr',
+            color: '#b81414',
         },
         {
             caption: 'SW Kats',
+            color: '#a51212',
         },
         {
             caption: 'TLF 2000',
+            color: '#cc2222',
         },
         {
             caption: 'TLF 3000',
+            color: '#bb2222',
         },
         {
             caption: 'TLF 8/8',
+            color: '#aa2222',
         },
         {
             caption: 'TLF 8/18',
+            color: '#992222',
         },
         {
             caption: 'TLF 16/24-Tr',
+            color: '#882222',
         },
         {
             caption: 'TLF 16/25',
+            color: '#772222',
         },
         {
             caption: 'TLF 16/45',
+            color: '#662222',
         },
         {
             caption: 'TLF 20/40',
+            color: '#552222',
         },
         {
             caption: 'TLF 20/40-SL',
+            color: '#442222',
         },
         {
             caption: 'TLF 16',
+            color: '#332222',
         },
         {
             caption: 'GW-Gefahrgut',
+            color: '#681212',
         },
         {
             caption: 'RTW',
+            color: '#f59f00',
         },
         {
             caption: 'NEF',
+            color: '#e09200',
         },
         {
             caption: 'HLF 20',
+            color: '#440000',
         },
         {
             caption: 'RTH',
+            color: '#ddaa3c',
         },
         {
             caption: 'FuStW',
+            color: '#005500',
         },
         {
             caption: 'GW-Höhenrettung',
+            color: '#570f0f',
         },
         {
             caption: 'ELW 2',
+            color: '#bf2222',
         },
         {
             caption: 'leBefKw',
+            color: '#288f28',
         },
         {
             caption: 'MTW',
+            color: '#450c0c',
         },
         {
             caption: 'TSF-W',
+            color: '#220000',
         },
         {
             caption: 'KTW',
+            color: '#ffb61a',
         },
         {
             caption: 'GKW',
+            color: '#00138f',
         },
         {
             caption: 'MTW-TZ',
+            color: '#0016a3',
         },
         {
             caption: 'MzKW',
+            color: '#0018b8',
         },
         {
             caption: 'LKW K 9',
+            color: '#001bcc',
         },
         {
             caption: 'BRmG R',
+            color: '#001ee0',
         },
         {
             caption: 'Anh DLE',
+            color: '#0021f5',
         },
         {
             caption: 'MLW 5',
+            color: '#0a2bff',
         },
         {
             caption: 'WLF',
+            color: '#f04242',
         },
         {
             caption: 'AB-Rüst',
+            color: '#ad0e0e',
         },
         {
             caption: 'AB-Atemschutz',
+            color: '#9c0b0b',
         },
         {
             caption: 'AB-Öl',
+            color: '#8b0707',
         },
         {
             caption: 'GruKw',
+            color: '#2d9f29',
         },
         {
             caption: 'FüKw',
+            color: '#31af31',
         },
         {
             caption: 'GefKw',
+            color: '#36bf36',
         },
         {
             caption: 'Dekon-P',
+            color: '#450909',
         },
         {
             caption: 'AB-Dekon-P',
+            color: '#450707',
         },
         {
             caption: 'KdoW-LNA',
+            color: '#805c0f',
         },
         {
             caption: 'KdoW-OrgL',
+            color: '#926911',
         },
         {
             caption: 'FwK',
+            color: '#230606',
         },
         {
             caption: 'KTW Typ B',
+            color: '#cc5200',
         },
         {
             caption: 'ELW 1 (SEG)',
+            color: '#a34100',
         },
         {
             caption: 'GW-San',
+            color: '#8f3900',
         },
         {
             caption: 'Polizeihubschrauber',
+            color: '#14743f',
         },
         {
             caption: 'AB-Schlauch',
+            color: '#e60808',
         },
         {
             caption: 'GW-Taucher',
+            color: '#88ecc4',
         },
         {
             caption: 'GW-Wasserrettung',
+            color: '#91dab5',
         },
         {
             caption: 'LKW 7 Lkr 19 tm',
+            color: '#123183',
         },
         {
             caption: 'Anh MzB',
+            color: '#1b428a',
         },
         {
             caption: 'Anh SchlB',
+            color: '#245390',
         },
         {
             caption: 'Anh MzAB',
+            color: '#296497',
         },
         {
             caption: 'Tauchkraftwagen',
+            color: '#36759e',
         },
         {
             caption: 'MZB',
+            color: '#9ac8a6',
         },
         {
             caption: 'AB-MZB',
+            color: '#bf7f6a',
         },
         {
             caption: 'WaWe 10',
+            color: '#36b15d',
         },
         {
             caption: 'GRTW',
+            color: '#cc8500',
         },
         {
             caption: 'NAW',
+            color: '#b87700',
         },
         {
             caption: 'FLF',
+            color: '#7a534a',
         },
         {
             caption: 'Rettungstreppe',
+            color: '#6f6157',
         },
         {
             caption: 'AB-Gefahrgut',
+            color: '#680101',
         },
         {
             caption: 'AB-Einsatzleitung',
+            color: '#bf1111',
         },
         {
             caption: 'SEK - ZF',
+            color: '#217d1a',
         },
         {
             caption: 'SEK - MTF',
+            color: '#1a7d1b',
         },
         {
             caption: 'MEK - ZF',
+            color: '#1a7d22',
         },
         {
             caption: 'MEK - MTF',
+            color: '#1a7d2a',
         },
         {
             caption: 'GW-Werkfeuerwehr',
+            color: '#99222b',
         },
         {
             caption: 'ULF mit Löscharm',
+            color: '#992234',
         },
         {
             caption: 'TM 50',
+            color: '#992b22',
         },
         {
             caption: 'Turbolöscher',
+            color: '#993422',
         },
         {
             caption: 'TLF 4000',
+            color: '#dd2222',
         },
         {
             caption: 'KLF',
+            color: '#660000',
         },
         {
             caption: 'MLF',
+            color: '#550000',
         },
         {
             caption: 'HLF 10',
+            color: '#330000',
         },
     ],
     buildings: [
