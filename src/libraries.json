@@ -123,6 +123,10 @@
 		"icon": "https://terser.org/img/terser-square-logo.png",
 		"version": "4.6.10"
 	},
+	"Vue-Responsive-Dash": {
+		"url": "https://vue-responsive-dash.netlify.app/",
+		"version": "0.3.27"
+	},
 	"vue-loader": {
 		"url": "https://vue-loader.vuejs.org/",
 		"icon": "https://vuejs.org/images/logo.png",

@@ -1,7 +1,8 @@
 {
 	"tabs": {
 		"chart-summary": "Zusammenfassung",
-		"vehicle-types": "Statusübersicht"
+		"vehicle-types": "Statusübersicht",
+		"dispatchcenter-view": "Leitstellenansicht"
 	},
 	"chart-summaries": {
 		"buildings": {

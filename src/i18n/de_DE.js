@@ -507,33 +507,6 @@ module.exports = {
             color: '#eeb611',
         },
     ],
-    small_buildings: {
-        0: 18,
-        2: 20,
-        6: 19,
-    },
-    buildingCategories: {
-        Feuerwehr: {
-            buildings: [0, 1, 18],
-            color: '#ff0000',
-        },
-        Rettungsdienst: {
-            buildings: [2, 3, 5, 12, 15, 20],
-            color: '#ffa500',
-        },
-        Polizei: {
-            buildings: [6, 8, 11, 13, 17, 19],
-            color: '#008800',
-        },
-        THW: {
-            buildings: [9, 10],
-            color: '#0000ff',
-        },
-        Sonstiges: {
-            buildings: [4, 7],
-            color: '#02a18c',
-        },
-    },
     vehicleCategories: {
         Feuerwehr: {
             vehicles: {
@@ -595,18 +568,37 @@ module.exports = {
             color: '#02a18c',
         },
     },
+    small_buildings: {
+        0: 18,
+        2: 20,
+        6: 19,
+    },
+    buildingCategories: {
+        Feuerwehr: {
+            buildings: [0, 1, 18],
+            color: '#ff0000',
+        },
+        Rettungsdienst: {
+            buildings: [2, 3, 5, 12, 15, 20],
+            color: '#ffa500',
+        },
+        Polizei: {
+            buildings: [6, 8, 11, 13, 17, 19],
+            color: '#008800',
+        },
+        THW: {
+            buildings: [9, 10],
+            color: '#0000ff',
+        },
+        Sonstiges: {
+            buildings: [4, 7],
+            color: '#02a18c',
+        },
+    },
+    vehicleBuildings: [0, 2, 5, 6, 9, 11, 12, 13, 15, 17, 18, 19, 20],
+    bedBuildings: [4],
+    schoolBuildings: [1, 3, 8, 10],
     amount: 'Anzahl',
     search: 'Suche',
+    alliance: 'Verband',
 };
-
-//
-// export default {
-//     modules: {
-//         dashboard: {
-//             name: 'Dashboard',
-//             description:
-//                 'Fügt eine Übersicht über eigene Gebäude und Fahrzeuge dem Spiel hinzu',
-//             ...dashboard,
-//         },
-//     },
-// };

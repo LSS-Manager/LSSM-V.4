@@ -31,16 +31,14 @@ let setTooltip = marker => {
                   building.building_type
               ] || 'building';
     let data = `<i class="fas fa-${icon}"></i>&nbsp;${
-        building.isAlliance
-            ? `[${window.lssmv4.$t('modules.buildingHover.alliance')}]`
-            : ''
+        building.isAlliance ? `[${window.lssmv4.$t('alliance')}]` : ''
     } ${marker.options.title}`;
 
     if (!building.isAlliance) {
         if (
-            Object.values(
-                window.lssmv4.$t('modules.buildingHover.vehicleBuildings')
-            ).indexOf(building.building_type) >= 0
+            Object.values(window.lssmv4.$t('vehicleBuildings')).indexOf(
+                building.building_type
+            ) >= 0
         ) {
             data += `<br><i class="fa fa-parking"></i>&nbsp;${building.level +
                 1}&nbsp;<i class="fa fa-car"></i>&nbsp;${
@@ -66,16 +64,16 @@ let setTooltip = marker => {
             });
             data += `</table>`;
         } else if (
-            Object.values(
-                window.lssmv4.$t('modules.buildingHover.bedBuildings')
-            ).indexOf(building.building_type) >= 0
+            Object.values(window.lssmv4.$t('bedBuildings')).indexOf(
+                building.building_type
+            ) >= 0
         ) {
             data += `<br><i class="fa fa-procedures"></i>&nbsp;${building.level +
                 10}`;
         } else if (
-            Object.values(
-                window.lssmv4.$t('modules.buildingHover.schoolBuildings')
-            ).indexOf(building.building_type) >= 0
+            Object.values(window.lssmv4.$t('schoolBuildings')).indexOf(
+                building.building_type
+            ) >= 0
         ) {
             data += `<br><i class="fa fa-chalkboard-teacher"></i>&nbsp;${building
                 .extensions.length + 1}`;

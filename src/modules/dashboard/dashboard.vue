@@ -8,6 +8,9 @@
             <tab :title="$t('modules.dashboard.tabs.vehicle-types')">
                 <vehicle-types></vehicle-types>
             </tab>
+            <tab :title="$t('modules.dashboard.tabs.dispatchcenter-view')">
+                <dispatchcenter-view></dispatchcenter-view>
+            </tab>
         </tabs>
     </lightbox>
 </template>
@@ -16,10 +19,11 @@
 import Lightbox from '../../components/lightbox.vue';
 import ChartSummary from './components/chart-summary.vue';
 import VehicleTypes from './components/vehicle-types.vue';
+import DispatchcenterView from './components/dispatchcenter-view.vue';
 
 export default {
     name: 'dashboard',
-    components: { VehicleTypes, ChartSummary, Lightbox },
+    components: { DispatchcenterView, VehicleTypes, ChartSummary, Lightbox },
     mounted() {
         this.$store.dispatch('api/buildings');
     },

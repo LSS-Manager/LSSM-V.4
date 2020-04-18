@@ -3,6 +3,12 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 module.exports = {
     target: 'web',
+    resolve: {
+        alias: {
+            'vue$': 'vue/dist/vue.runtime.esm.js',
+            'vue.esm.js$': 'vue/dist/vue.runtime.esm.js',
+        },
+    },
     module: {
         rules: [
             {

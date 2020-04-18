@@ -5,7 +5,6 @@ const path = require('path');
 const config = require('../src/config');
 const serverConfig = require('../static/.configs');
 const packageJson = require('../package');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const moment = require('moment');
 const axios = require('axios');
 
@@ -69,9 +68,28 @@ const entries = Object.keys(config.games).map(game => {
                     loader: 'webpack-append',
                     query: `window.lssmv4.$i18n.mergeLocaleMessage(${JSON.stringify(
                         game
-                    )},{modules:{${module}: require(\`./i18n/${game}\`),},});`,
+                    )},{modules:{${module}: require(\`${path.resolve(
+                        __dirname,
+                        `../src/modules/${module}/i18n/${game}`
+                    )}\`),},});`,
                 });
             }
+            moduleEntry.module.rules.push({
+                test: /\.(js|vue)$/,
+                loader: 'string-replace-loader',
+                query: {
+                    multiple: [
+                        {
+                            search: /require\((['"])vue(['"])\)/,
+                            replace: 'window.lssmv4.Vue',
+                        },
+                        {
+                            search: /import ([^ ]*) from (['"])vue(['"])/,
+                            replace: 'const Vue = window.lssmv4.Vue',
+                        },
+                    ],
+                },
+            });
             moduleEntry.plugins.push(
                 new webpack.DefinePlugin({
                     MODULE_ID: JSON.stringify(module),
@@ -106,6 +124,7 @@ webpack([...entries, ...modules], (err, stats) => {
 
     console.log('Stats:');
     console.log(stats.toString({ colors: true }));
+    if (stats.hasErrors()) process.exit(-1);
 
     if (process.argv[2] === 'production') {
         axios
