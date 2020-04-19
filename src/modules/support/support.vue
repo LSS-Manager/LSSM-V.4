@@ -65,9 +65,11 @@ export default {
         },
     },
     computed: {
-        chats: () => this.$store.state.support.chats,
-        chatSelection: () =>
-            Object.keys(this.$store.state.support.chats).map(c => {
+        chats() {
+            return this.$store.state.support.chats;
+        },
+        chatSelection() {
+            return Object.keys(this.$store.state.support.chats).map(c => {
                 const fm = this.$store.state.support.chats[c].messages[0];
                 const author = fm && fm.author ? fm.author : { name: '' };
                 return {
@@ -76,7 +78,8 @@ export default {
                         '',
                     value: c,
                 };
-            }),
+            });
+        },
         shownChat() {
             if (this.chats.hasOwnProperty(this.selectedChat)) {
                 return this.chats[this.selectedChat];
