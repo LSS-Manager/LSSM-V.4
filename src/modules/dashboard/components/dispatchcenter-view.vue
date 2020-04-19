@@ -7,18 +7,42 @@
                 :reduce="building => building.id"
                 :filterable="false"
                 v-model="selectedBuilding"
-                @open="onBuildingListOpen"
-                @close="onBuildingListClose"
                 @search="query => (buildingListSearch = query)"
             >
-                <template #list-header v-if="buildingListHasPrevPage">
-                    <li ref="loadLower" class="loader">
-                        Loading more buildings...
+                <template #list-header>
+                    <li class="vs-pagination">
+                        <button
+                            class="btn btn-default"
+                            @click="buildingListOffset -= buildingLimit"
+                            :disabled="!buildingListHasPrevPage"
+                        >
+                            ←
+                        </button>
+                        <button
+                            class="btn btn-default"
+                            @click="buildingListOffset += buildingLimit"
+                            :disabled="!buildingListHasNextPage"
+                        >
+                            →
+                        </button>
                     </li>
                 </template>
-                <template #list-footer v-if="buildingListHasNextPage">
-                    <li ref="loadUpper" class="loader">
-                        Loading more buildings...
+                <template #list-footer>
+                    <li class="vs-pagination">
+                        <button
+                            class="btn btn-default"
+                            @click="buildingListOffset -= buildingLimit"
+                            :disabled="!buildingListHasPrevPage"
+                        >
+                            ←
+                        </button>
+                        <button
+                            class="btn btn-default"
+                            @click="buildingListOffset += buildingLimit"
+                            :disabled="!buildingListHasNextPage"
+                        >
+                            →
+                        </button>
                     </li>
                 </template>
             </v-select>
@@ -31,45 +55,58 @@
             </button>
         </div>
         <grid-board :id="$store.getters.nodeId('dispatchcenter-view_board')">
-            <grid-layout breakpoint="xl" :numberOfCols="100">
+            <grid-layout breakpoint="xl" :numberOfCols="100" :compact="false">
                 <grid-item
                     class="panel panel-default"
                     v-for="column in columns"
-                    :key="column"
-                    :id="column"
-                    :width="column.width || 10"
+                    :key="column.building"
+                    :id="column.building"
+                    :x="column.x"
+                    :y="column.y"
+                    :width="column.width || 15"
                     :height="
                         column.height ||
-                            3 + vehiclesByBuilding[column].length * 3
+                            Math.ceil(
+                                4 +
+                                    vehiclesByBuilding[column.building].length *
+                                        1.5
+                            )
                     "
-                    @moveEnd="eventHandler"
-                    @resizeEnd="eventHandler"
+                    :rowHeight="20"
+                    :ref="`building-${column.building}`"
+                    @moveEnd="modifyBuilding"
+                    @resizeEnd="modifyBuilding"
                 >
                     <div class="panel-heading">
-                        <a :href="`/buildings/${column}`" class="lightbox-open">
-                            <b>{{ buildingsById[column].caption }}</b>
+                        <a
+                            :href="`/buildings/${column.building}`"
+                            class="lightbox-open"
+                        >
+                            <b>{{ buildingsById[column.building].caption }}</b>
                         </a>
                     </div>
                     <div class="panel-body">
                         <grid-board
                             :id="
                                 $store.getters.nodeId(
-                                    `dispatchcenter-view_board-${column}`
+                                    `dispatchcenter-view_board-${column.building}`
                                 )
                             "
                         >
-                            <grid-layout breakpoint="xl" :numberOfCols="10">
+                            <grid-layout
+                                breakpoint="xl"
+                                :numberOfCols="10"
+                                :rowHeight="20"
+                            >
                                 <grid-item
                                     class="building-vehicle"
                                     v-for="vehicle in vehiclesByBuilding[
-                                        column
+                                        column.building
                                     ]"
-                                    :key="vehicle.id"
-                                    :id="`${column}_${vehicle.id}`"
+                                    :key="`${column.building}_${vehicle.id}`"
+                                    :id="`${column.building}_${vehicle.id}`"
                                     :width="10"
-                                    :height="3"
-                                    @moveEnd="eventHandler"
-                                    @resizeEnd="eventHandler"
+                                    :height="1"
                                 >
                                     <span
                                         class="building_list_fms"
@@ -85,14 +122,14 @@
                                     >
                                         {{ vehicle.caption }}
                                     </a>
-                                    <template v-slot:resizeBottomRight>
+                                    <template #resizeBottomRight>
                                         ⤡
                                     </template>
                                 </grid-item>
                             </grid-layout>
                         </grid-board>
                     </div>
-                    <template v-slot:resizeBottomRight>
+                    <template #resizeBottomRight>
                         ⤡
                     </template>
                 </grid-item>
@@ -114,14 +151,11 @@ export default {
     components: { VSelect, GridBoard, GridLayout, GridItem },
     data() {
         return {
-            observerLower: null,
-            observerUpper: null,
             buildings: this.$store.state.api.buildings,
             selectedBuilding: null,
             columns: [],
-            buildingLimit: 15,
-            buildingLimitUpper: 10,
-            buildingLoadAmount: 10,
+            buildingLimit: 50,
+            buildingListOffset: 0,
             buildingListSearch: '',
         };
     },
@@ -134,17 +168,10 @@ export default {
             return buildings;
         },
         buildingList() {
-            const buildingList = this.buildingListFiltered;
-            return buildingList
-                .sort((a, b) =>
-                    a.caption > b.caption ? 1 : a.caption < b.caption ? -1 : 0
-                )
-                .slice(
-                    this.buildingListHasPrevPage
-                        ? this.buildingLimitUpper - this.buildingLimit
-                        : 0,
-                    this.buildingLimitUpper
-                );
+            return this.buildingListFiltered.slice(
+                this.buildingListOffset,
+                this.buildingLimit + this.buildingListOffset
+            );
         },
         buildingListFiltered() {
             const vehicleBuildingTypes = Object.values(
@@ -153,78 +180,82 @@ export default {
             return Object.values(this.buildings)
                 .filter(
                     building =>
+                        building.caption
+                            .toLowerCase()
+                            .match(
+                                this.escapeRegex(
+                                    this.buildingListSearch.toLowerCase()
+                                )
+                            ) &&
                         vehicleBuildingTypes.includes(building.building_type) &&
-                        !Object.values(this.columns).includes(building.id)
+                        !Object.values(this.columns).find(
+                            column => column.building === building.id
+                        )
                 )
-                .filter(building =>
-                    building.caption.match(this.buildingListSearch)
+                .sort((a, b) =>
+                    a.caption > b.caption ? 1 : a.caption < b.caption ? -1 : 0
                 );
         },
         buildingListHasPrevPage() {
-            return this.buildingLimitUpper > this.buildingLimit;
+            const prevOffset = this.buildingListOffset - this.buildingLimit;
+            return Boolean(
+                this.buildingListFiltered.slice(
+                    prevOffset,
+                    this.buildingLimit + prevOffset
+                ).length
+            );
         },
         buildingListHasNextPage() {
-            return this.buildingList.length < this.buildingListFiltered.length;
+            const nextOffset = this.buildingListOffset + this.buildingLimit;
+            return Boolean(
+                this.buildingListFiltered.slice(
+                    nextOffset,
+                    this.buildingLimit + nextOffset
+                ).length
+            );
         },
         vehiclesByBuilding() {
             const vehicles = {};
-            this.columns.forEach(
-                building =>
-                    (vehicles[building] = this.$store.getters[
-                        'api/vehiclesAtBuilding'
-                    ](building))
-            );
+            Object.values(this.columns).forEach(column => {
+                vehicles[column.building] = this.$store.getters[
+                    'api/vehiclesAtBuilding'
+                ](column.building);
+            });
             return vehicles;
         },
     },
     methods: {
-        addColumn() {
-            this.columns.push(this.selectedBuilding);
+        async addColumn() {
+            this.columns.push({ building: this.selectedBuilding });
+            await this.$nextTick();
+            const column = this.$refs[`building-${this.selectedBuilding}`][0]
+                .item;
             this.selectedBuilding = null;
+            this.modifyBuilding({
+                id: column._id,
+                width: column._width,
+                height: column._height,
+                x: column._x,
+                y: column._y,
+            });
         },
-        eventHandler(...args) {
-            console.log(...args);
-        },
-        async onBuildingListOpen() {
-            if (this.buildingListHasPrevPage) {
-                await this.$nextTick();
-                this.observerLower.observe(this.$refs.loadLower);
-            }
-            if (this.buildingListHasNextPage) {
-                await this.$nextTick();
-                this.observerUpper.observe(this.$refs.loadUpper);
-            }
-        },
-        onBuildingListClose() {
-            this.observerLower.disconnect();
-            this.observerUpper.disconnect();
-        },
-        async buildingListinfiniteScrollLower([{ isIntersecting, target }]) {
-            if (isIntersecting) {
-                const ul = target.offsetParent;
-                const scrollTop = target.offsetParent.scrollTop;
-                this.buildingLimitUpper -= this.buildingLoadAmount;
-                await this.$nextTick();
-                ul.scrollTop = scrollTop;
-            }
-        },
-        async buildingListinfiniteScrollUpper([{ isIntersecting, target }]) {
-            if (isIntersecting) {
-                const ul = target.offsetParent;
-                const scrollTop = target.offsetParent.scrollTop;
-                this.buildingLimitUpper += this.buildingLoadAmount;
-                await this.$nextTick();
-                ul.scrollTop = scrollTop;
-            }
+        modifyBuilding({ id, width, height, x, y }) {
+            this.$set(
+                this.columns,
+                this.columns.findIndex(column => column.building === id),
+                { building: id, width, height, x, y }
+            );
+            this.$store.dispatch('settings/setSetting', {
+                moduleId: MODULE_ID,
+                settingId: 'buildings',
+                value: this.columns,
+            });
         },
     },
     mounted() {
-        this.observerLower = new IntersectionObserver(
-            this.buildingListinfiniteScrollLower
-        );
-        this.observerUpper = new IntersectionObserver(
-            this.buildingListinfiniteScrollUpper
-        );
+        this.$store.dispatch('settings/getModule', MODULE_ID).then(settings => {
+            this.columns = settings.buildings || [];
+        });
     },
 };
 </script>
@@ -235,8 +266,14 @@ export default {
 
     .v-select
         width: 100%
-        max-width: 250px
+        max-width: 40rem
         margin-right: 1rem
+
+        /deep/ .vs-pagination
+            display: flex
+
+            .btn
+                width: 50%
 
 .item.panel
 
@@ -244,7 +281,7 @@ export default {
         position: relative
         z-index: 2
 
-    /deep/ [id$="-overlay"]
+    /deep/ & > [id$="-overlay"]
         inset: 0 0 calc(100% - 41px) 0 !important
 
     /deep/ [id$="-resizeBottomRight"]
@@ -254,30 +291,33 @@ export default {
         right: -1em !important
         bottom: -1em !important
 
-    .building-vehicle
-        display: flex
+    .panel-body
+        background: transparent
 
-        span,
-        a
+        .building-vehicle
             display: flex
-            align-items: center
-            justify-content: center
 
-        span
-            border-radius: .25em 0 0 .25em !important
-            padding: .4em .6em .3em !important
-            border: 1px solid !important
-            margin-right: 0
+            span,
+            a
+                display: flex
+                align-items: center
+                justify-content: center
 
-        a
-            border: 1px solid
-            border-left: 0
-            margin-left: -5px
-            margin-right: 0
-            border-radius: 0 .25em .25em 0 !important
-            padding: .4em .6em .3em !important
-            color: #4a4a4a !important
-            width: 100%
+            span
+                border-radius: .25em 0 0 .25em !important
+                padding: .4em .6em .3em !important
+                border: 1px solid !important
+                margin-right: 0
+
+            a
+                border: 1px solid
+                border-left: 0
+                margin-left: -5px
+                margin-right: 0
+                border-radius: 0 .25em .25em 0 !important
+                padding: .4em .6em .3em !important
+                color: #4a4a4a !important
+                width: 100%
 
 body.dark
 

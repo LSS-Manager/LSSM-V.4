@@ -18,6 +18,7 @@ module.exports = {
             ? 'fff'
             : '000';
     },
+    escapeRegex: s => s.replace(/[[\\^$.|?*+()]/g, '\\$&'),
     highChartsDarkMode(vm, Highcharts) {
         if (vm.$store.state.darkmode)
             Highcharts.setOptions({
