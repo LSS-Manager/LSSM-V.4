@@ -56,6 +56,11 @@
                     Open-Source Libraries
                 </a>
             </li>
+            <li role="presentation">
+                <a href="#" @click.prevent.stop.self="createExternalLSSM">
+                    Beta-Test: externalWindowLSSM
+                </a>
+            </li>
         </ul>
     </li>
 </template>
@@ -159,6 +164,9 @@ export default {
                     width: '96%',
                 }
             );
+        },
+        createExternalLSSM() {
+            this.$store.dispatch('external/createExternalLSSM', {});
         },
     },
 };

@@ -21,10 +21,14 @@ const modules = [];
 const entries = Object.keys(config.games).map(game => {
     const entry = {
         mode: process.argv[2] || 'development',
-        entry: { [game]: './src/core.js' },
+        entry: {
+            [`${game}_core`]: './src/core.js',
+            [`${game}_blank`]: './src/blank.js',
+        },
         output: {
             path: path.resolve(__dirname, `../dist/${game}`),
-            filename: 'core.js',
+            filename: chunkData =>
+                `${chunkData.chunk.name.replace(/^[a-z]{2}_[A-Z]{2}_/, '')}.js`,
         },
         ...lodash.cloneDeep(webpackConfig),
     };
@@ -42,19 +46,14 @@ const entries = Object.keys(config.games).map(game => {
         ),
         ...entry.plugins,
     ];
-    moduleDirs.forEach(module => {
-        if (fs.existsSync(`./src/modules/${module}/main.js`)) {
-            const moduleEntry = lodash.cloneDeep(entry);
-            moduleEntry.entry = {
-                [`${game}_${module}`]: `./src/modules/${module}/main.js`,
-            };
-            moduleEntry.output = {
-                path: path.resolve(
-                    __dirname,
-                    `../dist/${game}/modules/${module}`
-                ),
-                filename: 'main.js',
-            };
+    const modulesEntry = lodash.cloneDeep(entry);
+    modulesEntry.entry = {};
+    moduleDirs
+        .filter(module => fs.existsSync(`./src/modules/${module}/main.js`))
+        .forEach(module => {
+            modulesEntry.entry[
+                `${game}_${module}`
+            ] = `./src/modules/${module}/main.js`;
             if (
                 fs.existsSync(`./src/modules/${module}/i18n/${game}.js`) ||
                 fs.existsSync(`./src/modules/${module}/i18n/${game}.json`) ||
@@ -62,9 +61,9 @@ const entries = Object.keys(config.games).map(game => {
                     `./src/modules/${module}/i18n/${game}/index.js`
                 ) ||
                 fs.existsSync(`./src/modules/${module}/i18n/${game}/index.json`)
-            ) {
-                moduleEntry.module.rules.push({
-                    test: /main\.js/,
+            )
+                modulesEntry.module.rules.push({
+                    test: new RegExp(`modules/${module}/main.js$`),
                     loader: 'webpack-append',
                     query: `window.lssmv4.$i18n.mergeLocaleMessage(${JSON.stringify(
                         game
@@ -73,31 +72,41 @@ const entries = Object.keys(config.games).map(game => {
                         `../src/modules/${module}/i18n/${game}`
                     )}\`),},});`,
                 });
-            }
-            moduleEntry.module.rules.push({
-                test: /\.(js|vue)$/,
+            modulesEntry.module.rules.push({
+                test: new RegExp(`modules/${module}/\\.*.(js|vue)$`),
                 loader: 'string-replace-loader',
                 query: {
                     multiple: [
                         {
-                            search: /require\((['"])vue(['"])\)/,
-                            replace: 'window.lssmv4.Vue',
-                        },
-                        {
-                            search: /import ([^ ]*) from (['"])vue(['"])/,
-                            replace: 'const Vue = window.lssmv4.Vue',
+                            search: /MODULE_ID/,
+                            replace: JSON.stringify(module),
                         },
                     ],
                 },
             });
-            moduleEntry.plugins.push(
-                new webpack.DefinePlugin({
-                    MODULE_ID: JSON.stringify(module),
-                })
-            );
-            modules.push(moduleEntry);
-        }
+        });
+    modulesEntry.output = {
+        path: path.resolve(__dirname, `../dist/${game}/modules`),
+        filename: chunkData =>
+            `${chunkData.chunk.name.replace(/^[a-z]{2}_[A-Z]{2}_/, '')}.js`,
+    };
+    modulesEntry.module.rules.push({
+        test: /\.(js|vue)$/,
+        loader: 'string-replace-loader',
+        query: {
+            multiple: [
+                {
+                    search: /require\((['"])vue(['"])\)/,
+                    replace: 'window.lssmv4.Vue',
+                },
+                {
+                    search: /import ([^ ]*) from (['"])vue(['"])/,
+                    replace: 'const Vue = window.lssmv4.Vue',
+                },
+            ],
+        },
     });
+    modules.push(modulesEntry);
     return entry;
 });
 

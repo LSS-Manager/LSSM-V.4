@@ -6,6 +6,7 @@ import storage from './store/storage';
 import settings from './store/settings';
 import api from './store/api';
 import console from './store/console';
+import external from './store/external';
 
 const config = require('./config');
 
@@ -22,6 +23,7 @@ export default new Vuex.Store({
         settings,
         api,
         console,
+        external,
     },
     state: {
         discord: config.discord,

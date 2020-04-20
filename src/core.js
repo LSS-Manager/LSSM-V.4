@@ -100,6 +100,12 @@ if (window.location.pathname === '/') {
             await require('./modules/releasenotes/main');
             await require('./modules/support/main');
         })();
+
+        window.addEventListener('beforeunload', () => {
+            Object.values(store.state.external.instances).forEach(instance =>
+                instance.close()
+            );
+        });
     }
 
     store.dispatch('storage/get', { key: 'active' }).then(activeModules => {
