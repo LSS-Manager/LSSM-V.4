@@ -240,6 +240,12 @@ export default {
             });
         },
         modifyBuilding({ id, width, height, x, y }) {
+            const building = this.$refs[`building-${id}`][0];
+            building.$refs[`${id}-overlay`].style.inset = `0 0 calc(100% - ${
+                building.$el
+                    .querySelector('.panel-heading')
+                    .getBoundingClientRect().height
+            }px) 0`;
             this.$set(
                 this.columns,
                 this.columns.findIndex(column => column.building === id),
@@ -281,8 +287,8 @@ export default {
         position: relative
         z-index: 2
 
-    /deep/ & > [id$="-overlay"]
-        inset: 0 0 calc(100% - 41px) 0 !important
+    /*/deep/ & > [id$="-overlay"]*/
+    /*    inset: 0 0 calc(100% - 41px) 0 !important*/
 
     /deep/ [id$="-resizeBottomRight"]
         cursor: nwse-resize !important
