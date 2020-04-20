@@ -84,6 +84,12 @@
                         >
                             <b>{{ buildingsById[column.building].caption }}</b>
                         </a>
+                        <button
+                            class="btn btn-xs btn-danger"
+                            @click="removeBuilding(column.building)"
+                        >
+                            <i data-v-eea344b4="" class="fas fa-minus"></i>
+                        </button>
                     </div>
                     <div class="panel-body">
                         <grid-board
@@ -239,6 +245,13 @@ export default {
                 y: column._y,
             });
         },
+        removeBuilding(id) {
+            this.columns.splice(
+                this.columns.findIndex(column => column.building === id),
+                1
+            );
+            this.saveBuildings();
+        },
         modifyBuilding({ id, width, height, x, y }) {
             const building = this.$refs[`building-${id}`][0];
             building.$refs[`${id}-overlay`].style.inset = `0 0 calc(100% - ${
@@ -251,6 +264,9 @@ export default {
                 this.columns.findIndex(column => column.building === id),
                 { building: id, width, height, x, y }
             );
+            this.saveBuildings();
+        },
+        saveBuildings() {
             this.$store.dispatch('settings/setSetting', {
                 moduleId: MODULE_ID,
                 settingId: 'buildings',
@@ -283,12 +299,16 @@ export default {
 
 .item.panel
 
-    a
-        position: relative
+    a,
+    .btn
         z-index: 2
 
-    /*/deep/ & > [id$="-overlay"]*/
-    /*    inset: 0 0 calc(100% - 41px) 0 !important*/
+    a
+        position: relative
+
+    .btn
+        position: absolute
+        right: 1rem
 
     /deep/ [id$="-resizeBottomRight"]
         cursor: nwse-resize !important
