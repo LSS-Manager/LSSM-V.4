@@ -95,10 +95,10 @@ if (window.location.pathname === '/') {
     store.commit('setKey', keyData.code);
 
     if (window.location.pathname === '/') {
-        (async () => {
+        await (async () => {
             await require('./modules/telemetry/main')();
-            require('./modules/releasenotes/main');
-            require('./modules/support/main');
+            await require('./modules/releasenotes/main');
+            await require('./modules/support/main');
         })();
     }
 
@@ -138,5 +138,10 @@ if (window.location.pathname === '/') {
             key: 'active',
             val: store.getters.activeModules,
         });
+
+        const navTab = document.querySelector(
+            `.nav-tabs a[href="${window.location.hash}"]`
+        );
+        navTab && navTab.click();
     });
 })();
