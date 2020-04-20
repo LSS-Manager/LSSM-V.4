@@ -1,61 +1,12 @@
 <template>
     <div>
-        <div class="building-selection">
-            <v-select
-                label="caption"
-                :options="buildingList"
-                :reduce="building => building.id"
-                :filterable="false"
-                v-model="selectedBuilding"
-                @search="query => (buildingListSearch = query)"
-            >
-                <template #list-header>
-                    <li class="vs-pagination">
-                        <button
-                            class="btn btn-default"
-                            @click="buildingListOffset -= buildingLimit"
-                            :disabled="!buildingListHasPrevPage"
-                        >
-                            ←
-                        </button>
-                        <button
-                            class="btn btn-default"
-                            @click="buildingListOffset += buildingLimit"
-                            :disabled="!buildingListHasNextPage"
-                        >
-                            →
-                        </button>
-                    </li>
-                </template>
-                <template #list-footer>
-                    <li class="vs-pagination">
-                        <button
-                            class="btn btn-default"
-                            @click="buildingListOffset -= buildingLimit"
-                            :disabled="!buildingListHasPrevPage"
-                        >
-                            ←
-                        </button>
-                        <button
-                            class="btn btn-default"
-                            @click="buildingListOffset += buildingLimit"
-                            :disabled="!buildingListHasNextPage"
-                        >
-                            →
-                        </button>
-                    </li>
-                </template>
-            </v-select>
-            <button
-                class="btn btn-success"
-                @click="addColumn"
-                :disabled="!selectedBuilding"
-            >
-                <i class="fas fa-plus"></i>
-            </button>
-        </div>
         <grid-board :id="$store.getters.nodeId('dispatchcenter-view_board')">
-            <grid-layout breakpoint="xl" :numberOfCols="100" :compact="false">
+            <grid-layout
+                breakpoint="xl"
+                :numberOfCols="100"
+                :compact="false"
+                :rowHeight="12"
+            >
                 <grid-item
                     class="panel panel-default"
                     v-for="column in columns"
@@ -72,7 +23,6 @@
                                         1.5
                             )
                     "
-                    :rowHeight="20"
                     :ref="`building-${column.building}`"
                     @moveEnd="modifyBuilding"
                     @resizeEnd="modifyBuilding"
@@ -139,6 +89,74 @@
                         ⤡
                     </template>
                 </grid-item>
+                <grid-item
+                    class="building-selection"
+                    :x="buildingSelection.x"
+                    :y="buildingSelection.y"
+                    :height="buildingSelection.height"
+                    :width="buildingSelection.width"
+                    :id="
+                        $store.getters.nodeId(
+                            'dispatchcenter-view_board-selection'
+                        )
+                    "
+                    @moveEnd="saveSelection"
+                    @resizeEnd="saveSelection"
+                >
+                    <div class="dragging-field"></div>
+                    <v-select
+                        label="caption"
+                        :options="buildingList"
+                        :reduce="building => building.id"
+                        :filterable="false"
+                        v-model="selectedBuilding"
+                        @search="query => (buildingListSearch = query)"
+                    >
+                        <template #list-header>
+                            <li class="vs-pagination">
+                                <button
+                                    class="btn btn-default"
+                                    @click="buildingListOffset -= buildingLimit"
+                                    :disabled="!buildingListHasPrevPage"
+                                >
+                                    ←
+                                </button>
+                                <button
+                                    class="btn btn-default"
+                                    @click="buildingListOffset += buildingLimit"
+                                    :disabled="!buildingListHasNextPage"
+                                >
+                                    →
+                                </button>
+                            </li>
+                        </template>
+                        <template #list-footer>
+                            <li class="vs-pagination">
+                                <button
+                                    class="btn btn-default"
+                                    @click="buildingListOffset -= buildingLimit"
+                                    :disabled="!buildingListHasPrevPage"
+                                >
+                                    ←
+                                </button>
+                                <button
+                                    class="btn btn-default"
+                                    @click="buildingListOffset += buildingLimit"
+                                    :disabled="!buildingListHasNextPage"
+                                >
+                                    →
+                                </button>
+                            </li>
+                        </template>
+                    </v-select>
+                    <button
+                        class="btn btn-success"
+                        @click="addColumn"
+                        :disabled="!selectedBuilding"
+                    >
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </grid-item>
             </grid-layout>
         </grid-board>
     </div>
@@ -160,6 +178,7 @@ export default {
             buildings: this.$store.state.api.buildings,
             selectedBuilding: null,
             columns: [],
+            buildingSelection: {},
             buildingLimit: 50,
             buildingListOffset: 0,
             buildingListSearch: '',
@@ -254,11 +273,15 @@ export default {
         },
         modifyBuilding({ id, width, height, x, y }) {
             const building = this.$refs[`building-${id}`][0];
-            building.$refs[`${id}-overlay`].style.inset = `0 0 calc(100% - ${
-                building.$el
-                    .querySelector('.panel-heading')
-                    .getBoundingClientRect().height
-            }px) 0`;
+            const headingHeight = building.$el
+                .querySelector('.panel-heading')
+                .getBoundingClientRect().height;
+            building.$refs[
+                `${id}-overlay`
+            ].style.inset = `0 0 calc(100% - ${headingHeight}px) 0`;
+            building.$el.querySelector(
+                '.panel-body'
+            ).style.maxHeight = `calc(100% - ${headingHeight}px)`;
             this.$set(
                 this.columns,
                 this.columns.findIndex(column => column.building === id),
@@ -273,10 +296,38 @@ export default {
                 value: this.columns,
             });
         },
+        saveSelection({ width, x, y }) {
+            this.$set(this.buildingSelection, 'width', width);
+            this.$set(this.buildingSelection, 'height', 2);
+            this.$set(this.buildingSelection, 'x', x);
+            this.$set(this.buildingSelection, 'y', y);
+            this.$store.dispatch('settings/setSetting', {
+                moduleId: MODULE_ID,
+                settingId: 'selection',
+                value: this.buildingSelection,
+            });
+        },
     },
     mounted() {
         this.$store.dispatch('settings/getModule', MODULE_ID).then(settings => {
             this.columns = settings.buildings || [];
+            this.buildingSelection = settings.selection || {
+                x: 0,
+                y: 0,
+                width: 25,
+                height: 2,
+            };
+            this.columns.forEach(async col => {
+                await this.$nextTick();
+                const column = this.$refs[`building-${col.building}`][0].item;
+                this.modifyBuilding({
+                    id: column._id,
+                    width: column._width,
+                    height: column._height,
+                    x: column._x,
+                    y: column._y,
+                });
+            });
         });
     },
 };
@@ -286,10 +337,20 @@ export default {
 .building-selection
     display: flex
 
+    /deep/ [id$="-overlay"]
+        inset: 0 calc(100% - 1em) 0 0 !important
+
+    .dragging-field
+        width: 1em
+        background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABZJREFUeNpi2r9//38gYGAEESAAEGAAasgJOgzOKCoAAAAASUVORK5CYII=)
+
     .v-select
         width: 100%
-        max-width: 40rem
+        /*max-width: 40rem*/
         margin-right: 1rem
+
+        /deep/ .vs__dropdown-toggle
+            padding: 0 0 6.4px 0
 
         /deep/ .vs-pagination
             display: flex
@@ -319,6 +380,7 @@ export default {
 
     .panel-body
         background: transparent
+        overflow: hidden auto
 
         .building-vehicle
             display: flex
