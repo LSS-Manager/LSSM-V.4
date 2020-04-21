@@ -94,16 +94,16 @@ const entries = Object.keys(config.games).map(game => {
             )}/main.js`,
     };
     modulesEntry.module.rules.push({
-        test: /\.(js|vue)$/g,
+        test: /\.(js|vue)$/,
         loader: 'string-replace-loader',
         query: {
             multiple: [
                 {
-                    search: /require\((['"])vue(['"])\)/,
+                    search: /require\((['"])vue(['"])\)/g,
                     replace: 'window.lssmv4.Vue',
                 },
                 {
-                    search: /import ([^ ]*) from (['"])vue(['"])/,
+                    search: /import ([^ ]*) from (['"])vue(['"])/g,
                     replace: 'const Vue = window.lssmv4.Vue',
                 },
             ],

@@ -104,9 +104,10 @@ if (window.location.pathname === '/') {
     }
 
     window.addEventListener('beforeunload', () => {
-        Object.values(store.state.external.instances).forEach(instance =>
-            instance.close()
-        );
+        store.dispatch('external/sendMessage', {
+            type: 'close_request',
+            data: '',
+        });
     });
 
     store.dispatch('storage/get', { key: 'active' }).then(activeModules => {

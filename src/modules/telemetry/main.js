@@ -53,7 +53,7 @@ module.exports = async () => {
                             window.lssmv4.$store.state.api.buildings.length,
                         modules: await window.lssmv4.$store.dispatch(
                             'storage/get',
-                            'active'
+                            { key: 'active' }
                         ),
                     },
                     flag: config.games[window.lssmv4.$i18n.locale].flag,

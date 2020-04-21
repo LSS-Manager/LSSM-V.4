@@ -34,7 +34,7 @@ window.lssmv4.$store.dispatch('settings/register', {
             );
     }
 
-    moment.locale(window.I18n.locale);
+    moment.locale(BUILD_LANG);
 
     let clocks = document.querySelectorAll(`.${className}`);
     setInterval(() => {

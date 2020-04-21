@@ -20,6 +20,7 @@ export default {
     },
     mounted() {
         document.dispatchEvent(new CustomEvent(`lssm_mounted_${window.name}`));
+        this.$store.dispatch('external/establishConnection');
     },
 };
 </script>

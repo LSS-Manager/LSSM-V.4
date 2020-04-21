@@ -166,7 +166,7 @@ export default {
             );
         },
         createExternalLSSM() {
-            this.$store.dispatch('external/createExternalLSSM', {});
+            this.$store.dispatch('external/getExternalLSSM', {});
         },
     },
 };
