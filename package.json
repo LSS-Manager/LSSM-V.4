@@ -1,5 +1,5 @@
 {
-    "version": "4.0.3+20200420.2218",
+    "version": "4.0.4+20200421.1225",
     "license": "CC-BY-NC-SA-4.0",
     "scripts": {
         "predev": "node prebuild",

@@ -1,6 +1,5 @@
 <template>
     <div :id="id">
-        <modals-container></modals-container>
         <v-dialog></v-dialog>
     </div>
 </template>
@@ -18,6 +17,9 @@ export default {
         let fa = document.createElement('script');
         fa.src = 'https://use.fontawesome.com/releases/v5.13.0/js/all.js';
         document.head.appendChild(fa);
+    },
+    mounted() {
+        document.dispatchEvent(new CustomEvent(`lssm_mounted_${window.name}`));
     },
 };
 </script>

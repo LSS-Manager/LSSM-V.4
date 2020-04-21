@@ -2,10 +2,24 @@
     <div>
         <span
             class="glyphicon glyphicon-info-sign"
-            @click="isHidden = !isHidden"
+            v-if="!noExternal"
+            @click="hidden = !hidden"
         ></span>
-        <div class="alert alert-info row" :class="{ hidden: isHidden }">
-            <button class="close" type="button" @click="isHidden = !isHidden">
+        <span
+            class="glyphicon glyphicon-modal-window"
+            v-if="!noExternal"
+            @click="external"
+        ></span>
+        <div
+            class="alert alert-info row"
+            :class="{ hidden: isHidden, external: noExternal }"
+        >
+            <button
+                class="close"
+                type="button"
+                @click="hidden = !hidden"
+                v-if="!noExternal"
+            >
                 ×
             </button>
             <h3>{{ $t('modules.schoolingOverview.name') }}</h3>
@@ -78,13 +92,13 @@
 </template>
 
 <script>
+import schoolingOverview from './schoolingOverview.vue';
+
 export default {
     name: 'schoolingsOverview',
     data() {
         return {
-            isHidden: true,
-            ownSchoolings: {},
-            openSchoolings: {},
+            hidden: true,
             sortOwn: 'key',
             sortOwnDir: 'asc',
             sortOpen: 'key',
@@ -93,7 +107,25 @@ export default {
             openSchoolingsSearch: '',
         };
     },
+    props: {
+        ownSchoolings: {
+            type: Object,
+            required: true,
+        },
+        openSchoolings: {
+            type: Object,
+            required: true,
+        },
+        noExternal: {
+            type: Boolean,
+            required: false,
+            default: () => false,
+        },
+    },
     computed: {
+        isHidden() {
+            return this.noExternal ? false : this.hidden;
+        },
         sortedOwn() {
             let unsorted = [];
             Object.keys(this.ownSchoolings).forEach(schooling =>
@@ -160,47 +192,41 @@ export default {
                     : 'asc';
             this.sortOpen = s;
         },
-    },
-    mounted() {
-        document
-            .querySelectorAll('#schooling_own_table tbody tr')
-            .forEach(schooling => {
-                let name = schooling.querySelector('a.btn-success').innerText;
-                if (!this.ownSchoolings.hasOwnProperty(name))
-                    this.$set(this.ownSchoolings, name, 0);
-                this.ownSchoolings[name]++;
-            });
-        document
-            .querySelectorAll(
-                '#schooling_opened_table tr.schooling_opened_table_searchable'
-            )
-            .forEach(schooling => {
-                let name = schooling.querySelector('a.btn-success').innerText;
-                if (!this.openSchoolings.hasOwnProperty(name))
-                    this.$set(this.openSchoolings, name, {
-                        amount: 0,
-                        seats: 0,
-                    });
-                this.openSchoolings[name].amount++;
-                this.openSchoolings[name].seats += parseInt(
-                    schooling.querySelector('td:nth-of-type(2)').innerText
-                );
-            });
-        Object.values(this.$t('modules.schoolingOverview.schoolings')).forEach(
-            schooling =>
-                !this.openSchoolings.hasOwnProperty(schooling) &&
-                (this.openSchoolings[schooling] = { amount: 0, seats: 0 })
-        );
+        external() {
+            this.$store
+                .dispatch('external/createExternalLSSM', {
+                    target: 'schoolingOverview',
+                })
+                .then(instance => {
+                    instance.lssmv4_local.$modal.show(
+                        schoolingOverview,
+                        {
+                            openSchoolings: this.openSchoolings,
+                            ownSchoolings: this.ownSchoolings,
+                            noExternal: true,
+                        },
+                        {
+                            name: 'schoolingOverview',
+                            height: '100%',
+                            width: '100%',
+                        }
+                    );
+                });
+        },
     },
 };
 </script>
 
 <style scoped lang="sass">
 th,
-.glyphicon-info-sign
+.glyphicon
     cursor: pointer
 
-.empty-schooling
-    td:not(:first-of-type)
-        color: red
+.alert
+    &.external
+        margin: 0
+
+    .empty-schooling
+        td:not(:first-of-type)
+            color: red
 </style>

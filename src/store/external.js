@@ -28,6 +28,8 @@ export default {
                 const instance = window.open('about:blank', target, features);
                 commit('addInstance', { target, instance });
                 instance.addEventListener('load', () => {
+                    if (rootState.darkmode)
+                        instance.document.body.classList.add('dark');
                     [...document.styleSheets].forEach(styleSheet =>
                         instance.document.head.appendChild(
                             styleSheet.ownerNode.cloneNode(true)
@@ -40,8 +42,11 @@ export default {
                         rootState.lang
                     }-${window.user_id}`;
                     instance.lssmv4 = window.lssmv4;
+                    instance.document.addEventListener(
+                        `lssm_mounted_${target}`,
+                        () => resolve(instance)
+                    );
                     instance.document.body.appendChild(script);
-                    resolve(instance);
                 });
             });
         },

@@ -73,12 +73,12 @@ const entries = Object.keys(config.games).map(game => {
                     )}\`),},});`,
                 });
             modulesEntry.module.rules.push({
-                test: new RegExp(`modules/${module}/\\.*.(js|vue)$`),
+                test: new RegExp(`modules/${module}/.*\\.(js|vue)$`),
                 loader: 'string-replace-loader',
                 query: {
                     multiple: [
                         {
-                            search: /MODULE_ID/,
+                            search: /MODULE_ID/g,
                             replace: JSON.stringify(module),
                         },
                     ],
@@ -88,10 +88,13 @@ const entries = Object.keys(config.games).map(game => {
     modulesEntry.output = {
         path: path.resolve(__dirname, `../dist/${game}/modules`),
         filename: chunkData =>
-            `${chunkData.chunk.name.replace(/^[a-z]{2}_[A-Z]{2}_/, '')}.js`,
+            `${chunkData.chunk.name.replace(
+                /^[a-z]{2}_[A-Z]{2}_/,
+                ''
+            )}/main.js`,
     };
     modulesEntry.module.rules.push({
-        test: /\.(js|vue)$/,
+        test: /\.(js|vue)$/g,
         loader: 'string-replace-loader',
         query: {
             multiple: [

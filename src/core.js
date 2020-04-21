@@ -19,6 +19,7 @@ Vue.use(VueJSModal, {
         clickToClose: true,
     },
     dialog: true,
+    injectModalsContainer: true,
 });
 Vue.use(ToggleButton);
 Vue.use(Tabs);
@@ -100,13 +101,13 @@ if (window.location.pathname === '/') {
             await require('./modules/releasenotes/main');
             await require('./modules/support/main');
         })();
-
-        window.addEventListener('beforeunload', () => {
-            Object.values(store.state.external.instances).forEach(instance =>
-                instance.close()
-            );
-        });
     }
+
+    window.addEventListener('beforeunload', () => {
+        Object.values(store.state.external.instances).forEach(instance =>
+            instance.close()
+        );
+    });
 
     store.dispatch('storage/get', { key: 'active' }).then(activeModules => {
         if (!activeModules) activeModules = [];
