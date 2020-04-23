@@ -35,6 +35,7 @@ export default new Vuex.Store(
             prefix: 'lssmv4',
             server: config.server,
             darkmode: window.document.body.classList.contains('dark'),
+            premium: window.user_premium,
             lssm: {},
             localforage,
             appstoreUpdate: false,

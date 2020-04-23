@@ -601,4 +601,6 @@ module.exports = {
     amount: 'Anzahl',
     search: 'Suche',
     alliance: 'Verband',
+    premiumNotice:
+        'Diese Funktion erweitert eine Premium-Funktion des Spiels und ist deshalb nur für Spieler mit einem Leitstellenspiel-Premium-Account verfügbar!',
 };
