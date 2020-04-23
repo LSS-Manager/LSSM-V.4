@@ -92,6 +92,8 @@
 </template>
 
 <script>
+import schoolingOverview from './schoolingOverview.vue';
+
 export default {
     name: 'schoolingsOverview',
     data() {
@@ -192,34 +194,28 @@ export default {
         },
         external() {
             this.$store
-                .dispatch('external/getExternalLSSM', {
-                    target: 'schoolingOverview',
-                    keepAlive: true,
+                .dispatch('external/sendMessage', {
+                    target: 'lssmv4_external_schoolingOverview',
+                    type: 'close_request',
+                    data: 'force',
                 })
-                .then(({ target, instance }) => {
-                    if (instance) {
-                        instance.lssmv4_local.Vue.component(
-                            'schoolingOverview',
-                            require('./schoolingOverview.vue')
-                        );
-                    }
-                    this.$store
-                        .dispatch('external/sendMessage', {
-                            target,
-                            type: 'function_call',
-                            data: {
-                                function: 'lssmv4_local.$modal.hide',
-                                params: ['schoolingOverview'],
-                            },
-                        })
-                        .then(() => {
-                            this.$store.dispatch('external/sendMessage', {
-                                target,
-                                type: 'function_call',
-                                data: {
-                                    function: 'lssmv4_local.$modal.show',
-                                    params: [
-                                        `schoolingOverview`,
+                .then(() =>
+                    window.setTimeout(
+                        () =>
+                            this.$store
+                                .dispatch('external/getExternalLSSM', {
+                                    target: 'schoolingOverview',
+                                    keepAlive: true,
+                                    title: this.$t(
+                                        'modules.schoolingOverview.name'
+                                    ),
+                                })
+                                .then(({ instance }) => {
+                                    instance.lssmv4_local.$modal.hide(
+                                        'schoolingOverview'
+                                    );
+                                    instance.lssmv4_local.$modal.show(
+                                        schoolingOverview,
                                         {
                                             openSchoolings: this.openSchoolings,
                                             ownSchoolings: this.ownSchoolings,
@@ -229,26 +225,12 @@ export default {
                                             name: 'schoolingOverview',
                                             height: '100%',
                                             width: '100%',
-                                        },
-                                    ],
-                                },
-                            });
-                        });
-                    // instance.lssmv4_local.$modal.hide('schoolingOverview');
-                    // instance.lssmv4_local.$modal.show(
-                    //     schoolingOverview,
-                    //     {
-                    //         openSchoolings: this.openSchoolings,
-                    //         ownSchoolings: this.ownSchoolings,
-                    //         noExternal: true,
-                    //     },
-                    //     {
-                    //         name: 'schoolingOverview',
-                    //         height: '100%',
-                    //         width: '100%',
-                    //     }
-                    // );
-                });
+                                        }
+                                    );
+                                }),
+                        500
+                    )
+                );
         },
     },
 };

@@ -23,9 +23,8 @@ export default {
         establishConnection({ commit, dispatch }) {
             return new Promise(resolve => {
                 const channel = new BroadcastChannel('lssmv4_broadcast');
-                channel.addEventListener('message', message =>
-                    dispatch('handleMessage', message)
-                );
+                channel.onmessage = message =>
+                    dispatch('handleMessage', message);
                 channel.addEventListener('messageerror', console.error);
                 commit('setChannel', channel);
                 if (!window.name) {
@@ -78,7 +77,7 @@ export default {
                 type,
             });
         },
-        handleMessage({ dispatch }, { data }) {
+        handleMessage({ state, dispatch, rootState }, { data }) {
             if (data.target !== '*' && data.target !== window.name) return;
             switch (data.type) {
                 case 'variable_request':
@@ -91,7 +90,10 @@ export default {
                     });
                     break;
                 case 'close_request':
-                    !window.keepAlive && window.close();
+                    if (!window.keepAlive || data.data === 'force') {
+                        state.channel.onmessage = null;
+                        window.close();
+                    }
                     break;
                 case 'echo':
                     dispatch('sendMessage', {
@@ -101,7 +103,6 @@ export default {
                     });
                     break;
                 case 'function_call':
-                    console.log(data.data);
                     dispatch('sendMessage', {
                         data: data.data.function
                             .split('.')
@@ -113,6 +114,21 @@ export default {
                         target: data.sender,
                     });
                     break;
+                case 'load_script': {
+                    let script = document.createElement('script');
+                    script.src = `${rootState.server}${rootState.lang}/${
+                        data.data
+                    }?_=${new Date().getTime()}&uid=${rootState.lang}-${
+                        window.user_id
+                    }`;
+                    document.body.appendChild(script);
+                    break;
+                }
+                case 'set_variables':
+                    Object.keys(data.data).forEach(
+                        key => (window[key] = data.data[key])
+                    );
+                    break;
                 default:
                     console.log(data);
             }
@@ -121,8 +137,9 @@ export default {
             { state, commit, rootState, dispatch },
             {
                 target = null,
-                features = 'width=500,height=500,noopener=0,noreffer=0',
+                features = 'noopener=0,noreffer=0',
                 keepAlive = false,
+                title = '',
             }
         ) {
             return new Promise(resolve => {
@@ -152,6 +169,7 @@ export default {
                     if (rootState.darkmode)
                         instance.document.body.classList.add('dark');
                     instance.keepAlive = keepAlive;
+                    instance.document.title = `[LSS-Manager] ${title}`;
                     [...document.styleSheets].forEach(styleSheet =>
                         instance.document.head.appendChild(
                             styleSheet.ownerNode.cloneNode(true)
@@ -164,6 +182,7 @@ export default {
                         rootState.lang
                     }-${window.user_id}`;
                     instance.lssmv4 = window.lssmv4;
+                    instance.user_id = window.user_id;
                     instance.document.addEventListener(
                         `lssm_mounted_${target}`,
                         () => resolve({ target, instance })

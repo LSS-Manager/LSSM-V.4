@@ -31,4 +31,6 @@ window.lssmv4_local = new window.lssmv4_clone.Vue({
 
 window.lssmv4_local.Vue = window.lssmv4_clone.Vue;
 
+window.lssmv4 = window.lssmv4_local;
+
 VueJSModal.rootInstance = window.lssmv4_local;

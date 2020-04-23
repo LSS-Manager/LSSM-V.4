@@ -33,6 +33,8 @@ Vue.mixin({
     methods: utils,
 });
 
+window.keepAlive = true;
+
 window[store.state.prefix] = new Vue({
     store,
     i18n,
