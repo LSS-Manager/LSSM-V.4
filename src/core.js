@@ -112,6 +112,11 @@ if (window.location.pathname === '/') {
         });
     });
 
+    const heading = document.querySelector('h1, h2, h3, h4, h5, h6');
+    document.title = `${heading ? `${heading.textContent.trim()} | ` : ''}${
+        config.games[store.state.lang].name
+    }`;
+
     store.dispatch('storage/get', { key: 'active' }).then(activeModules => {
         if (!activeModules) activeModules = [];
         activeModules = [
