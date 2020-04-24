@@ -516,6 +516,9 @@ export default {
             building.$refs[
                 `${id}-overlay`
             ].style.inset = `0 0 calc(100% - ${headingHeight}px) 0`;
+            building.$refs[
+                `${id}-overlay`
+            ].style.bottom = `calc(100% - ${headingHeight}px)`;
             building.$el.querySelector(
                 '.panel-body'
             ).style.maxHeight = `calc(100% - ${headingHeight}px)`;
@@ -594,6 +597,7 @@ export default {
 
     /deep/ [id$="-overlay"]
         inset: 0 calc(100% - 1em) 0 0 !important
+        right: calc(100% - 1em) !important
 
     .dragging-field
         width: 1em
