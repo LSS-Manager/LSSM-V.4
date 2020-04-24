@@ -294,7 +294,6 @@ export default {
                                 )
                             )}`;
                         groupColor += parseInt(color.replace(/^#/, ''), 16);
-                        // console.log(color, groupColor);
                         types.push({
                             id: `${category}_${group}_${type}`,
                             name: this.vehicleTypeNames[type],

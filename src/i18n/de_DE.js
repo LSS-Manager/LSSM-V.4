@@ -598,6 +598,7 @@ module.exports = {
     vehicleBuildings: [0, 2, 5, 6, 9, 11, 12, 13, 15, 17, 18, 19, 20],
     bedBuildings: [4],
     schoolBuildings: [1, 3, 8, 10],
+    dispatchCenterBuildings: [7],
     amount: 'Anzahl',
     search: 'Suche',
     alliance: 'Verband',

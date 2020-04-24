@@ -49,6 +49,8 @@ export default {
             });
             return types;
         },
+        buildingsOfType: state => type =>
+            state.buildings.filter(b => b.building_type === type),
         buildingById: state => buildingId =>
             state.buildings.find(x => x.id === buildingId),
         buildingsByCategory(_, getters, rootState) {

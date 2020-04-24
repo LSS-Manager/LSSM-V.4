@@ -15,6 +15,7 @@
                 <dispatchcenter-view
                     v-if="$store.state.premium"
                 ></dispatchcenter-view>
+                <div v-else></div>
             </tab>
             <template slot="dispatchcenter-view-title">
                 {{ $t('modules.dashboard.tabs.dispatchcenter-view') }}

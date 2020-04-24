@@ -31,13 +31,21 @@ export default {
 body.dark
     .v--modal-box
         background-color: #505050
-        color: #fff
+        color: white
 
     .v-select
         .vs__dropdown-toggle
             border-color: dimgrey
 
             .vs__selected
+                color: white
+                background-color: #505050
+
+        .vs__dropdown-menu
+            color: white
+            background-color: #505050
+
+            .vs__dropdown-option
                 color: white
 
     .text-muted

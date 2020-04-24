@@ -20,5 +20,23 @@
 		"type": "Fahrzeugtyp",
 		"status": "Status",
 		"statuses": [1, 2, 3, 4, 5, 6, 7, 9]
+	},
+	"dispatchcenter-view": {
+		"manage": {
+			"title": "Boards verwalten",
+			"newBoard": "Neues Board",
+			"titles": {
+				"name": "Board-Name",
+				"buildings": {
+					"bold": "Gebäudetyp-Auswahl",
+					"small": "zeige nur Gebäude dieser Gebäudetypen zur Auswahl"
+				},
+				"dispatch": {
+					"bold": "Leitstellen-Auswahl",
+					"small": "zeige nur Gebäude dieser Leitstellen zur Auswahl"
+				}
+			}
+		},
+		"no-buildings": "Keine Gebäude gefunden. Passe ggf. die Filter für dieses Board im \"Boards verwalten\"-Tab an."
 	}
 }
