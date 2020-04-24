@@ -1,5 +1,5 @@
 <template>
-    <lightbox name="appstore">
+    <lightbox name="appstore" no-title-hide>
         <h1>
             AppStore
             <button class="btn btn-success" :disabled="!changes" @click="save">

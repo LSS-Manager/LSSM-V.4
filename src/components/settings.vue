@@ -1,5 +1,5 @@
 <template>
-    <lightbox name="settings">
+    <lightbox name="settings" no-title-hide>
         <h1>
             {{ $t('modules.settings.name') }}
             <button class="btn btn-success" :disabled="!changes" @click="save">

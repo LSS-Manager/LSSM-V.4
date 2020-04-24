@@ -1,29 +1,35 @@
 <template>
-    <div>
-        <button
-            v-if="!noXBtn"
-            type="button"
-            class="close"
-            id="lightbox_close"
-            aria-label="Close"
-            @click="$modal.hide(name)"
-        >
-            <span aria-hidden="true">×</span>
-        </button>
-        <span
-            v-show="!noFullscreen && !fullscreen"
-            class="pull-right toggle-modal-fullscreen"
-            @click="expand"
-        >
-            <i class="fas fa-expand"></i>
-        </span>
-        <span
-            v-show="!noFullscreen && fullscreen"
-            class="pull-right toggle-modal-fullscreen"
-            @click="compress"
-        >
-            <i class="fas fa-compress"></i>
-        </span>
+    <div :class="{ titleHidden }">
+        <div class="controlbtn-container">
+            <span
+                v-if="!noXBtn"
+                class="lightbox-close"
+                @click="$modal.hide(name)"
+            >
+                <i class="fas fa-times"></i>
+            </span>
+            <span
+                v-if="!noFullscreen && !fullscreen"
+                class="toggle-modal-fullscreen"
+                @click="expand"
+            >
+                <i class="fas fa-expand"></i>
+            </span>
+            <span
+                v-if="!noFullscreen && fullscreen"
+                class="toggle-modal-fullscreen"
+                @click="compress"
+            >
+                <i class="fas fa-compress"></i>
+            </span>
+            <span
+                v-if="!noTitleHide"
+                class="toggle-title"
+                @click="titleHidden = !titleHidden"
+            >
+                <i class="fas fa-chevron-up"></i>
+            </span>
+        </div>
         <slot></slot>
     </div>
 </template>
@@ -37,6 +43,7 @@ export default {
             fullscreenBefore: !!window.fullScreen,
             origWidth: this.$parent.$parent.modal.width,
             origHeight: this.$parent.$parent.modal.height,
+            titleHidden: false,
         };
     },
     props: {
@@ -50,6 +57,11 @@ export default {
             default: false,
         },
         noFullscreen: {
+            type: Boolean,
+            required: false,
+            default: false,
+        },
+        noTitleHide: {
             type: Boolean,
             required: false,
             default: false,
@@ -75,20 +87,34 @@ export default {
 </script>
 
 <style scoped lang="sass">
-#lightbox_close
+.controlbtn-container
+    display: flex
+    justify-content: end
+    width: calc(3 * 34px)
     position: absolute
-    top: 1rem
     right: 1rem
-.toggle-modal-fullscreen
-    cursor: pointer
-    position: absolute
     top: 1rem
-    right: calc(1rem + 32px)
-    width: 32px
-    height: 32px
-    text-align: center
+    flex-direction: row-reverse
 
-    svg
-        vertical-align: unset
-        transform: translate(0, 50%)
+    > span
+        cursor: pointer
+        width: 32px
+        height: 32px
+        display: flex
+        align-items: center
+        justify-content: center
+
+        svg
+            transition: transform 1s
+h1
+    transition: font-size 1s, margin 1s, opacity 1s
+
+.titleHidden
+    h1
+        font-size: 0 !important
+        margin: 0 !important
+        opacity: 0 !important
+
+    .toggle-title svg
+        transform: rotate(180deg)
 </style>

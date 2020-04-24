@@ -1,5 +1,5 @@
 <template>
-    <lightbox name="releasenotes" no-fullscreen>
+    <lightbox name="releasenotes" no-fullscreen no-title-hide>
         <h1>LSSM V.4: {{ $t('modules.releasenotes.name') }}</h1>
         <div v-for="note in notes" :key="note.version" class="note">
             <h4>
