@@ -112,10 +112,22 @@ if (window.location.pathname === '/') {
         });
     });
 
-    const heading = document.querySelector('h1, h2, h3, h4, h5, h6');
-    document.title = `${heading ? `${heading.textContent.trim()} | ` : ''}${
-        config.games[store.state.lang].name
-    }`;
+    let heading = document.querySelector('h1, h2, h3, h4, h5, h6');
+    if (window.location !== window.parent.location) {
+        heading = heading ? `[${heading.textContent.trim()}] ` : '';
+    } else {
+        heading = heading ? `${heading.textContent.trim()} | ` : '';
+    }
+    window.tellParent(
+        `document.title = '${heading}${config.games[store.state.lang].name}';`
+    );
+    await store.dispatch('hook', {
+        event: 'lightboxClose',
+        post: true,
+        callback() {
+            document.title = `${heading}${config.games[store.state.lang].name}`;
+        },
+    });
 
     store.dispatch('storage/get', { key: 'active' }).then(activeModules => {
         if (!activeModules) activeModules = [];
