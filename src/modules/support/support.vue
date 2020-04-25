@@ -1,5 +1,5 @@
 <template>
-    <lightbox name="support" no-fullscreen>
+    <lightbox name="support" no-fullscreen no-title-hide>
         <h1>{{ $t('modules.support.name') }}</h1>
         <small v-html="$t('modules.support.note')"></small>
         <form class="chat-control" v-if="$store.state.lssm_admin">

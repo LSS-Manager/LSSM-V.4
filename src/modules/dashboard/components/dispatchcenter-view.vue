@@ -18,6 +18,27 @@
                         breakpoint="xl"
                     >
                         <grid-item
+                            class="board-title-item"
+                            :height="title.height || 3"
+                            :id="`${boardId}_${title.title}_${titleId}`"
+                            :key="`${boardId}_${title.title}_${titleId}`"
+                            :width="title.width || 15"
+                            :x="title.x"
+                            :y="title.y"
+                            @moveEnd="modifyTitle"
+                            @resizeEnd="modifyTitle"
+                            :ref="`${boardId}_${title.title}_${titleId}`"
+                            v-for="(title, titleId) in board.titles"
+                        >
+                            <button
+                                @click="removeTitle(title.title)"
+                                class="btn btn-xs btn-danger"
+                            >
+                                <i class="fas fa-minus"></i>
+                            </button>
+                            <b>{{ title.title }}</b>
+                        </grid-item>
+                        <grid-item
                             :height="
                                 column.height ||
                                     Math.ceil(
@@ -51,10 +72,7 @@
                                     @click="removeBuilding(column.building)"
                                     class="btn btn-xs btn-danger"
                                 >
-                                    <i
-                                        class="fas fa-minus"
-                                        data-v-eea344b4=""
-                                    ></i>
+                                    <i class="fas fa-minus"></i>
                                 </button>
                             </div>
                             <div class="panel-body">
@@ -83,6 +101,7 @@
                                             v-for="vehicle in vehiclesByBuilding[
                                                 column.building
                                             ]"
+                                            :maxHeight="1"
                                         >
                                             <span
                                                 :class="
@@ -113,6 +132,8 @@
                         </grid-item>
                         <grid-item
                             :height="buildingSelection.height"
+                            :minHeight="3"
+                            :maxHeight="3"
                             :id="
                                 $store.getters.nodeId(
                                     'dispatchcenter-view_board-selection'
@@ -130,9 +151,11 @@
                                 :filterable="false"
                                 :options="buildingList"
                                 :reduce="building => building.id"
+                                :clearSearchOnBlur="() => false"
                                 @search="query => (buildingListSearch = query)"
                                 label="caption"
                                 v-model="selectedBuilding"
+                                ref="buildingListSelection"
                             >
                                 <template #list-header>
                                     <li class="vs-pagination">
@@ -159,7 +182,6 @@
                                 <template #list-footer>
                                     <li class="vs-pagination">
                                         <button
-                                            :disabled="!buildingListHasPrevPage"
                                             @click="
                                                 buildingListOffset -= buildingLimit
                                             "
@@ -187,11 +209,19 @@
                                 </template>
                             </v-select>
                             <button
-                                :disabled="!selectedBuilding"
+                                :disabled="
+                                    !selectedBuilding && !buildingListSearch
+                                "
                                 @click="addColumn"
                                 class="btn btn-success"
                             >
                                 <i class="fas fa-plus"></i>
+                            </button>
+                            <button
+                                @click="bulkAddColumn"
+                                class="btn btn-warning"
+                            >
+                                <i class="fas fa-folder-plus"></i>
                             </button>
                         </grid-item>
                     </grid-layout>
@@ -476,6 +506,7 @@ export default {
                     width: 25,
                     height: 3,
                 },
+                titles: [],
             });
             await this.$nextTick();
             this.$refs.boardTabs.selectedIndex = this.boards.length;
@@ -488,22 +519,74 @@ export default {
             this.saveBoards();
         },
         async addColumn() {
-            this.columns.push({ building: this.selectedBuilding });
-            await this.$nextTick();
-            const column = this.$refs[`building-${this.selectedBuilding}`][0]
-                .item;
-            this.selectedBuilding = null;
-            this.modifyBuilding({
-                id: column._id,
-                width: column._width,
-                height: column._height,
-                x: column._x,
-                y: column._y,
-            });
+            if (this.selectedBuilding) {
+                this.columns.push({ building: this.selectedBuilding });
+                await this.$nextTick();
+                const column = this.$refs[
+                    `building-${this.selectedBuilding}`
+                ][0].item;
+                this.selectedBuilding = null;
+                this.modifyBuilding({
+                    id: column._id,
+                    width: column._width,
+                    height: column._height,
+                    x: column._x,
+                    y: column._y,
+                });
+            } else if (this.buildingListSearch) {
+                const title = this.buildingListSearch;
+                if (!this.board.hasOwnProperty('titles'))
+                    this.$set(this.board, 'titles', []);
+                this.board.titles.push({ title });
+                await this.$nextTick();
+                this.buildingListSearch = '';
+                this.$refs.buildingListSelection[0].search = '';
+                const title_field = this.$refs[
+                    `${this.$refs.boardTabs.selectedIndex}_${title}_${this.board
+                        .titles.length - 1}`
+                ][0].item;
+                this.modifyTitle({
+                    id: title_field._id,
+                    width: title_field._width,
+                    height: title_field._height,
+                    x: title_field._x,
+                    y: title_field._y,
+                });
+                this.saveBoards();
+            }
+        },
+        bulkAddColumn() {
+            this.buildingListFiltered.forEach(building =>
+                (async () => {
+                    this.columns.push({ building: building.id });
+                    await this.$nextTick();
+                    const column = this.$refs[
+                        `building-${this.selectedBuilding}`
+                    ][0].item;
+                    this.selectedBuilding = null;
+                    this.modifyBuilding({
+                        id: column._id,
+                        width: column._width,
+                        height: column._height,
+                        x: column._x,
+                        y: column._y,
+                    });
+                    await this.$nextTick();
+                })()
+            );
         },
         removeBuilding(id) {
             this.columns.splice(
                 this.columns.findIndex(column => column.building === id),
+                1
+            );
+            this.saveBoards();
+        },
+        removeTitle(id) {
+            this.board.titles.splice(
+                this.board.titles.findIndex(
+                    title => title.title === id.replace(/(^\d+_)|(_\d+$)/g, '')
+                ),
                 1
             );
             this.saveBoards();
@@ -526,6 +609,15 @@ export default {
                 this.columns,
                 this.columns.findIndex(column => column.building === id),
                 { building: id, width, height, x, y }
+            );
+            this.saveBoards();
+        },
+        modifyTitle({ id, width, height, x, y }) {
+            id = id.replace(/(^\d+_)|(_\d+$)/g, '');
+            this.$set(
+                this.board.titles,
+                this.board.titles.findIndex(title => title.title === id),
+                { title: id, width, height, x, y }
             );
             this.saveBoards();
         },
@@ -554,7 +646,9 @@ export default {
         this.$store
             .dispatch('settings/getModule', MODULE_ID)
             .then(async settings => {
-                settings = settings['dispatchcenter-view'];
+                settings = (settings || {
+                    'dispatchcenter-view': { boards: [] },
+                })['dispatchcenter-view'];
                 this.boards = settings.boards || [];
                 await this.$nextTick();
                 this.columns.forEach(col =>
@@ -686,6 +780,20 @@ export default {
                 padding: .4em .6em .3em !important
                 color: #4a4a4a !important
                 width: 100%
+
+.board-title-item
+    display: flex
+    align-items: center
+    justify-content: center
+
+    &:hover
+        border: gray solid thin
+
+    .btn
+        z-index: 2
+        position: absolute
+        right: 0
+        top: 0
 
 body.dark
 
