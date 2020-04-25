@@ -761,7 +761,8 @@
         "min": 1,
         "max": 2,
         "credits": 10000,
-        "coins": 25
+        "coins": 25,
+        "schooling": "Bergungstaucher"
       },
       {
         "name": "Anh MzB",

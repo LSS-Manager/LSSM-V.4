@@ -1,5 +1,5 @@
 <template>
-    <lightbox name="settings" no-title-hide>
+    <lightbox name="settings" no-title-hide :key="key">
         <h1>
             {{ $t('modules.settings.name') }}
             <button class="btn btn-success" :disabled="!changes" @click="save">
@@ -26,7 +26,14 @@
                 :key="moduleId"
                 :module="moduleId"
             >
-                <div class="auto-sized-grid">
+                <div
+                    class="auto-sized-grid"
+                    :class="{
+                        wide: Object.values(
+                            settings[moduleId].settings
+                        ).find(setting => wideGrids.includes(setting.type)),
+                    }"
+                >
                     <setting
                         v-for="(setting, settingId) in settings[moduleId]
                             .settings"
@@ -72,6 +79,21 @@
                                 detectChange(moduleId, settingId, $event.value)
                             "
                         ></settings-toggle>
+                        <settings-appendable-list
+                            v-else-if="setting.type === 'appendable-list'"
+                            :setting="setting"
+                            :initialValues="getValue(moduleId, settingId)"
+                            @change="
+                                values =>
+                                    detectChange(moduleId, settingId, values)
+                            "
+                        >
+                            <template #titles>
+                                <component
+                                    :is="setting.titleComponent"
+                                ></component>
+                            </template>
+                        </settings-appendable-list>
                         <pre v-else>{{ setting }}</pre>
                     </setting>
                 </div>
@@ -85,16 +107,26 @@ import Lightbox from './lightbox.vue';
 import Setting from './setting.vue';
 import SettingsText from './setting/text.vue';
 import SettingsToggle from './setting/toggle.vue';
+import SettingsAppendableList from './setting/settings-appendable-list.vue';
 
 import cloneDeep from 'lodash/cloneDeep';
 
 export default {
     name: 'settings',
-    components: { SettingsToggle, SettingsText, Setting, Lightbox },
+    components: {
+        SettingsAppendableList,
+        SettingsToggle,
+        SettingsText,
+        Setting,
+        Lightbox,
+    },
     data() {
         return {
             settings: cloneDeep(this.$store.state.settings.settings),
             settingsUpdate: cloneDeep(this.$store.state.settings.settings),
+            wideGrids: ['appendable-list'],
+            key: 0,
+            cloneDeep,
         };
     },
     computed: {
@@ -140,26 +172,11 @@ export default {
             this.$store.commit('settings/settingsReload', true);
         },
         discard() {
+            this.key++;
             this.settings = cloneDeep(this.$store.state.settings.settings);
             this.settingsUpdate = cloneDeep(
                 this.$store.state.settings.settings
             );
-            document
-                .querySelectorAll(
-                    `.${this.$store.getters.nodeId('setting')} input`
-                )
-                .forEach(input => {
-                    let name = input.getAttribute('name').split('.');
-                    let value = this.getValue(name[0], name[1]);
-                    switch (input.getAttribute('type')) {
-                        case 'checkbox':
-                            if (input.checked !== value) input.click();
-                            break;
-                        default:
-                            input.value = value;
-                    }
-                });
-            this.$store.commit('settings/settingsState', this.changes);
         },
         reset() {
             this.$modal.show('dialog', {
@@ -236,4 +253,7 @@ export default {
     padding-left: 0
     margin-top: 10px
     margin-bottom: 10px
+
+.auto-sized-grid.wide
+    grid-template-columns: repeat(auto-fit, minmax(150px, 100%))
 </style>

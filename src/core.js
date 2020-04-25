@@ -7,6 +7,7 @@ import mainWindow from './main-window.vue';
 import VueJSModal from 'vue-js-modal';
 import ToggleButton from 'vue-js-toggle-button';
 import * as Tabs from 'vue-slim-tabs';
+import FlashMessage from '@smartweb/vue-flash-message';
 
 const config = require('./config');
 const utils = require('./utils');
@@ -23,6 +24,7 @@ Vue.use(VueJSModal, {
 });
 Vue.use(ToggleButton);
 Vue.use(Tabs);
+Vue.use(FlashMessage, { strategy: 'multiple' });
 
 let lssm = document.createElement('div');
 document.querySelector('body').appendChild(lssm);
@@ -84,8 +86,9 @@ if (window.location.pathname === '/') {
     await store.dispatch('hook', {
         event: 'radioMessage',
         post: false,
-        callback({ fms, fms_real, id }) {
-            store.commit('api/setVehicleState', { fms, fms_real, id });
+        callback({ fms, fms_real, id, user_id }) {
+            if (user_id === window.user_id)
+                store.commit('api/setVehicleState', { fms, fms_real, id });
         },
     });
 
@@ -156,7 +159,7 @@ if (window.location.pathname === '/') {
             store.commit('setModuleActive', module);
             if (
                 window.location.pathname.match(
-                    store.state.modules[module].location
+                    store.state.modules[module].location || /.*/
                 )
             )
                 store.dispatch('loadModule', { module });

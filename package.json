@@ -1,5 +1,5 @@
 {
-    "version": "4.0.4+20200425.1310",
+    "version": "4.0.4+20200425.2103",
     "license": "CC-BY-NC-SA-4.0",
     "scripts": {
         "predev": "node prebuild",
@@ -10,6 +10,7 @@
         "postbuild": "vuepress build docs"
     },
     "dependencies": {
+        "@smartweb/vue-flash-message": "^0.6.4",
         "highcharts": "^8.0.4",
         "localforage": "^1.7.3",
         "lodash": "^4.17.15",

@@ -1,6 +1,7 @@
 <template>
     <div :id="id">
         <v-dialog></v-dialog>
+        <FlashMessage></FlashMessage>
     </div>
 </template>
 

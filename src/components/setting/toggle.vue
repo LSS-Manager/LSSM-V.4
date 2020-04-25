@@ -3,7 +3,8 @@
         :name="name"
         :value="value"
         labels
-        class="setting-toggle pull-right"
+        class="setting-toggle"
+        :class="{ 'pull-right': pullRight }"
         v-on="listeners"
     ></toggle-button>
 </template>
@@ -24,11 +25,15 @@ export default {
         value: {
             required: true,
         },
+        pullRight: {
+            required: false,
+            default: true,
+        },
     },
 };
 </script>
 
 <style scoped lang="sass">
-.setting-toggle
+.setting-toggle.pull-right
     transform: translateY(-32px)
 </style>

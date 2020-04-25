@@ -43,6 +43,11 @@
 		"icon": "https://raw.githubusercontent.com/faisalman/ua-parser-js/gh-pages/images/logo.png",
 		"version": "0.7.21"
 	},
+	"Vue Flash Message": {
+		"url": "https://smwbtech.github.io/vue-flash-message/",
+		"icon": "https://smwbtech.github.io/vue-flash-message/fm-logo.svg",
+		"version": "0.6.4"
+	},
 	"Vue I18n": {
 		"url": "https://kazupon.github.io/vue-i18n/",
 		"icon": "https://kazupon.github.io/vue-i18n/vue-i18n-logo.png",
