@@ -3,21 +3,24 @@
 		"alerts": {
 			"title": "Benachrichtigungen festlegen"
 		},
-		"eventType": "Event",
+		"eventTypes": "Events",
 		"alertStyle": "Benachrichtigungs-Typ",
 		"duration": "Anzeigedauer",
 		"ingame": "Ingame-Benachrichtigung senden",
 		"desktop": "Desktop-Benachrichtigung senden"
 	},
 	"events": {
-		"radioMessage": "Funkspruch",
-		"radioMessageS1": "Funkspruch Status 1",
-		"radioMessageS2": "Funkspruch Status 2",
-		"radioMessageS3": "Funkspruch Status 3",
-		"radioMessageS4": "Funkspruch Status 4",
-		"radioMessageS5": "Funkspruch Status 5",
-		"radioMessageS6": "Funkspruch Status 6",
-		"radioMessageS7": "Funkspruch Status 7",
-		"radioMessageS9": "Funkspruch Status 9"
+		"radioMessage": "Funkspruch"
+	},
+	"alertStyles": {
+		"info": "Information (blau)",
+		"error": "Fehlermeldung (rot)",
+		"warning": "Warnung (orange)",
+		"success": "Bestätigung (grün)"
+	},
+	"messages": {
+		"radioMessage": {
+			"title": "{vehicle} meldet Status {status}!"
+		}
 	}
 }

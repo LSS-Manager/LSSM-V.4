@@ -64,4 +64,7 @@ body.dark
 
 .lssm_notice_bg
     background-color: #77dc81
+
+._vue-flash-msg-body
+    z-index: 10006
 </style>

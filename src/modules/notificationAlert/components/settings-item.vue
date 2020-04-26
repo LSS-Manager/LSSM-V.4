@@ -1,7 +1,24 @@
 <template>
     <div class="notification-setting">
-        <pre>{{ eventType }}</pre>
-        <pre>{{ alertStyle }}</pre>
+        <v-select
+            :options="events"
+            :value="eventTypes"
+            :clearable="false"
+            :multiple="true"
+            :placeholder="$t('modules.notificationAlert.settings.eventTypes')"
+            :reduce="option => option.event"
+            v-model="newValues.eventTypes"
+            @input="changeValue"
+        ></v-select>
+        <v-select
+            :options="styles"
+            :value="alertStyle"
+            :clearable="false"
+            :placeholder="$t('modules.notificationAlert.settings.alertStyle')"
+            :reduce="option => option.alertStyle"
+            v-model="newValues.alertStyle"
+            @input="changeValue"
+        ></v-select>
         <settings-number
             name="duration"
             :value="duration"
@@ -30,6 +47,7 @@
 </template>
 
 <script>
+import VSelect from 'vue-select';
 import SettingsToggle from '../../../components/setting/toggle.vue';
 import SettingsNumber from '../../../components/setting/number.vue';
 
@@ -37,25 +55,37 @@ import cloneDeep from 'lodash/cloneDeep';
 
 export default {
     name: 'settings-item',
-    components: { SettingsNumber, SettingsToggle },
+    components: { VSelect, SettingsNumber, SettingsToggle },
     data() {
+        const events = this.$t('modules.notificationAlert.events');
+        const alertStyles = this.$t('modules.notificationAlert.alertStyles');
         return {
             newValues: {
-                eventType: null,
+                eventTypes: null,
                 alertStyle: null,
                 duration: null,
                 desktop: null,
             },
+            events: Object.keys(events).map(event => ({
+                event,
+                label: events[event],
+            })),
+            styles: Object.keys(alertStyles).map(alertStyle => ({
+                alertStyle,
+                label: alertStyles[alertStyle],
+            })),
         };
     },
     props: {
-        eventType: {
+        eventTypes: {
             required: true,
-            type: String,
+            type: Array,
         },
         alertStyle: {
             required: true,
-            type: String,
+            validator: function(val) {
+                return val === null || typeof val === 'string';
+            },
         },
         duration: {
             required: true,
@@ -89,7 +119,7 @@ export default {
     },
     mounted() {
         this.newValues = {
-            eventType: cloneDeep(this.eventType),
+            eventTypes: cloneDeep(this.eventTypes),
             alertStyle: cloneDeep(this.alertStyle),
             duration: cloneDeep(this.duration),
             ingame: cloneDeep(this.ingame),

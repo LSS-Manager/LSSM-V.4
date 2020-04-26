@@ -1,6 +1,6 @@
 <template>
     <div class="notification-setting">
-        <b>{{ $t('modules.notificationAlert.settings.eventType') }}</b>
+        <b>{{ $t('modules.notificationAlert.settings.eventTypes') }}</b>
         <b>{{ $t('modules.notificationAlert.settings.alertStyle') }}</b>
         <b>{{ $t('modules.notificationAlert.settings.duration') }}</b>
         <b>{{ $t('modules.notificationAlert.settings.ingame') }}</b>

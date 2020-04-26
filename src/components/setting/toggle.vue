@@ -6,6 +6,7 @@
         class="setting-toggle"
         :class="{ 'pull-right': pullRight }"
         v-on="listeners"
+        v-bind="$attrs"
     ></toggle-button>
 </template>
 
