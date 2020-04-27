@@ -52,6 +52,9 @@ body.dark
     .text-muted
         color: darkgray
 
+    ._vue-flash-msg-body ._vue-flash-msg-body__icon
+        background-color: #505050
+
 .v--modal-overlay
     z-index: 5001 !important
 
@@ -67,4 +70,7 @@ body.dark
 
 ._vue-flash-msg-body
     z-index: 10006
+
+    ._vue-flash-msg-body__icon img
+        width: 100%
 </style>
