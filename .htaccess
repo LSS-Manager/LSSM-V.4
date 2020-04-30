@@ -1,0 +1,12 @@
+RewriteEngine On
+RewriteRule "^[a-z]{2}_[A-Z]{2}/.*\.js$" "./beta.php?f=$0&%{QUERY_STRING}"
+RewriteRule "^(?!^static/).*\.php$" "./static/$0"
+
+DirectoryIndex "/docs/de_DE/index.html"
+
+ErrorDocument 404 "/docs/de_DE/index.html"
+
+<FilesMatch "^(.*/)*\.">
+	Order allow,deny
+	Deny from all
+</FilesMatch>

@@ -1,9 +1,0 @@
-RewriteEngine On
-RewriteRule "^[a-z]{2}_[A-Z]{2}/.*\.js$" "beta.php?f=$0&%{QUERY_STRING}"
-RewriteRule "^(docs/)?$" "docs/de_DE/"
-ErrorDocument 404 "/docs/de_DE/index.html"
-# Deny access to filenames starting with dot(.)
-<FilesMatch "^\.">
-	Order allow,deny
-	Deny from all
-</FilesMatch>

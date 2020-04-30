@@ -13,4 +13,7 @@ fs.writeFileSync(
     JSON.stringify(staticConfigs, null, 4)
 );
 
-copydir.sync('./static', './dist');
+fs.mkdirSync('./dist');
+
+copydir.sync('./static', `./dist/static`);
+fs.copyFileSync('./.htaccess', './dist/.htaccess');

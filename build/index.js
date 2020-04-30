@@ -18,6 +18,8 @@ const moduleDirs = fs
     .filter(m => !config.modules['core-modules'].includes(m));
 const modules = [];
 
+const dir = process.argv[2] === 'production' ? 'stable/' : 'beta/';
+
 const entries = Object.keys(config.games).map(game => {
     const entry = {
         mode: process.argv[2] || 'development',
@@ -26,7 +28,7 @@ const entries = Object.keys(config.games).map(game => {
             [`${game}_blank`]: './src/blank.js',
         },
         output: {
-            path: path.resolve(__dirname, `../dist/${game}`),
+            path: path.resolve(__dirname, `../dist/${dir}${game}`),
             filename: chunkData =>
                 `${chunkData.chunk.name.replace(/^[a-z]{2}_[A-Z]{2}_/, '')}.js`,
         },
@@ -35,6 +37,7 @@ const entries = Object.keys(config.games).map(game => {
     entry.plugins = [
         new webpack.DefinePlugin({
             BUILD_LANG: JSON.stringify(game),
+            MODE: process.argv[2] === 'production' ? '"stable"' : '"beta"',
         }),
         new webpack.ContextReplacementPlugin(
             /moment\/locale$/,
@@ -54,6 +57,10 @@ const entries = Object.keys(config.games).map(game => {
             modulesEntry.entry[
                 `${game}_${module}`
             ] = `./src/modules/${module}/main.js`;
+            if (fs.existsSync(`./src/modules/${module}/main.external.js`))
+                modulesEntry.entry[
+                    `${game}_${module}/external`
+                ] = `./src/modules/${module}/main.external.js`;
             if (
                 fs.existsSync(`./src/modules/${module}/i18n/${game}.js`) ||
                 fs.existsSync(`./src/modules/${module}/i18n/${game}.json`) ||
@@ -63,7 +70,7 @@ const entries = Object.keys(config.games).map(game => {
                 fs.existsSync(`./src/modules/${module}/i18n/${game}/index.json`)
             )
                 modulesEntry.module.rules.push({
-                    test: new RegExp(`modules/${module}/main.js$`),
+                    test: new RegExp(`modules/${module}/main(.external)?.js$`),
                     loader: 'webpack-append',
                     query: `window.lssmv4.$i18n.mergeLocaleMessage(${JSON.stringify(
                         game
@@ -86,7 +93,7 @@ const entries = Object.keys(config.games).map(game => {
             });
         });
     modulesEntry.output = {
-        path: path.resolve(__dirname, `../dist/${game}/modules`),
+        path: path.resolve(__dirname, `../dist/${dir}${game}/modules`),
         filename: chunkData =>
             `${chunkData.chunk.name.replace(
                 /^[a-z]{2}_[A-Z]{2}_/,

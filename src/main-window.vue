@@ -21,7 +21,9 @@
         </a>
         <ul class="dropdown-menu" role="menu" :aria-labelledby="menuId">
             <li role="presentation" style="text-align: center;">
-                <span class="label label-default">{{ version }}</span>
+                <span class="label label-default">
+                    {{ version }} [{{ MODE }}]
+                </span>
             </li>
             <li role="presentation" class="divider"></li>
             <li role="presentation">
@@ -79,6 +81,7 @@ export default {
             version: this.$store.state.version,
             discord: this.$store.state.discord,
             wiki: this.$store.getters.wiki,
+            MODE: MODE,
         };
     },
     methods: {
