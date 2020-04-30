@@ -39,7 +39,6 @@
                 name="desktop"
                 :value="desktop"
                 :pull-right="false"
-                :disabled="true"
                 @change="setDesktop($event.value)"
             ></settings-toggle>
         </div>

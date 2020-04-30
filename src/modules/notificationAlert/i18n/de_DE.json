@@ -4,13 +4,14 @@
 			"title": "Benachrichtigungen festlegen"
 		},
 		"eventTypes": "Events",
-		"alertStyle": "Benachrichtigungs-Typ",
+		"alertStyle": "Ingame-Benachrichtigungs-Typ",
 		"duration": "Anzeigedauer",
 		"ingame": "Ingame-Benachrichtigung senden",
 		"desktop": "Desktop-Benachrichtigung senden"
 	},
 	"events": {
-		"radioMessage": "Funkspruch"
+		"radioMessage": "Funkspruch",
+		"allianceChat": "Chatnachricht"
 	},
 	"alertStyles": {
 		"info": "Information (blau)",
