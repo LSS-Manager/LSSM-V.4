@@ -61,7 +61,14 @@
                         <b>{{ $t(`modules.${moduleId}.name`) }}</b>
                     </h4>
                     <br />
-                    {{ $t(`modules.${moduleId}.description`) }}
+                    <span
+                        v-if="
+                            modules[moduleId].description !==
+                                `modules.${moduleId}.description`
+                        "
+                    >
+                        {{ modules[moduleId].description }}
+                    </span>
                 </div>
             </li>
         </ul>
@@ -76,6 +83,13 @@ export default {
     components: { Lightbox },
     data() {
         let modules = this.$store.getters.appModules;
+        Object.keys(modules).forEach(
+            moduleId =>
+                (modules[moduleId] = {
+                    ...modules[moduleId],
+                    description: this.$t(`modules.${moduleId}.description`),
+                })
+        );
         return {
             modules,
             modulesSorted: this.$store.getters.modulesSorted({
