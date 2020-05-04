@@ -1,4 +1,4 @@
-if (user_id && I18n) {
+if (typeof user_id !== void 0 && typeof I18n !== void 0) {
     const script = document.createElement('script');
     // eslint-disable-next-line no-undef
     script.src = `${host}${I18n.locale}/core.js?_=${new Date().getTime()}&uid=${

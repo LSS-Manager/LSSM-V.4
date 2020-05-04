@@ -8,4 +8,4 @@
 // @updateURL    https://v4.lssm.ledbrain.de/lssm-v4.user.js
 // @run-at       document-idle
 // ==/UserScript==
-if(user_id&&I18n){const e=document.createElement("script");e.src=`https://v4.lssm.ledbrain.de/${I18n.locale}/core.js?_=${(new Date).getTime()}&uid=${I18n.locale}-${user_id}`,e.setAttribute("type","module"),e.setAttribute("async",""),document.querySelector("body").appendChild(e)}
+if(void 0!==typeof user_id&&void 0!==typeof I18n){const e=document.createElement("script");e.src=`https://v4.lssm.ledbrain.de/${I18n.locale}/core.js?_=${(new Date).getTime()}&uid=${I18n.locale}-${user_id}`,e.setAttribute("type","module"),e.setAttribute("async",""),document.querySelector("body").appendChild(e)}

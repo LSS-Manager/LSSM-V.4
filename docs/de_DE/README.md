@@ -46,7 +46,7 @@ Bitte beachte, dass wir ältere Browser, sowie mobile Browser und Microsoft Edge
 ### Schritt 2: Userscript
 Wenn Tampermonkey in deinem Browser erfolgreich installiert wurde, kannst du entweder <a :href="$themeConfig.variables.server + 'lssm-v4.user.js'" target="_blank">hier</a> klicken oder ein neues Userscript mit folgendem Inhalt anlegen:
 
-<<< ./static/lssm-v4.user.js
+<<< ./dist/static/lssm-v4.user.js
 
 ### Schritt 3: Aktivieren
 Der LSSM-Indikator ist ein grün hinterlegter Text `LSSM V.4`.
