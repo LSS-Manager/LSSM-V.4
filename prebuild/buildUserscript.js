@@ -17,6 +17,10 @@ const gameIncludes = Object.keys(config.games).map(game => {
         .replace('.', '\\.');
 });
 
+const includes = new RegExp(
+    `^https?://(w{3}\\.)?(${gameIncludes.join('|')})\\.(${tlds.join('|')})/.*$`
+);
+
 fs.writeFileSync(
     './static/lssm-v4.user.js',
     `// ==UserScript==
@@ -28,9 +32,7 @@ fs.writeFileSync(
         .join('-')}
 // @author       ${script.author}
 // @description  ${script.description}
-// @include      /^https?:\\/\\/[www.]*(${gameIncludes.join('|')}).(${tlds.join(
-        '|'
-    )})\\/.*$/
+// @include      ${includes}
 // @homepage     ${config.server}
 // @updateURL    ${config.server}lssm-v4.user.js
 // @run-at       document-idle
