@@ -4,8 +4,12 @@ lang: de
 sidebarDepth: 2
 ---
 
-# Wiki :de: <Badge :text="'LSSM V.' + $themeConfig.variables.version"/>
+# Wiki :de: <Badge :text="'LSSM V.' + $themeConfig.variables.versions.stable"/>
 
+*Aktuelle Versionen:*
+> Stable: <i>{{ $themeConfig.variables.versions.stable }}</i> (noch nicht veröffentlicht)
+> 
+> Beta: <i>{{ $themeConfig.variables.versions.beta }}</i>
 
 ## Über den LSSM
 

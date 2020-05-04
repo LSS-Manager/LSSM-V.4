@@ -8,6 +8,7 @@ const packageJson = require('../../package');
 const langModules = fs.readdirSync('./docs/').filter(x => Object.keys(config.games).indexOf(x) >= 0);
 
 const emptyFolder = require('../../prebuild/emptyDir').emptyFolder;
+emptyFolder('./dist/docs');
 langModules.forEach(x => emptyFolder(`./docs/${x}/modules`));
 emptyFolder('./docs/.vuepress/public/assets', false);
 
@@ -101,7 +102,7 @@ const options = {
             discord_support: config.discord_support,
             github: config.github.repo,
             server: config.server,
-            version: packageJson.version,
+            versions: require('../../static/.configs.json').versions,
         },
         locales: themeLocales,
         activeHeaderLinks: true,

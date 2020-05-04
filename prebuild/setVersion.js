@@ -7,7 +7,10 @@ packageJson.version = packageJson.version.replace(
     /\+.*$/,
     `+${moment().format('YYYYMMDD.HHmm')}`
 );
-staticConfigs.version = packageJson.version;
+
+if (!staticConfigs.hasOwnProperty('versions')) staticConfigs.versions = {};
+staticConfigs.versions[process.argv[2] === 'production' ? 'stable' : 'beta'] =
+    packageJson.version;
 
 fs.writeFileSync('./package.json', JSON.stringify(packageJson, null, 4));
 fs.writeFileSync(

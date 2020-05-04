@@ -178,7 +178,7 @@ export default {
             const target = input || url;
             target.toString().startsWith(rootState.server) &&
                 (init.headers['X-LSSM-User'] = btoa(
-                    `${rootState.key}:${rootState.version}`
+                    `${rootState.key}:${rootState.version}-${MODE}`
                 ));
             return fetch(target, init).then(
                 res =>
