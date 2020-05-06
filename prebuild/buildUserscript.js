@@ -36,11 +36,14 @@ fs.writeFileSync(
 // @author       ${script.author}
 // @description  ${script.description}
 // @include      ${new RegExp(
-        `^https?://(?:w{3}\\.)?(${gameIncludes.join('|')})/.*$`
+        `^https?://(?:w{3}\\.)?(?:${gameIncludes.join('|')})/.*$`
     )}
 // @homepage     ${config.server}
 // @updateURL    ${config.server}lssm-v4.user.js
+// @downloadURL  ${config.server}lssm-v4.user.js
 // @run-at       document-idle
+// @icon         ${config.server}docs/img/lssm.png
+// @supportURL   ${config.server}docs/de_DE/error_report
 // ==/UserScript==
 ${
     Terser.minify(fs.readFileSync('./src/userscript.js').toString(), {
