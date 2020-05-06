@@ -7,6 +7,7 @@ require('./buildUserscript');
 console.info('\temptyDir');
 const emptyFolder = require('./emptyDir').emptyFolder;
 emptyFolder('./dist/static');
+emptyFolder('./dist/admin');
 emptyFolder(`./dist/${process.argv[2] === 'production' ? 'stable/' : 'beta/'}`);
 console.info('\tcopyStatic');
 require('./copyStatic');

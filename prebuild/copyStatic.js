@@ -16,4 +16,5 @@ fs.writeFileSync(
 if (!fs.existsSync('./dist')) fs.mkdirSync('./dist');
 
 copydir.sync('./static', `./dist/static`);
+copydir.sync('./admin', './dist/admin');
 fs.copyFileSync('./.htaccess', './dist/.htaccess');

@@ -1,6 +1,6 @@
 RewriteEngine On
 RewriteRule "^[a-z]{2}_[A-Z]{2}/.*\.js$" "./beta.php?f=$0&%{QUERY_STRING}"
-RewriteRule "^(?!^static/).*\.(php|user\.js)$" "./static/$0" [L]
+RewriteRule "^(?!^static/)(?!^admin/).*\.(php|user\.js)$" "./static/$0" [L]
 
 DirectoryIndex "/docs/de_DE/index.html"
 

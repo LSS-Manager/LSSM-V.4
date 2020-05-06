@@ -1,0 +1,3 @@
+DirectoryIndex "./index.php"
+
+ErrorDocument 404 "/admin/index.php"
