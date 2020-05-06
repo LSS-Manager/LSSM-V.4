@@ -5,22 +5,24 @@ const config = require('../src/config');
 
 const script = packageJson.userscript;
 
-const tlds = [];
+const tlds = {};
 
-const gameIncludes = Object.keys(config.games).map(game => {
-    const tld = config.games[game].shortURL
+Object.values(config.games).forEach(({ shortURL }) => {
+    const tld = shortURL
         .replace(/^[^.]*/, '')
         .replace(/^\./, '')
         .replace('.', '\\.');
-    if (!tlds.includes(tld)) tlds.push(tld);
-    return config.games[game].shortURL.replace(/\..*$/, '').replace('.', '\\.');
+    if (!tlds.hasOwnProperty(tld)) tlds[tld] = [];
+    tlds[tld].push(shortURL.replace(/\..*$/, '').replace('.', '\\.'));
 });
 
-const includes = new RegExp(
-    `^https?://(w{3}\\.)?(${[...new Set(gameIncludes)].join(
-        '|'
-    )})\\.(${tlds.join('|')})/.*$`
-);
+const gameIncludes = Object.keys(tlds).map(tld => {
+    let include = '';
+    if (tlds[tld].length > 1) include += '(?:';
+    include += tlds[tld].join('|');
+    if (tlds[tld].length > 1) include += ')';
+    return `${include}\\.${tld}`;
+});
 
 fs.writeFileSync(
     './static/lssm-v4.user.js',
@@ -33,7 +35,9 @@ fs.writeFileSync(
         .join('-')}
 // @author       ${script.author}
 // @description  ${script.description}
-// @include      ${includes}
+// @include      ${new RegExp(
+        `^https?://(?:w{3}\\.)?(${gameIncludes.join('|')})/.*$`
+    )}
 // @homepage     ${config.server}
 // @updateURL    ${config.server}lssm-v4.user.js
 // @run-at       document-idle
