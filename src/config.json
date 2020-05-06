@@ -136,6 +136,18 @@
 			"name": "Hätäkeskuspeli.com",
 			"flag": "\uD83C\uDDEB\uD83C\uDDEE",
 			"locale_fallback": "en_US"
+		},
+		"sk_SK": {
+			"shortURL": "dispecerske-centrum.com",
+			"name": "Dispečerskom-centrum.com",
+			"flag": "\uD83C\uDDF8\uD83C\uDDF0",
+			"locale_fallback": "en_US"
+		},
+		"el_GR": {
+			"shortURL": "missionchief.gr",
+			"name": "Missionchief Greece",
+			"flag": "\uD83C\uDDEC\uD83C\uDDF7",
+			"locale_fallback": "en_US"
 		}
 	},
 	"server": "https://v4.lssm.ledbrain.de/",

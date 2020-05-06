@@ -9,16 +9,17 @@ const tlds = [];
 
 const gameIncludes = Object.keys(config.games).map(game => {
     const tld = config.games[game].shortURL
-        .replace(/^.*(?=\.)/, '')
-        .replace(/^\./, '');
-    if (!tlds.includes(tld)) tlds.push(tld);
-    return config.games[game].shortURL
-        .replace(/\.[^.]*$/, '')
+        .replace(/^[^.]*/, '')
+        .replace(/^\./, '')
         .replace('.', '\\.');
+    if (!tlds.includes(tld)) tlds.push(tld);
+    return config.games[game].shortURL.replace(/\..*$/, '').replace('.', '\\.');
 });
 
 const includes = new RegExp(
-    `^https?://(w{3}\\.)?(${gameIncludes.join('|')})\\.(${tlds.join('|')})/.*$`
+    `^https?://(w{3}\\.)?(${[...new Set(gameIncludes)].join(
+        '|'
+    )})\\.(${tlds.join('|')})/.*$`
 );
 
 fs.writeFileSync(
