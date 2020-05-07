@@ -8,6 +8,7 @@ package-lock.json
 /static/.configs.json
 /static/.check_request.php
 /static/beta.php
+/admin/
 
 # local env files
 .env.local
