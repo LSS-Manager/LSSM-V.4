@@ -1,13 +1,13 @@
 {
-    "version": "4.0.4+20200506.2057",
+    "version": "4.0.4+20200508.2202",
     "license": "CC-BY-NC-SA-4.0",
     "scripts": {
-        "predev": "node prebuild",
-        "dev": "node build",
-        "postdev": "vuepress build docs",
-        "prebuild": "node prebuild production",
-        "build": "node build production",
-        "postbuild": "vuepress build docs"
+        "predev": "node prebuild 2>&1 | tee  dist/log.beta.prebuild.txt",
+        "dev": "node build 2>&1 | tee dist/log.beta.build.txt",
+        "postdev": "vuepress build docs 2>&1 | tee dist/log.beta.docs.txt",
+        "prebuild": "node prebuild production 2>&1 | tee dist/log.stable.prebuild.txt",
+        "build": "node build production 2>&1 | tee dist/log.stable.build.txt",
+        "postbuild": "vuepress build docs 2>&1 | tee dist/log.stable.docs.txt"
     },
     "dependencies": {
         "@smartweb/vue-flash-message": "^0.6.4",
