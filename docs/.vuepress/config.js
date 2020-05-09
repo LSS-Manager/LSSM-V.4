@@ -46,6 +46,22 @@ const sidebar_others = [
     'other',
 ];
 
+const modulesSorted = lang => {
+    const files = [];
+    if (fs.existsSync(`./docs${lang}apps.md`)) files.push(`${lang}apps.md`);
+    if (fs.existsSync(`./docs${lang}modules`)) {
+         const filePaths = fs.readdirSync(`./docs${lang}modules`);
+         const fileTitles = filePaths.map(f => (
+           {
+               title: fs.readFileSync(`./docs${lang}modules/${f}`).toString().match(/-{3,}\n(?:[^-]{3,}\n)*title:(.*)/)[1].trim(),
+               file: f
+           })
+         ).sort((a, b) => a.title < b.title ? -1 : a.title > b.title ? 1 : 0);
+         files.push(...Object.values(fileTitles).map(({file}) => `${lang}modules/${file.replace(/\..*?$/, '')}`));
+    }
+    return files
+}
+
 Object.keys(config.games).forEach(lang => {
     const game = config.games[lang];
     const langPath = `/${lang}/`;
@@ -74,7 +90,7 @@ Object.keys(config.games).forEach(lang => {
             {
                 title: 'Apps 📦',
                 collapsable: true,
-                children: fs.existsSync(`./docs${langPath}modules`) ? fs.readdirSync(`./docs${langPath}modules`).map(file => `${langPath}modules/${file.replace(/\..*?$/, '').replace(/README/, '')}`) : [],
+                children: modulesSorted(langPath),
             }
         ],
     };
