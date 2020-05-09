@@ -1,5 +1,11 @@
 {
 	"generationDate": {
 		"inputFormat": "DD. MMMM, HH:mm Uhr"
+	},
+	"settings": {
+		"generationDate": {
+			"title": "Generierungszeitpunkt",
+			"description": "Zeigt neben der Adresse an, wann der Einsatz generiert wurde."
+		}
 	}
 }

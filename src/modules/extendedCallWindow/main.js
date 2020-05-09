@@ -1,24 +1,29 @@
-import moment from 'moment';
+window.lssmv4.$store.dispatch('settings/register', {
+    moduleId: MODULE_ID,
+    settings: {
+        generationDate: {
+            type: 'toggle',
+            default: true,
+        },
+    },
+});
 
 (() => {
-    if (document.querySelector('.missionNotFound')) return;
+    if (
+        !window.location.href.match(/\/missions\/\d+/) ||
+        document.querySelector('.missionNotFound')
+    )
+        return;
 
-    moment.locale(BUILD_LANG);
+    const getSetting = settingId => {
+        return window.lssmv4.$store.dispatch('settings/getSetting', {
+            moduleId: MODULE_ID,
+            settingId,
+        });
+    };
 
-    const generationDate = moment(
-        document
-            .querySelector('#missionH1')
-            .getAttribute('data-original-title')
-            .replace(/^.*?:/, '')
-            .trim(),
-        window.lssmv4.$t(
-            'modules.extendedCallWindow.generationDate.inputFormat'
-        )
-    );
-
-    const generationDateNode = document.createElement('i');
-    generationDateNode.innerText = `[${generationDate.fromNow()} (${generationDate.calendar()})]`;
-    document
-        .querySelector('#mission_general_info small')
-        .appendChild(generationDateNode);
+    getSetting('generationDate').then(setting => {
+        if (!setting) return;
+        require('./assets/generationDate');
+    });
 })();

@@ -19,6 +19,7 @@
         <tabs
             :class="$store.getters.nodeId('settings-tabs')"
             v-if="modulesSorted.length > 0"
+            ref="settingsTabs"
         >
             <tab
                 v-for="moduleId in modulesSorted"
@@ -175,13 +176,16 @@ export default {
             this.discard();
             this.$store.commit('settings/settingsReload', true);
         },
-        discard() {
-            this.key++;
+        async discard() {
+            const previousTab = this.$refs.settingsTabs.selectedIndex;
             this.settings = cloneDeep(this.$store.state.settings.settings);
             this.settingsUpdate = cloneDeep(
                 this.$store.state.settings.settings
             );
             this.$store.commit('settings/settingsState', this.changes);
+            this.key++;
+            await this.$nextTick();
+            this.$refs.settingsTabs.selectedIndex = previousTab;
         },
         reset() {
             this.$modal.show('dialog', {
