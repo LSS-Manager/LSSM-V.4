@@ -20,7 +20,6 @@ Vue.use(VueJSModal, {
         clickToClose: true,
     },
     dialog: true,
-    injectModalsContainer: true,
 });
 Vue.use(ToggleButton);
 Vue.use(Tabs);

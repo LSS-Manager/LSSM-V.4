@@ -19,6 +19,35 @@ module.exports = {
             : '000';
     },
     escapeRegex: s => s.replace(/[[\\^$.|?*+()]/g, '\\$&'),
+    urlRegex: () =>
+        /(?:(?:[A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=+$,\w]+@)?[A-Za-z0-9.-]+|(?:www\.|[-;:&=+$,\w]+@)[A-Za-z0-9.-]+)(?:(?:\/[+~%/.\w\-_]*)?\??(?:[-+=&;%@.\w_]*)#?(?:[.!/\\\w]*))?/g,
+    getTextNodes(root, filter = () => true) {
+        const NoneTextParentNodes = [
+            'head',
+            'meta',
+            'title',
+            'script',
+            'style',
+            'link',
+            'br',
+            'noscript',
+            'a',
+        ];
+        const children = Array.from(root.childNodes);
+        const textChildren = children.filter(
+            n => n.nodeType === 3 && filter(n)
+        );
+        const elementChildren = children.filter(
+            n =>
+                n.nodeType === 1 &&
+                !NoneTextParentNodes.includes(n.tagName.toLowerCase()) &&
+                filter(n)
+        );
+        return [
+            ...textChildren,
+            ...elementChildren.map(n => this.getTextNodes(n, filter)),
+        ].flat();
+    },
     highChartsDarkMode(vm, Highcharts) {
         if (vm.$store.state.darkmode)
             Highcharts.setOptions({

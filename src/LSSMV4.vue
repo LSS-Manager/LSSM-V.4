@@ -1,5 +1,6 @@
 <template>
     <div :id="id">
+        <modals-container />
         <v-dialog></v-dialog>
         <FlashMessage></FlashMessage>
     </div>

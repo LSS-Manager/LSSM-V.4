@@ -3,6 +3,7 @@
         <h4>
             <b>{{ title }}</b>
         </h4>
+        <slot v-if="beforeDescription"></slot>
         <span
             v-if="
                 description &&
@@ -13,7 +14,7 @@
         >
             <br />
         </span>
-        <slot></slot>
+        <slot v-if="!beforeDescription"></slot>
     </div>
 </template>
 
@@ -37,6 +38,11 @@ export default {
             type: String,
             required: false,
             default: '',
+        },
+        beforeDescription: {
+            type: Boolean,
+            required: false,
+            default: false,
         },
     },
 };

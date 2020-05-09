@@ -142,6 +142,13 @@ export default new Vuex.Store(
                     event => callback(...event.detail)
                 );
             },
+            premodifyParams(_, { event, callback = () => {} }) {
+                const originalEvent = window[event];
+                window[event] = (...args) => {
+                    callback(...args);
+                    originalEvent(...args);
+                };
+            },
             loadModule({ state }, { module, async = true }) {
                 const script = document.createElement('script');
                 script.src = `${state.server}${BUILD_LANG}/modules/${module}/main.js?uid=${BUILD_LANG}-${window.user_id}&v=${state.version}`;

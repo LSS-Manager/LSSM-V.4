@@ -53,6 +53,9 @@
                                 }
                             )
                         "
+                        :beforeDescription="
+                            settingsBeforeDescription.includes(setting.type)
+                        "
                     >
                         <settings-text
                             v-if="setting.type === 'text'"
@@ -125,6 +128,7 @@ export default {
             settings: cloneDeep(this.$store.state.settings.settings),
             settingsUpdate: cloneDeep(this.$store.state.settings.settings),
             wideGrids: ['appendable-list'],
+            settingsBeforeDescription: ['toggle'],
             key: 0,
             cloneDeep,
         };
@@ -177,6 +181,7 @@ export default {
             this.settingsUpdate = cloneDeep(
                 this.$store.state.settings.settings
             );
+            this.$store.commit('settings/settingsState', this.changes);
         },
         reset() {
             this.$modal.show('dialog', {
