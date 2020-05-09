@@ -3,6 +3,10 @@
 		"clickableLinks": {
 			"title": "Links anklickbar machen",
 			"description": "Links die in als reiner Text angezeigt werden (z.B. im Chat, Forum, Nachrichten, etc.) werden anklickbar gemacht. Sie öffnen sich automatisch in einem neuen Tab."
+		},
+		"showImg": {
+			"title": "Bildvorschau aktivieren",
+			"description": "Versuchen, eine Bildvorschau zu generieren. Funktioniert nur in Kombination mit \"Links anklickbar machen\"!"
 		}
 	}
 }

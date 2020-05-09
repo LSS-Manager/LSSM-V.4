@@ -5,6 +5,10 @@ window.lssmv4.$store.dispatch('settings/register', {
             type: 'toggle',
             default: true,
         },
+        showImg: {
+            type: 'toggle',
+            default: true,
+        },
     },
 });
 
@@ -15,8 +19,10 @@ const getSetting = settingId => {
     });
 };
 
-getSetting('clickableLinks').then(setting => {
+getSetting('clickableLinks').then(async setting => {
     if (!setting) return;
+
+    const showImg = await getSetting('showImg');
 
     const urlRegex = window.lssmv4.urlRegex();
 
@@ -37,7 +43,15 @@ getSetting('clickableLinks').then(setting => {
                     const linkNode = document.createElement('a');
                     linkNode.href = link.toString();
                     linkNode.setAttribute('target', '_blank');
-                    linkNode.textContent = link.toString();
+                    if (showImg) {
+                        const imgNode = document.createElement('img');
+                        imgNode.src = link.toString();
+                        imgNode.alt = link.toString();
+                        imgNode.style.maxWidth = '10%';
+                        linkNode.appendChild(imgNode);
+                    } else {
+                        linkNode.textContent = link.toString();
+                    }
                     n.parentNode.insertBefore(linkNode, n);
                 });
                 n.parentNode.removeChild(n);
@@ -45,7 +59,7 @@ getSetting('clickableLinks').then(setting => {
 
     clickableLinks(document);
 
-    window.lssmv4.$store.dispatch('premodifyParams', {
+    await window.lssmv4.$store.dispatch('premodifyParams', {
         event: 'allianceChat',
         callback(e) {
             const links = e.message.match(urlRegex) || [];
@@ -55,7 +69,11 @@ getSetting('clickableLinks').then(setting => {
                 if (text) e.message += text;
                 const link = links.shift();
                 if (link)
-                    e.message += `<a href="${link}" target="_blank">${link}</a>`;
+                    e.message += `<a href="${link}" target="_blank">${
+                        showImg
+                            ? `<img src="${link}" alt="${link}" style="max-width: 10%;"/>`
+                            : link
+                    }</a>`;
             });
         },
     });
