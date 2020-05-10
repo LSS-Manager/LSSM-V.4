@@ -15,7 +15,7 @@ Es gibt ein paar nette Nutzer, die uns gerne Geld spenden möchten. Aber: Der LS
 Dies hat mehrere Gründe:
 
 * Dieses Projekt wird auf freiwilliger Basis in der Freizeit der beteiligten Entwickler weiterentwickelt
-* Eine Abo-Variante, ähnlich des Premium auf dem LSS würde uns persönlich zu sehr unter Druck setzen, auch über unsere Lust hinaus weiter zu programmieren.
+* Eine Abo-Variante, ähnlich des Premium im Spiel würde uns persönlich zu sehr unter Druck setzen, auch über unsere Lust hinaus weiter zu programmieren.
 * Spenden können wir aus rechtlichen Gründen nicht entgegen nehmen:
     * Wenn wir für den LSS-Manager ein Unternehmen gründen würden, damit wir spenden empfangen könnten, würde dies keine Zukunft haben, da ein Unternehmen ohne Ausgaben kein Unternehmen sein kann.
     * Wenn wir die Server, welche aktuell für den LSS-Manager im Hintergrund zuständig sind, über ein Unternehmen laufen lassen würden, würden diese sofort die Einnahmen auffressen.
@@ -32,7 +32,7 @@ Wir gestalten derzeit einen Styleguide für Entwickler, damit auch diese einfach
 Bitte schaue dir unsere Seite [Fehler melden][error] an.
 
 ### Wo bekomme ich Hilfe?
-Über unseren Support. Nähere Infos dazu gibt es [hier][support]
+Über unseren Support. Nähere Infos dazu gibt es [hier][support].
 
 ### Wie kann ich Vorschläge einreichen?
 Auf der Seite [Vorschläge][suggestions] haben wir dir Informationen darüber zusammengestellt.

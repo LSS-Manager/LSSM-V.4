@@ -5,6 +5,7 @@ sidebarDepth: 2
 ---
 
 # ℹ️ Allgemeines zu Modulen
+
 Auf den folgenden Seiten findest du zu allen unseren Modulen eine Beschreibung. Wir haben unser bestes gegeben, diese so verständlich, und trotzdem vollständig, wie möglich zu halten. Allerdings ist dies aufgrund des Umfangs des LSSM nicht immer einfach.
 
 Wenn du Verbesserungsvorschläge hast, kannst du uns diese wie immer zukommen lassen – oder sogar selbst einbauen.

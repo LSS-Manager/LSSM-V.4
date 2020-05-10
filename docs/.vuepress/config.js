@@ -69,6 +69,7 @@ const sidebar_others = [
 ];
 
 Object.keys(config.games).forEach(lang => {
+    if (!fs.existsSync(`./docs/${lang}`)) return;
     const game = config.games[lang];
     const langPath = `/${lang}/`;
     locales[langPath] = {

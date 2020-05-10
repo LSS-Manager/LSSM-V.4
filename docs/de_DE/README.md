@@ -54,6 +54,6 @@ Wenn Tampermonkey in deinem Browser erfolgreich installiert wurde, kannst du ent
 
 ### Schritt 3: Aktivieren
 Der LSSM-Indikator ist ein grün hinterlegter Text `LSSM V.4`.
-Solltest du dich im Leitstellenspiel befinden, aber diesen Indikator nicht in der oberen rechten Ecke sehen, so klicke auf das Tampermonkey-Icon in deinem Browser und überprüfe, ob der Schalter für das LSS-Manager Script auf "an" gestellt ist.
+Solltest du dich im Leitstellenspiel befinden, aber diesen Indikator nicht in der oberen rechten Ecke sehen, so klicke auf das Tampermonkey-Icon in deinem Browser und überprüfe, ob der Schalter für das LSS-Manager Script auf `an` gestellt ist.
 
 Bei Problemen kannst du dich jederzeit an den [Support](support.md) wenden.
