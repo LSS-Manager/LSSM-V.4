@@ -24,7 +24,8 @@ moduleDirs.forEach(module => {
             const title = require(`../../src/modules/${module}/i18n/${lang}.root`).name;
             modulesSorted[lang].push({
                 title,
-                f: `${lang}/modules/${f.replace(lang, module)}`
+                f: `${lang}/modules/${f.replace(lang, module)}`,
+                noMapkit: require(`../../src/modules/${module}/register`).noMapkit,
             })
             fs.copyFileSync(path.join(__dirname, `../../src/modules/${module}/docs/${f}`), `./docs/${lang}/modules/${f.replace(lang, module)}`);
             const content = fs.readFileSync(`./docs/${lang}/modules/${f.replace(lang, module)}`).toString();
@@ -43,7 +44,9 @@ ${content}`);
         }
     }
 });
+const noMapkitModules = {};
 Object.keys(modulesSorted).forEach(lang => {
+    noMapkitModules[lang] = [...Object.values(modulesSorted[lang]).filter(module => module.noMapkit).sort((a, b) => a.title < b.title ? -1 : a.title > b.title ? 1 : 0).map(m => ({title: m.title, f: m.f.replace(/(^[a-z]{2}_[A-Z]{2}\/|\..*?$)/g, '')}))];
     modulesSorted[lang] = [...Object.values(modulesSorted[lang]).sort((a, b) => a.title < b.title ? -1 : a.title > b.title ? 1 : 0).map(file => file.f)];
     if (fs.existsSync(`./docs/${lang}/apps.md`)) modulesSorted[lang].unshift(`${lang}/apps.md`);
 });
@@ -122,6 +125,7 @@ const options = {
             github: config.github.repo,
             server: config.server,
             versions: require('../../static/.configs.json').versions,
+            noMapkitModules,
         },
         locales: themeLocales,
         activeHeaderLinks: true,

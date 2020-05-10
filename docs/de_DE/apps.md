@@ -11,6 +11,11 @@ Wenn du Verbesserungsvorschläge hast, kannst du uns diese wie immer zukommen la
 
 :::danger Module, die in Mapkit nicht funktionieren
 Wie in der Erklärung zum [Appstore](appstore.md) beschrieben, gibt es Module, die leider nicht mit dem Kartentyp `Mapkit` kompatibel sind. Dies sind diese Module:
-* [Gebäude-Kurzinfos](modules/buildingHover.md)
-* [Verbesserte POI](modules/enhancedPOI.md)
+<ul>
+    <li v-for="module in $themeConfig.variables.noMapkitModules.de_DE" :key="module.title">
+        <router-link :to="module.f">
+            {{ module.title }}
+        </router-link>
+    </li>
+</ul>
 :::
