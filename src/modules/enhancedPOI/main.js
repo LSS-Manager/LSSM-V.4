@@ -43,7 +43,7 @@ let showIcons = () => {
     }
 };
 
-window.map.addEventListener('zoomend', resetNewPoiMarker);
+window.map.addEventListener('moveend', resetNewPoiMarker);
 window.map.addEventListener('zoomend', hideIcons);
 
 const observer = new MutationObserver(mutations => {
@@ -54,6 +54,9 @@ const observer = new MutationObserver(mutations => {
             isPOIWindow = false;
             return;
         }
+        form.querySelectorAll('.form-actions .btn').forEach(btn =>
+            btn.addEventListener('click', () => (isPOIWindow = false))
+        );
         if (isPOIWindow) return;
         isPOIWindow = true;
 
