@@ -3,7 +3,6 @@ const path = require('path');
 const copydir = require('copy-dir');
 
 const config = require('../../src/config');
-const packageJson = require('../../package');
 
 const langModules = fs.readdirSync('./docs/').filter(x => Object.keys(config.games).indexOf(x) >= 0);
 
@@ -13,20 +12,40 @@ langModules.forEach(x => emptyFolder(`./docs/${x}/modules`));
 emptyFolder('./docs/.vuepress/public/assets', false);
 
 const moduleDirs = fs.readdirSync('./src/modules');
+const modulesSorted = {};
 moduleDirs.forEach(module => {
     if (module !== 'template' && fs.existsSync(`./src/modules/${module}/docs`)) {
         const docs = fs.readdirSync(`./src/modules/${module}/docs`)
-            .filter(f => f.match(new RegExp(`^${module}\...(_..)?\..*$`)));
+            .filter(f => f.match(/^[a-z]{2}_[A-Z]{2}\.md$/));
         docs.forEach(f => {
-            const lang = f.split('.')[1];
+            const lang = f.split('.')[0];
+            if (!modulesSorted.hasOwnProperty(lang)) modulesSorted[lang] = [];
             if (!fs.existsSync(`./docs/${lang}/modules`)) fs.mkdirSync(`./docs/${lang}/modules`);
-            fs.copyFileSync(path.join(__dirname, `../../src/modules/${module}/docs/${f}`), `./docs/${lang}/modules/${f.replace(new RegExp(`\.${lang}`), '')}`);
+            const title = require(`../../src/modules/${module}/i18n/${lang}.root`).name;
+            modulesSorted[lang].push({
+                title,
+                f: `${lang}/modules/${f.replace(lang, module)}`
+            })
+            fs.copyFileSync(path.join(__dirname, `../../src/modules/${module}/docs/${f}`), `./docs/${lang}/modules/${f.replace(lang, module)}`);
+            const content = fs.readFileSync(`./docs/${lang}/modules/${f.replace(lang, module)}`).toString();
+            fs.writeFileSync(`./docs/${lang}/modules/${f.replace(lang, module)}`, `---
+title: ${title}
+lang: ${lang}
+---
+
+# ${title}
+
+${content}`);
         });
         if (fs.existsSync(`./src/modules/${module}/docs/assets`)) {
             if (!fs.existsSync(`./docs/.vuepress/public/assets/${module}`)) fs.mkdirSync(`./docs/.vuepress/public/assets/${module}`);
             copydir.sync(`./src/modules/${module}/docs/assets`, `./docs/.vuepress/public/assets/${module}`);
         }
     }
+});
+Object.keys(modulesSorted).forEach(lang => {
+    modulesSorted[lang] = [...Object.values(modulesSorted[lang]).sort((a, b) => a.title < b.title ? -1 : a.title > b.title ? 1 : 0).map(file => file.f)];
+    if (fs.existsSync(`./docs/${lang}/apps.md`)) modulesSorted[lang].unshift(`${lang}/apps.md`);
 });
 
 const locales = {};
@@ -45,22 +64,6 @@ const sidebar_others = [
     'settings',
     'other',
 ];
-
-const modulesSorted = lang => {
-    const files = [];
-    if (fs.existsSync(`./docs${lang}apps.md`)) files.push(`${lang}apps.md`);
-    if (fs.existsSync(`./docs${lang}modules`)) {
-         const filePaths = fs.readdirSync(`./docs${lang}modules`);
-         const fileTitles = filePaths.map(f => (
-           {
-               title: fs.readFileSync(`./docs${lang}modules/${f}`).toString().match(/-{3,}\n(?:[^-]{3,}\n)*title:(.*)/)[1].trim(),
-               file: f
-           })
-         ).sort((a, b) => a.title < b.title ? -1 : a.title > b.title ? 1 : 0);
-         files.push(...Object.values(fileTitles).map(({file}) => `${lang}modules/${file.replace(/\..*?$/, '')}`));
-    }
-    return files
-}
 
 Object.keys(config.games).forEach(lang => {
     const game = config.games[lang];
@@ -90,7 +93,7 @@ Object.keys(config.games).forEach(lang => {
             {
                 title: 'Apps 📦',
                 collapsable: true,
-                children: modulesSorted(langPath),
+                children: modulesSorted[lang] || [],
             }
         ],
     };

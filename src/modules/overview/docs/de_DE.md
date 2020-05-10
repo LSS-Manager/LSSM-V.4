@@ -1,10 +1,3 @@
----
-title: Übersicht
-lang: de
----
-
-# Übersicht
-
 Im Modul "Übersicht" findest du alle Fahrzeugtypen und Gebäudetypen mit allen Infos auf einen Blick aufgelistet.
 Mit dabei ist auch eine Suche, und die Tabellen lassen sich sortieren, wie man es vom Spiel aus gewohnt ist.
 

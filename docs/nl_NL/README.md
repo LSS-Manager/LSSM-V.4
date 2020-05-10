@@ -1,6 +1,6 @@
 ---
 title: Algemeen
-lang: nl
+lang: nl_NL
 sidebarDepth: 2
 ---
 

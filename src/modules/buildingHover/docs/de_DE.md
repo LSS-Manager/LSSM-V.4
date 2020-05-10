@@ -1,10 +1,3 @@
----
-title: Gebäude-Kurzinfos
-lang: de
----
-
-# Gebäude-Kurzinfos
-
 Häufig möchte man einen schnellen Überblick über den Status eines Gebäudes haben.
 Mit diesem Modul erhälst du die wichtigsten Informationen zu jeder Wache, die auf der Karte angezeigt wird, wenn du mit der Maus über das Bild fährst.
 

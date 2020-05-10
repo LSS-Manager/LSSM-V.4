@@ -1,10 +1,3 @@
----
-title: Verbesserte POI
-lang: de
----
-
-# Verbesserte POI
-
 Das Setzen von POI ist für manche Einsätze notwendig, um generiert werden zu können. Möchte man nicht die POI von anderen Mitspielern nutzen oder aus anderen Gründen eigene eintragen, so kann dies eine nervtötende Aktion sein.
 
 Um das Setzen ein wenig zu erleichtern, bietet dieses Modul daher folgende Vereinfachungen:

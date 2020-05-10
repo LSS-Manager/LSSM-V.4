@@ -1,7 +1,16 @@
 ---
 title: ℹ️ Allgemein
-lang: de
+lang: de_DE
 sidebarDepth: 2
 ---
 
 # ℹ️ Allgemeines zu Modulen
+Auf den folgenden Seiten findest du zu allen unseren Modulen eine Beschreibung. Wir haben unser bestes gegeben, diese so verständlich, und trotzdem vollständig, wie möglich zu halten. Allerdings ist dies aufgrund des Umfangs des LSSM nicht immer einfach.
+
+Wenn du Verbesserungsvorschläge hast, kannst du uns diese wie immer zukommen lassen – oder sogar selbst einbauen.
+
+:::danger Module, die in Mapkit nicht funktionieren
+Wie in der Erklärung zum [Appstore](appstore.md) beschrieben, gibt es Module, die leider nicht mit dem Kartentyp `Mapkit` kompatibel sind. Dies sind diese Module:
+* [Gebäude-Kurzinfos](modules/buildingHover.md)
+* [Verbesserte POI](modules/enhancedPOI.md)
+:::

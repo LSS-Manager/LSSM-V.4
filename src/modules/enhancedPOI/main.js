@@ -65,9 +65,6 @@ const observer = new MutationObserver(mutations => {
             isPOIWindow = false;
             return;
         }
-        form.querySelectorAll('.form-actions .btn').forEach(btn =>
-            btn.addEventListener('click', () => (isPOIWindow = false))
-        );
         if (isPOIWindow) return;
         isPOIWindow = true;
 

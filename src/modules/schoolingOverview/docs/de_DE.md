@@ -1,10 +1,3 @@
----
-title: Lehrgangsübersicht
-lang: de
----
-
-# Lehrgangsübersicht
-
 Gerade in großen Verbänden wird die Liste der verfügbaren Lehrgänge schnell sehr lange. Nimmt man selbst dann auch noch an vielen Lehrgängen teil, verliert man auch hier schnell den Überblick.
 
 Mit dem Modul `Lehrgangsübersicht` versuchen wir dieses Problem zu beheben.
