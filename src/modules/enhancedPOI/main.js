@@ -11,7 +11,7 @@ window.lssmv4.$store.dispatch('hook', {
 
 let isPOIWindow = false;
 
-let resetNewPoiMarker = () => {
+const resetNewPoiMarker = () => {
     if (isPOIWindow) {
         window.mission_position_new_marker &&
             !window.map
@@ -24,7 +24,7 @@ let resetNewPoiMarker = () => {
     }
 };
 
-let hideIcons = () => {
+const hideIcons = () => {
     if (isPOIWindow) {
         document
             .querySelectorAll('.leaflet-marker-icon:not(.poi)')
@@ -35,7 +35,7 @@ let hideIcons = () => {
     }
 };
 
-let showIcons = () => {
+const showIcons = () => {
     if (isPOIWindow) {
         document
             .querySelectorAll('.leaflet-marker-icon:not(.poi)')
@@ -43,12 +43,23 @@ let showIcons = () => {
     }
 };
 
+const colorMarkers = caption => {
+    document.querySelectorAll('.poi').forEach(el => (el.style.filter = null));
+    document
+        .querySelectorAll(`.poi[caption="${caption}"]`)
+        .forEach(
+            el =>
+                (el.style.filter =
+                    'contrast(500%) brightness(60%) invert(100%)')
+        );
+};
+
 window.map.addEventListener('moveend', resetNewPoiMarker);
 window.map.addEventListener('zoomend', hideIcons);
 
 const observer = new MutationObserver(mutations => {
     mutations.forEach(mutation => {
-        let form = mutation.target.querySelector('#new_mission_position');
+        const form = mutation.target.querySelector('#new_mission_position');
         if (!form) {
             showIcons();
             isPOIWindow = false;
@@ -75,22 +86,12 @@ const observer = new MutationObserver(mutations => {
                     (el.style.filter =
                         'contrast(500%) brightness(60%) invert(100%)')
             );
-        form.querySelector('#mission_position_poi_type').onchange = e => {
-            document
-                .querySelectorAll('.poi')
-                .forEach(el => (el.style.filter = null));
-            document
-                .querySelectorAll(
-                    `.poi[caption="${
-                        e.target.querySelector('option:checked').innerText
-                    }"]`
-                )
-                .forEach(
-                    el =>
-                        (el.style.filter =
-                            'contrast(500%) brightness(60%) invert(100%)')
-                );
-        };
+        colorMarkers(form.querySelector('option:checked').innerText);
+        form.querySelector(
+            '#mission_position_poi_type'
+        ).addEventListener('change', e =>
+            colorMarkers(e.target.querySelector('option:checked').innerText)
+        );
     });
 });
 observer.observe(document.getElementById('buildings'), { childList: true });
