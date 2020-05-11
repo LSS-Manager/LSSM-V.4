@@ -141,7 +141,7 @@ const options = {
             transformer(timestamp, lang) {
                 const moment = require('moment');
                 moment.locale(lang);
-                return moment(timestamp).fromNow();
+                return moment(timestamp).format('LLL');
             }
         },
         'vuepress-plugin-redirect': {
