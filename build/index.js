@@ -20,105 +20,147 @@ const modules = [];
 
 const dir = process.argv[2] === 'production' ? 'stable/' : 'beta/';
 
-const entries = Object.keys(config.games).map(game => {
-    const entry = {
-        mode: process.argv[2] || 'development',
-        entry: {
-            [`${game}_core`]: './src/core.js',
-            [`${game}_blank`]: './src/blank.js',
-        },
-        output: {
-            path: path.resolve(__dirname, `../dist/${dir}${game}`),
-            filename: chunkData =>
-                `${chunkData.chunk.name.replace(/^[a-z]{2}_[A-Z]{2}_/, '')}.js`,
-        },
-        ...lodash.cloneDeep(webpackConfig),
-    };
-    entry.plugins = [
-        new webpack.DefinePlugin({
-            BUILD_LANG: JSON.stringify(game),
-            MODE: process.argv[2] === 'production' ? '"stable"' : '"beta"',
-        }),
-        new webpack.ContextReplacementPlugin(
-            /moment\/locale$/,
-            new RegExp(
-                `${moment.localeData(game)._abbr}|${
-                    moment.localeData(config.games[game].locale_fallback)._abbr
-                }`
-            )
-        ),
-        ...entry.plugins,
-    ];
-    const modulesEntry = lodash.cloneDeep(entry);
-    modulesEntry.entry = {};
-    moduleDirs
-        .filter(module => fs.existsSync(`./src/modules/${module}/main.js`))
-        .forEach(module => {
-            modulesEntry.entry[
-                `${game}_${module}`
-            ] = `./src/modules/${module}/main.js`;
-            if (fs.existsSync(`./src/modules/${module}/main.external.js`))
-                modulesEntry.entry[
-                    `${game}_${module}/external`
-                ] = `./src/modules/${module}/main.external.js`;
-            if (
-                fs.existsSync(`./src/modules/${module}/i18n/${game}.js`) ||
-                fs.existsSync(`./src/modules/${module}/i18n/${game}.json`) ||
-                fs.existsSync(
-                    `./src/modules/${module}/i18n/${game}/index.js`
-                ) ||
-                fs.existsSync(`./src/modules/${module}/i18n/${game}/index.json`)
-            )
-                modulesEntry.module.rules.push({
-                    test: new RegExp(`modules/${module}/main(.external)?.js$`),
-                    loader: 'webpack-append',
-                    query: `window.lssmv4.$i18n.mergeLocaleMessage(${JSON.stringify(
-                        game
-                    )},{modules:{${module}: require(\`${path.resolve(
-                        __dirname,
-                        `../src/modules/${module}/i18n/${game}`
-                    )}\`),},});`,
-                });
-            modulesEntry.module.rules.push({
-                test: new RegExp(`modules/${module}/.*\\.(js|vue)$`),
-                loader: 'string-replace-loader',
-                query: {
-                    multiple: [
-                        {
-                            search: /MODULE_ID/g,
-                            replace: JSON.stringify(module),
-                        },
-                    ],
-                },
-            });
+const entries = Object.keys(config.games)
+    .filter(game => fs.existsSync(`./src/i18n/${game}.js`))
+    .map(game => {
+        const entry = {
+            mode: process.argv[2] || 'development',
+            entry: {
+                [`${game}_core`]: './src/core.js',
+                [`${game}_blank`]: './src/blank.js',
+            },
+            output: {
+                path: path.resolve(__dirname, `../dist/${dir}${game}`),
+                filename: chunkData =>
+                    `${chunkData.chunk.name.replace(
+                        /^[a-z]{2}_[A-Z]{2}_/,
+                        ''
+                    )}.js`,
+            },
+            ...lodash.cloneDeep(webpackConfig),
+        };
+        const fallback_locales = [];
+        if (config.games[game].locale_fallback) {
+            fallback_locales.push(config.games[game].locale_fallback);
+            let next_fallback =
+                config.games[fallback_locales[fallback_locales.length - 1]]
+                    .locale_fallback;
+            while (next_fallback) {
+                fallback_locales.push(next_fallback);
+                next_fallback =
+                    config.games[fallback_locales[fallback_locales.length - 1]]
+                        .locale_fallback;
+            }
+        }
+        entry.plugins = [
+            new webpack.DefinePlugin({
+                BUILD_LANG: JSON.stringify(game),
+                MODE: process.argv[2] === 'production' ? '"stable"' : '"beta"',
+            }),
+            new webpack.ContextReplacementPlugin(
+                /moment\/locale$/,
+                new RegExp(
+                    `${moment.localeData(game)._abbr}|${
+                        moment.localeData(config.games[game].locale_fallback)
+                            ._abbr
+                    }`
+                )
+            ),
+            ...entry.plugins,
+        ];
+        entry.module.rules.push({
+            test: /src\/i18n\.js$/,
+            loader: 'string-replace-loader',
+            query: {
+                multiple: [
+                    {
+                        search: /FALLBACK_LOCALES/g,
+                        replace: fallback_locales
+                            .map(
+                                locale =>
+                                    `${locale}: require('./i18n/${locale}')`
+                            )
+                            .join(','),
+                    },
+                ],
+            },
         });
-    modulesEntry.output = {
-        path: path.resolve(__dirname, `../dist/${dir}${game}/modules`),
-        filename: chunkData =>
-            `${chunkData.chunk.name.replace(
-                /^[a-z]{2}_[A-Z]{2}_/,
-                ''
-            )}/main.js`,
-    };
-    modulesEntry.module.rules.push({
-        test: /\.(js|vue)$/,
-        loader: 'string-replace-loader',
-        query: {
-            multiple: [
-                {
-                    search: /require\((['"])vue(['"])\)/g,
-                    replace: 'window.lssmv4.Vue',
-                },
-                {
-                    search: /import ([^ ]*) from (['"])vue(['"])/g,
-                    replace: 'const Vue = window.lssmv4.Vue',
-                },
-            ],
-        },
+        const modulesEntry = lodash.cloneDeep(entry);
+        modulesEntry.entry = {};
+        moduleDirs
+            .filter(module => fs.existsSync(`./src/modules/${module}/main.js`))
+            .forEach(module => {
+                modulesEntry.entry[
+                    `${game}_${module}`
+                ] = `./src/modules/${module}/main.js`;
+                if (fs.existsSync(`./src/modules/${module}/main.external.js`))
+                    modulesEntry.entry[
+                        `${game}_${module}/external`
+                    ] = `./src/modules/${module}/main.external.js`;
+                if (
+                    fs.existsSync(`./src/modules/${module}/i18n/${game}.js`) ||
+                    fs.existsSync(
+                        `./src/modules/${module}/i18n/${game}.json`
+                    ) ||
+                    fs.existsSync(
+                        `./src/modules/${module}/i18n/${game}/index.js`
+                    ) ||
+                    fs.existsSync(
+                        `./src/modules/${module}/i18n/${game}/index.json`
+                    )
+                )
+                    modulesEntry.module.rules.push({
+                        test: new RegExp(
+                            `modules/${module}/main(.external)?.js$`
+                        ),
+                        loader: 'webpack-append',
+                        query: `window.lssmv4.$i18n.mergeLocaleMessage(${JSON.stringify(
+                            game
+                        )},{modules:{${module}: require(\`${path.resolve(
+                            __dirname,
+                            `../src/modules/${module}/i18n/${game}`
+                        )}\`),},});`,
+                    });
+                modulesEntry.module.rules.push({
+                    test: new RegExp(`modules/${module}/.*\\.(js|vue)$`),
+                    loader: 'string-replace-loader',
+                    query: {
+                        multiple: [
+                            {
+                                search: /MODULE_ID/g,
+                                replace: JSON.stringify(module),
+                            },
+                        ],
+                    },
+                });
+            });
+        modulesEntry.output = {
+            path: path.resolve(__dirname, `../dist/${dir}${game}/modules`),
+            filename: chunkData =>
+                `${chunkData.chunk.name.replace(
+                    /^[a-z]{2}_[A-Z]{2}_/,
+                    ''
+                )}/main.js`,
+        };
+        modulesEntry.module.rules.push({
+            test: /\.(js|vue)$/,
+            loader: 'string-replace-loader',
+            query: {
+                multiple: [
+                    {
+                        search: /require\((['"])vue(['"])\)/g,
+                        replace: 'window.lssmv4.Vue',
+                    },
+                    {
+                        search: /import ([^ ]*) from (['"])vue(['"])/g,
+                        replace: 'const Vue = window.lssmv4.Vue',
+                    },
+                ],
+            },
+        });
+        modules.push(modulesEntry);
+        return entry;
     });
-    modules.push(modulesEntry);
-    return entry;
-});
 
 webpack([...entries, ...modules], (err, stats) => {
     if (err) {

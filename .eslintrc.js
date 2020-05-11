@@ -17,7 +17,8 @@ module.exports = {
         'VERSION': 'readonly',
         'BUILD_LANG': 'readonly',
         'MODULE_ID': 'readonly',
-        'MODE': 'readonly'
+        'MODE': 'readonly',
+        'FALLBACK_LOCALES': 'readonly',
     },
     'parserOptions': {
         'ecmaVersion': 2018,
