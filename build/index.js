@@ -60,10 +60,11 @@ const entries = Object.keys(config.games)
             new webpack.ContextReplacementPlugin(
                 /moment\/locale$/,
                 new RegExp(
-                    `${moment.localeData(game)._abbr}|${
-                        moment.localeData(config.games[game].locale_fallback)
-                            ._abbr
-                    }`
+                    `${
+                        game !== 'en_US'
+                            ? moment.localeData(game)._abbr
+                            : 'en-gb'
+                    }$`
                 )
             ),
             ...entry.plugins,
