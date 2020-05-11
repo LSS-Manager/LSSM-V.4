@@ -116,9 +116,19 @@ if (window.location.pathname === '/') {
 
     let heading = document.querySelector('h1, h2, h3, h4, h5, h6');
     if (window.location !== window.parent.location) {
-        heading = heading ? `[${heading.textContent.trim()}] ` : '';
+        heading = heading
+            ? `[${heading.textContent
+                  .trim()
+                  .replace(/\n/g, ' ')
+                  .replace(/ {2,}/g, ' ')}] `
+            : '';
     } else {
-        heading = heading ? `${heading.textContent.trim()} | ` : '';
+        heading = heading
+            ? `${heading.textContent
+                  .trim()
+                  .replace(/\n/g, ' ')
+                  .replace(/ {2,}/g, ' ')} | `
+            : '';
     }
     window.tellParent(
         `document.title = '${heading}${config.games[store.state.lang].name}';`
