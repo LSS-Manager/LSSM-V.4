@@ -14,5 +14,5 @@ const generationDate = moment(
 const generationDateNode = document.createElement('i');
 generationDateNode.innerText = `[${generationDate.fromNow()} (${generationDate.calendar()})]`;
 document
-    .querySelector('#mission_general_info small')
+    .querySelector('#mission_general_info > small')
     .appendChild(generationDateNode);
