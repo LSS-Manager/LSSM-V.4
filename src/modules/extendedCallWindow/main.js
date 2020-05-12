@@ -5,6 +5,10 @@ window.lssmv4.$store.dispatch('settings/register', {
             type: 'toggle',
             default: true,
         },
+        enhancedMissingVehicles: {
+            type: 'toggle',
+            default: false,
+        },
     },
 });
 
@@ -25,5 +29,10 @@ window.lssmv4.$store.dispatch('settings/register', {
     getSetting('generationDate').then(setting => {
         if (!setting) return;
         require('./assets/generationDate');
+    });
+
+    getSetting('enhancedMissingVehicles').then(setting => {
+        if (!setting) return;
+        require('./assets/enhancedMissingVehicles');
     });
 })();
