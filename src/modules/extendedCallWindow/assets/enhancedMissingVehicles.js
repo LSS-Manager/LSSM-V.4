@@ -25,6 +25,8 @@ import enhancedMissingVehicles from '../components/enhancedMissingVehicles.vue';
     const vehicleGroups = window.lssmv4.$t(
         'modules.extendedCallWindow.enhancedMissingVehicles.vehiclesByRequirement'
     );
+    const drivingRows = document.querySelector('#mission_vehicle_driving tbody')
+        .innerHTML;
     missingRequirements.forEach(requirement => {
         if (!vehicleGroups.hasOwnProperty(requirement.vehicle)) {
             extras += `, ${requirement.missing.toLocaleString()} ${
@@ -36,8 +38,10 @@ import enhancedMissingVehicles from '../components/enhancedMissingVehicles.vue';
         requirement.driving = Object.values(vehicleGroups[requirement.vehicle])
             .map(
                 vehicleType =>
-                    document.querySelectorAll(
-                        `#mission_vehicle_driving tbody tr td a[vehicle_type_id^="${vehicleType}"]`
+                    (
+                        drivingRows.match(
+                            new RegExp(`vehicle_type_id="${vehicleType}"`, 'g')
+                        ) || []
                     ).length
             )
             .reduce((a, b) => a + b, 0);
