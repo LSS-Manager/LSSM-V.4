@@ -1,5 +1,6 @@
 <template>
     <div class="alert alert-danger alert-missing-vehicles" id="missing_text">
+        {{ extras }}
         <label class="pull-right">
             <input
                 type="search"
@@ -8,7 +9,7 @@
                 @keydown.prevent=""
             />
         </label>
-        <div class="row" style="margin-top: 31px;">
+        <div class="row" style="margin-top: 10px;">
             <div class="col-md-6">
                 <enhanced-missing-vehicles-table
                     :missing-requirements="
@@ -51,6 +52,11 @@ export default {
         missingRequirements: {
             type: Array,
             required: true,
+        },
+        extras: {
+            type: String,
+            required: false,
+            default: '',
         },
     },
     computed: {

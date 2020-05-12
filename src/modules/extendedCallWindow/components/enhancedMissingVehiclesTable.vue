@@ -40,9 +40,9 @@
                 <td>
                     <b>{{ requirement.vehicle }}</b>
                 </td>
-                <td>{{ requirement.missing }}</td>
-                <td>{{ requirement.driving }}</td>
-                <td>{{ requirement.total }}</td>
+                <td>{{ requirement.missing.toLocaleString() }}</td>
+                <td>{{ requirement.driving.toLocaleString() }}</td>
+                <td>{{ requirement.total.toLocaleString() }}</td>
             </tr>
         </tbody>
     </table>
