@@ -6,8 +6,14 @@
             :id="menuId"
             role="button"
             data-toggle="dropdown"
+            :style="`background-color: ${iconBG}`"
         >
-            <span class="label label-success">LSSM V.4</span>
+            <img
+                :src="lssmLogo"
+                alt="LSSM V.4"
+                title="LSSM V.4"
+                class="navbar-icon"
+            />
             <span
                 class="badge"
                 :class="{
@@ -59,9 +65,14 @@
                 </a>
             </li>
             <li role="presentation">
-                <a href="#" @click.prevent.stop.self="createExternalLSSM">
-                    Beta-Test: externalWindowLSSM
-                </a>
+                <label>
+                    Icon
+                    <input
+                        type="color"
+                        v-model="iconBG"
+                        @change="storeIconBG"
+                    />
+                </label>
             </li>
         </ul>
     </li>
@@ -71,6 +82,8 @@
 import Appstore from './components/appstore.vue';
 import Settings from './components/settings.vue';
 import LibraryOverview from './components/libraryOverview.vue';
+
+const lssmLogo = require('./img/lssm_logo').default;
 
 export default {
     name: 'main-window',
@@ -82,6 +95,8 @@ export default {
             discord: this.$store.state.discord,
             wiki: this.$store.getters.wiki,
             MODE: MODE,
+            iconBG: null,
+            lssmLogo,
         };
     },
     methods: {
@@ -168,9 +183,17 @@ export default {
                 }
             );
         },
-        createExternalLSSM() {
-            this.$store.dispatch('external/getExternalLSSM', {});
+        storeIconBG() {
+            this.$store.dispatch('storage/set', {
+                key: 'iconBG',
+                val: this.iconBG,
+            });
         },
+    },
+    mounted() {
+        this.$store
+            .dispatch('storage/get', { key: 'iconBG', defaultValue: '#C9302C' })
+            .then(value => (this.iconBG = value));
     },
 };
 </script>
@@ -204,4 +227,24 @@ export default {
         &[aria-disabled='true']
             cursor: not-allowed
             color: #999
+#main_navbar
+    .navbar-right
+        display: flex
+        align-items: center
+
+        .navbar-form
+            margin: 0
+
+        #lssmv4-indicator
+
+            #lssmv4-indicator_menu
+                padding: 10px
+
+                img
+                    height: 30.5px !important
+                    width: unset
+
+            .dropdown-menu label
+                padding: 3px 20px
+                font-weight: unset
 </style>
