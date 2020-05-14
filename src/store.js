@@ -91,11 +91,13 @@ export default new Vuex.Store(
                 return modules;
             },
             modulesSorted: state => ({ modules = state.modules }) =>
-                Object.keys(modules).sort((a, b) => {
-                    a = window[state.prefix].$t(`modules.${a}.name`);
-                    b = window[state.prefix].$t(`modules.${b}.name`);
-                    return a < b ? -1 : a > b ? 1 : 0;
-                }),
+                Object.keys(modules)
+                    .filter(module => state.modules.hasOwnProperty(module))
+                    .sort((a, b) => {
+                        a = window[state.prefix].$t(`modules.${a}.name`);
+                        b = window[state.prefix].$t(`modules.${b}.name`);
+                        return a < b ? -1 : a > b ? 1 : 0;
+                    }),
             supportCounter: state =>
                 Object.values(state.support.chats).filter(
                     c => c.status === (state.lssm_admin ? 'new' : 'unread')

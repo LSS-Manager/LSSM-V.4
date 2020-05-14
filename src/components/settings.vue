@@ -23,7 +23,14 @@
         >
             <tab
                 v-for="moduleId in modulesSorted"
-                :title="$t(`modules.${moduleId}.name`)"
+                :title="
+                    $t(
+                        `modules.${moduleId}.name`.replace(
+                            'modules.global',
+                            'globalSettings'
+                        )
+                    )
+                "
                 :key="moduleId"
                 :module="moduleId"
             >
@@ -41,14 +48,21 @@
                         :key="settingId"
                         :moduleId="moduleId"
                         :settingId="settingId"
+                        :name="(setting.name = `${moduleId}.${settingId}`)"
                         :title="
                             $t(
-                                `modules.${moduleId}.settings.${settingId}.title`
+                                `modules.${moduleId}.settings.${settingId}.title`.replace(
+                                    'modules.global.settings',
+                                    'globalSettings'
+                                )
                             )
                         "
                         :description="
                             $t(
-                                `modules.${moduleId}.settings.${settingId}.description`,
+                                `modules.${moduleId}.settings.${settingId}.description`.replace(
+                                    'modules.global.settings',
+                                    'globalSettings'
+                                ),
                                 {
                                     wiki: $store.getters.wiki,
                                 }
@@ -60,7 +74,7 @@
                     >
                         <settings-text
                             v-if="setting.type === 'text'"
-                            :name="`${moduleId}.${settingId}`"
+                            :name="setting.name"
                             :placeholder="
                                 $t(
                                     `modules.${moduleId}.settings.${settingId}.title`
@@ -77,7 +91,7 @@
                         ></settings-text>
                         <settings-toggle
                             v-else-if="setting.type === 'toggle'"
-                            :name="`${moduleId}.${settingId}`"
+                            :name="setting.name"
                             :value="getValue(moduleId, settingId)"
                             @change="
                                 detectChange(moduleId, settingId, $event.value)
@@ -136,9 +150,12 @@ export default {
     },
     computed: {
         modulesSorted() {
-            return this.$store.getters.modulesSorted({
-                modules: this.settings,
-            });
+            return [
+                'global',
+                ...this.$store.getters.modulesSorted({
+                    modules: this.settings,
+                }),
+            ];
         },
         changes() {
             let changes = [];

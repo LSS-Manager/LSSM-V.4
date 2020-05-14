@@ -57,6 +57,14 @@ module.exports = {
             abort: 'Meldung schließen ohne Spiel neu zu laden',
         },
     },
+    globalSettings: {
+        name: 'Allgemeine Einstellungen',
+        labelInMenu: {
+            title: 'Label statt Icon im Menü',
+            description:
+                'Zeigt in der Navigationsleiste statt dem LSSM-Logo ein einfaches Label an.',
+        },
+    },
     vehicles: [
         {
             caption: 'LF 20',

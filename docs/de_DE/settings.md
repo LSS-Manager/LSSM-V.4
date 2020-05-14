@@ -18,3 +18,8 @@ Hast du ungespeicherte Änderungen, kannst du die Einstellungen nicht schließen
 ::: danger Zurücksetzen der Einstellungen
 Vorsicht: Setzt du Einstellungen zurück, können sie ohne den vorherigen Export nicht wieder hergestellt werden!
 :::
+
+## Allgemeine Einstellungen
+
+### Label statt Icon im Menü
+Standardmäßig wird in der Navigationsleiste das LSSM-Logo als Menü-Kopf angezeigt. Manchen suspekten Nutzern ist die Nutzung eines einfachen grün hinterlegten Textes aber lieber. Deshalb kann man dieses mit dieser Einstellung aktivieren.

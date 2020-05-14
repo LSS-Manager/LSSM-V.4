@@ -8,11 +8,15 @@
             data-toggle="dropdown"
             :style="`background-color: ${iconBG}`"
         >
+            <span v-if="labelInMenu" class="label label-success">
+                LSSM V.4
+            </span>
             <img
                 :src="lssmLogo"
                 alt="LSSM V.4"
                 title="LSSM V.4"
                 class="navbar-icon"
+                v-else
             />
             <span
                 class="badge"
@@ -64,7 +68,7 @@
                     Open-Source Libraries
                 </a>
             </li>
-            <li role="presentation">
+            <li role="presentation" v-if="!labelInMenu">
                 <label>
                     Icon
                     <input
@@ -96,6 +100,7 @@ export default {
             wiki: this.$store.getters.wiki,
             MODE: MODE,
             iconBG: null,
+            labelInMenu: false,
             lssmLogo,
         };
     },
@@ -194,6 +199,12 @@ export default {
         this.$store
             .dispatch('storage/get', { key: 'iconBG', defaultValue: '#C9302C' })
             .then(value => (this.iconBG = value));
+        this.$store
+            .dispatch('settings/getSetting', {
+                moduleId: 'global',
+                settingId: 'labelInMenu',
+            })
+            .then(labelInMenu => (this.labelInMenu = labelInMenu));
     },
 };
 </script>

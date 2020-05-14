@@ -141,6 +141,16 @@ if (window.location.pathname === '/') {
         },
     });
 
+    await window.lssmv4.$store.dispatch('settings/register', {
+        moduleId: 'global',
+        settings: {
+            labelInMenu: {
+                type: 'toggle',
+                default: false,
+            },
+        },
+    });
+
     store.dispatch('storage/get', { key: 'active' }).then(activeModules => {
         if (!activeModules) activeModules = [];
         activeModules = [
