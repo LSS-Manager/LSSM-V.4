@@ -11,6 +11,9 @@ import enhancedMissingVehicles from '../components/enhancedMissingVehicles.vue';
         .split(/,(?![^(]*?\))/g)
         .map(req => ({
             missing: parseInt(req.trim().match(/^\d+/)[0]),
+            req,
+            trim: req.trim(),
+            rep: req.trim().replace(/^\d+/, ''),
             vehicle: req
                 .trim()
                 .replace(/^\d+/, '')
@@ -28,14 +31,19 @@ import enhancedMissingVehicles from '../components/enhancedMissingVehicles.vue';
     const drivingRows = document.querySelector('#mission_vehicle_driving tbody')
         .innerHTML;
     missingRequirements.forEach(requirement => {
-        if (!vehicleGroups.hasOwnProperty(requirement.vehicle)) {
+        const vehicleGroupRequirement = Object.keys(vehicleGroups).find(group =>
+            requirement.vehicle.match(new RegExp(group.replace(/\//g, '')))
+        );
+        if (!vehicleGroupRequirement) {
             extras += `, ${requirement.missing.toLocaleString()} ${
                 requirement.vehicle
             }`;
             requirement.vehicle = null;
             return;
         }
-        requirement.driving = Object.values(vehicleGroups[requirement.vehicle])
+        requirement.driving = Object.values(
+            vehicleGroups[vehicleGroupRequirement]
+        )
             .map(
                 vehicleType =>
                     (
