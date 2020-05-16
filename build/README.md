@@ -9,3 +9,4 @@ To achieve a working build, the following files are required:
     * `discord_webhook_url` *may be an empty string*
 * `/static/.check_request.php` verifying the incoming request and dies if not verified.
     * For security reasons, this file is ignored in git-repository. The host is responsible for providing a security level via this file.
+* `/static/beta.php` redirects the request to `/beta/` if User is in Beta config, to `/stable` if not.
