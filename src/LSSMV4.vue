@@ -56,6 +56,10 @@ body.dark
     ._vue-flash-msg-body ._vue-flash-msg-body__icon
         background-color: #505050
 
+    pre
+        color: #f5f5f5
+        background: #333
+
 .v--modal-overlay
     z-index: 5001 !important
 

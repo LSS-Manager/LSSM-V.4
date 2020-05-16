@@ -40,7 +40,7 @@ module.exports = {
             [/^Gerätekraftwagen (GKW)$/]: [39],
             [/^GruKw$/]: [50],
             [/^LKW Kipper \(LKW K 9\)$/]: [42],
-            [/^Löschfahrzeuge \(LF\)$/]: [
+            [/^Löschfahrzeuge? \(LF\)$/]: [
                 0,
                 1,
                 17,

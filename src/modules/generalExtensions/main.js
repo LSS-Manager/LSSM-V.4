@@ -9,6 +9,10 @@ window.lssmv4.$store.dispatch('settings/register', {
             type: 'toggle',
             default: true,
         },
+        noteDiff: {
+            type: 'toggle',
+            default: false,
+        },
     },
 });
 
@@ -78,3 +82,8 @@ getSetting('clickableLinks').then(async setting => {
         },
     });
 });
+
+window.location.pathname === '/note' &&
+    getSetting('noteDiff').then(
+        setting => setting && require('./assets/noteDiff')
+    );

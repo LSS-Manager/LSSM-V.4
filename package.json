@@ -1,5 +1,5 @@
 {
-    "version": "4.0.5+20200516.1109",
+    "version": "4.0.5+20200516.1546",
     "license": "CC-BY-NC-SA-4.0",
     "scripts": {
         "predev": "node prebuild 2>&1 | tee  dist/log.beta.prebuild.txt",
@@ -11,6 +11,7 @@
     },
     "dependencies": {
         "@smartweb/vue-flash-message": "^0.6.4",
+        "diff": "^4.0.2",
         "highcharts": "^8.0.4",
         "localforage": "^1.7.3",
         "lodash": "^4.17.15",
