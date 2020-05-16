@@ -5,6 +5,12 @@
                 <b>
                     {{
                         $t('modules.dashboard.chart-summaries.buildings.title')
+                    }}:
+                    {{
+                        Object.values(buildings).reduce(
+                            (a, b) => (a += b.length),
+                            0
+                        )
                     }}
                 </b>
                 <span class="glyphicon glyphicon-info-sign tip-btn"></span>
@@ -19,7 +25,15 @@
         <div class="panel panel-default">
             <div class="panel-heading">
                 <b>
-                    {{ $t('modules.dashboard.chart-summaries.vehicles.title') }}
+                    {{
+                        $t('modules.dashboard.chart-summaries.vehicles.title')
+                    }}:
+                    {{
+                        Object.values(vehicles).reduce(
+                            (a, b) => (a += b.length),
+                            0
+                        )
+                    }}
                 </b>
                 <span class="glyphicon glyphicon-info-sign tip-btn"></span>
                 <div class="alert alert-info">
