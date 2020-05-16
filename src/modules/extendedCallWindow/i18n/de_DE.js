@@ -30,6 +30,7 @@ module.exports = {
             [/^FuStW$/]: [32],
             [/^FwK$/]: [57],
             [/^FüKw$/]: [51],
+            [/^GefKw$/]: [52],
             [/^GW-A oder AB-Atemschutz$/]: [5, 48],
             [/^GW-Gefahrgut$/]: [27, 77],
             [/^GW-Höhenrettung$/]: [33],
@@ -37,7 +38,7 @@ module.exports = {
             [/^GW-Taucher$/]: [63, 69],
             [/^GW-Werkfeuerwehr$/]: [83],
             [/^GW-Öl$/]: [10, 49],
-            [/^Gerätekraftwagen (GKW)$/]: [39],
+            [/^Gerätekraftwagen \(GKW\)$/]: [39],
             [/^GruKw$/]: [50],
             [/^LKW Kipper \(LKW K 9\)$/]: [42],
             [/^Löschfahrzeuge? \(LF\)$/]: [
