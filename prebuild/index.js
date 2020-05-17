@@ -11,5 +11,7 @@ emptyFolder('./dist/admin');
 emptyFolder(`./dist/${process.argv[2] === 'production' ? 'stable/' : 'beta/'}`);
 console.info('\tcopyStatic');
 require('./copyStatic');
+console.log('\tCollect Third-Party Libraries');
+require('./getLibraries');
 
 console.log('Prebuild ran successfully, building...');
