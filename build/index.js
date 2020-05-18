@@ -21,7 +21,7 @@ const modules = [];
 const dir = process.argv[2] === 'production' ? 'stable/' : 'beta/';
 
 const entries = Object.keys(config.games)
-    .filter(game => fs.existsSync(`./src/i18n/${game}.js`))
+    .filter(game => game === 'de_DE' && fs.existsSync(`./src/i18n/${game}.js`))
     .map(game => {
         const entry = {
             mode: process.argv[2] || 'development',
