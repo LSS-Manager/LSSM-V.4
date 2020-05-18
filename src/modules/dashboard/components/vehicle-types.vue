@@ -1,79 +1,67 @@
 <template>
-    <div>
-        <label class="pull-right">
-            <input
-                type="search"
-                class="search_input_field"
-                v-model="search"
-                :placeholder="$t('search')"
-            />
-        </label>
-        <table
-            :id="$store.getters.nodeId('dashboard-vehicle-types')"
-            class="table table-striped"
+    <enhanced-table
+        :head="{
+            title: { title: $t('modules.dashboard.vehicle-types.type') },
+            ...statusHeads,
+            sum: { title: $t('modules.dashboard.vehicle-types.sum') },
+        }"
+        :table-attrs="{ class: 'table table-striped' }"
+        @sort="setSort"
+        :sort="sort"
+        :sort-dir="sortDir"
+        :search="search"
+        @search="s => (search = s)"
+    >
+        <tr
+            v-for="vehicleType in vehicleTypesSorted"
+            :stats="(stats = vehicleTypes[vehicleType])"
+            :key="`vehicles_${vehicleType}`"
         >
-            <thead>
-                <tr>
-                    <th @click="setSort('title')">
-                        {{ $t('modules.dashboard.vehicle-types.type') }}
-                    </th>
-                    <th
-                        v-for="status in statuses"
-                        :key="status"
-                        @click="setSort(status)"
-                    >
-                        {{ $t('modules.dashboard.vehicle-types.status') }}
-                        &nbsp;{{ status }}
-                    </th>
-                    <th @click="setSort('sum')">
-                        {{ $t('modules.dashboard.vehicle-types.sum') }}
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr
-                    v-for="vehicleType in vehicleTypesSorted"
-                    :stats="(stats = vehicleTypes[vehicleType])"
-                    :key="`vehicles_${vehicleType}`"
-                >
-                    <td>{{ stats.title }}</td>
-                    <td
-                        v-for="status in statuses"
-                        :key="`${vehicleType}_${status}`"
-                    >
-                        {{ stats[status].toLocaleString() }}
-                    </td>
-                    <td>
-                        {{ stats.sum.toLocaleString() }}
-                    </td>
-                </tr>
-            </tbody>
-            <tfoot>
-                <tr>
-                    <th>
-                        {{ $t('modules.dashboard.vehicle-types.sum') }}
-                    </th>
-                    <th v-for="status in statuses" :key="`sum_${status}`">
-                        {{ (sum[status] || 0).toLocaleString() }}
-                    </th>
-                    <th>
-                        {{ Object.values(sum).reduce((s, c) => (s += c), 0) }}
-                    </th>
-                </tr>
-            </tfoot>
-        </table>
-    </div>
+            <td>{{ stats.title }}</td>
+            <td v-for="status in statuses" :key="`${vehicleType}_${status}`">
+                {{ stats[`s${status}`].toLocaleString() }}
+            </td>
+            <td>
+                {{ stats.sum.toLocaleString() }}
+            </td>
+        </tr>
+        <template v-slot:foot>
+            <tr>
+                <th>
+                    {{ $t('modules.dashboard.vehicle-types.sum') }}
+                </th>
+                <th v-for="status in statuses" :key="`sum_${status}`">
+                    {{ (sum[status] || 0).toLocaleString() }}
+                </th>
+                <th>
+                    {{ Object.values(sum).reduce((s, c) => (s += c), 0) }}
+                </th>
+            </tr>
+        </template>
+    </enhanced-table>
 </template>
 
 <script>
+import EnhancedTable from '../../../components/enhanced-table.vue';
 export default {
     name: 'vehicle-types',
+    components: { EnhancedTable },
     data() {
+        const statuses = this.$t('modules.dashboard.vehicle-types.statuses');
+        const statusText = this.$t('modules.dashboard.vehicle-types.status');
+        const statusHeads = {};
+        Object.values(statuses).forEach(
+            status =>
+                (statusHeads[`s${status}`] = {
+                    title: `${statusText} ${status}`,
+                })
+        );
         return {
             vehicleTypeNames: Object.values(this.$t('vehicles')).map(
                 type => type.caption
             ),
-            statuses: this.$t('modules.dashboard.vehicle-types.statuses'),
+            statuses,
+            statusHeads,
             search: '',
             sort: 'title',
             sortDir: 'asc',
@@ -86,12 +74,12 @@ export default {
             Object.keys(vbt).forEach(type => {
                 const fms = {};
                 Object.values(this.statuses).forEach(
-                    status => (fms[status] = 0)
+                    status => (fms[`s${status}`] = 0)
                 );
                 Object.values(vbt[type]).forEach(vehicle => {
-                    fms[vehicle.fms_real]++;
+                    fms[`s${vehicle.fms_real}`]++;
                 });
-                types[type] = {
+                types[`s${type}`] = {
                     title: this.vehicleTypeNames[type],
                     ...fms,
                     sum: vbt[type].length,
@@ -139,10 +127,6 @@ export default {
 
 <style scoped lang="sass">
 table
-
-    thead th
-        cursor: pointer
-
     td:first-child,
     td:last-child
         font-weight: bold

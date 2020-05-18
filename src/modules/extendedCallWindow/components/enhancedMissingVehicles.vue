@@ -1,15 +1,7 @@
 <template>
     <div class="alert alert-danger alert-missing-vehicles" id="missing_text">
         {{ extras }}
-        <label class="pull-right">
-            <input
-                type="search"
-                class="search_input_field"
-                v-model="missingRequirementsSearch"
-                @keydown.prevent=""
-            />
-        </label>
-        <div class="row" style="margin-top: 10px;">
+        <div class="row">
             <div class="col-md-6">
                 <enhanced-missing-vehicles-table
                     :missing-requirements="
@@ -18,7 +10,11 @@
                             Math.ceil(missingRequirementsFiltered.length / 2)
                         )
                     "
+                    :sort="sort"
+                    :sort-dir="sortDir"
+                    :search="missingRequirementsSearch"
                     @sort="setSort"
+                    @search="s => (missingRequirementsSearch = s)"
                 ></enhanced-missing-vehicles-table>
             </div>
             <div class="col-md-6">
@@ -28,7 +24,11 @@
                             Math.ceil(missingRequirementsFiltered.length / 2)
                         )
                     "
+                    :sort="sort"
+                    :sort-dir="sortDir"
+                    :search="missingRequirementsSearch"
                     @sort="setSort"
+                    @search="s => (missingRequirementsSearch = s)"
                 ></enhanced-missing-vehicles-table>
             </div>
         </div>

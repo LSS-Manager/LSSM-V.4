@@ -1,4 +1,19 @@
 {
+	"@fortawesome/fontawesome-svg-core": {
+		"icon": "https://fontawesome.com/images/favicons/apple-icon-180x180.png",
+		"url": "https://fontawesome.com",
+		"version": "1.2.28"
+	},
+	"@fortawesome/free-solid-svg-icons": {
+		"icon": "https://fontawesome.com/images/favicons/apple-icon-180x180.png",
+		"url": "https://fontawesome.com",
+		"version": "5.13.0"
+	},
+	"@fortawesome/vue-fontawesome": {
+		"icon": "https://fontawesome.com/images/favicons/apple-icon-180x180.png",
+		"url": "https://github.com/FortAwesome/vue-fontawesome",
+		"version": "0.1.9"
+	},
 	"@smartweb/vue-flash-message": {
 		"icon": "https://smwbtech.github.io/vue-flash-message/fm-logo.svg",
 		"url": "https://smwbtech.github.io/vue-flash-message/",
@@ -13,11 +28,6 @@
 		"icon": "https://vuepress.vuejs.org/hero.png",
 		"url": "https://github.com/vuejs/vuepress/packages/@vuepress/back-to-top#readme",
 		"version": "1.4.0"
-	},
-	"Font Awesome": {
-		"url": "https://fontawesome.com/",
-		"icon": "https://fontawesome.com/images/favicons/apple-icon-180x180.png",
-		"version": "5.13"
 	},
 	"Mini SVG data: URI": {
 		"url": "https://github.com/tigt/mini-svg-data-uri",

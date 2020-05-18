@@ -8,6 +8,7 @@ import VueJSModal from 'vue-js-modal';
 import ToggleButton from 'vue-js-toggle-button';
 import * as Tabs from 'vue-slim-tabs';
 import FlashMessage from '@smartweb/vue-flash-message';
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
 const config = require('./config');
 const utils = require('./utils');
@@ -24,6 +25,8 @@ Vue.use(VueJSModal, {
 Vue.use(ToggleButton);
 Vue.use(Tabs);
 Vue.use(FlashMessage, { strategy: 'multiple' });
+
+Vue.component('font-awesome-icon', FontAwesomeIcon);
 
 let lssm = document.createElement('div');
 document.querySelector('body').appendChild(lssm);

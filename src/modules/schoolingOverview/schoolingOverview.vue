@@ -25,67 +25,59 @@
             <h3>{{ $t('modules.schoolingOverview.name') }}</h3>
             <div class="col-lg-6">
                 <h4>{{ $t('modules.schoolingOverview.own') }}</h4>
-                <label class="pull-right">
-                    <input
-                        type="search"
-                        class="search_input_field"
-                        v-model="ownSchoolingsSearch"
-                    />
-                </label>
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th @click="setSortOwn('key')">
-                                {{ $t('modules.schoolingOverview.schooling') }}
-                            </th>
-                            <th @click="setSortOwn('amount')">
-                                {{ $t('modules.schoolingOverview.amount') }}
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr v-for="schooling in sortedOwn" :key="schooling.key">
-                            <td>{{ schooling.key }}</td>
-                            <td>{{ schooling.amount }}</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <enhanced-table
+                    :head="{
+                        key: {
+                            title: $t('modules.schoolingOverview.schooling'),
+                        },
+                        amount: {
+                            title: $t('modules.schoolingOverview.amount'),
+                        },
+                    }"
+                    :table-attrs="{ class: 'table table-striped' }"
+                    @sort="setSortOwn"
+                    :sort="sortOwn"
+                    :sort-dir="sortOwnDir"
+                    :search="ownSchoolingsSearch"
+                    @search="s => (ownSchoolingsSearch = s)"
+                >
+                    <tr v-for="schooling in sortedOwn" :key="schooling.key">
+                        <td>{{ schooling.key }}</td>
+                        <td>{{ schooling.amount }}</td>
+                    </tr>
+                </enhanced-table>
             </div>
             <div class="col-lg-6">
                 <h4>{{ $t('modules.schoolingOverview.open') }}</h4>
-                <label class="pull-right">
-                    <input
-                        type="search"
-                        class="search_input_field"
-                        v-model="openSchoolingsSearch"
-                    />
-                </label>
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th @click="setSortOpen('key')">
-                                {{ $t('modules.schoolingOverview.schooling') }}
-                            </th>
-                            <th @click="setSortOpen('amount')">
-                                {{ $t('modules.schoolingOverview.amount') }}
-                            </th>
-                            <th @click="setSortOpen('seats')">
-                                {{ $t('modules.schoolingOverview.seats') }}
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr
-                            v-for="schooling in sortedOpen"
-                            :key="schooling.key"
-                            :class="{ 'empty-schooling': !schooling.amount }"
-                        >
-                            <td>{{ schooling.key }}</td>
-                            <td>{{ schooling.amount }}</td>
-                            <td>{{ schooling.seats }}</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <enhanced-table
+                    :head="{
+                        key: {
+                            title: $t('modules.schoolingOverview.schooling'),
+                        },
+                        amount: {
+                            title: $t('modules.schoolingOverview.amount'),
+                        },
+                        seats: {
+                            title: $t('modules.schoolingOverview.seats'),
+                        },
+                    }"
+                    :table-attrs="{ class: 'table table-striped' }"
+                    @sort="setSortOpen"
+                    :sort="sortOpen"
+                    :sort-dir="sortOpenDir"
+                    :search="openSchoolingsSearch"
+                    @search="s => (openSchoolingsSearch = s)"
+                >
+                    <tr
+                        v-for="schooling in sortedOpen"
+                        :key="schooling.key"
+                        :class="{ 'empty-schooling': !schooling.amount }"
+                    >
+                        <td>{{ schooling.key }}</td>
+                        <td>{{ schooling.amount }}</td>
+                        <td>{{ schooling.seats }}</td>
+                    </tr>
+                </enhanced-table>
             </div>
         </div>
     </div>
@@ -93,9 +85,11 @@
 
 <script>
 import schoolingOverview from './schoolingOverview.vue';
+import EnhancedTable from '../../components/enhanced-table.vue';
 
 export default {
     name: 'schoolingsOverview',
+    components: { EnhancedTable },
     data() {
         return {
             hidden: true,
