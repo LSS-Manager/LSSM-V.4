@@ -38,58 +38,14 @@
                 <b>{{ requirement.vehicle }}</b>
             </td>
             <td>{{ requirement.missing.toLocaleString() }}</td>
-            <td>{{ requirement.driving.toLocaleString() }}</td>
-            <td>{{ requirement.total.toLocaleString() }}</td>
+            <td>{{ (requirement.driving || 0).toLocaleString() }}</td>
+            <td>
+                {{
+                    (requirement.total || requirement.missing).toLocaleString()
+                }}
+            </td>
         </tr>
     </enhanced-table>
-
-    <!--    <table class="table table-striped table-condensed">-->
-    <!--        <thead>-->
-    <!--            <tr>-->
-    <!--                <th @click="$emit('sort', 'vehicle')">-->
-    <!--                    {{-->
-    <!--                        $t(-->
-    <!--                            'modules.extendedCallWindow.enhancedMissingVehicles.vehicle'-->
-    <!--                        )-->
-    <!--                    }}-->
-    <!--                </th>-->
-    <!--                <th @click="$emit('sort', 'missing')">-->
-    <!--                    {{-->
-    <!--                        $t(-->
-    <!--                            'modules.extendedCallWindow.enhancedMissingVehicles.missing'-->
-    <!--                        )-->
-    <!--                    }}-->
-    <!--                </th>-->
-    <!--                <th @click="$emit('sort', 'driving')">-->
-    <!--                    {{-->
-    <!--                        $t(-->
-    <!--                            'modules.extendedCallWindow.enhancedMissingVehicles.driving'-->
-    <!--                        )-->
-    <!--                    }}-->
-    <!--                </th>-->
-    <!--                <th @click="$emit('sort', 'total')">-->
-    <!--                    {{-->
-    <!--                        $t(-->
-    <!--                            'modules.extendedCallWindow.enhancedMissingVehicles.total'-->
-    <!--                        )-->
-    <!--                    }}-->
-    <!--                </th>-->
-    <!--            </tr>-->
-    <!--        </thead>-->
-    <!--        <tbody>-->
-    <!--            <tr-->
-    <!--                v-for="requirement in missingRequirements"-->
-    <!--                :key="requirement.vehicle"-->
-    <!--            >-->
-    <!--                <td>-->
-    <!--                    <b>{{ requirement.vehicle }}</b>-->
-    <!--                </td>-->
-    <!--                <td>{{ requirement.missing.toLocaleString() }}</td>-->
-    <!--                <td>{{ requirement.driving.toLocaleString() }}</td>-->
-    <!--                <td>{{ requirement.total.toLocaleString() }}</td>-->
-    <!--            </tr>-->
-    <!--        </tbody>-->
-    <!--    </table>-->
 </template>
 
 <script>
