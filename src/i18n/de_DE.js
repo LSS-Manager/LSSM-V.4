@@ -430,6 +430,10 @@ module.exports = {
             caption: 'HLF 10',
             color: '#330000',
         },
+        {
+            caption: 'Rettungshundefahrzeug',
+            color: '#663300',
+        },
     ],
     buildings: [
         {
@@ -514,6 +518,10 @@ module.exports = {
             caption: 'Rettungswache (Kleinwache)',
             color: '#eeb611',
         },
+        {
+            caption: 'Rettungshundestaffel',
+            color: '#663300',
+        },
     ],
     vehicleCategories: {
         Feuerwehr: {
@@ -546,6 +554,7 @@ module.exports = {
                 'Rettungshubschrauber': [31],
                 'KTW': [38],
                 'SEG-Fahrzeuge': [58, 59, 60],
+                'Rettungshundefahrzeuge': [91],
             },
             color: '#ffa500',
         },
@@ -587,7 +596,7 @@ module.exports = {
             color: '#ff0000',
         },
         Rettungsdienst: {
-            buildings: [2, 3, 5, 12, 15, 20],
+            buildings: [2, 3, 5, 12, 15, 20, 21],
             color: '#ffa500',
         },
         Polizei: {
@@ -603,7 +612,7 @@ module.exports = {
             color: '#02a18c',
         },
     },
-    vehicleBuildings: [0, 2, 5, 6, 9, 11, 12, 13, 15, 17, 18, 19, 20],
+    vehicleBuildings: [0, 2, 5, 6, 9, 11, 12, 13, 15, 17, 18, 19, 20, 21],
     bedBuildings: [4],
     schoolBuildings: [1, 3, 8, 10],
     dispatchCenterBuildings: [7],

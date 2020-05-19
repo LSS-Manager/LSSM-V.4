@@ -1,1098 +1,1124 @@
 {
-  "tabs": {
-    "buildings": "Gebäude",
-    "vehicles": "Fahrzeuge",
-    "vehicleTabs": [
-      {
-        "fw": "Feuerwehr"
-      },
-      {
-        "fwspecial": "Werk-/Flughafenfeuerwehr"
-      },
-      {
-        "rd": "Rettungsdienst"
-      },
-      {
-        "pol": "Polizei"
-      },
-      {
-        "bepol": "Bereitschaftspolizei"
-      },
-      {
-        "polsonder": "Polizei Sondereinheiten"
-      },
-      {
-        "thw": "THW"
-      },
-      {
-        "wr": "Wasserrettung"
-      },
-      {
-        "heli": "Helikopter"
-      },
-      {
-        "seg": "SEG"
-      }
-    ]
-  },
-  "titles": {
-    "buildings": [
-      {
-        "name": "Gebäudetyp"
-      },
-      {
-        "cost": "Preis"
-      },
-      {
-        "maxlevel": "maximale Ausbaustufe"
-      },
-      {
-        "levelcost": "Kosten der Ausbaustufen"
-      },
-      {
-        "startPersonell": "Start Personal"
-      },
-      {
-        "startVehicle": "Start Fahrzeug"
-      },
-      {
-        "maxBuildings": "Baugrenze"
-      },
-      {
-        "extensions": "Ausbauten"
-      },
-      {
-        "special": "Besonderes"
-      }
-    ],
-    "vehicles": [
-      {
-        "name": "Fahrzeugtyp"
-      },
-      {
-        "min": "mindest Personal"
-      },
-      {
-        "max": "maximal Personal"
-      },
-      {
-        "cost": "Preis"
-      },
-      {
-        "schooling": "Ausbildung"
-      },
-      {
-        "wtank": "Wassertank"
-      },
-      {
-        "special": "Besonderes"
-      }
-    ]
-  },
-  "vehicles": {
-    "fw": [
-      {
-        "name": "LF 20",
-        "min": 1,
-        "max": 9,
-        "credits": 5000,
-        "wtank": 2000,
-        "coins": 25
-      },
-      {
-        "name": "LF 10",
-        "min": 1,
-        "max": 9,
-        "credits": 5000,
-        "wtank": 1200,
-        "coins": 25
-      },
-      {
-        "name": "DLK 23",
-        "min": 1,
-        "max": 3,
-        "credits": 10000,
-        "coins": 30,
-        "special": "Wird ab 3 Feuerwachen benötigt."
-      },
-      {
-        "name": "ELW 1",
-        "min": 1,
-        "max": 3,
-        "credits": 10000,
-        "coins": 25,
-        "special": "Wird ab 6 Feuerwachen benötigt."
-      },
-      {
-        "name": "RW",
-        "min": 1,
-        "max": 3,
-        "credits": 12180,
-        "coins": 25,
-        "special": "Wird ab 4 Feuerwachen benötigt."
-      },
-      {
-        "name": "GW-A",
-        "min": 1,
-        "max": 3,
-        "credits": 11680,
-        "coins": 25,
-        "special": "Wird ab 5 Feuerwachen benötigt."
-      },
-      {
-        "name": "LF 8/6",
-        "min": 1,
-        "max": 9,
-        "credits": 5000,
-        "wtank": 600,
-        "coins": 25
-      },
-      {
-        "name": "LF 20/16",
-        "min": 1,
-        "max": 9,
-        "credits": 5000,
-        "coins": 25,
-        "wtank": 1600
-      },
-      {
-        "name": "LF 106",
-        "min": 1,
-        "max": 9,
-        "credits": 5000,
-        "coins": 25,
-        "wtank": 600
-      },
-      {
-        "name": "LF 16-TS",
-        "min": 1,
-        "max": 9,
-        "credits": 5000,
-        "coins": 25,
-        "wtank": 0
-      },
-      {
-        "name": "KLF",
-        "min": 1,
-        "max": 6,
-        "credits": 5000,
-        "coins": 25,
-        "wtank": 500
-      },
-      {
-        "name": "MLF",
-        "min": 1,
-        "max": 6,
-        "credits": 5000,
-        "coins": 25,
-        "wtank": 1000
-      },
-      {
-        "name": "GW-Öl",
-        "min": 1,
-        "max": 3,
-        "credits": 12000,
-        "coins": 25,
-        "special": "Wird ab 6 Feuerwachen benötigt."
-      },
-      {
-        "name": "GW-L2-Wasser",
-        "min": 1,
-        "max": 3,
-        "credits": 17300,
-        "coins": 25,
-        "special": "Ein Schlauchwagen wird ab 7 Feuerwachen benötigt."
-      },
-      {
-        "name": "GW-Messtechnik",
-        "min": 1,
-        "max": 3,
-        "credits": 18300,
-        "coins": 25,
-        "schooling": "GW-Messtechnik",
-        "special": "Wird ab 10 Feuerwachen benötigt."
-      },
-      {
-        "name": "SW 1000",
-        "min": 1,
-        "max": 3,
-        "credits": 17300,
-        "coins": 25,
-        "special": "Ein Schlauchwagen wird ab 7 Feuerwachen benötigt."
-      },
-      {
-        "name": "SW 2000",
-        "min": 1,
-        "max": 6,
-        "credits": 17300,
-        "coins": 25,
-        "special": "Ein Schlauchwagen wird ab 7 Feuerwachen benötigt."
-      },
-      {
-        "name": "SW 2000-Tr",
-        "min": 1,
-        "max": 3,
-        "credits": 17300,
-        "coins": 25,
-        "special": "Ein Schlauchwagen wird ab 7 Feuerwachen benötigt."
-      },
-      {
-        "name": "SW Kats",
-        "min": 1,
-        "max": 3,
-        "credits": 17300,
-        "coins": 25,
-        "special": "Ein Schlauchwagen wird ab 7 Feuerwachen benötigt."
-      },
-      {
-        "name": "TLF 2000",
-        "min": 1,
-        "max": 3,
-        "credits": 5000,
-        "coins": 25,
-        "wtank": 2000
-      },
-      {
-        "name": "TLF 3000",
-        "min": 1,
-        "max": 3,
-        "credits": 5000,
-        "coins": 25,
-        "wtank": 3000
-      },
-      {
-        "name": "TLF 4000",
-        "min": 1,
-        "max": 3,
-        "credits": 5000,
-        "coins": 25,
-        "wtank": 4000
-      },
-      {
-        "name": "TLF 8/8",
-        "min": 1,
-        "max": 3,
-        "credits": 5000,
-        "coins": 25,
-        "wtank": 800
-      },
-      {
-        "name": "TLF 8/18",
-        "min": 1,
-        "max": 3,
-        "credits": 5000,
-        "coins": 25,
-        "wtank": 1800
-      },
-      {
-        "name": "TLF 16/24-Tr",
-        "min": 1,
-        "max": 3,
-        "credits": 5000,
-        "coins": 25,
-        "wtank": 2400
-      },
-      {
-        "name": "TLF 16/25",
-        "min": 1,
-        "max": 6,
-        "credits": 5000,
-        "coins": 25,
-        "wtank": 2500
-      },
-      {
-        "name": "TLF 16/45",
-        "min": 1,
-        "max": 3,
-        "credits": 5000,
-        "coins": 25,
-        "wtank": 4500
-      },
-      {
-        "name": "TLF 20/40",
-        "min": 1,
-        "max": 3,
-        "credits": 5000,
-        "coins": 25,
-        "wtank": 4000
-      },
-      {
-        "name": "TLF 20/40-SL",
-        "min": 1,
-        "max": 3,
-        "credits": 5000,
-        "coins": 25,
-        "wtank": 4000
-      },
-      {
-        "name": "TLF 16",
-        "min": 1,
-        "max": 3,
-        "credits": 5000,
-        "coins": 25,
-        "wtank": 1800
-      },
-      {
-        "name": "GW-Gefahrgut",
-        "min": 1,
-        "max": 3,
-        "credits": 19200,
-        "coins": 25,
-        "schooling": "GW-Gefahrgut",
-        "special": "Wird ab 11 Feuerwachen benötigt."
-      },
-      {
-        "name": "HLF 20",
-        "min": 1,
-        "max": 9,
-        "credits": 20000,
-        "coins": 25,
-        "special": "Ein HLF vor Ort zählt wie ein LF/TLF und ein RW gleichzeitig.<br>Es wird mindestens der Rang \"Gruppenführer(in)\" benötigt, um ein HLF kaufen zu können.",
-        "wtank": 1600
-      },
-      {
-        "name": "HLF 10",
-        "min": 1,
-        "max": 9,
-        "credits": 20000,
-        "coins": 25,
-        "special": "Ein HLF vor Ort zählt wie ein LF/TLF und ein RW gleichzeitig.<br>Es wird mindestens der Rang \"Gruppenführer(in)\" benötigt, um ein HLF kaufen zu können.",
-        "wtank": 1000
-      },
-      {
-        "name": "GW-Höhenrettung",
-        "min": 1,
-        "max": 9,
-        "credits": 19500,
-        "coins": 25,
-        "schooling": "GW-Höhenrettung",
-        "special": "Wird ab 12 Feuerwachen benötigt."
-      },
-      {
-        "name": "ELW 2",
-        "min": 1,
-        "max": 6,
-        "credits": 25500,
-        "coins": 25,
-        "schooling": "ELW 2",
-        "special": "Ein ELW 2 vor Ort zählt wie ein ELW 1 und ein ELW 2 gleichzeitig.<br>Wird ab 13 Feuerwachen benötigt."
-      },
-      {
-        "name": "MTW",
-        "min": 1,
-        "max": 9,
-        "credits": 2500,
-        "coins": 12,
-        "special": "Wird nie angefordert. Dient lediglich dazu, Personal zum Einsatz zu bringen."
-      },
-      {
-        "name": "TSF-W",
-        "min": 1,
-        "max": 6,
-        "credits": 5000,
-        "coins": 25,
-        "wtank": 500
-      },
-      {
-        "name": "WLF",
-        "min": 1,
-        "max": 3,
-        "credits": 5000,
-        "coins": 12,
-        "schooling": "Wechsellader",
-        "special": "Wird nie angefordert. Dient zum Transport von Abrollbehältern (können bestimmte Gerätewagen ersetzten)."
-      },
-      {
-        "name": "AB-Rüst",
-        "min": 0,
-        "max": 0,
-        "credits": 6000,
-        "coins": 12,
-        "special": "Dient als Ersatz eines RW. Muss von einem WLF zum Einsatz gebracht werden."
-      },
-      {
-        "name": "AB-Atemschutz",
-        "min": 0,
-        "max": 0,
-        "credits": 6000,
-        "coins": 12,
-        "special": "Dient als Ersatz eines GW-A. Muss von einem WLF zum Einsatz gebracht werden."
-      },
-      {
-        "name": "AB-Öl",
-        "min": 0,
-        "max": 0,
-        "credits": 6000,
-        "coins": 12,
-        "special": "Dient als Ersatz eines GW-Öl. Muss von einem WLF zum Einsatz gebracht werden."
-      },
-      {
-        "name": "AB-Schlauch",
-        "min": 0,
-        "max": 0,
-        "credits": 6000,
-        "coins": 12,
-        "special": "Dient als Ersatz eines Schlauchwagens. Muss von einem WLF zum Einsatz gebracht werden."
-      },
-      {
-        "name": "Dekon-P",
-        "min": 1,
-        "max": 6,
-        "credits": 23100,
-        "coins": 25,
-        "schooling": "Dekon-P",
-        "special": "Pro Dekon-P müssen 6 Personen mit Dekon-P-Ausbildung vor Ort sein.<br>Wird ab 14 Feuerwachen benötigt."
-      },
-      {
-        "name": "AB-Dekon-P",
-        "min": 0,
-        "max": 0,
-        "credits": 6000,
-        "coins": 12,
-        "special": "Pro AB-Dekon-P müssen 6 Personen mit Dekon-P-Ausbildung vor Ort sein.<br>Dient als Ersatz eines Dekon-P. Muss von einem WLF zum Einsatz gebracht werden."
-      },
-      {
-        "name": "FwK",
-        "min": 1,
-        "max": 2,
-        "credits": 30000,
-        "coins": 25,
-        "schooling": "Feuerwehrkran",
-        "special": "Wird ab 14 Feuerwachen benötigt."
-      },
-      {
-        "name": "AB-MzB",
-        "min": 0,
-        "max": 0,
-        "credits": 6000,
-        "coins": 12,
-        "special": "Pro Boot müssen 4 Leute mit Wasserrettungs-Ausbildung (Organisation egal) vor Ort sein.<br>Muss von einem WLF zum Einsatz gebracht werden."
-      },
-      {
-        "name": "AB-Gefahrgut",
-        "min": 0,
-        "max": 0,
-        "credits": 6000,
-        "coins": 12,
-        "special": "Es muss mindestens eine Person mit Gefahrgut-Ausbildung vor Ort sein.<br>Dient als Ersatz von einem GW-Gefahrgut. Muss von einem WLF zum Einsatz gebracht werden."
-      },
-      {
-        "name": "AB-Einsatzleitung",
-        "min": 0,
-        "max": 0,
-        "credits": 6000,
-        "coins": 12,
-        "special": "Es muss mindestens eine Person mit ELW2-Ausbildung vor Ort sein.<br>Dient als Ersatz von einem ELW 2. Muss von einem WLF zum Einsatz gebracht werden."
-      }
-    ],
-    "fwspecial": [
-      {
-        "name": "FLF",
-        "min": 2,
-        "max": 3,
-        "credits": 80000,
-        "coins": 25,
-        "schooling": "Flugfeldlöschfahrzeug",
-        "wtank": 12000,
-        "special": "Kann nur an Feuerwachen mit der Ausbaute \"Flughafenfeuerwehr\" stationiert werden"
-      },
-      {
-        "name": "Rettungstreppe",
-        "min": 2,
-        "max": 2,
-        "credits": 20000,
-        "coins": 25,
-        "schooling": "Rettungstreppe",
-        "special": "Kann nur an Feuerwachen mit der Ausbaute \"Flughafenfeuerwehr\" stationiert werden"
-      },
-      {
-        "name": "Turbolöscher",
-        "min": 1,
-        "max": 3,
-        "credits": 12500,
-        "coins": 30,
-        "schooling": "Werkfeuerwehr",
-        "special": "Kann nur an Feuerwachen mit der Ausbaute \"Werkfeuerwehr\" stationiert werden"
-      },
-      {
-        "name": "TM 50",
-        "min": 1,
-        "max": 3,
-        "credits": 20000,
-        "coins": 30,
-        "schooling": "Werkfeuerwehr",
-        "special": "Kann nur an Feuerwachen mit der Ausbaute \"Werkfeuerwehr\" stationiert werden"
-      },
-      {
-        "name": "ULF mit Löscharm",
-        "min": 1,
-        "max": 3,
-        "credits": 20000,
-        "coins": 25,
-        "schooling": "Werkfeuerwehr",
-        "special": "Kann nur an Feuerwachen mit der Ausbaute \"Werkfeuerwehr\" stationiert werden",
-        "wtank": 5000
-      },
-      {
-        "name": "GW-Werkfeuerwehr",
-        "min": 1,
-        "max": 9,
-        "credits": 15000,
-        "coins": 30,
-        "schooling": "Werkfeuerwehr",
-        "special": "Kann nur an Feuerwachen mit der Ausbaute \"Werkfeuerwehr\" stationiert werden"
-      }
-    ],
-    "rd": [
-      {
-        "name": "RTW",
-        "min": 1,
-        "max": 2,
-        "credits": 5000,
-        "coins": 25
-      },
-      {
-        "name": "NEF",
-        "min": 1,
-        "max": 2,
-        "credits": 20000,
-        "coins": 25,
-        "schooling": "Notarzt",
-        "special": "Benötigt ab 3 Rettungswachen (bzw. Rettungsdienst-Erweiterungen)."
-      },
-      {
-        "name": "KTW",
-        "min": 1,
-        "max": 2,
-        "credits": 5000,
-        "coins": 25
-      },
-      {
-        "name": "NAW",
-        "min": 3,
-        "max": 3,
-        "credits": 25000,
-        "coins": 25,
-        "schooling": "Notarzt (mind. 1 Person)",
-        "special": "Insgesamt so viele NAW kaufbar wie Rettungswachen (und auf einsatzbereit gestellte Rettungsdienst-Erweiterungen) vorhanden. Alle auch auf einer Wache patzierbar."
-      },
-      {
-        "name": "KdoW-LNA",
-        "min": 1,
-        "max": 1,
-        "credits": 20000,
-        "coins": 25,
-        "schooling": "Leitender Notarzt",
-        "special": "Wird ab 5 Patienten am Einsatzort benötigt (Kann ab der 5. Wache bzw. Erweiterung auftreten).<br>Nicht an Rettungsdienst-Erweiterungen stationierbar."
-      },
-      {
-        "name": "KdoW-OrgL",
-        "min": 1,
-        "max": 1,
-        "credits": 20000,
-        "coins": 25,
-        "schooling": "Organisatorischer Leiter",
-        "special": "Wird ab 10 Patienten am Einsatzort benötigt (Kann ab der 10. Wache bzw. Erweiterung auftreten).<br>Nicht an Rettungsdienst-Erweiterungen stationierbar."
-      },
-      {
-        "name": "GRTW",
-        "min": 6,
-        "max": 6,
-        "credits": 25000,
-        "coins": 25,
-        "schooling": "Modus 1: Keine<br>Modus 2: Notarzt (mind. 1 Person)",
-        "special": "Der GRTW kann in zwei verschiedenen Modi alarmiert werden:<br>1.Für leichtverletzte Personen, die keinen Notarzt benötigen. Dann können in dem GRTW 7 Patienten gleichzeitig behandelt und abtransportiert werden.<br>2.Für schwerverletzte Personen, die einen Notarzt benötigen. Dann können in dem GRTW 3 Patienten gleichzeitig behandelt werden.<br>Pro 20 Rettungswachen (bzw. 15 Rettungswachen mit Premium Account) kann ein GRTW gekauft werden."
-      }
-    ],
-    "pol": [
-      {
-        "name": "FuStW",
-        "min": 1,
-        "max": 2,
-        "credits": 5000,
-        "coins": 25
-      }
-    ],
-    "bepol": [
-      {
-        "name": "GruKw",
-        "min": 1,
-        "max": 9,
-        "credits": 10000,
-        "coins": 25
-      },
-      {
-        "name": "leBefKw",
-        "min": 1,
-        "max": 3,
-        "credits": 10000,
-        "coins": 25,
-        "schooling": "leBefKw"
-      },
-      {
-        "name": "FüKw",
-        "min": 1,
-        "max": 3,
-        "credits": 17500,
-        "coins": 25,
-        "schooling": "FüKw"
-      },
-      {
-        "name": "GefKw",
-        "min": 1,
-        "max": 2,
-        "credits": 13000,
-        "coins": 25
-      },
-      {
-        "name": "WaWe 10000",
-        "min": 5,
-        "max": 5,
-        "credits": 32000,
-        "coins": 25,
-        "schooling": "Wasserwerfer"
-      }
-    ],
-    "polsonder": [
-      {
-        "name": "SEK-ZF",
-        "min": 3,
-        "max": 4,
-        "credits": 10000,
-        "coins": 25,
-        "schooling": "SEK"
-      },
-      {
-        "name": "SEK-MTF",
-        "min": 9,
-        "max": 9,
-        "credits": 10000,
-        "coins": 25,
-        "schooling": "SEK"
-      },
-      {
-        "name": "MEK-ZF",
-        "min": 3,
-        "max": 4,
-        "credits": 10000,
-        "coins": 25,
-        "schooling": "MEK"
-      },
-      {
-        "name": "MEK-MTF",
-        "max": 9,
-        "credits": 10000,
-        "coins": 25,
-        "schooling": "MEK"
-      },
-      {
-        "name": "FüKw",
-        "min": 1,
-        "max": 3,
-        "credits": 17500,
-        "coins": 25,
-        "schooling": "FüKw"
-      }
-    ],
-    "thw": [
-      {
-        "name": "GKW",
-        "min": 1,
-        "max": 9,
-        "credits": 13000,
-        "coins": 25
-      },
-      {
-        "name": "MzKW",
-        "min": 1,
-        "max": 9,
-        "credits": 15000,
-        "coins": 25
-      },
-      {
-        "name": "MTW-TZ",
-        "min": 1,
-        "max": 4,
-        "credits": 2500,
-        "coins": 12,
-        "schooling": "Zugtrupp"
-      },
-      {
-        "name": "LKW K 9",
-        "min": 1,
-        "max": 3,
-        "credits": 15000,
-        "coins": 25,
-        "schooling": "Fachgruppe Räumen"
-      },
-      {
-        "name": "BRmG R",
-        "min": 0,
-        "max": 0,
-        "credits": 15000,
-        "coins": 25,
-        "special": "Muss vom LKW K9 zum Einsatz gezogen werden."
-      },
-      {
-        "name": "Anh DLE",
-        "min": 0,
-        "max": 0,
-        "credits": 15000,
-        "coins": 25,
-        "special": "Muss von einem GKW, MzKW, MTW-TZ oder MLW 5 zum Einsatz gezogen werden."
-      },
-      {
-        "name": "MLW 5",
-        "min": 1,
-        "max": 6,
-        "credits": 2500,
-        "coins": 12,
-        "schooling": "Fachgruppe Räumen"
-      },
-      {
-        "name": "LKW 7 Lkr 19tm",
-        "min": 1,
-        "max": 2,
-        "credits": 10000,
-        "coins": 25
-      },
-      {
-        "name": "Tauchkraftwagen",
-        "min": 1,
-        "max": 2,
-        "credits": 10000,
-        "coins": 25,
-        "schooling": "Bergungstaucher"
-      },
-      {
-        "name": "Anh MzB",
-        "min": 0,
-        "max": 0,
-        "credits": 6000,
-        "coins": 12,
-        "special": "Pro Boot müssen 4 Leute mit Wasserrettungs-Ausbildung (Organisation egal) vor Ort sein.<br>Muss vom LKW 7 Lkr 19tm zum Einsatz gebracht werden."
-      },
-      {
-        "name": "Anh MzAB",
-        "min": 0,
-        "max": 0,
-        "credits": 6000,
-        "coins": 12,
-        "special": "Pro Boot müssen 4 Leute mit Wasserrettungs-Ausbildung (Organisation egal) vor Ort sein.<br>Muss vom LKW 7 Lkr 19tm zum Einsatz gebracht werden."
-      },
-      {
-        "name": "Anh SchlB",
-        "min": 0,
-        "max": 0,
-        "credits": 6000,
-        "coins": 12,
-        "special": "Pro Boot müssen 4 Leute mit Wasserrettungs-Ausbildung (Organisation egal) vor Ort sein.<br>Muss vom LKW 7 Lkr 19tm zum Einsatz gebracht werden."
-      }
-    ],
-    "wr": [
-      {
-        "name": "GW-Wasserrettung",
-        "min": 1,
-        "max": 6,
-        "credits": 10000,
-        "coins": 25
-      },
-      {
-        "name": "GW-Taucher",
-        "min": 2,
-        "max": 2,
-        "credits": 10000,
-        "coins": 25,
-        "schooling": "Taucher"
-      },
-      {
-        "name": "MzB",
-        "min": 0,
-        "max": 0,
-        "credits": 6000,
-        "coins": 12,
-        "special": "Pro Boot müssen 4 Leute mit Wasserrettungs-Ausbildung (Organisation egal) vor Ort sein.<br>Muss von einem GW-Wasserrettung oder GW-Taucher zum Einsatz gebracht werden."
-      }
-    ],
-    "heli": [
-      {
-        "name": "Polizeihubschrauber",
-        "min": 1,
-        "max": 3,
-        "credits": 300000,
-        "coins": 30,
-        "schooling": "Polizeihubschrauber"
-      },
-      {
-        "name": "RTH",
-        "min": 1,
-        "max": 1,
-        "credits": 300000,
-        "coins": 30,
-        "schooling": "Notarzt",
-        "special": "Kann anstelle eines NEF eingesetzt werden. Transportiert seine Patienten selbst."
-      }
-    ],
-    "seg": [
-      {
-        "name": "RTW",
-        "min": 1,
-        "max": 2,
-        "credits": 5000,
-        "coins": 25
-      },
-      {
-        "name": "KTW Typ B",
-        "min": 1,
-        "max": 2,
-        "credits": 5000,
-        "coins": 25,
-        "special": "Kann, wenn ein GW-San vor Ort ist, behandelte Patienten vom Einsatzort abtransportieren. Ein Transport mit Notarztbegleitung durch ein NEF ist auch möglich."
-      },
-      {
-        "name": "ELW 1 (SEG)",
-        "min": 1,
-        "max": 2,
-        "credits": 25500,
-        "coins": 25,
-        "schooling": "SEG-Einsatzleitung",
-        "special": "Kann automatisch eingehende Sprechwünsche der eigenen Rettungsmittel bearbeiten und ihnen im Transportfall ein geeignetes Krankenhaus zuweisen. Die automatische Zuweisungsfunktion kann in dessen Einstellungen verändert werden."
-      },
-      {
-        "name": "GW-San",
-        "min": 6,
-        "max": 6,
-        "credits": 10000,
-        "coins": 25,
-        "schooling": "SEG-GW-SAN",
-        "special": "Pro GW-San können 5 KTW Typ B wie ein RTW arbeiten. Er behandelt die Patienten zwar größtenteils, aber für die letzten paar Prozente braucht man dann einen RTW, KTW Typ B oder ähnliches"
-      }
-    ]
-  },
-  "buildings": [
-    {
-      "name": "Leitstelle",
-      "credits": 0,
-      "coins": 0,
-      "maxlevel": 0,
-      "levelcost": "Keine Ausbaustufen möglich",
-      "startPersonell": 0,
-      "startVehicle": "Keine Fahrzeuge stationierbar",
-      "maxBuildings": "Alle 25 Gebäude eine Leitstelle",
-      "extensions": "Keine Ausbauten möglich",
-      "special": "Die Leitstelle ist die Verwaltungszentrale."
-    },
-    {
-      "name": "Feuerwache",
-      "credits": 100000,
-      "coins": 30,
-      "maxlevel": 16,
-      "levelcost": "1. 10.000<br>2. 50.000<br>3.-16. 100.000",
-      "startPersonell": 10,
-      "startVehicle": "LF 20 oder LF 10 oder LF 8/6 oder LF 20/16 oder LF 10/6 oder LF 16-TS oder KLF oder MLF oder TSF-W. Ab Dienstgrad Gruppenführer(in) auch HLF 20/HLF 10 (dann Baukosten 20.000 mehr).",
-      "extensions": "Rettungsdienst (7 Tage, 100.000 Credits/20 Coins)<br>Wasserrettung (7 Tage, 400.000 Credits/25 Coins)<br>Flughafen (7 Tage, 300.000 Credits/25 Coins)<br>Großwache (7 Tage, 1.000.000 Credits/50 Coins)<br>Werkfeuerwehr (7 Tage, 100.000 Credits/20 Coins)<br>9*Abrollbehälter-Stellplatz (jeweils 7 Tage, 100.000 Credits/20 Coins)",
-      "maxBuildings": "2.400",
-      "special": "Ab der 24. Feuerwache steigen die Kosten für den Neubau einer Wache nach folgender Formel: <code>100.000+200.000*LOG<sub>2</sub>(Anzahl der vorhandenen Feuerwachen − 22)</code>. Der Coins-Preis bleibt konstant!"
-    },
-    {
-      "name": "Feuerwache (Kleinwache)",
-      "credits": 50000,
-      "coins": 25,
-      "maxlevel": 5,
-      "levelcost": "1. 10.000<br>2. 50.000<br>3.-5. 100.000<br>Umbau zur Normalen Wache: Differenz-Preis zur Normalen Wache",
-      "startPersonell": 10,
-      "startVehicle": "LF 20 oder LF 10 oder LF 8/6 oder LF 20/16 oder LF 10/6 oder LF 16-TS oder KLF oder MLF oder TSF-W. Ab Dienstgrad Gruppenführer(in) auch HLF 20/HLF 10 (dann Baukosten 15.000 mehr).",
-      "extensions": "2*Abrollbehälter-Stellplatz (jeweils 7 Tage, 100.000 Credits/20 Coins)",
-      "maxBuildings": "2.400",
-      "special": "Ab der 24. Feuerwache steigen die Kosten für den Neubau einer Wache nach folgender Formel: <code>50.000+200.000*LOG<sub>2</sub>(Anzahl der vorhandenen Feuerwachen − 22)</code>. max. 1 Million Credits. Der Coins-Preis bleibt konstant!"
-    },
-    {
-      "name": "Feuerwehrschule",
-      "credits": 500000,
-      "coins": 50,
-      "maxlevel": 0,
-      "levelcost": "Keine Ausbaustufen möglich",
-      "startPersonell": 0,
-      "startVehicle": "Keine Fahrzeuge stationierbar",
-      "extensions": "Bis zu 3 weitere Klassenzimmer (jeweils 7 Tage, 400.000 Credits/40 Coins)",
-      "maxBuildings": "Keine Grenze",
-      "special": "Finanzminister und Admins können Verbands-Feuerwehrschulen mit Hilfe von Credits aus der Verbandskasse (aus-)bauen."
-    },
-    {
-      "name": "Rettungswache",
-      "credits": 200000,
-      "coins": 35,
-      "maxlevel": 14,
-      "levelcost": "1. 10.000<br>2. 50.000<br>3.-14. 100.000",
-      "startPersonell": 2,
-      "startVehicle": "RTW",
-      "extensions": "Keine Ausbauten möglich",
-      "maxBuildings": "Keine Grenze"
-    },
-    {
-      "name": "Rettungswache (Kleinwache)",
-      "credits": 100000,
-      "coins": 25,
-      "maxlevel": 5,
-      "levelcost": "1. 10.000<br>2. 50.000<br>3.-5. 100.000<br>Umbau zur Normalen Wache: Differenz-Preis zur Normalen Wache",
-      "startPersonell": 3,
-      "startVehicle": "RTW",
-      "extensions": "Keine Ausbauten möglich",
-      "maxBuildings": "Keine Grenze"
-    },
-    {
-      "name": "Rettungsschule",
-      "credits": 500000,
-      "coins": 50,
-      "maxlevel": 0,
-      "levelcost": "Keine Ausbaustufen möglich",
-      "startPersonell": 0,
-      "startVehicle": "Keine Fahrzeuge stationierbar",
-      "extensions": "Bis zu 3 weitere Klassenzimmer (jeweils 7 Tage, 400.000 Credits/40 Coins)",
-      "maxBuildings": "Keine Grenze",
-      "special": "Finanzminister und Admins können Verbands-Rettungsschulen mit Hilfe von Credits aus der Verbandskasse (aus-)bauen."
-    },
-    {
-      "name": "Krankenhaus",
-      "credits": 200000,
-      "coins": 35,
-      "maxlevel": 20,
-      "levelcost": "jeweils 19.000 Credits/11 Coins",
-      "startPersonell": 0,
-      "startVehicle": "Keine Fahrzeuge stationierbar, dafür aber 10 Betten von Beginn an",
-      "extensions": "Mehrere Fachrichtungen (jeweils 7 Tage, 70.000 Credits/15 Coins, allgemeine Innere und allgemeine Chirurgie nur 10.000 Credits/)",
-      "maxBuildings": "Keine Grenze",
-      "special": "Finanzminister und Admins können Verbands-Krankenhäuser mit Hilfe von Credits aus der Verbandskasse (aus-)bauen."
-    },
-    {
-      "name": "Rettungshubschrauber-Station",
-      "credits": 1000000,
-      "coins": 50,
-      "maxlevel": 6,
-      "levelcost": "jeweils 1.000.000 Credits/50 Coins",
-      "startPersonell": 0,
-      "startVehicle": "Kein Startfahrzeug",
-      "maxBuildings": "siehe Besonderheiten",
-      "extensions": "Keine Ausbauten möglich",
-      "special": "Pro Station können bis zu 7 Landeplätze gebaut werden (Ausbaustufen). Bis zum 125. Gebäude (aller Art) können insgesamt max. 4 Landeplätze gebaut werden. Danach wächst die Zahl alle 25 Geäude um 1 (Beginnend beim 125.)."
-    },
-    {
-      "name": "Schnelleinsatzgruppe (SEG)",
-      "credits": 100000,
-      "coins": 30,
-      "maxlevel": 0,
-      "levelcost": "Keine Ausbaustufen möglich",
-      "startPersonell": 10,
-      "startVehicle": "KTW Typ B",
-      "extensions": "Führung (3 Tage, 25.000 Credits/5 Coins)<br>Sanitätsdienst (3 Tage, 25.000 Credits/5 Coins)<br>Wasserrettung (7 Tage, 500.000 Credits/25 Coins)",
-      "maxBuildings": "Keine Grenze"
-    },
-    {
-      "name": "Polizeiwache",
-      "credits": 100000,
-      "coins": 35,
-      "maxlevel": 14,
-      "levelcost": "1. 10.000<br>2. 50.000<br>3.-14. 100.000",
-      "startPersonell": 2,
-      "startVehicle": "FuStW",
-      "extensions": "Zelle (25.000 Credits)<br>max. 10 können gebaut werden",
-      "maxBuildings": "1.100",
-      "special": "Ab der 24. Polizeiwache steigen die Kosten für den Neubau einer Wache nach folgender Formel: <code>100.000+200.000*LOG<sub>2</sub>(Anzahl der vorhandenen Polizeiache − 22)</code>. Der Coins-Preis bleibt konstant!"
-    },
-    {
-      "name": "Polizeiwache (Kleinwache)",
-      "credits": 50000,
-      "coins": 25,
-      "maxlevel": 4,
-      "levelcost": "1. 10.000<br>2. 50.000<br>3.-4. 100.000<br>Umbau zur Normalen Wache: Differenz-Preis zur Normalen Wache",
-      "startPersonell": 2,
-      "startVehicle": "FuStW",
-      "extensions": "Zelle (25.000 Credits)<br>max. 2 können gebaut werden",
-      "maxBuildings": "1.100",
-      "special": "Ab der 24. Polizeiwache steigen die Kosten für den Neubau einer Wache nach folgender Formel: <code>100.000+200.000*LOG<sub>2</sub>(Anzahl der vorhandenen Polizeiache − 22)</code>. Der Coins-Preis bleibt konstant!"
-    },
-    {
-      "name": "Polizeisschule",
-      "credits": 500000,
-      "coins": 50,
-      "maxlevel": 0,
-      "levelcost": "Keine Ausbaustufen möglich",
-      "startPersonell": 0,
-      "startVehicle": "Keine Fahrzeuge stationierbar",
-      "extensions": "Bis zu 3 weitere Klassenzimmer (jeweils 7 Tage, 400.000 Credits/40 Coins)",
-      "maxBuildings": "Keine Grenze",
-      "special": "Finanzminister und Admins können Verbands-Polizeischulen mit Hilfe von Credits aus der Verbandskasse (aus-)bauen."
-    },
-    {
-      "name": "Polizeihubschrauber-Station",
-      "credits": 1000000,
-      "coins": 50,
-      "maxlevel": 6,
-      "levelcost": "jeweils 1.000.000 Credits/50 Coins",
-      "startPersonell": 0,
-      "startVehicle": "Kein Startfahrzeug",
-      "maxBuildings": "siehe Besonderheiten",
-      "extensions": "Keine Ausbauten möglich",
-      "special": "Pro Station können bis zu 7 Landeplätze gebaut werden (Ausbaustufen). Bis zum 125. Gebäude (aller Art) können insgesamt max. 4 Landeplätze gebaut werden. Danach wächst die Zahl alle 25 Geäude um 1 (Beginnend beim 125.)."
-    },
-    {
-      "name": "Bereitschaftspolizei",
-      "credits": 500000,
-      "coins": 50,
-      "maxlevel": 0,
-      "levelcost": "Keine Ausbaustufen möglich",
-      "startPersonell": 0,
-      "startVehicle": "Kein Startfahrzeug",
-      "extensions": "2. Zug Hundertschaft (3 Tage, 25.000 Credits/5 Coins)<br>3. Zug Hundertschaftt (3 Tage, 25.000 Credits/5 Coins)<br>Sonderfahrzeug: Gefangenenkraftwagen (3 Tage, 25.000 Credits/5 Coins)<br>Technischer Zug: Wasserwerfer (7 Tage, 25.000 Credits/5 Coins)<br>SEK 1. Zug (7 Tage, 100.000 Credits/10 Coins)<br>SEK 2. Zug(7 Tage, 100.000 Credits/10 Coins)<br>MEK 1. Zug (7 Tage, 100.000 Credits/10 Coins)<br>MEK 2. Zug (7 Tage, 100.000 Credits/10 Coins)",
-      "maxBuildings": "Keine Grenze",
-      "special": "Mit dem Bau einer Bereitschaftspolizei bekommt man automatisch 4 Stellplätze für einen Zug (3 GruKw & 1 leBefKw) geschenkt. Die Wache generiert noch keine Einsätze. Um Einsätze zu erhalten muss man die erste Ausbaustufe bauen."
-    },
-    {
-      "name": "Polizei-Sondereinheiten",
-      "credits": 400000,
-      "coins": 40,
-      "maxlevel": 0,
-      "levelcost": "Keine Ausbaustufen möglich",
-      "startPersonell": 0,
-      "startVehicle": "Kein Startfahrzeug",
-      "extensions": "SEK 1. Zug (7 Tage, 100.000 Credits/10 Coins)<br>SEK 2. Zug(7 Tage, 100.000 Credits/10 Coins)<br>MEK 1. Zug (7 Tage, 100.000 Credits/10 Coins)<br>MEK 2. Zug (7 Tage, 100.000 Credits/10 Coins)",
-      "maxBuildings": "Keine Grenze"
-    },
-    {
-      "name": "Wasserrettung",
-      "credits": 500000,
-      "coins": 30,
-      "maxlevel": 5,
-      "levelcost": "1. 10.000<br>2. 50.000<br>3.-5. 100.000",
-      "startPersonell": 6,
-      "startVehicle": "GW-Wasserrettung",
-      "extensions": "Keine Ausbauten möglich",
-      "maxBuildings": "Keine Grenze",
-      "special": "Beim Bau bekommst du 10 Leute sowie ein GW-Wasserrettung geschenkt"
-    },
-    {
-      "name": "THW Ortsverband",
-      "credits": 200000,
-      "coins": 35,
-      "maxlevel": 0,
-      "levelcost": "Keine Ausbaustufen möglich",
-      "startPersonell": 9,
-      "startVehicle": "GKW",
-      "extensions": "Bergungsgruppe (7 Tage, 25.000 Credits/5 Coins)<br>Zugtrupp (7 Tage, 25.000 Credits/5 Coins)<br>Fachgruppe Räumen (7 Tage, 25.000 Credits/5 Coins)<br>Fachgruppe Wassergefahren (7 Tage, 500.000 Credits/25 Coins)<br>2. TZ (7 Tage, 25.000 Credits/5 Coins)<br>2. TZ Bergungsgruppe 2 (7 Tage, 25.000 Credits/5 Coins)<br>2. TZ Zugtrupp (7 Tage, 25.000 Credits/5 Coins)",
-      "maxBuildings": "z.Zt nicht bekannt",
-      "special": "Mit dem Bau eines THW-Ortsverbands bekommt man einen GKW geschenkt. Mit dem Bau eines THW-Ortsverbands bekommt man 9 Mitglieder dazu. Baukosten für weitere THW-Liegenschaften: 2. Ortsverband 300.000 Credits/ 35 Coins, 3. Ortsverband 358.496 Credits/ 35 Coins, 4. Ortsverband 432.193 Credits/ 35 Coins, 5. Ortsverband 458.496 Credits/ 35 Coins. Formel: <code>200.000+100.000*LOG<sub>2</sub>(Anzahl der vorhandenen Wachen + 1)</code>"
-    },
-    {
-      "name": "THW Bundeschule",
-      "credits": 500000,
-      "coins": 50,
-      "maxlevel": 0,
-      "levelcost": "Keine Ausbaustufen möglich",
-      "startPersonell": 0,
-      "startVehicle": "Keine Fahrzeuge stationierbar",
-      "extensions": "Bis zu 3 weitere Klassenzimmer (jeweils 7 Tage, 400.000 Credits/40 Coins)",
-      "maxBuildings": "Keine Grenze",
-      "special": "Finanzminister und Admins können Verbands-THW-Schulen mit Hilfe von Credits aus der Verbandskasse (aus-)bauen."
-    }
-  ]
+	"tabs": {
+		"buildings": "Gebäude",
+		"vehicles": "Fahrzeuge",
+		"vehicleTabs": [
+			{
+				"fw": "Feuerwehr"
+			},
+			{
+				"fwspecial": "Werk-/Flughafenfeuerwehr"
+			},
+			{
+				"rd": "Rettungsdienst"
+			},
+			{
+				"pol": "Polizei"
+			},
+			{
+				"bepol": "Bereitschaftspolizei"
+			},
+			{
+				"polsonder": "Polizei Sondereinheiten"
+			},
+			{
+				"thw": "THW"
+			},
+			{
+				"wr": "Wasserrettung"
+			},
+			{
+				"heli": "Helikopter"
+			},
+			{
+				"seg": "SEG"
+			},
+			{
+				"rettungshunde": "Rettungshunde"
+			}
+		]
+	},
+	"titles": {
+		"buildings": [
+			{
+				"name": "Gebäudetyp"
+			},
+			{
+				"cost": "Preis"
+			},
+			{
+				"maxlevel": "maximale Ausbaustufe"
+			},
+			{
+				"levelcost": "Kosten der Ausbaustufen"
+			},
+			{
+				"startPersonell": "Start Personal"
+			},
+			{
+				"startVehicle": "Start Fahrzeug"
+			},
+			{
+				"maxBuildings": "Baugrenze"
+			},
+			{
+				"extensions": "Ausbauten"
+			},
+			{
+				"special": "Besonderes"
+			}
+		],
+		"vehicles": [
+			{
+				"name": "Fahrzeugtyp"
+			},
+			{
+				"min": "mindest Personal"
+			},
+			{
+				"max": "maximal Personal"
+			},
+			{
+				"cost": "Preis"
+			},
+			{
+				"schooling": "Ausbildung"
+			},
+			{
+				"wtank": "Wassertank"
+			},
+			{
+				"special": "Besonderes"
+			}
+		]
+	},
+	"vehicles": {
+		"fw": [
+			{
+				"name": "LF 20",
+				"min": 1,
+				"max": 9,
+				"credits": 5000,
+				"wtank": 2000,
+				"coins": 25
+			},
+			{
+				"name": "LF 10",
+				"min": 1,
+				"max": 9,
+				"credits": 5000,
+				"wtank": 1200,
+				"coins": 25
+			},
+			{
+				"name": "DLK 23",
+				"min": 1,
+				"max": 3,
+				"credits": 10000,
+				"coins": 30,
+				"special": "Wird ab 3 Feuerwachen benötigt."
+			},
+			{
+				"name": "ELW 1",
+				"min": 1,
+				"max": 3,
+				"credits": 10000,
+				"coins": 25,
+				"special": "Wird ab 6 Feuerwachen benötigt."
+			},
+			{
+				"name": "RW",
+				"min": 1,
+				"max": 3,
+				"credits": 12180,
+				"coins": 25,
+				"special": "Wird ab 4 Feuerwachen benötigt."
+			},
+			{
+				"name": "GW-A",
+				"min": 1,
+				"max": 3,
+				"credits": 11680,
+				"coins": 25,
+				"special": "Wird ab 5 Feuerwachen benötigt."
+			},
+			{
+				"name": "LF 8/6",
+				"min": 1,
+				"max": 9,
+				"credits": 5000,
+				"wtank": 600,
+				"coins": 25
+			},
+			{
+				"name": "LF 20/16",
+				"min": 1,
+				"max": 9,
+				"credits": 5000,
+				"coins": 25,
+				"wtank": 1600
+			},
+			{
+				"name": "LF 106",
+				"min": 1,
+				"max": 9,
+				"credits": 5000,
+				"coins": 25,
+				"wtank": 600
+			},
+			{
+				"name": "LF 16-TS",
+				"min": 1,
+				"max": 9,
+				"credits": 5000,
+				"coins": 25,
+				"wtank": 0
+			},
+			{
+				"name": "KLF",
+				"min": 1,
+				"max": 6,
+				"credits": 5000,
+				"coins": 25,
+				"wtank": 500
+			},
+			{
+				"name": "MLF",
+				"min": 1,
+				"max": 6,
+				"credits": 5000,
+				"coins": 25,
+				"wtank": 1000
+			},
+			{
+				"name": "GW-Öl",
+				"min": 1,
+				"max": 3,
+				"credits": 12000,
+				"coins": 25,
+				"special": "Wird ab 6 Feuerwachen benötigt."
+			},
+			{
+				"name": "GW-L2-Wasser",
+				"min": 1,
+				"max": 3,
+				"credits": 17300,
+				"coins": 25,
+				"special": "Ein Schlauchwagen wird ab 7 Feuerwachen benötigt."
+			},
+			{
+				"name": "GW-Messtechnik",
+				"min": 1,
+				"max": 3,
+				"credits": 18300,
+				"coins": 25,
+				"schooling": "GW-Messtechnik",
+				"special": "Wird ab 10 Feuerwachen benötigt."
+			},
+			{
+				"name": "SW 1000",
+				"min": 1,
+				"max": 3,
+				"credits": 17300,
+				"coins": 25,
+				"special": "Ein Schlauchwagen wird ab 7 Feuerwachen benötigt."
+			},
+			{
+				"name": "SW 2000",
+				"min": 1,
+				"max": 6,
+				"credits": 17300,
+				"coins": 25,
+				"special": "Ein Schlauchwagen wird ab 7 Feuerwachen benötigt."
+			},
+			{
+				"name": "SW 2000-Tr",
+				"min": 1,
+				"max": 3,
+				"credits": 17300,
+				"coins": 25,
+				"special": "Ein Schlauchwagen wird ab 7 Feuerwachen benötigt."
+			},
+			{
+				"name": "SW Kats",
+				"min": 1,
+				"max": 3,
+				"credits": 17300,
+				"coins": 25,
+				"special": "Ein Schlauchwagen wird ab 7 Feuerwachen benötigt."
+			},
+			{
+				"name": "TLF 2000",
+				"min": 1,
+				"max": 3,
+				"credits": 5000,
+				"coins": 25,
+				"wtank": 2000
+			},
+			{
+				"name": "TLF 3000",
+				"min": 1,
+				"max": 3,
+				"credits": 5000,
+				"coins": 25,
+				"wtank": 3000
+			},
+			{
+				"name": "TLF 4000",
+				"min": 1,
+				"max": 3,
+				"credits": 5000,
+				"coins": 25,
+				"wtank": 4000
+			},
+			{
+				"name": "TLF 8/8",
+				"min": 1,
+				"max": 3,
+				"credits": 5000,
+				"coins": 25,
+				"wtank": 800
+			},
+			{
+				"name": "TLF 8/18",
+				"min": 1,
+				"max": 3,
+				"credits": 5000,
+				"coins": 25,
+				"wtank": 1800
+			},
+			{
+				"name": "TLF 16/24-Tr",
+				"min": 1,
+				"max": 3,
+				"credits": 5000,
+				"coins": 25,
+				"wtank": 2400
+			},
+			{
+				"name": "TLF 16/25",
+				"min": 1,
+				"max": 6,
+				"credits": 5000,
+				"coins": 25,
+				"wtank": 2500
+			},
+			{
+				"name": "TLF 16/45",
+				"min": 1,
+				"max": 3,
+				"credits": 5000,
+				"coins": 25,
+				"wtank": 4500
+			},
+			{
+				"name": "TLF 20/40",
+				"min": 1,
+				"max": 3,
+				"credits": 5000,
+				"coins": 25,
+				"wtank": 4000
+			},
+			{
+				"name": "TLF 20/40-SL",
+				"min": 1,
+				"max": 3,
+				"credits": 5000,
+				"coins": 25,
+				"wtank": 4000
+			},
+			{
+				"name": "TLF 16",
+				"min": 1,
+				"max": 3,
+				"credits": 5000,
+				"coins": 25,
+				"wtank": 1800
+			},
+			{
+				"name": "GW-Gefahrgut",
+				"min": 1,
+				"max": 3,
+				"credits": 19200,
+				"coins": 25,
+				"schooling": "GW-Gefahrgut",
+				"special": "Wird ab 11 Feuerwachen benötigt."
+			},
+			{
+				"name": "HLF 20",
+				"min": 1,
+				"max": 9,
+				"credits": 20000,
+				"coins": 25,
+				"special": "Ein HLF vor Ort zählt wie ein LF/TLF und ein RW gleichzeitig.<br>Es wird mindestens der Rang \"Gruppenführer(in)\" benötigt, um ein HLF kaufen zu können.",
+				"wtank": 1600
+			},
+			{
+				"name": "HLF 10",
+				"min": 1,
+				"max": 9,
+				"credits": 20000,
+				"coins": 25,
+				"special": "Ein HLF vor Ort zählt wie ein LF/TLF und ein RW gleichzeitig.<br>Es wird mindestens der Rang \"Gruppenführer(in)\" benötigt, um ein HLF kaufen zu können.",
+				"wtank": 1000
+			},
+			{
+				"name": "GW-Höhenrettung",
+				"min": 1,
+				"max": 9,
+				"credits": 19500,
+				"coins": 25,
+				"schooling": "GW-Höhenrettung",
+				"special": "Wird ab 12 Feuerwachen benötigt."
+			},
+			{
+				"name": "ELW 2",
+				"min": 1,
+				"max": 6,
+				"credits": 25500,
+				"coins": 25,
+				"schooling": "ELW 2",
+				"special": "Ein ELW 2 vor Ort zählt wie ein ELW 1 und ein ELW 2 gleichzeitig.<br>Wird ab 13 Feuerwachen benötigt."
+			},
+			{
+				"name": "MTW",
+				"min": 1,
+				"max": 9,
+				"credits": 2500,
+				"coins": 12,
+				"special": "Wird nie angefordert. Dient lediglich dazu, Personal zum Einsatz zu bringen."
+			},
+			{
+				"name": "TSF-W",
+				"min": 1,
+				"max": 6,
+				"credits": 5000,
+				"coins": 25,
+				"wtank": 500
+			},
+			{
+				"name": "WLF",
+				"min": 1,
+				"max": 3,
+				"credits": 5000,
+				"coins": 12,
+				"schooling": "Wechsellader",
+				"special": "Wird nie angefordert. Dient zum Transport von Abrollbehältern (können bestimmte Gerätewagen ersetzten)."
+			},
+			{
+				"name": "AB-Rüst",
+				"min": 0,
+				"max": 0,
+				"credits": 6000,
+				"coins": 12,
+				"special": "Dient als Ersatz eines RW. Muss von einem WLF zum Einsatz gebracht werden."
+			},
+			{
+				"name": "AB-Atemschutz",
+				"min": 0,
+				"max": 0,
+				"credits": 6000,
+				"coins": 12,
+				"special": "Dient als Ersatz eines GW-A. Muss von einem WLF zum Einsatz gebracht werden."
+			},
+			{
+				"name": "AB-Öl",
+				"min": 0,
+				"max": 0,
+				"credits": 6000,
+				"coins": 12,
+				"special": "Dient als Ersatz eines GW-Öl. Muss von einem WLF zum Einsatz gebracht werden."
+			},
+			{
+				"name": "AB-Schlauch",
+				"min": 0,
+				"max": 0,
+				"credits": 6000,
+				"coins": 12,
+				"special": "Dient als Ersatz eines Schlauchwagens. Muss von einem WLF zum Einsatz gebracht werden."
+			},
+			{
+				"name": "Dekon-P",
+				"min": 1,
+				"max": 6,
+				"credits": 23100,
+				"coins": 25,
+				"schooling": "Dekon-P",
+				"special": "Pro Dekon-P müssen 6 Personen mit Dekon-P-Ausbildung vor Ort sein.<br>Wird ab 14 Feuerwachen benötigt."
+			},
+			{
+				"name": "AB-Dekon-P",
+				"min": 0,
+				"max": 0,
+				"credits": 6000,
+				"coins": 12,
+				"special": "Pro AB-Dekon-P müssen 6 Personen mit Dekon-P-Ausbildung vor Ort sein.<br>Dient als Ersatz eines Dekon-P. Muss von einem WLF zum Einsatz gebracht werden."
+			},
+			{
+				"name": "FwK",
+				"min": 1,
+				"max": 2,
+				"credits": 30000,
+				"coins": 25,
+				"schooling": "Feuerwehrkran",
+				"special": "Wird ab 14 Feuerwachen benötigt."
+			},
+			{
+				"name": "AB-MzB",
+				"min": 0,
+				"max": 0,
+				"credits": 6000,
+				"coins": 12,
+				"special": "Pro Boot müssen 4 Leute mit Wasserrettungs-Ausbildung (Organisation egal) vor Ort sein.<br>Muss von einem WLF zum Einsatz gebracht werden."
+			},
+			{
+				"name": "AB-Gefahrgut",
+				"min": 0,
+				"max": 0,
+				"credits": 6000,
+				"coins": 12,
+				"special": "Es muss mindestens eine Person mit Gefahrgut-Ausbildung vor Ort sein.<br>Dient als Ersatz von einem GW-Gefahrgut. Muss von einem WLF zum Einsatz gebracht werden."
+			},
+			{
+				"name": "AB-Einsatzleitung",
+				"min": 0,
+				"max": 0,
+				"credits": 6000,
+				"coins": 12,
+				"special": "Es muss mindestens eine Person mit ELW2-Ausbildung vor Ort sein.<br>Dient als Ersatz von einem ELW 2. Muss von einem WLF zum Einsatz gebracht werden."
+			}
+		],
+		"fwspecial": [
+			{
+				"name": "FLF",
+				"min": 2,
+				"max": 3,
+				"credits": 80000,
+				"coins": 25,
+				"schooling": "Flugfeldlöschfahrzeug",
+				"wtank": 12000,
+				"special": "Kann nur an Feuerwachen mit der Ausbaute \"Flughafenfeuerwehr\" stationiert werden"
+			},
+			{
+				"name": "Rettungstreppe",
+				"min": 2,
+				"max": 2,
+				"credits": 20000,
+				"coins": 25,
+				"schooling": "Rettungstreppe",
+				"special": "Kann nur an Feuerwachen mit der Ausbaute \"Flughafenfeuerwehr\" stationiert werden"
+			},
+			{
+				"name": "Turbolöscher",
+				"min": 1,
+				"max": 3,
+				"credits": 12500,
+				"coins": 30,
+				"schooling": "Werkfeuerwehr",
+				"special": "Kann nur an Feuerwachen mit der Ausbaute \"Werkfeuerwehr\" stationiert werden"
+			},
+			{
+				"name": "TM 50",
+				"min": 1,
+				"max": 3,
+				"credits": 20000,
+				"coins": 30,
+				"schooling": "Werkfeuerwehr",
+				"special": "Kann nur an Feuerwachen mit der Ausbaute \"Werkfeuerwehr\" stationiert werden"
+			},
+			{
+				"name": "ULF mit Löscharm",
+				"min": 1,
+				"max": 3,
+				"credits": 20000,
+				"coins": 25,
+				"schooling": "Werkfeuerwehr",
+				"special": "Kann nur an Feuerwachen mit der Ausbaute \"Werkfeuerwehr\" stationiert werden",
+				"wtank": 5000
+			},
+			{
+				"name": "GW-Werkfeuerwehr",
+				"min": 1,
+				"max": 9,
+				"credits": 15000,
+				"coins": 30,
+				"schooling": "Werkfeuerwehr",
+				"special": "Kann nur an Feuerwachen mit der Ausbaute \"Werkfeuerwehr\" stationiert werden"
+			}
+		],
+		"rd": [
+			{
+				"name": "RTW",
+				"min": 1,
+				"max": 2,
+				"credits": 5000,
+				"coins": 25
+			},
+			{
+				"name": "NEF",
+				"min": 1,
+				"max": 2,
+				"credits": 20000,
+				"coins": 25,
+				"schooling": "Notarzt",
+				"special": "Benötigt ab 3 Rettungswachen (bzw. Rettungsdienst-Erweiterungen)."
+			},
+			{
+				"name": "KTW",
+				"min": 1,
+				"max": 2,
+				"credits": 5000,
+				"coins": 25
+			},
+			{
+				"name": "NAW",
+				"min": 3,
+				"max": 3,
+				"credits": 25000,
+				"coins": 25,
+				"schooling": "Notarzt (mind. 1 Person)",
+				"special": "Insgesamt so viele NAW kaufbar wie Rettungswachen (und auf einsatzbereit gestellte Rettungsdienst-Erweiterungen) vorhanden. Alle auch auf einer Wache patzierbar."
+			},
+			{
+				"name": "KdoW-LNA",
+				"min": 1,
+				"max": 1,
+				"credits": 20000,
+				"coins": 25,
+				"schooling": "Leitender Notarzt",
+				"special": "Wird ab 5 Patienten am Einsatzort benötigt (Kann ab der 5. Wache bzw. Erweiterung auftreten).<br>Nicht an Rettungsdienst-Erweiterungen stationierbar."
+			},
+			{
+				"name": "KdoW-OrgL",
+				"min": 1,
+				"max": 1,
+				"credits": 20000,
+				"coins": 25,
+				"schooling": "Organisatorischer Leiter",
+				"special": "Wird ab 10 Patienten am Einsatzort benötigt (Kann ab der 10. Wache bzw. Erweiterung auftreten).<br>Nicht an Rettungsdienst-Erweiterungen stationierbar."
+			},
+			{
+				"name": "GRTW",
+				"min": 6,
+				"max": 6,
+				"credits": 25000,
+				"coins": 25,
+				"schooling": "Modus 1: Keine<br>Modus 2: Notarzt (mind. 1 Person)",
+				"special": "Der GRTW kann in zwei verschiedenen Modi alarmiert werden:<br>1.Für leichtverletzte Personen, die keinen Notarzt benötigen. Dann können in dem GRTW 7 Patienten gleichzeitig behandelt und abtransportiert werden.<br>2.Für schwerverletzte Personen, die einen Notarzt benötigen. Dann können in dem GRTW 3 Patienten gleichzeitig behandelt werden.<br>Pro 20 Rettungswachen (bzw. 15 Rettungswachen mit Premium Account) kann ein GRTW gekauft werden."
+			}
+		],
+		"pol": [
+			{
+				"name": "FuStW",
+				"min": 1,
+				"max": 2,
+				"credits": 5000,
+				"coins": 25
+			}
+		],
+		"bepol": [
+			{
+				"name": "GruKw",
+				"min": 1,
+				"max": 9,
+				"credits": 10000,
+				"coins": 25
+			},
+			{
+				"name": "leBefKw",
+				"min": 1,
+				"max": 3,
+				"credits": 10000,
+				"coins": 25,
+				"schooling": "leBefKw"
+			},
+			{
+				"name": "FüKw",
+				"min": 1,
+				"max": 3,
+				"credits": 17500,
+				"coins": 25,
+				"schooling": "FüKw"
+			},
+			{
+				"name": "GefKw",
+				"min": 1,
+				"max": 2,
+				"credits": 13000,
+				"coins": 25
+			},
+			{
+				"name": "WaWe 10000",
+				"min": 5,
+				"max": 5,
+				"credits": 32000,
+				"coins": 25,
+				"schooling": "Wasserwerfer"
+			}
+		],
+		"polsonder": [
+			{
+				"name": "SEK-ZF",
+				"min": 3,
+				"max": 4,
+				"credits": 10000,
+				"coins": 25,
+				"schooling": "SEK"
+			},
+			{
+				"name": "SEK-MTF",
+				"min": 9,
+				"max": 9,
+				"credits": 10000,
+				"coins": 25,
+				"schooling": "SEK"
+			},
+			{
+				"name": "MEK-ZF",
+				"min": 3,
+				"max": 4,
+				"credits": 10000,
+				"coins": 25,
+				"schooling": "MEK"
+			},
+			{
+				"name": "MEK-MTF",
+				"max": 9,
+				"credits": 10000,
+				"coins": 25,
+				"schooling": "MEK"
+			},
+			{
+				"name": "FüKw",
+				"min": 1,
+				"max": 3,
+				"credits": 17500,
+				"coins": 25,
+				"schooling": "FüKw"
+			}
+		],
+		"thw": [
+			{
+				"name": "GKW",
+				"min": 1,
+				"max": 9,
+				"credits": 13000,
+				"coins": 25
+			},
+			{
+				"name": "MzKW",
+				"min": 1,
+				"max": 9,
+				"credits": 15000,
+				"coins": 25
+			},
+			{
+				"name": "MTW-TZ",
+				"min": 1,
+				"max": 4,
+				"credits": 2500,
+				"coins": 12,
+				"schooling": "Zugtrupp"
+			},
+			{
+				"name": "LKW K 9",
+				"min": 1,
+				"max": 3,
+				"credits": 15000,
+				"coins": 25,
+				"schooling": "Fachgruppe Räumen"
+			},
+			{
+				"name": "BRmG R",
+				"min": 0,
+				"max": 0,
+				"credits": 15000,
+				"coins": 25,
+				"special": "Muss vom LKW K9 zum Einsatz gezogen werden."
+			},
+			{
+				"name": "Anh DLE",
+				"min": 0,
+				"max": 0,
+				"credits": 15000,
+				"coins": 25,
+				"special": "Muss von einem GKW, MzKW, MTW-TZ oder MLW 5 zum Einsatz gezogen werden."
+			},
+			{
+				"name": "MLW 5",
+				"min": 1,
+				"max": 6,
+				"credits": 2500,
+				"coins": 12,
+				"schooling": "Fachgruppe Räumen"
+			},
+			{
+				"name": "LKW 7 Lkr 19tm",
+				"min": 1,
+				"max": 2,
+				"credits": 10000,
+				"coins": 25
+			},
+			{
+				"name": "Tauchkraftwagen",
+				"min": 1,
+				"max": 2,
+				"credits": 10000,
+				"coins": 25,
+				"schooling": "Bergungstaucher"
+			},
+			{
+				"name": "Anh MzB",
+				"min": 0,
+				"max": 0,
+				"credits": 6000,
+				"coins": 12,
+				"special": "Pro Boot müssen 4 Leute mit Wasserrettungs-Ausbildung (Organisation egal) vor Ort sein.<br>Muss vom LKW 7 Lkr 19tm zum Einsatz gebracht werden."
+			},
+			{
+				"name": "Anh MzAB",
+				"min": 0,
+				"max": 0,
+				"credits": 6000,
+				"coins": 12,
+				"special": "Pro Boot müssen 4 Leute mit Wasserrettungs-Ausbildung (Organisation egal) vor Ort sein.<br>Muss vom LKW 7 Lkr 19tm zum Einsatz gebracht werden."
+			},
+			{
+				"name": "Anh SchlB",
+				"min": 0,
+				"max": 0,
+				"credits": 6000,
+				"coins": 12,
+				"special": "Pro Boot müssen 4 Leute mit Wasserrettungs-Ausbildung (Organisation egal) vor Ort sein.<br>Muss vom LKW 7 Lkr 19tm zum Einsatz gebracht werden."
+			}
+		],
+		"wr": [
+			{
+				"name": "GW-Wasserrettung",
+				"min": 1,
+				"max": 6,
+				"credits": 10000,
+				"coins": 25
+			},
+			{
+				"name": "GW-Taucher",
+				"min": 2,
+				"max": 2,
+				"credits": 10000,
+				"coins": 25,
+				"schooling": "Taucher"
+			},
+			{
+				"name": "MzB",
+				"min": 0,
+				"max": 0,
+				"credits": 6000,
+				"coins": 12,
+				"special": "Pro Boot müssen 4 Leute mit Wasserrettungs-Ausbildung (Organisation egal) vor Ort sein.<br>Muss von einem GW-Wasserrettung oder GW-Taucher zum Einsatz gebracht werden."
+			}
+		],
+		"heli": [
+			{
+				"name": "Polizeihubschrauber",
+				"min": 1,
+				"max": 3,
+				"credits": 300000,
+				"coins": 30,
+				"schooling": "Polizeihubschrauber"
+			},
+			{
+				"name": "RTH",
+				"min": 1,
+				"max": 1,
+				"credits": 300000,
+				"coins": 30,
+				"schooling": "Notarzt",
+				"special": "Kann anstelle eines NEF eingesetzt werden. Transportiert seine Patienten selbst."
+			}
+		],
+		"seg": [
+			{
+				"name": "RTW",
+				"min": 1,
+				"max": 2,
+				"credits": 5000,
+				"coins": 25
+			},
+			{
+				"name": "KTW Typ B",
+				"min": 1,
+				"max": 2,
+				"credits": 5000,
+				"coins": 25,
+				"special": "Kann, wenn ein GW-San vor Ort ist, behandelte Patienten vom Einsatzort abtransportieren. Ein Transport mit Notarztbegleitung durch ein NEF ist auch möglich."
+			},
+			{
+				"name": "ELW 1 (SEG)",
+				"min": 1,
+				"max": 2,
+				"credits": 25500,
+				"coins": 25,
+				"schooling": "SEG-Einsatzleitung",
+				"special": "Kann automatisch eingehende Sprechwünsche der eigenen Rettungsmittel bearbeiten und ihnen im Transportfall ein geeignetes Krankenhaus zuweisen. Die automatische Zuweisungsfunktion kann in dessen Einstellungen verändert werden."
+			},
+			{
+				"name": "GW-San",
+				"min": 6,
+				"max": 6,
+				"credits": 10000,
+				"coins": 25,
+				"schooling": "SEG-GW-SAN",
+				"special": "Pro GW-San können 5 KTW Typ B wie ein RTW arbeiten. Er behandelt die Patienten zwar größtenteils, aber für die letzten paar Prozente braucht man dann einen RTW, KTW Typ B oder ähnliches"
+			}
+		],
+		"rettungshunde": [
+			{
+				"name": "Rettungshundefahrzeug",
+				"min": 4,
+				"max": 5,
+				"credits": 25000,
+				"coins": 25,
+				"schooling": "Rettungshundeführer (SEG)",
+				"special": "Ein Rettungshundefahrzeug ist am Einsatzort äquivalent zu einem Hunde-Anhänger beim THW (wird noch ins Spiel eingefügt)."
+			}
+		]
+	},
+	"buildings": [
+		{
+			"name": "Leitstelle",
+			"credits": 0,
+			"coins": 0,
+			"maxlevel": 0,
+			"levelcost": "Keine Ausbaustufen möglich",
+			"startPersonell": 0,
+			"startVehicle": "Keine Fahrzeuge stationierbar",
+			"maxBuildings": "Alle 25 Gebäude eine Leitstelle",
+			"extensions": "Keine Ausbauten möglich",
+			"special": "Die Leitstelle ist die Verwaltungszentrale."
+		},
+		{
+			"name": "Feuerwache",
+			"credits": 100000,
+			"coins": 30,
+			"maxlevel": 16,
+			"levelcost": "1. 10.000<br>2. 50.000<br>3.-16. 100.000",
+			"startPersonell": 10,
+			"startVehicle": "LF 20 oder LF 10 oder LF 8/6 oder LF 20/16 oder LF 10/6 oder LF 16-TS oder KLF oder MLF oder TSF-W. Ab Dienstgrad Gruppenführer(in) auch HLF 20/HLF 10 (dann Baukosten 20.000 mehr).",
+			"extensions": "Rettungsdienst (7 Tage, 100.000 Credits/20 Coins)<br>Wasserrettung (7 Tage, 400.000 Credits/25 Coins)<br>Flughafen (7 Tage, 300.000 Credits/25 Coins)<br>Großwache (7 Tage, 1.000.000 Credits/50 Coins)<br>Werkfeuerwehr (7 Tage, 100.000 Credits/20 Coins)<br>9*Abrollbehälter-Stellplatz (jeweils 7 Tage, 100.000 Credits/20 Coins)",
+			"maxBuildings": "2.400",
+			"special": "Ab der 24. Feuerwache steigen die Kosten für den Neubau einer Wache nach folgender Formel: <code>100.000+200.000*LOG<sub>2</sub>(Anzahl der vorhandenen Feuerwachen − 22)</code>. Der Coins-Preis bleibt konstant!"
+		},
+		{
+			"name": "Feuerwache (Kleinwache)",
+			"credits": 50000,
+			"coins": 25,
+			"maxlevel": 5,
+			"levelcost": "1. 10.000<br>2. 50.000<br>3.-5. 100.000<br>Umbau zur Normalen Wache: Differenz-Preis zur Normalen Wache",
+			"startPersonell": 10,
+			"startVehicle": "LF 20 oder LF 10 oder LF 8/6 oder LF 20/16 oder LF 10/6 oder LF 16-TS oder KLF oder MLF oder TSF-W. Ab Dienstgrad Gruppenführer(in) auch HLF 20/HLF 10 (dann Baukosten 15.000 mehr).",
+			"extensions": "2*Abrollbehälter-Stellplatz (jeweils 7 Tage, 100.000 Credits/20 Coins)",
+			"maxBuildings": "2.400",
+			"special": "Ab der 24. Feuerwache steigen die Kosten für den Neubau einer Wache nach folgender Formel: <code>50.000+200.000*LOG<sub>2</sub>(Anzahl der vorhandenen Feuerwachen − 22)</code>. max. 1 Million Credits. Der Coins-Preis bleibt konstant!"
+		},
+		{
+			"name": "Feuerwehrschule",
+			"credits": 500000,
+			"coins": 50,
+			"maxlevel": 0,
+			"levelcost": "Keine Ausbaustufen möglich",
+			"startPersonell": 0,
+			"startVehicle": "Keine Fahrzeuge stationierbar",
+			"extensions": "Bis zu 3 weitere Klassenzimmer (jeweils 7 Tage, 400.000 Credits/40 Coins)",
+			"maxBuildings": "Keine Grenze",
+			"special": "Finanzminister und Admins können Verbands-Feuerwehrschulen mit Hilfe von Credits aus der Verbandskasse (aus-)bauen."
+		},
+		{
+			"name": "Rettungswache",
+			"credits": 200000,
+			"coins": 35,
+			"maxlevel": 14,
+			"levelcost": "1. 10.000<br>2. 50.000<br>3.-14. 100.000",
+			"startPersonell": 2,
+			"startVehicle": "RTW",
+			"extensions": "Keine Ausbauten möglich",
+			"maxBuildings": "Keine Grenze"
+		},
+		{
+			"name": "Rettungswache (Kleinwache)",
+			"credits": 100000,
+			"coins": 25,
+			"maxlevel": 5,
+			"levelcost": "1. 10.000<br>2. 50.000<br>3.-5. 100.000<br>Umbau zur Normalen Wache: Differenz-Preis zur Normalen Wache",
+			"startPersonell": 3,
+			"startVehicle": "RTW",
+			"extensions": "Keine Ausbauten möglich",
+			"maxBuildings": "Keine Grenze"
+		},
+		{
+			"name": "Rettungsschule",
+			"credits": 500000,
+			"coins": 50,
+			"maxlevel": 0,
+			"levelcost": "Keine Ausbaustufen möglich",
+			"startPersonell": 0,
+			"startVehicle": "Keine Fahrzeuge stationierbar",
+			"extensions": "Bis zu 3 weitere Klassenzimmer (jeweils 7 Tage, 400.000 Credits/40 Coins)",
+			"maxBuildings": "Keine Grenze",
+			"special": "Finanzminister und Admins können Verbands-Rettungsschulen mit Hilfe von Credits aus der Verbandskasse (aus-)bauen."
+		},
+		{
+			"name": "Krankenhaus",
+			"credits": 200000,
+			"coins": 35,
+			"maxlevel": 20,
+			"levelcost": "jeweils 19.000 Credits/11 Coins",
+			"startPersonell": 0,
+			"startVehicle": "Keine Fahrzeuge stationierbar, dafür aber 10 Betten von Beginn an",
+			"extensions": "Mehrere Fachrichtungen (jeweils 7 Tage, 70.000 Credits/15 Coins, allgemeine Innere und allgemeine Chirurgie nur 10.000 Credits/)",
+			"maxBuildings": "Keine Grenze",
+			"special": "Finanzminister und Admins können Verbands-Krankenhäuser mit Hilfe von Credits aus der Verbandskasse (aus-)bauen."
+		},
+		{
+			"name": "Rettungshubschrauber-Station",
+			"credits": 1000000,
+			"coins": 50,
+			"maxlevel": 6,
+			"levelcost": "jeweils 1.000.000 Credits/50 Coins",
+			"startPersonell": 0,
+			"startVehicle": "Kein Startfahrzeug",
+			"maxBuildings": "siehe Besonderheiten",
+			"extensions": "Keine Ausbauten möglich",
+			"special": "Pro Station können bis zu 7 Landeplätze gebaut werden (Ausbaustufen). Bis zum 125. Gebäude (aller Art) können insgesamt max. 4 Landeplätze gebaut werden. Danach wächst die Zahl alle 25 Geäude um 1 (Beginnend beim 125.)."
+		},
+		{
+			"name": "Schnelleinsatzgruppe (SEG)",
+			"credits": 100000,
+			"coins": 30,
+			"maxlevel": 0,
+			"levelcost": "Keine Ausbaustufen möglich",
+			"startPersonell": 10,
+			"startVehicle": "KTW Typ B",
+			"extensions": "Führung (3 Tage, 25.000 Credits/5 Coins)<br>Sanitätsdienst (3 Tage, 25.000 Credits/5 Coins)<br>Wasserrettung (7 Tage, 500.000 Credits/25 Coins)<br>Rettungshundestaffel (7 Tage, 350.000 Credits/25 Coins)",
+			"maxBuildings": "Keine Grenze"
+		},
+		{
+			"name": "Polizeiwache",
+			"credits": 100000,
+			"coins": 35,
+			"maxlevel": 14,
+			"levelcost": "1. 10.000<br>2. 50.000<br>3.-14. 100.000",
+			"startPersonell": 2,
+			"startVehicle": "FuStW",
+			"extensions": "Zelle (25.000 Credits)<br>max. 10 können gebaut werden",
+			"maxBuildings": "1.100",
+			"special": "Ab der 24. Polizeiwache steigen die Kosten für den Neubau einer Wache nach folgender Formel: <code>100.000+200.000*LOG<sub>2</sub>(Anzahl der vorhandenen Polizeiache − 22)</code>. Der Coins-Preis bleibt konstant!"
+		},
+		{
+			"name": "Polizeiwache (Kleinwache)",
+			"credits": 50000,
+			"coins": 25,
+			"maxlevel": 4,
+			"levelcost": "1. 10.000<br>2. 50.000<br>3.-4. 100.000<br>Umbau zur Normalen Wache: Differenz-Preis zur Normalen Wache",
+			"startPersonell": 2,
+			"startVehicle": "FuStW",
+			"extensions": "Zelle (25.000 Credits)<br>max. 2 können gebaut werden",
+			"maxBuildings": "1.100",
+			"special": "Ab der 24. Polizeiwache steigen die Kosten für den Neubau einer Wache nach folgender Formel: <code>100.000+200.000*LOG<sub>2</sub>(Anzahl der vorhandenen Polizeiache − 22)</code>. Der Coins-Preis bleibt konstant!"
+		},
+		{
+			"name": "Polizeisschule",
+			"credits": 500000,
+			"coins": 50,
+			"maxlevel": 0,
+			"levelcost": "Keine Ausbaustufen möglich",
+			"startPersonell": 0,
+			"startVehicle": "Keine Fahrzeuge stationierbar",
+			"extensions": "Bis zu 3 weitere Klassenzimmer (jeweils 7 Tage, 400.000 Credits/40 Coins)",
+			"maxBuildings": "Keine Grenze",
+			"special": "Finanzminister und Admins können Verbands-Polizeischulen mit Hilfe von Credits aus der Verbandskasse (aus-)bauen."
+		},
+		{
+			"name": "Polizeihubschrauber-Station",
+			"credits": 1000000,
+			"coins": 50,
+			"maxlevel": 6,
+			"levelcost": "jeweils 1.000.000 Credits/50 Coins",
+			"startPersonell": 0,
+			"startVehicle": "Kein Startfahrzeug",
+			"maxBuildings": "siehe Besonderheiten",
+			"extensions": "Keine Ausbauten möglich",
+			"special": "Pro Station können bis zu 7 Landeplätze gebaut werden (Ausbaustufen). Bis zum 125. Gebäude (aller Art) können insgesamt max. 4 Landeplätze gebaut werden. Danach wächst die Zahl alle 25 Geäude um 1 (Beginnend beim 125.)."
+		},
+		{
+			"name": "Bereitschaftspolizei",
+			"credits": 500000,
+			"coins": 50,
+			"maxlevel": 0,
+			"levelcost": "Keine Ausbaustufen möglich",
+			"startPersonell": 0,
+			"startVehicle": "Kein Startfahrzeug",
+			"extensions": "2. Zug Hundertschaft (3 Tage, 25.000 Credits/5 Coins)<br>3. Zug Hundertschaftt (3 Tage, 25.000 Credits/5 Coins)<br>Sonderfahrzeug: Gefangenenkraftwagen (3 Tage, 25.000 Credits/5 Coins)<br>Technischer Zug: Wasserwerfer (7 Tage, 25.000 Credits/5 Coins)<br>SEK 1. Zug (7 Tage, 100.000 Credits/10 Coins)<br>SEK 2. Zug(7 Tage, 100.000 Credits/10 Coins)<br>MEK 1. Zug (7 Tage, 100.000 Credits/10 Coins)<br>MEK 2. Zug (7 Tage, 100.000 Credits/10 Coins)",
+			"maxBuildings": "Keine Grenze",
+			"special": "Mit dem Bau einer Bereitschaftspolizei bekommt man automatisch 4 Stellplätze für einen Zug (3 GruKw & 1 leBefKw) geschenkt. Die Wache generiert noch keine Einsätze. Um Einsätze zu erhalten muss man die erste Ausbaustufe bauen."
+		},
+		{
+			"name": "Polizei-Sondereinheiten",
+			"credits": 400000,
+			"coins": 40,
+			"maxlevel": 0,
+			"levelcost": "Keine Ausbaustufen möglich",
+			"startPersonell": 0,
+			"startVehicle": "Kein Startfahrzeug",
+			"extensions": "SEK 1. Zug (7 Tage, 100.000 Credits/10 Coins)<br>SEK 2. Zug(7 Tage, 100.000 Credits/10 Coins)<br>MEK 1. Zug (7 Tage, 100.000 Credits/10 Coins)<br>MEK 2. Zug (7 Tage, 100.000 Credits/10 Coins)",
+			"maxBuildings": "Keine Grenze"
+		},
+		{
+			"name": "Wasserrettung",
+			"credits": 500000,
+			"coins": 30,
+			"maxlevel": 5,
+			"levelcost": "1. 10.000<br>2. 50.000<br>3.-5. 100.000",
+			"startPersonell": 6,
+			"startVehicle": "GW-Wasserrettung",
+			"extensions": "Keine Ausbauten möglich",
+			"maxBuildings": "Keine Grenze",
+			"special": "Beim Bau bekommst du 10 Leute sowie ein GW-Wasserrettung geschenkt"
+		},
+		{
+			"name": "THW Ortsverband",
+			"credits": 200000,
+			"coins": 35,
+			"maxlevel": 0,
+			"levelcost": "Keine Ausbaustufen möglich",
+			"startPersonell": 9,
+			"startVehicle": "GKW",
+			"extensions": "Bergungsgruppe (7 Tage, 25.000 Credits/5 Coins)<br>Zugtrupp (7 Tage, 25.000 Credits/5 Coins)<br>Fachgruppe Räumen (7 Tage, 25.000 Credits/5 Coins)<br>Fachgruppe Wassergefahren (7 Tage, 500.000 Credits/25 Coins)<br>2. TZ (7 Tage, 25.000 Credits/5 Coins)<br>2. TZ Bergungsgruppe 2 (7 Tage, 25.000 Credits/5 Coins)<br>2. TZ Zugtrupp (7 Tage, 25.000 Credits/5 Coins)",
+			"maxBuildings": "z.Zt nicht bekannt",
+			"special": "Mit dem Bau eines THW-Ortsverbands bekommt man einen GKW geschenkt. Mit dem Bau eines THW-Ortsverbands bekommt man 9 Mitglieder dazu. Baukosten für weitere THW-Liegenschaften: 2. Ortsverband 300.000 Credits/ 35 Coins, 3. Ortsverband 358.496 Credits/ 35 Coins, 4. Ortsverband 432.193 Credits/ 35 Coins, 5. Ortsverband 458.496 Credits/ 35 Coins. Formel: <code>200.000+100.000*LOG<sub>2</sub>(Anzahl der vorhandenen Wachen + 1)</code>"
+		},
+		{
+			"name": "THW Bundeschule",
+			"credits": 500000,
+			"coins": 50,
+			"maxlevel": 0,
+			"levelcost": "Keine Ausbaustufen möglich",
+			"startPersonell": 0,
+			"startVehicle": "Keine Fahrzeuge stationierbar",
+			"extensions": "Bis zu 3 weitere Klassenzimmer (jeweils 7 Tage, 400.000 Credits/40 Coins)",
+			"maxBuildings": "Keine Grenze",
+			"special": "Finanzminister und Admins können Verbands-THW-Schulen mit Hilfe von Credits aus der Verbandskasse (aus-)bauen."
+		},
+		{
+			"name": "Rettungshundestaffel",
+			"credits": 450000,
+			"coins": 50,
+			"maxlevel": 5,
+			"levelcost": "1. 10.000<br>2. 50.000<br>3.-5. 100.000",
+			"startPersonell": 10,
+			"startVehicle": "Rettungshundefahrzeug",
+			"extensions": "Keine Ausbauten möglich",
+			"maxBuildings": "Keine Grenze",
+			"special": ""
+		}
+	]
 }
