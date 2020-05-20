@@ -46,11 +46,9 @@
 </template>
 
 <script>
-import {
-    faSort,
-    faSortUp,
-    faSortDown,
-} from '@fortawesome/free-solid-svg-icons';
+import { faSort } from '@fortawesome/free-solid-svg-icons/faSort';
+import { faSortUp } from '@fortawesome/free-solid-svg-icons/faSortUp';
+import { faSortDown } from '@fortawesome/free-solid-svg-icons/faSortDown';
 
 export default {
     name: 'enhancedTable',

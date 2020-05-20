@@ -4,6 +4,13 @@
     "schooling": "Lehrgang",
     "amount": "Anzahl Lehrgänge",
     "seats": "Anzahl Plätze",
+	"titles": {
+		"name": "Lehrgang",
+		"seats": "Freie Plätze",
+		"price": "Kosten",
+		"end": "Spätestens Fertig",
+		"owner": "Lehgangsausführer"
+	},
     "tabs": ["Feuerwehr", "Rettungsdienst", "Polizei", "THW"],
 	"schoolings": [
 		"Feuerwehr - Dekon-P Lehrgang",
