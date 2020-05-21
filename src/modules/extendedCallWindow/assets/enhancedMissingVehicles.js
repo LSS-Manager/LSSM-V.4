@@ -37,7 +37,9 @@ import enhancedMissingVehicles from '../components/enhancedMissingVehicles.vue';
             const vehicleGroupRequirement = Object.keys(
                 vehicleGroups
             ).find(group =>
-                requirement.vehicle.match(new RegExp(group.replace(/\//g, '')))
+                requirement.vehicle.match(
+                    new RegExp(group.replace(/(^\/)|(\/$)/g, ''))
+                )
             );
             if (!vehicleGroupRequirement) {
                 extras += `, ${requirement.missing.toLocaleString()} ${
