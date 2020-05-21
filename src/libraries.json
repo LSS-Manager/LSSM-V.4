@@ -198,7 +198,7 @@
 	"webpack": {
 		"icon": "https://webpack.js.org/assets/icon-square-big.svg",
 		"url": "https://github.com/webpack/webpack",
-		"version": "4.42.1"
+		"version": "4.43.0"
 	},
 	"webpack-append": {
 		"url": "https://github.com/dumconstantin/webpack-append",
