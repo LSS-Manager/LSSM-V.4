@@ -39,11 +39,10 @@
             </td>
             <td>{{ requirement.missing.toLocaleString() }}</td>
             <td>{{ (requirement.driving || 0).toLocaleString() }}</td>
-            <td>
-                {{
-                    (requirement.total || requirement.missing).toLocaleString()
-                }}
+            <td v-if="requirement.hasOwnProperty('total')">
+                {{ requirement.total.toLocaleString() }}
             </td>
+            <td v-else>{{ requirement.missing.toLocaleString() }}</td>
         </tr>
     </enhanced-table>
 </template>
