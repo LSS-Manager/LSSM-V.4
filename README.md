@@ -16,4 +16,20 @@ In unserem [Wiki](https://v4.lssm.ledbrain.de) findest du alles zur Installation
 
 Die Nutzung des Scripts geschieht auf eigene Gefahr. Wir haften nicht für eventuell auftretende Schäden oder ähnliches, die durch die Nutzung dieses Scripts entstanden sind. SHPlay GmbH ist in keinster Weise für den Inhalt des Scripts verantwortlich.
 
+## Contributors ✨
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore -->
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/KBOE2"><img src="https://avatars1.githubusercontent.com/u/27238105?v=4" width="100px;" alt="Jan"/><br /><sub><b>Jan</b></sub></a><br /><a href="./commits?author=KBOE2" title="Code">💻</a></td>
+  </tr>
+</table>
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+
 [1]: http://creativecommons.org/licenses/by-nc-sa/4.0/

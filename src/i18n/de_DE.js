@@ -523,6 +523,28 @@ module.exports = {
             color: '#663300',
         },
     ],
+    buildingCategories: {
+        Feuerwehr: {
+            buildings: [0, 1, 18],
+            color: '#ff0000',
+        },
+        Rettungsdienst: {
+            buildings: [2, 3, 5, 12, 15, 20, 21],
+            color: '#ffa500',
+        },
+        Polizei: {
+            buildings: [6, 8, 11, 13, 17, 19],
+            color: '#008800',
+        },
+        THW: {
+            buildings: [9, 10],
+            color: '#0000ff',
+        },
+        Sonstiges: {
+            buildings: [4, 7],
+            color: '#02a18c',
+        },
+    },
     vehicleCategories: {
         Feuerwehr: {
             vehicles: {
@@ -590,28 +612,6 @@ module.exports = {
         2: 20,
         6: 19,
     },
-    buildingCategories: {
-        Feuerwehr: {
-            buildings: [0, 1, 18],
-            color: '#ff0000',
-        },
-        Rettungsdienst: {
-            buildings: [2, 3, 5, 12, 15, 20, 21],
-            color: '#ffa500',
-        },
-        Polizei: {
-            buildings: [6, 8, 11, 13, 17, 19],
-            color: '#008800',
-        },
-        THW: {
-            buildings: [9, 10],
-            color: '#0000ff',
-        },
-        Sonstiges: {
-            buildings: [4, 7],
-            color: '#02a18c',
-        },
-    },
     vehicleBuildings: [0, 2, 5, 6, 9, 11, 12, 13, 15, 17, 18, 19, 20, 21],
     bedBuildings: [4],
     schoolBuildings: [1, 3, 8, 10],
@@ -621,4 +621,5 @@ module.exports = {
     alliance: 'Verband',
     premiumNotice:
         'Diese Funktion erweitert eine Premium-Funktion des Spiels und ist deshalb nur für Spieler mit einem Leitstellenspiel-Premium-Account verfügbar!',
+    credits: 'Credits',
 };

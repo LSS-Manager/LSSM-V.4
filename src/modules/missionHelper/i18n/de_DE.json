@@ -1,0 +1,13 @@
+{
+	"diyMission": "Dieser Einsatz scheint ein selbst erstellter Verbandsgroßeinsatz zu sein!",
+	"noVehicleRequirements": [
+		"water_needed"
+	],
+	"vehicles": {
+		"title": "Fahrzeuge",
+		"captions": {
+			"firetrucks": "Löschfahrzeug | Löschfahrzeuge",
+			"police_cars": "Funkstreifenwagen"
+		}
+	}
+}

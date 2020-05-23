@@ -49,11 +49,6 @@
 		"url": "https://github.com/pillys/copy-dir",
 		"version": "1.2.0"
 	},
-	"copy-webpack-plugin": {
-		"icon": "https://webpack.js.org/assets/icon-square-big.svg",
-		"url": "https://github.com/webpack-contrib/copy-webpack-plugin",
-		"version": "5.1.1"
-	},
 	"css-loader": {
 		"icon": "https://webpack.js.org/assets/icon-square-big.svg",
 		"url": "https://github.com/webpack-contrib/css-loader",
@@ -65,7 +60,7 @@
 	"eslint": {
 		"icon": "https://eslint.org/assets/img/favicon.512x512.png",
 		"url": "https://eslint.org",
-		"version": "7.0.0"
+		"version": "7.1.0"
 	},
 	"eslint-plugin-prettier": {
 		"icon": "https://prettier.io/icon.png",

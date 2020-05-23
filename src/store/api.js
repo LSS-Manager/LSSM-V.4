@@ -175,6 +175,7 @@ export default {
                     }
                 );
             init.headers['X-LSS-Manager'] = rootState.version;
+            init.cache = init.cache || 'no-cache';
             const target = input || url;
             target.toString().startsWith(rootState.server) &&
                 (init.headers['X-LSSM-User'] = btoa(
