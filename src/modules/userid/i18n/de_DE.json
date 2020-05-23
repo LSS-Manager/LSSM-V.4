@@ -1,7 +1,7 @@
 {
-    "settings": {
-        "navbar": {
-            "title": "Eigene ID in der Navigationsleiste anzeigen"
-        }
-    }
+	"settings": {
+		"navbar": {
+			"title": "Eigene ID in der Navigationsleiste anzeigen"
+		}
+	}
 }

@@ -1,5 +1,5 @@
 {
-    "version": "4.0.5+20200523.1825",
+    "version": "4.0.5+20200523.1910",
     "license": "CC-BY-NC-SA-4.0",
     "scripts": {
         "predev": "yarn run eslint:fix && node prebuild 2>&1 | tee dist/log.beta.prebuild.txt",
@@ -8,8 +8,9 @@
         "prebuild": "yarn run eslint:fix && node prebuild production 2>&1 | tee dist/log.stable.prebuild.txt",
         "build": "node build production 2>&1 | tee dist/log.stable.build.txt",
         "postbuild": "vuepress build docs 2>&1 | tee dist/log.stable.docs.txt",
-        "eslint:report": "eslint docs/.vuepress/ static/ prebuild/ build/ src/ --ext .js,.vue -f table --no-error-on-unmatched-pattern 2>&1 | tee dist/log.eslint.report.txt",
-        "eslint:fix": "yarn run eslint:report && eslint docs/.vuepress/ static/ prebuild/ build/ src/ --ext .js,.vue -f table --no-error-on-unmatched-pattern --fix 2>&1 | tee dist/log.eslint.fix.txt"
+        "eslint:report": "yarn run order-json && eslint docs/.vuepress/ static/ prebuild/ build/ src/ --ext .js,.vue -f table --no-error-on-unmatched-pattern 2>&1 | tee dist/log.eslint.report.txt",
+        "eslint:fix": "yarn run eslint:report && eslint docs/.vuepress/ static/ prebuild/ build/ src/ --ext .js,.vue -f table --no-error-on-unmatched-pattern --fix 2>&1 | tee dist/log.eslint.fix.txt",
+        "order-json": "jsonsort -t docs/* static/* prebuild/* build/* src/*  2>&1 | tee dist/log.jsonsort.txt"
     },
     "dependencies": {
         "@fortawesome/fontawesome-svg-core": "^1.2.28",
@@ -45,6 +46,7 @@
         "eslint-plugin-prettier": "^3.1.2",
         "eslint-plugin-vue": "^6.2.2",
         "html-loader": "^1.0.0",
+        "json-sort-cli": "^1.15.20",
         "sass": "^1.26.5",
         "sass-loader": "^8.0.0",
         "string-replace-loader": "^2.3.0",

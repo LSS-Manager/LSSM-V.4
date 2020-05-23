@@ -1,27 +1,27 @@
 {
-	"settings": {
-		"alerts": {
-			"title": "Benachrichtigungen festlegen"
-		},
-		"eventTypes": "Events",
-		"alertStyle": "Ingame-Benachrichtigungs-Typ",
-		"duration": "Anzeigedauer",
-		"ingame": "Ingame-Benachrichtigung senden",
-		"desktop": "Desktop-Benachrichtigung senden"
+	"alertStyles": {
+		"error": "Fehlermeldung (rot)",
+		"info": "Information (blau)",
+		"success": "Bestätigung (grün)",
+		"warning": "Warnung (orange)"
 	},
 	"events": {
-		"radioMessage": "Funkspruch",
-		"allianceChat": "Chatnachricht"
-	},
-	"alertStyles": {
-		"info": "Information (blau)",
-		"error": "Fehlermeldung (rot)",
-		"warning": "Warnung (orange)",
-		"success": "Bestätigung (grün)"
+		"allianceChat": "Chatnachricht",
+		"radioMessage": "Funkspruch"
 	},
 	"messages": {
 		"radioMessage": {
 			"title": "{vehicle} meldet Status {status}!"
 		}
+	},
+	"settings": {
+		"alertStyle": "Ingame-Benachrichtigungs-Typ",
+		"alerts": {
+			"title": "Benachrichtigungen festlegen"
+		},
+		"desktop": "Desktop-Benachrichtigung senden",
+		"duration": "Anzeigedauer",
+		"eventTypes": "Events",
+		"ingame": "Ingame-Benachrichtigung senden"
 	}
 }

@@ -1,7 +1,7 @@
 {
+	"empty": "Dieser Chat ist leer. Das kann entweder daher kommen, dass du noch keine Nachricht an den Support geschrieben hast, oder weil alle deine bisherigen Probleme geklärt wurden. In letzterem Fall sind deine Nachrichten trotzdem gespeichert und werden wieder angezeigt, sobald du wieder an den Support schreibst. Liebe Grüße, dein LSS-Manager Team!",
+	"input": "Deine Nachricht an das Team vom LSS-Manager",
 	"name": "LSSM-Support",
 	"note": "Hinweis: Dies ist <strong>kein</strong> Support zum Spiel, nur für den LSS-Manager!",
-	"input": "Deine Nachricht an das Team vom LSS-Manager",
-	"send": "Senden",
-	"empty": "Dieser Chat ist leer. Das kann entweder daher kommen, dass du noch keine Nachricht an den Support geschrieben hast, oder weil alle deine bisherigen Probleme geklärt wurden. In letzterem Fall sind deine Nachrichten trotzdem gespeichert und werden wieder angezeigt, sobald du wieder an den Support schreibst. Liebe Grüße, dein LSS-Manager Team!"
+	"send": "Senden"
 }

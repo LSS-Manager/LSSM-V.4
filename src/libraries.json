@@ -82,6 +82,10 @@
 		"url": "https://github.com/webpack-contrib/html-loader",
 		"version": "1.0.0"
 	},
+	"json-sort-cli": {
+		"url": "https://gitlab.com/codsen/codsen/tree/master/packages/json-sort-cli",
+		"version": "1.15.20"
+	},
 	"localforage": {
 		"url": "https://github.com/localForage/localForage",
 		"version": "1.7.3"

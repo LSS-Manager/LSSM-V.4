@@ -33,14 +33,22 @@
 </template>
 
 <script>
-import Lightbox from '../../components/lightbox.vue';
 import ChartSummary from './components/chart-summary.vue';
-import VehicleTypes from './components/vehicle-types.vue';
 import DispatchcenterView from './components/dispatchcenter-view.vue';
+import Lightbox from '../../components/lightbox.vue';
+import VehicleTypes from './components/vehicle-types.vue';
 
 export default {
     name: 'dashboard',
-    components: { DispatchcenterView, VehicleTypes, ChartSummary, Lightbox },
+    components: {
+        DispatchcenterView,
+        VehicleTypes, //: () =>
+        // import(
+        //    /* webpackChunkName: "dashboard/vehicle-types" */ './components/vehicle-types.vue'
+        // ),
+        ChartSummary,
+        Lightbox,
+    },
     mounted() {
         this.$store.dispatch('api/buildings');
     },

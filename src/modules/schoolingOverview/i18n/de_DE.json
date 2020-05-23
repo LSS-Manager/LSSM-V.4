@@ -1,17 +1,8 @@
 {
-    "own": "Lehrgänge mit eigenen Teilnehmern",
-    "open": "Offene Lehrgänge",
-    "schooling": "Lehrgang",
-    "amount": "Anzahl Lehrgänge",
-    "seats": "Anzahl Plätze",
-	"titles": {
-		"name": "Lehrgang",
-		"seats": "Freie Plätze",
-		"price": "Kosten",
-		"end": "Spätestens Fertig",
-		"owner": "Lehgangsausführer"
-	},
-    "tabs": ["Feuerwehr", "Rettungsdienst", "Polizei", "THW"],
+	"amount": "Anzahl Lehrgänge",
+	"open": "Offene Lehrgänge",
+	"own": "Lehrgänge mit eigenen Teilnehmern",
+	"schooling": "Lehrgang",
 	"schoolings": [
 		"Feuerwehr - Dekon-P Lehrgang",
 		"Feuerwehr - ELW 2 Lehrgang",
@@ -44,5 +35,19 @@
 		"THW - Fachgruppe Räumen",
 		"THW - Wassergefahren Lehrgang",
 		"THW - Zugtrupp"
-	]
+	],
+	"seats": "Anzahl Plätze",
+	"tabs": [
+		"Feuerwehr",
+		"Rettungsdienst",
+		"Polizei",
+		"THW"
+	],
+	"titles": {
+		"end": "Spätestens Fertig",
+		"name": "Lehrgang",
+		"owner": "Lehgangsausführer",
+		"price": "Kosten",
+		"seats": "Freie Plätze"
+	}
 }

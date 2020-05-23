@@ -24,7 +24,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- prettier-ignore -->
 <table>
   <tr>
-    <td align="center"><a href="https://github.com/KBOE2"><img src="https://avatars1.githubusercontent.com/u/27238105?v=4" width="100px;" alt="Jan"/><br /><sub><b>Jan</b></sub></a><br /><a href="./commits?author=KBOE2" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/KBOE2"><img src="https://avatars1.githubusercontent.com/u/27238105?v=4" width="100px;" alt="Jan"/><br /><sub><b>Jan</b></sub></a><br /><a href="../../commits?author=KBOE2" title="Code">💻</a></td>
   </tr>
 </table>
 

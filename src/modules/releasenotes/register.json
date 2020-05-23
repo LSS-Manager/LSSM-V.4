@@ -1,5 +1,5 @@
 {
-    "location": "^/$",
-    "active": true,
-    "noapp": true
+	"active": true,
+	"location": "^/$",
+	"noapp": true
 }
