@@ -689,7 +689,7 @@ export default {
 .board-management-field
     display: flex
 
-    /deep/ [id$="-overlay"]
+    ::v-deep [id$="-overlay"]
         inset: 0 calc(100% - 1em) 0 0 !important
         right: calc(100% - 1em) !important
 
@@ -702,10 +702,10 @@ export default {
         width: 100%
         margin-right: 1rem
 
-        /deep/ .vs__dropdown-toggle
+        ::v-deep .vs__dropdown-toggle
             padding: 0 0 6.4px 0
 
-        /deep/ .vs-pagination
+        ::v-deep .vs-pagination
             display: flex
 
             .btn
@@ -728,7 +728,7 @@ export default {
     .v-select
         max-width: calc(((100% - 22.5px - 4em) / 7) * 3)
 
-        /deep/ .vs__selected-options
+        ::v-deep .vs__selected-options
             flex-wrap: unset
             overflow: auto
 
@@ -745,7 +745,7 @@ export default {
         position: absolute
         right: 1rem
 
-    /deep/ [id$="-resizeBottomRight"]
+    ::v-deep [id$="-resizeBottomRight"]
         cursor: nwse-resize !important
         width: 1em !important
         height: unset !important

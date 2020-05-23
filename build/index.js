@@ -172,18 +172,6 @@ webpack([...entries, ...modules], (err, stats) => {
         return;
     }
 
-    const info = stats.toJson();
-
-    if (stats.hasErrors()) {
-        console.log('Errors:');
-        console.error(info.errors);
-    }
-
-    if (stats.hasWarnings()) {
-        console.log('Warnings:');
-        console.warn(info.warnings);
-    }
-
     console.log('Stats:');
     console.log(stats.toString({ colors: true }));
     if (stats.hasErrors()) process.exit(-1);

@@ -2,10 +2,12 @@ const fs = require('fs');
 const packageJson = require('../package.json');
 const libraries = require('../src/libraries.json');
 
-Object.keys({
+const dependencies = Object.keys({
     ...packageJson.dependencies,
     ...packageJson.devDependencies,
-}).forEach(module => {
+});
+
+dependencies.forEach(module => {
     if (!libraries.hasOwnProperty(module)) libraries[module] = {};
     const mod = require(`../node_modules/${module}/package.json`);
     libraries[module].version = mod.version;
@@ -20,6 +22,7 @@ Object.keys({
 
 const librariesSorted = {};
 Object.keys(libraries)
+    .filter(lib => dependencies.includes(lib))
     .sort()
     .forEach(lib => (librariesSorted[lib] = libraries[lib]));
 
