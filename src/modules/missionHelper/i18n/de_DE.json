@@ -4,10 +4,39 @@
 		"water_needed"
 	],
 	"vehicles": {
-		"title": "Fahrzeuge",
 		"captions": {
+			"battalion_chief_vehicles": "ELW 1",
+			"boats": "Boot | Boote",
+			"diver_units": "GW-Taucher oder Tauchkraftwagen",
 			"firetrucks": "Löschfahrzeug | Löschfahrzeuge",
-			"police_cars": "Funkstreifenwagen"
-		}
+			"fukw": "FüKw",
+			"fwk": "Feuerwehrkran | Feuerwehrkräne",
+			"grukw": "GruKw",
+			"gw_werkfeuerwehr": "GW-Werkfeuerwehr",
+			"gwmess": "GW-Messtechnik",
+			"gwoil": "GW-Öl",
+			"hazmat_dekon": "Dekon-P",
+			"hazmat_vehicles": "GW-Gefahrgut",
+			"heavy_rescue_vehicles": "Rüstwagen",
+			"height_rescue_units": "GW-Höhenrettung",
+			"lebefkw": "leBefKw",
+			"mobile_air_vehicles": "GW-Atemschutz",
+			"mobile_command_vehicles": "ELW 2",
+			"platform_trucks": "Drehleiter | Drehleitern",
+			"police_cars": "Funkstreifenwagen",
+			"police_helicopters": "Polzeihubschauber",
+			"teleskopmast": "Teleskopmast | Teleskopmasten",
+			"thw_brmg_r": "BRmG R",
+			"thw_dle": "Anh DLE",
+			"thw_gkw": "GKW",
+			"thw_lkw": "LKW K9",
+			"thw_mtwtz": "MTW-TZ",
+			"thw_mzkw": "MzKw",
+			"ulf": "ULF mit Löscharm",
+			"wasserwerfer": "WaWe 10",
+			"water_tankers": "Schlauchwagen",
+			"rescue_dog_units": "Rettungshundestaffel | Rettungshundestaffeln"
+		},
+		"title": "Fahrzeuge"
 	}
 }
