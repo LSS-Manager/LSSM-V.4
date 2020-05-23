@@ -107,7 +107,7 @@ export default {
         margin: 0
         flex: 0 1 auto
 
-    /deep/ .vs__dropdown-toggle
+    ::v-deep .vs__dropdown-toggle
         margin-left: 1rem
         flex: 2 0 calc(100% / 3)
 </style>

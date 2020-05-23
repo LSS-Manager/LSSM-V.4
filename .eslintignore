@@ -1,0 +1,4 @@
+node_modules/*
+dist/*
+*.user.js
+src/userscript.js

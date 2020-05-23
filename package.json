@@ -1,13 +1,15 @@
 {
-    "version": "4.0.5+20200521.1502",
+    "version": "4.0.5+20200523.1336",
     "license": "CC-BY-NC-SA-4.0",
     "scripts": {
-        "predev": "node prebuild 2>&1 | tee  dist/log.beta.prebuild.txt",
+        "predev": "yarn run eslint:fix && node prebuild 2>&1 | tee dist/log.beta.prebuild.txt",
         "dev": "node build 2>&1 | tee dist/log.beta.build.txt",
         "postdev": "vuepress build docs 2>&1 | tee dist/log.beta.docs.txt",
-        "prebuild": "node prebuild production 2>&1 | tee dist/log.stable.prebuild.txt",
+        "prebuild": "yarn run eslint:fix && node prebuild production 2>&1 | tee dist/log.stable.prebuild.txt",
         "build": "node build production 2>&1 | tee dist/log.stable.build.txt",
-        "postbuild": "vuepress build docs 2>&1 | tee dist/log.stable.docs.txt"
+        "postbuild": "vuepress build docs 2>&1 | tee dist/log.stable.docs.txt",
+        "eslint:report": "eslint docs/.vuepress/ static/ prebuild/ build/ src/ --ext .js,.vue -f table --no-error-on-unmatched-pattern 2>&1 | tee dist/log.eslint.report.txt",
+        "eslint:fix": "yarn run eslint:report && eslint docs/.vuepress/ static/ prebuild/ build/ src/ --ext .js,.vue -f table --no-error-on-unmatched-pattern --fix 2>&1 | tee dist/log.eslint.fix.txt"
     },
     "dependencies": {
         "@fortawesome/fontawesome-svg-core": "^1.2.28",
@@ -35,6 +37,7 @@
         "@vuepress/plugin-back-to-top": "^1.4.0",
         "axios": "^0.19.2",
         "babel-eslint": "^10.1.0",
+        "cache-loader": "^4.1.0",
         "clean-webpack-plugin": "^3.0.0",
         "copy-dir": "^1.2.0",
         "copy-webpack-plugin": "^5.1.1",
@@ -43,7 +46,7 @@
         "eslint-plugin-prettier": "^3.1.2",
         "eslint-plugin-vue": "^6.2.2",
         "html-loader": "^1.0.0",
-        "node-sass": "^4.13.1",
+        "sass": "^1.26.5",
         "sass-loader": "^8.0.0",
         "string-replace-loader": "^2.3.0",
         "terser": "^4.6.10",
