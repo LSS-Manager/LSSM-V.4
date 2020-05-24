@@ -1,8 +1,18 @@
 {
 	"diyMission": "Dieser Einsatz scheint ein selbst erstellter Verbandsgroßeinsatz zu sein!",
+	"generated_by": "Generiert von",
 	"noVehicleRequirements": [
 		"water_needed"
 	],
+	"patients": {
+		"helicopter": "Wahrscheinlichkeit für einen RTH",
+		"nef": "Wahrscheinlichkeit für einen Notarzt",
+		"patient_transport": "Transportwahrscheinlichkeit",
+		"possible_patient": "Patienten maximal",
+		"possible_patient_min": "Patienten mindestens",
+		"specializations": "Fachrichtung",
+		"title": "Patienten | {n} Patient | {n} Patienten"
+	},
 	"vehicles": {
 		"captions": {
 			"ambulances": "RTW oder KTW oder KTW Typ B",
@@ -66,6 +76,10 @@
 			"allow_rw_instead_of_lf": {
 				"firetrucks": "Löschfahrzeug oder Rüstwagen oder GKW | Löschfahrzeuge oder Rüstwagen oder GKW"
 			}
+		},
+		"patient_additionals": {
+			"5": "LNA",
+			"10": "OrgL"
 		},
 		"title": "Fahrzeuge"
 	}

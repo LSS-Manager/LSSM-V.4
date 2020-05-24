@@ -16,6 +16,14 @@
                     missionSpecs.place
                 }}</small>
             </h3>
+            <span
+                v-if="settings.patients.live && currentPatients"
+                class="badge badge-default"
+            >
+                {{
+                    $tc('modules.missionHelper.patients.title', currentPatients)
+                }}
+            </span>
             <h4 v-if="settings.vehicles.title">
                 {{ $t('modules.missionHelper.vehicles.title') }}
             </h4>
@@ -45,15 +53,67 @@
                     </span>
                 </li>
             </ul>
+            <h4 v-if="settings.patients.title">
+                {{ $tc('modules.missionHelper.patients.title', 0) }}
+            </h4>
+            <ul v-if="settings.patients.content && missionSpecs.additional">
+                <li
+                    v-if="missionSpecs.additional.possible_patient_min"
+                    :data-amount="missionSpecs.additional.possible_patient_min"
+                >
+                    {{
+                        $t(
+                            'modules.missionHelper.patients.possible_patient_min'
+                        )
+                    }}
+                </li>
+                <li
+                    v-if="missionSpecs.additional.possible_patient"
+                    :data-amount="missionSpecs.additional.possible_patient"
+                >
+                    {{ $t('modules.missionHelper.patients.possible_patient') }}
+                </li>
+                <li
+                    v-if="missionSpecs.chances.patient_transport"
+                    :data-amount="`${missionSpecs.chances.patient_transport}%`"
+                >
+                    {{ $t('modules.missionHelper.patients.patient_transport') }}
+                    (
+                    <span
+                        v-if="missionSpecs.additional.patient_specializations"
+                    >
+                        {{
+                            $t('modules.missionHelper.patients.specializations')
+                        }}
+                        <b>{{
+                            missionSpecs.additional.patient_specializations
+                        }}</b>
+                    </span>
+                    )
+                </li>
+                <li
+                    v-if="missionSpecs.chances.nef"
+                    :data-amount="`${missionSpecs.chances.nef}%`"
+                >
+                    {{ $t('modules.missionHelper.patients.nef') }}
+                </li>
+                <li
+                    v-if="missionSpecs.chances.helicopter"
+                    :data-amount="`${missionSpecs.chances.helicopter}%`"
+                >
+                    {{ $t('modules.missionHelper.patients.helicopter') }}
+                </li>
+            </ul>
             <span v-if="settings.generatedBy">
-                {{ $t('modules.missionHelper.generated_by') }}:&nbsp;
+                {{ $t('modules.missionHelper.generated_by') }}:
                 {{ missionSpecs.generated_by }}
+                <br />
             </span>
             <span
                 v-if="settings.credits && missionSpecs.average_credits"
                 class="badge badge-default"
             >
-                ~{{ missionSpecs.average_credits.toLocaleString() }}&nbsp;
+                ~{{ missionSpecs.average_credits.toLocaleString() }}
                 {{ $t('credits') }}
             </span>
         </div>
@@ -77,6 +137,8 @@ export default {
                 vehicles: {
                     title: true,
                     content: true,
+                    patient_additionals: true,
+                    sort: 'caption',
                 },
                 chances: {
                     normal: true,
@@ -87,7 +149,12 @@ export default {
                     battalion_chief_vehicles: true,
                     platform_trucks: true,
                 },
-                generated_by: true,
+                patients: {
+                    title: true,
+                    content: true,
+                    live: true,
+                },
+                generatedBy: true,
                 credits: true,
             },
             noVehicleRequirements: Object.values(
@@ -96,6 +163,9 @@ export default {
         };
     },
     computed: {
+        currentPatients() {
+            return document.querySelectorAll('.mission_patient').length;
+        },
         vehicles() {
             const vehicles = {};
             Object.keys(this.missionSpecs.requirements || {})
@@ -110,6 +180,20 @@ export default {
                             amount: this.missionSpecs.requirements[vehicle],
                         })
                 );
+
+            if (this.settings.vehicles.patient_additionals) {
+                const patientAdditionals = this.$t(
+                    'modules.missionHelper.vehicles.patient_additionals'
+                );
+                Object.keys(patientAdditionals).forEach(
+                    patients =>
+                        this.currentPatients >= patients &&
+                        (vehicles[patients] = {
+                            amount: 1,
+                            caption: patientAdditionals[patients],
+                        })
+                );
+            }
             if (this.missionSpecs.additional) {
                 const optionalAlternatives = this.$t(
                     'modules.missionHelper.vehicles.optional_alternatives'
@@ -157,6 +241,15 @@ export default {
             const vehiclesFiltered = {};
             Object.keys(vehicles)
                 .filter(vehicle => vehicles[vehicle].amount > 0)
+                .sort((a, b) =>
+                    vehicles[a][this.settings.vehicles.sort] <
+                    vehicles[b][this.settings.vehicles.sort]
+                        ? -1
+                        : vehicles[a][this.settings.vehicles.sort] >
+                          vehicles[b][this.settings.vehicles.sort]
+                        ? 1
+                        : 0
+                )
                 .forEach(
                     vehicle => (vehiclesFiltered[vehicle] = vehicles[vehicle])
                 );
