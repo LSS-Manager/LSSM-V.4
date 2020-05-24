@@ -23,12 +23,14 @@
 			"heavy_rescue_vehicles": "Rüstwagen",
 			"height_rescue_units": "GW-Höhenrettung",
 			"lebefkw": "leBefKw",
+			"mek": "MEK-Fahrzeug | MEK-Fahrzeuge",
 			"mobile_air_vehicles": "GW-Atemschutz",
 			"mobile_command_vehicles": "ELW 2",
 			"platform_trucks": "Drehleiter | Drehleitern",
 			"police_cars": "Funkstreifenwagen",
 			"police_helicopters": "Polzeihubschauber",
 			"rescue_dog_units": "Rettungshundestaffel | Rettungshundestaffeln",
+			"sek": "SEK-Fahrzeug | SEK-Fahrzeuge",
 			"teleskopmast": "Teleskopmast | Teleskopmasten",
 			"thw_brmg_r": "BRmG R",
 			"thw_dle": "Anh DLE",
@@ -40,6 +42,25 @@
 			"ulf": "ULF mit Löscharm",
 			"wasserwerfer": "WaWe 10",
 			"water_tankers": "Schlauchwagen"
+		},
+		"multifunctionals": {
+			"battalion_chief_vehicles": {
+				"additional_text": "",
+				"reduce_from": "mobile_command_vehicles"
+			},
+			"heavy_rescue_vehicles": {
+				"additional_text": "davon mind. {n} HLF",
+				"reduce_from": "firetrucks"
+			},
+			"platform_trucks": {
+				"additional_text": "",
+				"reduce_from": "teleskopmast"
+			},
+			"thw_lkw": {
+				"additional_text": "mit {n} LKW K9",
+				"not_customizable": true,
+				"reduce_from": "thw_brmg_r"
+			}
 		},
 		"optional_alternatives": {
 			"allow_rw_instead_of_lf": {

@@ -26,6 +26,9 @@
                     :data-amount="vehicle.amount"
                 >
                     {{ vehicle.caption }}
+                    <span v-if="vehicle.additionalText">
+                        {{ vehicle.additionalText }}
+                    </span>
                     <span
                         v-if="
                             (missionSpecs.chances[vehicle] === 100 ||
@@ -79,6 +82,11 @@ export default {
                     normal: true,
                     100: true,
                 },
+                multifunctionals: {
+                    heavy_rescue_vehicles: true,
+                    battalion_chief_vehicles: true,
+                    platform_trucks: true,
+                },
                 generated_by: true,
                 credits: true,
             },
@@ -90,9 +98,6 @@ export default {
     computed: {
         vehicles() {
             const vehicles = {};
-            const optionalAlternatives = this.$t(
-                'modules.missionHelper.vehicles.optional_alternatives'
-            );
             Object.keys(this.missionSpecs.requirements || {})
                 .filter(req => !this.noVehicleRequirements.includes(req))
                 .forEach(
@@ -106,6 +111,9 @@ export default {
                         })
                 );
             if (this.missionSpecs.additional) {
+                const optionalAlternatives = this.$t(
+                    'modules.missionHelper.vehicles.optional_alternatives'
+                );
                 Object.keys(optionalAlternatives).forEach(
                     alt =>
                         this.missionSpecs.additional.hasOwnProperty(alt) &&
@@ -119,7 +127,40 @@ export default {
                         )
                 );
             }
-            return vehicles;
+            const multifunctionals = this.$t(
+                'modules.missionHelper.vehicles.multifunctionals'
+            );
+            Object.keys(multifunctionals).forEach(vehicle => {
+                if (
+                    !multifunctionals[vehicle].not_customizable &&
+                    !this.settings.multifunctionals[vehicle]
+                )
+                    return;
+                if (
+                    vehicles.hasOwnProperty(vehicle) &&
+                    vehicles.hasOwnProperty(
+                        multifunctionals[vehicle].reduce_from
+                    )
+                ) {
+                    vehicles[vehicle].old = vehicles[vehicle].amount;
+                    vehicles[vehicle].amount =
+                        vehicles[vehicle].amount -
+                        vehicles[multifunctionals[vehicle].reduce_from].amount;
+                    vehicles[
+                        multifunctionals[vehicle].reduce_from
+                    ].additionalText = this.$tc(
+                        `modules.missionHelper.vehicles.multifunctionals.${vehicle}.additional_text`,
+                        vehicles[vehicle].old
+                    );
+                }
+            });
+            const vehiclesFiltered = {};
+            Object.keys(vehicles)
+                .filter(vehicle => vehicles[vehicle].amount > 0)
+                .forEach(
+                    vehicle => (vehiclesFiltered[vehicle] = vehicles[vehicle])
+                );
+            return vehiclesFiltered;
         },
     },
     methods: {
