@@ -5,13 +5,16 @@
 	],
 	"vehicles": {
 		"captions": {
+			"ambulances": "RTW oder KTW oder KTW Typ B",
 			"battalion_chief_vehicles": "ELW 1",
 			"boats": "Boot | Boote",
 			"diver_units": "GW-Taucher oder Tauchkraftwagen",
 			"firetrucks": "Löschfahrzeug | Löschfahrzeuge",
 			"fukw": "FüKw",
 			"fwk": "Feuerwehrkran | Feuerwehrkräne",
+			"gefkw": "GefKw",
 			"grukw": "GruKw",
+			"gw_san": "GW-San",
 			"gw_werkfeuerwehr": "GW-Werkfeuerwehr",
 			"gwmess": "GW-Messtechnik",
 			"gwoil": "GW-Öl",
@@ -25,6 +28,7 @@
 			"platform_trucks": "Drehleiter | Drehleitern",
 			"police_cars": "Funkstreifenwagen",
 			"police_helicopters": "Polzeihubschauber",
+			"rescue_dog_units": "Rettungshundestaffel | Rettungshundestaffeln",
 			"teleskopmast": "Teleskopmast | Teleskopmasten",
 			"thw_brmg_r": "BRmG R",
 			"thw_dle": "Anh DLE",
@@ -32,10 +36,15 @@
 			"thw_lkw": "LKW K9",
 			"thw_mtwtz": "MTW-TZ",
 			"thw_mzkw": "MzKw",
+			"turboloescher": "Turbolöscher",
 			"ulf": "ULF mit Löscharm",
 			"wasserwerfer": "WaWe 10",
-			"water_tankers": "Schlauchwagen",
-			"rescue_dog_units": "Rettungshundestaffel | Rettungshundestaffeln"
+			"water_tankers": "Schlauchwagen"
+		},
+		"optional_alternatives": {
+			"allow_rw_instead_of_lf": {
+				"firetrucks": "Löschfahrzeug oder Rüstwagen oder GKW | Löschfahrzeuge oder Rüstwagen oder GKW"
+			}
 		},
 		"title": "Fahrzeuge"
 	}

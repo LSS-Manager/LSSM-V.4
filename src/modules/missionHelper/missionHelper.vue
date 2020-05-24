@@ -21,16 +21,11 @@
             </h4>
             <ul v-if="settings.vehicles.content">
                 <li
-                    v-for="vehicle in vehicles"
-                    :key="vehicle"
-                    :data-amount="missionSpecs.requirements[vehicle]"
+                    v-for="(vehicle, req) in vehicles"
+                    :key="req"
+                    :data-amount="vehicle.amount"
                 >
-                    {{
-                        $tc(
-                            `modules.missionHelper.vehicles.captions.${vehicle}`,
-                            missionSpecs.requirements[vehicle]
-                        )
-                    }}
+                    {{ vehicle.caption }}
                     <span
                         v-if="
                             (missionSpecs.chances[vehicle] === 100 ||
@@ -94,9 +89,37 @@ export default {
     },
     computed: {
         vehicles() {
-            return Object.keys(this.missionSpecs.requirements || {}).filter(
-                req => !this.noVehicleRequirements.includes(req)
+            const vehicles = {};
+            const optionalAlternatives = this.$t(
+                'modules.missionHelper.vehicles.optional_alternatives'
             );
+            Object.keys(this.missionSpecs.requirements || {})
+                .filter(req => !this.noVehicleRequirements.includes(req))
+                .forEach(
+                    vehicle =>
+                        (vehicles[vehicle] = {
+                            caption: this.$tc(
+                                `modules.missionHelper.vehicles.captions.${vehicle}`,
+                                this.missionSpecs.requirements[vehicle]
+                            ),
+                            amount: this.missionSpecs.requirements[vehicle],
+                        })
+                );
+            if (this.missionSpecs.additional) {
+                Object.keys(optionalAlternatives).forEach(
+                    alt =>
+                        this.missionSpecs.additional.hasOwnProperty(alt) &&
+                        this.missionSpecs.additional[alt] &&
+                        Object.keys(optionalAlternatives[alt]).forEach(
+                            rep =>
+                                (vehicles[rep].caption = this.$tc(
+                                    `modules.missionHelper.vehicles.optional_alternatives.${alt}.${rep}`,
+                                    vehicles[rep].amount
+                                ))
+                        )
+                );
+            }
+            return vehicles;
         },
     },
     methods: {
