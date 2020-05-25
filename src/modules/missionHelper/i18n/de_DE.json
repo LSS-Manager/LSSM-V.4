@@ -16,6 +16,7 @@
 	"vehicles": {
 		"captions": {
 			"ambulances": "RTW oder KTW oder KTW Typ B",
+			"arff": "FLF",
 			"battalion_chief_vehicles": "ELW 1",
 			"boats": "Boot | Boote",
 			"diver_units": "GW-Taucher oder Tauchkraftwagen",
@@ -40,6 +41,7 @@
 			"police_cars": "Funkstreifenwagen",
 			"police_helicopters": "Polzeihubschauber",
 			"rescue_dog_units": "Rettungshundestaffel | Rettungshundestaffeln",
+			"rettungstreppe": "Rettungstreppe | Rettungstreppen",
 			"sek": "SEK-Fahrzeug | SEK-Fahrzeuge",
 			"teleskopmast": "Teleskopmast | Teleskopmasten",
 			"thw_brmg_r": "BRmG R",

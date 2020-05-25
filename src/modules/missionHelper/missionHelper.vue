@@ -53,7 +53,13 @@
                     </span>
                 </li>
             </ul>
-            <h4 v-if="settings.patients.title">
+            <h4
+                v-if="
+                    settings.patients.title &&
+                        missionSpecs.additional &&
+                        missionSpecs.additional.possible_patient
+                "
+            >
                 {{ $tc('modules.missionHelper.patients.title', 0) }}
             </h4>
             <ul v-if="settings.patients.content && missionSpecs.additional">
@@ -273,9 +279,9 @@ export default {
                     'mission_specs_cache',
                     JSON.stringify(
                         Object.values(
-                            await window.lssmv4.$store
+                            await this.$store
                                 .dispatch('api/request', {
-                                    url: `${window.lssmv4.$store.state.server}missions/${BUILD_LANG}.json`,
+                                    url: `$this.$store.state.server}missions/${BUILD_LANG}.json`,
                                     init: {
                                         method: 'GET',
                                     },
