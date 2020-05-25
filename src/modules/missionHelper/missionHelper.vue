@@ -37,19 +37,8 @@
                     <span v-if="vehicle.additionalText">
                         {{ vehicle.additionalText }}
                     </span>
-                    <span
-                        v-if="
-                            (missionSpecs.chances[vehicle] === 100 ||
-                                !missionSpecs.chances.hasOwnProperty(
-                                    vehicle
-                                )) &&
-                                settings.chances['100']
-                        "
-                    >
-                        (100%)
-                    </span>
-                    <span v-else-if="settings.chances.normal">
-                        ({{ missionSpecs.chances[vehicle] }}%)
+                    <span v-if="vehicle.percentage">
+                        ({{ vehicle.percentage }}%)
                     </span>
                 </li>
             </ul>
@@ -176,16 +165,22 @@ export default {
             const vehicles = {};
             Object.keys(this.missionSpecs.requirements || {})
                 .filter(req => !this.noVehicleRequirements.includes(req))
-                .forEach(
-                    vehicle =>
-                        (vehicles[vehicle] = {
-                            caption: this.$tc(
-                                `modules.missionHelper.vehicles.captions.${vehicle}`,
-                                this.missionSpecs.requirements[vehicle]
-                            ),
-                            amount: this.missionSpecs.requirements[vehicle],
-                        })
-                );
+                .forEach(vehicle => {
+                    let percentage = this.missionSpecs.chances[vehicle] || 100;
+                    if (
+                        (percentage === 100 && !this.settings.chances['100']) ||
+                        (percentage > 0 && !this.settings.chances.normal)
+                    )
+                        percentage = 0;
+                    vehicles[vehicle] = {
+                        caption: this.$tc(
+                            `modules.missionHelper.vehicles.captions.${vehicle}`,
+                            this.missionSpecs.requirements[vehicle]
+                        ),
+                        amount: this.missionSpecs.requirements[vehicle],
+                        percentage,
+                    };
+                });
 
             if (this.settings.vehicles.patient_additionals) {
                 const patientAdditionals = this.$t(
@@ -281,7 +276,7 @@ export default {
                         Object.values(
                             await this.$store
                                 .dispatch('api/request', {
-                                    url: `$this.$store.state.server}missions/${BUILD_LANG}.json`,
+                                    url: `${this.$store.state.server}missions/${BUILD_LANG}.json`,
                                     init: {
                                         method: 'GET',
                                     },
@@ -306,7 +301,7 @@ export default {
         },
         getMission(id) {
             return JSON.parse(
-                sessionStorage.getItem('mission_specs_cache')
+                sessionStorage.getItem('mission_specs_cache') || '{}'
             ).find(spec => spec.id === id);
         },
     },
