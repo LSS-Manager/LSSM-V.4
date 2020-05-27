@@ -144,6 +144,9 @@ export default {
                     battalion_chief_vehicles: true,
                     platform_trucks: true,
                 },
+                optionalAlternatives: {
+                    allow_rw_instead_of_lf: true,
+                },
                 patients: {
                     title: true,
                     content: true,
@@ -199,18 +202,24 @@ export default {
                 const optionalAlternatives = this.$t(
                     'modules.missionHelper.vehicles.optional_alternatives'
                 );
-                Object.keys(optionalAlternatives).forEach(
-                    alt =>
+                Object.keys(optionalAlternatives).forEach(alt => {
+                    if (
+                        !optionalAlternatives[alt].not_customizable &&
+                        !this.settings.optionalAlternatives[alt]
+                    )
+                        return;
+                    if (
                         this.missionSpecs.additional.hasOwnProperty(alt) &&
-                        this.missionSpecs.additional[alt] &&
-                        Object.keys(optionalAlternatives[alt]).forEach(
+                        this.missionSpecs.additional[alt]
+                    )
+                        return Object.keys(optionalAlternatives[alt]).forEach(
                             rep =>
                                 (vehicles[rep].caption = this.$tc(
                                     `modules.missionHelper.vehicles.optional_alternatives.${alt}.${rep}`,
                                     vehicles[rep].amount
                                 ))
-                        )
-                );
+                        );
+                });
             }
             const multifunctionals = this.$t(
                 'modules.missionHelper.vehicles.multifunctionals'
