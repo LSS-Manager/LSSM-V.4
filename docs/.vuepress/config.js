@@ -57,6 +57,8 @@ lang: ${lang}
 ${content}`
             );
         });
+        if (!fs.existsSync(`./docs/.vuepress/public/assets`))
+            fs.mkdirSync(`./docs/.vuepress/public/assets`);
         if (fs.existsSync(`./src/modules/${module}/docs/assets`)) {
             if (!fs.existsSync(`./docs/.vuepress/public/assets/${module}`))
                 fs.mkdirSync(`./docs/.vuepress/public/assets/${module}`);
