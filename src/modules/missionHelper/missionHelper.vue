@@ -111,6 +111,60 @@
                 ~{{ missionSpecs.average_credits.toLocaleString() }}
                 {{ $t('credits') }}
             </span>
+            <div
+                v-if="
+                    settings.expansions &&
+                        missionSpecs.additional &&
+                        missionSpecs.additional.expansion_missions_ids
+                "
+            >
+                {{
+                    $tc(
+                        'modules.missionHelper.expansions',
+                        Object.values(
+                            missionSpecs.additional.expansion_missions_ids
+                        ).length
+                    )
+                }}:
+                <a
+                    :href="`/einsaetze/${expansion}`"
+                    v-for="expansion in missionSpecs.additional
+                        .expansion_missions_ids"
+                    :key="expansion"
+                    :mission="(mission = getMission(expansion))"
+                >
+                    <span class="badge badge-default" v-if="mission">
+                        {{ mission.name }}
+                    </span>
+                </a>
+            </div>
+            <div
+                v-if="
+                    settings.followup &&
+                        missionSpecs.additional &&
+                        missionSpecs.additional.followup_missions_ids
+                "
+            >
+                {{
+                    $tc(
+                        'modules.missionHelper.followup',
+                        Object.values(
+                            missionSpecs.additional.followup_missions_ids
+                        ).length
+                    )
+                }}:
+                <a
+                    :href="`/einsaetze/${expansion}`"
+                    v-for="followup in missionSpecs.additional
+                        .followup_missions_ids"
+                    :key="followup"
+                    :mission="(mission = getMission(followup))"
+                >
+                    <span class="badge badge-default" v-if="mission">
+                        {{ mission.name }}
+                    </span>
+                </a>
+            </div>
         </div>
     </div>
 </template>
@@ -154,6 +208,8 @@ export default {
                 },
                 generatedBy: true,
                 credits: true,
+                expansions: true,
+                followup: true,
             },
             noVehicleRequirements: Object.values(
                 this.$t('modules.missionHelper.noVehicleRequirements')

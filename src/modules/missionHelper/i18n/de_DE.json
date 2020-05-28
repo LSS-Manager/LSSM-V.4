@@ -1,5 +1,7 @@
 {
 	"diyMission": "Dieser Einsatz scheint ein selbst erstellter Verbandsgroßeinsatz zu sein!",
+	"expansions": "Ausbreitung | Ausbreitungen",
+	"followUps": "Folgeeinsatz | Folgeeinsätze",
 	"generated_by": "Generiert von",
 	"noVehicleRequirements": [
 		"water_needed"
