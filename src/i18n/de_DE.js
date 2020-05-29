@@ -1,8 +1,9 @@
-const files = require.context(
+const moduleRootFiles = require.context(
     '../',
     true,
-    /modules\/(?!template).*?\/i18n\/de_DE.root(\.js(on)?)?/
+    /modules\/(?!template).*?\/i18n\/de_DE.root(\/index)?\.js(on)?$/
 );
+const furtherFiles = require.context('./de_DE/', true, /.*(\/index)?\.js(on)?/);
 const modules = {
     appstore: {
         save: 'Speichern',
@@ -39,10 +40,21 @@ const modules = {
         },
     },
 };
-files.keys().forEach(key => (modules[key.split('/')[2]] = files(key)));
+moduleRootFiles
+    .keys()
+    .forEach(key => (modules[key.split('/')[2]] = moduleRootFiles(key)));
+
+const t = {};
+
+furtherFiles
+    .keys()
+    .forEach(
+        key => (t[key.split('/')[1].replace(/\..*$/, '')] = furtherFiles(key))
+    );
 
 module.exports = {
     modules,
+    ...t,
     error: {
         title: 'LSS-Manager: Fehler',
         msg:

@@ -7,10 +7,9 @@
                         $t('modules.dashboard.chart-summaries.buildings.title')
                     }}:
                     {{
-                        Object.values(buildings).reduce(
-                            (a, b) => (a += b.length),
-                            0
-                        )
+                        Object.values(buildings)
+                            .reduce((a, b) => (a += b.length), 0)
+                            .toLocaleString()
                     }}
                 </b>
                 <span class="glyphicon glyphicon-info-sign tip-btn"></span>
@@ -19,7 +18,7 @@
                 </div>
             </div>
             <div class="panel-body">
-                <div :id="buildingsId"></div>
+                <div :id="buildingsId" style="max-height: 400px"></div>
             </div>
         </div>
         <div class="panel panel-default">
@@ -29,10 +28,9 @@
                         $t('modules.dashboard.chart-summaries.vehicles.title')
                     }}:
                     {{
-                        Object.values(vehicles).reduce(
-                            (a, b) => (a += b.length),
-                            0
-                        )
+                        Object.values(vehicles)
+                            .reduce((a, b) => (a += b.length), 0)
+                            .toLocaleString()
                     }}
                 </b>
                 <span class="glyphicon glyphicon-info-sign tip-btn"></span>
@@ -72,6 +70,13 @@ const Highcharts = require('highcharts');
 require('highcharts/highcharts-more')(Highcharts);
 require('highcharts/modules/drilldown')(Highcharts);
 require('highcharts/modules/sunburst')(Highcharts);
+require('highcharts/modules/exporting')(Highcharts);
+require('highcharts/modules/export-data')(Highcharts);
+require('highcharts/modules/offline-exporting')(Highcharts);
+
+const exportingDefault = {
+    fallbackToExportServer: false,
+};
 
 export default {
     name: 'chart-summary',
@@ -100,6 +105,11 @@ export default {
     },
     mounted() {
         this.highChartsDarkMode(this, Highcharts);
+        Highcharts.setOptions({
+            lang: {
+                ...this.$t('highcharts'),
+            },
+        });
         const buildingVehicleDrilldowns = [];
         Highcharts.chart(this.buildingsId, {
             chart: {
@@ -122,6 +132,10 @@ export default {
                     '<span style="font-size:11px">{series.name}</span><br>',
                 pointFormat:
                     '<span style="color:{point.color}">{point.name}</span>: <b>{point.y}</b>',
+            },
+            exporting: {
+                ...exportingDefault,
+                filename: 'lssm_building_chart',
             },
             plotOptions: {
                 waterfall: {
@@ -354,8 +368,12 @@ export default {
                     height: '100%',
                     type: 'sunburst',
                 },
+                exporting: {
+                    ...exportingDefault,
+                    filename: `lssm_vehicle_chart_${category}`,
+                },
                 title: {
-                    text: `${category}: ${sum}`,
+                    text: `${category}: ${sum.toLocaleString()}`,
                 },
                 series: [
                     {
