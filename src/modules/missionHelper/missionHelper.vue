@@ -154,7 +154,7 @@
                     )
                 }}:
                 <a
-                    :href="`/einsaetze/${expansion}`"
+                    :href="`/einsaetze/${followup}`"
                     v-for="followup in missionSpecs.additional
                         .followup_missions_ids"
                     :key="followup"
@@ -389,4 +389,7 @@ ul li
         white-space: pre
     &::marker
         content: attr(data-amount)
+
+.badge
+    margin-right: 0.3rem
 </style>
