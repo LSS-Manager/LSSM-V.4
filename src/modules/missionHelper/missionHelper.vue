@@ -147,7 +147,7 @@
             >
                 {{
                     $tc(
-                        'modules.missionHelper.followup',
+                        'modules.missionHelper.followups',
                         Object.values(
                             missionSpecs.additional.followup_missions_ids
                         ).length
