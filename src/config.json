@@ -1,4 +1,5 @@
 {
+    "prefix": "lssmv4",
 	"admins": [
 		"de_DE-205976",
 		"de_DE-675"
@@ -166,5 +167,5 @@
 			"support"
 		]
 	},
-	"server": "https://v4.lssm.ledbrain.de/"
+	"server": "https://v4.lssm.ledbrain.de/ts/"
 }

@@ -26,8 +26,8 @@ const entries = Object.keys(config.games)
         const entry = {
             mode: process.argv[2] || 'development',
             entry: {
-                [`${game}_core`]: './src/core.js',
-                [`${game}_blank`]: './src/blank.js',
+                [`${game}_core`]: './src/core.ts',
+                // [`${game}_blank`]: './src/blank.js',
             },
             output: {
                 path: path.resolve(__dirname, `../dist/${dir}${game}`),
@@ -56,6 +56,7 @@ const entries = Object.keys(config.games)
             new webpack.DefinePlugin({
                 BUILD_LANG: JSON.stringify(game),
                 MODE: process.argv[2] === 'production' ? '"stable"' : '"beta"',
+                PREFIX: JSON.stringify(config.prefix),
             }),
             new webpack.ContextReplacementPlugin(
                 /moment\/locale$/,
@@ -70,18 +71,20 @@ const entries = Object.keys(config.games)
             ...entry.plugins,
         ];
         entry.module.rules.push({
-            test: /src\/i18n\.js$/,
+            test: /src\/i18n\.[jt]s$/,
             loader: 'string-replace-loader',
             query: {
                 multiple: [
                     {
                         search: /FALLBACK_LOCALES/g,
-                        replace: fallback_locales
+                        replace: `{${fallback_locales
                             .map(
                                 locale =>
-                                    `${locale}: require('./i18n/${locale}')`
+                                    `${locale}
+    :
+        require('./i18n/${locale}')`
                             )
-                            .join(','),
+                            .join(',')}}`,
                     },
                 ],
             },
@@ -159,7 +162,7 @@ const entries = Object.keys(config.games)
                 ],
             },
         });
-        modules.push(modulesEntry);
+        // modules.push(modulesEntry);
         return entry;
     });
 

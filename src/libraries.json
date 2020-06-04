@@ -14,10 +14,17 @@
 		"url": "https://github.com/FortAwesome/vue-fontawesome",
 		"version": "0.1.9"
 	},
-	"@smartweb/vue-flash-message": {
-		"icon": "https://smwbtech.github.io/vue-flash-message/fm-logo.svg",
-		"url": "https://smwbtech.github.io/vue-flash-message/",
-		"version": "0.6.4"
+	"@types/vue": {
+		"version": "2.0.0"
+	},
+	"@types/webpack-env": {
+		"version": "1.15.2"
+	},
+	"@typescript-eslint/eslint-plugin": {
+		"version": "3.1.0"
+	},
+	"@typescript-eslint/parser": {
+		"version": "3.1.0"
 	},
 	"@vuepress/plugin-active-header-links": {
 		"icon": "https://vuepress.vuejs.org/hero.png",
@@ -122,6 +129,14 @@
 		"url": "https://terser.org",
 		"version": "4.7.0"
 	},
+	"ts-loader": {
+		"url": "https://github.com/TypeStrong/ts-loader",
+		"version": "7.0.5"
+	},
+	"typescript": {
+		"url": "https://www.typescriptlang.org/",
+		"version": "3.9.3"
+	},
 	"ua-parser-js": {
 		"icon": "https://raw.githubusercontent.com/faisalman/ua-parser-js/gh-pages/images/logo.png",
 		"url": "http://github.com/faisalman/ua-parser-js",
@@ -152,7 +167,7 @@
 	},
 	"vue-responsive-dash": {
 		"url": "https://vue-responsive-dash.netlify.com",
-		"version": "0.3.30"
+		"version": "0.4.2"
 	},
 	"vue-select": {
 		"icon": "https://vuejs.org/images/logo.png",

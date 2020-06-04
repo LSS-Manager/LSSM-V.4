@@ -27,7 +27,7 @@ const gameIncludes = Object.keys(tlds).map(tld => {
 fs.writeFileSync(
     './static/lssm-v4.user.js',
     `// ==UserScript==
-// @name         ${script.name} - Dev Version
+// @name         ${script.name} - TypeScript
 // @version      ${packageJson.version.replace(/\+.*$/, '')}+${Object.keys(
         config.games
     )

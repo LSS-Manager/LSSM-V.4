@@ -9,9 +9,22 @@ module.exports = {
             'vue$': 'vue/dist/vue.runtime.esm.js',
             'vue.esm.js$': 'vue/dist/vue.runtime.esm.js',
         },
+        extensions: ['.tsx', '.ts', '.js', '.vue', '.json'],
     },
     module: {
         rules: [
+            {
+                test: /\.tsx?$/,
+                use: [
+                    {
+                        loader: 'ts-loader',
+                        options: {
+                            transpileOnly: true,
+                        },
+                    },
+                ],
+                exclude: /node_modules/,
+            },
             {
                 test: /\.vue$/,
                 loader: 'vue-loader',

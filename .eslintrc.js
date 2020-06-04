@@ -4,8 +4,12 @@ module.exports = {
         commonjs: true,
         es6: true,
     },
-    plugins: ['vue', 'prettier'],
-    extends: ['eslint:recommended', 'plugin:vue/essential'],
+    plugins: ['vue', 'prettier', '@typescript-eslint'],
+    extends: [
+        'eslint:recommended',
+        'plugin:@typescript-eslint/recommended',
+        'plugin:vue/essential',
+    ],
     globals: {
         Atomics: 'readonly',
         SharedArrayBuffer: 'readonly',
@@ -16,9 +20,10 @@ module.exports = {
         MODULE_ID: 'readonly',
         MODE: 'readonly',
         FALLBACK_LOCALES: 'readonly',
+        PREFIX: 'readonly',
     },
     parserOptions: {
-        parser: 'babel-eslint',
+        parser: '@typescript-eslint/parser',
         ecmaVersion: 2018,
         sourceType: 'module',
     },

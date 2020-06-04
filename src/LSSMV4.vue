@@ -1,30 +1,30 @@
 <template>
     <div :id="id">
-        <modals-container />
-        <v-dialog></v-dialog>
-        <FlashMessage></FlashMessage>
+        <!--        <modals-container />-->
+        <!--        <v-dialog></v-dialog>-->
     </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue from 'vue';
+import { Store } from 'vuex';
+
+declare module 'vue/types/vue' {
+    interface Vue {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        $store: Store<any>;
+    }
+}
+
+export default Vue.extend({
     name: 'LSSMV4',
     components: {},
     data() {
         return {
-            id: this.$store.getters.nodeId('app'),
+            id: this.$store.getters.nodeAttribute('app'),
         };
     },
-    beforeMount() {
-        let fa = document.createElement('script');
-        fa.src = 'https://use.fontawesome.com/releases/v5.13.0/js/all.js';
-        document.head.appendChild(fa);
-    },
-    mounted() {
-        document.dispatchEvent(new CustomEvent(`lssm_mounted_${window.name}`));
-        this.$store.dispatch('external/establishConnection');
-    },
-};
+});
 </script>
 
 <style lang="sass">
@@ -72,10 +72,4 @@ body.dark
 
 .lssm_notice_bg
     background-color: #77dc81
-
-._vue-flash-msg-body
-    z-index: 10006
-
-    ._vue-flash-msg-body__icon img
-        width: 100%
 </style>
