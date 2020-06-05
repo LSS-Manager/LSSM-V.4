@@ -7,6 +7,8 @@ import utils from './utils';
 import browserTitle from './natives/browserTitle';
 import { ExtendedWindow, IndexedExtendedWindow } from '../typings/helpers';
 
+require('./natives/navTabsClicker');
+
 Vue.config.productionTip = false;
 
 const appContainer = document.createElement('div') as HTMLDivElement;
@@ -45,7 +47,6 @@ if (window.location.pathname === '/') {
         render: h => h(LSSMMenu),
     }).$mount(indicatorWrapper);
 }
-// TODO: Implement Native Stuff: Browsertitle & tab clicker
 
 (async () => {
     // TODO: Load active Modules
