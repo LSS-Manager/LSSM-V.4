@@ -15,12 +15,6 @@ module.exports = {
         SharedArrayBuffer: 'readonly',
         process: 'readonly',
         __dirname: 'readonly',
-        VERSION: 'readonly',
-        BUILD_LANG: 'readonly',
-        MODULE_ID: 'readonly',
-        MODE: 'readonly',
-        FALLBACK_LOCALES: 'readonly',
-        PREFIX: 'readonly',
     },
     parserOptions: {
         parser: '@typescript-eslint/parser',

@@ -2,7 +2,7 @@ export interface Game {
     flag: string;
     locale_fallback?: keyof Games;
     name: string;
-    shortUrl: string;
+    shortURL: string;
 }
 
 export interface Games {

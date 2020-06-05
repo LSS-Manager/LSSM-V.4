@@ -11,5 +11,6 @@ export interface Config {
     modules: {
         'core-modules': string[];
     };
+    prefix: string;
     server: string;
 }

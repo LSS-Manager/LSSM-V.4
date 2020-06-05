@@ -210,34 +210,7 @@ export default {
 </script>
 
 <style lang="sass">
-.vue-tablist
-    list-style: none
-    display: flex
-    padding-left: 0
-    border-bottom: 1px solid #e2e2e2
 
-
-    .vue-tab
-        padding: 5px 10px
-        cursor: pointer
-        user-select: none
-        border: 1px solid transparent
-        border-bottom-color: #e2e2e2
-        border-radius: 3px 3px 0 0
-        position: relative
-        bottom: -1px
-        font-weight: bold
-        font-size: 120%
-
-
-        &[aria-selected='true']
-            border-color: #e2e2e2
-            border-bottom-color: transparent
-
-
-        &[aria-disabled='true']
-            cursor: not-allowed
-            color: #999
 #main_navbar
     .navbar-right
         display: flex

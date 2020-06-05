@@ -7,14 +7,6 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import { Store } from 'vuex';
-
-declare module 'vue/types/vue' {
-    interface Vue {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        $store: Store<any>;
-    }
-}
 
 export default Vue.extend({
     name: 'LSSMV4',
@@ -69,6 +61,35 @@ body.dark
         .v--modal-box
             padding: 1rem
             overflow: auto !important
+
+.vue-tablist
+    list-style: none
+    display: flex
+    padding-left: 0
+    border-bottom: 1px solid #e2e2e2
+
+
+    .vue-tab
+        padding: 5px 10px
+        cursor: pointer
+        user-select: none
+        border: 1px solid transparent
+        border-bottom-color: #e2e2e2
+        border-radius: 3px 3px 0 0
+        position: relative
+        bottom: -1px
+        font-weight: bold
+        font-size: 120%
+
+
+        &[aria-selected='true']
+            border-color: #e2e2e2
+            border-bottom-color: transparent
+
+
+        &[aria-disabled='true']
+            cursor: not-allowed
+            color: #999
 
 .lssm_notice_bg
     background-color: #77dc81

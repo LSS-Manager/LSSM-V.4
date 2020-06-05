@@ -1,6 +1,15 @@
-import Vuex, { GetterTree, Store, StoreOptions } from 'vuex';
-import { RootState } from '../types/store/RootState';
+import Vuex, {
+    ActionTree,
+    GetterTree,
+    MutationTree,
+    Store,
+    StoreOptions,
+} from 'vuex';
+import { RootState } from '../typings/store/RootState';
 import { VueConstructor } from 'vue/types/vue';
+import config from './config';
+import { ActionStoreParams, Hook } from '../typings/store/Actions';
+import { LSSMEvent } from '../typings/helpers';
 
 export default (Vue: VueConstructor): Store<RootState> => {
     Vue.use(Vuex);
@@ -8,10 +17,55 @@ export default (Vue: VueConstructor): Store<RootState> => {
     return new Vuex.Store<RootState>({
         state: {
             prefix: PREFIX,
+            version: VERSION,
+            mode: MODE,
+            lang: BUILD_LANG,
+            discord: config.discord,
+            games: config.games,
+            hooks: {},
         },
+        mutations: {
+            addHook(state: RootState, event: string) {
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
+                state.hooks[event] = window[event];
+            },
+        } as MutationTree<RootState>,
         getters: {
-            nodeAttribute: (state: RootState) => (...values: string[]) =>
-                values.map(attr => `${state.prefix}-${attr}`),
+            nodeAttribute: (state: RootState) => (attr: string): string =>
+                `${state.prefix}-${attr}`,
+            wiki: (state: RootState): string =>
+                `${config.server}docs/${state.lang}`,
         } as GetterTree<RootState, RootState>,
+        actions: {
+            hook(
+                { state, commit }: ActionStoreParams,
+                { post = true, event, callback = () => null }: Hook
+            ) {
+                if (!state.hooks.hasOwnProperty(event)) {
+                    commit('addHook', event);
+                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                    // @ts-ignore
+                    window[event] = (...args: unknown[]) => {
+                        document.dispatchEvent(
+                            new CustomEvent(`lssm_${event}_before`, {
+                                detail: args,
+                            })
+                        );
+                        state.hooks[event](...args);
+                        document.dispatchEvent(
+                            new CustomEvent(`lssm_${event}_after`, {
+                                detail: args,
+                            })
+                        );
+                    };
+                }
+                document.addEventListener(
+                    `lssm_${event}_${post ? 'after' : 'before'}`,
+                    event =>
+                        callback(...((event as unknown) as LSSMEvent).detail)
+                );
+            },
+        } as ActionTree<RootState, RootState>,
     } as StoreOptions<RootState>);
 };

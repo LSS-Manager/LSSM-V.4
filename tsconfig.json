@@ -10,9 +10,10 @@
 			"esnext",
 			"dom",
 			"dom.iterable",
-			"scripthost"
+			"scripthost",
+            "es5"
 		],
-		"module": "esnext",
+		"module": "ESNext",
 		"moduleResolution": "node",
 		"paths": {
 			"@/*": [
