@@ -1,0 +1,33 @@
+{
+	"compilerOptions": {
+		"allowJs": true,
+		"allowSyntheticDefaultImports": true,
+		"baseUrl": ".",
+		"esModuleInterop": true,
+		"importHelpers": true,
+		"jsx": "preserve",
+		"lib": [
+			"esnext",
+			"dom",
+			"dom.iterable",
+			"scripthost",
+			"es5"
+		],
+		"module": "CommonJS",
+		"moduleResolution": "node",
+		"resolveJsonModule": true,
+		"sourceMap": true,
+		"strict": true,
+		"target": "ESNext",
+		"types": [
+			"node",
+			"vue"
+		]
+	},
+	"exclude": [
+		"node_modules"
+	],
+	"include": [
+		"**/*.ts"
+	]
+}

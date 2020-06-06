@@ -2,28 +2,40 @@ const fs = require('fs');
 const path = require('path');
 const copydir = require('copy-dir');
 
-const config = require('../../src/config');
+import config from '../../src/config';
 
 const langModules = fs
     .readdirSync('./docs/')
-    .filter(x => Object.keys(config.games).indexOf(x) >= 0);
+    .filter((x: string) => Object.keys(config.games).indexOf(x) >= 0);
 
-const emptyFolder = require('../../prebuild/emptyDir').emptyFolder;
+const emptyFolder = (path: string, deleteFolder = true): void => {
+    if (fs.existsSync(path)) {
+        fs.readdirSync(path).forEach((file: string) => {
+            const curPath = path + '/' + file;
+            if (fs.lstatSync(curPath).isDirectory()) {
+                emptyFolder(curPath, true);
+            } else {
+                fs.unlinkSync(curPath);
+            }
+        });
+        if (deleteFolder) fs.rmdirSync(path);
+    }
+}
 emptyFolder('./dist/docs');
-langModules.forEach(x => emptyFolder(`./docs/${x}/modules`));
+langModules.forEach((x: string) => emptyFolder(`./docs/${x}/modules`));
 emptyFolder('./docs/.vuepress/public/assets', false);
 
 const moduleDirs = fs.readdirSync('./src/modules');
-const modulesSorted = {};
-moduleDirs.forEach(module => {
+const modulesSorted = {} as {[lang: string]: { title: string, f: string, noMapkit: boolean }[]};
+moduleDirs.forEach((module: string) => {
     if (
         module !== 'template' &&
         fs.existsSync(`./src/modules/${module}/docs`)
     ) {
         const docs = fs
             .readdirSync(`./src/modules/${module}/docs`)
-            .filter(f => f.match(/^[a-z]{2}_[A-Z]{2}\.md$/));
-        docs.forEach(f => {
+            .filter((f: string) => f.match(/^[a-z]{2}_[A-Z]{2}\.md$/));
+        docs.forEach((f: string) => {
             const lang = f.split('.')[0];
             if (!modulesSorted.hasOwnProperty(lang)) modulesSorted[lang] = [];
             if (!fs.existsSync(`./docs/${lang}/modules`))
@@ -37,6 +49,7 @@ moduleDirs.forEach(module => {
                     .noMapkit,
             });
             fs.copyFileSync(
+                // @ts-ignore
                 path.join(__dirname, `../../src/modules/${module}/docs/${f}`),
                 `./docs/${lang}/modules/${f.replace(lang, module)}`
             );
@@ -69,7 +82,7 @@ ${content}`
         }
     }
 });
-const noMapkitModules = {};
+const noMapkitModules = {} as {[lang: string]: { title: string, f: string }[]};
 Object.keys(modulesSorted).forEach(lang => {
     noMapkitModules[lang] = [
         ...Object.values(modulesSorted[lang])
@@ -82,7 +95,7 @@ Object.keys(modulesSorted).forEach(lang => {
                 f: m.f.replace(/(^[a-z]{2}_[A-Z]{2}\/|\..*?$)/g, ''),
             })),
     ];
-    modulesSorted[lang] = [
+    (modulesSorted as unknown as {[lang: string]: string[]})[lang] = [
         ...Object.values(modulesSorted[lang])
             .sort((a, b) =>
                 a.title < b.title ? -1 : a.title > b.title ? 1 : 0
@@ -90,11 +103,11 @@ Object.keys(modulesSorted).forEach(lang => {
             .map(file => file.f),
     ];
     if (fs.existsSync(`./docs/${lang}/apps.md`))
-        modulesSorted[lang].unshift(`${lang}/apps.md`);
+        (modulesSorted as unknown as {[lang: string]: string[]})[lang].unshift(`${lang}/apps.md`);
 });
 
-const locales = {};
-const themeLocales = {};
+const locales = {} as {[langPath: string]: {lang: string, title: string}};
+const themeLocales = {} as {[langPath: string]: {label: string, nav: {text: string, link: string}[], sidebar: unknown[]}};
 
 const sidebar_lssm = ['', 'metadata'];
 const sidebar_others = [
@@ -185,7 +198,7 @@ const options = {
         '@vuepress/active-header-links': {},
         '@vuepress/back-to-top': {},
         '@vuepress/last-updated': {
-            transformer(timestamp, lang) {
+            transformer(timestamp: number, lang: string) {
                 const moment = require('moment');
                 moment.locale(lang);
                 return moment(timestamp).format('LLL');

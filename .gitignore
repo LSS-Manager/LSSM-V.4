@@ -16,6 +16,7 @@ build/index.new.js*
 typings/**/*.js*
 prebuild/**/*.js*
 src/config.js*
+docs/.vuepress/*.js*
 
 # local env files
 .env.local
