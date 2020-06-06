@@ -28,7 +28,13 @@
                     />
                 </a>
                 <div class="linebreak"></div>
-                <a :href="library.url" class="lightbox-open">
+                <a
+                    :href="
+                        library.url ||
+                            `https://yarnpkg.com/package/${libraryName}`
+                    "
+                    class="lightbox-open"
+                >
                     <h4>
                         <b>{{ libraryName }}</b>
                     </h4>
@@ -43,22 +49,23 @@
     </lightbox>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue';
 import Lightbox from './lightbox.vue';
+import libraries from '../libraries.json';
+import { LibraryOverviewData } from '../../typings/components/LibraryOverview';
 
-const libraries = require('../libraries');
-
-export default {
+export default Vue.extend({
     name: 'libraryOverview',
     components: { Lightbox },
     data() {
         return {
             librarySearch: '',
             libraries,
-        };
+        } as LibraryOverviewData;
     },
     computed: {
-        librariesFiltered() {
+        librariesFiltered(): string[] {
             return Object.keys(libraries)
                 .sort()
                 .filter(m =>
@@ -70,7 +77,7 @@ export default {
                 );
         },
     },
-};
+});
 </script>
 
 <style scoped lang="sass">

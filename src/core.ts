@@ -1,7 +1,8 @@
 import Vue from 'vue';
+import VueJSModal from 'vue-js-modal';
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import LSSMV4 from './LSSMV4.vue';
 import LSSMMenu from './LSSM-Menu.vue';
-import VueJSModal from 'vue-js-modal';
 import store from './store';
 import i18n from './i18n';
 import utils from './utils';
@@ -28,6 +29,8 @@ Vue.use(VueJSModal, {
     },
     dialog: true,
 });
+
+Vue.component('font-awesome-icon', FontAwesomeIcon);
 
 ((window as unknown) as IndexedExtendedWindow)[PREFIX] = new Vue({
     store: store(Vue),

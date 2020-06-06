@@ -77,6 +77,7 @@
 <script lang="ts">
 import Vue from 'vue';
 import lssmLogo from './img/lssm_logo';
+import LibraryOverview from './components/libraryOverview.vue';
 import { lssmMenuData } from '../typings/LSSM-Menu';
 
 const defaultIconBg = '#C9302C';
@@ -105,7 +106,15 @@ export default Vue.extend({
             // TODO: Open Settings
         },
         showLibraries() {
-            // TODO: Open Libraries
+            this.$modal.show(
+                LibraryOverview,
+                {},
+                {
+                    name: 'libraryOverview',
+                    height: '96%',
+                    width: '96%',
+                }
+            );
         },
         storeIconBg() {
             this.$store.dispatch('storage/set', {

@@ -87,5 +87,6 @@ webpack(entries as Configuration[], (err, stats) => {
     console.log('Stats:');
     console.log(stats.toString({ colors: true }));
     console.timeEnd('build');
+    console.log(`Build finished at ${new Date().toLocaleTimeString()}`);
     if (stats.hasErrors()) process.exit(-1);
 });

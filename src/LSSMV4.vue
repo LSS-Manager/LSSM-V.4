@@ -59,7 +59,7 @@ body.dark
         background-color: rgba(0, 0, 0, 0.7)
         pointer-events: none
 
-    .v--modal-box
+    .vm--modal
         padding: 1rem
         overflow: auto !important
 
