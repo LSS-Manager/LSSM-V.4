@@ -1,7 +1,7 @@
 <template>
     <div :id="id">
-        <!--        <modals-container />-->
-        <!--        <v-dialog></v-dialog>-->
+        <modals-container />
+        <v-dialog></v-dialog>
     </div>
 </template>
 
@@ -52,15 +52,16 @@ body.dark
         color: #f5f5f5
         background: #333
 
-.v--modal-overlay
+.vm--container
     z-index: 5001 !important
 
-    .v--modal-background-click
+    .vm--overlay[data-modal="dialog"]
         background-color: rgba(0, 0, 0, 0.7)
+        pointer-events: none
 
-        .v--modal-box
-            padding: 1rem
-            overflow: auto !important
+    .v--modal-box
+        padding: 1rem
+        overflow: auto !important
 
 .vue-tablist
     list-style: none

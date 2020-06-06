@@ -1,10 +1,12 @@
 import Vue from 'vue';
 import LSSMV4 from './LSSMV4.vue';
 import LSSMMenu from './LSSM-Menu.vue';
+import VueJSModal from 'vue-js-modal';
 import store from './store';
 import i18n from './i18n';
 import utils from './utils';
 import browserTitle from './natives/browserTitle';
+import telemetry from './modules/telemetry/main';
 import { ExtendedWindow, IndexedExtendedWindow } from '../typings/helpers';
 
 require('./natives/navTabsClicker');
@@ -17,6 +19,15 @@ document.body.appendChild(appContainer);
 ((window as unknown) as ExtendedWindow).keepAlive = true;
 
 utils(Vue);
+Vue.use(VueJSModal, {
+    dynamic: true,
+    dynamicDefaults: {
+        adaptive: true,
+        scrollable: true,
+        clickToClose: true,
+    },
+    dialog: true,
+});
 
 ((window as unknown) as IndexedExtendedWindow)[PREFIX] = new Vue({
     store: store(Vue),
@@ -49,5 +60,10 @@ if (window.location.pathname === '/') {
 }
 
 (async () => {
+    if (window.location.pathname.match(/^\/users\//)) return;
+    if (window.location.pathname === '/') {
+        telemetry(LSSM);
+        // TODO: Load core modules releasenotes, support
+    }
     // TODO: Load active Modules
 })();

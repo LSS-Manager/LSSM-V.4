@@ -3,12 +3,12 @@
         <a
             href="#"
             class="dropdown-toggle"
-            :id="this.menuId"
+            :id="menuId"
             role="button"
             data-toggle="dropdown"
-            :style="`background-color: ${this.iconBg}`"
+            :style="`background-color: ${iconBg}`"
         >
-            <span v-if="this.labelInMenu" class="label label-success">
+            <span v-if="labelInMenu" class="label label-success">
                 LSSM V.4
             </span>
             <!--suppress HtmlUnknownTarget -->
@@ -21,10 +21,10 @@
             />
             <b class="caret"></b>
         </a>
-        <ul class="dropdown-menu" role="menu" :aria-labelledby="this.menuId">
+        <ul class="dropdown-menu" role="menu" :aria-labelledby="menuId">
             <li role="presentation" style="text-align: center;">
                 <span class="label label-default">
-                    {{ this.version }} [{{ this.mode }}]
+                    {{ version }} [{{ mode }}]
                 </span>
             </li>
             <li role="presentation" class="divider"></li>
@@ -46,27 +46,27 @@
                 style="display: none;"
             ></li>
             <li role="presentation">
-                <a :href="this.discord" target="_blank">
+                <a :href="discord" target="_blank">
                     Discord
                 </a>
             </li>
             <li role="presentation">
-                <a class="lightbox-open" :href="this.wiki">
+                <a class="lightbox-open" :href="wiki">
                     Wiki
                 </a>
             </li>
             <li role="presentation">
-                <a href="#" @click.prevent.stop.self="this.showLibraries">
+                <a href="#" @click.prevent.stop.self="showLibraries">
                     Open-Source Libraries
                 </a>
             </li>
-            <li role="presentation" v-if="!this.labelInMenu">
+            <li role="presentation" v-if="!labelInMenu">
                 <label>
                     Icon
                     <input
                         type="color"
-                        v-model="this.iconBg"
-                        @change="this.storeIconBg"
+                        v-model="iconBg"
+                        @change="storeIconBg"
                     />
                 </label>
             </li>
@@ -77,7 +77,9 @@
 <script lang="ts">
 import Vue from 'vue';
 import lssmLogo from './img/lssm_logo';
-import { lssmMenuData, lssmMenuMethods } from '../typings/LSSM-Menu';
+import { lssmMenuData } from '../typings/LSSM-Menu';
+
+const defaultIconBg = '#C9302C';
 
 export default Vue.extend({
     name: 'lssm-menu',
@@ -86,7 +88,7 @@ export default Vue.extend({
         return {
             id: this.$store.getters.nodeAttribute('indicator'),
             menuId: this.$store.getters.nodeAttribute('indicator_menu'),
-            iconBg: null,
+            iconBg: defaultIconBg,
             labelInMenu: false,
             lssmLogo,
             discord: this.$store.state.discord,
@@ -106,15 +108,21 @@ export default Vue.extend({
             // TODO: Open Libraries
         },
         storeIconBg() {
-            // TODO: Save Icon Bg
+            this.$store.dispatch('storage/set', {
+                key: 'iconBG',
+                value: this.iconBg,
+            });
         },
-    } as lssmMenuMethods,
-    mounted() {
+    },
+    beforeMount() {
         this.iconBg = null;
         this.labelInMenu = false;
-        // this.$store
-        //     .dispatch('storage/get', { key: 'iconBG', defaultValue: '#C9302C' })
-        //     .then(value => (this.iconBg = value));
+        this.$store
+            .dispatch('storage/get', {
+                key: 'iconBG',
+                defaultValue: defaultIconBg,
+            })
+            .then(iconBG => (this.iconBg = iconBG));
         // this.$store
         //     .dispatch('settings/getSetting', {
         //         moduleId: 'global',

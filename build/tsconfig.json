@@ -13,23 +13,23 @@
 			"scripthost",
             "es5"
 		],
-		"module": "ESNext",
+		"module": "CommonJS",
 		"moduleResolution": "node",
 		"resolveJsonModule": true,
 		"sourceMap": true,
 		"strict": true,
-		"target": "esnext",
+		"target": "ESNext",
 		"types": [
 			"webpack-env",
+            "node",
+            "lodash",
             "vue"
 		]
 	},
 	"exclude": [
 		"node_modules"
 	],
-	"include": [
-		"src/**/*.ts",
-		"src/**/*.tsx",
-		"src/**/*.vue"
-	]
+    "include": [
+        "**/*.ts"
+    ]
 }

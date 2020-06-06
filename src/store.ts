@@ -1,6 +1,7 @@
 import Vuex, {
     ActionTree,
     GetterTree,
+    ModuleTree,
     MutationTree,
     Store,
     StoreOptions,
@@ -10,11 +11,15 @@ import { VueConstructor } from 'vue/types/vue';
 import config from './config';
 import { ActionStoreParams, Hook } from '../typings/store/Actions';
 import { LSSMEvent } from '../typings/helpers';
+import storage from './store/storage';
 
 export default (Vue: VueConstructor): Store<RootState> => {
     Vue.use(Vuex);
 
     return new Vuex.Store<RootState>({
+        modules: {
+            storage,
+        } as ModuleTree<RootState>,
         state: {
             prefix: PREFIX,
             version: VERSION,

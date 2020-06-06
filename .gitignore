@@ -10,6 +10,12 @@ package-lock.json
 /static/beta.php
 /admin/
 
+# TypeScript Outputs
+webpack.config.js*
+build/index.new.js*
+typings/**/*.js*
+src/config.js*
+
 # local env files
 .env.local
 .env.*.local

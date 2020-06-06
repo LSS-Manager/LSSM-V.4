@@ -1,7 +1,8 @@
-const webpack = require('webpack');
-const VueLoaderPlugin = require('vue-loader/lib/plugin');
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+import VueLoaderPlugin = require('vue-loader/lib/plugin');
 
-module.exports = {
+export default {
     target: 'web',
     bail: true,
     resolve: {
@@ -69,10 +70,5 @@ module.exports = {
             },
         ],
     },
-    plugins: [
-        new VueLoaderPlugin(),
-        new webpack.DefinePlugin({
-            VERSION: JSON.stringify(require('./package').version),
-        }),
-    ],
+    plugins: [new VueLoaderPlugin()],
 };
