@@ -1,16 +1,17 @@
 {
-    "version": "4.0.5+20200604.2054",
+    "version": "4.0.5+20200606.1803",
     "license": "CC-BY-NC-SA-4.0",
     "scripts": {
-        "predev": "yarn run eslint:fix && node prebuild 2>&1 | tee dist/log.beta.prebuild.txt",
-        "dev": "yarn run tsc:build && node build 2>&1 | tee dist/log.beta.build.txt",
+        "predev": "yarn run eslint:fix && yarn run tsc:prebuild && node prebuild 2>&1 | tee dist/log.beta.prebuild.txt",
+        "dev": "yarn run tsc:build && node build/index.new 2>&1 | tee dist/log.beta.build.txt",
         "postdev": "vuepress build docs 2>&1 | tee dist/log.beta.docs.txt",
         "prebuild": "yarn run eslint:fix && node prebuild production 2>&1 | tee dist/log.stable.prebuild.txt",
-        "build": "yarn run tsc:build && node build production 2>&1 | tee dist/log.stable.build.txt",
+        "build": "yarn run tsc:build && node build/index.new production 2>&1 | tee dist/log.stable.build.txt",
         "postbuild": "vuepress build docs 2>&1 | tee dist/log.stable.docs.txt",
         "eslint:report": "yarn run order-json && eslint docs/.vuepress/ static/ prebuild/ build/ src/ --ext .js,.vue -f table --no-error-on-unmatched-pattern 2>&1 | tee dist/log.eslint.report.txt",
         "eslint:fix": "yarn run eslint:report && eslint docs/.vuepress/ static/ prebuild/ build/ src/ --ext .js,.vue -f table --no-error-on-unmatched-pattern --fix 2>&1 | tee dist/log.eslint.fix.txt",
         "order-json": "jsonsort -t tsconfig.json docs/* static/* prebuild/* build/* src/*  2>&1 | tee dist/log.jsonsort.txt",
+        "tsc:prebuild": "tsc --project prebuild/",
         "tsc:build": "tsc --project build/"
     },
     "dependencies": {

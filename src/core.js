@@ -30,7 +30,12 @@ window[PREFIX] = new Vue({
 export const LSSM = window[PREFIX];
 browserTitle(LSSM);
 if (window.location.pathname === '/') {
-    window.console.info(`Running %cLSSM%c in Version %c${VERSION}%c`, 'font-weight: bold;', 'font-weight: normal;', 'font-style: italic;');
+    window.console.info(
+        `Running %cLSSM%c in Version %c${VERSION}%c`,
+        'font-weight: bold;',
+        'font-weight: normal;',
+        'font-style: italic;'
+    );
     const indicatorWrapper = document.createElement('li');
     document
         .querySelector('.navbar-default .navbar-right')
@@ -42,8 +47,7 @@ if (window.location.pathname === '/') {
     }).$mount(indicatorWrapper);
 }
 (async () => {
-    if (window.location.pathname.match(/^\/users\//))
-        return;
+    if (window.location.pathname.match(/^\/users\//)) return;
     if (window.location.pathname === '/') {
         telemetry(LSSM);
         // TODO: Load core modules releasenotes, support

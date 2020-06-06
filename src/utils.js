@@ -1,4 +1,4 @@
-export default (Vue) => {
+export default Vue => {
     Vue.prototype.$vue = Vue;
     // Vue.prototype.$utils = {};
 };

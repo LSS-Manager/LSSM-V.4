@@ -1,11 +1,11 @@
-const fs = require('fs');
-const Terser = require('terser');
-const packageJson = require('../package');
-const config = require('../src/config');
+import fs from 'fs';
+import Terser from 'terser';
+import packageJson from '../package.json';
+import config from '../src/config';
 
 const script = packageJson.userscript;
 
-const tlds = {};
+const tlds = {} as { [tld: string]: string[] };
 
 Object.values(config.games).forEach(({ shortURL }) => {
     const tld = shortURL

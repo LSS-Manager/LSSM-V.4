@@ -14,6 +14,7 @@ package-lock.json
 webpack.config.js*
 build/index.new.js*
 typings/**/*.js*
+prebuild/**/*.js*
 src/config.js*
 
 # local env files

@@ -16,7 +16,7 @@ console.info(`Let's build that stuff in Version ${version}`);
 const entries = Object.entries(config.games)
     .filter(game => game[0] === 'de_DE')
     .map(game => {
-        const [locale, { name, locale_fallback }] = game;
+        const [locale, { locale_fallback }] = game;
         if (!fs.existsSync(`./src/i18n/${locale}.js`)) return;
         const entry = {
             mode: process.argv[2] || 'development',
@@ -71,7 +71,6 @@ const entries = Object.entries(config.games)
         return entry;
     })
     .filter(entry => entry);
-console.debug(JSON.stringify(entries));
 
 webpack(entries as Configuration[], (err, stats) => {
     if (err) {

@@ -1,7 +1,9 @@
-const copydir = require('copy-dir');
-const config = require('../src/config');
-const staticConfigs = require('../static/.configs');
-const fs = require('fs');
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+import copydir from 'copy-dir';
+import config from '../src/config';
+import staticConfigs from '../static/.configs.json';
+import fs from 'fs';
 
 staticConfigs.acao = `^https://(?:www.)?(?:${Object.values(config.games)
     .map(g => g.shortURL)

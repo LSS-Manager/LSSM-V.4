@@ -11,7 +11,7 @@
 			"dom",
 			"dom.iterable",
 			"scripthost",
-            "es5"
+			"es5"
 		],
 		"module": "ESNext",
 		"moduleResolution": "node",
@@ -21,7 +21,7 @@
 		"target": "esnext",
 		"types": [
 			"webpack-env",
-            "vue"
+			"vue"
 		]
 	},
 	"exclude": [
