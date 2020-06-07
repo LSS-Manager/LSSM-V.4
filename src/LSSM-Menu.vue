@@ -79,6 +79,8 @@ import Vue from 'vue';
 import lssmLogo from './img/lssm_logo';
 import LibraryOverview from './components/libraryOverview.vue';
 import { lssmMenuData } from '../typings/LSSM-Menu';
+import Appstore from './components/appstore.vue';
+import { LSSM } from './core';
 
 const defaultIconBg = '#C9302C';
 
@@ -101,6 +103,41 @@ export default Vue.extend({
     methods: {
         showAppstore() {
             // TODO: Open Appstore
+            this.$modal.show(
+                Appstore,
+                {},
+                {
+                    name: 'appstore',
+                    height: '96%',
+                    width: '96%',
+                },
+                {
+                    'before-close'(event: { stop: () => void }) {
+                        if (!LSSM.$store.state.appstoreUpdate) {
+                            if (LSSM.$store.state.appstoreReload) {
+                                event.stop();
+                                return window.location.reload(true);
+                            }
+                            return;
+                        }
+                        event.stop();
+                        LSSM.$modal.show('dialog', {
+                            title: LSSM.$t(
+                                'modules.appstore.closeWarning.title'
+                            ),
+                            text: LSSM.$t('modules.appstore.closeWarning.text'),
+                            buttons: [
+                                {
+                                    title: LSSM.$t(
+                                        'modules.appstore.closeWarning.close'
+                                    ),
+                                    default: true,
+                                },
+                            ],
+                        });
+                    },
+                }
+            );
         },
         showSettings() {
             // TODO: Open Settings

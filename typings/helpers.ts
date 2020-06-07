@@ -4,6 +4,7 @@ export interface ExtendedWindow {
     keepAlive: boolean;
     tellParent(code: string): void;
     fullScreen: boolean;
+    mapkit: unknown;
 }
 
 export interface IndexedExtendedWindow {

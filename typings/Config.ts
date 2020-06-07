@@ -1,4 +1,4 @@
-import { Games } from './games/Game';
+import { Games } from './Game';
 
 export interface Config {
     admins: string[];

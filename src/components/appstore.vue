@@ -75,10 +75,20 @@
     </lightbox>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue';
 import Lightbox from './lightbox.vue';
+import { AppstoreData } from '../../typings/components/Appstore';
+import { Modules } from '../../typings/Module';
+import { LSSM } from '../core';
+import VueI18n from 'vue-i18n';
 
-export default {
+const $m = (
+    key: string,
+    args?: { [key: string]: unknown }
+): VueI18n.TranslateResult => LSSM.$t(`modules.telemetry.${key}`, args);
+
+export default Vue.extend({
     name: 'appstore',
     components: { Lightbox },
     data() {
@@ -92,8 +102,10 @@ export default {
         );
         return {
             modules,
-            modulesSorted: this.$store.getters.modulesSorted({
-                modules,
+            modulesSorted: Object.keys(modules).sort((a, b) => {
+                a = LSSM.$t(`modules.${a}.name`).toString();
+                b = LSSM.$t(`modules.${b}.name`).toString();
+                return a < b ? -1 : a > b ? 1 : 0;
             }),
             activeStart: Object.keys(this.$store.state.modules).filter(
                 x => this.$store.state.modules[x].active
@@ -101,21 +113,22 @@ export default {
             active: Object.keys(this.$store.state.modules).filter(
                 x => this.$store.state.modules[x].active
             ),
-            mapkit: window.mapkit,
             moduleSearch: '',
-        };
+            $m,
+        } as AppstoreData;
     },
     computed: {
         changes() {
             return !(
                 this.active.length === this.activeStart.length &&
                 this.active.every(
-                    (value, index) => value === this.activeStart[index]
+                    (value: string, index: number) =>
+                        value === this.activeStart[index]
                 )
             );
         },
         modulesFiltered() {
-            return this.modulesSorted.filter(m =>
+            return this.modulesSorted.filter((m: string) =>
                 this.moduleSearch.length > 0
                     ? JSON.stringify([
                           m,
@@ -129,7 +142,7 @@ export default {
         },
     },
     methods: {
-        toggleModule(moduleId, event) {
+        toggleModule(moduleId: keyof Modules, event: { value: any }) {
             if (event.value) {
                 this.active.push(moduleId);
             } else {
@@ -137,10 +150,8 @@ export default {
             }
             this.$store.commit('appStoreState', this.changes);
         },
-        hasMapkitConflict(moduleId) {
-            return (
-                this.modules[moduleId].noMapkit && 'undefined' !== typeof mapkit
-            );
+        hasMapkitConflict(moduleId: keyof Modules) {
+            return this.modules[moduleId].noMapkit && this.$store.state.mapkit;
         },
         save() {
             this.$store
@@ -156,20 +167,21 @@ export default {
                 .catch(err => console.error(err));
         },
         reset() {
-            this.active = [...new Set(this.activeStart)];
-            this.$store.commit('appStoreState', this.changes);
-            document.querySelectorAll('.appstore-toggle').forEach(el => {
-                let input = el.querySelector('input[type="checkbox"]');
-                if (
-                    input.checked !==
-                    this.active.indexOf(el.getAttribute('module')) >= 0
-                )
-                    input.click();
-            });
-            this.save();
+            // TODO: Beautiful reset
+            // this.active = [...new Set(this.activeStart)];
+            // this.$store.commit('appStoreState', this.changes);
+            // document.querySelectorAll('.appstore-toggle').forEach(el => {
+            //     let input = el.querySelector('input[type="checkbox"]');
+            //     if (
+            //         input.checked !==
+            //         this.active.indexOf(el.getAttribute('module')) >= 0
+            //     )
+            //         input.click();
+            // });
+            // this.save();
         },
     },
-};
+});
 </script>
 
 <style scoped lang="sass">

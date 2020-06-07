@@ -10,7 +10,7 @@ import { RootState } from '../typings/store/RootState';
 import { VueConstructor } from 'vue/types/vue';
 import config from './config';
 import { ActionStoreParams, Hook } from '../typings/store/Actions';
-import { LSSMEvent } from '../typings/helpers';
+import { ExtendedWindow, LSSMEvent } from '../typings/helpers';
 import storage from './store/storage';
 
 export default (Vue: VueConstructor): Store<RootState> => {
@@ -28,6 +28,9 @@ export default (Vue: VueConstructor): Store<RootState> => {
             discord: config.discord,
             games: config.games,
             hooks: {},
+            mapkit:
+                'undefined' ===
+                typeof ((window as unknown) as ExtendedWindow).mapkit,
         },
         mutations: {
             addHook(state: RootState, event: string) {

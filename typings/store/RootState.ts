@@ -1,4 +1,4 @@
-import { Games } from '../games/Game';
+import { Games } from '../Game';
 import { returnTypeFunction } from 'typings/helpers';
 
 export interface RootState {
@@ -11,4 +11,5 @@ export interface RootState {
     readonly hooks: {
         [event: string]: returnTypeFunction;
     };
+    readonly mapkit: boolean;
 }

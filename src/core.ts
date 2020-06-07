@@ -38,6 +38,8 @@ Vue.component('font-awesome-icon', FontAwesomeIcon);
     render: h => h(LSSMV4),
 }).$mount(appContainer);
 
+console.log('Und der LSSM wurde einmal gemounted :)');
+
 export const LSSM = ((window as unknown) as IndexedExtendedWindow)[PREFIX];
 
 browserTitle(LSSM);
