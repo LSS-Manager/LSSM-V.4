@@ -634,4 +634,10 @@ module.exports = {
     premiumNotice:
         'Diese Funktion erweitert eine Premium-Funktion des Spiels und ist deshalb nur für Spieler mit einem Leitstellenspiel-Premium-Account verfügbar!',
     credits: 'Credits',
+    close: 'Schließen',
+    fullscreen: {
+        expand: 'Vollbildmodus aktivieren',
+        compress: 'Vollbildmodus deaktivieren',
+    },
+    hideTitle: 'Überschrift anzeigen | Überschrift verstecken',
 };

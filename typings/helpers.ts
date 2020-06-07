@@ -3,6 +3,7 @@ import { Store } from 'vuex';
 export interface ExtendedWindow {
     keepAlive: boolean;
     tellParent(code: string): void;
+    fullScreen: boolean;
 }
 
 export interface IndexedExtendedWindow {
@@ -14,6 +15,10 @@ declare module 'vue/types/vue' {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         $store: Store<any>;
         $vue: VueConstructor;
+        modal: {
+            width: number;
+            height: number;
+        };
         // $utils: {};
     }
 }

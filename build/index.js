@@ -27,7 +27,6 @@ const entries = Object.keys(config.games)
             mode: process.argv[2] || 'development',
             entry: {
                 [`${game}_core`]: './src/core.ts',
-                // [`${game}_blank`]: './src/blank.js',
             },
             output: {
                 path: path.resolve(__dirname, `../dist/${dir}${game}`),

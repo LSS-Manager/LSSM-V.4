@@ -5,45 +5,61 @@
                 v-if="!noXBtn"
                 class="lightbox-close"
                 @click="$modal.hide(name)"
+                :title="$t('close')"
             >
-                <i class="fas fa-times"></i>
+                <font-awesome-icon :icon="faTimes"></font-awesome-icon>
             </span>
             <span
                 v-if="!noFullscreen && !fullscreen"
                 class="toggle-modal-fullscreen"
                 @click="expand"
+                :title="$t('fullscreen.expand')"
             >
-                <i class="fas fa-expand"></i>
+                <font-awesome-icon :icon="faExpand"></font-awesome-icon>
             </span>
             <span
                 v-if="!noFullscreen && fullscreen"
                 class="toggle-modal-fullscreen"
                 @click="compress"
+                :title="$t('fullscreen.compress')"
             >
-                <i class="fas fa-compress"></i>
+                <font-awesome-icon :icon="faCompress"></font-awesome-icon>
             </span>
             <span
                 v-if="!noTitleHide"
                 class="toggle-title"
                 @click="titleHidden = !titleHidden"
+                :title="$tc('hideTitle', !titleHidden)"
             >
-                <i class="fas fa-chevron-up"></i>
+                <font-awesome-icon :icon="faChevronUp"></font-awesome-icon>
             </span>
         </div>
         <slot></slot>
     </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue from 'vue';
+import { faTimes } from '@fortawesome/free-solid-svg-icons/faTimes';
+import { faExpand } from '@fortawesome/free-solid-svg-icons/faExpand';
+import { faCompress } from '@fortawesome/free-solid-svg-icons/faCompress';
+import { faChevronUp } from '@fortawesome/free-solid-svg-icons/faChevronUp';
+import { ExtendedWindow } from '../../typings/helpers';
+
+export default Vue.extend({
     name: 'lightbox',
     data() {
         return {
             fullscreen: false,
-            fullscreenBefore: !!window.fullScreen,
+            fullscreenBefore: ((window as unknown) as ExtendedWindow)
+                .fullScreen,
             origWidth: this.$parent.$parent.modal.width,
             origHeight: this.$parent.$parent.modal.height,
             titleHidden: false,
+            faTimes,
+            faExpand,
+            faCompress,
+            faChevronUp,
         };
     },
     props: {
@@ -72,18 +88,21 @@ export default {
             this.fullscreen = true;
             this.$parent.$parent.modal.width = 100;
             this.$parent.$parent.modal.height = 100;
-            if (!window.fullScreen)
+            if (!((window as unknown) as ExtendedWindow).fullScreen)
                 this.$parent.$parent.$el.requestFullscreen();
         },
         compress() {
             this.fullscreen = false;
             this.$parent.$parent.modal.width = this.origWidth;
             this.$parent.$parent.modal.height = this.origHeight;
-            if (!this.fullscreenBefore && window.fullScreen)
+            if (
+                !this.fullscreenBefore &&
+                ((window as unknown) as ExtendedWindow).fullScreen
+            )
                 document.exitFullscreen();
         },
     },
-};
+});
 </script>
 
 <style scoped lang="sass">
