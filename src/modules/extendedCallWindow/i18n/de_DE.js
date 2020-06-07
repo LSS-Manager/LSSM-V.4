@@ -68,7 +68,7 @@ module.exports = {
             [/^MEK-Fahrzeuge?$/]: [81, 82],
             [/^Polizeihubschrauber$/]: [61],
             [/^Radlader \(BRmG R\)$/]: [43],
-            [/^Rettungshundestaffel\/n$/]: [21], // TODO: Fix this line when Rettungshundestaffel is en route
+            [/^Rettungshundestaffel\/n$/]: [91],
             [/^Rettungstreppen?$/]: [76],
             [/^RTW$/]: [28],
             [/^RTW oder KTW oder KTW-B$/]: [28, 38, 58],
