@@ -4,7 +4,7 @@ In this case, the module is named `template`. Further explanations below.
 .
 ├── template
 │   ├── README.md
-│   ├── main.js
+│   ├── main.ts
 │   ├── register.json
 │   ├── i18n
 │   │   ├── de
@@ -40,8 +40,8 @@ This file contains some basic information on the module:
 
 The file should inform other developers short but precisely so that they don't have to read the code to understand what the module is about.
 
-### main.js
-This is the file requested by the core. Further JS-Files must be located in `assets/js`.
+### main.ts
+This is the file requested by the core. Further TS-Files must be located in `assets/ts/`.
 
 ### register.json
 This file contains necessary information on the module for the core. This may also be a JS-File returning a JSON-Object. Configuration on this file available in the register-File of this module

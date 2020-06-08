@@ -79,9 +79,18 @@ if (window.location.pathname === '/') {
             defaultValue: [],
         })
         .then((activeModules: string[]) => {
+            if (LSSM.$store.state.mapkit)
+                activeModules = activeModules.filter(
+                    module => !LSSM.$store.state.modules[module].noMapkit
+                );
             activeModules.forEach(module => {
                 LSSM.$store.commit('setModuleActive', module);
+                if (
+                    window.location.pathname.match(
+                        LSSM.$store.state.modules[module].location
+                    )
+                )
+                    LSSM.$store.dispatch('loadModule', module);
             });
         });
-    // TODO: Load active Modules
 })();

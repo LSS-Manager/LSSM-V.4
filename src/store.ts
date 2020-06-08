@@ -103,6 +103,15 @@ export default (Vue: VueConstructor): Store<RootState> => {
                         callback(...((event as unknown) as LSSMEvent).detail)
                 );
             },
+            loadModule({ state }: ActionStoreParams, module: keyof Modules) {
+                const script = document.createElement('script');
+                script.src = `${
+                    config.server
+                }${BUILD_LANG}/modules/${module}/main.js?uid=${BUILD_LANG}-${
+                    ((window as unknown) as ExtendedWindow).user_id
+                }&v=${state.version}`;
+                document.body.appendChild(script);
+            },
         } as ActionTree<RootState, RootState>,
     } as StoreOptions<RootState>);
 };

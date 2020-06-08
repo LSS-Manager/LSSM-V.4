@@ -5,6 +5,7 @@ export interface ExtendedWindow {
     tellParent(code: string): void;
     fullScreen: boolean;
     mapkit: unknown;
+    user_id: number;
 }
 
 export interface IndexedExtendedWindow {

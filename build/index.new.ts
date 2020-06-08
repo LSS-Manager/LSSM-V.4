@@ -14,6 +14,10 @@ const dir = process.argv[2] === 'production' ? 'stable/' : 'beta/';
 
 console.info(`Let's build that stuff in Version ${version}`);
 
+const moduleDirs = fs.readdirSync(`./src/modules/`);
+
+const moduleEntries = [] as Configuration[];
+
 const entries = Object.entries(config.games)
     .filter(
         game => game[0] === 'de_DE' && fs.existsSync(`./src/i18n/${game[0]}.ts`)
@@ -34,7 +38,7 @@ const entries = Object.entries(config.games)
                     )}.js`,
             },
             ...lodash.cloneDeep(webpackConfig),
-        };
+        } as Configuration;
         const fallbackLocales = [];
         if (locale_fallback) {
             fallbackLocales.push(locale_fallback);
@@ -45,7 +49,7 @@ const entries = Object.entries(config.games)
             }
         }
 
-        const modules = fs.readdirSync(`./src/modules/`).filter(module => {
+        const modules = moduleDirs.filter(module => {
             if (
                 config.modules['core-modules'].includes(module) ||
                 module === 'template'
@@ -58,7 +62,7 @@ const entries = Object.entries(config.games)
             );
         });
 
-        entry.plugins.unshift(
+        entry.plugins?.unshift(
             new webpack.DefinePlugin({
                 PREFIX: JSON.stringify(config.prefix),
                 BUILD_LANG: JSON.stringify(locale),
@@ -91,12 +95,84 @@ const entries = Object.entries(config.games)
                 new RegExp(`${[locale, ...fallbackLocales].join('|')}$`)
             )
         );
+
+        const modulesEntry = {
+            ...lodash.cloneDeep(entry),
+            output: {
+                path: path.resolve(
+                    __dirname,
+                    `../dist/${dir}${locale}/modules`
+                ),
+                filename: (chunkData: ChunkData) =>
+                    `${chunkData.chunk.name.replace(
+                        /^[a-z]{2}_[A-Z]{2}_/,
+                        ''
+                    )}/main.js`,
+            },
+        } as Configuration;
+        modulesEntry.entry = {
+            ...Object.fromEntries(
+                modules
+                    .filter(module =>
+                        fs.existsSync(`./src/modules/${module}/main.ts`)
+                    )
+                    .map(module => {
+                        try {
+                            require(`../src/modules/${module}/i18n/${locale}`);
+                            modulesEntry.module?.rules.unshift({
+                                test: new RegExp(`modules/${module}/main.ts$`),
+                                use: [
+                                    {
+                                        loader: 'webpack-loader-append-prepend',
+                                        options: {
+                                            prepend: `window[${JSON.stringify(
+                                                config.prefix
+                                            )}].$i18n.mergeLocaleMessage(${JSON.stringify(
+                                                locale
+                                            )},{modules:{${module}: require(\`${path.resolve(
+                                                __dirname,
+                                                `../src/modules/${module}/i18n/${locale}`
+                                            )}\`),},});`,
+                                        },
+                                    },
+                                ],
+                            });
+                        } catch {
+                            // Eh, do nothing? Yes!
+                        }
+                        modulesEntry.module?.rules.push({
+                            test: new RegExp(
+                                `modules/${module}/.*\\.(ts|vue)$`
+                            ),
+                            loader: 'string-replace-loader',
+                            query: {
+                                multiple: [
+                                    {
+                                        search: /MODULE_ID/g,
+                                        replace: JSON.stringify(module),
+                                    },
+                                ],
+                            },
+                        });
+                        return [
+                            `${locale}_${module}`,
+                            path.resolve(
+                                __dirname,
+                                `../src/modules/${module}/main.ts`
+                            ),
+                        ];
+                    })
+            ),
+        };
+
+        moduleEntries.push(modulesEntry);
+
         return entry;
     })
     .filter(entry => entry);
 
 console.log('Generated configurations. Building…');
-webpack(entries as Configuration[], (err, stats) => {
+webpack([...entries, ...moduleEntries], (err, stats) => {
     if (err) {
         console.error(err.stack || err);
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment

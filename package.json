@@ -75,8 +75,8 @@
         "vuepress-plugin-smooth-scroll": "^0.0.9",
         "vuepress-plugin-zooming": "^1.1.7",
         "webpack": "^4.43.0",
-        "webpack-append": "^0.1.2",
-        "webpack-cli": "^3.3.11"
+        "webpack-cli": "^3.3.11",
+        "webpack-loader-append-prepend": "^1.0.2"
     },
     "prettier": {
         "endOfLine": "lf",
