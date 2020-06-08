@@ -3,10 +3,10 @@
         <h1>
             AppStore
             <button class="btn btn-success" :disabled="!changes" @click="save">
-                {{ $t('modules.appstore.save') }}
+                {{ $m('save') }}
             </button>
             <button class="btn btn-danger" :disabled="!changes" @click="reset">
-                {{ $t('modules.appstore.reset') }}
+                {{ $m('reset') }}
             </button>
         </h1>
         <label class="search_label">
@@ -28,33 +28,28 @@
                 }"
             >
                 <toggle-button
-                    @change="toggleModule(moduleId, $event)"
                     class="pull-right appstore-toggle"
-                    :active="active.indexOf(moduleId) >= 0"
-                    :mapkit="hasMapkitConflict(moduleId)"
-                    :value="
-                        hasMapkitConflict(moduleId)
-                            ? false
-                            : active.indexOf(moduleId) >= 0
-                    "
+                    v-model="modules[moduleId].active"
                     :id="
-                        $store.getters['nodeId'](`appstore-toggle-${moduleId}`)
+                        $store.getters.nodeAttribute(
+                            `appstore-toggle-${moduleId}`
+                        )
                     "
-                    :module="moduleId"
                     :disabled="hasMapkitConflict(moduleId)"
                     labels
+                    :ref="`moduleSwitch_${moduleId}`"
                 ></toggle-button>
                 <a
-                    :href="$store.getters['wikiModul'](moduleId)"
+                    :href="$store.getters.moduleWiki(moduleId)"
                     class="pull-right lightbox-open wiki-btn"
                 >
                     <span class="glyphicon glyphicon-info-sign"></span>
                 </a>
                 <small v-if="hasMapkitConflict(moduleId)" class="mapkit-notice">
-                    {{ $t('modules.appstore.noMapkit') }}
+                    {{ $m('noMapkit') }}
                 </small>
                 <small v-if="modules[moduleId].dev" class="dev-notice">
-                    {{ $t('modules.appstore.dev') }}
+                    {{ $m('dev') }}
                 </small>
                 <div class="appstore-content">
                     <h4>
@@ -82,11 +77,7 @@ import { AppstoreData } from '../../typings/components/Appstore';
 import { Modules } from '../../typings/Module';
 import { LSSM } from '../core';
 import VueI18n from 'vue-i18n';
-
-const $m = (
-    key: string,
-    args?: { [key: string]: unknown }
-): VueI18n.TranslateResult => LSSM.$t(`modules.telemetry.${key}`, args);
+import isEqual from 'lodash/isEqual';
 
 export default Vue.extend({
     name: 'appstore',
@@ -100,6 +91,7 @@ export default Vue.extend({
                     description: this.$t(`modules.${moduleId}.description`),
                 })
         );
+        console.log('data of Appstore');
         return {
             modules,
             modulesSorted: Object.keys(modules).sort((a, b) => {
@@ -107,28 +99,21 @@ export default Vue.extend({
                 b = LSSM.$t(`modules.${b}.name`).toString();
                 return a < b ? -1 : a > b ? 1 : 0;
             }),
-            activeStart: Object.keys(this.$store.state.modules).filter(
-                x => this.$store.state.modules[x].active
-            ),
-            active: Object.keys(this.$store.state.modules).filter(
-                x => this.$store.state.modules[x].active
-            ),
+            activeStart: [...this.$store.getters.activeModules],
             moduleSearch: '',
-            $m,
         } as AppstoreData;
     },
     computed: {
-        changes() {
-            return !(
-                this.active.length === this.activeStart.length &&
-                this.active.every(
-                    (value: string, index: number) =>
-                        value === this.activeStart[index]
-                )
-            );
+        active(): string[] {
+            return Object.keys(this.modules)
+                .filter(module => this.modules[module].active)
+                .sort();
         },
-        modulesFiltered() {
-            return this.modulesSorted.filter((m: string) =>
+        changes(): boolean {
+            return !isEqual(this.active, [...this.activeStart].sort());
+        },
+        modulesFiltered(): (string | number)[] {
+            return this.modulesSorted.filter(m =>
                 this.moduleSearch.length > 0
                     ? JSON.stringify([
                           m,
@@ -142,44 +127,39 @@ export default Vue.extend({
         },
     },
     methods: {
-        toggleModule(moduleId: keyof Modules, event: { value: any }) {
-            if (event.value) {
-                this.active.push(moduleId);
-            } else {
-                this.active.splice(this.active.indexOf(moduleId), 1);
-            }
-            this.$store.commit('appStoreState', this.changes);
-        },
         hasMapkitConflict(moduleId: keyof Modules) {
             return this.modules[moduleId].noMapkit && this.$store.state.mapkit;
         },
         save() {
             this.$store
                 .dispatch('storage/set', {
-                    key: 'active',
-                    val: [...new Set(this.active)],
+                    key: 'activeModules',
+                    value: [...new Set(this.active)],
                 })
                 .then(() => {
                     this.activeStart = [...new Set(this.active)];
-                    this.$store.commit('appStoreState', this.changes);
-                    this.$store.commit('appStoreReload', true);
+                    this.$store.commit('setAppstoreChanges', this.changes);
+                    this.$store.commit('setAppstoreReload');
                 })
                 .catch(err => console.error(err));
         },
         reset() {
-            // TODO: Beautiful reset
-            // this.active = [...new Set(this.activeStart)];
-            // this.$store.commit('appStoreState', this.changes);
-            // document.querySelectorAll('.appstore-toggle').forEach(el => {
-            //     let input = el.querySelector('input[type="checkbox"]');
-            //     if (
-            //         input.checked !==
-            //         this.active.indexOf(el.getAttribute('module')) >= 0
-            //     )
-            //         input.click();
-            // });
-            // this.save();
+            Object.keys(this.modules).forEach(module => {
+                this.$set(
+                    this.modules[module],
+                    'active',
+                    this.activeStart.includes(module)
+                );
+                ((this.$refs[`moduleSwitch_${module}`] as unknown) as {
+                    toggled: boolean;
+                }[])[0].toggled = this.activeStart.includes(module);
+            });
+            this.$store.commit('setAppstoreChanges', this.changes);
         },
+        $m: (
+            key: string,
+            args?: { [key: string]: unknown }
+        ): VueI18n.TranslateResult => LSSM.$t(`modules.appstore.${key}`, args),
     },
 });
 </script>

@@ -23,7 +23,7 @@ export default Vue.extend({
 @import "~vue-select/src/scss/vue-select.scss"
 
 body.dark
-    .v--modal-box
+    .vm--modal
         background-color: #505050
         color: white
 

@@ -1,8 +1,4 @@
-const moduleRootFiles = require.context(
-    '../',
-    true,
-    /modules\/(?!template).*?\/i18n\/de_DE.root(\/index)?\.js(on)?$/
-);
+const moduleRootFiles = require.context('../', true, MODULE_ROOT_I18N_FILES);
 const furtherFiles = require.context('./de_DE/', true, /.*(\/index)?\.js(on)?/);
 const modules = {
     appstore: {
@@ -39,12 +35,12 @@ const modules = {
             close: 'Meldung schliessen',
         },
     },
-};
+} as { [moduleId: string]: { [key: string]: unknown } };
 moduleRootFiles
     .keys()
     .forEach(key => (modules[key.split('/')[2]] = moduleRootFiles(key)));
 
-const t = {};
+const t = {} as { [key: string]: unknown };
 
 furtherFiles
     .keys()
@@ -52,7 +48,7 @@ furtherFiles
         key => (t[key.split('/')[1].replace(/\..*$/, '')] = furtherFiles(key))
     );
 
-module.exports = {
+export default {
     modules,
     ...t,
     error: {

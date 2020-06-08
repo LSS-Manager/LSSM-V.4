@@ -6,6 +6,7 @@ import config from '../src/config';
 import webpackConfig from '../webpack.config';
 import webpack, { ChunkData, Configuration } from 'webpack';
 import moment from 'moment';
+import { Module } from '../typings/Module';
 
 console.time('build');
 
@@ -14,10 +15,11 @@ const dir = process.argv[2] === 'production' ? 'stable/' : 'beta/';
 console.info(`Let's build that stuff in Version ${version}`);
 
 const entries = Object.entries(config.games)
-    .filter(game => game[0] === 'de_DE')
+    .filter(
+        game => game[0] === 'de_DE' && fs.existsSync(`./src/i18n/${game[0]}.ts`)
+    )
     .map(game => {
         const [locale, { locale_fallback }] = game;
-        if (!fs.existsSync(`./src/i18n/${locale}.js`)) return;
         const entry = {
             mode: process.argv[2] || 'development',
             entry: {
@@ -43,6 +45,19 @@ const entries = Object.entries(config.games)
             }
         }
 
+        const modules = fs.readdirSync(`./src/modules/`).filter(module => {
+            if (
+                config.modules['core-modules'].includes(module) ||
+                module === 'template'
+            )
+                return;
+            // eslint-disable-next-line @typescript-eslint/no-var-requires
+            const registration = require(`../src/modules/${module}/register`) as Module;
+            return (
+                !registration.locales || registration.locales?.includes(locale)
+            );
+        });
+
         entry.plugins.unshift(
             new webpack.DefinePlugin({
                 PREFIX: JSON.stringify(config.prefix),
@@ -50,6 +65,14 @@ const entries = Object.entries(config.games)
                 VERSION: JSON.stringify(version),
                 MODE: process.argv[2] === 'production' ? '"stable"' : '"beta"',
                 FALLBACK_LOCALES: JSON.stringify(fallbackLocales),
+                MODULE_REGISTER_FILES: new RegExp(
+                    `modules\\/(${modules.join('|')})\\/register\\.js(on)?`
+                ),
+                MODULE_ROOT_I18N_FILES: new RegExp(
+                    `modules\\/(${modules.join(
+                        '|'
+                    )})\\/i18n\\/${locale}.root(\\/index)?\\.js(on)?$`
+                ),
             }),
             new webpack.ContextReplacementPlugin(
                 /moment\/locale$/,
@@ -72,6 +95,7 @@ const entries = Object.entries(config.games)
     })
     .filter(entry => entry);
 
+console.log('Generated configurations. Building…');
 webpack(entries as Configuration[], (err, stats) => {
     if (err) {
         console.error(err.stack || err);

@@ -11,7 +11,8 @@ export default (Vue: VueConstructor): VueI18n => {
             ...Object.fromEntries(
                 [BUILD_LANG, ...FALLBACK_LOCALES].map(locale => [
                     locale,
-                    require(`./i18n/${locale}`),
+                    // eslint-disable-next-line @typescript-eslint/no-var-requires
+                    require(`./i18n/${locale}`).default,
                 ])
             ),
         },

@@ -12,6 +12,8 @@ import config from './config';
 import { ActionStoreParams, Hook } from '../typings/store/Actions';
 import { ExtendedWindow, LSSMEvent } from '../typings/helpers';
 import storage from './store/storage';
+import modules from './registerModules';
+import { Modules } from 'typings/Module';
 
 export default (Vue: VueConstructor): Store<RootState> => {
     Vue.use(Vuex);
@@ -29,8 +31,13 @@ export default (Vue: VueConstructor): Store<RootState> => {
             games: config.games,
             hooks: {},
             mapkit:
-                'undefined' ===
+                'undefined' !==
                 typeof ((window as unknown) as ExtendedWindow).mapkit,
+            modules,
+            appstore: {
+                changes: false,
+                reload: false,
+            },
         },
         mutations: {
             addHook(state: RootState, event: string) {
@@ -38,12 +45,34 @@ export default (Vue: VueConstructor): Store<RootState> => {
                 // @ts-ignore
                 state.hooks[event] = window[event];
             },
+            setModuleActive(state: RootState, moduleId: keyof Modules) {
+                state.modules[moduleId].active = true;
+            },
+            setAppstoreChanges(state: RootState, changes: boolean) {
+                state.appstore.changes = changes;
+            },
+            setAppstoreReload(state: RootState) {
+                state.appstore.reload = true;
+            },
         } as MutationTree<RootState>,
         getters: {
             nodeAttribute: (state: RootState) => (attr: string): string =>
                 `${state.prefix}-${attr}`,
             wiki: (state: RootState): string =>
                 `${config.server}docs/${state.lang}`,
+            moduleWiki: (_, getters: GetterTree<RootState, RootState>) => (
+                moduleId: keyof Modules
+            ): string => `${getters.wiki}/modules/${moduleId}.html`,
+            appModules: (state: RootState) =>
+                Object.fromEntries(
+                    Object.entries(state.modules).filter(
+                        module => !module[1].noapp
+                    )
+                ),
+            activeModules: (state: RootState) =>
+                Object.keys(state.modules).filter(
+                    module => state.modules[module].active
+                ),
         } as GetterTree<RootState, RootState>,
         actions: {
             hook(

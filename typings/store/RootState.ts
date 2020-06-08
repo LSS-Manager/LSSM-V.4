@@ -1,5 +1,6 @@
 import { Games } from '../Game';
 import { returnTypeFunction } from 'typings/helpers';
+import { Modules } from '../Module';
 
 export interface RootState {
     readonly prefix: string;
@@ -12,4 +13,9 @@ export interface RootState {
         [event: string]: returnTypeFunction;
     };
     readonly mapkit: boolean;
+    readonly modules: Modules;
+    readonly appstore: {
+        changes: boolean;
+        reload: boolean;
+    };
 }

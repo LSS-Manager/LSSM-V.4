@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import VueJSModal from 'vue-js-modal';
+import ToggleButton from 'vue-js-toggle-button';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import LSSMV4 from './LSSMV4.vue';
 import LSSMMenu from './LSSM-Menu.vue';
@@ -8,6 +9,7 @@ import i18n from './i18n';
 import utils from './utils';
 import browserTitle from './natives/browserTitle';
 import telemetry from './modules/telemetry/main';
+import config from './config';
 import { ExtendedWindow, IndexedExtendedWindow } from '../typings/helpers';
 
 require('./natives/navTabsClicker');
@@ -29,6 +31,7 @@ Vue.use(VueJSModal, {
     },
     dialog: true,
 });
+Vue.use(ToggleButton);
 
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 
@@ -70,5 +73,15 @@ if (window.location.pathname === '/') {
         telemetry(LSSM);
         // TODO: Load core modules releasenotes, support
     }
+    LSSM.$store
+        .dispatch('storage/get', {
+            key: 'activeModules',
+            defaultValue: [],
+        })
+        .then((activeModules: string[]) => {
+            activeModules.forEach(module => {
+                LSSM.$store.commit('setModuleActive', module);
+            });
+        });
     // TODO: Load active Modules
 })();

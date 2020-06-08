@@ -112,15 +112,15 @@ export default Vue.extend({
                     width: '96%',
                 },
                 {
-                    'before-close'(event: { stop: () => void }) {
-                        if (!LSSM.$store.state.appstoreUpdate) {
-                            if (LSSM.$store.state.appstoreReload) {
-                                event.stop();
+                    'before-close'(event: { cancel: () => void }) {
+                        if (!LSSM.$store.state.appstore.changes) {
+                            if (LSSM.$store.state.appstore.reload) {
+                                event.cancel();
                                 return window.location.reload(true);
                             }
                             return;
                         }
-                        event.stop();
+                        event.cancel();
                         LSSM.$modal.show('dialog', {
                             title: LSSM.$t(
                                 'modules.appstore.closeWarning.title'
