@@ -62,6 +62,7 @@ body.dark
     .vm--modal
         padding: 1rem
         overflow: auto !important
+        max-height: 100vh !important
 
 .vue-tablist
     list-style: none

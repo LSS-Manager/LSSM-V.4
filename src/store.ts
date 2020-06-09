@@ -38,6 +38,7 @@ export default (Vue: VueConstructor): Store<RootState> => {
                 changes: false,
                 reload: false,
             },
+            menuItems: [],
         },
         mutations: {
             addHook(state: RootState, event: string) {
@@ -53,6 +54,9 @@ export default (Vue: VueConstructor): Store<RootState> => {
             },
             setAppstoreReload(state: RootState) {
                 state.appstore.reload = true;
+            },
+            addMenuItem(state: RootState, element: HTMLAnchorElement) {
+                state.menuItems.push(element);
             },
         } as MutationTree<RootState>,
         getters: {
@@ -111,6 +115,13 @@ export default (Vue: VueConstructor): Store<RootState> => {
                     ((window as unknown) as ExtendedWindow).user_id
                 }&v=${state.version}`;
                 document.body.appendChild(script);
+            },
+            addMenuItem({ commit }: ActionStoreParams, text: string) {
+                const menuItem = document.createElement('a');
+                menuItem.href = '#';
+                menuItem.innerText = text;
+                commit('addMenuItem', menuItem);
+                return menuItem;
             },
         } as ActionTree<RootState, RootState>,
     } as StoreOptions<RootState>);

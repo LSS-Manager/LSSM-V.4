@@ -73,9 +73,10 @@ const entries = Object.entries(config.games)
                     `modules\\/(${modules.join('|')})\\/register\\.js(on)?`
                 ),
                 MODULE_ROOT_I18N_FILES: new RegExp(
-                    `modules\\/(${modules.join(
-                        '|'
-                    )})\\/i18n\\/${locale}.root(\\/index)?\\.js(on)?$`
+                    `modules\\/(${[
+                        ...modules,
+                        ...config.modules['core-modules'],
+                    ].join('|')})\\/i18n\\/${locale}.root(\\/index)?\\.js(on)?$`
                 ),
             }),
             new webpack.ContextReplacementPlugin(

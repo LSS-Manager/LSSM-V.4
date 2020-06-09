@@ -166,7 +166,7 @@
 	},
 	"typescript": {
 		"url": "https://www.typescriptlang.org/",
-		"version": "3.9.3"
+		"version": "3.9.5"
 	},
 	"ua-parser-js": {
 		"icon": "https://raw.githubusercontent.com/faisalman/ua-parser-js/gh-pages/images/logo.png",
@@ -244,13 +244,13 @@
 		"url": "https://github.com/webpack/webpack",
 		"version": "4.43.0"
 	},
-	"webpack-append": {
-		"url": "https://github.com/dumconstantin/webpack-append",
-		"version": "0.1.2"
-	},
 	"webpack-cli": {
 		"icon": "https://webpack.js.org/assets/icon-square-big.svg",
 		"url": "https://webpack.js.org/api/cli/",
 		"version": "3.3.11"
+	},
+	"webpack-loader-append-prepend": {
+		"url": "https://github.com/fedemp/webpack-loader-append-prepend",
+		"version": "1.0.2"
 	}
 }

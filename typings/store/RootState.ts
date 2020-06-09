@@ -18,4 +18,5 @@ export interface RootState {
         changes: boolean;
         reload: boolean;
     };
+    readonly menuItems: HTMLAnchorElement[];
 }

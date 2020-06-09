@@ -41,9 +41,14 @@
             <li role="presentation" class="divider"></li>
             <li
                 role="presentation"
+                v-for="(item, index) in menuItems"
+                :key="index"
+                v-child="item"
+            ></li>
+            <li
+                role="presentation"
                 class="divider"
-                :id="$store.getters.nodeAttribute('indicator_menu-modules')"
-                style="display: none;"
+                :class="{ hidden: !menuItems.length }"
             ></li>
             <li role="presentation">
                 <a :href="discord" target="_blank">
@@ -81,6 +86,7 @@ import LibraryOverview from './components/libraryOverview.vue';
 import { lssmMenuData } from '../typings/LSSM-Menu';
 import Appstore from './components/appstore.vue';
 import { LSSM } from './core';
+import { mapState } from 'vuex';
 
 const defaultIconBg = '#C9302C';
 
@@ -100,9 +106,18 @@ export default Vue.extend({
             mode: this.$store.state.mode,
         } as lssmMenuData;
     },
+    computed: {
+        ...mapState(['menuItems']),
+    },
+    directives: {
+        child: {
+            inserted(el, dir) {
+                el.appendChild(dir.value);
+            },
+        },
+    },
     methods: {
         showAppstore() {
-            // TODO: Open Appstore
             this.$modal.show(
                 Appstore,
                 {},
@@ -169,6 +184,7 @@ export default Vue.extend({
                 defaultValue: defaultIconBg,
             })
             .then(iconBG => (this.iconBg = iconBG));
+        // TODO: Load labelInMenu-Setting
         // this.$store
         //     .dispatch('settings/getSetting', {
         //         moduleId: 'global',

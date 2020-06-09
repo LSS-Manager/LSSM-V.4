@@ -9,7 +9,7 @@ import i18n from './i18n';
 import utils from './utils';
 import browserTitle from './natives/browserTitle';
 import telemetry from './modules/telemetry/main';
-import config from './config';
+import releasenotes from './modules/releasenotes/main';
 import { ExtendedWindow, IndexedExtendedWindow } from '../typings/helpers';
 
 require('./natives/navTabsClicker');
@@ -71,7 +71,8 @@ if (window.location.pathname === '/') {
     if (window.location.pathname.match(/^\/users\//)) return;
     if (window.location.pathname === '/') {
         telemetry(LSSM);
-        // TODO: Load core modules releasenotes, support
+        releasenotes(LSSM);
+        // TODO: Load core modules: [support]
     }
     LSSM.$store
         .dispatch('storage/get', {
