@@ -83,14 +83,25 @@
 import Vue from 'vue';
 import lssmLogo from './img/lssm_logo';
 import LibraryOverview from './components/libraryOverview.vue';
-import { lssmMenuData } from '../typings/LSSM-Menu';
 import Appstore from './components/appstore.vue';
+import Settings from './components/settings.vue';
 import { LSSM } from './core';
 import { mapState } from 'vuex';
+import {
+    lssmMenuComputed,
+    lssmMenuData,
+    lssmMenuMethods,
+} from '../typings/LSSM-Menu';
+import { DefaultProps } from 'vue/types/options';
 
 const defaultIconBg = '#C9302C';
 
-export default Vue.extend({
+export default Vue.extend<
+    lssmMenuData,
+    lssmMenuMethods,
+    lssmMenuComputed,
+    DefaultProps
+>({
     name: 'lssm-menu',
     components: {},
     data() {
@@ -104,7 +115,7 @@ export default Vue.extend({
             wiki: this.$store.getters.wiki,
             version: this.$store.state.version,
             mode: this.$store.state.mode,
-        } as lssmMenuData;
+        };
     },
     computed: {
         ...mapState(['menuItems']),
@@ -155,7 +166,20 @@ export default Vue.extend({
             );
         },
         showSettings() {
-            // TODO: Open Settings
+            LSSM.$modal.show(
+                Settings,
+                {},
+                {
+                    name: 'settings',
+                    height: '96%',
+                    width: '96%',
+                },
+                {
+                    'before-close'(event: { cancel: () => void }) {
+                        // TODO: close settings
+                    },
+                }
+            );
         },
         showLibraries() {
             this.$modal.show(

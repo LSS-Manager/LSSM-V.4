@@ -12,9 +12,22 @@
     </lightbox>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue';
 import Lightbox from '../../components/lightbox.vue';
-export default {
+import {
+    DefaultData,
+    DefaultMethods,
+    DefaultComputed,
+} from 'vue/types/options';
+import { ReleaseNoteProps } from 'typings/modules/Releasenotes';
+
+export default Vue.extend<
+    DefaultData<Vue>,
+    DefaultMethods<Vue>,
+    DefaultComputed,
+    ReleaseNoteProps
+>({
     name: 'releasenotes',
     components: { Lightbox },
     props: {
@@ -23,7 +36,7 @@ export default {
             required: true,
         },
     },
-};
+});
 </script>
 
 <style scoped lang="sass">

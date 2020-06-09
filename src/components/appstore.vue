@@ -73,46 +73,52 @@
 <script lang="ts">
 import Vue from 'vue';
 import Lightbox from './lightbox.vue';
-import { AppstoreData } from '../../typings/components/Appstore';
-import { Modules } from '../../typings/Module';
+import {
+    AppstoreComputed,
+    AppstoreData,
+    AppstoreMethods,
+} from '../../typings/components/Appstore';
 import { LSSM } from '../core';
-import VueI18n from 'vue-i18n';
 import isEqual from 'lodash/isEqual';
+import { Modules } from '../../typings/Module';
+import { DefaultProps } from 'vue/types/options';
 
-export default Vue.extend({
+export default Vue.extend<
+    AppstoreData,
+    AppstoreMethods,
+    AppstoreComputed,
+    DefaultProps
+>({
     name: 'appstore',
     components: { Lightbox },
     data() {
-        let modules = this.$store.getters.appModules;
+        let modules = this.$store.getters.appModules as Modules;
         Object.keys(modules).forEach(
             moduleId =>
                 (modules[moduleId] = {
                     ...modules[moduleId],
-                    description: this.$t(`modules.${moduleId}.description`),
+                    description: this.$t(
+                        `modules.${moduleId}.description`
+                    ).toString(),
                 })
         );
-        console.log('data of Appstore');
         return {
             modules,
-            modulesSorted: Object.keys(modules).sort((a, b) => {
-                a = LSSM.$t(`modules.${a}.name`).toString();
-                b = LSSM.$t(`modules.${b}.name`).toString();
-                return a < b ? -1 : a > b ? 1 : 0;
-            }),
-            activeStart: [...this.$store.getters.activeModules],
-            moduleSearch: '',
-        } as AppstoreData;
+            modulesSorted: this.$store.getters.modulesSorted as string[],
+            activeStart: [...this.$store.getters.activeModules] as string[],
+            moduleSearch: '' as string,
+        };
     },
     computed: {
-        active(): string[] {
+        active() {
             return Object.keys(this.modules)
                 .filter(module => this.modules[module].active)
                 .sort();
         },
-        changes(): boolean {
+        changes() {
             return !isEqual(this.active, [...this.activeStart].sort());
         },
-        modulesFiltered(): (string | number)[] {
+        modulesFiltered() {
             return this.modulesSorted.filter(m =>
                 this.moduleSearch.length > 0
                     ? JSON.stringify([
@@ -127,7 +133,7 @@ export default Vue.extend({
         },
     },
     methods: {
-        hasMapkitConflict(moduleId: keyof Modules) {
+        hasMapkitConflict(moduleId) {
             return this.modules[moduleId].noMapkit && this.$store.state.mapkit;
         },
         save() {
@@ -156,10 +162,7 @@ export default Vue.extend({
             });
             this.$store.commit('setAppstoreChanges', this.changes);
         },
-        $m: (
-            key: string,
-            args?: { [key: string]: unknown }
-        ): VueI18n.TranslateResult => LSSM.$t(`modules.appstore.${key}`, args),
+        $m: (key, args) => LSSM.$t(`modules.appstore.${key}`, args),
     },
 });
 </script>

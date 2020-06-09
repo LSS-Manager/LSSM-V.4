@@ -15,13 +15,13 @@
             <li
                 v-for="libraryName in librariesFiltered"
                 :key="libraryName"
-                :library="(library = libraries[libraryName])"
+                :library="(lib = libraries[libraryName])"
                 class="card"
             >
-                <a :href="library.url" class="lightbox-open">
+                <a :href="lib.url" class="lightbox-open">
                     <img
                         :src="
-                            library.icon ||
+                            lib.icon ||
                                 'https://github.githubassets.com/pinned-octocat.svg'
                         "
                         :alt="libraryName"
@@ -30,8 +30,7 @@
                 <div class="linebreak"></div>
                 <a
                     :href="
-                        library.url ||
-                            `https://yarnpkg.com/package/${libraryName}`
+                        lib.url || `https://yarnpkg.com/package/${libraryName}`
                     "
                     class="lightbox-open"
                 >
@@ -42,7 +41,7 @@
                 <div class="linebreak"></div>
                 <small>
                     Version:
-                    <code> {{ library.version }}</code>
+                    <code> {{ lib.version }}</code>
                 </small>
             </li>
         </ul>
@@ -53,16 +52,25 @@
 import Vue from 'vue';
 import Lightbox from './lightbox.vue';
 import libraries from '../libraries.json';
-import { LibraryOverviewData } from '../../typings/components/LibraryOverview';
+import {
+    LibraryOverviewData,
+    LibraryOverviewComputed,
+} from '../../typings/components/LibraryOverview';
+import { DefaultMethods, DefaultProps } from 'vue/types/options';
 
-export default Vue.extend({
+export default Vue.extend<
+    LibraryOverviewData,
+    DefaultMethods<Vue>,
+    LibraryOverviewComputed,
+    DefaultProps
+>({
     name: 'libraryOverview',
     components: { Lightbox },
     data() {
         return {
             librarySearch: '',
             libraries,
-        } as LibraryOverviewData;
+        };
     },
     computed: {
         librariesFiltered(): string[] {

@@ -45,8 +45,19 @@ import { faExpand } from '@fortawesome/free-solid-svg-icons/faExpand';
 import { faCompress } from '@fortawesome/free-solid-svg-icons/faCompress';
 import { faChevronUp } from '@fortawesome/free-solid-svg-icons/faChevronUp';
 import { ExtendedWindow } from '../../typings/helpers';
+import {
+    LightboxData,
+    LightboxMethods,
+    LightboxProps,
+} from '../../typings/components/Lightbox';
+import { DefaultComputed } from 'vue/types/options';
 
-export default Vue.extend({
+export default Vue.extend<
+    LightboxData,
+    LightboxMethods,
+    DefaultComputed,
+    LightboxProps
+>({
     name: 'lightbox',
     data() {
         return {

@@ -7,8 +7,19 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import { LSSMV4Data } from '../typings/LSSMV4';
+import {
+    DefaultMethods,
+    DefaultComputed,
+    DefaultProps,
+} from 'vue/types/options';
 
-export default Vue.extend({
+export default Vue.extend<
+    LSSMV4Data,
+    DefaultMethods<Vue>,
+    DefaultComputed,
+    DefaultProps
+>({
     name: 'LSSMV4',
     components: {},
     data() {

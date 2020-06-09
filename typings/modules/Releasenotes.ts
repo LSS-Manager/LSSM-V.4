@@ -3,3 +3,7 @@ export interface Releasenote {
     title: string;
     version: string;
 }
+
+export interface ReleaseNoteProps {
+    notes: Releasenote[];
+}

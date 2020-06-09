@@ -7,6 +7,7 @@ export interface Module {
     collisions: null | (keyof Modules)[];
     noapp: boolean;
     noMapkit: boolean;
+    description: string;
 }
 
 export interface Modules {

@@ -1,7 +1,5 @@
-import { Settings } from '../../Setting';
+import { ModuleSettings } from '../../Setting';
 
 export interface SettingsState {
-    settings: {
-        [moduleId: string]: Settings;
-    };
+    settings: ModuleSettings;
 }

@@ -4,27 +4,33 @@
             <input
                 :name="name"
                 :placeholder="placeholder"
-                :value="value"
                 :min="min"
                 :max="max"
                 :step="step"
                 :disabled="disabled"
                 type="number"
                 class="form-control"
-                v-on="listeners"
+                v-model="updateValue"
             />
         </label>
     </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue from 'vue';
+import {
+    NumberProps,
+    NumberComputed,
+} from '../../../typings/components/setting/Number';
+import { DefaultData, DefaultMethods } from 'vue/types/options';
+
+export default Vue.extend<
+    DefaultData<Vue>,
+    DefaultMethods<Vue>,
+    NumberComputed,
+    NumberProps
+>({
     name: 'settings-number',
-    data() {
-        return {
-            listeners: this.$listeners,
-        };
-    },
     props: {
         name: {
             type: String,
@@ -56,7 +62,17 @@ export default {
             default: false,
         },
     },
-};
+    computed: {
+        updateValue: {
+            get() {
+                return this.value;
+            },
+            set(value) {
+                this.$emit('input', value);
+            },
+        },
+    },
+});
 </script>
 
 <style scoped lang="sass">

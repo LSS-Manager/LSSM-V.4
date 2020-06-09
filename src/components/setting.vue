@@ -1,5 +1,5 @@
 <template>
-    <div :class="$store.getters.nodeId('setting')" class="setting">
+    <div :class="$store.getters.nodeAttribute('setting')" class="setting">
         <h4>
             <b>{{ title }}</b>
         </h4>
@@ -18,8 +18,21 @@
     </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue from 'vue';
+import {
+    DefaultData,
+    DefaultMethods,
+    DefaultComputed,
+} from 'vue/types/options';
+import { SettingProps } from '../../typings/components/Setting';
+
+export default Vue.extend<
+    DefaultData<Vue>,
+    DefaultMethods<Vue>,
+    DefaultComputed,
+    SettingProps
+>({
     name: 'setting',
     props: {
         moduleId: {
@@ -45,7 +58,7 @@ export default {
             default: false,
         },
     },
-};
+});
 </script>
 
 <style scoped lang="sass">

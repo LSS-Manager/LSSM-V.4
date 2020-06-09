@@ -9,3 +9,14 @@ export interface lssmMenuData {
     version: string;
     mode: string;
 }
+
+export interface lssmMenuComputed {
+    menuItems: HTMLAnchorElement[];
+}
+
+export interface lssmMenuMethods {
+    showAppstore(): void;
+    showSettings(): void;
+    showLibraries(): void;
+    storeIconBg(): void;
+}

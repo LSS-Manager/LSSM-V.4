@@ -15,6 +15,7 @@ import storage from './store/storage';
 import settings from './store/settings';
 import modules from './registerModules';
 import { Modules } from 'typings/Module';
+import { LSSM } from './core';
 
 export default (Vue: VueConstructor): Store<RootState> => {
     Vue.use(Vuex);
@@ -79,6 +80,13 @@ export default (Vue: VueConstructor): Store<RootState> => {
                 Object.keys(state.modules).filter(
                     module => state.modules[module].active
                 ),
+            modulesSorted(state: RootState) {
+                return Object.keys(state.modules).sort((a, b) => {
+                    a = LSSM.$t(`modules.${a}.name`).toString();
+                    b = LSSM.$t(`modules.${b}.name`).toString();
+                    return a < b ? -1 : a > b ? 1 : 0;
+                });
+            },
         } as GetterTree<RootState, RootState>,
         actions: {
             hook(

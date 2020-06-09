@@ -31,3 +31,7 @@ export type Setting = Toggle | Text | AppendableList;
 export interface Settings {
     [key: string]: Setting;
 }
+
+export interface ModuleSettings {
+    [moduleId: string]: Settings;
+}

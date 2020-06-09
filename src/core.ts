@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import VueJSModal from 'vue-js-modal';
 import ToggleButton from 'vue-js-toggle-button';
+import * as Tabs from 'vue-slim-tabs';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import LSSMV4 from './LSSMV4.vue';
 import LSSMMenu from './LSSM-Menu.vue';
@@ -32,6 +33,7 @@ Vue.use(VueJSModal, {
     dialog: true,
 });
 Vue.use(ToggleButton);
+Vue.use(Tabs);
 
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 
@@ -74,6 +76,15 @@ if (window.location.pathname === '/') {
         releasenotes(LSSM);
         // TODO: Load core modules: [support]
     }
+    await LSSM.$store.dispatch('settings/register', {
+        moduleId: 'global',
+        settings: {
+            labelInMenu: {
+                type: 'toggle',
+                default: false,
+            },
+        },
+    });
     LSSM.$store
         .dispatch('storage/get', {
             key: 'activeModules',
