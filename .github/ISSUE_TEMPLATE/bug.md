@@ -30,6 +30,8 @@ If possible, add screenshots here to visualize the bug
  - Browser:
  - LSSM-Version:
  - for Smartphones / Tablets: your device: 
+ - which of the games are you playing: 
+ - your ingame name: 
 
 **Further**
 Add further notes here
