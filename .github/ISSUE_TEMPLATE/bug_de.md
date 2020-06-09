@@ -29,7 +29,9 @@ Wenn möglich, füge hier Screenshots ein, die uns helfen, den Fehler schneller 
  - Betriebssystem:
  - Browser:
  - LSSM-Version:
- - bei Smartphones / Tabletts: Gerät: 
+ - bei Smartphones / Tabletts: Gerät:
+ - Welches der Spiele spielst du?: 
+ - Dein Name im Spiel:
 
 **Sonstiges**
 Füge hier sonstige Hinweise ein.
