@@ -12,6 +12,7 @@ import config from './config';
 import { ActionStoreParams, Hook } from '../typings/store/Actions';
 import { ExtendedWindow, LSSMEvent } from '../typings/helpers';
 import storage from './store/storage';
+import settings from './store/settings';
 import modules from './registerModules';
 import { Modules } from 'typings/Module';
 
@@ -21,6 +22,7 @@ export default (Vue: VueConstructor): Store<RootState> => {
     return new Vuex.Store<RootState>({
         modules: {
             storage,
+            settings,
         } as ModuleTree<RootState>,
         state: {
             prefix: PREFIX,
