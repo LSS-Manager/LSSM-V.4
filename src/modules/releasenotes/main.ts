@@ -19,7 +19,7 @@ export default (LSSM: Vue): void => {
                 async 'before-close'() {
                     await LSSM.$store.dispatch('storage/set', {
                         key: LAST_VERSION_STORAGE_KEY,
-                        value: notes[0].version,
+                        value: notes[0]?.version,
                     });
                 },
             }
@@ -31,5 +31,5 @@ export default (LSSM: Vue): void => {
 
     LSSM.$store
         .dispatch('storage/get', { key: LAST_VERSION_STORAGE_KEY })
-        .then(key => (key || 0).toString() < notes[0].version && openNotes());
+        .then(key => (key || 0).toString() < notes[0]?.version && openNotes());
 };
