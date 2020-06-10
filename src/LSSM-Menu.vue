@@ -176,7 +176,28 @@ export default Vue.extend<
                 },
                 {
                     'before-close'(event: { cancel: () => void }) {
-                        // TODO: close settings
+                        if (!LSSM.$store.state.settings.changes) {
+                            if (LSSM.$store.state.settings.reload) {
+                                event.cancel();
+                                return window.location.reload(true);
+                            }
+                            return;
+                        }
+                        event.cancel();
+                        LSSM.$modal.show('dialog', {
+                            title: LSSM.$t(
+                                'modules.settings.closeWarning.title'
+                            ),
+                            text: LSSM.$t('modules.settings.closeWarning.text'),
+                            buttons: [
+                                {
+                                    title: LSSM.$t(
+                                        'modules.settings.closeWarning.close'
+                                    ),
+                                    default: true,
+                                },
+                            ],
+                        });
                     },
                 }
             );
@@ -209,12 +230,12 @@ export default Vue.extend<
             })
             .then(iconBG => (this.iconBg = iconBG));
         // TODO: Load labelInMenu-Setting
-        // this.$store
-        //     .dispatch('settings/getSetting', {
-        //         moduleId: 'global',
-        //         settingId: 'labelInMenu',
-        //     })
-        //     .then(labelInMenu => (this.labelInMenu = labelInMenu));
+        this.$store
+            .dispatch('settings/getSetting', {
+                moduleId: 'global',
+                settingId: 'labelInMenu',
+            })
+            .then(labelInMenu => (this.labelInMenu = labelInMenu));
     },
 });
 </script>

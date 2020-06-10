@@ -23,7 +23,7 @@ const modules = {
         resetWarning: {
             title: 'Zurücksetzen der Einstellungen',
             text:
-                'Möchtest du wirklich Einstellungen auf ihre Standardwerte zurücksetzen?',
+                'Möchtest du wirklich Einstellungen auf ihre Standardwerte zurücksetzen? Dies lässt sich nicht rückgängig machen!',
             close: 'Abbrechen',
             total: 'Alle Einstellungen',
             module: 'Nur von diesem Modul',

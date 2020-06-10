@@ -1,17 +1,20 @@
 import { ActionTree, Module, MutationTree } from 'vuex';
 import { SettingsState } from '../../typings/store/settings/State';
 import { RootState } from '../../typings/store/RootState';
-import { Setting, Settings } from 'typings/Setting';
+import { ModuleSettings, Setting, Settings } from 'typings/Setting';
 import {
     SettingsActionStoreParams,
     SettingsRegister,
     SettingsGet,
+    SettingsSave,
 } from '../../typings/store/settings/Actions';
 
 export default {
     namespaced: true,
     state: {
         settings: {},
+        changes: false,
+        reload: false,
     },
     mutations: {
         register(
@@ -20,8 +23,45 @@ export default {
         ) {
             state.settings[moduleId] = settings;
         },
+        setSettingsChanges(state: SettingsState, changes: boolean) {
+            state.changes = changes;
+        },
+        setSettingsReload(state: SettingsState) {
+            state.reload = true;
+        },
+        save(state: SettingsState, settings: ModuleSettings) {
+            state.settings = settings;
+        },
     } as MutationTree<SettingsState>,
     actions: {
+        saveSettings(
+            { commit, dispatch }: SettingsActionStoreParams,
+            { settings }: SettingsSave
+        ) {
+            return new Promise(resolve => {
+                commit('save', settings);
+                Object.entries(settings).forEach(
+                    async ([module, settings]) =>
+                        await dispatch(
+                            'storage/set',
+                            {
+                                key: `settings_${module}`,
+                                value: Object.fromEntries(
+                                    Object.entries(
+                                        settings
+                                    ).map(([setting, { value }]) => [
+                                        setting,
+                                        value,
+                                    ])
+                                ),
+                            },
+                            { root: true }
+                        )
+                );
+                commit('setSettingsReload');
+                resolve();
+            });
+        },
         register(
             { commit, dispatch }: SettingsActionStoreParams,
             { moduleId, settings }: SettingsRegister

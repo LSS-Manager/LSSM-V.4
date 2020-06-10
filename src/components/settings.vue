@@ -20,6 +20,8 @@
             :class="$store.getters.nodeAttribute('settings-tabs')"
             v-if="modulesSorted.length > 0"
             ref="settingsTabs"
+            :default-index="tab"
+            :on-select="(_, i) => (this.tab = i)"
         >
             <tab
                 v-for="moduleId in modulesSorted"
@@ -153,15 +155,18 @@ export default Vue.extend<
             settingsBeforeDescription: ['toggle'],
             key: 0,
             changes: false,
+            tab: 0,
         };
     },
     methods: {
-        async update(moduleId, settingId) {
+        update(moduleId, settingId) {
             this.changes =
-                !isEqual(
-                    this.settings[moduleId][settingId].value,
-                    this.startSettings[moduleId][settingId].value
-                ) ||
+                (moduleId &&
+                    settingId &&
+                    !isEqual(
+                        this.settings[moduleId][settingId].value,
+                        this.startSettings[moduleId][settingId].value
+                    )) ||
                 !!Object.entries(this.settings).find(([module, settings]) =>
                     Object.entries(settings).find(
                         ([setting, { value }]) =>
@@ -171,15 +176,64 @@ export default Vue.extend<
                             )
                     )
                 );
+            this.$store.commit('settings/setSettingsChanges', this.changes);
         },
         save() {
-            // TODO: Save
+            this.$store
+                .dispatch('settings/saveSettings', {
+                    settings: this.settings,
+                })
+                .then(() => {
+                    this.settings = cloneDeep(
+                        this.$store.state.settings.settings
+                    );
+                    this.startSettings = cloneDeep(this.settings);
+                    this.update();
+                });
         },
         discard() {
-            // TODO: Discard
+            this.settings = cloneDeep(this.startSettings);
+            this.update();
+            this.key++;
         },
         reset() {
             // TODO: Reset
+            this.$modal.show('dialog', {
+                title: this.$m('resetWarning.title'),
+                text: this.$m('resetWarning.text'),
+                buttons: [
+                    {
+                        title: this.$m('resetWarning.close'),
+                        default: true,
+                    },
+                    {
+                        title: this.$m('resetWarning.total'),
+                        handler: () => {
+                            Object.values(this.settings).forEach(module =>
+                                Object.values(module).forEach(setting =>
+                                    this.$set(setting, 'value', setting.default)
+                                )
+                            );
+                            this.save();
+                            this.key++;
+                            this.$modal.hide('dialog');
+                        },
+                    },
+                    {
+                        title: this.$m('resetWarning.module'),
+                        handler: () => {
+                            Object.values(
+                                this.settings[this.modulesSorted[this.tab]]
+                            ).forEach(setting =>
+                                this.$set(setting, 'value', setting.default)
+                            );
+                            this.save();
+                            this.key++;
+                            this.$modal.hide('dialog');
+                        },
+                    },
+                ],
+            });
         },
         $m: (key, args) => LSSM.$t(`modules.settings.${key}`, args),
     },

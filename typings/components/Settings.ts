@@ -10,10 +10,11 @@ export interface SettingsData {
     settingsBeforeDescription: string[];
     key: number;
     changes: boolean;
+    tab: number;
 }
 
 export interface SettingsMethods {
-    update(moduleId: string, settingId: string): void;
+    update(moduleId?: string, settingId?: string): void;
     save(): void;
     discard(): void;
     reset(): void;

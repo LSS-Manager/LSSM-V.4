@@ -62,11 +62,23 @@ if (window.location.pathname === '/') {
         .querySelector('.navbar-default .navbar-right')
         ?.appendChild(indicatorWrapper);
 
-    new LSSM.$vue({
-        store: LSSM.$store,
-        i18n: LSSM.$i18n,
-        render: h => h(LSSMMenu),
-    }).$mount(indicatorWrapper);
+    LSSM.$store
+        .dispatch('settings/register', {
+            moduleId: 'global',
+            settings: {
+                labelInMenu: {
+                    type: 'toggle',
+                    default: false,
+                },
+            },
+        })
+        .then(() => {
+            new LSSM.$vue({
+                store: LSSM.$store,
+                i18n: LSSM.$i18n,
+                render: h => h(LSSMMenu),
+            }).$mount(indicatorWrapper);
+        });
 }
 
 (async () => {
@@ -76,15 +88,6 @@ if (window.location.pathname === '/') {
         releasenotes(LSSM);
         // TODO: Load core modules: [support]
     }
-    await LSSM.$store.dispatch('settings/register', {
-        moduleId: 'global',
-        settings: {
-            labelInMenu: {
-                type: 'toggle',
-                default: false,
-            },
-        },
-    });
     LSSM.$store
         .dispatch('storage/get', {
             key: 'activeModules',
