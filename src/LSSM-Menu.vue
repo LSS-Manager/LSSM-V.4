@@ -229,7 +229,6 @@ export default Vue.extend<
                 defaultValue: defaultIconBg,
             })
             .then(iconBG => (this.iconBg = iconBG));
-        // TODO: Load labelInMenu-Setting
         this.$store
             .dispatch('settings/getSetting', {
                 moduleId: 'global',

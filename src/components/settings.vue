@@ -197,7 +197,6 @@ export default Vue.extend<
             this.key++;
         },
         reset() {
-            // TODO: Reset
             this.$modal.show('dialog', {
                 title: this.$m('resetWarning.title'),
                 text: this.$m('resetWarning.text'),
