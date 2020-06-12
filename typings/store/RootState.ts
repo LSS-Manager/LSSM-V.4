@@ -19,4 +19,8 @@ export interface RootState {
         reload: boolean;
     };
     readonly menuItems: HTMLAnchorElement[];
+    readonly styles: {
+        styleSheet: HTMLStyleElement | null;
+        inserted: boolean;
+    };
 }

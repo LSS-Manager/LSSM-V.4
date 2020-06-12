@@ -63,6 +63,16 @@ body.dark
         color: #f5f5f5
         background: #333
 
+    .leaflet-tooltip
+        background-color: #505050
+        color: #ddd
+        border: #505050
+
+        &.leaflet-tooltip-left::before
+            border-left-color: #505050
+
+        &.leaflet-tooltip-right::before
+            border-right-color: #505050
 .vm--container
     z-index: 5001 !important
 

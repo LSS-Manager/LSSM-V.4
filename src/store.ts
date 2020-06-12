@@ -9,7 +9,7 @@ import Vuex, {
 import { RootState } from '../typings/store/RootState';
 import { VueConstructor } from 'vue/types/vue';
 import config from './config';
-import { ActionStoreParams, Hook } from '../typings/store/Actions';
+import { ActionStoreParams, addStyle, Hook } from '../typings/store/Actions';
 import { ExtendedWindow, LSSMEvent } from '../typings/helpers';
 import storage from './store/storage';
 import settings from './store/settings';
@@ -42,6 +42,10 @@ export default (Vue: VueConstructor): Store<RootState> => {
                 reload: false,
             },
             menuItems: [],
+            styles: {
+                styleSheet: null,
+                inserted: false,
+            },
         },
         mutations: {
             addHook(state: RootState, event: string) {
@@ -60,6 +64,11 @@ export default (Vue: VueConstructor): Store<RootState> => {
             },
             addMenuItem(state: RootState, element: HTMLAnchorElement) {
                 state.menuItems.push(element);
+            },
+            insertStyleSheet(state: RootState) {
+                state.styles.styleSheet = document.createElement('style');
+                document.head.appendChild(state.styles.styleSheet);
+                state.styles.inserted = true;
             },
         } as MutationTree<RootState>,
         getters: {
@@ -132,6 +141,23 @@ export default (Vue: VueConstructor): Store<RootState> => {
                 menuItem.innerText = text;
                 commit('addMenuItem', menuItem);
                 return menuItem;
+            },
+            addStyles({ dispatch }: ActionStoreParams, styles: addStyle[]) {
+                styles.forEach(
+                    async style => await dispatch('addStyle', style)
+                );
+            },
+            addStyle(
+                { state, commit }: ActionStoreParams,
+                { selectorText, style }: addStyle
+            ) {
+                if (!state.styles.inserted) commit('insertStyleSheet');
+                state.styles.styleSheet?.sheet?.addRule(
+                    selectorText,
+                    Object.entries(style)
+                        .map(([rule, value]) => `${rule}: ${value};`)
+                        .join(';\n')
+                );
             },
         } as ActionTree<RootState, RootState>,
     } as StoreOptions<RootState>);

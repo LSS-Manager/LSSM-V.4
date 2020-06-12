@@ -13,3 +13,8 @@ export interface Hook {
     event: string;
     callback: (...args: unknown[]) => void;
 }
+
+export interface addStyle {
+    selectorText: string;
+    style: { [index: string]: string };
+}
