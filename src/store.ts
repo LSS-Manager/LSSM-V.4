@@ -13,6 +13,7 @@ import { ActionStoreParams, addStyle, Hook } from '../typings/store/Actions';
 import { ExtendedWindow, LSSMEvent } from '../typings/helpers';
 import storage from './store/storage';
 import settings from './store/settings';
+import api from './store/api';
 import modules from './registerModules';
 import { Modules } from 'typings/Module';
 import { LSSM } from './core';
@@ -24,6 +25,7 @@ export default (Vue: VueConstructor): Store<RootState> => {
         modules: {
             storage,
             settings,
+            api,
         } as ModuleTree<RootState>,
         state: {
             prefix: PREFIX,
@@ -32,6 +34,7 @@ export default (Vue: VueConstructor): Store<RootState> => {
             lang: BUILD_LANG,
             discord: config.discord,
             games: config.games,
+            server: config.server,
             hooks: {},
             mapkit:
                 'undefined' !==
@@ -44,6 +47,9 @@ export default (Vue: VueConstructor): Store<RootState> => {
             menuItems: [],
             styles: {
                 styleSheet: null,
+                inserted: false,
+            },
+            fontAwesome: {
                 inserted: false,
             },
         },
@@ -69,6 +75,14 @@ export default (Vue: VueConstructor): Store<RootState> => {
                 state.styles.styleSheet = document.createElement('style');
                 document.head.appendChild(state.styles.styleSheet);
                 state.styles.inserted = true;
+            },
+            useFontAwesome(state: RootState) {
+                if (state.fontAwesome.inserted) return;
+                const fa = document.createElement('script');
+                fa.src =
+                    'https://use.fontawesome.com/releases/v5.13.0/js/all.js';
+                document.head.appendChild(fa);
+                state.fontAwesome.inserted = true;
             },
         } as MutationTree<RootState>,
         getters: {

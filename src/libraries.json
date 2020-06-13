@@ -31,6 +31,9 @@
 		"url": "https://github.com/FortAwesome/vue-fontawesome",
 		"version": "0.1.9"
 	},
+	"@types/leaflet": {
+		"version": "1.5.12"
+	},
 	"@types/lodash": {
 		"version": "4.14.155"
 	},

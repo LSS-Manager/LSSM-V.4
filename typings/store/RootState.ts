@@ -9,6 +9,7 @@ export interface RootState {
     readonly lang: string;
     readonly discord: string;
     readonly games: Games;
+    readonly server: string;
     readonly hooks: {
         [event: string]: returnTypeFunction;
     };
@@ -21,6 +22,9 @@ export interface RootState {
     readonly menuItems: HTMLAnchorElement[];
     readonly styles: {
         styleSheet: HTMLStyleElement | null;
+        inserted: boolean;
+    };
+    readonly fontAwesome: {
         inserted: boolean;
     };
 }

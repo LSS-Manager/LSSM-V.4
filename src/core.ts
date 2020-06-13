@@ -11,7 +11,11 @@ import utils from './utils';
 import browserTitle from './natives/browserTitle';
 import telemetry from './modules/telemetry/main';
 import releasenotes from './modules/releasenotes/main';
-import { ExtendedWindow, IndexedExtendedWindow } from '../typings/helpers';
+import {
+    ExtendedWindow,
+    IndexedExtendedWindow,
+    RadioMessage,
+} from '../typings/helpers';
 
 require('./natives/navTabsClicker');
 
@@ -86,7 +90,21 @@ if (window.location.pathname === '/') {
     if (window.location.pathname === '/') {
         telemetry(LSSM);
         releasenotes(LSSM);
-        // TODO: Load core modules: [support]
+        // TODO: Load core modules: [support] ← Will be done in a more efficient way than polling
+
+        await LSSM.$store.dispatch('hook', {
+            event: 'radioMessage',
+            post: false,
+            callback({ fms, fms_real, id, user_id, caption }: RadioMessage) {
+                if (user_id === ((window as unknown) as ExtendedWindow).user_id)
+                    LSSM.$store.commit('api/setVehicleState', {
+                        fms,
+                        fms_real,
+                        id,
+                        caption,
+                    });
+            },
+        });
     }
     LSSM.$store
         .dispatch('storage/get', {
