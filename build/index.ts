@@ -111,6 +111,22 @@ const entries = Object.entries(config.games)
                     )}/main.js`,
             },
         } as Configuration;
+        modulesEntry.module?.rules.push({
+            test: /\.(ts|vue)$/g,
+            loader: 'string-replace-loader',
+            query: {
+                multiple: [
+                    {
+                        search: /require\((['"])vue(['"])\)/g,
+                        replace: 'window.lssmv4.$vue',
+                    },
+                    {
+                        search: /import Vue from ['"]vue['"]/g,
+                        replace: 'const Vue = window.lssmv4.$vue',
+                    },
+                ],
+            },
+        });
         modulesEntry.entry = {
             ...Object.fromEntries(
                 modules

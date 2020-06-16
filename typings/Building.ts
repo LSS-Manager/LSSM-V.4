@@ -17,3 +17,8 @@ export interface Building {
     small_building: boolean;
     enabled: boolean;
 }
+
+export interface BuildingCategory {
+    buildings: number[];
+    color: string;
+}

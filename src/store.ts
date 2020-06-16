@@ -39,6 +39,7 @@ export default (Vue: VueConstructor): Store<RootState> => {
             mapkit:
                 'undefined' !==
                 typeof ((window as unknown) as ExtendedWindow).mapkit,
+            darkmode: document.body.classList.contains('dark'),
             modules,
             appstore: {
                 changes: false,

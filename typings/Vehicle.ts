@@ -7,3 +7,10 @@ export interface Vehicle {
     fms_show: number;
     vehicle_type_caption: string | null;
 }
+
+export interface VehicleCategory {
+    color: string;
+    vehicles: {
+        [group: string]: number[];
+    };
+}

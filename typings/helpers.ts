@@ -1,6 +1,7 @@
 import { VueConstructor } from 'vue/types/vue';
 import { Store } from 'vuex';
 import { BuildingMarker } from './Ingame';
+import Highcharts from 'highcharts';
 
 export interface ExtendedWindow {
     keepAlive: boolean;
@@ -23,6 +24,9 @@ declare module 'vue/types/vue' {
         modal: {
             width: number;
             height: number;
+        };
+        $utils: {
+            highChartsDarkMode: Highcharts.Options;
         };
     }
 }

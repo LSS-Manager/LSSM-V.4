@@ -8,7 +8,7 @@ import {
     IndexedExtendedWindow,
     RadioMessage,
 } from '../../typings/helpers';
-import { Building } from '../../typings/Building';
+import { Building, BuildingCategory } from '../../typings/Building';
 
 const STORAGE_KEYS = {
     buildings: 'aBuildings',
@@ -23,6 +23,7 @@ export default {
         buildings: [],
         vehicles: [],
         vehicleStates: {},
+        autoUpdates: [],
         key: null,
     },
     mutations: {
@@ -47,6 +48,9 @@ export default {
             vehicle.fms_show = fms;
             vehicle.fms_real = fms_real;
         },
+        enableAutoUpdate(state: APIState, api: string) {
+            state.autoUpdates.push(api);
+        },
     },
     getters: {
         vehicle(state, id: number) {
@@ -60,6 +64,39 @@ export default {
                 buildings[vehicle.building_id].push(vehicle);
             });
             return buildings;
+        },
+        buildingsByCategory(state) {
+            const LSSM = ((window as unknown) as IndexedExtendedWindow)[PREFIX];
+            const categories = (LSSM.$t('buildingCategories') as unknown) as {
+                [category: string]: BuildingCategory;
+            };
+            const buildingsByCategory = {} as {
+                [category: string]: Building[];
+            };
+            state.buildings.forEach(building => {
+                Object.entries(categories).forEach(
+                    ([category, { buildings }]) => {
+                        buildings = Object.values(buildings);
+                        if (buildings.includes(building.building_type)) {
+                            if (!buildingsByCategory.hasOwnProperty(category))
+                                buildingsByCategory[category] = [];
+                            buildingsByCategory[category].push(building);
+                        }
+                    }
+                );
+            });
+            return buildingsByCategory;
+        },
+        vehiclesByType(state) {
+            const types = {} as {
+                [type: string]: Vehicle[];
+            };
+            state.vehicles.forEach(vehicle => {
+                if (!types.hasOwnProperty(vehicle.vehicle_type))
+                    types[vehicle.vehicle_type] = [];
+                types[vehicle.vehicle_type].push(vehicle);
+            });
+            return types;
         },
     } as GetterTree<APIState, RootState>,
     actions: {
@@ -103,11 +140,16 @@ export default {
                         );
                     }
                     commit('setBuildings', buildings);
-                    if (autoUpdate)
+                    if (
+                        autoUpdate &&
+                        !state.autoUpdates.includes('buildings')
+                    ) {
+                        commit('enableAutoUpdate', 'buildings');
                         window.setInterval(
                             () => dispatch('registerBuildingsUsage'),
                             API_MIN_UPDATE
                         );
+                    }
 
                     return resolve();
                 })()
@@ -123,17 +165,15 @@ export default {
                         STORAGE_KEYS.vehicles
                     );
                     let vehicles = [] as Vehicle[];
-                    if (stored && state.vehicles.length) {
-                        console.log('loading vehicles from cache');
+                    if (stored && state.vehicles.length)
                         vehicles = JSON.parse(stored).value;
-                    }
+
                     if (
                         !state.vehicles.length ||
                         !stored ||
                         JSON.parse(stored).lastUpdate <
                             new Date().getTime() - API_MIN_UPDATE
                     ) {
-                        console.log('fetching vehicles…');
                         vehicles = await dispatch('request', {
                             url: '/api/vehicles',
                         }).then(res => res.json());
@@ -146,11 +186,13 @@ export default {
                         );
                     }
                     commit('setVehicles', vehicles);
-                    if (autoUpdate)
+                    if (autoUpdate && !state.autoUpdates.includes('vehicles')) {
+                        commit('enableAutoUpdate', 'vehicles');
                         window.setInterval(
                             () => dispatch('registerVehiclesUsage'),
                             API_MIN_UPDATE
                         );
+                    }
                     return resolve();
                 })()
             );

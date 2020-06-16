@@ -3,9 +3,7 @@
         <div class="panel panel-default">
             <div class="panel-heading">
                 <b>
-                    {{
-                        $t('modules.dashboard.chart-summaries.buildings.title')
-                    }}:
+                    {{ $sm('buildings.title') }}:
                     {{
                         Object.values(buildings)
                             .reduce((a, b) => (a += b.length), 0)
@@ -14,7 +12,7 @@
                 </b>
                 <span class="glyphicon glyphicon-info-sign tip-btn"></span>
                 <div class="alert alert-info">
-                    {{ $t('modules.dashboard.chart-summaries.buildings.tip') }}
+                    {{ $sm('buildings.tip') }}
                 </div>
             </div>
             <div class="panel-body">
@@ -24,9 +22,7 @@
         <div class="panel panel-default">
             <div class="panel-heading">
                 <b>
-                    {{
-                        $t('modules.dashboard.chart-summaries.vehicles.title')
-                    }}:
+                    {{ $sm('vehicles.title') }}:
                     {{
                         Object.values(vehicles)
                             .reduce((a, b) => (a += b.length), 0)
@@ -35,7 +31,7 @@
                 </b>
                 <span class="glyphicon glyphicon-info-sign tip-btn"></span>
                 <div class="alert alert-info">
-                    {{ $t('modules.dashboard.chart-summaries.vehicles.tip') }}
+                    {{ $sm('vehicles.tip') }}
                 </div>
             </div>
             <div class="panel-body sunburst-grid">
@@ -64,36 +60,69 @@
     </div>
 </template>
 
-<script>
-const Highcharts = require('highcharts');
+<script lang="ts">
+import Vue from 'vue';
+import Highcharts, {
+    DrilldownOptions,
+    Options,
+    SeriesSunburstOptions,
+    PointOptionsObject,
+} from 'highcharts';
+import HighchartsMore from 'highcharts/highcharts-more';
+import HighchartsDrilldown from 'highcharts/modules/drilldown';
+import HighchartsSunburst from 'highcharts/modules/sunburst';
+import HighchartsExporting from 'highcharts/modules/exporting';
+import HighchartsExportData from 'highcharts/modules/export-data';
+import HighchartsOfflineExporting from 'highcharts/modules/offline-exporting';
+import { TranslateResult } from 'vue-i18n';
+import { DefaultComputed, DefaultProps } from 'vue/types/options';
+import {
+    ChartSummary,
+    ChartSummaryMethods,
+} from '../../../../typings/modules/Dashboard/ChartSummary';
+import { BuildingCategory } from '../../../../typings/Building';
+import { VehicleCategory } from '../../../../typings/Vehicle';
 
-require('highcharts/highcharts-more')(Highcharts);
-require('highcharts/modules/drilldown')(Highcharts);
-require('highcharts/modules/sunburst')(Highcharts);
-require('highcharts/modules/exporting')(Highcharts);
-require('highcharts/modules/export-data')(Highcharts);
-require('highcharts/modules/offline-exporting')(Highcharts);
+HighchartsMore(Highcharts);
+HighchartsDrilldown(Highcharts);
+HighchartsSunburst(Highcharts);
+HighchartsExporting(Highcharts);
+HighchartsExportData(Highcharts);
+HighchartsOfflineExporting(Highcharts);
 
 const exportingDefault = {
     fallbackToExportServer: false,
 };
 
-export default {
+export default Vue.extend<
+    ChartSummary,
+    ChartSummaryMethods,
+    DefaultComputed,
+    DefaultProps
+>({
     name: 'chart-summary',
     data() {
         return {
-            buildingsId: this.$store.getters.nodeId('chart-summary-buildings'),
+            buildingsId: this.$store.getters.nodeAttribute(
+                'chart-summary-buildings'
+            ),
             buildings: this.$store.getters['api/buildingsByCategory'],
-            buildingCategories: this.$t('buildingCategories'),
+            buildingCategories: (this.$t('buildingCategories') as unknown) as {
+                [category: string]: BuildingCategory;
+            },
             buildingTypeNames: Object.values(this.$t('buildings')).map(
                 type => type.caption
             ),
             buildingTypeColors: Object.values(this.$t('buildings')).map(
                 type => type.color
             ),
-            vehiclesId: this.$store.getters.nodeId('chart-summary-vehicles'),
+            vehiclesId: this.$store.getters.nodeAttribute(
+                'chart-summary-vehicles'
+            ),
             vehicles: this.$store.getters['api/vehiclesByType'],
-            vehicleCategories: this.$t('vehicleCategories'),
+            vehicleCategories: (this.$t('vehicleCategories') as unknown) as {
+                [category: string]: VehicleCategory;
+            },
             vehicleTypeNames: Object.values(this.$t('vehicles')).map(
                 type => type.caption
             ),
@@ -101,17 +130,20 @@ export default {
                 type => type.color
             ),
             vehiclesByBuilding: this.$store.getters['api/vehiclesByBuilding'],
-        };
+        } as ChartSummary;
     },
     mounted() {
-        this.highChartsDarkMode(this, Highcharts);
+        if (this.$store.state.darkmode)
+            Highcharts.setOptions(this.$utils.highChartsDarkMode);
         Highcharts.setOptions({
             lang: {
-                ...this.$t('highcharts'),
+                ...(this.$t('highcharts') as {
+                    [key: string]: TranslateResult;
+                }),
             },
         });
-        const buildingVehicleDrilldowns = [];
-        Highcharts.chart(this.buildingsId, {
+        const buildingVehicleDrilldowns = [] as DrilldownOptions[];
+        Highcharts.chart(this.buildingsId, ({
             chart: {
                 type: 'waterfall',
             },
@@ -195,7 +227,9 @@ export default {
                                     building =>
                                         building.building_type === building_type
                                 );
-                                const vehicle_types = {};
+                                const vehicle_types = {} as {
+                                    [type: string]: number;
+                                };
                                 buildings.forEach(building => {
                                     if (
                                         !this.vehiclesByBuilding.hasOwnProperty(
@@ -225,39 +259,35 @@ export default {
                                         ],
                                         type: 'column',
                                         data: Object.keys(vehicle_types).map(
-                                            vehicle_type => {
-                                                return {
-                                                    id: `${category}_${building_type}_${vehicle_type}`,
-                                                    name: this.vehicleTypeNames[
-                                                        vehicle_type
-                                                    ],
-                                                    y:
-                                                        vehicle_types[
-                                                            vehicle_type
-                                                        ],
-                                                    color:
-                                                        this.vehicleTypeColors[
-                                                            vehicle_type
-                                                        ] ||
-                                                        `#${this.getColorFromString(
-                                                            this
-                                                                .vehicleTypeNames[
-                                                                vehicle_type
-                                                            ],
+                                            vehicle_type => ({
+                                                id: `${category}_${building_type}_${vehicle_type}`,
+                                                name: this.vehicleTypeNames[
+                                                    parseInt(vehicle_type)
+                                                ],
+                                                y: vehicle_types[vehicle_type],
+                                                color:
+                                                    this.vehicleTypeColors[
+                                                        parseInt(vehicle_type)
+                                                    ] ||
+                                                    `#${this.getColorFromString(
+                                                        this.vehicleTypeNames[
                                                             parseInt(
-                                                                this.vehicleCategories[
-                                                                    category
-                                                                ].color.replace(
-                                                                    '#',
-                                                                    ''
-                                                                ),
-                                                                16
+                                                                vehicle_type
                                                             )
-                                                        )}`,
-                                                };
-                                            }
+                                                        ],
+                                                        parseInt(
+                                                            this.vehicleCategories[
+                                                                category
+                                                            ].color.replace(
+                                                                '#',
+                                                                ''
+                                                            ),
+                                                            16
+                                                        )
+                                                    )}`,
+                                            })
                                         ),
-                                    };
+                                    } as DrilldownOptions;
                                     buildingVehicleDrilldowns.push(drilldown);
                                 }
                                 return {
@@ -288,9 +318,9 @@ export default {
                     ...buildingVehicleDrilldowns,
                 ],
             },
-        });
+        } as unknown) as Options);
 
-        Highcharts.getOptions().colors.splice(0, 0, 'transparent');
+        Highcharts.getOptions().colors?.splice(0, 0, 'transparent');
         Object.keys(this.vehicleCategories).forEach(category => {
             const groups = Object.keys(
                 this.vehicleCategories[category].vehicles
@@ -299,11 +329,11 @@ export default {
                 {
                     id: category,
                 },
-            ];
+            ] as PointOptionsObject[];
             let sum = 0;
             if (groups.length > 1) {
                 groups.forEach(group => {
-                    const types = [];
+                    const types = [] as PointOptionsObject[];
                     let groupColor = 0;
                     Object.values(
                         this.vehicleCategories[category].vehicles[group]
@@ -378,15 +408,25 @@ export default {
                 series: [
                     {
                         data,
+                        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                        // @ts-ignore
                         allowDrillToNode: true,
                         cursor: 'pointer',
                         levelIsConstant: false,
                     },
-                ],
-            });
+                ] as SeriesSunburstOptions[],
+            } as Options);
         });
     },
-};
+    methods: {
+        $m(key, args) {
+            return this.$t(`modules.dashboard.${key}`, args);
+        },
+        $sm(key, args) {
+            return this.$m(`chart-summaries.${key}`, args);
+        },
+    },
+});
 </script>
 
 <style scoped lang="sass">

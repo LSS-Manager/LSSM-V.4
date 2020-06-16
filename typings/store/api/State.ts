@@ -7,5 +7,6 @@ export interface APIState {
     vehicleStates: {
         [state: number]: number;
     };
+    autoUpdates: string[];
     key: string | null;
 }

@@ -14,6 +14,7 @@ export interface RootState {
         [event: string]: returnTypeFunction;
     };
     readonly mapkit: boolean;
+    readonly darkmode: boolean;
     readonly modules: Modules;
     readonly appstore: {
         changes: boolean;
