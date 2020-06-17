@@ -1,6 +1,6 @@
 import { VueConstructor } from 'vue/types/vue';
 import { Store } from 'vuex';
-import { BuildingMarker } from './Ingame';
+import { BuildingMarker, POIMarker } from './Ingame';
 import Highcharts from 'highcharts';
 
 export interface ExtendedWindow {
@@ -10,6 +10,7 @@ export interface ExtendedWindow {
     mapkit: unknown;
     user_id: number;
     building_markers: BuildingMarker[];
+    mission_poi_markers: POIMarker[];
 }
 
 export interface IndexedExtendedWindow {

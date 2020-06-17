@@ -442,6 +442,14 @@ export default {
             caption: 'Rettungshundefahrzeug',
             color: '#663300',
         },
+        {
+            caption: 'Anh Hund',
+            color: '#422629',
+        },
+        {
+            caption: 'MTW-OV',
+            color: '#14165e',
+        },
     ],
     buildings: [
         {
@@ -600,10 +608,11 @@ export default {
         },
         THW: {
             vehicles: {
-                GKW: [39],
-                Bergungsgruppe: [41],
-                Zugtrupp: [40],
+                'GKW': [39],
+                'Bergungsgruppe': [41],
+                'Zugtrupp': [40],
                 ['Fachgruppe Räumen']: [42, 43, 44, 45],
+                'Fachgruppe Ortung': [92, 93],
             },
             color: '#0000ff',
         },

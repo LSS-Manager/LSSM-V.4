@@ -120,14 +120,22 @@ export default {
                         STORAGE_KEYS.buildings
                     );
                     let buildings = [] as Building[];
-                    if (stored && state.buildings.length)
-                        buildings = JSON.parse(stored).value;
                     if (
-                        !state.buildings.length ||
-                        !stored ||
-                        JSON.parse(stored).lastUpdate <
-                            new Date().getTime() - API_MIN_UPDATE
+                        stored &&
+                        (state.buildings.length ||
+                            window.location.pathname !== '/')
                     ) {
+                        console.log('loading buildings from Cache');
+                        buildings = JSON.parse(stored).value;
+                    }
+                    if (
+                        !stored ||
+                        !buildings ||
+                        (JSON.parse(stored).lastUpdate <
+                            new Date().getTime() - API_MIN_UPDATE &&
+                            window.location.pathname === '/')
+                    ) {
+                        console.log('fetching buildings');
                         buildings = await dispatch('request', {
                             url: '/api/buildings',
                         }).then(res => res.json());

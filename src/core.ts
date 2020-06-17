@@ -87,6 +87,8 @@ if (window.location.pathname === '/') {
 
 (async () => {
     if (window.location.pathname.match(/^\/users\//)) return;
+    await LSSM.$store.dispatch('api/registerBuildingsUsage', true);
+    await LSSM.$store.dispatch('api/registerVehiclesUsage', true);
     if (window.location.pathname === '/') {
         telemetry(LSSM);
         releasenotes(LSSM);
