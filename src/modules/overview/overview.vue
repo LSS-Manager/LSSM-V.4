@@ -1,99 +1,37 @@
 <template>
     <lightbox name="overview">
-        <h1>{{ $t('modules.overview.name') }}</h1>
+        <h1>{{ $m('name') }}</h1>
         <tabs>
-            <tab :title="$t('modules.overview.tabs.vehicles')">
-                <tabs>
-                    <tab
-                        v-for="title in $t('modules.overview.tabs.vehicleTabs')"
-                        :key="Object.keys(title)[0]"
-                        :title="title[Object.keys(title)[0]]"
-                    >
-                        <enhanced-table
-                            :head="vehicleTitles"
-                            :table-attrs="{ class: 'table table-striped' }"
-                            @sort="setSortVehicle"
-                            :sort="sortVehicle"
-                            :sort-dir="sortVehicleDir"
-                            :search="vehicleSearch"
-                            @search="s => (vehicleSearch = s)"
-                        >
-                            <tr
-                                v-for="vehicle in vehicles[
-                                    Object.keys(title)[0]
-                                ]"
-                                :key="vehicle.name"
-                            >
-                                <td
-                                    v-for="title in $t(
-                                        'modules.overview.titles.vehicles'
-                                    )"
-                                    :key="Object.keys(title)[0]"
-                                >
-                                    <span
-                                        v-if="Object.keys(title)[0] === 'cost'"
-                                    >
-                                        {{
-                                            (
-                                                vehicle.credits || 0
-                                            ).toLocaleString()
-                                        }}
-                                        Credits /
-                                        {{
-                                            (
-                                                vehicle.coins || 0
-                                            ).toLocaleString()
-                                        }}
-                                        Coins
-                                    </span>
-                                    <span
-                                        v-else-if="
-                                            Object.keys(title)[0] === 'wtank'
-                                        "
-                                    >
-                                        {{
-                                            (
-                                                vehicle.wtank || 0
-                                            ).toLocaleString()
-                                        }}
-                                        Liter
-                                    </span>
-                                    <span
-                                        v-else
-                                        v-html="vehicle[Object.keys(title)[0]]"
-                                    ></span>
-                                </td>
-                            </tr>
-                        </enhanced-table>
-                    </tab>
-                </tabs>
-            </tab>
-            <tab :title="$t('modules.overview.tabs.buildings')">
+            <tab :title="$m('tabs.vehicles')"></tab>
+            <tab :title="$m('tabs.buildings')">
                 <enhanced-table
-                    :head="buildingTitles"
+                    :head="buildingsTab.head"
                     :table-attrs="{ class: 'table table-striped' }"
-                    @sort="setSortBuilding"
-                    :sort="sortBuilding"
-                    :sort-dir="sortBuildingDir"
-                    :search="buildingSearch"
-                    @search="s => (buildingSearch = s)"
                 >
-                    <tr v-for="building in buildings" :key="building.name">
-                        <td
-                            v-for="title in $t(
-                                'modules.overview.titles.buildings'
-                            )"
-                            :key="Object.keys(title)[0]"
-                        >
-                            <span v-if="Object.keys(title)[0] === 'cost'">
-                                {{ building.credits.toLocaleString() }}
+                    <tr v-for="building in buildings" :key="building.caption">
+                        <td v-for="(_, attr) in buildingsTab.head" :key="attr">
+                            <span v-if="attr === 'cost'">
+                                {{
+                                    building.hasOwnProperty('credits')
+                                        ? building.credits.toLocaleString()
+                                        : NaN
+                                }}
                                 Credits /
-                                {{ building.coins.toLocaleString() }} Coins
+                                {{
+                                    building.hasOwnProperty('coins')
+                                        ? building.coins.toLocaleString()
+                                        : NaN
+                                }}
+                                Coins
                             </span>
                             <span
-                                v-else
-                                v-html="building[Object.keys(title)[0]]"
-                            ></span>
+                                v-else-if="typeof building[attr] === 'object'"
+                                v-html="
+                                    Object.values(building[attr]).join(',<br>')
+                                "
+                            >
+                            </span>
+                            <span v-else v-html="building[attr]"></span>
                         </td>
                     </tr>
                 </enhanced-table>
@@ -102,101 +40,56 @@
     </lightbox>
 </template>
 
-<script>
-import Lightbox from '../../components/lightbox.vue';
+<script lang="ts">
+import Vue from 'vue';
 import EnhancedTable from '../../components/enhanced-table.vue';
+import Lightbox from '../../components/lightbox.vue';
+import { DefaultComputed, DefaultProps } from 'vue/types/options';
+import { Overview, OverviewMethods } from '../../../typings/modules/Overview';
+import { InternalBuilding } from '../../../typings/Building';
 
-import cloneDeep from 'lodash/cloneDeep';
-
-export default {
+export default Vue.extend<
+    Overview,
+    OverviewMethods,
+    DefaultComputed,
+    DefaultProps
+>({
     name: 'overview',
     components: { EnhancedTable, Lightbox },
     data() {
-        const vehicleTitles = {};
-        Object.values(this.$t('modules.overview.titles.vehicles')).forEach(
-            title =>
-                (vehicleTitles[Object.keys(title)[0]] = {
-                    title: title[Object.keys(title)[0]],
-                })
-        );
-        const buildingTitles = {};
-        Object.values(this.$t('modules.overview.titles.buildings')).forEach(
-            title =>
-                (buildingTitles[Object.keys(title)[0]] = {
-                    title: title[Object.keys(title)[0]],
-                })
-        );
         return {
-            buildingTitles,
-            sortBuilding: 'name',
-            sortBuildingDir: 'asc',
-            buildingSearch: '',
-            vehicleTitles,
-            sortVehicle: 'name',
-            sortVehicleDir: 'asc',
-            vehicleSearch: '',
-        };
-    },
-    computed: {
-        buildings() {
-            return Object.values(this.$t('modules.overview.buildings'))
-                .sort((a, b) => {
-                    let modifier = this.sortVehicleDir === 'desc' ? -1 : 1;
-                    a = a[this.sortVehicle] || '';
-                    b = b[this.sortVehicle] || '';
-                    return a < b ? -1 * modifier : a > b ? modifier : 0;
-                })
-                .filter(a =>
-                    this.buildingSearch.length > 0
-                        ? JSON.stringify(Object.values(a))
-                              .toLowerCase()
-                              .match(this.buildingSearch.toLowerCase())
-                        : true
-                );
-        },
-        vehicles() {
-            let vehicles = cloneDeep(this.$t(`modules.overview.vehicles`));
-            Object.keys(vehicles).forEach(category => {
-                vehicles[category] = Object.values(vehicles[category]).filter(
-                    a =>
-                        this.vehicleSearch.length > 0
-                            ? JSON.stringify(Object.values(a))
-                                  .toLowerCase()
-                                  .match(this.vehicleSearch.toLowerCase())
-                            : true
-                );
-                return vehicles[category].sort((a, b) => {
-                    let modifier = this.sortVehicleDir === 'desc' ? -1 : 1;
-                    a = a[this.sortVehicle] || '';
-                    b = b[this.sortVehicle] || '';
-                    return a < b ? -1 * modifier : a > b ? modifier : 0;
-                });
-            });
-            return vehicles;
-        },
+            buildings: Object.values(
+                this.$t('buildings')
+            ) as InternalBuilding[],
+            buildingsTab: {
+                head: {
+                    caption: { title: this.$m('titles.buildings.caption') },
+                    cost: { title: this.$m('titles.buildings.cost') },
+                    maxLevel: { title: this.$m('titles.buildings.maxLevel') },
+                    levelcost: { title: this.$m('titles.buildings.levelcost') },
+                    startPersonnel: {
+                        title: this.$m('titles.buildings.startPersonnel'),
+                    },
+                    startVehicles: {
+                        title: this.$m('titles.buildings.startVehicles'),
+                    },
+                    maxBuildings: {
+                        title: this.$m('titles.buildings.maxBuildings'),
+                    },
+                    extensions: {
+                        title: this.$m('titles.buildings.extensions'),
+                    },
+                    special: { title: this.$m('titles.buildings.special') },
+                },
+            },
+        } as Overview;
     },
     methods: {
-        setSortBuilding(s) {
-            if (s === 'cost') s = 'credits';
-            this.sortBuildingDir =
-                s === this.sortBuilding && this.sortBuildingDir === 'asc'
-                    ? 'desc'
-                    : 'asc';
-            this.sortBuilding = s;
-        },
-        setSortVehicle(s) {
-            if (s === 'cost') s = 'credits';
-            this.sortVehicleDir =
-                s === this.sortVehicle && this.sortVehicleDir === 'asc'
-                    ? 'desc'
-                    : 'asc';
-            this.sortVehicle = s;
+        $m(key, args) {
+            return this.$t(`modules.overview.${key}`, args);
         },
     },
-};
+});
 </script>
 
-<style scoped lang="sass">
-th
-    cursor: pointer
-</style>
+<style scoped></style>

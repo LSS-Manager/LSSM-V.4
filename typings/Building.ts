@@ -22,3 +22,22 @@ export interface BuildingCategory {
     buildings: number[];
     color: string;
 }
+
+export interface InternalBuilding {
+    caption: string;
+    color: string;
+    coins: number;
+    credits: number;
+    extensions: {
+        caption: string;
+        credits: number;
+        coins: number;
+        duration: number;
+    }[];
+    levelcost: string[];
+    maxBuildings: number | string;
+    maxLevel: number;
+    special: string;
+    startPersonnel: number;
+    startVehicles: string[];
+}

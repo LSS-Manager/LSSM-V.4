@@ -46,7 +46,7 @@
 			9
 		],
 		"sum": "Summe",
-		"type": "Fahrzeugtyp",
-        "title": "Alle {type} | Alle {type} im Status {n} | Alle {type} im Status {n}"
+		"title": "Alle {type} | Alle {type} im Status {n} | Alle {type} im Status {n}",
+		"type": "Fahrzeugtyp"
 	}
 }

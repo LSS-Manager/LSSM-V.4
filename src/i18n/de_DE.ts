@@ -455,6 +455,46 @@ export default {
         {
             caption: 'Feuerwache',
             color: '#bb0000',
+            coins: 30,
+            credits: 100_000,
+            extensions: [
+                {
+                    caption: 'Rettungsdienst',
+                    credits: 100_000,
+                    coins: 20,
+                    duration: '7 Tage',
+                },
+                {
+                    caption: 'Wasserrettung',
+                    credits: 400_000,
+                    coins: 25,
+                    duration: '7 Tage',
+                },
+                {
+                    caption: 'Flughafen',
+                    credits: 300_000,
+                    coins: 25,
+                    duration: '7 Tage',
+                },
+                {
+                    caption: 'Großwache',
+                    credits: 1_000_000,
+                    coins: 50,
+                    duration: '7 Tage',
+                },
+                {
+                    caption: 'Werkfeuerwehr',
+                    credits: 100_000,
+                    coins: 20,
+                    duration: '7 Tage',
+                },
+                {
+                    caption: 'Abrollbehälter-Stellplatz (bis zu 9 mal)',
+                    credits: 100_000,
+                    coins: 20,
+                    duration: '7 Tage',
+                },
+            ],
         },
         {
             caption: 'Feuerwehrschule',
@@ -483,6 +523,15 @@ export default {
         {
             caption: 'Leitstelle',
             color: '#24c3ae',
+            coins: 0,
+            credits: 0,
+            extensions: [],
+            levelcost: [],
+            maxBuildings: 'Alle 25 Gebäude eine Leitstelle',
+            maxLevel: 0,
+            special: 'Die Leitstelle ist die Verwaltungszentrale.',
+            startPersonnel: 0,
+            startVehicles: [],
         },
         {
             caption: 'Polizeischule',

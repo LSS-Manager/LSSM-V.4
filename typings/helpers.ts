@@ -2,6 +2,7 @@ import { VueConstructor } from 'vue/types/vue';
 import { Store } from 'vuex';
 import { BuildingMarker, POIMarker } from './Ingame';
 import Highcharts from 'highcharts';
+import VueI18n from 'vue-i18n';
 
 export interface ExtendedWindow {
     keepAlive: boolean;
@@ -29,6 +30,12 @@ declare module 'vue/types/vue' {
         $utils: {
             highChartsDarkMode: Highcharts.Options;
         };
+        $m(
+            key: string,
+            args?: {
+                [key: string]: unknown;
+            }
+        ): VueI18n.TranslateResult;
     }
 }
 
