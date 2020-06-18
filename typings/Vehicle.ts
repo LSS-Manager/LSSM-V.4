@@ -1,3 +1,5 @@
+import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+
 export interface Vehicle {
     id: number;
     caption: string;
@@ -6,6 +8,8 @@ export interface Vehicle {
     fms_real: number;
     fms_show: number;
     vehicle_type_caption: string | null;
+    faPencilAlt: IconDefinition;
+    faUsers: IconDefinition;
 }
 
 export interface VehicleCategory {

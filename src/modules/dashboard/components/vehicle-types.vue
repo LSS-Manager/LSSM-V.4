@@ -1,9 +1,9 @@
 <template>
     <enhanced-table
         :head="{
-            title: { title: $t('modules.dashboard.vehicle-types.type') },
+            title: { title: $sm('type') },
             ...statusHeads,
-            sum: { title: $t('modules.dashboard.vehicle-types.sum') },
+            sum: { title: $sm('sum') },
         }"
         :table-attrs="{ class: 'table table-striped' }"
         @sort="setSort"
@@ -17,9 +17,35 @@
             :stats="(stats = vehicleTypes[vehicleType])"
             :key="`vehicles_${vehicleType}`"
         >
-            <td>{{ stats.title }}</td>
+            <td>
+                {{ stats.title }}
+                <button
+                    class="btn btn-default btn-xs vehicle-btn"
+                    @click="
+                        showVehicles(
+                            0,
+                            vehicleTypes[vehicleType],
+                            vehicleTypes[vehicleType].vehicles
+                        )
+                    "
+                >
+                    <font-awesome-icon :icon="faCarSide"></font-awesome-icon>
+                </button>
+            </td>
             <td v-for="status in statuses" :key="`${vehicleType}_${status}`">
-                {{ stats[`s${status}`].toLocaleString() }}
+                {{ stats.fms[`s${status}`].length.toLocaleString() }}
+                <button
+                    class="btn btn-default btn-xs vehicle-btn"
+                    @click="
+                        showVehicles(
+                            status,
+                            vehicleTypes[vehicleType],
+                            vehicleTypes[vehicleType].fms[`s${status}`]
+                        )
+                    "
+                >
+                    <font-awesome-icon :icon="faCarSide"></font-awesome-icon>
+                </button>
             </td>
             <td>
                 {{ stats.sum.toLocaleString() }}
@@ -28,7 +54,7 @@
         <template v-slot:foot>
             <tr>
                 <th>
-                    {{ $t('modules.dashboard.vehicle-types.sum') }}
+                    {{ $sm('sum') }}
                 </th>
                 <th v-for="status in statuses" :key="`sum_${status}`">
                     {{ (sum[status] || 0).toLocaleString() }}
@@ -44,6 +70,8 @@
 <script lang="ts">
 import Vue from 'vue';
 import EnhancedTable from '../../../components/enhanced-table.vue';
+import vehicleList from './vehicle-list.vue';
+import { faCarSide } from '@fortawesome/free-solid-svg-icons/faCarSide';
 import { Vehicle } from '../../../../typings/Vehicle';
 import { DefaultProps } from 'vue/types/options';
 import {
@@ -62,10 +90,8 @@ export default Vue.extend<
     name: 'vehicle-types',
     components: { EnhancedTable },
     data() {
-        const statuses = Object.values(
-            this.$t('modules.dashboard.vehicle-types.statuses')
-        );
-        const statusText = this.$t('modules.dashboard.vehicle-types.status');
+        const statuses = Object.values(this.$sm('statuses'));
+        const statusText = this.$sm('status');
         const statusHeads = {} as {
             [status: string]: {
                 title: string;
@@ -86,6 +112,7 @@ export default Vue.extend<
             search: '',
             sort: 'title',
             sortDir: 'asc',
+            faCarSide,
         } as VehicleTypes;
     },
     computed: {
@@ -95,17 +122,18 @@ export default Vue.extend<
             };
             const types = {} as TypeList;
             Object.keys(vbt).forEach(type => {
-                const fms = {} as { [status: string]: number };
+                const fms = {} as { [status: string]: Vehicle[] };
                 Object.values(this.statuses).forEach(
-                    status => (fms[`s${status}`] = 0)
+                    status => (fms[`s${status}`] = [])
                 );
                 Object.values(vbt[type]).forEach(vehicle => {
-                    fms[`s${vehicle.fms_real}`]++;
+                    fms[`s${vehicle.fms_real}`].push(vehicle);
                 });
                 types[`t${type}`] = {
                     title: this.vehicleTypeNames[parseInt(type)],
-                    ...fms,
+                    fms,
                     sum: vbt[type].length,
+                    vehicles: vbt[type],
                 };
             });
             return types;
@@ -123,26 +151,56 @@ export default Vue.extend<
             return filtered;
         },
         vehicleTypesSorted() {
-            const vehicleTypes = this.search
+            const vehicleTypes = (this.search
                 ? this.vehicleTypesFiltered
-                : this.vehicleTypes;
-            return Object.keys(vehicleTypes).sort((a, b) => {
-                let modifier = this.sortDir === 'desc' ? -1 : 1;
-                let f = vehicleTypes[a][this.sort] || '';
-                let s = vehicleTypes[b][this.sort] || '';
-                return f < s ? -1 * modifier : f > s ? modifier : 0;
-            });
+                : this.vehicleTypes) as TypeList;
+            return Object.entries(vehicleTypes)
+                .sort(([, a], [, b]) => {
+                    let modifier = this.sortDir === 'desc' ? -1 : 1;
+                    let f, s;
+                    if (this.sort.match(/s\d+/)) {
+                        f = a.fms[this.sort].length;
+                        s = b.fms[this.sort].length;
+                    } else {
+                        f = a[this.sort] || '';
+                        s = b[this.sort] || '';
+                    }
+                    return f < s ? -1 * modifier : f > s ? modifier : 0;
+                })
+                .map(e => e[0]);
         },
         sum() {
             return this.$store.state.api.vehicleStates;
         },
     },
     methods: {
+        $m(key, args) {
+            return this.$t(`modules.dashboard.${key}`, args);
+        },
+        $sm(key, args) {
+            return this.$m(`vehicle-types.${key}`, args);
+        },
+        $mc(key, amount, args) {
+            return this.$tc(`modules.dashboard.${key}`, amount, args);
+        },
+        $smc(key, amount, args) {
+            return this.$mc(`vehicle-types.${key}`, amount, args);
+        },
         setSort(type) {
             if (this.sort === type)
                 return (this.sortDir = this.sortDir === 'asc' ? 'desc' : 'asc');
             this.sort = type;
             this.sortDir = 'asc';
+        },
+        showVehicles(status, type, vehicles) {
+            this.$modal.show(
+                vehicleList,
+                {
+                    title: this.$smc('title', status, { type: type.title }),
+                    vehicles,
+                },
+                { name: 'vehicle-list', height: 'auto' }
+            );
         },
     },
 });
@@ -153,4 +211,21 @@ table
     td:first-child,
     td:last-child
         font-weight: bold
+
+    tbody
+        td .vehicle-btn
+            display: none
+
+        tr
+            transition: opacity 0.5s
+
+        &:hover
+            tr:hover
+                border: 2px solid black !important
+
+                td:hover .vehicle-btn
+                    display: inline
+
+            tr:not(:hover)
+                opacity: 0.5
 </style>

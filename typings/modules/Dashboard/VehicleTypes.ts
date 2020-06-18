@@ -1,3 +1,7 @@
+import { Vehicle } from 'typings/Vehicle';
+import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import VueI18n from 'vue-i18n';
+
 export interface VehicleTypes {
     vehicleTypeNames: string[];
     statuses: number[];
@@ -9,18 +13,51 @@ export interface VehicleTypes {
     search: string;
     sort: string;
     sortDir: string;
+    faCarSide: IconDefinition;
+}
+
+interface Type {
+    title: string;
+    sum: number;
+    vehicles: Vehicle[];
+    fms: {
+        [status: string]: Vehicle[];
+    };
 }
 
 export interface VehicleTypesMethods {
+    $m(
+        key: string,
+        args?: {
+            [key: string]: unknown;
+        }
+    ): VueI18n.TranslateResult;
+    $sm(
+        key: string,
+        args?: {
+            [key: string]: unknown;
+        }
+    ): VueI18n.TranslateResult;
+    $mc(
+        key: string,
+        amount: number,
+        args?: {
+            [key: string]: unknown;
+        }
+    ): VueI18n.TranslateResult;
+    $smc(
+        key: string,
+        amount: number,
+        args?: {
+            [key: string]: unknown;
+        }
+    ): VueI18n.TranslateResult;
     setSort(type: string): void;
+    showVehicles(status: number, type: Type, vehicles: Vehicle[]): void;
 }
 
 export interface TypeList {
-    [vehicleType: string]: {
-        title: string;
-        sum: number;
-        [status: string]: number | string;
-    };
+    [vehicleType: string]: Type;
 }
 
 export interface VehicleTypesComputed {

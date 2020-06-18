@@ -120,20 +120,17 @@ export default {
                         STORAGE_KEYS.buildings
                     );
                     let buildings = [] as Building[];
-                    if (
-                        stored &&
-                        (state.buildings.length ||
-                            window.location.pathname !== '/')
-                    ) {
-                        console.log('loading buildings from Cache');
+                    if (stored) {
                         buildings = JSON.parse(stored).value;
                     }
                     if (
                         !stored ||
-                        !buildings ||
-                        (JSON.parse(stored).lastUpdate <
-                            new Date().getTime() - API_MIN_UPDATE &&
-                            window.location.pathname === '/')
+                        !state.buildings.length ||
+                        !buildings.length ||
+                        JSON.parse(stored).lastUpdate <
+                            new Date().getTime() - API_MIN_UPDATE ||
+                        (window.location.pathname === '/' &&
+                            !state.buildings.length)
                     ) {
                         console.log('fetching buildings');
                         buildings = await dispatch('request', {
@@ -173,15 +170,19 @@ export default {
                         STORAGE_KEYS.vehicles
                     );
                     let vehicles = [] as Vehicle[];
-                    if (stored && state.vehicles.length)
+                    if (stored) {
                         vehicles = JSON.parse(stored).value;
-
+                    }
                     if (
-                        !state.vehicles.length ||
                         !stored ||
+                        !state.vehicles.length ||
+                        !vehicles.length ||
                         JSON.parse(stored).lastUpdate <
-                            new Date().getTime() - API_MIN_UPDATE
+                            new Date().getTime() - API_MIN_UPDATE ||
+                        (window.location.pathname === '/' &&
+                            !state.vehicles.length)
                     ) {
+                        console.log('fetching vehicles');
                         vehicles = await dispatch('request', {
                             url: '/api/vehicles',
                         }).then(res => res.json());
