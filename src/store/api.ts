@@ -125,7 +125,6 @@ export default {
                     }
                     if (
                         !stored ||
-                        !state.buildings.length ||
                         !buildings.length ||
                         JSON.parse(stored).lastUpdate <
                             new Date().getTime() - API_MIN_UPDATE ||
@@ -175,7 +174,6 @@ export default {
                     }
                     if (
                         !stored ||
-                        !state.vehicles.length ||
                         !vehicles.length ||
                         JSON.parse(stored).lastUpdate <
                             new Date().getTime() - API_MIN_UPDATE ||
