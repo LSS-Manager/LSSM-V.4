@@ -24,6 +24,22 @@
                                 }}
                                 Coins
                             </span>
+                            <dl v-else-if="attr === 'extensions'">
+                                <span
+                                    v-for="(extension, index) in building[
+                                        'extensions'
+                                    ]"
+                                    :key="index"
+                                >
+                                    <dt>{{ extension.caption }}:</dt>
+                                    <dd>
+                                        {{ extension.credits.toLocaleString() }}
+                                        Credits /
+                                        {{ extension.coins.toLocaleString() }}
+                                        Coins; {{ extension.duration }}
+                                    </dd>
+                                </span>
+                            </dl>
                             <span
                                 v-else-if="typeof building[attr] === 'object'"
                                 v-html="
@@ -31,7 +47,14 @@
                                 "
                             >
                             </span>
-                            <span v-else v-html="building[attr]"></span>
+                            <span
+                                v-else
+                                v-html="
+                                    building.hasOwnProperty(attr)
+                                        ? building[attr].toLocaleString()
+                                        : ''
+                                "
+                            ></span>
                         </td>
                     </tr>
                 </enhanced-table>
