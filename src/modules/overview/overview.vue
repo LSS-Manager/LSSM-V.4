@@ -2,13 +2,97 @@
     <lightbox name="overview">
         <h1>{{ $m('name') }}</h1>
         <tabs>
-            <tab :title="$m('tabs.vehicles')"></tab>
+            <tab :title="$m('tabs.vehicles')">
+                <tabs>
+                    <tab
+                        v-for="({ vehicles: groups },
+                        title) in vehicleCategories"
+                        :key="title"
+                        :title="title"
+                    >
+                        <tabs>
+                            <tab
+                                v-for="(vehicleTypes, group) in groups"
+                                :key="group"
+                                :title="group"
+                            >
+                                <enhanced-table
+                                    :head="vehiclesTab.head"
+                                    :table-attrs="{
+                                        class: 'table table-striped',
+                                    }"
+                                >
+                                    <tr
+                                        v-for="type in vehicleTypes"
+                                        :key="type"
+                                        :vehicle="(vehicle = vehicles[type])"
+                                    >
+                                        <td
+                                            v-for="(_,
+                                            attr) in vehiclesTab.head"
+                                            :key="attr"
+                                        >
+                                            <span v-if="attr === 'cost'">
+                                                {{
+                                                    vehicle.hasOwnProperty(
+                                                        'credits'
+                                                    )
+                                                        ? vehicle.credits.toLocaleString()
+                                                        : NaN
+                                                }}
+                                                Credits /
+                                                {{
+                                                    vehicle.hasOwnProperty(
+                                                        'coins'
+                                                    )
+                                                        ? vehicle.coins.toLocaleString()
+                                                        : NaN
+                                                }}
+                                                Coins </span
+                                            ><span
+                                                v-else-if="
+                                                    typeof vehicle[attr] ===
+                                                        'object'
+                                                "
+                                                v-html="
+                                                    Object.values(
+                                                        vehicle[attr]
+                                                    ).join(',<br>')
+                                                "
+                                            >
+                                            </span>
+                                            <span
+                                                v-else
+                                                v-html="
+                                                    vehicle.hasOwnProperty(attr)
+                                                        ? vehicle[
+                                                              attr
+                                                          ].toLocaleString()
+                                                        : ''
+                                                "
+                                            ></span>
+                                        </td>
+                                    </tr>
+                                </enhanced-table>
+                            </tab>
+                        </tabs>
+                    </tab>
+                </tabs>
+            </tab>
             <tab :title="$m('tabs.buildings')">
                 <enhanced-table
                     :head="buildingsTab.head"
                     :table-attrs="{ class: 'table table-striped' }"
+                    @sort="setSortBuildings"
+                    :sort="buildingsTab.sort"
+                    :sort-dir="buildingsTab.sortDir"
+                    :search="buildingsTab.search"
+                    @search="s => (buildingsTab['search'] = s)"
                 >
-                    <tr v-for="building in buildings" :key="building.caption">
+                    <tr
+                        v-for="building in buildingsSorted"
+                        :key="building.caption"
+                    >
                         <td v-for="(_, attr) in buildingsTab.head" :key="attr">
                             <span v-if="attr === 'cost'">
                                 {{
@@ -67,23 +151,47 @@
 import Vue from 'vue';
 import EnhancedTable from '../../components/enhanced-table.vue';
 import Lightbox from '../../components/lightbox.vue';
-import { DefaultComputed, DefaultProps } from 'vue/types/options';
-import { Overview, OverviewMethods } from '../../../typings/modules/Overview';
-import { InternalBuilding } from '../../../typings/Building';
+import { DefaultProps } from 'vue/types/options';
+import {
+    Overview,
+    OverviewMethods,
+    OverviewComputed,
+} from '../../../typings/modules/Overview';
+import { VehicleCategory } from '../../../typings/Vehicle';
 
 export default Vue.extend<
     Overview,
     OverviewMethods,
-    DefaultComputed,
+    OverviewComputed,
     DefaultProps
 >({
     name: 'overview',
     components: { EnhancedTable, Lightbox },
     data() {
         return {
-            buildings: Object.values(
-                this.$t('buildings')
-            ) as InternalBuilding[],
+            vehicles: Object.values(this.$t('vehicles')),
+            vehicleCategories: (this.$t('vehicleCategories') as unknown) as {
+                [name: string]: VehicleCategory;
+            },
+            vehiclesTab: {
+                head: {
+                    caption: { title: this.$m('titles.vehicles.caption') },
+                    minPersonnel: {
+                        title: this.$m('titles.vehicles.minPersonnel'),
+                    },
+                    maxPersonnel: {
+                        title: this.$m('titles.vehicles.maxPersonnel'),
+                    },
+                    cost: { title: this.$m('titles.vehicles.cost') },
+                    schooling: { title: this.$m('titles.vehicles.schooling') },
+                    wtank:
+                        this.$store.state.lang === 'de_DE'
+                            ? { title: this.$m('titles.vehicles.wtank') }
+                            : null,
+                    special: { title: this.$m('titles.vehicles.special') },
+                },
+            },
+            buildings: Object.values(this.$t('buildings')),
             buildingsTab: {
                 head: {
                     caption: { title: this.$m('titles.buildings.caption') },
@@ -104,12 +212,42 @@ export default Vue.extend<
                     },
                     special: { title: this.$m('titles.buildings.special') },
                 },
+                search: '',
+                sort: 'caption',
+                sortDir: 'asc',
             },
         } as Overview;
+    },
+    computed: {
+        buildingsFiltered() {
+            return this.buildings.filter(building =>
+                JSON.stringify(building)
+                    .toLowerCase()
+                    .match(this.buildingsTab.search.toLowerCase())
+            );
+        },
+        buildingsSorted() {
+            const buildings = this.buildingsTab.search
+                ? this.buildingsFiltered
+                : this.buildings;
+            return buildings.sort((a, b) => {
+                let modifier = this.buildingsTab.sortDir === 'desc' ? -1 : 1;
+                let f = a[this.buildingsTab.sort] || '';
+                let s = b[this.buildingsTab.sort] || '';
+                return f < s ? -1 * modifier : f > s ? modifier : 0;
+            });
+        },
     },
     methods: {
         $m(key, args) {
             return this.$t(`modules.overview.${key}`, args);
+        },
+        setSortBuildings(type) {
+            if (this.buildingsTab.sort === type)
+                return (this.buildingsTab.sortDir =
+                    this.buildingsTab.sortDir === 'asc' ? 'desc' : 'asc');
+            this.buildingsTab.sort = type;
+            this.buildingsTab.sortDir = 'asc';
         },
     },
 });

@@ -77,6 +77,12 @@ export default {
         {
             caption: 'LF 20',
             color: '#cc0000',
+            coins: 25,
+            credits: 5_000,
+            minPersonnel: 1,
+            maxPersonnel: 9,
+            wtank: 2_000,
+            special: '',
         },
         {
             caption: 'LF 10',

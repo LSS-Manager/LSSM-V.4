@@ -18,3 +18,8 @@ export interface VehicleCategory {
         [group: string]: number[];
     };
 }
+
+export interface InternalVehicle {
+    caption: string;
+    color: string;
+}
