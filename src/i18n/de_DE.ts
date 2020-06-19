@@ -314,7 +314,7 @@ export default {
             credits: 5_000,
             minPersonnel: 1,
             maxPersonnel: 3,
-            wtank: 4000,            
+            wtank: 4000,
         },
         {
             caption: 'TLF 20/40-SL',
@@ -323,7 +323,7 @@ export default {
             credits: 5_000,
             minPersonnel: 1,
             maxPersonnel: 3,
-            wtank: 4000,          
+            wtank: 4000,
         },
         {
             caption: 'TLF 16',
@@ -332,16 +332,7 @@ export default {
             credits: 5_000,
             minPersonnel: 1,
             maxPersonnel: 3,
-            wtank: 1800,            
-        },
-        {
-            caption: 'TLF 4000',
-            color: '#dd2222',
-            coins: 25,
-            credits: 5_000,
-            minPersonnel: 1,
-            maxPersonnel: 3,
-            wtank: 4000,            
+            wtank: 1800,
         },
         {
             caption: 'GW-Gefahrgut',
@@ -350,7 +341,7 @@ export default {
             credits: 19_200,
             minPersonnel: 1,
             maxPersonnel: 3,
-            wtank: 0, 
+            wtank: 0,
             schooling: 'Feuerwehr - GW-Gefahrgut',
             special: 'Wird ab 11 Feuerwachen benötigt.',
         },
@@ -358,7 +349,7 @@ export default {
             caption: 'RTW',
             color: '#f59f00',
             coins: 25,
-            credits: 5_000, 
+            credits: 5_000,
             minPersonnel: 1,
             maxPersonnel: 2,
         },
@@ -366,7 +357,7 @@ export default {
             caption: 'NEF',
             color: '#e09200',
             coins: 25,
-            credits: 20_000, 
+            credits: 20_000,
             minPersonnel: 1,
             maxPersonnel: 2,
             schooling: 'Rettungsdienst - Notarzt',
@@ -379,7 +370,7 @@ export default {
             credits: 20_000,
             minPersonnel: 1,
             maxPersonnel: 9,
-            wtank: 1600,   
+            wtank: 1600,
         },
         {
             caption: 'RTH',
@@ -390,7 +381,6 @@ export default {
             maxPersonnel: 1,
             schooling: 'Rettungsdienst - Notarzt',
             special: 'Wird ab 3 Rettungswachen benötigt.',
-
         },
         {
             caption: 'FuStW',
@@ -398,7 +388,7 @@ export default {
             coins: 25,
             credits: 5_000,
             minPersonnel: 1,
-            maxPersonnel: 2,            
+            maxPersonnel: 2,
         },
         {
             caption: 'GW-Höhenrettung',
@@ -407,7 +397,7 @@ export default {
             credits: 19_500,
             minPersonnel: 1,
             maxPersonnel: 9,
-            wtank: 0, 
+            wtank: 0,
             schooling: 'Feuerwehr - Höhenrettung',
             special: 'Wird ab 12 Feuerwachen benötigt.',
         },
@@ -418,9 +408,9 @@ export default {
             credits: 25_500,
             minPersonnel: 1,
             maxPersonnel: 6,
-            wtank: 0, 
+            wtank: 0,
             schooling: 'Feuerwehr - ELW2',
-            special: 'Wird ab 13 Feuerwachen benötigt.            
+            special: 'Wird ab 13 Feuerwachen benötigt.',
         },
         {
             caption: 'leBefKw',
@@ -433,7 +423,7 @@ export default {
             credits: 2_500,
             minPersonnel: 1,
             maxPersonnel: 9,
-            wtank: 0, 
+            wtank: 0,
         },
         {
             caption: 'TSF-W',
@@ -442,7 +432,7 @@ export default {
             credits: 5_000,
             minPersonnel: 1,
             maxPersonnel: 6,
-            wtank: 500, 
+            wtank: 500,
         },
         {
             caption: 'KTW',
@@ -451,7 +441,6 @@ export default {
             credits: 5_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            
         },
         {
             caption: 'GKW',
@@ -488,7 +477,7 @@ export default {
             credits: 5_000,
             minPersonnel: 1,
             maxPersonnel: 3,
-            wtank: 0, 
+            wtank: 0,
             schooling: 'Feuerwehr - Wechsellader',
         },
         {
@@ -507,7 +496,7 @@ export default {
             caption: 'AB-Öl',
             color: '#8b0707',
             coins: 12,
-            credits: 6_000,            
+            credits: 6_000,
         },
         {
             caption: 'GruKw',
@@ -529,7 +518,7 @@ export default {
             caption: 'AB-Dekon-P',
             color: '#450707',
             coins: 12,
-            credits: 6_000,            
+            credits: 6_000,
         },
         {
             caption: 'KdoW-LNA',
@@ -538,7 +527,7 @@ export default {
             credits: 20_000,
             minPersonnel: 1,
             maxPersonnel: 1,
-            wtank: 0, 
+            wtank: 0,
             schooling: 'Rettungsdienst - LNA',
             special: 'Wird ab 5 Rettungswachen benötigt.',
         },
@@ -549,7 +538,7 @@ export default {
             credits: 20_000,
             minPersonnel: 1,
             maxPersonnel: 1,
-            wtank: 0, 
+            wtank: 0,
             schooling: 'Rettungsdienst - OrgL',
             special: 'Wird ab 10 Rettungswachen benötigt.',
         },
@@ -560,9 +549,9 @@ export default {
             credits: 30_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            wtank: 0, 
+            wtank: 0,
             schooling: 'Feuerwehr - Feuerwehrkran',
-            special: 'Wird ab 14 Feuerwachen benötigt.',            
+            special: 'Wird ab 14 Feuerwachen benötigt.',
         },
         {
             caption: 'KTW Typ B',
@@ -583,13 +572,13 @@ export default {
             credits: 300_000,
             minPersonnel: 1,
             maxPersonnel: 3,
-            schooling: 'Polizei - Polizeihubschrauber', 
+            schooling: 'Polizei - Polizeihubschrauber',
         },
         {
             caption: 'AB-Schlauch',
             color: '#e60808',
             coins: 12,
-            credits: 6_000,               
+            credits: 6_000,
         },
         {
             caption: 'GW-Taucher',
@@ -598,7 +587,7 @@ export default {
             credits: 10_000,
             minPersonnel: 2,
             maxPersonnel: 2,
-            schooling: 'Rettungsdienst - GW-Taucher',            
+            schooling: 'Rettungsdienst - GW-Taucher',
         },
         {
             caption: 'GW-Wasserrettung',
@@ -607,7 +596,7 @@ export default {
             credits: 10_000,
             minPersonnel: 1,
             maxPersonnel: 6,
-            schooling: 'Rettungsdienst - GW-Wasserrettung',  
+            schooling: 'Rettungsdienst - GW-Wasserrettung',
         },
         {
             caption: 'LKW 7 Lkr 19 tm',
@@ -633,13 +622,13 @@ export default {
             caption: 'MZB',
             color: '#9ac8a6',
             coins: 12,
-            credits: 6_000,    
+            credits: 6_000,
         },
         {
             caption: 'AB-MZB',
             color: '#bf7f6a',
             coins: 12,
-            credits: 6_000,            
+            credits: 6_000,
         },
         {
             caption: 'WaWe 10',
@@ -652,7 +641,8 @@ export default {
             credits: 25_000,
             minPersonnel: 6,
             maxPersonnel: 6,
-            special: 'Pro 20 Rettungswachen (bzw. 15 Rettungswachen mit Premium Account) kann ein GRTW gekauft werden.',
+            special:
+                'Pro 20 Rettungswachen (bzw. 15 Rettungswachen mit Premium Account) kann ein GRTW gekauft werden.',
         },
         {
             caption: 'NAW',
@@ -661,9 +651,9 @@ export default {
             credits: 25_000,
             minPersonnel: 3,
             maxPersonnel: 3,
-            schooling: 'Rettungsdienst - Notarzt',            
-            special: 'Pro 20 Rettungswachen (bzw. 15 Rettungswachen mit Premium Account) kann ein GRTW gekauft werden.',           
-            
+            schooling: 'Rettungsdienst - Notarzt',
+            special:
+                'Pro 20 Rettungswachen (bzw. 15 Rettungswachen mit Premium Account) kann ein GRTW gekauft werden.',
         },
         {
             caption: 'FLF',
@@ -673,7 +663,7 @@ export default {
             minPersonnel: 2,
             maxPersonnel: 3,
             wtank: 12000,
-            schooling: 'Feuerwehr - Flugfeldlöschfahrzeug',            
+            schooling: 'Feuerwehr - Flugfeldlöschfahrzeug',
         },
         {
             caption: 'Rettungstreppe',
@@ -683,19 +673,19 @@ export default {
             minPersonnel: 2,
             maxPersonnel: 2,
             wtank: 0,
-            schooling: 'Feuerwehr - Rettungstreppe',  
+            schooling: 'Feuerwehr - Rettungstreppe',
         },
         {
             caption: 'AB-Gefahrgut',
             color: '#680101',
             coins: 12,
-            credits: 6_000,            
+            credits: 6_000,
         },
         {
             caption: 'AB-Einsatzleitung',
             color: '#bf1111',
             coins: 12,
-            credits: 6_000,            
+            credits: 6_000,
         },
         {
             caption: 'SEK - ZF',
@@ -720,7 +710,7 @@ export default {
             credits: 15_000,
             minPersonnel: 1,
             maxPersonnel: 9,
-            wtank: 0
+            wtank: 0,
             schooling: 'Feuerwehr - Werkfeuerwehr',
         },
         {
@@ -730,7 +720,7 @@ export default {
             credits: 20_000,
             minPersonnel: 1,
             maxPersonnel: 3,
-            wtank: 5000
+            wtank: 5_000,
             schooling: 'Feuerwehr - Werkfeuerwehr',
         },
         {
@@ -740,8 +730,8 @@ export default {
             credits: 20_000,
             minPersonnel: 1,
             maxPersonnel: 3,
-            wtank: 0
-            schooling: 'Feuerwehr - Werkfeuerwehr',            
+            wtank: 0,
+            schooling: 'Feuerwehr - Werkfeuerwehr',
         },
         {
             caption: 'Turbolöscher',
@@ -750,8 +740,17 @@ export default {
             credits: 12_500,
             minPersonnel: 1,
             maxPersonnel: 3,
-            wtank: 0
-            schooling: 'Feuerwehr - Werkfeuerwehr',  
+            wtank: 0,
+            schooling: 'Feuerwehr - Werkfeuerwehr',
+        },
+        {
+            caption: 'TLF 4000',
+            color: '#dd2222',
+            coins: 25,
+            credits: 5_000,
+            minPersonnel: 1,
+            maxPersonnel: 3,
+            wtank: 4000,
         },
         {
             caption: 'KLF',
@@ -760,7 +759,7 @@ export default {
             credits: 5_000,
             minPersonnel: 1,
             maxPersonnel: 6,
-            wtank: 500,             
+            wtank: 500,
         },
         {
             caption: 'MLF',
@@ -769,7 +768,7 @@ export default {
             credits: 5_000,
             minPersonnel: 1,
             maxPersonnel: 6,
-            wtank: 1000,             
+            wtank: 1_000,
         },
         {
             caption: 'HLF 10',
@@ -778,7 +777,7 @@ export default {
             credits: 20_000,
             minPersonnel: 1,
             maxPersonnel: 9,
-            wtank: 1000,             
+            wtank: 1_000,
         },
         {
             caption: 'Rettungshundefahrzeug',
