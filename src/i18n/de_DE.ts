@@ -197,7 +197,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 3,
             wtank: 0,
-            schooling: 'Feuerwehr - GW-Messtechnik',
+            schooling: 'Feuerwehr - GW-Messtechnik Lehrgang',
             special: 'Wird ab 10 Feuerwachen benötigt.',
         },
         {
@@ -342,7 +342,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 3,
             wtank: 0,
-            schooling: 'Feuerwehr - GW-Gefahrgut',
+            schooling: 'Feuerwehr - GW-Gefahrgut Lehrgang',
             special: 'Wird ab 11 Feuerwachen benötigt.',
         },
         {
@@ -360,7 +360,7 @@ export default {
             credits: 20_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            schooling: 'Rettungsdienst - Notarzt',
+            schooling: 'Rettungsdienst - Notarzt-Ausbildung',
             special: 'Wird ab 3 Rettungswachen benötigt.',
         },
         {
@@ -379,7 +379,7 @@ export default {
             credits: 300_000,
             minPersonnel: 1,
             maxPersonnel: 1,
-            schooling: 'Rettungsdienst - Notarzt',
+            schooling: 'Rettungsdienst - Notarzt-Ausbildung',
             special: 'Wird ab 3 Rettungswachen benötigt.',
         },
         {
@@ -398,7 +398,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 9,
             wtank: 0,
-            schooling: 'Feuerwehr - Höhenrettung',
+            schooling: 'Feuerwehr - Höhenrettung Lehrgang',
             special: 'Wird ab 12 Feuerwachen benötigt.',
         },
         {
@@ -409,12 +409,17 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 6,
             wtank: 0,
-            schooling: 'Feuerwehr - ELW2',
+            schooling: 'Feuerwehr - ELW 2 Lehrgang',
             special: 'Wird ab 13 Feuerwachen benötigt.',
         },
         {
             caption: 'leBefKw',
             color: '#288f28',
+            coins: 25,
+            credits: 10_000,
+            minPersonnel: 1,
+            maxPersonnel: 3,
+            schooling: 'Polizei - Zugführer (leBefKw)',
         },
         {
             caption: 'MTW',
@@ -445,30 +450,60 @@ export default {
         {
             caption: 'GKW',
             color: '#00138f',
+            coins: 25,
+            credits: 13_000,
+            minPersonnel: 1,
+            maxPersonnel: 9,
         },
         {
             caption: 'MTW-TZ',
             color: '#0016a3',
+            coins: 12,
+            credits: 2_500,
+            minPersonnel: 1,
+            maxPersonnel: 4,
+            schooling: 'THW - Zugtrupp',
         },
         {
             caption: 'MzKW',
             color: '#0018b8',
+            coins: 25,
+            credits: 15_000,
+            minPersonnel: 1,
+            maxPersonnel: 4,
         },
         {
             caption: 'LKW K 9',
             color: '#001bcc',
+            coins: 25,
+            credits: 15_000,
+            minPersonnel: 1,
+            maxPersonnel: 3,
+            schooling: 'THW - Fachgruppe Räumen',
         },
         {
             caption: 'BRmG R',
             color: '#001ee0',
+            coins: 25,
+            credits: 15_000,
+            special: 'Muss vom "LKW K 9" zum Einsatz gezogen werden',
         },
         {
             caption: 'Anh DLE',
             color: '#0021f5',
+            coins: 25,
+            credits: 15_000,
+            special:
+                'Muss von einem "GKW", "MzKW", "MTW-TZ" oder "MLW 5" zum Einsatz gezogen werden.',
         },
         {
             caption: 'MLW 5',
             color: '#0a2bff',
+            coins: 12,
+            credits: 2_500,
+            minPersonnel: 1,
+            maxPersonnel: 6,
+            schooling: 'THW - Fachgruppe Räumen',
         },
         {
             caption: 'WLF',
@@ -478,7 +513,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 3,
             wtank: 0,
-            schooling: 'Feuerwehr - Wechsellader',
+            schooling: 'Feuerwehr - Wechsellader Lehrgang',
         },
         {
             caption: 'AB-Rüst',
@@ -501,18 +536,38 @@ export default {
         {
             caption: 'GruKw',
             color: '#2d9f29',
+            coins: 25,
+            credits: 10_000,
+            minPersonnel: 1,
+            maxPersonnel: 9,
         },
         {
             caption: 'FüKw',
             color: '#31af31',
+            coins: 25,
+            credits: 17_500,
+            minPersonnel: 1,
+            maxPersonnel: 3,
+            schooling: 'Polizei - Hundertschaftsführer (FüKw)',
         },
         {
             caption: 'GefKw',
             color: '#36bf36',
+            coins: 25,
+            credits: 13_000,
+            minPersonnel: 1,
+            maxPersonnel: 3,
         },
         {
             caption: 'Dekon-P',
             color: '#450909',
+            coins: 25,
+            credits: 23_100,
+            minPersonnel: 1,
+            maxPersonnel: 6,
+            schooling: 'Feuerwehr - Dekon-P Lehrgang',
+            special:
+                'Pro Dekon-P müssen 6 Personen mit Dekon-P-Ausbildung vor Ort sein. Wird ab 14 Feuerwachen benötigt.',
         },
         {
             caption: 'AB-Dekon-P',
@@ -528,7 +583,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 1,
             wtank: 0,
-            schooling: 'Rettungsdienst - LNA',
+            schooling: 'Rettungsdienst - LNA-Ausbildung',
             special: 'Wird ab 5 Rettungswachen benötigt.',
         },
         {
@@ -539,7 +594,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 1,
             wtank: 0,
-            schooling: 'Rettungsdienst - OrgL',
+            schooling: 'Rettungsdienst - OrgL-Ausbildung',
             special: 'Wird ab 10 Rettungswachen benötigt.',
         },
         {
@@ -550,20 +605,40 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 2,
             wtank: 0,
-            schooling: 'Feuerwehr - Feuerwehrkran',
+            schooling: 'Feuerwehr - Feuerwehrkran Lehrgang',
             special: 'Wird ab 14 Feuerwachen benötigt.',
         },
         {
             caption: 'KTW Typ B',
             color: '#cc5200',
+            coins: 25,
+            credits: 5_000,
+            minPersonnel: 1,
+            maxPersonnel: 2,
+            special:
+                'Kann, wenn ein GW-San vor Ort ist, behandelte Patienten vom Einsatzort abtransportieren. Ein Transport mit Notarztbegleitung durch ein NEF ist auch möglich.',
         },
         {
             caption: 'ELW 1 (SEG)',
             color: '#a34100',
+            coins: 25,
+            credits: 25_500,
+            minPersonnel: 1,
+            maxPersonnel: 2,
+            schooling: 'Rettungsdienst - SEG - Einsatzleitung',
+            special:
+                'Kann automatisch eingehende Sprechwünsche der eigenen Rettungsmittel bearbeiten und ihnen im Transportfall ein geeignetes Krankenhaus zuweisen. Die automatische Zuweisungsfunktion kann in dessen Einstellungen verändert werden.',
         },
         {
             caption: 'GW-San',
             color: '#8f3900',
+            coins: 25,
+            credits: 10_00,
+            minPersonnel: 6,
+            maxPersonnel: 6,
+            schooling: 'Rettungsdienst - SEG - GW-San',
+            special:
+                'Pro GW-San können 5 KTW Typ B wie ein RTW arbeiten. Er behandelt die Patienten zwar größtenteils, aber für die letzten paar Prozente braucht man dann einen RTW, KTW Typ B oder ähnliches.',
         },
         {
             caption: 'Polizeihubschrauber',
@@ -587,7 +662,7 @@ export default {
             credits: 10_000,
             minPersonnel: 2,
             maxPersonnel: 2,
-            schooling: 'Rettungsdienst - GW-Taucher',
+            schooling: 'Rettungsdienst - GW-Taucher Lehrgang',
         },
         {
             caption: 'GW-Wasserrettung',
@@ -596,43 +671,73 @@ export default {
             credits: 10_000,
             minPersonnel: 1,
             maxPersonnel: 6,
-            schooling: 'Rettungsdienst - GW-Wasserrettung',
+            schooling: 'Rettungsdienst - GW-Wasserrettung Lehrgang',
         },
         {
             caption: 'LKW 7 Lkr 19 tm',
             color: '#123183',
+            coins: 25,
+            credits: 10_000,
+            minPersonnel: 1,
+            maxPersonnel: 2,
         },
         {
             caption: 'Anh MzB',
             color: '#1b428a',
+            coins: 12,
+            credits: 6_000,
+            special:
+                'Muss von einem "LKW 7 Lkr 19 tm" zum Einsatz gezogen werden. Pro gefordertem Boot müssen mind. 4 Personen mit der Ausbildung "GW-Wasserrettung" oder "Wassergefahren" vor Ort sein!',
         },
         {
             caption: 'Anh SchlB',
             color: '#245390',
+            coins: 12,
+            credits: 6_000,
+            special:
+                'Muss von einem "LKW 7 Lkr 19 tm" zum Einsatz gezogen werden. Pro gefordertem Boot müssen mind. 4 Personen mit der Ausbildung "GW-Wasserrettung" oder "Wassergefahren" vor Ort sein!',
         },
         {
             caption: 'Anh MzAB',
             color: '#296497',
+            coins: 12,
+            credits: 6_000,
+            special:
+                'Muss von einem "LKW 7 Lkr 19 tm" zum Einsatz gezogen werden. Pro gefordertem Boot müssen mind. 4 Personen mit der Ausbildung "GW-Wasserrettung" oder "Wassergefahren" vor Ort sein!',
         },
         {
             caption: 'Tauchkraftwagen',
             color: '#36759e',
+            coins: 25,
+            credits: 10_000,
+            minPersonnel: 1,
+            maxPersonnel: 2,
+            schooling: 'THW - Bergungstaucher Lehrgang',
         },
         {
             caption: 'MZB',
             color: '#9ac8a6',
             coins: 12,
             credits: 6_000,
+            special:
+                'Muss von einem "GW-Wasserrettung" oder einem "GW-Taucher" zum Einsatz gezogen werden. Pro gefordertem Boot müssen mind. 4 Personen mit der Ausbildung "GW-Wasserrettung" oder "Wassergefahren" vor Ort sein!',
         },
         {
             caption: 'AB-MZB',
             color: '#bf7f6a',
             coins: 12,
             credits: 6_000,
+            special:
+                'Pro gefordertem Boot müssen mind. 4 Personen mit der Ausbildung "GW-Wasserrettung" oder "Wassergefahren" vor Ort sein!',
         },
         {
             caption: 'WaWe 10',
             color: '#36b15d',
+            coins: 25,
+            credits: 13_000,
+            minPersonnel: 5,
+            maxPersonnel: 5,
+            schooling: 'Polizei - Wasserwerfer',
         },
         {
             caption: 'GRTW',
@@ -642,7 +747,7 @@ export default {
             minPersonnel: 6,
             maxPersonnel: 6,
             special:
-                'Pro 20 Rettungswachen (bzw. 15 Rettungswachen mit Premium Account) kann ein GRTW gekauft werden.',
+                'Der GRTW kann in zwei verschiedenen Modi alarmiert werden:<br>1.Für leichtverletzte Personen, die keinen Notarzt benötigen. Dann können in dem GRTW 7 Patienten gleichzeitig behandelt und abtransportiert werden.<br>2.Für schwerverletzte Personen, die einen Notarzt benötigen. Dann können in dem GRTW 3 Patienten gleichzeitig behandelt werden.<br>Pro 20 Rettungswachen (bzw. 15 Rettungswachen mit Premium Account) kann ein GRTW gekauft werden.',
         },
         {
             caption: 'NAW',
@@ -651,9 +756,9 @@ export default {
             credits: 25_000,
             minPersonnel: 3,
             maxPersonnel: 3,
-            schooling: 'Rettungsdienst - Notarzt',
+            schooling: 'Rettungsdienst - Notarzt-Ausbildung',
             special:
-                'Pro 20 Rettungswachen (bzw. 15 Rettungswachen mit Premium Account) kann ein GRTW gekauft werden.',
+                'Insgesamt so viele NAW kaufbar wie Rettungswachen (und auf einsatzbereit gestellte Rettungsdienst-Erweiterungen) vorhanden. Alle auch auf einer Wache patzierbar.',
         },
         {
             caption: 'FLF',
@@ -663,7 +768,7 @@ export default {
             minPersonnel: 2,
             maxPersonnel: 3,
             wtank: 12000,
-            schooling: 'Feuerwehr - Flugfeldlöschfahrzeug',
+            schooling: 'Feuerwehr - Flugfeldlöschfahrzeug-Ausbildung',
         },
         {
             caption: 'Rettungstreppe',
@@ -673,7 +778,7 @@ export default {
             minPersonnel: 2,
             maxPersonnel: 2,
             wtank: 0,
-            schooling: 'Feuerwehr - Rettungstreppe',
+            schooling: 'Feuerwehr - Rettungstreppen-Ausbildung',
         },
         {
             caption: 'AB-Gefahrgut',
@@ -690,18 +795,38 @@ export default {
         {
             caption: 'SEK - ZF',
             color: '#217d1a',
+            coins: 25,
+            credits: 10_000,
+            minPersonnel: 3,
+            maxPersonnel: 4,
+            schooling: 'Polizei - SEK',
         },
         {
             caption: 'SEK - MTF',
             color: '#1a7d1b',
+            coins: 25,
+            credits: 10_000,
+            minPersonnel: 9,
+            maxPersonnel: 9,
+            schooling: 'Polizei - SEK',
         },
         {
             caption: 'MEK - ZF',
             color: '#1a7d22',
+            coins: 25,
+            credits: 10_000,
+            minPersonnel: 3,
+            maxPersonnel: 4,
+            schooling: 'Polizei - MEK',
         },
         {
             caption: 'MEK - MTF',
             color: '#1a7d2a',
+            coins: 25,
+            credits: 10_000,
+            minPersonnel: 9,
+            maxPersonnel: 9,
+            schooling: 'Polizei - MEK',
         },
         {
             caption: 'GW-Werkfeuerwehr',
@@ -711,7 +836,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 9,
             wtank: 0,
-            schooling: 'Feuerwehr - Werkfeuerwehr',
+            schooling: 'Feuerwehr - Werkfeuerwehr-Ausbildung',
         },
         {
             caption: 'ULF mit Löscharm',
@@ -721,7 +846,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 3,
             wtank: 5_000,
-            schooling: 'Feuerwehr - Werkfeuerwehr',
+            schooling: 'Feuerwehr - Werkfeuerwehr-Ausbildung',
         },
         {
             caption: 'TM 50',
@@ -731,7 +856,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 3,
             wtank: 0,
-            schooling: 'Feuerwehr - Werkfeuerwehr',
+            schooling: 'Feuerwehr - Werkfeuerwehr-Ausbildung',
         },
         {
             caption: 'Turbolöscher',
@@ -741,7 +866,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 3,
             wtank: 0,
-            schooling: 'Feuerwehr - Werkfeuerwehr',
+            schooling: 'Feuerwehr - Werkfeuerwehr-Ausbildung',
         },
         {
             caption: 'TLF 4000',
@@ -786,14 +911,26 @@ export default {
             credits: 25_000,
             minPersonnel: 4,
             maxPersonnel: 5,
+            schooling: 'Rettungsdienst - Rettungshundeführer (SEG)',
+            special:
+                'Am Einsatzort sind ein "Rettungshundefahrzeug" und ein "Anh Hund" vom THW gleichwertig!',
         },
         {
             caption: 'Anh Hund',
             color: '#422629',
+            coins: 0,
+            credits: 6_000,
+            special:
+                'Muss von einem "MTW-OV" an den Einsatzort gezogen werden. Am Einsatzort sind ein "Anh Hund" und ein "Anh Rettungshundefahrzeug" vom THW gleichwertig!',
         },
         {
             caption: 'MTW-OV',
             color: '#14165e',
+            coins: 0,
+            credits: 19_000,
+            minPersonnel: 4,
+            maxPersonnel: 5,
+            schooling: 'THW - Rettungshundeführer (THW)',
         },
     ],
     buildings: [
