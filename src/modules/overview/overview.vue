@@ -21,11 +21,15 @@
                                     :table-attrs="{
                                         class: 'table table-striped',
                                     }"
+                                    @sort="setSortVehicles"
+                                    :sort="vehiclesTab.sort"
+                                    :sort-dir="vehiclesTab.sortDir"
+                                    :search="vehiclesTab.search"
+                                    @search="s => (vehiclesTab['search'] = s)"
                                 >
                                     <tr
-                                        v-for="type in vehicleTypes"
-                                        :key="type"
-                                        :vehicle="(vehicle = vehicles[type])"
+                                        v-for="vehicle in vehicleTypes"
+                                        :key="vehicle.caption"
                                     >
                                         <td
                                             v-for="(_,
@@ -157,7 +161,10 @@ import {
     OverviewMethods,
     OverviewComputed,
 } from '../../../typings/modules/Overview';
-import { VehicleCategory } from '../../../typings/Vehicle';
+import {
+    ResolvedVehicleCategory,
+    VehicleCategory,
+} from '../../../typings/Vehicle';
 
 export default Vue.extend<
     Overview,
@@ -190,6 +197,9 @@ export default Vue.extend<
                             : null,
                     special: { title: this.$m('titles.vehicles.special') },
                 },
+                search: '',
+                sort: 'caption',
+                sortDir: 'asc',
             },
             buildings: Object.values(this.$t('buildings')),
             buildingsTab: {
@@ -249,6 +259,29 @@ export default Vue.extend<
             this.buildingsTab.sort = type;
             this.buildingsTab.sortDir = 'asc';
         },
+        setSortVehicles(type) {
+            if (this.vehiclesTab.sort === type)
+                return (this.vehiclesTab.sortDir =
+                    this.vehiclesTab.sortDir === 'asc' ? 'desc' : 'asc');
+            this.vehiclesTab.sort = type;
+            this.vehiclesTab.sortDir = 'asc';
+        },
+    },
+    mounted() {
+        Object.entries(this.vehicleCategories).forEach(
+            ([category, { vehicles: groups }]) =>
+                Object.entries(groups).forEach(
+                    ([group, vehicles]) =>
+                        typeof vehicles[0] === 'number' &&
+                        this.$set(
+                            this.vehicleCategories[category].vehicles,
+                            group,
+                            Object.values(vehicles as number[]).map(
+                                type => this.vehicles[type]
+                            )
+                        )
+                )
+        );
     },
 });
 </script>

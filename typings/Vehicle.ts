@@ -19,7 +19,20 @@ export interface VehicleCategory {
     };
 }
 
+export interface ResolvedVehicleCategory {
+    color: string;
+    vehicles: {
+        [group: string]: InternalVehicle[];
+    };
+}
+
 export interface InternalVehicle {
     caption: string;
     color: string;
+    coins: number;
+    credits: number;
+    minPersonnel: number;
+    maxPersonnel: number;
+    schooling: string;
+    special: string;
 }

@@ -1,12 +1,16 @@
 import VueI18n from 'vue-i18n';
 import { InternalBuilding } from '../Building';
-import { InternalVehicle, VehicleCategory } from 'typings/Vehicle';
+import {
+    InternalVehicle,
+    VehicleCategory,
+    ResolvedVehicleCategory,
+} from 'typings/Vehicle';
 
 export interface Overview {
     buildings: InternalBuilding[];
     vehicles: InternalVehicle[];
     vehicleCategories: {
-        [name: string]: VehicleCategory;
+        [name: string]: VehicleCategory | ResolvedVehicleCategory;
     };
     buildingsTab: {
         head: {
@@ -33,4 +37,5 @@ export interface OverviewMethods {
         }
     ): VueI18n.TranslateResult;
     setSortBuildings(type: string): void;
+    setSortVehicles(type: string): void;
 }
