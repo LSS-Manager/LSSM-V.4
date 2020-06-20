@@ -3,14 +3,14 @@
         <h1>{{ $m('name') }}</h1>
         <tabs>
             <tab :title="$m('tabs.vehicles')">
-                <tabs>
+                <tabs ref="vehicle_categories">
                     <tab
                         v-for="({ vehicles: groups },
                         title) in vehicleCategories"
                         :key="title"
                         :title="title"
                     >
-                        <tabs>
+                        <tabs :ref="`vehicle_groups_${title}`">
                             <tab
                                 v-for="(vehicleTypes, group) in groups"
                                 :key="group"
@@ -175,11 +175,26 @@ export default Vue.extend<
     name: 'overview',
     components: { EnhancedTable, Lightbox },
     data() {
+        const vehicleCategories = (this.$t('vehicleCategories') as unknown) as {
+            [name: string]: VehicleCategory;
+        };
+        const vehicleTypes = Object.values(this.$t('vehicles'));
+        Object.entries(
+            vehicleCategories
+        ).forEach(([category, { vehicles: groups }]) =>
+            Object.entries(groups).forEach(
+                ([group, vehicles]) =>
+                    typeof vehicles[0] === 'number' &&
+                    (vehicleCategories[category].vehicles[
+                        group
+                    ] = Object.values(vehicles as number[]).map(
+                        type => vehicleTypes[type]
+                    ))
+            )
+        );
         return {
-            vehicles: Object.values(this.$t('vehicles')),
-            vehicleCategories: (this.$t('vehicleCategories') as unknown) as {
-                [name: string]: VehicleCategory;
-            },
+            vehicles: vehicleTypes,
+            vehicleCategories,
             vehiclesTab: {
                 head: {
                     caption: { title: this.$m('titles.vehicles.caption') },
@@ -231,7 +246,7 @@ export default Vue.extend<
     computed: {
         buildingsFiltered() {
             return this.buildings.filter(building =>
-                JSON.stringify(building)
+                JSON.stringify(Object.values(building))
                     .toLowerCase()
                     .match(this.buildingsTab.search.toLowerCase())
             );
@@ -266,22 +281,6 @@ export default Vue.extend<
             this.vehiclesTab.sort = type;
             this.vehiclesTab.sortDir = 'asc';
         },
-    },
-    mounted() {
-        Object.entries(this.vehicleCategories).forEach(
-            ([category, { vehicles: groups }]) =>
-                Object.entries(groups).forEach(
-                    ([group, vehicles]) =>
-                        typeof vehicles[0] === 'number' &&
-                        this.$set(
-                            this.vehicleCategories[category].vehicles,
-                            group,
-                            Object.values(vehicles as number[]).map(
-                                type => this.vehicles[type]
-                            )
-                        )
-                )
-        );
     },
 });
 </script>
