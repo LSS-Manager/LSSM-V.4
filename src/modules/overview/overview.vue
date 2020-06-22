@@ -3,16 +3,16 @@
         <h1>{{ $m('name') }}</h1>
         <tabs>
             <tab :title="$m('tabs.vehicles')">
-                <tabs ref="vehicle_categories">
+                <tabs :on-select="setVehicleCategory">
                     <tab
                         v-for="({ vehicles: groups },
                         title) in vehicleCategories"
                         :key="title"
                         :title="title"
                     >
-                        <tabs :ref="`vehicle_groups_${title}`">
+                        <tabs :on-select="setVehicleGroup">
                             <tab
-                                v-for="(vehicleTypes, group) in groups"
+                                v-for="(_, group) in groups"
                                 :key="group"
                                 :title="group"
                             >
@@ -162,6 +162,7 @@ import {
     OverviewComputed,
 } from '../../../typings/modules/Overview';
 import {
+    InternalVehicle,
     ResolvedVehicleCategory,
     VehicleCategory,
 } from '../../../typings/Vehicle';
@@ -194,7 +195,9 @@ export default Vue.extend<
         );
         return {
             vehicles: vehicleTypes,
-            vehicleCategories,
+            vehicleCategories: (vehicleCategories as unknown) as {
+                [name: string]: ResolvedVehicleCategory;
+            },
             vehiclesTab: {
                 head: {
                     caption: { title: this.$m('titles.vehicles.caption') },
@@ -204,7 +207,7 @@ export default Vue.extend<
                     maxPersonnel: {
                         title: this.$m('titles.vehicles.maxPersonnel'),
                     },
-                    cost: { title: this.$m('titles.vehicles.cost') },
+                    credits: { title: this.$m('titles.vehicles.cost') },
                     schooling: { title: this.$m('titles.vehicles.schooling') },
                     wtank:
                         this.$store.state.lang === 'de_DE'
@@ -215,12 +218,16 @@ export default Vue.extend<
                 search: '',
                 sort: 'caption',
                 sortDir: 'asc',
+                current: {
+                    category: 0,
+                    group: 0,
+                },
             },
             buildings: Object.values(this.$t('buildings')),
             buildingsTab: {
                 head: {
                     caption: { title: this.$m('titles.buildings.caption') },
-                    cost: { title: this.$m('titles.buildings.cost') },
+                    credits: { title: this.$m('titles.buildings.cost') },
                     maxLevel: { title: this.$m('titles.buildings.maxLevel') },
                     levelcost: { title: this.$m('titles.buildings.levelcost') },
                     startPersonnel: {
@@ -262,6 +269,32 @@ export default Vue.extend<
                 return f < s ? -1 * modifier : f > s ? modifier : 0;
             });
         },
+        vehicleTypes() {
+            const category = this.vehicleCategories[
+                Object.keys(this.vehicleCategories)[
+                    this.vehiclesTab.current.category
+                ]
+            ];
+            let vehicles =
+                category.vehicles[
+                    Object.keys(category.vehicles)[
+                        this.vehiclesTab.current.group
+                    ]
+                ];
+            return (this.vehiclesTab.search
+                ? vehicles.filter(vehicle =>
+                      JSON.stringify(Object.values(vehicle))
+                          .toLowerCase()
+                          .match(this.vehiclesTab.search.toLowerCase())
+                  )
+                : vehicles
+            ).sort((a, b) => {
+                let modifier = this.vehiclesTab.sortDir === 'desc' ? -1 : 1;
+                let f = a[this.vehiclesTab.sort] || '';
+                let s = b[this.vehiclesTab.sort] || '';
+                return f < s ? -1 * modifier : f > s ? modifier : 0;
+            });
+        },
     },
     methods: {
         $m(key, args) {
@@ -280,6 +313,13 @@ export default Vue.extend<
                     this.vehiclesTab.sortDir === 'asc' ? 'desc' : 'asc');
             this.vehiclesTab.sort = type;
             this.vehiclesTab.sortDir = 'asc';
+        },
+        setVehicleCategory(_, category) {
+            this.vehiclesTab.current.category = category;
+            this.setVehicleGroup(_, 0);
+        },
+        setVehicleGroup(_, group) {
+            this.vehiclesTab.current.group = group;
         },
     },
 });

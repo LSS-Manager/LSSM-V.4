@@ -1,16 +1,26 @@
 import VueI18n from 'vue-i18n';
 import { InternalBuilding } from '../Building';
-import {
-    InternalVehicle,
-    VehicleCategory,
-    ResolvedVehicleCategory,
-} from 'typings/Vehicle';
+import { InternalVehicle, ResolvedVehicleCategory } from 'typings/Vehicle';
 
 export interface Overview {
     buildings: InternalBuilding[];
     vehicles: InternalVehicle[];
     vehicleCategories: {
-        [name: string]: VehicleCategory | ResolvedVehicleCategory;
+        [name: string]: ResolvedVehicleCategory;
+    };
+    vehiclesTab: {
+        head: {
+            [key: string]: {
+                title: string;
+            };
+        };
+        search: string;
+        sort: string;
+        sortDir: string;
+        current: {
+            category: number;
+            group: number;
+        };
     };
     buildingsTab: {
         head: {
@@ -27,6 +37,7 @@ export interface Overview {
 export interface OverviewComputed {
     buildingsFiltered: InternalBuilding[];
     buildingsSorted: InternalBuilding[];
+    vehicleTypes: InternalVehicle[];
 }
 
 export interface OverviewMethods {
@@ -38,4 +49,6 @@ export interface OverviewMethods {
     ): VueI18n.TranslateResult;
     setSortBuildings(type: string): void;
     setSortVehicles(type: string): void;
+    setVehicleCategory(_: unknown, group: number): void;
+    setVehicleGroup(_: unknown, group: number): void;
 }
