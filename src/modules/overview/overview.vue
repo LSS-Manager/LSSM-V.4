@@ -84,68 +84,151 @@
                 </tabs>
             </tab>
             <tab :title="$m('tabs.buildings')">
-                <enhanced-table
-                    :head="buildingsTab.head"
-                    :table-attrs="{ class: 'table table-striped' }"
-                    @sort="setSortBuildings"
-                    :sort="buildingsTab.sort"
-                    :sort-dir="buildingsTab.sortDir"
-                    :search="buildingsTab.search"
-                    @search="s => (buildingsTab['search'] = s)"
-                >
-                    <tr
-                        v-for="building in buildingsSorted"
-                        :key="building.caption"
+                <tabs :on-select="setBuildingCategory">
+                    <tab
+                        v-for="({ buildings: groups },
+                        title) in buildingCategories"
+                        :key="title"
+                        :title="title"
                     >
-                        <td v-for="(_, attr) in buildingsTab.head" :key="attr">
-                            <span v-if="attr === 'cost'">
-                                {{
-                                    building.hasOwnProperty('credits')
-                                        ? building.credits.toLocaleString()
-                                        : NaN
-                                }}
-                                Credits /
-                                {{
-                                    building.hasOwnProperty('coins')
-                                        ? building.coins.toLocaleString()
-                                        : NaN
-                                }}
-                                Coins
-                            </span>
-                            <dl v-else-if="attr === 'extensions'">
-                                <span
-                                    v-for="(extension, index) in building[
-                                        'extensions'
-                                    ]"
-                                    :key="index"
-                                >
-                                    <dt>{{ extension.caption }}:</dt>
-                                    <dd>
-                                        {{ extension.credits.toLocaleString() }}
-                                        Credits /
-                                        {{ extension.coins.toLocaleString() }}
-                                        Coins; {{ extension.duration }}
-                                    </dd>
-                                </span>
-                            </dl>
-                            <span
-                                v-else-if="typeof building[attr] === 'object'"
-                                v-html="
-                                    Object.values(building[attr]).join(',<br>')
-                                "
+                        <enhanced-table
+                            :head="buildingsTab.head"
+                            :table-attrs="{ class: 'table table-striped' }"
+                            @sort="setSortBuildings"
+                            :sort="buildingsTab.sort"
+                            :sort-dir="buildingsTab.sortDir"
+                            :search="buildingsTab.search"
+                            @search="s => (buildingsTab['search'] = s)"
+                        >
+                            <tr
+                                v-for="building in buildingsSorted"
+                                :key="building.caption"
                             >
-                            </span>
-                            <span
-                                v-else
-                                v-html="
-                                    building.hasOwnProperty(attr)
-                                        ? building[attr].toLocaleString()
-                                        : ''
-                                "
-                            ></span>
-                        </td>
-                    </tr>
-                </enhanced-table>
+                                <td
+                                    v-for="(_, attr) in buildingsTab.head"
+                                    :key="attr"
+                                >
+                                    <span v-if="attr === 'cost'">
+                                        {{
+                                            building.hasOwnProperty('credits')
+                                                ? building.credits.toLocaleString()
+                                                : NaN
+                                        }}
+                                        Credits /
+                                        {{
+                                            building.hasOwnProperty('coins')
+                                                ? building.coins.toLocaleString()
+                                                : NaN
+                                        }}
+                                        Coins
+                                    </span>
+                                    <dl v-else-if="attr === 'extensions'">
+                                        <span
+                                            v-for="(extension,
+                                            index) in building['extensions']"
+                                            :key="index"
+                                        >
+                                            <dt>{{ extension.caption }}:</dt>
+                                            <dd>
+                                                {{
+                                                    extension.credits.toLocaleString()
+                                                }}
+                                                Credits /
+                                                {{
+                                                    extension.coins.toLocaleString()
+                                                }}
+                                                Coins; {{ extension.duration }}
+                                            </dd>
+                                        </span>
+                                    </dl>
+                                    <span
+                                        v-else-if="
+                                            typeof building[attr] === 'object'
+                                        "
+                                        v-html="
+                                            Object.values(building[attr]).join(
+                                                ',<br>'
+                                            )
+                                        "
+                                    >
+                                    </span>
+                                    <span
+                                        v-else
+                                        v-html="
+                                            building.hasOwnProperty(attr)
+                                                ? building[
+                                                      attr
+                                                  ].toLocaleString()
+                                                : ''
+                                        "
+                                    ></span>
+                                </td>
+                            </tr>
+                        </enhanced-table>
+                    </tab>
+                </tabs>
+                <!--                <enhanced-table-->
+                <!--                    :head="buildingsTab.head"-->
+                <!--                    :table-attrs="{ class: 'table table-striped' }"-->
+                <!--                    @sort="setSortBuildings"-->
+                <!--                    :sort="buildingsTab.sort"-->
+                <!--                    :sort-dir="buildingsTab.sortDir"-->
+                <!--                    :search="buildingsTab.search"-->
+                <!--                    @search="s => (buildingsTab['search'] = s)"-->
+                <!--                >-->
+                <!--                    <tr-->
+                <!--                        v-for="building in buildingsSorted"-->
+                <!--                        :key="building.caption"-->
+                <!--                    >-->
+                <!--                        <td v-for="(_, attr) in buildingsTab.head" :key="attr">-->
+                <!--                            <span v-if="attr === 'cost'">-->
+                <!--                                {{-->
+                <!--                                    building.hasOwnProperty('credits')-->
+                <!--                                        ? building.credits.toLocaleString()-->
+                <!--                                        : NaN-->
+                <!--                                }}-->
+                <!--                                Credits /-->
+                <!--                                {{-->
+                <!--                                    building.hasOwnProperty('coins')-->
+                <!--                                        ? building.coins.toLocaleString()-->
+                <!--                                        : NaN-->
+                <!--                                }}-->
+                <!--                                Coins-->
+                <!--                            </span>-->
+                <!--                            <dl v-else-if="attr === 'extensions'">-->
+                <!--                                <span-->
+                <!--                                    v-for="(extension, index) in building[-->
+                <!--                                        'extensions'-->
+                <!--                                    ]"-->
+                <!--                                    :key="index"-->
+                <!--                                >-->
+                <!--                                    <dt>{{ extension.caption }}:</dt>-->
+                <!--                                    <dd>-->
+                <!--                                        {{ extension.credits.toLocaleString() }}-->
+                <!--                                        Credits /-->
+                <!--                                        {{ extension.coins.toLocaleString() }}-->
+                <!--                                        Coins; {{ extension.duration }}-->
+                <!--                                    </dd>-->
+                <!--                                </span>-->
+                <!--                            </dl>-->
+                <!--                            <span-->
+                <!--                                v-else-if="typeof building[attr] === 'object'"-->
+                <!--                                v-html="-->
+                <!--                                    Object.values(building[attr]).join(',<br>')-->
+                <!--                                "-->
+                <!--                            >-->
+                <!--                            </span>-->
+                <!--                            <span-->
+                <!--                                v-else-->
+                <!--                                v-html="-->
+                <!--                                    building.hasOwnProperty(attr)-->
+                <!--                                        ? building[attr].toLocaleString()-->
+                <!--                                        : ''-->
+                <!--                                "-->
+                <!--                            ></span>-->
+                <!--                        </td>-->
+                <!--                    </tr>-->
+                <!--                </enhanced-table>-->
             </tab>
         </tabs>
     </lightbox>
@@ -162,10 +245,10 @@ import {
     OverviewComputed,
 } from '../../../typings/modules/Overview';
 import {
-    InternalVehicle,
     ResolvedVehicleCategory,
     VehicleCategory,
 } from '../../../typings/Vehicle';
+import { BuildingCategory, ResolvedBuildingCategory } from 'typings/Building';
 
 export default Vue.extend<
     Overview,
@@ -191,6 +274,21 @@ export default Vue.extend<
                     ] = Object.values(vehicles as number[]).map(
                         type => vehicleTypes[type]
                     ))
+            )
+        );
+        const buildingCategories = (this.$t(
+            'buildingCategories'
+        ) as unknown) as {
+            [name: string]: BuildingCategory;
+        };
+        const buildingTypes = Object.values(this.$t('buildings'));
+        Object.entries(
+            buildingCategories
+        ).forEach(([category, { buildings }]) =>
+            Object.values(buildings).forEach(
+                (building, index) =>
+                    (buildingCategories[category].buildings[index] =
+                        buildingTypes[building])
             )
         );
         return {
@@ -223,7 +321,10 @@ export default Vue.extend<
                     group: 0,
                 },
             },
-            buildings: Object.values(this.$t('buildings')),
+            buildings: buildingTypes,
+            buildingCategories: (buildingCategories as unknown) as {
+                [name: string]: ResolvedBuildingCategory;
+            },
             buildingsTab: {
                 head: {
                     caption: { title: this.$m('titles.buildings.caption') },
@@ -247,22 +348,33 @@ export default Vue.extend<
                 search: '',
                 sort: 'caption',
                 sortDir: 'asc',
+                current: {
+                    category: 0,
+                },
             },
         } as Overview;
     },
     computed: {
+        currentBuildings() {
+            return this.buildingCategories[
+                Object.keys(this.buildingCategories)[
+                    this.buildingsTab.current.category
+                ]
+            ].buildings;
+        },
         buildingsFiltered() {
-            return this.buildings.filter(building =>
+            return Object.values(this.currentBuildings).filter(building =>
                 JSON.stringify(Object.values(building))
                     .toLowerCase()
                     .match(this.buildingsTab.search.toLowerCase())
             );
         },
         buildingsSorted() {
-            const buildings = this.buildingsTab.search
-                ? this.buildingsFiltered
-                : this.buildings;
-            return buildings.sort((a, b) => {
+            return Object.values(
+                this.buildingsTab.search
+                    ? this.buildingsFiltered
+                    : this.currentBuildings
+            ).sort((a, b) => {
                 let modifier = this.buildingsTab.sortDir === 'desc' ? -1 : 1;
                 let f = a[this.buildingsTab.sort] || '';
                 let s = b[this.buildingsTab.sort] || '';
@@ -320,6 +432,9 @@ export default Vue.extend<
         },
         setVehicleGroup(_, group) {
             this.vehiclesTab.current.group = group;
+        },
+        setBuildingCategory(_, category) {
+            this.buildingsTab.current.category = category;
         },
     },
 });

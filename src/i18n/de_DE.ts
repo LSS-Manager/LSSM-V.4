@@ -1518,7 +1518,7 @@ export default {
             color: '#0000ff',
         },
         Sonstiges: {
-            buildings: [4, 7],
+            buildings: [4, 7, 14, 16],
             color: '#02a18c',
         },
     },

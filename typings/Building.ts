@@ -23,6 +23,11 @@ export interface BuildingCategory {
     color: string;
 }
 
+export interface ResolvedBuildingCategory {
+    color: string;
+    buildings: InternalBuilding[];
+}
+
 export interface InternalBuilding {
     caption: string;
     color: string;
