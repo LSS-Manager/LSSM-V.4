@@ -11,7 +11,7 @@ export default (LSSM: Vue): void => {
             key: NOTE_STORAGE_KEY,
             defaultValue: false,
         })
-        .then(isConfirmed => {
+        .then(async isConfirmed => {
             if (!isConfirmed) {
                 LSSM.$modal.show('dialog', {
                     title: $m('info.title'),
@@ -33,6 +33,7 @@ export default (LSSM: Vue): void => {
                 });
             }
             console.log('send stats to server');
+            await LSSM.$store.dispatch('api/registerBuildingsUsage', false);
             // TODO: send stats to server
         });
 };
