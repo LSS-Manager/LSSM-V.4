@@ -1,5 +1,4 @@
 import moment from 'moment';
-import { IndexedExtendedWindow } from '../../../typings/helpers';
 
 ((LSSM: Vue) => {
     LSSM.$store
@@ -45,4 +44,4 @@ import { IndexedExtendedWindow } from '../../../typings/helpers';
                 });
             }, 1000);
         });
-})(((window as unknown) as IndexedExtendedWindow)[PREFIX]);
+})(window[PREFIX] as Vue);

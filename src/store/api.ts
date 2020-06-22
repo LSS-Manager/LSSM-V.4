@@ -3,11 +3,7 @@ import { RootState } from '../../typings/store/RootState';
 import { APIState } from '../../typings/store/api/State';
 import { Vehicle } from '../../typings/Vehicle';
 import { APIActionStoreParams } from '../../typings/store/api/Actions';
-import {
-    ExtendedWindow,
-    IndexedExtendedWindow,
-    RadioMessage,
-} from '../../typings/helpers';
+import { RadioMessage } from '../../typings/helpers';
 import { Building, BuildingCategory } from '../../typings/Building';
 
 const STORAGE_KEYS = {
@@ -66,7 +62,7 @@ export default {
             return buildings;
         },
         buildingsByCategory(state) {
-            const LSSM = ((window as unknown) as IndexedExtendedWindow)[PREFIX];
+            const LSSM = window[PREFIX] as Vue;
             const categories = (LSSM.$t('buildingCategories') as unknown) as {
                 [category: string]: BuildingCategory;
             };
@@ -247,9 +243,7 @@ export default {
                     commit(
                         'setKey',
                         await dispatch('request', {
-                            url: `/profile/external_secret_key/${
-                                ((window as unknown) as ExtendedWindow).user_id
-                            }`,
+                            url: `/profile/external_secret_key/${window.user_id}`,
                         }).then(res => res.json())
                     );
                 init.headers['X-LSSM-User'] = btoa(
@@ -262,9 +256,7 @@ export default {
                         if (!res.ok) {
                             return res.json().then(data => {
                                 if (data.error === 'outdated version') {
-                                    const LSSM = ((window as unknown) as IndexedExtendedWindow)[
-                                        PREFIX
-                                    ];
+                                    const LSSM = window[PREFIX] as Vue;
                                     LSSM.$modal.show('dialog', {
                                         title: LSSM.$t(
                                             'warnings.version.title'

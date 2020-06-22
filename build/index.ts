@@ -118,11 +118,11 @@ const entries = Object.entries(config.games)
                 multiple: [
                     {
                         search: /require\((['"])vue(['"])\)/g,
-                        replace: 'window.lssmv4.$vue',
+                        replace: '(window.lssmv4 as Vue).$vue',
                     },
                     {
                         search: /import Vue from ['"]vue['"]/g,
-                        replace: 'const Vue = window.lssmv4.$vue',
+                        replace: 'const Vue = (window.lssmv4 as Vue).$vue',
                     },
                 ],
             },

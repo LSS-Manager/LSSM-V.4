@@ -1,5 +1,3 @@
-import { ExtendedWindow } from '../../typings/helpers';
-
 export default (LSSM: Vue): void => {
     const store = LSSM.$store;
 
@@ -17,7 +15,7 @@ export default (LSSM: Vue): void => {
         if (window.location !== window.parent.location) title = `[${title}] `;
         else title = `${title} | `;
     }
-    ((window as unknown) as ExtendedWindow).tellParent(
+    window.tellParent(
         `document.title = '${title}${
             store.state.games[store.state.lang].name
         }';`

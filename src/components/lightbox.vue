@@ -44,7 +44,6 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons/faTimes';
 import { faExpand } from '@fortawesome/free-solid-svg-icons/faExpand';
 import { faCompress } from '@fortawesome/free-solid-svg-icons/faCompress';
 import { faChevronUp } from '@fortawesome/free-solid-svg-icons/faChevronUp';
-import { ExtendedWindow } from '../../typings/helpers';
 import {
     LightboxData,
     LightboxMethods,
@@ -62,8 +61,7 @@ export default Vue.extend<
     data() {
         return {
             fullscreen: false,
-            fullscreenBefore: ((window as unknown) as ExtendedWindow)
-                .fullScreen,
+            fullscreenBefore: window.fullScreen,
             origWidth: this.$parent.$parent.modal.width,
             origHeight: this.$parent.$parent.modal.height,
             titleHidden: false,
@@ -99,17 +97,14 @@ export default Vue.extend<
             this.fullscreen = true;
             this.$parent.$parent.modal.width = 100;
             this.$parent.$parent.modal.height = 100;
-            if (!((window as unknown) as ExtendedWindow).fullScreen)
+            if (!window.fullScreen)
                 this.$parent.$parent.$el.requestFullscreen();
         },
         compress() {
             this.fullscreen = false;
             this.$parent.$parent.modal.width = this.origWidth;
             this.$parent.$parent.modal.height = this.origHeight;
-            if (
-                !this.fullscreenBefore &&
-                ((window as unknown) as ExtendedWindow).fullScreen
-            )
+            if (!this.fullscreenBefore && window.fullScreen)
                 document.exitFullscreen();
         },
     },

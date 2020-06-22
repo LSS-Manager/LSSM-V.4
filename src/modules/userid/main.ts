@@ -1,8 +1,3 @@
-import {
-    ExtendedWindow,
-    IndexedExtendedWindow,
-} from '../../../typings/helpers';
-
 (async (LSSM: Vue) => {
     await LSSM.$store.dispatch('settings/register', {
         moduleId: MODULE_ID,
@@ -26,9 +21,7 @@ import {
             .querySelector('#navbar-main-collapse > ul')
             ?.insertAdjacentHTML(
                 'beforeend',
-                `<li><a class="lightbox-open" href="/profile/${
-                    ((window as unknown) as ExtendedWindow).user_id
-                }">${((window as unknown) as ExtendedWindow).user_id}</a></li>`
+                `<li><a class="lightbox-open" href="/profile/${window.user_id}">${window.user_id}</a></li>`
             );
     }
     if (window.location.pathname.match(/\/profile\/\d+/)) {
@@ -39,4 +32,4 @@ import {
                 ''
             )})</small>`;
     }
-})(((window as unknown) as IndexedExtendedWindow)[PREFIX]);
+})(window[PREFIX] as Vue);

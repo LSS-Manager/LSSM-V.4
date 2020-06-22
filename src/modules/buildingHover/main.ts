@@ -1,8 +1,4 @@
-import {
-    ExtendedWindow,
-    IndexedExtendedWindow,
-    RadioMessage,
-} from '../../../typings/helpers';
+import { RadioMessage } from '../../../typings/helpers';
 import { BuildingMarker } from '../../../typings/Ingame';
 import { TranslateResult } from 'vue-i18n';
 import { Vehicle } from '../../../typings/Vehicle';
@@ -120,18 +116,14 @@ import { Building } from '../../../typings/Building';
         });
         if (reopen) marker.openTooltip();
     };
-    ((window as unknown) as ExtendedWindow).building_markers.forEach(marker => {
+    window.building_markers.forEach(marker => {
         setTooltip(marker);
     });
 
     await LSSM.$store.dispatch('hook', {
         event: 'building_maps_draw',
         callback({ id }: { id: number }) {
-            setTooltip(
-                ((window as unknown) as ExtendedWindow).building_markers.find(
-                    x => x.building_id === id
-                )
-            );
+            setTooltip(window.building_markers.find(x => x.building_id === id));
         },
     });
 
@@ -150,10 +142,10 @@ import { Building } from '../../../typings/Building';
                 v.fms_real = fms_real;
             }
             setTooltip(
-                ((window as unknown) as ExtendedWindow).building_markers.find(
+                window.building_markers.find(
                     x => x.building_id === vehicle.building_id
                 )
             );
         },
     });
-})(((window as unknown) as IndexedExtendedWindow)[PREFIX]);
+})(window[PREFIX] as Vue);

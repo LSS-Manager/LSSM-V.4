@@ -23,6 +23,13 @@ interface Type {
     fms: {
         [status: string]: Vehicle[];
     };
+    [key: string]:
+        | string
+        | number
+        | Vehicle[]
+        | {
+              [status: string]: Vehicle[];
+          };
 }
 
 export interface VehicleTypesMethods {

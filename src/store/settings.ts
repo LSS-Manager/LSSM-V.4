@@ -1,7 +1,7 @@
 import { ActionTree, Module, MutationTree } from 'vuex';
 import { SettingsState } from '../../typings/store/settings/State';
 import { RootState } from '../../typings/store/RootState';
-import { ModuleSettings, Setting, Settings } from 'typings/Setting';
+import { ModuleSettings, Setting, Settings } from '../../typings/Setting';
 import {
     SettingsActionStoreParams,
     SettingsRegister,

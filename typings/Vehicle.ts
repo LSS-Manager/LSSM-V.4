@@ -10,6 +10,7 @@ export interface Vehicle {
     vehicle_type_caption: string | null;
     faPencilAlt: IconDefinition;
     faUsers: IconDefinition;
+    [key: string]: number | string | null | IconDefinition | undefined;
 }
 
 export interface VehicleCategory {
@@ -35,4 +36,5 @@ export interface InternalVehicle {
     maxPersonnel: number;
     schooling: string;
     special: string;
+    [key: string]: string | number;
 }

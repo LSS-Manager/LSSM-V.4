@@ -67,7 +67,6 @@
                     </a>
                 </td>
             </tr>
-            <!--                        <tr v-for="vehicle in vehicles" :key="vehicle.id"></tr>-->
         </enhanced-table>
     </lightbox>
 </template>

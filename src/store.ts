@@ -10,12 +10,12 @@ import { RootState } from '../typings/store/RootState';
 import { VueConstructor } from 'vue/types/vue';
 import config from './config';
 import { ActionStoreParams, addStyle, Hook } from '../typings/store/Actions';
-import { ExtendedWindow, LSSMEvent } from '../typings/helpers';
+import { LSSMEvent } from '../typings/helpers';
 import storage from './store/storage';
 import settings from './store/settings';
 import api from './store/api';
 import modules from './registerModules';
-import { Modules } from 'typings/Module';
+import { Modules } from '../typings/Module';
 import { LSSM } from './core';
 
 export default (Vue: VueConstructor): Store<RootState> => {
@@ -36,9 +36,7 @@ export default (Vue: VueConstructor): Store<RootState> => {
             games: config.games,
             server: config.server,
             hooks: {},
-            mapkit:
-                'undefined' !==
-                typeof ((window as unknown) as ExtendedWindow).mapkit,
+            mapkit: 'undefined' !== typeof window.mapkit,
             darkmode: document.body.classList.contains('dark'),
             modules,
             appstore: {
@@ -143,11 +141,7 @@ export default (Vue: VueConstructor): Store<RootState> => {
             },
             loadModule({ state }: ActionStoreParams, module: keyof Modules) {
                 const script = document.createElement('script');
-                script.src = `${
-                    config.server
-                }${BUILD_LANG}/modules/${module}/main.js?uid=${BUILD_LANG}-${
-                    ((window as unknown) as ExtendedWindow).user_id
-                }&v=${state.version}`;
+                script.src = `${config.server}${BUILD_LANG}/modules/${module}/main.js?uid=${BUILD_LANG}-${window.user_id}&v=${state.version}`;
                 document.body.appendChild(script);
             },
             addMenuItem({ commit }: ActionStoreParams, text: string) {

@@ -1,5 +1,4 @@
 import dashboard from './dashboard.vue';
-import { IndexedExtendedWindow } from '../../../typings/helpers';
 
 ((LSSM: Vue) => {
     const $m = (key: string, args?: { [key: string]: unknown }) =>
@@ -17,4 +16,4 @@ import { IndexedExtendedWindow } from '../../../typings/helpers';
                 );
             })
     );
-})(((window as unknown) as IndexedExtendedWindow)[PREFIX]);
+})(window[PREFIX] as Vue);

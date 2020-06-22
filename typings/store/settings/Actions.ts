@@ -1,7 +1,7 @@
 import { RootState } from '../RootState';
 import { Commit, Dispatch, GetterTree } from 'vuex';
 import { SettingsState } from './State';
-import { ModuleSettings, Settings } from 'typings/Setting';
+import { ModuleSettings, Settings } from '../../Setting';
 
 export interface SettingsActionStoreParams {
     state: SettingsState;

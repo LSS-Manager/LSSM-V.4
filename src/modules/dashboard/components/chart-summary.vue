@@ -188,17 +188,7 @@ export default Vue.extend<
                                 y: (this.buildings[category] || []).filter(
                                     building => building.building_type === type
                                 ).length,
-                                color:
-                                    this.buildingTypeColors[type] ||
-                                    `#${this.getColorFromString(
-                                        this.buildingTypeNames[type],
-                                        parseInt(
-                                            this.buildingCategories[
-                                                category
-                                            ].color.replace('#', ''),
-                                            16
-                                        )
-                                    )}`,
+                                color: this.buildingTypeColors[type],
                             };
                         }),
                         {
@@ -265,26 +255,9 @@ export default Vue.extend<
                                                     parseInt(vehicle_type)
                                                 ],
                                                 y: vehicle_types[vehicle_type],
-                                                color:
-                                                    this.vehicleTypeColors[
-                                                        parseInt(vehicle_type)
-                                                    ] ||
-                                                    `#${this.getColorFromString(
-                                                        this.vehicleTypeNames[
-                                                            parseInt(
-                                                                vehicle_type
-                                                            )
-                                                        ],
-                                                        parseInt(
-                                                            this.vehicleCategories[
-                                                                category
-                                                            ].color.replace(
-                                                                '#',
-                                                                ''
-                                                            ),
-                                                            16
-                                                        )
-                                                    )}`,
+                                                color: this.vehicleTypeColors[
+                                                    parseInt(vehicle_type)
+                                                ],
                                             })
                                         ),
                                     } as DrilldownOptions;
@@ -293,21 +266,9 @@ export default Vue.extend<
                                 return {
                                     name: this.buildingTypeNames[building_type],
                                     y: buildings.length,
-                                    color:
-                                        this.buildingTypeColors[
-                                            building_type
-                                        ] ||
-                                        `#${this.getColorFromString(
-                                            this.buildingTypeNames[
-                                                building_type
-                                            ],
-                                            parseInt(
-                                                this.buildingCategories[
-                                                    category
-                                                ].color.replace('#', ''),
-                                                16
-                                            )
-                                        )}`,
+                                    color: this.buildingTypeColors[
+                                        building_type
+                                    ],
                                     drilldown:
                                         Object.keys(vehicle_types).length &&
                                         `${category}_${building_type}`,
@@ -340,17 +301,7 @@ export default Vue.extend<
                     ).forEach(type => {
                         const value = (this.vehicles[type] || []).length;
                         sum += value;
-                        const color =
-                            this.vehicleTypeColors[type] ||
-                            `#${this.getColorFromString(
-                                this.vehicleTypeNames[type],
-                                parseInt(
-                                    this.vehicleCategories[
-                                        category
-                                    ].color.replace('#', ''),
-                                    16
-                                )
-                            )}`;
+                        const color = this.vehicleTypeColors[type];
                         groupColor += parseInt(color.replace(/^#/, ''), 16);
                         types.push({
                             id: `${category}_${group}_${type}`,
@@ -383,12 +334,7 @@ export default Vue.extend<
                         name: this.vehicleTypeNames[type],
                         value,
                         parent: category,
-                        color:
-                            this.vehicleTypeColors[type] ||
-                            `#${this.getColorFromString(
-                                this.vehicleTypeNames[type],
-                                this.vehicleCategories[category].color
-                            )}`,
+                        color: this.vehicleTypeColors[type],
                     });
                 });
             }

@@ -11,11 +11,7 @@ import utils from './utils';
 import browserTitle from './natives/browserTitle';
 import telemetry from './modules/telemetry/main';
 import releasenotes from './modules/releasenotes/main';
-import {
-    ExtendedWindow,
-    IndexedExtendedWindow,
-    RadioMessage,
-} from '../typings/helpers';
+import { RadioMessage } from '../typings/helpers';
 
 require('./natives/navTabsClicker');
 
@@ -24,7 +20,7 @@ Vue.config.productionTip = false;
 const appContainer = document.createElement('div') as HTMLDivElement;
 document.body.appendChild(appContainer);
 
-((window as unknown) as ExtendedWindow).keepAlive = true;
+window.keepAlive = true;
 
 utils(Vue);
 Vue.use(VueJSModal, {
@@ -41,7 +37,7 @@ Vue.use(Tabs);
 
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 
-((window as unknown) as IndexedExtendedWindow)[PREFIX] = new Vue({
+window[PREFIX] = new Vue({
     store: store(Vue),
     i18n: i18n(Vue),
     render: h => h(LSSMV4),
@@ -49,7 +45,7 @@ Vue.component('font-awesome-icon', FontAwesomeIcon);
 
 console.log('Und der LSSM wurde einmal gemounted :)');
 
-export const LSSM = ((window as unknown) as IndexedExtendedWindow)[PREFIX];
+export const LSSM = window[PREFIX] as Vue;
 
 browserTitle(LSSM);
 
@@ -98,7 +94,7 @@ if (window.location.pathname === '/') {
             event: 'radioMessage',
             post: false,
             callback({ fms, fms_real, id, user_id, caption }: RadioMessage) {
-                if (user_id === ((window as unknown) as ExtendedWindow).user_id)
+                if (user_id === window.user_id)
                     LSSM.$store.commit('api/setVehicleState', {
                         fms,
                         fms_real,

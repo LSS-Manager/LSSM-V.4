@@ -4,18 +4,17 @@ import { BuildingMarker, POIMarker } from './Ingame';
 import Highcharts from 'highcharts';
 import VueI18n from 'vue-i18n';
 
-export interface ExtendedWindow {
-    keepAlive: boolean;
-    tellParent(code: string): void;
-    fullScreen: boolean;
-    mapkit: unknown;
-    user_id: number;
-    building_markers: BuildingMarker[];
-    mission_poi_markers: POIMarker[];
-}
-
-export interface IndexedExtendedWindow {
-    [PREFIX: string]: Vue;
+declare global {
+    interface Window {
+        keepAlive: boolean;
+        tellParent(code: string): void;
+        fullScreen: boolean;
+        mapkit: unknown;
+        user_id: number;
+        building_markers: BuildingMarker[];
+        mission_poi_markers: POIMarker[];
+        [PREFIX: string]: Vue | unknown;
+    }
 }
 
 declare module 'vue/types/vue' {

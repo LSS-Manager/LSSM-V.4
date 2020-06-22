@@ -15,14 +15,14 @@
 			"startPersonnel": "Start Personal",
 			"startVehicles": "Mögliche Startfahrzeuge"
 		},
-        "vehicles": {
-            "caption": "Fahrzeugtyp",
-            "minPersonnel": "mindest Personal",
-            "maxPersonnel": "maximal Personal",
-            "cost": "Preis",
-            "schooling": "Ausbildung",
-            "wtank": "Wassertank",
-            "special": "Besonderes"
-        }
+		"vehicles": {
+			"caption": "Fahrzeugtyp",
+			"cost": "Preis",
+			"maxPersonnel": "maximal Personal",
+			"minPersonnel": "mindest Personal",
+			"schooling": "Ausbildung",
+			"special": "Besonderes",
+			"wtank": "Wassertank"
+		}
 	}
 }

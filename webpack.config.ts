@@ -1,6 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import VueLoaderPlugin = require('vue-loader/lib/plugin');
+// import path = require('path');
 
 export default {
     target: 'web',
@@ -11,29 +12,31 @@ export default {
             'vue.esm.js$': 'vue/dist/vue.runtime.esm.js',
         },
         extensions: ['.tsx', '.ts', '.js', '.vue', '.json'],
+        // modules: ['node_modules', path.resolve(__dirname, 'src')],
     },
     module: {
         rules: [
             {
                 test: /\.tsx?$/,
                 use: [
-                    {
-                        loader: 'babel-loader',
-                        options: {
-                            presets: [
-                                '@babel/preset-env',
-                                '@babel/preset-typescript',
-                            ],
-                            plugins: [
-                                '@babel/plugin-transform-runtime',
-                                '@babel/plugin-transform-typescript',
-                            ],
-                        },
-                    },
+                    // {
+                    //     loader: 'babel-loader',
+                    //     options: {
+                    //         presets: [
+                    //             '@babel/preset-env',
+                    //             '@babel/preset-typescript',
+                    //         ],
+                    //         plugins: [
+                    //             '@babel/plugin-transform-runtime',
+                    //             '@babel/plugin-transform-typescript',
+                    //         ],
+                    //     },
+                    // },
                     {
                         loader: 'ts-loader',
                         options: {
-                            transpileOnly: true,
+                            // transpileOnly: true,
+                            appendTsSuffixTo: [/\.vue$/],
                         },
                     },
                 ],

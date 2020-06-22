@@ -28,21 +28,24 @@ export interface ResolvedBuildingCategory {
     buildings: InternalBuilding[];
 }
 
+interface InternalExtension {
+    caption: string;
+    credits: number;
+    coins: number;
+    duration: number;
+}
+
 export interface InternalBuilding {
     caption: string;
     color: string;
     coins: number;
     credits: number;
-    extensions: {
-        caption: string;
-        credits: number;
-        coins: number;
-        duration: number;
-    }[];
+    extensions: InternalExtension[];
     levelcost: string[];
     maxBuildings: number | string;
     maxLevel: number;
     special: string;
     startPersonnel: number;
     startVehicles: string[];
+    [key: string]: string | number | string[] | InternalExtension[];
 }
