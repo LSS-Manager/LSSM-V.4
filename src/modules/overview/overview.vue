@@ -167,68 +167,6 @@
                         </enhanced-table>
                     </tab>
                 </tabs>
-                <!--                <enhanced-table-->
-                <!--                    :head="buildingsTab.head"-->
-                <!--                    :table-attrs="{ class: 'table table-striped' }"-->
-                <!--                    @sort="setSortBuildings"-->
-                <!--                    :sort="buildingsTab.sort"-->
-                <!--                    :sort-dir="buildingsTab.sortDir"-->
-                <!--                    :search="buildingsTab.search"-->
-                <!--                    @search="s => (buildingsTab['search'] = s)"-->
-                <!--                >-->
-                <!--                    <tr-->
-                <!--                        v-for="building in buildingsSorted"-->
-                <!--                        :key="building.caption"-->
-                <!--                    >-->
-                <!--                        <td v-for="(_, attr) in buildingsTab.head" :key="attr">-->
-                <!--                            <span v-if="attr === 'cost'">-->
-                <!--                                {{-->
-                <!--                                    building.hasOwnProperty('credits')-->
-                <!--                                        ? building.credits.toLocaleString()-->
-                <!--                                        : NaN-->
-                <!--                                }}-->
-                <!--                                Credits /-->
-                <!--                                {{-->
-                <!--                                    building.hasOwnProperty('coins')-->
-                <!--                                        ? building.coins.toLocaleString()-->
-                <!--                                        : NaN-->
-                <!--                                }}-->
-                <!--                                Coins-->
-                <!--                            </span>-->
-                <!--                            <dl v-else-if="attr === 'extensions'">-->
-                <!--                                <span-->
-                <!--                                    v-for="(extension, index) in building[-->
-                <!--                                        'extensions'-->
-                <!--                                    ]"-->
-                <!--                                    :key="index"-->
-                <!--                                >-->
-                <!--                                    <dt>{{ extension.caption }}:</dt>-->
-                <!--                                    <dd>-->
-                <!--                                        {{ extension.credits.toLocaleString() }}-->
-                <!--                                        Credits /-->
-                <!--                                        {{ extension.coins.toLocaleString() }}-->
-                <!--                                        Coins; {{ extension.duration }}-->
-                <!--                                    </dd>-->
-                <!--                                </span>-->
-                <!--                            </dl>-->
-                <!--                            <span-->
-                <!--                                v-else-if="typeof building[attr] === 'object'"-->
-                <!--                                v-html="-->
-                <!--                                    Object.values(building[attr]).join(',<br>')-->
-                <!--                                "-->
-                <!--                            >-->
-                <!--                            </span>-->
-                <!--                            <span-->
-                <!--                                v-else-->
-                <!--                                v-html="-->
-                <!--                                    building.hasOwnProperty(attr)-->
-                <!--                                        ? building[attr].toLocaleString()-->
-                <!--                                        : ''-->
-                <!--                                "-->
-                <!--                            ></span>-->
-                <!--                        </td>-->
-                <!--                    </tr>-->
-                <!--                </enhanced-table>-->
             </tab>
         </tabs>
     </lightbox>

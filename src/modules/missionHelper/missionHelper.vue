@@ -169,17 +169,31 @@
     </div>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue';
 import { faSyncAlt } from '@fortawesome/free-solid-svg-icons/faSyncAlt';
+import {
+    MissionHelper,
+    MissionHelperMethods,
+    MissionHelperComputed,
+    VehicleRequirements,
+} from 'typings/modules/MissionHelper';
+import { DefaultProps } from 'vue/types/options';
+import { Mission } from 'typings/Mission';
 
-export default {
+export default Vue.extend<
+    MissionHelper,
+    MissionHelperMethods,
+    MissionHelperComputed,
+    DefaultProps
+>({
     name: 'missionHelper',
     data() {
         return {
             faSyncAlt,
             isReloading: true,
             isDiyMission: false,
-            missionSpecs: {},
+            missionSpecs: undefined,
             settings: {
                 title: true,
                 place: true,
@@ -212,52 +226,58 @@ export default {
                 followup: true,
             },
             noVehicleRequirements: Object.values(
-                this.$t('modules.missionHelper.noVehicleRequirements')
+                this.$m('noVehicleRequirements')
             ),
-        };
+        } as MissionHelper;
     },
     computed: {
         currentPatients() {
             return document.querySelectorAll('.mission_patient').length;
         },
         vehicles() {
-            const vehicles = {};
-            Object.keys(this.missionSpecs.requirements || {})
+            const vehicles = {} as VehicleRequirements;
+            Object.keys(this.missionSpecs?.requirements || {})
                 .filter(req => !this.noVehicleRequirements.includes(req))
                 .forEach(vehicle => {
-                    let percentage = this.missionSpecs.chances[vehicle] || 100;
+                    let percentage = this.missionSpecs?.chances[vehicle] || 100;
                     if (
                         (percentage === 100 && !this.settings.chances['100']) ||
                         (percentage > 0 && !this.settings.chances.normal)
                     )
                         percentage = 0;
                     vehicles[vehicle] = {
-                        caption: this.$tc(
-                            `modules.missionHelper.vehicles.captions.${vehicle}`,
-                            this.missionSpecs.requirements[vehicle]
-                        ),
-                        amount: this.missionSpecs.requirements[vehicle],
+                        caption: this.$mc(
+                            `vehicles.captions.${vehicle}`,
+                            this.missionSpecs?.requirements[vehicle] || 0
+                        ).toString(),
+                        amount: this.missionSpecs?.requirements[vehicle] || 0,
                         percentage,
                     };
                 });
 
             if (this.settings.vehicles.patient_additionals) {
-                const patientAdditionals = this.$t(
-                    'modules.missionHelper.vehicles.patient_additionals'
-                );
+                const patientAdditionals = this.$m(
+                    'vehicles.patient_additionals'
+                ) as {
+                    [amount: number]: string;
+                };
                 Object.keys(patientAdditionals).forEach(
                     patients =>
-                        this.currentPatients >= patients &&
+                        this.currentPatients >= parseInt(patients) &&
                         (vehicles[patients] = {
                             amount: 1,
-                            caption: patientAdditionals[patients],
+                            caption: patientAdditionals[parseInt(patients)],
                         })
                 );
             }
-            if (this.missionSpecs.additional) {
-                const optionalAlternatives = this.$t(
-                    'modules.missionHelper.vehicles.optional_alternatives'
-                );
+            if (this.missionSpecs?.additional) {
+                const optionalAlternatives = this.$m(
+                    'vehicles.optional_alternatives'
+                ) as {
+                    [alternative: string]: {
+                        [vehicle: string]: string;
+                    };
+                };
                 Object.keys(optionalAlternatives).forEach(alt => {
                     if (
                         !optionalAlternatives[alt].not_customizable &&
@@ -265,21 +285,27 @@ export default {
                     )
                         return;
                     if (
-                        this.missionSpecs.additional.hasOwnProperty(alt) &&
+                        this.missionSpecs?.additional.hasOwnProperty(alt) &&
                         this.missionSpecs.additional[alt]
                     )
                         return Object.keys(optionalAlternatives[alt]).forEach(
                             rep =>
-                                (vehicles[rep].caption = this.$tc(
-                                    `modules.missionHelper.vehicles.optional_alternatives.${alt}.${rep}`,
+                                (vehicles[rep].caption = this.$mc(
+                                    `vehicles.optional_alternatives.${alt}.${rep}`,
                                     vehicles[rep].amount
-                                ))
+                                ).toString())
                         );
                 });
             }
-            const multifunctionals = this.$t(
-                'modules.missionHelper.vehicles.multifunctionals'
-            );
+            const multifunctionals = (this.$m(
+                'vehicles.multifunctionals'
+            ) as unknown) as {
+                [multi: string]: {
+                    additional_text: string;
+                    reduce_from: string;
+                    not_customizable?: boolean;
+                };
+            };
             Object.keys(multifunctionals).forEach(vehicle => {
                 if (
                     !multifunctionals[vehicle].not_customizable &&
@@ -298,38 +324,44 @@ export default {
                         vehicles[multifunctionals[vehicle].reduce_from].amount;
                     vehicles[
                         multifunctionals[vehicle].reduce_from
-                    ].additionalText = this.$tc(
-                        `modules.missionHelper.vehicles.multifunctionals.${vehicle}.additional_text`,
-                        vehicles[vehicle].old
-                    );
+                    ].additionalText = this.$mc(
+                        `vehicles.multifunctionals.${vehicle}.additional_text`,
+                        vehicles[vehicle].old || 0
+                    ).toString();
                 }
             });
-            const vehiclesFiltered = {};
-            Object.keys(vehicles)
-                .filter(vehicle => vehicles[vehicle].amount > 0)
-                .sort((a, b) =>
-                    vehicles[a][this.settings.vehicles.sort] <
-                    vehicles[b][this.settings.vehicles.sort]
+            const vehiclesFiltered = {} as VehicleRequirements;
+            Object.entries(vehicles)
+                .filter(([_, vehicle]) => vehicle.amount > 0)
+                .sort(([_, aVehicle], [__, bVehicle]) =>
+                    (aVehicle[this.settings.vehicles.sort] || 0) <
+                    (bVehicle[this.settings.vehicles.sort] || 0)
                         ? -1
-                        : vehicles[a][this.settings.vehicles.sort] >
-                          vehicles[b][this.settings.vehicles.sort]
+                        : (aVehicle[this.settings.vehicles.sort] || 0) >
+                          (bVehicle[this.settings.vehicles.sort] || 0)
                         ? 1
                         : 0
                 )
                 .forEach(
-                    vehicle => (vehiclesFiltered[vehicle] = vehicles[vehicle])
+                    ([type, vehicle]) => (vehiclesFiltered[type] = vehicle)
                 );
             return vehiclesFiltered;
         },
     },
     methods: {
+        $m(key, args) {
+            return this.$t(`modules.missionHelper.${key}`, args);
+        },
+        $mc(key, amount, args) {
+            return this.$tc(`modules.missionHelper.${key}`, amount, args);
+        },
         async reloadSpecs(force = false) {
             this.isReloading = true;
 
             const missionHelpBtn = document.getElementById('mission_help');
             this.isDiyMission = !missionHelpBtn;
 
-            this.missionSpecs = {};
+            this.missionSpecs = undefined;
 
             if (
                 force ||
@@ -341,13 +373,13 @@ export default {
                         Object.values(
                             await this.$store
                                 .dispatch('api/request', {
+                                    // eslint-disable-next-line no-undef
                                     url: `${this.$store.state.server}missions/${BUILD_LANG}.json`,
                                     init: {
                                         method: 'GET',
                                     },
                                 })
                                 .then(res => res.json())
-                                .catch(() => {})
                         )
                     )
                 );
@@ -357,23 +389,23 @@ export default {
                 this.missionSpecs = this.getMission(
                     parseInt(
                         missionHelpBtn
-                            .getAttribute('href')
-                            .match(/(?!^\/einsaetze\/)\d+/)[0]
+                            ?.getAttribute('href')
+                            ?.match(/(?!^\/einsaetze\/)\d+/)?.[0] || '-1'
                     )
                 );
 
             this.isReloading = false;
         },
         getMission(id) {
-            return JSON.parse(
+            return (JSON.parse(
                 sessionStorage.getItem('mission_specs_cache') || '{}'
-            ).find(spec => spec.id === id);
+            ) as Mission[]).find(spec => spec.id === id);
         },
     },
     mounted() {
         this.reloadSpecs();
     },
-};
+});
 </script>
 
 <style scoped lang="sass">

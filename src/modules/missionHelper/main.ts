@@ -1,6 +1,6 @@
 import missionHelper from './missionHelper.vue';
 
-(async () => {
+((LSSM: Vue) => {
     if (
         !window.location.href.match(/\/missions\/\d+/) ||
         document.querySelector('.missionNotFound')
@@ -10,11 +10,11 @@ import missionHelper from './missionHelper.vue';
     const clear = document.createElement('div');
     clear.classList.add('clearfix');
     const missionForm = document.getElementById('mission-form');
-    missionForm.insertBefore(clear, missionForm.childNodes[0]);
+    missionForm?.insertBefore(clear, missionForm.childNodes[0]);
 
-    new window.lssmv4.Vue({
-        store: window.lssmv4.$store,
-        i18n: window.lssmv4.$i18n,
+    new LSSM.$vue({
+        store: LSSM.$store,
+        i18n: LSSM.$i18n,
         render: h => h(missionHelper),
     }).$mount(clear);
-})();
+})(window[PREFIX] as Vue);
