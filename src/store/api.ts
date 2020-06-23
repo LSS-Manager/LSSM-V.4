@@ -49,6 +49,9 @@ export default {
         enableAutoUpdate(state: APIState, api: string) {
             state.autoUpdates.push(api);
         },
+        setKey(state: APIState, key: string) {
+            state.key = key;
+        },
     },
     getters: {
         vehicle(state, id: number) {

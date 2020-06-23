@@ -13,7 +13,8 @@
 		"possible_patient": "Patienten maximal",
 		"possible_patient_min": "Patienten mindestens",
 		"specializations": "Fachrichtung",
-		"title": "Patienten | {n} Patient | {n} Patienten"
+		"title": "Patienten | {n} Patient | {n} Patienten",
+        "patient_at_end_of_mission": "Der Patient tritt erst am Ende des Einsatzes auf! | Die Patienten treten erst am Ende des Einsatzes auf!"
 	},
 	"vehicles": {
 		"captions": {
@@ -41,7 +42,7 @@
 			"mobile_command_vehicles": "ELW 2",
 			"platform_trucks": "Drehleiter | Drehleitern",
 			"police_cars": "Funkstreifenwagen",
-			"police_helicopters": "Polzeihubschauber",
+			"police_helicopters": "Polizeihubschauber",
 			"rescue_dog_units": "Rettungshundestaffel | Rettungshundestaffeln",
 			"rettungstreppe": "Rettungstreppe | Rettungstreppen",
 			"sek": "SEK-Fahrzeug | SEK-Fahrzeuge",

@@ -6,9 +6,7 @@
             :spin="isReloading"
             @click="reloadSpecs(true)"
         ></font-awesome-icon>
-        <span v-if="isDiyMission">{{
-            $t('modules.missionHelper.diyMission')
-        }}</span>
+        <span v-if="isDiyMission">{{ $m('diyMission') }}</span>
         <div v-else>
             <h3 v-if="settings.title">
                 {{ missionSpecs.name }}
@@ -20,12 +18,10 @@
                 v-if="settings.patients.live && currentPatients"
                 class="badge badge-default"
             >
-                {{
-                    $tc('modules.missionHelper.patients.title', currentPatients)
-                }}
+                {{ $mc('patients.title', currentPatients) }}
             </span>
             <h4 v-if="settings.vehicles.title">
-                {{ $t('modules.missionHelper.vehicles.title') }}
+                {{ $m('vehicles.title') }}
             </h4>
             <ul v-if="settings.vehicles.content">
                 <li
@@ -49,7 +45,7 @@
                         missionSpecs.additional.possible_patient
                 "
             >
-                {{ $tc('modules.missionHelper.patients.title', 0) }}
+                {{ $mc('patients.title', 0) }}
             </h4>
             <ul v-if="settings.patients.content && missionSpecs.additional">
                 <li
@@ -66,20 +62,18 @@
                     v-if="missionSpecs.additional.possible_patient"
                     :data-amount="missionSpecs.additional.possible_patient"
                 >
-                    {{ $t('modules.missionHelper.patients.possible_patient') }}
+                    {{ $m('patients.possible_patient') }}
                 </li>
                 <li
                     v-if="missionSpecs.chances.patient_transport"
                     :data-amount="`${missionSpecs.chances.patient_transport}%`"
                 >
-                    {{ $t('modules.missionHelper.patients.patient_transport') }}
+                    {{ $m('patients.patient_transport') }}
                     (
                     <span
                         v-if="missionSpecs.additional.patient_specializations"
                     >
-                        {{
-                            $t('modules.missionHelper.patients.specializations')
-                        }}
+                        {{ $m('patients.specializations') }}
                         <b>{{
                             missionSpecs.additional.patient_specializations
                         }}</b>
@@ -90,17 +84,27 @@
                     v-if="missionSpecs.chances.nef"
                     :data-amount="`${missionSpecs.chances.nef}%`"
                 >
-                    {{ $t('modules.missionHelper.patients.nef') }}
+                    {{ $m('patients.nef') }}
                 </li>
                 <li
                     v-if="missionSpecs.chances.helicopter"
                     :data-amount="`${missionSpecs.chances.helicopter}%`"
                 >
-                    {{ $t('modules.missionHelper.patients.helicopter') }}
+                    {{ $m('patients.helicopter') }}
+                </li>
+                <li v-if="missionSpecs.additional.patient_at_end_of_mission">
+                    <b>
+                        {{
+                            $mc(
+                                'patients.patient_at_end_of_mission',
+                                missionSpecs.additional.possible_patient
+                            )
+                        }}
+                    </b>
                 </li>
             </ul>
             <span v-if="settings.generatedBy">
-                {{ $t('modules.missionHelper.generated_by') }}:
+                {{ $m('generated_by') }}:
                 {{ missionSpecs.generated_by }}
                 <br />
             </span>

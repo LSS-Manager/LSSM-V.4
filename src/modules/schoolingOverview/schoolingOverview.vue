@@ -2,24 +2,10 @@
     <div>
         <span
             class="glyphicon glyphicon-info-sign"
-            v-if="!noExternal"
             @click="hidden = !hidden"
         ></span>
-        <span
-            class="glyphicon glyphicon-modal-window"
-            v-if="!noExternal"
-            @click="external"
-        ></span>
-        <div
-            class="alert alert-info row"
-            :class="{ hidden: isHidden, external: noExternal }"
-        >
-            <button
-                class="close"
-                type="button"
-                @click="hidden = !hidden"
-                v-if="!noExternal"
-            >
+        <div class="alert alert-info row" :class="{ hidden }">
+            <button class="close" type="button" @click="hidden = !hidden">
                 ×
             </button>
             <h3>{{ $t('modules.schoolingOverview.name') }}</h3>
@@ -83,11 +69,23 @@
     </div>
 </template>
 
-<script>
-import schoolingOverview from './schoolingOverview.vue';
+<script lang="ts">
+import Vue from 'vue';
 import EnhancedTable from '../../components/enhanced-table.vue';
+import {
+    SchoolingOverview,
+    SchoolingOverviewComputed,
+    SchoolingOverviewMethods,
+    SchoolingOverviewProps,
+} from 'typings/modules/SchoolingOverview/SchoolingOverview';
+import { OpenSchoolings } from 'typings/modules/SchoolingOverview/main';
 
-export default {
+export default Vue.extend<
+    SchoolingOverview,
+    SchoolingOverviewMethods,
+    SchoolingOverviewComputed,
+    SchoolingOverviewProps
+>({
     name: 'schoolingsOverview',
     components: { EnhancedTable },
     data() {
@@ -99,7 +97,7 @@ export default {
             sortOpenDir: 'asc',
             ownSchoolingsSearch: '',
             openSchoolingsSearch: '',
-        };
+        } as SchoolingOverview;
     },
     props: {
         ownSchoolings: {
@@ -110,65 +108,67 @@ export default {
             type: Object,
             required: true,
         },
-        noExternal: {
-            type: Boolean,
-            required: false,
-            default: () => false,
-        },
     },
     computed: {
-        isHidden() {
-            return this.noExternal ? false : this.hidden;
-        },
         sortedOwn() {
-            let unsorted = [];
-            Object.keys(this.ownSchoolings).forEach(schooling =>
-                unsorted.push({
+            const schoolings = Object.entries(this.$props.ownSchoolings).map(
+                ([schooling, amount]) => ({
+                    amount,
                     key: schooling,
-                    amount: this.ownSchoolings[schooling],
                 })
-            );
-            return unsorted
-                .filter(a =>
-                    this.ownSchoolingsSearch.length > 0
-                        ? JSON.stringify(Object.values(a))
-                              .toLowerCase()
-                              .match(this.ownSchoolingsSearch.toLowerCase())
-                        : true
-                )
-                .sort((a, b) => {
-                    let modifier = 1;
-                    if (this.sortOwnDir === 'desc') modifier = -1;
-                    if (a[this.sortOwn] < b[this.sortOwn]) return -1 * modifier;
-                    if (a[this.sortOwn] > b[this.sortOwn]) return modifier;
-                    return 0;
-                });
+            ) as {
+                amount: number;
+                key: string;
+
+                // General
+                [key: string]: string | number;
+            }[];
+
+            return (this.ownSchoolingsSearch
+                ? schoolings.filter(schooling =>
+                      JSON.stringify(Object.values(schooling))
+                          .toLowerCase()
+                          .match(this.ownSchoolingsSearch.toLowerCase())
+                  )
+                : schoolings
+            ).sort((a, b) => {
+                let modifier = 1;
+                if (this.sortOwnDir === 'desc') modifier = -1;
+                if (a[this.sortOwn] < b[this.sortOwn]) return -1 * modifier;
+                if (a[this.sortOwn] > b[this.sortOwn]) return modifier;
+                return 0;
+            });
         },
         sortedOpen() {
-            let unsorted = [];
-            Object.keys(this.openSchoolings).forEach(schooling =>
-                unsorted.push({
-                    key: schooling,
-                    amount: this.openSchoolings[schooling].amount,
-                    seats: this.openSchoolings[schooling].seats,
-                })
-            );
-            return unsorted
-                .filter(a =>
-                    this.openSchoolingsSearch.length > 0
-                        ? JSON.stringify(Object.values(a))
-                              .toLowerCase()
-                              .match(this.openSchoolingsSearch.toLowerCase())
-                        : true
-                )
-                .sort((a, b) => {
-                    let modifier = 1;
-                    if (this.sortOpenDir === 'desc') modifier = -1;
-                    if (a[this.sortOpen] < b[this.sortOpen])
-                        return -1 * modifier;
-                    if (a[this.sortOpen] > b[this.sortOpen]) return modifier;
-                    return 0;
-                });
+            const schoolings = Object.entries(
+                this.$props.openSchoolings as OpenSchoolings
+            ).map(([schooling, { amount, seats }]) => ({
+                amount,
+                seats,
+                key: schooling,
+            })) as {
+                amount: number;
+                seats: number;
+                key: string;
+
+                // General
+                [key: string]: string | number;
+            }[];
+
+            return (this.openSchoolingsSearch
+                ? schoolings.filter(schooling =>
+                      JSON.stringify(Object.values(schooling))
+                          .toLowerCase()
+                          .match(this.openSchoolingsSearch.toLowerCase())
+                  )
+                : schoolings
+            ).sort((a, b) => {
+                let modifier = 1;
+                if (this.sortOpenDir === 'desc') modifier = -1;
+                if (a[this.sortOpen] < b[this.sortOpen]) return -1 * modifier;
+                if (a[this.sortOpen] > b[this.sortOpen]) return modifier;
+                return 0;
+            });
         },
     },
     methods: {
@@ -186,48 +186,8 @@ export default {
                     : 'asc';
             this.sortOpen = s;
         },
-        external() {
-            this.$store
-                .dispatch('external/sendMessage', {
-                    target: 'lssmv4_external_schoolingOverview',
-                    type: 'close_request',
-                    data: 'force',
-                })
-                .then(() =>
-                    window.setTimeout(
-                        () =>
-                            this.$store
-                                .dispatch('external/getExternalLSSM', {
-                                    target: 'schoolingOverview',
-                                    keepAlive: true,
-                                    title: this.$t(
-                                        'modules.schoolingOverview.name'
-                                    ),
-                                })
-                                .then(({ instance }) => {
-                                    instance.lssmv4_local.$modal.hide(
-                                        'schoolingOverview'
-                                    );
-                                    instance.lssmv4_local.$modal.show(
-                                        schoolingOverview,
-                                        {
-                                            openSchoolings: this.openSchoolings,
-                                            ownSchoolings: this.ownSchoolings,
-                                            noExternal: true,
-                                        },
-                                        {
-                                            name: 'schoolingOverview',
-                                            height: '100%',
-                                            width: '100%',
-                                        }
-                                    );
-                                }),
-                        500
-                    )
-                );
-        },
     },
-};
+});
 </script>
 
 <style scoped lang="sass">
