@@ -39,7 +39,7 @@ const entries = Object.entries(config.games)
             },
             ...lodash.cloneDeep(webpackConfig),
         } as Configuration;
-        const fallbackLocales = [];
+        const fallbackLocales = [] as string[];
         if (locale_fallback) {
             fallbackLocales.push(locale_fallback);
             let nextFallback = config.games[locale_fallback].locale_fallback;
@@ -134,29 +134,37 @@ const entries = Object.entries(config.games)
                         fs.existsSync(`./src/modules/${module}/main.ts`)
                     )
                     .map(module => {
-                        try {
-                            require(`../src/modules/${module}/i18n/${locale}`);
-                            modulesEntry.module?.rules.unshift({
-                                test: new RegExp(`modules/${module}/main.ts$`),
-                                use: [
-                                    {
-                                        loader: 'webpack-loader-append-prepend',
-                                        options: {
-                                            prepend: `window[${JSON.stringify(
-                                                config.prefix
-                                            )}].$i18n.mergeLocaleMessage(${JSON.stringify(
-                                                locale
-                                            )},{modules:{${module}: require(\`${path.resolve(
-                                                __dirname,
-                                                `../src/modules/${module}/i18n/${locale}`
-                                            )}\`),},});`,
-                                        },
+                        modulesEntry.module?.rules.unshift({
+                            test: new RegExp(`modules/${module}/main.ts$`),
+                            use: [
+                                {
+                                    loader: 'webpack-loader-append-prepend',
+                                    options: {
+                                        prepend: [locale, ...fallbackLocales]
+                                            .filter(loca => {
+                                                try {
+                                                    require(`../src/modules/${module}/i18n/${loca}`);
+                                                    return true;
+                                                } catch {
+                                                    return false;
+                                                }
+                                            })
+                                            .map(
+                                                loca =>
+                                                    `window[${JSON.stringify(
+                                                        config.prefix
+                                                    )}].$i18n.mergeLocaleMessage(${JSON.stringify(
+                                                        loca
+                                                    )},{modules:{${module}: require(\`${path.resolve(
+                                                        __dirname,
+                                                        `../src/modules/${module}/i18n/${loca}`
+                                                    )}\`),},});`
+                                            )
+                                            .join('\n'),
                                     },
-                                ],
-                            });
-                        } catch {
-                            // Eh, do nothing? Yes!
-                        }
+                                },
+                            ],
+                        });
                         modulesEntry.module?.rules.push({
                             test: new RegExp(
                                 `modules/${module}/.*\\.(ts|vue)$`
