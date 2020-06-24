@@ -3,6 +3,39 @@ import { VueConstructor } from 'vue/types/vue';
 export default (Vue: VueConstructor): void => {
     Vue.prototype.$vue = Vue;
     Vue.prototype.$utils = {
+        urlRegex: /(?:(?:[A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=+$,\w]+@)?[A-Za-z0-9.-]+|(?:www\.|[-;:&=+$,\w]+@)[A-Za-z0-9.-]+)(?:(?:\/[+~%/.\w\-_]*)?\??(?:[-+=&;%@.\w_]*)#?(?:[.!/\\\w]*))?/g,
+        getTextNodes(
+            root: Node,
+            filter?: (node: Node, ...args: unknown[]) => true
+        ) {
+            const NoneTextParentNodes = [
+                'head',
+                'meta',
+                'title',
+                'script',
+                'style',
+                'link',
+                'br',
+                'noscript',
+                'a',
+            ];
+            const children = Array.from(root.childNodes);
+            const textChildren = children.filter(
+                n => n.nodeType === 3 && (!filter || (filter && filter(n)))
+            );
+            const elementChildren = children.filter(
+                n =>
+                    n.nodeType === 1 &&
+                    !NoneTextParentNodes.includes(
+                        (n as Element).tagName.toLowerCase()
+                    ) &&
+                    (!filter || (filter && filter(n)))
+            );
+            return [
+                ...textChildren,
+                ...elementChildren.map(n => this.getTextNodes(n, filter)),
+            ].flat();
+        },
         highChartsDarkMode: {
             chart: {
                 backgroundColor: 'transparent',

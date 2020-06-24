@@ -13,6 +13,10 @@ interface Additional {
     average_min_police_personnel?: number;
     average_min_fire_personnel?: number;
     swat_personnel?: number;
+    personnel_educations?: {
+        // currently fr_FR only
+        [education: string]: number;
+    };
 
     // Patients
     patient_specializations?: string;
@@ -22,7 +26,16 @@ interface Additional {
     patient_uk_code_possible?: string[]; // en_GB only
 
     // General:
-    [key: string]: number | number[] | boolean | string | string[] | undefined;
+    [key: string]:
+        | number
+        | number[]
+        | boolean
+        | string
+        | string[]
+        | {
+              [key: string]: number;
+          }
+        | undefined;
 }
 
 interface Chances {

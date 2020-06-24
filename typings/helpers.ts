@@ -27,6 +27,11 @@ declare module 'vue/types/vue' {
             height: number;
         };
         $utils: {
+            urlRegex: RegExp;
+            getTextNodes(
+                root: Node,
+                filter: (node: Node, ...args: unknown[]) => boolean
+            ): Text[];
             highChartsDarkMode: Highcharts.Options;
         };
         $m(
