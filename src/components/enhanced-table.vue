@@ -23,13 +23,11 @@
                         <font-awesome-icon
                             class="pull-right"
                             :icon="
-                                `sort${
-                                    key === sort
-                                        ? sortDir === 'asc'
-                                            ? '-down'
-                                            : '-up'
-                                        : ''
-                                }`
+                                key === sort
+                                    ? sortDir === 'asc'
+                                        ? faSortDown
+                                        : faSortUp
+                                    : faSort
                             "
                         ></font-awesome-icon>
                     </th>

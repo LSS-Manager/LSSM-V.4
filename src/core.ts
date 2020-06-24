@@ -22,7 +22,6 @@ document.body.appendChild(appContainer);
 
 window.keepAlive = true;
 
-utils(Vue);
 Vue.use(VueJSModal, {
     dynamic: true,
     dynamicDefaults: {
@@ -36,6 +35,7 @@ Vue.use(ToggleButton);
 Vue.use(Tabs);
 
 Vue.component('font-awesome-icon', FontAwesomeIcon);
+utils(Vue);
 
 window[PREFIX] = new Vue({
     store: store(Vue),

@@ -35,21 +35,42 @@
     </tabs>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue';
 import EnhancedTable from '../../../components/enhanced-table.vue';
+import {
+    OpenSchoolingTabs,
+    OpenSchoolingTabsMethods,
+    OpenSchoolingTabsComputed,
+    OpenSchooling,
+} from 'typings/modules/SchoolingOverview/OpenSchoolingTabs';
+import { DefaultProps } from 'vue/types/options';
 
-export default {
+export default Vue.extend<
+    OpenSchoolingTabs,
+    OpenSchoolingTabsMethods,
+    OpenSchoolingTabsComputed,
+    DefaultProps
+>({
     name: 'openSchoolingTabs',
     components: { EnhancedTable },
     data() {
-        const heads = {};
+        const heads = {} as {
+            [key: string]: {
+                title: string;
+            };
+        };
         ['name', 'seats', 'price', 'end', 'owner'].forEach(
             head =>
                 (heads[head] = {
-                    title: this.$t(`modules.schoolingOverview.titles.${head}`),
+                    title: this.$t(
+                        `modules.schoolingOverview.titles.${head}`
+                    ).toString(),
                 })
         );
-        const tabTitles = this.$t('modules.schoolingOverview.tabs');
+        const tabTitles = Object.values(
+            this.$t('modules.schoolingOverview.tabs')
+        );
         return {
             heads,
             tabTitles,
@@ -58,25 +79,25 @@ export default {
             search: '',
             sort: 'name',
             sortDir: 'asc',
-        };
+        } as OpenSchoolingTabs;
     },
     computed: {
         schoolings() {
-            return (this.tabs[this.currentTab] || [])
-                .filter(a =>
-                    this.search.length > 0
-                        ? JSON.stringify(Object.values(a))
-                              .toLowerCase()
-                              .match(this.search.toLowerCase())
-                        : true
-                )
-                .sort((a, b) => {
-                    let modifier = 1;
-                    if (this.sortDir === 'desc') modifier = -1;
-                    if (a[this.sort] < b[this.sort]) return -1 * modifier;
-                    if (a[this.sort] > b[this.sort]) return modifier;
-                    return 0;
-                });
+            const schoolings = this.tabs[this.currentTab] || [];
+            return (this.search
+                ? schoolings.filter(a =>
+                      JSON.stringify(Object.values(a))
+                          .toLowerCase()
+                          .match(this.search.toLowerCase())
+                  )
+                : schoolings
+            ).sort((a, b) => {
+                let modifier = 1;
+                if (this.sortDir === 'desc') modifier = -1;
+                if (a[this.sort] < b[this.sort]) return -1 * modifier;
+                if (a[this.sort] > b[this.sort]) return modifier;
+                return 0;
+            });
         },
     },
     methods: {
@@ -88,29 +109,33 @@ export default {
         },
     },
     beforeMount() {
-        let tabs = {};
+        let tabs = {} as {
+            [tab: string]: OpenSchooling[];
+        };
         document
             .querySelectorAll(
                 '#schooling_opened_table tr.schooling_opened_table_searchable'
             )
             .forEach(schooling => {
-                let btn = schooling.querySelector('a.btn-success');
-                let name = btn.innerText;
-                let category = name
-                    .match(/^.*?-/)[0]
-                    .replace('-', '')
-                    .trim();
-                let seats = parseInt(
-                    schooling.querySelector('td:nth-of-type(2)').innerText
-                );
-                let price = schooling.querySelector('td:nth-of-type(3)')
-                    .innerText;
-                let end = parseInt(
-                    schooling
-                        .querySelector('td:nth-of-type(4)')
-                        .getAttribute('sortvalue')
-                );
+                let btn = schooling.querySelector(
+                    'a.btn-success'
+                ) as HTMLLinkElement;
+                if (!btn) return;
+                let name = btn.textContent || '';
+                let category =
+                    name
+                        ?.match(/^.*?-/)?.[0]
+                        .replace('-', '')
+                        .trim() || '';
+                const seatNode = schooling.querySelector('td:nth-of-type(2)');
+                const endNode = schooling.querySelector('td:nth-of-type(4)');
                 let owner = schooling.querySelector('td:nth-of-type(5)');
+                if (!seatNode || !endNode || !owner) return;
+                let seats = parseInt(seatNode.textContent || '0');
+                let price =
+                    schooling.querySelector('td:nth-of-type(3)')?.textContent ||
+                    '';
+                let end = parseInt(endNode.getAttribute('sortvalue') || '0');
                 if (!tabs.hasOwnProperty(category)) tabs[category] = [];
                 tabs[category].push({
                     id: btn.href.replace(/\D+/g, ''),
@@ -123,7 +148,7 @@ export default {
             });
         this.tabs = tabs;
     },
-};
+});
 </script>
 
 <style scoped lang="sass">

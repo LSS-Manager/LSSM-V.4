@@ -24,6 +24,18 @@ export default {
     },
     mutations: {
         setBuildings(state: APIState, buildings: Building[]) {
+            const smallBuildings = ((window[PREFIX] as Vue).$t(
+                'small_buildings'
+            ) as unknown) as {
+                [type: number]: number;
+            };
+            buildings.forEach(
+                building =>
+                    building.small_building &&
+                    smallBuildings.hasOwnProperty(building.building_type) &&
+                    (building.building_type =
+                        smallBuildings[building.building_type])
+            );
             state.buildings = buildings;
         },
         setVehicles(state: APIState, vehicles: Vehicle[]) {
