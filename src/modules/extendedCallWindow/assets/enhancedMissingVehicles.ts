@@ -1,33 +1,38 @@
 import enhancedMissingVehicles from '../components/enhancedMissingVehicles.vue';
+import { Requirement } from 'typings/modules/ExtendedCallWindow/EnhancedMissingVehicles';
 
-(() => {
+export default (LSSM: Vue): void => {
+    const $m = (key: string, args?: { [key: string]: unknown }) =>
+        LSSM.$t(
+            `modules.extendedCallWindow.enhancedMissingVehicles.${key}`,
+            args
+        );
+
     const missingDialog = document.getElementById('missing_text');
+    if (!missingDialog) return;
     const missingRequirementsText = missingDialog.textContent
-        .trim()
+        ?.trim()
         .replace(/(^[^:]*:)|(\.$)/g, '')
         .trim();
     if (!missingRequirementsText) return;
     const missingRequirements = missingRequirementsText
         .split(/,(?![^(]*?\))/g)
         .map(req => ({
-            missing: parseInt(req.trim().match(/^\d+/)[0]),
-            req,
-            trim: req.trim(),
-            rep: req.trim().replace(/^\d+/, ''),
+            missing: parseInt(req.trim().match(/^\d+/)?.[0] || '0'),
             vehicle: req
                 .trim()
                 .replace(/^\d+/, '')
                 .trim(),
-        }));
+        })) as Requirement[];
     const last = missingRequirements[missingRequirements.length - 1];
     let extras = '';
     if (last.vehicle.match(/\..*$/)) {
-        extras = last.vehicle.match(/\..*$/)[0].replace(/^\./, '');
+        extras = last.vehicle.match(/\..*$/)?.[0].replace(/^\./, '') || '';
         last.vehicle = last.vehicle.replace(/\..*$/, '');
     }
-    const vehicleGroups = window.lssmv4.$t(
-        'modules.extendedCallWindow.enhancedMissingVehicles.vehiclesByRequirement'
-    );
+    const vehicleGroups = ($m('vehiclesByRequirement') as unknown) as {
+        [group: string]: number[];
+    };
     const drivingTable = document.querySelector(
         '#mission_vehicle_driving tbody'
     );
@@ -45,7 +50,7 @@ import enhancedMissingVehicles from '../components/enhancedMissingVehicles.vue';
                 extras += `, ${requirement.missing.toLocaleString()} ${
                     requirement.vehicle
                 }`;
-                requirement.vehicle = null;
+                requirement.vehicle = '';
                 return;
             }
             requirement.driving = Object.values(
@@ -66,9 +71,9 @@ import enhancedMissingVehicles from '../components/enhancedMissingVehicles.vue';
             requirement.total = requirement.missing - requirement.driving;
         });
     }
-    new window.lssmv4.Vue({
-        store: window.lssmv4.$store,
-        i18n: window.lssmv4.$i18n,
+    new LSSM.$vue({
+        store: LSSM.$store,
+        i18n: LSSM.$i18n,
         render: h =>
             h(enhancedMissingVehicles, {
                 props: {
@@ -79,4 +84,4 @@ import enhancedMissingVehicles from '../components/enhancedMissingVehicles.vue';
                 },
             }),
     }).$mount(missingDialog);
-})();
+};

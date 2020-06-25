@@ -35,10 +35,22 @@
     </div>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue';
 import EnhancedMissingVehiclesTable from './enhancedMissingVehiclesTable.vue';
+import {
+    EnhancedMissingVehicles,
+    EnhancedMissingVehiclesComputed,
+    EnhancedMissingVehiclesMethods,
+    EnhancedMissingVehiclesProps,
+} from 'typings/modules/ExtendedCallWindow/EnhancedMissingVehicles';
 
-export default {
+export default Vue.extend<
+    EnhancedMissingVehicles,
+    EnhancedMissingVehiclesMethods,
+    EnhancedMissingVehiclesComputed,
+    EnhancedMissingVehiclesProps
+>({
     name: 'enhancedMissingVehicles',
     components: { EnhancedMissingVehiclesTable },
     data() {
@@ -68,15 +80,17 @@ export default {
             );
         },
         missingRequirementsSorted() {
-            return Object.values(this.missingRequirementsFiltered).sort(
-                (a, b) => {
-                    let modifier = 1;
-                    if (this.sortDir === 'desc') modifier = -1;
-                    if (a[this.sort] < b[this.sort]) return -1 * modifier;
-                    if (a[this.sort] > b[this.sort]) return modifier;
-                    return 0;
-                }
-            );
+            return Object.values(
+                this.missingRequirementsSearch
+                    ? this.missingRequirementsFiltered
+                    : this.missingRequirements
+            ).sort((a, b) => {
+                let modifier = 1;
+                if (this.sortDir === 'desc') modifier = -1;
+                if (a[this.sort] < b[this.sort]) return -1 * modifier;
+                if (a[this.sort] > b[this.sort]) return modifier;
+                return 0;
+            });
         },
     },
     methods: {
@@ -86,5 +100,5 @@ export default {
             this.sort = s;
         },
     },
-};
+});
 </script>
