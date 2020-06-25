@@ -38,6 +38,7 @@ export interface Overview {
             category: number;
         };
     };
+    currentType: number;
 }
 
 export interface OverviewComputed {
@@ -59,4 +60,5 @@ export interface OverviewMethods {
     setVehicleCategory(_: unknown, group: number): void;
     setVehicleGroup(_: unknown, group: number): void;
     setBuildingCategory(_: unknown, group: number): void;
+    setType(_: unknown, type: number): void;
 }

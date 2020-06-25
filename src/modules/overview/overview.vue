@@ -1,16 +1,22 @@
 <template>
     <lightbox name="overview">
         <h1>{{ $m('name') }}</h1>
-        <tabs>
+        <tabs :on-select="setType" :default-index="currentType">
             <tab :title="$m('tabs.vehicles')">
-                <tabs :on-select="setVehicleCategory">
+                <tabs
+                    :on-select="setVehicleCategory"
+                    :default-index="vehiclesTab.current.category"
+                >
                     <tab
                         v-for="({ vehicles: groups },
                         title) in vehicleCategories"
                         :key="title"
                         :title="title"
                     >
-                        <tabs :on-select="setVehicleGroup">
+                        <tabs
+                            :on-select="setVehicleGroup"
+                            :default-index="vehiclesTab.current.group"
+                        >
                             <tab
                                 v-for="(_, group) in groups"
                                 :key="group"
@@ -84,7 +90,10 @@
                 </tabs>
             </tab>
             <tab :title="$m('tabs.buildings')">
-                <tabs :on-select="setBuildingCategory">
+                <tabs
+                    :on-select="setBuildingCategory"
+                    :default-index="buildingsTab.current.category"
+                >
                     <tab
                         v-for="({ buildings: groups },
                         title) in buildingCategories"
@@ -187,6 +196,7 @@ import {
     VehicleCategory,
 } from '../../../typings/Vehicle';
 import { BuildingCategory, ResolvedBuildingCategory } from 'typings/Building';
+import cloneDeep from 'lodash/cloneDeep';
 
 export default Vue.extend<
     Overview,
@@ -197,7 +207,9 @@ export default Vue.extend<
     name: 'overview',
     components: { EnhancedTable, Lightbox },
     data() {
-        const vehicleCategories = (this.$t('vehicleCategories') as unknown) as {
+        const vehicleCategories = cloneDeep(
+            this.$t('vehicleCategories') as unknown
+        ) as {
             [name: string]: VehicleCategory;
         };
         const vehicleTypes = Object.values(this.$t('vehicles'));
@@ -206,7 +218,6 @@ export default Vue.extend<
         ).forEach(([category, { vehicles: groups }]) =>
             Object.entries(groups).forEach(
                 ([group, vehicles]) =>
-                    typeof vehicles[0] === 'number' &&
                     (vehicleCategories[category].vehicles[
                         group
                     ] = Object.values(vehicles as number[]).map(
@@ -214,9 +225,9 @@ export default Vue.extend<
                     ))
             )
         );
-        const buildingCategories = (this.$t(
-            'buildingCategories'
-        ) as unknown) as {
+        const buildingCategories = cloneDeep(
+            this.$t('buildingCategories') as unknown
+        ) as {
             [name: string]: BuildingCategory;
         };
         const buildingTypes = Object.values(this.$t('buildings'));
@@ -290,15 +301,18 @@ export default Vue.extend<
                     category: 0,
                 },
             },
+            currentType: 0,
         } as Overview;
     },
     computed: {
         currentBuildings() {
-            return this.buildingCategories[
-                Object.keys(this.buildingCategories)[
-                    this.buildingsTab.current.category
-                ]
-            ].buildings;
+            return this.currentType === 1
+                ? this.buildingCategories[
+                      Object.keys(this.buildingCategories)[
+                          this.buildingsTab.current.category
+                      ]
+                  ].buildings
+                : [];
         },
         buildingsFiltered() {
             return Object.values(this.currentBuildings).filter(building =>
@@ -320,6 +334,7 @@ export default Vue.extend<
             });
         },
         vehicleTypes() {
+            if (this.currentType !== 0) return [];
             const category = this.vehicleCategories[
                 Object.keys(this.vehicleCategories)[
                     this.vehiclesTab.current.category
@@ -373,6 +388,9 @@ export default Vue.extend<
         },
         setBuildingCategory(_, category) {
             this.buildingsTab.current.category = category;
+        },
+        setType(_, type) {
+            this.currentType = type;
         },
     },
 });

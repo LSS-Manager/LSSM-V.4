@@ -1298,7 +1298,32 @@ export default {
             color: '#e05b00',
             coins: 30,
             credits: 100_000,
-            extensions: [],
+            extensions: [
+                {
+                    caption: 'Führung',
+                    coins: 5,
+                    credits: 25_000,
+                    duration: '3 Tage',
+                },
+                {
+                    caption: 'Sanitätsdienst',
+                    coins: 5,
+                    credits: 25_500,
+                    duration: '3 Tage',
+                },
+                {
+                    caption: 'Wasserrettungs-Erweiterung',
+                    coins: 25,
+                    credits: 500_000,
+                    duration: '7 Tage',
+                },
+                {
+                    caption: 'Rettungshundestaffel',
+                    coins: 25,
+                    credits: 350_000,
+                    duration: '7 tage',
+                },
+            ],
             levelcost: [],
             maxBuildings: 'Keine Grenze',
             maxLevel: 0,

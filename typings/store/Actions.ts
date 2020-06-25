@@ -18,3 +18,8 @@ export interface addStyle {
     selectorText: string;
     style: { [index: string]: string };
 }
+
+export interface premodifyParams {
+    event: string;
+    callback?: (...args: unknown[]) => unknown;
+}

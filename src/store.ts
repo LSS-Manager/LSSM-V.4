@@ -9,7 +9,12 @@ import Vuex, {
 import { RootState } from '../typings/store/RootState';
 import { VueConstructor } from 'vue/types/vue';
 import config from './config';
-import { ActionStoreParams, addStyle, Hook } from '../typings/store/Actions';
+import {
+    ActionStoreParams,
+    addStyle,
+    Hook,
+    premodifyParams,
+} from '../typings/store/Actions';
 import { LSSMEvent } from '../typings/helpers';
 import storage from './store/storage';
 import settings from './store/settings';
@@ -167,6 +172,20 @@ export default (Vue: VueConstructor): Store<RootState> => {
                         .map(([rule, value]) => `${rule}: ${value};`)
                         .join(';\n')
                 );
+            },
+            premodifyParams(
+                _,
+                { event, callback = undefined }: premodifyParams
+            ) {
+                const originalEvent = window[event];
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
+                window[event] = (...args) => {
+                    callback && callback(...args);
+                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                    // @ts-ignore
+                    originalEvent(...args);
+                };
             },
         } as ActionTree<RootState, RootState>,
     } as StoreOptions<RootState>);

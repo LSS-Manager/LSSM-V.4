@@ -1,7 +1,9 @@
-export default (LSSM: Vue, showImg: boolean): void => {
-    const clickableLinks = (node: Node) => {
-        const urlRegex = LSSM.$utils.urlRegex;
+import { AllianceChatMessage } from 'typings/Ingame';
 
+export default (LSSM: Vue, showImg: boolean): void => {
+    const urlRegex = LSSM.$utils.urlRegex;
+
+    const clickableLinks = (node: Node) => {
         LSSM.$utils
             .getTextNodes(node, n => !!n?.textContent?.match(urlRegex))
             .forEach(n => {
@@ -35,4 +37,25 @@ export default (LSSM: Vue, showImg: boolean): void => {
     };
 
     clickableLinks(document);
+
+    LSSM.$store
+        .dispatch('premodifyParams', {
+            event: 'allianceChat',
+            callback(e: AllianceChatMessage) {
+                const links = e.message.match(urlRegex) || [];
+                const texts = e.message.split(urlRegex);
+                e.message = '';
+                texts.forEach(text => {
+                    if (text) e.message += text;
+                    const link = links.shift();
+                    if (link)
+                        e.message += `<a href="${link}" target="_blank">${
+                            showImg
+                                ? `<img src="${link}" alt="${link}" style="max-width: 10%;"/>`
+                                : link
+                        }</a>`;
+                });
+            },
+        })
+        .then();
 };
