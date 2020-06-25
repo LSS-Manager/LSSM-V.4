@@ -2,13 +2,16 @@ import moment from 'moment';
 
 moment.locale(BUILD_LANG);
 
-export default (): void => {
+export default (LSSM: Vue): void => {
     const generationDate = moment(
         document
             .querySelector('#missionH1')
             ?.getAttribute('data-original-title')
             ?.replace(/^.*?:/, '')
-            .trim()
+            .trim(),
+        LSSM.$t(
+            'modules.extendedCallWindow.generationDate.inputFormat'
+        ).toString()
     );
 
     const generationDateNode = document.createElement('i');

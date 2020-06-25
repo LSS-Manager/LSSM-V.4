@@ -29,7 +29,7 @@ import enhancedMissingVehicles from './assets/enhancedMissingVehicles';
         });
     };
 
-    if (await getSetting('generationDate')) generationDate();
+    if (await getSetting('generationDate')) generationDate(LSSM);
     if (await getSetting('enhancedMissingVehicles'))
         enhancedMissingVehicles(LSSM);
 })(window[PREFIX] as Vue);
