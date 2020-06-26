@@ -12,6 +12,7 @@ export interface EnhancedTableProps {
             [key: string]: unknown;
         };
         title: string;
+        noSort?: boolean;
     };
     sort: string;
     sortDir: string;

@@ -1,5 +1,6 @@
 import { Vehicle } from 'typings/Vehicle';
 import { Building } from 'typings/Building';
+import VueI18n from 'vue-i18n';
 
 interface VehicleWithBuilding extends Vehicle {
     building: string | undefined;
@@ -17,6 +18,12 @@ export interface VehicleList {
 export interface VehicleListMethods {
     setSort(type: string): void;
     toggleFMS(vehicle: Vehicle): void;
+    $m(
+        key: string,
+        args?: {
+            [key: string]: unknown;
+        }
+    ): VueI18n.TranslateResult;
 }
 
 export interface VehicleListComputed {

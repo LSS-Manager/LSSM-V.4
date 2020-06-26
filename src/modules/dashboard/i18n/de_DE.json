@@ -33,6 +33,13 @@
 		"dispatchcenter-view": "Leitstellenansicht",
 		"vehicle-types": "Statusübersicht"
 	},
+    "vehicle-list": {
+        "type": "Typ",
+        "caption": "Name",
+        "actions": "",
+        "fms": "FMS",
+        "building": "Gebäude"
+    },
 	"vehicle-types": {
 		"status": "Status",
 		"statuses": [

@@ -3,11 +3,11 @@
         <h4>{{ title }}: {{ vehicles.length }}</h4>
         <enhanced-table
             :head="{
-                vehicle_type: { title: 'type' },
-                caption: { title: 'caption' },
-                actions: { title: 'actions' },
-                fms_show: { title: 'fms' },
-                building_id: { title: 'building' },
+                vehicle_type: { title: $m('type') },
+                caption: { title: $m('caption') },
+                actions: { title: $m('actions'), noSort: true },
+                fms_show: { title: $m('fms') },
+                building: { title: $m('building') },
             }"
             :table-attrs="{ class: 'table table-striped' }"
             @sort="setSort"
@@ -137,6 +137,9 @@ export default Vue.extend<
         },
     },
     methods: {
+        $m(key, args) {
+            return this.$t(`modules.dashboard.vehicle-list.${key}`, args);
+        },
         setSort(type) {
             if (this.sort === type)
                 return (this.sortDir = this.sortDir === 'asc' ? 'desc' : 'asc');

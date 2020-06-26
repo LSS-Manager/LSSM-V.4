@@ -17,10 +17,12 @@
                         v-for="(item, key) in head"
                         :key="key"
                         v-bind="item.attrs"
-                        @click="$emit('sort', key)"
+                        :class="{ noSort: item.noSort }"
+                        @click="!item.noSort && $emit('sort', key)"
                     >
                         {{ item.title }}
                         <font-awesome-icon
+                            v-if="!item.noSort"
                             class="pull-right"
                             :icon="
                                 key === sort
@@ -105,6 +107,6 @@ export default Vue.extend<
 </script>
 
 <style scoped lang="sass">
-th
+th:not(.noSort)
     cursor: pointer
 </style>
