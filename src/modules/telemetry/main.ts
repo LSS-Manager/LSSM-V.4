@@ -10,6 +10,15 @@ export default (LSSM: Vue): void => {
 
     const sendStats = async () => {
         await LSSM.$store.dispatch('api/registerBuildingsUsage', false);
+        LSSM.$store.commit(
+            'api/setKey',
+            await LSSM.$store
+                .dispatch('api/request', {
+                    url: `/profile/external_secret_key/${window.user_id}`,
+                })
+                .then(res => res.json())
+                .then(({ code }) => code)
+        );
 
         const ua = new UAParser(window.navigator.userAgent);
 
@@ -22,7 +31,7 @@ export default (LSSM: Vue): void => {
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify({
-                        id: LSSM.$store.state.key,
+                        id: LSSM.$store.state.api.key,
                         uid: window.user_id,
                         game: BUILD_LANG,
                         name: window.username,
@@ -38,7 +47,7 @@ export default (LSSM: Vue): void => {
                                     : 'osm',
                             buildings: LSSM.$store.state.api.buildings.length,
                             modules: await LSSM.$store.dispatch('storage/get', {
-                                key: 'active',
+                                key: 'activeModules',
                             }),
                         },
                         flag: config.games[LSSM.$i18n.locale].flag,

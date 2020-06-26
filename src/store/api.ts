@@ -261,7 +261,9 @@ export default {
                         'setKey',
                         await dispatch('request', {
                             url: `/profile/external_secret_key/${window.user_id}`,
-                        }).then(res => res.json())
+                        })
+                            .then(res => res.json())
+                            .then(({ code }) => code)
                     );
                 init.headers['X-LSSM-User'] = btoa(
                     `${state.key}:${rootState.version}-${MODE}`
