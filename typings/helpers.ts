@@ -3,6 +3,7 @@ import { Store } from 'vuex';
 import { BuildingMarker, POIMarker } from './Ingame';
 import Highcharts from 'highcharts';
 import VueI18n from 'vue-i18n';
+import { Map, Marker } from 'leaflet';
 
 declare global {
     interface Window {
@@ -14,6 +15,9 @@ declare global {
         building_markers: BuildingMarker[];
         mission_poi_markers: POIMarker[];
         [PREFIX: string]: Vue | unknown;
+        map: Map;
+        mission_position_new_marker?: Marker;
+        mission_position_new_dragend(): void;
     }
 }
 
