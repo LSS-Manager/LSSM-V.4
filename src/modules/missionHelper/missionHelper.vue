@@ -7,7 +7,7 @@
             @click="reloadSpecs(true)"
         ></font-awesome-icon>
         <span v-if="isDiyMission">{{ $m('diyMission') }}</span>
-        <div v-else>
+        <div v-else-if="missionSpecs">
             <h3 v-if="settings.title">
                 {{ missionSpecs.name }}
                 <small v-if="settings.place && missionSpecs.place">{{
