@@ -11,11 +11,15 @@
 		"nef": "Wahrscheinlichkeit für einen Notarzt",
 		"patient_at_end_of_mission": "Der Patient tritt erst am Ende des Einsatzes auf! | Die Patienten treten erst am Ende des Einsatzes auf!",
 		"patient_transport": "Transportwahrscheinlichkeit",
-		"possible_patient": "Patienten maximal",
-		"possible_patient_min": "Patienten mindestens",
+		"possible_patient": "Patient maximal | Patienten maximal",
+		"possible_patient_min": "Patient mindestens | Patienten mindestens",
 		"specializations": "Fachrichtung",
 		"title": "Patienten | {n} Patient | {n} Patienten"
 	},
+    "prisoners": {
+        "title": "Gefangene | {n} Gefangener | {n} Gefangene",
+        "max_possible_prisoners": "Gefangener maximal | Gefangene maximal"
+    },
 	"vehicles": {
 		"captions": {
 			"ambulances": "RTW oder KTW oder KTW Typ B",

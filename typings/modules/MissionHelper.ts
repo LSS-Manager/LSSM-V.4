@@ -20,8 +20,12 @@ export interface MissionHelper {
     isReloading: boolean;
     isDiyMission: boolean;
     missionSpecs: Mission | undefined;
+    missionId: number;
     settings: {
         title: boolean;
+        id: boolean;
+        type: boolean;
+        prerequisites: boolean;
         place: boolean;
         vehicles: {
             title: boolean;
@@ -44,6 +48,11 @@ export interface MissionHelper {
             content: boolean;
             live: boolean;
         };
+        prisoners: {
+            title: boolean;
+            content: boolean;
+            live: boolean;
+        };
         generatedBy: boolean;
         credits: boolean;
         expansions: boolean;
@@ -54,6 +63,7 @@ export interface MissionHelper {
 
 export interface MissionHelperComputed {
     currentPatients: number;
+    currentPrisoners: number;
     vehicles: VehicleRequirements;
 }
 

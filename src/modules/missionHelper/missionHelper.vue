@@ -13,12 +13,20 @@
                 <small v-if="settings.place && missionSpecs.place">{{
                     missionSpecs.place
                 }}</small>
+                <small v-if="settings.type">Type: {{ missionSpecs.id }}</small>
+                <small v-if="settings.id"> ID: {{ missionId }} </small>
             </h3>
             <span
                 v-if="settings.patients.live && currentPatients"
                 class="badge badge-default"
             >
                 {{ $mc('patients.title', currentPatients) }}
+            </span>
+            <span
+                v-if="settings.prisoners.live && currentPrisoners"
+                class="badge badge-default"
+            >
+                {{ $mc('prisoners.title', currentPrisoners) }}
             </span>
             <h4 v-if="settings.vehicles.title">
                 {{ $m('vehicles.title') }}
@@ -53,8 +61,9 @@
                     :data-amount="missionSpecs.additional.possible_patient_min"
                 >
                     {{
-                        $t(
-                            'modules.missionHelper.patients.possible_patient_min'
+                        $mc(
+                            'patients.possible_patient_min',
+                            missionSpecs.additional.possible_patient_min
                         )
                     }}
                 </li>
@@ -62,7 +71,12 @@
                     v-if="missionSpecs.additional.possible_patient"
                     :data-amount="missionSpecs.additional.possible_patient"
                 >
-                    {{ $m('patients.possible_patient') }}
+                    {{
+                        $mc(
+                            'patients.possible_patient',
+                            missionSpecs.additional.possible_patient
+                        )
+                    }}
                 </li>
                 <li
                     v-if="missionSpecs.chances.patient_transport"
@@ -101,6 +115,30 @@
                             )
                         }}
                     </b>
+                </li>
+            </ul>
+            <h4
+                v-if="
+                    settings.prisoners.title &&
+                        missionSpecs.additional &&
+                        missionSpecs.additional.max_possible_prisoners
+                "
+            >
+                {{ $mc('prisoners.title', 0) }}
+            </h4>
+            <ul v-if="settings.prisoners.content && missionSpecs.additional">
+                <li
+                    v-if="missionSpecs.additional.max_possible_prisoners"
+                    :data-amount="
+                        missionSpecs.additional.max_possible_prisoners
+                    "
+                >
+                    {{
+                        $mc(
+                            'prisoners.max_possible_prisoners',
+                            missionSpecs.additional.max_possible_prisoners
+                        )
+                    }}
                 </li>
             </ul>
             <span v-if="settings.generatedBy">
@@ -198,9 +236,15 @@ export default Vue.extend<
             isReloading: true,
             isDiyMission: false,
             missionSpecs: undefined,
+            missionId: parseInt(
+                window.location.pathname.match(/\d+\/?/)?.[0] || '0'
+            ),
             settings: {
                 title: true,
+                id: true,
+                type: true,
                 place: true,
+                prerequisites: true,
                 vehicles: {
                     title: true,
                     content: true,
@@ -224,6 +268,11 @@ export default Vue.extend<
                     content: true,
                     live: true,
                 },
+                prisoners: {
+                    title: true,
+                    content: true,
+                    live: true,
+                },
                 generatedBy: true,
                 credits: true,
                 expansions: true,
@@ -237,6 +286,14 @@ export default Vue.extend<
     computed: {
         currentPatients() {
             return document.querySelectorAll('.mission_patient').length;
+        },
+        currentPrisoners() {
+            return parseInt(
+                document
+                    .getElementById('h2_prisoners')
+                    ?.textContent?.trim()
+                    .match(/^\d+/)?.[0] || '0'
+            );
         },
         vehicles() {
             const vehicles = {} as VehicleRequirements;
