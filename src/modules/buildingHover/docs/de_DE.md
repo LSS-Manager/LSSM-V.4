@@ -13,7 +13,7 @@ Folgende Informationen sind enthalten:
 * Fahrzeuge auf der Wache mit
 	* Status
 	* Name
-	* Fahrzeugtyp 
+	* Fahrzeugtyp
 * Zahl der vorhandenen Betten (Krankenhäuser)
 * Zahl der vorhandenen Klassenzimmer (Schulen)
 * Zahl der fertigen Zellen und Gesamtzahl in Klammern (fertig + im Ausbau) bei Polizeiwachen

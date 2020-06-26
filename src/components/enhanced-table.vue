@@ -23,13 +23,11 @@
                         <font-awesome-icon
                             class="pull-right"
                             :icon="
-                                `sort${
-                                    key === sort
-                                        ? sortDir === 'asc'
-                                            ? '-down'
-                                            : '-up'
-                                        : ''
-                                }`
+                                key === sort
+                                    ? sortDir === 'asc'
+                                        ? faSortDown
+                                        : faSortUp
+                                    : faSort
                             "
                         ></font-awesome-icon>
                     </th>
@@ -45,12 +43,23 @@
     </div>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue';
 import { faSort } from '@fortawesome/free-solid-svg-icons/faSort';
 import { faSortUp } from '@fortawesome/free-solid-svg-icons/faSortUp';
 import { faSortDown } from '@fortawesome/free-solid-svg-icons/faSortDown';
+import {
+    EnhancedTableData,
+    EnhancedTableProps,
+} from '../../typings/components/Enhanced-Table';
+import { DefaultMethods, DefaultComputed } from 'vue/types/options';
 
-export default {
+export default Vue.extend<
+    EnhancedTableData,
+    DefaultMethods<Vue>,
+    DefaultComputed,
+    EnhancedTableProps
+>({
     name: 'enhancedTable',
     data() {
         return {
@@ -89,10 +98,10 @@ export default {
         tableAttrs: {
             type: Object,
             required: false,
-            default: () => {},
+            default: () => ({}),
         },
     },
-};
+});
 </script>
 
 <style scoped lang="sass">

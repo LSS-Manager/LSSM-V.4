@@ -9,6 +9,7 @@
 	"patients": {
 		"helicopter": "Wahrscheinlichkeit für einen RTH",
 		"nef": "Wahrscheinlichkeit für einen Notarzt",
+		"patient_at_end_of_mission": "Der Patient tritt erst am Ende des Einsatzes auf! | Die Patienten treten erst am Ende des Einsatzes auf!",
 		"patient_transport": "Transportwahrscheinlichkeit",
 		"possible_patient": "Patienten maximal",
 		"possible_patient_min": "Patienten mindestens",
@@ -41,7 +42,7 @@
 			"mobile_command_vehicles": "ELW 2",
 			"platform_trucks": "Drehleiter | Drehleitern",
 			"police_cars": "Funkstreifenwagen",
-			"police_helicopters": "Polzeihubschauber",
+			"police_helicopters": "Polizeihubschauber",
 			"rescue_dog_units": "Rettungshundestaffel | Rettungshundestaffeln",
 			"rettungstreppe": "Rettungstreppe | Rettungstreppen",
 			"sek": "SEK-Fahrzeug | SEK-Fahrzeuge",

@@ -5,45 +5,70 @@
                 v-if="!noXBtn"
                 class="lightbox-close"
                 @click="$modal.hide(name)"
+                :title="$t('close')"
             >
-                <i class="fas fa-times"></i>
+                <font-awesome-icon :icon="faTimes"></font-awesome-icon>
             </span>
             <span
                 v-if="!noFullscreen && !fullscreen"
                 class="toggle-modal-fullscreen"
                 @click="expand"
+                :title="$t('fullscreen.expand')"
             >
-                <i class="fas fa-expand"></i>
+                <font-awesome-icon :icon="faExpand"></font-awesome-icon>
             </span>
             <span
                 v-if="!noFullscreen && fullscreen"
                 class="toggle-modal-fullscreen"
                 @click="compress"
+                :title="$t('fullscreen.compress')"
             >
-                <i class="fas fa-compress"></i>
+                <font-awesome-icon :icon="faCompress"></font-awesome-icon>
             </span>
             <span
                 v-if="!noTitleHide"
                 class="toggle-title"
                 @click="titleHidden = !titleHidden"
+                :title="$tc('hideTitle', !titleHidden)"
             >
-                <i class="fas fa-chevron-up"></i>
+                <font-awesome-icon :icon="faChevronUp"></font-awesome-icon>
             </span>
         </div>
         <slot></slot>
     </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue from 'vue';
+import { faTimes } from '@fortawesome/free-solid-svg-icons/faTimes';
+import { faExpand } from '@fortawesome/free-solid-svg-icons/faExpand';
+import { faCompress } from '@fortawesome/free-solid-svg-icons/faCompress';
+import { faChevronUp } from '@fortawesome/free-solid-svg-icons/faChevronUp';
+import {
+    LightboxData,
+    LightboxMethods,
+    LightboxProps,
+} from '../../typings/components/Lightbox';
+import { DefaultComputed } from 'vue/types/options';
+
+export default Vue.extend<
+    LightboxData,
+    LightboxMethods,
+    DefaultComputed,
+    LightboxProps
+>({
     name: 'lightbox',
     data() {
         return {
             fullscreen: false,
-            fullscreenBefore: !!window.fullScreen,
+            fullscreenBefore: window.fullScreen,
             origWidth: this.$parent.$parent.modal.width,
             origHeight: this.$parent.$parent.modal.height,
             titleHidden: false,
+            faTimes,
+            faExpand,
+            faCompress,
+            faChevronUp,
         };
     },
     props: {
@@ -83,7 +108,7 @@ export default {
                 document.exitFullscreen();
         },
     },
-};
+});
 </script>
 
 <style scoped lang="sass">

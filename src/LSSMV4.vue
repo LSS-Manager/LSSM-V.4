@@ -2,36 +2,39 @@
     <div :id="id">
         <modals-container />
         <v-dialog></v-dialog>
-        <FlashMessage></FlashMessage>
     </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue from 'vue';
+import { LSSMV4Data } from '../typings/LSSMV4';
+import {
+    DefaultMethods,
+    DefaultComputed,
+    DefaultProps,
+} from 'vue/types/options';
+
+export default Vue.extend<
+    LSSMV4Data,
+    DefaultMethods<Vue>,
+    DefaultComputed,
+    DefaultProps
+>({
     name: 'LSSMV4',
     components: {},
     data() {
         return {
-            id: this.$store.getters.nodeId('app'),
+            id: this.$store.getters.nodeAttribute('app'),
         };
     },
-    beforeMount() {
-        let fa = document.createElement('script');
-        fa.src = 'https://use.fontawesome.com/releases/v5.13.0/js/all.js';
-        document.head.appendChild(fa);
-    },
-    mounted() {
-        document.dispatchEvent(new CustomEvent(`lssm_mounted_${window.name}`));
-        this.$store.dispatch('external/establishConnection');
-    },
-};
+});
 </script>
 
 <style lang="sass">
 @import "~vue-select/src/scss/vue-select.scss"
 
 body.dark
-    .v--modal-box
+    .vm--modal
         background-color: #505050
         color: white
 
@@ -60,22 +63,57 @@ body.dark
         color: #f5f5f5
         background: #333
 
-.v--modal-overlay
+    .leaflet-tooltip
+        background-color: #505050
+        color: #ddd
+        border: #505050
+
+        &.leaflet-tooltip-left::before
+            border-left-color: #505050
+
+        &.leaflet-tooltip-right::before
+            border-right-color: #505050
+.vm--container
     z-index: 5001 !important
 
-    .v--modal-background-click
+    .vm--overlay[data-modal="dialog"]
         background-color: rgba(0, 0, 0, 0.7)
+        pointer-events: none
 
-        .v--modal-box
-            padding: 1rem
-            overflow: auto !important
+    .vm--modal
+        padding: 1rem
+        overflow: auto !important
+        max-height: 100vh !important
+
+.vue-tablist
+    list-style: none
+    display: flex
+    padding-left: 0
+    border-bottom: 1px solid #e2e2e2
+
+
+    .vue-tab
+        padding: 5px 10px
+        cursor: pointer
+        user-select: none
+        border: 1px solid transparent
+        border-bottom-color: #e2e2e2
+        border-radius: 3px 3px 0 0
+        position: relative
+        bottom: -1px
+        font-weight: bold
+        font-size: 120%
+
+
+        &[aria-selected='true']
+            border-color: #e2e2e2
+            border-bottom-color: transparent
+
+
+        &[aria-disabled='true']
+            cursor: not-allowed
+            color: #999
 
 .lssm_notice_bg
     background-color: #77dc81
-
-._vue-flash-msg-body
-    z-index: 10006
-
-    ._vue-flash-msg-body__icon img
-        width: 100%
 </style>

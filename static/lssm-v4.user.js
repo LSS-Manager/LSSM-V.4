@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         LSS-Manager V.4 - Dev Version
+// @name         LSS-Manager V.4 - TypeScript
 // @version      4.0.5+CZ-DK-DE-GR-AU-GB-US-ES-MX-FI-FR-IT-JP-KR-NO-NL-PL-BR-PT-RO-RU-SK-SE-TR-UA
 // @author       Aisaka | Sanni | Jan (jxn_30)
 // @description  Das Tool für das LSS in der Version 4

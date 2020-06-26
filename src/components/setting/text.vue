@@ -4,23 +4,29 @@
             <input
                 :name="name"
                 :placeholder="placeholder"
-                :value="value"
                 type="text"
                 class="form-control"
-                v-on="listeners"
+                v-model="updateValue"
             />
         </label>
     </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue from 'vue';
+import {
+    TextComputed,
+    TextProps,
+} from '../../../typings/components/setting/Text';
+import { DefaultData, DefaultMethods } from 'vue/types/options';
+
+export default Vue.extend<
+    DefaultData<Vue>,
+    DefaultMethods<Vue>,
+    TextComputed,
+    TextProps
+>({
     name: 'settings-text',
-    data() {
-        return {
-            listeners: this.$listeners,
-        };
-    },
     props: {
         name: {
             type: String,
@@ -31,10 +37,21 @@ export default {
             required: true,
         },
         value: {
+            type: String,
             required: true,
         },
     },
-};
+    computed: {
+        updateValue: {
+            get(): string {
+                return this.value;
+            },
+            set(value) {
+                this.$emit('input', value);
+            },
+        },
+    },
+});
 </script>
 
 <style scoped lang="sass">

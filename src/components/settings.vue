@@ -1,25 +1,27 @@
 <template>
     <lightbox name="settings" no-title-hide :key="key">
         <h1>
-            {{ $t('modules.settings.name') }}
+            {{ $m('name') }}
             <button class="btn btn-success" :disabled="!changes" @click="save">
-                {{ $t('modules.settings.save') }}
+                {{ $m('save') }}
             </button>
             <button
                 class="btn btn-warning"
                 :disabled="!changes"
                 @click="discard"
             >
-                {{ $t('modules.settings.discard') }}
+                {{ $m('discard') }}
             </button>
             <button class="btn btn-danger" @click="reset">
-                {{ $t('modules.settings.reset') }}
+                {{ $m('reset') }}
             </button>
         </h1>
         <tabs
-            :class="$store.getters.nodeId('settings-tabs')"
+            :class="$store.getters.nodeAttribute('settings-tabs')"
             v-if="modulesSorted.length > 0"
             ref="settingsTabs"
+            :default-index="tab"
+            :on-select="(_, i) => (this.tab = i)"
         >
             <tab
                 v-for="moduleId in modulesSorted"
@@ -37,14 +39,13 @@
                 <div
                     class="auto-sized-grid"
                     :class="{
-                        wide: Object.values(
-                            settings[moduleId].settings
-                        ).find(setting => wideGrids.includes(setting.type)),
+                        wide: Object.values(settings[moduleId]).find(setting =>
+                            wideGrids.includes(setting.type)
+                        ),
                     }"
                 >
                     <setting
-                        v-for="(setting, settingId) in settings[moduleId]
-                            .settings"
+                        v-for="(setting, settingId) in settings[moduleId]"
                         :key="settingId"
                         :moduleId="moduleId"
                         :settingId="settingId"
@@ -80,38 +81,26 @@
                                     `modules.${moduleId}.settings.${settingId}.title`
                                 )
                             "
-                            :value="getValue(moduleId, settingId)"
-                            @change="
-                                detectChange(
-                                    moduleId,
-                                    settingId,
-                                    $event.currentTarget.value
-                                )
-                            "
+                            v-model="settings[moduleId][settingId].value"
+                            @input="update(moduleId, settingId)"
                         ></settings-text>
                         <settings-toggle
                             v-else-if="setting.type === 'toggle'"
                             :name="setting.name"
-                            :value="getValue(moduleId, settingId)"
-                            @change="
-                                detectChange(moduleId, settingId, $event.value)
-                            "
+                            v-model="settings[moduleId][settingId].value"
+                            @input="update(moduleId, settingId)"
                         ></settings-toggle>
-                        <settings-appendable-list
-                            v-else-if="setting.type === 'appendable-list'"
-                            :setting="setting"
-                            :initialValues="getValue(moduleId, settingId)"
-                            @change="
-                                values =>
-                                    detectChange(moduleId, settingId, values)
-                            "
-                        >
-                            <template #titles>
-                                <component
-                                    :is="setting.titleComponent"
-                                ></component>
-                            </template>
-                        </settings-appendable-list>
+                        <!--                        <settings-appendable-list-->
+                        <!--                            v-else-if="setting.type === 'appendable-list'"-->
+                        <!--                            :setting="setting"-->
+                        <!--                            :initialValues="getValue(moduleId, settingId)"-->
+                        <!--                        >-->
+                        <!--                            <template #titles>-->
+                        <!--                                <component-->
+                        <!--                                    :is="setting.titleComponent"-->
+                        <!--                                ></component>-->
+                        <!--                            </template>-->
+                        <!--                        </settings-appendable-list>-->
                         <pre v-else>{{ setting }}</pre>
                     </setting>
                 </div>
@@ -120,149 +109,134 @@
     </lightbox>
 </template>
 
-<script>
-import Lightbox from './lightbox.vue';
+<script lang="ts">
+import Vue from 'vue';
 import Setting from './setting.vue';
 import SettingsText from './setting/text.vue';
 import SettingsToggle from './setting/toggle.vue';
-import SettingsAppendableList from './setting/settings-appendable-list.vue';
-
+// import SettingsAppendableList from './setting/settings-appendable-list.vue';
+import Lightbox from './lightbox.vue';
+import { LSSM } from '../core';
+import {
+    SettingsData,
+    SettingsMethods,
+} from '../../typings/components/Settings';
 import cloneDeep from 'lodash/cloneDeep';
+import isEqual from 'lodash/isEqual';
+import { DefaultProps, DefaultComputed } from 'vue/types/options';
 
-export default {
+export default Vue.extend<
+    SettingsData,
+    SettingsMethods,
+    DefaultComputed,
+    DefaultProps
+>({
     name: 'settings',
     components: {
-        SettingsAppendableList,
+        // SettingsAppendableList,
         SettingsToggle,
         SettingsText,
         Setting,
         Lightbox,
     },
     data() {
+        const settings = cloneDeep(this.$store.state.settings.settings);
         return {
-            settings: cloneDeep(this.$store.state.settings.settings),
-            settingsUpdate: cloneDeep(this.$store.state.settings.settings),
+            settings,
+            startSettings: cloneDeep(settings),
+            modulesSorted: [
+                'global',
+                ...(this.$store.getters
+                    .modulesSorted as string[]).filter(module =>
+                    settings.hasOwnProperty(module)
+                ),
+            ],
             wideGrids: ['appendable-list'],
             settingsBeforeDescription: ['toggle'],
             key: 0,
-            cloneDeep,
+            changes: false,
+            tab: 0,
         };
     },
-    computed: {
-        modulesSorted() {
-            return [
-                'global',
-                ...this.$store.getters.modulesSorted({
-                    modules: this.settings,
-                }),
-            ];
-        },
-        changes() {
-            let changes = [];
-            Object.keys(this.settings).forEach(key => {
-                Object.keys(this.settings[key].settings).forEach(setting => {
-                    if (
-                        'undefined' ===
-                        typeof this.settingsUpdate[key].settings[setting].value
-                    )
-                        return;
-                    let stng = this.settings[key].settings[setting];
-                    changes.push(
-                        ('undefined' === typeof stng.value
-                            ? stng.default
-                            : stng.value) ===
-                            this.settingsUpdate[key].settings[setting].value
-                    );
-                });
-            });
-            return !changes.every(x => x);
-        },
-    },
     methods: {
-        getValue(moduleId, settingId) {
-            const setting = this.settings[moduleId].settings[settingId];
-            return setting.hasOwnProperty('value') &&
-                typeof setting.value !== 'undefined'
-                ? setting.value
-                : setting.default;
+        update(moduleId, settingId) {
+            this.changes =
+                (moduleId &&
+                    settingId &&
+                    !isEqual(
+                        this.settings[moduleId][settingId].value,
+                        this.startSettings[moduleId][settingId].value
+                    )) ||
+                !!Object.entries(this.settings).find(([module, settings]) =>
+                    Object.entries(settings).find(
+                        ([setting, { value }]) =>
+                            !isEqual(
+                                value,
+                                this.startSettings[module][setting].value
+                            )
+                    )
+                );
+            this.$store.commit('settings/setSettingsChanges', this.changes);
         },
         save() {
-            this.$store.dispatch('settings/save', {
-                settings: this.settingsUpdate,
-            });
-            this.discard();
-            this.$store.commit('settings/settingsReload', true);
+            this.$store
+                .dispatch('settings/saveSettings', {
+                    settings: this.settings,
+                })
+                .then(() => {
+                    this.settings = cloneDeep(
+                        this.$store.state.settings.settings
+                    );
+                    this.startSettings = cloneDeep(this.settings);
+                    this.update();
+                });
         },
-        async discard() {
-            const previousTab = this.$refs.settingsTabs.selectedIndex;
-            this.settings = cloneDeep(this.$store.state.settings.settings);
-            this.settingsUpdate = cloneDeep(
-                this.$store.state.settings.settings
-            );
-            this.$store.commit('settings/settingsState', this.changes);
+        discard() {
+            this.settings = cloneDeep(this.startSettings);
+            this.update();
             this.key++;
-            await this.$nextTick();
-            this.$refs.settingsTabs.selectedIndex = previousTab;
         },
         reset() {
             this.$modal.show('dialog', {
-                title: this.$t('modules.settings.resetWarning.title'),
-                text: this.$t('modules.settings.resetWarning.text'),
+                title: this.$m('resetWarning.title'),
+                text: this.$m('resetWarning.text'),
                 buttons: [
                     {
-                        title: this.$t('modules.settings.resetWarning.close'),
+                        title: this.$m('resetWarning.close'),
                         default: true,
                     },
                     {
-                        title: this.$t('modules.settings.resetWarning.total'),
+                        title: this.$m('resetWarning.total'),
                         handler: () => {
-                            Object.keys(this.settingsUpdate).forEach(module => {
-                                Object.keys(
-                                    this.settingsUpdate[module].settings
-                                ).forEach(setting => {
-                                    delete this.settingsUpdate[module].settings[
-                                        setting
-                                    ].value;
-                                });
-                            });
+                            Object.values(this.settings).forEach(module =>
+                                Object.values(module).forEach(setting =>
+                                    this.$set(setting, 'value', setting.default)
+                                )
+                            );
                             this.save();
+                            this.key++;
                             this.$modal.hide('dialog');
                         },
                     },
                     {
-                        title: this.$t('modules.settings.resetWarning.module'),
+                        title: this.$m('resetWarning.module'),
                         handler: () => {
-                            let module = document
-                                .querySelector(
-                                    `.${this.$store.getters.nodeId(
-                                        'settings-tabs'
-                                    )} .vue-tabpanel`
-                                )
-                                .getAttribute('module');
-                            Object.keys(
-                                this.settingsUpdate[module].settings
-                            ).forEach(setting => {
-                                delete this.settingsUpdate[module].settings[
-                                    setting
-                                ].value;
-                            });
+                            Object.values(
+                                this.settings[this.modulesSorted[this.tab]]
+                            ).forEach(setting =>
+                                this.$set(setting, 'value', setting.default)
+                            );
                             this.save();
+                            this.key++;
                             this.$modal.hide('dialog');
                         },
                     },
                 ],
             });
         },
-        detectChange(moduleId, settingId, value) {
-            this.$set(
-                this.settingsUpdate[moduleId].settings[settingId],
-                'value',
-                value
-            );
-            this.$store.commit('settings/settingsState', this.changes);
-        },
+        $m: (key, args) => LSSM.$t(`modules.settings.${key}`, args),
     },
-};
+});
 </script>
 
 <style lang="sass">

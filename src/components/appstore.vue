@@ -3,10 +3,10 @@
         <h1>
             AppStore
             <button class="btn btn-success" :disabled="!changes" @click="save">
-                {{ $t('modules.appstore.save') }}
+                {{ $m('save') }}
             </button>
             <button class="btn btn-danger" :disabled="!changes" @click="reset">
-                {{ $t('modules.appstore.reset') }}
+                {{ $m('reset') }}
             </button>
         </h1>
         <label class="search_label">
@@ -28,33 +28,28 @@
                 }"
             >
                 <toggle-button
-                    @change="toggleModule(moduleId, $event)"
                     class="pull-right appstore-toggle"
-                    :active="active.indexOf(moduleId) >= 0"
-                    :mapkit="hasMapkitConflict(moduleId)"
-                    :value="
-                        hasMapkitConflict(moduleId)
-                            ? false
-                            : active.indexOf(moduleId) >= 0
-                    "
+                    v-model="modules[moduleId].active"
                     :id="
-                        $store.getters['nodeId'](`appstore-toggle-${moduleId}`)
+                        $store.getters.nodeAttribute(
+                            `appstore-toggle-${moduleId}`
+                        )
                     "
-                    :module="moduleId"
                     :disabled="hasMapkitConflict(moduleId)"
                     labels
+                    :ref="`moduleSwitch_${moduleId}`"
                 ></toggle-button>
                 <a
-                    :href="$store.getters['wikiModul'](moduleId)"
+                    :href="$store.getters.moduleWiki(moduleId)"
                     class="pull-right lightbox-open wiki-btn"
                 >
                     <span class="glyphicon glyphicon-info-sign"></span>
                 </a>
                 <small v-if="hasMapkitConflict(moduleId)" class="mapkit-notice">
-                    {{ $t('modules.appstore.noMapkit') }}
+                    {{ $m('noMapkit') }}
                 </small>
                 <small v-if="modules[moduleId].dev" class="dev-notice">
-                    {{ $t('modules.appstore.dev') }}
+                    {{ $m('dev') }}
                 </small>
                 <div class="appstore-content">
                     <h4>
@@ -75,44 +70,53 @@
     </lightbox>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue';
 import Lightbox from './lightbox.vue';
+import {
+    AppstoreComputed,
+    AppstoreData,
+    AppstoreMethods,
+} from '../../typings/components/Appstore';
+import { LSSM } from '../core';
+import isEqual from 'lodash/isEqual';
+import { Modules } from '../../typings/Module';
+import { DefaultProps } from 'vue/types/options';
 
-export default {
+export default Vue.extend<
+    AppstoreData,
+    AppstoreMethods,
+    AppstoreComputed,
+    DefaultProps
+>({
     name: 'appstore',
     components: { Lightbox },
     data() {
-        let modules = this.$store.getters.appModules;
+        let modules = this.$store.getters.appModules as Modules;
         Object.keys(modules).forEach(
             moduleId =>
                 (modules[moduleId] = {
                     ...modules[moduleId],
-                    description: this.$t(`modules.${moduleId}.description`),
+                    description: this.$t(
+                        `modules.${moduleId}.description`
+                    ).toString(),
                 })
         );
         return {
             modules,
-            modulesSorted: this.$store.getters.modulesSorted({
-                modules,
-            }),
-            activeStart: Object.keys(this.$store.state.modules).filter(
-                x => this.$store.state.modules[x].active
-            ),
-            active: Object.keys(this.$store.state.modules).filter(
-                x => this.$store.state.modules[x].active
-            ),
-            mapkit: window.mapkit,
-            moduleSearch: '',
+            modulesSorted: this.$store.getters.modulesSorted as string[],
+            activeStart: [...this.$store.getters.activeModules] as string[],
+            moduleSearch: '' as string,
         };
     },
     computed: {
+        active() {
+            return Object.keys(this.modules)
+                .filter(module => this.modules[module].active)
+                .sort();
+        },
         changes() {
-            return !(
-                this.active.length === this.activeStart.length &&
-                this.active.every(
-                    (value, index) => value === this.activeStart[index]
-                )
-            );
+            return !isEqual(this.active, [...this.activeStart].sort());
         },
         modulesFiltered() {
             return this.modulesSorted.filter(m =>
@@ -129,47 +133,38 @@ export default {
         },
     },
     methods: {
-        toggleModule(moduleId, event) {
-            if (event.value) {
-                this.active.push(moduleId);
-            } else {
-                this.active.splice(this.active.indexOf(moduleId), 1);
-            }
-            this.$store.commit('appStoreState', this.changes);
-        },
         hasMapkitConflict(moduleId) {
-            return (
-                this.modules[moduleId].noMapkit && 'undefined' !== typeof mapkit
-            );
+            return this.modules[moduleId].noMapkit && this.$store.state.mapkit;
         },
         save() {
             this.$store
                 .dispatch('storage/set', {
-                    key: 'active',
-                    val: [...new Set(this.active)],
+                    key: 'activeModules',
+                    value: [...new Set(this.active)],
                 })
                 .then(() => {
                     this.activeStart = [...new Set(this.active)];
-                    this.$store.commit('appStoreState', this.changes);
-                    this.$store.commit('appStoreReload', true);
+                    this.$store.commit('setAppstoreChanges', this.changes);
+                    this.$store.commit('setAppstoreReload');
                 })
                 .catch(err => console.error(err));
         },
         reset() {
-            this.active = [...new Set(this.activeStart)];
-            this.$store.commit('appStoreState', this.changes);
-            document.querySelectorAll('.appstore-toggle').forEach(el => {
-                let input = el.querySelector('input[type="checkbox"]');
-                if (
-                    input.checked !==
-                    this.active.indexOf(el.getAttribute('module')) >= 0
-                )
-                    input.click();
+            Object.keys(this.modules).forEach(module => {
+                this.$set(
+                    this.modules[module],
+                    'active',
+                    this.activeStart.includes(module)
+                );
+                ((this.$refs[`moduleSwitch_${module}`] as unknown) as {
+                    toggled: boolean;
+                }[])[0].toggled = this.activeStart.includes(module);
             });
-            this.save();
+            this.$store.commit('setAppstoreChanges', this.changes);
         },
+        $m: (key, args) => LSSM.$t(`modules.appstore.${key}`, args),
     },
-};
+});
 </script>
 
 <style scoped lang="sass">

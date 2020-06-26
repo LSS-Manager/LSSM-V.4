@@ -15,20 +15,25 @@
             <li
                 v-for="libraryName in librariesFiltered"
                 :key="libraryName"
-                :library="(library = libraries[libraryName])"
+                :library="(lib = libraries[libraryName])"
                 class="card"
             >
-                <a :href="library.url" class="lightbox-open">
+                <a :href="lib.url" class="lightbox-open">
                     <img
                         :src="
-                            library.icon ||
+                            lib.icon ||
                                 'https://github.githubassets.com/pinned-octocat.svg'
                         "
                         :alt="libraryName"
                     />
                 </a>
                 <div class="linebreak"></div>
-                <a :href="library.url" class="lightbox-open">
+                <a
+                    :href="
+                        lib.url || `https://yarnpkg.com/package/${libraryName}`
+                    "
+                    class="lightbox-open"
+                >
                     <h4>
                         <b>{{ libraryName }}</b>
                     </h4>
@@ -36,19 +41,29 @@
                 <div class="linebreak"></div>
                 <small>
                     Version:
-                    <code> {{ library.version }}</code>
+                    <code> {{ lib.version }}</code>
                 </small>
             </li>
         </ul>
     </lightbox>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue';
 import Lightbox from './lightbox.vue';
+import libraries from '../libraries.json';
+import {
+    LibraryOverviewData,
+    LibraryOverviewComputed,
+} from '../../typings/components/LibraryOverview';
+import { DefaultMethods, DefaultProps } from 'vue/types/options';
 
-const libraries = require('../libraries');
-
-export default {
+export default Vue.extend<
+    LibraryOverviewData,
+    DefaultMethods<Vue>,
+    LibraryOverviewComputed,
+    DefaultProps
+>({
     name: 'libraryOverview',
     components: { Lightbox },
     data() {
@@ -58,7 +73,7 @@ export default {
         };
     },
     computed: {
-        librariesFiltered() {
+        librariesFiltered(): string[] {
             return Object.keys(libraries)
                 .sort()
                 .filter(m =>
@@ -70,7 +85,7 @@ export default {
                 );
         },
     },
-};
+});
 </script>
 
 <style scoped lang="sass">

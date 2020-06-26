@@ -1,66 +1,175 @@
 <template>
     <lightbox name="overview">
-        <h1>{{ $t('modules.overview.name') }}</h1>
-        <tabs>
-            <tab :title="$t('modules.overview.tabs.vehicles')">
-                <tabs>
+        <h1>{{ $m('name') }}</h1>
+        <tabs :on-select="setType" :default-index="currentType">
+            <tab :title="$m('tabs.vehicles')">
+                <tabs
+                    :on-select="setVehicleCategory"
+                    :default-index="vehiclesTab.current.category"
+                >
                     <tab
-                        v-for="title in $t('modules.overview.tabs.vehicleTabs')"
-                        :key="Object.keys(title)[0]"
-                        :title="title[Object.keys(title)[0]]"
+                        v-for="({ vehicles: groups },
+                        title) in vehicleCategories"
+                        :key="title"
+                        :title="title"
+                    >
+                        <tabs
+                            :on-select="setVehicleGroup"
+                            :default-index="vehiclesTab.current.group"
+                        >
+                            <tab
+                                v-for="(_, group) in groups"
+                                :key="group"
+                                :title="group"
+                            >
+                                <enhanced-table
+                                    :head="vehiclesTab.head"
+                                    :table-attrs="{
+                                        class: 'table table-striped',
+                                    }"
+                                    @sort="setSortVehicles"
+                                    :sort="vehiclesTab.sort"
+                                    :sort-dir="vehiclesTab.sortDir"
+                                    :search="vehiclesTab.search"
+                                    @search="s => (vehiclesTab['search'] = s)"
+                                >
+                                    <tr
+                                        v-for="vehicle in vehicleTypes"
+                                        :key="vehicle.caption"
+                                    >
+                                        <td
+                                            v-for="(_,
+                                            attr) in vehiclesTab.head"
+                                            :key="attr"
+                                        >
+                                            <span v-if="attr === 'cost'">
+                                                {{
+                                                    vehicle.hasOwnProperty(
+                                                        'credits'
+                                                    )
+                                                        ? vehicle.credits.toLocaleString()
+                                                        : NaN
+                                                }}
+                                                Credits /
+                                                {{
+                                                    vehicle.hasOwnProperty(
+                                                        'coins'
+                                                    )
+                                                        ? vehicle.coins.toLocaleString()
+                                                        : NaN
+                                                }}
+                                                Coins </span
+                                            ><span
+                                                v-else-if="
+                                                    typeof vehicle[attr] ===
+                                                        'object'
+                                                "
+                                                v-html="
+                                                    Object.values(
+                                                        vehicle[attr]
+                                                    ).join(',<br>')
+                                                "
+                                            >
+                                            </span>
+                                            <span
+                                                v-else
+                                                v-html="
+                                                    vehicle.hasOwnProperty(attr)
+                                                        ? vehicle[
+                                                              attr
+                                                          ].toLocaleString()
+                                                        : ''
+                                                "
+                                            ></span>
+                                        </td>
+                                    </tr>
+                                </enhanced-table>
+                            </tab>
+                        </tabs>
+                    </tab>
+                </tabs>
+            </tab>
+            <tab :title="$m('tabs.buildings')">
+                <tabs
+                    :on-select="setBuildingCategory"
+                    :default-index="buildingsTab.current.category"
+                >
+                    <tab
+                        v-for="({ buildings: groups },
+                        title) in buildingCategories"
+                        :key="title"
+                        :title="title"
                     >
                         <enhanced-table
-                            :head="vehicleTitles"
+                            :head="buildingsTab.head"
                             :table-attrs="{ class: 'table table-striped' }"
-                            @sort="setSortVehicle"
-                            :sort="sortVehicle"
-                            :sort-dir="sortVehicleDir"
-                            :search="vehicleSearch"
-                            @search="s => (vehicleSearch = s)"
+                            @sort="setSortBuildings"
+                            :sort="buildingsTab.sort"
+                            :sort-dir="buildingsTab.sortDir"
+                            :search="buildingsTab.search"
+                            @search="s => (buildingsTab['search'] = s)"
                         >
                             <tr
-                                v-for="vehicle in vehicles[
-                                    Object.keys(title)[0]
-                                ]"
-                                :key="vehicle.name"
+                                v-for="building in buildingsSorted"
+                                :key="building.caption"
                             >
                                 <td
-                                    v-for="title in $t(
-                                        'modules.overview.titles.vehicles'
-                                    )"
-                                    :key="Object.keys(title)[0]"
+                                    v-for="(_, attr) in buildingsTab.head"
+                                    :key="attr"
                                 >
-                                    <span
-                                        v-if="Object.keys(title)[0] === 'cost'"
-                                    >
+                                    <span v-if="attr === 'cost'">
                                         {{
-                                            (
-                                                vehicle.credits || 0
-                                            ).toLocaleString()
+                                            building.hasOwnProperty('credits')
+                                                ? building.credits.toLocaleString()
+                                                : NaN
                                         }}
                                         Credits /
                                         {{
-                                            (
-                                                vehicle.coins || 0
-                                            ).toLocaleString()
+                                            building.hasOwnProperty('coins')
+                                                ? building.coins.toLocaleString()
+                                                : NaN
                                         }}
                                         Coins
                                     </span>
+                                    <dl v-else-if="attr === 'extensions'">
+                                        <span
+                                            v-for="(extension,
+                                            index) in building['extensions']"
+                                            :key="index"
+                                        >
+                                            <dt>{{ extension.caption }}:</dt>
+                                            <dd>
+                                                {{
+                                                    extension.credits.toLocaleString()
+                                                }}
+                                                Credits /
+                                                {{
+                                                    extension.coins.toLocaleString()
+                                                }}
+                                                Coins; {{ extension.duration }}
+                                            </dd>
+                                        </span>
+                                    </dl>
                                     <span
                                         v-else-if="
-                                            Object.keys(title)[0] === 'wtank'
+                                            typeof building[attr] === 'object'
+                                        "
+                                        v-html="
+                                            Object.values(building[attr]).join(
+                                                ',<br>'
+                                            )
                                         "
                                     >
-                                        {{
-                                            (
-                                                vehicle.wtank || 0
-                                            ).toLocaleString()
-                                        }}
-                                        Liter
                                     </span>
                                     <span
                                         v-else
-                                        v-html="vehicle[Object.keys(title)[0]]"
+                                        v-html="
+                                            building.hasOwnProperty(attr)
+                                                ? building[
+                                                      attr
+                                                  ].toLocaleString()
+                                                : ''
+                                        "
                                     ></span>
                                 </td>
                             </tr>
@@ -68,135 +177,223 @@
                     </tab>
                 </tabs>
             </tab>
-            <tab :title="$t('modules.overview.tabs.buildings')">
-                <enhanced-table
-                    :head="buildingTitles"
-                    :table-attrs="{ class: 'table table-striped' }"
-                    @sort="setSortBuilding"
-                    :sort="sortBuilding"
-                    :sort-dir="sortBuildingDir"
-                    :search="buildingSearch"
-                    @search="s => (buildingSearch = s)"
-                >
-                    <tr v-for="building in buildings" :key="building.name">
-                        <td
-                            v-for="title in $t(
-                                'modules.overview.titles.buildings'
-                            )"
-                            :key="Object.keys(title)[0]"
-                        >
-                            <span v-if="Object.keys(title)[0] === 'cost'">
-                                {{ building.credits.toLocaleString() }}
-                                Credits /
-                                {{ building.coins.toLocaleString() }} Coins
-                            </span>
-                            <span
-                                v-else
-                                v-html="building[Object.keys(title)[0]]"
-                            ></span>
-                        </td>
-                    </tr>
-                </enhanced-table>
-            </tab>
         </tabs>
     </lightbox>
 </template>
 
-<script>
-import Lightbox from '../../components/lightbox.vue';
+<script lang="ts">
+import Vue from 'vue';
 import EnhancedTable from '../../components/enhanced-table.vue';
-
+import Lightbox from '../../components/lightbox.vue';
+import { DefaultProps } from 'vue/types/options';
+import {
+    Overview,
+    OverviewMethods,
+    OverviewComputed,
+} from '../../../typings/modules/Overview';
+import {
+    ResolvedVehicleCategory,
+    VehicleCategory,
+} from '../../../typings/Vehicle';
+import { BuildingCategory, ResolvedBuildingCategory } from 'typings/Building';
 import cloneDeep from 'lodash/cloneDeep';
 
-export default {
+export default Vue.extend<
+    Overview,
+    OverviewMethods,
+    OverviewComputed,
+    DefaultProps
+>({
     name: 'overview',
     components: { EnhancedTable, Lightbox },
     data() {
-        const vehicleTitles = {};
-        Object.values(this.$t('modules.overview.titles.vehicles')).forEach(
-            title =>
-                (vehicleTitles[Object.keys(title)[0]] = {
-                    title: title[Object.keys(title)[0]],
-                })
+        const vehicleCategories = cloneDeep(
+            this.$t('vehicleCategories') as unknown
+        ) as {
+            [name: string]: VehicleCategory;
+        };
+        const vehicleTypes = Object.values(this.$t('vehicles'));
+        Object.entries(
+            vehicleCategories
+        ).forEach(([category, { vehicles: groups }]) =>
+            Object.entries(groups).forEach(
+                ([group, vehicles]) =>
+                    (vehicleCategories[category].vehicles[
+                        group
+                    ] = Object.values(vehicles as number[]).map(
+                        type => vehicleTypes[type]
+                    ))
+            )
         );
-        const buildingTitles = {};
-        Object.values(this.$t('modules.overview.titles.buildings')).forEach(
-            title =>
-                (buildingTitles[Object.keys(title)[0]] = {
-                    title: title[Object.keys(title)[0]],
-                })
+        const buildingCategories = cloneDeep(
+            this.$t('buildingCategories') as unknown
+        ) as {
+            [name: string]: BuildingCategory;
+        };
+        const buildingTypes = Object.values(this.$t('buildings'));
+        Object.entries(
+            buildingCategories
+        ).forEach(([category, { buildings }]) =>
+            Object.values(buildings).forEach(
+                (building, index) =>
+                    (buildingCategories[category].buildings[index] =
+                        buildingTypes[building])
+            )
         );
         return {
-            buildingTitles,
-            sortBuilding: 'name',
-            sortBuildingDir: 'asc',
-            buildingSearch: '',
-            vehicleTitles,
-            sortVehicle: 'name',
-            sortVehicleDir: 'asc',
-            vehicleSearch: '',
-        };
+            vehicles: vehicleTypes,
+            vehicleCategories: (vehicleCategories as unknown) as {
+                [name: string]: ResolvedVehicleCategory;
+            },
+            vehiclesTab: {
+                head: {
+                    caption: { title: this.$m('titles.vehicles.caption') },
+                    minPersonnel: {
+                        title: this.$m('titles.vehicles.minPersonnel'),
+                    },
+                    maxPersonnel: {
+                        title: this.$m('titles.vehicles.maxPersonnel'),
+                    },
+                    credits: { title: this.$m('titles.vehicles.cost') },
+                    schooling: { title: this.$m('titles.vehicles.schooling') },
+                    wtank:
+                        this.$store.state.lang === 'de_DE'
+                            ? { title: this.$m('titles.vehicles.wtank') }
+                            : null,
+                    special: { title: this.$m('titles.vehicles.special') },
+                },
+                search: '',
+                sort: 'caption',
+                sortDir: 'asc',
+                current: {
+                    category: 0,
+                    group: 0,
+                },
+            },
+            buildings: buildingTypes,
+            buildingCategories: (buildingCategories as unknown) as {
+                [name: string]: ResolvedBuildingCategory;
+            },
+            buildingsTab: {
+                head: {
+                    caption: { title: this.$m('titles.buildings.caption') },
+                    credits: { title: this.$m('titles.buildings.cost') },
+                    maxLevel: { title: this.$m('titles.buildings.maxLevel') },
+                    levelcost: { title: this.$m('titles.buildings.levelcost') },
+                    startPersonnel: {
+                        title: this.$m('titles.buildings.startPersonnel'),
+                    },
+                    startVehicles: {
+                        title: this.$m('titles.buildings.startVehicles'),
+                    },
+                    maxBuildings: {
+                        title: this.$m('titles.buildings.maxBuildings'),
+                    },
+                    extensions: {
+                        title: this.$m('titles.buildings.extensions'),
+                    },
+                    special: { title: this.$m('titles.buildings.special') },
+                },
+                search: '',
+                sort: 'caption',
+                sortDir: 'asc',
+                current: {
+                    category: 0,
+                },
+            },
+            currentType: 0,
+        } as Overview;
     },
     computed: {
-        buildings() {
-            return Object.values(this.$t('modules.overview.buildings'))
-                .sort((a, b) => {
-                    let modifier = this.sortVehicleDir === 'desc' ? -1 : 1;
-                    a = a[this.sortVehicle] || '';
-                    b = b[this.sortVehicle] || '';
-                    return a < b ? -1 * modifier : a > b ? modifier : 0;
-                })
-                .filter(a =>
-                    this.buildingSearch.length > 0
-                        ? JSON.stringify(Object.values(a))
-                              .toLowerCase()
-                              .match(this.buildingSearch.toLowerCase())
-                        : true
-                );
+        currentBuildings() {
+            return this.currentType === 1
+                ? this.buildingCategories[
+                      Object.keys(this.buildingCategories)[
+                          this.buildingsTab.current.category
+                      ]
+                  ].buildings
+                : [];
         },
-        vehicles() {
-            let vehicles = cloneDeep(this.$t(`modules.overview.vehicles`));
-            Object.keys(vehicles).forEach(category => {
-                vehicles[category] = Object.values(vehicles[category]).filter(
-                    a =>
-                        this.vehicleSearch.length > 0
-                            ? JSON.stringify(Object.values(a))
-                                  .toLowerCase()
-                                  .match(this.vehicleSearch.toLowerCase())
-                            : true
-                );
-                return vehicles[category].sort((a, b) => {
-                    let modifier = this.sortVehicleDir === 'desc' ? -1 : 1;
-                    a = a[this.sortVehicle] || '';
-                    b = b[this.sortVehicle] || '';
-                    return a < b ? -1 * modifier : a > b ? modifier : 0;
-                });
+        buildingsFiltered() {
+            return Object.values(this.currentBuildings).filter(building =>
+                JSON.stringify(Object.values(building))
+                    .toLowerCase()
+                    .match(this.buildingsTab.search.toLowerCase())
+            );
+        },
+        buildingsSorted() {
+            return Object.values(
+                this.buildingsTab.search
+                    ? this.buildingsFiltered
+                    : this.currentBuildings
+            ).sort((a, b) => {
+                let modifier = this.buildingsTab.sortDir === 'desc' ? -1 : 1;
+                let f = a[this.buildingsTab.sort] || '';
+                let s = b[this.buildingsTab.sort] || '';
+                return f < s ? -1 * modifier : f > s ? modifier : 0;
             });
-            return vehicles;
+        },
+        vehicleTypes() {
+            if (this.currentType !== 0) return [];
+            const category = this.vehicleCategories[
+                Object.keys(this.vehicleCategories)[
+                    this.vehiclesTab.current.category
+                ]
+            ];
+            let vehicles =
+                category.vehicles[
+                    Object.keys(category.vehicles)[
+                        this.vehiclesTab.current.group
+                    ]
+                ];
+            return (this.vehiclesTab.search
+                ? vehicles.filter(vehicle =>
+                      JSON.stringify(Object.values(vehicle))
+                          .toLowerCase()
+                          .match(this.vehiclesTab.search.toLowerCase())
+                  )
+                : vehicles
+            ).sort((a, b) => {
+                let modifier = this.vehiclesTab.sortDir === 'desc' ? -1 : 1;
+                let f = a[this.vehiclesTab.sort] || '';
+                let s = b[this.vehiclesTab.sort] || '';
+                return f < s ? -1 * modifier : f > s ? modifier : 0;
+            });
         },
     },
     methods: {
-        setSortBuilding(s) {
-            if (s === 'cost') s = 'credits';
-            this.sortBuildingDir =
-                s === this.sortBuilding && this.sortBuildingDir === 'asc'
-                    ? 'desc'
-                    : 'asc';
-            this.sortBuilding = s;
+        $m(key, args) {
+            return this.$t(`modules.overview.${key}`, args);
         },
-        setSortVehicle(s) {
-            if (s === 'cost') s = 'credits';
-            this.sortVehicleDir =
-                s === this.sortVehicle && this.sortVehicleDir === 'asc'
-                    ? 'desc'
-                    : 'asc';
-            this.sortVehicle = s;
+        setSortBuildings(type) {
+            if (this.buildingsTab.sort === type)
+                return (this.buildingsTab.sortDir =
+                    this.buildingsTab.sortDir === 'asc' ? 'desc' : 'asc');
+            this.buildingsTab.sort = type;
+            this.buildingsTab.sortDir = 'asc';
+        },
+        setSortVehicles(type) {
+            if (this.vehiclesTab.sort === type)
+                return (this.vehiclesTab.sortDir =
+                    this.vehiclesTab.sortDir === 'asc' ? 'desc' : 'asc');
+            this.vehiclesTab.sort = type;
+            this.vehiclesTab.sortDir = 'asc';
+        },
+        setVehicleCategory(_, category) {
+            this.vehiclesTab.current.category = category;
+            this.setVehicleGroup(_, 0);
+        },
+        setVehicleGroup(_, group) {
+            this.vehiclesTab.current.group = group;
+        },
+        setBuildingCategory(_, category) {
+            this.buildingsTab.current.category = category;
+        },
+        setType(_, type) {
+            this.currentType = type;
         },
     },
-};
+});
 </script>
 
-<style scoped lang="sass">
-th
-    cursor: pointer
-</style>
+<style scoped></style>

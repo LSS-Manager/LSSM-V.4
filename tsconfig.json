@@ -1,0 +1,37 @@
+{
+	"compilerOptions": {
+		"allowJs": false,
+		"allowSyntheticDefaultImports": true,
+		"baseUrl": "src",
+		"downlevelIteration": true,
+		"esModuleInterop": true,
+		"importHelpers": true,
+		"jsx": "preserve",
+		"lib": [
+			"esnext",
+			"dom",
+			"dom.iterable",
+			"scripthost",
+			"es5"
+		],
+		"module": "ESNext",
+		"moduleResolution": "node",
+		"outDir": "typings/dist",
+		"paths": {
+			"typings/*": [
+				"../typings/*"
+			]
+		},
+		"resolveJsonModule": true,
+		"sourceMap": true,
+		"strict": true,
+		"target": "ES5",
+		"types": [
+			"webpack-env",
+			"vue"
+		]
+	},
+	"exclude": [
+		"node_modules"
+	]
+}

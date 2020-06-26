@@ -1,11 +1,11 @@
 <template>
     <lightbox name="dashboard">
-        <h1>{{ $t('modules.dashboard.name') }}</h1>
+        <h1>{{ $m('name') }}</h1>
         <tabs>
-            <tab :title="$t('modules.dashboard.tabs.chart-summary')">
+            <tab :title="$m('tabs.chart-summary')">
                 <chart-summary></chart-summary>
             </tab>
-            <tab :title="$t('modules.dashboard.tabs.vehicle-types')">
+            <tab :title="$m('tabs.vehicle-types')">
                 <vehicle-types></vehicle-types>
             </tab>
             <tab
@@ -18,7 +18,7 @@
                 <div v-else></div>
             </tab>
             <template slot="dispatchcenter-view-title">
-                {{ $t('modules.dashboard.tabs.dispatchcenter-view') }}
+                {{ $m('tabs.dispatchcenter-view') }}
                 <br />
                 <div
                     class="alert alert-info premiumNotice"
@@ -32,13 +32,21 @@
     </lightbox>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue';
 import ChartSummary from './components/chart-summary.vue';
 import DispatchcenterView from './components/dispatchcenter-view.vue';
 import Lightbox from '../../components/lightbox.vue';
 import VehicleTypes from './components/vehicle-types.vue';
+import { DefaultComputed, DefaultData, DefaultProps } from 'vue/types/options';
+import { DashboardMethods } from '../../../typings/modules/Dashboard/Dashboard';
 
-export default {
+export default Vue.extend<
+    DefaultData<Vue>,
+    DashboardMethods,
+    DefaultComputed,
+    DefaultProps
+>({
     name: 'dashboard',
     components: {
         DispatchcenterView,
@@ -49,10 +57,12 @@ export default {
         ChartSummary,
         Lightbox,
     },
-    mounted() {
-        this.$store.dispatch('api/buildings');
+    methods: {
+        $m(key, args) {
+            return this.$t(`modules.dashboard.${key}`, args);
+        },
     },
-};
+});
 </script>
 
 <style scoped lang="sass">

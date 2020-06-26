@@ -47,10 +47,22 @@
     </enhanced-table>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue';
 import EnhancedTable from '../../../components/enhanced-table.vue';
+import { EnhancedMissingVehiclesTableProps } from 'typings/modules/ExtendedCallWindow/EnhancedMissingVehiclesTable';
+import {
+    DefaultData,
+    DefaultMethods,
+    DefaultComputed,
+} from 'vue/types/options';
 
-export default {
+export default Vue.extend<
+    DefaultData<Vue>,
+    DefaultMethods<Vue>,
+    DefaultComputed,
+    EnhancedMissingVehiclesTableProps
+>({
     name: 'enhancedMissingVehiclesTable',
     components: { EnhancedTable },
     props: {
@@ -61,9 +73,6 @@ export default {
         sort: {
             type: String,
             required: false,
-            default() {
-                return Object.keys(this.head)[0];
-            },
         },
         sortDir: {
             type: String,
@@ -76,7 +85,7 @@ export default {
             default: '',
         },
     },
-};
+});
 </script>
 
 <style scoped lang="sass">
