@@ -12,6 +12,7 @@ declare global {
         fullScreen: boolean;
         mapkit: unknown;
         user_id: number;
+        user_premium: boolean;
         building_markers: BuildingMarker[];
         mission_poi_markers: POIMarker[];
         [PREFIX: string]: Vue | unknown;

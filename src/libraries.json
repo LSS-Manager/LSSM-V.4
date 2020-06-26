@@ -40,8 +40,14 @@
 	"@types/node": {
 		"version": "14.0.11"
 	},
+	"@types/ua-parser-js": {
+		"version": "0.7.33"
+	},
 	"@types/vue": {
 		"version": "2.0.0"
+	},
+	"@types/vue-select": {
+		"version": "2.5.0"
 	},
 	"@types/webpack-env": {
 		"version": "1.15.2"

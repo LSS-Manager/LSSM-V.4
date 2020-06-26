@@ -9,12 +9,12 @@
 	"patients": {
 		"helicopter": "Wahrscheinlichkeit für einen RTH",
 		"nef": "Wahrscheinlichkeit für einen Notarzt",
+		"patient_at_end_of_mission": "Der Patient tritt erst am Ende des Einsatzes auf! | Die Patienten treten erst am Ende des Einsatzes auf!",
 		"patient_transport": "Transportwahrscheinlichkeit",
 		"possible_patient": "Patienten maximal",
 		"possible_patient_min": "Patienten mindestens",
 		"specializations": "Fachrichtung",
-		"title": "Patienten | {n} Patient | {n} Patienten",
-        "patient_at_end_of_mission": "Der Patient tritt erst am Ende des Einsatzes auf! | Die Patienten treten erst am Ende des Einsatzes auf!"
+		"title": "Patienten | {n} Patient | {n} Patienten"
 	},
 	"vehicles": {
 		"captions": {

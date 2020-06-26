@@ -163,5 +163,5 @@ export default {
         'core-modules': ['telemetry', 'releasenotes', 'support'],
     },
     prefix: 'lssmv4',
-    server: 'https://v4.lssm.ledbrain.de/ts/',
+    server: 'https://v4.lssm.ledbrain.de/',
 } as Config;

@@ -93,6 +93,15 @@ export default {
                 })
             );
         },
+        getModule({ dispatch }: SettingsActionStoreParams, moduleId: string) {
+            return dispatch(
+                'storage/get',
+                { key: `settings_${moduleId}`, defaultValue: {} },
+                {
+                    root: true,
+                }
+            );
+        },
         getSetting(
             { state }: SettingsActionStoreParams,
             { moduleId, settingId, defaultValue = null }: SettingsGet

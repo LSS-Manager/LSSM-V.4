@@ -15,6 +15,7 @@ export interface RootState {
     };
     readonly mapkit: boolean;
     readonly darkmode: boolean;
+    readonly premium: boolean;
     readonly modules: Modules;
     readonly appstore: {
         changes: boolean;

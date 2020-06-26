@@ -1,5 +1,5 @@
 {
 	"dev": true,
 	"location": "^/$",
-    "noapp": true
+	"noapp": true
 }

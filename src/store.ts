@@ -43,6 +43,7 @@ export default (Vue: VueConstructor): Store<RootState> => {
             hooks: {},
             mapkit: 'undefined' !== typeof window.mapkit,
             darkmode: document.body.classList.contains('dark'),
+            premium: window.user_premium,
             modules,
             appstore: {
                 changes: false,
@@ -107,8 +108,8 @@ export default (Vue: VueConstructor): Store<RootState> => {
                 Object.keys(state.modules).filter(
                     module => state.modules[module].active
                 ),
-            modulesSorted(state: RootState) {
-                return Object.keys(state.modules).sort((a, b) => {
+            modulesSorted(_, getters: GetterTree<RootState, RootState>) {
+                return Object.keys(getters.appModules).sort((a, b) => {
                     a = LSSM.$t(`modules.${a}.name`).toString();
                     b = LSSM.$t(`modules.${b}.name`).toString();
                     return a < b ? -1 : a > b ? 1 : 0;

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <tabs ref="boardTabs">
+        <tabs ref="boardTabs" :on-select="(_, i) => (currentBoard = i)">
             <tab
                 :key="boardId"
                 :title="board.title"
@@ -8,7 +8,11 @@
                 @onSelect="switchTab"
             >
                 <grid-board
-                    :id="$store.getters.nodeId('dispatchcenter-view_board')"
+                    :id="
+                        $store.getters.nodeAttribute(
+                            'dispatchcenter-view_board'
+                        )
+                    "
                 >
                     <grid-layout
                         :compact="false"
@@ -78,7 +82,7 @@
                             <div class="panel-body">
                                 <grid-board
                                     :id="
-                                        $store.getters.nodeId(
+                                        $store.getters.nodeAttribute(
                                             `dispatchcenter-view_board-${column.building}`
                                         )
                                     "
@@ -135,7 +139,7 @@
                             :minHeight="3"
                             :maxHeight="3"
                             :id="
-                                $store.getters.nodeId(
+                                $store.getters.nodeAttribute(
                                     'dispatchcenter-view_board-selection'
                                 )
                             "
@@ -272,7 +276,11 @@
                     </span>
                 </div>
                 <grid-board
-                    :id="$store.getters.nodeId('dispatchcenter-view_manage')"
+                    :id="
+                        $store.getters.nodeAttribute(
+                            'dispatchcenter-view_manage'
+                        )
+                    "
                 >
                     <grid-layout
                         :numberOfCols="1"
@@ -348,19 +356,35 @@
     </div>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue';
 import VSelect from 'vue-select';
 import {
     Dashboard as GridBoard,
     DashLayout as GridLayout,
     DashItem as GridItem,
 } from 'vue-responsive-dash';
+import { Building } from 'typings/Building';
+import {
+    DispatchcenterView,
+    DispatchcenterViewComputed,
+    DispatchcenterViewMethods,
+} from 'typings/modules/Dashboard/DispatchcenterView';
+import { DefaultProps } from 'vue/types/options';
 
-export default {
+export default Vue.extend<
+    DispatchcenterView,
+    DispatchcenterViewMethods,
+    DispatchcenterViewComputed,
+    DefaultProps
+>({
     name: 'dispatchcenter-view',
     components: { VSelect, GridBoard, GridLayout, GridItem },
     data() {
         const buildingTypes = Object.values(this.$t('buildings'));
+        const dispatchCenterBuildings = Object.values(
+            this.$t('dispatchCenterBuildings')
+        );
         return {
             buildings: this.$store.state.api.buildings,
             selectedBuilding: null,
@@ -370,25 +394,28 @@ export default {
             buildingListSearch: '',
             newBoardTitle: '',
             buildingTypes,
+            currentBoard: 0,
+            vehiclesByBuilding: this.$store.getters['api/vehiclesByBuilding'],
             vehicleBuildings: Object.values(this.$t('vehicleBuildings'))
                 .map(type => ({
-                    type: type,
+                    type,
                     caption: buildingTypes[type].caption,
                 }))
                 .sort((a, b) =>
                     a.caption > b.caption ? 1 : a.caption < b.caption ? -1 : 0
                 ),
-            dispatchBuildings: Object.values(this.$t('dispatchCenterBuildings'))
-                .map(type => this.$store.getters['api/buildingsOfType'](type))
-                .flat()
+            dispatchBuildings: (this.$store.state.api.buildings as Building[])
+                .filter(building =>
+                    dispatchCenterBuildings.includes(building.building_type)
+                )
                 .sort((a, b) =>
                     a.caption > b.caption ? 1 : a.caption < b.caption ? -1 : 0
                 ),
-        };
+        } as DispatchcenterView;
     },
     computed: {
         board() {
-            return this.boards[this.$refs.boardTabs.selectedIndex];
+            return this.boards[this.currentBoard];
         },
         columns() {
             return this.board ? this.board.columns : [];
@@ -397,7 +424,9 @@ export default {
             return this.board ? this.board.buildingSelection : {};
         },
         buildingsById() {
-            const buildings = {};
+            const buildings = {} as {
+                [id: number]: Building;
+            };
             Object.values(this.buildings).forEach(
                 building => (buildings[building.id] = building)
             );
@@ -447,40 +476,24 @@ export default {
         },
         buildingListHasPrevPage() {
             const prevOffset = this.buildingListOffset - this.buildingLimit;
-            return Boolean(
-                this.buildingListFiltered.slice(
-                    prevOffset,
-                    this.buildingLimit + prevOffset
-                ).length
-            );
+            return !!this.buildingListFiltered.slice(
+                prevOffset,
+                this.buildingLimit + prevOffset
+            ).length;
         },
         buildingListHasNextPage() {
             const nextOffset = this.buildingListOffset + this.buildingLimit;
-            return Boolean(
-                this.buildingListFiltered.slice(
-                    nextOffset,
-                    this.buildingLimit + nextOffset
-                ).length
-            );
-        },
-        vehiclesByBuilding() {
-            const vehicles = {};
-            Object.values(this.columns).forEach(column => {
-                vehicles[column.building] = this.$store.getters[
-                    'api/vehiclesAtBuilding'
-                ](column.building);
-            });
-            return vehicles;
+            return !!this.buildingListFiltered.slice(
+                nextOffset,
+                this.buildingLimit + nextOffset
+            ).length;
         },
     },
     methods: {
         moveBoard({ id, y }) {
             const boards = Object.values(this.boards).filter(b => b.id !== id);
-            boards.splice(
-                y,
-                0,
-                Object.values(this.boards).find(b => b.id === id)
-            );
+            const building = Object.values(this.boards).find(b => b.id === id);
+            building && boards.splice(y, 0, building);
             this.boards = boards.map(b => ({ ...b, id: b.title }));
             this.saveBoards();
         },
@@ -493,7 +506,7 @@ export default {
         },
         async addBoard() {
             const title = this.newBoardTitle;
-            this.newBoardTitle = null;
+            this.newBoardTitle = '';
             this.boards.push({
                 id: title,
                 title: title,
@@ -509,19 +522,21 @@ export default {
                 titles: [],
             });
             await this.$nextTick();
-            this.$refs.boardTabs.selectedIndex = this.boards.length;
+            this.currentBoard = this.boards.length;
             this.saveBoards();
         },
         async removeBoard(id) {
             this.boards.splice(id, 1);
             await this.$nextTick();
-            this.$refs.boardTabs.selectedIndex = this.boards.length;
+            this.currentBoard = this.boards.length;
             this.saveBoards();
         },
         async addColumn() {
             if (this.selectedBuilding) {
                 this.columns.push({ building: this.selectedBuilding });
                 await this.$nextTick();
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
                 const column = this.$refs[
                     `building-${this.selectedBuilding}`
                 ][0].item;
@@ -540,10 +555,14 @@ export default {
                 this.board.titles.push({ title });
                 await this.$nextTick();
                 this.buildingListSearch = '';
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
                 this.$refs.buildingListSelection[0].search = '';
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
                 const title_field = this.$refs[
-                    `${this.$refs.boardTabs.selectedIndex}_${title}_${this.board
-                        .titles.length - 1}`
+                    `${this.currentBoard}_${title}_${this.board.titles.length -
+                        1}`
                 ][0].item;
                 this.modifyTitle({
                     id: title_field._id,
@@ -560,6 +579,8 @@ export default {
                 (async () => {
                     this.columns.push({ building: building.id });
                     await this.$nextTick();
+                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                    // @ts-ignore
                     const column = this.$refs[
                         `building-${this.selectedBuilding}`
                     ][0].item;
@@ -592,6 +613,8 @@ export default {
             this.saveBoards();
         },
         modifyBuilding({ id, width, height, x, y }) {
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-ignore
             const building = this.$refs[`building-${id}`][0];
             const headingHeight = building.$el
                 .querySelector('.panel-heading')
@@ -613,7 +636,7 @@ export default {
             this.saveBoards();
         },
         modifyTitle({ id, width, height, x, y }) {
-            id = id.replace(/(^\d+_)|(_\d+$)/g, '');
+            id = id?.replace(/(^\d+_)|(_\d+$)/g, '');
             this.$set(
                 this.board.titles,
                 this.board.titles.findIndex(title => title.title === id),
@@ -646,14 +669,19 @@ export default {
         this.$store
             .dispatch('settings/getModule', MODULE_ID)
             .then(async settings => {
-                settings = (settings || {
-                    'dispatchcenter-view': { boards: [] },
-                })['dispatchcenter-view'];
-                this.boards = settings.boards || [];
+                if (!settings.hasOwnProperty('dispatchcenter-view'))
+                    settings = {
+                        'dispatchcenter-view': {
+                            boards: [],
+                        },
+                    };
+                this.$set(this, 'boards', settings.boards || []);
                 await this.$nextTick();
                 this.columns.forEach(col =>
                     (async () => {
                         await this.$nextTick();
+                        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                        // @ts-ignore
                         const column = this.$refs[`building-${col.building}`][0]
                             .item;
                         this.modifyBuilding({
@@ -667,7 +695,7 @@ export default {
                 );
             });
     },
-};
+});
 </script>
 
 <style lang="sass" scoped>
