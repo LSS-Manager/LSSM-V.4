@@ -17,6 +17,12 @@ export interface SettingsRegister {
     settings: Settings;
 }
 
+export interface SettingsSet {
+    moduleId: string;
+    settingId: string;
+    value: unknown;
+}
+
 export interface SettingsGet {
     moduleId: string;
     settingId: string;

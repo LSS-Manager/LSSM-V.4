@@ -116,4 +116,18 @@ body.dark
 
 .lssm_notice_bg
     background-color: #77dc81
+
+.lssm_overlay
+    position: fixed
+    top: 1rem
+    left: 1rem
+    z-index: 10006
+    padding: 10px
+
+[draggable]
+    user-select: none
+    cursor: pointer
+
+    &:hover
+        text-decoration: none
 </style>

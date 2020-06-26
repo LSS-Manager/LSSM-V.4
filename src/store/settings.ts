@@ -7,7 +7,9 @@ import {
     SettingsRegister,
     SettingsGet,
     SettingsSave,
+    SettingsSet,
 } from '../../typings/store/settings/Actions';
+import setting from '../components/setting.vue';
 
 export default {
     namespaced: true,
@@ -102,13 +104,34 @@ export default {
                 }
             );
         },
-        getSetting(
-            { state }: SettingsActionStoreParams,
+        setSetting(
+            { commit, dispatch }: SettingsActionStoreParams,
+            { moduleId, settingId, value }: SettingsSet
+        ) {
+            dispatch('getModule', moduleId).then(async module => {
+                await dispatch(
+                    'storage/set',
+                    {
+                        key: `settings_${moduleId}`,
+                        value: {
+                            ...module,
+                            [settingId]: value,
+                        },
+                    },
+                    {
+                        root: true,
+                    }
+                );
+            });
+        },
+        async getSetting(
+            { state, dispatch }: SettingsActionStoreParams,
             { moduleId, settingId, defaultValue = null }: SettingsGet
         ) {
             return (
                 state.settings[moduleId]?.[settingId]?.value ??
                 state.settings[moduleId]?.[settingId]?.default ??
+                (await dispatch('getModule', moduleId))[settingId] ??
                 defaultValue
             );
         },

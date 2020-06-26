@@ -13,6 +13,14 @@ import moment from 'moment';
                     type: 'text',
                     default: 'LTS',
                 },
+                displayOverlay: {
+                    type: 'toggle',
+                    default: false,
+                },
+                overlayFormat: {
+                    type: 'text',
+                    default: 'LTS',
+                },
             },
         })
         .then(async () => {
@@ -25,15 +33,65 @@ import moment from 'moment';
 
             moment.locale(BUILD_LANG);
 
-            if (await getSetting('displayNav'))
-                document
-                    .querySelector('.navbar-header')
-                    ?.insertAdjacentHTML(
-                        'beforeend',
-                        `<a class="${className} navbar-brand" format="${await getSetting(
-                            'navFormat'
-                        )}"></a>`
-                    );
+            const createClock = async (location: string) => {
+                const clock = document.createElement('a');
+                clock.classList.add(className);
+                clock.setAttribute(
+                    'format',
+                    await getSetting(`${location}Format`)
+                );
+                return clock;
+            };
+
+            if (await getSetting('displayNav')) {
+                const clock = await createClock('nav');
+                clock.classList.add('navbar-brand');
+                document.querySelector('.navbar-header')?.appendChild(clock);
+            }
+
+            if (await getSetting('displayOverlay')) {
+                const clock = await createClock('overlay');
+                clock.classList.add('lssm_overlay');
+                clock.setAttribute('draggable', 'true');
+                clock.style.background = 'black';
+                clock.style.color = 'white';
+
+                const { x, y } = await LSSM.$store.dispatch(
+                    'settings/getSetting',
+                    {
+                        moduleId: MODULE_ID,
+                        settingId: 'overlayPosition',
+                        defaultValue: { x: '10px', y: '10px' },
+                    }
+                );
+                clock.style.top = y;
+                clock.style.left = x;
+
+                clock.addEventListener('dragstart', drag => {
+                    if (!drag.dataTransfer) return;
+                    drag.dataTransfer.dropEffect = 'move';
+                    drag.dataTransfer.effectAllowed = 'move';
+                    drag.dataTransfer.setDragImage(clock, 0, 0);
+                });
+                clock.addEventListener('drag', drag => {
+                    const bounds = clock.getBoundingClientRect();
+                    clock.style.top = drag.screenY - bounds.height / 2 + 'px';
+                    clock.style.left = drag.screenX - bounds.width / 2 + 'px';
+                });
+                clock.addEventListener('dragend', async drag => {
+                    clock.style.top = drag.screenY + 'px';
+                    clock.style.left = drag.screenX + 'px';
+                    await LSSM.$store.dispatch('settings/setSetting', {
+                        moduleId: MODULE_ID,
+                        settingId: 'overlayPosition',
+                        value: {
+                            x: clock.style.left,
+                            y: clock.style.top,
+                        },
+                    });
+                });
+                document.body.appendChild(clock);
+            }
 
             const clocks = document.querySelectorAll(`.${className}`);
             setInterval(() => {

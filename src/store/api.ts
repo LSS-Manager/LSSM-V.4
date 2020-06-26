@@ -148,13 +148,17 @@ export default {
                         buildings = await dispatch('request', {
                             url: '/api/buildings',
                         }).then(res => res.json());
-                        sessionStorage.setItem(
-                            STORAGE_KEYS.buildings,
-                            JSON.stringify({
-                                lastUpdate: new Date().getTime(),
-                                value: buildings,
-                            })
-                        );
+                        try {
+                            sessionStorage.setItem(
+                                STORAGE_KEYS.buildings,
+                                JSON.stringify({
+                                    lastUpdate: new Date().getTime(),
+                                    value: buildings,
+                                })
+                            );
+                        } catch {
+                            // Do nothing
+                        }
                     }
                     commit('setBuildings', buildings);
                     if (
@@ -197,13 +201,17 @@ export default {
                         vehicles = await dispatch('request', {
                             url: '/api/vehicles',
                         }).then(res => res.json());
-                        sessionStorage.setItem(
-                            STORAGE_KEYS.vehicles,
-                            JSON.stringify({
-                                lastUpdate: new Date().getTime(),
-                                value: vehicles,
-                            })
-                        );
+                        try {
+                            sessionStorage.setItem(
+                                STORAGE_KEYS.vehicles,
+                                JSON.stringify({
+                                    lastUpdate: new Date().getTime(),
+                                    value: vehicles,
+                                })
+                            );
+                        } catch {
+                            // Do nothing
+                        }
                     }
                     commit('setVehicles', vehicles);
                     if (autoUpdate && !state.autoUpdates.includes('vehicles')) {
