@@ -16,6 +16,22 @@
 		"specializations": "Fachrichtung",
 		"title": "Patienten | {n} Patient | {n} Patienten"
 	},
+    "prerequisites": {
+        "title": "Vorraussetzung | Vorraussetzungen",
+        "fire_stations": "Feuerwache | Feuerwachen",
+        "max_police_stations": "Polizeiwache maximal | Polizeiwachen maximal",
+        "rescue_stations": "Rettungswache | Rettungswachen",
+        "police_stations": "Polizeiwache | Polizeiwachen",
+        "max_rescue_stations": "Rettungswache maximal | Rettungswachen maximal",
+        "thw": "THW-Ortsverein | THW-Ortsvereine",
+        "bereitschaftspolizei": "Bereitschaftspolizei-Standort | Bereitschaftspolizei-Standorte",
+        "police_helicopter_stations": "Polizeihubschrauber-Landeplatz | Polizeihubschrauber-Landeplätze",
+        "wasserrettung": "Wasserrettung | Wasserrettungen",
+        "mek": "MEK-Zug | MEK-Züge",
+        "sek": "SEK-Zug | SEK-Züge",
+        "werkfeuerwehr": "Werkfeuerwehr | Werkfeuerwehren",
+        "rescue_dog_units": "Rettungshundestaffel | Rettungshundestaffeln"
+    },
     "prisoners": {
         "title": "Gefangene | {n} Gefangener | {n} Gefangene",
         "max_possible_prisoners": "Gefangener maximal | Gefangene maximal"

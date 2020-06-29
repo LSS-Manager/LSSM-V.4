@@ -141,6 +141,23 @@
                     }}
                 </li>
             </ul>
+            <h4 v-if="settings.prerequisites">
+                {{
+                    $mc(
+                        'prerequisites.title',
+                        Object.keys(missionSpecs.prerequisites).length
+                    )
+                }}
+            </h4>
+            <ul v-if="settings.prerequisites">
+                <li
+                    v-for="(amount, req) in missionSpecs.prerequisites"
+                    :key="req"
+                    :data-amount="amount"
+                >
+                    {{ $mc(`prerequisites.${req}`, amount) }}
+                </li>
+            </ul>
             <span v-if="settings.generatedBy">
                 {{ $m('generated_by') }}:
                 {{ missionSpecs.generated_by }}
