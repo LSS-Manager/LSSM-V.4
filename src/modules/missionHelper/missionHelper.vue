@@ -484,9 +484,39 @@ export default Vue.extend<
                 sessionStorage.getItem('mission_specs_cache') || '{}'
             ) as Mission[]).find(spec => spec.id === id);
         },
+        loadSetting(id, base, base_string = '') {
+            if (typeof base[id] === 'object') {
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
+                Object.keys(base[id]).forEach(sid =>
+                    this.loadSetting(
+                        sid,
+                        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                        // @ts-ignore
+                        base[id],
+                        `${base_string ? `${base_string}.` : ''}${id}`
+                    )
+                );
+            } else {
+                this.$store
+                    .dispatch('settings/getSetting', {
+                        moduleId: MODULE_ID,
+                        settingId: `${
+                            base_string ? `${base_string}.` : ''
+                        }${id}`,
+                        defaultValue: base[id],
+                    })
+                    .then(setting => {
+                        this.$set(base, id, setting);
+                    });
+            }
+        },
     },
     mounted() {
         this.reloadSpecs();
+        Object.keys(this.settings).forEach(id =>
+            this.loadSetting(id, this.settings)
+        );
     },
 });
 </script>

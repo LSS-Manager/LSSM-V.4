@@ -58,6 +58,9 @@ export interface MissionHelper {
         credits: boolean;
         expansions: boolean;
         followup: boolean;
+
+        // General
+        [key: string]: boolean | unknown;
     };
     noVehicleRequirements: string[];
 }
@@ -85,4 +88,9 @@ export interface MissionHelperMethods {
     ): VueI18n.TranslateResult;
     reloadSpecs(force?: boolean): void;
     getMission(id: number): Mission | undefined;
+    loadSetting(
+        id: string,
+        base: { [key: string]: unknown },
+        base_string?: string
+    ): void;
 }

@@ -19,23 +19,9 @@ export default {
             {
                 test: /\.tsx?$/,
                 use: [
-                    // {
-                    //     loader: 'babel-loader',
-                    //     options: {
-                    //         presets: [
-                    //             '@babel/preset-env',
-                    //             '@babel/preset-typescript',
-                    //         ],
-                    //         plugins: [
-                    //             '@babel/plugin-transform-runtime',
-                    //             '@babel/plugin-transform-typescript',
-                    //         ],
-                    //     },
-                    // },
                     {
                         loader: 'ts-loader',
                         options: {
-                            // transpileOnly: true,
                             appendTsSuffixTo: [/\.vue$/],
                         },
                     },

@@ -9,7 +9,6 @@ import {
     SettingsSave,
     SettingsSet,
 } from '../../typings/store/settings/Actions';
-import setting from '../components/setting.vue';
 
 export default {
     namespaced: true,
