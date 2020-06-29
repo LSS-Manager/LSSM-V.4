@@ -46,16 +46,10 @@
                     </span>
                 </li>
             </ul>
-            <h4
-                v-if="
-                    settings.patients.title &&
-                        missionSpecs.additional &&
-                        missionSpecs.additional.possible_patient
-                "
-            >
+            <h4 v-if="settings.patients.title && showPatients">
                 {{ $mc('patients.title', 0) }}
             </h4>
-            <ul v-if="settings.patients.content && missionSpecs.additional">
+            <ul v-if="settings.patients.content && showPatients">
                 <li
                     v-if="missionSpecs.additional.possible_patient_min"
                     :data-amount="missionSpecs.additional.possible_patient_min"
@@ -284,6 +278,7 @@ export default Vue.extend<
                     title: true,
                     content: true,
                     live: true,
+                    hideWhenNoNeed: true,
                 },
                 prisoners: {
                     title: true,
@@ -311,6 +306,16 @@ export default Vue.extend<
                     ?.textContent?.trim()
                     .match(/^\d+/)?.[0] || '0'
             );
+        },
+        showPatients() {
+            if (this.settings.patients.hideWhenNoNeed) {
+                return (
+                    this.missionSpecs?.additional.patient_at_end_of_mission ||
+                    !!this.currentPatients
+                );
+            } else {
+                return !!this.missionSpecs?.additional?.possible_patient;
+            }
         },
         vehicles() {
             const vehicles = {} as VehicleRequirements;

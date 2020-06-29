@@ -47,6 +47,7 @@ export interface MissionHelper {
             title: boolean;
             content: boolean;
             live: boolean;
+            hideWhenNoNeed: boolean;
         };
         prisoners: {
             title: boolean;
@@ -64,6 +65,7 @@ export interface MissionHelper {
 export interface MissionHelperComputed {
     currentPatients: number;
     currentPrisoners: number;
+    showPatients: boolean;
     vehicles: VehicleRequirements;
 }
 
