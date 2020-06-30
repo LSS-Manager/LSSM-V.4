@@ -36,6 +36,127 @@
 		"max_possible_prisoners": "Gefangener maximal | Gefangene maximal",
 		"title": "Gefangene | {n} Gefangener | {n} Gefangene"
 	},
+    "settings": {
+        "title": {
+            "title": "Einsatzname",
+            "description": "Zeigt den Einsatznamen, z.B. \"Mülleimerbrand\" als Titel an."
+        },
+        "id": {
+            "title": "Einsatz-ID",
+            "description": "Zeigt die ID des Einsatzes neben dem Titel an."
+        },
+        "type": {
+            "title": "Typ-Nummer",
+            "description": "Zeigt die Typ-Nummer des Einsatzes neben dem Titel an."
+        },
+        "prerequisites": {
+            "title": "Vorraussetzungen",
+            "description": "Zeigt die Vorraussetzungen (z.B. 3 Rettungswachen und 4 Feuerwachen) an."
+        },
+        "place": {
+            "title": "POI",
+            "description": "Zeigt neben dem Titel an, welcher POI für diesen Einsatz nötig ist."
+        },
+        "vehicles": {
+            "title": {
+                "title": "Fahrzeuge (Titel)",
+                "description": "Zeigt die Überschrift \"Fahrzeuge\" über den Fahrzeuganforderungen an."
+            },
+            "content": {
+                "title": "Fahrzeuganforderungen",
+                "description": "Zeigt Fahrzeuganforderungen an."
+            },
+            "sort": {
+                "title": "Sortierung der Fahrzeuganforderungen",
+                "description": "Stelle ein, nach was die Fahrzeuganforderungen sortiert sein sollen.",
+                "caption": "Name der Anforderung",
+                "amount": "Anzahl der benötigten Fahrzeuge",
+                "percentage": "Wahrscheinlichkeit"
+            },
+            "patient_additionals": {
+                "title": "LNA & OrgL extra erwähnen",
+                "description": "Sind aktuell mehr als 5 bzw. 10 Patienten am Einsatzort, werden LNA & OrgL automatisch am Anfang der Fahrzeuganforderungen gelistet."
+            }
+        },
+        "chances": {
+            "normal": {
+                "title": "Wahrscheinlichkeiten anzeigen",
+                "description": "Zeigt, mit welcher Wahrscheinlichkeit ein Fahrzeug angefordert werden kann."
+            },
+            "100": {
+                "title": "100% Wahrscheinlichkeit explizit erwähnen",
+                "description": "Zeigt auch Wahrscheinlichkeiten von 100% an."
+            }
+        },
+        "multifunctionals": {
+            "heavy_rescue_vehicles": {
+                "title": "Rüstwagen einfach werten",
+                "description": "Zieht die Zahl der benötigten LF von den RW ab und blendet RW aus, falls die Anzahl unter 0 sinkt. Diese Funktion ist für Leute gedacht, die ein reines HLF-System fahren."
+            },
+            "battalion_chief_vehicles": {
+                "title": "ELW 1 einfach werten",
+                "description": "Zieht die Zahl der benötigten ELW 2 von den ELW 1 ab und blendet ELW 1 aus, falls die Anzahl unter 0 sinkt."
+            },
+            "platform_trucks": {
+                "title": "DLK einfach werten",
+                "description": "Zieht die Zahl der benötigten TM 50 von den DLK ab und blendet DLK aus, falls die Anzahl unter 0 sinkt."
+            }
+        },
+        "optionalAlternatives": {
+            "allow_rw_instead_of_lf": {
+                "title": "RW / GKW statt LF anzeigen",
+                "description": "Zeigt an, wenn statt eines LF auch Rüstwagen oder GKW am Einsatzort möglich sind."
+            }
+        },
+        "patients": {
+            "title": {
+                "title": "Patienten (Titel)",
+                "description": "Zeigt die Überschrift \"Patienten\" über den Details über mögliche Patienten an."
+            },
+            "content": {
+                "title": "Details zu möglichen Patienten",
+                "description": "Zeigt Details über mögliche Patienten an."
+            },
+            "live": {
+                "title": "Zahl der aktuellen Patienten",
+                "description": "Zeigt oben im Einsatzhelfer an, wie viele Patienten der Einsatz gerade hat."
+            },
+            "hideWhenNoNeed": {
+                "title": "Patienten-Details nur bei Bedarf anzeigen",
+                "description": "Blendet die Patienten-Details aus, wenn keine Patienten mehr vorhanden sind und Patienten nicht erst am Ende des Einsatzes auftreten."
+            }
+        },
+        "prisoners": {
+            "title": {
+                "title": "Gefangene (Titel)",
+                "description": "Zeigt die Überschrift \"Gefangene\" über den Details über mögliche Gefangene an."
+            },
+            "content": {
+                "title": "Details zu möglichen Gefangenen",
+                "description": "Zeigt Details über mögliche Gefangene an."
+            },
+            "live": {
+                "title": "Zahl der aktuellen Gefangenen",
+                "description": "Zeigt oben im Einsatzhelfer an, wie viele Gefangenen der Einsatz gerade hat."
+            }
+        },
+        "generatedBy": {
+            "title": "Generiert von (Gebäudetyp)",
+            "description": "Zeigt an, von welchem Gebäudetyp dieser Einsatz generiert werden kann."
+        },
+        "credits": {
+            "title": "Credits",
+            "description": "Gibt an, wie viele Credits Verdienst man durchschnittlich für den Einsatz erhält."
+        },
+        "expansions": {
+            "title": "Ausbreitungen",
+            "description": "Listet mögliche Ausbreitungen dieses Einsatzes auf."
+        },
+        "followup": {
+            "title": "Folgeeinsätze",
+            "description": "Listet mögliche Folge-Einsätze für diesen Einsatz auf."
+        }
+    },
 	"vehicles": {
 		"captions": {
 			"ambulances": "RTW oder KTW oder KTW Typ B",

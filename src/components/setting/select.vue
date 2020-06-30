@@ -1,33 +1,29 @@
 <template>
     <div class="form-horizontal">
-        <label>
-            <input
-                :name="name"
-                :placeholder="placeholder"
-                type="text"
-                class="form-control"
-                v-model="updateValue"
-                :disabled="disabled"
-            />
-        </label>
+        <v-select
+            :placeholder="placeholder"
+            v-model="updateValue"
+            :options="options"
+            :disabled="disabled"
+            :clearable="false"
+        ></v-select>
     </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
-import {
-    TextComputed,
-    TextProps,
-} from '../../../typings/components/setting/Text';
+import VSelect from 'vue-select';
+import { SelectComputed, SelectProps } from 'typings/components/setting/Select';
 import { DefaultData, DefaultMethods } from 'vue/types/options';
 
 export default Vue.extend<
     DefaultData<Vue>,
     DefaultMethods<Vue>,
-    TextComputed,
-    TextProps
+    SelectComputed,
+    SelectProps
 >({
-    name: 'settings-text',
+    name: 'settings-select',
+    components: { VSelect },
     props: {
         name: {
             type: String,
@@ -41,19 +37,26 @@ export default Vue.extend<
             type: String,
             required: true,
         },
+        options: {
+            type: Array,
+            required: true,
+        },
         disabled: {
             type: Boolean,
             required: false,
-            default: true,
+            default: false,
         },
     },
     computed: {
         updateValue: {
-            get(): string {
+            get() {
                 return this.value;
             },
-            set(value) {
-                this.$emit('input', value);
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-ignore
+            set(value: { label: string; value: string }) {
+                console.log(value);
+                this.$emit('input', value.value);
             },
         },
     },

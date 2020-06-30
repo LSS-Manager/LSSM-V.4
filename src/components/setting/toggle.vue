@@ -5,6 +5,7 @@
         class="setting-toggle"
         :class="{ 'pull-right': pullRight }"
         v-model="updateValue"
+        :disabled="disabled"
     ></toggle-button>
 </template>
 
@@ -36,6 +37,11 @@ export default Vue.extend<
             type: Boolean,
             required: false,
             default: true,
+        },
+        disabled: {
+            type: Boolean,
+            required: false,
+            default: false,
         },
     },
     computed: {

@@ -2,6 +2,8 @@ import { ExtendedVue } from 'vue/types/vue';
 
 interface SettingTemplate {
     type: string;
+    dependsOn?: string;
+    disabled?(settings: ModuleSettings): boolean;
 }
 
 interface Toggle extends SettingTemplate {
@@ -12,6 +14,12 @@ interface Toggle extends SettingTemplate {
 interface Text extends SettingTemplate {
     default: string;
     value: string;
+}
+
+interface Select extends SettingTemplate {
+    default: string;
+    value: string;
+    values: string[];
 }
 
 interface AppendableListItem {
@@ -26,7 +34,7 @@ interface AppendableList extends SettingTemplate {
     defaultItem: AppendableListItem;
 }
 
-export type Setting = Toggle | Text | AppendableList;
+export type Setting = Toggle | Text | AppendableList | Select;
 
 export interface Settings {
     [key: string]: Setting;

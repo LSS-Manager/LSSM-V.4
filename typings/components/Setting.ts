@@ -4,4 +4,5 @@ export interface SettingProps {
     title: string;
     description: string;
     beforeDescription: boolean;
+    disabled: boolean;
 }

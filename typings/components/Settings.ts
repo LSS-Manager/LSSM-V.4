@@ -18,6 +18,7 @@ export interface SettingsMethods {
     save(): void;
     discard(): void;
     reset(): void;
+    disabled(moduleId: string, settingId: string): boolean;
     $m(
         key: string,
         args?: {

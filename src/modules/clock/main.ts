@@ -12,6 +12,7 @@ import moment from 'moment';
                 navFormat: {
                     type: 'text',
                     default: 'LTS',
+                    dependsOn: '.displayNav',
                 },
                 displayOverlay: {
                     type: 'toggle',
@@ -20,6 +21,7 @@ import moment from 'moment';
                 overlayFormat: {
                     type: 'text',
                     default: 'LTS',
+                    dependsOn: '.displayOverlay',
                 },
             },
         })

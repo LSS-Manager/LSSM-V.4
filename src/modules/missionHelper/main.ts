@@ -16,13 +16,13 @@ import missionHelper from './missionHelper.vue';
                 type: 'toggle',
                 default: false,
             },
-            'prerequisites': {
-                type: 'toggle',
-                default: false,
-            },
             'place': {
                 type: 'toggle',
                 default: true,
+            },
+            'prerequisites': {
+                type: 'toggle',
+                default: false,
             },
             'vehicles.title': {
                 type: 'toggle',
@@ -36,10 +36,12 @@ import missionHelper from './missionHelper.vue';
                 type: 'select',
                 values: ['caption', 'amount', 'percentage'],
                 default: 'caption',
+                dependsOn: '.vehicles.content',
             },
             'vehicles.patient_additionals': {
                 type: 'toggle',
                 default: true,
+                dependsOn: '.vehicles.content',
             },
             'chances.normal': {
                 type: 'toggle',
@@ -48,22 +50,27 @@ import missionHelper from './missionHelper.vue';
             'chances.100': {
                 type: 'toggle',
                 default: false,
+                dependsOn: '.chances.normal',
             },
             'multifunctionals.heavy_rescue_vehicles': {
                 type: 'toggle',
                 default: false,
+                dependsOn: '.vehicles.content',
             },
             'multifunctionals.battalion_chief_vehicles': {
                 type: 'toggle',
                 default: false,
+                dependsOn: '.vehicles.content',
             },
             'multifunctionals.platform_trucks': {
                 type: 'toggle',
                 default: false,
+                dependsOn: '.vehicles.content',
             },
-            'optioinalAlternatives.allow_rw_instead_of_lf': {
+            'optionalAlternatives.allow_rw_instead_of_lf': {
                 type: 'toggle',
                 default: false,
+                dependsOn: '.vehicles.content',
             },
             'patients.title': {
                 type: 'toggle',
@@ -80,6 +87,11 @@ import missionHelper from './missionHelper.vue';
             'patients.hideWhenNoNeed': {
                 type: 'toggle',
                 default: false,
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
+                disabled: (settings): boolean =>
+                    !settings[MODULE_ID]['patients.title'].value &&
+                    !settings[MODULE_ID]['patients.content'].value,
             },
             'prisoners.title': {
                 type: 'toggle',
@@ -101,7 +113,7 @@ import missionHelper from './missionHelper.vue';
                 type: 'toggle',
                 default: true,
             },
-            'expansaions': {
+            'expansions': {
                 type: 'toggle',
                 default: true,
             },

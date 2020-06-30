@@ -11,6 +11,7 @@ import clickableLinks from './assets/clickableLinks';
             showImg: {
                 type: 'toggle',
                 default: true,
+                dependsOn: '.clickableLinks',
             },
         },
     });

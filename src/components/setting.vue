@@ -1,5 +1,5 @@
 <template>
-    <div :class="$store.getters.nodeAttribute('setting')" class="setting">
+    <div :class="{ disabled }" class="setting">
         <h4>
             <b>{{ title }}</b>
         </h4>
@@ -57,6 +57,11 @@ export default Vue.extend<
             required: false,
             default: false,
         },
+        disabled: {
+            type: Boolean,
+            required: false,
+            default: false,
+        },
     },
 });
 </script>
@@ -68,6 +73,11 @@ export default Vue.extend<
     border-radius: 5px
     padding: 1rem
 
-    &:hover
+    &.disabled
+        pointer-events: none
+        cursor: not-allowed
+        opacity: 0.5
+
+    &:not(.disabled):hover
         box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2)
 </style>

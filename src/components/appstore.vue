@@ -176,7 +176,7 @@ export default Vue.extend<
 .auto-sized-grid
     display: grid
     grid-gap: 16px
-    grid-template-columns: repeat(auto-fit, minmax(150px, 500px))
+    grid-template-columns: repeat(auto-fit, minmax(150px, calc(25% - 16px)))
     list-style: none
     padding-left: 0
     margin-top: 10px

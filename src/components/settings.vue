@@ -72,6 +72,10 @@
                         :beforeDescription="
                             settingsBeforeDescription.includes(setting.type)
                         "
+                        :isDisabled="
+                            (setting.isDisabled = disabled(moduleId, settingId))
+                        "
+                        :disabled="setting.isDisabled"
                     >
                         <settings-text
                             v-if="setting.type === 'text'"
@@ -83,13 +87,35 @@
                             "
                             v-model="settings[moduleId][settingId].value"
                             @input="update(moduleId, settingId)"
+                            :disabled="setting.isDisabled"
                         ></settings-text>
                         <settings-toggle
                             v-else-if="setting.type === 'toggle'"
                             :name="setting.name"
                             v-model="settings[moduleId][settingId].value"
                             @input="update(moduleId, settingId)"
+                            :disabled="setting.isDisabled"
                         ></settings-toggle>
+                        <settings-select
+                            v-else-if="setting.type === 'select'"
+                            :name="setting.name"
+                            v-model="settings[moduleId][settingId].value"
+                            :options="
+                                setting.values.map(value => ({
+                                    label: $t(
+                                        `modules.${moduleId}.settings.${settingId}.${value}`
+                                    ),
+                                    value,
+                                }))
+                            "
+                            :placeholder="
+                                $t(
+                                    `modules.${moduleId}.settings.${settingId}.title`
+                                )
+                            "
+                            @input="update(moduleId, settingId)"
+                            :disabled="setting.isDisabled"
+                        ></settings-select>
                         <!--                        <settings-appendable-list-->
                         <!--                            v-else-if="setting.type === 'appendable-list'"-->
                         <!--                            :setting="setting"-->
@@ -114,6 +140,7 @@ import Vue from 'vue';
 import Setting from './setting.vue';
 import SettingsText from './setting/text.vue';
 import SettingsToggle from './setting/toggle.vue';
+import SettingsSelect from './setting/select.vue';
 // import SettingsAppendableList from './setting/settings-appendable-list.vue';
 import Lightbox from './lightbox.vue';
 import { LSSM } from '../core';
@@ -124,6 +151,7 @@ import {
 import cloneDeep from 'lodash/cloneDeep';
 import isEqual from 'lodash/isEqual';
 import { DefaultProps, DefaultComputed } from 'vue/types/options';
+import { Setting as SettingType } from '../../typings/Setting';
 
 export default Vue.extend<
     SettingsData,
@@ -136,6 +164,7 @@ export default Vue.extend<
         // SettingsAppendableList,
         SettingsToggle,
         SettingsText,
+        SettingsSelect,
         Setting,
         Lightbox,
     },
@@ -234,6 +263,30 @@ export default Vue.extend<
                 ],
             });
         },
+        disabled(moduleId, settingId) {
+            let dependence = this.settings[moduleId][settingId].dependsOn;
+            let disabledFun = this.settings[moduleId][settingId].disabled;
+            if (dependence) {
+                const invert = dependence.startsWith('!');
+                dependence = dependence.replace(/^!/, '');
+                const base = dependence.startsWith('.')
+                    ? this.settings[moduleId]
+                    : this.settings;
+                dependence = dependence.replace(/^\./, '');
+                let setting = (dependence.split('/').reduce(
+                    (previousValue, currentValue) =>
+                        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                        // @ts-ignore
+                        (previousValue || base)[currentValue],
+                    base
+                ) as unknown) as SettingType;
+                if (invert) return !!setting?.value ?? !!setting?.default;
+                return !setting?.value ?? !setting?.default;
+            } else if (disabledFun && typeof disabledFun === 'function') {
+                return disabledFun(this.settings);
+            }
+            return false;
+        },
         $m: (key, args) => LSSM.$t(`modules.settings.${key}`, args),
     },
 });
@@ -248,7 +301,7 @@ export default Vue.extend<
 .auto-sized-grid
     display: grid
     grid-gap: 16px
-    grid-template-columns: repeat(auto-fit, minmax(150px, 500px))
+    grid-template-columns: repeat(auto-fit, minmax(150px, calc(25% - 16px)))
     list-style: none
     padding-left: 0
     margin-top: 10px
