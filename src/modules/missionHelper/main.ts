@@ -121,6 +121,10 @@ import missionHelper from './missionHelper.vue';
                 type: 'toggle',
                 default: true,
             },
+            'overlay': {
+                type: 'hidden',
+                default: false,
+            },
         },
     });
 

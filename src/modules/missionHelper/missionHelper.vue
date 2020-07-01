@@ -1,10 +1,30 @@
 <template>
-    <div class="alert alert-warning">
+    <div
+        class="alert alert-warning"
+        :class="{ overlay }"
+        :style="`top: ${drag.top}px; right: ${drag.right}px`"
+        :id="id"
+    >
+        <!--        <font-awesome-icon-->
+        <!--            :icon="faArrowsAlt"-->
+        <!--            class="pull-right dragging-field"-->
+        <!--            :fixed-width="true"-->
+        <!--            @mousedown="dragStart"-->
+        <!--            @mouseup="dragEnd"-->
+        <!--            @mousemove.prevent="dragging"-->
+        <!--        ></font-awesome-icon>-->
         <font-awesome-icon
             class="pull-right"
             :icon="faSyncAlt"
             :spin="isReloading"
+            :fixed-width="true"
             @click="reloadSpecs(true)"
+        ></font-awesome-icon>
+        <font-awesome-icon
+            class="pull-right"
+            :icon="overlay ? faAngleDoubleDown : faAngleDoubleUp"
+            :fixed-width="true"
+            @click="toggleOverlay"
         ></font-awesome-icon>
         <span v-if="isDiyMission">{{ $m('diyMission') }}</span>
         <div v-else-if="missionSpecs">
@@ -14,7 +34,7 @@
                     missionSpecs.place
                 }}</small>
                 <small v-if="settings.type">Type: {{ missionSpecs.id }}</small>
-                <small v-if="settings.id"> ID: {{ missionId }} </small>
+                <small v-if="settings.id">ID: {{ missionId }}</small>
             </h3>
             <span
                 v-if="settings.patients.live && currentPatients"
@@ -225,14 +245,17 @@
 <script lang="ts">
 import Vue from 'vue';
 import { faSyncAlt } from '@fortawesome/free-solid-svg-icons/faSyncAlt';
+import { faAngleDoubleUp } from '@fortawesome/free-solid-svg-icons/faAngleDoubleUp';
+import { faAngleDoubleDown } from '@fortawesome/free-solid-svg-icons/faAngleDoubleDown';
+import { faArrowsAlt } from '@fortawesome/free-solid-svg-icons/faArrowsAlt';
 import {
     MissionHelper,
     MissionHelperMethods,
     MissionHelperComputed,
     VehicleRequirements,
 } from 'typings/modules/MissionHelper';
-import { DefaultProps } from 'vue/types/options';
 import { Mission } from 'typings/Mission';
+import { DefaultProps } from 'vue/types/options';
 
 export default Vue.extend<
     MissionHelper,
@@ -244,9 +267,14 @@ export default Vue.extend<
     data() {
         return {
             faSyncAlt,
+            faAngleDoubleUp,
+            faAngleDoubleDown,
+            faArrowsAlt,
+            id: this.$store.getters.nodeAttribute('missionHelper'),
             isReloading: true,
             isDiyMission: false,
             missionSpecs: undefined,
+            overlay: undefined,
             missionId: parseInt(
                 window.location.pathname.match(/\d+\/?/)?.[0] || '0'
             ),
@@ -293,6 +321,15 @@ export default Vue.extend<
             noVehicleRequirements: Object.values(
                 this.$m('noVehicleRequirements')
             ),
+            drag: {
+                top: 3,
+                right: 3,
+                dragging: null,
+                start: {
+                    x: 0,
+                    y: 0,
+                },
+            },
         } as MissionHelper;
     },
     computed: {
@@ -511,6 +548,36 @@ export default Vue.extend<
                     });
             }
         },
+        toggleOverlay() {
+            this.$store
+                .dispatch('settings/setSetting', {
+                    moduleId: MODULE_ID,
+                    settingId: `overlay`,
+                    value: !this.overlay,
+                })
+                .then(() => (this.overlay = !this.overlay));
+        },
+        dragStart(e) {
+            this.drag.dragging = document.getElementById(this.id);
+            if (!this.drag.dragging) return;
+        },
+        dragEnd() {
+            this.drag.dragging = null;
+        },
+        dragging(e) {
+            if (!this.drag.dragging) return;
+            this.drag.right = window.innerWidth - e.clientX + this.drag.start.x;
+            this.drag.top = e.clientY - this.drag.start.y;
+        },
+    },
+    beforeMount() {
+        this.$store
+            .dispatch('settings/getSetting', {
+                moduleId: MODULE_ID,
+                settingId: 'overlay',
+                defaultValue: false,
+            })
+            .then(overlay => (this.overlay = overlay));
     },
     mounted() {
         this.reloadSpecs();
@@ -521,20 +588,42 @@ export default Vue.extend<
 });
 </script>
 
+<style lang="sass">
+.alert-missing-vehicles:hover ~ * .overlay
+    opacity: 0.1
+</style>
+
 <style scoped lang="sass">
-h3
-    margin-top: 0 !important
+.alert
 
-.svg-inline--fa
-    cursor: pointer
+    &.overlay
+        z-index: 2
+    position: fixed
+    top: 3%
+    right: 3%
+    min-width: 100px
+    max-width: calc(100% / 3)
+    height: auto
+    max-height: calc((100vh - 51.5px - 3%) * 0.97)
+    transition: 100ms linear
+    margin-bottom: 0.625em
 
-ul li
-    &::before
-        content: " "
-        white-space: pre
-    &::marker
-        content: attr(data-amount)
+    h3
+        margin-top: 0 !important
 
-.badge
-    margin-right: 0.3rem
+    .svg-inline--fa
+        cursor: pointer
+
+        &.dragging-field
+            cursor: move
+
+    ul li
+        &::before
+            content: " "
+            white-space: pre
+        &::marker
+            content: attr(data-amount)
+
+    .badge
+        margin-right: 0.3rem
 </style>

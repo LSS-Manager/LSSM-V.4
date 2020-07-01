@@ -5,4 +5,5 @@ export interface SettingProps {
     description: string;
     beforeDescription: boolean;
     disabled: boolean;
+    hidden: boolean;
 }

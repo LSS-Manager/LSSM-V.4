@@ -55,7 +55,6 @@ export default Vue.extend<
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore
             set(value: { label: string; value: string }) {
-                console.log(value);
                 this.$emit('input', value.value);
             },
         },

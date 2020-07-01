@@ -17,10 +17,14 @@ export interface VehicleRequirements {
 
 export interface MissionHelper {
     faSyncAlt: IconDefinition;
+    faAngleDoubleUp: IconDefinition;
+    faAngleDoubleDown: IconDefinition;
+    faArrowsAlt: IconDefinition;
     isReloading: boolean;
     isDiyMission: boolean;
     missionSpecs: Mission | undefined;
     missionId: number;
+    overlay: boolean | undefined;
     settings: {
         title: boolean;
         id: boolean;
@@ -63,6 +67,15 @@ export interface MissionHelper {
         [key: string]: boolean | unknown;
     };
     noVehicleRequirements: string[];
+    drag: {
+        top: number;
+        right: number;
+        dragging: HTMLElement | null;
+        start: {
+            x: number;
+            y: number;
+        };
+    };
 }
 
 export interface MissionHelperComputed {
@@ -71,7 +84,6 @@ export interface MissionHelperComputed {
     showPatients: boolean;
     vehicles: VehicleRequirements;
 }
-
 export interface MissionHelperMethods {
     $m(
         key: string,
@@ -93,4 +105,8 @@ export interface MissionHelperMethods {
         base: { [key: string]: unknown },
         base_string?: string
     ): void;
+    toggleOverlay(): void;
+    dragStart(e: MouseEvent): void;
+    dragEnd(): void;
+    dragging(e: MouseEvent): void;
 }

@@ -76,6 +76,7 @@
                             (setting.isDisabled = disabled(moduleId, settingId))
                         "
                         :disabled="setting.isDisabled"
+                        :hidden="setting.type === 'hidden'"
                     >
                         <settings-text
                             v-if="setting.type === 'text'"
