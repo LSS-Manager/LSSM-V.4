@@ -598,15 +598,15 @@ export default Vue.extend<
 
     &.overlay
         z-index: 2
-    position: fixed
-    top: 3%
-    right: 3%
-    min-width: 100px
-    max-width: calc(100% / 3)
-    height: auto
-    max-height: calc((100vh - 51.5px - 3%) * 0.97)
-    transition: 100ms linear
-    margin-bottom: 0.625em
+        position: fixed
+        top: 3%
+        right: 3%
+        min-width: 100px
+        max-width: calc(100% / 3)
+        height: auto
+        max-height: calc((100vh - 51.5px - 3%) * 0.97)
+        transition: 100ms linear
+        margin-bottom: 0.625em
 
     h3
         margin-top: 0 !important
@@ -618,11 +618,17 @@ export default Vue.extend<
             cursor: move
 
     ul li
+        list-style: none
+
         &::before
-            content: " "
-            white-space: pre
-        &::marker
-            content: attr(data-amount)
+            content: attr(data-amount) + " "
+
+        @supports #{'selector(li::marker)'}
+            &::before
+                content: " "
+                white-space: pre
+            &::marker
+                content: attr(data-amount)
 
     .badge
         margin-right: 0.3rem
