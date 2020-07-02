@@ -115,6 +115,7 @@ const sidebar_others = [
     'support',
     'error_report',
     'faq',
+    'bugs',
     'appstore',
     'settings',
     'other',
