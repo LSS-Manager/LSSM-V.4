@@ -86,6 +86,7 @@ export interface MissionHelperComputed {
     currentPrisoners: number;
     showPatients: boolean;
     vehicles: VehicleRequirements;
+    specialRequirements: string[];
 }
 export interface MissionHelperMethods {
     $m(

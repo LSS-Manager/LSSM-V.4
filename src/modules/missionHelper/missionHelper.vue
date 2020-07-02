@@ -183,6 +183,17 @@
                 <br />
             </span>
             <span
+                class="badge badge-default"
+                v-for="req in specialRequirements"
+                :key="req"
+            >
+                {{
+                    $mc(`requirements.${req}`, missionSpecs.requirements[req])
+                }}:
+                {{ missionSpecs.requirements[req].toLocaleString() }}
+            </span>
+            <br />
+            <span
                 v-if="settings.credits && missionSpecs.average_credits"
                 class="badge badge-default"
             >
@@ -476,6 +487,11 @@ export default Vue.extend<
                     ([type, vehicle]) => (vehiclesFiltered[type] = vehicle)
                 );
             return vehiclesFiltered;
+        },
+        specialRequirements() {
+            return Object.keys(
+                this.missionSpecs?.requirements || {}
+            ).filter(req => this.noVehicleRequirements.includes(req));
         },
     },
     methods: {

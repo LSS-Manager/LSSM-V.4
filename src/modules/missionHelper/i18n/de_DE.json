@@ -36,6 +36,9 @@
 		"max_possible_prisoners": "Gefangener maximal | Gefangene maximal",
 		"title": "Gefangene | {n} Gefangener | {n} Gefangene"
 	},
+    "requirements": {
+        "water_needed": "Wasserbedarf (L)"
+    },
     "settings": {
         "title": {
             "title": "Einsatzname",
