@@ -68,10 +68,10 @@ export interface MissionHelper {
     };
     noVehicleRequirements: string[];
     drag: {
+        active: boolean;
         top: number;
         right: number;
-        dragging: HTMLElement | null;
-        start: {
+        offset: {
             x: number;
             y: number;
         };

@@ -5,14 +5,13 @@
         :style="`top: ${drag.top}px; right: ${drag.right}px`"
         :id="id"
     >
-        <!--        <font-awesome-icon-->
-        <!--            :icon="faArrowsAlt"-->
-        <!--            class="pull-right dragging-field"-->
-        <!--            :fixed-width="true"-->
-        <!--            @mousedown="dragStart"-->
-        <!--            @mouseup="dragEnd"-->
-        <!--            @mousemove.prevent="dragging"-->
-        <!--        ></font-awesome-icon>-->
+        <font-awesome-icon
+            v-show="overlay"
+            :icon="faArrowsAlt"
+            class="pull-right dragging-field"
+            :fixed-width="true"
+            @mousedown="dragStart"
+        ></font-awesome-icon>
         <font-awesome-icon
             class="pull-right"
             :icon="faSyncAlt"
@@ -322,10 +321,10 @@ export default Vue.extend<
                 this.$m('noVehicleRequirements')
             ),
             drag: {
-                top: 3,
-                right: 3,
-                dragging: null,
-                start: {
+                active: false,
+                top: window.innerHeight * 0.03,
+                right: window.innerWidth * 0.03,
+                offset: {
                     x: 0,
                     y: 0,
                 },
@@ -558,16 +557,34 @@ export default Vue.extend<
                 .then(() => (this.overlay = !this.overlay));
         },
         dragStart(e) {
-            this.drag.dragging = document.getElementById(this.id);
-            if (!this.drag.dragging) return;
+            const current = { x: e.clientX, y: e.clientY };
+            const missionHelperOffset = this.$el.getBoundingClientRect();
+            document.body.classList.add('lssm-is-dragging');
+            const topRight = {
+                x: missionHelperOffset.x + missionHelperOffset.width,
+                y: missionHelperOffset.y,
+            };
+            this.drag.offset = {
+                x: topRight.x - current.x,
+                y: topRight.y - current.y,
+            };
+            this.drag.active = true;
+            document.addEventListener('mouseup', this.dragEnd);
+            document.addEventListener('mousemove', this.dragging);
         },
-        dragEnd() {
-            this.drag.dragging = null;
+        async dragEnd() {
+            this.drag.active = false;
+            document.body.classList.remove('lssm-is-dragging');
+            document.removeEventListener('mouseup', this.dragEnd);
+            document.removeEventListener('mousemove', this.dragging);
         },
-        dragging(e) {
-            if (!this.drag.dragging) return;
-            this.drag.right = window.innerWidth - e.clientX + this.drag.start.x;
-            this.drag.top = e.clientY - this.drag.start.y;
+        async dragging(e) {
+            if (!this.drag.active) return;
+            e.preventDefault();
+            const current = { x: e.clientX, y: e.clientY };
+            this.drag.top = current.y + this.drag.offset.y;
+            this.drag.right =
+                window.innerWidth - current.x - this.drag.offset.x;
         },
     },
     beforeMount() {
