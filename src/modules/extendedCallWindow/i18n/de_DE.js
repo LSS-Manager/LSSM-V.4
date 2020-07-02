@@ -30,6 +30,11 @@ module.exports = {
             title: 'Angeklickte AAOs hervorheben',
             description: 'Zeichnet einen Rahmen um bereits angeklickte AAOs.',
         },
+        arrMatchHighlight: {
+            title: 'Unpassende AAOs ausgrauen',
+            description:
+                'Legt einen Graufilter über alle AAOs in denen kein Wort des Einsatznamens vorkommt.',
+        },
     },
     enhancedMissingVehicles: {
         vehicle: 'Fahrzeugtyp',
