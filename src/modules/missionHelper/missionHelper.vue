@@ -1,10 +1,16 @@
 <template>
     <div
         class="alert alert-warning"
-        :class="{ overlay }"
+        :class="{ overlay, minified }"
         :style="`top: ${drag.top}px; right: ${drag.right}px`"
         :id="id"
     >
+        <font-awesome-icon
+            class="pull-right"
+            :icon="minified ? faExpandAlt : faCompressAlt"
+            :fixed-width="true"
+            @click="toggleMinified"
+        ></font-awesome-icon>
         <font-awesome-icon
             v-show="overlay"
             :icon="faArrowsAlt"
@@ -247,6 +253,8 @@ import { faSyncAlt } from '@fortawesome/free-solid-svg-icons/faSyncAlt';
 import { faAngleDoubleUp } from '@fortawesome/free-solid-svg-icons/faAngleDoubleUp';
 import { faAngleDoubleDown } from '@fortawesome/free-solid-svg-icons/faAngleDoubleDown';
 import { faArrowsAlt } from '@fortawesome/free-solid-svg-icons/faArrowsAlt';
+import { faCompressAlt } from '@fortawesome/free-solid-svg-icons/faCompressAlt';
+import { faExpandAlt } from '@fortawesome/free-solid-svg-icons/faExpandAlt';
 import {
     MissionHelper,
     MissionHelperMethods,
@@ -269,11 +277,14 @@ export default Vue.extend<
             faAngleDoubleUp,
             faAngleDoubleDown,
             faArrowsAlt,
+            faCompressAlt,
+            faExpandAlt,
             id: this.$store.getters.nodeAttribute('missionHelper'),
             isReloading: true,
             isDiyMission: false,
             missionSpecs: undefined,
             overlay: undefined,
+            minified: undefined,
             missionId: parseInt(
                 window.location.pathname.match(/\d+\/?/)?.[0] || '0'
             ),
@@ -556,6 +567,15 @@ export default Vue.extend<
                 })
                 .then(() => (this.overlay = !this.overlay));
         },
+        toggleMinified() {
+            this.$store
+                .dispatch('settings/setSetting', {
+                    moduleId: MODULE_ID,
+                    settingId: `minified`,
+                    value: !this.minified,
+                })
+                .then(() => (this.minified = !this.minified));
+        },
         dragStart(e) {
             const current = { x: e.clientX, y: e.clientY };
             const missionHelperOffset = this.$el.getBoundingClientRect();
@@ -595,6 +615,13 @@ export default Vue.extend<
                 defaultValue: false,
             })
             .then(overlay => (this.overlay = overlay));
+        this.$store
+            .dispatch('settings/getSetting', {
+                moduleId: MODULE_ID,
+                settingId: 'minified',
+                defaultValue: false,
+            })
+            .then(minified => (this.minified = minified));
     },
     mounted() {
         this.reloadSpecs();
@@ -625,11 +652,20 @@ export default Vue.extend<
         transition: 100ms linear
         margin-bottom: 0.625em
 
+    &.minified
+        max-height: 1rem
+        min-width: auto
+
+        > div
+            display: none
+
     h3
         margin-top: 0 !important
 
     .svg-inline--fa
         cursor: pointer
+        position: relative
+        top: -6px
 
         &.dragging-field
             cursor: move

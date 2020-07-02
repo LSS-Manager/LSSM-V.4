@@ -125,6 +125,10 @@ import missionHelper from './missionHelper.vue';
                 type: 'hidden',
                 default: false,
             },
+            'minified': {
+                type: 'hidden',
+                default: false,
+            },
         },
     });
 

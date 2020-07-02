@@ -20,11 +20,14 @@ export interface MissionHelper {
     faAngleDoubleUp: IconDefinition;
     faAngleDoubleDown: IconDefinition;
     faArrowsAlt: IconDefinition;
+    faCompressAlt: IconDefinition;
+    faExpandAlt: IconDefinition;
     isReloading: boolean;
     isDiyMission: boolean;
     missionSpecs: Mission | undefined;
     missionId: number;
     overlay: boolean | undefined;
+    minified: boolean | undefined;
     settings: {
         title: boolean;
         id: boolean;
@@ -106,6 +109,7 @@ export interface MissionHelperMethods {
         base_string?: string
     ): void;
     toggleOverlay(): void;
+    toggleMinified(): void;
     dragStart(e: MouseEvent): void;
     dragEnd(): void;
     dragging(e: MouseEvent): void;
