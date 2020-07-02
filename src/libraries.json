@@ -212,7 +212,7 @@
 	"vue-select": {
 		"icon": "https://vuejs.org/images/logo.png",
 		"url": "https://vue-select.org",
-		"version": "3.10.3"
+		"version": "3.10.5"
 	},
 	"vue-slim-tabs": {
 		"url": "https://vue-slim-tabs.egoist.sh/",
