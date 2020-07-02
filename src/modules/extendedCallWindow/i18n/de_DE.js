@@ -13,6 +13,11 @@ module.exports = {
             description:
                 'Wandelt die Anzeige der zusätzlich benötigten Fahrzeuge in eine übersichtlichere Tabelle um.',
         },
+        patientSummary: {
+            title: 'Patientenzusammenfassung',
+            description:
+                'Zeigt neben der Zahl der Patienten an, welche Rettungsmittel diese zusammengefasst benötigen.',
+        },
     },
     enhancedMissingVehicles: {
         vehicle: 'Fahrzeugtyp',

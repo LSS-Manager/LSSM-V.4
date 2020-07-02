@@ -1,5 +1,6 @@
 import generationDate from './assets/generationDate';
 import enhancedMissingVehicles from './assets/enhancedMissingVehicles';
+import patientSummary from './assets/patientSummary';
 
 (async (LSSM: Vue) => {
     await LSSM.$store.dispatch('settings/register', {
@@ -12,6 +13,10 @@ import enhancedMissingVehicles from './assets/enhancedMissingVehicles';
             enhancedMissingVehicles: {
                 type: 'toggle',
                 default: false,
+            },
+            patientSummary: {
+                type: 'toggle',
+                default: true,
             },
         },
     });
@@ -32,4 +37,5 @@ import enhancedMissingVehicles from './assets/enhancedMissingVehicles';
     if (await getSetting('generationDate')) generationDate(LSSM);
     if (await getSetting('enhancedMissingVehicles'))
         enhancedMissingVehicles(LSSM);
+    if (await getSetting('patientSummary')) patientSummary(LSSM);
 })(window[PREFIX] as Vue);
