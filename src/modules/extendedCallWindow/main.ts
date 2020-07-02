@@ -1,6 +1,7 @@
 import generationDate from './assets/generationDate';
 import enhancedMissingVehicles from './assets/enhancedMissingVehicles';
 import patientSummary from './assets/patientSummary';
+import arrCounter from './assets/arrCounter';
 
 (async (LSSM: Vue) => {
     await LSSM.$store.dispatch('settings/register', {
@@ -17,6 +18,15 @@ import patientSummary from './assets/patientSummary';
             patientSummary: {
                 type: 'toggle',
                 default: true,
+            },
+            arrCounter: {
+                type: 'toggle',
+                default: false,
+            },
+            arrClickHighlight: {
+                type: 'toggle',
+                default: false,
+                dependsOn: '.arrCounter',
             },
         },
     });
@@ -38,4 +48,5 @@ import patientSummary from './assets/patientSummary';
     if (await getSetting('enhancedMissingVehicles'))
         enhancedMissingVehicles(LSSM);
     if (await getSetting('patientSummary')) patientSummary(LSSM);
+    if (await getSetting('arrCounter')) await arrCounter(LSSM, getSetting);
 })(window[PREFIX] as Vue);

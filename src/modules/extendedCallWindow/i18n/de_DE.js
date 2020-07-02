@@ -1,4 +1,7 @@
 module.exports = {
+    arrCounter: {
+        reset: 'AAO-Zähler zurücksetzen',
+    },
     generationDate: {
         inputFormat: 'DD. MMMM, HH:mm Uhr',
     },
@@ -17,6 +20,15 @@ module.exports = {
             title: 'Patientenzusammenfassung',
             description:
                 'Zeigt neben der Zahl der Patienten an, welche Rettungsmittel diese zusammengefasst benötigen.',
+        },
+        arrCounter: {
+            title: 'AAO-Zähler',
+            description:
+                'Zählt, wie oft bereits auf eine AAO oder einen Zug geklickt wurde. Alle Zähler können mittels des Knopfes unten rechts oder einer AAO mit Reset-Funktion zurückgesetzt werden.',
+        },
+        arrClickHighlight: {
+            title: 'Angeklickte AAOs hervorheben',
+            description: 'Zeichnet einen Rahmen um bereits angeklickte AAOs.',
         },
     },
     enhancedMissingVehicles: {
