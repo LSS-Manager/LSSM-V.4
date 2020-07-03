@@ -12,11 +12,12 @@ export default (LSSM: Vue): void => {
             },
         })
         .then(() => {
-            const words =
+            const words = (
                 title.textContent
                     ?.trim()
                     .split(' ')
-                    .map(w => w.toLowerCase()) || [];
+                    .map(w => w.toLowerCase()) || []
+            ).filter(w => w.length > 3);
             Array.from(
                 document.querySelectorAll('.aao') as NodeListOf<
                     HTMLAnchorElement
