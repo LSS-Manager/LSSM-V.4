@@ -1,19 +1,27 @@
 export default (LSSM: Vue): void => {
-    // Share with alliance
-    const allianceBtn = document.querySelector(
-        'a.btn[href^="/buildings"][href$="alliance"]'
+    // Alliance Tax
+    const taxBtns = Array.from(
+        document.querySelectorAll('.btn-alliance_costs')
     );
-    allianceBtn?.addEventListener('click', async e => {
-        e.preventDefault();
-        await LSSM.$store
-            .dispatch('api/request', {
-                url: allianceBtn.getAttribute('href'),
-            })
-            .then(
-                ({ status }) =>
-                    status === 200 &&
-                    allianceBtn.classList.toggle('btn-danger') &&
-                    allianceBtn.classList.toggle('btn-success')
-            );
+    taxBtns.forEach(btn => {
+        btn.addEventListener('click', async e => {
+            e.preventDefault();
+            taxBtns.forEach(tbtn => tbtn.classList.add('disabled'));
+            await LSSM.$store
+                .dispatch('api/request', {
+                    url: btn.getAttribute('href'),
+                })
+                .then(({ status }) => {
+                    if (status === 200) {
+                        document
+                            .querySelector('.btn-alliance_costs.btn-success')
+                            ?.classList.replace('btn-success', 'btn-default');
+                        btn.classList.replace('btn-default', 'btn-success');
+                        taxBtns.forEach(tbtn =>
+                            tbtn.classList.remove('disabled')
+                        );
+                    }
+                });
+        });
     });
 };
