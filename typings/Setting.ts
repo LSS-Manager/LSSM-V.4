@@ -4,6 +4,9 @@ interface SettingTemplate {
     type: string;
     dependsOn?: string;
     disabled?(settings: ModuleSettings): boolean;
+
+    // Will be generated in Settings
+    isDisabled: boolean;
 }
 
 interface Toggle extends SettingTemplate {
@@ -14,6 +17,19 @@ interface Toggle extends SettingTemplate {
 interface Text extends SettingTemplate {
     default: string;
     value: string;
+}
+
+interface Color extends SettingTemplate {
+    default: string;
+    value: string;
+}
+
+interface NumberInput extends SettingTemplate {
+    default: number;
+    value: number;
+    min?: number;
+    max?: number;
+    step?: number;
 }
 
 interface Select extends SettingTemplate {
@@ -34,7 +50,13 @@ interface AppendableList extends SettingTemplate {
     defaultItem: AppendableListItem;
 }
 
-export type Setting = Toggle | Text | AppendableList | Select;
+export type Setting =
+    | Toggle
+    | Text
+    | AppendableList
+    | Select
+    | Color
+    | NumberInput;
 
 export interface Settings {
     [key: string]: Setting;

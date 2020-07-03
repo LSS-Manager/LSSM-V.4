@@ -22,7 +22,11 @@ export default async (
         {
             selectorText: `.${highlightClass}`,
             style: {
-                border: '2px solid green !important',
+                border: `${await getSetting(
+                    'arrClickHighlightWidth'
+                )}px solid ${await getSetting(
+                    'arrClickHighlightColor'
+                )} !important`,
             },
         },
     ]);

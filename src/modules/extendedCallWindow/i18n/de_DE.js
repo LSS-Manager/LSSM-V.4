@@ -30,6 +30,15 @@ module.exports = {
             title: 'Angeklickte AAOs hervorheben',
             description: 'Zeichnet einen Rahmen um bereits angeklickte AAOs.',
         },
+        arrClickHighlightColor: {
+            title: 'Farbe der Hervorhebung',
+            description: 'Lege hier die Rahmenfarbe für AAO-Umrandungen fest.',
+        },
+        arrClickHighlightWidth: {
+            title: 'Breite der Hervorhebung',
+            description:
+                'Lege hier die fest (in Pixeln), wie breit die AAO-Umrandung sein soll.',
+        },
         arrMatchHighlight: {
             title: 'Unpassende AAOs ausgrauen',
             description:

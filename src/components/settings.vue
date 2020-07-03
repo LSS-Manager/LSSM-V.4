@@ -97,6 +97,28 @@
                             @input="update(moduleId, settingId)"
                             :disabled="setting.isDisabled"
                         ></settings-toggle>
+                        <settings-color
+                            v-else-if="setting.type === 'color'"
+                            :name="setting.name"
+                            v-model="settings[moduleId][settingId].value"
+                            @input="update(moduleId, settingId)"
+                            :disabled="setting.isDisabled"
+                        ></settings-color>
+                        <settings-number
+                            v-else-if="setting.type === 'number'"
+                            :name="setting.name"
+                            :placeholder="
+                                $t(
+                                    `modules.${moduleId}.settings.${settingId}.title`
+                                )
+                            "
+                            v-model="settings[moduleId][settingId].value"
+                            :min="setting.min"
+                            :max="setting.max"
+                            :step="setting.step"
+                            @input="update(moduleId, settingId)"
+                            :disabled="setting.isDisabled"
+                        ></settings-number>
                         <settings-select
                             v-else-if="setting.type === 'select'"
                             :name="setting.name"
@@ -142,6 +164,8 @@ import Setting from './setting.vue';
 import SettingsText from './setting/text.vue';
 import SettingsToggle from './setting/toggle.vue';
 import SettingsSelect from './setting/select.vue';
+import SettingsColor from './setting/color.vue';
+import SettingsNumber from './setting/number.vue';
 // import SettingsAppendableList from './setting/settings-appendable-list.vue';
 import Lightbox from './lightbox.vue';
 import { LSSM } from '../core';
@@ -166,6 +190,8 @@ export default Vue.extend<
         SettingsToggle,
         SettingsText,
         SettingsSelect,
+        SettingsColor,
+        SettingsNumber,
         Setting,
         Lightbox,
     },
@@ -281,8 +307,15 @@ export default Vue.extend<
                         (previousValue || base)[currentValue],
                     base
                 ) as unknown) as SettingType;
-                if (invert) return !!setting?.value ?? !!setting?.default;
-                return !setting?.value ?? !setting?.default;
+                if (invert)
+                    return (
+                        setting?.isDisabled ||
+                        (!!setting?.value ?? !!setting?.default)
+                    );
+                return (
+                    setting?.isDisabled ||
+                    (!setting?.value ?? !setting?.default)
+                );
             } else if (disabledFun && typeof disabledFun === 'function') {
                 return disabledFun(this.settings);
             }

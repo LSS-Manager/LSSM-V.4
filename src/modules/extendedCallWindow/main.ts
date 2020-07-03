@@ -29,6 +29,16 @@ import arrMatchHighlight from './assets/arrMatchHighlight';
                 default: false,
                 dependsOn: '.arrCounter',
             },
+            arrClickHighlightColor: {
+                type: 'color',
+                default: '#008000',
+                dependsOn: '.arrClickHighlight',
+            },
+            arrClickHighlightWidth: {
+                type: 'number',
+                default: 2,
+                dependsOn: '.arrClickHighlight',
+            },
             arrMatchHighlight: {
                 type: 'toggle',
                 default: false,

@@ -3,14 +3,10 @@
         <label>
             <input
                 :name="name"
-                :placeholder="placeholder"
-                :min="min"
-                :max="max"
-                :step="step"
                 :disabled="disabled"
-                type="number"
+                type="color"
                 class="form-control"
-                v-model.number="updateValue"
+                v-model="updateValue"
             />
         </label>
     </div>
@@ -18,42 +14,26 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import {
-    NumberProps,
-    NumberComputed,
-} from '../../../typings/components/setting/Number';
 import { DefaultData, DefaultMethods } from 'vue/types/options';
+import {
+    ColorComputed,
+    ColorProps,
+} from '../../../typings/components/setting/Color';
 
 export default Vue.extend<
     DefaultData<Vue>,
     DefaultMethods<Vue>,
-    NumberComputed,
-    NumberProps
+    ColorComputed,
+    ColorProps
 >({
-    name: 'settings-number',
+    name: 'settings-color',
     props: {
         name: {
             type: String,
             required: true,
         },
-        placeholder: {
-            type: String,
-            required: true,
-        },
         value: {
-            type: Number,
-            required: false,
-        },
-        min: {
-            type: Number,
-            required: false,
-        },
-        max: {
-            type: Number,
-            required: false,
-        },
-        step: {
-            type: Number,
+            type: String,
             required: false,
         },
         disabled: {
