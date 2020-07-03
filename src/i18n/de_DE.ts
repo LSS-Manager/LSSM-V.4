@@ -1631,4 +1631,14 @@ export default {
         compress: 'Vollbildmodus deaktivieren',
     },
     hideTitle: 'Überschrift anzeigen | Überschrift verstecken',
+    fmsReal2Show: {
+        1: 1,
+        2: 2,
+        3: 3,
+        4: 4,
+        5: 5,
+        6: 6,
+        7: 7,
+        9: 9,
+    },
 };

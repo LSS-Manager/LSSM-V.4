@@ -23,3 +23,7 @@ export interface premodifyParams {
     event: string;
     callback?: (...args: unknown[]) => unknown;
 }
+export interface ObserveAsyncTab {
+    tabSelector: string;
+    callback(): unknown;
+}

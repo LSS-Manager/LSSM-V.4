@@ -13,6 +13,7 @@ import {
     ActionStoreParams,
     addStyle,
     Hook,
+    ObserveAsyncTab,
     premodifyParams,
 } from '../typings/store/Actions';
 import { LSSMEvent } from '../typings/helpers';
@@ -187,6 +188,20 @@ export default (Vue: VueConstructor): Store<RootState> => {
                     // @ts-ignore
                     originalEvent(...args);
                 };
+            },
+            observeAsyncTab(_, { tabSelector, callback }: ObserveAsyncTab) {
+                const tab = document.querySelector(tabSelector);
+                if (!tab) return;
+                const observer = new MutationObserver(mutations => {
+                    mutations.forEach(record => {
+                        Array.from(record.addedNodes).find(
+                            node => node.nodeName === 'SCRIPT'
+                        ) && callback();
+                    });
+                });
+                observer.observe(tab, {
+                    childList: true,
+                });
             },
         } as ActionTree<RootState, RootState>,
     } as StoreOptions<RootState>);
