@@ -14,6 +14,11 @@ import enhanceVehicleList from './assets/enhanceVehicleList';
                 default: true,
                 dependsOn: '.enhanceVehicleList',
             },
+            personnelAssignmentBtn: {
+                type: 'toggle',
+                default: true,
+                dependsOn: '.enhanceVehicleList',
+            },
         },
     });
 

@@ -11,6 +11,11 @@ export default async (
         );
 
         const fmsSwitch = await getSetting('fmsSwitch');
+        const personnelAssignmentBtn = await getSetting(
+            'personnelAssignmentBtn'
+        );
+
+        if (personnelAssignmentBtn) LSSM.$store.commit('useFontAwesome');
 
         if (fmsSwitch)
             await LSSM.$store.dispatch('addStyle', {
@@ -56,6 +61,15 @@ export default async (
                             }
                         });
                 });
+            }
+            if (personnelAssignmentBtn && BUILDING_MODE === 'building') {
+                const pABtn = document.createElement('a');
+                pABtn.classList.add('btn', 'btn-default', 'btn-xs');
+                pABtn.setAttribute('href', `/vehicles/${vehicleId}/zuweisung`);
+                pABtn.innerHTML = '<i class="fas fa-users"></i>';
+                vehicle
+                    .querySelector('a[href^="/vehicles/"][href$="/edit"]')
+                    ?.parentElement?.appendChild(pABtn);
             }
         });
     };
