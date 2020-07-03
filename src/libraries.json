@@ -154,7 +154,7 @@
 	"sass-loader": {
 		"icon": "https://webpack.js.org/assets/icon-square-big.svg",
 		"url": "https://github.com/webpack-contrib/sass-loader",
-		"version": "8.0.2"
+		"version": "9.0.1"
 	},
 	"string-replace-loader": {
 		"url": "https://github.com/Va1/string-replace-loader",
