@@ -45,6 +45,7 @@ export default (Vue: VueConstructor): Store<RootState> => {
             mapkit: 'undefined' !== typeof window.mapkit,
             darkmode: document.body.classList.contains('dark'),
             premium: window.user_premium,
+            isRegistered: false,
             modules,
             appstore: {
                 changes: false,
@@ -89,6 +90,9 @@ export default (Vue: VueConstructor): Store<RootState> => {
                     'https://use.fontawesome.com/releases/v5.13.0/js/all.js';
                 document.head.appendChild(fa);
                 state.fontAwesome.inserted = true;
+            },
+            setRegisteredState(state: RootState, isRegistered: boolean) {
+                state.isRegistered = isRegistered;
             },
         } as MutationTree<RootState>,
         getters: {

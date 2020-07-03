@@ -12,6 +12,7 @@ import browserTitle from './natives/browserTitle';
 import telemetry from './modules/telemetry/main';
 import releasenotes from './modules/releasenotes/main';
 import { RadioMessage } from '../typings/helpers';
+import { Credits } from 'typings/Credits';
 
 require('./natives/navTabsClicker');
 
@@ -83,6 +84,14 @@ if (window.location.pathname === '/') {
 
 (async () => {
     if (window.location.pathname.match(/^\/users\//)) return;
+    LSSM.$store.commit(
+        'setRegisteredState',
+        !((await LSSM.$store
+            .dispatch('api/request', {
+                url: '/api/credits',
+            })
+            .then(res => res.json())) as Credits).user_directplay_registered
+    );
     LSSM.$store.commit(
         'api/setVehicleStates',
         await LSSM.$store
