@@ -37,6 +37,11 @@ interface Select extends SettingTemplate {
     value: string;
     values: string[];
 }
+interface MultiSelect extends SettingTemplate {
+    default: string[];
+    value: string[];
+    values: string[];
+}
 
 interface AppendableListItem {
     [key: string]: unknown;
@@ -55,6 +60,7 @@ export type Setting =
     | Text
     | AppendableList
     | Select
+    | MultiSelect
     | Color
     | NumberInput;
 

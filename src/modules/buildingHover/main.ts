@@ -1,6 +1,5 @@
 import { RadioMessage } from '../../../typings/helpers';
 import { BuildingMarker } from '../../../typings/Ingame';
-import { TranslateResult } from 'vue-i18n';
 import { Vehicle } from '../../../typings/Vehicle';
 import { PointTuple } from 'leaflet';
 import { Building } from '../../../typings/Building';
@@ -32,6 +31,8 @@ import { Building } from '../../../typings/Building';
 
     const buildings = LSSM.$store.state.api.buildings as Building[];
 
+    const buildingIcons = (LSSM.$t('buildingIcons') as unknown) as string[];
+
     const setTooltip = (marker: BuildingMarker | undefined) => {
         if (!marker) return;
         const hasTt = !!marker.getTooltip();
@@ -48,12 +49,7 @@ import { Building } from '../../../typings/Building';
 
         let icon = 'sitemap';
         if (building)
-            icon =
-                ((LSSM.$t(
-                    'modules.buildingHover.icons'
-                ) as unknown) as TranslateResult[])[
-                    building.building_type
-                ].toString() || 'building';
+            icon = buildingIcons[building.building_type] || 'building';
 
         let data = `<i class="fas fa-${icon}"></i>&nbsp;${
             !building ? `[${LSSM.$t('alliance')}]` : ''

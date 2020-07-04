@@ -139,6 +139,26 @@
                             @input="update(moduleId, settingId)"
                             :disabled="setting.isDisabled"
                         ></settings-select>
+                        <settings-multi-select
+                            v-else-if="setting.type === 'multiSelect'"
+                            :name="setting.name"
+                            v-model="settings[moduleId][settingId].value"
+                            :options="
+                                setting.values.map(value => ({
+                                    label: $t(
+                                        `modules.${moduleId}.settings.${settingId}.${value}`
+                                    ),
+                                    value,
+                                }))
+                            "
+                            :placeholder="
+                                $t(
+                                    `modules.${moduleId}.settings.${settingId}.title`
+                                )
+                            "
+                            @input="update(moduleId, settingId)"
+                            :disabled="setting.isDisabled"
+                        ></settings-multi-select>
                         <!--                        <settings-appendable-list-->
                         <!--                            v-else-if="setting.type === 'appendable-list'"-->
                         <!--                            :setting="setting"-->
@@ -164,6 +184,7 @@ import Setting from './setting.vue';
 import SettingsText from './setting/text.vue';
 import SettingsToggle from './setting/toggle.vue';
 import SettingsSelect from './setting/select.vue';
+import SettingsMultiSelect from './setting/multi-select.vue';
 import SettingsColor from './setting/color.vue';
 import SettingsNumber from './setting/number.vue';
 // import SettingsAppendableList from './setting/settings-appendable-list.vue';
@@ -190,6 +211,7 @@ export default Vue.extend<
         SettingsToggle,
         SettingsText,
         SettingsSelect,
+        SettingsMultiSelect,
         SettingsColor,
         SettingsNumber,
         Setting,
