@@ -8,91 +8,104 @@ export default async (
 
     if (!ARRContainer) return;
 
+    const counter = await getSetting('arrCounter');
+    const highlight = await getSetting('arrClickHighlight');
+    const resetSelection = await getSetting('arrCounterResetSelection');
+
     const counterClass = LSSM.$store.getters.nodeAttribute('arr-counter');
     const highlightClass = LSSM.$store.getters.nodeAttribute('arr-clicked');
 
-    await LSSM.$store.dispatch('addStyles', [
-        {
-            selectorText: `.${counterClass}::before`,
-            style: {
-                'content': '" "',
-                'white-space': 'pre',
+    (counter || highlight) &&
+        (await LSSM.$store.dispatch('addStyles', [
+            {
+                selectorText: `.${counterClass}::before`,
+                style: {
+                    'content': '" "',
+                    'white-space': 'pre',
+                },
             },
-        },
-        {
-            selectorText: `.${counterClass}::after`,
-            style: {
-                content: 'attr(data-amount)',
+            {
+                selectorText: `.${counterClass}::after`,
+                style: {
+                    content: 'attr(data-amount)',
+                },
             },
-        },
-        {
-            selectorText: `.${highlightClass}`,
-            style: {
-                border: `${await getSetting(
-                    'arrClickHighlightWidth'
-                )}px solid ${await getSetting(
-                    'arrClickHighlightColor'
-                )} !important`,
+            {
+                selectorText: `.${highlightClass}`,
+                style: {
+                    border: `${await getSetting(
+                        'arrClickHighlightWidth'
+                    )}px solid ${await getSetting(
+                        'arrClickHighlightColor'
+                    )} !important`,
+                },
             },
-        },
-    ]);
-
-    const highlight = await getSetting('arrClickHighlight');
+        ]));
 
     const counterNodes = {} as { [aao_id: string]: HTMLSpanElement };
 
     const resetCounters = () => {
-        Object.values(counterNodes).forEach(counter => {
-            counter.setAttribute('data-amount', '0x');
-            counter.parentElement?.classList.remove(highlightClass);
-        });
+        if (counter)
+            Object.values(counterNodes).forEach(counter => {
+                counter.setAttribute('data-amount', '0x');
+                counter.parentElement?.classList.remove(highlightClass);
+            });
+        else
+            Array.from(
+                document.querySelectorAll(`.${highlightClass}`)
+            ).forEach(arr => arr.classList.remove(highlightClass));
+        if (resetSelection) window.vehicleSelectionReset();
     };
 
-    ARRContainer.addEventListener('mouseup', e => {
-        const targetARR = (e.target as HTMLElement)?.closest(
-            '.aao, .vehicle_group'
-        );
+    (counter || highlight) &&
+        ARRContainer.addEventListener('mouseup', e => {
+            const targetARR = (e.target as HTMLElement)?.closest(
+                '.aao, .vehicle_group'
+            );
 
-        if (
-            !targetARR ||
-            !ARRContainer.contains(targetARR) ||
-            targetARR.querySelector('.label-danger')
-        )
-            return;
+            if (
+                !targetARR ||
+                !ARRContainer.contains(targetARR) ||
+                targetARR.querySelector('.label-danger')
+            )
+                return;
 
-        const arrId =
-            targetARR.getAttribute('aao_id') ||
-            targetARR.getAttribute('vehicle_group_id');
-        if (!arrId) return;
-        const counterNode = counterNodes[arrId];
+            const arrId =
+                targetARR.getAttribute('aao_id') ||
+                targetARR.getAttribute('vehicle_group_id');
+            if (!arrId) return;
+            const counterNode = counterNodes[arrId];
 
-        if (targetARR.getAttribute('reset') === 'true') resetCounters();
+            if (targetARR.getAttribute('reset') === 'true') resetCounters();
 
-        counterNode.setAttribute(
-            'data-amount',
-            parseInt(
-                counterNode.getAttribute('data-amount')?.replace(/\D/g, '') ||
-                    '0'
-            ) +
-                1 +
-                'x'
-        );
+            if (counter)
+                counterNode.setAttribute(
+                    'data-amount',
+                    parseInt(
+                        counterNode
+                            .getAttribute('data-amount')
+                            ?.replace(/\D/g, '') || '0'
+                    ) +
+                        1 +
+                        'x'
+                );
 
-        if (highlight) targetARR.classList.add(highlightClass);
-    });
+            if (highlight) targetARR.classList.add(highlightClass);
+        });
 
-    Array.from(
-        document.querySelectorAll('.aao .label, .vehicle_group .label')
-    ).forEach(label => {
-        const counterNode = document.createElement('span');
-        counterNode.classList.add(counterClass);
-        counterNode.setAttribute('data-amount', '0x');
-        label.insertAdjacentElement('afterend', counterNode);
+    if (counter)
+        Array.from(
+            document.querySelectorAll('.aao .label, .vehicle_group .label')
+        ).forEach(label => {
+            const counterNode = document.createElement('span');
+            counterNode.classList.add(counterClass);
+            counterNode.setAttribute('data-amount', '0x');
+            label.insertAdjacentElement('afterend', counterNode);
 
-        const arrId = label.id.match(/\d+$/)?.[0];
+            const arrId = label.id.match(/\d+$/)?.[0];
 
-        if (arrId) counterNodes[arrId] = counterNode;
-    });
+            if (arrId) counterNodes[arrId] = counterNode;
+        });
 
     let resetBtnHolder = document.querySelector(
         '#container_navbar_alarm .navbar-right'
@@ -111,6 +124,12 @@ export default async (
             ?.appendChild(resetBtnHolder);
     }
 
+    const resetBtnTexts = [];
+
+    if (counter) resetBtnTexts.push('counter');
+    if (highlight) resetBtnTexts.push('highlight');
+    if (resetSelection) resetBtnTexts.push('selection');
+
     const resetBtn = document.createElement('a');
     resetBtn.classList.add(
         'btn',
@@ -121,7 +140,14 @@ export default async (
     );
     resetBtn.onclick = resetCounters;
     resetBtn.textContent = LSSM.$t(
-        'modules.extendedCallWindow.arrCounter.reset'
+        'modules.extendedCallWindow.arrCounter.reset',
+        {
+            text: LSSM.$t(
+                `modules.extendedCallWindow.arrCounter.resetTexts.${resetBtnTexts.join(
+                    '_'
+                )}`
+            ),
+        }
     ).toString();
     resetBtnHolder.appendChild(resetBtn);
 };

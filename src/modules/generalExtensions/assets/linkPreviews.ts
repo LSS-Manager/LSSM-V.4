@@ -12,6 +12,8 @@ import { Vehicle } from 'typings/Vehicle';
 export default async (LSSM: Vue, previews: string[]): Promise<void> => {
     await LSSM.$store.dispatch('api/registerBuildingsUsage', true);
 
+    // TODO: Event Delegation
+
     const attrSelectors = previews.map(p => `a[href^="/${p}/"]`);
 
     const links = Array.from(
@@ -41,19 +43,6 @@ export default async (LSSM: Vue, previews: string[]): Promise<void> => {
     infoBox.classList.add(infoBoxClass, 'hidden', 'panel', 'panel-default');
     const infoBoxContent = document.createElement('div');
     infoBox.appendChild(infoBoxContent);
-    // const infoBoxHead = document.createElement('div');
-    // infoBoxHead.classList.add('panel-heading');
-    // infoBox.appendChild(infoBoxHead);
-    // let infoBoxIcon = document.createElement('i');
-    // infoBoxIcon.classList.add('fas', `fa-question-circle`);
-    // infoBoxIcon.style.marginRight = '1rem';
-    // infoBoxHead.appendChild(infoBoxIcon);
-    // const infoBoxTitle = document.createElement('a');
-    // infoBoxTitle.classList.add('lightbox-open');
-    // infoBoxHead.appendChild(infoBoxTitle);
-    // const infoBoxBody = document.createElement('div');
-    // infoBoxBody.classList.add('panel-body');
-    // infoBox.appendChild(infoBoxBody);
 
     infoBox.addEventListener('mouseover', () => (infoBoxHovered = true));
     infoBox.addEventListener('mouseout', () => (infoBoxHovered = false));

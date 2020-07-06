@@ -1,6 +1,16 @@
 module.exports = {
     arrCounter: {
-        reset: 'AAO-Zähler zurücksetzen',
+        resetTexts: {
+            counter: 'AAO-Zähler',
+            highlight: 'AAO-Umrandung',
+            selection: 'Fahrzeugauswahl',
+            counter_highlight: 'AAO-Zähler / -Umrandung',
+            counter_selection: 'AAO-Zähler und Fahrzeugauswahl',
+            highlight_selection: 'AAO-Umrandung und Fahrzeugauswahl',
+            counter_highlight_selection:
+                'AAO-Zähler / -Umrandung und Fahrzeugauswahl',
+        },
+        reset: '{text} zurücksetzen',
     },
     generationDate: {
         inputFormat: 'DD. MMMM, HH:mm Uhr',
@@ -38,6 +48,11 @@ module.exports = {
             title: 'Breite der Hervorhebung',
             description:
                 'Lege hier die fest (in Pixeln), wie breit die AAO-Umrandung sein soll.',
+        },
+        arrCounterResetSelection: {
+            title: 'Fahrzeugauswahl zurücksetzen',
+            description:
+                'Fügt unten rechts einen Knopf hinzu, um die bisherige Fahrzeugauswahl zurückzusetzen. Hinweis: Er setzt auch den AAO-Zähler und die Umrandungen, falls aktiviert, zurück!',
         },
         arrMatchHighlight: {
             title: 'Unpassende AAOs ausgrauen',

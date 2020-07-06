@@ -19,6 +19,7 @@ declare global {
         map: Map;
         mission_position_new_marker?: Marker;
         mission_position_new_dragend(): void;
+        vehicleSelectionReset(): void;
     }
 }
 

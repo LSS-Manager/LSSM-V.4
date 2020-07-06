@@ -27,7 +27,6 @@ import arrMatchHighlight from './assets/arrMatchHighlight';
             arrClickHighlight: {
                 type: 'toggle',
                 default: false,
-                dependsOn: '.arrCounter',
             },
             arrClickHighlightColor: {
                 type: 'color',
@@ -38,6 +37,10 @@ import arrMatchHighlight from './assets/arrMatchHighlight';
                 type: 'number',
                 default: 2,
                 dependsOn: '.arrClickHighlight',
+            },
+            arrCounterResetSelection: {
+                type: 'toggle',
+                default: false,
             },
             arrMatchHighlight: {
                 type: 'toggle',
@@ -63,6 +66,11 @@ import arrMatchHighlight from './assets/arrMatchHighlight';
     if (await getSetting('enhancedMissingVehicles'))
         enhancedMissingVehicles(LSSM);
     if (await getSetting('patientSummary')) patientSummary(LSSM);
-    if (await getSetting('arrCounter')) await arrCounter(LSSM, getSetting);
+    if (
+        (await getSetting('arrCounter')) ||
+        (await getSetting('arrClickHighlight')) ||
+        (await getSetting('arrCounterResetSelection'))
+    )
+        await arrCounter(LSSM, getSetting);
     if (await getSetting('arrMatchHighlight')) arrMatchHighlight(LSSM);
 })(window[PREFIX] as Vue);
