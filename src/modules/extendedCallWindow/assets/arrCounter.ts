@@ -18,16 +18,9 @@ export default async (
     (counter || highlight) &&
         (await LSSM.$store.dispatch('addStyles', [
             {
-                selectorText: `.${counterClass}::before`,
-                style: {
-                    'content': '" "',
-                    'white-space': 'pre',
-                },
-            },
-            {
                 selectorText: `.${counterClass}::after`,
                 style: {
-                    content: 'attr(data-amount)',
+                    content: '" " attr(data-amount) "x"',
                 },
             },
             {
@@ -47,7 +40,7 @@ export default async (
     const resetCounters = () => {
         if (counter)
             Object.values(counterNodes).forEach(counter => {
-                counter.setAttribute('data-amount', '0x');
+                counter.setAttribute('data-amount', '0');
                 counter.parentElement?.classList.remove(highlightClass);
             });
         else
@@ -81,13 +74,11 @@ export default async (
             if (counter)
                 counterNode.setAttribute(
                     'data-amount',
-                    parseInt(
-                        counterNode
-                            .getAttribute('data-amount')
-                            ?.replace(/\D/g, '') || '0'
-                    ) +
-                        1 +
-                        'x'
+                    (
+                        parseInt(
+                            counterNode.getAttribute('data-amount') || '0'
+                        ) + 1
+                    ).toLocaleString()
                 );
 
             if (highlight) targetARR.classList.add(highlightClass);
@@ -99,7 +90,7 @@ export default async (
         ).forEach(label => {
             const counterNode = document.createElement('span');
             counterNode.classList.add(counterClass);
-            counterNode.setAttribute('data-amount', '0x');
+            counterNode.setAttribute('data-amount', '0');
             label.insertAdjacentElement('afterend', counterNode);
 
             const arrId = label.id.match(/\d+$/)?.[0];

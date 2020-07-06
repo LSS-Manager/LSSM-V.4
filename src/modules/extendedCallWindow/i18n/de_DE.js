@@ -59,6 +59,11 @@ module.exports = {
             description:
                 'Legt einen Graufilter über alle AAOs in denen kein Wort des Einsatznamens vorkommt.',
         },
+        alarmTime: {
+            title: 'Längeste Anfahrtszeit',
+            description:
+                'Zeigt neben den Alarm-Knopf an, wie lang das Fahrzeug mit der längsten Anfahrtszeit braucht.',
+        },
     },
     enhancedMissingVehicles: {
         vehicle: 'Fahrzeugtyp',

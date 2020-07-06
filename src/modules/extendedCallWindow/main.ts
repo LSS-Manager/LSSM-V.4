@@ -3,6 +3,7 @@ import enhancedMissingVehicles from './assets/enhancedMissingVehicles';
 import patientSummary from './assets/patientSummary';
 import arrCounter from './assets/arrCounter';
 import arrMatchHighlight from './assets/arrMatchHighlight';
+import alarmTime from './assets/alarmTime';
 
 (async (LSSM: Vue) => {
     await LSSM.$store.dispatch('settings/register', {
@@ -46,6 +47,10 @@ import arrMatchHighlight from './assets/arrMatchHighlight';
                 type: 'toggle',
                 default: false,
             },
+            alarmTime: {
+                type: 'toggle',
+                default: false,
+            },
         },
     });
 
@@ -73,4 +78,5 @@ import arrMatchHighlight from './assets/arrMatchHighlight';
     )
         await arrCounter(LSSM, getSetting);
     if (await getSetting('arrMatchHighlight')) arrMatchHighlight(LSSM);
+    if (await getSetting('alarmTime')) alarmTime(LSSM);
 })(window[PREFIX] as Vue);
