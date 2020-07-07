@@ -10,13 +10,24 @@ Auf den folgenden Seiten findest du zu allen unseren Modulen eine Beschreibung. 
 
 Wenn du Verbesserungsvorschläge hast, kannst du uns diese wie immer zukommen lassen – oder sogar selbst einbauen.
 
-:::danger Module, die in Mapkit nicht funktionieren
-Wie in der Erklärung zum [Appstore](appstore.md) beschrieben, gibt es Module, die leider nicht mit dem Kartentyp `Mapkit` kompatibel sind. Dies sind diese Module:
+:::danger Module und Einstellungen, die in Mapkit nicht funktionieren
+Wie in der Erklärung zum [Appstore](appstore.md) beschrieben, gibt es Module und Einstellungen, die leider nicht mit dem Kartentyp `Mapkit` kompatibel sind. Dies sind diese Module:
 <ul>
     <li v-for="module in $themeConfig.variables.noMapkitModules.de_DE" :key="module.title">
         <router-link :to="module.f">
             {{ module.title }}
         </router-link>
     </li>
+</ul>
+    Und diese Einstellungen:
+<ul>
+    <li><router-link to="modules/generalExtensions">
+        Allgemeine Verbesserungen:
+        <ul>
+            <li><router-link to="modules/generalExtensions#kartensprunge-speichern">
+                Kartensprünge speichern
+            </router-link></li>
+        </ul>
+    </router-link></li>
 </ul>
 :::

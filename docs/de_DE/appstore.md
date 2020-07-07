@@ -14,7 +14,7 @@ Hast du ungespeicherte Änderungen, kannst du den Appstore nicht schließen, es 
 :::
 
 ::: warning Unterstützung des Kartentyps "MapKit"
-Es gibt ein paar Module, die nicht unterstützt werden, wenn als Kartentyp MapKit ausgewählt ist. Das liegt daran, dass von MapKit selbst manche Funktionalitäten nicht gegeben werden. Eine vollständige Auflistung dieser Module findest du unter [ℹ️ Allgemeines zu Modulen](apps.md).
+Es gibt ein paar Module und Einstellungen, die nicht unterstützt werden, wenn als Kartentyp MapKit ausgewählt ist. Das liegt daran, dass von MapKit selbst manche Funktionalitäten nicht gegeben werden. Eine vollständige Auflistung dieser Module und Einstellungen findest du unter [ℹ️ Allgemeines zu Modulen](apps.md).
 
 Aus dem selben Grund gibt es übrigens auch vom Spiel selbst kleine Einschränkungen für MapKit Nutzer.
 :::

@@ -13,3 +13,18 @@ Manchmal will man einfach mal ein Bild im Forum, Chat oder sonst wo einbinden. H
 :::warning Bildvorschauen
 Es funktioniert nur der Direktlink zu Bildern!
 :::
+
+### Link-Vorschau
+*Diese Funktion ist derzeit in Entwicklugn und hat deshalb hier noch keine Beschreibung*
+
+### Kartensprünge speichern
+
+:::warning Kartentyp "Mapkit"
+Diese Einstellung ist derzeit leider nicht mit dem Kartentyp `Mapkit` kompatibel!
+:::
+
+Es gibt einige Stellen im Spiel, bei denen die Karte auf eine andere Position zentriert wird. Mit dieser Einstellung werden diese Sprünge gespeichert und sind über einen kleinen Knopf oben rechts in der Karte erreichbar:
+
+![Die Sprung-Historie](/docs/assets/generalExtensions/img/mapUndo.png)
+
+Bleibt man mit der Maus kurzzeitig auf der jeweiligen Adresse, wird sie auf der Karte angezeigt, aber erst bei einem Klick springt die Karte tatsächlich an diese Position.

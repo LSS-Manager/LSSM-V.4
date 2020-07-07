@@ -14,6 +14,11 @@ Die Leitstellenansicht funktioniert aktuell leider nicht.
 
 ## Verbesserte POI
 
-Das Einfärben der POI ist aktuell leider nicht möglich. Grund hierfür ist eine Änderung im Quellcode des Spiels. Auf ein Update seitens der Spiel-Entwickler wird derzeit gewartet.
+Wegen einer Änderung im Quellcode des Spiels sind die folgenden Funktionen aktuell leider nicht voll funktionsfähig:
+* POI Einfärben
+* Alles ausser POI-Marker ausblenden
+* POI-Typ anzeigen
+
+Auf ein Update seitens der Spiel-Entwickler wird derzeit gewartet.
 
 Weitere Infos hierzu finden sich in unserem [Issue #30](https://github.com/KBOE2/LSSM-V.4/issues/30).
