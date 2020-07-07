@@ -74,9 +74,9 @@ export default async (LSSM: Vue): Promise<void> => {
 
         const undoPreview = () => {
             target.removeEventListener('mouseout', undoPreview);
+            previewEnabled = false;
             if (dontUndoPreview) return (dontUndoPreview = false);
             window.map.setView(current, currentZoom);
-            previewEnabled = false;
         };
 
         target.addEventListener('mouseout', undoPreview);
