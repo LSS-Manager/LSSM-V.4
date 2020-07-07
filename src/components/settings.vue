@@ -313,6 +313,11 @@ export default Vue.extend<
             });
         },
         disabled(moduleId, settingId) {
+            if (
+                this.settings[moduleId][settingId].noMapkit &&
+                this.$store.state.mapkit
+            )
+                return true;
             let dependence = this.settings[moduleId][settingId].dependsOn;
             let disabledFun = this.settings[moduleId][settingId].disabled;
             if (dependence) {

@@ -3,6 +3,7 @@ import { ExtendedVue } from 'vue/types/vue';
 interface SettingTemplate {
     type: string;
     dependsOn?: string;
+    noMapkit?: boolean;
     disabled?(settings: ModuleSettings): boolean;
 
     // Will be generated in Settings

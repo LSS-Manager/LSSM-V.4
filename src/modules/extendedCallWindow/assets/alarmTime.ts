@@ -33,7 +33,7 @@ export default (LSSM: Vue): void => {
 
             document
                 .getElementById('vehicle_list_step')
-                ?.addEventListener('change', e => {
+                ?.addEventListener('change', () => {
                     const { lastVehicle, alarmTime } = getLastVehicleTime();
                     setAlarmTime(alarmTime);
                     const calcTimeBtn = lastVehicle?.querySelector(

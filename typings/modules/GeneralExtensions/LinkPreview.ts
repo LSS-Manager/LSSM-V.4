@@ -15,6 +15,5 @@ export interface LinkPreviewMethods {
 }
 
 export interface LinkPreviewComputed {
-    iconClass: string;
     link: string;
 }

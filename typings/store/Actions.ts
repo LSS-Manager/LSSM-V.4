@@ -11,7 +11,14 @@ export interface ActionStoreParams {
 export interface Hook {
     post: boolean;
     event: string;
-    callback: (...args: unknown[]) => void;
+    callback(...args: unknown[]): void;
+}
+
+export interface HookPrototype {
+    post: boolean;
+    base: string;
+    event: string;
+    callback(...args: unknown[]): void;
 }
 
 export interface addStyle {
@@ -21,7 +28,7 @@ export interface addStyle {
 
 export interface premodifyParams {
     event: string;
-    callback?: (...args: unknown[]) => unknown;
+    callback?(...args: unknown[]): unknown;
 }
 export interface ObserveAsyncTab {
     tabSelector: string;

@@ -40,9 +40,6 @@ export default Vue.extend<
         } as LinkPreview;
     },
     computed: {
-        iconClass() {
-            return `fa-${this.icon}`;
-        },
         link() {
             return `/${this.type}/${this.id}`;
         },

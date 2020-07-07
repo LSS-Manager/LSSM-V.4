@@ -13,10 +13,11 @@ import {
     ActionStoreParams,
     addStyle,
     Hook,
+    HookPrototype,
     ObserveAsyncTab,
     premodifyParams,
 } from '../typings/store/Actions';
-import { LSSMEvent } from '../typings/helpers';
+import { LSSMEvent, returnTypeFunction } from '../typings/helpers';
 import storage from './store/storage';
 import settings from './store/settings';
 import api from './store/api';
@@ -42,6 +43,7 @@ export default (Vue: VueConstructor): Store<RootState> => {
             games: config.games,
             server: config.server,
             hooks: {},
+            prototypeHooks: {},
             mapkit: 'undefined' !== typeof window.mapkit,
             darkmode: document.body.classList.contains('dark'),
             premium: window.user_premium,
@@ -59,12 +61,30 @@ export default (Vue: VueConstructor): Store<RootState> => {
             fontAwesome: {
                 inserted: false,
             },
+            osmBars: {},
         },
         mutations: {
             addHook(state: RootState, event: string) {
                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                 // @ts-ignore
                 state.hooks[event] = window[event];
+            },
+            addPrototypeHookBase(state: RootState, base: string) {
+                state.prototypeHooks[base] = {};
+            },
+            addPrototypeHook(
+                state: RootState,
+                {
+                    base,
+                    event,
+                    trueEvent,
+                }: {
+                    base: string;
+                    event: string;
+                    trueEvent: returnTypeFunction;
+                }
+            ) {
+                state.prototypeHooks[base][event] = trueEvent;
             },
             setModuleActive(state: RootState, moduleId: keyof Modules) {
                 state.modules[moduleId].active = true;
@@ -93,6 +113,22 @@ export default (Vue: VueConstructor): Store<RootState> => {
             },
             setRegisteredState(state: RootState, isRegistered: boolean) {
                 state.isRegistered = isRegistered;
+            },
+            addOSMBar(
+                state: RootState,
+                {
+                    position,
+                    bar,
+                }: {
+                    position:
+                        | 'top-left'
+                        | 'top-right'
+                        | 'bottom-left'
+                        | 'bottom-right';
+                    bar: HTMLDivElement;
+                }
+            ) {
+                state.osmBars[position] = bar;
             },
         } as MutationTree<RootState>,
         getters: {
@@ -146,6 +182,57 @@ export default (Vue: VueConstructor): Store<RootState> => {
                 }
                 document.addEventListener(
                     `lssm_${event}_${post ? 'after' : 'before'}`,
+                    event =>
+                        callback(...((event as unknown) as LSSMEvent).detail)
+                );
+            },
+            hookPrototype(
+                { state, commit }: ActionStoreParams,
+                {
+                    post = true,
+                    base,
+                    event,
+                    callback = () => null,
+                }: HookPrototype
+            ) {
+                const eventString = `${base}.${event}`;
+                const trueBase = base.split('.').reduce(
+                    (previousValue, currentValue) =>
+                        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                        // @ts-ignore
+                        (previousValue || window)[currentValue],
+                    window
+                ) as unknown;
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
+                const trueEvent = trueBase.__proto__[
+                    event
+                ] as returnTypeFunction;
+                if (!state.prototypeHooks.hasOwnProperty(base))
+                    commit('addPrototypeHookBase', base);
+                if (!state.prototypeHooks[base].hasOwnProperty(event)) {
+                    commit('addPrototypeHook', { base, event, trueEvent });
+                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                    // @ts-ignore
+                    trueBase.__proto__[event] = (...args: unknown[]) => {
+                        document.dispatchEvent(
+                            new CustomEvent(`lssm_${eventString}_before`, {
+                                detail: args,
+                            })
+                        );
+                        state.prototypeHooks[base][event].call(
+                            trueBase,
+                            ...args
+                        );
+                        document.dispatchEvent(
+                            new CustomEvent(`lssm_${eventString}_after`, {
+                                detail: args,
+                            })
+                        );
+                    };
+                }
+                document.addEventListener(
+                    `lssm_${eventString}_${post ? 'after' : 'before'}`,
                     event =>
                         callback(...((event as unknown) as LSSMEvent).detail)
                 );
@@ -205,6 +292,33 @@ export default (Vue: VueConstructor): Store<RootState> => {
                 });
                 observer.observe(tab, {
                     childList: true,
+                });
+            },
+            addOSMControl(
+                { state, commit }: ActionStoreParams,
+                position:
+                    | 'top-left'
+                    | 'top-right'
+                    | 'bottom-left'
+                    | 'bottom-right'
+            ) {
+                return new Promise(resolve => {
+                    if (!state.osmBars.hasOwnProperty(position)) {
+                        const bar = document.createElement('div');
+                        bar.classList.add('leaflet-bar', 'leaflet-control');
+                        document
+                            .querySelector(
+                                `#map .leaflet-control-container ${position
+                                    .split('-')
+                                    .map(p => `.leaflet-${p}`)
+                                    .join('')}`
+                            )
+                            ?.appendChild(bar);
+                        commit('addOSMBar', { position, bar });
+                    }
+                    const control = document.createElement('a');
+                    state.osmBars[position].appendChild(control);
+                    resolve(control);
                 });
             },
         } as ActionTree<RootState, RootState>,
