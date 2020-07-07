@@ -148,25 +148,24 @@ export default async (LSSM: Vue, previews: string[]): Promise<void> => {
         setInfoboxPosition(e);
     };
 
-    links.forEach(link => {
-        link.addEventListener(
-            'mouseover',
-            e =>
-                (currentTimeout = window.setTimeout(
-                    () => generateInfobox(e as MouseEvent),
-                    500
-                ))
+    document.addEventListener('mouseover', e => {
+        if (!(e.target as HTMLElement).matches(attrSelectors.join(','))) return;
+        currentTimeout = window.setTimeout(
+            () => generateInfobox(e as MouseEvent),
+            500
         );
-        link.addEventListener('mouseout', () => {
-            if (currentTimeout) window.clearTimeout(currentTimeout);
-            if (!infoBoxHovered) {
-                const hideInterval = window.setInterval(() => {
-                    if (!infoBoxHovered) {
-                        infoBox.classList.add('hidden');
-                        clearInterval(hideInterval);
-                    }
-                }, 100);
-            }
-        });
+    });
+
+    document.addEventListener('mouseout', e => {
+        if (!(e.target as HTMLElement).matches(attrSelectors.join(','))) return;
+        if (currentTimeout) window.clearTimeout(currentTimeout);
+        if (!infoBoxHovered) {
+            const hideInterval = window.setInterval(() => {
+                if (!infoBoxHovered) {
+                    infoBox.classList.add('hidden');
+                    clearInterval(hideInterval);
+                }
+            }, 100);
+        }
     });
 };
