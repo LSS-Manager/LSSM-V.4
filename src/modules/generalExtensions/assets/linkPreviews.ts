@@ -12,9 +12,12 @@ import { Vehicle } from 'typings/Vehicle';
 export default async (LSSM: Vue, previews: string[]): Promise<void> => {
     await LSSM.$store.dispatch('api/registerBuildingsUsage', true);
 
-    // TODO: Event Delegation
-
-    const attrSelectors = previews.map(p => `a[href^="/${p}/"]`);
+    const previewLinkClass = LSSM.$store.getters.nodeAttribute(
+        'is-previewLink'
+    );
+    const attrSelectors = previews.map(
+        p => `a[href^="/${p}/"]:not(.${previewLinkClass})`
+    );
 
     const links = Array.from(
         document.querySelectorAll(attrSelectors.join(','))
@@ -56,7 +59,12 @@ export default async (LSSM: Vue, previews: string[]): Promise<void> => {
     >({
         store: LSSM.$store,
         i18n: LSSM.$i18n,
-        render: h => h(linkPreview),
+        render: h =>
+            h(linkPreview, {
+                props: {
+                    previewLinkClass,
+                },
+            }),
     }).$mount(infoBoxContent).$children[0] as CombinedVueInstance<
         Vue,
         LinkPreview,
@@ -69,14 +77,6 @@ export default async (LSSM: Vue, previews: string[]): Promise<void> => {
 
     const buildingIcons = (LSSM.$t('buildingIcons') as unknown) as string[];
 
-    const setInfoboxPosition = ({ clientX, clientY }: MouseEvent) => {
-        const infoBoxBCR = infoBox.getBoundingClientRect();
-        let top = clientY - infoBoxBCR.height;
-        if (top < 0) top = clientY;
-        infoBox.style.top = `${top}px`;
-        infoBox.style.left = `${clientX - infoBoxBCR.width / 2}px`;
-    };
-
     const generateInfobox = (e: MouseEvent) => {
         const type = (e.target as Element)
             .getAttribute('href')
@@ -86,16 +86,14 @@ export default async (LSSM: Vue, previews: string[]): Promise<void> => {
                 '0'
         );
         if (!type || !id) return;
-        let title = '';
-        let additional = '';
-        let icon;
+        LinkPreviewInstance.setMousePosition(e.clientX, e.clientY);
         // Building
         if (type === 'buildings') {
             const building = (LSSM.$store.state.api
                 .buildings as Building[]).find(b => b.id === id);
             if (!building) return;
-            title = building.caption;
-            icon = buildingIcons[building.building_type] || 'building';
+            const icon = buildingIcons[building.building_type] || 'building';
+            LinkPreviewInstance.setBuilding(building, icon);
         }
         // Vehicle
         else if (type === 'vehicles') {
@@ -103,49 +101,18 @@ export default async (LSSM: Vue, previews: string[]): Promise<void> => {
                 b => b.id === id
             );
             if (!vehicle) return;
-            title = vehicle.caption;
-            icon = 'ambulance';
+            LinkPreviewInstance.setVehicle(vehicle);
         }
         // User
         else if (type === 'profile') {
-            title =
-                (e.target as Element).textContent?.trim() ||
-                'Ähhh, konnte Username net ermitteln??';
-            icon = 'user';
+            LinkPreviewInstance.setUser(id);
         }
         // Mission
         else if (type === 'missions') {
-            const mission = document.getElementById(`mission_${id}`);
-            const participation = document.getElementById(
-                `mission_participant_${id}`
-            );
-
-            if (!mission) return;
-
-            icon = participation?.classList.contains('hidden')
-                ? 'asterisk'
-                : 'user-alt';
-            if (mission?.classList.contains('mission_deleted'))
-                icon = 'check-circle';
-            const captionNode = document.getElementById(
-                `mission_caption_${id}`
-            );
-            title =
-                captionNode?.childNodes[0].textContent
-                    ?.replace(/\W*$/, '')
-                    .trim() || '';
-            additional = captionNode?.childNodes[1].textContent?.trim() || '';
+            LinkPreviewInstance.setMission(id);
         } else {
             return;
         }
-
-        LinkPreviewInstance.setType(type);
-        LinkPreviewInstance.setId(id);
-        LinkPreviewInstance.setTitle(title);
-        LinkPreviewInstance.setAdditional(additional);
-        LinkPreviewInstance.setIcon(icon);
-        infoBox.classList.remove('hidden');
-        setInfoboxPosition(e);
     };
 
     document.addEventListener('mouseover', e => {
