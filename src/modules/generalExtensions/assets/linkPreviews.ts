@@ -11,6 +11,7 @@ import { Vehicle } from 'typings/Vehicle';
 
 export default async (LSSM: Vue, previews: string[]): Promise<void> => {
     await LSSM.$store.dispatch('api/registerBuildingsUsage', true);
+    await LSSM.$store.dispatch('api/registerVehiclesUsage', true);
 
     const previewLinkClass = LSSM.$store.getters.nodeAttribute(
         'is-previewLink'
@@ -113,6 +114,8 @@ export default async (LSSM: Vue, previews: string[]): Promise<void> => {
         } else {
             return;
         }
+
+        infoBox.classList.remove('hidden');
     };
 
     document.addEventListener('mouseover', e => {

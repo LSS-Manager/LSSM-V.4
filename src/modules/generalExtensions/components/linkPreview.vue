@@ -19,13 +19,42 @@
         <div class="panel-body">
             <span v-if="type === 'vehicles'">
                 <a
-                    class="lightbox-open"
+                    class="lightbox-open pull-right"
                     :class="previewLinkClass"
                     :href="`/buildings/${vehicle.building_id}`"
                 >
-                    {{ vehicle.building_id }}
+                    {{
+                        buildings.find(b => b.id === vehicle.building_id)
+                            .caption
+                    }}
                 </a>
             </span>
+            <table v-else-if="type === 'buildings'">
+                <tr v-for="vehicle in buildingVehicles" :key="vehicle.id">
+                    <td>
+                        <span
+                            class="building_list_fms"
+                            :class="`building_list_fms_${vehicle.fms_real}`"
+                            >{{ vehicle.fms_show }}</span
+                        >
+                    </td>
+                    <td>
+                        <a
+                            class="lightbox-open"
+                            :class="previewLinkClass"
+                            :href="`/vehicles/${vehicle.id}`"
+                        >
+                            {{ vehicle.caption }}
+                        </a>
+                    </td>
+                    <td>
+                        ({{ vehicleTypes[vehicle.vehicle_type].caption }}
+                        <small v-if="vehicle.vehicle_type_caption"
+                            >[{{ vehicle.vehicle_type_caption }}]</small
+                        >)
+                    </td>
+                </tr>
+            </table>
         </div>
     </div>
 </template>
@@ -50,7 +79,7 @@ export default Vue.extend<
     name: 'linkPreview',
     data() {
         return {
-            icon: '',
+            icon: 'question',
             type: '',
             id: 0,
             title: '',
@@ -59,6 +88,7 @@ export default Vue.extend<
                 x: 0,
                 y: 0,
             },
+            vehicleTypes: (this.$t('vehicles') as unknown) as InternalVehicle[],
             building: null,
             vehicle: null,
         } as LinkPreview;
@@ -76,6 +106,19 @@ export default Vue.extend<
         parent() {
             return this.$el.parentElement;
         },
+        buildings() {
+            return this.$store.state.api.buildings;
+        },
+        vehicles() {
+            return this.$store.getters['api/vehiclesByBuilding'];
+        },
+        buildingVehicles() {
+            return (
+                this.vehicles[this.id]?.sort((a, b) =>
+                    a.caption > b.caption ? 1 : b.caption > a.caption ? -1 : 0
+                ) || []
+            );
+        },
     },
     methods: {
         _resetAll() {
@@ -88,7 +131,7 @@ export default Vue.extend<
             this.vehicle = null;
         },
         _setIcon(icon) {
-            if (!icon) icon = '';
+            if (!icon) icon = 'question';
             this.icon = icon;
         },
         _setType(type) {
@@ -106,18 +149,6 @@ export default Vue.extend<
         setMousePosition(x: number, y: number) {
             this.mouse = { x, y };
         },
-        show() {
-            this.$nextTick().then(() => {
-                if (!this.parent) return;
-                this.parent.classList.remove('hidden');
-                const infoBoxBCR = this.parent.getBoundingClientRect();
-                let top = this.mouse.y - infoBoxBCR.height;
-                if (top < 0) top = this.mouse.y;
-                this.parent.style.top = `${top}px`;
-                this.parent.style.left = `${this.mouse.x -
-                    infoBoxBCR.width / 2}px`;
-            });
-        },
         setBuilding(building, icon) {
             this._resetAll();
             this.building = building;
@@ -130,8 +161,6 @@ export default Vue.extend<
                     building.building_type
                 ].caption
             );
-
-            this.show();
         },
         setVehicle(vehicle) {
             this._resetAll();
@@ -140,14 +169,10 @@ export default Vue.extend<
             this._setType('vehicles');
             this._setTitle(vehicle.caption);
             this._setIcon('ambulance');
-            let additional = ((this.$t(
-                'vehicles'
-            ) as unknown) as InternalVehicle[])[vehicle.vehicle_type].caption;
+            let additional = this.vehicleTypes[vehicle.vehicle_type].caption;
             if (vehicle.vehicle_type_caption)
                 additional += ` | ${vehicle.vehicle_type_caption}`;
             this._setAdditional(additional);
-
-            this.show();
         },
         setUser(id) {
             this._resetAll();
@@ -155,8 +180,6 @@ export default Vue.extend<
             this._setType('profile');
             this._setTitle(`User: ${id}`);
             this._setIcon('user');
-
-            this.show();
         },
         setMission(id) {
             this._resetAll();
@@ -164,9 +187,21 @@ export default Vue.extend<
             this._setType('mission');
             this._setTitle(`Mission: ${id}`);
             this._setIcon('phone-alt');
-
-            this.show();
         },
+    },
+    updated() {
+        if (!this.parent) return;
+        const infoBoxBCR = this.$el.getBoundingClientRect();
+        let top = this.mouse.y - infoBoxBCR.height;
+        if (top < 0) top = this.mouse.y;
+        if (top + infoBoxBCR.height > window.innerHeight)
+            top -= top + infoBoxBCR.height - window.innerHeight;
+        let left = this.mouse.x - infoBoxBCR.width / 2;
+        if (left < 0) left = 0;
+        if (left + infoBoxBCR.width > window.innerWidth)
+            left -= left + infoBoxBCR.width - window.innerWidth;
+        this.parent.style.top = `${top}px`;
+        this.parent.style.left = `${left}px`;
     },
 });
 </script>

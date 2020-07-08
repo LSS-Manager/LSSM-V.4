@@ -1,4 +1,4 @@
-import { Vehicle } from 'typings/Vehicle';
+import { InternalVehicle, Vehicle } from 'typings/Vehicle';
 import { Building } from 'typings/Building';
 
 export interface LinkPreview {
@@ -11,6 +11,7 @@ export interface LinkPreview {
         x: number;
         y: number;
     };
+    vehicleTypes: InternalVehicle[];
     building: Building | null;
     vehicle: Vehicle | null;
 }
@@ -24,7 +25,6 @@ export interface LinkPreviewMethods {
     _setAdditional(additional: string): void;
 
     setMousePosition(x: number, y: number): void;
-    show(): void;
 
     setBuilding(building: Building, icon: string): void;
     setVehicle(vehicle: Vehicle): void;
@@ -35,6 +35,9 @@ export interface LinkPreviewMethods {
 export interface LinkPreviewComputed {
     link: string;
     parent: HTMLElement | null;
+    buildings: Building[];
+    vehicles: { [buildingId: number]: Vehicle[] };
+    buildingVehicles: Vehicle[];
 }
 
 export interface LinkPreviewProps {
