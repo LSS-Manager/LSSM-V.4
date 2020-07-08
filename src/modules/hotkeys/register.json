@@ -1,4 +1,4 @@
 {
-    "dev": true,
-    "location": ".*"
+	"dev": true,
+	"location": ".*"
 }

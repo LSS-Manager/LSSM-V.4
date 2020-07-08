@@ -1,17 +1,22 @@
+import { Vehicle } from 'typings/Vehicle';
+
 export interface LinkPreview {
     icon: string;
     type: string;
     id: number;
     title: string;
     additional: string;
+    vehicle: Vehicle | null;
 }
 
 export interface LinkPreviewMethods {
-    setIcon(icon?: string): void;
-    setType(type: string): void;
-    setTitle(title: string): void;
-    setId(id: number): void;
-    setAdditional(additional: string): void;
+    _setIcon(icon?: string): void;
+    _setType(type: string): void;
+    _setTitle(title: string): void;
+    _setId(id: number): void;
+    _setAdditional(additional: string): void;
+
+    setVehicle(vehicle: Vehicle): void;
 }
 
 export interface LinkPreviewComputed {
