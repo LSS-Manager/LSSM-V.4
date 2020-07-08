@@ -110,10 +110,14 @@ export default async (
             'navbar-right',
             'hidden-xs'
         );
+        resetBtnHolder.id = 'navbar-right-help-button';
         document
-            .getElementById('container_navbar_alarm')
+            .querySelector('#container_navbar_alarm .container-fluid')
             ?.appendChild(resetBtnHolder);
     }
+    document
+        .getElementById('navbar-right-help-button')
+        ?.classList.add('btn-group');
 
     const resetBtnTexts = [];
 

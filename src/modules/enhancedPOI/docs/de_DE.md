@@ -1,7 +1,7 @@
 Das Setzen von POI ist für manche Einsätze notwendig, um generiert werden zu können. Möchte man nicht die POI von anderen Mitspielern nutzen oder aus anderen Gründen eigene eintragen, so kann dies eine nervtötende Aktion sein.
 
 :::warning 🐛 Bug
-Dieses Modul ist derzeit leider nicht voll funktionsfähig. Siehe hierzu auch den entsprechenden Abschnitt in [Bekannte Bugs](bugs#verbesserte-poi)
+Dieses Modul ist derzeit leider nicht voll funktionsfähig. Siehe hierzu auch den entsprechenden Abschnitt in [Bekannte Bugs](/bugs#verbesserte-poi)
 :::
 
 :::danger Mapkit
