@@ -92,7 +92,5 @@ export default (LSSM: Vue): void => {
             } else {
                 await sendStats();
             }
-
-            // TODO: send stats to server
         });
 };
