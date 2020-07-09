@@ -14,7 +14,7 @@
             :sort="sort"
             :sort-dir="sortDir"
             :search="search"
-            @search="s => (search = s)"
+            @search="(s) => (search = s)"
         >
             <tr v-for="vehicle in vehiclesSorted" :key="vehicle.id">
                 <td>
@@ -95,7 +95,7 @@ export default Vue.extend<
     data() {
         return {
             vehicleTypeNames: Object.values(this.$t('vehicles')).map(
-                type => type.caption
+                (type) => type.caption
             ),
             vehiclesWithBuildings: [],
             buildings: this.$store.state.api.buildings,
@@ -118,7 +118,7 @@ export default Vue.extend<
     },
     computed: {
         vehiclesFiltered() {
-            return this.vehiclesWithBuildings.filter(vehicle =>
+            return this.vehiclesWithBuildings.filter((vehicle) =>
                 JSON.stringify(vehicle)
                     .toLowerCase()
                     .match(this.search.toLowerCase())
@@ -160,7 +160,7 @@ export default Vue.extend<
         },
     },
     beforeMount() {
-        this.vehiclesWithBuildings = this.vehicles.map(v => ({
+        this.vehiclesWithBuildings = this.vehicles.map((v) => ({
             ...v,
             building: this.buildings.find(({ id }) => id === v.building_id)
                 ?.caption,

@@ -85,7 +85,7 @@ export default Vue.extend<
         sortDir: {
             type: String,
             required: false,
-            validator: value => ['asc', 'desc'].includes(value),
+            validator: (value) => ['asc', 'desc'].includes(value),
         },
         noSearch: {
             type: Boolean,

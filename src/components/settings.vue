@@ -39,9 +39,9 @@
                 <div
                     class="auto-sized-grid"
                     :class="{
-                        wide: Object.values(settings[moduleId]).find(setting =>
-                            wideGrids.includes(setting.type)
-                        ),
+                        wide: Object.values(
+                            settings[moduleId]
+                        ).find((setting) => wideGrids.includes(setting.type)),
                     }"
                 >
                     <setting
@@ -124,7 +124,7 @@
                             :name="setting.name"
                             v-model="settings[moduleId][settingId].value"
                             :options="
-                                setting.values.map(value => ({
+                                setting.values.map((value) => ({
                                     label: $t(
                                         `modules.${moduleId}.settings.${settingId}.${value}`
                                     ),
@@ -144,7 +144,7 @@
                             :name="setting.name"
                             v-model="settings[moduleId][settingId].value"
                             :options="
-                                setting.values.map(value => ({
+                                setting.values.map((value) => ({
                                     label: $t(
                                         `modules.${moduleId}.settings.${settingId}.${value}`
                                     ),
@@ -225,7 +225,7 @@ export default Vue.extend<
             modulesSorted: [
                 'global',
                 ...(this.$store.getters
-                    .modulesSorted as string[]).filter(module =>
+                    .modulesSorted as string[]).filter((module) =>
                     settings.hasOwnProperty(module)
                 ),
             ],
@@ -286,8 +286,8 @@ export default Vue.extend<
                     {
                         title: this.$m('resetWarning.total'),
                         handler: () => {
-                            Object.values(this.settings).forEach(module =>
-                                Object.values(module).forEach(setting =>
+                            Object.values(this.settings).forEach((module) =>
+                                Object.values(module).forEach((setting) =>
                                     this.$set(setting, 'value', setting.default)
                                 )
                             );
@@ -301,7 +301,7 @@ export default Vue.extend<
                         handler: () => {
                             Object.values(
                                 this.settings[this.modulesSorted[this.tab]]
-                            ).forEach(setting =>
+                            ).forEach((setting) =>
                                 this.$set(setting, 'value', setting.default)
                             );
                             this.save();

@@ -12,15 +12,11 @@
                 :class="message.self ? 'pull-right' : 'pull-left'"
             >
                 <img
-                    :src="
-                        `https://placehold.it/50/${
-                            message.color
-                        }/${getTextColor(
-                            message.color
-                        )}?text=${message.author.name
-                            .split('')[0]
-                            .toUpperCase()}`
-                    "
+                    :src="`https://placehold.it/50/${
+                        message.color
+                    }/${getTextColor(
+                        message.color
+                    )}?text=${message.author.name.split('')[0].toUpperCase()}`"
                     alt="User Avatar"
                     class="img-circle"
                 />

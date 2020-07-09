@@ -68,7 +68,7 @@ export default {
     mounted() {
         this.$store
             .dispatch('settings/getModule', MODULE_ID)
-            .then(settings => (this.settings = settings));
+            .then((settings) => (this.settings = settings));
     },
     methods: {
         toggleVisibility() {

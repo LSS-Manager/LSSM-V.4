@@ -6,7 +6,7 @@
             :clearable="false"
             :multiple="true"
             :placeholder="$t('modules.notificationAlert.settings.eventTypes')"
-            :reduce="option => option.event"
+            :reduce="(option) => option.event"
             v-model="newValues.eventTypes"
             @input="changeValue"
         ></v-select>
@@ -15,7 +15,7 @@
             :value="alertStyle"
             :clearable="false"
             :placeholder="$t('modules.notificationAlert.settings.alertStyle')"
-            :reduce="option => option.alertStyle"
+            :reduce="(option) => option.alertStyle"
             v-model="newValues.alertStyle"
             @input="changeValue"
         ></v-select>
@@ -65,11 +65,11 @@ export default {
                 duration: null,
                 desktop: null,
             },
-            events: Object.keys(events).map(event => ({
+            events: Object.keys(events).map((event) => ({
                 event,
                 label: events[event],
             })),
-            styles: Object.keys(alertStyles).map(alertStyle => ({
+            styles: Object.keys(alertStyles).map((alertStyle) => ({
                 alertStyle,
                 label: alertStyles[alertStyle],
             })),
@@ -82,7 +82,7 @@ export default {
         },
         alertStyle: {
             required: true,
-            validator: function(val) {
+            validator: function (val) {
                 return val === null || typeof val === 'string';
             },
         },

@@ -127,7 +127,7 @@ const getCallback = ({ event, alertStyle, time, ingame, desktop }) =>
         },
     }[event]);
 
-Notification.requestPermission().then(result => {
+Notification.requestPermission().then((result) => {
     if (result === 'granted') {
         new Notification(
             window.lssmv4.$t('modules.notificationAlert.initializing'),
@@ -142,9 +142,9 @@ Notification.requestPermission().then(result => {
                 moduleId: MODULE_ID,
                 settingId: 'alerts',
             })
-            .then(alerts => {
-                Object.values(alerts).forEach(alert =>
-                    alert.eventTypes.forEach(async event => {
+            .then((alerts) => {
+                Object.values(alerts).forEach((alert) =>
+                    alert.eventTypes.forEach(async (event) => {
                         if (typeof window[event] !== void 0) {
                             await window.lssmv4.$store.dispatch('hook', {
                                 event,

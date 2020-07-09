@@ -45,12 +45,12 @@
                         <grid-item
                             :height="
                                 column.height ||
-                                    Math.ceil(
-                                        14 +
-                                            vehiclesByBuilding[column.building]
-                                                .length *
-                                                1.5
-                                    )
+                                Math.ceil(
+                                    14 +
+                                        vehiclesByBuilding[column.building]
+                                            .length *
+                                            1.5
+                                )
                             "
                             :id="column.building"
                             :key="column.building"
@@ -94,12 +94,8 @@
                                     >
                                         <grid-item
                                             :height="1"
-                                            :id="
-                                                `${column.building}_${vehicle.id}`
-                                            "
-                                            :key="
-                                                `${column.building}_${vehicle.id}`
-                                            "
+                                            :id="`${column.building}_${vehicle.id}`"
+                                            :key="`${column.building}_${vehicle.id}`"
                                             :width="10"
                                             class="building-vehicle"
                                             v-for="vehicle in vehiclesByBuilding[
@@ -108,17 +104,13 @@
                                             :maxHeight="1"
                                         >
                                             <span
-                                                :class="
-                                                    `building_list_fms_${vehicle.fms_real}`
-                                                "
+                                                :class="`building_list_fms_${vehicle.fms_real}`"
                                                 class="building_list_fms"
                                             >
                                                 {{ vehicle.fms_show }}
                                             </span>
                                             <a
-                                                :href="
-                                                    `/vehicles/${vehicle.id}`
-                                                "
+                                                :href="`/vehicles/${vehicle.id}`"
                                                 class="building_list_fms lightbox-open"
                                             >
                                                 {{ vehicle.caption }}
@@ -154,9 +146,11 @@
                             <v-select
                                 :filterable="false"
                                 :options="buildingList"
-                                :reduce="building => building.id"
+                                :reduce="(building) => building.id"
                                 :clearSearchOnBlur="() => false"
-                                @search="query => (buildingListSearch = query)"
+                                @search="
+                                    (query) => (buildingListSearch = query)
+                                "
                                 label="caption"
                                 v-model="selectedBuilding"
                                 ref="buildingListSelection"
@@ -237,7 +231,7 @@
                 "
             >
                 <div class="board-management-title">
-                    <div style="width: 1em"></div>
+                    <div style="width: 1em;"></div>
                     <span class="name-title">
                         <b>{{
                             $t(
@@ -245,7 +239,7 @@
                             )
                         }}</b>
                     </span>
-                    <div style="width: 22.5px"></div>
+                    <div style="width: 22.5px;"></div>
                     <span class="select-title">
                         <b>{{
                             $t(
@@ -315,7 +309,7 @@
                             </button>
                             <v-select
                                 :options="vehicleBuildings"
-                                :reduce="type => type.type"
+                                :reduce="(type) => type.type"
                                 label="caption"
                                 multiple
                                 v-model="board.buildingTypes"
@@ -323,7 +317,7 @@
                             ></v-select>
                             <v-select
                                 :options="dispatchBuildings"
-                                :reduce="building => building.id"
+                                :reduce="(building) => building.id"
                                 label="caption"
                                 multiple
                                 v-model="board.dispatchBuildings"
@@ -397,7 +391,7 @@ export default Vue.extend<
             currentBoard: 0,
             vehiclesByBuilding: this.$store.getters['api/vehiclesByBuilding'],
             vehicleBuildings: Object.values(this.$t('vehicleBuildings'))
-                .map(type => ({
+                .map((type) => ({
                     type,
                     caption: buildingTypes[type].caption,
                 }))
@@ -405,7 +399,7 @@ export default Vue.extend<
                     a.caption > b.caption ? 1 : a.caption < b.caption ? -1 : 0
                 ),
             dispatchBuildings: (this.$store.state.api.buildings as Building[])
-                .filter(building =>
+                .filter((building) =>
                     dispatchCenterBuildings.includes(building.building_type)
                 )
                 .sort((a, b) =>
@@ -428,7 +422,7 @@ export default Vue.extend<
                 [id: number]: Building;
             };
             Object.values(this.buildings).forEach(
-                building => (buildings[building.id] = building)
+                (building) => (buildings[building.id] = building)
             );
             return buildings;
         },
@@ -444,7 +438,7 @@ export default Vue.extend<
                 this.$t('vehicleBuildings')
             );
             return Object.values(this.buildings)
-                .filter(building => {
+                .filter((building) => {
                     if (
                         (this.board.buildingTypes.length &&
                             !this.board.buildingTypes.includes(
@@ -466,7 +460,7 @@ export default Vue.extend<
                             ) &&
                         vehicleBuildingTypes.includes(building.building_type) &&
                         !Object.values(this.columns).find(
-                            column => column.building === building.id
+                            (column) => column.building === building.id
                         )
                     );
                 })
@@ -491,10 +485,14 @@ export default Vue.extend<
     },
     methods: {
         moveBoard({ id, y }) {
-            const boards = Object.values(this.boards).filter(b => b.id !== id);
-            const building = Object.values(this.boards).find(b => b.id === id);
+            const boards = Object.values(this.boards).filter(
+                (b) => b.id !== id
+            );
+            const building = Object.values(this.boards).find(
+                (b) => b.id === id
+            );
             building && boards.splice(y, 0, building);
-            this.boards = boards.map(b => ({ ...b, id: b.title }));
+            this.boards = boards.map((b) => ({ ...b, id: b.title }));
             this.saveBoards();
         },
         setBoardName(id) {
@@ -561,8 +559,9 @@ export default Vue.extend<
                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                 // @ts-ignore
                 const title_field = this.$refs[
-                    `${this.currentBoard}_${title}_${this.board.titles.length -
-                        1}`
+                    `${this.currentBoard}_${title}_${
+                        this.board.titles.length - 1
+                    }`
                 ][0].item;
                 this.modifyTitle({
                     id: title_field._id,
@@ -575,7 +574,7 @@ export default Vue.extend<
             }
         },
         bulkAddColumn() {
-            this.buildingListFiltered.forEach(building =>
+            this.buildingListFiltered.forEach((building) =>
                 (async () => {
                     this.columns.push({ building: building.id });
                     await this.$nextTick();
@@ -598,7 +597,7 @@ export default Vue.extend<
         },
         removeBuilding(id) {
             this.columns.splice(
-                this.columns.findIndex(column => column.building === id),
+                this.columns.findIndex((column) => column.building === id),
                 1
             );
             this.saveBoards();
@@ -606,7 +605,8 @@ export default Vue.extend<
         removeTitle(id) {
             this.board.titles.splice(
                 this.board.titles.findIndex(
-                    title => title.title === id.replace(/(^\d+_)|(_\d+$)/g, '')
+                    (title) =>
+                        title.title === id.replace(/(^\d+_)|(_\d+$)/g, '')
                 ),
                 1
             );
@@ -630,7 +630,7 @@ export default Vue.extend<
             ).style.maxHeight = `calc(100% - ${headingHeight}px)`;
             this.$set(
                 this.columns,
-                this.columns.findIndex(column => column.building === id),
+                this.columns.findIndex((column) => column.building === id),
                 { building: id, width, height, x, y }
             );
             this.saveBoards();
@@ -639,7 +639,7 @@ export default Vue.extend<
             id = id?.replace(/(^\d+_)|(_\d+$)/g, '');
             this.$set(
                 this.board.titles,
-                this.board.titles.findIndex(title => title.title === id),
+                this.board.titles.findIndex((title) => title.title === id),
                 { title: id, width, height, x, y }
             );
             this.saveBoards();
@@ -668,7 +668,7 @@ export default Vue.extend<
     mounted() {
         this.$store
             .dispatch('settings/getModule', MODULE_ID)
-            .then(async settings => {
+            .then(async (settings) => {
                 if (!settings.hasOwnProperty('dispatchcenter-view'))
                     settings = {
                         'dispatchcenter-view': {
@@ -677,7 +677,7 @@ export default Vue.extend<
                     };
                 this.$set(this, 'boards', settings.boards || []);
                 await this.$nextTick();
-                this.columns.forEach(col =>
+                this.columns.forEach((col) =>
                     (async () => {
                         await this.$nextTick();
                         // eslint-disable-next-line @typescript-eslint/ban-ts-comment

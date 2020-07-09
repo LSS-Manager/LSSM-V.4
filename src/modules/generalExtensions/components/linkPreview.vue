@@ -24,7 +24,7 @@
                     :href="`/buildings/${vehicle.building_id}`"
                 >
                     {{
-                        buildings.find(b => b.id === vehicle.building_id)
+                        buildings.find((b) => b.id === vehicle.building_id)
                             .caption
                     }}
                 </a>

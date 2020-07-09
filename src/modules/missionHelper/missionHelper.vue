@@ -139,8 +139,8 @@
             <h4
                 v-if="
                     settings.prisoners.title &&
-                        missionSpecs.additional &&
-                        missionSpecs.additional.max_possible_prisoners
+                    missionSpecs.additional &&
+                    missionSpecs.additional.max_possible_prisoners
                 "
             >
                 {{ $mc('prisoners.title', 0) }}
@@ -203,8 +203,8 @@
             <div
                 v-if="
                     settings.expansions &&
-                        missionSpecs.additional &&
-                        missionSpecs.additional.expansion_missions_ids
+                    missionSpecs.additional &&
+                    missionSpecs.additional.expansion_missions_ids
                 "
             >
                 {{
@@ -230,8 +230,8 @@
             <div
                 v-if="
                     settings.followup &&
-                        missionSpecs.additional &&
-                        missionSpecs.additional.followup_missions_ids
+                    missionSpecs.additional &&
+                    missionSpecs.additional.followup_missions_ids
                 "
             >
                 {{
@@ -378,8 +378,8 @@ export default Vue.extend<
         vehicles() {
             const vehicles = {} as VehicleRequirements;
             Object.keys(this.missionSpecs?.requirements || {})
-                .filter(req => !this.noVehicleRequirements.includes(req))
-                .forEach(vehicle => {
+                .filter((req) => !this.noVehicleRequirements.includes(req))
+                .forEach((vehicle) => {
                     let percentage = this.missionSpecs?.chances[vehicle] || 100;
                     if (
                         (percentage === 100 && !this.settings.chances['100']) ||
@@ -403,7 +403,7 @@ export default Vue.extend<
                     [amount: number]: string;
                 };
                 Object.keys(patientAdditionals).forEach(
-                    patients =>
+                    (patients) =>
                         this.currentPatients >= parseInt(patients) &&
                         (vehicles[patients] = {
                             amount: 1,
@@ -419,7 +419,7 @@ export default Vue.extend<
                         [vehicle: string]: string;
                     };
                 };
-                Object.keys(optionalAlternatives).forEach(alt => {
+                Object.keys(optionalAlternatives).forEach((alt) => {
                     if (
                         !optionalAlternatives[alt].not_customizable &&
                         !this.settings.optionalAlternatives[alt]
@@ -430,7 +430,7 @@ export default Vue.extend<
                         this.missionSpecs.additional[alt]
                     )
                         return Object.keys(optionalAlternatives[alt]).forEach(
-                            rep =>
+                            (rep) =>
                                 (vehicles[rep].caption = this.$mc(
                                     `vehicles.optional_alternatives.${alt}.${rep}`,
                                     vehicles[rep].amount
@@ -447,7 +447,7 @@ export default Vue.extend<
                     not_customizable?: boolean;
                 };
             };
-            Object.keys(multifunctionals).forEach(vehicle => {
+            Object.keys(multifunctionals).forEach((vehicle) => {
                 if (
                     !multifunctionals[vehicle].not_customizable &&
                     !this.settings.multifunctionals[vehicle]
@@ -491,7 +491,7 @@ export default Vue.extend<
         specialRequirements() {
             return Object.keys(
                 this.missionSpecs?.requirements || {}
-            ).filter(req => this.noVehicleRequirements.includes(req));
+            ).filter((req) => this.noVehicleRequirements.includes(req));
         },
     },
     methods: {
@@ -525,7 +525,7 @@ export default Vue.extend<
                                         method: 'GET',
                                     },
                                 })
-                                .then(res => res.json())
+                                .then((res) => res.json())
                         )
                     )
                 );
@@ -545,13 +545,13 @@ export default Vue.extend<
         getMission(id) {
             return (JSON.parse(
                 sessionStorage.getItem('mission_specs_cache') || '{}'
-            ) as Mission[]).find(spec => spec.id === id);
+            ) as Mission[]).find((spec) => spec.id === id);
         },
         loadSetting(id, base, base_string = '') {
             if (typeof base[id] === 'object') {
                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                 // @ts-ignore
-                Object.keys(base[id]).forEach(sid =>
+                Object.keys(base[id]).forEach((sid) =>
                     this.loadSetting(
                         sid,
                         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -569,7 +569,7 @@ export default Vue.extend<
                         }${id}`,
                         defaultValue: base[id],
                     })
-                    .then(setting => {
+                    .then((setting) => {
                         this.$set(base, id, setting);
                     });
             }
@@ -630,18 +630,18 @@ export default Vue.extend<
                 settingId: 'overlay',
                 defaultValue: false,
             })
-            .then(overlay => (this.overlay = overlay));
+            .then((overlay) => (this.overlay = overlay));
         this.$store
             .dispatch('settings/getSetting', {
                 moduleId: MODULE_ID,
                 settingId: 'minified',
                 defaultValue: false,
             })
-            .then(minified => (this.minified = minified));
+            .then((minified) => (this.minified = minified));
     },
     mounted() {
         this.reloadSpecs();
-        Object.keys(this.settings).forEach(id =>
+        Object.keys(this.settings).forEach((id) =>
             this.loadSetting(id, this.settings)
         );
     },

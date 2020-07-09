@@ -61,7 +61,7 @@ export default Vue.extend<
             set(values: ({ label: string; value: string[] } | string)[]) {
                 this.$emit(
                     'input',
-                    values.map(v => (typeof v === 'string' ? v : v.value))
+                    values.map((v) => (typeof v === 'string' ? v : v.value))
                 );
             },
         },

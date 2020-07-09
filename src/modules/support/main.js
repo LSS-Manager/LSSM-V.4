@@ -5,8 +5,8 @@ const get_support_chats = (loop = false) =>
         .dispatch('api/request', {
             url: `${window.lssmv4.$store.state.server}support/get_support_chats.php`,
         })
-        .then(res => res.json())
-        .then(data => {
+        .then((res) => res.json())
+        .then((data) => {
             window.lssmv4.$store.commit('updateSupportChats', data);
             const badge = document.getElementById(
                 window.lssmv4.$store.getters.nodeId('support-badge')

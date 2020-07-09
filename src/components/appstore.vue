@@ -59,7 +59,7 @@
                     <span
                         v-if="
                             modules[moduleId].description !==
-                                `modules.${moduleId}.description`
+                            `modules.${moduleId}.description`
                         "
                     >
                         {{ modules[moduleId].description }}
@@ -94,7 +94,7 @@ export default Vue.extend<
     data() {
         let modules = this.$store.getters.appModules as Modules;
         Object.keys(modules).forEach(
-            moduleId =>
+            (moduleId) =>
                 (modules[moduleId] = {
                     ...modules[moduleId],
                     description: this.$t(
@@ -112,14 +112,14 @@ export default Vue.extend<
     computed: {
         active() {
             return Object.keys(this.modules)
-                .filter(module => this.modules[module].active)
+                .filter((module) => this.modules[module].active)
                 .sort();
         },
         changes() {
             return !isEqual(this.active, [...this.activeStart].sort());
         },
         modulesFiltered() {
-            return this.modulesSorted.filter(m =>
+            return this.modulesSorted.filter((m) =>
                 this.moduleSearch.length > 0
                     ? JSON.stringify([
                           m,
@@ -147,10 +147,10 @@ export default Vue.extend<
                     this.$store.commit('setAppstoreChanges', this.changes);
                     this.$store.commit('setAppstoreReload');
                 })
-                .catch(err => console.error(err));
+                .catch((err) => console.error(err));
         },
         reset() {
-            Object.keys(this.modules).forEach(module => {
+            Object.keys(this.modules).forEach((module) => {
                 this.$set(
                     this.modules[module],
                     'active',

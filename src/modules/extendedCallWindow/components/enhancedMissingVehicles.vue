@@ -14,7 +14,7 @@
                     :sort-dir="sortDir"
                     :search="missingRequirementsSearch"
                     @sort="setSort"
-                    @search="s => (missingRequirementsSearch = s)"
+                    @search="(s) => (missingRequirementsSearch = s)"
                 ></enhanced-missing-vehicles-table>
             </div>
             <div class="col-md-6">
@@ -28,7 +28,7 @@
                     :sort-dir="sortDir"
                     :search="missingRequirementsSearch"
                     @sort="setSort"
-                    @search="s => (missingRequirementsSearch = s)"
+                    @search="(s) => (missingRequirementsSearch = s)"
                 ></enhanced-missing-vehicles-table>
             </div>
         </div>
@@ -73,7 +73,7 @@ export default Vue.extend<
     },
     computed: {
         missingRequirementsFiltered() {
-            return this.missingRequirements.filter(req =>
+            return this.missingRequirements.filter((req) =>
                 JSON.stringify(req)
                     .toLowerCase()
                     .match(this.missingRequirementsSearch.toLowerCase())

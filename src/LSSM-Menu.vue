@@ -228,13 +228,13 @@ export default Vue.extend<
                 key: 'iconBG',
                 defaultValue: defaultIconBg,
             })
-            .then(iconBG => (this.iconBg = iconBG));
+            .then((iconBG) => (this.iconBg = iconBG));
         this.$store
             .dispatch('settings/getSetting', {
                 moduleId: 'global',
                 settingId: 'labelInMenu',
             })
-            .then(labelInMenu => (this.labelInMenu = labelInMenu));
+            .then((labelInMenu) => (this.labelInMenu = labelInMenu));
     },
 });
 </script>

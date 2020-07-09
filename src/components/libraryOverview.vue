@@ -22,7 +22,7 @@
                     <img
                         :src="
                             lib.icon ||
-                                'https://github.githubassets.com/pinned-octocat.svg'
+                            'https://github.githubassets.com/pinned-octocat.svg'
                         "
                         :alt="libraryName"
                     />
@@ -76,7 +76,7 @@ export default Vue.extend<
         librariesFiltered(): string[] {
             return Object.keys(libraries)
                 .sort()
-                .filter(m =>
+                .filter((m) =>
                     this.librarySearch.length > 0
                         ? m
                               .toLowerCase()

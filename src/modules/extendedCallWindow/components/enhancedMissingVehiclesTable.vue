@@ -23,12 +23,12 @@
             },
         }"
         :table-attrs="{ class: 'table table-striped table-condensed' }"
-        @sort="k => $emit('sort', k)"
+        @sort="(k) => $emit('sort', k)"
         :sort="sort"
         :sort-dir="sortDir"
         :no-search="true"
         :search="search"
-        @search="k => $emit('search', k)"
+        @search="(k) => $emit('search', k)"
     >
         <tr
             v-for="requirement in missingRequirements"
@@ -77,7 +77,7 @@ export default Vue.extend<
         sortDir: {
             type: String,
             required: false,
-            validator: value => ['asc', 'desc'].includes(value),
+            validator: (value) => ['asc', 'desc'].includes(value),
         },
         search: {
             type: String,

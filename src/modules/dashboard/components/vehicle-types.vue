@@ -10,7 +10,7 @@
         :sort="sort"
         :sort-dir="sortDir"
         :search="search"
-        @search="s => (search = s)"
+        @search="(s) => (search = s)"
     >
         <tr
             v-for="vehicleType in vehicleTypesSorted"
@@ -98,14 +98,14 @@ export default Vue.extend<
             };
         };
         Object.values(statuses).forEach(
-            status =>
+            (status) =>
                 (statusHeads[`s${status}`] = {
                     title: `${statusText} ${status}`,
                 })
         );
         return {
             vehicleTypeNames: Object.values(this.$t('vehicles')).map(
-                type => type.caption
+                (type) => type.caption
             ),
             statuses,
             statusHeads,
@@ -121,12 +121,12 @@ export default Vue.extend<
                 [type: string]: Vehicle[];
             };
             const types = {} as TypeList;
-            Object.keys(vbt).forEach(type => {
+            Object.keys(vbt).forEach((type) => {
                 const fms = {} as { [status: string]: Vehicle[] };
                 Object.values(this.statuses).forEach(
-                    status => (fms[`s${status}`] = [])
+                    (status) => (fms[`s${status}`] = [])
                 );
-                Object.values(vbt[type]).forEach(vehicle => {
+                Object.values(vbt[type]).forEach((vehicle) => {
                     fms[`s${vehicle.fms_real}`].push(vehicle);
                 });
                 types[`t${type}`] = {
@@ -142,7 +142,7 @@ export default Vue.extend<
             const vehicleTypes = this.vehicleTypes;
             const filtered = {} as TypeList;
             Object.keys(vehicleTypes).filter(
-                type =>
+                (type) =>
                     JSON.stringify(Object.values(vehicleTypes[type]))
                         .toLowerCase()
                         .match(this.search.toLowerCase()) &&
@@ -167,7 +167,7 @@ export default Vue.extend<
                     }
                     return f < s ? -1 * modifier : f > s ? modifier : 0;
                 })
-                .map(e => e[0]);
+                .map((e) => e[0]);
         },
         sum() {
             return this.$store.state.api.vehicleStates;

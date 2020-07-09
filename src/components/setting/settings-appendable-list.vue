@@ -9,7 +9,7 @@
             <component
                 :is="setting.listItemComponent"
                 v-bind="cloneDeep(item)"
-                @change="v => changeValue(index, v)"
+                @change="(v) => changeValue(index, v)"
                 class="appendable-list-content"
             ></component>
             <button @click="removeItem(index)" class="btn btn-danger">

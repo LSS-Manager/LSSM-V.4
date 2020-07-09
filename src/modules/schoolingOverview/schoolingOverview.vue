@@ -25,7 +25,7 @@
                     :sort="sortOwn"
                     :sort-dir="sortOwnDir"
                     :search="ownSchoolingsSearch"
-                    @search="s => (ownSchoolingsSearch = s)"
+                    @search="(s) => (ownSchoolingsSearch = s)"
                 >
                     <tr v-for="schooling in sortedOwn" :key="schooling.key">
                         <td>{{ schooling.key }}</td>
@@ -52,7 +52,7 @@
                     :sort="sortOpen"
                     :sort-dir="sortOpenDir"
                     :search="openSchoolingsSearch"
-                    @search="s => (openSchoolingsSearch = s)"
+                    @search="(s) => (openSchoolingsSearch = s)"
                 >
                     <tr
                         v-for="schooling in sortedOpen"
@@ -125,7 +125,7 @@ export default Vue.extend<
             }[];
 
             return (this.ownSchoolingsSearch
-                ? schoolings.filter(schooling =>
+                ? schoolings.filter((schooling) =>
                       JSON.stringify(Object.values(schooling))
                           .toLowerCase()
                           .match(this.ownSchoolingsSearch.toLowerCase())
@@ -156,7 +156,7 @@ export default Vue.extend<
             }[];
 
             return (this.openSchoolingsSearch
-                ? schoolings.filter(schooling =>
+                ? schoolings.filter((schooling) =>
                       JSON.stringify(Object.values(schooling))
                           .toLowerCase()
                           .match(this.openSchoolingsSearch.toLowerCase())

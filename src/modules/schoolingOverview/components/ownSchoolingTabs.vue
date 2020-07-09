@@ -8,7 +8,7 @@
                 :sort="sort"
                 :sort-dir="sortDir"
                 :search="search"
-                @search="s => (search = s)"
+                @search="(s) => (search = s)"
             >
                 <tr
                     v-for="(schooling, id) in schoolings"
@@ -25,9 +25,7 @@
                     </td>
                     <td
                         :id="`education_schooling_${schooling.id}_1`"
-                        :onload="
-                            `educationCountdown(${schooling.end}, ${schooling.id}_1);`
-                        "
+                        :onload="`educationCountdown(${schooling.end}, ${schooling.id}_1);`"
                     >
                         {{ schooling.end }}
                     </td>
@@ -64,7 +62,7 @@ export default Vue.extend<
             };
         };
         ['name', 'end', 'owner'].forEach(
-            head =>
+            (head) =>
                 (heads[head] = {
                     title: this.$t(
                         `modules.schoolingOverview.titles.${head}`
@@ -88,7 +86,7 @@ export default Vue.extend<
         schoolings() {
             const schoolings = this.tabs[this.currentTab] || [];
             return (this.search
-                ? schoolings.filter(a =>
+                ? schoolings.filter((a) =>
                       JSON.stringify(Object.values(a))
                           .toLowerCase()
                           .match(this.search.toLowerCase())
@@ -117,17 +115,14 @@ export default Vue.extend<
         };
         document
             .querySelectorAll('#schooling_own_table tbody tr')
-            .forEach(schooling => {
+            .forEach((schooling) => {
                 let btn = schooling.querySelector(
                     'a.btn-success'
                 ) as HTMLLinkElement;
                 if (!btn) return;
                 let name = btn.textContent || '';
                 let category =
-                    name
-                        ?.match(/^.*?-/)?.[0]
-                        .replace('-', '')
-                        .trim() || '';
+                    name?.match(/^.*?-/)?.[0].replace('-', '').trim() || '';
                 const endNode = schooling.querySelector('td:nth-of-type(2)');
                 let owner = schooling.querySelector('td:nth-of-type(3)');
                 if (!endNode || !owner) return;

@@ -6,7 +6,7 @@
             <v-select
                 v-model="selectedChat"
                 :options="chatSelection"
-                :reduce="chat => chat.value"
+                :reduce="(chat) => chat.value"
                 :clearable="false"
                 @input="update"
             ></v-select>
@@ -69,7 +69,7 @@ export default {
             return this.$store.state.support.chats;
         },
         chatSelection() {
-            return Object.keys(this.$store.state.support.chats).map(c => {
+            return Object.keys(this.$store.state.support.chats).map((c) => {
                 const fm = this.$store.state.support.chats[c].messages[0];
                 const author = fm && fm.author ? fm.author : { name: '' };
                 return {

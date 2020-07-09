@@ -31,7 +31,7 @@
                                     :sort="vehiclesTab.sort"
                                     :sort-dir="vehiclesTab.sortDir"
                                     :search="vehiclesTab.search"
-                                    @search="s => (vehiclesTab['search'] = s)"
+                                    @search="(s) => (vehiclesTab['search'] = s)"
                                 >
                                     <tr
                                         v-for="vehicle in vehicleTypes"
@@ -62,7 +62,7 @@
                                             ><span
                                                 v-else-if="
                                                     typeof vehicle[attr] ===
-                                                        'object'
+                                                    'object'
                                                 "
                                                 v-html="
                                                     Object.values(
@@ -107,7 +107,7 @@
                             :sort="buildingsTab.sort"
                             :sort-dir="buildingsTab.sortDir"
                             :search="buildingsTab.search"
-                            @search="s => (buildingsTab['search'] = s)"
+                            @search="(s) => (buildingsTab['search'] = s)"
                         >
                             <tr
                                 v-for="building in buildingsSorted"
@@ -221,7 +221,7 @@ export default Vue.extend<
                     (vehicleCategories[category].vehicles[
                         group
                     ] = Object.values(vehicles as number[]).map(
-                        type => vehicleTypes[type]
+                        (type) => vehicleTypes[type]
                     ))
             )
         );
@@ -315,7 +315,7 @@ export default Vue.extend<
                 : [];
         },
         buildingsFiltered() {
-            return Object.values(this.currentBuildings).filter(building =>
+            return Object.values(this.currentBuildings).filter((building) =>
                 JSON.stringify(Object.values(building))
                     .toLowerCase()
                     .match(this.buildingsTab.search.toLowerCase())
@@ -347,7 +347,7 @@ export default Vue.extend<
                     ]
                 ];
             return (this.vehiclesTab.search
-                ? vehicles.filter(vehicle =>
+                ? vehicles.filter((vehicle) =>
                       JSON.stringify(Object.values(vehicle))
                           .toLowerCase()
                           .match(this.vehiclesTab.search.toLowerCase())
