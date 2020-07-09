@@ -8,10 +8,14 @@
             },
             prevElementKey: {
                 type: 'hotkey',
-                default: '',
+                default: 'left',
+                dependsOn: '.prevNextElement',
+            },
+            nextElementKey: {
+                type: 'hotkey',
+                default: 'right',
+                dependsOn: '.prevNextElement',
             },
         },
     });
 })(window[PREFIX] as Vue);
-
-// Note: https://craig.is/killing/mice

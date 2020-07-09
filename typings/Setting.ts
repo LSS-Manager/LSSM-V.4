@@ -44,6 +44,11 @@ interface MultiSelect extends SettingTemplate {
     values: string[];
 }
 
+interface HotKey extends SettingTemplate {
+    default: string;
+    value: string;
+}
+
 interface AppendableListItem {
     [key: string]: unknown;
 }
@@ -63,7 +68,8 @@ export type Setting =
     | Select
     | MultiSelect
     | Color
-    | NumberInput;
+    | NumberInput
+    | HotKey;
 
 export interface Settings {
     [key: string]: Setting;

@@ -159,6 +159,17 @@
                             @input="update(moduleId, settingId)"
                             :disabled="setting.isDisabled"
                         ></settings-multi-select>
+                        <settings-hotkey
+                            v-else-if="setting.type === 'hotkey'"
+                            :name="setting.name"
+                            :placeholder="
+                                $t(
+                                    `modules.${moduleId}.settings.${settingId}.title`
+                                )
+                            "
+                            v-model="settings[moduleId][settingId].value"
+                            @input="update(moduleId, settingId)"
+                        ></settings-hotkey>
                         <!--                        <settings-appendable-list-->
                         <!--                            v-else-if="setting.type === 'appendable-list'"-->
                         <!--                            :setting="setting"-->
@@ -187,6 +198,7 @@ import SettingsSelect from './setting/select.vue';
 import SettingsMultiSelect from './setting/multi-select.vue';
 import SettingsColor from './setting/color.vue';
 import SettingsNumber from './setting/number.vue';
+import SettingsHotkey from './setting/hotkey.vue';
 // import SettingsAppendableList from './setting/settings-appendable-list.vue';
 import Lightbox from './lightbox.vue';
 import { LSSM } from '../core';
@@ -214,6 +226,7 @@ export default Vue.extend<
         SettingsMultiSelect,
         SettingsColor,
         SettingsNumber,
+        SettingsHotkey,
         Setting,
         Lightbox,
     },

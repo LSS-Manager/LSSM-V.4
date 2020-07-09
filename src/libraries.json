@@ -14,6 +14,9 @@
 		"url": "https://github.com/FortAwesome/vue-fontawesome",
 		"version": "0.1.10"
 	},
+	"@types/combokeys": {
+		"version": "2.4.6"
+	},
 	"@types/leaflet": {
 		"version": "1.5.15"
 	},
@@ -58,6 +61,10 @@
 	"clean-webpack-plugin": {
 		"url": "https://github.com/johnagan/clean-webpack-plugin",
 		"version": "3.0.0"
+	},
+	"combokeys": {
+		"url": "https://github.com/PolicyStat/combokeys",
+		"version": "3.0.1"
 	},
 	"copy-dir": {
 		"url": "https://github.com/pillys/copy-dir",
@@ -135,7 +142,7 @@
 	},
 	"ts-loader": {
 		"url": "https://github.com/TypeStrong/ts-loader",
-		"version": "7.0.5"
+		"version": "8.0.0"
 	},
 	"tslint": {
 		"url": "https://palantir.github.io/tslint",

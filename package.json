@@ -1,5 +1,5 @@
 {
-    "version": "4.0.5+20200708.1522",
+    "version": "4.0.5+20200709.2119",
     "license": "CC-BY-NC-SA-4.0",
     "scripts": {
         "predev": "yarn run eslint:fix && yarn run tsc:prebuild && node prebuild 2>&1 | tee dist/log.beta.prebuild.txt",
@@ -19,6 +19,7 @@
         "@fortawesome/fontawesome-svg-core": "^1.2.29",
         "@fortawesome/free-solid-svg-icons": "^5.13.1",
         "@fortawesome/vue-fontawesome": "^0.1.10",
+        "combokeys": "^3.0.1",
         "highcharts": "^8.1.2",
         "localforage": "^1.7.4",
         "lodash": "^4.17.17",
@@ -35,6 +36,7 @@
         "vuex": "^3.5.1"
     },
     "devDependencies": {
+        "@types/combokeys": "^2.4.6",
         "@types/leaflet": "^1.5.15",
         "@types/lodash": "^4.14.157",
         "@types/node": "^14.0.19",
