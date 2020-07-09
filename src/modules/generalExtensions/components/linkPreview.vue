@@ -1,7 +1,11 @@
 <template>
     <div class="panel panel-default">
         <div class="panel-heading">
-            <font-awesome-icon :icon="icon"></font-awesome-icon>
+            <font-awesome-icon
+                v-if="icon"
+                :icon="icon"
+                class="type-icon"
+            ></font-awesome-icon>
             <span
                 v-if="type === 'vehicles'"
                 class="building_list_fms"
@@ -14,6 +18,52 @@
             <br v-if="additional" />
             <small v-if="additional">
                 {{ additional }}
+                <span
+                    v-if="
+                        type === 'buildings' &&
+                            vehicleBuildings.includes(building.building_type)
+                    "
+                >
+                    |
+                    <font-awesome-icon :icon="faParking"></font-awesome-icon>
+                    {{ building.level + 1 }}
+                    |
+                    <font-awesome-icon :icon="faCar"></font-awesome-icon>
+                    {{ buildingVehicles.length }}
+                    |
+                    <font-awesome-icon :icon="faUsers"></font-awesome-icon>
+                    {{ buildingVehicles.length }}
+                </span>
+                <span
+                    v-if="
+                        type === 'buildings' &&
+                            cellBuildings.includes(building.building_type)
+                    "
+                >
+                    <!-- TODO: Amount of cells -->
+                </span>
+                <span
+                    v-if="
+                        type === 'buildings' &&
+                            bedBuildings.includes(building.building_type)
+                    "
+                >
+                    |
+                    <font-awesome-icon :icon="faProcedures"></font-awesome-icon>
+                    {{ building.level }}
+                </span>
+                <span
+                    v-if="
+                        type === 'buildings' &&
+                            schoolBuildings.includes(building.building_type)
+                    "
+                >
+                    |
+                    <font-awesome-icon
+                        :icon="faChalkboardTeacher"
+                    ></font-awesome-icon>
+                    {{ building.extensions.length + 1 }}
+                </span>
             </small>
         </div>
         <div class="panel-body">
@@ -29,7 +79,12 @@
                     }}
                 </a>
             </span>
-            <table v-else-if="type === 'buildings'">
+            <table
+                v-else-if="
+                    type === 'buildings' &&
+                        vehicleBuildings.includes(building.building_type)
+                "
+            >
                 <tr v-for="vehicle in buildingVehicles" :key="vehicle.id">
                     <td>
                         <span
@@ -61,9 +116,14 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import { faParking } from '@fortawesome/free-solid-svg-icons/faParking';
+import { faCar } from '@fortawesome/free-solid-svg-icons/faCar';
+import { faUsers } from '@fortawesome/free-solid-svg-icons/faUsers';
+import { faProcedures } from '@fortawesome/free-solid-svg-icons/faProcedures';
+import { faChalkboardTeacher } from '@fortawesome/free-solid-svg-icons/faChalkboardTeacher';
 import {
-    LinkPreviewMethods,
     LinkPreview,
+    LinkPreviewMethods,
     LinkPreviewComputed,
     LinkPreviewProps,
 } from 'typings/modules/GeneralExtensions/LinkPreview';
@@ -79,7 +139,12 @@ export default Vue.extend<
     name: 'linkPreview',
     data() {
         return {
-            icon: 'question',
+            faParking,
+            faCar,
+            faUsers,
+            faProcedures,
+            faChalkboardTeacher,
+            icon: '',
             type: '',
             id: 0,
             title: '',
@@ -89,6 +154,14 @@ export default Vue.extend<
                 y: 0,
             },
             vehicleTypes: (this.$t('vehicles') as unknown) as InternalVehicle[],
+            vehicleBuildings: Object.values(
+                this.$t('vehicleBuildings')
+            ) as number[],
+            cellBuildings: Object.values(this.$t('cellBuildings')) as number[],
+            bedBuildings: Object.values(this.$t('bedBuildings')) as number[],
+            schoolBuildings: Object.values(
+                this.$t('schoolBuildings')
+            ) as number[],
             building: null,
             vehicle: null,
         } as LinkPreview;
@@ -131,7 +204,7 @@ export default Vue.extend<
             this.vehicle = null;
         },
         _setIcon(icon) {
-            if (!icon) icon = 'question';
+            if (!icon) icon = '';
             this.icon = icon;
         },
         _setType(type) {
@@ -211,6 +284,6 @@ export default Vue.extend<
     position: fixed
     z-index: 2000
 
-    .svg-inline--fa
+    .type-icon
         margin-right: 1rem
 </style>

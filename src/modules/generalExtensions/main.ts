@@ -18,12 +18,7 @@ import mapUndo from './assets/mapUndo';
             linkPreviews: {
                 type: 'multiSelect',
                 default: [],
-                values: [
-                    'buildings',
-                    // 'missions',
-                    'vehicles',
-                    // 'profile',
-                ],
+                values: ['buildings', 'missions', 'vehicles', 'profile'],
             },
             mapUndo: {
                 type: 'toggle',

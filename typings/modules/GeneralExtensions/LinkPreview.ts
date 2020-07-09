@@ -1,7 +1,13 @@
+import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { InternalVehicle, Vehicle } from 'typings/Vehicle';
 import { Building } from 'typings/Building';
 
 export interface LinkPreview {
+    faParking: IconDefinition;
+    faCar: IconDefinition;
+    faUsers: IconDefinition;
+    faProcedures: IconDefinition;
+    faChalkboardTeacher: IconDefinition;
     icon: string;
     type: string;
     id: number;
@@ -12,6 +18,10 @@ export interface LinkPreview {
         y: number;
     };
     vehicleTypes: InternalVehicle[];
+    vehicleBuildings: number[];
+    cellBuildings: number[];
+    bedBuildings: number[];
+    schoolBuildings: number[];
     building: Building | null;
     vehicle: Vehicle | null;
 }
