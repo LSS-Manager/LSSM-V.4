@@ -59,7 +59,7 @@
         "sass-loader": "^9.0.2",
         "string-replace-loader": "^2.3.0",
         "terser": "^4.8.0",
-        "ts-loader": "^7.0.5",
+        "ts-loader": "^8.0.0",
         "tslint": "^6.1.2",
         "typescript": "^3.9.6",
         "vue-loader": "^15.9.3",
