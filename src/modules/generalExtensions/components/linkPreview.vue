@@ -40,7 +40,19 @@
                             cellBuildings.includes(building.building_type)
                     "
                 >
-                    <!-- TODO: Amount of cells -->
+                    |
+                    <font-awesome-icon :icon="faBorderAll"></font-awesome-icon>
+                    {{
+                        building.extensions.filter(
+                            e =>
+                                e.available && buildingCells.includes(e.type_id)
+                        ).length
+                    }}
+                    ({{
+                        building.extensions.filter(e =>
+                            buildingCells.includes(e.type_id)
+                        ).length
+                    }})
                 </span>
                 <span
                     v-if="
@@ -121,6 +133,7 @@ import { faCar } from '@fortawesome/free-solid-svg-icons/faCar';
 import { faUsers } from '@fortawesome/free-solid-svg-icons/faUsers';
 import { faProcedures } from '@fortawesome/free-solid-svg-icons/faProcedures';
 import { faChalkboardTeacher } from '@fortawesome/free-solid-svg-icons/faChalkboardTeacher';
+import { faBorderAll } from '@fortawesome/free-solid-svg-icons/faBorderAll';
 import {
     LinkPreview,
     LinkPreviewMethods,
@@ -144,6 +157,7 @@ export default Vue.extend<
             faUsers,
             faProcedures,
             faChalkboardTeacher,
+            faBorderAll,
             icon: '',
             type: '',
             id: 0,
@@ -158,6 +172,9 @@ export default Vue.extend<
                 this.$t('vehicleBuildings')
             ) as number[],
             cellBuildings: Object.values(this.$t('cellBuildings')) as number[],
+            cellExtensions: Object.values(
+                this.$t('cellExtensions')
+            ) as string[],
             bedBuildings: Object.values(this.$t('bedBuildings')) as number[],
             schoolBuildings: Object.values(
                 this.$t('schoolBuildings')
@@ -191,6 +208,18 @@ export default Vue.extend<
                     a.caption > b.caption ? 1 : b.caption > a.caption ? -1 : 0
                 ) || []
             );
+        },
+        buildingCells() {
+            return this.cellExtensions
+                .filter(e =>
+                    e.startsWith(this.building?.building_type.toString() || 'ǜ')
+                )
+                .map(e =>
+                    parseInt(e.replace(`${this.building?.building_type}_`, ''))
+                )
+                .filter(e =>
+                    this.building?.extensions.find(be => be.type_id === e)
+                );
         },
     },
     methods: {

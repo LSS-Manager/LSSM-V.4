@@ -8,6 +8,7 @@ export interface LinkPreview {
     faUsers: IconDefinition;
     faProcedures: IconDefinition;
     faChalkboardTeacher: IconDefinition;
+    faBorderAll: IconDefinition;
     icon: string;
     type: string;
     id: number;
@@ -20,6 +21,7 @@ export interface LinkPreview {
     vehicleTypes: InternalVehicle[];
     vehicleBuildings: number[];
     cellBuildings: number[];
+    cellExtensions: string[];
     bedBuildings: number[];
     schoolBuildings: number[];
     building: Building | null;
@@ -48,6 +50,7 @@ export interface LinkPreviewComputed {
     buildings: Building[];
     vehicles: { [buildingId: number]: Vehicle[] };
     buildingVehicles: Vehicle[];
+    buildingCells: number[];
 }
 
 export interface LinkPreviewProps {

@@ -2,6 +2,7 @@ interface Extension {
     caption: string;
     available: boolean;
     enabled: boolean;
+    type_id: number;
 }
 
 export interface Building {
