@@ -18,6 +18,17 @@
             <a class="btn btn-info" download="LSSM_V4.lssm" :href="exportData">
                 {{ $m('export') }}
             </a>
+            <button class="btn btn-info" @click="$refs.import.click()">
+                {{ $m('import') }}
+            </button>
+            <label class="hidden">
+                <input
+                    type="file"
+                    accept="application/json,.lssm"
+                    ref="import"
+                    @change="importSettings"
+                />
+            </label>
         </h1>
         <tabs
             :class="$store.getters.nodeAttribute('settings-tabs')"
@@ -208,17 +219,16 @@ import { LSSM } from '../core';
 import {
     SettingsData,
     SettingsMethods,
-    SettingsComputed,
 } from '../../typings/components/Settings';
 import cloneDeep from 'lodash/cloneDeep';
 import isEqual from 'lodash/isEqual';
-import { DefaultProps } from 'vue/types/options';
+import { DefaultProps, DefaultComputed } from 'vue/types/options';
 import { Setting as SettingType } from '../../typings/Setting';
 
 export default Vue.extend<
     SettingsData,
     SettingsMethods,
-    SettingsComputed,
+    DefaultComputed,
     DefaultProps
 >({
     name: 'settings',
@@ -251,27 +261,8 @@ export default Vue.extend<
             key: 0,
             changes: false,
             tab: 0,
+            exportData: '',
         };
-    },
-    computed: {
-        savedValueMap() {
-            return Object.fromEntries(
-                Object.entries(this.startSettings).map(([module, settings]) => [
-                    module,
-                    Object.fromEntries(
-                        Object.entries(settings).map(([setting, { value }]) => [
-                            setting,
-                            value,
-                        ])
-                    ),
-                ])
-            );
-        },
-        exportData() {
-            return `data:text/json;charset=utf-8,${encodeURIComponent(
-                JSON.stringify(this.savedValueMap)
-            )}`;
-        },
     },
     methods: {
         update(moduleId, settingId) {
@@ -385,7 +376,67 @@ export default Vue.extend<
             }
             return false;
         },
+        getExportData() {
+            this.$store.dispatch('storage/getAllItems').then(storage => {
+                this.exportData = `data:application/json;charset=utf-8,${encodeURIComponent(
+                    JSON.stringify(
+                        Object.fromEntries(
+                            Object.entries(storage)
+                                .filter(
+                                    ([key]) =>
+                                        key === 'activeModules' ||
+                                        key.startsWith('settings_')
+                                )
+                                .map(([key, value]) => [
+                                    key.replace('settings_', ''),
+                                    value,
+                                ])
+                        )
+                    )
+                )}`;
+            });
+        },
+        importSettings() {
+            const { files } = this.$refs.import as HTMLInputElement;
+            if (!files) return;
+            const file = files[0];
+            const fileReader = new FileReader();
+
+            fileReader.readAsText(file);
+
+            fileReader.onload = async () => {
+                const result = JSON.parse(fileReader.result as string) as {
+                    [key: string]:
+                        | string[]
+                        | {
+                              [key: string]: SettingType['value'];
+                          };
+                };
+                await this.$store.dispatch('storage/set', {
+                    key: 'activeModules',
+                    value: result.activeModules,
+                });
+                const resultEntries = Object.entries(result);
+                resultEntries.forEach(([module, value], index) => {
+                    if (module === 'activeModules') return;
+                    this.$store
+                        .dispatch('storage/set', {
+                            key: `settings_${module}`,
+                            value: {
+                                ...value,
+                            },
+                        })
+                        .then(() => {
+                            if (index === resultEntries.length - 1)
+                                window.location.reload();
+                        });
+                });
+            };
+        },
         $m: (key, args) => LSSM.$t(`modules.settings.${key}`, args),
+    },
+    mounted() {
+        this.getExportData();
     },
 });
 </script>

@@ -11,6 +11,7 @@ export interface SettingsData {
     key: number;
     changes: boolean;
     tab: number;
+    exportData: string;
 }
 
 export interface SettingsMethods {
@@ -19,19 +20,12 @@ export interface SettingsMethods {
     discard(): void;
     reset(): void;
     disabled(moduleId: string, settingId: string): boolean;
+    getExportData(): void;
+    importSettings(): void;
     $m(
         key: string,
         args?: {
             [key: string]: unknown;
         }
     ): VueI18n.TranslateResult;
-}
-
-export interface SettingsComputed {
-    savedValueMap: {
-        [module: string]: {
-            [setting: string]: Setting['value'];
-        };
-    };
-    exportData: string;
 }

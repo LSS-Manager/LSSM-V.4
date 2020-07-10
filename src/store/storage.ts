@@ -39,5 +39,23 @@ export default {
                 );
             return state.localforage.setItem(key, value);
         },
+        getAllItems({
+            state,
+        }: StorageActionStoreParams): Promise<{
+            [key: string]: unknown;
+        }> {
+            return new Promise<{
+                [key: string]: unknown;
+            }>(resolve => {
+                const storage = {} as {
+                    [key: string]: unknown;
+                };
+                state.localforage
+                    .iterate((value, key) => {
+                        storage[key] = value;
+                    })
+                    .then(() => resolve(storage));
+            });
+        },
     } as ActionTree<StorageState, RootState>,
 } as Module<StorageState, RootState>;

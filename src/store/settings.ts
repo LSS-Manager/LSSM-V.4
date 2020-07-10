@@ -104,7 +104,7 @@ export default {
             );
         },
         setSetting(
-            { commit, dispatch }: SettingsActionStoreParams,
+            { dispatch }: SettingsActionStoreParams,
             { moduleId, settingId, value }: SettingsSet
         ) {
             dispatch('getModule', moduleId).then(async module => {

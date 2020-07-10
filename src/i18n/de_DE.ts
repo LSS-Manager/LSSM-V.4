@@ -21,6 +21,7 @@ const modules = {
         discard: 'Änderungen verwerfen',
         reset: 'Reset',
         export: 'Exportieren',
+        import: 'Importieren',
         resetWarning: {
             title: 'Zurücksetzen der Einstellungen',
             text:
