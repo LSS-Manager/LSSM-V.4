@@ -20,6 +20,7 @@ const modules = {
         save: 'Speichern',
         discard: 'Änderungen verwerfen',
         reset: 'Reset',
+        export: 'Exportieren',
         resetWarning: {
             title: 'Zurücksetzen der Einstellungen',
             text:

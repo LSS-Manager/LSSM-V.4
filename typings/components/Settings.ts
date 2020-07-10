@@ -1,5 +1,5 @@
 import { Modules } from '../Module';
-import { ModuleSettings } from '../Setting';
+import { ModuleSettings, Setting } from '../Setting';
 import VueI18n from 'vue-i18n';
 
 export interface SettingsData {
@@ -25,4 +25,13 @@ export interface SettingsMethods {
             [key: string]: unknown;
         }
     ): VueI18n.TranslateResult;
+}
+
+export interface SettingsComputed {
+    savedValueMap: {
+        [module: string]: {
+            [setting: string]: Setting['value'];
+        };
+    };
+    exportData: string;
 }

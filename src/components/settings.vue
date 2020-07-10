@@ -15,6 +15,9 @@
             <button class="btn btn-danger" @click="reset">
                 {{ $m('reset') }}
             </button>
+            <a class="btn btn-info" download="LSSM_V4.lssm" :href="exportData">
+                {{ $m('export') }}
+            </a>
         </h1>
         <tabs
             :class="$store.getters.nodeAttribute('settings-tabs')"
@@ -205,16 +208,17 @@ import { LSSM } from '../core';
 import {
     SettingsData,
     SettingsMethods,
+    SettingsComputed,
 } from '../../typings/components/Settings';
 import cloneDeep from 'lodash/cloneDeep';
 import isEqual from 'lodash/isEqual';
-import { DefaultProps, DefaultComputed } from 'vue/types/options';
+import { DefaultProps } from 'vue/types/options';
 import { Setting as SettingType } from '../../typings/Setting';
 
 export default Vue.extend<
     SettingsData,
     SettingsMethods,
-    DefaultComputed,
+    SettingsComputed,
     DefaultProps
 >({
     name: 'settings',
@@ -248,6 +252,26 @@ export default Vue.extend<
             changes: false,
             tab: 0,
         };
+    },
+    computed: {
+        savedValueMap() {
+            return Object.fromEntries(
+                Object.entries(this.startSettings).map(([module, settings]) => [
+                    module,
+                    Object.fromEntries(
+                        Object.entries(settings).map(([setting, { value }]) => [
+                            setting,
+                            value,
+                        ])
+                    ),
+                ])
+            );
+        },
+        exportData() {
+            return `data:text/json;charset=utf-8,${encodeURIComponent(
+                JSON.stringify(this.savedValueMap)
+            )}`;
+        },
     },
     methods: {
         update(moduleId, settingId) {
