@@ -5,13 +5,34 @@
             <button class="btn btn-success" :disabled="!changes" @click="save">
                 {{ $m('save') }}
             </button>
-            <button
-                class="btn btn-warning"
-                :disabled="!changes"
-                @click="discard"
-            >
-                {{ $m('discard') }}
-            </button>
+            <span class="btn-group">
+                <button
+                    class="btn btn-warning"
+                    :disabled="!changes"
+                    @click="discard"
+                >
+                    {{ $m('discard') }}
+                </button>
+                <button class="btn btn-warning" :disabled="!changes">
+                    <font-awesome-icon :icon="faHistory"></font-awesome-icon>
+                    <div id="settings-changelist">
+                        <div
+                            v-for="(changes, module) in changeList"
+                            :key="module"
+                        >
+                            <b>{{
+                                $t(
+                                    `modules.${module}.name`.replace(
+                                        'modules.global',
+                                        'globalSettings'
+                                    )
+                                )
+                            }}</b>
+                            {{ changes }}
+                        </div>
+                    </div>
+                </button>
+            </span>
             <button class="btn btn-danger" @click="reset">
                 {{ $m('reset') }}
             </button>
@@ -215,20 +236,22 @@ import SettingsNumber from './setting/number.vue';
 import SettingsHotkey from './setting/hotkey.vue';
 // import SettingsAppendableList from './setting/settings-appendable-list.vue';
 import Lightbox from './lightbox.vue';
+import { faHistory } from '@fortawesome/free-solid-svg-icons/faHistory';
 import { LSSM } from '../core';
 import {
     SettingsData,
     SettingsMethods,
+    SettingsComputed,
 } from '../../typings/components/Settings';
 import cloneDeep from 'lodash/cloneDeep';
 import isEqual from 'lodash/isEqual';
-import { DefaultProps, DefaultComputed } from 'vue/types/options';
+import { DefaultProps } from 'vue/types/options';
 import { Setting as SettingType } from '../../typings/Setting';
 
 export default Vue.extend<
     SettingsData,
     SettingsMethods,
-    DefaultComputed,
+    SettingsComputed,
     DefaultProps
 >({
     name: 'settings',
@@ -247,6 +270,7 @@ export default Vue.extend<
     data() {
         const settings = cloneDeep(this.$store.state.settings.settings);
         return {
+            faHistory,
             settings,
             startSettings: cloneDeep(settings),
             modulesSorted: [
@@ -263,6 +287,58 @@ export default Vue.extend<
             tab: 0,
             exportData: '',
         };
+    },
+    computed: {
+        liveValueMap() {
+            return Object.fromEntries(
+                Object.entries(this.settings).map(([module, settings]) => [
+                    module,
+                    Object.fromEntries(
+                        Object.entries(settings).map(([setting, { value }]) => [
+                            setting,
+                            value,
+                        ])
+                    ),
+                ])
+            );
+        },
+        savedValueMap() {
+            return Object.fromEntries(
+                Object.entries(this.startSettings).map(([module, settings]) => [
+                    module,
+                    Object.fromEntries(
+                        Object.entries(settings).map(([setting, { value }]) => [
+                            setting,
+                            value,
+                        ])
+                    ),
+                ])
+            );
+        },
+        changeList() {
+            if (!this.changes) return {};
+            return Object.fromEntries(
+                Object.entries(this.savedValueMap).map(([module, settings]) => [
+                    module,
+                    Object.fromEntries(
+                        Object.entries(settings)
+                            .map(([setting, saved]) => [
+                                setting,
+                                {
+                                    saved: saved,
+                                    current: this.liveValueMap[module][setting],
+                                },
+                            ])
+                            .filter(
+                                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                                // @ts-ignore
+                                ([_, { saved, current }]) =>
+                                    !isEqual(saved, current)
+                            )
+                    ),
+                ])
+            );
+        },
     },
     methods: {
         update(moduleId, settingId) {
@@ -441,7 +517,7 @@ export default Vue.extend<
 });
 </script>
 
-<style lang="sass">
+<style scoped lang="sass">
 .vue-tab[aria-selected="true"]
     border-bottom-color: white !important
 .vue-tabpanel
@@ -458,4 +534,10 @@ export default Vue.extend<
 
 .auto-sized-grid.wide
     grid-template-columns: repeat(auto-fit, minmax(150px, 100%))
+
+#settings-changelist
+    display: none
+
+button:hover > #settings-changelist
+    display: block
 </style>
