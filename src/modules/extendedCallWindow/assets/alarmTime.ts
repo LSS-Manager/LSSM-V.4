@@ -27,8 +27,15 @@ export default (LSSM: Vue): void => {
             };
 
             const observer = new MutationObserver((_, observer) => {
-                setAlarmTime(getLastVehicleTime().alarmTime);
-                observer.disconnect();
+                const { lastVehicle, alarmTime } = getLastVehicleTime();
+                setAlarmTime(alarmTime);
+                const vehicleId = lastVehicle?.getAttribute('value');
+                const sortValue =
+                    document
+                        .getElementById(`vehicle_sort_${vehicleId}`)
+                        ?.getAttribute('sortvalue')
+                        ?.toString() || '99999999999';
+                if (!sortValue.startsWith('9999999999')) observer.disconnect();
             });
 
             document
@@ -36,12 +43,14 @@ export default (LSSM: Vue): void => {
                 ?.addEventListener('change', () => {
                     const { lastVehicle, alarmTime } = getLastVehicleTime();
                     setAlarmTime(alarmTime);
-                    const calcTimeBtn = lastVehicle?.querySelector(
+                    const calcTimeBtn = lastVehicle?.parentElement?.parentElement?.querySelector(
                         '.calculateTime'
                     ) as HTMLAnchorElement;
-                    if (calcTimeBtn) {
+                    if (calcTimeBtn && calcTimeBtn.parentElement) {
                         calcTimeBtn.click();
-                        observer.observe(calcTimeBtn, { childList: true });
+                        observer.observe(calcTimeBtn.parentElement, {
+                            childList: true,
+                        });
                     }
                 });
         });
