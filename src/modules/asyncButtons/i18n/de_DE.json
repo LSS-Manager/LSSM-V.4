@@ -1,0 +1,8 @@
+{
+    "settings": {
+        "buildingTax": {
+            "title": "Kostenübernahme von Zellen und Betten",
+            "description": "Verhindert ein Neuladen, wenn du die Kosten von eigenen Zellen oder Krankenhausbetten festlegst."
+        }
+    }
+}

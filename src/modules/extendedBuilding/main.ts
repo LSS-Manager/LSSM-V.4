@@ -1,4 +1,3 @@
-import asyncButtons from './assets/asyncButtons';
 import enhanceVehicleList from './assets/enhanceVehicleList';
 
 (async (LSSM: Vue) => {
@@ -38,11 +37,6 @@ import enhanceVehicleList from './assets/enhanceVehicleList';
     const BUILDING_MODE = document.getElementById('ausbauten')
         ? 'building'
         : 'dispatch';
-
-    // No Dispatch-centers
-    if (BUILDING_MODE === 'building') {
-        asyncButtons(LSSM);
-    }
 
     if (await getSetting('enhanceVehicleList'))
         await enhanceVehicleList(LSSM, BUILDING_MODE, getSetting);
