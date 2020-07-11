@@ -365,7 +365,9 @@ export default Vue.extend<
                 },
                 series: [
                     {
-                        data,
+                        data: data.filter(
+                            d => !d.hasOwnProperty('value') || d.value
+                        ),
                         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                         // @ts-ignore
                         allowDrillToNode: true,
