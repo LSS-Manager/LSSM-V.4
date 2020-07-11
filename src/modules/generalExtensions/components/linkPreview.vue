@@ -315,4 +315,7 @@ export default Vue.extend<
 
     .type-icon
         margin-right: 1rem
+
+    table td
+        padding: 0.1rem
 </style>

@@ -72,7 +72,7 @@ import { Building } from '../../../typings/Building';
                         building.extensions.filter(x => x.available).length
                     }&nbsp;(${building.extensions.length})`;
                 data += `<table class="${LSSM.$store.getters.nodeAttribute(
-                    'buildingHover-vehiclelist'
+                    `${MODULE_ID}-vehiclelist`
                 )}">`;
                 vehicles.forEach(vehicle => {
                     data += `<tr><td><span class="building_list_fms building_list_fms_${

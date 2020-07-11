@@ -36,6 +36,10 @@ const modules = {
                 'Du hast Änderungen in den Einstellungen vorgenommen, die noch nicht gespeichert sind. Setze sie zurück, verwerfe sie oder speichere sie, um die Einstellungen zu schliessen.',
             close: 'Meldung schliessen',
         },
+        changeList: {
+            true: 'An',
+            false: 'Aus',
+        },
     },
 } as { [moduleId: string]: { [key: string]: unknown } };
 moduleRootFiles

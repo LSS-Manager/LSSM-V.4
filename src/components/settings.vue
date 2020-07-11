@@ -28,7 +28,49 @@
                                     )
                                 )
                             }}</b>
-                            {{ changes }}
+                            <table class="table table-striped table-condensed">
+                                <tbody>
+                                    <tr
+                                        v-for="({ saved, current },
+                                        setting) in changes"
+                                        :key="setting"
+                                    >
+                                        <td>
+                                            <b>
+                                                {{
+                                                    $t(
+                                                        `modules.${module}.settings.${setting}.title`.replace(
+                                                            'modules.global.settings',
+                                                            'globalSettings'
+                                                        )
+                                                    )
+                                                }}
+                                            </b>
+                                        </td>
+                                        <td>
+                                            {{
+                                                $m(
+                                                    `changeList.${saved}`
+                                                ).replace(
+                                                    /^modules\.settings\.changeList\./,
+                                                    ''
+                                                )
+                                            }}
+                                        </td>
+                                        <td>→</td>
+                                        <td>
+                                            {{
+                                                $m(
+                                                    `changeList.${current}`
+                                                ).replace(
+                                                    /^modules\.settings\.changeList\./,
+                                                    ''
+                                                )
+                                            }}
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </button>
@@ -318,25 +360,29 @@ export default Vue.extend<
         changeList() {
             if (!this.changes) return {};
             return Object.fromEntries(
-                Object.entries(this.savedValueMap).map(([module, settings]) => [
-                    module,
-                    Object.fromEntries(
-                        Object.entries(settings)
-                            .map(([setting, saved]) => [
-                                setting,
-                                {
-                                    saved: saved,
-                                    current: this.liveValueMap[module][setting],
-                                },
-                            ])
-                            .filter(
-                                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                                // @ts-ignore
-                                ([_, { saved, current }]) =>
-                                    !isEqual(saved, current)
-                            )
-                    ),
-                ])
+                Object.entries(this.savedValueMap)
+                    .map(([module, settings]) => [
+                        module,
+                        Object.fromEntries(
+                            Object.entries(settings)
+                                .map(([setting, saved]) => [
+                                    setting,
+                                    {
+                                        saved: saved,
+                                        current: this.liveValueMap[module][
+                                            setting
+                                        ],
+                                    },
+                                ])
+                                .filter(
+                                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                                    // @ts-ignore
+                                    ([_, { saved, current }]) =>
+                                        !isEqual(saved, current)
+                                )
+                        ),
+                    ])
+                    .filter(([_, settings]) => Object.keys(settings).length)
             );
         },
     },
@@ -371,11 +417,13 @@ export default Vue.extend<
                     );
                     this.startSettings = cloneDeep(this.settings);
                     this.update();
+                    this.getExportData();
                 });
         },
         discard() {
             this.settings = cloneDeep(this.startSettings);
             this.update();
+            this.getExportData();
             this.key++;
         },
         reset() {
@@ -537,7 +585,15 @@ export default Vue.extend<
 
 #settings-changelist
     display: none
+    position: absolute
+    background-color: #fff
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2)
+    border-radius: 5px
+    padding: 1rem
 
-button:hover > #settings-changelist
+button:not([disabled]):hover > #settings-changelist
     display: block
+
+body.dark #settings-changelist
+    background-color: #505050
 </style>
