@@ -14,6 +14,10 @@
                 <div class="alert alert-info">
                     {{ $sm('buildings.tip') }}
                 </div>
+                <b>
+                    {{ $sm('buildings.personal_count') }}:
+                    {{ personalCount.toLocaleString() }}
+                </b>
             </div>
             <div class="panel-body">
                 <div :id="buildingsId" style="max-height: 400px"></div>
@@ -25,7 +29,7 @@
                     {{ $sm('vehicles.title') }}:
                     {{
                         Object.values(vehicles)
-                            .reduce((a, b) => (a += b.length), 0)
+                            .reduce((a, b) => a + b.length, 0)
                             .toLocaleString()
                     }}
                 </b>
@@ -75,12 +79,13 @@ import HighchartsExporting from 'highcharts/modules/exporting';
 import HighchartsExportData from 'highcharts/modules/export-data';
 import HighchartsOfflineExporting from 'highcharts/modules/offline-exporting';
 import { TranslateResult } from 'vue-i18n';
-import { DefaultComputed, DefaultProps } from 'vue/types/options';
+import { DefaultProps } from 'vue/types/options';
 import {
     ChartSummary,
     ChartSummaryMethods,
+    ChartSummaryComputed,
 } from '../../../../typings/modules/Dashboard/ChartSummary';
-import { BuildingCategory } from '../../../../typings/Building';
+import { Building, BuildingCategory } from '../../../../typings/Building';
 import { VehicleCategory } from '../../../../typings/Vehicle';
 
 HighchartsMore(Highcharts);
@@ -97,7 +102,7 @@ const exportingDefault = {
 export default Vue.extend<
     ChartSummary,
     ChartSummaryMethods,
-    DefaultComputed,
+    ChartSummaryComputed,
     DefaultProps
 >({
     name: 'chart-summary',
@@ -131,6 +136,13 @@ export default Vue.extend<
             ),
             vehiclesByBuilding: this.$store.getters['api/vehiclesByBuilding'],
         } as ChartSummary;
+    },
+    computed: {
+        personalCount() {
+            return (this.$store.state.api.buildings as Building[])
+                .map(b => b.personal_count)
+                .reduce((a, b) => a + b, 0);
+        },
     },
     mounted() {
         if (this.$store.state.darkmode)

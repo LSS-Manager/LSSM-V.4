@@ -40,3 +40,7 @@ export interface ChartSummaryMethods {
         }
     ): VueI18n.TranslateResult;
 }
+
+export interface ChartSummaryComputed {
+    personalCount: number;
+}
