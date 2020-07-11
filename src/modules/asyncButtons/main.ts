@@ -1,10 +1,15 @@
 import asyncBuildings from './assets/buildings';
+import asyncMissions from './assets/missions';
 
 (async (LSSM: Vue) => {
     await LSSM.$store.dispatch('settings/register', {
         moduleId: MODULE_ID,
         settings: {
             buildingTax: {
+                type: 'toggle',
+                default: true,
+            },
+            missionReply: {
                 type: 'toggle',
                 default: true,
             },
@@ -19,6 +24,7 @@ import asyncBuildings from './assets/buildings';
     };
 
     const buildings = ['buildingTax'].filter(async s => await getSetting(s));
+    const missions = ['missionReply'].filter(async s => await getSetting(s));
 
     if (
         window.location.pathname.match(/^\/buildings\/\d+$/) &&
@@ -26,4 +32,7 @@ import asyncBuildings from './assets/buildings';
         buildings.length
     )
         asyncBuildings(LSSM, buildings);
+
+    // if (window.location.pathname.match(/^\/missions\/\d+$/) && missions.length)
+    //     asyncMissions(LSSM, missions);
 })((window[PREFIX] as unknown) as Vue);
