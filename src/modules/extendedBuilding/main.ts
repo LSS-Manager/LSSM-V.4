@@ -34,9 +34,9 @@ import enhanceVehicleList from './assets/enhanceVehicleList';
         });
     };
 
-    const BUILDING_MODE = document.getElementById('ausbauten')
-        ? 'building'
-        : 'dispatch';
+    const BUILDING_MODE = document.getElementById('tab_protocol')
+        ? 'dispatch'
+        : 'building';
 
     if (await getSetting('enhanceVehicleList'))
         await enhanceVehicleList(LSSM, BUILDING_MODE, getSetting);
