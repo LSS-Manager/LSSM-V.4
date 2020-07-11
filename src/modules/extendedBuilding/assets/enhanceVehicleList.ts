@@ -35,7 +35,7 @@ export default async (
             if (!vehicleId) return;
             if (fmsSwitch) {
                 const fmsBtn = vehicle.querySelector('.building_list_fms');
-                fmsBtn?.addEventListener('click', e => {
+                fmsBtn?.addEventListener('click', () => {
                     const nextFms = fmsBtn.classList.contains(
                         'building_list_fms_2'
                     )
@@ -74,7 +74,7 @@ export default async (
         });
     };
 
-    if (BUILDING_MODE === 'dispatch')
+    if (BUILDING_MODE === 'dispatch' && window.location.hash !== '#tab_vehicle')
         await LSSM.$store.dispatch('observeAsyncTab', {
             tabSelector: '#tab_vehicle',
             callback,
