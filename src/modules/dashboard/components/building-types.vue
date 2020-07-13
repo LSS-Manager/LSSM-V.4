@@ -106,12 +106,14 @@ export default Vue.extend<
                 [category: string]: Building[];
             };
             const categories = {} as {
-                [category: string]: BuildingTypes['extensionList'];
+                [category: string]: (BuildingType & {
+                    extensions: { [caption: string]: number };
+                })[];
             };
             Object.entries(buildingCategories).forEach(
                 ([category, buildings]) => {
                     categories[category] = [];
-                    buildings.forEach(({ building_type }) => {
+                    buildings.forEach(({ building_type, extensions }) => {
                         const tracked = categories[category].find(
                             t =>
                                 t.hasOwnProperty('type') &&
@@ -129,12 +131,46 @@ export default Vue.extend<
                                         // @ts-ignore
                                         e.type === building_type
                                 )
-                            ) as BuildingType;
+                            ) as BuildingType & {
+                                extensions: { [caption: string]: number };
+                            };
                             if (building) {
                                 building.amount++;
+                                building.extensions = {};
                                 categories[category].push(building);
                             }
                         }
+                        const building = categories[category].find(
+                            b => b.type === building_type
+                        );
+                        building &&
+                            extensions.forEach(extension => {
+                                const tracked =
+                                    building.extensions[
+                                        Object.keys(building.extensions).find(
+                                            c => c === extension.caption
+                                        ) || ''
+                                    ];
+                                if (!tracked)
+                                    building.extensions[extension.caption]++;
+                                else {
+                                    const extensionType = cloneDeep(
+                                        this.extensionList.find(
+                                            e =>
+                                                e.hasOwnProperty('types') &&
+                                                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                                                // @ts-ignore
+                                                e.types.includes(
+                                                    `${building_type}_${extension.type_id}`
+                                                )
+                                        )
+                                    ) as Extension;
+                                    if (extensionType)
+                                        building.extensions[
+                                            extension.caption
+                                        ]++;
+                                }
+                            });
                     });
                 }
             );
