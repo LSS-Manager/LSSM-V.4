@@ -8,6 +8,9 @@
             <tab :title="$m('tabs.vehicle-types')">
                 <vehicle-types></vehicle-types>
             </tab>
+            <tab :title="$m('tabs.building-types')">
+                <building-types></building-types>
+            </tab>
             <tab
                 title-slot="dispatchcenter-view-title"
                 :disabled="!$store.state.premium"
@@ -38,6 +41,7 @@ import ChartSummary from './components/chart-summary.vue';
 import DispatchcenterView from './components/dispatchcenter-view.vue';
 import Lightbox from '../../components/lightbox.vue';
 import VehicleTypes from './components/vehicle-types.vue';
+import BuildingTypes from './components/building-types.vue';
 import { DefaultComputed, DefaultData, DefaultProps } from 'vue/types/options';
 import { DashboardMethods } from '../../../typings/modules/Dashboard/Dashboard';
 
@@ -50,7 +54,8 @@ export default Vue.extend<
     name: 'dashboard',
     components: {
         DispatchcenterView,
-        VehicleTypes, //: () =>
+        VehicleTypes,
+        BuildingTypes, //: () =>
         // import(
         //    /* webpackChunkName: "dashboard/vehicle-types" */ './components/vehicle-types.vue'
         // ),
