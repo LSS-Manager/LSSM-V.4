@@ -195,7 +195,11 @@ import {
     ResolvedVehicleCategory,
     VehicleCategory,
 } from '../../../typings/Vehicle';
-import { BuildingCategory, ResolvedBuildingCategory } from 'typings/Building';
+import {
+    BuildingCategory,
+    InternalBuilding,
+    ResolvedBuildingCategory,
+} from 'typings/Building';
 import cloneDeep from 'lodash/cloneDeep';
 
 export default Vue.extend<
@@ -228,9 +232,41 @@ export default Vue.extend<
         const buildingCategories = cloneDeep(
             this.$t('buildingCategories') as unknown
         ) as {
-            [name: string]: BuildingCategory;
+            [name: string]: BuildingCategory | ResolvedBuildingCategory;
         };
-        const buildingTypes = Object.values(this.$t('buildings'));
+        const buildingTypes = cloneDeep(
+            Object.values(this.$t('buildings')) as InternalBuilding[]
+        ).map(building => {
+            const extensions = Object.values(building.extensions);
+            const minifiedExtensions = [] as InternalBuilding['extensions'];
+            const multipleExtensions = {} as {
+                [caption: string]: number;
+            };
+            extensions.forEach(extension => {
+                if (!extension) return;
+                const e = minifiedExtensions.find(
+                    e => extension.caption === e.caption
+                );
+                if (e) {
+                    if (!multipleExtensions.hasOwnProperty(e.caption))
+                        multipleExtensions[e.caption] = 1;
+                    multipleExtensions[e.caption]++;
+                } else minifiedExtensions.push(extension);
+            });
+            Object.entries(multipleExtensions).forEach(([caption, amount]) => {
+                const e = minifiedExtensions.find(e => e.caption === caption);
+                if (e)
+                    e.caption = this.$tc(
+                        `modules.${MODULE_ID}.extensionTitle`,
+                        amount,
+                        { caption }
+                    );
+            });
+            return {
+                ...building,
+                extensions: minifiedExtensions,
+            };
+        });
         Object.entries(
             buildingCategories
         ).forEach(([category, { buildings }]) =>

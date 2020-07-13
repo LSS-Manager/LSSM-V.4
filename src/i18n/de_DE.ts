@@ -947,19 +947,55 @@ export default {
             credits: 100_000,
             extensions: [
                 {
-                    caption: 'Rettungsdienst',
+                    caption: 'Rettungsdienst-Erweiterung',
                     credits: 100_000,
                     coins: 20,
                     duration: '7 Tage',
                 },
                 {
-                    caption: 'Wasserrettung',
+                    caption: 'Abrollbehälter-Stellplatz',
+                    credits: 100_000,
+                    coins: 20,
+                    duration: '7 Tage',
+                },
+                {
+                    caption: 'Abrollbehälter-Stellplatz',
+                    credits: 100_000,
+                    coins: 20,
+                    duration: '7 Tage',
+                },
+                {
+                    caption: 'Abrollbehälter-Stellplatz',
+                    credits: 100_000,
+                    coins: 20,
+                    duration: '7 Tage',
+                },
+                {
+                    caption: 'Abrollbehälter-Stellplatz',
+                    credits: 100_000,
+                    coins: 20,
+                    duration: '7 Tage',
+                },
+                {
+                    caption: 'Abrollbehälter-Stellplatz',
+                    credits: 100_000,
+                    coins: 20,
+                    duration: '7 Tage',
+                },
+                {
+                    caption: 'Wasserrettungs-Erweiterung',
                     credits: 400_000,
                     coins: 25,
                     duration: '7 Tage',
                 },
                 {
-                    caption: 'Flughafen',
+                    caption: 'Abrollbehälter-Stellplatz',
+                    credits: 100_000,
+                    coins: 20,
+                    duration: '7 Tage',
+                },
+                {
+                    caption: 'Flughafen-Erweiterung',
                     credits: 300_000,
                     coins: 25,
                     duration: '7 Tage',
@@ -971,13 +1007,25 @@ export default {
                     duration: '7 Tage',
                 },
                 {
-                    caption: 'Werkfeuerwehr',
+                    caption: 'Abrollbehälter-Stellplatz',
                     credits: 100_000,
                     coins: 20,
                     duration: '7 Tage',
                 },
                 {
-                    caption: 'Abrollbehälter-Stellplatz (bis zu 9 mal)',
+                    caption: 'Abrollbehälter-Stellplatz',
+                    credits: 100_000,
+                    coins: 20,
+                    duration: '7 Tage',
+                },
+                {
+                    caption: 'Abrollbehälter-Stellplatz',
+                    credits: 100_000,
+                    coins: 20,
+                    duration: '7 Tage',
+                },
+                {
+                    caption: 'Werkfeuerwehr',
                     credits: 100_000,
                     coins: 20,
                     duration: '7 Tage',
@@ -1009,7 +1057,19 @@ export default {
             credits: 500_000,
             extensions: [
                 {
-                    caption: 'Klassenzimmer (bis zu 3 mal)',
+                    caption: 'Klassenzimmer',
+                    credits: 400_000,
+                    coins: 40,
+                    duration: '7 Tage',
+                },
+                {
+                    caption: 'Klassenzimmer',
+                    credits: 400_000,
+                    coins: 40,
+                    duration: '7 Tage',
+                },
+                {
+                    caption: 'Klassenzimmer',
                     credits: 400_000,
                     coins: 40,
                     duration: '7 Tage',
@@ -1043,7 +1103,19 @@ export default {
             credits: 500_000,
             extensions: [
                 {
-                    caption: 'Klassenzimmer (bis zu 3 mal)',
+                    caption: 'Klassenzimmer',
+                    credits: 400_000,
+                    coins: 40,
+                    duration: '7 Tage',
+                },
+                {
+                    caption: 'Klassenzimmer',
+                    credits: 400_000,
+                    coins: 40,
+                    duration: '7 Tage',
+                },
+                {
+                    caption: 'Klassenzimmer',
                     credits: 400_000,
                     coins: 40,
                     duration: '7 Tage',
@@ -1064,15 +1136,58 @@ export default {
             credits: 200_000,
             extensions: [
                 {
-                    caption: '"Allgemeine Innere" und "Allgemeine Chirugie"',
+                    caption: 'Allgemeine Innere',
                     credits: 10_000,
                     coins: 10,
                     duration: '7 Tage',
                 },
                 {
-                    caption: 'verschiedene Fachrichtungen',
+                    caption: 'Allgemeine Chirugie',
+                    credits: 10_000,
+                    coins: 10,
+                    duration: '7 Tage',
+                },
+                {
+                    caption: 'Gynäkologie',
                     credits: 70_000,
                     coins: 15,
+                    duration: '7 Tage',
+                },
+                {
+                    caption: 'Urologie',
+                    credits: 70_000,
+                    coins: 15,
+                    duration: '7 Tage',
+                },
+                {
+                    caption: 'Unfallchirurgie',
+                    credits: 70_000,
+                    coins: 15,
+                    duration: '7 Tage',
+                },
+                {
+                    caption: 'Neurologie',
+                    credits: 70_000,
+                    coins: 15,
+                    duration: '7 Tage',
+                },
+                {
+                    caption: 'Neurochirurgie',
+                    credits: 70_000,
+                    coins: 15,
+                    duration: '7 Tage',
+                },
+                {
+                    caption: 'Kardiologie',
+                    credits: 70_000,
+                    coins: 15,
+                    duration: '7 Tage',
+                },
+                {
+                    caption: 'Kardiochirurgie',
+                    credits: 70_000,
+                    coins: 15,
+                    duration: '7 Tage',
                 },
             ],
             levelcost: ['1.-20. 19.000 Credits / 11 Coins'],
@@ -1104,7 +1219,61 @@ export default {
             credits: 100_000,
             extensions: [
                 {
-                    caption: 'Zelle (bis zu 10 mal)',
+                    caption: 'Zelle',
+                    credits: 25_000,
+                    coins: 5,
+                    duration: '7 Tage',
+                },
+                {
+                    caption: 'Zelle',
+                    credits: 25_000,
+                    coins: 5,
+                    duration: '7 Tage',
+                },
+                {
+                    caption: 'Zelle',
+                    credits: 25_000,
+                    coins: 5,
+                    duration: '7 Tage',
+                },
+                {
+                    caption: 'Zelle',
+                    credits: 25_000,
+                    coins: 5,
+                    duration: '7 Tage',
+                },
+                {
+                    caption: 'Zelle',
+                    credits: 25_000,
+                    coins: 5,
+                    duration: '7 Tage',
+                },
+                {
+                    caption: 'Zelle',
+                    credits: 25_000,
+                    coins: 5,
+                    duration: '7 Tage',
+                },
+                {
+                    caption: 'Zelle',
+                    credits: 25_000,
+                    coins: 5,
+                    duration: '7 Tage',
+                },
+                {
+                    caption: 'Zelle',
+                    credits: 25_000,
+                    coins: 5,
+                    duration: '7 Tage',
+                },
+                {
+                    caption: 'Zelle',
+                    credits: 25_000,
+                    coins: 5,
+                    duration: '7 Tage',
+                },
+                {
+                    caption: 'Zelle',
                     credits: 25_000,
                     coins: 5,
                     duration: '7 Tage',
@@ -1138,7 +1307,19 @@ export default {
             credits: 500_000,
             extensions: [
                 {
-                    caption: 'Klassenzimmer (bis zu 3 mal)',
+                    caption: 'Klassenzimmer',
+                    credits: 400_000,
+                    coins: 40,
+                    duration: '7 Tage',
+                },
+                {
+                    caption: 'Klassenzimmer',
+                    credits: 400_000,
+                    coins: 40,
+                    duration: '7 Tage',
+                },
+                {
+                    caption: 'Klassenzimmer',
                     credits: 400_000,
                     coins: 40,
                     duration: '7 Tage',
@@ -1222,7 +1403,19 @@ export default {
             credits: 500_000,
             extensions: [
                 {
-                    caption: 'Klassenzimmer (bis zu 3 mal)',
+                    caption: 'Klassenzimmer',
+                    credits: 400_000,
+                    coins: 40,
+                    duration: '7 Tage',
+                },
+                {
+                    caption: 'Klassenzimmer',
+                    credits: 400_000,
+                    coins: 40,
+                    duration: '7 Tage',
+                },
+                {
+                    caption: 'Klassenzimmer',
                     credits: 400_000,
                     coins: 40,
                     duration: '7 Tage',
@@ -1442,8 +1635,15 @@ export default {
             coins: 25,
             credits: 50_000,
             extensions: [
+                null,
                 {
-                    caption: 'Abrollbehälter-Stellplatz (bis zu 2 mal)',
+                    caption: 'Abrollbehälter-Stellplatz',
+                    credits: 100_000,
+                    coins: 20,
+                    duration: '7 Tage',
+                },
+                {
+                    caption: 'Abrollbehälter-Stellplatz',
                     credits: 100_000,
                     coins: 20,
                     duration: '7 Tage',
@@ -1480,7 +1680,13 @@ export default {
             credits: 50_000,
             extensions: [
                 {
-                    caption: 'Zelle (bis zu 2 mal)',
+                    caption: 'Zelle',
+                    credits: 25_000,
+                    coins: 5,
+                    duration: '7 Tage',
+                },
+                {
+                    caption: 'Zelle',
                     credits: 25_000,
                     coins: 5,
                     duration: '7 Tage',
