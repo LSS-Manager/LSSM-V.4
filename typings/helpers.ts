@@ -34,6 +34,7 @@ declare module 'vue/types/vue' {
         };
         $utils: {
             urlRegex: RegExp;
+            escapeRegex(s: string): string;
             getTextNodes(
                 root: Node,
                 filter: (node: Node, ...args: unknown[]) => boolean

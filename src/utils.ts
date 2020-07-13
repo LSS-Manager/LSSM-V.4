@@ -4,6 +4,9 @@ export default (Vue: VueConstructor): void => {
     Vue.prototype.$vue = Vue;
     Vue.prototype.$utils = {
         urlRegex: /(?:(?:[A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=+$,\w]+@)?[A-Za-z0-9.-]+|(?:www\.|[-;:&=+$,\w]+@)[A-Za-z0-9.-]+)(?:(?:\/[+~%/.\w\-_]*)?\??(?:[-+=&;%@.\w_]*)#?(?:[.!/\\\w]*))?/g,
+        escapeRegex(s: string) {
+            return s.replace(/[[\\^$.|?*+()]/g, '\\$&');
+        },
         getTextNodes(
             root: Node,
             filter?: (node: Node, ...args: unknown[]) => true

@@ -186,6 +186,7 @@
                                 <template #list-footer>
                                     <li class="vs-pagination">
                                         <button
+                                            :disabled="!buildingListHasPrevPage"
                                             @click="
                                                 buildingListOffset -= buildingLimit
                                             "
@@ -460,7 +461,7 @@ export default Vue.extend<
                         building.caption
                             .toLowerCase()
                             .match(
-                                this.escapeRegex(
+                                this.$utils.escapeRegex(
                                     this.buildingListSearch.toLowerCase()
                                 )
                             ) &&
@@ -619,15 +620,14 @@ export default Vue.extend<
             const headingHeight = building.$el
                 .querySelector('.panel-heading')
                 .getBoundingClientRect().height;
-            building.$refs[
-                `${id}-overlay`
-            ].style.inset = `0 0 calc(100% - ${headingHeight}px) 0`;
-            building.$refs[
-                `${id}-overlay`
-            ].style.bottom = `calc(100% - ${headingHeight}px)`;
-            building.$el.querySelector(
-                '.panel-body'
-            ).style.maxHeight = `calc(100% - ${headingHeight}px)`;
+            const buildingOverlay = building.$refs[`${id}-overlay`];
+            buildingOverlay &&
+                (buildingOverlay.style.inset = `0 0 calc(100% - ${headingHeight}px) 0`);
+            buildingOverlay &&
+                (buildingOverlay.style.bottom = `calc(100% - ${headingHeight}px)`);
+            const buildingPanelBody = building.$el.querySelector('.panel-body');
+            buildingPanelBody &&
+                (buildingPanelBody.style.maxHeight = `calc(100% - ${headingHeight}px)`);
             this.$set(
                 this.columns,
                 this.columns.findIndex(column => column.building === id),
@@ -669,13 +669,11 @@ export default Vue.extend<
         this.$store
             .dispatch('settings/getModule', MODULE_ID)
             .then(async settings => {
-                if (!settings.hasOwnProperty('dispatchcenter-view'))
-                    settings = {
-                        'dispatchcenter-view': {
-                            boards: [],
-                        },
-                    };
-                this.$set(this, 'boards', settings.boards || []);
+                this.$set(
+                    this,
+                    'boards',
+                    settings['dispatchcenter-view']?.boards || []
+                );
                 await this.$nextTick();
                 this.columns.forEach(col =>
                     (async () => {
