@@ -35,9 +35,10 @@
                     </th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody v-if="!noBody">
                 <slot></slot>
             </tbody>
+            <slot v-else></slot>
             <tfoot>
                 <slot name="foot"></slot>
             </tfoot>
@@ -101,6 +102,11 @@ export default Vue.extend<
             type: Object,
             required: false,
             default: () => ({}),
+        },
+        noBody: {
+            type: Boolean,
+            required: false,
+            default: false,
         },
     },
 });

@@ -1,25 +1,29 @@
 <template>
     <enhanced-table
         :head="{
+            category: { title: '', noSort: true },
             extension: { title: $sm('extension'), noSort: true },
             current: { title: $sm('current'), noSort: true },
             unavailable: { title: $sm('unavailable'), noSort: true },
             maximum: { title: $sm('maximum'), noSort: true },
         }"
         :table-attrs="{ class: 'table table-striped' }"
-        :search="search"
-        @search="s => (search = s)"
+        :no-search="true"
+        :no-body="true"
     >
-        <tr v-for="(buildings, category) in rows" :key="category">
-            <td>
-                <b :style="`color: ${categoryColors[category]};`">{{
-                    category
-                }}</b>
-            </td>
-            <td>
-                <pre>{{ buildings }}</pre>
-            </td>
-        </tr>
+        <tbody v-for="(buildings, category) in rows" :key="category">
+            <tr v-for="(building, index) in buildings" :key="index">
+                <td v-if="building.type" :rowspan="buildings.length">
+                    <b :style="`color: ${categoryColors[category]};`">{{
+                        category
+                    }}</b>
+                </td>
+                <td>{{ building.caption }}</td>
+                <td>{{ building.amount.toLocaleString() }}</td>
+                <td>0</td>
+                <td>–</td>
+            </tr>
+        </tbody>
     </enhanced-table>
 </template>
 
@@ -30,8 +34,8 @@ import {
     BuildingTypes,
     BuildingTypesMethods,
     BuildingTypesComputed,
-    Extension,
     BuildingType,
+    Category,
 } from 'typings/modules/Dashboard/BuildingTypes';
 import { DefaultProps } from 'vue/types/options';
 import { InternalBuilding, Building, BuildingCategory } from 'typings/Building';
@@ -50,34 +54,12 @@ export default Vue.extend<
             this.$t('buildings')
         ) as InternalBuilding[];
         const extensionList = [] as BuildingTypes['extensionList'];
-        buildingTypes.forEach(({ caption, color, extensions }, type) => {
+        buildingTypes.forEach(({ caption, color }, type) => {
             extensionList.push({
                 caption,
                 color,
                 type,
                 amount: 0,
-            });
-            Object.values(extensions).forEach((extension, index) => {
-                if (!extension) return;
-                const e = extensionList.find(
-                    e =>
-                        e.caption === extension.caption &&
-                        e.hasOwnProperty('parent') &&
-                        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                        // @ts-ignore
-                        e.parent === caption
-                ) as Extension;
-                if (!e)
-                    extensionList.push({
-                        caption: extension.caption,
-                        parent: caption,
-                        maximal: 1,
-                        types: [`${type}_${index}`],
-                    });
-                else {
-                    e.maximal++;
-                    e.types.push(`${type}_${index}`);
-                }
             });
         });
         const categoryColors = Object.fromEntries(
@@ -90,9 +72,6 @@ export default Vue.extend<
             [category: string]: string;
         };
         return {
-            search: '',
-            sort: 'title',
-            sortDir: 'asc',
             buildingTypes,
             extensionList,
             categoryColors,
@@ -105,11 +84,7 @@ export default Vue.extend<
             ] as {
                 [category: string]: Building[];
             };
-            const categories = {} as {
-                [category: string]: (BuildingType & {
-                    extensions: { [caption: string]: number };
-                })[];
-            };
+            const categories = {} as BuildingTypesComputed['rows'];
             Object.entries(buildingCategories).forEach(
                 ([category, buildings]) => {
                     categories[category] = [];
@@ -131,9 +106,7 @@ export default Vue.extend<
                                         // @ts-ignore
                                         e.type === building_type
                                 )
-                            ) as BuildingType & {
-                                extensions: { [caption: string]: number };
-                            };
+                            ) as Category;
                             if (building) {
                                 building.amount++;
                                 building.extensions = {};
@@ -145,31 +118,24 @@ export default Vue.extend<
                         );
                         building &&
                             extensions.forEach(extension => {
-                                const tracked =
-                                    building.extensions[
-                                        Object.keys(building.extensions).find(
-                                            c => c === extension.caption
-                                        ) || ''
-                                    ];
-                                if (!tracked)
-                                    building.extensions[extension.caption]++;
-                                else {
-                                    const extensionType = cloneDeep(
-                                        this.extensionList.find(
-                                            e =>
-                                                e.hasOwnProperty('types') &&
-                                                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                                                // @ts-ignore
-                                                e.types.includes(
-                                                    `${building_type}_${extension.type_id}`
-                                                )
-                                        )
-                                    ) as Extension;
-                                    if (extensionType)
-                                        building.extensions[
-                                            extension.caption
-                                        ]++;
-                                }
+                                if (
+                                    !building.extensions.hasOwnProperty(
+                                        extension.caption
+                                    )
+                                )
+                                    building.extensions[extension.caption] = {
+                                        total: 0,
+                                        enabled: 0,
+                                        unavailable: 0,
+                                        maximum: 0,
+                                    };
+                                building.extensions[extension.caption].total++;
+                                if (!extension.available)
+                                    building.extensions[extension.caption]
+                                        .unavailable++;
+                                else if (extension.enabled)
+                                    building.extensions[extension.caption]
+                                        .enabled++;
                             });
                     });
                 }

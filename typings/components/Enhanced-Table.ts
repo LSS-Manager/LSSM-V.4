@@ -21,4 +21,5 @@ export interface EnhancedTableProps {
     tableAttrs: {
         [key: string]: unknown;
     };
+    noBody: boolean;
 }

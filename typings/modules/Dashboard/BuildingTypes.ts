@@ -8,23 +8,22 @@ export interface BuildingType {
     amount: number;
 }
 
-export interface Extension {
-    caption: string;
-    parent: string;
-    maximal: number;
-    types: string[];
-}
-
-type BuildingOrExtension = BuildingType | Extension;
-
 export interface BuildingTypes {
-    search: string;
-    sort: string;
-    sortDir: 'asc' | 'desc';
     buildingTypes: InternalBuilding[];
-    extensionList: BuildingOrExtension[];
+    extensionList: BuildingType[];
     categoryColors: {
         [category: string]: string;
+    };
+}
+
+export interface Category extends BuildingType {
+    extensions: {
+        [caption: string]: {
+            total: number;
+            enabled: number;
+            unavailable: number;
+            maximum: number;
+        };
     };
 }
 
@@ -44,5 +43,7 @@ export interface BuildingTypesMethods {
 }
 
 export interface BuildingTypesComputed {
-    rows: unknown;
+    rows: {
+        [category: string]: Category[];
+    };
 }
