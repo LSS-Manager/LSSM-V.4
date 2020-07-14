@@ -12,7 +12,7 @@ export default (LSSM: Vue): void => {
         .then(() => {
             const getLastVehicleTime = () => {
                 const vehicles = document.querySelectorAll(
-                    '#mission-form .vehicle_checkbox:checked'
+                    '#vehicle_list_step .vehicle_checkbox:checked'
                 );
                 const lastVehicle = vehicles[vehicles.length - 1];
                 const vehicleId = lastVehicle?.getAttribute('value');
@@ -38,20 +38,26 @@ export default (LSSM: Vue): void => {
                 if (!sortValue.startsWith('9999999999')) observer.disconnect();
             });
 
-            document
-                .getElementById('vehicle_list_step')
-                ?.addEventListener('change', () => {
-                    const { lastVehicle, alarmTime } = getLastVehicleTime();
-                    setAlarmTime(alarmTime);
-                    const calcTimeBtn = lastVehicle?.parentElement?.parentElement?.querySelector(
-                        '.calculateTime'
-                    ) as HTMLAnchorElement;
-                    if (calcTimeBtn && calcTimeBtn.parentElement) {
-                        calcTimeBtn.click();
-                        observer.observe(calcTimeBtn.parentElement, {
-                            childList: true,
-                        });
-                    }
+            const amountObserver = new MutationObserver(() => {
+                const { lastVehicle, alarmTime } = getLastVehicleTime();
+                setAlarmTime(alarmTime);
+                const calcTimeBtn = lastVehicle?.parentElement?.parentElement?.querySelector(
+                    '.calculateTime'
+                ) as HTMLAnchorElement;
+                if (calcTimeBtn && calcTimeBtn.parentElement) {
+                    calcTimeBtn.click();
+                    observer.observe(calcTimeBtn.parentElement, {
+                        childList: true,
+                    });
+                }
+            });
+
+            const amountElement = document.getElementById('vehicle_amount');
+
+            amountElement &&
+                amountObserver.observe(amountElement, {
+                    childList: true,
+                    characterData: true,
                 });
         });
 };

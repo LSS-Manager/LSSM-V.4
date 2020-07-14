@@ -153,5 +153,3 @@ export default Vue.extend<
     },
 });
 </script>
-
-<style scoped lang="sass"></style>
