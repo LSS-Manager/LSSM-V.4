@@ -1,3 +1,4 @@
+import inputMaxLen from './assets/inputMaxLen';
 import clickableLinks from './assets/clickableLinks';
 import linkPreviews from './assets/linkPreviews';
 import mapUndo from './assets/mapUndo';
@@ -34,6 +35,8 @@ import mapUndo from './assets/mapUndo';
             settingId,
         });
     };
+
+    inputMaxLen(LSSM);
 
     if (await getSetting<boolean>('clickableLinks'))
         clickableLinks(LSSM, await getSetting('showImg'));
