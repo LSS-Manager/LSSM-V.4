@@ -38,7 +38,7 @@ export default (LSSM: Vue): void => {
                 if (!sortValue.startsWith('9999999999')) observer.disconnect();
             });
 
-            const amountObserver = new MutationObserver(() => {
+            const update = () => {
                 const { lastVehicle, alarmTime } = getLastVehicleTime();
                 setAlarmTime(alarmTime);
                 const calcTimeBtn = lastVehicle?.parentElement?.parentElement?.querySelector(
@@ -50,7 +50,9 @@ export default (LSSM: Vue): void => {
                         childList: true,
                     });
                 }
-            });
+            };
+
+            const amountObserver = new MutationObserver(update);
 
             const amountElement = document.getElementById('vehicle_amount');
 
@@ -59,5 +61,7 @@ export default (LSSM: Vue): void => {
                     childList: true,
                     characterData: true,
                 });
+
+            update();
         });
 };
