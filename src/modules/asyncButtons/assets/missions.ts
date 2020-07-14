@@ -1,5 +1,36 @@
 export default (LSSM: Vue, missionSettings: string[]): void => {
+    // Prisoners
     if (
+        document.querySelector('.vehicle_prisoner_select') &&
+        missionSettings.includes('missionPrisoners')
+    )
+        document
+            .getElementById('mission_vehicle_at_mission')
+            ?.addEventListener('click', e => {
+                const target = e.target as HTMLElement;
+                if (
+                    !target.matches(
+                        'a.btn.btn-success[href^="/vehicles/"][href*="/gefangener/"], a.btn.btn-warning[href^="/vehicles/"][href*="/gefangener/"]'
+                    )
+                )
+                    return;
+                e.preventDefault();
+                LSSM.$store
+                    .dispatch('api/request', {
+                        url: target.getAttribute('href'),
+                    })
+                    .then(() => {
+                        const vehicleId = target.getAttribute('vehicle_id');
+                        target.parentElement?.parentElement?.remove();
+                        document
+                            .getElementById(`vehicle_row_${vehicleId}`)
+                            ?.remove();
+                        // TODO: Remove all prisoner selections when all prisoners transported
+                    });
+            });
+
+    // MissionReply [WIP]
+    /*if (
         document.getElementById('mission_reply_mission_id') &&
         missionSettings.includes('missionReply')
     )
@@ -36,5 +67,5 @@ export default (LSSM: Vue, missionSettings: string[]): void => {
                         });
                     });
             });
-        })();
+        })();*/
 };

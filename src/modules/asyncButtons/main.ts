@@ -9,9 +9,14 @@ import asyncMissions from './assets/missions';
                 type: 'toggle',
                 default: true,
             },
-            missionReply: {
+            missionPrisoners: {
                 type: 'toggle',
                 default: true,
+            },
+            missionReply: {
+                type: 'toggle',
+                default: false,
+                disabled: () => true,
             },
         },
     });
@@ -24,7 +29,9 @@ import asyncMissions from './assets/missions';
     };
 
     const buildings = ['buildingTax'].filter(async s => await getSetting(s));
-    const missions = ['missionReply'].filter(async s => await getSetting(s));
+    const missions = ['missionPrisoners', 'missionReply'].filter(
+        async s => await getSetting(s)
+    );
 
     if (
         window.location.pathname.match(/^\/buildings\/\d+$/) &&
@@ -33,6 +40,6 @@ import asyncMissions from './assets/missions';
     )
         asyncBuildings(LSSM, buildings);
 
-    // if (window.location.pathname.match(/^\/missions\/\d+$/) && missions.length)
-    //     asyncMissions(LSSM, missions);
+    if (window.location.pathname.match(/^\/missions\/\d+$/) && missions.length)
+        asyncMissions(LSSM, missions);
 })((window[PREFIX] as unknown) as Vue);

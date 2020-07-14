@@ -61,32 +61,6 @@ export default (LSSM: Vue): void => {
         };
     };
 
-    console.log([
-        {
-            selectorText: Object.keys(lengthMap)
-                .map(
-                    selector =>
-                        `input[name=${JSON.stringify(selector)}]:invalid`
-                )
-                .join(','),
-            style: {
-                'border-color': '#a94442',
-            },
-        },
-        ...Object.entries(lengthMap).map(([selector, { min, max }]) => ({
-            selectorText: `input[name=${JSON.stringify(
-                selector
-            )}]:invalid::after`,
-            style: {
-                content: LSSM.$t('modules.generalExtensions.inputMaxLen', {
-                    min,
-                    max,
-                }),
-                color: '#a94442',
-            },
-        })),
-    ]);
-
     LSSM.$store.dispatch('addStyle', {
         selectorText: Object.keys(lengthMap)
             .map(selector => `input[name=${JSON.stringify(selector)}]:invalid`)

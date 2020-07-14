@@ -67,6 +67,14 @@ import alarmTime from './assets/alarmTime';
         });
     };
 
+    await LSSM.$store.dispatch('addStyle', {
+        selectorText: '.vehicle_prisoner_select a.btn-danger',
+        style: {
+            'pointer-events': 'none',
+            'opacity': '0.65',
+        },
+    });
+
     if (await getSetting('generationDate')) generationDate(LSSM);
     if (await getSetting('enhancedMissingVehicles'))
         enhancedMissingVehicles(LSSM);
