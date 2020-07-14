@@ -32,7 +32,7 @@
                     {{ buildingVehicles.length }}
                     |
                     <font-awesome-icon :icon="faUsers"></font-awesome-icon>
-                    {{ buildingVehicles.length }}
+                    {{ building.personal_count }}
                 </span>
                 <span
                     v-if="
