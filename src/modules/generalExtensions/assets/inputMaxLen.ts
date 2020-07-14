@@ -73,10 +73,11 @@ export default (LSSM: Vue): void => {
     document.addEventListener('input', e => {
         const target = e.target as HTMLInputElement;
         if (!target || target.nodeName !== 'INPUT') return;
-        const minMax = Object.entries(lengthMap).find(([selector]) =>
+        const entry = Object.entries(lengthMap).find(([selector]) =>
             target.matches(`input[name=${JSON.stringify(selector)}]`)
-        )?.[1];
-        if (!minMax) return;
+        );
+        if (!entry) return;
+        const minMax = entry[1];
         target.setAttribute('minlength', minMax.min.toString());
         target.setAttribute('maxlength', minMax.max.toString());
         const placeholder = target.getAttribute('placeholder') || '';
@@ -89,7 +90,7 @@ export default (LSSM: Vue): void => {
                         min: minMax.min,
                         max: minMax.max,
                     }
-                )}]`
+                )}]`.trim()
             );
         const title = target.getAttribute('title') || '';
         if (!title.endsWith(']'))
@@ -98,7 +99,27 @@ export default (LSSM: Vue): void => {
                 `${title} [${LSSM.$t('modules.generalExtensions.inputMaxLen', {
                     min: minMax.min,
                     max: minMax.max,
-                })}]`
+                })}]`.trim()
             );
+        let counter = document.getElementById(
+            LSSM.$store.getters.nodeAttribute(`${target.id}_${entry[0]}`)
+        );
+        if (!counter) {
+            counter = document.createElement('small');
+            counter.id = LSSM.$store.getters.nodeAttribute(
+                `${target.id}_${entry[0]}`
+            );
+            counter.style.marginLeft = '1ch';
+            const label = document.querySelector(`label[for="${target.id}"]`);
+            label?.appendChild(counter);
+        }
+        counter.classList.remove('text-success', 'text-danger');
+        counter.classList.add(
+            target.value.length <= minMax.max &&
+                target.value.length >= minMax.min
+                ? 'text-success'
+                : 'text-danger'
+        );
+        counter.textContent = `(${target.value.length}/${minMax.max})`;
     });
 };
