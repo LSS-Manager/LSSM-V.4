@@ -3,31 +3,53 @@ export default (LSSM: Vue, missionSettings: string[]): void => {
     if (
         document.querySelector('.vehicle_prisoner_select') &&
         missionSettings.includes('missionPrisoners')
-    )
-        document
-            .getElementById('mission_vehicle_at_mission')
-            ?.addEventListener('click', e => {
-                const target = e.target as HTMLElement;
-                if (
-                    !target.matches(
-                        'a.btn.btn-success[href^="/vehicles/"][href*="/gefangener/"], a.btn.btn-warning[href^="/vehicles/"][href*="/gefangener/"]'
+    ) {
+        const prisonersLabel = document.getElementById('h2_prisoners');
+        let currentPrisoners = parseInt(
+            prisonersLabel?.textContent?.trim().match(/^\d+/)?.[0] || '0'
+        );
+        prisonersLabel &&
+            currentPrisoners &&
+            document
+                .getElementById('mission_vehicle_at_mission')
+                ?.addEventListener('click', e => {
+                    const target = e.target as HTMLElement;
+                    if (
+                        !target.matches(
+                            'a.btn.btn-success[href^="/vehicles/"][href*="/gefangener/"], a.btn.btn-warning[href^="/vehicles/"][href*="/gefangener/"]'
+                        )
                     )
-                )
-                    return;
-                e.preventDefault();
-                LSSM.$store
-                    .dispatch('api/request', {
-                        url: target.getAttribute('href'),
-                    })
-                    .then(() => {
-                        const vehicleId = target.getAttribute('vehicle_id');
-                        target.parentElement?.parentElement?.remove();
-                        document
-                            .getElementById(`vehicle_row_${vehicleId}`)
-                            ?.remove();
-                        // TODO: Remove all prisoner selections when all prisoners transported
-                    });
-            });
+                        return;
+                    e.preventDefault();
+                    LSSM.$store
+                        .dispatch('api/request', {
+                            url: target.getAttribute('href'),
+                        })
+                        .then(() => {
+                            const vehicleId = target.parentElement?.getAttribute(
+                                'vehicle_id'
+                            );
+                            document
+                                .getElementById(`vehicle_row_${vehicleId}`)
+                                ?.remove();
+                            target.parentElement?.parentElement?.remove();
+                            currentPrisoners--;
+                            prisonersLabel.textContent =
+                                prisonersLabel.textContent
+                                    ?.trim()
+                                    .replace(
+                                        /^\d+/,
+                                        currentPrisoners.toString()
+                                    ) || '';
+                            if (!currentPrisoners)
+                                Array.from(
+                                    document.querySelectorAll(
+                                        '.vehicle_prisoner_select'
+                                    )
+                                ).forEach(p => p.remove());
+                        });
+                });
+    }
 
     // MissionReply [WIP]
     /*if (
