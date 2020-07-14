@@ -344,7 +344,7 @@ export default Vue.extend<
             ),
             drag: {
                 active: false,
-                top: window.innerHeight * 0.03,
+                top: 60,
                 right: window.innerWidth * 0.03,
                 offset: {
                     x: 0,
