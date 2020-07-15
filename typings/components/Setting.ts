@@ -6,4 +6,5 @@ export interface SettingProps {
     beforeDescription: boolean;
     disabled: boolean;
     hidden: boolean;
+    wide: boolean;
 }

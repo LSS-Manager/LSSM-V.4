@@ -168,19 +168,15 @@ export default Vue.extend<
 </script>
 
 <style scoped lang="sass">
+@import 'src/sass/mixins/autoSizedGrid'
+
 .search_label
     position: absolute
     right: 1em
     top: calc(1em + 32px)
 
 .auto-sized-grid
-    display: grid
-    grid-gap: 16px
-    grid-template-columns: repeat(auto-fit, minmax(150px, calc(25% - 16px)))
-    list-style: none
-    padding-left: 0
-    margin-top: 10px
-    margin-bottom: 10px
+    @include auto-sized-grid
 
     .card
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2)

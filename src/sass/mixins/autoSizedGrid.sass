@@ -1,0 +1,29 @@
+@mixin auto-sized-grid
+	display: grid
+	grid-gap: 16px
+	grid-template-columns: repeat(auto-fit, minmax(150px, calc(25% - 16px)))
+	list-style: none
+	padding-left: 0
+	margin-top: 10px
+	margin-bottom: 10px
+
+	> .wide
+		grid-column: #{"1 / 5"}
+
+	@media (max-width: 6px * (150 + 16))
+		grid-template-columns: repeat(auto-fit, minmax(150px, calc(calc(100% / 3) - 16px)))
+
+		> .wide
+			grid-column: #{"1 / 4"}
+
+	@media (max-width: 4px * (150 + 16))
+		grid-template-columns: repeat(auto-fit, minmax(150px, calc(50% - 16px)))
+
+		> .wide
+			grid-column: #{"1 / 3"}
+
+	@media (max-width: 2px * (150 + 16))
+		grid-template-columns: repeat(auto-fit, minmax(150px, 100%))
+
+		> .wide
+			grid-column: #{"1 / 2"}

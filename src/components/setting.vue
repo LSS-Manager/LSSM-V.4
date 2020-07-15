@@ -1,5 +1,5 @@
 <template>
-    <div :class="{ disabled, hidden }" class="setting">
+    <div :class="{ disabled, hidden, wide }" class="setting">
         <h4>
             <b>{{ title }}</b>
         </h4>
@@ -63,6 +63,11 @@ export default Vue.extend<
             default: false,
         },
         hidden: {
+            type: Boolean,
+            required: false,
+            default: false,
+        },
+        wide: {
             type: Boolean,
             required: false,
             default: false,

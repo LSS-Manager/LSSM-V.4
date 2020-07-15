@@ -115,15 +115,11 @@
             >
                 <div
                     class="auto-sized-grid"
-                    :class="{
-                        wide: Object.values(settings[moduleId]).find(setting =>
-                            wideGrids.includes(setting.type)
-                        ),
-                    }"
                 >
                     <setting
                         v-for="(setting, settingId) in settings[moduleId]"
                         :key="settingId"
+                        :wide="wideGrids.includes(setting.type)"
                         :moduleId="moduleId"
                         :settingId="settingId"
                         :name="(setting.name = `${moduleId}.${settingId}`)"
@@ -566,22 +562,15 @@ export default Vue.extend<
 </script>
 
 <style scoped lang="sass">
+@import 'src/sass/mixins/autoSizedGrid'
+
 .vue-tab[aria-selected="true"]
     border-bottom-color: white !important
 .vue-tabpanel
     transition: 0.5s
 
 .auto-sized-grid
-    display: grid
-    grid-gap: 16px
-    grid-template-columns: repeat(auto-fit, minmax(150px, calc(25% - 16px)))
-    list-style: none
-    padding-left: 0
-    margin-top: 10px
-    margin-bottom: 10px
-
-.auto-sized-grid.wide
-    grid-template-columns: repeat(auto-fit, minmax(150px, 100%))
+    @include auto-sized-grid
 
 #settings-changelist
     display: none
