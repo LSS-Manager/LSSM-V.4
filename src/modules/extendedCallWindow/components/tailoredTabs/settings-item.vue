@@ -3,17 +3,25 @@
         <label>
             <input type="text" v-model="updateName" placeholder="name" />
         </label>
-        <pre>{{ updateTypes }}</pre>
+        <v-select
+            placeholder="types"
+            :multiple="true"
+            v-model="updateTypes"
+            :options="vehicleTypes"
+            :clearable="true"
+        ></v-select>
     </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
+import VSelect from 'vue-select';
 import { DefaultData, DefaultMethods } from 'vue/types/options';
 import {
     SettingsItemComputed,
     SettingsItemProps,
 } from 'typings/modules/ExtendedCallWindow/tailoredTabs/SettingsItem';
+import { InternalVehicle } from 'typings/Vehicle';
 
 export default Vue.extend<
     DefaultData<Vue>,
@@ -22,6 +30,17 @@ export default Vue.extend<
     SettingsItemProps
 >({
     name: 'tailored-tabs-settings-item',
+    components: { VSelect },
+    data() {
+        return {
+            vehicleTypes: (Object.values(
+                this.$t('vehicles')
+            ) as InternalVehicle[]).map(({ caption }, index) => ({
+                label: caption,
+                value: index,
+            })),
+        };
+    },
     props: {
         value: {
             type: Object,
@@ -41,8 +60,15 @@ export default Vue.extend<
             get(): SettingsItemComputed['updateTypes'] {
                 return this.value.vehicleTypes;
             },
-            set(vehicleTypes) {
-                this.$emit('input', { ...this.value, vehicleTypes });
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-ignore
+            set(vehicleTypes: ({ label: number; value: string[] } | number)[]) {
+                this.$emit('input', {
+                    ...this.value,
+                    vehicleTypes: vehicleTypes.map(v =>
+                        typeof v === 'number' ? v : v.value
+                    ),
+                });
             },
         },
     },
