@@ -113,9 +113,7 @@
                 :key="moduleId"
                 :module="moduleId"
             >
-                <div
-                    class="auto-sized-grid"
-                >
+                <div class="auto-sized-grid">
                     <setting
                         v-for="(setting, settingId) in settings[moduleId]"
                         :key="settingId"
@@ -243,17 +241,18 @@
                             v-model="settings[moduleId][settingId].value"
                             @input="update(moduleId, settingId)"
                         ></settings-hotkey>
-                        <!--                        <settings-appendable-list-->
-                        <!--                            v-else-if="setting.type === 'appendable-list'"-->
-                        <!--                            :setting="setting"-->
-                        <!--                            :initialValues="getValue(moduleId, settingId)"-->
-                        <!--                        >-->
-                        <!--                            <template #titles>-->
-                        <!--                                <component-->
-                        <!--                                    :is="setting.titleComponent"-->
-                        <!--                                ></component>-->
-                        <!--                            </template>-->
-                        <!--                        </settings-appendable-list>-->
+                        <settings-appendable-list
+                            v-else-if="setting.type === 'appendable-list'"
+                            :setting="setting"
+                            v-model="settings[moduleId][settingId].value"
+                            @input="update(moduleId, settingId)"
+                        >
+                            <template #titles>
+                                <component
+                                    :is="setting.titleComponent"
+                                ></component>
+                            </template>
+                        </settings-appendable-list>
                         <pre v-else>{{ setting }}</pre>
                     </setting>
                 </div>
@@ -272,7 +271,7 @@ import SettingsMultiSelect from './setting/multi-select.vue';
 import SettingsColor from './setting/color.vue';
 import SettingsNumber from './setting/number.vue';
 import SettingsHotkey from './setting/hotkey.vue';
-// import SettingsAppendableList from './setting/settings-appendable-list.vue';
+import SettingsAppendableList from './setting/settings-appendable-list.vue';
 import Lightbox from './lightbox.vue';
 import { faHistory } from '@fortawesome/free-solid-svg-icons/faHistory';
 import { LSSM } from '../core';
@@ -294,7 +293,7 @@ export default Vue.extend<
 >({
     name: 'settings',
     components: {
-        // SettingsAppendableList,
+        SettingsAppendableList,
         SettingsToggle,
         SettingsText,
         SettingsSelect,

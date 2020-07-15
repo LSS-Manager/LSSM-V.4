@@ -53,7 +53,7 @@ interface AppendableListItem {
     [key: string]: unknown;
 }
 
-interface AppendableList extends SettingTemplate {
+export interface AppendableList extends SettingTemplate {
     default: AppendableListItem[];
     value: AppendableListItem[];
     listItemComponent: ExtendedVue<Vue, unknown, unknown, unknown, unknown>;
@@ -61,15 +61,17 @@ interface AppendableList extends SettingTemplate {
     defaultItem: AppendableListItem;
 }
 
-export type Setting =
-    | Toggle
-    | Text
-    | AppendableList
-    | Select
-    | MultiSelect
-    | Color
-    | NumberInput
-    | HotKey;
+export type Setting<
+    type =
+        | Toggle
+        | Text
+        | AppendableList
+        | Select
+        | MultiSelect
+        | Color
+        | NumberInput
+        | HotKey
+> = type;
 
 export interface Settings {
     [key: string]: Setting;

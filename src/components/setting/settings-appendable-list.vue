@@ -2,14 +2,14 @@
     <div>
         <slot name="titles"></slot>
         <div
-            v-for="(item, index) in cloneDeep(values)"
+            v-for="(item, index) in updateValues"
             :key="index"
             class="appendable-list-item"
         >
             <component
                 :is="setting.listItemComponent"
-                v-bind="cloneDeep(item)"
-                @change="v => changeValue(index, v)"
+                :value="cloneDeep(item)"
+                @input="v => changeValue(index, v)"
                 class="appendable-list-content"
             ></component>
             <button @click="removeItem(index)" class="btn btn-danger">
@@ -22,14 +22,25 @@
     </div>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue';
 import cloneDeep from 'lodash/cloneDeep';
+import {
+    AppendableList,
+    AppendableListMethods,
+    AppendableListProps,
+} from 'typings/components/setting/AppendableList';
+import { DefaultComputed } from 'vue/types/options';
 
-export default {
+export default Vue.extend<
+    AppendableList,
+    AppendableListMethods,
+    DefaultComputed,
+    AppendableListProps
+>({
     name: 'settings-appendable-list',
     data() {
         return {
-            values: [],
             cloneDeep,
         };
     },
@@ -38,32 +49,34 @@ export default {
             type: Object,
             required: true,
         },
-        initialValues: {
+        value: {
             type: Array,
             required: true,
         },
     },
+    computed: {
+        updateValues() {
+            return cloneDeep(this.value);
+        },
+    },
     methods: {
         addItem() {
-            this.values.push(this.setting.defaultItem);
-            this.emit();
+            const updated = cloneDeep(this.updateValues);
+            updated.push(this.setting.defaultItem);
+            this.$emit('input', updated);
         },
         removeItem(index) {
-            this.values.splice(index, 1);
-            this.emit();
+            const updated = cloneDeep(this.updateValues);
+            delete updated[index];
+            this.$emit('input', updated);
         },
-        changeValue(index, values) {
-            this.values[index] = values;
-            this.emit();
-        },
-        emit() {
-            this.$emit('change', this.values);
+        changeValue(index, v) {
+            const updated = cloneDeep(this.updateValues);
+            updated[index] = v;
+            this.$emit('input', updated);
         },
     },
-    mounted() {
-        this.values = cloneDeep(this.initialValues);
-    },
-};
+});
 </script>
 
 <style scoped lang="sass">

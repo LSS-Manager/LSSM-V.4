@@ -59,7 +59,10 @@ import tailoredTabsItem from './components/tailoredTabs/settings-item.vue';
                 default: [],
                 listItemComponent: tailoredTabsItem,
                 titleComponent: tailoredTabsTitle,
-                defaultItem: {},
+                defaultItem: {
+                    name: '',
+                    vehicleTypes: [] as number[],
+                },
             },
         },
     });
