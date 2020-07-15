@@ -5,6 +5,9 @@ import arrCounter from './assets/arrCounter';
 import arrMatchHighlight from './assets/arrMatchHighlight';
 import alarmTime from './assets/alarmTime';
 
+import tailoredTabsTitle from './components/tailoredTabs/settings-titles.vue';
+import tailoredTabsItem from './components/tailoredTabs/settings-item.vue';
+
 (async (LSSM: Vue) => {
     await LSSM.$store.dispatch('settings/register', {
         moduleId: MODULE_ID,
@@ -50,6 +53,13 @@ import alarmTime from './assets/alarmTime';
             alarmTime: {
                 type: 'toggle',
                 default: false,
+            },
+            tailoredTabs: {
+                type: 'appendable-list',
+                default: [],
+                listItemComponent: tailoredTabsItem,
+                titleComponent: tailoredTabsTitle,
+                defaultItem: {},
             },
         },
     });
