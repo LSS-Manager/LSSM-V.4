@@ -17,7 +17,8 @@ export default (LSSM: Vue, missionSettings: string[]): void => {
                     if (
                         !target.matches(
                             'a.btn.btn-success[href^="/vehicles/"][href*="/gefangener/"], a.btn.btn-warning[href^="/vehicles/"][href*="/gefangener/"]'
-                        )
+                        ) ||
+                        currentPrisoners <= 1
                     )
                         return;
                     e.preventDefault();
