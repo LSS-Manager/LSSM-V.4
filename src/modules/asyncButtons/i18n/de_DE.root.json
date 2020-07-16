@@ -1,4 +1,4 @@
 {
-    "name": "Asynchrone Knöpfe",
-    "description": "Vermeide mit diesem Modul, dass das Spiel neu geladen wird, wenn du bestimmte Knöpfe drückst."
+	"description": "Vermeide mit diesem Modul, dass das Spiel neu geladen wird, wenn du bestimmte Knöpfe drückst.",
+	"name": "Asynchrone Knöpfe"
 }

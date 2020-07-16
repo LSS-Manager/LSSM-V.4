@@ -1,14 +1,14 @@
 {
-    "settings": {
-        "buildingTax": {
-            "title": "Kostenübernahme von Zellen und Betten",
-            "description": "Verhindert ein Neuladen, wenn du die Kosten von eigenen Zellen oder Krankenhausbetten festlegst."
-        },
-        "missionPrisoners": {
-            "title": "Gefangene im Einsatzfenster"
-        },
-        "missionReply": {
-            "title": "Rückmeldungen im Einsatz"
-        }
-    }
+	"settings": {
+		"buildingTax": {
+			"description": "Verhindert ein Neuladen, wenn du die Kosten von eigenen Zellen oder Krankenhausbetten festlegst.",
+			"title": "Kostenübernahme von Zellen und Betten"
+		},
+		"missionPrisoners": {
+			"title": "Gefangene im Einsatzfenster"
+		},
+		"missionReply": {
+			"title": "Rückmeldungen im Einsatz"
+		}
+	}
 }

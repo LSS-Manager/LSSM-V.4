@@ -1,15 +1,15 @@
 {
-    "building-types": {
-        "extension": "Gebäude / Ausbau",
-        "current": "Anzahl (aktiv)",
-        "unavailable": "Im Bau",
-        "maximum": "Maximal möglich"
-    },
+	"building-types": {
+		"current": "Anzahl (aktiv)",
+		"extension": "Gebäude / Ausbau",
+		"maximum": "Maximal möglich",
+		"unavailable": "Im Bau"
+	},
 	"chart-summaries": {
 		"buildings": {
+			"personal_count": "Personal",
 			"tip": "Klicke auf eine der Kategorien (z.B. Feuerwehr oder Polizei), um die dieser Kategorie zugeordneten Gebäudetypen vergrößert dargzustellen. Klickst du anschließend auf einen Gebäudetyp, kannst du sehen, wie viele Fahrzeuge der einzelnen Fahrzeugtypen an den Gebäuden dieses Typs stehen. Somit kannst du z.B. schnell herausfinden, wie viele FuStW an Polizeiwachen und wie viele an Polizei-Kleinwachen stehen.",
-			"title": "Gebäude",
-            "personal_count": "Personal"
+			"title": "Gebäude"
 		},
 		"vehicles": {
 			"empty": "Du hast in der Kategorie {category} noch keine Fahrzeuge!",
@@ -36,10 +36,10 @@
 		"no-buildings": "Keine Gebäude gefunden. Passe ggf. die Filter für dieses Board im \"Boards verwalten\"-Tab an."
 	},
 	"tabs": {
+		"building-types": "Gebäudeübersicht",
 		"chart-summary": "Zusammenfassung",
 		"dispatchcenter-view": "Leitstellenansicht",
-		"vehicle-types": "Statusübersicht",
-        "building-types": "Gebäudeübersicht"
+		"vehicle-types": "Statusübersicht"
 	},
 	"vehicle-list": {
 		"actions": "",

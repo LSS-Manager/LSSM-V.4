@@ -5,6 +5,11 @@
 			"description": "Der neue Einsatzhelfer mit vielen Einstellungen ist da!",
 			"title": "Einsatzhelfer",
 			"version": "4.0.5+20200702.1507"
+		},
+		{
+			"description": "Das Modul \"Erweitertes Alarmfenster\" bietet nun die Möglichkeit, die Tabs selbst festzulegen.",
+			"title": "Eigene Fahrzeugtabs im Einsatzfenster",
+			"version": "4.0.5+20200716.1510"
 		}
 	]
 }
