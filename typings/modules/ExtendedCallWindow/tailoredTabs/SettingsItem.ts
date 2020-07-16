@@ -1,6 +1,15 @@
 interface item {
     name: string;
-    vehicleTypes: number[];
+    vehicleTypes: string[];
+}
+
+interface option {
+    value: string;
+    label: string;
+}
+
+export interface SettingsItem {
+    vehicleTypes: option[];
 }
 
 export interface SettingsItemProps {
@@ -10,4 +19,5 @@ export interface SettingsItemProps {
 export interface SettingsItemComputed {
     updateName: item['name'];
     updateTypes: item['vehicleTypes'];
+    selectableTypes: option[];
 }

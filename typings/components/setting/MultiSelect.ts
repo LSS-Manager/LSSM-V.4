@@ -11,4 +11,8 @@ export interface MultiSelectProps {
 
 export interface MultiSelectComputed {
     updateValue: string[];
+    filteredOptions: {
+        label: string;
+        value: string;
+    }[];
 }

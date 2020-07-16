@@ -4,7 +4,7 @@
             :placeholder="placeholder"
             :multiple="true"
             v-model="updateValue"
-            :options="options"
+            :options="filteredOptions"
             :disabled="disabled"
             :clearable="false"
         ></v-select>
@@ -58,12 +58,17 @@ export default Vue.extend<
             },
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore
-            set(values: ({ label: string; value: string[] } | string)[]) {
+            set(values: ({ label: string; value: string } | string)[]) {
                 this.$emit(
                     'input',
                     values.map(v => (typeof v === 'string' ? v : v.value))
                 );
             },
+        },
+        filteredOptions() {
+            return this.options.filter(
+                o => !this.updateValue.includes(o.value)
+            );
         },
     },
 });

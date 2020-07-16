@@ -7,7 +7,7 @@
             placeholder="types"
             :multiple="true"
             v-model="updateTypes"
-            :options="vehicleTypes"
+            :options="selectableTypes"
             :clearable="true"
         ></v-select>
     </div>
@@ -16,15 +16,16 @@
 <script lang="ts">
 import Vue from 'vue';
 import VSelect from 'vue-select';
-import { DefaultData, DefaultMethods } from 'vue/types/options';
+import { DefaultMethods } from 'vue/types/options';
 import {
+    SettingsItem,
     SettingsItemComputed,
     SettingsItemProps,
 } from 'typings/modules/ExtendedCallWindow/tailoredTabs/SettingsItem';
 import { InternalVehicle } from 'typings/Vehicle';
 
 export default Vue.extend<
-    DefaultData<Vue>,
+    SettingsItem,
     DefaultMethods<Vue>,
     SettingsItemComputed,
     SettingsItemProps
@@ -37,7 +38,7 @@ export default Vue.extend<
                 this.$t('vehicles')
             ) as InternalVehicle[]).map(({ caption }, index) => ({
                 label: caption,
-                value: index,
+                value: index.toString(),
             })),
         };
     },
@@ -62,14 +63,19 @@ export default Vue.extend<
             },
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore
-            set(vehicleTypes: ({ label: number; value: string[] } | number)[]) {
+            set(vehicleTypes: ({ label: string; value: string } | string)[]) {
                 this.$emit('input', {
                     ...this.value,
                     vehicleTypes: vehicleTypes.map(v =>
-                        typeof v === 'number' ? v : v.value
+                        typeof v === 'string' ? v : v.value
                     ),
                 });
             },
+        },
+        selectableTypes() {
+            return this.vehicleTypes.filter(
+                t => !this.updateTypes.includes(t.value)
+            );
         },
     },
 });

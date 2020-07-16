@@ -56,7 +56,7 @@ export default Vue.extend<
     },
     computed: {
         updateValues() {
-            return cloneDeep(this.value);
+            return cloneDeep(this.value).filter(v => !!v);
         },
     },
     methods: {
