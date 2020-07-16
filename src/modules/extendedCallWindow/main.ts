@@ -8,7 +8,20 @@ import alarmTime from './assets/alarmTime';
 import tailoredTabsTitle from './components/tailoredTabs/settings-titles.vue';
 import tailoredTabsItem from './components/tailoredTabs/settings-item.vue';
 
+import isEqual from 'lodash/isEqual';
+import tailoredTabs from './assets/tailoredTabs';
+
 (async (LSSM: Vue) => {
+    const defaultTailoredTabs = Object.values(
+        LSSM.$t(`modules.${MODULE_ID}.tailoredTabs.defaultTabs`)
+    ).map(({ name, vehicleTypes }) => ({
+        name,
+        vehicleTypes: Object.values(vehicleTypes),
+    })) as {
+        name: string;
+        vehicleTypes: number[];
+    }[];
+
     await LSSM.$store.dispatch('settings/register', {
         moduleId: MODULE_ID,
         settings: {
@@ -56,12 +69,12 @@ import tailoredTabsItem from './components/tailoredTabs/settings-item.vue';
             },
             tailoredTabs: {
                 type: 'appendable-list',
-                default: [],
+                default: defaultTailoredTabs,
                 listItemComponent: tailoredTabsItem,
                 titleComponent: tailoredTabsTitle,
                 defaultItem: {
                     name: '',
-                    vehicleTypes: [] as number[],
+                    vehicleTypes: [],
                 },
             },
         },
@@ -73,7 +86,9 @@ import tailoredTabsItem from './components/tailoredTabs/settings-item.vue';
     )
         return;
 
-    const getSetting = (settingId: string): Promise<boolean> => {
+    const getSetting = <returnType = boolean>(
+        settingId: string
+    ): Promise<returnType> => {
         return LSSM.$store.dispatch('settings/getSetting', {
             moduleId: MODULE_ID,
             settingId,
@@ -100,4 +115,10 @@ import tailoredTabsItem from './components/tailoredTabs/settings-item.vue';
         await arrCounter(LSSM, getSetting);
     if (await getSetting('arrMatchHighlight')) arrMatchHighlight(LSSM);
     if (await getSetting('alarmTime')) alarmTime(LSSM);
+
+    const tailoredTabSettings = await getSetting<typeof defaultTailoredTabs>(
+        'tailoredTabs'
+    );
+    if (!isEqual(tailoredTabSettings, defaultTailoredTabs))
+        tailoredTabs(LSSM, tailoredTabSettings);
 })(window[PREFIX] as Vue);

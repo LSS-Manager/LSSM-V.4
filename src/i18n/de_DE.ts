@@ -1598,7 +1598,7 @@ export default {
     vehicleCategories: {
         Feuerwehr: {
             vehicles: {
-                ['Löschfahrzeuge']: [90, 30, 1, 0, 37, 88, 89, 6, 7, 8, 9],
+                ['Löschfahrzeuge']: [0, 1, 6, 7, 8, 9, 30, 37, 88, 89, 90],
                 ['Tanklöschfahrzeuge']: [
                     17,
                     18,
@@ -1694,6 +1694,10 @@ export default {
         compress: 'Vollbildmodus deaktivieren',
     },
     hideTitle: 'Überschrift anzeigen | Überschrift verstecken',
+    vehicle: 'Fahrzeuge | Fahrzeug | Fahrzeuge',
+    building: 'Gebäude',
+    station: 'Wachen | Wache | Wachen',
+    distance: 'Entfernung | Entferungen',
     fmsReal2Show: {
         1: 1,
         2: 2,

@@ -90,5 +90,7 @@ export default Vue.extend<
         margin-bottom: 0
         margin-left: 0.5rem
         margin-right: 0.5rem
-        width: 100%
+
+        &:not(label)
+            width: 100%
 </style>

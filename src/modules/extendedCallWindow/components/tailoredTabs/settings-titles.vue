@@ -1,8 +1,8 @@
 <template>
     <div class="tailored-tabs-setting">
-        <b>{{ $t('modules.extendedCallWindow.settings.tailoredtabs.name') }}</b>
+        <b>{{ $t('modules.extendedCallWindow.settings.tailoredTabs.name') }}</b>
         <b>{{
-            $t('modules.extendedCallWindow.settings.tailoredtabs.vehicles')
+            $t('modules.extendedCallWindow.settings.tailoredTabs.vehicles')
         }}</b>
     </div>
 </template>

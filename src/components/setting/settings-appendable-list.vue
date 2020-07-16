@@ -28,14 +28,14 @@ import cloneDeep from 'lodash/cloneDeep';
 import {
     AppendableList,
     AppendableListMethods,
+    AppendableListComputed,
     AppendableListProps,
 } from 'typings/components/setting/AppendableList';
-import { DefaultComputed } from 'vue/types/options';
 
 export default Vue.extend<
     AppendableList,
     AppendableListMethods,
-    DefaultComputed,
+    AppendableListComputed,
     AppendableListProps
 >({
     name: 'settings-appendable-list',
@@ -63,17 +63,26 @@ export default Vue.extend<
         addItem() {
             const updated = cloneDeep(this.updateValues);
             updated.push(this.setting.defaultItem);
-            this.$emit('input', updated);
+            this.$emit(
+                'input',
+                updated.filter(v => !!v)
+            );
         },
         removeItem(index) {
             const updated = cloneDeep(this.updateValues);
             delete updated[index];
-            this.$emit('input', updated);
+            this.$emit(
+                'input',
+                updated.filter(v => !!v)
+            );
         },
-        changeValue(index, v) {
+        changeValue(index, value) {
             const updated = cloneDeep(this.updateValues);
-            updated[index] = v;
-            this.$emit('input', updated);
+            updated[index] = value;
+            this.$emit(
+                'input',
+                updated.filter(v => !!v)
+            );
         },
     },
 });
