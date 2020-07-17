@@ -59,7 +59,17 @@ export default Vue.extend<
         },
         updateTypes: {
             get(): SettingsItemComputed['updateTypes'] {
-                return this.value.vehicleTypes;
+                return (this.value.vehicleTypes
+                    .map(v =>
+                        this.vehicleTypes.find(
+                            o => o.value.toString() === v.toString()
+                        )
+                    )
+                    .filter(
+                        v => !!v
+                    ) as SettingsItemComputed['updateTypes']).sort((a, b) =>
+                    a.value > b.value ? 1 : a.value < b.value ? -1 : 0
+                );
             },
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore
@@ -74,7 +84,7 @@ export default Vue.extend<
         },
         selectableTypes() {
             return this.vehicleTypes.filter(
-                t => !this.updateTypes.includes(t.value)
+                t => !this.updateTypes.find(v => v.value === t.value)
             );
         },
     },

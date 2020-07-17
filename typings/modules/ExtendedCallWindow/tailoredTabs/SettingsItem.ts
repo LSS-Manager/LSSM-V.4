@@ -3,13 +3,13 @@ interface item {
     vehicleTypes: string[];
 }
 
-interface option {
+interface Option {
     value: string;
     label: string;
 }
 
 export interface SettingsItem {
-    vehicleTypes: option[];
+    vehicleTypes: Option[];
 }
 
 export interface SettingsItemProps {
@@ -18,6 +18,6 @@ export interface SettingsItemProps {
 
 export interface SettingsItemComputed {
     updateName: item['name'];
-    updateTypes: item['vehicleTypes'];
-    selectableTypes: option[];
+    updateTypes: Option[];
+    selectableTypes: Option[];
 }
