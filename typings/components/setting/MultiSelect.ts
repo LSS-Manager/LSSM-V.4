@@ -2,17 +2,16 @@ export interface MultiSelectProps {
     name: string;
     placeholder: string;
     value: string[];
-    options: {
-        label: string;
-        value: string;
-    }[];
+    options: Option[];
     disabled: boolean;
 }
 
+interface Option {
+    label: string;
+    value: string;
+}
+
 export interface MultiSelectComputed {
-    updateValue: string[];
-    filteredOptions: {
-        label: string;
-        value: string;
-    }[];
+    updateValue: Option[];
+    filteredOptions: Option[];
 }

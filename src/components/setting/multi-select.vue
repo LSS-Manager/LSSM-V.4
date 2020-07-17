@@ -54,7 +54,13 @@ export default Vue.extend<
     computed: {
         updateValue: {
             get() {
-                return this.value;
+                return (this.value
+                    .map(v => this.options.find(o => o.value === v))
+                    .filter(
+                        v => !!v
+                    ) as MultiSelectComputed['updateValue']).sort((a, b) =>
+                    a.value > b.value ? 1 : a.value < b.value ? -1 : 0
+                );
             },
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore
@@ -67,7 +73,7 @@ export default Vue.extend<
         },
         filteredOptions() {
             return this.options.filter(
-                o => !this.updateValue.includes(o.value)
+                o => !this.updateValue.find(v => v.value === o.value)
             );
         },
     },
