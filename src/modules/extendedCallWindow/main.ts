@@ -128,6 +128,14 @@ import missionKeywords from './assets/missionKeywords';
         (await getSetting('arrCounterResetSelection'))
     )
         await arrCounter(LSSM, getSetting);
+
+    const missionKeywordsSettings = await getSetting<
+        { keyword: string; color: string; missions: number[] }[]
+    >('missionKeywords');
+
+    if (missionKeywordsSettings.length)
+        missionKeywords(LSSM, missionKeywordsSettings);
+
     if (await getSetting('arrMatchHighlight')) arrMatchHighlight(LSSM);
     if (await getSetting('alarmTime')) alarmTime(LSSM);
 
@@ -136,11 +144,4 @@ import missionKeywords from './assets/missionKeywords';
     );
     if (!isEqual(tailoredTabSettings, defaultTailoredTabs))
         tailoredTabs(LSSM, tailoredTabSettings);
-
-    const missionKeywordsSettings = await getSetting<
-        { keyword: string; color: string; missions: number[] }[]
-    >('missionKeywords');
-
-    if (missionKeywordsSettings.length)
-        missionKeywords(LSSM, missionKeywordsSettings);
 })(window[PREFIX] as Vue);

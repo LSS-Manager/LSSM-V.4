@@ -24,7 +24,6 @@ export default (LSSM: Vue): void => {
                 >
             ).forEach(arr => {
                 const arrText = arr.textContent?.trim().toLowerCase() || '';
-                console.log(!words.find(w => arrText.match(w)));
                 if (!words.find(w => arrText.match(w)))
                     arr.classList.add(greyClass);
             });
