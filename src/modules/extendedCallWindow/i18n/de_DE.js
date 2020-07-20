@@ -81,6 +81,15 @@ module.exports = {
             missions: 'Einsätze',
             preview: 'Vorschau',
         },
+        alarmIcons: {
+            title: 'Alarm-Icons',
+            description:
+                'Lasse dir Icons im "Alarmieren" Knopf anzeigen, basierend auf deiner Auswahl. Zur Auswahl stehen dir <a href="https://fontawesome.com/icons?d=gallery&m=free" target="_blank">alle kostenlosen Icons von Font-Awesome</a>. Es reicht, den Namen des Icons anzugeben. Eine Live-Vorschau wird dir dann das Icon anzeigen.',
+            icon: 'Icon',
+            style: 'Icon-Typ',
+            vehicles: 'Fahrzeugtypen',
+            preview: 'Vorschau',
+        },
     },
     enhancedMissingVehicles: {
         vehicle: 'Fahrzeugtyp',

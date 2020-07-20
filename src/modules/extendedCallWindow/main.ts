@@ -11,9 +11,13 @@ import tailoredTabsItem from './components/tailoredTabs/settings-item.vue';
 import missionKeywordsTitle from './components/missionKeywords/settings-titles.vue';
 import missionKeywordsItem from './components/missionKeywords/settings-item.vue';
 
+import alarmIconsTitle from './components/alarmIcons/settings-titles.vue';
+import alarmIconsItem from './components/alarmIcons/settings-item.vue';
+
 import isEqual from 'lodash/isEqual';
 import tailoredTabs from './assets/tailoredTabs';
 import missionKeywords from './assets/missionKeywords';
+import alarmIcons from './assets/alarmIcons';
 
 (async (LSSM: Vue) => {
     const defaultTailoredTabs = Object.values(
@@ -92,6 +96,17 @@ import missionKeywords from './assets/missionKeywords';
                     missions: [],
                 },
             },
+            alarmIcons: {
+                type: 'appendable-list',
+                default: [],
+                listItemComponent: alarmIconsItem,
+                titleComponent: alarmIconsTitle,
+                defaultItem: {
+                    icon: '',
+                    type: 'fas',
+                    vehicleTypes: [],
+                },
+            },
         },
     });
 
@@ -144,4 +159,13 @@ import missionKeywords from './assets/missionKeywords';
     );
     if (!isEqual(tailoredTabSettings, defaultTailoredTabs))
         tailoredTabs(LSSM, tailoredTabSettings);
+
+    const alarmIconsSettings = await getSetting<
+        {
+            icon: string;
+            type: 'fas' | 'far' | 'fab';
+            vehicleTypes: (number | string)[];
+        }[]
+    >('alarmIcons');
+    if (alarmIconsSettings.length) alarmIcons(LSSM, alarmIconsSettings);
 })(window[PREFIX] as Vue);
