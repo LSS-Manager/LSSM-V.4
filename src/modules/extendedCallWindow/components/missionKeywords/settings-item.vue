@@ -11,6 +11,14 @@
                 placeholder="color"
             />
         </label>
+        <span
+            class="preview label"
+            :style="`background-color: ${updateColor};`"
+        >
+            <span>
+                {{ updateName }}
+            </span>
+        </span>
         <v-select
             placeholder="types"
             :multiple="true"
@@ -121,6 +129,13 @@ export default Vue.extend<
         margin-left: 0.5rem
         margin-right: 0.5rem
 
-        &:not(label)
+        &:not(label):not(span)
             width: 100%
+
+    .preview span
+        background: inherit
+        // noinspection CssInvalidPropertyValue
+        background-clip: text
+        color: transparent
+        filter: invert(1) grayscale(1) contrast(9)
 </style>
