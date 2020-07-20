@@ -22,7 +22,7 @@
         "combokeys": "^3.0.1",
         "highcharts": "^8.1.2",
         "localforage": "^1.7.4",
-        "lodash": "^4.17.17",
+        "lodash": ">=4.17.19",
         "mini-svg-data-uri": "^1.2.3",
         "moment": "^2.27.0",
         "ua-parser-js": "^0.7.21",
