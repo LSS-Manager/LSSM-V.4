@@ -1,3 +1,5 @@
+import { InternalVehicle, Vehicle } from 'typings/Vehicle';
+
 export default async (
     LSSM: Vue,
     BUILDING_MODE: 'building' | 'dispatch',
@@ -14,6 +16,24 @@ export default async (
         const personnelAssignmentBtn = await getSetting(
             'personnelAssignmentBtn'
         );
+        const vehicleTypes = await getSetting('vehicleTypes');
+
+        const internalVehicleTypes = Object.values(
+            LSSM.$t('vehicles')
+        ) as InternalVehicle[];
+
+        const tableHead = document.querySelector('#vehicle_table thead tr');
+
+        if (!tableHead) return;
+
+        if (vehicleTypes) {
+            const typeHeader = document.createElement('th');
+            typeHeader.textContent = LSSM.$t('vehicleType').toString();
+            tableHead.insertBefore(
+                typeHeader,
+                tableHead.querySelector('th:nth-of-type(2)')
+            );
+        }
 
         if (personnelAssignmentBtn) LSSM.$store.commit('useFontAwesome');
 
@@ -32,7 +52,20 @@ export default async (
                     ?.getAttribute('href')
                     ?.match(/\d+$/)?.[0] || '0'
             );
-            if (!vehicleId) return;
+            const editBtn = vehicle.querySelector(
+                'a[href^="/vehicles/"][href$="/edit"]'
+            );
+
+            const linkWrapper = (BUILDING_MODE === 'dispatch'
+                ? document.getElementById(`vehicle_caption_${vehicleId}`)
+                : vehicle.querySelector(`a[href="/vehicles/${vehicleId}"]`)
+            )?.parentElement;
+
+            if (!vehicleId || !linkWrapper) return;
+
+            const storedVehicle = (LSSM.$store.state.api
+                .vehicles as Vehicle[]).find(v => v.id === vehicleId);
+
             if (fmsSwitch) {
                 const fmsBtn = vehicle.querySelector('.building_list_fms');
                 fmsBtn?.addEventListener('click', () => {
@@ -62,14 +95,47 @@ export default async (
                         });
                 });
             }
+            if (vehicleTypes) {
+                const typeWrapper = document.createElement('td');
+                vehicle.insertBefore(typeWrapper, linkWrapper);
+                if (storedVehicle) {
+                    const vehicleTypeNode = document.createElement('a');
+                    vehicleTypeNode.classList.add(
+                        'btn',
+                        'btn-default',
+                        'btn-xs',
+                        'disabled'
+                    );
+                    vehicleTypeNode.textContent =
+                        internalVehicleTypes[
+                            storedVehicle.vehicle_type
+                        ]?.caption;
+                    typeWrapper.append(vehicleTypeNode);
+                    if (storedVehicle.vehicle_type_caption) {
+                        const customTypeNode = document.createElement('button');
+                        customTypeNode.classList.add(
+                            'btn',
+                            'btn-default',
+                            'btn-xs',
+                            'disabled'
+                        );
+                        customTypeNode.textContent =
+                            storedVehicle.vehicle_type_caption;
+                        typeWrapper.append(customTypeNode);
+                    }
+                }
+            }
             if (personnelAssignmentBtn && BUILDING_MODE === 'building') {
+                if (!editBtn?.parentElement) return;
+                const actionsWrapper = document.createElement('div');
+                actionsWrapper.classList.add('btn-group');
+                editBtn.parentElement.appendChild(actionsWrapper);
+                actionsWrapper.appendChild(editBtn);
                 const pABtn = document.createElement('a');
                 pABtn.classList.add('btn', 'btn-default', 'btn-xs');
                 pABtn.setAttribute('href', `/vehicles/${vehicleId}/zuweisung`);
                 pABtn.innerHTML = '<i class="fas fa-users"></i>';
-                vehicle
-                    .querySelector('a[href^="/vehicles/"][href$="/edit"]')
-                    ?.parentElement?.appendChild(pABtn);
+                actionsWrapper.appendChild(pABtn);
             }
         });
     };

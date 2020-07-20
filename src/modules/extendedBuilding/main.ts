@@ -8,6 +8,11 @@ import enhanceVehicleList from './assets/enhanceVehicleList';
                 type: 'toggle',
                 default: true,
             },
+            vehicleTypes: {
+                type: 'toggle',
+                default: true,
+                dependsOn: '.enhanceVehicleList',
+            },
             fmsSwitch: {
                 type: 'toggle',
                 default: true,
@@ -26,6 +31,8 @@ import enhanceVehicleList from './assets/enhanceVehicleList';
         document.querySelectorAll('[href*="profile"]').length
     )
         return;
+
+    await LSSM.$store.dispatch('api/registerVehiclesUsage', true);
 
     const getSetting = (settingId: string): Promise<boolean> => {
         return LSSM.$store.dispatch('settings/getSetting', {

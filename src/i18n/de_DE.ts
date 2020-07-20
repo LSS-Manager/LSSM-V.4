@@ -1698,6 +1698,7 @@ export default {
     building: 'Gebäude',
     station: 'Wachen | Wache | Wachen',
     distance: 'Entfernung | Entferungen',
+    vehicleType: 'Fahrzeugtyp',
     fmsReal2Show: {
         1: 1,
         2: 2,

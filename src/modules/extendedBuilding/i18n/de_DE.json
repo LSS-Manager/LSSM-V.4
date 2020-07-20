@@ -11,6 +11,10 @@
 		"personnelAssignmentBtn": {
 			"description": "Fügt neben den \"Bearbeiten\" Knopf einen Knopf zur Personalzuweisung hinzu. – Funktioniert derzeit noch nicht in Leitstellen!",
 			"title": "Knopf für Personalzuweisung"
-		}
+		},
+        "vehicleTypes": {
+            "description": "Zeigt den Fahrzeugtyp (und falls vorhanden die eigene Fahrzeugklasse) in einer eigenen Spalte mit an.",
+            "title": "Fahrzeugtyp"
+        }
 	}
 }
