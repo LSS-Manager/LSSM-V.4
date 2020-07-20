@@ -6,7 +6,8 @@
                 :disabled="disabled"
                 type="color"
                 class="form-control"
-                v-model="updateValue"
+                :value="updateValue"
+                @change="e => (updateValue = e.target.value)"
             />
         </label>
     </div>
