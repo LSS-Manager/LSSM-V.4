@@ -5,6 +5,7 @@ import { Vehicle } from '../../typings/Vehicle';
 import { APIActionStoreParams } from '../../typings/store/api/Actions';
 import { RadioMessage } from '../../typings/helpers';
 import { Building, BuildingCategory } from '../../typings/Building';
+import { Mission } from 'typings/Mission';
 
 const STORAGE_KEYS = {
     buildings: 'aBuildings',
@@ -20,6 +21,7 @@ export default {
         vehicles: [],
         vehicleStates: {},
         autoUpdates: [],
+        missions: [],
         key: null,
     },
     mutations: {
@@ -60,6 +62,9 @@ export default {
         },
         enableAutoUpdate(state: APIState, api: string) {
             state.autoUpdates.push(api);
+        },
+        setMissions(state: APIState, missions: Mission[]) {
+            state.missions = missions;
         },
         setKey(state: APIState, key: string) {
             state.key = key;
@@ -224,6 +229,35 @@ export default {
                     return resolve();
                 })()
             );
+        },
+        async getMissions(
+            { rootState, state, dispatch, commit }: APIActionStoreParams,
+            force: boolean
+        ) {
+            if (state.missions.length) return state.missions;
+            if (
+                force ||
+                !sessionStorage.hasOwnProperty('mission_specs_cache')
+            ) {
+                const missions = Object.values(
+                    await dispatch('request', {
+                        // eslint-disable-next-line no-undef
+                        url: `${rootState.server}missions/${BUILD_LANG}.json`,
+                        init: {
+                            method: 'GET',
+                        },
+                    }).then(res => res.json())
+                );
+                sessionStorage.setItem(
+                    'mission_specs_cache',
+                    JSON.stringify(missions)
+                );
+                commit('setMissions', missions);
+            } else {
+                return JSON.parse(
+                    sessionStorage.getItem('mission_specs_cache') || '{}'
+                ) as Mission[];
+            }
         },
         async request(
             { rootState, dispatch, state, commit }: APIActionStoreParams,

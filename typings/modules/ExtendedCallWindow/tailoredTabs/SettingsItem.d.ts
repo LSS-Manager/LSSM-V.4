@@ -1,10 +1,10 @@
 interface item {
     name: string;
-    vehicleTypes: string[];
+    vehicleTypes: number[];
 }
 
 interface Option {
-    value: string;
+    value: number;
     label: string;
 }
 

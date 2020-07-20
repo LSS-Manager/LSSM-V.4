@@ -8,8 +8,12 @@ import alarmTime from './assets/alarmTime';
 import tailoredTabsTitle from './components/tailoredTabs/settings-titles.vue';
 import tailoredTabsItem from './components/tailoredTabs/settings-item.vue';
 
+import missionKeywordsTitle from './components/missionKeywords/settings-titles.vue';
+import missionKeywordsItem from './components/missionKeywords/settings-item.vue';
+
 import isEqual from 'lodash/isEqual';
 import tailoredTabs from './assets/tailoredTabs';
+import missionKeywords from './assets/missionKeywords';
 
 (async (LSSM: Vue) => {
     const defaultTailoredTabs = Object.values(
@@ -77,6 +81,17 @@ import tailoredTabs from './assets/tailoredTabs';
                     vehicleTypes: [],
                 },
             },
+            missionKeywords: {
+                type: 'appendable-list',
+                default: [],
+                listItemComponent: missionKeywordsItem,
+                titleComponent: missionKeywordsTitle,
+                defaultItem: {
+                    keyword: '',
+                    color: '#777777',
+                    missions: [],
+                },
+            },
         },
     });
 
@@ -121,4 +136,11 @@ import tailoredTabs from './assets/tailoredTabs';
     );
     if (!isEqual(tailoredTabSettings, defaultTailoredTabs))
         tailoredTabs(LSSM, tailoredTabSettings);
+
+    const missionKeywordsSettings = await getSetting<
+        { keyword: string; color: string; missions: number[] }[]
+    >('missionKeywords');
+
+    if (missionKeywordsSettings.length)
+        missionKeywords(LSSM, missionKeywordsSettings);
 })(window[PREFIX] as Vue);

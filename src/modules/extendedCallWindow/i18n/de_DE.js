@@ -70,6 +70,15 @@ module.exports = {
                 'Passe dir hier die Tabs im Einsatzfenster an. "Alle" und "Weiteralarmieren" werden immer sichtbar sein.',
             name: 'Name',
             vehicles: 'Fahrzeugtypen',
+            color: 'Farbe',
+        },
+        missionKeywords: {
+            title: 'Einsatzstichworte',
+            description:
+                'Lasse dir ein eigenes Stichwort neben dem Einsatznamen anzeigen',
+            keyword: 'Stichwort',
+            color: 'Hintergrundfarbe',
+            missions: 'Einsätze',
         },
     },
     enhancedMissingVehicles: {

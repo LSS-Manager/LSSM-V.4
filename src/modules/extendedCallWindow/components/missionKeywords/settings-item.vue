@@ -1,13 +1,21 @@
 <template>
-    <div class="tailored-tabs-setting">
+    <div class="mission-keywords-setting">
         <label>
             <input type="text" v-model="updateName" placeholder="name" />
+        </label>
+        <label>
+            <input
+                type="color"
+                :value="updateColor"
+                @change="e => (updateColor = e.target.value)"
+                placeholder="color"
+            />
         </label>
         <v-select
             placeholder="types"
             :multiple="true"
-            v-model="updateTypes"
-            :options="selectableTypes"
+            v-model="updateMissions"
+            :options="selectableMissions"
             :clearable="true"
         ></v-select>
     </div>
@@ -21,8 +29,8 @@ import {
     SettingsItem,
     SettingsItemComputed,
     SettingsItemProps,
-} from 'typings/modules/ExtendedCallWindow/tailoredTabs/SettingsItem';
-import { InternalVehicle } from 'typings/Vehicle';
+} from 'typings/modules/ExtendedCallWindow/missionKeywords/SettingsItem';
+import { Mission } from 'typings/Mission';
 
 export default Vue.extend<
     SettingsItem,
@@ -30,16 +38,11 @@ export default Vue.extend<
     SettingsItemComputed,
     SettingsItemProps
 >({
-    name: 'tailored-tabs-settings-item',
+    name: 'mission-keywords-settings-item',
     components: { VSelect },
     data() {
         return {
-            vehicleTypes: (Object.values(
-                this.$t('vehicles')
-            ) as InternalVehicle[]).map(({ caption }, index) => ({
-                label: caption,
-                value: index,
-            })),
+            missions: [],
         };
     },
     props: {
@@ -51,48 +54,65 @@ export default Vue.extend<
     computed: {
         updateName: {
             get(): SettingsItemComputed['updateName'] {
-                return this.value.name;
+                return this.value.keyword;
             },
-            set(name) {
-                this.$emit('input', { ...this.value, name });
+            set(keyword) {
+                this.$emit('input', { ...this.value, keyword });
             },
         },
-        updateTypes: {
-            get(): SettingsItemComputed['updateTypes'] {
-                return (this.value.vehicleTypes
+        updateColor: {
+            get(): SettingsItemComputed['updateColor'] {
+                return this.value.color;
+            },
+            set(color) {
+                this.$emit('input', { ...this.value, color });
+            },
+        },
+        updateMissions: {
+            get(): SettingsItemComputed['updateMissions'] {
+                return (this.value.missions
                     .map(v =>
-                        this.vehicleTypes.find(
+                        this.missions.find(
                             o => o.value.toString() === v.toString()
                         )
                     )
                     .filter(
                         v => !!v
-                    ) as SettingsItemComputed['updateTypes']).sort((a, b) =>
+                    ) as SettingsItemComputed['updateMissions']).sort((a, b) =>
                     a.value > b.value ? 1 : a.value < b.value ? -1 : 0
                 );
             },
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore
-            set(vehicleTypes: ({ label: string; value: number } | number)[]) {
+            set(missions: ({ label: string; value: number } | number)[]) {
                 this.$emit('input', {
                     ...this.value,
-                    vehicleTypes: vehicleTypes.map(v =>
+                    missions: missions.map(v =>
                         typeof v === 'number' ? v : v.value
                     ),
                 });
             },
         },
-        selectableTypes() {
-            return this.vehicleTypes.filter(
-                t => !this.updateTypes.find(v => v.value === t.value)
+        selectableMissions() {
+            return this.missions.filter(
+                t => !this.updateMissions.find(v => v.value === t.value)
             );
         },
+    },
+    beforeMount() {
+        this.$store.dispatch('api/getMissions', false).then(
+            (missions: Mission[]) =>
+                (this.missions = missions.map(({ id, name }) => ({
+                    value: id,
+                    label: `${name} (ID: ${id})`,
+                })))
+        );
     },
 });
 </script>
 
 <style scoped lang="sass">
-.tailored-tabs-setting
+.mission-keywords-setting
     display: flex
     justify-content: space-between
 
