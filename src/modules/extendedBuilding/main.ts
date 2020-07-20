@@ -1,4 +1,5 @@
 import enhanceVehicleList from './assets/enhanceVehicleList';
+import personnelDemands from './assets/personnelDemands';
 
 (async (LSSM: Vue) => {
     await LSSM.$store.dispatch('settings/register', {
@@ -22,6 +23,10 @@ import enhanceVehicleList from './assets/enhanceVehicleList';
                 type: 'toggle',
                 default: true,
                 dependsOn: '.enhanceVehicleList',
+            },
+            personnelDemands: {
+                type: 'toggle',
+                default: true,
             },
         },
     });
@@ -47,4 +52,7 @@ import enhanceVehicleList from './assets/enhanceVehicleList';
 
     if (await getSetting('enhanceVehicleList'))
         await enhanceVehicleList(LSSM, BUILDING_MODE, getSetting);
+
+    if (BUILDING_MODE === 'building' && (await getSetting('personnelDemands')))
+        personnelDemands(LSSM);
 })(window[PREFIX] as Vue);
