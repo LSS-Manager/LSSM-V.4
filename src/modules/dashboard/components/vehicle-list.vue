@@ -34,20 +34,24 @@
                     </a>
                 </td>
                 <td>
-                    <a
-                        :href="`/vehicles/${vehicle.id}/edit`"
-                        class="lightbox-open btn btn-default btn-xs"
-                    >
-                        <font-awesome-icon
-                            :icon="faPencilAlt"
-                        ></font-awesome-icon>
-                    </a>
-                    <a
-                        :href="`/vehicles/${vehicle.id}/zuweisung`"
-                        class="lightbox-open btn btn-default btn-xs"
-                    >
-                        <font-awesome-icon :icon="faUsers"></font-awesome-icon>
-                    </a>
+                    <div class="btn-group">
+                        <a
+                            :href="`/vehicles/${vehicle.id}/edit`"
+                            class="lightbox-open btn btn-default btn-xs"
+                        >
+                            <font-awesome-icon
+                                :icon="faPencilAlt"
+                            ></font-awesome-icon>
+                        </a>
+                        <a
+                            :href="`/vehicles/${vehicle.id}/zuweisung`"
+                            class="lightbox-open btn btn-default btn-xs"
+                        >
+                            <font-awesome-icon
+                                :icon="faUsers"
+                            ></font-awesome-icon>
+                        </a>
+                    </div>
                 </td>
                 <td>
                     <span

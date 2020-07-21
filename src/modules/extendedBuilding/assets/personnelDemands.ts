@@ -55,11 +55,4 @@ export default (LSSM: Vue): void => {
     personnelAdditional.style.marginLeft = '1ch';
     personnelData.append(personnelAdditional);
     dataList.append(personnelTitle, personnelData);
-
-    console.log(
-        sumMinPersonnel,
-        sumMaxPersonnel,
-        sumMinPersonnelS6,
-        sumMaxPersonnelS6
-    );
 };
