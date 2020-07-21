@@ -1,4 +1,7 @@
 {
+    "enhancedPersonnelAssignment": {
+        "toggleFittingPersonnel": "Personal ohne passende Ausbildung ausblenden"
+    },
 	"personnelDemands": {
 		"additional": "Bei Werten in Klammern sind Fahrzeuge im FMS 6 ausgeschlossen.",
 		"demand": "Benötigtes Personal"
@@ -14,6 +17,10 @@
 		"title": "Personalübersicht"
 	},
 	"settings": {
+        "enhancedPersonnelAssignment": {
+            "title": "verbesserte Personalzuweisung",
+            "description": "Gibt dir die Möglichkeit, Personal ohne die passende Ausbildung auszublenden."
+        },
 		"enhanceVehicleList": {
 			"description": "Erweitert die Fahrzeugliste um nützliche Features – einige davon speziell einstellbar.",
 			"title": "Fahrzeugliste erweitern"

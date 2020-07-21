@@ -1,6 +1,7 @@
 import enhanceVehicleList from './assets/enhanceVehicleList';
 import personnelDemands from './assets/personnelDemands';
 import schoolingSummary from './assets/schoolingSummary';
+import enhancedPersonnelAssignment from './assets/enhancedPersonnelAssignment';
 
 (async (LSSM: Vue) => {
     await LSSM.$store.dispatch('settings/register', {
@@ -33,13 +34,20 @@ import schoolingSummary from './assets/schoolingSummary';
                 type: 'toggle',
                 default: true,
             },
+            enhancedPersonnelAssignment: {
+                type: 'toggle',
+                default: true,
+            },
         },
     });
 
     if (
-        !window.location.pathname.match(
+        (!window.location.pathname.match(
             /^\/buildings\/\d+(\/personals)?\/?$/
-        ) ||
+        ) &&
+            !window.location.pathname.match(
+                /^\/vehicles\/\d+\/zuweisung\/?$/
+            )) ||
         document.querySelectorAll('[href*="profile"]').length
     )
         return;
@@ -54,7 +62,7 @@ import schoolingSummary from './assets/schoolingSummary';
         });
     };
 
-    if (!window.location.pathname.match('personals')) {
+    if (window.location.pathname.match(/^\/buildings\/\d+\/?$/)) {
         const BUILDING_MODE = document.getElementById('tab_protocol')
             ? 'dispatch'
             : 'building';
@@ -67,7 +75,13 @@ import schoolingSummary from './assets/schoolingSummary';
             (await getSetting('personnelDemands'))
         )
             personnelDemands(LSSM);
-    } else {
+    } else if (
+        window.location.pathname.match(/^\/buildings\/\d+\/personals\/?$/)
+    ) {
         if (await getSetting('schoolingSummary')) schoolingSummary(LSSM);
-    }
+    } else if (
+        window.location.pathname.match(/^\/vehicles\/\d+\/zuweisung\/?$/)
+    )
+        if (await getSetting('enhancedPersonnelAssignment'))
+            enhancedPersonnelAssignment(LSSM);
 })(window[PREFIX] as Vue);
