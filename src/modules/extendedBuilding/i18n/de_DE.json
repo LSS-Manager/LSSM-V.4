@@ -24,5 +24,13 @@
     "personnelDemands": {
         "demand": "Benötigtes Personal",
         "additional": "Bei Werten in Klammern sind Fahrzeuge im FMS 6 ausgeschlossen."
+    },
+    "schoolingSummary": {
+        "title": "Personalübersicht",
+        "all": "Alle Kombinationen",
+        "each": "Lehrgänge einzeln",
+        "schooling": "Ausbildung",
+        "amount": "Anzahl",
+        "bound": "Zugewiesen"
     }
 }

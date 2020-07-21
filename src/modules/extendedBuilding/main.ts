@@ -1,5 +1,6 @@
 import enhanceVehicleList from './assets/enhanceVehicleList';
 import personnelDemands from './assets/personnelDemands';
+import schoolingSummary from './assets/schoolingSummary';
 
 (async (LSSM: Vue) => {
     await LSSM.$store.dispatch('settings/register', {
@@ -32,7 +33,9 @@ import personnelDemands from './assets/personnelDemands';
     });
 
     if (
-        !window.location.pathname.match(/^\/buildings\/\d+$/) ||
+        !window.location.pathname.match(
+            /^\/buildings\/\d+(\/personals)?\/?$/
+        ) ||
         document.querySelectorAll('[href*="profile"]').length
     )
         return;
@@ -46,13 +49,20 @@ import personnelDemands from './assets/personnelDemands';
         });
     };
 
-    const BUILDING_MODE = document.getElementById('tab_protocol')
-        ? 'dispatch'
-        : 'building';
+    if (!window.location.pathname.match('personals')) {
+        const BUILDING_MODE = document.getElementById('tab_protocol')
+            ? 'dispatch'
+            : 'building';
 
-    if (await getSetting('enhanceVehicleList'))
-        await enhanceVehicleList(LSSM, BUILDING_MODE, getSetting);
+        if (await getSetting('enhanceVehicleList'))
+            await enhanceVehicleList(LSSM, BUILDING_MODE, getSetting);
 
-    if (BUILDING_MODE === 'building' && (await getSetting('personnelDemands')))
-        personnelDemands(LSSM);
+        if (
+            BUILDING_MODE === 'building' &&
+            (await getSetting('personnelDemands'))
+        )
+            personnelDemands(LSSM);
+    } else {
+        schoolingSummary(LSSM);
+    }
 })(window[PREFIX] as Vue);

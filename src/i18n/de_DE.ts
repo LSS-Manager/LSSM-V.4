@@ -1380,7 +1380,7 @@ export default {
             maxLevel: 0,
             special: 'SEGs können ab der 5. Rettungswache gebaut werden.',
             startPersonnel: 0,
-            startVehicles: [],
+            startVehicles: ['KTW Typ B'],
         },
         {
             caption: 'Polizeihubschrauberstation',
