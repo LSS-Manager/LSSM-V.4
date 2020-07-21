@@ -8,6 +8,8 @@
 		"amount": "Anzahl",
 		"bound": "Zugewiesen",
 		"each": "Lehrgänge einzeln",
+        "max": "aktuell maximal benötigt",
+        "min": "aktuell minimal benötigt",
 		"schooling": "Ausbildung",
 		"title": "Personalübersicht"
 	},

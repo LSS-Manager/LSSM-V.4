@@ -5,8 +5,13 @@ interface Schooling {
     bound: number;
 }
 
-export interface SchoolingSummaryObject {
-    [schooling: string]: Schooling;
+interface EachSchooling extends Schooling {
+    min: number;
+    max: number;
+}
+
+export interface SchoolingSummaryObject<schooling = Schooling> {
+    [schooling: string]: schooling;
 }
 
 export interface SchoolingSummary {
@@ -51,5 +56,5 @@ export interface SchoolingSummaryMethods {
 
 export interface SchoolingSummaryProps {
     allSchoolings: SchoolingSummaryObject;
-    eachSchoolings: SchoolingSummaryObject;
+    eachSchoolings: SchoolingSummaryObject<EachSchooling>;
 }

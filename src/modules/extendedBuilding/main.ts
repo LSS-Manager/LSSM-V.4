@@ -45,6 +45,7 @@ import schoolingSummary from './assets/schoolingSummary';
         return;
 
     await LSSM.$store.dispatch('api/registerVehiclesUsage', true);
+    await LSSM.$store.dispatch('api/registerBuildingsUsage', true);
 
     const getSetting = (settingId: string): Promise<boolean> => {
         return LSSM.$store.dispatch('settings/getSetting', {

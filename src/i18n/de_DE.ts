@@ -204,6 +204,7 @@ export default {
             maxPersonnel: 3,
             wtank: 0,
             schooling: 'Feuerwehr - GW-Messtechnik Lehrgang',
+            shownSchooling: 'GW-Messtechnik',
             special: 'Wird ab 10 Feuerwachen benötigt.',
         },
         {
@@ -349,6 +350,7 @@ export default {
             maxPersonnel: 3,
             wtank: 0,
             schooling: 'Feuerwehr - GW-Gefahrgut Lehrgang',
+            shownSchooling: 'GW-Gefahrgut',
             special: 'Wird ab 11 Feuerwachen benötigt.',
         },
         {
@@ -367,6 +369,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 2,
             schooling: 'Rettungsdienst - Notarzt-Ausbildung',
+            shownSchooling: 'Notarzt',
             special: 'Wird ab 3 Rettungswachen benötigt.',
         },
         {
@@ -386,6 +389,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 1,
             schooling: 'Rettungsdienst - Notarzt-Ausbildung',
+            shownSchooling: 'Notarzt',
             special: 'Wird ab 3 Rettungswachen benötigt.',
         },
         {
@@ -405,6 +409,7 @@ export default {
             maxPersonnel: 9,
             wtank: 0,
             schooling: 'Feuerwehr - Höhenrettung Lehrgang',
+            shownSchooling: 'GW-Höhenrettung',
             special: 'Wird ab 12 Feuerwachen benötigt.',
         },
         {
@@ -416,6 +421,7 @@ export default {
             maxPersonnel: 6,
             wtank: 0,
             schooling: 'Feuerwehr - ELW 2 Lehrgang',
+            shownSchooling: 'ELW 2',
             special: 'Wird ab 13 Feuerwachen benötigt.',
         },
         {
@@ -426,6 +432,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 3,
             schooling: 'Polizei - Zugführer (leBefKw)',
+            shownSchooling: 'Zugführer (leBefKw)',
         },
         {
             caption: 'MTW',
@@ -469,6 +476,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 4,
             schooling: 'THW - Zugtrupp',
+            shownSchooling: 'Zugtrupp',
         },
         {
             caption: 'MzKW',
@@ -486,6 +494,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 3,
             schooling: 'THW - Fachgruppe Räumen',
+            shownSchooling: 'Fachgruppe Räumen',
         },
         {
             caption: 'BRmG R',
@@ -510,6 +519,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 6,
             schooling: 'THW - Fachgruppe Räumen',
+            shownSchooling: 'Fachgruppe Räumen',
         },
         {
             caption: 'WLF',
@@ -520,6 +530,7 @@ export default {
             maxPersonnel: 3,
             wtank: 0,
             schooling: 'Feuerwehr - Wechsellader Lehrgang',
+            shownSchooling: 'Wechsellader',
         },
         {
             caption: 'AB-Rüst',
@@ -555,6 +566,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 3,
             schooling: 'Polizei - Hundertschaftsführer (FüKw)',
+            shownSchooling: 'Hundertschaftsführer (FüKw)',
         },
         {
             caption: 'GefKw',
@@ -572,6 +584,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 6,
             schooling: 'Feuerwehr - Dekon-P Lehrgang',
+            shownSchooling: 'Dekon-P',
             special:
                 'Pro Dekon-P müssen 6 Personen mit Dekon-P-Ausbildung vor Ort sein. Wird ab 14 Feuerwachen benötigt.',
         },
@@ -590,6 +603,7 @@ export default {
             maxPersonnel: 1,
             wtank: 0,
             schooling: 'Rettungsdienst - LNA-Ausbildung',
+            shownSchooling: 'LNA',
             special: 'Wird ab 5 Rettungswachen benötigt.',
         },
         {
@@ -601,6 +615,7 @@ export default {
             maxPersonnel: 1,
             wtank: 0,
             schooling: 'Rettungsdienst - OrgL-Ausbildung',
+            shownSchooling: 'OrgL',
             special: 'Wird ab 10 Rettungswachen benötigt.',
         },
         {
@@ -612,6 +627,7 @@ export default {
             maxPersonnel: 2,
             wtank: 0,
             schooling: 'Feuerwehr - Feuerwehrkran Lehrgang',
+            shownSchooling: 'Feuerwehrkran',
             special: 'Wird ab 14 Feuerwachen benötigt.',
         },
         {
@@ -632,6 +648,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 2,
             schooling: 'Rettungsdienst - SEG - Einsatzleitung',
+            shownSchooling: 'Einsatzleitung (SEG)',
             special:
                 'Kann automatisch eingehende Sprechwünsche der eigenen Rettungsmittel bearbeiten und ihnen im Transportfall ein geeignetes Krankenhaus zuweisen. Die automatische Zuweisungsfunktion kann in dessen Einstellungen verändert werden.',
         },
@@ -643,6 +660,7 @@ export default {
             minPersonnel: 6,
             maxPersonnel: 6,
             schooling: 'Rettungsdienst - SEG - GW-San',
+            shownSchooling: 'GW-San',
             special:
                 'Pro GW-San können 5 KTW Typ B wie ein RTW arbeiten. Er behandelt die Patienten zwar größtenteils, aber für die letzten paar Prozente braucht man dann einen RTW, KTW Typ B oder ähnliches.',
         },
@@ -654,6 +672,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 3,
             schooling: 'Polizei - Polizeihubschrauber',
+            shownSchooling: 'Polizeihubschrauber',
         },
         {
             caption: 'AB-Schlauch',
@@ -669,6 +688,7 @@ export default {
             minPersonnel: 2,
             maxPersonnel: 2,
             schooling: 'Rettungsdienst - GW-Taucher Lehrgang',
+            shownSchooling: 'GW-Taucher',
         },
         {
             caption: 'GW-Wasserrettung',
@@ -678,6 +698,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 6,
             schooling: 'Rettungsdienst - GW-Wasserrettung Lehrgang',
+            shownSchooling: 'GW-Wasserrettung',
         },
         {
             caption: 'LKW 7 Lkr 19 tm',
@@ -719,6 +740,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 2,
             schooling: 'THW - Bergungstaucher Lehrgang',
+            shownSchooling: 'GW-Taucher',
         },
         {
             caption: 'MZB',
@@ -744,6 +766,7 @@ export default {
             minPersonnel: 5,
             maxPersonnel: 5,
             schooling: 'Polizei - Wasserwerfer',
+            shownSchooling: 'Wasserwerfer',
         },
         {
             caption: 'GRTW',
@@ -763,6 +786,7 @@ export default {
             minPersonnel: 3,
             maxPersonnel: 3,
             schooling: 'Rettungsdienst - Notarzt-Ausbildung',
+            shownSchooling: 'Notarzt',
             special:
                 'Insgesamt so viele NAW kaufbar wie Rettungswachen (und auf einsatzbereit gestellte Rettungsdienst-Erweiterungen) vorhanden. Alle auch auf einer Wache patzierbar.',
         },
@@ -775,6 +799,7 @@ export default {
             maxPersonnel: 3,
             wtank: 12000,
             schooling: 'Feuerwehr - Flugfeldlöschfahrzeug-Ausbildung',
+            shownSchooling: 'Flugfeldlöschfahrzeug',
         },
         {
             caption: 'Rettungstreppe',
@@ -785,6 +810,7 @@ export default {
             maxPersonnel: 2,
             wtank: 0,
             schooling: 'Feuerwehr - Rettungstreppen-Ausbildung',
+            shownSchooling: 'Rettungstreppe',
         },
         {
             caption: 'AB-Gefahrgut',
@@ -806,6 +832,7 @@ export default {
             minPersonnel: 3,
             maxPersonnel: 4,
             schooling: 'Polizei - SEK',
+            shownSchooling: 'SEK',
         },
         {
             caption: 'SEK - MTF',
@@ -815,6 +842,7 @@ export default {
             minPersonnel: 9,
             maxPersonnel: 9,
             schooling: 'Polizei - SEK',
+            shownSchooling: 'SEK',
         },
         {
             caption: 'MEK - ZF',
@@ -824,6 +852,7 @@ export default {
             minPersonnel: 3,
             maxPersonnel: 4,
             schooling: 'Polizei - MEK',
+            shownSchooling: 'MEK',
         },
         {
             caption: 'MEK - MTF',
@@ -833,6 +862,7 @@ export default {
             minPersonnel: 9,
             maxPersonnel: 9,
             schooling: 'Polizei - MEK',
+            shownSchooling: 'MEK',
         },
         {
             caption: 'GW-Werkfeuerwehr',
@@ -843,6 +873,7 @@ export default {
             maxPersonnel: 9,
             wtank: 0,
             schooling: 'Feuerwehr - Werkfeuerwehr-Ausbildung',
+            shownSchooling: 'Werkfeuerwehr',
         },
         {
             caption: 'ULF mit Löscharm',
@@ -853,6 +884,7 @@ export default {
             maxPersonnel: 3,
             wtank: 5_000,
             schooling: 'Feuerwehr - Werkfeuerwehr-Ausbildung',
+            shownSchooling: 'Werkfeuerwehr',
         },
         {
             caption: 'TM 50',
@@ -863,6 +895,7 @@ export default {
             maxPersonnel: 3,
             wtank: 0,
             schooling: 'Feuerwehr - Werkfeuerwehr-Ausbildung',
+            shownSchooling: 'Werkfeuerwehr',
         },
         {
             caption: 'Turbolöscher',
@@ -873,6 +906,7 @@ export default {
             maxPersonnel: 3,
             wtank: 0,
             schooling: 'Feuerwehr - Werkfeuerwehr-Ausbildung',
+            shownSchooling: 'Werkfeuerwehr',
         },
         {
             caption: 'TLF 4000',
@@ -918,6 +952,7 @@ export default {
             minPersonnel: 4,
             maxPersonnel: 5,
             schooling: 'Rettungsdienst - Rettungshundeführer (SEG)',
+            shownSchooling: 'Rettungshundeführer (SEG)',
             special:
                 'Am Einsatzort sind ein "Rettungshundefahrzeug" und ein "Anh Hund" vom THW gleichwertig!',
         },
@@ -927,7 +962,7 @@ export default {
             coins: 0,
             credits: 6_000,
             special:
-                'Muss von einem "MTW-OV" an den Einsatzort gezogen werden. Am Einsatzort sind ein "Anh Hund" und ein "Anh Rettungshundefahrzeug" vom THW gleichwertig!',
+                'Muss von einem "MTW-OV" an den Einsatzort gezogen werden. Am Einsatzort sind ein "Anh Hund" und ein "Rettungshundefahrzeug" vom Rettungsdienst gleichwertig!',
         },
         {
             caption: 'MTW-OV',
@@ -937,6 +972,7 @@ export default {
             minPersonnel: 4,
             maxPersonnel: 5,
             schooling: 'THW - Rettungshundeführer (THW)',
+            shownSchooling: 'Rettungshundeführer (THW)',
         },
     ],
     buildings: [

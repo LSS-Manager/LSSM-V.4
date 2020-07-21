@@ -1,5 +1,6 @@
 import SchoolingSummary from '../components/schoolingSummary.vue';
 import { SchoolingSummaryObject } from 'typings/modules/ExtendedBuilding/schoolingSummary';
+import { InternalVehicle, Vehicle } from 'typings/Vehicle';
 
 export default (LSSM: Vue): void => {
     const dataList = document.querySelector('dl:last-of-type');
@@ -49,6 +50,31 @@ export default (LSSM: Vue): void => {
     dataData.append(overviewWrapper);
     dataList.append(dataTitle, dataData);
 
+    const buildingId = parseInt(
+        window.location.pathname.match(/\d+(?=\/personals)/)?.[0] || '-1'
+    );
+    if (buildingId < 0) return;
+
+    const vehicleTypes = Object.values(
+        (LSSM.$t('vehicles') as unknown) as InternalVehicle[]
+    );
+    const buildingVehicleTypes = {} as {
+        [type: string]: {
+            min: number;
+            max: number;
+        };
+    };
+    (LSSM.$store.getters['api/vehiclesByBuilding'][
+        buildingId
+    ] as Vehicle[]).forEach(v => {
+        if (!buildingVehicleTypes.hasOwnProperty(v.vehicle_type))
+            buildingVehicleTypes[v.vehicle_type] = { min: 0, max: 0 };
+        buildingVehicleTypes[v.vehicle_type].min +=
+            vehicleTypes[v.vehicle_type].minPersonnel;
+        buildingVehicleTypes[v.vehicle_type].max +=
+            vehicleTypes[v.vehicle_type].maxPersonnel;
+    });
+
     new LSSM.$vue({
         store: LSSM.$store,
         i18n: LSSM.$i18n,
@@ -56,7 +82,25 @@ export default (LSSM: Vue): void => {
             h(SchoolingSummary, {
                 props: {
                     allSchoolings: summaryAll,
-                    eachSchoolings: summaryEach,
+                    eachSchoolings: Object.fromEntries(
+                        Object.entries(summaryEach).map(
+                            ([schooling, { amount, bound }]) => {
+                                const matchingTypes = schooling
+                                    ? Object.entries(vehicleTypes).filter(
+                                          ([, t]) =>
+                                              t.shownSchooling === schooling
+                                      )
+                                    : [];
+                                let min = 0;
+                                let max = 0;
+                                matchingTypes.forEach(([type]) => {
+                                    min += buildingVehicleTypes[type]?.min || 0;
+                                    max += buildingVehicleTypes[type]?.max || 0;
+                                });
+                                return [schooling, { amount, bound, min, max }];
+                            }
+                        )
+                    ),
                 },
             }),
     }).$mount(overviewWrapper);

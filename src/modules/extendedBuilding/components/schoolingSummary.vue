@@ -50,6 +50,12 @@
                         bound: {
                             title: $sm('bound'),
                         },
+                        min: {
+                            title: $sm('min'),
+                        },
+                        max: {
+                            title: $sm('max'),
+                        },
                     }"
                     :table-attrs="{ class: 'table table-striped' }"
                     @sort="setSortEach"
@@ -62,6 +68,8 @@
                         <td>{{ schooling.schooling }}</td>
                         <td>{{ schooling.amount }}</td>
                         <td>{{ schooling.bound }}</td>
+                        <td>{{ schooling.min }}</td>
+                        <td>{{ schooling.max }}</td>
                     </tr>
                 </enhanced-table>
             </div>
@@ -134,10 +142,12 @@ export default Vue.extend<
         },
         sortedEach() {
             const schoolings = Object.entries(this.eachSchoolings).map(
-                ([schooling, { amount, bound }]) => ({
+                ([schooling, { amount, bound, min, max }]) => ({
                     schooling,
                     amount,
                     bound,
+                    min,
+                    max,
                 })
             );
             return (this.allSchoolingsSearch

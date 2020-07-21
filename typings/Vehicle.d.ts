@@ -35,6 +35,7 @@ export interface InternalVehicle {
     minPersonnel: number;
     maxPersonnel: number;
     schooling: string;
+    shownSchooling: string;
     special: string;
     [key: string]: string | number;
 }
