@@ -29,6 +29,10 @@ import schoolingSummary from './assets/schoolingSummary';
                 type: 'toggle',
                 default: true,
             },
+            schoolingSummary: {
+                type: 'toggle',
+                default: true,
+            },
         },
     });
 
@@ -63,6 +67,6 @@ import schoolingSummary from './assets/schoolingSummary';
         )
             personnelDemands(LSSM);
     } else {
-        schoolingSummary(LSSM);
+        if (await getSetting('schoolingSummary')) schoolingSummary(LSSM);
     }
 })(window[PREFIX] as Vue);
