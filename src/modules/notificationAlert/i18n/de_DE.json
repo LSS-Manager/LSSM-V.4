@@ -1,13 +1,11 @@
 {
 	"alertStyles": {
 		"error": "Fehlermeldung (rot)",
-		"info": "Information (blau)",
 		"success": "Bestätigung (grün)",
-		"warning": "Warnung (orange)"
+		"warn": "Warnung (orange)"
 	},
 	"events": {
-		"allianceChat": "Chatnachricht",
-		"radioMessage": "Funkspruch"
+		"allianceChat": "Chatnachricht"
 	},
 	"messages": {
 		"radioMessage": {

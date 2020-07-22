@@ -1,131 +1,156 @@
 <template>
-    <div class="notification-setting">
+    <div class="notification-setting form-horizontal">
         <v-select
-            :options="events"
-            :value="eventTypes"
+            :options="selectableEvents"
             :clearable="false"
             :multiple="true"
             :placeholder="$t('modules.notificationAlert.settings.eventTypes')"
-            :reduce="option => option.event"
-            v-model="newValues.eventTypes"
-            @input="changeValue"
+            v-model="updateEvents"
         ></v-select>
         <v-select
-            :options="styles"
-            :value="alertStyle"
+            :options="styleOptions"
             :clearable="false"
             :placeholder="$t('modules.notificationAlert.settings.alertStyle')"
-            :reduce="option => option.alertStyle"
-            v-model="newValues.alertStyle"
-            @input="changeValue"
+            v-model="updateStyle"
         ></v-select>
-        <settings-number
-            name="duration"
-            :value="duration"
-            :min="0"
-            :placeholder="$t('modules.notificationAlert.settings.duration')"
-            @input="setDuration($event.currentTarget.value)"
-        ></settings-number>
-        <div>
-            <settings-toggle
-                name="ingame"
-                :value="ingame"
-                :pull-right="false"
-                @change="setIngame($event.value)"
-            ></settings-toggle>
-        </div>
-        <div>
-            <settings-toggle
-                name="desktop"
-                :value="desktop"
-                :pull-right="false"
-                @change="setDesktop($event.value)"
-            ></settings-toggle>
-        </div>
+        <label>
+            <input
+                :placeholder="$t('modules.notificationAlert.settings.duration')"
+                v-model.number="updateDuration"
+                type="number"
+                class="form-control"
+                min="0"
+            />
+        </label>
+        <toggle-button
+            labels
+            v-model="updateIngame"
+            class="pull-right"
+        ></toggle-button>
+        <toggle-button
+            labels
+            v-model="updateDesktop"
+            class="pull-right"
+        ></toggle-button>
     </div>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue';
 import VSelect from 'vue-select';
-import SettingsToggle from '../../../components/setting/toggle.vue';
-import SettingsNumber from '../../../components/setting/number.vue';
+import {
+    SettingsItem,
+    SettingsItemComputed,
+    SettingsItemProps,
+} from 'typings/modules/NotificationAlert/SettingsItem';
+import { DefaultMethods } from 'vue/types/options';
 
-import cloneDeep from 'lodash/cloneDeep';
-
-export default {
+export default Vue.extend<
+    SettingsItem,
+    DefaultMethods<Vue>,
+    SettingsItemComputed,
+    SettingsItemProps
+>({
     name: 'settings-item',
-    components: { VSelect, SettingsNumber, SettingsToggle },
+    components: { VSelect },
     data() {
-        const events = this.$t('modules.notificationAlert.events');
-        const alertStyles = this.$t('modules.notificationAlert.alertStyles');
+        const events = (this.$t(
+            'modules.notificationAlert.events'
+        ) as unknown) as {
+            [event: string]: string;
+        };
+        const alertStyles = (this.$t(
+            'modules.notificationAlert.alertStyles'
+        ) as unknown) as {
+            [style: string]: string;
+        };
         return {
-            newValues: {
-                eventTypes: null,
-                alertStyle: null,
-                duration: null,
-                desktop: null,
-            },
-            events: Object.keys(events).map(event => ({
-                event,
+            eventOptions: Object.keys(events).map(event => ({
+                value: event,
                 label: events[event],
             })),
-            styles: Object.keys(alertStyles).map(alertStyle => ({
-                alertStyle,
+            styleOptions: Object.keys(alertStyles).map(alertStyle => ({
+                value: alertStyle,
                 label: alertStyles[alertStyle],
             })),
         };
     },
     props: {
-        eventTypes: {
+        value: {
+            type: Object,
             required: true,
-            type: Array,
         },
-        alertStyle: {
-            required: true,
-            validator: function(val) {
-                return val === null || typeof val === 'string';
+    },
+    computed: {
+        updateEvents: {
+            get(): SettingsItemComputed['updateEvents'] {
+                return (this.value.events
+                    .map(v =>
+                        this.eventOptions.find(
+                            o => o.value.toString() === v.toString()
+                        )
+                    )
+                    .filter(
+                        v => !!v
+                    ) as SettingsItemComputed['updateEvents']).sort((a, b) =>
+                    a.value > b.value ? 1 : a.value < b.value ? -1 : 0
+                );
+            },
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-ignore
+            set(events: SettingsItemComputed['updateEvents']) {
+                this.$emit('input', {
+                    ...this.value,
+                    events: events.map(v => v.value),
+                });
             },
         },
-        duration: {
-            required: true,
-            type: Number,
+        selectableEvents() {
+            return this.eventOptions.filter(
+                e => !this.updateEvents.find(u => u.value === e.value)
+            );
         },
-        ingame: {
-            required: true,
-            type: Boolean,
+        updateStyle: {
+            get(): SettingsItemComputed['updateStyle'] {
+                return (
+                    this.styleOptions.find(
+                        o => o.value === this.value.alertStyle
+                    ) || this.styleOptions[0]
+                );
+            },
+            set(alertStyle: SettingsItemComputed['updateStyle']) {
+                this.$emit('input', {
+                    ...this.value,
+                    alertStyle: alertStyle.value,
+                });
+            },
         },
-        desktop: {
-            required: true,
-            type: Boolean,
+        updateDuration: {
+            get(): SettingsItemComputed['updateDuration'] {
+                return this.value.duration;
+            },
+            set(duration: SettingsItemComputed['updateDuration']) {
+                this.$emit('input', { ...this.value, duration });
+            },
+        },
+        updateIngame: {
+            get(): SettingsItemComputed['updateIngame'] {
+                return this.value.ingame;
+            },
+            set(ingame: SettingsItemComputed['updateIngame']) {
+                this.$emit('input', { ...this.value, ingame });
+            },
+        },
+        updateDesktop: {
+            get(): SettingsItemComputed['updateDesktop'] {
+                return this.value.desktop;
+            },
+            set(desktop: SettingsItemComputed['updateDesktop']) {
+                this.$emit('input', { ...this.value, desktop });
+            },
         },
     },
-    methods: {
-        setDuration(value) {
-            this.newValues.duration = parseInt(value);
-            this.changeValue();
-        },
-        setIngame(value) {
-            this.newValues.ingame = value;
-            this.changeValue();
-        },
-        setDesktop(value) {
-            this.newValues.desktop = value;
-            this.changeValue();
-        },
-        changeValue() {
-            this.$emit('change', this.newValues);
-        },
-    },
-    mounted() {
-        this.newValues = {
-            eventTypes: cloneDeep(this.eventTypes),
-            alertStyle: cloneDeep(this.alertStyle),
-            duration: cloneDeep(this.duration),
-            ingame: cloneDeep(this.ingame),
-            desktop: cloneDeep(this.desktop),
-        };
-    },
-};
+});
 </script>
 
 <style scoped lang="sass">
