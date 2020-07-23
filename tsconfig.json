@@ -25,7 +25,7 @@
 		"resolveJsonModule": true,
 		"sourceMap": true,
 		"strict": true,
-		"target": "ES5",
+		"target": "ES3",
 		"types": [
 			"webpack-env",
 			"vue"
