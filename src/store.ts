@@ -21,6 +21,8 @@ import { LSSMEvent, returnTypeFunction } from '../typings/helpers';
 import storage from './store/storage';
 import settings from './store/settings';
 import api from './store/api';
+import console from './store/console';
+import notifications from './store/notifications';
 import modules from './registerModules';
 import { Modules } from '../typings/Module';
 import { LSSM } from './core';
@@ -33,6 +35,8 @@ export default (Vue: VueConstructor): Store<RootState> => {
             storage,
             settings,
             api,
+            console,
+            notifications,
         } as ModuleTree<RootState>,
         state: {
             prefix: PREFIX,

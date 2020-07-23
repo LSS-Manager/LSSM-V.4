@@ -3,6 +3,7 @@ import VueJSModal from 'vue-js-modal';
 import ToggleButton from 'vue-js-toggle-button';
 import * as Tabs from 'vue-slim-tabs';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+import Notifications from 'vue-notification';
 import LSSMV4 from './LSSMV4.vue';
 import LSSMMenu from './LSSM-Menu.vue';
 import store from './store';
@@ -34,6 +35,7 @@ Vue.use(VueJSModal, {
 });
 Vue.use(ToggleButton);
 Vue.use(Tabs);
+Vue.use(Notifications);
 
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 utils(Vue);

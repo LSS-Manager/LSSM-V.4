@@ -2,22 +2,24 @@
     <div :id="id">
         <modals-container />
         <v-dialog></v-dialog>
+        <notifications
+            v-for="group in notificationGroups"
+            :key="group"
+            :group="group.replace(' ', '_')"
+            :position="group"
+        ></notifications>
     </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
-import { LSSMV4Data } from '../typings/LSSMV4';
-import {
-    DefaultMethods,
-    DefaultComputed,
-    DefaultProps,
-} from 'vue/types/options';
+import { LSSMV4Data, LSSMV4Computed } from '../typings/LSSMV4';
+import { DefaultMethods, DefaultProps } from 'vue/types/options';
 
 export default Vue.extend<
     LSSMV4Data,
     DefaultMethods<Vue>,
-    DefaultComputed,
+    LSSMV4Computed,
     DefaultProps
 >({
     name: 'LSSMV4',
@@ -26,6 +28,11 @@ export default Vue.extend<
         return {
             id: this.$store.getters.nodeAttribute('app'),
         };
+    },
+    computed: {
+        notificationGroups() {
+            return this.$store.state.notifications.groups;
+        },
     },
 });
 </script>
