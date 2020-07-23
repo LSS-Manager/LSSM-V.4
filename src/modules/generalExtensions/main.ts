@@ -38,7 +38,10 @@ import mapUndo from './assets/mapUndo';
 
     inputMaxLen(LSSM);
 
-    if (await getSetting<boolean>('clickableLinks'))
+    if (
+        !window.location.pathname.match(/^\/note\/?$/) &&
+        (await getSetting<boolean>('clickableLinks'))
+    )
         clickableLinks(LSSM, await getSetting('showImg'));
     const linkPreviewSetting = await getSetting<string[]>('linkPreviews');
     if (linkPreviewSetting.length) await linkPreviews(LSSM, linkPreviewSetting);
