@@ -16,8 +16,16 @@ import settingTitles from './components/settings-titles.vue';
                     duration: 8000,
                     ingame: true,
                     desktop: true,
+                    position: 'bottom right',
                 },
             },
         },
     });
+
+    const alerts = await LSSM.$store.dispatch('settings/getSetting', {
+        moduleId: MODULE_ID,
+        settingId: 'alerts',
+    });
+
+    console.log(alerts);
 })(window[PREFIX] as Vue);

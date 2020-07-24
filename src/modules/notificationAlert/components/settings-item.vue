@@ -22,16 +22,26 @@
                 min="0"
             />
         </label>
-        <toggle-button
-            labels
-            v-model="updateIngame"
-            class="pull-right"
-        ></toggle-button>
-        <toggle-button
-            labels
-            v-model="updateDesktop"
-            class="pull-right"
-        ></toggle-button>
+        <div>
+            <toggle-button
+                labels
+                v-model="updateIngame"
+                class="pull-right"
+            ></toggle-button>
+        </div>
+        <div>
+            <toggle-button
+                labels
+                v-model="updateDesktop"
+                class="pull-right"
+            ></toggle-button>
+        </div>
+        <v-select
+            :options="positionOptions"
+            :clearable="false"
+            :placeholder="$t('modules.notificationAlert.settings.position')"
+            v-model="updatePosition"
+        ></v-select>
     </div>
 </template>
 
@@ -64,6 +74,11 @@ export default Vue.extend<
         ) as unknown) as {
             [style: string]: string;
         };
+        const positions = (this.$t(
+            'modules.notificationAlert.positions'
+        ) as unknown) as {
+            [position: string]: string;
+        };
         return {
             eventOptions: Object.keys(events).map(event => ({
                 value: event,
@@ -72,6 +87,12 @@ export default Vue.extend<
             styleOptions: Object.keys(alertStyles).map(alertStyle => ({
                 value: alertStyle,
                 label: alertStyles[alertStyle],
+            })),
+            positionOptions: (Object.keys(
+                positions
+            ) as SettingsItemProps['value']['position'][]).map(position => ({
+                value: position,
+                label: positions[position],
             })),
         };
     },
@@ -147,6 +168,21 @@ export default Vue.extend<
             },
             set(desktop: SettingsItemComputed['updateDesktop']) {
                 this.$emit('input', { ...this.value, desktop });
+            },
+        },
+        updatePosition: {
+            get(): SettingsItemComputed['updatePosition'] {
+                return (
+                    this.positionOptions.find(
+                        o => o.value === this.value.position
+                    ) || this.positionOptions[0]
+                );
+            },
+            set(position: SettingsItemComputed['updatePosition']) {
+                this.$emit('input', {
+                    ...this.value,
+                    position: position.value,
+                });
             },
         },
     },

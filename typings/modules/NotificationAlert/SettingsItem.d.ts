@@ -1,9 +1,12 @@
+import { NotificationsState } from 'typings/store/notifications/State';
+
 interface Item {
     events: string[];
     alertStyle: string;
     duration: number;
     ingame: boolean;
     desktop: boolean;
+    position: NotificationsState['groups'][0];
 }
 
 interface Option<values = string> {
@@ -14,6 +17,7 @@ interface Option<values = string> {
 export interface SettingsItem {
     eventOptions: Option[];
     styleOptions: Option[];
+    positionOptions: Option<Item['position']>[];
 }
 
 export interface SettingsItemProps {
@@ -27,4 +31,5 @@ export interface SettingsItemComputed {
     updateDuration: Item['duration'];
     updateIngame: Item['ingame'];
     updateDesktop: Item['desktop'];
+    updatePosition: Option<Item['position']>;
 }

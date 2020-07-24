@@ -5,13 +5,23 @@
 		"warn": "Warnung (orange)"
 	},
 	"events": {
-		"allianceChat": "Chatnachricht"
+		"allianceChat": "Chatnachricht",
+		"allianceChatMention": "Chatnachricht (nur Erwähnungen)",
+		"allianceChatWhisper": "Chatnachricht (nur private Ansprachen)"
 	},
 	"messages": {
 		"radioMessage": {
 			"title": "{vehicle} meldet Status {status}!"
 		}
 	},
+    "positions": {
+        "top left": "Oben Links \uD83E\uDC64",
+        "top center": "Oben Mitte \uD83E\uDC61",
+        "top right": "Oben Rechts \uD83E\uDC65",
+        "bottom left": "Unten Links \uD83E\uDC67",
+        "bottom center": "Unten Mitte \uD83E\uDC63",
+        "bottom right": "Unten Rechts \uD83E\uDC66"
+    },
 	"settings": {
 		"alertStyle": "Ingame-Benachrichtigungs-Typ",
 		"alerts": {
@@ -20,6 +30,7 @@
 		"desktop": "Desktop-Benachrichtigung senden",
 		"duration": "Anzeigedauer",
 		"eventTypes": "Events",
-		"ingame": "Ingame-Benachrichtigung senden"
+		"ingame": "Ingame-Benachrichtigung senden",
+        "position": "Position"
 	}
 }

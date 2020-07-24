@@ -5,6 +5,7 @@
         <b>{{ $t('modules.notificationAlert.settings.duration') }}</b>
         <b>{{ $t('modules.notificationAlert.settings.ingame') }}</b>
         <b>{{ $t('modules.notificationAlert.settings.desktop') }}</b>
+        <b>{{ $t('modules.notificationAlert.settings.position') }}</b>
     </div>
 </template>
 
