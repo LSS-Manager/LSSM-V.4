@@ -7,6 +7,7 @@
             :key="group"
             :group="group.replace(' ', '_')"
             :position="group"
+            :class="group"
         ></notifications>
     </div>
 </template>
@@ -137,4 +138,21 @@ body.dark
 
     &:hover
         text-decoration: none
+
+.vue-notification-group
+    transform: scale(1.5)
+    padding: 1em
+    z-index: 10006 !important
+
+    &.bottom
+        bottom: 1em !important
+
+    &.top
+        top: 1em !important
+
+    &.right
+        right: 4em !important
+
+    &.left
+        left: 4em !important
 </style>
