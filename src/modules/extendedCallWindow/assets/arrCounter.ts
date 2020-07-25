@@ -18,6 +18,12 @@ export default async (
     (counter || highlight) &&
         (await LSSM.$store.dispatch('addStyles', [
             {
+                selectorText: `.${counterClass}:not([data-amount]), .${counterClass}[data-amount="0"]`,
+                style: {
+                    display: 'none',
+                },
+            },
+            {
                 selectorText: `.${counterClass}::after`,
                 style: {
                     content: '" " attr(data-amount) "x"',
@@ -40,7 +46,7 @@ export default async (
     const resetCounters = () => {
         if (counter)
             Object.values(counterNodes).forEach(counter => {
-                counter.setAttribute('data-amount', '0');
+                counter.removeAttribute('data-amount');
                 counter.parentElement?.classList.remove(highlightClass);
             });
         else
@@ -67,7 +73,16 @@ export default async (
                 targetARR.getAttribute('aao_id') ||
                 targetARR.getAttribute('vehicle_group_id');
             if (!arrId) return;
-            const counterNode = counterNodes[arrId];
+            let counterNode = counterNodes[arrId];
+            if (!counterNode) {
+                counterNode = document.createElement('span');
+                counterNode.classList.add(counterClass);
+                counterNode.setAttribute('data-amount', '0');
+                targetARR
+                    .querySelector('.label')
+                    ?.insertAdjacentElement('afterend', counterNode);
+                counterNodes[arrId] = counterNode;
+            }
 
             if (targetARR.getAttribute('reset') === 'true') resetCounters();
 
@@ -82,20 +97,6 @@ export default async (
                 );
 
             if (highlight) targetARR.classList.add(highlightClass);
-        });
-
-    if (counter)
-        Array.from(
-            document.querySelectorAll('.aao .label, .vehicle_group .label')
-        ).forEach(label => {
-            const counterNode = document.createElement('span');
-            counterNode.classList.add(counterClass);
-            counterNode.setAttribute('data-amount', '0');
-            label.insertAdjacentElement('afterend', counterNode);
-
-            const arrId = label.id.match(/\d+$/)?.[0];
-
-            if (arrId) counterNodes[arrId] = counterNode;
         });
 
     let resetBtnHolder = document.querySelector(
