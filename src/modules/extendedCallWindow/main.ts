@@ -18,6 +18,7 @@ import isEqual from 'lodash/isEqual';
 import tailoredTabs from './assets/tailoredTabs';
 import missionKeywords from './assets/missionKeywords';
 import alarmIcons from './assets/alarmIcons';
+import arrHover from './assets/arrHover';
 
 (async (LSSM: Vue) => {
     const defaultTailoredTabs = Object.values(
@@ -68,6 +69,14 @@ import alarmIcons from './assets/alarmIcons';
                 default: false,
             },
             arrMatchHighlight: {
+                type: 'toggle',
+                default: false,
+            },
+            arrTime: {
+                type: 'toggle',
+                default: false,
+            },
+            arrSpecs: {
                 type: 'toggle',
                 default: false,
             },
@@ -168,4 +177,8 @@ import alarmIcons from './assets/alarmIcons';
         }[]
     >('alarmIcons');
     if (alarmIconsSettings.length) alarmIcons(LSSM, alarmIconsSettings);
+
+    const arrSpecs = await getSetting('arrSpecs');
+    const arrTime = await getSetting('arrTime');
+    if (arrSpecs || arrTime) arrHover(LSSM, arrSpecs, arrTime);
 })(window[PREFIX] as Vue);

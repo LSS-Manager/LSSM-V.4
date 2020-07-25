@@ -20,6 +20,7 @@ declare global {
         mission_position_new_marker?: Marker;
         mission_position_new_dragend(): void;
         vehicleSelectionReset(): void;
+        aao_available(arrId: number, calculateTime: boolean): void;
     }
 }
 
