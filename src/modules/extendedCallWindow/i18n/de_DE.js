@@ -18,10 +18,8 @@ module.exports = {
             fire: 'Löschfahrzeuge oder Tanklöschfahrzeuge',
             lf_only: 'Löschfahrzeuge',
             tlf_only: 'Tanklöschfahrzeuge',
-            wasser_amount:
-                'Liter WasserIn Litern. Beispiel: Wenn du hier 1200 eingibst - dann werden so viele Löschfahrzeuge / Tanklöschfahrzeug ausgewählt, bis 1.200 Liter erreicht sind. Wenn du hier eine Auswahl triffst, solltest du bei Löschfahrzeugen eine 0 eintragen.',
-            wasser_amount_tlf:
-                'Liter Wasser - Nur TLFIn Litern. Wählt nur TLF aus.',
+            wasser_amount: 'Liter Wasser',
+            wasser_amount_tlf: 'Liter Wasser - Nur TLF',
             elw: 'Einsatzleitfahrzeuge 1',
             elw2: 'Einsatzleitfahrzeuge 2',
             elw1_or_elw2: 'ELW 1, ELW 2 oder AB-Einsatzleitung',
