@@ -30,11 +30,27 @@ export default (LSSM: Vue, missionSettings: string[]): void => {
                             const vehicleId = target.parentElement?.getAttribute(
                                 'vehicle_id'
                             );
+                            const amount = 1;
+                            target.textContent =
+                                target.textContent?.trim()?.replace(
+                                    /(\(.*?: )(\d+)(, .*\)$)/,
+                                    (_, before, cells, after) =>
+                                        `${before}${(() => {
+                                            const remain =
+                                                parseInt(cells) - amount;
+                                            remain <= 0 &&
+                                                target.classList.replace(
+                                                    'btn-success',
+                                                    'btn-danger'
+                                                );
+                                            return remain;
+                                        })()}${after}`
+                                ) || target.textContent;
                             document
                                 .getElementById(`vehicle_row_${vehicleId}`)
                                 ?.remove();
                             target.parentElement?.parentElement?.remove();
-                            currentPrisoners--;
+                            currentPrisoners -= amount;
                             prisonersLabel.textContent =
                                 prisonersLabel.textContent
                                     ?.trim()
