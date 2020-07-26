@@ -170,49 +170,60 @@ body.dark
     padding: 1em
     z-index: 10006 !important
 
-    &.bottom
-        bottom: 1em !important
+    &.bottom.center
+        border-top: 5px solid
 
-        &.center .lssm-notification
-            border-top: 5px solid !important
+        .lssm-notification
+            transform-origin: bottom center
 
-    &.top
-        top: 1em !important
-
-        &.center .lssm-notification
-            border-bottom: 5px solid !important
+    &.top.center
+        border-bottom: 5px solid
+        .lssm-notification
+            transform-origin: top center
 
     &.right
-        right: 4em !important
+        &.bottom
+            transform-origin: bottom right
+
+        &.top
+            transform-origin: top right
+
         .lssm-notification
-            border-left: 5px solid !important
+            border-left: 5px solid
 
     &.left
-        left: 4em !important
+        &.bottom
+            transform-origin: bottom left
+
+        &.top
+            transform-origin: top left
+
         .lssm-notification
-            border-right: 5px solid !important
+            border-right: 5px solid
 
-    .lssm-notification
-        font-size: 12px
-        padding: 10px
-        margin: 0 5px 5px
-        border-width: 0
-        display: grid
-        grid-template-columns: auto 1fr
+    .vue-notification-wrapper
+        margin: 0.1ch
 
-        &.notification-danger
-            border-color: #ce4844 !important
+        .lssm-notification
+            font-size: 12px
+            padding: 10px
+            border-width: 0
+            display: grid
+            grid-template-columns: auto 1fr
 
-        &.notification-warning
-            border-color: #aa6708 !important
+            &.notification-danger
+                border-color: #ce4844 !important
 
-        &.notification-info
-            border-color: #1b809e !important
+            &.notification-warning
+                border-color: #aa6708 !important
 
-        &.notification-success
-            border-color: #2b542c !important
+            &.notification-info
+                border-color: #1b809e !important
 
-        img
-            max-width: 100px
-            padding-right: 1ch
+            &.notification-success
+                border-color: #2b542c !important
+
+            img
+                max-width: 100px
+                padding-right: 1ch
 </style>
