@@ -106,7 +106,7 @@ import { AllianceChatMessage } from 'typings/Ingame';
                             },
                         })
                     );
-                if (isMentioned)
+                else if (isMentioned)
                     events['allianceChatMention'].forEach(alert =>
                         LSSM.$store.dispatch('notifications/sendNotification', {
                             group: alert.position,
@@ -125,22 +125,25 @@ import { AllianceChatMessage } from 'typings/Ingame';
                             },
                         })
                     );
-                events['allianceChat'].forEach(alert =>
-                    LSSM.$store.dispatch('notifications/sendNotification', {
-                        group: alert.position,
-                        type: alert.alertStyle,
-                        title,
-                        text: message,
-                        icon: '', // TODO: Chat Icon
-                        duration: alert.duration,
-                        ingame: alert.ingame,
-                        desktop: alert.desktop,
-                        clickHandler() {
-                            if (mission_id)
-                                window.lightboxOpen(`/missions/${mission_id}`);
-                        },
-                    })
-                );
+                else
+                    events['allianceChat'].forEach(alert =>
+                        LSSM.$store.dispatch('notifications/sendNotification', {
+                            group: alert.position,
+                            type: alert.alertStyle,
+                            title,
+                            text: message,
+                            icon: '', // TODO: Chat Icon
+                            duration: alert.duration,
+                            ingame: alert.ingame,
+                            desktop: alert.desktop,
+                            clickHandler() {
+                                if (mission_id)
+                                    window.lightboxOpen(
+                                        `/missions/${mission_id}`
+                                    );
+                            },
+                        })
+                    );
             },
         });
     }
