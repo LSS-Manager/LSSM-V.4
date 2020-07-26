@@ -81,7 +81,44 @@ import { AllianceChatMessage } from 'typings/Ingame';
                         (ucmsg.match(/@admin/) &&
                             (window.alliance_admin || window.alliance_coadmin)))
                 );
-                // if (isWhispered && chatEvents.includes('allianceChatWhisper')) await LSSM.$store.dispatch()
+                if (isWhispered)
+                    events['allianceChatWhisper'].forEach(alert =>
+                        LSSM.$store.dispatch('notifications/sendNotification', {
+                            group: alert.position,
+                            type: alert.alertStyle,
+                            title: `🔇 <a href="/profile/${user_id}" class="lightbox-open">${username}</a>`,
+                            text: message,
+                            icon: '', // TODO: Chat Icon
+                            duration: alert.duration,
+                            ingame: alert.ingame,
+                            desktop: alert.desktop,
+                            clickHandler() {
+                                if (mission_id)
+                                    window.lightboxOpen(
+                                        `/missions/${mission_id}`
+                                    );
+                            },
+                        })
+                    );
+                if (isMentioned)
+                    events['allianceChatMention'].forEach(alert =>
+                        LSSM.$store.dispatch('notifications/sendNotification', {
+                            group: alert.position,
+                            type: alert.alertStyle,
+                            title: `ℹ️ <a href="/profile/${user_id}" class="lightbox-open">${username}</a>`,
+                            text: message,
+                            icon: '', // TODO: Chat Icon
+                            duration: alert.duration,
+                            ingame: alert.ingame,
+                            desktop: alert.desktop,
+                            clickHandler() {
+                                if (mission_id)
+                                    window.lightboxOpen(
+                                        `/missions/${mission_id}`
+                                    );
+                            },
+                        })
+                    );
                 events['allianceChat'].forEach(alert =>
                     LSSM.$store.dispatch('notifications/sendNotification', {
                         group: alert.position,
