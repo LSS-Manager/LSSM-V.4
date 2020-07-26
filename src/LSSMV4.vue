@@ -17,12 +17,20 @@
                     "
                     @click="props.close"
                 >
-                    <div
-                        class="notification-title"
-                        v-html="props.item.title"
-                    ></div>
-                    <div class="notification-content">
-                        <pre>{{ props.item }}</pre>
+                    <img
+                        v-if="props.item.data.icon"
+                        :src="props.item.data.icon"
+                        :alt="props.item.title"
+                    />
+                    <div>
+                        <div
+                            class="notification-title"
+                            v-html="props.item.title"
+                        ></div>
+                        <div
+                            class="notification-content"
+                            v-html="props.item.text"
+                        ></div>
                     </div>
                 </div>
             </template>
@@ -189,6 +197,8 @@ body.dark
         padding: 10px
         margin: 0 5px 5px
         border-width: 0
+        display: grid
+        grid-template-columns: auto 1fr
 
         &.notification-danger
             border-color: #ce4844 !important
@@ -201,4 +211,8 @@ body.dark
 
         &.notification-success
             border-color: #2b542c !important
+
+        img
+            max-width: 100px
+            padding-right: 1ch
 </style>
