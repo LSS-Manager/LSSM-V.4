@@ -12,12 +12,16 @@ declare global {
         fullScreen: boolean;
         mapkit: unknown;
         user_id: number;
+        username: string;
         user_premium: boolean;
+        alliance_admin: boolean;
+        alliance_coadmin: boolean;
         building_markers: BuildingMarker[];
         mission_poi_markers: POIMarker[];
         [PREFIX: string]: Vue | unknown;
         map: Map;
         mission_position_new_marker?: Marker;
+        lightboxOpen(link: string): void;
         mission_position_new_dragend(): void;
         vehicleSelectionReset(): void;
         aao_available(arrId: number, calculateTime: boolean): void;

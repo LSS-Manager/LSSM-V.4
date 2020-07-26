@@ -115,6 +115,12 @@ export default {
                     });
                 });
             if (desktop) {
+                const titleElement = document.createElement('div');
+                titleElement.innerHTML = title;
+                title = titleElement.textContent || '';
+                const body = document.createElement('body');
+                body.innerHTML = text;
+                text = body.textContent || '';
                 await dispatch('getPermission');
                 const notification = new Notification(title, {
                     badge: icon || lssm_logo.toString(),

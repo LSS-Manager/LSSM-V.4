@@ -1,13 +1,4 @@
-import { NotificationsState } from 'typings/store/notifications/State';
-
-interface Item {
-    events: string[];
-    alertStyle: string;
-    duration: number;
-    ingame: boolean;
-    desktop: boolean;
-    position: NotificationsState['groups'][0];
-}
+import { NotificationSetting } from '.';
 
 interface Option<values = string> {
     value: values;
@@ -17,19 +8,19 @@ interface Option<values = string> {
 export interface SettingsItem {
     eventOptions: Option[];
     styleOptions: Option[];
-    positionOptions: Option<Item['position']>[];
+    positionOptions: Option<NotificationSetting['position']>[];
 }
 
 export interface SettingsItemProps {
-    value: Item;
+    value: NotificationSetting;
 }
 
 export interface SettingsItemComputed {
     updateEvents: Option[];
     selectableEvents: Option[];
     updateStyle: Option;
-    updateDuration: Item['duration'];
-    updateIngame: Item['ingame'];
-    updateDesktop: Item['desktop'];
-    updatePosition: Option<Item['position']>;
+    updateDuration: NotificationSetting['duration'];
+    updateIngame: NotificationSetting['ingame'];
+    updateDesktop: NotificationSetting['desktop'];
+    updatePosition: Option<NotificationSetting['position']>;
 }
