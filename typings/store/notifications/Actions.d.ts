@@ -25,4 +25,5 @@ export interface NotificationsSend {
     clean: boolean;
     ingame: boolean;
     desktop: boolean;
+    clickHandler?(props: unknown, event?: MouseEvent): unknown;
 }

@@ -15,7 +15,7 @@
                     :class="
                         `alert-${props.item.type} notification-${props.item.type}`
                     "
-                    @click="props.close"
+                    @click="getHandler(props)()"
                 >
                     <img
                         v-if="props.item.data.icon"
@@ -59,6 +59,12 @@ export default Vue.extend<
     computed: {
         notificationGroups() {
             return this.$store.state.notifications.groups;
+        },
+    },
+    methods: {
+        getHandler(props, $event) {
+            return () =>
+                props.item.data.clickHandler?.(props, $event) ?? props.close();
         },
     },
 });
@@ -167,19 +173,20 @@ body.dark
 
 .vue-notification-group
     transform: scale(1.5)
-    padding: 1em
+    margin: 1em
     z-index: 10006 !important
 
     &.bottom.center
-        border-top: 5px solid
+        transform-origin: bottom center
 
         .lssm-notification
-            transform-origin: bottom center
+            border-top-width: 5px !important
 
     &.top.center
-        border-bottom: 5px solid
+        transform-origin: top center
+
         .lssm-notification
-            transform-origin: top center
+            border-bottom-width: 5px !important
 
     &.right
         &.bottom
@@ -189,7 +196,7 @@ body.dark
             transform-origin: top right
 
         .lssm-notification
-            border-left: 5px solid
+            border-left-width: 5px !important
 
     &.left
         &.bottom
@@ -199,7 +206,7 @@ body.dark
             transform-origin: top left
 
         .lssm-notification
-            border-right: 5px solid
+            border-right-width: 5px !important
 
     .vue-notification-wrapper
         margin: 0.1ch
@@ -208,8 +215,11 @@ body.dark
             font-size: 12px
             padding: 10px
             border-width: 0
+            border-style: solid
             display: grid
             grid-template-columns: auto 1fr
+            word-break: break-word
+            cursor: pointer
 
             &.notification-danger
                 border-color: #ce4844 !important
@@ -226,4 +236,5 @@ body.dark
             img
                 max-width: 100px
                 padding-right: 1ch
+                align-self: center
 </style>

@@ -11,7 +11,7 @@ export default {
     namespaced: true,
     state: {
         groups: [],
-        permission: 'default',
+        permission: Notification.permission,
     },
     mutations: {
         addGroup(
@@ -28,8 +28,59 @@ export default {
         },
     } as MutationTree<NotificationsState>,
     actions: {
+        async getPermission({
+            state,
+            dispatch,
+            commit,
+        }: NotificationsActionStoreParams) {
+            if (state.permission === 'default') {
+                await dispatch('sendNotification', {
+                    title: (window[PREFIX] as Vue)
+                        .$t('modules.notificationAlert.permission.title')
+                        .toString(),
+                    text: (window[PREFIX] as Vue)
+                        .$t('modules.notificationAlert.permission.text')
+                        .toString(),
+                    icon: lssm_logo.toString(),
+                    duration: -1,
+                    desktop: false,
+                    async clickHandler({ close }: { close(): void }) {
+                        const perm = await Notification.requestPermission();
+                        commit('setPermission', perm);
+                        if (perm === 'granted') {
+                            await dispatch('sendNotification', {
+                                title: (window[PREFIX] as Vue)
+                                    .$t(
+                                        'modules.notificationAlert.desktopTest.title'
+                                    )
+                                    .toString(),
+                                text: (window[PREFIX] as Vue)
+                                    .$t(
+                                        'modules.notificationAlert.desktopTest.text'
+                                    )
+                                    .toString(),
+                                icon: lssm_logo.toString(),
+                            });
+                        }
+                        close();
+                    },
+                });
+            } else if (state.permission === 'denied')
+                await dispatch('sendNotification', {
+                    type: 'danger',
+                    title: (window[PREFIX] as Vue)
+                        .$t('modules.notificationAlert.noPermission.title')
+                        .toString(),
+                    text: (window[PREFIX] as Vue)
+                        .$t('modules.notificationAlert.noPermission.text')
+                        .toString(),
+                    icon: lssm_logo.toString(),
+                    duration: -1,
+                    desktop: false,
+                });
+        },
         async sendNotification(
-            { state, commit }: NotificationsActionStoreParams,
+            { state, dispatch, commit }: NotificationsActionStoreParams,
             {
                 group,
                 type,
@@ -42,6 +93,7 @@ export default {
                 clean = false,
                 ingame = true,
                 desktop = true,
+                clickHandler,
             }: NotificationsSend
         ) {
             if (!group || !group.match(/^(top|bottom)[ _](left|center|right)$/))
@@ -49,7 +101,6 @@ export default {
             if (!state.groups.includes(group)) commit('addGroup', group);
             if (!type || !type.match(/^(warning|danger|success|info)$/))
                 type = 'info';
-            if (icon) data = { icon, ...data };
             if (ingame)
                 (window[PREFIX] as Vue).$nextTick().then(() => {
                     (window[PREFIX] as Vue).$notify({
@@ -59,30 +110,24 @@ export default {
                         text,
                         duration,
                         speed,
-                        data: { icon, ...data },
+                        data: { icon, clickHandler, ...data },
                         clean,
                     });
                 });
             if (desktop) {
-                if (state.permission !== 'granted') {
-                    const perm = await Notification.requestPermission();
-                    commit('setPermission', perm);
-                    if (perm !== 'granted') return;
-                    new Notification(
-                        (window[PREFIX] as Vue)
-                            .$t('modules.notificationAlert.initializing')
-                            .toString(),
-                        {
-                            badge: lssm_logo.toString(),
-                            body: (window[PREFIX] as Vue)
-                                .$t('modules.notificationAlert.initialized')
-                                .toString(),
-                            icon: lssm_logo.toString(),
-                        }
-                    );
-                }
-
-                new Notification(title);
+                await dispatch('getPermission');
+                const notification = new Notification(title, {
+                    badge: icon || lssm_logo.toString(),
+                    body: text,
+                    data,
+                    icon: icon || lssm_logo.toString(),
+                    requireInteraction: duration <= 0,
+                });
+                if (clickHandler)
+                    notification.onclick = e =>
+                        clickHandler(null, e as MouseEvent);
+                if (duration > 0)
+                    window.setTimeout(() => notification.close(), duration);
             }
         },
     } as ActionTree<NotificationsState, RootState>,

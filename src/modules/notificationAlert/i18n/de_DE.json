@@ -33,5 +33,17 @@
 		"eventTypes": "Events",
 		"ingame": "Ingame-Benachrichtigung senden",
         "position": "Position"
-	}
+	},
+    "permission": {
+        "title": "Desktop-Benachrichtigungen",
+        "text": "Bitte erlaube Desktop-Benachrichtigungen mit einem Klick auf diese Benachrichtigung!"
+    },
+    "desktopTest": {
+        "title": "Desktop-Benachrichtigungen",
+        "text": "Desktop-Benachrichtigungen wurden erfolgreich aktiviert!"
+    },
+    "noPermission": {
+        "title": "Desktop-Benachrichtigungen",
+        "text": "In deinem Browser ist eingestellt, dass das Spiel keine Berechtigung hat, Desktop-Benachrichtigungen zu senden. Möchtest du diese Benachrichtungen dennoch empfangen, musst du dies in den Einstellungen deines Browsers erst zurücksetzen!"
+    }
 }

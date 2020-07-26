@@ -28,4 +28,8 @@ import settingTitles from './components/settings-titles.vue';
     });
 
     console.log(alerts);
+    await LSSM.$store.dispatch('notifications/sendNotification', {
+        title: 'Test',
+        text: 'Des is en Text hier :)',
+    });
 })(window[PREFIX] as Vue);
