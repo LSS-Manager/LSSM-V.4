@@ -66,6 +66,7 @@ import { AllianceChatMessage } from 'typings/Ingame';
                 user_id,
                 username,
                 mission_id,
+                mission_caption,
             }: AllianceChatMessage) {
                 if (user_id === window.user_id) return;
                 const ucmsg = message.toUpperCase();
@@ -81,12 +82,17 @@ import { AllianceChatMessage } from 'typings/Ingame';
                         (ucmsg.match(/@admin/) &&
                             (window.alliance_admin || window.alliance_coadmin)))
                 );
+                const title = `<a href="/profile/${user_id}" class="lightbox-open">${username}</a>${
+                    mission_id
+                        ? `: [<a href="/missions/${mission_id}" class="lightbox-open">${mission_caption}</a>]`
+                        : ``
+                }`;
                 if (isWhispered)
                     events['allianceChatWhisper'].forEach(alert =>
                         LSSM.$store.dispatch('notifications/sendNotification', {
                             group: alert.position,
                             type: alert.alertStyle,
-                            title: `🔇 <a href="/profile/${user_id}" class="lightbox-open">${username}</a>`,
+                            title: `🔇 ${title}`,
                             text: message,
                             icon: '', // TODO: Chat Icon
                             duration: alert.duration,
@@ -105,7 +111,7 @@ import { AllianceChatMessage } from 'typings/Ingame';
                         LSSM.$store.dispatch('notifications/sendNotification', {
                             group: alert.position,
                             type: alert.alertStyle,
-                            title: `ℹ️ <a href="/profile/${user_id}" class="lightbox-open">${username}</a>`,
+                            title: `ℹ️ ${title}`,
                             text: message,
                             icon: '', // TODO: Chat Icon
                             duration: alert.duration,
@@ -123,7 +129,7 @@ import { AllianceChatMessage } from 'typings/Ingame';
                     LSSM.$store.dispatch('notifications/sendNotification', {
                         group: alert.position,
                         type: alert.alertStyle,
-                        title: `<a href="/profile/${user_id}" class="lightbox-open">${username}</a>`,
+                        title,
                         text: message,
                         icon: '', // TODO: Chat Icon
                         duration: alert.duration,
