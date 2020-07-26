@@ -8,4 +8,5 @@ type NotificationPosition =
 
 export interface NotificationsState {
     groups: NotificationPosition[];
+    permission: NotificationPermission;
 }

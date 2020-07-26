@@ -1,8 +1,9 @@
 {
 	"alertStyles": {
-		"error": "Fehlermeldung (rot)",
+		"danger": "Fehlermeldung (rot)",
 		"success": "Bestätigung (grün)",
-		"warn": "Warnung (orange)"
+		"warning": "Warnung (orange)",
+		"info": "Info (blau)"
 	},
 	"events": {
 		"allianceChat": "Chatnachricht",

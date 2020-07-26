@@ -13,9 +13,10 @@ export interface NotificationsActionStoreParams {
 
 export interface NotificationsSend {
     group: NotificationsState['groups'][0];
-    type: 'warn' | 'error' | 'success';
+    type: 'warning' | 'danger' | 'success' | 'info';
     title: string;
     text: string;
+    icon?: string;
     duration: number;
     speed: number;
     data: {

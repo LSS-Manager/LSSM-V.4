@@ -8,7 +8,25 @@
             :group="group.replace(' ', '_')"
             :position="group"
             :class="group"
-        ></notifications>
+        >
+            <template slot="body" slot-scope="props">
+                <div
+                    class="lssm-notification"
+                    :class="
+                        `alert-${props.item.type} notification-${props.item.type}`
+                    "
+                    @click="props.close"
+                >
+                    <div
+                        class="notification-title"
+                        v-html="props.item.title"
+                    ></div>
+                    <div class="notification-content">
+                        <pre>{{ props.item }}</pre>
+                    </div>
+                </div>
+            </template>
+        </notifications>
     </div>
 </template>
 
@@ -147,12 +165,40 @@ body.dark
     &.bottom
         bottom: 1em !important
 
+        &.center .lssm-notification
+            border-top: 5px solid !important
+
     &.top
         top: 1em !important
 
+        &.center .lssm-notification
+            border-bottom: 5px solid !important
+
     &.right
         right: 4em !important
+        .lssm-notification
+            border-left: 5px solid !important
 
     &.left
         left: 4em !important
+        .lssm-notification
+            border-right: 5px solid !important
+
+    .lssm-notification
+        font-size: 12px
+        padding: 10px
+        margin: 0 5px 5px
+        border-width: 0
+
+        &.notification-danger
+            border-color: #ce4844 !important
+
+        &.notification-warning
+            border-color: #aa6708 !important
+
+        &.notification-info
+            border-color: #1b809e !important
+
+        &.notification-success
+            border-color: #2b542c !important
 </style>
