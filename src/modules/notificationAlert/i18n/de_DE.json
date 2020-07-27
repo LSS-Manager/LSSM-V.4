@@ -1,9 +1,13 @@
 {
 	"alertStyles": {
 		"danger": "Fehlermeldung (rot)",
+		"info": "Info (blau)",
 		"success": "Bestätigung (grün)",
-		"warning": "Warnung (orange)",
-		"info": "Info (blau)"
+		"warning": "Warnung (orange)"
+	},
+	"desktopTest": {
+		"text": "Desktop-Benachrichtigungen wurden erfolgreich aktiviert!",
+		"title": "Desktop-Benachrichtigungen"
 	},
 	"events": {
 		"allianceChat": "Chatnachricht",
@@ -15,14 +19,22 @@
 			"title": "{vehicle} meldet Status {status}!"
 		}
 	},
-    "positions": {
-        "top left": "Oben Links \uD83E\uDC64",
-        "top center": "Oben Mitte \uD83E\uDC61",
-        "top right": "Oben Rechts \uD83E\uDC65",
-        "bottom left": "Unten Links \uD83E\uDC67",
-        "bottom center": "Unten Mitte \uD83E\uDC63",
-        "bottom right": "Unten Rechts \uD83E\uDC66"
-    },
+	"noPermission": {
+		"text": "In deinem Browser ist eingestellt, dass das Spiel keine Berechtigung hat, Desktop-Benachrichtigungen zu senden. Möchtest du diese Benachrichtungen dennoch empfangen, musst du dies in den Einstellungen deines Browsers erst zurücksetzen!",
+		"title": "Desktop-Benachrichtigungen"
+	},
+	"permission": {
+		"text": "Bitte erlaube Desktop-Benachrichtigungen mit einem Klick auf diese Benachrichtigung!",
+		"title": "Desktop-Benachrichtigungen"
+	},
+	"positions": {
+		"bottom center": "Unten Mitte 🡣",
+		"bottom left": "Unten Links 🡧",
+		"bottom right": "Unten Rechts 🡦",
+		"top center": "Oben Mitte 🡡",
+		"top left": "Oben Links 🡤",
+		"top right": "Oben Rechts 🡥"
+	},
 	"settings": {
 		"alertStyle": "Ingame-Benachrichtigungs-Typ",
 		"alerts": {
@@ -32,18 +44,6 @@
 		"duration": "Anzeigedauer",
 		"eventTypes": "Events",
 		"ingame": "Ingame-Benachrichtigung senden",
-        "position": "Position"
-	},
-    "permission": {
-        "title": "Desktop-Benachrichtigungen",
-        "text": "Bitte erlaube Desktop-Benachrichtigungen mit einem Klick auf diese Benachrichtigung!"
-    },
-    "desktopTest": {
-        "title": "Desktop-Benachrichtigungen",
-        "text": "Desktop-Benachrichtigungen wurden erfolgreich aktiviert!"
-    },
-    "noPermission": {
-        "title": "Desktop-Benachrichtigungen",
-        "text": "In deinem Browser ist eingestellt, dass das Spiel keine Berechtigung hat, Desktop-Benachrichtigungen zu senden. Möchtest du diese Benachrichtungen dennoch empfangen, musst du dies in den Einstellungen deines Browsers erst zurücksetzen!"
-    }
+		"position": "Position"
+	}
 }

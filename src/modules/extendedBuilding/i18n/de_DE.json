@@ -1,7 +1,7 @@
 {
-    "enhancedPersonnelAssignment": {
-        "toggleFittingPersonnel": "Personal ohne passende Ausbildung ausblenden"
-    },
+	"enhancedPersonnelAssignment": {
+		"toggleFittingPersonnel": "Personal ohne passende Ausbildung ausblenden"
+	},
 	"personnelDemands": {
 		"additional": "Bei Werten in Klammern sind Fahrzeuge im FMS 6 ausgeschlossen.",
 		"demand": "Benötigtes Personal"
@@ -11,19 +11,19 @@
 		"amount": "Anzahl",
 		"bound": "Zugewiesen",
 		"each": "Lehrgänge einzeln",
-        "max": "aktuell maximal benötigt",
-        "min": "aktuell minimal benötigt",
+		"max": "aktuell maximal benötigt",
+		"min": "aktuell minimal benötigt",
 		"schooling": "Ausbildung",
 		"title": "Personalübersicht"
 	},
 	"settings": {
-        "enhancedPersonnelAssignment": {
-            "title": "verbesserte Personalzuweisung",
-            "description": "Gibt dir die Möglichkeit, Personal ohne die passende Ausbildung auszublenden."
-        },
 		"enhanceVehicleList": {
 			"description": "Erweitert die Fahrzeugliste um nützliche Features – einige davon speziell einstellbar.",
 			"title": "Fahrzeugliste erweitern"
+		},
+		"enhancedPersonnelAssignment": {
+			"description": "Gibt dir die Möglichkeit, Personal ohne die passende Ausbildung auszublenden.",
+			"title": "verbesserte Personalzuweisung"
 		},
 		"fmsSwitch": {
 			"description": "Ermöglicht einen Wechsel zwischen Status 2 und 6 mit Klick auf den Status.",
