@@ -31,21 +31,37 @@ export default (LSSM: Vue, missionSettings: string[]): void => {
                                 'vehicle_id'
                             );
                             const amount = 1;
-                            target.textContent =
+                            let remainingCells = -1;
+                            const newTextContent =
                                 target.textContent?.trim()?.replace(
                                     /(\(.*?: )(\d+)(, .*\)$)/,
                                     (_, before, cells, after) =>
                                         `${before}${(() => {
-                                            const remain =
+                                            remainingCells =
                                                 parseInt(cells) - amount;
-                                            remain <= 0 &&
-                                                target.classList.replace(
-                                                    'btn-success',
-                                                    'btn-danger'
-                                                );
-                                            return remain;
+                                            return remainingCells;
                                         })()}${after}`
                                 ) || target.textContent;
+                            Array.from(
+                                document.querySelectorAll(
+                                    `.vehicle_prisoner_select a.btn[href$="/gefangener/${target
+                                        .getAttribute('href')
+                                        ?.match(/\d+$/)?.[0] || '-1'}"]`
+                                )
+                            ).forEach(cell => {
+                                cell.textContent = newTextContent;
+                                if (remainingCells <= 0) {
+                                    cell.classList.replace(
+                                        'btn-success',
+                                        'btn-danger'
+                                    );
+                                    cell.classList.replace(
+                                        'btn-warning',
+                                        'btn-danger'
+                                    );
+                                }
+                            });
+
                             document
                                 .getElementById(`vehicle_row_${vehicleId}`)
                                 ?.remove();
