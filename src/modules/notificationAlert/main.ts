@@ -302,4 +302,26 @@ import fmsImage from './assets/fmsImage';
                 );
             },
         });
+
+    // Ingame news (Blog, Facebook)
+    if (events['ingame_news'])
+        await LSSM.$store.dispatch('hook', {
+            event: 'newsNew',
+            post: false,
+            callback(hasNew: boolean) {
+                if (!hasNew) return;
+                events['ingame_news'].forEach(alert =>
+                    LSSM.$store.dispatch('notifications/sendNotification', {
+                        group: alert.position,
+                        type: alert.alertStyle,
+                        title: $m('messages.ingame_news.title'),
+                        text: $m('messages.ingame_news.body'),
+                        icon: '/images/google_news_ffffff.svg',
+                        duration: alert.duration,
+                        ingame: alert.ingame,
+                        desktop: alert.desktop,
+                    })
+                );
+            },
+        });
 })(window[PREFIX] as Vue);
