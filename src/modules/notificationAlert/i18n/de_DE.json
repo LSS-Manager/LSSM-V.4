@@ -12,7 +12,9 @@
 	"events": {
 		"allianceChat": "Chatnachricht",
 		"allianceChatMention": "Chatnachricht (nur Erwähnungen)",
-		"allianceChatWhisper": "Chatnachricht (nur private Ansprachen)"
+		"allianceChatWhisper": "Chatnachricht (nur private Ansprachen)",
+        "sicherheitswache_success": "Sicherheitswache abgeschlossen",
+        "sicherheitswache_error": "Sicherheitswache abgebrochen"
 	},
 	"messages": {
 		"radioMessage": {

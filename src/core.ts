@@ -12,7 +12,7 @@ import utils from './utils';
 import browserTitle from './natives/browserTitle';
 import telemetry from './modules/telemetry/main';
 import releasenotes from './modules/releasenotes/main';
-import { RadioMessage } from '../typings/helpers';
+import { RadioMessage } from '../typings/Ingame';
 import { Credits } from 'typings/Credits';
 
 require('./natives/navTabsClicker');
@@ -108,7 +108,13 @@ if (window.location.pathname === '/') {
         await LSSM.$store.dispatch('hook', {
             event: 'radioMessage',
             post: false,
-            callback({ fms, fms_real, id, user_id, caption }: RadioMessage) {
+            callback(radioMessage: RadioMessage) {
+                if (
+                    radioMessage.type !== 'vehicle_fms' ||
+                    radioMessage.user_id !== window.user_id
+                )
+                    return;
+                const { id, fms, fms_real, user_id, caption } = radioMessage;
                 if (user_id === window.user_id)
                     LSSM.$store.commit('api/setVehicleState', {
                         fms,

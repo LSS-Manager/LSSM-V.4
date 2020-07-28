@@ -3,7 +3,7 @@ import { RootState } from '../../typings/store/RootState';
 import { APIState } from '../../typings/store/api/State';
 import { Vehicle } from '../../typings/Vehicle';
 import { APIActionStoreParams } from '../../typings/store/api/Actions';
-import { RadioMessage } from '../../typings/helpers';
+import { VehicleRadioMessage } from '../../typings/Ingame';
 import { Building, BuildingCategory } from '../../typings/Building';
 import { Mission } from 'typings/Mission';
 
@@ -48,7 +48,7 @@ export default {
         },
         setVehicleState(
             state: APIState,
-            { fms, fms_real, id, caption }: RadioMessage
+            { fms, fms_real, id, caption }: VehicleRadioMessage
         ) {
             const vehicle = state.vehicles.find(v => v.id === id);
             if (!vehicle) return;

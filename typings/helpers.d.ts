@@ -4,6 +4,7 @@ import { BuildingMarker, POIMarker } from './Ingame';
 import Highcharts from 'highcharts';
 import VueI18n from 'vue-i18n';
 import { Map, Marker } from 'leaflet';
+import I18n from 'i18n-js';
 
 declare global {
     interface Window {
@@ -21,6 +22,7 @@ declare global {
         [PREFIX: string]: Vue | unknown;
         map: Map;
         mission_position_new_marker?: Marker;
+        I18n: typeof I18n;
         lightboxOpen(link: string): void;
         mission_position_new_dragend(): void;
         vehicleSelectionReset(): void;
@@ -59,17 +61,4 @@ export type returnTypeFunction = (...args: unknown[]) => unknown;
 
 export interface LSSMEvent {
     detail: unknown[];
-}
-
-export interface RadioMessage {
-    additionalText: string;
-    caption: string;
-    fms: number;
-    fms_real: number;
-    fms_text: string;
-    id: number;
-    mission_id: number;
-    target_building_id: number;
-    type: string;
-    user_id: number;
 }

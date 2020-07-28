@@ -1,5 +1,4 @@
-import { RadioMessage } from '../../../typings/helpers';
-import { BuildingMarker } from '../../../typings/Ingame';
+import { BuildingMarker, RadioMessage } from '../../../typings/Ingame';
 import { Vehicle } from '../../../typings/Vehicle';
 import { PointTuple } from 'leaflet';
 import { Building } from '../../../typings/Building';
@@ -125,7 +124,13 @@ import { Building } from '../../../typings/Building';
 
     await LSSM.$store.dispatch('hook', {
         event: 'radioMessage',
-        callback({ id, fms, fms_real }: RadioMessage) {
+        callback(radioMessage: RadioMessage) {
+            if (
+                radioMessage.type !== 'vehicle_fms' ||
+                radioMessage.user_id !== window.user_id
+            )
+                return;
+            const { id, fms, fms_real } = radioMessage;
             const vehicle = (LSSM.$store.state.api.vehicles as Vehicle[]).find(
                 v => v.id === id
             ) as Vehicle;

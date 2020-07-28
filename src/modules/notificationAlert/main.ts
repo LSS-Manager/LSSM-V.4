@@ -1,7 +1,7 @@
 import settingsItem from './components/settings-item.vue';
 import settingTitles from './components/settings-titles.vue';
 import { NotificationSetting } from 'typings/modules/NotificationAlert';
-import { AllianceChatMessage } from 'typings/Ingame';
+import { AllianceChatMessage, RadioMessage } from 'typings/Ingame';
 
 (async (LSSM: Vue) => {
     await LSSM.$store.dispatch('settings/register', {
@@ -57,7 +57,7 @@ import { AllianceChatMessage } from 'typings/Ingame';
         'allianceChatMention',
         'allianceChatWhisper',
     ].filter(ce => events.hasOwnProperty(ce));
-    if (chatEvents.length) {
+    if (chatEvents.length)
         await LSSM.$store.dispatch('hook', {
             event: 'allianceChat',
             callback({
@@ -146,5 +146,66 @@ import { AllianceChatMessage } from 'typings/Ingame';
                     );
             },
         });
-    }
+
+    // Radio messages
+    const fmsEvents = [
+        'vehicle_fms',
+        'vehicle_fms_0',
+        'vehicle_fms_1',
+        'vehicle_fms_2',
+        'vehicle_fms_3',
+        'vehicle_fms_4',
+        'vehicle_fms_5',
+        'vehicle_fms_6',
+        'vehicle_fms_7',
+        'vehicle_fms_8',
+        'vehicle_fms_9',
+        'sicherheitswache_success',
+        'sicherheitswache_error',
+    ].filter(ce => events.hasOwnProperty(ce));
+    if (fmsEvents.length)
+        await LSSM.$store.dispatch('hook', {
+            event: 'radioMessage',
+            callback(message: RadioMessage) {
+                if (message.user_id !== window.user_id) return;
+
+                // sicherheitswache
+                const siwa_success = fmsEvents.includes(
+                    'sicherheitswache_success'
+                );
+                const siwa_error = fmsEvents.includes('sicherheitswache_error');
+                if (
+                    (siwa_success || siwa_error) &&
+                    message.type === 'sicherheitswache'
+                ) {
+                    const mode = message.success
+                        ? 'sicherheitswache_success'
+                        : 'sicherheitswache_error';
+                    if (
+                        (siwa_success && message.success) ||
+                        (siwa_error && !message.success)
+                    )
+                        events[mode].forEach(alert =>
+                            LSSM.$store.dispatch(
+                                'notifications/sendNotification',
+                                {
+                                    group: alert.position,
+                                    type: alert.alertStyle,
+                                    title: LSSM.$t(
+                                        `modules.${MODULE_ID}.events.${mode}`
+                                    ).toString(),
+                                    text: window.I18n.t(`javascript.${mode}`, {
+                                        caption: message.caption,
+                                        credits: message.credits,
+                                    }),
+                                    icon: '', // TODO: SiWa Icon
+                                    duration: alert.duration,
+                                    ingame: alert.ingame,
+                                    desktop: alert.desktop,
+                                }
+                            )
+                        );
+                }
+            },
+        });
 })(window[PREFIX] as Vue);
