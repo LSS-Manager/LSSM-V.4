@@ -2,6 +2,7 @@ import settingsItem from './components/settings-item.vue';
 import settingTitles from './components/settings-titles.vue';
 import { NotificationSetting } from 'typings/modules/NotificationAlert';
 import { AllianceChatMessage, RadioMessage } from 'typings/Ingame';
+import fmsImage from './assets/fmsImage';
 
 (async (LSSM: Vue) => {
     await LSSM.$store.dispatch('settings/register', {
@@ -202,6 +203,65 @@ import { AllianceChatMessage, RadioMessage } from 'typings/Ingame';
                                     duration: alert.duration,
                                     ingame: alert.ingame,
                                     desktop: alert.desktop,
+                                }
+                            )
+                        );
+                }
+
+                const fmsAll = fmsEvents.includes('vehicle_fms');
+                const fmsStatuses = fmsEvents.filter(e =>
+                    e.match(/vehicle_fms_\d+/)
+                );
+                if (
+                    (fmsAll || fmsStatuses.length) &&
+                    message.type === 'vehicle_fms'
+                ) {
+                    const icon = fmsImage(message.fms_real, message.fms);
+                    const mode = `vehicle_fms_${message.fms}`;
+                    const title = LSSM.$t(
+                        `modules.${MODULE_ID}.messages.radioMessage.title`,
+                        {
+                            vehicle: message.caption,
+                            status: message.fms,
+                        }
+                    ).toString();
+                    const clickHandler = () =>
+                        window.lightboxOpen(`/vehicles/${message.id}`);
+                    if (fmsStatuses.includes(mode))
+                        events[mode].forEach(alert =>
+                            LSSM.$store.dispatch(
+                                'notifications/sendNotification',
+                                {
+                                    group: alert.position,
+                                    type: alert.alertStyle,
+                                    title,
+                                    text:
+                                        message.additionalText ||
+                                        message.fms_text,
+                                    icon,
+                                    duration: alert.duration,
+                                    ingame: alert.ingame,
+                                    desktop: alert.desktop,
+                                    clickHandler,
+                                }
+                            )
+                        );
+                    else if (fmsAll)
+                        events['vehicle_fms'].forEach(alert =>
+                            LSSM.$store.dispatch(
+                                'notifications/sendNotification',
+                                {
+                                    group: alert.position,
+                                    type: alert.alertStyle,
+                                    title,
+                                    text:
+                                        message.additionalText ||
+                                        message.fms_text,
+                                    icon,
+                                    duration: alert.duration,
+                                    ingame: alert.ingame,
+                                    desktop: alert.desktop,
+                                    clickHandler,
                                 }
                             )
                         );

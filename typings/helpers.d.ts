@@ -4,7 +4,7 @@ import { BuildingMarker, POIMarker } from './Ingame';
 import Highcharts from 'highcharts';
 import VueI18n from 'vue-i18n';
 import { Map, Marker } from 'leaflet';
-import I18n from 'i18n-js';
+import 'i18n-js';
 
 declare global {
     interface Window {
@@ -22,7 +22,6 @@ declare global {
         [PREFIX: string]: Vue | unknown;
         map: Map;
         mission_position_new_marker?: Marker;
-        I18n: typeof I18n;
         lightboxOpen(link: string): void;
         mission_position_new_dragend(): void;
         vehicleSelectionReset(): void;

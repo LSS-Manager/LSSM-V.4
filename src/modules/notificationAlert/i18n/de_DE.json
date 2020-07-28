@@ -14,7 +14,16 @@
 		"allianceChatMention": "Chatnachricht (nur Erwähnungen)",
 		"allianceChatWhisper": "Chatnachricht (nur private Ansprachen)",
         "sicherheitswache_success": "Sicherheitswache abgeschlossen",
-        "sicherheitswache_error": "Sicherheitswache abgebrochen"
+        "sicherheitswache_error": "Sicherheitswache abgebrochen",
+        "vehicle_fms": "Funksprüche (allgemein)",
+        "vehicle_fms_1": "Funksprüche (Status 1)",
+        "vehicle_fms_2": "Funksprüche (Status 2)",
+        "vehicle_fms_3": "Funksprüche (Status 3)",
+        "vehicle_fms_4": "Funksprüche (Status 4)",
+        "vehicle_fms_5": "Funksprüche (Sprechwunsch)",
+        "vehicle_fms_6": "Funksprüche (Status 6)",
+        "vehicle_fms_7": "Funksprüche (Status 7)",
+        "vehicle_fms_9": "Funksprüche (Status 9)"
 	},
 	"messages": {
 		"radioMessage": {
