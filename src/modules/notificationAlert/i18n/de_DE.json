@@ -23,12 +23,17 @@
         "vehicle_fms_5": "Funksprüche (Sprechwunsch)",
         "vehicle_fms_6": "Funksprüche (Status 6)",
         "vehicle_fms_7": "Funksprüche (Status 7)",
-        "vehicle_fms_9": "Funksprüche (Status 9)"
+        "vehicle_fms_9": "Funksprüche (Status 9)",
+        "dm": "Neue Nachricht im Posteingang"
 	},
 	"messages": {
 		"radioMessage": {
 			"title": "{vehicle} meldet Status {status}!"
-		}
+		},
+        "dm": {
+            "title": "Du hast {n} neue Nachricht! | Du hast {n} neue Nachrichten!",
+            "body": "Damit hast du insgesamt {n} ungelesene Nachricht. | Damit hast du insgesamt {n} ungelesene Nachrichten."
+        }
 	},
 	"noPermission": {
 		"text": "In deinem Browser ist eingestellt, dass das Spiel keine Berechtigung hat, Desktop-Benachrichtigungen zu senden. Möchtest du diese Benachrichtungen dennoch empfangen, musst du dies in den Einstellungen deines Browsers erst zurücksetzen!",

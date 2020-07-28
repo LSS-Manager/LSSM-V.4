@@ -25,6 +25,14 @@ import fmsImage from './assets/fmsImage';
         },
     });
 
+    const $m = (key: string, args?: { [key: string]: unknown }) =>
+        LSSM.$t(`modules.${MODULE_ID}.${key}`, args);
+    const $mc = (
+        key: string,
+        amount?: number,
+        args?: { [key: string]: unknown }
+    ) => LSSM.$tc(`modules.${MODULE_ID}.${key}`, amount, args);
+
     const alerts = (await LSSM.$store.dispatch('settings/getSetting', {
         moduleId: MODULE_ID,
         settingId: 'alerts',
@@ -192,9 +200,7 @@ import fmsImage from './assets/fmsImage';
                                 {
                                     group: alert.position,
                                     type: alert.alertStyle,
-                                    title: LSSM.$t(
-                                        `modules.${MODULE_ID}.events.${mode}`
-                                    ).toString(),
+                                    title: $m(`events.${mode}`).toString(),
                                     text: window.I18n.t(`javascript.${mode}`, {
                                         caption: message.caption,
                                         credits: message.credits,
@@ -218,13 +224,10 @@ import fmsImage from './assets/fmsImage';
                 ) {
                     const icon = fmsImage(message.fms_real, message.fms);
                     const mode = `vehicle_fms_${message.fms}`;
-                    const title = LSSM.$t(
-                        `modules.${MODULE_ID}.messages.radioMessage.title`,
-                        {
-                            vehicle: message.caption,
-                            status: message.fms,
-                        }
-                    ).toString();
+                    const title = $m(`messages.radioMessage.title`, {
+                        vehicle: message.caption,
+                        status: message.fms,
+                    }).toString();
                     const clickHandler = () =>
                         window.lightboxOpen(`/vehicles/${message.id}`);
                     if (fmsStatuses.includes(mode))
@@ -266,6 +269,37 @@ import fmsImage from './assets/fmsImage';
                             )
                         );
                 }
+            },
+        });
+
+    // Private direct messages
+    if (events['dm'])
+        await LSSM.$store.dispatch('hook', {
+            event: 'messageUnreadUpdate',
+            post: false,
+            callback(amount: string) {
+                const newAmount = parseInt(amount);
+                const prevAmount = parseInt(
+                    document
+                        .getElementById('message_top')
+                        ?.textContent?.trim() || '-1'
+                );
+                if (newAmount <= prevAmount) return;
+                events['dm'].forEach(alert =>
+                    LSSM.$store.dispatch('notifications/sendNotification', {
+                        group: alert.position,
+                        type: alert.alertStyle,
+                        title: $mc('messages.dm.title', newAmount - prevAmount),
+                        text: $mc('messages.dm.body', newAmount),
+                        icon: '/images/message_ffffff.svg',
+                        duration: alert.duration,
+                        ingame: alert.ingame,
+                        desktop: alert.desktop,
+                        clickHandler() {
+                            window.lightboxOpen('/messages');
+                        },
+                    })
+                );
             },
         });
 })(window[PREFIX] as Vue);

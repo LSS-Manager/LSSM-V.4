@@ -127,9 +127,11 @@ export default Vue.extend<
             },
         },
         selectableEvents() {
-            return this.eventOptions.filter(
-                e => !this.updateEvents.find(u => u.value === e.value)
-            );
+            return this.eventOptions
+                .filter(e => !this.updateEvents.find(u => u.value === e.value))
+                .sort((a, b) =>
+                    a.value > b.value ? 1 : a.value < b.value ? -1 : 0
+                );
         },
         updateStyle: {
             get(): SettingsItemComputed['updateStyle'] {
