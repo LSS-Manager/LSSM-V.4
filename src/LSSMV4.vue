@@ -113,6 +113,10 @@ body.dark
 
         &.leaflet-tooltip-right::before
             border-right-color: #505050
+
+    h1, h2, h3, h4, h5, h6
+        small
+            color: #555
 .vm--container
     z-index: 5001 !important
 
