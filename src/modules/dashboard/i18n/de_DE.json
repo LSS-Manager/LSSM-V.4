@@ -1,7 +1,8 @@
 {
 	"building-types": {
-		"current": "Anzahl (aktiv)",
-		"extension": "Gebäude / Ausbau",
+        "building": "Gebäude",
+        "current": "Anzahl (aktiv)",
+		"extension": "Ausbau",
 		"maximum": "Maximal möglich",
 		"unavailable": "Im Bau"
 	},

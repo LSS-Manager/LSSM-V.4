@@ -1,24 +1,22 @@
 import VueI18n from 'vue-i18n';
 import { InternalBuilding } from 'typings/Building';
 
-export interface BuildingType {
-    caption: string;
-    color: string;
-    type: number;
-    amount: number;
-}
-
 export interface BuildingTypes {
     buildingTypes: InternalBuilding[];
-    extensionList: BuildingType[];
     categoryColors: {
         [category: string]: string;
     };
+    groups: {
+        [category: string]: Category;
+    };
 }
 
-export interface Category extends BuildingType {
-    extensions: {
+export interface Category {
+    color: string;
+    rows: {
         [caption: string]: {
+            type: 'building' | 'extension';
+            children: number;
             total: number;
             enabled: number;
             unavailable: number;
@@ -40,10 +38,4 @@ export interface BuildingTypesMethods {
             [key: string]: unknown;
         }
     ): VueI18n.TranslateResult;
-}
-
-export interface BuildingTypesComputed {
-    rows: {
-        [category: string]: Category[];
-    };
 }
