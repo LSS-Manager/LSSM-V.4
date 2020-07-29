@@ -1612,7 +1612,7 @@ export default {
     buildingCategories: {
         Feuerwehr: {
             buildings: [0, 1, 18],
-            color: '#ff0000',
+            color: '#ff2d2d',
         },
         Rettungsdienst: {
             buildings: [2, 3, 5, 12, 15, 20, 21],
@@ -1620,7 +1620,7 @@ export default {
         },
         Polizei: {
             buildings: [6, 8, 11, 13, 17, 19],
-            color: '#008800',
+            color: '#00ac00',
         },
         THW: {
             buildings: [9, 10],
@@ -1654,7 +1654,7 @@ export default {
                 Flughafenfeuerwehr: [75, 76],
                 Werkfeuerwehr: [83, 84, 85, 86],
             },
-            color: '#ff0000',
+            color: '#ff2d2d',
         },
         Rettungsdienst: {
             vehicles: {
@@ -1674,7 +1674,7 @@ export default {
                 'SEK': [79, 80],
                 'MEK': [81, 82],
             },
-            color: '#008800',
+            color: '#00ac00',
         },
         THW: {
             vehicles: {

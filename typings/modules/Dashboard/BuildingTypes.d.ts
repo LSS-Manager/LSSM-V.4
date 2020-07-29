@@ -16,6 +16,13 @@ export interface Category {
     rows: {
         [caption: string]: {
             type: 'building' | 'extension';
+            color:
+                | 'bright'
+                | 'dark'
+                | 'bright-bright'
+                | 'bright-dark'
+                | 'dark-bright'
+                | 'dark-dark';
             children: number;
             total: number;
             enabled: number;
@@ -23,6 +30,10 @@ export interface Category {
             maximum: number;
         };
     };
+}
+
+export interface BuildingTypesComputed {
+    sortedGroups: BuildingTypes['groups'];
 }
 
 export interface BuildingTypesMethods {

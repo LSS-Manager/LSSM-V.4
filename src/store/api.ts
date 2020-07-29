@@ -83,7 +83,18 @@ export default {
             });
             return buildings;
         },
-        buildingsByCategory(state) {
+        buildingsByType(state) {
+            const types = {} as {
+                [type: number]: Building[];
+            };
+            state.buildings.forEach(b => {
+                if (!types.hasOwnProperty(b.building_type))
+                    types[b.building_type] = [];
+                types[b.building_type].push(b);
+            });
+            return types;
+        },
+        buildingsByCategory(state, getters) {
             const LSSM = window[PREFIX] as Vue;
             const categories = (LSSM.$t('buildingCategories') as unknown) as {
                 [category: string]: BuildingCategory;
@@ -91,18 +102,15 @@ export default {
             const buildingsByCategory = {} as {
                 [category: string]: Building[];
             };
-            state.buildings.forEach(building => {
-                Object.entries(categories).forEach(
-                    ([category, { buildings }]) => {
-                        buildings = Object.values(buildings);
-                        if (buildings.includes(building.building_type)) {
-                            if (!buildingsByCategory.hasOwnProperty(category))
-                                buildingsByCategory[category] = [];
-                            buildingsByCategory[category].push(building);
-                        }
-                    }
-                );
-            });
+            const buildingsByType = getters.buildingsByType;
+            Object.entries(categories).forEach(
+                ([category, { buildings }]) =>
+                    (buildingsByCategory[category] = [
+                        ...Object.values(buildings).flatMap(
+                            type => buildingsByType[type]
+                        ),
+                    ].filter(v => !!v))
+            );
             return buildingsByCategory;
         },
         vehiclesByType(state) {

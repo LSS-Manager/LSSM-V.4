@@ -13,8 +13,12 @@
             :no-search="true"
             :no-body="true"
         >
-            <tbody v-for="(category, title) in groups" :key="title">
-                <tr v-for="(row, caption, index) in category.rows" :key="index">
+            <tbody v-for="(category, title) in sortedGroups" :key="title">
+                <tr
+                    v-for="(row, caption, index) in category.rows"
+                    :key="index"
+                    :class="`${row.type}-${row.color || 'bright'}`"
+                >
                     <td
                         v-if="!index"
                         :rowspan="Object.keys(category.rows).length"
@@ -34,9 +38,13 @@
                             {{ caption.replace(/^\d+_/, '') }}
                         </span>
                     </td>
-                    <td>{{ row.current }} ({{ row.enabled }})</td>
-                    <td>{{ row.unavailable }}</td>
-                    <td>{{ row.maximum }}</td>
+                    <td>
+                        {{ row.total.toLocaleString() }} ({{
+                            row.enabled.toLocaleString()
+                        }})
+                    </td>
+                    <td>{{ row.unavailable.toLocaleString() }}</td>
+                    <td>{{ row.maximum.toLocaleString() }}</td>
                 </tr>
             </tbody>
         </enhanced-table>
@@ -49,14 +57,16 @@ import EnhancedTable from '../../../components/enhanced-table.vue';
 import {
     BuildingTypes,
     BuildingTypesMethods,
+    BuildingTypesComputed,
 } from 'typings/modules/Dashboard/BuildingTypes';
-import { DefaultProps, DefaultComputed } from 'vue/types/options';
-import { InternalBuilding, BuildingCategory } from 'typings/Building';
+import { DefaultProps } from 'vue/types/options';
+import { InternalBuilding, BuildingCategory, Building } from 'typings/Building';
+import cloneDeep from 'lodash/cloneDeep';
 
 export default Vue.extend<
     BuildingTypes,
     BuildingTypesMethods,
-    DefaultComputed,
+    BuildingTypesComputed,
     DefaultProps
 >({
     name: 'building-types',
@@ -76,48 +86,58 @@ export default Vue.extend<
         ) as {
             [category: string]: string;
         };
+        const buildingsByType = this.$store.getters['api/buildingsByType'] as {
+            [type: number]: Building[];
+        };
         const groups = {} as BuildingTypes['groups'];
         Object.entries(categories).forEach(
             ([category, { buildings, color }]) => {
                 groups[category] = {
                     color,
                     rows: Object.fromEntries(
-                        Object.values(buildings).flatMap(buildingType => [
-                            [
-                                buildingTypes[buildingType].caption,
-                                {
-                                    type: 'building',
-                                    children: [
-                                        ...new Set(
-                                            Object.values(
-                                                buildingTypes[buildingType]
-                                                    .extensions
-                                            )
-                                                .filter(e => !!e)
-                                                .map(e => e.caption)
-                                        ),
-                                    ].length,
-                                    total: 0,
-                                    enabled: 0,
-                                    unavailable: 0,
-                                    maximum: 0,
-                                },
-                            ],
-                            ...Object.values(
-                                buildingTypes[buildingType].extensions
-                            )
-                                .filter(e => !!e)
-                                .map(({ caption }) => [
-                                    `${buildingType}_${caption}`,
+                        Object.values(buildings).flatMap(buildingType => {
+                            const buildingsOfType =
+                                buildingsByType[buildingType];
+                            return [
+                                [
+                                    buildingTypes[buildingType].caption,
                                     {
-                                        type: 'extension',
-                                        total: 0,
-                                        enabled: 0,
+                                        type: 'building',
+                                        children: [
+                                            ...new Set(
+                                                Object.values(
+                                                    buildingTypes[buildingType]
+                                                        .extensions
+                                                )
+                                                    .filter(e => !!e)
+                                                    .map(e => e.caption)
+                                            ),
+                                        ].length,
+                                        total: buildingsOfType?.length ?? 0,
+                                        enabled:
+                                            buildingsOfType?.filter(
+                                                b => b.enabled
+                                            )?.length ?? 0,
                                         unavailable: 0,
-                                        maximum: 0,
+                                        maximum: '–',
                                     },
-                                ]),
-                        ])
+                                ],
+                                ...Object.values(
+                                    buildingTypes[buildingType].extensions
+                                )
+                                    .filter(e => !!e)
+                                    .map(({ caption }) => [
+                                        `${buildingType}_${caption}`,
+                                        {
+                                            type: 'extension',
+                                            total: 0,
+                                            enabled: 0,
+                                            unavailable: 0,
+                                            maximum: 0,
+                                        },
+                                    ]),
+                            ];
+                        })
                     ),
                 };
             }
@@ -127,6 +147,33 @@ export default Vue.extend<
             categoryColors,
             groups,
         };
+    },
+    computed: {
+        sortedGroups() {
+            const groups = cloneDeep(this.groups) as BuildingTypes['groups'];
+            Object.values(groups).forEach(category => {
+                let currentBuildingColor = 'dark' as 'bright' | 'dark';
+                let currentExtensionColor = 'dark' as 'bright' | 'dark';
+                Object.values(category.rows).forEach(row => {
+                    if (row.type === 'building') {
+                        if (currentBuildingColor === 'bright')
+                            currentBuildingColor = 'dark';
+                        else currentBuildingColor = 'bright';
+                        row.color = currentBuildingColor;
+                    } else {
+                        if (currentExtensionColor === 'bright')
+                            currentExtensionColor = 'dark';
+                        else currentExtensionColor = 'bright';
+                        row.color = `${currentBuildingColor}-${currentExtensionColor}` as
+                            | 'bright-bright'
+                            | 'bright-dark'
+                            | 'dark-bright'
+                            | 'dark-dark';
+                    }
+                });
+            });
+            return groups;
+        },
     },
     methods: {
         $m(key, args) {
