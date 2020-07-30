@@ -1,7 +1,11 @@
 import settingsItem from './components/settings-item.vue';
 import settingTitles from './components/settings-titles.vue';
 import { NotificationSetting } from 'typings/modules/NotificationAlert';
-import { AllianceChatMessage, RadioMessage } from 'typings/Ingame';
+import {
+    AllianceChatMessage,
+    MissionMarkerAdd,
+    RadioMessage,
+} from 'typings/Ingame';
 import fmsImage from './assets/fmsImage';
 
 (async (LSSM: Vue) => {
@@ -435,6 +439,23 @@ import fmsImage from './assets/fmsImage';
                         },
                     })
                 );
+            },
+        });
+
+    // Mission messages
+    const missionEvents = [
+        'mission_new',
+        'mission_share',
+        'mission_getred',
+        'mission_new_largescale',
+        'mission_siwa_warning',
+    ].filter(ce => events.hasOwnProperty(ce));
+    if (chatEvents.length)
+        await LSSM.$store.dispatch('hook', {
+            event: 'missionMarkerAdd',
+            post: false,
+            callback(e: MissionMarkerAdd) {
+                console.log(e);
             },
         });
 })(window[PREFIX] as Vue);

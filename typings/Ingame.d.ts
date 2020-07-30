@@ -53,3 +53,32 @@ interface SicherheitswacheRadioMessage extends BasicRadioMessage {
 }
 
 export type RadioMessage = VehicleRadioMessage | SicherheitswacheRadioMessage;
+
+export interface MissionMarkerAdd {
+    address: string;
+    alliance_id: null | number;
+    caption: string;
+    captionOld: string;
+    date_end: number;
+    date_now: number;
+    filter_id: string;
+    finish_url: string;
+    icon: string;
+    id: number;
+    kt: boolean;
+    latitude: number;
+    longitude: number;
+    live_current_value: number;
+    missing_text: string;
+    missing_text_short: string;
+    mtid: string; // mission type id
+    patients_count: number;
+    prisoners_count: number;
+    sw: boolean;
+    sw_start_in: number;
+    tlat: null | number;
+    tlng: null | number;
+    tv: number; // target progress
+    user_id: number;
+    vehicle_state: 0 | 1 | 2; // red | yellow | green
+}
