@@ -9,7 +9,7 @@
                 unavailable: { title: $sm('unavailable'), noSort: true },
                 maximum: { title: $sm('maximum'), noSort: true },
             }"
-            :table-attrs="{ class: 'table table-striped' }"
+            :table-attrs="{ class: 'table' }"
             :no-search="true"
             :no-body="true"
         >
@@ -160,6 +160,7 @@ export default Vue.extend<
                             currentBuildingColor = 'dark';
                         else currentBuildingColor = 'bright';
                         row.color = currentBuildingColor;
+                        currentExtensionColor = 'dark';
                     } else {
                         if (currentExtensionColor === 'bright')
                             currentExtensionColor = 'dark';
@@ -185,3 +186,42 @@ export default Vue.extend<
     },
 });
 </script>
+
+<style scoped lang="sass">
+body:not(.dark)
+    .building-dark
+        background-color: #cccccc !important
+
+    .extension-dark-bright
+        background-color: #dddddd !important
+
+    .extension-dark-dark
+        background-color: #bbbbbb !important
+
+    .building-bright
+        background-color: #eeeeee !important
+
+    .extension-bright-bright
+        background-color: #ffffff !important
+
+    .extension-bright-dark
+        background-color: #dddddd !important
+body.dark
+    .building-dark
+        background-color: #323232 !important
+
+    .extension-dark-bright
+        background-color: #424242 !important
+
+    .extension-dark-dark
+        background-color: #222222 !important
+
+    .building-bright
+        background-color: #505050 !important
+
+    .extension-bright-bright
+        background-color: #606060 !important
+
+    .extension-bright-dark
+        background-color: #404040 !important
+</style>
