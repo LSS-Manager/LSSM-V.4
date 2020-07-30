@@ -71,7 +71,7 @@ export interface MissionMarkerAdd {
     live_current_value: number;
     missing_text: string;
     missing_text_short: string;
-    mtid: string; // mission type id
+    mtid: number; // mission type id
     patients_count: number;
     prisoners_count: number;
     sw: boolean;

@@ -22,6 +22,7 @@ declare global {
         [PREFIX: string]: Vue | unknown;
         map: Map;
         mission_position_new_marker?: Marker;
+        mission_graphics: [string, string, string][];
         lightboxOpen(link: string): void;
         mission_position_new_dragend(): void;
         vehicleSelectionReset(): void;

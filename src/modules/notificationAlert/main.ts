@@ -447,15 +447,49 @@ import fmsImage from './assets/fmsImage';
         'mission_new',
         'mission_share',
         'mission_getred',
+        'mission_getred_alliance',
         'mission_new_largescale',
         'mission_siwa_warning',
+        'mission_siwa_warning_alliance',
     ].filter(ce => events.hasOwnProperty(ce));
-    if (chatEvents.length)
+    if (missionEvents.length)
         await LSSM.$store.dispatch('hook', {
             event: 'missionMarkerAdd',
             post: false,
-            callback(e: MissionMarkerAdd) {
-                console.log(e);
+            callback(mission: MissionMarkerAdd) {
+                const color = ['red', 'yellow', 'green'][
+                    mission.vehicle_state
+                ] as 'red' | 'yellow' | 'green';
+                // mission_getred(_alliance)? | mission_new
+                if (color === 'red') {
+                    if (
+                        !document.getElementById(`mission_${mission.id}`) &&
+                        mission.user_id === window.user_id
+                    )
+                        events['mission_new'].forEach(alert =>
+                            LSSM.$store.dispatch(
+                                'notifications/sendNotification',
+                                {
+                                    group: alert.position,
+                                    type: alert.alertStyle,
+                                    title: mission.caption,
+                                    text: mission.address,
+                                    icon:
+                                        window.mission_graphics[mission.mtid]?.[
+                                            mission.vehicle_state
+                                        ] || `/images${mission.icon}.png`,
+                                    duration: alert.duration,
+                                    ingame: alert.ingame,
+                                    desktop: alert.desktop,
+                                    clickHandler() {
+                                        window.lightboxOpen(
+                                            `/missions/${mission.id}`
+                                        );
+                                    },
+                                }
+                            )
+                        );
+                }
             },
         });
 })(window[PREFIX] as Vue);
