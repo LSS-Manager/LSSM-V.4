@@ -60,7 +60,12 @@ import {
     BuildingTypesComputed,
 } from 'typings/modules/Dashboard/BuildingTypes';
 import { DefaultProps } from 'vue/types/options';
-import { InternalBuilding, BuildingCategory, Building } from 'typings/Building';
+import {
+    InternalBuilding,
+    BuildingCategory,
+    Building,
+    Extension,
+} from 'typings/Building';
 import cloneDeep from 'lodash/cloneDeep';
 
 export default Vue.extend<
@@ -98,6 +103,34 @@ export default Vue.extend<
                         Object.values(buildings).flatMap(buildingType => {
                             const buildingsOfType =
                                 buildingsByType[buildingType];
+                            const extensionsOfType = {} as {
+                                [caption: string]: Extension[];
+                            };
+                            [
+                                ...new Set(
+                                    Object.values(
+                                        buildingTypes[buildingType].extensions
+                                    )
+                                        .filter(e => !!e)
+                                        .map(({ caption }) => caption)
+                                ),
+                            ].forEach(caption => {
+                                buildingsOfType?.forEach(building => {
+                                    building?.extensions?.forEach(extension => {
+                                        if (extension.caption !== caption)
+                                            return;
+                                        if (
+                                            !extensionsOfType.hasOwnProperty(
+                                                caption
+                                            )
+                                        )
+                                            extensionsOfType[caption] = [];
+                                        extensionsOfType[caption].push(
+                                            extension
+                                        );
+                                    });
+                                });
+                            });
                             return [
                                 [
                                     buildingTypes[buildingType].caption,
@@ -136,30 +169,48 @@ export default Vue.extend<
                                         ({
                                             caption,
                                             maxExtensionsFunction,
-                                        }) => [
-                                            `${buildingType}_${caption}`,
-                                            {
-                                                type: 'extension',
-                                                total: 0,
-                                                enabled: 0,
-                                                unavailable: 0,
-                                                maximum:
-                                                    maxExtensionsFunction?.(
-                                                        buildingsByType
-                                                    ) ??
-                                                    Object.values(
-                                                        buildingTypes[
-                                                            buildingType
-                                                        ].extensions
-                                                    ).filter(
-                                                        e =>
-                                                            e?.caption ===
+                                        }) => {
+                                            const builtExtensions =
+                                                extensionsOfType[
+                                                    caption
+                                                ]?.filter(
+                                                    ({ available }) => available
+                                                ) ?? [];
+                                            return [
+                                                `${buildingType}_${caption}`,
+                                                {
+                                                    type: 'extension',
+                                                    total:
+                                                        builtExtensions.length,
+                                                    enabled: builtExtensions.filter(
+                                                        ({ enabled }) => enabled
+                                                    ).length,
+                                                    unavailable: (
+                                                        extensionsOfType[
                                                             caption
-                                                    ).length *
-                                                        (buildingsOfType?.length ??
-                                                            0),
-                                            },
-                                        ]
+                                                        ]?.filter(
+                                                            ({ available }) =>
+                                                                !available
+                                                        ) ?? []
+                                                    ).length,
+                                                    maximum:
+                                                        maxExtensionsFunction?.(
+                                                            buildingsByType
+                                                        ) ??
+                                                        Object.values(
+                                                            buildingTypes[
+                                                                buildingType
+                                                            ].extensions
+                                                        ).filter(
+                                                            e =>
+                                                                e?.caption ===
+                                                                caption
+                                                        ).length *
+                                                            (buildingsOfType?.length ??
+                                                                0),
+                                                },
+                                            ];
+                                        }
                                     ),
                             ];
                         })
