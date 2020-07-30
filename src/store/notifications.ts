@@ -120,11 +120,11 @@ export default {
                 title = titleElement.textContent || '';
                 const body = document.createElement('body');
                 body.innerHTML = text;
-                text = body.textContent || '';
+                const desktopText = body.textContent || '';
                 await dispatch('getPermission');
                 const notification = new Notification(title, {
                     badge: icon || lssm_logo.toString(),
-                    body: text,
+                    body: desktopText,
                     data,
                     icon: icon || lssm_logo.toString(),
                     requireInteraction: duration <= 0,

@@ -461,12 +461,13 @@ import fmsImage from './assets/fmsImage';
                     mission.vehicle_state
                 ] as 'red' | 'yellow' | 'green';
                 // mission_getred(_alliance)? | mission_new
+                const missionElement = document.getElementById(
+                    `mission_${mission.id}`
+                );
+                const isAllianceMission = mission.user_id !== window.user_id;
                 if (color === 'red') {
-                    if (
-                        !document.getElementById(`mission_${mission.id}`) &&
-                        mission.user_id === window.user_id
-                    )
-                        events['mission_new'].forEach(alert =>
+                    if (!missionElement && !isAllianceMission)
+                        events['mission_new']?.forEach(alert =>
                             LSSM.$store.dispatch(
                                 'notifications/sendNotification',
                                 {
@@ -477,7 +478,42 @@ import fmsImage from './assets/fmsImage';
                                     icon:
                                         window.mission_graphics[mission.mtid]?.[
                                             mission.vehicle_state
-                                        ] || `/images${mission.icon}.png`,
+                                        ] || `/images/${mission.icon}.png`,
+                                    duration: alert.duration,
+                                    ingame: alert.ingame,
+                                    desktop: alert.desktop,
+                                    clickHandler() {
+                                        window.lightboxOpen(
+                                            `/missions/${mission.id}`
+                                        );
+                                    },
+                                }
+                            )
+                        );
+                    else if (missionElement)
+                        events[
+                            `mission_getred${
+                                isAllianceMission ? '_alliance' : ''
+                            }`
+                        ]?.forEach(alert =>
+                            LSSM.$store.dispatch(
+                                'notifications/sendNotification',
+                                {
+                                    group: alert.position,
+                                    type: alert.alertStyle,
+                                    title: mission.caption,
+                                    text: $m(
+                                        `messages.mission_getred${
+                                            isAllianceMission ? '_alliance' : ''
+                                        }.body`,
+                                        {
+                                            address: mission.address,
+                                        }
+                                    ),
+                                    icon:
+                                        window.mission_graphics[mission.mtid]?.[
+                                            mission.vehicle_state
+                                        ] || `/images/${mission.icon}.png`,
                                     duration: alert.duration,
                                     ingame: alert.ingame,
                                     desktop: alert.desktop,
