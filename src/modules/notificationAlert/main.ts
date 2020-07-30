@@ -526,6 +526,25 @@ import fmsImage from './assets/fmsImage';
                             )
                         );
                 }
+                if (isAllianceMission && !missionElement)
+                    events['mission_share']?.forEach(alert =>
+                        LSSM.$store.dispatch('notifications/sendNotification', {
+                            group: alert.position,
+                            type: alert.alertStyle,
+                            title: `📤 ${mission.caption}`,
+                            text: mission.address,
+                            icon:
+                                window.mission_graphics[mission.mtid]?.[
+                                    mission.vehicle_state
+                                ] || `/images/${mission.icon}.png`,
+                            duration: alert.duration,
+                            ingame: alert.ingame,
+                            desktop: alert.desktop,
+                            clickHandler() {
+                                window.lightboxOpen(`/missions/${mission.id}`);
+                            },
+                        })
+                    );
             },
         });
 })(window[PREFIX] as Vue);
