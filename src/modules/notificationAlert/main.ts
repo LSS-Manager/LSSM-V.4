@@ -449,8 +449,9 @@ import fmsImage from './assets/fmsImage';
         'mission_getred',
         'mission_getred_alliance',
         'mission_new_largescale',
-        'mission_siwa_warning',
-        'mission_siwa_warning_alliance',
+        // TODO: mission_siwa_warning(_alliance)?
+        // 'mission_siwa_warning',
+        // 'mission_siwa_warning_alliance',
     ].filter(ce => events.hasOwnProperty(ce));
     if (missionEvents.length)
         await LSSM.$store.dispatch('hook', {
@@ -465,6 +466,19 @@ import fmsImage from './assets/fmsImage';
                     `mission_${mission.id}`
                 );
                 const isAllianceMission = mission.user_id !== window.user_id;
+                const isAllianceOnlyMission =
+                    mission.mtid === null ||
+                    Object.values(LSSM.$t('only_alliance_missions')).includes(
+                        mission.mtid
+                    );
+                const icon =
+                    (mission.mtid !== null
+                        ? window.mission_graphics[mission.mtid]?.[
+                              mission.vehicle_state
+                          ]
+                        : 0) || `/images/${mission.icon}.png`;
+                let caption = mission.caption;
+                if (isAllianceMission) caption = `📤 ${caption}`;
                 if (color === 'red') {
                     if (!missionElement && !isAllianceMission)
                         events['mission_new']?.forEach(alert =>
@@ -473,12 +487,9 @@ import fmsImage from './assets/fmsImage';
                                 {
                                     group: alert.position,
                                     type: alert.alertStyle,
-                                    title: mission.caption,
+                                    title: caption,
                                     text: mission.address,
-                                    icon:
-                                        window.mission_graphics[mission.mtid]?.[
-                                            mission.vehicle_state
-                                        ] || `/images/${mission.icon}.png`,
+                                    icon,
                                     duration: alert.duration,
                                     ingame: alert.ingame,
                                     desktop: alert.desktop,
@@ -501,7 +512,7 @@ import fmsImage from './assets/fmsImage';
                                 {
                                     group: alert.position,
                                     type: alert.alertStyle,
-                                    title: mission.caption,
+                                    title: caption,
                                     text: $m(
                                         `messages.mission_getred${
                                             isAllianceMission ? '_alliance' : ''
@@ -510,10 +521,7 @@ import fmsImage from './assets/fmsImage';
                                             address: mission.address,
                                         }
                                     ),
-                                    icon:
-                                        window.mission_graphics[mission.mtid]?.[
-                                            mission.vehicle_state
-                                        ] || `/images/${mission.icon}.png`,
+                                    icon,
                                     duration: alert.duration,
                                     ingame: alert.ingame,
                                     desktop: alert.desktop,
@@ -526,17 +534,30 @@ import fmsImage from './assets/fmsImage';
                             )
                         );
                 }
-                if (isAllianceMission && !missionElement)
+                if (isAllianceOnlyMission && !missionElement)
+                    events['mission_new_largescale']?.forEach(alert =>
+                        LSSM.$store.dispatch('notifications/sendNotification', {
+                            group: alert.position,
+                            type: alert.alertStyle,
+                            title: caption,
+                            text: mission.address,
+                            icon,
+                            duration: alert.duration,
+                            ingame: alert.ingame,
+                            desktop: alert.desktop,
+                            clickHandler() {
+                                window.lightboxOpen(`/missions/${mission.id}`);
+                            },
+                        })
+                    );
+                else if (isAllianceMission && !missionElement)
                     events['mission_share']?.forEach(alert =>
                         LSSM.$store.dispatch('notifications/sendNotification', {
                             group: alert.position,
                             type: alert.alertStyle,
-                            title: `📤 ${mission.caption}`,
+                            title: caption,
                             text: mission.address,
-                            icon:
-                                window.mission_graphics[mission.mtid]?.[
-                                    mission.vehicle_state
-                                ] || `/images/${mission.icon}.png`,
+                            icon,
                             duration: alert.duration,
                             ingame: alert.ingame,
                             desktop: alert.desktop,
