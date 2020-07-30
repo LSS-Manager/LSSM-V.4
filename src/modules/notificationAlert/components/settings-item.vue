@@ -114,7 +114,7 @@ export default Vue.extend<
                     .filter(
                         v => !!v
                     ) as SettingsItemComputed['updateEvents']).sort((a, b) =>
-                    a.value > b.value ? 1 : a.value < b.value ? -1 : 0
+                    a.label > b.label ? 1 : a.label < b.label ? -1 : 0
                 );
             },
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -130,7 +130,7 @@ export default Vue.extend<
             return this.eventOptions
                 .filter(e => !this.updateEvents.find(u => u.value === e.value))
                 .sort((a, b) =>
-                    a.value > b.value ? 1 : a.value < b.value ? -1 : 0
+                    a.label > b.label ? 1 : a.label < b.label ? -1 : 0
                 );
         },
         updateStyle: {

@@ -25,7 +25,8 @@
         "vehicle_fms_7": "Funksprüche (Status 7)",
         "vehicle_fms_9": "Funksprüche (Status 9)",
         "dm": "Neue Nachricht im Posteingang",
-        "ingame_news": "Neuigkeiten im Spiel"
+        "ingame_news": "Neuigkeiten im Spiel",
+        "allianceCandidature": "Neue Bewerbung im Verband"
 	},
 	"messages": {
 		"radioMessage": {
@@ -38,6 +39,10 @@
         "ingame_news": {
             "title": "Neuigkeiten im Spiel",
             "body": "Es gibt Neues im Spiel! Schau doch mal auf Facebook oder im Blog, was die heutigen Updates sind!"
+        },
+        "allianceCandidature": {
+            "title": "Neue Bewerbung! | Neue Bewerbungen!",
+            "body": "Dein Verband hat eine neue Bewerbung! Aktuell offene Bewerbungen: {n}"
         }
 	},
 	"noPermission": {

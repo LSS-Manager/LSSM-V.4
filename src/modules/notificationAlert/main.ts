@@ -324,4 +324,42 @@ import fmsImage from './assets/fmsImage';
                 );
             },
         });
+
+    // Alliance Cadidature
+    if (events['allianceCandidature'])
+        await LSSM.$store.dispatch('hook', {
+            event: 'allianceCandidatureCount',
+            post: false,
+            callback(amount: string) {
+                const newAmount = parseInt(amount);
+                const prevAmount = parseInt(
+                    document
+                        .getElementById('alliance_candidature_count')
+                        ?.textContent?.trim()
+                        ?.replace(/(^\()|\)$/g, '') || '-1'
+                );
+                if (newAmount <= prevAmount) return;
+                events['allianceCandidature'].forEach(alert =>
+                    LSSM.$store.dispatch('notifications/sendNotification', {
+                        group: alert.position,
+                        type: alert.alertStyle,
+                        title: $mc(
+                            'messages.allianceCandidature.title',
+                            newAmount - prevAmount
+                        ),
+                        text: $mc(
+                            'messages.allianceCandidature.body',
+                            newAmount
+                        ),
+                        icon: '/images/alliance.svg',
+                        duration: alert.duration,
+                        ingame: alert.ingame,
+                        desktop: alert.desktop,
+                        clickHandler() {
+                            window.lightboxOpen('verband/bewerbungen');
+                        },
+                    })
+                );
+            },
+        });
 })(window[PREFIX] as Vue);
