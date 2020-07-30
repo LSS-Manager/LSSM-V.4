@@ -28,7 +28,8 @@
         "ingame_news": "Neuigkeiten im Spiel",
         "allianceCandidature": "Neue Bewerbung im Verband",
         "allianceMessage": "Neue Verbandsnachricht",
-        "allianceNews": "Neue Verbandsnews"
+        "allianceNews": "Neue Verbandsnews",
+        "allianceForum": "Neuer Beitrag im Verbandsforum"
 	},
 	"messages": {
 		"radioMessage": {
@@ -52,7 +53,11 @@
         },
         "allianceNews": {
             "title": "Neue Verbandsnews!",
-            "body": "Dein Verband hat neue News veröffentlicht! Mit einem Klick auf diese Benachrichtigung kommst du direkt zur News-Seite!"
+            "body": "Dein Verband hat neue News veröffentlicht! Mit einem Klick auf diese Benachrichtigung kommst du direkt zur News-Seite."
+        },
+        "allianceForum": {
+            "title": "Neuer Beitrag im Verbandsforum!",
+            "body": "Es gibt einen neuen Beitrag im Forum deines Verbandes! Öffne das Forum mit einem Klick auf diese Benachrichtigung."
         }
 	},
 	"noPermission": {

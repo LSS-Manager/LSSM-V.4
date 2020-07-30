@@ -412,4 +412,29 @@ import fmsImage from './assets/fmsImage';
                 );
             },
         });
+
+    // Alliance Forum
+    if (events['allianceForum'])
+        await LSSM.$store.dispatch('hook', {
+            event: 'allianceForumNew',
+            post: false,
+            callback(hasNew: boolean) {
+                if (!hasNew) return;
+                events['allianceForum'].forEach(alert =>
+                    LSSM.$store.dispatch('notifications/sendNotification', {
+                        group: alert.position,
+                        type: alert.alertStyle,
+                        title: $m('messages.allianceForum.title'),
+                        text: $m('messages.allianceForum.body'),
+                        icon: '/images/alliance.svg',
+                        duration: alert.duration,
+                        ingame: alert.ingame,
+                        desktop: alert.desktop,
+                        clickHandler() {
+                            window.lightboxOpen('/alliance_threads');
+                        },
+                    })
+                );
+            },
+        });
 })(window[PREFIX] as Vue);
