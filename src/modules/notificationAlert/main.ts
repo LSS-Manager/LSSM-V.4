@@ -356,7 +356,32 @@ import fmsImage from './assets/fmsImage';
                         ingame: alert.ingame,
                         desktop: alert.desktop,
                         clickHandler() {
-                            window.lightboxOpen('verband/bewerbungen');
+                            window.lightboxOpen('/verband/bewerbungen');
+                        },
+                    })
+                );
+            },
+        });
+
+    // Alliance messages
+    if (events['allianceMessage'])
+        await LSSM.$store.dispatch('hook', {
+            event: 'allianceMessageNew',
+            post: false,
+            callback(hasNew: boolean) {
+                if (!hasNew) return;
+                events['allianceMessage'].forEach(alert =>
+                    LSSM.$store.dispatch('notifications/sendNotification', {
+                        group: alert.position,
+                        type: alert.alertStyle,
+                        title: $m('messages.allianceMessage.title'),
+                        text: $m('messages.allianceMessage.body'),
+                        icon: '/images/alliance.svg',
+                        duration: alert.duration,
+                        ingame: alert.ingame,
+                        desktop: alert.desktop,
+                        clickHandler() {
+                            window.lightboxOpen('/alliance_messages');
                         },
                     })
                 );
