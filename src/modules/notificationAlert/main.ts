@@ -387,4 +387,29 @@ import fmsImage from './assets/fmsImage';
                 );
             },
         });
+
+    // Alliance news
+    if (events['allianceNews'])
+        await LSSM.$store.dispatch('hook', {
+            event: 'allianceNewsNew',
+            post: false,
+            callback(hasNew: boolean) {
+                if (!hasNew) return;
+                events['allianceNews'].forEach(alert =>
+                    LSSM.$store.dispatch('notifications/sendNotification', {
+                        group: alert.position,
+                        type: alert.alertStyle,
+                        title: $m('messages.allianceNews.title'),
+                        text: $m('messages.allianceNews.body'),
+                        icon: '/images/alliance.svg',
+                        duration: alert.duration,
+                        ingame: alert.ingame,
+                        desktop: alert.desktop,
+                        clickHandler() {
+                            window.lightboxOpen('/verband/news');
+                        },
+                    })
+                );
+            },
+        });
 })(window[PREFIX] as Vue);

@@ -27,7 +27,8 @@
         "dm": "Neue Nachricht im Posteingang",
         "ingame_news": "Neuigkeiten im Spiel",
         "allianceCandidature": "Neue Bewerbung im Verband",
-        "allianceMessage": "Neue Verbandsnachricht"
+        "allianceMessage": "Neue Verbandsnachricht",
+        "allianceNews": "Neue Verbandsnews"
 	},
 	"messages": {
 		"radioMessage": {
@@ -48,6 +49,10 @@
         "allianceMessage": {
             "title": "Neue Verbandsnachricht!",
             "body": "Es gibt eine neue Verbandsnachricht! Schau sie dir mit einem Klick auf diese Benachrichtigung direkt an."
+        },
+        "allianceNews": {
+            "title": "Neue Verbandsnews!",
+            "body": "Dein Verband hat neue News veröffentlicht! Mit einem Klick auf diese Benachrichtigung kommst du direkt zur News-Seite!"
         }
 	},
 	"noPermission": {
