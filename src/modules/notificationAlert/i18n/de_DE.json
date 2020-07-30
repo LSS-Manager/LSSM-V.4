@@ -10,55 +10,55 @@
 		"title": "Desktop-Benachrichtigungen"
 	},
 	"events": {
+		"allianceCandidature": "Neue Bewerbung im Verband",
 		"allianceChat": "Chatnachricht",
 		"allianceChatMention": "Chatnachricht (nur Erwähnungen)",
 		"allianceChatWhisper": "Chatnachricht (nur private Ansprachen)",
-        "sicherheitswache_success": "Sicherheitswache abgeschlossen",
-        "sicherheitswache_error": "Sicherheitswache abgebrochen",
-        "vehicle_fms": "Funksprüche (allgemein)",
-        "vehicle_fms_1": "Funksprüche (Status 1)",
-        "vehicle_fms_2": "Funksprüche (Status 2)",
-        "vehicle_fms_3": "Funksprüche (Status 3)",
-        "vehicle_fms_4": "Funksprüche (Status 4)",
-        "vehicle_fms_5": "Funksprüche (Sprechwunsch)",
-        "vehicle_fms_6": "Funksprüche (Status 6)",
-        "vehicle_fms_7": "Funksprüche (Status 7)",
-        "vehicle_fms_9": "Funksprüche (Status 9)",
-        "dm": "Neue Nachricht im Posteingang",
-        "ingame_news": "Neuigkeiten im Spiel",
-        "allianceCandidature": "Neue Bewerbung im Verband",
-        "allianceMessage": "Neue Verbandsnachricht",
-        "allianceNews": "Neue Verbandsnews",
-        "allianceForum": "Neuer Beitrag im Verbandsforum"
+		"allianceForum": "Neuer Beitrag im Verbandsforum",
+		"allianceMessage": "Neue Verbandsnachricht",
+		"allianceNews": "Neue Verbandsnews",
+		"dm": "Neue Nachricht im Posteingang",
+		"ingame_news": "Neuigkeiten im Spiel",
+		"sicherheitswache_error": "Sicherheitswache abgebrochen",
+		"sicherheitswache_success": "Sicherheitswache abgeschlossen",
+		"vehicle_fms": "Funksprüche (allgemein)",
+		"vehicle_fms_1": "Funksprüche (Status 1)",
+		"vehicle_fms_2": "Funksprüche (Status 2)",
+		"vehicle_fms_3": "Funksprüche (Status 3)",
+		"vehicle_fms_4": "Funksprüche (Status 4)",
+		"vehicle_fms_5": "Funksprüche (Sprechwunsch)",
+		"vehicle_fms_6": "Funksprüche (Status 6)",
+		"vehicle_fms_7": "Funksprüche (Status 7)",
+		"vehicle_fms_9": "Funksprüche (Status 9)"
 	},
 	"messages": {
+		"allianceCandidature": {
+			"body": "Dein Verband hat eine neue Bewerbung! Aktuell offene Bewerbungen: {n}",
+			"title": "Neue Bewerbung! | Neue Bewerbungen!"
+		},
+		"allianceForum": {
+			"body": "Es gibt einen neuen Beitrag im Forum deines Verbandes! Öffne das Forum mit einem Klick auf diese Benachrichtigung.",
+			"title": "Neuer Beitrag im Verbandsforum!"
+		},
+		"allianceMessage": {
+			"body": "Es gibt eine neue Verbandsnachricht! Schau sie dir mit einem Klick auf diese Benachrichtigung direkt an.",
+			"title": "Neue Verbandsnachricht!"
+		},
+		"allianceNews": {
+			"body": "Dein Verband hat neue News veröffentlicht! Mit einem Klick auf diese Benachrichtigung kommst du direkt zur News-Seite.",
+			"title": "Neue Verbandsnews!"
+		},
+		"dm": {
+			"body": "Damit hast du insgesamt {n} ungelesene Nachricht. | Damit hast du insgesamt {n} ungelesene Nachrichten.",
+			"title": "Du hast {n} neue Nachricht! | Du hast {n} neue Nachrichten!"
+		},
+		"ingame_news": {
+			"body": "Es gibt Neues im Spiel! Schau doch mal auf Facebook oder im Blog, was die heutigen Updates sind!",
+			"title": "Neuigkeiten im Spiel"
+		},
 		"radioMessage": {
 			"title": "{vehicle} meldet Status {status}!"
-		},
-        "dm": {
-            "title": "Du hast {n} neue Nachricht! | Du hast {n} neue Nachrichten!",
-            "body": "Damit hast du insgesamt {n} ungelesene Nachricht. | Damit hast du insgesamt {n} ungelesene Nachrichten."
-        },
-        "ingame_news": {
-            "title": "Neuigkeiten im Spiel",
-            "body": "Es gibt Neues im Spiel! Schau doch mal auf Facebook oder im Blog, was die heutigen Updates sind!"
-        },
-        "allianceCandidature": {
-            "title": "Neue Bewerbung! | Neue Bewerbungen!",
-            "body": "Dein Verband hat eine neue Bewerbung! Aktuell offene Bewerbungen: {n}"
-        },
-        "allianceMessage": {
-            "title": "Neue Verbandsnachricht!",
-            "body": "Es gibt eine neue Verbandsnachricht! Schau sie dir mit einem Klick auf diese Benachrichtigung direkt an."
-        },
-        "allianceNews": {
-            "title": "Neue Verbandsnews!",
-            "body": "Dein Verband hat neue News veröffentlicht! Mit einem Klick auf diese Benachrichtigung kommst du direkt zur News-Seite."
-        },
-        "allianceForum": {
-            "title": "Neuer Beitrag im Verbandsforum!",
-            "body": "Es gibt einen neuen Beitrag im Forum deines Verbandes! Öffne das Forum mit einem Klick auf diese Benachrichtigung."
-        }
+		}
 	},
 	"noPermission": {
 		"text": "In deinem Browser ist eingestellt, dass das Spiel keine Berechtigung hat, Desktop-Benachrichtigungen zu senden. Möchtest du diese Benachrichtungen dennoch empfangen, musst du dies in den Einstellungen deines Browsers erst zurücksetzen!",

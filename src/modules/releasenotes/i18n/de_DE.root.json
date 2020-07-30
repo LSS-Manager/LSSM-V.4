@@ -10,6 +10,11 @@
 			"description": "Das Modul \"Erweitertes Alarmfenster\" bietet nun die Möglichkeit, die Tabs selbst festzulegen.",
 			"title": "Eigene Fahrzeugtabs im Einsatzfenster",
 			"version": "4.0.5+20200716.1510"
+		},
+		{
+			"description": "Neue Benachrichtigungen sind eingebaut. Darunter: <ul><li>Funksprüche</li><li>Chatnachrichten</li><li>Verbands-Updates</li><li>…</li></ul>Weitere folgen natürlich noch.",
+			"title": "Benachrichtigungen",
+			"version": "4.0.5+20200730.1024"
 		}
 	]
 }
