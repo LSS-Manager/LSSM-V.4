@@ -13,7 +13,7 @@
             :no-search="true"
             :no-body="true"
         >
-            <tbody v-for="(category, title) in sortedGroups" :key="title">
+            <tbody v-for="(category, title) in coloredGroups" :key="title">
                 <tr
                     v-for="(row, caption, index) in category.rows"
                     :key="index"
@@ -132,23 +132,35 @@ export default Vue.extend<
                                     buildingTypes[buildingType].extensions
                                 )
                                     .filter(e => !!e)
-                                    .map(({ caption }) => [
-                                        `${buildingType}_${caption}`,
-                                        {
-                                            type: 'extension',
-                                            total: 0,
-                                            enabled: 0,
-                                            unavailable: 0,
-                                            maximum:
-                                                Object.values(
-                                                    buildingTypes[buildingType]
-                                                        .extensions
-                                                ).filter(
-                                                    e => e?.caption === caption
-                                                ).length *
-                                                (buildingsOfType?.length ?? 0),
-                                        },
-                                    ]),
+                                    .map(
+                                        ({
+                                            caption,
+                                            maxExtensionsFunction,
+                                        }) => [
+                                            `${buildingType}_${caption}`,
+                                            {
+                                                type: 'extension',
+                                                total: 0,
+                                                enabled: 0,
+                                                unavailable: 0,
+                                                maximum:
+                                                    maxExtensionsFunction?.(
+                                                        buildingsByType
+                                                    ) ??
+                                                    Object.values(
+                                                        buildingTypes[
+                                                            buildingType
+                                                        ].extensions
+                                                    ).filter(
+                                                        e =>
+                                                            e?.caption ===
+                                                            caption
+                                                    ).length *
+                                                        (buildingsOfType?.length ??
+                                                            0),
+                                            },
+                                        ]
+                                    ),
                             ];
                         })
                     ),
@@ -162,7 +174,7 @@ export default Vue.extend<
         };
     },
     computed: {
-        sortedGroups() {
+        coloredGroups() {
             const groups = cloneDeep(this.groups) as BuildingTypes['groups'];
             Object.values(groups).forEach(category => {
                 let currentBuildingColor = 'dark' as 'bright' | 'dark';

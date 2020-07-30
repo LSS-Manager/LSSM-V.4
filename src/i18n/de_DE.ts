@@ -1,3 +1,5 @@
+import { Building } from 'typings/Building';
+
 const moduleRootFiles = require.context('../', true, MODULE_ROOT_I18N_FILES);
 const furtherFiles = require.context('./de_DE/', true, /.*(\/index)?\.js(on)?/);
 const modules = {
@@ -1011,12 +1013,28 @@ export default {
                     credits: 300_000,
                     coins: 25,
                     duration: '7 Tage',
+                    maxExtensionsFunction: (buildingsByType: {
+                        [type: number]: Building[];
+                    }): number =>
+                        Math.floor(
+                            ((buildingsByType[0]?.length ?? 0) +
+                                (buildingsByType[18]?.length ?? 0)) /
+                                10
+                        ),
                 },
                 {
                     caption: 'Großwache',
                     credits: 1_000_000,
                     coins: 50,
                     duration: '7 Tage',
+                    maxExtensionsFunction: (buildingsByType: {
+                        [type: number]: Building[];
+                    }): number =>
+                        Math.floor(
+                            ((buildingsByType[0]?.length ?? 0) +
+                                (buildingsByType[18]?.length ?? 0)) /
+                                10
+                        ),
                 },
                 ...new Array(3).fill({
                     caption: 'Abrollbehälter-Stellplatz',

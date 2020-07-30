@@ -33,7 +33,7 @@ export interface Category {
 }
 
 export interface BuildingTypesComputed {
-    sortedGroups: BuildingTypes['groups'];
+    coloredGroups: BuildingTypes['groups'];
 }
 
 export interface BuildingTypesMethods {
