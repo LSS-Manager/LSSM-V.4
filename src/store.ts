@@ -68,10 +68,13 @@ export default (Vue: VueConstructor): Store<RootState> => {
             osmBars: {},
         },
         mutations: {
-            addHook(state: RootState, event: string) {
+            addHook(
+                state: RootState,
+                [base, event, fullname]: [unknown, string, string]
+            ) {
                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                 // @ts-ignore
-                state.hooks[event] = window[event];
+                state.hooks[fullname] = base[event];
             },
             addPrototypeHookBase(state: RootState, base: string) {
                 state.prototypeHooks[base] = {};
@@ -167,10 +170,19 @@ export default (Vue: VueConstructor): Store<RootState> => {
                 { post = true, event, callback = () => null }: Hook
             ) {
                 if (!state.hooks.hasOwnProperty(event)) {
-                    commit('addHook', event);
+                    const split = event.split('.');
+                    const trueEvent = split.pop();
+                    const trueBase = split.reduce(
+                        (previousValue, currentValue) =>
+                            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                            // @ts-ignore
+                            (previousValue || window)[currentValue],
+                        window
+                    ) as unknown;
+                    commit('addHook', [trueBase, trueEvent, event]);
                     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                     // @ts-ignore
-                    window[event] = (...args: unknown[]) => {
+                    trueBase[trueEvent] = (...args: unknown[]) => {
                         document.dispatchEvent(
                             new CustomEvent(`lssm_${event}_before`, {
                                 detail: args,

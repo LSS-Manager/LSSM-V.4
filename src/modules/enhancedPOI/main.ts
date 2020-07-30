@@ -1,16 +1,52 @@
-import { MissionPositionMarkerParam } from '../../../typings/Ingame';
+import { POI } from 'typings/modules/EnhancedPOI';
+import { POIMarker } from 'typings/Ingame';
+import { LayersControlEvent } from 'leaflet';
 
 (async (LSSM: Vue) => {
+    const modifyMarker = (poi: POIMarker, caption: string) => {
+        poi.bindTooltip(caption)
+            .getElement()
+            ?.setAttribute('caption', caption);
+        poi.getElement()?.classList.add('poi');
+    };
+
+    let modifiedMarkers = false;
+
+    const modifyMarkers = () =>
+        LSSM.$store
+            .dispatch('api/request', {
+                url: '/mission_positions',
+            })
+            .then(res => res.json())
+            .then(
+                ({
+                    mission_positions: pois,
+                }: {
+                    mission_positions: POI[] | null;
+                }) => {
+                    if (pois) {
+                        window.map_pois_service
+                            .getMissionPoiMarkersArray()
+                            .forEach(marker => {
+                                const poi = pois.find(p => p.id === marker.id);
+                                if (poi) modifyMarker(marker, poi.caption);
+                            });
+                        modifiedMarkers = true;
+                    }
+                }
+            );
+
+    await modifyMarkers();
+
     await LSSM.$store.dispatch('hook', {
-        // TODO: Wait for Devs to add markers to mission_poi_markers
-        event: 'leafletMissionPositionMarkerAdd',
-        callback(e: MissionPositionMarkerParam) {
-            const poi =
-                window.mission_poi_markers[
-                    window.mission_poi_markers.length - 1
-                ];
-            poi.bindTooltip(e.caption);
-            poi.getElement()?.setAttribute('caption', e.caption);
+        event: 'map_pois_service.leafletMissionPositionMarkerAdd',
+        callback({ caption, id }: POI) {
+            const poi = window.map_pois_service
+                .getMissionPoiMarkersArray()
+                .find(m => m.id === id);
+            if (!poi) return;
+            poi.bindTooltip(caption);
+            poi.getElement()?.setAttribute('caption', caption);
             poi.getElement()?.classList.add('poi');
         },
     });
@@ -30,48 +66,32 @@ import { MissionPositionMarkerParam } from '../../../typings/Ingame';
         }
     };
 
-    const hideIcons = () => {
-        if (isPOIWindow) {
-            (document.querySelectorAll(
-                '.leaflet-marker-icon:not(.poi)'
-            ) as NodeListOf<HTMLImageElement>).forEach(
-                el => (el.style.display = 'none')
-            );
-            window.mission_position_new_marker &&
-                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                // @ts-ignore
-                window.mission_position_new_marker._icon &&
-                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                // @ts-ignore
-                (window.mission_position_new_marker._icon.style.display = null);
-        }
-    };
+    const poiHighlightedClass = LSSM.$store.getters.nodeAttribute(
+        'poi-highlighted'
+    );
 
-    const showIcons = () => {
-        if (isPOIWindow) {
-            (document.querySelectorAll(
-                '.leaflet-marker-icon:not(.poi)'
-            ) as NodeListOf<HTMLImageElement>).forEach(
-                el => delete el.style.display
-            );
-        }
-    };
+    await LSSM.$store.dispatch('addStyle', {
+        selectorText: `.poi.${poiHighlightedClass}`,
+        style: {
+            filter: 'contrast(500%) brightness(60%) invert(100%)',
+        },
+    });
 
-    const colorMarkers = (caption: string) => {
+    const colorMarkers = (caption: string) =>
         (document.querySelectorAll('.poi') as NodeListOf<
             HTMLImageElement
-        >).forEach(el => delete el.style.display);
-        (document.querySelectorAll(`.poi[caption="${caption}"]`) as NodeListOf<
-            HTMLImageElement
-        >).forEach(
-            el =>
-                (el.style.filter =
-                    'contrast(500%) brightness(60%) invert(100%)')
+        >).forEach(el =>
+            el.classList[
+                el.getAttribute('caption') === caption ? 'add' : 'remove'
+            ](poiHighlightedClass)
         );
-    };
 
     window.map.addEventListener('moveend', resetNewPoiMarker);
-    window.map.addEventListener('zoomend', hideIcons);
+    window.map.addEventListener(
+        'overlayadd',
+        ({ name }: LayersControlEvent) =>
+            !modifiedMarkers && name.match(/app-pois-filter/) && modifyMarkers()
+    );
 
     const observer = new MutationObserver(mutations => {
         mutations.forEach(mutation => {
@@ -79,14 +99,16 @@ import { MissionPositionMarkerParam } from '../../../typings/Ingame';
                 '#new_mission_position'
             );
             if (!form) {
-                showIcons();
                 isPOIWindow = false;
+                (document.querySelectorAll(
+                    `.poi.${poiHighlightedClass}`
+                ) as NodeListOf<HTMLImageElement>).forEach(el =>
+                    el.classList.remove(poiHighlightedClass)
+                );
                 return;
             }
             if (isPOIWindow) return;
             isPOIWindow = true;
-
-            hideIcons();
 
             (document.querySelectorAll(
                 `.lefalet-marker-icon[caption="${

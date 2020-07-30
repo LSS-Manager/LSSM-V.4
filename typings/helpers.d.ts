@@ -3,8 +3,9 @@ import { Store } from 'vuex';
 import { BuildingMarker, POIMarker } from './Ingame';
 import Highcharts from 'highcharts';
 import VueI18n from 'vue-i18n';
-import { Map, Marker } from 'leaflet';
+import L, { Map, Marker } from 'leaflet';
 import 'i18n-js';
+import { POI } from './modules/EnhancedPOI';
 
 declare global {
     interface Window {
@@ -18,9 +19,13 @@ declare global {
         alliance_admin: boolean;
         alliance_coadmin: boolean;
         building_markers: BuildingMarker[];
-        mission_poi_markers: POIMarker[];
+        map_pois_service: {
+            getMissionPoiMarkersArray(): POIMarker[];
+            leafletMissionPositionMarkerAdd(poi: POI): void;
+        };
         [PREFIX: string]: Vue | unknown;
         map: Map;
+        L: typeof L;
         mission_position_new_marker?: Marker;
         mission_graphics: [string, string, string][];
         lightboxOpen(link: string): void;

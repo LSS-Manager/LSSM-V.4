@@ -8,14 +8,6 @@ export interface POIMarker extends Marker {
     id: number;
 }
 
-export interface MissionPositionMarkerParam {
-    caption: string;
-    id: number;
-    longitude: number;
-    latitude: number;
-    icon_path: string;
-}
-
 export interface AllianceChatMessage {
     alliance_admin: string; // Yes, a stringified boolean
     alliance_coadmin: string; // Also a stringified boolean…
