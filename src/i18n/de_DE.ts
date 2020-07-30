@@ -1032,7 +1032,7 @@ export default {
                 },
             ],
             levelcost: ['1. 10.000', '2. 50.000', '3.-16. 100.000'],
-            maxBuildings: 2_400,
+            maxBuildings: '2.400 mit kleinen Feuerwachen zusammen',
             maxLevel: 16,
             special:
                 'Ab der 24. Feuerwache steigen die Kosten für den Neubau einer Wache nach folgender Formel: <code>100.000+200.000*LOG<sub>2</sub>(Anzahl der vorhandenen Feuerwachen − 22)</code>. Der Coins-Preis bleibt konstant!',
@@ -1049,6 +1049,7 @@ export default {
                 'TSF-W',
                 '(HLF 20 und HLF 10 ab Dienstgrad "Gruppenfüher(in)" => Baukosten 20.000 höher)',
             ],
+            maxBuildingsFunction: (): number => 2_400,
         },
         {
             caption: 'Feuerwehrschule',
@@ -1183,6 +1184,10 @@ export default {
                 'Pro Station können bis zu 7 Landeplätze gebaut werden (Ausbaustufen). Bis zum 125. Gebäude (aller Art) können insgesamt max. 4 Landeplätze gebaut werden. Danach wächst die Zahl alle 25 Geäude um 1 (Beginnend beim 125.).',
             startPersonnel: 0,
             startVehicles: [],
+            maxBuildingsFunction: (buildingsAmountTotal: number): number =>
+                buildingsAmountTotal < 125
+                    ? 4
+                    : Math.floor(buildingsAmountTotal / 25),
         },
         {
             caption: 'Polizeiwache',
@@ -1196,12 +1201,13 @@ export default {
                 duration: '7 Tage',
             }),
             levelcost: ['1. 10.000', '2. 50.000', '3.-14. 100.000'],
-            maxBuildings: 1_100,
+            maxBuildings: '1.100 mit kleinen Polizeiwachen zusammen',
             maxLevel: 14,
             special:
                 'Ab der 24. Polizeiwache steigen die Kosten für den Neubau einer Wache nach folgender Formel: <code>100.000+200.000*LOG<sub>2</sub>(Anzahl der vorhandenen Polizeiache − 22)</code>. Der Coins-Preis bleibt konstant!',
             startPersonnel: 2,
             startVehicles: ['FuStW'],
+            maxBuildingsFunction: (): number => 1_100,
         },
         {
             caption: 'Leitstelle',
@@ -1215,6 +1221,8 @@ export default {
             special: 'Die Leitstelle ist die Verwaltungszentrale.',
             startPersonnel: 0,
             startVehicles: [],
+            maxBuildingsFunction: (buildingsAmountTotal: number): number =>
+                Math.floor(buildingsAmountTotal / 25) + 1,
         },
         {
             caption: 'Polizeischule',
@@ -1431,6 +1439,10 @@ export default {
                 'Pro Station können bis zu 7 Landeplätze gebaut werden (Ausbaustufen). Bis zum 125. Gebäude (aller Art) können insgesamt max. 4 Landeplätze gebaut werden. Danach wächst die Zahl alle 25 Geäude um 1 (Beginnend beim 125.).',
             startPersonnel: 0,
             startVehicles: [],
+            maxBuildingsFunction: (buildingsAmountTotal: number): number =>
+                buildingsAmountTotal < 125
+                    ? 4
+                    : Math.floor(buildingsAmountTotal / 25),
         },
         {
             caption: 'Bereitstellungsraum',
@@ -1444,6 +1456,7 @@ export default {
                 'An einem Bereitstellungsraum kann man selbst beliebig viele der eigenen Fahrzeuge stationieren, Verbandsmitglieder können den Raum mitnutzen. Ein Bereitstellungsraum bleibt 24 Stunden bestehen, man kann ihn aber jederzeit wieder auf 24h zurücksetzen.',
             startPersonnel: 0,
             startVehicles: [],
+            maxBuildingsFunction: (): number => 1,
         },
         {
             caption: 'Wasserrettung',
@@ -1535,7 +1548,7 @@ export default {
                 '3.-5. 100.000',
                 'Umbau zur normalen Wache: Differenz-Preis zur normalen Wache',
             ],
-            maxBuildings: 2_400,
+            maxBuildings: '2.400 mit Feuerwachen zusammen',
             maxLevel: 5,
             special:
                 'Ab der 24. Feuerwache steigen die Kosten für den Neubau einer Wache nach folgender Formel: <code>(100.000+200.000*LOG<sub>2</sub>(Anzahl der vorhandenen Feuerwachen − 22)) / 2</code>. max. 1 Million Credits. Der Coins-Preis bleibt konstant!',
@@ -1552,6 +1565,7 @@ export default {
                 'TSF-W',
                 '(HLF 20 und HLF 10 ab Dienstgrad "Gruppenfüher(in)" => Baukosten 15.000 höher)',
             ],
+            maxBuildingsFunction: (): number => 2_400,
         },
         {
             caption: 'Polizeiwache (Kleinwache)',
@@ -1570,12 +1584,13 @@ export default {
                 '3.-4. 100.000',
                 'Umbau zur normalen Wache: Differenz-Preis zur normalen Wache',
             ],
-            maxBuildings: 1_100,
+            maxBuildings: '1.100 mit Polizeiwachen zusammen',
             maxLevel: 4,
             special:
                 'Ab der 24. Polizeiwache berechnen sich die Kosten für den Neubau einer Wache nach folgender Formel: <code>(100.000+200.000*LOG<sub>2</sub>(Anzahl der vorhandenen Polizeiwachen − 22)) / 2</code>. Der Coins-Preis bleibt konstant!',
             startPersonnel: 2,
             startVehicles: ['FuStW'],
+            maxBuildingsFunction: (): number => 1_100,
         },
         {
             caption: 'Rettungswache (Kleinwache)',

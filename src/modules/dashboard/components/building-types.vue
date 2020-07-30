@@ -119,7 +119,13 @@ export default Vue.extend<
                                                 b => b.enabled
                                             )?.length ?? 0,
                                         unavailable: 0,
-                                        maximum: '–',
+                                        maximum:
+                                            buildingTypes[
+                                                buildingType
+                                            ].maxBuildingsFunction?.(
+                                                this.$store.state.api.buildings
+                                                    .length
+                                            ) ?? '–',
                                     },
                                 ],
                                 ...Object.values(
@@ -133,7 +139,14 @@ export default Vue.extend<
                                             total: 0,
                                             enabled: 0,
                                             unavailable: 0,
-                                            maximum: 0,
+                                            maximum:
+                                                Object.values(
+                                                    buildingTypes[buildingType]
+                                                        .extensions
+                                                ).filter(
+                                                    e => e?.caption === caption
+                                                ).length *
+                                                (buildingsOfType?.length ?? 0),
                                         },
                                     ]),
                             ];
