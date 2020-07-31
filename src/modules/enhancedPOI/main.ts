@@ -3,6 +3,47 @@ import { POIMarker } from 'typings/Ingame';
 import { LayersControlEvent } from 'leaflet';
 
 (async (LSSM: Vue) => {
+    await LSSM.$store.dispatch('settings/register', {
+        moduleId: MODULE_ID,
+        settings: {
+            predefined_style: {
+                type: 'select',
+                values: ['brown', 'red', 'green', 'white', 'custom'],
+                default: 'white',
+            },
+            custom_style: {
+                type: 'text',
+                default: 'invert(100%)',
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
+                disabled: (settings): boolean =>
+                    settings[MODULE_ID]['predefined_style'].value !== 'custom',
+            },
+        },
+    });
+
+    const style = await (async () => {
+        const predef = await LSSM.$store.dispatch('settings/getSetting', {
+            moduleId: MODULE_ID,
+            settingId: 'predefined_style',
+        });
+        if (predef === 'custom')
+            return await LSSM.$store.dispatch('settings/getSetting', {
+                moduleId: MODULE_ID,
+                settingId: 'custom_style',
+            });
+        switch (predef) {
+            case 'brown':
+                return 'sepia(100%) contrast(500%)';
+            case 'red':
+                return 'sepia(100%) contrast(5000%)';
+            case 'green':
+                return 'sepia(100%) contrast(500%) hue-rotate(100deg)';
+            default:
+                return 'contrast(500%) brightness(60%) invert(100%)';
+        }
+    })();
+
     const modifyMarker = (poi: POIMarker, caption: string) => {
         poi.bindTooltip(caption)
             .getElement()
@@ -73,7 +114,7 @@ import { LayersControlEvent } from 'leaflet';
     await LSSM.$store.dispatch('addStyle', {
         selectorText: `.poi.${poiHighlightedClass}`,
         style: {
-            filter: 'contrast(500%) brightness(60%) invert(100%)',
+            filter: style,
         },
     });
 
