@@ -15,7 +15,7 @@
                     :class="
                         `alert-${props.item.type} notification-${props.item.type}`
                     "
-                    @click="getHandler(props)()"
+                    @click.capture="getHandler(props, $event)()"
                 >
                     <img
                         v-if="props.item.data.icon"
@@ -23,6 +23,14 @@
                         :alt="props.item.title"
                     />
                     <div>
+                        <button
+                            class="close"
+                            data-dismiss="alert"
+                            type="button"
+                            @click.prevent.stop="props.close()"
+                        >
+                            ×
+                        </button>
                         <div
                             class="notification-title"
                             v-html="props.item.title"
@@ -64,7 +72,10 @@ export default Vue.extend<
     methods: {
         getHandler(props, $event) {
             return () =>
-                props.item.data.clickHandler?.(props, $event) ?? props.close();
+                (($event.target as HTMLElement).closest('button.close')
+                    ? undefined
+                    : props.item.data.clickHandler?.(props, $event)) ??
+                props.close();
         },
     },
 });
