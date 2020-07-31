@@ -1,5 +1,5 @@
 {
-    "version": "4.0.5+20200730.1024",
+    "version": "4.0.5+20200731.0835",
     "license": "CC-BY-NC-SA-4.0",
     "scripts": {
         "predev": "yarn run eslint:fix && yarn run tsc:prebuild && node prebuild 2>&1 | tee dist/log.beta.prebuild.txt",

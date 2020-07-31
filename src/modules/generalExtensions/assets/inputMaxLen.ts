@@ -54,6 +54,10 @@ export default (LSSM: Vue): void => {
             min: 2,
             max: 60,
         },
+        'patrol[caption]': {
+            min: 2,
+            max: 40,
+        },
     } as {
         [name: string]: {
             min: number;

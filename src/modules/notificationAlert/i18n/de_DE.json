@@ -19,11 +19,11 @@
 		"allianceNews": "Neue Verbandsnews",
 		"dm": "Neue Nachricht im Posteingang",
 		"ingame_news": "Neuigkeiten im Spiel",
-        "mission_getred": "Ein Einsatz benötigt Aufmerksamkeit",
-        "mission_getred_alliance": "Ein Verbandseinsatz benötigt Aufmerksamkeit",
-        "mission_new": "Ein neuer Einsatz wurde generiert",
-        "mission_new_largescale": "Ein neuer Verbands-Großeinsatz wurde erstellt",
-        "mission_share": "Ein Einsatz wurde im Verband geteilt",
+		"mission_getred": "Ein Einsatz benötigt Aufmerksamkeit",
+		"mission_getred_alliance": "Ein Verbandseinsatz benötigt Aufmerksamkeit",
+		"mission_new": "Ein neuer Einsatz wurde generiert",
+		"mission_new_largescale": "Ein neuer Verbands-Großeinsatz wurde erstellt",
+		"mission_share": "Ein Einsatz wurde im Verband geteilt",
 		"sicherheitswache_error": "Sicherheitswache abgebrochen",
 		"sicherheitswache_success": "Sicherheitswache abgeschlossen",
 		"vehicle_fms": "Funksprüche (allgemein)",
@@ -61,12 +61,12 @@
 			"body": "Es gibt Neues im Spiel! Schau doch mal auf Facebook oder im Blog, was die heutigen Updates sind!",
 			"title": "Neuigkeiten im Spiel"
 		},
-        "mission_getred": {
-            "body": "{address}<br>Dieser Einsatz braucht Aufmerksamkeit!"
-        },
-        "mission_getred_alliance": {
-            "body": "{address}<br>Dieser Verbandseinsatz braucht Aufmerksamkeit!"
-        },
+		"mission_getred": {
+			"body": "{address}<br>Dieser Einsatz braucht Aufmerksamkeit!"
+		},
+		"mission_getred_alliance": {
+			"body": "{address}<br>Dieser Verbandseinsatz braucht Aufmerksamkeit!"
+		},
 		"radioMessage": {
 			"title": "{vehicle} meldet Status {status}!"
 		}
