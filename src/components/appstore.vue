@@ -29,7 +29,9 @@
             >
                 <toggle-button
                     class="pull-right appstore-toggle"
-                    v-model="modules[moduleId].active"
+                    :value="modules[moduleId].active"
+                    :active="modules[moduleId].active"
+                    @change="toggleModule(moduleId, $event)"
                     :id="
                         $store.getters.nodeAttribute(
                             `appstore-toggle-${moduleId}`
@@ -105,7 +107,9 @@ export default Vue.extend<
         return {
             modules,
             modulesSorted: this.$store.getters.modulesSorted as string[],
-            activeStart: [...this.$store.getters.activeModules] as string[],
+            activeStart: Object.keys(modules).filter(
+                m => modules[m].active
+            ) as string[],
             moduleSearch: '' as string,
         };
     },
@@ -135,6 +139,10 @@ export default Vue.extend<
     methods: {
         hasMapkitConflict(moduleId) {
             return this.modules[moduleId].noMapkit && this.$store.state.mapkit;
+        },
+        toggleModule(moduleId, event) {
+            this.$set(this.modules[moduleId], 'active', !!event.value);
+            this.$store.commit('setAppstoreChanges', this.changes);
         },
         save() {
             this.$store

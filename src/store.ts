@@ -152,10 +152,6 @@ export default (Vue: VueConstructor): Store<RootState> => {
                         module => !module[1].noapp
                     )
                 ),
-            activeModules: (state: RootState) =>
-                Object.keys(state.modules).filter(
-                    module => state.modules[module].active
-                ),
             modulesSorted(_, getters: GetterTree<RootState, RootState>) {
                 return Object.keys(getters.appModules).sort((a, b) => {
                     a = LSSM.$t(`modules.${a}.name`).toString();

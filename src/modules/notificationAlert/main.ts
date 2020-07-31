@@ -226,7 +226,9 @@ import allianceSvg from './assets/alliance.svg';
                                         caption: message.caption,
                                         credits: message.credits,
                                     }),
-                                    icon: '', // TODO: SiWa Icon
+                                    icon: `/images/clock_${
+                                        message.success ? 'gruen' : 'rot'
+                                    }.png`,
                                     duration: alert.duration,
                                     ingame: alert.ingame,
                                     desktop: alert.desktop,

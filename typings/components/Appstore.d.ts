@@ -16,6 +16,7 @@ export interface AppstoreComputed {
 
 export interface AppstoreMethods {
     hasMapkitConflict(moduleId: string): boolean;
+    toggleModule(moduleId: string, event: { value: boolean }): void;
     save(): void;
     reset(): void;
     $m(
