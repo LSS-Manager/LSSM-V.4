@@ -110,17 +110,6 @@ import { LayersControlEvent } from 'leaflet';
             if (isPOIWindow) return;
             isPOIWindow = true;
 
-            (document.querySelectorAll(
-                `.lefalet-marker-icon[caption="${
-                    document.querySelector(
-                        '#mission_position_poi_type option:checked'
-                    )?.textContent
-                }"]`
-            ) as NodeListOf<HTMLImageElement>).forEach(
-                el =>
-                    (el.style.filter =
-                        'contrast(500%) brightness(60%) invert(100%)')
-            );
             colorMarkers(
                 form.querySelector('option:checked')?.textContent || ''
             );

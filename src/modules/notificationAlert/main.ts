@@ -7,6 +7,21 @@ import {
     RadioMessage,
 } from 'typings/Ingame';
 import fmsImage from './assets/fmsImage';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+import chatSvg from './assets/chat.svg';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+import chatRoundSvg from './assets/chat-2.svg';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+import messageSvg from './assets/message.svg';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+import googleNewsSvg from './assets/google_news.svg';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+import allianceSvg from './assets/alliance.svg';
 
 (async (LSSM: Vue) => {
     await LSSM.$store.dispatch('settings/register', {
@@ -95,7 +110,9 @@ import fmsImage from './assets/fmsImage';
                         (ucmsg.match(/@admin/) &&
                             (window.alliance_admin || window.alliance_coadmin)))
                 );
-                const title = `<a href="/profile/${user_id}" class="lightbox-open">${username}</a>${
+                const title = `${
+                    mission_id ? '🔔 ' : ''
+                }<a href="/profile/${user_id}" class="lightbox-open">${username}</a>${
                     mission_id
                         ? `: [<a href="/missions/${mission_id}" class="lightbox-open">${mission_caption}</a>]`
                         : ``
@@ -107,7 +124,7 @@ import fmsImage from './assets/fmsImage';
                             type: alert.alertStyle,
                             title: `🔇 ${title}`,
                             text: message,
-                            icon: '', // TODO: Chat Icon
+                            icon: chatSvg,
                             duration: alert.duration,
                             ingame: alert.ingame,
                             desktop: alert.desktop,
@@ -126,7 +143,7 @@ import fmsImage from './assets/fmsImage';
                             type: alert.alertStyle,
                             title: `ℹ️ ${title}`,
                             text: message,
-                            icon: '', // TODO: Chat Icon
+                            icon: chatSvg,
                             duration: alert.duration,
                             ingame: alert.ingame,
                             desktop: alert.desktop,
@@ -145,7 +162,7 @@ import fmsImage from './assets/fmsImage';
                             type: alert.alertStyle,
                             title,
                             text: message,
-                            icon: '', // TODO: Chat Icon
+                            icon: chatRoundSvg,
                             duration: alert.duration,
                             ingame: alert.ingame,
                             desktop: alert.desktop,
@@ -295,7 +312,7 @@ import fmsImage from './assets/fmsImage';
                         type: alert.alertStyle,
                         title: $mc('messages.dm.title', newAmount - prevAmount),
                         text: $mc('messages.dm.body', newAmount),
-                        icon: '/images/message_ffffff.svg',
+                        icon: messageSvg,
                         duration: alert.duration,
                         ingame: alert.ingame,
                         desktop: alert.desktop,
@@ -320,7 +337,7 @@ import fmsImage from './assets/fmsImage';
                         type: alert.alertStyle,
                         title: $m('messages.ingame_news.title'),
                         text: $m('messages.ingame_news.body'),
-                        icon: '/images/google_news_ffffff.svg',
+                        icon: googleNewsSvg,
                         duration: alert.duration,
                         ingame: alert.ingame,
                         desktop: alert.desktop,
@@ -355,7 +372,7 @@ import fmsImage from './assets/fmsImage';
                             'messages.allianceCandidature.body',
                             newAmount
                         ),
-                        icon: '/images/alliance.svg',
+                        icon: allianceSvg,
                         duration: alert.duration,
                         ingame: alert.ingame,
                         desktop: alert.desktop,
@@ -380,7 +397,7 @@ import fmsImage from './assets/fmsImage';
                         type: alert.alertStyle,
                         title: $m('messages.allianceMessage.title'),
                         text: $m('messages.allianceMessage.body'),
-                        icon: '/images/alliance.svg',
+                        icon: allianceSvg,
                         duration: alert.duration,
                         ingame: alert.ingame,
                         desktop: alert.desktop,
@@ -405,7 +422,7 @@ import fmsImage from './assets/fmsImage';
                         type: alert.alertStyle,
                         title: $m('messages.allianceNews.title'),
                         text: $m('messages.allianceNews.body'),
-                        icon: '/images/alliance.svg',
+                        icon: allianceSvg,
                         duration: alert.duration,
                         ingame: alert.ingame,
                         desktop: alert.desktop,
@@ -430,7 +447,7 @@ import fmsImage from './assets/fmsImage';
                         type: alert.alertStyle,
                         title: $m('messages.allianceForum.title'),
                         text: $m('messages.allianceForum.body'),
-                        icon: '/images/alliance.svg',
+                        icon: allianceSvg,
                         duration: alert.duration,
                         ingame: alert.ingame,
                         desktop: alert.desktop,

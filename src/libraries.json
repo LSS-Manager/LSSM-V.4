@@ -160,6 +160,10 @@
 		"url": "http://github.com/faisalman/ua-parser-js",
 		"version": "0.7.21"
 	},
+	"url-loader": {
+		"url": "https://github.com/webpack-contrib/url-loader",
+		"version": "4.1.0"
+	},
 	"vue": {
 		"icon": "https://vuejs.org/images/logo.png",
 		"url": "https://github.com/vuejs/vue#readme",

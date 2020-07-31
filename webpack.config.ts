@@ -1,7 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import VueLoaderPlugin = require('vue-loader/lib/plugin');
-// import path = require('path');
+import svgToMiniDataURI from 'mini-svg-data-uri';
 
 export default {
     target: 'web',
@@ -16,6 +16,18 @@ export default {
     },
     module: {
         rules: [
+            {
+                test: /\.svg$/i,
+                use: [
+                    {
+                        loader: 'url-loader',
+                        options: {
+                            generator: (content: Buffer): string =>
+                                svgToMiniDataURI(content.toString()),
+                        },
+                    },
+                ],
+            },
             {
                 test: /\.tsx?$/,
                 use: [
