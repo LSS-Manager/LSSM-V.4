@@ -1,6 +1,10 @@
 import { ActionTree, GetterTree, Module } from 'vuex';
 import { RootState } from '../../typings/store/RootState';
-import { APIState } from '../../typings/store/api/State';
+import {
+    APIState,
+    StorageAPIKey,
+    StorageGetterReturn,
+} from '../../typings/store/api/State';
 import { Vehicle } from '../../typings/Vehicle';
 import { APIActionStoreParams } from '../../typings/store/api/Actions';
 import { VehicleRadioMessage } from '../../typings/Ingame';
@@ -10,9 +14,60 @@ import { Mission } from 'typings/Mission';
 const STORAGE_KEYS = {
     buildings: 'aBuildings',
     vehicles: 'aVehicles',
+} as {
+    [key in StorageAPIKey]: string;
 };
 
 const API_MIN_UPDATE = 5 * 1000 * 60; // 5 Minutes
+
+const get_from_storage = <API extends StorageAPIKey>(
+    key: API,
+    storageBase?: Window
+): StorageGetterReturn<API> => {
+    if (!storageBase) storageBase = window;
+    try {
+        return JSON.parse(
+            storageBase[
+                key === 'missions' ? 'localStorage' : 'sessionStorage'
+            ].getItem(STORAGE_KEYS[key]) || ''
+        ) as StorageGetterReturn<API>;
+    } catch {
+        return {
+            lastUpdate: 0,
+            value: null,
+        };
+    }
+};
+const get_from_parent = <API extends StorageAPIKey>(
+    key: API,
+    storageBase?: Window
+): StorageGetterReturn<API> => {
+    const parent_api_state = (window.parent[PREFIX] as Vue).$store.state
+        .api as APIState;
+    const parent_state = parent_api_state[key];
+    if (parent_state.length)
+        return {
+            value: parent_state,
+            lastUpdate: parent_api_state.lastUpdates[key] ?? 0,
+        };
+    return {
+        lastUpdate: 0,
+        value: null,
+    };
+};
+// const get_from_broadcast = () => {}; // TODO: Broadcast – see issue #49
+const get_api_values = async <API extends StorageAPIKey>(
+    key: API
+): Promise<StorageGetterReturn<API>['value']> => {
+    let stored = get_from_storage<API>(key);
+    if (
+        !stored.value ||
+        stored.lastUpdate < new Date().getTime() - API_MIN_UPDATE
+    )
+        stored = get_from_storage<API>(key, window.parent);
+    // get from Broadcast
+    return stored.value;
+};
 
 export default {
     namespaced: true,
@@ -23,6 +78,7 @@ export default {
         autoUpdates: [],
         missions: [],
         key: null,
+        lastUpdates: {},
     },
     mutations: {
         setBuildings(state: APIState, buildings: Building[]) {
@@ -60,7 +116,7 @@ export default {
             vehicle.fms_show = fms;
             vehicle.fms_real = fms_real;
         },
-        enableAutoUpdate(state: APIState, api: string) {
+        enableAutoUpdate(state: APIState, api: StorageAPIKey) {
             state.autoUpdates.push(api);
         },
         setMissions(state: APIState, missions: Mission[]) {
