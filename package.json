@@ -62,7 +62,7 @@
         "sass": "^1.26.10",
         "sass-loader": "^9.0.2",
         "string-replace-loader": "^2.3.0",
-        "terser": "^4.8.0",
+        "terser": "^5.0.0",
         "ts-loader": "^8.0.1",
         "tslint": "^6.1.2",
         "typescript": "^3.9.7",
