@@ -1,15 +1,15 @@
 {
-    "settings": {
-        "predefined_style": {
-            "title": "Marker Hervorhebung",
-            "brown": "Braun",
-            "red": "Rot",
-            "green": "Grün",
-            "white": "Weiß",
-            "custom": "Manuell"
-        },
-        "custom_style": {
-            "title": "Eigener Style für Hervorhebung"
-        }
-    }
+	"settings": {
+		"custom_style": {
+			"title": "Eigener Style für Hervorhebung"
+		},
+		"predefined_style": {
+			"brown": "Braun",
+			"custom": "Manuell",
+			"green": "Grün",
+			"red": "Rot",
+			"title": "Marker Hervorhebung",
+			"white": "Weiß"
+		}
+	}
 }
