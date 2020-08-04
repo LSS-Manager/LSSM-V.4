@@ -23,6 +23,7 @@ import settings from './store/settings';
 import api from './store/api';
 import console from './store/console';
 import notifications from './store/notifications';
+import broadcast from './store/broadcast';
 import modules from './registerModules';
 import { Modules } from '../typings/Module';
 import { LSSM } from './core';
@@ -37,6 +38,7 @@ export default (Vue: VueConstructor): Store<RootState> => {
             api,
             console,
             notifications,
+            broadcast,
         } as ModuleTree<RootState>,
         state: {
             prefix: PREFIX,
