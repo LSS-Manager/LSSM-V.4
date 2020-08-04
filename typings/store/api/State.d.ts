@@ -20,6 +20,7 @@ export interface APIState extends StorageAPIs {
         [state: number]: number;
     };
     autoUpdates: StorageAPIKey[];
+    currentlyUpdating: StorageAPIKey[];
     key: string | null;
     lastUpdates: {
         [key in StorageAPIKey]?: number;

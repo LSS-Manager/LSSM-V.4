@@ -3,6 +3,7 @@ import { RootState } from '../../typings/store/RootState';
 import {
     APIState,
     StorageAPIKey,
+    StorageAPIs,
     StorageGetterReturn,
 } from '../../typings/store/api/State';
 import { Vehicle } from '../../typings/Vehicle';
@@ -14,6 +15,12 @@ import { Mission } from 'typings/Mission';
 const STORAGE_KEYS = {
     buildings: 'aBuildings',
     vehicles: 'aVehicles',
+} as {
+    [key in StorageAPIKey]: string;
+};
+const MUTATION_SETTERS = {
+    buildings: 'setBuildings',
+    vehicles: 'setVehicles',
 } as {
     [key in StorageAPIKey]: string;
 };
@@ -39,8 +46,7 @@ const get_from_storage = <API extends StorageAPIKey>(
     }
 };
 const get_from_parent = <API extends StorageAPIKey>(
-    key: API,
-    storageBase?: Window
+    key: API
 ): StorageGetterReturn<API> => {
     const parent_api_state = (window.parent[PREFIX] as Vue).$store.state
         .api as APIState;
@@ -50,23 +56,56 @@ const get_from_parent = <API extends StorageAPIKey>(
             value: parent_state,
             lastUpdate: parent_api_state.lastUpdates[key] ?? 0,
         };
-    return {
-        lastUpdate: 0,
-        value: null,
-    };
+    return get_from_storage(key, window.parent);
 };
 // const get_from_broadcast = () => {}; // TODO: Broadcast – see issue #49
 const get_api_values = async <API extends StorageAPIKey>(
-    key: API
-): Promise<StorageGetterReturn<API>['value']> => {
+    key: API,
+    { dispatch, state, commit }: APIActionStoreParams
+): Promise<StorageGetterReturn<API>> => {
     let stored = get_from_storage<API>(key);
     if (
         !stored.value ||
         stored.lastUpdate < new Date().getTime() - API_MIN_UPDATE
     )
-        stored = get_from_storage<API>(key, window.parent);
+        stored = get_from_parent<API>(key);
     // get from Broadcast
-    return stored.value;
+    if (
+        !state.currentlyUpdating.includes(key) &&
+        (!stored.value ||
+            !stored.value.length ||
+            stored.lastUpdate < new Date().getTime() - API_MIN_UPDATE)
+    ) {
+        console.log(`fetch<${key}>`);
+        commit('startedUpdating', key);
+        stored = {
+            lastUpdate: new Date().getTime(),
+            value: await dispatch('request', {
+                url: `/api/${key}`,
+            }).then(res => res.json()),
+        };
+        commit('finishedUpdating', key);
+    }
+    return stored;
+};
+
+const set_api_storage = <API extends StorageAPIKey>(
+    key: API,
+    { value, lastUpdate }: StorageGetterReturn<API>,
+    { commit }: APIActionStoreParams
+) => {
+    try {
+        commit(MUTATION_SETTERS[key], { value, lastUpdate });
+        sessionStorage.setItem(
+            STORAGE_KEYS[key],
+            JSON.stringify({
+                lastUpdate,
+                value,
+            })
+        );
+    } catch {
+        // Do nothing
+    }
 };
 
 export default {
@@ -76,12 +115,17 @@ export default {
         vehicles: [],
         vehicleStates: {},
         autoUpdates: [],
+        currentlyUpdating: [],
         missions: [],
         key: null,
         lastUpdates: {},
     },
     mutations: {
-        setBuildings(state: APIState, buildings: Building[]) {
+        setBuildings(
+            state: APIState,
+            { value: buildings, lastUpdate }: StorageGetterReturn<'buildings'>
+        ) {
+            if (!buildings) return;
             const smallBuildings = ((window[PREFIX] as Vue).$t(
                 'small_buildings'
             ) as unknown) as {
@@ -94,9 +138,15 @@ export default {
                     (building.building_type =
                         smallBuildings[building.building_type])
             );
+            state.lastUpdates.buildings = lastUpdate;
             state.buildings = buildings;
         },
-        setVehicles(state: APIState, vehicles: Vehicle[]) {
+        setVehicles(
+            state: APIState,
+            { value: vehicles, lastUpdate }: StorageGetterReturn<'vehicles'>
+        ) {
+            if (!vehicles) return;
+            state.lastUpdates.vehicles = lastUpdate;
             state.vehicles = vehicles;
         },
         setVehicleStates(state: APIState, states: { [state: number]: number }) {
@@ -124,6 +174,17 @@ export default {
         },
         setKey(state: APIState, key: string) {
             state.key = key;
+        },
+        startedUpdating(state: APIState, key: StorageAPIKey) {
+            state.currentlyUpdating = [
+                ...new Set([...state.currentlyUpdating, key]),
+            ];
+        },
+        finishedUpdating(state: APIState, key: StorageAPIKey) {
+            state.currentlyUpdating.splice(
+                state.currentlyUpdating.findIndex(k => k === key),
+                1
+            );
         },
     },
     getters: {
@@ -184,7 +245,7 @@ export default {
     actions: {
         setVehicleStates({ dispatch, commit }: APIActionStoreParams) {
             return new Promise(resolve => {
-                dispatch('request', { url: 'api/vehicle_tates' })
+                dispatch('request', { url: 'api/vehicle_states' })
                     .then(res => res.json())
                     .then(states => {
                         commit('setVehicleStates', states);
@@ -192,107 +253,45 @@ export default {
                     });
             });
         },
-        registerBuildingsUsage(
-            { dispatch, commit, state }: APIActionStoreParams,
+        async registerBuildingsUsage(
+            store: APIActionStoreParams,
             autoUpdate = false
         ) {
-            return new Promise(resolve =>
-                (async () => {
-                    const stored = sessionStorage.getItem(
-                        STORAGE_KEYS.buildings
-                    );
-                    let buildings = [] as Building[];
-                    if (stored) {
-                        buildings = JSON.parse(stored).value;
-                    }
-                    if (
-                        !stored ||
-                        !buildings.length ||
-                        JSON.parse(stored).lastUpdate <
-                            new Date().getTime() - API_MIN_UPDATE ||
-                        (window.location.pathname === '/' &&
-                            !state.buildings.length)
-                    ) {
-                        console.log('fetching buildings');
-                        buildings = await dispatch('request', {
-                            url: '/api/buildings',
-                        }).then(res => res.json());
-                        try {
-                            sessionStorage.setItem(
-                                STORAGE_KEYS.buildings,
-                                JSON.stringify({
-                                    lastUpdate: new Date().getTime(),
-                                    value: buildings,
-                                })
-                            );
-                        } catch {
-                            // Do nothing
-                        }
-                    }
-                    commit('setBuildings', buildings);
-                    if (
-                        autoUpdate &&
-                        !state.autoUpdates.includes('buildings')
-                    ) {
-                        commit('enableAutoUpdate', 'buildings');
-                        window.setInterval(
-                            () => dispatch('registerBuildingsUsage'),
-                            API_MIN_UPDATE
-                        );
-                    }
-
-                    return resolve();
-                })()
+            const { value: buildings, lastUpdate } = await get_api_values(
+                'buildings',
+                store
             );
+            if (!buildings) return;
+            set_api_storage(
+                'buildings',
+                { value: buildings, lastUpdate },
+                store
+            );
+            if (autoUpdate && !store.state.autoUpdates.includes('buildings')) {
+                store.commit('enableAutoUpdate', 'buildings');
+                window.setInterval(
+                    () => store.dispatch('registerBuildingsUsage'),
+                    API_MIN_UPDATE
+                );
+            }
         },
-        registerVehiclesUsage(
-            { dispatch, commit, state }: APIActionStoreParams,
+        async registerVehiclesUsage(
+            store: APIActionStoreParams,
             autoUpdate = false
         ) {
-            return new Promise(resolve =>
-                (async () => {
-                    const stored = sessionStorage.getItem(
-                        STORAGE_KEYS.vehicles
-                    );
-                    let vehicles = [] as Vehicle[];
-                    if (stored) {
-                        vehicles = JSON.parse(stored).value;
-                    }
-                    if (
-                        !stored ||
-                        !vehicles.length ||
-                        JSON.parse(stored).lastUpdate <
-                            new Date().getTime() - API_MIN_UPDATE ||
-                        (window.location.pathname === '/' &&
-                            !state.vehicles.length)
-                    ) {
-                        console.log('fetching vehicles');
-                        vehicles = await dispatch('request', {
-                            url: '/api/vehicles',
-                        }).then(res => res.json());
-                        try {
-                            sessionStorage.setItem(
-                                STORAGE_KEYS.vehicles,
-                                JSON.stringify({
-                                    lastUpdate: new Date().getTime(),
-                                    value: vehicles,
-                                })
-                            );
-                        } catch {
-                            // Do nothing
-                        }
-                    }
-                    commit('setVehicles', vehicles);
-                    if (autoUpdate && !state.autoUpdates.includes('vehicles')) {
-                        commit('enableAutoUpdate', 'vehicles');
-                        window.setInterval(
-                            () => dispatch('registerVehiclesUsage'),
-                            API_MIN_UPDATE
-                        );
-                    }
-                    return resolve();
-                })()
+            const { value: vehicles, lastUpdate } = await get_api_values(
+                'vehicles',
+                store
             );
+            if (!vehicles) return;
+            set_api_storage('vehicles', { value: vehicles, lastUpdate }, store);
+            if (autoUpdate && !store.state.autoUpdates.includes('vehicles')) {
+                store.commit('enableAutoUpdate', 'vehicles');
+                window.setInterval(
+                    () => store.dispatch('registerVehiclesUsage'),
+                    API_MIN_UPDATE
+                );
+            }
         },
         async getMissions(
             { rootState, state, dispatch, commit }: APIActionStoreParams,
