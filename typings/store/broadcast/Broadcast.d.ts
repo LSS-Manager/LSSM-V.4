@@ -17,11 +17,11 @@ interface VarRequestBroadcastMessage extends BroadcastMessage {
     };
 }
 
-interface VarResponseBroadcastMessage extends BroadcastMessage {
+interface VarResponseBroadcastMessage<returnType = unknown> extends BroadcastMessage {
     type: 'var_response';
     data: {
         variablePath: string;
-        value: unknown;
+        value: returnType;
     };
 }
 
