@@ -4,23 +4,38 @@
             <font-awesome-icon :icon="faTerminal"></font-awesome-icon>
             LSSMAQL Console
         </h1>
+        <form>
+            <div class="input-group">
+                <label>
+                    your LSSMAQL Query
+                    <input
+                        type="text"
+                        class="form-control"
+                        v-model="query"
+                        @keypress.enter="$refs.execute.click()"
+                    />
+                </label>
+            </div>
+            <a class="btn btn-success" @click.prevent="tokenize" ref="execute">
+                Execute
+            </a>
+        </form>
+        <b>Tokens:</b>
+        <pre>{{ token_list }}</pre>
     </lightbox>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
 import Lightbox from '../../components/lightbox.vue';
+import tokenizer from './assets/tokenizer';
 import { faTerminal } from '@fortawesome/free-solid-svg-icons/faTerminal';
-import {
-    DefaultData,
-    DefaultMethods,
-    DefaultComputed,
-    DefaultProps,
-} from 'vue/types/options';
+import { LSSMAQL, LSSMAQLMethods } from 'typings/modules/LSSMAQL/LSSMAQL';
+import { DefaultComputed, DefaultProps } from 'vue/types/options';
 
 export default Vue.extend<
-    DefaultData<Vue>,
-    DefaultMethods<Vue>,
+    LSSMAQL,
+    LSSMAQLMethods,
     DefaultComputed,
     DefaultProps
 >({
@@ -29,9 +44,19 @@ export default Vue.extend<
     data: function() {
         return {
             faTerminal,
-        };
+            query: '',
+            token_list: [],
+        } as LSSMAQL;
+    },
+    methods: {
+        tokenize() {
+            this.token_list = tokenizer(this.query);
+        },
     },
 });
 </script>
 
-<style scoped></style>
+<style scoped lang="sass">
+form :not(.btn)
+  width: 100%
+</style>
