@@ -23,3 +23,15 @@ export interface Token {
     type: QueryTokens;
     value: string;
 }
+
+export interface ObjectTree {
+    base: 'allianceinfo' | 'buildings' | 'vehicles';
+    attributes: (string | number)[];
+}
+
+export interface FunctionTree {
+    function: 'len' | 'sum' | 'min' | 'max';
+    body: Tree | null;
+}
+
+export type Tree = ObjectTree | FunctionTree;

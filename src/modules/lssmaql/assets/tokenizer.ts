@@ -26,13 +26,11 @@ const consume = (query: string, token_list: Token[]): string => {
         );
         const match = query.match(startRegex);
         if (match) {
-            console.log(query, startRegex, match, token_list, token);
             query = query.replace(startRegex, '');
             token_list.push({
                 type: token as QueryTokens,
                 value: match[0],
             });
-            console.log(token_list, query);
             return true;
         }
         return false;

@@ -16,10 +16,12 @@
                     />
                 </label>
             </div>
-            <a class="btn btn-success" @click.prevent="tokenize" ref="execute">
+            <a class="btn btn-success" @click.prevent="execute" ref="execute">
                 Execute
             </a>
         </form>
+        <b>Tree:</b>
+        <pre>{{ tree }}</pre>
         <b>Tokens:</b>
         <pre>{{ token_list }}</pre>
     </lightbox>
@@ -29,6 +31,7 @@
 import Vue from 'vue';
 import Lightbox from '../../components/lightbox.vue';
 import tokenizer from './assets/tokenizer';
+import parser from './assets/parser';
 import { faTerminal } from '@fortawesome/free-solid-svg-icons/faTerminal';
 import { LSSMAQL, LSSMAQLMethods } from 'typings/modules/LSSMAQL/LSSMAQL';
 import { DefaultComputed, DefaultProps } from 'vue/types/options';
@@ -46,11 +49,19 @@ export default Vue.extend<
             faTerminal,
             query: '',
             token_list: [],
+            tree: null,
         } as LSSMAQL;
     },
     methods: {
+        execute() {
+            this.tokenize();
+            this.parse();
+        },
         tokenize() {
             this.token_list = tokenizer(this.query);
+        },
+        parse() {
+            this.tree = parser(this.token_list);
         },
     },
 });
