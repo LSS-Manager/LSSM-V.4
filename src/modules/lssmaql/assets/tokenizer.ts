@@ -14,7 +14,7 @@ const regexes = {
     smaller: /</,
     paran_open: /\(/,
     paran_close: /\)/,
-    string: /"[^"]*"|'[^']*'/, // TODO: String moves to front in token_list
+    string: /"[^"]*"|'[^']*'/,
     number: /\d+/,
     identifier: /[a-z][a-z_]*/,
 } as TokenRegexes;
@@ -22,15 +22,17 @@ const regexes = {
 const consume = (query: string, token_list: Token[]): string => {
     Object.entries(regexes).some(([token, regex]) => {
         const startRegex = new RegExp(
-            `^${regex.toString().replace(/^\/|\/$/g, '')}`
+            `^(${regex.toString().replace(/^\/|\/$/g, '')})`
         );
         const match = query.match(startRegex);
         if (match) {
+            console.log(query, startRegex, match, token_list, token);
             query = query.replace(startRegex, '');
             token_list.push({
                 type: token as QueryTokens,
                 value: match[0],
             });
+            console.log(token_list, query);
             return true;
         }
         return false;
