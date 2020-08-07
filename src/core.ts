@@ -131,6 +131,9 @@ if (window.location.pathname === '/') {
             defaultValue: [],
         })
         .then((activeModules: string[]) => {
+            activeModules = activeModules.filter(module =>
+                LSSM.$store.state.modules.hasOwnProperty(module)
+            );
             if (LSSM.$store.state.mapkit)
                 activeModules = activeModules.filter(
                     module => !LSSM.$store.state.modules[module].noMapkit
