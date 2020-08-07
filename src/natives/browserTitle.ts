@@ -13,9 +13,10 @@ export default (LSSM: Vue): void => {
         title = `[${title}] `;
     else if (title.length) title = `${title} | `;
     window.tellParent(
-        `if (document.getElementById('lightbox_box')?.style.display !== 'none') document.title = '${title}${
-            LSSM.$store.state.games[LSSM.$store.state.lang].name
-        }';`
+        `var _a;
+        if (((_a = document.getElementById('lightbox_box')) === null || _a === void 0 ? void 0 : _a.style.display) !== 'none') document.title = ${JSON.stringify(
+            title + LSSM.$store.state.games[LSSM.$store.state.lang].name
+        )};`
     );
     LSSM.$store
         .dispatch('hook', {
