@@ -4,6 +4,7 @@ export interface TokenRegexes {
     getter_num: RegExp;
     where: RegExp;
     in: RegExp;
+    not_in: RegExp;
     and: RegExp;
     or: RegExp;
     greater_equal: RegExp;
@@ -24,16 +25,24 @@ export interface Token {
     value: string;
 }
 
+export interface Condition {
+    left: Token[];
+    comparison: '>' | '<' | '<=' | '>=' | '=' | 'IN' | 'NOT IN';
+    right: Token[];
+}
+
 export interface ObjectTree {
     type: 'object';
-    base: 'allianceinfo' | 'buildings' | 'vehicles';
+    base: 'allianceinfo' | 'buildings' | 'vehicles' | unknown;
     attributes: (string | number)[];
+    filter: (Condition | 'AND' | 'OR')[];
 }
 
 export interface FunctionTree {
     type: 'function';
     function: 'len' | 'sum' | 'min' | 'max';
-    body: Tree | null;
+    base: unknown;
+    body: QueryTree | null;
 }
 
-export type Tree = ObjectTree | FunctionTree;
+export type QueryTree = ObjectTree | FunctionTree;

@@ -4,6 +4,7 @@ const regexes = {
     getter_dot: /\./,
     getter_num: /\[\d+]/,
     where: /WHERE/,
+    not_in: /NOT IN/,
     in: /IN/,
     and: /AND/,
     or: /OR/,
@@ -29,7 +30,7 @@ const consume = (query: string, token_list: Token[]): string => {
             query = query.replace(startRegex, '');
             token_list.push({
                 type: token as QueryTokens,
-                value: match[0],
+                value: match[0].replace(/^["']|["']$/g, ''),
             });
             return true;
         }

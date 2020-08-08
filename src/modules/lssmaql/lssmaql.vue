@@ -1,5 +1,5 @@
 <template>
-    <lightbox name="lssmaql">
+    <lightbox name="lssmaql" no-title-hide>
         <h1>
             <font-awesome-icon :icon="faTerminal"></font-awesome-icon>
             LSSMAQL Console
@@ -21,13 +21,13 @@
             </a>
         </form>
         <div class="row">
-            <div class="col-sm-7">
+            <div class="col-sm-8">
                 <b>Result:</b>
                 <pre>{{ result }}</pre>
             </div>
             <div class="col-sm-2">
                 <b>Tree:</b>
-                <pre>{{ tree }}</pre>
+                <pre>{{ querytree }}</pre>
             </div>
             <div class="col-sm-2">
                 <b>Tokens:</b>
@@ -43,12 +43,95 @@ import Lightbox from '../../components/lightbox.vue';
 import tokenizer from './assets/tokenizer';
 import parser from './assets/parser';
 import { faTerminal } from '@fortawesome/free-solid-svg-icons/faTerminal';
+import cloneDeep from 'lodash/cloneDeep';
 import {
     LSSMAQL,
     LSSMAQLMethods,
     LSSMAQLComputed,
 } from 'typings/modules/LSSMAQL/LSSMAQL';
 import { DefaultProps } from 'vue/types/options';
+import { Condition, QueryTree } from 'typings/modules/LSSMAQL';
+
+const comparison = (
+    left: unknown,
+    comparison: Condition['comparison'],
+    right: unknown
+): boolean => {
+    switch (comparison) {
+        case 'IN':
+            return Array.isArray(right) && right.includes(left);
+        case 'NOT IN':
+            return Array.isArray(right) && !right.includes(left);
+        default:
+            return false;
+    }
+};
+
+const resolve_object = (tree: QueryTree, vm: Vue): unknown => {
+    if (!tree) return null;
+    if (tree.type === 'object') {
+        let object =
+            vm.$store.state.api[
+                tree.base as 'allianceinfo' | 'buildings' | 'vehicles'
+            ];
+        tree.attributes.forEach(attr => {
+            if (Array.isArray(object) && typeof attr !== 'number')
+                object = object.map(e => e[attr]);
+            else object = object[attr];
+        });
+        if (Array.isArray(object) && tree.filter.length) {
+            const filter = tree.filter[0] as Condition;
+            const left =
+                filter.left[0].type === 'string'
+                    ? filter.left[0].value
+                    : parser(cloneDeep(filter.left), object);
+            let leftObject = (typeof left === 'string' ? left : left.base) as
+                | string
+                | Record<string, unknown>
+                | never[];
+            if (!leftObject) return;
+            if (typeof left !== 'string' && left.type === 'object')
+                left.attributes.forEach(attr => {
+                    if (Array.isArray(leftObject) && typeof attr !== 'number')
+                        leftObject = (leftObject as never[]).map(e => e[attr]);
+                    else
+                        leftObject = (leftObject as Record<string, unknown>)[
+                            attr
+                        ] as string | Record<string, unknown> | never[];
+                });
+
+            const right =
+                filter.right[0].type === 'string'
+                    ? filter.right[0].value
+                    : parser(cloneDeep(filter.right), object);
+            let rightObject = (typeof right === 'string'
+                ? right
+                : right.base) as string | Record<string, unknown> | never[];
+            if (!rightObject) return;
+            if (typeof right !== 'string' && right.type === 'object')
+                right.attributes.forEach(attr => {
+                    if (Array.isArray(rightObject) && typeof attr !== 'number')
+                        rightObject = (rightObject as never[]).map(
+                            e => e[attr]
+                        );
+                    else
+                        rightObject = (rightObject as Record<string, unknown>)[
+                            attr
+                        ] as string | Record<string, unknown> | never[];
+                });
+            if (Array.isArray(rightObject))
+                object = object.filter((_, index) =>
+                    comparison(
+                        leftObject,
+                        filter.comparison,
+                        (rightObject as never[])[index]
+                    )
+                );
+        }
+        return object;
+    }
+    return null;
+};
 
 export default Vue.extend<
     LSSMAQL,
@@ -63,22 +146,16 @@ export default Vue.extend<
             faTerminal,
             query: '',
             token_list: [],
-            tree: null,
+            querytree: null,
         } as LSSMAQL;
     },
     computed: {
         result() {
-            if (!this.tree) return;
-            if (this.tree.type === 'object') {
-                let object = this.$store.state.api[this.tree.base];
-                this.tree.attributes.forEach(attr => {
-                    if (Array.isArray(object) && typeof attr !== 'number')
-                        object = object.map(e => e[attr]);
-                    else object = object[attr];
-                });
-                return object;
-            }
-            return null;
+            if (!this.querytree) return null;
+            return resolve_object(
+                this.querytree,
+                this
+            ) as LSSMAQLComputed['result'];
         },
     },
     methods: {
@@ -90,7 +167,7 @@ export default Vue.extend<
             this.token_list = tokenizer(this.query);
         },
         parse() {
-            this.tree = parser(this.token_list);
+            this.querytree = parser(this.token_list);
         },
     },
     beforeMount() {

@@ -13,7 +13,7 @@ allianceinfo.user_count
 
 **All alliance Admins**
 ```
-allianceinfo.users WHERE 'Admin' IN .roles
+allianceinfo.users WHERE 'Verbands-Admin' IN .roles
 ```
 ***
 
@@ -47,7 +47,7 @@ sum((buildings WHERE len(vehicles WHERE .building_id = ..id) > 3).personal_count
 
 **all small fire stations with both expansions "Abrollbehälter-Stellplatz" available and enabled that have more than 1 but less than 4 vehicles in status 3**
 ```
-buildings WHERE .building_type = 18 AND len(.extensions WHERE .enabled AND .available) = 2 AND 1 < len(vehicles WHERE .building_id = ..id AND .fms_show = 3) < 4
+buildings WHERE .building_type = 18 AND len(.extensions WHERE .enabled AND .available) = 2 AND len(vehicles WHERE .building_id = ..id AND .fms_show = 3) > 1 AND len(vehicles WHERE .building_id = ..id AND .fms_show = 3) < 4
 ```
 
 ***
