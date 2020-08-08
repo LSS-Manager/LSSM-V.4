@@ -20,10 +20,20 @@
                 Execute
             </a>
         </form>
-        <b>Tree:</b>
-        <pre>{{ tree }}</pre>
-        <b>Tokens:</b>
-        <pre>{{ token_list }}</pre>
+        <div class="row">
+            <div class="col-sm-7">
+                <b>Result:</b>
+                <pre>{{ result }}</pre>
+            </div>
+            <div class="col-sm-2">
+                <b>Tree:</b>
+                <pre>{{ tree }}</pre>
+            </div>
+            <div class="col-sm-2">
+                <b>Tokens:</b>
+                <pre>{{ token_list }}</pre>
+            </div>
+        </div>
     </lightbox>
 </template>
 
@@ -33,13 +43,17 @@ import Lightbox from '../../components/lightbox.vue';
 import tokenizer from './assets/tokenizer';
 import parser from './assets/parser';
 import { faTerminal } from '@fortawesome/free-solid-svg-icons/faTerminal';
-import { LSSMAQL, LSSMAQLMethods } from 'typings/modules/LSSMAQL/LSSMAQL';
-import { DefaultComputed, DefaultProps } from 'vue/types/options';
+import {
+    LSSMAQL,
+    LSSMAQLMethods,
+    LSSMAQLComputed,
+} from 'typings/modules/LSSMAQL/LSSMAQL';
+import { DefaultProps } from 'vue/types/options';
 
 export default Vue.extend<
     LSSMAQL,
     LSSMAQLMethods,
-    DefaultComputed,
+    LSSMAQLComputed,
     DefaultProps
 >({
     name: 'lssmaql',
@@ -51,6 +65,21 @@ export default Vue.extend<
             token_list: [],
             tree: null,
         } as LSSMAQL;
+    },
+    computed: {
+        result() {
+            if (!this.tree) return;
+            if (this.tree.type === 'object') {
+                let object = this.$store.state.api[this.tree.base];
+                this.tree.attributes.forEach(attr => {
+                    if (Array.isArray(object) && typeof attr !== 'number')
+                        object = object.map(e => e[attr]);
+                    else object = object[attr];
+                });
+                return object;
+            }
+            return null;
+        },
     },
     methods: {
         execute() {
@@ -64,10 +93,16 @@ export default Vue.extend<
             this.tree = parser(this.token_list);
         },
     },
+    beforeMount() {
+        this.$store.dispatch('api/registerAllianceinfoUsage');
+        this.$store.dispatch('api/registerBuildingsUsage');
+        this.$store.dispatch('api/registerVehiclesUsage');
+    },
 });
 </script>
 
 <style scoped lang="sass">
-form :not(.btn)
+form :not(.btn),
+.row
   width: 100%
 </style>

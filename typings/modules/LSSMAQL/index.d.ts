@@ -25,11 +25,13 @@ export interface Token {
 }
 
 export interface ObjectTree {
+    type: 'object';
     base: 'allianceinfo' | 'buildings' | 'vehicles';
     attributes: (string | number)[];
 }
 
 export interface FunctionTree {
+    type: 'function';
     function: 'len' | 'sum' | 'min' | 'max';
     body: Tree | null;
 }

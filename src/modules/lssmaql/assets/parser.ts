@@ -9,6 +9,7 @@ const parser = (tokens: Token[]): Tree => {
     if (!token || token.type !== 'identifier') return tree;
     if (baseObjects.includes(token.value)) {
         tree = {
+            type: 'object',
             base: token.value as ObjectTree['base'],
             attributes: [],
         };
@@ -29,6 +30,7 @@ const parser = (tokens: Token[]): Tree => {
         }
     } else if (functions.includes(token.value)) {
         tree = {
+            type: 'function',
             function: token.value as FunctionTree['function'],
             body: null,
         };
