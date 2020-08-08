@@ -62,6 +62,16 @@ const comparison = (
             return Array.isArray(right) && right.includes(left);
         case 'NOT IN':
             return Array.isArray(right) && !right.includes(left);
+        case '<':
+            return (left as number) < (right as number);
+        case '>':
+            return (left as number) > (right as number);
+        case '<=':
+            return (left as number) <= (right as number);
+        case '>=':
+            return (left as number) <= (right as number);
+        case '=':
+            return left == right;
         default:
             return false;
     }
@@ -84,31 +94,56 @@ const resolve_object = (tree: QueryTree, vm: Vue): unknown => {
             const left =
                 filter.left[0].type === 'string'
                     ? filter.left[0].value
+                    : filter.left[0].type === 'number'
+                    ? parseInt(filter.left[0].value)
                     : parser(cloneDeep(filter.left), object);
-            let leftObject = (typeof left === 'string' ? left : left.base) as
+            let leftObject = (typeof left === 'string' ||
+            typeof left === 'number'
+                ? left
+                : left.base) as
                 | string
+                | number
                 | Record<string, unknown>
                 | never[];
             if (!leftObject) return;
-            if (typeof left !== 'string' && left.type === 'object')
+            if (
+                typeof left !== 'string' &&
+                typeof left !== 'number' &&
+                left.type === 'object'
+            )
                 left.attributes.forEach(attr => {
                     if (Array.isArray(leftObject) && typeof attr !== 'number')
                         leftObject = (leftObject as never[]).map(e => e[attr]);
                     else
                         leftObject = (leftObject as Record<string, unknown>)[
                             attr
-                        ] as string | Record<string, unknown> | never[];
+                        ] as
+                            | string
+                            | number
+                            | Record<string, unknown>
+                            | never[];
                 });
 
             const right =
                 filter.right[0].type === 'string'
                     ? filter.right[0].value
+                    : filter.right[0].type === 'number'
+                    ? parseInt(filter.right[0].value)
                     : parser(cloneDeep(filter.right), object);
-            let rightObject = (typeof right === 'string'
+            let rightObject = (typeof right === 'string' ||
+            typeof right === 'number'
                 ? right
-                : right.base) as string | Record<string, unknown> | never[];
+                : right.base) as
+                | string
+                | number
+                | Record<string, unknown>
+                | never[];
             if (!rightObject) return;
-            if (typeof right !== 'string' && right.type === 'object')
+            if (
+                typeof right !== 'string' &&
+                typeof right !== 'number' &&
+                right.type === 'object'
+            )
                 right.attributes.forEach(attr => {
                     if (Array.isArray(rightObject) && typeof attr !== 'number')
                         rightObject = (rightObject as never[]).map(
@@ -117,7 +152,11 @@ const resolve_object = (tree: QueryTree, vm: Vue): unknown => {
                     else
                         rightObject = (rightObject as Record<string, unknown>)[
                             attr
-                        ] as string | Record<string, unknown> | never[];
+                        ] as
+                            | string
+                            | number
+                            | Record<string, unknown>
+                            | never[];
                 });
             if (Array.isArray(rightObject))
                 object = object.filter((_, index) =>
@@ -125,6 +164,14 @@ const resolve_object = (tree: QueryTree, vm: Vue): unknown => {
                         leftObject,
                         filter.comparison,
                         (rightObject as never[])[index]
+                    )
+                );
+            else if (Array.isArray(leftObject))
+                object = object.filter((_, index) =>
+                    comparison(
+                        (leftObject as never[])[index],
+                        filter.comparison,
+                        rightObject
                     )
                 );
         }
