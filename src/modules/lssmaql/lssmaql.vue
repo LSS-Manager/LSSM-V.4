@@ -96,7 +96,7 @@ const resolve_object = (tree: QueryTree, vm: Vue): unknown => {
                     ? filter.left[0].value
                     : filter.left[0].type === 'number'
                     ? parseInt(filter.left[0].value)
-                    : parser(cloneDeep(filter.left), object);
+                    : parser(cloneDeep(filter.left), object); // TODO: Base as string to allow .. accessor for parent Element
             let leftObject = (typeof left === 'string' ||
             typeof left === 'number'
                 ? left
@@ -158,7 +158,13 @@ const resolve_object = (tree: QueryTree, vm: Vue): unknown => {
                             | Record<string, unknown>
                             | never[];
                 });
-            console.log(leftObject, filter.comparison, rightObject);
+            console.log(
+                left,
+                leftObject,
+                filter.comparison,
+                rightObject,
+                right
+            );
             object = object.filter((_, index) => {
                 const leftParam = Array.isArray(leftObject)
                     ? (leftObject as never[])[index]
