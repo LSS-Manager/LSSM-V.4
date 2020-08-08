@@ -6,19 +6,15 @@ import {
     Condition,
 } from 'typings/modules/LSSMAQL';
 
-const baseObjects = ['allianceinfo', 'buildings', 'vehicles'];
+const baseObjects = ['allianceinfo', 'buildings', 'vehicles', 'missions'];
 const functions = ['len', 'sum', 'min', 'max'];
 const comparisons = ['>', '<', '<=', '>=', '=', 'IN', 'NOT IN'];
 
 const parser = (tokens: Token[], base?: ObjectTree['base']): QueryTree => {
     let tree = {} as QueryTree;
+    if (base) tokens.unshift({ type: 'identifier', value: 'base' });
     const token = tokens.shift();
-    if (
-        !token ||
-        (!base && token.type !== 'identifier') ||
-        (base && token.type !== 'getter_dot')
-    )
-        return tree;
+    if (!token || token.type !== 'identifier') return tree;
     if ((token && baseObjects.includes(token.value)) || base) {
         tree = {
             type: 'object',
@@ -28,9 +24,7 @@ const parser = (tokens: Token[], base?: ObjectTree['base']): QueryTree => {
         };
         while (
             tokens.length &&
-            [base ? 'identifier' : 'getter_dot', 'getter_num'].includes(
-                tokens[0].type
-            )
+            ['getter_dot', 'getter_num'].includes(tokens[0].type)
         ) {
             if (tokens[0].type === 'getter_num')
                 tree.attributes.push(
@@ -38,11 +32,8 @@ const parser = (tokens: Token[], base?: ObjectTree['base']): QueryTree => {
                         tokens.shift()?.value.replace(/^\[|]$/g, '') || '-1'
                     )
                 );
-            else if (
-                tokens.length >= (base ? 1 : 2) &&
-                tokens[base ? 0 : 1].type === 'identifier'
-            ) {
-                !base && tokens.shift();
+            else if (tokens.length >= 2 && tokens[1].type === 'identifier') {
+                tokens.shift();
                 tree.attributes.push(tokens.shift()?.value || -1);
             } else break;
         }

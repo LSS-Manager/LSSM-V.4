@@ -33,7 +33,7 @@ export interface Condition {
 
 export interface ObjectTree {
     type: 'object';
-    base: 'allianceinfo' | 'buildings' | 'vehicles' | unknown;
+    base: 'allianceinfo' | 'buildings' | 'vehicles' | 'missions' | unknown;
     attributes: (string | number)[];
     filter: (Condition | 'AND' | 'OR')[];
 }

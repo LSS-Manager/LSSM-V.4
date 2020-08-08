@@ -20,5 +20,6 @@ export interface LSSMAQLComputed {
         | APIState['vehicles']
         | APIState['buildings']
         | APIState['allianceinfo']
+        | APIState['missions']
         | null;
 }

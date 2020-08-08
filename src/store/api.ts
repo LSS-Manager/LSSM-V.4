@@ -355,9 +355,11 @@ export default {
                 );
                 commit('setMissions', missions);
             } else {
-                return JSON.parse(
+                const missions = JSON.parse(
                     sessionStorage.getItem('mission_specs_cache') || '{}'
                 ) as Mission[];
+                commit('setMissions', missions);
+                return missions;
             }
         },
         async request(

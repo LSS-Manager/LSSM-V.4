@@ -69,7 +69,7 @@ const comparison = (
         case '<=':
             return (left as number) <= (right as number);
         case '>=':
-            return (left as number) <= (right as number);
+            return (left as number) >= (right as number);
         case '=':
             return left == right;
         default:
@@ -158,22 +158,22 @@ const resolve_object = (tree: QueryTree, vm: Vue): unknown => {
                             | Record<string, unknown>
                             | never[];
                 });
-            if (Array.isArray(rightObject))
-                object = object.filter((_, index) =>
-                    comparison(
-                        leftObject,
-                        filter.comparison,
-                        (rightObject as never[])[index]
-                    )
+            console.log(leftObject, filter.comparison, rightObject);
+            object = object.filter((_, index) => {
+                const leftParam = Array.isArray(leftObject)
+                    ? (leftObject as never[])[index]
+                    : leftObject;
+                const rightParam = Array.isArray(rightObject)
+                    ? (rightObject as never[])[index]
+                    : rightObject;
+                return (
+                    leftParam !== null &&
+                    typeof leftParam !== 'undefined' &&
+                    rightParam !== null &&
+                    typeof rightParam !== 'undefined' &&
+                    comparison(leftParam, filter.comparison, rightParam)
                 );
-            else if (Array.isArray(leftObject))
-                object = object.filter((_, index) =>
-                    comparison(
-                        (leftObject as never[])[index],
-                        filter.comparison,
-                        rightObject
-                    )
-                );
+            });
         }
         return object;
     }
@@ -221,6 +221,7 @@ export default Vue.extend<
         this.$store.dispatch('api/registerAllianceinfoUsage');
         this.$store.dispatch('api/registerBuildingsUsage');
         this.$store.dispatch('api/registerVehiclesUsage');
+        this.$store.dispatch('api/getMissions', false);
     },
 });
 </script>
