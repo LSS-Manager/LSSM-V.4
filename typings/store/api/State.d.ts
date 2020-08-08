@@ -1,11 +1,14 @@
 import { Building } from '../../Building';
 import { Vehicle } from '../../Vehicle';
 import { Mission } from 'typings/Mission';
+import { AllianceInfo } from 'typings/api/AllianceInfo';
 
 export interface StorageAPIs {
     buildings: Building[];
     vehicles: Vehicle[];
     missions: Mission[];
+    // eslint-disable-next-line @typescript-eslint/ban-types
+    allianceinfo: AllianceInfo | {};
 }
 
 export type StorageAPIKey = keyof StorageAPIs;

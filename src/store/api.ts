@@ -3,7 +3,6 @@ import { RootState } from '../../typings/store/RootState';
 import {
     APIState,
     StorageAPIKey,
-    StorageAPIs,
     StorageGetterReturn,
 } from '../../typings/store/api/State';
 import { Vehicle } from '../../typings/Vehicle';
@@ -15,12 +14,14 @@ import { Mission } from 'typings/Mission';
 const STORAGE_KEYS = {
     buildings: 'aBuildings',
     vehicles: 'aVehicles',
+    allianceinfo: 'aAlliance',
 } as {
     [key in StorageAPIKey]: string;
 };
 const MUTATION_SETTERS = {
     buildings: 'setBuildings',
     vehicles: 'setVehicles',
+    allianceinfo: 'setAllianceinfo',
 } as {
     [key in StorageAPIKey]: string;
 };
@@ -51,7 +52,7 @@ const get_from_parent = <API extends StorageAPIKey>(
     const parent_api_state = (window.parent[PREFIX] as Vue).$store.state
         .api as APIState;
     const parent_state = parent_api_state[key];
-    if (parent_state.length)
+    if (Object.values(parent_state).length)
         return {
             value: parent_state,
             lastUpdate: parent_api_state.lastUpdates[key] ?? 0,
@@ -73,7 +74,7 @@ const get_api_values = async <API extends StorageAPIKey>(
     if (
         !state.currentlyUpdating.includes(key) &&
         (!stored.value ||
-            !stored.value.length ||
+            !Object.values(stored.value).length ||
             stored.lastUpdate < new Date().getTime() - API_MIN_UPDATE)
     ) {
         console.log(`fetch<${key}>`);
@@ -113,6 +114,7 @@ export default {
     state: {
         buildings: [],
         vehicles: [],
+        allianceinfo: {},
         vehicleStates: {},
         autoUpdates: [],
         currentlyUpdating: [],
@@ -148,6 +150,17 @@ export default {
             if (!vehicles) return;
             state.lastUpdates.vehicles = lastUpdate;
             state.vehicles = vehicles;
+        },
+        setAllianceinfo(
+            state: APIState,
+            {
+                value: allianceinfo,
+                lastUpdate,
+            }: StorageGetterReturn<'allianceinfo'>
+        ) {
+            if (!allianceinfo) return;
+            state.lastUpdates.allianceinfo = lastUpdate;
+            state.allianceinfo = allianceinfo;
         },
         setVehicleStates(state: APIState, states: { [state: number]: number }) {
             state.vehicleStates = states;
@@ -289,6 +302,31 @@ export default {
                 store.commit('enableAutoUpdate', 'vehicles');
                 window.setInterval(
                     () => store.dispatch('registerVehiclesUsage'),
+                    API_MIN_UPDATE
+                );
+            }
+        },
+        async registerAllianceinfoUsage(
+            store: APIActionStoreParams,
+            autoUpdate = false
+        ) {
+            const { value: allianceinfo, lastUpdate } = await get_api_values(
+                'allianceinfo',
+                store
+            );
+            if (!allianceinfo) return;
+            set_api_storage(
+                'allianceinfo',
+                { value: allianceinfo, lastUpdate },
+                store
+            );
+            if (
+                autoUpdate &&
+                !store.state.autoUpdates.includes('allianceinfo')
+            ) {
+                store.commit('enableAutoUpdate', 'allianceinfo');
+                window.setInterval(
+                    () => store.dispatch('registerAllianceinfoUsage'),
                     API_MIN_UPDATE
                 );
             }
