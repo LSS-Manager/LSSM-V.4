@@ -22,4 +22,5 @@ export interface LSSMAQLComputed {
         | APIState['allianceinfo']
         | APIState['missions']
         | null;
+    resultLength: number;
 }

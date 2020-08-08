@@ -22,7 +22,7 @@
         </form>
         <div class="row">
             <div class="col-sm-8">
-                <b>Result:</b>
+                <b>Result ({{ resultLength.toLocaleString() }}):</b>
                 <pre>{{ result }}</pre>
             </div>
             <div class="col-sm-2">
@@ -203,6 +203,9 @@ export default Vue.extend<
                 this.querytree,
                 this
             ) as LSSMAQLComputed['result'];
+        },
+        resultLength() {
+            return Array.isArray(this.result) ? this.result.length : 1;
         },
     },
     methods: {
