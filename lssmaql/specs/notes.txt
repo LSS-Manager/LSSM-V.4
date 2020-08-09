@@ -1,0 +1,25 @@
+# Examples written in general notation:
+
+object
+
+object.attribute
+
+object.attribute WHERE string IN .attribute
+
+object.attribute WHERE function(.attribute) comparison object.attribute
+
+object WHERE .attribute
+
+object WHERE .attribute comparison number AND (.attribute WHERE .attribute comparison number)[number].attribute
+
+function((object WHERE function(object WHERE .attribute comparison ..atribute) comparison number).attribute)
+
+object WHERE .attribute comparison number AND function(.attribute WHERE .attribute AND .attribute) comparison number AND number < function(object WHERE .attribute comparison ..attribute AND .attribute comparison number) < number
+
+object WHERE .attribute comparison .attribute
+
+# Functions
+len => length of object.
+sum => sum of values
+min => min of values
+max => max of values

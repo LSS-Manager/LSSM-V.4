@@ -1,0 +1,20 @@
+query ::= object getter* filter?
+object ::= (indentifier ("(" query ")")?) | query | indentifier
+getter ::= object_getter | list_getter
+object_getter ::= "."+ identifier
+list_getter ::= "[" number "]"
+
+filter ::= where condition
+condition ::= (condition (and | or) condition) | "(" condition ")" | object | comparison
+comparison ::= (element ("=" | "<" | ">") element)
+element ::= object | number | string | object_getter
+
+identifier ::= ("_" | lowercase_letter)+
+lowercase_letter ::= "a" | "b" | "c" | "d" | "e" | "f" | "g" | "h" | "i" | "j" | "k" | "l" | "m" | "n" | "o" | "p" | "q" | "r" | "s" | "t" | "u" | "v" | "w" | "x" | "y" | "z"
+
+number ::= ((digit - "0") digit+) | "0"
+digit ::= "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"
+
+where ::= "WHERE "
+and ::= "AND "
+or ::= "OR "
