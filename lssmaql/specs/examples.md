@@ -54,7 +54,7 @@ buildings WHERE .building_type = 18 AND len(.extensions WHERE .enabled AND .avai
 
 **all missions that require more Rüstwagen than Löschfahrzeuge**
 ```
-missions WHERE .heavy_rescue_vehicles > .firetrucks
+missions WHERE .requirements.heavy_rescue_vehicles > .requirements.firetrucks
 ```
 
 ***
