@@ -15,6 +15,11 @@
 			"description": "Neue Benachrichtigungen sind eingebaut. Darunter: <ul><li>Funksprüche</li><li>Chatnachrichten</li><li>Verbands-Updates</li><li>…</li></ul>Weitere folgen natürlich noch.",
 			"title": "Benachrichtigungen",
 			"version": "4.0.5+20200730.1024"
+		},
+		{
+			"description": "Die API-Abfragesprache LSSMAQL (LSSM API Query Language) Version <code>0.0.1</code> ist veröffentlicht und als Modul verfügbar.<br><b>Features</b>:<ul><li>Simple Queries with up to one filter</li><li>Parent Accessor</li></ul><br><b>Noch nicht verfügbar</b>:<ul><li>Klammern</li><li>UND und ODER</li><li>Funktionen</li><li>Grafische Oberfläche</li></ul>",
+			"title": "LSSMAQL V.0.0.1",
+			"version": "4.0.5+20200809.2143"
 		}
 	]
 }
