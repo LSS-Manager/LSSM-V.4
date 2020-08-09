@@ -31,7 +31,7 @@ buildings WHERE .small_building
 
 ***
 
-**all buildings THW-Buildings that have Expansion "Fachgruppe Räumen" disabled**
+**all THW-Buildings that have Expansion "Fachgruppe Räumen" disabled**
 ```
 buildings WHERE .building_type = 9 AND (.extensions WHERE .type_id = 2)[0].disabled
 ```
@@ -76,4 +76,11 @@ buildings WHERE len(.extensions WHERE .disabled)
 **all police stations that are not on max level**
 ```
 buildings WHERE (.building_type = 6 AND .level < 14) OR (.building_type = 19 AND .level < 5)
+```
+
+***
+
+**all THW-Buildings that do have less MzKw than with current expansion states possible**
+```
+buildings WHERE .building_type = 9 AND len((.extensions WHERE .type_id = 0 OR .type_id = 5).available) > len(vehicles WHERE .vehicle_type = 41 AND .building_id = ..id)
 ```

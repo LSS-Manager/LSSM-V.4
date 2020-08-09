@@ -50,7 +50,7 @@ import {
     LSSMAQLComputed,
 } from 'typings/modules/LSSMAQL/LSSMAQL';
 import { DefaultProps } from 'vue/types/options';
-import { Condition, QueryTree } from 'typings/modules/LSSMAQL';
+import { Condition, ObjectTree, QueryTree } from 'typings/modules/LSSMAQL';
 
 const comparison = (
     left: unknown,
@@ -77,6 +77,58 @@ const comparison = (
     }
 };
 
+const parse_filter = (
+    filter: Condition['left'] | Condition['right'],
+    tree: ObjectTree,
+    vm: Vue
+) => {
+    const side = filter[0];
+    const oneside =
+        side.type === 'string'
+            ? side.value
+            : side.type === 'number'
+            ? parseInt(side.value)
+            : side.type === 'boolean'
+            ? !!side.value
+            : (parser(
+                  cloneDeep(filter),
+                  [tree.base, ...tree.attributes].join('.')
+              ) as ObjectTree);
+    let sideObject = (typeof oneside === 'string' ||
+    typeof oneside === 'number' ||
+    typeof oneside === 'boolean'
+        ? oneside
+        : [...oneside.base.split('.'), ...oneside.attributes]) as
+        | string
+        | number
+        | Record<string, unknown>
+        | (string | number)[];
+    if (!sideObject) return;
+    if (Array.isArray(sideObject)) {
+        while (sideObject.includes('..')) {
+            sideObject.splice(
+                sideObject.findIndex(attr => attr === '..') - 1,
+                2
+            );
+        }
+        const baseAttr = sideObject.shift();
+        if (!baseAttr) return;
+        let newObject = vm.$store.state.api[baseAttr];
+        sideObject.forEach(attr => {
+            if (Array.isArray(newObject) && typeof attr !== 'number')
+                newObject = (newObject as never[]).map(e => e[attr]);
+            else
+                newObject = (newObject as Record<string, unknown>)[attr] as
+                    | string
+                    | number
+                    | Record<string, unknown>
+                    | never[];
+        });
+        sideObject = newObject;
+    }
+    return sideObject;
+};
+
 const resolve_object = (tree: QueryTree, vm: Vue): unknown => {
     if (!tree) return null;
     if (tree.type === 'object') {
@@ -91,80 +143,9 @@ const resolve_object = (tree: QueryTree, vm: Vue): unknown => {
         });
         if (Array.isArray(object) && tree.filter.length) {
             const filter = tree.filter[0] as Condition;
-            const left =
-                filter.left[0].type === 'string'
-                    ? filter.left[0].value
-                    : filter.left[0].type === 'number'
-                    ? parseInt(filter.left[0].value)
-                    : parser(cloneDeep(filter.left), object); // TODO: Base as string to allow .. accessor for parent Element
-            let leftObject = (typeof left === 'string' ||
-            typeof left === 'number'
-                ? left
-                : left.base) as
-                | string
-                | number
-                | Record<string, unknown>
-                | never[];
-            if (!leftObject) return;
-            if (
-                typeof left !== 'string' &&
-                typeof left !== 'number' &&
-                left.type === 'object'
-            )
-                left.attributes.forEach(attr => {
-                    if (Array.isArray(leftObject) && typeof attr !== 'number')
-                        leftObject = (leftObject as never[]).map(e => e[attr]);
-                    else
-                        leftObject = (leftObject as Record<string, unknown>)[
-                            attr
-                        ] as
-                            | string
-                            | number
-                            | Record<string, unknown>
-                            | never[];
-                });
+            const leftObject = parse_filter(filter.left, tree, vm);
+            const rightObject = parse_filter(filter.right, tree, vm);
 
-            const right =
-                filter.right[0].type === 'string'
-                    ? filter.right[0].value
-                    : filter.right[0].type === 'number'
-                    ? parseInt(filter.right[0].value)
-                    : parser(cloneDeep(filter.right), object);
-            let rightObject = (typeof right === 'string' ||
-            typeof right === 'number'
-                ? right
-                : right.base) as
-                | string
-                | number
-                | Record<string, unknown>
-                | never[];
-            if (!rightObject) return;
-            if (
-                typeof right !== 'string' &&
-                typeof right !== 'number' &&
-                right.type === 'object'
-            )
-                right.attributes.forEach(attr => {
-                    if (Array.isArray(rightObject) && typeof attr !== 'number')
-                        rightObject = (rightObject as never[]).map(
-                            e => e[attr]
-                        );
-                    else
-                        rightObject = (rightObject as Record<string, unknown>)[
-                            attr
-                        ] as
-                            | string
-                            | number
-                            | Record<string, unknown>
-                            | never[];
-                });
-            console.log(
-                left,
-                leftObject,
-                filter.comparison,
-                rightObject,
-                right
-            );
             object = object.filter((_, index) => {
                 const leftParam = Array.isArray(leftObject)
                     ? (leftObject as never[])[index]

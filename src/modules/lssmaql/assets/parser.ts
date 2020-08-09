@@ -35,6 +35,9 @@ const parser = (tokens: Token[], base?: ObjectTree['base']): QueryTree => {
             else if (tokens.length >= 2 && tokens[1].type === 'identifier') {
                 tokens.shift();
                 tree.attributes.push(tokens.shift()?.value || -1);
+            } else if (tokens.length >= 2 && tokens[1].type === 'getter_dot') {
+                tokens.shift();
+                tree.attributes.push('..');
             } else break;
         }
         if (tokens.length >= 2 && tokens[0].type === 'where') {

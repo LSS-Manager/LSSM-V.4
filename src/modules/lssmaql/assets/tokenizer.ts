@@ -17,6 +17,7 @@ const regexes = {
     paran_close: /\)/,
     string: /"[^"]*"|'[^']*'/,
     number: /\d+/,
+    boolean: /true|false/,
     identifier: /[a-z][a-z_]*/,
 } as TokenRegexes;
 

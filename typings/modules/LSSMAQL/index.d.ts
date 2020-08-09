@@ -16,6 +16,7 @@ export interface TokenRegexes {
     paran_close: RegExp;
     string: RegExp;
     number: RegExp;
+    boolean: RegExp;
 }
 
 export type QueryTokens = keyof TokenRegexes;
@@ -33,7 +34,7 @@ export interface Condition {
 
 export interface ObjectTree {
     type: 'object';
-    base: 'allianceinfo' | 'buildings' | 'vehicles' | 'missions' | unknown;
+    base: 'allianceinfo' | 'buildings' | 'vehicles' | 'missions' | string;
     attributes: (string | number)[];
     filter: (Condition | 'AND' | 'OR')[];
 }
@@ -41,7 +42,7 @@ export interface ObjectTree {
 export interface FunctionTree {
     type: 'function';
     function: 'len' | 'sum' | 'min' | 'max';
-    base: unknown;
+    base: string;
     body: QueryTree | null;
 }
 
