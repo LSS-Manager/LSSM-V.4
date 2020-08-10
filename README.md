@@ -12,6 +12,12 @@ Mit dieser Erweiterung wird ein Appstore zum Spiel hinzugefügt, welcher das Ins
 ### Wiki
 In unserem [Wiki](https://v4.lssm.ledbrain.de) findest du alles zur Installation, die FAQ und eine Erklärung aller Funktionen.
 
+### Support Server
+
+Klicke einfach auf das Banner unten um zu unserem Support Discord Server zu gelangen!
+
+[![](https://discord.com/api/guilds/254167535446917120/embed.png?style=banner1)](https://discord.gg/RcTNjpB)
+
 ## Haftung / Sonstiges
 
 Die Nutzung des Scripts geschieht auf eigene Gefahr. Wir haften nicht für eventuell auftretende Schäden oder ähnliches, die durch die Nutzung dieses Scripts entstanden sind. SHPlay GmbH ist in keinster Weise für den Inhalt des Scripts verantwortlich.
