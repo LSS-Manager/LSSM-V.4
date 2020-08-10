@@ -224,17 +224,20 @@ export default Vue.extend<
         this.iconBg = null;
         this.labelInMenu = false;
         this.$store
-            .dispatch('storage/get', {
-                key: 'iconBG',
-                defaultValue: defaultIconBg,
-            })
-            .then(iconBG => (this.iconBg = iconBG));
-        this.$store
             .dispatch('settings/getSetting', {
                 moduleId: 'global',
                 settingId: 'labelInMenu',
             })
-            .then(labelInMenu => (this.labelInMenu = labelInMenu));
+            .then(labelInMenu => {
+                this.labelInMenu = labelInMenu;
+                if (!labelInMenu)
+                    this.$store
+                        .dispatch('storage/get', {
+                            key: 'iconBG',
+                            defaultValue: defaultIconBg,
+                        })
+                        .then(iconBG => (this.iconBg = iconBG));
+            });
     },
 });
 </script>
