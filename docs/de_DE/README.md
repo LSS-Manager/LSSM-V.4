@@ -11,7 +11,7 @@ sidebarDepth: 2
 > 
 > Beta: <i>{{ $themeConfig.variables.versions.beta }}</i>
 
-<a href="https://discord.gg/RcTNjpB" style="float: right;"><img src="https://discord.com/api/guilds/254167535446917120/embed.png?style=banner1"></a>
+<a :href="$themeConfig.variables.discord" target="_blank" style="float: right;"><img src="https://discord.com/api/guilds/254167535446917120/embed.png?style=banner1" alt="Unser Discord-Server: United Dispatch" data-prevent-zooming></a>
 
 ## Über den LSSM
 
