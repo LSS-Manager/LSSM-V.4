@@ -12,6 +12,12 @@ Mit dieser Erweiterung wird ein Appstore zum Spiel hinzugefügt, welcher das Ins
 ### Wiki
 In unserem [Wiki](https://v4.lssm.ledbrain.de) findest du alles zur Installation, die FAQ und eine Erklärung aller Funktionen.
 
+### Support Server
+
+Klicke einfach auf das Banner unten um zu unserem Support Discord Server zu gelangen!
+
+[![](https://discord.com/api/guilds/254167535446917120/embed.png?style=banner1)](https://discord.gg/RcTNjpB)
+
 ## Haftung / Sonstiges
 
 Die Nutzung des Scripts geschieht auf eigene Gefahr. Wir haften nicht für eventuell auftretende Schäden oder ähnliches, die durch die Nutzung dieses Scripts entstanden sind. SHPlay GmbH ist in keinster Weise für den Inhalt des Scripts verantwortlich.
@@ -27,6 +33,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   <tr>
     <td align="center"><a href="https://github.com/KBOE2"><img src="https://avatars1.githubusercontent.com/u/27238105?v=4" width="100px;" alt=""/><br /><sub><b>Jan</b></sub></a><br /><a href="https://github.com/KBOE2/LSSM-V.4/commits?author=KBOE2" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/CSA-Verweigerer"><img src="https://avatars3.githubusercontent.com/u/29802197?v=4" width="100px;" alt=""/><br /><sub><b>CSA-Verweigerer</b></sub></a><br /><a href="#ideas-CSA-Verweigerer" title="Ideas, Planning, & Feedback">🤔</a> <a href="#userTesting-CSA-Verweigerer" title="User Testing">📓</a></td>
+    <td align="center"><a href="https://github.com/KokosnussDEV"><img src="https://avatars3.githubusercontent.com/u/42553393?v=4" width="100px;" alt=""/><br /><sub><b>KokosnussDEV</b></sub></a><br /><a href="https://github.com/KBOE2/LSSM-V.4/commits?author=KokosnussDEV" title="Documentation">📖</a></td>
   </tr>
 </table>
 

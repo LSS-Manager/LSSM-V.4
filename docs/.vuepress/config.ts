@@ -210,6 +210,7 @@ const options = {
         },
         'vuepress-plugin-smooth-scroll': {},
         'vuepress-plugin-zooming': {
+            selector: 'img:not([data-prevent-zooming])',
             options: {
                 bgColor: 'black',
             },
