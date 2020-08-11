@@ -51,10 +51,7 @@ if ($USER == null) {
                     '**Broswer**: '.$data['data']->browser."\n".
                     '**Buildings**: '.$data['data']->buildings."\n".
                     "**Modules**: ```md\n* ".join("\n* ", $data['data']->modules).'```',
-                'timestamp' => date(DATE_ATOM),
-                'footer' => [
-                    'text' => $USER_KEY,
-                ]
+                'timestamp' => date(DATE_ATOM)
             ]
         ]
     ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
