@@ -26,6 +26,11 @@ export default (LSSM: Vue, specs: boolean, time: boolean): void => {
         arrTime = document.createElement('b');
         infoBox.append(arrTime);
     }
+
+    const availableClass = LSSM.$store.getters.nodeAttribute(
+        'arr-available-counter'
+    ) as string;
+
     if (specs) {
         arrSpecs = document.createElement('ul');
         const arrSpecsId = LSSM.$store.getters.nodeAttribute(
@@ -38,6 +43,7 @@ export default (LSSM: Vue, specs: boolean, time: boolean): void => {
                     selectorText: `#${arrSpecsId}`,
                     style: {
                         padding: '0',
+                        color: 'black',
                     },
                 },
                 {
@@ -53,10 +59,93 @@ export default (LSSM: Vue, specs: boolean, time: boolean): void => {
                         content: 'attr(data-amount) " "',
                     },
                 },
+                {
+                    selectorText: `.${availableClass}::before`,
+                    style: {
+                        content: '(',
+                    },
+                },
+                {
+                    selectorText: `.${availableClass}::after`,
+                    style: {
+                        content: ')',
+                    },
+                },
             ])
             .then();
         infoBox.append(arrSpecs);
     }
+
+    const check_amount_available = (
+        buildings: string[],
+        attributes: NamedNodeMap
+    ): { [attribute: string]: number } => {
+        const attributeNames = Array.from(attributes)
+            .filter(
+                ({ name, value }) =>
+                    (ARRSpecTranslations.hasOwnProperty(name) ||
+                        name.startsWith('vehicle_type_caption')) &&
+                    value !== '0'
+            )
+            .map(({ name }) => name);
+        let hlf_or_rw_lf = 0;
+        let naw_or_rtw_nef = 0;
+        let naw_or_rtw_nef_rth = 0;
+
+        const amounts = {} as { [attribute: string]: number };
+
+        (document.querySelectorAll('#all .vehicle_checkbox') as NodeListOf<
+            HTMLInputElement
+        >).forEach(vehicle => {
+            if (!vehicle.checked)
+                attributeNames.forEach(attr => {
+                    if (!amounts.hasOwnProperty(attr)) amounts[attr] = 0;
+                    switch (attr) {
+                        case 'hlf_or_rw_and_lf':
+                            if (vehicle.getAttribute('hlf_only') === '1') {
+                                amounts[attr]++;
+                                break;
+                            }
+                            if (vehicle.getAttribute('rw_only') === '1')
+                                hlf_or_rw_lf--;
+                            if (vehicle.getAttribute('lf_only') === '1')
+                                hlf_or_rw_lf++;
+                            if (!hlf_or_rw_lf) amounts[attr]++;
+                            break;
+                        case 'naw_or_rtw_and_nef':
+                            if (vehicle.getAttribute('naw') === '1') {
+                                amounts[attr]++;
+                                break;
+                            }
+                            if (vehicle.getAttribute('rtw') === '1')
+                                naw_or_rtw_nef--;
+                            if (vehicle.getAttribute('nef_only') === '1')
+                                naw_or_rtw_nef++;
+                            if (!naw_or_rtw_nef) amounts[attr]++;
+                            break;
+                        case 'naw_or_rtw_and_nef_or_rth':
+                            if (vehicle.getAttribute('naw') === '1') {
+                                amounts[attr]++;
+                                break;
+                            }
+                            if (vehicle.getAttribute('rtw') === '1')
+                                naw_or_rtw_nef_rth--;
+                            if (vehicle.getAttribute('nef') === '1')
+                                naw_or_rtw_nef_rth++;
+                            if (!naw_or_rtw_nef_rth) amounts[attr]++;
+                            break;
+                        default:
+                            if (vehicle.getAttribute(attr) === '1')
+                                amounts[attr]++;
+                            break;
+                    }
+                });
+        });
+        return amounts;
+    };
+
+    const getAvailableId = (arrId: number, attr: string): string =>
+        LSSM.$store.getters.nodeAttribute(`arr-available-${arrId}-${attr}`);
 
     const handle = (arr: HTMLAnchorElement) => {
         arr.removeAttribute('title');
@@ -66,6 +155,14 @@ export default (LSSM: Vue, specs: boolean, time: boolean): void => {
             arrTime.id = `aao_timer_${arrId}`;
             window.aao_available(arrId, true);
         }
+        const buildingIds = JSON.parse(
+            arr.getAttribute('building_ids') || '[]'
+        );
+        const availabilities = check_amount_available(
+            buildingIds,
+            arr.attributes
+        );
+        console.log(availabilities);
         if (specs && arrSpecs) {
             arrSpecs.innerHTML =
                 arr.getAttribute('reset') === 'true'
@@ -84,12 +181,21 @@ export default (LSSM: Vue, specs: boolean, time: boolean): void => {
                         )
                             return null;
                         const liEl = document.createElement('li');
+                        const available = availabilities[attr.name] || 0;
+                        if (available < parseInt(attr.value))
+                            liEl.classList.add('bg-danger');
                         liEl.textContent =
                             name ??
                             attr.name.match(
                                 /^vehicle_type_caption\[(.*)]$/
                             )?.[1] ??
                             '';
+                        const availableEl = document.createElement('span');
+                        availableEl.classList.add(availableClass);
+                        availableEl.id = getAvailableId(arrId, attr.name);
+                        availableEl.style.marginLeft = '1ch';
+                        availableEl.textContent = available.toLocaleString();
+                        liEl.append(availableEl);
                         liEl.setAttribute('data-amount', attr.value);
                         return liEl;
                     })
@@ -112,8 +218,8 @@ export default (LSSM: Vue, specs: boolean, time: boolean): void => {
         const target = (e.target as HTMLElement)?.closest(
             '.aao, .vehicle_group'
         ) as HTMLAnchorElement | null;
-        if (target)
-            currentTimeout = window.setTimeout(() => handle(target), 200);
+        if (target && !currentTimeout && infoBox.classList.contains('hidden'))
+            currentTimeout = window.setTimeout(() => handle(target), 500);
     });
 
     ARRContainer.addEventListener('mouseout', e => {
@@ -124,5 +230,29 @@ export default (LSSM: Vue, specs: boolean, time: boolean): void => {
             window.clearTimeout(currentTimeout);
             window.setTimeout(() => infoBox.classList.add('hidden'), 100);
         }
+    });
+
+    ARRContainer.addEventListener('click', e => {
+        const arr = (e.target as HTMLElement)?.closest(
+            '.aao, .vehicle_group'
+        ) as HTMLAnchorElement | null;
+        if (!arr) return;
+        const arrId = parseInt(arr.getAttribute('aao_id') || '-1');
+        if (arrId < 0) return;
+        const buildingIds = JSON.parse(
+            arr.getAttribute('building_ids') || '[]'
+        );
+        Object.entries(
+            check_amount_available(buildingIds, arr.attributes)
+        ).forEach(([attr, amount]) => {
+            const avEl = document.getElementById(getAvailableId(arrId, attr));
+            if (avEl) {
+                avEl.textContent = amount.toLocaleString();
+
+                if (amount < parseInt(arr.getAttribute(attr) || '-1'))
+                    avEl.parentElement?.classList.add('bg-danger');
+                else avEl.parentElement?.classList.remove('bg-danger');
+            }
+        });
     });
 };

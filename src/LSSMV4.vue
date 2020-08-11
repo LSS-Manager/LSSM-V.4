@@ -128,6 +128,10 @@ body.dark
     h1, h2, h3, h4, h5, h6
         small
             color: #444
+
+    .bg-danger
+        background-color: #a94442
+
 .vm--container
     z-index: 5001 !important
 
