@@ -179,6 +179,11 @@ module.exports = {
             description:
                 'Zeigt neben den Alarm-Knopf an, wie lang das Fahrzeug mit der längsten Anfahrtszeit braucht.',
         },
+        stickyHeader: {
+            title: 'Kopfleiste immer anzeigen',
+            description:
+                'Zeigt die obere Leiste im Einsatzfenster immer an, auch wenn du nach unten scrollst.',
+        },
         tailoredTabs: {
             title: 'Fahrzeugkategorien',
             description:

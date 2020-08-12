@@ -19,6 +19,7 @@ import tailoredTabs from './assets/tailoredTabs';
 import missionKeywords from './assets/missionKeywords';
 import alarmIcons from './assets/alarmIcons';
 import arrHover from './assets/arrHover';
+import stickyHeader from './assets/stickyHeader';
 
 (async (LSSM: Vue) => {
     const defaultTailoredTabs = Object.values(
@@ -81,6 +82,10 @@ import arrHover from './assets/arrHover';
                 default: false,
             },
             alarmTime: {
+                type: 'toggle',
+                default: false,
+            },
+            stickyHeader: {
                 type: 'toggle',
                 default: false,
             },
@@ -178,6 +183,8 @@ import arrHover from './assets/arrHover';
         const arrSpecs = await getSetting('arrSpecs');
         const arrTime = await getSetting('arrTime');
         if (arrSpecs || arrTime) arrHover(LSSM, arrSpecs, arrTime);
+
+        if (await getSetting('stickyHeader')) stickyHeader();
     }
 
     const tailoredTabSettings = await getSetting<typeof defaultTailoredTabs>(
