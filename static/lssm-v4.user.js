@@ -11,4 +11,4 @@
 // @icon         https://v4.lssm.ledbrain.de/docs/img/lssm.png
 // @supportURL   https://v4.lssm.ledbrain.de/docs/de_DE/error_report
 // ==/UserScript==
-if((!window.frameElement||window.frameElement&&window.frameElement.src.startsWith("https"))&&void 0!==typeof user_id&&void 0!==typeof I18n){const e=document.createElement("script");e.src=`https://v4.lssm.ledbrain.de/${I18n.locale}/core.js?_=${(new Date).getTime()}&uid=${I18n.locale}-${user_id}`,e.setAttribute("type","module"),e.setAttribute("async",""),document.querySelector("body").appendChild(e)}
+var _a;if((!window.frameElement||(null===(_a=window.frameElement)||void 0===_a?void 0:_a.src.startsWith("https")))&&"undefined"!=typeof user_id&&"undefined"!=typeof I18n){var script=document.createElement("script");script.src="https://v4.lssm.ledbrain.de/"+I18n.locale+"/core.js?_="+(new Date).getTime()+"&uid="+I18n.locale+"-"+user_id,script.setAttribute("type","module"),script.setAttribute("async",""),document.body.appendChild(script)}

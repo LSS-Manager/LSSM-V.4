@@ -1,8 +1,13 @@
+declare let host: string;
+declare let user_id: string | undefined;
+
 if (
     (!window.frameElement ||
-        (window.frameElement && window.frameElement.src.startsWith('https'))) &&
-    typeof user_id !== void 0 &&
-    typeof I18n !== void 0
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        window.frameElement?.src.startsWith('https')) &&
+    typeof user_id !== 'undefined' &&
+    typeof I18n !== 'undefined'
 ) {
     const script = document.createElement('script');
     // eslint-disable-next-line no-undef
@@ -11,5 +16,5 @@ if (
     }-${user_id}`;
     script.setAttribute('type', 'module');
     script.setAttribute('async', '');
-    document.querySelector('body').appendChild(script);
+    document.body.appendChild(script);
 }

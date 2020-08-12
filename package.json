@@ -1,5 +1,5 @@
 {
-    "version": "4.0.5+20200809.2143",
+    "version": "4.0.5+20200812.2142",
     "license": "CC-BY-NC-SA-4.0",
     "scripts": {
         "predev": "yarn run eslint:fix && yarn run tsc:prebuild && node prebuild 2>&1 | tee dist/log.beta.prebuild.txt",
@@ -11,7 +11,7 @@
         "eslint:report": "yarn run order-json && eslint docs/.vuepress/ static/ prebuild/ build/ src/ --ext .js,.vue -f table --no-error-on-unmatched-pattern 2>&1 | tee dist/log.eslint.report.txt",
         "eslint:fix": "yarn run order-json && eslint docs/.vuepress/ static/ prebuild/ build/ src/ --ext .js,.vue -f table --no-error-on-unmatched-pattern --fix 2>&1 | tee dist/log.eslint.fix.txt",
         "order-json": "jsonsort -t tsconfig.json docs/* static/* prebuild/* build/* src/*  2>&1 | tee dist/log.jsonsort.txt",
-        "tsc:prebuild": "tsc --project prebuild/",
+        "tsc:prebuild": "tsc src/userscript.ts && tsc --project prebuild/",
         "tsc:build": "tsc --project build/",
         "tsc:docs": "tsc --project docs/.vuepress/"
     },

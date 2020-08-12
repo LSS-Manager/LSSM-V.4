@@ -1,4 +1,4 @@
 {
-	"location": "^/$",
-    "dev": true
+	"dev": true,
+	"location": "^/$"
 }

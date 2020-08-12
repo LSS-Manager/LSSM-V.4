@@ -9,6 +9,7 @@ package-lock.json
 /static/.check_request.php
 /static/beta.php
 /admin/
+/src/userscript.js
 
 # TypeScript Outputs
 webpack.config.js*

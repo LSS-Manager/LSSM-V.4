@@ -1,7 +1,6 @@
 node_modules/*
 dist/*
 *.user.js
-src/userscript.js
 build/*.js
 docs/.vuepress/*.js
 prebuild/*.js
