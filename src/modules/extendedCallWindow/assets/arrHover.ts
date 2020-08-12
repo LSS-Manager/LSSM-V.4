@@ -62,13 +62,13 @@ export default (LSSM: Vue, specs: boolean, time: boolean): void => {
                 {
                     selectorText: `.${availableClass}::before`,
                     style: {
-                        content: '(',
+                        content: '"("',
                     },
                 },
                 {
                     selectorText: `.${availableClass}::after`,
                     style: {
-                        content: ')',
+                        content: '")"',
                     },
                 },
             ])
@@ -105,38 +105,51 @@ export default (LSSM: Vue, specs: boolean, time: boolean): void => {
                             if (vehicle.getAttribute('hlf_only') === '1') {
                                 amounts[attr]++;
                                 break;
-                            }
-                            if (vehicle.getAttribute('rw_only') === '1')
+                            } else if (
+                                vehicle.getAttribute('rw_only') === '1'
+                            ) {
+                                if (hlf_or_rw_lf > 0) amounts[attr]++;
                                 hlf_or_rw_lf--;
-                            if (vehicle.getAttribute('lf_only') === '1')
+                            } else if (
+                                vehicle.getAttribute('lf_only') === '1'
+                            ) {
+                                if (hlf_or_rw_lf < 0) amounts[attr]++;
                                 hlf_or_rw_lf++;
-                            if (!hlf_or_rw_lf) amounts[attr]++;
+                            }
                             break;
                         case 'naw_or_rtw_and_nef':
                             if (vehicle.getAttribute('naw') === '1') {
                                 amounts[attr]++;
                                 break;
-                            }
-                            if (vehicle.getAttribute('rtw') === '1')
+                            } else if (vehicle.getAttribute('rtw') === '1') {
+                                if (naw_or_rtw_nef > 0) amounts[attr]++;
                                 naw_or_rtw_nef--;
-                            if (vehicle.getAttribute('nef_only') === '1')
+                            } else if (
+                                vehicle.getAttribute('nef_only') === '1'
+                            ) {
+                                if (naw_or_rtw_nef < 0) amounts[attr]++;
                                 naw_or_rtw_nef++;
-                            if (!naw_or_rtw_nef) amounts[attr]++;
+                            }
                             break;
                         case 'naw_or_rtw_and_nef_or_rth':
                             if (vehicle.getAttribute('naw') === '1') {
                                 amounts[attr]++;
                                 break;
-                            }
-                            if (vehicle.getAttribute('rtw') === '1')
+                            } else if (vehicle.getAttribute('rtw') === '1') {
+                                if (naw_or_rtw_nef_rth > 0) amounts[attr]++;
                                 naw_or_rtw_nef_rth--;
-                            if (vehicle.getAttribute('nef') === '1')
+                            } else if (vehicle.getAttribute('nef') === '1') {
+                                if (naw_or_rtw_nef_rth < 0) amounts[attr]++;
                                 naw_or_rtw_nef_rth++;
-                            if (!naw_or_rtw_nef_rth) amounts[attr]++;
+                            }
                             break;
                         default:
                             if (vehicle.getAttribute(attr) === '1')
                                 amounts[attr]++;
+                            else if (attr === 'wasser_amount')
+                                amounts[attr] += parseInt(
+                                    vehicle.getAttribute(attr) || '0'
+                                );
                             break;
                     }
                 });
@@ -147,22 +160,15 @@ export default (LSSM: Vue, specs: boolean, time: boolean): void => {
     const getAvailableId = (arrId: number, attr: string): string =>
         LSSM.$store.getters.nodeAttribute(`arr-available-${arrId}-${attr}`);
 
-    const handle = (arr: HTMLAnchorElement) => {
-        arr.removeAttribute('title');
-        const arrId = parseInt(arr.getAttribute('aao_id') || '-1');
-        if (arrId < 0) return;
-        if (time && arrTime) {
-            arrTime.id = `aao_timer_${arrId}`;
-            window.aao_available(arrId, true);
-        }
-        const buildingIds = JSON.parse(
-            arr.getAttribute('building_ids') || '[]'
-        );
+    const updateSpecs = (
+        buildingIds: string[],
+        arr: HTMLAnchorElement,
+        arrId: number
+    ) => {
         const availabilities = check_amount_available(
             buildingIds,
             arr.attributes
         );
-        console.log(availabilities);
         if (specs && arrSpecs) {
             arrSpecs.innerHTML =
                 arr.getAttribute('reset') === 'true'
@@ -196,7 +202,10 @@ export default (LSSM: Vue, specs: boolean, time: boolean): void => {
                         availableEl.style.marginLeft = '1ch';
                         availableEl.textContent = available.toLocaleString();
                         liEl.append(availableEl);
-                        liEl.setAttribute('data-amount', attr.value);
+                        liEl.setAttribute(
+                            'data-amount',
+                            parseInt(attr.value).toLocaleString()
+                        );
                         return liEl;
                     })
                     .filter(v => !!v) as HTMLLIElement[]).sort((a, b) =>
@@ -208,6 +217,30 @@ export default (LSSM: Vue, specs: boolean, time: boolean): void => {
                 )
             );
         }
+    };
+
+    LSSM.$store
+        .dispatch('hook', {
+            event: 'aao_available',
+            callback(id: number) {
+                const arr = document.getElementById(
+                    `aao_${id}`
+                ) as HTMLAnchorElement | null;
+                if (!arr) return;
+                const buildingIds = JSON.parse(
+                    arr.getAttribute('building_ids') || '[]'
+                );
+                updateSpecs(buildingIds, arr, id);
+            },
+        })
+        .then();
+
+    const handle = (arr: HTMLAnchorElement) => {
+        arr.removeAttribute('title');
+        const arrId = parseInt(arr.getAttribute('aao_id') || '-1');
+        if (arrId < 0) return;
+        if (time && arrTime) arrTime.id = `aao_timer_${arrId}`;
+        window.aao_available(arrId, time);
         arr.append(infoBox);
         infoBox.classList.remove('hidden');
     };
@@ -218,7 +251,7 @@ export default (LSSM: Vue, specs: boolean, time: boolean): void => {
         const target = (e.target as HTMLElement)?.closest(
             '.aao, .vehicle_group'
         ) as HTMLAnchorElement | null;
-        if (target && !currentTimeout && infoBox.classList.contains('hidden'))
+        if (target)
             currentTimeout = window.setTimeout(() => handle(target), 500);
     });
 
@@ -230,29 +263,5 @@ export default (LSSM: Vue, specs: boolean, time: boolean): void => {
             window.clearTimeout(currentTimeout);
             window.setTimeout(() => infoBox.classList.add('hidden'), 100);
         }
-    });
-
-    ARRContainer.addEventListener('click', e => {
-        const arr = (e.target as HTMLElement)?.closest(
-            '.aao, .vehicle_group'
-        ) as HTMLAnchorElement | null;
-        if (!arr) return;
-        const arrId = parseInt(arr.getAttribute('aao_id') || '-1');
-        if (arrId < 0) return;
-        const buildingIds = JSON.parse(
-            arr.getAttribute('building_ids') || '[]'
-        );
-        Object.entries(
-            check_amount_available(buildingIds, arr.attributes)
-        ).forEach(([attr, amount]) => {
-            const avEl = document.getElementById(getAvailableId(arrId, attr));
-            if (avEl) {
-                avEl.textContent = amount.toLocaleString();
-
-                if (amount < parseInt(arr.getAttribute(attr) || '-1'))
-                    avEl.parentElement?.classList.add('bg-danger');
-                else avEl.parentElement?.classList.remove('bg-danger');
-            }
-        });
     });
 };
