@@ -14,6 +14,14 @@ module.exports = {
     },
     arrHover: {
         reset: 'Die Fahrzeugauswahl wird vorher zurückgesetzt!',
+        titles: {
+            set:
+                'So oft wird diese Kombination ausgewählt, wenn du auf die AAO drückst',
+            attribute: 'Die Kombination, die in dieser Zeile beschrieben wird',
+            free: 'So oft ist diese Kombination verfügbar',
+            max:
+                'So oft kannt du diese AAO auswählen, bis diese Kombination nichtmehr verfügbar ist',
+        },
         arrSpecs: {
             fire: 'Löschfahrzeuge oder Tanklöschfahrzeuge',
             lf_only: 'Löschfahrzeuge',

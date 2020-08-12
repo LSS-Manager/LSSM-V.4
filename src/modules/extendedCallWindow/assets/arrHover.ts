@@ -12,33 +12,64 @@ export default (LSSM: Vue, specs: boolean, time: boolean): void => {
     };
 
     const infoBox = document.createElement('div');
+    infoBox.id = LSSM.$store.getters.nodeAttribute(
+        `${MODULE_ID}-arrHover-infobox`
+    );
     infoBox.classList.add('btn', 'disabled', 'hidden');
-    infoBox.style.position = 'absolute';
-    infoBox.style.display = 'block';
-    infoBox.style.background = 'green';
-    infoBox.style.zIndex = '1';
-    infoBox.style.opacity = '1';
 
     let arrTime: HTMLElement | undefined;
-    let arrSpecs: HTMLUListElement | undefined;
+    let arrSpecs: HTMLTableSectionElement | undefined;
+    let resetNote: HTMLElement | undefined;
 
     if (time) {
         arrTime = document.createElement('b');
         infoBox.append(arrTime);
     }
 
-    const availableClass = LSSM.$store.getters.nodeAttribute(
-        'arr-available-counter'
-    ) as string;
-
     if (specs) {
-        arrSpecs = document.createElement('ul');
+        resetNote = document.createElement('b');
+        resetNote.classList.add('hidden');
+        resetNote.textContent = LSSM.$t(
+            `modules.${MODULE_ID}.arrHover.reset`
+        ).toString();
+        resetNote.style.display = 'block';
+        infoBox.append(resetNote);
+        const specsTable = document.createElement('table');
+        specsTable.style.width = '100%';
+        specsTable.style.color = 'black';
+        const specsHeader = document.createElement('thead');
+        const specsHeadRow = specsHeader.insertRow();
+        ['set', 'attribute', 'free', 'max'].forEach(title => {
+            const titleEl = specsHeadRow.insertCell();
+            titleEl.textContent = title;
+            titleEl.setAttribute(
+                'title',
+                LSSM.$t(
+                    `modules.${MODULE_ID}.arrHover.titles.${title}`
+                ).toString()
+            );
+        });
+        arrSpecs = document.createElement('tbody');
         const arrSpecsId = LSSM.$store.getters.nodeAttribute(
             `${MODULE_ID}_arrHover_specslist`
         );
         arrSpecs.id = arrSpecsId;
+        specsTable.append(specsHeader, arrSpecs);
+        infoBox.append(specsTable);
         LSSM.$store
             .dispatch('addStyles', [
+                {
+                    selectorText: `#${infoBox.id}`,
+                    style: {
+                        'cursor': 'default',
+                        'color': 'black',
+                        'position': 'absolute',
+                        'display': 'block',
+                        'background': 'green',
+                        'z-index': '10',
+                        'opacity': '1',
+                    },
+                },
                 {
                     selectorText: `#${arrSpecsId}`,
                     style: {
@@ -47,33 +78,39 @@ export default (LSSM: Vue, specs: boolean, time: boolean): void => {
                     },
                 },
                 {
-                    selectorText: `#${arrSpecsId} li`,
+                    selectorText: `#${arrSpecsId} tr`,
                     style: {
-                        'list-style': 'none',
+                        'background-color': 'green',
                         'text-align': 'left',
                     },
                 },
                 {
-                    selectorText: `#${arrSpecsId} li::before`,
+                    selectorText: `#${arrSpecsId} tr:not(.bg-danger):nth-of-type(2n)`,
                     style: {
-                        content: 'attr(data-amount) " "',
+                        'background-color': 'forestgreen',
                     },
                 },
                 {
-                    selectorText: `.${availableClass}::before`,
+                    selectorText: `#${arrSpecsId} tr.bg-danger:nth-of-type(2n+1)`,
                     style: {
-                        content: '"("',
+                        'background-color': '#a94442',
                     },
                 },
                 {
-                    selectorText: `.${availableClass}::after`,
+                    selectorText: `#${arrSpecsId} tr.bg-danger:nth-of-type(2n)`,
                     style: {
-                        content: '")"',
+                        'background-color': '#bb5654',
+                    },
+                },
+                {
+                    selectorText: `#${arrSpecsId} tr td:not(:last-child):not(:first-child)`,
+                    style: {
+                        'padding-left': '1ch',
+                        'padding-right': '1ch',
                     },
                 },
             ])
             .then();
-        infoBox.append(arrSpecs);
     }
 
     const check_amount_available = (
@@ -157,58 +194,48 @@ export default (LSSM: Vue, specs: boolean, time: boolean): void => {
         return amounts;
     };
 
-    const getAvailableId = (arrId: number, attr: string): string =>
-        LSSM.$store.getters.nodeAttribute(`arr-available-${arrId}-${attr}`);
-
-    const updateSpecs = (
-        buildingIds: string[],
-        arr: HTMLAnchorElement,
-        arrId: number
-    ) => {
+    const updateSpecs = (buildingIds: string[], arr: HTMLAnchorElement) => {
         const availabilities = check_amount_available(
             buildingIds,
             arr.attributes
         );
         if (specs && arrSpecs) {
-            arrSpecs.innerHTML =
-                arr.getAttribute('reset') === 'true'
-                    ? `<b>${LSSM.$t(`modules.${MODULE_ID}.arrHover.reset`)}</b>`
-                    : '';
+            resetNote?.classList[
+                arr.getAttribute('reset') === 'true' ? 'remove' : 'add'
+            ]('hidden');
+            arrSpecs.innerHTML = '';
             arrSpecs.append(
                 ...(Array.from(arr.attributes)
                     .map(attr => {
                         const name = ARRSpecTranslations[attr.name];
+                        const amount = parseInt(attr.value);
                         if (
                             (!name &&
                                 !attr.name.startsWith(
                                     'vehicle_type_caption'
                                 )) ||
-                            !parseInt(attr.value)
+                            !amount ||
+                            Number.isNaN(amount)
                         )
                             return null;
-                        const liEl = document.createElement('li');
+                        const rowElement = document.createElement('tr');
                         const available = availabilities[attr.name] || 0;
-                        if (available < parseInt(attr.value))
-                            liEl.classList.add('bg-danger');
-                        liEl.textContent =
+                        if (available < amount)
+                            rowElement.classList.add('bg-danger');
+                        rowElement.insertCell().textContent = `${amount.toLocaleString()}x`;
+                        rowElement.insertCell().textContent =
                             name ??
                             attr.name.match(
                                 /^vehicle_type_caption\[(.*)]$/
                             )?.[1] ??
                             '';
-                        const availableEl = document.createElement('span');
-                        availableEl.classList.add(availableClass);
-                        availableEl.id = getAvailableId(arrId, attr.name);
-                        availableEl.style.marginLeft = '1ch';
-                        availableEl.textContent = available.toLocaleString();
-                        liEl.append(availableEl);
-                        liEl.setAttribute(
-                            'data-amount',
-                            parseInt(attr.value).toLocaleString()
-                        );
-                        return liEl;
+                        rowElement.insertCell().textContent = available.toLocaleString();
+                        rowElement.insertCell().textContent = Math.floor(
+                            available / amount
+                        ).toLocaleString();
+                        return rowElement;
                     })
-                    .filter(v => !!v) as HTMLLIElement[]).sort((a, b) =>
+                    .filter(v => !!v) as HTMLTableRowElement[]).sort((a, b) =>
                     (a.textContent || '') < (b.textContent || '')
                         ? -1
                         : (a.textContent || '') > (b.textContent || '')
@@ -230,34 +257,45 @@ export default (LSSM: Vue, specs: boolean, time: boolean): void => {
                 const buildingIds = JSON.parse(
                     arr.getAttribute('building_ids') || '[]'
                 );
-                updateSpecs(buildingIds, arr, id);
+                updateSpecs(buildingIds, arr);
             },
         })
         .then();
+
+    let currentTimeout = null as number | null;
+
+    const closeHandler = (arr: HTMLAnchorElement) => () => {
+        if (currentTimeout) {
+            window.clearTimeout(currentTimeout);
+            window.setTimeout(() => {
+                arr.removeEventListener('mouseleave', closeHandler(arr));
+                infoBox.classList.add('hidden');
+            }, 100);
+        }
+    };
 
     const handle = (arr: HTMLAnchorElement) => {
         arr.removeAttribute('title');
         const arrId = parseInt(arr.getAttribute('aao_id') || '-1');
         if (arrId < 0) return;
         if (time && arrTime) arrTime.id = `aao_timer_${arrId}`;
-        window.aao_available(arrId, time);
         arr.append(infoBox);
+        window.aao_available(arrId, time);
         infoBox.classList.remove('hidden');
+        arr.addEventListener('mouseleave', closeHandler(arr));
     };
-
-    let currentTimeout = null as number | null;
 
     ARRContainer.addEventListener('mouseover', e => {
         const target = (e.target as HTMLElement)?.closest(
-            '.aao, .vehicle_group'
+            `.aao, .vehicle_group, #${infoBox.id}`
         ) as HTMLAnchorElement | null;
         if (target)
             currentTimeout = window.setTimeout(() => handle(target), 500);
     });
 
-    ARRContainer.addEventListener('mouseout', e => {
+    ARRContainer.addEventListener('mouseleave', e => {
         const target = (e.target as HTMLElement)?.closest(
-            '.aao, .vehicle_group'
+            `.aao, .vehicle_group, #${infoBox.id}`
         ) as HTMLAnchorElement | null;
         if (target && currentTimeout) {
             window.clearTimeout(currentTimeout);
