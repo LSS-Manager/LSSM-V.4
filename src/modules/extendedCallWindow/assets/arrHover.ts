@@ -20,6 +20,7 @@ export default (LSSM: Vue, specs: boolean, time: boolean): void => {
     let arrTime: HTMLElement | undefined;
     let arrSpecs: HTMLTableSectionElement | undefined;
     let resetNote: HTMLElement | undefined;
+    let maxAmountNode: HTMLSpanElement | undefined;
 
     if (time) {
         arrTime = document.createElement('b');
@@ -27,13 +28,18 @@ export default (LSSM: Vue, specs: boolean, time: boolean): void => {
     }
 
     if (specs) {
+        maxAmountNode = document.createElement('span');
+        maxAmountNode.id = LSSM.$store.getters.nodeAttribute(
+            `${MODULE_ID}-arrHover-maxAmount`
+        );
+        maxAmountNode.classList.add('pull-right');
         resetNote = document.createElement('b');
         resetNote.classList.add('hidden');
         resetNote.textContent = LSSM.$t(
             `modules.${MODULE_ID}.arrHover.reset`
         ).toString();
         resetNote.style.display = 'block';
-        infoBox.append(resetNote);
+        infoBox.append(maxAmountNode, resetNote);
         const specsTable = document.createElement('table');
         specsTable.style.width = '100%';
         specsTable.style.color = 'black';
@@ -68,6 +74,12 @@ export default (LSSM: Vue, specs: boolean, time: boolean): void => {
                         'background': 'green',
                         'z-index': '10',
                         'opacity': '1',
+                    },
+                },
+                {
+                    selectorText: `#${maxAmountNode.id}::after`,
+                    style: {
+                        content: '"x"',
                     },
                 },
                 {
@@ -204,6 +216,7 @@ export default (LSSM: Vue, specs: boolean, time: boolean): void => {
                 arr.getAttribute('reset') === 'true' ? 'remove' : 'add'
             ]('hidden');
             arrSpecs.innerHTML = '';
+            let minimumAvailable = Infinity;
             arrSpecs.append(
                 ...(Array.from(arr.attributes)
                     .map(attr => {
@@ -230,9 +243,9 @@ export default (LSSM: Vue, specs: boolean, time: boolean): void => {
                             )?.[1] ??
                             '';
                         rowElement.insertCell().textContent = available.toLocaleString();
-                        rowElement.insertCell().textContent = Math.floor(
-                            available / amount
-                        ).toLocaleString();
+                        const max = Math.floor(available / amount);
+                        rowElement.insertCell().textContent = max.toLocaleString();
+                        if (max < minimumAvailable) minimumAvailable = max;
                         return rowElement;
                     })
                     .filter(v => !!v) as HTMLTableRowElement[]).sort((a, b) =>
@@ -243,6 +256,8 @@ export default (LSSM: Vue, specs: boolean, time: boolean): void => {
                         : 0
                 )
             );
+            if (maxAmountNode)
+                maxAmountNode.textContent = minimumAvailable.toLocaleString();
         }
     };
 
