@@ -120,11 +120,13 @@ import arrHover from './assets/arrHover';
     });
 
     if (
-        !window.location.pathname.match(/^\/missions\/\d+$/) ||
+        !window.location.pathname.match(/^\/(missions|buildings)\/\d+$/) ||
         document.querySelector('.missionNotFound')
     )
         return;
-
+    const missionMode = !!window.location.pathname.match(/^\/buildings\/\d+$/);
+    if (missionMode && !document.getElementById('bereitstellungsraumReset'))
+        return;
     const getSetting = <returnType = boolean>(
         settingId: string
     ): Promise<returnType> => {
@@ -134,51 +136,53 @@ import arrHover from './assets/arrHover';
         });
     };
 
-    await LSSM.$store.dispatch('addStyle', {
-        selectorText: '.vehicle_prisoner_select a.btn-danger',
-        style: {
-            'pointer-events': 'none',
-            'opacity': '0.65',
-        },
-    });
+    if (!missionMode) {
+        await LSSM.$store.dispatch('addStyle', {
+            selectorText: '.vehicle_prisoner_select a.btn-danger',
+            style: {
+                'pointer-events': 'none',
+                'opacity': '0.65',
+            },
+        });
 
-    if (await getSetting('generationDate')) generationDate(LSSM);
-    if (await getSetting('enhancedMissingVehicles'))
-        enhancedMissingVehicles(LSSM);
-    if (await getSetting('patientSummary')) patientSummary(LSSM);
-    if (
-        (await getSetting('arrCounter')) ||
-        (await getSetting('arrClickHighlight')) ||
-        (await getSetting('arrCounterResetSelection'))
-    )
-        await arrCounter(LSSM, getSetting);
+        if (await getSetting('generationDate')) generationDate(LSSM);
+        if (await getSetting('enhancedMissingVehicles'))
+            enhancedMissingVehicles(LSSM);
+        if (await getSetting('patientSummary')) patientSummary(LSSM);
+        if (
+            (await getSetting('arrCounter')) ||
+            (await getSetting('arrClickHighlight')) ||
+            (await getSetting('arrCounterResetSelection'))
+        )
+            await arrCounter(LSSM, getSetting);
 
-    const missionKeywordsSettings = await getSetting<
-        { keyword: string; color: string; missions: number[] }[]
-    >('missionKeywords');
+        const missionKeywordsSettings = await getSetting<
+            { keyword: string; color: string; missions: number[] }[]
+        >('missionKeywords');
 
-    if (missionKeywordsSettings.length)
-        missionKeywords(LSSM, missionKeywordsSettings);
+        if (missionKeywordsSettings.length)
+            missionKeywords(LSSM, missionKeywordsSettings);
 
-    if (await getSetting('arrMatchHighlight')) arrMatchHighlight(LSSM);
-    if (await getSetting('alarmTime')) alarmTime(LSSM);
+        if (await getSetting('arrMatchHighlight')) arrMatchHighlight(LSSM);
+        if (await getSetting('alarmTime')) alarmTime(LSSM);
+
+        const alarmIconsSettings = await getSetting<
+            {
+                icon: string;
+                type: 'fas' | 'far' | 'fab';
+                vehicleTypes: (number | string)[];
+            }[]
+        >('alarmIcons');
+        if (alarmIconsSettings.length) alarmIcons(LSSM, alarmIconsSettings);
+
+        const arrSpecs = await getSetting('arrSpecs');
+        const arrTime = await getSetting('arrTime');
+        if (arrSpecs || arrTime) arrHover(LSSM, arrSpecs, arrTime);
+    }
 
     const tailoredTabSettings = await getSetting<typeof defaultTailoredTabs>(
         'tailoredTabs'
     );
     if (!isEqual(tailoredTabSettings, defaultTailoredTabs))
-        tailoredTabs(LSSM, tailoredTabSettings);
-
-    const alarmIconsSettings = await getSetting<
-        {
-            icon: string;
-            type: 'fas' | 'far' | 'fab';
-            vehicleTypes: (number | string)[];
-        }[]
-    >('alarmIcons');
-    if (alarmIconsSettings.length) alarmIcons(LSSM, alarmIconsSettings);
-
-    const arrSpecs = await getSetting('arrSpecs');
-    const arrTime = await getSetting('arrTime');
-    if (arrSpecs || arrTime) arrHover(LSSM, arrSpecs, arrTime);
+        tailoredTabs(LSSM, tailoredTabSettings, missionMode);
 })(window[PREFIX] as Vue);
