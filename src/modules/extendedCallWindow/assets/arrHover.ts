@@ -44,6 +44,7 @@ export default (LSSM: Vue, specs: boolean, time: boolean): void => {
         specsTable.style.width = '100%';
         specsTable.style.color = 'black';
         const specsHeader = document.createElement('thead');
+        specsHeader.style.backgroundColor = 'limegreen';
         const specsHeadRow = specsHeader.insertRow();
         ['set', 'attribute', 'free', 'max'].forEach(title => {
             const titleEl = specsHeadRow.insertCell();
