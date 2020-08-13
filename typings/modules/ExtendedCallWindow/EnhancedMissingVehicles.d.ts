@@ -3,6 +3,7 @@ export interface Requirement {
     driving: number;
     total: number;
     vehicle: string;
+    selected: number;
 
     // General
     [key: string]: number | string;

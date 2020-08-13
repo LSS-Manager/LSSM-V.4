@@ -100,5 +100,46 @@ export default Vue.extend<
             this.sort = s;
         },
     },
+    mounted() {
+        const vehicleGroups = (this.$t(
+            'modules.extendedCallWindow.enhancedMissingVehicles.vehiclesByRequirement'
+        ) as unknown) as {
+            [group: string]: number[];
+        };
+        const categoriesById = {} as {
+            [id: number]: string[];
+        };
+        Object.entries(vehicleGroups).forEach(([group, ids]) => {
+            Object.values(ids).forEach(id => {
+                if (!categoriesById.hasOwnProperty(id)) categoriesById[id] = [];
+                categoriesById[id].push(group.replace(/(^\/)|(\/$)/g, ''));
+            });
+        });
+        const vehicleList = document.getElementById('vehicle_show_table_all');
+        if (!vehicleList) return;
+        const setSelected = () => {
+            this.missingRequirements.forEach(req => (req.selected = 0));
+            (vehicleList.querySelectorAll(
+                '.vehicle_checkbox:checked'
+            ) as NodeListOf<HTMLInputElement>).forEach(vehicle => {
+                categoriesById[
+                    parseInt(vehicle.getAttribute('vehicle_type_id') || '-1')
+                ]?.forEach(group => {
+                    const req = this.missingRequirements.find(
+                        ({ vehicle }) => vehicle === group
+                    );
+                    console.log(group, req);
+                    if (req) req.selected++;
+                });
+            });
+        };
+        vehicleList.addEventListener('change', setSelected);
+        document
+            .getElementById('mission-aao-group')
+            ?.addEventListener('click', e => {
+                if ((e.target as HTMLElement)?.closest(`.aao, .vehicle_group`))
+                    setSelected();
+            });
+    },
 });
 </script>

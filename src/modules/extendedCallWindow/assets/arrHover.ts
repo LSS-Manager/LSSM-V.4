@@ -144,9 +144,9 @@ export default (LSSM: Vue, specs: boolean, time: boolean): void => {
 
         const amounts = {} as { [attribute: string]: number };
 
-        (document.querySelectorAll('#all .vehicle_checkbox') as NodeListOf<
-            HTMLInputElement
-        >).forEach(vehicle => {
+        (document.querySelectorAll(
+            '#all .vehicle_checkbox:not(:checked)'
+        ) as NodeListOf<HTMLInputElement>).forEach(vehicle => {
             if (!vehicle.checked)
                 attributeNames.forEach(attr => {
                     if (!amounts.hasOwnProperty(attr)) amounts[attr] = 0;

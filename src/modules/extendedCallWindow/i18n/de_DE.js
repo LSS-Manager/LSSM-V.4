@@ -216,6 +216,7 @@ module.exports = {
         missing: 'Am Einsatzort fehlend',
         driving: 'Auf Anfahrt',
         total: 'Noch benötigt',
+        selected: 'Ausgewählt',
         vehiclesByRequirement: {
             [/^Anhänger Drucklufterzeugung$/]: [44],
             [/^Boote?$/]: [66, 67, 68, 70, 71],

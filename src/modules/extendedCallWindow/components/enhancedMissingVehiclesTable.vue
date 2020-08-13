@@ -21,6 +21,11 @@
                     'modules.extendedCallWindow.enhancedMissingVehicles.total'
                 ),
             },
+            selected: {
+                title: $t(
+                    'modules.extendedCallWindow.enhancedMissingVehicles.selected'
+                ),
+            },
         }"
         :table-attrs="{ class: 'table table-striped table-condensed' }"
         @sort="k => $emit('sort', k)"
@@ -43,6 +48,7 @@
                 {{ requirement.total.toLocaleString() }}
             </td>
             <td v-else>{{ requirement.missing.toLocaleString() }}</td>
+            <td>{{ (requirement.selected || 0).toLocaleString() }}</td>
         </tr>
     </enhanced-table>
 </template>

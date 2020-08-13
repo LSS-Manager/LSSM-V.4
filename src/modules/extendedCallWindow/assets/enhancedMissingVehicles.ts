@@ -23,6 +23,7 @@ export default (LSSM: Vue): void => {
                 .trim()
                 .replace(/^\d+/, '')
                 .trim(),
+            selected: 0,
         })) as Requirement[];
     const last = missingRequirements[missingRequirements.length - 1];
     let extras = '';
