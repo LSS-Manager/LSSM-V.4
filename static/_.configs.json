@@ -1,4 +1,6 @@
 {
+    "acao": "",
+    "admins": [""],
 	"betas": [],
 	"discord_webhook_url": "WEBHOOK_URL here (or leave blank)"
 }
