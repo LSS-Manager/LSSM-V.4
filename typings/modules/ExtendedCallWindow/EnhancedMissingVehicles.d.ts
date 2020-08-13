@@ -13,6 +13,7 @@ export interface EnhancedMissingVehicles {
     missingRequirementsSearch: string;
     sort: string;
     sortDir: string;
+    requirements: Requirement[];
 }
 
 export interface EnhancedMissingVehiclesProps {

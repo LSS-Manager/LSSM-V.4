@@ -1736,7 +1736,7 @@ export default {
                 'Polizeihubschrauber': [61],
                 'SEK': [79, 80],
                 'MEK': [81, 82],
-                ['Diensthundeführer']: [94],
+                'Diensthunde': [94],
             },
             color: '#00ac00',
         },

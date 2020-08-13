@@ -58,6 +58,7 @@ export default Vue.extend<
             missingRequirementsSearch: '',
             sort: 'vehicle',
             sortDir: 'asc',
+            requirements: this.missingRequirements,
         };
     },
     props: {
@@ -73,7 +74,7 @@ export default Vue.extend<
     },
     computed: {
         missingRequirementsFiltered() {
-            return this.missingRequirements.filter(req =>
+            return this.requirements.filter(req =>
                 JSON.stringify(req)
                     .toLowerCase()
                     .match(this.missingRequirementsSearch.toLowerCase())
@@ -83,7 +84,7 @@ export default Vue.extend<
             return Object.values(
                 this.missingRequirementsSearch
                     ? this.missingRequirementsFiltered
-                    : this.missingRequirements
+                    : this.requirements
             ).sort((a, b) => {
                 let modifier = 1;
                 if (this.sortDir === 'desc') modifier = -1;
@@ -117,28 +118,29 @@ export default Vue.extend<
         });
         const vehicleList = document.getElementById('vehicle_show_table_all');
         if (!vehicleList) return;
-        const setSelected = () => {
-            this.missingRequirements.forEach(req => (req.selected = 0));
+        const amountObserver = new MutationObserver(() => {
+            console.log('selected');
+            this.requirements.forEach(req => (req.selected = 0));
             (vehicleList.querySelectorAll(
                 '.vehicle_checkbox:checked'
             ) as NodeListOf<HTMLInputElement>).forEach(vehicle => {
                 categoriesById[
                     parseInt(vehicle.getAttribute('vehicle_type_id') || '-1')
                 ]?.forEach(group => {
-                    const req = this.missingRequirements.find(
-                        ({ vehicle }) => vehicle === group
+                    const req = this.requirements.find(({ vehicle }) =>
+                        vehicle.match(new RegExp(group))
                     );
                     console.log(group, req);
-                    if (req) req.selected++;
+                    if (req) this.$set(req, 'selected', req.selected + 1);
                 });
             });
-        };
-        vehicleList.addEventListener('change', setSelected);
-        document
-            .getElementById('mission-aao-group')
-            ?.addEventListener('click', e => {
-                if ((e.target as HTMLElement)?.closest(`.aao, .vehicle_group`))
-                    setSelected();
+        });
+        const amountElement = document.getElementById('vehicle_amount');
+
+        amountElement &&
+            amountObserver.observe(amountElement, {
+                childList: true,
+                characterData: true,
             });
     },
 });
