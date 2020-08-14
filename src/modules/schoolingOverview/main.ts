@@ -5,11 +5,9 @@ import {
     OpenSchoolings,
     OwnSchoolings,
 } from 'typings/modules/SchoolingOverview/main';
+import { Schooling } from 'typings/Schooling';
 
 ((LSSM: Vue) => {
-    const $m = (key: string, args?: { [key: string]: unknown }) =>
-        LSSM.$t(`modules.schoolingOverview.${key}`, args);
-
     const ownSchoolings = {} as OwnSchoolings;
     document
         .querySelectorAll('#schooling_own_table tbody tr')
@@ -38,7 +36,15 @@ import {
                 schooling.querySelector('td:nth-of-type(2)')?.textContent || '0'
             );
         });
-    Object.values($m('schoolings')).forEach(
+    Object.values(
+        Object.entries(
+            (LSSM.$t('schoolings') as unknown) as {
+                [category: string]: Schooling[];
+            }
+        ).flatMap(([cat, schoolings]) =>
+            schoolings.map(({ caption }) => `${cat} - ${caption}`)
+        )
+    ).forEach(
         schooling =>
             !openSchoolings.hasOwnProperty(schooling) &&
             (openSchoolings[schooling] = { amount: 0, seats: 0 })

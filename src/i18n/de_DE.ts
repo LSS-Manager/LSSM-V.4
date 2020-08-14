@@ -1782,6 +1782,148 @@ export default {
     bedBuildings: [4],
     schoolBuildings: [1, 3, 8, 10],
     dispatchCenterBuildings: [7],
+    schoolings: {
+        Feuerwehr: [
+            {
+                caption: 'Dekon-P Lehrgang',
+                duration: '3 Tage',
+            },
+            {
+                caption: 'ELW 2 Lehrgang',
+                duration: '7 Tage',
+            },
+            {
+                caption: 'Feuerwehrkran Lehrgang',
+                duration: '3 Tage',
+            },
+            {
+                caption: 'Flugfeldlöschfahrzeug-Ausbildung',
+                duration: '7 Tage',
+            },
+            {
+                caption: 'GW-Gefahrgut Lehrgang',
+                duration: '3 Tage',
+            },
+            {
+                caption: 'GW-Messtechnik Lehrgang',
+                duration: '3 Tage',
+            },
+            {
+                caption: 'GW-Taucher Lehrgang',
+                duration: '5 Tage',
+            },
+            {
+                caption: 'GW-Wasserrettung Lehrgang',
+                duration: '3 Tage',
+            },
+            {
+                caption: 'Höhenrettung Lehrgang',
+                duration: '4 Tage',
+            },
+            {
+                caption: 'Notarzt-Ausbildung',
+                duration: '7 Tage',
+            },
+            {
+                caption: 'Rettungstreppen-Ausbildung',
+                duration: '2 Tage',
+            },
+            {
+                caption: 'Wechsellader Lehrgang',
+                duration: '2 Tage',
+            },
+            {
+                caption: 'Werkfeuerwehr-Ausbildung',
+                duration: '2 Tage',
+            },
+        ],
+        Polizei: [
+            {
+                caption: 'Hundeführer (Schutzhund)',
+                duration: '7 Tage',
+            },
+            {
+                caption: 'Hundertschaftsführer (FüKw)',
+                duration: '7 Tage',
+            },
+            {
+                caption: 'MEK',
+                duration: '7 Tage',
+            },
+            {
+                caption: 'Polizeihubschrauber',
+                duration: '7 Tage',
+            },
+            {
+                caption: 'SEK',
+                duration: '7 Tage',
+            },
+            {
+                caption: 'Wasserwerfer',
+                duration: '7 Tage',
+            },
+            {
+                caption: 'Zugführer (leBefKw)',
+                duration: '7 Tage',
+            },
+        ],
+        Rettungsdienst: [
+            {
+                caption: 'GW-Taucher Lehrgang',
+                duration: '5 Tage',
+            },
+            {
+                caption: 'GW-Wasserrettung Lehrgang',
+                duration: '5 Tage',
+            },
+            {
+                caption: 'LNA-Ausbildung',
+                duration: '5 Tage',
+            },
+            {
+                caption: 'Notarzt-Ausbildung',
+                duration: '5 Tage',
+            },
+            {
+                caption: 'Rettungshundeführer (SEG)',
+                duration: '5 Tage',
+            },
+            {
+                caption: 'OrgL-Ausbildung',
+                duration: '5 Tage',
+            },
+            {
+                caption: 'SEG - Einsatzleitung',
+                duration: '5 Tage',
+            },
+            {
+                caption: 'SEG - GW-San',
+                duration: '5 Tage',
+            },
+        ],
+        THW: [
+            {
+                caption: 'Bergungstaucher Lehrgang',
+                duration: '5 Tage',
+            },
+            {
+                caption: 'Fachgruppe Räumen',
+                duration: '7 Tage',
+            },
+            {
+                caption: 'Rettungshundeführer (THW)',
+                duration: '5 Tage',
+            },
+            {
+                caption: 'Wassergefahren Lehrgang',
+                duration: '3 Tage',
+            },
+            {
+                caption: 'Zugtrupp',
+                duration: '7 Tage',
+            },
+        ],
+    },
     amount: 'Anzahl',
     search: 'Suche',
     alliance: 'Verband',

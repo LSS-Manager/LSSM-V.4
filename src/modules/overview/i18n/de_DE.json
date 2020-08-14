@@ -2,7 +2,8 @@
 	"extensionTitle": "{caption} (bis zu {n} mal)",
 	"tabs": {
 		"buildings": "Gebäude",
-		"vehicles": "Fahrzeuge"
+		"vehicles": "Fahrzeuge",
+        "schoolings": "Lehrgänge"
 	},
 	"titles": {
 		"buildings": {

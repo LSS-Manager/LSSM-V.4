@@ -71,9 +71,7 @@ export default Vue.extend<
                     ).toString(),
                 })
         );
-        const tabTitles = Object.values(
-            this.$t('modules.schoolingOverview.tabs')
-        );
+        const tabTitles = Object.keys(this.$t('schoolings'));
         return {
             heads,
             tabTitles,
