@@ -8,12 +8,11 @@
         "prebuild": "yarn run eslint:fix && yarn run tsc:prebuild && node prebuild production",
         "build": "yarn run tsc:build && node build/index production",
         "postbuild": "yarn run tsc:docs && vuepress build docs",
-        "eslint:report": "yarn run order-json && eslint docs/.vuepress/ static/ prebuild/ build/ src/ --ext .js,.vue -f table --no-error-on-unmatched-pattern",
-        "eslint:fix": "yarn run order-json && eslint docs/.vuepress/ static/ prebuild/ build/ src/ --ext .js,.vue -f table --no-error-on-unmatched-pattern --fix",
+        "eslint:fix": "tsc -b scripts && node scripts lint",
         "order-json": "tsc -b scripts && node scripts sort",
-        "tsc:prebuild": "tsc src/userscript.ts && tsc --project prebuild/",
-        "tsc:build": "tsc --project build/",
-        "tsc:docs": "tsc --project docs/.vuepress/"
+        "tsc:prebuild": "tsc src/userscript.ts && tsc -b prebuild",
+        "tsc:build": "tsc -b build",
+        "tsc:docs": "tsc -b docs/.vuepress/"
     },
     "dependencies": {
         "@fortawesome/fontawesome-svg-core": "^1.2.30",
