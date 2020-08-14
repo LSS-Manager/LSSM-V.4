@@ -15,7 +15,7 @@
 		"possible_patient_min": "Patient mindestens | Patienten mindestens",
 		"specializations": "Fachrichtung",
 		"title": "Patienten | {n} Patient | {n} Patienten",
-		"possible_patient_exact": "Patient | Patienten"
+		"possible_patient_exact": "genau {n} Patient | genau {n} Patienten"
 	},
 	"prerequisites": {
 		"bereitschaftspolizei": "Bereitschaftspolizei-Standort | Bereitschaftspolizei-Standorte",
