@@ -24,10 +24,10 @@
 		"version": "1.5.17"
 	},
 	"@types/lodash": {
-		"version": "4.14.158"
+		"version": "4.14.159"
 	},
 	"@types/node": {
-		"version": "14.0.26"
+		"version": "14.0.27"
 	},
 	"@types/ua-parser-js": {
 		"version": "0.7.33"
@@ -42,20 +42,20 @@
 		"version": "1.15.2"
 	},
 	"@typescript-eslint/eslint-plugin": {
-		"version": "3.7.0"
+		"version": "3.9.0"
 	},
 	"@typescript-eslint/parser": {
-		"version": "3.7.0"
+		"version": "3.9.0"
 	},
 	"@vuepress/plugin-active-header-links": {
 		"icon": "https://vuepress.vuejs.org/hero.png",
 		"url": "https://github.com/vuejs/vuepress/blob/master/packages/@vuepress/plugin-active-header-links#readme",
-		"version": "1.5.2"
+		"version": "1.5.3"
 	},
 	"@vuepress/plugin-back-to-top": {
 		"icon": "https://vuepress.vuejs.org/hero.png",
 		"url": "https://github.com/vuejs/vuepress/blob/master/packages/@vuepress/back-to-top#readme",
-		"version": "1.5.2"
+		"version": "1.5.3"
 	},
 	"cache-loader": {
 		"url": "https://github.com/webpack-contrib/cache-loader",
@@ -81,7 +81,7 @@
 	"eslint": {
 		"icon": "https://eslint.org/assets/img/favicon.512x512.png",
 		"url": "https://eslint.org",
-		"version": "7.5.0"
+		"version": "7.6.0"
 	},
 	"eslint-plugin-prettier": {
 		"icon": "https://prettier.io/icon.png",
@@ -103,18 +103,14 @@
 		"url": "https://github.com/webpack-contrib/html-loader",
 		"version": "1.1.0"
 	},
-	"json-sort-cli": {
-		"url": "https://gitlab.com/codsen/codsen/tree/master/packages/json-sort-cli",
-		"version": "1.15.23"
-	},
 	"localforage": {
 		"url": "https://github.com/localForage/localForage",
-		"version": "1.8.1"
+		"version": "1.9.0"
 	},
 	"lodash": {
 		"icon": "https://lodash.com/assets/img/lodash.svg",
 		"url": "https://lodash.com/",
-		"version": "4.17.19"
+		"version": "4.17.20"
 	},
 	"mini-svg-data-uri": {
 		"url": "https://github.com/tigt/mini-svg-data-uri#readme",
@@ -132,7 +128,7 @@
 	"sass-loader": {
 		"icon": "https://webpack.js.org/assets/icon-square-big.svg",
 		"url": "https://github.com/webpack-contrib/sass-loader",
-		"version": "9.0.2"
+		"version": "9.0.3"
 	},
 	"string-replace-loader": {
 		"url": "https://github.com/Va1/string-replace-loader",
@@ -145,11 +141,11 @@
 	},
 	"ts-loader": {
 		"url": "https://github.com/TypeStrong/ts-loader",
-		"version": "8.0.1"
+		"version": "8.0.2"
 	},
 	"tslint": {
 		"url": "https://palantir.github.io/tslint",
-		"version": "6.1.2"
+		"version": "6.1.3"
 	},
 	"typescript": {
 		"url": "https://www.typescriptlang.org/",
@@ -172,7 +168,7 @@
 	"vue-i18n": {
 		"icon": "https://kazupon.github.io/vue-i18n/vue-i18n-logo.png",
 		"url": "https://github.com/kazupon/vue-i18n#readme",
-		"version": "8.18.2"
+		"version": "8.21.0"
 	},
 	"vue-js-modal": {
 		"url": "http://vue-js-modal.yev.io/",
@@ -197,7 +193,7 @@
 	"vue-select": {
 		"icon": "https://vuejs.org/images/logo.png",
 		"url": "https://vue-select.org",
-		"version": "3.10.7"
+		"version": "3.10.8"
 	},
 	"vue-slim-tabs": {
 		"url": "https://vue-slim-tabs.egoist.sh/",
@@ -211,7 +207,7 @@
 	"vuepress": {
 		"icon": "https://vuepress.vuejs.org/hero.png",
 		"url": "https://github.com/vuejs/vuepress#readme",
-		"version": "1.5.2"
+		"version": "1.5.3"
 	},
 	"vuepress-plugin-redirect": {
 		"icon": "https://vuepress.vuejs.org/hero.png",
@@ -236,7 +232,7 @@
 	"webpack": {
 		"icon": "https://webpack.js.org/assets/icon-square-big.svg",
 		"url": "https://github.com/webpack/webpack",
-		"version": "4.43.0"
+		"version": "4.44.1"
 	},
 	"webpack-cli": {
 		"icon": "https://webpack.js.org/assets/icon-square-big.svg",
