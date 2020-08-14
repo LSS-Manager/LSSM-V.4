@@ -10,7 +10,7 @@
         "postbuild": "yarn run tsc:docs && vuepress build docs",
         "eslint:report": "yarn run order-json && eslint docs/.vuepress/ static/ prebuild/ build/ src/ --ext .js,.vue -f table --no-error-on-unmatched-pattern",
         "eslint:fix": "yarn run order-json && eslint docs/.vuepress/ static/ prebuild/ build/ src/ --ext .js,.vue -f table --no-error-on-unmatched-pattern --fix",
-        "order-json": "jsonsort -t tsconfig.json docs/** static/** prebuild/** build/** src/**",
+        "order-json": "tsc -b scripts && node scripts/sort",
         "tsc:prebuild": "tsc src/userscript.ts && tsc --project prebuild/",
         "tsc:build": "tsc --project build/",
         "tsc:docs": "tsc --project docs/.vuepress/"

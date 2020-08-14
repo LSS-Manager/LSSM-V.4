@@ -1,0 +1,47 @@
+import * as fs from 'fs';
+import sortJSON from './utils/sortJSON';
+
+import * as tsconfig from '../tsconfig.json';
+
+fs.writeFileSync(
+    '../tsconfig.json',
+    JSON.stringify(sortJSON(tsconfig, true), null, '\t')
+);
+
+const getJsons = (folder: string): string[] => {
+    const jsons = [] as string[];
+    fs.readdirSync(folder, { withFileTypes: true }).forEach(item => {
+        if (item.isDirectory()) {
+            jsons.push(...getJsons(`${folder}/${item.name}`));
+        } else if (item.isFile() && item.name.endsWith('.json'))
+            jsons.push(`${folder}/${item.name}`);
+    });
+    return jsons;
+};
+
+[
+    '.github',
+    'build',
+    'docs',
+    'lssmaql',
+    'prebuild',
+    'scripts',
+    'src',
+    'static',
+    'typings',
+].forEach(folder =>
+    getJsons(`./${folder}`).forEach(file => {
+        const sortArray = false;
+        fs.writeFileSync(
+            file,
+            JSON.stringify(
+                sortJSON(
+                    JSON.parse(fs.readFileSync(file).toString()),
+                    sortArray
+                ),
+                null,
+                '\t'
+            )
+        );
+    })
+);

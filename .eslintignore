@@ -4,3 +4,4 @@ dist/*
 build/*.js
 docs/.vuepress/*.js
 prebuild/*.js
+sripts/*.js
