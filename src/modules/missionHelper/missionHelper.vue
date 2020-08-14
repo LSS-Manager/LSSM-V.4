@@ -488,8 +488,8 @@ export default Vue.extend<
             });
             const vehiclesFiltered = {} as VehicleRequirements;
             Object.entries(vehicles)
-                .filter(([_, vehicle]) => vehicle.amount > 0)
-                .sort(([_, aVehicle], [__, bVehicle]) =>
+                .filter(([, vehicle]) => vehicle.amount > 0)
+                .sort(([, aVehicle], [, bVehicle]) =>
                     (aVehicle[this.settings.vehicles.sort] || 0) <
                     (bVehicle[this.settings.vehicles.sort] || 0)
                         ? -1

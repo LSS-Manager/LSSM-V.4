@@ -1,4 +1,4 @@
-import { exec } from 'child_process';
+import { execSync } from 'child_process';
 import sort from './sort';
 
 const scripts = process.argv.splice(2);
@@ -7,11 +7,9 @@ const scriptHandlers = {
     sort,
     lint() {
         let output = this.sort();
-        // TODO: Does not work yet
-        exec(
-            'eslint ../docs/.vuepress/ ../static/ ../prebuild/ ../build/ ../src/ ../scripts/ --ext .js,.vue -f table --no-error-on-unmatched-pattern --fix'
-        );
-        output += '\n\nLinted. Output will follow 😁';
+        output += `\n\n${execSync(
+            'eslint ./docs/.vuepress/ ./static/ ./prebuild/ ./build/ ./src/ ./scripts/ --ext .js,.vue -f table --no-error-on-unmatched-pattern --fix'
+        ).toString()}`;
         return output;
     },
 } as { [key: string]: () => string | void };
