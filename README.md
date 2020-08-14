@@ -34,6 +34,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/KBOE2"><img src="https://avatars1.githubusercontent.com/u/27238105?v=4" width="100px;" alt=""/><br /><sub><b>Jan</b></sub></a><br /><a href="https://github.com/KBOE2/LSSM-V.4/commits?author=KBOE2" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/CSA-Verweigerer"><img src="https://avatars3.githubusercontent.com/u/29802197?v=4" width="100px;" alt=""/><br /><sub><b>CSA-Verweigerer</b></sub></a><br /><a href="#ideas-CSA-Verweigerer" title="Ideas, Planning, & Feedback">🤔</a> <a href="#userTesting-CSA-Verweigerer" title="User Testing">📓</a></td>
     <td align="center"><a href="https://github.com/KokosnussDEV"><img src="https://avatars3.githubusercontent.com/u/42553393?v=4" width="100px;" alt=""/><br /><sub><b>KokosnussDEV</b></sub></a><br /><a href="https://github.com/KBOE2/LSSM-V.4/commits?author=KokosnussDEV" title="Documentation">📖</a> <a href="https://github.com/KBOE2/LSSM-V.4/commits?author=KokosnussDEV" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/Ron31"><img src="https://avatars0.githubusercontent.com/u/30264441?v=4" width="100px;" alt=""/><br /><sub><b>Ron31</b></sub></a><br /><a href="https://github.com/KBOE2/LSSM-V.4/commits?author=Ron31" title="Code">💻</a></td>
   </tr>
 </table>
 
