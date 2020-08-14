@@ -6,11 +6,13 @@ const scripts = process.argv.splice(2);
 const scriptHandlers = {
     sort,
     lint() {
-        this.sort();
+        let output = this.sort();
         // TODO: Does not work yet
         exec(
             'eslint ../docs/.vuepress/ ../static/ ../prebuild/ ../build/ ../src/ ../scripts/ --ext .js,.vue -f table --no-error-on-unmatched-pattern --fix'
         );
+        output += '\n\nLinted. Output will follow 😁';
+        return output;
     },
 } as { [key: string]: () => string | void };
 
