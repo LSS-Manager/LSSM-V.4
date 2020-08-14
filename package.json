@@ -1,18 +1,18 @@
 {
-    "version": "4.0.5+20200814.2021",
+    "version": "4.0.5+20200814.2219",
     "license": "CC-BY-NC-SA-4.0",
     "scripts": {
-        "predev": "yarn run eslint:fix && yarn run tsc:prebuild && node prebuild",
-        "dev": "yarn run tsc:build && node build/index",
-        "postdev": "yarn run tsc:docs && vuepress build docs",
-        "prebuild": "yarn run eslint:fix && yarn run tsc:prebuild && node prebuild production",
-        "build": "yarn run tsc:build && node build/index production",
-        "postbuild": "yarn run tsc:docs && vuepress build docs",
+        "predev": "tsc -b scripts && node scripts predev",
+        "dev": "tsc -b scripts && node scripts dev",
+        "postdev": "tsc -b scripts && node scripts docs",
+        "prebuild": "tsc -b scripts && node scripts preBuild",
+        "build": "tsc -b scripts && node scripts build",
+        "postbuild": "tsc -b scripts && node scripts docs",
         "eslint:fix": "tsc -b scripts && node scripts lint",
         "order-json": "tsc -b scripts && node scripts sort",
-        "tsc:prebuild": "tsc src/userscript.ts && tsc -b prebuild",
-        "tsc:build": "tsc -b build",
-        "tsc:docs": "tsc -b docs/.vuepress/"
+        "tsc:prebuild": "tsc -b scripts && node scripts tscPrebuild",
+        "tsc:build": "tsc -b scripts && node scripts tscBuild",
+        "tsc:docs": "tsc -b scripts && node scripts tscDocs"
     },
     "dependencies": {
         "@fortawesome/fontawesome-svg-core": "^1.2.30",
