@@ -42,7 +42,9 @@ import { Schooling } from 'typings/Schooling';
                 [category: string]: Schooling[];
             }
         ).flatMap(([cat, schoolings]) =>
-            schoolings.map(({ caption }) => `${cat} - ${caption}`)
+            Object.values(schoolings).map(
+                ({ caption }) => `${cat} - ${caption}`
+            )
         )
     ).forEach(
         schooling =>

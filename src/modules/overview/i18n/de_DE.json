@@ -3,7 +3,7 @@
 	"tabs": {
 		"buildings": "Gebäude",
 		"vehicles": "Fahrzeuge",
-        "schoolings": "Lehrgänge"
+		"schoolings": "Lehrgänge"
 	},
 	"titles": {
 		"buildings": {
@@ -25,6 +25,10 @@
 			"schooling": "Ausbildung",
 			"special": "Besonderes",
 			"wtank": "Wassertank"
+		},
+		"schoolings": {
+			"caption": "Lehrgangsname",
+			"duration": "Ausbildungsdauer"
 		}
 	}
 }

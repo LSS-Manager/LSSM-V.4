@@ -177,6 +177,40 @@
                     </tab>
                 </tabs>
             </tab>
+            <tab :title="$m('tabs.schoolings')">
+                <tabs
+                    :on-select="setSchoolingCategory"
+                    :default-index="schoolingsTab.current.category"
+                >
+                    <tab
+                        v-for="(schoolings, title) in schoolingCategories"
+                        :key="title"
+                        :title="title"
+                    >
+                        <enhanced-table
+                            :head="schoolingsTab.head"
+                            :table-attrs="{ class: 'table table-striped' }"
+                            @sort="setSortSchoolings"
+                            :sort="schoolingsTab.sort"
+                            :sort-dir="schoolingsTab.sortDir"
+                            :search="schoolingsTab.search"
+                            @search="s => (schoolingsTab['search'] = s)"
+                        >
+                            <tr
+                                v-for="schooling in schoolingsSorted"
+                                :key="schooling.caption"
+                            >
+                                <td
+                                    v-for="(_, attr) in schoolingsTab.head"
+                                    :key="attr"
+                                >
+                                    {{ schooling[attr] }}
+                                </td>
+                            </tr>
+                        </enhanced-table>
+                    </tab>
+                </tabs>
+            </tab>
         </tabs>
     </lightbox>
 </template>
@@ -201,6 +235,7 @@ import {
     ResolvedBuildingCategory,
 } from 'typings/Building';
 import cloneDeep from 'lodash/cloneDeep';
+import { Schooling } from 'typings/Schooling';
 
 export default Vue.extend<
     Overview,
@@ -337,6 +372,21 @@ export default Vue.extend<
                     category: 0,
                 },
             },
+            schoolingCategories: (this.$t('schoolings') as unknown) as {
+                [category: string]: Schooling[];
+            },
+            schoolingsTab: {
+                head: {
+                    caption: { title: this.$m('titles.buildings.caption') },
+                    duration: { title: this.$m('titles.schoolings.duration') },
+                },
+                search: '',
+                sort: 'caption',
+                sortDir: 'asc',
+                current: {
+                    category: 0,
+                },
+            },
             currentType: 0,
         } as Overview;
     },
@@ -366,6 +416,34 @@ export default Vue.extend<
                 let modifier = this.buildingsTab.sortDir === 'desc' ? -1 : 1;
                 let f = a[this.buildingsTab.sort] || '';
                 let s = b[this.buildingsTab.sort] || '';
+                return f < s ? -1 * modifier : f > s ? modifier : 0;
+            });
+        },
+        currentSchoolings() {
+            return this.currentType === 2
+                ? this.schoolingCategories[
+                      Object.keys(this.schoolingCategories)[
+                          this.schoolingsTab.current.category
+                      ]
+                  ]
+                : [];
+        },
+        schoolingsFiltered() {
+            return Object.values(this.currentSchoolings).filter(building =>
+                JSON.stringify(Object.values(building))
+                    .toLowerCase()
+                    .match(this.schoolingsTab.search.toLowerCase())
+            );
+        },
+        schoolingsSorted() {
+            return Object.values(
+                this.schoolingsTab.search
+                    ? this.schoolingsFiltered
+                    : this.currentSchoolings
+            ).sort((a, b) => {
+                let modifier = this.schoolingsTab.sortDir === 'desc' ? -1 : 1;
+                let f = a[this.schoolingsTab.sort] || '';
+                let s = b[this.schoolingsTab.sort] || '';
                 return f < s ? -1 * modifier : f > s ? modifier : 0;
             });
         },
@@ -401,6 +479,13 @@ export default Vue.extend<
         $m(key, args) {
             return this.$t(`modules.overview.${key}`, args);
         },
+        setSortVehicles(type) {
+            if (this.vehiclesTab.sort === type)
+                return (this.vehiclesTab.sortDir =
+                    this.vehiclesTab.sortDir === 'asc' ? 'desc' : 'asc');
+            this.vehiclesTab.sort = type;
+            this.vehiclesTab.sortDir = 'asc';
+        },
         setSortBuildings(type) {
             if (this.buildingsTab.sort === type)
                 return (this.buildingsTab.sortDir =
@@ -408,12 +493,12 @@ export default Vue.extend<
             this.buildingsTab.sort = type;
             this.buildingsTab.sortDir = 'asc';
         },
-        setSortVehicles(type) {
-            if (this.vehiclesTab.sort === type)
-                return (this.vehiclesTab.sortDir =
-                    this.vehiclesTab.sortDir === 'asc' ? 'desc' : 'asc');
-            this.vehiclesTab.sort = type;
-            this.vehiclesTab.sortDir = 'asc';
+        setSortSchoolings(type) {
+            if (this.schoolingsTab.sort === type)
+                return (this.schoolingsTab.sortDir =
+                    this.schoolingsTab.sortDir === 'asc' ? 'desc' : 'asc');
+            this.schoolingsTab.sort = type;
+            this.schoolingsTab.sortDir = 'asc';
         },
         setVehicleCategory(_, category) {
             this.vehiclesTab.current.category = category;
@@ -424,6 +509,9 @@ export default Vue.extend<
         },
         setBuildingCategory(_, category) {
             this.buildingsTab.current.category = category;
+        },
+        setSchoolingCategory(_, category) {
+            this.schoolingsTab.current.category = category;
         },
         setType(_, type) {
             this.currentType = type;
