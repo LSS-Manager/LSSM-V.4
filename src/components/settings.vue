@@ -372,12 +372,12 @@ export default Vue.extend<
                                 .filter(
                                     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                                     // @ts-ignore
-                                    ([_, { saved, current }]) =>
+                                    ([, { saved, current }]) =>
                                         !isEqual(saved, current)
                                 )
                         ),
                     ])
-                    .filter(([_, settings]) => Object.keys(settings).length)
+                    .filter(([, settings]) => Object.keys(settings).length)
             );
         },
     },
