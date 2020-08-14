@@ -76,7 +76,11 @@
             </h4>
             <ul v-if="settings.patients.content && showPatients">
                 <li
-                    v-if="missionSpecs.additional.possible_patient_min"
+                    v-if="
+                        missionSpecs.additional.possible_patient_min &&
+                            missionSpecs.additional.possible_patient_min !==
+                                missionSpecs.additional.possible_patient
+                    "
                     :data-amount="missionSpecs.additional.possible_patient_min"
                 >
                     {{
@@ -88,11 +92,22 @@
                 </li>
                 <li
                     v-if="missionSpecs.additional.possible_patient"
-                    :data-amount="missionSpecs.additional.possible_patient"
+                    :min-is-max="
+                        (min_is_max =
+                            missionSpecs.additional.possible_patient ===
+                            missionSpecs.additional.possible_patient_min)
+                    "
+                    :data-amount="
+                        min_is_max
+                            ? null
+                            : missionSpecs.additional.possible_patient
+                    "
                 >
                     {{
                         $mc(
-                            'patients.possible_patient',
+                            min_is_max
+                                ? 'patients.possible_patient_exact'
+                                : 'patients.possible_patient',
                             missionSpecs.additional.possible_patient
                         )
                     }}
