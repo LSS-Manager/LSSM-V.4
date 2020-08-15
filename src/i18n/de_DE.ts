@@ -1874,15 +1874,15 @@ export default {
             },
             {
                 caption: 'GW-Wasserrettung Lehrgang',
-                duration: '5 Tage',
+                duration: '3 Tage',
             },
             {
                 caption: 'LNA-Ausbildung',
-                duration: '5 Tage',
+                duration: '9 Tage',
             },
             {
                 caption: 'Notarzt-Ausbildung',
-                duration: '5 Tage',
+                duration: '7 Tage',
             },
             {
                 caption: 'Rettungshundeführer (SEG)',
@@ -1890,15 +1890,15 @@ export default {
             },
             {
                 caption: 'OrgL-Ausbildung',
-                duration: '5 Tage',
+                duration: '11 Tage',
             },
             {
                 caption: 'SEG - Einsatzleitung',
-                duration: '5 Tage',
+                duration: '4 Tage',
             },
             {
                 caption: 'SEG - GW-San',
-                duration: '5 Tage',
+                duration: '3 Tage',
             },
         ],
         THW: [
