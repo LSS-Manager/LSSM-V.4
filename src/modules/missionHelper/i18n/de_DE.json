@@ -89,6 +89,10 @@
 			"allow_rw_instead_of_lf": {
 				"description": "Zeigt an, wenn statt eines LF auch Rüstwagen oder GKW am Einsatzort möglich sind.",
 				"title": "RW / GKW statt LF anzeigen"
+			},
+			"allow_arff_instead_of_lf": {
+				"description": "Zeigt an, wenn statt eines LF auch FLF am Einsatzort möglich sind.",
+				"title": "Anzeigen, wenn FLF als LF erlaubt sind"
 			}
 		},
 		"patients": {

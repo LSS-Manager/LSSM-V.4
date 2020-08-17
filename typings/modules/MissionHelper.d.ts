@@ -103,7 +103,7 @@ export interface MissionHelperMethods {
         }
     ): VueI18n.TranslateResult;
     reloadSpecs(force?: boolean): void;
-    getMission(id: number): Mission | undefined;
+    getMission(id: number, force: boolean): Promise<Mission | undefined>;
     loadSetting(
         id: string,
         base: { [key: string]: unknown },

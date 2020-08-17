@@ -235,10 +235,15 @@
                     v-for="expansion in missionSpecs.additional
                         .expansion_missions_ids"
                     :key="expansion"
-                    :mission="(mission = getMission(expansion))"
+                    :mission="
+                        (mission =
+                            missionSpecs.additional.expansion_missions_names[
+                                expansion
+                            ])
+                    "
                 >
                     <span class="badge badge-default" v-if="mission">
-                        {{ mission.name }}
+                        {{ mission }}
                     </span>
                 </a>
             </div>
@@ -262,10 +267,15 @@
                     v-for="followup in missionSpecs.additional
                         .followup_missions_ids"
                     :key="followup"
-                    :mission="(mission = getMission(followup))"
+                    :mission="
+                        (mission =
+                            missionSpecs.additional.followup_missions_names[
+                                followup
+                            ])
+                    "
                 >
                     <span class="badge badge-default" v-if="mission">
-                        {{ mission.name }}
+                        {{ mission }}
                     </span>
                 </a>
             </div>
@@ -524,43 +534,39 @@ export default Vue.extend<
 
             this.missionSpecs = undefined;
 
-            if (
-                force ||
-                !sessionStorage.hasOwnProperty('mission_specs_cache')
-            ) {
-                sessionStorage.setItem(
-                    'mission_specs_cache',
-                    JSON.stringify(
-                        Object.values(
-                            await this.$store
-                                .dispatch('api/request', {
-                                    // eslint-disable-next-line no-undef
-                                    url: `${this.$store.state.server}missions/${BUILD_LANG}.json`,
-                                    init: {
-                                        method: 'GET',
-                                    },
-                                })
-                                .then(res => res.json())
-                        )
-                    )
-                );
-            }
-
             if (!this.isDiyMission)
-                this.missionSpecs = this.getMission(
+                this.missionSpecs = await this.getMission(
                     parseInt(
                         missionHelpBtn
                             ?.getAttribute('href')
                             ?.match(/(?!^\/einsaetze\/)\d+/)?.[0] || '-1'
-                    )
+                    ),
+                    force
                 );
 
             this.isReloading = false;
         },
-        getMission(id) {
-            return (JSON.parse(
-                sessionStorage.getItem('mission_specs_cache') || '{}'
-            ) as Mission[]).find(spec => spec.id === id);
+        async getMission(id, force) {
+            const missions = (await this.$store.dispatch(
+                'api/getMissions',
+                force
+            )) as Mission[];
+            const mission = missions?.find(spec => spec.id === id);
+            if (mission) {
+                mission.additional.expansion_mission_names = Object.fromEntries(
+                    mission.additional.expansion_missions_ids?.map(id => [
+                        id,
+                        missions.find(spec => spec.id === id)?.name || '',
+                    ]) || []
+                );
+                mission.additional.followup_missions_names = Object.fromEntries(
+                    mission.additional.followup_missions_ids?.map(id => [
+                        id,
+                        missions.find(spec => spec.id === id)?.name || '',
+                    ]) || []
+                );
+            }
+            return mission;
         },
         loadSetting(id, base, base_string = '') {
             if (typeof base[id] === 'object') {

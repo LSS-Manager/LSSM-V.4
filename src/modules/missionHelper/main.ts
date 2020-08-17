@@ -72,6 +72,11 @@ import missionHelper from './missionHelper.vue';
                 default: false,
                 dependsOn: '.vehicles.content',
             },
+            'optionalAlternatives.allow_arff_instead_of_lf': {
+                type: 'toggle',
+                default: false,
+                dependsOn: '.vehicles.content',
+            },
             'patients.title': {
                 type: 'toggle',
                 default: true,
@@ -81,6 +86,22 @@ import missionHelper from './missionHelper.vue';
                 default: true,
             },
             'patients.live': {
+                type: 'toggle',
+                default: true,
+            },
+            ...(BUILD_LANG === 'en_GB' || BUILD_LANG === 'en_US'
+                ? {
+                      'patient.code_possible': {
+                          type: 'toggle',
+                          default: true,
+                      },
+                  }
+                : null),
+            'patients.allow_ktw_instead_of_rtw': {
+                type: 'toggle',
+                default: true,
+            },
+            'patients.patient_allow_first_responder_chance': {
                 type: 'toggle',
                 default: true,
             },
