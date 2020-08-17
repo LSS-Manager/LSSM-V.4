@@ -52,15 +52,18 @@ import asyncMemberlist from './assets/memberlist';
     );
 
     if (
-        window.location.pathname.match(/^\/buildings\/\d+$/) &&
+        window.location.pathname.match(/^\/buildings\/\d+\/?$/) &&
         !document.querySelectorAll('[href*="profile"]').length &&
         buildings.length
     )
         asyncBuildings(LSSM, buildings);
 
-    if (window.location.pathname.match(/^\/missions\/\d+$/) && missions.length)
+    if (
+        window.location.pathname.match(/^\/missions\/\d+\/?$/) &&
+        missions.length
+    )
         asyncMissions(LSSM, missions);
 
-    if (window.location.pathname.match(/^\/verband\/mitglieder\/[1-9]*/))
+    if (window.location.pathname.match(/^\/verband\/mitglieder\/\d+\/?$/))
         asyncMemberlist(LSSM, memberlist);
 })((window[PREFIX] as unknown) as Vue);
