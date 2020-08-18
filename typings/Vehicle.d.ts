@@ -8,9 +8,23 @@ export interface Vehicle {
     fms_real: number;
     fms_show: number;
     vehicle_type_caption: string | null;
+    working_hour_start: number;
+    working_hour_end: number;
+    alarm_delay: number;
+    max_personnel_override: number | null;
+    assigned_personnel_count: number;
+    ignore_aao: boolean;
+    target_type: 'mission' | 'building' | null; // Where the vehicle is currently driving to
+    target_id: number | null; // The ID of where the vehicle is currently driving to
     faPencilAlt: IconDefinition;
     faUsers: IconDefinition;
-    [key: string]: number | string | null | IconDefinition | undefined;
+    [key: string]:
+        | number
+        | string
+        | null
+        | IconDefinition
+        | boolean
+        | undefined;
 }
 
 export interface VehicleCategory {
