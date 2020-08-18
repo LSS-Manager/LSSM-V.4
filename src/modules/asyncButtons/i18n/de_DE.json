@@ -10,11 +10,9 @@
 		"missionReply": {
 			"title": "Rückmeldungen im Einsatz"
 		},
-		"ranks": {
-			"title": "Bearbeiten der Ränge der Verbandsmitglieder"
-		},
-		"kick": {
-			"title": "Kicken von Verbandsmitgliedern"
+		"memberlistManageUser": {
+			"title": "Rechte von Verbandsmitgliedern",
+			"description": "Vehindert ein Neuladen, wenn du ein Verbandsmitglied rauswirfst oder seine Rechte bearbeitest"
 		}
 	}
 }
