@@ -14,5 +14,9 @@
 			"title": "Rechte von Verbandsmitgliedern",
 			"description": "Vehindert ein Neuladen, wenn du ein Verbandsmitglied rauswirfst oder seine Rechte bearbeitest"
 		}
-	}
+	},
+    "memberlistManageUser": {
+        "set": "setzen",
+        "unset": "entfernen"
+    }
 }

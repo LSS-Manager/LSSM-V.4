@@ -52,8 +52,8 @@ import asyncMemberlist from './assets/memberlist';
         asyncMissions(LSSM, missions);
 
     if (
-        window.location.pathname.match(/^\/verband\/mitglieder\/\d+\/?$/) &&
-        getSetting('memberlistManageUser')
+        window.location.pathname.match(/^\/verband\/mitglieder(\/\d+)?\/?$/) &&
+        (await getSetting('memberlistManageUser'))
     )
         asyncMemberlist(LSSM);
 })((window[PREFIX] as unknown) as Vue);

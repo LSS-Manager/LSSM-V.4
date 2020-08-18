@@ -1,10 +1,15 @@
 export default (LSSM: Vue): void => {
+    const setText = LSSM.$t(
+        `modules.${MODULE_ID}.memberlistManageUser.set`
+    ).toString();
+    const unsetText = LSSM.$t(
+        `modules.${MODULE_ID}.memberlistManageUser.unset`
+    ).toString();
     document.querySelectorAll('td [id^="rights_"]').forEach(holder =>
         holder.addEventListener('click', async e => {
             e.preventDefault();
-            const t = e.target as HTMLElement;
-            if (!t) return;
-            if (t.tagName !== 'a') return;
+            const t = e.target as HTMLElement | null;
+            if (!t || t.tagName !== 'A') return;
 
             Array.from(t.parentElement?.children || []).forEach(childBtn => {
                 childBtn.classList.add('disabled');
@@ -23,16 +28,26 @@ export default (LSSM: Vue): void => {
                             'hidden'
                         );
                     } else {
-                        if (href[4] === '1') {
+                        const set = href[4] === '1';
+                        if (set) {
                             t.classList.replace('btn-success', 'btn-danger');
-                            href[4] === '1' ? (href[4] = '0') : (href[4] = '1');
-                            t.setAttribute('href', href.join('/'));
-                            Array.from(t.parentElement?.children || []).forEach(
-                                childBtn => {
-                                    childBtn.classList.remove('disabled');
-                                }
-                            );
+                            href[4] = '0';
+                            t.textContent =
+                                t.textContent?.replace(setText, unsetText) ||
+                                '';
+                        } else {
+                            t.classList.replace('btn-danger', 'btn-success');
+                            href[4] = '1';
+                            t.textContent =
+                                t.textContent?.replace(unsetText, setText) ||
+                                '';
                         }
+                        t.setAttribute('href', href.join('/'));
+                        Array.from(t.parentElement?.children || []).forEach(
+                            childBtn => {
+                                childBtn.classList.remove('disabled');
+                            }
+                        );
                     }
                 });
         })
