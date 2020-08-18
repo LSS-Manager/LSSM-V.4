@@ -22,7 +22,6 @@ import asyncMemberlist from './assets/memberlist';
             ranks: {
                 type: 'toggle',
                 default: false,
-                disabled: () => true,
             },
             kick: {
                 type: 'toggle',
