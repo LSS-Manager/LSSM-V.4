@@ -553,18 +553,20 @@ export default Vue.extend<
             )) as Mission[];
             const mission = missions?.find(spec => spec.id === id);
             if (mission) {
-                mission.additional.expansion_mission_names = Object.fromEntries(
-                    mission.additional.expansion_missions_ids?.map(id => [
-                        id,
-                        missions.find(spec => spec.id === id)?.name || '',
-                    ]) || []
-                );
-                mission.additional.followup_missions_names = Object.fromEntries(
-                    mission.additional.followup_missions_ids?.map(id => [
-                        id,
-                        missions.find(spec => spec.id === id)?.name || '',
-                    ]) || []
-                );
+                if (this.settings.expansions && mission.additional)
+                    mission.additional.expansion_missions_names = Object.fromEntries(
+                        mission.additional.expansion_missions_ids?.map(id => [
+                            id,
+                            missions.find(spec => spec.id === id)?.name || '',
+                        ]) || []
+                    );
+                if (this.settings.followup && mission.additional)
+                    mission.additional.followup_missions_names = Object.fromEntries(
+                        mission.additional.followup_missions_ids?.map(id => [
+                            id,
+                            missions.find(spec => spec.id === id)?.name || '',
+                        ]) || []
+                    );
             }
             return mission;
         },
