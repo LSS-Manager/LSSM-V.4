@@ -24,20 +24,21 @@ const gameIncludes = Object.keys(tlds).map(tld => {
     return `${include}\\.${tld}`;
 });
 
-fs.writeFileSync(
-    './static/lssm-v4.user.js',
-    `// ==UserScript==
+export default async (): Promise<void> =>
+    fs.writeFileSync(
+        './static/lssm-v4.user.js',
+        `// ==UserScript==
 // @name         ${script.name} - Dev Version
 // @version      ${packageJson.version.replace(/\+.*$/, '')}+${Object.keys(
-        config.games
-    )
-        .map(lang => lang.replace(/^.*?_/, ''))
-        .join('-')}
+            config.games
+        )
+            .map(lang => lang.replace(/^.*?_/, ''))
+            .join('-')}
 // @author       ${script.author}
 // @description  ${script.description}
 // @include      ${new RegExp(
-        `^https?://(?:w{3}\\.)?(?:${gameIncludes.join('|')})/.*$`
-    )}
+            `^https?://(?:w{3}\\.)?(?:${gameIncludes.join('|')})/.*$`
+        )}
 // @homepage     ${config.server}
 // @updateURL    ${config.server}lssm-v4.user.js
 // @downloadURL  ${config.server}lssm-v4.user.js
@@ -46,13 +47,15 @@ fs.writeFileSync(
 // @supportURL   ${config.server}docs/de_DE/error_report
 // ==/UserScript==
 ${
-    Terser.minify(fs.readFileSync('./src/userscript.js').toString(), {
-        compress: {
-            global_defs: {
-                host: config.server,
+    (
+        await Terser.minify(fs.readFileSync('./src/userscript.js').toString(), {
+            compress: {
+                global_defs: {
+                    host: config.server,
+                },
             },
-        },
-    }).code
+        })
+    ).code
 }
 `
-);
+    );
