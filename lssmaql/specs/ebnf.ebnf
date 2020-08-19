@@ -1,5 +1,5 @@
 query ::= object getter* filter?
-object ::= (indentifier ("(" query ")")?) | query | indentifier
+object ::= (identifier ("(" query ")")?) | query | identifier
 getter ::= object_getter | list_getter
 object_getter ::= "."+ identifier
 list_getter ::= "[" number "]"
