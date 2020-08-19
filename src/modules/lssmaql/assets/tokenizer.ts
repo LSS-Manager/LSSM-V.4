@@ -11,6 +11,7 @@ const regexes = {
     greater_equal: />=/,
     smaller_equal: /<=/,
     equals: /=/,
+    unequal: /!=/,
     greater: />/,
     smaller: /</,
     paran_open: /\(/,

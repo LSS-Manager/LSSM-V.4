@@ -8,7 +8,7 @@ import {
 
 const baseObjects = ['allianceinfo', 'buildings', 'vehicles', 'missions'];
 const functions = ['len', 'sum', 'min', 'max'];
-const comparisons = ['>', '<', '<=', '>=', '=', 'IN', 'NOT IN'];
+const comparisons = ['>', '<', '<=', '>=', '=', '!=', 'IN', 'NOT IN'];
 
 const parser = (tokens: Token[], base?: ObjectTree['base']): QueryTree => {
     let tree = {} as QueryTree;

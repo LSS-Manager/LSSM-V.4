@@ -6,7 +6,7 @@ list_getter ::= "[" number "]"
 
 filter ::= where condition
 condition ::= (condition (and | or) condition) | "(" condition ")" | object | comparison
-comparison ::= (element ("=" | "<" | ">") element)
+comparison ::= (element ("=" | "!=" | "<" | ">") element)
 element ::= object | number | string | object_getter
 
 identifier ::= ("_" | lowercase_letter)+

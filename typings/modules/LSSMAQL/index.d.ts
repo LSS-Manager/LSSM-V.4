@@ -10,6 +10,7 @@ export interface TokenRegexes {
     greater_equal: RegExp;
     smaller_equal: RegExp;
     equals: RegExp;
+    unequal: RegExp;
     greater: RegExp;
     smaller: RegExp;
     paran_open: RegExp;
@@ -28,7 +29,7 @@ export interface Token {
 
 export interface Condition {
     left: Token[];
-    comparison: '>' | '<' | '<=' | '>=' | '=' | 'IN' | 'NOT IN';
+    comparison: '>' | '<' | '<=' | '>=' | '=' | '!=' | 'IN' | 'NOT IN';
     right: Token[];
 }
 

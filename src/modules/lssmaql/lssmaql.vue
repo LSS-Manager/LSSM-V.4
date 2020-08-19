@@ -72,6 +72,8 @@ const comparison = (
             return (left as number) >= (right as number);
         case '=':
             return left == right;
+        case '!=':
+            return left != right;
         default:
             return false;
     }
