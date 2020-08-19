@@ -28,7 +28,8 @@
 		"target": "ES3",
 		"types": [
 			"webpack-env",
-			"vue"
+			"vue",
+            "jquery"
 		]
 	},
 	"exclude": [
