@@ -41,7 +41,8 @@ Object.keys(libraries)
     // @ts-ignore
     .forEach(lib => (librariesSorted[lib] = libraries[lib]));
 
-fs.writeFileSync(
-    './src/libraries.json',
-    JSON.stringify(librariesSorted, null, '\t')
-);
+export default (): void =>
+    fs.writeFileSync(
+        './src/libraries.json',
+        JSON.stringify(librariesSorted, null, '\t')
+    );
