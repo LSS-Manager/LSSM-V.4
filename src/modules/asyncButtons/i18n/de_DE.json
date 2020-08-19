@@ -10,14 +10,21 @@
 		"missionReply": {
 			"title": "Rückmeldungen im Einsatz"
 		},
-		"caption": {
-			"title": "Titel in der Verbandsmitgliederliste"
-		},
-		"ranks": {
-			"title": "Bearbeiten der Ränge der Verbandsmitglieder"
-		},
-		"kick": {
-			"title": "Kicken von Verbandsmitgliedern"
+		"memberlistManageUser": {
+			"title": "Rechte von Verbandsmitgliedern",
+			"description": "Vehindert ein Neuladen, wenn du ein Verbandsmitglied rauswirfst oder seine Rechte bearbeitest"
 		}
-	}
+	},
+    "memberlistManageUser": {
+        "set": "setzen",
+        "unset": "entfernen"
+    },
+    "memberlistRoles": {
+        "admin": "Verbands-Admin",
+        "coadmin": "Verbands-Co-Admin",
+        "finance": "Finanzminister",
+        "sprechwunsch_admin": "Sprechwunsch-Admin",
+        "aufsichtsrat": "Aufsichtsrat",
+        "schooling": "Lehrgangsmeister"
+    }
 }

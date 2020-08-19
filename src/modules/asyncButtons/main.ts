@@ -19,17 +19,7 @@ import asyncMemberlist from './assets/memberlist';
                 default: false,
                 disabled: () => true,
             },
-            caption: {
-                type: 'toggle',
-                default: false,
-                disabled: () => true,
-            },
-            ranks: {
-                type: 'toggle',
-                default: false,
-                disabled: () => true,
-            },
-            kick: {
+            memberlistManageUser: {
                 type: 'toggle',
                 default: false,
             },
@@ -47,9 +37,6 @@ import asyncMemberlist from './assets/memberlist';
     const missions = ['missionPrisoners', 'missionReply'].filter(
         async s => await getSetting(s)
     );
-    const memberlist = ['caption', 'ranks', 'kick'].filter(
-        async s => await getSetting(s)
-    );
 
     if (
         window.location.pathname.match(/^\/buildings\/\d+\/?$/) &&
@@ -64,6 +51,9 @@ import asyncMemberlist from './assets/memberlist';
     )
         asyncMissions(LSSM, missions);
 
-    if (window.location.pathname.match(/^\/verband\/mitglieder\/\d+\/?$/))
-        asyncMemberlist(LSSM, memberlist);
+    if (
+        window.location.pathname.match(/^\/verband\/mitglieder(\/\d+)?\/?$/) &&
+        (await getSetting('memberlistManageUser'))
+    )
+        asyncMemberlist(LSSM);
 })((window[PREFIX] as unknown) as Vue);
