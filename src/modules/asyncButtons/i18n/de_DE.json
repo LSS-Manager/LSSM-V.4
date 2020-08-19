@@ -17,7 +17,13 @@
 	},
     "memberlistManageUser": {
         "set": "setzen",
-        "unset": "entfernen"
+        "unset": "entfernen",
+		"kickModal": {
+			"title": "Rauswerfen?",
+			"text": "Möchtest du den Spieler wirklich rauswerfen?",
+			"btnCancel": "Abbrechen",
+			"btnConfirm": "Rauswerfen"
+		}
     },
     "memberlistRoles": {
         "admin": "Verbands-Admin",
