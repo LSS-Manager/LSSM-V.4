@@ -78,7 +78,21 @@ export default (LSSM: Vue): void => {
     const unsetText = LSSM.$t(
         `modules.${MODULE_ID}.memberlistManageUser.unset`
     ).toString();
-    document.querySelectorAll('td [id^="rights_"]').forEach(holder => {
+    (document.querySelectorAll('td [id^="rights_"]') as NodeListOf<
+        HTMLDivElement
+    >).forEach(holder => {
+        const hideBtn = document.createElement('a');
+        hideBtn.classList.add('btn', 'btn-xs', 'btn-default');
+        hideBtn.href = '#';
+        hideBtn.textContent = LSSM.$t(
+            `modules.${MODULE_ID}.memberlistManageUser.hide`
+        ).toString();
+        hideBtn.onclick = () => {
+            $(holder).hide('fast');
+            if (holder.previousElementSibling)
+                $(holder.previousElementSibling).show('fast');
+        };
+        holder.prepend(hideBtn);
         const roleHolder = holder.parentElement?.parentElement?.querySelector(
             'td:nth-of-type(2) small'
         ) as HTMLElement | null;
@@ -92,6 +106,8 @@ export default (LSSM: Vue): void => {
             e.preventDefault();
             const t = e.target as HTMLAnchorElement | null;
             if (!t || t.tagName !== 'A') return;
+
+            t.removeAttribute('data-confirm');
 
             Array.from(t.parentElement?.children || []).forEach(childBtn => {
                 childBtn.classList.add('disabled');
@@ -110,12 +126,20 @@ export default (LSSM: Vue): void => {
                                 `modules.${MODULE_ID}.memberlistManageUser.kickModal.btnCancel`
                             ),
                             default: true,
+                            handler() {
+                                Array.from(
+                                    t.parentElement?.children || []
+                                ).forEach(childBtn => {
+                                    childBtn.classList.remove('disabled');
+                                });
+                                LSSM.$modal.hide('dialog');
+                            },
                         },
                         {
                             title: LSSM.$t(
                                 `modules.${MODULE_ID}.memberlistManageUser.kickModal.btnConfirm`
                             ),
-                            handler: () => {
+                            handler() {
                                 storeDispatch(roleHolder, rights, t);
                                 LSSM.$modal.hide('dialog');
                             },

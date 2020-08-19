@@ -1,4 +1,23 @@
 {
+	"memberlistManageUser": {
+		"set": "setzen",
+		"unset": "entfernen",
+		"hide": "Schließen",
+		"kickModal": {
+			"title": "Rauswerfen?",
+			"text": "Möchtest du den Spieler wirklich rauswerfen?",
+			"btnCancel": "Abbrechen",
+			"btnConfirm": "Rauswerfen"
+		}
+	},
+	"memberlistRoles": {
+		"admin": "Verbands-Admin",
+		"coadmin": "Verbands-Co-Admin",
+		"finance": "Finanzminister",
+		"sprechwunsch_admin": "Sprechwunsch-Admin",
+		"aufsichtsrat": "Aufsichtsrat",
+		"schooling": "Lehrgangsmeister"
+	},
 	"settings": {
 		"buildingTax": {
 			"description": "Verhindert ein Neuladen, wenn du die Kosten von eigenen Zellen oder Krankenhausbetten festlegst.",
@@ -14,23 +33,5 @@
 			"title": "Rechte von Verbandsmitgliedern",
 			"description": "Vehindert ein Neuladen, wenn du ein Verbandsmitglied rauswirfst oder seine Rechte bearbeitest"
 		}
-	},
-    "memberlistManageUser": {
-        "set": "setzen",
-        "unset": "entfernen",
-		"kickModal": {
-			"title": "Rauswerfen?",
-			"text": "Möchtest du den Spieler wirklich rauswerfen?",
-			"btnCancel": "Abbrechen",
-			"btnConfirm": "Rauswerfen"
-		}
-    },
-    "memberlistRoles": {
-        "admin": "Verbands-Admin",
-        "coadmin": "Verbands-Co-Admin",
-        "finance": "Finanzminister",
-        "sprechwunsch_admin": "Sprechwunsch-Admin",
-        "aufsichtsrat": "Aufsichtsrat",
-        "schooling": "Lehrgangsmeister"
-    }
+	}
 }

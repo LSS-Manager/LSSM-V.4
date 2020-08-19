@@ -20,6 +20,9 @@
 	"@types/i18n-js": {
 		"version": "3.0.3"
 	},
+	"@types/jquery": {
+		"version": "3.5.1"
+	},
 	"@types/leaflet": {
 		"version": "1.5.17"
 	},
