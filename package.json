@@ -1,5 +1,5 @@
 {
-    "version": "4.0.5+20200817.2204",
+    "version": "4.0.5+20200819.0919",
     "license": "CC-BY-NC-SA-4.0",
     "scripts": {
         "predev": "tsc -b scripts && node scripts predev",
@@ -60,7 +60,7 @@
         "sass": "^1.26.10",
         "sass-loader": "^9.0.2",
         "string-replace-loader": "^2.3.0",
-        "terser": "^4.8.0",
+        "terser": "^5.2.0",
         "ts-loader": "^8.0.1",
         "tslint": "^6.1.2",
         "typescript": "^3.9.7",
@@ -74,6 +74,10 @@
         "webpack": "^4.43.0",
         "webpack-cli": "^3.3.12",
         "webpack-loader-append-prepend": "^1.0.2"
+    },
+    "engines": {
+        "node": ">=12.18.3",
+        "npm": ">=6.14.6"
     },
     "prettier": {
         "endOfLine": "lf",

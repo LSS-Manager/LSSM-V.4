@@ -137,7 +137,7 @@
 	"terser": {
 		"icon": "https://terser.org/img/terser-square-logo.png",
 		"url": "https://terser.org",
-		"version": "4.8.0"
+		"version": "5.2.0"
 	},
 	"ts-loader": {
 		"url": "https://github.com/TypeStrong/ts-loader",
