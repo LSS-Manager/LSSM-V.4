@@ -325,7 +325,7 @@ export default Vue.extend<
                     maxPersonnel: {
                         title: this.$m('titles.vehicles.maxPersonnel'),
                     },
-                    credits: { title: this.$m('titles.vehicles.cost') },
+                    cost: { title: this.$m('titles.vehicles.cost') },
                     schooling: { title: this.$m('titles.vehicles.schooling') },
                     wtank:
                         this.$store.state.lang === 'de_DE'
@@ -348,7 +348,7 @@ export default Vue.extend<
             buildingsTab: {
                 head: {
                     caption: { title: this.$m('titles.buildings.caption') },
-                    credits: { title: this.$m('titles.buildings.cost') },
+                    cost: { title: this.$m('titles.buildings.cost') },
                     maxLevel: { title: this.$m('titles.buildings.maxLevel') },
                     levelcost: { title: this.$m('titles.buildings.levelcost') },
                     startPersonnel: {
