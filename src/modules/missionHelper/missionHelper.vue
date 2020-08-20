@@ -140,6 +140,20 @@
                 >
                     {{ $m('patients.helicopter') }}
                 </li>
+                <li
+                    v-if="
+                        missionSpecs.additional
+                            .patient_allow_first_responder_chance
+                    "
+                    :data-amount="
+                        `${missionSpecs.additional.patient_allow_first_responder_chance}%`
+                    "
+                >
+                    {{ $m('patients.patient_allow_first_responder_chance') }}
+                </li>
+                <li v-if="missionSpecs.additional.allow_ktw_instead_of_rtw">
+                    {{ $m('patient.allow_ktw_instead_of_rtw') }}
+                </li>
                 <li v-if="missionSpecs.additional.patient_at_end_of_mission">
                     <b>
                         {{
@@ -347,12 +361,15 @@ export default Vue.extend<
                 },
                 optionalAlternatives: {
                     allow_rw_instead_of_lf: true,
+                    allow_arff_instead_of_lf: true,
                 },
                 patients: {
                     title: true,
                     content: true,
                     live: true,
                     hideWhenNoNeed: true,
+                    allow_ktw_instead_of_rtw: true,
+                    patient_allow_first_responder_chance: true,
                 },
                 prisoners: {
                     title: true,

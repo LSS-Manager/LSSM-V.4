@@ -15,7 +15,9 @@
 		"possible_patient_min": "Patient mindestens | Patienten mindestens",
 		"specializations": "Fachrichtung",
 		"title": "Patienten | {n} Patient | {n} Patienten",
-		"possible_patient_exact": "genau {n} Patient | genau {n} Patienten"
+		"possible_patient_exact": "genau {n} Patient | genau {n} Patienten",
+		"patient_allow_first_responder_chance": "First Responder Wahrscheinlichkeit",
+		"allow_ktw_instead_of_rtw": "Es kann ein KTW anstelle eines RTW genutzt werden."
 	},
 	"prerequisites": {
 		"bereitschaftspolizei": "Bereitschaftspolizei-Standort | Bereitschaftspolizei-Standorte",
@@ -111,6 +113,14 @@
 			"title": {
 				"description": "Zeigt die Überschrift \"Patienten\" über den Details über mögliche Patienten an.",
 				"title": "Patienten (Titel)"
+			},
+			"allow_ktw_instead_of_rtw": {
+				"description": "Zeigt ob ein KTW anstatt eines RTWs genutzt werden kann.",
+				"title": "KTW statt RTW"
+			},
+			"patient_allow_first_responder_chance": {
+				"description": "Zeigt mit wieviel % ein beliebiges Fahrzeug zum behandeln ausreicht.",
+				"title": "First Responder Wahrscheinlichkeit"
 			}
 		},
 		"place": {
@@ -185,6 +195,7 @@
 			"hazmat_vehicles": "GW-Gefahrgut",
 			"heavy_rescue_vehicles": "Rüstwagen",
 			"height_rescue_units": "GW-Höhenrettung",
+			"k9": "DHuFüKW",
 			"lebefkw": "leBefKw",
 			"mek": "MEK-Fahrzeug | MEK-Fahrzeuge",
 			"mobile_air_vehicles": "GW-Atemschutz",
@@ -229,6 +240,9 @@
 		"optional_alternatives": {
 			"allow_rw_instead_of_lf": {
 				"firetrucks": "Löschfahrzeug oder Rüstwagen oder GKW | Löschfahrzeuge oder Rüstwagen oder GKW"
+			},
+			"allow_arff_instead_of_lf": {
+				"firetrucks": "Löschfahrzeug oder Fluglöschfahrzeug | Löschfahrzeuge oder Fluglöschfahrzeuge"
 			}
 		},
 		"patient_additionals": {
