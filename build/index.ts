@@ -122,7 +122,9 @@ const entries = Object.entries(config.games)
                     )
                     .map(module => {
                         modulesEntry.module?.rules.unshift({
-                            test: new RegExp(`modules/${module}/main.ts$`),
+                            test: new RegExp(
+                                `modules[\\\\/]+${module}[\\\\/]+main.ts$`
+                            ),
                             use: [
                                 {
                                     loader: 'webpack-loader-append-prepend',
@@ -142,10 +144,7 @@ const entries = Object.entries(config.games)
                                                         config.prefix
                                                     )}].$i18n.mergeLocaleMessage(${JSON.stringify(
                                                         loca
-                                                    )},{modules:{${module}: require(\`${path.resolve(
-                                                        __dirname,
-                                                        `../src/modules/${module}/i18n/${loca}`
-                                                    )}\`),},});`
+                                                    )},{modules:{${module}: require(\`../${module}/i18n/${loca}\`),},});`
                                             )
                                             .join('\n'),
                                     },
@@ -154,7 +153,7 @@ const entries = Object.entries(config.games)
                         });
                         modulesEntry.module?.rules.push({
                             test: new RegExp(
-                                `modules/${module}/.*\\.(ts|vue)$`
+                                `modules[\\\\/]+${module}[\\\\/]+.*\\.(ts|vue)$`
                             ),
                             loader: 'string-replace-loader',
                             query: {
