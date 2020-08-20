@@ -2,6 +2,20 @@ import { Config } from '../typings/Config';
 
 export default {
     admins: ['de_DE-205976', 'de_DE-675'],
+    browser: {
+        chrome: {
+            latest: 84,
+            supported: 84,
+        },
+        firefox: {
+            latest: 79,
+            supported: 79,
+        },
+        opera: {
+            latest: 70,
+            supported: 70,
+        },
+    },
     discord: 'https://discord.gg/RcTNjpB',
     discord_support:
         'https://discordapp.com/channels/254167535446917120/607913643140579348',
