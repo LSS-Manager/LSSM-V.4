@@ -95,6 +95,10 @@
 			"allow_arff_instead_of_lf": {
 				"description": "Zeigt an, wenn statt eines LF auch FLF am Einsatzort möglich sind.",
 				"title": "Anzeigen, wenn FLF als LF erlaubt sind"
+			},
+			"allow_ktw_instead_of_rtw": {
+				"description": "Zeigt ob ein KTW anstatt eines RTWs genutzt werden kann.",
+				"title": "KTW statt RTW"
 			}
 		},
 		"patients": {
@@ -113,10 +117,6 @@
 			"title": {
 				"description": "Zeigt die Überschrift \"Patienten\" über den Details über mögliche Patienten an.",
 				"title": "Patienten (Titel)"
-			},
-			"allow_ktw_instead_of_rtw": {
-				"description": "Zeigt ob ein KTW anstatt eines RTWs genutzt werden kann.",
-				"title": "KTW statt RTW"
 			},
 			"patient_allow_first_responder_chance": {
 				"description": "Zeigt mit wieviel % ein beliebiges Fahrzeug zum behandeln ausreicht.",
@@ -181,7 +181,7 @@
 	},
 	"vehicles": {
 		"captions": {
-			"ambulances": "RTW oder KTW oder KTW Typ B",
+			"ambulances": "RTW",
 			"arff": "FLF",
 			"battalion_chief_vehicles": "ELW 1",
 			"boats": "Boot | Boote",
@@ -210,6 +210,7 @@
 			"police_helicopters": "Polizeihubschauber",
 			"rescue_dog_units": "Rettungshundestaffel | Rettungshundestaffeln",
 			"rettungstreppe": "Rettungstreppe | Rettungstreppen",
+			"seg_elw": "ELW 1 (SEG)",
 			"sek": "SEK-Fahrzeug | SEK-Fahrzeuge",
 			"teleskopmast": "Teleskopmast | Teleskopmasten",
 			"thw_brmg_r": "BRmG R",
@@ -248,6 +249,9 @@
 			},
 			"allow_arff_instead_of_lf": {
 				"firetrucks": "Löschfahrzeug oder Flugfeldlöschfahrzeug | Löschfahrzeuge oder Flugfeldlöschfahrzeuge"
+			},
+			"allow_ktw_instead_of_rtw": {
+				"ambulances": "RTW oder KTW oder KTW Typ B"
 			}
 		},
 		"patient_additionals": {

@@ -55,7 +55,6 @@ export interface MissionHelper {
             content: boolean;
             live: boolean;
             hideWhenNoNeed: boolean;
-            allow_ktw_instead_of_rtw: boolean;
             patient_allow_first_responder_chance: boolean;
         };
         prisoners: {
