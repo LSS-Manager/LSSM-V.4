@@ -143,7 +143,9 @@
                 <li
                     v-if="
                         missionSpecs.additional
-                            .patient_allow_first_responder_chance
+                            .patient_allow_first_responder_chance &&
+                            settings.patients
+                                .patient_allow_first_responder_chance
                     "
                     :data-amount="
                         `${missionSpecs.additional.patient_allow_first_responder_chance}%`
@@ -151,8 +153,14 @@
                 >
                     {{ $m('patients.patient_allow_first_responder_chance') }}
                 </li>
-                <li v-if="missionSpecs.additional.allow_ktw_instead_of_rtw">
-                    {{ $m('patient.allow_ktw_instead_of_rtw') }}
+                <li
+                    v-if="
+                        missionSpecs.additional.allow_ktw_instead_of_rtw &&
+                            settings.optionalAlternatives
+                                .allow_ktw_instead_of_rtw
+                    "
+                >
+                    {{ $m('patients.allow_ktw_instead_of_rtw') }}
                 </li>
                 <li v-if="missionSpecs.additional.patient_at_end_of_mission">
                     <b>
@@ -362,13 +370,13 @@ export default Vue.extend<
                 optionalAlternatives: {
                     allow_rw_instead_of_lf: true,
                     allow_arff_instead_of_lf: true,
+                    allow_ktw_instead_of_rtw: true,
                 },
                 patients: {
                     title: true,
                     content: true,
                     live: true,
                     hideWhenNoNeed: true,
-                    allow_ktw_instead_of_rtw: true,
                     patient_allow_first_responder_chance: true,
                 },
                 prisoners: {
@@ -423,6 +431,7 @@ export default Vue.extend<
             Object.keys(this.missionSpecs?.requirements || {})
                 .filter(req => !this.noVehicleRequirements.includes(req))
                 .forEach(vehicle => {
+                    console.log(vehicle);
                     let percentage = this.missionSpecs?.chances[vehicle] || 100;
                     if (
                         (percentage === 100 && !this.settings.chances['100']) ||
