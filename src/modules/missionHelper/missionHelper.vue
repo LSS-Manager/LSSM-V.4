@@ -428,9 +428,17 @@ export default Vue.extend<
                         (percentage > 0 && !this.settings.chances.normal)
                     )
                         percentage = 0;
+                    let vehicleName = vehicle;
+                    if (
+                        vehicle === 'k9' &&
+                        this.missionSpecs?.additional
+                            .need_k9_only_if_guard_dogs_present &&
+                        this.settings.k9_only_if_needed
+                    )
+                        vehicleName = 'k9_only_if_needed';
                     vehicles[vehicle] = {
                         caption: this.$mc(
-                            `vehicles.captions.${vehicle}`,
+                            `vehicles.captions.${vehicleName}`,
                             this.missionSpecs?.requirements[vehicle] || 0
                         ).toString(),
                         amount: this.missionSpecs?.requirements[vehicle] || 0,
