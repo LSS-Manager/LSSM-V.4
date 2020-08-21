@@ -173,6 +173,10 @@
 				"description": "Zeigt die Überschrift \"Fahrzeuge\" über den Fahrzeuganforderungen an.",
 				"title": "Fahrzeuge (Titel)"
 			}
+		},
+		"k9_only_if_needed": {
+			"description": "Zeigt an, wenn der DHuFüKW nur gefordert wird, wenn vorhanden.",
+			"title": "Optionale Diensthunde"
 		}
 	},
 	"vehicles": {
@@ -196,6 +200,7 @@
 			"heavy_rescue_vehicles": "Rüstwagen",
 			"height_rescue_units": "GW-Höhenrettung",
 			"k9": "DHuFüKW",
+			"k9_only_if_needed": "DHuFüKW (nur, wenn aktiver Ausbau vorhanden)",
 			"lebefkw": "leBefKw",
 			"mek": "MEK-Fahrzeug | MEK-Fahrzeuge",
 			"mobile_air_vehicles": "GW-Atemschutz",
