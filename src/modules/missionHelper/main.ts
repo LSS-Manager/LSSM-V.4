@@ -150,6 +150,10 @@ import missionHelper from './missionHelper.vue';
                 type: 'hidden',
                 default: false,
             },
+            'k9_only_if_needed': {
+                type: 'toggle',
+                default: false,
+            },
         },
     });
 
