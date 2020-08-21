@@ -279,16 +279,9 @@ export default (LSSM: Vue, specs: boolean, time: boolean): void => {
         .then();
 
     let currentTimeout = null as number | null;
-
-    const closeHandler = (arr: HTMLAnchorElement) => () => {
-        if (currentTimeout) {
-            window.clearTimeout(currentTimeout);
-            window.setTimeout(() => {
-                arr.removeEventListener('mouseleave', closeHandler(arr));
-                infoBox.classList.add('hidden');
-            }, 100);
-        }
-    };
+    let infoBoxHovered = false;
+    infoBox.addEventListener('mouseover', () => (infoBoxHovered = true));
+    infoBox.addEventListener('mouseout', () => (infoBoxHovered = false));
 
     const handle = (arr: HTMLAnchorElement) => {
         arr.removeAttribute('title');
@@ -298,7 +291,6 @@ export default (LSSM: Vue, specs: boolean, time: boolean): void => {
         arr.append(infoBox);
         window.aao_available(arrId, time);
         infoBox.classList.remove('hidden');
-        arr.addEventListener('mouseleave', closeHandler(arr));
     };
 
     ARRContainer.addEventListener('mouseover', e => {
@@ -309,13 +301,19 @@ export default (LSSM: Vue, specs: boolean, time: boolean): void => {
             currentTimeout = window.setTimeout(() => handle(target), 500);
     });
 
-    ARRContainer.addEventListener('mouseleave', e => {
+    ARRContainer.addEventListener('mouseout', e => {
         const target = (e.target as HTMLElement)?.closest(
             `.aao, .vehicle_group, #${infoBox.id}`
         ) as HTMLAnchorElement | null;
-        if (target && currentTimeout) {
-            window.clearTimeout(currentTimeout);
-            window.setTimeout(() => infoBox.classList.add('hidden'), 100);
+        if (!target) return;
+        if (currentTimeout) window.clearTimeout(currentTimeout);
+        if (!infoBoxHovered) {
+            const hideInterval = window.setInterval(() => {
+                if (!infoBoxHovered) {
+                    infoBox.classList.add('hidden');
+                    clearInterval(hideInterval);
+                }
+            }, 100);
         }
     });
 };
