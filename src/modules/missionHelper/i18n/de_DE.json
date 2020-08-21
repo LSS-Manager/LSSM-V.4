@@ -242,7 +242,7 @@
 				"firetrucks": "Löschfahrzeug oder Rüstwagen oder GKW | Löschfahrzeuge oder Rüstwagen oder GKW"
 			},
 			"allow_arff_instead_of_lf": {
-				"firetrucks": "Löschfahrzeug oder Fluglöschfahrzeug | Löschfahrzeuge oder Fluglöschfahrzeuge"
+				"firetrucks": "Löschfahrzeug oder Flugfeldlöschfahrzeug | Löschfahrzeuge oder Flugfeldlöschfahrzeuge"
 			}
 		},
 		"patient_additionals": {
