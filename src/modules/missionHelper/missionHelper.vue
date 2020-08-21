@@ -431,7 +431,6 @@ export default Vue.extend<
             Object.keys(this.missionSpecs?.requirements || {})
                 .filter(req => !this.noVehicleRequirements.includes(req))
                 .forEach(vehicle => {
-                    console.log(vehicle);
                     let percentage = this.missionSpecs?.chances[vehicle] || 100;
                     if (
                         (percentage === 100 && !this.settings.chances['100']) ||
