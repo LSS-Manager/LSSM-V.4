@@ -380,6 +380,7 @@ export default Vue.extend<
                 credits: true,
                 expansions: true,
                 followup: true,
+                k9_only_if_needed: true,
             },
             noVehicleRequirements: Object.values(
                 this.$m('noVehicleRequirements')
