@@ -152,7 +152,7 @@
 	},
 	"typescript": {
 		"url": "https://www.typescriptlang.org/",
-		"version": "3.9.7"
+		"version": "4.0.2"
 	},
 	"ua-parser-js": {
 		"icon": "https://raw.githubusercontent.com/faisalman/ua-parser-js/gh-pages/images/logo.png",
