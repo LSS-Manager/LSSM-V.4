@@ -60,6 +60,10 @@
 		"url": "https://github.com/vuejs/vuepress/blob/master/packages/@vuepress/back-to-top#readme",
 		"version": "1.5.3"
 	},
+	"broadcast-channel": {
+		"url": "https://github.com/pubkey/broadcast-channel#readme",
+		"version": "3.1.0"
+	},
 	"cache-loader": {
 		"url": "https://github.com/webpack-contrib/cache-loader",
 		"version": "4.1.0"

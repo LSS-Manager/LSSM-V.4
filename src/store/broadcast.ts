@@ -1,6 +1,7 @@
 import { RootState } from '../../typings/store/RootState';
 import { ActionTree, Module } from 'vuex';
 import { BroadcastChannel, createLeaderElection } from 'broadcast-channel';
+import { BroadcastActionStoreParams } from 'typings/store/broadcast/Actions';
 
 const STORAGE_NAME_KEY = `${PREFIX}_windowname`;
 
@@ -12,8 +13,6 @@ const leader_elector = createLeaderElection(channel);
 leader_elector
     .awaitLeadership()
     .then(() => sessionStorage.setItem(STORAGE_NAME_KEY, 'leader'));
-
-console.log(channel);
 
 channel.addEventListener('message', msg => {
     console.log(`channel{${channel.name}}<${channel.type}> received msg:`, msg);
@@ -34,8 +33,34 @@ channel.addEventListener('message', msg => {
                 ),
             },
         });
+    } else if (msg.type === 'vuex_broadcast') {
+        (window[PREFIX] as Vue).$store.commit(
+            msg.data.mutationPath,
+            msg.data.payload,
+            { root: true }
+        );
     }
 });
+
+const sendRequest = <T extends BroadcastRequestMessageType>(
+    type: T['type'],
+    data: T['data'],
+    receiver = '*'
+) =>
+    channel.postMessage({
+        type,
+        sender: getWindowName(),
+        receiver,
+        data,
+    } as T);
+
+const broadcast = (data: VuexBroadcastMessage['data']) =>
+    channel.postMessage({
+        type: 'vuex_broadcast',
+        sender: getWindowName(),
+        receiver: '*',
+        data,
+    } as VuexBroadcastMessage);
 
 if (getWindowName() !== 'leader') {
     const collected_names = [] as string[];
@@ -48,32 +73,32 @@ if (getWindowName() !== 'leader') {
         );
     channel.addEventListener('message', name_receiver_handler);
 
-    channel
-        .postMessage({
-            type: 'var_request',
-            sender: getWindowName(),
-            receiver: '*',
-            data: {
-                variablePath: `sessionStorage.${STORAGE_NAME_KEY}`,
-            },
-        })
-        .then(() => {
-            window.setTimeout(() => {
-                channel.removeEventListener('message', name_receiver_handler);
-                sessionStorage.setItem(
-                    STORAGE_NAME_KEY,
-                    `unnamed_${Math.max(
-                        0,
-                        ...collected_names
-                            .map(n => parseInt(n.replace(/^unnamed_/, '')))
-                            .filter(n => !Number.isNaN(n))
-                    ) + 1}`
-                );
-            }, 1000);
-        });
+    sendRequest('var_request', {
+        variablePath: `sessionStorage.${STORAGE_NAME_KEY}`,
+    }).then(() => {
+        window.setTimeout(() => {
+            channel.removeEventListener('message', name_receiver_handler);
+            sessionStorage.setItem(
+                STORAGE_NAME_KEY,
+                `unnamed_${Math.max(
+                    0,
+                    ...collected_names
+                        .map(n => parseInt(n.replace(/^unnamed_/, '')))
+                        .filter(n => !Number.isNaN(n))
+                ) + 1}`
+            );
+        }, 1000);
+    });
 }
 
 export default {
     namespaced: true,
-    actions: {} as ActionTree<RootState, RootState>,
+    actions: {
+        broadcast(
+            _: BroadcastActionStoreParams,
+            { mutationPath, payload }: VuexBroadcastMessage['data']
+        ) {
+            return broadcast({ mutationPath, payload });
+        },
+    } as ActionTree<RootState, RootState>,
 } as Module<RootState, RootState>;

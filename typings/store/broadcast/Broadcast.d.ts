@@ -17,7 +17,8 @@ interface VarRequestBroadcastMessage extends BroadcastMessage {
     };
 }
 
-interface VarResponseBroadcastMessage<returnType = unknown> extends BroadcastMessage {
+interface VarResponseBroadcastMessage<returnType = unknown>
+    extends BroadcastMessage {
     type: 'var_response';
     data: {
         variablePath: string;
@@ -44,9 +45,13 @@ interface VuexBroadcastMessage extends BroadcastMessage {
     type: 'vuex_broadcast';
     data: {
         mutationPath: string;
-        value: unknown;
+        payload: unknown;
     };
 }
+
+type BroadcastRequestMessageType =
+    | VarRequestBroadcastMessage
+    | VuexRequestBroadcastMessage;
 
 type BroadcastMessageType =
     | VarRequestBroadcastMessage

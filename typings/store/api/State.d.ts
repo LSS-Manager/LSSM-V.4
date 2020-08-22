@@ -16,6 +16,7 @@ export type StorageAPIKey = keyof StorageAPIs;
 export type StorageGetterReturn<T extends StorageAPIKey> = {
     value: StorageAPIs[T] | null;
     lastUpdate: number;
+    user_id: number;
 };
 
 export interface APIState extends StorageAPIs {
