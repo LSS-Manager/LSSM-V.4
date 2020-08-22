@@ -77,6 +77,15 @@ import missionHelper from './missionHelper.vue';
                 default: false,
                 dependsOn: '.vehicles.content',
             },
+            'optionalAlternatives.allow_ktw_instead_of_rtw': {
+                type: 'toggle',
+                default: true,
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
+                disabled: (settings): boolean =>
+                    !settings[MODULE_ID]['patients.content'].value &&
+                    !settings[MODULE_ID]['vehicles.content'].value,
+            },
             'patients.title': {
                 type: 'toggle',
                 default: true,
@@ -97,13 +106,10 @@ import missionHelper from './missionHelper.vue';
                       },
                   }
                 : null),
-            'patients.allow_ktw_instead_of_rtw': {
-                type: 'toggle',
-                default: true,
-            },
             'patients.patient_allow_first_responder_chance': {
                 type: 'toggle',
                 default: true,
+                dependsOn: '.patients.content',
             },
             'patients.hideWhenNoNeed': {
                 type: 'toggle',
@@ -148,6 +154,10 @@ import missionHelper from './missionHelper.vue';
             },
             'minified': {
                 type: 'hidden',
+                default: false,
+            },
+            'k9_only_if_needed': {
+                type: 'toggle',
                 default: false,
             },
         },
