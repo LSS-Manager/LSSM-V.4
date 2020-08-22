@@ -489,11 +489,18 @@ export default Vue.extend<
                         this.missionSpecs.additional[alt]
                     )
                         return Object.keys(optionalAlternatives[alt]).forEach(
-                            rep =>
-                                (vehicles[rep].caption = this.$mc(
+                            rep => {
+                                if (
+                                    !this.missionSpecs?.requirements.hasOwnProperty(
+                                        rep
+                                    )
+                                )
+                                    return;
+                                vehicles[rep].caption = this.$mc(
                                     `vehicles.optional_alternatives.${alt}.${rep}`,
                                     vehicles[rep].amount
-                                ).toString())
+                                ).toString();
+                            }
                         );
                 });
             }
