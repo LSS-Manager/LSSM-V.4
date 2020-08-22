@@ -1,6 +1,7 @@
 import asyncBuildings from './assets/buildings';
 import asyncMissions from './assets/missions';
 import asyncMemberlist from './assets/memberlist';
+import asyncForumPost from './assets/forumpost';
 
 (async (LSSM: Vue) => {
     await LSSM.$store.dispatch('settings/register', {
@@ -20,6 +21,10 @@ import asyncMemberlist from './assets/memberlist';
                 disabled: () => true,
             },
             memberlistManageUser: {
+                type: 'toggle',
+                default: false,
+            },
+            deleteForumPost: {
                 type: 'toggle',
                 default: false,
             },
@@ -56,4 +61,11 @@ import asyncMemberlist from './assets/memberlist';
         (await getSetting('memberlistManageUser'))
     )
         asyncMemberlist(LSSM);
+    if (
+        window.location.pathname.match(
+            /^\/alliance_threads\/\d+\/?(\?page=\d+)?$/
+        ) &&
+        (await getSetting('deleteForumPost'))
+    )
+        asyncForumPost(LSSM);
 })((window[PREFIX] as unknown) as Vue);
