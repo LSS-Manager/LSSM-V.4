@@ -391,5 +391,7 @@ module.exports = {
                 vehicleTypes: [63, 64, 70],
             },
         ],
+        allTab: 'Alle',
+        occupiedTab: 'Weiteralarmieren',
     },
 };
