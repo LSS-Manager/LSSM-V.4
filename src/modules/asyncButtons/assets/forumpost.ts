@@ -43,14 +43,14 @@ export default (LSSM: Vue): void => {
                                 .dispatch('api/request', {
                                     url: btn.getAttribute('href'),
                                     init: {
-                                        method: 'DELETE',
-                                    },
-                                    body: {
-                                        authenticity_token: document
-                                            .querySelector(
-                                                'meta[name="csrf-token"]'
-                                            )
-                                            ?.getAttribute('content'),
+                                        method: 'POST',
+                                        body: new URLSearchParams(
+                                            `_method=delete&authenticity_token=${document
+                                                .querySelector(
+                                                    'meta[name="csrf-token"]'
+                                                )
+                                                ?.getAttribute('content')}`
+                                        ),
                                     },
                                 })
                                 .then(({ status }) => {
