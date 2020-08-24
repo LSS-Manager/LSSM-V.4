@@ -59,6 +59,7 @@ export default (
     if (!occupiedTab) {
         occupiedTab = document.createElement('li');
         occupiedTab.setAttribute('role', 'presentation');
+        occupiedTab.classList.add('hidden');
         const occupiedTabA = document.createElement('a');
         occupiedTabA.setAttribute('href', '#occupied');
         occupiedTabA.setAttribute('tabload', 'occupied');

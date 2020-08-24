@@ -190,6 +190,6 @@ import stickyHeader from './assets/stickyHeader';
     const tailoredTabSettings = await getSetting<typeof defaultTailoredTabs>(
         'tailoredTabs'
     );
-    if (!isEqual(tailoredTabSettings, defaultTailoredTabs))
+    if (!isEqual(tailoredTabSettings, defaultTailoredTabs) || missionMode)
         tailoredTabs(LSSM, tailoredTabSettings, missionMode);
 })(window[PREFIX] as Vue);
