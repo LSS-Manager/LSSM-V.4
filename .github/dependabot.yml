@@ -11,4 +11,4 @@ updates:
         include: "scope"
     reviewers:
       - "KBOE2"
-    target_branch: "dev"
+    target-branch: "dev"
