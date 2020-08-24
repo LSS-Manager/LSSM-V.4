@@ -121,6 +121,14 @@ import stickyHeader from './assets/stickyHeader';
                     vehicleTypes: [],
                 },
             },
+            overlay: {
+                type: 'hidden',
+                default: false,
+            },
+            minified: {
+                type: 'hidden',
+                default: false,
+            },
         },
     });
 
