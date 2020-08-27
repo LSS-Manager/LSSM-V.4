@@ -3,6 +3,7 @@ import { Games } from './Game';
 interface Browser {
     latest: number;
     supported: number;
+    download: string;
 }
 
 export interface Config {

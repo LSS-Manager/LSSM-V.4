@@ -6,14 +6,22 @@ export default {
         chrome: {
             latest: 84,
             supported: 84,
+            download: 'https://chrome.com',
         },
         firefox: {
             latest: 79,
             supported: 79,
+            download: 'https://firefox.com',
         },
         opera: {
             latest: 70,
             supported: 70,
+            download: 'https://opera.com',
+        },
+        safari: {
+            latest: 13,
+            supported: 13,
+            download: 'https://apple.com/safari/',
         },
     },
     discord: 'https://discord.gg/RcTNjpB',
