@@ -140,6 +140,28 @@
                 >
                     {{ $m('patients.helicopter') }}
                 </li>
+                <li
+                    v-if="
+                        missionSpecs.additional
+                            .patient_allow_first_responder_chance &&
+                            settings.patients
+                                .patient_allow_first_responder_chance
+                    "
+                    :data-amount="
+                        `${missionSpecs.additional.patient_allow_first_responder_chance}%`
+                    "
+                >
+                    {{ $m('patients.patient_allow_first_responder_chance') }}
+                </li>
+                <li
+                    v-if="
+                        missionSpecs.additional.allow_ktw_instead_of_rtw &&
+                            settings.optionalAlternatives
+                                .allow_ktw_instead_of_rtw
+                    "
+                >
+                    {{ $m('patients.allow_ktw_instead_of_rtw') }}
+                </li>
                 <li v-if="missionSpecs.additional.patient_at_end_of_mission">
                     <b>
                         {{
@@ -347,12 +369,15 @@ export default Vue.extend<
                 },
                 optionalAlternatives: {
                     allow_rw_instead_of_lf: true,
+                    allow_arff_instead_of_lf: true,
+                    allow_ktw_instead_of_rtw: true,
                 },
                 patients: {
                     title: true,
                     content: true,
                     live: true,
                     hideWhenNoNeed: true,
+                    patient_allow_first_responder_chance: true,
                 },
                 prisoners: {
                     title: true,
@@ -363,6 +388,7 @@ export default Vue.extend<
                 credits: true,
                 expansions: true,
                 followup: true,
+                k9_only_if_needed: true,
             },
             noVehicleRequirements: Object.values(
                 this.$m('noVehicleRequirements')
@@ -411,9 +437,17 @@ export default Vue.extend<
                         (percentage > 0 && !this.settings.chances.normal)
                     )
                         percentage = 0;
+                    let vehicleName = vehicle;
+                    if (
+                        vehicle === 'k9' &&
+                        this.missionSpecs?.additional
+                            .need_k9_only_if_guard_dogs_present &&
+                        this.settings.k9_only_if_needed
+                    )
+                        vehicleName = 'k9_only_if_needed';
                     vehicles[vehicle] = {
                         caption: this.$mc(
-                            `vehicles.captions.${vehicle}`,
+                            `vehicles.captions.${vehicleName}`,
                             this.missionSpecs?.requirements[vehicle] || 0
                         ).toString(),
                         amount: this.missionSpecs?.requirements[vehicle] || 0,
@@ -455,11 +489,18 @@ export default Vue.extend<
                         this.missionSpecs.additional[alt]
                     )
                         return Object.keys(optionalAlternatives[alt]).forEach(
-                            rep =>
-                                (vehicles[rep].caption = this.$mc(
+                            rep => {
+                                if (
+                                    !this.missionSpecs?.requirements.hasOwnProperty(
+                                        rep
+                                    )
+                                )
+                                    return;
+                                vehicles[rep].caption = this.$mc(
                                     `vehicles.optional_alternatives.${alt}.${rep}`,
                                     vehicles[rep].amount
-                                ).toString())
+                                ).toString();
+                            }
                         );
                 });
             }

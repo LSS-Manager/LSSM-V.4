@@ -131,7 +131,7 @@
 	"sass-loader": {
 		"icon": "https://webpack.js.org/assets/icon-square-big.svg",
 		"url": "https://github.com/webpack-contrib/sass-loader",
-		"version": "9.0.3"
+		"version": "10.0.1"
 	},
 	"string-replace-loader": {
 		"url": "https://github.com/Va1/string-replace-loader",
@@ -152,7 +152,7 @@
 	},
 	"typescript": {
 		"url": "https://www.typescriptlang.org/",
-		"version": "3.9.7"
+		"version": "4.0.2"
 	},
 	"ua-parser-js": {
 		"icon": "https://raw.githubusercontent.com/faisalman/ua-parser-js/gh-pages/images/logo.png",
@@ -191,7 +191,7 @@
 	},
 	"vue-responsive-dash": {
 		"url": "https://vue-responsive-dash.netlify.com",
-		"version": "0.4.3"
+		"version": "0.5.0"
 	},
 	"vue-select": {
 		"icon": "https://vuejs.org/images/logo.png",

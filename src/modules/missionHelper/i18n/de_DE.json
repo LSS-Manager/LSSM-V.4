@@ -15,7 +15,9 @@
 		"possible_patient_min": "Patient mindestens | Patienten mindestens",
 		"specializations": "Fachrichtung",
 		"title": "Patienten | {n} Patient | {n} Patienten",
-		"possible_patient_exact": "genau {n} Patient | genau {n} Patienten"
+		"possible_patient_exact": "genau {n} Patient | genau {n} Patienten",
+		"patient_allow_first_responder_chance": "First Responder Wahrscheinlichkeit",
+		"allow_ktw_instead_of_rtw": "Es kann ein KTW anstelle eines RTW genutzt werden."
 	},
 	"prerequisites": {
 		"bereitschaftspolizei": "Bereitschaftspolizei-Standort | Bereitschaftspolizei-Standorte",
@@ -93,6 +95,10 @@
 			"allow_arff_instead_of_lf": {
 				"description": "Zeigt an, wenn statt eines LF auch FLF am Einsatzort möglich sind.",
 				"title": "Anzeigen, wenn FLF als LF erlaubt sind"
+			},
+			"allow_ktw_instead_of_rtw": {
+				"description": "Zeigt ob ein KTW anstatt eines RTWs genutzt werden kann.",
+				"title": "KTW statt RTW"
 			}
 		},
 		"patients": {
@@ -111,6 +117,10 @@
 			"title": {
 				"description": "Zeigt die Überschrift \"Patienten\" über den Details über mögliche Patienten an.",
 				"title": "Patienten (Titel)"
+			},
+			"patient_allow_first_responder_chance": {
+				"description": "Zeigt mit wieviel % ein beliebiges Fahrzeug zum behandeln ausreicht.",
+				"title": "First Responder Wahrscheinlichkeit"
 			}
 		},
 		"place": {
@@ -163,11 +173,15 @@
 				"description": "Zeigt die Überschrift \"Fahrzeuge\" über den Fahrzeuganforderungen an.",
 				"title": "Fahrzeuge (Titel)"
 			}
+		},
+		"k9_only_if_needed": {
+			"description": "Zeigt an, wenn der DHuFüKW nur gefordert wird, wenn vorhanden.",
+			"title": "Optionale Diensthunde"
 		}
 	},
 	"vehicles": {
 		"captions": {
-			"ambulances": "RTW oder KTW oder KTW Typ B",
+			"ambulances": "RTW",
 			"arff": "FLF",
 			"battalion_chief_vehicles": "ELW 1",
 			"boats": "Boot | Boote",
@@ -185,6 +199,8 @@
 			"hazmat_vehicles": "GW-Gefahrgut",
 			"heavy_rescue_vehicles": "Rüstwagen",
 			"height_rescue_units": "GW-Höhenrettung",
+			"k9": "DHuFüKW",
+			"k9_only_if_needed": "DHuFüKW (nur wenn aktiver Ausbau vorhanden)",
 			"lebefkw": "leBefKw",
 			"mek": "MEK-Fahrzeug | MEK-Fahrzeuge",
 			"mobile_air_vehicles": "GW-Atemschutz",
@@ -194,6 +210,7 @@
 			"police_helicopters": "Polizeihubschauber",
 			"rescue_dog_units": "Rettungshundestaffel | Rettungshundestaffeln",
 			"rettungstreppe": "Rettungstreppe | Rettungstreppen",
+			"seg_elw": "ELW 1 (SEG)",
 			"sek": "SEK-Fahrzeug | SEK-Fahrzeuge",
 			"teleskopmast": "Teleskopmast | Teleskopmasten",
 			"thw_brmg_r": "BRmG R",
@@ -229,6 +246,12 @@
 		"optional_alternatives": {
 			"allow_rw_instead_of_lf": {
 				"firetrucks": "Löschfahrzeug oder Rüstwagen oder GKW | Löschfahrzeuge oder Rüstwagen oder GKW"
+			},
+			"allow_arff_instead_of_lf": {
+				"firetrucks": "Löschfahrzeug oder Flugfeldlöschfahrzeug | Löschfahrzeuge oder Flugfeldlöschfahrzeuge"
+			},
+			"allow_ktw_instead_of_rtw": {
+				"ambulances": "RTW oder KTW oder KTW Typ B"
 			}
 		},
 		"patient_additionals": {

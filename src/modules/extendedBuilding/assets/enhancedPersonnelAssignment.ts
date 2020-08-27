@@ -22,7 +22,9 @@ export default (LSSM: Vue): void => {
     const nonFittingRows = [] as HTMLTableRowElement[];
     personnel.forEach(row => {
         const schooling = vehicleTypes[vehicle.vehicle_type].shownSchooling;
-        (!schooling || (schooling && row.textContent?.match(schooling))
+        (!schooling ||
+        (schooling &&
+            row.textContent?.match(LSSM.$utils.escapeRegex(schooling)))
             ? fittingRows
             : nonFittingRows
         ).push(row);

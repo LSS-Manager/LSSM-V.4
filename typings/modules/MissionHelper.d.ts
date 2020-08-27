@@ -55,6 +55,7 @@ export interface MissionHelper {
             content: boolean;
             live: boolean;
             hideWhenNoNeed: boolean;
+            patient_allow_first_responder_chance: boolean;
         };
         prisoners: {
             title: boolean;
@@ -65,6 +66,7 @@ export interface MissionHelper {
         credits: boolean;
         expansions: boolean;
         followup: boolean;
+        k9_only_if_needed: boolean;
 
         // General
         [key: string]: boolean | unknown;
