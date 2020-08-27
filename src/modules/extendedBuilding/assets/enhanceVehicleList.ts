@@ -17,6 +17,17 @@ export default async (
             'personnelAssignmentBtn'
         );
         const vehicleTypes = await getSetting('vehicleTypes');
+        const lastRowSettings = {
+            vehiclesPersonnelMax: await getSetting('vehiclesPersonnelMax'),
+            vehiclesPersonnelCurrent: await getSetting(
+                'vehiclesPersonnelCurrent'
+            ),
+            vehiclesPersonnelAssigned: await getSetting(
+                'vehiclesPersonnelAssigned'
+            ),
+        } as {
+            [setting: string]: boolean;
+        };
 
         const internalVehicleTypes = Object.values(
             LSSM.$t('vehicles')
@@ -44,6 +55,24 @@ export default async (
                     cursor: 'pointer',
                 },
             });
+
+        const lastRowItems = [
+            'vehiclesPersonnelCurrent',
+            'vehiclesPersonnelAssigned',
+            'vehiclesPersonnelMax',
+        ]
+            .filter(setting => lastRowSettings[setting])
+            .map(setting =>
+                LSSM.$t(
+                    `modules.${MODULE_ID}.vehiclePersonnel.${setting}`
+                ).toString()
+            );
+
+        if (lastRowItems.length) {
+            tableHead.children[
+                tableHead.children.length - 1
+            ].textContent = `(${lastRowItems.join(' / ')})`;
+        }
 
         vehicles.forEach(vehicle => {
             const vehicleId = parseInt(
@@ -125,17 +154,22 @@ export default async (
                     }
                 }
             }
-            if (personnelAssignmentBtn && BUILDING_MODE === 'building') {
-                if (!editBtn?.parentElement) return;
-                const actionsWrapper = document.createElement('div');
-                actionsWrapper.classList.add('btn-group');
-                editBtn.parentElement.appendChild(actionsWrapper);
-                actionsWrapper.appendChild(editBtn);
-                const pABtn = document.createElement('a');
-                pABtn.classList.add('btn', 'btn-default', 'btn-xs');
-                pABtn.setAttribute('href', `/vehicles/${vehicleId}/zuweisung`);
-                pABtn.innerHTML = '<i class="fas fa-users"></i>';
-                actionsWrapper.appendChild(pABtn);
+            if (BUILDING_MODE === 'building') {
+                if (personnelAssignmentBtn) {
+                    if (!editBtn?.parentElement) return;
+                    const actionsWrapper = document.createElement('div');
+                    actionsWrapper.classList.add('btn-group');
+                    editBtn.parentElement.appendChild(actionsWrapper);
+                    actionsWrapper.appendChild(editBtn);
+                    const pABtn = document.createElement('a');
+                    pABtn.classList.add('btn', 'btn-default', 'btn-xs');
+                    pABtn.setAttribute(
+                        'href',
+                        `/vehicles/${vehicleId}/zuweisung`
+                    );
+                    pABtn.innerHTML = '<i class="fas fa-users"></i>';
+                    actionsWrapper.appendChild(pABtn);
+                }
             }
         });
     };

@@ -6,6 +6,11 @@
 		"additional": "Bei Werten in Klammern sind Fahrzeuge im FMS 6 ausgeschlossen.",
 		"demand": "Benötigtes Personal"
 	},
+    "vehiclePersonnel": {
+        "vehiclesPersonnelMax": "max",
+        "vehiclesPersonnelCurrent": "aktuell",
+        "vehiclesPersonnelAssigned": "zugewiesen"
+    },
 	"schoolingSummary": {
 		"all": "Alle Kombinationen",
 		"amount": "Anzahl",
@@ -44,6 +49,18 @@
 		"vehicleTypes": {
 			"description": "Zeigt den Fahrzeugtyp (und falls vorhanden die eigene Fahrzeugklasse) in einer eigenen Spalte mit an.",
 			"title": "Fahrzeugtyp"
-		}
+		},
+        "vehiclesPersonnelMax": {
+            "title": "Maximale Besatzung",
+            "description": "Zeigt an, wie viele Personen maximal auf das Fahrzeug passen."
+        },
+        "vehiclesPersonnelCurrent": {
+            "title": "Aktuelle Besatzung",
+            "description": "Zeigt an, wie viele Personen aktuell im Fahrzeug sitzen."
+        },
+        "vehiclesPersonnelAssigned": {
+            "title": "Zugewiesene Besatzung",
+            "description": "Zeigt an, wie viele Personen dem Fahrzeug zugewiesen sind."
+        }
 	}
 }

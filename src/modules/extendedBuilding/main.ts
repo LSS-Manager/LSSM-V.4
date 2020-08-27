@@ -26,6 +26,22 @@ import enhancedPersonnelAssignment from './assets/enhancedPersonnelAssignment';
                 default: true,
                 dependsOn: '.enhanceVehicleList',
             },
+            vehiclesPersonnelMax: {
+                type: 'toggle',
+                default: true,
+                dependsOn: '.enhanceVehicleList',
+            },
+            vehiclesPersonnelCurrent: {
+                type: 'toggle',
+                default: true,
+                // dependsOn: '.enhanceVehicleList',
+                disabled: () => true,
+            },
+            vehiclesPersonnelAssigned: {
+                type: 'toggle',
+                default: false,
+                dependsOn: '.enhanceVehicleList',
+            },
             personnelDemands: {
                 type: 'toggle',
                 default: true,
