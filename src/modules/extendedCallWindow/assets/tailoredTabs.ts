@@ -1,10 +1,25 @@
-import { domainToUnicode } from 'url';
-
 export default (
     LSSM: Vue,
     tabs: { name: string; vehicleTypes: number[] }[],
     missionWindow: boolean
 ): void => {
+    const missionHelpBtn = document.getElementById('mission_help');
+    const isDiyMission = !missionHelpBtn;
+    let missionTypeID = -1;
+    if (!isDiyMission)
+        missionTypeID = parseInt(
+            missionHelpBtn
+                ?.getAttribute('href')
+                ?.match(/(?!^\/einsaetze\/)\d+/)?.[0] || '-1'
+        );
+    if (!missionWindow && missionTypeID < 0) return;
+    if (
+        !missionWindow &&
+        Object.values(
+            (LSSM.$t('transfer_missions') as unknown) as number[]
+        ).includes(missionTypeID)
+    )
+        return;
     Array.from(
         document.querySelectorAll(
             '#tabs > li > a:not([href="#all"]):not([href="#occupied"])'

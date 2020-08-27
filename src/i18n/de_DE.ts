@@ -1976,4 +1976,5 @@ export default {
         'paw',
     ],
     only_alliance_missions: [41, 43, 59, 75, 99, 207, 221, 222, 256, 350],
+    transfer_missions: [147],
 };

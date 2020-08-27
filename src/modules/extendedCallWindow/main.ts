@@ -138,7 +138,7 @@ import stickyHeader from './assets/stickyHeader';
     )
         return;
     const missionMode = !!window.location.pathname.match(/^\/buildings\/\d+$/);
-    if (missionMode && !document.getElementById('bereitstellungsraumReset'))
+    if (missionMode && !document.getElementById('education_schooling_-1'))
         return;
     const getSetting = <returnType = boolean>(
         settingId: string
