@@ -48,12 +48,22 @@ Da wir durchgängig neueste Coding-Standards einhalten möchten, ist ein moderne
 Eine hier aufgelistete Kompatibilität gewährleistet keine Funktionalität. Dies sind nur Informationen, die von Drittanbietern zusammengetragen und ausgewertet wurden.
 :::
 
-Browser | mind. Version
---------|--------
-Firefox | 54
-Chrome  | 51
-Safari  | 11
-Opera   | 38
+<table>
+    <thead>
+        <tr>
+            <th>Browser</th>
+            <th>mind. version</th>
+            <th>Download</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr v-for="({supported, download}, browser) in $themeConfig.variables.browsers">
+            <td>{{ browser.replace(/^./, $1 => $1.toUpperCase()) }}</td>
+            <td>{{ supported }}</td>
+            <td><a :href="download" target="_blank">Download</a></td>
+        </tr>
+    </tbody>
+</table>
 
 ::: danger Internet Explorer und Microsoft Edge
 Diese beiden Browser kann man als "Problemkinder" eines modernen Web-Entwicklers beschreiben. Es gibt einige Funktionen, die in ihnen nicht funktionieren, oder zusätzlichen Code benötigen.

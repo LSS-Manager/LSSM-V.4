@@ -187,6 +187,7 @@ const options = {
             github: config.github.repo,
             server: config.server,
             versions: require('../../static/.configs.json').versions,
+            browsers: config.browser,
             noMapkitModules,
         },
         locales: themeLocales,
