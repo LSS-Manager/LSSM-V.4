@@ -714,7 +714,7 @@ export default Vue.extend<
 </script>
 
 <style lang="sass">
-.alert-missing-vehicles:hover ~ * .overlay
+.alert-missing-vehicles:not(.overlay):hover ~ * .overlay
     opacity: 0.1
 </style>
 
