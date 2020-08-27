@@ -2,7 +2,7 @@
     <div
         class="alert alert-danger alert-missing-vehicles"
         :class="{ overlay, minified }"
-        :style="`top: ${drag.top}px; right: ${drag.right}px`"
+        :style="`top: ${drag.top}px; left: ${drag.left}px`"
         :id="id"
     >
         <font-awesome-icon
@@ -56,8 +56,8 @@
                 ></enhanced-missing-vehicles-table>
             </div>
         </div>
-        <div class="row" v-if="overlay">
-            <div class="col-md-6">
+        <div class="row" v-else>
+            <div class="col-md-12">
                 <enhanced-missing-vehicles-table
                     :missing-requirements="missingRequirementsSorted"
                     :sort="sort"
@@ -111,7 +111,7 @@ export default Vue.extend<
             drag: {
                 active: false,
                 top: 60,
-                right: window.innerWidth * 0.03,
+                left: window.innerWidth * 0.03,
                 offset: {
                     x: 0,
                     y: 0,
@@ -181,7 +181,7 @@ export default Vue.extend<
             const missionHelperOffset = this.$el.getBoundingClientRect();
             document.body.classList.add('lssm-is-dragging');
             const topRight = {
-                x: missionHelperOffset.x + missionHelperOffset.width,
+                x: missionHelperOffset.x,
                 y: missionHelperOffset.y,
             };
             this.drag.offset = {
@@ -203,8 +203,7 @@ export default Vue.extend<
             e.preventDefault();
             const current = { x: e.clientX, y: e.clientY };
             this.drag.top = current.y + this.drag.offset.y;
-            this.drag.right =
-                window.innerWidth - current.x - this.drag.offset.x;
+            this.drag.left = current.x + this.drag.offset.x;
         },
     },
     beforeMount() {
@@ -275,7 +274,7 @@ export default Vue.extend<
     z-index: 2
     position: fixed
     top: 3%
-    right: 3%
+    left: 3%
     min-width: 100px
     max-width: calc(100% / 3)
     height: auto

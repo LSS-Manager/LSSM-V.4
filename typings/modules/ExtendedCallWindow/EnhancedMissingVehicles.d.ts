@@ -26,7 +26,7 @@ export interface EnhancedMissingVehicles {
     drag: {
         active: boolean;
         top: number;
-        right: number;
+        left: number;
         offset: {
             x: number;
             y: number;
