@@ -121,8 +121,6 @@ export default (
             `tailoredtabs-${name.replace(/ /g, '_').replace(/["']/g, '')}`
         );
 
-        // TODO: Do this in Bereitstellungsraum (For Ron: In Staging Area)
-
         const tabSelector = document.createElement('li');
         tabSelector.setAttribute('role', 'presentation');
         const tabLink = document.createElement('a');
