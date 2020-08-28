@@ -171,26 +171,54 @@ export default async (
                     actionsWrapper.appendChild(pABtn);
                 }
                 if (lastRowItems.length && storedVehicle) {
-                    vehicle.children[
-                        vehicle.children.length - 1
-                    ].textContent = `(${lastRowItems
-                        .map(
-                            item =>
-                                (({
-                                    vehiclesPersonnelCurrent: 0,
-                                    vehiclesPersonnelMax:
-                                        storedVehicle.max_personnel_override ??
-                                        internalVehicleTypes[
-                                            storedVehicle.vehicle_type
-                                        ]?.maxPersonnel ??
-                                        0,
-                                    vehiclesPersonnelAssigned:
-                                        storedVehicle.assigned_personnel_count,
-                                } as {
-                                    [key: string]: number;
-                                })[item])
-                        )
-                        .join(' / ')})`;
+                    (async () => {
+                        let currentPersonnel = 0;
+                        if (lastRowItems.includes('vehiclesPersonnelCurrent'))
+                            currentPersonnel = await LSSM.$store
+                                .dispatch('api/request', {
+                                    url: `/vehicles/${vehicleId}`,
+                                })
+                                .then(res => res.text())
+                                .then(
+                                    res =>
+                                        document
+                                            .createRange()
+                                            .createContextualFragment(res)
+                                            .querySelectorAll(
+                                                '#vehicle_details table tbody tr'
+                                            ).length
+                                );
+                        const assigned_personnel_count =
+                            storedVehicle.assigned_personnel_count;
+                        const maxPersonnel =
+                            storedVehicle.max_personnel_override ??
+                            internalVehicleTypes[storedVehicle.vehicle_type]
+                                ?.maxPersonnel ??
+                            0;
+                        const assignedPersonnel = (await getSetting(
+                            'vehiclesPersonnelColorized'
+                        ))
+                            ? `<span style="color: ${
+                                  assigned_personnel_count < maxPersonnel
+                                      ? 'red'
+                                      : 'green'
+                              };">${assigned_personnel_count}</span>`
+                            : assigned_personnel_count;
+                        vehicle.children[
+                            vehicle.children.length - 1
+                        ].innerHTML = `(${lastRowItems
+                            .map(
+                                item =>
+                                    (({
+                                        vehiclesPersonnelCurrent: currentPersonnel,
+                                        vehiclesPersonnelMax: maxPersonnel,
+                                        vehiclesPersonnelAssigned: assignedPersonnel,
+                                    } as {
+                                        [key: string]: number;
+                                    })[item])
+                            )
+                            .join(' / ')})`;
+                    })();
                 }
             }
         });

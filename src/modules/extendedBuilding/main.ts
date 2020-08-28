@@ -34,13 +34,23 @@ import enhancedPersonnelAssignment from './assets/enhancedPersonnelAssignment';
             vehiclesPersonnelCurrent: {
                 type: 'toggle',
                 default: false,
-                // dependsOn: '.enhanceVehicleList',
-                disabled: () => true,
+                dependsOn: '.enhanceVehicleList',
             },
             vehiclesPersonnelAssigned: {
                 type: 'toggle',
                 default: false,
                 dependsOn: '.enhanceVehicleList',
+            },
+            vehiclesPersonnelColorized: {
+                type: 'toggle',
+                default: false,
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
+                disabled: (settings): boolean =>
+                    !(
+                        settings[MODULE_ID].vehiclesPersonnelAssigned.value &&
+                        settings[MODULE_ID].vehiclesPersonnelMax.value
+                    ),
             },
             personnelDemands: {
                 type: 'toggle',

@@ -61,6 +61,10 @@
         "vehiclesPersonnelAssigned": {
             "title": "Zugewiesene Besatzung",
             "description": "Zeigt an, wie viele Personen dem Fahrzeug zugewiesen sind."
+        },
+        "vehiclesPersonnelColorized": {
+            "title": "Farbcode für zugewiesene Besatzung",
+            "description": "Hebt die Zahl der zugewiesenen Besatzung rot vor, wenn diese kleiner als die maximal mögliche ist, grün, wenn die maximale Zahl erreicht ist."
         }
-	}
+    }
 }
