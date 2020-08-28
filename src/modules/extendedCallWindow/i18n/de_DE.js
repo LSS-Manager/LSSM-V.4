@@ -184,6 +184,11 @@ module.exports = {
             description:
                 'Zeigt die obere Leiste im Einsatzfenster immer an, auch wenn du nach unten scrollst.',
         },
+        loadMoreVehiclesInHeader: {
+            title: 'Fahrzeuge nachladen in Kopfleiste',
+            description:
+                'Zeigt den Knopf "Fahrzeuge nachladen", wenn vorhanden, in der Kopfleiste an.',
+        },
         tailoredTabs: {
             title: 'Fahrzeugkategorien',
             description:
