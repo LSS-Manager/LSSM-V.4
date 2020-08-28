@@ -137,11 +137,13 @@ import enhancedHeader from './assets/enhancedHeader';
     });
 
     if (
-        !window.location.pathname.match(/^\/(missions|buildings)\/\d+$/) ||
+        !window.location.pathname.match(/^\/(missions|buildings)\/\d+$\/?/) ||
         document.querySelector('.missionNotFound')
     )
         return;
-    const stagingMode = !!window.location.pathname.match(/^\/buildings\/\d+$/);
+    const stagingMode = !!window.location.pathname.match(
+        /^\/buildings\/\d+\/?$/
+    );
     if (stagingMode && !document.getElementById('education_schooling_-1'))
         return;
     const getSetting = <returnType = boolean>(
