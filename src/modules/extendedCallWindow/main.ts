@@ -141,8 +141,8 @@ import enhancedHeader from './assets/enhancedHeader';
         document.querySelector('.missionNotFound')
     )
         return;
-    const missionMode = !!window.location.pathname.match(/^\/buildings\/\d+$/);
-    if (missionMode && !document.getElementById('education_schooling_-1'))
+    const stagingMode = !!window.location.pathname.match(/^\/buildings\/\d+$/);
+    if (stagingMode && !document.getElementById('education_schooling_-1'))
         return;
     const getSetting = <returnType = boolean>(
         settingId: string
@@ -153,7 +153,7 @@ import enhancedHeader from './assets/enhancedHeader';
         });
     };
 
-    if (!missionMode) {
+    if (!stagingMode) {
         await LSSM.$store.dispatch('addStyle', {
             selectorText: '.vehicle_prisoner_select a.btn-danger',
             style: {
@@ -207,6 +207,6 @@ import enhancedHeader from './assets/enhancedHeader';
     const tailoredTabSettings = await getSetting<typeof defaultTailoredTabs>(
         'tailoredTabs'
     );
-    if (!isEqual(tailoredTabSettings, defaultTailoredTabs) || missionMode)
-        tailoredTabs(LSSM, tailoredTabSettings, missionMode);
+    if (!isEqual(tailoredTabSettings, defaultTailoredTabs) || stagingMode)
+        tailoredTabs(LSSM, tailoredTabSettings, stagingMode);
 })(window[PREFIX] as Vue);

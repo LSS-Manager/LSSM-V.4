@@ -1,7 +1,7 @@
 export default (
     LSSM: Vue,
     tabs: { name: string; vehicleTypes: number[] }[],
-    missionWindow: boolean
+    stagingMode: boolean
 ): void => {
     const missionHelpBtn = document.getElementById('mission_help');
     const isDiyMission = !missionHelpBtn;
@@ -12,9 +12,8 @@ export default (
                 ?.getAttribute('href')
                 ?.match(/(?!^\/einsaetze\/)\d+/)?.[0] || '-1'
         );
-    if (!missionWindow && missionTypeID < 0) return;
     if (
-        !missionWindow &&
+        !stagingMode &&
         Object.values(
             (LSSM.$t('transfer_missions') as unknown) as number[]
         ).includes(missionTypeID)
