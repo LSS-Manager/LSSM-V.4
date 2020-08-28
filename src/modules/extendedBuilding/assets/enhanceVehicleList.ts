@@ -60,18 +60,18 @@ export default async (
             'vehiclesPersonnelCurrent',
             'vehiclesPersonnelAssigned',
             'vehiclesPersonnelMax',
-        ]
-            .filter(setting => lastRowSettings[setting])
-            .map(setting =>
-                LSSM.$t(
-                    `modules.${MODULE_ID}.vehiclePersonnel.${setting}`
-                ).toString()
-            );
+        ].filter(setting => lastRowSettings[setting]);
 
         if (lastRowItems.length) {
             tableHead.children[
                 tableHead.children.length - 1
-            ].textContent = `(${lastRowItems.join(' / ')})`;
+            ].textContent = `(${lastRowItems
+                .map(setting =>
+                    LSSM.$t(
+                        `modules.${MODULE_ID}.vehiclePersonnel.${setting}`
+                    ).toString()
+                )
+                .join(' / ')})`;
         }
 
         vehicles.forEach(vehicle => {
@@ -169,6 +169,28 @@ export default async (
                     );
                     pABtn.innerHTML = '<i class="fas fa-users"></i>';
                     actionsWrapper.appendChild(pABtn);
+                }
+                if (lastRowItems.length && storedVehicle) {
+                    vehicle.children[
+                        vehicle.children.length - 1
+                    ].textContent = `(${lastRowItems
+                        .map(
+                            item =>
+                                (({
+                                    vehiclesPersonnelCurrent: 0,
+                                    vehiclesPersonnelMax:
+                                        storedVehicle.max_personnel_override ??
+                                        internalVehicleTypes[
+                                            storedVehicle.vehicle_type
+                                        ]?.maxPersonnel ??
+                                        0,
+                                    vehiclesPersonnelAssigned:
+                                        storedVehicle.assigned_personnel_count,
+                                } as {
+                                    [key: string]: number;
+                                })[item])
+                        )
+                        .join(' / ')})`;
                 }
             }
         });

@@ -33,7 +33,7 @@ import enhancedPersonnelAssignment from './assets/enhancedPersonnelAssignment';
             },
             vehiclesPersonnelCurrent: {
                 type: 'toggle',
-                default: true,
+                default: false,
                 // dependsOn: '.enhanceVehicleList',
                 disabled: () => true,
             },
