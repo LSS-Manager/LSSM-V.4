@@ -737,7 +737,8 @@ export default Vue.extend<
         max-height: 1rem
         min-width: auto
 
-        > div
+        > div,
+        > span
             display: none
 
     h3

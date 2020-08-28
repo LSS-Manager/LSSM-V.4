@@ -1,10 +1,24 @@
-import { domainToUnicode } from 'url';
-
 export default (
     LSSM: Vue,
     tabs: { name: string; vehicleTypes: number[] }[],
-    missionWindow: boolean
+    stagingMode: boolean
 ): void => {
+    const missionHelpBtn = document.getElementById('mission_help');
+    const isDiyMission = !missionHelpBtn;
+    let missionTypeID = -1;
+    if (!isDiyMission)
+        missionTypeID = parseInt(
+            missionHelpBtn
+                ?.getAttribute('href')
+                ?.match(/(?!^\/einsaetze\/)\d+/)?.[0] || '-1'
+        );
+    if (
+        !stagingMode &&
+        Object.values(
+            (LSSM.$t('transfer_missions') as unknown) as number[]
+        ).includes(missionTypeID)
+    )
+        return;
     Array.from(
         document.querySelectorAll(
             '#tabs > li > a:not([href="#all"]):not([href="#occupied"])'
@@ -105,8 +119,6 @@ export default (
         const tabId = LSSM.$store.getters.nodeAttribute(
             `tailoredtabs-${name.replace(/ /g, '_').replace(/["']/g, '')}`
         );
-
-        // TODO: Do this in Bereitstellungsraum (For Ron: In Staging Area)
 
         const tabSelector = document.createElement('li');
         tabSelector.setAttribute('role', 'presentation');

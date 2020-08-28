@@ -19,7 +19,7 @@ import tailoredTabs from './assets/tailoredTabs';
 import missionKeywords from './assets/missionKeywords';
 import alarmIcons from './assets/alarmIcons';
 import arrHover from './assets/arrHover';
-import stickyHeader from './assets/stickyHeader';
+import enhancedHeader from './assets/enhancedHeader';
 
 (async (LSSM: Vue) => {
     const defaultTailoredTabs = Object.values(
@@ -89,6 +89,10 @@ import stickyHeader from './assets/stickyHeader';
                 type: 'toggle',
                 default: false,
             },
+            loadMoreVehiclesInHeader: {
+                type: 'toggle',
+                default: false,
+            },
             tailoredTabs: {
                 type: 'appendable-list',
                 default: defaultTailoredTabs,
@@ -137,8 +141,8 @@ import stickyHeader from './assets/stickyHeader';
         document.querySelector('.missionNotFound')
     )
         return;
-    const missionMode = !!window.location.pathname.match(/^\/buildings\/\d+$/);
-    if (missionMode && !document.getElementById('bereitstellungsraumReset'))
+    const stagingMode = !!window.location.pathname.match(/^\/buildings\/\d+$/);
+    if (stagingMode && !document.getElementById('education_schooling_-1'))
         return;
     const getSetting = <returnType = boolean>(
         settingId: string
@@ -149,7 +153,7 @@ import stickyHeader from './assets/stickyHeader';
         });
     };
 
-    if (!missionMode) {
+    if (!stagingMode) {
         await LSSM.$store.dispatch('addStyle', {
             selectorText: '.vehicle_prisoner_select a.btn-danger',
             style: {
@@ -192,12 +196,17 @@ import stickyHeader from './assets/stickyHeader';
         const arrTime = await getSetting('arrTime');
         if (arrSpecs || arrTime) arrHover(LSSM, arrSpecs, arrTime);
 
-        if (await getSetting('stickyHeader')) stickyHeader();
+        const stickyHeader = await getSetting('stickyHeader');
+        const loadMoreVehiclesInHeader = await getSetting(
+            'loadMoreVehiclesInHeader'
+        );
+        if (stickyHeader || loadMoreVehiclesInHeader)
+            enhancedHeader(stickyHeader, loadMoreVehiclesInHeader);
     }
 
     const tailoredTabSettings = await getSetting<typeof defaultTailoredTabs>(
         'tailoredTabs'
     );
-    if (!isEqual(tailoredTabSettings, defaultTailoredTabs) || missionMode)
-        tailoredTabs(LSSM, tailoredTabSettings, missionMode);
+    if (!isEqual(tailoredTabSettings, defaultTailoredTabs) || stagingMode)
+        tailoredTabs(LSSM, tailoredTabSettings, stagingMode);
 })(window[PREFIX] as Vue);

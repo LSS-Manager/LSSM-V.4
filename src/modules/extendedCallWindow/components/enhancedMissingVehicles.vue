@@ -26,7 +26,7 @@
         ></font-awesome-icon>
         <span>{{ extras }}</span>
         <div class="row" v-if="!overlay">
-            <div class="col-md-6">
+            <div class="col-md-6" id="lssm-missing-vehicles-left-col">
                 <enhanced-missing-vehicles-table
                     :missing-requirements="
                         missingRequirementsSorted.slice(
@@ -270,39 +270,37 @@ export default Vue.extend<
 <style scoped lang="sass">
 .alert
 
-  &.overlay
-    z-index: 2
-    position: fixed
-    top: 3%
-    left: 3%
-    min-width: 100px
-    max-width: calc(100% / 3)
-    height: auto
-    max-height: calc((100vh - 51.5px - 3%) * 0.97)
-    transition: 100ms linear
-    margin-bottom: 0.625em
+    &:not(.overlay) #lssm-missing-vehicles-left-col
+        margin-top: 14px
 
-  &.minified
-    max-height: 1rem
-    min-width: auto
+    &.overlay
+        z-index: 2
+        position: fixed
+        top: 3%
+        left: 3%
+        min-width: 100px
+        max-width: calc(100% / 3)
+        height: auto
+        max-height: calc((100vh - 51.5px - 3%) * 0.97)
+        transition: 100ms linear
+        margin-bottom: 0.625em
+        overflow: auto
 
-    > div
-      display: none
+    &.minified
+        max-height: 1rem
+        min-width: auto
 
-  h3
-    margin-top: 0 !important
+        > div
+            display: none
 
-  .svg-inline--fa
-    cursor: pointer
-    position: relative
-    top: -6px
+    h3
+        margin-top: 0 !important
+
+    .svg-inline--fa
+        cursor: pointer
+        position: relative
+        top: -6px
 
     &.dragging-field
-      cursor: move
-
-  ul li
-    list-style: none
-
-    &::before
-      content: attr(data-amount) + " "
+        cursor: move
 </style>
