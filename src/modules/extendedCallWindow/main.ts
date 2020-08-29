@@ -138,6 +138,10 @@ import hideVehicleList from './assets/hideVehicleList';
                 type: 'hidden',
                 default: false,
             },
+            textMode: {
+                type: 'hidden',
+                default: false,
+            },
         },
     });
 
