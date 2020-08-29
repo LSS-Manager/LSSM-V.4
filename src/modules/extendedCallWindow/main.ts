@@ -20,6 +20,7 @@ import missionKeywords from './assets/missionKeywords';
 import alarmIcons from './assets/alarmIcons';
 import arrHover from './assets/arrHover';
 import enhancedHeader from './assets/enhancedHeader';
+import hideVehicleList from './assets/hideVehicleList';
 
 (async (LSSM: Vue) => {
     const defaultTailoredTabs = Object.values(
@@ -90,6 +91,10 @@ import enhancedHeader from './assets/enhancedHeader';
                 default: false,
             },
             loadMoreVehiclesInHeader: {
+                type: 'toggle',
+                default: false,
+            },
+            hideVehicleList: {
                 type: 'toggle',
                 default: false,
             },
@@ -204,6 +209,7 @@ import enhancedHeader from './assets/enhancedHeader';
         );
         if (stickyHeader || loadMoreVehiclesInHeader)
             enhancedHeader(stickyHeader, loadMoreVehiclesInHeader);
+        if (await getSetting('hideVehicleList')) hideVehicleList(LSSM);
     }
 
     const tailoredTabSettings = await getSetting<typeof defaultTailoredTabs>(
