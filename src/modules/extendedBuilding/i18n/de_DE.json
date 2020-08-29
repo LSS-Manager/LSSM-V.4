@@ -21,6 +21,9 @@
 		"schooling": "Ausbildung",
 		"title": "Personalübersicht"
 	},
+    "expansions": {
+        "notBuild": "Noch nicht gebaut"
+    },
 	"settings": {
 		"enhanceVehicleList": {
 			"description": "Erweitert die Fahrzeugliste um nützliche Features – einige davon speziell einstellbar.",
@@ -30,6 +33,10 @@
 			"description": "Gibt dir die Möglichkeit, Personal ohne die passende Ausbildung auszublenden.",
 			"title": "verbesserte Personalzuweisung"
 		},
+        "expansions": {
+            "title": "Ausbauten direkt anzeigen",
+            "description": "Zeigt die Ausbauten eines Gebäudes an, ohne dass du erst auf den Ausbauten-Tab drücken musst."
+        },
 		"fmsSwitch": {
 			"description": "Ermöglicht einen Wechsel zwischen Status 2 und 6 mit Klick auf den Status.",
 			"title": "Schneller FMS-Wechsel"

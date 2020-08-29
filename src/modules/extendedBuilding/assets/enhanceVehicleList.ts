@@ -189,7 +189,7 @@ export default async (
                                             ).length
                                 );
                         const assigned_personnel_count =
-                            storedVehicle.assigned_personnel_count;
+                            storedVehicle.assigned_personnel_count || 0;
                         const maxPersonnel =
                             storedVehicle.max_personnel_override ??
                             internalVehicleTypes[storedVehicle.vehicle_type]

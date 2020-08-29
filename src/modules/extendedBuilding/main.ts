@@ -2,6 +2,7 @@ import enhanceVehicleList from './assets/enhanceVehicleList';
 import personnelDemands from './assets/personnelDemands';
 import schoolingSummary from './assets/schoolingSummary';
 import enhancedPersonnelAssignment from './assets/enhancedPersonnelAssignment';
+import expansions from './assets/expansions';
 
 (async (LSSM: Vue) => {
     await LSSM.$store.dispatch('settings/register', {
@@ -64,6 +65,10 @@ import enhancedPersonnelAssignment from './assets/enhancedPersonnelAssignment';
                 type: 'toggle',
                 default: true,
             },
+            expansions: {
+                type: 'toggle',
+                default: true,
+            },
         },
     });
 
@@ -101,6 +106,12 @@ import enhancedPersonnelAssignment from './assets/enhancedPersonnelAssignment';
             (await getSetting('personnelDemands'))
         )
             personnelDemands(LSSM);
+
+        if (
+            (await getSetting('expansions')) &&
+            document.querySelector('#ausbauten')
+        )
+            expansions(LSSM);
     } else if (
         window.location.pathname.match(/^\/buildings\/\d+\/personals\/?$/)
     ) {
