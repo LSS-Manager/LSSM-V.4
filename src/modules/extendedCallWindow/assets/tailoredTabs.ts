@@ -1,8 +1,24 @@
 export default (
     LSSM: Vue,
     tabs: { name: string; vehicleTypes: number[] }[],
-    missionWindow: boolean
+    stagingMode: boolean
 ): void => {
+    const missionHelpBtn = document.getElementById('mission_help');
+    const isDiyMission = !missionHelpBtn;
+    let missionTypeID = -1;
+    if (!isDiyMission)
+        missionTypeID = parseInt(
+            missionHelpBtn
+                ?.getAttribute('href')
+                ?.match(/(?!^\/einsaetze\/)\d+/)?.[0] || '-1'
+        );
+    if (
+        !stagingMode &&
+        Object.values(
+            (LSSM.$t('transfer_missions') as unknown) as number[]
+        ).includes(missionTypeID)
+    )
+        return;
     Array.from(
         document.querySelectorAll(
             '#tabs > li > a:not([href="#all"]):not([href="#occupied"])'
@@ -13,14 +29,76 @@ export default (
         e.parentElement?.remove();
     });
 
-    const tabList = document.getElementById('tabs');
-    const allTab = tabList?.querySelector('#tabs > li:first-child');
-    const occupiedTab = tabList?.querySelector('#tabs > li:last-child');
-    const panelWrapper = document.querySelector(
+    let tabList = document.getElementById('tabs');
+    let allTab = tabList?.querySelector('#tabs > li:first-child');
+    let occupiedTab = tabList?.querySelector('#tabs > li:last-child');
+    let panelWrapper = document.querySelector(
         '#vehicle_list_step .tab-content'
     );
 
-    if (!tabList || !allTab || !occupiedTab || !panelWrapper) return;
+    if (!document.querySelector('#vehicle_list_step')) {
+        const vehicleListStep = document.createElement('div');
+        vehicleListStep.setAttribute('id', 'vehicle_list_step');
+        document
+            .querySelector('form > table#vehicle_show_table_all')
+            ?.parentElement?.insertBefore(
+                vehicleListStep,
+                document.querySelector('table#vehicle_show_table_all')
+            );
+    }
+    if (!tabList) {
+        tabList = document.createElement('ul');
+        tabList.classList.add('nav', 'nav-tabs');
+        tabList.setAttribute('role', 'tablist');
+        tabList.setAttribute('id', 'tabs');
+        document.querySelector('#vehicle_list_step')?.appendChild(tabList);
+    }
+    if (!allTab) {
+        allTab = document.createElement('li');
+        allTab.setAttribute('role', 'presentation');
+        allTab.classList.add('active');
+        const allTabA = document.createElement('a');
+        allTabA.setAttribute('href', '#all');
+        allTabA.setAttribute('tabload', 'all');
+        allTabA.setAttribute('aria-controls', 'all');
+        allTabA.setAttribute('role', 'tab');
+        allTabA.setAttribute('data-toggle', 'tab');
+        allTabA.setAttribute('aria-expanded', 'true');
+        allTabA.innerText = LSSM.$t(
+            `modules.${MODULE_ID}.tailoredTabs.allTab`
+        ) as string;
+        allTab.appendChild(allTabA);
+        tabList.appendChild(allTab);
+    }
+    if (!occupiedTab) {
+        occupiedTab = document.createElement('li');
+        occupiedTab.setAttribute('role', 'presentation');
+        occupiedTab.classList.add('hidden');
+        const occupiedTabA = document.createElement('a');
+        occupiedTabA.setAttribute('href', '#occupied');
+        occupiedTabA.setAttribute('tabload', 'occupied');
+        occupiedTabA.innerText = <string>(
+            LSSM.$t(`modules.${MODULE_ID}.tailoredTabs.occupiedTab`)
+        );
+        occupiedTab.appendChild(occupiedTabA);
+        tabList.appendChild(occupiedTab);
+    }
+    if (!panelWrapper) {
+        panelWrapper = document.createElement('div');
+        panelWrapper.classList.add('tab-content');
+        const panelDiv = document.createElement('div');
+        panelDiv.classList.add('tab-pane', 'active');
+        panelDiv.setAttribute('id', 'all');
+        panelDiv.setAttribute('role', 'tabpanel');
+        const allVehicleTable = document.querySelector(
+            '#vehicle_show_table_all'
+        ) as HTMLTableElement | null;
+        if (!allVehicleTable) return;
+        allVehicleTable?.setAttribute('role', 'grid');
+        panelDiv.append(allVehicleTable);
+        panelWrapper.appendChild(panelDiv);
+        document.querySelector('#vehicle_list_step')?.appendChild(panelWrapper);
+    }
 
     const panels = {} as {
         [key: string]: HTMLDivElement;
@@ -36,13 +114,11 @@ export default (
     const vehicleTypeMap = {} as {
         [id: string]: number[];
     };
-
     tabs.forEach(({ name, vehicleTypes }) => {
+        if (!tabList || !allTab || !occupiedTab || !panelWrapper) return;
         const tabId = LSSM.$store.getters.nodeAttribute(
             `tailoredtabs-${name.replace(/ /g, '_').replace(/["']/g, '')}`
         );
-
-        // TODO: Do this in Bereitstellungsraum (For Ron: In Staging Area)
 
         const tabSelector = document.createElement('li');
         tabSelector.setAttribute('role', 'presentation');
@@ -118,6 +194,7 @@ export default (
     });
 
     tabList.addEventListener('click', e => {
+        if (!tabList || !allTab || !occupiedTab || !panelWrapper) return;
         const tabSelector = (e.target as HTMLElement)?.closest('a[tabload]');
         const tab = tabSelector?.getAttribute('tabload');
         if (!tabSelector || !tab || ['all', 'occupied'].includes(tab)) return;

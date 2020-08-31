@@ -2,6 +2,7 @@ import enhanceVehicleList from './assets/enhanceVehicleList';
 import personnelDemands from './assets/personnelDemands';
 import schoolingSummary from './assets/schoolingSummary';
 import enhancedPersonnelAssignment from './assets/enhancedPersonnelAssignment';
+import expansions from './assets/expansions';
 
 (async (LSSM: Vue) => {
     await LSSM.$store.dispatch('settings/register', {
@@ -26,6 +27,32 @@ import enhancedPersonnelAssignment from './assets/enhancedPersonnelAssignment';
                 default: true,
                 dependsOn: '.enhanceVehicleList',
             },
+            vehiclesPersonnelMax: {
+                type: 'toggle',
+                default: true,
+                dependsOn: '.enhanceVehicleList',
+            },
+            vehiclesPersonnelCurrent: {
+                type: 'toggle',
+                default: false,
+                dependsOn: '.enhanceVehicleList',
+            },
+            vehiclesPersonnelAssigned: {
+                type: 'toggle',
+                default: false,
+                dependsOn: '.enhanceVehicleList',
+            },
+            vehiclesPersonnelColorized: {
+                type: 'toggle',
+                default: false,
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
+                disabled: (settings): boolean =>
+                    !(
+                        settings[MODULE_ID].vehiclesPersonnelAssigned.value &&
+                        settings[MODULE_ID].vehiclesPersonnelMax.value
+                    ),
+            },
             personnelDemands: {
                 type: 'toggle',
                 default: true,
@@ -35,6 +62,10 @@ import enhancedPersonnelAssignment from './assets/enhancedPersonnelAssignment';
                 default: true,
             },
             enhancedPersonnelAssignment: {
+                type: 'toggle',
+                default: true,
+            },
+            expansions: {
                 type: 'toggle',
                 default: true,
             },
@@ -75,6 +106,12 @@ import enhancedPersonnelAssignment from './assets/enhancedPersonnelAssignment';
             (await getSetting('personnelDemands'))
         )
             personnelDemands(LSSM);
+
+        if (
+            (await getSetting('expansions')) &&
+            document.querySelector('#ausbauten')
+        )
+            expansions(LSSM);
     } else if (
         window.location.pathname.match(/^\/buildings\/\d+\/personals\/?$/)
     ) {

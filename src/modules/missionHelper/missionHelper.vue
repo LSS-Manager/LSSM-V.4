@@ -431,6 +431,7 @@ export default Vue.extend<
             Object.keys(this.missionSpecs?.requirements || {})
                 .filter(req => !this.noVehicleRequirements.includes(req))
                 .forEach(vehicle => {
+                    console.log(vehicle);
                     let percentage = this.missionSpecs?.chances[vehicle] || 100;
                     if (
                         (percentage === 100 && !this.settings.chances['100']) ||
@@ -713,7 +714,7 @@ export default Vue.extend<
 </script>
 
 <style lang="sass">
-.alert-missing-vehicles:hover ~ * .overlay
+.alert-missing-vehicles:not(.overlay):hover ~ * .overlay
     opacity: 0.1
 </style>
 
@@ -736,7 +737,8 @@ export default Vue.extend<
         max-height: 1rem
         min-width: auto
 
-        > div
+        > div,
+        > span
             display: none
 
     h3

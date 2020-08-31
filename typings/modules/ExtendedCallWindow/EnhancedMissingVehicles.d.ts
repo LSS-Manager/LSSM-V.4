@@ -1,3 +1,5 @@
+import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+
 export interface Requirement {
     missing: number;
     driving: number;
@@ -10,15 +12,35 @@ export interface Requirement {
 }
 
 export interface EnhancedMissingVehicles {
+    faAngleDoubleUp: IconDefinition;
+    faAngleDoubleDown: IconDefinition;
+    faArrowsAlt: IconDefinition;
+    faCompressAlt: IconDefinition;
+    faExpandAlt: IconDefinition;
+    faTable: IconDefinition;
+    faParagraph: IconDefinition;
     missingRequirementsSearch: string;
     sort: string;
     sortDir: string;
     requirements: Requirement[];
+    overlay: boolean | undefined;
+    minified: boolean | undefined;
+    textMode: boolean | undefined;
+    drag: {
+        active: boolean;
+        top: number;
+        left: number;
+        offset: {
+            x: number;
+            y: number;
+        };
+    };
 }
 
 export interface EnhancedMissingVehiclesProps {
     missingRequirements: Requirement[];
     extras: string;
+    missingText: string;
 }
 
 export interface EnhancedMissingVehiclesComputed {
@@ -28,4 +50,10 @@ export interface EnhancedMissingVehiclesComputed {
 
 export interface EnhancedMissingVehiclesMethods {
     setSort(s: string): void;
+    toggleOverlay(): void;
+    toggleMinified(): void;
+    toggleTextMode(): void;
+    dragStart(e: MouseEvent): void;
+    dragEnd(): void;
+    dragging(e: MouseEvent): void;
 }

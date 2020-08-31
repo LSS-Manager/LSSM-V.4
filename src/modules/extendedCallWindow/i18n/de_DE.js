@@ -184,6 +184,16 @@ module.exports = {
             description:
                 'Zeigt die obere Leiste im Einsatzfenster immer an, auch wenn du nach unten scrollst.',
         },
+        loadMoreVehiclesInHeader: {
+            title: 'Fahrzeuge nachladen in Kopfleiste',
+            description:
+                'Zeigt den Knopf "Fahrzeuge nachladen", wenn vorhanden, in der Kopfleiste an.',
+        },
+        hideVehicleList: {
+            title: 'Versteckt die Fahrzeugliste',
+            description:
+                'Versteckt normal die Einsatzliste, öffnet diese dann per Knopfdruck.',
+        },
         tailoredTabs: {
             title: 'Fahrzeugkategorien',
             description:
@@ -391,5 +401,11 @@ module.exports = {
                 vehicleTypes: [63, 64, 70],
             },
         ],
+        allTab: 'Alle',
+        occupiedTab: 'Weiteralarmieren',
+    },
+    hideVehicleList: {
+        show: 'Fahrzeugliste zeigen',
+        hide: 'Fahrzeugliste verstecken',
     },
 };
