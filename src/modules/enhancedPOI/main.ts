@@ -1,8 +1,13 @@
 import { POI } from 'typings/modules/EnhancedPOI';
 import { POIMarker } from 'typings/Ingame';
 import { LayersControlEvent } from 'leaflet';
+import multiSelect from '../../components/setting/multi-select.vue';
+import { CreateElement } from 'vue';
+import { VNodeData } from 'vue/types/vnode';
 
 (async (LSSM: Vue) => {
+    const poi_types = Object.values(LSSM.$t('pois')) as string[];
+
     await LSSM.$store.dispatch('settings/register', {
         moduleId: MODULE_ID,
         settings: {
@@ -18,6 +23,11 @@ import { LayersControlEvent } from 'leaflet';
                 // @ts-ignore
                 disabled: (settings): boolean =>
                     settings[MODULE_ID]['predefined_style'].value !== 'custom',
+            },
+            shown_types: {
+                type: 'multiSelect',
+                default: poi_types,
+                values: poi_types,
             },
         },
     });
@@ -134,6 +144,11 @@ import { LayersControlEvent } from 'leaflet';
             !modifiedMarkers && name.match(/app-pois-filter/) && modifyMarkers()
     );
 
+    const shown_types = await LSSM.$store.dispatch('settings/getSetting', {
+        moduleId: MODULE_ID,
+        settingId: 'shown_types',
+    });
+
     const observer = new MutationObserver(mutations => {
         mutations.forEach(mutation => {
             const form = (mutation.target as HTMLElement).querySelector(
@@ -163,6 +178,37 @@ import { LayersControlEvent } from 'leaflet';
                     )?.textContent || ''
                 )
             );
+            const settingsWrapper = document.createElement('div');
+            form.after(settingsWrapper);
+            const getProps = (pois: string[]) => ({
+                name: 'shown_types',
+                placeholder: LSSM.$t(
+                    `modules.${MODULE_ID}.settings.shown_types.title`
+                ),
+                value: pois,
+                options: poi_types.map(value => ({
+                    label: value,
+                    value,
+                })),
+            });
+            const getRender = (h: CreateElement, pois: string[]) =>
+                h(multiSelect, {
+                    props: getProps(pois),
+                    on: {
+                        input(pois: string[]) {
+                            settingsInstance.$options.render = h =>
+                                getRender(h, pois);
+                            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                            // @ts-ignore
+                            settingsInstance.$options.render(h);
+                        },
+                    },
+                });
+            const settingsInstance = new LSSM.$vue({
+                store: LSSM.$store,
+                i18n: LSSM.$i18n,
+                render: h => getRender(h, poi_types),
+            }).$mount(settingsWrapper);
         });
     });
 
