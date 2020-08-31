@@ -2,15 +2,13 @@
 	"enhancedPersonnelAssignment": {
 		"toggleFittingPersonnel": "Personal ohne passende Ausbildung ausblenden"
 	},
+	"expansions": {
+		"notBuild": "Noch nicht gebaut"
+	},
 	"personnelDemands": {
 		"additional": "Bei Werten in Klammern sind Fahrzeuge im FMS 6 ausgeschlossen.",
 		"demand": "Benötigtes Personal"
 	},
-    "vehiclePersonnel": {
-        "vehiclesPersonnelMax": "max",
-        "vehiclesPersonnelCurrent": "aktuell",
-        "vehiclesPersonnelAssigned": "zugewiesen"
-    },
 	"schoolingSummary": {
 		"all": "Alle Kombinationen",
 		"amount": "Anzahl",
@@ -21,9 +19,6 @@
 		"schooling": "Ausbildung",
 		"title": "Personalübersicht"
 	},
-    "expansions": {
-        "notBuild": "Noch nicht gebaut"
-    },
 	"settings": {
 		"enhanceVehicleList": {
 			"description": "Erweitert die Fahrzeugliste um nützliche Features – einige davon speziell einstellbar.",
@@ -33,10 +28,10 @@
 			"description": "Gibt dir die Möglichkeit, Personal ohne die passende Ausbildung auszublenden.",
 			"title": "verbesserte Personalzuweisung"
 		},
-        "expansions": {
-            "title": "Ausbauten direkt anzeigen",
-            "description": "Zeigt die Ausbauten eines Gebäudes an, ohne dass du erst auf den Ausbauten-Tab drücken musst."
-        },
+		"expansions": {
+			"title": "Ausbauten direkt anzeigen",
+			"description": "Zeigt die Ausbauten eines Gebäudes an, ohne dass du erst auf den Ausbauten-Tab drücken musst."
+		},
 		"fmsSwitch": {
 			"description": "Ermöglicht einen Wechsel zwischen Status 2 und 6 mit Klick auf den Status.",
 			"title": "Schneller FMS-Wechsel"
@@ -57,21 +52,26 @@
 			"description": "Zeigt den Fahrzeugtyp (und falls vorhanden die eigene Fahrzeugklasse) in einer eigenen Spalte mit an.",
 			"title": "Fahrzeugtyp"
 		},
-        "vehiclesPersonnelMax": {
-            "title": "Maximale Besatzung",
-            "description": "Zeigt an, wie viele Personen maximal auf das Fahrzeug passen."
-        },
-        "vehiclesPersonnelCurrent": {
-            "title": "Aktuelle Besatzung",
-            "description": "Zeigt an, wie viele Personen aktuell im Fahrzeug sitzen."
-        },
-        "vehiclesPersonnelAssigned": {
-            "title": "Zugewiesene Besatzung",
-            "description": "Zeigt an, wie viele Personen dem Fahrzeug zugewiesen sind."
-        },
-        "vehiclesPersonnelColorized": {
-            "title": "Farbcode für zugewiesene Besatzung",
-            "description": "Hebt die Zahl der zugewiesenen Besatzung rot vor, wenn diese kleiner als die maximal mögliche ist, grün, wenn die maximale Zahl erreicht ist."
-        }
-    }
+		"vehiclesPersonnelMax": {
+			"title": "Maximale Besatzung",
+			"description": "Zeigt an, wie viele Personen maximal auf das Fahrzeug passen."
+		},
+		"vehiclesPersonnelCurrent": {
+			"title": "Aktuelle Besatzung",
+			"description": "Zeigt an, wie viele Personen aktuell im Fahrzeug sitzen."
+		},
+		"vehiclesPersonnelAssigned": {
+			"title": "Zugewiesene Besatzung",
+			"description": "Zeigt an, wie viele Personen dem Fahrzeug zugewiesen sind."
+		},
+		"vehiclesPersonnelColorized": {
+			"title": "Farbcode für zugewiesene Besatzung",
+			"description": "Hebt die Zahl der zugewiesenen Besatzung rot vor, wenn diese kleiner als die maximal mögliche ist, grün, wenn die maximale Zahl erreicht ist."
+		}
+	},
+	"vehiclePersonnel": {
+		"vehiclesPersonnelMax": "max",
+		"vehiclesPersonnelCurrent": "aktuell",
+		"vehiclesPersonnelAssigned": "zugewiesen"
+	}
 }
