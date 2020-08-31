@@ -116,6 +116,11 @@ export default (async (LSSM, MODULE_ID) => {
             !modifiedMarkers && name.match(/app-pois-filter/) && modifyMarkers()
     );
 
+    const shown_types = await LSSM.$store.dispatch('settings/getSetting', {
+        moduleId: MODULE_ID,
+        settingId: 'shown_types',
+    });
+
     const observer = new MutationObserver(mutations => {
         mutations.forEach(mutation => {
             const form = (mutation.target as HTMLElement).querySelector(
@@ -145,6 +150,8 @@ export default (async (LSSM, MODULE_ID) => {
                     )?.textContent || ''
                 )
             );
+            const settingsWrapper = document.createElement('div');
+            form.after(settingsWrapper);
         });
     });
 
