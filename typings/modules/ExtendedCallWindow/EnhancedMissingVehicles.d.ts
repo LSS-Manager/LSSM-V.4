@@ -17,12 +17,15 @@ export interface EnhancedMissingVehicles {
     faArrowsAlt: IconDefinition;
     faCompressAlt: IconDefinition;
     faExpandAlt: IconDefinition;
+    faTable: IconDefinition;
+    faParagraph: IconDefinition;
     missingRequirementsSearch: string;
     sort: string;
     sortDir: string;
     requirements: Requirement[];
     overlay: boolean | undefined;
     minified: boolean | undefined;
+    textMode: boolean | undefined;
     drag: {
         active: boolean;
         top: number;
@@ -37,6 +40,7 @@ export interface EnhancedMissingVehicles {
 export interface EnhancedMissingVehiclesProps {
     missingRequirements: Requirement[];
     extras: string;
+    missingText: string;
 }
 
 export interface EnhancedMissingVehiclesComputed {
@@ -48,6 +52,7 @@ export interface EnhancedMissingVehiclesMethods {
     setSort(s: string): void;
     toggleOverlay(): void;
     toggleMinified(): void;
+    toggleTextMode(): void;
     dragStart(e: MouseEvent): void;
     dragEnd(): void;
     dragging(e: MouseEvent): void;

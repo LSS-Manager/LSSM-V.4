@@ -81,7 +81,8 @@ export default (LSSM: Vue): void => {
                     missingRequirements: missingRequirements.filter(
                         req => !!req.vehicle
                     ),
-                    extras,
+                    extras: extras,
+                    missingText: missingDialog.textContent,
                 },
             }),
     }).$mount(missingDialog);

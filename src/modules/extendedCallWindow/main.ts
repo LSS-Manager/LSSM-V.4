@@ -20,6 +20,7 @@ import missionKeywords from './assets/missionKeywords';
 import alarmIcons from './assets/alarmIcons';
 import arrHover from './assets/arrHover';
 import enhancedHeader from './assets/enhancedHeader';
+import hideVehicleList from './assets/hideVehicleList';
 
 (async (LSSM: Vue) => {
     const defaultTailoredTabs = Object.values(
@@ -93,6 +94,10 @@ import enhancedHeader from './assets/enhancedHeader';
                 type: 'toggle',
                 default: false,
             },
+            hideVehicleList: {
+                type: 'toggle',
+                default: false,
+            },
             tailoredTabs: {
                 type: 'appendable-list',
                 default: defaultTailoredTabs,
@@ -133,15 +138,21 @@ import enhancedHeader from './assets/enhancedHeader';
                 type: 'hidden',
                 default: false,
             },
+            textMode: {
+                type: 'hidden',
+                default: false,
+            },
         },
     });
 
     if (
-        !window.location.pathname.match(/^\/(missions|buildings)\/\d+$/) ||
+        !window.location.pathname.match(/^\/(missions|buildings)\/\d+$\/?/) ||
         document.querySelector('.missionNotFound')
     )
         return;
-    const stagingMode = !!window.location.pathname.match(/^\/buildings\/\d+$/);
+    const stagingMode = !!window.location.pathname.match(
+        /^\/buildings\/\d+\/?$/
+    );
     if (stagingMode && !document.getElementById('education_schooling_-1'))
         return;
     const getSetting = <returnType = boolean>(
@@ -202,6 +213,7 @@ import enhancedHeader from './assets/enhancedHeader';
         );
         if (stickyHeader || loadMoreVehiclesInHeader)
             enhancedHeader(stickyHeader, loadMoreVehiclesInHeader);
+        if (await getSetting('hideVehicleList')) hideVehicleList(LSSM);
     }
 
     const tailoredTabSettings = await getSetting<typeof defaultTailoredTabs>(

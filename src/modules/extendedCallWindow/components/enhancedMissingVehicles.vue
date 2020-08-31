@@ -7,6 +7,12 @@
     >
         <font-awesome-icon
             class="pull-right"
+            :icon="textMode ? faTable : faParagraph"
+            :fixed-width="true"
+            @click="toggleTextMode"
+        ></font-awesome-icon>
+        <font-awesome-icon
+            class="pull-right"
             :icon="minified ? faExpandAlt : faCompressAlt"
             :fixed-width="true"
             @click="toggleMinified"
@@ -24,8 +30,8 @@
             :fixed-width="true"
             @click="toggleOverlay"
         ></font-awesome-icon>
-        <span>{{ extras }}</span>
-        <div class="row" v-if="!overlay">
+        <span v-if="!textMode">{{ extras }}</span>
+        <div class="row" v-if="!overlay && !textMode">
             <div class="col-md-6" id="lssm-missing-vehicles-left-col">
                 <enhanced-missing-vehicles-table
                     :missing-requirements="
@@ -56,7 +62,7 @@
                 ></enhanced-missing-vehicles-table>
             </div>
         </div>
-        <div class="row" v-else>
+        <div class="row" v-else-if="overlay && !textMode">
             <div class="col-md-12">
                 <enhanced-missing-vehicles-table
                     :missing-requirements="missingRequirementsSorted"
@@ -68,6 +74,9 @@
                 ></enhanced-missing-vehicles-table>
             </div>
         </div>
+        <div v-else>
+            {{ missingText }}
+        </div>
     </div>
 </template>
 
@@ -78,6 +87,8 @@ import { faAngleDoubleDown } from '@fortawesome/free-solid-svg-icons/faAngleDoub
 import { faArrowsAlt } from '@fortawesome/free-solid-svg-icons/faArrowsAlt';
 import { faCompressAlt } from '@fortawesome/free-solid-svg-icons/faCompressAlt';
 import { faExpandAlt } from '@fortawesome/free-solid-svg-icons/faExpandAlt';
+import { faTable } from '@fortawesome/free-solid-svg-icons/faTable';
+import { faParagraph } from '@fortawesome/free-solid-svg-icons/faParagraph';
 import EnhancedMissingVehiclesTable from './enhancedMissingVehiclesTable.vue';
 import {
     EnhancedMissingVehicles,
@@ -101,6 +112,8 @@ export default Vue.extend<
             faArrowsAlt,
             faCompressAlt,
             faExpandAlt,
+            faTable,
+            faParagraph,
             id: this.$store.getters.nodeAttribute('missing_text'),
             missingRequirementsSearch: '',
             sort: 'vehicle',
@@ -108,6 +121,7 @@ export default Vue.extend<
             requirements: this.missingRequirements,
             overlay: undefined,
             minified: undefined,
+            textMode: undefined,
             drag: {
                 active: false,
                 top: 60,
@@ -128,6 +142,10 @@ export default Vue.extend<
             type: String,
             required: false,
             default: '',
+        },
+        missingText: {
+            type: String,
+            required: true,
         },
     },
     computed: {
@@ -175,6 +193,15 @@ export default Vue.extend<
                     value: !this.minified,
                 })
                 .then(() => (this.minified = !this.minified));
+        },
+        toggleTextMode() {
+            this.$store
+                .dispatch('settings/setSetting', {
+                    moduleId: MODULE_ID,
+                    settingId: `textMode`,
+                    value: !this.textMode,
+                })
+                .then(() => (this.textMode = !this.textMode));
         },
         dragStart(e) {
             const current = { x: e.clientX, y: e.clientY };
