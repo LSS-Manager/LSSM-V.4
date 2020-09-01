@@ -70,7 +70,7 @@
         "vue-template-compiler": "^2.6.11",
         "vuepress": "^1.5.2",
         "vuepress-plugin-redirect": "^1.2.4",
-        "vuepress-plugin-smooth-scroll": "^0.0.9",
+        "vuepress-plugin-smooth-scroll": "^0.0.10",
         "vuepress-plugin-zooming": "^1.1.7",
         "webpack": "^4.43.0",
         "webpack-cli": "^3.3.12",
