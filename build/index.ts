@@ -4,7 +4,7 @@ import lodash from 'lodash';
 import { version } from '../package.json';
 import config from '../src/config';
 import webpackConfig from '../webpack.config';
-import webpack, { ChunkData, Configuration } from 'webpack';
+import webpack, { Configuration } from 'webpack';
 import moment from 'moment';
 import { Module } from '../typings/Module';
 
@@ -31,8 +31,8 @@ const entries = Object.entries(config.games)
             },
             output: {
                 path: path.resolve(__dirname, `../dist/${dir}${locale}`),
-                filename: (chunkData: ChunkData) =>
-                    `${chunkData.chunk.name.replace(
+                filename: pathData =>
+                    `${pathData.chunk?.name?.replace(
                         /^[a-z]{2}_[A-Z]{2}_/,
                         ''
                     )}.js`,
@@ -104,8 +104,8 @@ const entries = Object.entries(config.games)
                     __dirname,
                     `../dist/${dir}${locale}/modules`
                 ),
-                filename: (chunkData: ChunkData) =>
-                    `${chunkData.chunk.name.replace(
+                filename: pathData =>
+                    `${pathData.chunk?.name?.replace(
                         /^[a-z]{2}_[A-Z]{2}_/,
                         ''
                     )}/main.js`,
@@ -121,7 +121,7 @@ const entries = Object.entries(config.games)
                         fs.existsSync(`./src/modules/${module}/main.ts`)
                     )
                     .map(module => {
-                        modulesEntry.module?.rules.unshift({
+                        modulesEntry.module?.rules?.unshift({
                             test: new RegExp(
                                 `modules[\\\\/]+${module}[\\\\/]+main.ts$`
                             ),
@@ -151,18 +151,14 @@ const entries = Object.entries(config.games)
                                 },
                             ],
                         });
-                        modulesEntry.module?.rules.push({
+                        modulesEntry.module?.rules?.push({
                             test: new RegExp(
                                 `modules[\\\\/]+${module}[\\\\/]+.*\\.(ts|vue)$`
                             ),
                             loader: 'string-replace-loader',
-                            query: {
-                                multiple: [
-                                    {
-                                        search: /MODULE_ID/g,
-                                        replace: JSON.stringify(module),
-                                    },
-                                ],
+                            options: {
+                                search: /MODULE_ID/g,
+                                replace: JSON.stringify(module),
                             },
                         });
                         return [
@@ -196,8 +192,8 @@ webpack([...entries, ...moduleEntries], (err, stats) => {
     }
 
     console.log('Stats:');
-    console.log(stats.toString({ colors: true }));
+    console.log(stats?.toString({ colors: true }));
     console.timeEnd('build');
     console.log(`Build finished at ${new Date().toLocaleTimeString()}`);
-    if (stats.hasErrors()) process.exit(-1);
+    if (stats?.hasErrors()) process.exit(-1);
 });
