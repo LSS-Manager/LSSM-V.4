@@ -7,6 +7,7 @@ import webpackConfig from '../webpack.config';
 import webpack, { Configuration } from 'webpack';
 import moment from 'moment';
 import { Module } from '../typings/Module';
+import DynamicImportQueryPlugin from './plugins/DynamicImportQueryPlugin';
 
 console.time('build');
 
@@ -96,6 +97,17 @@ const entries = Object.entries(config.games)
                 new RegExp(`${[locale, ...fallbackLocales].join('|')}$`)
             )
         );
+        entry.plugins?.push(
+            new DynamicImportQueryPlugin({
+                v: {
+                    value: version,
+                },
+                uid: {
+                    value: `${JSON.stringify(locale)} + "-" + window.user_id`, // must be valid JS Code stringified
+                    isDynamicKey: true, // false by default
+                },
+            })
+        );
 
         const modulesEntry = {
             ...lodash.cloneDeep(entry),
@@ -109,6 +121,7 @@ const entries = Object.entries(config.games)
                         /^[a-z]{2}_[A-Z]{2}_/,
                         ''
                     )}/main.js`,
+                publicPath: `${config.server}${locale}/`,
             },
             externals: {
                 vue: `${config.prefix}.$vue`,
@@ -117,8 +130,10 @@ const entries = Object.entries(config.games)
         modulesEntry.entry = {
             ...Object.fromEntries(
                 modules
-                    .filter(module =>
-                        fs.existsSync(`./src/modules/${module}/main.ts`)
+                    .filter(
+                        module =>
+                            module === 'dashboard' &&
+                            fs.existsSync(`./src/modules/${module}/main.ts`)
                     )
                     .map(module => {
                         modulesEntry.module?.rules?.unshift({
@@ -161,6 +176,22 @@ const entries = Object.entries(config.games)
                                 replace: JSON.stringify(module),
                             },
                         });
+                        modulesEntry.plugins?.push(
+                            new DynamicImportQueryPlugin(
+                                {
+                                    v: {
+                                        value: version,
+                                    },
+                                    uid: {
+                                        value: `${JSON.stringify(
+                                            locale
+                                        )} + "-" + window.user_id`, // must be valid JS Code stringified
+                                        isDynamicKey: true, // false by default
+                                    },
+                                },
+                                true
+                            )
+                        );
                         return [
                             `${locale}_${module}`,
                             path.resolve(

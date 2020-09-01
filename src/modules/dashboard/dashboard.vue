@@ -54,11 +54,11 @@ export default Vue.extend<
     name: 'dashboard',
     components: {
         DispatchcenterView,
-        VehicleTypes,
-        BuildingTypes, //: () =>
-        // import(
-        //    /* webpackChunkName: "dashboard/vehicle-types" */ './components/vehicle-types.vue'
-        // ),
+        VehicleTypes: () =>
+            import(
+                /* webpackChunkName: "dashboard/vehicle-types" */ './components/vehicle-types.vue'
+            ),
+        BuildingTypes,
         ChartSummary,
         Lightbox,
     },
