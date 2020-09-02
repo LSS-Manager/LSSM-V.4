@@ -40,8 +40,8 @@ import { Building } from '../../../typings/Building';
 
         if (hasTt) marker.unbindTooltip();
 
-        const vehicles = vehiclesByBuilding[marker.building_id];
-        vehicles?.sort((a, b) =>
+        const vehicles = vehiclesByBuilding[marker.building_id] || [];
+        vehicles.sort((a, b) =>
             a.caption > b.caption ? 1 : b.caption > a.caption ? -1 : 0
         );
         const building = buildings.find(b => b.id === marker.building_id);

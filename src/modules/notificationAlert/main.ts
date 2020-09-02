@@ -6,22 +6,6 @@ import {
     MissionMarkerAdd,
     RadioMessage,
 } from 'typings/Ingame';
-import fmsImage from './assets/fmsImage';
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-import chatSvg from './assets/chat.svg';
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-import chatRoundSvg from './assets/chat-2.svg';
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-import messageSvg from './assets/message.svg';
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-import googleNewsSvg from './assets/google_news.svg';
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-import allianceSvg from './assets/alliance.svg';
 
 (async (LSSM: Vue) => {
     await LSSM.$store.dispatch('settings/register', {
@@ -118,13 +102,17 @@ import allianceSvg from './assets/alliance.svg';
                         : ``
                 }`;
                 if (isWhispered)
-                    events['allianceChatWhisper'].forEach(alert =>
+                    events['allianceChatWhisper'].forEach(async alert =>
                         LSSM.$store.dispatch('notifications/sendNotification', {
                             group: alert.position,
                             type: alert.alertStyle,
                             title: `🔇 ${title}`,
                             text: message,
-                            icon: chatSvg,
+                            icon: await import(
+                                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                                // @ts-ignore
+                                /* webpackChunkName: "notificationAlert/chat" */ './assets/chat.svg'
+                            ),
                             duration: alert.duration,
                             ingame: alert.ingame,
                             desktop: alert.desktop,
@@ -137,13 +125,17 @@ import allianceSvg from './assets/alliance.svg';
                         })
                     );
                 else if (isMentioned)
-                    events['allianceChatMention'].forEach(alert =>
+                    events['allianceChatMention'].forEach(async alert =>
                         LSSM.$store.dispatch('notifications/sendNotification', {
                             group: alert.position,
                             type: alert.alertStyle,
                             title: `ℹ️ ${title}`,
                             text: message,
-                            icon: chatSvg,
+                            icon: await import(
+                                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                                // @ts-ignore
+                                /* webpackChunkName: "notificationAlert/chat" */ './assets/chat.svg'
+                            ),
                             duration: alert.duration,
                             ingame: alert.ingame,
                             desktop: alert.desktop,
@@ -156,13 +148,17 @@ import allianceSvg from './assets/alliance.svg';
                         })
                     );
                 else
-                    events['allianceChat'].forEach(alert =>
+                    events['allianceChat'].forEach(async alert =>
                         LSSM.$store.dispatch('notifications/sendNotification', {
                             group: alert.position,
                             type: alert.alertStyle,
                             title,
                             text: message,
-                            icon: chatRoundSvg,
+                            icon: await import(
+                                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                                // @ts-ignore
+                                /* webpackChunkName: "notificationAlert/chat-2" */ './assets/chat-2.svg'
+                            ),
                             duration: alert.duration,
                             ingame: alert.ingame,
                             desktop: alert.desktop,
@@ -196,7 +192,7 @@ import allianceSvg from './assets/alliance.svg';
     if (fmsEvents.length)
         await LSSM.$store.dispatch('hook', {
             event: 'radioMessage',
-            callback(message: RadioMessage) {
+            async callback(message: RadioMessage) {
                 if (message.user_id !== window.user_id) return;
 
                 // sicherheitswache
@@ -245,7 +241,11 @@ import allianceSvg from './assets/alliance.svg';
                     (fmsAll || fmsStatuses.length) &&
                     message.type === 'vehicle_fms'
                 ) {
-                    const icon = fmsImage(message.fms_real, message.fms);
+                    const icon = (
+                        await import(
+                            /* webpackChunkName: "notificationAlert/fmsImage" */ './assets/fmsImage'
+                        )
+                    ).default(message.fms_real, message.fms);
                     const mode = `vehicle_fms_${message.fms}`;
                     const title = $m(`messages.radioMessage.title`, {
                         vehicle: message.caption,
@@ -308,13 +308,17 @@ import allianceSvg from './assets/alliance.svg';
                         ?.textContent?.trim() || '-1'
                 );
                 if (newAmount <= prevAmount) return;
-                events['dm'].forEach(alert =>
+                events['dm'].forEach(async alert =>
                     LSSM.$store.dispatch('notifications/sendNotification', {
                         group: alert.position,
                         type: alert.alertStyle,
                         title: $mc('messages.dm.title', newAmount - prevAmount),
                         text: $mc('messages.dm.body', newAmount),
-                        icon: messageSvg,
+                        icon: await import(
+                            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                            // @ts-ignore
+                            /* webpackChunkName: "notificationAlert/message" */ './assets/message.svg'
+                        ),
                         duration: alert.duration,
                         ingame: alert.ingame,
                         desktop: alert.desktop,
@@ -333,13 +337,17 @@ import allianceSvg from './assets/alliance.svg';
             post: false,
             callback(hasNew: boolean) {
                 if (!hasNew) return;
-                events['ingame_news'].forEach(alert =>
+                events['ingame_news'].forEach(async alert =>
                     LSSM.$store.dispatch('notifications/sendNotification', {
                         group: alert.position,
                         type: alert.alertStyle,
                         title: $m('messages.ingame_news.title'),
                         text: $m('messages.ingame_news.body'),
-                        icon: googleNewsSvg,
+                        icon: await import(
+                            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                            // @ts-ignore
+                            /* webpackChunkName: "notificationAlert/google_news" */ './assets/google_news.svg'
+                        ),
                         duration: alert.duration,
                         ingame: alert.ingame,
                         desktop: alert.desktop,
@@ -362,7 +370,7 @@ import allianceSvg from './assets/alliance.svg';
                         ?.replace(/(^\()|\)$/g, '') || '-1'
                 );
                 if (newAmount <= prevAmount) return;
-                events['allianceCandidature'].forEach(alert =>
+                events['allianceCandidature'].forEach(async alert =>
                     LSSM.$store.dispatch('notifications/sendNotification', {
                         group: alert.position,
                         type: alert.alertStyle,
@@ -374,7 +382,11 @@ import allianceSvg from './assets/alliance.svg';
                             'messages.allianceCandidature.body',
                             newAmount
                         ),
-                        icon: allianceSvg,
+                        icon: await import(
+                            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                            // @ts-ignore
+                            /* webpackChunkName: "notificationAlert/alliance" */ './assets/alliance.svg'
+                        ),
                         duration: alert.duration,
                         ingame: alert.ingame,
                         desktop: alert.desktop,
@@ -393,13 +405,17 @@ import allianceSvg from './assets/alliance.svg';
             post: false,
             callback(hasNew: boolean) {
                 if (!hasNew) return;
-                events['allianceMessage'].forEach(alert =>
+                events['allianceMessage'].forEach(async alert =>
                     LSSM.$store.dispatch('notifications/sendNotification', {
                         group: alert.position,
                         type: alert.alertStyle,
                         title: $m('messages.allianceMessage.title'),
                         text: $m('messages.allianceMessage.body'),
-                        icon: allianceSvg,
+                        icon: await import(
+                            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                            // @ts-ignore
+                            /* webpackChunkName: "notificationAlert/alliance" */ './assets/alliance.svg'
+                        ),
                         duration: alert.duration,
                         ingame: alert.ingame,
                         desktop: alert.desktop,
@@ -418,13 +434,17 @@ import allianceSvg from './assets/alliance.svg';
             post: false,
             callback(hasNew: boolean) {
                 if (!hasNew) return;
-                events['allianceNews'].forEach(alert =>
+                events['allianceNews'].forEach(async alert =>
                     LSSM.$store.dispatch('notifications/sendNotification', {
                         group: alert.position,
                         type: alert.alertStyle,
                         title: $m('messages.allianceNews.title'),
                         text: $m('messages.allianceNews.body'),
-                        icon: allianceSvg,
+                        icon: await import(
+                            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                            // @ts-ignore
+                            /* webpackChunkName: "notificationAlert/alliance" */ './assets/alliance.svg'
+                        ),
                         duration: alert.duration,
                         ingame: alert.ingame,
                         desktop: alert.desktop,
@@ -443,13 +463,17 @@ import allianceSvg from './assets/alliance.svg';
             post: false,
             callback(hasNew: boolean) {
                 if (!hasNew) return;
-                events['allianceForum'].forEach(alert =>
+                events['allianceForum'].forEach(async alert =>
                     LSSM.$store.dispatch('notifications/sendNotification', {
                         group: alert.position,
                         type: alert.alertStyle,
                         title: $m('messages.allianceForum.title'),
                         text: $m('messages.allianceForum.body'),
-                        icon: allianceSvg,
+                        icon: await import(
+                            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                            // @ts-ignore
+                            /* webpackChunkName: "notificationAlert/alliance" */ './assets/alliance.svg'
+                        ),
                         duration: alert.duration,
                         ingame: alert.ingame,
                         desktop: alert.desktop,
