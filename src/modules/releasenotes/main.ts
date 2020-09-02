@@ -1,4 +1,3 @@
-import releasenotes from './releasenotes.vue';
 import { Releasenote } from '../../../typings/modules/Releasenotes';
 
 const LAST_VERSION_STORAGE_KEY = 'releasenotes_lastVersion';
@@ -12,7 +11,10 @@ export default (LSSM: Vue): void => {
 
     const openNotes = (): void =>
         LSSM.$modal.show(
-            releasenotes,
+            () =>
+                import(
+                    /* webpackChunkName: "releasenotes/releasenotes" */ './releasenotes.vue'
+                ),
             { notes },
             { name: 'releasenotes', height: 'auto' },
             {
