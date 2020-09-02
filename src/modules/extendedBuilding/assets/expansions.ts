@@ -86,7 +86,6 @@ export default (LSSM: Vue): void => {
         }
         expansionIndex[name].push(label);
     });
-    console.log(expansionIndex);
     Object.entries(expansionIndex).forEach(([expansion, labels]) => {
         const row = expansionWrapper.insertRow();
         row.style.backgroundColor = 'unset';

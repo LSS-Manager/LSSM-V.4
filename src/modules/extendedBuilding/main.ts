@@ -1,9 +1,3 @@
-import enhanceVehicleList from './assets/enhanceVehicleList';
-import personnelDemands from './assets/personnelDemands';
-import schoolingSummary from './assets/schoolingSummary';
-import enhancedPersonnelAssignment from './assets/enhancedPersonnelAssignment';
-import expansions from './assets/expansions';
-
 (async (LSSM: Vue) => {
     await LSSM.$store.dispatch('settings/register', {
         moduleId: MODULE_ID,
@@ -99,26 +93,47 @@ import expansions from './assets/expansions';
             : 'building';
 
         if (await getSetting('enhanceVehicleList'))
-            await enhanceVehicleList(LSSM, BUILDING_MODE, getSetting);
+            await (
+                await import(
+                    /* webpackChunkName: "extendedBuilding/enhanceVehicleList" */ './assets/enhanceVehicleList'
+                )
+            ).default(LSSM, BUILDING_MODE, getSetting);
 
         if (
             BUILDING_MODE === 'building' &&
             (await getSetting('personnelDemands'))
         )
-            personnelDemands(LSSM);
+            (
+                await import(
+                    /* webpackChunkName: "extendedBuilding/personnelDemands" */ './assets/personnelDemands'
+                )
+            ).default(LSSM);
 
         if (
             (await getSetting('expansions')) &&
             document.querySelector('#ausbauten')
         )
-            expansions(LSSM);
+            (
+                await import(
+                    /* webpackChunkName: "extendedBuilding/expansions" */ './assets/expansions'
+                )
+            ).default(LSSM);
     } else if (
         window.location.pathname.match(/^\/buildings\/\d+\/personals\/?$/)
     ) {
-        if (await getSetting('schoolingSummary')) schoolingSummary(LSSM);
+        if (await getSetting('schoolingSummary'))
+            (
+                await import(
+                    /* webpackChunkName: "extendedBuilding/schoolingSummary" */ './assets/schoolingSummary'
+                )
+            ).default(LSSM);
     } else if (
         window.location.pathname.match(/^\/vehicles\/\d+\/zuweisung\/?$/)
     )
         if (await getSetting('enhancedPersonnelAssignment'))
-            enhancedPersonnelAssignment(LSSM);
+            (
+                await import(
+                    /* webpackChunkName: "extendedBuilding/enhancedPersonnelAssignment" */ './assets/enhancedPersonnelAssignment'
+                )
+            ).default(LSSM);
 })(window[PREFIX] as Vue);
