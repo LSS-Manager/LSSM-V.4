@@ -37,7 +37,6 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import EnhancedTable from '../../../components/enhanced-table.vue';
 import {
     OpenSchoolingTabs,
     OpenSchoolingTabsMethods,
@@ -53,7 +52,12 @@ export default Vue.extend<
     DefaultProps
 >({
     name: 'openSchoolingTabs',
-    components: { EnhancedTable },
+    components: {
+        EnhancedTable: () =>
+            import(
+                /* webpackChunkName: "components/enhanced-table" */ '../../../components/enhanced-table.vue'
+            ),
+    },
     data() {
         const heads = {} as {
             [key: string]: {

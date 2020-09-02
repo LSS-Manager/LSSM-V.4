@@ -39,7 +39,6 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import Lightbox from '../../components/lightbox.vue';
 import tokenizer from './assets/tokenizer';
 import parser from './assets/parser';
 import { faTerminal } from '@fortawesome/free-solid-svg-icons/faTerminal';
@@ -176,7 +175,12 @@ export default Vue.extend<
     DefaultProps
 >({
     name: 'lssmaql',
-    components: { Lightbox },
+    components: {
+        Lightbox: () =>
+            import(
+                /* webpackChunkName: "components/lightbox" */ '../../components/lightbox.vue'
+            ),
+    },
     data: function() {
         return {
             faTerminal,

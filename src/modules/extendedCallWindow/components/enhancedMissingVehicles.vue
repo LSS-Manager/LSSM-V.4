@@ -89,7 +89,6 @@ import { faCompressAlt } from '@fortawesome/free-solid-svg-icons/faCompressAlt';
 import { faExpandAlt } from '@fortawesome/free-solid-svg-icons/faExpandAlt';
 import { faTable } from '@fortawesome/free-solid-svg-icons/faTable';
 import { faParagraph } from '@fortawesome/free-solid-svg-icons/faParagraph';
-import EnhancedMissingVehiclesTable from './enhancedMissingVehiclesTable.vue';
 import {
     EnhancedMissingVehicles,
     EnhancedMissingVehiclesComputed,
@@ -104,7 +103,12 @@ export default Vue.extend<
     EnhancedMissingVehiclesProps
 >({
     name: 'enhancedMissingVehicles',
-    components: { EnhancedMissingVehiclesTable },
+    components: {
+        EnhancedMissingVehiclesTable: () =>
+            import(
+                /* webpackChunkName: "extendedCallWindow/components/enhancedMissingVehiclesTable" */ './enhancedMissingVehiclesTable'
+            ),
+    },
     data() {
         return {
             faAngleDoubleUp,

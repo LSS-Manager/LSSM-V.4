@@ -55,7 +55,6 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import EnhancedTable from '../../../components/enhanced-table.vue';
 import { EnhancedMissingVehiclesTableProps } from 'typings/modules/ExtendedCallWindow/EnhancedMissingVehiclesTable';
 import {
     DefaultData,
@@ -70,7 +69,12 @@ export default Vue.extend<
     EnhancedMissingVehiclesTableProps
 >({
     name: 'enhancedMissingVehiclesTable',
-    components: { EnhancedTable },
+    components: {
+        EnhancedTable: () =>
+            import(
+                /* webpackChunkName: "components/enhanced-table" */ '../../../components/enhanced-table.vue'
+            ),
+    },
     props: {
         missingRequirements: {
             type: Array,

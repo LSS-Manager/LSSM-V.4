@@ -79,7 +79,6 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import EnhancedTable from '../../../components/enhanced-table.vue';
 import {
     SchoolingSummary,
     SchoolingSummaryComputed,
@@ -94,7 +93,12 @@ export default Vue.extend<
     SchoolingSummaryProps
 >({
     name: 'schoolingSummary',
-    components: { EnhancedTable },
+    components: {
+        EnhancedTable: () =>
+            import(
+                /* webpackChunkName: "components/enhanced-table" */ '../../../components/enhanced-table.vue'
+            ),
+    },
     data() {
         return {
             hidden: true,

@@ -37,8 +37,6 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import Lightbox from '../../components/lightbox.vue';
-import ChartSummary from './components/chart-summary.vue';
 import { DefaultComputed, DefaultData, DefaultProps } from 'vue/types/options';
 import { DashboardMethods } from '../../../typings/modules/Dashboard/Dashboard';
 
@@ -62,8 +60,14 @@ export default Vue.extend<
             import(
                 /* webpackChunkName: "dashboard/building-types" */ './components/building-types.vue'
             ),
-        ChartSummary,
-        Lightbox,
+        ChartSummary: () =>
+            import(
+                /* webpackChunkName: "dashboard/chart-summary" */ './components/chart-summary.vue'
+            ),
+        Lightbox: () =>
+            import(
+                /* webpackChunkName: "components/lightbox" */ '../../components/lightbox.vue'
+            ),
     },
     methods: {
         $m(key, args) {

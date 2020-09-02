@@ -75,7 +75,12 @@ export default Vue.extend<
     DefaultProps
 >({
     name: 'building-types',
-    components: { EnhancedTable },
+    components: {
+        EnhancedTable: () =>
+            import(
+                /* webpackChunkName: "components/enhanced-table" */ '../../../components/enhanced-table.vue'
+            ),
+    },
     data() {
         const buildingTypes = Object.values(
             this.$t('buildings')

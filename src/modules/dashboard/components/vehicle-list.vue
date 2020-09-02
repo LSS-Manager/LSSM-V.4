@@ -77,8 +77,6 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import Lightbox from '../../../components/lightbox.vue';
-import EnhancedTable from '../../../components/enhanced-table.vue';
 import { faPencilAlt } from '@fortawesome/free-solid-svg-icons/faPencilAlt';
 import { faUsers } from '@fortawesome/free-solid-svg-icons/faUsers';
 import {
@@ -95,7 +93,16 @@ export default Vue.extend<
     VehicleListProps
 >({
     name: 'vehicle-list',
-    components: { Lightbox, EnhancedTable },
+    components: {
+        Lightbox: () =>
+            import(
+                /* webpackChunkName: "components/lightbox" */ '../../../components/lightbox.vue'
+            ),
+        EnhancedTable: () =>
+            import(
+                /* webpackChunkName: "components/enhanced-table" */ '../../../components/enhanced-table.vue'
+            ),
+    },
     data() {
         return {
             vehicleTypeNames: Object.values(this.$t('vehicles')).map(

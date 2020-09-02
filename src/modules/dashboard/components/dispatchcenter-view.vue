@@ -359,12 +359,6 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import VSelect from 'vue-select';
-import {
-    Dashboard as GridBoard,
-    DashLayout as GridLayout,
-    DashItem as GridItem,
-} from 'vue-responsive-dash';
 import { Building } from 'typings/Building';
 import {
     DispatchcenterView,
@@ -380,7 +374,30 @@ export default Vue.extend<
     DefaultProps
 >({
     name: 'dispatchcenter-view',
-    components: { VSelect, GridBoard, GridLayout, GridItem },
+    components: {
+        VSelect: () =>
+            import(
+                /* webpackChunkName: "components/vue-select" */ 'vue-select'
+            ),
+        GridBoard: async () =>
+            (
+                await import(
+                    /* webpackChunkName: "components/vue-select" */ 'vue-responsive-dash'
+                )
+            ).Dashboard,
+        GridLayout: async () =>
+            (
+                await import(
+                    /* webpackChunkName: "components/vue-select" */ 'vue-responsive-dash'
+                )
+            ).DashLayout,
+        GridItem: async () =>
+            (
+                await import(
+                    /* webpackChunkName: "components/vue-select" */ 'vue-responsive-dash'
+                )
+            ).DashItem,
+    },
     data() {
         const buildingTypes = Object.values(this.$t('buildings'));
         const dispatchCenterBuildings = Object.values(
