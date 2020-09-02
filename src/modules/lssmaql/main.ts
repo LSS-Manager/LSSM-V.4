@@ -1,11 +1,12 @@
-import lssmaql from './lssmaql.vue';
-
 ((LSSM: Vue) => {
     LSSM.$store.dispatch('addMenuItem', 'LSSMAQL Console').then(
         element =>
             (element.onclick = () =>
                 LSSM.$modal.show(
-                    lssmaql,
+                    () =>
+                        import(
+                            /* webpackChunkName: "lssmaql/lssmaql" */ './lssmaql.vue'
+                        ),
                     {},
                     {
                         name: 'lssmaql',
