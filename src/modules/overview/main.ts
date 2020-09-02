@@ -1,12 +1,13 @@
-import overview from './overview.vue';
-
 ((LSSM: Vue) => {
     const $m = (key: string, args?: { [key: string]: unknown }) =>
         LSSM.$t(`modules.overview.${key}`, args);
 
     const openOverview = (): void =>
         LSSM.$modal.show(
-            overview,
+            () =>
+                import(
+                    /* webpackChunkName: "overview/overview" */ './overview.vue'
+                ),
             {},
             {
                 name: 'overview',

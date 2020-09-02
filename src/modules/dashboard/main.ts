@@ -1,5 +1,3 @@
-import dashboard from './dashboard.vue';
-
 ((LSSM: Vue) => {
     const $m = (key: string, args?: { [key: string]: unknown }) =>
         LSSM.$t(`modules.dashboard.${key}`, args);
@@ -10,7 +8,10 @@ import dashboard from './dashboard.vue';
                 await LSSM.$store.dispatch('api/registerBuildingsUsage', true);
                 await LSSM.$store.dispatch('api/registerVehiclesUsage', true);
                 LSSM.$modal.show(
-                    dashboard,
+                    () =>
+                        import(
+                            /* webpackChunkName: "dashboard/dashboard" */ './dashboard.vue'
+                        ),
                     {},
                     { name: 'dashboard', height: '96%', width: '96%' }
                 );
