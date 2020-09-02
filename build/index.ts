@@ -37,6 +37,7 @@ const entries = Object.entries(config.games)
                         /^[a-z]{2}_[A-Z]{2}_/,
                         ''
                     )}.js`,
+                publicPath: `${config.server}${locale}/`,
             },
             ...lodash.cloneDeep(webpackConfig),
         } as Configuration;
@@ -121,7 +122,7 @@ const entries = Object.entries(config.games)
                         /^[a-z]{2}_[A-Z]{2}_/,
                         ''
                     )}/main.js`,
-                publicPath: `${config.server}${locale}/`,
+                publicPath: `${config.server}${locale}/modules/`,
             },
             externals: {
                 vue: `${config.prefix}.$vue`,
@@ -130,10 +131,8 @@ const entries = Object.entries(config.games)
         modulesEntry.entry = {
             ...Object.fromEntries(
                 modules
-                    .filter(
-                        module =>
-                            module === 'dashboard' &&
-                            fs.existsSync(`./src/modules/${module}/main.ts`)
+                    .filter(module =>
+                        fs.existsSync(`./src/modules/${module}/main.ts`)
                     )
                     .map(module => {
                         modulesEntry.module?.rules?.unshift({
@@ -177,20 +176,17 @@ const entries = Object.entries(config.games)
                             },
                         });
                         modulesEntry.plugins?.push(
-                            new DynamicImportQueryPlugin(
-                                {
-                                    v: {
-                                        value: version,
-                                    },
-                                    uid: {
-                                        value: `${JSON.stringify(
-                                            locale
-                                        )} + "-" + window.user_id`, // must be valid JS Code stringified
-                                        isDynamicKey: true, // false by default
-                                    },
+                            new DynamicImportQueryPlugin({
+                                v: {
+                                    value: version,
                                 },
-                                true
-                            )
+                                uid: {
+                                    value: `${JSON.stringify(
+                                        locale
+                                    )} + "-" + window.user_id`, // must be valid JS Code stringified
+                                    isDynamicKey: true, // false by default
+                                },
+                            })
                         );
                         return [
                             `${locale}_${module}`,
@@ -222,6 +218,13 @@ webpack([...entries, ...moduleEntries], (err, stats) => {
         }
     }
 
+    if (stats)
+        fs.writeFileSync(
+            `./dist/webpack.out.${
+                process.argv[2] === 'production' ? 'public' : 'beta'
+            }.json`,
+            JSON.stringify(stats.toJson(), null, '\t')
+        );
     console.log('Stats:');
     console.log(stats?.toString({ colors: true }));
     console.timeEnd('build');

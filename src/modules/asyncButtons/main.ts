@@ -1,8 +1,3 @@
-import asyncBuildings from './assets/buildings';
-import asyncMissions from './assets/missions';
-import asyncMemberlist from './assets/memberlist';
-import asyncForumPost from './assets/forumpost';
-
 (async (LSSM: Vue) => {
     await LSSM.$store.dispatch('settings/register', {
         moduleId: MODULE_ID,
@@ -48,24 +43,36 @@ import asyncForumPost from './assets/forumpost';
         !document.querySelectorAll('[href*="profile"]').length &&
         buildings.length
     )
-        asyncBuildings(LSSM, buildings);
+        (
+            await import(
+                /* webpackChunkName: "asyncButtons/buildings" */ './assets/buildings'
+            )
+        ).default(LSSM, buildings);
 
     if (
         window.location.pathname.match(/^\/missions\/\d+\/?$/) &&
         missions.length
     )
-        asyncMissions(LSSM, missions);
+        import(
+            /* webpackChunkName: "asyncButtons/missions" */ './assets/missions'
+        ).then(a => a.default(LSSM, missions));
 
     if (
         window.location.pathname.match(/^\/verband\/mitglieder(\/\d+)?\/?$/) &&
         (await getSetting('memberlistManageUser'))
     )
-        asyncMemberlist(LSSM);
+        (
+            await import(
+                /* webpackChunkName: "asyncButtons/memberlist" */ './assets/memberlist'
+            )
+        ).default(LSSM);
     if (
         window.location.pathname.match(
             /^\/alliance_threads\/\d+\/?(\?page=\d+)?$/
         ) &&
         (await getSetting('deleteForumPost'))
     )
-        asyncForumPost(LSSM);
+        import(
+            /* webpackChunkName: "asyncButtons/forumpost" */ './assets/forumpost'
+        ).then(a => a.default(LSSM));
 })((window[PREFIX] as unknown) as Vue);
