@@ -53,7 +53,6 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import EnhancedTable from '../../../components/enhanced-table.vue';
 import {
     BuildingTypes,
     BuildingTypesMethods,
