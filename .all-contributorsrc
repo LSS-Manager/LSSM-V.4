@@ -14,7 +14,11 @@
       "avatar_url": "https://avatars1.githubusercontent.com/u/27238105?v=4",
       "profile": "https://github.com/KBOE2",
       "contributions": [
-        "code"
+        "code",
+        "maintenance",
+        "mentoring",
+        "projectManagement",
+        "question"
       ]
     },
     {
@@ -43,12 +47,24 @@
       "avatar_url": "https://avatars0.githubusercontent.com/u/30264441?v=4",
       "profile": "https://github.com/Ron31",
       "contributions": [
-        "code"
+        "code",
+        "question"
+      ]
+    },
+    {
+      "login": "Suchty112",
+      "name": "Suchty112",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/1109899?v=4",
+      "profile": "https://github.com/Suchty112",
+      "contributions": [
+        "question",
+        "translation"
       ]
     }
   ],
   "projectName": "LSSM-V.4",
   "projectOwner": "KBOE2",
   "repoType": "github",
-  "repoHost": "https://github.com"
+  "repoHost": "https://github.com",
+  "commitConvention": "gitmoji"
 }

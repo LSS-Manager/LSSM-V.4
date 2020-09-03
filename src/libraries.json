@@ -60,6 +60,10 @@
 		"url": "https://github.com/vuejs/vuepress/blob/master/packages/@vuepress/back-to-top#readme",
 		"version": "1.5.3"
 	},
+	"all-contributors-cli": {
+		"url": "https://github.com/all-contributors/all-contributors-cli#readme",
+		"version": "6.17.2"
+	},
 	"cache-loader": {
 		"url": "https://github.com/webpack-contrib/cache-loader",
 		"version": "4.1.0"

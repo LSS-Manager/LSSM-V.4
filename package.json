@@ -50,6 +50,7 @@
         "@typescript-eslint/parser": "^3.7.0",
         "@vuepress/plugin-active-header-links": "^1.5.2",
         "@vuepress/plugin-back-to-top": "^1.5.2",
+        "all-contributors-cli": "^6.17.2",
         "cache-loader": "^4.1.0",
         "clean-webpack-plugin": "^3.0.0",
         "copy-dir": "^1.3.0",
