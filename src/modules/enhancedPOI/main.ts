@@ -1,8 +1,9 @@
 import { POI } from 'typings/modules/EnhancedPOI';
 import { POIMarker } from 'typings/Ingame';
 import { LayersControlEvent } from 'leaflet';
+import { ModuleMainFunction } from 'typings/Module';
 
-(async (LSSM: Vue) => {
+export default (async (LSSM, MODULE_ID) => {
     await LSSM.$store.dispatch('settings/register', {
         moduleId: MODULE_ID,
         settings: {
@@ -168,4 +169,4 @@ import { LayersControlEvent } from 'leaflet';
 
     const buildingsElement = document.getElementById('buildings');
     buildingsElement && observer.observe(buildingsElement, { childList: true });
-})(window[PREFIX] as Vue);
+}) as ModuleMainFunction;
