@@ -1,6 +1,7 @@
 import missionHelper from './missionHelper.vue';
+import { ModuleMainFunction } from 'typings/Module';
 
-(async (LSSM: Vue) => {
+export default (async (LSSM, MODULE_ID) => {
     await LSSM.$store.dispatch('settings/register', {
         moduleId: MODULE_ID,
         settings: {
@@ -179,4 +180,4 @@ import missionHelper from './missionHelper.vue';
         i18n: LSSM.$i18n,
         render: h => h(missionHelper),
     }).$mount(clear);
-})(window[PREFIX] as Vue);
+}) as ModuleMainFunction;

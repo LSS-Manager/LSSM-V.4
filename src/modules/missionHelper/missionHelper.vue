@@ -628,7 +628,7 @@ export default Vue.extend<
             } else {
                 this.$store
                     .dispatch('settings/getSetting', {
-                        moduleId: MODULE_ID,
+                        moduleId: 'missionHelper',
                         settingId: `${
                             base_string ? `${base_string}.` : ''
                         }${id}`,
@@ -642,7 +642,7 @@ export default Vue.extend<
         toggleOverlay() {
             this.$store
                 .dispatch('settings/setSetting', {
-                    moduleId: MODULE_ID,
+                    moduleId: 'missionHelper',
                     settingId: `overlay`,
                     value: !this.overlay,
                 })
@@ -651,7 +651,7 @@ export default Vue.extend<
         toggleMinified() {
             this.$store
                 .dispatch('settings/setSetting', {
-                    moduleId: MODULE_ID,
+                    moduleId: 'missionHelper',
                     settingId: `minified`,
                     value: !this.minified,
                 })
@@ -691,14 +691,14 @@ export default Vue.extend<
     beforeMount() {
         this.$store
             .dispatch('settings/getSetting', {
-                moduleId: MODULE_ID,
+                moduleId: 'missionHelper',
                 settingId: 'overlay',
                 defaultValue: false,
             })
             .then(overlay => (this.overlay = overlay));
         this.$store
             .dispatch('settings/getSetting', {
-                moduleId: MODULE_ID,
+                moduleId: 'missionHelper',
                 settingId: 'minified',
                 defaultValue: false,
             })
