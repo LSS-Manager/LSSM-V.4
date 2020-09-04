@@ -1,7 +1,6 @@
-((LSSM: Vue) => {
-    const $m = (key: string, args?: { [key: string]: unknown }) =>
-        LSSM.$t(`modules.dashboard.${key}`, args);
+import { ModuleMainFunction } from 'typings/Module';
 
+export default ((LSSM, _, $m) => {
     LSSM.$store.dispatch('addMenuItem', $m('name').toString()).then(
         element =>
             (element.onclick = async () => {
@@ -17,4 +16,4 @@
                 );
             })
     );
-})(window[PREFIX] as Vue);
+}) as ModuleMainFunction;

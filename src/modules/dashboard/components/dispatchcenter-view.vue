@@ -663,7 +663,7 @@ export default Vue.extend<
         },
         saveBoards() {
             this.$store.dispatch('settings/setSetting', {
-                moduleId: MODULE_ID,
+                moduleId: 'dashboard',
                 settingId: 'dispatchcenter-view',
                 value: { boards: this.boards },
             });
@@ -684,7 +684,7 @@ export default Vue.extend<
     },
     mounted() {
         this.$store
-            .dispatch('settings/getModule', MODULE_ID)
+            .dispatch('settings/getModule', 'dashboard')
             .then(async settings => {
                 this.$set(
                     this,
