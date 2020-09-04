@@ -9,7 +9,6 @@ import LSSMMenu from './LSSM-Menu.vue';
 import store from './store';
 import i18n from './i18n';
 import utils from './utils';
-import browserTitle from './natives/browserTitle';
 import telemetry from './modules/telemetry/main';
 import releasenotes from './modules/releasenotes/main';
 import { RadioMessage } from '../typings/Ingame';
@@ -50,8 +49,6 @@ window[PREFIX] = new Vue({
 console.log('Und der LSSM wurde einmal gemounted :)');
 
 export const LSSM = window[PREFIX] as Vue;
-
-browserTitle(LSSM);
 
 if (window.location.pathname === '/') {
     window.console.info(

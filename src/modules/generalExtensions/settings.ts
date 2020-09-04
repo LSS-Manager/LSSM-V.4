@@ -18,4 +18,8 @@ export default (): unknown => ({
         default: false,
         noMapkit: true,
     },
+    browserTitle: {
+        type: 'toggle',
+        default: true,
+    },
 });

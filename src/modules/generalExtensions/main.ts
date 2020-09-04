@@ -14,6 +14,13 @@ export default (async (LSSM, MODULE_ID) => {
         )
     ).default(LSSM);
 
+    if (await getSetting<boolean>('browserTitle'))
+        (
+            await import(
+                /* webpackChunkName: "modules/generalExtensions/browserTitle" */ './assets/browserTitle'
+            )
+        ).default(LSSM);
+
     if (
         !window.location.pathname.match(/^\/note\/?$/) &&
         (await getSetting<boolean>('clickableLinks'))
