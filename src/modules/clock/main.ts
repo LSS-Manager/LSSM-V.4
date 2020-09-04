@@ -1,6 +1,7 @@
 import moment from 'moment';
+import { ModuleMainFunction } from 'typings/Module';
 
-((LSSM: Vue) => {
+export default ((LSSM, MODULE_ID) =>
     LSSM.$store
         .dispatch('settings/register', {
             moduleId: MODULE_ID,
@@ -103,5 +104,4 @@ import moment from 'moment';
                     );
                 });
             }, 1000);
-        });
-})(window[PREFIX] as Vue);
+        })) as ModuleMainFunction;

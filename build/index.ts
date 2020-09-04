@@ -17,8 +17,6 @@ console.info(`Let's build that stuff in Version ${version}`);
 
 const moduleDirs = fs.readdirSync(`./src/modules/`);
 
-const moduleEntries = [] as Configuration[];
-
 const entries = Object.entries(config.games)
     .filter(
         game => game[0] === 'de_DE' && fs.existsSync(`./src/i18n/${game[0]}.ts`)
@@ -110,103 +108,12 @@ const entries = Object.entries(config.games)
             })
         );
 
-        const modulesEntry = {
-            ...lodash.cloneDeep(entry),
-            output: {
-                path: path.resolve(
-                    __dirname,
-                    `../dist/${dir}${locale}/modules`
-                ),
-                filename: pathData =>
-                    `${pathData.chunk?.name?.replace(
-                        /^[a-z]{2}_[A-Z]{2}_/,
-                        ''
-                    )}/main.js`,
-                publicPath: `${config.server}${locale}/modules/`,
-            },
-            externals: {
-                vue: `${config.prefix}.$vue`,
-            },
-        } as Configuration;
-        modulesEntry.entry = {
-            ...Object.fromEntries(
-                modules
-                    .filter(module =>
-                        fs.existsSync(`./src/modules/${module}/main.ts`)
-                    )
-                    .map(module => {
-                        modulesEntry.module?.rules?.unshift({
-                            test: new RegExp(
-                                `modules[\\\\/]+${module}[\\\\/]+main.ts$`
-                            ),
-                            use: [
-                                {
-                                    loader: 'webpack-loader-append-prepend',
-                                    options: {
-                                        prepend: [locale, ...fallbackLocales]
-                                            .filter(loca => {
-                                                try {
-                                                    require(`../src/modules/${module}/i18n/${loca}`);
-                                                    return true;
-                                                } catch {
-                                                    return false;
-                                                }
-                                            })
-                                            .map(
-                                                loca =>
-                                                    `window[${JSON.stringify(
-                                                        config.prefix
-                                                    )}].$i18n.mergeLocaleMessage(${JSON.stringify(
-                                                        loca
-                                                    )},{modules:{${module}: require(\`../${module}/i18n/${loca}\`),},});`
-                                            )
-                                            .join('\n'),
-                                    },
-                                },
-                            ],
-                        });
-                        modulesEntry.module?.rules?.push({
-                            test: new RegExp(
-                                `modules[\\\\/]+${module}[\\\\/]+.*\\.(ts|vue)$`
-                            ),
-                            loader: 'string-replace-loader',
-                            options: {
-                                search: /MODULE_ID/g,
-                                replace: JSON.stringify(module),
-                            },
-                        });
-                        modulesEntry.plugins?.push(
-                            new DynamicImportQueryPlugin({
-                                v: {
-                                    value: version,
-                                },
-                                uid: {
-                                    value: `${JSON.stringify(
-                                        locale
-                                    )} + "-" + window.user_id`, // must be valid JS Code stringified
-                                    isDynamicKey: true, // false by default
-                                },
-                            })
-                        );
-                        return [
-                            `${locale}_${module}`,
-                            path.resolve(
-                                __dirname,
-                                `../src/modules/${module}/main.ts`
-                            ),
-                        ];
-                    })
-            ),
-        };
-
-        moduleEntries.push(modulesEntry);
-
         return entry;
     })
     .filter(entry => entry);
 
 console.log('Generated configurations. Building…');
-webpack([...entries, ...moduleEntries], (err, stats) => {
+webpack([...entries], (err, stats) => {
     if (err) {
         console.error(err.stack || err);
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
