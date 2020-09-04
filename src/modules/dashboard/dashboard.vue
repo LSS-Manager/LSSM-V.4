@@ -37,11 +37,6 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import ChartSummary from './components/chart-summary.vue';
-import DispatchcenterView from './components/dispatchcenter-view.vue';
-import Lightbox from '../../components/lightbox.vue';
-import VehicleTypes from './components/vehicle-types.vue';
-import BuildingTypes from './components/building-types.vue';
 import { DefaultComputed, DefaultData, DefaultProps } from 'vue/types/options';
 import { DashboardMethods } from '../../../typings/modules/Dashboard/Dashboard';
 
@@ -53,14 +48,26 @@ export default Vue.extend<
 >({
     name: 'dashboard',
     components: {
-        DispatchcenterView,
-        VehicleTypes,
-        BuildingTypes, //: () =>
-        // import(
-        //    /* webpackChunkName: "dashboard/vehicle-types" */ './components/vehicle-types.vue'
-        // ),
-        ChartSummary,
-        Lightbox,
+        DispatchcenterView: () =>
+            import(
+                /* webpackChunkName: "modules/dashboard/dispatchcenter-view" */ './components/dispatchcenter-view.vue'
+            ),
+        VehicleTypes: () =>
+            import(
+                /* webpackChunkName: "modules/dashboard/vehicle-types" */ './components/vehicle-types.vue'
+            ),
+        BuildingTypes: () =>
+            import(
+                /* webpackChunkName: "modules/dashboard/building-types" */ './components/building-types.vue'
+            ),
+        ChartSummary: () =>
+            import(
+                /* webpackChunkName: "modules/dashboard/chart-summary" */ './components/chart-summary.vue'
+            ),
+        Lightbox: () =>
+            import(
+                /* webpackChunkName: "modules/components/lightbox" */ '../../components/lightbox.vue'
+            ),
     },
     methods: {
         $m(key, args) {

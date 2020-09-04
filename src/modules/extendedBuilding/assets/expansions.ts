@@ -1,6 +1,8 @@
 import moment from 'moment';
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import { $m } from 'typings/Module';
 
-export default (LSSM: Vue): void => {
+export default (LSSM: Vue, MODULE_ID: string, $m: $m): void => {
     const expansionRows = document.querySelectorAll(
         '#ausbauten tbody tr'
     ) as NodeListOf<HTMLTableRowElement>;
@@ -80,13 +82,10 @@ export default (LSSM: Vue): void => {
                 '';
         } else {
             label.classList.add('label-danger');
-            label.textContent = LSSM.$t(
-                `modules.${MODULE_ID}.expansions.notBuild`
-            ).toString();
+            label.textContent = $m('expansions.notBuild').toString();
         }
         expansionIndex[name].push(label);
     });
-    console.log(expansionIndex);
     Object.entries(expansionIndex).forEach(([expansion, labels]) => {
         const row = expansionWrapper.insertRow();
         row.style.backgroundColor = 'unset';

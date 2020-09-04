@@ -263,16 +263,6 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import Setting from './setting.vue';
-import SettingsText from './setting/text.vue';
-import SettingsToggle from './setting/toggle.vue';
-import SettingsSelect from './setting/select.vue';
-import SettingsMultiSelect from './setting/multi-select.vue';
-import SettingsColor from './setting/color.vue';
-import SettingsNumber from './setting/number.vue';
-import SettingsHotkey from './setting/hotkey.vue';
-import SettingsAppendableList from './setting/settings-appendable-list.vue';
-import Lightbox from './lightbox.vue';
 import { faHistory } from '@fortawesome/free-solid-svg-icons/faHistory';
 import { LSSM } from '../core';
 import {
@@ -293,16 +283,46 @@ export default Vue.extend<
 >({
     name: 'settings',
     components: {
-        SettingsAppendableList,
-        SettingsToggle,
-        SettingsText,
-        SettingsSelect,
-        SettingsMultiSelect,
-        SettingsColor,
-        SettingsNumber,
-        SettingsHotkey,
-        Setting,
-        Lightbox,
+        SettingsAppendableList: () =>
+            import(
+                /* webpackChunkName: "components/setting/settings-appendable-list" */ './setting/settings-appendable-list.vue'
+            ),
+        SettingsToggle: () =>
+            import(
+                /* webpackChunkName: "components/setting/toggle" */ './setting/toggle.vue'
+            ),
+        SettingsText: () =>
+            import(
+                /* webpackChunkName: "components/setting/text" */ './setting/text.vue'
+            ),
+        SettingsSelect: () =>
+            import(
+                /* webpackChunkName: "components/setting/select" */ './setting/select.vue'
+            ),
+        SettingsMultiSelect: () =>
+            import(
+                /* webpackChunkName: "components/setting/multi-select" */ './setting/multi-select.vue'
+            ),
+        SettingsColor: () =>
+            import(
+                /* webpackChunkName: "components/setting/color" */ './setting/color.vue'
+            ),
+        SettingsNumber: () =>
+            import(
+                /* webpackChunkName: "components/setting/number" */ './setting/number.vue'
+            ),
+        SettingsHotkey: () =>
+            import(
+                /* webpackChunkName: "components/setting/hotkey" */ './setting/hotkey.vue'
+            ),
+        Setting: () =>
+            import(
+                /* webpackChunkName: "components/setting" */ './setting.vue'
+            ),
+        Lightbox: () =>
+            import(
+                /* webpackChunkName: "components/lightbox" */ './lightbox.vue'
+            ),
     },
     data() {
         const settings = cloneDeep(this.$store.state.settings.settings);

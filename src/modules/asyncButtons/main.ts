@@ -1,36 +1,6 @@
-import asyncBuildings from './assets/buildings';
-import asyncMissions from './assets/missions';
-import asyncMemberlist from './assets/memberlist';
-import asyncForumPost from './assets/forumpost';
+import { ModuleMainFunction } from 'typings/Module';
 
-(async (LSSM: Vue) => {
-    await LSSM.$store.dispatch('settings/register', {
-        moduleId: MODULE_ID,
-        settings: {
-            buildingTax: {
-                type: 'toggle',
-                default: true,
-            },
-            missionPrisoners: {
-                type: 'toggle',
-                default: true,
-            },
-            missionReply: {
-                type: 'toggle',
-                default: false,
-                disabled: () => true,
-            },
-            memberlistManageUser: {
-                type: 'toggle',
-                default: false,
-            },
-            deleteForumPost: {
-                type: 'toggle',
-                default: false,
-            },
-        },
-    });
-
+export default (async (LSSM, MODULE_ID, $m) => {
     const getSetting = (settingId: string): Promise<boolean> => {
         return LSSM.$store.dispatch('settings/getSetting', {
             moduleId: MODULE_ID,
@@ -48,24 +18,36 @@ import asyncForumPost from './assets/forumpost';
         !document.querySelectorAll('[href*="profile"]').length &&
         buildings.length
     )
-        asyncBuildings(LSSM, buildings);
+        (
+            await import(
+                /* webpackChunkName: "modules/asyncButtons/buildings" */ './assets/buildings'
+            )
+        ).default(LSSM, buildings);
 
     if (
         window.location.pathname.match(/^\/missions\/\d+\/?$/) &&
         missions.length
     )
-        asyncMissions(LSSM, missions);
+        import(
+            /* webpackChunkName: "modules/asyncButtons/missions" */ './assets/missions'
+        ).then(a => a.default(LSSM, missions));
 
     if (
         window.location.pathname.match(/^\/verband\/mitglieder(\/\d+)?\/?$/) &&
         (await getSetting('memberlistManageUser'))
     )
-        asyncMemberlist(LSSM);
+        (
+            await import(
+                /* webpackChunkName: "modules/asyncButtons/memberlist" */ './assets/memberlist'
+            )
+        ).default(LSSM, $m);
     if (
         window.location.pathname.match(
             /^\/alliance_threads\/\d+\/?(\?page=\d+)?$/
         ) &&
         (await getSetting('deleteForumPost'))
     )
-        asyncForumPost(LSSM);
-})((window[PREFIX] as unknown) as Vue);
+        import(
+            /* webpackChunkName: "modules/asyncButtons/forumpost" */ './assets/forumpost'
+        ).then(a => a.default(LSSM, $m));
+}) as ModuleMainFunction;

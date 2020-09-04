@@ -47,7 +47,6 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import VSelect from 'vue-select';
 import {
     SettingsItem,
     SettingsItemComputed,
@@ -62,7 +61,12 @@ export default Vue.extend<
     SettingsItemProps
 >({
     name: 'settings-item',
-    components: { VSelect },
+    components: {
+        VSelect: () =>
+            import(
+                /* webpackChunkName: "components/vue-select" */ 'vue-select'
+            ),
+    },
     data() {
         const events = (this.$t(
             'modules.notificationAlert.events'

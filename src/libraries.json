@@ -12,7 +12,7 @@
 	"@fortawesome/vue-fontawesome": {
 		"icon": "https://fontawesome.com/images/favicons/apple-icon-180x180.png",
 		"url": "https://github.com/FortAwesome/vue-fontawesome",
-		"version": "0.1.10"
+		"version": "2.0.0"
 	},
 	"@types/combokeys": {
 		"version": "2.4.6"
@@ -30,7 +30,7 @@
 		"version": "4.14.159"
 	},
 	"@types/node": {
-		"version": "14.0.27"
+		"version": "14.6.3"
 	},
 	"@types/ua-parser-js": {
 		"version": "0.7.33"
@@ -45,7 +45,7 @@
 		"version": "1.15.2"
 	},
 	"@typescript-eslint/eslint-plugin": {
-		"version": "3.9.0"
+		"version": "3.10.1"
 	},
 	"@typescript-eslint/parser": {
 		"version": "3.9.0"
@@ -59,6 +59,10 @@
 		"icon": "https://vuepress.vuejs.org/hero.png",
 		"url": "https://github.com/vuejs/vuepress/blob/master/packages/@vuepress/back-to-top#readme",
 		"version": "1.5.3"
+	},
+	"all-contributors-cli": {
+		"url": "https://github.com/all-contributors/all-contributors-cli#readme",
+		"version": "6.17.2"
 	},
 	"cache-loader": {
 		"url": "https://github.com/webpack-contrib/cache-loader",
@@ -220,7 +224,7 @@
 	"vuepress-plugin-smooth-scroll": {
 		"icon": "https://vuepress.vuejs.org/hero.png",
 		"url": "https://github.com/vuepress",
-		"version": "0.0.9"
+		"version": "0.0.10"
 	},
 	"vuepress-plugin-zooming": {
 		"icon": "https://vuepress.vuejs.org/hero.png",

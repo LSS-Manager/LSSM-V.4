@@ -69,7 +69,6 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import EnhancedTable from '../../../components/enhanced-table.vue';
 import vehicleList from './vehicle-list.vue';
 import { faCarSide } from '@fortawesome/free-solid-svg-icons/faCarSide';
 import { Vehicle } from '../../../../typings/Vehicle';
@@ -88,7 +87,12 @@ export default Vue.extend<
     DefaultProps
 >({
     name: 'vehicle-types',
-    components: { EnhancedTable },
+    components: {
+        EnhancedTable: () =>
+            import(
+                /* webpackChunkName: "components/enhanced-table" */ '../../../components/enhanced-table.vue'
+            ),
+    },
     data() {
         const statuses = Object.values(this.$sm('statuses'));
         const statusText = this.$sm('status');

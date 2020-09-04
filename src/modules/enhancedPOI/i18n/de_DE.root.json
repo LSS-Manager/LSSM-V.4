@@ -1,4 +1,17 @@
 {
 	"description": "Erleichtert das Setzen von POIs durch kleine, nützliche Features",
-	"name": "Verbesserte POI"
+	"name": "Verbesserte POI",
+	"settings": {
+		"custom_style": {
+			"title": "Eigener Style für Hervorhebung"
+		},
+		"predefined_style": {
+			"brown": "Braun",
+			"custom": "Manuell",
+			"green": "Grün",
+			"red": "Rot",
+			"title": "Marker Hervorhebung",
+			"white": "Weiß"
+		}
+	}
 }

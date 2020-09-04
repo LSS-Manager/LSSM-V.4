@@ -14,7 +14,6 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import Lightbox from '../../components/lightbox.vue';
 import {
     DefaultData,
     DefaultMethods,
@@ -29,7 +28,12 @@ export default Vue.extend<
     ReleaseNoteProps
 >({
     name: 'releasenotes',
-    components: { Lightbox },
+    components: {
+        Lightbox: () =>
+            import(
+                /* webpackChunkName: "components/lightbox" */ '../../components/lightbox.vue'
+            ),
+    },
     props: {
         notes: {
             type: Array,

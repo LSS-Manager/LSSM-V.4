@@ -1,6 +1,10 @@
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import { $m } from 'typings/Module';
+
 export default async (
     LSSM: Vue,
-    getSetting: (key: string) => Promise<boolean>
+    getSetting: (key: string) => Promise<boolean>,
+    $m: $m
 ): Promise<void> => {
     const ARRContainer = document.getElementById(
         'mission-aao-group'
@@ -135,15 +139,8 @@ export default async (
         'hidden-xs'
     );
     resetBtn.onclick = resetCounters;
-    resetBtn.textContent = LSSM.$t(
-        'modules.extendedCallWindow.arrCounter.reset',
-        {
-            text: LSSM.$t(
-                `modules.extendedCallWindow.arrCounter.resetTexts.${resetBtnTexts.join(
-                    '_'
-                )}`
-            ),
-        }
-    ).toString();
+    resetBtn.textContent = $m('arrCounter.reset', {
+        text: $m(`arrCounter.resetTexts.${resetBtnTexts.join('_')}`),
+    }).toString();
     resetBtnHolder.appendChild(resetBtn);
 };

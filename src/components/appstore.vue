@@ -74,7 +74,6 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import Lightbox from './lightbox.vue';
 import {
     AppstoreComputed,
     AppstoreData,
@@ -92,7 +91,12 @@ export default Vue.extend<
     DefaultProps
 >({
     name: 'appstore',
-    components: { Lightbox },
+    components: {
+        Lightbox: () =>
+            import(
+                /* webpackChunkName: "components/lightbox" */ './lightbox.vue'
+            ),
+    },
     data() {
         let modules = this.$store.getters.appModules as Modules;
         Object.keys(modules).forEach(

@@ -1,10 +1,3 @@
-import generationDate from './assets/generationDate';
-import enhancedMissingVehicles from './assets/enhancedMissingVehicles';
-import patientSummary from './assets/patientSummary';
-import arrCounter from './assets/arrCounter';
-import arrMatchHighlight from './assets/arrMatchHighlight';
-import alarmTime from './assets/alarmTime';
-
 import tailoredTabsTitle from './components/tailoredTabs/settings-titles.vue';
 import tailoredTabsItem from './components/tailoredTabs/settings-item.vue';
 
@@ -13,18 +6,11 @@ import missionKeywordsItem from './components/missionKeywords/settings-item.vue'
 
 import alarmIconsTitle from './components/alarmIcons/settings-titles.vue';
 import alarmIconsItem from './components/alarmIcons/settings-item.vue';
+import { ModuleMainFunction } from 'typings/Module';
 
-import isEqual from 'lodash/isEqual';
-import tailoredTabs from './assets/tailoredTabs';
-import missionKeywords from './assets/missionKeywords';
-import alarmIcons from './assets/alarmIcons';
-import arrHover from './assets/arrHover';
-import enhancedHeader from './assets/enhancedHeader';
-import hideVehicleList from './assets/hideVehicleList';
-
-(async (LSSM: Vue) => {
+export default (async (LSSM, MODULE_ID, $m) => {
     const defaultTailoredTabs = Object.values(
-        LSSM.$t(`modules.${MODULE_ID}.tailoredTabs.defaultTabs`)
+        $m('tailoredTabs.defaultTabs')
     ).map(({ name, vehicleTypes }) => ({
         name,
         vehicleTypes: Object.values(vehicleTypes),
@@ -173,26 +159,58 @@ import hideVehicleList from './assets/hideVehicleList';
             },
         });
 
-        if (await getSetting('generationDate')) generationDate(LSSM);
+        if (await getSetting('generationDate'))
+            (
+                await import(
+                    /* webpackChunkName: "modules/extendedCallWindow/generationDate" */ './assets/generationDate'
+                )
+            ).default(LSSM, $m);
         if (await getSetting('enhancedMissingVehicles'))
-            enhancedMissingVehicles(LSSM);
-        if (await getSetting('patientSummary')) patientSummary(LSSM);
+            (
+                await import(
+                    /* webpackChunkName: "modules/extendedCallWindow/enhancedMissingVehicles" */ './assets/enhancedMissingVehicles'
+                )
+            ).default(LSSM, $m);
+        if (await getSetting('patientSummary'))
+            (
+                await import(
+                    /* webpackChunkName: "modules/extendedCallWindow/patientSummary" */ './assets/patientSummary'
+                )
+            ).default(LSSM);
         if (
             (await getSetting('arrCounter')) ||
             (await getSetting('arrClickHighlight')) ||
             (await getSetting('arrCounterResetSelection'))
         )
-            await arrCounter(LSSM, getSetting);
+            await (
+                await import(
+                    /* webpackChunkName: "modules/extendedCallWindow/arrCounter" */ './assets/arrCounter'
+                )
+            ).default(LSSM, getSetting, $m);
 
         const missionKeywordsSettings = await getSetting<
             { keyword: string; color: string; missions: number[] }[]
         >('missionKeywords');
 
         if (missionKeywordsSettings.length)
-            missionKeywords(LSSM, missionKeywordsSettings);
+            (
+                await import(
+                    /* webpackChunkName: "modules/extendedCallWindow/missionKeywords" */ './assets/missionKeywords'
+                )
+            ).default(LSSM, missionKeywordsSettings);
 
-        if (await getSetting('arrMatchHighlight')) arrMatchHighlight(LSSM);
-        if (await getSetting('alarmTime')) alarmTime(LSSM);
+        if (await getSetting('arrMatchHighlight'))
+            (
+                await import(
+                    /* webpackChunkName: "modules/extendedCallWindow/arrMatchHighlight" */ './assets/arrMatchHighlight'
+                )
+            ).default(LSSM);
+        if (await getSetting('alarmTime'))
+            (
+                await import(
+                    /* webpackChunkName: "modules/extendedCallWindow/alarmTime" */ './assets/alarmTime'
+                )
+            ).default(LSSM);
 
         const alarmIconsSettings = await getSetting<
             {
@@ -201,24 +219,54 @@ import hideVehicleList from './assets/hideVehicleList';
                 vehicleTypes: (number | string)[];
             }[]
         >('alarmIcons');
-        if (alarmIconsSettings.length) alarmIcons(LSSM, alarmIconsSettings);
+        if (alarmIconsSettings.length)
+            (
+                await import(
+                    /* webpackChunkName: "modules/extendedCallWindow/alarmIcons" */ './assets/alarmIcons'
+                )
+            ).default(LSSM, alarmIconsSettings);
 
         const arrSpecs = await getSetting('arrSpecs');
         const arrTime = await getSetting('arrTime');
-        if (arrSpecs || arrTime) arrHover(LSSM, arrSpecs, arrTime);
+        if (arrSpecs || arrTime)
+            (
+                await import(
+                    /* webpackChunkName: "modules/extendedCallWindow/arrHover" */ './assets/arrHover'
+                )
+            ).default(LSSM, arrSpecs, arrTime, MODULE_ID, $m);
 
         const stickyHeader = await getSetting('stickyHeader');
         const loadMoreVehiclesInHeader = await getSetting(
             'loadMoreVehiclesInHeader'
         );
         if (stickyHeader || loadMoreVehiclesInHeader)
-            enhancedHeader(stickyHeader, loadMoreVehiclesInHeader);
-        if (await getSetting('hideVehicleList')) hideVehicleList(LSSM);
+            (
+                await import(
+                    /* webpackChunkName: "modules/extendedCallWindow/enhancedHeader" */ './assets/enhancedHeader'
+                )
+            ).default(stickyHeader, loadMoreVehiclesInHeader);
+        if (await getSetting('hideVehicleList'))
+            (
+                await import(
+                    /* webpackChunkName: "modules/extendedCallWindow/hideVehicleList" */ './assets/hideVehicleList'
+                )
+            ).default(LSSM, MODULE_ID, $m);
     }
 
     const tailoredTabSettings = await getSetting<typeof defaultTailoredTabs>(
         'tailoredTabs'
     );
-    if (!isEqual(tailoredTabSettings, defaultTailoredTabs) || stagingMode)
-        tailoredTabs(LSSM, tailoredTabSettings, stagingMode);
-})(window[PREFIX] as Vue);
+    if (
+        !(
+            await import(
+                /* webpackChunkName: "node_modules/lodash/isEqual" */ 'lodash/isEqual'
+            )
+        ).default(tailoredTabSettings, defaultTailoredTabs) ||
+        stagingMode
+    )
+        (
+            await import(
+                /* webpackChunkName: "modules/extendedCallWindow/tailoredTabs" */ './assets/tailoredTabs'
+            )
+        ).default(LSSM, tailoredTabSettings, stagingMode, $m);
+}) as ModuleMainFunction;

@@ -13,7 +13,6 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import VSelect from 'vue-select';
 import {
     MultiSelectComputed,
     MultiSelectProps,
@@ -27,7 +26,12 @@ export default Vue.extend<
     MultiSelectProps
 >({
     name: 'settings-multi-select',
-    components: { VSelect },
+    components: {
+        VSelect: () =>
+            import(
+                /* webpackChunkName: "components/vue-select" */ 'vue-select'
+            ),
+    },
     props: {
         name: {
             type: String,

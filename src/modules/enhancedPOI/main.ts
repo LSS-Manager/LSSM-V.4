@@ -1,27 +1,9 @@
 import { POI } from 'typings/modules/EnhancedPOI';
 import { POIMarker } from 'typings/Ingame';
 import { LayersControlEvent } from 'leaflet';
+import { ModuleMainFunction } from 'typings/Module';
 
-(async (LSSM: Vue) => {
-    await LSSM.$store.dispatch('settings/register', {
-        moduleId: MODULE_ID,
-        settings: {
-            predefined_style: {
-                type: 'select',
-                values: ['brown', 'red', 'green', 'white', 'custom'],
-                default: 'white',
-            },
-            custom_style: {
-                type: 'text',
-                default: 'invert(100%)',
-                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                // @ts-ignore
-                disabled: (settings): boolean =>
-                    settings[MODULE_ID]['predefined_style'].value !== 'custom',
-            },
-        },
-    });
-
+export default (async (LSSM, MODULE_ID) => {
     const style = await (async () => {
         const predef = await LSSM.$store.dispatch('settings/getSetting', {
             moduleId: MODULE_ID,
@@ -168,4 +150,4 @@ import { LayersControlEvent } from 'leaflet';
 
     const buildingsElement = document.getElementById('buildings');
     buildingsElement && observer.observe(buildingsElement, { childList: true });
-})(window[PREFIX] as Vue);
+}) as ModuleMainFunction;
