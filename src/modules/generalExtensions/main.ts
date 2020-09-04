@@ -1,4 +1,6 @@
-(async (LSSM: Vue) => {
+import { ModuleMainFunction } from 'typings/Module';
+
+export default (async (LSSM, MODULE_ID) => {
     await LSSM.$store.dispatch('settings/register', {
         moduleId: MODULE_ID,
         settings: {
@@ -63,4 +65,4 @@
                 /* webpackChunkName: "generalExtensions/mapUndo" */ './assets/mapUndo'
             )
         ).default(LSSM);
-})(window[PREFIX] as Vue);
+}) as ModuleMainFunction;
