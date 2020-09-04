@@ -1,4 +1,5 @@
 import { Games } from './Game';
+import VueI18n from 'vue-i18n';
 
 export interface Module {
     active: boolean;
@@ -8,8 +9,27 @@ export interface Module {
     noapp: boolean;
     noMapkit: boolean;
     description: string;
+    settings: boolean;
 }
 
 export interface Modules {
     [moduleId: string]: Module;
 }
+
+export type $m = (
+    key: string,
+    args?: { [key: string]: unknown }
+) => VueI18n.TranslateResult;
+
+export type $mc = (
+    key: string,
+    amount?: number,
+    args?: { [key: string]: unknown }
+) => string;
+
+export type ModuleMainFunction = (
+    LSSM: Vue,
+    MODULE_ID: string,
+    $m: $m,
+    $mc: $mc
+) => void | Promise<void>;

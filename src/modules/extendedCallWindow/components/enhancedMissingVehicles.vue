@@ -89,7 +89,6 @@ import { faCompressAlt } from '@fortawesome/free-solid-svg-icons/faCompressAlt';
 import { faExpandAlt } from '@fortawesome/free-solid-svg-icons/faExpandAlt';
 import { faTable } from '@fortawesome/free-solid-svg-icons/faTable';
 import { faParagraph } from '@fortawesome/free-solid-svg-icons/faParagraph';
-import EnhancedMissingVehiclesTable from './enhancedMissingVehiclesTable.vue';
 import {
     EnhancedMissingVehicles,
     EnhancedMissingVehiclesComputed,
@@ -104,7 +103,12 @@ export default Vue.extend<
     EnhancedMissingVehiclesProps
 >({
     name: 'enhancedMissingVehicles',
-    components: { EnhancedMissingVehiclesTable },
+    components: {
+        EnhancedMissingVehiclesTable: () =>
+            import(
+                /* webpackChunkName: "modules/extendedCallWindow/components/enhancedMissingVehiclesTable" */ './enhancedMissingVehiclesTable.vue'
+            ),
+    },
     data() {
         return {
             faAngleDoubleUp,
@@ -179,7 +183,7 @@ export default Vue.extend<
         toggleOverlay() {
             this.$store
                 .dispatch('settings/setSetting', {
-                    moduleId: MODULE_ID,
+                    moduleId: 'extendedCallWindow',
                     settingId: `overlay`,
                     value: !this.overlay,
                 })
@@ -188,7 +192,7 @@ export default Vue.extend<
         toggleMinified() {
             this.$store
                 .dispatch('settings/setSetting', {
-                    moduleId: MODULE_ID,
+                    moduleId: 'extendedCallWindow',
                     settingId: `minified`,
                     value: !this.minified,
                 })
@@ -197,7 +201,7 @@ export default Vue.extend<
         toggleTextMode() {
             this.$store
                 .dispatch('settings/setSetting', {
-                    moduleId: MODULE_ID,
+                    moduleId: 'extendedCallWindow',
                     settingId: `textMode`,
                     value: !this.textMode,
                 })
@@ -236,14 +240,14 @@ export default Vue.extend<
     beforeMount() {
         this.$store
             .dispatch('settings/getSetting', {
-                moduleId: MODULE_ID,
+                moduleId: 'extendedCallWindow',
                 settingId: 'overlay',
                 defaultValue: false,
             })
             .then(overlay => (this.overlay = overlay));
         this.$store
             .dispatch('settings/getSetting', {
-                moduleId: MODULE_ID,
+                moduleId: 'extendedCallWindow',
                 settingId: 'minified',
                 defaultValue: false,
             })

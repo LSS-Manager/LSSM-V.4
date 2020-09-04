@@ -1,11 +1,14 @@
-import lssmaql from './lssmaql.vue';
+import { ModuleMainFunction } from 'typings/Module';
 
-((LSSM: Vue) => {
+export default (LSSM => {
     LSSM.$store.dispatch('addMenuItem', 'LSSMAQL Console').then(
         element =>
             (element.onclick = () =>
                 LSSM.$modal.show(
-                    lssmaql,
+                    () =>
+                        import(
+                            /* webpackChunkName: "modules/lssmaql/lssmaql" */ './lssmaql.vue'
+                        ),
                     {},
                     {
                         name: 'lssmaql',
@@ -14,4 +17,4 @@ import lssmaql from './lssmaql.vue';
                     }
                 ))
     );
-})(window[PREFIX] as Vue);
+}) as ModuleMainFunction;

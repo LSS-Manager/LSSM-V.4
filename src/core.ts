@@ -14,6 +14,7 @@ import telemetry from './modules/telemetry/main';
 import releasenotes from './modules/releasenotes/main';
 import { RadioMessage } from '../typings/Ingame';
 import { Credits } from 'typings/Credits';
+import { ModuleMainFunction } from 'typings/Module';
 
 require('./natives/navTabsClicker');
 
@@ -138,14 +139,67 @@ if (window.location.pathname === '/') {
                 activeModules = activeModules.filter(
                     module => !LSSM.$store.state.modules[module].noMapkit
                 );
-            activeModules.forEach(module => {
-                LSSM.$store.commit('setModuleActive', module);
+            activeModules.forEach(async moduleId => {
+                LSSM.$store.commit('setModuleActive', moduleId);
+                const $m = (key: string, args?: { [key: string]: unknown }) =>
+                    LSSM.$t(`modules.${moduleId}.${key}`, args);
+                const $mc = (
+                    key: string,
+                    amount?: number,
+                    args?: { [key: string]: unknown }
+                ) => LSSM.$tc(`modules.${moduleId}.${key}`, amount, args);
+                if (LSSM.$store.state.modules[moduleId].settings) {
+                    await LSSM.$store.dispatch('settings/register', {
+                        moduleId,
+                        settings: (
+                            await import(
+                                /* webpackChunkName: "modules/settings/[request]" */
+                                /* webpackInclude: /\/modules\/.*?\/settings\.ts/ */
+                                /* webpackExclude: /\/modules\/(telemetry|releasenotes|support)\// */
+                                `./modules/${moduleId}/settings`
+                            )
+                        ).default(moduleId),
+                    });
+                }
                 if (
                     window.location.pathname.match(
-                        LSSM.$store.state.modules[module].location
+                        LSSM.$store.state.modules[moduleId].location
                     )
                 )
-                    LSSM.$store.dispatch('loadModule', module);
+                    Promise.all(
+                        [BUILD_LANG, ...FALLBACK_LOCALES].map(async locale => {
+                            try {
+                                return LSSM.$i18n.mergeLocaleMessage(locale, {
+                                    modules: {
+                                        [moduleId]: (
+                                            await import(
+                                                /* webpackChunkName: "modules/i18n/[request]" */
+                                                /* webpackInclude: /\/modules\/.*?\/i18n\// */
+                                                /* webpackExclude: /(telemetry|releasenotes|support)|\.root\./ */
+                                                `./modules/${moduleId}/i18n/${locale}`
+                                            )
+                                        ).default,
+                                    },
+                                });
+                            } catch {
+                                return;
+                            }
+                        })
+                    ).then(() =>
+                        import(
+                            /* webpackChunkName: "modules/mains/[request]" */
+                            /* webpackInclude: /\/modules\/.*?\/main\.ts/ */
+                            /* webpackExclude: /\/modules\/(telemetry|releasenotes|support)\// */
+                            `./modules/${moduleId}/main`
+                        ).then(module =>
+                            (module.default as ModuleMainFunction)(
+                                LSSM,
+                                moduleId,
+                                $m,
+                                $mc
+                            )
+                        )
+                    );
             });
         });
 })();

@@ -1,13 +1,20 @@
-export default (LSSM: Vue, specs: boolean, time: boolean): void => {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import { $m } from 'typings/Module';
+
+export default (
+    LSSM: Vue,
+    specs: boolean,
+    time: boolean,
+    MODULE_ID: string,
+    $m: $m
+): void => {
     const ARRContainer = document.getElementById(
         'mission-aao-group'
     ) as HTMLDivElement;
 
     if (!ARRContainer) return;
 
-    const ARRSpecTranslations = (LSSM.$t(
-        `modules.${MODULE_ID}.arrHover.arrSpecs`
-    ) as unknown) as {
+    const ARRSpecTranslations = ($m(`arrHover.arrSpecs`) as unknown) as {
         [spec: string]: string;
     };
 
@@ -35,9 +42,7 @@ export default (LSSM: Vue, specs: boolean, time: boolean): void => {
         maxAmountNode.classList.add('pull-right');
         resetNote = document.createElement('b');
         resetNote.classList.add('hidden');
-        resetNote.textContent = LSSM.$t(
-            `modules.${MODULE_ID}.arrHover.reset`
-        ).toString();
+        resetNote.textContent = $m(`arrHover.reset`).toString();
         resetNote.style.display = 'block';
         infoBox.append(maxAmountNode, resetNote);
         const specsTable = document.createElement('table');
@@ -51,9 +56,7 @@ export default (LSSM: Vue, specs: boolean, time: boolean): void => {
             titleEl.textContent = title;
             titleEl.setAttribute(
                 'title',
-                LSSM.$t(
-                    `modules.${MODULE_ID}.arrHover.titles.${title}`
-                ).toString()
+                $m(`arrHover.titles.${title}`).toString()
             );
         });
         arrSpecs = document.createElement('tbody');

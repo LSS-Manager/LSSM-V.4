@@ -217,8 +217,6 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import EnhancedTable from '../../components/enhanced-table.vue';
-import Lightbox from '../../components/lightbox.vue';
 import { DefaultProps } from 'vue/types/options';
 import {
     Overview,
@@ -244,7 +242,16 @@ export default Vue.extend<
     DefaultProps
 >({
     name: 'overview',
-    components: { EnhancedTable, Lightbox },
+    components: {
+        Lightbox: () =>
+            import(
+                /* webpackChunkName: "components/lightbox" */ '../../components/lightbox.vue'
+            ),
+        EnhancedTable: () =>
+            import(
+                /* webpackChunkName: "components/enhanced-table" */ '../../components/enhanced-table.vue'
+            ),
+    },
     data() {
         const vehicleCategories = cloneDeep(
             this.$t('vehicleCategories') as unknown
@@ -292,7 +299,7 @@ export default Vue.extend<
                 const e = minifiedExtensions.find(e => e.caption === caption);
                 if (e)
                     e.caption = this.$tc(
-                        `modules.${MODULE_ID}.extensionTitle`,
+                        `modules.overview.extensionTitle`,
                         amount,
                         { caption }
                     );

@@ -1,4 +1,9 @@
-export default (LSSM: Vue): void => {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import { $m } from 'typings/Module';
+
+export default (LSSM: Vue, $m: $m): void => {
+    const $sm = (key: string, args?: Parameters<$m>[1]) =>
+        $m(`forumPost.${key}`, args);
     const btns = Array.from(
         document.querySelectorAll(
             'a[href^="/alliance_posts/"][data-method="delete"]'
@@ -13,17 +18,11 @@ export default (LSSM: Vue): void => {
                 childBtn.classList.add('disabled');
             });
             LSSM.$modal.show('dialog', {
-                title: LSSM.$t(
-                    `modules.${MODULE_ID}.forumPost.deleteModal.title`
-                ),
-                text: LSSM.$t(
-                    `modules.${MODULE_ID}.forumPost.deleteModal.text`
-                ),
+                title: $sm('deleteModal.title'),
+                text: $sm('deleteModal.text'),
                 buttons: [
                     {
-                        title: LSSM.$t(
-                            `modules.${MODULE_ID}.forumPost.deleteModal.btnCancel`
-                        ),
+                        title: $sm('deleteModal.btnCancel'),
                         default: true,
                         handler() {
                             Array.from(
@@ -35,9 +34,7 @@ export default (LSSM: Vue): void => {
                         },
                     },
                     {
-                        title: LSSM.$t(
-                            `modules.${MODULE_ID}.forumPost.deleteModal.btnConfirm`
-                        ),
+                        title: $sm('deleteModal.btnConfirm'),
                         async handler() {
                             await LSSM.$store
                                 .dispatch('api/request', {

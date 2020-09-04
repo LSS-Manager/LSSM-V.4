@@ -1,12 +1,12 @@
-import overview from './overview.vue';
+import { ModuleMainFunction } from 'typings/Module';
 
-((LSSM: Vue) => {
-    const $m = (key: string, args?: { [key: string]: unknown }) =>
-        LSSM.$t(`modules.overview.${key}`, args);
-
+export default ((LSSM, _, $m) => {
     const openOverview = (): void =>
         LSSM.$modal.show(
-            overview,
+            () =>
+                import(
+                    /* webpackChunkName: "modules/overview/overview" */ './overview.vue'
+                ),
             {},
             {
                 name: 'overview',
@@ -18,4 +18,4 @@ import overview from './overview.vue';
     LSSM.$store
         .dispatch('addMenuItem', $m('name').toString())
         .then(element => (element.onclick = openOverview));
-})(window[PREFIX] as Vue);
+}) as ModuleMainFunction;

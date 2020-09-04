@@ -1,4 +1,141 @@
 {
 	"description": "Lasse dir alle wichtigen Infos zum Einsatz direkt im Einsatzfenster anzeigen.",
-	"name": "Einsatzhelfer"
+	"name": "Einsatzhelfer",
+	"settings": {
+		"chances": {
+			"100": {
+				"description": "Zeigt auch Wahrscheinlichkeiten von 100% an.",
+				"title": "100% Wahrscheinlichkeit explizit erwähnen"
+			},
+			"normal": {
+				"description": "Zeigt, mit welcher Wahrscheinlichkeit ein Fahrzeug angefordert werden kann.",
+				"title": "Wahrscheinlichkeiten anzeigen"
+			}
+		},
+		"credits": {
+			"description": "Gibt an, wie viele Credits Verdienst man durchschnittlich für den Einsatz erhält.",
+			"title": "Credits"
+		},
+		"expansions": {
+			"description": "Listet mögliche Ausbreitungen dieses Einsatzes auf.",
+			"title": "Ausbreitungen"
+		},
+		"followup": {
+			"description": "Listet mögliche Folge-Einsätze für diesen Einsatz auf.",
+			"title": "Folgeeinsätze"
+		},
+		"generatedBy": {
+			"description": "Zeigt an, von welchem Gebäudetyp dieser Einsatz generiert werden kann.",
+			"title": "Generiert von (Gebäudetyp)"
+		},
+		"id": {
+			"description": "Zeigt die ID des Einsatzes neben dem Titel an.",
+			"title": "Einsatz-ID"
+		},
+		"multifunctionals": {
+			"battalion_chief_vehicles": {
+				"description": "Zieht die Zahl der benötigten ELW 2 von den ELW 1 ab und blendet ELW 1 aus, falls die Anzahl unter 0 sinkt.",
+				"title": "ELW 1 einfach werten"
+			},
+			"heavy_rescue_vehicles": {
+				"description": "Zieht die Zahl der benötigten LF von den RW ab und blendet RW aus, falls die Anzahl unter 0 sinkt. Diese Funktion ist für Leute gedacht, die ein reines HLF-System fahren.",
+				"title": "Rüstwagen einfach werten"
+			},
+			"platform_trucks": {
+				"description": "Zieht die Zahl der benötigten TM 50 von den DLK ab und blendet DLK aus, falls die Anzahl unter 0 sinkt.",
+				"title": "DLK einfach werten"
+			}
+		},
+		"optionalAlternatives": {
+			"allow_rw_instead_of_lf": {
+				"description": "Zeigt an, wenn statt eines LF auch Rüstwagen oder GKW am Einsatzort möglich sind.",
+				"title": "RW / GKW statt LF anzeigen"
+			},
+			"allow_arff_instead_of_lf": {
+				"description": "Zeigt an, wenn statt eines LF auch FLF am Einsatzort möglich sind.",
+				"title": "Anzeigen, wenn FLF als LF erlaubt sind"
+			},
+			"allow_ktw_instead_of_rtw": {
+				"description": "Zeigt ob ein KTW anstatt eines RTWs genutzt werden kann.",
+				"title": "KTW statt RTW"
+			}
+		},
+		"patients": {
+			"content": {
+				"description": "Zeigt Details über mögliche Patienten an.",
+				"title": "Details zu möglichen Patienten"
+			},
+			"hideWhenNoNeed": {
+				"description": "Blendet die Patienten-Details aus, wenn keine Patienten mehr vorhanden sind und Patienten nicht erst am Ende des Einsatzes auftreten.",
+				"title": "Patienten-Details nur bei Bedarf anzeigen"
+			},
+			"live": {
+				"description": "Zeigt oben im Einsatzhelfer an, wie viele Patienten der Einsatz gerade hat.",
+				"title": "Zahl der aktuellen Patienten"
+			},
+			"title": {
+				"description": "Zeigt die Überschrift \"Patienten\" über den Details über mögliche Patienten an.",
+				"title": "Patienten (Titel)"
+			},
+			"patient_allow_first_responder_chance": {
+				"description": "Zeigt mit wieviel % ein beliebiges Fahrzeug zum behandeln ausreicht.",
+				"title": "First Responder Wahrscheinlichkeit"
+			}
+		},
+		"place": {
+			"description": "Zeigt neben dem Titel an, welcher POI für diesen Einsatz nötig ist.",
+			"title": "POI"
+		},
+		"prerequisites": {
+			"description": "Zeigt die Vorraussetzungen (z.B. 3 Rettungswachen und 4 Feuerwachen) an.",
+			"title": "Vorraussetzungen"
+		},
+		"prisoners": {
+			"content": {
+				"description": "Zeigt Details über mögliche Gefangene an.",
+				"title": "Details zu möglichen Gefangenen"
+			},
+			"live": {
+				"description": "Zeigt oben im Einsatzhelfer an, wie viele Gefangenen der Einsatz gerade hat.",
+				"title": "Zahl der aktuellen Gefangenen"
+			},
+			"title": {
+				"description": "Zeigt die Überschrift \"Gefangene\" über den Details über mögliche Gefangene an.",
+				"title": "Gefangene (Titel)"
+			}
+		},
+		"title": {
+			"description": "Zeigt den Einsatznamen, z.B. \"Mülleimerbrand\" als Titel an.",
+			"title": "Einsatzname"
+		},
+		"type": {
+			"description": "Zeigt die Typ-Nummer des Einsatzes neben dem Titel an.",
+			"title": "Typ-Nummer"
+		},
+		"vehicles": {
+			"content": {
+				"description": "Zeigt Fahrzeuganforderungen an.",
+				"title": "Fahrzeuganforderungen"
+			},
+			"patient_additionals": {
+				"description": "Sind aktuell mehr als 5 bzw. 10 Patienten am Einsatzort, werden LNA & OrgL automatisch am Anfang der Fahrzeuganforderungen gelistet.",
+				"title": "LNA & OrgL extra erwähnen"
+			},
+			"sort": {
+				"amount": "Anzahl der benötigten Fahrzeuge",
+				"caption": "Name der Anforderung",
+				"description": "Stelle ein, nach was die Fahrzeuganforderungen sortiert sein sollen.",
+				"percentage": "Wahrscheinlichkeit",
+				"title": "Sortierung der Fahrzeuganforderungen"
+			},
+			"title": {
+				"description": "Zeigt die Überschrift \"Fahrzeuge\" über den Fahrzeuganforderungen an.",
+				"title": "Fahrzeuge (Titel)"
+			}
+		},
+		"k9_only_if_needed": {
+			"description": "Zeigt an, wenn der DHuFüKW nur gefordert wird, wenn vorhanden.",
+			"title": "Optionale Diensthunde"
+		}
+	}
 }

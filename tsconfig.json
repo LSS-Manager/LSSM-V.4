@@ -29,7 +29,8 @@
 		"types": [
 			"webpack-env",
 			"vue",
-            "jquery"
+            "jquery",
+            "node"
 		]
 	},
 	"exclude": [

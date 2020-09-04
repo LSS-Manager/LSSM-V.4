@@ -1,77 +1,6 @@
-import enhanceVehicleList from './assets/enhanceVehicleList';
-import personnelDemands from './assets/personnelDemands';
-import schoolingSummary from './assets/schoolingSummary';
-import enhancedPersonnelAssignment from './assets/enhancedPersonnelAssignment';
-import expansions from './assets/expansions';
+import { ModuleMainFunction } from 'typings/Module';
 
-(async (LSSM: Vue) => {
-    await LSSM.$store.dispatch('settings/register', {
-        moduleId: MODULE_ID,
-        settings: {
-            enhanceVehicleList: {
-                type: 'toggle',
-                default: true,
-            },
-            vehicleTypes: {
-                type: 'toggle',
-                default: true,
-                dependsOn: '.enhanceVehicleList',
-            },
-            fmsSwitch: {
-                type: 'toggle',
-                default: true,
-                dependsOn: '.enhanceVehicleList',
-            },
-            personnelAssignmentBtn: {
-                type: 'toggle',
-                default: true,
-                dependsOn: '.enhanceVehicleList',
-            },
-            vehiclesPersonnelMax: {
-                type: 'toggle',
-                default: true,
-                dependsOn: '.enhanceVehicleList',
-            },
-            vehiclesPersonnelCurrent: {
-                type: 'toggle',
-                default: false,
-                dependsOn: '.enhanceVehicleList',
-            },
-            vehiclesPersonnelAssigned: {
-                type: 'toggle',
-                default: false,
-                dependsOn: '.enhanceVehicleList',
-            },
-            vehiclesPersonnelColorized: {
-                type: 'toggle',
-                default: false,
-                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                // @ts-ignore
-                disabled: (settings): boolean =>
-                    !(
-                        settings[MODULE_ID].vehiclesPersonnelAssigned.value &&
-                        settings[MODULE_ID].vehiclesPersonnelMax.value
-                    ),
-            },
-            personnelDemands: {
-                type: 'toggle',
-                default: true,
-            },
-            schoolingSummary: {
-                type: 'toggle',
-                default: true,
-            },
-            enhancedPersonnelAssignment: {
-                type: 'toggle',
-                default: true,
-            },
-            expansions: {
-                type: 'toggle',
-                default: true,
-            },
-        },
-    });
-
+export default (async (LSSM, MODULE_ID, $m) => {
     if (
         (!window.location.pathname.match(
             /^\/buildings\/\d+(\/personals)?\/?$/
@@ -99,26 +28,47 @@ import expansions from './assets/expansions';
             : 'building';
 
         if (await getSetting('enhanceVehicleList'))
-            await enhanceVehicleList(LSSM, BUILDING_MODE, getSetting);
+            await (
+                await import(
+                    /* webpackChunkName: "modules/extendedBuilding/enhanceVehicleList" */ './assets/enhanceVehicleList'
+                )
+            ).default(LSSM, BUILDING_MODE, getSetting, $m);
 
         if (
             BUILDING_MODE === 'building' &&
             (await getSetting('personnelDemands'))
         )
-            personnelDemands(LSSM);
+            (
+                await import(
+                    /* webpackChunkName: "modules/extendedBuilding/personnelDemands" */ './assets/personnelDemands'
+                )
+            ).default(LSSM, $m);
 
         if (
             (await getSetting('expansions')) &&
             document.querySelector('#ausbauten')
         )
-            expansions(LSSM);
+            (
+                await import(
+                    /* webpackChunkName: "modules/extendedBuilding/expansions" */ './assets/expansions'
+                )
+            ).default(LSSM, MODULE_ID, $m);
     } else if (
         window.location.pathname.match(/^\/buildings\/\d+\/personals\/?$/)
     ) {
-        if (await getSetting('schoolingSummary')) schoolingSummary(LSSM);
+        if (await getSetting('schoolingSummary'))
+            (
+                await import(
+                    /* webpackChunkName: "modules/extendedBuilding/schoolingSummary" */ './assets/schoolingSummary'
+                )
+            ).default(LSSM, $m);
     } else if (
         window.location.pathname.match(/^\/vehicles\/\d+\/zuweisung\/?$/)
     )
         if (await getSetting('enhancedPersonnelAssignment'))
-            enhancedPersonnelAssignment(LSSM);
-})(window[PREFIX] as Vue);
+            (
+                await import(
+                    /* webpackChunkName: "modules/extendedBuilding/enhancedPersonnelAssignment" */ './assets/enhancedPersonnelAssignment'
+                )
+            ).default(LSSM, $m);
+}) as ModuleMainFunction;

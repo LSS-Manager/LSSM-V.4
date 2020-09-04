@@ -37,7 +37,7 @@ export default (
                     .filter(icon =>
                         icon.vehicleTypes.map(t => t.toString()).includes(vType)
                     )
-                    .forEach(({ icon, type }) =>
+                    .forEach(({ icon }) =>
                         alarmBtn
                             .querySelector(`.svg-inline--fa.fa-${icon}`)
                             ?.classList.remove('hidden')

@@ -1,4 +1,7 @@
-export default (LSSM: Vue): void => {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import { $m } from 'typings/Module';
+
+export default (LSSM: Vue, MODULE_ID: string, $m: $m): void => {
     const toggleBtnId = LSSM.$store.getters.nodeAttribute(
         `${MODULE_ID}-toggle-vehiclelist`
     );
@@ -14,8 +17,8 @@ export default (LSSM: Vue): void => {
             '#group_max_distance'
         );
         group_max_distance?.classList.toggle('hidden');
-        btn.innerText = LSSM.$t(
-            `modules.${MODULE_ID}.hideVehicleList.${
+        btn.innerText = $m(
+            `hideVehicleList.${
                 vehicle_list_step?.classList.contains('hidden')
                     ? 'show'
                     : 'hide'
