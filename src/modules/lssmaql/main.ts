@@ -1,4 +1,6 @@
-((LSSM: Vue) => {
+import { ModuleMainFunction } from 'typings/Module';
+
+export default (LSSM => {
     LSSM.$store.dispatch('addMenuItem', 'LSSMAQL Console').then(
         element =>
             (element.onclick = () =>
@@ -15,4 +17,4 @@
                     }
                 ))
     );
-})(window[PREFIX] as Vue);
+}) as ModuleMainFunction;
