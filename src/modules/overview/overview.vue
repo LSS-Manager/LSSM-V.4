@@ -299,7 +299,7 @@ export default Vue.extend<
                 const e = minifiedExtensions.find(e => e.caption === caption);
                 if (e)
                     e.caption = this.$tc(
-                        `modules.${MODULE_ID}.extensionTitle`,
+                        `modules.overview.extensionTitle`,
                         amount,
                         { caption }
                     );
