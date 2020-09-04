@@ -2,8 +2,9 @@ import { BuildingMarker, RadioMessage } from '../../../typings/Ingame';
 import { Vehicle } from '../../../typings/Vehicle';
 import { PointTuple } from 'leaflet';
 import { Building } from '../../../typings/Building';
+import { ModuleMainFunction } from 'typings/Module';
 
-(async (LSSM: Vue) => {
+export default (async (LSSM, MODULE_ID) => {
     await LSSM.$store.dispatch('api/registerBuildingsUsage', true);
     await LSSM.$store.dispatch('api/registerVehiclesUsage', true);
 
@@ -149,4 +150,4 @@ import { Building } from '../../../typings/Building';
             );
         },
     });
-})(window[PREFIX] as Vue);
+}) as ModuleMainFunction;
