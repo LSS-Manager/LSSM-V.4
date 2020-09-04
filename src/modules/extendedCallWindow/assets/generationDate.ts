@@ -1,8 +1,10 @@
 import moment from 'moment';
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import { $m } from 'typings/Module';
 
 moment.locale(BUILD_LANG);
 
-export default (LSSM: Vue): void => {
+export default (LSSM: Vue, $m: $m): void => {
     LSSM.$store.commit('useFontAwesome');
 
     const generationDate = moment(
@@ -11,9 +13,7 @@ export default (LSSM: Vue): void => {
             ?.getAttribute('data-original-title')
             ?.replace(/^.*?:/, '')
             .trim(),
-        LSSM.$t(
-            'modules.extendedCallWindow.generationDate.inputFormat'
-        ).toString()
+        $m('generationDate.inputFormat').toString()
     );
 
     const generationDateNode = document.createElement('i');

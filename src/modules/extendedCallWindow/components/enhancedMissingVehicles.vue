@@ -106,7 +106,7 @@ export default Vue.extend<
     components: {
         EnhancedMissingVehiclesTable: () =>
             import(
-                /* webpackChunkName: "extendedCallWindow/components/enhancedMissingVehiclesTable" */ './enhancedMissingVehiclesTable'
+                /* webpackChunkName: "extendedCallWindow/components/enhancedMissingVehiclesTable" */ './enhancedMissingVehiclesTable.vue'
             ),
     },
     data() {

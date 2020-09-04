@@ -6,10 +6,11 @@ import missionKeywordsItem from './components/missionKeywords/settings-item.vue'
 
 import alarmIconsTitle from './components/alarmIcons/settings-titles.vue';
 import alarmIconsItem from './components/alarmIcons/settings-item.vue';
+import { ModuleMainFunction } from 'typings/Module';
 
-(async (LSSM: Vue) => {
+export default (async (LSSM, MODULE_ID, $m) => {
     const defaultTailoredTabs = Object.values(
-        LSSM.$t(`modules.${MODULE_ID}.tailoredTabs.defaultTabs`)
+        $m('tailoredTabs.defaultTabs')
     ).map(({ name, vehicleTypes }) => ({
         name,
         vehicleTypes: Object.values(vehicleTypes),
@@ -163,13 +164,13 @@ import alarmIconsItem from './components/alarmIcons/settings-item.vue';
                 await import(
                     /* webpackChunkName: "extendedCallWindow/generationDate" */ './assets/generationDate'
                 )
-            ).default(LSSM);
+            ).default(LSSM, $m);
         if (await getSetting('enhancedMissingVehicles'))
             (
                 await import(
                     /* webpackChunkName: "extendedCallWindow/enhancedMissingVehicles" */ './assets/enhancedMissingVehicles'
                 )
-            ).default(LSSM);
+            ).default(LSSM, $m);
         if (await getSetting('patientSummary'))
             (
                 await import(
@@ -185,7 +186,7 @@ import alarmIconsItem from './components/alarmIcons/settings-item.vue';
                 await import(
                     /* webpackChunkName: "extendedCallWindow/arrCounter" */ './assets/arrCounter'
                 )
-            ).default(LSSM, getSetting);
+            ).default(LSSM, getSetting, $m);
 
         const missionKeywordsSettings = await getSetting<
             { keyword: string; color: string; missions: number[] }[]
@@ -232,7 +233,7 @@ import alarmIconsItem from './components/alarmIcons/settings-item.vue';
                 await import(
                     /* webpackChunkName: "extendedCallWindow/arrHover" */ './assets/arrHover'
                 )
-            ).default(LSSM, arrSpecs, arrTime);
+            ).default(LSSM, arrSpecs, arrTime, MODULE_ID, $m);
 
         const stickyHeader = await getSetting('stickyHeader');
         const loadMoreVehiclesInHeader = await getSetting(
@@ -249,7 +250,7 @@ import alarmIconsItem from './components/alarmIcons/settings-item.vue';
                 await import(
                     /* webpackChunkName: "extendedCallWindow/hideVehicleList" */ './assets/hideVehicleList'
                 )
-            ).default(LSSM);
+            ).default(LSSM, MODULE_ID, $m);
     }
 
     const tailoredTabSettings = await getSetting<typeof defaultTailoredTabs>(
@@ -267,5 +268,5 @@ import alarmIconsItem from './components/alarmIcons/settings-item.vue';
             await import(
                 /* webpackChunkName: "extendedCallWindow/tailoredTabs" */ './assets/tailoredTabs'
             )
-        ).default(LSSM, tailoredTabSettings, stagingMode);
-})(window[PREFIX] as Vue);
+        ).default(LSSM, tailoredTabSettings, stagingMode, $m);
+}) as ModuleMainFunction;

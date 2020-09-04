@@ -1,7 +1,11 @@
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import { $m } from 'typings/Module';
+
 export default (
     LSSM: Vue,
     tabs: { name: string; vehicleTypes: number[] }[],
-    stagingMode: boolean
+    stagingMode: boolean,
+    $m: $m
 ): void => {
     const missionHelpBtn = document.getElementById('mission_help');
     const isDiyMission = !missionHelpBtn;
@@ -64,9 +68,7 @@ export default (
         allTabA.setAttribute('role', 'tab');
         allTabA.setAttribute('data-toggle', 'tab');
         allTabA.setAttribute('aria-expanded', 'true');
-        allTabA.innerText = LSSM.$t(
-            `modules.${MODULE_ID}.tailoredTabs.allTab`
-        ) as string;
+        allTabA.innerText = $m(`tailoredTabs.allTab`) as string;
         allTab.appendChild(allTabA);
         tabList.appendChild(allTab);
     }
@@ -77,9 +79,7 @@ export default (
         const occupiedTabA = document.createElement('a');
         occupiedTabA.setAttribute('href', '#occupied');
         occupiedTabA.setAttribute('tabload', 'occupied');
-        occupiedTabA.innerText = <string>(
-            LSSM.$t(`modules.${MODULE_ID}.tailoredTabs.occupiedTab`)
-        );
+        occupiedTabA.innerText = <string>$m(`tailoredTabs.occupiedTab`);
         occupiedTab.appendChild(occupiedTabA);
         tabList.appendChild(occupiedTab);
     }
