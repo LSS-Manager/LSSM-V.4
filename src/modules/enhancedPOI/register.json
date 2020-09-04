@@ -1,5 +1,5 @@
 {
 	"location": "^/$",
 	"noMapkit": true,
-    "settings": true
+	"settings": true
 }
