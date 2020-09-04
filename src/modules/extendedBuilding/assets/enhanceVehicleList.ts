@@ -1,9 +1,12 @@
 import { InternalVehicle, Vehicle } from 'typings/Vehicle';
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import { $m } from 'typings/Module';
 
 export default async (
     LSSM: Vue,
     BUILDING_MODE: 'building' | 'dispatch',
-    getSetting: (key: string) => Promise<boolean>
+    getSetting: (key: string) => Promise<boolean>,
+    $m: $m
 ): Promise<void> => {
     const callback = async () => {
         const vehicles = Array.from(
@@ -66,11 +69,7 @@ export default async (
             tableHead.children[
                 tableHead.children.length - 1
             ].textContent = `(${lastRowItems
-                .map(setting =>
-                    LSSM.$t(
-                        `modules.${MODULE_ID}.vehiclePersonnel.${setting}`
-                    ).toString()
-                )
+                .map(setting => $m(`vehiclePersonnel.${setting}`).toString())
                 .join(' / ')})`;
         }
 

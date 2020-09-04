@@ -1,4 +1,6 @@
-(async (LSSM: Vue) => {
+import { ModuleMainFunction } from 'typings/Module';
+
+export default (async (LSSM, MODULE_ID, $m) => {
     await LSSM.$store.dispatch('settings/register', {
         moduleId: MODULE_ID,
         settings: {
@@ -97,7 +99,7 @@
                 await import(
                     /* webpackChunkName: "extendedBuilding/enhanceVehicleList" */ './assets/enhanceVehicleList'
                 )
-            ).default(LSSM, BUILDING_MODE, getSetting);
+            ).default(LSSM, BUILDING_MODE, getSetting, $m);
 
         if (
             BUILDING_MODE === 'building' &&
@@ -107,7 +109,7 @@
                 await import(
                     /* webpackChunkName: "extendedBuilding/personnelDemands" */ './assets/personnelDemands'
                 )
-            ).default(LSSM);
+            ).default(LSSM, $m);
 
         if (
             (await getSetting('expansions')) &&
@@ -117,7 +119,7 @@
                 await import(
                     /* webpackChunkName: "extendedBuilding/expansions" */ './assets/expansions'
                 )
-            ).default(LSSM);
+            ).default(LSSM, MODULE_ID, $m);
     } else if (
         window.location.pathname.match(/^\/buildings\/\d+\/personals\/?$/)
     ) {
@@ -126,7 +128,7 @@
                 await import(
                     /* webpackChunkName: "extendedBuilding/schoolingSummary" */ './assets/schoolingSummary'
                 )
-            ).default(LSSM);
+            ).default(LSSM, $m);
     } else if (
         window.location.pathname.match(/^\/vehicles\/\d+\/zuweisung\/?$/)
     )
@@ -135,5 +137,5 @@
                 await import(
                     /* webpackChunkName: "extendedBuilding/enhancedPersonnelAssignment" */ './assets/enhancedPersonnelAssignment'
                 )
-            ).default(LSSM);
-})(window[PREFIX] as Vue);
+            ).default(LSSM, $m);
+}) as ModuleMainFunction;
