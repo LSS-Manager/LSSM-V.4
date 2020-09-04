@@ -172,7 +172,7 @@ export default Vue.extend<
     },
     methods: {
         $m(key, args) {
-            return this.$t(`modules.${MODULE_ID}.${key}`, args);
+            return this.$t(`modules.extendedBuilding.${key}`, args);
         },
         $sm(key, args) {
             return this.$m(`schoolingSummary.${key}`, args);
