@@ -183,7 +183,7 @@ export default Vue.extend<
         toggleOverlay() {
             this.$store
                 .dispatch('settings/setSetting', {
-                    moduleId: MODULE_ID,
+                    moduleId: 'extendedCallWindow',
                     settingId: `overlay`,
                     value: !this.overlay,
                 })
@@ -192,7 +192,7 @@ export default Vue.extend<
         toggleMinified() {
             this.$store
                 .dispatch('settings/setSetting', {
-                    moduleId: MODULE_ID,
+                    moduleId: 'extendedCallWindow',
                     settingId: `minified`,
                     value: !this.minified,
                 })
@@ -201,7 +201,7 @@ export default Vue.extend<
         toggleTextMode() {
             this.$store
                 .dispatch('settings/setSetting', {
-                    moduleId: MODULE_ID,
+                    moduleId: 'extendedCallWindow',
                     settingId: `textMode`,
                     value: !this.textMode,
                 })
@@ -240,14 +240,14 @@ export default Vue.extend<
     beforeMount() {
         this.$store
             .dispatch('settings/getSetting', {
-                moduleId: MODULE_ID,
+                moduleId: 'extendedCallWindow',
                 settingId: 'overlay',
                 defaultValue: false,
             })
             .then(overlay => (this.overlay = overlay));
         this.$store
             .dispatch('settings/getSetting', {
-                moduleId: MODULE_ID,
+                moduleId: 'extendedCallWindow',
                 settingId: 'minified',
                 defaultValue: false,
             })
