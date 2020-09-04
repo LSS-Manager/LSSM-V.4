@@ -1,4 +1,6 @@
-(async (LSSM: Vue) => {
+import { ModuleMainFunction } from 'typings/Module';
+
+export default (async (LSSM, MODULE_ID) => {
     await LSSM.$store.dispatch('settings/register', {
         moduleId: MODULE_ID,
         settings: {
@@ -32,4 +34,4 @@
                 ''
             )})</small>`;
     }
-})(window[PREFIX] as Vue);
+}) as ModuleMainFunction;
