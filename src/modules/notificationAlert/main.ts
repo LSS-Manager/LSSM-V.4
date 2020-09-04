@@ -6,8 +6,9 @@ import {
     MissionMarkerAdd,
     RadioMessage,
 } from 'typings/Ingame';
+import { ModuleMainFunction } from 'typings/Module';
 
-(async (LSSM: Vue) => {
+export default (async (LSSM, MODULE_ID, $m, $mc) => {
     await LSSM.$store.dispatch('settings/register', {
         moduleId: MODULE_ID,
         settings: {
@@ -27,14 +28,6 @@ import {
             },
         },
     });
-
-    const $m = (key: string, args?: { [key: string]: unknown }) =>
-        LSSM.$t(`modules.${MODULE_ID}.${key}`, args);
-    const $mc = (
-        key: string,
-        amount?: number,
-        args?: { [key: string]: unknown }
-    ) => LSSM.$tc(`modules.${MODULE_ID}.${key}`, amount, args);
 
     const alerts = (await LSSM.$store.dispatch('settings/getSetting', {
         moduleId: MODULE_ID,
@@ -611,4 +604,4 @@ import {
                     );
             },
         });
-})(window[PREFIX] as Vue);
+}) as ModuleMainFunction;
