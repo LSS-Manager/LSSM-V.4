@@ -1,25 +1,3 @@
 {
-	"inputMaxLen": "Dieses Eingabefeld muss zwischen {min} und {max} Zeichen haben!",
-	"settings": {
-		"clickableLinks": {
-			"description": "Links die in als reiner Text angezeigt werden (z.B. im Chat, Forum, Nachrichten, etc.) werden anklickbar gemacht. Sie öffnen sich automatisch in einem neuen Tab.",
-			"title": "Links anklickbar machen"
-		},
-		"linkPreviews": {
-			"buildings": "Gebäude",
-			"description": "Zeigt eine kleine Infobox an, wenn du mit der Maus kurz über einem Link wartest. Du kannst hier einstellen, bei welchen Links die Infobox aktiviert sein soll:",
-			"missions": "Einsätze",
-			"profile": "Nutzer",
-			"title": "Link-Vorschau",
-			"vehicles": "Fahrzeuge"
-		},
-		"mapUndo": {
-			"description": "Zentriere Karte auf Positionen, auf die vorher zentriert wurde. – Funktioniert aktuell nur beim Kartentyp \"OpenStreetMap\"",
-			"title": "Kartensprünge speichern"
-		},
-		"showImg": {
-			"description": "Versuchen, eine Bildvorschau zu generieren. Funktioniert nur in Kombination mit \"Links anklickbar machen\"!",
-			"title": "Bildvorschau aktivieren"
-		}
-	}
+	"inputMaxLen": "Dieses Eingabefeld muss zwischen {min} und {max} Zeichen haben!"
 }

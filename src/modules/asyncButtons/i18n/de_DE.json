@@ -25,25 +25,5 @@
 		"sprechwunsch_admin": "Sprechwunsch-Admin",
 		"aufsichtsrat": "Aufsichtsrat",
 		"schooling": "Lehrgangsmeister"
-	},
-	"settings": {
-		"buildingTax": {
-			"description": "Verhindert ein Neuladen, wenn du die Kosten von eigenen Zellen oder Krankenhausbetten festlegst.",
-			"title": "Kostenübernahme von Zellen und Betten"
-		},
-		"missionPrisoners": {
-			"title": "Gefangene im Einsatzfenster"
-		},
-		"missionReply": {
-			"title": "Rückmeldungen im Einsatz"
-		},
-		"memberlistManageUser": {
-			"title": "Rechte von Verbandsmitgliedern",
-			"description": "Vehindert ein Neuladen, wenn du ein Verbandsmitglied rauswirfst oder seine Rechte bearbeitest"
-		},
-		"deleteForumPost": {
-			"title": "Löschen von Forum Posts",
-			"description": "Verhindert ein Neuladen, wenn du ein Forum Post löscht."
-		}
 	}
 }

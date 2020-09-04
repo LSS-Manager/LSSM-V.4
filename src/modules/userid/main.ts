@@ -1,16 +1,6 @@
 import { ModuleMainFunction } from 'typings/Module';
 
 export default (async (LSSM, MODULE_ID) => {
-    await LSSM.$store.dispatch('settings/register', {
-        moduleId: MODULE_ID,
-        settings: {
-            navbar: {
-                type: 'toggle',
-                default: false,
-            },
-        },
-    });
-
     const getSetting = (settingId: string) => {
         return LSSM.$store.dispatch('settings/getSetting', {
             moduleId: MODULE_ID,

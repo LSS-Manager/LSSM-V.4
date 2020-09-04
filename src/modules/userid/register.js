@@ -1,3 +1,4 @@
 module.exports = {
-    location: /^\/(profile\/\d+)?$/,
+    location: /^\/(profile\/\d+)$/,
+    settings: true,
 };

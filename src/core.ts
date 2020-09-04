@@ -139,7 +139,7 @@ if (window.location.pathname === '/') {
                 activeModules = activeModules.filter(
                     module => !LSSM.$store.state.modules[module].noMapkit
                 );
-            activeModules.forEach(moduleId => {
+            activeModules.forEach(async moduleId => {
                 LSSM.$store.commit('setModuleActive', moduleId);
                 const $m = (key: string, args?: { [key: string]: unknown }) =>
                     LSSM.$t(`modules.${moduleId}.${key}`, args);
@@ -148,6 +148,19 @@ if (window.location.pathname === '/') {
                     amount?: number,
                     args?: { [key: string]: unknown }
                 ) => LSSM.$tc(`modules.${moduleId}.${key}`, amount, args);
+                if (LSSM.$store.state.modules[moduleId].settings) {
+                    await LSSM.$store.dispatch('settings/register', {
+                        moduleId,
+                        settings: (
+                            await import(
+                                /* webpackChunkName: "modules/settings/[request]" */
+                                /* webpackInclude: /\/modules\/.*?\/settings\.ts/ */
+                                /* webpackExclude: /\/modules\/(telemetry|releasenotes|support)\// */
+                                `./modules/${moduleId}/settings`
+                            )
+                        ).default(),
+                    });
+                }
                 if (
                     window.location.pathname.match(
                         LSSM.$store.state.modules[moduleId].location
