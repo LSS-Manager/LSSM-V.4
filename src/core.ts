@@ -154,20 +154,24 @@ if (window.location.pathname === '/') {
                     )
                 )
                     Promise.all(
-                        [BUILD_LANG, ...FALLBACK_LOCALES].map(async locale =>
-                            LSSM.$i18n.mergeLocaleMessage(locale, {
-                                modules: {
-                                    [moduleId]: (
-                                        await import(
-                                            /* webpackChunkName: "modules/i18n/[request]" */
-                                            /* webpackInclude: /\/modules\/.*?\/i18n\// */
-                                            /* webpackExclude: /(telemetry|releasenotes|support)|\.root\./ */
-                                            `./modules/${moduleId}/i18n/${locale}`
-                                        )
-                                    ).default,
-                                },
-                            })
-                        )
+                        [BUILD_LANG, ...FALLBACK_LOCALES].map(async locale => {
+                            try {
+                                return LSSM.$i18n.mergeLocaleMessage(locale, {
+                                    modules: {
+                                        [moduleId]: (
+                                            await import(
+                                                /* webpackChunkName: "modules/i18n/[request]" */
+                                                /* webpackInclude: /\/modules\/.*?\/i18n\// */
+                                                /* webpackExclude: /(telemetry|releasenotes|support)|\.root\./ */
+                                                `./modules/${moduleId}/i18n/${locale}`
+                                            )
+                                        ).default,
+                                    },
+                                });
+                            } catch {
+                                return;
+                            }
+                        })
                     ).then(() =>
                         import(
                             /* webpackChunkName: "modules/mains/[request]" */
