@@ -1,5 +1,3 @@
-import settingsItem from './components/settings-item.vue';
-import settingTitles from './components/settings-titles.vue';
 import { NotificationSetting } from 'typings/modules/NotificationAlert';
 import {
     AllianceChatMessage,
@@ -9,26 +7,6 @@ import {
 import { ModuleMainFunction } from 'typings/Module';
 
 export default (async (LSSM, MODULE_ID, $m, $mc) => {
-    await LSSM.$store.dispatch('settings/register', {
-        moduleId: MODULE_ID,
-        settings: {
-            alerts: {
-                type: 'appendable-list',
-                default: [],
-                listItemComponent: settingsItem,
-                titleComponent: settingTitles,
-                defaultItem: {
-                    events: [],
-                    alertStyle: 'success',
-                    duration: 8000,
-                    ingame: true,
-                    desktop: true,
-                    position: 'bottom right',
-                },
-            },
-        },
-    });
-
     const alerts = (await LSSM.$store.dispatch('settings/getSetting', {
         moduleId: MODULE_ID,
         settingId: 'alerts',

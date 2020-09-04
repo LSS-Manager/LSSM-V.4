@@ -1,7 +1,7 @@
 import missionHelper from './missionHelper.vue';
 import { ModuleMainFunction } from 'typings/Module';
 
-export default (async (LSSM) => {
+export default (async LSSM => {
     if (
         !window.location.href.match(/\/missions\/\d+/) ||
         document.querySelector('.missionNotFound')
