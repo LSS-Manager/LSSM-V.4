@@ -9,6 +9,7 @@ export interface Module {
     noapp: boolean;
     noMapkit: boolean;
     description: string;
+    settings: boolean;
 }
 
 export interface Modules {

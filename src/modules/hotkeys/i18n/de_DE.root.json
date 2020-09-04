@@ -1,4 +1,16 @@
 {
 	"description": "Steuere das Spiel mit Hotkeys auf der Tastatur, die du selbst festlegen kannst.",
-	"name": "Hotkeys"
+	"name": "Hotkeys",
+	"settings": {
+		"nextElementKey": {
+			"title": "Nächstes \"Element\""
+		},
+		"prevElementKey": {
+			"title": "Vorheriges \"Element\""
+		},
+		"prevNextElement": {
+			"description": "Think of a cool description here",
+			"title": "prevNextElement"
+		}
+	}
 }

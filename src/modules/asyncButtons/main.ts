@@ -1,33 +1,6 @@
 import { ModuleMainFunction } from 'typings/Module';
 
 export default (async (LSSM, MODULE_ID, $m) => {
-    await LSSM.$store.dispatch('settings/register', {
-        moduleId: MODULE_ID,
-        settings: {
-            buildingTax: {
-                type: 'toggle',
-                default: true,
-            },
-            missionPrisoners: {
-                type: 'toggle',
-                default: true,
-            },
-            missionReply: {
-                type: 'toggle',
-                default: false,
-                disabled: () => true,
-            },
-            memberlistManageUser: {
-                type: 'toggle',
-                default: false,
-            },
-            deleteForumPost: {
-                type: 'toggle',
-                default: false,
-            },
-        },
-    });
-
     const getSetting = (settingId: string): Promise<boolean> => {
         return LSSM.$store.dispatch('settings/getSetting', {
             moduleId: MODULE_ID,
