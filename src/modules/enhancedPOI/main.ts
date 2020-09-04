@@ -4,25 +4,6 @@ import { LayersControlEvent } from 'leaflet';
 import { ModuleMainFunction } from 'typings/Module';
 
 export default (async (LSSM, MODULE_ID) => {
-    await LSSM.$store.dispatch('settings/register', {
-        moduleId: MODULE_ID,
-        settings: {
-            predefined_style: {
-                type: 'select',
-                values: ['brown', 'red', 'green', 'white', 'custom'],
-                default: 'white',
-            },
-            custom_style: {
-                type: 'text',
-                default: 'invert(100%)',
-                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                // @ts-ignore
-                disabled: (settings): boolean =>
-                    settings[MODULE_ID]['predefined_style'].value !== 'custom',
-            },
-        },
-    });
-
     const style = await (async () => {
         const predef = await LSSM.$store.dispatch('settings/getSetting', {
             moduleId: MODULE_ID,

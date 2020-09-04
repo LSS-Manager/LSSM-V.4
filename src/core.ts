@@ -158,7 +158,7 @@ if (window.location.pathname === '/') {
                                 /* webpackExclude: /\/modules\/(telemetry|releasenotes|support)\// */
                                 `./modules/${moduleId}/settings`
                             )
-                        ).default(),
+                        ).default(moduleId),
                     });
                 }
                 if (
