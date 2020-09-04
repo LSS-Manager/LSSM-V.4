@@ -97,7 +97,7 @@ export default (async (LSSM, MODULE_ID, $m) => {
         if (await getSetting('enhanceVehicleList'))
             await (
                 await import(
-                    /* webpackChunkName: "extendedBuilding/enhanceVehicleList" */ './assets/enhanceVehicleList'
+                    /* webpackChunkName: "modules/extendedBuilding/enhanceVehicleList" */ './assets/enhanceVehicleList'
                 )
             ).default(LSSM, BUILDING_MODE, getSetting, $m);
 
@@ -107,7 +107,7 @@ export default (async (LSSM, MODULE_ID, $m) => {
         )
             (
                 await import(
-                    /* webpackChunkName: "extendedBuilding/personnelDemands" */ './assets/personnelDemands'
+                    /* webpackChunkName: "modules/extendedBuilding/personnelDemands" */ './assets/personnelDemands'
                 )
             ).default(LSSM, $m);
 
@@ -117,7 +117,7 @@ export default (async (LSSM, MODULE_ID, $m) => {
         )
             (
                 await import(
-                    /* webpackChunkName: "extendedBuilding/expansions" */ './assets/expansions'
+                    /* webpackChunkName: "modules/extendedBuilding/expansions" */ './assets/expansions'
                 )
             ).default(LSSM, MODULE_ID, $m);
     } else if (
@@ -126,7 +126,7 @@ export default (async (LSSM, MODULE_ID, $m) => {
         if (await getSetting('schoolingSummary'))
             (
                 await import(
-                    /* webpackChunkName: "extendedBuilding/schoolingSummary" */ './assets/schoolingSummary'
+                    /* webpackChunkName: "modules/extendedBuilding/schoolingSummary" */ './assets/schoolingSummary'
                 )
             ).default(LSSM, $m);
     } else if (
@@ -135,7 +135,7 @@ export default (async (LSSM, MODULE_ID, $m) => {
         if (await getSetting('enhancedPersonnelAssignment'))
             (
                 await import(
-                    /* webpackChunkName: "extendedBuilding/enhancedPersonnelAssignment" */ './assets/enhancedPersonnelAssignment'
+                    /* webpackChunkName: "modules/extendedBuilding/enhancedPersonnelAssignment" */ './assets/enhancedPersonnelAssignment'
                 )
             ).default(LSSM, $m);
 }) as ModuleMainFunction;

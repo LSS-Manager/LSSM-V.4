@@ -162,19 +162,19 @@ export default (async (LSSM, MODULE_ID, $m) => {
         if (await getSetting('generationDate'))
             (
                 await import(
-                    /* webpackChunkName: "extendedCallWindow/generationDate" */ './assets/generationDate'
+                    /* webpackChunkName: "modules/extendedCallWindow/generationDate" */ './assets/generationDate'
                 )
             ).default(LSSM, $m);
         if (await getSetting('enhancedMissingVehicles'))
             (
                 await import(
-                    /* webpackChunkName: "extendedCallWindow/enhancedMissingVehicles" */ './assets/enhancedMissingVehicles'
+                    /* webpackChunkName: "modules/extendedCallWindow/enhancedMissingVehicles" */ './assets/enhancedMissingVehicles'
                 )
             ).default(LSSM, $m);
         if (await getSetting('patientSummary'))
             (
                 await import(
-                    /* webpackChunkName: "extendedCallWindow/patientSummary" */ './assets/patientSummary'
+                    /* webpackChunkName: "modules/extendedCallWindow/patientSummary" */ './assets/patientSummary'
                 )
             ).default(LSSM);
         if (
@@ -184,7 +184,7 @@ export default (async (LSSM, MODULE_ID, $m) => {
         )
             await (
                 await import(
-                    /* webpackChunkName: "extendedCallWindow/arrCounter" */ './assets/arrCounter'
+                    /* webpackChunkName: "modules/extendedCallWindow/arrCounter" */ './assets/arrCounter'
                 )
             ).default(LSSM, getSetting, $m);
 
@@ -195,20 +195,20 @@ export default (async (LSSM, MODULE_ID, $m) => {
         if (missionKeywordsSettings.length)
             (
                 await import(
-                    /* webpackChunkName: "extendedCallWindow/missionKeywords" */ './assets/missionKeywords'
+                    /* webpackChunkName: "modules/extendedCallWindow/missionKeywords" */ './assets/missionKeywords'
                 )
             ).default(LSSM, missionKeywordsSettings);
 
         if (await getSetting('arrMatchHighlight'))
             (
                 await import(
-                    /* webpackChunkName: "extendedCallWindow/arrMatchHighlight" */ './assets/arrMatchHighlight'
+                    /* webpackChunkName: "modules/extendedCallWindow/arrMatchHighlight" */ './assets/arrMatchHighlight'
                 )
             ).default(LSSM);
         if (await getSetting('alarmTime'))
             (
                 await import(
-                    /* webpackChunkName: "extendedCallWindow/alarmTime" */ './assets/alarmTime'
+                    /* webpackChunkName: "modules/extendedCallWindow/alarmTime" */ './assets/alarmTime'
                 )
             ).default(LSSM);
 
@@ -222,7 +222,7 @@ export default (async (LSSM, MODULE_ID, $m) => {
         if (alarmIconsSettings.length)
             (
                 await import(
-                    /* webpackChunkName: "extendedCallWindow/alarmIcons" */ './assets/alarmIcons'
+                    /* webpackChunkName: "modules/extendedCallWindow/alarmIcons" */ './assets/alarmIcons'
                 )
             ).default(LSSM, alarmIconsSettings);
 
@@ -231,7 +231,7 @@ export default (async (LSSM, MODULE_ID, $m) => {
         if (arrSpecs || arrTime)
             (
                 await import(
-                    /* webpackChunkName: "extendedCallWindow/arrHover" */ './assets/arrHover'
+                    /* webpackChunkName: "modules/extendedCallWindow/arrHover" */ './assets/arrHover'
                 )
             ).default(LSSM, arrSpecs, arrTime, MODULE_ID, $m);
 
@@ -242,13 +242,13 @@ export default (async (LSSM, MODULE_ID, $m) => {
         if (stickyHeader || loadMoreVehiclesInHeader)
             (
                 await import(
-                    /* webpackChunkName: "extendedCallWindow/enhancedHeader" */ './assets/enhancedHeader'
+                    /* webpackChunkName: "modules/extendedCallWindow/enhancedHeader" */ './assets/enhancedHeader'
                 )
             ).default(stickyHeader, loadMoreVehiclesInHeader);
         if (await getSetting('hideVehicleList'))
             (
                 await import(
-                    /* webpackChunkName: "extendedCallWindow/hideVehicleList" */ './assets/hideVehicleList'
+                    /* webpackChunkName: "modules/extendedCallWindow/hideVehicleList" */ './assets/hideVehicleList'
                 )
             ).default(LSSM, MODULE_ID, $m);
     }
@@ -266,7 +266,7 @@ export default (async (LSSM, MODULE_ID, $m) => {
     )
         (
             await import(
-                /* webpackChunkName: "extendedCallWindow/tailoredTabs" */ './assets/tailoredTabs'
+                /* webpackChunkName: "modules/extendedCallWindow/tailoredTabs" */ './assets/tailoredTabs'
             )
         ).default(LSSM, tailoredTabSettings, stagingMode, $m);
 }) as ModuleMainFunction;

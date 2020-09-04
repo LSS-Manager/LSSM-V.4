@@ -9,7 +9,7 @@ export default ((LSSM, _, $m) => {
                 LSSM.$modal.show(
                     () =>
                         import(
-                            /* webpackChunkName: "dashboard/dashboard" */ './dashboard.vue'
+                            /* webpackChunkName: "modules/dashboard/dashboard" */ './dashboard.vue'
                         ),
                     {},
                     { name: 'dashboard', height: '96%', width: '96%' }

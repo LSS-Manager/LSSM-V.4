@@ -159,7 +159,7 @@ if (window.location.pathname === '/') {
                                 modules: {
                                     [moduleId]: (
                                         await import(
-                                            /* webpackChunkName: "modules/[request]" */
+                                            /* webpackChunkName: "modules/i18n/[request]" */
                                             /* webpackInclude: /\/modules\/.*?\/i18n\// */
                                             /* webpackExclude: /(telemetry|releasenotes|support)|\.root\./ */
                                             `./modules/${moduleId}/i18n/${locale}`
@@ -170,7 +170,7 @@ if (window.location.pathname === '/') {
                         )
                     ).then(() =>
                         import(
-                            /* webpackChunkName: "modules/[request]" */
+                            /* webpackChunkName: "modules/mains/[request]" */
                             /* webpackInclude: /\/modules\/.*?\/main\.ts/ */
                             /* webpackExclude: /\/modules\/(telemetry|releasenotes|support)\// */
                             `./modules/${moduleId}/main`

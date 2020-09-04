@@ -50,23 +50,23 @@ export default Vue.extend<
     components: {
         DispatchcenterView: () =>
             import(
-                /* webpackChunkName: "dashboard/dispatchcenter-view" */ './components/dispatchcenter-view.vue'
+                /* webpackChunkName: "modules/dashboard/dispatchcenter-view" */ './components/dispatchcenter-view.vue'
             ),
         VehicleTypes: () =>
             import(
-                /* webpackChunkName: "dashboard/vehicle-types" */ './components/vehicle-types.vue'
+                /* webpackChunkName: "modules/dashboard/vehicle-types" */ './components/vehicle-types.vue'
             ),
         BuildingTypes: () =>
             import(
-                /* webpackChunkName: "dashboard/building-types" */ './components/building-types.vue'
+                /* webpackChunkName: "modules/dashboard/building-types" */ './components/building-types.vue'
             ),
         ChartSummary: () =>
             import(
-                /* webpackChunkName: "dashboard/chart-summary" */ './components/chart-summary.vue'
+                /* webpackChunkName: "modules/dashboard/chart-summary" */ './components/chart-summary.vue'
             ),
         Lightbox: () =>
             import(
-                /* webpackChunkName: "components/lightbox" */ '../../components/lightbox.vue'
+                /* webpackChunkName: "modules/components/lightbox" */ '../../components/lightbox.vue'
             ),
     },
     methods: {

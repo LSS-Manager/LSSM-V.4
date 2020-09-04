@@ -104,7 +104,7 @@ export default (async (LSSM, MODULE_ID, $m, $mc) => {
                             icon: await import(
                                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                                 // @ts-ignore
-                                /* webpackChunkName: "notificationAlert/chat" */ './assets/chat.svg'
+                                /* webpackChunkName: "modules/notificationAlert/chat" */ './assets/chat.svg'
                             ),
                             duration: alert.duration,
                             ingame: alert.ingame,
@@ -127,7 +127,7 @@ export default (async (LSSM, MODULE_ID, $m, $mc) => {
                             icon: await import(
                                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                                 // @ts-ignore
-                                /* webpackChunkName: "notificationAlert/chat" */ './assets/chat.svg'
+                                /* webpackChunkName: "modules/notificationAlert/chat" */ './assets/chat.svg'
                             ),
                             duration: alert.duration,
                             ingame: alert.ingame,
@@ -150,7 +150,7 @@ export default (async (LSSM, MODULE_ID, $m, $mc) => {
                             icon: await import(
                                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                                 // @ts-ignore
-                                /* webpackChunkName: "notificationAlert/chat-2" */ './assets/chat-2.svg'
+                                /* webpackChunkName: "modules/notificationAlert/chat-2" */ './assets/chat-2.svg'
                             ),
                             duration: alert.duration,
                             ingame: alert.ingame,
@@ -236,7 +236,7 @@ export default (async (LSSM, MODULE_ID, $m, $mc) => {
                 ) {
                     const icon = (
                         await import(
-                            /* webpackChunkName: "notificationAlert/fmsImage" */ './assets/fmsImage'
+                            /* webpackChunkName: "modules/notificationAlert/fmsImage" */ './assets/fmsImage'
                         )
                     ).default(message.fms_real, message.fms);
                     const mode = `vehicle_fms_${message.fms}`;
@@ -310,7 +310,7 @@ export default (async (LSSM, MODULE_ID, $m, $mc) => {
                         icon: await import(
                             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                             // @ts-ignore
-                            /* webpackChunkName: "notificationAlert/message" */ './assets/message.svg'
+                            /* webpackChunkName: "modules/notificationAlert/message" */ './assets/message.svg'
                         ),
                         duration: alert.duration,
                         ingame: alert.ingame,
@@ -339,7 +339,7 @@ export default (async (LSSM, MODULE_ID, $m, $mc) => {
                         icon: await import(
                             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                             // @ts-ignore
-                            /* webpackChunkName: "notificationAlert/google_news" */ './assets/google_news.svg'
+                            /* webpackChunkName: "modules/notificationAlert/google_news" */ './assets/google_news.svg'
                         ),
                         duration: alert.duration,
                         ingame: alert.ingame,
@@ -378,7 +378,7 @@ export default (async (LSSM, MODULE_ID, $m, $mc) => {
                         icon: await import(
                             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                             // @ts-ignore
-                            /* webpackChunkName: "notificationAlert/alliance" */ './assets/alliance.svg'
+                            /* webpackChunkName: "modules/notificationAlert/alliance" */ './assets/alliance.svg'
                         ),
                         duration: alert.duration,
                         ingame: alert.ingame,
@@ -407,7 +407,7 @@ export default (async (LSSM, MODULE_ID, $m, $mc) => {
                         icon: await import(
                             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                             // @ts-ignore
-                            /* webpackChunkName: "notificationAlert/alliance" */ './assets/alliance.svg'
+                            /* webpackChunkName: "modules/notificationAlert/alliance" */ './assets/alliance.svg'
                         ),
                         duration: alert.duration,
                         ingame: alert.ingame,
@@ -436,7 +436,7 @@ export default (async (LSSM, MODULE_ID, $m, $mc) => {
                         icon: await import(
                             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                             // @ts-ignore
-                            /* webpackChunkName: "notificationAlert/alliance" */ './assets/alliance.svg'
+                            /* webpackChunkName: "modules/notificationAlert/alliance" */ './assets/alliance.svg'
                         ),
                         duration: alert.duration,
                         ingame: alert.ingame,
@@ -465,7 +465,7 @@ export default (async (LSSM, MODULE_ID, $m, $mc) => {
                         icon: await import(
                             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                             // @ts-ignore
-                            /* webpackChunkName: "notificationAlert/alliance" */ './assets/alliance.svg'
+                            /* webpackChunkName: "modules/notificationAlert/alliance" */ './assets/alliance.svg'
                         ),
                         duration: alert.duration,
                         ingame: alert.ingame,

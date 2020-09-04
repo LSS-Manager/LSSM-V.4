@@ -5,7 +5,7 @@ export default ((LSSM, _, $m) => {
         LSSM.$modal.show(
             () =>
                 import(
-                    /* webpackChunkName: "overview/overview" */ './overview.vue'
+                    /* webpackChunkName: "modules/overview/overview" */ './overview.vue'
                 ),
             {},
             {

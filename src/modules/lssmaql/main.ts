@@ -7,7 +7,7 @@ export default (LSSM => {
                 LSSM.$modal.show(
                     () =>
                         import(
-                            /* webpackChunkName: "lssmaql/lssmaql" */ './lssmaql.vue'
+                            /* webpackChunkName: "modules/lssmaql/lssmaql" */ './lssmaql.vue'
                         ),
                     {},
                     {

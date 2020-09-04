@@ -35,7 +35,7 @@ export default (async (LSSM, MODULE_ID) => {
 
     (
         await import(
-            /* webpackChunkName: "generalExtensions/inputMaxLen" */ './assets/inputMaxLen'
+            /* webpackChunkName: "modules/generalExtensions/inputMaxLen" */ './assets/inputMaxLen'
         )
     ).default(LSSM);
 
@@ -45,14 +45,14 @@ export default (async (LSSM, MODULE_ID) => {
     )
         (
             await import(
-                /* webpackChunkName: "generalExtensions/clickableLinks" */ './assets/clickableLinks'
+                /* webpackChunkName: "modules/generalExtensions/clickableLinks" */ './assets/clickableLinks'
             )
         ).default(LSSM, await getSetting('showImg'));
     const linkPreviewSetting = await getSetting<string[]>('linkPreviews');
     if (linkPreviewSetting.length)
         await (
             await import(
-                /* webpackChunkName: "generalExtensions/linkPreviews" */ './assets/linkPreviews'
+                /* webpackChunkName: "modules/generalExtensions/linkPreviews" */ './assets/linkPreviews'
             )
         ).default(LSSM, linkPreviewSetting);
     if (
@@ -62,7 +62,7 @@ export default (async (LSSM, MODULE_ID) => {
     )
         await (
             await import(
-                /* webpackChunkName: "generalExtensions/mapUndo" */ './assets/mapUndo'
+                /* webpackChunkName: "modules/generalExtensions/mapUndo" */ './assets/mapUndo'
             )
         ).default(LSSM);
 }) as ModuleMainFunction;
