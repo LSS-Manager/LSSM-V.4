@@ -58,6 +58,22 @@ export default (LSSM: Vue): void => {
             min: 2,
             max: 40,
         },
+        'vehicle_graphics[caption]': {
+            min: 3,
+            max: 30,
+        },
+        'alliance[caption]': {
+            min: 3,
+            max: 30,
+        },
+        'alliance_thread[caption]': {
+            min: 1,
+            max: 60,
+        },
+        'personal[name]': {
+            min: 1,
+            max: 40,
+        },
     } as {
         [name: string]: {
             min: number;
