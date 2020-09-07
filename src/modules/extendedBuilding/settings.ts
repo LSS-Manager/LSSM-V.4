@@ -60,4 +60,8 @@ export default (MODULE_ID: string): unknown => ({
         type: 'toggle',
         default: true,
     },
+    buildingsLeftRight: {
+        type: 'toggle',
+        default: false,
+    },
 });

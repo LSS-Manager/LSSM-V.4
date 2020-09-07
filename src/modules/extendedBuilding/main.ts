@@ -53,6 +53,13 @@ export default (async (LSSM, MODULE_ID, $m) => {
                     /* webpackChunkName: "modules/extendedBuilding/expansions" */ './assets/expansions'
                 )
             ).default(LSSM, MODULE_ID, $m);
+
+        if (await getSetting('buildingsLeftRight'))
+            (
+                await import(
+                    /* webpackChunkName: "modules/extendedBuilding/buildingsLeftRight" */ './assets/buildingsLeftRight'
+                )
+            ).default(LSSM);
     } else if (
         window.location.pathname.match(/^\/buildings\/\d+\/personals\/?$/)
     ) {
