@@ -179,11 +179,11 @@ export default {
         },
     },
     github: {
-        repo: 'KBOE2/LSSM-V.4',
+        repo: 'LSS-Manager/LSSM-V.4',
     },
     modules: {
         'core-modules': ['telemetry', 'releasenotes', 'support'],
     },
     prefix: 'lssmv4',
-    server: 'https://v4.lssm.ledbrain.de/',
+    server: 'https://jxn.v4.lssm.ledbrain.de/',
 } as Config;
