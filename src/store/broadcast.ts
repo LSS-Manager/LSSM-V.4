@@ -5,6 +5,8 @@ import { BroadcastActionStoreParams } from 'typings/store/broadcast/Actions';
 
 const STORAGE_NAME_KEY = `${PREFIX}_windowname`;
 
+sessionStorage.removeItem(STORAGE_NAME_KEY);
+
 const getBCName = (name: string): string => `${PREFIX}_broadcast_${name}`;
 const getWindowName = () => sessionStorage.getItem(STORAGE_NAME_KEY) || 'dummy';
 
@@ -99,6 +101,40 @@ export default {
             { mutationPath, payload }: VuexBroadcastMessage['data']
         ) {
             return broadcast({ mutationPath, payload });
+        },
+        request_var(
+            _: BroadcastActionStoreParams,
+            {
+                variablePath,
+                receiver,
+            }: VarRequestBroadcastMessage['data'] & { receiver: string }
+        ) {
+            return new Promise(resolve => {
+                const collected_values = [] as unknown[];
+                const receiver_handler = (msg: BroadcastMessageType) =>
+                    msg.receiver === getWindowName() &&
+                    msg.type === 'var_response' &&
+                    msg.data.variablePath === variablePath &&
+                    collected_values.push(
+                        (msg as VarResponseBroadcastMessage<string>).data.value
+                    );
+                channel.addEventListener('message', receiver_handler);
+                sendRequest(
+                    'var_request',
+                    {
+                        variablePath,
+                    },
+                    receiver
+                ).then(() => {
+                    window.setTimeout(() => {
+                        channel.removeEventListener(
+                            'message',
+                            receiver_handler
+                        );
+                        resolve(collected_values);
+                    }, 1000);
+                });
+            });
         },
     } as ActionTree<RootState, RootState>,
 } as Module<RootState, RootState>;
