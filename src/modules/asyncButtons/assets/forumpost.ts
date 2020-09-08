@@ -7,7 +7,7 @@ export default (LSSM: Vue, $m: $m): void => {
     const btns = Array.from(
         document.querySelectorAll(
             'a[href^="/alliance_posts/"][data-method="delete"]'
-        )
+        ) as NodeListOf<HTMLAnchorElement>
     );
     btns.forEach(btn => {
         btn.addEventListener('click', async e => {
@@ -36,18 +36,20 @@ export default (LSSM: Vue, $m: $m): void => {
                     {
                         title: $sm('deleteModal.btnConfirm'),
                         async handler() {
+                            const url = new URL(btn.href);
+                            url.searchParams.append('_method', 'delete');
+                            url.searchParams.append(
+                                'authenticity_token',
+                                document
+                                    .querySelector('meta[name="csrf-token"]')
+                                    ?.getAttribute('content') || ''
+                            );
                             await LSSM.$store
                                 .dispatch('api/request', {
-                                    url: btn.getAttribute('href'),
+                                    url: btn.href,
                                     init: {
                                         method: 'POST',
-                                        body: new URLSearchParams(
-                                            `_method=delete&authenticity_token=${document
-                                                .querySelector(
-                                                    'meta[name="csrf-token"]'
-                                                )
-                                                ?.getAttribute('content')}`
-                                        ),
+                                        body: url.searchParams.toString(),
                                     },
                                 })
                                 .then(({ status }) => {
