@@ -64,6 +64,10 @@
 		"url": "https://github.com/all-contributors/all-contributors-cli#readme",
 		"version": "6.17.2"
 	},
+	"broadcast-channel": {
+		"url": "https://github.com/pubkey/broadcast-channel#readme",
+		"version": "3.1.0"
+	},
 	"cache-loader": {
 		"url": "https://github.com/webpack-contrib/cache-loader",
 		"version": "4.1.0"

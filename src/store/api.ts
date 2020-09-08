@@ -43,6 +43,7 @@ const get_from_storage = <API extends StorageAPIKey>(
         return {
             lastUpdate: 0,
             value: null,
+            user_id: window.user_id,
         };
     }
 };
@@ -56,6 +57,7 @@ const get_from_parent = <API extends StorageAPIKey>(
         return {
             value: parent_state,
             lastUpdate: parent_api_state.lastUpdates[key] ?? 0,
+            user_id: window.user_id,
         };
     return get_from_storage(key, window.parent);
 };
@@ -64,7 +66,17 @@ const get_api_values = async <API extends StorageAPIKey>(
     key: API,
     { dispatch, state, commit }: APIActionStoreParams
 ): Promise<StorageGetterReturn<API>> => {
-    let stored = get_from_storage<API>(key);
+    let stored = {
+        lastUpdate: 0,
+        value: state[key],
+        user_id: window.user_id,
+    } as StorageGetterReturn<API>;
+    if (
+        !stored.value ||
+        !Object.values(stored.value).length ||
+        stored.lastUpdate < new Date().getTime()
+    )
+        stored = get_from_storage<API>(key);
     if (
         !stored.value ||
         stored.lastUpdate < new Date().getTime() - API_MIN_UPDATE
@@ -84,6 +96,7 @@ const get_api_values = async <API extends StorageAPIKey>(
             value: await dispatch('request', {
                 url: `/api/${key}`,
             }).then(res => res.json()),
+            user_id: window.user_id,
         };
         commit('finishedUpdating', key);
     }
@@ -93,7 +106,7 @@ const get_api_values = async <API extends StorageAPIKey>(
 const set_api_storage = <API extends StorageAPIKey>(
     key: API,
     { value, lastUpdate }: StorageGetterReturn<API>,
-    { commit }: APIActionStoreParams
+    { commit, dispatch }: APIActionStoreParams
 ) => {
     try {
         commit(MUTATION_SETTERS[key], { value, lastUpdate });
@@ -104,6 +117,14 @@ const set_api_storage = <API extends StorageAPIKey>(
                 value,
             })
         );
+        dispatch(
+            'broadcast/broadcast',
+            {
+                mutationPath: `api/${MUTATION_SETTERS[key]}`,
+                payload: { value, lastUpdate },
+            },
+            { root: true }
+        ).then();
     } catch {
         // Do nothing
     }
@@ -277,7 +298,7 @@ export default {
             if (!buildings) return;
             set_api_storage(
                 'buildings',
-                { value: buildings, lastUpdate },
+                { value: buildings, lastUpdate, user_id: window.user_id },
                 store
             );
             if (autoUpdate && !store.state.autoUpdates.includes('buildings')) {
@@ -297,7 +318,11 @@ export default {
                 store
             );
             if (!vehicles) return;
-            set_api_storage('vehicles', { value: vehicles, lastUpdate }, store);
+            set_api_storage(
+                'vehicles',
+                { value: vehicles, lastUpdate, user_id: window.user_id },
+                store
+            );
             if (autoUpdate && !store.state.autoUpdates.includes('vehicles')) {
                 store.commit('enableAutoUpdate', 'vehicles');
                 window.setInterval(
@@ -317,7 +342,7 @@ export default {
             if (!allianceinfo) return;
             set_api_storage(
                 'allianceinfo',
-                { value: allianceinfo, lastUpdate },
+                { value: allianceinfo, lastUpdate, user_id: window.user_id },
                 store
             );
             if (
