@@ -4,9 +4,10 @@ import lodash from 'lodash';
 import { version } from '../package.json';
 import config from '../src/config';
 import webpackConfig from '../webpack.config';
-import webpack, { ChunkData, Configuration } from 'webpack';
+import webpack, { Configuration } from 'webpack';
 import moment from 'moment';
 import { Module } from '../typings/Module';
+import DynamicImportQueryPlugin from './plugins/DynamicImportQueryPlugin';
 
 console.time('build');
 
@@ -15,8 +16,6 @@ const dir = process.argv[2] === 'production' ? 'stable/' : 'beta/';
 console.info(`Let's build that stuff in Version ${version}`);
 
 const moduleDirs = fs.readdirSync(`./src/modules/`);
-
-const moduleEntries = [] as Configuration[];
 
 const entries = Object.entries(config.games)
     .filter(
@@ -31,11 +30,12 @@ const entries = Object.entries(config.games)
             },
             output: {
                 path: path.resolve(__dirname, `../dist/${dir}${locale}`),
-                filename: (chunkData: ChunkData) =>
-                    `${chunkData.chunk.name.replace(
+                filename: pathData =>
+                    `${pathData.chunk?.name?.replace(
                         /^[a-z]{2}_[A-Z]{2}_/,
                         ''
                     )}.js`,
+                publicPath: `${config.server}${locale}/`,
             },
             ...lodash.cloneDeep(webpackConfig),
         } as Configuration;
@@ -96,94 +96,24 @@ const entries = Object.entries(config.games)
                 new RegExp(`${[locale, ...fallbackLocales].join('|')}$`)
             )
         );
-
-        const modulesEntry = {
-            ...lodash.cloneDeep(entry),
-            output: {
-                path: path.resolve(
-                    __dirname,
-                    `../dist/${dir}${locale}/modules`
-                ),
-                filename: (chunkData: ChunkData) =>
-                    `${chunkData.chunk.name.replace(
-                        /^[a-z]{2}_[A-Z]{2}_/,
-                        ''
-                    )}/main.js`,
-            },
-            externals: {
-                vue: `${config.prefix}.$vue`,
-            },
-        } as Configuration;
-        modulesEntry.entry = {
-            ...Object.fromEntries(
-                modules
-                    .filter(module =>
-                        fs.existsSync(`./src/modules/${module}/main.ts`)
-                    )
-                    .map(module => {
-                        modulesEntry.module?.rules.unshift({
-                            test: new RegExp(
-                                `modules[\\\\/]+${module}[\\\\/]+main.ts$`
-                            ),
-                            use: [
-                                {
-                                    loader: 'webpack-loader-append-prepend',
-                                    options: {
-                                        prepend: [locale, ...fallbackLocales]
-                                            .filter(loca => {
-                                                try {
-                                                    require(`../src/modules/${module}/i18n/${loca}`);
-                                                    return true;
-                                                } catch {
-                                                    return false;
-                                                }
-                                            })
-                                            .map(
-                                                loca =>
-                                                    `window[${JSON.stringify(
-                                                        config.prefix
-                                                    )}].$i18n.mergeLocaleMessage(${JSON.stringify(
-                                                        loca
-                                                    )},{modules:{${module}: require(\`../${module}/i18n/${loca}\`),},});`
-                                            )
-                                            .join('\n'),
-                                    },
-                                },
-                            ],
-                        });
-                        modulesEntry.module?.rules.push({
-                            test: new RegExp(
-                                `modules[\\\\/]+${module}[\\\\/]+.*\\.(ts|vue)$`
-                            ),
-                            loader: 'string-replace-loader',
-                            query: {
-                                multiple: [
-                                    {
-                                        search: /MODULE_ID/g,
-                                        replace: JSON.stringify(module),
-                                    },
-                                ],
-                            },
-                        });
-                        return [
-                            `${locale}_${module}`,
-                            path.resolve(
-                                __dirname,
-                                `../src/modules/${module}/main.ts`
-                            ),
-                        ];
-                    })
-            ),
-        };
-
-        moduleEntries.push(modulesEntry);
+        entry.plugins?.push(
+            new DynamicImportQueryPlugin({
+                v: {
+                    value: version,
+                },
+                uid: {
+                    value: `${JSON.stringify(locale)} + "-" + window.user_id`, // must be valid JS Code stringified
+                    isDynamicKey: true, // false by default
+                },
+            })
+        );
 
         return entry;
     })
     .filter(entry => entry);
 
 console.log('Generated configurations. Building…');
-webpack([...entries, ...moduleEntries], (err, stats) => {
+webpack([...entries], (err, stats) => {
     if (err) {
         console.error(err.stack || err);
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -195,9 +125,16 @@ webpack([...entries, ...moduleEntries], (err, stats) => {
         }
     }
 
+    if (stats)
+        fs.writeFileSync(
+            `./dist/webpack.out.${
+                process.argv[2] === 'production' ? 'public' : 'beta'
+            }.json`,
+            JSON.stringify(stats.toJson(), null, '\t')
+        );
     console.log('Stats:');
-    console.log(stats.toString({ colors: true }));
+    console.log(stats?.toString({ colors: true }));
     console.timeEnd('build');
     console.log(`Build finished at ${new Date().toLocaleTimeString()}`);
-    if (stats.hasErrors()) process.exit(-1);
+    if (stats?.hasErrors()) process.exit(-1);
 });

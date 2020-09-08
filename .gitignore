@@ -13,7 +13,7 @@ package-lock.json
 
 # TypeScript Outputs
 webpack.config.js*
-build/index.js*
+build/**/*.js*
 typings/**/*.js*
 prebuild/**/*.js*
 src/config.js*

@@ -1,13 +1,9 @@
 import enhancedMissingVehicles from '../components/enhancedMissingVehicles.vue';
 import { Requirement } from 'typings/modules/ExtendedCallWindow/EnhancedMissingVehicles';
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import { $m } from 'typings/Module';
 
-export default (LSSM: Vue): void => {
-    const $m = (key: string, args?: { [key: string]: unknown }) =>
-        LSSM.$t(
-            `modules.extendedCallWindow.enhancedMissingVehicles.${key}`,
-            args
-        );
-
+export default (LSSM: Vue, $m: $m): void => {
     const missingDialog = document.getElementById('missing_text');
     if (!missingDialog) return;
     const missingRequirementsText = missingDialog.textContent
@@ -31,7 +27,9 @@ export default (LSSM: Vue): void => {
         extras = last.vehicle.match(/\..*$/)?.[0].replace(/^\./, '') || '';
         last.vehicle = last.vehicle.replace(/\..*$/, '');
     }
-    const vehicleGroups = ($m('vehiclesByRequirement') as unknown) as {
+    const vehicleGroups = ($m(
+        'enhancedMissingVehicles.vehiclesByRequirement'
+    ) as unknown) as {
         [group: string]: number[];
     };
     const drivingTable = document.querySelector(
@@ -81,7 +79,8 @@ export default (LSSM: Vue): void => {
                     missingRequirements: missingRequirements.filter(
                         req => !!req.vehicle
                     ),
-                    extras,
+                    extras: extras,
+                    missingText: missingDialog.textContent,
                 },
             }),
     }).$mount(missingDialog);

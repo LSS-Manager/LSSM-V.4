@@ -431,6 +431,7 @@ export default Vue.extend<
             Object.keys(this.missionSpecs?.requirements || {})
                 .filter(req => !this.noVehicleRequirements.includes(req))
                 .forEach(vehicle => {
+                    console.log(vehicle);
                     let percentage = this.missionSpecs?.chances[vehicle] || 100;
                     if (
                         (percentage === 100 && !this.settings.chances['100']) ||
@@ -627,7 +628,7 @@ export default Vue.extend<
             } else {
                 this.$store
                     .dispatch('settings/getSetting', {
-                        moduleId: MODULE_ID,
+                        moduleId: 'missionHelper',
                         settingId: `${
                             base_string ? `${base_string}.` : ''
                         }${id}`,
@@ -641,7 +642,7 @@ export default Vue.extend<
         toggleOverlay() {
             this.$store
                 .dispatch('settings/setSetting', {
-                    moduleId: MODULE_ID,
+                    moduleId: 'missionHelper',
                     settingId: `overlay`,
                     value: !this.overlay,
                 })
@@ -650,7 +651,7 @@ export default Vue.extend<
         toggleMinified() {
             this.$store
                 .dispatch('settings/setSetting', {
-                    moduleId: MODULE_ID,
+                    moduleId: 'missionHelper',
                     settingId: `minified`,
                     value: !this.minified,
                 })
@@ -690,14 +691,14 @@ export default Vue.extend<
     beforeMount() {
         this.$store
             .dispatch('settings/getSetting', {
-                moduleId: MODULE_ID,
+                moduleId: 'missionHelper',
                 settingId: 'overlay',
                 defaultValue: false,
             })
             .then(overlay => (this.overlay = overlay));
         this.$store
             .dispatch('settings/getSetting', {
-                moduleId: MODULE_ID,
+                moduleId: 'missionHelper',
                 settingId: 'minified',
                 defaultValue: false,
             })
@@ -713,7 +714,7 @@ export default Vue.extend<
 </script>
 
 <style lang="sass">
-.alert-missing-vehicles:hover ~ * .overlay
+.alert-missing-vehicles:not(.overlay):hover ~ * .overlay
     opacity: 0.1
 </style>
 
@@ -736,7 +737,8 @@ export default Vue.extend<
         max-height: 1rem
         min-width: auto
 
-        > div
+        > div,
+        > span
             display: none
 
     h3

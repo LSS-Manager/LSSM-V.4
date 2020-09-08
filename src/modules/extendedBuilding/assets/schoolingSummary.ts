@@ -1,8 +1,10 @@
 import SchoolingSummary from '../components/schoolingSummary.vue';
 import { SchoolingSummaryObject } from 'typings/modules/ExtendedBuilding/schoolingSummary';
 import { InternalVehicle, Vehicle } from 'typings/Vehicle';
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import { $m } from 'typings/Module';
 
-export default (LSSM: Vue): void => {
+export default (LSSM: Vue, $m: $m): void => {
     const dataList = document.querySelector('dl:last-of-type');
 
     if (!dataList) return;
@@ -41,9 +43,7 @@ export default (LSSM: Vue): void => {
 
     const dataTitle = document.createElement('dt');
     const titleWrapper = document.createElement('strong');
-    titleWrapper.textContent = LSSM.$t(
-        `modules.${MODULE_ID}.schoolingSummary.title`
-    ).toString();
+    titleWrapper.textContent = $m('schoolingSummary.title').toString();
     dataTitle.append(titleWrapper);
     const dataData = document.createElement('dd');
     const overviewWrapper = document.createElement('div');

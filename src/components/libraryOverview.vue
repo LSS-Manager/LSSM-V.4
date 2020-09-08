@@ -50,7 +50,6 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import Lightbox from './lightbox.vue';
 import libraries from '../libraries.json';
 import {
     LibraryOverviewData,
@@ -65,7 +64,12 @@ export default Vue.extend<
     DefaultProps
 >({
     name: 'libraryOverview',
-    components: { Lightbox },
+    components: {
+        Lightbox: () =>
+            import(
+                /* webpackChunkName: "components/lightbox" */ './lightbox.vue'
+            ),
+    },
     data() {
         return {
             librarySearch: '',

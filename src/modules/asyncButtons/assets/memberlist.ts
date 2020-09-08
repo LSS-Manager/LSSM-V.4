@@ -1,6 +1,11 @@
-export default (LSSM: Vue): void => {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import { $m } from 'typings/Module';
+
+export default (LSSM: Vue, $m: $m): void => {
+    const $sm = (key: string, args?: Parameters<$m>[1]) =>
+        $m(`memberlistManageUser.${key}`, args);
     const roles = {
-        ...((LSSM.$t(`modules.${MODULE_ID}.memberlistRoles`) as unknown) as {
+        ...(($m(`memberlistRoles`) as unknown) as {
             [role: string]: string;
         }),
         '': '',
@@ -72,21 +77,15 @@ export default (LSSM: Vue): void => {
             });
     };
 
-    const setText = LSSM.$t(
-        `modules.${MODULE_ID}.memberlistManageUser.set`
-    ).toString();
-    const unsetText = LSSM.$t(
-        `modules.${MODULE_ID}.memberlistManageUser.unset`
-    ).toString();
+    const setText = $sm('set').toString();
+    const unsetText = $sm('unset').toString();
     (document.querySelectorAll('td [id^="rights_"]') as NodeListOf<
         HTMLDivElement
     >).forEach(holder => {
         const hideBtn = document.createElement('a');
         hideBtn.classList.add('btn', 'btn-xs', 'btn-default');
         hideBtn.href = '#';
-        hideBtn.textContent = LSSM.$t(
-            `modules.${MODULE_ID}.memberlistManageUser.hide`
-        ).toString();
+        hideBtn.textContent = $sm('hide').toString();
         hideBtn.onclick = () => {
             $(holder).hide('fast');
             if (holder.previousElementSibling)
@@ -114,17 +113,11 @@ export default (LSSM: Vue): void => {
             });
             if (t.getAttribute('href')?.split('/')[2] === 'kick') {
                 LSSM.$modal.show('dialog', {
-                    title: LSSM.$t(
-                        `modules.${MODULE_ID}.memberlistManageUser.kickModal.title`
-                    ),
-                    text: LSSM.$t(
-                        `modules.${MODULE_ID}.memberlistManageUser.kickModal.text`
-                    ),
+                    title: $sm('kickModal.title'),
+                    text: $sm('kickModal.text'),
                     buttons: [
                         {
-                            title: LSSM.$t(
-                                `modules.${MODULE_ID}.memberlistManageUser.kickModal.btnCancel`
-                            ),
+                            title: $sm('kickModal.btnCancel'),
                             default: true,
                             handler() {
                                 Array.from(
@@ -136,9 +129,7 @@ export default (LSSM: Vue): void => {
                             },
                         },
                         {
-                            title: LSSM.$t(
-                                `modules.${MODULE_ID}.memberlistManageUser.kickModal.btnConfirm`
-                            ),
+                            title: $sm('kickModal.btnConfirm'),
                             handler() {
                                 storeDispatch(roleHolder, rights, t);
                                 LSSM.$modal.hide('dialog');

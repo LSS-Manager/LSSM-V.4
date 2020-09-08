@@ -2,6 +2,28 @@ import { Config } from '../typings/Config';
 
 export default {
     admins: ['de_DE-205976', 'de_DE-675'],
+    browser: {
+        chrome: {
+            latest: 84,
+            supported: 84,
+            download: 'https://chrome.com',
+        },
+        firefox: {
+            latest: 79,
+            supported: 79,
+            download: 'https://firefox.com',
+        },
+        opera: {
+            latest: 70,
+            supported: 70,
+            download: 'https://opera.com',
+        },
+        safari: {
+            latest: 13,
+            supported: 13,
+            download: 'https://apple.com/safari/',
+        },
+    },
     discord: 'https://discord.gg/RcTNjpB',
     discord_support:
         'https://discordapp.com/channels/254167535446917120/607913643140579348',
@@ -157,7 +179,7 @@ export default {
         },
     },
     github: {
-        repo: 'KBOE2/LSSM-V.4',
+        repo: 'LSS-Manager/LSSM-V.4',
     },
     modules: {
         'core-modules': ['telemetry', 'releasenotes', 'support'],

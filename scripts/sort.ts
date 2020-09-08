@@ -20,33 +20,40 @@ const getJsons = (folder: string): string[] => {
 };
 
 export default (): string => {
-    const output = [] as string[];
-    [
-        '.github',
-        'build',
-        'docs',
-        'lssmaql',
-        'prebuild',
-        'scripts',
-        'src',
-        'static',
-        'typings',
-    ].forEach(folder =>
-        getJsons(`./${folder}`).forEach(file => {
-            const sortArray = false;
-            fs.writeFileSync(
-                file,
-                JSON.stringify(
-                    sortJSON(
-                        JSON.parse(fs.readFileSync(file).toString()),
-                        sortArray
-                    ),
-                    null,
-                    '\t'
-                )
-            );
-            output.push(file);
-        })
-    );
-    return output.map(f => `✨ sorted file "${f}"`).join('\n');
+    let currentFile = '';
+    try {
+        const output = [] as string[];
+        [
+            '.github',
+            'build',
+            'docs',
+            'lssmaql',
+            'prebuild',
+            'scripts',
+            'src',
+            'static',
+            'typings',
+        ].forEach(folder =>
+            getJsons(`./${folder}`).forEach(file => {
+                currentFile = file;
+                const sortArray = false;
+                fs.writeFileSync(
+                    file,
+                    JSON.stringify(
+                        sortJSON(
+                            JSON.parse(fs.readFileSync(file).toString()),
+                            sortArray
+                        ),
+                        null,
+                        '\t'
+                    )
+                );
+                output.push(file);
+            })
+        );
+        return output.map(f => `✨ sorted file "${f}"`).join('\n');
+    } catch (e) {
+        console.error(currentFile, e);
+        process.exit(1);
+    }
 };

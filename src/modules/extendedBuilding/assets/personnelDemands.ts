@@ -1,6 +1,8 @@
 import { InternalVehicle } from 'typings/Vehicle';
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import { $m } from 'typings/Module';
 
-export default (LSSM: Vue): void => {
+export default (LSSM: Vue, $m: $m): void => {
     const vehicles = Array.from(
         document.querySelectorAll('#vehicle_table tbody tr') as NodeListOf<
             HTMLTableRowElement
@@ -42,15 +44,13 @@ export default (LSSM: Vue): void => {
 
     const personnelTitle = document.createElement('dt');
     const titleWrapper = document.createElement('strong');
-    titleWrapper.textContent = LSSM.$t(
-        `modules.${MODULE_ID}.personnelDemands.demand`
-    ).toString();
+    titleWrapper.textContent = $m(`personnelDemands.demand`).toString();
     personnelTitle.append(titleWrapper);
     const personnelData = document.createElement('dd');
     personnelData.textContent = `min: ${sumMinPersonnel} (${sumMinPersonnelS6}) / max: ${sumMaxPersonnel} (${sumMaxPersonnelS6})`;
     const personnelAdditional = document.createElement('small');
-    personnelAdditional.textContent = LSSM.$t(
-        `modules.${MODULE_ID}.personnelDemands.additional`
+    personnelAdditional.textContent = $m(
+        `personnelDemands.additional`
     ).toString();
     personnelAdditional.style.marginLeft = '1ch';
     personnelData.append(personnelAdditional);

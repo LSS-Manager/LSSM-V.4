@@ -1,6 +1,8 @@
 import { InternalVehicle, Vehicle } from 'typings/Vehicle';
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import { $m } from 'typings/Module';
 
-export default (LSSM: Vue): void => {
+export default (LSSM: Vue, $m: $m): void => {
     const personnel = Array.from(
         document.querySelectorAll('#personal_table tbody tr') as NodeListOf<
             HTMLTableRowElement
@@ -46,9 +48,7 @@ export default (LSSM: Vue): void => {
     toggleFittingInput.id = toggleId;
     toggleFittingLabel.append(
         toggleFittingInput,
-        LSSM.$t(
-            `modules.${MODULE_ID}.enhancedPersonnelAssignment.toggleFittingPersonnel`
-        ).toString()
+        $m('enhancedPersonnelAssignment.toggleFittingPersonnel').toString()
     );
     toggleFittingWrapper.append(toggleFittingLabel);
     settingsBar.append(toggleFittingWrapper);

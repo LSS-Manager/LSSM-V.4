@@ -32,6 +32,8 @@ declare global {
         mission_position_new_dragend(): void;
         vehicleSelectionReset(): void;
         aao_available(arrId: number, calculateTime: boolean): void;
+        extensionCountdown(remaining: number, id: number): void;
+        formatTime(remaining: number, t?: boolean): string;
     }
 }
 

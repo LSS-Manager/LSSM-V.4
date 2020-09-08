@@ -20,6 +20,11 @@
 			"description": "Die API-Abfragesprache LSSMAQL (LSSM API Query Language) Version <code>0.0.1</code> ist veröffentlicht und als Modul verfügbar.<br><b>Features</b>:<ul><li>Simple Queries with up to one filter</li><li>Parent Accessor</li></ul><br><b>Noch nicht verfügbar</b>:<ul><li>Klammern</li><li>UND und ODER</li><li>Funktionen</li><li>Grafische Oberfläche</li></ul>",
 			"title": "LSSMAQL V.0.0.1",
 			"version": "4.0.5+20200809.2143"
+		},
+		{
+			"description": "Es wird nun weniger Code geladen, um nichtmehr so viel ungenutzten Code übertragen zu müssen. Damit sollte der LSSM insgesamt schneller geworden sein.<br>Zusätzlich ist die Anpassung des Browsertitels jetzt im Modul \"Allgemeine Verbesserungen\" zu finden und dort auch einstellbar.",
+			"title": "Performance-Verbesserungen",
+			"version": "4.0.5+20200904.2201"
 		}
 	]
 }

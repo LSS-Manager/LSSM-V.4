@@ -2,8 +2,9 @@ import { BuildingMarker, RadioMessage } from '../../../typings/Ingame';
 import { Vehicle } from '../../../typings/Vehicle';
 import { PointTuple } from 'leaflet';
 import { Building } from '../../../typings/Building';
+import { ModuleMainFunction } from 'typings/Module';
 
-(async (LSSM: Vue) => {
+export default (async (LSSM, MODULE_ID) => {
     await LSSM.$store.dispatch('api/registerBuildingsUsage', true);
     await LSSM.$store.dispatch('api/registerVehiclesUsage', true);
 
@@ -40,8 +41,8 @@ import { Building } from '../../../typings/Building';
 
         if (hasTt) marker.unbindTooltip();
 
-        const vehicles = vehiclesByBuilding[marker.building_id];
-        vehicles?.sort((a, b) =>
+        const vehicles = vehiclesByBuilding[marker.building_id] || [];
+        vehicles.sort((a, b) =>
             a.caption > b.caption ? 1 : b.caption > a.caption ? -1 : 0
         );
         const building = buildings.find(b => b.id === marker.building_id);
@@ -149,4 +150,4 @@ import { Building } from '../../../typings/Building';
             );
         },
     });
-})(window[PREFIX] as Vue);
+}) as ModuleMainFunction;

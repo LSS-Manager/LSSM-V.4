@@ -1,40 +1,7 @@
 {
-	"alertStyles": {
-		"danger": "Fehlermeldung (rot)",
-		"info": "Info (blau)",
-		"success": "Bestätigung (grün)",
-		"warning": "Warnung (orange)"
-	},
 	"desktopTest": {
 		"text": "Desktop-Benachrichtigungen wurden erfolgreich aktiviert!",
 		"title": "Desktop-Benachrichtigungen"
-	},
-	"events": {
-		"allianceCandidature": "Neue Bewerbung im Verband",
-		"allianceChat": "Chatnachricht",
-		"allianceChatMention": "Chatnachricht (nur Erwähnungen)",
-		"allianceChatWhisper": "Chatnachricht (nur private Ansprachen)",
-		"allianceForum": "Neuer Beitrag im Verbandsforum",
-		"allianceMessage": "Neue Verbandsnachricht",
-		"allianceNews": "Neue Verbandsnews",
-		"dm": "Neue Nachricht im Posteingang",
-		"ingame_news": "Neuigkeiten im Spiel",
-		"mission_getred": "Ein Einsatz benötigt Aufmerksamkeit",
-		"mission_getred_alliance": "Ein Verbandseinsatz benötigt Aufmerksamkeit",
-		"mission_new": "Ein neuer Einsatz wurde generiert",
-		"mission_new_largescale": "Ein neuer Verbands-Großeinsatz wurde erstellt",
-		"mission_share": "Ein Einsatz wurde im Verband geteilt",
-		"sicherheitswache_error": "Sicherheitswache abgebrochen",
-		"sicherheitswache_success": "Sicherheitswache abgeschlossen",
-		"vehicle_fms": "Funksprüche (allgemein)",
-		"vehicle_fms_1": "Funksprüche (Status 1)",
-		"vehicle_fms_2": "Funksprüche (Status 2)",
-		"vehicle_fms_3": "Funksprüche (Status 3)",
-		"vehicle_fms_4": "Funksprüche (Status 4)",
-		"vehicle_fms_5": "Funksprüche (Sprechwunsch)",
-		"vehicle_fms_6": "Funksprüche (Status 6)",
-		"vehicle_fms_7": "Funksprüche (Status 7)",
-		"vehicle_fms_9": "Funksprüche (Status 9)"
 	},
 	"messages": {
 		"allianceCandidature": {
@@ -78,24 +45,5 @@
 	"permission": {
 		"text": "Bitte erlaube Desktop-Benachrichtigungen mit einem Klick auf diese Benachrichtigung!",
 		"title": "Desktop-Benachrichtigungen"
-	},
-	"positions": {
-		"bottom center": "Unten Mitte 🡣",
-		"bottom left": "Unten Links 🡧",
-		"bottom right": "Unten Rechts 🡦",
-		"top center": "Oben Mitte 🡡",
-		"top left": "Oben Links 🡤",
-		"top right": "Oben Rechts 🡥"
-	},
-	"settings": {
-		"alertStyle": "Ingame-Benachrichtigungs-Typ",
-		"alerts": {
-			"title": "Benachrichtigungen festlegen"
-		},
-		"desktop": "Desktop-Benachrichtigung senden",
-		"duration": "Anzeigedauer",
-		"eventTypes": "Events",
-		"ingame": "Ingame-Benachrichtigung senden",
-		"position": "Position"
 	}
 }

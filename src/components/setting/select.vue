@@ -12,7 +12,6 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import VSelect from 'vue-select';
 import { SelectComputed, SelectProps } from 'typings/components/setting/Select';
 import { DefaultData, DefaultMethods } from 'vue/types/options';
 
@@ -23,7 +22,12 @@ export default Vue.extend<
     SelectProps
 >({
     name: 'settings-select',
-    components: { VSelect },
+    components: {
+        VSelect: () =>
+            import(
+                /* webpackChunkName: "components/vue-select" */ 'vue-select'
+            ),
+    },
     props: {
         name: {
             type: String,

@@ -40,7 +40,6 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import EnhancedTable from '../../../components/enhanced-table.vue';
 import {
     OwnSchoolingTabs,
     OwnSchoolingTabsMethods,
@@ -56,7 +55,12 @@ export default Vue.extend<
     DefaultProps
 >({
     name: 'ownSchoolingTabs',
-    components: { EnhancedTable },
+    components: {
+        EnhancedTable: () =>
+            import(
+                /* webpackChunkName: "components/enhanced-table" */ '../../../components/enhanced-table.vue'
+            ),
+    },
     data() {
         const heads = {} as {
             [key: string]: {

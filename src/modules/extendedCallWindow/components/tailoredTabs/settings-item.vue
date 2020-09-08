@@ -15,7 +15,6 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import VSelect from 'vue-select';
 import { DefaultMethods } from 'vue/types/options';
 import {
     SettingsItem,
@@ -31,7 +30,12 @@ export default Vue.extend<
     SettingsItemProps
 >({
     name: 'tailored-tabs-settings-item',
-    components: { VSelect },
+    components: {
+        VSelect: () =>
+            import(
+                /* webpackChunkName: "components/vue-select" */ 'vue-select'
+            ),
+    },
     data() {
         return {
             vehicleTypes: (Object.values(

@@ -47,12 +47,22 @@ Since we want to keep the latest coding standards throughout, a modern and up-to
 A compatibility listed here does not guarantee functionality. This is only information collected and evaluated by third parties.
 :::
 
-Browser | mind. Version
---------|--------
-Firefox | 54
-Chrome  | 51
-Safari  | 11
-Opera   | 38
+<table>
+<thead>
+    <tr>
+        <th>Browser</th>
+        <th>min. version</th>
+        <th>Download</th>
+    </tr>
+</thead>
+<tbody>
+    <tr v-for="({supported, download}, browser) in $themeConfig.variables.browsers">
+        <td>{{ browser.replace(/^./, $1 => $1.toUpperCase()) }}</td>
+        <td>{{ supported }}</td>
+        <td><a :href="download" target="_blank">Download</a></td>
+    </tr>
+</tbody>
+</table>
 
 ::: danger Internet Explorer and Microsoft Edge
 These two browsers can be described as the "problem children" of a modern web developer. There are some functions that do not work in them, or require additional code.

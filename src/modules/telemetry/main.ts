@@ -21,6 +21,46 @@ export default (LSSM: Vue): void => {
         );
 
         const ua = new UAParser(window.navigator.userAgent);
+        const browser = ua.getBrowser();
+        const browserMajor = parseInt(browser.version?.split('.')[0] || '-1');
+
+        const browserSupport =
+            config.browser[browser.name?.toLowerCase() || ''];
+
+        if (!browserSupport)
+            LSSM.$modal.show('dialog', {
+                title: $m('browsersupport.not.title'),
+                text: $m('browsersupport.not.text', {
+                    name: browser.name,
+                    wiki: LSSM.$store.getters.wiki,
+                    wikiAnchor: $m('browsersupport.faqAnchor'),
+                }),
+                options: {},
+                buttons: [
+                    {
+                        title: $m('browsersupport.close'),
+                    },
+                ],
+            });
+        else if (browserMajor < browserSupport.supported)
+            LSSM.$modal.show('dialog', {
+                title: $m('browsersupport.old.title'),
+                text: $m('browsersupport.old.text', {
+                    name: browser.name,
+                    latest: browserSupport.latest,
+                    supported: browserSupport.supported,
+                    current: browserMajor,
+                    download: browserSupport.download,
+                    wiki: LSSM.$store.getters.wiki,
+                    wikiAnchor: $m('browsersupport.faqAnchor'),
+                }),
+                options: {},
+                buttons: [
+                    {
+                        title: $m('browsersupport.close'),
+                    },
+                ],
+            });
 
         LSSM.$store
             .dispatch('api/request', {
@@ -37,9 +77,7 @@ export default (LSSM: Vue): void => {
                         name: window.username,
                         version: LSSM.$store.state.version,
                         data: {
-                            browser: `${ua.getBrowser().name} ${
-                                ua.getBrowser().major
-                            }`,
+                            browser: `${browser.name} ${browserMajor}`,
                             premium: window.user_premium,
                             map:
                                 typeof window.mapkit !== 'undefined'

@@ -1,9 +1,12 @@
 import { InternalVehicle, Vehicle } from 'typings/Vehicle';
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import { $m } from 'typings/Module';
 
 export default async (
     LSSM: Vue,
     BUILDING_MODE: 'building' | 'dispatch',
-    getSetting: (key: string) => Promise<boolean>
+    getSetting: (key: string) => Promise<boolean>,
+    $m: $m
 ): Promise<void> => {
     const callback = async () => {
         const vehicles = Array.from(
@@ -17,6 +20,17 @@ export default async (
             'personnelAssignmentBtn'
         );
         const vehicleTypes = await getSetting('vehicleTypes');
+        const lastRowSettings = {
+            vehiclesPersonnelMax: await getSetting('vehiclesPersonnelMax'),
+            vehiclesPersonnelCurrent: await getSetting(
+                'vehiclesPersonnelCurrent'
+            ),
+            vehiclesPersonnelAssigned: await getSetting(
+                'vehiclesPersonnelAssigned'
+            ),
+        } as {
+            [setting: string]: boolean;
+        };
 
         const internalVehicleTypes = Object.values(
             LSSM.$t('vehicles')
@@ -44,6 +58,20 @@ export default async (
                     cursor: 'pointer',
                 },
             });
+
+        const lastRowItems = [
+            'vehiclesPersonnelCurrent',
+            'vehiclesPersonnelAssigned',
+            'vehiclesPersonnelMax',
+        ].filter(setting => lastRowSettings[setting]);
+
+        if (lastRowItems.length) {
+            tableHead.children[
+                tableHead.children.length - 1
+            ].textContent = `(${lastRowItems
+                .map(setting => $m(`vehiclePersonnel.${setting}`).toString())
+                .join(' / ')})`;
+        }
 
         vehicles.forEach(vehicle => {
             const vehicleId = parseInt(
@@ -125,17 +153,72 @@ export default async (
                     }
                 }
             }
-            if (personnelAssignmentBtn && BUILDING_MODE === 'building') {
-                if (!editBtn?.parentElement) return;
-                const actionsWrapper = document.createElement('div');
-                actionsWrapper.classList.add('btn-group');
-                editBtn.parentElement.appendChild(actionsWrapper);
-                actionsWrapper.appendChild(editBtn);
-                const pABtn = document.createElement('a');
-                pABtn.classList.add('btn', 'btn-default', 'btn-xs');
-                pABtn.setAttribute('href', `/vehicles/${vehicleId}/zuweisung`);
-                pABtn.innerHTML = '<i class="fas fa-users"></i>';
-                actionsWrapper.appendChild(pABtn);
+            if (BUILDING_MODE === 'building') {
+                if (personnelAssignmentBtn) {
+                    if (!editBtn?.parentElement) return;
+                    const actionsWrapper = document.createElement('div');
+                    actionsWrapper.classList.add('btn-group');
+                    editBtn.parentElement.appendChild(actionsWrapper);
+                    actionsWrapper.appendChild(editBtn);
+                    const pABtn = document.createElement('a');
+                    pABtn.classList.add('btn', 'btn-default', 'btn-xs');
+                    pABtn.setAttribute(
+                        'href',
+                        `/vehicles/${vehicleId}/zuweisung`
+                    );
+                    pABtn.innerHTML = '<i class="fas fa-users"></i>';
+                    actionsWrapper.appendChild(pABtn);
+                }
+                if (lastRowItems.length && storedVehicle) {
+                    (async () => {
+                        let currentPersonnel = 0;
+                        if (lastRowItems.includes('vehiclesPersonnelCurrent'))
+                            currentPersonnel = await LSSM.$store
+                                .dispatch('api/request', {
+                                    url: `/vehicles/${vehicleId}`,
+                                })
+                                .then(res => res.text())
+                                .then(
+                                    res =>
+                                        document
+                                            .createRange()
+                                            .createContextualFragment(res)
+                                            .querySelectorAll(
+                                                '#vehicle_details table tbody tr'
+                                            ).length
+                                );
+                        const assigned_personnel_count =
+                            storedVehicle.assigned_personnel_count || 0;
+                        const maxPersonnel =
+                            storedVehicle.max_personnel_override ??
+                            internalVehicleTypes[storedVehicle.vehicle_type]
+                                ?.maxPersonnel ??
+                            0;
+                        const assignedPersonnel = (await getSetting(
+                            'vehiclesPersonnelColorized'
+                        ))
+                            ? `<span style="color: ${
+                                  assigned_personnel_count < maxPersonnel
+                                      ? 'red'
+                                      : 'green'
+                              };">${assigned_personnel_count}</span>`
+                            : assigned_personnel_count;
+                        vehicle.children[
+                            vehicle.children.length - 1
+                        ].innerHTML = `(${lastRowItems
+                            .map(
+                                item =>
+                                    (({
+                                        vehiclesPersonnelCurrent: currentPersonnel,
+                                        vehiclesPersonnelMax: maxPersonnel,
+                                        vehiclesPersonnelAssigned: assignedPersonnel,
+                                    } as {
+                                        [key: string]: number;
+                                    })[item])
+                            )
+                            .join(' / ')})`;
+                    })();
+                }
             }
         });
     };

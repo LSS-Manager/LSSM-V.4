@@ -6,8 +6,9 @@ import {
     OwnSchoolings,
 } from 'typings/modules/SchoolingOverview/main';
 import { Schooling } from 'typings/Schooling';
+import { ModuleMainFunction } from 'typings/Module';
 
-((LSSM: Vue) => {
+export default (LSSM => {
     const ownSchoolings = {} as OwnSchoolings;
     document
         .querySelectorAll('#schooling_own_table tbody tr')
@@ -87,4 +88,4 @@ import { Schooling } from 'typings/Schooling';
             i18n: LSSM.$i18n,
             render: h => h(ownSchoolingTabs),
         }).$mount(ownTable);
-})(window[PREFIX] as Vue);
+}) as ModuleMainFunction;
