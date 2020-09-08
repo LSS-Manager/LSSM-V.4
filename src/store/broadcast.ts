@@ -35,6 +35,24 @@ channel.addEventListener('message', msg => {
                 ),
             },
         });
+    } else if (msg.type === 'vuex_request') {
+        return channel.postMessage({
+            type: 'vuex_response',
+            sender: getWindowName(),
+            receiver: msg.sender,
+            data: {
+                statePath: msg.data.statePath,
+                value: msg.data.statePath.split('.').reduce(
+                    (previousValue, currentValue) =>
+                        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                        // @ts-ignore
+                        (previousValue || window[PREFIX].$store.state)[
+                            currentValue
+                        ],
+                    (window[PREFIX] as Vue).$store.state
+                ),
+            },
+        });
     } else if (msg.type === 'vuex_broadcast') {
         (window[PREFIX] as Vue).$store.commit(
             msg.data.mutationPath,
@@ -85,7 +103,7 @@ if (getWindowName() !== 'leader') {
                 `unnamed_${Math.max(
                     0,
                     ...collected_names
-                        .map(n => parseInt(n.replace(/^unnamed_/, '')))
+                        .map(n => parseInt(n?.replace(/^unnamed_/, '') ?? '-1'))
                         .filter(n => !Number.isNaN(n))
                 ) + 1}`
             );
@@ -123,6 +141,40 @@ export default {
                     'var_request',
                     {
                         variablePath,
+                    },
+                    receiver
+                ).then(() => {
+                    window.setTimeout(() => {
+                        channel.removeEventListener(
+                            'message',
+                            receiver_handler
+                        );
+                        resolve(collected_values);
+                    }, 1000);
+                });
+            });
+        },
+        request_state(
+            _: BroadcastActionStoreParams,
+            {
+                statePath,
+                receiver,
+            }: VuexRequestBroadcastMessage['data'] & { receiver: string }
+        ) {
+            return new Promise(resolve => {
+                const collected_values = [] as unknown[];
+                const receiver_handler = (msg: BroadcastMessageType) =>
+                    msg.receiver === getWindowName() &&
+                    msg.type === 'vuex_response' &&
+                    msg.data.statePath === statePath &&
+                    collected_values.push(
+                        (msg as VuexResponseBroadcastMessage).data.value
+                    );
+                channel.addEventListener('message', receiver_handler);
+                sendRequest(
+                    'vuex_request',
+                    {
+                        statePath,
                     },
                     receiver
                 ).then(() => {
