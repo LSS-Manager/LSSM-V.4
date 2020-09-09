@@ -55,7 +55,21 @@ export default (MODULE_ID: string): unknown => ({
     'multifunctionals.battalion_chief_vehicles': {
         type: 'toggle',
         default: false,
-        dependsOn: '.vehicles.content',
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        disabled: (settings): boolean =>
+            !settings[MODULE_ID]['vehicles.content'].value ||
+            settings[MODULE_ID]['hide_battalion_chief_vehicles'].value,
+    },
+    'hide_battalion_chief_vehicles': {
+        type: 'toggle',
+        default: false,
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        disabled: (settings): boolean =>
+            !settings[MODULE_ID]['vehicles.content'].value ||
+            settings[MODULE_ID]['multifunctionals.battalion_chief_vehicles']
+                .value,
     },
     'multifunctionals.platform_trucks': {
         type: 'toggle',

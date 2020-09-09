@@ -389,6 +389,7 @@ export default Vue.extend<
                 expansions: true,
                 followup: true,
                 k9_only_if_needed: true,
+                hide_battalion_chief_vehicles: true,
             },
             noVehicleRequirements: Object.values(
                 this.$m('noVehicleRequirements')
@@ -445,6 +446,11 @@ export default Vue.extend<
                         this.settings.k9_only_if_needed
                     )
                         vehicleName = 'k9_only_if_needed';
+                    if (
+                        this.settings.hide_battalion_chief_vehicles &&
+                        vehicle === 'battalion_chief_vehicles'
+                    )
+                        return;
                     vehicles[vehicle] = {
                         caption: this.$mc(
                             `vehicles.captions.${vehicleName}`,
@@ -453,6 +459,16 @@ export default Vue.extend<
                         amount: this.missionSpecs?.requirements[vehicle] || 0,
                         percentage,
                     };
+                    if (
+                        this.settings.hide_battalion_chief_vehicles &&
+                        vehicle === 'mobile_command_vehicles'
+                    )
+                        vehicles[vehicle].amount = Math.max(
+                            vehicles[vehicle].amount,
+                            this.missionSpecs?.requirements[
+                                'battalion_chief_vehicles'
+                            ] ?? 0
+                        );
                 });
 
             if (this.settings.vehicles.patient_additionals) {
