@@ -1,7 +1,6 @@
 import VueI18n from 'vue-i18n';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { Mission } from 'typings/Mission';
-import cloneDeep from 'lodash/cloneDeep';
 
 export interface VehicleRequirements {
     [vehicle: string]: {
@@ -23,10 +22,14 @@ export interface MissionHelper {
     faArrowsAlt: IconDefinition;
     faCompressAlt: IconDefinition;
     faExpandAlt: IconDefinition;
+    faSuperscript: IconDefinition;
+    faSubscript: IconDefinition;
     isReloading: boolean;
     isDiyMission: boolean;
     missionSpecs: Mission | undefined;
     maxMissionSpecs: Mission | undefined;
+    maxMissionToggleCache: Mission | undefined;
+    maxState: boolean;
     missionId: number;
     overlay: boolean | undefined;
     minified: boolean | undefined;
@@ -122,8 +125,6 @@ export interface MissionHelperMethods {
         missionSpecs: MissionHelper['missionSpecs'],
         isMaxReq: boolean
     ): VehicleRequirements;
-    getMaxVehicles(
-        currentSpecs: MissionHelper['missionSpecs'],
-        deep: boolean
-    ): void;
+    getMaxVehicles(currentSpecs: MissionHelper['missionSpecs']): void;
+    toggleMaximum(): void;
 }

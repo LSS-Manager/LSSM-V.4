@@ -31,6 +31,12 @@
             :fixed-width="true"
             @click="toggleOverlay"
         ></font-awesome-icon>
+        <font-awesome-icon
+            class="pull-right"
+            :icon="maxState ? faSubscript : faSuperscript"
+            :fixed-width="true"
+            @click="toggleMaximum"
+        ></font-awesome-icon>
         <span v-if="isDiyMission">{{ $m('diyMission') }}</span>
         <div v-else-if="missionSpecs">
             <h3 v-if="settings.title">
@@ -126,6 +132,18 @@
                             missionSpecs.additional.patient_specializations
                         }}</b>
                     </span>
+                    <span
+                        v-else-if="
+                            missionSpecs.additional.all_patient_specializations
+                        "
+                    >
+                        {{ $m('patients.specializations') }}
+                        <b>{{
+                            missionSpecs.additional.all_patient_specializations.join(
+                                ', '
+                            )
+                        }}</b>
+                    </span>
                     )
                 </li>
                 <li
@@ -162,7 +180,12 @@
                 >
                     {{ $m('patients.allow_ktw_instead_of_rtw') }}
                 </li>
-                <li v-if="missionSpecs.additional.patient_at_end_of_mission">
+                <li
+                    v-if="
+                        !maxState &&
+                            missionSpecs.additional.patient_at_end_of_mission
+                    "
+                >
                     <b>
                         {{
                             $mc(
@@ -214,7 +237,7 @@
                     {{ $mc(`prerequisites.${req}`, amount) }}
                 </li>
             </ul>
-            <span v-if="settings.generatedBy">
+            <span v-if="!maxState && settings.generatedBy">
                 {{ $m('generated_by') }}:
                 {{ missionSpecs.generated_by }}
                 <br />
@@ -239,7 +262,8 @@
             </span>
             <div
                 v-if="
-                    settings.expansions &&
+                    !maxState &&
+                        settings.expansions &&
                         missionSpecs.additional &&
                         missionSpecs.additional.expansion_missions_ids
                 "
@@ -271,7 +295,8 @@
             </div>
             <div
                 v-if="
-                    settings.followup &&
+                    !maxState &&
+                        settings.followup &&
                         missionSpecs.additional &&
                         missionSpecs.additional.followup_missions_ids
                 "
@@ -302,8 +327,6 @@
                 </a>
             </div>
         </div>
-        <button @click.prevent="getMaxVehicles(missionSpecs)">max</button>
-        <pre>{{ maxMissionSpecs }}</pre>
     </div>
 </template>
 
@@ -315,6 +338,8 @@ import { faAngleDoubleDown } from '@fortawesome/free-solid-svg-icons/faAngleDoub
 import { faArrowsAlt } from '@fortawesome/free-solid-svg-icons/faArrowsAlt';
 import { faCompressAlt } from '@fortawesome/free-solid-svg-icons/faCompressAlt';
 import { faExpandAlt } from '@fortawesome/free-solid-svg-icons/faExpandAlt';
+import { faSuperscript } from '@fortawesome/free-solid-svg-icons/faSuperscript';
+import { faSubscript } from '@fortawesome/free-solid-svg-icons/faSubscript';
 import {
     MissionHelper,
     MissionHelperMethods,
@@ -340,11 +365,15 @@ export default Vue.extend<
             faArrowsAlt,
             faCompressAlt,
             faExpandAlt,
+            faSuperscript,
+            faSubscript,
             id: this.$store.getters.nodeAttribute('missionHelper'),
             isReloading: true,
             isDiyMission: false,
             missionSpecs: undefined,
             maxMissionSpecs: undefined,
+            maxMissionToggleCache: undefined,
+            maxState: false,
             overlay: undefined,
             minified: undefined,
             missionId: parseInt(
@@ -422,6 +451,7 @@ export default Vue.extend<
             );
         },
         showPatients() {
+            if (this.maxState) return true;
             if (this.settings.patients.hideWhenNoNeed) {
                 return (
                     this.missionSpecs?.additional.patient_at_end_of_mission ||
@@ -811,6 +841,16 @@ export default Vue.extend<
                     this.maxMissionSpecs.additional.all_patient_specializations.push(
                         specs?.additional.patient_specializations
                     );
+            }
+        },
+        toggleMaximum() {
+            this.maxState = !this.maxState;
+            if (this.maxState) {
+                this.maxMissionToggleCache = cloneDeep(this.missionSpecs);
+                this.getMaxVehicles(this.missionSpecs);
+                this.missionSpecs = this.maxMissionSpecs;
+            } else {
+                this.missionSpecs = this.maxMissionToggleCache;
             }
         },
     },
