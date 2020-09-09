@@ -7,7 +7,7 @@ This work is licensed under a [Creative Commons Attribution-NonCommercial-ShareA
 
 **It is forbidden to use code of the LSS-Manager to violate the terms and conditions of Leitstellenspiel.de or one of its other language versions!**
 
-<a :href="https://discord.gg/RcTNjpB" target="_blank" align="right"><img src="https://discord.com/api/guilds/254167535446917120/embed.png?style=banner1" alt="Our Discord-Server: United Dispatch"></a>
+<a href="https://discord.gg/RcTNjpB" target="_blank" align="right"><img src="https://discord.com/api/guilds/254167535446917120/embed.png?style=banner1" alt="Our Discord-Server: United Dispatch"></a>
 
 ## Information on LSS-Manager V.4
 
