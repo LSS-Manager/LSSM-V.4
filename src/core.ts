@@ -151,8 +151,8 @@ if (window.location.pathname === '/') {
                         settings: (
                             await import(
                                 /* webpackChunkName: "modules/settings/[request]" */
-                                /* webpackInclude: /\/modules\/.*?\/settings\.ts/ */
-                                /* webpackExclude: /\/modules\/(telemetry|releasenotes|support)\// */
+                                /* webpackInclude: /[\\/]+modules[\\/]+.*?[\\/]+settings\.ts/ */
+                                /* webpackExclude: /[\\/]+modules[\\/]+(telemetry|releasenotes|support)[\\/]+/ */
                                 `./modules/${moduleId}/settings`
                             )
                         ).default(moduleId),
@@ -171,7 +171,7 @@ if (window.location.pathname === '/') {
                                         [moduleId]: (
                                             await import(
                                                 /* webpackChunkName: "modules/i18n/[request]" */
-                                                /* webpackInclude: /\/modules\/.*?\/i18n\// */
+                                                /* webpackInclude: /[\\/]+modules[\\/]+.*?[\\/]+i18n[\\/]+/ */
                                                 /* webpackExclude: /(telemetry|releasenotes|support)|\.root\./ */
                                                 `./modules/${moduleId}/i18n/${locale}`
                                             )
@@ -185,8 +185,8 @@ if (window.location.pathname === '/') {
                     ).then(() =>
                         import(
                             /* webpackChunkName: "modules/mains/[request]" */
-                            /* webpackInclude: /\/modules\/.*?\/main\.ts/ */
-                            /* webpackExclude: /\/modules\/(telemetry|releasenotes|support)\// */
+                            /* webpackInclude: /[\\/]+modules[\\/]+.*?[\\/]+main\.ts/ */
+                            /* webpackExclude: /[\\/]+modules[\\/]+(telemetry|releasenotes|support)[\\/]+/ */
                             `./modules/${moduleId}/main`
                         ).then(module =>
                             (module.default as ModuleMainFunction)(
