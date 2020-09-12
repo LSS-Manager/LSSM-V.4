@@ -19,6 +19,10 @@
 		"deleteForumPost": {
 			"title": "Löschen von Forum Posts",
 			"description": "Verhindert ein Neuladen, wenn du ein Forum Post löscht."
+		},
+		"deleteARR": {
+			"title": "Löschen von AAO Einträgen",
+			"description": "Verhindert ein Neuladenen, wenn du ein AAO Eintrag löscht"
 		}
 	}
 }

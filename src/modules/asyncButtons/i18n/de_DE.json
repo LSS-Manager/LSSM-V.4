@@ -1,4 +1,12 @@
 {
+	"deleteARR": {
+		"deleteModal": {
+			"title": "Löschen?",
+			"text": "Möchtest du diesen AAO Eintrag löschen?",
+			"btnCancel": "Abbrechen",
+			"btnConfirm": "Löschen"
+		}
+	},
 	"forumPost": {
 		"deleteModal": {
 			"title": "Löschen?",

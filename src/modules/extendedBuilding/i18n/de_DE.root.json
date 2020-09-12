@@ -2,10 +2,10 @@
 	"description": "Fügt deinen Gebäuden einige nützliche Funktionen hinzu.",
 	"name": "Erweiterte Gebäudeansicht",
 	"settings": {
-        "buildingsLeftRight": {
-            "description": "Zeigt in den Gebäuden an, wie viele vom selben Typen in die jeweilige Richtung noch vorhanden sind.",
-            "title": "Anzahl der Gebäude selben Typs"
-        },
+		"buildingsLeftRight": {
+			"description": "Zeigt in den Gebäuden an, wie viele vom selben Typen in die jeweilige Richtung noch vorhanden sind.",
+			"title": "Anzahl der Gebäude selben Typs"
+		},
 		"enhanceVehicleList": {
 			"description": "Erweitert die Fahrzeugliste um nützliche Features – einige davon speziell einstellbar.",
 			"title": "Fahrzeugliste erweitern"

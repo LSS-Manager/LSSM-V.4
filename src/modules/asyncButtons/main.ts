@@ -50,4 +50,9 @@ export default (async (LSSM, MODULE_ID, $m) => {
         import(
             /* webpackChunkName: "modules/asyncButtons/forumpost" */ './assets/forumpost'
         ).then(a => a.default(LSSM, $m));
+
+    if (window.location.pathname.match(/^\/aaos/))
+        import(
+            /* webpackChunkName: "modules/asyncButtons/arr" */ './assets/arr'
+        ).then(a => a.default(LSSM, $m));
 }) as ModuleMainFunction;
