@@ -658,7 +658,7 @@ export default {
             caption: 'GW-San',
             color: '#8f3900',
             coins: 25,
-            credits: 10_00,
+            credits: 10_000,
             minPersonnel: 6,
             maxPersonnel: 6,
             schooling: 'Rettungsdienst - SEG - GW-San',
