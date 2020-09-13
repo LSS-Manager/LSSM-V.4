@@ -34,15 +34,20 @@ export default (async (LSSM, MODULE_ID, $m) => {
                 )
             ).default(LSSM, BUILDING_MODE, getSetting, $m);
 
-        if (
-            BUILDING_MODE === 'building' &&
-            (await getSetting('personnelDemands'))
-        )
-            (
-                await import(
-                    /* webpackChunkName: "modules/extendedBuilding/personnelDemands" */ './assets/personnelDemands'
-                )
-            ).default(LSSM, $m);
+        if (BUILDING_MODE === 'building') {
+            if (await getSetting('personnelDemands'))
+                (
+                    await import(
+                        /* webpackChunkName: "modules/extendedBuilding/personnelDemands" */ './assets/personnelDemands'
+                    )
+                ).default(LSSM, $m);
+            if (await getSetting('fastDispatchChooser'))
+                (
+                    await import(
+                        /* webpackChunkName: "modules/extendedBuilding/fastDispatchChooser" */ './assets/fastDispatchChooser'
+                    )
+                ).default(LSSM);
+        }
 
         if (
             (await getSetting('expansions')) &&

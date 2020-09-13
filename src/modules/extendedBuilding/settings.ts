@@ -64,4 +64,8 @@ export default (MODULE_ID: string): unknown => ({
         type: 'toggle',
         default: false,
     },
+    fastDispatchChooser: {
+        type: 'toggle',
+        default: true,
+    },
 });
