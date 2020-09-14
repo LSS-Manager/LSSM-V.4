@@ -23,5 +23,8 @@
 		"vehiclesPersonnelMax": "max",
 		"vehiclesPersonnelCurrent": "aktuell",
 		"vehiclesPersonnelAssigned": "zugewiesen"
-	}
+	},
+    "fastDispatchChooser": {
+        "noDispatch": "Keine Leitstelle"
+    }
 }
