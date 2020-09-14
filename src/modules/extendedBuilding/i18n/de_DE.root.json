@@ -18,6 +18,10 @@
 			"title": "Ausbauten direkt anzeigen",
 			"description": "Zeigt die Ausbauten eines Gebäudes an, ohne dass du erst auf den Ausbauten-Tab drücken musst."
 		},
+        "fastDispatchChooser": {
+            "title": "Schnelles Auswählen der Leitstelle",
+            "description": "Lässt dich direkt in einem Gebäude auswählen, welcher Leitstelle es zugeordnet ist, ohne erst die Einstellungen aufrufen zu müssen."
+        },
 		"fmsSwitch": {
 			"description": "Ermöglicht einen Wechsel zwischen Status 2 und 6 mit Klick auf den Status.",
 			"title": "Schneller FMS-Wechsel"
