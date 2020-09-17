@@ -23,7 +23,7 @@ export default (LSSM: Vue, $m: $m): void => {
         buildings.push(...(buildingsByType[type] ?? []))
     );
     const dispatchBtn = document.querySelector(
-        `.btn-group.pull-right a${
+        `#building-navigation-container a${
             building.leitstelle_building_id
                 ? `[href="/buildings/${building.leitstelle_building_id}"]`
                 : ':nth-of-type(2)'
