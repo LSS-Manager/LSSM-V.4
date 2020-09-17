@@ -3,7 +3,7 @@ import { ModuleMainFunction } from 'typings/Module';
 export default (async (LSSM, MODULE_ID, $m) => {
     if (
         (!window.location.pathname.match(
-            /^\/buildings\/\d+(\/personals)?\/?$/
+            /^\/buildings\/\d+(\/(personals|vehicles\/new))?\/?$/
         ) &&
             !window.location.pathname.match(
                 /^\/vehicles\/\d+\/zuweisung\/?$/
@@ -74,6 +74,15 @@ export default (async (LSSM, MODULE_ID, $m) => {
                     /* webpackChunkName: "modules/extendedBuilding/schoolingSummary" */ './assets/schoolingSummary'
                 )
             ).default(LSSM, $m);
+    } else if (
+        window.location.pathname.match(/^\/buildings\/\d+\/vehicles\/new\/?$/)
+    ) {
+        if (await getSetting('autoBuyLevels'))
+            await (
+                await import(
+                    /* webpackChunkName: "modules/extendedBuilding/autoBuyLevels" */ './assets/autoBuyLevels'
+                )
+            ).default(LSSM);
     } else if (
         window.location.pathname.match(/^\/vehicles\/\d+\/zuweisung\/?$/)
     )

@@ -309,6 +309,35 @@ export default {
                 );
             }
         },
+        async fetchBuilding(store: APIActionStoreParams, id: number) {
+            return new Promise((resolve, reject) => {
+                store
+                    .dispatch('request', {
+                        url: `/api/buildings/${id}`,
+                    })
+                    .then(res => res.json())
+                    .then(async (building: Building) => {
+                        const {
+                            value: buildings,
+                            lastUpdate,
+                        } = await get_api_values('buildings', store);
+                        if (!buildings) return reject();
+                        buildings[
+                            buildings.findIndex(b => b.id === id)
+                        ] = building;
+                        set_api_storage(
+                            'buildings',
+                            {
+                                value: buildings,
+                                lastUpdate,
+                                user_id: window.user_id,
+                            },
+                            store
+                        );
+                        return resolve(building);
+                    });
+            });
+        },
         async registerVehiclesUsage(
             store: APIActionStoreParams,
             autoUpdate = false
