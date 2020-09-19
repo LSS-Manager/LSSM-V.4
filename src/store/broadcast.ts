@@ -17,7 +17,6 @@ leader_elector
     .then(() => sessionStorage.setItem(STORAGE_NAME_KEY, 'leader'));
 
 channel.addEventListener('message', msg => {
-    console.log(`channel{${channel.name}}<${channel.type}> received msg:`, msg);
     if (msg.receiver !== getWindowName() && msg.receiver !== '*') return;
     if (msg.type === 'var_request') {
         return channel.postMessage({

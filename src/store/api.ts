@@ -102,14 +102,17 @@ const get_api_values = async <API extends StorageAPIKey>(
         stored.lastUpdate < new Date().getTime() - API_MIN_UPDATE
     )
         stored = get_from_parent<API>(key);
-    // get from Broadcast // TODO: get from Broadcast
+    if (
+        !stored.value ||
+        stored.lastUpdate < new Date().getTime() - API_MIN_UPDATE
+    )
+        stored = await get_from_broadcast<API>(key, dispatch);
     if (
         !state.currentlyUpdating.includes(key) &&
         (!stored.value ||
             !Object.values(stored.value).length ||
             stored.lastUpdate < new Date().getTime() - API_MIN_UPDATE)
     ) {
-        console.log(`fetch<${key}>`);
         commit('startedUpdating', key);
         stored = {
             lastUpdate: new Date().getTime(),
