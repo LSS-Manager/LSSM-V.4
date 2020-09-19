@@ -15,6 +15,8 @@ export default async (
             >
         );
 
+        if (!vehicles.length) return;
+
         const fmsSwitch = await getSetting('fmsSwitch');
         const personnelAssignmentBtn = await getSetting(
             'personnelAssignmentBtn'

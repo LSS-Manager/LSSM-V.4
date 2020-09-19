@@ -64,4 +64,13 @@ export default (MODULE_ID: string): unknown => ({
         type: 'toggle',
         default: false,
     },
+    fastDispatchChooser: {
+        type: 'toggle',
+        default: true,
+    },
+    autoBuyLevels: {
+        type: 'toggle',
+        default: false,
+        disabled: () => true,
+    },
 });
