@@ -3,7 +3,6 @@ import { RootState } from '../../typings/store/RootState';
 import {
     APIState,
     StorageAPIKey,
-    StorageAPIs,
     StorageGetterReturn,
 } from '../../typings/store/api/State';
 import { Vehicle } from '../../typings/Vehicle';
