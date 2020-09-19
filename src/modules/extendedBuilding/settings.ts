@@ -70,6 +70,7 @@ export default (MODULE_ID: string): unknown => ({
     },
     autoBuyLevels: {
         type: 'toggle',
-        default: true,
+        default: false,
+        disabled: () => true,
     },
 });
