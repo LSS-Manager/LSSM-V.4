@@ -411,6 +411,37 @@ export default {
                     });
             });
         },
+        async fetchVehiclesAtBuilding(store: APIActionStoreParams, id: number) {
+            return new Promise((resolve, reject) => {
+                store
+                    .dispatch('request', {
+                        url: `/api/buildings/${id}/vehicle`,
+                    })
+                    .then(res => res.json())
+                    .then(async (vehiclesAt: Vehicle[]) => {
+                        const {
+                            value: vehicles,
+                            lastUpdate,
+                        } = await get_api_values('vehicles', store);
+                        if (!vehicles) return reject();
+                        vehiclesAt.forEach(vehicle => {
+                            vehicles[
+                                vehicles.findIndex(v => v.id === id)
+                            ] = vehicle;
+                        });
+                        set_api_storage(
+                            'vehicles',
+                            {
+                                value: vehicles,
+                                lastUpdate,
+                                user_id: window.user_id,
+                            },
+                            store
+                        );
+                        return resolve(vehicles);
+                    });
+            });
+        },
         async registerAllianceinfoUsage(
             store: APIActionStoreParams,
             autoUpdate = false
