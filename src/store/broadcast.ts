@@ -17,7 +17,6 @@ leader_elector
     .then(() => sessionStorage.setItem(STORAGE_NAME_KEY, 'leader'));
 
 channel.addEventListener('message', msg => {
-    console.log(`channel{${channel.name}}<${channel.type}> received msg:`, msg);
     if (msg.receiver !== getWindowName() && msg.receiver !== '*') return;
     if (msg.type === 'var_request') {
         return channel.postMessage({
@@ -36,21 +35,36 @@ channel.addEventListener('message', msg => {
             },
         });
     } else if (msg.type === 'vuex_request') {
+        let value = msg.data.statePath.split('.').reduce(
+            (previousValue, currentValue) =>
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
+                (previousValue || window[PREFIX].$store.state)[currentValue],
+            (window[PREFIX] as Vue).$store.state
+        );
+        if (
+            msg.data.statePath.match(
+                /^api\.(buildings|vehicles|missions|allianceinfo)$/
+            )
+        ) {
+            const key = msg.data.statePath.match(
+                /(buildings|vehicles|missions|allianceinfo)$/
+            )?.[0];
+            if (!key) return;
+            value = {
+                value: value,
+                lastUpdate: (window[PREFIX] as Vue).$store.state.api
+                    .lastUpdates[key],
+                user_id: window.user_id,
+            };
+        }
         return channel.postMessage({
             type: 'vuex_response',
             sender: getWindowName(),
             receiver: msg.sender,
             data: {
                 statePath: msg.data.statePath,
-                value: msg.data.statePath.split('.').reduce(
-                    (previousValue, currentValue) =>
-                        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                        // @ts-ignore
-                        (previousValue || window[PREFIX].$store.state)[
-                            currentValue
-                        ],
-                    (window[PREFIX] as Vue).$store.state
-                ),
+                value,
             },
         });
     } else if (msg.type === 'vuex_broadcast') {

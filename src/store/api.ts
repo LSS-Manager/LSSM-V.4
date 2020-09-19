@@ -10,6 +10,7 @@ import { APIActionStoreParams } from '../../typings/store/api/Actions';
 import { VehicleRadioMessage } from '../../typings/Ingame';
 import { Building, BuildingCategory } from '../../typings/Building';
 import { Mission } from 'typings/Mission';
+import { ActionStoreParams } from 'typings/store/Actions';
 
 const STORAGE_KEYS = {
     buildings: 'aBuildings',
@@ -61,7 +62,25 @@ const get_from_parent = <API extends StorageAPIKey>(
         };
     return get_from_storage(key, window.parent);
 };
-// const get_from_broadcast = () => {}; // TODO: Broadcast – see issue #49
+const get_from_broadcast = async <API extends StorageAPIKey>(
+    key: API,
+    dispatch: ActionStoreParams['dispatch']
+): Promise<StorageGetterReturn<API>> => {
+    return new Promise(resolve =>
+        dispatch('broadcast/request_state', {
+            statePath: `api.${key}`,
+        }).then((results: StorageGetterReturn<API>[]) => {
+            results.sort((a, b) =>
+                a.lastUpdate < b.lastUpdate
+                    ? -1
+                    : a.lastUpdate > b.lastUpdate
+                    ? 1
+                    : 0
+            );
+            resolve(results[0]);
+        })
+    );
+};
 const get_api_values = async <API extends StorageAPIKey>(
     key: API,
     { dispatch, state, commit }: APIActionStoreParams
@@ -82,14 +101,17 @@ const get_api_values = async <API extends StorageAPIKey>(
         stored.lastUpdate < new Date().getTime() - API_MIN_UPDATE
     )
         stored = get_from_parent<API>(key);
-    // get from Broadcast
+    if (
+        !stored.value ||
+        stored.lastUpdate < new Date().getTime() - API_MIN_UPDATE
+    )
+        stored = await get_from_broadcast<API>(key, dispatch);
     if (
         !state.currentlyUpdating.includes(key) &&
         (!stored.value ||
             !Object.values(stored.value).length ||
             stored.lastUpdate < new Date().getTime() - API_MIN_UPDATE)
     ) {
-        console.log(`fetch<${key}>`);
         commit('startedUpdating', key);
         stored = {
             lastUpdate: new Date().getTime(),
