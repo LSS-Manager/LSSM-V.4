@@ -10,6 +10,7 @@
         "postbuild": "tsc -b scripts && node scripts docs",
         "eslint:fix": "tsc -b scripts && node scripts lint",
         "order-json": "tsc -b scripts && node scripts sort",
+        "fetch-emojis": "tsc -b scripts && node scripts emojis",
         "tsc:prebuild": "tsc -b scripts && node scripts tscPrebuild",
         "tsc:build": "tsc -b scripts && node scripts tscBuild",
         "tsc:docs": "tsc -b scripts && node scripts tscDocs"

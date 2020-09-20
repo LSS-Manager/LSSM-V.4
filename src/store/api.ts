@@ -67,9 +67,13 @@ const get_from_broadcast = async <API extends StorageAPIKey>(
     dispatch: ActionStoreParams['dispatch']
 ): Promise<StorageGetterReturn<API>> => {
     return new Promise(resolve =>
-        dispatch('broadcast/request_state', {
-            statePath: `api.${key}`,
-        }).then((results: StorageGetterReturn<API>[]) => {
+        dispatch(
+            'broadcast/request_state',
+            {
+                statePath: `api.${key}`,
+            },
+            { root: true }
+        ).then((results: StorageGetterReturn<API>[]) => {
             results.sort((a, b) =>
                 a.lastUpdate < b.lastUpdate
                     ? -1

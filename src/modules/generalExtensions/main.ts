@@ -21,6 +21,13 @@ export default (async (LSSM, MODULE_ID) => {
             )
         ).default(LSSM);
 
+    if (await getSetting<boolean>('emojiPicker'))
+        (
+            await import(
+                /* webpackChunkName: "modules/generalExtensions/emojiPicker" */ './assets/emojiPicker'
+            )
+        ).default();
+
     if (
         !window.location.pathname.match(/^\/note\/?$/) &&
         (await getSetting<boolean>('clickableLinks'))

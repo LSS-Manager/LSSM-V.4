@@ -30,7 +30,6 @@ export default (LSSM: Vue, $m: $m): void => {
         }`
     );
     if (!dispatchBtn) return;
-    console.log(dispatchBtn);
     const dropdownBtn = document.createElement('button');
     dropdownBtn.type = 'button';
     dropdownBtn.classList.add(
