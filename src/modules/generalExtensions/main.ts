@@ -26,7 +26,7 @@ export default (async (LSSM, MODULE_ID) => {
             await import(
                 /* webpackChunkName: "modules/generalExtensions/emojiPicker" */ './assets/emojiPicker'
             )
-        ).default();
+        ).default(LSSM);
 
     if (
         !window.location.pathname.match(/^\/note\/?$/) &&

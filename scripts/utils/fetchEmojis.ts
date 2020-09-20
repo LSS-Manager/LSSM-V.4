@@ -49,7 +49,8 @@ export default (): void => {
                         if (
                             !line.startsWith('# group: ') &&
                             !line.startsWith('# subgroup: ') &&
-                            !line.startsWith('#')
+                            !line.startsWith('#') &&
+                            !line.includes('unqualified')
                         ) {
                             const meta = parseLine(line);
                             if (meta) {
