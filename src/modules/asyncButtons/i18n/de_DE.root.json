@@ -29,12 +29,8 @@
 			"description": "Verhindert ein Neuladen, wenn du ein AAO Eintrag löscht."
 		},
 		"switchExtensionState": {
-			"title": "(De-)aktivieren von Erweiterungen",
+			"title": "(De-)aktivieren Extensions",
 			"description": "Verhindert ein Neuladen, wenn du eine Erweiterung aktivierst oder deaktivierst."
-		},
-		"buildExtension": {
-			"title": "Bauen von Erweiterungen",
-			"description": "Verhindert ein Neuladen, wenn du eine Erweiterung baust."
 		}
 	}
 }
