@@ -57,10 +57,10 @@ export default (LSSM: Vue): void => {
             /:.*?:/g,
             name => emojiByName[name.toLowerCase()] ?? name
         );
-        input.value = input.value.replace(
-            emojiAliasRegex,
-            name => emojiyByAlias[name.replace(/ $/, '')] ?? name
-        );
+        input.value = input.value.replace(emojiAliasRegex, name => {
+            name = name.replace(/ $/, '');
+            return `${emojiyByAlias[name] ?? name} `;
+        });
         const end = input.value.match(/(?<=:)[^:]*?$/);
         if (
             !end?.length ||
