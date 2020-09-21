@@ -31,10 +31,6 @@
 		"switchExtensionState": {
 			"title": "(De-)aktivieren von Erweiterungen",
 			"description": "Verhindert ein Neuladen, wenn du eine Erweiterung aktivierst oder deaktivierst."
-		},
-		"buildExtension": {
-			"title": "Bauen von Erweiterungen",
-			"description": "Verhindert ein Neuladen, wenn du eine Erweiterung baust."
 		}
 	}
 }
