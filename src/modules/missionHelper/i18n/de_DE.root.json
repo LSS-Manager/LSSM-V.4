@@ -28,6 +28,10 @@
 			"description": "Zeigt an, von welchem Gebäudetyp dieser Einsatz generiert werden kann.",
 			"title": "Generiert von (Gebäudetyp)"
 		},
+		"hide_battalion_chief_vehicles": {
+			"description": "Blendet ELW 1 komplett aus und zeigt nur ELW 2 an.",
+			"title": "ELW 1 ausblenden"
+		},
 		"id": {
 			"description": "Zeigt die ID des Einsatzes neben dem Titel an.",
 			"title": "Einsatz-ID"

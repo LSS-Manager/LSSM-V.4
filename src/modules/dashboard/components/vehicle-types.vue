@@ -58,6 +58,22 @@
                 </th>
                 <th v-for="status in statuses" :key="`sum_${status}`">
                     {{ (sum[status] || 0).toLocaleString() }}
+                    <button
+                        class="btn btn-default btn-xs vehicle-btn"
+                        @click="
+                            showVehicles(
+                                status,
+                                { title: $smc('vehicles') },
+                                Object.values(vehicleTypes).flatMap(
+                                    ({ fms }) => fms[`s${status}`]
+                                )
+                            )
+                        "
+                    >
+                        <font-awesome-icon
+                            :icon="faCarSide"
+                        ></font-awesome-icon>
+                    </button>
                 </th>
                 <th>
                     {{ Object.values(sum).reduce((s, c) => (s += c), 0) }}
@@ -217,9 +233,6 @@ table
         font-weight: bold
 
     tbody
-        td .vehicle-btn
-            display: none
-
         tr
             transition: opacity 0.5s
 
@@ -227,9 +240,14 @@ table
             tr:hover
                 border: 2px solid black !important
 
-                td:hover .vehicle-btn
-                    display: inline
-
             tr:not(:hover)
                 opacity: 0.5
+
+    tbody, tfoot
+        td
+            .vehicle-btn
+                display: none
+
+            &:hover .vehicle-btn
+                display: inline
 </style>

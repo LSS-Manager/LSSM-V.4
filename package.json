@@ -1,5 +1,5 @@
 {
-    "version": "4.0.5+20200904.2201",
+    "version": "4.0.5+20200912.2113",
     "license": "CC-BY-NC-SA-4.0",
     "scripts": {
         "predev": "tsc -b scripts && node scripts predev",
@@ -10,6 +10,7 @@
         "postbuild": "tsc -b scripts && node scripts docs",
         "eslint:fix": "tsc -b scripts && node scripts lint",
         "order-json": "tsc -b scripts && node scripts sort",
+        "fetch-emojis": "tsc -b scripts && node scripts emojis",
         "tsc:prebuild": "tsc -b scripts && node scripts tscPrebuild",
         "tsc:build": "tsc -b scripts && node scripts tscBuild",
         "tsc:docs": "tsc -b scripts && node scripts tscDocs"
@@ -18,6 +19,7 @@
         "@fortawesome/fontawesome-svg-core": "^1.2.30",
         "@fortawesome/free-solid-svg-icons": "^5.14.0",
         "@fortawesome/vue-fontawesome": "^2.0.0",
+        "broadcast-channel": "^3.1.0",
         "combokeys": "^3.0.1",
         "highcharts": "^8.1.2",
         "localforage": "^1.8.1",

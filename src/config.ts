@@ -179,7 +179,7 @@ export default {
         },
     },
     github: {
-        repo: 'KBOE2/LSSM-V.4',
+        repo: 'LSS-Manager/LSSM-V.4',
     },
     modules: {
         'core-modules': ['telemetry', 'releasenotes', 'support'],

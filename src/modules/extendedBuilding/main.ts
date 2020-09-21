@@ -3,7 +3,7 @@ import { ModuleMainFunction } from 'typings/Module';
 export default (async (LSSM, MODULE_ID, $m) => {
     if (
         (!window.location.pathname.match(
-            /^\/buildings\/\d+(\/personals)?\/?$/
+            /^\/buildings\/\d+(\/(personals|vehicles\/new))?\/?$/
         ) &&
             !window.location.pathname.match(
                 /^\/vehicles\/\d+\/zuweisung\/?$/
@@ -34,15 +34,20 @@ export default (async (LSSM, MODULE_ID, $m) => {
                 )
             ).default(LSSM, BUILDING_MODE, getSetting, $m);
 
-        if (
-            BUILDING_MODE === 'building' &&
-            (await getSetting('personnelDemands'))
-        )
-            (
-                await import(
-                    /* webpackChunkName: "modules/extendedBuilding/personnelDemands" */ './assets/personnelDemands'
-                )
-            ).default(LSSM, $m);
+        if (BUILDING_MODE === 'building') {
+            if (await getSetting('personnelDemands'))
+                (
+                    await import(
+                        /* webpackChunkName: "modules/extendedBuilding/personnelDemands" */ './assets/personnelDemands'
+                    )
+                ).default(LSSM, $m);
+            if (await getSetting('fastDispatchChooser'))
+                (
+                    await import(
+                        /* webpackChunkName: "modules/extendedBuilding/fastDispatchChooser" */ './assets/fastDispatchChooser'
+                    )
+                ).default(LSSM, $m);
+        }
 
         if (
             (await getSetting('expansions')) &&
@@ -53,6 +58,13 @@ export default (async (LSSM, MODULE_ID, $m) => {
                     /* webpackChunkName: "modules/extendedBuilding/expansions" */ './assets/expansions'
                 )
             ).default(LSSM, MODULE_ID, $m);
+
+        if (await getSetting('buildingsLeftRight'))
+            (
+                await import(
+                    /* webpackChunkName: "modules/extendedBuilding/buildingsLeftRight" */ './assets/buildingsLeftRight'
+                )
+            ).default(LSSM);
     } else if (
         window.location.pathname.match(/^\/buildings\/\d+\/personals\/?$/)
     ) {
@@ -62,6 +74,15 @@ export default (async (LSSM, MODULE_ID, $m) => {
                     /* webpackChunkName: "modules/extendedBuilding/schoolingSummary" */ './assets/schoolingSummary'
                 )
             ).default(LSSM, $m);
+    } else if (
+        window.location.pathname.match(/^\/buildings\/\d+\/vehicles\/new\/?$/)
+    ) {
+        if (await getSetting('autoBuyLevels'))
+            await (
+                await import(
+                    /* webpackChunkName: "modules/extendedBuilding/autoBuyLevels" */ './assets/autoBuyLevels'
+                )
+            ).default(LSSM);
     } else if (
         window.location.pathname.match(/^\/vehicles\/\d+\/zuweisung\/?$/)
     )

@@ -27,7 +27,9 @@ export default (LSSM: Vue, $m: $m): void => {
         extras = last.vehicle.match(/\..*$/)?.[0].replace(/^\./, '') || '';
         last.vehicle = last.vehicle.replace(/\..*$/, '');
     }
-    const vehicleGroups = ($m('vehiclesByRequirement') as unknown) as {
+    const vehicleGroups = ($m(
+        'enhancedMissingVehicles.vehiclesByRequirement'
+    ) as unknown) as {
         [group: string]: number[];
     };
     const drivingTable = document.querySelector(

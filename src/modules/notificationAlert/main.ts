@@ -79,11 +79,13 @@ export default (async (LSSM, MODULE_ID, $m, $mc) => {
                             type: alert.alertStyle,
                             title: `🔇 ${title}`,
                             text: message,
-                            icon: await import(
-                                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                                // @ts-ignore
-                                /* webpackChunkName: "modules/notificationAlert/chat" */ './assets/chat.svg'
-                            ),
+                            icon: (
+                                await import(
+                                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                                    // @ts-ignore
+                                    /* webpackChunkName: "modules/notificationAlert/chat" */ './assets/chat.svg'
+                                )
+                            ).default,
                             duration: alert.duration,
                             ingame: alert.ingame,
                             desktop: alert.desktop,
@@ -102,11 +104,13 @@ export default (async (LSSM, MODULE_ID, $m, $mc) => {
                             type: alert.alertStyle,
                             title: `ℹ️ ${title}`,
                             text: message,
-                            icon: await import(
-                                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                                // @ts-ignore
-                                /* webpackChunkName: "modules/notificationAlert/chat" */ './assets/chat.svg'
-                            ),
+                            icon: (
+                                await import(
+                                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                                    // @ts-ignore
+                                    /* webpackChunkName: "modules/notificationAlert/chat" */ './assets/chat.svg'
+                                )
+                            ).default,
                             duration: alert.duration,
                             ingame: alert.ingame,
                             desktop: alert.desktop,
@@ -125,11 +129,13 @@ export default (async (LSSM, MODULE_ID, $m, $mc) => {
                             type: alert.alertStyle,
                             title,
                             text: message,
-                            icon: await import(
-                                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                                // @ts-ignore
-                                /* webpackChunkName: "modules/notificationAlert/chat-2" */ './assets/chat-2.svg'
-                            ),
+                            icon: (
+                                await import(
+                                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                                    // @ts-ignore
+                                    /* webpackChunkName: "modules/notificationAlert/chat-2" */ './assets/chat-2.svg'
+                                )
+                            ).default,
                             duration: alert.duration,
                             ingame: alert.ingame,
                             desktop: alert.desktop,
@@ -285,11 +291,13 @@ export default (async (LSSM, MODULE_ID, $m, $mc) => {
                         type: alert.alertStyle,
                         title: $mc('messages.dm.title', newAmount - prevAmount),
                         text: $mc('messages.dm.body', newAmount),
-                        icon: await import(
-                            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                            // @ts-ignore
-                            /* webpackChunkName: "modules/notificationAlert/message" */ './assets/message.svg'
-                        ),
+                        icon: (
+                            await import(
+                                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                                // @ts-ignore
+                                /* webpackChunkName: "modules/notificationAlert/message" */ './assets/message.svg'
+                            )
+                        ).default,
                         duration: alert.duration,
                         ingame: alert.ingame,
                         desktop: alert.desktop,
@@ -314,11 +322,13 @@ export default (async (LSSM, MODULE_ID, $m, $mc) => {
                         type: alert.alertStyle,
                         title: $m('messages.ingame_news.title'),
                         text: $m('messages.ingame_news.body'),
-                        icon: await import(
-                            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                            // @ts-ignore
-                            /* webpackChunkName: "modules/notificationAlert/google_news" */ './assets/google_news.svg'
-                        ),
+                        icon: (
+                            await import(
+                                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                                // @ts-ignore
+                                /* webpackChunkName: "modules/notificationAlert/google_news" */ './assets/google_news.svg'
+                            )
+                        ).default,
                         duration: alert.duration,
                         ingame: alert.ingame,
                         desktop: alert.desktop,
@@ -353,11 +363,13 @@ export default (async (LSSM, MODULE_ID, $m, $mc) => {
                             'messages.allianceCandidature.body',
                             newAmount
                         ),
-                        icon: await import(
-                            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                            // @ts-ignore
-                            /* webpackChunkName: "modules/notificationAlert/alliance" */ './assets/alliance.svg'
-                        ),
+                        icon: (
+                            await import(
+                                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                                // @ts-ignore
+                                /* webpackChunkName: "modules/notificationAlert/alliance" */ './assets/alliance.svg'
+                            )
+                        ).default,
                         duration: alert.duration,
                         ingame: alert.ingame,
                         desktop: alert.desktop,
@@ -382,11 +394,13 @@ export default (async (LSSM, MODULE_ID, $m, $mc) => {
                         type: alert.alertStyle,
                         title: $m('messages.allianceMessage.title'),
                         text: $m('messages.allianceMessage.body'),
-                        icon: await import(
-                            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                            // @ts-ignore
-                            /* webpackChunkName: "modules/notificationAlert/alliance" */ './assets/alliance.svg'
-                        ),
+                        icon: (
+                            await import(
+                                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                                // @ts-ignore
+                                /* webpackChunkName: "modules/notificationAlert/alliance" */ './assets/alliance.svg'
+                            )
+                        ).default,
                         duration: alert.duration,
                         ingame: alert.ingame,
                         desktop: alert.desktop,
@@ -411,11 +425,13 @@ export default (async (LSSM, MODULE_ID, $m, $mc) => {
                         type: alert.alertStyle,
                         title: $m('messages.allianceNews.title'),
                         text: $m('messages.allianceNews.body'),
-                        icon: await import(
-                            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                            // @ts-ignore
-                            /* webpackChunkName: "modules/notificationAlert/alliance" */ './assets/alliance.svg'
-                        ),
+                        icon: (
+                            await import(
+                                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                                // @ts-ignore
+                                /* webpackChunkName: "modules/notificationAlert/alliance" */ './assets/alliance.svg'
+                            )
+                        ).default,
                         duration: alert.duration,
                         ingame: alert.ingame,
                         desktop: alert.desktop,
@@ -440,11 +456,13 @@ export default (async (LSSM, MODULE_ID, $m, $mc) => {
                         type: alert.alertStyle,
                         title: $m('messages.allianceForum.title'),
                         text: $m('messages.allianceForum.body'),
-                        icon: await import(
-                            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                            // @ts-ignore
-                            /* webpackChunkName: "modules/notificationAlert/alliance" */ './assets/alliance.svg'
-                        ),
+                        icon: (
+                            await import(
+                                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                                // @ts-ignore
+                                /* webpackChunkName: "modules/notificationAlert/alliance" */ './assets/alliance.svg'
+                            )
+                        ).default,
                         duration: alert.duration,
                         ingame: alert.ingame,
                         desktop: alert.desktop,

@@ -31,6 +31,12 @@
             :fixed-width="true"
             @click="toggleOverlay"
         ></font-awesome-icon>
+        <font-awesome-icon
+            class="pull-right"
+            :icon="maxState ? faSubscript : faSuperscript"
+            :fixed-width="true"
+            @click="toggleMaximum"
+        ></font-awesome-icon>
         <span v-if="isDiyMission">{{ $m('diyMission') }}</span>
         <div v-else-if="missionSpecs">
             <h3 v-if="settings.title">
@@ -126,6 +132,18 @@
                             missionSpecs.additional.patient_specializations
                         }}</b>
                     </span>
+                    <span
+                        v-else-if="
+                            missionSpecs.additional.all_patient_specializations
+                        "
+                    >
+                        {{ $m('patients.specializations') }}
+                        <b>{{
+                            missionSpecs.additional.all_patient_specializations.join(
+                                ', '
+                            )
+                        }}</b>
+                    </span>
                     )
                 </li>
                 <li
@@ -162,7 +180,12 @@
                 >
                     {{ $m('patients.allow_ktw_instead_of_rtw') }}
                 </li>
-                <li v-if="missionSpecs.additional.patient_at_end_of_mission">
+                <li
+                    v-if="
+                        !maxState &&
+                            missionSpecs.additional.patient_at_end_of_mission
+                    "
+                >
                     <b>
                         {{
                             $mc(
@@ -214,7 +237,7 @@
                     {{ $mc(`prerequisites.${req}`, amount) }}
                 </li>
             </ul>
-            <span v-if="settings.generatedBy">
+            <span v-if="!maxState && settings.generatedBy">
                 {{ $m('generated_by') }}:
                 {{ missionSpecs.generated_by }}
                 <br />
@@ -239,7 +262,8 @@
             </span>
             <div
                 v-if="
-                    settings.expansions &&
+                    !maxState &&
+                        settings.expansions &&
                         missionSpecs.additional &&
                         missionSpecs.additional.expansion_missions_ids
                 "
@@ -271,7 +295,8 @@
             </div>
             <div
                 v-if="
-                    settings.followup &&
+                    !maxState &&
+                        settings.followup &&
                         missionSpecs.additional &&
                         missionSpecs.additional.followup_missions_ids
                 "
@@ -313,6 +338,8 @@ import { faAngleDoubleDown } from '@fortawesome/free-solid-svg-icons/faAngleDoub
 import { faArrowsAlt } from '@fortawesome/free-solid-svg-icons/faArrowsAlt';
 import { faCompressAlt } from '@fortawesome/free-solid-svg-icons/faCompressAlt';
 import { faExpandAlt } from '@fortawesome/free-solid-svg-icons/faExpandAlt';
+import { faSuperscript } from '@fortawesome/free-solid-svg-icons/faSuperscript';
+import { faSubscript } from '@fortawesome/free-solid-svg-icons/faSubscript';
 import {
     MissionHelper,
     MissionHelperMethods,
@@ -321,6 +348,7 @@ import {
 } from 'typings/modules/MissionHelper';
 import { Mission } from 'typings/Mission';
 import { DefaultProps } from 'vue/types/options';
+import cloneDeep from 'lodash/cloneDeep';
 
 export default Vue.extend<
     MissionHelper,
@@ -337,10 +365,15 @@ export default Vue.extend<
             faArrowsAlt,
             faCompressAlt,
             faExpandAlt,
+            faSuperscript,
+            faSubscript,
             id: this.$store.getters.nodeAttribute('missionHelper'),
             isReloading: true,
             isDiyMission: false,
             missionSpecs: undefined,
+            maxMissionSpecs: undefined,
+            maxMissionToggleCache: undefined,
+            maxState: false,
             overlay: undefined,
             minified: undefined,
             missionId: parseInt(
@@ -389,6 +422,7 @@ export default Vue.extend<
                 expansions: true,
                 followup: true,
                 k9_only_if_needed: true,
+                hide_battalion_chief_vehicles: true,
             },
             noVehicleRequirements: Object.values(
                 this.$m('noVehicleRequirements')
@@ -417,6 +451,7 @@ export default Vue.extend<
             );
         },
         showPatients() {
+            if (this.maxState) return true;
             if (this.settings.patients.hideWhenNoNeed) {
                 return (
                     this.missionSpecs?.additional.patient_at_end_of_mission ||
@@ -427,133 +462,7 @@ export default Vue.extend<
             }
         },
         vehicles() {
-            const vehicles = {} as VehicleRequirements;
-            Object.keys(this.missionSpecs?.requirements || {})
-                .filter(req => !this.noVehicleRequirements.includes(req))
-                .forEach(vehicle => {
-                    console.log(vehicle);
-                    let percentage = this.missionSpecs?.chances[vehicle] || 100;
-                    if (
-                        (percentage === 100 && !this.settings.chances['100']) ||
-                        (percentage > 0 && !this.settings.chances.normal)
-                    )
-                        percentage = 0;
-                    let vehicleName = vehicle;
-                    if (
-                        vehicle === 'k9' &&
-                        this.missionSpecs?.additional
-                            .need_k9_only_if_guard_dogs_present &&
-                        this.settings.k9_only_if_needed
-                    )
-                        vehicleName = 'k9_only_if_needed';
-                    vehicles[vehicle] = {
-                        caption: this.$mc(
-                            `vehicles.captions.${vehicleName}`,
-                            this.missionSpecs?.requirements[vehicle] || 0
-                        ).toString(),
-                        amount: this.missionSpecs?.requirements[vehicle] || 0,
-                        percentage,
-                    };
-                });
-
-            if (this.settings.vehicles.patient_additionals) {
-                const patientAdditionals = this.$m(
-                    'vehicles.patient_additionals'
-                ) as {
-                    [amount: number]: string;
-                };
-                Object.keys(patientAdditionals).forEach(
-                    patients =>
-                        this.currentPatients >= parseInt(patients) &&
-                        (vehicles[patients] = {
-                            amount: 1,
-                            caption: patientAdditionals[parseInt(patients)],
-                        })
-                );
-            }
-            if (this.missionSpecs?.additional) {
-                const optionalAlternatives = this.$m(
-                    'vehicles.optional_alternatives'
-                ) as {
-                    [alternative: string]: {
-                        [vehicle: string]: string;
-                    };
-                };
-                Object.keys(optionalAlternatives).forEach(alt => {
-                    if (
-                        !optionalAlternatives[alt].not_customizable &&
-                        !this.settings.optionalAlternatives[alt]
-                    )
-                        return;
-                    if (
-                        this.missionSpecs?.additional.hasOwnProperty(alt) &&
-                        this.missionSpecs.additional[alt]
-                    )
-                        return Object.keys(optionalAlternatives[alt]).forEach(
-                            rep => {
-                                if (
-                                    !this.missionSpecs?.requirements.hasOwnProperty(
-                                        rep
-                                    )
-                                )
-                                    return;
-                                vehicles[rep].caption = this.$mc(
-                                    `vehicles.optional_alternatives.${alt}.${rep}`,
-                                    vehicles[rep].amount
-                                ).toString();
-                            }
-                        );
-                });
-            }
-            const multifunctionals = (this.$m(
-                'vehicles.multifunctionals'
-            ) as unknown) as {
-                [multi: string]: {
-                    additional_text: string;
-                    reduce_from: string;
-                    not_customizable?: boolean;
-                };
-            };
-            Object.keys(multifunctionals).forEach(vehicle => {
-                if (
-                    !multifunctionals[vehicle].not_customizable &&
-                    !this.settings.multifunctionals[vehicle]
-                )
-                    return;
-                if (
-                    vehicles.hasOwnProperty(vehicle) &&
-                    vehicles.hasOwnProperty(
-                        multifunctionals[vehicle].reduce_from
-                    )
-                ) {
-                    vehicles[vehicle].old = vehicles[vehicle].amount;
-                    vehicles[vehicle].amount =
-                        vehicles[vehicle].amount -
-                        vehicles[multifunctionals[vehicle].reduce_from].amount;
-                    vehicles[
-                        multifunctionals[vehicle].reduce_from
-                    ].additionalText = this.$mc(
-                        `vehicles.multifunctionals.${vehicle}.additional_text`,
-                        vehicles[vehicle].old || 0
-                    ).toString();
-                }
-            });
-            const vehiclesFiltered = {} as VehicleRequirements;
-            Object.entries(vehicles)
-                .filter(([, vehicle]) => vehicle.amount > 0)
-                .sort(([, aVehicle], [, bVehicle]) =>
-                    (aVehicle[this.settings.vehicles.sort] || 0) <
-                    (bVehicle[this.settings.vehicles.sort] || 0)
-                        ? -1
-                        : (aVehicle[this.settings.vehicles.sort] || 0) >
-                          (bVehicle[this.settings.vehicles.sort] || 0)
-                        ? 1
-                        : 0
-                )
-                .forEach(
-                    ([type, vehicle]) => (vehiclesFiltered[type] = vehicle)
-                );
-            return vehiclesFiltered;
+            return this.getVehicles(this.missionSpecs, false);
         },
         specialRequirements() {
             return Object.keys(
@@ -686,6 +595,263 @@ export default Vue.extend<
             this.drag.top = current.y + this.drag.offset.y;
             this.drag.right =
                 window.innerWidth - current.x - this.drag.offset.x;
+        },
+        getVehicles(missionSpecs, isMaxReq = false) {
+            const vehicles = {} as VehicleRequirements;
+            Object.keys(missionSpecs?.requirements || {})
+                .filter(req => !this.noVehicleRequirements.includes(req))
+                .forEach(vehicle => {
+                    let percentage = missionSpecs?.chances[vehicle] || 100;
+                    if (
+                        (percentage === 100 && !this.settings.chances['100']) ||
+                        (percentage > 0 && !this.settings.chances.normal)
+                    )
+                        percentage = 0;
+                    let vehicleName = vehicle;
+                    if (
+                        !isMaxReq &&
+                        vehicle === 'k9' &&
+                        missionSpecs?.additional
+                            .need_k9_only_if_guard_dogs_present &&
+                        this.settings.k9_only_if_needed
+                    )
+                        vehicleName = 'k9_only_if_needed';
+                    if (
+                        !isMaxReq &&
+                        this.settings.hide_battalion_chief_vehicles &&
+                        vehicle === 'battalion_chief_vehicles'
+                    )
+                        return;
+                    vehicles[vehicle] = {
+                        caption: this.$mc(
+                            `vehicles.captions.${vehicleName}`,
+                            missionSpecs?.requirements[vehicle] || 0
+                        ).toString(),
+                        amount: missionSpecs?.requirements[vehicle] || 0,
+                        percentage,
+                    };
+                    if (
+                        !isMaxReq &&
+                        this.settings.hide_battalion_chief_vehicles &&
+                        vehicle === 'mobile_command_vehicles'
+                    )
+                        vehicles[vehicle].amount = Math.max(
+                            vehicles[vehicle].amount,
+                            missionSpecs?.requirements[
+                                'battalion_chief_vehicles'
+                            ] ?? 0
+                        );
+                });
+
+            if (this.settings.vehicles.patient_additionals) {
+                const patientAdditionals = this.$m(
+                    'vehicles.patient_additionals'
+                ) as {
+                    [amount: number]: string;
+                };
+                Object.keys(patientAdditionals).forEach(
+                    patients =>
+                        this.currentPatients >= parseInt(patients) &&
+                        (vehicles[patients] = {
+                            amount: 1,
+                            caption: patientAdditionals[parseInt(patients)],
+                        })
+                );
+            }
+            if (missionSpecs?.additional) {
+                const optionalAlternatives = this.$m(
+                    'vehicles.optional_alternatives'
+                ) as {
+                    [alternative: string]: {
+                        [vehicle: string]: string;
+                    };
+                };
+                Object.keys(optionalAlternatives).forEach(alt => {
+                    if (
+                        !optionalAlternatives[alt].not_customizable &&
+                        !this.settings.optionalAlternatives[alt]
+                    )
+                        return;
+                    if (
+                        missionSpecs?.additional.hasOwnProperty(alt) &&
+                        missionSpecs.additional[alt]
+                    )
+                        return Object.keys(optionalAlternatives[alt]).forEach(
+                            rep => {
+                                if (
+                                    !missionSpecs?.requirements.hasOwnProperty(
+                                        rep
+                                    )
+                                )
+                                    return;
+                                vehicles[rep].caption = this.$mc(
+                                    `vehicles.optional_alternatives.${alt}.${rep}`,
+                                    vehicles[rep].amount
+                                ).toString();
+                            }
+                        );
+                });
+            }
+            const multifunctionals = (this.$m(
+                'vehicles.multifunctionals'
+            ) as unknown) as {
+                [multi: string]: {
+                    additional_text: string;
+                    reduce_from: string;
+                    not_customizable?: boolean;
+                };
+            };
+            Object.keys(multifunctionals).forEach(vehicle => {
+                if (
+                    !multifunctionals[vehicle].not_customizable &&
+                    !this.settings.multifunctionals[vehicle]
+                )
+                    return;
+                if (
+                    vehicles.hasOwnProperty(vehicle) &&
+                    vehicles.hasOwnProperty(
+                        multifunctionals[vehicle].reduce_from
+                    )
+                ) {
+                    vehicles[vehicle].old = vehicles[vehicle].amount;
+                    vehicles[vehicle].amount =
+                        vehicles[vehicle].amount -
+                        vehicles[multifunctionals[vehicle].reduce_from].amount;
+                    vehicles[
+                        multifunctionals[vehicle].reduce_from
+                    ].additionalText = this.$mc(
+                        `vehicles.multifunctionals.${vehicle}.additional_text`,
+                        vehicles[vehicle].old || 0
+                    ).toString();
+                }
+            });
+            const vehiclesFiltered = {} as VehicleRequirements;
+            Object.entries(vehicles)
+                .filter(([, vehicle]) => vehicle.amount > 0)
+                .sort(([, aVehicle], [, bVehicle]) =>
+                    (aVehicle[this.settings.vehicles.sort] || 0) <
+                    (bVehicle[this.settings.vehicles.sort] || 0)
+                        ? -1
+                        : (aVehicle[this.settings.vehicles.sort] || 0) >
+                          (bVehicle[this.settings.vehicles.sort] || 0)
+                        ? 1
+                        : 0
+                )
+                .forEach(
+                    ([type, vehicle]) => (vehiclesFiltered[type] = vehicle)
+                );
+            return vehiclesFiltered;
+        },
+        async getMaxVehicles(currentSpecs) {
+            if (!currentSpecs) return;
+            this.maxMissionSpecs = cloneDeep(currentSpecs);
+            while (
+                this.maxMissionSpecs?.additional?.expansion_missions_ids?.length
+            ) {
+                const expansionId = this.maxMissionSpecs?.additional?.expansion_missions_ids.splice(
+                    0,
+                    1
+                )?.[0];
+                const specs = await this.getMission(expansionId, false);
+                this.maxMissionSpecs.average_credits = Math.max(
+                    this.maxMissionSpecs.average_credits ?? 0,
+                    specs?.average_credits ?? 0
+                );
+                Object.entries(specs?.requirements ?? {}).forEach(
+                    ([req, amount]) => {
+                        if (this.maxMissionSpecs)
+                            this.maxMissionSpecs.requirements[req] = Math.max(
+                                this.maxMissionSpecs.requirements[req] ?? 0,
+                                amount ?? 0
+                            );
+                    }
+                );
+                Object.entries(specs?.prerequisites ?? {}).forEach(
+                    ([req, amount]) => {
+                        if (this.maxMissionSpecs)
+                            this.maxMissionSpecs.prerequisites[req] = Math.max(
+                                this.maxMissionSpecs.prerequisites[req] ?? 0,
+                                amount ?? 0
+                            );
+                    }
+                );
+                Object.entries(specs?.chances ?? {}).forEach(
+                    ([req, amount]) => {
+                        if (this.maxMissionSpecs)
+                            this.maxMissionSpecs.chances[req] = Math.max(
+                                this.maxMissionSpecs.chances[req] ?? 100,
+                                amount ?? 100
+                            );
+                    }
+                );
+                this.maxMissionSpecs?.additional?.expansion_missions_ids?.push(
+                    ...(specs?.additional?.expansion_missions_ids ?? [])
+                );
+                this.maxMissionSpecs.additional.max_possible_prisoners = Math.max(
+                    this.maxMissionSpecs.additional.max_possible_prisoners ?? 0,
+                    specs?.additional.max_possible_prisoners ?? 0
+                );
+                this.maxMissionSpecs.additional.average_min_police_personnel = Math.max(
+                    this.maxMissionSpecs.additional
+                        .average_min_police_personnel ?? 0,
+                    specs?.additional.average_min_police_personnel ?? 0
+                );
+                this.maxMissionSpecs.additional.average_min_fire_personnel = Math.max(
+                    this.maxMissionSpecs.additional
+                        .average_min_fire_personnel ?? 0,
+                    specs?.additional.average_min_fire_personnel ?? 0
+                );
+                this.maxMissionSpecs.additional.swat_personnel = Math.max(
+                    this.maxMissionSpecs.additional.swat_personnel ?? 0,
+                    specs?.additional.swat_personnel ?? 0
+                );
+                this.maxMissionSpecs.additional.possible_patient_min = Math.min(
+                    this.maxMissionSpecs.additional.possible_patient_min ?? 0,
+                    specs?.additional.possible_patient_min ?? 0
+                );
+                this.maxMissionSpecs.additional.possible_patient = Math.max(
+                    this.maxMissionSpecs.additional.possible_patient ?? 0,
+                    specs?.additional.possible_patient ?? 0
+                );
+                Object.entries(
+                    specs?.additional.personnel_educations ?? {}
+                ).forEach(([req, amount]) => {
+                    if (
+                        this.maxMissionSpecs &&
+                        this.maxMissionSpecs.additional.personnel_educations
+                    )
+                        this.maxMissionSpecs.additional.personnel_educations[
+                            req
+                        ] = Math.max(
+                            this.maxMissionSpecs.additional
+                                .personnel_educations[req] ?? 0,
+                            amount ?? 0
+                        );
+                });
+                if (
+                    !this.maxMissionSpecs.additional.all_patient_specializations
+                )
+                    this.maxMissionSpecs.additional.all_patient_specializations = [];
+                if (
+                    specs?.additional.patient_specializations &&
+                    !this.maxMissionSpecs.additional.all_patient_specializations.includes(
+                        specs?.additional.patient_specializations
+                    )
+                )
+                    this.maxMissionSpecs.additional.all_patient_specializations.push(
+                        specs?.additional.patient_specializations
+                    );
+            }
+        },
+        toggleMaximum() {
+            this.maxState = !this.maxState;
+            if (this.maxState) {
+                this.maxMissionToggleCache = cloneDeep(this.missionSpecs);
+                this.getMaxVehicles(this.missionSpecs);
+                this.missionSpecs = this.maxMissionSpecs;
+            } else {
+                this.missionSpecs = this.maxMissionToggleCache;
+            }
         },
     },
     beforeMount() {

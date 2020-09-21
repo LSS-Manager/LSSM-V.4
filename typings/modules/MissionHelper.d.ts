@@ -22,9 +22,14 @@ export interface MissionHelper {
     faArrowsAlt: IconDefinition;
     faCompressAlt: IconDefinition;
     faExpandAlt: IconDefinition;
+    faSuperscript: IconDefinition;
+    faSubscript: IconDefinition;
     isReloading: boolean;
     isDiyMission: boolean;
     missionSpecs: Mission | undefined;
+    maxMissionSpecs: Mission | undefined;
+    maxMissionToggleCache: Mission | undefined;
+    maxState: boolean;
     missionId: number;
     overlay: boolean | undefined;
     minified: boolean | undefined;
@@ -116,4 +121,10 @@ export interface MissionHelperMethods {
     dragStart(e: MouseEvent): void;
     dragEnd(): void;
     dragging(e: MouseEvent): void;
+    getVehicles(
+        missionSpecs: MissionHelper['missionSpecs'],
+        isMaxReq: boolean
+    ): VehicleRequirements;
+    getMaxVehicles(currentSpecs: MissionHelper['missionSpecs']): void;
+    toggleMaximum(): void;
 }

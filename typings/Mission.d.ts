@@ -27,6 +27,7 @@ interface Additional {
 
     // Patients
     patient_specializations?: string;
+    all_patient_specializations?: string[];
     patient_at_end_of_mission?: boolean;
     possible_patient_min?: number;
     possible_patient?: number;
@@ -99,6 +100,9 @@ interface Prerequisites {
     sek?: number;
     werkfeuerwehr?: number;
     rescue_dog_units?: number;
+
+    // General:
+    [key: string]: number | undefined;
 }
 
 interface Requirements {

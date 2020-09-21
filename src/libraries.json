@@ -30,7 +30,7 @@
 		"version": "4.14.159"
 	},
 	"@types/node": {
-		"version": "14.6.3"
+		"version": "14.10.0"
 	},
 	"@types/ua-parser-js": {
 		"version": "0.7.33"
@@ -48,7 +48,7 @@
 		"version": "3.10.1"
 	},
 	"@typescript-eslint/parser": {
-		"version": "3.9.0"
+		"version": "3.9.1"
 	},
 	"@vuepress/plugin-active-header-links": {
 		"icon": "https://vuepress.vuejs.org/hero.png",
@@ -63,6 +63,10 @@
 	"all-contributors-cli": {
 		"url": "https://github.com/all-contributors/all-contributors-cli#readme",
 		"version": "6.17.2"
+	},
+	"broadcast-channel": {
+		"url": "https://github.com/pubkey/broadcast-channel#readme",
+		"version": "3.1.0"
 	},
 	"cache-loader": {
 		"url": "https://github.com/webpack-contrib/cache-loader",
@@ -88,7 +92,7 @@
 	"eslint": {
 		"icon": "https://eslint.org/assets/img/favicon.512x512.png",
 		"url": "https://eslint.org",
-		"version": "7.6.0"
+		"version": "7.7.0"
 	},
 	"eslint-plugin-prettier": {
 		"icon": "https://prettier.io/icon.png",
@@ -103,12 +107,12 @@
 	"highcharts": {
 		"icon": "https://www.highcharts.com/images/ico/favicon-192x192.png",
 		"url": "http://www.highcharts.com",
-		"version": "8.1.2"
+		"version": "8.2.0"
 	},
 	"html-loader": {
 		"icon": "https://webpack.js.org/assets/icon-square-big.svg",
 		"url": "https://github.com/webpack-contrib/html-loader",
-		"version": "1.1.0"
+		"version": "1.2.1"
 	},
 	"localforage": {
 		"url": "https://github.com/localForage/localForage",
@@ -135,7 +139,7 @@
 	"sass-loader": {
 		"icon": "https://webpack.js.org/assets/icon-square-big.svg",
 		"url": "https://github.com/webpack-contrib/sass-loader",
-		"version": "10.0.1"
+		"version": "10.0.2"
 	},
 	"string-replace-loader": {
 		"url": "https://github.com/Va1/string-replace-loader",
@@ -144,7 +148,7 @@
 	"terser": {
 		"icon": "https://terser.org/img/terser-square-logo.png",
 		"url": "https://terser.org",
-		"version": "5.2.0"
+		"version": "5.2.1"
 	},
 	"ts-loader": {
 		"url": "https://github.com/TypeStrong/ts-loader",
@@ -170,7 +174,7 @@
 	"vue": {
 		"icon": "https://vuejs.org/images/logo.png",
 		"url": "https://github.com/vuejs/vue#readme",
-		"version": "2.6.11"
+		"version": "2.6.12"
 	},
 	"vue-i18n": {
 		"icon": "https://kazupon.github.io/vue-i18n/vue-i18n-logo.png",
@@ -209,7 +213,7 @@
 	"vue-template-compiler": {
 		"icon": "https://vuejs.org/images/logo.png",
 		"url": "https://github.com/vuejs/vue/tree/dev/packages/vue-template-compiler#readme",
-		"version": "2.6.11"
+		"version": "2.6.12"
 	},
 	"vuepress": {
 		"icon": "https://vuepress.vuejs.org/hero.png",
