@@ -17,12 +17,12 @@ export default (LSSM: Vue): void => {
         {
             selectorText: `.${optionClass}:not(:last-child)::after`,
             style: {
-                content: ' | ',
+                content: '" | "',
             },
         },
     ]);
 
-    document.addEventListener('keyup', e => {
+    const changeHandler = (e: KeyboardEvent) => {
         const input = e.target as HTMLInputElement;
         if (!input.matches('input')) return;
         if (!popupMap.hasOwnProperty(input.name)) {
@@ -55,7 +55,6 @@ export default (LSSM: Vue): void => {
         );
         if (!matching.length)
             return (popupMap[input.name].style.display = 'none');
-        console.log(matching);
         popupMap[input.name].style.display = 'block';
         popupMap[input.name].innerHTML = '';
         popupMap[input.name].append(
@@ -66,9 +65,19 @@ export default (LSSM: Vue): void => {
                 // @ts-ignore
                 span.textContent = emojiMap[name];
                 span.classList.add(optionClass);
-                // TODO: onclick handler
+                span.addEventListener('click', () => {
+                    input.value = input.value.replace(
+                        /:[^:]*?$/,
+                        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                        // @ts-ignore
+                        emojiMap[name]
+                    );
+                    changeHandler(e);
+                });
                 return span;
             })
         );
-    });
+    };
+
+    document.addEventListener('keyup', changeHandler);
 };
