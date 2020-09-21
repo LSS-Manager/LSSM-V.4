@@ -22,4 +22,8 @@ export default (): unknown => ({
         type: 'toggle',
         default: true,
     },
+    emojiPicker: {
+        type: 'toggle',
+        default: false,
+    },
 });

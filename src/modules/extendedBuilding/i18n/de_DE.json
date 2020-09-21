@@ -5,6 +5,9 @@
 	"expansions": {
 		"notBuild": "Noch nicht gebaut"
 	},
+	"fastDispatchChooser": {
+		"noDispatch": "Keine Leitstelle"
+	},
 	"personnelDemands": {
 		"additional": "Bei Werten in Klammern sind Fahrzeuge im FMS 6 ausgeschlossen.",
 		"demand": "Benötigtes Personal"
@@ -23,8 +26,5 @@
 		"vehiclesPersonnelMax": "max",
 		"vehiclesPersonnelCurrent": "aktuell",
 		"vehiclesPersonnelAssigned": "zugewiesen"
-	},
-    "fastDispatchChooser": {
-        "noDispatch": "Keine Leitstelle"
-    }
+	}
 }
