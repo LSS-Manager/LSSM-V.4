@@ -10,6 +10,10 @@
 			"description": "Links die in als reiner Text angezeigt werden (z.B. im Chat, Forum, Nachrichten, etc.) werden anklickbar gemacht. Sie öffnen sich automatisch in einem neuen Tab.",
 			"title": "Links anklickbar machen"
 		},
+        "emojiPicker": {
+            "description": "Zeigt dir Emojis zur auswahl an, wenn du : gefolgt von Text eingibst.",
+            "title": "Emoji-Picker"
+        },
 		"linkPreviews": {
 			"buildings": "Gebäude",
 			"description": "Zeigt eine kleine Infobox an, wenn du mit der Maus kurz über einem Link wartest. Du kannst hier einstellen, bei welchen Links die Infobox aktiviert sein soll:",
