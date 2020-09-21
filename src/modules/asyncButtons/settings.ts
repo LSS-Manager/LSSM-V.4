@@ -24,4 +24,8 @@ export default (): unknown => ({
         type: 'toggle',
         default: true,
     },
+    switchExtensionState: {
+        type: 'toggle',
+        default: true,
+    },
 });

@@ -22,7 +22,11 @@
 		},
 		"deleteARR": {
 			"title": "Löschen von AAO Einträgen",
-			"description": "Verhindert ein Neuladenen, wenn du ein AAO Eintrag löscht"
+			"description": "Verhindert ein Neuladen, wenn du ein AAO Eintrag löscht."
+		},
+		"switchExtensionState": {
+			"title": "(De-)aktivieren Extensions",
+			"description": "Verhindert ein Neuladen, wenn du eine Erweiterung aktivierst oder deaktivierst."
 		}
 	}
 }

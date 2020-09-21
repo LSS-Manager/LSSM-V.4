@@ -1,4 +1,8 @@
 {
+	"buildings": {
+		"active": "Einsatzbereit",
+		"nonactive": "Nicht Einsatzbereit"
+	},
 	"deleteARR": {
 		"deleteModal": {
 			"title": "Löschen?",
