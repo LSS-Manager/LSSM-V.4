@@ -8,7 +8,9 @@ export default (async (LSSM, MODULE_ID, $m) => {
         });
     };
 
-    const buildings = ['buildingTax'].filter(async s => await getSetting(s));
+    const buildings = ['buildingTax', 'switchExtensionState'].filter(
+        async s => await getSetting(s)
+    );
     const missions = ['missionPrisoners', 'missionReply'].filter(
         async s => await getSetting(s)
     );
@@ -22,7 +24,7 @@ export default (async (LSSM, MODULE_ID, $m) => {
             await import(
                 /* webpackChunkName: "modules/asyncButtons/buildings" */ './assets/buildings'
             )
-        ).default(LSSM, buildings);
+        ).default(LSSM, buildings, $m);
 
     if (
         window.location.pathname.match(/^\/missions\/\d+\/?$/) &&

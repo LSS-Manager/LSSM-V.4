@@ -27,4 +27,8 @@ export default (() => ({
         type: 'toggle',
         default: true,
     },
+    switchExtensionState: {
+        type: 'toggle',
+        default: true,
+    },
 })) as ModuleSettingFunction;
