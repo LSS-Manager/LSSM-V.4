@@ -20,4 +20,8 @@ export default (): unknown => ({
         type: 'toggle',
         default: false,
     },
+    deleteARR: {
+        type: 'toggle',
+        default: true,
+    },
 });
