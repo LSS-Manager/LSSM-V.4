@@ -28,7 +28,8 @@ export default (LSSM: Vue): void => {
         {
             selectorText: `.${optionClass}`,
             style: {
-                cursor: 'pointer',
+                'cursor': 'pointer',
+                'font-size': 'large',
             },
         },
         {
@@ -90,11 +91,13 @@ export default (LSSM: Vue): void => {
                         /:[^:]*?$/,
                         emojiByName[name]
                     );
+                    input.focus();
                     changeHandler(e);
                 });
                 return span;
             })
         );
+        // TODO: Navigate through suggestions with arrow keys and insert selected with enter
     };
 
     document.addEventListener('keyup', changeHandler);
