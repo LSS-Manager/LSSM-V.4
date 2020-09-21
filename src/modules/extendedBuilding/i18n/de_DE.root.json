@@ -6,6 +6,10 @@
 			"description": "Zeigt in den Gebäuden an, wie viele vom selben Typen in die jeweilige Richtung noch vorhanden sind.",
 			"title": "Anzahl der Gebäude selben Typs"
 		},
+		"emojiPicker": {
+			"description": "Zeigt dir Emojis zur auswahl an, wenn du : gefolgt von Text eingibst.",
+			"title": "Emoji-Picker"
+		},
 		"enhanceVehicleList": {
 			"description": "Erweitert die Fahrzeugliste um nützliche Features – einige davon speziell einstellbar.",
 			"title": "Fahrzeugliste erweitern"
@@ -17,6 +21,10 @@
 		"expansions": {
 			"title": "Ausbauten direkt anzeigen",
 			"description": "Zeigt die Ausbauten eines Gebäudes an, ohne dass du erst auf den Ausbauten-Tab drücken musst."
+		},
+		"fastDispatchChooser": {
+			"title": "Schnelles Auswählen der Leitstelle",
+			"description": "Lässt dich direkt in einem Gebäude auswählen, welcher Leitstelle es zugeordnet ist, ohne erst die Einstellungen aufrufen zu müssen."
 		},
 		"fmsSwitch": {
 			"description": "Ermöglicht einen Wechsel zwischen Status 2 und 6 mit Klick auf den Status.",

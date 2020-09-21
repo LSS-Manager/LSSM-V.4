@@ -119,7 +119,6 @@ export default (Vue: VueConstructor): void => {
                     color: '#707073',
                 },
             },
-
             drilldown: {
                 activeAxisLabelStyle: {
                     color: '#F0F0F3',

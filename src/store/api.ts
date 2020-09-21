@@ -10,6 +10,7 @@ import { APIActionStoreParams } from '../../typings/store/api/Actions';
 import { VehicleRadioMessage } from '../../typings/Ingame';
 import { Building, BuildingCategory } from '../../typings/Building';
 import { Mission } from 'typings/Mission';
+import { ActionStoreParams } from 'typings/store/Actions';
 
 const STORAGE_KEYS = {
     buildings: 'aBuildings',
@@ -61,7 +62,29 @@ const get_from_parent = <API extends StorageAPIKey>(
         };
     return get_from_storage(key, window.parent);
 };
-// const get_from_broadcast = () => {}; // TODO: Broadcast – see issue #49
+const get_from_broadcast = async <API extends StorageAPIKey>(
+    key: API,
+    dispatch: ActionStoreParams['dispatch']
+): Promise<StorageGetterReturn<API>> => {
+    return new Promise(resolve =>
+        dispatch(
+            'broadcast/request_state',
+            {
+                statePath: `api.${key}`,
+            },
+            { root: true }
+        ).then((results: StorageGetterReturn<API>[]) => {
+            results.sort((a, b) =>
+                a.lastUpdate < b.lastUpdate
+                    ? -1
+                    : a.lastUpdate > b.lastUpdate
+                    ? 1
+                    : 0
+            );
+            resolve(results[0]);
+        })
+    );
+};
 const get_api_values = async <API extends StorageAPIKey>(
     key: API,
     { dispatch, state, commit }: APIActionStoreParams
@@ -82,14 +105,17 @@ const get_api_values = async <API extends StorageAPIKey>(
         stored.lastUpdate < new Date().getTime() - API_MIN_UPDATE
     )
         stored = get_from_parent<API>(key);
-    // get from Broadcast
+    if (
+        !stored.value ||
+        stored.lastUpdate < new Date().getTime() - API_MIN_UPDATE
+    )
+        stored = await get_from_broadcast<API>(key, dispatch);
     if (
         !state.currentlyUpdating.includes(key) &&
         (!stored.value ||
             !Object.values(stored.value).length ||
             stored.lastUpdate < new Date().getTime() - API_MIN_UPDATE)
     ) {
-        console.log(`fetch<${key}>`);
         commit('startedUpdating', key);
         stored = {
             lastUpdate: new Date().getTime(),
@@ -309,6 +335,35 @@ export default {
                 );
             }
         },
+        async fetchBuilding(store: APIActionStoreParams, id: number) {
+            return new Promise((resolve, reject) => {
+                store
+                    .dispatch('request', {
+                        url: `/api/buildings/${id}`,
+                    })
+                    .then(res => res.json())
+                    .then(async (building: Building) => {
+                        const {
+                            value: buildings,
+                            lastUpdate,
+                        } = await get_api_values('buildings', store);
+                        if (!buildings) return reject();
+                        buildings[
+                            buildings.findIndex(b => b.id === id)
+                        ] = building;
+                        set_api_storage(
+                            'buildings',
+                            {
+                                value: buildings,
+                                lastUpdate,
+                                user_id: window.user_id,
+                            },
+                            store
+                        );
+                        return resolve(building);
+                    });
+            });
+        },
         async registerVehiclesUsage(
             store: APIActionStoreParams,
             autoUpdate = false
@@ -330,6 +385,66 @@ export default {
                     API_MIN_UPDATE
                 );
             }
+        },
+        async fetchVehicle(store: APIActionStoreParams, id: number) {
+            return new Promise((resolve, reject) => {
+                store
+                    .dispatch('request', {
+                        url: `/api/vehicles/${id}`,
+                    })
+                    .then(res => res.json())
+                    .then(async (vehicle: Vehicle) => {
+                        const {
+                            value: vehicles,
+                            lastUpdate,
+                        } = await get_api_values('vehicles', store);
+                        if (!vehicles) return reject();
+                        vehicles[
+                            vehicles.findIndex(v => v.id === id)
+                        ] = vehicle;
+                        set_api_storage(
+                            'vehicles',
+                            {
+                                value: vehicles,
+                                lastUpdate,
+                                user_id: window.user_id,
+                            },
+                            store
+                        );
+                        return resolve(vehicles);
+                    });
+            });
+        },
+        async fetchVehiclesAtBuilding(store: APIActionStoreParams, id: number) {
+            return new Promise((resolve, reject) => {
+                store
+                    .dispatch('request', {
+                        url: `/api/buildings/${id}/vehicle`,
+                    })
+                    .then(res => res.json())
+                    .then(async (vehiclesAt: Vehicle[]) => {
+                        const {
+                            value: vehicles,
+                            lastUpdate,
+                        } = await get_api_values('vehicles', store);
+                        if (!vehicles) return reject();
+                        vehiclesAt.forEach(vehicle => {
+                            vehicles[
+                                vehicles.findIndex(v => v.id === id)
+                            ] = vehicle;
+                        });
+                        set_api_storage(
+                            'vehicles',
+                            {
+                                value: vehicles,
+                                lastUpdate,
+                                user_id: window.user_id,
+                            },
+                            store
+                        );
+                        return resolve(vehicles);
+                    });
+            });
         },
         async registerAllianceinfoUsage(
             store: APIActionStoreParams,
