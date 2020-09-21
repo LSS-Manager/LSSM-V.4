@@ -1,4 +1,8 @@
 {
+	"buildings": {
+		"active": "Einsatzbereit",
+		"nonactive": "Nicht Einsatzbereit"
+	},
 	"buildingPersonal": {
 		"deleteModal": {
 			"btnCancel": "Abbrechen",
@@ -6,14 +10,6 @@
 			"text": "Möchtest du diese Person kündigen?",
 			"title": "Kündigen?"
 		}
-	},
-	"buildings": {
-		"active": "Einsatzbereit",
-		"nonactive": "Nicht Einsatzbereit",
-		"cancel": "Abbrechen",
-		"extensionFinish": "Jetzt fertigstellen (10 Coins)",
-		"confirmFinish": "Möchtest du wirklich Coins dafür ausgeben?",
-		"remainingTime": "Restzeit: "
 	},
 	"deleteARR": {
 		"deleteModal": {
