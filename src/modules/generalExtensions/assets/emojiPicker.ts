@@ -7,7 +7,20 @@ export default (LSSM: Vue): void => {
         'emoji-picker-option'
     );
 
-    // TODO: style for .optionClass
+    LSSM.$store.dispatch('addStyles', [
+        {
+            selectorText: `.${optionClass}`,
+            style: {
+                cursor: 'pointer',
+            },
+        },
+        {
+            selectorText: `.${optionClass}:not(:last-child)::after`,
+            style: {
+                content: ' | ',
+            },
+        },
+    ]);
 
     document.addEventListener('keyup', e => {
         const input = e.target as HTMLInputElement;
