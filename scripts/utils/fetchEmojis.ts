@@ -2,29 +2,34 @@ import fs from 'fs';
 import path from 'path';
 import https from 'https';
 
-const LATEST_VERSION = '13.1';
-
-declare interface Emoji {
+declare interface EmojiData {
     name: string;
-    char: string;
-}
-
-const parseLine = (line: string): Emoji | null => {
-    const data = line.trim().split(/\s+[;#] /);
-
-    if (data.length !== 3) return null;
-    const match = data[2].match(/^(\S+) E\d+\.\d+ (.+)$/);
-    if (match?.length !== 3) return null;
-
-    return {
-        name: `:${match[2].replace(/[: -]/g, '_').replace(/_+/g, '_')}:`,
-        char: match[1],
+    unicode_version: number;
+    category: string;
+    order: number;
+    display: number;
+    shortname: string;
+    shortname_alternates: string[];
+    ascii: string[];
+    humanform: number;
+    diversity_base: number;
+    diversity?: unknown;
+    diversity_children: unknown[];
+    gender: unknown[];
+    gender_children: unknown[];
+    code_points: {
+        base: string;
+        fully_qualified: string;
+        decimal: string;
+        diversity_parent?: unknown;
+        gender_parent?: unknown;
     };
-};
+    keywords: string[];
+}
 
 const rel = (pathName: string) => path.resolve(__dirname, pathName);
 
-const writeFile = (emojis: { [name: string]: Emoji['char'] }) => {
+const writeFile = (emojis: { [unicode: string]: string[] }) => {
     fs.writeFileSync(
         rel('../../src/utils/emojis.json'),
         JSON.stringify(emojis),
@@ -34,32 +39,49 @@ const writeFile = (emojis: { [name: string]: Emoji['char'] }) => {
 
 export default (): void => {
     https.get(
-        `https://unicode.org/Public/emoji/${LATEST_VERSION}/emoji-test.txt`,
+        'https://raw.githubusercontent.com/joypixels/emoji-toolkit/master/emoji.json',
         res => {
-            let text = '';
-            res.setEncoding('utf8');
+            let data = '';
             res.on('data', chunk => {
-                text += chunk;
+                data += chunk;
             });
             res.on('end', () => {
-                const collected = text
-                    .trim()
-                    .split('\n')
-                    .reduce((accu, line) => {
-                        if (
-                            !line.startsWith('# group: ') &&
-                            !line.startsWith('# subgroup: ') &&
-                            !line.startsWith('#') &&
-                            !line.includes('unqualified')
-                        ) {
-                            const meta = parseLine(line);
-                            if (meta) {
-                                accu[meta.name] = meta.char;
-                            }
-                        }
-                        return accu;
-                    }, {} as { [name: string]: Emoji['char'] });
-                writeFile(collected);
+                const emojis = JSON.parse(data) as {
+                    [unicode: string]: EmojiData;
+                };
+
+                writeFile(
+                    Object.fromEntries(
+                        Object.entries(emojis).map(
+                            ([
+                                unicode,
+                                {
+                                    name,
+                                    shortname,
+                                    shortname_alternates,
+                                    ascii,
+                                },
+                            ]) => [
+                                unicode
+                                    .split('-')
+                                    .map(n =>
+                                        String.fromCodePoint(parseInt(n, 16))
+                                    )
+                                    .join(''),
+                                [
+                                    ...new Set([
+                                        `:${name
+                                            .replace(/[: -,]/g, '_')
+                                            .replace(/_+/g, '_')}:`,
+                                        shortname,
+                                        ...shortname_alternates,
+                                        ...ascii,
+                                    ]),
+                                ],
+                            ]
+                        )
+                    )
+                );
             });
         }
     );

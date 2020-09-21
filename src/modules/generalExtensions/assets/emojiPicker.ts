@@ -1,7 +1,24 @@
 import emojiMap from '../../../utils/emojis.json';
 
 export default (LSSM: Vue): void => {
-    const emojiNames = Object.keys(emojiMap);
+    const emojiByName = {} as { [unicode: string]: string };
+    const emojiyByAlias = {} as { [unicode: string]: string };
+    Object.entries(emojiMap as { [unicode: string]: string[] }).forEach(
+        ([emoji, namesAndAliases]) => {
+            namesAndAliases.forEach(name => {
+                if (name.match(/^:.*:$/)) emojiByName[name] = emoji;
+                else emojiyByAlias[name] = emoji;
+            });
+        }
+    );
+    const emojiAliasRegex = new RegExp(
+        Object.keys(emojiyByAlias)
+            .map(key => `${LSSM.$utils.escapeRegex(key)} `)
+            .join('|'),
+        'g'
+    );
+    const emojiNames = Object.keys(emojiByName);
+
     const popupMap = {} as { [name: string]: HTMLDivElement };
     const optionClass = LSSM.$store.getters.nodeAttribute(
         'emoji-picker-option'
@@ -38,9 +55,11 @@ export default (LSSM: Vue): void => {
         }
         input.value = input.value.replace(
             /:.*?:/g,
-            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-            // @ts-ignore
-            name => emojiMap[name] ?? name
+            name => emojiByName[name.toLowerCase()] ?? name
+        );
+        input.value = input.value.replace(
+            emojiAliasRegex,
+            name => emojiyByAlias[name.replace(/ $/, '')] ?? name
         );
         const end = input.value.match(/(?<=:)[^:]*?$/);
         if (
@@ -57,20 +76,19 @@ export default (LSSM: Vue): void => {
             return (popupMap[input.name].style.display = 'none');
         popupMap[input.name].style.display = 'block';
         popupMap[input.name].innerHTML = '';
+        const mapped = [] as string[];
         popupMap[input.name].append(
             ...matching.map(name => {
+                if (mapped.includes(emojiByName[name])) return '';
+                mapped.push(emojiByName[name]);
                 const span = document.createElement('span');
                 span.title = name;
-                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                // @ts-ignore
-                span.textContent = emojiMap[name];
+                span.textContent = emojiByName[name];
                 span.classList.add(optionClass);
                 span.addEventListener('click', () => {
                     input.value = input.value.replace(
                         /:[^:]*?$/,
-                        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                        // @ts-ignore
-                        emojiMap[name]
+                        emojiByName[name]
                     );
                     changeHandler(e);
                 });
