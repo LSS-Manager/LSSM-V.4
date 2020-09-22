@@ -63,6 +63,7 @@ export default async (LSSM: Vue): Promise<void> => {
         input.value = input.value.replace(/:[^:]*?$/, emojiByName[emoji]);
         input.focus();
         popupMap[input.name].innerHTML = '';
+        popupMap[input.name].style.display = 'none';
         changeHandler(e);
     };
 
