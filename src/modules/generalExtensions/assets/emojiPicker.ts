@@ -1,17 +1,38 @@
-import emojiMap from '../../../utils/emojis.json';
+export default async (LSSM: Vue): Promise<void> => {
+    const emojiByName = {} as { [unicode: string]: string };
+    const emojiyByAlias = {} as { [unicode: string]: string };
+    const emojiMap = (
+        await import(
+            /* webpackChunkName: "utils/emojis" */ '../../../utils/emojis.json'
+        )
+    ).default as {
+        [unicode: string]: string[];
+    };
+    Object.entries(emojiMap).forEach(([emoji, namesAndAliases]) => {
+        namesAndAliases.forEach(name => {
+            if (name.match(/^:.*:$/)) emojiByName[name] = emoji;
+            else emojiyByAlias[name] = emoji;
+        });
+    });
+    const emojiAliasRegex = new RegExp(
+        Object.keys(emojiyByAlias)
+            .map(key => `${LSSM.$utils.escapeRegex(key)} `)
+            .join('|'),
+        'g'
+    );
+    const emojiNames = Object.keys(emojiByName);
 
-export default (LSSM: Vue): void => {
-    const emojiNames = Object.keys(emojiMap);
     const popupMap = {} as { [name: string]: HTMLDivElement };
     const optionClass = LSSM.$store.getters.nodeAttribute(
         'emoji-picker-option'
     );
 
-    LSSM.$store.dispatch('addStyles', [
+    await LSSM.$store.dispatch('addStyles', [
         {
             selectorText: `.${optionClass}`,
             style: {
-                cursor: 'pointer',
+                'cursor': 'pointer',
+                'font-size': 'large',
             },
         },
         {
@@ -20,11 +41,41 @@ export default (LSSM: Vue): void => {
                 content: '" | "',
             },
         },
+        {
+            selectorText: `.${optionClass}.focused`,
+            style: {
+                'background-color': 'blue',
+            },
+        },
+        {
+            selectorText: `.${optionClass}.focused::after`,
+            style: {
+                'background-color': 'dimgrey',
+            },
+        },
     ]);
+
+    const inputEmoji = (
+        input: HTMLInputElement,
+        emoji: string,
+        e: KeyboardEvent
+    ) => {
+        input.value = input.value.replace(/:[^:]*?$/, emojiByName[emoji]);
+        input.focus();
+        popupMap[input.name].innerHTML = '';
+        popupMap[input.name].style.display = 'none';
+        changeHandler(e);
+    };
+
+    let currentFocus = null as HTMLSpanElement | null;
 
     const changeHandler = (e: KeyboardEvent) => {
         const input = e.target as HTMLInputElement;
-        if (!input.matches('input')) return;
+        if (
+            !input.matches('input') ||
+            ['ArrowRight', 'ArrowLeft', 'Enter'].includes(e.key)
+        )
+            return;
         if (!popupMap.hasOwnProperty(input.name)) {
             const popup = document.createElement('div');
             popup.style.width = '100%';
@@ -38,10 +89,12 @@ export default (LSSM: Vue): void => {
         }
         input.value = input.value.replace(
             /:.*?:/g,
-            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-            // @ts-ignore
-            name => emojiMap[name] ?? name
+            name => emojiByName[name.toLowerCase()] ?? name
         );
+        input.value = input.value.replace(emojiAliasRegex, name => {
+            name = name.replace(/ $/, '');
+            return `${emojiyByAlias[name] ?? name} `;
+        });
         const end = input.value.match(/(?<=:)[^:]*?$/);
         if (
             !end?.length ||
@@ -57,27 +110,78 @@ export default (LSSM: Vue): void => {
             return (popupMap[input.name].style.display = 'none');
         popupMap[input.name].style.display = 'block';
         popupMap[input.name].innerHTML = '';
+        const mapped = [] as string[];
         popupMap[input.name].append(
             ...matching.map(name => {
+                if (mapped.includes(emojiByName[name])) return '';
+                mapped.push(emojiByName[name]);
                 const span = document.createElement('span');
+                span.tabIndex = -1;
                 span.title = name;
-                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                // @ts-ignore
-                span.textContent = emojiMap[name];
+                span.textContent = emojiByName[name];
                 span.classList.add(optionClass);
-                span.addEventListener('click', () => {
-                    input.value = input.value.replace(
-                        /:[^:]*?$/,
-                        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                        // @ts-ignore
-                        emojiMap[name]
-                    );
-                    changeHandler(e);
-                });
+                span.addEventListener('click', () =>
+                    inputEmoji(input, name, e)
+                );
                 return span;
             })
         );
+        currentFocus = popupMap[input.name]
+            .firstElementChild as HTMLSpanElement | null;
+        currentFocus?.classList.add('focused');
     };
-
     document.addEventListener('keyup', changeHandler);
+    document.addEventListener('keydown', e => {
+        if (!e.target || !(e.target as HTMLElement)?.matches?.('input')) return;
+        if (
+            popupMap[(e.target as HTMLInputElement).name]?.style.display ===
+                'block' &&
+            ['ArrowRight', 'ArrowLeft', 'Enter'].includes(e.key)
+        )
+            return e.preventDefault();
+    });
+    document.addEventListener('keyup', e => {
+        if (!e.target || !(e.target as HTMLElement)?.matches?.('input')) return;
+        if (
+            !(
+                popupMap[(e.target as HTMLInputElement).name]?.style.display ===
+                    'block' &&
+                ['ArrowRight', 'ArrowLeft', 'Enter'].includes(e.key)
+            )
+        )
+            return;
+        if (!currentFocus) return;
+        switch (e.key) {
+            case 'Enter':
+                return inputEmoji(
+                    e.target as HTMLInputElement,
+                    currentFocus.title,
+                    e
+                );
+            case 'ArrowRight':
+                currentFocus.classList.remove('focused');
+                if (
+                    currentFocus ===
+                    currentFocus.parentElement?.lastElementChild
+                )
+                    currentFocus = currentFocus.parentElement
+                        ?.firstElementChild as HTMLSpanElement | null;
+                else
+                    currentFocus = currentFocus.nextElementSibling as HTMLSpanElement | null;
+                currentFocus?.classList.add('focused');
+                break;
+            case 'ArrowLeft':
+                currentFocus.classList.remove('focused');
+                if (
+                    currentFocus ===
+                    currentFocus.parentElement?.firstElementChild
+                )
+                    currentFocus = currentFocus.parentElement
+                        ?.lastElementChild as HTMLSpanElement | null;
+                else
+                    currentFocus = currentFocus.previousElementSibling as HTMLSpanElement | null;
+                currentFocus?.classList.add('focused');
+                break;
+        }
+    });
 };
