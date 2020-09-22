@@ -160,12 +160,26 @@ export default async (LSSM: Vue): Promise<void> => {
                 );
             case 'ArrowRight':
                 currentFocus.classList.remove('focused');
-                currentFocus = currentFocus.nextElementSibling as HTMLSpanElement | null;
+                if (
+                    currentFocus ===
+                    currentFocus.parentElement?.lastElementChild
+                )
+                    currentFocus = currentFocus.parentElement
+                        ?.firstElementChild as HTMLSpanElement | null;
+                else
+                    currentFocus = currentFocus.nextElementSibling as HTMLSpanElement | null;
                 currentFocus?.classList.add('focused');
                 break;
             case 'ArrowLeft':
                 currentFocus.classList.remove('focused');
-                currentFocus = currentFocus.previousElementSibling as HTMLSpanElement | null;
+                if (
+                    currentFocus ===
+                    currentFocus.parentElement?.firstElementChild
+                )
+                    currentFocus = currentFocus.parentElement
+                        ?.lastElementChild as HTMLSpanElement | null;
+                else
+                    currentFocus = currentFocus.previousElementSibling as HTMLSpanElement | null;
                 currentFocus?.classList.add('focused');
                 break;
         }
