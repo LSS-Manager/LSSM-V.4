@@ -12,9 +12,6 @@ export default (async (LSSM, MODULE_ID, $m) => {
     )
         return;
 
-    await LSSM.$store.dispatch('api/registerVehiclesUsage', true);
-    await LSSM.$store.dispatch('api/registerBuildingsUsage', true);
-
     const getSetting = (settingId: string): Promise<boolean> => {
         return LSSM.$store.dispatch('settings/getSetting', {
             moduleId: MODULE_ID,
@@ -26,6 +23,10 @@ export default (async (LSSM, MODULE_ID, $m) => {
         const BUILDING_MODE = document.getElementById('tab_protocol')
             ? 'dispatch'
             : 'building';
+
+        const path = window.location.pathname.split('/').filter(s => !!s);
+        const buildingId = parseInt(path[path.length - 1]);
+        await LSSM.$store.dispatch('api/fetchBuilding', buildingId);
 
         if (await getSetting('enhanceVehicleList'))
             await (
