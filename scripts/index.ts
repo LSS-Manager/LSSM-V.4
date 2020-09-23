@@ -23,8 +23,8 @@ try {
         },
         predev() {
             return [
-                this.lint(),
                 this.emojis(),
+                this.lint(),
                 this.tscPrebuild(),
                 execSync('node prebuild').toString(),
             ].join('\n\n');
