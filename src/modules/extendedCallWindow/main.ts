@@ -84,6 +84,10 @@ export default (async (LSSM, MODULE_ID, $m) => {
                 type: 'toggle',
                 default: false,
             },
+            centerMap: {
+                type: 'toggle',
+                default: false,
+            },
             tailoredTabs: {
                 type: 'appendable-list',
                 default: defaultTailoredTabs,
@@ -251,6 +255,12 @@ export default (async (LSSM, MODULE_ID, $m) => {
                     /* webpackChunkName: "modules/extendedCallWindow/hideVehicleList" */ './assets/hideVehicleList'
                 )
             ).default(LSSM, MODULE_ID, $m);
+        if (await getSetting('centerMap'))
+            (
+                await import(
+                    /* webpackChunkName: "modules/extendedCallWindow/centerMap" */ './assets/centerMap'
+                )
+            ).default(LSSM);
     }
 
     const tailoredTabSettings = await getSetting<typeof defaultTailoredTabs>(
