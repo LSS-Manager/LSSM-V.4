@@ -35,7 +35,10 @@ export default (async (LSSM, MODULE_ID, $m) => {
             ).default(LSSM, BUILDING_MODE, getSetting, $m);
 
         if (BUILDING_MODE === 'building') {
-            if (await getSetting('personnelDemands'))
+            if (
+                (await getSetting('personnelDemands')) &&
+                document.getElementById('vehicle_table')
+            )
                 (
                     await import(
                         /* webpackChunkName: "modules/extendedBuilding/personnelDemands" */ './assets/personnelDemands'
