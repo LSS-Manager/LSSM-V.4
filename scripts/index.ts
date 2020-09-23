@@ -1,13 +1,14 @@
 import { execSync } from 'child_process';
 import sort from './sort';
-import emojis from './utils/fetchEmojis';
 
 const scripts = process.argv.splice(2);
 
 try {
     const scriptHandlers = {
         sort,
-        emojis,
+        emojis() {
+            return execSync('node ./scripts/utils/fetchEmojis').toString();
+        },
         lint() {
             return [
                 this.sort(),
@@ -48,6 +49,7 @@ try {
         },
         preBuild() {
             return [
+                this.emojis(),
                 this.lint(),
                 this.tscPrebuild(),
                 execSync('node prebuild production').toString(),

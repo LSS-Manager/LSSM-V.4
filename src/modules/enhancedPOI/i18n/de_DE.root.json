@@ -13,9 +13,9 @@
 			"title": "Marker Hervorhebung",
 			"white": "Weiß"
 		},
-        "shown_types": {
-            "title": "Angezeigte POI-Typen",
-            "description": "Lege hier fest, welche POI-Typen eingeblendet werden sollen. Du kannst diese Einstellung auch direkt im \"POI setzen\"-Menü ändern."
-        }
+		"shown_types": {
+			"title": "Angezeigte POI-Typen",
+			"description": "Lege hier fest, welche POI-Typen eingeblendet werden sollen. Du kannst diese Einstellung auch direkt im \"POI setzen\"-Menü ändern."
+		}
 	}
 }
