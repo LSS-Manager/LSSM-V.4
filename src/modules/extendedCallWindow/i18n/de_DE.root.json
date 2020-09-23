@@ -58,9 +58,13 @@
 			"description": "Zeigt den Knopf \"Fahrzeuge nachladen\", wenn vorhanden, in der Kopfleiste an."
 		},
 		"hideVehicleList": {
-			"title": "Versteckt die Fahrzeugliste",
-			"description": "Versteckt normal die Einsatzliste, öffnet diese dann per Knopfdruck."
+			"title": "Fahrzeugliste Verstecken",
+			"description": "Versteckt die Fahrzeugliste, öffnet diese dann per Knopfdruck."
 		},
+        "centerMap": {
+            "title": "Karte zentrieren",
+            "description": "Ermöglicht es dir im Einsatzfenster auf Knopfdruck die Karte im Hauptfenster auf den Einsatzort zu zentrieren."
+        },
 		"tailoredTabs": {
 			"title": "Fahrzeugkategorien",
 			"description": "Passe dir hier die Tabs im Einsatzfenster an. \"Alle\" und \"Weiteralarmieren\" werden immer sichtbar sein.",
