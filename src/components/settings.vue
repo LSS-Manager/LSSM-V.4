@@ -196,9 +196,11 @@
                             v-model="settings[moduleId][settingId].value"
                             :options="
                                 setting.values.map(value => ({
-                                    label: $t(
-                                        `modules.${moduleId}.settings.${settingId}.${value}`
-                                    ),
+                                    label: setting.noLabelTranslation
+                                        ? value
+                                        : $t(
+                                              `modules.${moduleId}.settings.${settingId}.${value}`
+                                          ),
                                     value,
                                 }))
                             "
@@ -216,9 +218,11 @@
                             v-model="settings[moduleId][settingId].value"
                             :options="
                                 setting.values.map(value => ({
-                                    label: $t(
-                                        `modules.${moduleId}.settings.${settingId}.${value}`
-                                    ),
+                                    label: setting.noLabelTranslation
+                                        ? value
+                                        : $t(
+                                              `modules.${moduleId}.settings.${settingId}.${value}`
+                                          ),
                                     value,
                                 }))
                             "

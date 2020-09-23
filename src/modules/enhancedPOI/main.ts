@@ -1,9 +1,12 @@
 import { POI } from 'typings/modules/EnhancedPOI';
 import { POIMarker } from 'typings/Ingame';
 import { LayersControlEvent } from 'leaflet';
-import { ModuleMainFunction } from 'typings/Module';
+import { $m, ModuleMainFunction } from 'typings/Module';
 
-export default (async (LSSM, MODULE_ID) => {
+export default (async (LSSM, MODULE_ID, $m: $m) => {
+    const poi_types = Object.values(LSSM.$t('pois')) as string[];
+    poi_types.sort();
+
     const style = await (async () => {
         const predef = await LSSM.$store.dispatch('settings/getSetting', {
             moduleId: MODULE_ID,
@@ -93,12 +96,20 @@ export default (async (LSSM, MODULE_ID) => {
         'poi-highlighted'
     );
 
-    await LSSM.$store.dispatch('addStyle', {
-        selectorText: `.poi.${poiHighlightedClass}`,
-        style: {
-            filter: style,
+    await LSSM.$store.dispatch('addStyles', [
+        {
+            selectorText: `#map .poi`,
+            style: {
+                display: 'none',
+            },
         },
-    });
+        {
+            selectorText: `#map .poi.${poiHighlightedClass}`,
+            style: {
+                filter: style,
+            },
+        },
+    ]);
 
     const colorMarkers = (caption: string) =>
         (document.querySelectorAll('.poi') as NodeListOf<
@@ -115,6 +126,27 @@ export default (async (LSSM, MODULE_ID) => {
         ({ name }: LayersControlEvent) =>
             !modifiedMarkers && name.match(/app-pois-filter/) && modifyMarkers()
     );
+
+    let shown_types = (await LSSM.$store.dispatch('settings/getSetting', {
+        moduleId: MODULE_ID,
+        settingId: 'shown_types',
+        defaultValue: poi_types,
+    })) as string[];
+
+    const refresh_shown_pois = () => {
+        const selector = shown_types
+            .map(poi => `#map .poi[caption="${poi}"]`)
+            .join(',');
+        const extraStyleId = LSSM.$store.getters.nodeAttribute(
+            'poi-hider-style'
+        );
+        document.getElementById(extraStyleId)?.remove();
+        const style = document.createElement('style');
+        style.id = extraStyleId;
+        style.innerText = `${selector} {display: block !important;}`;
+        document.body.append(style);
+    };
+    refresh_shown_pois();
 
     const observer = new MutationObserver(mutations => {
         mutations.forEach(mutation => {
@@ -144,6 +176,94 @@ export default (async (LSSM, MODULE_ID) => {
                         'option:checked'
                     )?.textContent || ''
                 )
+            );
+            const settingsWrapper = document.createElement('div');
+            settingsWrapper.style.paddingLeft = '1ch';
+            form.append(settingsWrapper);
+            settingsWrapper.append(
+                ...['all', 'none', ...poi_types].map(poi => {
+                    const wrapper = document.createElement('div');
+                    wrapper.classList.add('form-group', 'boolean', 'optional');
+                    const label = document.createElement('label');
+                    label.classList.add('boolean', 'optional', 'checkbox');
+                    const input = document.createElement('input');
+                    input.classList.add('boolean', 'optional');
+                    input.type = 'checkbox';
+                    input.name = poi;
+                    input.checked =
+                        poi === 'all'
+                            ? shown_types === poi_types
+                            : poi === 'none'
+                            ? shown_types === []
+                            : shown_types.includes(poi);
+                    if (poi === 'all')
+                        input.addEventListener('change', () => {
+                            if (!input.checked) return;
+                            shown_types = poi_types;
+                            LSSM.$store.dispatch('settings/setSetting', {
+                                moduleId: MODULE_ID,
+                                settingId: 'shown_types',
+                                value: shown_types,
+                            });
+                            refresh_shown_pois();
+                            Array.from(
+                                settingsWrapper.querySelectorAll(
+                                    'input:not([name="all"]):not([name="none"])'
+                                ) as NodeListOf<HTMLInputElement>
+                            ).forEach(input => (input.checked = true));
+                            Array.from(
+                                settingsWrapper.querySelectorAll(
+                                    'input[name="all"], input[name="none"]'
+                                ) as NodeListOf<HTMLInputElement>
+                            ).forEach(input => (input.checked = false));
+                        });
+                    else if (poi === 'none')
+                        input.addEventListener('change', () => {
+                            if (!input.checked) return;
+                            shown_types = [];
+                            LSSM.$store.dispatch('settings/setSetting', {
+                                moduleId: MODULE_ID,
+                                settingId: 'shown_types',
+                                value: shown_types,
+                            });
+                            refresh_shown_pois();
+                            Array.from(
+                                settingsWrapper.querySelectorAll(
+                                    'input:not([name="all"]):not([name="none"])'
+                                ) as NodeListOf<HTMLInputElement>
+                            ).forEach(input => (input.checked = false));
+                            Array.from(
+                                settingsWrapper.querySelectorAll(
+                                    'input[name="all"], input[name="none"]'
+                                ) as NodeListOf<HTMLInputElement>
+                            ).forEach(input => (input.checked = false));
+                        });
+                    else
+                        input.addEventListener('change', () => {
+                            if (input.checked) shown_types.push(poi);
+                            else
+                                shown_types.splice(
+                                    shown_types.findIndex(p => p === poi),
+                                    1
+                                );
+                            shown_types.sort();
+                            LSSM.$store.dispatch('settings/setSetting', {
+                                moduleId: MODULE_ID,
+                                settingId: 'shown_types',
+                                value: shown_types,
+                            });
+                            refresh_shown_pois();
+                        });
+                    label.textContent =
+                        poi === 'all'
+                            ? $m('all').toString()
+                            : poi === 'none'
+                            ? $m('none').toString()
+                            : poi;
+                    label.prepend(input);
+                    wrapper.append(label);
+                    return wrapper;
+                })
             );
         });
     });
