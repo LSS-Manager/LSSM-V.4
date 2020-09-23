@@ -10,6 +10,9 @@
             $t('modules.extendedCallWindow.settings.missionKeywords.preview')
         }}</b>
         <b>{{
+            $t('modules.extendedCallWindow.settings.missionKeywords.prepend')
+        }}</b>
+        <b>{{
             $t('modules.extendedCallWindow.settings.missionKeywords.missions')
         }}</b>
     </div>

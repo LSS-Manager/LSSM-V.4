@@ -77,6 +77,7 @@
 			"description": "Lasse dir ein eigenes Stichwort neben dem Einsatznamen anzeigen",
 			"keyword": "Stichwort",
 			"color": "Hintergrundfarbe",
+            "prepend": "Vor dem Einsatznamen anzeigen",
 			"missions": "Einsätze",
 			"preview": "Vorschau"
 		},

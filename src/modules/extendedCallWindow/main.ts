@@ -106,6 +106,7 @@ export default (async (LSSM, MODULE_ID, $m) => {
                 defaultItem: {
                     keyword: '',
                     color: '#777777',
+                    prefix: false,
                     missions: [],
                 },
             },
@@ -193,7 +194,12 @@ export default (async (LSSM, MODULE_ID, $m) => {
             ).default(LSSM, getSetting, $m);
 
         const missionKeywordsSettings = await getSetting<
-            { keyword: string; color: string; missions: number[] }[]
+            {
+                keyword: string;
+                color: string;
+                prefix: boolean;
+                missions: number[];
+            }[]
         >('missionKeywords');
 
         if (missionKeywordsSettings.length)
