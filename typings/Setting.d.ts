@@ -37,11 +37,13 @@ interface Select extends SettingTemplate {
     default: string;
     value: string;
     values: string[];
+    noLabelTranslation?: boolean;
 }
 interface MultiSelect extends SettingTemplate {
     default: string[];
     value: string[];
     values: string[];
+    noLabelTranslation?: boolean;
 }
 
 interface HotKey extends SettingTemplate {

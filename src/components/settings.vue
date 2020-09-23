@@ -196,9 +196,11 @@
                             v-model="settings[moduleId][settingId].value"
                             :options="
                                 setting.values.map(value => ({
-                                    label: $t(
-                                        `modules.${moduleId}.settings.${settingId}.${value}`
-                                    ),
+                                    label: setting.noLabelTranslation
+                                        ? value
+                                        : $t(
+                                              `modules.${moduleId}.settings.${settingId}.${value}`
+                                          ),
                                     value,
                                 }))
                             "
@@ -209,6 +211,7 @@
                             "
                             @input="update(moduleId, settingId)"
                             :disabled="setting.isDisabled"
+                            :no-label-translation="setting.noLabelTranslation"
                         ></settings-select>
                         <settings-multi-select
                             v-else-if="setting.type === 'multiSelect'"
@@ -216,9 +219,11 @@
                             v-model="settings[moduleId][settingId].value"
                             :options="
                                 setting.values.map(value => ({
-                                    label: $t(
-                                        `modules.${moduleId}.settings.${settingId}.${value}`
-                                    ),
+                                    label: setting.noLabelTranslation
+                                        ? value
+                                        : $t(
+                                              `modules.${moduleId}.settings.${settingId}.${value}`
+                                          ),
                                     value,
                                 }))
                             "

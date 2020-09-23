@@ -155,7 +155,7 @@ if (window.location.pathname === '/') {
                                 /* webpackExclude: /[\\/]+modules[\\/]+(telemetry|releasenotes|support)[\\/]+/ */
                                 `./modules/${moduleId}/settings`
                             )
-                        ).default(moduleId),
+                        ).default(moduleId, LSSM),
                     });
                 }
                 if (
