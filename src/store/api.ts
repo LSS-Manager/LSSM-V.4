@@ -419,7 +419,7 @@ export default {
             return new Promise((resolve, reject) => {
                 store
                     .dispatch('request', {
-                        url: `/api/buildings/${id}/vehicle`,
+                        url: `/api/buildings/${id}/vehicles`,
                     })
                     .then(res => res.json())
                     .then(async (vehiclesAt: Vehicle[]) => {
