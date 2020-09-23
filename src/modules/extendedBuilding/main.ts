@@ -12,9 +12,6 @@ export default (async (LSSM, MODULE_ID, $m) => {
     )
         return;
 
-    await LSSM.$store.dispatch('api/registerVehiclesUsage', true);
-    await LSSM.$store.dispatch('api/registerBuildingsUsage', true);
-
     const getSetting = (settingId: string): Promise<boolean> => {
         return LSSM.$store.dispatch('settings/getSetting', {
             moduleId: MODULE_ID,
@@ -27,6 +24,10 @@ export default (async (LSSM, MODULE_ID, $m) => {
             ? 'dispatch'
             : 'building';
 
+        const path = window.location.pathname.split('/').filter(s => !!s);
+        const buildingId = parseInt(path[path.length - 1]);
+        await LSSM.$store.dispatch('api/fetchBuilding', buildingId);
+
         if (await getSetting('enhanceVehicleList'))
             await (
                 await import(
@@ -35,7 +36,10 @@ export default (async (LSSM, MODULE_ID, $m) => {
             ).default(LSSM, BUILDING_MODE, getSetting, $m);
 
         if (BUILDING_MODE === 'building') {
-            if (await getSetting('personnelDemands'))
+            if (
+                (await getSetting('personnelDemands')) &&
+                document.getElementById('vehicle_table')
+            )
                 (
                     await import(
                         /* webpackChunkName: "modules/extendedBuilding/personnelDemands" */ './assets/personnelDemands'

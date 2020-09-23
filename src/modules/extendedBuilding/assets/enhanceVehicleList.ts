@@ -225,10 +225,19 @@ export default async (
         });
     };
 
-    if (BUILDING_MODE === 'dispatch' && window.location.hash !== '#tab_vehicle')
+    if (
+        BUILDING_MODE === 'dispatch' &&
+        window.location.hash !== '#tab_vehicle'
+    ) {
         await LSSM.$store.dispatch('observeAsyncTab', {
             tabSelector: '#tab_vehicle',
             callback,
         });
-    else await callback();
+        await LSSM.$store.dispatch('api/registerVehiclesUsage', false);
+    } else {
+        const path = window.location.pathname.split('/').filter(s => !!s);
+        const buildingId = parseInt(path[path.length - 1]);
+        await LSSM.$store.dispatch('api/fetchVehiclesAtBuilding', buildingId);
+        await callback();
+    }
 };
