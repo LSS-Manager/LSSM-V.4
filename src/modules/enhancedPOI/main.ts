@@ -1,9 +1,9 @@
 import { POI } from 'typings/modules/EnhancedPOI';
 import { POIMarker } from 'typings/Ingame';
 import { LayersControlEvent } from 'leaflet';
-import { ModuleMainFunction } from 'typings/Module';
+import { $m, ModuleMainFunction } from 'typings/Module';
 
-export default (async (LSSM, MODULE_ID) => {
+export default (async (LSSM, MODULE_ID, $m: $m) => {
     const poi_types = Object.values(LSSM.$t('pois')) as string[];
     poi_types.sort();
 
@@ -127,7 +127,7 @@ export default (async (LSSM, MODULE_ID) => {
             !modifiedMarkers && name.match(/app-pois-filter/) && modifyMarkers()
     );
 
-    const shown_types = (await LSSM.$store.dispatch('settings/getSetting', {
+    let shown_types = (await LSSM.$store.dispatch('settings/getSetting', {
         moduleId: MODULE_ID,
         settingId: 'shown_types',
         defaultValue: poi_types,
@@ -181,7 +181,7 @@ export default (async (LSSM, MODULE_ID) => {
             settingsWrapper.style.paddingLeft = '1ch';
             form.append(settingsWrapper);
             settingsWrapper.append(
-                ...poi_types.map(poi => {
+                ...['all', 'none', ...poi_types].map(poi => {
                     const wrapper = document.createElement('div');
                     wrapper.classList.add('form-group', 'boolean', 'optional');
                     const label = document.createElement('label');
@@ -189,23 +189,77 @@ export default (async (LSSM, MODULE_ID) => {
                     const input = document.createElement('input');
                     input.classList.add('boolean', 'optional');
                     input.type = 'checkbox';
-                    input.checked = shown_types.includes(poi);
-                    input.addEventListener('change', () => {
-                        if (input.checked) shown_types.push(poi);
-                        else
-                            shown_types.splice(
-                                shown_types.findIndex(p => p === poi),
-                                1
-                            );
-                        shown_types.sort();
-                        LSSM.$store.dispatch('settings/setSetting', {
-                            moduleId: MODULE_ID,
-                            settingId: 'shown_types',
-                            value: shown_types,
+                    input.name = poi;
+                    input.checked =
+                        poi === 'all'
+                            ? shown_types === poi_types
+                            : poi === 'none'
+                            ? shown_types === []
+                            : shown_types.includes(poi);
+                    if (poi === 'all')
+                        input.addEventListener('change', () => {
+                            if (!input.checked) return;
+                            shown_types = poi_types;
+                            LSSM.$store.dispatch('settings/setSetting', {
+                                moduleId: MODULE_ID,
+                                settingId: 'shown_types',
+                                value: shown_types,
+                            });
+                            refresh_shown_pois();
+                            Array.from(
+                                settingsWrapper.querySelectorAll(
+                                    'input:not([name="all"]):not([name="none"])'
+                                ) as NodeListOf<HTMLInputElement>
+                            ).forEach(input => (input.checked = true));
+                            Array.from(
+                                settingsWrapper.querySelectorAll(
+                                    'input[name="all"], input[name="none"]'
+                                ) as NodeListOf<HTMLInputElement>
+                            ).forEach(input => (input.checked = false));
                         });
-                        refresh_shown_pois();
-                    });
-                    label.textContent = poi;
+                    else if (poi === 'none')
+                        input.addEventListener('change', () => {
+                            if (!input.checked) return;
+                            shown_types = [];
+                            LSSM.$store.dispatch('settings/setSetting', {
+                                moduleId: MODULE_ID,
+                                settingId: 'shown_types',
+                                value: shown_types,
+                            });
+                            refresh_shown_pois();
+                            Array.from(
+                                settingsWrapper.querySelectorAll(
+                                    'input:not([name="all"]):not([name="none"])'
+                                ) as NodeListOf<HTMLInputElement>
+                            ).forEach(input => (input.checked = false));
+                            Array.from(
+                                settingsWrapper.querySelectorAll(
+                                    'input[name="all"], input[name="none"]'
+                                ) as NodeListOf<HTMLInputElement>
+                            ).forEach(input => (input.checked = false));
+                        });
+                    else
+                        input.addEventListener('change', () => {
+                            if (input.checked) shown_types.push(poi);
+                            else
+                                shown_types.splice(
+                                    shown_types.findIndex(p => p === poi),
+                                    1
+                                );
+                            shown_types.sort();
+                            LSSM.$store.dispatch('settings/setSetting', {
+                                moduleId: MODULE_ID,
+                                settingId: 'shown_types',
+                                value: shown_types,
+                            });
+                            refresh_shown_pois();
+                        });
+                    label.textContent =
+                        poi === 'all'
+                            ? $m('all').toString()
+                            : poi === 'none'
+                            ? $m('none').toString()
+                            : poi;
                     label.prepend(input);
                     wrapper.append(label);
                     return wrapper;

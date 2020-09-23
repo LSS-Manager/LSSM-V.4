@@ -211,7 +211,6 @@
                             "
                             @input="update(moduleId, settingId)"
                             :disabled="setting.isDisabled"
-                            :no-label-translation="setting.noLabelTranslation"
                         ></settings-select>
                         <settings-multi-select
                             v-else-if="setting.type === 'multiSelect'"
