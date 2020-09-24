@@ -1,16 +1,12 @@
 export default (LSSM: Vue): void => {
-    const [
-        _,
-        __,
-        lat,
-        lng,
-    ] = (window.vehicleDistanceCalculate as () => void)
-        .toString()
-        .match(
-            /(?<=vehicleDistance\([01](, \d+\.\d+){2}, )(\d+\.\d+), (\d+\.\d+)(?=, [01], sonderrechte\))/
-        ) as string[];
-    const latitude = parseFloat(lat);
-    const longitude = parseFloat(lng);
+    const mission_info = document.getElementById('mission_general_info');
+    if (!mission_info) return;
+    const latitude = parseFloat(
+        mission_info.getAttribute('data-latitude') ?? '0'
+    );
+    const longitude = parseFloat(
+        mission_info.getAttribute('data-longitude') ?? '0'
+    );
     const icon = document.querySelector('#missionH1 span.glyphicon');
     const centerImg = document.createElement('img');
     centerImg.src = '/images/icons8-location_off.svg';
