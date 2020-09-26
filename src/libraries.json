@@ -29,6 +29,9 @@
 	"@types/lodash": {
 		"version": "4.14.161"
 	},
+	"@types/nearley": {
+		"version": "2.11.1"
+	},
 	"@types/node": {
 		"version": "14.11.2"
 	},
@@ -132,6 +135,13 @@
 		"url": "https://momentjs.com",
 		"version": "2.29.0"
 	},
+	"nearley": {
+		"version": "2.19.7"
+	},
+	"nearley-loader": {
+		"url": "https://github.com/kozily/nearley-loader#readme",
+		"version": "2.0.0"
+	},
 	"sass": {
 		"url": "https://github.com/sass/dart-sass",
 		"version": "1.26.11"
@@ -218,7 +228,7 @@
 	"vuepress": {
 		"icon": "https://vuepress.vuejs.org/hero.png",
 		"url": "https://github.com/vuejs/vuepress#readme",
-		"version": "1.5.4"
+		"version": "1.6.0"
 	},
 	"vuepress-plugin-redirect": {
 		"icon": "https://vuepress.vuejs.org/hero.png",
