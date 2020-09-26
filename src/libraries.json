@@ -29,6 +29,9 @@
 	"@types/lodash": {
 		"version": "4.14.165"
 	},
+	"@types/nearley": {
+		"version": "2.11.1"
+	},
 	"@types/node": {
 		"version": "14.14.14"
 	},
@@ -137,6 +140,13 @@
 		"icon": "https://momentjs.com/static/img/moment-favicon.png",
 		"url": "https://momentjs.com",
 		"version": "2.29.1"
+	},
+	"nearley": {
+		"version": "2.19.7"
+	},
+	"nearley-loader": {
+		"url": "https://github.com/kozily/nearley-loader#readme",
+		"version": "2.0.0"
 	},
 	"sass": {
 		"icon": "https://sass-lang.com/assets/img/logos/logo-b6e1ef6e.svg",
