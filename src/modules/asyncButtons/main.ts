@@ -8,9 +8,11 @@ export default (async (LSSM, MODULE_ID, $m) => {
         });
     };
 
-    const buildings = ['buildingTax', 'switchExtensionState'].filter(
-        async s => await getSetting(s)
-    );
+    const buildings = [
+        'buildingTax',
+        'switchExtensionState',
+        'buildExtension',
+    ].filter(async s => await getSetting(s));
     const missions = ['missionPrisoners', 'missionReply'].filter(
         async s => await getSetting(s)
     );
