@@ -31,6 +31,10 @@ export default (() => ({
         type: 'toggle',
         default: true,
     },
+    buildExtension: {
+        type: 'toggle',
+        default: true,
+    },
     buildingPersonal: <Toggle>{
         type: 'toggle',
         default: true,
