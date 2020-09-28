@@ -28,4 +28,8 @@ export default (): unknown => ({
         type: 'toggle',
         default: true,
     },
+    buildExtension: {
+        type: 'toggle',
+        default: true,
+    },
 });
