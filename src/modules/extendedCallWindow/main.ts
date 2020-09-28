@@ -169,7 +169,7 @@ export default (async (LSSM, MODULE_ID, $m) => {
                 await import(
                     /* webpackChunkName: "modules/extendedCallWindow/generationDate" */ './assets/generationDate'
                 )
-            ).default(LSSM, $m);
+            ).default(LSSM);
         if (await getSetting('enhancedMissingVehicles'))
             (
                 await import(

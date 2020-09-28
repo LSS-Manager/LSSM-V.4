@@ -117,9 +117,6 @@ module.exports = {
             rescue_dogs: 'Anhänger Hundetransport oder Rettungshundefahrzeug',
         },
     },
-    generationDate: {
-        inputFormat: 'DD. MMMM, HH:mm Uhr',
-    },
     enhancedMissingVehicles: {
         vehicle: 'Fahrzeugtyp',
         missing: 'Am Einsatzort fehlend',
