@@ -1,7 +1,11 @@
 {
 	"buildings": {
 		"active": "Einsatzbereit",
-		"nonactive": "Nicht Einsatzbereit"
+		"nonactive": "Nicht Einsatzbereit",
+		"cancel": "Abbrechen",
+		"extensionFinish": "Jetzt fertigstellen (10 Coins)",
+		"confirmFinish": "Möchtest du wirklich Coins dafür ausgeben?",
+		"remainingTime": "Restzeit: "
 	},
 	"deleteARR": {
 		"deleteModal": {
