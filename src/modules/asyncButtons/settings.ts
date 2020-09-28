@@ -39,4 +39,4 @@ export default (() => ({
         type: 'toggle',
         default: true,
     },
-});
+})) as ModuleSettingFunction;
