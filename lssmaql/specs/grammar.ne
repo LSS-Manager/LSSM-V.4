@@ -15,8 +15,8 @@ comparison -> comparison_side _ comparison_operator _ comparison_side {% d => ({
 comparison_side -> base_or_relative selector:* {% d => ({type: 'selector', base: [...d[0]].flat().join(""), selector: d[1]})%} | string {% id %}| number {% id %}
 comparison_operator -> ">" {% id %} | "<" {% id %} | "<=" {% id %} | ">=" {% id %} | "=" {% id %} | "!=" {% id %} | "IN"i {% id %} | "NOT IN"i {% id %}
 
-and -> comparison _ "AND"i _ comparison {% d => ({type: 'and', left: d[0], right: d[4]}) %}
-or -> comparison _ "or"i _ comparison {% d => ({type: 'or', left: d[0], right: d[4]}) %}
+and -> (comparison | and | or) _ "AND"i _ (comparison | and | or) {% d => ({type: 'and', left: d[0][0], right: d[4][0]}) %} | "(" and ")" {% d => d[1] %}
+or -> (comparison | and | or) _ "OR"i _ (comparison | and | or) {% d => ({type: 'or', left: d[0][0], right: d[4][0]}) %} | "(" or ")" {% d => d[1] %}
 
 selector -> prop_selector {% id %} | num_selector {% id %}
 
