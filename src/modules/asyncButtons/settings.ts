@@ -35,4 +35,8 @@ export default (() => ({
         type: 'toggle',
         default: true,
     },
+    buildExtension: {
+        type: 'toggle',
+        default: true,
+    },
 })) as ModuleSettingFunction;
