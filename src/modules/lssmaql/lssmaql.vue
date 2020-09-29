@@ -4,34 +4,28 @@
             <font-awesome-icon :icon="faTerminal"></font-awesome-icon>
             LSSMAQL Console
         </h1>
-        <form>
-            <div class="input-group">
-                <label>
-                    your LSSMAQL Query
-                    <input
-                        type="text"
-                        class="form-control"
-                        v-model="query"
-                        @keypress.enter="$refs.execute.click()"
-                    />
-                </label>
-            </div>
-            <a class="btn btn-success" @click.prevent="execute" ref="execute">
-                Execute
-            </a>
-        </form>
+        <div class="input-group">
+            <label>
+                your LSSMAQL Query
+                <input
+                    type="text"
+                    class="form-control"
+                    v-model="query"
+                    @keypress.enter="$refs.execute.click()"
+                />
+            </label>
+        </div>
+        <a class="btn btn-success" @click.prevent="execute" ref="execute">
+            Execute
+        </a>
         <div class="row">
-            <div class="col-sm-8">
+            <div class="col-sm-9">
                 <b>Result ({{ resultLength.toLocaleString() }}):</b>
                 <pre>{{ result }}</pre>
             </div>
-            <div class="col-sm-2">
+            <div class="col-sm-3">
                 <b>Tree:</b>
                 <pre>{{ querytree }}</pre>
-            </div>
-            <div class="col-sm-2">
-                <b>Tokens:</b>
-                <pre>{{ token_list }}</pre>
             </div>
         </div>
     </lightbox>
@@ -44,14 +38,36 @@ import { Parser, Grammar } from 'nearley';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import lssmaqlGrammar from '../../../lssmaql/specs/grammar.ne';
+import cloneDeep from 'lodash/cloneDeep';
 import {
     LSSMAQL,
     LSSMAQLMethods,
     LSSMAQLComputed,
+    LSSMAQLResult,
+    LSSMAQLQuery,
 } from 'typings/modules/LSSMAQL/LSSMAQL';
 import { DefaultProps } from 'vue/types/options';
 
 const grammar = Grammar.fromCompiled(lssmaqlGrammar);
+
+const execute_query = (query: LSSMAQLQuery, LSSM: Vue): LSSMAQLResult => {
+    let result = null as LSSMAQLResult;
+    if (!query.hasOwnProperty('type')) return result;
+    if (query.type === 'query') {
+        result = cloneDeep(
+            LSSM.$store.state.api[query.base.toLowerCase()]
+        ) as Record<string, unknown>;
+        (query.selector as (string | number)[]).forEach(param => {
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-ignore
+            if (Array.isArray(result)) result = result.map(r => r?.[param]);
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-ignore
+            else result = result?.[param];
+        });
+    }
+    return result;
+};
 
 export default Vue.extend<
     LSSMAQL,
@@ -70,15 +86,11 @@ export default Vue.extend<
         return {
             faTerminal,
             query: '',
-            token_list: [],
-            querytree: [],
+            querytree: null,
+            result: {},
         } as LSSMAQL;
     },
     computed: {
-        result() {
-            if (!this.querytree) return null;
-            return null;
-        },
         resultLength() {
             return Array.isArray(this.result)
                 ? this.result.length
@@ -92,9 +104,16 @@ export default Vue.extend<
             this.parse();
         },
         parse() {
-            const parser = new Parser(grammar);
-            parser.feed(this.query);
-            this.querytree = parser.results;
+            this.querytree = null;
+            try {
+                const parser = new Parser(grammar);
+                parser.feed(this.query);
+                this.querytree = parser.results[0] as LSSMAQLQuery;
+                this.result = execute_query(this.querytree, this);
+            } catch (e) {
+                this.result = e;
+                console.log(e);
+            }
         },
     },
     beforeMount() {
@@ -107,7 +126,8 @@ export default Vue.extend<
 </script>
 
 <style scoped lang="sass">
-form :not(.btn),
+.input-group,
+.input-group *,
 .row
   width: 100%
 </style>

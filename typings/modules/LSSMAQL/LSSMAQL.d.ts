@@ -1,12 +1,10 @@
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-import { Token } from 'typings/modules/LSSMAQL/index';
-import { APIState } from 'typings/store/api/State';
 
 export interface LSSMAQL {
     faTerminal: IconDefinition;
     query: string;
-    token_list: Token[];
-    querytree: unknown[];
+    querytree: LSSMAQLQuery | null;
+    result: LSSMAQLResult;
 }
 
 export interface LSSMAQLMethods {
@@ -15,11 +13,37 @@ export interface LSSMAQLMethods {
 }
 
 export interface LSSMAQLComputed {
-    result:
-        | APIState['vehicles']
-        | APIState['buildings']
-        | APIState['allianceinfo']
-        | APIState['missions']
-        | null;
     resultLength: number;
+}
+
+export type LSSMAQLResult =
+    | Record<string, unknown>
+    | string
+    | LSSMAQLResult[]
+    | number
+    | undefined
+    | null;
+
+type LSSMAQLComparisonSide = LSSMAQLQuery & { filter: null };
+
+interface LSSMAQLComparison {
+    type: 'comparison';
+    operator: '>' | '<' | '<=' | '>=' | '=' | '!=' | 'in' | 'not in';
+    left: LSSMAQLComparisonSide;
+    right: LSSMAQLComparisonSide;
+}
+
+interface LSSMAQLFunction {
+    type: 'function';
+    function: 'len' | 'sum' | 'min' | 'max';
+    parameter: LSSMAQLQuery;
+}
+
+type LSSMAQLFilter = LSSMAQLComparison | LSSMAQLFunction;
+
+export interface LSSMAQLQuery {
+    type: 'query';
+    base: string;
+    selector: (string | number)[];
+    filter?: LSSMAQLFilter;
 }

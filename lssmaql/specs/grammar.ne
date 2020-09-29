@@ -17,17 +17,17 @@ filter -> "WHERE"i _ (comparison | (and | or):+ | function_call) {% d => d[2][0]
 
 comparison -> comparison_side _ comparison_operator _ comparison_side {% d => ({type: 'comparison', operator: d[2], left: d[0], right: d[4]}) %}
 comparison_side -> base_or_relative selector:* {% d => ({type: 'selector', base: [...d[0]].flat().join(""), selector: d[1]})%} | string {% id %} | number {% id %} | function_call {% id %} | boolean {% id %}
-comparison_operator -> ">" {% id %} | "<" {% id %} | "<=" {% id %} | ">=" {% id %} | "=" {% id %} | "!=" {% id %} | "IN"i {% id %} | "NOT IN"i {% id %}
+comparison_operator -> ">" {% id %} | "<" {% id %} | "<=" {% id %} | ">=" {% id %} | "=" {% id %} | "!=" {% id %} | "IN"i {% single_lowercase %} | "NOT IN"i {% single_lowercase %}
 
 and -> (comparison | and | or | function_call) _ "AND"i _ (comparison | and | or | function_call) {% d => ({type: 'and', left: d[0][0], right: d[4][0]}) %} | "(" and ")" {% d => d[1] %}
 or -> (comparison | and | or | function_call) _ "OR"i _ (comparison | and | or | function_call) {% d => ({type: 'or', left: d[0][0], right: d[4][0]}) %} | "(" or ")" {% d => d[1] %}
 
 function_call -> function "(" query_by_base[base_or_relative] ")" {% d => ({type: 'function', function: d[0], parameter: d[2]})%}
-function -> "len" | "sum" | "min" | "max"
+function -> "len" {% id %} | "sum" {% id %} | "min" {% id %} | "max" {% id %}
 
 selector -> prop_selector {% id %} | num_selector {% id %}
 
-num_selector -> "[" number "]" {% d => d[1] %}
+num_selector -> "[" number "]" {% d => parseInt(d[1]) %}
 prop_selector -> "." identifier {% d => d[1] %}
 
 string -> ["] [^"]:* ["] {% ([_, s]) => s.join("") %} | ['] [^']:* ['] {% ([_, s]) => s.join("") %}
