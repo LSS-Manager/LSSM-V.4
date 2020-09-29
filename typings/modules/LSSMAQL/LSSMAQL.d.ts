@@ -24,7 +24,17 @@ export type LSSMAQLResult =
     | undefined
     | null;
 
-type LSSMAQLComparisonSide = LSSMAQLQuery & { filter: null };
+interface LSSMAQLFunction {
+    type: 'function';
+    function: 'len' | 'sum' | 'min' | 'max';
+    parameter: LSSMAQLQuery;
+}
+
+type LSSMAQLComparisonSide =
+    | LSSMAQLSelector
+    | LSSMAQLFunction
+    | string
+    | number;
 
 interface LSSMAQLComparison {
     type: 'comparison';
@@ -33,13 +43,25 @@ interface LSSMAQLComparison {
     right: LSSMAQLComparisonSide;
 }
 
-interface LSSMAQLFunction {
-    type: 'function';
-    function: 'len' | 'sum' | 'min' | 'max';
-    parameter: LSSMAQLQuery;
+interface LSSMAQLQueryAnd {
+    type: 'and';
+    left: LSSMAQLComparison;
+    right: LSSMAQLComparison;
 }
 
-type LSSMAQLFilter = LSSMAQLComparison | LSSMAQLFunction;
+interface LSSMAQLQueryOr {
+    type: 'or';
+    left: LSSMAQLComparison;
+    right: LSSMAQLComparison;
+}
+
+interface LSSMAQLSelector {
+    type: 'selector';
+    base: string;
+    selector: (string | number)[];
+}
+
+type LSSMAQLFilter = LSSMAQLComparison | LSSMAQLQueryAnd | LSSMAQLQueryOr;
 
 export interface LSSMAQLQuery {
     type: 'query';

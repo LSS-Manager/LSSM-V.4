@@ -13,7 +13,7 @@ base_or_relative -> base {% id %} | ".":* {% d => d %}
 
 filter_with_whitespace -> _ filter {% d => d[1] %}
 
-filter -> "WHERE"i _ (comparison | (and | or):+ | function_call) {% d => d[2][0] %}
+filter -> "WHERE"i _ (comparison | (and | or):+) {% d => Array.isArray(d[2][0]) ? d[2][0][0][0] : d[2][0] %}
 
 comparison -> comparison_side _ comparison_operator _ comparison_side {% d => ({type: 'comparison', operator: d[2], left: d[0], right: d[4]}) %}
 comparison_side -> base_or_relative selector:* {% d => ({type: 'selector', base: [...d[0]].flat().join(""), selector: d[1]})%} | string {% id %} | number {% id %} | function_call {% id %} | boolean {% id %}

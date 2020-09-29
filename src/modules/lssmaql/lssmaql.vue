@@ -45,26 +45,99 @@ import {
     LSSMAQLComputed,
     LSSMAQLResult,
     LSSMAQLQuery,
+    LSSMAQLComparison,
 } from 'typings/modules/LSSMAQL/LSSMAQL';
 import { DefaultProps } from 'vue/types/options';
 
 const grammar = Grammar.fromCompiled(lssmaqlGrammar);
 
+const get_from_base = (
+    base: string,
+    selector: (string | number)[],
+    LSSM: Vue
+): LSSMAQLResult => {
+    let result = cloneDeep(
+        LSSM.$store.state.api[base.toLowerCase()]
+    ) as LSSMAQLResult;
+    selector.forEach(param => {
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        if (Array.isArray(result)) result = result.map(r => r?.[param]);
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        else result = result?.[param];
+    });
+    return result;
+};
+
+const get_filter_side = (
+    side: 'left' | 'right',
+    filter: LSSMAQLComparison,
+    base_tree: (string | number)[],
+    LSSM: Vue
+): LSSMAQLResult => {
+    let filterSide = filter[side];
+    if (!(typeof filterSide === 'string' || typeof filterSide === 'number')) {
+        if (filterSide.type === 'selector') {
+            if (filterSide.base.match(/^\.*$/)) {
+                const base = base_tree;
+                for (let i = 0; i < filterSide.base.length; i++) {
+                    base.pop();
+                }
+                return get_from_base(
+                    base.shift()?.toString() ?? '',
+                    [...base, ...filterSide.selector],
+                    LSSM
+                );
+            } else
+                return get_from_base(
+                    filterSide.base,
+                    filterSide.selector,
+                    LSSM
+                );
+        } else {
+            return ['function'];
+        }
+    } else return filterSide;
+};
+
+const apply_filter = (
+    result: LSSMAQLResult,
+    filter: LSSMAQLQuery['filter'],
+    base_tree: (string | number)[],
+    LSSM: Vue
+): LSSMAQLResult => {
+    result = cloneDeep(result);
+    if (!filter) return result;
+    if (filter.type === 'comparison') {
+        const leftSide = get_filter_side('left', filter, base_tree, LSSM);
+        const rightSide = get_filter_side('right', filter, base_tree, LSSM);
+        console.log(
+            'filtering',
+            result,
+            'with filter',
+            filter,
+            'which has on left side',
+            leftSide,
+            'and on right side',
+            rightSide
+        );
+    }
+    return result;
+};
+
 const execute_query = (query: LSSMAQLQuery, LSSM: Vue): LSSMAQLResult => {
     let result = null as LSSMAQLResult;
     if (!query.hasOwnProperty('type')) return result;
     if (query.type === 'query') {
-        result = cloneDeep(
-            LSSM.$store.state.api[query.base.toLowerCase()]
-        ) as Record<string, unknown>;
-        (query.selector as (string | number)[]).forEach(param => {
-            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-            // @ts-ignore
-            if (Array.isArray(result)) result = result.map(r => r?.[param]);
-            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-            // @ts-ignore
-            else result = result?.[param];
-        });
+        result = get_from_base(query.base.toLowerCase(), query.selector, LSSM);
+        if (query.filter)
+            result = apply_filter(
+                result,
+                query.filter,
+                [query.base.toLowerCase(), ...query.selector],
+                LSSM
+            );
     }
     return result;
 };
