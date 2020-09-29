@@ -26,14 +26,14 @@ allianceinfo.users WHERE len(.roles) < allianceinfo.rank
 
 **all buildings that are small stations**
 ```
-buildings WHERE .small_building
+buildings WHERE .small_building = true
 ```
 
 ***
 
 **all THW-Buildings that have Expansion "Fachgruppe Räumen" disabled**
 ```
-buildings WHERE .building_type = 9 AND (.extensions WHERE .type_id = 2)[0].disabled
+buildings WHERE .building_type = 9 AND (.extensions WHERE .type_id = 2)[0].disabled = true
 ```
 
 ***
@@ -47,7 +47,7 @@ sum((buildings WHERE len(vehicles WHERE .building_id = ..id) > 3).personal_count
 
 **all small fire stations with both expansions "Abrollbehälter-Stellplatz" available and enabled that have more than 1 but less than 4 vehicles in status 3**
 ```
-buildings WHERE .building_type = 18 AND len(.extensions WHERE .enabled AND .available) = 2 AND len(vehicles WHERE .building_id = ..id AND .fms_show = 3) > 1 AND len(vehicles WHERE .building_id = ..id AND .fms_show = 3) < 4
+buildings WHERE .building_type = 18 AND len(.extensions WHERE .enabled = true AND .available = true) = 2 AND len(vehicles WHERE .building_id = ..id AND .fms_show = 3) > 1 AND len(vehicles WHERE .building_id = ..id AND .fms_show = 3) < 4
 ```
 
 ***
@@ -68,7 +68,7 @@ buildings WHERE len(vehicles WHERE .building_id = ..id) < .level
 
 **all buildings that have minimum one disabled extension**
 ```
-buildings WHERE len(.extensions WHERE .disabled)
+buildings WHERE len(.extensions WHERE .disabled) >= 1
 ```
 
 ***
@@ -82,5 +82,5 @@ buildings WHERE (.building_type = 6 AND .level < 14) OR (.building_type = 19 AND
 
 **all THW-Buildings that do have less MzKw than with current expansion states possible**
 ```
-buildings WHERE .building_type = 9 AND len((.extensions WHERE .type_id = 0 OR .type_id = 5).available) > len(vehicles WHERE .vehicle_type = 41 AND .building_id = ..id)
+buildings WHERE .building_type = 9 AND len(.extensions WHERE (.type_id = 0 OR .type_id = 5) AND .available = true) > len(vehicles WHERE .vehicle_type = 41 AND .building_id = ..id)
 ```
