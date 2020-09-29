@@ -26,7 +26,7 @@
         "lodash": ">=4.17.19",
         "mini-svg-data-uri": "^1.2.3",
         "moment": "^2.29.1",
-        "nearley": "^2.19.6",
+        "nearley": "^2.19.7",
         "showdown": "^1.9.1",
         "ua-parser-js": "^0.7.23",
         "vue": "^2.6.12",
