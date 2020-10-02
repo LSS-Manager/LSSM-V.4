@@ -986,6 +986,18 @@ export default {
             schooling: 'Polizei - Hundeführer (Schutzhund)',
             shownSchooling: 'Hundeführer (Schutzhund)',
         },
+        {
+            caption: 'Polizeimotorrad',
+            color: '#004400',
+            coins: 10,
+            credits: 3_000,
+            minPersonnel: 1,
+            maxPersonnel: 1,
+            schooling: 'Polizei - Motorradstaffel',
+            shownSchooling: 'Motorradstaffel',
+            special:
+                'Das Polizeimotorrad kann im Spiel anstelle eines FuStW verwendet werden. Der Nachteil: Es kann keine Gefangenen transportieren und arbeitet nur halb so schnell wie ein FuStW.',
+        },
     ],
     buildings: [
         {
@@ -1731,7 +1743,7 @@ export default {
         },
         Polizei: {
             vehicles: {
-                'Funkstreifenwagen': [32],
+                'Funkstreifenwagen': [32, 95],
                 'Bereitschaftspolizei-Fahrzeuge': [35, 50, 51, 52, 72],
                 'Polizeihubschrauber': [61],
                 'SEK': [79, 80],
@@ -1849,6 +1861,10 @@ export default {
             {
                 caption: 'MEK',
                 duration: '7 Tage',
+            },
+            {
+                caption: 'Motorradstaffel',
+                duration: '3 Tage',
             },
             {
                 caption: 'Polizeihubschrauber',
