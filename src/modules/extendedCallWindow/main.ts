@@ -26,6 +26,18 @@ export default (async (LSSM, MODULE_ID, $m) => {
                 type: 'toggle',
                 default: true,
             },
+            yellowBorder: {
+                type: 'number',
+                default: 0,
+                min: 0,
+                max: 48,
+                dependsOn: '.generationDate',
+            },
+            redBorder: {
+                type: 'toggle',
+                default: false,
+                dependsOn: '.generationDate',
+            },
             enhancedMissingVehicles: {
                 type: 'toggle',
                 default: false,
@@ -169,7 +181,11 @@ export default (async (LSSM, MODULE_ID, $m) => {
                 await import(
                     /* webpackChunkName: "modules/extendedCallWindow/generationDate" */ './assets/generationDate'
                 )
-            ).default(LSSM);
+            ).default(
+                LSSM,
+                await getSetting<number>('yellowBorder'),
+                await getSetting('redBorder')
+            );
         if (await getSetting('enhancedMissingVehicles'))
             (
                 await import(

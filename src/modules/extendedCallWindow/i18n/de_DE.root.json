@@ -78,6 +78,10 @@
 			"description": "Zeigt neben der Zahl der Patienten an, welche Rettungsmittel diese zusammengefasst benötigen.",
 			"title": "Patientenzusammenfassung"
 		},
+		"redBorder": {
+			"description": "Umrandet die Generierungszeit rot, wenn der Einsatz in der kommenden Nacht verfallen wird.",
+			"title": "Rote Umrandung"
+		},
 		"stickyHeader": {
 			"description": "Zeigt die obere Leiste im Einsatzfenster immer an, auch wenn du nach unten scrollst.",
 			"title": "Kopfleiste immer anzeigen"
@@ -88,6 +92,10 @@
 			"name": "Name",
 			"title": "Fahrzeugkategorien",
 			"vehicles": "Fahrzeugtypen"
+		},
+		"yellowBorder": {
+			"description": "Umrandet die Generierungszeit gelb, wenn der Einsatz älter als die eingegebene Zahl der Stunden ist. Bei 0 wird nicht umrandet.",
+			"title": "Gelbe Umrandung"
 		}
 	}
 }
