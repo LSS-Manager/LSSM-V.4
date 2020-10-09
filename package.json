@@ -48,7 +48,7 @@
         "@types/vue": "^2.0.0",
         "@types/vue-select": "^2.5.0",
         "@types/webpack-env": "^1.15.3",
-        "@typescript-eslint/eslint-plugin": "^3.10.1",
+        "@typescript-eslint/eslint-plugin": "^4.0.0",
         "@typescript-eslint/parser": "^3.10.1",
         "@vuepress/plugin-active-header-links": "^1.5.4",
         "@vuepress/plugin-back-to-top": "^1.5.4",
