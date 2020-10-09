@@ -1,6 +1,11 @@
 export default (
     LSSM: Vue,
-    settings: { keyword: string; color: string; missions: number[] }[]
+    settings: {
+        keyword: string;
+        color: string;
+        prefix: boolean;
+        missions: number[];
+    }[]
 ): void => {
     const missionHelpBtn = document.getElementById('mission_help');
     const missionTitle = document.getElementById('missionH1');
@@ -12,7 +17,7 @@ export default (
     );
     if (missionType < 0) return;
 
-    const addLabel = (text: string, color: string) => {
+    const addLabel = (text: string, color: string, prefix: boolean) => {
         const label = document.createElement('span');
         label.classList.add('label');
         label.style.backgroundColor = color;
@@ -23,11 +28,12 @@ export default (
         textNode.style.color = 'transparent';
         textNode.style.filter = 'invert(1) grayscale(1) contrast(9)';
         label.appendChild(textNode);
-        missionTitle.appendChild(label);
+        if (!prefix) missionTitle.appendChild(label);
+        else missionTitle.insertBefore(label, missionTitle.firstChild);
     };
 
     settings.forEach(s => {
         if (!s.missions.includes(missionType)) return;
-        addLabel(s.keyword, s.color);
+        addLabel(s.keyword, s.color, s.prefix);
     });
 };

@@ -1,37 +1,37 @@
 {
 	"deleteARR": {
 		"deleteModal": {
-			"title": "Löschen?",
-			"text": "Möchtest du diesen AAO Eintrag löschen?",
 			"btnCancel": "Abbrechen",
-			"btnConfirm": "Löschen"
+			"btnConfirm": "Löschen",
+			"text": "Möchtest du diesen AAO Eintrag löschen?",
+			"title": "Löschen?"
 		}
 	},
 	"forumPost": {
 		"deleteModal": {
-			"title": "Löschen?",
-			"text": "Möchtest du diesen Beitrag löschen?",
 			"btnCancel": "Abbrechen",
-			"btnConfirm": "Löschen"
+			"btnConfirm": "Löschen",
+			"text": "Möchtest du diesen Beitrag löschen?",
+			"title": "Löschen?"
 		}
 	},
 	"memberlistManageUser": {
-		"set": "setzen",
-		"unset": "entfernen",
 		"hide": "Schließen",
 		"kickModal": {
-			"title": "Rauswerfen?",
-			"text": "Möchtest du den Spieler wirklich rauswerfen?",
 			"btnCancel": "Abbrechen",
-			"btnConfirm": "Rauswerfen"
-		}
+			"btnConfirm": "Rauswerfen",
+			"text": "Möchtest du den Spieler wirklich rauswerfen?",
+			"title": "Rauswerfen?"
+		},
+		"set": "setzen",
+		"unset": "entfernen"
 	},
 	"memberlistRoles": {
 		"admin": "Verbands-Admin",
+		"aufsichtsrat": "Aufsichtsrat",
 		"coadmin": "Verbands-Co-Admin",
 		"finance": "Finanzminister",
-		"sprechwunsch_admin": "Sprechwunsch-Admin",
-		"aufsichtsrat": "Aufsichtsrat",
-		"schooling": "Lehrgangsmeister"
+		"schooling": "Lehrgangsmeister",
+		"sprechwunsch_admin": "Sprechwunsch-Admin"
 	}
 }

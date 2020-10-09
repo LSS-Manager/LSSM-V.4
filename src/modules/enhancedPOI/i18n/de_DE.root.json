@@ -14,8 +14,8 @@
 			"white": "Weiß"
 		},
 		"shown_types": {
-			"title": "Angezeigte POI-Typen",
-			"description": "Lege hier fest, welche POI-Typen eingeblendet werden sollen. Du kannst diese Einstellung auch direkt im \"POI setzen\"-Menü ändern."
+			"description": "Lege hier fest, welche POI-Typen eingeblendet werden sollen. Du kannst diese Einstellung auch direkt im \"POI setzen\"-Menü ändern.",
+			"title": "Angezeigte POI-Typen"
 		}
 	}
 }

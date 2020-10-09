@@ -36,6 +36,10 @@
 			"description": "Zeigt die ID des Einsatzes neben dem Titel an.",
 			"title": "Einsatz-ID"
 		},
+		"k9_only_if_needed": {
+			"description": "Zeigt an, wenn der DHuFüKW nur gefordert wird, wenn vorhanden.",
+			"title": "Optionale Diensthunde"
+		},
 		"multifunctionals": {
 			"battalion_chief_vehicles": {
 				"description": "Zieht die Zahl der benötigten ELW 2 von den ELW 1 ab und blendet ELW 1 aus, falls die Anzahl unter 0 sinkt.",
@@ -51,10 +55,6 @@
 			}
 		},
 		"optionalAlternatives": {
-			"allow_rw_instead_of_lf": {
-				"description": "Zeigt an, wenn statt eines LF auch Rüstwagen oder GKW am Einsatzort möglich sind.",
-				"title": "RW / GKW statt LF anzeigen"
-			},
 			"allow_arff_instead_of_lf": {
 				"description": "Zeigt an, wenn statt eines LF auch FLF am Einsatzort möglich sind.",
 				"title": "Anzeigen, wenn FLF als LF erlaubt sind"
@@ -62,6 +62,10 @@
 			"allow_ktw_instead_of_rtw": {
 				"description": "Zeigt ob ein KTW anstatt eines RTWs genutzt werden kann.",
 				"title": "KTW statt RTW"
+			},
+			"allow_rw_instead_of_lf": {
+				"description": "Zeigt an, wenn statt eines LF auch Rüstwagen oder GKW am Einsatzort möglich sind.",
+				"title": "RW / GKW statt LF anzeigen"
 			}
 		},
 		"patients": {
@@ -77,13 +81,13 @@
 				"description": "Zeigt oben im Einsatzhelfer an, wie viele Patienten der Einsatz gerade hat.",
 				"title": "Zahl der aktuellen Patienten"
 			},
-			"title": {
-				"description": "Zeigt die Überschrift \"Patienten\" über den Details über mögliche Patienten an.",
-				"title": "Patienten (Titel)"
-			},
 			"patient_allow_first_responder_chance": {
 				"description": "Zeigt mit wieviel % ein beliebiges Fahrzeug zum behandeln ausreicht.",
 				"title": "First Responder Wahrscheinlichkeit"
+			},
+			"title": {
+				"description": "Zeigt die Überschrift \"Patienten\" über den Details über mögliche Patienten an.",
+				"title": "Patienten (Titel)"
 			}
 		},
 		"place": {
@@ -136,10 +140,6 @@
 				"description": "Zeigt die Überschrift \"Fahrzeuge\" über den Fahrzeuganforderungen an.",
 				"title": "Fahrzeuge (Titel)"
 			}
-		},
-		"k9_only_if_needed": {
-			"description": "Zeigt an, wenn der DHuFüKW nur gefordert wird, wenn vorhanden.",
-			"title": "Optionale Diensthunde"
 		}
 	}
 }
