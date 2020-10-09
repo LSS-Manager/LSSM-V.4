@@ -92,7 +92,7 @@
 	"eslint": {
 		"icon": "https://eslint.org/assets/img/favicon.512x512.png",
 		"url": "https://eslint.org",
-		"version": "7.9.0"
+		"version": "7.10.0"
 	},
 	"eslint-plugin-prettier": {
 		"icon": "https://prettier.io/icon.png",
@@ -148,7 +148,7 @@
 	"terser": {
 		"icon": "https://terser.org/img/terser-square-logo.png",
 		"url": "https://terser.org",
-		"version": "5.3.2"
+		"version": "5.3.4"
 	},
 	"ts-loader": {
 		"url": "https://github.com/TypeStrong/ts-loader",
@@ -174,7 +174,7 @@
 	"vue": {
 		"icon": "https://vuejs.org/images/logo.png",
 		"url": "https://github.com/vuejs/vue#readme",
-		"version": "2.6.11"
+		"version": "2.6.12"
 	},
 	"vue-i18n": {
 		"icon": "https://kazupon.github.io/vue-i18n/vue-i18n-logo.png",
@@ -213,7 +213,7 @@
 	"vue-template-compiler": {
 		"icon": "https://vuejs.org/images/logo.png",
 		"url": "https://github.com/vuejs/vue/tree/dev/packages/vue-template-compiler#readme",
-		"version": "2.6.11"
+		"version": "2.6.12"
 	},
 	"vuepress": {
 		"icon": "https://vuepress.vuejs.org/hero.png",
