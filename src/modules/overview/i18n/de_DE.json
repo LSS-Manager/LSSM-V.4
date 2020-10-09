@@ -2,8 +2,8 @@
 	"extensionTitle": "{caption} (bis zu {n} mal)",
 	"tabs": {
 		"buildings": "Gebäude",
-		"vehicles": "Fahrzeuge",
-		"schoolings": "Lehrgänge"
+		"schoolings": "Lehrgänge",
+		"vehicles": "Fahrzeuge"
 	},
 	"titles": {
 		"buildings": {
@@ -17,6 +17,10 @@
 			"startPersonnel": "Start Personal",
 			"startVehicles": "Mögliche Startfahrzeuge"
 		},
+		"schoolings": {
+			"caption": "Lehrgangsname",
+			"duration": "Ausbildungsdauer"
+		},
 		"vehicles": {
 			"caption": "Fahrzeugtyp",
 			"cost": "Preis",
@@ -25,10 +29,6 @@
 			"schooling": "Ausbildung",
 			"special": "Besonderes",
 			"wtank": "Wassertank"
-		},
-		"schoolings": {
-			"caption": "Lehrgangsname",
-			"duration": "Ausbildungsdauer"
 		}
 	}
 }
