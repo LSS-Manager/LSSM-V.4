@@ -95,8 +95,7 @@
                     :default-index="buildingsTab.current.category"
                 >
                     <tab
-                        v-for="({ buildings: groups },
-                        title) in buildingCategories"
+                        v-for="(_, title) in buildingCategories"
                         :key="title"
                         :title="title"
                     >
