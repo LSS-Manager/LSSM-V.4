@@ -79,4 +79,5 @@ try {
     );
     console.log(`===stdout===\n${e.stdout?.toString()}\n###stdout###`);
     console.log(`===stderr===\n${e.stderr?.toString()}\n###stderr###`);
+    process.exit(-1);
 }

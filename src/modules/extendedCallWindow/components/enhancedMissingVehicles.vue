@@ -273,19 +273,21 @@ export default Vue.extend<
         const amountObserver = new MutationObserver(() => {
             console.log('selected');
             this.requirements.forEach(req => (req.selected = 0));
-            (vehicleList.querySelectorAll(
-                '.vehicle_checkbox:checked'
-            ) as NodeListOf<HTMLInputElement>).forEach(vehicle => {
-                categoriesById[
-                    parseInt(vehicle.getAttribute('vehicle_type_id') || '-1')
-                ]?.forEach(group => {
-                    const req = this.requirements.find(({ vehicle }) =>
-                        vehicle.match(new RegExp(group))
-                    );
-                    console.log(group, req);
-                    if (req) this.$set(req, 'selected', req.selected + 1);
+            vehicleList
+                .querySelectorAll<HTMLInputElement>('.vehicle_checkbox:checked')
+                .forEach(vehicle => {
+                    categoriesById[
+                        parseInt(
+                            vehicle.getAttribute('vehicle_type_id') || '-1'
+                        )
+                    ]?.forEach(group => {
+                        const req = this.requirements.find(({ vehicle }) =>
+                            vehicle.match(new RegExp(group))
+                        );
+                        console.log(group, req);
+                        if (req) this.$set(req, 'selected', req.selected + 1);
+                    });
                 });
-            });
         });
         const amountElement = document.getElementById('vehicle_amount');
 
