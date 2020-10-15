@@ -3,6 +3,7 @@ export interface Game {
     locale_fallback?: string;
     name: string;
     shortURL: string;
+    police?: string;
 }
 
 export interface Games {

@@ -7,7 +7,7 @@ import fs from 'fs';
 
 export default (): void => {
     staticConfigs.acao = `^https://(?:www.)?(?:${Object.values(config.games)
-        .map(g => g.shortURL)
+        .map(g => (g.police ? `(${g.police}.)?${g.shortURL}` : g.shortURL))
         .join('|')})$`;
     staticConfigs.admins = config.admins;
 
