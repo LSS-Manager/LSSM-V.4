@@ -241,7 +241,7 @@
 	"webpack-cli": {
 		"icon": "https://webpack.js.org/assets/icon-square-big.svg",
 		"url": "https://webpack.js.org/api/cli/",
-		"version": "3.3.12"
+		"version": "4.0.0"
 	},
 	"webpack-loader-append-prepend": {
 		"url": "https://github.com/fedemp/webpack-loader-append-prepend",
