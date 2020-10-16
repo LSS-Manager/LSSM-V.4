@@ -69,7 +69,7 @@
         "url-loader": "^4.1.1",
         "vue-loader": "^15.9.3",
         "vue-template-compiler": "^2.6.12",
-        "vuepress": "^1.7.0",
+        "vuepress": "^1.7.1",
         "vuepress-plugin-redirect": "^1.2.5",
         "vuepress-plugin-smooth-scroll": "^0.0.10",
         "vuepress-plugin-zooming": "^1.1.8",
