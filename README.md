@@ -1,4 +1,4 @@
-# LSS-Manager V.4
+# LSS-Manager V.4 [![Build Status](https://travis-ci.org/LSS-Manager/LSSM-V.4.svg?branch=master)](https://travis-ci.org/LSS-Manager/LSSM-V.4)
 
 ![](./docs/.vuepress/public/img/lssm.png)
 
