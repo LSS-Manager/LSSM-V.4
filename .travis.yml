@@ -1,3 +1,8 @@
 language: node_js
 node_js:
   - node
+deploy:
+  provider: script
+  script: bash scripts/deploy.sh
+  on:
+    branch: develop
