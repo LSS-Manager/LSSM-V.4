@@ -10,6 +10,6 @@ before_install:
 deploy:
   provider: script
   cleanup: false
-  script: rsync -e "ssh -p $PROD_PORT" -r --delete-after --quiet $TRAVIS_BUILD_DIR $PROD_USER@$PROD_SERVER:$PROD_DIR
+  script: npm run build && rsync -e "ssh -p $PROD_PORT" -r --delete-after --quiet $TRAVIS_BUILD_DIR/dist $PROD_USER@$PROD_SERVER:$PROD_DIR
   on:
     branch: master
