@@ -10,7 +10,7 @@ before_install:
 script: yarn run dev
 deploy:
   provider: script
-  cleanup: false
-  script: cd $TRAVIS_BUILD_DIR && ls -la && rsync -e "ssh -p $PROD_PORT" -r --delete-after $TRAVIS_BUILD_DIR/dist $PROD_USER@$PROD_SERVER:$DEV_DIR
+  skip_cleanup: false
+  script: cd $TRAVIS_BUILD_DIR && pwd && ls -la && rsync -e "ssh -p $PROD_PORT" -r --delete-after $TRAVIS_BUILD_DIR/dist $PROD_USER@$PROD_SERVER:$DEV_DIR
   on:
     branch: dev
