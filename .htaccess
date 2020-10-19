@@ -1,5 +1,4 @@
 RewriteEngine On
-RewriteRule "^[a-z]{2}_[A-Z]{2}/.*\.js$" "./beta.php?f=$0&%{QUERY_STRING}"
 RewriteRule "^(((?!^static/)(?!^admin/).*\.(php|user\.js))|(missions/[a-z]{2}_[A-Z]{2}\.json))$" "./static/$0" [L]
 
 DirectoryIndex "/docs/de_DE/index.html"
