@@ -53,6 +53,7 @@ export default (Vue: VueConstructor): Store<RootState> => {
             mapkit: 'undefined' !== typeof window.mapkit,
             darkmode: document.body.classList.contains('dark'),
             premium: window.user_premium,
+            policechief: window.gameFlavour === 'policechief',
             isRegistered: false,
             modules,
             appstore: {

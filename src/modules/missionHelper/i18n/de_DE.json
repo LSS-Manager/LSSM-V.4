@@ -7,17 +7,17 @@
 		"water_needed"
 	],
 	"patients": {
+		"allow_ktw_instead_of_rtw": "Es kann ein KTW anstelle eines RTW genutzt werden.",
 		"helicopter": "Wahrscheinlichkeit für einen RTH",
 		"nef": "Wahrscheinlichkeit für einen Notarzt",
+		"patient_allow_first_responder_chance": "First Responder Wahrscheinlichkeit",
 		"patient_at_end_of_mission": "Der Patient tritt erst am Ende des Einsatzes auf! | Die Patienten treten erst am Ende des Einsatzes auf!",
 		"patient_transport": "Transportwahrscheinlichkeit",
 		"possible_patient": "Patient maximal | Patienten maximal",
+		"possible_patient_exact": "genau {n} Patient | genau {n} Patienten",
 		"possible_patient_min": "Patient mindestens | Patienten mindestens",
 		"specializations": "Fachrichtung",
-		"title": "Patienten | {n} Patient | {n} Patienten",
-		"possible_patient_exact": "genau {n} Patient | genau {n} Patienten",
-		"patient_allow_first_responder_chance": "First Responder Wahrscheinlichkeit",
-		"allow_ktw_instead_of_rtw": "Es kann ein KTW anstelle eines RTW genutzt werden."
+		"title": "Patienten | {n} Patient | {n} Patienten"
 	},
 	"prerequisites": {
 		"bereitschaftspolizei": "Bereitschaftspolizei-Standort | Bereitschaftspolizei-Standorte",
@@ -107,14 +107,14 @@
 			}
 		},
 		"optional_alternatives": {
-			"allow_rw_instead_of_lf": {
-				"firetrucks": "Löschfahrzeug oder Rüstwagen oder GKW | Löschfahrzeuge oder Rüstwagen oder GKW"
-			},
 			"allow_arff_instead_of_lf": {
 				"firetrucks": "Löschfahrzeug oder Flugfeldlöschfahrzeug | Löschfahrzeuge oder Flugfeldlöschfahrzeuge"
 			},
 			"allow_ktw_instead_of_rtw": {
 				"ambulances": "RTW oder KTW oder KTW Typ B"
+			},
+			"allow_rw_instead_of_lf": {
+				"firetrucks": "Löschfahrzeug oder Rüstwagen oder GKW | Löschfahrzeuge oder Rüstwagen oder GKW"
 			}
 		},
 		"patient_additionals": {

@@ -109,7 +109,7 @@ const get_api_values = async <API extends StorageAPIKey>(
         !stored.value ||
         stored.lastUpdate < new Date().getTime() - API_MIN_UPDATE
     )
-        stored = await get_from_broadcast<API>(key, dispatch);
+        stored = (await get_from_broadcast<API>(key, dispatch)) ?? stored;
     if (
         !state.currentlyUpdating.includes(key) &&
         (!stored.value ||
@@ -419,7 +419,7 @@ export default {
             return new Promise((resolve, reject) => {
                 store
                     .dispatch('request', {
-                        url: `/api/buildings/${id}/vehicle`,
+                        url: `/api/buildings/${id}/vehicles`,
                     })
                     .then(res => res.json())
                     .then(async (vehiclesAt: Vehicle[]) => {

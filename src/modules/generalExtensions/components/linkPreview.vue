@@ -142,6 +142,7 @@ import {
 } from 'typings/modules/GeneralExtensions/LinkPreview';
 import { InternalVehicle } from 'typings/Vehicle';
 import { InternalBuilding } from 'typings/Building';
+import cloneDeep from 'lodash/cloneDeep';
 
 export default Vue.extend<
     LinkPreview,
@@ -204,7 +205,7 @@ export default Vue.extend<
         },
         buildingVehicles() {
             return (
-                this.vehicles[this.id]?.sort((a, b) =>
+                cloneDeep(this.vehicles[this.id])?.sort((a, b) =>
                     a.caption > b.caption ? 1 : b.caption > a.caption ? -1 : 0
                 ) || []
             );

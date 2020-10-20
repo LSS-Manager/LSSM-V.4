@@ -1,6 +1,7 @@
 interface item {
     keyword: string;
     color: string;
+    prefix: boolean;
     missions: number[];
 }
 
@@ -20,6 +21,7 @@ export interface SettingsItemProps {
 export interface SettingsItemComputed {
     updateName: item['keyword'];
     updateColor: item['color'];
+    updatePrefix: item['prefix'];
     updateMissions: Option[];
     selectableMissions: Option[];
 }

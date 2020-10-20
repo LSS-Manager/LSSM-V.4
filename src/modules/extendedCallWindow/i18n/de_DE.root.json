@@ -1,88 +1,101 @@
 {
 	"name": "Erweitertes Alarmfenster",
 	"settings": {
-		"generationDate": {
-			"title": "Generierungszeitpunkt",
-			"description": "Zeigt neben der Adresse an, wann der Einsatz generiert wurde."
-		},
-		"enhancedMissingVehicles": {
-			"title": "Benötigte Fahrzeuge verschönern",
-			"description": "Wandelt die Anzeige der zusätzlich benötigten Fahrzeuge in eine übersichtlichere Tabelle um."
-		},
-		"patientSummary": {
-			"title": "Patientenzusammenfassung",
-			"description": "Zeigt neben der Zahl der Patienten an, welche Rettungsmittel diese zusammengefasst benötigen."
-		},
-		"arrCounter": {
-			"title": "AAO-Zähler",
-			"description": "Zählt, wie oft bereits auf eine AAO oder einen Zug geklickt wurde. Alle Zähler können mittels des Knopfes unten rechts oder einer AAO mit Reset-Funktion zurückgesetzt werden."
-		},
-		"arrClickHighlight": {
-			"title": "Angeklickte AAOs hervorheben",
-			"description": "Zeichnet einen Rahmen um bereits angeklickte AAOs."
-		},
-		"arrClickHighlightColor": {
-			"title": "Farbe der Hervorhebung",
-			"description": "Lege hier die Rahmenfarbe für AAO-Umrandungen fest."
-		},
-		"arrClickHighlightWidth": {
-			"title": "Breite der Hervorhebung",
-			"description": "Lege hier die fest (in Pixeln), wie breit die AAO-Umrandung sein soll."
-		},
-		"arrCounterResetSelection": {
-			"title": "Fahrzeugauswahl zurücksetzen",
-			"description": "Fügt unten rechts einen Knopf hinzu, um die bisherige Fahrzeugauswahl zurückzusetzen. Hinweis: Er setzt auch den AAO-Zähler und die Umrandungen, falls aktiviert, zurück!"
-		},
-		"arrMatchHighlight": {
-			"title": "Unpassende AAOs ausgrauen",
-			"description": "Legt einen Graufilter über alle AAOs in denen kein Wort des Einsatznamens vorkommt."
-		},
-		"arrSpecs": {
-			"title": "AAO Details anzeigen",
-			"description": "Zeigt die gespeicherten Anforderungen in der AAO an, wenn man mit der Maus kurz über einer AAO bleibt"
-		},
-		"arrTime": {
-			"title": "AAO-Anfahrtszeit anzeigen",
-			"description": "Zeigt an, was die längste Anfahrtszeit nach wählen dieser AAO wäre, wenn man mit der Maus kurz über einer AAO bleibt."
-		},
-		"alarmTime": {
-			"title": "Längste Anfahrtszeit",
-			"description": "Zeigt neben den Alarm-Knopf an, wie lang das Fahrzeug mit der längsten Anfahrtszeit braucht."
-		},
-		"stickyHeader": {
-			"title": "Kopfleiste immer anzeigen",
-			"description": "Zeigt die obere Leiste im Einsatzfenster immer an, auch wenn du nach unten scrollst."
-		},
-		"loadMoreVehiclesInHeader": {
-			"title": "Fahrzeuge nachladen in Kopfleiste",
-			"description": "Zeigt den Knopf \"Fahrzeuge nachladen\", wenn vorhanden, in der Kopfleiste an."
-		},
-		"hideVehicleList": {
-			"title": "Versteckt die Fahrzeugliste",
-			"description": "Versteckt normal die Einsatzliste, öffnet diese dann per Knopfdruck."
-		},
-		"tailoredTabs": {
-			"title": "Fahrzeugkategorien",
-			"description": "Passe dir hier die Tabs im Einsatzfenster an. \"Alle\" und \"Weiteralarmieren\" werden immer sichtbar sein.",
-			"name": "Name",
-			"vehicles": "Fahrzeugtypen",
-			"color": "Farbe"
-		},
-		"missionKeywords": {
-			"title": "Einsatzstichworte",
-			"description": "Lasse dir ein eigenes Stichwort neben dem Einsatznamen anzeigen",
-			"keyword": "Stichwort",
-			"color": "Hintergrundfarbe",
-			"missions": "Einsätze",
-			"preview": "Vorschau"
-		},
 		"alarmIcons": {
-			"title": "Alarm-Icons",
 			"description": "Lasse dir Icons im \"Alarmieren\" Knopf anzeigen, basierend auf deiner Auswahl. Zur Auswahl stehen dir <a href=\"https://fontawesome.com/icons?d=gallery&m=free\" target=\"_blank\">alle kostenlosen Icons von Font-Awesome</a>. Es reicht, den Namen des Icons anzugeben. Eine Live-Vorschau wird dir dann das Icon anzeigen.",
 			"icon": "Icon",
+			"preview": "Vorschau",
 			"style": "Icon-Typ",
-			"vehicles": "Fahrzeugtypen",
-			"preview": "Vorschau"
+			"title": "Alarm-Icons",
+			"vehicles": "Fahrzeugtypen"
+		},
+		"alarmTime": {
+			"description": "Zeigt neben den Alarm-Knopf an, wie lang das Fahrzeug mit der längsten Anfahrtszeit braucht.",
+			"title": "Längste Anfahrtszeit"
+		},
+		"arrClickHighlight": {
+			"description": "Zeichnet einen Rahmen um bereits angeklickte AAOs.",
+			"title": "Angeklickte AAOs hervorheben"
+		},
+		"arrClickHighlightColor": {
+			"description": "Lege hier die Rahmenfarbe für AAO-Umrandungen fest.",
+			"title": "Farbe der Hervorhebung"
+		},
+		"arrClickHighlightWidth": {
+			"description": "Lege hier die fest (in Pixeln), wie breit die AAO-Umrandung sein soll.",
+			"title": "Breite der Hervorhebung"
+		},
+		"arrCounter": {
+			"description": "Zählt, wie oft bereits auf eine AAO oder einen Zug geklickt wurde. Alle Zähler können mittels des Knopfes unten rechts oder einer AAO mit Reset-Funktion zurückgesetzt werden.",
+			"title": "AAO-Zähler"
+		},
+		"arrCounterResetSelection": {
+			"description": "Fügt unten rechts einen Knopf hinzu, um die bisherige Fahrzeugauswahl zurückzusetzen. Hinweis: Er setzt auch den AAO-Zähler und die Umrandungen, falls aktiviert, zurück!",
+			"title": "Fahrzeugauswahl zurücksetzen"
+		},
+		"arrMatchHighlight": {
+			"description": "Legt einen Graufilter über alle AAOs in denen kein Wort des Einsatznamens vorkommt.",
+			"title": "Unpassende AAOs ausgrauen"
+		},
+		"arrSpecs": {
+			"description": "Zeigt die gespeicherten Anforderungen in der AAO an, wenn man mit der Maus kurz über einer AAO bleibt",
+			"title": "AAO Details anzeigen"
+		},
+		"arrTime": {
+			"description": "Zeigt an, was die längste Anfahrtszeit nach wählen dieser AAO wäre, wenn man mit der Maus kurz über einer AAO bleibt.",
+			"title": "AAO-Anfahrtszeit anzeigen"
+		},
+		"centerMap": {
+			"description": "Ermöglicht es dir im Einsatzfenster auf Knopfdruck die Karte im Hauptfenster auf den Einsatzort zu zentrieren.",
+			"title": "Karte zentrieren"
+		},
+		"enhancedMissingVehicles": {
+			"description": "Wandelt die Anzeige der zusätzlich benötigten Fahrzeuge in eine übersichtlichere Tabelle um.",
+			"title": "Benötigte Fahrzeuge verschönern"
+		},
+		"generationDate": {
+			"description": "Zeigt neben der Adresse an, wann der Einsatz generiert wurde.",
+			"title": "Generierungszeitpunkt"
+		},
+		"hideVehicleList": {
+			"description": "Versteckt die Fahrzeugliste, öffnet diese dann per Knopfdruck.",
+			"title": "Fahrzeugliste Verstecken"
+		},
+		"loadMoreVehiclesInHeader": {
+			"description": "Zeigt den Knopf \"Fahrzeuge nachladen\", wenn vorhanden, in der Kopfleiste an.",
+			"title": "Fahrzeuge nachladen in Kopfleiste"
+		},
+		"missionKeywords": {
+			"color": "Hintergrundfarbe",
+			"description": "Lasse dir ein eigenes Stichwort neben dem Einsatznamen anzeigen",
+			"keyword": "Stichwort",
+			"missions": "Einsätze",
+			"prepend": "Vor dem Einsatznamen anzeigen",
+			"preview": "Vorschau",
+			"title": "Einsatzstichworte"
+		},
+		"patientSummary": {
+			"description": "Zeigt neben der Zahl der Patienten an, welche Rettungsmittel diese zusammengefasst benötigen.",
+			"title": "Patientenzusammenfassung"
+		},
+		"redBorder": {
+			"description": "Umrandet die Generierungszeit rot, wenn der Einsatz in der kommenden Nacht verfallen wird.",
+			"title": "Rote Umrandung"
+		},
+		"stickyHeader": {
+			"description": "Zeigt die obere Leiste im Einsatzfenster immer an, auch wenn du nach unten scrollst.",
+			"title": "Kopfleiste immer anzeigen"
+		},
+		"tailoredTabs": {
+			"color": "Farbe",
+			"description": "Passe dir hier die Tabs im Einsatzfenster an. \"Alle\" und \"Weiteralarmieren\" werden immer sichtbar sein.",
+			"name": "Name",
+			"title": "Fahrzeugkategorien",
+			"vehicles": "Fahrzeugtypen"
+		},
+		"yellowBorder": {
+			"description": "Umrandet die Generierungszeit gelb, wenn der Einsatz älter als die eingegebene Zahl der Stunden ist. Bei 0 wird nicht umrandet.",
+			"title": "Gelbe Umrandung"
 		}
 	}
 }

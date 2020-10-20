@@ -1,13 +1,14 @@
 import { execSync } from 'child_process';
 import sort from './sort';
-import emojis from './utils/fetchEmojis';
 
 const scripts = process.argv.splice(2);
 
 try {
     const scriptHandlers = {
         sort,
-        emojis,
+        emojis() {
+            return execSync('node ./scripts/utils/fetchEmojis').toString();
+        },
         lint() {
             return [
                 this.sort(),
@@ -23,8 +24,8 @@ try {
         },
         predev() {
             return [
-                this.lint(),
                 this.emojis(),
+                this.lint(),
                 this.tscPrebuild(),
                 execSync('node prebuild').toString(),
             ].join('\n\n');
@@ -48,6 +49,7 @@ try {
         },
         preBuild() {
             return [
+                this.emojis(),
                 this.lint(),
                 this.tscPrebuild(),
                 execSync('node prebuild production').toString(),
@@ -77,4 +79,5 @@ try {
     );
     console.log(`===stdout===\n${e.stdout?.toString()}\n###stdout###`);
     console.log(`===stderr===\n${e.stderr?.toString()}\n###stderr###`);
+    process.exit(-1);
 }

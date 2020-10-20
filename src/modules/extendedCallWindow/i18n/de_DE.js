@@ -81,6 +81,9 @@ module.exports = {
             grtw0: 'GRTW (7 Patienten - ohne Notarzt)',
             grtw1: 'GRTW (3 Patienten - inkl. Notarzt)',
             fustw: 'Funkstreifenwagen',
+            police_motorcycle: 'Polizeimotorrad',
+            fustw_or_police_motorcycle:
+                'Funkstreifenwagen oder Polizeimotorrad',
             lebefkw: 'Leichter Befehlskraftwagen (leBefKw)',
             fukw: 'FüKw (Führungskraftwagen)',
             grukw: 'GruKw (Gruppenkraftwagen)',
@@ -117,9 +120,6 @@ module.exports = {
             rescue_dogs: 'Anhänger Hundetransport oder Rettungshundefahrzeug',
         },
     },
-    generationDate: {
-        inputFormat: 'DD. MMMM, HH:mm Uhr',
-    },
     enhancedMissingVehicles: {
         vehicle: 'Fahrzeugtyp',
         missing: 'Am Einsatzort fehlend',
@@ -134,7 +134,7 @@ module.exports = {
             [/^ELW 1$/]: [3, 34, 78],
             [/^ELW 2$/]: [34, 78],
             [/^Flugfeldlöschfahrzeuge$/]: [75],
-            [/^FuStW$/]: [32],
+            [/^FuStW$/]: [32, 95],
             [/^FwK$/]: [57],
             [/^FüKw$/]: [51],
             [/^GefKw$/]: [52],
@@ -270,7 +270,7 @@ module.exports = {
             },
             {
                 name: 'Polizei',
-                vehicleTypes: [32, 61],
+                vehicleTypes: [32, 61, 95],
             },
             {
                 name: 'Bereitschaftspolizei',
