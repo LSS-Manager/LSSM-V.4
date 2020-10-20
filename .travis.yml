@@ -7,10 +7,10 @@ before_install:
   - chmod 600 /tmp/deploy_rsa
   - ssh-add /tmp/deploy_rsa
   - ssh-keyscan -p $PROD_PORT $PROD_SERVER 2>&1 >> $HOME/.ssh/known_hosts
-script: yarn run dev
+script: yarn run build
 deploy:
   provider: script
   skip_cleanup: true
-  script: rsync -e "ssh -p $PROD_PORT" -r --delete-after $TRAVIS_BUILD_DIR/dist/ $PROD_USER@$PROD_SERVER:$DEV_DIR
+  script: rsync -e "ssh -p $PROD_PORT" -r --delete-after $TRAVIS_BUILD_DIR/dist/ $PROD_USER@$PROD_SERVER:$PROD_DIR
   on:
     branch: dev
