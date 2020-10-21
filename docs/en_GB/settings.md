@@ -1,5 +1,5 @@
 ---
-title: Einstellungen ⚙️
+title: Settings ⚙️
 lang: en_GB
 ---
 
