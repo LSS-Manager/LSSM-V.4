@@ -164,7 +164,7 @@ Object.keys(config.games).forEach(lang => {
 const options = {
     title: 'LSS-Manager V.4 Wiki',
     description: 'The Wiki for the LSS-Manager',
-    base: '/docs/',
+    base: '/v4/docs/',
     dest: './dist/docs',
     head: [
         [
