@@ -6,23 +6,23 @@
 			"description": "Verhindert ein Neuladen, wenn du die Kosten von eigenen Zellen oder Krankenhausbetten festlegst.",
 			"title": "Kostenübernahme von Zellen und Betten"
 		},
+		"deleteARR": {
+			"description": "Verhindert ein Neuladenen, wenn du ein AAO Eintrag löscht",
+			"title": "Löschen von AAO Einträgen"
+		},
+		"deleteForumPost": {
+			"description": "Verhindert ein Neuladen, wenn du ein Forum Post löscht.",
+			"title": "Löschen von Forum Posts"
+		},
+		"memberlistManageUser": {
+			"description": "Vehindert ein Neuladen, wenn du ein Verbandsmitglied rauswirfst oder seine Rechte bearbeitest",
+			"title": "Rechte von Verbandsmitgliedern"
+		},
 		"missionPrisoners": {
 			"title": "Gefangene im Einsatzfenster"
 		},
 		"missionReply": {
 			"title": "Rückmeldungen im Einsatz"
-		},
-		"memberlistManageUser": {
-			"title": "Rechte von Verbandsmitgliedern",
-			"description": "Vehindert ein Neuladen, wenn du ein Verbandsmitglied rauswirfst oder seine Rechte bearbeitest"
-		},
-		"deleteForumPost": {
-			"title": "Löschen von Forum Posts",
-			"description": "Verhindert ein Neuladen, wenn du ein Forum Post löscht."
-		},
-		"deleteARR": {
-			"title": "Löschen von AAO Einträgen",
-			"description": "Verhindert ein Neuladenen, wenn du ein AAO Eintrag löscht"
 		}
 	}
 }

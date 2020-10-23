@@ -26,6 +26,18 @@ export default (async (LSSM, MODULE_ID, $m) => {
                 type: 'toggle',
                 default: true,
             },
+            yellowBorder: {
+                type: 'number',
+                default: 0,
+                min: 0,
+                max: 48,
+                dependsOn: '.generationDate',
+            },
+            redBorder: {
+                type: 'toggle',
+                default: false,
+                dependsOn: '.generationDate',
+            },
             enhancedMissingVehicles: {
                 type: 'toggle',
                 default: false,
@@ -84,6 +96,10 @@ export default (async (LSSM, MODULE_ID, $m) => {
                 type: 'toggle',
                 default: false,
             },
+            centerMap: {
+                type: 'toggle',
+                default: false,
+            },
             tailoredTabs: {
                 type: 'appendable-list',
                 default: defaultTailoredTabs,
@@ -102,6 +118,7 @@ export default (async (LSSM, MODULE_ID, $m) => {
                 defaultItem: {
                     keyword: '',
                     color: '#777777',
+                    prefix: false,
                     missions: [],
                 },
             },
@@ -164,7 +181,11 @@ export default (async (LSSM, MODULE_ID, $m) => {
                 await import(
                     /* webpackChunkName: "modules/extendedCallWindow/generationDate" */ './assets/generationDate'
                 )
-            ).default(LSSM, $m);
+            ).default(
+                LSSM,
+                await getSetting<number>('yellowBorder'),
+                await getSetting('redBorder')
+            );
         if (await getSetting('enhancedMissingVehicles'))
             (
                 await import(
@@ -189,7 +210,12 @@ export default (async (LSSM, MODULE_ID, $m) => {
             ).default(LSSM, getSetting, $m);
 
         const missionKeywordsSettings = await getSetting<
-            { keyword: string; color: string; missions: number[] }[]
+            {
+                keyword: string;
+                color: string;
+                prefix: boolean;
+                missions: number[];
+            }[]
         >('missionKeywords');
 
         if (missionKeywordsSettings.length)
@@ -251,6 +277,12 @@ export default (async (LSSM, MODULE_ID, $m) => {
                     /* webpackChunkName: "modules/extendedCallWindow/hideVehicleList" */ './assets/hideVehicleList'
                 )
             ).default(LSSM, MODULE_ID, $m);
+        if (await getSetting('centerMap'))
+            (
+                await import(
+                    /* webpackChunkName: "modules/extendedCallWindow/centerMap" */ './assets/centerMap'
+                )
+            ).default(LSSM);
     }
 
     const tailoredTabSettings = await getSetting<typeof defaultTailoredTabs>(

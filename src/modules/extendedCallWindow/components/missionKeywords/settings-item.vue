@@ -19,6 +19,13 @@
                 {{ updateName }}
             </span>
         </span>
+        <div>
+            <toggle-button
+                labels
+                v-model="updatePrefix"
+                class="pull-right"
+            ></toggle-button>
+        </div>
         <v-select
             placeholder="types"
             :multiple="true"
@@ -80,6 +87,14 @@ export default Vue.extend<
                 this.$emit('input', { ...this.value, color });
             },
         },
+        updatePrefix: {
+            get(): SettingsItemComputed['updatePrefix'] {
+                return this.value.prefix;
+            },
+            set(prefix) {
+                this.$emit('input', { ...this.value, prefix });
+            },
+        },
         updateMissions: {
             get(): SettingsItemComputed['updateMissions'] {
                 return (this.value.missions
@@ -111,14 +126,14 @@ export default Vue.extend<
             );
         },
     },
-    beforeMount() {
-        this.$store.dispatch('api/getMissions', false).then(
-            (missions: Mission[]) =>
-                (this.missions = missions.map(({ id, name }) => ({
-                    value: id,
-                    label: `${name} (ID: ${id})`,
-                })))
-        );
+    async beforeMount() {
+        this.missions = ((await this.$store.dispatch(
+            'api/getMissions',
+            false
+        )) as Mission[]).map(({ id, name }) => ({
+            value: id,
+            label: `${name} (ID: ${id})`,
+        }));
     },
 });
 </script>
