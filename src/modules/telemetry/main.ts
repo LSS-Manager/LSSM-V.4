@@ -74,6 +74,7 @@ export default (LSSM: Vue): void => {
                         id: LSSM.$store.state.api.key,
                         uid: window.user_id,
                         game: BUILD_LANG,
+                        police: LSSM.$store.state.policechief,
                         name: window.username,
                         version: LSSM.$store.state.version,
                         data: {

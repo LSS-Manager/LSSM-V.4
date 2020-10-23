@@ -7,13 +7,16 @@ const script = packageJson.userscript;
 
 const tlds = {} as { [tld: string]: string[] };
 
-Object.values(config.games).forEach(({ shortURL }) => {
+Object.values(config.games).forEach(({ shortURL, police }) => {
     const tld = shortURL
         .replace(/^[^.]*/, '')
         .replace(/^\./, '')
         .replace('.', '\\.');
     if (!tlds.hasOwnProperty(tld)) tlds[tld] = [];
-    tlds[tld].push(shortURL.replace(/\..*$/, '').replace('.', '\\.'));
+    tlds[tld].push(
+        (police ? `(${police}\\.)?` : '') +
+            shortURL.replace(/\..*$/, '').replace('.', '\\.')
+    );
 });
 
 const gameIncludes = Object.keys(tlds).map(tld => {

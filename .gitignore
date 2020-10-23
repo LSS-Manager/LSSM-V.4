@@ -38,5 +38,3 @@ yarn-error.log*
 *.sln
 *.sw?
 .directory
-
-yarn.lock

@@ -73,6 +73,8 @@ channel.addEventListener('message', msg => {
             msg.data.payload,
             { root: true }
         );
+    } else if (msg.type === 'custom') {
+        eval(msg.handler)?.(msg);
     }
 });
 
@@ -133,6 +135,28 @@ export default {
             { mutationPath, payload }: VuexBroadcastMessage['data']
         ) {
             return broadcast({ mutationPath, payload });
+        },
+        send_custom_message(
+            _: BroadcastActionStoreParams,
+            {
+                name,
+                handler,
+                receiver = '*',
+                ...data
+            }: {
+                name: CustomBroadcastMessage['name'];
+                handler: CustomBroadcastMessage['handler'];
+                receiver: CustomBroadcastMessage['receiver'];
+            }
+        ) {
+            return channel.postMessage({
+                type: 'custom',
+                sender: getWindowName(),
+                receiver,
+                name,
+                handler: `(${handler.toString()})`,
+                ...data,
+            } as CustomBroadcastMessage);
         },
         request_var(
             _: BroadcastActionStoreParams,

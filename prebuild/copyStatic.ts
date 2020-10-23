@@ -2,12 +2,15 @@
 // @ts-ignore
 import copydir from 'copy-dir';
 import config from '../src/config';
-import staticConfigs from '../static/.configs.json';
 import fs from 'fs';
 
 export default (): void => {
+    const staticConfigs = JSON.parse(
+        fs.readFileSync('./static/.configs.json').toString()
+    );
+
     staticConfigs.acao = `^https://(?:www.)?(?:${Object.values(config.games)
-        .map(g => g.shortURL)
+        .map(g => (g.police ? `(${g.police}.)?${g.shortURL}` : g.shortURL))
         .join('|')})$`;
     staticConfigs.admins = config.admins;
 
