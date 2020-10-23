@@ -11,8 +11,7 @@ script: yarn run build
 deploy:
   provider: script
   skip_cleanup: true
-  script: rsync -e "ssh -p $PROD_PORT" -r --delete-after $TRAVIS_BUILD_DIR/dist/ $PROD_USER@$PROD_SERVER:$DEPLOY_DIR
+  script: rsync -e "ssh -p $PROD_PORT" -r --delete-after $TRAVIS_BUILD_DIR/dist/ $PROD_USER@$PROD_SERVER:$DIR
   on:
-    branch:
-    - master
-    - dev
+    all_branches: true
+    condition: $TRAVIS_BRANCH =~ ^(master|dev)$

@@ -1,4 +1,8 @@
-# LSS-Manager V.4 [![Build Status](https://travis-ci.org/LSS-Manager/LSSM-V.4.svg?branch=master)](https://travis-ci.org/LSS-Manager/LSSM-V.4)
+# LSS-Manager V.4 
+
+## Builds & CHecks
+### Prod/master [![Build Status](https://travis-ci.org/LSS-Manager/LSSM-V.4.svg?branch=master)](https://travis-ci.org/LSS-Manager/LSSM-V.4)
+### Beta/dev [![Build Status](https://travis-ci.org/LSS-Manager/LSSM-V.4.svg?branch=dev)](https://travis-ci.org/LSS-Manager/LSSM-V.4)
 
 ![](./docs/.vuepress/public/img/lssm.png)
 
@@ -80,16 +84,19 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- markdownlint-disable -->
 <table>
   <tr>
-    <td align="center"><a href="https://github.com/KBOE2"><img src="https://avatars1.githubusercontent.com/u/27238105?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Jan</b></sub></a><br /><a href="https://github.com/KBOE2/LSSM-V.4/commits?author=KBOE2" title="Code">💻</a> <a href="#maintenance-KBOE2" title="Maintenance">🚧</a> <a href="#mentoring-KBOE2" title="Mentoring">🧑‍🏫</a> <a href="#projectManagement-KBOE2" title="Project Management">📆</a> <a href="#question-KBOE2" title="Answering Questions">💬</a></td>
+    <td align="center"><a href="https://github.com/KBOE2"><img src="https://avatars1.githubusercontent.com/u/27238105?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Jan</b></sub></a><br /><a href="https://github.com/LSS-Manager/LSSM-V.4/commits?author=KBOE2" title="Code">💻</a> <a href="#maintenance-KBOE2" title="Maintenance">🚧</a> <a href="#mentoring-KBOE2" title="Mentoring">🧑‍🏫</a> <a href="#projectManagement-KBOE2" title="Project Management">📆</a> <a href="#question-KBOE2" title="Answering Questions">💬</a></td>
     <td align="center"><a href="https://github.com/CSA-Verweigerer"><img src="https://avatars3.githubusercontent.com/u/29802197?v=4?s=100" width="100px;" alt=""/><br /><sub><b>CSA-Verweigerer</b></sub></a><br /><a href="#ideas-CSA-Verweigerer" title="Ideas, Planning, & Feedback">🤔</a> <a href="#userTesting-CSA-Verweigerer" title="User Testing">📓</a></td>
-    <td align="center"><a href="https://github.com/KokosnussDEV"><img src="https://avatars3.githubusercontent.com/u/42553393?v=4?s=100" width="100px;" alt=""/><br /><sub><b>KokosnussDEV</b></sub></a><br /><a href="https://github.com/KBOE2/LSSM-V.4/commits?author=KokosnussDEV" title="Documentation">📖</a> <a href="https://github.com/KBOE2/LSSM-V.4/commits?author=KokosnussDEV" title="Code">💻</a></td>
-    <td align="center"><a href="https://github.com/Ron31"><img src="https://avatars0.githubusercontent.com/u/30264441?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Ron31</b></sub></a><br /><a href="https://github.com/KBOE2/LSSM-V.4/commits?author=Ron31" title="Code">💻</a> <a href="#question-Ron31" title="Answering Questions">💬</a></td>
+    <td align="center"><a href="https://github.com/KokosnussDEV"><img src="https://avatars3.githubusercontent.com/u/42553393?v=4?s=100" width="100px;" alt=""/><br /><sub><b>KokosnussDEV</b></sub></a><br /><a href="https://github.com/LSS-Manager/LSSM-V.4/commits?author=KokosnussDEV" title="Documentation">📖</a> <a href="https://github.com/LSS-Manager/LSSM-V.4/commits?author=KokosnussDEV" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/Ron31"><img src="https://avatars0.githubusercontent.com/u/30264441?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Ron31</b></sub></a><br /><a href="https://github.com/LSS-Manager/LSSM-V.4/commits?author=Ron31" title="Code">💻</a> <a href="#question-Ron31" title="Answering Questions">💬</a></td>
     <td align="center"><a href="https://github.com/Suchty112"><img src="https://avatars0.githubusercontent.com/u/1109899?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Suchty112</b></sub></a><br /><a href="#question-Suchty112" title="Answering Questions">💬</a> <a href="#translation-Suchty112" title="Translation">🌍</a></td>
+    <td align="center"><a href="https://github.com/Tsumiki-Chan"><img src="https://avatars2.githubusercontent.com/u/8158524?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Tsumiki</b></sub></a><br /><a href="#infra-Tsumiki-Chan" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a></td>
+    <td align="center"><a href="https://github.com/Piet2001"><img src="https://avatars3.githubusercontent.com/u/54183168?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Piet2001</b></sub></a><br /><a href="https://github.com/LSS-Manager/LSSM-V.4/commits?author=Piet2001" title="Documentation">📖</a> <a href="#translation-Piet2001" title="Translation">🌍</a></td>
   </tr>
 </table>
 
 <!-- markdownlint-restore -->
 <!-- prettier-ignore-end -->
+
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
