@@ -1,0 +1,88 @@
+{
+    "name": "Extended alarm window",
+    "settings": {
+        "generationDate": {
+            "title": "Generierungszeitpunkt",
+            "description": "Shows next to the address when the mission was generated."
+        },
+        "enhancedMissingVehicles": {
+            "title": "Improve needed vehicles",
+            "description": "Converts the display of additionally required vehicles into a clearer table."
+        },
+        "patientSummary": {
+            "title": "Patient Summary",
+            "description": "Shows next to the number of patients, which rescue equipment they need in combination."
+        },
+        "arrCounter": {
+            "title": "AAR Counter",
+            "description": "Counts how often an AAR or move has been clicked. All counters can be reset using the button in the bottom right corner or an AAR with reset function."
+        },
+        "arrClickHighlight": {
+            "title": "Highlight clicked AARs",
+            "description": "Draws a frame around already clicked AARs."
+        },
+        "arrClickHighlightColor": {
+            "title": "Highlight Color",
+            "description": "Set the border color for AAR borders."
+        },
+        "arrClickHighlightWidth": {
+            "title": "Highlighting width",
+            "description": "Specify here (in pixels) how wide the AAR border should be."
+        },
+        "arrCounterResetSelection": {
+            "title": "Reset vehicle selection",
+            "description": "Adds a button at the bottom right to reset the previous vehicle selection. Note: It also resets the AAR counter and the borders, if activated!"
+        },
+        "arrMatchHighlight": {
+            "title": "Grey out unsuitable AARs",
+            "description": "Sets a gray filter over all AARs that do not contain a word of the mission name."
+        },
+        "arrSpecs": {
+            "title": " Show AAR details",
+            "description": "Shows the stored requests in the AAR, if you stay with the mouse briefly over an AAR"
+        },
+        "arrTime": {
+            "title": "Longest journey time",
+            "description": "Shows what would be the longest travel time after selecting this AAR, if you stay with the mouse briefly over an AAR."
+        },
+        "alarmTime": {
+            "title": "Longest journey time",
+            "description": "Shows next to the Alarm button how long the vehicle with the longest journey time takes."
+        },
+        "stickyHeader": {
+            "title": "Always show header bar",
+            "description": "Always shows the top bar in the insert window, even when you scroll down."
+        },
+        "loadMoreVehiclesInHeader": {
+            "title": "Reload vehicles in header",
+            "description": "Displays the button \"Reload vehicles\", if available, in the header bar."
+        },
+        "hideVehicleList": {
+            "title": "Hides the vehicle list",
+            "description": "Normally hides the use list, then opens it by pressing a button."
+        },
+        "tailoredTabs": {
+            "title": "vehicle categories",
+            "description": "Adjust the tabs in the insert window here. \"All\" and \"Continue alerting\" will always be visible,",
+            "name": "name",
+            "vehicles": "vehicle types",
+            "color": "Color"
+        },
+        "missionKeywords": {
+            "title": "Mission keywords",
+            "description": "Get your own keyword displayed next to the mission name",
+            "keyword": "keyword",
+            "color": "background color",
+            "missions": "missions",
+            "preview": "Preview"
+        },
+        "alarmIcons": {
+            "title": "alarm icons",
+            "description": "Leave icons in the \"Alarm\" Show button, based on your selection. You can choose between <a href=\"https://fontawesome.com/icons?d=gallery&m=free\" target=\"_blank\">all free icons from Font-Awesome</a>. It is enough to specify the name of the icon. A live preview will then show you the icon.",
+            "icon": "Icon",
+            "style": "icon type",
+            "vehicles": "vehicle types",
+            "preview": "Preview"
+        }
+    }
+}
