@@ -11,16 +11,12 @@ import DynamicImportQueryPlugin from './plugins/DynamicImportQueryPlugin';
 
 console.time('build');
 
-const dir = process.argv[2] === 'production' ? 'stable/' : 'beta/';
-
 console.info(`Let's build that stuff in Version ${version}`);
 
 const moduleDirs = fs.readdirSync(`./src/modules/`);
 
 const entries = Object.entries(config.games)
-    .filter(
-        game => game[0] === 'de_DE' && fs.existsSync(`./src/i18n/${game[0]}.ts`)
-    )
+    .filter(game => fs.existsSync(`./src/i18n/${game[0]}.ts`))
     .map(game => {
         const [locale, { locale_fallback }] = game;
         const entry = {
@@ -29,7 +25,7 @@ const entries = Object.entries(config.games)
                 [`${locale}_core`]: path.resolve(__dirname, '../src/core.ts'),
             },
             output: {
-                path: path.resolve(__dirname, `../dist/${dir}${locale}`),
+                path: path.resolve(__dirname, `../dist/${locale}`),
                 filename: pathData =>
                     `${pathData.chunk?.name?.replace(
                         /^[a-z]{2}_[A-Z]{2}_/,
