@@ -10,9 +10,12 @@ before_install:
 #script: yarn run $RUN_SCRIPT
 script: yarn run predev
 after_success:
-    - git config credential.helper "store --file=.git/credentials"
-    - echo "https://${GH_TOKEN}:@github.com" > .git/credentials
-    - chmod 777 $TRAVIS_BUILD_DIR/push.sh && $TRAVIS_BUILD_DIR/push.sh
+    - git remote
+    - git config user.email developer@lss-manager.de
+    - git config user.name LSS-Manager-Bot
+    - git add --all
+    - git commit "👷 [BUILD] $TRAVIS_BUILD_NUMBER"
+    - git push "https://${GH_TOKEN}@github.com/LSS-Manager/LSSM-V.4.git" master > /dev/null 2>&1
 deploy:
     provider: script
     skip_cleanup: true

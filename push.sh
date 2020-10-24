@@ -18,7 +18,7 @@ upload_files() {
   git branch
   git remote
   git cherry -v
-  git push -f origin "$BRANCH"
+  git push -f -u origin "$BRANCH"
 }
 
 #setup_git
