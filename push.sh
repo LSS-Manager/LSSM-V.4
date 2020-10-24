@@ -4,7 +4,7 @@ BRANCH=$([ "$TRAVIS_PULL_REQUEST" = "false" ] && echo "$TRAVIS_BRANCH" || echo "
 
 setup_git() {
   git config --global user.email "travis@lss-manager.de"
-  git config --global user.name "LSS-Manager Travis"
+  git config --global user.name "KBOE2"
 }
 
 commit_files() {
@@ -14,7 +14,7 @@ commit_files() {
 }
 
 upload_files() {
-#  git remote add origin https://"${GH_TOKEN}"@github.com/LSS-Manager/LSSM-V.4.git > /dev/null 2>&1
+  git remote add origin https://"${GH_TOKEN}"@github.com/LSS-Manager/LSSM-V.4.git > /dev/null 2>&1
   git push origin "$BRANCH"
 }
 
