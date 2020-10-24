@@ -1,6 +1,6 @@
 #!/bin/sh
 
-BRANCH=$(( "$TRAVIS_PULL_REQUEST" != "false" ? TRAVIS_BRANCH : TRAVIS_PULL_REQUEST_BRANCH ))
+BRANCH=$([ "$TRAVIS_PULL_REQUEST" = "false" ] && echo "$TRAVIS_BRANCH" || echo "$TRAVIS_PULL_REQUEST_BRANCH")
 
 setup_git() {
   git config --global user.email "travis@lss-manager.de"
