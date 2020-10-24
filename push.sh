@@ -14,7 +14,10 @@ commit_files() {
 }
 
 upload_files() {
-  git remote add origin https://LSS-Manger-Bot:"$GH_TOKEN"@github.com/LSS-Manager/LSSM-V.4.git
+  git remote set-url origin https://LSS-Manger-Bot:"$GH_TOKEN"@github.com/LSS-Manager/LSSM-V.4.git
+  git branch
+  git remote
+  git cherry -v
   git push -f origin "$BRANCH"
 }
 
