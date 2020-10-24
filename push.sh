@@ -8,7 +8,7 @@ setup_git() {
 commit_website_files() {
   git checkout -b gh-pages
   git add -A
-  git commit --message "👷 [BUILD] $TRAVIS_BUILD_NUMBER"
+  git commit --message "👷 [BUILD] $TRAVIS_BUILD_NUMBER [skip ci]"
 }
 
 upload_files() {
