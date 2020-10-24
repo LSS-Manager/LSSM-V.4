@@ -1,49 +1,49 @@
 {
-    "desktopTest": {
-        "text": "Desktop notifications were successfully activated!",
-        "title": "Desktop notifications"
-    },
-    "messages": {
-        "allianceCandidature": {
-            "body": "Your alliance has a new application! Currently open applications: {n}",
-            "title": "New application! | New applications!"
-        },
-        "allianceForum": {
-            "body": "There is a new post in your alliance forum! Open the forum with a click on this notification.",
-            "title": "Neuer Beitrag im Verbandsforum!"
-        },
-        "allianceMessage": {
-            "body": "There is a new Alliance message! View them directly by clicking on this notification.",
-            "title": "New Alliance Message!"
-        },
-        "allianceNews": {
-            "body": "Your Alliance has published new news! Click on this notification to go directly to the news page.",
-            "title": "New Alliancenews!"
-        },
-        "dm": {
-            "body": "So you have a total of {n} unread message. | So you have a total of {n} unread messages.",
-            "title": "You have {n} new message! | You have {n} new messages!"
-        },
-        "ingame_news": {
-            "body": "There are new features in the game! Have a look on Facebook to see what today's updates are!",
-            "title": "News in the game"
-        },
-        "mission_getred": {
-            "body": "{address}<br>This mission needs attention!"
-        },
-        "mission_getred_alliance": {
-            "body": "{address}<br>This alliancemission needs attention!"
-        },
-        "radioMessage": {
-            "title": "{vehicle} reports status {status}!"
-        }
-    },
-    "noPermission": {
-        "text": "Your browser is set up so that the game has no permission to send desktop notifications. If you still want to receive these notifications, you must first reset this in your browser settings!",
-        "title": "Desktop notifications"
-    },
-    "permission": {
-        "text": "Please allow desktop notifications by clicking on this notification!",
-        "title": "Desktop notifications"
-    }
+	"desktopTest": {
+		"text": "Desktop notifications were successfully activated!",
+		"title": "Desktop notifications"
+	},
+	"messages": {
+		"allianceCandidature": {
+			"body": "Your alliance has a new application! Currently open applications: {n}",
+			"title": "New application! | New applications!"
+		},
+		"allianceForum": {
+			"body": "There is a new post in your alliance forum! Open the forum with a click on this notification.",
+			"title": "Neuer Beitrag im Verbandsforum!"
+		},
+		"allianceMessage": {
+			"body": "There is a new Alliance message! View them directly by clicking on this notification.",
+			"title": "New Alliance Message!"
+		},
+		"allianceNews": {
+			"body": "Your Alliance has published new news! Click on this notification to go directly to the news page.",
+			"title": "New Alliancenews!"
+		},
+		"dm": {
+			"body": "So you have a total of {n} unread message. | So you have a total of {n} unread messages.",
+			"title": "You have {n} new message! | You have {n} new messages!"
+		},
+		"ingame_news": {
+			"body": "There are new features in the game! Have a look on Facebook to see what today's updates are!",
+			"title": "News in the game"
+		},
+		"mission_getred": {
+			"body": "{address}<br>This mission needs attention!"
+		},
+		"mission_getred_alliance": {
+			"body": "{address}<br>This alliancemission needs attention!"
+		},
+		"radioMessage": {
+			"title": "{vehicle} reports status {status}!"
+		}
+	},
+	"noPermission": {
+		"text": "Your browser is set up so that the game has no permission to send desktop notifications. If you still want to receive these notifications, you must first reset this in your browser settings!",
+		"title": "Desktop notifications"
+	},
+	"permission": {
+		"text": "Please allow desktop notifications by clicking on this notification!",
+		"title": "Desktop notifications"
+	}
 }

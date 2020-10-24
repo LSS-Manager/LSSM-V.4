@@ -1,100 +1,100 @@
 {
-    "name": "Extended alarm window",
-    "settings": {
-        "generationDate": {
-            "title": "Generation time",
-            "description": "Shows next to the address when the mission was generated."
-        },
-        "enhancedMissingVehicles": {
-            "title": "Improve needed vehicles",
-            "description": "Converts the display of additionally required vehicles into a clearer table."
-        },
-        "patientSummary": {
-            "title": "Patient Summary",
-            "description": "Shows next to the number of patients, which rescue equipment they need in combination."
-        },
-        "arrCounter": {
-            "title": "AAR Counter",
-            "description": "Counts how often an AAR or move has been clicked. All counters can be reset using the button in the bottom right corner or an AAR with reset function."
-        },
-        "arrClickHighlight": {
-            "title": "Highlight clicked AARs",
-            "description": "Draws a frame around already clicked AARs."
-        },
-        "arrClickHighlightColor": {
-            "title": "Highlight Color",
-            "description": "Set the border color for AAR borders."
-        },
-        "arrClickHighlightWidth": {
-            "title": "Highlighting width",
-            "description": "Specify here (in pixels) how wide the AAR border should be."
-        },
-        "arrCounterResetSelection": {
-            "title": "Reset vehicle selection",
-            "description": "Adds a button at the bottom right to reset the previous vehicle selection. Note: It also resets the AAR counter and the borders, if activated!"
-        },
-        "arrMatchHighlight": {
-            "title": "Grey out unsuitable AARs",
-            "description": "Sets a gray filter over all AARs that do not contain a word of the mission name."
-        },
-        "arrSpecs": {
-            "title": " Show AAR details",
-            "description": "Shows the stored requests in the AAR, if you stay with the mouse briefly over an AAR"
-        },
-        "arrTime": {
-            "title": "Longest journey time",
-            "description": "Shows what would be the longest travel time after selecting this AAR, if you stay with the mouse briefly over an AAR."
-        },
-        "alarmTime": {
-            "title": "Longest journey time",
-            "description": "Shows next to the Alarm button how long the vehicle with the longest journey time takes."
-        },
-        "stickyHeader": {
-            "title": "Always show header bar",
-            "description": "Always shows the top bar in the insert window, even when you scroll down."
-        },
-        "loadMoreVehiclesInHeader": {
-            "title": "Reload vehicles in header",
-            "description": "Displays the button \"Reload vehicles\", if available, in the header bar."
-        },
-        "hideVehicleList": {
-            "title": "Hides the vehicle list",
-            "description": "Normally hides the use list, then opens it by pressing a button."
-        },
-        "tailoredTabs": {
-            "title": "vehicle categories",
-            "description": "Adjust the tabs in the insert window here. \"All\" and \"Continue alerting\" will always be visible,",
-            "name": "name",
-            "vehicles": "vehicle types",
-            "color": "Color"
-        },
-        "missionKeywords": {
-            "title": "Mission keywords",
-            "description": "Get your own keyword displayed next to the mission name",
-            "keyword": "keyword",
-            "color": "background color",
-            "missions": "missions",
-            "preview": "Preview"
-        },
-        "alarmIcons": {
-            "title": "alarm icons",
-            "description": "Leave icons in the \"Alarm\" Show button, based on your selection. You can choose between <a href=\"https://fontawesome.com/icons?d=gallery&m=free\" target=\"_blank\">all free icons from Font-Awesome</a>. It is enough to specify the name of the icon. A live preview will then show you the icon.",
-            "icon": "Icon",
-            "style": "icon type",
-            "vehicles": "vehicle types",
-            "preview": "Preview"
-        },
-        "yellowBorder": {
-            "description": "Borders the generation time yellow if the usage is older than the entered number of hours. If the number is 0, no border is drawn.",
-            "title": "Yellow border"
-        },
-        "redBorder": {
-            "description": "Outlines the generation time in red if the bet will expire the following night.",
-            "title": "Red border"
-        },
-        "centerMap": {
-            "description": "Allows you to center the map in the main window on the place of use at the touch of a button.",
-            "title": "Center Map"
-        }
-    }
+	"name": "Extended alarm window",
+	"settings": {
+		"alarmIcons": {
+			"description": "Leave icons in the \"Alarm\" Show button, based on your selection. You can choose between <a href=\"https://fontawesome.com/icons?d=gallery&m=free\" target=\"_blank\">all free icons from Font-Awesome</a>. It is enough to specify the name of the icon. A live preview will then show you the icon.",
+			"icon": "Icon",
+			"preview": "Preview",
+			"style": "icon type",
+			"title": "alarm icons",
+			"vehicles": "vehicle types"
+		},
+		"alarmTime": {
+			"description": "Shows next to the Alarm button how long the vehicle with the longest journey time takes.",
+			"title": "Longest journey time"
+		},
+		"arrClickHighlight": {
+			"description": "Draws a frame around already clicked AARs.",
+			"title": "Highlight clicked AARs"
+		},
+		"arrClickHighlightColor": {
+			"description": "Set the border color for AAR borders.",
+			"title": "Highlight Color"
+		},
+		"arrClickHighlightWidth": {
+			"description": "Specify here (in pixels) how wide the AAR border should be.",
+			"title": "Highlighting width"
+		},
+		"arrCounter": {
+			"description": "Counts how often an AAR or move has been clicked. All counters can be reset using the button in the bottom right corner or an AAR with reset function.",
+			"title": "AAR Counter"
+		},
+		"arrCounterResetSelection": {
+			"description": "Adds a button at the bottom right to reset the previous vehicle selection. Note: It also resets the AAR counter and the borders, if activated!",
+			"title": "Reset vehicle selection"
+		},
+		"arrMatchHighlight": {
+			"description": "Sets a gray filter over all AARs that do not contain a word of the mission name.",
+			"title": "Grey out unsuitable AARs"
+		},
+		"arrSpecs": {
+			"description": "Shows the stored requests in the AAR, if you stay with the mouse briefly over an AAR",
+			"title": " Show AAR details"
+		},
+		"arrTime": {
+			"description": "Shows what would be the longest travel time after selecting this AAR, if you stay with the mouse briefly over an AAR.",
+			"title": "Longest journey time"
+		},
+		"centerMap": {
+			"description": "Allows you to center the map in the main window on the place of use at the touch of a button.",
+			"title": "Center Map"
+		},
+		"enhancedMissingVehicles": {
+			"description": "Converts the display of additionally required vehicles into a clearer table.",
+			"title": "Improve needed vehicles"
+		},
+		"generationDate": {
+			"description": "Shows next to the address when the mission was generated.",
+			"title": "Generation time"
+		},
+		"hideVehicleList": {
+			"description": "Normally hides the use list, then opens it by pressing a button.",
+			"title": "Hides the vehicle list"
+		},
+		"loadMoreVehiclesInHeader": {
+			"description": "Displays the button \"Reload vehicles\", if available, in the header bar.",
+			"title": "Reload vehicles in header"
+		},
+		"missionKeywords": {
+			"color": "background color",
+			"description": "Get your own keyword displayed next to the mission name",
+			"keyword": "keyword",
+			"missions": "missions",
+			"preview": "Preview",
+			"title": "Mission keywords"
+		},
+		"patientSummary": {
+			"description": "Shows next to the number of patients, which rescue equipment they need in combination.",
+			"title": "Patient Summary"
+		},
+		"redBorder": {
+			"description": "Outlines the generation time in red if the bet will expire the following night.",
+			"title": "Red border"
+		},
+		"stickyHeader": {
+			"description": "Always shows the top bar in the insert window, even when you scroll down.",
+			"title": "Always show header bar"
+		},
+		"tailoredTabs": {
+			"color": "Color",
+			"description": "Adjust the tabs in the insert window here. \"All\" and \"Continue alerting\" will always be visible,",
+			"name": "name",
+			"title": "vehicle categories",
+			"vehicles": "vehicle types"
+		},
+		"yellowBorder": {
+			"description": "Borders the generation time yellow if the usage is older than the entered number of hours. If the number is 0, no border is drawn.",
+			"title": "Yellow border"
+		}
+	}
 }

@@ -15,8 +15,7 @@ module.exports = {
     arrHover: {
         reset: 'The vehicle selection is reset before!',
         titles: {
-            set:
-                'So often this combination is selected when you press the AAR',
+            set: 'So often this combination is selected when you press the AAR',
             attribute: 'The combination described in this line',
             free: 'So often this combination is available',
             max:
@@ -43,8 +42,7 @@ module.exports = {
             grtw: 'Mass Casualty Unit',
             fustw: 'Patrol Car',
             police_motorcycle: 'Police Motorcycle',
-            fustw_or_police_motorcycle:
-                'Patrol car or Police Motorcycle',
+            fustw_or_police_motorcycle: 'Patrol car or Police Motorcycle',
             polizeihubschrauber: 'Police helicopter',
             swat: 'SWAT',
             swat_armored_vehicle: 'SWAT Armoured Vehicle',
@@ -82,20 +80,13 @@ module.exports = {
         driving: 'Approach',
         total: 'Still needed',
         selected: 'Selected',
-        vehiclesByRequirement: {
-        },
+        vehiclesByRequirement: {},
     },
     tailoredTabs: {
         defaultTabs: [
             {
                 name: 'Firetruck',
-                vehicleTypes: [
-                    0,
-                    1,
-                    13,
-                    18,
-                    33,
-                ],
+                vehicleTypes: [0, 1, 13, 18, 33],
             },
             {
                 name: 'Other Fire Apparatus',
@@ -139,13 +130,7 @@ module.exports = {
             },
             {
                 name: 'FBI',
-                vehicleTypes: [
-                    42,
-                    43,
-                    44,
-                    45,
-                    46,
-                ],
+                vehicleTypes: [42, 43, 44, 45, 46],
             },
         ],
         allTab: 'All',

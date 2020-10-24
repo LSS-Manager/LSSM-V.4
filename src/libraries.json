@@ -30,22 +30,22 @@
 		"version": "4.14.162"
 	},
 	"@types/node": {
-		"version": "14.11.8"
+		"version": "14.14.2"
 	},
 	"@types/ua-parser-js": {
 		"version": "0.7.33"
 	},
 	"@types/vue-select": {
-		"version": "2.5.0"
+		"version": "2.5.1"
 	},
 	"@types/webpack-env": {
 		"version": "1.15.3"
 	},
 	"@typescript-eslint/eslint-plugin": {
-		"version": "4.4.1"
+		"version": "4.5.0"
 	},
 	"@typescript-eslint/parser": {
-		"version": "4.4.1"
+		"version": "4.5.0"
 	},
 	"@vuepress/plugin-active-header-links": {
 		"icon": "https://vuepress.vuejs.org/hero.png",
@@ -63,7 +63,7 @@
 	},
 	"broadcast-channel": {
 		"url": "https://github.com/pubkey/broadcast-channel#readme",
-		"version": "3.2.0"
+		"version": "3.3.0"
 	},
 	"cache-loader": {
 		"url": "https://github.com/webpack-contrib/cache-loader",
@@ -99,12 +99,12 @@
 	"eslint-plugin-vue": {
 		"icon": "https://vuejs.org/images/logo.png",
 		"url": "https://eslint.vuejs.org",
-		"version": "7.0.1"
+		"version": "7.1.0"
 	},
 	"highcharts": {
 		"icon": "https://www.highcharts.com/images/ico/favicon-192x192.png",
 		"url": "http://www.highcharts.com",
-		"version": "8.2.0"
+		"version": "8.2.2"
 	},
 	"html-loader": {
 		"icon": "https://webpack.js.org/assets/icon-square-big.svg",
@@ -136,7 +136,7 @@
 	"sass-loader": {
 		"icon": "https://webpack.js.org/assets/icon-square-big.svg",
 		"url": "https://github.com/webpack-contrib/sass-loader",
-		"version": "10.0.3"
+		"version": "10.0.4"
 	},
 	"string-replace-loader": {
 		"url": "https://github.com/Va1/string-replace-loader",
@@ -145,11 +145,11 @@
 	"terser": {
 		"icon": "https://terser.org/img/terser-square-logo.png",
 		"url": "https://terser.org",
-		"version": "5.3.5"
+		"version": "5.3.8"
 	},
 	"ts-loader": {
 		"url": "https://github.com/TypeStrong/ts-loader",
-		"version": "8.0.5"
+		"version": "8.0.6"
 	},
 	"typescript": {
 		"url": "https://www.typescriptlang.org/",
@@ -172,7 +172,7 @@
 	"vue-i18n": {
 		"icon": "https://kazupon.github.io/vue-i18n/vue-i18n-logo.png",
 		"url": "https://github.com/kazupon/vue-i18n#readme",
-		"version": "8.22.0"
+		"version": "8.22.1"
 	},
 	"vue-js-modal": {
 		"url": "http://vue-js-modal.yev.io/",
@@ -241,7 +241,7 @@
 	"webpack-cli": {
 		"icon": "https://webpack.js.org/assets/icon-square-big.svg",
 		"url": "https://webpack.js.org/api/cli/",
-		"version": "4.0.0"
+		"version": "4.1.0"
 	},
 	"webpack-loader-append-prepend": {
 		"url": "https://github.com/fedemp/webpack-loader-append-prepend",
