@@ -14,9 +14,9 @@ commit_files() {
 }
 
 upload_files() {
-  git push -f https://"${GH_TOKEN}"@github.com/LSS-Manager/LSSM-V.4.git "$BRANCH"
+  git push -f https://LSS-Manger-Bot:"${GH_TOKEN}"@github.com/LSS-Manager/LSSM-V.4.git "$BRANCH"
 }
 
-setup_git
+#setup_git
 commit_files
 upload_files
