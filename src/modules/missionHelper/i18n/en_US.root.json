@@ -36,6 +36,10 @@
 			"description": "Shows the Mission ID next to the title.",
 			"title": "Mission ID"
 		},
+		"k9_only_if_needed": {
+			"description": "Indicates, if the DHuFüKW is only requested, if available.",
+			"title": "Optional service dogs"
+		},
 		"multifunctionals": {
 			"battalion_chief_vehicles": {
 				"description": "Subtracts the number of required MCV from Battalion Chief and hides Battalion Chief if the number drops below 0.",
@@ -44,6 +48,10 @@
 			"heavy_rescue_vehicles": {
 				"description": "Subtracts the number of required firetrucks from the Heavy Rescue and hides Heavy Rescue if the number drops below 0. This function is intended for people who drive a pure Rescue Engine system.",
 				"title": "heavy rescue simple rating"
+			},
+			"platform_trucks": {
+				"description": "Subtracts the number of TM 50 required from the DLKs and hides DLKs if the number drops below 0.",
+				"title": "Evaluate DLK easily"
 			}
 		},
 		"optionalAlternatives": {
@@ -51,9 +59,19 @@
 				"description": " Indicates, if instead of a firetruck arrfs are possible on site.",
 				"title": "Show if arrfs are allowed as firetrucks"
 			},
+			"allow_ktw_instead_of_rtw": {
+				"description": "Shows whether a BLS can be used instead of an ALS.",
+				"title": "BLS instead of ALS"
+			},
 			"allow_rw_instead_of_lf": {
 				"description": "Indicates, if instead of a firetruck also heavy rescue or rescue engine is possible on site.",
 				"title": "Show Heavy Rescue / rescue engine instead of firetrucks"
+			}
+		},
+		"patient": {
+			"code_possible": {
+				"description": "Shows possible patient codes",
+				"title": "Details of possible patient codes"
 			}
 		},
 		"patients": {
@@ -119,7 +137,7 @@
 			},
 			"sort": {
 				"amount": "Number of required vehicles",
-				"caption": "Name der Anforderung",
+				"caption": "Name of the requirement",
 				"description": "Define what the vehicle requirements should be sorted by.",
 				"percentage": "Probability",
 				"title": "Sorting the vehicle requirements"

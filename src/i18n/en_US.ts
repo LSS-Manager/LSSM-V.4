@@ -971,15 +971,15 @@ export default {
         },
     ],
     buildingCategories: {
-        Fire_Department: {
+        FireDepartment: {
             buildings: [0, 4, 11, 13, 17],
             color: '#ff2d2d',
         },
-        Rescue_Stations: {
+        RescueStations: {
             buildings: [3, 6, 7, 12, 14, 16],
             color: '#ffa500',
         },
-        Police_Stations: {
+        PoliceStations: {
             buildings: [5, 8, 15, 18],
             color: '#00ac00',
         },
@@ -989,7 +989,7 @@ export default {
         },
     },
     vehicleCategories: {
-        Fire_Department: {
+        FireDepartment: {
             vehicles: {
                 'Fire trucks': [0, 1, 13, 18],
                 'WaterTanker': [7],
@@ -1001,7 +1001,7 @@ export default {
             },
             color: '#ff2d2d',
         },
-        Rescue_Stations: {
+        RescueStations: {
             vehicles: {
                 'Ambulances': [5, 27],
                 'HEMS': [11],
@@ -1011,7 +1011,7 @@ export default {
             },
             color: '#ffa500',
         },
-        Police_Stations: {
+        PoliceStations: {
             vehicles: {
                 'Patrol Car': [10],
                 'SWAT': [16, 26],

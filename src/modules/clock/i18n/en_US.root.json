@@ -1,6 +1,6 @@
 {
 	"description": "Displays a configurable clock in various locations as needed.",
-	"name": "Uhr",
+	"name": "Clock",
 	"settings": {
 		"displayNav": {
 			"description": "The left margin next to the logo is selected as the position.",
