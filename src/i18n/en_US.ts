@@ -1,7 +1,8 @@
 import { Building } from 'typings/Building';
 
 const moduleRootFiles = require.context('../', true, MODULE_ROOT_I18N_FILES);
-const furtherFiles = require.context('./en_US/', true, /.*(\/index)?\.js(on)?/);
+// Commented as dir ./en_US does not exist currently
+// const furtherFiles = require.context('./en_US/', true, /.*(\/index)?\.js(on)?/);
 const modules = {
     appstore: {
         save: 'Save',
@@ -50,11 +51,12 @@ moduleRootFiles
 
 const t = {} as { [key: string]: unknown };
 
-furtherFiles
-    .keys()
-    .forEach(
-        key => (t[key.split('/')[1].replace(/\..*$/, '')] = furtherFiles(key))
-    );
+// Commented as dir ./en_US does not exist currently
+// furtherFiles
+//     .keys()
+//     .forEach(
+//         key => (t[key.split('/')[1].replace(/\..*$/, '')] = furtherFiles(key))
+//     );
 
 export default {
     modules,
@@ -179,7 +181,7 @@ export default {
             wtank: 0,
             special: 'Required once you have built 11 firehouses',
             schooling: 'Fire Station - Hazmat',
-            shownSchooling: 'Hazmat'
+            shownSchooling: 'Hazmat',
         },
         {
             caption: 'Patrol Car',
@@ -252,8 +254,7 @@ export default {
             wtank: 0,
             schooling: 'Police - Swat',
             shownSchooling: 'SWAT',
-            special:
-                'Required once you have built 8 police stations',
+            special: 'Required once you have built 8 police stations',
         },
         {
             caption: 'ARFF Crash Tender',
@@ -274,7 +275,8 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 6,
             wtank: 0,
-            special: 'To purchase with credits it requires the rank: Captain, <br>Lower ranked members can purchase the vehicle for 25 Coins.<br> The Rescue Engine acts as a Heavy Rescue and a Fire Engine.',
+            special:
+                'To purchase with credits it requires the rank: Captain, <br>Lower ranked members can purchase the vehicle for 25 Coins.<br> The Rescue Engine acts as a Heavy Rescue and a Fire Engine.',
         },
         {
             caption: 'K-9 Unit',
@@ -296,7 +298,8 @@ export default {
             minPersonnel: 6,
             maxPersonnel: 6,
             wtank: 0,
-            special: 'The MCU can be alarmed in two different modes:<br>1. for lightly injured persons who do not need an emergency physician. Then 7 patients can be treated and removed simultaneously in the MCU.<br>2.For severely injured persons who need an emergency physician. Then 3 patients can be needled simultaneously in the MCU.<br>You can buy 1 Mass Casualty Vehicle for every 20 ambulance stations (respectively 15 with premium account).',
+            special:
+                'The MCU can be alarmed in two different modes:<br>1. for lightly injured persons who do not need an emergency physician. Then 7 patients can be treated and removed simultaneously in the MCU.<br>2.For severely injured persons who need an emergency physician. Then 3 patients can be needled simultaneously in the MCU.<br>You can buy 1 Mass Casualty Vehicle for every 20 ambulance stations (respectively 15 with premium account).',
         },
         {
             caption: 'Heavy Rescue + Boat',
@@ -308,7 +311,8 @@ export default {
             wtank: 0,
             schooling: 'Fire Station - Swift water rescue',
             shownSchooling: 'Swift water rescue',
-            special: 'Combines the Heavy Rescue Vehicle/Utility Vehicle with an integrated boat.<br> No need for a boat trailer.',
+            special:
+                'Combines the Heavy Rescue Vehicle/Utility Vehicle with an integrated boat.<br> No need for a boat trailer.',
         },
         {
             caption: 'Boat Trailer',
@@ -318,7 +322,8 @@ export default {
             minPersonnel: 0,
             maxPersonnel: 0,
             wtank: 0,
-            special: 'Accessory boat that can be towed with the Utility Unit. Requires Swift Water Rescue trained personnel to operate.<br> The boat trailer cannot be assigned personnel, <br>either assign your trained personnel to the towing vehicle, or assign them to a separate unit en route.',
+            special:
+                'Accessory boat that can be towed with the Utility Unit. Requires Swift Water Rescue trained personnel to operate.<br> The boat trailer cannot be assigned personnel, <br>either assign your trained personnel to the towing vehicle, or assign them to a separate unit en route.',
         },
         {
             caption: 'Police Motorcycle',
@@ -329,7 +334,7 @@ export default {
             maxPersonnel: 1,
             wtank: 0,
             schooling: 'Police - Motor Officer',
-            shownSchooling: 'Motor Officer'
+            shownSchooling: 'Motor Officer',
         },
         {
             caption: 'Large Fireboat',
@@ -363,7 +368,7 @@ export default {
             wtank: 0,
             special: 'Required once you have built 8 police stations',
             schooling: 'Police - SWAT',
-            shownSchooling: 'SWAT'
+            shownSchooling: 'SWAT',
         },
         {
             caption: 'BLS Ambulance',
@@ -381,7 +386,8 @@ export default {
             credits: 12_180,
             minPersonnel: 1,
             maxPersonnel: 2,
-            special: 'No missions require a EMS Rescue at this time, however it is able to treat patients. And Works as a Heavy Rescue',
+            special:
+                'No missions require a EMS Rescue at this time, however it is able to treat patients. And Works as a Heavy Rescue',
         },
         {
             caption: 'EMS Chief',
@@ -416,7 +422,7 @@ export default {
             credits: 5_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            wtank: 50
+            wtank: 50,
         },
         {
             caption: 'Pumper Tanker',
@@ -496,7 +502,8 @@ export default {
             maxPersonnel: 0,
             schooling: 'Fire Station - Heavy Machinery Operating',
             shownSchooling: 'Heavy Machinery Operating',
-            special: 'Dozer Trailer that can be towed with the Crew cap semi. Requires Heavy Machinery Operating and Truck Driver\'s License trained personnel to operate.<br> The dozer trailer cannot be assigned personnel, <br>either assign your trained personnel to the towing vehicle, or assign them to a separate unit en route.'
+            special:
+                "Dozer Trailer that can be towed with the Crew cap semi. Requires Heavy Machinery Operating and Truck Driver's License trained personnel to operate.<br> The dozer trailer cannot be assigned personnel, <br>either assign your trained personnel to the towing vehicle, or assign them to a separate unit en route.",
         },
         {
             caption: 'Crew cap semi',
@@ -505,8 +512,8 @@ export default {
             credits: 5_000,
             minPersonnel: 1,
             maxPersonnel: 3,
-            schooling: 'Fire Station - Truck Driver\'s License',
-            shownSchooling: 'Truck Driver\'s License',
+            schooling: "Fire Station - Truck Driver's License",
+            shownSchooling: "Truck Driver's License",
         },
         {
             caption: 'FBI Unit',
@@ -515,7 +522,7 @@ export default {
             credits: 10_000,
             minPersonnel: 2,
             maxPersonnel: 4,
-            },
+        },
         {
             caption: 'FBI Investigation Wagon',
             color: '#001ee0',
@@ -565,7 +572,6 @@ export default {
             schooling: 'Police - Sheriff',
             shownSchooling: 'Sheriff',
         },
-        
     ],
     buildings: [
         {
@@ -605,10 +611,7 @@ export default {
             special:
                 'From the 24th fire station onwards, the cost of building a new fire station increases according to the following formula: <code>100.000+200.000*LOG<sub>2</sub>(Number of existing fire stations − 22)</code>. The Coins price remains constant!',
             startPersonnel: 10,
-            startVehicles: [
-                'Type 1 fire engine',
-                'Type 2 fire engine',
-            ],
+            startVehicles: ['Type 1 fire engine', 'Type 2 fire engine'],
             maxBuildingsFunction: (): number => 4_000,
         },
         {
@@ -626,7 +629,7 @@ export default {
             maxBuildings: 'No limit',
             maxLevel: 0,
             special:
-                'Finance ministers and admins can (expand) fire department schools with the help of credits from the association\'s treasury.Training course masters and admins can start training courses at association fire- brigade schools.',
+                "Finance ministers and admins can (expand) fire department schools with the help of credits from the association's treasury.Training course masters and admins can start training courses at association fire- brigade schools.",
             startPersonnel: 0,
             startVehicles: [],
         },
@@ -782,7 +785,7 @@ export default {
             maxBuildings: 'No limit',
             maxLevel: 0,
             special:
-                'Finance ministers and admins can (expand) association police schools with the help of credits from the association\'s treasury.Training course masters and admins can start training courses at association police schools.',
+                "Finance ministers and admins can (expand) association police schools with the help of credits from the association's treasury.Training course masters and admins can start training courses at association police schools.",
             startPersonnel: 0,
             startVehicles: [],
         },
@@ -832,7 +835,7 @@ export default {
             maxBuildings: 'No limit',
             maxLevel: 0,
             special:
-                'This building can only be built and developed by admins and finance ministers with credits from the association\'s treasury.The built Prison Cells are available to all members of the association.',
+                "This building can only be built and developed by admins and finance ministers with credits from the association's treasury.The built Prison Cells are available to all members of the association.",
             startPersonnel: 0,
             startVehicles: [],
         },
@@ -853,10 +856,7 @@ export default {
             special:
                 'From the 24th fire station onwards, the cost of building a new fire station increases according to the following formula: <code>(100.000+200.000*LOG<sub>2</sub>(Number of existing fire stations − 22)) / 2</code>. max. 1 Million Credits. The Coins price remains constant!',
             startPersonnel: 10,
-            startVehicles: [
-                'Type 1 fire engine',
-                'Type 2 fire engine',
-            ],
+            startVehicles: ['Type 1 fire engine', 'Type 2 fire engine'],
             maxBuildingsFunction: (): number => 4_000,
         },
         {
@@ -996,7 +996,7 @@ export default {
                 'Special vehicles': [2, 3, 4, 6, 8, 9, 12],
                 'Wildland vehicles': [30, 31, 32, 33, 34, 38, 39, 40, 41],
                 'Airport Vehicles': [17],
-                Boats: [21, 22, 24],
+                'Boats': [21, 22, 24],
                 'Fire Aviation': [35, 36, 37],
             },
             color: '#ff2d2d',
@@ -1007,7 +1007,7 @@ export default {
                 'HEMS': [11],
                 'First Responder': [15],
                 'Rescue Boat': [25],
-                'Other EMS Vehicle': [20, 28, 29]
+                'Other EMS Vehicle': [20, 28, 29],
             },
             color: '#ffa500',
         },
@@ -1019,7 +1019,7 @@ export default {
                 'Police helicopter': [14],
                 'K-9 Unit': [19],
                 'FBI': [42, 43, 44, 45, 46],
-                'Sheriff': [47]
+                'Sheriff': [47],
             },
             color: '#00ac00',
         },
@@ -1077,11 +1077,11 @@ export default {
                 duration: '3 Days',
             },
             {
-                caption: 'Truck Driver\'s License',
+                caption: "Truck Driver's License",
                 duration: '2 Days',
             },
         ],
-        Police: [
+        'Police': [
             {
                 caption: 'Police Aviation',
                 duration: '7 Days',

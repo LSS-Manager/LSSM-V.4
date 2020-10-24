@@ -34,9 +34,11 @@ try {
             return execSync('tsc -b build').toString();
         },
         dev() {
-            return [this.tscBuild(), execSync('node build').toString()].join(
-                '\n\n'
-            );
+            return [
+                this.tscBuild(),
+                execSync('node build').toString(),
+                this.showChanges(),
+            ].join('\n\n');
         },
         tscDocs() {
             return execSync('tsc -b docs/.vuepress/').toString();
@@ -59,7 +61,11 @@ try {
             return [
                 this.tscBuild(),
                 execSync('node build production').toString(),
+                this.showChanges(),
             ].join('\n\n');
+        },
+        showChanges() {
+            return execSync('git diff --color-words').toString();
         },
     } as { [key: string]: () => string | void };
 
