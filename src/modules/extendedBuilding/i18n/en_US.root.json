@@ -1,0 +1,62 @@
+{
+    "description": "Adds some useful functions to your buildings.",
+    "name": "Extended building view",
+    "settings": {
+        "buildingsLeftRight": {
+            "description": "Shows in the buildings how many of the same type still exist in the respective direction.",
+            "title": "Number of buildings of the same type"
+        },
+        "enhanceVehicleList": {
+            "description": "Extends the vehicle list with useful features - some of which are specially adjustable.",
+            "title": "Extend vehicle list"
+        },
+        "enhancedPersonnelAssignment": {
+            "description": "Gives you the opportunity to hide personnel without the appropriate training.",
+            "title": "improved staff allocation"
+        },
+        "expansions": {
+            "title": "Show expansions directly",
+            "description": "Shows the extensions of a building without having to press the extensions tab first."
+        },
+        "fastDispatchChooser": {
+            "title": "Quick selection of the control center",
+            "description": "Lets you select directly in a building to which control center it is assigned without having to access the settings first."
+        },
+        "fmsSwitch": {
+            "description": "Allows you to switch between status 2 and 6 by clicking on the status.",
+            "title": "Fast FMS change"
+        },
+        "personnelAssignmentBtn": {
+            "description": "Inserts next to the \"Edit\" button to add a button to the personnel assignment. - Does not yet work in control centers!",
+            "title": "Button for personnel assignment"
+        },
+        "personnelDemands": {
+            "description": "Shows how much personnel is required with minimum and maximum vehicle occupancy.",
+            "title": "Personnel requirements"
+        },
+        "schoolingSummary": {
+            "description": "Shows in the staff overview of a building how many people have which training(s).",
+            "title": "Personnel summary"
+        },
+        "vehicleTypes": {
+            "description": "Shows the vehicle type (and if available the own vehicle class) in a separate column",
+            "title": "Vehicle type"
+        },
+        "vehiclesPersonnelMax": {
+            "title": "Maximum crew",
+            "description": "Shows the maximum number of people that can fit on the vehicle."
+        },
+        "vehiclesPersonnelCurrent": {
+            "title": "Current Crew",
+            "description": "Shows how many people are currently sitting in the vehicle."
+        },
+        "vehiclesPersonnelAssigned": {
+            "title": "Assigned crew",
+            "description": "Shows how many people are assigned to the vehicle."
+        },
+        "vehiclesPersonnelColorized": {
+            "title": "Color code for assigned crew",
+            "description": "Highlights the number of assigned crew in red if it is less than the maximum possible, green when the maximum number is reached."
+        }
+    }
+}

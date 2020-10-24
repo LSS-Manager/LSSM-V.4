@@ -1,0 +1,34 @@
+{
+    "extensionTitle": "{caption} (up to {n} times)",
+    "tabs": {
+        "buildings": "Buildings",
+        "vehicles": "Vehicles",
+        "schoolings": "Courses"
+    },
+    "titles": {
+        "buildings": {
+            "caption": "Building type",
+            "cost": "Price",
+            "extensions": "Extensions",
+            "levelcost": "Costs of the expansion stages",
+            "maxBuildings": "Boundary",
+            "maxLevel": "maximum expansion level",
+            "special": "Specials",
+            "startPersonnel": "Start Personnel",
+            "startVehicles": "Possible starting vehicles"
+        },
+        "vehicles": {
+            "caption": "Vehicle type",
+            "cost": "Price",
+            "maxPersonnel": "maximum personnel",
+            "minPersonnel": "minimum personnel",
+            "schooling": "Education",
+            "special": "Specials",
+            "wtank": "Water tank"
+        },
+        "schoolings": {
+            "caption": "Course name",
+            "duration": "Training period"
+        }
+    }
+}
