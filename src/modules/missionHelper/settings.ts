@@ -111,7 +111,7 @@ export default (MODULE_ID: string): unknown => ({
         ? {
               'patient.code_possible': {
                   type: 'toggle',
-                  default: true,
+                  default: false,
               },
           }
         : null),

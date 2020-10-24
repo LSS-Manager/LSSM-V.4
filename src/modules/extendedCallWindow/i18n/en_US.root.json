@@ -2,7 +2,7 @@
     "name": "Extended alarm window",
     "settings": {
         "generationDate": {
-            "title": "Generierungszeitpunkt",
+            "title": "Generation time",
             "description": "Shows next to the address when the mission was generated."
         },
         "enhancedMissingVehicles": {
@@ -83,6 +83,18 @@
             "style": "icon type",
             "vehicles": "vehicle types",
             "preview": "Preview"
+        },
+        "yellowBorder": {
+            "description": "Borders the generation time yellow if the usage is older than the entered number of hours. If the number is 0, no border is drawn.",
+            "title": "Yellow border"
+        },
+        "redBorder": {
+            "description": "Outlines the generation time in red if the bet will expire the following night.",
+            "title": "Red border"
+        },
+        "centerMap": {
+            "description": "Allows you to center the map in the main window on the place of use at the touch of a button.",
+            "title": "Center Map"
         }
     }
 }
