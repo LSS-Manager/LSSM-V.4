@@ -3,8 +3,8 @@
 BRANCH=$([ "$TRAVIS_PULL_REQUEST" = "false" ] && echo "$TRAVIS_BRANCH" || echo "$TRAVIS_PULL_REQUEST_BRANCH")
 
 setup_git() {
-  git config --global user.email "travis@lss-manager.de"
-  git config --global user.name "KBOE2"
+  git config --global user.email "developer@lss-manager.de"
+  git config --global user.name "LSS-Manager-Bot"
 }
 
 commit_files() {
