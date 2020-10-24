@@ -14,8 +14,7 @@ commit_files() {
 }
 
 upload_files() {
-  git remote add origin "${GH_TOKEN}"@github.com/LSS-Manager/LSSM-V.4.git > /dev/null 2>&1
-  git push origin "$BRANCH"
+  git push -f -q https://"${GH_TOKEN}"@github.com/LSS-Manager/LSSM-V.4.git "$BRANCH"
 }
 
 setup_git

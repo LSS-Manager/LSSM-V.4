@@ -8,6 +8,9 @@ before_install:
     - ssh-add /tmp/deploy_rsa
     - ssh-keyscan -p $PROD_PORT $PROD_SERVER 2>&1 >> $HOME/.ssh/known_hosts
 script: yarn run $RUN_SCRIPT
+after_script:
+    - git config credential.helper "store --file=.git/credentials"
+    - echo "https://${GH_TOKEN}:@github.com" > .git/credentials
 after_success:
     - chmod 777 $TRAVIS_BUILD_DIR/push.sh && $TRAVIS_BUILD_DIR/push.sh
 deploy:
