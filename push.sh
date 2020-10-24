@@ -8,13 +8,13 @@ setup_git() {
 }
 
 commit_files() {
-#  git checkout -b "$BRANCH"
+  git checkout -b "$BRANCH"
   git add -A
   git commit --message "👷 [BUILD] $TRAVIS_BUILD_NUMBER"
 }
 
 upload_files() {
-  git push -f -q https://"${GH_TOKEN}"@github.com/LSS-Manager/LSSM-V.4.git "$BRANCH"
+  git push -f https://"${GH_TOKEN}"@github.com/LSS-Manager/LSSM-V.4.git "$BRANCH"
 }
 
 setup_git
