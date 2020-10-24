@@ -8,7 +8,7 @@ setup_git() {
 }
 
 commit_files() {
-  git checkout -b "$BRANCH"
+#  git checkout -b "$BRANCH"
   git add -A
   git commit --message "👷 [BUILD] $TRAVIS_BUILD_NUMBER"
 }
