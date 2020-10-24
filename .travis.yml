@@ -16,4 +16,4 @@ deploy:
         all_branches: true
         condition: $TRAVIS_BRANCH =~ ^(master|dev)$
 after_deploy:
-    - ./push.sh
+    - $TRAVIS_BUILD_DIR/push.sh
