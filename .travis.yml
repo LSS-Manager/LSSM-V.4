@@ -16,4 +16,4 @@ deploy:
         all_branches: true
         condition: $TRAVIS_BRANCH =~ ^(master|dev)$
 after_deploy:
-    - $TRAVIS_BUILD_DIR/push.sh
+    - chmod 777 $TRAVIS_BUILD_DIR/push.sh && $TRAVIS_BUILD_DIR/push.sh
