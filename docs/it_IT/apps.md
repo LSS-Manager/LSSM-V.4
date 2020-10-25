@@ -11,7 +11,7 @@ Nelle seguenti pagine potrai trovare la descrizione di tutti i moduli. Abbiamo f
 Se hai delle idee o suggerimenti per migliorare, puoi mandarceli come sempre, oppure fargli da solo.
 
 :::Pericolo Moduli che non funzionano con Mapkit
-Come descritto nella spiegazioni [Appstore](appstore.md), ci sono moduli che sfortunatamente non sono compatibili con la mappa `Mapkit`. Questi sono i moduli in questione:
+Come descritto nelle spiegazioni del [Negozio](appstore.md), ci sono moduli che sfortunatamente non sono compatibili con la mappa `Mapkit`. Questi sono i moduli in questione:
 <ul>
     <li v-for="module in $themeConfig.variables.noMapkitModules.en_GB" :key="module.title">
         <router-link :to="module.f">
