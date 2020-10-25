@@ -29,7 +29,7 @@ if ($MYSQLI->connect_errno) {
 }
 
 if ($USER == null) {
-    if (!($insert = $MYSQLI->prepare('INSERT INTO `user`(`id`, `game`, `uid`, `version`, `name`, `data`, `police`) VALUES (?, ?, ?, ?, ?, ?, ?)'))) {
+    if (!($insert = $MYSQLI->prepare('INSERT INTO `v4_user`(`id`, `game`, `uid`, `version`, `name`, `data`, `police`) VALUES (?, ?, ?, ?, ?, ?, ?)'))) {
         http_response_code(501) && die(json_encode(['Preparing Statement failed!']));
     }
     $insert->bind_param('ssisss', $USER_KEY, $data['game'], $data['uid'], $data['version'], $data['name'], $data['data'], $data['police']);
