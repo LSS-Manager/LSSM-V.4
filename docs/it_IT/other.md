@@ -54,7 +54,7 @@ Ma anche per i numerosi aiuti/consigli che hanno reso lo sviluppo di LSSM più f
 ### I nostri beta tester
 Un piccolo gruppo di utenti attivi riceverà nuovi aggiornamente prima del resto degli utenti, così da potergli testare. Così possiamo trovare e fixare alcuni problemi prima che vengano rilasciati al pubblico.
 
-:::tip
+::: tip
 Il numero di beta tester è limitato e "durante" non ne verranno aggiunti nuovi. Se dovesse esserci una nuova fase per le domande, lo annunceremo di conseguenza, così che tutti abbiano la possibilità di diventare beta tester - finchè che soddisfino certe condizioni.
 :::
 
