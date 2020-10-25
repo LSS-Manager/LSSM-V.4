@@ -8,7 +8,7 @@ ssh-keyscan -p $PROD_PORT $PROD_SERVER 2>&1 >> $HOME/.ssh/known_hosts
 # Daten des Builds auf den Server kopieren
 rsync -e "ssh -p $PROD_PORT" -r --delete-after $TRAVIS_BUILD_DIR/dist/ $PROD_USER@$PROD_SERVER:$DIR
 # Statische Daten und Konfigurationen überschreiben
-ssh -p $PROD_PORT $PROD_USER@$PROD_SERVER << EOF
+ssh -tt -q -p $PROD_PORT $PROD_USER@$PROD_SERVER << EOF
 	cp -r /var/www/static $DIR
 	mkdir $DIR/static/missions
 EOF
