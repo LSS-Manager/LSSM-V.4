@@ -1,0 +1,21 @@
+{
+    "description": "Vergemakkelijkt het instellen van POI's door middel van kleine, handige functies",
+    "name": "Verbeterde POI",
+    "settings": {
+        "custom_style": {
+            "title": "Aangepaste stijl voor accentuering"
+        },
+        "predefined_style": {
+            "brown": "Bruin",
+            "custom": "Aanpasbaar",
+            "green": "Groen",
+            "red": "Rood",
+            "title": "Icoon markeren",
+            "white": "Wit"
+        },
+        "shown_types": {
+            "title": "Weergegeven POI-typen",
+            "description": "Specificeer hier welke POI-typen getoond moeten worden. U kunt deze instelling ook rechtstreeks wijzigen in het menu \"POI instellen\" - Wijzigen."
+        }
+    }
+}
