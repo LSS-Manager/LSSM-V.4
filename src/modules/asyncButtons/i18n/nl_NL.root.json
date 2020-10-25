@@ -1,0 +1,28 @@
+{
+    "description": "Voorkom met deze module dat het spel opnieuw wordt geladen als je op bepaalde knoppen drukt.",
+    "name": "Asynchrone knoppen",
+    "settings": {
+        "buildingTax": {
+            "description": "Voorkomt herladen wanneer u de kosten van eigen cellen of ziekenhuisbedden instelt.",
+            "title": "Kosten van cellen en bedden"
+        },
+        "missionPrisoners": {
+            "title": "Arrestanten in het inzetscherm"
+        },
+        "missionReply": {
+            "title": "MissionReplys in the Mission"
+        },
+        "memberlistManageUser": {
+            "title": "Rechten van Teamleden",
+            "description": "Voorkomt herladen bij het aanpassen van de rechten van Teamleden"
+        },
+        "deleteForumPost": {
+            "title": "Verwijder Forumberichten",
+            "description": "Voorkomt herladen bij het verwijderen van een forumbericht"
+        },
+        "deleteARR": {
+            "title": "Verwijder Inzetvoorstellen",
+            "description": "Voorkomt herladen bij het verwijderen van inzetvoorstellen"
+        }
+    }
+}

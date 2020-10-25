@@ -1,0 +1,16 @@
+{
+    "description": "Bestuur het spel met sneltoetsen op het toetsenbord, die je zelf kunt instellen.",
+    "name": "Hotkeys",
+    "settings": {
+        "nextElementKey": {
+            "title": "Volgende \"Element\""
+        },
+        "prevElementKey": {
+            "title": "Vorige \"Element\""
+        },
+        "prevNextElement": {
+            "description": "Bedenk een beschrijving hier",
+            "title": "prevNextElement"
+        }
+    }
+}
