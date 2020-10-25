@@ -5,7 +5,7 @@ sidebarDepth: 2
 ---
 
 # Suggerimenti :bulb:
-::: Consigli
+::: tip
 Siete pregati di elaborare i suggerimenti il meglio possibile prima di proporgli. Questo ci aiuta a capire cosa sia il tuo suggerimento e così dobbiamo fare meno domande.
 :::
 
