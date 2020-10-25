@@ -9,10 +9,10 @@ sidebarDepth: 2
 ## Orientamento
 Un piccolo aiuto, che potrebbe aiutarti a creare una richiesta di supporto.
 
-::: consiglio
+::: tip
 Se hai bisogno di assistenza, descrivi il tuo problema il più precisamente possibile. Migliore e più dettagliata la descrizione del tuo problema, prima e meglio potremo aiutarti.
 :::
-::: Attenzione
+::: warning
 Si prega di notare che noi ufficialmente non supportiamo browser vecchi, browser mobili e Microsoft Edge o Internet Explorer. Il supporto per questi browser non è garantito.
 :::
 
