@@ -6,7 +6,7 @@ sidebarDepth: 2
 
 # Raccolta dei Metadati degli utenti
 
-Utilizzando `LSSM` (Operatore112 Manager, estensione per i browser), l'utente accetta la raccolta dei metadati. I seguenti dati vengono memorizzati: `User ID`, `Nome Utente`, `Numero degli edifici, `Browser utilizzato`, `Ultima chiamata dei Script`, `Moduli attivati`, `Versione locale del gioco`, `Mappa utilizzata` & `Versione LSSM`.
+Utilizzando `LSSM` (Operatore112 Manager, estensione per i browser), l'utente accetta la raccolta dei metadati. I seguenti dati vengono memorizzati: `User ID`, `Nome Utente`, `Numero degli edifici`, `Browser utilizzato`, `Ultima chiamata dei Script`, `Moduli attivati`, `Versione locale del gioco`, `Mappa utilizzata` & `Versione LSSM`.
 
 Questi dati vengono utilizzati per migliorare l'estensione come anche un indizio per lo sviluppo dei moduli esistenti o futuri.
 
