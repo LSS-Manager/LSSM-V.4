@@ -1,0 +1,62 @@
+{
+    "description": "Voegt nuttige functies toe aan je gebouwen.",
+    "name": "Uitgebreide gebouwweergave",
+    "settings": {
+        "buildingsLeftRight": {
+            "description": "Laat in het gebouw zien hoeveel van dezelfde gebouwen er nog zijn in de respectievelijke richting.",
+            "title": "Aantal gebouwen van het zelfde type"
+        },
+        "enhanceVehicleList": {
+            "description": "Breidt de voertuigenlijst uit met nuttige functies - Sommige daarvan zijn aanpasbaar.",
+            "title": "Uitgebreide voertuigenlijst"
+        },
+        "enhancedPersonnelAssignment": {
+            "description": "Geeft je de kans om personeel te verbergen zonder de juiste opleiding.",
+            "title": "Verbeterd personeel toewijzen"
+        },
+        "expansions": {
+            "title": "Laat uitbreidingen direct zien",
+            "description": "Laat de uitbreidingen van een gebouw zien, zonder op de uitbreidingen tab te drukken."
+        },
+        "fastDispatchChooser": {
+            "title": "Snelle selectie van de meldkamer",
+            "description": "Laat je direct de meldkamer aanpassen vanuit het gebouw, zonder naar de instellingen te moeten gaan."
+        },
+        "fmsSwitch": {
+            "description": "Zorgt dat je tussen status 5 en 6 kan wisselen door te klikken op de status.",
+            "title": "Snel status veranderen"
+        },
+        "personnelAssignmentBtn": {
+            "description": "Voegt naast de \"Bewerken\" knop een knop voor het personeel toewijzen toe. - Werkt nog niet in meldkamers!",
+            "title": "Knop voor personeel toewijzen"
+        },
+        "personnelDemands": {
+            "description": "Laat zien hoeveel personeel nodig is met de minimum en maximale voertuigbezetting.",
+            "title": "Personeel benodigd"
+        },
+        "schoolingSummary": {
+            "description": "Laat in het personeelsoverzicht van een gebouw zien hoeveel personen welke opleiding(en) hebben.",
+            "title": "Personeel samenvatting"
+        },
+        "vehicleTypes": {
+            "description": "Laat het voertuigtype zien (en als beschikbaar de eigen voertuigcategorie) in een apart kolom.",
+            "title": "Voertuig type"
+        },
+        "vehiclesPersonnelMax": {
+            "title": "Maximum personeel",
+            "description": "Laat het maximaal aantal personen die in een voertuig passen zien."
+        },
+        "vehiclesPersonnelCurrent": {
+            "title": "Huidig personeel",
+            "description": "Toont het aantal personen die momenteel in het voertuig zitten."
+        },
+        "vehiclesPersonnelAssigned": {
+            "title": "Toegewezen personeel",
+            "description": "Toont hoeveel personeel is toegewezen aan het voertuig."
+        },
+        "vehiclesPersonnelColorized": {
+            "title": "Kleurcode voor toegewezen personeel",
+            "description": "Kleurt het aantal toegezen personen rood als het lager is dan maximaal en groen als het gelijk is aan het maximum."
+        }
+    }
+}

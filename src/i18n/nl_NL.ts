@@ -966,7 +966,7 @@ export default {
             buildings: [2, 3, 6, 7, 13],
             color: '#ffa500',
         },
-        Police_Stations: {
+        Politie: {
             buildings: [5, 8, 9, 11, 12],
             color: '#00ac00',
         },
