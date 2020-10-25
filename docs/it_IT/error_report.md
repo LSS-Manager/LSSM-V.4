@@ -10,10 +10,10 @@ sidebarDepth: 2
 Qui puoi trovare una piccola guida su come creare messaggi d'errore in maniera ottimale.
 
 Prima di segnalare un errore, può essere utile dare un occhiata qui nella wiki, per vedere se questo è una funzione desiderata oppure se è già conosciuto. Nel secondo caso può già esserci una possibile soluzione.
-::: Consiglio
+::: tip
 Se vuoi segnalare un bug, descrivilo sempre nella maniera più accurata possibile. Più sarà dettagliato il tuo messaggio di errore, più velocemente potremo aiutarti.
 :::
-::: Attenzione
+::: warning
 Si prega di notare che ufficialmente non supportiamo browser vecchi, browser mobili e Microsoft Edge o Internet Explorer. Il supporto per questi browser non è garantito.
 :::
 

@@ -43,7 +43,7 @@ Opera  | [Download](https://addons.opera.com/en/extensions/details/tampermonkey-
 
 Per altri browser puoi scaricare Tampermonkey su [tampermonkey.net](https://www.tampermonkey.net/).
 
-::: Attenzione
+::: tip
 Si prega di notare che ufficialmente noi non forniamo supporto per browser più vecchi, Browser mobili e Microsoft Edge o Internet Explorer. Il supporto per questi browser non è garantito.
 :::
 
