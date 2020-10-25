@@ -61,7 +61,7 @@ Il numero di beta tester è limitato e "durante" non ne verranno aggiunti nuovi.
 ### Tutti quelli che ci segnalano errori e propongono suggerimenti
 Immaginate per quanto tempo un problema in LSSM potrebbe durare se nessuno lo segnala - certamente non lo troviamo così velocemente. Anche tutte le idee/suggerimenti che arrivano non devono essere sottostimati. Lo sviluppo di LSSM è fortemente influenzato dai partecipanti e dai desideri degli utenti.
 
-### Only singolo utente
+### Ogni singolo utente
 Ogni utente ci dà sempre la motivazione per andare avanti ed espandere e migliorare LSSM sempre di più.
 
 [license]: https://creativecommons.org/licenses/by-nc-sa/4.0/deed.de
