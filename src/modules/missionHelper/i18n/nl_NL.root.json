@@ -52,7 +52,7 @@
                 "title": "Toon Hulpverleningsvoertuig als Tankautospuit"
             },
             "allow_arff_instead_of_lf": {
-                "description": "Geeft aan of een crashtender  kan worden gebruikt als een tankautospuit",
+                "description": "Geeft aan of een crashtender kan worden gebruikt als een tankautospuit",
                 "title": "Toon Crashtender als Tankautospuit"
             }
         },
