@@ -971,25 +971,25 @@ export default {
         },
     ],
     buildingCategories: {
-        FireDepartment: {
+        'Fire Department': {
             buildings: [0, 4, 11, 13, 17],
             color: '#ff2d2d',
         },
-        RescueStations: {
-            buildings: [3, 6, 7, 12, 14, 16],
+        'Rescue Stations': {
+            buildings: [3, 6, 12, 16],
             color: '#ffa500',
         },
-        PoliceStations: {
-            buildings: [5, 8, 15, 18],
+        'Police Stations': {
+            buildings: [5, 7, 8, 15, 18],
             color: '#00ac00',
         },
-        Other: {
-            buildings: [1],
+        'Other': {
+            buildings: [2, 9, 14],
             color: '#02a18c',
         },
     },
     vehicleCategories: {
-        FireDepartment: {
+        'Firefighters': {
             vehicles: {
                 'Fire trucks': [0, 1, 13, 18],
                 'WaterTanker': [7],
@@ -1001,7 +1001,7 @@ export default {
             },
             color: '#ff2d2d',
         },
-        RescueStations: {
+        'Rescue Vehicles': {
             vehicles: {
                 'Ambulances': [5, 27],
                 'HEMS': [11],
@@ -1011,7 +1011,7 @@ export default {
             },
             color: '#ffa500',
         },
-        PoliceStations: {
+        'Police Vehicles': {
             vehicles: {
                 'Patrol Car': [10],
                 'SWAT': [16, 26],
@@ -1145,27 +1145,24 @@ export default {
     },
     buildingIcons: [
         'fire',
-        'graduation-cap',
-        'clinic-medical',
-        'graduation-cap',
-        'hospital',
-        'hospital-symbol',
-        'shield-alt',
         'rss',
+        'hospital',
+        'clinic-medical',
         'graduation-cap',
-        'building',
-        'graduation-cap',
-        'balance-scale',
-        'ambulance',
+        'shield-alt',
         'helicopter',
-        'warehouse',
-        'water',
-        'border-all',
-        'balance-scale-left',
+        'graduation-cap',
+        'helicopter',
+        'building',
+        '',
+        'ship',
+        'ship',
         'fire',
+        'stethoscope',
         'shield-alt',
         'clinic-medical',
-        'paw',
+        'plane',
+        'shield-alt',
     ],
     only_alliance_missions: [41, 43, 59, 75, 99, 207, 221, 222, 256, 350],
     transfer_missions: [246],
