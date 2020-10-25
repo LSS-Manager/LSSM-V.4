@@ -4,7 +4,7 @@ lang: it_IT
 sidebarDepth: 2
 ---
 
-# Wiki :gb: <Badge :text="'LSSM V.' + ($themeConfig.variables.versions.stable || 4)"/>
+# Wiki :it: <Badge :text="'LSSM V.' + ($themeConfig.variables.versions.stable || 4)"/>
 
 *Versione corrente:*
 > Stabile: <i>{{ $themeConfig.variables.versions.stable }}</i> (non ancora rilasciata)
@@ -56,4 +56,4 @@ Se Tampermonkey è stato installato in maniera corretta sul browser, puoi sia cl
 L'indicatore di LSSM è un testo verde evidenziato `LSSM V.4`.
 Se sei su Operatore112 ma non vedi questo indicatore nell'angolo in alto a destra, clicca sull'icona di tampermonkey nel browser e controlla se l'interruttore per LSS-Manager script è impostato su `on`.
 
-Se hai qualsiasi problema puoi sempre contattarci [Support](support.md).
+Se hai qualsiasi problema puoi sempre contattarci [Supporto](support.md).
