@@ -9,7 +9,7 @@ sidebarDepth: 3
 ### Quanto costa LSS Manager?
 LSS-Manager è gratutito - non abbiamo intenzione di cambiare questo.
 
-::: Attenzione Donazioni
+::: warning Donazioni
 Ci sono alcuni buoni utenti che vorrebbero donarci dei soldi. Ma: LSS-Manager è e rimarrà gratuito. Inoltre non accetteremo nessuna donazione per questo proggetto.
 
 Questo per tanti motivi:
@@ -43,7 +43,7 @@ Questa tabella non è ancora neccessariamente corretta e verrà aggiornata quand
 
 Dal momento che vogliamo tenere una codifica standard in tutto, un browser moderno ed aggiornato è necessario e raccomandato - anche solo per motivi di sicurezza, anche all'esterno del gioco.
 
-::: Attenzione Compatibilità
+::: warning Compatibilità
 La compatibilità segnata qui non garantisce la funzionalità. Queste sono solo informazioni raccolte e valutate da terze parti.
 :::
 
@@ -64,7 +64,7 @@ La compatibilità segnata qui non garantisce la funzionalità. Queste sono solo 
 </tbody>
 </table>
 
-::: Pericolo Internet Explorer e Microsoft Edge
+::: danger Internet Explorer e Microsoft Edge
 Questi due browser possono essere descritti come "bambini problematici" di un moderno programmatore web. Ci sono alcune funzioni che non funzionano all'interno di essi, oppure richiedeno una programmazione addizionale.
 
 Noi non vediamo il punto di fare ciò ovunque e ufficialmente **non** supportiamo questi due browser.
