@@ -62,10 +62,10 @@ if ($USER == null) {
 //    $result['success'] = $webhook_response == '';
     $result['success'] = true;
 } else {
-    if (!($update = $MYSQLI->prepare('UPDATE `user` SET `name`=?, `version`=?, `data`=?, `timestamp`=CURRENT_TIMESTAMP() WHERE `id`=?'))) {
+    if (!($update = $MYSQLI->prepare('UPDATE `user` SET `name`=?, `version`=?, `data`=?, `timestamp`=CURRENT_TIMESTAMP(), `police`=? WHERE `id`=?'))) {
         http_response_code(503) && die(json_encode(['Preparing Statement failed!']));
     }
-    $update->bind_param('ssss', $data['name'], $data['version'], $data['data'], $USER_KEY);
+    $update->bind_param('sssis', $data['name'], $data['version'], $data['data'], $data['police'], $USER_KEY);
     if (!$update->execute()) {
         http_response_code(504) && die(json_encode(['Execute failed!']));
     }
