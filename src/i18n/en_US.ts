@@ -972,19 +972,19 @@ export default {
     ],
     buildingCategories: {
         'Fire Department': {
-            buildings: [0, 4, 10, 12, 16],
+            buildings: [0, 4, 11, 13, 17],
             color: '#ff2d2d',
         },
         'Rescue Stations': {
-            buildings: [3, 6, 11, 15],
+            buildings: [3, 6, 12, 16],
             color: '#ffa500',
         },
         'Police Stations': {
-            buildings: [5, 7, 8, 14, 17],
+            buildings: [5, 7, 8, 15, 18],
             color: '#00ac00',
         },
         'Other': {
-            buildings: [2, 9, 13],
+            buildings: [2, 9, 14],
             color: '#02a18c',
         },
     },
