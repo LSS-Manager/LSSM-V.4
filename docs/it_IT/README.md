@@ -23,7 +23,7 @@ I plugin che non sono attivi, non vengono neanche caricati - questo ci permette 
 ## Installazione 📥
 Usando LSSM accetti che noi collezioniamo i metadati. Puoi trovare maggiori informazioni su questo in [Metadata](metadata.md)
 
-Una tabella con i browser compatibili con LSSM la puoi trovare nelle nostre [FAQ](faq.md#in-which-browsers-lss-manager works)
+Una tabella con i browser compatibili con LSSM la puoi trovare nelle nostre [FAQ](faq.md#su-quale-browser-lss-manager-funziona)
 
 ::: tip sull'uso di LSSM su dispositivi mobili
 Ufficialmente non supportiamo una versione mobile. Tuttavia, il browser Firefox offre la possibilità di usare add-on nella sua versione mobile. Tuttavia, noi non garantiamo un design attraente o la piena funzionalità per i browser mobili.
