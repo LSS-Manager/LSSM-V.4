@@ -1,0 +1,62 @@
+{
+	"description": "Aggiunge alcune funzioni utili ai tuoi edifici.",
+	"name": "Vista estesa dell'edificio",
+	"settings": {
+		"buildingsLeftRight": {
+			"description": "Mostra nell'edificio quanti dello stesso tipo esistono ancora nella rispettiva direzione.",
+			"title": "Numero degli edifici dello stesso tipo"
+		},
+		"enhanceVehicleList": {
+			"description": "Estende la lista dei veicoli con caratteristiche utili - alcuni dei quali sono particolarmente regolabili.",
+			"title": "Estensione elenco dei veicoli"
+		},
+		"enhancedPersonnelAssignment": {
+			"description": "Ti da la possibilità di nascondere il personale senza l'adeguata formazione.",
+			"title": "Migliore assegnazione del personale"
+		},
+		"expansions": {
+			"description": "Mostra le estensioni degli edifici senza dover cliccare prima la finestra estensioni.",
+			"title": "Mostra direttamente le espansioni"
+		},
+		"fastDispatchChooser": {
+			"description": "Hai la possibilità di selezionare, all'interno dell'edificio, direttamente a quale centro di controllo assegnarlo, senza dover accedere prima alle impostazioni.",
+			"title": "Selezione rapida del centro di controllo"
+		},
+		"fmsSwitch": {
+			"description": "Ti permette di cambiare rapidamente tra lo stato 2 e 6, cliccando su di esso.",
+			"title": "Cambio di stato rapido"
+		},
+		"personnelAssignmentBtn": {
+			"description": "Inserisce accanto al bottone \"Edit\" un pulsante per l'assegnazione del personale. -Ancora non funziona nei centri di controllo!",
+			"title": "Pulsante per l'assegnazione del personale"
+		},
+		"personnelDemands": {
+			"description": "Mostra quanto personale è richiesto con la minima e la massima occupazione del veicolo.",
+			"title": "Requisiti del personale"
+		},
+		"schoolingSummary": {
+			"description": "Mostra nella panoramica del personale dell'edificio, quante persone hanno quale formazione.",
+			"title": "Sommario del personale"
+		},
+		"vehicleTypes": {
+			"description": "Mostra il tipo di veicolo (e se disponibile la propria classe del veicolo) in una colonna separata.",
+			"title": "Tipo di veicolo"
+		},
+		"vehiclesPersonnelAssigned": {
+			"description": "Mostra quante persone sono assegnate al veicolo.",
+			"title": "Equipaggio assegnato"
+		},
+		"vehiclesPersonnelColorized": {
+			"description": "Evidenzia il numero dell'equipaggio assegnato in rosso se è inferiore al massimo possibile, verde quando il numero massimo è raggiunto.",
+			"title": "Codice colore per l'equipaggio assegnato"
+		},
+		"vehiclesPersonnelCurrent": {
+			"description": "Mostra quante persone sono attualmente sedute nel veicolo.",
+			"title": "Equipaggio corrente"
+		},
+		"vehiclesPersonnelMax": {
+			"description": "Mostra il numero massimo di persone che può entrare nel veicolo.",
+			"title": "Equipaggio massimo"
+		}
+	}
+}
