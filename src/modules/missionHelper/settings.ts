@@ -71,11 +71,15 @@ export default (MODULE_ID: string): unknown => ({
             settings[MODULE_ID]['multifunctionals.battalion_chief_vehicles']
                 .value,
     },
-    'multifunctionals.platform_trucks': {
-        type: 'toggle',
-        default: false,
-        dependsOn: '.vehicles.content',
-    },
+    ...(BUILD_LANG === 'de_DE'
+        ? {
+              'multifunctionals.platform_trucks': {
+                  type: 'toggle',
+                  default: false,
+                  dependsOn: '.vehicles.content',
+              },
+          }
+        : null),
     'optionalAlternatives.allow_rw_instead_of_lf': {
         type: 'toggle',
         default: false,
@@ -165,8 +169,12 @@ export default (MODULE_ID: string): unknown => ({
         type: 'hidden',
         default: false,
     },
-    'k9_only_if_needed': {
-        type: 'toggle',
-        default: false,
-    },
+    ...(BUILD_LANG === 'de_DE'
+        ? {
+              k9_only_if_needed: {
+                  type: 'toggle',
+                  default: false,
+              },
+          }
+        : null),
 });
