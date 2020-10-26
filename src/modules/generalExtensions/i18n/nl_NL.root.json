@@ -27,7 +27,7 @@
             "title": "Bewaar kaart verplaatsingen"
         },
         "showImg": {
-            "description": "Probeer een afbeeldingsvoorbeeld te genereren. Werkt alleen in combinatie met \"Maak links klikbaar\"!",
+            "description": "Toont een afbeeldingsvoorbeeld bij een link. Werkt alleen in combinatie met \"Maak links klikbaar\"!",
             "title": "Activeren van het afbeeldingsvoorbeeld"
         }
     }
