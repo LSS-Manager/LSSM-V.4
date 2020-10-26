@@ -25,6 +25,6 @@ Deze functie kan momenteel niet gebruikt worden met kaarttype `Mapkit`!
 
 Er zijn een aantal momenten in het spel, dat de kaart op een andere locatie gecentreerd wordt. Met deze instellingen worden deze verplaatsingen opgeslagen en zijn terug te vinden onder een kleine knop rechtsboven in de kaart. 
 
-![Kaart verplaatsings historie](/docs/assets/generalExtensions/img/mapUndo.png)
+![Kaart verplaatsings historie](/assets/img/mapUndo.png)
 
 Als u met de muis kort op hetzelfde adres blijft, wordt het op de kaart weergegeven, maar de kaart springt alleen naar dit adres als op het adres klikt. 

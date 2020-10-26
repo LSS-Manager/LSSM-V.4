@@ -8,7 +8,7 @@
         },
         "navFormat": {
             "title": "Formaat van de klok in de navigatiebalk",
-            "description": "Hier kunt u het formaat van de klok instellen. Hiervoor vindt u hulp <a class=\"lightbox-open\" href=\"{wiki}/modules/clock.html#konfiguration\">op de wiki</a>."
+            "description": "Hier kunt u het formaat van de klok instellen. Hiervoor vindt u hulp <a class=\"lightbox-open\" href=\"{wiki}/modules/clock.html#Configuratie\">op de wiki</a>."
         },
         "displayOverlay": {
             "title": "Toon klok als overlay",
@@ -16,7 +16,7 @@
         },
         "overlayFormat": {
             "title": "Formaat van de klok als overlay",
-            "description": "Hier kunt u het formaat van de klok instellen. Hiervoor vindt u hulp <a class=\"lightbox-open\" href=\"{wiki}/modules/clock.html#konfiguration\">op de wiki</a>."
+            "description": "Hier kunt u het formaat van de klok instellen. Hiervoor vindt u hulp <a class=\"lightbox-open\" href=\"{wiki}/modules/clock.html#Configuratie\">op de wiki</a>."
         }
     }
 }

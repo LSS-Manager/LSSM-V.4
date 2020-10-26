@@ -3,7 +3,7 @@ En om u het hoogst mogelijke "comfort" te kunnen bieden, kan deze klok zelfs bew
 Dit betekent dat we je de mogelijkheid geven om een ​​groot aantal variabelen te gebruiken om bijv. de huidige datum te weergeven.
 Hulp bij de configuratie vindt u onder [Configuratie](#configuratie).
 
-Momenteel bieden wij u de mogelijkheid  aan voor klokken op de volgende locaties:
+Momenteel bieden wij u de mogelijkheden aan voor klokken op de volgende locaties:
 * Navigatiebalk *Formaat hier: `LLLL: ss`* ! [Klok in de navigatiebalk](/docs/assets/clock/img/navbar.png)
 * Als overlay boven alle elementen
 
@@ -12,7 +12,7 @@ Momenteel bieden wij u de mogelijkheid  aan voor klokken op de volgende locaties
 Wij gebruiken [Moment.js](https://momentjs.com/), om u een zo breed mogelijke keuze aan configuratie-opties te kunnen bieden.
 Hieronder proberen we de mogelijkheden zo duidelijk mogelijk op een rij te zetten. U vindt het originele document in de [Moment.js Documentatie](https://momentjscom.readthedocs.io/en/latest/moment/04-displaying/01-format/).
 
-### Variablen
+### Variabelen
 
 |   Categorie   | Variable |               output               |                         Omschrijving                         |
 | :-----------: | :------: | :--------------------------------: | :----------------------------------------------------------: |

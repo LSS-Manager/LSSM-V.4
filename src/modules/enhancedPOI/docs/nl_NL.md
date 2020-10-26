@@ -9,4 +9,4 @@ Om het plaatsen makkelijker te maken, bied deze module de volgende vereenvoudigi
 * Alle bestaande POI van het momenteel geselecteerde type worden gekleurd.
 * Als de marker buiten het bereik van je beeld komt, centreert de kaart automatisch op de marker. 
 
-![Voorbeeld: (DE) Stadion](/docs/assets/enhancedPOI/img/de_DE.png)
+![Voorbeeld: (DE) Stadion](assets/img/de_DE.png)
