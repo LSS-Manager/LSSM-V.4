@@ -98,7 +98,7 @@ Also each module contains a `docs` folder. Add a `xx_XX.md` file in there and st
     * Add a fitting Icon for the building in `buildingIcons`
 
 ### schoolings
-* Add the schooling to the i18n file of module `schoolingOverview`.
-    * If a new school is used, add a new tab with the school.
+* Add the schooling to the main i18n file of your language.
+    * If a new school is used, add a new key for the school.
 
 [FA]: https://fontawesome.com/icons?d=gallery&m=free
