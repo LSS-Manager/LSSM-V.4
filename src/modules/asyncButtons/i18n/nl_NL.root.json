@@ -1,6 +1,6 @@
 {
     "description": "Voorkom met deze module dat het spel opnieuw wordt geladen als je op bepaalde knoppen drukt.",
-    "name": "Asynchrone knoppen",
+    "name": "Niet herladen",
     "settings": {
         "buildingTax": {
             "description": "Voorkomt herladen wanneer u de kosten van eigen cellen of ziekenhuisbedden instelt.",
