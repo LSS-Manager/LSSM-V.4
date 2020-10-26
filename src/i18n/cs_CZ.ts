@@ -1,3 +1,1 @@
-export default {
-    settings: 'Settings',
-};
+//

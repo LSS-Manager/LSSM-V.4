@@ -92,6 +92,12 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/Tsumiki-Chan"><img src="https://avatars2.githubusercontent.com/u/8158524?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Tsumiki</b></sub></a><br /><a href="#infra-Tsumiki-Chan" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a></td>
     <td align="center"><a href="https://github.com/Piet2001"><img src="https://avatars3.githubusercontent.com/u/54183168?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Piet2001</b></sub></a><br /><a href="https://github.com/LSS-Manager/LSSM-V.4/commits?author=Piet2001" title="Documentation">📖</a> <a href="#translation-Piet2001" title="Translation">🌍</a></td>
   </tr>
+  <tr>
+    <td align="center"><a href="https://github.com/Silverarmor"><img src="https://avatars0.githubusercontent.com/u/23619946?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Silverarmor</b></sub></a><br /><a href="https://github.com/LSS-Manager/LSSM-V.4/commits?author=Silverarmor" title="Documentation">📖</a> <a href="#translation-Silverarmor" title="Translation">🌍</a></td>
+    <td align="center"><a href="https://github.com/robgor95"><img src="https://avatars0.githubusercontent.com/u/73424454?v=4?s=100" width="100px;" alt=""/><br /><sub><b>robgor95</b></sub></a><br /><a href="#translation-robgor95" title="Translation">🌍</a></td>
+    <td align="center"><a href="https://github.com/JRH-1997"><img src="https://avatars1.githubusercontent.com/u/65117490?v=4?s=100" width="100px;" alt=""/><br /><sub><b>JRH-1997</b></sub></a><br /><a href="https://github.com/LSS-Manager/LSSM-V.4/commits?author=JRH-1997" title="Documentation">📖</a> <a href="#translation-JRH-1997" title="Translation">🌍</a></td>
+    <td align="center"><a href="https://github.com/TuzinhoCZ"><img src="https://avatars1.githubusercontent.com/u/73494217?v=4?s=100" width="100px;" alt=""/><br /><sub><b>TuzinhoCZ</b></sub></a><br /><a href="#translation-TuzinhoCZ" title="Translation">🌍</a></td>
+  </tr>
 </table>
 
 <!-- markdownlint-restore -->
