@@ -341,7 +341,7 @@ export default {
             credits: 6_000,
             coins: 12,
             special: 'Haakarmvoertuig benodigd',
-        },            
+        },
         {
             caption: 'Dienstauto Voorlichter',
             color: '#570f0f',
@@ -592,7 +592,7 @@ export default {
             coins: 25,
             schooling: 'Politie - Operator AT',
             shownSchooling: 'Operator AT',
-        },                
+        },
         {
             caption: 'Lifeliner',
             color: '#e09200',
@@ -644,7 +644,7 @@ export default {
                     }): number =>
                         Math.floor(
                             (buildingsByType[0]?.length ?? 0) /
-                                10
+                            10
                         ),
                 },
                 ...new Array(9).fill({
@@ -660,7 +660,7 @@ export default {
             special:
                 'Vanaf de 25e brandweerkazerne stijgen de kosten voor de bouw van een nieuwe brandweerkazerne volgens de volgende formule: <code>100.000+200.000*LOG<sub>2</sub>(Aantal brandweerposten − 22)</code>. De Coins prijs blijft gelijk!',
             startPersonnel: 10,
-            startVehicles: ['SI-2','TS 8/9','TST 8/9','TST 6/7','TST 4/5','TS 4/5','TST-NB 8/9','TST-NB 6/7','TST-NB 4/5','TS 6/7'],
+            startVehicles: ['SI-2', 'TS 8/9', 'TST 8/9', 'TST 6/7', 'TST 4/5', 'TS 4/5', 'TST-NB 8/9', 'TST-NB 6/7', 'TST-NB 4/5', 'TS 6/7'],
             maxBuildingsFunction: (): number => 4_000,
         },
         {
