@@ -30,7 +30,7 @@
 		"version": "4.14.162"
 	},
 	"@types/node": {
-		"version": "14.14.2"
+		"version": "14.14.3"
 	},
 	"@types/ua-parser-js": {
 		"version": "0.7.33"
@@ -89,7 +89,7 @@
 	"eslint": {
 		"icon": "https://eslint.org/assets/img/favicon.512x512.png",
 		"url": "https://eslint.org",
-		"version": "7.11.0"
+		"version": "7.12.0"
 	},
 	"eslint-plugin-prettier": {
 		"icon": "https://prettier.io/icon.png",
@@ -149,7 +149,7 @@
 	},
 	"ts-loader": {
 		"url": "https://github.com/TypeStrong/ts-loader",
-		"version": "8.0.6"
+		"version": "8.0.7"
 	},
 	"typescript": {
 		"url": "https://www.typescriptlang.org/",
