@@ -10,16 +10,16 @@ const modules = {
         noMapkit:
             'Questo modulo non funziona con il tipo di mappa "Mapkit" dovuto ad alcune limitazioni di Mapkit ',
         dev:
-            'Questo modulo è attualmente ancora in fase di sviluppo. L'attivazione può portare a funzioni incomplete e difettose!',
+            'Questo modulo è attualmente ancora in fase di sviluppo. L\'attivazione può portare a funzioni incomplete e difettose!',
         closeWarning: {
             title: 'Cambiamenti non salvati',
             text:
-                'Hai apportato modifiche nell'AppStore che non sono state ancora salvate. Resettali o salvali per chiudere l'AppStore.',
+                'Hai apportato modifiche nell\'AppStore che non sono state ancora salvate. Resettali o salvali per chiudere l\'AppStore.',
             close: 'Chiudi il messaggio',
         },
     },
     settings: {
-        name: 'Settings',
+        name: 'Impostazioni',
         save: 'Save',
         discard: 'Annulla i Cambiamenti',
         reset: 'Reset',
@@ -70,22 +70,22 @@ export default {
         version: {
             title: 'Versione di LSS Manager sbagliata!',
             text:
-                'Gentile utente, purtroppo abbiamo dovuto scoprire che non disponi dell'ultima versione di LSS Manager. L'ultima versione è {version}, ma prima hai {curver}. Ricarica il gioco senza cache (con Ctrl + F5, sui dispositivi Apple Command + R), questo dovrebbe risolvere il bug. Se l'errore persiste, segnalalo al team! Se utilizzi una versione sbagliata, non possiamo garantire la piena funzionalità di LSS-Manager.',
+                'Gentile utente, purtroppo abbiamo dovuto scoprire che non disponi dell\'ultima versione di LSS Manager. L\'ultima versione è {version}, ma prima hai {curver}. Ricarica il gioco senza cache (con Ctrl + F5, sui dispositivi Apple Command + R), questo dovrebbe risolvere il bug. Se l\'errore persiste, segnalalo al team! Se utilizzi una versione sbagliata, non possiamo garantire la piena funzionalità di LSS-Manager.',
             close: 'Chiudi il messaggio e ricarica il gioco (Raccomandato)',
             abort: 'Chiudi il messaggio senza ricaricare il gioco.',
         },
     },
     globalSettings: {
-        name: 'General Settings',
+        name: 'Impostazioni generali',
         labelInMenu: {
-            title: 'Label instead of icon in menu',
+            title: 'Etichetta al posto dell\'icona nel menu',
             description:
-                'Displays a simple label in the navigation bar instead of the LSSM logo',
+                'Visualizza una semplice etichetta nella barra di navigazione al posto del logo LSSM',
         },
     },
     vehicles: [
         {
-            caption: 'Abp',
+            caption: 'ABP',
             color: '#00FFCC',
             coins: 25,
             credits: 5_000,
@@ -94,7 +94,7 @@ export default {
             wtank: 0,
         },
         {
-            caption: 'Aps',
+            caption: 'APS',
             color: '#bb0000',
             coins: 25,
             credits: 19_000,
@@ -180,7 +180,7 @@ export default {
             maxPersonnel: 6,
             wtank: 0,
             special: 'Richiesto dopo aver costruito 11 caserme dei pompieri',
-            schooling: 'Richiede una formazione speciale (N.B.C.R.) ',
+            schooling: 'Caserma dei vigili del fuoco - N.B.C.R.',
             shownSchooling: 'N.B.C.R.',
         },
         {
@@ -209,8 +209,8 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 6,
             wtank: 0,
-            schooling: 'Richiede una formazione speciale (Corso per funzionario (UCL)',
-            shownSchooling: 'UCL',
+            schooling: 'Caserma dei vigili del fuoco - Corso per funzionario (UCL)',
+            shownSchooling: 'Corso per funzionario (UCL)',
             special: 'Richiesto dopo aver costruito 13 caserme dei pompieri',
         },
         {
@@ -221,9 +221,10 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 2,
             wtank: 0,
-            schooling: 'Richiede una formazione speciale (Corso per autista di autogrù)',
-            shownSchooling: 'Autogrù',
+            schooling: 'Caserma dei vigili del fuoco - Corso autista di Autogrù',
+            shownSchooling: 'Corso autista di Autogrù',
             special: 'Richiesto dopo aver costruito 13 caserme dei pompieri',
+        },
         {
             caption: 'Elicottero della Polizia',
             color: '#ca1616',
@@ -232,8 +233,8 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 2,
             wtank: 0,
-            schooling: 'Richiede una formazione speciale (Reparto volo della polizia) ',
-            shownSchooling: 'Reparto volo Polizia',
+            schooling: 'Polizia - Reparto volo della polizia',
+            shownSchooling: 'Reparto volo della polizia',
             special:'Può essere acquistato con i crediti all raggiungimento del Rango:Caporeparto esperto.', 
         },
         {
@@ -251,10 +252,9 @@ export default {
             coins: 25,
             credits: 10_000,
             minPersonnel: 6,
-            maxPersonnel: 9
-            wtank: 0,
-            schooling: 'Richiede una formazione speciale (Specializzazione antisommossa/UOPI) ',
-            shownSchooling: 'antisommossa/UOPI',
+            maxPersonnel: 9,
+            schooling: 'Polizia - Specializzazione antisommossa/UOPI',
+            shownSchooling: 'Specializzazione antisommossa/UOPI',
             special: 'Richiesto dopo aver costruito 8 stazioni di polizia ',
         },
         {
@@ -286,8 +286,8 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 2,
             wtank: 0,
-            schooling: 'Richiede una formazione speciale (Specializzazione unità cinofila) ',
-            shownSchooling: 'Specializzazione unità cinofila',
+            schooling: 'Polizia - Specializzazione unità cinoflia',
+            shownSchooling: 'Specializzazione unità cinoflia',
             special: 'Richiesto dopo aver costruito 6 stazioni di polizia',
         },
         {
@@ -333,8 +333,8 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 1,
             wtank: 0,
-            schooling: 'Richiede una formazione speciale (Personale motociclista) ',
-            shownSchooling: 'Personale motociclista',
+            schooling: 'Polizia - Specializzazione motociclista',
+            shownSchooling: 'Specializzazione motociclista',
         },
         {
             caption: '',
@@ -367,7 +367,7 @@ export default {
             maxPersonnel: 4,
             wtank: 0,
             special: 'Richiesto dopo aver costruito 8 stazioni di polizia',
-            schooling: 'Richiede una formazione speciale (Specializzazione antisommossa/UOPI) ',
+            schooling: 'Polizia - Specializzazione antisommossa/UOPI',
             shownSchooling: 'Specializzazione antisommossa/UOPI',
         },
         {
@@ -379,8 +379,8 @@ export default {
             maxPersonnel: 3,
             wtank: 0,
             special:'Richiesto dopo aver costruito 3 stazioni di soccorso ',
-            schooling:'Richiede una formazione speciale (Medico di emergenza)',
-            shownSchooling: 'Medico d'emergenza',
+            schooling:'Soccorso - Corso medico di emergenza',
+            shownSchooling: 'Corso medico di emergenza',
             
         },
         {
@@ -390,10 +390,9 @@ export default {
             credits:25_000,
             minPersonnel: 2,
             maxPersonnel: 5,
-            special:
-            schooling:'Richiede una formazione speciale (Medico di emergenza)',
-            shownSchooling: 'Medico d'emergenza',
-               
+            schooling: 'Soccorso - Corso medico di emergenza',
+            shownSchooling: 'Corso medico di emergenza',
+        },               
         {
             caption: 'Ambulanza ordinaria',
             color: '#e09200',
@@ -547,7 +546,7 @@ export default {
             credits: 35_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            schooling: 'Richiede una formazione speciale (Corso Artificieri) ',
+            schooling: 'Polizia - Corso Artificieri',
             shownSchooling: 'Corso Artificieri',
         },
         {
@@ -628,7 +627,7 @@ export default {
             maxBuildings: 'nessun limite',
             maxLevel: 0,
             special:
-                "L'amministratore Finanziario dell'alleanza può costruire ed espandere le accademie usando i fondi dell'Alleanza, L'educatore dell'alleanza può aprire i corsi all'interno dell'accademia,
+                "L'amministratore Finanziario dell'alleanza può costruire ed espandere le accademie usando i fondi dell'Alleanza, L'educatore dell'alleanza può aprire i corsi all'interno dell'accademia",
             startPersonnel: 0,
             startVehicles: [],
         },
@@ -815,7 +814,7 @@ export default {
             maxBuildings: 1,
             maxLevel: 0,
             special:
-                'Puoi far stazionare quanti veicoli vuoi all'interno della base temporanea. Tuoi o dei membri della tua alleanza. Avrà una durata massima di ventiquattro  ore dopo di chie scadra rilasciando tutti i veicoli. potrai rinnovarla entro le 24 ore affinchè non sscada.,
+                'Puoi far stazionare quanti veicoli vuoi all\'interno della base temporanea. Tuoi o dei membri della tua alleanza. Avrà una durata massima di ventiquattro  ore dopo di chie scadra rilasciando tutti i veicoli. potrai rinnovarla entro le 24 ore affinchè non sscada.',
             startPersonnel: 0,
             startVehicles: [],
             maxBuildingsFunction: (): number => 1,
@@ -1119,7 +1118,7 @@ export default {
     search: 'Cerca',
     alliance: 'Alleanza',
     premiumNotice:
-        'Quest'opzione è permessa solo ad utenti premium',
+        'Quest\'opzione è permessa solo ad utenti premium',
     credits: 'Crediti',
     close: 'Chiudi',
     fullscreen: {
