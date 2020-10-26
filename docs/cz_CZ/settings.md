@@ -3,7 +3,7 @@ title: Nastavení ⚙️
 lang: cz_CZ
 ---
 
-# Nastavení ⚙️:gear:
+# Nastavení ⚙️
 
 Nastavení všech modulů je prováděno centrálně v položce nastavení. Nastavení lze změnit pouze u aktivních modulů.
 
