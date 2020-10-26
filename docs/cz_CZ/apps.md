@@ -4,7 +4,7 @@ lang: cz_CZ
 sidebarDepth: 2
 ---
 
-# ℹ️ Obecné informace o modulech
+# ℹ️ Základní informace o modulech
 
 Na následujících stránkách naleznete popis všech našich modulů. Snažili jsme se, aby byly co nejvíce srozumitelné a kompletní, nicméně díky rozsáhlosti celého LSSM to není vždy lehké. 
 
