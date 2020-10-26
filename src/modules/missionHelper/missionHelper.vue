@@ -399,6 +399,7 @@ export default Vue.extend<
                     heavy_rescue_vehicles: true,
                     battalion_chief_vehicles: true,
                     platform_trucks: true,
+                    police_cars: true,
                 },
                 optionalAlternatives: {
                     allow_rw_instead_of_lf: true,

@@ -76,6 +76,15 @@ export default (MODULE_ID: string): unknown => ({
         default: false,
         dependsOn: '.vehicles.content',
     },
+    ...(BUILD_LANG === 'nl_NL'
+        ? {
+              'multifunctionals.police_cars': {
+                  type: 'toggle',
+                  default: false,
+                  dependsOn: '.vehicles.content',
+              },
+          }
+        : null),
     'optionalAlternatives.allow_rw_instead_of_lf': {
         type: 'toggle',
         default: false,
@@ -115,11 +124,15 @@ export default (MODULE_ID: string): unknown => ({
               },
           }
         : null),
-    'patients.patient_allow_first_responder_chance': {
-        type: 'toggle',
-        default: true,
-        dependsOn: '.patients.content',
-    },
+    ...(BUILD_LANG !== 'nl_NL'
+        ? {
+                'patients.patient_allow_first_responder_chance': {
+                    type: 'toggle',
+                    default: true,
+                    dependsOn: '.patients.content',
+                },
+            }
+          : null),
     'patients.hideWhenNoNeed': {
         type: 'toggle',
         default: false,
