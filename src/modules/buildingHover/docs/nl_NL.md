@@ -15,7 +15,7 @@ De volgende informatie is beschikbaar:
 	* Naam
 	* Voertuig type
 * Aantal beschikbare bedden (Ziekenhuizen)
-* Aantal beschikbare klaslokale (Scholen)
+* Aantal beschikbare klaslokalen (Scholen)
 * Aantal voltooide cellen en tussen haakjes de voltooide + in uitbouw zijnde cellen (Opkomstbureaus)
 
 

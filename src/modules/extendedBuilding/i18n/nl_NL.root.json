@@ -31,7 +31,7 @@
             "title": "Knop voor personeel toewijzen"
         },
         "personnelDemands": {
-            "description": "Laat zien hoeveel personeel nodig is met de minimum en maximale voertuigbezetting.",
+            "description": "Laat zien hoeveel personeel nodig is met de minimale en maximale voertuigbezetting.",
             "title": "Personeel benodigd"
         },
         "schoolingSummary": {

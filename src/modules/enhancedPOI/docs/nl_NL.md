@@ -4,7 +4,7 @@ Het plaatsen van POI is voor vele meldingen noodzakelijk om gegenereert te kunne
 Door de beperkingen van Mapkit is het momenteel niet mogelijk om deze module te gebruiken als je het kaarttype `Mapkit` gebruikt.
 :::
 
-Om het pplaatsen makkelijker te maken, bied deze module de volgende vereenvoudigingen:
+Om het plaatsen makkelijker te maken, bied deze module de volgende vereenvoudigingen:
 * Om erachter te komen welke icoon welke POI is, volstaat het om de muis over de marker heen te bewegen.
 * Alle bestaande POI van het momenteel geselecteerde type worden gekleurd.
 * Als de marker buiten het bereik van je beeld komt, centreert de kaart automatisch op de marker. 

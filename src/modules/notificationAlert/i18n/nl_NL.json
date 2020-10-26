@@ -22,7 +22,7 @@
         },
         "dm": {
             "body": "Je hebt totaal {n} ongelezen bericht. | Je hebt totaal {n} ongelezen berichten.",
-            "title": "Je hebt {n} nieuw bericht! | je hebt {n} nieuwe berichten!"
+            "title": "Je hebt {n} nieuw bericht! | Je hebt {n} nieuwe berichten!"
         },
         "ingame_news": {
             "body": "Er is nieuws van het spel! Kijk snel wat de update van vandaag is!",

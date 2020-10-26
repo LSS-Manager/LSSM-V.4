@@ -1,4 +1,4 @@
-Vooral bij grote team wordt de lijst met beschikbare opleidingen zeer groot. Als je dan toch aan veel opleidingen deelneemt, verlies je snel het overzicht. 
+Vooral bij grote teams wordt de lijst met beschikbare opleidingen zeer groot. Als je dan aan veel opleidingen deelneemt, verlies je snel het overzicht. 
 
 Dit probleem proberen we op te lossen met de module `Opleiding overzicht`.
 
