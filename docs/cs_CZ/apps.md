@@ -1,6 +1,6 @@
 ---
 title: ℹ️ General
-lang: cz_CZ
+lang: cs_CZ
 sidebarDepth: 2
 ---
 

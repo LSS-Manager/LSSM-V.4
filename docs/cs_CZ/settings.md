@@ -1,6 +1,6 @@
 ---
 title: Nastavení ⚙️
-lang: cz_CZ
+lang: cs_CZ
 ---
 
 # Nastavení ⚙️

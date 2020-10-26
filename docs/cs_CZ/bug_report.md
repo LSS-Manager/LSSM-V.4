@@ -1,6 +1,6 @@
 ---
 title: Nahlášení chyb
-lang: cz_CZ
+lang: cs_CZ
 sidebarDepth: 2
 ---
 

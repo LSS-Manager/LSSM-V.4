@@ -1,10 +1,10 @@
 ---
 title: General
-lang: cz_CZ
+lang: cs_CZ
 sidebarDepth: 2
 ---
 
-# Wiki CZ <Badge :text="'LSSM V.' + ($themeConfig.variables.versions.stable || 4)"/>
+# Wiki 🇨🇿 <Badge :text="'LSSM V.' + ($themeConfig.variables.versions.stable || 4)"/>
 
 *Current versions:*
 > Stable: <i>{{ $themeConfig.variables.versions.stable }}</i> (not yet released)
