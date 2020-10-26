@@ -4,16 +4,16 @@
     "settings": {
         "chances": {
             "100": {
-                "description": "Toont alle kansen van 100%..",
+                "description": "Toont ook kansen van 100%.",
                 "title": "100% kans vermelden"
             },
             "normal": {
-                "description": "Toont de waarschijnlijkheid dat een voertuig wordt gevraagd",
-                "title": "Toon waarschijnlijkheid"
+                "description": "Toont de kans dat een voertuig wordt gevraagd",
+                "title": "Toon kans %"
             }
         },
         "credits": {
-            "description": "Geeft aan hoeveel credits met een melding kunnen worden verdient",
+            "description": "Geeft aan hoeveel credits gemiddeld met een melding kunnen worden verdient",
             "title": "Credits"
         },
         "expansions": {
@@ -29,7 +29,7 @@
             "title": "gegenereerd door (gebouw type)"
         },
         "hide_battalion_chief_vehicles": {
-            "description": "Verbergt Officiers van Dienst en toont alleen Hoofd Officier van Dienst",
+            "description": "Verbergt Officiers van Dienst - Brandweer en toont alleen Hoofd Officier van Dienst - Brandweer",
             "title": "Verberg Officier van Dienst - Brandweer"
         },
         "id": {
@@ -39,11 +39,11 @@
         "multifunctionals": {
             "battalion_chief_vehicles": {
                 "description": "Trekt het aantal vereiste Hoofd Officieren van Dienst af van de Offieren van Dienst en verbergt de Officieren van Dienst als het aantal onder de 0 komt.",
-                "title": "Officier van Dienst enkel nodig"
+                "title": "Officier van Dienst gemakkelijk beoordelen"
             },
-            "heavy_rescue_vehicles": {
-                "description": "Trekt het aantal vereiste Hulpverleningsvoertuigen af van de Tankautospuiten en verbergt de Tankautospuiten als het aantal onder de 0 komt.",
-                "title": "heavy rescue simple rating"
+            "police_cars": {
+                "description": "Trekt het aantal vereiste Hondengeleiders af van de Noodhulpvoertuigen en verbergt de Noodhulpvoertuigen als het aantal onder de 0 komt.",
+                "title": "Noodhulpvoertuigen gemakkelijk beoordelen"
             }
         },
         "optionalAlternatives": {
@@ -62,7 +62,7 @@
                 "title": "Details over mogelijke patiënten"
             },
             "hideWhenNoNeed": {
-                "description": "Verbergt de patiëntgegevens als er geen patiënten meer zijn en patiënten pas aan het einde van de opdracht verschijnen.",
+                "description": "Verbergt de patiëntgegevens als er geen patiënten meer zijn en patiënten pas aan het einde van de inzet verschijnen.",
                 "title": "Toon patiëntgegevens alleen als dat nodig is"
             },
             "live": {
@@ -71,15 +71,11 @@
             },
             "title": {
                 "description": "Toont de kop \"Patiënten\" boven de details over mogelijke patiënten.",
-                "title": "Patiëntel (Titel)"
-            },
-            "patient_allow_first_responder_chance": {
-                "description": "Toont met hoeveel % een voertuig voldoende is om te behandelen.",
-                "title": "Waarschijnlijkheid First Responder"
+                "title": "Patiënten (Titel)"
             }
         },
         "place": {
-            "description": "Toont naast de titel welke POI vereist is voor deze missie.",
+            "description": "Toont naast de titel welke POI vereist is voor deze inzet.",
             "title": "POI"
         },
         "prerequisites": {
@@ -92,7 +88,7 @@
                 "title": "Details over mogelijke arrestanten."
             },
             "live": {
-                "description": "Toont boven aan in de inzethelper hoeveel arrestanten er zijn.",
+                "description": "Toont bovenaan in de inzethelper hoeveel arrestanten er zijn.",
                 "title": "Aantal actuele arrestanten"
             },
             "title": {
@@ -105,7 +101,7 @@
             "title": "Inzetnaam"
         },
         "type": {
-            "description": "Toont het ID van de inzet naast de titel",
+            "description": "Toont het type ID van de inzet naast de titel",
             "title": "Type nummer"
         },
         "vehicles": {
