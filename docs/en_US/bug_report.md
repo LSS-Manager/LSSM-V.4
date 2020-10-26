@@ -9,7 +9,7 @@ sidebarDepth: 2
 ## Guidelines
 Here is a small tutorial about how to optimally report a bug.
 
-Before reporting a bug, check the wiki to see if it a desired feature, or an already reported bug.
+Before reporting a bug, check the wiki to see if it is an intended feature, or an already reported bug.
 
 ::: tip
 When reporting a bug, describe it in as much detail as possible. The more detailed the report, the faster we can help you.
