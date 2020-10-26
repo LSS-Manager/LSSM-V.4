@@ -15,7 +15,7 @@ sidebarDepth: 2
 
 LSS MANAGER V.4 je rozšíření pro hru [Operacni-stredisko.cz](https://www.operacni-stredisko.cz/) a její další jazykové verze.
 
-S tímto rozšířením je do hry přidán obchod s aplikacemi, který umožňuje využívat moduly. Samostatně si vyberete, které moduly chcete aktivovat. 
+S tímto rozšířením je do hry přidána Sbírka aplikací, která umožňuje využívat moduly. Samostatně si zde vyberete, které moduly chcete aktivovat. 
 
 Pro lepší stabilitu hry nejsou načítány neaktivní moduly.
 
