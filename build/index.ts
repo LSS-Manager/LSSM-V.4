@@ -117,7 +117,7 @@ webpack([...entries], (err, stats) => {
         if (err.details) {
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore
-            console.error(err.details);
+            // console.error(err.details);
         }
     }
 

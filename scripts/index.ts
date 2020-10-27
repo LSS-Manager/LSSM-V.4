@@ -32,7 +32,8 @@ const scriptHandlers = {
     },
     dev() {
         this.tscBuild();
-        console.log(execSync('node build').toString());
+        // console.log(execSync('node build').toString());
+        execSync('node build').toString();
         this.showChanges();
     },
     tscDocs() {
