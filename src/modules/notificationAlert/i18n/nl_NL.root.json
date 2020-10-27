@@ -45,8 +45,8 @@
 	"settings": {
 		"alertStyle": "In-Game Notificaties Type",
 		"alerts": {
-			"title": "Stel notificaties in",
-			"description": "Stel hieronder notificaties in door de groene `+` te drukken."
+			"description": "Stel hieronder notificaties in door de groene `+` te drukken.",
+			"title": "Stel notificaties in"
 		},
 		"desktop": "Verstuur desktop notificaties",
 		"duration": "Weergavetijd",

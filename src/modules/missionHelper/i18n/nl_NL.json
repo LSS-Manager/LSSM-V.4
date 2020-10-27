@@ -73,11 +73,11 @@
 			"allow_arff_instead_of_lf": {
 				"firetrucks": "Tankautospuit of Crashtender | Tankautospuiten of Crashtenders"
 			},
-			"allow_rw_instead_of_lf": {
-				"firetrucks": "Tankautospuit of Hulpverleningsvoertuig | Tankautospuiten of Hulpverleningsvoertuigen"
-			},
 			"allow_ktw_instead_of_rtw": {
 				"ambulances": "Ambulance of Zorgambulance | Ambulances of Zorgambulances"
+			},
+			"allow_rw_instead_of_lf": {
+				"firetrucks": "Tankautospuit of Hulpverleningsvoertuig | Tankautospuiten of Hulpverleningsvoertuigen"
 			}
 		},
 		"patient_additionals": {
