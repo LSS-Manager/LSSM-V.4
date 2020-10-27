@@ -18,7 +18,7 @@ const moduleDirs = fs.readdirSync(`./src/modules/`);
 const entries = Object.entries(config.games)
     .filter(
         game =>
-            game[0] in ['de_DE', 'nl_NL', 'en_US'] &&
+            game[0] in ['de_DE', 'nl_NL', 'en_US'].includes(game[0]) &&
             fs.existsSync(`./src/i18n/${game[0]}.ts`)
     )
     .map(game => {
