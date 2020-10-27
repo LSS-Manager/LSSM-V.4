@@ -287,7 +287,7 @@ export default Vue.extend<
         setMission(id) {
             this._resetAll();
             this._setId(id);
-            this._setType('mission');
+            this._setType('missions');
             this._setTitle(`Mission: ${id}`);
             this._setIcon('phone-alt');
         },
