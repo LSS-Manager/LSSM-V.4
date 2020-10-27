@@ -147,7 +147,7 @@ export default Vue.extend<
                     status => (fms[`s${status}`] = [])
                 );
                 Object.values(vbt[type]).forEach(vehicle => {
-                    fms[`s${vehicle.fms_real}`].push(vehicle);
+                    fms[`s${vehicle.fms_show}`].push(vehicle);
                 });
                 types[`t${type}`] = {
                     title: this.vehicleTypeNames[parseInt(type)],
