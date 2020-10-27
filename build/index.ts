@@ -16,7 +16,11 @@ console.info(`Let's build that stuff in Version ${version}`);
 const moduleDirs = fs.readdirSync(`./src/modules/`);
 
 const entries = Object.entries(config.games)
-    .filter(game => fs.existsSync(`./src/i18n/${game[0]}.ts`))
+    .filter(
+        game =>
+            game[0] in ['de_DE', 'nl_NL', 'en_US'] &&
+            fs.existsSync(`./src/i18n/${game[0]}.ts`)
+    )
     .map(game => {
         const [locale, { locale_fallback }] = game;
         const entry = {
