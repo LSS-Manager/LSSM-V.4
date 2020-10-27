@@ -95,6 +95,9 @@ export default (async (LSSM, MODULE_ID, $m: $m) => {
     const poiHighlightedClass = LSSM.$store.getters.nodeAttribute(
         'poi-highlighted'
     );
+    const poiSettingsWrapperId = LSSM.$store.getters.nodeAttribute(
+        'poi-settings'
+    );
 
     await LSSM.$store.dispatch('addStyles', [
         {
@@ -162,7 +165,8 @@ export default (async (LSSM, MODULE_ID, $m: $m) => {
                 );
                 return;
             }
-            if (isPOIWindow) return;
+            if (isPOIWindow && document.getElementById(poiSettingsWrapperId))
+                return;
             isPOIWindow = true;
 
             colorMarkers(
@@ -179,6 +183,7 @@ export default (async (LSSM, MODULE_ID, $m: $m) => {
             );
             const settingsWrapper = document.createElement('div');
             settingsWrapper.style.paddingLeft = '1ch';
+            settingsWrapper.id = poiSettingsWrapperId;
             form.append(settingsWrapper);
             settingsWrapper.append(
                 ...['all', 'none', ...poi_types].map(poi => {
