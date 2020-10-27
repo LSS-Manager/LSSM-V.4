@@ -22,7 +22,9 @@
 		"police_helicopter_stations": "Politiehelikopterstandplaats | Politiehelikopterstandplaats",
 		"police_stations": "Politiebureau | Politiebureaus",
 		"rescue_stations": "Ambulancestandplaats | Ambulancestandplaatsen",
-		"title": "Benodigdheid | Benodigdheden"
+		"title": "Benodigdheid | Benodigdheden",
+		"bereitschaftspolizei": "Hoofdbureau | Hoofdbureaus",
+		"wasserrettung": "Waterongevallenuitbreiding | Waterongevallenuitbreidingen"
 	},
 	"prisoners": {
 		"max_possible_prisoners": "Arrestant maximum | Arrestanten maximum",
@@ -61,11 +63,11 @@
 		},
 		"multifunctionals": {
 			"battalion_chief_vehicles": {
-				"additional_text": "",
+				"additional_text": " ",
 				"reduce_from": "mobile_command_vehicles"
 			},
 			"police_cars": {
-				"additional_text": "Daarvan tenminste {n} hondengeleider | Daarvan tenminste {n} hondengeleiders",
+				"additional_text": " ",
 				"reduce_from": "hondengeleider"
 			}
 		},
