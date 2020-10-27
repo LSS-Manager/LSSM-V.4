@@ -40,7 +40,6 @@
 			"description": "Indica, se i cinofili sono solo richiesti, se disponibili.",
 			"title": "Cani guida opzionali"
 		},
-    
 		"multifunctionals": {
 			"battalion_chief_vehicles": {
 				"description": "Sottrae il numero di MCV richiesto dal capo del battaglione e nasconde il capo del battaglione se il numero scende al di sotto di 0.",
