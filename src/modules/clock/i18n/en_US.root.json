@@ -1,22 +1,22 @@
 {
-    "description": "Displays a configurable clock in various locations as needed.",
-    "name": "Uhr",
-    "settings": {
-        "displayNav": {
-            "title": "Show clock in the navigation bar",
-            "description": "The left margin next to the logo is selected as the position."
-        },
-        "navFormat": {
-            "title": "Format of the clock in the navigation bar",
-            "description": "Here you can set the format of the clock. You will find a help for this <a class=\"lightbox-open\" href=\"{wiki}/modules/clock.html#konfiguration\">here</a>."
-        },
-        "displayOverlay": {
-            "title": "Show clock as overlay",
-            "description": "The clock can be moved and should be in front of all other elements"
-        },
-        "overlayFormat": {
-            "title": "Format of the clock as overlay",
-            "description": "Here you can set the format of the clock. You will find a help for this <a class=\"lightbox-open\" href=\"{wiki}/modules/clock.html#konfiguration\">here</a>."
-        }
-    }
+	"description": "Displays a configurable clock in various locations as needed.",
+	"name": "Clock",
+	"settings": {
+		"displayNav": {
+			"description": "The left margin next to the logo is selected as the position.",
+			"title": "Show clock in the navigation bar"
+		},
+		"displayOverlay": {
+			"description": "The clock can be moved and should be in front of all other elements",
+			"title": "Show clock as overlay"
+		},
+		"navFormat": {
+			"description": "Here you can set the format of the clock. You will find a help for this <a class=\"lightbox-open\" href=\"{wiki}/modules/clock.html#konfiguration\">here</a>.",
+			"title": "Format of the clock in the navigation bar"
+		},
+		"overlayFormat": {
+			"description": "Here you can set the format of the clock. You will find a help for this <a class=\"lightbox-open\" href=\"{wiki}/modules/clock.html#konfiguration\">here</a>.",
+			"title": "Format of the clock as overlay"
+		}
+	}
 }

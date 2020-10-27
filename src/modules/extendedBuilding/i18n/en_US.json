@@ -1,30 +1,30 @@
 {
-    "enhancedPersonnelAssignment": {
-        "toggleFittingPersonnel": "Hide personnel without suitable training"
-    },
-    "expansions": {
-        "notBuild": "Not built yet"
-    },
-    "fastDispatchChooser": {
-        "noDispatch": "No control center"
-    },
-    "personnelDemands": {
-        "additional": "Values in brackets exclude vehicles in FMS 6.",
-        "demand": "Required personnel"
-    },
-    "schoolingSummary": {
-        "all": "All combinations",
-        "amount": "Amount",
-        "bound": "Bound",
-        "each": "Each Courses",
-        "max": "currently maximum required",
-        "min": "currently minimum required",
-        "schooling": "Schooling",
-        "title": "Personnel overview"
-    },
-    "vehiclePersonnel": {
-        "vehiclesPersonnelMax": "max",
-        "vehiclesPersonnelCurrent": "current",
-        "vehiclesPersonnelAssigned": "assigned"
-    }
+	"enhancedPersonnelAssignment": {
+		"toggleFittingPersonnel": "Hide personnel without suitable training"
+	},
+	"expansions": {
+		"notBuild": "Not built yet"
+	},
+	"fastDispatchChooser": {
+		"noDispatch": "No control center"
+	},
+	"personnelDemands": {
+		"additional": "Values in brackets exclude vehicles in FMS 6.",
+		"demand": "Required personnel"
+	},
+	"schoolingSummary": {
+		"all": "All combinations",
+		"amount": "Amount",
+		"bound": "Bound",
+		"each": "Each Courses",
+		"max": "currently maximum required",
+		"min": "currently minimum required",
+		"schooling": "Schooling",
+		"title": "Personnel overview"
+	},
+	"vehiclePersonnel": {
+		"vehiclesPersonnelAssigned": "assigned",
+		"vehiclesPersonnelCurrent": "current",
+		"vehiclesPersonnelMax": "max"
+	}
 }
