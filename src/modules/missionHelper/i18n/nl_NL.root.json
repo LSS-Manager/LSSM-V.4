@@ -54,6 +54,10 @@
 			"allow_rw_instead_of_lf": {
 				"description": "Geeft aan of een hulpverleningsvoertuig kan worden gebruikt als een tankautospuit",
 				"title": "Toon Hulpverleningsvoertuig als Tankautospuit"
+			},
+			"allow_ktw_instead_of_rtw": {
+				"description": "Geeft aan of een zorgambulance kan worden gebruikt als een ambulance",
+				"title": "Toon Zorgambulance als Ambulance"
 			}
 		},
 		"patients": {
@@ -85,7 +89,7 @@
 		"prisoners": {
 			"content": {
 				"description": "Toont details over mogelijke gevangenen.",
-				"title": "Details over mogelijke arrestanten."
+				"title": "Details over mogelijke arrestanten"
 			},
 			"live": {
 				"description": "Toont bovenaan in de inzethelper hoeveel arrestanten er zijn.",
@@ -124,6 +128,14 @@
 				"description": "Toont de kop \"Voertuigen\" boven de voertuigvereisten",
 				"title": "Voertuigen (Titel)"
 			}
+		},
+		"overlay": {
+			"description": "",
+			"title": ""
+		},
+		"minified": {
+			"description": "",
+			"title": ""
 		}
 	}
 }

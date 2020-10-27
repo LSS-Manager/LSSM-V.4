@@ -3,7 +3,8 @@
 	"name": "User-ID",
 	"settings": {
 		"navbar": {
-			"title": "Toon eigen ID in de navigatiebalk"
+			"title": "Toon eigen ID in de navigatiebalk",
+			"description": ""
 		}
 	}
 }

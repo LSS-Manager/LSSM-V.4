@@ -197,6 +197,10 @@ export default {
             coins: 25,
         },
         {
+            caption: '',
+            color: '',
+        },
+        {
             caption: 'TST-NB 6/7',
             color: '#aa0000',
             minPersonnel: 1,
@@ -623,7 +627,7 @@ export default {
             credits: 100_000,
             extensions: [
                 {
-                    caption: 'Ambulance uitbreiding',
+                    caption: 'Ambulance standplaats',
                     credits: 100_000,
                     coins: 20,
                     duration: '7 Dagen',
@@ -872,6 +876,7 @@ export default {
         },
         {
             caption: 'Uitgangsstelling (UGS)',
+            color: '#404040',
             coins: 0,
             credits: 0,
             extensions: [],
@@ -897,7 +902,7 @@ export default {
                     duration: '3 Dagen',
                 },
                 {
-                    caption: 'Mobiele Eenheid, sectie',
+                    caption: 'Mobiele Eenheid, Sectie',
                     credits: 100_000,
                     coins: 20,
                     duration: '5 Dagen',
@@ -924,6 +929,7 @@ export default {
         },
         {
             caption: 'Cellencomplex',
+            color: '#800000',
             coins: 'x',
             credits: 100_000,
             extensions: new Array(10).fill({
@@ -967,7 +973,7 @@ export default {
             color: '#ffa500',
         },
         Politie: {
-            buildings: [5, 8, 9, 11, 12],
+            buildings: [5, 8, 9, 11],
             color: '#00ac00',
         },
         Algemeen: {
