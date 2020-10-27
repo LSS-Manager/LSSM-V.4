@@ -1228,6 +1228,6 @@ export default {
         'Carpentry Workshop',
         'Playground',
     ],
-    only_alliance_missions: [41, 43, 59, 75, 99, 207, 221, 222, 256, 350],
+    only_alliance_missions: [41, 61, 62, 112],
     transfer_missions: [246],
 };
