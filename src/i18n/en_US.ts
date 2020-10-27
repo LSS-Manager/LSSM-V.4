@@ -81,8 +81,8 @@ export default {
                 'Displays a simple label in the navigation bar instead of the LSSM logo',
         },
     },
-    vehicles: [
-        {
+    vehicles: {
+        0: {
             caption: 'Type 1 fire engine',
             color: '#cc0000',
             coins: 25,
@@ -91,7 +91,7 @@ export default {
             maxPersonnel: 6,
             wtank: 0,
         },
-        {
+        1: {
             caption: 'Type 2 fire engine',
             color: '#bb0000',
             coins: 25,
@@ -100,7 +100,7 @@ export default {
             maxPersonnel: 3,
             wtank: 0,
         },
-        {
+        2: {
             caption: 'Platform truck',
             color: '#d92626',
             coins: 30,
@@ -110,7 +110,7 @@ export default {
             wtank: 0,
             special: 'Required once you have built 3 firehouses',
         },
-        {
+        3: {
             caption: 'Battalion chief unit',
             color: '#d02525',
             coins: 25,
@@ -120,7 +120,7 @@ export default {
             wtank: 0,
             special: 'Required once you have built 6 firehouses',
         },
-        {
+        4: {
             caption: 'Heavy rescue vehicle',
             color: '#ad1f1f',
             coins: 25,
@@ -130,7 +130,7 @@ export default {
             wtank: 0,
             special: 'Required once you have built 4 firehouses',
         },
-        {
+        5: {
             caption: 'ALS Ambulance',
             color: '#9c1c1c',
             coins: 25,
@@ -139,7 +139,7 @@ export default {
             maxPersonnel: 3,
             wtank: 0,
         },
-        {
+        6: {
             caption: 'Mobile air',
             color: '#aa0000',
             coins: 25,
@@ -149,7 +149,7 @@ export default {
             wtank: 0,
             special: 'Required once you have built 5 firehouses',
         },
-        {
+        7: {
             caption: 'Water Tanker',
             color: '#990000',
             coins: 25,
@@ -159,7 +159,7 @@ export default {
             wtank: 3_000,
             special: 'Required once you have built 7 firehouses',
         },
-        {
+        8: {
             caption: 'Utility unit',
             color: '#880000',
             coins: 25,
@@ -169,7 +169,7 @@ export default {
             wtank: 0,
             special: 'Required once you have built 4 firehouses',
         },
-        {
+        9: {
             caption: 'HazMat',
             color: '#770000',
             coins: 25,
@@ -181,7 +181,7 @@ export default {
             schooling: 'Fire Station - Hazmat',
             shownSchooling: 'Hazmat',
         },
-        {
+        10: {
             caption: 'Patrol Car',
             color: '#8b1818',
             coins: 25,
@@ -190,7 +190,7 @@ export default {
             maxPersonnel: 2,
             wtank: 0,
         },
-        {
+        11: {
             caption: 'HEMS',
             color: '#e61919',
             coins: 30,
@@ -199,7 +199,7 @@ export default {
             maxPersonnel: 1,
             wtank: 0,
         },
-        {
+        12: {
             caption: 'Mobile command vehicle',
             color: '#791515',
             coins: 25,
@@ -211,7 +211,7 @@ export default {
             shownSchooling: 'Mobile command',
             special: 'Required once you have built 13 firehouses',
         },
-        {
+        13: {
             caption: 'Quint',
             color: '#dc1818',
             coins: 25,
@@ -222,7 +222,7 @@ export default {
             special:
                 'To purchase with credits it requires the rank: Captain, <br>Lower ranked members can purchase the vehicle for 25 Coins. <br>Quint acts as a Platform Truck and a Fire Truck.',
         },
-        {
+        14: {
             caption: 'Police helicopter',
             color: '#ca1616',
             coins: 30,
@@ -233,7 +233,7 @@ export default {
             schooling: 'Police - Police Aviation',
             shownSchooling: 'Police Aviation',
         },
-        {
+        15: {
             caption: 'Fly-Car',
             color: '#b81414',
             coins: 20,
@@ -242,7 +242,7 @@ export default {
             maxPersonnel: 2,
             wtank: 0,
         },
-        {
+        16: {
             caption: 'SWAT Armoured Vehicle',
             color: '#a51212',
             coins: 25,
@@ -254,7 +254,7 @@ export default {
             shownSchooling: 'SWAT',
             special: 'Required once you have built 8 police stations',
         },
-        {
+        17: {
             caption: 'ARFF Crash Tender',
             color: '#cc2222',
             coins: 25,
@@ -265,7 +265,7 @@ export default {
             schooling: 'Fire Station - ARFF',
             shownSchooling: 'ARFF',
         },
-        {
+        18: {
             caption: 'Rescue Engine',
             color: '#bb2222',
             coins: 25,
@@ -276,7 +276,7 @@ export default {
             special:
                 'To purchase with credits it requires the rank: Captain, <br>Lower ranked members can purchase the vehicle for 25 Coins.<br> The Rescue Engine acts as a Heavy Rescue and a Fire Engine.',
         },
-        {
+        19: {
             caption: 'K-9 Unit',
             color: '#aa2222',
             coins: 25,
@@ -288,7 +288,7 @@ export default {
             shownSchooling: 'K-9',
             special: 'Required from 6 Police stations',
         },
-        {
+        20: {
             caption: 'Mass Casualty Unit',
             color: '#992222',
             coins: 25,
@@ -299,7 +299,7 @@ export default {
             special:
                 'The MCU can be alarmed in two different modes:<br>1. for lightly injured persons who do not need an emergency physician. Then 7 patients can be treated and removed simultaneously in the MCU.<br>2.For severely injured persons who need an emergency physician. Then 3 patients can be needled simultaneously in the MCU.<br>You can buy 1 Mass Casualty Vehicle for every 20 ambulance stations (respectively 15 with premium account).',
         },
-        {
+        21: {
             caption: 'Heavy Rescue + Boat',
             color: '#882222',
             coins: 25,
@@ -312,7 +312,7 @@ export default {
             special:
                 'Combines the Heavy Rescue Vehicle/Utility Vehicle with an integrated boat.<br> No need for a boat trailer.',
         },
-        {
+        22: {
             caption: 'Boat Trailer',
             color: '#772222',
             coins: 12,
@@ -323,7 +323,7 @@ export default {
             special:
                 'Accessory boat that can be towed with the Utility Unit. Requires Swift Water Rescue trained personnel to operate.<br> The boat trailer cannot be assigned personnel, <br>either assign your trained personnel to the towing vehicle, or assign them to a separate unit en route.',
         },
-        {
+        23: {
             caption: 'Police Motorcycle',
             color: '#662222',
             coins: 18,
@@ -334,7 +334,7 @@ export default {
             schooling: 'Police - Motor Officer',
             shownSchooling: 'Motor Officer',
         },
-        {
+        24: {
             caption: 'Large Fireboat',
             color: '#552222',
             coins: 35,
@@ -345,7 +345,7 @@ export default {
             schooling: 'Fire Station - Ocean Navigation',
             shownSchooling: 'Ocean Navigation',
         },
-        {
+        25: {
             caption: 'Large Rescue Boat',
             color: '#442222',
             coins: 35,
@@ -356,7 +356,7 @@ export default {
             schooling: 'Fire Station - Ocean Navigation',
             shownSchooling: 'Ocean Navigation',
         },
-        {
+        26: {
             caption: 'SWAT SUV',
             color: '#332222',
             coins: 23,
@@ -368,7 +368,7 @@ export default {
             schooling: 'Police - SWAT',
             shownSchooling: 'SWAT',
         },
-        {
+        27: {
             caption: 'BLS Ambulance',
             color: '#681212',
             coins: 25,
@@ -377,7 +377,7 @@ export default {
             maxPersonnel: 2,
             wtank: 0,
         },
-        {
+        28: {
             caption: 'EMS Rescue',
             color: '#f59f00',
             coins: 25,
@@ -387,7 +387,7 @@ export default {
             special:
                 'No missions require a EMS Rescue at this time, however it is able to treat patients. And Works as a Heavy Rescue',
         },
-        {
+        29: {
             caption: 'EMS Chief',
             color: '#e09200',
             coins: 20,
@@ -396,7 +396,7 @@ export default {
             maxPersonnel: 2,
             special: 'Required once you have built 10 Rescue stations',
         },
-        {
+        30: {
             caption: 'Type 3 engine',
             color: '#440000',
             coins: 19,
@@ -405,7 +405,7 @@ export default {
             maxPersonnel: 5,
             wtank: 500,
         },
-        {
+        31: {
             caption: 'Type 5 engine',
             color: '#ddaa3c',
             coins: 8,
@@ -413,7 +413,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 3,
         },
-        {
+        32: {
             caption: 'Type 7 engine',
             color: '#005500',
             coins: 5,
@@ -422,7 +422,7 @@ export default {
             maxPersonnel: 2,
             wtank: 50,
         },
-        {
+        33: {
             caption: 'Pumper Tanker',
             color: '#570f0f',
             coins: 19,
@@ -431,7 +431,7 @@ export default {
             maxPersonnel: 6,
             wtank: 1500,
         },
-        {
+        34: {
             caption: 'Crew Carrier',
             color: '#bf2222',
             coins: 10,
@@ -440,7 +440,7 @@ export default {
             maxPersonnel: 12,
             wtank: 0,
         },
-        {
+        35: {
             caption: 'Water drop helicopter',
             color: '#288f28',
             coins: 130,
@@ -451,7 +451,7 @@ export default {
             schooling: 'Fire Station - Airborne firefighting',
             shownSchooling: 'Airborne firefighting',
         },
-        {
+        36: {
             caption: 'Air Tanker',
             color: '#450c0c',
             coins: 50,
@@ -462,7 +462,7 @@ export default {
             schooling: 'Fire Station - Airborne firefighting',
             shownSchooling: 'Airborne firefighting',
         },
-        {
+        37: {
             caption: 'Heavy air tanker',
             color: '#220000',
             coins: 65,
@@ -473,7 +473,7 @@ export default {
             schooling: 'Fire Station - Airborne firefighting',
             shownSchooling: 'Airborne firefighting',
         },
-        {
+        38: {
             caption: 'Type 4 engine',
             color: '#ffb61a',
             coins: 10,
@@ -482,7 +482,7 @@ export default {
             maxPersonnel: 5,
             wtank: 750,
         },
-        {
+        39: {
             caption: 'Type 6 engine',
             color: '#00138f',
             coins: 5,
@@ -491,7 +491,7 @@ export default {
             maxPersonnel: 2,
             wtank: 150,
         },
-        {
+        40: {
             caption: 'Dozer Trailer',
             color: '#0016a3',
             coins: 15,
@@ -503,7 +503,7 @@ export default {
             special:
                 "Dozer Trailer that can be towed with the Crew cap semi. Requires Heavy Machinery Operating and Truck Driver's License trained personnel to operate.<br> The dozer trailer cannot be assigned personnel, <br>either assign your trained personnel to the towing vehicle, or assign them to a separate unit en route.",
         },
-        {
+        41: {
             caption: 'Crew cap semi',
             color: '#0018b8',
             coins: 12,
@@ -513,7 +513,7 @@ export default {
             schooling: "Fire Station - Truck Driver's License",
             shownSchooling: "Truck Driver's License",
         },
-        {
+        42: {
             caption: 'FBI Unit',
             color: '#001bcc',
             coins: 15,
@@ -521,7 +521,7 @@ export default {
             minPersonnel: 2,
             maxPersonnel: 4,
         },
-        {
+        43: {
             caption: 'FBI Investigation Wagon',
             color: '#001ee0',
             coins: 15,
@@ -529,7 +529,7 @@ export default {
             minPersonnel: 2,
             maxPersonnel: 4,
         },
-        {
+        44: {
             caption: 'FBI Mobile Command Center',
             color: '#0021f5',
             coins: 25,
@@ -539,7 +539,7 @@ export default {
             schooling: 'Police - FBI Mobile Center Commmander',
             shownSchooling: 'FBI Mobile Center Commmander',
         },
-        {
+        45: {
             caption: 'FBI Bomb Technician Vehicle',
             color: '#0a2bff',
             coins: 35,
@@ -549,7 +549,7 @@ export default {
             schooling: 'Police - FBI Bomb Technician',
             shownSchooling: 'FBI Bomb Technician',
         },
-        {
+        46: {
             caption: 'FBI Surveillance Drone',
             color: '#f04242',
             coins: 25,
@@ -560,7 +560,7 @@ export default {
             schooling: 'Police - FBI Drone Operator',
             shownSchooling: 'FBI Drone Operator',
         },
-        {
+        47: {
             caption: 'Sheriff Unit',
             color: '#ad0e0e',
             coins: 20,
@@ -570,9 +570,9 @@ export default {
             schooling: 'Police - Sheriff',
             shownSchooling: 'Sheriff',
         },
-    ],
-    buildings: [
-        {
+    },
+    buildings: {
+        0: {
             caption: 'Fire station',
             color: '#bb0000',
             coins: 30,
@@ -612,7 +612,7 @@ export default {
             startVehicles: ['Type 1 fire engine', 'Type 2 fire engine'],
             maxBuildingsFunction: (): number => 4_000,
         },
-        {
+        1: {
             caption: 'Dispatch Center',
             color: '#24c3ae',
             coins: 0,
@@ -627,7 +627,7 @@ export default {
             maxBuildingsFunction: (buildingsAmountTotal: number): number =>
                 Math.floor(buildingsAmountTotal / 25) + 1,
         },
-        {
+        2: {
             caption: 'Hospital',
             color: '#bbe944',
             coins: 25,
@@ -696,7 +696,7 @@ export default {
             startPersonnel: 0,
             startVehicles: [],
         },
-        {
+        3: {
             caption: 'Ambulance station',
             color: '#ffa500',
             coins: 35,
@@ -709,7 +709,7 @@ export default {
             startPersonnel: 3,
             startVehicles: ['ALS Ambulance'],
         },
-        {
+        4: {
             caption: 'Fire academy',
             color: '#992222',
             coins: 50,
@@ -728,7 +728,7 @@ export default {
             startPersonnel: 0,
             startVehicles: [],
         },
-        {
+        5: {
             caption: 'Police station',
             color: '#007700',
             coins: 35,
@@ -750,7 +750,7 @@ export default {
             startVehicles: ['Patrol car'],
             maxBuildingsFunction: (): number => 1_500,
         },
-        {
+        6: {
             caption: 'Helicopter station',
             color: '#e7ad2f',
             coins: 50,
@@ -768,7 +768,7 @@ export default {
                     ? 4
                     : Math.floor(buildingsAmountTotal / 25),
         },
-        {
+        7: {
             caption: 'Police academy',
             color: '#225522',
             coins: 50,
@@ -787,7 +787,7 @@ export default {
             startPersonnel: 0,
             startVehicles: [],
         },
-        {
+        8: {
             caption: 'Police Aviation',
             color: '#148423',
             coins: 50,
@@ -805,7 +805,7 @@ export default {
                     ? 4
                     : Math.floor(buildingsAmountTotal / 25),
         },
-        {
+        9: {
             caption: 'Staging area',
             coins: 0,
             credits: 0,
@@ -819,7 +819,7 @@ export default {
             startVehicles: [],
             maxBuildingsFunction: (): number => 4,
         },
-        {
+        10: {
             caption: 'Prison Cells',
             coins: 'x',
             credits: 100_000,
@@ -837,7 +837,7 @@ export default {
             startPersonnel: 0,
             startVehicles: [],
         },
-        {
+        11: {
             caption: 'Fire Boat Dock',
             color: '#663300',
             coins: 35,
@@ -850,7 +850,7 @@ export default {
             startPersonnel: 2,
             startVehicles: [''],
         },
-        {
+        12: {
             caption: 'Rescue Boat Dock',
             color: '#d3d62a',
             coins: 35,
@@ -863,7 +863,7 @@ export default {
             startPersonnel: 2,
             startVehicles: [''],
         },
-        {
+        13: {
             caption: 'Fire station (Small station) ',
             color: '#aa1111',
             coins: 25,
@@ -883,7 +883,7 @@ export default {
             startVehicles: ['Type 1 fire engine', 'Type 2 fire engine'],
             maxBuildingsFunction: (): number => 4_000,
         },
-        {
+        14: {
             caption: 'Clinic',
             color: '#e2e53b',
             coins: 25,
@@ -903,7 +903,7 @@ export default {
             startPersonnel: 0,
             startVehicles: ['Non. You can buy max. 2 Vehicles'],
         },
-        {
+        15: {
             caption: 'Police station (Small station)',
             color: '#116611',
             coins: 25,
@@ -923,7 +923,7 @@ export default {
             startVehicles: ['Patrol Car'],
             maxBuildingsFunction: (): number => 1_500,
         },
-        {
+        16: {
             caption: 'Ambulance station (Small station)',
             color: '#eeb611',
             coins: 25,
@@ -941,7 +941,7 @@ export default {
             startPersonnel: 3,
             startVehicles: ['ALS Ambulance'],
         },
-        {
+        17: {
             caption: 'Firefighting plane station',
             color: '#db7918',
             coins: 65,
@@ -954,7 +954,7 @@ export default {
             startPersonnel: 2,
             startVehicles: ['Water drop helicopter'],
         },
-        {
+        18: {
             caption: 'Federal Police Station',
             color: '#268926',
             coins: 50,
@@ -967,7 +967,7 @@ export default {
             startPersonnel: 10,
             startVehicles: ['FBI Unit'],
         },
-    ],
+    },
     buildingCategories: {
         'Fire Department': {
             buildings: [0, 4, 11, 13, 17],

@@ -83,8 +83,8 @@ export default {
                 'Visualizza una semplice etichetta nella barra di navigazione al posto del logo LSSM',
         },
     },
-    vehicles: [
-        {
+    vehicles: {
+        0: {
             caption: 'ABP',
             color: '#00FFCC',
             coins: 25,
@@ -93,7 +93,7 @@ export default {
             maxPersonnel: 3,
             wtank: 0,
         },
-        {
+        1: {
             caption: 'AS',
             color: '#d92626',
             coins: 30,
@@ -103,7 +103,7 @@ export default {
             wtank: 0,
             special: 'Richiesto dopo aver costruito 3 caserme dei pompieri',
         },
-        {
+        2: {
             caption: 'AV/FNZ',
             color: '#d02525',
             coins: 25,
@@ -113,7 +113,7 @@ export default {
             wtank: 0,
             special: 'Richiesto dopo aver costruito 6 caserme dei pompieri',
         },
-        {
+        3: {
             caption: 'CA/POLI',
             color: '#ad1f1f',
             coins: 25,
@@ -123,7 +123,7 @@ export default {
             wtank: 0,
             special: 'Richiesto dopo aver costruito 4 caserme dei pompieri',
         },
-        {
+        4: {
             caption: 'Ambulanza BLSD',
             color: '#9c1c1c',
             coins: 25,
@@ -132,7 +132,7 @@ export default {
             maxPersonnel: 5,
             wtank: 0,
         },
-        {
+        5: {
             caption: 'KILO',
             color: '#990000',
             coins: 25,
@@ -142,7 +142,7 @@ export default {
             wtank: 0,
             special: 'Richiesta dopo aver costruito 7 caserme dei pompieri',
         },
-        {
+        6: {
             caption: 'AF/NBCR',
             color: '#770000',
             coins: 25,
@@ -154,7 +154,7 @@ export default {
             schooling: 'Caserma dei vigili del fuoco - N.B.C.R.',
             shownSchooling: 'N.B.C.R.',
         },
-        {
+        7: {
             caption: 'Volante',
             color: '#8b1818',
             coins: 25,
@@ -163,7 +163,7 @@ export default {
             maxPersonnel: 2,
             wtank: 0,
         },
-        {
+        8: {
             caption: 'Elisoccorso',
             color: '#e61919',
             coins: 30,
@@ -172,7 +172,7 @@ export default {
             maxPersonnel: 1,
             wtank: 0,
         },
-        {
+        9: {
             caption: 'APS',
             color: '#bb0000',
             coins: 25,
@@ -181,7 +181,7 @@ export default {
             maxPersonnel: 6,
             wtank: 0,
         },
-        {
+        10: {
             caption: 'AF/ARIA',
             color: '#aa0000',
             coins: 25,
@@ -191,7 +191,7 @@ export default {
             wtank: 0,
             special: 'Richiesto dopo aver cstruito 5 caserme dei pompieri.',
         },
-        {
+        11: {
             caption: 'UCL',
             color: '#791515',
             coins: 25,
@@ -204,7 +204,7 @@ export default {
             shownSchooling: 'Comando mobile',
             special: 'Richiesto dopo aver costruito 13 caserme dei pompieri',
         },
-        {
+        12: {
             caption: 'AG',
             color: '#dc1818',
             coins: 25,
@@ -217,7 +217,7 @@ export default {
             shownSchooling: 'Autogrù',
             special: 'Richiesto dopo aver costruito 8 caserme dei pompieri',
         },
-        {
+        13: {
             caption: 'Elicottero della Polizia',
             color: '#ca1616',
             coins: 30,
@@ -230,7 +230,7 @@ export default {
             special:
                 'Può essere acquistato con i crediti all raggiungimento del Rango:Caporeparto esperto.',
         },
-        {
+        14: {
             caption: 'Furgone antisommossa',
             color: '#a51212',
             coins: 25,
@@ -241,7 +241,7 @@ export default {
             shownSchooling: 'Specializzazione antisommossa/UOPI',
             special: 'Richiesto dopo aver costruito 8 stazioni di polizia ',
         },
-        {
+        15: {
             caption: 'Unità cinofila antidroga',
             color: '#aa2222',
             coins: 25,
@@ -253,7 +253,7 @@ export default {
             shownSchooling: 'Specializzazione unità cinoflia',
             special: 'Richiesto dopo aver costruito 6 stazioni di polizia',
         },
-        {
+        16: {
             caption: 'Moto della Polizia',
             color: '#662222',
             coins: 18,
@@ -264,7 +264,7 @@ export default {
             schooling: 'Polizia - Specializzazione motociclista',
             shownSchooling: 'Specializzazione motociclista',
         },
-        {
+        17: {
             caption: 'UOPI SUV',
             color: '#332222',
             coins: 23,
@@ -276,7 +276,7 @@ export default {
             schooling: 'Polizia - Specializzazione antisommossa/UOPI',
             shownSchooling: 'Specializzazione antisommossa/UOPI',
         },
-        {
+        18: {
             caption: 'VLV',
             color: '#681212',
             coins: 25,
@@ -288,7 +288,7 @@ export default {
             schooling: 'Soccorso - Corso medico di emergenza',
             shownSchooling: 'Medico di emergenza',
         },
-        {
+        19: {
             caption: 'MSA',
             color: '#f59f00',
             coins: 25,
@@ -298,7 +298,7 @@ export default {
             schooling: 'Soccorso - Corso medico di emergenza',
             shownSchooling: 'Medico di emergenza',
         },
-        {
+        20: {
             caption: 'Ambulanza ordinaria',
             color: '#e09200',
             coins: 20,
@@ -306,7 +306,7 @@ export default {
             minPersonnel: 2,
             maxPersonnel: 4,
         },
-        {
+        21: {
             caption: 'Volante Finanza',
             color: '#001bcc',
             coins: 10,
@@ -314,7 +314,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 2,
         },
-        {
+        22: {
             caption: 'Furgone artificieri',
             color: '#0a2bff',
             coins: 35,
@@ -324,9 +324,9 @@ export default {
             schooling: 'Polizia - Corso Artificieri',
             shownSchooling: 'Corso Artificieri',
         },
-    ],
-    buildings: [
-        {
+    },
+    buildings: {
+        0: {
             caption: 'Caserma dei vigili del fuoco',
             color: '#bb0000',
             coins: 30,
@@ -348,7 +348,7 @@ export default {
             startVehicles: ['ABP, APS'],
             maxBuildingsFunction: (): number => 4_000,
         },
-        {
+        1: {
             caption: 'Scuola dei vigili del fuoco',
             color: '#992222',
             coins: 50,
@@ -367,7 +367,7 @@ export default {
             startPersonnel: 0,
             startVehicles: [],
         },
-        {
+        2: {
             caption: 'Stazione ambulanze',
             color: '#ffa500',
             coins: 35,
@@ -380,7 +380,7 @@ export default {
             startPersonnel: 3,
             startVehicles: ['Ambulanza BLSD'],
         },
-        {
+        3: {
             caption: 'Scuola di formazione emergenza sanitaria (EMS)',
             color: '#ddc722',
             coins: 50,
@@ -399,7 +399,7 @@ export default {
             startPersonnel: 0,
             startVehicles: [],
         },
-        {
+        4: {
             caption: 'Ospedale',
             color: '#bbe944',
             coins: 25,
@@ -510,7 +510,7 @@ export default {
             startPersonnel: 0,
             startVehicles: [],
         },
-        {
+        5: {
             caption: 'Base elisoccorso',
             color: '#e7ad2f',
             coins: 50,
@@ -528,7 +528,7 @@ export default {
                     ? 4
                     : Math.floor(buildingsAmountTotal / 25),
         },
-        {
+        6: {
             caption: 'Stazione di polizia',
             color: '#007700',
             coins: 35,
@@ -550,7 +550,7 @@ export default {
             startVehicles: ['Volante'],
             maxBuildingsFunction: (): number => 1_500,
         },
-        {
+        7: {
             caption: 'Centrale operativa',
             color: '#24c3ae',
             coins: 0,
@@ -565,7 +565,7 @@ export default {
             maxBuildingsFunction: (buildingsAmountTotal: number): number =>
                 Math.floor(buildingsAmountTotal / 25) + 1,
         },
-        {
+        8: {
             caption: 'Accademia della Polizia',
             color: '#225522',
             coins: 50,
@@ -584,7 +584,7 @@ export default {
             startPersonnel: 0,
             startVehicles: [],
         },
-        {
+        13: {
             caption: 'Elibase polizia',
             color: '#148423',
             coins: 50,
@@ -602,7 +602,7 @@ export default {
                     ? 4
                     : Math.floor(buildingsAmountTotal / 25),
         },
-        {
+        14: {
             caption: 'Base temporanea',
             coins: 0,
             credits: 0,
@@ -616,7 +616,7 @@ export default {
             startVehicles: [],
             maxBuildingsFunction: (): number => 1,
         },
-        {
+        16: {
             caption: 'Carcere',
             coins: 'x',
             credits: 100_000,
@@ -634,7 +634,7 @@ export default {
             startPersonnel: 0,
             startVehicles: [],
         },
-        {
+        18: {
             caption: 'Caserma dei vigili del fuoco (piccola)',
             color: '#aa1111',
             coins: 25,
@@ -654,7 +654,7 @@ export default {
             startVehicles: ['ABP', 'APS'],
             maxBuildingsFunction: (): number => 4_000,
         },
-        {
+        19: {
             caption: 'Stazione di polizia (piccola)',
             color: '#116611',
             coins: 25,
@@ -674,7 +674,7 @@ export default {
             startVehicles: ['Volante'],
             maxBuildingsFunction: (): number => 1_500,
         },
-        {
+        20: {
             caption: 'Stazione ambulanze (stazione piccola)',
             color: '#eeb611',
             coins: 25,
@@ -692,7 +692,7 @@ export default {
             startPersonnel: 3,
             startVehicles: ['Ambulanza BLSD'],
         },
-        {
+        21: {
             caption: 'Caserma della Finanza',
             color: '#116612',
             coins: 35,
@@ -704,7 +704,7 @@ export default {
             startPersonnel: 4,
             startVehicles: ['Volante Finanza'],
         },
-    ],
+    },
     buildingCategories: {
         'Vigili del Fuoco': {
             buildings: [0, 1, 18],
