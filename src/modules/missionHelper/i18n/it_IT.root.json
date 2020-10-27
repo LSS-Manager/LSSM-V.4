@@ -1,0 +1,152 @@
+{
+	"description": "Ottieni tutte le informazioni importanti sulla missione direttamente all'interno della finestra della missione.",
+	"name": "Missionhelper",
+	"settings": {
+		"chances": {
+			"100": {
+				"description": "Mostra anche probabilità del 100% ..",
+				"title": "100% di probabilità di menzionare esplicitamente"
+			},
+			"normal": {
+				"description": "Mostra le probabilità che un veicolo possa essere richiesto.",
+				"title": "Mostra probabilità"
+			}
+		},
+		"credits": {
+			"description": "Indica quanti crediti in media si guadagnano con questa missione.",
+			"title": "Crediti"
+		},
+		"expansions": {
+			"description": "Lista di possibili espansioni per questa missione.",
+			"title": "Espansioni"
+		},
+		"followup": {
+			"description": "Mista delle possibili missioni successivi a questa missione.",
+			"title": "Missioni successive"
+		},
+		"generatedBy": {
+			"description": "Mostra da quale tipo di edificio questa missione può essere generata.",
+			"title": "Generata da (building type)"
+		},
+		"hide_battalion_chief_vehicles": {
+			"description": "Nasconde completamente il capo del battaglione e mostra solo MCV.",
+			"title": "Nascondi il capo del battaglione"
+		},
+		"id": {
+			"description": "Mostra l'ID Missione affianco al titolo.",
+			"title": "ID Missione"
+		},
+		"k9_only_if_needed": {
+			"description": "Indica, se i cinofili sono solo richiesti, se disponibili.",
+			"title": "Cani guida opzionali"
+		},
+    
+		"multifunctionals": {
+			"battalion_chief_vehicles": {
+				"description": "Sottrae il numero di MCV richiesto dal capo del battaglione e nasconde il capo del battaglione se il numero scende al di sotto di 0.",
+				"title": "Il capo del battaglione valuta semplicemente"
+			},
+			"heavy_rescue_vehicles": {
+				"description": "Sestrae il numero di camion dei pompieri richiesti da Salvataggio Pesante e nasconde Salvataggio Pesante se il numero scende al di sotto di 0. Questa funzione è intesa per le persone che usano un sistema puro di Motore di salvataggio.",
+				"title": "Valutazione semplice di salvataggio pesante"
+			},
+			"platform_trucks": {
+				"description": "Sottrai il numero di TM 50 richiesto dalle DLK e nasconde le DLKs se il numero scendo sotto lo 0.",
+				"title": "Valuta facilmente DLK"
+			}
+		},
+		"optionalAlternatives": {
+			"allow_arff_instead_of_lf": {
+				"description": "Indica, se invece di un camion dei pompieri sono possibili arrfs sul posto.",
+				"title": "Mostra se gli arrf sono ammessi come camion dei pompieri"
+			},
+			"allow_ktw_instead_of_rtw": {
+				"description": "Mostra  Shows se una MSB può essere usata invece di una MSA.",
+				"title": "MSB invece di MSA"
+			},
+			"allow_rw_instead_of_lf": {
+				"description": "Indica, se invece di un camion dei pompieri è possibile in loco anche un mezzo di soccorso pesante o di soccorso.",
+				"title": "Mostra Salvataggio Pesante / Motre di salvataggio invece dei camion VVF"
+			}
+		},
+		"patient": {
+			"code_possible": {
+				"description": "Mostra i possibili codici dei pazienti",
+				"title": "Dettagli sui possibili codici dei pazienti"
+			}
+		},
+		"patients": {
+			"content": {
+				"description": "Mostra i dettagli sui potenziali pazienti.",
+				"title": "Dettagli sui potenziali pazienti"
+			},
+			"hideWhenNoNeed": {
+				"description": "Nascondi i dettagli dei pazienti se non ci sono più pazienti e se non appaiono fino alla fine delle operazioni.",
+				"title": "Mostra i dettagli dei pazienti sono quando necessario"
+			},
+			"live": {
+				"description": "Mostra in cima al Aiuto Missioni quanti pazienti questa missione attualmente ha.",
+				"title": "Numero corrente dei pazienti"
+			},
+			"patient_allow_first_responder_chance": {
+				"description": "Mostra con quanta % qualsiasi veicolo è sufficiente per trattare.",
+				"title": "Probabilità del primo soccorritore"
+			},
+			"title": {
+				"description": "Mostra l'intestazione \"Patients\" sopra i dettagli dei possibili pazienti.",
+				"title": "Pazienti (Title)"
+			}
+		},
+		"place": {
+			"description": "Mostra accanto al titolo quale POI è richiesto per questa missione.",
+			"title": "POI"
+		},
+		"prerequisites": {
+			"description": "Mostra i requisiti (es. 3 stazioni di soccorso e 4 stazioni VVF)",
+			"title": "Prerequisiti"
+		},
+		"prisoners": {
+			"content": {
+				"description": "Mostra i dettagli sui possibili prigionieri.",
+				"title": "Dettagli sui possibili prigionieri"
+			},
+			"live": {
+				"description": "Mostra in cima all' Aiuto Missione quanti prigionieri attualmente ha la missione.",
+				"title": "Numero attuale dei prigionieri"
+			},
+			"title": {
+				"description": "Mostra l'intestazione \"Prisoners\" sopra i dettagli dei possibili prigionieri.",
+				"title": "Prigionieri (Title)"
+			}
+		},
+		"title": {
+			"description": "Mostra il nome della missione, es. \"Trashcan fire\" come titolo.",
+			"title": "Nome missione"
+		},
+		"type": {
+			"description": "Mostra il numero del tipo della missione accanto al titolo.",
+			"title": "Numero del tipo"
+		},
+		"vehicles": {
+			"content": {
+				"description": "Mostra i requisiti dei veicoli.",
+				"title": "Veicoli richiesti"
+			},
+			"patient_additionals": {
+				"description": "Se attualmente ci sono più di 10 pazienti sul sito, EMS-Chief viene automaticamente elencato all'inizio dei requisiti del veicolo.",
+				"title": "Menziona extra EMS-Chief"
+			},
+			"sort": {
+				"amount": "Numero dei veicoli richiesti",
+				"caption": "Nome del requisito",
+				"description": "Definire in base a cosa devono essere ordinati i requisiti del veicolo.",
+				"percentage": "Probabilità",
+				"title": "Ordinamento dei requisiti del veicolo"
+			},
+			"title": {
+				"description": "Mostra l'intestazione \"Vehicles\" sopra i veicoli richiesti.",
+				"title": "Veicoli (Title)"
+			}
+		}
+	}
+}
