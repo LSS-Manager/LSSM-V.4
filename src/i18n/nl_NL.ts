@@ -1,8 +1,7 @@
 import { Building } from 'typings/Building';
 
 const moduleRootFiles = require.context('../', true, MODULE_ROOT_I18N_FILES);
-// Commented as dir ./nl_NL does not exist currently
-// const furtherFiles = require.context('./nl_NL/', true, /.*(\/index)?\.js(on)?/);
+const furtherFiles = require.context('./nl_NL/', true, /.*(\/index)?\.js(on)?/);
 const modules = {
     appstore: {
         save: 'Opslaan',
@@ -51,12 +50,12 @@ moduleRootFiles
 
 const t = {} as { [key: string]: unknown };
 
-// Commented as dir ./nl_NL does not exist currently
-// furtherFiles
-//     .keys()
-//     .forEach(
-//         key => (t[key.split('/')[1].replace(/\..*$/, '')] = furtherFiles(key))
-//     );
+
+furtherFiles
+    .keys()
+    .forEach(
+        key => (t[key.split('/')[1].replace(/\..*$/, '')] = furtherFiles(key))
+    );
 
 export default {
     modules,
