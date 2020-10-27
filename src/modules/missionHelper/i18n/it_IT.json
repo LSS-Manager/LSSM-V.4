@@ -1,6 +1,4 @@
 {
-	//TODO: FIND THE VALUES FOR ITALIAN VERSION
-	
 	"diyMission": "Questa missione sembra essere una missione dell'alleanza su larga scala!",
 	"expansions": "Diffusione | Si diffonde",
 	"followups": "Missione supplementare | Missioni supplementari",
@@ -8,6 +6,7 @@
 	"noVehicleRequirements": [
 		"water_needed"
 	],
+	//TODO : FIND THE VALUES FOR ITALIAN VERSION
 	"patients": {
 		"allow_ktw_instead_of_rtw": "Può essere usata una MSB invece di una MSA.",
 		"helicopter": "Probabilità per HEMS",
