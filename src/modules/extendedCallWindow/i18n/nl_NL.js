@@ -76,7 +76,7 @@ module.exports = {
         vehiclesByRequirement: {
             [/^Tankautospuit(en)?$/]: [0, 1, 6, 7, 8, 9, 12, 14, 15, 17, 50],
             [/^Redvoertuig(en)?$/]: [2, 18],
-            [/^Officieren(en)? van Dienst \- Brandweer$/]: [3, 19],
+            [/^Officieren(en)? van Dienst - Brandweer$/]: [3, 19],
             [/^Hulpverleningsvoertuig(en)?$/]: [4, 51],
             [/^Adembeschermingsvoertuig of haakarmbak$/]: [5, 27],
             [/^Slangenwagen$/]: [

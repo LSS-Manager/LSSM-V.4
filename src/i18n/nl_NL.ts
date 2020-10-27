@@ -82,8 +82,8 @@ export default {
                 'Laat een simpel label zien in het menu in plaats van het LSSM logo',
         },
     },
-    vehicles: [
-        {
+    vehicles: {
+        0: {
             caption: 'SI-2',
             color: '#cc0000',
             minPersonnel: 1,
@@ -91,7 +91,7 @@ export default {
             credits: 5_000,
             coins: 25,
         },
-        {
+        1: {
             caption: 'TS 8/9',
             color: '#990000',
             minPersonnel: 1,
@@ -99,7 +99,7 @@ export default {
             credits: 5_000,
             coins: 25,
         },
-        {
+        2: {
             caption: 'Autoladder',
             color: '#791515',
             minPersonnel: 1,
@@ -108,7 +108,7 @@ export default {
             coins: 30,
             special: 'Benodigd vanaf 3 brandweerposten.',
         },
-        {
+        3: {
             caption: 'DA - Officier van Dienst',
             color: '#a51212',
             minPersonnel: 1,
@@ -117,7 +117,7 @@ export default {
             coins: 25,
             special: 'Benodigd vanaf 6 brandweerposten.',
         },
-        {
+        4: {
             caption: 'Hulpverleningsvoertuig',
             color: '#aa2222',
             minPersonnel: 1,
@@ -126,7 +126,7 @@ export default {
             coins: 25,
             special: 'Benodigd vanaf 4 brandweerposten.',
         },
-        {
+        5: {
             caption: 'Adembeschermingsvoertuig',
             color: '#8b1818',
             minPersonnel: 1,
@@ -135,7 +135,7 @@ export default {
             coins: 25,
             special: 'Benodigd vanaf 5 brandweerposten.',
         },
-        {
+        6: {
             caption: 'TST 8/9',
             color: '#880000',
             minPersonnel: 1,
@@ -143,7 +143,7 @@ export default {
             credits: 5_000,
             coins: 25,
         },
-        {
+        7: {
             caption: 'TST 6/7',
             color: '#9c1c1c',
             minPersonnel: 1,
@@ -151,7 +151,7 @@ export default {
             credits: 5_000,
             coins: 25,
         },
-        {
+        8: {
             caption: 'TST 4/5',
             color: '#d92626',
             minPersonnel: 1,
@@ -159,7 +159,7 @@ export default {
             credits: 5_000,
             coins: 25,
         },
-        {
+        9: {
             caption: 'TS 4/5',
             color: '#bb0000',
             minPersonnel: 1,
@@ -167,7 +167,7 @@ export default {
             credits: 5_000,
             coins: 25,
         },
-        {
+        10: {
             caption: 'Slangenwagen',
             color: '#882222',
             minPersonnel: 1,
@@ -176,7 +176,7 @@ export default {
             coins: 25,
             special: 'Benodigd vanaf 7 brandweerposten.',
         },
-        {
+        11: {
             caption: 'Verkenningseenheid Brandweer',
             color: '#662222',
             minPersonnel: 1,
@@ -187,7 +187,7 @@ export default {
             shownSchooling: 'VEB',
             special: 'Benodigd vanaf 10 brandweerposten.',
         },
-        {
+        12: {
             caption: 'TST-NB 8/9',
             color: '#770000',
             minPersonnel: 1,
@@ -195,15 +195,7 @@ export default {
             credits: 5_000,
             coins: 25,
         },
-        {
-            caption: '',
-            color: '',
-            minPersonnel: '',
-            maxPersonnel: '',
-            credits: '',
-            coins: '',
-        },
-        {
+        14: {
             caption: 'TST-NB 6/7',
             color: '#aa0000',
             minPersonnel: 1,
@@ -211,7 +203,7 @@ export default {
             credits: 5_000,
             coins: 25,
         },
-        {
+        15: {
             caption: 'TST-NB 4/5',
             color: '#d02525',
             minPersonnel: 1,
@@ -219,7 +211,7 @@ export default {
             credits: 5_000,
             coins: 25,
         },
-        {
+        16: {
             caption: 'Ambulance',
             color: '#f59f00',
             minPersonnel: 1,
@@ -227,7 +219,7 @@ export default {
             credits: 5_000,
             coins: 25,
         },
-        {
+        17: {
             caption: 'TS 6/7',
             color: '#ad1f1f',
             minPersonnel: 1,
@@ -235,7 +227,7 @@ export default {
             credits: 5_000,
             coins: 25,
         },
-        {
+        18: {
             caption: 'Hoogwerker',
             color: '#992222',
             minPersonnel: 1,
@@ -244,7 +236,7 @@ export default {
             coins: 30,
             special: 'Benodigd vanaf 3 brandweerposten.',
         },
-        {
+        19: {
             caption: 'DA - Hoofdofficier van Dienst',
             color: '#b81414',
             minPersonnel: 1,
@@ -255,7 +247,7 @@ export default {
             shownSchooling: 'HOvD-B',
             special: 'Benodigd vanaf 13 brandweerposten.',
         },
-        {
+        20: {
             caption: 'DA',
             color: '#ca1616',
             minPersonnel: 1,
@@ -263,7 +255,7 @@ export default {
             credits: 2_000,
             coins: 10,
         },
-        {
+        21: {
             caption: 'DB Klein',
             color: '#cc2222',
             minPersonnel: 1,
@@ -271,7 +263,7 @@ export default {
             credits: 2_500,
             coins: 12,
         },
-        {
+        22: {
             caption: 'DA Noodhulp',
             color: '#001bcc',
             minPersonnel: 1,
@@ -279,7 +271,7 @@ export default {
             credits: 5_000,
             coins: 25,
         },
-        {
+        23: {
             caption: 'Lifeliner',
             color: '#e09200',
             minPersonnel: 1,
@@ -290,7 +282,7 @@ export default {
             shownSchooling: 'MMT-Bemanningslid',
             special: 'Per 25 gebouwen (alle gebouwen) kan één Lifeliner gekocht worden',
         },
-        {
+        24: {
             caption: 'DA - Adviseur Gevaarlijke stoffen',
             color: '#e61919',
             minPersonnel: 1,
@@ -301,7 +293,7 @@ export default {
             shownSchooling: 'AGS',
             special: 'Benodigd vanaf 11 brandweerposten.',
         },
-        {
+        25: {
             caption: 'DB Noodhulp',
             color: '#142ab8',
             minPersonnel: 1,
@@ -309,7 +301,7 @@ export default {
             credits: 6_000,
             coins: 25,
         },
-        {
+        26: {
             caption: 'Haakarmvoertuig',
             color: '#bb2222',
             minPersonnel: 1,
@@ -319,7 +311,7 @@ export default {
             schooling: 'Brandweer - Brandweerchauffeur-zwaar',
             shownSchooling: 'Brandweerchauffeur-zwaar',
         },
-        {
+        27: {
             caption: 'Adembeschermingshaakarmbak',
             color: '#552222',
             minPersonnel: 0,
@@ -328,7 +320,7 @@ export default {
             coins: 12,
             special: 'Haakarmvoertuig benodigd',
         },
-        {
+        28: {
             caption: 'Politiehelikopter',
             color: '#3131e8',
             minPersonnel: 1,
@@ -338,7 +330,7 @@ export default {
             schooling: 'Politie - Politiehelikopter',
             shownSchooling: 'Politiehelikopter',
         },
-        {
+        29: {
             caption: 'Watertankhaakarmbak',
             color: '#332222',
             minPersonnel: 0,
@@ -347,7 +339,7 @@ export default {
             coins: 12,
             special: 'Haakarmvoertuig benodigd',
         },
-        {
+        30: {
             caption: 'Zorgambulance',
             color: '#ffb61a',
             minPersonnel: 1,
@@ -355,7 +347,7 @@ export default {
             credits: 5_000,
             coins: 25,
         },
-        {
+        31: {
             caption: 'Commandovoertuig',
             color: '#dc1818',
             minPersonnel: 1,
@@ -366,7 +358,7 @@ export default {
             shownSchooling: 'Brandweerchauffeur-zwaar',
             special: 'Benodigd vanaf 14 brandweerposten.',
         },
-        {
+        32: {
             caption: 'Commandohaakarmbak',
             color: '#442222',
             minPersonnel: 0,
@@ -375,7 +367,7 @@ export default {
             coins: 12,
             special: 'Haakarmvoertuig benodigd',
         },
-        {
+        33: {
             caption: 'Waterongevallenvoertuig',
             color: '#bf2222',
             minPersonnel: 4,
@@ -385,7 +377,7 @@ export default {
             schooling: 'Brandweer - Duiker/Duikploegleider',
             shownSchooling: 'Duiker/Duikploegleider',
         },
-        {
+        34: {
             caption: 'Watertankwagen',
             color: '#772222',
             minPersonnel: 1,
@@ -394,7 +386,7 @@ export default {
             coins: 25,
             special: 'Benodigd vanaf 7 brandweerposten.',
         },
-        {
+        35: {
             caption: 'Officier van Dienst - Politie',
             color: '#0006b9',
             minPersonnel: 1,
@@ -404,7 +396,7 @@ export default {
             schooling: 'Politie - Officier van Dienst - Politie',
             shownSchooling: 'Officier van Dienst - Politie',
         },
-        {
+        36: {
             caption: 'Waterongevallenaanhanger',
             color: '#288f28',
             minPersonnel: 0,
@@ -413,7 +405,7 @@ export default {
             coins: 12,
             special: 'TS, TST, TST-NB, SI-2, WO, HV, DA/DB benodigd',
         },
-        {
+        37: {
             caption: 'MMT-Auto',
             color: '#c47f00',
             minPersonnel: 1,
@@ -424,7 +416,7 @@ export default {
             shownSchooling: 'MMT-Bemanningslid',
             special: 'Per 10 Ambulanceposten (Standplaatsen, VWS-posten en uitbreidingen) kan één MMT-Auto gekocht worden',
         },
-        {
+        38: {
             caption: 'Officier van Dienst - Geneeskunde',
             color: '#b07914',
             minPersonnel: 1,
@@ -435,7 +427,7 @@ export default {
             shownSchooling: 'Officier van Dienst Geneeskunde',
             special: 'Benodigd vanaf de 8 gebouwen en/of uitbreiding',
         },
-        {
+        39: {
             caption: 'ME Commandovoertuig',
             color: '#000080',
             minPersonnel: 2,
@@ -445,7 +437,7 @@ export default {
             schooling: 'Politie - Mobiele Eenheid',
             shownSchooling: 'Mobiele Eenheid',
         },
-        {
+        40: {
             caption: 'ME Flexbus',
             color: '#000073',
             minPersonnel: 4,
@@ -455,7 +447,7 @@ export default {
             schooling: 'Politie - Mobiele Eenheid',
             shownSchooling: 'Mobiele Eenheid',
         },
-        {
+        41: {
             caption: 'Crashtender (8x8)',
             color: '#ad0e0e',
             minPersonnel: 2,
@@ -465,7 +457,7 @@ export default {
             schooling: 'Brandweer - Vliegtuigbrandbestrijding',
             shownSchooling: 'Vliegtuigbrandbestrijding',
         },
-        {
+        42: {
             caption: 'Crashtender (6x6)',
             color: '#9c0b0b',
             minPersonnel: 2,
@@ -475,7 +467,7 @@ export default {
             schooling: 'Brandweer - Vliegtuigbrandbestrijding',
             shownSchooling: 'Vliegtuigbrandbestrijding',
         },
-        {
+        43: {
             caption: 'Crashtender (4x4)',
             color: '#f04242',
             minPersonnel: 2,
@@ -485,7 +477,7 @@ export default {
             schooling: 'Brandweer - Vliegtuigbrandbestrijding',
             shownSchooling: 'Vliegtuigbrandbestrijding',
         },
-        {
+        44: {
             caption: 'Airport Fire Officer / On Scene Commander',
             color: '#8b0707',
             minPersonnel: 1,
@@ -495,7 +487,7 @@ export default {
             schooling: 'Brandweer - Airport Fire Officer / On Scene Commander',
             shownSchooling: 'Airport Fire Officer / On Scene Commander',
         },
-        {
+        45: {
             caption: 'Dompelpomphaakarmbak',
             color: '#681212',
             minPersonnel: 0,
@@ -504,7 +496,7 @@ export default {
             coins: 12,
             special: 'Haakarmvoertuig benodigd',
         },
-        {
+        46: {
             caption: 'DM Noodhulp',
             color: '#0008e7',
             minPersonnel: 1,
@@ -512,7 +504,7 @@ export default {
             credits: 2_500,
             coins: 18,
         },
-        {
+        47: {
             caption: 'DA Hondengeleider',
             color: '#0d0d73',
             minPersonnel: 1,
@@ -522,7 +514,7 @@ export default {
             schooling: 'Politie - Hondengeleider',
             shownSchooling: 'Hondengeleider',
         },
-        {
+        48: {
             caption: 'DB Hondengeleider',
             color: '#000090',
             minPersonnel: 1,
@@ -532,7 +524,7 @@ export default {
             schooling: 'Politie - Hondengeleider',
             shownSchooling: 'Hondengeleider',
         },
-        {
+        49: {
             caption: 'PM-OR | Materieelvoertuig - Oppervlakteredding',
             color: '#450c0c',
             minPersonnel: 4,
@@ -542,7 +534,7 @@ export default {
             schooling: 'Brandweer - Oppervlakteredder',
             shownSchooling: 'Oppervlakteredder',
         },
-        {
+        50: {
             caption: 'TS-OR | Tankautospuit - Oppervlakteredding',
             color: '#220000',
             minPersonnel: 4,
@@ -552,7 +544,7 @@ export default {
             schooling: 'Brandweer - Oppervlakteredder',
             shownSchooling: 'Oppervlakteredder',
         },
-        {
+        51: {
             caption: 'HulpverleningsHaakarmbak',
             color: '#440000',
             minPersonnel: 0,
@@ -561,7 +553,7 @@ export default {
             coins: 12,
             special: 'Haakarmvoertuig benodigd',
         },
-        {
+        52: {
             caption: 'Rapid Responder',
             color: '#b16b00',
             minPersonnel: 1,
@@ -569,7 +561,7 @@ export default {
             credits: 2_500,
             coins: 18,
         },
-        {
+        53: {
             caption: 'AT-Commandant',
             color: '#0000e1',
             minPersonnel: 1,
@@ -579,7 +571,7 @@ export default {
             schooling: 'Politie - Operator AT',
             shownSchooling: 'Operator AT',
         },
-        {
+        54: {
             caption: 'AT-Operator',
             color: '#0000b4',
             minPersonnel: 2,
@@ -589,7 +581,7 @@ export default {
             schooling: 'Politie - Operator AT',
             shownSchooling: 'Operator AT',
         },
-        {
+        55: {
             caption: 'AT-Materiaalwagen',
             color: '#1a1aff',
             minPersonnel: 1,
@@ -599,7 +591,7 @@ export default {
             schooling: 'Politie - Operator AT',
             shownSchooling: 'Operator AT',
         },
-        {
+        56: {
             caption: 'DA Voorlichter',
             color: '#570f0f',
             minPersonnel: 1,
@@ -610,7 +602,7 @@ export default {
             shownSchooling: 'Voorlichter',
             special: 'Benodigd vanaf 14 brandweerposten.',
         },
-        {
+        57: {
             caption: 'DA Officier van Dienst - Geneeskundig / Rapid Responder',
             color: '#dd8600',
             minPersonnel: 1,
@@ -621,9 +613,9 @@ export default {
             shownSchooling: 'Officier van Dienst Geneeskunde',
             special: 'Per 10 Ambulanceposten (Standplaatsen, VWS-posten en uitbreidingen) kan één OVDG-RR gekocht worden',
         },
-    ],
-    buildings: [
-        {
+    },
+    buildings: {
+        0: {
             caption: 'Brandweer kazerne',
             color: '#bb0000',
             coins: 30,
@@ -670,7 +662,7 @@ export default {
             startVehicles: ['SI-2', 'TS 8/9', 'TST 8/9', 'TST 6/7', 'TST 4/5', 'TS 4/5', 'TST-NB 8/9', 'TST-NB 6/7', 'TST-NB 4/5', 'TS 6/7'],
             maxBuildingsFunction: (): number => 4_000,
         },
-        {
+        1: {
             caption: 'Meldkamer',
             color: '#24c3ae',
             coins: 0,
@@ -685,7 +677,7 @@ export default {
             maxBuildingsFunction: (buildingsAmountTotal: number): number =>
                 Math.floor(buildingsAmountTotal / 25) + 1,
         },
-        {
+        2: {
             caption: 'Ziekenhuis',
             color: '#bbe944',
             coins: 35,
@@ -754,7 +746,7 @@ export default {
             startPersonnel: 0,
             startVehicles: [],
         },
-        {
+        3: {
             caption: 'Ambulancestandplaats',
             color: '#ffa500',
             coins: 35,
@@ -767,7 +759,7 @@ export default {
             startPersonnel: 3,
             startVehicles: ['Ambulance'],
         },
-        {
+        4: {
             caption: 'Brandweer academie',
             color: '#992222',
             coins: 50,
@@ -786,7 +778,7 @@ export default {
             startPersonnel: 0,
             startVehicles: [],
         },
-        {
+        5: {
             caption: 'Politie opkomstbureau',
             color: '#007700',
             coins: 35,
@@ -808,7 +800,7 @@ export default {
             startVehicles: ['DA Noodhulp'],
             maxBuildingsFunction: (): number => 1_500,
         },
-        {
+        6: {
             caption: 'MMT Standplaats',
             color: '#ffd500',
             coins: 50,
@@ -821,7 +813,7 @@ export default {
             startPersonnel: 3,
             startVehicles: [],
         },
-        {
+        7: {
             caption: 'Universiteit Geneeskunde',
             color: '#ffc400',
             coins: 50,
@@ -840,7 +832,7 @@ export default {
             startPersonnel: 0,
             startVehicles: [],
         },
-        {
+        8: {
             caption: 'Politie academie',
             color: '#225522',
             coins: 50,
@@ -859,7 +851,7 @@ export default {
             startPersonnel: 0,
             startVehicles: [],
         },
-        {
+        9: {
             caption: 'Politiehelikopter standplaats',
             color: '#e7ad2f',
             coins: 50,
@@ -877,7 +869,7 @@ export default {
                     ? 4
                     : Math.floor(buildingsAmountTotal / 25),
         },
-        {
+        10: {
             caption: 'Uitgangsstelling (UGS)',
             color: '#404040',
             coins: 0,
@@ -892,7 +884,7 @@ export default {
             startVehicles: [],
             maxBuildingsFunction: (): number => 1,
         },
-        {
+        11: {
             caption: 'Politie Hoofdbureau',
             color: '#663300',
             coins: 50,
@@ -930,7 +922,7 @@ export default {
             startPersonnel: 10,
             startVehicles: ['Officier van Dienst - Politie'],
         },
-        {
+        12: {
             caption: 'Cellencomplex',
             color: '#800000',
             coins: 'x',
@@ -949,7 +941,7 @@ export default {
             startPersonnel: 0,
             startVehicles: [],
         },
-        {
+        13: {
             caption: 'Ambulance VWS-post',
             color: '#eeb611',
             coins: 25,
@@ -965,253 +957,253 @@ export default {
             startPersonnel: 3,
             startVehicles: ['Ambulance'],
         },
-    ],
-    buildingCategories: {
-        Brandweer: {
-            buildings: [0, 4],
-            color: '#ff2d2d',
-        },
-        Ambulance: {
-            buildings: [2, 3, 6, 7, 13],
-            color: '#ffa500',
-        },
-        Politie: {
-            buildings: [5, 8, 9, 11],
-            color: '#00ac00',
-        },
-        Algemeen: {
-            buildings: [1, 10],
-            color: '#02a18c',
-        },
     },
-    vehicleCategories: {
-        Brandweer: {
-            vehicles: {
-                'Tankautospuiten': [0, 1, 6, 7, 8, 9, 12, 14, 15, 17],
-                'Overige voertuigen': [2, 3, 4, 5, 10, 11, 18, 19, 20, 21, 24, 31, 34, 56],
-                'Waterongevallen': [33, 36, 49, 50],
-                'Vliegtuigbrandbestrijding': [41, 42, 43, 44],
-                'Haakarmbakken': [26, 27, 29, 32, 45, 51],
+        buildingCategories: {
+            Brandweer: {
+                buildings: [0, 4],
+                color: '#ff2d2d',
             },
-            color: '#ff2d2d',
+            Ambulance: {
+                buildings: [2, 3, 6, 7, 13],
+                color: '#ffa500',
+            },
+            Politie: {
+                buildings: [5, 8, 9, 11],
+                color: '#00ac00',
+            },
+            Algemeen: {
+                buildings: [1, 10],
+                color: '#02a18c',
+            },
         },
-        Ambulance: {
-            vehicles: {
-                'Ambulances': [16, 30, 38, 52, 57],
-                'MMT voertuigen': [23, 37],
+        vehicleCategories: {
+            Brandweer: {
+                vehicles: {
+                    'Tankautospuiten': [0, 1, 6, 7, 8, 9, 12, 14, 15, 17],
+                    'Overige voertuigen': [2, 3, 4, 5, 10, 11, 18, 19, 20, 21, 24, 31, 34, 56],
+                    'Waterongevallen': [33, 36, 49, 50],
+                    'Vliegtuigbrandbestrijding': [41, 42, 43, 44],
+                    'Haakarmbakken': [26, 27, 29, 32, 45, 51],
+                },
+                color: '#ff2d2d',
             },
-            color: '#ffa500',
+            Ambulance: {
+                vehicles: {
+                    'Ambulances': [16, 30, 38, 52, 57],
+                    'MMT voertuigen': [23, 37],
+                },
+                color: '#ffa500',
+            },
+            Politie: {
+                vehicles: {
+                    'Noodhulp': [22, 25, 46],
+                    'Mobiele Eenheid': [39, 40],
+                    'Hondengeleider': [47, 48],
+                    'Politiehelikopter': [28],
+                    'Officier van Dienst - Politie': [35],
+                    'Arrestatieteam': [53, 54, 55],
+                },
+                color: '#00ac00',
+            },
         },
-        Politie: {
-            vehicles: {
-                'Noodhulp': [22, 25, 46],
-                'Mobiele Eenheid': [39, 40],
-                'Hondengeleider': [47, 48],
-                'Politiehelikopter': [28],
-                'Officier van Dienst - Politie': [35],
-                'Arrestatieteam': [53, 54, 55],
-            },
-            color: '#00ac00',
+        small_buildings: {
+            3: 13,
         },
-    },
-    small_buildings: {
-        3: 13,
-    },
-    vehicleBuildings: [0, 3, 5, 6, 9, 11, 13],
-    cellBuildings: [5],
-    cellExtensions: [
-        '5_0',
-        '5_1',
-        '5_2',
-        '5_3',
-        '5_4',
-        '5_5',
-        '5_6',
-        '5_7',
-        '5_8',
-        '5_9',
-    ],
-    bedBuildings: [2],
-    schoolBuildings: [4, 7, 8],
-    dispatchCenterBuildings: [1],
-    schoolings: {
-        'Brandweer': [
-            {
-                caption: 'Verkenningseenheid Brandweer',
-                duration: '3 Dagen',
-            },
-            {
-                caption: 'Hoofd Officier van Dienst - Brandweer',
-                duration: '7 Dagen',
-            },
-            {
-                caption: 'Adviseur Gevaarlijke Stoffen',
-                duration: '6 Dagen',
-            },
-            {
-                caption: 'Brandweerchauffeur-zwaar',
-                duration: '2 Dagen',
-            },
-            {
-                caption: 'Duiker / Duikploegleider',
-                duration: '7 Dagen',
-            },
-            {
-                caption: 'Vliegtuigbrandbestrijding',
-                duration: '7 Dagen',
-            },
-            {
-                caption: 'Airport Fire Officer / On Scene Commander',
-                duration: '7 Dagen',
-            },
-            {
-                caption: "Oppervlakteredder",
-                duration: '7 Dagen',
-            },
-            {
-                caption: "Voorlichter",
-                duration: '5 Dagen',
-            },
+        vehicleBuildings: [0, 3, 5, 6, 9, 11, 13],
+        cellBuildings: [5],
+        cellExtensions: [
+            '5_0',
+            '5_1',
+            '5_2',
+            '5_3',
+            '5_4',
+            '5_5',
+            '5_6',
+            '5_7',
+            '5_8',
+            '5_9',
         ],
-        'Politie': [
-            {
-                caption: 'Politiehelikopter',
-                duration: '7 Dagen',
-            },
-            {
-                caption: 'Officier van Dienst - Politie',
-                duration: '7 Dagen',
-            },
-            {
-                caption: 'Mobiele Eenheid',
-                duration: '4 Dagen',
-            },
-            {
-                caption: 'Hondengeleider',
-                duration: '7 Dagen',
-            },
-            {
-                caption: 'Operator AT',
-                duration: '10 Dagen',
-            },
+        bedBuildings: [2],
+        schoolBuildings: [4, 7, 8],
+        dispatchCenterBuildings: [1],
+        schoolings: {
+            'Brandweer': [
+                {
+                    caption: 'Verkenningseenheid Brandweer',
+                    duration: '3 Dagen',
+                },
+                {
+                    caption: 'Hoofd Officier van Dienst - Brandweer',
+                    duration: '7 Dagen',
+                },
+                {
+                    caption: 'Adviseur Gevaarlijke Stoffen',
+                    duration: '6 Dagen',
+                },
+                {
+                    caption: 'Brandweerchauffeur-zwaar',
+                    duration: '2 Dagen',
+                },
+                {
+                    caption: 'Duiker / Duikploegleider',
+                    duration: '7 Dagen',
+                },
+                {
+                    caption: 'Vliegtuigbrandbestrijding',
+                    duration: '7 Dagen',
+                },
+                {
+                    caption: 'Airport Fire Officer / On Scene Commander',
+                    duration: '7 Dagen',
+                },
+                {
+                    caption: "Oppervlakteredder",
+                    duration: '7 Dagen',
+                },
+                {
+                    caption: "Voorlichter",
+                    duration: '5 Dagen',
+                },
+            ],
+            'Politie': [
+                {
+                    caption: 'Politiehelikopter',
+                    duration: '7 Dagen',
+                },
+                {
+                    caption: 'Officier van Dienst - Politie',
+                    duration: '7 Dagen',
+                },
+                {
+                    caption: 'Mobiele Eenheid',
+                    duration: '4 Dagen',
+                },
+                {
+                    caption: 'Hondengeleider',
+                    duration: '7 Dagen',
+                },
+                {
+                    caption: 'Operator AT',
+                    duration: '10 Dagen',
+                },
+            ],
+            'Ambulance': [
+                {
+                    caption: 'MMT-Bemanningslid',
+                    duration: '7 Dagen',
+                },
+                {
+                    caption: 'Officier van Dienst - Geneeskunde',
+                    duration: '10 Dagen',
+                },
+            ],
+        },
+        amount: 'Aantal',
+        search: 'Zoeken',
+        alliance: 'Team',
+        premiumNotice:
+            'Deze functie breidt een premium functie van het spel uit en is daarom alleen beschikbaar voor spelers met een premium spelaccount!',
+        credits: 'Credits',
+        close: 'Sluiten',
+        fullscreen: {
+            expand: 'Gebruik full-screen modus',
+            compress: 'Schakel full-screen modus uit',
+        },
+        hideTitle: 'Titel weergeven | Titel verbergen',
+        vehicle: 'Voertuigen | Voertuig | Voertuigen',
+        building: 'Gebouwen',
+        station: 'Posten | Post | Posten',
+        distance: 'Afstand | Afstanden',
+        vehicleType: 'Voertuig type',
+        fmsReal2Show: {
+            1: 4,
+            2: 5,
+            3: 1,
+            4: 2,
+            5: 7,
+            6: 6,
+            7: 3,
+            9: 9,
+        },
+        buildingIcons: [
+            'fire',
+            'rss',
+            'hospital',
+            'ambulance',
+            'graduation-cap',
+            'shield-alt',
+            'helicopter',
+            'graduation-cap',
+            'graduation-cap',
+            'helicopter',
+            'warehouse',
+            'shield-alt',
+            'boarder-all',
+            'ambulance',
         ],
-        'Ambulance': [
-            {
-                caption: 'MMT-Bemanningslid',
-                duration: '7 Dagen',
-            },
-            {
-                caption: 'Officier van Dienst - Geneeskunde',
-                duration: '10 Dagen',
-            },
+        pois: [
+            'Park',
+            'Meer',
+            'Ziekenhuis',
+            'Bos',
+            'Bushalte',
+            'Tramhalte',
+            'Station',
+            'Centraal Station',
+            'Rangeeremplacement',
+            'Buurtsuper',
+            'Supermarkt',
+            'Tankstation',
+            'School',
+            'Museum',
+            'Winkelcentrum',
+            'Garagebedrijf',
+            'Snelweg oprit / afrit',
+            'Kerstmarkt',
+            'Magazijn',
+            'Café/Club',
+            'Stadion',
+            'Boerderij',
+            'Kantoorgebouw',
+            'Zwembad',
+            'Spoorwegovergang',
+            'Theater',
+            'Marktplein',
+            'Rivier',
+            'Sloot',
+            'Vliegveld (klein): Start-/Landingsbaan',
+            'Vliegveld (klein): Hangaar',
+            'Vliegveld (klein): Vliegtuig parkeerplaats',
+            'Vliegveld (groot): Start-/Landingsbaan',
+            'Vliegveld (groot): Terminal',
+            'Vliegveld (groot): Platform / Gate',
+            'Vliegveld (groot): Parkeergarage',
+            'Parkeergarage',
+            'Verzorgingshuis',
+            'Manege',
+            'Hotel',
+            'Restaurant',
+            'Bankkantoor',
+            'Sporthal',
+            'Camping',
+            'Gevangenis',
+            'Asielzoekerscentrum',
+            'Afvalverwerker',
+            'Kerkgebouw',
+            'Bouwmarkt',
+            'Transformatorhuisje',
+            'Industrieterrein',
+            'Bedrijventerrein',
+            'Haventerrein',
+            'Bouwterrein',
+            'Silo',
+            'Huisartsenpraktijk',
+            'Sportveld',
+            'Jachthaven',
+            'Frietkraam',
+            'Verzorgingsplaats (Snelweg)',
+            'Zendmast',
         ],
-    },
-    amount: 'Aantal',
-    search: 'Zoeken',
-    alliance: 'Team',
-    premiumNotice:
-        'Deze functie breidt een premium functie van het spel uit en is daarom alleen beschikbaar voor spelers met een premium spelaccount!',
-    credits: 'Credits',
-    close: 'Sluiten',
-    fullscreen: {
-        expand: 'Gebruik full-screen modus',
-        compress: 'Schakel full-screen modus uit',
-    },
-    hideTitle: 'Titel weergeven | Titel verbergen',
-    vehicle: 'Voertuigen | Voertuig | Voertuigen',
-    building: 'Gebouwen',
-    station: 'Posten | Post | Posten',
-    distance: 'Afstand | Afstanden',
-    vehicleType: 'Voertuig type',
-    fmsReal2Show: {
-        1: 4,
-        2: 5,
-        3: 1,
-        4: 2,
-        5: 7,
-        6: 6,
-        7: 3,
-        9: 9,
-    },
-    buildingIcons: [
-        'fire',
-        'rss',
-        'hospital',
-        'ambulance',
-        'graduation-cap',
-        'shield-alt',
-        'helicopter',
-        'graduation-cap',
-        'graduation-cap',
-        'helicopter',
-        'warehouse',
-        'shield-alt',
-        'boarder-all',
-        'ambulance',
-    ],
-    pois: [
-        'Park',
-        'Meer',
-        'Ziekenhuis',
-        'Bos',
-        'Bushalte',
-        'Tramhalte',
-        'Station',
-        'Centraal Station',
-        'Rangeeremplacement',
-        'Buurtsuper',
-        'Supermarkt',
-        'Tankstation',
-        'School',
-        'Museum',
-        'Winkelcentrum',
-        'Garagebedrijf',
-        'Snelweg oprit / afrit',
-        'Kerstmarkt',
-        'Magazijn',
-        'Café/Club',
-        'Stadion',
-        'Boerderij',
-        'Kantoorgebouw',
-        'Zwembad',
-        'Spoorwegovergang',
-        'Theater',
-        'Marktplein',
-        'Rivier',
-        'Sloot',
-        'Vliegveld (klein): Start-/Landingsbaan',
-        'Vliegveld (klein): Hangaar',
-        'Vliegveld (klein): Vliegtuig parkeerplaats',
-        'Vliegveld (groot): Start-/Landingsbaan',
-        'Vliegveld (groot): Terminal',
-        'Vliegveld (groot): Platform / Gate',
-        'Vliegveld (groot): Parkeergarage',
-        'Parkeergarage',
-        'Verzorgingshuis',
-        'Manege',
-        'Hotel',
-        'Restaurant',
-        'Bankkantoor',
-        'Sporthal',
-        'Camping',
-        'Gevangenis',
-        'Asielzoekerscentrum',
-        'Afvalverwerker',
-        'Kerkgebouw',
-        'Bouwmarkt',
-        'Transformatorhuisje',
-        'Industrieterrein',
-        'Bedrijventerrein',
-        'Haventerrein',
-        'Bouwterrein',
-        'Silo',
-        'Huisartsenpraktijk',
-        'Sportveld',
-        'Jachthaven',
-        'Frietkraam',
-        'Verzorgingsplaats (Snelweg)',
-        'Zendmast',
-    ],
-    only_alliance_missions: [41, 43, 59, 145, 234, 346, 347],
-    transfer_missions: [137],
-};
+        only_alliance_missions: [41, 43, 59, 145, 234, 346, 347],
+        transfer_missions: [137],
+    };
