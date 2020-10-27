@@ -10,11 +10,11 @@ const modules = {
         noMapkit:
             'Questo modulo non funziona con il tipo di mappa "Mapkit" dovuto ad alcune limitazioni di Mapkit ',
         dev:
-            'Questo modulo è attualmente ancora in fase di sviluppo. L\'attivazione può portare a funzioni incomplete e difettose!',
+            "Questo modulo è attualmente ancora in fase di sviluppo. L'attivazione può portare a funzioni incomplete e difettose!",
         closeWarning: {
             title: 'Cambiamenti non salvati',
             text:
-                'Hai apportato modifiche nell\'AppStore che non sono state ancora salvate. Resettali o salvali per chiudere l\'AppStore.',
+                "Hai apportato modifiche nell'AppStore che non sono state ancora salvate. Resettali o salvali per chiudere l'AppStore.",
             close: 'Chiudi il messaggio',
         },
     },
@@ -70,7 +70,7 @@ export default {
         version: {
             title: 'Versione di LSS Manager sbagliata!',
             text:
-                'Gentile utente, purtroppo abbiamo dovuto scoprire che non disponi dell\'ultima versione di LSS Manager. L\'ultima versione è {version}, ma prima hai {curver}. Ricarica il gioco senza cache (con Ctrl + F5, sui dispositivi Apple Command + R), questo dovrebbe risolvere il bug. Se l\'errore persiste, segnalalo al team! Se utilizzi una versione sbagliata, non possiamo garantire la piena funzionalità di LSS-Manager.',
+                "Gentile utente, purtroppo abbiamo dovuto scoprire che non disponi dell'ultima versione di LSS Manager. L'ultima versione è {version}, ma prima hai {curver}. Ricarica il gioco senza cache (con Ctrl + F5, sui dispositivi Apple Command + R), questo dovrebbe risolvere il bug. Se l'errore persiste, segnalalo al team! Se utilizzi una versione sbagliata, non possiamo garantire la piena funzionalità di LSS-Manager.",
             close: 'Chiudi il messaggio e ricarica il gioco (Raccomandato)',
             abort: 'Chiudi il messaggio senza ricaricare il gioco.',
         },
@@ -78,13 +78,13 @@ export default {
     globalSettings: {
         name: 'Impostazioni generali',
         labelInMenu: {
-            title: 'Etichetta al posto dell\'icona nel menu',
+            title: "Etichetta al posto dell'icona nel menu",
             description:
                 'Visualizza una semplice etichetta nella barra di navigazione al posto del logo LSSM',
         },
     },
     vehicles: [
-                {
+        {
             caption: 'ABP',
             color: '#00FFCC',
             coins: 25,
@@ -199,7 +199,8 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 6,
             wtank: 0,
-            schooling: 'Caserma dei vigili del fuoco - Corso per funzionario (UCL)',
+            schooling:
+                'Caserma dei vigili del fuoco - Corso per funzionario (UCL)',
             shownSchooling: 'Comando mobile',
             special: 'Richiesto dopo aver costruito 13 caserme dei pompieri',
         },
@@ -211,7 +212,8 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 2,
             wtank: 0,
-            schooling: 'Caserma dei vigili del fuoco - Corso autista di Autogrù',
+            schooling:
+                'Caserma dei vigili del fuoco - Corso autista di Autogrù',
             shownSchooling: 'Autogrù',
             special: 'Richiesto dopo aver costruito 8 caserme dei pompieri',
         },
@@ -225,7 +227,8 @@ export default {
             wtank: 0,
             schooling: 'Polizia - Reparto volo della polizia',
             shownSchooling: 'Reparto volo della polizia',
-            special:'Può essere acquistato con i crediti all raggiungimento del Rango:Caporeparto esperto.', 
+            special:
+                'Può essere acquistato con i crediti all raggiungimento del Rango:Caporeparto esperto.',
         },
         {
             caption: 'Furgone antisommossa',
@@ -281,16 +284,15 @@ export default {
             minPersonnel: 2,
             maxPersonnel: 3,
             wtank: 0,
-            special:'Richiesto dopo aver costruito 3 stazioni di soccorso ',
-            schooling:'Soccorso - Corso medico di emergenza',
+            special: 'Richiesto dopo aver costruito 3 stazioni di soccorso ',
+            schooling: 'Soccorso - Corso medico di emergenza',
             shownSchooling: 'Medico di emergenza',
-            
         },
         {
             caption: 'MSA',
             color: '#f59f00',
             coins: 25,
-            credits:25_000,
+            credits: 25_000,
             minPersonnel: 2,
             maxPersonnel: 5,
             schooling: 'Soccorso - Corso medico di emergenza',
@@ -324,7 +326,7 @@ export default {
         },
     ],
     buildings: [
-                {
+        {
             caption: 'Caserma dei vigili del fuoco',
             color: '#bb0000',
             coins: 30,
@@ -609,7 +611,7 @@ export default {
             maxBuildings: 1,
             maxLevel: 0,
             special:
-                'Puoi far stazionare quanti veicoli vuoi all\'interno della base temporanea. Tuoi o dei membri della tua alleanza. Avrà una durata massima di ventiquattro  ore dopo di chie scadra rilasciando tutti i veicoli. potrai rinnovarla entro le 24 ore affinchè non sscada.',
+                "Puoi far stazionare quanti veicoli vuoi all'interno della base temporanea. Tuoi o dei membri della tua alleanza. Avrà una durata massima di ventiquattro  ore dopo di chie scadra rilasciando tutti i veicoli. potrai rinnovarla entro le 24 ore affinchè non sscada.",
             startPersonnel: 0,
             startVehicles: [],
             maxBuildingsFunction: (): number => 1,
@@ -696,11 +698,7 @@ export default {
             coins: 35,
             credits: 200_000,
             extensions: [],
-            levelcost: [
-                '1. 10.000',
-                '2. 50.000',
-                '3.-5. 100.000',
-            ],
+            levelcost: ['1. 10.000', '2. 50.000', '3.-5. 100.000'],
             maxBuildings: '',
             maxLevel: 5,
             startPersonnel: 4,
@@ -736,9 +734,9 @@ export default {
         },
         'Ambulanzia': {
             vehicles: {
-                'Ambulanza': [4, 20],
-                'Elisoccorso': [8],
-                'Medica': [18, 19],
+                Ambulanza: [4, 20],
+                Elisoccorso: [8],
+                Medica: [18, 19],
             },
             color: '#ffa500',
         },
@@ -749,7 +747,7 @@ export default {
                 'Moto Polizia': [16],
                 'Elicottero': [13],
                 'Antidroga': [15],
-                'Finanza': [21]
+                'Finanza': [21],
             },
             color: '#00ac00',
         },
@@ -839,8 +837,7 @@ export default {
     amount: 'Quantità',
     search: 'Cerca',
     alliance: 'Alleanza',
-    premiumNotice:
-        'Quest\'opzione è permessa solo ad utenti premium',
+    premiumNotice: "Quest'opzione è permessa solo ad utenti premium",
     credits: 'Crediti',
     close: 'Chiudi',
     fullscreen: {
@@ -892,7 +889,7 @@ export default {
         'Lago',
         'Ospedale',
         'Bosco',
-        'Fermata dell\'autobus',
+        "Fermata dell'autobus",
         'Fermata del tram',
         'Stazione ferroviaria (traffico regionale)',
         'Stazione ferroviaria (traffico regionale e viaggi a lunga distanza)',
