@@ -3,9 +3,11 @@
 	"name": "Hotkeys",
 	"settings": {
 		"nextElementKey": {
+			"description": "",
 			"title": "Volgende \"Element\""
 		},
 		"prevElementKey": {
+			"description": "",
 			"title": "Vorige \"Element\""
 		},
 		"prevNextElement": {

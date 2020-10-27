@@ -75,6 +75,9 @@
 			},
 			"allow_rw_instead_of_lf": {
 				"firetrucks": "Tankautospuit of Hulpverleningsvoertuig | Tankautospuiten of Hulpverleningsvoertuigen"
+			},
+			"allow_ktw_instead_of_rtw": {
+				"ambulances": "Ambulance of Zorgambulance | Ambulances of Zorgambulances"
 			}
 		},
 		"patient_additionals": {

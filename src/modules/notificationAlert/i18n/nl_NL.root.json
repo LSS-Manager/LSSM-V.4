@@ -24,7 +24,7 @@
 		"sicherheitswache_error": "Geplande inzet gecanceld",
 		"sicherheitswache_success": "Geplande inzet voltooid",
 		"vehicle_fms": "Status meldingen (Algemeen)",
-		"vehicle_fms_1": "Status meldingen (status 4)",
+		"vehicle_fms_1": "Status meldingen (Status 4)",
 		"vehicle_fms_2": "Status meldingen (Status 5)",
 		"vehicle_fms_3": "Status meldingen (Status 1)",
 		"vehicle_fms_4": "Status meldingen (Status 2)",
@@ -45,7 +45,8 @@
 	"settings": {
 		"alertStyle": "In-Game Notificaties Type",
 		"alerts": {
-			"title": "Stel notificaties in"
+			"title": "Stel notificaties in",
+			"description": "Stel hieronder notificaties in door de groene `+` te drukken."
 		},
 		"desktop": "Verstuur desktop notificaties",
 		"duration": "Weergavetijd",

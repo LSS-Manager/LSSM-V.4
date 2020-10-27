@@ -19,9 +19,11 @@
 			"title": "Rechten van Teamleden"
 		},
 		"missionPrisoners": {
+			"description": "Voorkomt herladen bij het afhandelen van arrestanten in het meldingenscherm",
 			"title": "Arrestanten in het inzetscherm"
 		},
 		"missionReply": {
+			"description": "Voorkomt herladen bij het versturen van een chatbericht in het inzetscherm",
 			"title": "Chatbericht in inzetscherm"
 		}
 	}
