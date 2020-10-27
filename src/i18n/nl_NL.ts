@@ -199,6 +199,10 @@ export default {
         {
             caption: '',
             color: '',
+            minPersonnel: '',
+            maxPersonnel: '',
+            credits: '',
+            coins: '',
         },
         {
             caption: 'TST-NB 6/7',
