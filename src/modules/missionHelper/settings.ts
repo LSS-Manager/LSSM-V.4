@@ -71,6 +71,15 @@ export default (MODULE_ID: string): unknown => ({
             settings[MODULE_ID]['multifunctionals.battalion_chief_vehicles']
                 .value,
     },
+    ...(BUILD_LANG === 'nl_NL'
+        ? {
+              'multifunctionals.police_cars': {
+                  type: 'toggle',
+                  default: false,
+                  dependsOn: '.vehicles.content',
+              },
+          }
+        : null),
     ...(BUILD_LANG === 'de_DE'
         ? {
               'multifunctionals.platform_trucks': {
@@ -119,11 +128,15 @@ export default (MODULE_ID: string): unknown => ({
               },
           }
         : null),
-    'patients.patient_allow_first_responder_chance': {
-        type: 'toggle',
-        default: true,
-        dependsOn: '.patients.content',
-    },
+    ...(BUILD_LANG !== 'nl_NL'
+        ? {
+                'patients.patient_allow_first_responder_chance': {
+                    type: 'toggle',
+                    default: true,
+                    dependsOn: '.patients.content',
+                },
+            }
+          : null),
     'patients.hideWhenNoNeed': {
         type: 'toggle',
         default: false,

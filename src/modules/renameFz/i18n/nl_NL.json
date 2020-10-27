@@ -1,10 +1,10 @@
 {
 	"templates": {
-		"selection": "Select template...",
-		"selectionHint": "Create a new template? Just enter the name and select!",
+		"selection": "Selecteer template...",
+		"selectionHint": "Creëer een nieuwe template? Voer de naam in en selecteer!",
 		"status": {
-			"template": "Wait for template selection...",
-			"waiting": "Wait for input..."
+			"template": "Wacht op template selectie...",
+			"waiting": "Wacht op invoer..."
 		}
 	}
 }
