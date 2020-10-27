@@ -282,39 +282,52 @@ export default Vue.extend<
         ) as {
             [name: string]: BuildingCategory | ResolvedBuildingCategory;
         };
-        const buildingTypes = cloneDeep(
-            Object.values(this.$t('buildings')) as InternalBuilding[]
-        ).map(building => {
-            const extensions = Object.values(building.extensions);
-            const minifiedExtensions = [] as InternalBuilding['extensions'];
-            const multipleExtensions = {} as {
-                [caption: string]: number;
-            };
-            extensions.forEach(extension => {
-                if (!extension) return;
-                const e = minifiedExtensions.find(
-                    e => extension.caption === e.caption
-                );
-                if (e) {
-                    if (!multipleExtensions.hasOwnProperty(e.caption))
-                        multipleExtensions[e.caption] = 1;
-                    multipleExtensions[e.caption]++;
-                } else minifiedExtensions.push(extension);
-            });
-            Object.entries(multipleExtensions).forEach(([caption, amount]) => {
-                const e = minifiedExtensions.find(e => e.caption === caption);
-                if (e)
-                    e.caption = this.$tc(
-                        `modules.overview.extensionTitle`,
-                        amount,
-                        { caption }
+        const buildingTypes = Object.fromEntries(
+            Object.entries(
+                cloneDeep(
+                    this.$t('buildings') as {
+                        [id: number]: InternalBuilding;
+                    }
+                )
+            ).map(([index, building]) => {
+                const extensions = Object.values(building.extensions);
+                const minifiedExtensions = [] as InternalBuilding['extensions'];
+                const multipleExtensions = {} as {
+                    [caption: string]: number;
+                };
+                extensions.forEach(extension => {
+                    if (!extension) return;
+                    const e = minifiedExtensions.find(
+                        e => extension.caption === e.caption
                     );
-            });
-            return {
-                ...building,
-                extensions: minifiedExtensions,
-            };
-        });
+                    if (e) {
+                        if (!multipleExtensions.hasOwnProperty(e.caption))
+                            multipleExtensions[e.caption] = 1;
+                        multipleExtensions[e.caption]++;
+                    } else minifiedExtensions.push(extension);
+                });
+                Object.entries(multipleExtensions).forEach(
+                    ([caption, amount]) => {
+                        const e = minifiedExtensions.find(
+                            e => e.caption === caption
+                        );
+                        if (e)
+                            e.caption = this.$tc(
+                                `modules.overview.extensionTitle`,
+                                amount,
+                                { caption }
+                            );
+                    }
+                );
+                return [
+                    index,
+                    {
+                        ...building,
+                        extensions: minifiedExtensions,
+                    },
+                ];
+            })
+        );
         Object.entries(
             buildingCategories
         ).forEach(([category, { buildings }]) =>

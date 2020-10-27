@@ -24,7 +24,7 @@ export interface Overview {
             group: number;
         };
     };
-    buildings: InternalBuilding[];
+    buildings: { [id: number]: InternalBuilding };
     buildingCategories: {
         [name: string]: ResolvedBuildingCategory;
     };

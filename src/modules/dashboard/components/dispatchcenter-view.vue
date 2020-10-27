@@ -359,7 +359,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import { Building } from 'typings/Building';
+import { Building, InternalBuilding } from 'typings/Building';
 import {
     DispatchcenterView,
     DispatchcenterViewComputed,
@@ -399,7 +399,9 @@ export default Vue.extend<
             ).DashItem,
     },
     data() {
-        const buildingTypes = Object.values(this.$t('buildings'));
+        const buildingTypes = this.$t('buildings') as {
+            [id: number]: InternalBuilding;
+        };
         const dispatchCenterBuildings = Object.values(
             this.$t('dispatchCenterBuildings')
         );

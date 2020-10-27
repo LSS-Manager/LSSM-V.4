@@ -999,8 +999,8 @@ export default {
                 'Das Polizeimotorrad kann im Spiel anstelle eines FuStW verwendet werden. Der Nachteil: Es kann keine Gefangenen transportieren und arbeitet nur halb so schnell wie ein FuStW.',
         },
     },
-    buildings: [
-        {
+    buildings: {
+        0: {
             caption: 'Feuerwache',
             color: '#bb0000',
             coins: 30,
@@ -1091,7 +1091,7 @@ export default {
             ],
             maxBuildingsFunction: (): number => 4_000,
         },
-        {
+        1: {
             caption: 'Feuerwehrschule',
             color: '#992222',
             coins: 50,
@@ -1110,7 +1110,7 @@ export default {
             startPersonnel: 0,
             startVehicles: [],
         },
-        {
+        2: {
             caption: 'Rettungswache',
             color: '#ffa500',
             coins: 35,
@@ -1123,7 +1123,7 @@ export default {
             startPersonnel: 3,
             startVehicles: ['RTW'],
         },
-        {
+        3: {
             caption: 'Rettungsschule',
             color: '#ddc722',
             coins: 50,
@@ -1142,7 +1142,7 @@ export default {
             startPersonnel: 0,
             startVehicles: [],
         },
-        {
+        4: {
             caption: 'Krankenhaus',
             color: '#bbe944',
             coins: 25,
@@ -1211,7 +1211,7 @@ export default {
             startPersonnel: 0,
             startVehicles: [],
         },
-        {
+        5: {
             caption: 'Rettungshubschrauber-Station',
             color: '#e7ad2f',
             coins: 50,
@@ -1229,7 +1229,7 @@ export default {
                     ? 4
                     : Math.floor(buildingsAmountTotal / 25),
         },
-        {
+        6: {
             caption: 'Polizeiwache',
             color: '#007700',
             coins: 35,
@@ -1257,7 +1257,7 @@ export default {
             startVehicles: ['FuStW'],
             maxBuildingsFunction: (): number => 1_500,
         },
-        {
+        7: {
             caption: 'Leitstelle',
             color: '#24c3ae',
             coins: 0,
@@ -1272,7 +1272,7 @@ export default {
             maxBuildingsFunction: (buildingsAmountTotal: number): number =>
                 Math.floor(buildingsAmountTotal / 25) + 1,
         },
-        {
+        8: {
             caption: 'Polizeischule',
             color: '#225522',
             coins: 50,
@@ -1291,7 +1291,7 @@ export default {
             startPersonnel: 0,
             startVehicles: [],
         },
-        {
+        9: {
             caption: 'THW-Ortsverein',
             color: '#000f76',
             coins: 35,
@@ -1354,7 +1354,7 @@ export default {
             startPersonnel: 9,
             startVehicles: ['GKW'],
         },
-        {
+        10: {
             caption: 'THW Bundesschule',
             color: '#222d54',
             coins: 50,
@@ -1373,7 +1373,7 @@ export default {
             startPersonnel: 0,
             startVehicles: [],
         },
-        {
+        11: {
             caption: 'Bereitschaftspolizei',
             color: '#227722',
             coins: 50,
@@ -1442,7 +1442,7 @@ export default {
             startPersonnel: 0,
             startVehicles: [],
         },
-        {
+        12: {
             caption: 'Schnelleinsatzgruppe (SEG)',
             color: '#e05b00',
             coins: 30,
@@ -1480,7 +1480,7 @@ export default {
             startPersonnel: 0,
             startVehicles: ['KTW Typ B'],
         },
-        {
+        13: {
             caption: 'Polizeihubschrauberstation',
             color: '#148423',
             coins: 50,
@@ -1498,7 +1498,7 @@ export default {
                     ? 4
                     : Math.floor(buildingsAmountTotal / 25),
         },
-        {
+        14: {
             caption: 'Bereitstellungsraum',
             coins: 0,
             credits: 0,
@@ -1512,7 +1512,7 @@ export default {
             startVehicles: [],
             maxBuildingsFunction: (): number => 1,
         },
-        {
+        15: {
             caption: 'Wasserrettung',
             color: '#7fffd4',
             coins: 30,
@@ -1526,7 +1526,7 @@ export default {
             startPersonnel: 6,
             startVehicles: ['GW-Wasserrettung'],
         },
-        {
+        16: {
             caption: 'Verbandszellen',
             coins: 'x',
             credits: 100_000,
@@ -1544,7 +1544,7 @@ export default {
             startPersonnel: 0,
             startVehicles: [],
         },
-        {
+        17: {
             caption: 'Polizei-Sondereinheiten',
             color: '#1a7e23',
             coins: 40,
@@ -1588,7 +1588,7 @@ export default {
             startPersonnel: 0,
             startVehicles: [],
         },
-        {
+        18: {
             caption: 'Feuerwache (Kleinwache)',
             color: '#aa1111',
             coins: 25,
@@ -1627,7 +1627,7 @@ export default {
             ],
             maxBuildingsFunction: (): number => 4_000,
         },
-        {
+        19: {
             caption: 'Polizeiwache (Kleinwache)',
             color: '#116611',
             coins: 25,
@@ -1652,7 +1652,7 @@ export default {
             startVehicles: ['FuStW'],
             maxBuildingsFunction: (): number => 1_500,
         },
-        {
+        20: {
             caption: 'Rettungswache (Kleinwache)',
             color: '#eeb611',
             coins: 25,
@@ -1670,7 +1670,7 @@ export default {
             startPersonnel: 3,
             startVehicles: ['RTW'],
         },
-        {
+        21: {
             caption: 'Rettungshundestaffel',
             color: '#663300',
             coins: 50,
@@ -1683,7 +1683,7 @@ export default {
             startPersonnel: 10,
             startVehicles: ['Rettungshundefahrzeug'],
         },
-    ],
+    },
     buildingCategories: {
         Feuerwehr: {
             buildings: [0, 1, 18],

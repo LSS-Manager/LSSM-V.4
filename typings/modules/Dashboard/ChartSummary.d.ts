@@ -10,8 +10,8 @@ export interface ChartSummary {
     buildingCategories: {
         [category: string]: BuildingCategory;
     };
-    buildingTypeNames: string[];
-    buildingTypeColors: string[];
+    buildingTypeNames: { [id: number]: string };
+    buildingTypeColors: { [id: number]: string };
     vehiclesId: string;
     vehicles: {
         [type: string]: Vehicle[];

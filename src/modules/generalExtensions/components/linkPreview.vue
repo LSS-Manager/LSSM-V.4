@@ -262,7 +262,7 @@ export default Vue.extend<
             this._setTitle(building.caption);
             this._setIcon(icon);
             this._setAdditional(
-                ((this.$t('buildings') as unknown) as InternalBuilding[])[
+                (this.$t('buildings') as { [id: number]: InternalBuilding })[
                     building.building_type
                 ].caption
             );
