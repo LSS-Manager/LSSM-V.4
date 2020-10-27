@@ -84,7 +84,7 @@ module.exports = {
             [/^Fire truck(s)$/]: [0, 1, 13, 18, 30, 33],
             [/^Platform truck(s)$/]: [2, 13],
             [/^Battalion chief unit(s)$/]: [3, 12],
-            [/^Heavy Rescue Vehicle(s))$/]: [4, 8, 18, 21],
+            [/^Heavy Rescue Vehicle(s)$/]: [4, 8, 18, 21],
             [/^Mobile air$/]: [6],
             [/^Water Tanker$/]: [7, 33],
             [/^mcv$/]: [12],
