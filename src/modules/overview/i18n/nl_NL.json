@@ -1,34 +1,34 @@
 {
-    "extensionTitle": "{caption} (tot {n} keer)",
-    "tabs": {
-        "buildings": "Gebouwen",
-        "vehicles": "Voertuigen",
-        "schoolings": "Opleidingen"
-    },
-    "titles": {
-        "buildings": {
-            "caption": "Gebouw type",
-            "cost": "Prijs",
-            "extensions": "Uitbreidingen",
-            "levelcost": "Kosten van de uitbreidingsfasen",
-            "maxBuildings": "Grens",
-            "maxLevel": "maximaal uitbreidingsniveau",
-            "special": "Specials",
-            "startPersonnel": "Start Personeel",
-            "startVehicles": "Mogelijke start voertuigen"
-        },
-        "vehicles": {
-            "caption": "Voertuig type",
-            "cost": "Prijs",
-            "maxPersonnel": "Maximaal personeel",
-            "minPersonnel": "Minimaal personeel",
-            "schooling": "Opleiding",
-            "special": "Specials",
-            "wtank": "Watertank"
-        },
-        "schoolings": {
-            "caption": "Opleidingsnaam",
-            "duration": "Opleidingsduur"
-        }
-    }
+	"extensionTitle": "{caption} (tot {n} keer)",
+	"tabs": {
+		"buildings": "Gebouwen",
+		"schoolings": "Opleidingen",
+		"vehicles": "Voertuigen"
+	},
+	"titles": {
+		"buildings": {
+			"caption": "Gebouw type",
+			"cost": "Prijs",
+			"extensions": "Uitbreidingen",
+			"levelcost": "Kosten van de uitbreidingsfasen",
+			"maxBuildings": "Grens",
+			"maxLevel": "maximaal uitbreidingsniveau",
+			"special": "Specials",
+			"startPersonnel": "Start Personeel",
+			"startVehicles": "Mogelijke start voertuigen"
+		},
+		"schoolings": {
+			"caption": "Opleidingsnaam",
+			"duration": "Opleidingsduur"
+		},
+		"vehicles": {
+			"caption": "Voertuig type",
+			"cost": "Prijs",
+			"maxPersonnel": "Maximaal personeel",
+			"minPersonnel": "Minimaal personeel",
+			"schooling": "Opleiding",
+			"special": "Specials",
+			"wtank": "Watertank"
+		}
+	}
 }

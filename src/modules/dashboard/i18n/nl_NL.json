@@ -1,69 +1,69 @@
 {
-    "building-types": {
-        "building": "Gebouwen",
-        "current": "Aantal (actief)",
-        "extension": "Uitbreiding",
-        "maximum": "Maximaal mogelijk",
-        "unavailable": "In ontwikkeling"
-    },
-    "chart-summaries": {
-        "buildings": {
-            "personal_count": "Personeel",
-            "tip": "Klik op één van de categorieën (bijvoorbeeld brandweer of politie) om de toegewezen gebouwen te vergroten. Als je op een gebouwtype klikt, dan kan je zien hoeveel voertuigen je van elk type gevestigd zijn op gebouwen van dat type.",
-            "title": "Gebouwen"
-        },
-        "vehicles": {
-            "empty": "Je hebt nog geen voertuigen in de categorie {category}!",
-            "tip": "Klik op een groep van voertuigtypes om alleen die groep te zien.",
-            "title": "Voertuigen"
-        }
-    },
-    "dispatchcenter-view": {
-        "manage": {
-            "newBoard": "Nieuw dashboard",
-            "title": "Beheer dashboards",
-            "titles": {
-                "buildings": {
-                    "bold": "Gebouw type selectie",
-                    "small": "Laat alleen gebouwen van deze gebouwtypes zien"
-                },
-                "dispatch": {
-                    "bold": "Meldkamer selectie",
-                    "small": "Laat alleen gebouwen van deze meldkamer zien"
-                },
-                "name": "Dashboard naam"
-            }
-        },
-        "no-buildings": "Geen gebouwn gevonden. Indien nodig, pas de filters aan voor dit dashboard in het \"Beheer dashboards\"-tab."
-    },
-    "tabs": {
-        "building-types": "Gebouw overzicht",
-        "chart-summary": "Samenvatting",
-        "dispatchcenter-view": "Meldkamer overzicht",
-        "vehicle-types": "Status overzicht"
-    },
-    "vehicle-list": {
-        "actions": "",
-        "building": "Gebouw",
-        "caption": "Naam",
-        "fms": "Status",
-        "type": "Type"
-    },
-    "vehicle-types": {
-        "status": "Status",
-        "statuses": [
-            1,
-            2,
-            3,
-            4,
-            5,
-            6,
-            7,
-            9
-        ],
-        "sum": "Totaal",
-        "title": "Alle {type} | Alle {type} met status {n} | Alle {type} met status {n}",
-        "type": "Voertuig type",
-        "vehicles": "Voertuigen"
-    }
+	"building-types": {
+		"building": "Gebouwen",
+		"current": "Aantal (actief)",
+		"extension": "Uitbreiding",
+		"maximum": "Maximaal mogelijk",
+		"unavailable": "In ontwikkeling"
+	},
+	"chart-summaries": {
+		"buildings": {
+			"personal_count": "Personeel",
+			"tip": "Klik op één van de categorieën (bijvoorbeeld brandweer of politie) om de toegewezen gebouwen te vergroten. Als je op een gebouwtype klikt, dan kan je zien hoeveel voertuigen je van elk type gevestigd zijn op gebouwen van dat type.",
+			"title": "Gebouwen"
+		},
+		"vehicles": {
+			"empty": "Je hebt nog geen voertuigen in de categorie {category}!",
+			"tip": "Klik op een groep van voertuigtypes om alleen die groep te zien.",
+			"title": "Voertuigen"
+		}
+	},
+	"dispatchcenter-view": {
+		"manage": {
+			"newBoard": "Nieuw dashboard",
+			"title": "Beheer dashboards",
+			"titles": {
+				"buildings": {
+					"bold": "Gebouw type selectie",
+					"small": "Laat alleen gebouwen van deze gebouwtypes zien"
+				},
+				"dispatch": {
+					"bold": "Meldkamer selectie",
+					"small": "Laat alleen gebouwen van deze meldkamer zien"
+				},
+				"name": "Dashboard naam"
+			}
+		},
+		"no-buildings": "Geen gebouwn gevonden. Indien nodig, pas de filters aan voor dit dashboard in het \"Beheer dashboards\"-tab."
+	},
+	"tabs": {
+		"building-types": "Gebouw overzicht",
+		"chart-summary": "Samenvatting",
+		"dispatchcenter-view": "Meldkamer overzicht",
+		"vehicle-types": "Status overzicht"
+	},
+	"vehicle-list": {
+		"actions": "",
+		"building": "Gebouw",
+		"caption": "Naam",
+		"fms": "Status",
+		"type": "Type"
+	},
+	"vehicle-types": {
+		"status": "Status",
+		"statuses": [
+			1,
+			2,
+			3,
+			4,
+			5,
+			6,
+			7,
+			9
+		],
+		"sum": "Totaal",
+		"title": "Alle {type} | Alle {type} met status {n} | Alle {type} met status {n}",
+		"type": "Voertuig type",
+		"vehicles": "Voertuigen"
+	}
 }

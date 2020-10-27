@@ -1,85 +1,85 @@
 {
-    "diyMission": "Deze inzet lijkt een grootschalige teaminzet te zijn!",
-    "expansions": "Uitbreiding | Uitbreidingen",
-    "followups": "Vervolginzet | Vervolginzetten",
-    "generated_by": "Gegenereerd door",
-    "noVehicleRequirements": [
-        "water_needed"
-    ],
-    "patients": {
-        "nef": "Kans dat het MMT benodigd is",
-        "patient_at_end_of_mission": "De patiënt komt alleen op het einde van de inzet | De patiënten komen alleen op het einde van de inzet",
-        "patient_transport": "Kans op transport",
-        "possible_patient": "Patiënt maximum | Patiënten maximum",
-        "possible_patient_exact": "Precies {n} patiënt | Precies {n} patiënten",
-        "possible_patient_min": "Patiënt minimum | Patiënten minimum",
-        "specializations": "Specialisatie",
-        "title": "Patiënten | {n} Patiënt | {n} Patiënten",
-        "allow_ktw_instead_of_rtw": "Een zorgambulance kan worden gebruikt als Ambulance"
-    },
-    "prerequisites": {
-        "fire_stations": "Brandweerkazerne | Brandweerkazernes",
-        "police_helicopter_stations": "Politiehelikopterstandplaats | Politiehelikopterstandplaats",
-        "police_stations": "Politiebureau | Politiebureaus",
-        "rescue_stations": "Ambulancestandplaats | Ambulancestandplaatsen",
-        "title": "Benodigdheid | Benodigdheden"
-    },
-    "prisoners": {
-        "max_possible_prisoners": "Arrestant maximum | Arrestanten maximum",
-        "title": "Arrestant | {n} Arrestant | {n} Arrestanten"
-    },
-    "requirements": {
-        "water_needed": "Water benodigd"
-    },
-    "vehicles": {
-        "captions": {
-            "ambulances": "Ambulance | Ambulances",
-            "arff": "Crashtender | Crashtenders",
-            "battalion_chief_vehicles": "Officier van Dienst - Brandweer | Officieren van Dienst - Brandweer",
-            "boats": "Waterongevallenaanhanger | Waterongevallenaanhangers",
-            "firetrucks": "Tankautospuit | Tankautospuiten",
-            "hazmat_vehicles": "Adviseur Gevaarlijke Stoffen | Adviseurs Gevaarlijke Stoffen",
-            "heavy_rescue_vehicles": "Hulpverleningsvoertuig | Hulpverleningsvoertuigen",
-            "mobile_air_vehicles": "Adembeschermingsvoertuig | Adembeschermingsvoertuigen",
-            "mobile_command_vehicles": "Hoofd Officier van Dienst -  Brandweer | Hoofd Officieren van Dienst -  Brandweer",
-            "platform_trucks": "Redvoertuig | Redvoertuigen",
-            "police_cars": "Noodhulpvoertuig | Noodhulpvoertuigen",
-            "police_helicopters": "Politiehelikopter | Politiehelikopters",
-            "water_tankers": "Slangenwagen of watertankwagen | Slangenwagens of watertankwagens",
-            "gwmess": "Verkenningseenheid Brandweer | Verkenningseenheden Brandweer",
-            "elw3": "Commandovoertuig | Commandovoertuigen",
-            "diver_units": "Waterongevallen- of oppervlaktereddingsvoertuig | Waterongevallen- of oppervlaktereddingsvoertuigen",
-            "ovdp": "Officier van Dienst - Politie | Officieren van Dienst - Politie",
-            "lebefkw": "ME Commandovoertuig | ME Commandovoertuigen",
-            "grukw": "ME Groepsvoertuig | ME Groepsvoertuig",
-            "elw_airport": "Airport Fire Officer / On Scene Commander",
-            "hondengeleider": "Hondengeleider | Hondengeleiders",
-            "at_c": "AT-Commandant",
-            "at_o": "AT-Operator | AT-Operators",
-            "at_m": "AT-Materiaalwagen",
-            "spokesman": "Voorlichter | Voorlichters"
-        },
-        "multifunctionals": {
-            "battalion_chief_vehicles": {
-                "additional_text": "",
-                "reduce_from": "mobile_command_vehicles"
-            },
-            "police_cars": {
-                "additional_text": "Daarvan tenminste {n} hondengeleider | Daarvan tenminste {n} hondengeleiders",
-                "reduce_from": "hondengeleider"
-            }
-        },
-        "optional_alternatives": {
-            "allow_rw_instead_of_lf": {
-                "firetrucks": "Tankautospuit of Hulpverleningsvoertuig | Tankautospuiten of Hulpverleningsvoertuigen"
-            },
-            "allow_arff_instead_of_lf": {
-                "firetrucks": "Tankautospuit of Crashtender | Tankautospuiten of Crashtenders"
-            }
-        },
-        "patient_additionals": {
-            "3": "Officier van Dienst - Geneeskunde"
-        },
-        "title": "Voertuigen"
-    }
+	"diyMission": "Deze inzet lijkt een grootschalige teaminzet te zijn!",
+	"expansions": "Uitbreiding | Uitbreidingen",
+	"followups": "Vervolginzet | Vervolginzetten",
+	"generated_by": "Gegenereerd door",
+	"noVehicleRequirements": [
+		"water_needed"
+	],
+	"patients": {
+		"allow_ktw_instead_of_rtw": "Een zorgambulance kan worden gebruikt als Ambulance",
+		"nef": "Kans dat het MMT benodigd is",
+		"patient_at_end_of_mission": "De patiënt komt alleen op het einde van de inzet | De patiënten komen alleen op het einde van de inzet",
+		"patient_transport": "Kans op transport",
+		"possible_patient": "Patiënt maximum | Patiënten maximum",
+		"possible_patient_exact": "Precies {n} patiënt | Precies {n} patiënten",
+		"possible_patient_min": "Patiënt minimum | Patiënten minimum",
+		"specializations": "Specialisatie",
+		"title": "Patiënten | {n} Patiënt | {n} Patiënten"
+	},
+	"prerequisites": {
+		"fire_stations": "Brandweerkazerne | Brandweerkazernes",
+		"police_helicopter_stations": "Politiehelikopterstandplaats | Politiehelikopterstandplaats",
+		"police_stations": "Politiebureau | Politiebureaus",
+		"rescue_stations": "Ambulancestandplaats | Ambulancestandplaatsen",
+		"title": "Benodigdheid | Benodigdheden"
+	},
+	"prisoners": {
+		"max_possible_prisoners": "Arrestant maximum | Arrestanten maximum",
+		"title": "Arrestant | {n} Arrestant | {n} Arrestanten"
+	},
+	"requirements": {
+		"water_needed": "Water benodigd"
+	},
+	"vehicles": {
+		"captions": {
+			"ambulances": "Ambulance | Ambulances",
+			"arff": "Crashtender | Crashtenders",
+			"at_c": "AT-Commandant",
+			"at_m": "AT-Materiaalwagen",
+			"at_o": "AT-Operator | AT-Operators",
+			"battalion_chief_vehicles": "Officier van Dienst - Brandweer | Officieren van Dienst - Brandweer",
+			"boats": "Waterongevallenaanhanger | Waterongevallenaanhangers",
+			"diver_units": "Waterongevallen- of oppervlaktereddingsvoertuig | Waterongevallen- of oppervlaktereddingsvoertuigen",
+			"elw3": "Commandovoertuig | Commandovoertuigen",
+			"elw_airport": "Airport Fire Officer / On Scene Commander",
+			"firetrucks": "Tankautospuit | Tankautospuiten",
+			"grukw": "ME Groepsvoertuig | ME Groepsvoertuig",
+			"gwmess": "Verkenningseenheid Brandweer | Verkenningseenheden Brandweer",
+			"hazmat_vehicles": "Adviseur Gevaarlijke Stoffen | Adviseurs Gevaarlijke Stoffen",
+			"heavy_rescue_vehicles": "Hulpverleningsvoertuig | Hulpverleningsvoertuigen",
+			"hondengeleider": "Hondengeleider | Hondengeleiders",
+			"lebefkw": "ME Commandovoertuig | ME Commandovoertuigen",
+			"mobile_air_vehicles": "Adembeschermingsvoertuig | Adembeschermingsvoertuigen",
+			"mobile_command_vehicles": "Hoofd Officier van Dienst -  Brandweer | Hoofd Officieren van Dienst -  Brandweer",
+			"ovdp": "Officier van Dienst - Politie | Officieren van Dienst - Politie",
+			"platform_trucks": "Redvoertuig | Redvoertuigen",
+			"police_cars": "Noodhulpvoertuig | Noodhulpvoertuigen",
+			"police_helicopters": "Politiehelikopter | Politiehelikopters",
+			"spokesman": "Voorlichter | Voorlichters",
+			"water_tankers": "Slangenwagen of watertankwagen | Slangenwagens of watertankwagens"
+		},
+		"multifunctionals": {
+			"battalion_chief_vehicles": {
+				"additional_text": "",
+				"reduce_from": "mobile_command_vehicles"
+			},
+			"police_cars": {
+				"additional_text": "Daarvan tenminste {n} hondengeleider | Daarvan tenminste {n} hondengeleiders",
+				"reduce_from": "hondengeleider"
+			}
+		},
+		"optional_alternatives": {
+			"allow_arff_instead_of_lf": {
+				"firetrucks": "Tankautospuit of Crashtender | Tankautospuiten of Crashtenders"
+			},
+			"allow_rw_instead_of_lf": {
+				"firetrucks": "Tankautospuit of Hulpverleningsvoertuig | Tankautospuiten of Hulpverleningsvoertuigen"
+			}
+		},
+		"patient_additionals": {
+			"3": "Officier van Dienst - Geneeskunde"
+		},
+		"title": "Voertuigen"
+	}
 }

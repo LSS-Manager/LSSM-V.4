@@ -1,14 +1,14 @@
 {
-    "amount": "Aantal Opledingen",
-    "open": "Open Opleidingen",
-    "own": "Opleidingen met eigen deelnemers",
-    "schooling": "Opleiding",
-    "seats": "Aantal plaatsen",
-    "titles": {
-        "end": "Tijd over",
-        "name": "Opleiding",
-        "owner": "Gebruiker",
-        "price": "Prijs",
-        "seats": "Vrije plaatsen"
-    }
+	"amount": "Aantal Opledingen",
+	"open": "Open Opleidingen",
+	"own": "Opleidingen met eigen deelnemers",
+	"schooling": "Opleiding",
+	"seats": "Aantal plaatsen",
+	"titles": {
+		"end": "Tijd over",
+		"name": "Opleiding",
+		"owner": "Gebruiker",
+		"price": "Prijs",
+		"seats": "Vrije plaatsen"
+	}
 }
