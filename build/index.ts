@@ -129,7 +129,11 @@ webpack([...entries], (err, stats) => {
             JSON.stringify(stats.toJson(), null, '\t')
         );
     console.log('Stats:');
-    console.log(stats?.toString({ colors: true }));
+    // console.log(stats?.toString({ colors: true }));
+    // TODO: Each lang a single call of this file via scripts/index.ts to avoid Problems with heap memory
+    console.log(
+        `successfully built ${stats.hash} but we will not log stats here currently due to heap errors`
+    );
     console.timeEnd('build');
     console.log(`Build finished at ${new Date().toLocaleTimeString()}`);
     if (stats?.hasErrors()) process.exit(-1);
