@@ -48,7 +48,7 @@
 			"title": "Benachrichtigungen festlegen"
 		},
 		"desktop": "Desktop-Benachrichtigung senden",
-		"duration": "Anzeigedauer",
+		"duration": "Anzeigedauer (Millisekunden, -1 für \"dauerhaft\")",
 		"eventTypes": "Events",
 		"ingame": "Ingame-Benachrichtigung senden",
 		"position": "Position"

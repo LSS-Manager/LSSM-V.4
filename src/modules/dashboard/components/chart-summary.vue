@@ -86,7 +86,7 @@ import {
     ChartSummaryComputed,
 } from '../../../../typings/modules/Dashboard/ChartSummary';
 import { Building, BuildingCategory } from '../../../../typings/Building';
-import { VehicleCategory } from '../../../../typings/Vehicle';
+import { InternalVehicle, VehicleCategory } from '../../../../typings/Vehicle';
 
 HighchartsMore(Highcharts);
 HighchartsDrilldown(Highcharts);
@@ -128,11 +128,19 @@ export default Vue.extend<
             vehicleCategories: (this.$t('vehicleCategories') as unknown) as {
                 [category: string]: VehicleCategory;
             },
-            vehicleTypeNames: Object.values(this.$t('vehicles')).map(
-                type => type.caption
+            vehicleTypeNames: Object.fromEntries(
+                Object.entries(
+                    this.$t('vehicles') as {
+                        [id: number]: InternalVehicle;
+                    }
+                ).map(([index, { caption }]) => [index, caption])
             ),
-            vehicleTypeColors: Object.values(this.$t('vehicles')).map(
-                type => type.color
+            vehicleTypeColors: Object.fromEntries(
+                Object.entries(
+                    this.$t('vehicles') as {
+                        [id: number]: InternalVehicle;
+                    }
+                ).map(([index, { color }]) => [index, color])
             ),
             vehiclesByBuilding: this.$store.getters['api/vehiclesByBuilding'],
         } as ChartSummary;

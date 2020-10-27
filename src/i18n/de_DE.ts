@@ -81,127 +81,127 @@ export default {
                 'Zeigt in der Navigationsleiste statt dem LSSM-Logo ein einfaches Label an.',
         },
     },
-    vehicles: [
-        {
+    vehicles: {
+        0: {
             caption: 'LF 20',
             color: '#cc0000',
             coins: 25,
-            credits: 5_000,
+            credits: 5000,
             minPersonnel: 1,
             maxPersonnel: 9,
-            wtank: 2_000,
+            wtank: 2000,
         },
-        {
+        1: {
             caption: 'LF 10',
             color: '#bb0000',
             coins: 25,
-            credits: 5_000,
+            credits: 5000,
             minPersonnel: 1,
             maxPersonnel: 9,
-            wtank: 1_200,
+            wtank: 1200,
         },
-        {
+        2: {
             caption: 'DLK 23',
             color: '#d92626',
             coins: 30,
-            credits: 10_000,
+            credits: 10000,
             minPersonnel: 1,
             maxPersonnel: 3,
             wtank: 0,
             special: 'Wird ab 3 Feuerwachen benötigt.',
         },
-        {
+        3: {
             caption: 'ELW 1',
             color: '#d02525',
             coins: 25,
-            credits: 10_000,
+            credits: 10000,
             minPersonnel: 1,
             maxPersonnel: 3,
             wtank: 0,
             special: 'Wird ab 6 Feuerwachen benötigt.',
         },
-        {
+        4: {
             caption: 'RW',
             color: '#ad1f1f',
             coins: 25,
-            credits: 12_180,
+            credits: 12180,
             minPersonnel: 1,
             maxPersonnel: 3,
             wtank: 0,
             special: 'Wird ab 4 Feuerwachen benötigt.',
         },
-        {
+        5: {
             caption: 'GW-A',
             color: '#9c1c1c',
             coins: 25,
-            credits: 11_680,
+            credits: 11680,
             minPersonnel: 1,
             maxPersonnel: 3,
             wtank: 0,
             special: 'Wird ab 5 Feuerwachen benötigt.',
         },
-        {
+        6: {
             caption: 'LF 8/6',
             color: '#aa0000',
             coins: 25,
-            credits: 5_000,
+            credits: 5000,
             minPersonnel: 1,
             maxPersonnel: 9,
             wtank: 600,
         },
-        {
+        7: {
             caption: 'LF 20/16',
             color: '#990000',
             coins: 25,
-            credits: 5_000,
+            credits: 5000,
             minPersonnel: 1,
             maxPersonnel: 9,
-            wtank: 1_600,
+            wtank: 1600,
         },
-        {
+        8: {
             caption: 'LF 10/6',
             color: '#880000',
             coins: 25,
-            credits: 5_000,
+            credits: 5000,
             minPersonnel: 1,
             maxPersonnel: 9,
             wtank: 600,
         },
-        {
+        9: {
             caption: 'LF 16-TS',
             color: '#770000',
             coins: 25,
-            credits: 5_000,
+            credits: 5000,
             minPersonnel: 1,
             maxPersonnel: 9,
             wtank: 0,
         },
-        {
+        10: {
             caption: 'GW-Öl',
             color: '#8b1818',
             coins: 25,
-            credits: 12_000,
+            credits: 12000,
             minPersonnel: 1,
             maxPersonnel: 3,
             wtank: 0,
             special: 'Wird ab 6 Feuerwachen benötigt.',
         },
-        {
+        11: {
             caption: 'GW-L2-Wasser',
             color: '#e61919',
             coins: 25,
-            credits: 17_300,
+            credits: 17300,
             minPersonnel: 1,
             maxPersonnel: 3,
             wtank: 0,
             special:
                 'Ein Schlauchwagen wird ab 7 Feuerwachen benötigt. Er gibt 25% Bonus auf die Wassermenge, die durch (H/T)LF vor Ort ist.',
         },
-        {
+        12: {
             caption: 'GW-Messtechnik',
             color: '#791515',
             coins: 25,
-            credits: 18_300,
+            credits: 18300,
             minPersonnel: 1,
             maxPersonnel: 3,
             wtank: 0,
@@ -209,145 +209,145 @@ export default {
             shownSchooling: 'GW-Messtechnik',
             special: 'Wird ab 10 Feuerwachen benötigt.',
         },
-        {
+        13: {
             caption: 'SW 1000',
             color: '#dc1818',
             coins: 25,
-            credits: 17_300,
+            credits: 17300,
             minPersonnel: 1,
             maxPersonnel: 3,
             wtank: 0,
             special:
                 'Ein Schlauchwagen wird ab 7 Feuerwachen benötigt. Er gibt 25% Bonus auf die Wassermenge, die durch (H/T)LF vor Ort ist.',
         },
-        {
+        14: {
             caption: 'SW 2000',
             color: '#ca1616',
             coins: 25,
-            credits: 17_300,
+            credits: 17300,
             minPersonnel: 1,
             maxPersonnel: 6,
             wtank: 0,
             special:
                 'Ein Schlauchwagen wird ab 7 Feuerwachen benötigt. Er gibt 25% Bonus auf die Wassermenge, die durch (H/T)LF vor Ort ist.',
         },
-        {
+        15: {
             caption: 'SW 2000-Tr',
             color: '#b81414',
             coins: 25,
-            credits: 17_300,
+            credits: 17300,
             minPersonnel: 1,
             maxPersonnel: 3,
             wtank: 0,
             special:
                 'Ein Schlauchwagen wird ab 7 Feuerwachen benötigt. Er gibt 25% Bonus auf die Wassermenge, die durch (H/T)LF vor Ort ist.',
         },
-        {
+        16: {
             caption: 'SW Kats',
             color: '#a51212',
             coins: 25,
-            credits: 17_300,
+            credits: 17300,
             minPersonnel: 1,
             maxPersonnel: 3,
             wtank: 0,
             special:
                 'Ein Schlauchwagen wird ab 7 Feuerwachen benötigt. Er gibt 25% Bonus auf die Wassermenge, die durch (H/T)LF vor Ort ist.',
         },
-        {
+        17: {
             caption: 'TLF 2000',
             color: '#cc2222',
             coins: 25,
-            credits: 5_000,
+            credits: 5000,
             minPersonnel: 1,
             maxPersonnel: 3,
-            wtank: 2_000,
+            wtank: 2000,
         },
-        {
+        18: {
             caption: 'TLF 3000',
             color: '#bb2222',
             coins: 25,
-            credits: 5_000,
+            credits: 5000,
             minPersonnel: 1,
             maxPersonnel: 3,
-            wtank: 3_000,
+            wtank: 3000,
         },
-        {
+        19: {
             caption: 'TLF 8/8',
             color: '#aa2222',
             coins: 25,
-            credits: 5_000,
+            credits: 5000,
             minPersonnel: 1,
             maxPersonnel: 3,
             wtank: 800,
         },
-        {
+        20: {
             caption: 'TLF 8/18',
             color: '#992222',
             coins: 25,
-            credits: 5_000,
+            credits: 5000,
             minPersonnel: 1,
             maxPersonnel: 3,
             wtank: 1800,
         },
-        {
+        21: {
             caption: 'TLF 16/24-Tr',
             color: '#882222',
             coins: 25,
-            credits: 5_000,
+            credits: 5000,
             minPersonnel: 1,
             maxPersonnel: 3,
             wtank: 2400,
         },
-        {
+        22: {
             caption: 'TLF 16/25',
             color: '#772222',
             coins: 25,
-            credits: 5_000,
+            credits: 5000,
             minPersonnel: 1,
             maxPersonnel: 6,
             wtank: 2400,
         },
-        {
+        23: {
             caption: 'TLF 16/45',
             color: '#662222',
             coins: 25,
-            credits: 5_000,
+            credits: 5000,
             minPersonnel: 1,
             maxPersonnel: 3,
             wtank: 4500,
         },
-        {
+        24: {
             caption: 'TLF 20/40',
             color: '#552222',
             coins: 25,
-            credits: 5_000,
+            credits: 5000,
             minPersonnel: 1,
             maxPersonnel: 3,
             wtank: 4000,
         },
-        {
+        25: {
             caption: 'TLF 20/40-SL',
             color: '#442222',
             coins: 25,
-            credits: 5_000,
+            credits: 5000,
             minPersonnel: 1,
             maxPersonnel: 3,
             wtank: 4000,
         },
-        {
+        26: {
             caption: 'TLF 16',
             color: '#332222',
             coins: 25,
-            credits: 5_000,
+            credits: 5000,
             minPersonnel: 1,
             maxPersonnel: 3,
             wtank: 1800,
         },
-        {
+        27: {
             caption: 'GW-Gefahrgut',
             color: '#681212',
             coins: 25,
-            credits: 19_200,
+            credits: 19200,
             minPersonnel: 1,
             maxPersonnel: 3,
             wtank: 0,
@@ -355,58 +355,58 @@ export default {
             shownSchooling: 'GW-Gefahrgut',
             special: 'Wird ab 11 Feuerwachen benötigt.',
         },
-        {
+        28: {
             caption: 'RTW',
             color: '#f59f00',
             coins: 25,
-            credits: 5_000,
+            credits: 5000,
             minPersonnel: 1,
             maxPersonnel: 2,
         },
-        {
+        29: {
             caption: 'NEF',
             color: '#e09200',
             coins: 25,
-            credits: 20_000,
+            credits: 20000,
             minPersonnel: 1,
             maxPersonnel: 2,
             schooling: 'Rettungsdienst - Notarzt-Ausbildung',
             shownSchooling: 'Notarzt',
             special: 'Wird ab 3 Rettungswachen benötigt.',
         },
-        {
+        30: {
             caption: 'HLF 20',
             color: '#440000',
             coins: 25,
-            credits: 20_000,
+            credits: 20000,
             minPersonnel: 1,
             maxPersonnel: 9,
             wtank: 1600,
         },
-        {
+        31: {
             caption: 'RTH',
             color: '#ddaa3c',
             coins: 30,
-            credits: 300_000,
+            credits: 300000,
             minPersonnel: 1,
             maxPersonnel: 1,
             schooling: 'Rettungsdienst - Notarzt-Ausbildung',
             shownSchooling: 'Notarzt',
             special: 'Wird ab 3 Rettungswachen benötigt.',
         },
-        {
+        32: {
             caption: 'FuStW',
             color: '#005500',
             coins: 25,
-            credits: 5_000,
+            credits: 5000,
             minPersonnel: 1,
             maxPersonnel: 2,
         },
-        {
+        33: {
             caption: 'GW-Höhenrettung',
             color: '#570f0f',
             coins: 25,
-            credits: 19_500,
+            credits: 19500,
             minPersonnel: 1,
             maxPersonnel: 9,
             wtank: 0,
@@ -414,11 +414,11 @@ export default {
             shownSchooling: 'GW-Höhenrettung',
             special: 'Wird ab 12 Feuerwachen benötigt.',
         },
-        {
+        34: {
             caption: 'ELW 2',
             color: '#bf2222',
             coins: 25,
-            credits: 25_500,
+            credits: 25500,
             minPersonnel: 1,
             maxPersonnel: 6,
             wtank: 0,
@@ -426,163 +426,163 @@ export default {
             shownSchooling: 'ELW 2',
             special: 'Wird ab 13 Feuerwachen benötigt.',
         },
-        {
+        35: {
             caption: 'leBefKw',
             color: '#288f28',
             coins: 25,
-            credits: 10_000,
+            credits: 10000,
             minPersonnel: 1,
             maxPersonnel: 3,
             schooling: 'Polizei - Zugführer (leBefKw)',
             shownSchooling: 'Zugführer (leBefKw)',
         },
-        {
+        36: {
             caption: 'MTW',
             color: '#450c0c',
             coins: 12,
-            credits: 2_500,
+            credits: 2500,
             minPersonnel: 1,
             maxPersonnel: 9,
             wtank: 0,
         },
-        {
+        37: {
             caption: 'TSF-W',
             color: '#220000',
             coins: 25,
-            credits: 5_000,
+            credits: 5000,
             minPersonnel: 1,
             maxPersonnel: 6,
             wtank: 500,
         },
-        {
+        38: {
             caption: 'KTW',
             color: '#ffb61a',
             coins: 25,
-            credits: 5_000,
+            credits: 5000,
             minPersonnel: 1,
             maxPersonnel: 2,
         },
-        {
+        39: {
             caption: 'GKW',
             color: '#00138f',
             coins: 25,
-            credits: 13_000,
+            credits: 13000,
             minPersonnel: 1,
             maxPersonnel: 9,
         },
-        {
+        40: {
             caption: 'MTW-TZ',
             color: '#0016a3',
             coins: 12,
-            credits: 2_500,
+            credits: 2500,
             minPersonnel: 1,
             maxPersonnel: 4,
             schooling: 'THW - Zugtrupp',
             shownSchooling: 'Zugtrupp',
         },
-        {
+        41: {
             caption: 'MzKW',
             color: '#0018b8',
             coins: 25,
-            credits: 15_000,
+            credits: 15000,
             minPersonnel: 1,
             maxPersonnel: 4,
         },
-        {
+        42: {
             caption: 'LKW K 9',
             color: '#001bcc',
             coins: 25,
-            credits: 15_000,
+            credits: 15000,
             minPersonnel: 1,
             maxPersonnel: 3,
             schooling: 'THW - Fachgruppe Räumen',
             shownSchooling: 'Fachgruppe Räumen',
         },
-        {
+        43: {
             caption: 'BRmG R',
             color: '#001ee0',
             coins: 25,
-            credits: 15_000,
+            credits: 15000,
             special: 'Muss vom "LKW K 9" zum Einsatz gezogen werden',
         },
-        {
+        44: {
             caption: 'Anh DLE',
             color: '#0021f5',
             coins: 25,
-            credits: 15_000,
+            credits: 15000,
             special:
                 'Muss von einem "GKW", "MzKW", "MTW-TZ" oder "MLW 5" zum Einsatz gezogen werden.',
         },
-        {
+        45: {
             caption: 'MLW 5',
             color: '#0a2bff',
             coins: 12,
-            credits: 2_500,
+            credits: 2500,
             minPersonnel: 1,
             maxPersonnel: 6,
             schooling: 'THW - Fachgruppe Räumen',
             shownSchooling: 'Fachgruppe Räumen',
         },
-        {
+        46: {
             caption: 'WLF',
             color: '#f04242',
             coins: 12,
-            credits: 5_000,
+            credits: 5000,
             minPersonnel: 1,
             maxPersonnel: 3,
             wtank: 0,
             schooling: 'Feuerwehr - Wechsellader Lehrgang',
             shownSchooling: 'Wechsellader',
         },
-        {
+        47: {
             caption: 'AB-Rüst',
             color: '#ad0e0e',
             coins: 12,
-            credits: 6_000,
+            credits: 6000,
         },
-        {
+        48: {
             caption: 'AB-Atemschutz',
             color: '#9c0b0b',
             coins: 12,
-            credits: 6_000,
+            credits: 6000,
         },
-        {
+        49: {
             caption: 'AB-Öl',
             color: '#8b0707',
             coins: 12,
-            credits: 6_000,
+            credits: 6000,
         },
-        {
+        50: {
             caption: 'GruKw',
             color: '#2d9f29',
             coins: 25,
-            credits: 10_000,
+            credits: 10000,
             minPersonnel: 1,
             maxPersonnel: 9,
         },
-        {
+        51: {
             caption: 'FüKw',
             color: '#31af31',
             coins: 25,
-            credits: 17_500,
+            credits: 17500,
             minPersonnel: 1,
             maxPersonnel: 3,
             schooling: 'Polizei - Hundertschaftsführer (FüKw)',
             shownSchooling: 'Hundertschaftsführer (FüKw)',
         },
-        {
+        52: {
             caption: 'GefKw',
             color: '#36bf36',
             coins: 25,
-            credits: 13_000,
+            credits: 13000,
             minPersonnel: 1,
             maxPersonnel: 3,
         },
-        {
+        53: {
             caption: 'Dekon-P',
             color: '#450909',
             coins: 25,
-            credits: 23_100,
+            credits: 23100,
             minPersonnel: 1,
             maxPersonnel: 6,
             schooling: 'Feuerwehr - Dekon-P Lehrgang',
@@ -590,17 +590,17 @@ export default {
             special:
                 'Pro Dekon-P müssen 6 Personen mit Dekon-P-Ausbildung vor Ort sein. Wird ab 14 Feuerwachen benötigt.',
         },
-        {
+        54: {
             caption: 'AB-Dekon-P',
             color: '#450707',
             coins: 12,
-            credits: 6_000,
+            credits: 6000,
         },
-        {
+        55: {
             caption: 'KdoW-LNA',
             color: '#805c0f',
             coins: 25,
-            credits: 20_000,
+            credits: 20000,
             minPersonnel: 1,
             maxPersonnel: 1,
             wtank: 0,
@@ -608,11 +608,11 @@ export default {
             shownSchooling: 'LNA',
             special: 'Wird ab 5 Rettungswachen benötigt.',
         },
-        {
+        56: {
             caption: 'KdoW-OrgL',
             color: '#926911',
             coins: 25,
-            credits: 20_000,
+            credits: 20000,
             minPersonnel: 1,
             maxPersonnel: 1,
             wtank: 0,
@@ -620,11 +620,11 @@ export default {
             shownSchooling: 'OrgL',
             special: 'Wird ab 10 Rettungswachen benötigt.',
         },
-        {
+        57: {
             caption: 'FwK',
             color: '#230606',
             coins: 25,
-            credits: 30_000,
+            credits: 30000,
             minPersonnel: 1,
             maxPersonnel: 2,
             wtank: 0,
@@ -632,21 +632,21 @@ export default {
             shownSchooling: 'Feuerwehrkran',
             special: 'Wird ab 14 Feuerwachen benötigt.',
         },
-        {
+        58: {
             caption: 'KTW Typ B',
             color: '#cc5200',
             coins: 25,
-            credits: 5_000,
+            credits: 5000,
             minPersonnel: 1,
             maxPersonnel: 2,
             special:
                 'Kann, wenn ein GW-San vor Ort ist, behandelte Patienten vom Einsatzort abtransportieren. Ein Transport mit Notarztbegleitung durch ein NEF ist auch möglich.',
         },
-        {
+        59: {
             caption: 'ELW 1 (SEG)',
             color: '#a34100',
             coins: 25,
-            credits: 25_500,
+            credits: 25500,
             minPersonnel: 1,
             maxPersonnel: 2,
             schooling: 'Rettungsdienst - SEG - Einsatzleitung',
@@ -654,11 +654,11 @@ export default {
             special:
                 'Kann automatisch eingehende Sprechwünsche der eigenen Rettungsmittel bearbeiten und ihnen im Transportfall ein geeignetes Krankenhaus zuweisen. Die automatische Zuweisungsfunktion kann in dessen Einstellungen verändert werden.',
         },
-        {
+        60: {
             caption: 'GW-San',
             color: '#8f3900',
             coins: 25,
-            credits: 10_000,
+            credits: 10000,
             minPersonnel: 6,
             maxPersonnel: 6,
             schooling: 'Rettungsdienst - SEG - GW-San',
@@ -666,125 +666,125 @@ export default {
             special:
                 'Pro GW-San können 5 KTW Typ B wie ein RTW arbeiten. Er behandelt die Patienten zwar größtenteils, aber für die letzten paar Prozente braucht man dann einen RTW, KTW Typ B oder ähnliches.',
         },
-        {
+        61: {
             caption: 'Polizeihubschrauber',
             color: '#14743f',
             coins: 30,
-            credits: 300_000,
+            credits: 300000,
             minPersonnel: 1,
             maxPersonnel: 3,
             schooling: 'Polizei - Polizeihubschrauber',
             shownSchooling: 'Polizeihubschrauber',
         },
-        {
+        62: {
             caption: 'AB-Schlauch',
             color: '#e60808',
             coins: 12,
-            credits: 6_000,
+            credits: 6000,
         },
-        {
+        63: {
             caption: 'GW-Taucher',
             color: '#88ecc4',
             coins: 25,
-            credits: 10_000,
+            credits: 10000,
             minPersonnel: 2,
             maxPersonnel: 2,
             schooling: 'Rettungsdienst - GW-Taucher Lehrgang',
             shownSchooling: 'GW-Taucher',
         },
-        {
+        64: {
             caption: 'GW-Wasserrettung',
             color: '#91dab5',
             coins: 25,
-            credits: 10_000,
+            credits: 10000,
             minPersonnel: 1,
             maxPersonnel: 6,
             schooling: 'Rettungsdienst - GW-Wasserrettung Lehrgang',
             shownSchooling: 'GW-Wasserrettung',
         },
-        {
+        65: {
             caption: 'LKW 7 Lkr 19 tm',
             color: '#123183',
             coins: 25,
-            credits: 10_000,
+            credits: 10000,
             minPersonnel: 1,
             maxPersonnel: 2,
         },
-        {
+        66: {
             caption: 'Anh MzB',
             color: '#1b428a',
             coins: 12,
-            credits: 6_000,
+            credits: 6000,
             special:
                 'Muss von einem "LKW 7 Lkr 19 tm" zum Einsatz gezogen werden. Pro gefordertem Boot müssen mind. 4 Personen mit der Ausbildung "GW-Wasserrettung" oder "Wassergefahren" vor Ort sein!',
         },
-        {
+        67: {
             caption: 'Anh SchlB',
             color: '#245390',
             coins: 12,
-            credits: 6_000,
+            credits: 6000,
             special:
                 'Muss von einem "LKW 7 Lkr 19 tm" zum Einsatz gezogen werden. Pro gefordertem Boot müssen mind. 4 Personen mit der Ausbildung "GW-Wasserrettung" oder "Wassergefahren" vor Ort sein!',
         },
-        {
+        68: {
             caption: 'Anh MzAB',
             color: '#296497',
             coins: 12,
-            credits: 6_000,
+            credits: 6000,
             special:
                 'Muss von einem "LKW 7 Lkr 19 tm" zum Einsatz gezogen werden. Pro gefordertem Boot müssen mind. 4 Personen mit der Ausbildung "GW-Wasserrettung" oder "Wassergefahren" vor Ort sein!',
         },
-        {
+        69: {
             caption: 'Tauchkraftwagen',
             color: '#36759e',
             coins: 25,
-            credits: 10_000,
+            credits: 10000,
             minPersonnel: 1,
             maxPersonnel: 2,
             schooling: 'THW - Bergungstaucher Lehrgang',
             shownSchooling: 'GW-Taucher',
         },
-        {
+        70: {
             caption: 'MZB',
             color: '#9ac8a6',
             coins: 12,
-            credits: 6_000,
+            credits: 6000,
             special:
                 'Muss von einem "GW-Wasserrettung" oder einem "GW-Taucher" zum Einsatz gezogen werden. Pro gefordertem Boot müssen mind. 4 Personen mit der Ausbildung "GW-Wasserrettung" oder "Wassergefahren" vor Ort sein!',
         },
-        {
+        71: {
             caption: 'AB-MZB',
             color: '#bf7f6a',
             coins: 12,
-            credits: 6_000,
+            credits: 6000,
             special:
                 'Pro gefordertem Boot müssen mind. 4 Personen mit der Ausbildung "GW-Wasserrettung" oder "Wassergefahren" vor Ort sein!',
         },
-        {
+        72: {
             caption: 'WaWe 10',
             color: '#36b15d',
             coins: 25,
-            credits: 13_000,
+            credits: 13000,
             minPersonnel: 5,
             maxPersonnel: 5,
             schooling: 'Polizei - Wasserwerfer',
             shownSchooling: 'Wasserwerfer',
         },
-        {
+        73: {
             caption: 'GRTW',
             color: '#cc8500',
             coins: 25,
-            credits: 25_000,
+            credits: 25000,
             minPersonnel: 6,
             maxPersonnel: 6,
             special:
                 'Der GRTW kann in zwei verschiedenen Modi alarmiert werden:<br>1.Für leichtverletzte Personen, die keinen Notarzt benötigen. Dann können in dem GRTW 7 Patienten gleichzeitig behandelt und abtransportiert werden.<br>2.Für schwerverletzte Personen, die einen Notarzt benötigen. Dann können in dem GRTW 3 Patienten gleichzeitig behandelt werden.<br>Pro 20 Rettungswachen (bzw. 15 Rettungswachen mit Premium Account) kann ein GRTW gekauft werden.',
         },
-        {
+        74: {
             caption: 'NAW',
             color: '#b87700',
             coins: 25,
-            credits: 25_000,
+            credits: 25000,
             minPersonnel: 3,
             maxPersonnel: 3,
             schooling: 'Rettungsdienst - Notarzt-Ausbildung',
@@ -792,165 +792,165 @@ export default {
             special:
                 'Insgesamt so viele NAW kaufbar wie Rettungswachen (und auf einsatzbereit gestellte Rettungsdienst-Erweiterungen) vorhanden. Alle auch auf einer Wache patzierbar.',
         },
-        {
+        75: {
             caption: 'FLF',
             color: '#7a534a',
             coins: 25,
-            credits: 80_000,
+            credits: 80000,
             minPersonnel: 2,
             maxPersonnel: 3,
             wtank: 12000,
             schooling: 'Feuerwehr - Flugfeldlöschfahrzeug-Ausbildung',
             shownSchooling: 'Flugfeldlöschfahrzeug',
         },
-        {
+        76: {
             caption: 'Rettungstreppe',
             color: '#6f6157',
             coins: 25,
-            credits: 20_000,
+            credits: 20000,
             minPersonnel: 2,
             maxPersonnel: 2,
             wtank: 0,
             schooling: 'Feuerwehr - Rettungstreppen-Ausbildung',
             shownSchooling: 'Rettungstreppe',
         },
-        {
+        77: {
             caption: 'AB-Gefahrgut',
             color: '#680101',
             coins: 12,
-            credits: 6_000,
+            credits: 6000,
         },
-        {
+        78: {
             caption: 'AB-Einsatzleitung',
             color: '#bf1111',
             coins: 12,
-            credits: 6_000,
+            credits: 6000,
         },
-        {
+        79: {
             caption: 'SEK - ZF',
             color: '#217d1a',
             coins: 25,
-            credits: 10_000,
+            credits: 10000,
             minPersonnel: 3,
             maxPersonnel: 4,
             schooling: 'Polizei - SEK',
             shownSchooling: 'SEK',
         },
-        {
+        80: {
             caption: 'SEK - MTF',
             color: '#1a7d1b',
             coins: 25,
-            credits: 10_000,
+            credits: 10000,
             minPersonnel: 9,
             maxPersonnel: 9,
             schooling: 'Polizei - SEK',
             shownSchooling: 'SEK',
         },
-        {
+        81: {
             caption: 'MEK - ZF',
             color: '#1a7d22',
             coins: 25,
-            credits: 10_000,
+            credits: 10000,
             minPersonnel: 3,
             maxPersonnel: 4,
             schooling: 'Polizei - MEK',
             shownSchooling: 'MEK',
         },
-        {
+        82: {
             caption: 'MEK - MTF',
             color: '#1a7d2a',
             coins: 25,
-            credits: 10_000,
+            credits: 10000,
             minPersonnel: 9,
             maxPersonnel: 9,
             schooling: 'Polizei - MEK',
             shownSchooling: 'MEK',
         },
-        {
+        83: {
             caption: 'GW-Werkfeuerwehr',
             color: '#99222b',
             coins: 30,
-            credits: 15_000,
+            credits: 15000,
             minPersonnel: 1,
             maxPersonnel: 9,
             wtank: 0,
             schooling: 'Feuerwehr - Werkfeuerwehr-Ausbildung',
             shownSchooling: 'Werkfeuerwehr',
         },
-        {
+        84: {
             caption: 'ULF mit Löscharm',
             color: '#992234',
             coins: 25,
-            credits: 20_000,
+            credits: 20000,
             minPersonnel: 1,
             maxPersonnel: 3,
-            wtank: 5_000,
+            wtank: 5000,
             schooling: 'Feuerwehr - Werkfeuerwehr-Ausbildung',
             shownSchooling: 'Werkfeuerwehr',
         },
-        {
+        85: {
             caption: 'TM 50',
             color: '#992b22',
             coins: 30,
-            credits: 20_000,
+            credits: 20000,
             minPersonnel: 1,
             maxPersonnel: 3,
             wtank: 0,
             schooling: 'Feuerwehr - Werkfeuerwehr-Ausbildung',
             shownSchooling: 'Werkfeuerwehr',
         },
-        {
+        86: {
             caption: 'Turbolöscher',
             color: '#993422',
             coins: 30,
-            credits: 12_500,
+            credits: 12500,
             minPersonnel: 1,
             maxPersonnel: 3,
             wtank: 0,
             schooling: 'Feuerwehr - Werkfeuerwehr-Ausbildung',
             shownSchooling: 'Werkfeuerwehr',
         },
-        {
+        87: {
             caption: 'TLF 4000',
             color: '#dd2222',
             coins: 25,
-            credits: 5_000,
+            credits: 5000,
             minPersonnel: 1,
             maxPersonnel: 3,
             wtank: 4000,
         },
-        {
+        88: {
             caption: 'KLF',
             color: '#660000',
             coins: 25,
-            credits: 5_000,
+            credits: 5000,
             minPersonnel: 1,
             maxPersonnel: 6,
             wtank: 500,
         },
-        {
+        89: {
             caption: 'MLF',
             color: '#550000',
             coins: 25,
-            credits: 5_000,
+            credits: 5000,
             minPersonnel: 1,
             maxPersonnel: 6,
-            wtank: 1_000,
+            wtank: 1000,
         },
-        {
+        90: {
             caption: 'HLF 10',
             color: '#330000',
             coins: 25,
-            credits: 20_000,
+            credits: 20000,
             minPersonnel: 1,
             maxPersonnel: 9,
-            wtank: 1_000,
+            wtank: 1000,
         },
-        {
+        91: {
             caption: 'Rettungshundefahrzeug',
             color: '#663300',
             coins: 25,
-            credits: 25_000,
+            credits: 25000,
             minPersonnel: 4,
             maxPersonnel: 5,
             schooling: 'Rettungsdienst - Rettungshundeführer (SEG)',
@@ -958,39 +958,39 @@ export default {
             special:
                 'Am Einsatzort sind ein "Rettungshundefahrzeug" und ein "Anh Hund" vom THW gleichwertig!',
         },
-        {
+        92: {
             caption: 'Anh Hund',
             color: '#422629',
             coins: 0,
-            credits: 6_000,
+            credits: 6000,
             special:
                 'Muss von einem "MTW-OV" an den Einsatzort gezogen werden. Am Einsatzort sind ein "Anh Hund" und ein "Rettungshundefahrzeug" vom Rettungsdienst gleichwertig!',
         },
-        {
+        93: {
             caption: 'MTW-OV',
             color: '#14165e',
             coins: 0,
-            credits: 19_000,
+            credits: 19000,
             minPersonnel: 4,
             maxPersonnel: 5,
             schooling: 'THW - Rettungshundeführer (THW)',
             shownSchooling: 'Rettungshundeführer (THW)',
         },
-        {
+        94: {
             caption: 'DHuFüKw',
             color: '#339900',
             coins: 10,
-            credits: 15_000,
+            credits: 15000,
             minPersonnel: 1,
             maxPersonnel: 2,
             schooling: 'Polizei - Hundeführer (Schutzhund)',
             shownSchooling: 'Hundeführer (Schutzhund)',
         },
-        {
+        95: {
             caption: 'Polizeimotorrad',
             color: '#004400',
             coins: 10,
-            credits: 3_000,
+            credits: 3000,
             minPersonnel: 1,
             maxPersonnel: 1,
             schooling: 'Polizei - Motorradstaffel',
@@ -998,7 +998,7 @@ export default {
             special:
                 'Das Polizeimotorrad kann im Spiel anstelle eines FuStW verwendet werden. Der Nachteil: Es kann keine Gefangenen transportieren und arbeitet nur halb so schnell wie ein FuStW.',
         },
-    ],
+    },
     buildings: [
         {
             caption: 'Feuerwache',

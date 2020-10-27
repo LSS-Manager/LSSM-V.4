@@ -223,6 +223,7 @@ import {
     OverviewComputed,
 } from '../../../typings/modules/Overview';
 import {
+    InternalVehicle,
     ResolvedVehicleCategory,
     VehicleCategory,
 } from '../../../typings/Vehicle';
@@ -257,18 +258,24 @@ export default Vue.extend<
         ) as {
             [name: string]: VehicleCategory;
         };
-        const vehicleTypes = Object.values(this.$t('vehicles'));
-        Object.entries(
-            vehicleCategories
-        ).forEach(([category, { vehicles: groups }]) =>
-            Object.entries(groups).forEach(
-                ([group, vehicles]) =>
-                    (vehicleCategories[category].vehicles[
-                        group
-                    ] = Object.values(vehicles as number[]).map(
-                        type => vehicleTypes[type]
-                    ))
-            )
+        const vehicleTypes = this.$t('vehicles') as {
+            [id: number]: InternalVehicle;
+        };
+        const resolvedVehicleCategories = {} as {
+            [name: string]: ResolvedVehicleCategory;
+        };
+        Object.entries(vehicleCategories).forEach(
+            ([category, { color, vehicles: groups }]) => {
+                resolvedVehicleCategories[category] = { color, vehicles: {} };
+                Object.entries(groups).forEach(
+                    ([group, vehicles]) =>
+                        (resolvedVehicleCategories[category].vehicles[
+                            group
+                        ] = Object.values(vehicles as number[]).map(
+                            type => vehicleTypes[type]
+                        ))
+                );
+            }
         );
         const buildingCategories = cloneDeep(
             this.$t('buildingCategories') as unknown

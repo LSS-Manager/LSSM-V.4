@@ -1,5 +1,5 @@
 import { BuildingMarker, RadioMessage } from '../../../typings/Ingame';
-import { Vehicle } from '../../../typings/Vehicle';
+import { InternalVehicle, Vehicle } from '../../../typings/Vehicle';
 import { PointTuple } from 'leaflet';
 import { Building } from '../../../typings/Building';
 import { ModuleMainFunction } from 'typings/Module';
@@ -8,8 +8,10 @@ export default (async (LSSM, MODULE_ID) => {
     await LSSM.$store.dispatch('api/registerBuildingsUsage', true);
     await LSSM.$store.dispatch('api/registerVehiclesUsage', true);
 
-    const vehicleTypes = Object.values(LSSM.$t('vehicles')).map(
-        type => type.caption
+    const vehicleTypes = Object.fromEntries(
+        Object.entries(
+            LSSM.$t('vehicles') as { [id: number]: InternalVehicle }
+        ).map(([id, { caption }]) => [id, caption])
     );
 
     await LSSM.$store.dispatch('addStyle', {

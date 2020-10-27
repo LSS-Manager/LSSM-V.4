@@ -168,7 +168,9 @@ export default Vue.extend<
                 x: 0,
                 y: 0,
             },
-            vehicleTypes: (this.$t('vehicles') as unknown) as InternalVehicle[],
+            vehicleTypes: (this.$t('vehicles') as unknown) as {
+                [id: number]: InternalVehicle;
+            },
             vehicleBuildings: Object.values(
                 this.$t('vehicleBuildings')
             ) as number[],

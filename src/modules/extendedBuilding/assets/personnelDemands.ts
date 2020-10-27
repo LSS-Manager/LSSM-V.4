@@ -13,9 +13,9 @@ export default (LSSM: Vue, $m: $m): void => {
 
     if (!dataList) return;
 
-    const vehicleTypes = Object.values(
-        LSSM.$t('vehicles')
-    ) as InternalVehicle[];
+    const vehicleTypes = LSSM.$t('vehicles') as {
+        [id: number]: InternalVehicle;
+    };
 
     let sumMinPersonnel = 0;
     let sumMaxPersonnel = 0;

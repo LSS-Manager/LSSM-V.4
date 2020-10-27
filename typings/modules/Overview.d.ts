@@ -4,7 +4,9 @@ import { InternalVehicle, ResolvedVehicleCategory } from 'typings/Vehicle';
 import { Schooling } from 'typings/Schooling';
 
 export interface Overview {
-    vehicles: InternalVehicle[];
+    vehicles: {
+        [id: number]: InternalVehicle;
+    };
     vehicleCategories: {
         [name: string]: ResolvedVehicleCategory;
     };

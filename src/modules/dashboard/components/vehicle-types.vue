@@ -87,7 +87,7 @@
 import Vue from 'vue';
 import vehicleList from './vehicle-list.vue';
 import { faCarSide } from '@fortawesome/free-solid-svg-icons/faCarSide';
-import { Vehicle } from '../../../../typings/Vehicle';
+import { InternalVehicle, Vehicle } from '../../../../typings/Vehicle';
 import { DefaultProps } from 'vue/types/options';
 import {
     VehicleTypes,
@@ -124,8 +124,12 @@ export default Vue.extend<
                 })
         );
         return {
-            vehicleTypeNames: Object.values(this.$t('vehicles')).map(
-                type => type.caption
+            vehicleTypeNames: Object.fromEntries(
+                Object.entries(
+                    this.$t('vehicles') as {
+                        [id: number]: InternalVehicle;
+                    }
+                ).map(([index, { caption }]) => [index, caption])
             ),
             statuses,
             statusHeads,
