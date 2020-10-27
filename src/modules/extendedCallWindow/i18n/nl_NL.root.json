@@ -98,7 +98,7 @@
 			"description": "De generatietijd krijgt een geel kader als de inzet ouder is dan een ingesteld aantal uren. Bij 0 is er geen kader.",
 			"title": "Geel kader"
 		},
-		"Overlay": {
+		"overlay": {
 			"description": "",
 			"title": ""
 		},
