@@ -36,10 +36,6 @@
 			"description": "Mostra l'ID Missione affianco al titolo.",
 			"title": "ID Missione"
 		},
-		"k9_only_if_needed": {
-			"description": "Indica, se i cinofili sono solo richiesti, se disponibili.",
-			"title": "Cani guida opzionali"
-		},
 		"multifunctionals": {
 			"battalion_chief_vehicles": {
 				"description": "Sottrae il numero di MCV richiesto dal capo del battaglione e nasconde il capo del battaglione se il numero scende al di sotto di 0.",
@@ -48,10 +44,6 @@
 			"heavy_rescue_vehicles": {
 				"description": "Sestrae il numero di camion dei pompieri richiesti da Salvataggio Pesante e nasconde Salvataggio Pesante se il numero scende al di sotto di 0. Questa funzione è intesa per le persone che usano un sistema puro di Motore di salvataggio.",
 				"title": "Valutazione semplice di salvataggio pesante"
-			},
-			"platform_trucks": {
-				"description": "Sottrai il numero di TM 50 richiesto dalle DLK e nasconde le DLKs se il numero scendo sotto lo 0.",
-				"title": "Valuta facilmente DLK"
 			}
 		},
 		"optionalAlternatives": {

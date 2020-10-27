@@ -1,8 +1,7 @@
 import { Building } from 'typings/Building';
 
 const moduleRootFiles = require.context('../', true, MODULE_ROOT_I18N_FILES);
-// Commented as dir ./en_US does not exist currently
-// const furtherFiles = require.context('./en_US/', true, /.*(\/index)?\.js(on)?/);
+const furtherFiles = require.context('./en_US/', true, /.*(\/index)?\.js(on)?/);
 const modules = {
     appstore: {
         save: 'Save',
@@ -51,12 +50,11 @@ moduleRootFiles
 
 const t = {} as { [key: string]: unknown };
 
-// Commented as dir ./en_US does not exist currently
-// furtherFiles
-//     .keys()
-//     .forEach(
-//         key => (t[key.split('/')[1].replace(/\..*$/, '')] = furtherFiles(key))
-//     );
+furtherFiles
+    .keys()
+    .forEach(
+        key => (t[key.split('/')[1].replace(/\..*$/, '')] = furtherFiles(key))
+    );
 
 export default {
     modules,

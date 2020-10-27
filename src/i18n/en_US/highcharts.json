@@ -1,0 +1,19 @@
+{
+    "contextButtonTitle": "Fullscreen, Export, ...",
+    "decimalPoint": ",",
+    "downloadCSV": "Download as CSV",
+    "downloadJPEG": "Download as JPEG image",
+    "downloadPDF": "Download as PDF document",
+    "downloadPNG": "Download as PNG image",
+    "downloadSVG": "Download as SVG vector graphic",
+    "downloadXLS": "Download as XLS document",
+    "drillUpText": "← Back",
+    "exitFullscreen": "Exit full screen mode",
+    "exportData": {
+        "categoryHeader": "Category"
+    },
+    "loading": "loading...",
+    "printChart": "Print",
+    "viewData": "Show table",
+    "viewFullscreen": "Show in full screen mode"
+}

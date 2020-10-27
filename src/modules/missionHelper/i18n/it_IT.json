@@ -85,9 +85,6 @@
 				"firetrucks": "Firetruck or Heavy Rescue or Rescue Engine | Firetrucks or Heavy Rescue or Rescue Engine"
 			}
 		},
-		"patient_additionals": {
-			"10": "EMS-Chief"
-		},
 		"title": "Veicoli"
 	}
 }
