@@ -83,8 +83,8 @@ export default {
                 'Un simple titre dans la barre de navigation au lieu du logo LSSM',
         },
     },
-    vehicles: [
-        {
+    vehicles: {
+        0: {
             caption: 'FPT',
             color: '#cc0000',
             coins: 25,
@@ -93,7 +93,7 @@ export default {
             maxPersonnel: 6,
             wtank: 0,
         },
-        {
+        1: {
             caption: 'FPTL',
             color: '#bb0000',
             coins: 25,
@@ -102,7 +102,7 @@ export default {
             maxPersonnel: 6,
             wtank: 0,
         },
-        {
+        2: {
             caption: 'EPA',
             color: '#d92626',
             coins: 30,
@@ -112,7 +112,7 @@ export default {
             wtank: 0,
             special: 'Nécessaire dès lors que vous avez construit 3 bases de pompiers',
         },
-        {
+        3: {
             caption: 'VLCG',
             color: '#d02525',
             coins: 25,
@@ -122,7 +122,7 @@ export default {
             wtank: 0,
             special: 'Nécessaire dès lors que vous avez construit 6 bases de pompiers',
         },
-        {
+        4: {
             caption: 'VSR',
             color: '#ad1f1f',
             coins: 25,
@@ -132,7 +132,7 @@ export default {
             wtank: 0,
             special: 'Nécessaire dès lors que vous avez construit 4 bases de pompiers',
         },
-        {
+        5: {
             caption: 'UMH',
             color: '#9c1c1c',
             coins: 25,
@@ -141,7 +141,7 @@ export default {
             maxPersonnel: 3,
             wtank: 0,
         },
-        {
+        6: {
             caption: 'CCGC',
             color: '#aa0000',
             coins: 25,
@@ -151,7 +151,7 @@ export default {
             wtank: 0,
             special: 'Nécessaire dès lors que vous avez construit 7 bases de pompiers',
         },
-        {
+        7: {
             caption: 'VIRT',
             color: '#770000',
             coins: 25,
@@ -160,10 +160,10 @@ export default {
             maxPersonnel: 4,
             wtank: 0,
             special: 'Nécessaire dès lors que vous avez construit 7 bases de pompiers',
-            schooling: 'Véhicules risques chimiques',
+            schooling: 'Centre de secours - Véhicules risques chimiques',
             shownSchooling: 'Véhicules risques chimiques',
         },       
-        {
+        8: {
             caption: 'Véhicule de patrouille',
             color: '#8b1818',
             coins: 25,
@@ -172,7 +172,7 @@ export default {
             maxPersonnel: 4,
             wtank: 0,
         },
-        {
+        9: {
             caption: 'Dragon',
             color: '#e61919',
             coins: 30,
@@ -181,7 +181,7 @@ export default {
             maxPersonnel: 5,
             wtank: 0,
         },
-        {
+        10: {
             caption: 'VAR',
             color: '#0018b8',
             coins: 25,
@@ -189,7 +189,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 3,
         },
-        {
+        11: {
             caption: 'VPC',
             color: '#791515',
             coins: 25,
@@ -197,11 +197,11 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 6,
             wtank: 0,
-            schooling: 'Commandement mobile',
+            schooling: 'Centre de secours - Commandement mobile',
             shownSchooling: 'VPC',
             special: 'Nécessaire dès lors que vous avez construit 13 bases de pompiers',
         },
-        {
+        12: {
             caption: 'FPTSR',
             color: '#0018b8',
             coins: 25,
@@ -209,7 +209,7 @@ export default {
             minPersonnel: 2,
             maxPersonnel: 6,
         },
-        {
+        13: {
             caption: 'VTU',
             color: '#0018b8',
             coins: 25,
@@ -218,7 +218,7 @@ export default {
             maxPersonnel: 3,
             special: 'Nécessaire dès lors que vous avez construit 13 bases de pompiers',
         },
-        {
+        14: {
             caption: 'VGRIMP',
             color: '#ca3516',
             coins: 25,
@@ -226,10 +226,10 @@ export default {
             minPersonnel: 2,
             maxPersonnel: 5,
             wtank: 0,
-            schooling: 'IMP (Intervention en Milieu Périlleux)',
+            schooling: 'Centre de secours - IMP (Intervention en Milieu Périlleux)',
             shownSchooling: 'Spécialiste IMP',
         },
-        {
+        15: {
             caption: 'BEA',
             color: '#dc1818',
             coins: 25,
@@ -238,7 +238,7 @@ export default {
             maxPersonnel: 3,
             wtank: 0,            
         },
-        {
+        16: {
             caption: 'VPL',
             color: '#bb2222',
             coins: 25,
@@ -246,11 +246,11 @@ export default {
             minPersonnel: 3,
             maxPersonnel: 3,
             wtank: 0,
-            schooling: 'PLG (Plongeur)',
+            schooling: 'Centre de secours - PLG (Plongeur)',
             shownSchooling: 'PLG (Plongeur)',
             special: 'Nécessite une formation spéciale (PLG (Plongeur))',
         },
-        {
+        17: {
             caption: 'BLS',
             color: '#772222',
             coins: 12,
@@ -260,7 +260,7 @@ export default {
             wtank: 0,
             special: 'Remorqueuse nécessaire (VPL, VTU)',
         },
-        {
+        18: {
             caption: 'Choucas',
             color: '#ca1616',
             coins: 30,
@@ -268,10 +268,10 @@ export default {
             minPersonnel: 2,
             maxPersonnel: 4,
             wtank: 0,
-            schooling: 'Licence de pilote',
+            schooling: 'Poste de police - Licence de pilote',
             shownSchooling: 'Aviation policière',
         },
-        {
+        19: {
             caption: 'Equipe cynophile',
             color: '#aa2222',
             coins: 25,
@@ -279,11 +279,11 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 2,
             wtank: 0,
-            schooling: 'Maître chien',
+            schooling: 'Poste de police - Maître chien',
             shownSchooling: 'Brigade canine',
             special: 'Nécessaire dès lors que vous avez construit 6 postes de police.<br>Nécessite une formation spéciale (Maître chien)',
         },
-        {
+        20: {
             caption: 'Unité motocycliste',
             color: '#aa2255',
             coins: 18,
@@ -291,13 +291,12 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 1,
             wtank: 0,
-            schooling: 'Formation motocycliste',
+            schooling: 'Poste de police - Formation motocycliste',
             shownSchooling: 'Policie motocycliste',
-        },
-                
-    ],
-    buildings: [
-        {
+        },          
+    },
+    buildings: {
+        0: {
             caption: 'Centre de secours',
             color: '#bb0000',
             coins: 30,
@@ -316,15 +315,15 @@ export default {
                     duration: '7 jours',
                 },
             ],
-            levelcost: ['1. 10.000', '2. 50.000', '3.-39. 100.000'],
+            levelcost: ['1. 10.000', '2. 50.000', '3.-16. 100.000'],
             maxBuildings: '2.700',
-            maxLevel: 39,
+            maxLevel: 16,
             special: 'Le prix de vos postes augmente lorsque vous en possédez 25. Ainsi, le rythme de progression est constant une fois que vous possédez un grand flux de revenus à ces niveaux de jeu. La formule actuelle pour calculer le prix des postes est la suivante : <code>100.000+(200.000*LOG<sub>2</sub>(Number of existing fire stations − 22))</code>.',
             startPersonnel: 10,
-            startVehicles: ['Fourgon Pompe-Tonne', 'Fourgon Pompe-Tonne Léger'],
+            startVehicles: ['FPT', 'FPTL'],
             maxBuildingsFunction: (): number => 2_700,
         },
-        {
+        1: {
             caption: 'Centre de Formation Départemental',
             color: '#992222',
             coins: 50,
@@ -342,7 +341,7 @@ export default {
             startPersonnel: 0,
             startVehicles: [],
         },
-        {
+        2: {
             caption: 'Poste ambulancier',
             color: '#ffa500',
             coins: 35,
@@ -355,7 +354,7 @@ export default {
             startPersonnel: 3,
             startVehicles: ['UMH'],
         },
-        {
+        4: {
             caption: 'Centre Hospitalier',
             color: '#bbe944',
             coins: 35,
@@ -423,7 +422,7 @@ export default {
             startPersonnel: 0,
             startVehicles: [],
         },
-        {
+        5: {
             caption: 'Station d\'hélicoptère',
             color: '#e7ad2f',
             coins: 50,
@@ -441,7 +440,7 @@ export default {
                     ? 4
                     : Math.floor(buildingsAmountTotal / 25),
         },
-        {
+        6: {
             caption: 'Gendarmerie',
             color: '#007700',
             coins: 35,
@@ -454,14 +453,14 @@ export default {
                     duration: '7 jours',
                 }),
             ],
-            levelcost: ['1. 10.000', '2. 50.000', '3.-39. 100.000'],
+            levelcost: ['1. 10.000', '2. 50.000', '3.-14. 100.000'],
             maxBuildings: '1200 postes de police/gendarmerie',
             maxLevel: 14,
             startPersonnel: 2,
             startVehicles: ['Véhicule de patrouille'],
             maxBuildingsFunction: (): number => 1_200,
         },
-        {
+        7: {
             caption: 'Centre de Traitement des Appels',
             color: '#24c3ae',
             coins: 0,
@@ -476,7 +475,7 @@ export default {
             maxBuildingsFunction: (buildingsAmountTotal: number): number =>
                 Math.floor(buildingsAmountTotal / 25) + 1,
         },
-        {
+        8: {
             caption: 'École de gendarmerie',
             color: '#225522',
             coins: 50,
@@ -495,7 +494,7 @@ export default {
             startPersonnel: 0,
             startVehicles: [],
         },
-        {
+        13: {
             caption: 'Forces aériennes de la Gendarmerie nationale',
             color: '#148423',
             coins: 50,
@@ -513,7 +512,7 @@ export default {
                     ? 4
                     : Math.floor(buildingsAmountTotal / 25),
         },
-        {
+        14: {
             caption: 'Centre de Regroupement des Moyens',
             coins: 0,
             credits: 0,
@@ -527,7 +526,7 @@ export default {
             startVehicles: [],
             maxBuildingsFunction: (): number => 1,
         },
-        {
+        16: {
             caption: 'Prison',
             coins: 'x',
             credits: 100_000,
@@ -545,7 +544,7 @@ export default {
             startPersonnel: 0,
             startVehicles: [],
         },
-        {
+        18: {
             caption: 'Centre de première Intervention',
             color: '#aa1111',
             coins: 25,
@@ -564,7 +563,7 @@ export default {
             startVehicles: ['FPT', 'FPTL'],
             maxBuildingsFunction: (): number => 2_700,
         },
-        {
+        19: {
             caption: 'Police municipale',
             color: '#116611',
             coins: 25,
@@ -584,7 +583,7 @@ export default {
             startVehicles: ['Véhicule de patrouille'],
             maxBuildingsFunction: (): number => 1_200,
         },
-        {
+        20: {
             caption: 'Poste ambulancier (petit)',
             color: '#eeb611',
             coins: 25,
@@ -602,7 +601,7 @@ export default {
             startPersonnel: 3,
             startVehicles: ['UMH'],
         },
-    ],
+    },
     buildingCategories: {
         'Pompiers': {
             buildings: [0, 18],
@@ -650,13 +649,35 @@ export default {
         },
     },
     small_buildings: {
-        0: 1,
+        0: 18,
         2: 20,
         6: 19,
     },
     vehicleBuildings: [0, 2, 5, 6, 13, 14, 18, 19, 20],
     cellBuildings: [6, 16, 19],
     cellExtensions: [
+        '6_0',
+        '6_1',
+        '6_2',
+        '6_3',
+        '6_4',
+        '6_5',
+        '6_6',
+        '6_7',
+        '6_8',
+        '6_9',
+        '16_0',
+        '16_1',
+        '16_2',
+        '16_3',
+        '16_4',
+        '16_5',
+        '16_6',
+        '16_7',
+        '16_8',
+        '16_9',
+        '19_0',
+        '19_1',
     ],
     bedBuildings: [4],
     schoolBuildings: [1, 8],
@@ -737,7 +758,7 @@ export default {
     buildingIcons: [
         'fire',
         'graduation-cap',
-        'ambulance'
+        'ambulance',
         '',
         'hospital',
         'helicopter',
@@ -769,12 +790,12 @@ export default {
         'Supérette',
         'Supermarché (petit)',
         'Supermarché (grand)',
-        'Station service',
+        'Station-service',
         'École',
         'Musée',
         'Centre commercial',
         'Garage automobile',
-        'Sortie d\'autoroute',
+        'Sortie d’autoroute',
         'Marché de Noël',
         'Hangar',
         'Discothèque',
@@ -782,13 +803,12 @@ export default {
         'Ferme',
         'Bureaux',
         'Piscine',
-        '',
         'Théâtre',
-        'F$ete foraine',
+        'Fête foraine',
         'Rivière',
         'Petit aéroport (piste)',
-        'Grand aéroport (piste))',
-        'Terminal d\’aéroport',
+        'Grand aéroport (piste)',
+        'Terminal d’aéroport',
         'Banque',
         'Entrepôt',
         'Pont',
@@ -812,7 +832,7 @@ export default {
         'Décharge',
         'Parking couvert',
         'Silo',
-        'Éolienne',
+        'Eolienne',
         'Voie navigable',
         'Camping',
     ],
