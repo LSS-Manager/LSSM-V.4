@@ -1,5 +1,7 @@
 import { execSync } from 'child_process';
+import config from '../src/config';
 import sort from './sort';
+import fs from 'fs';
 
 const scripts = process.argv.splice(2);
 
@@ -33,7 +35,12 @@ const scriptHandlers = {
     dev() {
         this.tscBuild();
         // console.log(execSync('node build').toString());
-        execSync('node build').toString();
+        const games = Object.entries(config.games)
+            .filter(game => fs.existsSync(`./src/i18n/${game[0]}.ts`))
+            .map(game => {
+                execSync('node build development ' + game[0]).toString();
+            });
+        //execSync('node build development').toString();
         this.showChanges();
     },
     tscDocs() {
@@ -51,7 +58,12 @@ const scriptHandlers = {
     },
     build() {
         this.tscBuild();
-        console.log(execSync('node build production').toString());
+        const games = Object.entries(config.games)
+            .filter(game => fs.existsSync(`./src/i18n/${game[0]}.ts`))
+            .map(game => {
+                execSync('node build production ' + game[0]).toString();
+            });
+        //console.log(execSync('node build production').toString());
         this.showChanges();
     },
     showChanges() {
