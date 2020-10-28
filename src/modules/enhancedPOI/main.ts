@@ -150,6 +150,8 @@ export default (async (LSSM, MODULE_ID, $m: $m) => {
 
     const observer = new MutationObserver(mutations => {
         mutations.forEach(mutation => {
+            if(this.$store.state.api.settings['design_mode'] === 3||this.$store.state.api.settings['design_mode'] === 4){var paddingLeftPOI = '25px';}
+            else var paddingLeftPOI = '1ch';
             const form = (mutation.target as HTMLElement).querySelector(
                 '#new_mission_position'
             );
@@ -178,7 +180,7 @@ export default (async (LSSM, MODULE_ID, $m: $m) => {
                 )
             );
             const settingsWrapper = document.createElement('div');
-            settingsWrapper.style.paddingLeft = '1ch';
+            settingsWrapper.style.paddingLeft = paddingLeftPOI;
             form.append(settingsWrapper);
             settingsWrapper.append(
                 ...['all', 'none', ...poi_types].map(poi => {

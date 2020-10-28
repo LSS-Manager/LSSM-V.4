@@ -23,6 +23,7 @@ const MUTATION_SETTERS = {
     buildings: 'setBuildings',
     vehicles: 'setVehicles',
     allianceinfo: 'setAllianceinfo',
+    settings: 'setSettings',
 } as {
     [key in StorageAPIKey]: string;
 };
@@ -168,6 +169,7 @@ export default {
         missions: [],
         key: null,
         lastUpdates: {},
+        settings: {},
     },
     mutations: {
         setBuildings(
@@ -246,6 +248,17 @@ export default {
                 1
             );
         },
+        setSettings(
+            state: APIState,
+            {
+                value: settings,
+                lastUpdate,
+            }: StorageGetterReturn<'settings'>
+        ) {
+            if (!settings) return;
+            state.lastUpdates.settings = lastUpdate;
+            state.settings = settings;
+        },
     },
     getters: {
         vehicle(state, id: number) {
@@ -309,6 +322,16 @@ export default {
                     .then(res => res.json())
                     .then(states => {
                         commit('setVehicleStates', states);
+                        resolve();
+                    });
+            });
+        },
+        setSettings({ dispatch, commit }: APIActionStoreParams) {
+            return new Promise(resolve => {
+                dispatch('request', { url: 'api/settings' })
+                    .then(res => res.json())
+                    .then(settings => {
+                        commit('setSettings', settings);
                         resolve();
                     });
             });
