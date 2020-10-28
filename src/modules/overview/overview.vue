@@ -318,7 +318,7 @@ export default Vue.extend<
             )
         );
         return {
-            vehicles: vehicleTypes,
+            vehicles: Object.values(vehicleTypes),
             vehicleCategories: (vehicleCategories as unknown) as {
                 [name: string]: ResolvedVehicleCategory;
             },
@@ -347,7 +347,7 @@ export default Vue.extend<
                     group: 0,
                 },
             },
-            buildings: buildingTypes,
+            buildings: Object.values(buildingTypes),
             buildingCategories: (buildingCategories as unknown) as {
                 [name: string]: ResolvedBuildingCategory;
             },
