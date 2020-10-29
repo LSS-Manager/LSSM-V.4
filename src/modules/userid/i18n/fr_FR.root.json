@@ -1,0 +1,9 @@
+{
+	"description": "Montre le User-ID dans le profil et si demandé, le votre dans votre barre de navigation",
+	"name": "User-ID",
+	"settings": {
+		"navbar": {
+			"title": "Montrer mon User-ID dans la barre de navigation"
+		}
+	}
+}

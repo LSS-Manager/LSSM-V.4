@@ -30,6 +30,7 @@ replace `xx_XX` with the lang-code
         * Vehicles that require a schooling do need a key `schooling`. The text must be exactly what is shown in the schoolings market!
             * The attribute `shownSchooling` must be what is shown in the personnel list of a station. As the texts can be different from each other, we require both keys.
     * `buildings`
+        * Add all buildings in correct order in here (Ordered by ID).
         * Ask a LSSM Team member for help with buildings. They are more complex if you are not familiar with JavaScript / TypeScript!
         * Buildings need keys `caption`, `color`, `coins`, `credits`, `expansions` (see below), `levelcost`, `maxBuildings`, `maxLevel`, `special`, `startPersonnel` and `startVehicles`.
         * Some buildings can get a `maxBuildingsFunction`

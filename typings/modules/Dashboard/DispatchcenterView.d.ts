@@ -44,7 +44,7 @@ export interface DispatchcenterView {
     buildingListOffset: number;
     buildingListSearch: string;
     newBoardTitle: string;
-    buildingTypes: InternalBuilding[];
+    buildingTypes: { [id: number]: InternalBuilding };
     currentBoard: number;
     vehiclesByBuilding: {
         [building: number]: Vehicle[];

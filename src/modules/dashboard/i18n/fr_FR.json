@@ -1,0 +1,69 @@
+{
+	"building-types": {
+		"building": "Bâtiments",
+		"current": "Nombre (actif)",
+		"extension": "Extension",
+		"maximum": "Maximum possible",
+		"unavailable": "En construction"
+	},
+	"chart-summaries": {
+		"buildings": {
+			"personal_count": "Personnel",
+			"tip": "Cliquez sur une des catégories (par ex. Centre de secours ou police) pour ouvrir les bâtiments de cette catégorie. Ensuite si vous cliquez sur un type de bâtiment, vous pouvez voir combien de véhicules de chaque type sont dans les bâtiments de ce type là. Vous pouvez donc savoir combien de véhicule d'un type sont stationnées dans un poste de police municipale ou dans une gendarmerie.",
+			"title": "Bâtiments"
+		},
+		"vehicles": {
+			"empty": "Vous n'avez pas encore de véhicule dans la catégorie {category} !",
+			"tip": "Cliquez sur un groupe de type de véhicules pour afficher seulement ce groupe.",
+			"title": "Véhicules"
+		}
+	},
+	"dispatchcenter-view": {
+		"manage": {
+			"newBoard": "Nouveau pannel",
+			"title": "Gestion de pannel",
+			"titles": {
+				"buildings": {
+					"bold": "Séléction du type de bâtiment",
+					"small": "ne sont séléctionnables que les bâtiments de ce type"
+				},
+				"dispatch": {
+					"bold": "Séléction du Centre de Traitement des Appels",
+					"small": "ne sont séléctionnables que les bâtiments de ce CTA"
+				},
+				"name": "Nom du pannel"
+			}
+		},
+		"no-buildings": "Pas de bâtiment trouvé. Si nécessaire, changer les filtres de ce pannel dans l'onglet \"Gestion de pannel\"."
+	},
+	"tabs": {
+		"building-types": "Aperçu de bâtiment",
+		"chart-summary": "Sommaire",
+		"dispatchcenter-view": "Aperçu CTA",
+		"vehicle-types": "Aperçu status"
+	},
+	"vehicle-list": {
+		"actions": "",
+		"building": "Bâtiment",
+		"caption": "Nom",
+		"fms": "Radio",
+		"type": "Type"
+	},
+	"vehicle-types": {
+		"status": "Status",
+		"statuses": [
+			1,
+			2,
+			3,
+			4,
+			5,
+			6,
+			7,
+			9
+		],
+		"sum": "Total",
+		"title": "Tout {type} | Tout {type} en status {n} | Tout {type} en status {n}",
+		"type": "Type de véhicule",
+		"vehicles": "Véhicules"
+	}
+}

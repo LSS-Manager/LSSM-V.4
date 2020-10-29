@@ -1,10 +1,10 @@
 ---
 title: General
-lang: cz_CZ
+lang: cs_CZ
 sidebarDepth: 2
 ---
 
-# Wiki CZ <Badge :text="'LSSM V.' + ($themeConfig.variables.versions.stable || 4)"/>
+# Wiki 🇨🇿 <Badge :text="'LSSM V.' + ($themeConfig.variables.versions.stable || 4)"/>
 
 *Current versions:*
 > Stable: <i>{{ $themeConfig.variables.versions.stable }}</i> (not yet released)
@@ -25,7 +25,7 @@ Pro lepší stabilitu hry nejsou načítány neaktivní moduly.
 
 Tabulku kompatibilních prohlížečů s LSSM naleznete v našich [FAQ](faq.md)
 
-::: Použití LSSM na mobilních telefonech
+::: tip LSSM na mobilních telefonech
 Nezajišťujeme používání LSSM na mobilech. Pokud Firefox na mobilu povoluje doplňky, nemůžeme zaručit funkcionalitu.
 
 Oficiální podpora mobilních prohlížečů **není** plánována.
@@ -43,7 +43,7 @@ Opera  | [Stáhnout](https://addons.opera.com/en/extensions/details/tampermonkey
 
 Pro ostatní prohlížeče můžete stáhnout Tampermonkey na [tampermonkey.net](https://www.tampermonkey.net/).
 
-::: Varování:
+::: warning
 Berte prosím na vědomí, že nepodporujeme: starší prohlížeče, mobilní prohlížeče, Microsoft Edge nebo Internet Explorer.
 :::
 
@@ -57,4 +57,3 @@ Indikátorem LSSM je zeleně zvýrazněný text `LSSM V.4`, který se nachází 
 Pokud nemůžete tento indikátor nalézt, klikněte na ikonku tampermonkey ve Vašem prohlížeči a zkontrolujte, zda je přepínač pro LSS-manager nastaven na `Povoleno`.
 
 Pokud máte jakékoli problémy, neváhejte kontaktovat [Podporu](support.md).
-

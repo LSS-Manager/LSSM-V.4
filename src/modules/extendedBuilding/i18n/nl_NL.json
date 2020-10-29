@@ -1,0 +1,30 @@
+{
+	"enhancedPersonnelAssignment": {
+		"toggleFittingPersonnel": "Verberg personeel zonder juiste opleiding"
+	},
+	"expansions": {
+		"notBuild": "Nog niet gebouwd"
+	},
+	"fastDispatchChooser": {
+		"noDispatch": "Geen meldkamer"
+	},
+	"personnelDemands": {
+		"additional": "Waarden tussen haakjes zijn zonder de voertuigen met status 6.",
+		"demand": "Benodigd personeel"
+	},
+	"schoolingSummary": {
+		"all": "Alle combinaties",
+		"amount": "Aantal",
+		"bound": "Toegewezen",
+		"each": "Elke opleiding",
+		"max": "momenteel maximaal nodig",
+		"min": "momenteel minimaal nodig",
+		"schooling": "Opleiding",
+		"title": "Personeel overzicht"
+	},
+	"vehiclePersonnel": {
+		"vehiclesPersonnelAssigned": "toegewezen",
+		"vehiclesPersonnelCurrent": "huidig",
+		"vehiclesPersonnelMax": "max"
+	}
+}

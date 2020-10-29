@@ -1,0 +1,30 @@
+{
+	"description": "Voorkom met deze module dat het spel opnieuw wordt geladen als je op bepaalde knoppen drukt.",
+	"name": "Niet herladen",
+	"settings": {
+		"buildingTax": {
+			"description": "Voorkomt herladen wanneer u de kosten van eigen cellen of ziekenhuisbedden instelt.",
+			"title": "Kosten van cellen en bedden"
+		},
+		"deleteARR": {
+			"description": "Voorkomt herladen bij het verwijderen van inzetvoorstellen",
+			"title": "Verwijder Inzetvoorstellen"
+		},
+		"deleteForumPost": {
+			"description": "Voorkomt herladen bij het verwijderen van een forumbericht",
+			"title": "Verwijder Forumberichten"
+		},
+		"memberlistManageUser": {
+			"description": "Voorkomt herladen bij het aanpassen van de rechten van Teamleden",
+			"title": "Rechten van Teamleden"
+		},
+		"missionPrisoners": {
+			"description": "Voorkomt herladen bij het afhandelen van arrestanten in het meldingenscherm",
+			"title": "Arrestanten in het inzetscherm"
+		},
+		"missionReply": {
+			"description": "Voorkomt herladen bij het versturen van een chatbericht in het inzetscherm",
+			"title": "Chatbericht in inzetscherm"
+		}
+	}
+}
