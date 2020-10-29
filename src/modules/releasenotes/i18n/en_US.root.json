@@ -1,4 +1,10 @@
 {
 	"name": "Releasenotes",
-	"notes": []
+	"notes": [
+	{
+			"description": "The new missionhelper with many settings is here!",
+			"title": "Missionhelper",
+			"version": "4.0.5+20200702.1507"
+		},
+	]
 }
