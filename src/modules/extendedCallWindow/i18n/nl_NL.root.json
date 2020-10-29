@@ -1,6 +1,6 @@
 {
-	"name": "Uitgebreid meldingsvenster",
 	"description": "Deze module bevat diverse functies om het meldingenscherm te verbeteren",
+	"name": "Uitgebreid meldingsvenster",
 	"settings": {
 		"alarmIcons": {
 			"description": "Laat de iconen in \"Alarmeren\" knop zien, gebasseerd op je selectie. U kunt kiezen uit <a href=\"https://fontawesome.com/icons?d=gallery&m=free\" target=\"_blank\">alle gratis Icons van Font-Awesome</a>. Het is genoeg om de naam van het icoon in te voeren. Een live voorvertoning laat je dan het icoon zien.",
@@ -66,6 +66,10 @@
 			"description": "Toont de knop \"Voertuigen laden\", indien beschikbaar, in de koptekst.",
 			"title": "Voertuigen laden knop in koptekst"
 		},
+		"minified": {
+			"description": "",
+			"title": ""
+		},
 		"missionKeywords": {
 			"color": "Achtergrondkleur",
 			"description": "Laat je eigen trefwoord naast de meldingsnaam weergeven.",
@@ -74,6 +78,10 @@
 			"prepend": "Vóór de meldingsnaam weergeven",
 			"preview": "Voorvertoning",
 			"title": "Meldingstrefwoord"
+		},
+		"overlay": {
+			"description": "",
+			"title": ""
 		},
 		"patientSummary": {
 			"description": "Toont naast het aantal patiënten, welke reddingsvoertuigen ze nodig hebben.",
@@ -94,21 +102,13 @@
 			"title": "Voertuigcategorieën",
 			"vehicles": "Voertuigtypen"
 		},
-		"yellowBorder": {
-			"description": "De generatietijd krijgt een geel kader als de inzet ouder is dan een ingesteld aantal uren. Bij 0 is er geen kader.",
-			"title": "Geel kader"
-		},
-		"overlay": {
-			"description": "",
-			"title": ""
-		},
-		"minified": {
-			"description": "",
-			"title": ""
-		},
 		"textMode": {
 			"description": "",
 			"title": ""
+		},
+		"yellowBorder": {
+			"description": "De generatietijd krijgt een geel kader als de inzet ouder is dan een ingesteld aantal uren. Bij 0 is er geen kader.",
+			"title": "Geel kader"
 		}
 	}
 }

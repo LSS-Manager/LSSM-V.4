@@ -3,7 +3,7 @@ title: Settings ⚙️
 lang: en_US
 ---
 
-# Settings ⚙️:gear:
+# Settings ⚙️
 
 The settings of all modules are managed centrally in the settings. Only the settings of active modules can be changed.
 

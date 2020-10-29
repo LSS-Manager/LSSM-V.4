@@ -15,9 +15,9 @@ export default (LSSM: Vue, $m: $m): void => {
     const vehicle = (LSSM.$store.state.api.vehicles as Vehicle[]).find(
         v => v.id === vehicleId
     );
-    const vehicleTypes = Object.values(
-        LSSM.$t('vehicles')
-    ) as InternalVehicle[];
+    const vehicleTypes = LSSM.$t('vehicles') as {
+        [id: number]: InternalVehicle;
+    };
     if (vehicleId < 0 || !vehicle) return;
 
     const fittingRows = [] as HTMLTableRowElement[];

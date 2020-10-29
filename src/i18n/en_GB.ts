@@ -60,5 +60,6 @@ export default {
         'High Rise with Cladding',
         'Major Road Standby Point',
     ],
+    only_alliance_missions: [57, 74, 89],
     transfer_missions: [77],
 };

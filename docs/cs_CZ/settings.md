@@ -15,6 +15,6 @@ Jakmile uložíte změny a opustíte nastavení, hra se znovu načte pro aplikac
 Pokud změny neuložíte, není možné uzavřít nastavení. Dostanete informaci s nápovědou. 
 :::
 
-::: varování: Obnovení nastavení
+::: danger Obnovení nastavení
 Upozornění: Pokud dojde k obnovení nastavení, nelze předchozí nastavení automaticky obnovit. Je nutno před obnovení vytvořit export původního nastavení.
 :::

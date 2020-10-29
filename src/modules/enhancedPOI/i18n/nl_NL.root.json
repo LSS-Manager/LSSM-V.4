@@ -3,16 +3,16 @@
 	"name": "Verbeterde POI",
 	"settings": {
 		"custom_style": {
-			"title": "Aangepaste stijl voor accentuering",
-			"description": ""
+			"description": "",
+			"title": "Aangepaste stijl voor accentuering"
 		},
 		"predefined_style": {
 			"brown": "Bruin",
 			"custom": "Aanpasbaar",
+			"description": "",
 			"green": "Groen",
 			"red": "Rood",
 			"title": "Icoon markeren",
-			"description": "",
 			"white": "Wit"
 		},
 		"shown_types": {

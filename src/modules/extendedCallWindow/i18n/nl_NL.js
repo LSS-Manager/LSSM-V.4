@@ -160,7 +160,7 @@ module.exports = {
                 vehicleTypes: [35, 28, 47, 48, 39, 40, 53, 54, 55],
             },
         ],
-        allTab: 'Alle',
+        allTab: 'Alles',
         occupiedTab: 'Dooralarmeren',
     },
     hideVehicleList: {
