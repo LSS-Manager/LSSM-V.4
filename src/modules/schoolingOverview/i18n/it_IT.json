@@ -1,0 +1,14 @@
+{
+	"amount": "Importo Corsi",
+	"open": "Corsi aperti",
+	"own": "Corsi con partecipanti",
+	"schooling": "Corsi",
+	"seats": "Numero di posti",
+	"titles": {
+		"end": "Tempo rimasto",
+		"name": "Corso",
+		"owner": "Utente",
+		"price": "Prezzo",
+		"seats": "Posti liberi"
+	}
+}

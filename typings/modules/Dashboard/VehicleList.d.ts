@@ -7,7 +7,7 @@ interface VehicleWithBuilding extends Vehicle {
 }
 
 export interface VehicleList {
-    vehicleTypeNames: string[];
+    vehicleTypeNames: { [id: number]: string };
     vehiclesWithBuildings: VehicleWithBuilding[];
     buildings: Building[];
     search: string;

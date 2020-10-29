@@ -15,7 +15,7 @@ Před nahlášením chyby zkontrolujte na wiki, zda se nejedná o cílenou funkc
 Při nahlášení chyby popište co nejvíce detailů. Čím podrobnější je popis chyby, tím rychleji dokážeme reagovat a pomoci. 
 :::
 
-::: Varování: 
+::: warning
 Berte prosím na vědomí, že nepodporujeme: starší prohlížeče, mobilní prohlížeče, Microsoft Edge nebo Internet Explorer.
 :::
 

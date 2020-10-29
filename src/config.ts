@@ -129,7 +129,7 @@ export default {
         },
         nl_NL: {
             flag: '🇳🇱',
-            locale_fallback: 'en_GB',
+            locale_fallback: 'en_US',
             name: 'Meldkamerspel.com',
             shortURL: 'meldkamerspel.com',
             police: 'politie',

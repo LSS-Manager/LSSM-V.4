@@ -16,6 +16,7 @@ const STORAGE_KEYS = {
     buildings: 'aBuildings',
     vehicles: 'aVehicles',
     allianceinfo: 'aAlliance',
+    settings: 'aSettings',
 } as {
     [key in StorageAPIKey]: string;
 };
@@ -23,6 +24,7 @@ const MUTATION_SETTERS = {
     buildings: 'setBuildings',
     vehicles: 'setVehicles',
     allianceinfo: 'setAllianceinfo',
+    settings: 'setSettings',
 } as {
     [key in StorageAPIKey]: string;
 };
@@ -168,6 +170,7 @@ export default {
         missions: [],
         key: null,
         lastUpdates: {},
+        settings: {},
     },
     mutations: {
         setBuildings(
@@ -245,6 +248,17 @@ export default {
                 state.currentlyUpdating.findIndex(k => k === key),
                 1
             );
+        },
+        setSettings(
+            state: APIState,
+            {
+                value: settings,
+                lastUpdate,
+            }: StorageGetterReturn<'settings'>
+        ) {
+            if (!settings) return;
+            state.lastUpdates.settings = lastUpdate;
+            state.settings = settings;
         },
     },
     getters: {
@@ -467,6 +481,31 @@ export default {
                 store.commit('enableAutoUpdate', 'allianceinfo');
                 window.setInterval(
                     () => store.dispatch('registerAllianceinfoUsage'),
+                    API_MIN_UPDATE
+                );
+            }
+        },
+        async registerSettings(
+            store: APIActionStoreParams,
+            autoUpdate = false
+        ) {
+            const { value: settings, lastUpdate } = await get_api_values(
+                'settings',
+                store
+            );
+            if (!settings) return;
+            set_api_storage(
+                'settings',
+                { value: settings, lastUpdate, user_id: window.user_id },
+                store
+            );
+            if (
+                autoUpdate &&
+                !store.state.autoUpdates.includes('settings')
+            ) {
+                store.commit('enableAutoUpdate', 'settings');
+                window.setInterval(
+                    () => store.dispatch('registersettings'),
                     API_MIN_UPDATE
                 );
             }

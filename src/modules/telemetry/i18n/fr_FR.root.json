@@ -1,0 +1,20 @@
+{
+	"browsersupport": {
+		"close": "Masquer l'info",
+		"faqAnchor": "in-which-browsers-does-lss-manager-work",
+		"not": {
+			"text": "Cher utilisateur de LSS-Manager,<br>Malheureusement, LSSM ne supporte pas votre navigateur <b>{name}</b>. Cela signifie que nous ne pouvons garantir le plein fonctionnement de toutes les fonctionnalités. Vous pouvez trouver une liste des navigateurs supportés dans notre <a href='{wiki}/faq.html#{wikiAnchor}' class='lightbox-open'>FAQ</a>.",
+			"title": "Navigateur non supporté"
+		},
+		"old": {
+			"text": "Votre navigateur semble ne pas être à jour. Vous utilisez <b>{name} {current}</b>, alors que la dernière version est <b>{name} {latest}</b> ! Seules les versions supérieures à <b>{supported}</b> sont supportées pour des raisons de sécurité et de compatibilité. Vous pouvez télécharger la dernière version de votre navigateur <a href='{download}' class='lightbox-open'>ici</a>.<br>Une liste des navigateurs supportés se trouve sur notre <a href='{wiki}/faq.html#{wikiAnchor}' class='lightbox-open'>FAQ</a>.",
+			"title": "Navigateur obsolète"
+		}
+	},
+	"info": {
+		"close": "Ne plus me montrer ceci",
+		"text": "LSS Manager collecte des metadata comme expliqué sur notre <a href='{wiki}/metadata.html' class='lightbox-open'>Wiki</a>. Pendant la phase de développement, la collecte des données ne peut pas être arrêtée.",
+		"title": "Information sur la collecte des metadata"
+	},
+	"name": "Télémetrie"
+}
