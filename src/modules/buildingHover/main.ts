@@ -67,7 +67,11 @@ export default (async (LSSM, MODULE_ID) => {
                 }&nbsp;<i class="fa fa-users"></i>&nbsp;${
                     building.personal_count
                 }`;
-                if (building.building_type === 6)
+                if (
+                    Object.values(LSSM.$t('cellBuildings')).indexOf(
+                        building.building_type
+                    ) >= 0
+                )
                     data += `&nbsp;<i class="fa fa-border-all"></i>&nbsp;${
                         building.extensions.filter(x => x.available).length
                     }&nbsp;(${building.extensions.length})`;
