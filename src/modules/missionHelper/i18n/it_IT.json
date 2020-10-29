@@ -1,0 +1,93 @@
+{
+	"diyMission": "Questa missione, sembra essere una missione dell\'Alleanza!",
+	"expansions": "Si diffonde | Diffusione",
+	"followups": "Follow-up Mission | Follow-up Missions",
+	"generated_by": "Generata da",
+	"noVehicleRequirements": [
+		"water_needed"
+	],
+	"patients": {
+		"allow_ktw_instead_of_rtw": "A BLS can be used instead of an ALS.",
+		"helicopter": "Probabilità richiesta per Elisoccorso",
+		"patient_allow_first_responder_chance": "First Responder Probability",
+		"patient_at_end_of_mission": "Il paziente apparirà solo alla fine delle operazioni!",
+		"patient_transport": "Probabilità di trasporto",
+		"possible_patient": "Pazienti massimi",
+		"possible_patient_exact": "exact {n} Patient | exact {n} Patients",
+		"possible_patient_min": "Pazienti minimi",
+		"specializations": "Specializzazione",
+		"title": "Pazienti | {n} Paziente | {n} Pazienti"
+	},
+	"prerequisites": {
+		"brush_extension": "",
+		"federalpolice_stations": "",
+		"fire_aviation_count": "",
+		"fire_stations": "Caserma dei vigili del fuoco | Ceserme dei Vigili del Fuoco",
+		"max_police_stations": "Numero Massimo di Stazioni di Polizia",
+		"max_rescue_stations": "Numeo Massimo di Stazioni di Soccorso",
+		"police_helicopter_stations": "Elibase Polizia| Elibasi Polizia",
+		"police_stations": "Stazione di Polizia | Stazioni di Polizia",
+		"rescue_stations": "Stazione dell Ambulanze | Stazioni delle Ambulanze",
+		"title": "Prerequisito | Prerequisiti"
+	},
+	"prisoners": {
+		"max_possible_prisoners": "Prigionieri massimi",
+		"title": "Prigioniero | {n} Prigioniero | {n} Prigioniero"
+	},
+	"requirements": {
+		"water_needed": ""
+	},
+	"vehicles": {
+		"captions": {
+			"ambulances": "Ambulanza | Ambulanze",
+			"arff": "ARFF",
+			"battalion_chief_vehicles": "Funzionario | Funzionari",
+			"boats": "",
+			"brush_truck": "",
+			"fbi": "",
+			"fbi_bomb": "Furgone Artificieri | Furgoni Artificieri",
+			"fbi_drone": "",
+			"fbi_investigation": "",
+			"fbi_mcc": "",
+			"fire_aviation": "",
+			"firetrucks": "ABP/APS | ABP/APS",
+			"hazmat_vehicles": "NBCR | NBCR",
+			"heavy_rescue_vehicles": "Polisoccrso | Polisoccorso",
+			"helicopter": "Elisoccorso",
+			"k9": "Unità Cinofila Antidroga",
+			"large_fire_boat": "",
+			"large_rescue_boat": "",
+			"mobile_air_vehicles": "Carro Aria | Carri Aria",
+			"mobile_command_vehicles": "UCL | UCL",
+			"platform_trucks": "Autoscala | Autoscale",
+			"police_cars": "Volante | Volanti",
+			"police_helicopters": "Elicottero della Polizia | Elicotteri della Polizia",
+			"sheriff": "",
+			"swat_armored_vehicle": "Furgone Antisommossa | Furgoni Antisommossa",
+			"swat_suv": "Uopi SUV| Uopi SUV",
+			"water_tankers": "KIlolitrica | Kilolitriche"
+		},
+		"multifunctionals": {
+			"battalion_chief_vehicles": {
+				"additional_text": "",
+				"reduce_from": "mobile_command_vehicles"
+			},
+			"heavy_rescue_vehicles": {
+				"additional_text": "thereof at least. {n} Rescue Engines",
+				"reduce_from": "firetrucks"
+			}
+		},
+		"optional_alternatives": {
+			"allow_arff_instead_of_lf": {
+				"firetrucks": "Fire Engine or ARFF | Fire Engine or ARFF"
+			},
+			"allow_rw_instead_of_lf": {
+				"firetrucks": "Fire Engine or Heavy Rescue or Rescue Engine | Fire Engines or Heavy Rescue or Rescue Engine"
+			}
+		},
+		"patient_additionals": {
+			"10": "EMS-Chief"
+		},
+		"title": "Veicoli"
+	}
+}
