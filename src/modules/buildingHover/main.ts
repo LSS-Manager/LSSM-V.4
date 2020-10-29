@@ -58,10 +58,7 @@ export default (async (LSSM, MODULE_ID) => {
         } ${marker.options.title}`;
 
         if (building) {
-            if (
-                Object.values(LSSM.$t('vehicleBuildings')).indexOf(
-                    building.building_type
-                ) >= 0
+            if (Object.values(LSSM.$t('vehicleBuildings')).includes(building.building_type)
             ) {
                 data += `<br><i class="fa fa-parking"></i>&nbsp;${building.level +
                     1}&nbsp;<i class="fa fa-car"></i>&nbsp;${
@@ -69,7 +66,7 @@ export default (async (LSSM, MODULE_ID) => {
                 }&nbsp;<i class="fa fa-users"></i>&nbsp;${
                     building.personal_count
                 }`;
-                if (building.building_type === 6)
+                if(Object.values(LSSM.$t('cellBuildings')).includes(building.building_type))
                     data += `&nbsp;<i class="fa fa-border-all"></i>&nbsp;${
                         building.extensions.filter(x => x.available).length
                     }&nbsp;(${building.extensions.length})`;
@@ -88,17 +85,11 @@ export default (async (LSSM, MODULE_ID) => {
                     }&nbsp;)</td></tr>`;
                 });
                 data += `</table>`;
-            } else if (
-                Object.values(LSSM.$t('bedBuildings')).indexOf(
-                    building.building_type
-                ) >= 0
+            } else if (Object.values(LSSM.$t('bedBuildings')).includes(building.building_type)
             ) {
                 data += `<br><i class="fa fa-procedures"></i>&nbsp;${building.level +
                     10}`;
-            } else if (
-                Object.values(LSSM.$t('schoolBuildings')).indexOf(
-                    building.building_type
-                ) >= 0
+            } else if (Object.values(LSSM.$t('schoolBuildings')).includes(building.building_type)
             ) {
                 data += `<br><i class="fa fa-chalkboard-teacher"></i>&nbsp;${building
                     .extensions.length + 1}`;

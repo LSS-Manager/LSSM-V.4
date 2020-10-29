@@ -218,10 +218,10 @@ export default {
         ) {
             const vehicle = state.vehicles.find(v => v.id === id);
             if (!vehicle) return;
-            state.vehicleStates[vehicle.fms_real]--;
-            if (!state.vehicleStates.hasOwnProperty(fms_real))
-                state.vehicleStates[fms_real] = 0;
-            state.vehicleStates[fms_real]++;
+            state.vehicleStates[vehicle.fms_show]--;
+            if (!state.vehicleStates.hasOwnProperty(fms))
+                state.vehicleStates[fms] = 0;
+            state.vehicleStates[fms]++;
             vehicle.caption = caption;
             vehicle.fms_show = fms;
             vehicle.fms_real = fms_real;
