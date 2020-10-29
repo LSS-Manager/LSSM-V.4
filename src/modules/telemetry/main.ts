@@ -64,7 +64,7 @@ export default (LSSM: Vue): void => {
 
         LSSM.$store
             .dispatch('api/request', {
-                url: `${LSSM.$store.state.server}stat.php?uid=${BUILD_LANG}-${window.user_id}`,
+                url: `${LSSM.$store.state.server}telemetry.php?uid=${BUILD_LANG}-${window.user_id}`,
                 init: {
                     method: 'POST',
                     headers: {
