@@ -147,11 +147,9 @@ export default (async (LSSM, MODULE_ID, $m: $m) => {
         document.body.append(style);
     };
     refresh_shown_pois();
-
+    const paddingLeftPOI = [3, 4].includes(LSSM.$store.state.api.settings.design_mode) ? '25px' : '1ch';
     const observer = new MutationObserver(mutations => {
         mutations.forEach(mutation => {
-            if(this.$store.state.api.settings['design_mode'] === 3||this.$store.state.api.settings['design_mode'] === 4){var paddingLeftPOI = '25px';}
-            else var paddingLeftPOI = '1ch';
             const form = (mutation.target as HTMLElement).querySelector(
                 '#new_mission_position'
             );
