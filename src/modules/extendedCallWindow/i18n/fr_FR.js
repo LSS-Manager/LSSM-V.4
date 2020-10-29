@@ -74,11 +74,11 @@ module.exports = {
     tailoredTabs: {
         defaultTabs: [
             {
-                name: 'Véhicles de pompier',
+                name: 'Fourgon d\'incendie',
                 vehicleTypes: [0, 1, 2, 12, 13],
             },
             {
-                name: 'Autres véhicules d\'incendie',
+                name: 'Autres appareils incendie',
                 vehicleTypes: [3, 4, 6, 7, 10, 11, 14, 15],
             },
             {
@@ -95,7 +95,7 @@ module.exports = {
             },            
         ],
         allTab: 'Tout',
-        occupiedTab: 'Follow-up',
+        occupiedTab: 'Poursuivre',
     },
     hideVehicleList: {
         show: 'Afficher la liste des véhicules',

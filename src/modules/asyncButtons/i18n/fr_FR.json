@@ -30,8 +30,8 @@
 		"admin": "Administrateur d'alliance",
 		"aufsichtsrat": "Journal de modération",
 		"coadmin": "Coadministrateur d'alliance",
-		"finance": "Chef des finances",
-		"schooling": "Chef de formation",
-		"sprechwunsch_admin": "Chef des transports"
+		"finance": "Finances de l'alliance",
+		"schooling": "Formateur de l'alliance",
+		"sprechwunsch_admin": "Demande de transport - administrateur"
 	}
 }

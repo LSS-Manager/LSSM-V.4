@@ -826,6 +826,6 @@ export default {
         'Voie navigable',
         'Camping',
     ],
-    only_alliance_missions: [],
+    only_alliance_missions: [57, 74],
     transfer_missions: [],
 };
