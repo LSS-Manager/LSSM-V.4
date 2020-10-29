@@ -1,0 +1,49 @@
+{
+	"desktopTest": {
+		"text": "Les notifications de bureau ont été activées !",
+		"title": "Notifications de bureau"
+	},
+	"messages": {
+		"allianceCandidature": {
+			"body": "Vous alliance a une nouvelle candidature ! Candidatures en ce moment : {n}",
+			"title": "Nouvelle candidature ! | Nouvelles candidatures !"
+		},
+		"allianceForum": {
+			"body": "Il y a un nouveau message dans le forum. Ouvez-le en cliquant sur cette notification.",
+			"title": "Nouveau message dans le forum"
+		},
+		"allianceMessage": {
+			"body": "Il y a un nouveau message dans l'alliance. Ouvez-le en cliquant sur cette notification.",
+			"title": "Nouveau message dans l'alliance"
+		},
+		"allianceNews": {
+			"body": "L'alliance a publié une nouvelle actualité. Ouvez-la en cliquant sur cette notification.",
+			"title": "Nouvelle actualité !"
+		},
+		"dm": {
+			"body": "Vous avez {n} message non lu. | Vous avez {n} messages non lus.",
+			"title": "Vous avez {n} nouveau message! | Vous avez {n} nouveaux messages!"
+		},
+		"ingame_news": {
+			"body": "Nouvelles fonctionnalités en jeu ! Ouvrez Facebook pour voir de quoi il s'agit",
+			"title": "Nouveauté dans le jeu"
+		},
+		"mission_getred": {
+			"body": "{address}<br>Cette mission réclame votre attention"
+		},
+		"mission_getred_alliance": {
+			"body": "{address}<br>Cette mission partagée réclame votre attention"
+		},
+		"radioMessage": {
+			"title": "{vehicle} passe en status {status}!"
+		}
+	},
+	"noPermission": {
+		"text": "Votre navigateur est paramétré pour bloquer les notifications de bureau. Si vous voulez toujours recevoir ces notifications vous devez les réactiver dans les paramètres de votre navigateur.",
+		"title": "Notifications de bureau" 
+	},
+	"permission": {
+		"text": "Autorisez les notifications de bureau en cliquant sur cette notification.",
+		"title": "Notifications de bureau"
+	}
+}

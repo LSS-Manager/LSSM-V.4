@@ -1,0 +1,34 @@
+{
+	"description": "Plein d'améliorations (les liens sont cliquables par exemple).",
+	"name": "Améliorations générales",
+	"settings": {
+		"browserTitle": {
+			"description": "Ajuste le titre de l'onglet du navigateur pour montrer ce qui est actuellement ouvert en jeu.",
+			"title": "Titre de l'onglet"
+		},
+		"clickableLinks": {
+			"description": "Les liens textes (dans le chat, forum, message etc.) sont cliquables. Ils s'ouvrent dans un nouvel onglet.",
+			"title": "Liens cliquables"
+		},
+		"emojiPicker": {
+			"description": "Affiche une séléction d'émoji quand vous tapez : suivi d'un texte.",
+			"title": "Émojis"
+		},
+		"linkPreviews": {
+			"buildings": "Bâtiments",
+			"description": "Affiche une info-bulle au survol d'un lien. Choisissez ici pour quels lien les info-bulles sont actives :",
+			"missions": "Missions",
+			"profile": "Profil",
+			"title": "Prévisualiser le lien",
+			"vehicles": "Véhicules"
+		},
+		"mapUndo": {
+			"description": "Centre la carte sur la position du dernier centrage. Ne marche qu'avec \"OpenStreetMap\" pour le moment.",
+			"title": "Sauvegarde centrage de carte"
+		},
+		"showImg": {
+			"description": "Essaie de générer une miniature. Ne fonctionne que si \"Liens cliquables\" est activé aussi.",
+			"title": "Miniature de prévisualisation"
+		}
+	}
+}

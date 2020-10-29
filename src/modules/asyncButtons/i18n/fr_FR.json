@@ -1,0 +1,37 @@
+{
+	"deleteARR": {
+		"deleteModal": {
+			"btnCancel": "Annuler",
+			"btnConfirm": "Supprimer",
+			"text": "Voulez-vous supprimer cette régulation ?",
+			"title": "Supprimer ?"
+		}
+	},
+	"forumPost": {
+		"deleteModal": {
+			"btnCancel": "Annuler",
+			"btnConfirm": "Supprimer",
+			"text": "Voulez-vous supprimer ce post ?",
+			"title": "Supprimer ?"
+		}
+	},
+	"memberlistManageUser": {
+		"hide": "Fermer",
+		"kickModal": {
+			"btnCancel": "Annuler",
+			"btnConfirm": "Kick",
+			"text": "Voulez-vous vraiment kicker ce joueur ?",
+			"title": "Kick ?"
+		},
+		"set": "Appliquer",
+		"unset": "Retirer"
+	},
+	"memberlistRoles": {
+		"admin": "Administrateur d'alliance",
+		"aufsichtsrat": "Journal de modération",
+		"coadmin": "Coadministrateur d'alliance",
+		"finance": "Chef des finances",
+		"schooling": "Chef de formation",
+		"sprechwunsch_admin": "Chef des transports"
+	}
+}
