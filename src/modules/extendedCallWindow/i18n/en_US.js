@@ -77,7 +77,7 @@ module.exports = {
     enhancedMissingVehicles: {
         vehicle: 'Vehicle type',
         missing: 'Missing on mission',
-        driving: 'Approach',
+        driving: 'En-route',
         total: 'Still needed',
         selected: 'Selected',
         vehiclesByRequirement: {
@@ -95,7 +95,7 @@ module.exports = {
             [/^Police helicopter(s)?$/]: [23],
             [/^SWAT Personells$/]: [16, 26],
             [/^SWAT$/]: [16, 26],
-            [/^ARFF Crahs Tender/]: [17],
+            [/^ARFF/]: [17],
             [/^K-9 Unit(s)?$/]: [19],
             [/^Large Fireboat(s)?$/]: [24],
             [/^Large Rescue boat(s)?$/]: [25],

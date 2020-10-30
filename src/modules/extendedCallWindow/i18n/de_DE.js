@@ -134,6 +134,7 @@ module.exports = {
             [/^ELW 1$/]: [3, 34, 78],
             [/^ELW 2$/]: [34, 78],
             [/^Flugfeldlöschfahrzeuge$/]: [75],
+            [/^Feuerwehrleute$/]: [],
             [/^FuStW$/]: [32, 95],
             [/^FwK$/]: [57],
             [/^FüKw$/]: [51],
