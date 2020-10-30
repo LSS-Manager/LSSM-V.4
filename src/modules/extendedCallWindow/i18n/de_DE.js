@@ -147,6 +147,7 @@ module.exports = {
             [/^GW-Öl$/]: [10, 49],
             [/^Gerätekraftwagen \(GKW\)$/]: [39],
             [/^GruKw$/]: [50],
+            [/^GW-San$/]: [60],
             [/^LKW Kipper \(LKW K 9\)$/]: [42],
             [/^Löschfahrzeuge? \(LF\)$/]: [
                 0,
