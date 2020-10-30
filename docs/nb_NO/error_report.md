@@ -1,27 +1,27 @@
 ---
 title: Report bugs
-lang: en_GB
+lang: nb_NO
 sidebarDepth: 2
 ---
 
-# Report bugs
+# Rapporter feil
 
-## Guideline
-Here is a small guideline on how to create error messages optimally.
+## Guide
+Her en liten guide på hvordan du best mulig kan rapportere en feil.
 
-Before you report an error, it might be helpful to have a look here in the wiki to see if this is a desired function or if it is already known. In the latter case there might even be a possible solution.
+Før du rapporterer en feil, kan det være lurt å se på Wikien for å se om det er en funksjon eller om det er en kjent feil. Dersom det er sistnevnte er det kanskje en kjent fiks for feilen. 
 ::: tip
-If you want to report a bug, always describe it as accurately as possible. The more detailed your error message is, the faster we can help you.
+Dersom du skal rapportere en feil, beskriv det så nøyaktiv som mulig. Desto mer detaljert rapporten er, desto fortere kan vi reprodusere og hjelpe deg. 
 :::
 ::: warning
-Please note that we do not officially support older browsers, mobile browsers and Microsoft Edge or Internet Explorer. Support for these browsers is therefore neither guaranteed nor likely.
+LSS Manager støtter ikke eldre nettlesere, nettlesere på telefon og nettbrett, Microsoft Edge eller Internet Explorer. Støtte for disse nettleserene er derfor ikke garantert eller sannsynlig.
 :::
 
-### 1. Formulate problem
+### 1. Formuler problemet
 First describe the error. Provide any information that could be important. Also explain what you were doing when the error occurred.
 
-### 2. Specify user data
-Please provide us with your username or userId. It is also useful to indicate the activated modules. Please also indicate the version of LSSM. You can find it by clicking on `LSSM V.4` in the top right corner of the game's main page, right in the first line.
+### 2. Spesifiser brukerdata
+Vennligst oppgi ditt brukernavn eller brukerid. Det er også hjelpsomt å oppgi hvilke utvidelser du har aktivert og hvilken versjon av LSSM du har installert. Versjonsdata finner du ved å trykke på `LSSM V.4` øverst i høyre hjørne.
 
-### 3. Report problem
-Now you can send us your formulated problem with user data. To do this, open an issue on <a :href="$themeConfig.variables.github + '/issues'" target="_blank">GitHub</a>. Please check if an issue for this bug already exists and then follow it up.
+### 3. Rapporter problemet
+Nå kan du sende oss feilrapporten med dataen du har samlet. For å gjøre dette, åpne en feilmelding på <a :href="$themeConfig.variables.github + '/issues'" target="_blank">GitHub</a>. Vennligst sjekk på forhånd om feilen du opplever har blitt rapportert tidligere.

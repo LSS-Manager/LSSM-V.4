@@ -1,50 +1,53 @@
 ---
 title: FAQ ❓
-lang: en_GB
+lang: nb_NO
 sidebarDepth: 3
 ---
 
 # FAQ ❓
 
-### What does LSS Manager cost?
-LSS-Manager is a free offer - we do not intend to change this.
-
+### Hva koster LSS Manager?
+LSS-Manager er gratis - sånn det skal det være.
 ::: warning donations
-There are a few nice users who would like to donate money to us. But: The LSS-Manager is and remains free of charge. Also we will not accept any donations for this project.
+Det er enkelte hyggelige brukere som ønsker å donere penger til prosjektet. Men:
+LSS-Manager er og kommer til å være gratis, vi kommer ikke til å akseptere donasjoner for dette prosjektet.
 
-This has several reasons:
+Det er flere årsaker til det:
 
-* This project is developed on a voluntary basis in the spare time of the participating developers
-* A subscription variant, similar to the Premium in the game would put too much pressure on us personally to continue programming beyond our desire.
-* For legal reasons we cannot accept donations:
-    * If we would found a company for LSS Manager so that we could receive donations, this would have no future, because a company without expenses cannot be a company.
-    * If we would run the servers, which are currently running LSS Manager, through a company, they would immediately eat up the income.
+* Dette prosjektet er utviklet av frivillige på fritiden til deltagende utviklere.
+* Et abonnement, lignende premium i spillet setter for mye press på utviklere personlig.
+* Av juridiske årsaker kan vi ikke akseptere donasjoner:
+    * Dersom vi stiftet et selskap for LSS Manager, slik at vi kunne motta donasjoner, hadde ikke vi hatt en fremtid, fordi et selskap uten utgifter ikke kan være et selskap.
+    * Dersom vi hadde kjørt serverene som pr. i dag kjører LSS Manager, gjennom et selskap, hadde de umiddelbart brukt opp inntekten.
 
-Therefore, besides the idea of voluntariness, it makes no sense for us to take money for the LSS-Manager.
+Derfor gir det ikke meningen for oss å ta penger for LSS-Manager.
 :::
 
-### How can I contribute to LSS Manager?
-The "normal" user can [report bugs][error] or [make suggestions][suggestions].
+### Hvordan kan jeg bidra til LSS Manager?
+Brukere kan 
+The "normal" user can [rapportere feil][error] eller [komme med forslag][suggestions].
 
-We are currently designing a style guide for developers, so that they too can easily add their own plugins to LSSM. We also tried to keep our code structure clear and understandable. However, adding a plugin does not in any way imply joining the team.
+Vi utvikler en guide for utviklere, slik at de også enkelt kan legge til deres egne utvidelser til LSSM. Vi forsøker å holde kodestrukturen klar og forståelig. Det er viktig å vite at dersom man legger til sin utvidelse blir man ikke automatisk med i teamet.
 
-### How do I report bugs?
-Please have a look at our [report bugs][error] page.
+### Hvordan rapporterer jeg feil?
+Vennligst se [rapporter feil][error].
 
-### Where can I get help?
-Through our support. You can find more information [here][support].
+### Hvor kan jeg få hjelp?
+Gjennom vår brukerstøtte. Du kan få mer informasjon [here][support].
 
-### How can I submit ideas?
-On the [suggestions][suggestions] page we have put together some information about it.
+### Hvor kan jeg komme med forslag?
+På [Forslag][suggestions] siden har vi skrevet litt informasjon om hvordan du kan komme med forslag.
 
-### In which browsers does LSS Manager work?
-Only desktop browsers are listed here, as mobile browsers are not officially supported.
-This table is not necessarily correct yet and will be updated when new information is available!
+### I hvilke nettlesere fungerer LSS Manager?
+Kun nettlesere for PC er oppgitt her, siden nettlesere for mobil ikke er offisielt støttet.
+Denne oversikten er ikke nødvendigvis korrekt enda, og blir oppdatert når ny informasjon er tilgjengelig!
 
-Since we want to keep the latest coding standards throughout, a modern and up-to-date browser is necessary and recommended - if only for security reasons, even outside the game.
+Siden vi ønsker å beholde siste nytt innenfor kodestandarder, en moderne og oppdatert nettleser er nødvendig og anbefalt - av sikkerhetsårsaker, selv utenfor spillet.
+
+
 
 ::: warning compatibility
-A compatibility listed here does not guarantee functionality. This is only information collected and evaluated by third parties.
+En kompilitet listet her garanterer ikke at det fungerer. Denne informasjonen er samlet og evaluert av tredjeparter.
 :::
 
 <table>
@@ -64,18 +67,19 @@ A compatibility listed here does not guarantee functionality. This is only infor
 </tbody>
 </table>
 
-::: danger Internet Explorer and Microsoft Edge
-These two browsers can be described as the "problem children" of a modern web developer. There are some functions that do not work in them, or require additional code.
+::: danger Internet Explorer og Microsoft Edge
+Disse nettleserene kan beskrives som "problembarnene" til en moderne web-koder. 
 
-We don't see the point of doing this everywhere and officially **do not** support these two browsers.
+Det er noen funksjoner som ikke fungerer i dem og vi støtter offisielt ikke disse nettleserene.
+
 :::
 
-### I want to share my setup with friends or use it on multiple devices. Is that possible?
+### Jeg vil dele oppsettet mitt med venner eller bruke det på flere enheter, er det mulig? 
+Det er for øyeblikket ikke mulig, men vi jobber med det.
 Currently it is not possible, but we are working on it.
 
-### Is there a way to save settings account bound so that you don't have to import them on another device?
-Currently we do not offer this, but an implementation of this feature is planned.
-
+### Er det mulig å lagre innstillingene jeg har valgt så jeg slipper å importere til en annen enhet?
+For øyeblikket støtter vi ikke det, men vi jobber med det.
 
 [support]: support.md
 [error]: error_report.md

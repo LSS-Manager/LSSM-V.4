@@ -1,17 +1,18 @@
 ---
-title: ℹ️ General
-lang: en_GB
+title: ℹ️ Generelt
+lang: nb_NO
 sidebarDepth: 2
 ---
 
-# ℹ️ General information on modules
+# ℹ️ Generell informasjon om utvidelser
 
-On the following pages you will find a description of all our modules. We have done our best to keep them as understandable and complete as possible. However, due to the size of LSSM this is not always easy.
+På følgende sider finner du en beskrivelse av alle utvidelsene.
+Vi har forsøkt å holde det så enkelt og fullstendig som mulig, men naturligvis, grunnet omfanget til LSSM er ikke det alltid enkelt.
 
-If you have suggestions for improvement, you can send them to us as always - or even do it yourself.
+Dersom du har forslag til endringer, kan du sende dem til oss - eller til og med utføre dem selv!
 
 :::danger modules that do not work in Mapkit
-As described in the explanation of the [Appstore](appstore.md), there are modules which are unfortunately not compatible with the map type `Mapkit`. These are these modules:
+Som beskrevet i [Appstore](appstore.md) er det moduler som dessverre ikke er kompitabel med kartet `Mapkit`. Det gjelder disse utvidelsene:
 <ul>
     <li v-for="module in $themeConfig.variables.noMapkitModules.en_GB" :key="module.title">
         <router-link :to="module.f">

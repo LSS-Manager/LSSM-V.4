@@ -1,18 +1,16 @@
 ---
 title: Appstore 🛒
-lang: en_GB
+lang: nb_NO
 ---
 
 # Appstore :shopping_cart:
 
-The Appstore is one of the central elements of LSS Manager. Here you can (de-)activate each module individually. A brief description of each module is also provided directly in the appstore.
-So that you can easily get a deeper insight into the module without having to activate the module first, the wiki entry of each module is accessible via the small blue `i`.
+Appstoren er en av de sentrale elementene av LSS Manager. Her kan du (de-)aktivere en hver utvidelse individuelt. En kort beskrivelse av enhver utvidelse er også å finne i Appstore, slik at du kan få bedre innsikt i utvidelsen uten å måtte aktivere den først. Wikiartikkelen for enhver utvidelse er lenket i den lille blå `i`.
 
 ::: tip Changes
-If you have unsaved changes, you cannot close the Appstore, a small hint message will appear.
+Dersom du har ulagrede endringer, dukker det opp en advarsel.
 :::
 ::: warning Support of the map type "MapKit"
-There are a few modules that are not supported when MapKit is selected as the map type. This is because some functionality is not provided by MapKit itself. A complete list of these modules can be found at [ℹ️ General information on modules](apps.md).
-
-For the same reason, there are also some minor restrictions for MapKit users.
+Det er noen moduler som ikke støttes når MapKit er valgt som karttype. Det er fordi enkelte funksjoner som vi benytter oss av ikke er tilgjengelig. En komplett liste av modulene det gjelder finnes på [ℹ️ General information on modules](apps.md).
+På grunn av dette er ikke alle utvidelser tilgjengelig for MapKit brukere.
 :::
