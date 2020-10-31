@@ -1,0 +1,56 @@
+{
+	"alertStyles": {
+		"danger": "Message d'erreur (rouge)",
+		"info": "Info (bleu)",
+		"success": "Confirmation (vert)",
+		"warning": "Alerte (orange)"
+	},
+	"description": "Notification de jeu et de bureau pour différents évènements. Tout est configurable",
+	"events": {
+		"allianceCandidature": "Nouvelle candidature dans l'alliance",
+		"allianceChat": "Message chat",
+		"allianceChatMention": "Message chat (seulement mentions)",
+		"allianceChatWhisper": "Message chat (seulement whispers)",
+		"allianceForum": "Nouveau message sur le forum",
+		"allianceMessage": "Nouveau message d'alliance",
+		"allianceNews": "Nouvelle actualité d'alliance",
+		"dm": "Nouveau message privé",
+		"ingame_news": "Nouveauté dans le jeu",
+		"mission_getred": "Une mission demande votre attention",
+		"mission_getred_alliance": "Une mission partagée demande votre attention",
+		"mission_new": "Une mission a été générée",
+		"mission_new_largescale": "Une Mission d'Alliance a été créée",
+		"mission_share": "Une mission a été partagée",
+		"sicherheitswache_error": "Mission planifiée annulée",
+		"sicherheitswache_success": "Mission planifiée terminée",
+		"vehicle_fms": "Messages radio (général)",
+		"vehicle_fms_1": "Messages radio (status 1)",
+		"vehicle_fms_2": "Messages radio (Status 2)",
+		"vehicle_fms_3": "Messages radio (Status 3)",
+		"vehicle_fms_4": "Messages radio (Status 4)",
+		"vehicle_fms_5": "Messages radio (Demande de transport)",
+		"vehicle_fms_6": "Messages radio (Status 6)",
+		"vehicle_fms_7": "Messages radio (Status 7)",
+		"vehicle_fms_9": "Messages radio (Status 9)"
+	},
+	"name": "Notifications",
+	"positions": {
+		"bottom center": "En bas 🡣",
+		"bottom left": "En bas à gauche 🡧",
+		"bottom right": "En bas à droite 🡦",
+		"top center": "En haut 🡡",
+		"top left": "En haut à gauche 🡤",
+		"top right": "En haut à droite 🡥"
+	},
+	"settings": {
+		"alertStyle": "Type de notification en jeu",
+		"alerts": {
+			"title": "Définir les notifications"
+		},
+		"desktop": "Envoyer les notifications sur le bureau",
+		"duration": "Temps d'affichage",
+		"eventTypes": "Évènements",
+		"ingame": "Envoyer les notifications en jeu",
+		"position": "Position"
+	}
+}

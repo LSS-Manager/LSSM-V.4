@@ -8,7 +8,7 @@ lang: nl_NL
 De Appstore is een van de centrale elementen van LSS Manager. Hier kunt u elke module afzonderlijk (de-)activeren. Een korte beschrijving van elke module wordt ook rechtstreeks in de appstore gegeven.
 Zodat u makkelijk een inzicht in de module kunt krijgen zonder de module eerst te activeren, het wiki-item van elke module is toegankelijk via de kleine blauwe `i`.
 
-::: tip Changes
+::: tip Veranderingen
 Als u niet-opgeslagen wijzigingen heeft, kunt u de Appstore niet sluiten, er verschijnt een klein meldingsbericht.
 :::
 ::: warning Ondersteuning van het kaarttype "MapKit"

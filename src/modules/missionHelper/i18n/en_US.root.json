@@ -1,19 +1,19 @@
 {
-	"description": "Get all important information about the application directly in the application window.",
+	"description": "Get all important information about a mission, in the mission window.",
 	"name": "Missionhelper",
 	"settings": {
 		"chances": {
 			"100": {
-				"description": "Shows also probabilities of 100%..",
-				"title": "100% probability to mention explicitly"
+				"description": "Shows probabilities of 100%",
+				"title": "Explicitly show 100% probabilities. "
 			},
 			"normal": {
-				"description": "Shows the probability with which a vehicle can be requested.",
-				"title": "Show probabilities"
+				"description": "Shows the probability of which a vehicle will be requested.",
+				"title": "Show Probabilities"
 			}
 		},
 		"credits": {
-			"description": "Indicates how many credits earned on average for the assignment.",
+			"description": "Indicates average credit income from an assignment.",
 			"title": "Credits"
 		},
 		"expansions": {
@@ -30,28 +30,28 @@
 		},
 		"hide_battalion_chief_vehicles": {
 			"description": "Hides Battalion Chief completely and shows only MCV.",
-			"title": "Hide battalion chief"
+			"title": "Hide Battalion Chiefs"
 		},
 		"id": {
 			"description": "Shows the Mission ID next to the title.",
 			"title": "Mission ID"
 		},
 		"k9_only_if_needed": {
-			"description": "Indicates, if the DHuFüKW is only requested, if available.",
+			"description": "Indicates, if K9 is only requested, if available.",
 			"title": "Optional service dogs"
 		},
 		"multifunctionals": {
 			"battalion_chief_vehicles": {
 				"description": "Subtracts the number of required MCV from Battalion Chief and hides Battalion Chief if the number drops below 0.",
-				"title": "Battalion Chief simply rate"
+				"title": "Battalion Chief Simple Rate"
 			},
 			"heavy_rescue_vehicles": {
-				"description": "Subtracts the number of required firetrucks from the Heavy Rescue and hides Heavy Rescue if the number drops below 0. This function is intended for people who drive a pure Rescue Engine system.",
-				"title": "heavy rescue simple rating"
+				"description": "Subtracts the number of required firetrucks from the Heavy Rescue and hides firetrucks if the number drops below 0. This function is intended for people who drive a pure Rescue Engine system.",
+				"title": "Heavy Rescue Simple Rate"
 			},
 			"platform_trucks": {
-				"description": "Subtracts the number of TM 50 required from the DLKs and hides DLKs if the number drops below 0.",
-				"title": "Evaluate DLK easily"
+				"description": "Subtracts the number of firetrucks from the Quints and hides firetrucks if the number drops below 0.",
+				"title": "Quint Simple Rate"
 			}
 		},
 		"optionalAlternatives": {

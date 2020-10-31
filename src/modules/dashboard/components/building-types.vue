@@ -81,9 +81,9 @@ export default Vue.extend<
             ),
     },
     data() {
-        const buildingTypes = Object.values(
-            this.$t('buildings')
-        ) as InternalBuilding[];
+        const buildingTypes = Object.values(this.$t('buildings')) as {
+            [id: number]: InternalBuilding;
+        };
         const categories = (this.$t('buildingCategories') as unknown) as {
             [category: string]: BuildingCategory;
         };

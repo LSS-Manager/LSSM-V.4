@@ -1,0 +1,49 @@
+{
+	"desktopTest": {
+		"text": "Desktop notificaties zijn succesvol geactiveerd!",
+		"title": "Desktop notificaties"
+	},
+	"messages": {
+		"allianceCandidature": {
+			"body": "Je team heeft een nieuwe aanmelding! Momenteel openstaande aanmeldingen: {n}",
+			"title": "Nieuwe aanmelding! | Nieuwe aanmeldingen!"
+		},
+		"allianceForum": {
+			"body": "Er is een nieuwe bericht op het team forum! Open het forum door op dit bericht te klikken.",
+			"title": "Nieuw bericht op teamforum!"
+		},
+		"allianceMessage": {
+			"body": "Er is een nieuw team bericht! Bekijk hem direct door op dit berict te klikken.",
+			"title": "Nieuw team bericht!"
+		},
+		"allianceNews": {
+			"body": "Je team heeft een nieuw nieuwsbericht! Klik op dit bericht om direct naar de nieuwspagina te gaan.",
+			"title": "Nieuw teamnieuws!"
+		},
+		"dm": {
+			"body": "Je hebt totaal {n} ongelezen bericht. | Je hebt totaal {n} ongelezen berichten.",
+			"title": "Je hebt {n} nieuw bericht! | Je hebt {n} nieuwe berichten!"
+		},
+		"ingame_news": {
+			"body": "Er is nieuws van het spel! Kijk snel wat de update van vandaag is!",
+			"title": "Nieuws van het spel"
+		},
+		"mission_getred": {
+			"body": "{address}<br>Deze melding heeft aandacht nodig!"
+		},
+		"mission_getred_alliance": {
+			"body": "{address}<br>Deze teammelding heeft aandacht nodig!"
+		},
+		"radioMessage": {
+			"title": "{vehicle} heeft status {status}!"
+		}
+	},
+	"noPermission": {
+		"text": "Het spel heeft geen toestemming om desktopmeldingen te versturen. Wil je ze toch ontvangen? Pas dit dan aan in je browser instellingen!",
+		"title": "Desktop notificaties"
+	},
+	"permission": {
+		"text": "Geef a.u.b. toestemming voor desktop notificaties door op dit bericht te klikken!",
+		"title": "Desktop notificaties"
+	}
+}

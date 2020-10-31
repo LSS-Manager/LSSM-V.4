@@ -1,0 +1,34 @@
+{
+	"extensionTitle": "{caption} (jusqu'à {n} fois)",
+	"tabs": {
+		"buildings": "Bâtiments",
+		"schoolings": "Formations",
+		"vehicles": "Véhicules"
+	},
+	"titles": {
+		"buildings": {
+			"caption": "Type de Bâtiment",
+			"cost": "Prix",
+			"extensions": "Extensions",
+			"levelcost": "Cout des extensions",
+			"maxBuildings": "Limite",
+			"maxLevel": "niveau maximum",
+			"special": "Spécificités",
+			"startPersonnel": "Employés de départ",
+			"startVehicles": "Véhicules de départ"
+		},
+		"schoolings": {
+			"caption": "Nom de la formation",
+			"duration": "Temps de formation"
+		},
+		"vehicles": {
+			"caption": "Type de véhicule",
+			"cost": "Prix",
+			"maxPersonnel": "employés maximum",
+			"minPersonnel": "employés minimum",
+			"schooling": "Formation",
+			"special": "Spécificités",
+			"wtank": "Citerne"
+		}
+	}
+}

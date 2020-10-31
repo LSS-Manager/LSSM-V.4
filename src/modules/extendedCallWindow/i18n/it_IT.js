@@ -15,7 +15,8 @@ module.exports = {
     arrHover: {
         reset: 'La selezione del veicolo viene ripristinata prima!',
         titles: {
-            set: 'Spesso questa combinazione viene selezionata quando si preme l\'AAR',
+            set:
+                "Spesso questa combinazione viene selezionata quando si preme l'AAR",
             attribute: 'La combinazione descritta in questa riga',
             free: 'Così spesso questa combinazione è disponibile',
             max:
@@ -24,7 +25,7 @@ module.exports = {
         // TODO: find out italian values
         arrSpecs: {
             fire: 'Camion VVF',
-            wasser_amount: 'Litri d\'acqua',
+            wasser_amount: "Litri d'acqua",
             elw: 'Funzionario',
             elw2: 'UCL',
             dlk: 'Autoscala',

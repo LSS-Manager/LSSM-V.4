@@ -125,18 +125,21 @@ export default {
             locale_fallback: 'en_US',
             name: 'Nodsentralspillet.com',
             shortURL: 'nodsentralspillet.com',
+            police: 'politiet',
         },
         nl_NL: {
             flag: '🇳🇱',
-            locale_fallback: 'en_GB',
+            locale_fallback: 'en_US',
             name: 'Meldkamerspel.com',
             shortURL: 'meldkamerspel.com',
+            police: 'politie',
         },
         pl_PL: {
             flag: '🇵🇱',
             locale_fallback: 'en_US',
             name: 'Operatorraunkowy.pl',
             shortURL: 'operatorratunkowy.pl',
+            police: 'policja',
         },
         pt_BR: {
             flag: '🇧🇷',
@@ -173,6 +176,7 @@ export default {
             locale_fallback: 'en_US',
             name: 'Larmcentralen-spelet.se',
             shortURL: 'larmcentralen-spelet.se',
+            police: 'polis',
         },
         tr_TR: {
             flag: '🇹🇷',

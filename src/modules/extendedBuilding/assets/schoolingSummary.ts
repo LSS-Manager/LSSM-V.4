@@ -56,7 +56,7 @@ export default (LSSM: Vue, $m: $m): void => {
     if (buildingId < 0) return;
 
     const vehicleTypes = Object.values(
-        (LSSM.$t('vehicles') as unknown) as InternalVehicle[]
+        (LSSM.$t('vehicles') as unknown) as { [id: number]: InternalVehicle }
     );
     const buildingVehicleTypes = {} as {
         [type: string]: {
@@ -86,7 +86,8 @@ export default (LSSM: Vue, $m: $m): void => {
                         Object.entries(summaryEach).map(
                             ([schooling, { amount, bound }]) => {
                                 const matchingTypes = schooling
-                                    ? Object.entries(vehicleTypes).filter(
+                                    ? // TODO: Check if this makes problems where there are holes in vehicle IDs
+                                      Object.entries(vehicleTypes).filter(
                                           ([, t]) =>
                                               t.shownSchooling === schooling
                                       )

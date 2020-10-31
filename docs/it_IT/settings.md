@@ -3,7 +3,7 @@ titolo: Impostazioni ⚙️
 lang: it_IT
 ---
 
-# Impostazioni ⚙️:gear:
+# Impostazioni ⚙️
 
 Le impostazioni di tutti i moduli sono gestiti centralmente nelle impostazioni. Solo le impostazioni dei moduli attivi possono essere cambiati.
 

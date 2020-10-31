@@ -13,7 +13,7 @@ A little aid, which should help you to create a support request.
 If you need assistance, describe your problem as precisely as possible. The better and more detailed you describe your problem, the faster and better we can help you.
 :::
 ::: warning
-Please note that we do not officially support older browsers, mobile browsers and Microsoft Edge or Internet Explorer. Support for these browsers is therefore neither guaranteed nor likely.
+Please note that we do not officially support; older browsers; mobile browsers; Microsoft Edge; or Internet Explorer.
 :::
 
 ### 1. Formulate problem
