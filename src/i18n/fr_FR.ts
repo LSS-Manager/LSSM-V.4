@@ -625,7 +625,7 @@ export default {
             vehicles: {
                 'Fourgon dìncendie': [0, 1, 12, 13],
                 'Échelles': [2, 15],
-                'Véhicules spéciaux': [3, 4, 6, 7, 10, 14],
+                'Véhicules spéciaux': [4, 6, 7, 10, 14],
                 'Chefs de groupe': [3, 11],
                 'Nautique': [16, 17],
             },
