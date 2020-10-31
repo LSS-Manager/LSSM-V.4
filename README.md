@@ -75,7 +75,17 @@ Klik op de onderstaande banner om naar onze Support Discord Server te gaan!
 Het gebruik van het script is op eigen risico. Wij zijn niet aansprakelijk voor eventuele schade of iets dergelijks, die wordt veroorzaakt door het gebruik van dit script. SHPlay GmbH is op geen enkele wijze verantwoordelijk voor de inhoud van het script.
 </details>
 
-## Contributors ✨
+## Contributors & Contributing ✨
+
+### [Code of Conduct](CODE_OF_CONDUCT.md)
+
+We have adopted the [Contributor Convenant](https://www.contributor-covenant.org/).
+
+### [Contributing Guide](CONTRIBUTING.md)
+
+See our [contributing guide](CONTRIBUTING.md) for help regarding contributions.
+
+### Contributors
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
