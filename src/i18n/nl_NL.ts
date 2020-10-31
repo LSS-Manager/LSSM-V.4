@@ -613,6 +613,33 @@ export default {
             shownSchooling: 'Officier van Dienst Geneeskunde',
             special: 'Per 10 Ambulanceposten (Standplaatsen, VWS-posten en uitbreidingen) kan één OVDG-RR gekocht worden',
         },
+        58: {
+            caption: 'DB Arrestantenvervoer',
+            color: '#0B21F7',
+            minPersonnel: 2,
+            maxPersonnel: 2,
+            credits: 20_000,
+            coins: 25,
+            special: 'Dit voertuig kan 5 arrestanten tegelijk vervoeren vanaf een melding',
+        },
+        59: {
+            caption: 'Noodhulp - Onopvallend',
+            color: '#0A20F7',
+            minPersonnel: 1,
+            maxPersonnel: 2,
+            credits: 6_000,
+            coins: 25,
+        },
+        60: {
+            caption: 'DB Biketeam',
+            color: '#091FF7',
+            minPersonnel: 1,
+            maxPersonnel: 2,
+            credits: 8_000,
+            coins: 25,
+            schooling: 'Politie - Biketeam',
+            shownSchooling: 'Biketeam',
+        },
     },
     buildings: {
         0: {
@@ -914,6 +941,12 @@ export default {
                     coins: 20,
                     duration: '5 Dagen',
                 },
+                {
+                    caption: 'Arrestantenvervoer',
+                    credits: 100_000,
+                    coins: 10,
+                    duration: '5 Dagen',
+                },
             ],
             levelcost: [],
             maxBuildings: 'Geen limiet',
@@ -996,12 +1029,14 @@ export default {
             },
             Politie: {
                 vehicles: {
-                    'Noodhulp': [22, 25, 46],
+                    'Noodhulp': [22, 25, 46, 59],
                     'Mobiele Eenheid': [39, 40],
                     'Hondengeleider': [47, 48],
                     'Politiehelikopter': [28],
                     'Officier van Dienst - Politie': [35],
                     'Arrestatieteam': [53, 54, 55],
+                    'Arrestantenvervoer': [58],
+                    'Biketeam': [60],
                 },
                 color: '#00ac00',
             },
@@ -1085,6 +1120,10 @@ export default {
                 {
                     caption: 'Operator AT',
                     duration: '10 Dagen',
+                },
+                {
+                    caption: 'Biketeam',
+                    duration: '3 Dagen',
                 },
             ],
             'Ambulance': [
