@@ -71,9 +71,6 @@ module.exports = {
             sheriff_unit: 'Sheriff Unit',
         },
     },
-    generationDate: {
-        inputFormat: 'MMMM DD., HH:mm',
-    },
     enhancedMissingVehicles: {
         vehicle: 'Vehicle type',
         missing: 'Missing on mission',
