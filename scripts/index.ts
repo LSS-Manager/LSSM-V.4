@@ -34,13 +34,15 @@ const scriptHandlers = {
     },
     dev() {
         this.tscBuild();
-        // console.log(execSync('node build').toString());
-        const games = Object.entries(config.games)
+        console.time('games');
+        Object.entries(config.games)
             .filter(game => fs.existsSync(`./src/i18n/${game[0]}.ts`))
             .map(game => {
-                execSync('node build development ' + game[0]).toString();
+                console.log(
+                    execSync(`node build development ${game[0]}`).toString()
+                );
             });
-        //execSync('node build development').toString();
+        console.timeEnd('games');
         this.showChanges();
     },
     tscDocs() {
@@ -58,12 +60,15 @@ const scriptHandlers = {
     },
     build() {
         this.tscBuild();
-        const games = Object.entries(config.games)
+        console.time('games');
+        Object.entries(config.games)
             .filter(game => fs.existsSync(`./src/i18n/${game[0]}.ts`))
             .map(game => {
-                execSync('node build production ' + game[0]).toString();
+                console.log(
+                    execSync('node build production ' + game[0]).toString()
+                );
             });
-        //console.log(execSync('node build production').toString());
+        console.timeEnd('games');
         this.showChanges();
     },
     showChanges() {
@@ -73,8 +78,10 @@ const scriptHandlers = {
 
 const execute = (script: string) => {
     console.log(`### ${script} ###\n\n`);
+    console.time(script);
     scriptHandlers[script]?.();
     console.log(`\n\n=== end ${script} ===`);
+    console.timeEnd(script);
 };
 
 try {
