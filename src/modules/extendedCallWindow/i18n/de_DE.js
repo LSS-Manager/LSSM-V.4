@@ -231,7 +231,7 @@ module.exports = {
                 ],
             },
             {
-                name: 'FW andere',
+                name: 'FW Andere',
                 vehicleTypes: [
                     2,
                     3,
