@@ -7,6 +7,8 @@ export default (async (LSSM, MODULE_ID, $m: $m) => {
     const poi_types = Object.values(LSSM.$t('pois')) as string[];
     poi_types.sort();
 
+    await LSSM.$store.dispatch('api/registerSettings');
+
     const style = await (async () => {
         const predef = await LSSM.$store.dispatch('settings/getSetting', {
             moduleId: MODULE_ID,

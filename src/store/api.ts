@@ -213,7 +213,15 @@ export default {
             state.allianceinfo = allianceinfo;
         },
         setVehicleStates(state: APIState, states: { [state: number]: number }) {
-            state.vehicleStates = states;
+            const LSSM = window[PREFIX] as Vue;
+            const fmsReal2Show = LSSM.$t(
+                'fmsReal2Show'
+            ) as unknown) as { [status: number]: number }
+            let States_show = {};
+            Object.keys(states).forEach(key => (
+                States_show[fmsReal2Show[key]] = states[key]
+            ))
+            state.vehicleStates = States_show;
         },
         setVehicleState(
             state: APIState,
@@ -505,7 +513,7 @@ export default {
             ) {
                 store.commit('enableAutoUpdate', 'settings');
                 window.setInterval(
-                    () => store.dispatch('registersettings'),
+                    () => store.dispatch('registerSettings'),
                     API_MIN_UPDATE
                 );
             }
