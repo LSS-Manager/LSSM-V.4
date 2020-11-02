@@ -42,6 +42,7 @@
 			"at_o": "AT-Operator | AT-Operators",
 			"battalion_chief_vehicles": "Officier van Dienst - Brandweer | Officieren van Dienst - Brandweer",
 			"bike_police": "Biketeam | Biketeams",
+			"bike_police_only_if_needed": "Biketeam alleen indien aanwezig | Biketeams alleen indien aanwezig",
 			"boats": "Waterongevallenaanhanger | Waterongevallenaanhangers",
 			"diver_units": "Waterongevallen- of oppervlaktereddingsvoertuig | Waterongevallen- of oppervlaktereddingsvoertuigen",
 			"elw3": "Commandovoertuig | Commandovoertuigen",

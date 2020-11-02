@@ -194,4 +194,12 @@ export default (MODULE_ID: string): unknown => ({
             },
         }
         : null),
+    ...(BUILD_LANG === 'nl_NL'
+        ? {
+            bike_police_only_if_needed: {
+                type: 'toggle',
+                default: false,
+            },
+        }
+        : null),
 });

@@ -36,6 +36,10 @@
 			"description": "Toont het ID van de inzet naast de naam",
 			"title": "Inzet ID"
 		},
+		"bike_police_only_if_needed": {
+			"description": "Geeft aan wanneer biketeams alleen nodig zijn als je ze hebt.",
+			"title": "Optionele Biketeam(s)"
+		},
 		"minified": {
 			"description": "",
 			"title": ""

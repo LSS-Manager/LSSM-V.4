@@ -79,7 +79,7 @@ module.exports = {
         vehiclesByRequirement: {
             [/^Tankautospuit(en)?$/]: [0, 1, 6, 7, 8, 9, 12, 14, 15, 17, 50],
             [/^Redvoertuig(en)?$/]: [2, 18],
-            [/^Officieren(en)? van Dienst - Brandweer$/]: [3, 19],
+            [/^Officier(en)? van Dienst - Brandweer$/]: [3, 19],
             [/^Hulpverleningsvoertuig(en)?$/]: [4, 51],
             [/^Adembeschermingsvoertuig of haakarmbak$/]: [5, 27],
             [/^Slangenwagen$/]: [10, 29, 34, 45],
@@ -108,6 +108,8 @@ module.exports = {
             [/^AT Operator(s)?$/]: [54],
             [/^Ambulance(s)?$/]: [16, 52, 57],
             [/^Biketeam(s)?$/]: [60],
+            [/^Er ontbre(ekt|ken):$/]: [],
+            [/^Arrestanten zullen vervoerd worden$/]: [],
         },
     },
     tailoredTabs: {
