@@ -214,14 +214,16 @@ export default {
         },
         setVehicleStates(state: APIState, states: { [state: number]: number }) {
             const LSSM = window[PREFIX] as Vue;
-            const fmsReal2Show = LSSM.$t(
-                'fmsReal2Show'
-            ) as unknown) as { [status: number]: number }
-            let States_show = {};
-            Object.keys(states).forEach(key => (
-                States_show[fmsReal2Show[key]] = states[key]
-            ))
-            state.vehicleStates = States_show;
+            const fmsReal2Show = (LSSM.$t('fmsReal2Show') as unknown) as {
+                [status: number]: number;
+            };
+            const states_show = {} as { [state: number]: number };
+            Object.keys(states).forEach(
+                key =>
+                    (states_show[fmsReal2Show[parseInt(key)]] =
+                        states[parseInt(key)])
+            );
+            state.vehicleStates = states_show;
         },
         setVehicleState(
             state: APIState,
@@ -259,10 +261,7 @@ export default {
         },
         setSettings(
             state: APIState,
-            {
-                value: settings,
-                lastUpdate,
-            }: StorageGetterReturn<'settings'>
+            { value: settings, lastUpdate }: StorageGetterReturn<'settings'>
         ) {
             if (!settings) return;
             state.lastUpdates.settings = lastUpdate;
@@ -507,10 +506,7 @@ export default {
                 { value: settings, lastUpdate, user_id: window.user_id },
                 store
             );
-            if (
-                autoUpdate &&
-                !store.state.autoUpdates.includes('settings')
-            ) {
+            if (autoUpdate && !store.state.autoUpdates.includes('settings')) {
                 store.commit('enableAutoUpdate', 'settings');
                 window.setInterval(
                     () => store.dispatch('registerSettings'),
