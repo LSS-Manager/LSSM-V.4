@@ -145,7 +145,13 @@ if (window.location.pathname === '/') {
                     amount?: number,
                     args?: { [key: string]: unknown }
                 ) => LSSM.$tc(`modules.${moduleId}.${key}`, amount, args);
-                if (LSSM.$store.state.modules[moduleId].settings) {
+                if (
+                    (LSSM.$store.state.modules[moduleId].settings &&
+                        window.location.pathname.match(
+                            LSSM.$store.state.modules[moduleId].location
+                        )) ||
+                    window.location.pathname === '/'
+                ) {
                     await LSSM.$store.dispatch('settings/register', {
                         moduleId,
                         settings: (
