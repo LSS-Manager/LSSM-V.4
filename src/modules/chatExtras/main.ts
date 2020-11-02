@@ -1,11 +1,16 @@
-import { ModuleMainFunction } from 'typings/Module';
+import { $m, ModuleMainFunction } from 'typings/Module';
 
-export default (async (LSSM, MODULE_ID) => {
-    const getSetting = (settingId: string) =>
-        LSSM.$store.dispatch('settings/getSetting', {
+export default (async (LSSM, MODULE_ID, $m) => {
+    const config = await (async () => {
+        const DayMonthSort = await LSSM.$store.dispatch('settings/getSetting', {
             moduleId: MODULE_ID,
-            settingId,
+            settingId: 'DayMonthSort',
         });
+        const Seperator = await LSSM.$store.dispatch('settings/getSetting', {
+            moduleId: MODULE_ID,
+            settingId: 'Seperator',
+        });
+    })();
     if (window.location.pathname === '/') {
         let mission_chat_message_username = document.querySelectorAll(
             '.mission_chat_message_username'
@@ -65,7 +70,7 @@ export default (async (LSSM, MODULE_ID) => {
                 chatMessageHead.innerHTML =
                     '[' +
                     chatMessageDate +
-                    '.' +
+                    config.Seperator +
                     chatMessageSentMonth +
                     ' ' +
                     chatMessageTime +
@@ -75,14 +80,7 @@ export default (async (LSSM, MODULE_ID) => {
     }
     await LSSM.$store.dispatch('hook', {
         event: 'allianceChat',
-        callback({
-            message,
-            whisper,
-            user_id,
-            username,
-            mission_id,
-            mission_caption,
-        }: AllianceChatMessage) {
+        callback({}: AllianceChatMessage) {
             const date: Date = new Date();
             const date_hidden =
                 '[' +
