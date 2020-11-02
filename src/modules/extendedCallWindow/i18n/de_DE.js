@@ -84,7 +84,7 @@ module.exports = {
             police_motorcycle: 'Polizeimotorrad',
             fustw_or_police_motorcycle:
                 'Funkstreifenwagen oder Polizeimotorrad',
-			k9: 'DHuFüKw',
+            k9: 'DHuFüKw',
             lebefkw: 'Leichter Befehlskraftwagen (leBefKw)',
             fukw: 'FüKw (Führungskraftwagen)',
             grukw: 'GruKw (Gruppenkraftwagen)',
@@ -183,7 +183,7 @@ module.exports = {
             [/^RTW oder KTW oder KTW-B$/]: [28, 38, 58],
             [/^Rüstwagen oder HLF$/]: [4, 30, 90],
             [/^SEK-Fahrzeuge$/]: [79, 80],
-			[/^DHuFüKw$/]: [94],
+            [/^DHuFüKw$/]: [94],
             [/^Schlauchwagen \(GW-L2 Wasser, SW 1000, SW 2000 oder Ähnliches\)$/]: [
                 11,
                 13,
