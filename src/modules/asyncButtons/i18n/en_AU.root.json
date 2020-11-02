@@ -1,0 +1,28 @@
+{
+    "description": "Avoid with this module that the game is reloaded when you press certain buttons.",
+    "name": "Asynchronous buttons",
+    "settings": {
+        "buildingTax": {
+            "description": "Prevents recharging when you set the cost of own cells or hospital beds.",
+            "title": "Cost absorption of cells and beds"
+        },
+        "deleteARR": {
+            "description": "Prevents reloading when you delete an ARR entry",
+            "title": "Delete ARR entries"
+        },
+        "deleteForumPost": {
+            "description": "Prevents reloading when you delete a forum post.",
+            "title": "Delete Forum Posts"
+        },
+        "memberlistManageUser": {
+            "description": "Prevents reloading, if you have Alliance member throw out or edit his rights",
+            "title": "Rights of members of the Alliance"
+        },
+        "missionPrisoners": {
+            "title": "Prisoners in the mission window"
+        },
+        "missionReply": {
+            "title": "MissionReplys in the Mission"
+        }
+    }
+}

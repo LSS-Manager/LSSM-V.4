@@ -36,10 +36,6 @@
 			"description": "Shows the Mission ID next to the title.",
 			"title": "Mission ID"
 		},
-		"k9_only_if_needed": {
-			"description": "Indicates, if K9 is only requested, if available.",
-			"title": "Optional service dogs"
-		},
 		"multifunctionals": {
 			"battalion_chief_vehicles": {
 				"description": "Subtracts the number of required MCV from Battalion Chief and hides Battalion Chief if the number drops below 0.",

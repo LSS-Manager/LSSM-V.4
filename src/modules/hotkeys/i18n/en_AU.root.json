@@ -1,0 +1,16 @@
+{
+    "description": "Control the game with hotkeys on the keyboard, which you can set yourself.",
+    "name": "Hotkeys",
+    "settings": {
+        "nextElementKey": {
+            "title": "Next \"Element\""
+        },
+        "prevElementKey": {
+            "title": "Previous \"Element\""
+        },
+        "prevNextElement": {
+            "description": "Think of a cool description here",
+            "title": "prevNextElement"
+        }
+    }
+}
