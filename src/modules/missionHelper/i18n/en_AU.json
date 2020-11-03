@@ -19,13 +19,11 @@
         "title": "Patients | {n} Patient | {n} Patients"
     },
     "prerequisites": {
-        "brush_extension": "Forestry Expansion | Forestry Expansions",
-        "federalpolice_stations": "Federal Police Station | Federal Police Stations",
-        "fire_aviation_count": "Firefighting Plane Station | Firefighting Plane Stations",
+        "wasserrettung": "SES Unit | SES Units",
         "fire_stations": "Fire Station | Fire Stations",
         "max_police_stations": "Maximum Police Stations",
         "max_rescue_stations": "Maximum Rescue Stations",
-        "police_helicopter_stations": "Police Helicopter Station | Police Helicopter Stations",
+        "police_helicopter_stations": "Police Air Wing Station | Police Air Wing Stations",
         "police_stations": "Police Station | Police Stations",
         "rescue_stations": "Ambulance Station | Ambulance Stations",
         "title": "Prerequisite | Prerequisites"
@@ -40,32 +38,23 @@
     "vehicles": {
         "captions": {
             "ambulances": "Ambulance | Ambulances",
-            "arff": "ARFF",
-            "battalion_chief_vehicles": "Battalion Chief Vehicle | Battalion Chief Vehicles",
+            "battalion_chief_vehicles": "Support",
             "boats": "Boat | Boats",
-            "brush_truck": "Wildland Fire Engine | Wildland Fire Engines",
-            "fbi": "FBI Unit | FBI Units",
-            "fbi_bomb": "FBI Bomb Technician Vehicle | FBI Bomb Technician Vehicles",
-            "fbi_drone": "FBI Surveillance Drone | FBI Surveillance Drones",
-            "fbi_investigation": "FBI Investigation Wagon | FBI Investigation Wagons",
-            "fbi_mcc": "FBI Mobile Command Center Vehicle | FBI Mobile Command Center Vehicles",
-            "fire_aviation": "Airborne Firefighting | Airborne Firefightings",
             "firetrucks": "Fire Engine | Fire Engines",
-            "hazmat_vehicles": "HazMat | HazMats",
-            "heavy_rescue_vehicles": "Heavy Rescue | Heavy Rescues",
-            "helicopter": "HEMS",
-            "k9": "K-9",
-            "large_fire_boat": "Large Fireboat | Large Fireboats",
-            "large_rescue_boat": "Large Rescueboat | Large Rescueboats",
-            "mobile_air_vehicles": "Mobile Air Vehicle | Mobile Air Vehicles",
+            "hazmat_vehicles": "HAZMAT | HAZMATS",
+            "heavy_rescue_vehicles": "Rescue",
+            "helicopter": "Air Ambulance",
+            "k9": "K-9 Unit | K-9 Units",
+            "mobile_air_vehicles": "BASU",
             "mobile_command_vehicles": "Mobile Command Vehicle | Mobile Command Vehicles",
-            "platform_trucks": "Platform Truck | Platform Trucks",
-            "police_cars": "Patrol Car | Patrol Cars",
+            "platform_trucks": "Turntable Ladder trucks",
+            "police_cars": "Police Car | Police Cars",
             "police_helicopters": "Police Helicopter | Police Helicopters",
-            "sheriff": "Sheriff | Sherrifs",
-            "swat_armored_vehicle": "SWAT Armoured Vehicle | SWAT Armoured Vehicles",
-            "swat_suv": "SWAT SUV | SWAT SUVs",
-            "water_tankers": "Water Tanker | Water Tankers"
+            "swat_armored_vehicle": "TOG Armoured Vehicle | TOG Armoured Vehicles",
+            "swat_suv": "TOG SUV | TOG SUVs",
+            "water_tankers": "Water Carrir | Water Carriers",
+            "police_horse": "Mounted Police",
+            "gw_wasserrettung": "SES Unit"
         },
         "multifunctionals": {
             "battalion_chief_vehicles": {
@@ -84,9 +73,6 @@
             "allow_rw_instead_of_lf": {
                 "firetrucks": "Fire Engine or Heavy Rescue or Rescue Engine | Fire Engines or Heavy Rescue or Rescue Engine"
             }
-        },
-        "patient_additionals": {
-            "10": "EMS-Chief"
         },
         "title": "Vehicles"
     }

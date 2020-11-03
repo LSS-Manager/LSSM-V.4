@@ -645,7 +645,12 @@ export default {
             color: '#116611',
             coins: 25,
             credits: 50_000,
-            extensions: [],
+            extensions: new Array(2).fill({
+                caption: 'Prison cell',
+                credits: 25_000,
+                coins: 5,
+                duration: '7 Days',
+            }),
             levelcost: [
                 '1. 10.000',
                 '2. 50.000',
