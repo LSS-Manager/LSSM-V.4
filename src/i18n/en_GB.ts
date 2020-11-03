@@ -211,7 +211,6 @@ export default {
             schooling: 'Police - Firearms Training',
             shownSchooling: 'Firearms Training',
             special: 'Required once you have built 8 policestations',
-
         },
         14: {
             caption: 'BASU',
@@ -221,7 +220,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 3,
             wtank: 0,
-            special: 'Required from 5 fire stations'
+            special: 'Required from 5 fire stations',
         },
         15: {
             caption: 'ICCU',
@@ -284,8 +283,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 1,
             wtank: 0,
-            special:
-                'Required from 6 ambulance stations.',
+            special: 'Required from 6 ambulance stations.',
         },
         21: {
             caption: 'General Practitioner',
@@ -338,7 +336,8 @@ export default {
             wtank: 0,
             schooling: 'Police - Firearms training',
             shownSchooling: 'Firearms training',
-            special: 'He Needs Firearms training and Roads Policing Officer Training'
+            special:
+                'He Needs Firearms training and Roads Policing Officer Training',
         },
     },
     buildings: {
@@ -709,12 +708,11 @@ export default {
             coins: 10,
             credits: 100_000,
             extensions: [],
-            levelcost: [
-                'not expandeble',
-            ],
+            levelcost: ['not expandeble'],
             maxBuildings: 'No limit',
             maxLevel: 0,
-            special: 'It can only: Fire Officer, Rapid Response Vehicle, Operational Team Leader, General Practitioner, Community First Responder, Dog Support Unit (DSU) be stationed',
+            special:
+                'It can only: Fire Officer, Rapid Response Vehicle, Operational Team Leader, General Practitioner, Community First Responder, Dog Support Unit (DSU) be stationed',
             startPersonnel: 1,
             startVehicles: [''],
         },
@@ -762,7 +760,7 @@ export default {
                 'ARP': [13],
                 'Police helicopter': [11],
                 'DSU': [12],
-                'Traffic Cars': [24, 25]
+                'Traffic Cars': [24, 25],
             },
             color: '#00ac00',
         },
@@ -786,7 +784,7 @@ export default {
         '6_8',
         '6_9',
         '19_1',
-        '19_2'
+        '19_2',
     ],
     bedBuildings: [4, 21],
     schoolBuildings: [1, 3, 8],
@@ -836,7 +834,7 @@ export default {
                 duration: '3 Days',
             },
         ],
-        'Ambulance': [
+        'Rescue': [
             {
                 caption: 'Critical care',
                 duration: '5 Days',

@@ -17,10 +17,8 @@ console.info(`Let's build that stuff in Version ${version}`);
 
 const moduleDirs = fs.readdirSync(`./src/modules/`);
 
-const game = config.games[locale];
 if (!fs.existsSync(`./src/i18n/${locale}.ts`)) process.exit(-1);
 
-const { locale_fallback } = game;
 const entry = {
     mode: process.argv[2] || 'development',
     entry: {
@@ -34,15 +32,6 @@ const entry = {
     },
     ...lodash.cloneDeep(webpackConfig),
 } as Configuration;
-const fallbackLocales = [] as string[];
-if (locale_fallback) {
-    fallbackLocales.push(locale_fallback);
-    let nextFallback = config.games[locale_fallback].locale_fallback;
-    while (nextFallback) {
-        fallbackLocales.push(nextFallback);
-        nextFallback = config.games[nextFallback].locale_fallback;
-    }
-}
 
 const modules = moduleDirs.filter(module => {
     if (
@@ -61,7 +50,6 @@ entry.plugins?.unshift(
         BUILD_LANG: JSON.stringify(locale),
         VERSION: JSON.stringify(version),
         MODE: process.argv[2] === 'production' ? '"stable"' : '"beta"',
-        FALLBACK_LOCALES: JSON.stringify(fallbackLocales),
         MODULE_REGISTER_FILES: new RegExp(
             `modules\\/(${modules.join('|')})\\/register\\.js(on)?`
         ),
@@ -83,10 +71,7 @@ entry.plugins?.unshift(
             }$`
         )
     ),
-    new webpack.ContextReplacementPlugin(
-        /i18n$/,
-        new RegExp(`${[locale, ...fallbackLocales].join('|')}$`)
-    )
+    new webpack.ContextReplacementPlugin(/i18n$/, new RegExp(`${locale}$`))
 );
 entry.plugins?.push(
     new DynamicImportQueryPlugin({
