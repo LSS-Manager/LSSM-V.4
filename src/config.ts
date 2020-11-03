@@ -140,6 +140,7 @@ export default {
             locale_fallback: 'en_US',
             name: 'Jogo-operador112.com',
             shortURL: 'jogo-operador112.com',
+			police: 'policia'.
         },
         ro_RO: {
             flag: '🇷🇴',
