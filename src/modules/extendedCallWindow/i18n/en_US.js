@@ -2,11 +2,11 @@ module.exports = {
     arrCounter: {
         resetTexts: {
             counter: 'ARR-Counter',
-            highlight: 'ARR outline',
+            highlight: 'ARR border',
             selection: 'Vehicle selection',
-            counter_highlight: 'ARR counter / outline',
+            counter_highlight: 'ARR counter / border',
             counter_selection: 'ARR counter and vehicle selection',
-            highlight_selection: 'ARR outline and vehicle selection',
+            highlight_selection: 'ARR border and vehicle selection',
             counter_highlight_selection:
                 'ARR counter / border and vehicle selection',
         },

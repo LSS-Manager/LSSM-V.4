@@ -24,7 +24,7 @@
         },
         "fmsSwitch": {
             "description": "Allows you to switch between status 2 and 6 by clicking on the status.",
-            "title": "Fast FMS change"
+            "title": "Fast status 2 <=> 6 switch"
         },
         "personnelAssignmentBtn": {
             "description": "Inserts next to the \"Edit\" button to add a button to the personnel assignment. - Does not yet work in control centers!",

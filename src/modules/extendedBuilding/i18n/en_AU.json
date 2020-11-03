@@ -9,7 +9,7 @@
         "noDispatch": "No control center"
     },
     "personnelDemands": {
-        "additional": "Values in brackets exclude vehicles in FMS 6.",
+        "additional": "Values in brackets exclude vehicles in Status 6.",
         "demand": "Required personnel"
     },
     "schoolingSummary": {

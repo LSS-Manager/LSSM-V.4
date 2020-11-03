@@ -1,3 +1,3 @@
 {
-	"inputMaxLen": "This input field must be between have {min} and {max} characters!"
+	"inputMaxLen": "This input field must have between {min} and {max} characters!"
 }

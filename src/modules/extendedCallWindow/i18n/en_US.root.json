@@ -14,7 +14,7 @@
 			"title": "Longest journey time"
 		},
 		"arrClickHighlight": {
-			"description": "Draws a frame around already clicked ARRs.",
+			"description": "Draws a border around already clicked ARRs.",
 			"title": "Highlight clicked ARRs"
 		},
 		"arrClickHighlightColor": {

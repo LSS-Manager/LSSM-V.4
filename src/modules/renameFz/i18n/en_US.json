@@ -4,7 +4,7 @@
 		"selectionHint": "Create a new template? Just enter the name and select!",
 		"status": {
 			"template": "Wait for template selection...",
-			"waiting": "Wait for input..."
+			"waiting": "Waiting for input..."
 		}
 	}
 }
