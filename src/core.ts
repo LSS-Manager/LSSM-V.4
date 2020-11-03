@@ -161,7 +161,7 @@ if (window.location.pathname === '/') {
                                 /* webpackExclude: /[\\/]+modules[\\/]+(telemetry|releasenotes|support)[\\/]+/ */
                                 `./modules/${moduleId}/settings`
                             )
-                        ).default(moduleId, LSSM),
+                        ).default(moduleId, LSSM, $m),
                     });
                 }
                 if (

@@ -79,15 +79,7 @@ module.exports = {
             },
             {
                 name: 'Other Fire Apparatus',
-                vehicleTypes: [
-                    2,
-                    3,
-                    4,
-                    6,
-                    7,
-                    10,
-                    11
-                ],
+                vehicleTypes: [2, 3, 4, 6, 7, 10, 11],
             },
             {
                 name: 'Ambulance',

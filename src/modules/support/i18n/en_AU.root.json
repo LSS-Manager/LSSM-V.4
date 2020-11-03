@@ -1,7 +1,7 @@
 {
-    "empty": "This chat is empty. This can either be because you have not yet written a message to the support or because all your previous problems have been solved. In the latter case your messages are still saved and will be displayed again as soon as you write to the support again. Best regards, your LSS Manager Team!",
-    "input": "Your message to the LSS Manager team",
-    "name": "LSSM-Support",
-    "note": "Note: This is <strong>no</strong> support for the game, LSS Manager only!",
-    "send": "Send"
+	"empty": "This chat is empty. This can either be because you have not yet written a message to the support or because all your previous problems have been solved. In the latter case your messages are still saved and will be displayed again as soon as you write to the support again. Best regards, your LSS Manager Team!",
+	"input": "Your message to the LSS Manager team",
+	"name": "LSSM-Support",
+	"note": "Note: This is <strong>no</strong> support for the game, LSS Manager only!",
+	"send": "Send"
 }

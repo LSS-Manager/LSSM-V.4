@@ -1,21 +1,21 @@
 {
-    "description": "Facilitates the setting of POIs through small, useful features",
-    "name": "Enhanced POI",
-    "settings": {
-        "custom_style": {
-            "title": "Custom style for highlighting"
-        },
-        "predefined_style": {
-            "brown": "Brown",
-            "custom": "Manual",
-            "green": "Green",
-            "red": "Red",
-            "title": "Marker Highlighting",
-            "white": "White"
-        },
-        "shown_types": {
-            "description": "Specify here which POI types should be shown. You can also change this setting directly in the \"Set POI\"-Change menu.",
-            "title": "Displayed POI types"
-        }
-    }
+	"description": "Facilitates the setting of POIs through small, useful features",
+	"name": "Enhanced POI",
+	"settings": {
+		"custom_style": {
+			"title": "Custom style for highlighting"
+		},
+		"predefined_style": {
+			"brown": "Brown",
+			"custom": "Manual",
+			"green": "Green",
+			"red": "Red",
+			"title": "Marker Highlighting",
+			"white": "White"
+		},
+		"shown_types": {
+			"description": "Specify here which POI types should be shown. You can also change this setting directly in the \"Set POI\"-Change menu.",
+			"title": "Displayed POI types"
+		}
+	}
 }
