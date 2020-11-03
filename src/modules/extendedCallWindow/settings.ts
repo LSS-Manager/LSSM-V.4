@@ -9,7 +9,7 @@ import alarmIconsTitle from './components/alarmIcons/settings-titles.vue';
 
 import { $m } from 'typings/Module';
 
-export default ($m: $m): unknown => {
+export default (_: string, __: Vue, $m: $m): unknown => {
     const defaultTailoredTabs = Object.values(
         $m('tailoredTabs.defaultTabs')
     ).map(({ name, vehicleTypes }) => ({
