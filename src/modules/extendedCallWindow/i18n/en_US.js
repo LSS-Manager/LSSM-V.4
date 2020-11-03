@@ -82,7 +82,7 @@ module.exports = {
             [/^platform truck(s)?$/]: [2, 13],
             [/^Battalion chief unit(s)?$/]: [3, 12],
             [/^Heavy rescue vehicle(s)?$/]: [4, 8, 18, 21],
-            [/^Mobile air$/]: [6],
+            [/^Mobile Air Unit$/]: [6],
             [/^Water Tanker(s)?$/]: [7, 33],
             [/^Mobile Command Vehicle(s)?$/]: [12],
             [/^HazMat$/]: [9],
