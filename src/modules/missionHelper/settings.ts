@@ -128,7 +128,7 @@ export default (MODULE_ID: string): unknown => ({
         type: 'toggle',
         default: true,
     },
-    ...(BUILD_LANG === 'en_GB' || BUILD_LANG === 'en_US'
+    ...(['en_GB', 'en_US', 'it_IT'].includes(BUILD_LANG)
         ? {
               'patient.code_possible': {
                   type: 'toggle',

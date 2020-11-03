@@ -72,28 +72,6 @@ module.exports = {
         },
     },
     tailoredTabs: {
-        defaultTabs: [
-            {
-                name: 'Firetruck',
-                vehicleTypes: [0, 1, 12, 13, 19],
-            },
-            {
-                name: 'Other Fire Apparatus',
-                vehicleTypes: [2, 3, 4, 6, 7, 10, 11],
-            },
-            {
-                name: 'Ambulance',
-                vehicleTypes: [5, 9],
-            },
-            {
-                name: 'Police',
-                vehicleTypes: [8, 15, 16, 17, 18, 22],
-            },
-            {
-                name: 'Water',
-                vehicleTypes: [20, 21],
-            },
-        ],
         allTab: 'All',
         occupiedTab: 'Follow-up',
     },

@@ -96,5 +96,55 @@
 			"description": "Encadre de jaune l'heure de génération si la mission est plus vieille que le nombre d'heures demandé. Si le nombre est 0, la bordure n'est pas appliquée.",
 			"title": "Bordure jaune"
 		}
+	},
+	"tailoredTabs": {
+		"defaultTabs": [
+			{
+				"name": "Fourgon d'incendie",
+				"vehicleTypes": [
+					0,
+					1,
+					2,
+					12,
+					13
+				]
+			},
+			{
+				"name": "Autres appareils incendie",
+				"vehicleTypes": [
+					3,
+					4,
+					6,
+					7,
+					10,
+					11,
+					14,
+					15
+				]
+			},
+			{
+				"name": "Ambulance",
+				"vehicleTypes": [
+					5,
+					9
+				]
+			},
+			{
+				"name": "Police",
+				"vehicleTypes": [
+					8,
+					18,
+					19,
+					20
+				]
+			},
+			{
+				"name": "Nautique",
+				"vehicleTypes": [
+					16,
+					17
+				]
+			}
+		]
 	}
 }
