@@ -18,12 +18,12 @@
 		"title": "Patiënten | {n} Patiënt | {n} Patiënten"
 	},
 	"prerequisites": {
+		"bereitschaftspolizei": "Hoofdbureau | Hoofdbureaus",
 		"fire_stations": "Brandweerkazerne | Brandweerkazernes",
 		"police_helicopter_stations": "Politiehelikopterstandplaats | Politiehelikopterstandplaats",
 		"police_stations": "Politiebureau | Politiebureaus",
 		"rescue_stations": "Ambulancestandplaats | Ambulancestandplaatsen",
 		"title": "Benodigdheid | Benodigdheden",
-		"bereitschaftspolizei": "Hoofdbureau | Hoofdbureaus",
 		"wasserrettung": "Waterongevallenuitbreiding | Waterongevallenuitbreidingen"
 	},
 	"prisoners": {
@@ -41,6 +41,8 @@
 			"at_m": "AT-Materiaalwagen",
 			"at_o": "AT-Operator | AT-Operators",
 			"battalion_chief_vehicles": "Officier van Dienst - Brandweer | Officieren van Dienst - Brandweer",
+			"bike_police": "Biketeam | Biketeams",
+			"bike_police_only_if_needed": "Biketeam alleen indien aanwezig | Biketeams alleen indien aanwezig",
 			"boats": "Waterongevallenaanhanger | Waterongevallenaanhangers",
 			"diver_units": "Waterongevallen- of oppervlaktereddingsvoertuig | Waterongevallen- of oppervlaktereddingsvoertuigen",
 			"elw3": "Commandovoertuig | Commandovoertuigen",
@@ -59,8 +61,7 @@
 			"police_cars": "Noodhulpvoertuig | Noodhulpvoertuigen",
 			"police_helicopters": "Politiehelikopter | Politiehelikopters",
 			"spokesman": "Voorlichter | Voorlichters",
-			"water_tankers": "Slangenwagen of watertankwagen | Slangenwagens of watertankwagens",
-			"bike_police": "Biketeam | Biketeams"
+			"water_tankers": "Slangenwagen of watertankwagen | Slangenwagens of watertankwagens"
 		},
 		"multifunctionals": {
 			"battalion_chief_vehicles": {
