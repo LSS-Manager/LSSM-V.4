@@ -24,9 +24,9 @@ export default (async (LSSM, MODULE_ID) => {
     }
     await LSSM.$store.dispatch('premodifyParams', {
         event: 'allianceChat',
-        callback({}: AllianceChatMessage) {
+        callback(e: AllianceChatMessage) {
             moment.locale(BUILD_LANG);
-            e.date_hidden = moment(n).format(format);
+            e.date_hidden = moment(e.iso_timestamp).format(format);
         },
     });
 }) as ModuleMainFunction;
