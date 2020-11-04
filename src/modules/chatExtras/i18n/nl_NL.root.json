@@ -1,0 +1,10 @@
+{
+    "description": "Geeft datum en tijd weer in de chat i.p.v. alleen tijd.",
+    "name": "Chat datumweergave",
+    "settings": {
+        "navFormat": {
+            "description": "Hier kunt u het formaat kiezen van uw keuze. Hulp kunt u <a class=\"lightbox-open\" href=\"{wiki}/modules/clock.html#configuratie\">hier</a> vinden.",
+            "title": "Formaat van de datum en tijd"
+        }
+    }
+}
