@@ -33,11 +33,15 @@ export default (MODULE_ID: string): unknown => ({
         default: 'caption',
         dependsOn: '.vehicles.content',
     },
-    'vehicles.patient_additionals': {
-        type: 'toggle',
-        default: true,
-        dependsOn: '.vehicles.content',
-    },
+    ...(['de_DE', 'en_US', 'nl_NL'].includes(BUILD_LANG)
+        ? {
+              'vehicles.patient_additionals': {
+                  type: 'toggle',
+                  default: true,
+                  dependsOn: '.vehicles.content',
+              },
+          }
+        : null),
     'chances.normal': {
         type: 'toggle',
         default: true,
@@ -47,11 +51,15 @@ export default (MODULE_ID: string): unknown => ({
         default: false,
         dependsOn: '.chances.normal',
     },
-    'multifunctionals.heavy_rescue_vehicles': {
-        type: 'toggle',
-        default: false,
-        dependsOn: '.vehicles.content',
-    },
+    ...(BUILD_LANG !== 'nl_NL'
+        ? {
+              'multifunctionals.heavy_rescue_vehicles': {
+                  type: 'toggle',
+                  default: false,
+                  dependsOn: '.vehicles.content',
+              },
+          }
+        : null),
     'multifunctionals.battalion_chief_vehicles': {
         type: 'toggle',
         default: false,
@@ -71,11 +79,24 @@ export default (MODULE_ID: string): unknown => ({
             settings[MODULE_ID]['multifunctionals.battalion_chief_vehicles']
                 .value,
     },
-    'multifunctionals.platform_trucks': {
-        type: 'toggle',
-        default: false,
-        dependsOn: '.vehicles.content',
-    },
+    ...(BUILD_LANG === 'nl_NL'
+        ? {
+              'multifunctionals.police_cars': {
+                  type: 'toggle',
+                  default: false,
+                  dependsOn: '.vehicles.content',
+              },
+          }
+        : null),
+    ...(BUILD_LANG === 'de_DE'
+        ? {
+              'multifunctionals.platform_trucks': {
+                  type: 'toggle',
+                  default: false,
+                  dependsOn: '.vehicles.content',
+              },
+          }
+        : null),
     'optionalAlternatives.allow_rw_instead_of_lf': {
         type: 'toggle',
         default: false,
@@ -107,19 +128,23 @@ export default (MODULE_ID: string): unknown => ({
         type: 'toggle',
         default: true,
     },
-    ...(BUILD_LANG === 'en_GB' || BUILD_LANG === 'en_US'
+    ...(['en_GB', 'en_US', 'it_IT'].includes(BUILD_LANG)
         ? {
               'patient.code_possible': {
                   type: 'toggle',
-                  default: true,
+                  default: false,
               },
           }
         : null),
-    'patients.patient_allow_first_responder_chance': {
-        type: 'toggle',
-        default: true,
-        dependsOn: '.patients.content',
-    },
+    ...(BUILD_LANG !== 'nl_NL'
+        ? {
+              'patients.patient_allow_first_responder_chance': {
+                  type: 'toggle',
+                  default: true,
+                  dependsOn: '.patients.content',
+              },
+          }
+        : null),
     'patients.hideWhenNoNeed': {
         type: 'toggle',
         default: false,
@@ -165,8 +190,20 @@ export default (MODULE_ID: string): unknown => ({
         type: 'hidden',
         default: false,
     },
-    'k9_only_if_needed': {
-        type: 'toggle',
-        default: false,
-    },
+    ...(BUILD_LANG === 'de_DE'
+        ? {
+              k9_only_if_needed: {
+                  type: 'toggle',
+                  default: false,
+              },
+          }
+        : null),
+    ...(BUILD_LANG === 'nl_NL'
+        ? {
+              bike_police_only_if_needed: {
+                  type: 'toggle',
+                  default: false,
+              },
+          }
+        : null),
 });

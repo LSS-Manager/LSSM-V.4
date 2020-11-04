@@ -1,0 +1,69 @@
+{
+	"building-types": {
+		"building": "Edifici",
+		"current": "Numero (attivi)",
+		"extension": "Espansioni",
+		"maximum": "Massimo possibile",
+		"unavailable": "Sotto costruzione"
+	},
+	"chart-summaries": {
+		"buildings": {
+			"personal_count": "Personale",
+			"tip": "Clicca su una delle categorie (es. dipartimento VVF o polizia) per ingrandire gli edifici assegnati a questa categoria. Se poi clicchi su un tipo di edificio, puoi vedere quanti veicoli per ogni categoria di veicoli, sono situati presso gli edifici di quel tipo. In questa maniera puoi sapere rapidamente quanti veicoli ci sono di ogni tipo parcheggiati alla stazione di polizia e quanti alla stazione di polizia piccola.",
+			"title": "Edifici"
+		},
+		"vehicles": {
+			"empty": "Non hai ancora nessun veicolo in questa categoria {category} !",
+			"tip": "Clicca su un gruppo di tipi di veicolo per vedere solo questo gruppo.",
+			"title": "Veicoli"
+		}
+	},
+	"dispatchcenter-view": {
+		"manage": {
+			"newBoard": "Nuovo bacheca",
+			"title": "Gestisci la bacheca",
+			"titles": {
+				"buildings": {
+					"bold": "Selezione del tipo di edificio",
+					"small": "mostra solo gli edifici di quel tipo di edificio per la selezione"
+				},
+				"dispatch": {
+					"bold": "Selezione Centrale di controllo",
+					"small": "Mostra solo gli edifici assegnati a questa centrale di controllo per la selezione"
+				},
+				"name": "Nome bacheca"
+			}
+		},
+		"no-buildings": "Nessun edificio trovato. Se necessario, aggiusta i filtri per questa bacheca in \"Manage Boards\"-tab."
+	},
+	"tabs": {
+		"building-types": "Resoconto edifici",
+		"chart-summary": "Sommario",
+		"dispatchcenter-view": "Vista del centro di controllo",
+		"vehicle-types": "Panoramica dello stato"
+	},
+	"vehicle-list": {
+		"actions": "",
+		"building": "Edificio",
+		"caption": "Nome",
+		"fms": "FMS",
+		"type": "Tipo"
+	},
+	"vehicle-types": {
+		"status": "Stato",
+		"statuses": [
+			1,
+			2,
+			3,
+			4,
+			5,
+			6,
+			7,
+			9
+		],
+		"sum": "Totale",
+		"title": "Tutti {type} | Tutti {type} in stato {n} | Tutti {type} in stato {n}",
+		"type": "Tipo di veicolo",
+		"vehicles": "Veicolo"
+	}
+}

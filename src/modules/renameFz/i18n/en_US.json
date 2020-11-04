@@ -1,0 +1,10 @@
+{
+	"templates": {
+		"selection": "Select template...",
+		"selectionHint": "Create a new template? Just enter the name and select!",
+		"status": {
+			"template": "Wait for template selection...",
+			"waiting": "Waiting for input..."
+		}
+	}
+}

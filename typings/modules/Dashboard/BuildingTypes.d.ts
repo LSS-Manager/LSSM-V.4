@@ -2,7 +2,7 @@ import VueI18n from 'vue-i18n';
 import { InternalBuilding } from 'typings/Building';
 
 export interface BuildingTypes {
-    buildingTypes: InternalBuilding[];
+    buildingTypes: { [id: number]: InternalBuilding };
     categoryColors: {
         [category: string]: string;
     };

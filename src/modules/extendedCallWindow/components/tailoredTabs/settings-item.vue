@@ -38,11 +38,13 @@ export default Vue.extend<
     },
     data() {
         return {
-            vehicleTypes: (Object.values(
-                this.$t('vehicles')
-            ) as InternalVehicle[]).map(({ caption }, index) => ({
+            vehicleTypes: Object.entries(
+                this.$t('vehicles') as {
+                    [id: number]: InternalVehicle;
+                }
+            ).map(([index, { caption }]) => ({
                 label: caption,
-                value: index,
+                value: parseInt(index),
             })),
         };
     },

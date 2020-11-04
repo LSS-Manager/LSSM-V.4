@@ -23,7 +23,7 @@ Plugins that are not activated will not be loaded either - this makes administra
 ## Installation 📥
 By using LSSM you agree that we collect metadata. You can find more information about this at [Metadata](metadata.md)
 
-A table with which browsers LSSM is compatible can be found in our [FAQ](faq.md#in-which-browsers-lss-manager works)
+A table with which browsers LSSM is compatible can be found in our [FAQ](faq.md#in-which-browsers-does-lss-manager-work)
 
 ::: tip Using LSSM on your mobile phone
 Officially we do not support a mobile version. However, the browser Firefox offers the possibility to use add-ons even in its mobile version. Nevertheless, we do not guarantee an attractive design or full functionality for mobile browsers.
