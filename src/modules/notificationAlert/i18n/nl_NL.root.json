@@ -1,0 +1,57 @@
+{
+	"alertStyles": {
+		"danger": "Foutmelding (rood)",
+		"info": "Informatie (blauw)",
+		"success": "Bevestiging (groen)",
+		"warning": "Waarschuwing (geel)"
+	},
+	"description": "Krijg browser en in-game meldingen voor verschillende gebeurtenissen - uiteraard allemaal in te stellen!",
+	"events": {
+		"allianceCandidature": "Nieuwe aanmelding voor het team",
+		"allianceChat": "Chatbericht",
+		"allianceChatMention": "Chatbericht (Alleen vermeldingen)",
+		"allianceChatWhisper": "Chatbericht (Alleen privé berichten)",
+		"allianceForum": "Nieuw bericht in op  het forum",
+		"allianceMessage": "Nieuw team bericht",
+		"allianceNews": "Nieuw team nieuws",
+		"dm": "Nieuw bericht in je inbox",
+		"ingame_news": "Nieuws van het spel",
+		"mission_getred": "Een melding heeft aandacht nodig",
+		"mission_getred_alliance": "Een teammelding heeft aandacht nodig",
+		"mission_new": "Nieuwe melding gegenereerd",
+		"mission_new_largescale": "Nieuwe grote inzet is gegenereerd",
+		"mission_share": "Nieuwe gedeelde melding",
+		"sicherheitswache_error": "Geplande inzet gecanceld",
+		"sicherheitswache_success": "Geplande inzet voltooid",
+		"vehicle_fms": "Status meldingen (Algemeen)",
+		"vehicle_fms_1": "Status meldingen (Status 4)",
+		"vehicle_fms_2": "Status meldingen (Status 5)",
+		"vehicle_fms_3": "Status meldingen (Status 1)",
+		"vehicle_fms_4": "Status meldingen (Status 2)",
+		"vehicle_fms_5": "Status meldingen (Spraakaanvraag)",
+		"vehicle_fms_6": "Status meldingen (Status 6)",
+		"vehicle_fms_7": "Status meldingen (Status 3)",
+		"vehicle_fms_9": "Status meldingen (Status 9)"
+	},
+	"name": "Notificaties",
+	"positions": {
+		"bottom center": "Midden onder 🡣",
+		"bottom left": "Linksonder 🡧",
+		"bottom right": "Rechtsonder 🡦",
+		"top center": "Midden boven 🡡",
+		"top left": "Linksboven 🡤",
+		"top right": "Rechtsboven 🡥"
+	},
+	"settings": {
+		"alertStyle": "In-Game Notificaties Type",
+		"alerts": {
+			"description": "Stel hieronder notificaties in door de groene `+` te drukken.",
+			"title": "Stel notificaties in"
+		},
+		"desktop": "Verstuur desktop notificaties",
+		"duration": "Weergavetijd",
+		"eventTypes": "Gebeurtenissen",
+		"ingame": "Verstuur in-game notificaties",
+		"position": "Positie"
+	}
+}

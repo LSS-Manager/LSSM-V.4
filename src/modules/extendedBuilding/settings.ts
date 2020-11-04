@@ -68,9 +68,9 @@ export default (MODULE_ID: string): unknown => ({
         type: 'toggle',
         default: true,
     },
-    autoBuyLevels: {
-        type: 'toggle',
-        default: false,
-        disabled: () => true,
-    },
+    //autoBuyLevels: {
+    //    type: 'toggle',
+    //    default: false,
+    //    disabled: () => true,
+    //},
 });

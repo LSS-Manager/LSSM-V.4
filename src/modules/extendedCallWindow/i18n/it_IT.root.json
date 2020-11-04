@@ -1,0 +1,186 @@
+{
+	"name": "Finestra estesa d'allarme",
+	"settings": {
+		"alarmIcons": {
+			"description": "Lascia le icone mostrate in \"Alarm\" , basate sulla tua selezione. Puoi scegliere tra <a href=\"https://fontawesome.com/icons?d=gallery&m=free\" target=\"_blank\">tutte le icone gratuite di Font-Awesome</a>. Questo è sufficiente per specificare il nome dell'icona. Un'anteprima dal vivo ti mostrerà quindi l'icona.",
+			"icon": "Icona",
+			"preview": "Anteprima",
+			"style": "Tipo icona",
+			"title": "Icona allarme",
+			"vehicles": "Tipo di veicolo"
+		},
+		"alarmTime": {
+			"description": "Mostra accanto al pulsante d'allarme quanto tempo ci impiega ad arrivare il veicolo più distante.",
+			"title": "Tempo di viaggio più lungo"
+		},
+		"arrClickHighlight": {
+			"description": "Disegna una cornice intorno alle AAR già cliccate.",
+			"title": "Evidenzia le AAR cliccate"
+		},
+		"arrClickHighlightColor": {
+			"description": "Imposta il colore del bordo dei bordi delle AAR.",
+			"title": "Evidenzia colore"
+		},
+		"arrClickHighlightWidth": {
+			"description": "Specifica qui (in pixels) quanto dovrebbero essere larghi i bordi delle AAR.",
+			"title": "Evidenziazione della larghezza"
+		},
+		"arrCounter": {
+			"description": "Conta quanto spesso una AAR è stata cliccata. Tutti i contatori possono essere resettati usando il pulsante che si trova nell'angolo in basso a destra o un AAR con funzione di ripristino.",
+			"title": "Contatore AAR"
+		},
+		"arrCounterResetSelection": {
+			"description": "Aggiunge un pulsante in basso a destra per resettare la precedente selezione dei veicoli. Da notare: Resetta anche in contatore AAR e i bordi, se attivato!",
+			"title": "Resetta la selezione dei veicoli"
+		},
+		"arrMatchHighlight": {
+			"description": "Imposta un filtro grigio su tutte le AAR che non contengono una parola del nome della missione.",
+			"title": "Disattiva AAR non idonei"
+		},
+		"arrSpecs": {
+			"description": "Mostra le richieste memorizzate nell'AAR, se stai brevemente con il mouse su un AAR.",
+			"title": "Mostra i dettagli AAR"
+		},
+		"arrTime": {
+			"description": "Mostra quale sarebbe il tempo di viaggio più lungo dopo aver selezionato questa AAR, se rimani brevemente con il mouse su una AAR.",
+			"title": "Tempo di viaggio più lungo"
+		},
+		"centerMap": {
+			"description": "Ti permette di centrare la mappa nella finestra principale sul luogo di utilizzo con il semplice tocco di un pulsante.",
+			"title": "Mappa centrale"
+		},
+		"enhancedMissingVehicles": {
+			"description": "Converte la visualizzazione dei veicoli aggiuntivi richiesti in una tabbella più chiara.",
+			"title": "Migliora i veicoli necessari"
+		},
+		"generationDate": {
+			"description": "Mostra accanto all'indirizzo quando la missione è stata generata.",
+			"title": "Tempo di Generazione"
+		},
+		"hideVehicleList": {
+			"description": "Normalmente nasconde la lista, successivamente la apre premendo un pulsante.",
+			"title": "Nascondi la lista dei veicoli"
+		},
+		"loadMoreVehiclesInHeader": {
+			"description": "Mostra il pulsante \"Reload vehicles\", se disponibile, nella barra dell'intestazione.",
+			"title": "Ricarica i veicoli nell'intestazione"
+		},
+		"missionKeywords": {
+			"color": "colore background",
+			"description": "Ottieni la tua parola chiave visualizzata accanto al nome della missione",
+			"keyword": "parola chiave",
+			"missions": "missioni",
+			"preview": "Anteprima",
+			"title": "Parole chiavi missioni"
+		},
+		"patientSummary": {
+			"description": "Mostra accanto al numero dei pazienti, di quale equipaggiamento medico necessitano.",
+			"title": "Sommario paziente"
+		},
+		"redBorder": {
+			"description": "Delinea in rosso il tempo di generazione se l'allarme scadrà la notte successiva.",
+			"title": "Bordo rosso"
+		},
+		"stickyHeader": {
+			"description": "Mostra sempre la barra in alto nella finestra di inserimento, anche quando scorri verso il basso.",
+			"title": "Mostra sempre la barra dell'intestazione"
+		},
+		"tailoredTabs": {
+			"color": "Colore",
+			"description": "Regola qui le linguette nella finestra di inserimento. \"All\" e \"Continue alerting\" sarà sempre visibile,",
+			"name": "nome",
+			"title": "Categorie dei Veicoli",
+			"vehicles": "Tipi di veicoli"
+		},
+		"yellowBorder": {
+			"description": "Delinea in giallo l'ora di generazione se l'utilizzo è più vecchio del numero di ore immesso. Se il numero è 0, non viene tracciato alcun bordo.",
+			"title": "Bordo giallo"
+		}
+	},
+	"tailoredTabs": {
+		"defaultTabs": [
+			{
+				"name": "Camion VVF",
+				"vehicleTypes": [
+					0,
+					1,
+					13,
+					18,
+					33
+				]
+			},
+			{
+				"name": "Altri apparati VVF",
+				"vehicleTypes": [
+					2,
+					3,
+					4,
+					6,
+					7,
+					8,
+					9,
+					12,
+					17,
+					21,
+					22,
+					24,
+					30,
+					31,
+					32,
+					34,
+					35,
+					36,
+					37,
+					38,
+					39,
+					40,
+					41
+				]
+			},
+			{
+				"name": "Ambulanze",
+				"vehicleTypes": [
+					5,
+					11,
+					15,
+					20,
+					25,
+					27,
+					28,
+					29
+				]
+			},
+			{
+				"name": "Polizia",
+				"vehicleTypes": [
+					10,
+					14,
+					16,
+					19,
+					23,
+					26,
+					47
+				]
+			},
+			{
+				"name": "Acqua",
+				"vehicleTypes": [
+					21,
+					22,
+					24,
+					25
+				]
+			},
+			{
+				"name": "FBI",
+				"vehicleTypes": [
+					42,
+					43,
+					44,
+					45,
+					46
+				]
+			}
+		]
+	}
+}

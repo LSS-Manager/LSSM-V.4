@@ -1,0 +1,34 @@
+{
+	"description": "Hiermee kun je algemene verbeteringen activeren, zoals klikbare links in het spel.",
+	"name": "Algemene verbeteringen",
+	"settings": {
+		"browserTitle": {
+			"description": "Past de titel van het browsertabblad aan zodat het laat zien wat er momenteel in het spel is geopend.",
+			"title": "Titel van het browsertabblad"
+		},
+		"clickableLinks": {
+			"description": "Links die als platte tekst worden weergegeven (bijv. In chat, forum, berichten, etc.) worden klikbaar gemaakt. Ze openen automatisch in een nieuw tabblad.",
+			"title": "Maak links klikbaar"
+		},
+		"emojiPicker": {
+			"description": "Toont je emoji's die je kunt selecteren wanneer je typt : gevolgd door tekst.",
+			"title": "Emoji-kiezer"
+		},
+		"linkPreviews": {
+			"buildings": "Gebouwen",
+			"description": "Toont een klein informatievenster als u een korte tijd met de muis op een link wacht. Hier kunt u instellen voor welke links de infobox moet worden geactiveerd:",
+			"missions": "Meldingen",
+			"profile": "Gebruiker",
+			"title": "Link Voorbeeld",
+			"vehicles": "Voertuigen"
+		},
+		"mapUndo": {
+			"description": "Kaart centreren op posities die eerder waren gecentreerd. - Werkt momenteel alleen met het kaarttype \"OpenStreetMap\"",
+			"title": "Bewaar kaart verplaatsingen"
+		},
+		"showImg": {
+			"description": "Toont een afbeeldingsvoorbeeld bij een link. Werkt alleen in combinatie met \"Maak links klikbaar\"!",
+			"title": "Activeren van het afbeeldingsvoorbeeld"
+		}
+	}
+}

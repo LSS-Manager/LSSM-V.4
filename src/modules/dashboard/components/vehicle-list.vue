@@ -85,6 +85,7 @@ import {
     VehicleListMethods,
     VehicleListProps,
 } from '../../../../typings/modules/Dashboard/VehicleList';
+import { InternalVehicle } from 'typings/Vehicle';
 
 export default Vue.extend<
     VehicleList,
@@ -105,8 +106,12 @@ export default Vue.extend<
     },
     data() {
         return {
-            vehicleTypeNames: Object.values(this.$t('vehicles')).map(
-                type => type.caption
+            vehicleTypeNames: Object.fromEntries(
+                Object.entries(
+                    this.$t('vehicles') as {
+                        [id: number]: InternalVehicle;
+                    }
+                ).map(([index, { caption }]) => [index, caption])
             ),
             vehiclesWithBuildings: [],
             buildings: this.$store.state.api.buildings,

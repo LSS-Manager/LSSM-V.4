@@ -399,6 +399,7 @@ export default Vue.extend<
                     heavy_rescue_vehicles: true,
                     battalion_chief_vehicles: true,
                     platform_trucks: true,
+                    police_cars: true,
                 },
                 optionalAlternatives: {
                     allow_rw_instead_of_lf: true,
@@ -423,6 +424,7 @@ export default Vue.extend<
                 followup: true,
                 k9_only_if_needed: true,
                 hide_battalion_chief_vehicles: true,
+                bike_police_only_if_needed: true,
             },
             noVehicleRequirements: Object.values(
                 this.$m('noVehicleRequirements')
@@ -618,6 +620,14 @@ export default Vue.extend<
                         vehicleName = 'k9_only_if_needed';
                     if (
                         !isMaxReq &&
+                        vehicle === 'bike_police' &&
+                        missionSpecs?.additional
+                            .need_bike_police_only_if_present &&
+                        this.settings.bike_police_only_if_needed
+                    )
+                        vehicleName = 'bike_police_only_if_needed';
+                    if (
+                        !isMaxReq &&
                         this.settings.hide_battalion_chief_vehicles &&
                         vehicle === 'battalion_chief_vehicles'
                     )
@@ -722,7 +732,7 @@ export default Vue.extend<
                     ].additionalText = this.$mc(
                         `vehicles.multifunctionals.${vehicle}.additional_text`,
                         vehicles[vehicle].old || 0
-                    ).toString();
+                    )?.toString() ?? '';
                 }
             });
             const vehiclesFiltered = {} as VehicleRequirements;

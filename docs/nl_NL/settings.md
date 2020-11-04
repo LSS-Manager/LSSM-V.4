@@ -3,7 +3,7 @@ title: Instellingen ⚙️
 lang: nl_NL
 ---
 
-# Instellingen ⚙️:gear:
+# Instellingen ⚙️
 
 De instellingen van alle modules worden centraal beheerd in de instellingen. Alleen de instellingen van actieve modules kunnen worden gewijzigd.
 

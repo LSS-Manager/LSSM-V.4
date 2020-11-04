@@ -1,0 +1,34 @@
+{
+	"description": "Ti permette di attivare miglioramenti generali come link cliccabili attraverso il gioco.",
+	"name": "Miglioramenti generali",
+	"settings": {
+		"browserTitle": {
+			"description": "Aggiusta il titolo della scheda del browser, così da mostrare cos'è attualmente aperto nel gioco.",
+			"title": "Titolo della scheda del browser"
+		},
+		"clickableLinks": {
+			"description": "I link che sono visualizzati come semplice testo (es. in chat, forum, messaggi, etc.) sono resi cliccabili. Si aprono automaticamente in una nuova scheda.",
+			"title": "Rendi i link cliccabili"
+		},
+		"emojiPicker": {
+			"description": "Ti mostra le emoji per la selezione quando digiti : seguito da testo.",
+			"title": "Selettore di emoji"
+		},
+		"linkPreviews": {
+			"buildings": "Edifici",
+			"description": "Ti mostra un piccolo box di informazioni se ti fermi col mouse sopra un link per un breve periodo. Qui puoi impostare per quali link la finestra d'informazioni dovrebbe essere attivata:",
+			"missions": "Missioni",
+			"profile": "Utente",
+			"title": "Anteprima collegamento",
+			"vehicles": "Veicoli"
+		},
+		"mapUndo": {
+			"description": "Centra la mappa sulle posizioni centrate in precedenza. - Attualmente funiona solo con le mappe del tipo \"OpenStreetMap\"",
+			"title": "Salva i salti della mappa"
+		},
+		"showImg": {
+			"description": "Prova a generare un'anteprima dell'immagine. Funziona solo in combinazione con \"Make links clickable\"!",
+			"title": "Attivazione dell'anteprima dell'immagine"
+		}
+	}
+}
