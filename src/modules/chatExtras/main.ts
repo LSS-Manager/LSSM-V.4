@@ -1,98 +1,33 @@
+import moment from 'moment';
 import { $m, ModuleMainFunction } from 'typings/Module';
 
-export default (async (LSSM, MODULE_ID, $m) => {
-    const config = await (async () => {
-        const DayMonthSort = await LSSM.$store.dispatch('settings/getSetting', {
-            moduleId: MODULE_ID,
-            settingId: 'DayMonthSort',
-        });
-        const Seperator = await LSSM.$store.dispatch('settings/getSetting', {
-            moduleId: MODULE_ID,
-            settingId: 'Seperator',
-        });
-    })();
+export default (async (LSSM, MODULE_ID) => {
+    const format = await LSSM.$store.dispatch('settings/getSetting', {
+        moduleId: MODULE_ID,
+        settingId: 'predefined_style',
+    });
     if (window.location.pathname === '/') {
         let mission_chat_message_username = document.querySelectorAll(
             '.mission_chat_message_username'
         );
         if (mission_chat_message_username) {
             mission_chat_message_username.forEach(function (chatMessageHead) {
-                let chatMessageSentAll = chatMessageHead
-                    .getAttribute('title')
-                    .split(',');
-                let chatMessageSentMonth = chatMessageSentAll[1].substring(
-                    5,
-                    -5
+                const messageHeader = chatMessageHead as HTMLElement;
+                let rawDate = messageHeader.parentElement?.getAttribute(
+                    'data-message-time'
                 );
-                let sentMonth;
-                switch (chatMessageSentMonth) {
-                    case 'Januar':
-                        sentMonth = '01';
-                        break;
-                    case 'Februar':
-                        sentMonth = '02';
-                        break;
-                    case 'März':
-                        sentMonth = '03';
-                        break;
-                    case 'April':
-                        sentMonth = '04';
-                        break;
-                    case 'Mai':
-                        sentMonth = '05';
-                        break;
-                    case 'Juni':
-                        sentMonth = '06';
-                        break;
-                    case 'Juli':
-                        sentMonth = '07';
-                        break;
-                    case 'August':
-                        sentMonth = '08';
-                        break;
-                    case 'September':
-                        sentMonth = '09';
-                        break;
-                    case 'Oktober':
-                        sentMonth = '10';
-                        break;
-                    case 'November':
-                        sentMonth = '11';
-                        break;
-                    case 'Dezember':
-                        sentMonth = '12';
-                        break;
-                    default:
-                        break;
-                }
-                let chatMessageDate = chatMessageSentAll[1].substring(1, 3);
-                let chatMessageTime = chatMessageSentAll[2].split(' ')[1];
-                chatMessageHead.innerHTML =
-                    '[' +
-                    chatMessageDate +
-                    config.Seperator +
-                    chatMessageSentMonth +
-                    ' ' +
-                    chatMessageTime +
-                    ']';
+                moment.locale(BUILD_LANG);
+                const timeStampModified = moment(rawDate).format(format);
+                messageHeader.innerText = '[' + timeStampModified + ']';
+                chatMessageHead = messageHeader as HTMLElement;
             });
         }
     }
     await LSSM.$store.dispatch('hook', {
         event: 'allianceChat',
         callback({}: AllianceChatMessage) {
-            const date: Date = new Date();
-            const date_hidden =
-                '[' +
-                date.getDate() +
-                '.' +
-                date.getMonth() +
-                1 +
-                ' ' +
-                date.getHours() +
-                ':' +
-                date.getMinutes() +
-                ']';
+            moment.locale(BUILD_LANG);
+            date_hidden = moment(n).format(format);
         },
     });
 }) as ModuleMainFunction;
