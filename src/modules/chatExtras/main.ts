@@ -5,7 +5,7 @@ import { $m, ModuleMainFunction } from 'typings/Module';
 export default (async (LSSM, MODULE_ID) => {
     const format = await LSSM.$store.dispatch('settings/getSetting', {
         moduleId: MODULE_ID,
-        settingId: 'predefined_style',
+        settingId: 'format',
     });
     let mission_chat_message_username = document.querySelectorAll(
         '.mission_chat_message_username'
