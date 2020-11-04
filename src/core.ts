@@ -168,7 +168,7 @@ if (window.location.pathname === '/') {
                     window.location.pathname.match(
                         LSSM.$store.state.modules[moduleId].location
                     )
-                )
+                ) {
                     try {
                         LSSM.$i18n.mergeLocaleMessage(BUILD_LANG, {
                             modules: {
@@ -182,6 +182,9 @@ if (window.location.pathname === '/') {
                                 ).default,
                             },
                         });
+                    } catch {
+                        // if no i18n exists, do nothing
+                    }
                         import(
                             /* webpackChunkName: "modules/mains/[request]" */
                             /* webpackInclude: /[\\/]+modules[\\/]+.*?[\\/]+main\.ts/ */
@@ -195,9 +198,7 @@ if (window.location.pathname === '/') {
                                 $mc
                             )
                         );
-                    } catch {
-                        return;
-                    }
+                  }
             });
         });
 })();
