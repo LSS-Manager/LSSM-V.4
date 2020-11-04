@@ -732,7 +732,7 @@ export default Vue.extend<
                     ].additionalText = this.$mc(
                         `vehicles.multifunctionals.${vehicle}.additional_text`,
                         vehicles[vehicle].old || 0
-                    ).toString();
+                    )?.toString() ?? '';
                 }
             });
             const vehiclesFiltered = {} as VehicleRequirements;
