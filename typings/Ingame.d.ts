@@ -13,6 +13,7 @@ export interface AllianceChatMessage {
     alliance_coadmin: string; // Also a stringified boolean…
     date: string; // Actually the time (for example: 17:23)
     date_hidden: string; // Datetime in a readble format
+    iso_timestamp: string; //Time in ISO-Format
     message: string; // Which is raw HTML
     mission_caption: string;
     mission_id: number;
