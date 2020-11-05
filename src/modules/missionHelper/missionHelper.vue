@@ -729,10 +729,11 @@ export default Vue.extend<
                         vehicles[multifunctionals[vehicle].reduce_from].amount;
                     vehicles[
                         multifunctionals[vehicle].reduce_from
-                    ].additionalText = this.$mc(
-                        `vehicles.multifunctionals.${vehicle}.additional_text`,
-                        vehicles[vehicle].old || 0
-                    )?.toString() ?? '';
+                    ].additionalText =
+                        this.$mc(
+                            `vehicles.multifunctionals.${vehicle}.additional_text`,
+                            vehicles[vehicle].old || 0
+                        )?.toString() ?? '';
                 }
             });
             const vehiclesFiltered = {} as VehicleRequirements;
