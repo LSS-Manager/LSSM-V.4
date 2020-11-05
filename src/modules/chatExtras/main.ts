@@ -10,7 +10,7 @@ export default (async (LSSM, MODULE_ID) => {
     moment.locale(BUILD_LANG);
     document
         .querySelectorAll<HTMLSpanElement>('.mission_chat_message_username')
-        .forEach(function(msg_user_span) {
+        .forEach(msg_user_span => {
             const rawDate = msg_user_span.parentElement?.getAttribute(
                 'data-message-time'
             );
