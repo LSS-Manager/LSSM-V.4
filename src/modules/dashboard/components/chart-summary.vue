@@ -113,7 +113,8 @@ export default Vue.extend<
     data() {
         return {
             buildingsId: this.$store.getters.nodeAttribute(
-                'chart-summary-buildings'
+                'chart-summary-buildings',
+                true
             ),
             buildings: this.$store.getters['api/buildingsByCategory'],
             buildingCategories: (this.$t('buildingCategories') as unknown) as {
@@ -134,7 +135,8 @@ export default Vue.extend<
                 ).map(([index, { color }]) => [index, color])
             ),
             vehiclesId: this.$store.getters.nodeAttribute(
-                'chart-summary-vehicles'
+                'chart-summary-vehicles',
+                true
             ),
             vehicles: this.$store.getters['api/vehiclesByType'],
             vehicleCategories: (this.$t('vehicleCategories') as unknown) as {

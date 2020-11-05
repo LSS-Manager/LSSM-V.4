@@ -33,7 +33,8 @@ export default (LSSM: Vue, $m: $m): void => {
     });
 
     const toggleId = LSSM.$store.getters.nodeAttribute(
-        'toggle-fitting-personnel'
+        'toggle-fitting-personnel',
+        true
     );
 
     const settingsBar = document.createElement('form');

@@ -117,7 +117,8 @@ export default (
     tabs.forEach(({ name, vehicleTypes }) => {
         if (!tabList || !allTab || !occupiedTab || !panelWrapper) return;
         const tabId = LSSM.$store.getters.nodeAttribute(
-            `tailoredtabs-${name.replace(/ /g, '_').replace(/["']/g, '')}`
+            `tailoredtabs-${name}`,
+            true
         );
 
         const tabSelector = document.createElement('li');

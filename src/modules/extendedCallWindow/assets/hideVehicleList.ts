@@ -3,7 +3,8 @@ import { $m } from 'typings/Module';
 
 export default (LSSM: Vue, MODULE_ID: string, $m: $m): void => {
     const toggleBtnId = LSSM.$store.getters.nodeAttribute(
-        `${MODULE_ID}-toggle-vehiclelist`
+        `${MODULE_ID}-toggle-vehiclelist`,
+        true
     );
     const btn = document.createElement('button');
     btn.setAttribute('id', toggleBtnId);
