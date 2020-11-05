@@ -142,8 +142,18 @@ export default (Vue: VueConstructor): Store<RootState> => {
             },
         } as MutationTree<RootState>,
         getters: {
-            nodeAttribute: (state: RootState) => (attr: string): string =>
-                `${state.prefix}-${attr}`,
+            nodeAttribute: (state: RootState) => (
+                attr: string,
+                id = false
+            ): string => {
+                const res = `${state.prefix}-${attr}`;
+                if (id)
+                    return res
+                        .replace(/ /g, '_')
+                        .replace(/["']/g, '')
+                        .replace(/[^a-zA-Z_\-.]/g, '.');
+                return res;
+            },
             wiki: (state: RootState): string =>
                 `${config.server}docs/${state.lang}`,
             moduleWiki: (_, getters: GetterTree<RootState, RootState>) => (

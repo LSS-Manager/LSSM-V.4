@@ -367,7 +367,7 @@ export default Vue.extend<
             faExpandAlt,
             faSuperscript,
             faSubscript,
-            id: this.$store.getters.nodeAttribute('missionHelper'),
+            id: this.$store.getters.nodeAttribute('missionHelper', true),
             isReloading: true,
             isDiyMission: false,
             missionSpecs: undefined,

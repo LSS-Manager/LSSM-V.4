@@ -10,7 +10,8 @@
                 <grid-board
                     :id="
                         $store.getters.nodeAttribute(
-                            'dispatchcenter-view_board'
+                            'dispatchcenter-view_board',
+                            true
                         )
                     "
                 >
@@ -83,7 +84,8 @@
                                 <grid-board
                                     :id="
                                         $store.getters.nodeAttribute(
-                                            `dispatchcenter-view_board-${column.building}`
+                                            `dispatchcenter-view_board-${column.building}`,
+                                            true
                                         )
                                     "
                                 >
@@ -140,7 +142,8 @@
                             :maxHeight="3"
                             :id="
                                 $store.getters.nodeAttribute(
-                                    'dispatchcenter-view_board-selection'
+                                    'dispatchcenter-view_board-selection',
+                                    true
                                 )
                             "
                             :width="buildingSelection.width"
@@ -279,7 +282,8 @@
                 <grid-board
                     :id="
                         $store.getters.nodeAttribute(
-                            'dispatchcenter-view_manage'
+                            'dispatchcenter-view_manage',
+                            true
                         )
                     "
                 >
