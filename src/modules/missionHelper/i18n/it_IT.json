@@ -1,6 +1,6 @@
 {
 	"diyMission": "Questa missione sembra essere una missione dell'alleanza su larga scala!",
-	"expansions": "Diffusione | Si diffonde",
+	"expansions": "Espansione | Espansioni",
 	"followups": "Missione supplementare | Missioni supplementari",
 	"generated_by": "Generata da",
 	"noVehicleRequirements": [
@@ -9,7 +9,7 @@
 	"patients": {
 		"allow_ktw_instead_of_rtw": "Può essere usata una MSB invece di una MSA.",
 		"helicopter": "Probabilità per HEMS",
-		"patient_allow_first_responder_chance": "First Responder Probability",
+		"patient_allow_first_responder_chance": "Probabilità Primo soccorso",
 		"patient_at_end_of_mission": "Il paziente apparirà solo alla fine delle operazioni! | I pazienti appariranno solo alla fine delle operazioni!",
 		"patient_transport": "Probabilità di trasporto",
 		"possible_patient": "Massimo paziente | Pazienti al massimo",
@@ -22,50 +22,42 @@
 		"brush_extension": "Forestry-Expansion | Forestry-Expansions",
 		"federalpolice_stations": "Federal Police Station | Federal Police Stations",
 		"fire_aviation_count": "Firefighting plane station | Firefighting plane stations",
-		"fire_stations": "Firestation | Firestations",
+		"fire_stations": "Caserma VVF | Caserme VVF",
 		"max_police_stations": "Policestation maximal | Policestations maximal",
 		"max_rescue_stations": "Rescuestation maximal | Rescuestation maximal",
-		"police_helicopter_stations": "Police Helicopter Station | Police Helicopter Stations",
-		"police_stations": "Police Station | Police Stations",
-		"rescue_stations": "Ambulance Station | Ambulance Stations",
-		"title": "Prerequisite | Prerequisites"
+		"police_helicopter_stations": "Stazione elicottero polizia | Stazioni elicottero polizia",
+		"police_stations": "Stazione di Polizia | Stazioni di Polizia",
+		"rescue_stations": "Stazione ambulanza | Stazioni ambulanze",
+		"title": "Prerequisito | Prerequisitp"
 	},
 	"prisoners": {
 		"max_possible_prisoners": "Massimo prigioniere | Prigionieri massimali",
 		"title": "Prigionieri | {n} Prigioniere | {n} Prigionieri"
 	},
 	"requirements": {
-		"water_needed": "Water demand (gal)"
+		"water_needed": "Richiesta d'acqua (gal)"
 	},
 	"vehicles": {
 		"captions": {
-			"ambulances": "Ambulances",
-			"arff": "ARFF",
-			"battalion_chief_vehicles": "Battalion Chief Vehicle",
-			"boats": "Boat",
-			"brush_truck": "Wildland fire engines",
-			"fbi": "FBI Units",
-			"fbi_bomb": "FBI Bomb Technician Vehicle",
-			"fbi_drone": "FBI Surveillance Drone",
-			"fbi_investigation": "FBI Investiogation Wagon",
-			"fbi_mcc": "FBI Mobile Command Centers Vehicle",
-			"fire_aviation": "Airborne Firefighting",
-			"firetrucks": "Firetruck | Firetrucks",
-			"hazmat_vehicles": "Hazmat",
-			"heavy_rescue_vehicles": "Heavy Rescue",
-			"helicopter": "HEMS",
-			"k9": "K-9",
-			"large_fire_boat": "Large Fireboat",
-			"large_rescue_boat": "Large Rescueboat",
-			"mobile_air_vehicles": "Mobile air",
-			"mobile_command_vehicles": "Mobile Command Vehicle",
-			"platform_trucks": "Platform Truck | Platform Trucks",
-			"police_cars": "Patrol Car",
-			"police_helicopters": "Policehelicopter",
-			"sheriff": "Sheriff",
-			"swat_armored_vehicle": "SWAT Armoured Vehicle",
-			"swat_suv": "SWAT SUV",
-			"water_tankers": "Water Tanker"
+			"ambulances": "Ambulanza Medicalizzata",
+			"arff": "Flotta antincendio aereporti",
+			"battalion_chief_vehicles": "Funzionari",
+			"commerce_police": "Volante finanza",
+			"fbi_bomb": "Furgone artificieri",
+			"firetrucks": "APS/ABP",
+			"fwk": "Autogrù",
+			"hazmat_vehicles": "NBCR",
+			"heavy_rescue_vehicles": "Unità polisoccorso",
+			"helicopter": "Elisoccorso",
+			"k9": "Unità cinofila antidroga",
+			"mobile_air_vehicles": "Carro aria",
+			"mobile_command_vehicles": "UCL",
+			"platform_trucks": "Autoscala | Autoscale",
+			"police_cars": "Pattuglie",
+			"police_helicopters": "Elicottero della polizia",
+			"swat_armored_vehicle": "Furgone Antisommossa",
+			"swat_suv": "Suv UOPI",
+			"water_tankers": "Kilolitriche"
 		},
 		"multifunctionals": {
 			"battalion_chief_vehicles": {

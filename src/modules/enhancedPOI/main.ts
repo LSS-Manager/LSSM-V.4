@@ -7,6 +7,8 @@ export default (async (LSSM, MODULE_ID, $m: $m) => {
     const poi_types = Object.values(LSSM.$t('pois')) as string[];
     poi_types.sort();
 
+    await LSSM.$store.dispatch('api/registerSettings');
+
     const style = await (async () => {
         const predef = await LSSM.$store.dispatch('settings/getSetting', {
             moduleId: MODULE_ID,
@@ -150,7 +152,7 @@ export default (async (LSSM, MODULE_ID, $m: $m) => {
         document.body.append(style);
     };
     refresh_shown_pois();
-
+    const paddingLeftPOI = [3, 4].includes(LSSM.$store.state.api.settings.design_mode) ? '25px' : '1ch';
     const observer = new MutationObserver(mutations => {
         mutations.forEach(mutation => {
             const form = (mutation.target as HTMLElement).querySelector(
@@ -182,7 +184,7 @@ export default (async (LSSM, MODULE_ID, $m: $m) => {
                 )
             );
             const settingsWrapper = document.createElement('div');
-            settingsWrapper.style.paddingLeft = '1ch';
+            settingsWrapper.style.paddingLeft = paddingLeftPOI;
             settingsWrapper.id = poiSettingsWrapperId;
             form.append(settingsWrapper);
             settingsWrapper.append(

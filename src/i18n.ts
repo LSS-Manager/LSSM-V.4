@@ -6,15 +6,9 @@ export default (Vue: VueConstructor): VueI18n => {
 
     const i18n = new VueI18n({
         locale: BUILD_LANG,
-        fallbackLocale: FALLBACK_LOCALES,
         messages: {
-            ...Object.fromEntries(
-                [BUILD_LANG, ...FALLBACK_LOCALES].map(locale => [
-                    locale,
-                    // eslint-disable-next-line @typescript-eslint/no-var-requires
-                    require(`./i18n/${locale}`).default,
-                ])
-            ),
+            // eslint-disable-next-line @typescript-eslint/no-var-requires
+            [BUILD_LANG]: require(`./i18n/${BUILD_LANG}`).default,
         },
     });
 

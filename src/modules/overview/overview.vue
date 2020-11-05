@@ -339,7 +339,7 @@ export default Vue.extend<
         );
         return {
             vehicles: Object.values(vehicleTypes),
-            vehicleCategories: (vehicleCategories as unknown) as {
+            vehicleCategories: (resolvedVehicleCategories as unknown) as {
                 [name: string]: ResolvedVehicleCategory;
             },
             vehiclesTab: {
@@ -353,10 +353,15 @@ export default Vue.extend<
                     },
                     cost: { title: this.$m('titles.vehicles.cost') },
                     schooling: { title: this.$m('titles.vehicles.schooling') },
-                    wtank:
-                        this.$store.state.lang === 'de_DE'
-                            ? { title: this.$m('titles.vehicles.wtank') }
-                            : null,
+                    ...(['de_DE', 'en_US', 'pl_PL'].includes(
+                        this.$store.state.lang
+                    )
+                        ? {
+                              wtank: {
+                                  title: this.$m('titles.vehicles.wtank'),
+                              },
+                          }
+                        : null),
                     special: { title: this.$m('titles.vehicles.special') },
                 },
                 search: '',

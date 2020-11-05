@@ -40,4 +40,12 @@ module.exports = {
      * set this value to true if it is not available with the mapkit map
      */
     noMapkit: false,
+
+    /***
+     * type:    Boolean
+     * default: false
+     * set this valur to true if the module has a own settings.ts file to register settings
+     */
+
+    settings: false,
 };
