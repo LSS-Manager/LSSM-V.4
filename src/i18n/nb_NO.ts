@@ -1,7 +1,8 @@
 import { Building } from 'typings/Building';
 
 const moduleRootFiles = require.context('../', true, MODULE_ROOT_I18N_FILES);
-const furtherFiles = require.context('./en_US/', true, /.*(\/index)?\.js(on)?/);
+// Commented as dir ./en_US does not exist currently
+// const furtherFiles = require.context('./en_US/', true, /.*(\/index)?\.js(on)?/);
 const modules = {
     appstore: {
         save: 'Lagre',
@@ -50,11 +51,12 @@ moduleRootFiles
 
 const t = {} as { [key: string]: unknown };
 
-furtherFiles
-    .keys()
-    .forEach(
-        key => (t[key.split('/')[1].replace(/\..*$/, '')] = furtherFiles(key))
-    );
+// Commented as dir ./en_US does not exist currently
+// furtherFiles
+//     .keys()
+//     .forEach(
+//         key => (t[key.split('/')[1].replace(/\..*$/, '')] = furtherFiles(key))
+//     );
 
 export default {
     modules,
@@ -89,7 +91,6 @@ export default {
             credits: 5_000,
             minPersonnel: 1,
             maxPersonnel: 6,
-            wtank: 0,
         },
         1: {
             caption: 'Lett mannskapsbil',
@@ -98,7 +99,6 @@ export default {
             credits: 5_000,
             minPersonnel: 1,
             maxPersonnel: 3,
-            wtank: 0,
         },
         2: {
             caption: 'Stigebil',
@@ -107,7 +107,6 @@ export default {
             credits: 10_000,
             minPersonnel: 1,
             maxPersonnel: 3,
-            wtank: 0,
             special: 'Nødvendig etter at du har bygd 3 brannstasjoner.',
         },
         3: {
@@ -117,7 +116,6 @@ export default {
             credits: 10_000,
             minPersonnel: 1,
             maxPersonnel: 3,
-            wtank: 0,
             special: 'Nødvendig etter at du har bygd 6 brannstasjoner.',
         },
         4: {
@@ -127,7 +125,6 @@ export default {
             credits: 12_180,
             minPersonnel: 1,
             maxPersonnel: 4,
-            wtank: 0,
             special: 'Nødvendig etter at du har bygd 4 brannstasjoner.',
         },
         5: {
@@ -137,7 +134,6 @@ export default {
             credits: 5_000,
             minPersonnel: 1,
             maxPersonnel: 3,
-            wtank: 0,
         },
         6: {
             caption: 'Tankbil',
@@ -146,7 +142,6 @@ export default {
             credits: 17_300,
             minPersonnel: 1,
             maxPersonnel: 3,
-            wtank: 3_000,
             special: 'Nødvendig etter at du har bygd 7 brannstasjoner.',
         },
         7: {
@@ -156,7 +151,6 @@ export default {
             credits: 19_200,
             minPersonnel: 1,
             maxPersonnel: 6,
-            wtank: 0,
             special: 'Nødvendig etter at du har bygd 11 brannstasjoner.',
             schooling: 'Krever spesialistutdanning (CBRNe-enhet)',
             shownSchooling: 'CBRNe-enhet',
@@ -168,7 +162,6 @@ export default {
             credits: 5_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            wtank: 0,
         },
         9: {
             caption: 'Luftambulanse',
@@ -177,7 +170,6 @@ export default {
             credits: 300_000,
             minPersonnel: 1,
             maxPersonnel: 1,
-            wtank: 0,
         },
         10: {
             caption: 'Snorkelbil',
@@ -186,7 +178,6 @@ export default {
             credits: 19_000,
             minPersonnel: 1,
             maxPersonnel: 6,
-            wtank: 0,
             special:
                 'To purchase with credits it requires the rank: Captain, <br>Lower ranked members can purchase the vehicle for 25 Coins. <br>Quint acts as a Platform Truck and a Fire Truck.',
         },
@@ -197,7 +188,6 @@ export default {
             credits: 300_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            wtank: 0,
             schooling: 'Police - Police Aviation',
             shownSchooling: 'Police Aviation',
         },
@@ -208,7 +198,6 @@ export default {
             credits: 17_300,
             minPersonnel: 6,
             maxPersonnel: 6,
-            wtank: 0,
             schooling: 'Police - Våpentrening',
             shownSchooling: 'SWAT',
             special: 'Nødvendig etter at du har bygt 8 politistasjoner.',
@@ -220,7 +209,6 @@ export default {
             credits: 7_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            wtank: 0,
             schooling: 'Politi - Hundepatrulje',
             shownSchooling: 'Hundepatrulje',
             special: 'Nødvendig etter at du har bygt 6 politistasjoner.',
@@ -232,7 +220,6 @@ export default {
             credits: 2_500,
             minPersonnel: 1,
             maxPersonnel: 1,
-            wtank: 0,
             schooling: 'Politi - Politimotorsykkel',
             shownSchooling: 'Politimotorsykkel',
         },
@@ -243,7 +230,6 @@ export default {
             credits: 7_000,
             minPersonnel: 2,
             maxPersonnel: 4,
-            wtank: 0,
             special: 'Required once you have built 8 police stations',
             schooling: 'Police - SWAT',
             shownSchooling: 'SWAT',
@@ -254,7 +240,6 @@ export default {
             credits: 11_860,
             minPersonnel: 1,
             maxPersonnel: 3,
-            wtank: 0,
             special: 'Nødvendig etter at du har bygd 5 brannstasjoner.',
         },
         17: {
@@ -264,7 +249,6 @@ export default {
             credits: 25_500,
             minPersonnel: 1,
             maxPersonnel: 6,
-            wtank: 0,
             schooling: 'Krever spesialistutdanning (Skadestedsledelse) ',
             shownSchooling: 'Innsatsstøttebil',
             special: 'Nødvendig etter at du har bygd 13 brannstasjoner.',
@@ -276,7 +260,6 @@ export default {
             credits: 12_180,
             minPersonnel: 1,
             maxPersonnel: 4,
-            wtank: 0,
             special: 'Nødvendig etter at du har bygd 4 brannstasjoner.',
         },
         19: {
@@ -286,7 +269,6 @@ export default {
             credits: 10_000,
             minPersonnel: 4,
             maxPersonnel: 5,
-            wtank: 0,
             special: 'Krever spesialistutdanning (Redningsdykker kurs)'
         },
         20: {
@@ -295,7 +277,6 @@ export default {
             coins: 12,
             credits: 6_000,
             maxPersonnel: 0,
-            wtank: 0,
             special: 'Et egnet kjøretøy trengs for å trekke tilhengeren / båthenger. (Dykkerbil, Mannskapsbil, Lett mannskapsbil)'
         },
         21: {
@@ -305,7 +286,6 @@ export default {
             credits: 19_000,
             minPersonnel: 1,
             maxPersonnel: 6,
-            wtank: 1500,
         },
         22: {
             caption: 'Utrykningspolitibil',
