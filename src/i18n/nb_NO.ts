@@ -329,7 +329,7 @@ export default {
         },
     },
     buildings: {
-        0: {
+        7: {
             caption: 'Nødetatssenter',
             color: '#24c3ae',
             coins: 0,
@@ -344,7 +344,7 @@ export default {
             maxBuildingsFunction: (buildingsAmountTotal: number): number =>
                 Math.floor(buildingsAmountTotal / 25) + 1,
         },
-        1: {
+        0: {
             caption: 'Brannstasjon',
             color: '#bb0000',
             coins: 30,
@@ -378,7 +378,7 @@ export default {
             startVehicles: ['Type 1 fire engine', 'Type 2 fire engine'],
             maxBuildingsFunction: (): number => 4_000,
         },
-        2: {
+        18: {
             caption: 'Brannstasjon (liten)',
             color: '#aa1111',
             coins: 25,
@@ -398,7 +398,7 @@ export default {
             startVehicles: ['Type 1 fire engine', 'Type 2 fire engine'],
             maxBuildingsFunction: (): number => 4_000,
         },
-        3: {
+        1: {
             caption: 'Brannskole',
             color: '#992222',
             coins: 50,
@@ -417,7 +417,7 @@ export default {
             startPersonnel: 0,
             startVehicles: [],
         },
-        4: {
+        2: {
             caption: 'Ambulansestasjon',
             color: '#ffa500',
             coins: 35,
@@ -430,7 +430,7 @@ export default {
             startPersonnel: 3,
             startVehicles: ['Ambulanse'],
         },
-        5: {
+        20: {
             caption: 'Ambulansestasjon (liten)',
             color: '#eeb611',
             coins: 25,
@@ -448,7 +448,7 @@ export default {
             startPersonnel: 3,
             startVehicles: ['ALS Ambulance'],
         },
-        6: {
+        4: {
             caption: 'Sykehus',
             color: '#bbe944',
             coins: 25,
@@ -517,7 +517,7 @@ export default {
             startPersonnel: 0,
             startVehicles: [],
         },
-        7: {
+        6: {
             caption: 'Politistasjon',
             color: '#007700',
             coins: 35,
@@ -539,7 +539,7 @@ export default {
             startVehicles: ['Patruljebil'],
             maxBuildingsFunction: (): number => 1_500,
         },
-        8: {
+        19: {
             caption: 'Politistasjon (liten)',
             color: '#116611',
             coins: 25,
@@ -559,7 +559,7 @@ export default {
             startVehicles: ['Patrol Car'],
             maxBuildingsFunction: (): number => 1_500,
         },
-        9: {
+        13: {
             caption: 'Politiheliport',
             color: '#148423',
             coins: 50,
@@ -577,7 +577,7 @@ export default {
                     ? 4
                     : Math.floor(buildingsAmountTotal / 25),
         },
-        10: {
+        8: {
             caption: 'Politiskole',
             color: '#225522',
             coins: 50,
@@ -596,7 +596,7 @@ export default {
             startPersonnel: 0,
             startVehicles: [],
         },
-        11: {
+        14: {
             caption: 'Oppstillingsplass',
             coins: 0,
             credits: 0,
@@ -610,7 +610,7 @@ export default {
             startVehicles: [],
             maxBuildingsFunction: (): number => 4,
         },
-        12: {
+        5: {
             caption: 'Helikopterstasjon',
             color: '#e7ad2f',
             coins: 50,
@@ -628,7 +628,7 @@ export default {
                     ? 4
                     : Math.floor(buildingsAmountTotal / 25),
         },
-        13: {
+        16: {
             caption: 'Fengsel',
             coins: 'x',
             credits: 100_000,
