@@ -230,5 +230,24 @@ export default (
         if (!tbody) return;
         tbody.innerHTML = '';
         tbody.append(...vehicles.map(v => v.cloneNode(true)));
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        $<HTMLTableElement>(`#${tableSorterId}`).tablesorter({
+            sortList: [[3, 0]],
+            headers: {
+                3: {
+                    sorter: 'mission_time',
+                },
+                5: {
+                    sorter: false,
+                },
+                0: {
+                    sorter: false,
+                },
+                1: {
+                    sorter: false,
+                },
+            },
+        });
     });
 };
