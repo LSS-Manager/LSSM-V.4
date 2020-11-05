@@ -18,9 +18,11 @@ export default (async (LSSM, MODULE_ID) => {
             );
             moment.locale(BUILD_LANG);
             const timeStampModified = moment(rawDate).format(format);
-            messageHeader.firstChild.textContent =
-                '[' + timeStampModified + ']';
-            chatMessageHead = messageHeader as HTMLElement;
+            if (messageHeader.firstChild != null) {
+                messageHeader.firstChild.textContent =
+                    '[' + timeStampModified + ']';
+                chatMessageHead = messageHeader as HTMLElement;
+            }
         });
     }
     await LSSM.$store.dispatch('premodifyParams', {
@@ -30,4 +32,4 @@ export default (async (LSSM, MODULE_ID) => {
             e.date = moment(e.iso_timestamp).format(format);
         },
     });
- }) as ModuleMainFunction;
+}) as ModuleMainFunction;
