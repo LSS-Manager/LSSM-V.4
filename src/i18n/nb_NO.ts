@@ -280,17 +280,25 @@ export default {
             special: 'Nødvendig etter at du har bygd 4 brannstasjoner.',
         },
         19: {
+            caption: 'Dykkerbil',
+            color: '#772222',
+            coins: 25,
+            credits: 10_000,
+            minPersonnel: 4,
+            maxPersonnel: 5,
+            wtank: 0,
+            special: 'Krever spesialistutdanning (Redningsdykker kurs)'
+        },
+        20: {
             caption: 'Lett redningsbåt',
             color: '#772222',
             coins: 12,
             credits: 6_000,
-            minPersonnel: 0,
             maxPersonnel: 0,
             wtank: 0,
-            special:
-                'Accessory boat that can be towed with the Utility Unit. Requires Swift Water Rescue trained personnel to operate.<br> The boat trailer cannot be assigned personnel, <br>either assign your trained personnel to the towing vehicle, or assign them to a separate unit en route.',
+            special: 'Et egnet kjøretøy trengs for å trekke tilhengeren / båthenger. (Dykkerbil, Mannskapsbil, Lett mannskapsbil)'
         },
-        20: {
+        21: {
             caption: 'Branntankbil',
             color: '#570f0f',
             coins: 19,
@@ -299,7 +307,7 @@ export default {
             maxPersonnel: 6,
             wtank: 1500,
         },
-        21: {
+        22: {
             caption: 'Utrykningspolitibil',
             color: '#ad0e0e',
             coins: 10,
@@ -309,7 +317,7 @@ export default {
             schooling: 'Politi - Utrykningspoliti',
             shownSchooling: 'Utrykningspoliti',
         },
-        22: {
+        23: {
             caption: 'Utrykningsenhetbil',
             color: '#ad0e0e',
             coins: 15,
