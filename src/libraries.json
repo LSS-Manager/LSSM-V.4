@@ -131,7 +131,7 @@
 	},
 	"sass": {
 		"url": "https://github.com/sass/dart-sass",
-		"version": "1.28.0"
+		"version": "1.29.0"
 	},
 	"sass-loader": {
 		"icon": "https://webpack.js.org/assets/icon-square-big.svg",
@@ -149,7 +149,7 @@
 	},
 	"ts-loader": {
 		"url": "https://github.com/TypeStrong/ts-loader",
-		"version": "8.0.7"
+		"version": "8.0.9"
 	},
 	"typescript": {
 		"url": "https://www.typescriptlang.org/",
@@ -241,7 +241,7 @@
 	"webpack-cli": {
 		"icon": "https://webpack.js.org/assets/icon-square-big.svg",
 		"url": "https://webpack.js.org/api/cli/",
-		"version": "4.1.0"
+		"version": "4.2.0"
 	},
 	"webpack-loader-append-prepend": {
 		"url": "https://github.com/fedemp/webpack-loader-append-prepend",
