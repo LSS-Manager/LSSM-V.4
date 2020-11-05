@@ -1,10 +1,10 @@
 ---
 title: General
-lang: en_GB
+lang: nb_NO
 sidebarDepth: 2
 ---
 
-# Wiki :gb: <Badge :text="'LSSM V.' + ($themeConfig.variables.versions.stable || 4)"/>
+# Wiki :no: <Badge :text="'LSSM V.' + ($themeConfig.variables.versions.stable || 4)"/>
 
 *Current versions:*
 > Stable: <i>{{ $themeConfig.variables.versions.stable }}</i> (not yet released)

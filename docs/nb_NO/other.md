@@ -1,10 +1,10 @@
 ---
-title: Other
-lang: en_GB
+title: Annet
+lang: nb_NO
 sidebarDepth: 2
 ---
 
-# Other
+# Annet
 
 on this page we would like to give you other information about the LSSM.
 

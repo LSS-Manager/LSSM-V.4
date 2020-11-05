@@ -1,20 +1,20 @@
 ---
-title: Settings ⚙️
-lang: en_GB
+title: Innstillinger ⚙️
+lang: nb_NO
 ---
 
-# Settings ⚙️:gear:
+# Innstillinger ⚙️:gear:
 
-The settings of all modules are managed centrally in the settings. Only the settings of active modules can be changed.
+Innstillingene til alle modulene styres sentralt i innstillingene. Bare innstillingene til aktive moduler kan endres.
 
-It is planned to add a possibility to export and import the settings as in `LSSM V.3`.
-In addition, we would like to offer the possibility to save settings profile-bound in the near future. This means that settings are no longer device-bound.
+Det er planlagt å legge til en mulighet for å eksportere og importere innstillingene som i `LSSM V.3`.
+I tillegg vil vi tilby muligheten til å lagre innstillinger profilbundet i nær fremtid. Dette betyr at innstillingene ikke lenger er enhetsbundet.
 
-::: tip Changes
-As soon as you exit the settings and have saved changes, the game will reload to easily apply all settings.
-If you have unsaved changes, you can't close the settings, you will get a small hint message.
+::: tip Endringer
+Så snart du avslutter innstillingene og har lagret endringene, vil spillet lastes inn på nytt for enkelt å bruke alle innstillingene.
+Hvis du har endringer som ikke er lagret, kan du ikke lukke innstillingene, du får en liten hintmelding.
 :::
 
-::: danger Reset the settings
-Caution: If you reset settings, they cannot be restored without previous export!
+::: danger Tilbakestill innstillingene
+Forsiktig: Hvis du tilbakestiller innstillingene, kan de ikke gjenopprettes uten tidligere eksport!
 :::
