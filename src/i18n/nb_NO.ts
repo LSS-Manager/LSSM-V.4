@@ -233,6 +233,7 @@ export default {
             special: 'Required once you have built 8 police stations',
             schooling: 'Police - SWAT',
             shownSchooling: 'SWAT',
+        },
         16: {
             caption: 'Røykdykkerbil',
             color: '#aa0000',
