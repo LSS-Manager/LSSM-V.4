@@ -159,7 +159,7 @@ export default {
             wtank: 0,
             special: 'Nødvendig etter at du har bygd 11 brannstasjoner.',
             schooling: 'Krever spesialistutdanning (CBRNe-enhet)',
-            shownSchooling: 'Hazmat',
+            shownSchooling: 'CBRNe-enhet',
         },
         8: {
             caption: 'Patruljebil',
@@ -266,7 +266,7 @@ export default {
             maxPersonnel: 6,
             wtank: 0,
             schooling: 'Krever spesialistutdanning (Skadestedsledelse) ',
-            shownSchooling: 'Skadestedsledelse',
+            shownSchooling: 'Innsatsstøttebil',
             special: 'Nødvendig etter at du har bygd 13 brannstasjoner.',
         },
         18: {
