@@ -151,7 +151,7 @@ export default (Vue: VueConstructor): Store<RootState> => {
                     return res
                         .replace(/ /g, '_')
                         .replace(/["']/g, '')
-                        .replace(/[^a-zA-Z_\-.]/g, '.');
+                        .replace(/[^a-zA-Z0-9_\-.]/g, '-');
                 return res;
             },
             wiki: (state: RootState): string =>
