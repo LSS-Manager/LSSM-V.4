@@ -412,17 +412,19 @@ export default {
             color: '#225522',
             coins: 50,
             credits: 500_000,
-            extensions: new Array(3).fill({
-                caption: 'Additional classroom',
-                credits: 400_000,
-                coins: 40,
-                duration: '7 Days',
-            }),
+            extensions: [
+                ...new Array(3).fill({
+					caption: 'Additional classroom',
+					credits: 400_000,
+					coins: 40,
+					duration: '7 Days',
+				}),
+            ],
             levelcost: [],
             maxBuildings: 'No limit',
             maxLevel: 0,
             special:
-                "Finance ministers and admins can (expand) association police schools with the help of credits from the association's treasury.Training course masters and admins can start training courses at association police schools.",
+                "Finance ministers and admins can (expand) association rescue schools with the help of credits from the association's treasury.Training course masters and admins can start training courses at association rescue schools.",
             startPersonnel: 0,
             startVehicles: [],
         },
@@ -555,12 +557,14 @@ export default {
             color: '#225522',
             coins: 50,
             credits: 500_000,
-            extensions: new Array(3).fill({
-                caption: 'Additional classroom',
-                credits: 400_000,
-                coins: 40,
-                duration: '7 Days',
-            }),
+            extensions: [
+                ...new Array(3).fill({
+					caption: 'Additional classroom',
+					credits: 400_000,
+					coins: 40,
+					duration: '7 Days',
+				}),
+            ],
             levelcost: [],
             maxBuildings: 'No limit',
             maxLevel: 0,
@@ -605,12 +609,14 @@ export default {
             caption: 'Prison',
             coins: 'x',
             credits: 100_000,
-            extensions: new Array(10).fill({
-                caption: 'Prison Cell',
-                credits: 25_000,
-                coins: 5,
-                duration: '7 Days',
-            }),
+            extensions: [
+                ...new Array(10).fill({
+                    caption: 'Prison cell',
+                    credits: 25_000,
+                    coins: 5,
+                    duration: '7 Days',
+                }),
+            ],
             levelcost: [],
             maxBuildings: 'No limit',
             maxLevel: 0,
@@ -644,19 +650,21 @@ export default {
             color: '#116611',
             coins: 25,
             credits: 50_000,
-            extensions: new Array(2).fill({
-                caption: 'Prison cell',
-                credits: 25_000,
-                coins: 5,
-                duration: '7 Days',
-            }),
+            extensions: [
+                ...new Array(2).fill({
+                    caption: 'Prison cell',
+                    credits: 25_000,
+                    coins: 5,
+                    duration: '7 Days',
+                }),
+            ],
             levelcost: [
                 '1. 10.000',
                 '2. 50.000',
                 '3.-4. 100.000',
                 'Conversion to normal guard: difference price to normal guard',
             ],
-            maxBuildings: '1.500 mit Polizeiwachen zusammen',
+            maxBuildings: '1.500 together with police stations',
             maxLevel: 4,
             special:
                 'From the 24th police station onwards, the costs for the new construction of a police station are calculated according to the following formula: <code>(100.000+200.000*LOG<sub>2</sub>(Number of existing police stations − 22)) / 2</code>. The Coins price remains constant!',
