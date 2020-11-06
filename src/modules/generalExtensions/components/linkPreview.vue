@@ -115,9 +115,9 @@
                         </a>
                     </td>
                     <td>
-                        ({{ vehicleTypes[vehicle.vehicle_type].caption }}
-                        <small v-if="vehicle.vehicle_type_caption"
-                            >[{{ vehicle.vehicle_type_caption }}]</small
+                        ({{ vehicleTypes[vehicle.vehicle_type].caption
+                        }}<small v-if="vehicle.vehicle_type_caption"
+                            >&nbsp;[{{ vehicle.vehicle_type_caption }}]</small
                         >)
                     </td>
                 </tr>
