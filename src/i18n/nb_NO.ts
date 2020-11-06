@@ -310,21 +310,6 @@ export default {
         },
     },
     buildings: {
-        7: {
-            caption: 'Nødetatssenter',
-            color: '#24c3ae',
-            coins: 0,
-            credits: 0,
-            extensions: [],
-            levelcost: [],
-            maxBuildings: 'All 25 buildings one control center',
-            maxLevel: 0,
-            special: 'The control center is the administrative center.',
-            startPersonnel: 0,
-            startVehicles: [],
-            maxBuildingsFunction: (buildingsAmountTotal: number): number =>
-                Math.floor(buildingsAmountTotal / 25) + 1,
-        },
         0: {
             caption: 'Brannstasjon',
             color: '#bb0000',
@@ -355,26 +340,6 @@ export default {
             maxLevel: 39,
             special:
                 'From the 24th fire station onwards, the cost of building a new fire station increases according to the following formula: <code>100.000+200.000*LOG<sub>2</sub>(Number of existing fire stations − 22)</code>. The Coins price remains constant!',
-            startPersonnel: 10,
-            startVehicles: ['Type 1 fire engine', 'Type 2 fire engine'],
-            maxBuildingsFunction: (): number => 4_000,
-        },
-        18: {
-            caption: 'Brannstasjon (liten)',
-            color: '#aa1111',
-            coins: 25,
-            credits: 50_000,
-            extensions: [],
-            levelcost: [
-                '1. 10.000',
-                '2. 50.000',
-                '3.-5. 100.000',
-                'Conversion to normal guard: difference price to normal guard',
-            ],
-            maxBuildings: '4.000 together with fire stations',
-            maxLevel: 5,
-            special:
-                'From the 24th fire station onwards, the cost of building a new fire station increases according to the following formula: <code>(100.000+200.000*LOG<sub>2</sub>(Number of existing fire stations − 22)) / 2</code>. max. 1 Million Credits. The Coins price remains constant!',
             startPersonnel: 10,
             startVehicles: ['Type 1 fire engine', 'Type 2 fire engine'],
             maxBuildingsFunction: (): number => 4_000,
@@ -410,24 +375,6 @@ export default {
             special: '',
             startPersonnel: 3,
             startVehicles: ['Ambulanse'],
-        },
-        20: {
-            caption: 'Ambulansestasjon (liten)',
-            color: '#eeb611',
-            coins: 25,
-            credits: 100_000,
-            extensions: [],
-            levelcost: [
-                '1. 10.000',
-                '2. 50.000',
-                '3.-5. 100.000',
-                'Conversion to normal guard: difference price to normal guard',
-            ],
-            maxBuildings: 'No limit',
-            maxLevel: 5,
-            special: '',
-            startPersonnel: 3,
-            startVehicles: ['ALS Ambulance'],
         },
         4: {
             caption: 'Sykehus',
@@ -498,6 +445,24 @@ export default {
             startPersonnel: 0,
             startVehicles: [],
         },
+        5: {
+            caption: 'Helikopterstasjon',
+            color: '#e7ad2f',
+            coins: 50,
+            credits: 1_000_000,
+            extensions: [],
+            levelcost: [],
+            maxBuildings: 'see specials',
+            maxLevel: 0,
+            special:
+                'Up to the 125th building (of all types) a total of max. 4 landing sites can be built. After that the number increases by 1 every 25 buildings (starting at the 125th).',
+            startPersonnel: 0,
+            startVehicles: [],
+            maxBuildingsFunction: (buildingsAmountTotal: number): number =>
+                buildingsAmountTotal < 125
+                    ? 4
+                    : Math.floor(buildingsAmountTotal / 25),
+        },
         6: {
             caption: 'Politistasjon',
             color: '#007700',
@@ -520,43 +485,20 @@ export default {
             startVehicles: ['Patruljebil'],
             maxBuildingsFunction: (): number => 1_500,
         },
-        19: {
-            caption: 'Politistasjon (liten)',
-            color: '#116611',
-            coins: 25,
-            credits: 50_000,
+        7: {
+            caption: 'Nødetatssenter',
+            color: '#24c3ae',
+            coins: 0,
+            credits: 0,
             extensions: [],
-            levelcost: [
-                '1. 10.000',
-                '2. 50.000',
-                '3.-4. 100.000',
-                'Conversion to normal guard: difference price to normal guard',
-            ],
-            maxBuildings: '1.500 mit Polizeiwachen zusammen',
-            maxLevel: 4,
-            special:
-                'From the 24th police station onwards, the costs for the new construction of a police station are calculated according to the following formula: <code>(100.000+200.000*LOG<sub>2</sub>(Number of existing police stations − 22)) / 2</code>. The Coins price remains constant!',
-            startPersonnel: 2,
-            startVehicles: ['Patrol Car'],
-            maxBuildingsFunction: (): number => 1_500,
-        },
-        13: {
-            caption: 'Politiheliport',
-            color: '#148423',
-            coins: 50,
-            credits: 1_000_000,
-            extensions: [],
-            levelcost: ['1. 1.000.000 Credits / 50 Coins'],
-            maxBuildings: 'see specials',
-            maxLevel: 1,
-            special:
-                'Up to 2 landing sites can be built per station (expansion stages). Up to the 125th building (of all types) a total of max. 4 landing sites can be built. After that the number increases by 1 every 25 buildings (starting at the 125th).',
-            startPersonnel: 3,
+            levelcost: [],
+            maxBuildings: 'All 25 buildings one control center',
+            maxLevel: 0,
+            special: 'The control center is the administrative center.',
+            startPersonnel: 0,
             startVehicles: [],
             maxBuildingsFunction: (buildingsAmountTotal: number): number =>
-                buildingsAmountTotal < 125
-                    ? 4
-                    : Math.floor(buildingsAmountTotal / 25),
+                Math.floor(buildingsAmountTotal / 25) + 1,
         },
         8: {
             caption: 'Politiskole',
@@ -577,6 +519,24 @@ export default {
             startPersonnel: 0,
             startVehicles: [],
         },
+        13: {
+            caption: 'Politiheliport',
+            color: '#148423',
+            coins: 50,
+            credits: 1_000_000,
+            extensions: [],
+            levelcost: ['1. 1.000.000 Credits / 50 Coins'],
+            maxBuildings: 'see specials',
+            maxLevel: 1,
+            special:
+                'Up to 2 landing sites can be built per station (expansion stages). Up to the 125th building (of all types) a total of max. 4 landing sites can be built. After that the number increases by 1 every 25 buildings (starting at the 125th).',
+            startPersonnel: 3,
+            startVehicles: [],
+            maxBuildingsFunction: (buildingsAmountTotal: number): number =>
+                buildingsAmountTotal < 125
+                    ? 4
+                    : Math.floor(buildingsAmountTotal / 25),
+        },
         14: {
             caption: 'Oppstillingsplass',
             coins: 0,
@@ -590,24 +550,6 @@ export default {
             startPersonnel: 0,
             startVehicles: [],
             maxBuildingsFunction: (): number => 4,
-        },
-        5: {
-            caption: 'Helikopterstasjon',
-            color: '#e7ad2f',
-            coins: 50,
-            credits: 1_000_000,
-            extensions: [],
-            levelcost: [],
-            maxBuildings: 'see specials',
-            maxLevel: 0,
-            special:
-                'Up to the 125th building (of all types) a total of max. 4 landing sites can be built. After that the number increases by 1 every 25 buildings (starting at the 125th).',
-            startPersonnel: 0,
-            startVehicles: [],
-            maxBuildingsFunction: (buildingsAmountTotal: number): number =>
-                buildingsAmountTotal < 125
-                    ? 4
-                    : Math.floor(buildingsAmountTotal / 25),
         },
         16: {
             caption: 'Fengsel',
@@ -626,8 +568,67 @@ export default {
                 "This building can only be built and developed by admins and finance ministers with credits from the association's treasury.The built Prison Cells are available to all members of the association.",
             startPersonnel: 0,
             startVehicles: [],
-        },
     },
+        18: {
+            caption: 'Brannstasjon (liten)',
+            color: '#aa1111',
+            coins: 25,
+            credits: 50_000,
+            extensions: [],
+            levelcost: [
+                '1. 10.000',
+                '2. 50.000',
+                '3.-5. 100.000',
+                'Conversion to normal guard: difference price to normal guard',
+            ],
+            maxBuildings: '4.000 together with fire stations',
+            maxLevel: 5,
+            special:
+                'From the 24th fire station onwards, the cost of building a new fire station increases according to the following formula: <code>(100.000+200.000*LOG<sub>2</sub>(Number of existing fire stations − 22)) / 2</code>. max. 1 Million Credits. The Coins price remains constant!',
+            startPersonnel: 10,
+            startVehicles: ['Type 1 fire engine', 'Type 2 fire engine'],
+            maxBuildingsFunction: (): number => 4_000,
+        },
+        19: {
+            caption: 'Politistasjon (liten)',
+            color: '#116611',
+            coins: 25,
+            credits: 50_000,
+            extensions: [],
+            levelcost: [
+                '1. 10.000',
+                '2. 50.000',
+                '3.-4. 100.000',
+                'Conversion to normal guard: difference price to normal guard',
+            ],
+            maxBuildings: '1.500 mit Polizeiwachen zusammen',
+            maxLevel: 4,
+            special:
+                'From the 24th police station onwards, the costs for the new construction of a police station are calculated according to the following formula: <code>(100.000+200.000*LOG<sub>2</sub>(Number of existing police stations − 22)) / 2</code>. The Coins price remains constant!',
+            startPersonnel: 2,
+            startVehicles: ['Patrol Car'],
+            maxBuildingsFunction: (): number => 1_500,
+        },
+        },
+        20: {
+            caption: 'Ambulansestasjon (liten)',
+            color: '#eeb611',
+            coins: 25,
+            credits: 100_000,
+            extensions: [],
+            levelcost: [
+                '1. 10.000',
+                '2. 50.000',
+                '3.-5. 100.000',
+                'Conversion to normal guard: difference price to normal guard',
+            ],
+            maxBuildings: 'No limit',
+            maxLevel: 5,
+            special: '',
+            startPersonnel: 3,
+            startVehicles: ['ALS Ambulance'],
+        },
+
     buildingCategories: {
         'Brann': {
             buildings: [1, 2, 3],
