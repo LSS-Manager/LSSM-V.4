@@ -1097,7 +1097,7 @@ export default {
             coins: 50,
             credits: 500_000,
             extensions: new Array(3).fill({
-                caption: 'Klassenzimmer',
+                caption: 'Weiterer Klassenraum',
                 credits: 400_000,
                 coins: 40,
                 duration: '7 Tage',
@@ -1129,7 +1129,7 @@ export default {
             coins: 50,
             credits: 500_000,
             extensions: new Array(3).fill({
-                caption: 'Klassenzimmer',
+                caption: 'Weiterer Klassenraum',
                 credits: 400_000,
                 coins: 40,
                 duration: '7 Tage',
@@ -1278,7 +1278,7 @@ export default {
             coins: 50,
             credits: 500_000,
             extensions: new Array(3).fill({
-                caption: 'Klassenzimmer',
+                caption: 'Weiterer Klassenraum',
                 credits: 400_000,
                 coins: 40,
                 duration: '7 Tage',
@@ -1360,7 +1360,7 @@ export default {
             coins: 50,
             credits: 500_000,
             extensions: new Array(3).fill({
-                caption: 'Klassenzimmer',
+                caption: 'Weiterer Klassenraum',
                 credits: 400_000,
                 coins: 40,
                 duration: '7 Tage',
@@ -1380,13 +1380,13 @@ export default {
             credits: 500_000,
             extensions: [
                 {
-                    caption: '2. Zug der 1. Hunderschaft',
+                    caption: '2. Zug der 1. Hundertschaft',
                     coins: 5,
                     credits: 25_000,
                     duration: '3 Tage',
                 },
                 {
-                    caption: '3. Zug der 1. Hunderschaft',
+                    caption: '3. Zug der 1. Hundertschaft',
                     coins: 5,
                     credits: 25_000,
                     duration: '3 Tage',
