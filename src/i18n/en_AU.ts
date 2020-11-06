@@ -619,7 +619,7 @@ export default {
             credits: 50_000,
             extensions: [
                 ...new Array(1).fill({
-                    ccaption: 'Additional cell',
+                    caption: 'Additional cell',
                     credits: 25_000,
                     coins: 5,
                     duration: '7 Days',
