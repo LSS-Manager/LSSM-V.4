@@ -1,7 +1,7 @@
 ## Zusammenfassung
 Die Zusammenfassung soll dir einen schnellen Überblick über die Zahl deiner Gebäude und Fahrzeuge geben.
 
-![Zusammenfassung](/docs/assets/dashboard/img/summary_de_DE.png)
+![Zusammenfassung](/v4/docs/assets/dashboard/img/summary_de_DE.png)
 
 #### Gebäude
 Klickst du in der Gebäudeübersicht auf eine Kategorie (z.B `Rettungsdienst`), so werden nur die Gebäude der jeweiligen Kategorie angezeigt.

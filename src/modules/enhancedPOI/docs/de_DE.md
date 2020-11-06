@@ -9,4 +9,4 @@ Um das Setzen ein wenig zu erleichtern, bietet dieses Modul daher folgende Verei
 * Alle bisherigen POI der aktuell ausgewählten Art werden farblich hervorgehoben.
 * Verlässt der Marker zur Platzierung neuer POI den sichtbaren Bereich der Karte, wird er automatisch auf der Karte zentriert.
 
-![Beispiel: Stadion](/docs/assets/enhancedPOI/img/de_DE.png)
+![Beispiel: Stadion](/v4/docs/assets/enhancedPOI/img/de_DE.png)

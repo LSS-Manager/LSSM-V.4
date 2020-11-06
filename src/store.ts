@@ -151,7 +151,7 @@ export default (Vue: VueConstructor): Store<RootState> => {
                     return res
                         .replace(/ /g, '_')
                         .replace(/["']/g, '')
-                        .replace(/[^a-zA-Z_\-.]/g, '.');
+                        .replace(/[^a-zA-Z0-9_\-.]/g, '-');
                 return res;
             },
             wiki: (state: RootState): string =>
@@ -284,12 +284,12 @@ export default (Vue: VueConstructor): Store<RootState> => {
                 { selectorText, style }: addStyle
             ) {
                 if (!state.styles.inserted) commit('insertStyleSheet');
-                state.styles.styleSheet?.sheet?.addRule(
-                    selectorText,
-                    Object.entries(style)
-                        .map(([rule, value]) => `${rule}: ${value};`)
-                        .join(';\n')
-                );
+                state.styles.styleSheet &&
+                    (state.styles.styleSheet.innerHTML += `${selectorText} {\n${Object.entries(
+                        style
+                    )
+                        .map(([rule, value]) => `\t${rule}: ${value};\n`)
+                        .join('')}\n}`);
             },
             premodifyParams(
                 _,

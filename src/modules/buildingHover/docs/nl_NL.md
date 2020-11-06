@@ -23,4 +23,4 @@ De volgende informatie is beschikbaar:
 
 Een voorbeeld van hoe het er uit ziet bij een opkomstbureau, welke 1 voltooide cel en 1 cel in aanbouw heeft:
 
-![Een voorbeeldig opkomstbureau](/docs/assets/buildingHover/img/polizei.png)
+![Een voorbeeldig opkomstbureau](/v4/docs/assets/buildingHover/img/polizei.png)
