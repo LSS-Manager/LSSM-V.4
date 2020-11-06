@@ -16,7 +16,7 @@ export default (async (LSSM, MODULE_ID) => {
             );
             const timeStampModified = moment(rawDate).format(format);
             if (msg_user_span.firstChild) {
-                msg_user_span.firstChild.textContent = `[${timeStampModified}]`;
+                msg_user_span.firstChild.textContent = `[${timeStampModified}] `;
             }
         });
     await LSSM.$store.dispatch('premodifyParams', {
