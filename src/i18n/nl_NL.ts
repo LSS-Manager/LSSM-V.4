@@ -811,8 +811,14 @@ export default {
             coins: 35,
             credits: 100_000,
             extensions: [
-                ...new Array(10).fill({
+                {
                     caption: 'Gevangeniscel',
+                    credits: 25_000,
+                    coins: 5,
+                    duration: '7 Dagen',
+                },
+                ...new Array(9).fill({
+                    caption: 'Extra cel',
                     credits: 25_000,
                     coins: 5,
                     duration: '7 Dagen',
@@ -960,12 +966,20 @@ export default {
             color: '#800000',
             coins: 'x',
             credits: 100_000,
-            extensions: new Array(10).fill({
-                caption: 'Gevangeniscel',
-                credits: 25_000,
-                coins: 5,
-                duration: '7 Dagen',
-            }),
+            extensions: [
+                {
+                    caption: 'Gevangeniscel',
+                    credits: 25_000,
+                    coins: 5,
+                    duration: '7 Dagen',
+                },
+                ...new Array(9).fill({
+                    caption: 'Extra cel',
+                    credits: 25_000,
+                    coins: 5,
+                    duration: '7 Dagen',
+                }),
+            ],
             levelcost: [],
             maxBuildings: 'Geen limiet',
             maxLevel: 0,
