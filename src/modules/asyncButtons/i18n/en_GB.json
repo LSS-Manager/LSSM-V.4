@@ -1,0 +1,37 @@
+{
+	"deleteARR": {
+		"deleteModal": {
+			"btnCancel": "Cancel",
+			"btnConfirm": "Delete",
+			"text": "Do you want to delete this AAO entry?",
+			"title": "Delete?"
+		}
+	},
+	"forumPost": {
+		"deleteModal": {
+			"btnCancel": "Cancel",
+			"btnConfirm": "Delete",
+			"text": "Do you want to delete this post?",
+			"title": "Delete?"
+		}
+	},
+	"memberlistManageUser": {
+		"hide": "Close",
+		"kickModal": {
+			"btnCancel": "Cancel",
+			"btnConfirm": "Kick",
+			"text": "Do you really want to kick the player out?",
+			"title": "Kick?"
+		},
+		"set": "set",
+		"unset": "remove"
+	},
+	"memberlistRoles": {
+		"admin": "Alliance Admin",
+		"aufsichtsrat": "Moderator action log",
+		"coadmin": "Alliance Co-Admin",
+		"finance": "Alliance Finances",
+		"schooling": "Alliance Educator",
+		"sprechwunsch_admin": "Transport Request - Admin"
+	}
+}

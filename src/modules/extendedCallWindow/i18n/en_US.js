@@ -1,25 +1,25 @@
 module.exports = {
     arrCounter: {
         resetTexts: {
-            counter: 'AAR-Counter',
-            highlight: 'AAR outline',
+            counter: 'ARR-Counter',
+            highlight: 'ARR border',
             selection: 'Vehicle selection',
-            counter_highlight: 'AAR counter / outline',
-            counter_selection: 'AAR counter and vehicle selection',
-            highlight_selection: 'AAR outline and vehicle selection',
+            counter_highlight: 'ARR counter / border',
+            counter_selection: 'ARR counter and vehicle selection',
+            highlight_selection: 'ARR border and vehicle selection',
             counter_highlight_selection:
-                'AAR counter / border and vehicle selection',
+                'ARR counter / border and vehicle selection',
         },
         reset: '{text} reset',
     },
     arrHover: {
         reset: 'The vehicle selection is reset before!',
         titles: {
-            set: 'So often this combination is selected when you press the AAR',
+            set: 'So often this combination is selected when you press the ARR',
             attribute: 'The combination described in this line',
             free: 'So often this combination is available',
             max:
-                'You can select this AAR until this combination is no longer available',
+                'You can select this ARR until this combination is no longer available',
         },
         arrSpecs: {
             fire: 'Firetrucks',
@@ -71,9 +71,6 @@ module.exports = {
             sheriff_unit: 'Sheriff Unit',
         },
     },
-    generationDate: {
-        inputFormat: 'MMMM DD., HH:mm',
-    },
     enhancedMissingVehicles: {
         vehicle: 'Vehicle type',
         missing: 'Missing on mission',
@@ -85,7 +82,7 @@ module.exports = {
             [/^platform truck(s)?$/]: [2, 13],
             [/^Battalion chief unit(s)?$/]: [3, 12],
             [/^Heavy rescue vehicle(s)?$/]: [4, 8, 18, 21],
-            [/^Mobile air$/]: [6],
+            [/^Mobile Air Unit$/]: [6],
             [/^Water Tanker(s)?$/]: [7, 33],
             [/^Mobile Command Vehicle(s)?$/]: [12],
             [/^HazMat$/]: [9],
@@ -110,56 +107,6 @@ module.exports = {
         },
     },
     tailoredTabs: {
-        defaultTabs: [
-            {
-                name: 'Firetruck',
-                vehicleTypes: [0, 1, 13, 18, 33],
-            },
-            {
-                name: 'Other Fire Apparatus',
-                vehicleTypes: [
-                    2,
-                    3,
-                    4,
-                    6,
-                    7,
-                    8,
-                    9,
-                    12,
-                    17,
-                    21,
-                    22,
-                    24,
-                    30,
-                    31,
-                    32,
-                    34,
-                    35,
-                    36,
-                    37,
-                    38,
-                    39,
-                    40,
-                    41,
-                ],
-            },
-            {
-                name: 'Ambulance',
-                vehicleTypes: [5, 11, 15, 20, 25, 27, 28, 29],
-            },
-            {
-                name: 'Police',
-                vehicleTypes: [10, 14, 16, 19, 23, 26, 47],
-            },
-            {
-                name: 'Water',
-                vehicleTypes: [21, 22, 24, 25],
-            },
-            {
-                name: 'FBI',
-                vehicleTypes: [42, 43, 44, 45, 46],
-            },
-        ],
         allTab: 'All',
         occupiedTab: 'Follow-up',
     },

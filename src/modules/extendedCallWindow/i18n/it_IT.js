@@ -22,7 +22,6 @@ module.exports = {
             max:
                 'Puoi selezionare questo AAR fino a quando questa combinazione non sarà più disponibile',
         },
-        // TODO: find out italian values
         arrSpecs: {
             fire: 'Camion VVF',
             wasser_amount: "Litri d'acqua",
@@ -85,56 +84,6 @@ module.exports = {
         vehiclesByRequirement: {},
     },
     tailoredTabs: {
-        defaultTabs: [
-            {
-                name: 'Camion VVF',
-                vehicleTypes: [0, 1, 13, 18, 33],
-            },
-            {
-                name: 'Altri apparati VVF',
-                vehicleTypes: [
-                    2,
-                    3,
-                    4,
-                    6,
-                    7,
-                    8,
-                    9,
-                    12,
-                    17,
-                    21,
-                    22,
-                    24,
-                    30,
-                    31,
-                    32,
-                    34,
-                    35,
-                    36,
-                    37,
-                    38,
-                    39,
-                    40,
-                    41,
-                ],
-            },
-            {
-                name: 'Ambulanze',
-                vehicleTypes: [5, 11, 15, 20, 25, 27, 28, 29],
-            },
-            {
-                name: 'Polizia',
-                vehicleTypes: [10, 14, 16, 19, 23, 26, 47],
-            },
-            {
-                name: 'Acqua',
-                vehicleTypes: [21, 22, 24, 25],
-            },
-            {
-                name: 'FBI',
-                vehicleTypes: [42, 43, 44, 45, 46],
-            },
-        ],
         allTab: 'Tutti',
         occupiedTab: 'Azione supplementare',
     },

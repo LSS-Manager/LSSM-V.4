@@ -14,35 +14,35 @@
 			"title": "Longest journey time"
 		},
 		"arrClickHighlight": {
-			"description": "Draws a frame around already clicked AARs.",
-			"title": "Highlight clicked AARs"
+			"description": "Draws a border around already clicked ARRs.",
+			"title": "Highlight clicked ARRs"
 		},
 		"arrClickHighlightColor": {
-			"description": "Set the border color for AAR borders.",
+			"description": "Set the border color for ARR borders.",
 			"title": "Highlight Color"
 		},
 		"arrClickHighlightWidth": {
-			"description": "Specify here (in pixels) how wide the AAR border should be.",
+			"description": "Specify here (in pixels) how wide the ARR border should be.",
 			"title": "Highlighting width"
 		},
 		"arrCounter": {
-			"description": "Counts how often an AAR or move has been clicked. All counters can be reset using the button in the bottom right corner or an AAR with reset function.",
-			"title": "AAR Counter"
+			"description": "Counts how often an ARR or move has been clicked. All counters can be reset using the button in the bottom right corner or an ARR with reset function.",
+			"title": "ARR Counter"
 		},
 		"arrCounterResetSelection": {
-			"description": "Adds a button at the bottom right to reset the previous vehicle selection. Note: It also resets the AAR counter and the borders, if activated!",
+			"description": "Adds a button at the bottom right to reset the previous vehicle selection. Note: It also resets the ARR counter and the borders, if activated!",
 			"title": "Reset vehicle selection"
 		},
 		"arrMatchHighlight": {
-			"description": "Sets a gray filter over all AARs that do not contain a word of the mission name.",
-			"title": "Grey out unsuitable AARs"
+			"description": "Sets a gray filter over all ARRs that do not contain a word of the mission name.",
+			"title": "Grey out unsuitable ARRs"
 		},
 		"arrSpecs": {
-			"description": "Shows the stored requests in the AAR, if you stay with the mouse briefly over an AAR",
-			"title": " Show AAR details"
+			"description": "Shows the stored requests in the ARR, if you stay with the mouse briefly over an ARR",
+			"title": " Show ARR details"
 		},
 		"arrTime": {
-			"description": "Shows what would be the longest travel time after selecting this AAR, if you stay with the mouse briefly over an AAR.",
+			"description": "Shows what would be the longest travel time after selecting this ARR, if you stay with the mouse briefly over an ARR.",
 			"title": "Longest journey time"
 		},
 		"centerMap": {
@@ -96,5 +96,91 @@
 			"description": "Borders the generation time yellow if the usage is older than the entered number of hours. If the number is 0, no border is drawn.",
 			"title": "Yellow border"
 		}
+	},
+	"tailoredTabs": {
+		"defaultTabs": [
+			{
+				"name": "Firetruck",
+				"vehicleTypes": [
+					0,
+					1,
+					13,
+					18,
+					33
+				]
+			},
+			{
+				"name": "Other Fire Apparatus",
+				"vehicleTypes": [
+					2,
+					3,
+					4,
+					6,
+					7,
+					8,
+					9,
+					12,
+					17,
+					21,
+					22,
+					24,
+					30,
+					31,
+					32,
+					34,
+					35,
+					36,
+					37,
+					38,
+					39,
+					40,
+					41
+				]
+			},
+			{
+				"name": "Ambulance",
+				"vehicleTypes": [
+					5,
+					11,
+					15,
+					20,
+					25,
+					27,
+					28,
+					29
+				]
+			},
+			{
+				"name": "Police",
+				"vehicleTypes": [
+					10,
+					14,
+					16,
+					19,
+					23,
+					26,
+					47
+				]
+			},
+			{
+				"name": "Water",
+				"vehicleTypes": [
+					21,
+					22,
+					24,
+					25
+				]
+			},
+			{
+				"name": "FBI",
+				"vehicleTypes": [
+					42,
+					43,
+					44,
+					45,
+					46
+				]
+			}
+		]
 	}
 }

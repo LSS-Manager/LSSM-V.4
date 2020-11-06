@@ -146,11 +146,11 @@ if (window.location.pathname === '/') {
                     args?: { [key: string]: unknown }
                 ) => LSSM.$tc(`modules.${moduleId}.${key}`, amount, args);
                 if (
-                    (LSSM.$store.state.modules[moduleId].settings &&
-                        window.location.pathname.match(
-                            LSSM.$store.state.modules[moduleId].location
-                        )) ||
-                    window.location.pathname === '/'
+                    LSSM.$store.state.modules[moduleId].settings &&
+                    (window.location.pathname.match(
+                        LSSM.$store.state.modules[moduleId].location
+                    ) ||
+                        window.location.pathname === '/')
                 ) {
                     await LSSM.$store.dispatch('settings/register', {
                         moduleId,
@@ -161,34 +161,30 @@ if (window.location.pathname === '/') {
                                 /* webpackExclude: /[\\/]+modules[\\/]+(telemetry|releasenotes|support)[\\/]+/ */
                                 `./modules/${moduleId}/settings`
                             )
-                        ).default(moduleId, LSSM),
+                        ).default(moduleId, LSSM, $m),
                     });
                 }
                 if (
                     window.location.pathname.match(
                         LSSM.$store.state.modules[moduleId].location
                     )
-                )
-                    Promise.all(
-                        [BUILD_LANG, ...FALLBACK_LOCALES].map(async locale => {
-                            try {
-                                return LSSM.$i18n.mergeLocaleMessage(locale, {
-                                    modules: {
-                                        [moduleId]: (
-                                            await import(
-                                                /* webpackChunkName: "modules/i18n/[request]" */
-                                                /* webpackInclude: /[\\/]+modules[\\/]+.*?[\\/]+i18n[\\/]+/ */
-                                                /* webpackExclude: /(telemetry|releasenotes|support)|\.root\./ */
-                                                `./modules/${moduleId}/i18n/${locale}`
-                                            )
-                                        ).default,
-                                    },
-                                });
-                            } catch {
-                                return;
-                            }
-                        })
-                    ).then(() =>
+                ) {
+                    try {
+                        LSSM.$i18n.mergeLocaleMessage(BUILD_LANG, {
+                            modules: {
+                                [moduleId]: (
+                                    await import(
+                                        /* webpackChunkName: "modules/i18n/[request]" */
+                                        /* webpackInclude: /[\\/]+modules[\\/]+.*?[\\/]+i18n[\\/]+/ */
+                                        /* webpackExclude: /(telemetry|releasenotes|support)|\.root\./ */
+                                        `./modules/${moduleId}/i18n/${BUILD_LANG}`
+                                    )
+                                ).default,
+                            },
+                        });
+                    } catch {
+                        // if no i18n exists, do nothing
+                    }
                         import(
                             /* webpackChunkName: "modules/mains/[request]" */
                             /* webpackInclude: /[\\/]+modules[\\/]+.*?[\\/]+main\.ts/ */
@@ -201,8 +197,8 @@ if (window.location.pathname === '/') {
                                 $m,
                                 $mc
                             )
-                        )
-                    );
+                        );
+                  }
             });
         });
 })();

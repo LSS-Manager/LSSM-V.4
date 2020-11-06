@@ -104,8 +104,8 @@ export default Vue.extend<
     components: {},
     data() {
         return {
-            id: this.$store.getters.nodeAttribute('indicator'),
-            menuId: this.$store.getters.nodeAttribute('indicator_menu'),
+            id: this.$store.getters.nodeAttribute('indicator', true),
+            menuId: this.$store.getters.nodeAttribute('indicator_menu', true),
             iconBg: this.$store.state.policechief ? '#004997' : '#C9302C',
             labelInMenu: false,
             lssmLogo,

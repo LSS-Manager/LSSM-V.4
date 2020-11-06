@@ -1,3 +1,4 @@
 {
-	"location": "^/(buildings|missions)/\\d+/?$"
+	"location": "^/(buildings|missions)/\\d+/?$",
+	"settings": true
 }

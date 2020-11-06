@@ -1,0 +1,56 @@
+{
+	"alertStyles": {
+		"danger": "Error message (red)",
+		"info": "Info (blue)",
+		"success": "Confirmation (green)",
+		"warning": "Warning (orange)"
+	},
+	"description": "Get browser and in-game notifications for various events - of course completely configurable!",
+	"events": {
+		"allianceCandidature": "New application in the alliance",
+		"allianceChat": "Chat message",
+		"allianceChatMention": "Chat message (only mentions)",
+		"allianceChatWhisper": "Chat message (private speeches only)",
+		"allianceForum": "New article in the alliance forum",
+		"allianceMessage": "New alliance message",
+		"allianceNews": "New alliance news",
+		"dm": "New message in inbox",
+		"ingame_news": "News in the game",
+		"mission_getred": "An mission requires attention",
+		"mission_getred_alliance": "A alliance mission needs attention",
+		"mission_new": "A new mission was generated",
+		"mission_new_largescale": "A new large alliancemission was created",
+		"mission_share": "One mission was shared in the association",
+		"sicherheitswache_error": "Security guard canceled",
+		"sicherheitswache_success": "Security guard completed",
+		"vehicle_fms": "Radio messages (general)",
+		"vehicle_fms_1": "Radio messages (status 1)",
+		"vehicle_fms_2": "Radio messages (Status 2)",
+		"vehicle_fms_3": "Radio messages (Status 3)",
+		"vehicle_fms_4": "Radio messages (Status 4)",
+		"vehicle_fms_5": "Radio messages (Speech request)",
+		"vehicle_fms_6": "Radio messages (Status 6)",
+		"vehicle_fms_7": "Radio messages (Status 7)",
+		"vehicle_fms_9": "Radio messages (Status 9)"
+	},
+	"name": "Notifications",
+	"positions": {
+		"bottom center": "Bottom middle 🡣",
+		"bottom left": "Bottom left 🡧",
+		"bottom right": "Bottom right 🡦",
+		"top center": "Top center 🡡",
+		"top left": "Top left 🡤",
+		"top right": "Top right 🡥"
+	},
+	"settings": {
+		"alertStyle": "In-Game Notification Type",
+		"alerts": {
+			"title": "Set notifications"
+		},
+		"desktop": "Send desktop notification",
+		"duration": "Display duration",
+		"eventTypes": "Events",
+		"ingame": "Send in-game notification",
+		"position": "Position"
+	}
+}

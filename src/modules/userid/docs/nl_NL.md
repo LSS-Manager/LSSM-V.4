@@ -3,7 +3,7 @@ Met de "User-ID" -module kunt u dit doen door een link naar uw profiel toe te vo
 Om te voorkomen dat de navigatiebalk te vol raakt, kan deze functie worden uitgeschakeld in de instellingen,
  via `Toon eigen ID in de navigatiebalk` te (de)activeren.
 
-![Gebruikers-ID in de navigatiebalk](/assets/img/navbar.png)
+![Gebruikers-ID in de navigatiebalk](/v4/docs/assets/img/navbar.png)
 
 Bovendien wordt in elk profiel de ID van de respectieve gebruiker weergegeven.
-![Gebruikers-ID op gebruikersprofiel](/assets/img/profile.png)
+![Gebruikers-ID op gebruikersprofiel](/v4/docs/assets/img/profile.png)

@@ -4,7 +4,7 @@ Mit dem Modul `Lehrgangsübersicht` versuchen wir dieses Problem zu beheben.
 
 Ganz oben findet sich ein kleines `i`, über das eine Zusammenfassung geöffnet wird. Natürlich haben wir eine Suche integriert und die Tabellen lassen sich sortieren. Das ganze sieht beispielsweise so aus:
 
-![Lehrangsübersicht](/docs/assets/schoolingOverview/img/overview_de_DE.png)
+![Lehrangsübersicht](/v4/docs/assets/schoolingOverview/img/overview_de_DE.png)
 
 Zudem werden die Lehrgänge mit eigenen Teilnehmern und offene Lehrgänge in Kategorien aufgeteilt. Das heisst ganz einfach nach den jeweiligen Schulen, also
 * Feuerwehr
@@ -16,8 +16,8 @@ Und zwar immer in dieser Reihenfolge. Auch hier haben wir wieder Sortiermöglich
 
 So schaut das beispielsweise bei Lehrgängen mit eigenen Teilnehmern aus:
 
-![Lehrgängen mit eigenen Teilnehmern](/docs/assets/schoolingOverview/img/own_de_DE.png)
+![Lehrgängen mit eigenen Teilnehmern](/v4/docs/assets/schoolingOverview/img/own_de_DE.png)
 
 Und so bei offenen Lehrgängen:
 
-![offene Lehrgänge](/docs/assets/schoolingOverview/img/alliance_de_DE.png)
+![offene Lehrgänge](/v4/docs/assets/schoolingOverview/img/alliance_de_DE.png)

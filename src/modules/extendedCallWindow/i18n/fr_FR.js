@@ -78,28 +78,6 @@ module.exports = {
         },
     },
     tailoredTabs: {
-        defaultTabs: [
-            {
-                name: "Fourgon d'incendie",
-                vehicleTypes: [0, 1, 2, 12, 13],
-            },
-            {
-                name: 'Autres appareils incendie',
-                vehicleTypes: [3, 4, 6, 7, 10, 11, 14, 15],
-            },
-            {
-                name: 'Ambulance',
-                vehicleTypes: [5, 9],
-            },
-            {
-                name: 'Police',
-                vehicleTypes: [8, 18, 19, 20],
-            },
-            {
-                name: 'Nautique',
-                vehicleTypes: [16, 17],
-            },
-        ],
         allTab: 'Tout',
         occupiedTab: 'Poursuivre',
     },

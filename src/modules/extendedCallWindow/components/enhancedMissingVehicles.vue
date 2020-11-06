@@ -118,7 +118,7 @@ export default Vue.extend<
             faExpandAlt,
             faTable,
             faParagraph,
-            id: this.$store.getters.nodeAttribute('missing_text'),
+            id: this.$store.getters.nodeAttribute('missing_text', true),
             missingRequirementsSearch: '',
             sort: 'vehicle',
             sortDir: 'asc',
