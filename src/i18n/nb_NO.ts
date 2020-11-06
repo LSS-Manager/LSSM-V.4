@@ -336,7 +336,7 @@ export default {
                 },
             ],
             levelcost: ['1. 10.000', '2. 50.000', '3.-39. 100.000'],
-            maxBuildings: '4.000 together with small fire stations',
+            maxBuildings: '4.000 sammen med små brannstasjoner',
             maxLevel: 39,
             special:
                 'Fra og med den 24. brannstasjonen øker kostnadene for å bygge en ny brannstasjon i henhold til følgende formel: <code> 100.000 + 200.000 * LOG <sub> 2 </sub> (Antall eksisterende brannstasjoner - 22) </ kode >. Myntprisen forblir konstant!',
