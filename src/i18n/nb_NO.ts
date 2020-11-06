@@ -356,7 +356,7 @@ export default {
                 duration: '7 dager',
             }),
             levelcost: [],
-            maxBuildings: 'Ingen grense,
+            maxBuildings: 'Ingen grense',
             maxLevel: 0,
             special:
                 "Finansministre og admins kan (utvide) brannvesenskoler ved hjelp av kreditter fra foreningens statskasse. Kurs og mestere på kurs kan starte opplæringskurs på brannskolen.",
@@ -370,7 +370,7 @@ export default {
             credits: 200_000,
             extensions: [],
             levelcost: ['1. 10.000', '2. 50.000', '3.-39. 100.000'],
-            maxBuildings: 'No limit',
+            maxBuildings: 'Ingen grense',
             maxLevel: 39,
             special: '',
             startPersonnel: 3,
@@ -438,7 +438,7 @@ export default {
                 },
             ],
             levelcost: ['1.-20. 19.000 Credits / 11 Coins'],
-            maxBuildings: 'No limit',
+            maxBuildings: 'Ingen grense',
             maxLevel: 20,
             special:
                 'Finansministre og admins kan (utvide) alliansesykehus ved hjelp av kreditter fra alliansekassen.',
@@ -452,7 +452,7 @@ export default {
             credits: 1_000_000,
             extensions: [],
             levelcost: [],
-            maxBuildings: 'see specials',
+            maxBuildings: 'se spesiells',
             maxLevel: 0,
             special:
                 'Opp til den 125. bygningen (av alle typer) totalt maks. Fire landingsplasser kan bygges. Etter det øker antallet med 1 hver 25. bygning (starter på 125.).',
@@ -470,7 +470,7 @@ export default {
             credits: 100_000,
             extensions: [
                 ...new Array(10).fill({
-                    caption: 'Prison cell',
+                    caption: 'Fengselscelle',
                     credits: 25_000,
                     coins: 5,
                     duration: '7 dager',
@@ -526,7 +526,7 @@ export default {
             credits: 1_000_000,
             extensions: [],
             levelcost: ['1. 1.000.000 kreditter / 50 mynter'],
-            maxBuildings: 'see specials',
+            maxBuildings: 'se spesiells',
             maxLevel: 1,
             special:
                 'Opptil 2 landingsplasser kan bygges per stasjon (utvidelsesetapper). Opp til den 125. bygningen (av alle typer) totalt maks. Fire landingsplasser kan bygges. Deretter øker antallet med 1 hver 25. bygning (begynner på 125).',
@@ -556,13 +556,13 @@ export default {
             coins: 'x',
             credits: 100_000,
             extensions: new Array(10).fill({
-                caption: 'Prison Cell',
+                caption: 'Fengselscelle',
                 credits: 25_000,
                 coins: 5,
                 duration: '7 dager',
             }),
             levelcost: [],
-            maxBuildings: 'No limit',
+            maxBuildings: 'Ingen grense',
             maxLevel: 0,
             special:
                 "Denne bygningen kan bare bygges og utvikles av administratorer og finansministre med kreditter fra alliansekassen. De bygde fengselscellene er tilgjengelige for alle medlemmer av alliansen.",
