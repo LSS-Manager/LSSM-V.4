@@ -521,12 +521,18 @@ export default {
             coins: 35,
             credits: 100_000,
             extensions: [
-                ...new Array(10).fill({
-                    caption: 'Prison cell',
+                ...new Array(9).fill({
+                    caption: 'Additional cell',
                     credits: 25_000,
                     coins: 5,
                     duration: '7 Days',
                 }),
+                {
+                    caption: 'Prison cell',
+                    credits: 25_000,
+                    coins: 5,
+                    duration: '7 Days',
+                },
             ],
             levelcost: ['1. 10.000', '2. 50.000', '3.-16. 100.000'],
             maxBuildings: '1.500 together with small police stations',
@@ -610,12 +616,18 @@ export default {
             coins: 'x',
             credits: 100_000,
             extensions: [
-                ...new Array(10).fill({
-                    caption: 'Prison cell',
+                ...new Array(9).fill({
+                    caption: 'Additional cell',
                     credits: 25_000,
                     coins: 5,
                     duration: '7 Days',
                 }),
+                {
+                    caption: 'Prison cell',
+                    credits: 25_000,
+                    coins: 5,
+                    duration: '7 Days',
+                },
             ],
             levelcost: [],
             maxBuildings: 'No limit',
@@ -651,12 +663,18 @@ export default {
             coins: 25,
             credits: 50_000,
             extensions: [
-                ...new Array(2).fill({
-                    caption: 'Prison cell',
+                ...new Array(1).fill({
+                    caption: 'Additional cell',
                     credits: 25_000,
                     coins: 5,
                     duration: '7 Days',
                 }),
+                {
+                    caption: 'Prison cell',
+                    credits: 25_000,
+                    coins: 5,
+                    duration: '7 Days',
+                },
             ],
             levelcost: [
                 '1. 10.000',
