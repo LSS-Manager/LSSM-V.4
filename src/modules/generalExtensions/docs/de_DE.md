@@ -25,6 +25,6 @@ Diese Einstellung ist derzeit leider nicht mit dem Kartentyp `Mapkit` kompatibel
 
 Es gibt einige Stellen im Spiel, bei denen die Karte auf eine andere Position zentriert wird. Mit dieser Einstellung werden diese Sprünge gespeichert und sind über einen kleinen Knopf oben rechts in der Karte erreichbar:
 
-![Die Sprung-Historie](/docs/assets/generalExtensions/img/mapUndo.png)
+![Die Sprung-Historie](/v4/docs/assets/generalExtensions/img/mapUndo.png)
 
 Bleibt man mit der Maus kurzzeitig auf der jeweiligen Adresse, wird sie auf der Karte angezeigt, aber erst bei einem Klick springt die Karte tatsächlich an diese Position.
