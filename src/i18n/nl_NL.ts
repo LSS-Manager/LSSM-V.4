@@ -1084,7 +1084,7 @@ export default {
                 },
                 {
                     caption: 'Hoofd Officier van Dienst - Brandweer',
-                    needed_for: ['DA - Hoofd Officier van Dienst - Brandweer''],
+                    needed_for: ['DA - Hoofd Officier van Dienst - Brandweer'],
                     duration: '7 Dagen',
                 },
                 {
