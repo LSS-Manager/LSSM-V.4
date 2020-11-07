@@ -1155,7 +1155,7 @@ export default {
                     duration: '7 Tage',
                 },
                 {
-                    caption: 'Allgemeine Chirugie',
+                    caption: 'Allgemeine Chirurgie',
                     credits: 10_000,
                     coins: 10,
                     duration: '7 Tage',
@@ -1298,13 +1298,13 @@ export default {
             credits: 200_000,
             extensions: [
                 {
-                    caption: 'Bergungsgruppe',
+                    caption: '1. Technischer Zug: Bergungsgruppe 2',
                     credits: 25_000,
                     coins: 5,
                     duration: '7 Tage',
                 },
                 {
-                    caption: 'Zugtrupp',
+                    caption: '1. Technischer Zug: Zugtrupp',
                     credits: 25_000,
                     coins: 5,
                     duration: '7 Tage',
@@ -1322,7 +1322,7 @@ export default {
                     duration: '7 Tage',
                 },
                 {
-                    caption: '2. Technischer Zug',
+                    caption: '2. Technischer Zug - Grundvorraussetzungen',
                     credits: 25_000,
                     coins: 5,
                     duration: '7 Tage',
