@@ -20,7 +20,7 @@
 		"schoolings": {
 			"caption": "Course name",
 			"duration": "Training period",
-			"needed_for": "Needed for"
+			"required_for": "Required for"
 		},
 		"vehicles": {
 			"caption": "Vehicle type",

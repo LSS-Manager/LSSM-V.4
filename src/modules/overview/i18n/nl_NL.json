@@ -20,7 +20,7 @@
 		"schoolings": {
 			"caption": "Opleidingsnaam",
 			"duration": "Opleidingsduur",
-			"needed_for": "Nodig voor"
+			"required_for": "Nodig voor"
 		},
 		"vehicles": {
 			"caption": "Voertuig type",
