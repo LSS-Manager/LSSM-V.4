@@ -1065,74 +1065,91 @@ export default {
             'Brandweer': [
                 {
                     caption: 'Verkenningseenheid Brandweer',
+                    needed_for: ['DB - Verkenningseenheid Brandweer'],
                     duration: '3 Dagen',
                 },
                 {
                     caption: 'Hoofd Officier van Dienst - Brandweer',
+                    needed_for: ['DA - Hoofd Officier van Dienst - Brandweer''],
                     duration: '7 Dagen',
                 },
                 {
                     caption: 'Adviseur Gevaarlijke Stoffen',
+                    needed_for: ['DA - Adviseur Gevaarlijke Stoffen'],
                     duration: '6 Dagen',
                 },
                 {
                     caption: 'Brandweerchauffeur-zwaar',
+                    needed_for: ['Commandovoertuig', 'Haakarmvoertuig'],
                     duration: '2 Dagen',
                 },
                 {
                     caption: 'Duiker / Duikploegleider',
+                    needed_for: ['Waterongevallenvoertuig'],
                     duration: '7 Dagen',
                 },
                 {
                     caption: 'Vliegtuigbrandbestrijding',
+                    needed_for: ['Crashtender (4x4)', 'Crashtender (6x6)', 'Crashtender (8x8)'],
                     duration: '7 Dagen',
                 },
                 {
                     caption: 'Airport Fire Officer / On Scene Commander',
+                    needed_for: ['Airport Fire Officer / On Scene Commander'],
                     duration: '7 Dagen',
                 },
                 {
                     caption: "Oppervlakteredder",
+                    needed_for: ['Materieelvoertuig - Oppervlakteredding', 'Tankautospuit - Oppervlakteredding'],
                     duration: '7 Dagen',
                 },
                 {
                     caption: "Voorlichter",
+                    needed_for: ['DA - Voorlichter'],
                     duration: '5 Dagen',
                 },
             ],
             'Politie': [
                 {
                     caption: 'Politiehelikopter',
+                    needed_for: ['Politiehelikopter'],
                     duration: '7 Dagen',
                 },
                 {
                     caption: 'Officier van Dienst - Politie',
+                    needed_for: ['Officier van Dienst - Politie'],
                     duration: '7 Dagen',
                 },
                 {
                     caption: 'Mobiele Eenheid',
+                    needed_for: ['ME - Commandovoertuig', 'ME - Flexbus'],
                     duration: '4 Dagen',
                 },
                 {
                     caption: 'Hondengeleider',
+                    needed_for: ['DA - Hondengeleider', 'DB - Hondengeleider'],
                     duration: '7 Dagen',
                 },
                 {
                     caption: 'Operator AT',
+                    needed_for: ['AT - Commandant', 'AT - Operator', 'AT- Materiaalwagen'],
                     duration: '10 Dagen',
                 },
                 {
                     caption: 'Biketeam',
+                    needed_for: ['DB - Biketeam'],
                     duration: '3 Dagen',
                 },
             ],
             'Ambulance': [
                 {
                     caption: 'MMT-Bemanningslid',
+                    needed_for: ['Lifeliner', 'MMT - Auto'],
                     duration: '7 Dagen',
                 },
                 {
                     caption: 'Officier van Dienst - Geneeskunde',
+                    needed_for: ['Officier van Dienst - Geneeskunde', 'Officier van Dienst - Geneeskunde/Rapid Responder'],
                     duration: '10 Dagen',
                 },
             ],

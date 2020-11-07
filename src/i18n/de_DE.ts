@@ -1798,144 +1798,178 @@ export default {
         Feuerwehr: [
             {
                 caption: 'Dekon-P Lehrgang',
+                needed_for: [],
                 duration: '3 Tage',
             },
             {
                 caption: 'ELW 2 Lehrgang',
+                needed_for: [],
                 duration: '7 Tage',
             },
             {
                 caption: 'Feuerwehrkran Lehrgang',
+                needed_for: [],
                 duration: '3 Tage',
             },
             {
                 caption: 'Flugfeldlöschfahrzeug-Ausbildung',
+                needed_for: [],
                 duration: '7 Tage',
             },
             {
                 caption: 'GW-Gefahrgut Lehrgang',
+                needed_for: [],
                 duration: '3 Tage',
             },
             {
                 caption: 'GW-Messtechnik Lehrgang',
+                needed_for: [],
                 duration: '3 Tage',
             },
             {
                 caption: 'GW-Taucher Lehrgang',
+                needed_for: [],
                 duration: '5 Tage',
             },
             {
                 caption: 'GW-Wasserrettung Lehrgang',
+                needed_for: [],
                 duration: '3 Tage',
             },
             {
                 caption: 'Höhenrettung Lehrgang',
+                needed_for: [],
                 duration: '4 Tage',
             },
             {
                 caption: 'Notarzt-Ausbildung',
+                needed_for: [],
                 duration: '7 Tage',
             },
             {
                 caption: 'Rettungstreppen-Ausbildung',
+                needed_for: [],
                 duration: '2 Tage',
             },
             {
                 caption: 'Wechsellader Lehrgang',
+                needed_for: [],
                 duration: '2 Tage',
             },
             {
                 caption: 'Werkfeuerwehr-Ausbildung',
+                needed_for: [],
                 duration: '2 Tage',
             },
         ],
         Polizei: [
             {
                 caption: 'Hundeführer (Schutzhund)',
+                needed_for: [],
                 duration: '7 Tage',
             },
             {
                 caption: 'Hundertschaftsführer (FüKw)',
+                needed_for: [],
                 duration: '7 Tage',
             },
             {
                 caption: 'MEK',
+                needed_for: [],
                 duration: '7 Tage',
             },
             {
                 caption: 'Motorradstaffel',
+                needed_for: [],
                 duration: '3 Tage',
             },
             {
                 caption: 'Polizeihubschrauber',
+                needed_for: [],
                 duration: '7 Tage',
             },
             {
                 caption: 'SEK',
+                needed_for: [],
                 duration: '7 Tage',
             },
             {
                 caption: 'Wasserwerfer',
+                needed_for: [],
                 duration: '7 Tage',
             },
             {
                 caption: 'Zugführer (leBefKw)',
+                needed_for: [],
                 duration: '7 Tage',
             },
         ],
         Rettungsdienst: [
             {
                 caption: 'GW-Taucher Lehrgang',
+                needed_for: [],
                 duration: '5 Tage',
             },
             {
                 caption: 'GW-Wasserrettung Lehrgang',
+                needed_for: [],
                 duration: '3 Tage',
             },
             {
                 caption: 'LNA-Ausbildung',
+                needed_for: [],
                 duration: '9 Tage',
             },
             {
                 caption: 'Notarzt-Ausbildung',
+                needed_for: [],
                 duration: '7 Tage',
             },
             {
                 caption: 'Rettungshundeführer (SEG)',
+                needed_for: [],
                 duration: '5 Tage',
             },
             {
                 caption: 'OrgL-Ausbildung',
+                needed_for: [],
                 duration: '11 Tage',
             },
             {
                 caption: 'SEG - Einsatzleitung',
+                needed_for: [],
                 duration: '4 Tage',
             },
             {
                 caption: 'SEG - GW-San',
+                needed_for: [],
                 duration: '3 Tage',
             },
         ],
         THW: [
             {
                 caption: 'Bergungstaucher Lehrgang',
+                needed_for: [],
                 duration: '5 Tage',
             },
             {
                 caption: 'Fachgruppe Räumen',
+                needed_for: [],
                 duration: '7 Tage',
             },
             {
                 caption: 'Rettungshundeführer (THW)',
+                needed_for: [],
                 duration: '5 Tage',
             },
             {
                 caption: 'Wassergefahren Lehrgang',
+                needed_for: [],
                 duration: '3 Tage',
             },
             {
                 caption: 'Zugtrupp',
+                needed_for: [],
                 duration: '7 Tage',
             },
         ],

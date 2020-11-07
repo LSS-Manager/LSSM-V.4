@@ -19,6 +19,7 @@
 		},
 		"schoolings": {
 			"caption": "Opleidingsnaam",
+			"needed_for": "Nodig voor",
 			"duration": "Opleidingsduur"
 		},
 		"vehicles": {
@@ -27,7 +28,7 @@
 			"maxPersonnel": "Maximaal personeel",
 			"minPersonnel": "Minimaal personeel",
 			"schooling": "Opleiding",
-			"special": "Specials",
+			"special": "Bijzonderheden",
 			"wtank": "Watertank"
 		}
 	}

@@ -409,6 +409,7 @@ export default Vue.extend<
             schoolingsTab: {
                 head: {
                     caption: { title: this.$m('titles.schoolings.caption') },
+                    needed_for: { title: this.$m('titles.schoolings.needed_for') },
                     duration: { title: this.$m('titles.schoolings.duration') },
                 },
                 search: '',
