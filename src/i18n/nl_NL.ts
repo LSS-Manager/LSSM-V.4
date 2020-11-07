@@ -1094,7 +1094,7 @@ export default {
                     duration: '2 Dagen',
                 },
                 {
-                    caption: 'Duiker / Duikploegleider',
+                    caption: 'Duiker/Duikploegleider',
                     duration: '7 Dagen',
                 },
                 {
@@ -1146,7 +1146,7 @@ export default {
                     duration: '7 Dagen',
                 },
                 {
-                    caption: 'Officier van Dienst - Geneeskunde',
+                    caption: 'Officier van Dienst Geneeskunde',
                     duration: '10 Dagen',
                 },
             ],
