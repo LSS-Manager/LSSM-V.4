@@ -676,54 +676,44 @@ export default {
         'Pompier': [
             {
                 caption: 'Véhicules risques chimiques',
-                needed_for: [],
                 duration: '3 jours',
             },
             {
                 caption: 'Commandement mobile',
-                needed_for: [],
                 duration: '5 jours',
             },
             {
                 caption: 'Formation SSLIA',
-                needed_for: [],
                 duration: '3 jours',
             },
             {
                 caption: 'SAV (Sauvetage Aquatique)',
-                needed_for: [],
                 duration: '3 jours',
             },
             {
                 caption: 'Navigation maritime',
-                needed_for: [],
                 duration: '5 jours',
             },
             {
                 caption: 'IMP (Intervention en Milieu Périlleux',
-                needed_for: [],
                 duration: '4 jours',
             },
             {
                 caption: 'PLG (Plongeur)',
-                needed_for: [],
                 duration: '5 jours',
             },
         ],
         'Police': [
             {
                 caption: 'Licence de Pilote',
-                needed_for: [],
                 duration: '7 jours',
             },
             {
                 caption: 'Maître chien',
-                needed_for: [],
                 duration: '5 jours',
             },
             {
                 caption: 'Formation Motocycliste',
-                needed_for: [],
                 duration: '3 jours',
             },
         ],

@@ -748,54 +748,44 @@ export default {
         'Fire Station': [
             {
                 caption: 'HAZMAT Course',
-                needed_for: [],
                 duration: '3 Days',
             },
             {
                 caption: 'Mobile command',
-                needed_for: [],
                 duration: '5 Days',
             },
             {
                 caption: 'ARFF-Training',
-                needed_for: [],
                 duration: '3 Days',
             },
             {
                 caption: 'SES Water rescue',
-                needed_for: [],
                 duration: '4 Days',
             },
             {
                 caption: 'Ocean Navigation',
-                needed_for: [],
                 duration: '5 Days',
             },
         ],
         'Police': [
             {
                 caption: 'Police Air Wing',
-                needed_for: [],
                 duration: '7 Days',
             },
             {
                 caption: 'TOG',
-                needed_for: [],
                 duration: '5 Days',
             },
             {
                 caption: 'K-9',
-                needed_for: [],
                 duration: '5 Days',
             },
             {
                 caption: 'Police Motorcycle',
-                needed_for: [],
                 duration: '3 Days',
             },
             {
                 caption: 'Mounted Police Training',
-                needed_for: [],
                 duration: '3 Days',
             },
         ],

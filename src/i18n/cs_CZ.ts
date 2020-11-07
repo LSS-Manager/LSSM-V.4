@@ -774,84 +774,68 @@ export default {
         'Fire Station': [
             {
                 caption: 'Hazmat',
-                needed_for: [],
                 duration: '3 Days',
             },
             {
                 caption: 'Mobile command',
-                needed_for: [],
                 duration: '5 Days',
             },
             {
                 caption: 'ARFF-Training',
-                needed_for: [],
                 duration: '3 Days',
             },
             {
                 caption: 'Swift water rescue',
-                needed_for: [],
                 duration: '4 Days',
             },
             {
                 caption: 'Ocean Navigation',
-                needed_for: [],
                 duration: '5 Days',
             },
             {
                 caption: 'Airborne firefighting',
-                needed_for: [],
                 duration: '5 Days',
             },
             {
                 caption: 'Heavy Machinery Operating',
-                needed_for: [],
                 duration: '3 Days',
             },
             {
                 caption: "Truck Driver's License",
-                needed_for: [],
                 duration: '2 Days',
             },
         ],
         'Police': [
             {
                 caption: 'Police Aviation',
-                needed_for: [],
                 duration: '7 Days',
             },
             {
                 caption: 'SWAT',
-                needed_for: [],
                 duration: '5 Days',
             },
             {
                 caption: 'K-9',
-                needed_for: [],
                 duration: '5 Days',
             },
             {
                 caption: 'Police Motorcycle',
-                needed_for: [],
                 duration: '3 Days',
             },
             {
                 caption: 'FBI Mobile Center Commander ',
-                needed_for: [],
                 duration: '7 Days',
             },
             {
                 caption: 'FBI Bomb Technician',
-                needed_for: [],
                 duration: '5 Days',
             },
             {
                 caption: 'FBI Drone Operator',
-                needed_for: [],
                 duration: '5 Days',
             },
             {
                 caption: 'Sheriff',
-                needed_for: [],
                 duration: '5 Days',
             },
         ],

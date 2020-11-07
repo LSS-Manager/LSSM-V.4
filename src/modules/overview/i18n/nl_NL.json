@@ -19,8 +19,8 @@
 		},
 		"schoolings": {
 			"caption": "Opleidingsnaam",
-			"needed_for": "Nodig voor",
-			"duration": "Opleidingsduur"
+			"duration": "Opleidingsduur",
+			"needed_for": "Nodig voor"
 		},
 		"vehicles": {
 			"caption": "Voertuig type",

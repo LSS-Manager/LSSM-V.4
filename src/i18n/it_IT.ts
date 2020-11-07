@@ -778,71 +778,58 @@ export default {
         'Caserma dei vigili del fuoco': [
             {
                 caption: 'N.B.C.R.',
-                needed_for: [],
                 duration: '3 giorni',
             },
             {
                 caption: 'Corso per funzionario (UCL)',
-                needed_for: [],
                 duration: '5 giorni',
             },
             {
                 caption: 'Servizio antincendio aeroportuale in addestramento',
-                needed_for: [],
                 duration: '3 giorni',
             },
             {
                 caption: 'Soccorso acquatico rapido',
-                needed_for: [],
                 duration: '4 giorni',
             },
             {
                 caption: 'Navigazione in oceano',
-                needed_for: [],
                 duration: '5 giorni',
             },
             {
                 caption: 'Corso autista di Autogrù',
-                needed_for: [],
                 duration: '3 giorni',
             },
             {
                 caption: 'Corso medico di emergenza ',
-                needed_for: [],
                 duration: '7 giorni',
             },
         ],
         'Polizia': [
             {
                 caption: 'Reparto volo della polizia',
-                needed_for: [],
                 duration: '7 giorni',
             },
             {
                 caption: 'Specializzazione antisommossa/UOPI',
-                needed_for: [],
                 duration: '5 giorni',
             },
             {
                 caption: 'Specializzazione unità cinoflia',
-                needed_for: [],
                 duration: '5 giorni',
             },
             {
                 caption: 'Specializzazione motociclista',
-                needed_for: [],
                 duration: '3 giorni',
             },
             {
                 caption: 'Corso Artificieri',
-                needed_for: [],
                 duration: '3 giorni',
             },
         ],
         'Soccorso': [
             {
                 caption: 'Corso medico di emergenza',
-                needed_for: [],
                 duration: '7 giorni',
             },
         ],
