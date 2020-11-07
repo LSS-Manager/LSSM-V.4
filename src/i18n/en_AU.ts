@@ -340,12 +340,14 @@ export default {
             color: '#992222',
             coins: 50,
             credits: 500_000,
-            extensions: new Array(3).fill({
-                caption: 'Additional classroom',
-                credits: 400_000,
-                coins: 40,
-                duration: '7 Days',
-            }),
+            extensions: [
+                ...new Array(3).fill({
+					caption: 'Additional classroom',
+					credits: 400_000,
+					coins: 40,
+					duration: '7 Days',
+				}),
+            ],
             levelcost: [],
             maxBuildings: 'No limit',
             maxLevel: 0,
@@ -460,8 +462,14 @@ export default {
             coins: 35,
             credits: 100_000,
             extensions: [
-                ...new Array(10).fill({
-                    caption: 'cell',
+                {
+                    caption: 'Prison cell',
+                    credits: 25_000,
+                    coins: 5,
+                    duration: '7 Days',
+                },
+                ...new Array(9).fill({
+                    caption: 'Additional cell',
                     credits: 25_000,
                     coins: 5,
                     duration: '7 Days',
@@ -496,12 +504,14 @@ export default {
             color: '#225522',
             coins: 50,
             credits: 500_000,
-            extensions: new Array(3).fill({
-                caption: 'Additional classroom',
-                credits: 400_000,
-                coins: 40,
-                duration: '7 Days',
-            }),
+            extensions: [
+                ...new Array(3).fill({
+					caption: 'Additional classroom',
+					credits: 400_000,
+					coins: 40,
+					duration: '7 Days',
+				}),
+            ],
             levelcost: [],
             maxBuildings: 'No limit',
             maxLevel: 0,
@@ -560,12 +570,20 @@ export default {
             caption: 'Police Lockup',
             coins: 'x',
             credits: 100_000,
-            extensions: new Array(10).fill({
-                caption: 'Cell',
-                credits: 25_000,
-                coins: 5,
-                duration: '7 Days',
-            }),
+            extensions: [
+                {
+                    caption: 'Prison cell',
+                    credits: 25_000,
+                    coins: 5,
+                    duration: '7 Days',
+                },
+                ...new Array(9).fill({
+                    caption: 'Additional cell',
+                    credits: 25_000,
+                    coins: 5,
+                    duration: '7 Days',
+                }),
+            ],
             levelcost: [],
             maxBuildings: 'No limit',
             maxLevel: 0,
@@ -599,12 +617,20 @@ export default {
             color: '#116611',
             coins: 25,
             credits: 50_000,
-            extensions: new Array(2).fill({
-                caption: 'cell',
-                credits: 25_000,
-                coins: 5,
-                duration: '7 Days',
-            }),
+            extensions: [
+                {
+                    caption: 'Prison cell',
+                    credits: 25_000,
+                    coins: 5,
+                    duration: '7 Days',
+                },
+                ...new Array(1).fill({
+                    caption: 'Additional cell',
+                    credits: 25_000,
+                    coins: 5,
+                    duration: '7 Days',
+                }),
+            ],
             levelcost: [
                 '1. 10.000',
                 '2. 50.000',

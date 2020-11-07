@@ -1,7 +1,7 @@
 ## Samenvatting
 De samenvatting zal een snel overzicht over je aantal gebouwen en voertuigen geven.
 
-![Samenvatting](assets/img/summary_de_DE.png)
+![Samenvatting](/v4/docs/assets/img/summary_de_DE.png)
 
 #### Gebouwen
 Klik je in het gebouwenoverzicht op een categorie (bijv.: `Ambulance`), dan worden alleen die gebouwen weergegeven.
