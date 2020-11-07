@@ -71,6 +71,7 @@
 			"keyword": "keyword",
 			"missions": "missions",
 			"preview": "Preview",
+			"prepend": "Show before the missionname",
 			"title": "Mission keywords"
 		},
 		"patientSummary": {
