@@ -15,7 +15,7 @@ Het werkt alleen met een directe link naar afbeeldingen! Daarnaast werkt deze fu
 :::
 
 ## Link Voorbeeld
-Soms wil je gewoon korte informatie over een gebouwe, gebruiker o.i.d., zonder de link te moeten openen. Daarom kan je link voorbeelden activeren in de instellingen:
+Soms wil je gewoon korte informatie over een gebouw, gebruiker o.i.d., zonder de link te moeten openen. Daarom kan je link voorbeelden activeren in de instellingen:
 
 ![Instellingen voor Link Voorbeeld](/v4/docs/assets/generalExtensions/img/nl_NL/linkPreview_setting.png)
 
@@ -52,7 +52,7 @@ Als u met de muis kort op hetzelfde adres blijft, wordt het op de kaart weergege
 
 ## Titel van het browsertabblad
 
-Met deze functie kunt u in de titel van het browsertabblad zien welke venster van het spel momenteel geopend is. Hieronder een voorbeeld:
+Met deze functie kunt u in de titel van het browsertabblad zien welk venster van het spel momenteel geopend is. Hieronder een voorbeeld:
 
 ![Browsertitel bij een gebouw](/v4/docs/assets/generalExtensions/img/nl_NL/browsertitle.png)
 
