@@ -11,7 +11,7 @@ Links die als platte tekst worden weergegeven (bijv. In chat, forum, berichten, 
 Soms wil je gewoon een foto toevoegen aan het forum, in de chat of ergens anders. Hiermee kun je in ieder geval een preview van de afbeelding activeren. Met één klik wordt de afbeelding op een nieuw tabbald geopend. 
 
 :::warning Afbeeldingsvoorbeeld
-Het werkt alleen met een directe link naar afbeeldingen! Daarnaast werkt deze functie nog niet alle browsers goed!
+Het werkt alleen met een directe link naar afbeeldingen! Daarnaast werkt deze functie nog niet goed in alle browsers.
 :::
 
 ## Link Voorbeeld
