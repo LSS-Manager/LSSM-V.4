@@ -438,7 +438,7 @@ export default {
             maxPersonnel: 0,
             credits: 9_000,
             coins: 12,
-            special: 'TS, TST, TST-NB, SI-2, WO, HV, DA/DB benodigd',
+            special: 'TS, TST, TST-NB, WO, HV, DB-K, SL, VEB, PM-OR of TS-OR benodigd',
             icon: 'trailer',
         },
         37: {
