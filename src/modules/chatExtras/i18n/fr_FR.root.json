@@ -1,0 +1,10 @@
+{
+	"description": "Affiche la date et l'heure au lieu de l'heure seulement",
+	"name": "Format de date",
+	"settings": {
+		"format": {
+			"description": "Ici vous pouvez choisir le format de votre choix. Pour l'aide c'est <a class=\"lightbox-open\" href=\"{wiki}/modules/clock.html#configuration\">ici</a>.",
+			"title": "Format date et heure"
+		}
+	}
+}
