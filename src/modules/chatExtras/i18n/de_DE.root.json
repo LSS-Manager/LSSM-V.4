@@ -1,0 +1,10 @@
+{
+	"description": "Tauscht die Uhrzeit im Chat gegen Datum und Uhrzeit aus.",
+	"name": "Chat Zeitstempel",
+	"settings": {
+		"format": {
+			"description": "Hier kannst du das Format deiner Wahl festlegen. Eine Hilfe hierzu findest du <a class=\"lightbox-open\" href=\"{wiki}/modules/clock.html#konfiguration\">hier</a>.",
+			"title": "Format des Zeitstempel des Chats"
+		}
+	}
+}

@@ -1,0 +1,19 @@
+{
+	"contextButtonTitle": "Volledig scherm, Exporteren, …",
+	"decimalPoint": ",",
+	"downloadCSV": "Als CSV downloaden",
+	"downloadJPEG": "Als JPEG afbeelding downloaden",
+	"downloadPDF": "Als PDF document downloaden",
+	"downloadPNG": "Als PNG afbeelding downloaden",
+	"downloadSVG": "Als SVG Vector afbeelding downloaden",
+	"downloadXLS": "Als XLS document downloaden",
+	"drillUpText": "← Terug",
+	"exitFullscreen": "Sluit de volledige toepassingsmodus af",
+	"exportData": {
+		"categoryHeader": "Categorie"
+	},
+	"loading": "Laden…",
+	"printChart": "afdrukken",
+	"viewData": "Tabel tonen",
+	"viewFullscreen": "Weergeven op volledig scherm"
+}

@@ -1,0 +1,9 @@
+{
+	"description": "Zobrazuje Vaše uživatelské ID v kartě Profil vedle uživatelského jména a v případě nastavení také na navigační liště v pravém horním rohu.",
+	"name": "Uživatelské ID",
+	"settings": {
+		"navbar": {
+			"title": "Zobrazit Vaše ID v navigační liště"
+		}
+	}
+}

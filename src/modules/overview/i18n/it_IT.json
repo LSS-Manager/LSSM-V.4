@@ -1,5 +1,5 @@
 {
-	"extensionTitle": "{caption} (up to {n} times)",
+	"extensionTitle": "{caption} (fino a {n} volte)",
 	"tabs": {
 		"buildings": "Edifici",
 		"schoolings": "Corsi",
@@ -7,28 +7,28 @@
 	},
 	"titles": {
 		"buildings": {
-			"caption": "Tipo di Edificio",
+			"caption": "Tipo di edificio",
 			"cost": "Prezzo",
 			"extensions": "Estensioni",
-			"levelcost": "Costi delle espansioni",
-			"maxBuildings": "Livello",
-			"maxLevel": "Livello massimo di espanzione",
-			"special": "Speciali",
-			"startPersonnel": "Personale di partenza",
-			"startVehicles": "Possibili veicoli di partenza"
+			"levelcost": "Costi delle fasi di espansione",
+			"maxBuildings": "Confine",
+			"maxLevel": "Livello massimo di espansione",
+			"special": "Speciale",
+			"startPersonnel": "Avvia personale",
+			"startVehicles": "Possibile veicolo iniziale"
 		},
 		"schoolings": {
 			"caption": "Nome del corso",
-			"duration": "Durata addestramento"
+			"duration": "Periodo della formazione"
 		},
 		"vehicles": {
 			"caption": "Tipo di veicolo",
 			"cost": "Prezzo",
 			"maxPersonnel": "Personale massimo",
 			"minPersonnel": "Personale minimo",
-			"schooling": "Qualifica",
-			"special": "Speciali",
-			"wtank": "Kilolitrica"
+			"schooling": "Formazione",
+			"special": "Speciale",
+			"wtank": "Water tank"
 		}
 	}
 }

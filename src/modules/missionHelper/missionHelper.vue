@@ -367,7 +367,7 @@ export default Vue.extend<
             faExpandAlt,
             faSuperscript,
             faSubscript,
-            id: this.$store.getters.nodeAttribute('missionHelper'),
+            id: this.$store.getters.nodeAttribute('missionHelper', true),
             isReloading: true,
             isDiyMission: false,
             missionSpecs: undefined,
@@ -380,49 +380,51 @@ export default Vue.extend<
                 window.location.pathname.match(/\d+\/?/)?.[0] || '0'
             ),
             settings: {
-                title: true,
-                id: true,
-                type: true,
-                place: true,
-                prerequisites: true,
+                title: false,
+                id: false,
+                type: false,
+                place: false,
+                prerequisites: false,
                 vehicles: {
-                    title: true,
-                    content: true,
-                    patient_additionals: true,
+                    title: false,
+                    content: false,
+                    patient_additionals: false,
                     sort: 'caption',
                 },
                 chances: {
-                    normal: true,
-                    100: true,
+                    normal: false,
+                    100: false,
                 },
                 multifunctionals: {
-                    heavy_rescue_vehicles: true,
-                    battalion_chief_vehicles: true,
-                    platform_trucks: true,
+                    heavy_rescue_vehicles: false,
+                    battalion_chief_vehicles: false,
+                    platform_trucks: false,
+                    police_cars: false,
                 },
                 optionalAlternatives: {
-                    allow_rw_instead_of_lf: true,
-                    allow_arff_instead_of_lf: true,
-                    allow_ktw_instead_of_rtw: true,
+                    allow_rw_instead_of_lf: false,
+                    allow_arff_instead_of_lf: false,
+                    allow_ktw_instead_of_rtw: false,
                 },
                 patients: {
-                    title: true,
-                    content: true,
-                    live: true,
-                    hideWhenNoNeed: true,
-                    patient_allow_first_responder_chance: true,
+                    title: false,
+                    content: false,
+                    live: false,
+                    hideWhenNoNeed: false,
+                    patient_allow_first_responder_chance: false,
                 },
                 prisoners: {
-                    title: true,
-                    content: true,
-                    live: true,
+                    title: false,
+                    content: false,
+                    live: false,
                 },
-                generatedBy: true,
-                credits: true,
-                expansions: true,
-                followup: true,
-                k9_only_if_needed: true,
-                hide_battalion_chief_vehicles: true,
+                generatedBy: false,
+                credits: false,
+                expansions: false,
+                followup: false,
+                k9_only_if_needed: false,
+                hide_battalion_chief_vehicles: false,
+                bike_police_only_if_needed: false,
             },
             noVehicleRequirements: Object.values(
                 this.$m('noVehicleRequirements')
@@ -618,6 +620,14 @@ export default Vue.extend<
                         vehicleName = 'k9_only_if_needed';
                     if (
                         !isMaxReq &&
+                        vehicle === 'bike_police' &&
+                        missionSpecs?.additional
+                            .need_bike_police_only_if_present &&
+                        this.settings.bike_police_only_if_needed
+                    )
+                        vehicleName = 'bike_police_only_if_needed';
+                    if (
+                        !isMaxReq &&
                         this.settings.hide_battalion_chief_vehicles &&
                         vehicle === 'battalion_chief_vehicles'
                     )
@@ -719,10 +729,11 @@ export default Vue.extend<
                         vehicles[multifunctionals[vehicle].reduce_from].amount;
                     vehicles[
                         multifunctionals[vehicle].reduce_from
-                    ].additionalText = this.$mc(
-                        `vehicles.multifunctionals.${vehicle}.additional_text`,
-                        vehicles[vehicle].old || 0
-                    ).toString();
+                    ].additionalText =
+                        this.$mc(
+                            `vehicles.multifunctionals.${vehicle}.additional_text`,
+                            vehicles[vehicle].old || 0
+                        )?.toString() ?? '';
                 }
             });
             const vehiclesFiltered = {} as VehicleRequirements;

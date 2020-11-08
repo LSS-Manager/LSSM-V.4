@@ -1,58 +1,69 @@
-export default (MODULE_ID: string): unknown => ({
-    'title': {
+import { ModuleSettingFunction } from 'typings/Module';
+import { Hidden, Select, Toggle } from 'typings/Setting';
+
+export default ((MODULE_ID: string) => ({
+    'title': <Toggle>{
         type: 'toggle',
         default: true,
     },
-    'id': {
+    'id': <Toggle>{
         type: 'toggle',
         default: false,
     },
-    'type': {
+    'type': <Toggle>{
         type: 'toggle',
         default: false,
     },
-    'place': {
+    'place': <Toggle>{
         type: 'toggle',
         default: true,
     },
-    'prerequisites': {
+    'prerequisites': <Toggle>{
         type: 'toggle',
         default: false,
     },
-    'vehicles.title': {
+    'vehicles.title': <Toggle>{
         type: 'toggle',
         default: true,
     },
-    'vehicles.content': {
+    'vehicles.content': <Toggle>{
         type: 'toggle',
         default: true,
     },
-    'vehicles.sort': {
+    'vehicles.sort': <Select>{
         type: 'select',
         values: ['caption', 'amount', 'percentage'],
         default: 'caption',
         dependsOn: '.vehicles.content',
     },
-    'vehicles.patient_additionals': {
+    ...(['de_DE', 'en_US', 'nl_NL'].includes(BUILD_LANG)
+        ? {
+              'vehicles.patient_additionals': <Toggle>{
+                  type: 'toggle',
+                  default: true,
+                  dependsOn: '.vehicles.content',
+              },
+          }
+        : null),
+    'chances.normal': <Toggle>{
         type: 'toggle',
         default: true,
-        dependsOn: '.vehicles.content',
     },
-    'chances.normal': {
-        type: 'toggle',
-        default: true,
-    },
-    'chances.100': {
+    'chances.100': <Toggle>{
         type: 'toggle',
         default: false,
         dependsOn: '.chances.normal',
     },
-    'multifunctionals.heavy_rescue_vehicles': {
-        type: 'toggle',
-        default: false,
-        dependsOn: '.vehicles.content',
-    },
-    'multifunctionals.battalion_chief_vehicles': {
+    ...(BUILD_LANG !== 'nl_NL'
+        ? {
+              'multifunctionals.heavy_rescue_vehicles': <Toggle>{
+                  type: 'toggle',
+                  default: false,
+                  dependsOn: '.vehicles.content',
+              },
+          }
+        : null),
+    'multifunctionals.battalion_chief_vehicles': <Toggle>{
         type: 'toggle',
         default: false,
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -61,7 +72,7 @@ export default (MODULE_ID: string): unknown => ({
             !settings[MODULE_ID]['vehicles.content'].value ||
             settings[MODULE_ID]['hide_battalion_chief_vehicles'].value,
     },
-    'hide_battalion_chief_vehicles': {
+    'hide_battalion_chief_vehicles': <Toggle>{
         type: 'toggle',
         default: false,
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -71,26 +82,35 @@ export default (MODULE_ID: string): unknown => ({
             settings[MODULE_ID]['multifunctionals.battalion_chief_vehicles']
                 .value,
     },
-    ...(BUILD_LANG === 'de_DE'
+    ...(BUILD_LANG === 'nl_NL'
         ? {
-              'multifunctionals.platform_trucks': {
+              'multifunctionals.police_cars': <Toggle>{
                   type: 'toggle',
                   default: false,
                   dependsOn: '.vehicles.content',
               },
           }
         : null),
-    'optionalAlternatives.allow_rw_instead_of_lf': {
+    ...(BUILD_LANG === 'de_DE'
+        ? {
+              'multifunctionals.platform_trucks': <Toggle>{
+                  type: 'toggle',
+                  default: false,
+                  dependsOn: '.vehicles.content',
+              },
+          }
+        : null),
+    'optionalAlternatives.allow_rw_instead_of_lf': <Toggle>{
         type: 'toggle',
         default: false,
         dependsOn: '.vehicles.content',
     },
-    'optionalAlternatives.allow_arff_instead_of_lf': {
+    'optionalAlternatives.allow_arff_instead_of_lf': <Toggle>{
         type: 'toggle',
         default: false,
         dependsOn: '.vehicles.content',
     },
-    'optionalAlternatives.allow_ktw_instead_of_rtw': {
+    'optionalAlternatives.allow_ktw_instead_of_rtw': <Toggle>{
         type: 'toggle',
         default: true,
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -99,32 +119,36 @@ export default (MODULE_ID: string): unknown => ({
             !settings[MODULE_ID]['patients.content'].value &&
             !settings[MODULE_ID]['vehicles.content'].value,
     },
-    'patients.title': {
+    'patients.title': <Toggle>{
         type: 'toggle',
         default: true,
     },
-    'patients.content': {
+    'patients.content': <Toggle>{
         type: 'toggle',
         default: true,
     },
-    'patients.live': {
+    'patients.live': <Toggle>{
         type: 'toggle',
         default: true,
     },
-    ...(BUILD_LANG === 'en_GB' || BUILD_LANG === 'en_US'
+    ...(['en_GB', 'en_US', 'it_IT'].includes(BUILD_LANG)
         ? {
-              'patient.code_possible': {
+              'patient.code_possible': <Toggle>{
                   type: 'toggle',
                   default: false,
               },
           }
         : null),
-    'patients.patient_allow_first_responder_chance': {
-        type: 'toggle',
-        default: true,
-        dependsOn: '.patients.content',
-    },
-    'patients.hideWhenNoNeed': {
+    ...(BUILD_LANG !== 'nl_NL'
+        ? {
+              'patients.patient_allow_first_responder_chance': <Toggle>{
+                  type: 'toggle',
+                  default: true,
+                  dependsOn: '.patients.content',
+              },
+          }
+        : null),
+    'patients.hideWhenNoNeed': <Toggle>{
         type: 'toggle',
         default: false,
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -133,48 +157,56 @@ export default (MODULE_ID: string): unknown => ({
             !settings[MODULE_ID]['patients.title'].value &&
             !settings[MODULE_ID]['patients.content'].value,
     },
-    'prisoners.title': {
+    'prisoners.title': <Toggle>{
         type: 'toggle',
         default: true,
     },
-    'prisoners.content': {
+    'prisoners.content': <Toggle>{
         type: 'toggle',
         default: true,
     },
-    'prisoners.live': {
+    'prisoners.live': <Toggle>{
         type: 'toggle',
         default: true,
     },
-    'generatedBy': {
+    'generatedBy': <Toggle>{
         type: 'toggle',
         default: false,
     },
-    'credits': {
+    'credits': <Toggle>{
         type: 'toggle',
         default: true,
     },
-    'expansions': {
+    'expansions': <Toggle>{
         type: 'toggle',
         default: true,
     },
-    'followup': {
+    'followup': <Toggle>{
         type: 'toggle',
         default: true,
     },
-    'overlay': {
+    'overlay': <Hidden>{
         type: 'hidden',
         default: false,
     },
-    'minified': {
+    'minified': <Hidden>{
         type: 'hidden',
         default: false,
     },
     ...(BUILD_LANG === 'de_DE'
         ? {
-              k9_only_if_needed: {
+              k9_only_if_needed: <Toggle>{
                   type: 'toggle',
                   default: false,
               },
           }
         : null),
-});
+    ...(BUILD_LANG === 'nl_NL'
+        ? {
+              bike_police_only_if_needed: <Toggle>{
+                  type: 'toggle',
+                  default: false,
+              },
+          }
+        : null),
+})) as ModuleSettingFunction;

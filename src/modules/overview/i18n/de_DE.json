@@ -19,7 +19,8 @@
 		},
 		"schoolings": {
 			"caption": "Lehrgangsname",
-			"duration": "Ausbildungsdauer"
+			"duration": "Ausbildungsdauer",
+			"required_for": "Benötigt für"
 		},
 		"vehicles": {
 			"caption": "Fahrzeugtyp",

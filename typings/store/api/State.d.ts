@@ -2,6 +2,7 @@ import { Building } from '../../Building';
 import { Vehicle } from '../../Vehicle';
 import { Mission } from 'typings/Mission';
 import { AllianceInfo } from 'typings/api/AllianceInfo';
+import { Settings } from 'typings/api/Settings';
 
 export interface StorageAPIs {
     buildings: Building[];
@@ -9,6 +10,8 @@ export interface StorageAPIs {
     missions: Mission[];
     // eslint-disable-next-line @typescript-eslint/ban-types
     allianceinfo: AllianceInfo | {};
+    // eslint-disable-next-line @typescript-eslint/ban-types
+    settings: Settings | {};
 }
 
 export type StorageAPIKey = keyof StorageAPIs;

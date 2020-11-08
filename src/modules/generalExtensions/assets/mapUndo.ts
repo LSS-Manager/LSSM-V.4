@@ -1,8 +1,14 @@
 export default async (LSSM: Vue): Promise<void> => {
     LSSM.$store.commit('useFontAwesome');
 
-    const historyBtnId = LSSM.$store.getters.nodeAttribute('map-history-btn');
-    const historyListId = LSSM.$store.getters.nodeAttribute('map-history-list');
+    const historyBtnId = LSSM.$store.getters.nodeAttribute(
+        'map-history-btn',
+        true
+    );
+    const historyListId = LSSM.$store.getters.nodeAttribute(
+        'map-history-list',
+        true
+    );
 
     await LSSM.$store.dispatch('addStyles', [
         {

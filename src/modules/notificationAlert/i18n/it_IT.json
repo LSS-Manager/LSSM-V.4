@@ -1,0 +1,49 @@
+{
+	"desktopTest": {
+		"text": "Le notifiche Desktop sono state attivate correttamente!",
+		"title": "Notifiche Desktop"
+	},
+	"messages": {
+		"allianceCandidature": {
+			"body": "La tua alleanza ha una nuova candidatura! Attualmente ci sono: {n} nuove candidature",
+			"title": "Nuova candidatura! | Nuove candidature!"
+		},
+		"allianceForum": {
+			"body": "C'è un nuovo messaggio sul forum dell'alleanza! Aprilo direttamente cliccando su questa notifica.",
+			"title": "Nuovo messaggio sul forum dell'alleanza!"
+		},
+		"allianceMessage": {
+			"body": "C'è un nuovo messaggio dell'alleanza! Vedilo direttamente cliccando su questa notifica.",
+			"title": "Nuovo messaggio dell'alleanza!"
+		},
+		"allianceNews": {
+			"body": "La tua alleanza ha pubblicato nuove notizie! Clicca su questa notifica per andare direttamente alla pagine delle notizie.",
+			"title": "Nuove notizie dell'alleanza!"
+		},
+		"dm": {
+			"body": "Hai un totale di {n} messaggio non letto. | Hai un totale di {n} messaggi non letti.",
+			"title": "Hai {n} nuovo messaggio! | Hai {n} nuovi messaggi!"
+		},
+		"ingame_news": {
+			"body": "Ci sono nuove caratteristiche nel gioco! Dai un'occhiata su Facebook per vedere le novità di oggi!",
+			"title": "Novità nel gioco"
+		},
+		"mission_getred": {
+			"body": "{address}<br>Questa missione necessita di attenzione!"
+		},
+		"mission_getred_alliance": {
+			"body": "{address}<br>Questa missione dell'alleanza necessita di attenzione!"
+		},
+		"radioMessage": {
+			"title": "{vehicle} segnala lo stato {status}!"
+		}
+	},
+	"noPermission": {
+		"text": "Il tuo browser è impostato in maniera tale che il gioco non ha permessi per mandare notifiche desktop. Se vuoi ancora ricevere queste notifiche, devi prima resettare questo nelle impostazioni del tuo browser!",
+		"title": "Notifiche Desktop"
+	},
+	"permission": {
+		"text": "Per favore autorizza le notifiche desktop cliccando su questa notifica!",
+		"title": "Notifiche Desktop"
+	}
+}

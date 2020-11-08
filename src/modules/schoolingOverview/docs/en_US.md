@@ -4,7 +4,7 @@ With the module `Course overview` we try to fix this problem.
 
 At the top you find a small `i`, which opens a summary. Of course we have integrated a search function and the tables can be sorted. The whole thing looks like this:
 
-![Course overview](/docs/assets/schoolingOverview/img/overview_en_US.png)
+![Course overview]/v4/docs/assets/schoolingOverview/img/overview_en_US.png)
 
 In addition, the courses with their own participants and open courses are divided into categories. That means simply according to the respective schools, i.e.
 * Fire Department
@@ -14,8 +14,8 @@ And always in this order. Again, we have built in sorting options and search fun
 
 For example, this is how it looks for courses with your own participants:
 
-![Courses with own participants](/docs/assets/schoolingOverview/img/own_en_US.png)
+![Courses with own participants](/v4/docs/assets/schoolingOverview/img/own_en_US.png)
 
 Und so bei offenen Lehrgängen:
 
-![open courses](/docs/assets/schoolingOverview/img/alliance_en_US.png)
+![open courses](/v4/docs/assets/schoolingOverview/img/alliance_en_US.png)
