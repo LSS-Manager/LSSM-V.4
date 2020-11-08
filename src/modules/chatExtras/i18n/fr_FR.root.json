@@ -1,10 +1,10 @@
 {
-	"description": "Show the date and time instead of only time",
-	"name": "Chat date format",
+	"description": "Affiche la date et l'heure au lieu de l'heure seulement",
+	"name": "Format de date",
 	"settings": {
 		"format": {
-			"description": "Here you can choose the format of your choice. You can find help <a class=\"lightbox-open\" href=\"{wiki}/modules/clock.html#configuration\">here</a>.",
-			"title": "Format of the date and time"
+			"description": "Ici vous pouvez choisir le format de votre choix. Pour l'aide c'est <a class=\"lightbox-open\" href=\"{wiki}/modules/clock.html#configuration\">ici</a>.",
+			"title": "Format date et heure"
 		}
 	}
 }
