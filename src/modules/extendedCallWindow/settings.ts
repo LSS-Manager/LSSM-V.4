@@ -7,9 +7,16 @@ import missionKeywordsTitle from './components/missionKeywords/settings-titles.v
 import alarmIconsItem from './components/alarmIcons/settings-item.vue';
 import alarmIconsTitle from './components/alarmIcons/settings-titles.vue';
 
-import { $m } from 'typings/Module';
+import { $m, ModuleSettingFunction } from 'typings/Module';
+import {
+    AppendableList,
+    Color,
+    Hidden,
+    NumberInput,
+    Toggle,
+} from 'typings/Setting';
 
-export default (_: string, __: Vue, $m: $m): unknown => {
+export default ((_: string, __: Vue, $m: $m) => {
     const defaultTailoredTabs = Object.values(
         $m('tailoredTabs.defaultTabs')
     ).map(({ name, vehicleTypes }) => ({
@@ -21,85 +28,85 @@ export default (_: string, __: Vue, $m: $m): unknown => {
     }[];
 
     return {
-        generationDate: {
+        generationDate: <Toggle>{
             type: 'toggle',
             default: true,
         },
-        yellowBorder: {
+        yellowBorder: <NumberInput>{
             type: 'number',
             default: 0,
             min: 0,
             max: 48,
             dependsOn: '.generationDate',
         },
-        redBorder: {
+        redBorder: <Toggle>{
             type: 'toggle',
             default: false,
             dependsOn: '.generationDate',
         },
-        enhancedMissingVehicles: {
+        enhancedMissingVehicles: <Toggle>{
             type: 'toggle',
             default: false,
         },
-        patientSummary: {
+        patientSummary: <Toggle>{
             type: 'toggle',
             default: true,
         },
-        arrCounter: {
+        arrCounter: <Toggle>{
             type: 'toggle',
             default: false,
         },
-        arrClickHighlight: {
+        arrClickHighlight: <Toggle>{
             type: 'toggle',
             default: false,
         },
-        arrClickHighlightColor: {
+        arrClickHighlightColor: <Color>{
             type: 'color',
             default: '#008000',
             dependsOn: '.arrClickHighlight',
         },
-        arrClickHighlightWidth: {
+        arrClickHighlightWidth: <NumberInput>{
             type: 'number',
             default: 2,
             dependsOn: '.arrClickHighlight',
         },
-        arrCounterResetSelection: {
+        arrCounterResetSelection: <Toggle>{
             type: 'toggle',
             default: false,
         },
-        arrMatchHighlight: {
+        arrMatchHighlight: <Toggle>{
             type: 'toggle',
             default: false,
         },
-        arrTime: {
+        arrTime: <Toggle>{
             type: 'toggle',
             default: false,
         },
-        arrSpecs: {
+        arrSpecs: <Toggle>{
             type: 'toggle',
             default: false,
         },
-        alarmTime: {
+        alarmTime: <Toggle>{
             type: 'toggle',
             default: false,
         },
-        stickyHeader: {
+        stickyHeader: <Toggle>{
             type: 'toggle',
             default: false,
         },
-        loadMoreVehiclesInHeader: {
+        loadMoreVehiclesInHeader: <Toggle>{
             type: 'toggle',
             default: false,
         },
-        hideVehicleList: {
+        hideVehicleList: <Toggle>{
             type: 'toggle',
             default: false,
         },
-        centerMap: {
+        centerMap: <Toggle>{
             type: 'toggle',
             default: false,
         },
-        tailoredTabs: {
+        tailoredTabs: <Omit<AppendableList, 'value' | 'isDisabled'>>{
             type: 'appendable-list',
             default: defaultTailoredTabs,
             listItemComponent: tailoredTabsItem,
@@ -109,7 +116,7 @@ export default (_: string, __: Vue, $m: $m): unknown => {
                 vehicleTypes: [],
             },
         },
-        missionKeywords: {
+        missionKeywords: <Omit<AppendableList, 'value' | 'isDisabled'>>{
             type: 'appendable-list',
             default: [],
             listItemComponent: missionKeywordsItem,
@@ -121,7 +128,7 @@ export default (_: string, __: Vue, $m: $m): unknown => {
                 missions: [],
             },
         },
-        alarmIcons: {
+        alarmIcons: <Omit<AppendableList, 'value' | 'isDisabled'>>{
             type: 'appendable-list',
             default: [],
             listItemComponent: alarmIconsItem,
@@ -132,17 +139,17 @@ export default (_: string, __: Vue, $m: $m): unknown => {
                 vehicleTypes: [],
             },
         },
-        overlay: {
+        overlay: <Hidden>{
             type: 'hidden',
             default: false,
         },
-        minified: {
+        minified: <Hidden>{
             type: 'hidden',
             default: false,
         },
-        textMode: {
+        textMode: <Hidden>{
             type: 'hidden',
             default: false,
         },
     };
-};
+}) as ModuleSettingFunction;

@@ -1,5 +1,6 @@
 import { Games } from './Game';
 import VueI18n from 'vue-i18n';
+import { RegisterSettings } from './Setting';
 
 export interface Module {
     active: boolean;
@@ -33,3 +34,9 @@ export type ModuleMainFunction = (
     $m: $m,
     $mc: $mc
 ) => void | Promise<void>;
+
+export type ModuleSettingFunction = (
+    MODULE_ID?: string,
+    LSSM?: Vue,
+    $m?: $m
+) => RegisterSettings;

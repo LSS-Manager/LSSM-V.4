@@ -1,70 +1,72 @@
-export default (MODULE_ID: string): unknown => ({
-    enhanceVehicleList: {
+import { ModuleSettingFunction } from 'typings/Module';
+import { ModuleSettings, Toggle } from 'typings/Setting';
+
+export default ((MODULE_ID: string) => ({
+    enhanceVehicleList: <Toggle>{
         type: 'toggle',
         default: true,
     },
-    vehicleTypes: {
-        type: 'toggle',
-        default: true,
-        dependsOn: '.enhanceVehicleList',
-    },
-    fmsSwitch: {
-        type: 'toggle',
-        default: true,
-        dependsOn: '.enhanceVehicleList',
-    },
-    personnelAssignmentBtn: {
+    vehicleTypes: <Toggle>{
         type: 'toggle',
         default: true,
         dependsOn: '.enhanceVehicleList',
     },
-    vehiclesPersonnelMax: {
+    fmsSwitch: <Toggle>{
         type: 'toggle',
         default: true,
         dependsOn: '.enhanceVehicleList',
     },
-    vehiclesPersonnelCurrent: {
+    personnelAssignmentBtn: <Toggle>{
+        type: 'toggle',
+        default: true,
+        dependsOn: '.enhanceVehicleList',
+    },
+    vehiclesPersonnelMax: <Toggle>{
+        type: 'toggle',
+        default: true,
+        dependsOn: '.enhanceVehicleList',
+    },
+    vehiclesPersonnelCurrent: <Toggle>{
         type: 'toggle',
         default: false,
         dependsOn: '.enhanceVehicleList',
     },
-    vehiclesPersonnelAssigned: {
+    vehiclesPersonnelAssigned: <Toggle>{
         type: 'toggle',
         default: false,
         dependsOn: '.enhanceVehicleList',
     },
-    vehiclesPersonnelColorized: {
+    vehiclesPersonnelColorized: <Toggle>{
         type: 'toggle',
         default: false,
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
-        disabled: (settings): boolean =>
+        disabled: (settings: ModuleSettings) =>
             !(
-                settings[MODULE_ID].vehiclesPersonnelAssigned.value &&
-                settings[MODULE_ID].vehiclesPersonnelMax.value
+                (settings[MODULE_ID].vehiclesPersonnelAssigned as Toggle)
+                    .value &&
+                (settings[MODULE_ID].vehiclesPersonnelMax as Toggle).value
             ),
     },
-    personnelDemands: {
+    personnelDemands: <Toggle>{
         type: 'toggle',
         default: true,
     },
-    schoolingSummary: {
+    schoolingSummary: <Toggle>{
         type: 'toggle',
         default: true,
     },
-    enhancedPersonnelAssignment: {
+    enhancedPersonnelAssignment: <Toggle>{
         type: 'toggle',
         default: true,
     },
-    expansions: {
+    expansions: <Toggle>{
         type: 'toggle',
         default: true,
     },
-    buildingsLeftRight: {
+    buildingsLeftRight: <Toggle>{
         type: 'toggle',
         default: false,
     },
-    fastDispatchChooser: {
+    fastDispatchChooser: <Toggle>{
         type: 'toggle',
         default: true,
     },
@@ -73,4 +75,4 @@ export default (MODULE_ID: string): unknown => ({
     //    default: false,
     //    disabled: () => true,
     //},
-});
+})) as ModuleSettingFunction;
