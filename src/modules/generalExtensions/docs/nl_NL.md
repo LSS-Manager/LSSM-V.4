@@ -14,10 +14,10 @@ Soms wil je gewoon een foto toevoegen aan het forum, in de chat of ergens anders
 Het werkt alleen met een directe link naar afbeeldingen!
 :::
 
-### Link Voorbeeld
+## Link Voorbeeld
 *Deze functie is nog in ontwikkeling en daarom is er nog geen beschrijving* 
 
-### Bewaar kaart verplaatsingen
+## Bewaar kaart verplaatsingen
 
 :::warning Kaartype "Mapkit"
 Deze functie kan momenteel niet gebruikt worden met kaarttype `Mapkit`!
@@ -25,6 +25,6 @@ Deze functie kan momenteel niet gebruikt worden met kaarttype `Mapkit`!
 
 Er zijn een aantal momenten in het spel, dat de kaart op een andere locatie gecentreerd wordt. Met deze instellingen worden deze verplaatsingen opgeslagen en zijn terug te vinden onder een kleine knop rechtsboven in de kaart. 
 
-![Kaart verplaatsings historie](/v4/docs/assets/generalExtensions/img/mapUndo_nl_NL.png)
+![Kaart verplaatsings historie](/v4/docs/assets/generalExtensions/img/nl_NL/mapUndo.png)
 
 Als u met de muis kort op hetzelfde adres blijft, wordt het op de kaart weergegeven, maar de kaart springt alleen naar dit adres als op het adres klikt. 
