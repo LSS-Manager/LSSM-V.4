@@ -89,6 +89,7 @@ export default {
             maxPersonnel: 2,
             credits: 5_000,
             coins: 25,
+            icon: 'shuttle-van',
         },
         1: {
             caption: 'TS 8/9',
@@ -97,6 +98,7 @@ export default {
             maxPersonnel: 9,
             credits: 5_000,
             coins: 25,
+            icon: 'truck-moving',
         },
         2: {
             caption: 'Autoladder',
@@ -106,6 +108,7 @@ export default {
             credits: 10_000,
             coins: 30,
             special: 'Benodigd vanaf 3 brandweerposten.',
+            icon: 'truck-moving',
         },
         3: {
             caption: 'DA - Officier van Dienst',
@@ -115,6 +118,7 @@ export default {
             credits: 10_000,
             coins: 25,
             special: 'Benodigd vanaf 6 brandweerposten.',
+            icon: 'car-side',
         },
         4: {
             caption: 'Hulpverleningsvoertuig',
@@ -124,6 +128,7 @@ export default {
             credits: 12_180,
             coins: 25,
             special: 'Benodigd vanaf 4 brandweerposten.',
+            icon: 'truck-moving',
         },
         5: {
             caption: 'Adembeschermingsvoertuig',
@@ -133,6 +138,7 @@ export default {
             credits: 11_680,
             coins: 25,
             special: 'Benodigd vanaf 5 brandweerposten.',
+            icon: 'truck-moving',
         },
         6: {
             caption: 'TST 8/9',
@@ -141,6 +147,7 @@ export default {
             maxPersonnel: 9,
             credits: 5_000,
             coins: 25,
+            icon: 'truck-moving',
         },
         7: {
             caption: 'TST 6/7',
@@ -149,6 +156,7 @@ export default {
             maxPersonnel: 7,
             credits: 5_000,
             coins: 25,
+            icon: 'truck-moving',
         },
         8: {
             caption: 'TST 4/5',
@@ -157,6 +165,7 @@ export default {
             maxPersonnel: 5,
             credits: 5_000,
             coins: 25,
+            icon: 'truck-moving',
         },
         9: {
             caption: 'TS 4/5',
@@ -165,6 +174,7 @@ export default {
             maxPersonnel: 5,
             credits: 5_000,
             coins: 25,
+            icon: 'truck-moving',
         },
         10: {
             caption: 'Slangenwagen',
@@ -174,6 +184,7 @@ export default {
             credits: 17_300,
             coins: 25,
             special: 'Benodigd vanaf 7 brandweerposten.',
+            icon: 'truck-moving',
         },
         11: {
             caption: 'Verkenningseenheid Brandweer',
@@ -185,6 +196,7 @@ export default {
             schooling: 'Brandweer - Verkenningseenheid Brandweer',
             shownSchooling: 'VEB',
             special: 'Benodigd vanaf 10 brandweerposten.',
+            icon: 'shuttle-van',
         },
         12: {
             caption: 'TST-NB 8/9',
@@ -193,6 +205,7 @@ export default {
             maxPersonnel: 9,
             credits: 5_000,
             coins: 25,
+            icon: 'truck-moving',
         },
         14: {
             caption: 'TST-NB 6/7',
@@ -201,6 +214,7 @@ export default {
             maxPersonnel: 7,
             credits: 5_000,
             coins: 25,
+            icon: 'truck-moving',
         },
         15: {
             caption: 'TST-NB 4/5',
@@ -209,6 +223,7 @@ export default {
             maxPersonnel: 5,
             credits: 5_000,
             coins: 25,
+            icon: 'truck-moving',
         },
         16: {
             caption: 'Ambulance',
@@ -217,6 +232,7 @@ export default {
             maxPersonnel: 2,
             credits: 5_000,
             coins: 25,
+            icon: 'ambulance',
         },
         17: {
             caption: 'TS 6/7',
@@ -225,6 +241,7 @@ export default {
             maxPersonnel: 7,
             credits: 5_000,
             coins: 25,
+            icon: 'truck-moving',
         },
         18: {
             caption: 'Hoogwerker',
@@ -234,6 +251,7 @@ export default {
             credits: 10_000,
             coins: 30,
             special: 'Benodigd vanaf 3 brandweerposten.',
+            icon: 'truck-moving',
         },
         19: {
             caption: 'DA - Hoofdofficier van Dienst',
@@ -245,6 +263,7 @@ export default {
             schooling: 'Brandweer - Hoofd Officier van Dienst - Brandweer',
             shownSchooling: 'HOvD-B',
             special: 'Benodigd vanaf 13 brandweerposten.',
+            icon: 'car-side',
         },
         20: {
             caption: 'DA',
@@ -253,6 +272,7 @@ export default {
             maxPersonnel: 4,
             credits: 2_000,
             coins: 10,
+            icon: 'car-side',
         },
         21: {
             caption: 'DB Klein',
@@ -261,6 +281,7 @@ export default {
             maxPersonnel: 9,
             credits: 2_500,
             coins: 12,
+            icon: 'shuttle-van',
         },
         22: {
             caption: 'DA Noodhulp',
@@ -269,6 +290,7 @@ export default {
             maxPersonnel: 2,
             credits: 5_000,
             coins: 25,
+            icon: 'car-side',
         },
         23: {
             caption: 'Lifeliner',
@@ -281,6 +303,7 @@ export default {
             shownSchooling: 'MMT-Bemanningslid',
             special:
                 'Per 25 gebouwen (alle gebouwen) kan één Lifeliner gekocht worden',
+            icon: 'helicopter',
         },
         24: {
             caption: 'DA - Adviseur Gevaarlijke stoffen',
@@ -292,6 +315,7 @@ export default {
             schooling: 'Brandweer - Adviseur Gevaarlijke Stoffen',
             shownSchooling: 'AGS',
             special: 'Benodigd vanaf 11 brandweerposten.',
+            icon: 'car-side',
         },
         25: {
             caption: 'DB Noodhulp',
@@ -300,6 +324,7 @@ export default {
             maxPersonnel: 2,
             credits: 6_000,
             coins: 25,
+            icon: 'shuttle-van',
         },
         26: {
             caption: 'Haakarmvoertuig',
@@ -310,6 +335,7 @@ export default {
             coins: 12,
             schooling: 'Brandweer - Brandweerchauffeur-zwaar',
             shownSchooling: 'Brandweerchauffeur-zwaar',
+            icon: 'truck-pickup',
         },
         27: {
             caption: 'Adembeschermingshaakarmbak',
@@ -319,6 +345,7 @@ export default {
             credits: 6_000,
             coins: 12,
             special: 'Haakarmvoertuig benodigd',
+            icon: 'square',
         },
         28: {
             caption: 'Politiehelikopter',
@@ -329,6 +356,7 @@ export default {
             coins: 30,
             schooling: 'Politie - Politiehelikopter',
             shownSchooling: 'Politiehelikopter',
+            icon: 'helicopter',
         },
         29: {
             caption: 'Watertankhaakarmbak',
@@ -338,6 +366,7 @@ export default {
             credits: 6_000,
             coins: 12,
             special: 'Haakarmvoertuig benodigd',
+            icon: 'square',
         },
         30: {
             caption: 'Zorgambulance',
@@ -346,6 +375,7 @@ export default {
             maxPersonnel: 2,
             credits: 5_000,
             coins: 25,
+            icon: 'ambulance',
         },
         31: {
             caption: 'Commandovoertuig',
@@ -357,6 +387,7 @@ export default {
             schooling: 'Brandweer - Brandweerchauffeur-zwaar',
             shownSchooling: 'Brandweerchauffeur-zwaar',
             special: 'Benodigd vanaf 14 brandweerposten.',
+            icon: 'truck-moving',
         },
         32: {
             caption: 'Commandohaakarmbak',
@@ -366,6 +397,7 @@ export default {
             credits: 6_000,
             coins: 12,
             special: 'Haakarmvoertuig benodigd',
+            icon: 'square',
         },
         33: {
             caption: 'Waterongevallenvoertuig',
@@ -376,6 +408,7 @@ export default {
             coins: 25,
             schooling: 'Brandweer - Duiker/Duikploegleider',
             shownSchooling: 'Duiker/Duikploegleider',
+            icon: 'shuttle-van',
         },
         34: {
             caption: 'Watertankwagen',
@@ -385,6 +418,7 @@ export default {
             credits: 17_000,
             coins: 25,
             special: 'Benodigd vanaf 7 brandweerposten.',
+            icon: 'truck-moving',
         },
         35: {
             caption: 'Officier van Dienst - Politie',
@@ -395,6 +429,7 @@ export default {
             coins: 25,
             schooling: 'Politie - Officier van Dienst - Politie',
             shownSchooling: 'Officier van Dienst - Politie',
+            icon: 'car-side',
         },
         36: {
             caption: 'Waterongevallenaanhanger',
@@ -404,6 +439,7 @@ export default {
             credits: 9_000,
             coins: 12,
             special: 'TS, TST, TST-NB, SI-2, WO, HV, DA/DB benodigd',
+            icon: 'trailer',
         },
         37: {
             caption: 'MMT-Auto',
@@ -416,6 +452,7 @@ export default {
             shownSchooling: 'MMT-Bemanningslid',
             special:
                 'Per 10 Ambulanceposten (Standplaatsen, VWS-posten en uitbreidingen) kan één MMT-Auto gekocht worden',
+            icon: 'car-side',
         },
         38: {
             caption: 'Officier van Dienst - Geneeskunde',
@@ -427,6 +464,7 @@ export default {
             schooling: 'Ambulance - Officier van Dienst Geneeskunde',
             shownSchooling: 'Officier van Dienst Geneeskunde',
             special: 'Benodigd vanaf de 8 gebouwen en/of uitbreiding',
+            icon: 'car-side',
         },
         39: {
             caption: 'ME Commandovoertuig',
@@ -437,6 +475,7 @@ export default {
             coins: 25,
             schooling: 'Politie - Mobiele Eenheid',
             shownSchooling: 'Mobiele Eenheid',
+            icon: 'shuttle-van',
         },
         40: {
             caption: 'ME Flexbus',
@@ -447,6 +486,7 @@ export default {
             coins: 25,
             schooling: 'Politie - Mobiele Eenheid',
             shownSchooling: 'Mobiele Eenheid',
+            icon: 'shuttle-van',
         },
         41: {
             caption: 'Crashtender (8x8)',
@@ -457,6 +497,7 @@ export default {
             coins: 25,
             schooling: 'Brandweer - Vliegtuigbrandbestrijding',
             shownSchooling: 'Vliegtuigbrandbestrijding',
+            icon: 'truck-moving',
         },
         42: {
             caption: 'Crashtender (6x6)',
@@ -467,6 +508,7 @@ export default {
             coins: 25,
             schooling: 'Brandweer - Vliegtuigbrandbestrijding',
             shownSchooling: 'Vliegtuigbrandbestrijding',
+            icon: 'truck-moving',
         },
         43: {
             caption: 'Crashtender (4x4)',
@@ -477,6 +519,7 @@ export default {
             coins: 25,
             schooling: 'Brandweer - Vliegtuigbrandbestrijding',
             shownSchooling: 'Vliegtuigbrandbestrijding',
+            icon: 'truck-moving',
         },
         44: {
             caption: 'Airport Fire Officer / On Scene Commander',
@@ -487,6 +530,7 @@ export default {
             coins: 25,
             schooling: 'Brandweer - Airport Fire Officer / On Scene Commander',
             shownSchooling: 'Airport Fire Officer / On Scene Commander',
+            icon: 'car-side',
         },
         45: {
             caption: 'Dompelpomphaakarmbak',
@@ -496,6 +540,7 @@ export default {
             credits: 6_000,
             coins: 12,
             special: 'Haakarmvoertuig benodigd',
+            icon: 'square',
         },
         46: {
             caption: 'DM Noodhulp',
@@ -504,6 +549,7 @@ export default {
             maxPersonnel: 1,
             credits: 2_500,
             coins: 18,
+            icon: 'motorcycle',
         },
         47: {
             caption: 'DA Hondengeleider',
@@ -514,6 +560,7 @@ export default {
             coins: 25,
             schooling: 'Politie - Hondengeleider',
             shownSchooling: 'Hondengeleider',
+            icon: 'car-side',
         },
         48: {
             caption: 'DB Hondengeleider',
@@ -524,6 +571,7 @@ export default {
             coins: 25,
             schooling: 'Politie - Hondengeleider',
             shownSchooling: 'Hondengeleider',
+            icon: 'shuttle-van',
         },
         49: {
             caption: 'PM-OR | Materieelvoertuig - Oppervlakteredding',
@@ -534,6 +582,7 @@ export default {
             coins: 25,
             schooling: 'Brandweer - Oppervlakteredder',
             shownSchooling: 'Oppervlakteredder',
+            icon: 'truck-moving',
         },
         50: {
             caption: 'TS-OR | Tankautospuit - Oppervlakteredding',
@@ -544,6 +593,7 @@ export default {
             coins: 25,
             schooling: 'Brandweer - Oppervlakteredder',
             shownSchooling: 'Oppervlakteredder',
+            icon: 'truck-moving',
         },
         51: {
             caption: 'HulpverleningsHaakarmbak',
@@ -553,6 +603,7 @@ export default {
             credits: 6_000,
             coins: 12,
             special: 'Haakarmvoertuig benodigd',
+            icon: 'square',
         },
         52: {
             caption: 'Rapid Responder',
@@ -561,6 +612,7 @@ export default {
             maxPersonnel: 1,
             credits: 2_500,
             coins: 18,
+            icon: 'car-side',
         },
         53: {
             caption: 'AT-Commandant',
@@ -571,6 +623,7 @@ export default {
             coins: 25,
             schooling: 'Politie - Operator AT',
             shownSchooling: 'Operator AT',
+            icon: 'car-side',
         },
         54: {
             caption: 'AT-Operator',
@@ -581,6 +634,7 @@ export default {
             coins: 25,
             schooling: 'Politie - Operator AT',
             shownSchooling: 'Operator AT',
+            icon: 'car-side',
         },
         55: {
             caption: 'AT-Materiaalwagen',
@@ -591,6 +645,7 @@ export default {
             coins: 25,
             schooling: 'Politie - Operator AT',
             shownSchooling: 'Operator AT',
+            icon: 'shuttle-van',
         },
         56: {
             caption: 'DA Voorlichter',
@@ -602,6 +657,7 @@ export default {
             schooling: 'Brandweer - Voorlichter',
             shownSchooling: 'Voorlichter',
             special: 'Benodigd vanaf 14 brandweerposten.',
+            icon: 'car-side',
         },
         57: {
             caption: 'DA Officier van Dienst - Geneeskundig / Rapid Responder',
@@ -614,6 +670,7 @@ export default {
             shownSchooling: 'Officier van Dienst Geneeskunde',
             special:
                 'Per 10 Ambulanceposten (Standplaatsen, VWS-posten en uitbreidingen) kan één OVDG-RR gekocht worden',
+            icon: 'car-side',
         },
         58: {
             caption: 'DB Arrestantenvervoer',
@@ -624,6 +681,7 @@ export default {
             coins: 25,
             special:
                 'Dit voertuig kan 5 arrestanten tegelijk vervoeren vanaf een melding',
+            icon: 'shuttle-van',
         },
         59: {
             caption: 'Noodhulp - Onopvallend',
@@ -632,6 +690,7 @@ export default {
             maxPersonnel: 2,
             credits: 6_000,
             coins: 25,
+            icon: 'car-side',
         },
         60: {
             caption: 'DB Biketeam',
@@ -642,6 +701,7 @@ export default {
             coins: 25,
             schooling: 'Politie - Biketeam',
             shownSchooling: 'Biketeam',
+            icon: 'shuttle-van',
         },
     },
     buildings: {
