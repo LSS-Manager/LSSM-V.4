@@ -13,7 +13,7 @@ import telemetry from './modules/telemetry/main';
 import releasenotes from './modules/releasenotes/main';
 import { RadioMessage } from '../typings/Ingame';
 import { Credits } from 'typings/Credits';
-import { ModuleMainFunction } from 'typings/Module';
+import { ModuleMainFunction, ModuleSettingFunction } from 'typings/Module';
 
 require('./natives/navTabsClicker');
 
@@ -154,14 +154,14 @@ if (window.location.pathname === '/') {
                 ) {
                     await LSSM.$store.dispatch('settings/register', {
                         moduleId,
-                        settings: (
+                        settings: ((
                             await import(
                                 /* webpackChunkName: "modules/settings/[request]" */
                                 /* webpackInclude: /[\\/]+modules[\\/]+.*?[\\/]+settings\.ts/ */
                                 /* webpackExclude: /[\\/]+modules[\\/]+(telemetry|releasenotes|support)[\\/]+/ */
                                 `./modules/${moduleId}/settings`
                             )
-                        ).default(moduleId, LSSM, $m),
+                        ).default as ModuleSettingFunction)(moduleId, LSSM, $m),
                     });
                 }
                 if (
@@ -185,20 +185,20 @@ if (window.location.pathname === '/') {
                     } catch {
                         // if no i18n exists, do nothing
                     }
-                        import(
-                            /* webpackChunkName: "modules/mains/[request]" */
-                            /* webpackInclude: /[\\/]+modules[\\/]+.*?[\\/]+main\.ts/ */
-                            /* webpackExclude: /[\\/]+modules[\\/]+(telemetry|releasenotes|support)[\\/]+/ */
-                            `./modules/${moduleId}/main`
-                        ).then(module =>
-                            (module.default as ModuleMainFunction)(
-                                LSSM,
-                                moduleId,
-                                $m,
-                                $mc
-                            )
-                        );
-                  }
+                    import(
+                        /* webpackChunkName: "modules/mains/[request]" */
+                        /* webpackInclude: /[\\/]+modules[\\/]+.*?[\\/]+main\.ts/ */
+                        /* webpackExclude: /[\\/]+modules[\\/]+(telemetry|releasenotes|support)[\\/]+/ */
+                        `./modules/${moduleId}/main`
+                    ).then(module =>
+                        (module.default as ModuleMainFunction)(
+                            LSSM,
+                            moduleId,
+                            $m,
+                            $mc
+                        )
+                    );
+                }
             });
         });
 })();

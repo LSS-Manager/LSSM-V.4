@@ -1,29 +1,32 @@
-export default (): unknown => ({
-    clickableLinks: {
+import { ModuleSettingFunction } from 'typings/Module';
+import { MultiSelect, Toggle } from 'typings/Setting';
+
+export default (() => ({
+    clickableLinks: <Toggle>{
         type: 'toggle',
         default: true,
     },
-    showImg: {
+    showImg: <Toggle>{
         type: 'toggle',
         default: true,
         dependsOn: '.clickableLinks',
     },
-    linkPreviews: {
+    linkPreviews: <Omit<MultiSelect, 'value' | 'isDisabled'>>{
         type: 'multiSelect',
         default: [],
         values: ['buildings', 'missions', 'vehicles', 'profile'],
     },
-    mapUndo: {
+    mapUndo: <Toggle>{
         type: 'toggle',
         default: false,
         noMapkit: true,
     },
-    browserTitle: {
+    browserTitle: <Toggle>{
         type: 'toggle',
         default: true,
     },
-    emojiPicker: {
+    emojiPicker: <Toggle>{
         type: 'toggle',
         default: false,
     },
-});
+})) as ModuleSettingFunction;

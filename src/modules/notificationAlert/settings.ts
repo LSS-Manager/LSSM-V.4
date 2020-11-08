@@ -1,8 +1,12 @@
 import settingsItem from './components/settings-item.vue';
 import settingTitles from './components/settings-titles.vue';
+import { ModuleSettingFunction } from 'typings/Module';
+import { AppendableList } from 'typings/Setting';
 
-export default (): unknown => ({
-    alerts: {
+export default (() => ({
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    alerts: <Omit<AppendableList, 'value' | 'isDisabled'>>{
         type: 'appendable-list',
         default: [],
         listItemComponent: settingsItem,
@@ -16,4 +20,4 @@ export default (): unknown => ({
             position: 'bottom right',
         },
     },
-});
+})) as ModuleSettingFunction;

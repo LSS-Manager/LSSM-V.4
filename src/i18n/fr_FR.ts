@@ -1,4 +1,4 @@
-import { Building } from 'typings/Building';
+// import { Building } from 'typings/Building';
 
 const moduleRootFiles = require.context('../', true, MODULE_ROOT_I18N_FILES);
 // Commented as dir ./en_US does not exist currently
@@ -14,7 +14,7 @@ const modules = {
         closeWarning: {
             title: 'Changements non sauvegardés',
             text:
-                'Des changements ont été faits dans l\'AppStore qui n\'ont pas été sauvegardés. Sauvegardez ou faites un Reset pour fermer l\'Appstore.',
+                "Des changements ont été faits dans l'AppStore qui n'ont pas été sauvegardés. Sauvegardez ou faites un Reset pour fermer l'Appstore.",
             close: 'Fermer',
         },
     },
@@ -36,7 +36,7 @@ const modules = {
         closeWarning: {
             title: 'Changements non sauvegardés',
             text:
-                'Des changements ont été faits dans les paramètres qui n\'ont pas été sauvegardés. Faites un Reset, une annulation ou une sauvegarde pour fermer les paramètres.',
+                "Des changements ont été faits dans les paramètres qui n'ont pas été sauvegardés. Faites un Reset, une annulation ou une sauvegarde pour fermer les paramètres.",
             close: 'Fermer',
         },
         changeList: {
@@ -64,13 +64,13 @@ export default {
     error: {
         title: 'LSS Manager: Erreur',
         msg:
-            'Si cette erreur arrive fréquemment, merci de le signaler à l\'équipe LSSM !',
+            "Si cette erreur arrive fréquemment, merci de le signaler à l'équipe LSSM !",
     },
     warnings: {
         version: {
             title: 'Mauvaise version de LSS Manager',
             text:
-                'Cher utilisateur, malheureusement vous n\'avez pas la dernière version de LSS Manager. La dernière version est {version} et vous avez la {current}. Merci de recharger le jeu en vidant le cache (Ctrl + F5 ou command + R sur Apple), cela devrait régler le problème. Si le problème persiste, merci de le signaler à l\'équipe ! Si vous vous utilisez une mauvaise version nous ne pouvons garantir le plein fonctionnement de LSS-Manager.',
+                "Cher utilisateur, malheureusement vous n'avez pas la dernière version de LSS Manager. La dernière version est {version} et vous avez la {current}. Merci de recharger le jeu en vidant le cache (Ctrl + F5 ou command + R sur Apple), cela devrait régler le problème. Si le problème persiste, merci de le signaler à l'équipe ! Si vous vous utilisez une mauvaise version nous ne pouvons garantir le plein fonctionnement de LSS-Manager.",
             close: 'Fermer ce message et recharger le jeu (recommandé)',
             abort: 'Fermer ce message sans recharger le jeu',
         },
@@ -78,7 +78,7 @@ export default {
     globalSettings: {
         name: 'Paramètres généraux',
         labelInMenu: {
-            title: 'Titre au lieu d\'une icone dans le menu',
+            title: "Titre au lieu d'une icone dans le menu",
             description:
                 'Un simple titre dans la barre de navigation au lieu du logo LSSM',
         },
@@ -110,7 +110,8 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 2,
             wtank: 0,
-            special: 'Nécessaire dès lors que vous avez construit 3 bases de pompiers',
+            special:
+                'Nécessaire dès lors que vous avez construit 3 bases de pompiers',
         },
         3: {
             caption: 'VLCG',
@@ -120,7 +121,8 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 1,
             wtank: 0,
-            special: 'Nécessaire dès lors que vous avez construit 6 bases de pompiers',
+            special:
+                'Nécessaire dès lors que vous avez construit 6 bases de pompiers',
         },
         4: {
             caption: 'VSR',
@@ -130,7 +132,8 @@ export default {
             minPersonnel: 2,
             maxPersonnel: 3,
             wtank: 0,
-            special: 'Nécessaire dès lors que vous avez construit 4 bases de pompiers',
+            special:
+                'Nécessaire dès lors que vous avez construit 4 bases de pompiers',
         },
         5: {
             caption: 'UMH',
@@ -149,7 +152,8 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 2,
             wtank: 0,
-            special: 'Nécessaire dès lors que vous avez construit 7 bases de pompiers',
+            special:
+                'Nécessaire dès lors que vous avez construit 7 bases de pompiers',
         },
         7: {
             caption: 'VIRT',
@@ -159,10 +163,11 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 4,
             wtank: 0,
-            special: 'Nécessaire dès lors que vous avez construit 7 bases de pompiers',
+            special:
+                'Nécessaire dès lors que vous avez construit 7 bases de pompiers',
             schooling: 'Centre de secours - Véhicules risques chimiques',
             shownSchooling: 'Véhicules risques chimiques',
-        },       
+        },
         8: {
             caption: 'Véhicule de patrouille',
             color: '#8b1818',
@@ -199,7 +204,8 @@ export default {
             wtank: 0,
             schooling: 'Centre de secours - Commandement mobile',
             shownSchooling: 'VPC',
-            special: 'Nécessaire dès lors que vous avez construit 13 bases de pompiers',
+            special:
+                'Nécessaire dès lors que vous avez construit 13 bases de pompiers',
         },
         12: {
             caption: 'FPTSR',
@@ -216,7 +222,8 @@ export default {
             credits: 122_180,
             minPersonnel: 1,
             maxPersonnel: 3,
-            special: 'Nécessaire dès lors que vous avez construit 13 bases de pompiers',
+            special:
+                'Nécessaire dès lors que vous avez construit 13 bases de pompiers',
         },
         14: {
             caption: 'VGRIMP',
@@ -226,7 +233,8 @@ export default {
             minPersonnel: 2,
             maxPersonnel: 5,
             wtank: 0,
-            schooling: 'Centre de secours - IMP (Intervention en Milieu Périlleux)',
+            schooling:
+                'Centre de secours - IMP (Intervention en Milieu Périlleux)',
             shownSchooling: 'Spécialiste IMP',
         },
         15: {
@@ -236,7 +244,7 @@ export default {
             credits: 19_000,
             minPersonnel: 2,
             maxPersonnel: 3,
-            wtank: 0,            
+            wtank: 0,
         },
         16: {
             caption: 'VPL',
@@ -281,7 +289,8 @@ export default {
             wtank: 0,
             schooling: 'Poste de police - Maître chien',
             shownSchooling: 'Brigade canine',
-            special: 'Nécessaire dès lors que vous avez construit 6 postes de police.<br>Nécessite une formation spéciale (Maître chien)',
+            special:
+                'Nécessaire dès lors que vous avez construit 6 postes de police.<br>Nécessite une formation spéciale (Maître chien)',
         },
         20: {
             caption: 'Unité motocycliste',
@@ -293,7 +302,7 @@ export default {
             wtank: 0,
             schooling: 'Poste de police - Formation motocycliste',
             shownSchooling: 'Policie motocycliste',
-        },          
+        },
     },
     buildings: {
         0: {
@@ -318,7 +327,8 @@ export default {
             levelcost: ['1. 10.000', '2. 50.000', '3.-16. 100.000'],
             maxBuildings: '2.700',
             maxLevel: 16,
-            special: 'Le prix de vos postes augmente lorsque vous en possédez 25. Ainsi, le rythme de progression est constant une fois que vous possédez un grand flux de revenus à ces niveaux de jeu. La formule actuelle pour calculer le prix des postes est la suivante : <code>100.000+(200.000*LOG<sub>2</sub>(Number of existing fire stations − 22))</code>.',
+            special:
+                'Le prix de vos postes augmente lorsque vous en possédez 25. Ainsi, le rythme de progression est constant une fois que vous possédez un grand flux de revenus à ces niveaux de jeu. La formule actuelle pour calculer le prix des postes est la suivante : <code>100.000+(200.000*LOG<sub>2</sub>(Number of existing fire stations − 22))</code>.',
             startPersonnel: 10,
             startVehicles: ['FPT', 'FPTL'],
             maxBuildingsFunction: (): number => 2_700,
@@ -337,7 +347,8 @@ export default {
             levelcost: [],
             maxBuildings: 'Aucune limite',
             maxLevel: 0,
-            special: "Le chef des finances et les administrateurs peuvent améliorer le bâtiment grâce à la banque d\'alliance.<br>Les chefs de formation et les administrateurs peuvent lancer des formations.",
+            special:
+                "Le chef des finances et les administrateurs peuvent améliorer le bâtiment grâce à la banque d'alliance.<br>Les chefs de formation et les administrateurs peuvent lancer des formations.",
             startPersonnel: 0,
             startVehicles: [],
         },
@@ -414,16 +425,17 @@ export default {
                     coins: 15,
                     duration: '7 jours',
                 },
-                        ],
+            ],
             levelcost: ['1.-20. 19.000 crédits / 11 pièces'],
             maxBuildings: 'Aucune limite',
             maxLevel: 20,
-            special: 'Le chef des finances et les administrateurs peuvent construire et agrandir les hôpitaux grance à la banque de l\'alliance',
+            special:
+                "Le chef des finances et les administrateurs peuvent construire et agrandir les hôpitaux grance à la banque de l'alliance",
             startPersonnel: 0,
             startVehicles: [],
         },
         5: {
-            caption: 'Station d\'hélicoptère',
+            caption: "Station d'hélicoptère",
             color: '#e7ad2f',
             coins: 50,
             credits: 1_000_000,
@@ -490,7 +502,7 @@ export default {
             maxBuildings: 'Aucune limite',
             maxLevel: 0,
             special:
-                "Le chef des finances et les administrateurs peuvent améliorer le bâtiment grâce à la banque d\'alliance.<br>Les chefs de formation et les administrateurs peuvent lancer des formations.",
+                "Le chef des finances et les administrateurs peuvent améliorer le bâtiment grâce à la banque d'alliance.<br>Les chefs de formation et les administrateurs peuvent lancer des formations.",
             startPersonnel: 0,
             startVehicles: [],
         },
@@ -504,7 +516,7 @@ export default {
             maxBuildings: 'see specials',
             maxLevel: 1,
             special:
-                'Attention : Vous ne pouvez construire un maximum de 25 héliports de Gendarmerie. Il n\'y a pas de différence si vous construisez un nouveau bâtiment ou une nouvelle extension. (Plus vous construisez de bâtiments et plus vous pourrez construire d\'héliports).',
+                "Attention : Vous ne pouvez construire un maximum de 25 héliports de Gendarmerie. Il n'y a pas de différence si vous construisez un nouveau bâtiment ou une nouvelle extension. (Plus vous construisez de bâtiments et plus vous pourrez construire d'héliports).",
             startPersonnel: 3,
             startVehicles: [],
             maxBuildingsFunction: (buildingsAmountTotal: number): number =>
@@ -540,7 +552,7 @@ export default {
             maxBuildings: 'Aucune limite',
             maxLevel: 0,
             special:
-                "Ce bâtiment ne peut être construit que par le chef des finances ou des administateurs avec les crédits de la banque d\'alliance. Les cellules sont disponibles pour tous les membres de l\'alliance.",
+                "Ce bâtiment ne peut être construit que par le chef des finances ou des administateurs avec les crédits de la banque d'alliance. Les cellules sont disponibles pour tous les membres de l'alliance.",
             startPersonnel: 0,
             startVehicles: [],
         },
@@ -554,11 +566,12 @@ export default {
                 '1. 10.000',
                 '2. 50.000',
                 '3.-5. 100.000',
-                'Ceci est une petite caserne. Si vous souhaitez construire des extensions ou augmenter le nombre d\'emplacements de véhicules, vous devez l\'améliorer pour en faire une caserne ordinaire. Ce processus prend 24 heures.',
+                "Ceci est une petite caserne. Si vous souhaitez construire des extensions ou augmenter le nombre d'emplacements de véhicules, vous devez l'améliorer pour en faire une caserne ordinaire. Ce processus prend 24 heures.",
             ],
             maxBuildings: '2700 casernes de pompiers',
             maxLevel: 5,
-            special: 'Le prix de vos postes augmente lorsque vous en possédez 25. Ainsi, le rythme de progression est constant une fois que vous possédez un grand flux de revenus à ces niveaux de jeu. La formule actuelle pour calculer le prix des postes est la suivante : <code>100.000+(200.000*LOG<sub>2</sub>(Number of existing fire stations − 22))</code>.',
+            special:
+                'Le prix de vos postes augmente lorsque vous en possédez 25. Ainsi, le rythme de progression est constant une fois que vous possédez un grand flux de revenus à ces niveaux de jeu. La formule actuelle pour calculer le prix des postes est la suivante : <code>100.000+(200.000*LOG<sub>2</sub>(Number of existing fire stations − 22))</code>.',
             startPersonnel: 10,
             startVehicles: ['FPT', 'FPTL'],
             maxBuildingsFunction: (): number => 2_700,
@@ -573,7 +586,7 @@ export default {
                 '1. 10.000',
                 '2. 50.000',
                 '3.-4. 100.000',
-                'Ceci est un petit poste de police. Si vous souhaitez l\’agrandir ou bâtir davantage d’extensions, vous devez le reconstruire pour en faire un poste de police ordinaire. Ce processus prend 24 heures.',
+                'Ceci est un petit poste de police. Si vous souhaitez l’agrandir ou bâtir davantage d’extensions, vous devez le reconstruire pour en faire un poste de police ordinaire. Ce processus prend 24 heures.',
             ],
             maxBuildings: '1200 postes de police/gendarmerie',
             maxLevel: 4,
@@ -593,7 +606,7 @@ export default {
                 '1. 10.000',
                 '2. 50.000',
                 '3.-5. 100.000',
-                'Ceci est un petit Poste Ambulancier. Si vous souhaitez l\’agrandir ou bâtir davantage d’extensions, vous devez le reconstruire pour en faire un Poste Ambulancier ordinaire. Ce processus prend 24 heures.',
+                'Ceci est un petit Poste Ambulancier. Si vous souhaitez l’agrandir ou bâtir davantage d’extensions, vous devez le reconstruire pour en faire un Poste Ambulancier ordinaire. Ce processus prend 24 heures.',
             ],
             maxBuildings: 'Aucune limite',
             maxLevel: 5,
@@ -603,25 +616,25 @@ export default {
         },
     },
     buildingCategories: {
-        'Pompiers': {
+        Pompiers: {
             buildings: [0, 18],
             color: '#ff2d2d',
         },
-        'Ambulances': {
+        Ambulances: {
             buildings: [2, 20],
             color: '#ffa500',
         },
-        'Police': {
+        Police: {
             buildings: [6, 19],
             color: '#00ac00',
         },
-        'Autre': {
+        Autre: {
             buildings: [1, 4, 5, 7, 8, 13, 14, 16],
             color: '#02a18c',
         },
     },
     vehicleCategories: {
-        'Incendie': {
+        Incendie: {
             vehicles: {
                 'Fourgon dìncendie': [0, 1, 12, 13],
                 'Échelles': [2, 15],
@@ -631,14 +644,14 @@ export default {
             },
             color: '#ff2d2d',
         },
-        'Ambulances': {
+        Ambulances: {
             vehicles: {
-                'Ambulances': [5],
-                'Dragon': [9],
+                Ambulances: [5],
+                Dragon: [9],
             },
             color: '#ffa500',
         },
-        'Police': {
+        Police: {
             vehicles: {
                 'Véhicule de patrouille': [8],
                 'Unité motocycliste': [20],
@@ -673,7 +686,7 @@ export default {
     schoolBuildings: [1, 8],
     dispatchCenterBuildings: [7],
     schoolings: {
-        'Pompier': [
+        Pompier: [
             {
                 caption: 'Véhicules risques chimiques',
                 duration: '3 jours',
@@ -703,7 +716,7 @@ export default {
                 duration: '5 jours',
             },
         ],
-        'Police': [
+        Police: [
             {
                 caption: 'Licence de Pilote',
                 duration: '7 jours',
@@ -721,8 +734,7 @@ export default {
     amount: 'Quantité',
     search: 'Rechercher',
     alliance: 'Alliance',
-    premiumNotice:
-        'Compte premium de Opérateur112 nécessaire.',
+    premiumNotice: 'Compte premium de Opérateur112 nécessaire.',
     credits: 'Crédits',
     close: 'Fermer',
     fullscreen: {
@@ -785,7 +797,7 @@ export default {
         'Musée',
         'Centre commercial',
         'Garage automobile',
-        'Sortie d\’autoroute',
+        'Sortie d’autoroute',
         'Marché de Noël',
         'Hangar',
         'Discothèque',
@@ -798,7 +810,7 @@ export default {
         'Rivière',
         'Petit aéroport (piste)',
         'Grand aéroport (piste)',
-        'Terminal d\’aéroport',
+        'Terminal d’aéroport',
         'Banque',
         'Entrepôt',
         'Pont',

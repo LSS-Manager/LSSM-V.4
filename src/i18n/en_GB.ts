@@ -1,4 +1,4 @@
-import { Building } from 'typings/Building';
+// import { Building } from 'typings/Building';
 
 const moduleRootFiles = require.context('../', true, MODULE_ROOT_I18N_FILES);
 // Commented as dir ./en_US does not exist currently
@@ -414,11 +414,11 @@ export default {
             credits: 500_000,
             extensions: [
                 ...new Array(3).fill({
-					caption: 'Additional classroom',
-					credits: 400_000,
-					coins: 40,
-					duration: '7 Days',
-				}),
+                    caption: 'Additional classroom',
+                    credits: 400_000,
+                    coins: 40,
+                    duration: '7 Days',
+                }),
             ],
             levelcost: [],
             maxBuildings: 'No limit',
@@ -565,11 +565,11 @@ export default {
             credits: 500_000,
             extensions: [
                 ...new Array(3).fill({
-					caption: 'Additional classroom',
-					credits: 400_000,
-					coins: 40,
-					duration: '7 Days',
-				}),
+                    caption: 'Additional classroom',
+                    credits: 400_000,
+                    coins: 40,
+                    duration: '7 Days',
+                }),
             ],
             levelcost: [],
             maxBuildings: 'No limit',
