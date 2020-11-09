@@ -1,5 +1,8 @@
 <template>
     <div>
+        <button class="btn btn-warning pull-right" title="reset" @click="reset">
+            <font-awesome-icon :icon="faUndoAlt"></font-awesome-icon>
+        </button>
         <slot name="titles"></slot>
         <div
             v-for="(item, index) in updateValues"
@@ -31,6 +34,7 @@ import {
     AppendableListComputed,
     AppendableListProps,
 } from 'typings/components/setting/AppendableList';
+import { faUndoAlt } from '@fortawesome/free-solid-svg-icons/faUndoAlt';
 
 export default Vue.extend<
     AppendableList,
@@ -41,6 +45,7 @@ export default Vue.extend<
     name: 'settings-appendable-list',
     data() {
         return {
+            faUndoAlt,
             cloneDeep,
         };
     },
@@ -83,6 +88,25 @@ export default Vue.extend<
                 'input',
                 updated.filter(v => !!v)
             );
+        },
+        reset() {
+            this.$modal.show('dialog', {
+                title: this.$m('resetWarningSetting.title'),
+                text: this.$m('resetWarningSetting.text'),
+                buttons: [
+                    {
+                        title: this.$m('resetWarningSetting.close'),
+                        default: true,
+                    },
+                    {
+                        title: this.$m('resetWarningSetting.reset'),
+                        handler: () => {
+                            this.$emit('input', this.setting.default);
+                            this.$modal.hide('dialog');
+                        },
+                    },
+                ],
+            });
         },
     },
 });

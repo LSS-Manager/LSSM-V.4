@@ -32,6 +32,13 @@ const modules = {
             total: 'Alle Einstellungen',
             module: 'Nur von diesem Modul',
         },
+        resetWarningSetting: {
+            title: 'Einstellung zurücksetzen',
+            text:
+                'Möchtest du wirklich diese eine Einstellung auf ihren Standartwert zurücksetzen?',
+            close: 'Abbrechen',
+            reset: 'Zurücksetzen',
+        },
         closeWarning: {
             title: 'Ungespeicherte Änderungen',
             text:

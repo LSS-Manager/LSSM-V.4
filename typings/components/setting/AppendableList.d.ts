@@ -3,8 +3,10 @@ import {
     Setting,
     AppendableList as AppendableListSetting,
 } from 'typings/Setting';
+import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 
 export interface AppendableList {
+    faUndoAlt: IconDefinition;
     cloneDeep: typeof cloneDeep;
 }
 
@@ -19,6 +21,7 @@ export interface AppendableListMethods {
         index: number,
         value: AppendableListSetting['defaultItem']
     ): void;
+    reset(): void;
 }
 
 export interface AppendableListProps {
