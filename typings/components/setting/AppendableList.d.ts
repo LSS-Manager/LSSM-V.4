@@ -1,7 +1,7 @@
 import cloneDeep from 'lodash/cloneDeep';
 import {
     Setting,
-    AppendableList as AppendableListSetting,
+    NewAppendableList as AppendableListSetting,
 } from 'typings/Setting';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 
@@ -11,6 +11,7 @@ export interface AppendableList {
 }
 
 export interface AppendableListComputed {
+    layout: number[];
     updateValues: AppendableListSetting['value'];
 }
 

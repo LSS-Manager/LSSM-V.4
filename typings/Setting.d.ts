@@ -77,18 +77,33 @@ export interface AppendableList extends SettingTemplate {
     defaultItem: AppendableListItem;
 }
 
-export type Setting<
-    type =
-        | Toggle
-        | Text
-        | AppendableList
-        | Select
-        | MultiSelect
-        | Color
-        | NumberInput
-        | HotKey
-        | Hidden
-> = type;
+interface AppendableListSetting<type = SettingType> {
+    setting: Omit<type, 'value' | 'isDisabled'>;
+    size: number;
+    name: string;
+    title: string;
+}
+
+export interface NewAppendableList extends SettingTemplate {
+    default: AppendableListItem[];
+    value: AppendableListItem[];
+    listItem: AppendableListSetting[];
+    defaultItem: AppendableListItem;
+}
+
+type SettingType =
+    | Toggle
+    | Text
+    | AppendableList
+    | NewAppendableList
+    | Select
+    | MultiSelect
+    | Color
+    | NumberInput
+    | HotKey
+    | Hidden;
+
+export type Setting<type = SettingType> = type;
 
 export interface Settings {
     [key: string]: Setting;

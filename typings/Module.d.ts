@@ -35,8 +35,7 @@ export type ModuleMainFunction = (
     $mc: $mc
 ) => void | Promise<void>;
 
-export type ModuleSettingFunction = (
-    MODULE_ID?: string,
-    LSSM?: Vue,
-    $m?: $m
-) => RegisterSettings;
+export type ModuleSettingFunction =
+    | ((MODULE_ID: string, LSSM: Vue, $m: $m) => RegisterSettings)
+    | ((MODULE_ID: string, LSSM: Vue) => RegisterSettings)
+    | ((MODULE_ID: string) => RegisterSettings);

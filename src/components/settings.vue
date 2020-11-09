@@ -250,13 +250,7 @@
                             :setting="setting"
                             v-model="settings[moduleId][settingId].value"
                             @input="update(moduleId, settingId)"
-                        >
-                            <template #titles>
-                                <component
-                                    :is="setting.titleComponent"
-                                ></component>
-                            </template>
-                        </settings-appendable-list>
+                        ></settings-appendable-list>
                         <pre v-else>{{ setting }}</pre>
                     </setting>
                 </div>
