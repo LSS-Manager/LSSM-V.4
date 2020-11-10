@@ -30,12 +30,12 @@ const modules = {
                 'Möchtest du wirklich Einstellungen auf ihre Standardwerte zurücksetzen? Dies lässt sich nicht rückgängig machen!',
             close: 'Abbrechen',
             total: 'Alle Einstellungen',
-            module: 'Nur von diesem Modul',
+            module: 'Nur von diesem Modul <b>{module}</b>',
         },
         resetWarningSetting: {
             title: 'Einstellung zurücksetzen',
             text:
-                'Möchtest du wirklich diese eine Einstellung auf ihren Standartwert zurücksetzen?',
+                'Möchtest du wirklich diese eine Einstellung <b>{setting}</b> des Moduls <b>{module}</b> auf ihren Standartwert zurücksetzen?',
             close: 'Abbrechen',
             reset: 'Zurücksetzen',
         },

@@ -250,6 +250,8 @@
                             :setting="setting"
                             v-model="settings[moduleId][settingId].value"
                             @input="update(moduleId, settingId)"
+                            :module-id="moduleId"
+                            :setting-id="settingId"
                         ></settings-appendable-list>
                         <pre v-else>{{ setting }}</pre>
                     </setting>
@@ -462,7 +464,11 @@ export default Vue.extend<
                         },
                     },
                     {
-                        title: this.$m('resetWarning.module'),
+                        title: this.$m('resetWarning.module', {
+                            module: this.$t(
+                                `modules.${this.modulesSorted[this.tab]}.name`
+                            ),
+                        }),
                         handler: () => {
                             Object.values(
                                 this.settings[this.modulesSorted[this.tab]]

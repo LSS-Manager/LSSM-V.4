@@ -157,6 +157,14 @@ export default Vue.extend<
             type: Array,
             required: true,
         },
+        moduleId: {
+            type: String,
+            required: true,
+        },
+        settingId: {
+            type: String,
+            required: true,
+        },
     },
     computed: {
         layout() {
@@ -209,7 +217,12 @@ export default Vue.extend<
         reset() {
             this.$modal.show('dialog', {
                 title: this.$t('settings.resetWarningSetting.title'),
-                text: this.$t('settings.resetWarningSetting.text'),
+                text: this.$t('settings.resetWarningSetting.text', {
+                    module: this.$t(`modules.${this.moduleId}.name`),
+                    setting: this.$t(
+                        `modules.${this.moduleId}.settings.${this.settingId}.title`
+                    ),
+                }),
                 buttons: [
                     {
                         title: this.$t('settings.resetWarningSetting.close'),

@@ -30,4 +30,6 @@ export interface AppendableListMethods {
 export interface AppendableListProps {
     setting: Setting<AppendableListSetting>;
     value: AppendableListSetting['value'];
+    moduleId: string;
+    settingId: string;
 }
