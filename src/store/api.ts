@@ -537,6 +537,7 @@ export default {
                     JSON.stringify(missions)
                 );
                 commit('setMissions', missions);
+                return missions;
             } else {
                 const missions = JSON.parse(
                     sessionStorage.getItem('mission_specs_cache') || '{}'

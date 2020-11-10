@@ -43,6 +43,7 @@ interface Select extends SettingTemplate {
     default: string;
     value: string;
     values: string[];
+    labels?: string[];
     noLabelTranslation?: boolean;
 }
 interface MultiSelect extends SettingTemplate {
@@ -50,6 +51,7 @@ interface MultiSelect extends SettingTemplate {
     default: string[];
     value: string[];
     values: string[];
+    labels?: string[];
     noLabelTranslation?: boolean;
 }
 
@@ -69,26 +71,39 @@ interface AppendableListItem {
     [key: string]: unknown;
 }
 
+interface AppendableListSetting<type extends SettingType = SettingType> {
+    setting: Omit<type, 'value' | 'isDisabled'>;
+    size: number;
+    name: string;
+    title: string;
+}
+
+export interface PreviewElement
+    extends Omit<AppendableListSetting, 'setting' | 'name'> {
+    type: 'preview';
+    component: ExtendedVue<Vue, unknown, unknown, unknown, unknown>;
+}
+
 export interface AppendableList extends SettingTemplate {
     default: AppendableListItem[];
     value: AppendableListItem[];
-    listItemComponent: ExtendedVue<Vue, unknown, unknown, unknown, unknown>;
-    titleComponent: ExtendedVue<Vue, unknown, unknown, unknown, unknown>;
+    listItem: (AppendableListSetting | PreviewElement)[];
     defaultItem: AppendableListItem;
+    orderable?: boolean;
 }
 
-export type Setting<
-    type =
-        | Toggle
-        | Text
-        | AppendableList
-        | Select
-        | MultiSelect
-        | Color
-        | NumberInput
-        | HotKey
-        | Hidden
-> = type;
+type SettingType =
+    | Toggle
+    | Text
+    | AppendableList
+    | Select
+    | MultiSelect
+    | Color
+    | NumberInput
+    | HotKey
+    | Hidden;
+
+export type Setting<type extends SettingType = SettingType> = type;
 
 export interface Settings {
     [key: string]: Setting;
