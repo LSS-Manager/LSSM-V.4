@@ -54,7 +54,7 @@ export default Vue.extend<
     computed: {
         updateValue: {
             get() {
-                return this.value;
+                return this.options.find(o => o.value === this.value);
             },
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore

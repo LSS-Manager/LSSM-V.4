@@ -43,6 +43,7 @@ interface Select extends SettingTemplate {
     default: string;
     value: string;
     values: string[];
+    labels?: string[];
     noLabelTranslation?: boolean;
 }
 interface MultiSelect extends SettingTemplate {
@@ -50,6 +51,7 @@ interface MultiSelect extends SettingTemplate {
     default: string[];
     value: string[];
     values: string[];
+    labels?: string[];
     noLabelTranslation?: boolean;
 }
 

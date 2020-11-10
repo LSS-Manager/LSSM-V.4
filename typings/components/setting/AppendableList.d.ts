@@ -2,6 +2,7 @@ import cloneDeep from 'lodash/cloneDeep';
 import {
     Setting,
     NewAppendableList as AppendableListSetting,
+    Select,
 } from 'typings/Setting';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 
@@ -22,6 +23,7 @@ export interface AppendableListMethods {
         index: number,
         value: AppendableListSetting['defaultItem']
     ): void;
+    getOptions(setting: Select): { label: string; value: string }[];
     reset(): void;
 }
 

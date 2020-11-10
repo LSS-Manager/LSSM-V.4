@@ -65,12 +65,7 @@
                         v-else-if="item.setting.type === 'select'"
                         :name="setting.name"
                         v-model="value[item.name]"
-                        :options="
-                            item.setting.values.map(v => ({
-                                label: v,
-                                value: v,
-                            }))
-                        "
+                        :options="getOptions(item.setting)"
                         :placeholder="item.title"
                         @input="changeValue(index, value)"
                     ></settings-select>
@@ -78,12 +73,7 @@
                         v-else-if="item.setting.type === 'multiSelect'"
                         :name="item.name"
                         v-model="value[item.name]"
-                        :options="
-                            item.setting.values.map(v => ({
-                                label: v,
-                                value: v,
-                            }))
-                        "
+                        :options="getOptions(item.setting)"
                         :placeholder="item.title"
                         @input="changeValue(index, value)"
                     ></settings-multi-select>
@@ -209,6 +199,12 @@ export default Vue.extend<
                 'input',
                 updated.filter(v => !!v)
             );
+        },
+        getOptions(setting) {
+            return setting.values.map((v, vi) => ({
+                label: setting.labels?.[vi] ?? v,
+                value: v,
+            }));
         },
         reset() {
             this.$modal.show('dialog', {
