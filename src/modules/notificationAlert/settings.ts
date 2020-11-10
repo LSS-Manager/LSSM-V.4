@@ -23,11 +23,11 @@ export default ((_, __, $m) => {
                 <AppendableListSetting<MultiSelect>>{
                     name: 'events',
                     title: $m('settings.eventTypes'),
-                    size: 0,
+                    size: 2,
                     setting: {
                         type: 'multiSelect',
                         values: Object.keys(events),
-                        labels: Object.values(alertStyles),
+                        labels: Object.values(events),
                     },
                 },
                 <AppendableListSetting<Select>>{
