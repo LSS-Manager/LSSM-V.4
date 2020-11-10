@@ -30,7 +30,7 @@
 		"version": "4.14.165"
 	},
 	"@types/node": {
-		"version": "14.14.6"
+		"version": "14.14.7"
 	},
 	"@types/ua-parser-js": {
 		"version": "0.7.33"
@@ -42,10 +42,10 @@
 		"version": "1.15.3"
 	},
 	"@typescript-eslint/eslint-plugin": {
-		"version": "4.6.1"
+		"version": "4.7.0"
 	},
 	"@typescript-eslint/parser": {
-		"version": "4.6.1"
+		"version": "4.7.0"
 	},
 	"@vuepress/plugin-active-header-links": {
 		"icon": "https://vuepress.vuejs.org/hero.png",
@@ -89,7 +89,7 @@
 	"eslint": {
 		"icon": "https://eslint.org/assets/img/favicon.512x512.png",
 		"url": "https://eslint.org",
-		"version": "7.12.1"
+		"version": "7.13.0"
 	},
 	"eslint-plugin-prettier": {
 		"icon": "https://prettier.io/icon.png",
@@ -149,7 +149,7 @@
 	},
 	"ts-loader": {
 		"url": "https://github.com/TypeStrong/ts-loader",
-		"version": "8.0.9"
+		"version": "8.0.11"
 	},
 	"typescript": {
 		"url": "https://www.typescriptlang.org/",
