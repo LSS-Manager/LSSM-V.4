@@ -13,7 +13,6 @@
             </div>
             <button
                 class="col col-xs-1 btn btn-warning pull-right"
-                title="reset"
                 @click="reset"
             >
                 <font-awesome-icon :icon="faUndoAlt"></font-awesome-icon>
@@ -37,6 +36,7 @@
                         :placeholder="item.title"
                         v-model="value[item.name]"
                         @input="changeValue(index, value)"
+                        :disabled="false"
                     ></settings-text>
                     <settings-toggle
                         v-else-if="item.setting.type === 'toggle'"
@@ -88,9 +88,17 @@
                 </div>
             </div>
             <div class="col-xs-1">
-                <pre>{{ value }}</pre>
+                <button
+                    class="btn btn-danger pull-right"
+                    @click="removeItem(index)"
+                >
+                    <font-awesome-icon :icon="faMinus"></font-awesome-icon>
+                </button>
             </div>
         </div>
+        <button @click="addItem" class="btn btn-success">
+            <font-awesome-icon :icon="faPlus"></font-awesome-icon>
+        </button>
     </div>
 </template>
 
@@ -104,6 +112,8 @@ import {
     AppendableListProps,
 } from 'typings/components/setting/AppendableList';
 import { faUndoAlt } from '@fortawesome/free-solid-svg-icons/faUndoAlt';
+import { faMinus } from '@fortawesome/free-solid-svg-icons/faMinus';
+import { faPlus } from '@fortawesome/free-solid-svg-icons/faPlus';
 
 export default Vue.extend<
     AppendableList,
@@ -145,6 +155,8 @@ export default Vue.extend<
     data() {
         return {
             faUndoAlt,
+            faMinus,
+            faPlus,
             cloneDeep,
         };
     },
@@ -216,8 +228,8 @@ export default Vue.extend<
         },
         reset() {
             this.$modal.show('dialog', {
-                title: this.$t('settings.resetWarningSetting.title'),
-                text: this.$t('settings.resetWarningSetting.text', {
+                title: this.$t('modules.settings.resetWarningSetting.title'),
+                text: this.$t('modules.settings.resetWarningSetting.text', {
                     module: this.$t(`modules.${this.moduleId}.name`),
                     setting: this.$t(
                         `modules.${this.moduleId}.settings.${this.settingId}.title`
@@ -225,11 +237,15 @@ export default Vue.extend<
                 }),
                 buttons: [
                     {
-                        title: this.$t('settings.resetWarningSetting.close'),
+                        title: this.$t(
+                            'modules.settings.resetWarningSetting.close'
+                        ),
                         default: true,
                     },
                     {
-                        title: this.$t('settings.resetWarningSetting.reset'),
+                        title: this.$t(
+                            'modules.settings.resetWarningSetting.reset'
+                        ),
                         handler: () => {
                             this.$emit('input', this.setting.default);
                             this.$modal.hide('dialog');

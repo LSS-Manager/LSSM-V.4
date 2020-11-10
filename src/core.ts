@@ -154,7 +154,7 @@ if (window.location.pathname === '/') {
                 ) {
                     await LSSM.$store.dispatch('settings/register', {
                         moduleId,
-                        settings: ((
+                        settings: await ((
                             await import(
                                 /* webpackChunkName: "modules/settings/[request]" */
                                 /* webpackInclude: /[\\/]+modules[\\/]+.*?[\\/]+settings\.ts/ */

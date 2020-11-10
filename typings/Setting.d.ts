@@ -71,14 +71,6 @@ interface AppendableListItem {
     [key: string]: unknown;
 }
 
-export interface AppendableList extends SettingTemplate {
-    default: AppendableListItem[];
-    value: AppendableListItem[];
-    listItemComponent: ExtendedVue<Vue, unknown, unknown, unknown, unknown>;
-    titleComponent: ExtendedVue<Vue, unknown, unknown, unknown, unknown>;
-    defaultItem: AppendableListItem;
-}
-
 interface AppendableListSetting<type = SettingType> {
     setting: Omit<type, 'value' | 'isDisabled'>;
     size: number;
@@ -86,7 +78,7 @@ interface AppendableListSetting<type = SettingType> {
     title: string;
 }
 
-export interface NewAppendableList extends SettingTemplate {
+export interface AppendableList extends SettingTemplate {
     default: AppendableListItem[];
     value: AppendableListItem[];
     listItem: AppendableListSetting[];
@@ -97,7 +89,6 @@ type SettingType =
     | Toggle
     | Text
     | AppendableList
-    | NewAppendableList
     | Select
     | MultiSelect
     | Color
@@ -105,7 +96,7 @@ type SettingType =
     | HotKey
     | Hidden;
 
-export type Setting<type = SettingType> = type;
+export type Setting<type extends SettingType = SettingType> = type;
 
 export interface Settings {
     [key: string]: Setting;

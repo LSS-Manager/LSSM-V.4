@@ -1,10 +1,8 @@
-// import settingsItem from './components/settings-item.vue';
-// import settingTitles from './components/settings-titles.vue';
 import { ModuleSettingFunction } from 'typings/Module';
 import {
     AppendableListSetting,
     MultiSelect,
-    NewAppendableList,
+    AppendableList,
     NumberInput,
     Select,
     Toggle,
@@ -16,7 +14,7 @@ export default ((_, __, $m) => {
     return {
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
-        alerts: <NewAppendableList>{
+        alerts: <AppendableList>{
             type: 'appendable-list',
             default: [],
             listItem: [

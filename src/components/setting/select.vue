@@ -55,7 +55,9 @@ export default Vue.extend<
         updateValue: {
             get() {
                 return (
-                    this.options.find(o => o.value === this.value) ?? {
+                    this.options.find(
+                        o => o.value.toString() === this.value.toString()
+                    ) ?? {
                         label: this.value,
                         value: this.value,
                     }
