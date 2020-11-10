@@ -208,8 +208,8 @@ export default {
             credits: 7_000,
             minPersonnel: 1,
             maxPersonnel: 6,
-            schooling: 'Police - Firearms Training',
-            shownSchooling: 'Firearms Training',
+            schooling: 'Police - Firearms training',
+            shownSchooling: 'Firearms training',
             special: 'Required once you have built 8 policestations',
         },
         14: {

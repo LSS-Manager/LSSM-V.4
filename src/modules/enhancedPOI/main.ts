@@ -162,7 +162,7 @@ export default (async (LSSM, MODULE_ID, $m: $m) => {
     const observer = new MutationObserver(mutations => {
         mutations.forEach(mutation => {
             const form = (mutation.target as HTMLElement).querySelector(
-                '#new_mission_position'
+                '#new_mission_position[action="/mission_positions"]'
             );
             if (!form) {
                 isPOIWindow = false;
