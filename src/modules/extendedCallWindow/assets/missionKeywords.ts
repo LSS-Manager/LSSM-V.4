@@ -4,7 +4,7 @@ export default (
         keyword: string;
         color: string;
         prefix: boolean;
-        missions: number[];
+        missions: (string | number)[];
     }[]
 ): void => {
     const missionHelpBtn = document.getElementById('mission_help');
@@ -33,7 +33,8 @@ export default (
     };
 
     settings.forEach(s => {
-        if (!s.missions.includes(missionType)) return;
+        if (!s.missions.map(m => m.toString()).includes(missionType.toString()))
+            return;
         addLabel(s.keyword, s.color, s.prefix);
     });
 };
