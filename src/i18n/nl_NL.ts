@@ -30,7 +30,14 @@ const modules = {
                 'Weet je zeker dat je de instellingen wilt reseten naar de standaard waarden? Dit kan niet ongedaan gemaakt worden!',
             close: 'Annuleren',
             total: 'Alle instellingen',
-            module: 'Alleen van deze module',
+            module: 'Alleen van de module <b>{module}</b>',
+        },
+        resetWarningSetting: {
+            title: 'Reset instelling',
+            text:
+                'Wil je echt de instelling <b>{setting}</b> van de module <b>{module}</b> terrugzetten naar de standaard instellingen?',
+            close: 'Annuleren',
+            reset: 'Resetten',
         },
         closeWarning: {
             title: 'Niet opgeslagen wijzigingen',
