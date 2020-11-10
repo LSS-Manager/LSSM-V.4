@@ -19,7 +19,7 @@
             </button>
         </div>
         <div
-            class="row"
+            class="row appendable-list-flex"
             v-for="(value, index) in updateValues"
             :key="`item_${index}`"
         >
@@ -92,28 +92,33 @@
                     <pre v-else>{{ setting }}</pre>
                 </div>
             </div>
-            <div class="col-xs-1">
-                <button class="btn btn-danger" @click="removeItem(index)">
+            <div class="col-xs-1 appendable-list-flex">
+                <button
+                    class="btn btn-xs btn-danger"
+                    @click="removeItem(index)"
+                >
                     <font-awesome-icon :icon="faMinus"></font-awesome-icon>
                 </button>
-                <button
-                    v-if="orderable && index > 0"
-                    class="btn btn-success"
-                    @click="moveUp(index)"
-                >
-                    <font-awesome-icon
-                        :icon="faLongArrowAltUp"
-                    ></font-awesome-icon>
-                </button>
-                <button
-                    v-if="orderable && index < updateValues.length - 1"
-                    class="btn btn-success"
-                    @click="moveDown(index)"
-                >
-                    <font-awesome-icon
-                        :icon="faLongArrowAltDown"
-                    ></font-awesome-icon>
-                </button>
+                <div class="btn-group">
+                    <button
+                        v-if="orderable && index > 0"
+                        class="btn btn-xs btn-success"
+                        @click="moveUp(index)"
+                    >
+                        <font-awesome-icon
+                            :icon="faLongArrowAltUp"
+                        ></font-awesome-icon>
+                    </button>
+                    <button
+                        v-if="orderable && index < updateValues.length - 1"
+                        class="btn btn-xs btn-success"
+                        @click="moveDown(index)"
+                    >
+                        <font-awesome-icon
+                            :icon="faLongArrowAltDown"
+                        ></font-awesome-icon>
+                    </button>
+                </div>
             </div>
         </div>
         <button @click="addItem" class="btn btn-success">
@@ -309,10 +314,10 @@ export default Vue.extend<
 </script>
 
 <style scoped lang="sass">
-.appendable-list-item
+.appendable-list-flex
     display: flex
-    margin: 0.5rem
 
-    .appendable-list-content
-        width: 100%
+    .appendable-list-flex
+        justify-content: space-evenly
+        align-items: center
 </style>
