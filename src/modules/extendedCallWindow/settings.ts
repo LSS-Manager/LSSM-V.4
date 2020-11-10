@@ -1,3 +1,6 @@
+import mkpreview from './components/missionKeywords/preview.vue';
+import aipreview from './components/alarmIcons/preview.vue';
+
 import { $m, ModuleSettingFunction } from 'typings/Module';
 import {
     AppendableList,
@@ -9,6 +12,7 @@ import {
     Text,
     MultiSelect,
     Select,
+    PreviewElement,
 } from 'typings/Setting';
 import { InternalVehicle } from 'typings/Vehicle';
 import { Mission } from 'typings/Mission';
@@ -171,7 +175,12 @@ export default (async (_: string, LSSM: Vue, $m: $m) => {
                         type: 'color',
                     },
                 },
-                // TODO: Insert Preview Component
+                <PreviewElement>{
+                    type: 'preview',
+                    component: mkpreview,
+                    title: $m('settings.missionKeywords.preview'),
+                    size: 1,
+                },
                 <AppendableListSetting<Toggle>>{
                     name: 'prefix',
                     title: $m('settings.missionKeywords.prepend'),
@@ -221,7 +230,12 @@ export default (async (_: string, LSSM: Vue, $m: $m) => {
                         labels: ['solid', 'regular', 'brand'],
                     },
                 },
-                // TODO: Insert Preview Component
+                <PreviewElement>{
+                    type: 'preview',
+                    component: aipreview,
+                    title: $m('settings.alarmIcons.preview'),
+                    size: 1,
+                },
                 <AppendableListSetting<MultiSelect>>{
                     name: 'vehicleTypes',
                     title: $m('settings.alarmIcons.vehicles'),

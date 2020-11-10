@@ -71,17 +71,23 @@ interface AppendableListItem {
     [key: string]: unknown;
 }
 
-interface AppendableListSetting<type = SettingType> {
+interface AppendableListSetting<type extends SettingType = SettingType> {
     setting: Omit<type, 'value' | 'isDisabled'>;
     size: number;
     name: string;
     title: string;
 }
 
+export interface PreviewElement
+    extends Omit<AppendableListSetting, 'setting' | 'name'> {
+    type: 'preview';
+    component: ExtendedVue<Vue, unknown, unknown, unknown, unknown>;
+}
+
 export interface AppendableList extends SettingTemplate {
     default: AppendableListItem[];
     value: AppendableListItem[];
-    listItem: AppendableListSetting[];
+    listItem: (AppendableListSetting | PreviewElement)[];
     defaultItem: AppendableListItem;
     orderable?: boolean;
 }

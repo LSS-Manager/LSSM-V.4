@@ -30,8 +30,13 @@
                     :key="list_index"
                     :class="`col-xs-${layout[list_index]}`"
                 >
+                    <component
+                        v-if="item.type === 'preview'"
+                        :is="item.component"
+                        :setting="value"
+                    ></component>
                     <settings-text
-                        v-if="item.setting.type === 'text'"
+                        v-else-if="item.setting.type === 'text'"
                         :name="item.name"
                         :placeholder="item.title"
                         v-model="value[item.name]"
