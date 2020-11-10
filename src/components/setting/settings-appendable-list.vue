@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="row">
+        <div class="row" style="margin-left: 0px; margin-right: 0px;">
             <div class="col col-xs-11 row">
                 <div
                     class="col"
@@ -88,11 +88,26 @@
                 </div>
             </div>
             <div class="col-xs-1">
-                <button
-                    class="btn btn-danger pull-right"
-                    @click="removeItem(index)"
-                >
+                <button class="btn btn-danger" @click="removeItem(index)">
                     <font-awesome-icon :icon="faMinus"></font-awesome-icon>
+                </button>
+                <button
+                    v-if="orderable && index > 0"
+                    class="btn btn-success"
+                    @click="moveUp(index)"
+                >
+                    <font-awesome-icon
+                        :icon="faLongArrowAltUp"
+                    ></font-awesome-icon>
+                </button>
+                <button
+                    v-if="orderable && index < updateValues.length - 1"
+                    class="btn btn-success"
+                    @click="moveDown(index)"
+                >
+                    <font-awesome-icon
+                        :icon="faLongArrowAltDown"
+                    ></font-awesome-icon>
                 </button>
             </div>
         </div>
@@ -113,6 +128,8 @@ import {
 } from 'typings/components/setting/AppendableList';
 import { faUndoAlt } from '@fortawesome/free-solid-svg-icons/faUndoAlt';
 import { faMinus } from '@fortawesome/free-solid-svg-icons/faMinus';
+import { faLongArrowAltUp } from '@fortawesome/free-solid-svg-icons/faLongArrowAltUp';
+import { faLongArrowAltDown } from '@fortawesome/free-solid-svg-icons/faLongArrowAltDown';
 import { faPlus } from '@fortawesome/free-solid-svg-icons/faPlus';
 
 export default Vue.extend<
@@ -156,6 +173,8 @@ export default Vue.extend<
         return {
             faUndoAlt,
             faMinus,
+            faLongArrowAltUp,
+            faLongArrowAltDown,
             faPlus,
             cloneDeep,
         };
@@ -175,6 +194,10 @@ export default Vue.extend<
         },
         settingId: {
             type: String,
+            required: true,
+        },
+        orderable: {
+            type: Boolean,
             required: true,
         },
     },
@@ -225,6 +248,28 @@ export default Vue.extend<
                 label: setting.labels?.[vi] ?? v,
                 value: v,
             }));
+        },
+        moveUp(index) {
+            const updated = cloneDeep(this.updateValues);
+            [updated[index - 1], updated[index]] = [
+                updated[index],
+                updated[index - 1],
+            ];
+            this.$emit(
+                'input',
+                updated.filter(v => !!v)
+            );
+        },
+        moveDown(index) {
+            const updated = cloneDeep(this.updateValues);
+            [updated[index], updated[index + 1]] = [
+                updated[index + 1],
+                updated[index],
+            ];
+            this.$emit(
+                'input',
+                updated.filter(v => !!v)
+            );
         },
         reset() {
             this.$modal.show('dialog', {

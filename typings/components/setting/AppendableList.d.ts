@@ -9,6 +9,8 @@ import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 export interface AppendableList {
     faUndoAlt: IconDefinition;
     faMinus: IconDefinition;
+    faLongArrowAltUp: IconDefinition;
+    faLongArrowAltDown: IconDefinition;
     faPlus: IconDefinition;
     cloneDeep: typeof cloneDeep;
 }
@@ -26,6 +28,8 @@ export interface AppendableListMethods {
         value: AppendableListSetting['defaultItem']
     ): void;
     getOptions(setting: Select): { label: string; value: string }[];
+    moveUp(index: number): void;
+    moveDown(index: number): void;
     reset(): void;
 }
 
@@ -34,4 +38,5 @@ export interface AppendableListProps {
     value: AppendableListSetting['value'];
     moduleId: string;
     settingId: string;
+    orderable: boolean;
 }

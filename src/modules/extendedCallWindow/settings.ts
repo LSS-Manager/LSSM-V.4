@@ -149,6 +149,7 @@ export default (async (_: string, LSSM: Vue, $m: $m) => {
                 name: '',
                 vehicleTypes: [],
             },
+            orderable: true,
         },
         missionKeywords: <Omit<AppendableList, 'value' | 'isDisabled'>>{
             type: 'appendable-list',
@@ -196,6 +197,7 @@ export default (async (_: string, LSSM: Vue, $m: $m) => {
                 prefix: false,
                 missions: [],
             },
+            orderable: true,
         },
         alarmIcons: <Omit<AppendableList, 'value' | 'isDisabled'>>{
             type: 'appendable-list',
@@ -236,6 +238,7 @@ export default (async (_: string, LSSM: Vue, $m: $m) => {
                 type: 'fas',
                 vehicleTypes: [],
             },
+            orderable: true,
         },
         overlay: <Hidden>{
             type: 'hidden',

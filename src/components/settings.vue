@@ -252,6 +252,7 @@
                             @input="update(moduleId, settingId)"
                             :module-id="moduleId"
                             :setting-id="settingId"
+                            :orderable="!!setting.orderable"
                         ></settings-appendable-list>
                         <pre v-else>{{ setting }}</pre>
                     </setting>
