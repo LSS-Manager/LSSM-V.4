@@ -1,0 +1,10 @@
+{
+	"description": "Viser dato og tid istedenfor kun tid i chatten.",
+	"name": "Utvidet Chat",
+	"settings": {
+		"format": {
+			"description": "Her kan du velge formatet du selv ønsker, du kan finne hjelp <a class=\"lightbox-open\" href=\"{wiki}/modules/clock.html#configuration\">her</a>.",
+			"title": "Formatet til dato og tid"
+		}
+	}
+}
