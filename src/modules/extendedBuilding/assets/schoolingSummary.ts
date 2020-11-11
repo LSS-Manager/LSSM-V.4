@@ -55,25 +55,28 @@ export default (LSSM: Vue, $m: $m): void => {
     );
     if (buildingId < 0) return;
 
-    const vehicleTypes = Object.values(
-        (LSSM.$t('vehicles') as unknown) as { [id: number]: InternalVehicle }
-    );
+    const vehicleTypes = (LSSM.$t('vehicles') as unknown) as {
+        [id: number]: InternalVehicle;
+    };
     const buildingVehicleTypes = {} as {
         [type: string]: {
             min: number;
             max: number;
         };
     };
-    (LSSM.$store.getters['api/vehiclesByBuilding'][
-        buildingId
-    ] as Vehicle[]).forEach(v => {
-        if (!buildingVehicleTypes.hasOwnProperty(v.vehicle_type))
-            buildingVehicleTypes[v.vehicle_type] = { min: 0, max: 0 };
-        buildingVehicleTypes[v.vehicle_type].min +=
-            vehicleTypes[v.vehicle_type].minPersonnel;
-        buildingVehicleTypes[v.vehicle_type].max +=
-            vehicleTypes[v.vehicle_type].maxPersonnel;
-    });
+
+    LSSM.$store
+        .dispatch('api/fetchVehiclesAtBuilding', buildingId)
+        .then((vehicles: Vehicle[]) =>
+            vehicles.forEach(v => {
+                if (!buildingVehicleTypes.hasOwnProperty(v.vehicle_type))
+                    buildingVehicleTypes[v.vehicle_type] = { min: 0, max: 0 };
+                buildingVehicleTypes[v.vehicle_type].min +=
+                    vehicleTypes[v.vehicle_type].minPersonnel;
+                buildingVehicleTypes[v.vehicle_type].max +=
+                    vehicleTypes[v.vehicle_type].maxPersonnel;
+            })
+        );
 
     new LSSM.$vue({
         store: LSSM.$store,

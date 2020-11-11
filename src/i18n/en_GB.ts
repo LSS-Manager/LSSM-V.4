@@ -1,4 +1,4 @@
-import { Building } from 'typings/Building';
+// import { Building } from 'typings/Building';
 
 const moduleRootFiles = require.context('../', true, MODULE_ROOT_I18N_FILES);
 // Commented as dir ./en_US does not exist currently
@@ -207,8 +207,8 @@ export default {
             credits: 7_000,
             minPersonnel: 1,
             maxPersonnel: 6,
-            schooling: 'Police - Firearms Training',
-            shownSchooling: 'Firearms Training',
+            schooling: 'Police - Firearms training',
+            shownSchooling: 'Firearms training',
             special: 'Required once you have built 8 policestations',
         },
         14: {
@@ -403,11 +403,11 @@ export default {
             credits: 500_000,
             extensions: [
                 ...new Array(3).fill({
-					caption: 'Additional classroom',
-					credits: 400_000,
-					coins: 40,
-					duration: '7 Days',
-				}),
+                    caption: 'Additional classroom',
+                    credits: 400_000,
+                    coins: 40,
+                    duration: '7 Days',
+                }),
             ],
             levelcost: [],
             maxBuildings: 'No limit',
@@ -554,11 +554,11 @@ export default {
             credits: 500_000,
             extensions: [
                 ...new Array(3).fill({
-					caption: 'Additional classroom',
-					credits: 400_000,
-					coins: 40,
-					duration: '7 Days',
-				}),
+                    caption: 'Additional classroom',
+                    credits: 400_000,
+                    coins: 40,
+                    duration: '7 Days',
+                }),
             ],
             levelcost: [],
             maxBuildings: 'No limit',

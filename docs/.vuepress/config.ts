@@ -1,6 +1,6 @@
-const fs = require('fs');
-const path = require('path');
-const copydir = require('copy-dir');
+import fs from 'fs';
+import path from 'path';
+import copydir from 'copy-dir';
 
 import config from '../../src/config';
 
@@ -20,13 +20,15 @@ const emptyFolder = (path: string, deleteFolder = true): void => {
         });
         if (deleteFolder) fs.rmdirSync(path);
     }
-}
+};
 emptyFolder('./dist/docs');
 langModules.forEach((x: string) => emptyFolder(`./docs/${x}/modules`));
 emptyFolder('./docs/.vuepress/public/assets', false);
 
 const moduleDirs = fs.readdirSync('./src/modules');
-const modulesSorted = {} as {[lang: string]: { title: string, f: string, noMapkit: boolean }[]};
+const modulesSorted = {} as {
+    [lang: string]: { title: string; f: string; noMapkit: boolean }[];
+};
 moduleDirs.forEach((module: string) => {
     if (
         module !== 'template' &&
@@ -40,16 +42,17 @@ moduleDirs.forEach((module: string) => {
             if (!modulesSorted.hasOwnProperty(lang)) modulesSorted[lang] = [];
             if (!fs.existsSync(`./docs/${lang}/modules`))
                 fs.mkdirSync(`./docs/${lang}/modules`);
+            // eslint-disable-next-line @typescript-eslint/no-var-requires
             const title = require(`../../src/modules/${module}/i18n/${lang}.root`)
                 .name;
             modulesSorted[lang].push({
                 title,
                 f: `${lang}/modules/${f.replace(lang, module)}`,
+                // eslint-disable-next-line @typescript-eslint/no-var-requires
                 noMapkit: require(`../../src/modules/${module}/register`)
                     .noMapkit,
             });
             fs.copyFileSync(
-                // @ts-ignore
                 path.join(__dirname, `../../src/modules/${module}/docs/${f}`),
                 `./docs/${lang}/modules/${f.replace(lang, module)}`
             );
@@ -82,7 +85,9 @@ ${content}`
         }
     }
 });
-const noMapkitModules = {} as {[lang: string]: { title: string, f: string }[]};
+const noMapkitModules = {} as {
+    [lang: string]: { title: string; f: string }[];
+};
 Object.keys(modulesSorted).forEach(lang => {
     noMapkitModules[lang] = [
         ...Object.values(modulesSorted[lang])
@@ -95,7 +100,7 @@ Object.keys(modulesSorted).forEach(lang => {
                 f: m.f.replace(/(^[a-z]{2}_[A-Z]{2}\/|\..*?$)/g, ''),
             })),
     ];
-    (modulesSorted as unknown as {[lang: string]: string[]})[lang] = [
+    ((modulesSorted as unknown) as { [lang: string]: string[] })[lang] = [
         ...Object.values(modulesSorted[lang])
             .sort((a, b) =>
                 a.title < b.title ? -1 : a.title > b.title ? 1 : 0
@@ -103,11 +108,19 @@ Object.keys(modulesSorted).forEach(lang => {
             .map(file => file.f),
     ];
     if (fs.existsSync(`./docs/${lang}/apps.md`))
-        (modulesSorted as unknown as {[lang: string]: string[]})[lang].unshift(`${lang}/apps.md`);
+        ((modulesSorted as unknown) as { [lang: string]: string[] })[
+            lang
+        ].unshift(`${lang}/apps.md`);
 });
 
-const locales = {} as {[langPath: string]: {lang: string, title: string}};
-const themeLocales = {} as {[langPath: string]: {label: string, nav: {text: string, link: string}[], sidebar: unknown[]}};
+const locales = {} as { [langPath: string]: { lang: string; title: string } };
+const themeLocales = {} as {
+    [langPath: string]: {
+        label: string;
+        nav: { text: string; link: string }[];
+        sidebar: unknown[];
+    };
+};
 
 const sidebar_lssm = ['', 'metadata'];
 const sidebar_others = [
@@ -186,6 +199,7 @@ const options = {
             discord_support: config.discord_support,
             github: config.github.repo,
             server: config.server,
+            // eslint-disable-next-line @typescript-eslint/no-var-requires
             versions: require('../../static/.configs.json').versions,
             browsers: config.browser,
             noMapkitModules,
@@ -201,6 +215,7 @@ const options = {
         '@vuepress/back-to-top': {},
         '@vuepress/last-updated': {
             transformer(timestamp: number, lang: string) {
+                // eslint-disable-next-line @typescript-eslint/no-var-requires
                 const moment = require('moment');
                 moment.locale(lang);
                 return moment(timestamp).format('LLL');

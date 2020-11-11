@@ -70,6 +70,7 @@
 			"description": "Get your own keyword displayed next to the mission name",
 			"keyword": "keyword",
 			"missions": "missions",
+			"prepend": "Show before the missionname",
 			"preview": "Preview",
 			"title": "Mission keywords"
 		},

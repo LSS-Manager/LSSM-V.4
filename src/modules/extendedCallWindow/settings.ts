@@ -1,15 +1,23 @@
-import tailoredTabsItem from './components/tailoredTabs/settings-item.vue';
-import tailoredTabsTitle from './components/tailoredTabs/settings-titles.vue';
+import mkpreview from './components/missionKeywords/preview.vue';
+import aipreview from './components/alarmIcons/preview.vue';
 
-import missionKeywordsItem from './components/missionKeywords/settings-item.vue';
-import missionKeywordsTitle from './components/missionKeywords/settings-titles.vue';
+import { $m, ModuleSettingFunction } from 'typings/Module';
+import {
+    AppendableList,
+    AppendableListSetting,
+    Color,
+    Hidden,
+    NumberInput,
+    Toggle,
+    Text,
+    MultiSelect,
+    Select,
+    PreviewElement,
+} from 'typings/Setting';
+import { InternalVehicle } from 'typings/Vehicle';
+import { Mission } from 'typings/Mission';
 
-import alarmIconsItem from './components/alarmIcons/settings-item.vue';
-import alarmIconsTitle from './components/alarmIcons/settings-titles.vue';
-
-import { $m } from 'typings/Module';
-
-export default (_: string, __: Vue, $m: $m): unknown => {
+export default (async (_: string, LSSM: Vue, $m: $m) => {
     const defaultTailoredTabs = Object.values(
         $m('tailoredTabs.defaultTabs')
     ).map(({ name, vehicleTypes }) => ({
@@ -20,129 +28,243 @@ export default (_: string, __: Vue, $m: $m): unknown => {
         vehicleTypes: number[];
     }[];
 
+    const vehicles = LSSM.$t('vehicles') as { [id: number]: InternalVehicle };
+    const vehicleCaptions = [] as string[];
+    const vehicleIds = [] as string[];
+    Object.entries(vehicles).forEach(([id, { caption }]) => {
+        vehicleCaptions.push(caption);
+        vehicleIds.push(id);
+    });
+
+    const missions = (await LSSM.$store.dispatch(
+        'api/getMissions',
+        false
+    )) as Mission[];
+    const missionIds = [] as string[];
+    const missionNames = [] as string[];
+    missions.forEach(({ id, name }) => {
+        missionIds.push(id.toString());
+        missionNames.push(name);
+    });
+
     return {
-        generationDate: {
+        generationDate: <Toggle>{
             type: 'toggle',
             default: true,
         },
-        yellowBorder: {
+        yellowBorder: <NumberInput>{
             type: 'number',
             default: 0,
             min: 0,
             max: 48,
             dependsOn: '.generationDate',
         },
-        redBorder: {
+        redBorder: <Toggle>{
             type: 'toggle',
             default: false,
             dependsOn: '.generationDate',
         },
-        enhancedMissingVehicles: {
+        enhancedMissingVehicles: <Toggle>{
             type: 'toggle',
             default: false,
         },
-        patientSummary: {
+        patientSummary: <Toggle>{
             type: 'toggle',
             default: true,
         },
-        arrCounter: {
+        arrCounter: <Toggle>{
             type: 'toggle',
             default: false,
         },
-        arrClickHighlight: {
+        arrClickHighlight: <Toggle>{
             type: 'toggle',
             default: false,
         },
-        arrClickHighlightColor: {
+        arrClickHighlightColor: <Color>{
             type: 'color',
             default: '#008000',
             dependsOn: '.arrClickHighlight',
         },
-        arrClickHighlightWidth: {
+        arrClickHighlightWidth: <NumberInput>{
             type: 'number',
             default: 2,
             dependsOn: '.arrClickHighlight',
         },
-        arrCounterResetSelection: {
+        arrCounterResetSelection: <Toggle>{
             type: 'toggle',
             default: false,
         },
-        arrMatchHighlight: {
+        arrMatchHighlight: <Toggle>{
             type: 'toggle',
             default: false,
         },
-        arrTime: {
+        arrTime: <Toggle>{
             type: 'toggle',
             default: false,
         },
-        arrSpecs: {
+        arrSpecs: <Toggle>{
             type: 'toggle',
             default: false,
         },
-        alarmTime: {
+        alarmTime: <Toggle>{
             type: 'toggle',
             default: false,
         },
-        stickyHeader: {
+        stickyHeader: <Toggle>{
             type: 'toggle',
             default: false,
         },
-        loadMoreVehiclesInHeader: {
+        loadMoreVehiclesInHeader: <Toggle>{
             type: 'toggle',
             default: false,
         },
-        hideVehicleList: {
+        hideVehicleList: <Toggle>{
             type: 'toggle',
             default: false,
         },
-        centerMap: {
+        centerMap: <Toggle>{
             type: 'toggle',
             default: false,
         },
-        tailoredTabs: {
+        tailoredTabs: <Omit<AppendableList, 'value' | 'isDisabled'>>{
             type: 'appendable-list',
             default: defaultTailoredTabs,
-            listItemComponent: tailoredTabsItem,
-            titleComponent: tailoredTabsTitle,
+            listItem: [
+                <AppendableListSetting<Text>>{
+                    name: 'name',
+                    title: $m('settings.tailoredTabs.name'),
+                    size: 2,
+                    setting: {
+                        type: 'text',
+                    },
+                },
+                <AppendableListSetting<MultiSelect>>{
+                    name: 'vehicleTypes',
+                    title: $m('settings.tailoredTabs.vehicles'),
+                    size: 0,
+                    setting: {
+                        type: 'multiSelect',
+                        values: vehicleIds,
+                        labels: vehicleCaptions,
+                    },
+                },
+            ],
             defaultItem: {
                 name: '',
                 vehicleTypes: [],
             },
+            orderable: true,
         },
-        missionKeywords: {
+        missionKeywords: <Omit<AppendableList, 'value' | 'isDisabled'>>{
             type: 'appendable-list',
             default: [],
-            listItemComponent: missionKeywordsItem,
-            titleComponent: missionKeywordsTitle,
+            listItem: [
+                <AppendableListSetting<Text>>{
+                    name: 'keyword',
+                    title: $m('settings.missionKeywords.keyword'),
+                    size: 2,
+                    setting: {
+                        type: 'text',
+                    },
+                },
+                <AppendableListSetting<Color>>{
+                    name: 'color',
+                    title: $m('settings.missionKeywords.color'),
+                    size: 1,
+                    setting: {
+                        type: 'color',
+                    },
+                },
+                <PreviewElement>{
+                    type: 'preview',
+                    component: mkpreview,
+                    title: $m('settings.missionKeywords.preview'),
+                    size: 1,
+                },
+                <AppendableListSetting<Toggle>>{
+                    name: 'prefix',
+                    title: $m('settings.missionKeywords.prepend'),
+                    size: 2,
+                    setting: {
+                        type: 'toggle',
+                    },
+                },
+                <AppendableListSetting<MultiSelect>>{
+                    name: 'missions',
+                    title: $m('settings.missionKeywords.missions'),
+                    size: 0,
+                    setting: {
+                        type: 'multiSelect',
+                        values: missionIds,
+                        labels: missionNames,
+                    },
+                },
+            ],
             defaultItem: {
                 keyword: '',
                 color: '#777777',
                 prefix: false,
                 missions: [],
             },
+            orderable: true,
         },
-        alarmIcons: {
+        alarmIcons: <Omit<AppendableList, 'value' | 'isDisabled'>>{
             type: 'appendable-list',
             default: [],
-            listItemComponent: alarmIconsItem,
-            titleComponent: alarmIconsTitle,
+            listItem: [
+                <AppendableListSetting<Text>>{
+                    name: 'icon',
+                    title: $m('settings.alarmIcons.icon'),
+                    size: 2,
+                    setting: {
+                        type: 'text',
+                    },
+                },
+                <AppendableListSetting<Select>>{
+                    name: 'type',
+                    title: $m('settings.alarmIcons.style'),
+                    size: 2,
+                    setting: {
+                        type: 'select',
+                        values: ['fas', 'far', 'fab'],
+                        labels: ['solid', 'regular', 'brand'],
+                    },
+                },
+                <PreviewElement>{
+                    type: 'preview',
+                    component: aipreview,
+                    title: $m('settings.alarmIcons.preview'),
+                    size: 1,
+                },
+                <AppendableListSetting<MultiSelect>>{
+                    name: 'vehicleTypes',
+                    title: $m('settings.alarmIcons.vehicles'),
+                    size: 0,
+                    setting: {
+                        type: 'multiSelect',
+                        values: vehicleIds,
+                        labels: vehicleCaptions,
+                    },
+                },
+            ],
             defaultItem: {
                 icon: '',
                 type: 'fas',
                 vehicleTypes: [],
             },
+            orderable: true,
         },
-        overlay: {
+        overlay: <Hidden>{
             type: 'hidden',
             default: false,
         },
-        minified: {
+        minified: <Hidden>{
             type: 'hidden',
             default: false,
         },
-        textMode: {
+        textMode: <Hidden>{
             type: 'hidden',
             default: false,
         },
     };
-};
+}) as ModuleSettingFunction;

@@ -1,4 +1,4 @@
-import { Building } from 'typings/Building';
+// import { Building } from 'typings/Building';
 
 const moduleRootFiles = require.context('../', true, MODULE_ROOT_I18N_FILES);
 // Commented as dir ./en_US does not exist currently
@@ -179,7 +179,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 3,
             wtank: 0,
-            special: 'Required from 5 fire stations'
+            special: 'Required from 5 fire stations',
         },
         11: {
             caption: 'MCV',
@@ -214,7 +214,6 @@ export default {
             wtank: 0,
             special:
                 'To purchase with credits it requires the rank: Captain, <br>Lower ranked members can purchase the vehicle for 25 Coins. <br>CARP acts as a Platform Truck and a Fire Truck.',
-
         },
         14: {
             caption: 'Police helicopter',
@@ -342,11 +341,11 @@ export default {
             credits: 500_000,
             extensions: [
                 ...new Array(3).fill({
-					caption: 'Additional classroom',
-					credits: 400_000,
-					coins: 40,
-					duration: '7 Days',
-				}),
+                    caption: 'Additional classroom',
+                    credits: 400_000,
+                    coins: 40,
+                    duration: '7 Days',
+                }),
             ],
             levelcost: [],
             maxBuildings: 'No limit',
@@ -506,11 +505,11 @@ export default {
             credits: 500_000,
             extensions: [
                 ...new Array(3).fill({
-					caption: 'Additional classroom',
-					credits: 400_000,
-					coins: 40,
-					duration: '7 Days',
-				}),
+                    caption: 'Additional classroom',
+                    credits: 400_000,
+                    coins: 40,
+                    duration: '7 Days',
+                }),
             ],
             levelcost: [],
             maxBuildings: 'No limit',
@@ -561,8 +560,7 @@ export default {
             levelcost: ['1. 10.000', '2. 50.000', '3.-5. 100.000'],
             maxBuildings: 'No Limit',
             maxLevel: 5,
-            special:
-                'You will get 10 people and an SES vehicle for free.',
+            special: 'You will get 10 people and an SES vehicle for free.',
             startPersonnel: 6,
             startVehicles: ['SES Vehicle'],
         },
@@ -679,7 +677,7 @@ export default {
         },
         'SES': {
             buildings: [15],
-            color: '#0000ff'
+            color: '#0000ff',
         },
         'Other': {
             buildings: [7, 14],
@@ -697,8 +695,8 @@ export default {
         },
         'Rescue Vehicles': {
             vehicles: {
-                'Ambulances': [5],
-                'HEMS': [9],
+                Ambulances: [5],
+                HEMS: [9],
             },
             color: '#ffa500',
         },
@@ -709,13 +707,13 @@ export default {
                 'Police Motorcycle': [17],
                 'Police helicopter': [14],
                 'K-9 Unit': [16],
-                'Mounted': [22]
+                'Mounted': [22],
             },
             color: '#00ac00',
         },
         'SES': {
             vehicles: {
-                'SES': [20, 21],
+                SES: [20, 21],
             },
             color: '#02a18c',
         },
