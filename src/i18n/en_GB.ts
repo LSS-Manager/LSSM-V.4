@@ -196,7 +196,6 @@ export default {
             credits: 7_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            wtank: 0,
             schooling: 'Police - Dog handling',
             shownSchooling: 'Dog handling',
             special: 'Required once you have built 6 policestations',
@@ -219,7 +218,6 @@ export default {
             coins: 25,
             minPersonnel: 1,
             maxPersonnel: 3,
-            wtank: 0,
             special: 'Required from 5 fire stations',
         },
         15: {
@@ -229,7 +227,6 @@ export default {
             credits: 25_500,
             minPersonnel: 1,
             maxPersonnel: 6,
-            wtank: 0,
             schooling: 'Fire Station - Mobile command',
             shownSchooling: 'Mobile command',
             special: 'Required once you have built 13 firehouses',
@@ -241,7 +238,6 @@ export default {
             credits: 19_000,
             minPersonnel: 1,
             maxPersonnel: 9,
-            wtank: 0,
             special:
                 'To purchase with credits it requires the rank: Captain, <br>Lower ranked members can purchase the vehicle for 25 Coins. <br>Rescue Pump acts as a RSU and a Fire Truck.',
         },
@@ -252,7 +248,6 @@ export default {
             credits: 19_000,
             minPersonnel: 1,
             maxPersonnel: 6,
-            wtank: 0,
             special:
                 'To purchase with credits it requires the rank: Captain, <br>Lower ranked members can purchase the vehicle for 25 Coins. <br>CARP acts as a Platform Truck and a Fire Truck.',
         },
@@ -263,7 +258,6 @@ export default {
             credits: 19_000,
             minPersonnel: 1,
             maxPersonnel: 6,
-            wtank: 0,
             schooling: 'Fire Station - Co-Responder Training',
             shownSchooling: 'Co-Responder Training',
         },
@@ -282,7 +276,6 @@ export default {
             credits: 20_000,
             minPersonnel: 1,
             maxPersonnel: 1,
-            wtank: 0,
             special: 'Required from 6 ambulance stations.',
         },
         21: {
@@ -292,7 +285,6 @@ export default {
             credits: 4_000,
             minPersonnel: 1,
             maxPersonnel: 1,
-            wtank: 0,
             schooling: 'Rescue - Critical care',
             shownSchooling: 'Critical care',
             special: 'Can only be placed at the home response location',
@@ -304,7 +296,6 @@ export default {
             credits: 2_500,
             minPersonnel: 1,
             maxPersonnel: 1,
-            wtank: 0,
             special: 'Can only be placed at the home response location',
         },
         23: {
@@ -322,7 +313,6 @@ export default {
             credits: 35_000,
             minPersonnel: 2,
             maxPersonnel: 7,
-            wtank: 0,
             schooling: 'Police - Roads Policing Officer Training',
             shownSchooling: 'Roads Policing Officer Training',
         },
@@ -333,7 +323,6 @@ export default {
             credits: 35_000,
             minPersonnel: 2,
             maxPersonnel: 6,
-            wtank: 0,
             schooling: 'Police - Firearms training',
             shownSchooling: 'Firearms training',
             special:
