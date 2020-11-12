@@ -29,6 +29,10 @@
 			"description": "Zählt, wie oft bereits auf eine AAO oder einen Zug geklickt wurde. Alle Zähler können mittels des Knopfes unten rechts oder einer AAO mit Reset-Funktion zurückgesetzt werden.",
 			"title": "AAO-Zähler"
 		},
+		"arrCounterAsBadge": {
+			"description": "Zeigt den AAO-Zähler als kleinen roten Greiß neben der AAO an.",
+			"title": "AAO-Zähler als Badge"
+		},
 		"arrCounterResetSelection": {
 			"description": "Fügt unten rechts einen Knopf hinzu, um die bisherige Fahrzeugauswahl zurückzusetzen. Hinweis: Er setzt auch den AAO-Zähler und die Umrandungen, falls aktiviert, zurück!",
 			"title": "Fahrzeugauswahl zurücksetzen"

@@ -76,6 +76,10 @@ export default (async (_: string, LSSM: Vue, $m: $m) => {
             type: 'toggle',
             default: false,
         },
+        arrCounterAsBadge: <Toggle>{
+            type: 'toggle',
+            default: false,
+        },
         arrClickHighlight: <Toggle>{
             type: 'toggle',
             default: false,
