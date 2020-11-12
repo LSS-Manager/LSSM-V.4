@@ -66,7 +66,8 @@
 			"swat_armored_vehicle": "Delta kjøretøy | Delta kjøretøy",
 			"swat_suv": "Panstret kjøretøy | Pansdrede kjøretøy",
 			"water_tankers": "Tankbil | Tankbiler",
-			"traffic_car": "Utrykningspolitibil"
+			"traffic_car": "Utrykningspolitibil | Utrykningspolitibiler",
+			"diver_car": "Dykkerbil | Dykkerbiler"
 		},
 		"multifunctionals": {
 			"battalion_chief_vehicles": {
@@ -75,7 +76,7 @@
 			},
 			"heavy_rescue_vehicles": {
 				"additional_text": "hvorav hvertfall {n} er redningsbiler.",
-				"reduce_from": "mannskapsbiler"
+				"reduce_from": "firetrucks"
 			}
 		},
 		"optional_alternatives": {
