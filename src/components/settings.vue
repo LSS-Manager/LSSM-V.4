@@ -529,6 +529,7 @@ export default Vue.extend<
                                 .filter(
                                     ([key]) =>
                                         key === 'activeModules' ||
+                                        key === 'iconBG' ||
                                         key.startsWith('settings_')
                                 )
                                 .map(([key, value]) => [
@@ -560,9 +561,13 @@ export default Vue.extend<
                     key: 'activeModules',
                     value: result.activeModules,
                 });
+                await this.$store.dispatch('storage/set', {
+                    key: 'iconBG',
+                    value: result.iconBG,
+                });
                 const resultEntries = Object.entries(result);
                 resultEntries.forEach(([module, value], index) => {
-                    if (module === 'activeModules') return;
+                    if (['activeModules', 'iconBG'].includes(module)) return;
                     this.$store
                         .dispatch('storage/set', {
                             key: `settings_${module}`,
