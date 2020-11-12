@@ -25,6 +25,7 @@ export default Vue.extend({
     background: inherit
     // noinspection CssInvalidPropertyValue
     background-clip: text
+    -webkit-background-clip: text
     color: transparent
     filter: invert(1) grayscale(1) contrast(9)
 </style>

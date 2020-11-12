@@ -1,4 +1,4 @@
-import { Building } from 'typings/Building';
+// import { Building } from 'typings/Building';
 
 const moduleRootFiles = require.context('../', true, MODULE_ROOT_I18N_FILES);
 // Commented as dir ./en_US does not exist currently
@@ -13,8 +13,7 @@ const modules = {
             'Denne utvidelsen er fortsatt under utvikling, aktivering kan medføre feil.',
         closeWarning: {
             title: 'Ulagrede endringer',
-            text:
-                'Du har gjort endringer som ikke har blitt lagret.',
+            text: 'Du har gjort endringer som ikke har blitt lagret.',
             close: 'Lukk vindu',
         },
     },
@@ -270,7 +269,7 @@ export default {
             credits: 10_000,
             minPersonnel: 4,
             maxPersonnel: 5,
-            special: 'Krever spesialistutdanning (Redningsdykker kurs)'
+            special: 'Krever spesialistutdanning (Redningsdykker kurs)',
         },
         20: {
             caption: 'Lett redningsbåt',
@@ -278,7 +277,8 @@ export default {
             coins: 12,
             credits: 6_000,
             maxPersonnel: 0,
-            special: 'Et egnet kjøretøy trengs for å trekke tilhengeren / båthenger. (Dykkerbil, Mannskapsbil, Lett mannskapsbil)'
+            special:
+                'Et egnet kjøretøy trengs for å trekke tilhengeren / båthenger. (Dykkerbil, Mannskapsbil, Lett mannskapsbil)',
         },
         21: {
             caption: 'Branntankbil',
@@ -339,7 +339,7 @@ export default {
             maxBuildings: '4.000 sammen med små brannstasjoner',
             maxLevel: 39,
             special:
-                'Fra og med den 24. brannstasjonen øker kostnadene for å bygge en ny brannstasjon i henhold til følgende formel: <code> 100.000 + 200.000 * LOG <sub> 2 </sub> (Antall eksisterende brannstasjoner - 22) </ kode >. Myntprisen forblir konstant!',
+                'Fra og med den 24. brannstasjonen øker kostnadene for å bygge en ny brannstasjon i henhold til følgende formel: <code> 100.000 + 200.000 * LOG <sub> 2 </sub> (Antall eksisterende brannstasjoner - 22) </code>. Myntprisen forblir konstant!',
             startPersonnel: 10,
             startVehicles: ['Mannskapsbil', 'Lett mannskapsbil'],
             maxBuildingsFunction: (): number => 4_000,
@@ -359,7 +359,7 @@ export default {
             maxBuildings: 'Ingen grense',
             maxLevel: 0,
             special:
-                "Finansministre og admins kan (utvide) brannvesenskoler ved hjelp av kreditter fra foreningens statskasse. Kurs og mestere på kurs kan starte opplæringskurs på brannskolen.",
+                'Finansministre og admins kan (utvide) brannvesenskoler ved hjelp av kreditter fra foreningens statskasse. Kurs og mestere på kurs kan starte opplæringskurs på brannskolen.',
             startPersonnel: 0,
             startVehicles: [],
         },
@@ -521,7 +521,7 @@ export default {
             maxBuildings: 'Ingen grense',
             maxLevel: 0,
             special:
-                "Finansministre og administratorer kan (utvide) alliansepoliti skoler ved hjelp av kreditter fra alliansekassen.",
+                'Finansministre og administratorer kan (utvide) alliansepoliti skoler ved hjelp av kreditter fra alliansekassen.',
             startPersonnel: 0,
             startVehicles: [],
         },
@@ -579,10 +579,10 @@ export default {
             maxBuildings: 'Ingen grense',
             maxLevel: 0,
             special:
-                "Denne bygningen kan bare bygges og utvikles av administratorer og finansministre med kreditter fra alliansekassen. De bygde fengselscellene er tilgjengelige for alle medlemmer av alliansen.",
+                'Denne bygningen kan bare bygges og utvikles av administratorer og finansministre med kreditter fra alliansekassen. De bygde fengselscellene er tilgjengelige for alle medlemmer av alliansen.',
             startPersonnel: 0,
             startVehicles: [],
-    },
+        },
         18: {
             caption: 'Brannstasjon (liten)',
             color: '#aa1111',
@@ -636,40 +636,40 @@ export default {
             startVehicles: ['Patruljebil'],
             maxBuildingsFunction: (): number => 1_500,
         },
-        },
-        20: {
-            caption: 'Ambulansestasjon (liten)',
-            color: '#eeb611',
-            coins: 25,
-            credits: 100_000,
-            extensions: [],
-            levelcost: [
-                '1. 10.000',
-                '2. 50.000',
-                '3.-5. 100.000',
-                'Konvertering til normal vakt: differansepris til normal vakt',
-            ],
-            maxBuildings: 'Ingen grense',
-            maxLevel: 5,
-            special: '',
-            startPersonnel: 3,
-            startVehicles: ['Ambulanse'],
-        },
+    },
+    20: {
+        caption: 'Ambulansestasjon (liten)',
+        color: '#eeb611',
+        coins: 25,
+        credits: 100_000,
+        extensions: [],
+        levelcost: [
+            '1. 10.000',
+            '2. 50.000',
+            '3.-5. 100.000',
+            'Konvertering til normal vakt: differansepris til normal vakt',
+        ],
+        maxBuildings: 'Ingen grense',
+        maxLevel: 5,
+        special: '',
+        startPersonnel: 3,
+        startVehicles: ['Ambulanse'],
+    },
 
     buildingCategories: {
-        'Brann': {
+        Brann: {
             buildings: [1, 2, 3],
             color: '#ff2d2d',
         },
-        'Helse': {
+        Helse: {
             buildings: [4, 5, 6, 11],
             color: '#ffa500',
         },
-        'Politi': {
+        Politi: {
             buildings: [7, 8, 10, 13, 9],
             color: '#00ac00',
         },
-        'Annet': {
+        Annet: {
             buildings: [0, 12],
             color: '#02a18c',
         },
@@ -728,7 +728,7 @@ export default {
     schoolBuildings: [1, 8],
     dispatchCenterBuildings: [7],
     schoolings: {
-        'Brannvesenet': [
+        Brannvesenet: [
             {
                 caption: 'CBRNe',
                 duration: '3 dager',
@@ -750,7 +750,7 @@ export default {
                 duration: '5 dager',
             },
         ],
-        'Politi': [
+        Politi: [
             {
                 caption: 'Politihelikopterflyvning',
                 duration: '7 dager',

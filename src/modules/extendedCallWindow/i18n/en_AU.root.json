@@ -29,6 +29,10 @@
 			"description": "Counts how often an ARR or move has been clicked. All counters can be reset using the button in the bottom right corner or an ARR with reset function.",
 			"title": "ARR Counter"
 		},
+		"arrCounterAsBadge": {
+			"description": "Shows the ARR-Counter as a small badge on each ARR",
+			"title": "ARR-Counter as Badge"
+		},
 		"arrCounterResetSelection": {
 			"description": "Adds a button at the bottom right to reset the previous vehicle selection. Note: It also resets the ARR counter and the borders, if activated!",
 			"title": "Reset vehicle selection"
