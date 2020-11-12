@@ -1,0 +1,30 @@
+{
+	"enhancedPersonnelAssignment": {
+		"toggleFittingPersonnel": "Nascondi il personale senza la formazione necessaria"
+	},
+	"expansions": {
+		"notBuild": "Non ancora costruito"
+	},
+	"fastDispatchChooser": {
+		"noDispatch": "Nessun centro di controllo"
+	},
+	"personnelDemands": {
+		"additional": "I valori all'interno delle parentesi escludono i veicoli in stato 6.",
+		"demand": "Personale richiesto"
+	},
+	"schoolingSummary": {
+		"all": "Tutte le combinazioni",
+		"amount": "Quantità",
+		"bound": "Limite",
+		"each": "Ciascun corso",
+		"max": "attualmente massimo richiesto",
+		"min": "attualmente minimo richiesto",
+		"schooling": "Formazione",
+		"title": "Panoramica del personale"
+	},
+	"vehiclePersonnel": {
+		"vehiclesPersonnelAssigned": "assegnato",
+		"vehiclesPersonnelCurrent": "corrente",
+		"vehiclesPersonnelMax": "massimo"
+	}
+}

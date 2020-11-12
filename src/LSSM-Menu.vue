@@ -94,8 +94,6 @@ import {
 } from '../typings/LSSM-Menu';
 import { DefaultProps } from 'vue/types/options';
 
-const defaultIconBg = '#C9302C';
-
 export default Vue.extend<
     lssmMenuData,
     lssmMenuMethods,
@@ -106,9 +104,9 @@ export default Vue.extend<
     components: {},
     data() {
         return {
-            id: this.$store.getters.nodeAttribute('indicator'),
-            menuId: this.$store.getters.nodeAttribute('indicator_menu'),
-            iconBg: defaultIconBg,
+            id: this.$store.getters.nodeAttribute('indicator', true),
+            menuId: this.$store.getters.nodeAttribute('indicator_menu', true),
+            iconBg: this.$store.state.policechief ? '#004997' : '#C9302C',
             labelInMenu: false,
             lssmLogo,
             discord: this.$store.state.discord,
@@ -234,7 +232,7 @@ export default Vue.extend<
                     this.$store
                         .dispatch('storage/get', {
                             key: 'iconBG',
-                            defaultValue: defaultIconBg,
+                            defaultValue: this.iconBg,
                         })
                         .then(iconBG => (this.iconBg = iconBG));
             });

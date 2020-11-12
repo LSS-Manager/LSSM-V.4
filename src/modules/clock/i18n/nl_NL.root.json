@@ -1,0 +1,22 @@
+{
+	"description": "Geeft naar wens op verschillende plaatsen een configureerbare klok weer.",
+	"name": "Klok",
+	"settings": {
+		"displayNav": {
+			"description": "De linkermarge naast het logo wordt als positie geselecteerd.",
+			"title": "Toon klok in de navigatiebalk"
+		},
+		"displayOverlay": {
+			"description": "De klok kan worden verplaatst en staat voor alle andere elementen",
+			"title": "Toon klok als overlay"
+		},
+		"navFormat": {
+			"description": "Hier kunt u het formaat van de klok instellen. Hiervoor vindt u hulp <a class=\"lightbox-open\" href=\"{wiki}/modules/clock.html#Configuratie\">op de wiki</a>.",
+			"title": "Formaat van de klok in de navigatiebalk"
+		},
+		"overlayFormat": {
+			"description": "Hier kunt u het formaat van de klok instellen. Hiervoor vindt u hulp <a class=\"lightbox-open\" href=\"{wiki}/modules/clock.html#Configuratie\">op de wiki</a>.",
+			"title": "Formaat van de klok als overlay"
+		}
+	}
+}

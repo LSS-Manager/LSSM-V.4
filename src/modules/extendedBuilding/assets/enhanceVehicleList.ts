@@ -34,9 +34,9 @@ export default async (
             [setting: string]: boolean;
         };
 
-        const internalVehicleTypes = Object.values(
-            LSSM.$t('vehicles')
-        ) as InternalVehicle[];
+        const internalVehicleTypes = LSSM.$t('vehicles') as {
+            [id: number]: InternalVehicle;
+        };
 
         const tableHead = document.querySelector('#vehicle_table thead tr');
 

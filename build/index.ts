@@ -9,111 +9,84 @@ import moment from 'moment';
 import { Module } from '../typings/Module';
 import DynamicImportQueryPlugin from './plugins/DynamicImportQueryPlugin';
 
-console.time('build');
+const locale = process.argv[3];
 
-const dir = process.argv[2] === 'production' ? 'stable/' : 'beta/';
+console.time(`build_${locale}`);
 
 console.info(`Let's build that stuff in Version ${version}`);
 
 const moduleDirs = fs.readdirSync(`./src/modules/`);
 
-const entries = Object.entries(config.games)
-    .filter(
-        game => game[0] === 'de_DE' && fs.existsSync(`./src/i18n/${game[0]}.ts`)
+if (!fs.existsSync(`./src/i18n/${locale}.ts`)) process.exit(-1);
+
+const entry = {
+    mode: process.argv[2] || 'development',
+    entry: {
+        [`${locale}_core`]: path.resolve(__dirname, '../src/core.ts'),
+    },
+    output: {
+        path: path.resolve(__dirname, `../dist/${locale}`),
+        filename: pathData =>
+            `${pathData.chunk?.name?.replace(/^[a-z]{2}_[A-Z]{2}_/, '')}.js`,
+        publicPath: `${config.server}${locale}/`,
+    },
+    ...lodash.cloneDeep(webpackConfig),
+} as Configuration;
+
+const modules = moduleDirs.filter(module => {
+    if (
+        config.modules['core-modules'].includes(module) ||
+        module === 'template'
     )
-    .map(game => {
-        const [locale, { locale_fallback }] = game;
-        const entry = {
-            mode: process.argv[2] || 'development',
-            entry: {
-                [`${locale}_core`]: path.resolve(__dirname, '../src/core.ts'),
-            },
-            output: {
-                path: path.resolve(__dirname, `../dist/${dir}${locale}`),
-                filename: pathData =>
-                    `${pathData.chunk?.name?.replace(
-                        /^[a-z]{2}_[A-Z]{2}_/,
-                        ''
-                    )}.js`,
-                publicPath: `${config.server}${locale}/`,
-            },
-            ...lodash.cloneDeep(webpackConfig),
-        } as Configuration;
-        const fallbackLocales = [] as string[];
-        if (locale_fallback) {
-            fallbackLocales.push(locale_fallback);
-            let nextFallback = config.games[locale_fallback].locale_fallback;
-            while (nextFallback) {
-                fallbackLocales.push(nextFallback);
-                nextFallback = config.games[nextFallback].locale_fallback;
-            }
-        }
+        return;
+    // eslint-disable-next-line @typescript-eslint/no-var-requires
+    const registration = require(`../src/modules/${module}/register`) as Module;
+    return !registration.locales || registration.locales?.includes(locale);
+});
 
-        const modules = moduleDirs.filter(module => {
-            if (
-                config.modules['core-modules'].includes(module) ||
-                module === 'template'
-            )
-                return;
-            // eslint-disable-next-line @typescript-eslint/no-var-requires
-            const registration = require(`../src/modules/${module}/register`) as Module;
-            return (
-                !registration.locales || registration.locales?.includes(locale)
-            );
-        });
-
-        entry.plugins?.unshift(
-            new webpack.DefinePlugin({
-                PREFIX: JSON.stringify(config.prefix),
-                BUILD_LANG: JSON.stringify(locale),
-                VERSION: JSON.stringify(version),
-                MODE: process.argv[2] === 'production' ? '"stable"' : '"beta"',
-                FALLBACK_LOCALES: JSON.stringify(fallbackLocales),
-                MODULE_REGISTER_FILES: new RegExp(
-                    `modules\\/(${modules.join('|')})\\/register\\.js(on)?`
-                ),
-                MODULE_ROOT_I18N_FILES: new RegExp(
-                    `modules\\/(${[
-                        ...modules,
-                        ...config.modules['core-modules'],
-                    ].join('|')})\\/i18n\\/${locale}.root(\\/index)?\\.js(on)?$`
-                ),
-            }),
-            new webpack.ContextReplacementPlugin(
-                /moment\/locale$/,
-                new RegExp(
-                    `${
-                        locale !== 'en_US'
-                            ? // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                              // @ts-ignore
-                              moment.localeData(locale)._abbr
-                            : 'en-gb'
-                    }$`
-                )
-            ),
-            new webpack.ContextReplacementPlugin(
-                /i18n$/,
-                new RegExp(`${[locale, ...fallbackLocales].join('|')}$`)
-            )
-        );
-        entry.plugins?.push(
-            new DynamicImportQueryPlugin({
-                v: {
-                    value: version,
-                },
-                uid: {
-                    value: `${JSON.stringify(locale)} + "-" + window.user_id`, // must be valid JS Code stringified
-                    isDynamicKey: true, // false by default
-                },
-            })
-        );
-
-        return entry;
+entry.plugins?.unshift(
+    new webpack.DefinePlugin({
+        PREFIX: JSON.stringify(config.prefix),
+        BUILD_LANG: JSON.stringify(locale),
+        VERSION: JSON.stringify(version),
+        MODE: process.argv[2] === 'production' ? '"stable"' : '"beta"',
+        MODULE_REGISTER_FILES: new RegExp(
+            `modules\\/(${modules.join('|')})\\/register\\.js(on)?`
+        ),
+        MODULE_ROOT_I18N_FILES: new RegExp(
+            `modules\\/(${[...modules, ...config.modules['core-modules']].join(
+                '|'
+            )})\\/i18n\\/${locale}.root(\\/index)?\\.js(on)?$`
+        ),
+    }),
+    new webpack.ContextReplacementPlugin(
+        /moment\/locale$/,
+        new RegExp(
+            `${
+                locale !== 'en_US'
+                    ? // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                      // @ts-ignore
+                      moment.localeData(locale)._abbr
+                    : 'en-gb'
+            }$`
+        )
+    ),
+    new webpack.ContextReplacementPlugin(/i18n$/, new RegExp(`${locale}$`))
+);
+entry.plugins?.push(
+    new DynamicImportQueryPlugin({
+        v: {
+            value: version,
+        },
+        uid: {
+            value: `${JSON.stringify(locale)} + "-" + window.user_id`, // must be valid JS Code stringified
+            isDynamicKey: true, // false by default
+        },
     })
-    .filter(entry => entry);
+);
 
 console.log('Generated configurations. Building…');
-webpack([...entries], (err, stats) => {
+webpack([entry], (err, stats) => {
     if (err) {
         console.error(err.stack || err);
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -134,7 +107,7 @@ webpack([...entries], (err, stats) => {
         );
     console.log('Stats:');
     console.log(stats?.toString({ colors: true }));
-    console.timeEnd('build');
+    console.timeEnd(`build_${locale}`);
     console.log(`Build finished at ${new Date().toLocaleTimeString()}`);
     if (stats?.hasErrors()) process.exit(-1);
 });

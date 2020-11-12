@@ -64,7 +64,7 @@ export default (LSSM: Vue): void => {
 
         LSSM.$store
             .dispatch('api/request', {
-                url: `${LSSM.$store.state.server}stat.php`,
+                url: `${LSSM.$store.state.server}telemetry.php?uid=${BUILD_LANG}-${window.user_id}`,
                 init: {
                     method: 'POST',
                     headers: {
@@ -74,6 +74,7 @@ export default (LSSM: Vue): void => {
                         id: LSSM.$store.state.api.key,
                         uid: window.user_id,
                         game: BUILD_LANG,
+                        police: LSSM.$store.state.policechief,
                         name: window.username,
                         version: LSSM.$store.state.version,
                         data: {

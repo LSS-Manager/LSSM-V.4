@@ -1,0 +1,10 @@
+{
+	"description": "Show the date and time instead of only time",
+	"name": "Chat date format",
+	"settings": {
+		"format": {
+			"description": "Here you can choose the format of your choice. You can find help <a class=\"lightbox-open\" href=\"{wiki}/modules/clock.html#configuration\">here</a>.",
+			"title": "Format of the date and time"
+		}
+	}
+}

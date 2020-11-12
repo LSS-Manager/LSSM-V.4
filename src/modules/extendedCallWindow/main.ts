@@ -1,11 +1,3 @@
-import tailoredTabsTitle from './components/tailoredTabs/settings-titles.vue';
-import tailoredTabsItem from './components/tailoredTabs/settings-item.vue';
-
-import missionKeywordsTitle from './components/missionKeywords/settings-titles.vue';
-import missionKeywordsItem from './components/missionKeywords/settings-item.vue';
-
-import alarmIconsTitle from './components/alarmIcons/settings-titles.vue';
-import alarmIconsItem from './components/alarmIcons/settings-item.vue';
 import { ModuleMainFunction } from 'typings/Module';
 
 export default (async (LSSM, MODULE_ID, $m) => {
@@ -18,118 +10,6 @@ export default (async (LSSM, MODULE_ID, $m) => {
         name: string;
         vehicleTypes: number[];
     }[];
-
-    await LSSM.$store.dispatch('settings/register', {
-        moduleId: MODULE_ID,
-        settings: {
-            generationDate: {
-                type: 'toggle',
-                default: true,
-            },
-            enhancedMissingVehicles: {
-                type: 'toggle',
-                default: false,
-            },
-            patientSummary: {
-                type: 'toggle',
-                default: true,
-            },
-            arrCounter: {
-                type: 'toggle',
-                default: false,
-            },
-            arrClickHighlight: {
-                type: 'toggle',
-                default: false,
-            },
-            arrClickHighlightColor: {
-                type: 'color',
-                default: '#008000',
-                dependsOn: '.arrClickHighlight',
-            },
-            arrClickHighlightWidth: {
-                type: 'number',
-                default: 2,
-                dependsOn: '.arrClickHighlight',
-            },
-            arrCounterResetSelection: {
-                type: 'toggle',
-                default: false,
-            },
-            arrMatchHighlight: {
-                type: 'toggle',
-                default: false,
-            },
-            arrTime: {
-                type: 'toggle',
-                default: false,
-            },
-            arrSpecs: {
-                type: 'toggle',
-                default: false,
-            },
-            alarmTime: {
-                type: 'toggle',
-                default: false,
-            },
-            stickyHeader: {
-                type: 'toggle',
-                default: false,
-            },
-            loadMoreVehiclesInHeader: {
-                type: 'toggle',
-                default: false,
-            },
-            hideVehicleList: {
-                type: 'toggle',
-                default: false,
-            },
-            tailoredTabs: {
-                type: 'appendable-list',
-                default: defaultTailoredTabs,
-                listItemComponent: tailoredTabsItem,
-                titleComponent: tailoredTabsTitle,
-                defaultItem: {
-                    name: '',
-                    vehicleTypes: [],
-                },
-            },
-            missionKeywords: {
-                type: 'appendable-list',
-                default: [],
-                listItemComponent: missionKeywordsItem,
-                titleComponent: missionKeywordsTitle,
-                defaultItem: {
-                    keyword: '',
-                    color: '#777777',
-                    missions: [],
-                },
-            },
-            alarmIcons: {
-                type: 'appendable-list',
-                default: [],
-                listItemComponent: alarmIconsItem,
-                titleComponent: alarmIconsTitle,
-                defaultItem: {
-                    icon: '',
-                    type: 'fas',
-                    vehicleTypes: [],
-                },
-            },
-            overlay: {
-                type: 'hidden',
-                default: false,
-            },
-            minified: {
-                type: 'hidden',
-                default: false,
-            },
-            textMode: {
-                type: 'hidden',
-                default: false,
-            },
-        },
-    });
 
     if (
         !window.location.pathname.match(/^\/(missions|buildings)\/\d+$\/?/) ||
@@ -164,7 +44,11 @@ export default (async (LSSM, MODULE_ID, $m) => {
                 await import(
                     /* webpackChunkName: "modules/extendedCallWindow/generationDate" */ './assets/generationDate'
                 )
-            ).default(LSSM, $m);
+            ).default(
+                LSSM,
+                await getSetting<number>('yellowBorder'),
+                await getSetting('redBorder')
+            );
         if (await getSetting('enhancedMissingVehicles'))
             (
                 await import(
@@ -189,7 +73,12 @@ export default (async (LSSM, MODULE_ID, $m) => {
             ).default(LSSM, getSetting, $m);
 
         const missionKeywordsSettings = await getSetting<
-            { keyword: string; color: string; missions: number[] }[]
+            {
+                keyword: string;
+                color: string;
+                prefix: boolean;
+                missions: number[];
+            }[]
         >('missionKeywords');
 
         if (missionKeywordsSettings.length)
@@ -251,6 +140,12 @@ export default (async (LSSM, MODULE_ID, $m) => {
                     /* webpackChunkName: "modules/extendedCallWindow/hideVehicleList" */ './assets/hideVehicleList'
                 )
             ).default(LSSM, MODULE_ID, $m);
+        if (await getSetting('centerMap'))
+            (
+                await import(
+                    /* webpackChunkName: "modules/extendedCallWindow/centerMap" */ './assets/centerMap'
+                )
+            ).default(LSSM);
     }
 
     const tailoredTabSettings = await getSetting<typeof defaultTailoredTabs>(

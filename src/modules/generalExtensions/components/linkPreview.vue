@@ -115,9 +115,9 @@
                         </a>
                     </td>
                     <td>
-                        ({{ vehicleTypes[vehicle.vehicle_type].caption }}
-                        <small v-if="vehicle.vehicle_type_caption"
-                            >[{{ vehicle.vehicle_type_caption }}]</small
+                        ({{ vehicleTypes[vehicle.vehicle_type].caption
+                        }}<small v-if="vehicle.vehicle_type_caption"
+                            >&nbsp;[{{ vehicle.vehicle_type_caption }}]</small
                         >)
                     </td>
                 </tr>
@@ -142,6 +142,7 @@ import {
 } from 'typings/modules/GeneralExtensions/LinkPreview';
 import { InternalVehicle } from 'typings/Vehicle';
 import { InternalBuilding } from 'typings/Building';
+import cloneDeep from 'lodash/cloneDeep';
 
 export default Vue.extend<
     LinkPreview,
@@ -167,7 +168,9 @@ export default Vue.extend<
                 x: 0,
                 y: 0,
             },
-            vehicleTypes: (this.$t('vehicles') as unknown) as InternalVehicle[],
+            vehicleTypes: (this.$t('vehicles') as unknown) as {
+                [id: number]: InternalVehicle;
+            },
             vehicleBuildings: Object.values(
                 this.$t('vehicleBuildings')
             ) as number[],
@@ -204,7 +207,7 @@ export default Vue.extend<
         },
         buildingVehicles() {
             return (
-                this.vehicles[this.id]?.sort((a, b) =>
+                cloneDeep(this.vehicles[this.id])?.sort((a, b) =>
                     a.caption > b.caption ? 1 : b.caption > a.caption ? -1 : 0
                 ) || []
             );
@@ -259,7 +262,7 @@ export default Vue.extend<
             this._setTitle(building.caption);
             this._setIcon(icon);
             this._setAdditional(
-                ((this.$t('buildings') as unknown) as InternalBuilding[])[
+                (this.$t('buildings') as { [id: number]: InternalBuilding })[
                     building.building_type
                 ].caption
             );
@@ -270,7 +273,9 @@ export default Vue.extend<
             this._setId(vehicle.id);
             this._setType('vehicles');
             this._setTitle(vehicle.caption);
-            this._setIcon('ambulance');
+            this._setIcon(
+                this.vehicleTypes[vehicle.vehicle_type].icon ?? 'ambulance'
+            );
             let additional = this.vehicleTypes[vehicle.vehicle_type].caption;
             if (vehicle.vehicle_type_caption)
                 additional += ` | ${vehicle.vehicle_type_caption}`;
@@ -286,7 +291,7 @@ export default Vue.extend<
         setMission(id) {
             this._resetAll();
             this._setId(id);
-            this._setType('mission');
+            this._setType('missions');
             this._setTitle(`Mission: ${id}`);
             this._setIcon('phone-alt');
         },

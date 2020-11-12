@@ -27,6 +27,8 @@ export default async (LSSM: Vue): Promise<void> => {
         'emoji-picker-option'
     );
 
+    let currentTimeout = null as number | null;
+
     await LSSM.$store.dispatch('addStyles', [
         {
             selectorText: `.${optionClass}`,
@@ -130,7 +132,10 @@ export default async (LSSM: Vue): Promise<void> => {
             .firstElementChild as HTMLSpanElement | null;
         currentFocus?.classList.add('focused');
     };
-    document.addEventListener('keyup', changeHandler);
+    document.addEventListener('keyup', e => {
+        if (currentTimeout) window.clearTimeout(currentTimeout);
+        currentTimeout = window.setTimeout(() => changeHandler(e), 500);
+    });
     document.addEventListener('keydown', e => {
         if (!e.target || !(e.target as HTMLElement)?.matches?.('input')) return;
         if (

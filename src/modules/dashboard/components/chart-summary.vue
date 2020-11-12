@@ -85,8 +85,12 @@ import {
     ChartSummaryMethods,
     ChartSummaryComputed,
 } from '../../../../typings/modules/Dashboard/ChartSummary';
-import { Building, BuildingCategory } from '../../../../typings/Building';
-import { VehicleCategory } from '../../../../typings/Vehicle';
+import {
+    Building,
+    BuildingCategory,
+    InternalBuilding,
+} from '../../../../typings/Building';
+import { InternalVehicle, VehicleCategory } from '../../../../typings/Vehicle';
 
 HighchartsMore(Highcharts);
 HighchartsDrilldown(Highcharts);
@@ -109,30 +113,48 @@ export default Vue.extend<
     data() {
         return {
             buildingsId: this.$store.getters.nodeAttribute(
-                'chart-summary-buildings'
+                'chart-summary-buildings',
+                true
             ),
             buildings: this.$store.getters['api/buildingsByCategory'],
             buildingCategories: (this.$t('buildingCategories') as unknown) as {
                 [category: string]: BuildingCategory;
             },
-            buildingTypeNames: Object.values(this.$t('buildings')).map(
-                type => type.caption
+            buildingTypeNames: Object.fromEntries(
+                Object.entries(
+                    this.$t('buildings') as {
+                        [id: number]: InternalBuilding;
+                    }
+                ).map(([index, { caption }]) => [index, caption])
             ),
-            buildingTypeColors: Object.values(this.$t('buildings')).map(
-                type => type.color
+            buildingTypeColors: Object.fromEntries(
+                Object.entries(
+                    this.$t('buildings') as {
+                        [id: number]: InternalBuilding;
+                    }
+                ).map(([index, { color }]) => [index, color])
             ),
             vehiclesId: this.$store.getters.nodeAttribute(
-                'chart-summary-vehicles'
+                'chart-summary-vehicles',
+                true
             ),
             vehicles: this.$store.getters['api/vehiclesByType'],
             vehicleCategories: (this.$t('vehicleCategories') as unknown) as {
                 [category: string]: VehicleCategory;
             },
-            vehicleTypeNames: Object.values(this.$t('vehicles')).map(
-                type => type.caption
+            vehicleTypeNames: Object.fromEntries(
+                Object.entries(
+                    this.$t('vehicles') as {
+                        [id: number]: InternalVehicle;
+                    }
+                ).map(([index, { caption }]) => [index, caption])
             ),
-            vehicleTypeColors: Object.values(this.$t('vehicles')).map(
-                type => type.color
+            vehicleTypeColors: Object.fromEntries(
+                Object.entries(
+                    this.$t('vehicles') as {
+                        [id: number]: InternalVehicle;
+                    }
+                ).map(([index, { color }]) => [index, color])
             ),
             vehiclesByBuilding: this.$store.getters['api/vehiclesByBuilding'],
         } as ChartSummary;

@@ -23,8 +23,8 @@
 		"title": "Personalübersicht"
 	},
 	"vehiclePersonnel": {
-		"vehiclesPersonnelMax": "max",
+		"vehiclesPersonnelAssigned": "zugewiesen",
 		"vehiclesPersonnelCurrent": "aktuell",
-		"vehiclesPersonnelAssigned": "zugewiesen"
+		"vehiclesPersonnelMax": "max"
 	}
 }

@@ -1,0 +1,21 @@
+{
+	"description": "Facilita l'impostazione dei POI attraverso piccole, e utili caratteristiche",
+	"name": "POI Avanzato",
+	"settings": {
+		"custom_style": {
+			"title": "Stile personalizzato per l'evidenziazione"
+		},
+		"predefined_style": {
+			"brown": "Marrone",
+			"custom": "Peronalizzato",
+			"green": "Verde",
+			"red": "Rosso",
+			"title": "Evidenziazione dei marker",
+			"white": "Bianco"
+		},
+		"shown_types": {
+			"description": "Specifica qui quale tipo di POI dev'essere visualizzato. Puoi anche cambiare direttamente queste impostazioni in \"Set POI\"-Change menu.",
+			"title": "Tipi di POI visualizzati"
+		}
+	}
+}

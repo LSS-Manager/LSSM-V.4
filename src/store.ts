@@ -53,6 +53,7 @@ export default (Vue: VueConstructor): Store<RootState> => {
             mapkit: 'undefined' !== typeof window.mapkit,
             darkmode: document.body.classList.contains('dark'),
             premium: window.user_premium,
+            policechief: window.gameFlavour === 'policechief',
             isRegistered: false,
             modules,
             appstore: {
@@ -141,8 +142,18 @@ export default (Vue: VueConstructor): Store<RootState> => {
             },
         } as MutationTree<RootState>,
         getters: {
-            nodeAttribute: (state: RootState) => (attr: string): string =>
-                `${state.prefix}-${attr}`,
+            nodeAttribute: (state: RootState) => (
+                attr: string,
+                id = false
+            ): string => {
+                const res = `${state.prefix}-${attr}`;
+                if (id)
+                    return res
+                        .replace(/ /g, '_')
+                        .replace(/["']/g, '')
+                        .replace(/[^a-zA-Z0-9_\-.]/g, '-');
+                return res;
+            },
             wiki: (state: RootState): string =>
                 `${config.server}docs/${state.lang}`,
             moduleWiki: (_, getters: GetterTree<RootState, RootState>) => (
@@ -273,12 +284,12 @@ export default (Vue: VueConstructor): Store<RootState> => {
                 { selectorText, style }: addStyle
             ) {
                 if (!state.styles.inserted) commit('insertStyleSheet');
-                state.styles.styleSheet?.sheet?.addRule(
-                    selectorText,
-                    Object.entries(style)
-                        .map(([rule, value]) => `${rule}: ${value};`)
-                        .join(';\n')
-                );
+                state.styles.styleSheet &&
+                    (state.styles.styleSheet.innerHTML += `${selectorText} {\n${Object.entries(
+                        style
+                    )
+                        .map(([rule, value]) => `\t${rule}: ${value};\n`)
+                        .join('')}\n}`);
             },
             premodifyParams(
                 _,
