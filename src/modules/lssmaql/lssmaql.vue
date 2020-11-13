@@ -152,6 +152,30 @@ const apply_filter = (
                             : null,
                         false,
                     ];
+            case 'not in':
+                if (rightSide[1])
+                    return [
+                        (result[0] as LSSMAQLResult[]).filter(
+                            (_, index) =>
+                                !(
+                                    Array.isArray(rightSide[0][index]) &&
+                                    (rightSide[0][
+                                        index
+                                    ] as LSSMAQLResult[]).includes(leftSide[0])
+                                )
+                        ) ?? [],
+                        true,
+                    ];
+                else
+                    return [
+                        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                        // @ts-ignore
+                        Array.isArray(rightSide[0]) &&
+                        rightSide[0].includes(leftSide[0])
+                            ? null
+                            : result,
+                        false,
+                    ];
         }
     }
     return result;
