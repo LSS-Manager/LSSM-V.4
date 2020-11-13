@@ -24,6 +24,10 @@ export type LSSMAQLResult =
     | undefined
     | null;
 
+export type LSSMAQLResultIsMapped =
+    | [LSSMAQLResult[], true]
+    | [LSSMAQLResult, false];
+
 interface LSSMAQLFunction {
     type: 'function';
     function: 'len' | 'sum' | 'min' | 'max';
