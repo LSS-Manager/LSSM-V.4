@@ -111,7 +111,10 @@ export default async (
                 counterNode.setAttribute('data-amount', '0');
                 targetARR
                     .querySelector('.label')
-                    ?.insertAdjacentElement('beforebegin', counterNode);
+                    ?.insertAdjacentElement(
+                        counterBadge ? 'beforebegin' : 'afterend',
+                        counterNode
+                    );
                 counterNodes[arrId] = counterNode;
             }
 
