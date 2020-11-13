@@ -46,6 +46,7 @@ import {
     LSSMAQLResult,
     LSSMAQLQuery,
     LSSMAQLComparison,
+    LSSMAQLResultIsMapped,
 } from 'typings/modules/LSSMAQL/LSSMAQL';
 import { DefaultProps } from 'vue/types/options';
 
@@ -55,19 +56,25 @@ const get_from_base = (
     base: string,
     selector: (string | number)[],
     LSSM: Vue
-): LSSMAQLResult => {
+): LSSMAQLResultIsMapped => {
     let result = cloneDeep(
         LSSM.$store.state.api[base.toLowerCase()]
     ) as LSSMAQLResult;
+    let mapped = false;
     selector.forEach(param => {
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
-        if (Array.isArray(result)) result = result.map(r => r?.[param]);
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
-        else result = result?.[param];
+        if (Array.isArray(result)) {
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-ignore
+            result = result.map(r => r?.[param]);
+            mapped = true;
+        } else {
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-ignore
+            result = result?.[param];
+            mapped = false;
+        }
     });
-    return result;
+    return [result, mapped];
 };
 
 const get_filter_side = (
@@ -75,7 +82,7 @@ const get_filter_side = (
     filter: LSSMAQLComparison,
     base_tree: (string | number)[],
     LSSM: Vue
-): LSSMAQLResult => {
+): LSSMAQLResultIsMapped => {
     let filterSide = filter[side];
     if (!(typeof filterSide === 'string' || typeof filterSide === 'number')) {
         if (filterSide.type === 'selector') {
@@ -96,17 +103,17 @@ const get_filter_side = (
                     LSSM
                 );
         } else {
-            return ['function'];
+            return ['function', false];
         }
-    } else return filterSide;
+    } else return [filterSide, false];
 };
 
 const apply_filter = (
-    result: LSSMAQLResult,
+    result: LSSMAQLResultIsMapped,
     filter: LSSMAQLQuery['filter'],
     base_tree: (string | number)[],
     LSSM: Vue
-): LSSMAQLResult => {
+): LSSMAQLResultIsMapped => {
     result = cloneDeep(result);
     if (!filter) return result;
     if (filter.type === 'comparison') {
@@ -122,6 +129,30 @@ const apply_filter = (
             'and on right side',
             rightSide
         );
+        switch (filter.operator) {
+            case 'in':
+                if (rightSide[1])
+                    return [
+                        (result[0] as LSSMAQLResult[]).filter(
+                            (_, index) =>
+                                Array.isArray(rightSide[0][index]) &&
+                                (rightSide[0][
+                                    index
+                                ] as LSSMAQLResult[]).includes(leftSide[0])
+                        ) ?? [],
+                        true,
+                    ];
+                else
+                    return [
+                        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                        // @ts-ignore
+                        Array.isArray(rightSide[0]) &&
+                        rightSide[0].includes(leftSide[0])
+                            ? result
+                            : null,
+                        false,
+                    ];
+        }
     }
     return result;
 };
@@ -130,14 +161,19 @@ const execute_query = (query: LSSMAQLQuery, LSSM: Vue): LSSMAQLResult => {
     let result = null as LSSMAQLResult;
     if (!query.hasOwnProperty('type')) return result;
     if (query.type === 'query') {
-        result = get_from_base(query.base.toLowerCase(), query.selector, LSSM);
+        let temp_result = get_from_base(
+            query.base.toLowerCase(),
+            query.selector,
+            LSSM
+        );
         if (query.filter)
-            result = apply_filter(
-                result,
+            temp_result = apply_filter(
+                temp_result,
                 query.filter,
                 [query.base.toLowerCase(), ...query.selector],
                 LSSM
             );
+        result = temp_result[0];
     }
     return result;
 };
