@@ -65,10 +65,5 @@ export default (async (LSSM, MODULE_ID) => {
             await import(
                 /* webpackChunkName: "modules/generalExtensions/newBuilding" */ './assets/newBuilding'
             )
-        ).default(
-            LSSM,
-            saveLastBuildingType,
-            getSetting,
-            MODULE_ID
-        );
+        ).default(LSSM, saveLastBuildingType, getSetting, MODULE_ID);
 }) as ModuleMainFunction;
