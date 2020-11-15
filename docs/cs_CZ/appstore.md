@@ -8,7 +8,7 @@ lang: cs_CZ
 Sbírka aplikací je klíčovým prvkem LSS Managera. Ve sbírce můžete aktivovat nebo deaktivovat jednotlivé moduly. U každého modulu je ve sbírce aplikací stručný popis. Prostřednictvím malého modrého `i` můžete otevřít wiki stránku přímo ve hře.
 
 ::: tip Změny
-Sbírku aplikací nemůžete uložit bez uložení změn.
+Sbírky aplikací nemůžete zavřít bez uložení změn.
 :::
 
 ::: warning Podpora "MapKit" typu mapy.
