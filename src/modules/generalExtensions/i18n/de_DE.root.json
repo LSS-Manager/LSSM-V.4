@@ -26,6 +26,10 @@
 			"description": "Zentriere Karte auf Positionen, auf die vorher zentriert wurde. – Funktioniert aktuell nur beim Kartentyp \"OpenStreetMap\"",
 			"title": "Kartensprünge speichern"
 		},
+		"saveLastBuildingType": {
+			"description": "Speichert im \"Gebäude Bauen\"-Menü, welchen Gebäude-Typ du zuletzt ausgewählt hattest und wählt diesen automatisch aus.",
+			"title": "Gebäude-Typ merken"
+		},
 		"showImg": {
 			"description": "Versuchen, eine Bildvorschau zu generieren. Funktioniert nur in Kombination mit \"Links anklickbar machen\"!",
 			"title": "Bildvorschau aktivieren"

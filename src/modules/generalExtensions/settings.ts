@@ -1,5 +1,5 @@
 import { ModuleSettingFunction } from 'typings/Module';
-import { MultiSelect, Toggle } from 'typings/Setting';
+import { Hidden, MultiSelect, Toggle } from 'typings/Setting';
 
 export default (() => ({
     clickableLinks: <Toggle>{
@@ -28,5 +28,12 @@ export default (() => ({
     emojiPicker: <Toggle>{
         type: 'toggle',
         default: false,
+    },
+    saveLastBuildingType: <Toggle>{
+        type: 'toggle',
+        default: true,
+    },
+    lastSavedBuildingType: <Hidden>{
+        type: 'hidden',
     },
 })) as ModuleSettingFunction;

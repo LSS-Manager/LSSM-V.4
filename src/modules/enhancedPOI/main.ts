@@ -73,7 +73,6 @@ export default (async (LSSM, MODULE_ID, $m: $m) => {
                 .getMissionPoiMarkersArray()
                 .find(m => m.id === id);
             if (!poi) return;
-            poi.bindTooltip(caption);
             poi.getElement()?.setAttribute('caption', caption);
             poi.getElement()?.classList.add('poi');
         },
