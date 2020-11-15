@@ -26,6 +26,10 @@
 			"description": "Kaart centreren op posities die eerder waren gecentreerd. - Werkt momenteel alleen met het kaarttype \"OpenStreetMap\"",
 			"title": "Bewaar kaart verplaatsingen"
 		},
+		"saveLastBuildingType": {
+			"description": "Onthoudt het geselecteerde gebouwtype bij het bouwen van een nieuw gebouw en selecteert dit automatisch voor nieuwe gebouwen.",
+			"title": "Onthoud het gebouwtype"
+		},
 		"showImg": {
 			"description": "Toont een afbeeldingsvoorbeeld bij een link. Werkt alleen in combinatie met \"Maak links klikbaar\"!",
 			"title": "Activeren van het afbeeldingsvoorbeeld"
