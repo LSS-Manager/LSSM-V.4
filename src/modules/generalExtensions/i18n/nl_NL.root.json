@@ -27,7 +27,7 @@
 			"title": "Bewaar kaart verplaatsingen"
 		},
 		"saveLastBuildingType": {
-			"description": "Onthoudt het geselecteerde gebouwtype bij het bouwen van een nieuw gebouw en selecteert dit automatisch voor nieuwe gebouwen.",
+			"description": "Onthoud het geselecteerde gebouwtype bij het bouwen van een nieuw gebouw en selecteert dit automatisch voor nieuwe gebouwen.",
 			"title": "Onthoud het gebouwtype"
 		},
 		"showImg": {
