@@ -262,7 +262,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 3,
             wtank: 0,
-            schooling: 'Fire Station - ARFF',
+            schooling: 'Fire Station - ARFF-Training',
             shownSchooling: 'ARFF',
         },
         18: {
@@ -536,8 +536,8 @@ export default {
             credits: 25_000,
             minPersonnel: 1,
             maxPersonnel: 4,
-            schooling: 'Police - FBI Mobile Center Commmander',
-            shownSchooling: 'FBI Mobile Center Commmander',
+            schooling: 'Police - FBI Mobile Center Commander',
+            shownSchooling: 'FBI Mobile Center Commander',
         },
         45: {
             caption: 'FBI Bomb Technician Vehicle',
@@ -556,7 +556,6 @@ export default {
             credits: 25_000,
             minPersonnel: 1,
             maxPersonnel: 1,
-            wtank: 0,
             schooling: 'Police - FBI Drone Operator',
             shownSchooling: 'FBI Drone Operator',
         },

@@ -29,6 +29,10 @@
 			"description": "Conta quanto spesso una AAR è stata cliccata. Tutti i contatori possono essere resettati usando il pulsante che si trova nell'angolo in basso a destra o un AAR con funzione di ripristino.",
 			"title": "Contatore AAR"
 		},
+		"arrCounterAsBadge": {
+			"description": "Mostra l'ARR-Counter come un piccolo distintivo su ogni ARR",
+			"title": "ARR-Counter come distintivo"
+		},
 		"arrCounterResetSelection": {
 			"description": "Aggiunge un pulsante in basso a destra per resettare la precedente selezione dei veicoli. Da notare: Resetta anche in contatore AAR e i bordi, se attivato!",
 			"title": "Resetta la selezione dei veicoli"
@@ -100,86 +104,20 @@
 	"tailoredTabs": {
 		"defaultTabs": [
 			{
-				"name": "Camion VVF",
-				"vehicleTypes": [
-					0,
-					1,
-					13,
-					18,
-					33
-				]
+				"name": "Autopompa",
+				"vehicleTypes": [0, 9]
 			},
 			{
-				"name": "Altri apparati VVF",
-				"vehicleTypes": [
-					2,
-					3,
-					4,
-					6,
-					7,
-					8,
-					9,
-					12,
-					17,
-					21,
-					22,
-					24,
-					30,
-					31,
-					32,
-					34,
-					35,
-					36,
-					37,
-					38,
-					39,
-					40,
-					41
-				]
+				"name": "Altri apparecchi antincendio",
+				"vehicleTypes": [1,	2, 3, 5, 6, 10, 11, 12]
 			},
 			{
-				"name": "Ambulanze",
-				"vehicleTypes": [
-					5,
-					11,
-					15,
-					20,
-					25,
-					27,
-					28,
-					29
-				]
+				"name": "Ambulanza",
+				"vehicleTypes": [4, 8, 18, 19, 20]
 			},
 			{
 				"name": "Polizia",
-				"vehicleTypes": [
-					10,
-					14,
-					16,
-					19,
-					23,
-					26,
-					47
-				]
-			},
-			{
-				"name": "Acqua",
-				"vehicleTypes": [
-					21,
-					22,
-					24,
-					25
-				]
-			},
-			{
-				"name": "FBI",
-				"vehicleTypes": [
-					42,
-					43,
-					44,
-					45,
-					46
-				]
+				"vehicleTypes": [7, 13, 14, 15, 16, 17, 21, 22]
 			}
 		]
 	}

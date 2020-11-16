@@ -26,6 +26,18 @@
 			"description": "Centra la mappa sulle posizioni centrate in precedenza. - Attualmente funiona solo con le mappe del tipo \"OpenStreetMap\"",
 			"title": "Salva i salti della mappa"
 		},
+		"saveLastBuildingType": {
+			"description": "Ricorda il tipo di edificio selezionato quando si costruisce un nuovo edificio e lo seleziona automaticamente per i nuovi edifici.",
+			"title": "Ricorda il tipo di edificio"
+		},
+		"ownMapMarkers": {
+			"description": "Salvate le vostre posizioni sulla mappa per accedervi con un solo clic!",
+			"title": "Segnalibri per la mappa"
+		},
+		"saveLastDispatchCenter": {
+			"description": "Ricorda il centro di spedizione selezionato quando si costruisce un nuovo edificio e lo seleziona automaticamente per i nuovi edifici.",
+			"title": "Ricordati del centro di spedizione"
+		},
 		"showImg": {
 			"description": "Prova a generare un'anteprima dell'immagine. Funziona solo in combinazione con \"Make links clickable\"!",
 			"title": "Attivazione dell'anteprima dell'immagine"

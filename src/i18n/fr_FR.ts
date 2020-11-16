@@ -458,8 +458,14 @@ export default {
             coins: 35,
             credits: 100_000,
             extensions: [
-                ...new Array(10).fill({
+                {
                     caption: 'Cellule de prison',
+                    credits: 25_000,
+                    coins: 5,
+                    duration: '7 jours',
+                },
+                ...new Array(9).fill({
+                    caption: 'Plus de cellules',
                     credits: 25_000,
                     coins: 5,
                     duration: '7 jours',
@@ -542,12 +548,20 @@ export default {
             caption: 'Prison',
             coins: 'x',
             credits: 100_000,
-            extensions: new Array(10).fill({
-                caption: 'Plus de cellules',
-                credits: 25_000,
-                coins: 5,
-                duration: '7 jours',
-            }),
+            extensions: [
+                {
+                    caption: 'Cellule de prison',
+                    credits: 25_000,
+                    coins: 5,
+                    duration: '7 jours',
+                },
+                ...new Array(9).fill({
+                    caption: 'Plus de cellules',
+                    credits: 25_000,
+                    coins: 5,
+                    duration: '7 jours',
+                }),
+            ],
             levelcost: [],
             maxBuildings: 'Aucune limite',
             maxLevel: 0,
@@ -581,7 +595,20 @@ export default {
             color: '#116611',
             coins: 25,
             credits: 50_000,
-            extensions: [],
+            extensions: [
+                {
+                    caption: 'Cellule de prison',
+                    credits: 25_000,
+                    coins: 5,
+                    duration: '7 jours',
+                },
+                ...new Array(1).fill({
+                    caption: 'Plus de cellules',
+                    credits: 25_000,
+                    coins: 5,
+                    duration: '7 jours',
+                }),
+            ],
             levelcost: [
                 '1. 10.000',
                 '2. 50.000',
@@ -621,15 +648,15 @@ export default {
             color: '#ff2d2d',
         },
         Ambulances: {
-            buildings: [2, 20],
+            buildings: [2, 4, 5, 20],
             color: '#ffa500',
         },
         Police: {
-            buildings: [6, 19],
+            buildings: [6, 8, 13, 19],
             color: '#00ac00',
         },
         Autre: {
-            buildings: [1, 4, 5, 7, 8, 13, 14, 16],
+            buildings: [1, 7, 14],
             color: '#02a18c',
         },
     },

@@ -59,10 +59,6 @@
 				"description": " Indicates, if instead of a firetruck arrfs are possible on site.",
 				"title": "Show if arrfs are allowed as firetrucks"
 			},
-			"allow_ktw_instead_of_rtw": {
-				"description": "Shows whether a BLS can be used instead of an ALS.",
-				"title": "BLS instead of ALS"
-			},
 			"allow_rw_instead_of_lf": {
 				"description": "Indicates, if instead of a firetruck also heavy rescue or rescue engine is possible on site.",
 				"title": "Show Heavy Rescue / rescue engine instead of firetrucks"
