@@ -72,7 +72,7 @@ module.exports = {
             [/^véhicule(s)? poste de commandement$/]: [11],
             [/^VGRIMP$/]: [14],
             [/^VPL?$/]: [16],
-            [/^BLS?$/]: [16],            
+            [/^BLS?$/]: [16],
             [/^Choucas$/]: [18],
             [/^unité(s)? cynophile(s)?$/]: [19],
             [/^Unité(s)? motocycliste(s)?$/]: [20],

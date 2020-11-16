@@ -105,19 +105,46 @@
 		"defaultTabs": [
 			{
 				"name": "Autopompa",
-				"vehicleTypes": [0, 9]
+				"vehicleTypes": [
+					0,
+					9
+				]
 			},
 			{
 				"name": "Altri apparecchi antincendio",
-				"vehicleTypes": [1,	2, 3, 5, 6, 10, 11, 12]
+				"vehicleTypes": [
+					1,
+					2,
+					3,
+					5,
+					6,
+					10,
+					11,
+					12
+				]
 			},
 			{
 				"name": "Ambulanza",
-				"vehicleTypes": [4, 8, 18, 19, 20]
+				"vehicleTypes": [
+					4,
+					8,
+					18,
+					19,
+					20
+				]
 			},
 			{
 				"name": "Polizia",
-				"vehicleTypes": [7, 13, 14, 15, 16, 17, 21, 22]
+				"vehicleTypes": [
+					7,
+					13,
+					14,
+					15,
+					16,
+					17,
+					21,
+					22
+				]
 			}
 		]
 	}
