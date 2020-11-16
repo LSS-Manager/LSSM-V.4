@@ -39,6 +39,11 @@ export default (async (LSSM, MODULE_ID, $m: $m) => {
     };
 
     let modifiedMarkers = false;
+    let lastSavedPOIType: string =
+        (await LSSM.$store.dispatch('settings/getSetting', {
+            moduleId: MODULE_ID,
+            settingId: 'lastSavedPOIType',
+        })) ?? '';
 
     const modifyMarkers = () =>
         LSSM.$store
@@ -176,18 +181,32 @@ export default (async (LSSM, MODULE_ID, $m: $m) => {
                 return;
             isPOIWindow = true;
 
-            colorMarkers(
-                form.querySelector('option:checked')?.textContent || ''
-            );
-            form.querySelector(
+            const poiTypeSelect = form.querySelector<HTMLSelectElement>(
                 '#mission_position_poi_type'
-            )?.addEventListener('change', e =>
-                colorMarkers(
-                    (e.target as HTMLSelectElement)?.querySelector(
-                        'option:checked'
-                    )?.textContent || ''
-                )
             );
+
+            if (poiTypeSelect) {
+                colorMarkers(
+                    poiTypeSelect.querySelector('option:checked')
+                        ?.textContent || ''
+                );
+
+                poiTypeSelect.value = lastSavedPOIType;
+                poiTypeSelect.dispatchEvent(new Event('change'));
+
+                poiTypeSelect.addEventListener('change', () => {
+                    colorMarkers(
+                        poiTypeSelect.querySelector('option:checked')
+                            ?.textContent || ''
+                    );
+                    LSSM.$store.dispatch('settings/setSetting', {
+                        moduleId: MODULE_ID,
+                        settingId: 'lastSavedPOIType',
+                        value: poiTypeSelect.value,
+                    });
+                    lastSavedPOIType = poiTypeSelect.value;
+                });
+            }
             const settingsWrapper = document.createElement('div');
             settingsWrapper.style.paddingLeft = paddingLeftPOI;
             settingsWrapper.id = poiSettingsWrapperId;
