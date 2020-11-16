@@ -39,7 +39,7 @@ interface Additional {
     patient_allow_first_responder_chance?: number;
     patient_uk_code_possible?: string[]; // en_GB only
     patient_us_code_possible?: string[]; // en_US only
-    patient_it_code_possibke?: string[]; // it_IT only
+    patient_it_code_possible?: string[]; // it_IT only
 
     // General:
     [key: string]:
