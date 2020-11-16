@@ -21,6 +21,14 @@ export default (() => ({
         default: false,
         noMapkit: true,
     },
+    ownMapMarkers: <Toggle>{
+        type: 'toggle',
+        default: false,
+        noMapkit: true,
+    },
+    savedOwnMapMarkers: <Hidden>{
+        type: 'hidden',
+    },
     browserTitle: <Toggle>{
         type: 'toggle',
         default: true,

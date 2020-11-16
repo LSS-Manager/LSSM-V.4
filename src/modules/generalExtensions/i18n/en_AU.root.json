@@ -26,6 +26,10 @@
 			"description": "Center map on positions that were centered before. - Currently only works with map type \"OpenStreetMap\"",
 			"title": "Save map jumps"
 		},
+		"ownMapMarkers": {
+			"description": "Save your own locations on the map to access them with a single click!",
+			"title": "Bookmarks for the map"
+		},
 		"saveLastBuildingType": {
 			"description": "Remembers selected building type when building a new building and auto-selects it for new buildings.",
 			"title": "Remember building type"

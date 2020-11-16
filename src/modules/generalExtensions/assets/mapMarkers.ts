@@ -1,4 +1,10 @@
-export default async (LSSM: Vue): Promise<void> => {
+export default async (
+    LSSM: Vue,
+    mapUndo: boolean,
+    ownMapMarkers: boolean,
+    getSetting: <returnType>(settingId: string) => Promise<returnType>,
+    MODULE_ID: string
+): Promise<void> => {
     LSSM.$store.commit('useFontAwesome');
 
     const historyBtnId = LSSM.$store.getters.nodeAttribute(
@@ -99,6 +105,41 @@ export default async (LSSM: Vue): Promise<void> => {
         historyList.appendChild(historyEntry);
     };
 
+    if (ownMapMarkers) {
+        const historyAddWrapper = document.createElement('button');
+        historyAddWrapper.classList.add('btn', 'btn-success', 'btn-xs');
+        const historyAddBtn = document.createElement('i');
+        historyAddBtn.classList.add('fas', 'fa-plus');
+
+        historyAddWrapper.addEventListener('click', () => {
+            const center = window.map.getCenter();
+            const entry = {
+                lat: center.lat,
+                lng: center.lng,
+                zoom: window.map.getZoom(),
+            };
+            history.push(entry);
+            ownMarkers.push(entry);
+
+            LSSM.$store.dispatch('settings/setSetting', {
+                moduleId: MODULE_ID,
+                settingId: 'savedOwnMapMarkers',
+                value: ownMarkers,
+            });
+
+            updateHistoryList();
+        });
+
+        historyAddWrapper.appendChild(historyAddBtn);
+        historyList.appendChild(historyAddWrapper);
+
+        const ownMarkers =
+            (await getSetting<typeof history>('savedOwnMapMarkers')) ?? [];
+
+        history.push(...ownMarkers);
+        if (ownMarkers.length) updateHistoryList();
+    }
+
     const getAddress = (target: HTMLLIElement) => {
         const { lat, lng, zoom } = JSON.parse(
             target.getAttribute('data-history') || '{}'
@@ -152,26 +193,27 @@ export default async (LSSM: Vue): Promise<void> => {
         previewEnabled = false;
     });
 
-    await LSSM.$store.dispatch('hookPrototype', {
-        post: false,
-        base: 'map',
-        event: 'setView',
-        callback(
-            coordinates: [number, number] | { lat: number; lng: number },
-            zoom: number
-        ) {
-            if (previewEnabled) return;
-            let latExtract;
-            let lngExtract;
-            if (Array.isArray(coordinates)) {
-                latExtract = coordinates[0];
-                lngExtract = coordinates[1];
-            } else return; // This happens at Zoom – we don't want to log zooming currently
-            const lat = latExtract;
-            const lng = lngExtract;
-            zoom = zoom ?? window.map.getZoom();
-            history.push({ lat, lng, zoom });
-            updateHistoryList();
-        },
-    });
+    if (mapUndo)
+        await LSSM.$store.dispatch('hookPrototype', {
+            post: false,
+            base: 'map',
+            event: 'setView',
+            callback(
+                coordinates: [number, number] | { lat: number; lng: number },
+                zoom: number
+            ) {
+                if (previewEnabled) return;
+                let latExtract;
+                let lngExtract;
+                if (Array.isArray(coordinates)) {
+                    latExtract = coordinates[0];
+                    lngExtract = coordinates[1];
+                } else return; // This happens at Zoom – we don't want to log zooming currently
+                const lat = latExtract;
+                const lng = lngExtract;
+                zoom = zoom ?? window.map.getZoom();
+                history.push({ lat, lng, zoom });
+                updateHistoryList();
+            },
+        });
 };
