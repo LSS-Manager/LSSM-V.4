@@ -250,13 +250,10 @@
                             :setting="setting"
                             v-model="settings[moduleId][settingId].value"
                             @input="update(moduleId, settingId)"
-                        >
-                            <template #titles>
-                                <component
-                                    :is="setting.titleComponent"
-                                ></component>
-                            </template>
-                        </settings-appendable-list>
+                            :module-id="moduleId"
+                            :setting-id="settingId"
+                            :orderable="!!setting.orderable"
+                        ></settings-appendable-list>
                         <pre v-else>{{ setting }}</pre>
                     </setting>
                 </div>
@@ -468,7 +465,11 @@ export default Vue.extend<
                         },
                     },
                     {
-                        title: this.$m('resetWarning.module'),
+                        title: this.$m('resetWarning.module', {
+                            module: this.$t(
+                                `modules.${this.modulesSorted[this.tab]}.name`
+                            ),
+                        }),
                         handler: () => {
                             Object.values(
                                 this.settings[this.modulesSorted[this.tab]]
@@ -528,6 +529,7 @@ export default Vue.extend<
                                 .filter(
                                     ([key]) =>
                                         key === 'activeModules' ||
+                                        key === 'iconBG' ||
                                         key.startsWith('settings_')
                                 )
                                 .map(([key, value]) => [
@@ -559,9 +561,13 @@ export default Vue.extend<
                     key: 'activeModules',
                     value: result.activeModules,
                 });
+                await this.$store.dispatch('storage/set', {
+                    key: 'iconBG',
+                    value: result.iconBG,
+                });
                 const resultEntries = Object.entries(result);
                 resultEntries.forEach(([module, value], index) => {
-                    if (module === 'activeModules') return;
+                    if (['activeModules', 'iconBG'].includes(module)) return;
                     this.$store
                         .dispatch('storage/set', {
                             key: `settings_${module}`,

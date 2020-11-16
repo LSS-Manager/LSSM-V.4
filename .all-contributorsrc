@@ -9,16 +9,17 @@
   "skipCi": true,
   "contributors": [
     {
-      "login": "KBOE2",
+      "login": "jxn-30",
       "name": "Jan",
       "avatar_url": "https://avatars1.githubusercontent.com/u/27238105?v=4",
-      "profile": "https://github.com/KBOE2",
+      "profile": "https://github.com/jxn-30",
       "contributions": [
         "code",
         "maintenance",
         "mentoring",
         "projectManagement",
-        "question"
+        "question",
+        "review"
       ]
     },
     {
@@ -38,7 +39,8 @@
       "profile": "https://github.com/KokosnussDEV",
       "contributions": [
         "doc",
-        "code"
+        "code",
+        "review"
       ]
     },
     {
@@ -48,7 +50,8 @@
       "profile": "https://github.com/Ron31",
       "contributions": [
         "code",
-        "question"
+        "question",
+        "review"
       ]
     },
     {
@@ -58,7 +61,8 @@
       "profile": "https://github.com/Suchty112",
       "contributions": [
         "question",
-        "translation"
+        "translation",
+        "review"
       ]
     },
     {
@@ -67,7 +71,11 @@
       "avatar_url": "https://avatars2.githubusercontent.com/u/8158524?v=4",
       "profile": "https://github.com/Tsumiki-Chan",
       "contributions": [
-        "infra"
+        "infra",
+        "security",
+        "review",
+        "question",
+        "financial"
       ]
     },
     {

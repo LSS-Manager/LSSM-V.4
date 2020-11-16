@@ -48,8 +48,10 @@ export interface InternalVehicle {
     credits: number;
     minPersonnel: number;
     maxPersonnel: number;
-    schooling: string;
-    shownSchooling: string;
-    special: string;
-    [key: string]: string | number;
+    wtank?: number;
+    schooling?: string;
+    shownSchooling?: string;
+    special?: string;
+    icon: string;
+    [key: string]: string | number | undefined;
 }

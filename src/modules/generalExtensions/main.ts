@@ -54,4 +54,13 @@ export default (async (LSSM, MODULE_ID) => {
                 /* webpackChunkName: "modules/generalExtensions/mapUndo" */ './assets/mapUndo'
             )
         ).default(LSSM);
+    const saveLastBuildingType = await getSetting<boolean>(
+        'saveLastBuildingType'
+    );
+    if (window.location.pathname === '/' && saveLastBuildingType)
+        await (
+            await import(
+                /* webpackChunkName: "modules/generalExtensions/newBuilding" */ './assets/newBuilding'
+            )
+        ).default(LSSM, saveLastBuildingType, getSetting, MODULE_ID);
 }) as ModuleMainFunction;

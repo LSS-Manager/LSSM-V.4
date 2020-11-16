@@ -40,7 +40,7 @@
 	},
 	"noPermission": {
 		"text": "Votre navigateur est paramétré pour bloquer les notifications de bureau. Si vous voulez toujours recevoir ces notifications vous devez les réactiver dans les paramètres de votre navigateur.",
-		"title": "Notifications de bureau" 
+		"title": "Notifications de bureau"
 	},
 	"permission": {
 		"text": "Autorisez les notifications de bureau en cliquant sur cette notification.",

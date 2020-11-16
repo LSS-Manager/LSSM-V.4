@@ -29,6 +29,10 @@
 			"description": "Zählt, wie oft bereits auf eine AAO oder einen Zug geklickt wurde. Alle Zähler können mittels des Knopfes unten rechts oder einer AAO mit Reset-Funktion zurückgesetzt werden.",
 			"title": "AAO-Zähler"
 		},
+		"arrCounterAsBadge": {
+			"description": "Zeigt den AAO-Zähler als kleinen roten Greiß neben der AAO an.",
+			"title": "AAO-Zähler als Badge"
+		},
 		"arrCounterResetSelection": {
 			"description": "Fügt unten rechts einen Knopf hinzu, um die bisherige Fahrzeugauswahl zurückzusetzen. Hinweis: Er setzt auch den AAO-Zähler und die Umrandungen, falls aktiviert, zurück!",
 			"title": "Fahrzeugauswahl zurücksetzen"
@@ -97,5 +101,139 @@
 			"description": "Umrandet die Generierungszeit gelb, wenn der Einsatz älter als die eingegebene Zahl der Stunden ist. Bei 0 wird nicht umrandet.",
 			"title": "Gelbe Umrandung"
 		}
+	},
+	"tailoredTabs": {
+		"defaultTabs": [
+			{
+				"name": "LF",
+				"vehicleTypes": [
+					0,
+					1,
+					6,
+					7,
+					8,
+					9,
+					17,
+					18,
+					19,
+					20,
+					21,
+					22,
+					23,
+					24,
+					25,
+					26,
+					30,
+					37,
+					87,
+					88,
+					89,
+					90
+				]
+			},
+			{
+				"name": "FW Andere",
+				"vehicleTypes": [
+					2,
+					3,
+					4,
+					5,
+					10,
+					11,
+					12,
+					13,
+					14,
+					15,
+					16,
+					27,
+					33,
+					34,
+					36,
+					46,
+					47,
+					48,
+					49,
+					53,
+					54,
+					57,
+					62,
+					71,
+					75,
+					76,
+					77,
+					78,
+					83,
+					84,
+					85,
+					86
+				]
+			},
+			{
+				"name": "Rettung",
+				"vehicleTypes": [
+					28,
+					29,
+					31,
+					38,
+					55,
+					56,
+					58,
+					59,
+					60,
+					73,
+					74,
+					91
+				]
+			},
+			{
+				"name": "Polizei",
+				"vehicleTypes": [
+					32,
+					61,
+					95
+				]
+			},
+			{
+				"name": "Bereitschaftspolizei",
+				"vehicleTypes": [
+					35,
+					50,
+					51,
+					52,
+					72,
+					79,
+					80,
+					81,
+					82
+				]
+			},
+			{
+				"name": "THW",
+				"vehicleTypes": [
+					39,
+					40,
+					41,
+					42,
+					43,
+					44,
+					45,
+					65,
+					66,
+					67,
+					68,
+					69,
+					92,
+					93
+				]
+			},
+			{
+				"name": "Wasser",
+				"vehicleTypes": [
+					63,
+					64,
+					70
+				]
+			}
+		]
 	}
 }

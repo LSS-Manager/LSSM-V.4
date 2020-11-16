@@ -30,7 +30,14 @@ const modules = {
                 'Möchtest du wirklich Einstellungen auf ihre Standardwerte zurücksetzen? Dies lässt sich nicht rückgängig machen!',
             close: 'Abbrechen',
             total: 'Alle Einstellungen',
-            module: 'Nur von diesem Modul',
+            module: 'Nur von diesem Modul <b>{module}</b>',
+        },
+        resetWarningSetting: {
+            title: 'Einstellung zurücksetzen',
+            text:
+                'Möchtest du wirklich diese eine Einstellung <b>{setting}</b> des Moduls <b>{module}</b> auf ihren Standartwert zurücksetzen?',
+            close: 'Abbrechen',
+            reset: 'Zurücksetzen',
         },
         closeWarning: {
             title: 'Ungespeicherte Änderungen',
@@ -90,6 +97,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 9,
             wtank: 2000,
+            icon: 'truck-moving',
         },
         1: {
             caption: 'LF 10',
@@ -99,6 +107,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 9,
             wtank: 1200,
+            icon: 'truck-moving',
         },
         2: {
             caption: 'DLK 23',
@@ -109,6 +118,7 @@ export default {
             maxPersonnel: 3,
             wtank: 0,
             special: 'Wird ab 3 Feuerwachen benötigt.',
+            icon: 'truck',
         },
         3: {
             caption: 'ELW 1',
@@ -119,6 +129,7 @@ export default {
             maxPersonnel: 3,
             wtank: 0,
             special: 'Wird ab 6 Feuerwachen benötigt.',
+            icon: 'car-side',
         },
         4: {
             caption: 'RW',
@@ -129,6 +140,7 @@ export default {
             maxPersonnel: 3,
             wtank: 0,
             special: 'Wird ab 4 Feuerwachen benötigt.',
+            icon: 'truck',
         },
         5: {
             caption: 'GW-A',
@@ -139,6 +151,7 @@ export default {
             maxPersonnel: 3,
             wtank: 0,
             special: 'Wird ab 5 Feuerwachen benötigt.',
+            icon: 'truck',
         },
         6: {
             caption: 'LF 8/6',
@@ -148,6 +161,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 9,
             wtank: 600,
+            icon: 'truck-moving',
         },
         7: {
             caption: 'LF 20/16',
@@ -157,6 +171,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 9,
             wtank: 1600,
+            icon: 'truck-moving',
         },
         8: {
             caption: 'LF 10/6',
@@ -166,6 +181,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 9,
             wtank: 600,
+            icon: 'truck-moving',
         },
         9: {
             caption: 'LF 16-TS',
@@ -175,6 +191,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 9,
             wtank: 0,
+            icon: 'truck-moving',
         },
         10: {
             caption: 'GW-Öl',
@@ -185,6 +202,7 @@ export default {
             maxPersonnel: 3,
             wtank: 0,
             special: 'Wird ab 6 Feuerwachen benötigt.',
+            icon: 'truck',
         },
         11: {
             caption: 'GW-L2-Wasser',
@@ -196,6 +214,7 @@ export default {
             wtank: 0,
             special:
                 'Ein Schlauchwagen wird ab 7 Feuerwachen benötigt. Er gibt 25% Bonus auf die Wassermenge, die durch (H/T)LF vor Ort ist.',
+            icon: 'truck',
         },
         12: {
             caption: 'GW-Messtechnik',
@@ -208,6 +227,7 @@ export default {
             schooling: 'Feuerwehr - GW-Messtechnik Lehrgang',
             shownSchooling: 'GW-Messtechnik',
             special: 'Wird ab 10 Feuerwachen benötigt.',
+            icon: 'truck',
         },
         13: {
             caption: 'SW 1000',
@@ -219,6 +239,7 @@ export default {
             wtank: 0,
             special:
                 'Ein Schlauchwagen wird ab 7 Feuerwachen benötigt. Er gibt 25% Bonus auf die Wassermenge, die durch (H/T)LF vor Ort ist.',
+            icon: 'truck',
         },
         14: {
             caption: 'SW 2000',
@@ -230,6 +251,7 @@ export default {
             wtank: 0,
             special:
                 'Ein Schlauchwagen wird ab 7 Feuerwachen benötigt. Er gibt 25% Bonus auf die Wassermenge, die durch (H/T)LF vor Ort ist.',
+            icon: 'truck',
         },
         15: {
             caption: 'SW 2000-Tr',
@@ -241,6 +263,7 @@ export default {
             wtank: 0,
             special:
                 'Ein Schlauchwagen wird ab 7 Feuerwachen benötigt. Er gibt 25% Bonus auf die Wassermenge, die durch (H/T)LF vor Ort ist.',
+            icon: 'truck',
         },
         16: {
             caption: 'SW Kats',
@@ -252,6 +275,7 @@ export default {
             wtank: 0,
             special:
                 'Ein Schlauchwagen wird ab 7 Feuerwachen benötigt. Er gibt 25% Bonus auf die Wassermenge, die durch (H/T)LF vor Ort ist.',
+            icon: 'truck',
         },
         17: {
             caption: 'TLF 2000',
@@ -261,6 +285,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 3,
             wtank: 2000,
+            icon: 'truck-moving',
         },
         18: {
             caption: 'TLF 3000',
@@ -270,6 +295,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 3,
             wtank: 3000,
+            icon: 'truck-moving',
         },
         19: {
             caption: 'TLF 8/8',
@@ -279,6 +305,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 3,
             wtank: 800,
+            icon: 'truck-moving',
         },
         20: {
             caption: 'TLF 8/18',
@@ -288,6 +315,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 3,
             wtank: 1800,
+            icon: 'truck-moving',
         },
         21: {
             caption: 'TLF 16/24-Tr',
@@ -297,6 +325,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 3,
             wtank: 2400,
+            icon: 'truck-moving',
         },
         22: {
             caption: 'TLF 16/25',
@@ -306,6 +335,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 6,
             wtank: 2400,
+            icon: 'truck-moving',
         },
         23: {
             caption: 'TLF 16/45',
@@ -315,6 +345,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 3,
             wtank: 4500,
+            icon: 'truck-moving',
         },
         24: {
             caption: 'TLF 20/40',
@@ -324,6 +355,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 3,
             wtank: 4000,
+            icon: 'truck-moving',
         },
         25: {
             caption: 'TLF 20/40-SL',
@@ -333,6 +365,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 3,
             wtank: 4000,
+            icon: 'truck-moving',
         },
         26: {
             caption: 'TLF 16',
@@ -342,6 +375,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 3,
             wtank: 1800,
+            icon: 'truck-moving',
         },
         27: {
             caption: 'GW-Gefahrgut',
@@ -354,6 +388,7 @@ export default {
             schooling: 'Feuerwehr - GW-Gefahrgut Lehrgang',
             shownSchooling: 'GW-Gefahrgut',
             special: 'Wird ab 11 Feuerwachen benötigt.',
+            icon: 'truck',
         },
         28: {
             caption: 'RTW',
@@ -362,6 +397,7 @@ export default {
             credits: 5000,
             minPersonnel: 1,
             maxPersonnel: 2,
+            icon: 'ambulance',
         },
         29: {
             caption: 'NEF',
@@ -373,6 +409,7 @@ export default {
             schooling: 'Rettungsdienst - Notarzt-Ausbildung',
             shownSchooling: 'Notarzt',
             special: 'Wird ab 3 Rettungswachen benötigt.',
+            icon: 'car_side',
         },
         30: {
             caption: 'HLF 20',
@@ -382,6 +419,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 9,
             wtank: 1600,
+            icon: 'truck-moving',
         },
         31: {
             caption: 'RTH',
@@ -393,6 +431,7 @@ export default {
             schooling: 'Rettungsdienst - Notarzt-Ausbildung',
             shownSchooling: 'Notarzt',
             special: 'Wird ab 3 Rettungswachen benötigt.',
+            icon: 'helicopter',
         },
         32: {
             caption: 'FuStW',
@@ -401,6 +440,7 @@ export default {
             credits: 5000,
             minPersonnel: 1,
             maxPersonnel: 2,
+            icon: 'hamburger',
         },
         33: {
             caption: 'GW-Höhenrettung',
@@ -413,6 +453,7 @@ export default {
             schooling: 'Feuerwehr - Höhenrettung Lehrgang',
             shownSchooling: 'GW-Höhenrettung',
             special: 'Wird ab 12 Feuerwachen benötigt.',
+            icon: 'truck',
         },
         34: {
             caption: 'ELW 2',
@@ -425,6 +466,7 @@ export default {
             schooling: 'Feuerwehr - ELW 2 Lehrgang',
             shownSchooling: 'ELW 2',
             special: 'Wird ab 13 Feuerwachen benötigt.',
+            icon: 'truck',
         },
         35: {
             caption: 'leBefKw',
@@ -435,6 +477,7 @@ export default {
             maxPersonnel: 3,
             schooling: 'Polizei - Zugführer (leBefKw)',
             shownSchooling: 'Zugführer (leBefKw)',
+            icon: 'bus',
         },
         36: {
             caption: 'MTW',
@@ -444,6 +487,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 9,
             wtank: 0,
+            icon: 'shuttle-van',
         },
         37: {
             caption: 'TSF-W',
@@ -453,6 +497,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 6,
             wtank: 500,
+            icon: 'truck-moving',
         },
         38: {
             caption: 'KTW',
@@ -461,6 +506,7 @@ export default {
             credits: 5000,
             minPersonnel: 1,
             maxPersonnel: 2,
+            icon: 'ambulance',
         },
         39: {
             caption: 'GKW',
@@ -469,6 +515,7 @@ export default {
             credits: 13000,
             minPersonnel: 1,
             maxPersonnel: 9,
+            icon: 'truck-moving',
         },
         40: {
             caption: 'MTW-TZ',
@@ -479,6 +526,7 @@ export default {
             maxPersonnel: 4,
             schooling: 'THW - Zugtrupp',
             shownSchooling: 'Zugtrupp',
+            icon: 'shuttle-van',
         },
         41: {
             caption: 'MzKW',
@@ -487,6 +535,7 @@ export default {
             credits: 15000,
             minPersonnel: 1,
             maxPersonnel: 4,
+            icon: 'truck-moving',
         },
         42: {
             caption: 'LKW K 9',
@@ -497,6 +546,7 @@ export default {
             maxPersonnel: 3,
             schooling: 'THW - Fachgruppe Räumen',
             shownSchooling: 'Fachgruppe Räumen',
+            icon: 'truck-pickup',
         },
         43: {
             caption: 'BRmG R',
@@ -504,6 +554,7 @@ export default {
             coins: 25,
             credits: 15000,
             special: 'Muss vom "LKW K 9" zum Einsatz gezogen werden',
+            icon: 'snowplow',
         },
         44: {
             caption: 'Anh DLE',
@@ -512,6 +563,7 @@ export default {
             credits: 15000,
             special:
                 'Muss von einem "GKW", "MzKW", "MTW-TZ" oder "MLW 5" zum Einsatz gezogen werden.',
+            icon: 'trailer',
         },
         45: {
             caption: 'MLW 5',
@@ -522,6 +574,7 @@ export default {
             maxPersonnel: 6,
             schooling: 'THW - Fachgruppe Räumen',
             shownSchooling: 'Fachgruppe Räumen',
+            icon: 'truck-moving',
         },
         46: {
             caption: 'WLF',
@@ -533,24 +586,28 @@ export default {
             wtank: 0,
             schooling: 'Feuerwehr - Wechsellader Lehrgang',
             shownSchooling: 'Wechsellader',
+            truck: 'truck-pickup',
         },
         47: {
             caption: 'AB-Rüst',
             color: '#ad0e0e',
             coins: 12,
             credits: 6000,
+            icon: 'square',
         },
         48: {
             caption: 'AB-Atemschutz',
             color: '#9c0b0b',
             coins: 12,
             credits: 6000,
+            icon: 'square',
         },
         49: {
             caption: 'AB-Öl',
             color: '#8b0707',
             coins: 12,
             credits: 6000,
+            icon: 'square',
         },
         50: {
             caption: 'GruKw',
@@ -559,6 +616,7 @@ export default {
             credits: 10000,
             minPersonnel: 1,
             maxPersonnel: 9,
+            icon: 'bus',
         },
         51: {
             caption: 'FüKw',
@@ -569,6 +627,7 @@ export default {
             maxPersonnel: 3,
             schooling: 'Polizei - Hundertschaftsführer (FüKw)',
             shownSchooling: 'Hundertschaftsführer (FüKw)',
+            icon: 'car-side',
         },
         52: {
             caption: 'GefKw',
@@ -576,7 +635,8 @@ export default {
             coins: 25,
             credits: 13000,
             minPersonnel: 1,
-            maxPersonnel: 3,
+            maxPersonnel: 2,
+            icon: 'bus-alt',
         },
         53: {
             caption: 'Dekon-P',
@@ -589,12 +649,14 @@ export default {
             shownSchooling: 'Dekon-P',
             special:
                 'Pro Dekon-P müssen 6 Personen mit Dekon-P-Ausbildung vor Ort sein. Wird ab 14 Feuerwachen benötigt.',
+            icon: 'truck',
         },
         54: {
             caption: 'AB-Dekon-P',
             color: '#450707',
             coins: 12,
             credits: 6000,
+            icon: 'square',
         },
         55: {
             caption: 'KdoW-LNA',
@@ -607,6 +669,7 @@ export default {
             schooling: 'Rettungsdienst - LNA-Ausbildung',
             shownSchooling: 'LNA',
             special: 'Wird ab 5 Rettungswachen benötigt.',
+            icon: 'car-side',
         },
         56: {
             caption: 'KdoW-OrgL',
@@ -619,6 +682,7 @@ export default {
             schooling: 'Rettungsdienst - OrgL-Ausbildung',
             shownSchooling: 'OrgL',
             special: 'Wird ab 10 Rettungswachen benötigt.',
+            icon: 'car-side',
         },
         57: {
             caption: 'FwK',
@@ -631,6 +695,7 @@ export default {
             schooling: 'Feuerwehr - Feuerwehrkran Lehrgang',
             shownSchooling: 'Feuerwehrkran',
             special: 'Wird ab 14 Feuerwachen benötigt.',
+            icon: 'truck',
         },
         58: {
             caption: 'KTW Typ B',
@@ -641,6 +706,7 @@ export default {
             maxPersonnel: 2,
             special:
                 'Kann, wenn ein GW-San vor Ort ist, behandelte Patienten vom Einsatzort abtransportieren. Ein Transport mit Notarztbegleitung durch ein NEF ist auch möglich.',
+            icon: 'ambulance',
         },
         59: {
             caption: 'ELW 1 (SEG)',
@@ -653,6 +719,7 @@ export default {
             shownSchooling: 'Einsatzleitung (SEG)',
             special:
                 'Kann automatisch eingehende Sprechwünsche der eigenen Rettungsmittel bearbeiten und ihnen im Transportfall ein geeignetes Krankenhaus zuweisen. Die automatische Zuweisungsfunktion kann in dessen Einstellungen verändert werden.',
+            icon: 'car-side',
         },
         60: {
             caption: 'GW-San',
@@ -665,6 +732,7 @@ export default {
             shownSchooling: 'GW-San',
             special:
                 'Pro GW-San können 5 KTW Typ B wie ein RTW arbeiten. Er behandelt die Patienten zwar größtenteils, aber für die letzten paar Prozente braucht man dann einen RTW, KTW Typ B oder ähnliches.',
+            icon: 'truck',
         },
         61: {
             caption: 'Polizeihubschrauber',
@@ -675,12 +743,14 @@ export default {
             maxPersonnel: 3,
             schooling: 'Polizei - Polizeihubschrauber',
             shownSchooling: 'Polizeihubschrauber',
+            icon: 'helicopter',
         },
         62: {
             caption: 'AB-Schlauch',
             color: '#e60808',
             coins: 12,
             credits: 6000,
+            icon: 'square',
         },
         63: {
             caption: 'GW-Taucher',
@@ -691,6 +761,7 @@ export default {
             maxPersonnel: 2,
             schooling: 'Rettungsdienst - GW-Taucher Lehrgang',
             shownSchooling: 'GW-Taucher',
+            icon: 'truck',
         },
         64: {
             caption: 'GW-Wasserrettung',
@@ -701,6 +772,7 @@ export default {
             maxPersonnel: 6,
             schooling: 'Rettungsdienst - GW-Wasserrettung Lehrgang',
             shownSchooling: 'GW-Wasserrettung',
+            icon: 'truck',
         },
         65: {
             caption: 'LKW 7 Lkr 19 tm',
@@ -709,6 +781,7 @@ export default {
             credits: 10000,
             minPersonnel: 1,
             maxPersonnel: 2,
+            icon: 'truck-pickup',
         },
         66: {
             caption: 'Anh MzB',
@@ -717,6 +790,7 @@ export default {
             credits: 6000,
             special:
                 'Muss von einem "LKW 7 Lkr 19 tm" zum Einsatz gezogen werden. Pro gefordertem Boot müssen mind. 4 Personen mit der Ausbildung "GW-Wasserrettung" oder "Wassergefahren" vor Ort sein!',
+            icon: 'trailer',
         },
         67: {
             caption: 'Anh SchlB',
@@ -725,6 +799,7 @@ export default {
             credits: 6000,
             special:
                 'Muss von einem "LKW 7 Lkr 19 tm" zum Einsatz gezogen werden. Pro gefordertem Boot müssen mind. 4 Personen mit der Ausbildung "GW-Wasserrettung" oder "Wassergefahren" vor Ort sein!',
+            icon: 'trailer',
         },
         68: {
             caption: 'Anh MzAB',
@@ -733,6 +808,7 @@ export default {
             credits: 6000,
             special:
                 'Muss von einem "LKW 7 Lkr 19 tm" zum Einsatz gezogen werden. Pro gefordertem Boot müssen mind. 4 Personen mit der Ausbildung "GW-Wasserrettung" oder "Wassergefahren" vor Ort sein!',
+            icon: 'trailer',
         },
         69: {
             caption: 'Tauchkraftwagen',
@@ -743,6 +819,7 @@ export default {
             maxPersonnel: 2,
             schooling: 'THW - Bergungstaucher Lehrgang',
             shownSchooling: 'GW-Taucher',
+            icon: 'truck',
         },
         70: {
             caption: 'MZB',
@@ -751,6 +828,7 @@ export default {
             credits: 6000,
             special:
                 'Muss von einem "GW-Wasserrettung" oder einem "GW-Taucher" zum Einsatz gezogen werden. Pro gefordertem Boot müssen mind. 4 Personen mit der Ausbildung "GW-Wasserrettung" oder "Wassergefahren" vor Ort sein!',
+            icon: 'trailer',
         },
         71: {
             caption: 'AB-MZB',
@@ -759,6 +837,7 @@ export default {
             credits: 6000,
             special:
                 'Pro gefordertem Boot müssen mind. 4 Personen mit der Ausbildung "GW-Wasserrettung" oder "Wassergefahren" vor Ort sein!',
+            icon: 'square',
         },
         72: {
             caption: 'WaWe 10',
@@ -769,6 +848,7 @@ export default {
             maxPersonnel: 5,
             schooling: 'Polizei - Wasserwerfer',
             shownSchooling: 'Wasserwerfer',
+            icon: 'bus-alt',
         },
         73: {
             caption: 'GRTW',
@@ -779,6 +859,7 @@ export default {
             maxPersonnel: 6,
             special:
                 'Der GRTW kann in zwei verschiedenen Modi alarmiert werden:<br>1.Für leichtverletzte Personen, die keinen Notarzt benötigen. Dann können in dem GRTW 7 Patienten gleichzeitig behandelt und abtransportiert werden.<br>2.Für schwerverletzte Personen, die einen Notarzt benötigen. Dann können in dem GRTW 3 Patienten gleichzeitig behandelt werden.<br>Pro 20 Rettungswachen (bzw. 15 Rettungswachen mit Premium Account) kann ein GRTW gekauft werden.',
+            icon: 'ambulance',
         },
         74: {
             caption: 'NAW',
@@ -791,6 +872,7 @@ export default {
             shownSchooling: 'Notarzt',
             special:
                 'Insgesamt so viele NAW kaufbar wie Rettungswachen (und auf einsatzbereit gestellte Rettungsdienst-Erweiterungen) vorhanden. Alle auch auf einer Wache patzierbar.',
+            icon: 'ambulance',
         },
         75: {
             caption: 'FLF',
@@ -802,6 +884,7 @@ export default {
             wtank: 12000,
             schooling: 'Feuerwehr - Flugfeldlöschfahrzeug-Ausbildung',
             shownSchooling: 'Flugfeldlöschfahrzeug',
+            icon: 'truck-moving',
         },
         76: {
             caption: 'Rettungstreppe',
@@ -813,18 +896,21 @@ export default {
             wtank: 0,
             schooling: 'Feuerwehr - Rettungstreppen-Ausbildung',
             shownSchooling: 'Rettungstreppe',
+            icon: 'truck',
         },
         77: {
             caption: 'AB-Gefahrgut',
             color: '#680101',
             coins: 12,
             credits: 6000,
+            icon: 'square',
         },
         78: {
             caption: 'AB-Einsatzleitung',
             color: '#bf1111',
             coins: 12,
             credits: 6000,
+            icon: 'square',
         },
         79: {
             caption: 'SEK - ZF',
@@ -835,6 +921,7 @@ export default {
             maxPersonnel: 4,
             schooling: 'Polizei - SEK',
             shownSchooling: 'SEK',
+            icon: 'shuttle-van',
         },
         80: {
             caption: 'SEK - MTF',
@@ -845,6 +932,7 @@ export default {
             maxPersonnel: 9,
             schooling: 'Polizei - SEK',
             shownSchooling: 'SEK',
+            icon: 'bus',
         },
         81: {
             caption: 'MEK - ZF',
@@ -855,6 +943,7 @@ export default {
             maxPersonnel: 4,
             schooling: 'Polizei - MEK',
             shownSchooling: 'MEK',
+            icon: 'shuttle-van',
         },
         82: {
             caption: 'MEK - MTF',
@@ -865,6 +954,7 @@ export default {
             maxPersonnel: 9,
             schooling: 'Polizei - MEK',
             shownSchooling: 'MEK',
+            icon: 'bus',
         },
         83: {
             caption: 'GW-Werkfeuerwehr',
@@ -876,6 +966,7 @@ export default {
             wtank: 0,
             schooling: 'Feuerwehr - Werkfeuerwehr-Ausbildung',
             shownSchooling: 'Werkfeuerwehr',
+            icon: 'truck',
         },
         84: {
             caption: 'ULF mit Löscharm',
@@ -887,6 +978,7 @@ export default {
             wtank: 5000,
             schooling: 'Feuerwehr - Werkfeuerwehr-Ausbildung',
             shownSchooling: 'Werkfeuerwehr',
+            icon: 'truck-moving',
         },
         85: {
             caption: 'TM 50',
@@ -898,6 +990,7 @@ export default {
             wtank: 0,
             schooling: 'Feuerwehr - Werkfeuerwehr-Ausbildung',
             shownSchooling: 'Werkfeuerwehr',
+            icon: 'truck',
         },
         86: {
             caption: 'Turbolöscher',
@@ -909,6 +1002,7 @@ export default {
             wtank: 0,
             schooling: 'Feuerwehr - Werkfeuerwehr-Ausbildung',
             shownSchooling: 'Werkfeuerwehr',
+            icon: 'truck',
         },
         87: {
             caption: 'TLF 4000',
@@ -918,6 +1012,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 3,
             wtank: 4000,
+            icon: 'truck-moving',
         },
         88: {
             caption: 'KLF',
@@ -927,6 +1022,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 6,
             wtank: 500,
+            icon: 'truck-moving',
         },
         89: {
             caption: 'MLF',
@@ -936,6 +1032,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 6,
             wtank: 1000,
+            icon: 'truck-moving',
         },
         90: {
             caption: 'HLF 10',
@@ -945,6 +1042,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 9,
             wtank: 1000,
+            icon: 'truck-moving',
         },
         91: {
             caption: 'Rettungshundefahrzeug',
@@ -957,6 +1055,7 @@ export default {
             shownSchooling: 'Rettungshundeführer (SEG)',
             special:
                 'Am Einsatzort sind ein "Rettungshundefahrzeug" und ein "Anh Hund" vom THW gleichwertig!',
+            icon: 'paw',
         },
         92: {
             caption: 'Anh Hund',
@@ -965,6 +1064,7 @@ export default {
             credits: 6000,
             special:
                 'Muss von einem "MTW-OV" an den Einsatzort gezogen werden. Am Einsatzort sind ein "Anh Hund" und ein "Rettungshundefahrzeug" vom Rettungsdienst gleichwertig!',
+            icon: 'paw',
         },
         93: {
             caption: 'MTW-OV',
@@ -975,6 +1075,7 @@ export default {
             maxPersonnel: 5,
             schooling: 'THW - Rettungshundeführer (THW)',
             shownSchooling: 'Rettungshundeführer (THW)',
+            icon: 'paw',
         },
         94: {
             caption: 'DHuFüKw',
@@ -985,6 +1086,7 @@ export default {
             maxPersonnel: 2,
             schooling: 'Polizei - Hundeführer (Schutzhund)',
             shownSchooling: 'Hundeführer (Schutzhund)',
+            icon: 'paw',
         },
         95: {
             caption: 'Polizeimotorrad',
@@ -997,6 +1099,7 @@ export default {
             shownSchooling: 'Motorradstaffel',
             special:
                 'Das Polizeimotorrad kann im Spiel anstelle eines FuStW verwendet werden. Der Nachteil: Es kann keine Gefangenen transportieren und arbeitet nur halb so schnell wie ein FuStW.',
+            icon: 'motorcycle',
         },
     },
     buildings: {
@@ -1097,7 +1200,7 @@ export default {
             coins: 50,
             credits: 500_000,
             extensions: new Array(3).fill({
-                caption: 'Klassenzimmer',
+                caption: 'Weiterer Klassenraum',
                 credits: 400_000,
                 coins: 40,
                 duration: '7 Tage',
@@ -1129,7 +1232,7 @@ export default {
             coins: 50,
             credits: 500_000,
             extensions: new Array(3).fill({
-                caption: 'Klassenzimmer',
+                caption: 'Weiterer Klassenraum',
                 credits: 400_000,
                 coins: 40,
                 duration: '7 Tage',
@@ -1155,7 +1258,7 @@ export default {
                     duration: '7 Tage',
                 },
                 {
-                    caption: 'Allgemeine Chirugie',
+                    caption: 'Allgemeine Chirurgie',
                     credits: 10_000,
                     coins: 10,
                     duration: '7 Tage',
@@ -1278,7 +1381,7 @@ export default {
             coins: 50,
             credits: 500_000,
             extensions: new Array(3).fill({
-                caption: 'Klassenzimmer',
+                caption: 'Weiterer Klassenraum',
                 credits: 400_000,
                 coins: 40,
                 duration: '7 Tage',
@@ -1298,13 +1401,13 @@ export default {
             credits: 200_000,
             extensions: [
                 {
-                    caption: 'Bergungsgruppe',
+                    caption: '1. Technischer Zug: Bergungsgruppe 2',
                     credits: 25_000,
                     coins: 5,
                     duration: '7 Tage',
                 },
                 {
-                    caption: 'Zugtrupp',
+                    caption: '1. Technischer Zug: Zugtrupp',
                     credits: 25_000,
                     coins: 5,
                     duration: '7 Tage',
@@ -1322,7 +1425,7 @@ export default {
                     duration: '7 Tage',
                 },
                 {
-                    caption: '2. Technischer Zug',
+                    caption: '2. Technischer Zug - Grundvorraussetzungen',
                     credits: 25_000,
                     coins: 5,
                     duration: '7 Tage',
@@ -1360,7 +1463,7 @@ export default {
             coins: 50,
             credits: 500_000,
             extensions: new Array(3).fill({
-                caption: 'Klassenzimmer',
+                caption: 'Weiterer Klassenraum',
                 credits: 400_000,
                 coins: 40,
                 duration: '7 Tage',
@@ -1380,13 +1483,13 @@ export default {
             credits: 500_000,
             extensions: [
                 {
-                    caption: '2. Zug der 1. Hunderschaft',
+                    caption: '2. Zug der 1. Hundertschaft',
                     coins: 5,
                     credits: 25_000,
                     duration: '3 Tage',
                 },
                 {
-                    caption: '3. Zug der 1. Hunderschaft',
+                    caption: '3. Zug der 1. Hundertschaft',
                     coins: 5,
                     credits: 25_000,
                     duration: '3 Tage',

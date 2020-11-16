@@ -1,0 +1,154 @@
+{
+	"name": "Extended alarm window",
+	"settings": {
+		"alarmIcons": {
+			"description": "Leave icons in the \"Alarm\" Show button, based on your selection. You can choose between <a href=\"https://fontawesome.com/icons?d=gallery&m=free\" target=\"_blank\">all free icons from Font-Awesome</a>. It is enough to specify the name of the icon. A live preview will then show you the icon.",
+			"icon": "Icon",
+			"preview": "Preview",
+			"style": "icon type",
+			"title": "alarm icons",
+			"vehicles": "vehicle types"
+		},
+		"alarmTime": {
+			"description": "Shows next to the Alarm button how long the vehicle with the longest journey time takes.",
+			"title": "Longest journey time"
+		},
+		"arrClickHighlight": {
+			"description": "Draws a border around already clicked ARRs.",
+			"title": "Highlight clicked ARRs"
+		},
+		"arrClickHighlightColor": {
+			"description": "Set the border color for ARR borders.",
+			"title": "Highlight Color"
+		},
+		"arrClickHighlightWidth": {
+			"description": "Specify here (in pixels) how wide the ARR border should be.",
+			"title": "Highlighting width"
+		},
+		"arrCounter": {
+			"description": "Counts how often an ARR or move has been clicked. All counters can be reset using the button in the bottom right corner or an ARR with reset function.",
+			"title": "ARR Counter"
+		},
+		"arrCounterAsBadge": {
+			"description": "Shows the ARR-Counter as a small badge on each ARR",
+			"title": "ARR-Counter as Badge"
+		},
+		"arrCounterResetSelection": {
+			"description": "Adds a button at the bottom right to reset the previous vehicle selection. Note: It also resets the ARR counter and the borders, if activated!",
+			"title": "Reset vehicle selection"
+		},
+		"arrMatchHighlight": {
+			"description": "Sets a gray filter over all ARRs that do not contain a word of the mission name.",
+			"title": "Grey out unsuitable ARRs"
+		},
+		"arrSpecs": {
+			"description": "Shows the stored requests in the ARR, if you stay with the mouse briefly over an ARR",
+			"title": " Show ARR details"
+		},
+		"arrTime": {
+			"description": "Shows what would be the longest travel time after selecting this ARR, if you stay with the mouse briefly over an ARR.",
+			"title": "Longest journey time"
+		},
+		"centerMap": {
+			"description": "Allows you to center the map in the main window on the place of use at the touch of a button.",
+			"title": "Center Map"
+		},
+		"enhancedMissingVehicles": {
+			"description": "Converts the display of additionally required vehicles into a clearer table.",
+			"title": "Improve needed vehicles"
+		},
+		"generationDate": {
+			"description": "Shows next to the address when the mission was generated.",
+			"title": "Generation time"
+		},
+		"hideVehicleList": {
+			"description": "Normally hides the use list, then opens it by pressing a button.",
+			"title": "Hides the vehicle list"
+		},
+		"loadMoreVehiclesInHeader": {
+			"description": "Displays the button \"Reload vehicles\", if available, in the header bar.",
+			"title": "Reload vehicles in header"
+		},
+		"missionKeywords": {
+			"color": "background color",
+			"description": "Get your own keyword displayed next to the mission name",
+			"keyword": "keyword",
+			"missions": "missions",
+			"prepend": "Show before the missionname",
+			"preview": "Preview",
+			"title": "Mission keywords"
+		},
+		"patientSummary": {
+			"description": "Shows next to the number of patients, which rescue equipment they need in combination.",
+			"title": "Patient Summary"
+		},
+		"redBorder": {
+			"description": "Outlines the generation time in red if the bet will expire the following night.",
+			"title": "Red border"
+		},
+		"stickyHeader": {
+			"description": "Always shows the top bar in the insert window, even when you scroll down.",
+			"title": "Always show header bar"
+		},
+		"tailoredTabs": {
+			"color": "Color",
+			"description": "Adjust the tabs in the insert window here. \"All\" and \"Continue alerting\" will always be visible,",
+			"name": "name",
+			"title": "vehicle categories",
+			"vehicles": "vehicle types"
+		},
+		"yellowBorder": {
+			"description": "Borders the generation time yellow if the usage is older than the entered number of hours. If the number is 0, no border is drawn.",
+			"title": "Yellow border"
+		}
+	},
+	"tailoredTabs": {
+		"defaultTabs": [
+			{
+				"name": "Firetruck",
+				"vehicleTypes": [
+					0,
+					1,
+					16,
+					17
+				]
+			},
+			{
+				"name": "Other Fire Apparatus",
+				"vehicleTypes": [
+					2,
+					3,
+					4,
+					6,
+					7,
+					14,
+					15,
+					18,
+					23
+				]
+			},
+			{
+				"name": "Ambulance",
+				"vehicleTypes": [
+					5,
+					9,
+					10,
+					19,
+					20,
+					21,
+					22
+				]
+			},
+			{
+				"name": "Police",
+				"vehicleTypes": [
+					8,
+					12,
+					13,
+					24,
+					25
+				]
+			}
+		]
+	}
+}

@@ -1,4 +1,4 @@
-import { Building } from 'typings/Building';
+// import { Building } from 'typings/Building';
 
 const moduleRootFiles = require.context('../', true, MODULE_ROOT_I18N_FILES);
 // Commented as dir ./en_US does not exist currently
@@ -63,8 +63,7 @@ export default {
     ...t,
     error: {
         title: 'LSS Manager: Error',
-        msg:
-            'Pokud k této chybě dochází často, prosím kontaktujte tým LSSM!',
+        msg: 'Pokud k této chybě dochází často, prosím kontaktujte tým LSSM!',
     },
     warnings: {
         version: {
@@ -83,7 +82,7 @@ export default {
                 'Zobrazí jednotuchý popisek v navigační liště namísto loga LSSM',
         },
     },
-       
+
     vehicles: [
         {
             caption: 'CAS 20',
@@ -213,7 +212,6 @@ export default {
             schooling: 'Policie - URNA',
             shownSchooling: 'URNA',
             special: 'Požadováno po vybudování 8 Obvodních oddělení Policie',
-
         },
         {
             caption: 'Vozidlo Kynologů PČR',
@@ -295,7 +293,7 @@ export default {
             shownSchooling: 'Policejní pyrotechnik',
         },
     ],
-            //here ends
+    //here ends
 
     buildings: [
         {
@@ -954,4 +952,3 @@ export default {
     ],
     only_alliance_missions: [57, 74],
 };
-

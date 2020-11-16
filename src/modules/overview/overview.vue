@@ -203,7 +203,11 @@
                                     v-for="(_, attr) in schoolingsTab.head"
                                     :key="attr"
                                 >
-                                    {{ schooling[attr] }}
+                                    <span
+                                        v-if="attr === 'required_for'"
+                                        v-html="schooling[attr].join(',<br />')"
+                                    ></span>
+                                    <span v-else>{{ schooling[attr] }}</span>
                                 </td>
                             </tr>
                         </enhanced-table>
@@ -264,6 +268,18 @@ export default Vue.extend<
         const resolvedVehicleCategories = {} as {
             [name: string]: ResolvedVehicleCategory;
         };
+        const schoolings = (this.$t('schoolings') as unknown) as {
+            [category: string]: Schooling[];
+        };
+        const resolvedSchoolings = {} as Overview['schoolingCategories'];
+        Object.entries(schoolings).forEach(([school, schoolings]) => {
+            resolvedSchoolings[school] = Object.values(schoolings).map(
+                schooling => ({
+                    ...schooling,
+                    required_for: [] as string[],
+                })
+            );
+        });
         Object.entries(vehicleCategories).forEach(
             ([category, { color, vehicles: groups }]) => {
                 resolvedVehicleCategories[category] = { color, vehicles: {} };
@@ -271,9 +287,20 @@ export default Vue.extend<
                     ([group, vehicles]) =>
                         (resolvedVehicleCategories[category].vehicles[
                             group
-                        ] = Object.values(vehicles as number[]).map(
-                            type => vehicleTypes[type]
-                        ))
+                        ] = Object.values(vehicles as number[]).map(type => {
+                            const v = vehicleTypes[type];
+                            if (v.schooling) {
+                                const [, school, schooling] = v.schooling.match(
+                                    /^(.*?) - (.*?)$/
+                                );
+                                resolvedSchoolings[school]
+                                    .find(
+                                        ({ caption }) => caption === schooling
+                                    )
+                                    ?.required_for.push(v.caption);
+                            }
+                            return v;
+                        }))
                 );
             }
         );
@@ -339,7 +366,7 @@ export default Vue.extend<
         );
         return {
             vehicles: Object.values(vehicleTypes),
-            vehicleCategories: (vehicleCategories as unknown) as {
+            vehicleCategories: (resolvedVehicleCategories as unknown) as {
                 [name: string]: ResolvedVehicleCategory;
             },
             vehiclesTab: {
@@ -353,10 +380,15 @@ export default Vue.extend<
                     },
                     cost: { title: this.$m('titles.vehicles.cost') },
                     schooling: { title: this.$m('titles.vehicles.schooling') },
-                    wtank:
-                        this.$store.state.lang === 'de_DE'
-                            ? { title: this.$m('titles.vehicles.wtank') }
-                            : null,
+                    ...(['de_DE', 'en_US', 'pl_PL'].includes(
+                        this.$store.state.lang
+                    )
+                        ? {
+                              wtank: {
+                                  title: this.$m('titles.vehicles.wtank'),
+                              },
+                          }
+                        : null),
                     special: { title: this.$m('titles.vehicles.special') },
                 },
                 search: '',
@@ -398,12 +430,13 @@ export default Vue.extend<
                     category: 0,
                 },
             },
-            schoolingCategories: (this.$t('schoolings') as unknown) as {
-                [category: string]: Schooling[];
-            },
+            schoolingCategories: resolvedSchoolings,
             schoolingsTab: {
                 head: {
                     caption: { title: this.$m('titles.schoolings.caption') },
+                    required_for: {
+                        title: this.$m('titles.schoolings.required_for'),
+                    },
                     duration: { title: this.$m('titles.schoolings.duration') },
                 },
                 search: '',

@@ -213,7 +213,17 @@ export default {
             state.allianceinfo = allianceinfo;
         },
         setVehicleStates(state: APIState, states: { [state: number]: number }) {
-            state.vehicleStates = states;
+            const LSSM = window[PREFIX] as Vue;
+            const fmsReal2Show = (LSSM.$t('fmsReal2Show') as unknown) as {
+                [status: number]: number;
+            };
+            const states_show = {} as { [state: number]: number };
+            Object.keys(states).forEach(
+                key =>
+                    (states_show[fmsReal2Show[parseInt(key)]] =
+                        states[parseInt(key)])
+            );
+            state.vehicleStates = states_show;
         },
         setVehicleState(
             state: APIState,
@@ -251,10 +261,7 @@ export default {
         },
         setSettings(
             state: APIState,
-            {
-                value: settings,
-                lastUpdate,
-            }: StorageGetterReturn<'settings'>
+            { value: settings, lastUpdate }: StorageGetterReturn<'settings'>
         ) {
             if (!settings) return;
             state.lastUpdates.settings = lastUpdate;
@@ -499,13 +506,10 @@ export default {
                 { value: settings, lastUpdate, user_id: window.user_id },
                 store
             );
-            if (
-                autoUpdate &&
-                !store.state.autoUpdates.includes('settings')
-            ) {
+            if (autoUpdate && !store.state.autoUpdates.includes('settings')) {
                 store.commit('enableAutoUpdate', 'settings');
                 window.setInterval(
-                    () => store.dispatch('registersettings'),
+                    () => store.dispatch('registerSettings'),
                     API_MIN_UPDATE
                 );
             }
@@ -533,6 +537,7 @@ export default {
                     JSON.stringify(missions)
                 );
                 commit('setMissions', missions);
+                return missions;
             } else {
                 const missions = JSON.parse(
                     sessionStorage.getItem('mission_specs_cache') || '{}'

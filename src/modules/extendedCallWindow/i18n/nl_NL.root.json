@@ -30,6 +30,10 @@
 			"description": "Telt hoe vaak er op een inzetvoorstel is geklikt. Alle tellers kunnen met de knop rechtsonder of met een inzetvoorstel met resetfunctie worden gereset.",
 			"title": "Inzetvoorstel-tellers"
 		},
+		"arrCounterAsBadge": {
+			"description": "Toont de inzetvoorstel-teller als kleine rode cijfers naast het inzetvoorstel.",
+			"title": "Inzetvoorstel-teller als badge"
+		},
 		"arrCounterResetSelection": {
 			"description": "Voegt rechtsonder een knop toe om de voertuig selectie te reseten. Let op: de inzetvoorstel-tellers en kaders worden ook gereset.",
 			"title": "Voertuigselectie reseten"
@@ -110,5 +114,102 @@
 			"description": "De generatietijd krijgt een geel kader als de inzet ouder is dan een ingesteld aantal uren. Bij 0 is er geen kader.",
 			"title": "Geel kader"
 		}
+	},
+	"tailoredTabs": {
+		"defaultTabs": [
+			{
+				"name": "TS",
+				"vehicleTypes": [
+					0,
+					1,
+					6,
+					7,
+					8,
+					9,
+					12,
+					14,
+					15,
+					17,
+					50
+				]
+			},
+			{
+				"name": "Brandweer overig",
+				"vehicleTypes": [
+					2,
+					18,
+					3,
+					19,
+					4,
+					51,
+					5,
+					27,
+					10,
+					29,
+					34,
+					45,
+					31,
+					32,
+					11,
+					24,
+					56
+				]
+			},
+			{
+				"name": "Waterongevallen",
+				"vehicleTypes": [
+					33,
+					49,
+					50,
+					36
+				]
+			},
+			{
+				"name": "Vliegveld",
+				"vehicleTypes": [
+					41,
+					42,
+					43,
+					44
+				]
+			},
+			{
+				"name": "Ambulance",
+				"vehicleTypes": [
+					16,
+					52,
+					57,
+					30,
+					23,
+					37,
+					38
+				]
+			},
+			{
+				"name": "Politie Noodhulp",
+				"vehicleTypes": [
+					22,
+					25,
+					46,
+					59
+				]
+			},
+			{
+				"name": "Politie overig",
+				"vehicleTypes": [
+					35,
+					28,
+					47,
+					48,
+					39,
+					40,
+					53,
+					54,
+					55,
+					58,
+					60
+				]
+			}
+		]
 	}
 }

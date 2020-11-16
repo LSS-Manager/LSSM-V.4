@@ -22,4 +22,4 @@ Folgende Informationen sind enthalten:
 
 So sieht das beispielsweise bei einer Polizeiwache aus, welche 1 ausgebaute Zelle und eine Zelle im Bau hat:
 
-![Eine beispielhafte Polizeiwache](/docs/assets/buildingHover/img/polizei.png)
+![Eine beispielhafte Polizeiwache](/v4/docs/assets/buildingHover/img/polizei.png)

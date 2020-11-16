@@ -10,6 +10,7 @@ export interface StorageAPIs {
     missions: Mission[];
     // eslint-disable-next-line @typescript-eslint/ban-types
     allianceinfo: AllianceInfo | {};
+    // eslint-disable-next-line @typescript-eslint/ban-types
     settings: Settings | {};
 }
 

@@ -42,8 +42,10 @@
 			"ambulances": "Ambulanza Medicalizzata",
 			"arff": "Flotta antincendio aereporti",
 			"battalion_chief_vehicles": "Funzionari",
+			"commerce_police": "Volante finanza",
 			"fbi_bomb": "Furgone artificieri",
 			"firetrucks": "APS/ABP",
+			"fwk": "Autogrù",
 			"hazmat_vehicles": "NBCR",
 			"heavy_rescue_vehicles": "Unità polisoccorso",
 			"helicopter": "Elisoccorso",
@@ -55,9 +57,7 @@
 			"police_helicopters": "Elicottero della polizia",
 			"swat_armored_vehicle": "Furgone Antisommossa",
 			"swat_suv": "Suv UOPI",
-			"water_tankers": "Kilolitriche",
-			"fwk": "Autogrù",
-			"commerce_police": "Volante finanza"
+			"water_tankers": "Kilolitriche"
 		},
 		"multifunctionals": {
 			"battalion_chief_vehicles": {

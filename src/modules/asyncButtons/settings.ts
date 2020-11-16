@@ -1,27 +1,30 @@
-export default (): unknown => ({
-    buildingTax: {
+import { ModuleSettingFunction } from 'typings/Module';
+import { Toggle } from 'typings/Setting';
+
+export default (() => ({
+    buildingTax: <Toggle>{
         type: 'toggle',
         default: true,
     },
-    missionPrisoners: {
+    missionPrisoners: <Toggle>{
         type: 'toggle',
         default: true,
     },
-    missionReply: {
+    missionReply: <Toggle>{
         type: 'toggle',
         default: false,
         disabled: () => true,
     },
-    memberlistManageUser: {
+    memberlistManageUser: <Toggle>{
         type: 'toggle',
         default: false,
     },
-    deleteForumPost: {
+    deleteForumPost: <Toggle>{
         type: 'toggle',
         default: false,
     },
-    deleteARR: {
+    deleteARR: <Toggle>{
         type: 'toggle',
         default: true,
     },
-});
+})) as ModuleSettingFunction;

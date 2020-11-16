@@ -5,6 +5,22 @@ import fs from 'fs';
 
 const scripts = process.argv.splice(2);
 
+const build = (mode: string) => {
+    console.time('games');
+    const games = [] as string[];
+    const builds = Object.keys(config.games).filter(game =>
+        fs.existsSync(`./src/i18n/${game}.ts`)
+    );
+    const games_rem = [...builds];
+    builds.map(game => {
+        console.log(execSync(`node build ${mode} ${game}`).toString());
+        games.push(game);
+        games_rem.shift();
+        console.log(`built ${games}, remaining ${games_rem}`);
+    });
+    console.timeEnd('games');
+};
+
 const scriptHandlers = {
     sort,
     emojis() {
@@ -14,7 +30,7 @@ const scriptHandlers = {
         this.sort();
         console.log(
             execSync(
-                'eslint ./docs/.vuepress/ ./static/ ./prebuild/ ./build/ ./src/ ./scripts/ --ext .js,.vue -f table --no-error-on-unmatched-pattern --fix'
+                'eslint ./docs/.vuepress/ ./static/ ./prebuild/ ./build/ ./src/ ./scripts/ ./typings/ --ext .ts,.vue -f table --no-error-on-unmatched-pattern --fix'
             ).toString()
         );
     },
@@ -34,13 +50,7 @@ const scriptHandlers = {
     },
     dev() {
         this.tscBuild();
-        // console.log(execSync('node build').toString());
-        const games = Object.entries(config.games)
-            .filter(game => fs.existsSync(`./src/i18n/${game[0]}.ts`))
-            .map(game => {
-                execSync('node build development ' + game[0]).toString();
-            });
-        //execSync('node build development').toString();
+        build('development');
         this.showChanges();
     },
     tscDocs() {
@@ -58,12 +68,7 @@ const scriptHandlers = {
     },
     build() {
         this.tscBuild();
-        const games = Object.entries(config.games)
-            .filter(game => fs.existsSync(`./src/i18n/${game[0]}.ts`))
-            .map(game => {
-                execSync('node build production ' + game[0]).toString();
-            });
-        //console.log(execSync('node build production').toString());
+        build('production');
         this.showChanges();
     },
     showChanges() {
@@ -73,8 +78,10 @@ const scriptHandlers = {
 
 const execute = (script: string) => {
     console.log(`### ${script} ###\n\n`);
+    console.time(script);
     scriptHandlers[script]?.();
     console.log(`\n\n=== end ${script} ===`);
+    console.timeEnd(script);
 };
 
 try {
