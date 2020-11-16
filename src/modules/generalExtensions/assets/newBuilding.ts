@@ -143,6 +143,20 @@ export default async (
                         );
                         window.buildingMarkerBulkContentCacheDraw();
                         window.building_maps_redraw();
+                        window.creditsUpdate(
+                            parseInt(
+                                script.innerHTML.match(
+                                    /(?<=creditsUpdate\()\d+(?=\)$)/
+                                )?.[0] ?? '-1'
+                            )
+                        );
+                        window.coinsUpdate(
+                            parseInt(
+                                script.innerHTML.match(
+                                    /(?<=coinsUpdate\()\d+(?=\);$)/
+                                )?.[0] ?? '-1'
+                            )
+                        );
                     });
             });
         });
