@@ -77,7 +77,7 @@ export default async (
 
     let dontUndoPreview = false;
 
-    const mapPreview = (target: HTMLLIElement) => {
+    const mapPreview = (target: HTMLSpanElement) => {
         previewEnabled = true;
         const { lat, lng, zoom } = JSON.parse(
             target.getAttribute('data-history') || '{}'
@@ -94,16 +94,47 @@ export default async (
         target.addEventListener('mouseout', undoPreview);
     };
 
-    const updateHistoryList = () => {
+    const updateHistoryList = (bookmark = false) => {
         const historyEntry = document.createElement('li');
+        const historyText = document.createElement('span');
         const lastHistoryEntry = history[history.length - 1];
-        historyEntry.textContent = `[${lastHistoryEntry.lat}, ${lastHistoryEntry.lng}] Zoom: ${lastHistoryEntry.zoom}`;
-        historyEntry.setAttribute(
+        historyText.textContent = `[${lastHistoryEntry.lat}, ${lastHistoryEntry.lng}] Zoom: ${lastHistoryEntry.zoom}`;
+        historyText.setAttribute(
             'data-history',
             JSON.stringify(lastHistoryEntry)
         );
+        const historyRemoveBtn = document.createElement('button');
+        historyRemoveBtn.classList.add('btn', 'btn-danger', 'btn-xs');
+        const historyRemoveIcon = document.createElement('i');
+        historyRemoveIcon.classList.add('fas', 'fa-minus');
+        historyRemoveBtn.addEventListener('click', () => {
+            historyEntry.remove();
+            if (bookmark) {
+                ownMarkers.splice(
+                    ownMarkers.findIndex(
+                        ({ lat, lng, zoom }) =>
+                            lat === lastHistoryEntry.lat &&
+                            lng === lastHistoryEntry.lng &&
+                            zoom === lastHistoryEntry.zoom
+                    ),
+                    1
+                );
+                LSSM.$store.dispatch('settings/setSetting', {
+                    moduleId: MODULE_ID,
+                    settingId: 'savedOwnMapMarkers',
+                    value: ownMarkers,
+                });
+            }
+        });
+
+        historyRemoveBtn.appendChild(historyRemoveIcon);
+        historyEntry.appendChild(historyText);
+        historyEntry.appendChild(historyRemoveBtn);
         historyList.appendChild(historyEntry);
     };
+
+    const ownMarkers =
+        (await getSetting<typeof history>('savedOwnMapMarkers')) ?? [];
 
     if (ownMapMarkers) {
         const historyAddWrapper = document.createElement('button');
@@ -133,14 +164,13 @@ export default async (
         historyAddWrapper.appendChild(historyAddBtn);
         historyList.appendChild(historyAddWrapper);
 
-        const ownMarkers =
-            (await getSetting<typeof history>('savedOwnMapMarkers')) ?? [];
-
-        history.push(...ownMarkers);
-        if (ownMarkers.length) updateHistoryList();
+        ownMarkers.forEach(marker => {
+            history.push(marker);
+            updateHistoryList(true);
+        });
     }
 
-    const getAddress = (target: HTMLLIElement) => {
+    const getAddress = (target: HTMLSpanElement) => {
         const { lat, lng, zoom } = JSON.parse(
             target.getAttribute('data-history') || '{}'
         );
@@ -161,22 +191,21 @@ export default async (
     });
 
     historyList.addEventListener('mouseover', e => {
-        const target = e.target as HTMLElement;
-        if (target.tagName !== 'LI') return;
-        if (target.getAttribute('data-address-resolved') !== 'true')
+        const target = (e.target as HTMLElement).closest('li');
+        if (!target) return;
+        const span = target.querySelector<HTMLSpanElement>('span');
+        if (!span) return;
+        if (span.getAttribute('data-address-resolved') !== 'true')
             currentAddressTimeout = window.setTimeout(
-                () => getAddress(target as HTMLLIElement),
+                () => getAddress(span),
                 200
             );
-        currentPreviewTimeout = window.setTimeout(
-            () => mapPreview(target as HTMLLIElement),
-            500
-        );
+        currentPreviewTimeout = window.setTimeout(() => mapPreview(span), 500);
     });
 
     historyList.addEventListener('mouseout', e => {
-        const target = e.target as HTMLElement;
-        if (target.tagName !== 'LI') return;
+        const target = (e.target as HTMLElement).closest('li');
+        if (!target) return;
         if (currentAddressTimeout) window.clearTimeout(currentAddressTimeout);
         if (currentPreviewTimeout) window.clearTimeout(currentPreviewTimeout);
     });
@@ -185,8 +214,10 @@ export default async (
         dontUndoPreview = true;
         const target = e.target as HTMLElement;
         if (target.tagName !== 'LI') return;
+        const span = target.querySelector<HTMLSpanElement>('span');
+        if (!span) return;
         const { lat, lng, zoom } = JSON.parse(
-            target.getAttribute('data-history') || '{}'
+            span.getAttribute('data-history') || '{}'
         );
         previewEnabled = true;
         window.map.setView({ lat, lng }, zoom);
