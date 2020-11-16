@@ -36,6 +36,24 @@ declare global {
         aao_available(arrId: number, calculateTime: boolean): void;
         extensionCountdown(remaining: number, id: number): void;
         formatTime(remaining: number, t?: boolean): string;
+        buildingMarkerAdd(marker: {
+            id: number;
+            user_id: number;
+            name: string;
+            longitude: number;
+            latitude: number;
+            icon: string;
+            vgi: unknown | null;
+            lbid: number;
+            show_vehicles_at_startpage: boolean;
+            level: number;
+            personal_count: number;
+            building_type: number;
+            filter_id: string;
+            detail_button: string;
+        }): boolean;
+        buildingMarkerBulkContentCacheDraw(): void;
+        building_maps_redraw(): void;
     }
 }
 

@@ -72,6 +72,79 @@ export default async (
                     });
                 }
             }
+
+            form.addEventListener('submit', e => e.preventDefault());
+
+            form.addEventListener('click', e => {
+                const btn = (e.target as HTMLElement | null)?.closest(
+                    '.coins_activate, .build_with_credits_step, .alliance_activate'
+                );
+                if (!btn) return;
+                e.preventDefault();
+                btn.removeAttribute('type');
+                if (btn.matches('.coins_activate'))
+                    form.build_with_coins.value = '1';
+                if (btn.matches('.alliance_activate'))
+                    form.build_as_alliance.value = '1';
+                const url = new URL(form.action);
+                (Array.from(form.elements) as HTMLInputElement[]).forEach(
+                    ({ name, value }) => {
+                        if (name === 'commit') return;
+                        url.searchParams.append(name, value);
+                    }
+                );
+                LSSM.$store
+                    .dispatch('api/request', {
+                        url: '/buildings',
+                        init: {
+                            credentials: 'include',
+                            headers: {
+                                'X-CSRF-Token': form.authenticity_token.value,
+                                'Content-Type':
+                                    'application/x-www-form-urlencoded; charset=UTF-8',
+                                'X-Requested-With': 'XMLHttpRequest',
+                            },
+                            method: 'POST',
+                            mode: 'cors',
+                            body: url.searchParams.toString(),
+                        },
+                    })
+                    .then(res => res.text())
+                    .then(res => {
+                        const response = document
+                            .createRange()
+                            .createContextualFragment(res);
+                        const successAlert = response.querySelector<
+                            HTMLDivElement
+                        >('#building_panel_body .alert.alert-success');
+                        if (!successAlert) return;
+                        form.insertAdjacentElement('beforebegin', successAlert);
+                        btn.setAttribute('type', 'submit');
+                        form['building[name]'].value = '';
+
+                        const buildingId = parseInt(
+                            successAlert
+                                .querySelector<HTMLAnchorElement>(
+                                    'a.lightbox-open.btn[href^="/buildings/"]'
+                                )
+                                ?.href.match(/\d+\/?$/)?.[0] ?? '-1'
+                        );
+                        const script = response.querySelector('script');
+                        if (!script) return;
+                        window.buildingMarkerAdd(
+                            JSON.parse(
+                                script.innerHTML.match(
+                                    new RegExp(
+                                        `(?<=buildingMarkerAdd\\(){"id":${buildingId}.*}(?=\\);$)`,
+                                        'm'
+                                    )
+                                )?.[0] ?? '{}'
+                            )
+                        );
+                        window.buildingMarkerBulkContentCacheDraw();
+                        window.building_maps_redraw();
+                    });
+            });
         });
     });
 
