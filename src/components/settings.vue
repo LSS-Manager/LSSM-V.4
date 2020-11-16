@@ -557,14 +557,16 @@ export default Vue.extend<
                               [key: string]: SettingType['value'];
                           };
                 };
-                await this.$store.dispatch('storage/set', {
-                    key: 'activeModules',
-                    value: result.activeModules,
-                });
-                await this.$store.dispatch('storage/set', {
-                    key: 'iconBG',
-                    value: result.iconBG,
-                });
+                if (result.activeModules)
+                    await this.$store.dispatch('storage/set', {
+                        key: 'activeModules',
+                        value: result.activeModules,
+                    });
+                if (result.iconBG)
+                    await this.$store.dispatch('storage/set', {
+                        key: 'iconBG',
+                        value: result.iconBG,
+                    });
                 const resultEntries = Object.entries(result);
                 resultEntries.forEach(([module, value], index) => {
                     if (['activeModules', 'iconBG'].includes(module)) return;
