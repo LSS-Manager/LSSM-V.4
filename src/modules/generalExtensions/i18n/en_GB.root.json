@@ -30,10 +30,10 @@
 			"description": "Remembers selected building type when building a new building and auto-selects it for new buildings.",
 			"title": "Remember building type"
 		},
-        "saveLastDispatchCenter": {
-            "description": "Remembers selected dispatch center when building a new building and auto-selects it for new buildings.",
-            "title": "Remember dispatch center"
-        },
+		"saveLastDispatchCenter": {
+			"description": "Remembers selected dispatch center when building a new building and auto-selects it for new buildings.",
+			"title": "Remember dispatch center"
+		},
 		"showImg": {
 			"description": "Try to generate an image preview. Only works in combination with \"Make links clickable\"!",
 			"title": "Activating the image preview"
