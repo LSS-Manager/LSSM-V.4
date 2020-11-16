@@ -1,5 +1,11 @@
 import { ModuleSettingFunction } from 'typings/Module';
-import { ModuleSettings, MultiSelect, Select, Text } from 'typings/Setting';
+import {
+    Hidden,
+    ModuleSettings,
+    MultiSelect,
+    Select,
+    Text,
+} from 'typings/Setting';
 
 export default ((MODULE_ID: string, LSSM: Vue) => ({
     predefined_style: <Select>{
@@ -19,5 +25,8 @@ export default ((MODULE_ID: string, LSSM: Vue) => ({
         values: Object.values(LSSM.$t('pois')) as string[],
         default: Object.values(LSSM.$t('pois')) as string[],
         noLabelTranslation: true,
+    },
+    lastSavedPOIType: <Hidden>{
+        type: 'hidden',
     },
 })) as ModuleSettingFunction;

@@ -36,4 +36,11 @@ export default (() => ({
     lastSavedBuildingType: <Hidden>{
         type: 'hidden',
     },
+    saveLastDispatchCenter: <Toggle>{
+        type: 'toggle',
+        default: true,
+    },
+    lastSavedDispatchCenter: <Hidden>{
+        type: 'hidden',
+    },
 })) as ModuleSettingFunction;

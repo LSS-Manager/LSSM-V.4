@@ -1,12 +1,15 @@
 export default async (
     LSSM: Vue,
     saveLastBuildingType: boolean,
+    saveLastDispatchCenter: boolean,
     getSetting: <returnType>(settingId: string) => Promise<returnType>,
     MODULE_ID: string
 ): Promise<void> => {
     let isBuildingMenu = false;
     let lastBuildingType =
         (await getSetting<string>('lastSavedBuildingType')) ?? '';
+    let lastDispatchCenter =
+        (await getSetting<string>('lastSavedDispatchCenter')) ?? '';
 
     // Reset Marker for new building
     const resetNewBuildingMarker = () => {
@@ -33,22 +36,41 @@ export default async (
             if (isBuildingMenu) return;
             isBuildingMenu = true;
 
-            const buildingTypeSelect = form.querySelector<HTMLSelectElement>(
-                '#building_building_type'
-            );
-            if (!buildingTypeSelect) return;
             if (saveLastBuildingType) {
-                buildingTypeSelect.value = lastBuildingType;
-                buildingTypeSelect.dispatchEvent(new Event('change'));
+                const buildingTypeSelect = form.querySelector<
+                    HTMLSelectElement
+                >('#building_building_type');
+                if (buildingTypeSelect) {
+                    buildingTypeSelect.value = lastBuildingType;
+                    buildingTypeSelect.dispatchEvent(new Event('change'));
 
-                buildingTypeSelect.addEventListener('change', () => {
-                    LSSM.$store.dispatch('settings/setSetting', {
-                        moduleId: MODULE_ID,
-                        settingId: 'lastSavedBuildingType',
-                        value: buildingTypeSelect.value,
+                    buildingTypeSelect.addEventListener('change', () => {
+                        LSSM.$store.dispatch('settings/setSetting', {
+                            moduleId: MODULE_ID,
+                            settingId: 'lastSavedBuildingType',
+                            value: buildingTypeSelect.value,
+                        });
+                        lastBuildingType = buildingTypeSelect.value;
                     });
-                    lastBuildingType = buildingTypeSelect.value;
-                });
+                }
+            }
+            if (saveLastDispatchCenter) {
+                const dispatchCenterSelect = form.querySelector<
+                    HTMLSelectElement
+                >('#building_leitstelle_building_id');
+                if (dispatchCenterSelect) {
+                    dispatchCenterSelect.value = lastDispatchCenter;
+                    dispatchCenterSelect.dispatchEvent(new Event('change'));
+
+                    dispatchCenterSelect.addEventListener('change', () => {
+                        LSSM.$store.dispatch('settings/setSetting', {
+                            moduleId: MODULE_ID,
+                            settingId: 'lastSavedDispatchCenter',
+                            value: dispatchCenterSelect.value,
+                        });
+                        lastDispatchCenter = dispatchCenterSelect.value;
+                    });
+                }
             }
         });
     });
