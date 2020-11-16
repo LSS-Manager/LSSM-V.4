@@ -116,7 +116,7 @@ export default async (
                             .createContextualFragment(res);
                         const successAlert = response.querySelector<
                             HTMLDivElement
-                        >('#building_panel_body .alert.alert-success');
+                        >('#building_panel_body .alert');
                         if (!successAlert) return;
                         form.insertAdjacentElement('beforebegin', successAlert);
                         btn.setAttribute('type', 'submit');
@@ -143,20 +143,48 @@ export default async (
                         );
                         window.buildingMarkerBulkContentCacheDraw();
                         window.building_maps_redraw();
-                        window.creditsUpdate(
-                            parseInt(
-                                script.innerHTML.match(
-                                    /(?<=creditsUpdate\()\d+(?=\)$)/
-                                )?.[0] ?? '-1'
-                            )
+                        const currentCredits = parseInt(
+                            script.innerHTML.match(
+                                /(?<=creditsUpdate\()\d+(?=\)$)/m
+                            )?.[0] ?? '-1'
                         );
-                        window.coinsUpdate(
-                            parseInt(
-                                script.innerHTML.match(
-                                    /(?<=coinsUpdate\()\d+(?=\);$)/
-                                )?.[0] ?? '-1'
-                            )
+                        window.creditsUpdate(currentCredits);
+                        const currentCoins = parseInt(
+                            script.innerHTML.match(
+                                /(?<=coinsUpdate\()\d+(?=\);$)/m
+                            )?.[0] ?? '-1'
                         );
+                        window.coinsUpdate(currentCoins);
+                        form.querySelectorAll<HTMLInputElement>(
+                            '.build_with_credits_step'
+                        ).forEach(creditsBtn => {
+                            const credits = parseInt(
+                                creditsBtn.value
+                                    .match(/\d{1,3}(\.\d{3})*/)?.[0]
+                                    .replace(/\./, '') ?? '-1'
+                            );
+                            if (credits <= currentCredits) return;
+                            creditsBtn.classList.replace(
+                                'btn-success',
+                                'btn-danger'
+                            );
+                            creditsBtn.classList.add('disabled');
+                        });
+                        form.querySelectorAll<HTMLInputElement>(
+                            '.coins_activate'
+                        ).forEach(coinsBtn => {
+                            const coins = parseInt(
+                                coinsBtn.value
+                                    .match(/\d{1,3}(\.\d{3})*/)?.[0]
+                                    .replace(/\./, '') ?? '-1'
+                            );
+                            if (coins <= currentCoins) return;
+                            coinsBtn.classList.replace(
+                                'btn-success',
+                                'btn-danger'
+                            );
+                            coinsBtn.classList.add('disabled');
+                        });
                     });
             });
         });
