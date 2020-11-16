@@ -274,7 +274,7 @@ import {
 import cloneDeep from 'lodash/cloneDeep';
 import isEqual from 'lodash/isEqual';
 import { DefaultProps } from 'vue/types/options';
-import { Setting as SettingType } from '../../typings/Setting';
+import { ModuleSettings, Setting as SettingType } from '../../typings/Setting';
 
 export default Vue.extend<
     SettingsData,
@@ -326,7 +326,14 @@ export default Vue.extend<
             ),
     },
     data() {
-        const settings = cloneDeep(this.$store.state.settings.settings);
+        const settings = cloneDeep(
+            this.$store.state.settings.settings
+        ) as ModuleSettings;
+        Object.entries(settings).forEach(([module, sets]) => {
+            settings[module] = Object.fromEntries(
+                Object.entries(sets).filter(([, { type }]) => type !== 'hidden')
+            );
+        });
         return {
             faHistory,
             settings,
