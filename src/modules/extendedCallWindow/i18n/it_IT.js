@@ -77,7 +77,7 @@ module.exports = {
             [/^Elicotteri della polizia?$/]: [13],
             [/^furgona antisommossa$/]: [14, 17],
             [/^Unit(à)? cinofila antidroga$/]: [12],
-            [/^Volante Finanza?$/]: [21]
+            [/^Volante Finanza?$/]: [21],
         },
     },
     tailoredTabs: {
