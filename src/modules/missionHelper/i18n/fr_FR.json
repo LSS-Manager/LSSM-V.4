@@ -18,32 +18,30 @@
 		"title": "Patients | {n} Patient | {n} Patients"
 	},
 	"prerequisites": {
-		"brush_extension": "Extension feu de forêt | Extensions feu de forêt",
-		"federalpolice_stations": "Federal Police Station | Federal Police Stations",
-		"fire_aviation_count": "Firefighting Plane Station | Firefighting Plane Stations",
 		"fire_stations": "Caserne de pompier | Casernes de pompier",
 		"max_police_stations": "Postes de police max.",
 		"max_rescue_stations": "Postes de secours max.",
 		"police_helicopter_stations": "Poste d'hélicoptère de police | Postes d'hélicoptère de police",
 		"police_stations": "Poste de police | Postes de police",
-		"rescue_stations": "Ambulance Station | Ambulance Stations",
-		"title": "Condition | Conditions"
+		"rescue_helicopter_stations": "Base d'hélicoptère de secour | Bases d'hélicoptère de secours",
+		"rescue_stations": "Poste de secour | Postes de secours",
+		"title": "Condition | Conditions",
+		"wasserrettung": "Unité nautique"
 	},
 	"prisoners": {
 		"max_possible_prisoners": "Prisonniers max.",
 		"title": "Prisonnier | {n} Prisonnier | {n} Prisonniers"
 	},
 	"requirements": {
-		"water_needed": "Replissage en eau (galons)"
 	},
 	"vehicles": {
 		"captions": {
 			"ambulances": "Ambulance | Ambulances",
 			"arff": "ARFF",
-			"battalion_chief_vehicles": "Battalion Chief Vehicle | Battalion Chief Vehicles",
+			"battalion_chief_vehicles": "Chefs de groupe",
 			"boats": "Bateau | Bateaux",
 			"firetrucks": "Fourgon d'incendie | Fourgons d'incendie",
-			"hazmat_vehicles": "VIRT | VIRT",
+			"hazmat_vehicles": "véhicule risques technologiques | véhicule risques technologiques",
 			"heavy_rescue_vehicles": "Véhicule de secours routier | Véhicules de secours routier",
 			"helicopter": "Dragon",
 			"k9": "Unité cynophile",
@@ -51,12 +49,13 @@
 			"mobile_command_vehicles": "VPC | VPC",
 			"platform_trucks": "Moyen Elévateur Aérien | Moyens Elévateurs Aériens",
 			"police_cars": "Véhicule de patrouille | Véhicules de patrouille",
-			"police_helicopters": "Choucas | Choucas",
+			"police_helicopters": "soutien aérien FAG",
+			"rth": "Hélicoptères de secours",
 			"sheriff": "Sheriff | Sherrifs",
 			"swat_armored_vehicle": "SWAT Armoured Vehicle | SWAT Armoured Vehicles",
 			"swat_suv": "SWAT SUV | SWAT SUVs",
 			"thw_gkw": "VTU",
-			"water_tankers": "Water Tanker | Water Tankers"
+			"water_tankers": "Camion-citerne | Camions-citernes"
 		},
 		"multifunctionals": {
 			"battalion_chief_vehicles": {

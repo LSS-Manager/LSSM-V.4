@@ -67,7 +67,7 @@ module.exports = {
             [/^camion(s)?-citerne(s)?$/]: [6],
             [/^véhicule(s)? risque(s)? technologique(s)?$/]: [7],
             [/^voiture de patrouille$/]: [8],
-            [/^Dragon(s)?$/]: [9],
+            [/^Hélicoptères de secours?$/]: [9],
             [/^Véhicule d'Assistance Respiratoire$/]: [10],
             [/^véhicule(s)? poste de commandement$/]: [11],
             [/^VGRIMP$/]: [14],
