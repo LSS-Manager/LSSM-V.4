@@ -1,0 +1,10 @@
+{
+	"description": "Namísto původního času zobrazí v chatu spolu s časem i datum.",
+	"name": "Datum v chatu",
+	"settings": {
+		"format": {
+			"description": "Zde můžete zvolit formát datumu. Nápovědu naleznete <a class=\"lightbox-open\" href=\"{wiki}/modules/clock.html#configuration\">zde</a>.",
+			"title": "Formát datumu a času"
+		}
+	}
+}

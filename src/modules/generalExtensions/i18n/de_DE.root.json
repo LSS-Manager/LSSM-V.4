@@ -26,6 +26,10 @@
 			"description": "Zentriere Karte auf Positionen, auf die vorher zentriert wurde. – Funktioniert aktuell nur beim Kartentyp \"OpenStreetMap\"",
 			"title": "Kartensprünge speichern"
 		},
+		"ownMapMarkers": {
+			"description": "Speichere dir eigene Punkte auf der Karte ab, damit du sie schnell und mittels eines einzelnen Klicks verfügbar hast!",
+			"title": "Lesezeichen für die Karte"
+		},
 		"saveLastBuildingType": {
 			"description": "Speichert im \"Gebäude Bauen\"-Menü, welchen Gebäude-Typ du zuletzt ausgewählt hattest und wählt diesen automatisch aus.",
 			"title": "Gebäude-Typ merken"
