@@ -1,10 +1,10 @@
 {
-	"description": "",
-	"name": "",
+	"description": "Voegt een aantal nuttige verbeteringen in de chat toe.",
+	"name": "Chat verbeteringen",
 	"settings": {
 		"chatTime": {
-			"description": "",
-			"title": ""
+			"description": "Verandert de tijdsnotatie in de chat. Je kan het formaat zelf aanpassen.",
+			"title": "Tijdnotatie in chat aanpassen"
 		},
 		"chatTimeFormat": {
 			"description": "Hier kunt u het formaat kiezen van uw keuze. Hulp kunt u <a class=\"lightbox-open\" href=\"{wiki}/modules/clock.html#configuratie\">hier</a> vinden.",

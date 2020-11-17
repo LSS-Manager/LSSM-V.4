@@ -9,6 +9,6 @@ export default (() => ({
     chatTimeFormat: <Text>{
         type: 'text',
         default: 'DD.MM LTS',
-        dependsOn: '.betterChatTime',
+        dependsOn: '.chatTime',
     },
 })) as ModuleSettingFunction;
