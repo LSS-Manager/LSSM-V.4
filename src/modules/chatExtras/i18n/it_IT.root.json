@@ -1,10 +1,10 @@
 {
-	"description": "",
-	"name": "",
+	"description": "Estende la chat con alcune caratteristiche interessanti",
+	"name": "Chat migliorata",
 	"settings": {
 		"chatTime": {
-			"description": "",
-			"title": ""
+			"description": "Adatta il timestamp al formato che hai impostato!",
+			"title": "Formato timestamp proprio"
 		},
 		"chatTimeFormat": {
 			"description": "Qui puoi scegliere il formato che preferisci. Puoi trovare aiuto <a class=\"lightbox-open\" href=\"{wiki}/modules/clock.html#configuration\">here</a>.",
