@@ -635,7 +635,7 @@ export default {
             coins: 25,
             credits: 13000,
             minPersonnel: 1,
-            maxPersonnel: 3,
+            maxPersonnel: 2,
             icon: 'bus-alt',
         },
         53: {

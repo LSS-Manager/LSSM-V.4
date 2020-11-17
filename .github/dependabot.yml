@@ -5,10 +5,10 @@ updates:
     schedule:
       interval: "daily"
     assignees:
-      - "KBOE2"
+      - "jxn-30"
     commit-message:
         prefix: "⬆️"
         include: "scope"
     reviewers:
-      - "KBOE2"
+      - "jxn-30"
     target-branch: "dev"

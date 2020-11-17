@@ -26,6 +26,18 @@
 			"description": "Zentriere Karte auf Positionen, auf die vorher zentriert wurde. – Funktioniert aktuell nur beim Kartentyp \"OpenStreetMap\"",
 			"title": "Kartensprünge speichern"
 		},
+		"ownMapMarkers": {
+			"description": "Speichere dir eigene Punkte auf der Karte ab, damit du sie schnell und mittels eines einzelnen Klicks verfügbar hast!",
+			"title": "Lesezeichen für die Karte"
+		},
+		"saveLastBuildingType": {
+			"description": "Speichert im \"Gebäude Bauen\"-Menü, welchen Gebäude-Typ du zuletzt ausgewählt hattest und wählt diesen automatisch aus.",
+			"title": "Gebäude-Typ merken"
+		},
+		"saveLastDispatchCenter": {
+			"description": "Speichert im \"Gebäude Bauen\"-Menü, welche Leitstelle du zuletzt ausgewählt hattest und wählt diese automatisch aus.",
+			"title": "Leitstelle merken"
+		},
 		"showImg": {
 			"description": "Versuchen, eine Bildvorschau zu generieren. Funktioniert nur in Kombination mit \"Links anklickbar machen\"!",
 			"title": "Bildvorschau aktivieren"

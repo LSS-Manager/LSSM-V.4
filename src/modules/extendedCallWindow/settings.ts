@@ -44,7 +44,7 @@ export default (async (_: string, LSSM: Vue, $m: $m) => {
     const missionNames = [] as string[];
     missions.forEach(({ id, name }) => {
         missionIds.push(id.toString());
-        missionNames.push(name);
+        missionNames.push(`${id}: ${name}`);
     });
 
     return {
@@ -75,6 +75,11 @@ export default (async (_: string, LSSM: Vue, $m: $m) => {
         arrCounter: <Toggle>{
             type: 'toggle',
             default: false,
+        },
+        arrCounterAsBadge: <Toggle>{
+            type: 'toggle',
+            default: false,
+            dependsOn: '.arrCounter',
         },
         arrClickHighlight: <Toggle>{
             type: 'toggle',

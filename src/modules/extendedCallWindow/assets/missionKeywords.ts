@@ -25,6 +25,7 @@ export default (
         textNode.textContent = text;
         textNode.style.background = 'inherit';
         textNode.style.backgroundClip = 'text';
+        textNode.style.webkitBackgroundClip = 'text';
         textNode.style.color = 'transparent';
         textNode.style.filter = 'invert(1) grayscale(1) contrast(9)';
         label.appendChild(textNode);

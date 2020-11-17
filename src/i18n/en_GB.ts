@@ -33,6 +33,13 @@ const modules = {
             total: 'All settings',
             module: 'Only from this module',
         },
+        resetWarningSetting: {
+            title: 'Reset settings',
+            text:
+                'Do you really want to reset this one setting <b>{setting}</b> of the module <b>{module}</b> to its default value?',
+            close: 'Cancel',
+            reset: 'Reset',
+        },
         closeWarning: {
             title: 'Unsaved changes',
             text:
