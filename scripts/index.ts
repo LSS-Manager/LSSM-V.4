@@ -30,7 +30,7 @@ const scriptHandlers = {
         this.sort();
         console.log(
             execSync(
-                'eslint ./docs/.vuepress/ ./static/ ./prebuild/ ./build/ ./src/ ./scripts/ ./typings/ --ext .ts,.vue -f table --no-error-on-unmatched-pattern --fix'
+                'eslint ./docs/.vuepress/ ./static/ ./prebuild/ ./build/ ./src/ ./scripts/ ./typings/ --ext .js,.ts,.vue -f table --no-error-on-unmatched-pattern --fix'
             ).toString()
         );
     },
