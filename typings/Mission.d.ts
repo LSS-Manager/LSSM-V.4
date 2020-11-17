@@ -7,6 +7,10 @@ interface Additional {
     followup_missions_names?: {
         [id: number]: string;
     };
+    subsequent_missions_ids?: number[];
+    subsequent_missions_names?: {
+        [id: number]: string;
+    };
     allow_rw_instead_of_lf?: boolean;
     only_alliance_mission?: boolean;
     max_possible_prisoners?: number;
@@ -35,6 +39,7 @@ interface Additional {
     patient_allow_first_responder_chance?: number;
     patient_uk_code_possible?: string[]; // en_GB only
     patient_us_code_possible?: string[]; // en_US only
+    patient_it_code_possible?: string[]; // it_IT only
 
     // General:
     [key: string]:
