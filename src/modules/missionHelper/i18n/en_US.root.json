@@ -20,10 +20,6 @@
 			"description": "Lists possible spread of this mission.",
 			"title": "Spreads"
 		},
-		"subsequent": {
-			"description": "Lists possible Subsequent missions on succes.",
-			"title": "Subsequent mission"
-		},
 		"followup": {
 			"description": "Lists possible follow-up uses for this mission.",
 			"title": "Follow-up missions"
@@ -117,6 +113,10 @@
 				"description": "Shows the heading \"Prisoners\" above the details about possible prisoners.",
 				"title": "Prisoners (Title)"
 			}
+		},
+		"subsequent": {
+			"description": "Lists possible Subsequent missions on succes.",
+			"title": "Subsequent mission"
 		},
 		"title": {
 			"description": "Shows the mission name, e.g. \"Trashcan fire\" as title.",

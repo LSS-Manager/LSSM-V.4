@@ -47,7 +47,6 @@
 			"heavy_rescue_vehicles": "Véhicule de secours routier | Véhicules de secours routier",
 			"helicopter": "Dragon",
 			"k9": "Unité cynophile",
-			"thw_gkw": "VTU",
 			"mobile_air_vehicles": "VAR | VAR",
 			"mobile_command_vehicles": "VPC | VPC",
 			"platform_trucks": "Moyen Elévateur Aérien | Moyens Elévateurs Aériens",
@@ -56,6 +55,7 @@
 			"sheriff": "Sheriff | Sherrifs",
 			"swat_armored_vehicle": "SWAT Armoured Vehicle | SWAT Armoured Vehicles",
 			"swat_suv": "SWAT SUV | SWAT SUVs",
+			"thw_gkw": "VTU",
 			"water_tankers": "Water Tanker | Water Tankers"
 		},
 		"multifunctionals": {

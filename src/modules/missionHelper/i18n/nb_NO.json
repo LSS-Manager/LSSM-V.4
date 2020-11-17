@@ -44,6 +44,7 @@
 			"battalion_chief_vehicles": "Innsatsleder brann | Innsatsleder brann",
 			"boats": "Båt | Båter",
 			"brush_truck": "Skogbrannbil | Skogbrannbil",
+			"diver_car": "Dykkerbil | Dykkerbiler",
 			"fbi": "FBI Unit | FBI Units",
 			"fbi_bomb": "FBI Bomb Technician Vehicle | FBI Bomb Technician Vehicles",
 			"fbi_drone": "FBI Surveillance Drone | FBI Surveillance Drones",
@@ -65,9 +66,8 @@
 			"sheriff": "Utrykningspolitibil | Utrykningspolitibiler",
 			"swat_armored_vehicle": "Delta kjøretøy | Delta kjøretøy",
 			"swat_suv": "Panstret kjøretøy | Pansdrede kjøretøy",
-			"water_tankers": "Tankbil | Tankbiler",
 			"traffic_car": "Utrykningspolitibil | Utrykningspolitibiler",
-			"diver_car": "Dykkerbil | Dykkerbiler"
+			"water_tankers": "Tankbil | Tankbiler"
 		},
 		"multifunctionals": {
 			"battalion_chief_vehicles": {
