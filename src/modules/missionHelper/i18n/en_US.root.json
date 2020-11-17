@@ -17,11 +17,14 @@
 			"title": "Credits"
 		},
 		"expansions": {
-			"description": "Lists possible spread of this application.",
+			"description": "Lists possible spread of this mission.",
 			"title": "Spreads"
 		},
+		"subsequent": {
+			"description": "Lists possible Subsequent missions on succes."
+		},
 		"followup": {
-			"description": "Lists possible follow-up uses for this application.",
+			"description": "Lists possible follow-up uses for this mission.",
 			"title": "Follow-up missions"
 		},
 		"generatedBy": {
