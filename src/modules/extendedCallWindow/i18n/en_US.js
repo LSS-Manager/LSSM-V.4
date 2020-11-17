@@ -96,6 +96,7 @@ module.exports = {
             [/^K-9 Unit(s)?$/]: [19],
             [/^Large Fireboat(s)?$/]: [24],
             [/^Large Rescue boat(s)?$/]: [25],
+            [/^Light boat(s)?$/]: [25],
             [/^Wildland fire engine(s)?$/]: [30, 31, 32, 38, 39, 40],
             [/^Fire Aviation(s)?$/]: [35, 36, 37],
             [/^FBI Unit(s)?$/]: [42],

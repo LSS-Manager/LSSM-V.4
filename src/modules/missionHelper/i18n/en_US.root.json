@@ -21,7 +21,8 @@
 			"title": "Spreads"
 		},
 		"subsequent": {
-			"description": "Lists possible Subsequent missions on succes."
+			"description": "Lists possible Subsequent missions on succes.",
+			"title": "Subsequent mission"
 		},
 		"followup": {
 			"description": "Lists possible follow-up uses for this mission.",

@@ -29,9 +29,16 @@ const modules = {
             title: 'Resetta i cambiamenti',
             text:
                 'Vuoi davvero ripristinare le impostazioni ai valori predefiniti? Questo non può essere annullato!',
-            close: 'Cancel',
+            close: 'Annulla',
             total: 'All settings',
             module: 'Solo per questo modulo',
+        },
+        resetWarningSetting: {
+            title: 'Reset impostazioni',
+            text:
+                'Volete davvero ripristinare questa impostazione <b>{setting}</b> del modulo <b>{modul}</b> al suo valore di default?',
+            close: 'Annulla',
+            reset: 'Resetta',
         },
         closeWarning: {
             title: 'Cambiamenti non salvati',

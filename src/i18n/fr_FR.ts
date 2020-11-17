@@ -33,6 +33,13 @@ const modules = {
             total: 'Tous les paramètres',
             module: 'Seulement pour ce module',
         },
+        resetWarningSetting: {
+            title: 'Réinitialisation des paramètres',
+            text:
+                'Voulez-vous vraiment remettre ce paramètre <b>{setting}</b> du module <b>{module}</b> à sa valeur par défaut ?',
+            close: 'Annuler',
+            reset: 'Réinitialiser',
+        },
         closeWarning: {
             title: 'Changements non sauvegardés',
             text:
@@ -644,7 +651,7 @@ export default {
     },
     buildingCategories: {
         Pompiers: {
-            buildings: [0, 18],
+            buildings: [0, 1, 18],
             color: '#ff2d2d',
         },
         Ambulances: {
@@ -656,7 +663,7 @@ export default {
             color: '#00ac00',
         },
         Autre: {
-            buildings: [1, 7, 14],
+            buildings: [7, 14],
             color: '#02a18c',
         },
     },

@@ -32,6 +32,13 @@ const modules = {
             total: 'All settings',
             module: 'Only from this module',
         },
+        resetWarningSetting: {
+            title: 'Reset settings',
+            text:
+                'Do you really want to reset this one setting <b>{setting}</b> of the module <b>{module}</b> to its default value?',
+            close: 'Cancel',
+            reset: 'Reset',
+        },
         closeWarning: {
             title: 'Unsaved changes',
             text:
@@ -300,7 +307,7 @@ export default {
                 'The MCU can be alarmed in two different modes:<br>1. for lightly injured persons who do not need an emergency physician. Then 7 patients can be treated and removed simultaneously in the MCU.<br>2.For severely injured persons who need an emergency physician. Then 3 patients can be needled simultaneously in the MCU.<br>You can buy 1 Mass Casualty Vehicle for every 20 ambulance stations (respectively 15 with premium account).',
         },
         21: {
-            caption: 'Heavy Rescue + Boat',
+            caption: 'Heavy Rescue + Light Boat',
             color: '#882222',
             coins: 25,
             credits: 19_000,
@@ -313,7 +320,7 @@ export default {
                 'Combines the Heavy Rescue Vehicle/Utility Vehicle with an integrated boat.<br> No need for a boat trailer.',
         },
         22: {
-            caption: 'Boat Trailer',
+            caption: 'Light Boat Trailer',
             color: '#772222',
             coins: 12,
             credits: 6_000,

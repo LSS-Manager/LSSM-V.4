@@ -59,7 +59,7 @@ module.exports = {
         total: 'Manquant',
         selected: 'Séléctionné',
         vehiclesByRequirement: {
-            [/^Fourgon(s)? d’incendie$/]: [0, 1, 12, 13],
+            [/^fourgon(s)? d’incendie$/]: [0, 1, 12, 13],
             [/^Moyen(s)? Elévateur(s)? Aérien(s)?$/]: [2, 15],
             [/^chef(s)? de groupe$/]: [3],
             [/^Véhicule(s)? de secours routier$/]: [4],
