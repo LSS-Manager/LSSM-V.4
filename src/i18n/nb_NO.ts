@@ -35,7 +35,7 @@ const modules = {
         resetWarningSetting: {
             title: 'Tilbakestill innstillinger',
             text:
-                'Vil du virkelig tilbakestille denne innstillingen <b> {setting} </b> for modulen <b> {module} </b> til standardverdien?',
+                'Vil du virkelig tilbakestille denne innstillingen <b>{setting}</b> for modulen <b>{module}</b> til standardverdien?',
             close: 'Avbryt',
             reset: 'Nullstille',
         },

@@ -36,7 +36,7 @@ const modules = {
         resetWarningSetting: {
             title: 'Resetovat nastavení',
             text:
-                'Opravdu chcete resetovat toto jedno nastavení <b> {setting} </b> modulu <b> {module} </b> na výchozí hodnotu?',
+                'Opravdu chcete resetovat toto jedno nastavení <b>{setting}</b> modulu <b>{module}</b> na výchozí hodnotu?',
             close: 'zrušení',
             reset: 'Resetovat',
         },
