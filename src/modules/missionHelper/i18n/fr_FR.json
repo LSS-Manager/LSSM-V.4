@@ -32,8 +32,7 @@
 		"max_possible_prisoners": "Prisonniers max.",
 		"title": "Prisonnier | {n} Prisonnier | {n} Prisonniers"
 	},
-	"requirements": {
-	},
+	"requirements": {},
 	"vehicles": {
 		"captions": {
 			"ambulances": "Ambulance | Ambulances",
