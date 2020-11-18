@@ -1270,6 +1270,16 @@ export default {
         7: 3,
         9: 9,
     },
+    fmsTexts: {
+        1: 'Uitgerukt',
+        2: 'Ter plaatse',
+        3: 'Transport patiënt/arrestant',
+        4: 'Beschikbaar',
+        5: 'Op post',
+        6: 'Buiten dienst',
+        7: 'Aanvraag spraakcontact',
+        9: 'Wachten op ophalen',
+    },
     buildingIcons: [
         'fire',
         'rss',
