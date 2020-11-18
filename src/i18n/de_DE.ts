@@ -2070,6 +2070,16 @@ export default {
         7: 7,
         9: 9,
     },
+    fmsTexts: {
+        1: 'Einsatzbereit über Funk',
+        2: 'Einsatzbereit auf Wache',
+        3: 'Auf Anfahrt',
+        4: 'Am Einsatzort',
+        5: 'Sprechwunsch',
+        6: 'Nicht einsatzbereit',
+        7: 'Transportfahrt',
+        9: 'Wartet auf Abholung',
+    },
     buildingIcons: [
         'fire',
         'graduation-cap',
