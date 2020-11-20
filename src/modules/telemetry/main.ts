@@ -112,6 +112,17 @@ export default (LSSM: Vue): void => {
                     options: {},
                     buttons: [
                         {
+                            title: $m('info.decline'),
+                            handler() {
+                                LSSM.$store
+                                    .dispatch('storage/set', {
+                                        key: NOTE_STORAGE_KEY,
+                                        value: 'declined',
+                                    } as StorageSet)
+                                    .then(() => LSSM.$modal.hide('dialog'));
+                            },
+                        },
+                        {
                             title: $m('info.close'),
                             handler() {
                                 LSSM.$store
@@ -128,7 +139,7 @@ export default (LSSM: Vue): void => {
                         },
                     ],
                 });
-            } else {
+            } else if (isConfirmed !== 'declined') {
                 await sendStats();
             }
         });
