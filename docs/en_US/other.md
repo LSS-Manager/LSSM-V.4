@@ -64,4 +64,4 @@ Thank you also for suggestions that keep coming in. The development of LSSM is s
 ### To every single user
 Each user always gives us the motivation to keep going and to expand and improve LSSM more and more.
 
-[license]: https://creativecommons.org/licenses/by-nc-sa/4.0/deed.de
+[license]: https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en

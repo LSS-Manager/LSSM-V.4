@@ -9,7 +9,7 @@ sidebarDepth: 2
 on this page we would like to give you other information about the LSSM.
 
 ## Lisens
-[! [] (https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.eu.svg)] [license]
+[![](https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.eu.svg)][license]
 
 
 LSS Manager er lisensert under [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)][license].
@@ -64,4 +64,4 @@ Tenk deg hvor lenge en feil i LSSM ville vare hvis ingen rapporterte det - vi vi
 ### Hver enkelt bruker
 Hver bruker gir oss alltid motivasjonen til å fortsette og utvide og forbedre LSSM mer og mer.
 
-[license]: https://creativecommons.org/licenses/by-nc-sa/4.0/deed.de
+[license]: https://creativecommons.org/licenses/by-nc-sa/4.0/deed.no

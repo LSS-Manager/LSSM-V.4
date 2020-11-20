@@ -64,4 +64,4 @@ Immaginate per quanto tempo un problema in LSSM potrebbe durare se nessuno lo se
 ### Ogni singolo utente
 Ogni utente ci dà sempre la motivazione per andare avanti ed espandere e migliorare LSSM sempre di più.
 
-[license]: https://creativecommons.org/licenses/by-nc-sa/4.0/deed.de
+[license]: https://creativecommons.org/licenses/by-nc-sa/4.0/deed.it
