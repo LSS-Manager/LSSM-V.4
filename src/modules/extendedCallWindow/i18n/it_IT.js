@@ -65,7 +65,7 @@ module.exports = {
         vehiclesByRequirement: {
             [/^APS\/ABP$/]: [0, 9],
             [/^Autogrù$/]: [12],
-            [/^Autoscale?$/]: [1],
+            [/^Autoscala?$/]: [1],
             [/^Funzionari(o)?$/]: [2, 11],
             [/^Polisoccorso?$/]: [3, 9, 12],
             [/^Carro aria$/]: [10],
