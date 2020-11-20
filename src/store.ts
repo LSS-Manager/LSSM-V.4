@@ -155,10 +155,10 @@ export default (Vue: VueConstructor): Store<RootState> => {
                 return res;
             },
             wiki: (state: RootState): string =>
-                `${config.server}docs/${state.lang}`,
+                `${config.server}docs/${state.lang}/`,
             moduleWiki: (_, getters: GetterTree<RootState, RootState>) => (
                 moduleId: keyof Modules
-            ): string => `${getters.wiki}/modules/${moduleId}.html`,
+            ): string => `${getters.wiki}modules/${moduleId}.html`,
             appModules: (state: RootState) =>
                 Object.fromEntries(
                     Object.entries(state.modules).filter(

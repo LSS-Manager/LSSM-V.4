@@ -30,6 +30,11 @@
 			"description": "Module \"Uitgebreide gebouwweergave\": hoeveel gebouwen er links en rechts zijn, evenals snelle wijziging van de toewijzing van het meldkamer. <br> Algemene verbeteringen: Emoji-Picker. <br> Zie ook de <a href=\"https://github.com/LSS-Manager/LSSM-V.4/releases/tag/v.4.0.5%2B20200921.1829\" class=\"lightbox-open\">Release op GitHub</a>.",
 			"title": "Nieuwe features",
 			"version": "4.0.5+20200921.1829"
+		},
+		{
+			"description": "De release!\n Volledige V4 op dit moment en sinds het begin van de Beta: Kaart bladwijzers, Weergave van personeel via korte gebouwinformatie, blijven in de bouwmodus, inzetvoorstellen-teller als badge, en uiteraard verschillende bugfixes dankzij de Beta testers! <br>Zie ook de<a href=\"https://github.com/LSS-Manager/LSSM-V.4/releases/tag/v.4.1.0 \" class=\"lightbox-open\">release op GitHub</a>.",
+			"title": "Stable Release",
+			"version": "4.1.0"
 		}
 	]
 }
