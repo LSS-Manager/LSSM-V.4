@@ -30,7 +30,7 @@
 		"version": "4.14.165"
 	},
 	"@types/node": {
-		"version": "14.14.7"
+		"version": "14.14.9"
 	},
 	"@types/speed-measure-webpack-plugin": {
 		"version": "1.3.0"
@@ -45,10 +45,10 @@
 		"version": "1.15.3"
 	},
 	"@typescript-eslint/eslint-plugin": {
-		"version": "4.8.0"
+		"version": "4.8.1"
 	},
 	"@typescript-eslint/parser": {
-		"version": "4.8.0"
+		"version": "4.8.1"
 	},
 	"@vuepress/plugin-active-header-links": {
 		"icon": "https://vuepress.vuejs.org/hero.png",
@@ -152,7 +152,7 @@
 	"terser": {
 		"icon": "https://terser.org/img/terser-square-logo.png",
 		"url": "https://terser.org",
-		"version": "5.4.0"
+		"version": "5.5.0"
 	},
 	"ts-loader": {
 		"url": "https://github.com/TypeStrong/ts-loader",
@@ -160,7 +160,7 @@
 	},
 	"typescript": {
 		"url": "https://www.typescriptlang.org/",
-		"version": "4.0.5"
+		"version": "4.1.2"
 	},
 	"ua-parser-js": {
 		"icon": "https://raw.githubusercontent.com/faisalman/ua-parser-js/gh-pages/images/logo.png",
@@ -179,7 +179,7 @@
 	"vue-i18n": {
 		"icon": "https://kazupon.github.io/vue-i18n/vue-i18n-logo.png",
 		"url": "https://github.com/kazupon/vue-i18n#readme",
-		"version": "8.22.1"
+		"version": "8.22.2"
 	},
 	"vue-js-modal": {
 		"url": "http://vue-js-modal.yev.io/",
