@@ -13,7 +13,8 @@
 	},
 	"info": {
 		"close": "Toon deze melding niet overnieuw",
-		"text": "De LSS Manager verzamelt metadata zoals beschreven in de <a href='{wiki}/metadata.html' class='lightbox-open'>Wiki</a>. Tijdens de ontwikkelingsfase kan het verzamelen niet worden gestopt!",
+		"decline": "Sta het verzamelen van metadata niet toe",
+		"text": "De LSS Manager verzamelt metadata zoals beschreven in de <a href='{wiki}/metadata.html' class='lightbox-open'>Wiki</a>.",
 		"title": "Informatie over het verzamelen van metadata"
 	},
 	"name": "Telemetrie"
