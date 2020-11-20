@@ -61,7 +61,7 @@ export default Vue.extend<
     components: {},
     data() {
         return {
-            id: this.$store.getters.nodeAttribute('app'),
+            id: this.$store.getters.nodeAttribute('app', true),
         };
     },
     computed: {

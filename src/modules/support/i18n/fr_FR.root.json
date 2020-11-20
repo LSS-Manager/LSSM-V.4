@@ -1,0 +1,7 @@
+{
+	"empty": "Ce chat est vide. Soit parce que vous n'avez écrit aucun message au support, soit que tous vos problèmes ont été résolus. Dans le second cas, vos messages sont toujours sauvegardés et peuvent être réaffichés quand vous écrirez au support. Cordialement, votre équipe LSS Manager !",
+	"input": "Votre message à l'équipe LSS Manager",
+	"name": "LSSM-Support",
+	"note": "Note: Ceci <strong>n'est pas</strong> le support du jeu ! Seulement de LSS Manager !",
+	"send": "Envoyer"
+}

@@ -1,0 +1,30 @@
+{
+	"enhancedPersonnelAssignment": {
+		"toggleFittingPersonnel": "Cacher les employés sans la formation demandée"
+	},
+	"expansions": {
+		"notBuild": "Pas encore construit"
+	},
+	"fastDispatchChooser": {
+		"noDispatch": "Sans CTA"
+	},
+	"personnelDemands": {
+		"additional": "Les valeurs entre crochets excluent les véhicules en status 6.",
+		"demand": "Employé requis"
+	},
+	"schoolingSummary": {
+		"all": "Tout combiné",
+		"amount": "Montant",
+		"bound": "lié",
+		"each": "Chaque formation",
+		"max": "maximum requis actuellement",
+		"min": "minimum requis actuellement",
+		"schooling": "Formation",
+		"title": "Vue d'ensemble des employés"
+	},
+	"vehiclePersonnel": {
+		"vehiclesPersonnelAssigned": "assigné",
+		"vehiclesPersonnelCurrent": "actuellement",
+		"vehiclesPersonnelMax": "max"
+	}
+}

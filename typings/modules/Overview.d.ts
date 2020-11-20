@@ -3,8 +3,15 @@ import { InternalBuilding, ResolvedBuildingCategory } from '../Building';
 import { InternalVehicle, ResolvedVehicleCategory } from 'typings/Vehicle';
 import { Schooling } from 'typings/Schooling';
 
+interface ResolvedSchooling extends Pick<Schooling, 'caption' | 'duration'> {
+    required_for: string[];
+    [key: string]: string | string[];
+}
+
 export interface Overview {
-    vehicles: InternalVehicle[];
+    vehicles: {
+        [id: number]: InternalVehicle;
+    };
     vehicleCategories: {
         [name: string]: ResolvedVehicleCategory;
     };
@@ -22,7 +29,7 @@ export interface Overview {
             group: number;
         };
     };
-    buildings: InternalBuilding[];
+    buildings: { [id: number]: InternalBuilding };
     buildingCategories: {
         [name: string]: ResolvedBuildingCategory;
     };
@@ -40,7 +47,7 @@ export interface Overview {
         };
     };
     schoolingCategories: {
-        [category: string]: Schooling[];
+        [category: string]: ResolvedSchooling[];
     };
     schoolingsTab: {
         head: {
@@ -62,9 +69,9 @@ export interface OverviewComputed {
     currentBuildings: InternalBuilding[];
     buildingsFiltered: InternalBuilding[];
     buildingsSorted: InternalBuilding[];
-    currentSchoolings: Schooling[];
-    schoolingsFiltered: Schooling[];
-    schoolingsSorted: Schooling[];
+    currentSchoolings: ResolvedSchooling[];
+    schoolingsFiltered: ResolvedSchooling[];
+    schoolingsSorted: ResolvedSchooling[];
     vehicleTypes: InternalVehicle[];
 }
 

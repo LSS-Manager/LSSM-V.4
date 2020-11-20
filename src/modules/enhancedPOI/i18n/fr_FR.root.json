@@ -1,0 +1,21 @@
+{
+	"description": "Facilite le placement des POI grâce à de petites mais très utiles améliorations",
+	"name": "POI améliorés",
+	"settings": {
+		"custom_style": {
+			"title": "Style personnalisé"
+		},
+		"predefined_style": {
+			"brown": "Marron",
+			"custom": "Manuel",
+			"green": "Vert",
+			"red": "Rouge",
+			"title": "Surbrillance du marqueur",
+			"white": "Blanc"
+		},
+		"shown_types": {
+			"description": "Précise ici quels POI doivent être montrés. Vous pouvez aussi changer ce paramètre dans le menu \"Placer POI\".",
+			"title": "Type de POI affichés"
+		}
+	}
+}

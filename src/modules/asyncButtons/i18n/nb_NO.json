@@ -1,0 +1,37 @@
+{
+	"deleteARR": {
+		"deleteModal": {
+			"btnCancel": "Avbryt",
+			"btnConfirm": "Slett",
+			"text": "Vil du slette denne ARR-responsen?",
+			"title": "Slette?"
+		}
+	},
+	"forumPost": {
+		"deleteModal": {
+			"btnCancel": "Avbryt",
+			"btnConfirm": "Slett",
+			"text": "Vil du slette dette innlegget?",
+			"title": "Slette?"
+		}
+	},
+	"memberlistManageUser": {
+		"hide": "Lukk",
+		"kickModal": {
+			"btnCancel": "Avbryt",
+			"btnConfirm": "Spark",
+			"text": "Vil du virkelig sparke brukeren ut?",
+			"title": "Kaste ut?"
+		},
+		"set": "sett",
+		"unset": "fjern"
+	},
+	"memberlistRoles": {
+		"admin": "Allianse Admin",
+		"aufsichtsrat": "Moderator handlingslogg",
+		"coadmin": "Allianse Co-Admin",
+		"finance": "Allianse Økonomi",
+		"schooling": "Allianse Lærer",
+		"sprechwunsch_admin": "Transport Forespørsel - Admin"
+	}
+}

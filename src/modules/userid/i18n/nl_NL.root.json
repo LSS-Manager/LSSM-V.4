@@ -1,0 +1,10 @@
+{
+	"description": "Toont de respectieve gebruikers-ID in het profiel en, indien nodig, uw eigen in de navigatiebalk",
+	"name": "User-ID",
+	"settings": {
+		"navbar": {
+			"description": "",
+			"title": "Toon eigen ID in de navigatiebalk"
+		}
+	}
+}

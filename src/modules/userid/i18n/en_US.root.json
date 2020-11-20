@@ -1,0 +1,9 @@
+{
+	"description": "Shows the respective User-ID in the profile and, if required, also your own in the navigation bar",
+	"name": "User-ID",
+	"settings": {
+		"navbar": {
+			"title": "Show own ID in the navigation bar"
+		}
+	}
+}

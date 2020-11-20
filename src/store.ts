@@ -142,8 +142,18 @@ export default (Vue: VueConstructor): Store<RootState> => {
             },
         } as MutationTree<RootState>,
         getters: {
-            nodeAttribute: (state: RootState) => (attr: string): string =>
-                `${state.prefix}-${attr}`,
+            nodeAttribute: (state: RootState) => (
+                attr: string,
+                id = false
+            ): string => {
+                const res = `${state.prefix}-${attr}`;
+                if (id)
+                    return res
+                        .replace(/ /g, '_')
+                        .replace(/["']/g, '')
+                        .replace(/[^a-zA-Z0-9_\-.]/g, '-');
+                return res;
+            },
             wiki: (state: RootState): string =>
                 `${config.server}docs/${state.lang}`,
             moduleWiki: (_, getters: GetterTree<RootState, RootState>) => (
@@ -183,20 +193,20 @@ export default (Vue: VueConstructor): Store<RootState> => {
                     // @ts-ignore
                     trueBase[trueEvent] = (...args: unknown[]) => {
                         document.dispatchEvent(
-                            new CustomEvent(`lssm_${event}_before`, {
+                            new CustomEvent(`${PREFIX}_${event}_before`, {
                                 detail: args,
                             })
                         );
                         state.hooks[event](...args);
                         document.dispatchEvent(
-                            new CustomEvent(`lssm_${event}_after`, {
+                            new CustomEvent(`${PREFIX}_${event}_after`, {
                                 detail: args,
                             })
                         );
                     };
                 }
                 document.addEventListener(
-                    `lssm_${event}_${post ? 'after' : 'before'}`,
+                    `${PREFIX}_${event}_${post ? 'after' : 'before'}`,
                     event =>
                         callback(...((event as unknown) as LSSMEvent).detail)
                 );
@@ -231,7 +241,7 @@ export default (Vue: VueConstructor): Store<RootState> => {
                     // @ts-ignore
                     trueBase.__proto__[event] = (...args: unknown[]) => {
                         document.dispatchEvent(
-                            new CustomEvent(`lssm_${eventString}_before`, {
+                            new CustomEvent(`${PREFIX}_${eventString}_before`, {
                                 detail: args,
                             })
                         );
@@ -240,14 +250,14 @@ export default (Vue: VueConstructor): Store<RootState> => {
                             ...args
                         );
                         document.dispatchEvent(
-                            new CustomEvent(`lssm_${eventString}_after`, {
+                            new CustomEvent(`${PREFIX}_${eventString}_after`, {
                                 detail: args,
                             })
                         );
                     };
                 }
                 document.addEventListener(
-                    `lssm_${eventString}_${post ? 'after' : 'before'}`,
+                    `${PREFIX}_${eventString}_${post ? 'after' : 'before'}`,
                     event =>
                         callback(...((event as unknown) as LSSMEvent).detail)
                 );
@@ -274,12 +284,12 @@ export default (Vue: VueConstructor): Store<RootState> => {
                 { selectorText, style }: addStyle
             ) {
                 if (!state.styles.inserted) commit('insertStyleSheet');
-                state.styles.styleSheet?.sheet?.addRule(
-                    selectorText,
-                    Object.entries(style)
-                        .map(([rule, value]) => `${rule}: ${value};`)
-                        .join(';\n')
-                );
+                state.styles.styleSheet &&
+                    (state.styles.styleSheet.innerHTML += `${selectorText} {\n${Object.entries(
+                        style
+                    )
+                        .map(([rule, value]) => `\t${rule}: ${value};\n`)
+                        .join('')}\n}`);
             },
             premodifyParams(
                 _,

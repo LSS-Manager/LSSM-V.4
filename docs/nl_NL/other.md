@@ -64,4 +64,4 @@ Stel je voor hoe lang een storing in LSSM zou duren als niemand het zou melden -
 ### Elke gebruiker
 Elke gebruiker geeft ons altijd de motivatie om door te gaan en LSSM steeds meer uit te breiden en te verbeteren.
 
-[Licentie]: https://creativecommons.org/licenses/by-nc-sa/4.0/deed.de
+[Licentie]: https://creativecommons.org/licenses/by-nc-sa/4.0/deed.nl

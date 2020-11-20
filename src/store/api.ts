@@ -16,6 +16,7 @@ const STORAGE_KEYS = {
     buildings: 'aBuildings',
     vehicles: 'aVehicles',
     allianceinfo: 'aAlliance',
+    settings: 'aSettings',
 } as {
     [key in StorageAPIKey]: string;
 };
@@ -23,6 +24,7 @@ const MUTATION_SETTERS = {
     buildings: 'setBuildings',
     vehicles: 'setVehicles',
     allianceinfo: 'setAllianceinfo',
+    settings: 'setSettings',
 } as {
     [key in StorageAPIKey]: string;
 };
@@ -168,6 +170,7 @@ export default {
         missions: [],
         key: null,
         lastUpdates: {},
+        settings: {},
     },
     mutations: {
         setBuildings(
@@ -210,7 +213,17 @@ export default {
             state.allianceinfo = allianceinfo;
         },
         setVehicleStates(state: APIState, states: { [state: number]: number }) {
-            state.vehicleStates = states;
+            const LSSM = window[PREFIX] as Vue;
+            const fmsReal2Show = (LSSM.$t('fmsReal2Show') as unknown) as {
+                [status: number]: number;
+            };
+            const states_show = {} as { [state: number]: number };
+            Object.keys(states).forEach(
+                key =>
+                    (states_show[fmsReal2Show[parseInt(key)]] =
+                        states[parseInt(key)])
+            );
+            state.vehicleStates = states_show;
         },
         setVehicleState(
             state: APIState,
@@ -218,10 +231,10 @@ export default {
         ) {
             const vehicle = state.vehicles.find(v => v.id === id);
             if (!vehicle) return;
-            state.vehicleStates[vehicle.fms_real]--;
-            if (!state.vehicleStates.hasOwnProperty(fms_real))
-                state.vehicleStates[fms_real] = 0;
-            state.vehicleStates[fms_real]++;
+            state.vehicleStates[vehicle.fms_show]--;
+            if (!state.vehicleStates.hasOwnProperty(fms))
+                state.vehicleStates[fms] = 0;
+            state.vehicleStates[fms]++;
             vehicle.caption = caption;
             vehicle.fms_show = fms;
             vehicle.fms_real = fms_real;
@@ -245,6 +258,14 @@ export default {
                 state.currentlyUpdating.findIndex(k => k === key),
                 1
             );
+        },
+        setSettings(
+            state: APIState,
+            { value: settings, lastUpdate }: StorageGetterReturn<'settings'>
+        ) {
+            if (!settings) return;
+            state.lastUpdates.settings = lastUpdate;
+            state.settings = settings;
         },
     },
     getters: {
@@ -471,6 +492,28 @@ export default {
                 );
             }
         },
+        async registerSettings(
+            store: APIActionStoreParams,
+            autoUpdate = false
+        ) {
+            const { value: settings, lastUpdate } = await get_api_values(
+                'settings',
+                store
+            );
+            if (!settings) return;
+            set_api_storage(
+                'settings',
+                { value: settings, lastUpdate, user_id: window.user_id },
+                store
+            );
+            if (autoUpdate && !store.state.autoUpdates.includes('settings')) {
+                store.commit('enableAutoUpdate', 'settings');
+                window.setInterval(
+                    () => store.dispatch('registerSettings'),
+                    API_MIN_UPDATE
+                );
+            }
+        },
         async getMissions(
             { rootState, state, dispatch, commit }: APIActionStoreParams,
             force: boolean
@@ -494,6 +537,7 @@ export default {
                     JSON.stringify(missions)
                 );
                 commit('setMissions', missions);
+                return missions;
             } else {
                 const missions = JSON.parse(
                     sessionStorage.getItem('mission_specs_cache') || '{}'

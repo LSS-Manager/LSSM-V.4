@@ -10,5 +10,5 @@ export interface SelectProps {
 }
 
 export interface SelectComputed {
-    updateValue: string;
+    updateValue: { label: string; value: string };
 }

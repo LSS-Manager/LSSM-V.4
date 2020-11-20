@@ -1,0 +1,147 @@
+{
+	"description": "Montre les informations importantes de la mission dans la fenêtre de mission.",
+	"name": "Missionhelper",
+	"settings": {
+		"chances": {
+			"100": {
+				"description": "Affiche les probabilités à 100%.",
+				"title": "Affiche les probabilités à 100%"
+			},
+			"normal": {
+				"description": "Affiche les chances de réquisition de véhicule.",
+				"title": "Afficher probabilité"
+			}
+		},
+		"credits": {
+			"description": "Affiche les crédits moyens.",
+			"title": "Crédits"
+		},
+		"expansions": {
+			"description": "Affiche une liste des missions à extension.",
+			"title": "Extension"
+		},
+		"followup": {
+			"description": "Lists possible follow-up uses for this application.",
+			"title": "Follow-up missions"
+		},
+		"generatedBy": {
+			"description": "Affiche le type de bâtiment qui a généré cette mission.",
+			"title": "Généré par (type de bâtiment)"
+		},
+		"hide_battalion_chief_vehicles": {
+			"description": "Cache le nombre de VLCG et affiche seulement les VPC.",
+			"title": "Cacher VLCG"
+		},
+		"id": {
+			"description": "Affiche l'ID de la mission à côté de son titre.",
+			"title": "Mission ID"
+		},
+		"k9_only_if_needed": {
+			"description": "Indique si des unités cynophiles sont disponibles (seulement si elles sont requises).",
+			"title": "Unité cynophile dispos"
+		},
+		"multifunctionals": {
+			"battalion_chief_vehicles": {
+				"description": "Soustrait le nombre de VPC au nombre de VLCG. Cache le nombre de VLCG si il est inférieur à zéro.",
+				"title": "VLCG restants"
+			},
+			"heavy_rescue_vehicles": {
+				"description": "Subtracts the number of required firetrucks from the Heavy Rescue and hides firetrucks if the number drops below 0. This function is intended for people who drive a pure Rescue Engine system.",
+				"title": "Heavy Rescue Simple Rate"
+			},
+			"platform_trucks": {
+				"description": "Subtracts the number of firetrucks from the Quints and hides firetrucks if the number drops below 0.",
+				"title": "Quint Simple Rate"
+			}
+		},
+		"optionalAlternatives": {
+			"allow_arff_instead_of_lf": {
+				"description": " Indicates, if instead of a firetruck arrfs are possible on site.",
+				"title": "Show if arrfs are allowed as firetrucks"
+			},
+			"allow_rw_instead_of_lf": {
+				"description": "Indicates, if instead of a firetruck also heavy rescue or rescue engine is possible on site.",
+				"title": "Show Heavy Rescue / rescue engine instead of firetrucks"
+			}
+		},
+		"patient": {
+			"code_possible": {
+				"description": "Shows possible patient codes",
+				"title": "Details of possible patient codes"
+			}
+		},
+		"patients": {
+			"content": {
+				"description": "Affiche des détail sur les patients éventuels.",
+				"title": "Détails sur les patients"
+			},
+			"hideWhenNoNeed": {
+				"description": "Cache les détails sur les patients si il y a plus d'un patient et si les patients n'apparaissent qu'à la fin du traitement de mission.",
+				"title": "Détails sur les patients à la fin"
+			},
+			"live": {
+				"description": "Affiche le nombre de patients actuellement sur la mission en haut des infos Mission Helper.",
+				"title": "Numbre de patients actuels"
+			},
+			"patient_allow_first_responder_chance": {
+				"description": "Shows with how much % any vehicle is sufficient to treat.",
+				"title": "First Responder Probability"
+			},
+			"title": {
+				"description": "Affiche l'en-tête \"Patients\" au dessus des détails pour de possibles patients.",
+				"title": "Patients (Title)"
+			}
+		},
+		"place": {
+			"description": "Affiche les POI requis à côté du titre de la mission.",
+			"title": "POI"
+		},
+		"prerequisites": {
+			"description": "Affiche les conditions de la mission (par exemple : 3 postes de police et 5 casernes de pompier)",
+			"title": "Conditions"
+		},
+		"prisoners": {
+			"content": {
+				"description": "Afficher les détails sur de possibles prisonniers.",
+				"title": "Détail sur les prisonniers"
+			},
+			"live": {
+				"description": "Affiche le nombre de prisonniers actuellement sur la mission en haut des infos Mission Helper.",
+				"title": "Nombre de prisonniers actuels"
+			},
+			"title": {
+				"description": "Affiche l'en-tête \"Prisonniers\" au dessus des détails pour de possibles patients.",
+				"title": "Prisonniers (Title)"
+			}
+		},
+		"title": {
+			"description": "Affiche le nom de la mission en titre, par ex. \"Feu de poubelle\".",
+			"title": "mission name"
+		},
+		"type": {
+			"description": "Shows the type number of the mission next to the title.",
+			"title": "Type number"
+		},
+		"vehicles": {
+			"content": {
+				"description": "Affiche les véhicules requis.",
+				"title": "Vyepéhicule requis"
+			},
+			"patient_additionals": {
+				"description": "If there are currently more than 10 patients on site, EMS-Chief is automatically listed at the beginning of the vehicle requirements.",
+				"title": "Mention EMS-Chief extra"
+			},
+			"sort": {
+				"amount": "Nombre de véhicules requis",
+				"caption": "Nom du prérequis",
+				"description": "Définir l'ordre de tri des véhicules réquis.",
+				"percentage": "Probabilité",
+				"title": "Tri des véhicules requis"
+			},
+			"title": {
+				"description": "Affiche l'en-tête \"Véhicules\" au dessus des véhicules requis.",
+				"title": "Véhicules (Title)"
+			}
+		}
+	}
+}

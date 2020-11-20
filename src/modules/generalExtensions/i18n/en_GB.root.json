@@ -1,0 +1,46 @@
+{
+	"description": "Allows you to activate general improvements such as clickable links throughout the game.",
+	"name": "General improvements",
+	"settings": {
+		"browserTitle": {
+			"description": "Adjusts the title of the browser tab so that it shows what is currently open in the game.",
+			"title": "Title of the browser tab"
+		},
+		"clickableLinks": {
+			"description": "Links that are displayed as plain text (e.g. in chat, forum, messages, etc.) are made clickable. They open automatically in a new tab.",
+			"title": "Make links clickable"
+		},
+		"emojiPicker": {
+			"description": "Shows you emojis for selection when you type : followed by text.",
+			"title": "Emoji picker"
+		},
+		"linkPreviews": {
+			"buildings": "Buildings",
+			"description": "Shows a small info box when you wait with the mouse over a link for a short time. Here you can set for which links the infobox should be activated:",
+			"missions": "Missions",
+			"profile": "User",
+			"title": "Link Preview",
+			"vehicles": "Vehicles"
+		},
+		"mapUndo": {
+			"description": "Center map on positions that were centered before. - Currently only works with map type \"OpenStreetMap\"",
+			"title": "Save map jumps"
+		},
+		"ownMapMarkers": {
+			"description": "Save your own locations on the map to access them with a single click!",
+			"title": "Bookmarks for the map"
+		},
+		"saveLastBuildingType": {
+			"description": "Remembers selected building type when building a new building and auto-selects it for new buildings.",
+			"title": "Remember building type"
+		},
+		"saveLastDispatchCenter": {
+			"description": "Remembers selected dispatch center when building a new building and auto-selects it for new buildings.",
+			"title": "Remember dispatch center"
+		},
+		"showImg": {
+			"description": "Try to generate an image preview. Only works in combination with \"Make links clickable\"!",
+			"title": "Activating the image preview"
+		}
+	}
+}

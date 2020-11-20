@@ -7,12 +7,12 @@ In this case, the module is named `template`. Further explanations below.
 │   ├── main.ts
 │   ├── register.json
 │   ├── i18n
-│   │   ├── de
+│   │   ├── de_DE
 |   │   │   ├── part1.json
 |   │   │   ├── part2.json
 |   |   |   └── index.js
-|   │   ├── de.root.js
-│   │   ├── nl.js
+|   │   ├── de_DE.root.js
+│   │   ├── nl_NL.js
 │   │   ├── en_US.json
 │   │   └── ...
 |   ├── template.vue
@@ -25,9 +25,9 @@ In this case, the module is named `template`. Further explanations below.
 |   |   |   ├── img
 |   |   |   |   └── ...
 |   |   |   └── ...
-|   |   ├── template.de.md
-|   |   ├── template.nl.md
-|   |   ├── template.en_US.md
+|   |   ├── de_DE.md
+|   |   ├── nl_NL.md
+|   |   ├── en_US.md
 |   |   └── ...
 |   └
 ```
@@ -41,7 +41,7 @@ This file contains some basic information on the module:
 The file should inform other developers short but precisely so that they don't have to read the code to understand what the module is about.
 
 ### main.ts
-This is the file requested by the core. Further TS-Files must be located in `assets/ts/`.
+This is the file requested by the core. Further TS-Files must be located in `assets/`.
 
 ### register.json
 This file contains necessary information on the module for the core. This may also be a JS-File returning a JSON-Object. Configuration on this file available in the register-File of this module

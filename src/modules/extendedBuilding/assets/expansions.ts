@@ -17,7 +17,8 @@ export default (LSSM: Vue, MODULE_ID: string, $m: $m): void => {
     dlWrapper.append(existingDl);
     const expansionWrapper = document.createElement('table');
     expansionWrapper.id = LSSM.$store.getters.nodeAttribute(
-        `${MODULE_ID}-expansions-table`
+        `${MODULE_ID}-expansions-table`,
+        true
     );
     const style = document.createElement('style');
     style.textContent = `

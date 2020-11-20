@@ -1,0 +1,21 @@
+{
+	"browsersupport": {
+		"close": "Bericht verbergen",
+		"faqAnchor": "In-welke-browsers-werkt-LSS-Manager",
+		"not": {
+			"text": "Beste LSS-Manager-gebruiker,<br>helaas ondersteunt de LSSM uw huidige browser <b>{name}</b> niet officieel! Dit betekent dat niet gegarandeerd is dat alle functionaliteiten naar behoren werken. U kunt een lijst vinden van de browsers die we ondersteunen in onze <a href='{wiki}/faq.html#{wikiAnchor}' class='lightbox-open'>FAQ</a>.",
+			"title": "Browser wordt niet ondersteund"
+		},
+		"old": {
+			"text": "U lijkt een verouderde browser te gebruiken! Momenteel gebruik je <b>{name} {current}</b>, maar de laatste versie is <b>{name} {latest}</b>! Houd er rekening mee dat de LSS-Manager deze browser alleen vanaf versie  <b>{supported}</b> kan gebruiken. Dit heeft redenen van veiligheid en compatibiliteit. U kunt de nieuwste versie van uw browser <a href='{download}' class='lightbox-open'>hier</a> downloaden.<br>Een actuele lijst met ondersteunde browsers is te vinden in onze <a href='{wiki}/faq.html#{wikiAnchor}' class='lightbox-open'>FAQ</a>.",
+			"title": "Verouderde browser"
+		}
+	},
+	"info": {
+		"close": "Toon deze melding niet overnieuw",
+		"decline": "Sta het verzamelen van metadata niet toe",
+		"text": "De LSS Manager verzamelt metadata zoals beschreven in de <a href='{wiki}/metadata.html' class='lightbox-open'>Wiki</a>.",
+		"title": "Informatie over het verzamelen van metadata"
+	},
+	"name": "Telemetrie"
+}
