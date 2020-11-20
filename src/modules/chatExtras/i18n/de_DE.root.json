@@ -7,7 +7,7 @@
 			"title": "Zeitstempel im Chat anpassen"
 		},
 		"chatTimeFormat": {
-			"description": "Hier kannst du das Format deiner Wahl festlegen. Eine Hilfe hierzu findest du <a class=\"lightbox-open\" href=\"{wiki}/modules/clock.html#konfiguration\">hier</a>.",
+			"description": "Hier kannst du das Format deiner Wahl festlegen. Eine Hilfe hierzu findest du <a class=\"lightbox-open\" href=\"{wiki}modules/clock.html#konfiguration\">hier</a>.",
 			"title": "Format des Zeitstempel des Chats"
 		}
 	}
