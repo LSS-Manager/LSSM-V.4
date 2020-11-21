@@ -13,7 +13,7 @@
 	},
 	"info": {
 		"close": "Non mostrare questa nota nuovamente",
-		"text": "LSS Manager colleziona i metadati come descritto nella <a href='{wiki}metadata.html' class='lightbox-open'>Wiki</a>. Durante la fase di sviluppo, la collezione non può essere fermata!",
+		"text": "LSS Manager colleziona i metadati come descritto nella <a href='{wiki}metadata.html' class='lightbox-open'>Wiki</a>.<br>Puoi sempre revocare il tuo accordo in un secondo momento.",
 		"title": "Informazioni sulla collezione dei metadati"
 	},
 	"name": "Telemetria"

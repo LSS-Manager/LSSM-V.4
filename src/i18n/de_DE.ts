@@ -87,6 +87,10 @@ export default {
             description:
                 'Zeigt in der Navigationsleiste statt dem LSSM-Logo ein einfaches Label an.',
         },
+        allowTelemetry: {
+            "description": "Steuert, ob Der LSS-Manager Daten senden darf, die uns bei der Entwicklung helfen.",
+            "title": "Telemetrie erlauben"
+        },
     },
     vehicles: {
         0: {

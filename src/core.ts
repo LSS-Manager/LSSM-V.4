@@ -69,6 +69,10 @@ if (window.location.pathname === '/') {
                     type: 'toggle',
                     default: false,
                 },
+                allowTelemetry: {
+                    type: 'toggle',
+                    default: true,
+                },
             },
         })
         .then(() => {
@@ -97,7 +101,12 @@ if (window.location.pathname === '/') {
             .then(res => res.json())
     );
     if (window.location.pathname === '/') {
-        telemetry(LSSM);
+        telemetry(LSSM, settingId => {
+            return LSSM.$store.dispatch('settings/getSetting', {
+                moduleId: 'general',
+                settingId,
+            });
+        });
         releasenotes(LSSM);
         // TODO: Load core modules: [support] ← Will be done in a more efficient way than polling
 
