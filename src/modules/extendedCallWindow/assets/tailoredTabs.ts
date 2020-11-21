@@ -3,7 +3,7 @@ import { $m } from 'typings/Module';
 
 export default (
     LSSM: Vue,
-    tabs: { name: string; vehicleTypes: number[] }[],
+    tabs: { name: string; vehicleTypes: (string | number)[] }[],
     stagingMode: boolean,
     $m: $m
 ): void => {
@@ -112,7 +112,7 @@ export default (
         };
     };
     const vehicleTypeMap = {} as {
-        [id: string]: number[];
+        [id: string]: string[];
     };
     tabs.forEach(({ name, vehicleTypes }) => {
         if (!tabList || !allTab || !occupiedTab || !panelWrapper) return;
@@ -191,7 +191,7 @@ export default (
 
         panels[tabId] = tabPane;
         tabBar[tabId] = { tablesorterId: `vehicle_show_table_${tabId}` };
-        vehicleTypeMap[tabId] = vehicleTypes;
+        vehicleTypeMap[tabId] = vehicleTypes.map(v => v.toString());
     });
 
     tabList.addEventListener('click', e => {
@@ -221,7 +221,7 @@ export default (
         )
             .filter(v =>
                 vehicleTypeMap[tab].includes(
-                    parseInt(v.getAttribute('vehicle_type_id') || '-1')
+                    v.getAttribute('vehicle_type_id') ?? ''
                 )
             )
             .map(v => v.parentElement)
