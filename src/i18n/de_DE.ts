@@ -1395,7 +1395,7 @@ export default {
             startVehicles: [],
         },
         9: {
-            caption: 'THW-Ortsverein',
+            caption: 'THW-Ortsverband',
             color: '#000f76',
             coins: 35,
             credits: 200_000,
