@@ -16,11 +16,5 @@
 		"text": "LSS Manager colleziona i metadati come descritto nella <a href='{wiki}metadata.html' class='lightbox-open'>Wiki</a>.<br>Puoi sempre revocare il tuo accordo in un secondo momento.",
 		"title": "Informazioni sulla collezione dei metadati"
 	},
-	"settings": {
-		"allowTelemetry": {
-			"description": "Controlla se LSS-Manager è autorizzato a inviare dati che ci aiutano nello sviluppo di questa estensione.",
-			"title": "Consenti telemetria"
-		}
-	},
 	"name": "Telemetria"
 }

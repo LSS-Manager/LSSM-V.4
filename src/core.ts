@@ -69,6 +69,10 @@ if (window.location.pathname === '/') {
                     type: 'toggle',
                     default: false,
                 },
+                allowTelemetry: {
+                    type: 'toggle',
+                    default: false,
+                },
             },
         })
         .then(() => {
