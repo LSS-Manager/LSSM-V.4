@@ -325,7 +325,7 @@ export default {
     } as GetterTree<APIState, RootState>,
     actions: {
         setVehicleStates({ dispatch, commit }: APIActionStoreParams) {
-            return new Promise(resolve => {
+            return new Promise<void>(resolve => {
                 dispatch('request', { url: 'api/vehicle_states' })
                     .then(res => res.json())
                     .then(states => {
