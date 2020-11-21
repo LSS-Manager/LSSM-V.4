@@ -460,7 +460,7 @@ export default {
                     : Math.floor(buildingsAmountTotal / 25),
         },
         6: {
-            caption: 'Gendarmerie',
+            caption: 'Poste de police',
             color: '#007700',
             coins: 35,
             credits: 100_000,
@@ -598,7 +598,7 @@ export default {
             maxBuildingsFunction: (): number => 2_700,
         },
         19: {
-            caption: 'Police Municipale',
+            caption: 'Poste de police (petit)',
             color: '#116611',
             coins: 25,
             credits: 50_000,
