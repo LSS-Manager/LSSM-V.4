@@ -64,4 +64,4 @@ Imagine how long a fault in LSSM would last if no one reported it - we would cer
 ### Every single user
 Each user always gives us the motivation to keep going and to expand and improve LSSM more and more.
 
-[license]: https://creativecommons.org/licenses/by-nc-sa/4.0/deed.de
+[license]: https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en

@@ -1,0 +1,22 @@
+{
+	"description": "Affiche une horloge configurable sur plusieurs positions.",
+	"name": "Horloge",
+	"settings": {
+		"displayNav": {
+			"description": "L'horloge est placée à gauche du logo.",
+			"title": "Affiche l'horloge dans la barre de navigation"
+		},
+		"displayOverlay": {
+			"description": "L'horloge peut être déplacée et doit être au dessus de tous les éléments.",
+			"title": "Horloge en overlay"
+		},
+		"navFormat": {
+			"description": "Choisissez le format de l'horloge. Pour trouver de l'aide : <a class=\"lightbox-open\" href=\"{wiki}modules/clock.html#konfiguration\">c'est ici</a>.",
+			"title": "Format de l'horloge de la barre de navigation."
+		},
+		"overlayFormat": {
+			"description": "Choisissez le format de l'horloge. Pour trouver de l'aide : <a class=\"lightbox-open\" href=\"{wiki}modules/clock.html#konfiguration\">c'est ici</a>.",
+			"title": "Format de l'horloge en overlay"
+		}
+	}
+}

@@ -18,7 +18,7 @@ export interface LinkPreview {
         x: number;
         y: number;
     };
-    vehicleTypes: InternalVehicle[];
+    vehicleTypes: { [id: number]: InternalVehicle };
     vehicleBuildings: number[];
     cellBuildings: number[];
     cellExtensions: string[];

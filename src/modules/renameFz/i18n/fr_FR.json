@@ -1,0 +1,10 @@
+{
+	"templates": {
+		"selection": "Choisissez un modèle...",
+		"selectionHint": "Créer un nouveau modèle ? Entrez un nom et selectionnez !",
+		"status": {
+			"template": "Attendez la séléction du modèle...",
+			"waiting": "En attente..."
+		}
+	}
+}

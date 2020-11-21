@@ -1,0 +1,28 @@
+{
+	"description": "Empêcher l'actualisation de la page quand vous appuyez sur certains boutons.",
+	"name": "Boutons asynchrones",
+	"settings": {
+		"buildingTax": {
+			"description": "Empêche l'actualisation quand vous changez le taux des cellules ou lits d'hôpitaux.",
+			"title": "Taux des cellules ou lits"
+		},
+		"deleteARR": {
+			"description": "Empêche l'actualisation quand vous supprimez une régulation.",
+			"title": "Suppression de régulation"
+		},
+		"deleteForumPost": {
+			"description": "Empêche l'actualisation quand vous supprimez un message sur le forum.",
+			"title": "Suppression de message sur le forum"
+		},
+		"memberlistManageUser": {
+			"description": "Empêche l'actualisation lors du kick d'un joueur ou l'actualisation de ses droits.",
+			"title": "Droits des membres d'alliance"
+		},
+		"missionPrisoners": {
+			"title": "Prisonniers dans la fenêtre de mission"
+		},
+		"missionReply": {
+			"title": "Transports dans une mission"
+		}
+	}
+}

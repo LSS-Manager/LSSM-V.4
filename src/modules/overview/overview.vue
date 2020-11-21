@@ -203,7 +203,11 @@
                                     v-for="(_, attr) in schoolingsTab.head"
                                     :key="attr"
                                 >
-                                    {{ schooling[attr] }}
+                                    <span
+                                        v-if="attr === 'required_for'"
+                                        v-html="schooling[attr].join(',<br />')"
+                                    ></span>
+                                    <span v-else>{{ schooling[attr] }}</span>
                                 </td>
                             </tr>
                         </enhanced-table>
@@ -223,6 +227,7 @@ import {
     OverviewComputed,
 } from '../../../typings/modules/Overview';
 import {
+    InternalVehicle,
     ResolvedVehicleCategory,
     VehicleCategory,
 } from '../../../typings/Vehicle';
@@ -257,57 +262,101 @@ export default Vue.extend<
         ) as {
             [name: string]: VehicleCategory;
         };
-        const vehicleTypes = Object.values(this.$t('vehicles'));
-        Object.entries(
-            vehicleCategories
-        ).forEach(([category, { vehicles: groups }]) =>
-            Object.entries(groups).forEach(
-                ([group, vehicles]) =>
-                    (vehicleCategories[category].vehicles[
-                        group
-                    ] = Object.values(vehicles as number[]).map(
-                        type => vehicleTypes[type]
-                    ))
-            )
+        const vehicleTypes = this.$t('vehicles') as {
+            [id: number]: InternalVehicle;
+        };
+        const resolvedVehicleCategories = {} as {
+            [name: string]: ResolvedVehicleCategory;
+        };
+        const schoolings = (this.$t('schoolings') as unknown) as {
+            [category: string]: Schooling[];
+        };
+        const resolvedSchoolings = {} as Overview['schoolingCategories'];
+        Object.entries(schoolings).forEach(([school, schoolings]) => {
+            resolvedSchoolings[school] = Object.values(schoolings).map(
+                schooling => ({
+                    ...schooling,
+                    required_for: [] as string[],
+                })
+            );
+        });
+        Object.entries(vehicleCategories).forEach(
+            ([category, { color, vehicles: groups }]) => {
+                resolvedVehicleCategories[category] = { color, vehicles: {} };
+                Object.entries(groups).forEach(
+                    ([group, vehicles]) =>
+                        (resolvedVehicleCategories[category].vehicles[
+                            group
+                        ] = Object.values(vehicles as number[]).map(type => {
+                            const v = vehicleTypes[type];
+                            if (v.schooling) {
+                                const [, school, schooling] = v.schooling.match(
+                                    /^(.*?) - (.*?)$/
+                                ) ?? [null, null, null];
+                                if (school && schooling)
+                                    resolvedSchoolings[school]
+                                        .find(
+                                            ({ caption }) =>
+                                                caption === schooling
+                                        )
+                                        ?.required_for.push(v.caption);
+                            }
+                            return v;
+                        }))
+                );
+            }
         );
         const buildingCategories = cloneDeep(
             this.$t('buildingCategories') as unknown
         ) as {
             [name: string]: BuildingCategory | ResolvedBuildingCategory;
         };
-        const buildingTypes = cloneDeep(
-            Object.values(this.$t('buildings')) as InternalBuilding[]
-        ).map(building => {
-            const extensions = Object.values(building.extensions);
-            const minifiedExtensions = [] as InternalBuilding['extensions'];
-            const multipleExtensions = {} as {
-                [caption: string]: number;
-            };
-            extensions.forEach(extension => {
-                if (!extension) return;
-                const e = minifiedExtensions.find(
-                    e => extension.caption === e.caption
-                );
-                if (e) {
-                    if (!multipleExtensions.hasOwnProperty(e.caption))
-                        multipleExtensions[e.caption] = 1;
-                    multipleExtensions[e.caption]++;
-                } else minifiedExtensions.push(extension);
-            });
-            Object.entries(multipleExtensions).forEach(([caption, amount]) => {
-                const e = minifiedExtensions.find(e => e.caption === caption);
-                if (e)
-                    e.caption = this.$tc(
-                        `modules.overview.extensionTitle`,
-                        amount,
-                        { caption }
+        const buildingTypes = Object.fromEntries(
+            Object.entries(
+                cloneDeep(
+                    this.$t('buildings') as {
+                        [id: number]: InternalBuilding;
+                    }
+                )
+            ).map(([index, building]) => {
+                const extensions = Object.values(building.extensions);
+                const minifiedExtensions = [] as InternalBuilding['extensions'];
+                const multipleExtensions = {} as {
+                    [caption: string]: number;
+                };
+                extensions.forEach(extension => {
+                    if (!extension) return;
+                    const e = minifiedExtensions.find(
+                        e => extension.caption === e.caption
                     );
-            });
-            return {
-                ...building,
-                extensions: minifiedExtensions,
-            };
-        });
+                    if (e) {
+                        if (!multipleExtensions.hasOwnProperty(e.caption))
+                            multipleExtensions[e.caption] = 1;
+                        multipleExtensions[e.caption]++;
+                    } else minifiedExtensions.push(extension);
+                });
+                Object.entries(multipleExtensions).forEach(
+                    ([caption, amount]) => {
+                        const e = minifiedExtensions.find(
+                            e => e.caption === caption
+                        );
+                        if (e)
+                            e.caption = this.$tc(
+                                `modules.overview.extensionTitle`,
+                                amount,
+                                { caption }
+                            );
+                    }
+                );
+                return [
+                    index,
+                    {
+                        ...building,
+                        extensions: minifiedExtensions,
+                    },
+                ];
+            })
+        );
         Object.entries(
             buildingCategories
         ).forEach(([category, { buildings }]) =>
@@ -318,8 +367,8 @@ export default Vue.extend<
             )
         );
         return {
-            vehicles: vehicleTypes,
-            vehicleCategories: (vehicleCategories as unknown) as {
+            vehicles: Object.values(vehicleTypes),
+            vehicleCategories: (resolvedVehicleCategories as unknown) as {
                 [name: string]: ResolvedVehicleCategory;
             },
             vehiclesTab: {
@@ -333,10 +382,15 @@ export default Vue.extend<
                     },
                     cost: { title: this.$m('titles.vehicles.cost') },
                     schooling: { title: this.$m('titles.vehicles.schooling') },
-                    wtank:
-                        this.$store.state.lang === 'de_DE'
-                            ? { title: this.$m('titles.vehicles.wtank') }
-                            : null,
+                    ...(['de_DE', 'en_US', 'pl_PL'].includes(
+                        this.$store.state.lang
+                    )
+                        ? {
+                              wtank: {
+                                  title: this.$m('titles.vehicles.wtank'),
+                              },
+                          }
+                        : null),
                     special: { title: this.$m('titles.vehicles.special') },
                 },
                 search: '',
@@ -347,7 +401,7 @@ export default Vue.extend<
                     group: 0,
                 },
             },
-            buildings: buildingTypes,
+            buildings: Object.values(buildingTypes),
             buildingCategories: (buildingCategories as unknown) as {
                 [name: string]: ResolvedBuildingCategory;
             },
@@ -378,12 +432,13 @@ export default Vue.extend<
                     category: 0,
                 },
             },
-            schoolingCategories: (this.$t('schoolings') as unknown) as {
-                [category: string]: Schooling[];
-            },
+            schoolingCategories: resolvedSchoolings,
             schoolingsTab: {
                 head: {
                     caption: { title: this.$m('titles.schoolings.caption') },
+                    required_for: {
+                        title: this.$m('titles.schoolings.required_for'),
+                    },
                     duration: { title: this.$m('titles.schoolings.duration') },
                 },
                 search: '',

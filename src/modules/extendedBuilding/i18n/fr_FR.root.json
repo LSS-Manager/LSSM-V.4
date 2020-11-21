@@ -1,0 +1,62 @@
+{
+	"description": "Ajoute des fonctions très utiles pour vos bâtiments.",
+	"name": "Vue améliorée des bâtiments",
+	"settings": {
+		"buildingsLeftRight": {
+			"description": "Montre le nombre de bâtiments du même type restant à droite ou à gauche.",
+			"title": "Nombre de bâtiments du même type"
+		},
+		"enhanceVehicleList": {
+			"description": "Améliore le liste des véhicules. Certaines options sont réglables.",
+			"title": "Améliore la liste des véhicules"
+		},
+		"enhancedPersonnelAssignment": {
+			"description": "Permet de cacher les employés sans la formation appropriée.",
+			"title": "Améliore la liste des employés"
+		},
+		"expansions": {
+			"description": "Montre les extensions d'un bâtiment sans avoir à ouvrir l'onglet des extensions.",
+			"title": "Affiche les extensions directement"
+		},
+		"fastDispatchChooser": {
+			"description": "Permet de séléctionner directement un bâtiment dans quel CTA il doit être assigné sans aller dans les paramètres.",
+			"title": "Séléction rapide du CTA"
+		},
+		"fmsSwitch": {
+			"description": "Permet de passer du status 2 au status 6 en cliquant sur le status.",
+			"title": "Changement rapide de status"
+		},
+		"personnelAssignmentBtn": {
+			"description": "Ajoute un bouton pour l'affectation du personnel juste à droite du bouton \"Éditer\". Ne marche pas encore dans les centres de contrôle.",
+			"title": "Bouton d'affectation du personnel"
+		},
+		"personnelDemands": {
+			"description": "Affiche le nombre d'employés requis pour remplir le véhicule au minimum et au maximum.",
+			"title": "Employés requis"
+		},
+		"schoolingSummary": {
+			"description": "Affiche dans l'en-tête de la vue bâtiment combien d'employés sont formés et pour quelles formations.",
+			"title": "Sommaire des employés"
+		},
+		"vehicleTypes": {
+			"description": "Affiche le type de véhicule (et aussi sa classe propre) dans une colonne séparée.",
+			"title": "Type de véhicule"
+		},
+		"vehiclesPersonnelAssigned": {
+			"description": "Affiche le nombre d'employés affectés à un véhicule.",
+			"title": "Employés affectés"
+		},
+		"vehiclesPersonnelColorized": {
+			"description": "Colore en rouge le nombre d'employés affectés si c'est moins que le maximum possible, en vert quand le maximum est atteint.",
+			"title": "Code couleur pour l'affectation"
+		},
+		"vehiclesPersonnelCurrent": {
+			"description": "Affiche le nombre de personnes actuellement dans le véhicule.",
+			"title": "Affectation actuelle"
+		},
+		"vehiclesPersonnelMax": {
+			"description": "Affiche le nombre maximum d'employés qui peuvent entrer dans le véhicule.",
+			"title": "Affectation maximum"
+		}
+	}
+}

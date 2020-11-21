@@ -15,10 +15,9 @@ export default (LSSM: Vue, yellowBorder: number, redBorder: boolean): void => {
         '#mission_general_info > small'
     );
     if (!general_info) return;
-    general_info.textContent += ' | ';
 
     const generationDateNode = document.createElement('span');
-    generationDateNode.innerHTML = `<i class="fas fa-history"></i>&nbsp;${generationDate.fromNow()} (${generationDate.calendar()})`;
+    generationDateNode.innerHTML = `&nbsp;|&nbsp;<i class="fas fa-history"></i>&nbsp;${generationDate.fromNow()} (${generationDate.calendar()})`;
     document
         .querySelector('#mission_general_info > small')
         ?.append(generationDateNode);

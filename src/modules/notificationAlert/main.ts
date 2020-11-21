@@ -123,7 +123,7 @@ export default (async (LSSM, MODULE_ID, $m, $mc) => {
                         })
                     );
                 else
-                    events['allianceChat'].forEach(async alert =>
+                    events['allianceChat']?.forEach(async alert =>
                         LSSM.$store.dispatch('notifications/sendNotification', {
                             group: alert.position,
                             type: alert.alertStyle,

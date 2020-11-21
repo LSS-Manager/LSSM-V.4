@@ -121,14 +121,14 @@ export default (LSSM: Vue): void => {
                     max: minMax.max,
                 })}]`.trim()
             );
-        let counter = document.getElementById(
-            LSSM.$store.getters.nodeAttribute(`${target.id}_${entry[0]}`)
+        const counterId = LSSM.$store.getters.nodeAttribute(
+            `${target.id}_${entry[0]}`,
+            true
         );
+        let counter = document.getElementById(counterId);
         if (!counter) {
             counter = document.createElement('small');
-            counter.id = LSSM.$store.getters.nodeAttribute(
-                `${target.id}_${entry[0]}`
-            );
+            counter.id = counterId;
             counter.style.marginLeft = '1ch';
             const label = document.querySelector(`label[for="${target.id}"]`);
             label?.appendChild(counter);

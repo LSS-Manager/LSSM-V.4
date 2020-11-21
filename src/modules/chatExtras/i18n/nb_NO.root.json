@@ -1,0 +1,14 @@
+{
+	"description": "Utvider chatten med noen kule funksjoner",
+	"name": "Forbedret chat",
+	"settings": {
+		"chatTime": {
+			"description": "Justerer tidsstempelet til formatet du har angitt!",
+			"title": "Eget tidsstempelformat"
+		},
+		"chatTimeFormat": {
+			"description": "Her kan du velge formatet du selv ønsker, du kan finne hjelp <a class=\"lightbox-open\" href=\"{wiki}modules/clock.html#configuration\">her</a>.",
+			"title": "Formatet til dato og tid"
+		}
+	}
+}

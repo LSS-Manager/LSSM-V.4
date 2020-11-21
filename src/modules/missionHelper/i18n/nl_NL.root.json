@@ -1,0 +1,145 @@
+{
+	"description": "Krijg alle belangrijke info direct in je meldingenscherm",
+	"name": "Inzethelper",
+	"settings": {
+		"bike_police_only_if_needed": {
+			"description": "Geeft aan wanneer biketeams alleen nodig zijn als je ze hebt.",
+			"title": "Optionele Biketeam(s)"
+		},
+		"chances": {
+			"100": {
+				"description": "Toont ook kansen van 100%.",
+				"title": "100% kans vermelden"
+			},
+			"normal": {
+				"description": "Toont de kans dat een voertuig wordt gevraagd",
+				"title": "Toon kans %"
+			}
+		},
+		"credits": {
+			"description": "Geeft aan hoeveel credits gemiddeld met een melding kunnen worden verdient",
+			"title": "Credits"
+		},
+		"expansions": {
+			"description": "Toont mogelijke uitbreidingen van de inzet",
+			"title": "Uitbreidingen"
+		},
+		"followup": {
+			"description": "Toont mogelijke vervolg inzetten van de inzet",
+			"title": "Vervolg inzetten"
+		},
+		"generatedBy": {
+			"description": "Toont vanaf welk gebouw de inzet is gegenereerd.",
+			"title": "gegenereerd door (gebouw type)"
+		},
+		"hide_battalion_chief_vehicles": {
+			"description": "Verbergt Officiers van Dienst - Brandweer en toont alleen Hoofd Officier van Dienst - Brandweer",
+			"title": "Verberg Officier van Dienst - Brandweer"
+		},
+		"id": {
+			"description": "Toont het ID van de inzet naast de naam",
+			"title": "Inzet ID"
+		},
+		"minified": {
+			"description": "",
+			"title": ""
+		},
+		"multifunctionals": {
+			"battalion_chief_vehicles": {
+				"description": "Trekt het aantal vereiste Hoofd Officieren van Dienst af van de Offieren van Dienst en verbergt de Officieren van Dienst als het aantal onder de 0 komt.",
+				"title": "Officier van Dienst gemakkelijk beoordelen"
+			},
+			"police_cars": {
+				"description": "Trekt het aantal vereiste Hondengeleiders af van de Noodhulpvoertuigen en verbergt de Noodhulpvoertuigen als het aantal onder de 0 komt.",
+				"title": "Noodhulpvoertuigen gemakkelijk beoordelen"
+			}
+		},
+		"optionalAlternatives": {
+			"allow_arff_instead_of_lf": {
+				"description": "Geeft aan of een crashtender kan worden gebruikt als een tankautospuit",
+				"title": "Toon Crashtender als Tankautospuit"
+			},
+			"allow_ktw_instead_of_rtw": {
+				"description": "Geeft aan of een zorgambulance kan worden gebruikt als een ambulance",
+				"title": "Toon Zorgambulance als Ambulance"
+			},
+			"allow_rw_instead_of_lf": {
+				"description": "Geeft aan of een hulpverleningsvoertuig kan worden gebruikt als een tankautospuit",
+				"title": "Toon Hulpverleningsvoertuig als Tankautospuit"
+			}
+		},
+		"overlay": {
+			"description": "",
+			"title": ""
+		},
+		"patients": {
+			"content": {
+				"description": "Toont details over de mogelijke patiënten",
+				"title": "Details over mogelijke patiënten"
+			},
+			"hideWhenNoNeed": {
+				"description": "Verbergt de patiëntgegevens als er geen patiënten meer zijn en patiënten pas aan het einde van de inzet verschijnen.",
+				"title": "Toon patiëntgegevens alleen als dat nodig is"
+			},
+			"live": {
+				"description": "Toont boven aan in de inzethelper hoeveel patiënten er zijn.",
+				"title": "Aantal actuele patiënten"
+			},
+			"title": {
+				"description": "Toont de kop \"Patiënten\" boven de details over mogelijke patiënten.",
+				"title": "Patiënten (Titel)"
+			}
+		},
+		"place": {
+			"description": "Toont naast de titel welke POI vereist is voor deze inzet.",
+			"title": "POI"
+		},
+		"prerequisites": {
+			"description": "Toont de vereisten (bijvoorbeeld 3 ambulanceposten en 4 brandweerkazernes)",
+			"title": "Vereisten"
+		},
+		"prisoners": {
+			"content": {
+				"description": "Toont details over mogelijke gevangenen.",
+				"title": "Details over mogelijke arrestanten"
+			},
+			"live": {
+				"description": "Toont bovenaan in de inzethelper hoeveel arrestanten er zijn.",
+				"title": "Aantal actuele arrestanten"
+			},
+			"title": {
+				"description": "Toont de kop \"arrestanten\" boven de details over mogelijke arrestanten.",
+				"title": "Arrestanten (Titel)"
+			}
+		},
+		"title": {
+			"description": "Toont de inzetnaam, Bijv. \"Brandende afvalbak\" als titel.",
+			"title": "Inzetnaam"
+		},
+		"type": {
+			"description": "Toont het type ID van de inzet naast de titel",
+			"title": "Type nummer"
+		},
+		"vehicles": {
+			"content": {
+				"description": "Toont voertuigvereisten.",
+				"title": "voertuigvereisten"
+			},
+			"patient_additionals": {
+				"description": "Als er momenteel meer dan 3 patiënten zijn, wordt OVD-G automatisch vermeld aan het begin van de voertuigvereisten.",
+				"title": "Benoem OVD-G"
+			},
+			"sort": {
+				"amount": "Aantal Benodigde voertuigen",
+				"caption": "Naam van de vereiste",
+				"description": "Bepaal waarop de voertuigvereisten moeten worden gesorteerd.",
+				"percentage": "Waarschijnlijkheid",
+				"title": "De voertuigvereisten sorteren"
+			},
+			"title": {
+				"description": "Toont de kop \"Voertuigen\" boven de voertuigvereisten",
+				"title": "Voertuigen (Titel)"
+			}
+		}
+	}
+}

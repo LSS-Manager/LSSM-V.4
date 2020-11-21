@@ -12,8 +12,9 @@ export interface EnhancedTableProps {
             [key: string]: unknown;
         };
         title: string;
+        titleAttr?: string;
         noSort?: boolean;
-    };
+    }[];
     sort: string;
     sortDir: string;
     noSearch: boolean;
@@ -22,4 +23,8 @@ export interface EnhancedTableProps {
         [key: string]: unknown;
     };
     noBody: boolean;
+}
+
+export interface EnhancedTableMethods {
+    titleAttr(i: EnhancedTableProps['head'][0]): string;
 }
