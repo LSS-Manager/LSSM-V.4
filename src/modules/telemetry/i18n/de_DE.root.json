@@ -3,18 +3,18 @@
 		"close": "Hinweis ausblenden",
 		"faqAnchor": "in-welchen-browsern-funktioniert-der-lss-manager",
 		"not": {
-			"text": "Lieber LSS-Manager Nutzer,<br>leider unterstützt der LSSM deinen aktuellen Browser <b>{name}</b> nicht offiziell! Das bedeutet, dass nicht garantiert ist, dass alle Funktionalitäten einwandfrei funktionieren. Eine Liste der von uns unterstützten Browser findest du in unseren <a href='{wiki}/faq.html#{wikiAnchor}' class='lightbox-open'>FAQ</a>.",
+			"text": "Lieber LSS-Manager Nutzer,<br>leider unterstützt der LSSM deinen aktuellen Browser <b>{name}</b> nicht offiziell! Das bedeutet, dass nicht garantiert ist, dass alle Funktionalitäten einwandfrei funktionieren. Eine Liste der von uns unterstützten Browser findest du in unseren <a href='{wiki}faq.html#{wikiAnchor}' class='lightbox-open'>FAQ</a>.",
 			"title": "Nicht unterstützter Browser"
 		},
 		"old": {
-			"text": "Du scheinst einen veralteten Browser zu nutzen! Aktuell nutzt du <b>{name} {current}</b>, die neueste Version ist aber <b>{name} {latest}</b>! Bitte beachte, dass der LSS-Manager diesen Browser erst ab Version <b>{supported}</b> unterstützt. Dies hat Gründe der Sicherheit und Kompatibilität. Die neueste Version deines Browsers kannst du unter <a href='{download}' class='lightbox-open'>hier</a> herunterladen.<br>Eine aktuelle Liste der unterstützen Browser findest du in unseren <a href='{wiki}/faq.html#{wikiAnchor}' class='lightbox-open'>FAQ</a>.",
+			"text": "Du scheinst einen veralteten Browser zu nutzen! Aktuell nutzt du <b>{name} {current}</b>, die neueste Version ist aber <b>{name} {latest}</b>! Bitte beachte, dass der LSS-Manager diesen Browser erst ab Version <b>{supported}</b> unterstützt. Dies hat Gründe der Sicherheit und Kompatibilität. Die neueste Version deines Browsers kannst du unter <a href='{download}' class='lightbox-open'>hier</a> herunterladen.<br>Eine aktuelle Liste der unterstützen Browser findest du in unseren <a href='{wiki}faq.html#{wikiAnchor}' class='lightbox-open'>FAQ</a>.",
 			"title": "Veralteter Browser"
 		}
 	},
 	"info": {
 		"close": "Diesen Hinweis nichtmehr anzeigen",
 		"decline": "Erheben von Metadaten nicht erlauben",
-		"text": "Der LSS-Manager erhebt Metadaten, wie im <a href='{wiki}/metadata.html' class='lightbox-open'>Wiki</a> beschrieben!",
+		"text": "Der LSS-Manager erhebt Metadaten, wie im <a href='{wiki}metadata.html' class='lightbox-open'>Wiki</a> beschrieben!",
 		"title": "Information zur Erhebung von Metadaten"
 	},
 	"name": "Telemetrie"

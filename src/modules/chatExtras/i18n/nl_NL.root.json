@@ -7,7 +7,7 @@
 			"title": "Tijdnotatie in chat aanpassen"
 		},
 		"chatTimeFormat": {
-			"description": "Hier kunt u het formaat kiezen van uw keuze. Hulp kunt u <a class=\"lightbox-open\" href=\"{wiki}/modules/clock.html#configuratie\">hier</a> vinden.",
+			"description": "Hier kunt u het formaat kiezen van uw keuze. Hulp kunt u <a class=\"lightbox-open\" href=\"{wiki}modules/clock.html#configuratie\">hier</a> vinden.",
 			"title": "Formaat van de datum en tijd"
 		}
 	}

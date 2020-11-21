@@ -744,7 +744,7 @@ export default {
             buildings: [0, 1, 18],
             color: '#ff2d2d',
         },
-        'Ambulanzia': {
+        'Soccorso': {
             buildings: [2, 3, 4, 5, 20],
             color: '#ffa500',
         },
@@ -766,7 +766,7 @@ export default {
             },
             color: '#ff2d2d',
         },
-        'Ambulanzia': {
+        'Soccorso': {
             vehicles: {
                 Ambulanza: [4, 20],
                 Elisoccorso: [8],

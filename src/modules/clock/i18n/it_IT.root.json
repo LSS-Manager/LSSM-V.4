@@ -11,11 +11,11 @@
 			"title": "Mostra l'orologio in sovrapposizione"
 		},
 		"navFormat": {
-			"description": "Qui puoi impostare il formato dell'orologio. Troverai un aiuto per questo <a class=\"lightbox-open\" href=\"{wiki}/modules/clock.html#konfiguration\">qui</a>.",
+			"description": "Qui puoi impostare il formato dell'orologio. Troverai un aiuto per questo <a class=\"lightbox-open\" href=\"{wiki}modules/clock.html#konfiguration\">qui</a>.",
 			"title": "Formato dell'orologio nella barra di navigazione"
 		},
 		"overlayFormat": {
-			"description": "Qui puoi impostare il formato dell'orologio. Troverai un aiuto per questo <a class=\"lightbox-open\" href=\"{wiki}/modules/clock.html#konfiguration\">qui</a>.",
+			"description": "Qui puoi impostare il formato dell'orologio. Troverai un aiuto per questo <a class=\"lightbox-open\" href=\"{wiki}modules/clock.html#konfiguration\">qui</a>.",
 			"title": "Formato dell'orologio in sovrapposizione"
 		}
 	}
