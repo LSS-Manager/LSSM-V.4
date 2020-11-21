@@ -89,8 +89,9 @@ export default {
                 'Viser en enkel etikett i navigasjonslinjen i stedet for LSSM-logoen.',
         },
         allowTelemetry: {
-            "description": "Controls whether LSS-Manager is allowed to send Data which helps us in developing this extension.",
-            "title": "Allow Telemetry"
+            description:
+                'Controls whether LSS-Manager is allowed to send Data which helps us in developing this extension.',
+            title: 'Allow Telemetry',
         },
     },
     vehicles: {

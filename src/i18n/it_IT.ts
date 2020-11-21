@@ -90,8 +90,9 @@ export default {
                 'Visualizza una semplice etichetta nella barra di navigazione al posto del logo LSSM',
         },
         allowTelemetry: {
-            "description": "Controlla se LSS-Manager è autorizzato a inviare dati che ci aiutano nello sviluppo di questa estensione.",
-            "title": "Consenti telemetria"
+            description:
+                'Controlla se LSS-Manager è autorizzato a inviare dati che ci aiutano nello sviluppo di questa estensione.',
+            title: 'Consenti telemetria',
         },
     },
     vehicles: {

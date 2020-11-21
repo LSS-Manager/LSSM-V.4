@@ -88,8 +88,9 @@ export default {
                 'Laat een simpel label zien in het menu in plaats van het LSSM logo',
         },
         allowTelemetry: {
-            "description": "Bepaalt of LSS-Manager gegevens mag verzenden die ons helpen bij het ontwikkelen van deze extensie.",
-            "title": "Telemetrie toestaan"
+            description:
+                'Bepaalt of LSS-Manager gegevens mag verzenden die ons helpen bij het ontwikkelen van deze extensie.',
+            title: 'Telemetrie toestaan',
         },
     },
     vehicles: {

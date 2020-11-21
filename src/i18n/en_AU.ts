@@ -90,8 +90,9 @@ export default {
                 'Displays a simple label in the navigation bar instead of the LSSM logo',
         },
         allowTelemetry: {
-            "description": "Controls whether LSS-Manager is allowed to send Data which helps us in developing this extension.",
-            "title": "Allow Telemetry"
+            description:
+                'Controls whether LSS-Manager is allowed to send Data which helps us in developing this extension.',
+            title: 'Allow Telemetry',
         },
     },
     vehicles: {
