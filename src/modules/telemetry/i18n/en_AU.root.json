@@ -3,17 +3,17 @@
 		"close": "Hide hint",
 		"faqAnchor": "in-which-browsers-does-lss-manager-work",
 		"not": {
-			"text": "Dear LSS-Manager user,<br>unfortunately the LSSM supports your current browser <b>{name}</b> not official! This means that it is not guaranteed that all functionalities will work properly. You can find a list of the browsers we support in our <a href='{wiki}/faq.html#{wikiAnchor}' class='lightbox-open'>FAQ</a>.",
+			"text": "Dear LSS-Manager user,<br>unfortunately the LSSM supports your current browser <b>{name}</b> not official! This means that it is not guaranteed that all functionalities will work properly. You can find a list of the browsers we support in our <a href='{wiki}faq.html#{wikiAnchor}' class='lightbox-open'>FAQ</a>.",
 			"title": "Not supported browser"
 		},
 		"old": {
-			"text": "You seem to use an outdated browser! Currently you are using <b>{name} {current}</b>, but the latest version is <b>{name} {latest}</b>! Please note that the LSS-Manager can only use this browser from version <b>{supported}</b> supports. This has reasons of security and compatibility. You can download the latest version of your browser at <a href='{download}' class='lightbox-open'>here</a> download.<br>A current list of supported browsers can be found in our <a href='{wiki}/faq.html#{wikiAnchor}' class='lightbox-open'>FAQ</a>.",
+			"text": "You seem to use an outdated browser! Currently you are using <b>{name} {current}</b>, but the latest version is <b>{name} {latest}</b>! Please note that the LSS-Manager can only use this browser from version <b>{supported}</b> supports. This has reasons of security and compatibility. You can download the latest version of your browser at <a href='{download}' class='lightbox-open'>here</a> download.<br>A current list of supported browsers can be found in our <a href='{wiki}faq.html#{wikiAnchor}' class='lightbox-open'>FAQ</a>.",
 			"title": "Outdated Browser"
 		}
 	},
 	"info": {
 		"close": "Do not show this note again",
-		"text": "The LSS Manager collects metadata as described in <a href='{wiki}/metadata.html' class='lightbox-open'>Wiki</a> described. During development phase, collection cannot be stopped!",
+		"text": "The LSS Manager collects metadata as described in <a href='{wiki}metadata.html' class='lightbox-open'>Wiki</a> described. During development phase, collection cannot be stopped!",
 		"title": "Information on the collection of metadata"
 	},
 	"name": "Telemetry"

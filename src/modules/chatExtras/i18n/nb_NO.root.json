@@ -7,7 +7,7 @@
 			"title": "Eget tidsstempelformat"
 		},
 		"chatTimeFormat": {
-			"description": "Her kan du velge formatet du selv ønsker, du kan finne hjelp <a class=\"lightbox-open\" href=\"{wiki}/modules/clock.html#configuration\">her</a>.",
+			"description": "Her kan du velge formatet du selv ønsker, du kan finne hjelp <a class=\"lightbox-open\" href=\"{wiki}modules/clock.html#configuration\">her</a>.",
 			"title": "Formatet til dato og tid"
 		}
 	}
