@@ -13,8 +13,14 @@
 	},
 	"info": {
 		"close": "Do not show this note again",
-		"text": "The LSS Manager collects metadata as described in <a href='{wiki}metadata.html' class='lightbox-open'>Wiki</a> described. During development phase, collection cannot be stopped!",
+		"text": "The LSS Manager collects metadata as described in <a href='{wiki}metadata.html' class='lightbox-open'>Wiki</a> described.<br>You can always revoke your agreement at a later point.",
 		"title": "Information on the collection of metadata"
+	},
+	"settings": {
+		"allowTelemetry": {
+			"description": "Controls whether LSS-Manager is allowed to send Data which helps us in developing this extension.",
+			"title": "Allow Telemetry"
+		}
 	},
 	"name": "Telemetry"
 }

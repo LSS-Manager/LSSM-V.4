@@ -117,8 +117,13 @@ export default (LSSM: Vue): void => {
                                 LSSM.$store
                                     .dispatch('storage/set', {
                                         key: NOTE_STORAGE_KEY,
-                                        value: 'declined',
+                                        value: true,
                                     } as StorageSet)
+                                    .dispatch('settings/setSetting', {
+                                        moduleId: MODULE_ID,
+                                        settingId: 'allowTelemetry',
+                                        value: false,
+                                    } as SettingSet)
                                     .then(() => LSSM.$modal.hide('dialog'));
                             },
                         },
@@ -130,6 +135,11 @@ export default (LSSM: Vue): void => {
                                         key: NOTE_STORAGE_KEY,
                                         value: true,
                                     } as StorageSet)
+                                    .dispatch('settings/setSetting', {
+                                        moduleId: MODULE_ID,
+                                        settingId: 'allowTelemetry',
+                                        value: true,
+                                    } as SettingSet)
                                     .then(
                                         () =>
                                             sendStats() &&
@@ -139,7 +149,10 @@ export default (LSSM: Vue): void => {
                         },
                     ],
                 });
-            } else if (isConfirmed !== 'declined') {
+            }
+            // Only if the telemetry dialog has been seen once, we check for the setting
+            const allowTelemetry = await getSetting('allowTelemetry');
+            if (allowTelemetry) {
                 await sendStats();
             }
         });

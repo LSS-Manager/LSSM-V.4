@@ -13,8 +13,14 @@
 	},
 	"info": {
 		"close": "Ne plus me montrer ceci",
-		"text": "LSS Manager collecte des metadata comme expliqué sur notre <a href='{wiki}metadata.html' class='lightbox-open'>Wiki</a>. Pendant la phase de développement, la collecte des données ne peut pas être arrêtée.",
+		"text": "LSS Manager collecte des metadata comme expliqué sur notre <a href='{wiki}metadata.html' class='lightbox-open'>Wiki</a>.<br>Vous pouvez toujours révoquer votre accord ultérieurement.",
 		"title": "Information sur la collecte des metadata"
+	},
+	"settings": {
+		"allowTelemetry": {
+			"description": "Contrôle si LSS-Manager est autorisé à envoyer des données, ce qui nous aide à développer cette extension.",
+			"title": "Autoriser la télémétrie"
+		}
 	},
 	"name": "Télémetrie"
 }
