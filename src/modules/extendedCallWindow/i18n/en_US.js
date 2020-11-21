@@ -97,7 +97,7 @@ module.exports = {
             [/^Large fire boat(s)?$/]: [24],
             [/^Large rescue boat(s)?$/]: [25],
             [/^Light Boat(s)?$/]: [25],
-            [/^Wildland fire engine(s)?$/]: [30, 31, 32, 38, 39, 40],
+            [/^Wildland fire vehicle(s)?$/]: [30, 31, 32, 38, 39, 40],
             [/^Fire Aviation(s)?$/]: [35, 36, 37],
             [/^FBI Unit(s)?$/]: [42],
             [/^FBI Investigation wagon(s)?$/]: [43],
