@@ -46,8 +46,6 @@ window[PREFIX] = new Vue({
     render: h => h(LSSMV4),
 }).$mount(appContainer);
 
-console.log('Und der LSSM wurde einmal gemounted :)');
-
 export const LSSM = window[PREFIX] as Vue;
 
 if (window.location.pathname === '/') {
