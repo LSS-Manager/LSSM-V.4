@@ -31,7 +31,7 @@ export default async (): Promise<void> =>
     fs.writeFileSync(
         './static/lssm-v4.user.js',
         `// ==UserScript==
-// @name         ${script.name} - Dev Version
+// @name         ${script.name}
 // @version      ${packageJson.version.replace(/\+.*$/, '')}+${Object.keys(
             config.games
         )

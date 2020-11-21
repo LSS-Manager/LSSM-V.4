@@ -54,7 +54,14 @@ export default Vue.extend<
     computed: {
         updateValue: {
             get() {
-                return this.value;
+                return (
+                    this.options.find(
+                        o => o.value.toString() === this.value.toString()
+                    ) ?? {
+                        label: this.value,
+                        value: this.value,
+                    }
+                );
             },
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore

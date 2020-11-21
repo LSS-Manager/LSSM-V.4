@@ -1,4 +1,4 @@
-import { Building } from 'typings/Building';
+// import { Building } from 'typings/Building';
 
 const moduleRootFiles = require.context('../', true, MODULE_ROOT_I18N_FILES);
 const furtherFiles = require.context('./en_US/', true, /.*(\/index)?\.js(on)?/);
@@ -31,6 +31,13 @@ const modules = {
             close: 'Cancel',
             total: 'All settings',
             module: 'Only from this module',
+        },
+        resetWarningSetting: {
+            title: 'Reset settings',
+            text:
+                'Do you really want to reset this one setting <b>{setting}</b> of the module <b>{module}</b> to its default value?',
+            close: 'Cancel',
+            reset: 'Reset',
         },
         closeWarning: {
             title: 'Unsaved changes',
@@ -262,7 +269,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 3,
             wtank: 0,
-            schooling: 'Fire Station - ARFF',
+            schooling: 'Fire Station - ARFF-Training',
             shownSchooling: 'ARFF',
         },
         18: {
@@ -300,7 +307,7 @@ export default {
                 'The MCU can be alarmed in two different modes:<br>1. for lightly injured persons who do not need an emergency physician. Then 7 patients can be treated and removed simultaneously in the MCU.<br>2.For severely injured persons who need an emergency physician. Then 3 patients can be needled simultaneously in the MCU.<br>You can buy 1 Mass Casualty Vehicle for every 20 ambulance stations (respectively 15 with premium account).',
         },
         21: {
-            caption: 'Heavy Rescue + Boat',
+            caption: 'Heavy Rescue + Light Boat',
             color: '#882222',
             coins: 25,
             credits: 19_000,
@@ -313,7 +320,7 @@ export default {
                 'Combines the Heavy Rescue Vehicle/Utility Vehicle with an integrated boat.<br> No need for a boat trailer.',
         },
         22: {
-            caption: 'Boat Trailer',
+            caption: 'Light Boat Trailer',
             color: '#772222',
             coins: 12,
             credits: 6_000,
@@ -536,8 +543,8 @@ export default {
             credits: 25_000,
             minPersonnel: 1,
             maxPersonnel: 4,
-            schooling: 'Police - FBI Mobile Center Commmander',
-            shownSchooling: 'FBI Mobile Center Commmander',
+            schooling: 'Police - FBI Mobile Center Commander',
+            shownSchooling: 'FBI Mobile Center Commander',
         },
         45: {
             caption: 'FBI Bomb Technician Vehicle',
@@ -556,7 +563,6 @@ export default {
             credits: 25_000,
             minPersonnel: 1,
             maxPersonnel: 1,
-            wtank: 0,
             schooling: 'Police - FBI Drone Operator',
             shownSchooling: 'FBI Drone Operator',
         },
@@ -714,12 +720,14 @@ export default {
             color: '#992222',
             coins: 50,
             credits: 500_000,
-            extensions: new Array(3).fill({
-                caption: 'Additional classroom',
-                credits: 400_000,
-                coins: 40,
-                duration: '7 Days',
-            }),
+            extensions: [
+                ...new Array(3).fill({
+                    caption: 'Additional classroom',
+                    credits: 400_000,
+                    coins: 40,
+                    duration: '7 Days',
+                }),
+            ],
             levelcost: [],
             maxBuildings: 'No limit',
             maxLevel: 0,
@@ -734,8 +742,14 @@ export default {
             coins: 35,
             credits: 100_000,
             extensions: [
-                ...new Array(10).fill({
+                {
                     caption: 'Prison cell',
+                    credits: 25_000,
+                    coins: 5,
+                    duration: '7 Days',
+                },
+                ...new Array(9).fill({
+                    caption: 'Additional cell',
                     credits: 25_000,
                     coins: 5,
                     duration: '7 Days',
@@ -773,12 +787,14 @@ export default {
             color: '#225522',
             coins: 50,
             credits: 500_000,
-            extensions: new Array(3).fill({
-                caption: 'Additional classroom',
-                credits: 400_000,
-                coins: 40,
-                duration: '7 Days',
-            }),
+            extensions: [
+                ...new Array(3).fill({
+                    caption: 'Additional classroom',
+                    credits: 400_000,
+                    coins: 40,
+                    duration: '7 Days',
+                }),
+            ],
             levelcost: [],
             maxBuildings: 'No limit',
             maxLevel: 0,
@@ -823,12 +839,20 @@ export default {
             caption: 'Prison Cells',
             coins: 'x',
             credits: 100_000,
-            extensions: new Array(10).fill({
-                caption: 'Prison Cell',
-                credits: 25_000,
-                coins: 5,
-                duration: '7 Days',
-            }),
+            extensions: [
+                {
+                    caption: 'Prison cell',
+                    credits: 25_000,
+                    coins: 5,
+                    duration: '7 Days',
+                },
+                ...new Array(9).fill({
+                    caption: 'Additional cell',
+                    credits: 25_000,
+                    coins: 5,
+                    duration: '7 Days',
+                }),
+            ],
             levelcost: [],
             maxBuildings: 'No limit',
             maxLevel: 0,

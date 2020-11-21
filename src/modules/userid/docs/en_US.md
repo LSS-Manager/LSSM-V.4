@@ -3,7 +3,7 @@ The "User-ID" module allows you to do this by adding a link to your profile in t
 To avoid overfilling the navigation bar, this function can be disabled in the settings, 
  via `Show own ID in the navigation bar` be (de)activated.
 
-![User-ID in the navigation bar](/docs/assets/userid/img/navbar.png)
+![User-ID in the navigation bar](/v4/docs/assets/userid/img/navbar.png)
 
 In addition, the ID of the respective user is displayed in each profile.
-![User-ID in a user's profile](/docs/assets/userid/img/profile.png)
+![User-ID in a user's profile](/v4/docs/assets/userid/img/profile.png)

@@ -1,0 +1,22 @@
+{
+	"description": "Zobrazí čas na Vámi vybraném místě.",
+	"name": "Aktuální čas",
+	"settings": {
+		"displayNav": {
+			"description": "Vybrána pozice nalevo vedle loga.",
+			"title": "Zobrazit čas v navigační liště"
+		},
+		"displayOverlay": {
+			"description": "Aktuální čas můžete přesouvat a zároveň by měl být v popředí před všemi ostatními prvky.",
+			"title": "Zobrazit čas v překrývacím zobrazení"
+		},
+		"navFormat": {
+			"description": "Zde můžete nastavit formát času. Návod naleznete <a class=\"lightbox-open\" href=\"{wiki}modules/clock.html#configuration\">zde</a>.",
+			"title": "Formát času v navigační liště"
+		},
+		"overlayFormat": {
+			"description": "Zde můžete nastavit formát času. Návod naleznete <a class=\"lightbox-open\" href=\"{wiki}modules/clock.html#configuration\">zde</a>.",
+			"title": "Formát času v překrývacím zobrazení"
+		}
+	}
+}

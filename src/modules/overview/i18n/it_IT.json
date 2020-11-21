@@ -19,7 +19,8 @@
 		},
 		"schoolings": {
 			"caption": "Nome del corso",
-			"duration": "Periodo della formazione"
+			"duration": "Periodo della formazione",
+			"required_for": "Necessario per"
 		},
 		"vehicles": {
 			"caption": "Tipo di veicolo",

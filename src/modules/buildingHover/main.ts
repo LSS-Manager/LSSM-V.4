@@ -8,11 +8,9 @@ export default (async (LSSM, MODULE_ID) => {
     await LSSM.$store.dispatch('api/registerBuildingsUsage', true);
     await LSSM.$store.dispatch('api/registerVehiclesUsage', true);
 
-    const vehicleTypes = Object.fromEntries(
-        Object.entries(
-            LSSM.$t('vehicles') as { [id: number]: InternalVehicle }
-        ).map(([id, { caption }]) => [id, caption])
-    );
+    const vehicleTypes = LSSM.$t('vehicles') as {
+        [id: number]: InternalVehicle;
+    };
 
     await LSSM.$store.dispatch('addStyle', {
         selectorText: `.${LSSM.$store.getters.nodeAttribute(
@@ -58,15 +56,28 @@ export default (async (LSSM, MODULE_ID) => {
         } ${marker.options.title}`;
 
         if (building) {
-            if (Object.values(LSSM.$t('vehicleBuildings')).includes(building.building_type)
+            if (
+                Object.values(LSSM.$t('vehicleBuildings')).includes(
+                    building.building_type
+                )
             ) {
                 data += `<br><i class="fa fa-parking"></i>&nbsp;${building.level +
                     1}&nbsp;<i class="fa fa-car"></i>&nbsp;${
                     vehicles.length
                 }&nbsp;<i class="fa fa-users"></i>&nbsp;${
                     building.personal_count
-                }`;
-                if(Object.values(LSSM.$t('cellBuildings')).includes(building.building_type))
+                }/${vehicles
+                    .map(
+                        ({ max_personnel_override, vehicle_type }) =>
+                            max_personnel_override ??
+                            vehicleTypes[vehicle_type].maxPersonnel
+                    )
+                    .reduce((a, b) => a + b, 0)}`;
+                if (
+                    Object.values(LSSM.$t('cellBuildings')).includes(
+                        building.building_type
+                    )
+                )
                     data += `&nbsp;<i class="fa fa-border-all"></i>&nbsp;${
                         building.extensions.filter(x => x.available).length
                     }&nbsp;(${building.extensions.length})`;
@@ -78,18 +89,26 @@ export default (async (LSSM, MODULE_ID) => {
                         vehicle.fms_real
                     }">${vehicle.fms_show}</span></td><td>${
                         vehicle.caption
-                    }</td><td>(&nbsp;${vehicleTypes[vehicle.vehicle_type]}${
+                    }</td><td>(&nbsp;${
+                        vehicleTypes[vehicle.vehicle_type].caption
+                    }${
                         vehicle.vehicle_type_caption
                             ? `&nbsp;<small>[&nbsp;${vehicle.vehicle_type_caption}&nbsp;]</small>`
                             : ``
                     }&nbsp;)</td></tr>`;
                 });
                 data += `</table>`;
-            } else if (Object.values(LSSM.$t('bedBuildings')).includes(building.building_type)
+            } else if (
+                Object.values(LSSM.$t('bedBuildings')).includes(
+                    building.building_type
+                )
             ) {
                 data += `<br><i class="fa fa-procedures"></i>&nbsp;${building.level +
                     10}`;
-            } else if (Object.values(LSSM.$t('schoolBuildings')).includes(building.building_type)
+            } else if (
+                Object.values(LSSM.$t('schoolBuildings')).includes(
+                    building.building_type
+                )
             ) {
                 data += `<br><i class="fa fa-chalkboard-teacher"></i>&nbsp;${building
                     .extensions.length + 1}`;

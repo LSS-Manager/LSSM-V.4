@@ -1,20 +1,23 @@
-export default (): unknown => ({
-    displayNav: {
+import { ModuleSettingFunction } from 'typings/Module';
+import { Text, Toggle } from 'typings/Setting';
+
+export default (() => ({
+    displayNav: <Toggle>{
         type: 'toggle',
         default: true,
     },
-    navFormat: {
+    navFormat: <Text>{
         type: 'text',
         default: 'LTS',
         dependsOn: '.displayNav',
     },
-    displayOverlay: {
+    displayOverlay: <Toggle>{
         type: 'toggle',
         default: false,
     },
-    overlayFormat: {
+    overlayFormat: <Text>{
         type: 'text',
         default: 'LTS',
         dependsOn: '.displayOverlay',
     },
-});
+})) as ModuleSettingFunction;

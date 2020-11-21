@@ -118,7 +118,7 @@ export default Vue.extend<
             faExpandAlt,
             faTable,
             faParagraph,
-            id: this.$store.getters.nodeAttribute('missing_text'),
+            id: this.$store.getters.nodeAttribute('missing_text', true),
             missingRequirementsSearch: '',
             sort: 'vehicle',
             sortDir: 'asc',
@@ -252,6 +252,13 @@ export default Vue.extend<
                 defaultValue: false,
             })
             .then(minified => (this.minified = minified));
+        this.$store
+            .dispatch('settings/getSetting', {
+                moduleId: 'extendedCallWindow',
+                settingId: 'textMode',
+                defaultValue: false,
+            })
+            .then(textMode => (this.textMode = textMode));
     },
     mounted() {
         const vehicleGroups = (this.$t(

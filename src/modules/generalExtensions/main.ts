@@ -44,14 +44,34 @@ export default (async (LSSM, MODULE_ID) => {
                 /* webpackChunkName: "modules/generalExtensions/linkPreviews" */ './assets/linkPreviews'
             )
         ).default(LSSM, linkPreviewSetting);
+    const mapUndo = await getSetting<boolean>('mapUndo');
+    const ownMapMarkers = await getSetting<boolean>('ownMapMarkers');
     if (
         window.location.pathname === '/' &&
         !LSSM.$store.state.mapkit &&
-        (await getSetting<boolean>('mapUndo'))
+        (mapUndo || ownMapMarkers)
     )
         await (
             await import(
-                /* webpackChunkName: "modules/generalExtensions/mapUndo" */ './assets/mapUndo'
+                /* webpackChunkName: "modules/generalExtensions/mapMarkers" */ './assets/mapMarkers'
             )
-        ).default(LSSM);
+        ).default(LSSM, mapUndo, ownMapMarkers, getSetting, MODULE_ID);
+    const saveLastBuildingType = await getSetting<boolean>(
+        'saveLastBuildingType'
+    );
+    const saveLastDispatchCenter = await getSetting<boolean>(
+        'saveLastDispatchCenter'
+    );
+    if (window.location.pathname === '/')
+        await (
+            await import(
+                /* webpackChunkName: "modules/generalExtensions/newBuilding" */ './assets/newBuilding'
+            )
+        ).default(
+            LSSM,
+            saveLastBuildingType,
+            saveLastDispatchCenter,
+            getSetting,
+            MODULE_ID
+        );
 }) as ModuleMainFunction;

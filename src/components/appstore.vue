@@ -34,7 +34,8 @@
                     @change="toggleModule(moduleId, $event)"
                     :id="
                         $store.getters.nodeAttribute(
-                            `appstore-toggle-${moduleId}`
+                            `appstore-toggle-${moduleId}`,
+                            true
                         )
                     "
                     :disabled="hasMapkitConflict(moduleId)"

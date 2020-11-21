@@ -6,20 +6,20 @@ import config from '../src/config';
 import webpackConfig from '../webpack.config';
 import webpack, { Configuration } from 'webpack';
 import moment from 'moment';
+import SpeedMeasurePlugin from 'speed-measure-webpack-plugin';
 import { Module } from '../typings/Module';
 import DynamicImportQueryPlugin from './plugins/DynamicImportQueryPlugin';
 
-console.time('build');
+const locale = process.argv[3];
+
+console.time(`build_${locale}`);
 
 console.info(`Let's build that stuff in Version ${version}`);
 
 const moduleDirs = fs.readdirSync(`./src/modules/`);
 
-const locale = process.argv[3];
-const game = config.games[locale];
 if (!fs.existsSync(`./src/i18n/${locale}.ts`)) process.exit(-1);
 
-const { locale_fallback } = game;
 const entry = {
     mode: process.argv[2] || 'development',
     entry: {
@@ -33,15 +33,6 @@ const entry = {
     },
     ...lodash.cloneDeep(webpackConfig),
 } as Configuration;
-const fallbackLocales = [] as string[];
-if (locale_fallback) {
-    fallbackLocales.push(locale_fallback);
-    let nextFallback = config.games[locale_fallback].locale_fallback;
-    while (nextFallback) {
-        fallbackLocales.push(nextFallback);
-        nextFallback = config.games[nextFallback].locale_fallback;
-    }
-}
 
 const modules = moduleDirs.filter(module => {
     if (
@@ -60,7 +51,6 @@ entry.plugins?.unshift(
         BUILD_LANG: JSON.stringify(locale),
         VERSION: JSON.stringify(version),
         MODE: process.argv[2] === 'production' ? '"stable"' : '"beta"',
-        FALLBACK_LOCALES: JSON.stringify(fallbackLocales),
         MODULE_REGISTER_FILES: new RegExp(
             `modules\\/(${modules.join('|')})\\/register\\.js(on)?`
         ),
@@ -82,10 +72,7 @@ entry.plugins?.unshift(
             }$`
         )
     ),
-    new webpack.ContextReplacementPlugin(
-        /i18n$/,
-        new RegExp(`${[locale, ...fallbackLocales].join('|')}$`)
-    )
+    new webpack.ContextReplacementPlugin(/i18n$/, new RegExp(`${locale}$`))
 );
 entry.plugins?.push(
     new DynamicImportQueryPlugin({
@@ -100,32 +87,34 @@ entry.plugins?.push(
 );
 
 console.log('Generated configurations. Building…');
-webpack([entry], (err, stats) => {
-    if (err) {
-        console.error(err.stack || err);
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
-        if (err.details) {
+webpack(
+    new SpeedMeasurePlugin({
+        disable: process.argv[2] !== 'development',
+        outputFormat: 'humanVerbose',
+    }).wrap(entry),
+    (err, stats) => {
+        if (err) {
+            console.error(err.stack || err);
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore
-            console.error(err.details);
+            if (err.details) {
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
+                console.error(err.details);
+            }
         }
-    }
 
-    if (stats)
-        fs.writeFileSync(
-            `./dist/webpack.out.${
-                process.argv[2] === 'production' ? 'public' : 'beta'
-            }.json`,
-            JSON.stringify(stats.toJson(), null, '\t')
-        );
-    console.log('Stats:');
-    console.log(stats?.toString({ colors: true }));
-    // TODO: Each lang a single call of this file via scripts/index.ts to avoid Problems with heap memory
-    /*console.log(
-        `successfully built ${stats.hash} but we will not log stats here currently due to heap errors`
-    );*/
-    console.timeEnd('build');
-    console.log(`Build finished at ${new Date().toLocaleTimeString()}`);
-    if (stats?.hasErrors()) process.exit(-1);
-});
+        if (stats)
+            fs.writeFileSync(
+                `./dist/webpack.out.${
+                    process.argv[2] === 'production' ? 'public' : 'beta'
+                }.json`,
+                JSON.stringify(stats.toJson(), null, '\t')
+            );
+        console.log('Stats:');
+        console.log(stats?.toString({ colors: true }));
+        console.timeEnd(`build_${locale}`);
+        console.log(`Build finished at ${new Date().toLocaleTimeString()}`);
+        if (stats?.hasErrors()) process.exit(-1);
+    }
+);

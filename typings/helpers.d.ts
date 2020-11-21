@@ -27,13 +27,35 @@ declare global {
         map: Map;
         L: typeof L;
         mission_position_new_marker?: Marker;
+        building_new_marker?: Marker;
         mission_graphics: [string, string, string][];
         lightboxOpen(link: string): void;
         mission_position_new_dragend(): void;
+        building_new_dragend(): void;
         vehicleSelectionReset(): void;
         aao_available(arrId: number, calculateTime: boolean): void;
         extensionCountdown(remaining: number, id: number): void;
         formatTime(remaining: number, t?: boolean): string;
+        buildingMarkerAdd(marker: {
+            id: number;
+            user_id: number;
+            name: string;
+            longitude: number;
+            latitude: number;
+            icon: string;
+            vgi: unknown | null;
+            lbid: number;
+            show_vehicles_at_startpage: boolean;
+            level: number;
+            personal_count: number;
+            building_type: number;
+            filter_id: string;
+            detail_button: string;
+        }): boolean;
+        buildingMarkerBulkContentCacheDraw(): void;
+        building_maps_redraw(): void;
+        creditsUpdate(credits: number): void;
+        coinsUpdate(coins: number): void;
     }
 }
 

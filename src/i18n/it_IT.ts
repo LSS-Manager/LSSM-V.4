@@ -1,4 +1,4 @@
-import { Building } from 'typings/Building';
+// import { Building } from 'typings/Building';
 
 const moduleRootFiles = require.context('../', true, MODULE_ROOT_I18N_FILES);
 // Commented as dir ./it_IT does not exist currently
@@ -20,18 +20,25 @@ const modules = {
     },
     settings: {
         name: 'Impostazioni',
-        save: 'Save',
+        save: 'Salva',
         discard: 'Annulla i Cambiamenti',
-        reset: 'Reset',
-        export: 'Export',
-        import: 'Import',
+        reset: 'Resetta',
+        export: 'Esporta',
+        import: 'Importa',
         resetWarning: {
             title: 'Resetta i cambiamenti',
             text:
                 'Vuoi davvero ripristinare le impostazioni ai valori predefiniti? Questo non può essere annullato!',
-            close: 'Cancel',
+            close: 'Annulla',
             total: 'All settings',
             module: 'Solo per questo modulo',
+        },
+        resetWarningSetting: {
+            title: 'Reset impostazioni',
+            text:
+                'Volete davvero ripristinare questa impostazione <b>{setting}</b> del modulo <b>{modul}</b> al suo valore di default?',
+            close: 'Annulla',
+            reset: 'Resetta',
         },
         closeWarning: {
             title: 'Cambiamenti non salvati',
@@ -40,7 +47,7 @@ const modules = {
             close: 'Chiudi messaggio',
         },
         changeList: {
-            true: 'On',
+            true: 'Su',
             false: 'Off',
         },
     },
@@ -534,8 +541,14 @@ export default {
             coins: 35,
             credits: 100_000,
             extensions: [
-                ...new Array(10).fill({
-                    caption: 'Cella',
+                {
+                    caption: 'Cella della prigione',
+                    credits: 25_000,
+                    coins: 5,
+                    duration: '7 giorni',
+                },
+                ...new Array(9).fill({
+                    caption: 'Altra cella',
                     credits: 25_000,
                     coins: 5,
                     duration: '7 giorni',
@@ -620,12 +633,20 @@ export default {
             caption: 'Carcere',
             coins: 'x',
             credits: 100_000,
-            extensions: new Array(10).fill({
-                caption: 'Cella',
-                credits: 25_000,
-                coins: 5,
-                duration: '7 giorni',
-            }),
+            extensions: [
+                {
+                    caption: 'Cella della prigione',
+                    credits: 25_000,
+                    coins: 5,
+                    duration: '7 giorni',
+                },
+                ...new Array(9).fill({
+                    caption: 'Altra cella',
+                    credits: 25_000,
+                    coins: 5,
+                    duration: '7 giorni',
+                }),
+            ],
             levelcost: [],
             maxBuildings: 'No limit',
             maxLevel: 0,
@@ -659,7 +680,20 @@ export default {
             color: '#116611',
             coins: 25,
             credits: 50_000,
-            extensions: [],
+            extensions: [
+                {
+                    caption: 'Cella della prigione',
+                    credits: 25_000,
+                    coins: 5,
+                    duration: '7 giorni',
+                },
+                ...new Array(1).fill({
+                    caption: 'Altra cella',
+                    credits: 25_000,
+                    coins: 5,
+                    duration: '7 giorni',
+                }),
+            ],
             levelcost: [
                 '1. 10.000',
                 '2. 50.000',
@@ -710,7 +744,7 @@ export default {
             buildings: [0, 1, 18],
             color: '#ff2d2d',
         },
-        'Ambulanzia': {
+        'Soccorso': {
             buildings: [2, 3, 4, 5, 20],
             color: '#ffa500',
         },
@@ -732,7 +766,7 @@ export default {
             },
             color: '#ff2d2d',
         },
-        'Ambulanzia': {
+        'Soccorso': {
             vehicles: {
                 Ambulanza: [4, 20],
                 Elisoccorso: [8],
@@ -758,7 +792,7 @@ export default {
         6: 19,
     },
     vehicleBuildings: [0, 2, 5, 6, 13, 14, 18, 19, 20, 21],
-    cellBuildings: [6],
+    cellBuildings: [6, 19],
     cellExtensions: [
         '6_0',
         '6_1',
@@ -770,6 +804,8 @@ export default {
         '6_7',
         '6_8',
         '6_9',
+        '19_1',
+        '19_2',
     ],
     bedBuildings: [4],
     schoolBuildings: [1, 3, 8],

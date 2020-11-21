@@ -29,6 +29,10 @@
 			"description": "Conta quanto spesso una AAR è stata cliccata. Tutti i contatori possono essere resettati usando il pulsante che si trova nell'angolo in basso a destra o un AAR con funzione di ripristino.",
 			"title": "Contatore AAR"
 		},
+		"arrCounterAsBadge": {
+			"description": "Mostra l'ARR-Counter come un piccolo distintivo su ogni ARR",
+			"title": "ARR-Counter come distintivo"
+		},
 		"arrCounterResetSelection": {
 			"description": "Aggiunge un pulsante in basso a destra per resettare la precedente selezione dei veicoli. Da notare: Resetta anche in contatore AAR e i bordi, se attivato!",
 			"title": "Resetta la selezione dei veicoli"
@@ -96,5 +100,52 @@
 			"description": "Delinea in giallo l'ora di generazione se l'utilizzo è più vecchio del numero di ore immesso. Se il numero è 0, non viene tracciato alcun bordo.",
 			"title": "Bordo giallo"
 		}
+	},
+	"tailoredTabs": {
+		"defaultTabs": [
+			{
+				"name": "Autopompa",
+				"vehicleTypes": [
+					0,
+					9
+				]
+			},
+			{
+				"name": "Altri apparecchi antincendio",
+				"vehicleTypes": [
+					1,
+					2,
+					3,
+					5,
+					6,
+					10,
+					11,
+					12
+				]
+			},
+			{
+				"name": "Ambulanza",
+				"vehicleTypes": [
+					4,
+					8,
+					18,
+					19,
+					20
+				]
+			},
+			{
+				"name": "Polizia",
+				"vehicleTypes": [
+					7,
+					13,
+					14,
+					15,
+					16,
+					17,
+					21,
+					22
+				]
+			}
+		]
 	}
 }

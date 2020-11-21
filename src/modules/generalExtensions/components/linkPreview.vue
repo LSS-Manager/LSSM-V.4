@@ -115,9 +115,9 @@
                         </a>
                     </td>
                     <td>
-                        ({{ vehicleTypes[vehicle.vehicle_type].caption }}
-                        <small v-if="vehicle.vehicle_type_caption"
-                            >[{{ vehicle.vehicle_type_caption }}]</small
+                        ({{ vehicleTypes[vehicle.vehicle_type].caption
+                        }}<small v-if="vehicle.vehicle_type_caption"
+                            >&nbsp;[{{ vehicle.vehicle_type_caption }}]</small
                         >)
                     </td>
                 </tr>
@@ -273,7 +273,9 @@ export default Vue.extend<
             this._setId(vehicle.id);
             this._setType('vehicles');
             this._setTitle(vehicle.caption);
-            this._setIcon('ambulance');
+            this._setIcon(
+                this.vehicleTypes[vehicle.vehicle_type].icon ?? 'ambulance'
+            );
             let additional = this.vehicleTypes[vehicle.vehicle_type].caption;
             if (vehicle.vehicle_type_caption)
                 additional += ` | ${vehicle.vehicle_type_caption}`;

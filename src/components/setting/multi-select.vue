@@ -59,7 +59,11 @@ export default Vue.extend<
         updateValue: {
             get() {
                 return (this.value
-                    .map(v => this.options.find(o => o.value === v))
+                    .map(v =>
+                        this.options.find(
+                            o => o.value.toString() === v.toString()
+                        )
+                    )
                     .filter(
                         v => !!v
                     ) as MultiSelectComputed['updateValue']).sort((a, b) =>
