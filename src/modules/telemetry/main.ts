@@ -4,7 +4,10 @@ import config from '../../config';
 
 const NOTE_STORAGE_KEY = 'telemetry_note_confirmed';
 
-export default (LSSM: Vue): void => {
+export default (
+    LSSM: Vue,
+    getSetting: <t = boolean>(settingId: string) => Promise<t>
+): void => {
     const $m = (key: string, args?: { [key: string]: unknown }) =>
         LSSM.$t(`modules.telemetry.${key}`, args);
 
@@ -122,12 +125,11 @@ export default (LSSM: Vue): void => {
                                     } as StorageSet)
                                     .then(() => LSSM.$modal.hide('dialog'));
                                 // Now we store if we allowed telemetry
-                                LSSM.$store
-                                    .dispatch('settings/setSetting', {
-                                        moduleId: MODULE_ID,
-                                        settingId: 'allowTelemetry',
-                                        value: false,
-                                    } as SettingSet);
+                                LSSM.$store.dispatch('settings/setSetting', {
+                                    moduleId: 'global',
+                                    settingId: 'allowTelemetry',
+                                    value: false,
+                                });
                             },
                         },
                         {
@@ -145,12 +147,11 @@ export default (LSSM: Vue): void => {
                                             LSSM.$modal.hide('dialog')
                                     );
                                 // Now we store if we allowed telemetry
-                                LSSM.$store
-                                    .dispatch('settings/setSetting', {
-                                        moduleId: MODULE_ID,
-                                        settingId: 'allowTelemetry',
-                                        value: true,
-                                    } as SettingSet);
+                                LSSM.$store.dispatch('settings/setSetting', {
+                                    moduleId: 'global',
+                                    settingId: 'allowTelemetry',
+                                    value: true,
+                                });
                             },
                         },
                     ],
