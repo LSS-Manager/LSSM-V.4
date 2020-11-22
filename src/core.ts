@@ -103,7 +103,7 @@ if (window.location.pathname === '/') {
     if (window.location.pathname === '/') {
         telemetry(LSSM, settingId => {
             return LSSM.$store.dispatch('settings/getSetting', {
-                moduleId: 'general',
+                moduleId: 'global',
                 settingId,
             });
         });
