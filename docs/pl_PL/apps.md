@@ -1,6 +1,6 @@
 ---
 title: ℹ️ General
-lang: en_US
+lang: pl_PL
 sidebarDepth: 2
 ---
 
