@@ -104,7 +104,7 @@ if (window.location.pathname === '/') {
         telemetry(LSSM, settingId => {
             return LSSM.$store.dispatch('settings/getSetting', {
                 moduleId: 'general',
-                settingId,
+                settingId: 'allowTelemetry',
             });
         });
         releasenotes(LSSM);
