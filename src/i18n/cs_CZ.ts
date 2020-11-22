@@ -90,8 +90,8 @@ export default {
         },
         allowTelemetry: {
             description:
-                'Steuert, ob Der LSS-Manager Daten senden darf, die uns bei der Entwicklung helfen.',
-            title: 'Telemetrie erlauben',
+                'Povolit LSSM odesílat data, což pomáhá při vývoji tohoto rozšíření.',
+            title: 'Povolení telemetrie',
         },
         iconBg: {
             description: 'Změnit barvu pozadí ikony LSSM',
