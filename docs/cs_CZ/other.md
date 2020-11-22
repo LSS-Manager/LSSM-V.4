@@ -23,6 +23,7 @@ Currently, LSS Manager consists of 3 developers and 6 additional supporters for 
 * Aisaka *[CEO, Server Administrator & Senior Developer]*
 * Jan *[Senior Architect & Developer]*
 * Sanni *[Quality Checker, Bugfixer & Junior Developer]*
+* Ron31 *[Bugfixer, Junior Developer]*
 
 ### The Discord-Team
 **Administration**:

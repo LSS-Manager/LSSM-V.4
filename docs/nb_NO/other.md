@@ -20,9 +20,10 @@ Vi har besluttet å bruke denne lisensen for å forhindre misbruk av koden vår 
 For tiden består LSS Manager av 3 utviklere og 6 ekstra støttespillere for <a :href="$themeConfig.variables.discord" target="_blank">Discord server</a>. On Discord er utviklerne våre selvfølgelig administrativt aktive!
 
 ### Utviklerne
-* Aisaka * [administrerende direktør, serveradministrator, seniorutvikler] *
-* Jan * [Seniorarkitekt og utvikler] *
-* Sanni * [Quality Check, Bugfixing, Junior Developer] *
+* Aisaka *[administrerende direktør, serveradministrator, seniorutvikler]*
+* Jan *[Seniorarkitekt og utvikler]*
+* Sanni *[Quality Check, Bugfixing, Junior Developer]*
+* Ron31 *[Bugfixer, Junior Developer]*
 
 ### Discord-teamet
 **Administrasjon**:
