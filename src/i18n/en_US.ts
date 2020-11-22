@@ -92,6 +92,15 @@ export default {
                 'Controls whether LSS-Manager is allowed to send Data which helps us in developing this extension.',
             title: 'Allow Telemetry',
         },
+        iconBg: {
+            description: 'Change the background of LSSM-Icon!',
+            title: 'LSSM-Icon Background',
+        },
+        iconBgAsNavBg: {
+            description:
+                'Color the whole navbar in the color of LSSM-Icon Background!',
+            title: 'colorize navbar',
+        },
     },
     vehicles: {
         0: {
