@@ -17,12 +17,13 @@ Der LSS-Manager steht unter der [Creative Commons Attribution-NonCommercial-Shar
 Wir haben uns dazu entschieden, diese Lizenz zu verwenden, um ein Missbrauch unseres Codes zum Verstoß gegen die AGB des Spiels zu vermeiden.
 
 ## Das LSSM-Team
-Aktuell besteht das der LSS-Manager aus 3 Entwicklern und 6 zusätzlichen Unterstützern für unseren <a :href="$themeConfig.variables.discord" target="_blank">Discord-Server</a>. Auf Discord sind unsere Entwickler natürlich auch administrativ aktiv!
+Aktuell besteht das der LSS-Manager aus 4 Entwicklern und 6 zusätzlichen Unterstützern für unseren <a :href="$themeConfig.variables.discord" target="_blank">Discord-Server</a>. Auf Discord sind unsere Entwickler natürlich auch administrativ aktiv!
 
 ### Die Entwickler
 * Aisaka *[CEO, Serveradministrator, Senior Developer]*
 * Jan *[Senior Architect and Developer]*
 * Sanni *[Quality Check, Bugfixing, Junior Developer]*
+* Ron31 *[Bugfixer, Junior Developer & "Praktikant"]*
 
 ### Das Discord-Team
 **Administration**:
@@ -58,6 +59,8 @@ Am 8. Juni 2017 wurde der `Leitstellenspiel Manager V3` veröffentlicht. Nach ni
 Gegen Ende 2019 begannen dann die ersten Planungen für eine `V.4`, um eine schönere und performantere Codebase zu gestalten. Mit der Zeit sind einige Module "in die Jahre" gekommen und wurden zwar etwas aufgebessert, jedoch gabes bei Nutzern mit vielen Gebäuden und Fahrzeugen weiterhin teilweise Probleme.
 
 Seit dem läuft die Entwicklung am `LSS-Manager V.4`, um den Nutzern ein völlig neues Gefühl bei der Nutzung des LSSM zu bieten.
+
+Innerhalb der ersten 24 Stunden nach release der `V.4` am 21.11.2020 erreichten wir schon wieder 150 User. In den nächsten 24 Stunden kamen nocheinmal 200 dazu!
 
 ## Open-Source Libraries
 Der LSSM verwendet natürlich auch öffentliche Libraries von dritten - sonst wären einige Funktionen einfach viel zu viel zu programmieren.

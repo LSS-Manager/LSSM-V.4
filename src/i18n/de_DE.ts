@@ -87,6 +87,21 @@ export default {
             description:
                 'Zeigt in der Navigationsleiste statt dem LSSM-Logo ein einfaches Label an.',
         },
+        allowTelemetry: {
+            description:
+                'Steuert, ob Der LSS-Manager Daten senden darf, die uns bei der Entwicklung helfen.',
+            title: 'Telemetrie erlauben',
+        },
+        iconBg: {
+            description:
+                'Ändere hiermit die Farbe des Hintergrunds des LSSM-Icons!',
+            title: 'LSSM-Icon Hintergrund',
+        },
+        iconBgAsNavBg: {
+            description:
+                'Wenn diese Einstellung aktiviert ist, nimmt die ganze Leiste oben die Hintergrundfarbe des LSSM-Icons an',
+            title: 'Navigationsleiste einfärben',
+        },
     },
     vehicles: {
         0: {

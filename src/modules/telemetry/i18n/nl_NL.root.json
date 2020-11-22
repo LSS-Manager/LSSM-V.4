@@ -14,7 +14,7 @@
 	"info": {
 		"close": "Toon deze melding niet overnieuw",
 		"decline": "Sta het verzamelen van metadata niet toe",
-		"text": "De LSS Manager verzamelt metadata zoals beschreven in de <a href='{wiki}metadata.html' class='lightbox-open'>Wiki</a>.",
+		"text": "De LSS Manager verzamelt metadata zoals beschreven in de <a href='{wiki}metadata.html' class='lightbox-open'>Wiki</a>.<br>U kunt uw toestemming ten alle tijden intrekken.",
 		"title": "Informatie over het verzamelen van metadata"
 	},
 	"name": "Telemetrie"
