@@ -60,6 +60,8 @@ Gegen Ende 2019 begannen dann die ersten Planungen für eine `V.4`, um eine sch�
 
 Seit dem läuft die Entwicklung am `LSS-Manager V.4`, um den Nutzern ein völlig neues Gefühl bei der Nutzung des LSSM zu bieten.
 
+Innerhalb der ersten 24 Stunden nach release der `V.4` am 21.11.2020 erreichten wir schon wieder 150 User. In den nächsten 24 Stunden kamen nocheinmal 200 dazu!
+
 ## Open-Source Libraries
 Der LSSM verwendet natürlich auch öffentliche Libraries von dritten - sonst wären einige Funktionen einfach viel zu viel zu programmieren.
 
