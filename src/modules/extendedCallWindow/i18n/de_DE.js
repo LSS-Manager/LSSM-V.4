@@ -14,6 +14,12 @@ module.exports = {
     },
     arrHover: {
         reset: 'Die Fahrzeugauswahl wird vorher zurückgesetzt!',
+        headers: {
+            set: 'Set',
+            attribute: 'Name',
+            free: 'Free',
+            max: 'Max'
+        },
         titles: {
             set:
                 'So oft wird diese Kombination ausgewählt, wenn du auf die AAO drückst',
