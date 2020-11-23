@@ -1,0 +1,191 @@
+{
+	"name": "Rozšířené okno výjezdu",
+	"settings": {
+		"alarmIcons": {
+			"description": "Leave icons in the \"Alarm\" Show button, based on your selection. You can choose between <a href=\"https://fontawesome.com/icons?d=gallery&m=free\" target=\"_blank\">all free icons from Font-Awesome</a>. It is enough to specify the name of the icon. A live preview will then show you the icon.",
+			"icon": "Icon",
+			"preview": "Preview",
+			"style": "icon type",
+			"title": "alarm icons",
+			"vehicles": "vehicle types"
+		},
+		"alarmTime": {
+			"description": "Zobrazí vedle tlačítka PNV jak dlouho pojede nejvzdálenější vozidlo k zásahu.",
+			"title": "Doba příjezdu vozidel"
+		},
+		"arrClickHighlight": {
+			"description": "Vykreslí rámeček okolo zakliklých pravidel nouzových výjezdů.",
+			"title": "Zvýraznění zakliklých PNV"
+		},
+		"arrClickHighlightColor": {
+			"description": "Nastaví barvu rámečku pro zvýraznění zakliklých pravidel nouzových výjezdů.",
+			"title": "Barva zakliklých PNV"
+		},
+		"arrClickHighlightWidth": {
+			"description": "Zde zadejte (v pixelech) jak tlustý má být rámeček PNV.",
+			"title": "Šířka zvýraznění"
+		},
+		"arrCounter": {
+			"description": "Counts how often an ARR or move has been clicked. All counters can be reset using the button in the bottom right corner or an ARR with reset function.",
+			"title": "ARR Counter"
+		},
+		"arrCounterAsBadge": {
+			"description": "Shows the ARR-Counter as a small badge on each ARR",
+			"title": "ARR-Counter as Badge"
+		},
+		"arrCounterResetSelection": {
+			"description": "Adds a button at the bottom right to reset the previous vehicle selection. Note: It also resets the ARR counter and the borders, if activated!",
+			"title": "Reset vehicle selection"
+		},
+		"arrMatchHighlight": {
+			"description": "Sets a gray filter over all ARRs that do not contain a word of the mission name.",
+			"title": "Grey out unsuitable ARRs"
+		},
+		"arrSpecs": {
+			"description": "Shows the stored requests in the ARR, if you stay with the mouse briefly over an ARR",
+			"title": " Show ARR details"
+		},
+		"arrTime": {
+			"description": "Shows what would be the longest travel time after selecting this ARR, if you stay with the mouse briefly over an ARR.",
+			"title": "Longest journey time"
+		},
+		"centerMap": {
+			"description": "Allows you to center the map in the main window on the place of use at the touch of a button.",
+			"title": "Center Map"
+		},
+		"enhancedMissingVehicles": {
+			"description": "Converts the display of additionally required vehicles into a clearer table.",
+			"title": "Improve needed vehicles"
+		},
+		"generationDate": {
+			"description": "Shows next to the address when the mission was generated.",
+			"title": "Generation time"
+		},
+		"hideVehicleList": {
+			"description": "Normally hides the use list, then opens it by pressing a button.",
+			"title": "Hides the vehicle list"
+		},
+		"loadMoreVehiclesInHeader": {
+			"description": "Displays the button \"Reload vehicles\", if available, in the header bar.",
+			"title": "Reload vehicles in header"
+		},
+		"missionKeywords": {
+			"color": "background color",
+			"description": "Get your own keyword displayed next to the mission name",
+			"keyword": "keyword",
+			"missions": "missions",
+			"prepend": "Show before the missionname",
+			"preview": "Preview",
+			"title": "Mission keywords"
+		},
+		"patientSummary": {
+			"description": "Shows next to the number of patients, which rescue equipment they need in combination.",
+			"title": "Patient Summary"
+		},
+		"redBorder": {
+			"description": "Outlines the generation time in red if the bet will expire the following night.",
+			"title": "Red border"
+		},
+		"stickyHeader": {
+			"description": "Always shows the top bar in the insert window, even when you scroll down.",
+			"title": "Always show header bar"
+		},
+		"tailoredTabs": {
+			"color": "Color",
+			"description": "Adjust the tabs in the insert window here. \"All\" and \"Continue alerting\" will always be visible,",
+			"name": "name",
+			"title": "vehicle categories",
+			"vehicles": "vehicle types"
+		},
+		"yellowBorder": {
+			"description": "Borders the generation time yellow if the usage is older than the entered number of hours. If the number is 0, no border is drawn.",
+			"title": "Yellow border"
+		}
+	},
+	"tailoredTabs": {
+		"defaultTabs": [
+			{
+				"name": "Hasičské cisterny",
+				"vehicleTypes": [
+					0,
+					1,
+					13,
+					18,
+					33
+				]
+			},
+			{
+				"name": "Ostatní hasičská technika",
+				"vehicleTypes": [
+					2,
+					3,
+					4,
+					6,
+					7,
+					8,
+					9,
+					12,
+					17,
+					21,
+					22,
+					24,
+					30,
+					31,
+					32,
+					34,
+					35,
+					36,
+					37,
+					38,
+					39,
+					40,
+					41
+				]
+			},
+			{
+				"name": "Sanitky",
+				"vehicleTypes": [
+					5,
+					11,
+					15,
+					20,
+					25,
+					27,
+					28,
+					29
+				]
+			},
+			{
+				"name": "Policie",
+				"vehicleTypes": [
+					10,
+					14,
+					16,
+					19,
+					23,
+					26,
+					47
+				]
+			},
+			{
+				"name": "Water",
+				"vehicleTypes": [
+					21,
+					22,
+					24,
+					25
+				]
+			},
+			{
+				"name": "FBI",
+				"vehicleTypes": [
+					42,
+					43,
+					44,
+					45,
+					46
+				]
+			}
+		]
+	}
+}
