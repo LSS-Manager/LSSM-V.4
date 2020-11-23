@@ -90,11 +90,19 @@ export default {
         },
         allowTelemetry: {
             description:
-                'Steuert, ob Der LSS-Manager Daten senden darf, die uns bei der Entwicklung helfen.',
-            title: 'Telemetrie erlauben',
+                'Povolit LSSM odesílat data, což pomáhá při vývoji tohoto rozšíření.',
+            title: 'Povolení telemetrie',
+        },
+        iconBg: {
+            description: 'Změnit barvu pozadí ikony LSSM',
+            title: 'pozadí ikony LSSM',
+        },
+        iconBgAsNavBg: {
+            description:
+                'barva celé navigační lišty v barvě pozadí  ikony LSSM',
+            title: 'Zbarvení navigační lišty',
         },
     },
-
     vehicles: [
         {
             caption: 'CAS 20',

@@ -94,6 +94,15 @@ export default {
                 'Contrôle si LSS-Manager est autorisé à envoyer des données, ce qui nous aide à développer cette extension.',
             title: 'Autoriser la télémétrie',
         },
+        iconBg: {
+            description: "Changez la couleur de fond de l'icône LSSM !",
+            title: "Couleur de fond de l'icône LSSM",
+        },
+        iconBgAsNavBg: {
+            description:
+                "Colorez toute la barre de navigation avec la couleur de fond de l'icône du LSSM!",
+            title: 'colorier la barre de navigation',
+        },
     },
     vehicles: {
         0: {

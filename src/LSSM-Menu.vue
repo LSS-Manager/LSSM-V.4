@@ -65,7 +65,7 @@
                     Open-Source Libraries
                 </a>
             </li>
-            <li role="presentation" v-if="!labelInMenu">
+            <li role="presentation">
                 <label>
                     Icon
                     <input
@@ -107,12 +107,14 @@ export default Vue.extend<
             id: this.$store.getters.nodeAttribute('indicator', true),
             menuId: this.$store.getters.nodeAttribute('indicator_menu', true),
             iconBg: this.$store.state.policechief ? '#004997' : '#C9302C',
+            iconBgAsNavBg: false,
             labelInMenu: false,
             lssmLogo,
             discord: this.$store.state.discord,
             wiki: this.$store.getters.wiki,
             version: this.$store.state.version,
             mode: this.$store.state.mode,
+            nav: document.getElementById('main_navbar'),
         };
     },
     computed: {
@@ -212,8 +214,12 @@ export default Vue.extend<
             );
         },
         storeIconBg() {
-            this.$store.dispatch('storage/set', {
-                key: 'iconBG',
+            if (this.iconBgAsNavBg && this.nav) {
+                this.nav.style.backgroundColor = this.iconBg;
+            }
+            LSSM.$store.dispatch('settings/setSetting', {
+                moduleId: 'global',
+                settingId: 'iconBg',
                 value: this.iconBg,
             });
         },
@@ -222,19 +228,14 @@ export default Vue.extend<
         this.iconBg = null;
         this.labelInMenu = false;
         this.$store
-            .dispatch('settings/getSetting', {
-                moduleId: 'global',
-                settingId: 'labelInMenu',
-            })
-            .then(labelInMenu => {
+            .dispatch('settings/getModule', 'global')
+            .then(({ labelInMenu, iconBg, iconBgAsNavBg }) => {
                 this.labelInMenu = labelInMenu;
-                if (!labelInMenu)
-                    this.$store
-                        .dispatch('storage/get', {
-                            key: 'iconBG',
-                            defaultValue: this.iconBg,
-                        })
-                        .then(iconBG => (this.iconBg = iconBG));
+                this.iconBg = iconBg;
+                this.iconBgAsNavBg = iconBgAsNavBg;
+                if (iconBgAsNavBg && this.nav) {
+                    this.nav.style.backgroundColor = iconBg;
+                }
             });
     },
 });

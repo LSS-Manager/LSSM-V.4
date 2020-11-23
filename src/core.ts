@@ -14,6 +14,7 @@ import releasenotes from './modules/releasenotes/main';
 import { RadioMessage } from '../typings/Ingame';
 import { Credits } from 'typings/Credits';
 import { ModuleMainFunction, ModuleSettingFunction } from 'typings/Module';
+import { Color, Toggle } from 'typings/Setting';
 
 require('./natives/navTabsClicker');
 
@@ -65,13 +66,23 @@ if (window.location.pathname === '/') {
         .dispatch('settings/register', {
             moduleId: 'global',
             settings: {
-                labelInMenu: {
+                labelInMenu: <Toggle>{
                     type: 'toggle',
                     default: false,
                 },
-                allowTelemetry: {
+                allowTelemetry: <Toggle>{
                     type: 'toggle',
                     default: true,
+                },
+                iconBg: <Color>{
+                    type: 'color',
+                    default: LSSM.$store.state.policechief
+                        ? '#004997'
+                        : '#C9302C',
+                },
+                iconBgAsNavBg: <Toggle>{
+                    type: 'toggle',
+                    default: false,
                 },
             },
         })
@@ -103,7 +114,7 @@ if (window.location.pathname === '/') {
     if (window.location.pathname === '/') {
         telemetry(LSSM, settingId => {
             return LSSM.$store.dispatch('settings/getSetting', {
-                moduleId: 'general',
+                moduleId: 'global',
                 settingId,
             });
         });
