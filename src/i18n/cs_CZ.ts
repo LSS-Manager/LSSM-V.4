@@ -88,6 +88,11 @@ export default {
             description:
                 'Zobrazí jednotuchý popisek v navigační liště namísto loga LSSM',
         },
+        allowTelemetry: {
+            description:
+                'Steuert, ob Der LSS-Manager Daten senden darf, die uns bei der Entwicklung helfen.',
+            title: 'Telemetrie erlauben',
+        },
     },
 
     vehicles: [

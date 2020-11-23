@@ -13,7 +13,7 @@
 	},
 	"info": {
 		"close": "Ne plus me montrer ceci",
-		"text": "LSS Manager collecte des metadata comme expliqué sur notre <a href='{wiki}metadata.html' class='lightbox-open'>Wiki</a>. Pendant la phase de développement, la collecte des données ne peut pas être arrêtée.",
+		"text": "LSS Manager collecte des metadata comme expliqué sur notre <a href='{wiki}metadata.html' class='lightbox-open'>Wiki</a>.<br>Vous pouvez toujours révoquer votre accord ultérieurement.",
 		"title": "Information sur la collecte des metadata"
 	},
 	"name": "Télémetrie"
