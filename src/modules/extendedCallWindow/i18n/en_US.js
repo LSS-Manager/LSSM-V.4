@@ -87,7 +87,7 @@ module.exports = {
             [/^Mobile Command Vehicle(s)?$/]: [12],
             [/^HazMat$/]: [9],
             [/^Ambulance(s)?$/]: [5, 27],
-            [/^Patrol car(s)?$/]: [10],
+            [/^Patrol car(s)?$/]: [10, 47],
             [/^HEMS$/]: [11],
             [/^Police helicopter(s)?$/]: [23],
             [/^SWAT Personells$/]: [16, 26],
