@@ -1,5 +1,5 @@
 {
-	"name": "Extended alarm window",
+	"name": "Rozšířené okno výjezdu",
 	"settings": {
 		"alarmIcons": {
 			"description": "Leave icons in the \"Alarm\" Show button, based on your selection. You can choose between <a href=\"https://fontawesome.com/icons?d=gallery&m=free\" target=\"_blank\">all free icons from Font-Awesome</a>. It is enough to specify the name of the icon. A live preview will then show you the icon.",
@@ -10,20 +10,20 @@
 			"vehicles": "vehicle types"
 		},
 		"alarmTime": {
-			"description": "Shows next to the Alarm button how long the vehicle with the longest journey time takes.",
-			"title": "Longest journey time"
+			"description": "Zobrazí vedle tlačítka PNV jak dlouho pojede nejvzdálenější vozidlo k zásahu.",
+			"title": "Doba příjezdu vozidel"
 		},
 		"arrClickHighlight": {
-			"description": "Draws a border around already clicked ARRs.",
-			"title": "Highlight clicked ARRs"
+			"description": "Vykreslí rámeček okolo zakliklých pravidel nouzových výjezdů.",
+			"title": "Zvýraznění zakliklých PNV"
 		},
 		"arrClickHighlightColor": {
-			"description": "Set the border color for ARR borders.",
-			"title": "Highlight Color"
+			"description": "Nastaví barvu rámečku pro zvýraznění zakliklých pravidel nouzových výjezdů.",
+			"title": "Barva zakliklých PNV"
 		},
 		"arrClickHighlightWidth": {
-			"description": "Specify here (in pixels) how wide the ARR border should be.",
-			"title": "Highlighting width"
+			"description": "Zde zadejte (v pixelech) jak tlustý má být rámeček PNV.",
+			"title": "Šířka zvýraznění"
 		},
 		"arrCounter": {
 			"description": "Counts how often an ARR or move has been clicked. All counters can be reset using the button in the bottom right corner or an ARR with reset function.",
@@ -105,7 +105,7 @@
 	"tailoredTabs": {
 		"defaultTabs": [
 			{
-				"name": "Firetruck",
+				"name": "Hasičské cisterny",
 				"vehicleTypes": [
 					0,
 					1,
@@ -115,7 +115,7 @@
 				]
 			},
 			{
-				"name": "Other Fire Apparatus",
+				"name": "Ostatní hasičská technika",
 				"vehicleTypes": [
 					2,
 					3,
@@ -143,7 +143,7 @@
 				]
 			},
 			{
-				"name": "Ambulance",
+				"name": "Sanitky",
 				"vehicleTypes": [
 					5,
 					11,
@@ -156,7 +156,7 @@
 				]
 			},
 			{
-				"name": "Police",
+				"name": "Policie",
 				"vehicleTypes": [
 					10,
 					14,
