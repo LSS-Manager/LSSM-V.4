@@ -32,6 +32,13 @@ const modules = {
             total: 'Alle innstillinger',
             module: 'Kun for denne modulen',
         },
+        resetWarningSetting: {
+            title: 'Tilbakestill innstillinger',
+            text:
+                'Vil du virkelig tilbakestille denne innstillingen <b>{setting}</b> for modulen <b>{module}</b> til standardverdien?',
+            close: 'Avbryt',
+            reset: 'Nullstille',
+        },
         closeWarning: {
             title: 'Ulagrede endringer',
             text:
@@ -80,6 +87,20 @@ export default {
             title: 'Etikett istedenfor ikon i navigasjonslinjen',
             description:
                 'Viser en enkel etikett i navigasjonslinjen i stedet for LSSM-logoen.',
+        },
+        allowTelemetry: {
+            description:
+                'Styrer om LSS-Manager får samle data som hjelper oss i å utvikle utvidelsen.',
+            title: 'Tillatt telemetri',
+        },
+        iconBg: {
+            description: 'Konfigurer bakgrunnen til LSSM-ikonet',
+            title: 'LSSM-Ikon Bakgrunn',
+        },
+        iconBgAsNavBg: {
+            description:
+                'Bytt farge på hele navigasjonsbaren i fargen til LSSM bakgrunnen!',
+            title: 'Navigasjonsbar farge',
         },
     },
     vehicles: {

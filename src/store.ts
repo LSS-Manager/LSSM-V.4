@@ -155,10 +155,10 @@ export default (Vue: VueConstructor): Store<RootState> => {
                 return res;
             },
             wiki: (state: RootState): string =>
-                `${config.server}docs/${state.lang}`,
+                `${config.server}docs/${state.lang}/`,
             moduleWiki: (_, getters: GetterTree<RootState, RootState>) => (
                 moduleId: keyof Modules
-            ): string => `${getters.wiki}/modules/${moduleId}.html`,
+            ): string => `${getters.wiki}modules/${moduleId}.html`,
             appModules: (state: RootState) =>
                 Object.fromEntries(
                     Object.entries(state.modules).filter(
@@ -193,20 +193,20 @@ export default (Vue: VueConstructor): Store<RootState> => {
                     // @ts-ignore
                     trueBase[trueEvent] = (...args: unknown[]) => {
                         document.dispatchEvent(
-                            new CustomEvent(`lssm_${event}_before`, {
+                            new CustomEvent(`${PREFIX}_${event}_before`, {
                                 detail: args,
                             })
                         );
                         state.hooks[event](...args);
                         document.dispatchEvent(
-                            new CustomEvent(`lssm_${event}_after`, {
+                            new CustomEvent(`${PREFIX}_${event}_after`, {
                                 detail: args,
                             })
                         );
                     };
                 }
                 document.addEventListener(
-                    `lssm_${event}_${post ? 'after' : 'before'}`,
+                    `${PREFIX}_${event}_${post ? 'after' : 'before'}`,
                     event =>
                         callback(...((event as unknown) as LSSMEvent).detail)
                 );
@@ -241,7 +241,7 @@ export default (Vue: VueConstructor): Store<RootState> => {
                     // @ts-ignore
                     trueBase.__proto__[event] = (...args: unknown[]) => {
                         document.dispatchEvent(
-                            new CustomEvent(`lssm_${eventString}_before`, {
+                            new CustomEvent(`${PREFIX}_${eventString}_before`, {
                                 detail: args,
                             })
                         );
@@ -250,14 +250,14 @@ export default (Vue: VueConstructor): Store<RootState> => {
                             ...args
                         );
                         document.dispatchEvent(
-                            new CustomEvent(`lssm_${eventString}_after`, {
+                            new CustomEvent(`${PREFIX}_${eventString}_after`, {
                                 detail: args,
                             })
                         );
                     };
                 }
                 document.addEventListener(
-                    `lssm_${eventString}_${post ? 'after' : 'before'}`,
+                    `${PREFIX}_${eventString}_${post ? 'after' : 'before'}`,
                     event =>
                         callback(...((event as unknown) as LSSMEvent).detail)
                 );

@@ -1,37 +1,37 @@
 {
 	"deleteARR": {
 		"deleteModal": {
-			"btnCancel": "Cancel",
-			"btnConfirm": "Delete",
-			"text": "Do you want to delete this AAO entry?",
-			"title": "Delete?"
+			"btnCancel": "Avbryt",
+			"btnConfirm": "Slett",
+			"text": "Vil du slette denne ARR-responsen?",
+			"title": "Slette?"
 		}
 	},
 	"forumPost": {
 		"deleteModal": {
-			"btnCancel": "Cancel",
-			"btnConfirm": "Delete",
-			"text": "Do you want to delete this post?",
-			"title": "Delete?"
+			"btnCancel": "Avbryt",
+			"btnConfirm": "Slett",
+			"text": "Vil du slette dette innlegget?",
+			"title": "Slette?"
 		}
 	},
 	"memberlistManageUser": {
-		"hide": "Close",
+		"hide": "Lukk",
 		"kickModal": {
-			"btnCancel": "Cancel",
-			"btnConfirm": "Kick",
-			"text": "Do you really want to kick the player out?",
-			"title": "Kick?"
+			"btnCancel": "Avbryt",
+			"btnConfirm": "Spark",
+			"text": "Vil du virkelig sparke brukeren ut?",
+			"title": "Kaste ut?"
 		},
-		"set": "set",
-		"unset": "remove"
+		"set": "sett",
+		"unset": "fjern"
 	},
 	"memberlistRoles": {
-		"admin": "Alliance Admin",
-		"aufsichtsrat": "Moderator action log",
-		"coadmin": "Alliance Co-Admin",
-		"finance": "Alliance Finances",
-		"schooling": "Alliance Educator",
-		"sprechwunsch_admin": "Transport Request - Admin"
+		"admin": "Allianse Admin",
+		"aufsichtsrat": "Moderator handlingslogg",
+		"coadmin": "Allianse Co-Admin",
+		"finance": "Allianse Økonomi",
+		"schooling": "Allianse Lærer",
+		"sprechwunsch_admin": "Transport Forespørsel - Admin"
 	}
 }

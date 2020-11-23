@@ -30,6 +30,11 @@
 			"description": "Modul \"Erweiterte Gebäudeansicht\": Wie viele Gebäude nach rechts und links, sowie schnelles Ändern der Leitstellenzuordnung.<br>Allgemeine Verbesserungen: Emoji-Picker.<br>Siehe auch den <a href=\"https://github.com/LSS-Manager/LSSM-V.4/releases/tag/v.4.0.5%2B20200921.1829\" class=\"lightbox-open\">Release auf GitHub</a>.",
 			"title": "Neue Features",
 			"version": "4.0.5+20200921.1829"
+		},
+		{
+			"description": "Der Release!\n Vollständiges V4 zum jetzigen Zeitpunkt und seit Beginn der Beta Map Bookmarks, Anzeige des Personals per Gebäudehover, im Building Mode bleiben, Array Counter Badge und natürlich dank der Betas diverse Bug Fixes<br>Siehe auch den <a href=\"https://github.com/LSS-Manager/LSSM-V.4/releases/tag/v.4.1.0 \" class=\"lightbox-open\">Release auf GitHub</a>.",
+			"title": "Stable Release",
+			"version": "4.1.0"
 		}
 	]
 }

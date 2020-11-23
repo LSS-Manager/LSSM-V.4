@@ -110,15 +110,19 @@ export default ((MODULE_ID: string) => ({
         default: false,
         dependsOn: '.vehicles.content',
     },
-    'optionalAlternatives.allow_ktw_instead_of_rtw': <Toggle>{
-        type: 'toggle',
-        default: true,
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
-        disabled: (settings): boolean =>
-            !settings[MODULE_ID]['patients.content'].value &&
-            !settings[MODULE_ID]['vehicles.content'].value,
-    },
+    ...(['de_DE', 'en_US', 'nl_NL', 'it_IT'].includes(BUILD_LANG)
+        ? {
+              'optionalAlternatives.allow_ktw_instead_of_rtw': <Toggle>{
+                  type: 'toggle',
+                  default: false,
+                  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                  // @ts-ignore
+                  disabled: (settings): boolean =>
+                      !settings[MODULE_ID]['patients.content'].value &&
+                      !settings[MODULE_ID]['vehicles.content'].value,
+              },
+          }
+        : null),
     'patients.title': <Toggle>{
         type: 'toggle',
         default: true,
@@ -181,6 +185,14 @@ export default ((MODULE_ID: string) => ({
         type: 'toggle',
         default: true,
     },
+    ...(BUILD_LANG === 'en_US'
+        ? {
+              subsequent: <Toggle>{
+                  type: 'toggle',
+                  default: true,
+              },
+          }
+        : null),
     'followup': <Toggle>{
         type: 'toggle',
         default: true,

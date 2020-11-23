@@ -87,6 +87,21 @@ export default {
             description:
                 'Zeigt in der Navigationsleiste statt dem LSSM-Logo ein einfaches Label an.',
         },
+        allowTelemetry: {
+            description:
+                'Steuert, ob Der LSS-Manager Daten senden darf, die uns bei der Entwicklung helfen.',
+            title: 'Telemetrie erlauben',
+        },
+        iconBg: {
+            description:
+                'Ändere hiermit die Farbe des Hintergrunds des LSSM-Icons!',
+            title: 'LSSM-Icon Hintergrund',
+        },
+        iconBgAsNavBg: {
+            description:
+                'Wenn diese Einstellung aktiviert ist, nimmt die ganze Leiste oben die Hintergrundfarbe des LSSM-Icons an',
+            title: 'Navigationsleiste einfärben',
+        },
     },
     vehicles: {
         0: {
@@ -1395,7 +1410,7 @@ export default {
             startVehicles: [],
         },
         9: {
-            caption: 'THW-Ortsverein',
+            caption: 'THW-Ortsverband',
             color: '#000f76',
             coins: 35,
             credits: 200_000,
@@ -2069,6 +2084,16 @@ export default {
         6: 6,
         7: 7,
         9: 9,
+    },
+    fmsTexts: {
+        1: 'Einsatzbereit über Funk',
+        2: 'Einsatzbereit auf Wache',
+        3: 'Auf Anfahrt',
+        4: 'Am Einsatzort',
+        5: 'Sprechwunsch',
+        6: 'Nicht einsatzbereit',
+        7: 'Transportfahrt',
+        9: 'Wartet auf Abholung',
     },
     buildingIcons: [
         'fire',

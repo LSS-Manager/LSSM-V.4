@@ -1,22 +1,22 @@
 {
-	"description": "Displays a configurable clock in various locations as needed.",
-	"name": "Clock",
+	"description": "Viser en konfigurerbar klokke i diverse menyer.",
+	"name": "Klokke",
 	"settings": {
 		"displayNav": {
-			"description": "The left margin next to the logo is selected as the position.",
-			"title": "Show clock in the navigation bar"
+			"description": "Venstre marg ved siden av logoen er valgt som posisjon.",
+			"title": "Vis klokke i navigasjonslinjen"
 		},
 		"displayOverlay": {
-			"description": "The clock can be moved and should be in front of all other elements",
-			"title": "Show clock as overlay"
+			"description": "Klokken kan flyttes og skal være foran alle andre elementer",
+			"title": "Vis klokke fremst"
 		},
 		"navFormat": {
-			"description": "Here you can set the format of the clock. You will find a help for this <a class=\"lightbox-open\" href=\"{wiki}/modules/clock.html#konfiguration\">here</a>.",
-			"title": "Format of the clock in the navigation bar"
+			"description": "Her kan du konfigurere formatet på klokken. Dersom du trenger hjelp, finner du det <a class=\"lightbox-open\" href=\"{wiki}modules/clock.html#konfiguration\">her</a>.",
+			"title": "Klokkeformat i navigasjonslinjen"
 		},
 		"overlayFormat": {
-			"description": "Here you can set the format of the clock. You will find a help for this <a class=\"lightbox-open\" href=\"{wiki}/modules/clock.html#konfiguration\">here</a>.",
-			"title": "Format of the clock as overlay"
+			"description": "Her kan du stille inn formatet på klokken. Dersom du trenger hjelp, finner du det <a class=\"lightbox-open\" href=\"{wiki}modules/clock.html#konfiguration\">her</a>.",
+			"title": "Klokkeformat som overlegg"
 		}
 	}
 }

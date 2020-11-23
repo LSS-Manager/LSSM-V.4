@@ -326,6 +326,39 @@
                     </span>
                 </a>
             </div>
+            <div
+                v-if="
+                    !maxState &&
+                        settings.subsequent &&
+                        missionSpecs.additional &&
+                        missionSpecs.additional.subsequent_missions_ids
+                "
+            >
+                {{
+                    $tc(
+                        'modules.missionHelper.subsequent',
+                        Object.values(
+                            missionSpecs.additional.subsequent_missions_ids
+                        ).length
+                    )
+                }}:
+                <a
+                    :href="`/einsaetze/${subsequent}`"
+                    v-for="subsequent in missionSpecs.additional
+                        .subsequent_missions_ids"
+                    :key="subsequent"
+                    :mission="
+                        (mission =
+                            missionSpecs.additional.subsequent_missions_names[
+                                subsequent
+                            ])
+                    "
+                >
+                    <span class="badge badge-default" v-if="mission">
+                        {{ mission }}
+                    </span>
+                </a>
+            </div>
         </div>
     </div>
 </template>
@@ -422,6 +455,7 @@ export default Vue.extend<
                 credits: false,
                 expansions: false,
                 followup: false,
+                subsequent: false,
                 k9_only_if_needed: false,
                 hide_battalion_chief_vehicles: false,
                 bike_police_only_if_needed: false,
@@ -516,6 +550,13 @@ export default Vue.extend<
                 if (this.settings.followup && mission.additional)
                     mission.additional.followup_missions_names = Object.fromEntries(
                         mission.additional.followup_missions_ids?.map(id => [
+                            id,
+                            missions.find(spec => spec.id === id)?.name || '',
+                        ]) || []
+                    );
+                if (this.settings.subsequent && mission.additional)
+                    mission.additional.subsequent_missions_names = Object.fromEntries(
+                        mission.additional.subsequent_missions_ids?.map(id => [
                             id,
                             missions.find(spec => spec.id === id)?.name || '',
                         ]) || []

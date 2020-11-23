@@ -19,6 +19,7 @@
                         v-bind="item.attrs"
                         :class="{ noSort: item.noSort }"
                         @click="!item.noSort && $emit('sort', key)"
+                        :title="titleAttr(item)"
                     >
                         {{ item.title }}
                         <font-awesome-icon
@@ -53,13 +54,14 @@ import { faSortUp } from '@fortawesome/free-solid-svg-icons/faSortUp';
 import { faSortDown } from '@fortawesome/free-solid-svg-icons/faSortDown';
 import {
     EnhancedTableData,
+    EnhancedTableMethods,
     EnhancedTableProps,
 } from '../../typings/components/Enhanced-Table';
-import { DefaultMethods, DefaultComputed } from 'vue/types/options';
+import { DefaultComputed } from 'vue/types/options';
 
 export default Vue.extend<
     EnhancedTableData,
-    DefaultMethods<Vue>,
+    EnhancedTableMethods,
     DefaultComputed,
     EnhancedTableProps
 >({
@@ -107,6 +109,11 @@ export default Vue.extend<
             type: Boolean,
             required: false,
             default: false,
+        },
+    },
+    methods: {
+        titleAttr(i) {
+            return i.titleAttr ?? i.title;
         },
     },
 });

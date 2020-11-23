@@ -3,17 +3,17 @@
 		"close": "Nascondi indizio",
 		"faqAnchor": "in-which-browsers-does-lss-manager-work",
 		"not": {
-			"text": "Caro utente di LSS-Manager, <br>sfortunatamente il supporto di LSSM, non supporta ufficialmente il tuo browser corrente <b>{name}</b>! Questo significa che non è garantito che tutte le funzionalità funzioneranno correttamente. Puoi trovare una lista dei browser supportati nelle nostre <a href='{wiki}/faq.html#{wikiAnchor}' class='lightbox-open'>FAQ</a>.",
+			"text": "Caro utente di LSS-Manager, <br>sfortunatamente il supporto di LSSM, non supporta ufficialmente il tuo browser corrente <b>{name}</b>! Questo significa che non è garantito che tutte le funzionalità funzioneranno correttamente. Puoi trovare una lista dei browser supportati nelle nostre <a href='{wiki}faq.html#{wikiAnchor}' class='lightbox-open'>FAQ</a>.",
 			"title": "Browser non supportato"
 		},
 		"old": {
-			"text": "Sembra che tu stia utilizzando un browser obsoleto! Attualmente stai usando <b>{name} {current}</b>, ma l'ultima versione è <b>{name} {latest}</b>! Perfavore nota che LSS-Manager supporta questo browser solo dalla versione <b>{supported}</b>. Questo è per di sicurezza e compatibilità. Puoi scaricare l'ultima version del tuo browser <a href='{download}' class='lightbox-open'>qui</a>. <br>Un elenco attuale dei browser supportato può essere trovato nelle nostre <a href='{wiki}/faq.html#{wikiAnchor}' class='lightbox-open'>FAQ</a>.",
+			"text": "Sembra che tu stia utilizzando un browser obsoleto! Attualmente stai usando <b>{name} {current}</b>, ma l'ultima versione è <b>{name} {latest}</b>! Perfavore nota che LSS-Manager supporta questo browser solo dalla versione <b>{supported}</b>. Questo è per di sicurezza e compatibilità. Puoi scaricare l'ultima version del tuo browser <a href='{download}' class='lightbox-open'>qui</a>. <br>Un elenco attuale dei browser supportato può essere trovato nelle nostre <a href='{wiki}faq.html#{wikiAnchor}' class='lightbox-open'>FAQ</a>.",
 			"title": "Browser obsoleto"
 		}
 	},
 	"info": {
 		"close": "Non mostrare questa nota nuovamente",
-		"text": "LSS Manager colleziona i metadati come descritto nella <a href='{wiki}/metadata.html' class='lightbox-open'>Wiki</a>. Durante la fase di sviluppo, la collezione non può essere fermata!",
+		"text": "LSS Manager colleziona i metadati come descritto nella <a href='{wiki}metadata.html' class='lightbox-open'>Wiki</a>.<br>Puoi sempre revocare il tuo accordo in un secondo momento.",
 		"title": "Informazioni sulla collezione dei metadati"
 	},
 	"name": "Telemetria"

@@ -22,13 +22,16 @@
 		"brush_extension": "Forestry Expansion | Forestry Expansions",
 		"federalpolice_stations": "Federal Police Station | Federal Police Stations",
 		"fire_aviation_count": "Firefighting Plane Station | Firefighting Plane Stations",
+		"fire_boat_docks": "fire boat dock | fire boat docks",
 		"fire_stations": "Fire Station | Fire Stations",
 		"max_police_stations": "Maximum Police Stations",
 		"max_rescue_stations": "Maximum Rescue Stations",
 		"police_helicopter_stations": "Police Helicopter Station | Police Helicopter Stations",
 		"police_stations": "Police Station | Police Stations",
+		"rescue_boat_docks": "rescue boat dock | rescue boat docks",
 		"rescue_stations": "Ambulance Station | Ambulance Stations",
-		"title": "Prerequisite | Prerequisites"
+		"title": "Prerequisite | Prerequisites",
+		"wasserrettung": "Water Rescue Station"
 	},
 	"prisoners": {
 		"max_possible_prisoners": "Maximum Prisoners",
@@ -37,12 +40,13 @@
 	"requirements": {
 		"water_needed": "Water demand (gal)"
 	},
+	"subsequent": "Subsequent Mission | Subsequent Missions",
 	"vehicles": {
 		"captions": {
 			"ambulances": "Ambulance | Ambulances",
 			"arff": "ARFF",
 			"battalion_chief_vehicles": "Battalion Chief Vehicle | Battalion Chief Vehicles",
-			"boats": "Boat | Boats",
+			"boats": "Light Boat | Light Boats",
 			"brush_truck": "Wildland Fire Engine | Wildland Fire Engines",
 			"fbi": "FBI Unit | FBI Units",
 			"fbi_bomb": "FBI Bomb Technician Vehicle | FBI Bomb Technician Vehicles",

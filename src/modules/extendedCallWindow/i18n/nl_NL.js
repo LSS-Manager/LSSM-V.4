@@ -95,7 +95,7 @@ module.exports = {
             ],
             [/^Waterongevallenaanhanger(s)?$/]: [36],
             [/^Crashtender(s)?$/]: [41, 42, 43],
-            [/^AFO\/OSC$/]: [44],
+            [/^AFO\/OSC('s)?$/]: [44],
             [/^Voorlichter(s)?$/]: [56],
             [/^Noodhulpeenhe(id|den)$/]: [22, 25, 46, 47, 48, 59, 60],
             [/^Officier(en)? van Dienst - Politie$/]: [35],

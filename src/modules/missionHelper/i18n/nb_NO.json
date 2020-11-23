@@ -9,26 +9,26 @@
 	"patients": {
 		"allow_ktw_instead_of_rtw": "En syketransport kan bli brukt.",
 		"helicopter": "Sannsynlighet for Luftambulanse:",
-		"patient_allow_first_responder_chance": "Sannsynlighet for First Responder:",
+		"patient_allow_first_responder_chance": "sjanse for anmodning av First Responder.",
 		"patient_at_end_of_mission": "NB: Pasienten dukker opp på slutten av oppdraget!",
-		"patient_transport": "Sannsynlighet for transport:",
-		"possible_patient": "Maksimalt antall pasienter",
+		"patient_transport": "sannsynlighet for transport.",
+		"possible_patient": "maksimalt antall pasienter",
 		"possible_patient_exact": "kun {n} pasient | kun {n} pasienter",
 		"possible_patient_min": "minimum pasienter",
-		"specializations": "Utdanning/Spesialitet",
-		"title": "Pasienter | {n} pasient | {n} Pasienter"
+		"specializations": "Avdeling:",
+		"title": "Pasienter | {n} pasient | {n} pasienter"
 	},
 	"prerequisites": {
 		"brush_extension": "Forestry Expansion | Forestry Expansions",
 		"federalpolice_stations": "Federal Police Station | Federal Police Stations",
 		"fire_aviation_count": "Firefighting Plane Station | Firefighting Plane Stations",
-		"fire_stations": "Fire Station | Fire Stations",
-		"max_police_stations": "Maximum Police Stations",
-		"max_rescue_stations": "Maximum Rescue Stations",
-		"police_helicopter_stations": "Police Helicopter Station | Police Helicopter Stations",
-		"police_stations": "Police Station | Police Stations",
-		"rescue_stations": "Ambulance Station | Ambulance Stations",
-		"title": "Prerequisite | Prerequisites"
+		"fire_stations": "Brannstasjon | Brannstasjoner",
+		"max_police_stations": "Maksimalt politistasjoner",
+		"max_rescue_stations": "Maxminalt ambulansestasjoner",
+		"police_helicopter_stations": "Politiheliport | Politiheliporter",
+		"police_stations": "Politistasjon | Politistasjoner",
+		"rescue_stations": "Ambulansestasjon | Ambulansestasjoner",
+		"title": "Krav for oppdragsgenerering | Krav for oppdragsgenerering"
 	},
 	"prisoners": {
 		"max_possible_prisoners": "Maksimalt antall fanger",
@@ -44,6 +44,7 @@
 			"battalion_chief_vehicles": "Innsatsleder brann | Innsatsleder brann",
 			"boats": "Båt | Båter",
 			"brush_truck": "Skogbrannbil | Skogbrannbil",
+			"diver_car": "Dykkerbil | Dykkerbiler",
 			"fbi": "FBI Unit | FBI Units",
 			"fbi_bomb": "FBI Bomb Technician Vehicle | FBI Bomb Technician Vehicles",
 			"fbi_drone": "FBI Surveillance Drone | FBI Surveillance Drones",
@@ -60,11 +61,12 @@
 			"mobile_air_vehicles": "Røykdykkerbil | Røykdykkerbiler",
 			"mobile_command_vehicles": "Innsatsstøttebil | Innsatsstøttebiler",
 			"platform_trucks": "Stigebil | Stigebiler",
-			"police_cars": "Patruljebil | Patriljebiler",
+			"police_cars": "Patruljebil | Patruljebiler",
 			"police_helicopters": "Politihelikopter | Politihelikoptre",
 			"sheriff": "Utrykningspolitibil | Utrykningspolitibiler",
 			"swat_armored_vehicle": "Delta kjøretøy | Delta kjøretøy",
 			"swat_suv": "Panstret kjøretøy | Pansdrede kjøretøy",
+			"traffic_car": "Utrykningspolitibil | Utrykningspolitibiler",
 			"water_tankers": "Tankbil | Tankbiler"
 		},
 		"multifunctionals": {
@@ -73,7 +75,7 @@
 				"reduce_from": "mobile_command_vehicles"
 			},
 			"heavy_rescue_vehicles": {
-				"additional_text": "thereof at least. {n} Rescue Engines",
+				"additional_text": "hvorav hvertfall {n} er redningsbiler.",
 				"reduce_from": "firetrucks"
 			}
 		},
@@ -82,12 +84,12 @@
 				"firetrucks": "Fire Engine or ARFF | Fire Engine or ARFF"
 			},
 			"allow_rw_instead_of_lf": {
-				"firetrucks": "Fire Engine or Heavy Rescue or Rescue Engine | Fire Engines or Heavy Rescue or Rescue Engine"
+				"firetrucks": "Mannskapsbil eller Tungredningsbil eller Redningsbil | Mannskapsbil eller Tungredningsbil eller Redningsbil"
 			}
 		},
 		"patient_additionals": {
 			"10": "EMS-Chief"
 		},
-		"title": "Vehicles"
+		"title": "Nødvendige kjøretøy"
 	}
 }

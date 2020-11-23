@@ -11,11 +11,11 @@
 			"title": "Zobrazit čas v překrývacím zobrazení"
 		},
 		"navFormat": {
-			"description": "Zde můžete nastavit formát času. Návod naleznete <a class=\"lightbox-open\" href=\"{wiki}/modules/clock.html#configuration\">zde</a>.",
+			"description": "Zde můžete nastavit formát času. Návod naleznete <a class=\"lightbox-open\" href=\"{wiki}modules/clock.html#configuration\">zde</a>.",
 			"title": "Formát času v navigační liště"
 		},
 		"overlayFormat": {
-			"description": "Zde můžete nastavit formát času. Návod naleznete <a class=\"lightbox-open\" href=\"{wiki}/modules/clock.html#configuration\">zde</a>.",
+			"description": "Zde můžete nastavit formát času. Návod naleznete <a class=\"lightbox-open\" href=\"{wiki}modules/clock.html#configuration\">zde</a>.",
 			"title": "Formát času v překrývacím zobrazení"
 		}
 	}

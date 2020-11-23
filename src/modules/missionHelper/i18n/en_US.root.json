@@ -17,11 +17,11 @@
 			"title": "Credits"
 		},
 		"expansions": {
-			"description": "Lists possible spread of this application.",
+			"description": "Lists possible spread of this mission.",
 			"title": "Spreads"
 		},
 		"followup": {
-			"description": "Lists possible follow-up uses for this application.",
+			"description": "Lists possible follow-up uses for this mission.",
 			"title": "Follow-up missions"
 		},
 		"generatedBy": {
@@ -113,6 +113,10 @@
 				"description": "Shows the heading \"Prisoners\" above the details about possible prisoners.",
 				"title": "Prisoners (Title)"
 			}
+		},
+		"subsequent": {
+			"description": "Lists possible Subsequent missions on succes.",
+			"title": "Subsequent mission"
 		},
 		"title": {
 			"description": "Shows the mission name, e.g. \"Trashcan fire\" as title.",

@@ -33,6 +33,13 @@ const modules = {
             total: 'Všechna nastavení',
             module: 'Pouze pro tento modul',
         },
+        resetWarningSetting: {
+            title: 'Resetovat nastavení',
+            text:
+                'Opravdu chcete resetovat toto jedno nastavení <b>{setting}</b> modulu <b>{module}</b> na výchozí hodnotu?',
+            close: 'zrušení',
+            reset: 'Resetovat',
+        },
         closeWarning: {
             title: 'Neuložené změny',
             text:
@@ -81,8 +88,21 @@ export default {
             description:
                 'Zobrazí jednotuchý popisek v navigační liště namísto loga LSSM',
         },
+        allowTelemetry: {
+            description:
+                'Povolit LSSM odesílat data, což pomáhá při vývoji tohoto rozšíření.',
+            title: 'Povolení telemetrie',
+        },
+        iconBg: {
+            description: 'Změnit barvu pozadí ikony LSSM',
+            title: 'pozadí ikony LSSM',
+        },
+        iconBgAsNavBg: {
+            description:
+                'barva celé navigační lišty v barvě pozadí  ikony LSSM',
+            title: 'Zbarvení navigační lišty',
+        },
     },
-
     vehicles: [
         {
             caption: 'CAS 20',

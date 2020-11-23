@@ -87,6 +87,20 @@ export default {
             description:
                 'Laat een simpel label zien in het menu in plaats van het LSSM logo',
         },
+        allowTelemetry: {
+            description:
+                'Bepaalt of LSS-Manager gegevens mag verzenden die ons helpen bij het ontwikkelen van deze extensie.',
+            title: 'Telemetrie toestaan',
+        },
+        iconBg: {
+            description: 'Verander de achtergrond van het LSSM-logo!',
+            title: 'LSSM-logo achtergrond',
+        },
+        iconBgAsNavBg: {
+            description:
+                'Kleur de hele menubalk in de kleur van de achtergrond van het LSSM-logo!',
+            title: 'Kleur menubalk',
+        },
     },
     vehicles: {
         0: {
@@ -1269,6 +1283,16 @@ export default {
         6: 6,
         7: 3,
         9: 9,
+    },
+    fmsTexts: {
+        1: 'Uitgerukt',
+        2: 'Ter plaatse',
+        3: 'Transport patiënt/arrestant',
+        4: 'Beschikbaar',
+        5: 'Op post',
+        6: 'Buiten dienst',
+        7: 'Aanvraag spraakcontact',
+        9: 'Wachten op ophalen',
     },
     buildingIcons: [
         'fire',

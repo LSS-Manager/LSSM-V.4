@@ -19,12 +19,10 @@
 		"title": "Pazienti | {n} Paziente | {n} Pazienti"
 	},
 	"prerequisites": {
-		"brush_extension": "Forestry-Expansion | Forestry-Expansions",
-		"federalpolice_stations": "Federal Police Station | Federal Police Stations",
-		"fire_aviation_count": "Firefighting plane station | Firefighting plane stations",
+		"commerce_police_stations": "Caserma della Finanza",
 		"fire_stations": "Caserma VVF | Caserme VVF",
-		"max_police_stations": "Policestation maximal | Policestations maximal",
-		"max_rescue_stations": "Rescuestation maximal | Rescuestation maximal",
+		"max_police_stations": "Massimale delle polizze",
+		"max_rescue_stations": "Massimale di soccorso",
 		"police_helicopter_stations": "Stazione elicottero polizia | Stazioni elicottero polizia",
 		"police_stations": "Stazione di Polizia | Stazioni di Polizia",
 		"rescue_stations": "Stazione ambulanza | Stazioni ambulanze",
@@ -34,9 +32,7 @@
 		"max_possible_prisoners": "Massimo prigioniere | Prigionieri massimali",
 		"title": "Prigionieri | {n} Prigioniere | {n} Prigionieri"
 	},
-	"requirements": {
-		"water_needed": "Richiesta d'acqua (gal)"
-	},
+	"requirements": {},
 	"vehicles": {
 		"captions": {
 			"ambulances": "Ambulanza Medicalizzata",

@@ -8,7 +8,6 @@
 		"patient_critical_care"
 	],
 	"patients": {
-		"allow_ktw_instead_of_rtw": "A BLS can be used instead of an ALS.",
 		"helicopter": "Probability for HEMS",
 		"patient_allow_first_responder_chance": "First Responder Probability",
 		"patient_at_end_of_mission": "The patient only appears at the end of the operation!",
