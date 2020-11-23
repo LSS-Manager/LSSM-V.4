@@ -58,6 +58,10 @@ export default ((MODULE_ID: string) => ({
         type: 'toggle',
         default: true,
     },
+    enhancedPersonnelAssignmentCheckbox: <Hidden>{
+        type: 'hidden',
+        default: false,
+    },
     expansions: <Toggle>{
         type: 'toggle',
         default: true,
