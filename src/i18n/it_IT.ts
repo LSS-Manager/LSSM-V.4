@@ -89,6 +89,20 @@ export default {
             description:
                 'Visualizza una semplice etichetta nella barra di navigazione al posto del logo LSSM',
         },
+        allowTelemetry: {
+            description:
+                'Controlla se LSS-Manager è autorizzato a inviare dati che ci aiutano nello sviluppo di questa estensione.',
+            title: 'Consenti telemetria',
+        },
+        iconBg: {
+            description: 'Cambia il colore di sfondo di LSSM-Icon!',
+            title: 'LSSM-Icon Colore di sfondo',
+        },
+        iconBgAsNavBg: {
+            description:
+                "Colora l'intera barra di navigazione con il colore di LSSM-Icon sfondo!",
+            title: 'colorare la barra di navigazione',
+        },
     },
     vehicles: {
         0: {

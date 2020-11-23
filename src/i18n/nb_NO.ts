@@ -88,6 +88,20 @@ export default {
             description:
                 'Viser en enkel etikett i navigasjonslinjen i stedet for LSSM-logoen.',
         },
+        allowTelemetry: {
+            description:
+                'Controls whether LSS-Manager is allowed to send Data which helps us in developing this extension.',
+            title: 'Allow Telemetry',
+        },
+        iconBg: {
+            description: 'Konfigurer bakgrunnen til LSSM-ikonet',
+            title: 'LSSM-Ikon Bakgrunn',
+        },
+        iconBgAsNavBg: {
+            description:
+                'Bytt farge på hele navigasjonsbaren i fargen til LSSM bakgrunnen!',
+            title: 'Navigasjonsbar farge',
+        },
     },
     vehicles: {
         0: {

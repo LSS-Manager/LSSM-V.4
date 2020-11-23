@@ -4,7 +4,10 @@ import config from '../../config';
 
 const NOTE_STORAGE_KEY = 'telemetry_note_confirmed';
 
-export default (LSSM: Vue): void => {
+export default (
+    LSSM: Vue,
+    getSetting: <t = boolean>(settingId: string) => Promise<t>
+): void => {
     const $m = (key: string, args?: { [key: string]: unknown }) =>
         LSSM.$t(`modules.telemetry.${key}`, args);
 
@@ -114,17 +117,25 @@ export default (LSSM: Vue): void => {
                         {
                             title: $m('info.decline'),
                             handler() {
+                                // First we store that we confirmed the telemetry dialog
                                 LSSM.$store
                                     .dispatch('storage/set', {
                                         key: NOTE_STORAGE_KEY,
-                                        value: 'declined',
+                                        value: true,
                                     } as StorageSet)
                                     .then(() => LSSM.$modal.hide('dialog'));
+                                // Now we store if we allowed telemetry
+                                LSSM.$store.dispatch('settings/setSetting', {
+                                    moduleId: 'global',
+                                    settingId: 'allowTelemetry',
+                                    value: false,
+                                });
                             },
                         },
                         {
                             title: $m('info.close'),
                             handler() {
+                                // First we store that we confirmed the telemetry dialog
                                 LSSM.$store
                                     .dispatch('storage/set', {
                                         key: NOTE_STORAGE_KEY,
@@ -135,11 +146,20 @@ export default (LSSM: Vue): void => {
                                             sendStats() &&
                                             LSSM.$modal.hide('dialog')
                                     );
+                                // Now we store if we allowed telemetry
+                                LSSM.$store.dispatch('settings/setSetting', {
+                                    moduleId: 'global',
+                                    settingId: 'allowTelemetry',
+                                    value: true,
+                                });
                             },
                         },
                     ],
                 });
-            } else if (isConfirmed !== 'declined') {
+            }
+            // Only if the telemetry dialog has been seen once, we check for the setting
+            const allowTelemetry = await getSetting('allowTelemetry');
+            if (allowTelemetry) {
                 await sendStats();
             }
         });

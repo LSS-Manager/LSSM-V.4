@@ -87,6 +87,20 @@ export default {
             description:
                 'Laat een simpel label zien in het menu in plaats van het LSSM logo',
         },
+        allowTelemetry: {
+            description:
+                'Bepaalt of LSS-Manager gegevens mag verzenden die ons helpen bij het ontwikkelen van deze extensie.',
+            title: 'Telemetrie toestaan',
+        },
+        iconBg: {
+            description: 'Verander de achtergrond van het LSSM-logo!',
+            title: 'LSSM-logo achtergrond',
+        },
+        iconBgAsNavBg: {
+            description:
+                'Kleur de hele menubalk in de kleur van de achtergrond van het LSSM-logo!',
+            title: 'Kleur menubalk',
+        },
     },
     vehicles: {
         0: {
