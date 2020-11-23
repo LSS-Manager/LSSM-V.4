@@ -14,6 +14,12 @@ module.exports = {
     },
     arrHover: {
         reset: 'De voertuigselectie zal vooraf worden gereset!',
+        headers: {
+            set: 'Aantal',
+            attribute: 'Naam',
+            free: 'Vrij',
+            max: 'Max'
+        },
         titles: {
             set:
                 'Zo vaak wordt dit voertuigtype geselecteerd, als je op deze inzetvoorstel drukt',
