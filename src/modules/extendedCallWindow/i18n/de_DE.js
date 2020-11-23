@@ -15,10 +15,10 @@ module.exports = {
     arrHover: {
         reset: 'Die Fahrzeugauswahl wird vorher zurückgesetzt!',
         headers: {
-            set: 'Set',
+            set: 'Menge',
             attribute: 'Name',
-            free: 'Free',
-            max: 'Max'
+            free: 'Frei',
+            max: 'max. mgl.'
         },
         titles: {
             set:
