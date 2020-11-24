@@ -297,6 +297,7 @@ export default {
             color: '#772222',
             coins: 12,
             credits: 6_000,
+            minPersonnel: 0,
             maxPersonnel: 0,
             special:
                 'Et egnet kjøretøy trengs for å trekke tilhengeren / båthenger. (Dykkerbil, Mannskapsbil, Lett mannskapsbil)',
