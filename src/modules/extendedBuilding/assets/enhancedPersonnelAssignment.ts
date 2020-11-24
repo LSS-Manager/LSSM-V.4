@@ -8,7 +8,6 @@ export default async (
     getSetting: (key: string) => Promise<boolean>,
     $m: $m
 ): Promise<void> => {
-
     const personnel = Array.from(
         document.querySelectorAll('#personal_table tbody tr') as NodeListOf<
             HTMLTableRowElement
@@ -31,8 +30,8 @@ export default async (
     const schooling = vehicleTypes[vehicle.vehicle_type].shownSchooling;
     personnel.forEach(row => {
         (!schooling ||
-            (schooling &&
-                row.textContent?.match(LSSM.$utils.escapeRegex(schooling)))
+        (schooling &&
+            row.textContent?.match(LSSM.$utils.escapeRegex(schooling)))
             ? fittingRows
             : nonFittingRows
         ).push(row);
@@ -42,7 +41,9 @@ export default async (
         'toggle-fitting-personnel',
         true
     );
-    const checkboxSetting = await getSetting('enhancedPersonnelAssignmentCheckbox');
+    const checkboxSetting = await getSetting(
+        'enhancedPersonnelAssignmentCheckbox'
+    );
 
     const settingsBar = document.createElement('form');
     settingsBar.classList.add('form-group');
