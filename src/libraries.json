@@ -42,13 +42,13 @@
 		"version": "2.5.1"
 	},
 	"@types/webpack-env": {
-		"version": "1.15.3"
+		"version": "1.16.0"
 	},
 	"@typescript-eslint/eslint-plugin": {
-		"version": "4.8.1"
+		"version": "4.8.2"
 	},
 	"@typescript-eslint/parser": {
-		"version": "4.8.1"
+		"version": "4.8.2"
 	},
 	"@vuepress/plugin-active-header-links": {
 		"icon": "https://vuepress.vuejs.org/hero.png",
@@ -92,7 +92,7 @@
 	"eslint": {
 		"icon": "https://eslint.org/assets/img/favicon.512x512.png",
 		"url": "https://eslint.org",
-		"version": "7.13.0"
+		"version": "7.14.0"
 	},
 	"eslint-plugin-prettier": {
 		"icon": "https://prettier.io/icon.png",
