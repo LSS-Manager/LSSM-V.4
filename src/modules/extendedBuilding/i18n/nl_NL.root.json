@@ -36,11 +36,11 @@
 		},
 		"schoolingSummary": {
 			"description": "Laat in het personeelsoverzicht van een gebouw zien hoeveel personen welke opleiding(en) hebben.",
-			"title": "Personeel samenvatting"
+			"title": "Personeelsamenvatting"
 		},
 		"vehicleTypes": {
 			"description": "Laat het voertuigtype zien (en als beschikbaar de eigen voertuigcategorie) in een apart kolom.",
-			"title": "Voertuig type"
+			"title": "Voertuigtype"
 		},
 		"vehiclesPersonnelAssigned": {
 			"description": "Toont hoeveel personeel is toegewezen aan het voertuig.",
