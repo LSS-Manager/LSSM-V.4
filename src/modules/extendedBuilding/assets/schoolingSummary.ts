@@ -34,7 +34,9 @@ export default (LSSM: Vue, $m: $m): void => {
 
     personnel.forEach(p => {
         const children = p.children as HTMLCollectionOf<HTMLTableCellElement>;
-        const schoolings = children[1].textContent?.trim() || $m('schoolingSummary.noSchooling').toString();
+        const schoolings =
+            children[1].textContent?.trim() ||
+            $m('schoolingSummary.noSchooling').toString();
         const bound = children[2].textContent?.trim().length || 0;
         if (!summaryAll.hasOwnProperty(schoolings))
             summaryAll[schoolings] = {
