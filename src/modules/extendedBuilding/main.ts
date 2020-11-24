@@ -44,7 +44,7 @@ export default (async (LSSM, MODULE_ID, $m) => {
                     await import(
                         /* webpackChunkName: "modules/extendedBuilding/personnelDemands" */ './assets/personnelDemands'
                     )
-                ).default(LSSM, $m);
+                ).default(LSSM, $m, buildingId);
             if (await getSetting('fastDispatchChooser'))
                 (
                     await import(

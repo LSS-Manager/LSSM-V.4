@@ -215,7 +215,7 @@ export default Vue.extend<
         },
         storeIconBg() {
             if (this.iconBgAsNavBg && this.nav) {
-                this.nav.style.backgroundColor = this.iconBg;
+                this.nav.style.backgroundColor = this.iconBg ?? '#000';
             }
             LSSM.$store.dispatch('settings/setSetting', {
                 moduleId: 'global',
