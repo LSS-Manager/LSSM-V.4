@@ -18,7 +18,7 @@ module.exports = {
             set: 'Aantal',
             attribute: 'Naam',
             free: 'Vrij',
-            max: 'Max'
+            max: 'Max',
         },
         titles: {
             set:

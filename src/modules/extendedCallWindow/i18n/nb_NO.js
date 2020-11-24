@@ -18,7 +18,7 @@ module.exports = {
             set: 'Set',
             attribute: 'Name',
             free: 'Free',
-            max: 'Max'
+            max: 'Max',
         },
         titles: {
             set: 'So often this combination is selected when you press the AAR',

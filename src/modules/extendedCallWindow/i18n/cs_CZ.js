@@ -18,7 +18,7 @@ module.exports = {
             set: 'Set',
             attribute: 'Name',
             free: 'Free',
-            max: 'Max'
+            max: 'Max',
         },
         titles: {
             set: 'So often this combination is selected when you press the ARR',
@@ -94,7 +94,7 @@ module.exports = {
             [/^KHA$/]: [6],
             [/^Sanitka$/]: [5],
             [/^Vrtulník LZS$/]: [9],
-            [/^Hlídkový vůz$/]: [8 ,14],
+            [/^Hlídkový vůz$/]: [8, 14],
             [/^Policejní vrtulník$/]: [11],
             [/^URNA$/]: [12, 15],
             [/^Kynolog Policie$/]: [13],

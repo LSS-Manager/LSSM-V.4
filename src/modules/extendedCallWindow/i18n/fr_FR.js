@@ -20,7 +20,7 @@ module.exports = {
             set: 'Set',
             attribute: 'Name',
             free: 'Free',
-            max: 'Max'
+            max: 'Max',
         },
         titles: {
             set:
