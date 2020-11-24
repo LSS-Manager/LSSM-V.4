@@ -90,8 +90,8 @@ export default {
         },
         allowTelemetry: {
             description:
-                'Controls whether LSS-Manager is allowed to send Data which helps us in developing this extension.',
-            title: 'Allow Telemetry',
+                'Styrer om LSS-Manager får samle data som hjelper oss i å utvikle utvidelsen.',
+            title: 'Tillatt telemetri',
         },
         iconBg: {
             description: 'Konfigurer bakgrunnen til LSSM-ikonet',

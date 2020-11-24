@@ -14,6 +14,12 @@ module.exports = {
     },
     arrHover: {
         reset: 'La selezione del veicolo viene ripristinata prima!',
+        headers: {
+            set: 'Set',
+            attribute: 'Name',
+            free: 'Free',
+            max: 'Max'
+        },
         titles: {
             set:
                 "Spesso questa combinazione viene selezionata quando si preme l'AAR",

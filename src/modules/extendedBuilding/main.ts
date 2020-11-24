@@ -103,6 +103,6 @@ export default (async (LSSM, MODULE_ID, $m) => {
                 await import(
                     /* webpackChunkName: "modules/extendedBuilding/enhancedPersonnelAssignment" */ './assets/enhancedPersonnelAssignment'
                 )
-            ).default(LSSM, $m);
+            ).default(LSSM, MODULE_ID, getSetting, $m);
         }
 }) as ModuleMainFunction;
