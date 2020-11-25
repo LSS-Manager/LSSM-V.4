@@ -24,6 +24,7 @@ interface Additional {
     average_min_police_personnel?: number;
     average_min_fire_personnel?: number;
     swat_personnel?: number;
+    height_rescue_personnel?: number;
     personnel_educations?: {
         // currently fr_FR only
         [education: string]: number;

@@ -5,17 +5,17 @@
 		"average_min_fire_personnel": {
 			"badge": false,
 			"in": "additional",
-			"text": "Firefighters needed minimum"
+			"text": "Gjennomsnittlig min. Brannpersonell"
 		},
 		"average_min_police_personnel": {
 			"badge": false,
 			"in": "additional",
-			"text": "Police officers needed minimum in average"
+			"text": "Gjennomsnittlig min. Politipersonell"
 		},
 		"swat_personnel": {
 			"badge": false,
 			"in": "additional",
-			"text": "SWAT staff needed minimum in average"
+			"text": "Nødvendig politi med våpentrening"
 		}
 	},
 	"settings": {

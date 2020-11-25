@@ -5,12 +5,17 @@
 		"average_min_fire_personnel": {
 			"badge": false,
 			"in": "additional",
-			"text": "Firefighters needed minimum"
+			"text": "Moyenne minimale Pompiers"
 		},
 		"average_min_police_personnel": {
 			"badge": false,
 			"in": "additional",
-			"text": "Police officers needed minimum in average"
+			"text": "Moyenne minimale Policiers"
+		},
+		"height_rescue_personnel": {
+			"badge": false,
+			"in": "additional",
+			"text": "Spécialistes IMP requis"
 		}
 	},
 	"settings": {

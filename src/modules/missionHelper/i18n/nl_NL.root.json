@@ -5,12 +5,7 @@
 		"average_min_fire_personnel": {
 			"badge": false,
 			"in": "additional",
-			"text": "Firefighters needed minimum"
-		},
-		"average_min_police_personnel": {
-			"badge": false,
-			"in": "additional",
-			"text": "Police officers needed minimum in average"
+			"text": "Gemiddeld minimaal aantal brandweerpersoneel"
 		}
 	},
 	"settings": {
