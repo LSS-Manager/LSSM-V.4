@@ -16,6 +16,12 @@ module.exports = {
     },
     arrHover: {
         reset: 'La séléction de véhicule est mise à zéro avant !',
+        headers: {
+            set: 'Set',
+            attribute: 'Name',
+            free: 'Free',
+            max: 'Max',
+        },
         titles: {
             set:
                 'Aussi souvent que cette combinaison est séléctionnée quand vous appuyez sur la régulation',
@@ -46,6 +52,11 @@ module.exports = {
             rth_only: 'Hélicoptère',
             gw_wasserrettung: 'VPL',
             boot: 'Bateaux (généraux)',
+            brush_vehicle: '',
+            brush_truck: 'CCF',
+            brush_truck_1: 'CCFS',
+            brush_truck_2: 'CCFM',
+            brush_truck_3: 'CCFL',
             mzb: 'BLS',
         },
     },

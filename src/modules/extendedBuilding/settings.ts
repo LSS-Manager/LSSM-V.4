@@ -1,5 +1,5 @@
 import { ModuleSettingFunction } from 'typings/Module';
-import { ModuleSettings, Toggle } from 'typings/Setting';
+import { ModuleSettings, Toggle, Hidden } from 'typings/Setting';
 
 export default ((MODULE_ID: string) => ({
     enhanceVehicleList: <Toggle>{
@@ -57,6 +57,10 @@ export default ((MODULE_ID: string) => ({
     enhancedPersonnelAssignment: <Toggle>{
         type: 'toggle',
         default: true,
+    },
+    enhancedPersonnelAssignmentCheckbox: <Hidden>{
+        type: 'hidden',
+        default: false,
     },
     expansions: <Toggle>{
         type: 'toggle',

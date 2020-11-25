@@ -14,6 +14,12 @@ module.exports = {
     },
     arrHover: {
         reset: 'The vehicle selection is reset before!',
+        headers: {
+            set: 'Set',
+            attribute: 'Name',
+            free: 'Free',
+            max: 'Max',
+        },
         titles: {
             set: 'So often this combination is selected when you press the ARR',
             attribute: 'The combination described in this line',

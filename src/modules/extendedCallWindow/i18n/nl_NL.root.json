@@ -28,11 +28,11 @@
 		},
 		"arrCounter": {
 			"description": "Telt hoe vaak er op een inzetvoorstel is geklikt. Alle tellers kunnen met de knop rechtsonder of met een inzetvoorstel met resetfunctie worden gereset.",
-			"title": "Inzetvoorstel-tellers"
+			"title": "Inzetvoorsteltellers"
 		},
 		"arrCounterAsBadge": {
 			"description": "Toont de inzetvoorstel-teller als kleine rode cijfers naast het inzetvoorstel.",
-			"title": "Inzetvoorstel-teller als badge"
+			"title": "Inzetvoorstelteller als badge"
 		},
 		"arrCounterResetSelection": {
 			"description": "Voegt rechtsonder een knop toe om de voertuig selectie te reseten. Let op: de inzetvoorstel-tellers en kaders worden ook gereset.",

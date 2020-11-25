@@ -463,7 +463,7 @@ export default {
                             },
                             store
                         );
-                        return resolve(vehicles);
+                        return resolve(vehiclesAt);
                     });
             });
         },
