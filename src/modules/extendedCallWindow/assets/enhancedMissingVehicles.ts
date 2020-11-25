@@ -12,7 +12,7 @@ export default (LSSM: Vue, $m: $m): void => {
         .trim();
     if (!missingRequirementsText) return;
     const missingRequirementMatches = missingRequirementsText.match(
-        /(?:\d+ (?:[^(]|\(.*?\))+?(?=[,.]))|(?:(?<=^|, )(?:[^(]|\(.*?\))+?: \d+)/g
+        /(?:\d+ (?:[^(]|\(.*?\))+?(?=[,.]|$))|(?:(?<=^|, )(?:[^(]|\(.*?\))+?: \d+)/g
     );
     if (!missingRequirementMatches) return;
     const missingRequirements = missingRequirementMatches.map(req => {
