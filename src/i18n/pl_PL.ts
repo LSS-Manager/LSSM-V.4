@@ -897,6 +897,7 @@ export default {
                 caption: 'Szybkie ratownictwo wodne',
                 duration: '4 Dni',
             },
+	    {
                 caption: 'Kurs Nurka MSWiA',
                 duration: '5 Dni',
             },
@@ -937,6 +938,7 @@ export default {
                 caption: 'Szybkie ratownictwo wodne',
                 duration: '4 Dni',
             },
+	    {
                 caption: 'Kurs Nurka MSWiA',
                 duration: '5 Dni',
             },
