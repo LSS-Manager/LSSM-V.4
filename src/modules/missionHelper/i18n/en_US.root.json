@@ -1,6 +1,28 @@
 {
 	"description": "Get all important information about a mission, in the mission window.",
 	"name": "Missionhelper",
+	"noVehicleRequirements": {
+		"average_min_fire_personnel": {
+			"badge": false,
+			"in": "additional",
+			"text": "Firefighters needed minimum"
+		},
+		"average_min_police_personnel": {
+			"badge": false,
+			"in": "additional",
+			"text": "Police officers needed minimum in average"
+		},
+		"swat_personnel": {
+			"badge": false,
+			"in": "additional",
+			"text": "SWAT staff needed minimum in average"
+		},
+		"water_needed": {
+			"badge": true,
+			"in": "requirements",
+			"text": "Water: {n} gallon | Water: {n} gallons"
+		}
+	},
 	"settings": {
 		"chances": {
 			"100": {
@@ -49,6 +71,10 @@
 				"description": "Subtracts the number of firetrucks from the Quints and hides firetrucks if the number drops below 0.",
 				"title": "Quint Simple Rate"
 			}
+		},
+		"noVehicleRequirements": {
+			"description": "Set here which special requirements to show, if they exist for that mission.",
+			"title": "Special requirements"
 		},
 		"optionalAlternatives": {
 			"allow_arff_instead_of_lf": {

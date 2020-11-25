@@ -194,16 +194,7 @@
                             v-else-if="setting.type === 'select'"
                             :name="setting.name"
                             v-model="settings[moduleId][settingId].value"
-                            :options="
-                                setting.values.map(value => ({
-                                    label: setting.noLabelTranslation
-                                        ? value
-                                        : $t(
-                                              `modules.${moduleId}.settings.${settingId}.${value}`
-                                          ),
-                                    value,
-                                }))
-                            "
+                            :options="getSelectOptions(setting)"
                             :placeholder="
                                 $t(
                                     `modules.${moduleId}.settings.${settingId}.title`
@@ -216,16 +207,7 @@
                             v-else-if="setting.type === 'multiSelect'"
                             :name="setting.name"
                             v-model="settings[moduleId][settingId].value"
-                            :options="
-                                setting.values.map(value => ({
-                                    label: setting.noLabelTranslation
-                                        ? value
-                                        : $t(
-                                              `modules.${moduleId}.settings.${settingId}.${value}`
-                                          ),
-                                    value,
-                                }))
-                            "
+                            :options="getSelectOptions(setting)"
                             :placeholder="
                                 $t(
                                     `modules.${moduleId}.settings.${settingId}.title`
@@ -586,6 +568,14 @@ export default Vue.extend<
             };
         },
         $m: (key, args) => LSSM.$t(`modules.settings.${key}`, args),
+        getSelectOptions(setting) {
+            return setting.values.map((v, vi) => ({
+                label: setting.noLabelTranslation
+                    ? v
+                    : setting.labels?.[vi] ?? v,
+                value: v,
+            }));
+        },
     },
     mounted() {
         this.getExportData();

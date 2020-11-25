@@ -1,5 +1,5 @@
 import { Modules } from '../Module';
-import { ModuleSettings, Setting } from '../Setting';
+import { ModuleSettings, Select, Setting } from '../Setting';
 import VueI18n from 'vue-i18n';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 
@@ -30,6 +30,7 @@ export interface SettingsMethods {
             [key: string]: unknown;
         }
     ): VueI18n.TranslateResult;
+    getSelectOptions(setting: Select): { label: string; value: string }[];
 }
 
 export interface SettingsComputed {

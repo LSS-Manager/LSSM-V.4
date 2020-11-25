@@ -1,6 +1,23 @@
 {
 	"description": "Få masse nyttig informasjon om et oppdrag, i oppdragsvinduet.",
 	"name": "Missionhelper",
+	"noVehicleRequirements": {
+		"average_min_fire_personnel": {
+			"badge": false,
+			"in": "additional",
+			"text": "Firefighters needed minimum"
+		},
+		"average_min_police_personnel": {
+			"badge": false,
+			"in": "additional",
+			"text": "Police officers needed minimum in average"
+		},
+		"swat_personnel": {
+			"badge": false,
+			"in": "additional",
+			"text": "SWAT staff needed minimum in average"
+		}
+	},
 	"settings": {
 		"chances": {
 			"100": {
@@ -53,6 +70,10 @@
 				"description": "Trekker antall brannbiler fra Snorkelbiler og skjuler brannbiler hvis tallet faller under 0.",
 				"title": "Snorkelbil vs Stigebil"
 			}
+		},
+		"noVehicleRequirements": {
+			"description": "Set here which special requirements to show, if they exist for that mission.",
+			"title": "Special requirements"
 		},
 		"optionalAlternatives": {
 			"allow_arff_instead_of_lf": {

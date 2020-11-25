@@ -3,9 +3,6 @@
 	"expansions": "Uitbreiding | Uitbreidingen",
 	"followups": "Vervolginzet | Vervolginzetten",
 	"generated_by": "Gegenereerd door",
-	"noVehicleRequirements": [
-		"water_needed"
-	],
 	"patients": {
 		"allow_ktw_instead_of_rtw": "Een zorgambulance kan worden gebruikt als Ambulance",
 		"nef": "Kans dat het MMT benodigd is",

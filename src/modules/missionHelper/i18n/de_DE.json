@@ -3,9 +3,6 @@
 	"expansions": "Ausbreitung | Ausbreitungen",
 	"followups": "Folgeeinsatz | Folgeeinsätze",
 	"generated_by": "Generiert von",
-	"noVehicleRequirements": [
-		"water_needed"
-	],
 	"patients": {
 		"allow_ktw_instead_of_rtw": "Es kann ein KTW anstelle eines RTW genutzt werden.",
 		"helicopter": "Wahrscheinlichkeit für einen RTH",
@@ -38,9 +35,6 @@
 	"prisoners": {
 		"max_possible_prisoners": "Gefangener maximal | Gefangene maximal",
 		"title": "Gefangene | {n} Gefangener | {n} Gefangene"
-	},
-	"requirements": {
-		"water_needed": "Wasserbedarf (L)"
 	},
 	"vehicles": {
 		"captions": {
