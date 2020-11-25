@@ -117,7 +117,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 1,
             wtank: 0,
-            special: 'Wymagane po zbudowaniu 3 remiz,
+            special: 'Wymagane po zbudowaniu 3 remiz',
         },
        3: {
             caption: 'SLOp',
@@ -127,7 +127,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 1,
             wtank: 0,
-            special: 'Wymagane po zbudowaniu 6 remiz,
+            special: 'Wymagane po zbudowaniu 6 remiz',
         },
        4: {
             caption: 'Samochód ratownictwa technicznego',
@@ -137,7 +137,7 @@ export default {
             minPersonnel: 3,
             maxPersonnel: 3,
             wtank: 0,
-            special: 'Wymagane po zbudowaniu 4 remiz,
+            special: 'Wymagane po zbudowaniu 4 remiz',
         },
        5: {
             caption: 'Ambulans P',
@@ -156,7 +156,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 1,
             wtank: 14_000,
-            special: 'Wymagane po zbudowaniu 7 remiz,
+            special: 'Wymagane po zbudowaniu 7 remiz',
         },
        7: {
             caption: 'Samochód ratownictwa chemicznego',
@@ -168,7 +168,7 @@ export default {
             wtank: 0,
             schooling: 'Szkoła Pożarnicza',
             shownSchooling: 'Wymaga specjalnej edukacji (Ratownictwo chemiczne)',
-            special: 'Wymagane po zbudowaniu 11 remiz,
+            special: 'Wymagane po zbudowaniu 11 remiz',
         },
        8: {
             caption: 'Radiowóz OPI',
@@ -196,7 +196,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 1,
             wtank: 0,
-            special: 'Wymagane po zbudowaniu 5 remiz,
+            special: 'Wymagane po zbudowaniu 5 remiz',
         },
        11: {
             caption: 'Samochód Dowodzenia i Łączności',
@@ -208,7 +208,7 @@ export default {
             wtank: 0,
             schooling: 'Szkoła Pożarnicza',
             shownSchooling: 'Wymaga specjalnej edukacji (Szkolenie w dowodzeniu)',
-            special: 'Wymagane po zbudowaniu 13 remiz,
+            special: 'Wymagane po zbudowaniu 13 remiz',
         },
        12: {
             caption: 'GBARt',
@@ -218,7 +218,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 1,
             wtank: 3_000,
-            special: 'Potrzebujesz przynajmniej stopnia: Kapitan.,
+            special: 'Potrzebujesz przynajmniej stopnia: Kapitan',
         },
        13: {
             caption: 'SH',
@@ -250,7 +250,7 @@ export default {
             wtank: 0,
             schooling: 'Akademia Policyjna',
             shownSchooling: 'Wymaga specjalnej edukacji (SPKP)',
-            special: 'Wymagane po zbudowaniu 8 posterunków policji,
+            special: 'Wymagane po zbudowaniu 8 posterunków policji',
         },
        16: {
             caption: 'Jednostka K-9',
@@ -262,7 +262,7 @@ export default {
             wtank: 0,
             schooling: 'Akademia Policyjna',
             shownSchooling: 'Wymaga specjalnej edukacji (K-9)',
-            special: 'Wymagane po zbudowaniu 8 posterunków policji,
+            special: 'Wymagane po zbudowaniu 8 posterunków policji',
         },
        17: {
             caption: 'Motocykl Policyjny',
@@ -285,7 +285,7 @@ export default {
             wtank: 0,
             schooling: 'Akademia Policyjna',
             shownSchooling: 'Wymaga specjalnej edukacji (SPKP)',
-            special: 'Wymagane po zbudowaniu 8 posterunków policji,
+            special: 'Wymagane po zbudowaniu 8 posterunków policji',
         },
        19: {
             caption: 'S.WOPR',
@@ -317,7 +317,7 @@ export default {
             minPersonnel: 0,
             maxPersonnel: 0,
             wtank: 0,
-            special: 'Potrzebna laweta (S.WOPR, Samochód SLRw, Samochód ratownictwa technicznego, SLOp, Ciężki samochód gaśniczy, Średni samochód gaśniczy, GBARt),
+            special: 'Potrzebna laweta (S.WOPR, Samochód SLRw, Samochód ratownictwa technicznego, SLOp, Ciężki samochód gaśniczy, Średni samochód gaśniczy, GBARt)',
         },
        22: {
             caption: 'Ponton',
@@ -327,7 +327,7 @@ export default {
             minPersonnel: 0,
             maxPersonnel: 0,
             wtank: 0,
-            special: 'Potrzebna laweta (S.WOPR, Quad, Samochód ratownictwa technicznego, SLOp, Ciężki samochód gaśniczy, Średni samochód gaśniczy, GBARt),
+            special: 'Potrzebna laweta (S.WOPR, Quad, Samochód ratownictwa technicznego, SLOp, Ciężki samochód gaśniczy, Średni samochód gaśniczy, GBARt)',
         },
        23: {
             caption: 'Skuter',
@@ -337,7 +337,7 @@ export default {
             minPersonnel: 0,
             maxPersonnel: 0,
             wtank: 0,
-            special: 'Potrzebna laweta (S.WOPR, Quad, Samochód ratownictwa technicznego, SLOp, Ciężki samochód gaśniczy, Średni samochód gaśniczy, GBARt),
+            special: 'Potrzebna laweta (S.WOPR, Quad, Samochód ratownictwa technicznego, SLOp, Ciężki samochód gaśniczy, Średni samochód gaśniczy, GBARt)',
         },
        24: {
             caption: 'Samochód SLRw',
@@ -367,7 +367,7 @@ export default {
             minPersonnel: 0,
             maxPersonnel: 0,
             wtank: 0,
-            special: 'Potrzebna laweta (S.WOPR, Quad, Samochód ratownictwa technicznego, SLOp, Ciężki samochód gaśniczy, Średni samochód gaśniczy, GBARt),
+            special: 'Potrzebna laweta (S.WOPR, Quad, Samochód ratownictwa technicznego, SLOp, Ciężki samochód gaśniczy, Średni samochód gaśniczy, GBARt)',
         },
        27: {
             caption: 'SRWys',
@@ -379,7 +379,7 @@ export default {
             wtank: 0,
             schooling: 'Szkoła Pożarnicza',
             shownSchooling: 'Wymaga specjalnej edukacji (Ratownictwo Wysokościowe)',
-            special: 'Wymagane po zbudowaniu 12 remiz,
+            special: 'Wymagane po zbudowaniu 12 remiz',
         },
        28: {
             caption: 'SLRr',
@@ -389,7 +389,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 1,
             wtank: 0,
-            special: 'Wymagane po zbudowaniu 6 remiz,
+            special: 'Wymagane po zbudowaniu 6 remiz',
         },
        29: {
             caption: 'GLBA',
