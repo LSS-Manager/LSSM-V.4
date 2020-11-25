@@ -568,6 +568,8 @@ export default {
             color: '#001ee0',
             coins: 25,
             credits: 15000,
+            minPersonnel: 0,
+            maxPersonnel: 0,
             special: 'Muss vom "LKW K 9" zum Einsatz gezogen werden',
             icon: 'snowplow',
         },
@@ -576,6 +578,8 @@ export default {
             color: '#0021f5',
             coins: 25,
             credits: 15000,
+            minPersonnel: 0,
+            maxPersonnel: 0,
             special:
                 'Muss von einem "GKW", "MzKW", "MTW-TZ" oder "MLW 5" zum Einsatz gezogen werden.',
             icon: 'trailer',
@@ -608,6 +612,8 @@ export default {
             color: '#ad0e0e',
             coins: 12,
             credits: 6000,
+            minPersonnel: 0,
+            maxPersonnel: 0,
             icon: 'square',
         },
         48: {
@@ -615,6 +621,8 @@ export default {
             color: '#9c0b0b',
             coins: 12,
             credits: 6000,
+            minPersonnel: 0,
+            maxPersonnel: 0,
             icon: 'square',
         },
         49: {
@@ -622,6 +630,8 @@ export default {
             color: '#8b0707',
             coins: 12,
             credits: 6000,
+            minPersonnel: 0,
+            maxPersonnel: 0,
             icon: 'square',
         },
         50: {
@@ -671,6 +681,8 @@ export default {
             color: '#450707',
             coins: 12,
             credits: 6000,
+            minPersonnel: 0,
+            maxPersonnel: 0,
             icon: 'square',
         },
         55: {
@@ -765,6 +777,8 @@ export default {
             color: '#e60808',
             coins: 12,
             credits: 6000,
+            minPersonnel: 0,
+            maxPersonnel: 0,
             icon: 'square',
         },
         63: {
@@ -803,6 +817,8 @@ export default {
             color: '#1b428a',
             coins: 12,
             credits: 6000,
+            minPersonnel: 0,
+            maxPersonnel: 0,
             special:
                 'Muss von einem "LKW 7 Lkr 19 tm" zum Einsatz gezogen werden. Pro gefordertem Boot müssen mind. 4 Personen mit der Ausbildung "GW-Wasserrettung" oder "Wassergefahren" vor Ort sein!',
             icon: 'trailer',
@@ -812,6 +828,8 @@ export default {
             color: '#245390',
             coins: 12,
             credits: 6000,
+            minPersonnel: 0,
+            maxPersonnel: 0,
             special:
                 'Muss von einem "LKW 7 Lkr 19 tm" zum Einsatz gezogen werden. Pro gefordertem Boot müssen mind. 4 Personen mit der Ausbildung "GW-Wasserrettung" oder "Wassergefahren" vor Ort sein!',
             icon: 'trailer',
@@ -821,6 +839,8 @@ export default {
             color: '#296497',
             coins: 12,
             credits: 6000,
+            minPersonnel: 0,
+            maxPersonnel: 0,
             special:
                 'Muss von einem "LKW 7 Lkr 19 tm" zum Einsatz gezogen werden. Pro gefordertem Boot müssen mind. 4 Personen mit der Ausbildung "GW-Wasserrettung" oder "Wassergefahren" vor Ort sein!',
             icon: 'trailer',
@@ -841,6 +861,8 @@ export default {
             color: '#9ac8a6',
             coins: 12,
             credits: 6000,
+            minPersonnel: 0,
+            maxPersonnel: 0,
             special:
                 'Muss von einem "GW-Wasserrettung" oder einem "GW-Taucher" zum Einsatz gezogen werden. Pro gefordertem Boot müssen mind. 4 Personen mit der Ausbildung "GW-Wasserrettung" oder "Wassergefahren" vor Ort sein!',
             icon: 'trailer',
@@ -850,6 +872,8 @@ export default {
             color: '#bf7f6a',
             coins: 12,
             credits: 6000,
+            minPersonnel: 0,
+            maxPersonnel: 0,
             special:
                 'Pro gefordertem Boot müssen mind. 4 Personen mit der Ausbildung "GW-Wasserrettung" oder "Wassergefahren" vor Ort sein!',
             icon: 'square',
@@ -918,6 +942,8 @@ export default {
             color: '#680101',
             coins: 12,
             credits: 6000,
+            minPersonnel: 0,
+            maxPersonnel: 0,
             icon: 'square',
         },
         78: {
@@ -925,6 +951,8 @@ export default {
             color: '#bf1111',
             coins: 12,
             credits: 6000,
+            minPersonnel: 0,
+            maxPersonnel: 0,
             icon: 'square',
         },
         79: {
@@ -1077,6 +1105,8 @@ export default {
             color: '#422629',
             coins: 0,
             credits: 6000,
+            minPersonnel: 0,
+            maxPersonnel: 0,
             special:
                 'Muss von einem "MTW-OV" an den Einsatzort gezogen werden. Am Einsatzort sind ein "Anh Hund" und ein "Rettungshundefahrzeug" vom Rettungsdienst gleichwertig!',
             icon: 'paw',

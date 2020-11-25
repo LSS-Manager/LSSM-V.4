@@ -16,6 +16,12 @@ module.exports = {
     },
     arrHover: {
         reset: 'La séléction de véhicule est mise à zéro avant !',
+        headers: {
+            set: 'Set',
+            attribute: 'Name',
+            free: 'Free',
+            max: 'Max',
+        },
         titles: {
             set:
                 'Aussi souvent que cette combinaison est séléctionnée quand vous appuyez sur la régulation',

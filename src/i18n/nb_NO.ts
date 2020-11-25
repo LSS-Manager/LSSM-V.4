@@ -90,8 +90,8 @@ export default {
         },
         allowTelemetry: {
             description:
-                'Controls whether LSS-Manager is allowed to send Data which helps us in developing this extension.',
-            title: 'Allow Telemetry',
+                'Styrer om LSS-Manager får samle data som hjelper oss i å utvikle utvidelsen.',
+            title: 'Tillatt telemetri',
         },
         iconBg: {
             description: 'Konfigurer bakgrunnen til LSSM-ikonet',
@@ -297,6 +297,7 @@ export default {
             color: '#772222',
             coins: 12,
             credits: 6_000,
+            minPersonnel: 0,
             maxPersonnel: 0,
             special:
                 'Et egnet kjøretøy trengs for å trekke tilhengeren / båthenger. (Dykkerbil, Mannskapsbil, Lett mannskapsbil)',

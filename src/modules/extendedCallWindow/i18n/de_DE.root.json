@@ -30,7 +30,7 @@
 			"title": "AAO-Zähler"
 		},
 		"arrCounterAsBadge": {
-			"description": "Zeigt den AAO-Zähler als kleinen roten Greiß neben der AAO an.",
+			"description": "Zeigt den AAO-Zähler als kleinen roten Kreis neben der AAO an.",
 			"title": "AAO-Zähler als Badge"
 		},
 		"arrCounterResetSelection": {
