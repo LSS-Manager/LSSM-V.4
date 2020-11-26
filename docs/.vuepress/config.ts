@@ -97,7 +97,9 @@ ${content}`
             try {
                 // eslint-disable-next-line @typescript-eslint/no-var-requires
                 title = require(`../.${rootFile}`).name;
-            } catch {}
+            } catch {
+                // Do nothing
+            }
             fs.writeFileSync(`./docs/${lang}/modules/${module}.md`,`---
 title: ${title}
 lang: ${lang}
