@@ -520,14 +520,20 @@ export default Vue.extend<
         },
         specialRequirements() {
             const reqi18n = (this.$m('noVehicleRequirements') as unknown) as {
-                [key: string]: { badge: boolean; text: string };
+                [key: string]: {
+                    badge: boolean;
+                    text: string;
+                    in: 'additional' | 'prerequisites';
+                };
             };
             const reqs = { badge: [], nonbadge: [] } as {
                 badge: string[];
                 nonbadge: string[];
             };
             this.settings.noVehicleRequirements?.forEach(req =>
-                reqs[reqi18n[req].badge ? 'badge' : 'nonbadge'].push(req)
+                this.missionSpecs?.[reqi18n[req].in][req]
+                    ? reqs[reqi18n[req].badge ? 'badge' : 'nonbadge'].push(req)
+                    : null
             );
             return reqs;
         },
