@@ -18,6 +18,8 @@ interface Additional {
 
     // Guard missions
     duration?: string;
+    //duration?: number;
+    //duration_text?: string;
     guard_mission?: boolean;
 
     // Personnel
