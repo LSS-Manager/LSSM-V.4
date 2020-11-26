@@ -37,8 +37,10 @@ moduleDirs.forEach((module: string) => {
         const docs = fs
             .readdirSync(`./src/modules/${module}/docs`)
             .filter((f: string) => f.match(/^[a-z]{2}_[A-Z]{2}\.md$/));
+        const availableLangs = [] as string[];
         docs.forEach((f: string) => {
             const lang = f.split('.')[0];
+            availableLangs.push(lang)
             if (!modulesSorted.hasOwnProperty(lang)) modulesSorted[lang] = [];
             if (!fs.existsSync(`./docs/${lang}/modules`))
                 fs.mkdirSync(`./docs/${lang}/modules`);
@@ -83,6 +85,30 @@ ${content}`
                 `./docs/.vuepress/public/assets/${module}`
             );
         }
+
+        Object.keys(config.games).forEach(lang => {
+            if (availableLangs.includes(lang) || !fs.existsSync(`./docs/${lang}`)) return;
+            if (!fs.existsSync(`./docs/${lang}/modules`))
+                fs.mkdirSync(`./docs/${lang}/modules`);
+            let rootFile = `./src/modules/${module}/i18n/${lang}.root`;
+            if (!fs.existsSync(rootFile)) rootFile = rootFile.replace(lang, 'en_US');
+            // eslint-disable-next-line @typescript-eslint/no-var-requires
+            const title = require(`../.${rootFile}`)
+                .name;
+            fs.writeFileSync(`./docs/${lang}/modules/${module}.md`,`---
+title: ${title}
+lang: ${lang}
+---
+
+# ${title}
+:::warning No module page existing yet
+Dear User,
+thanks for your interest in the Wiki page of **${title}**!
+Unfortunately, we weren't able to create the content for your language \`${lang}\` yet. If you want to contribute to our wiki, feel free to create this page [on GitHub](https://github.com/${config.github.repo}/new/dev/src/modules/${module}/docs?filename=${lang}.md)!
+We suggest to have a look at the files of the other languages for examples in the [docs directory](https://github.com/${config.github.repo}/tree/dev/src/modules/${module}/docs)
+:::
+`);
+        });
     }
 });
 const noMapkitModules = {} as {
