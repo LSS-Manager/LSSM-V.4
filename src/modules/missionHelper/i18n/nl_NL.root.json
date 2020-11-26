@@ -62,8 +62,8 @@
 			}
 		},
 		"noVehicleRequirements": {
-			"description": "Set here which special requirements to show, if they exist for that mission.",
-			"title": "Special requirements"
+			"description": "Stel hier in welke bijzondere benodigdheden moeten worden getoond indien ze nodig zijn bij die inzet.",
+            "title": "Bijzondere benodigdheden"
 		},
 		"optionalAlternatives": {
 			"allow_arff_instead_of_lf": {
