@@ -17,7 +17,8 @@ interface Additional {
     allow_arff_instead_of_lf?: boolean;
 
     // Guard missions
-    duration?: string;
+    duration?: number;
+    duration_text?: string;
     guard_mission?: boolean;
 
     // Personnel
