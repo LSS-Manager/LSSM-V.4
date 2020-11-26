@@ -91,10 +91,13 @@ ${content}`
             if (!fs.existsSync(`./docs/${lang}/modules`))
                 fs.mkdirSync(`./docs/${lang}/modules`);
             let rootFile = `./src/modules/${module}/i18n/${lang}.root`;
-            if (!fs.existsSync(rootFile)) rootFile = rootFile.replace(lang, 'en_US');
             // eslint-disable-next-line @typescript-eslint/no-var-requires
-            const title = require(`../.${rootFile}`)
+            let title = require(`../.${rootFile.replace(lang, 'en_US')}`)
                 .name;
+            try {
+                // eslint-disable-next-line @typescript-eslint/no-var-requires
+                title = require(`../.${rootFile}`).name;
+            } catch () {}
             fs.writeFileSync(`./docs/${lang}/modules/${module}.md`,`---
 title: ${title}
 lang: ${lang}
