@@ -44,6 +44,7 @@ export default ((MODULE_ID: string) => ({
                 (settings[MODULE_ID].vehiclesPersonnelAssigned as Toggle)
                     .value &&
                 (settings[MODULE_ID].vehiclesPersonnelMax as Toggle).value
+                && (settings[MODULE_ID].enhanceVehicleList as Toggle).value
             ),
     },
     personnelDemands: <Toggle>{
