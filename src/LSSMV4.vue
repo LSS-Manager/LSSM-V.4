@@ -78,6 +78,21 @@ export default Vue.extend<
                 props.close();
         },
     },
+    mounted() {
+        this.$store
+            .dispatch('settings/getModule', 'global')
+            .then(({ iconBg, iconBgAsNavBg }) => {
+                if (iconBgAsNavBg) {
+                    this.$store.dispatch('addStyle', {
+                        selectorText:
+                            '.navbar-default, .navbar-default .dropdown-menu',
+                        style: {
+                            'background-color': iconBg,
+                        },
+                    });
+                }
+            });
+    },
 });
 </script>
 
