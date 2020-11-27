@@ -90,19 +90,10 @@ export default (async (LSSM, MODULE_ID, $m) => {
     } else if (
         window.location.pathname.match(/^\/vehicles\/\d+\/zuweisung\/?$/)
     )
-        if (await getSetting('enhancedPersonnelAssignment')) {
-            await LSSM.$store.dispatch(
-                'api/fetchVehicle',
-                parseInt(
-                    window.location.pathname.match(
-                        /(?<=vehicles\/)\d+(?=\/zuweisung)/
-                    )?.[0] ?? '-1'
-                )
-            );
+        if (await getSetting('enhancedPersonnelAssignment'))
             await (
                 await import(
                     /* webpackChunkName: "modules/extendedBuilding/enhancedPersonnelAssignment" */ './assets/enhancedPersonnelAssignment'
                 )
             ).default(LSSM, MODULE_ID, getSetting, $m);
-        }
 }) as ModuleMainFunction;

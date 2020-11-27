@@ -1,6 +1,13 @@
 {
 	"description": "Krijg alle belangrijke info direct in je meldingenscherm",
 	"name": "Inzethelper",
+	"noVehicleRequirements": {
+		"average_min_fire_personnel": {
+			"badge": false,
+			"in": "additional",
+			"text": "Gemiddeld minimaal aantal brandweerpersoneel"
+		}
+	},
 	"settings": {
 		"bike_police_only_if_needed": {
 			"description": "Geeft aan wanneer biketeams alleen nodig zijn als je ze hebt.",
@@ -53,6 +60,10 @@
 				"description": "Trekt het aantal vereiste Hondengeleiders af van de Noodhulpvoertuigen en verbergt de Noodhulpvoertuigen als het aantal onder de 0 komt.",
 				"title": "Noodhulpvoertuigen gemakkelijk beoordelen"
 			}
+		},
+		"noVehicleRequirements": {
+			"description": "Stel hier in welke bijzondere benodigdheden moeten worden getoond indien ze nodig zijn bij die inzet.",
+			"title": "Bijzondere benodigdheden"
 		},
 		"optionalAlternatives": {
 			"allow_arff_instead_of_lf": {

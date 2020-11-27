@@ -420,9 +420,9 @@ export default {
                             lastUpdate,
                         } = await get_api_values('vehicles', store);
                         if (!vehicles) return reject();
-                        vehicles[
-                            vehicles.findIndex(v => v.id === id)
-                        ] = vehicle;
+                        const index = vehicles.findIndex(v => v.id === id);
+                        if (index < 0) vehicles.push(vehicle);
+                        else vehicles[index] = vehicle;
                         set_api_storage(
                             'vehicles',
                             {
@@ -432,7 +432,7 @@ export default {
                             },
                             store
                         );
-                        return resolve(vehicles);
+                        return resolve(vehicle);
                     });
             });
         },
@@ -450,9 +450,11 @@ export default {
                         } = await get_api_values('vehicles', store);
                         if (!vehicles) return reject();
                         vehiclesAt.forEach(vehicle => {
-                            vehicles[
-                                vehicles.findIndex(v => v.id === id)
-                            ] = vehicle;
+                            const index = vehicles.findIndex(
+                                v => v.id === vehicle.id
+                            );
+                            if (index < 0) vehicles.push(vehicle);
+                            else vehicles[index] = vehicle;
                         });
                         set_api_storage(
                             'vehicles',

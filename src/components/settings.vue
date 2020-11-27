@@ -195,14 +195,7 @@
                             :name="setting.name"
                             v-model="settings[moduleId][settingId].value"
                             :options="
-                                setting.values.map(value => ({
-                                    label: setting.noLabelTranslation
-                                        ? value
-                                        : $t(
-                                              `modules.${moduleId}.settings.${settingId}.${value}`
-                                          ),
-                                    value,
-                                }))
+                                getSelectOptions(moduleId, setting, settingId)
                             "
                             :placeholder="
                                 $t(
@@ -217,14 +210,7 @@
                             :name="setting.name"
                             v-model="settings[moduleId][settingId].value"
                             :options="
-                                setting.values.map(value => ({
-                                    label: setting.noLabelTranslation
-                                        ? value
-                                        : $t(
-                                              `modules.${moduleId}.settings.${settingId}.${value}`
-                                          ),
-                                    value,
-                                }))
+                                getSelectOptions(moduleId, setting, settingId)
                             "
                             :placeholder="
                                 $t(
@@ -586,6 +572,16 @@ export default Vue.extend<
             };
         },
         $m: (key, args) => LSSM.$t(`modules.settings.${key}`, args),
+        getSelectOptions(module, setting, settingId) {
+            return setting.values.map((v, vi) => ({
+                label: setting.noLabelTranslation
+                    ? v
+                    : setting.labels?.[vi] ??
+                      this.$t(`modules.${module}.settings.${settingId}.${v}`) ??
+                      v,
+                value: v,
+            }));
+        },
     },
     mounted() {
         this.getExportData();

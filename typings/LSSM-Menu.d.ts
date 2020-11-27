@@ -9,7 +9,6 @@ export interface lssmMenuData {
     wiki: string;
     version: string;
     mode: string;
-    nav: HTMLElement | null;
 }
 
 export interface lssmMenuComputed {

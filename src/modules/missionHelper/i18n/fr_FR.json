@@ -3,9 +3,6 @@
 	"expansions": "Extension | Extensions",
 	"followups": "Mission à suivre | Missions à suivre",
 	"generated_by": "Généré par",
-	"noVehicleRequirements": [
-		"water_needed"
-	],
 	"patients": {
 		"helicopter": "Probabilité de déclencher le Dragon",
 		"patient_allow_first_responder_chance": "First Responder Probability",
