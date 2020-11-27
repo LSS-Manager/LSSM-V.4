@@ -194,7 +194,9 @@
                             v-else-if="setting.type === 'select'"
                             :name="setting.name"
                             v-model="settings[moduleId][settingId].value"
-                            :options="getSelectOptions(setting)"
+                            :options="
+                                getSelectOptions(moduleId, setting, settingId)
+                            "
                             :placeholder="
                                 $t(
                                     `modules.${moduleId}.settings.${settingId}.title`
@@ -207,7 +209,9 @@
                             v-else-if="setting.type === 'multiSelect'"
                             :name="setting.name"
                             v-model="settings[moduleId][settingId].value"
-                            :options="getSelectOptions(setting)"
+                            :options="
+                                getSelectOptions(moduleId, setting, settingId)
+                            "
                             :placeholder="
                                 $t(
                                     `modules.${moduleId}.settings.${settingId}.title`
@@ -568,11 +572,13 @@ export default Vue.extend<
             };
         },
         $m: (key, args) => LSSM.$t(`modules.settings.${key}`, args),
-        getSelectOptions(setting) {
+        getSelectOptions(module, setting, settingId) {
             return setting.values.map((v, vi) => ({
                 label: setting.noLabelTranslation
                     ? v
-                    : setting.labels?.[vi] ?? v,
+                    : setting.labels?.[vi] ??
+                      this.$t(`modules.${module}.settings.${settingId}.${v}`) ??
+                      v,
                 value: v,
             }));
         },

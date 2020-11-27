@@ -59,7 +59,7 @@
 		},
 		"noVehicleRequirements": {
 			"description": "Stel hier in welke bijzondere benodigdheden moeten worden getoond indien ze nodig zijn bij die inzet.",
-            "title": "Bijzondere benodigdheden"
+			"title": "Bijzondere benodigdheden"
 		},
 		"optionalAlternatives": {
 			"allow_arff_instead_of_lf": {
