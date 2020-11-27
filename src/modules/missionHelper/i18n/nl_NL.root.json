@@ -133,7 +133,7 @@
 				"title": "Benoem OVD-G"
 			},
 			"sort": {
-				"amount": "Aantal Benodigde voertuigen",
+				"amount": "Aantal benodigde voertuigen",
 				"caption": "Naam van de vereiste",
 				"description": "Bepaal waarop de voertuigvereisten moeten worden gesorteerd.",
 				"percentage": "Waarschijnlijkheid",
