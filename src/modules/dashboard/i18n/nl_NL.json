@@ -25,11 +25,11 @@
 			"titles": {
 				"buildings": {
 					"bold": "Gebouw type selectie",
-					"small": "Laat alleen gebouwen van deze gebouwtypes zien"
+					"small": "(Laat alleen gebouwen van deze gebouwtypes zien)"
 				},
 				"dispatch": {
 					"bold": "Meldkamer selectie",
-					"small": "Laat alleen gebouwen van deze meldkamer zien"
+					"small": "(Laat alleen gebouwen van deze meldkamers zien)"
 				},
 				"name": "Dashboard naam"
 			}

@@ -3,7 +3,7 @@
 	"name": "Klok",
 	"settings": {
 		"displayNav": {
-			"description": "De linkermarge naast het logo wordt als positie geselecteerd.",
+			"description": "Toont de klok naast het logo van het spel",
 			"title": "Toon klok in de navigatiebalk"
 		},
 		"displayOverlay": {

@@ -10,4 +10,4 @@ Door gebruik te maken van de `LSSM` (Leitstellenspiel Manager, extensie voor de 
 
 Deze gegevens worden gebruikt om de extensie te verbeteren en een aanwijzing voor de ontwikkeling van bestaande of toekomstige modules.
 
-**De gebruiker kan het verzamelen van deze gegevens op elk moment intrekken door een bericht te sturen naar een van de ontwikkelaars** Alle gegevens die al van de gebruiker zijn verzameld, worden verwijderd en worden in de toekomst niet overgedragen.
+**De gebruiker kan het verzamelen van deze gegevens op elk moment intrekken door dit in de instellingen uit te zetten** Daarna worden er geen gegevens meer verzameld. Om je oude gegevens te laten verwijderen kan je de ontwikkelaar een bericht sturen.

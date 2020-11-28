@@ -29,3 +29,9 @@ Alle gebouwen zijn in een een tabel opgesomd, welke de volgende informatie bevat
 * Bijzonderheden
 
 ![Het gebouwenoverzicht](/v4/docs/assets/overview/img/Overview_buildings_nl_NL.png)
+
+## Opleidingen
+Alle opleidingen zijn in een overzicht geplaatst. De volgende informatie is beschikbaar:
+* Opleidingsnaam
+* Voor welke voertuigen de opleiding nodig is
+* Opleidingsduur
