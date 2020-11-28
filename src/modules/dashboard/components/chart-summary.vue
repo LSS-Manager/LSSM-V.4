@@ -157,6 +157,7 @@ export default Vue.extend<
                 ).map(([index, { color }]) => [index, color])
             ),
             vehiclesByBuilding: this.$store.getters['api/vehiclesByBuilding'],
+            buildingsAsColumn: false,
         } as ChartSummary;
     },
     computed: {
@@ -179,7 +180,7 @@ export default Vue.extend<
         const buildingVehicleDrilldowns = [] as DrilldownOptions[];
         Highcharts.chart(this.buildingsId, ({
             chart: {
-                type: 'waterfall',
+                type: this.buildingsAsColumn ? 'column' : 'waterfall',
             },
             title: null,
             legend: {
@@ -227,9 +228,10 @@ export default Vue.extend<
                         }),
                         {
                             name: category,
-                            isSum: true,
+                            isSum: !this.buildingsAsColumn,
                             color: this.buildingCategories[category].color,
                             drilldown: category,
+                            y: this.buildings[category]?.length ?? 0,
                         },
                     ],
                 };
