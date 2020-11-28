@@ -37,8 +37,8 @@ Daarnaast heb je in de instellingen de volgende opties:
 
 Hieronder aantal voorbeelden:
 
-![Notificatie forum bericht](/v4/docs/assets/notificationAlert/img/notificationForum.png)
+![Notificatie forum bericht](/v4/docs/assets/notificationAlert/img/nl_NL/notificationForum.png)
 
-![Notificatie prive bericht](/v4/docs/assets/notificationAlert/img/notificationNieuwBericht.png)
+![Notificatie prive bericht](/v4/docs/assets/notificationAlert/img/nl_NL/notificationNieuwBericht.png)
 
-![Notificatie Spraakaanvraag](/v4/docs/assets/notificationAlert/img/notificationSpraakaanvraag.png)
+![Notificatie Spraakaanvraag](/v4/docs/assets/notificationAlert/img/nl_NL/notificationSpraakaanvraag.png)

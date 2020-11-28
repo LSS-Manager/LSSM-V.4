@@ -1,8 +1,9 @@
 ## Algemeen
-Soms is het handig om van meldingen de benodigdheden meteen te kunnen zien. Deze module maakt een mooi overzicht van alle benodigdheden en de overige gegevens van een melding. 
-Indien de inzethelper laadt, maar geen gegevens laat zien, kan je ze proberen te herladen door op het herlaad knopje te drukken. ![Herlaad](/v4/docs/assets/missionHelper/img/nl_NL/missionHelperReload.png)
-Indien je de inzethelper wilt loskoppelen van het meldingenscherm, zodat je die kan verplaatsen, dan druk je op de volgende knop: ![Loskoppelen](/v4/docs/assets/missionHelper/img/nl_NL/missionHelperLos.png)
-Indien je de inzethelper wilt inklappen tot een klein formaat waar de informatie verborgen is, dan druk je op de volgende knop: ![Inklappen](/v4/docs/assets/missionHelper/img/nl_NL/missionHelperExpand.png)
+Soms is het handig om van meldingen de benodigdheden meteen te kunnen zien. Deze module maakt een mooi overzicht van alle benodigdheden en de overige gegevens van een melding.
+
+Indien de inzethelper laadt, maar geen gegevens laat zien, kan je ze proberen te herladen door op het herlaad knopje te drukken. ![Herlaad](/v4/docs/assets/missionHelper/img/nl_NL/missionHelperReload.png)<br>
+Indien je de inzethelper wilt loskoppelen van het meldingenscherm, zodat je die kan verplaatsen, dan druk je op de volgende knop: ![Loskoppelen](/v4/docs/assets/missionHelper/img/nl_NL/missionHelperLos.png)<br>
+Indien je de inzethelper wilt inklappen tot een klein formaat waar de informatie verborgen is, dan druk je op de volgende knop: ![Inklappen](/v4/docs/assets/missionHelper/img/nl_NL/missionHelperExpand.png)<br>
 Indien je het maximaal aantal mogelijke benodigdheden wilt zien, dan klik je op de volgende knop: ![Uitbreiding](/v4/docs/assets/missionHelper/img/nl_NL/missionHelperMax.png)
 
 ## Mogelijke instellingen
