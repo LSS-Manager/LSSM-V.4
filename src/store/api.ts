@@ -330,7 +330,6 @@ export default {
             return new Promise<void>(resolve =>
                 get_api_values(type, store, true).then(result => {
                     store.commit(MUTATION_SETTERS[type], result);
-                    console.log(result);
                     resolve();
                 })
             );
