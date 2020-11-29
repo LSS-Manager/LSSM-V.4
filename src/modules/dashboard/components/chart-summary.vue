@@ -192,7 +192,6 @@ export default Vue.extend<
             })
             .then(column => {
                 this.buildingsAsColumn = column ?? false;
-                console.log(column, this.buildingsAsColumn);
                 this.mountBuildingChart();
             });
 
