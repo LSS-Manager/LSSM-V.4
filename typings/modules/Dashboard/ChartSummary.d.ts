@@ -40,6 +40,8 @@ export interface ChartSummaryMethods {
             [key: string]: unknown;
         }
     ): VueI18n.TranslateResult;
+    changeBuildingChart(): void;
+    mountBuildingChart(): void;
 }
 
 export interface ChartSummaryComputed {

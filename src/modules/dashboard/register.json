@@ -1,3 +1,4 @@
 {
-	"location": "^/?$"
+	"location": "^/?$",
+    "settings": true
 }

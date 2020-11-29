@@ -326,9 +326,10 @@ export default Vue.extend<
             startSettings: cloneDeep(settings),
             modulesSorted: [
                 'global',
-                ...(this.$store.getters
-                    .modulesSorted as string[]).filter(module =>
-                    settings.hasOwnProperty(module)
+                ...(this.$store.getters.modulesSorted as string[]).filter(
+                    module =>
+                        settings.hasOwnProperty(module) &&
+                        Object.keys(settings[module]).length
                 ),
             ],
             wideGrids: ['appendable-list'],
