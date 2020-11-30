@@ -461,7 +461,12 @@ export default Vue.extend<
                     {
                         title: this.$m('resetWarning.module', {
                             module: this.$t(
-                                `modules.${this.modulesSorted[this.tab]}.name`
+                                `modules.${
+                                    this.modulesSorted[this.tab]
+                                }.name`.replace(
+                                    'modules.global',
+                                    'globalSettings'
+                                )
                             ),
                         }),
                         handler: () => {
@@ -575,11 +580,11 @@ export default Vue.extend<
         $m: (key, args) => LSSM.$t(`modules.settings.${key}`, args),
         getSelectOptions(module, setting, settingId) {
             return setting.values.map((v, vi) => ({
-                label: setting.noLabelTranslation
+                label: (setting.noLabelTranslation
                     ? v
                     : setting.labels?.[vi] ??
                       this.$t(`modules.${module}.settings.${settingId}.${v}`) ??
-                      v,
+                      v) as string,
                 value: v,
             }));
         },

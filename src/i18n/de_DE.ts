@@ -455,7 +455,7 @@ export default {
             credits: 5000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            icon: 'hamburger',
+            icon: 'taxi',
         },
         33: {
             caption: 'GW-Höhenrettung',
