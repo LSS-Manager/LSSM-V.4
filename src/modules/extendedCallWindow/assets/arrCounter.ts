@@ -89,7 +89,6 @@ export default async (
 
     if (counter || highlight) {
         const clickHandler = (arr: HTMLAnchorElement) => {
-            console.log(arr);
             if (arr.querySelector('.label-danger')) return;
 
             const arrId =
