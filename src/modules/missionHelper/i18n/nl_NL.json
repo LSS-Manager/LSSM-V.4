@@ -30,6 +30,13 @@
 	"requirements": {
 		"water_needed": "Water benodigd"
 	},
+	"tip": {
+		"dragging": "Verplaats venster",
+		"maxState": "Maximale benodigdheden aan/uit",
+		"minified": "Inklappen",
+		"overlay": "Overlay",
+		"reload": "Herladen"
+	},
 	"vehicles": {
 		"captions": {
 			"ambulances": "Ambulance | Ambulances",
