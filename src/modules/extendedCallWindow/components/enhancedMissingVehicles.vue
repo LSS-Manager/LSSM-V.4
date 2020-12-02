@@ -187,6 +187,12 @@ export default Vue.extend<
         },
     },
     methods: {
+        $m(key, args) {
+            return this.$t(
+                `modules.extendedCallWindow.enhancedMissingVehicles.${key}`,
+                args
+            );
+        },
         setSort(s) {
             this.sortDir =
                 s === this.sort && this.sortDir === 'asc' ? 'desc' : 'asc';
