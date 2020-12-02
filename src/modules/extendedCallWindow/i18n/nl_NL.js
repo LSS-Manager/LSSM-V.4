@@ -85,7 +85,7 @@ module.exports = {
             dragging: 'Verplaats venster',
             textMode: 'Tekstmodus aan/uit',
             minified: 'Inklappen',
-            overlay: 'overlay',
+            overlay: 'Overlay',
             reload: 'Herladen',
         },
         selected: 'Geselecteerd',
