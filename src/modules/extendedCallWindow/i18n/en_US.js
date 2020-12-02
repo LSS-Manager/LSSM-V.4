@@ -82,6 +82,13 @@ module.exports = {
         missing: 'Missing on mission',
         driving: 'En-route',
         total: 'Still needed',
+        tip: {
+            dragging: 'drag window',
+            textMode: 'textmode on/off',
+            minified: 'collapse',
+            overlay: 'overlay',
+            reload: 'reload',
+        },
         selected: 'Selected',
         vehiclesByRequirement: {
             [/^firetruck(s)?$/]: [0, 1, 13, 18, 30, 33],

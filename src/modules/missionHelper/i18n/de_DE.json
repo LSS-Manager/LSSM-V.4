@@ -36,6 +36,13 @@
 		"max_possible_prisoners": "Gefangener maximal | Gefangene maximal",
 		"title": "Gefangene | {n} Gefangener | {n} Gefangene"
 	},
+	"tip": {
+		"dragging": "Feld verschieben",
+		"maxState": "Maximale Anforderungen (de-)aktivieren",
+		"minified": "Ein/Ausklappen",
+		"overlay": "Overlay",
+		"reload": "Reload"
+	},
 	"vehicles": {
 		"captions": {
 			"ambulances": "RTW",

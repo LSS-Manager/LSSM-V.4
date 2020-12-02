@@ -6,30 +6,42 @@
         :id="id"
     >
         <font-awesome-icon
-            class="pull-right"
+            class="pull-right hover-tip"
             :icon="textMode ? faTable : faParagraph"
             :fixed-width="true"
             @click="toggleTextMode"
         ></font-awesome-icon>
+        <div class="alert alert-info">
+            {{ $m('tip.textMode') }}
+        </div>
         <font-awesome-icon
-            class="pull-right"
+            class="pull-right hover-tip"
             :icon="minified ? faExpandAlt : faCompressAlt"
             :fixed-width="true"
             @click="toggleMinified"
         ></font-awesome-icon>
+        <div class="alert alert-info">
+            {{ $m('tip.minified') }}
+        </div>
         <font-awesome-icon
             v-show="overlay"
             :icon="faArrowsAlt"
-            class="pull-right dragging-field"
+            class="pull-right dragging-field hover-tip"
             :fixed-width="true"
             @mousedown="dragStart"
         ></font-awesome-icon>
+        <div class="alert alert-info">
+            {{ $m('tip.dragging') }}
+        </div>
         <font-awesome-icon
-            class="pull-right"
+            class="pull-right hover-tip"
             :icon="overlay ? faAngleDoubleDown : faAngleDoubleUp"
             :fixed-width="true"
             @click="toggleOverlay"
         ></font-awesome-icon>
+        <div class="alert alert-info">
+            {{ $m('tip.overlay') }}
+        </div>
         <span v-if="!textMode">{{ extras }}</span>
         <div class="row" v-if="!overlay && !textMode">
             <div class="col-md-6" id="lssm-missing-vehicles-left-col">
@@ -308,6 +320,18 @@ export default Vue.extend<
 </script>
 
 <style scoped lang="sass">
+.hover-tip
+  cursor: pointer
+
+  &:hover
+    &+ .alert
+      display: block
+
+  &+ .alert
+    display: none
+    position: absolute
+    z-index: 1
+
 .alert
 
     &:not(.overlay) #lssm-missing-vehicles-left-col
