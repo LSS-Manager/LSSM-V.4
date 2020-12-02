@@ -12,12 +12,12 @@ export default (LSSM: Vue, $m: $m): void => {
         .trim();
     if (!missingRequirementsText) return;
     const missingRequirementMatches = missingRequirementsText.match(
-        /(?:\d+ (?:[^(]|\(.*?\))+?(?=[,.]))|(?:[\w ]*?: \d+)/g
+        /(?:\d+\s(?:[^(]|\(.*?\))+?(?=[,.]|$))|(?:(?<=^|,\s)(?:[^(]|\(.*?\))+?:\s\d+)/g
     );
     if (!missingRequirementMatches) return;
     const missingRequirements = missingRequirementMatches.map(req => {
         req = req.trim();
-        const isColonMode = !!req.match(/^[\w ]*?: \d+$/);
+        const isColonMode = !!req.match(/^.*: \d+$/);
         return {
             missing: parseInt(
                 req.match(isColonMode ? /\d+$/ : /^\d+/)?.[0] || '0'

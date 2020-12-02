@@ -50,6 +50,19 @@ Er zijn een aantal momenten in het spel, dat de kaart op een andere locatie gece
 
 Als u met de muis kort op hetzelfde adres blijft, wordt het op de kaart weergegeven, maar de kaart springt alleen naar dit adres als op het adres klikt. 
 
+## Bladwijzers voor de kaart
+
+:::warning Kaartype "Mapkit"
+Deze functie kan momenteel niet gebruikt worden met kaarttype `Mapkit`!
+:::
+
+Sla uw eigen locaties op de kaart op, waarna je ze met een enkele klik weer kan openenen. Zo kan je makkelijk je veel gebruikte locaties bewaren en er naar toe gaan. 
+
+Door op de groene `+` te drukken, kan je de huidige locatie opslaan. Door daarna over een opgeslagen locatie te gaan met je muis, krijg je een voorvertoning van de locatie. Door er op te klikken ga je naar die locatie toe. 
+
+![Bladwijzers voor de kaart](/v4/docs/assets/generalExtensions/img/nl_NL/ownMapMarkers.png)
+
+
 ## Titel van het browsertabblad
 
 Met deze functie kunt u in de titel van het browsertabblad zien welk venster van het spel momenteel geopend is. Hieronder een voorbeeld:
@@ -69,3 +82,9 @@ Middels de `←` en `→` toetsen kan je ook door de suggesties heen bladeren en
 :::
 
 Als extra functie worden de algemeen bekende tekencombinaties automatisch vervangen. Bijvoorbeeld `;)` wordt vervangen door `😉` zodra je er een spatie achter plaatst. 
+
+## Onthoud het gebouwtype
+Deze functie onthoudt tijdens het bouwen het laatst geselecteerde gebouw. Hierdoor kan je snel door met bouwen van je volgende gebouw.
+
+## Onthoud meldkamer
+Deze functie onthoudt de geselecteerde meldkamer tijdens het bouwen. Daardoor kan je snel verder met bouwen. 

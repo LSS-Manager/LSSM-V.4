@@ -23,7 +23,7 @@ module.exports = {
         titles: {
             set:
                 'Zo vaak wordt dit voertuigtype geselecteerd, als je op deze inzetvoorstel drukt',
-            attribute: 'Die Kombination, die in dieser Zeile beschrieben wird',
+            attribute: 'Het voertuigtype dat geselecteerd wordt',
             free: 'Zo vaak is dit voertuigtype beschikbaar',
             max:
                 'Zo vaak kan je dit inzetvoorstel selecteren, totdat dit voertuigtype niet meer beschikbaar is',

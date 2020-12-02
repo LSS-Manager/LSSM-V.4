@@ -242,15 +242,32 @@
                 {{ missionSpecs.generated_by }}
                 <br />
             </span>
+            <ul v-if="specialRequirements.nonbadge.length">
+                <li
+                    v-for="req in specialRequirements.nonbadge"
+                    :key="req"
+                    :amount="
+                        (amount =
+                            missionSpecs[$m(`noVehicleRequirements.${req}.in`)][
+                                req
+                            ])
+                    "
+                    :data-amount="amount"
+                >
+                    {{ $mc(`noVehicleRequirements.${req}.text`, amount) }}
+                </li>
+            </ul>
             <span
                 class="badge badge-default"
-                v-for="req in specialRequirements"
+                v-for="req in specialRequirements.badge"
                 :key="req"
             >
                 {{
-                    $mc(`requirements.${req}`, missionSpecs.requirements[req])
-                }}:
-                {{ missionSpecs.requirements[req].toLocaleString() }}
+                    $mc(
+                        `noVehicleRequirements.${req}.text`,
+                        missionSpecs[$m(`noVehicleRequirements.${req}.in`)][req]
+                    )
+                }}
             </span>
             <br />
             <span
@@ -459,8 +476,9 @@ export default Vue.extend<
                 k9_only_if_needed: false,
                 hide_battalion_chief_vehicles: false,
                 bike_police_only_if_needed: false,
+                noVehicleRequirements: [],
             },
-            noVehicleRequirements: Object.values(
+            noVehicleRequirements: Object.keys(
                 this.$m('noVehicleRequirements')
             ),
             drag: {
@@ -501,9 +519,23 @@ export default Vue.extend<
             return this.getVehicles(this.missionSpecs, false);
         },
         specialRequirements() {
-            return Object.keys(
-                this.missionSpecs?.requirements || {}
-            ).filter(req => this.noVehicleRequirements.includes(req));
+            const reqi18n = (this.$m('noVehicleRequirements') as unknown) as {
+                [key: string]: {
+                    badge: boolean;
+                    text: string;
+                    in: 'additional' | 'prerequisites';
+                };
+            };
+            const reqs = { badge: [], nonbadge: [] } as {
+                badge: string[];
+                nonbadge: string[];
+            };
+            this.settings.noVehicleRequirements?.forEach(req =>
+                this.missionSpecs?.[reqi18n[req].in][req]
+                    ? reqs[reqi18n[req].badge ? 'badge' : 'nonbadge'].push(req)
+                    : null
+            );
+            return reqs;
         },
     },
     methods: {
@@ -565,7 +597,7 @@ export default Vue.extend<
             return mission;
         },
         loadSetting(id, base, base_string = '') {
-            if (typeof base[id] === 'object') {
+            if (typeof base[id] === 'object' && !Array.isArray(base[id])) {
                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                 // @ts-ignore
                 Object.keys(base[id]).forEach(sid =>
@@ -923,10 +955,10 @@ export default Vue.extend<
             .then(minified => (this.minified = minified));
     },
     mounted() {
-        this.reloadSpecs();
         Object.keys(this.settings).forEach(id =>
             this.loadSetting(id, this.settings)
         );
+        this.reloadSpecs();
     },
 });
 </script>

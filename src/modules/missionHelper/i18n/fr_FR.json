@@ -3,9 +3,6 @@
 	"expansions": "Extension | Extensions",
 	"followups": "Mission à suivre | Missions à suivre",
 	"generated_by": "Généré par",
-	"noVehicleRequirements": [
-		"water_needed"
-	],
 	"patients": {
 		"helicopter": "Probabilité de déclencher le Dragon",
 		"patient_allow_first_responder_chance": "First Responder Probability",
@@ -18,6 +15,7 @@
 		"title": "Patients | {n} Patient | {n} Patients"
 	},
 	"prerequisites": {
+		"brush_extension": "Expansion du secteur forestier | Expansion de la foresterie",
 		"fire_stations": "Caserne de pompier | Casernes de pompier",
 		"max_police_stations": "Postes de police max.",
 		"max_rescue_stations": "Postes de secours max.",
@@ -32,13 +30,16 @@
 		"max_possible_prisoners": "Prisonniers max.",
 		"title": "Prisonnier | {n} Prisonnier | {n} Prisonniers"
 	},
-	"requirements": {},
+	"requirements": {
+		"water_needed": "Water demand (gal)"
+	},
 	"vehicles": {
 		"captions": {
 			"ambulances": "Ambulance | Ambulances",
 			"arff": "ARFF",
 			"battalion_chief_vehicles": "Chefs de groupe",
 			"boats": "Bateau | Bateaux",
+			"brush_truck": "Véhicule d'incendie de forêt | Moteurs d'incendie de forêt",
 			"firetrucks": "Fourgon d'incendie | Fourgons d'incendie",
 			"hazmat_vehicles": "véhicule risques technologiques | véhicule risques technologiques",
 			"heavy_rescue_vehicles": "Véhicule de secours routier | Véhicules de secours routier",

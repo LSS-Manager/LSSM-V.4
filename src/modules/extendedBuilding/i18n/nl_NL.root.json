@@ -4,7 +4,7 @@
 	"settings": {
 		"buildingsLeftRight": {
 			"description": "Laat in het gebouw zien hoeveel van dezelfde gebouwen er nog zijn in de respectievelijke richting.",
-			"title": "Aantal gebouwen van het zelfde type"
+			"title": "Aantal gebouwen van hetzelfde type"
 		},
 		"enhanceVehicleList": {
 			"description": "Breidt de voertuigenlijst uit met nuttige functies - Sommige daarvan zijn aanpasbaar.",
@@ -39,7 +39,7 @@
 			"title": "Personeelsamenvatting"
 		},
 		"vehicleTypes": {
-			"description": "Laat het voertuigtype zien (en als beschikbaar de eigen voertuigcategorie) in een apart kolom.",
+			"description": "Laat het voertuigtype zien (en indien beschikbaar het eigen voertuigtype) in een aparte kolom.",
 			"title": "Voertuigtype"
 		},
 		"vehiclesPersonnelAssigned": {
@@ -47,7 +47,7 @@
 			"title": "Toegewezen personeel"
 		},
 		"vehiclesPersonnelColorized": {
-			"description": "Kleurt het aantal toegezen personen rood als het lager is dan maximaal en groen als het gelijk is aan het maximum.",
+			"description": "Kleurt het aantal toegewezen personen rood als het lager is dan het maximum en groen als het gelijk is aan het maximum.",
 			"title": "Kleurcode voor toegewezen personeel"
 		},
 		"vehiclesPersonnelCurrent": {

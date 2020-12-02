@@ -11,3 +11,4 @@ rsync -e "ssh -p $PROD_PORT" -r --delete-after $TRAVIS_BUILD_DIR/dist/ $PROD_USE
 ssh -t -p $PROD_PORT $PROD_USER@$PROD_SERVER << EOF
 	cp -r /var/www/static $DIR
 EOF
+#

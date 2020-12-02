@@ -89,7 +89,8 @@ const get_from_broadcast = async <API extends StorageAPIKey>(
 };
 const get_api_values = async <API extends StorageAPIKey>(
     key: API,
-    { dispatch, state, commit }: APIActionStoreParams
+    { dispatch, state, commit }: APIActionStoreParams,
+    preventUpdateFetch = false
 ): Promise<StorageGetterReturn<API>> => {
     let stored = {
         lastUpdate: 0,
@@ -114,6 +115,7 @@ const get_api_values = async <API extends StorageAPIKey>(
         stored = (await get_from_broadcast<API>(key, dispatch)) ?? stored;
     if (
         !state.currentlyUpdating.includes(key) &&
+        !preventUpdateFetch &&
         (!stored.value ||
             !Object.values(stored.value).length ||
             stored.lastUpdate < new Date().getTime() - API_MIN_UPDATE)
@@ -269,7 +271,7 @@ export default {
         },
     },
     getters: {
-        vehicle(state, id: number) {
+        vehicle: state => (id: number) => {
             return state.vehicles.find(v => v.id === id);
         },
         vehiclesByBuilding(state) {
@@ -324,6 +326,14 @@ export default {
         },
     } as GetterTree<APIState, RootState>,
     actions: {
+        initialUpdate(store: APIActionStoreParams, type: StorageAPIKey) {
+            return new Promise<void>(resolve =>
+                get_api_values(type, store, true).then(result => {
+                    store.commit(MUTATION_SETTERS[type], result);
+                    resolve();
+                })
+            );
+        },
         setVehicleStates({ dispatch, commit }: APIActionStoreParams) {
             return new Promise<void>(resolve => {
                 dispatch('request', { url: 'api/vehicle_states' })
@@ -420,9 +430,9 @@ export default {
                             lastUpdate,
                         } = await get_api_values('vehicles', store);
                         if (!vehicles) return reject();
-                        vehicles[
-                            vehicles.findIndex(v => v.id === id)
-                        ] = vehicle;
+                        const index = vehicles.findIndex(v => v.id === id);
+                        if (index < 0) vehicles.push(vehicle);
+                        else vehicles[index] = vehicle;
                         set_api_storage(
                             'vehicles',
                             {
@@ -432,7 +442,7 @@ export default {
                             },
                             store
                         );
-                        return resolve(vehicles);
+                        return resolve(vehicle);
                     });
             });
         },
@@ -450,9 +460,11 @@ export default {
                         } = await get_api_values('vehicles', store);
                         if (!vehicles) return reject();
                         vehiclesAt.forEach(vehicle => {
-                            vehicles[
-                                vehicles.findIndex(v => v.id === id)
-                            ] = vehicle;
+                            const index = vehicles.findIndex(
+                                v => v.id === vehicle.id
+                            );
+                            if (index < 0) vehicles.push(vehicle);
+                            else vehicles[index] = vehicle;
                         });
                         set_api_storage(
                             'vehicles',

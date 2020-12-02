@@ -1,6 +1,23 @@
 {
 	"description": "Montre les informations importantes de la mission dans la fenêtre de mission.",
 	"name": "Missionhelper",
+	"noVehicleRequirements": {
+		"average_min_fire_personnel": {
+			"badge": false,
+			"in": "additional",
+			"text": "Moyenne minimale Pompiers"
+		},
+		"average_min_police_personnel": {
+			"badge": false,
+			"in": "additional",
+			"text": "Moyenne minimale Policiers"
+		},
+		"height_rescue_personnel": {
+			"badge": false,
+			"in": "additional",
+			"text": "Spécialistes IMP requis"
+		}
+	},
 	"settings": {
 		"chances": {
 			"100": {
@@ -53,6 +70,10 @@
 				"description": "Subtracts the number of firetrucks from the Quints and hides firetrucks if the number drops below 0.",
 				"title": "Quint Simple Rate"
 			}
+		},
+		"noVehicleRequirements": {
+			"description": "Set here which special requirements to show, if they exist for that mission.",
+			"title": "Special requirements"
 		},
 		"optionalAlternatives": {
 			"allow_arff_instead_of_lf": {

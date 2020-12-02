@@ -3,9 +3,6 @@
 	"expansions": "Espansione | Espansioni",
 	"followups": "Missione supplementare | Missioni supplementari",
 	"generated_by": "Generata da",
-	"noVehicleRequirements": [
-		"water_needed"
-	],
 	"patients": {
 		"allow_ktw_instead_of_rtw": "Può essere usata una MSB invece di una MSA.",
 		"helicopter": "Probabilità per HEMS",

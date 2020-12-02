@@ -3,17 +3,14 @@
 	"expansions": "Uitbreiding | Uitbreidingen",
 	"followups": "Vervolginzet | Vervolginzetten",
 	"generated_by": "Gegenereerd door",
-	"noVehicleRequirements": [
-		"water_needed"
-	],
 	"patients": {
 		"allow_ktw_instead_of_rtw": "Een zorgambulance kan worden gebruikt als Ambulance",
 		"nef": "Kans dat het MMT benodigd is",
-		"patient_at_end_of_mission": "De patiënt komt alleen op het einde van de inzet | De patiënten komen alleen op het einde van de inzet",
+		"patient_at_end_of_mission": "De patiënt komt alleen op het einde van de inzet, tenzij het een OMS/PAC melding is | De patiënten komen alleen op het einde van de inzet, tenzij het een OMS/PAC melding is",
 		"patient_transport": "Kans op transport",
-		"possible_patient": "Patiënt maximum | Patiënten maximum",
+		"possible_patient": "Patiënt maximaal | Patiënten maximaal",
 		"possible_patient_exact": "Precies {n} patiënt | Precies {n} patiënten",
-		"possible_patient_min": "Patiënt minimum | Patiënten minimum",
+		"possible_patient_min": "Patiënt minimaal | Patiënten minimaal",
 		"specializations": "Specialisatie",
 		"title": "Patiënten | {n} Patiënt | {n} Patiënten"
 	},
@@ -23,11 +20,11 @@
 		"police_helicopter_stations": "Politiehelikopterstandplaats | Politiehelikopterstandplaats",
 		"police_stations": "Politiebureau | Politiebureaus",
 		"rescue_stations": "Ambulancestandplaats | Ambulancestandplaatsen",
-		"title": "Benodigdheid | Benodigdheden",
+		"title": "Vereist | Vereisten",
 		"wasserrettung": "Waterongevallenuitbreiding | Waterongevallenuitbreidingen"
 	},
 	"prisoners": {
-		"max_possible_prisoners": "Arrestant maximum | Arrestanten maximum",
+		"max_possible_prisoners": "Arrestant maximaal | Arrestanten maximaal",
 		"title": "Arrestant | {n} Arrestant | {n} Arrestanten"
 	},
 	"requirements": {
