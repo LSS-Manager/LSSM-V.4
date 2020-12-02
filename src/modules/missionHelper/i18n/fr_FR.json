@@ -33,6 +33,13 @@
 	"requirements": {
 		"water_needed": "Water demand (gal)"
 	},
+	"tip": {
+		"dragging": "glisser la fenêtre",
+		"maxState": "exigences maximales on/off",
+		"minified": "effondrement",
+		"overlay": "superposition",
+		"reload": "recharger"
+	},
 	"vehicles": {
 		"captions": {
 			"ambulances": "Ambulance | Ambulances",

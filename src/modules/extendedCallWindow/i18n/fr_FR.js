@@ -68,6 +68,13 @@ module.exports = {
         missing: 'Manque sur la mission',
         driving: 'En approche',
         total: 'Manquant',
+        tip: {
+            dragging: 'glisser la fenêtre',
+            textMode: 'mode texte on/off',
+            minified: 'effondrement',
+            overlay: 'superposition',
+            reload: 'recharger',
+        },
         selected: 'Séléctionné',
         vehiclesByRequirement: {
             [/^fourgon(s)? d’incendie$/]: [0, 1, 12, 13],
