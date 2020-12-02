@@ -87,38 +87,27 @@ export default async (
         if (resetSelection) window.vehicleSelectionReset();
     };
 
-    (counter || highlight) &&
-        ARRContainer.addEventListener('mouseup', e => {
-            const targetARR = (e.target as HTMLElement)?.closest(
-                '.aao, .vehicle_group'
-            );
-
-            if (
-                !targetARR ||
-                !ARRContainer.contains(targetARR) ||
-                targetARR.querySelector('.label-danger')
-            )
-                return;
+    if (counter || highlight) {
+        const clickHandler = (arr: HTMLAnchorElement) => {
+            if (arr.querySelector('.label-danger')) return;
 
             const arrId =
-                targetARR.getAttribute('aao_id') ||
-                targetARR.getAttribute('vehicle_group_id');
+                arr.getAttribute('aao_id') ||
+                arr.getAttribute('vehicle_group_id');
             if (!arrId) return;
             let counterNode = counterNodes[arrId];
             if (!counterNode) {
                 counterNode = document.createElement('span');
                 counterNode.classList.add(counterClass);
                 counterNode.setAttribute('data-amount', '0');
-                targetARR
-                    .querySelector('.label')
-                    ?.insertAdjacentElement(
-                        counterBadge ? 'beforebegin' : 'afterend',
-                        counterNode
-                    );
+                arr.querySelector('.label')?.insertAdjacentElement(
+                    counterBadge ? 'beforebegin' : 'afterend',
+                    counterNode
+                );
                 counterNodes[arrId] = counterNode;
             }
 
-            if (targetARR.getAttribute('reset') === 'true') resetCounters();
+            if (arr.getAttribute('reset') === 'true') resetCounters();
 
             if (counter)
                 counterNode.setAttribute(
@@ -130,8 +119,19 @@ export default async (
                     ).toLocaleString()
                 );
 
-            if (highlight) targetARR.classList.add(highlightClass);
+            if (highlight) arr.classList.add(highlightClass);
+        };
+
+        await LSSM.$store.dispatch('hook', {
+            event: 'aaoClickHandler',
+            callback: clickHandler,
         });
+
+        await LSSM.$store.dispatch('hook', {
+            event: 'vehicleGroupClickHandler',
+            callback: clickHandler,
+        });
+    }
 
     let resetBtnHolder = document.querySelector(
         '#container_navbar_alarm .navbar-right'
