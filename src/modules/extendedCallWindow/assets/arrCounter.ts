@@ -29,7 +29,7 @@ export default async (
                           style: {
                               'border-radius': '50%',
                               'position': 'absolute',
-                              'z-index': 1000,
+                              'z-index': 1,
                               'background': 'red',
                               'color': 'black',
                               'min-width': '20px',
