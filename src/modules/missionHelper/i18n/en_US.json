@@ -89,11 +89,11 @@
 			"allow_arff_instead_of_lf": {
 				"firetrucks": "Fire Engine or ARFF | Fire Engine or ARFF"
 			},
-			"allow_rw_instead_of_lf": {
-				"firetrucks": "Fire Engine or Heavy Rescue or Rescue Engine | Fire Engines or Heavy Rescue or Rescue Engine"
-			},
 			"allow_drone_instead_of_investigation": {
 				"fbi_investigation": "FBI Surveillance Drone can Replace Investigation wagon"
+			},
+			"allow_rw_instead_of_lf": {
+				"firetrucks": "Fire Engine or Heavy Rescue or Rescue Engine | Fire Engines or Heavy Rescue or Rescue Engine"
 			}
 		},
 		"patient_additionals": {
