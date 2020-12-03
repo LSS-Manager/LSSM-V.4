@@ -729,6 +729,7 @@ export default {
                 'Véhicules spéciaux': [4, 6, 7, 10, 14],
                 'Chefs de groupe': [3, 11],
                 'Nautique': [16, 17],
+                'Feux de Forêt': [21, 22, 23, 24],
             },
             color: '#ff2d2d',
         },
