@@ -35,7 +35,7 @@ module.exports = {
             hlf_only: 'Véhicule de secours',
             elw: 'Chef de groupe',
             elw2: 'Véhicule poste de commandement',
-            elw: 'VLHR',
+            elw3: 'VLHR',
             dlk: 'Moyen Elévateur Aérien',
             rtw: 'Ambulance UMH',
             rw: 'Véhicule de secours routier',
