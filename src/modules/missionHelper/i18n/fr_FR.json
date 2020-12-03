@@ -33,13 +33,21 @@
 	"requirements": {
 		"water_needed": "Water demand (gal)"
 	},
+	"tip": {
+		"dragging": "glisser la fenêtre",
+		"maxState": "exigences maximales on/off",
+		"minified": "effondrement",
+		"overlay": "superposition",
+		"reload": "recharger"
+	},
 	"vehicles": {
 		"captions": {
 			"ambulances": "Ambulance | Ambulances",
 			"arff": "ARFF",
 			"battalion_chief_vehicles": "Chefs de groupe",
 			"boats": "Bateau | Bateaux",
-			"brush_truck": "Véhicule d'incendie de forêt | Moteurs d'incendie de forêt",
+			"brush_truck": "CCF",
+			"elw3": "VLHR",
 			"firetrucks": "Fourgon d'incendie | Fourgons d'incendie",
 			"hazmat_vehicles": "véhicule risques technologiques | véhicule risques technologiques",
 			"heavy_rescue_vehicles": "Véhicule de secours routier | Véhicules de secours routier",
@@ -55,7 +63,8 @@
 			"swat_armored_vehicle": "SWAT Armoured Vehicle | SWAT Armoured Vehicles",
 			"swat_suv": "SWAT SUV | SWAT SUVs",
 			"thw_gkw": "VTU",
-			"water_tankers": "Camion-citerne | Camions-citernes"
+			"water_tankers": "Camion-citerne | Camions-citernes",
+			"water_rescue": "VPL"
 		},
 		"multifunctionals": {
 			"battalion_chief_vehicles": {

@@ -45,10 +45,10 @@
 		"version": "1.16.0"
 	},
 	"@typescript-eslint/eslint-plugin": {
-		"version": "4.8.2"
+		"version": "4.9.0"
 	},
 	"@typescript-eslint/parser": {
-		"version": "4.8.2"
+		"version": "4.9.0"
 	},
 	"@vuepress/plugin-active-header-links": {
 		"icon": "https://vuepress.vuejs.org/hero.png",
@@ -152,7 +152,7 @@
 	"terser": {
 		"icon": "https://terser.org/img/terser-square-logo.png",
 		"url": "https://terser.org",
-		"version": "5.5.0"
+		"version": "5.5.1"
 	},
 	"ts-loader": {
 		"url": "https://github.com/TypeStrong/ts-loader",

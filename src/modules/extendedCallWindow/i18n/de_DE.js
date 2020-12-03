@@ -132,6 +132,13 @@ module.exports = {
         missing: 'Am Einsatzort fehlend',
         driving: 'Auf Anfahrt',
         total: 'Noch benötigt',
+        tip: {
+            dragging: 'Feld verschieben',
+            textMode: 'Textmodus (de-)aktivieren',
+            minified: 'Ein/Ausklappen',
+            overlay: 'Overlay',
+            reload: 'Reload',
+        },
         selected: 'Ausgewählt',
         vehiclesByRequirement: {
             [/^Anhänger Drucklufterzeugung$/]: [44],

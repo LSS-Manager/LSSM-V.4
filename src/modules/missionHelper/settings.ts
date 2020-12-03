@@ -121,6 +121,11 @@ export default ((MODULE_ID, LSSM, $m) => {
             default: false,
             dependsOn: '.vehicles.content',
         },
+        'optionalAlternatives.allow_drone_instead_of_investigation': <Toggle>{
+            type: 'toggle',
+            default: false,
+            dependsOn: '.vehicles.content',
+        },
         ...(['de_DE', 'en_US', 'nl_NL', 'it_IT'].includes(BUILD_LANG)
             ? {
                   'optionalAlternatives.allow_ktw_instead_of_rtw': <Toggle>{
@@ -210,10 +215,14 @@ export default ((MODULE_ID, LSSM, $m) => {
                   },
               }
             : null),
-        'followup': <Toggle>{
-            type: 'toggle',
-            default: true,
-        },
+        ...(BUILD_LANG !== 'nl_NL'
+            ? {
+                  followup: <Toggle>{
+                      type: 'toggle',
+                      default: true,
+                  },
+              }
+            : null),
         'overlay': <Hidden>{
             type: 'hidden',
             default: false,

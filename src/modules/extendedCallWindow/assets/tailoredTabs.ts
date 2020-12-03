@@ -194,6 +194,20 @@ export default (
         vehicleTypeMap[tabId] = vehicleTypes.map(v => v.toString());
     });
 
+    if (stagingMode)
+        document
+            .getElementById('vehicle_show_table_body_all')
+            ?.addEventListener('change', ({ target }) => {
+                const checkbox = target as HTMLInputElement;
+                document
+                    .querySelectorAll<HTMLInputElement>(
+                        `.vehicle_checkbox[value="${checkbox.getAttribute(
+                            'value'
+                        )}"]`
+                    )
+                    .forEach(box => (box.checked = checkbox.checked));
+            });
+
     tabList.addEventListener('click', e => {
         if (!tabList || !allTab || !occupiedTab || !panelWrapper) return;
         const tabSelector = (e.target as HTMLElement)?.closest('a[tabload]');

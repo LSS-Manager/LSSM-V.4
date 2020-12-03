@@ -28,6 +28,13 @@
 		"max_possible_prisoners": "Maximum Prisoners",
 		"title": "Prisoner | {n} Prisoner | {n} Prisoner"
 	},
+	"tip": {
+		"dragging": "drag window",
+		"maxState": "maximum requirements on/off",
+		"minified": "collapse",
+		"overlay": "overlay",
+		"reload": "reload"
+	},
 	"vehicles": {
 		"captions": {
 			"ambulances": "Ambulance | Ambulances",

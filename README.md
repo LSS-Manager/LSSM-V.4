@@ -1,8 +1,8 @@
 # LSS-Manager V.4 
 
 ## Builds & Checks
-### Prod/master [![Build Status](https://travis-ci.com/LSS-Manager/LSSM-V.4.svg?branch=master)](https://travis-ci.com/LSS-Manager/LSSM-V.4)
-### Beta/dev [![Build Status](https://travis-ci.com/LSS-Manager/LSSM-V.4.svg?branch=dev)](https://travis-ci.com/LSS-Manager/LSSM-V.4)
+### Prod/master [![Build Status](https://teamcity.lss-manager.de/app/rest/builds/buildType:LssmV4_MasterBuild/statusIcon.svg)]
+### Beta/dev [![Build Status](https://teamcity.lss-manager.de/app/rest/builds/buildType:LssmV4_DevBuild/statusIcon.svg)]
 
 ![](./docs/.vuepress/public/img/lssm.png)
 

@@ -11,6 +11,7 @@ interface Additional {
     subsequent_missions_names?: {
         [id: number]: string;
     };
+    allow_drone_instead_of_investigation?: boolean;
     allow_rw_instead_of_lf?: boolean;
     only_alliance_mission?: boolean;
     max_possible_prisoners?: number;
