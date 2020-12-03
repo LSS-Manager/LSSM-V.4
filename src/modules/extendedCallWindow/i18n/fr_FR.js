@@ -79,7 +79,7 @@ module.exports = {
         vehiclesByRequirement: {
             [/^fourgon(s)? d’incendie$/]: [0, 1, 12, 13],
             [/^Moyen(s)? Élévateur(s)? Aérien(s)?$/]: [2, 15],
-            [/^Chef(s)? de groupe$/]: [3, 11, 24],
+            [/^Chef(s)? de Groupe(s)?$/]: [3, 11, 24],
             [/^Véhicule(s)? de secours routier$/]: [4],
             [/^UMH$/]: [5],
             [/^camion(s)?-citerne(s)?$/]: [6],
@@ -92,7 +92,7 @@ module.exports = {
             [/^VGRIMP$/]: [14],
             [/^VPL?$/]: [16],
             [/^BLS?$/]: [16],
-            [/^Choucas$/]: [18],
+            [/^soutien aérien FAG$/]: [18],
             [/^CCF$/]: [21, 22, 23],
             [/^unité(s)? cynophile(s)?$/]: [19],
             [/^Unité(s)? motocycliste(s)?$/]: [20],

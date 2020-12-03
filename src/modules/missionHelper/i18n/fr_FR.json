@@ -63,7 +63,8 @@
 			"swat_armored_vehicle": "SWAT Armoured Vehicle | SWAT Armoured Vehicles",
 			"swat_suv": "SWAT SUV | SWAT SUVs",
 			"thw_gkw": "VTU",
-			"water_tankers": "Camion-citerne | Camions-citernes"
+			"water_tankers": "Camion-citerne | Camions-citernes",
+			"water_rescue": "VPL"
 		},
 		"multifunctionals": {
 			"battalion_chief_vehicles": {
