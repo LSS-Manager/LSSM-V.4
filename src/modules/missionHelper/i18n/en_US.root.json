@@ -88,6 +88,10 @@
 			"allow_rw_instead_of_lf": {
 				"description": "Indicates, if instead of a firetruck also heavy rescue or rescue engine is possible on site.",
 				"title": "Show Heavy Rescue / rescue engine instead of firetrucks"
+			},
+			"allow_drone_instead_of_investigation": {
+				"description": "Shows whether an FBI Surveillance Drone can replace an FBI Investigation wagon",
+				"title": "Show drone can replace investigation"
 			}
 		},
 		"patient": {

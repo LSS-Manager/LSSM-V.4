@@ -91,6 +91,9 @@
 			},
 			"allow_rw_instead_of_lf": {
 				"firetrucks": "Fire Engine or Heavy Rescue or Rescue Engine | Fire Engines or Heavy Rescue or Rescue Engine"
+			},
+			"allow_drone_instead_of_investigation": {
+				"fbi_investigation": "FBI Surveillance Drone can Replace Investigation wagon"
 			}
 		},
 		"patient_additionals": {

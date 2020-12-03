@@ -38,8 +38,8 @@
 			"title": "Extension"
 		},
 		"followup": {
-			"description": "Lists possible follow-up uses for this application.",
-			"title": "Follow-up missions"
+			"description": "Montre ce que la mission peut générer pour les missions de suivi",
+			"title": "Missions de suivi"
 		},
 		"generatedBy": {
 			"description": "Affiche le type de bâtiment qui a généré cette mission.",
