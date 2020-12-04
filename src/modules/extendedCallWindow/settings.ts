@@ -271,5 +271,9 @@ export default (async (_: string, LSSM: Vue, $m: $m) => {
             type: 'hidden',
             default: false,
         },
+        pushRight: <Hidden>{
+            type: 'hidden',
+            default: false,
+        },
     };
 }) as ModuleSettingFunction;

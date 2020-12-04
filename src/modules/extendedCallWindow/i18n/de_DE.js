@@ -138,6 +138,9 @@ module.exports = {
             minified: 'Ein/Ausklappen',
             overlay: 'Overlay',
             reload: 'Reload',
+            pushRight:
+                'Anzeige in der rechten Hälfte (über der Fahrzeugliste) anzeigen',
+            pushLeft: 'Anzeige an originaler Position anzeigen',
         },
         selected: 'Ausgewählt',
         vehiclesByRequirement: {
