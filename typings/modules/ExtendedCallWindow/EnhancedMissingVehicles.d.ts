@@ -15,6 +15,8 @@ export interface Requirement {
 export interface EnhancedMissingVehicles {
     faAngleDoubleUp: IconDefinition;
     faAngleDoubleDown: IconDefinition;
+    faAngleDoubleLeft: IconDefinition;
+    faAngleDoubleRight: IconDefinition;
     faArrowsAlt: IconDefinition;
     faCompressAlt: IconDefinition;
     faExpandAlt: IconDefinition;
@@ -27,6 +29,7 @@ export interface EnhancedMissingVehicles {
     overlay: boolean | undefined;
     minified: boolean | undefined;
     textMode: boolean | undefined;
+    pushedRight: boolean | undefined;
     drag: {
         active: boolean;
         top: number;
@@ -63,4 +66,5 @@ export interface EnhancedMissingVehiclesMethods {
     dragStart(e: MouseEvent): void;
     dragEnd(): void;
     dragging(e: MouseEvent): void;
+    toggleRight(): void;
 }
