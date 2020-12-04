@@ -90,8 +90,18 @@ export default {
                 'Un simple titre dans la barre de navigation au lieu du logo LSSM',
         },
         allowTelemetry: {
-            "description": "Contrôle si LSS-Manager est autorisé à envoyer des données, ce qui nous aide à développer cette extension.",
-            "title": "Autoriser la télémétrie"
+            description:
+                'Contrôle si LSS-Manager est autorisé à envoyer des données, ce qui nous aide à développer cette extension.',
+            title: 'Autoriser la télémétrie',
+        },
+        iconBg: {
+            description: "Changez la couleur de fond de l'icône LSSM !",
+            title: "Couleur de fond de l'icône LSSM",
+        },
+        iconBgAsNavBg: {
+            description:
+                "Colorez toute la barre de navigation avec la couleur de fond de l'icône du LSSM!",
+            title: 'colorier la barre de navigation',
         },
     },
     vehicles: {
@@ -199,7 +209,7 @@ export default {
         },
         10: {
             caption: 'VAR',
-            color: '#0018b8',
+            color: '#d90e0e',
             coins: 25,
             credits: 11_680,
             minPersonnel: 1,
@@ -220,7 +230,7 @@ export default {
         },
         12: {
             caption: 'FPTSR',
-            color: '#0018b8',
+            color: '#b80000',
             coins: 25,
             credits: 19_000,
             minPersonnel: 2,
@@ -228,9 +238,9 @@ export default {
         },
         13: {
             caption: 'VTU',
-            color: '#0018b8',
+            color: '#d71919',
             coins: 25,
-            credits: 122_180,
+            credits: 12_180,
             minPersonnel: 1,
             maxPersonnel: 3,
             special:
@@ -281,7 +291,7 @@ export default {
         },
         18: {
             caption: 'Choucas',
-            color: '#ca1616',
+            color: '#162eca',
             coins: 30,
             credits: 300_000,
             minPersonnel: 2,
@@ -292,7 +302,7 @@ export default {
         },
         19: {
             caption: 'Equipe cynophile',
-            color: '#aa2222',
+            color: '#2229aa',
             coins: 25,
             credits: 7_000,
             minPersonnel: 1,
@@ -305,7 +315,7 @@ export default {
         },
         20: {
             caption: 'Unité motocycliste',
-            color: '#aa2255',
+            color: '#2230aa',
             coins: 18,
             credits: 2_500,
             minPersonnel: 1,
@@ -313,6 +323,46 @@ export default {
             wtank: 0,
             schooling: 'Poste de police - Formation motocycliste',
             shownSchooling: 'Policie motocycliste',
+        },
+        21: {
+            caption: 'CCFS',
+            color: '#d71919',
+            coins: 19,
+            credits: 19_000,
+            minPersonnel: 3,
+            maxPersonnel: 5,
+            special:
+                'Nécessaire dès lors que vous avez construit 6 bases de pompiers',
+        },
+        22: {
+            caption: 'CCFM',
+            color: '#d71919',
+            coins: 8,
+            credits: 8_000,
+            minPersonnel: 1,
+            maxPersonnel: 3,
+            special:
+                'Nécessaire dès lors que vous avez construit 6 bases de pompiers',
+        },
+        23: {
+            caption: 'CCFL',
+            color: '#d71919',
+            coins: 5,
+            credits: 5_000,
+            minPersonnel: 1,
+            maxPersonnel: 2,
+            special:
+                'Nécessaire dès lors que vous avez construit 6 bases de pompiers',
+        },
+        24: {
+            caption: 'VLHR',
+            color: '#d71919',
+            coins: 25,
+            credits: 10_000,
+            minPersonnel: 1,
+            maxPersonnel: 1,
+            special:
+                'Nécessaire dès lors que vous avez construit 6 bases de pompiers',
         },
     },
     buildings: {
@@ -336,13 +386,13 @@ export default {
                 },
             ],
             levelcost: ['1. 10.000', '2. 50.000', '3.-16. 100.000'],
-            maxBuildings: '2.700',
+            maxBuildings: '4.400',
             maxLevel: 16,
             special:
                 'Le prix de vos postes augmente lorsque vous en possédez 25. Ainsi, le rythme de progression est constant une fois que vous possédez un grand flux de revenus à ces niveaux de jeu. La formule actuelle pour calculer le prix des postes est la suivante : <code>100.000+(200.000*LOG<sub>2</sub>(Number of existing fire stations − 22))</code>.',
             startPersonnel: 10,
             startVehicles: ['FPT', 'FPTL'],
-            maxBuildingsFunction: (): number => 2_700,
+            maxBuildingsFunction: (): number => 4_400,
         },
         1: {
             caption: 'Centre de Formation Départemental',
@@ -483,11 +533,11 @@ export default {
                 }),
             ],
             levelcost: ['1. 10.000', '2. 50.000', '3.-14. 100.000'],
-            maxBuildings: '1200 postes de police/gendarmerie',
+            maxBuildings: '1700 postes de police/gendarmerie',
             maxLevel: 14,
             startPersonnel: 2,
             startVehicles: ['Véhicule de patrouille'],
-            maxBuildingsFunction: (): number => 1_200,
+            maxBuildingsFunction: (): number => 1_700,
         },
         7: {
             caption: 'Centre de Traitement des Appels',
@@ -593,13 +643,13 @@ export default {
                 '3.-5. 100.000',
                 "Ceci est une petite caserne. Si vous souhaitez construire des extensions ou augmenter le nombre d'emplacements de véhicules, vous devez l'améliorer pour en faire une caserne ordinaire. Ce processus prend 24 heures.",
             ],
-            maxBuildings: '2700 casernes de pompiers',
+            maxBuildings: '4400 casernes de pompiers',
             maxLevel: 5,
             special:
                 'Le prix de vos postes augmente lorsque vous en possédez 25. Ainsi, le rythme de progression est constant une fois que vous possédez un grand flux de revenus à ces niveaux de jeu. La formule actuelle pour calculer le prix des postes est la suivante : <code>100.000+(200.000*LOG<sub>2</sub>(Number of existing fire stations − 22))</code>.',
             startPersonnel: 10,
             startVehicles: ['FPT', 'FPTL'],
-            maxBuildingsFunction: (): number => 2_700,
+            maxBuildingsFunction: (): number => 4_400,
         },
         19: {
             caption: 'Poste de police (petit)',
@@ -626,13 +676,13 @@ export default {
                 '3.-4. 100.000',
                 'Ceci est un petit poste de police. Si vous souhaitez l’agrandir ou bâtir davantage d’extensions, vous devez le reconstruire pour en faire un poste de police ordinaire. Ce processus prend 24 heures.',
             ],
-            maxBuildings: '1200 postes de police/gendarmerie',
+            maxBuildings: '1700 postes de police/gendarmerie',
             maxLevel: 4,
             special:
                 'Le prix de vos postes augmente lorsque vous en possédez 25. Ainsi, le rythme de progression est constant une fois que vous possédez un grand flux de revenus à ces niveaux de jeu. La formule actuelle pour calculer le prix des postes est la suivante : <code>100.000+(200.000*LOG<sub>2</sub>(Number of existing fire stations − 22))</code>.',
             startPersonnel: 2,
             startVehicles: ['Véhicule de patrouille'],
-            maxBuildingsFunction: (): number => 1_200,
+            maxBuildingsFunction: (): number => 1_700,
         },
         20: {
             caption: 'Poste Ambulancier (petit)',
@@ -679,6 +729,7 @@ export default {
                 'Véhicules spéciaux': [4, 6, 7, 10, 14],
                 'Chefs de groupe': [3, 11],
                 'Nautique': [16, 17],
+                'Feux de Forêt': [21, 22, 23, 24],
             },
             color: '#ff2d2d',
         },

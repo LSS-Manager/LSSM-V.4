@@ -72,6 +72,7 @@ export interface MissionHelper {
         expansions: boolean;
         followup: boolean;
         k9_only_if_needed: boolean;
+        noVehicleRequirements: string[];
 
         // General
         [key: string]: boolean | unknown;
@@ -93,7 +94,7 @@ export interface MissionHelperComputed {
     currentPrisoners: number;
     showPatients: boolean;
     vehicles: VehicleRequirements;
-    specialRequirements: string[];
+    specialRequirements: { badge: string[]; nonbadge: string[] };
 }
 export interface MissionHelperMethods {
     $m(

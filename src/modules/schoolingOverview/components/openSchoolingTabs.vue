@@ -72,7 +72,8 @@ export default Vue.extend<
                     ).toString(),
                 })
         );
-        const tabTitles = Object.keys(this.$t('schoolings'));
+        const all = this.$t('modules.schoolingOverview.all') as string;
+        const tabTitles = [all, ...Object.keys(this.$t('schoolings'))];
         return {
             heads,
             tabTitles,
@@ -81,6 +82,7 @@ export default Vue.extend<
             search: '',
             sort: 'name',
             sortDir: 'asc',
+            all,
         } as OpenSchoolingTabs;
     },
     computed: {
@@ -111,7 +113,7 @@ export default Vue.extend<
         },
     },
     beforeMount() {
-        let tabs = {} as {
+        let tabs = { [this.all]: [] } as {
             [tab: string]: OpenSchooling[];
         };
         document
@@ -139,14 +141,16 @@ export default Vue.extend<
                     '';
                 let end = parseInt(endNode.getAttribute('sortvalue') || '0');
                 if (!tabs.hasOwnProperty(category)) tabs[category] = [];
-                tabs[category].push({
+                const element = {
                     id: btn.href.replace(/\D+/g, ''),
                     name,
                     seats,
                     price,
                     end,
                     owner: owner.innerHTML,
-                });
+                };
+                tabs[category].push(element);
+                tabs[this.all].push(element);
             });
         this.tabs = tabs;
     },

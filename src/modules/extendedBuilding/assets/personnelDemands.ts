@@ -1,14 +1,8 @@
-import { InternalVehicle } from 'typings/Vehicle';
+import { InternalVehicle, Vehicle } from 'typings/Vehicle';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { $m } from 'typings/Module';
 
-export default (LSSM: Vue, $m: $m): void => {
-    const vehicles = Array.from(
-        document.querySelectorAll('#vehicle_table tbody tr') as NodeListOf<
-            HTMLTableRowElement
-        >
-    );
-
+export default (LSSM: Vue, $m: $m, buildingId: number): void => {
     const dataList = document.querySelector('.dl-horizontal');
 
     if (!dataList) return;
@@ -23,36 +17,33 @@ export default (LSSM: Vue, $m: $m): void => {
     let sumMinPersonnelS6 = 0;
     let sumMaxPersonnelS6 = 0;
 
-    vehicles.forEach(vehicle => {
-        const max = parseInt(vehicle.lastElementChild?.textContent || '0');
-        const min =
-            vehicleTypes[
-                parseInt(
-                    vehicle
-                        .querySelector('[vehicle_type_id]')
-                        ?.getAttribute('vehicle_type_id') || '-1'
-                )
-            ]?.minPersonnel || 0;
-        sumMinPersonnel += min;
-        sumMaxPersonnel += max;
+    LSSM.$store
+        .dispatch('api/fetchVehiclesAtBuilding', buildingId)
+        .then((vehicles: Vehicle[]) => {
+            vehicles.forEach(v => {
+                const type = vehicleTypes[v.vehicle_type];
+                sumMinPersonnel += type.minPersonnel;
+                sumMaxPersonnel +=
+                    v.max_personnel_override ?? type.maxPersonnel;
+                if (v.fms_real !== 6) {
+                    sumMinPersonnelS6 += type.minPersonnel;
+                    sumMaxPersonnelS6 +=
+                        v.max_personnel_override ?? type.maxPersonnel;
+                }
+            });
 
-        if (!vehicle.querySelector('.building_list_fms_6')) {
-            sumMinPersonnelS6 += min;
-            sumMaxPersonnelS6 += max;
-        }
-    });
-
-    const personnelTitle = document.createElement('dt');
-    const titleWrapper = document.createElement('strong');
-    titleWrapper.textContent = $m(`personnelDemands.demand`).toString();
-    personnelTitle.append(titleWrapper);
-    const personnelData = document.createElement('dd');
-    personnelData.textContent = `min: ${sumMinPersonnel} (${sumMinPersonnelS6}) / max: ${sumMaxPersonnel} (${sumMaxPersonnelS6})`;
-    const personnelAdditional = document.createElement('small');
-    personnelAdditional.textContent = $m(
-        `personnelDemands.additional`
-    ).toString();
-    personnelAdditional.style.marginLeft = '1ch';
-    personnelData.append(personnelAdditional);
-    dataList.append(personnelTitle, personnelData);
+            const personnelTitle = document.createElement('dt');
+            const titleWrapper = document.createElement('strong');
+            titleWrapper.textContent = $m(`personnelDemands.demand`).toString();
+            personnelTitle.append(titleWrapper);
+            const personnelData = document.createElement('dd');
+            personnelData.textContent = `min: ${sumMinPersonnel} (${sumMinPersonnelS6}) / max: ${sumMaxPersonnel} (${sumMaxPersonnelS6})`;
+            const personnelAdditional = document.createElement('small');
+            personnelAdditional.textContent = $m(
+                `personnelDemands.additional`
+            ).toString();
+            personnelAdditional.style.marginLeft = '1ch';
+            personnelData.append(personnelAdditional);
+            dataList.append(personnelTitle, personnelData);
+        });
 };

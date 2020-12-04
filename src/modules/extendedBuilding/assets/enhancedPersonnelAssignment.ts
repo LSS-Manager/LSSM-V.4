@@ -2,7 +2,12 @@ import { InternalVehicle, Vehicle } from 'typings/Vehicle';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { $m } from 'typings/Module';
 
-export default (LSSM: Vue, $m: $m): void => {
+export default async (
+    LSSM: Vue,
+    MODULE_ID: string,
+    getSetting: (key: string) => Promise<boolean>,
+    $m: $m
+): Promise<void> => {
     const personnel = Array.from(
         document.querySelectorAll('#personal_table tbody tr') as NodeListOf<
             HTMLTableRowElement
@@ -12,9 +17,14 @@ export default (LSSM: Vue, $m: $m): void => {
     const vehicleId = parseInt(
         window.location.pathname.match(/\d+(?=\/zuweisung)/)?.[0] || '-1'
     );
-    const vehicle = (LSSM.$store.state.api.vehicles as Vehicle[]).find(
-        v => v.id === vehicleId
-    );
+
+    await LSSM.$store.dispatch('api/initialUpdate', 'vehicles');
+    const vehicle =
+        LSSM.$store.getters['api/vehicle'](vehicleId) ??
+        ((await LSSM.$store.dispatch(
+            'api/fetchVehicle',
+            vehicleId
+        )) as Vehicle);
     const vehicleTypes = LSSM.$t('vehicles') as {
         [id: number]: InternalVehicle;
     };
@@ -22,8 +32,8 @@ export default (LSSM: Vue, $m: $m): void => {
 
     const fittingRows = [] as HTMLTableRowElement[];
     const nonFittingRows = [] as HTMLTableRowElement[];
+    const schooling = vehicleTypes[vehicle.vehicle_type].shownSchooling;
     personnel.forEach(row => {
-        const schooling = vehicleTypes[vehicle.vehicle_type].shownSchooling;
         (!schooling ||
         (schooling &&
             row.textContent?.match(LSSM.$utils.escapeRegex(schooling)))
@@ -35,6 +45,9 @@ export default (LSSM: Vue, $m: $m): void => {
     const toggleId = LSSM.$store.getters.nodeAttribute(
         'toggle-fitting-personnel',
         true
+    );
+    const checkboxSetting = await getSetting(
+        'enhancedPersonnelAssignmentCheckbox'
     );
 
     const settingsBar = document.createElement('form');
@@ -51,12 +64,21 @@ export default (LSSM: Vue, $m: $m): void => {
         toggleFittingInput,
         $m('enhancedPersonnelAssignment.toggleFittingPersonnel').toString()
     );
+    toggleFittingInput.checked = checkboxSetting;
     toggleFittingWrapper.append(toggleFittingLabel);
     settingsBar.append(toggleFittingWrapper);
-
+    if (checkboxSetting) {
+        const mode = toggleFittingInput.checked ? 'add' : 'remove';
+        nonFittingRows.forEach(row => row.classList[mode]('hidden'));
+    }
     toggleFittingInput.addEventListener('change', () => {
         const mode = toggleFittingInput.checked ? 'add' : 'remove';
         nonFittingRows.forEach(row => row.classList[mode]('hidden'));
+        LSSM.$store.dispatch('settings/setSetting', {
+            moduleId: MODULE_ID,
+            settingId: 'enhancedPersonnelAssignmentCheckbox',
+            value: toggleFittingInput.checked,
+        });
     });
 
     document.getElementById('personal_table')?.before(settingsBar);

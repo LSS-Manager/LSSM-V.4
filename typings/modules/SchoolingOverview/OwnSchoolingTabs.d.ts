@@ -22,6 +22,7 @@ export interface OwnSchoolingTabs {
     search: string;
     sort: string;
     sortDir: string;
+    all: string;
 }
 
 export interface OwnSchoolingTabsComputed {

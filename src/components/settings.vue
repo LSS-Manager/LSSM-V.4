@@ -195,14 +195,7 @@
                             :name="setting.name"
                             v-model="settings[moduleId][settingId].value"
                             :options="
-                                setting.values.map(value => ({
-                                    label: setting.noLabelTranslation
-                                        ? value
-                                        : $t(
-                                              `modules.${moduleId}.settings.${settingId}.${value}`
-                                          ),
-                                    value,
-                                }))
+                                getSelectOptions(moduleId, setting, settingId)
                             "
                             :placeholder="
                                 $t(
@@ -217,14 +210,7 @@
                             :name="setting.name"
                             v-model="settings[moduleId][settingId].value"
                             :options="
-                                setting.values.map(value => ({
-                                    label: setting.noLabelTranslation
-                                        ? value
-                                        : $t(
-                                              `modules.${moduleId}.settings.${settingId}.${value}`
-                                          ),
-                                    value,
-                                }))
+                                getSelectOptions(moduleId, setting, settingId)
                             "
                             :placeholder="
                                 $t(
@@ -340,9 +326,10 @@ export default Vue.extend<
             startSettings: cloneDeep(settings),
             modulesSorted: [
                 'global',
-                ...(this.$store.getters
-                    .modulesSorted as string[]).filter(module =>
-                    settings.hasOwnProperty(module)
+                ...(this.$store.getters.modulesSorted as string[]).filter(
+                    module =>
+                        settings.hasOwnProperty(module) &&
+                        Object.keys(settings[module]).length
                 ),
             ],
             wideGrids: ['appendable-list'],
@@ -474,7 +461,12 @@ export default Vue.extend<
                     {
                         title: this.$m('resetWarning.module', {
                             module: this.$t(
-                                `modules.${this.modulesSorted[this.tab]}.name`
+                                `modules.${
+                                    this.modulesSorted[this.tab]
+                                }.name`.replace(
+                                    'modules.global',
+                                    'globalSettings'
+                                )
                             ),
                         }),
                         handler: () => {
@@ -536,7 +528,6 @@ export default Vue.extend<
                                 .filter(
                                     ([key]) =>
                                         key === 'activeModules' ||
-                                        key === 'iconBG' ||
                                         key.startsWith('settings_')
                                 )
                                 .map(([key, value]) => [
@@ -569,14 +560,9 @@ export default Vue.extend<
                         key: 'activeModules',
                         value: result.activeModules,
                     });
-                if (result.iconBG)
-                    await this.$store.dispatch('storage/set', {
-                        key: 'iconBG',
-                        value: result.iconBG,
-                    });
                 const resultEntries = Object.entries(result);
                 resultEntries.forEach(([module, value], index) => {
-                    if (['activeModules', 'iconBG'].includes(module)) return;
+                    if (['activeModules'].includes(module)) return;
                     this.$store
                         .dispatch('storage/set', {
                             key: `settings_${module}`,
@@ -592,9 +578,20 @@ export default Vue.extend<
             };
         },
         $m: (key, args) => LSSM.$t(`modules.settings.${key}`, args),
+        getSelectOptions(module, setting, settingId) {
+            return setting.values.map((v, vi) => ({
+                label: (setting.noLabelTranslation
+                    ? v
+                    : setting.labels?.[vi] ??
+                      this.$t(`modules.${module}.settings.${settingId}.${v}`) ??
+                      v) as string,
+                value: v,
+            }));
+        },
     },
     mounted() {
         this.getExportData();
+        this.$store.commit('useFontAwesome');
     },
 });
 </script>

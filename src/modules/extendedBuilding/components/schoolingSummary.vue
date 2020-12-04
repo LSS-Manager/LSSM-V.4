@@ -154,7 +154,7 @@ export default Vue.extend<
                     max,
                 })
             );
-            return (this.allSchoolingsSearch
+            return (this.eachSchoolingsSearch
                 ? schoolings.filter(schooling =>
                       JSON.stringify(Object.values(schooling))
                           .toLowerCase()

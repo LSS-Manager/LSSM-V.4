@@ -89,13 +89,22 @@ export default {
                 'Zobrazí jednotuchý popisek v navigační liště namísto loga LSSM',
         },
         allowTelemetry: {
-            "description": "Steuert, ob Der LSS-Manager Daten senden darf, die uns bei der Entwicklung helfen.",
-            "title": "Telemetrie erlauben"
-        }
+            description:
+                'Povolit LSSM odesílat data, což pomáhá při vývoji tohoto rozšíření.',
+            title: 'Povolení telemetrie',
+        },
+        iconBg: {
+            description: 'Změnit barvu pozadí ikony LSSM',
+            title: 'pozadí ikony LSSM',
+        },
+        iconBgAsNavBg: {
+            description:
+                'barva celé navigační lišty v barvě pozadí  ikony LSSM',
+            title: 'Zbarvení navigační lišty',
+        },
     },
-
-    vehicles: [
-        {
+    vehicles: {
+        0: {
             caption: 'CAS 20',
             color: '#cc0000',
             coins: 25,
@@ -104,7 +113,7 @@ export default {
             maxPersonnel: 6,
             wtank: 0,
         },
-        {
+        1: {
             caption: 'CAS 30',
             color: '#bb0000',
             coins: 25,
@@ -113,7 +122,7 @@ export default {
             maxPersonnel: 6,
             wtank: 0,
         },
-        {
+        2: {
             caption: 'AZ',
             color: '#d92626',
             coins: 30,
@@ -123,7 +132,7 @@ export default {
             wtank: 0,
             special: 'Požadováno po vybudování 3 požárních stanic',
         },
-        {
+        3: {
             caption: 'VEA',
             color: '#d02525',
             coins: 25,
@@ -133,7 +142,7 @@ export default {
             wtank: 0,
             special: 'Požadováno po vybudování 6 požárních stanic',
         },
-        {
+        4: {
             caption: 'TA',
             color: '#ad1f1f',
             coins: 25,
@@ -143,7 +152,7 @@ export default {
             wtank: 0,
             special: 'Požadováno po vybudování 4 požárních stanic',
         },
-        {
+        5: {
             caption: 'Sanitka',
             color: '#9c1c1c',
             coins: 25,
@@ -152,7 +161,7 @@ export default {
             maxPersonnel: 3,
             wtank: 0,
         },
-        {
+        6: {
             caption: 'KHA',
             color: '#aa0000',
             coins: 25,
@@ -162,7 +171,7 @@ export default {
             wtank: 0,
             special: 'Požadováno po vybudování 7 požárních stanic',
         },
-        {
+        7: {
             caption: 'TACH',
             color: '#990000',
             coins: 25,
@@ -174,7 +183,7 @@ export default {
             shownSchooling: 'Nebezpečné látky',
             special: 'Požadováno po vybudování 11 požárních stanic',
         },
-        {
+        8: {
             caption: 'Policejní automobil',
             color: '#8b1818',
             coins: 25,
@@ -183,7 +192,7 @@ export default {
             maxPersonnel: 4,
             wtank: 0,
         },
-        {
+        9: {
             caption: 'Vrtulník LZS',
             color: '#e61919',
             coins: 30,
@@ -192,7 +201,7 @@ export default {
             maxPersonnel: 5,
             wtank: 0,
         },
-        {
+        10: {
             caption: 'AP',
             color: '#e61919',
             coins: 25,
@@ -201,7 +210,7 @@ export default {
             maxPersonnel: 2,
             wtank: 0,
         },
-        {
+        11: {
             caption: 'Policejní vrtulník',
             color: '#ca1616',
             coins: 30,
@@ -212,7 +221,7 @@ export default {
             schooling: 'Policie - Kurz Letecké služby PČR',
             shownSchooling: 'Členové Letecké služby PČR',
         },
-        {
+        12: {
             caption: 'Obrněné vozidlo URNA',
             color: '#ca1616',
             coins: 25,
@@ -224,7 +233,7 @@ export default {
             shownSchooling: 'URNA',
             special: 'Požadováno po vybudování 8 Obvodních oddělení Policie',
         },
-        {
+        13: {
             caption: 'Vozidlo Kynologů PČR',
             color: '#ca1616',
             coins: 25,
@@ -236,7 +245,7 @@ export default {
             shownSchooling: 'Kynologové Policie',
             special: 'Požadováno po vybudování 6 Obvodních oddělení Policie',
         },
-        {
+        14: {
             caption: 'Policejní motocykl',
             color: '#ca1616',
             coins: 18,
@@ -247,7 +256,7 @@ export default {
             schooling: 'Policie - Policejní motocykl',
             shownSchooling: 'Strážník na motocyklu',
         },
-        {
+        15: {
             caption: 'URNA SUV',
             color: '#ca1616',
             coins: 23,
@@ -259,7 +268,7 @@ export default {
             shownSchooling: 'URNA',
             special: 'Požadováno po vybudování 8 Obvodních oddělení Policie',
         },
-        {
+        16: {
             caption: 'Protiplynový automobil',
             color: '#770000',
             coins: 25,
@@ -269,7 +278,7 @@ export default {
             wtank: 0,
             special: 'Požadováno po vybudování 5 požárních stanic',
         },
-        {
+        17: {
             caption: 'MOS',
             color: '#791515',
             coins: 25,
@@ -281,7 +290,7 @@ export default {
             shownSchooling: 'MOS',
             special: 'Požadováno po vybudování 13 požárních stanic',
         },
-        {
+        18: {
             caption: 'Vyzidlo vyšetřovatelů DN',
             color: '#8b1818',
             coins: 10,
@@ -292,7 +301,7 @@ export default {
             schooling: 'Policie - vyšetřovatel DN',
             shownSchooling: 'Vyšetřovatel DN',
         },
-        {
+        19: {
             caption: 'Vozidlo pyrotechnika PČR',
             color: '#8b1818',
             coins: 35,
@@ -303,7 +312,7 @@ export default {
             schooling: 'Policie - Policejní pyrotechnik',
             shownSchooling: 'Policejní pyrotechnik',
         },
-    ],
+    },
     //here ends
 
     buildings: [

@@ -90,8 +90,18 @@ export default {
                 'Visualizza una semplice etichetta nella barra di navigazione al posto del logo LSSM',
         },
         allowTelemetry: {
-            "description": "Controlla se LSS-Manager è autorizzato a inviare dati che ci aiutano nello sviluppo di questa estensione.",
-            "title": "Consenti telemetria"
+            description:
+                'Controlla se LSS-Manager è autorizzato a inviare dati che ci aiutano nello sviluppo di questa estensione.',
+            title: 'Consenti telemetria',
+        },
+        iconBg: {
+            description: 'Cambia il colore di sfondo di LSSM-Icon!',
+            title: 'LSSM-Icon Colore di sfondo',
+        },
+        iconBgAsNavBg: {
+            description:
+                "Colora l'intera barra di navigazione con il colore di LSSM-Icon sfondo!",
+            title: 'colorare la barra di navigazione',
         },
     },
     vehicles: {
@@ -351,13 +361,13 @@ export default {
                 },
             ],
             levelcost: ['1. 10.000', '2. 50.000', '3.-16. 100.000'],
-            maxBuildings: '4.000 together with small fire stations',
+            maxBuildings: '4.400 together with small fire stations',
             maxLevel: 16,
             special:
                 'Dalla 24° Caserma ,i costi aumentano con questa formula: <code>100.000+200.000*LOG<sub>2</sub>(Numero di caserme dei vigili del fuoco esistenti − 22)</code>. Il prezzo delle monete rimane costante!',
             startPersonnel: 10,
             startVehicles: ['ABP, APS'],
-            maxBuildingsFunction: (): number => 4_000,
+            maxBuildingsFunction: (): number => 4_400,
         },
         1: {
             caption: 'Scuola dei vigili del fuoco',
@@ -559,13 +569,13 @@ export default {
                 }),
             ],
             levelcost: ['1. 10.000', '2. 50.000', '3.-16. 100.000'],
-            maxBuildings: '1.500comprese stazioni di polizia piccole',
+            maxBuildings: '1.700 comprese stazioni di polizia piccole',
             maxLevel: 16,
             special:
                 'Dalla 24° caserma i costi aumenteranno secondo la seguente formula: <code>100.000+200.000*LOG<sub>2</sub>(Number of existing police stations − 22)</code>. The Coins price remains constant!',
             startPersonnel: 2,
             startVehicles: ['Volante'],
-            maxBuildingsFunction: (): number => 1_500,
+            maxBuildingsFunction: (): number => 1_700,
         },
         7: {
             caption: 'Centrale operativa',
@@ -671,13 +681,13 @@ export default {
                 '3.-5. 100.000',
                 'Conversione a caserma grande ,il costo della caserma piccola',
             ],
-            maxBuildings: '4.000 together with fire stations',
+            maxBuildings: '4.400 together with fire stations',
             maxLevel: 5,
             special:
                 'A partire dalla 24° caserma i costi aumenteranno secondo la seguente formula: <code>(100.000+200.000*LOG<sub>2</sub>(Number of existing fire stations − 22)) / 2</code>. max. 1 Million Credits. The Coins price remains constant!',
             startPersonnel: 10,
             startVehicles: ['ABP', 'APS'],
-            maxBuildingsFunction: (): number => 4_000,
+            maxBuildingsFunction: (): number => 4_400,
         },
         19: {
             caption: 'Stazione di polizia (piccola)',
@@ -704,13 +714,13 @@ export default {
                 '3.-4. 100.000',
                 'Conversione a caserma grande ,il costo della caserma piccola',
             ],
-            maxBuildings: '1.500 insieme alle stazioni di polizia',
+            maxBuildings: '1.700 insieme alle stazioni di polizia',
             maxLevel: 4,
             special:
                 'A partire dalla 24° caserma i costi aumenteranno secondo la seguente formula:<code>(100.000+200.000*LOG<sub>2</sub>(Number of existing police stations − 22)) / 2</code>. The Coins price remains constant!',
             startPersonnel: 2,
             startVehicles: ['Volante'],
-            maxBuildingsFunction: (): number => 1_500,
+            maxBuildingsFunction: (): number => 1_700,
         },
         20: {
             caption: 'Stazione ambulanze (stazione piccola)',

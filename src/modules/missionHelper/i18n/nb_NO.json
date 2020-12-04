@@ -3,9 +3,6 @@
 	"expansions": "Utvikling | Utviklinger",
 	"followups": "Follow-up Mission | Follow-up Missions",
 	"generated_by": "Generert av",
-	"noVehicleRequirements": [
-		"water_needed"
-	],
 	"patients": {
 		"allow_ktw_instead_of_rtw": "En syketransport kan bli brukt.",
 		"helicopter": "Sannsynlighet for Luftambulanse:",

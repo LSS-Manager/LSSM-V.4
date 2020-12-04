@@ -14,6 +14,12 @@ module.exports = {
     },
     arrHover: {
         reset: 'The vehicle selection is reset before!',
+        headers: {
+            set: 'Set',
+            attribute: 'Name',
+            free: 'Free',
+            max: 'Max',
+        },
         titles: {
             set: 'So often this combination is selected when you press the ARR',
             attribute: 'The combination described in this line',
@@ -50,6 +56,13 @@ module.exports = {
         missing: 'Missing on mission',
         driving: 'En-route',
         total: 'Still needed',
+        tip: {
+            dragging: 'drag window',
+            textMode: 'textmode on/off',
+            minified: 'collapse',
+            overlay: 'overlay',
+            reload: 'reload',
+        },
         selected: 'Selected',
         vehiclesByRequirement: {
             [/^Fire engine(s)?$/]: [0, 1, 16, 17],

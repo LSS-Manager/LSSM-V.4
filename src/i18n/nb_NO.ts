@@ -89,8 +89,18 @@ export default {
                 'Viser en enkel etikett i navigasjonslinjen i stedet for LSSM-logoen.',
         },
         allowTelemetry: {
-            "description": "Controls whether LSS-Manager is allowed to send Data which helps us in developing this extension.",
-            "title": "Allow Telemetry"
+            description:
+                'Styrer om LSS-Manager får samle data som hjelper oss i å utvikle utvidelsen.',
+            title: 'Tillatt telemetri',
+        },
+        iconBg: {
+            description: 'Konfigurer bakgrunnen til LSSM-ikonet',
+            title: 'LSSM-Ikon Bakgrunn',
+        },
+        iconBgAsNavBg: {
+            description:
+                'Bytt farge på hele navigasjonsbaren i fargen til LSSM bakgrunnen!',
+            title: 'Navigasjonsbar farge',
         },
     },
     vehicles: {
@@ -287,6 +297,7 @@ export default {
             color: '#772222',
             coins: 12,
             credits: 6_000,
+            minPersonnel: 0,
             maxPersonnel: 0,
             special:
                 'Et egnet kjøretøy trengs for å trekke tilhengeren / båthenger. (Dykkerbil, Mannskapsbil, Lett mannskapsbil)',
@@ -347,13 +358,13 @@ export default {
                 },
             ],
             levelcost: ['1. 10.000', '2. 50.000', '3.-39. 100.000'],
-            maxBuildings: '4.000 sammen med små brannstasjoner',
+            maxBuildings: '4.400 sammen med små brannstasjoner',
             maxLevel: 39,
             special:
                 'Fra og med den 24. brannstasjonen øker kostnadene for å bygge en ny brannstasjon i henhold til følgende formel: <code> 100.000 + 200.000 * LOG <sub> 2 </sub> (Antall eksisterende brannstasjoner - 22) </code>. Myntprisen forblir konstant!',
             startPersonnel: 10,
             startVehicles: ['Mannskapsbil', 'Lett mannskapsbil'],
-            maxBuildingsFunction: (): number => 4_000,
+            maxBuildingsFunction: (): number => 4_400,
         },
         1: {
             caption: 'Brannskole',
@@ -494,13 +505,13 @@ export default {
                 }),
             ],
             levelcost: ['1. 10.000', '2. 50.000', '3.-39. 100.000'],
-            maxBuildings: '1.500 sammen med små politistasjoner',
+            maxBuildings: '1.700 sammen med små politistasjoner',
             maxLevel: 39,
             special:
                 'Fra og med den 24. politistasjonen øker kostnadene for nybygging av en politistasjon i henhold til følgende formel: <code> 100.000 + 200.000 * LOG <sub> 2 </sub> (Antall eksisterende politistasjoner - 22) </code>. Myntprisen forblir konstant!',
             startPersonnel: 2,
             startVehicles: ['Patruljebil'],
-            maxBuildingsFunction: (): number => 1_500,
+            maxBuildingsFunction: (): number => 1_700,
         },
         7: {
             caption: 'Nødetatssenter',
@@ -606,13 +617,13 @@ export default {
                 '3.-5. 100.000',
                 'Konvertering til normal vakt: differansepris til normal vakt',
             ],
-            maxBuildings: '4.000 sammen med brannstasjoner',
+            maxBuildings: '4.400 sammen med brannstasjoner',
             maxLevel: 5,
             special:
                 'Fra og med den 24. brannstasjonen øker kostnadene for å bygge en ny brannstasjon i henhold til følgende formel: <code> (100.000 + 200.000 * LOG <sub> 2 </sub> (Antall eksisterende brannstasjoner - 22)) / 2 </code>. maks. 1 million kreditter. Myntprisen forblir konstant!',
             startPersonnel: 10,
             startVehicles: ['Mannskapsbil', 'Lett mannskapsbil'],
-            maxBuildingsFunction: (): number => 4_000,
+            maxBuildingsFunction: (): number => 4_400,
         },
         19: {
             caption: 'Politistasjon (liten)',
@@ -639,13 +650,13 @@ export default {
                 '3.-4. 100.000',
                 'Konvertering til normal vakt: differansepris til normal vakt',
             ],
-            maxBuildings: '1500 med politistasjoner',
+            maxBuildings: '1700 med politistasjoner',
             maxLevel: 4,
             special:
                 'Fra og med den 24. politistasjonen beregnes kostnadene for nybygging av en politistasjon i henhold til følgende formel: <code> (100.000 + 200.000 * LOG <sub> 2 </sub> (Antall eksisterende politistasjoner - 22 )) / 2 </code>. Myntprisen forblir konstant!',
             startPersonnel: 2,
             startVehicles: ['Patruljebil'],
-            maxBuildingsFunction: (): number => 1_500,
+            maxBuildingsFunction: (): number => 1_700,
         },
     },
     20: {

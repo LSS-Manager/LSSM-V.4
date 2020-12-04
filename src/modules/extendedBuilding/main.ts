@@ -44,7 +44,7 @@ export default (async (LSSM, MODULE_ID, $m) => {
                     await import(
                         /* webpackChunkName: "modules/extendedBuilding/personnelDemands" */ './assets/personnelDemands'
                     )
-                ).default(LSSM, $m);
+                ).default(LSSM, $m, buildingId);
             if (await getSetting('fastDispatchChooser'))
                 (
                     await import(
@@ -90,19 +90,10 @@ export default (async (LSSM, MODULE_ID, $m) => {
     } else if (
         window.location.pathname.match(/^\/vehicles\/\d+\/zuweisung\/?$/)
     )
-        if (await getSetting('enhancedPersonnelAssignment')) {
-            await LSSM.$store.dispatch(
-                'api/fetchVehicle',
-                parseInt(
-                    window.location.pathname.match(
-                        /(?<=vehicles\/)\d+(?=\/zuweisung)/
-                    )?.[0] ?? '-1'
-                )
-            );
-            (
+        if (await getSetting('enhancedPersonnelAssignment'))
+            await (
                 await import(
                     /* webpackChunkName: "modules/extendedBuilding/enhancedPersonnelAssignment" */ './assets/enhancedPersonnelAssignment'
                 )
-            ).default(LSSM, $m);
-        }
+            ).default(LSSM, MODULE_ID, getSetting, $m);
 }) as ModuleMainFunction;

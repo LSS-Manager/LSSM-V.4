@@ -1,6 +1,13 @@
 {
 	"description": "Ottieni tutte le informazioni importanti sulla missione direttamente all'interno della finestra della missione.",
 	"name": "Missionhelper",
+	"noVehicleRequirements": {
+		"average_min_fire_personnel": {
+			"badge": false,
+			"in": "additional",
+			"text": "Vigili del Fuoco richiesti"
+		}
+	},
 	"settings": {
 		"chances": {
 			"100": {
@@ -45,6 +52,10 @@
 				"description": "Sestrae il numero di camion dei pompieri richiesti da Salvataggio Pesante e nasconde Salvataggio Pesante se il numero scende al di sotto di 0. Questa funzione è intesa per le persone che usano un sistema puro di Motore di salvataggio.",
 				"title": "Valutazione semplice di salvataggio pesante"
 			}
+		},
+		"noVehicleRequirements": {
+			"description": "Set here which special requirements to show, if they exist for that mission.",
+			"title": "Special requirements"
 		},
 		"optionalAlternatives": {
 			"allow_arff_instead_of_lf": {
