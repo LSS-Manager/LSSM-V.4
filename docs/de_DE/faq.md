@@ -78,7 +78,7 @@ Aktuell geht das nicht, wir arbeiten aber daran, das einzubauen.
 Derzeit bieten wir das nicht an, eine Implementierung dieses Features ist aber geplant.
 
 ### Wo so seh ich ob die LSSM-Server grad online sind? 
-Am besten hier: https://status.lss-manager.de/
+Am besten hier: [https://status.lss-manager.de/](https://status.lss-manager.de/)
 Oder im Uptime-Channel auf unserem <a :href="$themeConfig.variables.discord" target="_blank">Discord</a> 
 
 [support]: support.md
