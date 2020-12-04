@@ -18,10 +18,13 @@ export default async (
         window.location.pathname.match(/\d+(?=\/zuweisung)/)?.[0] || '-1'
     );
 
-    const vehicle = (await LSSM.$store.dispatch(
-        'api/fetchVehicle',
-        vehicleId
-    )) as Vehicle;
+    await LSSM.$store.dispatch('api/initialUpdate', 'vehicles');
+    const vehicle =
+        LSSM.$store.getters['api/vehicle'](vehicleId) ??
+        ((await LSSM.$store.dispatch(
+            'api/fetchVehicle',
+            vehicleId
+        )) as Vehicle);
     const vehicleTypes = LSSM.$t('vehicles') as {
         [id: number]: InternalVehicle;
     };

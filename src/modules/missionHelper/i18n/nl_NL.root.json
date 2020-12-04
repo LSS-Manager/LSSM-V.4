@@ -47,10 +47,6 @@
 			"description": "Toont het ID van de inzet naast de naam",
 			"title": "Inzet ID"
 		},
-		"minified": {
-			"description": "",
-			"title": ""
-		},
 		"multifunctionals": {
 			"battalion_chief_vehicles": {
 				"description": "Trekt het aantal vereiste Hoofd Officieren van Dienst af van de Offieren van Dienst en verbergt de Officieren van Dienst als het aantal onder de 0 komt.",
@@ -78,10 +74,6 @@
 				"description": "Geeft aan of een hulpverleningsvoertuig kan worden gebruikt als een tankautospuit",
 				"title": "Toon Hulpverleningsvoertuig als Tankautospuit"
 			}
-		},
-		"overlay": {
-			"description": "",
-			"title": ""
 		},
 		"patients": {
 			"content": {
@@ -141,7 +133,7 @@
 				"title": "Benoem OVD-G"
 			},
 			"sort": {
-				"amount": "Aantal Benodigde voertuigen",
+				"amount": "Aantal benodigde voertuigen",
 				"caption": "Naam van de vereiste",
 				"description": "Bepaal waarop de voertuigvereisten moeten worden gesorteerd.",
 				"percentage": "Waarschijnlijkheid",
@@ -150,6 +142,10 @@
 			"title": {
 				"description": "Toont de kop \"Voertuigen\" boven de voertuigvereisten",
 				"title": "Voertuigen (Titel)"
+			},
+			"xAfterNumber": {
+				"description": "Plaats een \"x\" achter het getal van het aantal benodigde voertuigen",
+				"title": "x achter aantal"
 			}
 		}
 	}

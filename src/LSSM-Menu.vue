@@ -61,6 +61,11 @@
                 </a>
             </li>
             <li role="presentation">
+                <a class="lightbox-open" href="https://status.lss-manager.de/">
+                    Server Status
+                </a>
+            </li>
+            <li role="presentation">
                 <a href="#" @click.prevent.stop.self="showLibraries">
                     Open-Source Libraries
                 </a>

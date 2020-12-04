@@ -44,6 +44,7 @@ export interface MissionHelper {
             content: boolean;
             patient_additionals: boolean;
             sort: string;
+            xAfterNumber: boolean;
         };
         chances: {
             normal: boolean;

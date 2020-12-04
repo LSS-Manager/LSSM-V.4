@@ -81,6 +81,10 @@
 				"description": " Indicates, if instead of a firetruck arrfs are possible on site.",
 				"title": "Show if arrfs are allowed as firetrucks"
 			},
+			"allow_drone_instead_of_investigation": {
+				"description": "Shows whether an FBI Surveillance Drone can replace an FBI Investigation wagon",
+				"title": "Show drone can replace investigation"
+			},
 			"allow_ktw_instead_of_rtw": {
 				"description": "Shows whether a BLS can be used instead of an ALS.",
 				"title": "BLS instead of ALS"
@@ -171,6 +175,10 @@
 			"title": {
 				"description": "Displays the heading \"Vehicles\" above the vehicle requirements.",
 				"title": "Vehicles (Title)"
+			},
+			"xAfterNumber": {
+				"description": "Puts an x behind the amount of vehicles",
+				"title": "x behind amount"
 			}
 		}
 	}

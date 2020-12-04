@@ -18,6 +18,14 @@
                     {{ $sm('buildings.personal_count') }}:
                     {{ personalCount.toLocaleString() }}
                 </b>
+                <label class="pull-right">
+                    <input
+                        type="checkbox"
+                        @change="changeBuildingChart"
+                        v-model="buildingsAsColumn"
+                    />
+                    {{ $sm('buildings.columnchart') }}
+                </label>
             </div>
             <div class="panel-body">
                 <div :id="buildingsId" style="max-height: 400px"></div>
@@ -157,6 +165,7 @@ export default Vue.extend<
                 ).map(([index, { color }]) => [index, color])
             ),
             vehiclesByBuilding: this.$store.getters['api/vehiclesByBuilding'],
+            buildingsAsColumn: false,
         } as ChartSummary;
     },
     computed: {
@@ -176,144 +185,15 @@ export default Vue.extend<
                 }),
             },
         });
-        const buildingVehicleDrilldowns = [] as DrilldownOptions[];
-        Highcharts.chart(this.buildingsId, ({
-            chart: {
-                type: 'waterfall',
-            },
-            title: null,
-            legend: {
-                enabled: false,
-            },
-            xAxis: {
-                type: 'category',
-            },
-            yAxis: {
-                title: {
-                    text: this.$t('amount'),
-                },
-            },
-            tooltip: {
-                headerFormat:
-                    '<span style="font-size:11px">{series.name}</span><br>',
-                pointFormat:
-                    '<span style="color:{point.color}">{point.name}</span>: <b>{point.y}</b>',
-            },
-            exporting: {
-                ...exportingDefault,
-                filename: 'lssm_building_chart',
-            },
-            plotOptions: {
-                waterfall: {
-                    pointPadding: 0,
-                    groupPadding: 0,
-                },
-            },
-            series: Object.keys(this.buildingCategories).map(category => {
-                const types = Object.values(
-                    this.buildingCategories[category].buildings
-                );
-                return {
-                    name: category,
-                    data: [
-                        ...types.map(type => {
-                            return {
-                                name: this.buildingTypeNames[type],
-                                y: (this.buildings[category] || []).filter(
-                                    building => building.building_type === type
-                                ).length,
-                                color: this.buildingTypeColors[type],
-                            };
-                        }),
-                        {
-                            name: category,
-                            isSum: true,
-                            color: this.buildingCategories[category].color,
-                            drilldown: category,
-                        },
-                    ],
-                };
-            }),
-            drilldown: {
-                series: [
-                    ...Object.keys(this.buildingCategories).map(category => {
-                        const types = Object.values(
-                            this.buildingCategories[category].buildings
-                        );
-                        return {
-                            name: category,
-                            id: category,
-                            type: 'column',
-                            data: types.map(building_type => {
-                                const buildings = (
-                                    this.buildings[category] || []
-                                ).filter(
-                                    building =>
-                                        building.building_type === building_type
-                                );
-                                const vehicle_types = {} as {
-                                    [type: string]: number;
-                                };
-                                buildings.forEach(building => {
-                                    if (
-                                        !this.vehiclesByBuilding.hasOwnProperty(
-                                            building.id
-                                        )
-                                    )
-                                        return;
-                                    this.vehiclesByBuilding[
-                                        building.id
-                                    ].forEach(vehicle => {
-                                        if (
-                                            !vehicle_types.hasOwnProperty(
-                                                vehicle.vehicle_type
-                                            )
-                                        )
-                                            vehicle_types[
-                                                vehicle.vehicle_type
-                                            ] = 0;
-                                        vehicle_types[vehicle.vehicle_type]++;
-                                    });
-                                });
-                                if (Object.keys(vehicle_types).length) {
-                                    const drilldown = {
-                                        id: `${category}_${building_type}`,
-                                        name: this.buildingTypeNames[
-                                            building_type
-                                        ],
-                                        type: 'column',
-                                        data: Object.keys(vehicle_types).map(
-                                            vehicle_type => ({
-                                                id: `${category}_${building_type}_${vehicle_type}`,
-                                                name: this.vehicleTypeNames[
-                                                    parseInt(vehicle_type)
-                                                ],
-                                                y: vehicle_types[vehicle_type],
-                                                color: this.vehicleTypeColors[
-                                                    parseInt(vehicle_type)
-                                                ],
-                                            })
-                                        ),
-                                    } as DrilldownOptions;
-                                    buildingVehicleDrilldowns.push(drilldown);
-                                }
-                                return {
-                                    name: this.buildingTypeNames[building_type],
-                                    y: buildings.length,
-                                    color: this.buildingTypeColors[
-                                        building_type
-                                    ],
-                                    drilldown:
-                                        Object.keys(vehicle_types).length &&
-                                        `${category}_${building_type}`,
-                                };
-                            }),
-                        };
-                    }),
-                    ...buildingVehicleDrilldowns,
-                ],
-            },
-        } as unknown) as Options);
+        this.$store
+            .dispatch('settings/getSetting', {
+                moduleId: 'dashboard',
+                settingId: 'buildings_column_chart',
+            })
+            .then(column => {
+                this.buildingsAsColumn = column ?? false;
+                this.mountBuildingChart();
+            });
 
         Highcharts.getOptions().colors?.splice(0, 0, 'transparent');
         Object.keys(this.vehicleCategories).forEach(category => {
@@ -406,6 +286,170 @@ export default Vue.extend<
         },
         $sm(key, args) {
             return this.$m(`chart-summaries.${key}`, args);
+        },
+        changeBuildingChart() {
+            this.$store.dispatch('settings/setSetting', {
+                moduleId: 'dashboard',
+                settingId: 'buildings_column_chart',
+                value: this.buildingsAsColumn,
+            });
+            this.mountBuildingChart();
+        },
+        mountBuildingChart() {
+            const buildingVehicleDrilldowns = [] as DrilldownOptions[];
+            Highcharts.chart(this.buildingsId, ({
+                chart: {
+                    type: this.buildingsAsColumn ? 'column' : 'waterfall',
+                },
+                title: null,
+                legend: {
+                    enabled: false,
+                },
+                xAxis: {
+                    type: 'category',
+                },
+                yAxis: {
+                    title: {
+                        text: this.$t('amount'),
+                    },
+                },
+                tooltip: {
+                    headerFormat:
+                        '<span style="font-size:11px">{series.name}</span><br>',
+                    pointFormat:
+                        '<span style="color:{point.color}">{point.name}</span>: <b>{point.y}</b>',
+                },
+                exporting: {
+                    ...exportingDefault,
+                    filename: 'lssm_building_chart',
+                },
+                plotOptions: {
+                    waterfall: {
+                        pointPadding: 0,
+                        groupPadding: 0,
+                    },
+                },
+                series: Object.keys(this.buildingCategories).map(category => {
+                    const types = Object.values(
+                        this.buildingCategories[category].buildings
+                    );
+                    return {
+                        name: category,
+                        data: [
+                            ...types.map(type => {
+                                return {
+                                    name: this.buildingTypeNames[type],
+                                    y: (this.buildings[category] || []).filter(
+                                        building =>
+                                            building.building_type === type
+                                    ).length,
+                                    color: this.buildingTypeColors[type],
+                                };
+                            }),
+                            {
+                                name: category,
+                                isSum: !this.buildingsAsColumn,
+                                color: this.buildingCategories[category].color,
+                                drilldown: category,
+                                y: this.buildings[category]?.length ?? 0,
+                            },
+                        ],
+                    };
+                }),
+                drilldown: {
+                    series: [
+                        ...Object.keys(this.buildingCategories).map(
+                            category => {
+                                const types = Object.values(
+                                    this.buildingCategories[category].buildings
+                                );
+                                return {
+                                    name: category,
+                                    id: category,
+                                    type: 'column',
+                                    data: types.map(building_type => {
+                                        const buildings = (
+                                            this.buildings[category] || []
+                                        ).filter(
+                                            building =>
+                                                building.building_type ===
+                                                building_type
+                                        );
+                                        const vehicle_types = {} as {
+                                            [type: string]: number;
+                                        };
+                                        buildings.forEach(building => {
+                                            if (
+                                                !this.vehiclesByBuilding.hasOwnProperty(
+                                                    building.id
+                                                )
+                                            )
+                                                return;
+                                            this.vehiclesByBuilding[
+                                                building.id
+                                            ].forEach(vehicle => {
+                                                if (
+                                                    !vehicle_types.hasOwnProperty(
+                                                        vehicle.vehicle_type
+                                                    )
+                                                )
+                                                    vehicle_types[
+                                                        vehicle.vehicle_type
+                                                    ] = 0;
+                                                vehicle_types[
+                                                    vehicle.vehicle_type
+                                                ]++;
+                                            });
+                                        });
+                                        if (Object.keys(vehicle_types).length) {
+                                            const drilldown = {
+                                                id: `${category}_${building_type}`,
+                                                name: this.buildingTypeNames[
+                                                    building_type
+                                                ],
+                                                type: 'column',
+                                                data: Object.keys(
+                                                    vehicle_types
+                                                ).map(vehicle_type => ({
+                                                    id: `${category}_${building_type}_${vehicle_type}`,
+                                                    name: this.vehicleTypeNames[
+                                                        parseInt(vehicle_type)
+                                                    ],
+                                                    y:
+                                                        vehicle_types[
+                                                            vehicle_type
+                                                        ],
+                                                    color: this
+                                                        .vehicleTypeColors[
+                                                        parseInt(vehicle_type)
+                                                    ],
+                                                })),
+                                            } as DrilldownOptions;
+                                            buildingVehicleDrilldowns.push(
+                                                drilldown
+                                            );
+                                        }
+                                        return {
+                                            name: this.buildingTypeNames[
+                                                building_type
+                                            ],
+                                            y: buildings.length,
+                                            color: this.buildingTypeColors[
+                                                building_type
+                                            ],
+                                            drilldown:
+                                                Object.keys(vehicle_types)
+                                                    .length &&
+                                                `${category}_${building_type}`,
+                                        };
+                                    }),
+                                };
+                            }
+                        ),
+                        ...buildingVehicleDrilldowns,
+                    ],
+                },
+            } as unknown) as Options);
         },
     },
 });

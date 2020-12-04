@@ -56,11 +56,13 @@ Dadurch das wir nun drei Leute im Team waren (lost, Northdegree und Mausmajor), 
 
 Am 8. Juni 2017 wurde der `Leitstellenspiel Manager V3` veröffentlicht. Nach nicht mal 24 Stunden hatten wir wieder 100 User und nach weniger als einer Woche waren es bereits 300 User.
 
+Ein Jahr nach Release kam Jan dazu, hat gut gelernt, und dann nachher mit Entwicklungsbeginn der `V.4` die Hauptentwicklung übernommen.
+
 Gegen Ende 2019 begannen dann die ersten Planungen für eine `V.4`, um eine schönere und performantere Codebase zu gestalten. Mit der Zeit sind einige Module "in die Jahre" gekommen und wurden zwar etwas aufgebessert, jedoch gabes bei Nutzern mit vielen Gebäuden und Fahrzeugen weiterhin teilweise Probleme.
 
-Seit dem läuft die Entwicklung am `LSS-Manager V.4`, um den Nutzern ein völlig neues Gefühl bei der Nutzung des LSSM zu bieten.
+Seit dem läuft die Entwicklung am `LSS-Manager V.4`, um den Nutzern ein völlig neues Gefühl bei der Nutzung des LSSM zu bieten. Während der Entwicklungszeit der `V.4`, kam Ron31 als Mitentwickler zur `V.4`. In Stillen Kämmern, haben Jan und Ron31 den Großteil der V4 geschrieben, ehe er dann am 05.09.2020 offiziell in das LSSM-Team aufgenommen worden ist.
 
-Innerhalb der ersten 24 Stunden nach release der `V.4` am 21.11.2020 erreichten wir schon wieder 150 User. In den nächsten 24 Stunden kamen nocheinmal 200 dazu!
+Innerhalb der ersten 24 Stunden nach Release der `V.4` am 21.11.2020 erreichten wir schon wieder 150 User. In den nächsten 24 Stunden kamen nocheinmal 200 dazu! Innerhalb einer Woche hatten wir schon wieder 700 User!
 
 ## Open-Source Libraries
 Der LSSM verwendet natürlich auch öffentliche Libraries von dritten - sonst wären einige Funktionen einfach viel zu viel zu programmieren.

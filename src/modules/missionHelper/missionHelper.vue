@@ -6,37 +6,52 @@
         :id="id"
     >
         <font-awesome-icon
-            class="pull-right"
+            class="pull-right hover-tip"
             :icon="minified ? faExpandAlt : faCompressAlt"
             :fixed-width="true"
             @click="toggleMinified"
         ></font-awesome-icon>
+        <div class="alert alert-info">
+            {{ $m('tip.minified') }}
+        </div>
         <font-awesome-icon
             v-show="overlay"
             :icon="faArrowsAlt"
-            class="pull-right dragging-field"
+            class="pull-right dragging-field hover-tip"
             :fixed-width="true"
             @mousedown="dragStart"
         ></font-awesome-icon>
+        <div class="alert alert-info">
+            {{ $m('tip.dragging') }}
+        </div>
         <font-awesome-icon
-            class="pull-right"
+            class="pull-right hover-tip"
             :icon="faSyncAlt"
             :spin="isReloading"
             :fixed-width="true"
             @click="reloadSpecs(true)"
         ></font-awesome-icon>
+        <div class="alert alert-info">
+            {{ $m('tip.reload') }}
+        </div>
         <font-awesome-icon
-            class="pull-right"
+            class="pull-right hover-tip"
             :icon="overlay ? faAngleDoubleDown : faAngleDoubleUp"
             :fixed-width="true"
             @click="toggleOverlay"
         ></font-awesome-icon>
+        <div class="alert alert-info">
+            {{ $m('tip.overlay') }}
+        </div>
         <font-awesome-icon
-            class="pull-right"
+            class="pull-right hover-tip"
             :icon="maxState ? faSubscript : faSuperscript"
             :fixed-width="true"
             @click="toggleMaximum"
         ></font-awesome-icon>
+        <div class="alert alert-info">
+            {{ $m('tip.maxState') }}
+        </div>
         <span v-if="isDiyMission">{{ $m('diyMission') }}</span>
         <div v-else-if="missionSpecs">
             <h3 v-if="settings.title">
@@ -67,6 +82,7 @@
                     v-for="(vehicle, req) in vehicles"
                     :key="req"
                     :data-amount="vehicle.amount"
+                    v-bind:class="{ 'class-x': settings.vehicles.xAfterNumber }"
                 >
                     {{ vehicle.caption }}
                     <span v-if="vehicle.additionalText">
@@ -440,6 +456,7 @@ export default Vue.extend<
                     content: false,
                     patient_additionals: false,
                     sort: 'caption',
+                    xAfterNumber: false,
                 },
                 chances: {
                     normal: false,
@@ -455,6 +472,7 @@ export default Vue.extend<
                     allow_rw_instead_of_lf: false,
                     allow_arff_instead_of_lf: false,
                     allow_ktw_instead_of_rtw: false,
+                    allow_drone_instead_of_investigation: false,
                 },
                 patients: {
                     title: false,
@@ -969,6 +987,18 @@ export default Vue.extend<
 </style>
 
 <style scoped lang="sass">
+.hover-tip
+  cursor: pointer
+
+  &:hover
+    &+ .alert
+      display: block
+
+  &+ .alert
+    display: none
+    position: absolute
+    z-index: 1
+
 .alert
 
     &.overlay
@@ -1006,7 +1036,7 @@ export default Vue.extend<
         list-style: none
 
         &::before
-            content: attr(data-amount) + " "
+            content: attr(data-amount)
 
         @supports #{'selector(li::marker)'}
             &::before
@@ -1014,6 +1044,17 @@ export default Vue.extend<
                 white-space: pre
             &::marker
                 content: attr(data-amount)
+
+        &.class-x
+            &::before
+                content: attr(data-amount) "x " !important
+
+            @supports #{'selector(li::marker)'}
+                &::before
+                    content: " " !important
+                    white-space: pre !important
+                &::marker
+                    content: attr(data-amount) "x" !important
 
     .badge
         margin-right: 0.3rem
