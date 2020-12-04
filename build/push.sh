@@ -1,7 +1,6 @@
 # Get amount of changed files and the branch we're working on
 CHANGED_FILES=$(git status -s | wc -l)
 BRANCH=$(git branch --show-current)
-WORK_DIR="/home/lss-manager/BuildAgent/work/2402f42cd7572bba"
 # if more than one file modified or we're on master -> Pushback
 if [ "$CHANGED_FILES" -gt 1 ] || ["$BRANCH" == "master"]
 then
