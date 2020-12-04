@@ -125,7 +125,7 @@ export default ((MODULE_ID, LSSM, $m) => {
             default: false,
             dependsOn: '.vehicles.content',
         },
-        ...(BUILD_LANG === 'de_DE'
+        ...(BUILD_LANG === 'en_US'
             ? {
                   'optionalAlternatives.allow_drone_instead_of_investigation': <
                       Toggle
