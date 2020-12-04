@@ -57,6 +57,13 @@ module.exports = {
         missing: 'Missing on mission',
         driving: 'En-route',
         total: 'Still needed',
+        tip: {
+            dragging: 'drag window',
+            textMode: 'textmode on/off',
+            minified: 'collapse',
+            overlay: 'overlay',
+            reload: 'reload',
+        },
         selected: 'Selected',
         vehiclesByRequirement: {
             [/^Fire engine(s)?$/]: [0, 1, 12, 13, 19],

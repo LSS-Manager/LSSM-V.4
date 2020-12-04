@@ -30,6 +30,13 @@
 		"title": "Prigionieri | {n} Prigioniere | {n} Prigionieri"
 	},
 	"requirements": {},
+	"tip": {
+		"dragging": "trascinare la finestra",
+		"maxState": "requisiti massimi on/off",
+		"minified": "crollo",
+		"overlay": "Sovrapposizione",
+		"reload": "Ricaricare"
+	},
 	"vehicles": {
 		"captions": {
 			"ambulances": "Ambulanza Medicalizzata",

@@ -209,7 +209,7 @@ export default {
         },
         10: {
             caption: 'VAR',
-            color: '#0018b8',
+            color: '#d90e0e',
             coins: 25,
             credits: 11_680,
             minPersonnel: 1,
@@ -230,7 +230,7 @@ export default {
         },
         12: {
             caption: 'FPTSR',
-            color: '#0018b8',
+            color: '#b80000',
             coins: 25,
             credits: 19_000,
             minPersonnel: 2,
@@ -238,9 +238,9 @@ export default {
         },
         13: {
             caption: 'VTU',
-            color: '#0018b8',
+            color: '#d71919',
             coins: 25,
-            credits: 122_180,
+            credits: 12_180,
             minPersonnel: 1,
             maxPersonnel: 3,
             special:
@@ -291,7 +291,7 @@ export default {
         },
         18: {
             caption: 'Choucas',
-            color: '#ca1616',
+            color: '#162eca',
             coins: 30,
             credits: 300_000,
             minPersonnel: 2,
@@ -302,7 +302,7 @@ export default {
         },
         19: {
             caption: 'Equipe cynophile',
-            color: '#aa2222',
+            color: '#2229aa',
             coins: 25,
             credits: 7_000,
             minPersonnel: 1,
@@ -315,7 +315,7 @@ export default {
         },
         20: {
             caption: 'Unité motocycliste',
-            color: '#aa2255',
+            color: '#2230aa',
             coins: 18,
             credits: 2_500,
             minPersonnel: 1,
@@ -323,6 +323,46 @@ export default {
             wtank: 0,
             schooling: 'Poste de police - Formation motocycliste',
             shownSchooling: 'Policie motocycliste',
+        },
+        21: {
+            caption: 'CCFS',
+            color: '#d71919',
+            coins: 19,
+            credits: 19_000,
+            minPersonnel: 3,
+            maxPersonnel: 5,
+            special:
+                'Nécessaire dès lors que vous avez construit 6 bases de pompiers',
+        },
+        22: {
+            caption: 'CCFM',
+            color: '#d71919',
+            coins: 8,
+            credits: 8_000,
+            minPersonnel: 1,
+            maxPersonnel: 3,
+            special:
+                'Nécessaire dès lors que vous avez construit 6 bases de pompiers',
+        },
+        23: {
+            caption: 'CCFL',
+            color: '#d71919',
+            coins: 5,
+            credits: 5_000,
+            minPersonnel: 1,
+            maxPersonnel: 2,
+            special:
+                'Nécessaire dès lors que vous avez construit 6 bases de pompiers',
+        },
+        24: {
+            caption: 'VLHR',
+            color: '#d71919',
+            coins: 25,
+            credits: 10_000,
+            minPersonnel: 1,
+            maxPersonnel: 1,
+            special:
+                'Nécessaire dès lors que vous avez construit 6 bases de pompiers',
         },
     },
     buildings: {
@@ -689,6 +729,7 @@ export default {
                 'Véhicules spéciaux': [4, 6, 7, 10, 14],
                 'Chefs de groupe': [3, 11],
                 'Nautique': [16, 17],
+                'Feux de Forêt': [21, 22, 23, 24],
             },
             color: '#ff2d2d',
         },

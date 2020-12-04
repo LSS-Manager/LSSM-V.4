@@ -45,10 +45,10 @@
 		"version": "1.16.0"
 	},
 	"@typescript-eslint/eslint-plugin": {
-		"version": "4.8.2"
+		"version": "4.9.0"
 	},
 	"@typescript-eslint/parser": {
-		"version": "4.8.2"
+		"version": "4.9.0"
 	},
 	"@vuepress/plugin-active-header-links": {
 		"icon": "https://vuepress.vuejs.org/hero.png",
@@ -97,7 +97,7 @@
 	"eslint-plugin-prettier": {
 		"icon": "https://prettier.io/icon.png",
 		"url": "https://github.com/prettier/eslint-plugin-prettier#readme",
-		"version": "3.1.4"
+		"version": "3.2.0"
 	},
 	"eslint-plugin-vue": {
 		"icon": "https://vuejs.org/images/logo.png",

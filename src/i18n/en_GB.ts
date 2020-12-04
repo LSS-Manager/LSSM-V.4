@@ -349,6 +349,15 @@ export default {
             special:
                 'He Needs Firearms training and Roads Policing Officer Training',
         },
+        26: {
+            caption: 'Heavy 4x4 Tanker',
+            color: '#aa0000',
+            coins: 25,
+            credits: 25_000,
+            minPersonnel: 1,
+            maxPersonnel: 3,
+            special: 'Work as a Water Carrier and Water Ladder',
+        },
     },
     buildings: {
         0: {

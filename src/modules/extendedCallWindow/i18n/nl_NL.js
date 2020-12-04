@@ -81,6 +81,13 @@ module.exports = {
         missing: 'Missende voertuigen',
         driving: 'Aanrijdend',
         total: 'Nog nodig',
+        tip: {
+            dragging: 'Verplaats venster',
+            textMode: 'Tekstmodus aan/uit',
+            minified: 'Inklappen',
+            overlay: 'Overlay',
+            reload: 'Herladen',
+        },
         selected: 'Geselecteerd',
         vehiclesByRequirement: {
             [/^Tankautospuit(en)?$/]: [0, 1, 6, 7, 8, 9, 12, 14, 15, 17, 50],
