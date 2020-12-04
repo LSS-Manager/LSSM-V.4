@@ -1,13 +1,18 @@
-CHANGED_FILES_AMOUNT=$(git status -s | wc -l)
-# if more than one file modified => not only package.json changed
-if [ "$CHANGED_FILES_AMOUNT" -gt 1 ]
+# Get amount of changed files and the branch we're working on
+CHANGED_FILES=$(git status -s | wc -l)
+BRANCH=$(git branch --show-current)
+WORK_DIR="/home/lss-manager/BuildAgent/work/2402f42cd7572bba"
+# if more than one file modified or we're on master -> Pushback
+if [ "$CHANGED_FILES" -gt 1 ] || ["$BRANCH" == "master"]
 then
-  # what is the current branch?
-  BRANCH=$(git branch --show-current)
   # Get current Build Version
   PACKAGE_VERSION=$(cat $WORK_DIR/package.json | grep 'version' | awk -F: '{ print $2 }' | sed 's/[",]//g' | tr -d '[[:space:]]')
+  echo "[$BRANCH] Pushback Version $PACKAGE_VERSION"
+  # Prepare SSH-Connection to Github
   ssh -o StrictHostKeyChecking=no -T $GIT_URL
+  # Set Origin URL
   git remote set-url origin $GIT_URL:$GIT_PROJECT
+  # Prepare and push a new commit
   git config user.email "$GIT_MAIL"
   git config user.name "$GIT_USERNAME"
   git commit -am ":package: Version $PACKAGE_VERSION [tc-push]"
