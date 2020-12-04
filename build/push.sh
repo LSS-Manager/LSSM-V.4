@@ -4,10 +4,12 @@ if [ "$CHANGED_FILES_AMOUNT" -gt 1 ]
 then
   # what is the current branch?
   BRANCH=$(git branch --show-current)
-  echo "$BRANCH"
-
-  # yeah, let's just commit these changes :)
-  # TODO: improve commit msg a bit (Build version?)
-  git commit -a -m "👷"
+  # Get current Build Version
+  PACKAGE_VERSION=$(cat $WORK_DIR/package.json | grep 'version' | awk -F: '{ print $2 }' | sed 's/[",]//g' | tr -d '[[:space:]]')
+  ssh -o StrictHostKeyChecking=no -T $GIT_URL
+  git remote set-url origin $GIT_URL:$GIT_PROJECT
+  git config user.email "$GIT_MAIL"
+  git config user.name "$GIT_USERNAME"
+  git commit -am ":package: Version $PACKAGE_VERSION [tc-push]"
+  git push
 fi
-# test
