@@ -110,17 +110,22 @@ export default Vue.extend<
             ),
     },
     data() {
-        const statuses = Object.values(this.$sm('statuses'));
+        const statuses = Object.values(this.$sm('statuses')) as number[];
         const statusText = this.$sm('status');
+        const fmsTexts = this.$t('fmsTexts') as {
+            [status: number]: string;
+        };
         const statusHeads = {} as {
             [status: string]: {
                 title: string;
+                titleAttr: string;
             };
         };
         Object.values(statuses).forEach(
             status =>
                 (statusHeads[`s${status}`] = {
                     title: `${statusText} ${status}`,
+                    titleAttr: `${statusText} ${status}: ${fmsTexts[status]}`,
                 })
         );
         return {

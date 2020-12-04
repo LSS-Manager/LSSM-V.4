@@ -87,6 +87,20 @@ export default {
             description:
                 'Laat een simpel label zien in het menu in plaats van het LSSM logo',
         },
+        allowTelemetry: {
+            description:
+                'Bepaalt of LSS-Manager gegevens mag verzenden die ons helpen bij het ontwikkelen van deze extensie.',
+            title: 'Telemetrie toestaan',
+        },
+        iconBg: {
+            description: 'Verander de achtergrond van het LSSM-logo!',
+            title: 'LSSM-logo achtergrond',
+        },
+        iconBgAsNavBg: {
+            description:
+                'Kleur de hele menubalk in de kleur van de achtergrond van het LSSM-logo!',
+            title: 'Kleur menubalk',
+        },
     },
     vehicles: {
         0: {
@@ -749,7 +763,7 @@ export default {
                 }),
             ],
             levelcost: ['1. 10.000', '2. 50.000', '3.-24. 100.000'],
-            maxBuildings: '4.000',
+            maxBuildings: '4.400',
             maxLevel: 24,
             special:
                 'Vanaf de 25e brandweerkazerne stijgen de kosten voor de bouw van een nieuwe brandweerkazerne volgens de volgende formule: <code>100.000+200.000*LOG<sub>2</sub>(Aantal brandweerposten − 22)</code>. De Coins prijs blijft gelijk!',
@@ -905,13 +919,13 @@ export default {
                 }),
             ],
             levelcost: ['1. 10.000', '2. 50.000', '3.-39. 100.000'],
-            maxBuildings: '1.500',
+            maxBuildings: '1.700',
             maxLevel: 19,
             special:
                 'Vanaf het 25e opkomstbureau stijgen de kosten voor de bouw van een nieuw opkomstbureau volgens de volgende formule: <code>100.000+200.000*LOG<sub>2</sub>(Aantal opkomstbureaus − 22)</code>. De Coins prijs blijft gelijk!',
             startPersonnel: 2,
             startVehicles: ['DA Noodhulp'],
-            maxBuildingsFunction: (): number => 1_500,
+            maxBuildingsFunction: (): number => 1_700,
         },
         6: {
             caption: 'MMT Standplaats',
@@ -1269,6 +1283,16 @@ export default {
         6: 6,
         7: 3,
         9: 9,
+    },
+    fmsTexts: {
+        1: 'Uitgerukt',
+        2: 'Ter plaatse',
+        3: 'Transport patiënt/arrestant',
+        4: 'Beschikbaar',
+        5: 'Op post',
+        6: 'Buiten dienst',
+        7: 'Aanvraag spraakcontact',
+        9: 'Wachten op ophalen',
     },
     buildingIcons: [
         'fire',

@@ -195,14 +195,7 @@
                             :name="setting.name"
                             v-model="settings[moduleId][settingId].value"
                             :options="
-                                setting.values.map(value => ({
-                                    label: setting.noLabelTranslation
-                                        ? value
-                                        : $t(
-                                              `modules.${moduleId}.settings.${settingId}.${value}`
-                                          ),
-                                    value,
-                                }))
+                                getSelectOptions(moduleId, setting, settingId)
                             "
                             :placeholder="
                                 $t(
@@ -217,14 +210,7 @@
                             :name="setting.name"
                             v-model="settings[moduleId][settingId].value"
                             :options="
-                                setting.values.map(value => ({
-                                    label: setting.noLabelTranslation
-                                        ? value
-                                        : $t(
-                                              `modules.${moduleId}.settings.${settingId}.${value}`
-                                          ),
-                                    value,
-                                }))
+                                getSelectOptions(moduleId, setting, settingId)
                             "
                             :placeholder="
                                 $t(
@@ -274,7 +260,7 @@ import {
 import cloneDeep from 'lodash/cloneDeep';
 import isEqual from 'lodash/isEqual';
 import { DefaultProps } from 'vue/types/options';
-import { Setting as SettingType } from '../../typings/Setting';
+import { ModuleSettings, Setting as SettingType } from '../../typings/Setting';
 
 export default Vue.extend<
     SettingsData,
@@ -326,16 +312,24 @@ export default Vue.extend<
             ),
     },
     data() {
-        const settings = cloneDeep(this.$store.state.settings.settings);
+        const settings = cloneDeep(
+            this.$store.state.settings.settings
+        ) as ModuleSettings;
+        Object.entries(settings).forEach(([module, sets]) => {
+            settings[module] = Object.fromEntries(
+                Object.entries(sets).filter(([, { type }]) => type !== 'hidden')
+            );
+        });
         return {
             faHistory,
             settings,
             startSettings: cloneDeep(settings),
             modulesSorted: [
                 'global',
-                ...(this.$store.getters
-                    .modulesSorted as string[]).filter(module =>
-                    settings.hasOwnProperty(module)
+                ...(this.$store.getters.modulesSorted as string[]).filter(
+                    module =>
+                        settings.hasOwnProperty(module) &&
+                        Object.keys(settings[module]).length
                 ),
             ],
             wideGrids: ['appendable-list'],
@@ -467,7 +461,12 @@ export default Vue.extend<
                     {
                         title: this.$m('resetWarning.module', {
                             module: this.$t(
-                                `modules.${this.modulesSorted[this.tab]}.name`
+                                `modules.${
+                                    this.modulesSorted[this.tab]
+                                }.name`.replace(
+                                    'modules.global',
+                                    'globalSettings'
+                                )
                             ),
                         }),
                         handler: () => {
@@ -529,7 +528,6 @@ export default Vue.extend<
                                 .filter(
                                     ([key]) =>
                                         key === 'activeModules' ||
-                                        key === 'iconBG' ||
                                         key.startsWith('settings_')
                                 )
                                 .map(([key, value]) => [
@@ -557,17 +555,14 @@ export default Vue.extend<
                               [key: string]: SettingType['value'];
                           };
                 };
-                await this.$store.dispatch('storage/set', {
-                    key: 'activeModules',
-                    value: result.activeModules,
-                });
-                await this.$store.dispatch('storage/set', {
-                    key: 'iconBG',
-                    value: result.iconBG,
-                });
+                if (result.activeModules)
+                    await this.$store.dispatch('storage/set', {
+                        key: 'activeModules',
+                        value: result.activeModules,
+                    });
                 const resultEntries = Object.entries(result);
                 resultEntries.forEach(([module, value], index) => {
-                    if (['activeModules', 'iconBG'].includes(module)) return;
+                    if (['activeModules'].includes(module)) return;
                     this.$store
                         .dispatch('storage/set', {
                             key: `settings_${module}`,
@@ -583,9 +578,20 @@ export default Vue.extend<
             };
         },
         $m: (key, args) => LSSM.$t(`modules.settings.${key}`, args),
+        getSelectOptions(module, setting, settingId) {
+            return setting.values.map((v, vi) => ({
+                label: (setting.noLabelTranslation
+                    ? v
+                    : setting.labels?.[vi] ??
+                      this.$t(`modules.${module}.settings.${settingId}.${v}`) ??
+                      v) as string,
+                value: v,
+            }));
+        },
     },
     mounted() {
         this.getExportData();
+        this.$store.commit('useFontAwesome');
     },
 });
 </script>

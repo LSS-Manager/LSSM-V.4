@@ -7,11 +7,11 @@ sidebarDepth: 2
 # Wiki :de: <Badge :text="'LSSM V.' + ($themeConfig.variables.versions.stable || 4)"/>
 
 *Aktuelle Versionen:*
-> Stable: <i>{{ $themeConfig.variables.versions.stable }}</i> (noch nicht veröffentlicht)
-> 
-> Beta: <i>{{ $themeConfig.variables.versions.beta }}</i>
+> Stable: <i>{{ $themeConfig.variables.versions.stable }}</i>
 
 <a :href="$themeConfig.variables.discord" target="_blank" style="float: right;"><img src="https://discord.com/api/guilds/254167535446917120/embed.png?style=banner1" alt="Unser Discord-Server: United Dispatch" data-prevent-zooming></a>
+
+[Server-Status](https://status.lss-manager.de)
 
 ## Über den LSSM
 

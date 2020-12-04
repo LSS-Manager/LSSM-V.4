@@ -8,11 +8,9 @@ export default (async (LSSM, MODULE_ID) => {
     await LSSM.$store.dispatch('api/registerBuildingsUsage', true);
     await LSSM.$store.dispatch('api/registerVehiclesUsage', true);
 
-    const vehicleTypes = Object.fromEntries(
-        Object.entries(
-            LSSM.$t('vehicles') as { [id: number]: InternalVehicle }
-        ).map(([id, { caption }]) => [id, caption])
-    );
+    const vehicleTypes = LSSM.$t('vehicles') as {
+        [id: number]: InternalVehicle;
+    };
 
     await LSSM.$store.dispatch('addStyle', {
         selectorText: `.${LSSM.$store.getters.nodeAttribute(
@@ -68,7 +66,13 @@ export default (async (LSSM, MODULE_ID) => {
                     vehicles.length
                 }&nbsp;<i class="fa fa-users"></i>&nbsp;${
                     building.personal_count
-                }`;
+                }/${vehicles
+                    .map(
+                        ({ max_personnel_override, vehicle_type }) =>
+                            max_personnel_override ??
+                            vehicleTypes[vehicle_type].maxPersonnel
+                    )
+                    .reduce((a, b) => a + b, 0)}`;
                 if (
                     Object.values(LSSM.$t('cellBuildings')).includes(
                         building.building_type
@@ -85,7 +89,9 @@ export default (async (LSSM, MODULE_ID) => {
                         vehicle.fms_real
                     }">${vehicle.fms_show}</span></td><td>${
                         vehicle.caption
-                    }</td><td>(&nbsp;${vehicleTypes[vehicle.vehicle_type]}${
+                    }</td><td>(&nbsp;${
+                        vehicleTypes[vehicle.vehicle_type].caption
+                    }${
                         vehicle.vehicle_type_caption
                             ? `&nbsp;<small>[&nbsp;${vehicle.vehicle_type_caption}&nbsp;]</small>`
                             : ``

@@ -6,6 +6,7 @@ import config from '../src/config';
 import webpackConfig from '../webpack.config';
 import webpack, { Configuration } from 'webpack';
 import moment from 'moment';
+import SpeedMeasurePlugin from 'speed-measure-webpack-plugin';
 import { Module } from '../typings/Module';
 import DynamicImportQueryPlugin from './plugins/DynamicImportQueryPlugin';
 
@@ -86,28 +87,34 @@ entry.plugins?.push(
 );
 
 console.log('Generated configurations. Building…');
-webpack([entry], (err, stats) => {
-    if (err) {
-        console.error(err.stack || err);
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
-        if (err.details) {
+webpack(
+    new SpeedMeasurePlugin({
+        disable: process.argv[2] !== 'development',
+        outputFormat: 'humanVerbose',
+    }).wrap(entry),
+    (err, stats) => {
+        if (err) {
+            console.error(err.stack || err);
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore
-            console.error(err.details);
+            if (err.details) {
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
+                console.error(err.details);
+            }
         }
-    }
 
-    if (stats)
-        fs.writeFileSync(
-            `./dist/webpack.out.${
-                process.argv[2] === 'production' ? 'public' : 'beta'
-            }.json`,
-            JSON.stringify(stats.toJson(), null, '\t')
-        );
-    console.log('Stats:');
-    console.log(stats?.toString({ colors: true }));
-    console.timeEnd(`build_${locale}`);
-    console.log(`Build finished at ${new Date().toLocaleTimeString()}`);
-    if (stats?.hasErrors()) process.exit(-1);
-});
+        if (stats)
+            fs.writeFileSync(
+                `./dist/webpack.out.${
+                    process.argv[2] === 'production' ? 'public' : 'beta'
+                }.json`,
+                JSON.stringify(stats.toJson(), null, '\t')
+            );
+        console.log('Stats:');
+        console.log(stats?.toString({ colors: true }));
+        console.timeEnd(`build_${locale}`);
+        console.log(`Build finished at ${new Date().toLocaleTimeString()}`);
+        if (stats?.hasErrors()) process.exit(-1);
+    }
+);

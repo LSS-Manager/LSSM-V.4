@@ -39,7 +39,7 @@ export default {
             { commit, dispatch }: SettingsActionStoreParams,
             { settings }: SettingsSave
         ) {
-            return new Promise(resolve => {
+            return new Promise<void>(resolve => {
                 commit('save', settings);
                 Object.entries(settings).forEach(
                     async ([module, settings]) =>
@@ -67,7 +67,7 @@ export default {
             { commit, dispatch }: SettingsActionStoreParams,
             { moduleId, settings }: SettingsRegister
         ) {
-            return new Promise(resolve =>
+            return new Promise<void>(resolve =>
                 dispatch(
                     'storage/get',
                     {

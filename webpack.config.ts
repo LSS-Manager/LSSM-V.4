@@ -39,6 +39,7 @@ export default {
                         loader: 'ts-loader',
                         options: {
                             appendTsSuffixTo: [/\.vue$/],
+                            transpileOnly: true,
                         },
                     },
                 ],

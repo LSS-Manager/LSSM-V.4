@@ -16,11 +16,12 @@
 		"all": "Alle combinaties",
 		"amount": "Aantal",
 		"bound": "Toegewezen",
-		"each": "Elke opleiding",
+		"each": "Per opleiding",
 		"max": "momenteel maximaal nodig",
 		"min": "momenteel minimaal nodig",
+		"noSchooling": "Geen opleiding",
 		"schooling": "Opleiding",
-		"title": "Personeel overzicht"
+		"title": "Personeelsoverzicht"
 	},
 	"vehiclePersonnel": {
 		"vehiclesPersonnelAssigned": "toegewezen",

@@ -24,6 +24,7 @@ export interface OpenSchoolingTabs {
     search: string;
     sort: string;
     sortDir: string;
+    all: string;
 }
 
 export interface OpenSchoolingTabsComputed {

@@ -26,6 +26,18 @@
 			"description": "Centre la carte sur la position du dernier centrage. Ne marche qu'avec \"OpenStreetMap\" pour le moment.",
 			"title": "Sauvegarde centrage de carte"
 		},
+		"ownMapMarkers": {
+			"description": "Enregistrez vos propres lieux sur la carte pour y accéder en un seul clic !",
+			"title": "Signets pour la carte"
+		},
+		"saveLastBuildingType": {
+			"description": "Se souvient du type de bâtiment sélectionné lors de la construction d'un nouveau bâtiment et le sélectionne automatiquement pour les nouveaux bâtiments.",
+			"title": "Se souvenir du type de bâtiment"
+		},
+		"saveLastDispatchCenter": {
+			"description": "Se souvient du centre de répartition sélectionné lors de la construction d'un nouveau bâtiment et le sélectionne automatiquement pour les nouveaux bâtiments.",
+			"title": "Se souvenir du centre d'expédition"
+		},
 		"showImg": {
 			"description": "Essaie de générer une miniature. Ne fonctionne que si \"Liens cliquables\" est activé aussi.",
 			"title": "Miniature de prévisualisation"

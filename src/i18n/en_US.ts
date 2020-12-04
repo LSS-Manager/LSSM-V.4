@@ -32,6 +32,13 @@ const modules = {
             total: 'All settings',
             module: 'Only from this module',
         },
+        resetWarningSetting: {
+            title: 'Reset settings',
+            text:
+                'Do you really want to reset this one setting <b>{setting}</b> of the module <b>{module}</b> to its default value?',
+            close: 'Cancel',
+            reset: 'Reset',
+        },
         closeWarning: {
             title: 'Unsaved changes',
             text:
@@ -79,6 +86,20 @@ export default {
             title: 'Label instead of icon in menu',
             description:
                 'Displays a simple label in the navigation bar instead of the LSSM logo',
+        },
+        allowTelemetry: {
+            description:
+                'Controls whether LSS-Manager is allowed to send Data which helps us in developing this extension.',
+            title: 'Allow Telemetry',
+        },
+        iconBg: {
+            description: 'Change the background of LSSM-Icon!',
+            title: 'LSSM-Icon Background',
+        },
+        iconBgAsNavBg: {
+            description:
+                'Color the whole navbar in the color of LSSM-Icon Background!',
+            title: 'colorize navbar',
         },
     },
     vehicles: {
@@ -262,7 +283,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 3,
             wtank: 0,
-            schooling: 'Fire Station - ARFF',
+            schooling: 'Fire Station - ARFF-Training',
             shownSchooling: 'ARFF',
         },
         18: {
@@ -300,7 +321,7 @@ export default {
                 'The MCU can be alarmed in two different modes:<br>1. for lightly injured persons who do not need an emergency physician. Then 7 patients can be treated and removed simultaneously in the MCU.<br>2.For severely injured persons who need an emergency physician. Then 3 patients can be needled simultaneously in the MCU.<br>You can buy 1 Mass Casualty Vehicle for every 20 ambulance stations (respectively 15 with premium account).',
         },
         21: {
-            caption: 'Heavy Rescue + Boat',
+            caption: 'Heavy Rescue + Light Boat',
             color: '#882222',
             coins: 25,
             credits: 19_000,
@@ -313,7 +334,7 @@ export default {
                 'Combines the Heavy Rescue Vehicle/Utility Vehicle with an integrated boat.<br> No need for a boat trailer.',
         },
         22: {
-            caption: 'Boat Trailer',
+            caption: 'Light Boat Trailer',
             color: '#772222',
             coins: 12,
             credits: 6_000,
@@ -536,8 +557,8 @@ export default {
             credits: 25_000,
             minPersonnel: 1,
             maxPersonnel: 4,
-            schooling: 'Police - FBI Mobile Center Commmander',
-            shownSchooling: 'FBI Mobile Center Commmander',
+            schooling: 'Police - FBI Mobile Center Commander',
+            shownSchooling: 'FBI Mobile Center Commander',
         },
         45: {
             caption: 'FBI Bomb Technician Vehicle',
@@ -556,7 +577,6 @@ export default {
             credits: 25_000,
             minPersonnel: 1,
             maxPersonnel: 1,
-            wtank: 0,
             schooling: 'Police - FBI Drone Operator',
             shownSchooling: 'FBI Drone Operator',
         },
@@ -604,13 +624,13 @@ export default {
                 },
             ],
             levelcost: ['1. 10.000', '2. 50.000', '3.-39. 100.000'],
-            maxBuildings: '4.000 together with small fire stations',
+            maxBuildings: '4.400 together with small fire stations',
             maxLevel: 39,
             special:
                 'From the 24th fire station onwards, the cost of building a new fire station increases according to the following formula: <code>100.000+200.000*LOG<sub>2</sub>(Number of existing fire stations − 22)</code>. The Coins price remains constant!',
             startPersonnel: 10,
             startVehicles: ['Type 1 fire engine', 'Type 2 fire engine'],
-            maxBuildingsFunction: (): number => 4_000,
+            maxBuildingsFunction: (): number => 4_400,
         },
         1: {
             caption: 'Dispatch Center',
@@ -750,13 +770,13 @@ export default {
                 }),
             ],
             levelcost: ['1. 10.000', '2. 50.000', '3.-39. 100.000'],
-            maxBuildings: '1.500 together with small police stations',
+            maxBuildings: '1.700 together with small police stations',
             maxLevel: 39,
             special:
                 'From the 24th police station onwards, the costs for the new construction of a police station increase according to the following formula: <code>100.000+200.000*LOG<sub>2</sub>(Number of existing police stations − 22)</code>. The Coins price remains constant!',
             startPersonnel: 2,
             startVehicles: ['Patrol car'],
-            maxBuildingsFunction: (): number => 1_500,
+            maxBuildingsFunction: (): number => 1_700,
         },
         6: {
             caption: 'Helicopter station',
@@ -893,13 +913,13 @@ export default {
                 '3.-5. 100.000',
                 'Conversion to normal guard: difference price to normal guard',
             ],
-            maxBuildings: '4.000 together with fire stations',
+            maxBuildings: '4.400 together with fire stations',
             maxLevel: 5,
             special:
                 'From the 24th fire station onwards, the cost of building a new fire station increases according to the following formula: <code>(100.000+200.000*LOG<sub>2</sub>(Number of existing fire stations − 22)) / 2</code>. max. 1 Million Credits. The Coins price remains constant!',
             startPersonnel: 10,
             startVehicles: ['Type 1 fire engine', 'Type 2 fire engine'],
-            maxBuildingsFunction: (): number => 4_000,
+            maxBuildingsFunction: (): number => 4_400,
         },
         14: {
             caption: 'Clinic',
@@ -933,13 +953,13 @@ export default {
                 '3.-4. 100.000',
                 'Conversion to normal guard: difference price to normal guard',
             ],
-            maxBuildings: '1.500 mit Polizeiwachen zusammen',
+            maxBuildings: '1.700 mit Polizeiwachen zusammen',
             maxLevel: 4,
             special:
                 'From the 24th police station onwards, the costs for the new construction of a police station are calculated according to the following formula: <code>(100.000+200.000*LOG<sub>2</sub>(Number of existing police stations − 22)) / 2</code>. The Coins price remains constant!',
             startPersonnel: 2,
             startVehicles: ['Patrol Car'],
-            maxBuildingsFunction: (): number => 1_500,
+            maxBuildingsFunction: (): number => 1_700,
         },
         16: {
             caption: 'Ambulance station (Small station)',

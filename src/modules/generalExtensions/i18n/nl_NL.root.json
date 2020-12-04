@@ -26,6 +26,18 @@
 			"description": "Kaart centreren op posities die eerder waren gecentreerd. - Werkt momenteel alleen met het kaarttype \"OpenStreetMap\"",
 			"title": "Bewaar kaart verplaatsingen"
 		},
+		"ownMapMarkers": {
+			"description": "Sla uw eigen locaties op de kaart op om ze met een enkele klik te openen!",
+			"title": "Bladwijzers voor de kaart"
+		},
+		"saveLastBuildingType": {
+			"description": "Onthoud het geselecteerde gebouwtype bij het bouwen van een nieuw gebouw en selecteert dit automatisch voor nieuwe gebouwen.",
+			"title": "Onthoud het gebouwtype"
+		},
+		"saveLastDispatchCenter": {
+			"description": "Onthoud de geselecteerde meldkamer bij het bouwen van een nieuw gebouw en selecteert die automatisch voor nieuwe gebouwen.",
+			"title": "Onthoud meldkamer"
+		},
 		"showImg": {
 			"description": "Toont een afbeeldingsvoorbeeld bij een link. Werkt alleen in combinatie met \"Maak links klikbaar\"!",
 			"title": "Activeren van het afbeeldingsvoorbeeld"

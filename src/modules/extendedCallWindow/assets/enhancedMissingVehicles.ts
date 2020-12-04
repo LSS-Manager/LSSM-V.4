@@ -11,16 +11,24 @@ export default (LSSM: Vue, $m: $m): void => {
         .replace(/(^[^:]*:)|(\.$)/g, '')
         .trim();
     if (!missingRequirementsText) return;
-    const missingRequirements = missingRequirementsText
-        .split(/,(?![^(]*?\))/g)
-        .map(req => ({
-            missing: parseInt(req.trim().match(/^\d+/)?.[0] || '0'),
+    const missingRequirementMatches = missingRequirementsText.match(
+        /(?:\d+\s(?:[^(]|\(.*?\))+?(?=[,.]|$))|(?:(?<=^|,\s)(?:[^(]|\(.*?\))+?:\s\d+)/g
+    );
+    if (!missingRequirementMatches) return;
+    const missingRequirements = missingRequirementMatches.map(req => {
+        req = req.trim();
+        const isColonMode = !!req.match(/^.*: \d+$/);
+        return {
+            missing: parseInt(
+                req.match(isColonMode ? /\d+$/ : /^\d+/)?.[0] || '0'
+            ),
             vehicle: req
                 .trim()
-                .replace(/^\d+/, '')
+                .replace(isColonMode ? /: \d+$/ : /^\d+/, '')
                 .trim(),
             selected: 0,
-        })) as Requirement[];
+        };
+    }) as Requirement[];
     const last = missingRequirements[missingRequirements.length - 1];
     let extras = '';
     if (last.vehicle.match(/\..*$/)) {

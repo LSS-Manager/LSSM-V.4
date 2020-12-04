@@ -28,7 +28,7 @@
 	},
 	"memberlistRoles": {
 		"admin": "Team-Admin",
-		"aufsichtsrat": "Toezichthouden",
+		"aufsichtsrat": "Toezichthouder",
 		"coadmin": "Team-Co-Admin",
 		"finance": "Penningmeester",
 		"schooling": "Docent",
