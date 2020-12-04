@@ -1,8 +1,8 @@
 # LSS-Manager V.4 
 
 ## Builds & Checks
-### Prod/master [![Build Status](https://teamcity.lss-manager.de/app/rest/builds/buildType:LssmV4_MasterBuild/statusIcon.svg)]
-### Beta/dev [![Build Status](https://teamcity.lss-manager.de/app/rest/builds/buildType:LssmV4_DevBuild/statusIcon.svg)]
+### Prod/master [![Build Status](https://teamcity.lss-manager.de/app/rest/builds/buildType:LssmV4_MasterBuild/statusIcon.svg)](https://teamcity.lss-manager.de/viewType.html?buildTypeId=LssmV4_MasterBuild&guest=1)
+### Beta/dev [![Build Status](https://teamcity.lss-manager.de/app/rest/builds/buildType:LssmV4_DevBuild/statusIcon.svg)](https://teamcity.lss-manager.de/viewType.html?buildTypeId=LssmV4_DevBuild&guest=1)
 
 ![](./docs/.vuepress/public/img/lssm.png)
 
