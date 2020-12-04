@@ -82,6 +82,7 @@
                     v-for="(vehicle, req) in vehicles"
                     :key="req"
                     :data-amount="vehicle.amount"
+                    v-bind:class="{ 'class-x': settings.vehicles.xAfterNumber }"
                 >
                     {{ vehicle.caption }}
                     <span v-if="vehicle.additionalText">
@@ -455,6 +456,7 @@ export default Vue.extend<
                     content: false,
                     patient_additionals: false,
                     sort: 'caption',
+                    xAfterNumber: false,
                 },
                 chances: {
                     normal: false,
@@ -1034,7 +1036,7 @@ export default Vue.extend<
         list-style: none
 
         &::before
-            content: attr(data-amount) + " "
+            content: attr(data-amount)
 
         @supports #{'selector(li::marker)'}
             &::before
@@ -1042,6 +1044,17 @@ export default Vue.extend<
                 white-space: pre
             &::marker
                 content: attr(data-amount)
+
+        &.class-x
+            &::before
+                content: attr(data-amount) "x " !important
+
+            @supports #{'selector(li::marker)'}
+                &::before
+                    content: " " !important
+                    white-space: pre !important
+                &::marker
+                    content: attr(data-amount) "x" !important
 
     .badge
         margin-right: 0.3rem

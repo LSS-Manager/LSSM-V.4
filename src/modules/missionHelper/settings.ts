@@ -56,6 +56,10 @@ export default ((MODULE_ID, LSSM, $m) => {
                   },
               }
             : null),
+        'vehicles.xAfterNumber': <Toggle>{
+            type: 'toggle',
+            default: false,
+        },
         'chances.normal': <Toggle>{
             type: 'toggle',
             default: true,
