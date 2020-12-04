@@ -10,3 +10,4 @@ then
   # TODO: improve commit msg a bit (Build version?)
   git commit -a -m "👷"
 fi
+# test
