@@ -142,6 +142,10 @@
 			"title": {
 				"description": "Toont de kop \"Voertuigen\" boven de voertuigvereisten",
 				"title": "Voertuigen (Titel)"
+			},
+			"xAfterNumber": {
+				"description": "Plaats een \"x\" achter het getal van het aantal benodigde voertuigen",
+				"title": "x achter aantal"
 			}
 		}
 	}
