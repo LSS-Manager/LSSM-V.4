@@ -1,18 +1,16 @@
 import { execSync } from 'child_process';
-// import config from '../src/config';
+import config from '../src/config';
 import sort from './sort';
-// import fs from 'fs';
+import fs from 'fs';
 
 const scripts = process.argv.splice(2);
 
 const build = (mode: string) => {
     console.time('games');
     const games = [] as string[];
-    const builds = /*Object.keys(config.games).filter(game =>
+    const builds = Object.keys(config.games).filter(game =>
         fs.existsSync(`./src/i18n/${game}.ts`)
-    );*/ [
-        'de_DE',
-    ]; // Yes this is for testing only :)
+    );
     const games_rem = [...builds];
     builds.map(game => {
         console.log(execSync(`node build ${mode} ${game}`).toString());
