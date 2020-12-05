@@ -150,7 +150,7 @@ module.exports = {
             [/^Drehleitern? \(DLK 23\)$/]: [2, 85],
             [/^ELW 1$/]: [3, 34, 78],
             [/^ELW 2$/]: [34, 78],
-            [/^Flugfeldlöschfahrzeuge$/]: [75],
+            [/^Flugfeldlöschfahrzeuge?$/]: [75],
             [/^FuStW$/]: [32, 95],
             [/^FwK$/]: [57],
             [/^FüKw$/]: [51],
