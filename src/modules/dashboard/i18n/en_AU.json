@@ -8,6 +8,7 @@
 	},
 	"chart-summaries": {
 		"buildings": {
+			"columnchart": "use bar chart",
 			"personal_count": "Personnel",
 			"tip": "Click on one of the categories (e.g. fire department or police) to enlarge the building types assigned to this category. If you then click on a building type, you can see how many vehicles of each vehicle type are located at the buildings of that type. In this way you can quickly find out how many vehicles of each vehicle type are parked at police stations and how many at small police stations.",
 			"title": "Buildings"

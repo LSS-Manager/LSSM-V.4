@@ -4,6 +4,8 @@ updates:
     directory: "/" # Location of package manifests
     schedule:
       interval: "daily"
+      time: "03:00"
+      timezone: "Europe/Berlin"
     assignees:
       - "jxn-30"
     commit-message:

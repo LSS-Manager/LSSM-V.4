@@ -1,5 +1,5 @@
 {
-	"description": "Voorkom met deze module dat het spel opnieuw wordt geladen als je op bepaalde knoppen drukt.",
+	"description": "Voorkom met deze module dat het venster opnieuw wordt geladen als je op bepaalde knoppen drukt.",
 	"name": "Niet herladen",
 	"settings": {
 		"buildingTax": {

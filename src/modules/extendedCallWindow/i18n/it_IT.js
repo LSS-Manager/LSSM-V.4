@@ -14,6 +14,12 @@ module.exports = {
     },
     arrHover: {
         reset: 'La selezione del veicolo viene ripristinata prima!',
+        headers: {
+            set: 'Set',
+            attribute: 'Name',
+            free: 'Free',
+            max: 'Max',
+        },
         titles: {
             set:
                 "Spesso questa combinazione viene selezionata quando si preme l'AAR",
@@ -61,6 +67,13 @@ module.exports = {
         missing: 'Manca sulla missione',
         driving: 'In avvicinamento',
         total: 'Ancora necessario',
+        tip: {
+            dragging: 'trascinare la finestra',
+            textMode: 'modalità testo on/off',
+            minified: 'crollo',
+            overlay: 'Sovrapposizione',
+            reload: 'Ricaricare',
+        },
         selected: 'Selezionato',
         vehiclesByRequirement: {
             [/^APS\/ABP$/]: [0, 9],

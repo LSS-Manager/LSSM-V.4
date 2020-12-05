@@ -14,6 +14,12 @@ module.exports = {
     },
     arrHover: {
         reset: 'Die Fahrzeugauswahl wird vorher zurückgesetzt!',
+        headers: {
+            set: 'Menge',
+            attribute: 'Name',
+            free: 'Frei',
+            max: 'max. mgl.',
+        },
         titles: {
             set:
                 'So oft wird diese Kombination ausgewählt, wenn du auf die AAO drückst',
@@ -126,6 +132,16 @@ module.exports = {
         missing: 'Am Einsatzort fehlend',
         driving: 'Auf Anfahrt',
         total: 'Noch benötigt',
+        tip: {
+            dragging: 'Feld verschieben',
+            textMode: 'Textmodus (de-)aktivieren',
+            minified: 'Ein/Ausklappen',
+            overlay: 'Overlay',
+            reload: 'Reload',
+            pushRight:
+                'Anzeige in der rechten Hälfte (über der Fahrzeugliste) anzeigen',
+            pushLeft: 'Anzeige an originaler Position anzeigen',
+        },
         selected: 'Ausgewählt',
         vehiclesByRequirement: {
             [/^Anhänger Drucklufterzeugung$/]: [44],
@@ -181,7 +197,7 @@ module.exports = {
             [/^Rettungstreppen?$/]: [76],
             [/^RTW$/]: [28],
             [/^RTW oder KTW oder KTW-B$/]: [28, 38, 58],
-            [/^Rüstwagen oder HLF$/]: [4, 30, 90],
+            [/^Rüstwagen oder HLF$/]: [4, 30, 39, 90],
             [/^SEK-Fahrzeuge$/]: [79, 80],
             [/^DHuFüKw$/]: [94],
             [/^Schlauchwagen \(GW-L2 Wasser, SW 1000, SW 2000 oder Ähnliches\)$/]: [

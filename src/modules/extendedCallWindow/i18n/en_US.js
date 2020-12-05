@@ -14,6 +14,12 @@ module.exports = {
     },
     arrHover: {
         reset: 'The vehicle selection is reset before!',
+        headers: {
+            set: 'Set',
+            attribute: 'Name',
+            free: 'Free',
+            max: 'Max',
+        },
         titles: {
             set: 'So often this combination is selected when you press the ARR',
             attribute: 'The combination described in this line',
@@ -76,6 +82,15 @@ module.exports = {
         missing: 'Missing on mission',
         driving: 'En-route',
         total: 'Still needed',
+        tip: {
+            dragging: 'drag window',
+            textMode: 'textmode on/off',
+            minified: 'collapse',
+            overlay: 'overlay',
+            reload: 'reload',
+            pushRight: 'show this box above vehicle list',
+            pushLeft: 'show this box at original position',
+        },
         selected: 'Selected',
         vehiclesByRequirement: {
             [/^firetruck(s)?$/]: [0, 1, 13, 18, 30, 33],
@@ -87,7 +102,7 @@ module.exports = {
             [/^Mobile Command Vehicle(s)?$/]: [12],
             [/^HazMat$/]: [9],
             [/^Ambulance(s)?$/]: [5, 27],
-            [/^Patrol car(s)?$/]: [10, 47],
+            [/^Patrol car(s)?$/]: [10, 19, 47],
             [/^HEMS$/]: [11],
             [/^Police helicopter(s)?$/]: [23],
             [/^SWAT Personells$/]: [16, 26],
@@ -96,7 +111,7 @@ module.exports = {
             [/^K-9 Unit(s)?$/]: [19],
             [/^Large fire boat(s)?$/]: [24],
             [/^Large rescue boat(s)?$/]: [25],
-            [/^Light Boat(s)?$/]: [25],
+            [/^Light Boat(s)?$/]: [21, 22],
             [/^Wildland fire vehicle(s)?$/]: [30, 31, 32, 38, 39, 40],
             [/^Airborne firefighting vehicle(s)?$/]: [35, 36, 37],
             [/^FBI Unit(s)?$/]: [42],
