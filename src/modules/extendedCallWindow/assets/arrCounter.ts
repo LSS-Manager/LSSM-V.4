@@ -124,11 +124,13 @@ export default async (
 
         await LSSM.$store.dispatch('hook', {
             event: 'aaoClickHandler',
+            post: false,
             callback: clickHandler,
         });
 
         await LSSM.$store.dispatch('hook', {
             event: 'vehicleGroupClickHandler',
+            post: false,
             callback: clickHandler,
         });
     }
