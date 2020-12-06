@@ -70,12 +70,14 @@
 			"title": "Fahrzeuge nachladen in Kopfleiste"
 		},
 		"missionKeywords": {
+			"autotextcolor": "automatische Schriftfarbe", 
 			"color": "Hintergrundfarbe",
 			"description": "Lasse dir ein eigenes Stichwort neben dem Einsatznamen anzeigen",
 			"keyword": "Stichwort",
 			"missions": "Einsätze",
 			"prepend": "Vor dem Einsatznamen anzeigen",
 			"preview": "Vorschau",
+			"textcolor": "Schriftfarbe",
 			"title": "Einsatzstichworte"
 		},
 		"patientSummary": {
