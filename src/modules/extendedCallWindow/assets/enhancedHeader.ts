@@ -10,6 +10,7 @@ export default (sticky: boolean, load: boolean): void => {
         head.style.zIndex = '2';
         head.style.position = 'fixed';
         head.style.width = '100%';
+        head.style.top = scrollY !== 0 ? '0px' : '';
         clearfix.style.height = `${head.getBoundingClientRect().height}px`;
         head.addEventListener(
             'resize',
@@ -18,6 +19,9 @@ export default (sticky: boolean, load: boolean): void => {
                     head.getBoundingClientRect().height
                 }px`)
         );
+        window.addEventListener('scroll', function () {
+            head.style.top = scrollY !== 0 ? '0px' : '';
+        });
     }
     const loadBtn = document.querySelector(
         '.missing_vehicles_load'

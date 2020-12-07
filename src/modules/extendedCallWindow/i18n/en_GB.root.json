@@ -70,12 +70,14 @@
 			"title": "Reload vehicles in header"
 		},
 		"missionKeywords": {
+			"autotextcolor": "Automatical text color", 
 			"color": "background color",
 			"description": "Get your own keyword displayed next to the mission name",
 			"keyword": "keyword",
 			"missions": "missions",
 			"prepend": "Show before the missionname",
 			"preview": "Preview",
+			"textcolor": "Text color",
 			"title": "Mission keywords"
 		},
 		"patientSummary": {

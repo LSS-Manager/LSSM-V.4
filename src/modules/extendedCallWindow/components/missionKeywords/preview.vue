@@ -1,6 +1,11 @@
 <template>
     <span class="preview label" :style="`background-color: ${setting.color};`">
-        <span>
+        <span
+            :class="`${setting.autotextcolor ? 'autocolor' : 'textcolor'}`"
+            :style="`${
+                setting.autotextcolor ? '' : `color: ${setting.textcolor}`
+            }`"
+        >
             {{ setting.keyword }}
         </span>
     </span>
@@ -21,11 +26,16 @@ export default Vue.extend({
 </script>
 
 <style scoped lang="sass">
-.preview span
+.preview span.autocolor
     background: inherit
     // noinspection CssInvalidPropertyValue
     background-clip: text
     -webkit-background-clip: text
     color: transparent
     filter: invert(1) grayscale(1) contrast(9)
+.preview span.textcolor
+    background: transparent
+    // noinspection CssInvalidPropertyValue
+    background-clip: text
+    -webkit-background-clip: text
 </style>
