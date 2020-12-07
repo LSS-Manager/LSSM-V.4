@@ -70,7 +70,7 @@
 			"title": "Reload vehicles in header"
 		},
 		"missionKeywords": {
-			"autotextcolor": "Automatical text color", 
+			"autotextcolor": "Automatical text color",
 			"color": "background color",
 			"description": "Get your own keyword displayed next to the mission name",
 			"keyword": "keyword",

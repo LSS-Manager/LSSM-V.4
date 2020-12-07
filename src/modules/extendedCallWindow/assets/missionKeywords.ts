@@ -43,12 +43,8 @@ export default (
         else missionTitle.insertBefore(label, missionTitle.firstChild);
     };
 
-    settings.forEach((s) => {
-        if (
-            !s.missions
-                .map((m) => m.toString())
-                .includes(missionType.toString())
-        )
+    settings.forEach(s => {
+        if (!s.missions.map(m => m.toString()).includes(missionType.toString()))
             return;
         addLabel(s.keyword, s.color, s.autotextcolor, s.textcolor, s.prefix);
     });
