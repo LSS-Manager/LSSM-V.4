@@ -134,7 +134,7 @@
 	},
 	"sass": {
 		"url": "https://github.com/sass/dart-sass",
-		"version": "1.29.0"
+		"version": "1.30.0"
 	},
 	"sass-loader": {
 		"icon": "https://webpack.js.org/assets/icon-square-big.svg",
