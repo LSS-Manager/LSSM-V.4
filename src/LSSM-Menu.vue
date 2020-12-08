@@ -61,6 +61,11 @@
                 </a>
             </li>
             <li role="presentation">
+                <a class="lightbox-open" href="https://status.lss-manager.de/">
+                    Server Status
+                </a>
+            </li>
+            <li role="presentation">
                 <a href="#" @click.prevent.stop.self="showLibraries">
                     Open-Source Libraries
                 </a>
@@ -114,7 +119,6 @@ export default Vue.extend<
             wiki: this.$store.getters.wiki,
             version: this.$store.state.version,
             mode: this.$store.state.mode,
-            nav: document.getElementById('main_navbar'),
         };
     },
     computed: {
@@ -214,8 +218,14 @@ export default Vue.extend<
             );
         },
         storeIconBg() {
-            if (this.iconBgAsNavBg && this.nav) {
-                this.nav.style.backgroundColor = this.iconBg;
+            if (this.iconBgAsNavBg) {
+                this.$store.dispatch('addStyle', {
+                    selectorText:
+                        '.navbar-default, .navbar-default .dropdown-menu',
+                    style: {
+                        'background-color': this.iconBg,
+                    },
+                });
             }
             LSSM.$store.dispatch('settings/setSetting', {
                 moduleId: 'global',
@@ -233,9 +243,6 @@ export default Vue.extend<
                 this.labelInMenu = labelInMenu;
                 this.iconBg = iconBg;
                 this.iconBgAsNavBg = iconBgAsNavBg;
-                if (iconBgAsNavBg && this.nav) {
-                    this.nav.style.backgroundColor = iconBg;
-                }
             });
     },
 });

@@ -3,9 +3,6 @@
 	"expansions": "Ausbreitung | Ausbreitungen",
 	"followups": "Folgeeinsatz | Folgeeinsätze",
 	"generated_by": "Generiert von",
-	"noVehicleRequirements": [
-		"water_needed"
-	],
 	"patients": {
 		"allow_ktw_instead_of_rtw": "Es kann ein KTW anstelle eines RTW genutzt werden.",
 		"helicopter": "Wahrscheinlichkeit für einen RTH",
@@ -30,7 +27,7 @@
 		"rescue_dog_units": "Rettungshundestaffel | Rettungshundestaffeln",
 		"rescue_stations": "Rettungswache | Rettungswachen",
 		"sek": "SEK-Zug | SEK-Züge",
-		"thw": "THW-Ortsverein | THW-Ortsvereine",
+		"thw": "THW-Ortsverband | THW-Ortsverbände",
 		"title": "Vorraussetzung | Vorraussetzungen",
 		"wasserrettung": "Wasserrettung | Wasserrettungen",
 		"werkfeuerwehr": "Werkfeuerwehr | Werkfeuerwehren"
@@ -39,8 +36,12 @@
 		"max_possible_prisoners": "Gefangener maximal | Gefangene maximal",
 		"title": "Gefangene | {n} Gefangener | {n} Gefangene"
 	},
-	"requirements": {
-		"water_needed": "Wasserbedarf (L)"
+	"tip": {
+		"dragging": "Feld verschieben",
+		"maxState": "Maximale Anforderungen (de-)aktivieren",
+		"minified": "Ein/Ausklappen",
+		"overlay": "Overlay",
+		"reload": "Reload"
 	},
 	"vehicles": {
 		"captions": {

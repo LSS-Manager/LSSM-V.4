@@ -3,7 +3,7 @@ import { Requirement } from 'typings/modules/ExtendedCallWindow/EnhancedMissingV
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { $m } from 'typings/Module';
 
-export default (LSSM: Vue, $m: $m): void => {
+export default (LSSM: Vue, MODULE_ID: string, $m: $m): void => {
     const missingDialog = document.getElementById('missing_text');
     if (!missingDialog) return;
     const missingRequirementsText = missingDialog.textContent
@@ -11,16 +11,24 @@ export default (LSSM: Vue, $m: $m): void => {
         .replace(/(^[^:]*:)|(\.$)/g, '')
         .trim();
     if (!missingRequirementsText) return;
-    const missingRequirements = missingRequirementsText
-        .split(/,(?![^(]*?\))/g)
-        .map(req => ({
-            missing: parseInt(req.trim().match(/^\d+/)?.[0] || '0'),
+    const missingRequirementMatches = missingRequirementsText.match(
+        /(?:\d+\s(?:[^(]|\(.*?\))+?(?=[,.]|$))|(?:(?<=^|,\s)(?:[^(]|\(.*?\))+?:\s\d+)/g
+    );
+    if (!missingRequirementMatches) return;
+    const missingRequirements = missingRequirementMatches.map(req => {
+        req = req.trim();
+        const isColonMode = !!req.match(/^.*: \d+$/);
+        return {
+            missing: parseInt(
+                req.match(isColonMode ? /\d+$/ : /^\d+/)?.[0] || '0'
+            ),
             vehicle: req
                 .trim()
-                .replace(/^\d+/, '')
+                .replace(isColonMode ? /: \d+$/ : /^\d+/, '')
                 .trim(),
             selected: 0,
-        })) as Requirement[];
+        };
+    }) as Requirement[];
     const last = missingRequirements[missingRequirements.length - 1];
     let extras = '';
     if (last.vehicle.match(/\..*$/)) {
@@ -70,18 +78,31 @@ export default (LSSM: Vue, $m: $m): void => {
             requirement.total = requirement.missing - requirement.driving;
         });
     }
-    new LSSM.$vue({
-        store: LSSM.$store,
-        i18n: LSSM.$i18n,
-        render: h =>
-            h(enhancedMissingVehicles, {
-                props: {
-                    missingRequirements: missingRequirements.filter(
-                        req => !!req.vehicle
-                    ),
-                    extras: extras,
-                    missingText: missingDialog.textContent,
-                },
-            }),
-    }).$mount(missingDialog);
+    LSSM.$store
+        .dispatch('settings/getSetting', {
+            moduleId: MODULE_ID,
+            settingId: 'pushRight',
+            defaultValue: false,
+        })
+        .then(pushedRight => {
+            if (pushedRight)
+                document
+                    .getElementById('mission-form')
+                    ?.insertAdjacentElement('afterbegin', missingDialog);
+
+            new LSSM.$vue({
+                store: LSSM.$store,
+                i18n: LSSM.$i18n,
+                render: h =>
+                    h(enhancedMissingVehicles, {
+                        props: {
+                            missingRequirements: missingRequirements.filter(
+                                req => !!req.vehicle
+                            ),
+                            extras: extras,
+                            missingText: missingDialog.textContent,
+                        },
+                    }),
+            }).$mount(missingDialog);
+        });
 };

@@ -44,7 +44,7 @@ export default (Vue: VueConstructor): Store<RootState> => {
             prefix: PREFIX,
             version: VERSION,
             mode: MODE,
-            lang: BUILD_LANG,
+            lang: window.I18n.locale,
             discord: config.discord,
             games: config.games,
             server: config.server,
@@ -264,7 +264,7 @@ export default (Vue: VueConstructor): Store<RootState> => {
             },
             loadModule({ state }: ActionStoreParams, module: keyof Modules) {
                 const script = document.createElement('script');
-                script.src = `${config.server}${BUILD_LANG}/modules/${module}/main.js?uid=${BUILD_LANG}-${window.user_id}&v=${state.version}`;
+                script.src = `${config.server}${state.lang}/modules/${module}/main.js?uid=${state.lang}-${window.user_id}&v=${state.version}`;
                 document.body.appendChild(script);
             },
             addMenuItem({ commit }: ActionStoreParams, text: string) {

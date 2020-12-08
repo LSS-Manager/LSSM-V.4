@@ -7,6 +7,7 @@ Bovenaan vind je een kleine `i`, waarmee je het overzicht kan openen. Uiteraard 
 ![Opleiding overzicht](/v4/docs/assets/schoolingOverview/img/schoolingOverview_overview_nl_NL.png)
 
 Daarnaast zijn de opleidingen met eigen deelnemers en met open plekken onderverdeeld in categorieën. Dat is heel eenvoudig volgens de respectievelijke scholen:
+* Alle (Staat niet op de afbeeldingen)
 * Brandweer
 * Geneeskunde
 * Politie

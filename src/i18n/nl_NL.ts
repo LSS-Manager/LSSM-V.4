@@ -763,7 +763,7 @@ export default {
                 }),
             ],
             levelcost: ['1. 10.000', '2. 50.000', '3.-24. 100.000'],
-            maxBuildings: '4.000',
+            maxBuildings: '4.400',
             maxLevel: 24,
             special:
                 'Vanaf de 25e brandweerkazerne stijgen de kosten voor de bouw van een nieuwe brandweerkazerne volgens de volgende formule: <code>100.000+200.000*LOG<sub>2</sub>(Aantal brandweerposten − 22)</code>. De Coins prijs blijft gelijk!',
@@ -919,13 +919,13 @@ export default {
                 }),
             ],
             levelcost: ['1. 10.000', '2. 50.000', '3.-39. 100.000'],
-            maxBuildings: '1.500',
+            maxBuildings: '1.700',
             maxLevel: 19,
             special:
                 'Vanaf het 25e opkomstbureau stijgen de kosten voor de bouw van een nieuw opkomstbureau volgens de volgende formule: <code>100.000+200.000*LOG<sub>2</sub>(Aantal opkomstbureaus − 22)</code>. De Coins prijs blijft gelijk!',
             startPersonnel: 2,
             startVehicles: ['DA Noodhulp'],
-            maxBuildingsFunction: (): number => 1_500,
+            maxBuildingsFunction: (): number => 1_700,
         },
         6: {
             caption: 'MMT Standplaats',

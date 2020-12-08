@@ -1,8 +1,8 @@
 # LSS-Manager V.4 
 
 ## Builds & Checks
-### Prod/master [![Build Status](https://travis-ci.com/LSS-Manager/LSSM-V.4.svg?branch=master)](https://travis-ci.com/LSS-Manager/LSSM-V.4)
-### Beta/dev [![Build Status](https://travis-ci.com/LSS-Manager/LSSM-V.4.svg?branch=dev)](https://travis-ci.com/LSS-Manager/LSSM-V.4)
+### Prod/master [![Build Status](https://teamcity.lss-manager.de/app/rest/builds/buildType:LssmV4_MasterBuild/statusIcon.svg)](https://teamcity.lss-manager.de/viewType.html?buildTypeId=LssmV4_MasterBuild&guest=1)
+### Beta/dev [![Build Status](https://teamcity.lss-manager.de/app/rest/builds/buildType:LssmV4_DevBuild/statusIcon.svg)](https://teamcity.lss-manager.de/viewType.html?buildTypeId=LssmV4_DevBuild&guest=1)
 
 ![](./docs/.vuepress/public/img/lssm.png)
 
@@ -12,6 +12,8 @@ This work is licensed under a [Creative Commons Attribution-NonCommercial-ShareA
 **It is forbidden to use code of the LSS-Manager to violate the terms and conditions of Leitstellenspiel.de or one of its other language versions!**
 
 <a href="https://discord.gg/RcTNjpB" target="_blank" align="right"><img src="https://discord.com/api/guilds/254167535446917120/embed.png?style=banner1" alt="Our Discord-Server: United Dispatch"></a>
+
+[LSSM-Server-Status](https://status.lss-manager.de/)
 
 ## Information on LSS-Manager V.4
 
@@ -42,7 +44,7 @@ LSS-MANAGER V.4 is an extension for missionchief.co.uk, missionchief.com and mis
 With this extension an appstore is added to the game, which allows the installation of plugins. All functions are modular - you can determine down to the last module what should be activated.
 
 ### Wiki
-In our [Wiki](https://proxy.lss-manager.de/v4/docs/en_GB) you can find everything about the installation, the FAQ and an explanation of all functions.
+In our [Wiki](https://proxy.lss-manager.de/v4/docs/en_GB/) you can find everything about the installation, the FAQ and an explanation of all functions.
 
 ### Support Server
 
@@ -62,7 +64,7 @@ De LSS-MANAGER V.4 is een uitbreiding voor de meldkamerspel.com en zijn andere t
 Met deze uitbreiding wordt een appstore aan het spel toegevoegd, die de installatie van plugins mogelijk maakt. Alle functies zijn modulair - u kunt tot aan de laatste module bepalen wat er geactiveerd moet worden.
 
 ### Wiki
-In onze [Wiki](https://proxy.lss-manager.de/v4/docs/nl_NL) vindt u alles over de installatie, de FAQ en een uitleg van alle functies.
+In onze [Wiki](https://proxy.lss-manager.de/v4/docs/nl_NL/) vindt u alles over de installatie, de FAQ en een uitleg van alle functies.
 
 ### Ondersteunende server
 

@@ -1,5 +1,5 @@
 import { ModuleSettingFunction } from 'typings/Module';
-import { ModuleSettings, Toggle } from 'typings/Setting';
+import { ModuleSettings, Toggle, Hidden } from 'typings/Setting';
 
 export default ((MODULE_ID: string) => ({
     enhanceVehicleList: <Toggle>{
@@ -43,7 +43,8 @@ export default ((MODULE_ID: string) => ({
             !(
                 (settings[MODULE_ID].vehiclesPersonnelAssigned as Toggle)
                     .value &&
-                (settings[MODULE_ID].vehiclesPersonnelMax as Toggle).value
+                (settings[MODULE_ID].vehiclesPersonnelMax as Toggle).value &&
+                (settings[MODULE_ID].enhanceVehicleList as Toggle).value
             ),
     },
     personnelDemands: <Toggle>{

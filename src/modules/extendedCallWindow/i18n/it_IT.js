@@ -18,7 +18,7 @@ module.exports = {
             set: 'Set',
             attribute: 'Name',
             free: 'Free',
-            max: 'Max'
+            max: 'Max',
         },
         titles: {
             set:
@@ -67,6 +67,13 @@ module.exports = {
         missing: 'Manca sulla missione',
         driving: 'In avvicinamento',
         total: 'Ancora necessario',
+        tip: {
+            dragging: 'trascinare la finestra',
+            textMode: 'modalità testo on/off',
+            minified: 'crollo',
+            overlay: 'Sovrapposizione',
+            reload: 'Ricaricare',
+        },
         selected: 'Selezionato',
         vehiclesByRequirement: {
             [/^APS\/ABP$/]: [0, 9],

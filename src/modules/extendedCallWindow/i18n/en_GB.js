@@ -18,7 +18,7 @@ module.exports = {
             set: 'Set',
             attribute: 'Name',
             free: 'Free',
-            max: 'Max'
+            max: 'Max',
         },
         titles: {
             set: 'So often this combination is selected when you press the ARR',
@@ -56,6 +56,15 @@ module.exports = {
         missing: 'Missing on mission',
         driving: 'En-route',
         total: 'Still needed',
+        tip: {
+            dragging: 'drag window',
+            textMode: 'textmode on/off',
+            minified: 'collapse',
+            overlay: 'overlay',
+            reload: 'reload',
+            pushRight: 'show this box above vehicle list',
+            pushLeft: 'show this box at original position',
+        },
         selected: 'Selected',
         vehiclesByRequirement: {
             [/^Fire engine(s)?$/]: [0, 1, 16, 17],

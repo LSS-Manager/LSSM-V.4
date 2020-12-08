@@ -30,7 +30,7 @@
 			"title": "AAO-Zähler"
 		},
 		"arrCounterAsBadge": {
-			"description": "Zeigt den AAO-Zähler als kleinen roten Greiß neben der AAO an.",
+			"description": "Zeigt den AAO-Zähler als kleinen roten Kreis neben der AAO an.",
 			"title": "AAO-Zähler als Badge"
 		},
 		"arrCounterResetSelection": {
@@ -70,12 +70,14 @@
 			"title": "Fahrzeuge nachladen in Kopfleiste"
 		},
 		"missionKeywords": {
+			"autotextcolor": "automatische Schriftfarbe",
 			"color": "Hintergrundfarbe",
 			"description": "Lasse dir ein eigenes Stichwort neben dem Einsatznamen anzeigen",
 			"keyword": "Stichwort",
 			"missions": "Einsätze",
 			"prepend": "Vor dem Einsatznamen anzeigen",
 			"preview": "Vorschau",
+			"textcolor": "Schriftfarbe",
 			"title": "Einsatzstichworte"
 		},
 		"patientSummary": {

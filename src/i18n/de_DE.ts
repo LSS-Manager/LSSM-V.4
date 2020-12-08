@@ -455,7 +455,7 @@ export default {
             credits: 5000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            icon: 'hamburger',
+            icon: 'taxi',
         },
         33: {
             caption: 'GW-Höhenrettung',
@@ -568,6 +568,8 @@ export default {
             color: '#001ee0',
             coins: 25,
             credits: 15000,
+            minPersonnel: 0,
+            maxPersonnel: 0,
             special: 'Muss vom "LKW K 9" zum Einsatz gezogen werden',
             icon: 'snowplow',
         },
@@ -576,6 +578,8 @@ export default {
             color: '#0021f5',
             coins: 25,
             credits: 15000,
+            minPersonnel: 0,
+            maxPersonnel: 0,
             special:
                 'Muss von einem "GKW", "MzKW", "MTW-TZ" oder "MLW 5" zum Einsatz gezogen werden.',
             icon: 'trailer',
@@ -608,6 +612,8 @@ export default {
             color: '#ad0e0e',
             coins: 12,
             credits: 6000,
+            minPersonnel: 0,
+            maxPersonnel: 0,
             icon: 'square',
         },
         48: {
@@ -615,6 +621,8 @@ export default {
             color: '#9c0b0b',
             coins: 12,
             credits: 6000,
+            minPersonnel: 0,
+            maxPersonnel: 0,
             icon: 'square',
         },
         49: {
@@ -622,6 +630,8 @@ export default {
             color: '#8b0707',
             coins: 12,
             credits: 6000,
+            minPersonnel: 0,
+            maxPersonnel: 0,
             icon: 'square',
         },
         50: {
@@ -671,6 +681,8 @@ export default {
             color: '#450707',
             coins: 12,
             credits: 6000,
+            minPersonnel: 0,
+            maxPersonnel: 0,
             icon: 'square',
         },
         55: {
@@ -765,6 +777,8 @@ export default {
             color: '#e60808',
             coins: 12,
             credits: 6000,
+            minPersonnel: 0,
+            maxPersonnel: 0,
             icon: 'square',
         },
         63: {
@@ -803,6 +817,8 @@ export default {
             color: '#1b428a',
             coins: 12,
             credits: 6000,
+            minPersonnel: 0,
+            maxPersonnel: 0,
             special:
                 'Muss von einem "LKW 7 Lkr 19 tm" zum Einsatz gezogen werden. Pro gefordertem Boot müssen mind. 4 Personen mit der Ausbildung "GW-Wasserrettung" oder "Wassergefahren" vor Ort sein!',
             icon: 'trailer',
@@ -812,6 +828,8 @@ export default {
             color: '#245390',
             coins: 12,
             credits: 6000,
+            minPersonnel: 0,
+            maxPersonnel: 0,
             special:
                 'Muss von einem "LKW 7 Lkr 19 tm" zum Einsatz gezogen werden. Pro gefordertem Boot müssen mind. 4 Personen mit der Ausbildung "GW-Wasserrettung" oder "Wassergefahren" vor Ort sein!',
             icon: 'trailer',
@@ -821,6 +839,8 @@ export default {
             color: '#296497',
             coins: 12,
             credits: 6000,
+            minPersonnel: 0,
+            maxPersonnel: 0,
             special:
                 'Muss von einem "LKW 7 Lkr 19 tm" zum Einsatz gezogen werden. Pro gefordertem Boot müssen mind. 4 Personen mit der Ausbildung "GW-Wasserrettung" oder "Wassergefahren" vor Ort sein!',
             icon: 'trailer',
@@ -841,6 +861,8 @@ export default {
             color: '#9ac8a6',
             coins: 12,
             credits: 6000,
+            minPersonnel: 0,
+            maxPersonnel: 0,
             special:
                 'Muss von einem "GW-Wasserrettung" oder einem "GW-Taucher" zum Einsatz gezogen werden. Pro gefordertem Boot müssen mind. 4 Personen mit der Ausbildung "GW-Wasserrettung" oder "Wassergefahren" vor Ort sein!',
             icon: 'trailer',
@@ -850,6 +872,8 @@ export default {
             color: '#bf7f6a',
             coins: 12,
             credits: 6000,
+            minPersonnel: 0,
+            maxPersonnel: 0,
             special:
                 'Pro gefordertem Boot müssen mind. 4 Personen mit der Ausbildung "GW-Wasserrettung" oder "Wassergefahren" vor Ort sein!',
             icon: 'square',
@@ -918,6 +942,8 @@ export default {
             color: '#680101',
             coins: 12,
             credits: 6000,
+            minPersonnel: 0,
+            maxPersonnel: 0,
             icon: 'square',
         },
         78: {
@@ -925,6 +951,8 @@ export default {
             color: '#bf1111',
             coins: 12,
             credits: 6000,
+            minPersonnel: 0,
+            maxPersonnel: 0,
             icon: 'square',
         },
         79: {
@@ -1077,6 +1105,8 @@ export default {
             color: '#422629',
             coins: 0,
             credits: 6000,
+            minPersonnel: 0,
+            maxPersonnel: 0,
             special:
                 'Muss von einem "MTW-OV" an den Einsatzort gezogen werden. Am Einsatzort sind ein "Anh Hund" und ein "Rettungshundefahrzeug" vom Rettungsdienst gleichwertig!',
             icon: 'paw',
@@ -1190,7 +1220,7 @@ export default {
                 },
             ],
             levelcost: ['1. 10.000', '2. 50.000', '3.-16. 100.000'],
-            maxBuildings: '4.000 mit kleinen Feuerwachen zusammen',
+            maxBuildings: '4.400 mit kleinen Feuerwachen zusammen',
             maxLevel: 16,
             special:
                 'Ab der 24. Feuerwache steigen die Kosten für den Neubau einer Wache nach folgender Formel: <code>100.000+200.000*LOG<sub>2</sub>(Anzahl der vorhandenen Feuerwachen − 22)</code>. Der Coins-Preis bleibt konstant!',
@@ -1207,7 +1237,7 @@ export default {
                 'TSF-W',
                 '(HLF 20 und HLF 10 ab Dienstgrad "Gruppenfüher(in)" => Baukosten 20.000 höher)',
             ],
-            maxBuildingsFunction: (): number => 4_000,
+            maxBuildingsFunction: (): number => 4_400,
         },
         1: {
             caption: 'Feuerwehrschule',
@@ -1367,13 +1397,13 @@ export default {
                 },
             ],
             levelcost: ['1. 10.000', '2. 50.000', '3.-14. 100.000'],
-            maxBuildings: '1.500 mit kleinen Polizeiwachen zusammen',
+            maxBuildings: '1.700 mit kleinen Polizeiwachen zusammen',
             maxLevel: 14,
             special:
                 'Ab der 24. Polizeiwache steigen die Kosten für den Neubau einer Wache nach folgender Formel: <code>100.000+200.000*LOG<sub>2</sub>(Anzahl der vorhandenen Polizeiache − 22)</code>. Der Coins-Preis bleibt konstant!',
             startPersonnel: 2,
             startVehicles: ['FuStW'],
-            maxBuildingsFunction: (): number => 1_500,
+            maxBuildingsFunction: (): number => 1_700,
         },
         7: {
             caption: 'Leitstelle',
@@ -1726,7 +1756,7 @@ export default {
                 '3.-5. 100.000',
                 'Umbau zur normalen Wache: Differenz-Preis zur normalen Wache',
             ],
-            maxBuildings: '4.000 mit Feuerwachen zusammen',
+            maxBuildings: '4.400 mit Feuerwachen zusammen',
             maxLevel: 5,
             special:
                 'Ab der 24. Feuerwache steigen die Kosten für den Neubau einer Wache nach folgender Formel: <code>(100.000+200.000*LOG<sub>2</sub>(Anzahl der vorhandenen Feuerwachen − 22)) / 2</code>. max. 1 Million Credits. Der Coins-Preis bleibt konstant!',
@@ -1743,7 +1773,7 @@ export default {
                 'TSF-W',
                 '(HLF 20 und HLF 10 ab Dienstgrad "Gruppenfüher(in)" => Baukosten 15.000 höher)',
             ],
-            maxBuildingsFunction: (): number => 4_000,
+            maxBuildingsFunction: (): number => 4_400,
         },
         19: {
             caption: 'Polizeiwache (Kleinwache)',
@@ -1762,13 +1792,13 @@ export default {
                 '3.-4. 100.000',
                 'Umbau zur normalen Wache: Differenz-Preis zur normalen Wache',
             ],
-            maxBuildings: '1.500 mit Polizeiwachen zusammen',
+            maxBuildings: '1.700 mit Polizeiwachen zusammen',
             maxLevel: 4,
             special:
                 'Ab der 24. Polizeiwache berechnen sich die Kosten für den Neubau einer Wache nach folgender Formel: <code>(100.000+200.000*LOG<sub>2</sub>(Anzahl der vorhandenen Polizeiwachen − 22)) / 2</code>. Der Coins-Preis bleibt konstant!',
             startPersonnel: 2,
             startVehicles: ['FuStW'],
-            maxBuildingsFunction: (): number => 1_500,
+            maxBuildingsFunction: (): number => 1_700,
         },
         20: {
             caption: 'Rettungswache (Kleinwache)',

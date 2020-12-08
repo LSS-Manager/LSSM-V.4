@@ -19,7 +19,7 @@ Plug-ins die niet geactiveerd zijn, worden ook niet geladen - dit maakt het behe
 
 ## Installatie
 
-Door LSSM te gebruiken, gaat u ermee akkoord dat we metadata verzamelen. Meer informatie hierover vindt u op [Metadata] (metadata.md)
+Door LSSM te gebruiken, gaat u ermee akkoord dat we metadata verzamelen. Meer informatie hierover vindt u op [Metadata](metadata.md)
 
 Een tabel waarmee de browsers LSSM compatibel is, is te vinden in onze [FAQ](faq.md#in-welke-browsers-werkt-LSS-Manager)
 
@@ -39,7 +39,7 @@ Firefox| [Download](https://addons.mozilla.org/en-US/firefox/addon/tampermonkey/
 Safari | [Download](https://safari.tampermonkey.net/tampermonkey.safariextz)
 Opera  | [Download](https://addons.opera.com/en/extensions/details/tampermonkey-beta/)
 
-Voor andere browsers kunt u Tampermonkey downloaden op [tampermonkey.net] (https://www.tampermonkey.net/).
+Voor andere browsers kunt u Tampermonkey downloaden op [tampermonkey.net](https://www.tampermonkey.net/).
 
 ::: warning
 Houd er rekening mee dat we officieel geen oudere browsers, mobiele browsers en Microsoft Edge of Internet Explorer ondersteunen. Ondersteuning voor deze browsers is daarom niet gegarandeerd en ook niet waarschijnlijk.
@@ -51,7 +51,7 @@ Als Tampermonkey met succes in uw browser is geïnstalleerd, kunt u <a :href="$t
 <<< ./dist/static/lssm-v4.user.js
 
 ### Stap 3: Activeren
-De LSSM-indicator is een groen gemarkeerde tekst 'LSSM V.4'.
+De LSSM-indicator is een groen gemarkeerde tekst 'LSSM V.4' of een logo.
 Als je in meldkamerspel zit maar deze indicator niet in de rechterbovenhoek ziet, klik dan op het tampermonkey icoon in je browser en controleer of de schakelaar voor LSS-Manager script op `on` staat.
 
 Bij problemen kunt u altijd contact opnemen met [Support](support.md).
