@@ -6,8 +6,8 @@ sidebarDepth: 2
 
 # Wiki :sv: <Badge :text="'LSSM V.' + ($themeConfig.variables.versions.stable || 4)"/>
 
-* Nuvarande versioner: *
-> Stabil: <i> {{$ themeConfig.variables.versions.stable}} </i>
+*Current versions:*
+> Stable: <i>{{ $themeConfig.variables.versions.stable }}</i>
 
 ## Om LSSM
 
@@ -46,7 +46,7 @@ Observera att vi inte officiellt stöder äldre webbläsare, mobilwebbläsare oc
 :::
 
 ### Steg 2: Användarskript
-Om Tampermonkey lyckades installeras i din webbläsare kan du antingen klicka <a :href="$themeConfig.variables.server + 'lssm-v4.user.js'" target="_blank">här /a> eller skapa en nytt användarskript med följande innehåll:
+Om Tampermonkey lyckades installeras i din webbläsare kan du antingen klicka <a :href="$themeConfig.variables.server + 'lssm-v4.user.js'" target="_blank">här </a> eller skapa en nytt användarskript med följande innehåll:
 
 <<< ./dist/static/lssm-v4.user.js
 
@@ -54,4 +54,4 @@ Om Tampermonkey lyckades installeras i din webbläsare kan du antingen klicka <a
 LSSM-indikatorn är en grön markerad text `LSSM V.4`.
 Om du befinner dig i larmcentralen-spelet men inte ser den här indikatorn i det övre högra hörnet klickar du på tampermonkey-ikonen i din webbläsare och kontrollerar om omkopplaren för LSS-Manager-skript är inställd på `on`.
 
-Om du har några problem kan du alltid kontakta [Support] (support.md).
+Om du har några problem kan du alltid kontakta [Support](support.md).

@@ -24,18 +24,18 @@ Därför är det, förutom idén om frivillighet, ingen mening för oss att ta p
 :::
 
 ### Hur kan jag bidra till LSS-Manager?
-Den "normala" användaren kan [rapportera fel][error] eller [göra förslag][suggestions].
+Den "normala" användaren kan [report bugs][error] eller [make suggestions][suggestions].
 
 Vi utformar för närvarande en stilguide för utvecklare så att de också enkelt kan lägga till sina egna plugins till LSSM. Vi försökte också hålla vår kodstruktur tydlig och förståelig. Att lägga till ett plugin innebär dock inte på något sätt att gå med i laget.
 
 ### Hur rapporterar jag fel?
-Ta en titt på sidan [rapportera fel][error].
+Ta en titt på sidan [report bugs][error].
 
 ### Var kan jag få hjälp?
-Genom vårt stöd. Du hittar mer information [här][support].
+Genom vårt stöd. Du hittar mer information [here][support].
 
 ### Hur kan jag skicka idéer?
-På sidan [förslag][suggestions] har vi sammanställt lite information om det.
+På sidan [suggestions][suggestions] har vi sammanställt lite information om det.
 
 ### I vilka webbläsare fungerar LSS-Manager?
 Endast stationära webbläsare listas här, eftersom mobilwebbläsare inte stöds officiellt.
@@ -47,8 +47,8 @@ Eftersom vi vill behålla de senaste kodningsstandarderna hela tiden, är en mod
 En kompatibilitet som anges här garanterar inte funktionalitet. Detta är endast information som samlas in och utvärderas av tredje part.
 :::
 
-<tabell>
-<huvud>
+<table>
+<thead>
     <tr>
         <th>Webbläsare</th>
         <th>min. version</th>
@@ -56,10 +56,10 @@ En kompatibilitet som anges här garanterar inte funktionalitet. Detta är endas
     </tr>
 </thead>
 <tbody>
-    <tr v-for = "({stöds, ladda ner}, webbläsare) i $ themeConfig.variables.browsers">
-        <td> {{browser.replace (/^./, $ 1 => $ 1.toUpperCase ())}} </td>
-        <td> {{stöds}} </td>
-        <td> <a :href="download" target="_blank"> Ladda ner </a> </td>
+    <tr v-for="({supported, download}, browser) in $themeConfig.variables.browsers">
+        <td>{{ browser.replace(/^./, $1 => $1.toUpperCase()) }}</td>
+        <td>{{ supported }}</td>
+        <td><a :href="download" target="_blank">Download</a></td>
     </tr>
 </tbody>
 </table>
