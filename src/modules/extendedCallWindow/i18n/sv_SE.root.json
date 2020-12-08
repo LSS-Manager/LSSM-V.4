@@ -2,7 +2,7 @@
 	"name": "Utökat larmfönster",
 	"settings": {
 		"alarmIcons": {
-			"description": "Lämna ikonerna i \"Alarm\"Visa-knappen, baserat på ditt val. Du kan välja mellan <a href=\"https://fontawesome.com/icons?d=gallery&m=gratis \"target=\"_ blank \">alla fria ikoner från Font-Awesome</a>. Det räcker att ange namnet på ikonen. En liveförhandsgranskning visar dig sedan ikonen. ",
+			"description": "Lämna ikonerna i \"Alarm\"Visa-knappen, baserat på ditt val. Du kan välja mellan <ahref=\"https://fontawesome.com/icons?d=gallery&m=gratis\"target=\"_blank\">alla fria ikoner från Font-Awesome</a>. Det räcker att ange namnet på ikonen. En liveförhandsgranskning visar dig sedan ikonen.",
 			"icon": "Ikon",
 			"preview": "Preview",
 			"style": "icon type",
