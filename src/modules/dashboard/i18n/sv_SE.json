@@ -10,7 +10,7 @@
 		"byggnader": {
 			"columnchart": "använd stapeldiagram",
 			"personal_count": "Personal",
-			"tip": "Klicka på en av kategorierna (t.ex. brandkår eller polis) för att förstora de byggtyper som tilldelats denna kategori. Om du sedan klickar på en byggnadstyp kan du se hur många fordon av varje fordonstyp som finns byggnader av den typen. På detta sätt kan du snabbt ta reda på hur många fordon av varje fordonstyp som är parkerade vid polisstationer och hur många på små polisstationer. ",
+			"tip": "Klicka på en av kategorierna (t.ex. brandkår eller polis) för att förstora de byggtyper som tilldelats denna kategori. Om du sedan klickar på en byggnadstyp kan du se hur många fordon av varje fordonstyp som finns byggnader av den typen. På detta sätt kan du snabbt ta reda på hur många fordon av varje fordonstyp som är parkerade vid polisstationer och hur många på små polisstationer.",
 			"title": "Byggnader"
 		},
 		"vehicles": {
@@ -20,7 +20,7 @@
 		}
 	},
 	"dispatchcenter-view": {
-		"inga byggnader": "Inga byggnader hittades. Justera vid behov filtren för det här kortet på fliken \" Hantera styrelser \".",
+		"inga byggnader": "Inga byggnader hittades. Justera vid behov filtren för det här kortet på \"Hantera styrelser\-tab.",
 		"manage": {
 			"newBoard": "New Board",
 			"title": "Hantera styrelser",
