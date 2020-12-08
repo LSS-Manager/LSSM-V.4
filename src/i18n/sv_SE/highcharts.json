@@ -1,0 +1,19 @@
+{
+"contextButtonTitle": "Helskärm, Export, ...",
+"decimalPoint": ",",
+"downloadCSV": "Ladda ner som CSV",
+"downloadJPEG": "Ladda ned som JPEG-bild",
+"downloadPDF": "Ladda ner som PDF-dokument",
+"downloadPNG": "Ladda ner som PNG-bild",
+"downloadSVG": "Ladda ned som SVG-vektorgrafik",
+"downloadXLS": "Ladda ner som XLS-dokument",
+"drillUpText": "← Tillbaka",
+"exitFullscreen": "Avsluta helskärmsläge",
+"exportera data": {
+"categoryHeader": "Kategori"
+},
+"loading": "laddar ...",
+"printChart": "Skriv ut",
+"viewData": "Visa tabell",
+"viewFullscreen": "Visa i helskärmsläge"
+}
