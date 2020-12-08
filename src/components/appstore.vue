@@ -80,7 +80,6 @@ import {
     AppstoreData,
     AppstoreMethods,
 } from '../../typings/components/Appstore';
-import { LSSM } from '../core';
 import isEqual from 'lodash/isEqual';
 import { Modules } from '../../typings/Module';
 import { DefaultProps } from 'vue/types/options';
@@ -175,7 +174,7 @@ export default Vue.extend<
             });
             this.$store.commit('setAppstoreChanges', this.changes);
         },
-        $m: (key, args) => LSSM.$t(`modules.appstore.${key}`, args),
+        $m: (key, args) => window[PREFIX].$t(`modules.appstore.${key}`, args),
     },
 });
 </script>

@@ -8,6 +8,7 @@ import webpack, { Configuration } from 'webpack';
 import moment from 'moment';
 import SpeedMeasurePlugin from 'speed-measure-webpack-plugin';
 import DynamicImportQueryPlugin from './plugins/DynamicImportQueryPlugin';
+import { Module } from '../typings/Module';
 
 console.time(`build`);
 
@@ -35,7 +36,10 @@ const entry = {
 
 const modules = moduleDirs.filter(
     module =>
-        config.modules['core-modules'].includes(module) || module === 'template'
+        !(
+            config.modules['core-modules'].includes(module) ||
+            module === 'template'
+        )
 );
 
 entry.plugins?.unshift(
@@ -46,10 +50,33 @@ entry.plugins?.unshift(
         MODULE_REGISTER_FILES: new RegExp(
             `modules\\/(${modules.join('|')})\\/register\\.js(on)?`
         ),
-        MODULE_ROOT_I18N_FILES: new RegExp(
-            `modules\\/(${[...modules, ...config.modules['core-modules']].join(
-                '|'
-            )})\\/i18n\\/(${locales.join('|')}).root(\\/index)?\\.js(on)?$`
+        MODULES_OF_LOCALE: Object.fromEntries(
+            locales.map(locale => [
+                locale,
+                JSON.stringify(
+                    [...modules, ...config.modules['core-modules']].filter(
+                        module => {
+                            // eslint-disable-next-line @typescript-eslint/no-var-requires
+                            const registration = require(`../src/modules/${module}/register`) as Module;
+                            return (
+                                !registration.locales ||
+                                registration.locales?.includes(locale)
+                            );
+                        }
+                    )
+                ),
+            ])
+        ),
+        MODULE_ROOT_I18N_FILES: Object.fromEntries(
+            locales.map(locale => [
+                locale,
+                new RegExp(
+                    `modules\\/(${[
+                        ...modules,
+                        ...config.modules['core-modules'],
+                    ].join('|')})\\/i18n\\/${locale}.root(\\/index)?\\.js(on)?$`
+                ),
+            ])
         ),
     }),
     new webpack.ContextReplacementPlugin(

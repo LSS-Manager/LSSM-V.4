@@ -1,7 +1,7 @@
 import { VueConstructor } from 'vue/types/vue';
 import VueI18n from 'vue-i18n';
 
-export default (Vue: VueConstructor): VueI18n => {
+export default async (Vue: VueConstructor): Promise<VueI18n> => {
     Vue.use(VueI18n);
 
     const locale = window.I18n.locale;
@@ -9,7 +9,13 @@ export default (Vue: VueConstructor): VueI18n => {
         locale: locale,
         messages: {
             // eslint-disable-next-line @typescript-eslint/no-var-requires
-            [locale]: require(`./i18n/${locale}`).default,
+            [locale]: (
+                await import(
+                    /* webpackChunkName: "i18n/[request]" */
+                    /* webpackInclude: /[\\/]+i18n[\\/]+[^\\/]*?$/ */
+                    `./i18n/${locale}`
+                )
+            ).default,
         },
     });
 
