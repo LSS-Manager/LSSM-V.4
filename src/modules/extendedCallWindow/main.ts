@@ -76,6 +76,8 @@ export default (async (LSSM, MODULE_ID, $m) => {
             {
                 keyword: string;
                 color: string;
+                autotextcolor: boolean;
+                textcolor: string;
                 prefix: boolean;
                 missions: number[];
             }[]

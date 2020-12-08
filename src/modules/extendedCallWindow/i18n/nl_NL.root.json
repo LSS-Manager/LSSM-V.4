@@ -71,12 +71,14 @@
 			"title": "Voertuigen laden knop in koptekst"
 		},
 		"missionKeywords": {
+			"autotextcolor": "Automatische tekstkleur",
 			"color": "Achtergrondkleur",
 			"description": "Laat je eigen trefwoord naast de meldingsnaam weergeven.",
 			"keyword": "Trefwoord",
 			"missions": "Meldingen",
 			"prepend": "Vóór de meldingsnaam weergeven",
 			"preview": "Voorvertoning",
+			"textcolor": "Tekstkleur",
 			"title": "Meldingstrefwoord"
 		},
 		"patientSummary": {

@@ -180,6 +180,22 @@ export default (async (_: string, LSSM: Vue, $m: $m) => {
                         type: 'color',
                     },
                 },
+                <AppendableListSetting<Toggle>>{
+                    name: 'autotextcolor',
+                    title: $m('settings.missionKeywords.autotextcolor'),
+                    size: 2,
+                    setting: {
+                        type: 'toggle',
+                    },
+                },
+                <AppendableListSetting<Color>>{
+                    name: 'textcolor',
+                    title: $m('settings.missionKeywords.textcolor'),
+                    size: 1,
+                    setting: {
+                        type: 'color',
+                    },
+                },
                 <PreviewElement>{
                     type: 'preview',
                     component: mkpreview,
@@ -208,6 +224,8 @@ export default (async (_: string, LSSM: Vue, $m: $m) => {
             defaultItem: {
                 keyword: '',
                 color: '#777777',
+                autotextcolor: true,
+                textcolor: '#ffffff',
                 prefix: false,
                 missions: [],
             },
