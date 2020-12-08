@@ -3,7 +3,7 @@ import { Requirement } from 'typings/modules/ExtendedCallWindow/EnhancedMissingV
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { $m } from 'typings/Module';
 
-export default (LSSM: Vue, $m: $m): void => {
+export default (LSSM: Vue, MODULE_ID: string, $m: $m): void => {
     const missingDialog = document.getElementById('missing_text');
     if (!missingDialog) return;
     const missingRequirementsText = missingDialog.textContent
@@ -78,18 +78,31 @@ export default (LSSM: Vue, $m: $m): void => {
             requirement.total = requirement.missing - requirement.driving;
         });
     }
-    new LSSM.$vue({
-        store: LSSM.$store,
-        i18n: LSSM.$i18n,
-        render: h =>
-            h(enhancedMissingVehicles, {
-                props: {
-                    missingRequirements: missingRequirements.filter(
-                        req => !!req.vehicle
-                    ),
-                    extras: extras,
-                    missingText: missingDialog.textContent,
-                },
-            }),
-    }).$mount(missingDialog);
+    LSSM.$store
+        .dispatch('settings/getSetting', {
+            moduleId: MODULE_ID,
+            settingId: 'pushRight',
+            defaultValue: false,
+        })
+        .then(pushedRight => {
+            if (pushedRight)
+                document
+                    .getElementById('mission-form')
+                    ?.insertAdjacentElement('afterbegin', missingDialog);
+
+            new LSSM.$vue({
+                store: LSSM.$store,
+                i18n: LSSM.$i18n,
+                render: h =>
+                    h(enhancedMissingVehicles, {
+                        props: {
+                            missingRequirements: missingRequirements.filter(
+                                req => !!req.vehicle
+                            ),
+                            extras: extras,
+                            missingText: missingDialog.textContent,
+                        },
+                    }),
+            }).$mount(missingDialog);
+        });
 };

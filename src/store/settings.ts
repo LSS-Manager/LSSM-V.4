@@ -33,6 +33,17 @@ export default {
         save(state: SettingsState, settings: ModuleSettings) {
             state.settings = settings;
         },
+        modifyValue(
+            state: SettingsState,
+            {
+                moduleId,
+                settingId,
+                value,
+            }: { moduleId: string; settingId: string; value: Setting['value'] }
+        ) {
+            const setting = state.settings[moduleId]?.[settingId];
+            if (setting) state.settings[moduleId][settingId].value = value;
+        },
     } as MutationTree<SettingsState>,
     actions: {
         saveSettings(
@@ -104,9 +115,10 @@ export default {
             );
         },
         setSetting(
-            { dispatch }: SettingsActionStoreParams,
+            { commit, dispatch }: SettingsActionStoreParams,
             { moduleId, settingId, value }: SettingsSet
         ) {
+            commit('modifyValue', { moduleId, settingId, value });
             dispatch('getModule', moduleId).then(async module => {
                 await dispatch(
                     'storage/set',

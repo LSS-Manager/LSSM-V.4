@@ -138,6 +138,9 @@ module.exports = {
             minified: 'Ein/Ausklappen',
             overlay: 'Overlay',
             reload: 'Reload',
+            pushRight:
+                'Anzeige in der rechten Hälfte (über der Fahrzeugliste) anzeigen',
+            pushLeft: 'Anzeige an originaler Position anzeigen',
         },
         selected: 'Ausgewählt',
         vehiclesByRequirement: {
@@ -147,7 +150,7 @@ module.exports = {
             [/^Drehleitern? \(DLK 23\)$/]: [2, 85],
             [/^ELW 1$/]: [3, 34, 78],
             [/^ELW 2$/]: [34, 78],
-            [/^Flugfeldlöschfahrzeuge$/]: [75],
+            [/^Flugfeldlöschfahrzeuge?$/]: [75],
             [/^FuStW$/]: [32, 95],
             [/^FwK$/]: [57],
             [/^FüKw$/]: [51],

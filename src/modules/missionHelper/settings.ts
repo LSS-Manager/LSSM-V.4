@@ -56,6 +56,10 @@ export default ((MODULE_ID, LSSM, $m) => {
                   },
               }
             : null),
+        'vehicles.xAfterNumber': <Toggle>{
+            type: 'toggle',
+            default: false,
+        },
         'chances.normal': <Toggle>{
             type: 'toggle',
             default: true,
@@ -121,11 +125,17 @@ export default ((MODULE_ID, LSSM, $m) => {
             default: false,
             dependsOn: '.vehicles.content',
         },
-        'optionalAlternatives.allow_drone_instead_of_investigation': <Toggle>{
-            type: 'toggle',
-            default: false,
-            dependsOn: '.vehicles.content',
-        },
+        ...(BUILD_LANG === 'en_US'
+            ? {
+                  'optionalAlternatives.allow_drone_instead_of_investigation': <
+                      Toggle
+                  >{
+                      type: 'toggle',
+                      default: false,
+                      dependsOn: '.vehicles.content',
+                  },
+              }
+            : null),
         ...(['de_DE', 'en_US', 'nl_NL', 'it_IT'].includes(BUILD_LANG)
             ? {
                   'optionalAlternatives.allow_ktw_instead_of_rtw': <Toggle>{

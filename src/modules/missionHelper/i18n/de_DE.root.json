@@ -160,6 +160,10 @@
 			"title": {
 				"description": "Zeigt die Überschrift \"Fahrzeuge\" über den Fahrzeuganforderungen an.",
 				"title": "Fahrzeuge (Titel)"
+			},
+			"xAfterNumber": {
+				"description": "Packt ein x hinter die Anzahl wie oft das Fahrzeug benötigt wird.",
+				"title": "x nach Anzahl"
 			}
 		}
 	}
