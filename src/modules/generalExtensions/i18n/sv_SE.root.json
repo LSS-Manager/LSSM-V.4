@@ -39,7 +39,7 @@
 			"title": "Kom ihåg leveranscenter"
 		},
 		"showImg": {
-			"description": "Försök att skapa en förhandsgranskning av bilden. Fungerar bara i kombination med \" Gör länkar klickbara \"!",
+			"description": "Försök att skapa en förhandsgranskning av bilden. Fungerar bara i kombination med \"Gör länkar klickbara\"!",
 			"title": "Aktivera förhandsgranskning av bild"
 		}
 	}
