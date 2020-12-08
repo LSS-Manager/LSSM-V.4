@@ -1,0 +1,21 @@
+{
+"description": "Underlättar inställningen av intressepunkter genom små, användbara funktioner",
+"name": "Förbättrad IP",
+"settings": {
+"custom_style": {
+"title": "Anpassad stil för markering"
+},
+"predefined_style": {
+"brown": "Brun",
+"custom": "Manual",
+"green": "Grön",
+"red": "Röd",
+"title": "Markörmarkering",
+"white": "Vit"
+},
+"shown_types": {
+"description": "Ange här vilka IP-typer som ska visas. Du kan också ändra denna inställning direkt i \"Ställ in IP\"-menyn Ändra.",
+"title": "Visade IP-typer"
+}
+}
+}
