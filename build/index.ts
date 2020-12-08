@@ -67,17 +67,6 @@ entry.plugins?.unshift(
                 ),
             ])
         ),
-        MODULE_ROOT_I18N_FILES: Object.fromEntries(
-            locales.map(locale => [
-                locale,
-                new RegExp(
-                    `modules\\/(${[
-                        ...modules,
-                        ...config.modules['core-modules'],
-                    ].join('|')})\\/i18n\\/${locale}.root(\\/index)?\\.js(on)?$`
-                ),
-            ])
-        ),
     }),
     new webpack.ContextReplacementPlugin(
         /moment\/locale$/,
