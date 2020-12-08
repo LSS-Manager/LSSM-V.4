@@ -1,4 +1,4 @@
-import { UAParser } from 'ua-parser-js';
+import UAParser from 'ua-parser-js';
 import { StorageSet } from '../../../typings/store/storage/Actions';
 import config from '../../config';
 
@@ -93,7 +93,7 @@ export default (
 
         LSSM.$store
             .dispatch('api/request', {
-                url: `${LSSM.$store.state.server}telemetry.php?uid=${BUILD_LANG}-${window.user_id}`,
+                url: `${LSSM.$store.state.server}telemetry.php?uid=${LSSM.$store.state.lang}-${window.user_id}`,
                 init: {
                     method: 'POST',
                     headers: {
@@ -102,7 +102,7 @@ export default (
                     body: JSON.stringify({
                         id: LSSM.$store.state.api.key,
                         uid: window.user_id,
-                        game: BUILD_LANG,
+                        game: LSSM.$store.state.lang,
                         police: LSSM.$store.state.policechief,
                         name: window.username,
                         version: LSSM.$store.state.version,
