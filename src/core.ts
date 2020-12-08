@@ -110,6 +110,23 @@ require('./natives/navTabsClicker');
             .dispatch('api/request', { url: '/api/vehicle_states' })
             .then(res => res.json())
     );
+    for (const moduleId of MODULES_OF_LOCALE[LSSM.$store.state.lang]) {
+        try {
+            LSSM.$i18n.mergeLocaleMessage(LSSM.$store.state.lang, {
+                modules: {
+                    [moduleId]: (
+                        await import(
+                            /* webpackChunkName: "modules/i18n/[request]" */
+                            /* webpackInclude: /[\\/]+modules[\\/]+.*?[\\/]+i18n[\\/]+.*?\.root/ */
+                            `./modules/${moduleId}/i18n/${LSSM.$store.state.lang}.root`
+                        )
+                    ).default,
+                },
+            });
+        } catch {
+            // if no i18n exists, do nothing
+        }
+    }
     if (window.location.pathname === '/') {
         telemetry(LSSM, settingId => {
             return LSSM.$store.dispatch('settings/getSetting', {
@@ -139,23 +156,6 @@ require('./natives/navTabsClicker');
                     });
             },
         });
-    }
-    for (const moduleId of MODULES_OF_LOCALE[LSSM.$store.state.lang]) {
-        try {
-            LSSM.$i18n.mergeLocaleMessage(LSSM.$store.state.lang, {
-                modules: {
-                    [moduleId]: (
-                        await import(
-                            /* webpackChunkName: "modules/i18n/[request]" */
-                            /* webpackInclude: /[\\/]+modules[\\/]+.*?[\\/]+i18n[\\/]+.*?\.root/ */
-                            `./modules/${moduleId}/i18n/${LSSM.$store.state.lang}.root`
-                        )
-                    ).default,
-                },
-            });
-        } catch {
-            // if no i18n exists, do nothing
-        }
     }
     LSSM.$store
         .dispatch('storage/get', {
