@@ -1,0 +1,185 @@
+{
+"description": "Få all viktig information om ett uppdrag i uppdragsfönstret.",
+"name": "Missionhelper",
+"noVehicleRequirements": {
+"average_min_fire_personnel": {
+"badge": falskt,
+"i ytterligare",
+"text": "Brandmän behövs minst"
+},
+"average_min_police_personnel": {
+"badge": falskt,
+"i ytterligare",
+"text": "Poliser behövde minimum i genomsnitt"
+},
+"swat_personnel": {
+"badge": falskt,
+"i ytterligare",
+"text": "SWAT-personal behövde ett minimum i genomsnitt"
+},
+"water_needed": {
+"badge": sant,
+"in": "krav",
+"text": "Vatten: {n} gallon | Vatten: {n} gallon"
+}
+},
+"settings": {
+"chances": {
+"100": {
+"description": "Visar sannolikheter på 100%",
+"title": "Visa uttryckligen 100% sannolikheter."
+},
+"normal": {
+"description": "Visar sannolikheten för att ett fordon kommer att begäras.",
+"title": "Visa sannolikheter"
+}
+},
+"credits": {
+"description": "Indikerar genomsnittlig kreditinkomst från ett uppdrag.",
+"title": "Credits"
+},
+"expanstions": {
+"description": "Listar möjlig spridning av detta uppdrag.",
+"title": "Spreads"
+},
+"followup": {
+"description": "Listar möjliga uppföljningsanvändningar för detta uppdrag.",
+"title": "Uppföljningsuppdrag"
+},
+"generatedBy": {
+"description": "Visar från vilken byggnadstyp detta uppdrag kan genereras.",
+"title": "Skapad av (byggnadstyp)"
+},
+"hide_battalion_chief_vehicles": {
+"description": "Gömmer bataljonschefen fullständigt och visar endast MCV.",
+"title": "Göm bataljoncheferna"
+},
+"id": {
+"description": "Visar uppdrags-ID bredvid titeln.",											
+"title": "Mission ID"
+},
+"multifunctionals": {
+"battalion_chief_vehicles": {
+"description": "Subtraherar antalet obligatoriska MCV från Battalion Chief och döljer Battalion Chief om siffran sjunker under 0.",
+"title": "Battalion Chief Simple Rate"
+},
+"heavy_rescue_vehicles": {
+"description": "subtraherar antalet nödvändiga brandbilar från Heavy Rescue och döljer brandbilar om antalet sjunker under 0. Den här funktionen är avsedd för personer som kör ett rent Rescue Engine-system.",
+"title": "Heavy Rescue Simple Rate"
+},
+"platform_trucks": {
+"description": "Subtraherar antalet brandbilar från Quints och döljer brandbilar om antalet sjunker under 0.",
+"title": "Quint Simple Rate"
+}
+},
+"noVehicleRequirements": {
+"description": "Ange här vilka speciella krav som ska visas, om de finns för det uppdraget.",
+"title": "Särskilda krav"
+},
+"optionalAlternatives": {
+"allow_arff_instead_of_lf": {
+"description": "Indikerar, om istället för brandbilar arrfs är möjliga på plats.",
+"title": "Visa om arrfs är tillåtna som brandbilar"
+},
+"allow_drone_instead_of_investigation": {
+"description": "Visar om en FBI Surveillance Drone kan ersätta en FBI-undersökningsvagn",
+"title": "Visa drönare kan ersätta utredningen"
+},
+"allow_ktw_instead_of_rtw": {
+"description": "Visar om en BLS kan användas istället för en ALS.",										 
+"title": "BLS istället för ALS"
+},
+"allow_rw_instead_of_lf": {
+"description": "Indikerar, om istället för en brandbil också tung räddnings- eller räddningsmotor är möjlig på plats.",
+"title": "Visa Heavy Rescue / räddningsmotor istället för brandbilar"
+}
+},
+"patient": {
+"code_possible": {
+"description": "Visar möjliga patientkoder",
+"title": "Detaljer om möjliga patientkoder"
+}
+},
+"patienter": {
+"innehåll": {
+"description": "Visar detaljer om möjliga patienter.",
+"title": "Detaljer om potentiella patienter"
+},
+"hideWhenNoNeed": {
+"description": "Döljer patientuppgifterna om det inte finns fler patienter och patienter inte dyker upp förrän slutet av uppdraget.",
+"title": "Visa endast patientinformation när det behövs"
+},
+"leva": {
+"description": "Visar högst upp på missionsassistenten hur många patienter uppdraget för närvarande har.",
+"title": "Antal nuvarande patienter"
+},
+"patient_allow_first_responder_chance": {
+"description": "Visar med hur mycket% varje fordon är tillräckligt för att behandla.",
+"title": "Första svarssannolikhet"
+},
+"title": {
+"description": "Visar rubriken \" Patienter \ "ovanför detaljerna om möjliga patienter.",
+"title": "Patienter (titel)"
+}
+},
+"plats": {
+"description": "Visar bredvid titeln vilken POI som krävs för detta uppdrag.",
+"title": "POI"
+},
+"förutsättningar": {
+"description": "Visar kraven (t.ex. 3 räddningsstationer och 4 brandstationer)",
+"title": "Förutsättningar"
+},
+"fångar": {
+"innehåll": {
+"description": "Visar detaljer om möjliga fångar.",
+"title": "Detaljer om möjliga fångar"
+},
+"leva": {
+"description": "Visar högst upp på uppdragshjälparen hur många fångar uppdraget för närvarande har.",
+"title": "Antal nuvarande fångar"
+},
+"title": {
+"description": "Visar rubriken \" Prisoners \ "ovanför detaljerna om möjliga fångar.",
+"title": "Fångar (titel)"
+}
+},
+"efterföljande": {
+"description": "Listar möjliga efterföljande uppdrag på framgång.",
+"title": "Efterföljande uppdrag"
+},
+"title": {
+"description": "Visar uppdragsnamnet, t.ex. \" Trashcan fire \ "som titel.",
+"title": "uppdragsnamn"
+},
+"typ": {
+"description": "Visar typnumret för uppdraget bredvid titeln.",
+"title": "Typnummer"
+},
+"fordon": {
+"innehåll": {
+"description": "Visar fordonsbehov.",
+"title": "Fordonskrav"
+},
+"patient_additionals": {
+"description": "Om det för närvarande finns fler än tio patienter på plats listas EMS-Chief automatiskt i början av fordonskraven.",
+"title": "Nämn EMS-chef extra"
+},
+"sortera": {
+"amount": "Antal fordringar som krävs",
+"caption": "Kravets namn",
+"description": "Definiera vad fordonskraven ska sorteras efter.",
+"percentage": "Probability",
+"title": "Sortera fordonets krav"
+},
+"title": {
+"description": "Visar rubriken \" Fordon \ "ovanför fordonets krav.",
+"title": "Fordon (titel)"
+},
+"xAfterNumber": {
+"description": "Sätter ett x bakom antalet fordon",
+"title": "x efter beloppet"
+}
+}
+}
+}
