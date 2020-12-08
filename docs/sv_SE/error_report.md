@@ -10,10 +10,10 @@ sidofält Djup: 2
 Här är en liten riktlinje för hur du skapar ett felmeddelanden optimalt.
 
 Innan du rapporterar ett fel kan det vara bra att titta här i wiki för att se om detta är en önskad funktion eller om den redan är känd. I det senare fallet kan det till och med finnas en möjlig lösning.
-::: tips
+::: tip
 Om du vill rapportera ett fel ska du alltid beskriva det så exakt som möjligt. Ju mer detaljerat ditt felmeddelande är, desto snabbare kan vi hjälpa dig.
 :::
-::: varning
+::: warning
 Observera att vi inte officiellt stöder äldre webbläsare, mobilwebbläsare och Microsoft Edge eller Internet Explorer. Stöd för dessa webbläsare är därför varken garanterat eller troligt.
 :::
 

@@ -9,7 +9,7 @@ sidofält Djup: 3
 ### Vad kostar LSS-Manager?
 LSS-Manager är ett gratis erbjudande - vi har inte för avsikt att ändra detta.
 
-::: varning donationer
+::: warning donationer
 Det finns några trevliga användare som vill donera pengar till oss. Men: LSS-Manager är och förblir gratis. Vi accepterar inte heller några donationer för detta projekt.
 
 Detta har flera anledningar:
@@ -43,7 +43,7 @@ Denna tabell är inte nödvändigtvis korrekt än och kommer att uppdateras när
 
 Eftersom vi vill behålla de senaste kodningsstandarderna hela tiden, är en modern och uppdaterad webbläsare nödvändig och rekommenderad - om bara av säkerhetsskäl, även utanför spelet.
 
-::: varning kompatibilitet
+::: warning kompatibilitet
 En kompatibilitet som anges här garanterar inte funktionalitet. Detta är endast information som samlas in och utvärderas av tredje part.
 :::
 
@@ -64,7 +64,7 @@ En kompatibilitet som anges här garanterar inte funktionalitet. Detta är endas
 </tbody>
 </table>
 
-::: varning Internet Explorer och Microsoft Edge
+::: warning Internet Explorer och Microsoft Edge
 Dessa två webbläsare kan beskrivas som "moderna barn" för en modern webbutvecklare. Det finns vissa funktioner som inte fungerar i dem eller kräver ytterligare kod.
 
 Vi ser inte poängen med att göra detta överallt och officiellt ** stöder inte dessa två webbläsare.

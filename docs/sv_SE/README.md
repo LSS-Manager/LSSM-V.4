@@ -4,7 +4,7 @@ lang: sv_SE
 sidofält Djup: 2
 ---
 
-# Wiki: gb: <Badge: text = "'LSSM V.' + ($ themeConfig.variables.versions.stable || 4) "/>
+# Wiki :sv: <Badge: text = "'LSSM V.' + ($ themeConfig.variables.versions.stable || 4) "/>
 
 * Nuvarande versioner: *
 > Stabil: <i> {{$ themeConfig.variables.versions.stable}} </i>
@@ -23,7 +23,7 @@ Genom att använda LSSM samtycker du till att vi samlar in metadata. Du kan hitt
 
 En tabell med vilken webbläsare LSSM är kompatibel finns i vår [FAQ] (faq.md # in-which-browsers-does-lss-manager-work)
 
-::: tips Använda LSSM på din mobiltelefon
+::: tip Använda LSSM på din mobiltelefon
 Officiellt stöder vi inte en mobilversion. Webbläsaren Firefox erbjuder dock möjligheten att använda tillägg även i sin mobilversion. Ändå garanterar vi inte en attraktiv design eller full funktionalitet för mobila webbläsare.
 
 Officiellt stöd för mobilwebbläsare är för närvarande ** inte ** planerat.
@@ -41,7 +41,7 @@ Opera | [Ladda ner] (https://addons.opera.com/en/extensions/details/tampermonkey
 
 För andra webbläsare kan du ladda ner Tampermonkey på [tampermonkey.net] (https://www.tampermonkey.net/).
 
-::: varning
+::: warning
 Observera att vi inte officiellt stöder äldre webbläsare, mobilwebbläsare och Microsoft Edge eller Internet Explorer. Stöd för dessa webbläsare är därför varken garanterat eller troligt.
 :::
 
