@@ -281,7 +281,7 @@ export default Vue.extend<
                     if (!this.pushedRight)
                         document
                             .querySelector(
-                                '.mission_header_info.row ~ div ~ .clearfix'
+                                '.mission_header_info.row ~ div ~ .clearfix, .mission_header_info.row ~ .clearfix'
                             )
                             ?.after(this.$el);
                     else

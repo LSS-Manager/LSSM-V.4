@@ -17,85 +17,84 @@ import { ModuleMainFunction, ModuleSettingFunction } from 'typings/Module';
 import { Color, Toggle } from 'typings/Setting';
 
 require('./natives/navTabsClicker');
-
-Vue.config.productionTip = false;
-
-const appContainer = document.createElement('div') as HTMLDivElement;
-document.body.appendChild(appContainer);
-
-window.keepAlive = true;
-
-Vue.use(VueJSModal, {
-    dynamic: true,
-    dynamicDefaults: {
-        adaptive: true,
-        scrollable: true,
-        clickToClose: true,
-    },
-    dialog: true,
-});
-Vue.use(ToggleButton);
-Vue.use(Tabs);
-Vue.use(Notifications);
-
-Vue.component('font-awesome-icon', FontAwesomeIcon);
-utils(Vue);
-
-window[PREFIX] = new Vue({
-    store: store(Vue),
-    i18n: i18n(Vue),
-    render: h => h(LSSMV4),
-}).$mount(appContainer);
-
-export const LSSM = window[PREFIX] as Vue;
-
-if (window.location.pathname === '/') {
-    window.console.info(
-        `Running %cLSSM%c in Version %c${VERSION}%c`,
-        'font-weight: bold;',
-        'font-weight: normal;',
-        'font-style: italic;'
-    );
-
-    const indicatorWrapper = document.createElement('li') as HTMLLIElement;
-    document
-        .querySelector('.navbar-default .navbar-right')
-        ?.appendChild(indicatorWrapper);
-
-    LSSM.$store
-        .dispatch('settings/register', {
-            moduleId: 'global',
-            settings: {
-                labelInMenu: <Toggle>{
-                    type: 'toggle',
-                    default: false,
-                },
-                allowTelemetry: <Toggle>{
-                    type: 'toggle',
-                    default: true,
-                },
-                iconBg: <Color>{
-                    type: 'color',
-                    default: LSSM.$store.state.policechief
-                        ? '#004997'
-                        : '#C9302C',
-                },
-                iconBgAsNavBg: <Toggle>{
-                    type: 'toggle',
-                    default: false,
-                },
-            },
-        })
-        .then(() => {
-            new LSSM.$vue({
-                store: LSSM.$store,
-                i18n: LSSM.$i18n,
-                render: h => h(LSSMMenu),
-            }).$mount(indicatorWrapper);
-        });
-}
-
 (async () => {
+    Vue.config.productionTip = false;
+
+    const appContainer = document.createElement('div') as HTMLDivElement;
+    document.body.appendChild(appContainer);
+
+    window.keepAlive = true;
+
+    Vue.use(VueJSModal, {
+        dynamic: true,
+        dynamicDefaults: {
+            adaptive: true,
+            scrollable: true,
+            clickToClose: true,
+        },
+        dialog: true,
+    });
+    Vue.use(ToggleButton);
+    Vue.use(Tabs);
+    Vue.use(Notifications);
+
+    Vue.component('font-awesome-icon', FontAwesomeIcon);
+    utils(Vue);
+
+    const LSSM = new Vue({
+        store: store(Vue),
+        i18n: await i18n(Vue),
+        render: h => h(LSSMV4),
+    }).$mount(appContainer);
+
+    window[PREFIX] = LSSM;
+
+    if (window.location.pathname === '/') {
+        window.console.info(
+            `Running %cLSSM%c in Version %c${VERSION}%c`,
+            'font-weight: bold;',
+            'font-weight: normal;',
+            'font-style: italic;'
+        );
+
+        const indicatorWrapper = document.createElement('li') as HTMLLIElement;
+        document
+            .querySelector('.navbar-default .navbar-right')
+            ?.appendChild(indicatorWrapper);
+
+        LSSM.$store
+            .dispatch('settings/register', {
+                moduleId: 'global',
+                settings: {
+                    labelInMenu: <Toggle>{
+                        type: 'toggle',
+                        default: false,
+                    },
+                    allowTelemetry: <Toggle>{
+                        type: 'toggle',
+                        default: true,
+                    },
+                    iconBg: <Color>{
+                        type: 'color',
+                        default: LSSM.$store.state.policechief
+                            ? '#004997'
+                            : '#C9302C',
+                    },
+                    iconBgAsNavBg: <Toggle>{
+                        type: 'toggle',
+                        default: false,
+                    },
+                },
+            })
+            .then(() => {
+                new LSSM.$vue({
+                    store: LSSM.$store,
+                    i18n: LSSM.$i18n,
+                    render: h => h(LSSMMenu),
+                }).$mount(indicatorWrapper);
+            });
+    }
+
     if (window.location.pathname.match(/^\/users\//)) return;
     LSSM.$store.commit(
         'setRegisteredState',
@@ -111,6 +110,23 @@ if (window.location.pathname === '/') {
             .dispatch('api/request', { url: '/api/vehicle_states' })
             .then(res => res.json())
     );
+    for (const moduleId of MODULES_OF_LOCALE[LSSM.$store.state.lang]) {
+        try {
+            LSSM.$i18n.mergeLocaleMessage(LSSM.$store.state.lang, {
+                modules: {
+                    [moduleId]: (
+                        await import(
+                            /* webpackChunkName: "modules/i18n/[request]" */
+                            /* webpackInclude: /[\\/]+modules[\\/]+.*?[\\/]+i18n[\\/]+.*?\.root/ */
+                            `./modules/${moduleId}/i18n/${LSSM.$store.state.lang}.root`
+                        )
+                    ).default,
+                },
+            });
+        } catch {
+            // if no i18n exists, do nothing
+        }
+    }
     if (window.location.pathname === '/') {
         telemetry(LSSM, settingId => {
             return LSSM.$store.dispatch('settings/getSetting', {
@@ -188,14 +204,14 @@ if (window.location.pathname === '/') {
                     )
                 ) {
                     try {
-                        LSSM.$i18n.mergeLocaleMessage(BUILD_LANG, {
+                        LSSM.$i18n.mergeLocaleMessage(LSSM.$store.state.lang, {
                             modules: {
                                 [moduleId]: (
                                     await import(
                                         /* webpackChunkName: "modules/i18n/[request]" */
                                         /* webpackInclude: /[\\/]+modules[\\/]+.*?[\\/]+i18n[\\/]+/ */
                                         /* webpackExclude: /(telemetry|releasenotes|support)|\.root\./ */
-                                        `./modules/${moduleId}/i18n/${BUILD_LANG}`
+                                        `./modules/${moduleId}/i18n/${LSSM.$store.state.lang}`
                                     )
                                 ).default,
                             },
