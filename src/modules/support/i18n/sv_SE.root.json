@@ -1,7 +1,7 @@
 {
-"empty": "Denna chatt är tom. Det kan antingen bero på att du ännu inte har skrivit ett meddelande till supporten eller att alla dina tidigare problem har lösts. I det senare fallet sparas dina meddelanden fortfarande och kommer att visas igen som så snart du skriver till supporten igen. Med vänliga hälsningar, ditt LSS Manager-team! ",
-"input": "Ditt meddelande till LSS Manager-teamet",
-"name": "LSSM-Support",
-"note": "Obs: Detta är <strong>inget</strong> stöd för spelet, endast LSS-Manager!",
-"send": "Skicka"
+	"empty": "Denna chatt är tom. Det kan antingen bero på att du ännu inte har skrivit ett meddelande till supporten eller att alla dina tidigare problem har lösts. I det senare fallet sparas dina meddelanden fortfarande och kommer att visas igen som så snart du skriver till supporten igen. Med vänliga hälsningar, ditt LSS Manager-team! ",
+	"input": "Ditt meddelande till LSS Manager-teamet",
+	"name": "LSSM-Support",
+	"note": "Obs: Detta är <strong>inget</strong> stöd för spelet, endast LSS-Manager!",
+	"send": "Skicka"
 }

@@ -1,35 +1,35 @@
 {
-"extensionTitle": "{caption} (upp till {n} gånger)",
-"tabs": {
-"byggnader": "Byggnader",
-"schoolings": "Courses",
-"fordon": "Fordon"
-},
-"titles": {
-"byggnader": {
-"caption": "Byggnadstyp",
-"kostnad",
-"extensions": "Extensions",
-"levelcost": "Kostnader för expansionsstegen",
-"maxBuildings": "Gräns",
-"maxLevel": "maximal expansionsnivå",
-"special": "Specials",
-"startPersonnel": "Starta personal",
-"startVehicles": "Möjliga startfordon"
-},
-"schoolings": {
-"caption": "Kursnamn",
-"duration": "Training period",
-"required_for": "Krävs för"
-},
-"vehicles": {
-"caption": "Fordonstyp",
-"kostnad",
-"maxPersonnel": "maximal personal",
-"minPersonnel": "minimipersonal",
-"schooling": "Education",
-"special": "Specials",
-"wtank": "Vattentank"
-}
-}
+	"extensionTitle": "{caption} (upp till {n} gånger)",
+	"tabs": {
+		"byggnader": "Byggnader",
+		"fordon": "Fordon",
+		"schoolings": "Courses"
+	},
+	"titles": {
+		"byggnader": {
+			"caption": "Byggnadstyp",
+			"cost": "kostnad",
+			"extensions": "Extensions",
+			"levelcost": "Kostnader för expansionsstegen",
+			"maxBuildings": "Gräns",
+			"maxLevel": "maximal expansionsnivå",
+			"special": "Specials",
+			"startPersonnel": "Starta personal",
+			"startVehicles": "Möjliga startfordon"
+		},
+		"schoolings": {
+			"caption": "Kursnamn",
+			"duration": "Training period",
+			"required_for": "Krävs för"
+		},
+		"vehicles": {
+			"caption": "Fordonstyp",
+			"cost": "kostnad",
+			"maxPersonnel": "maximal personal",
+			"minPersonnel": "minimipersonal",
+			"schooling": "Education",
+			"special": "Specials",
+			"wtank": "Vattentank"
+		}
+	}
 }

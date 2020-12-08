@@ -1,15 +1,15 @@
 {
-"all": "Alla",
-"amount": "Beloppskurser",
-"open": "Open Courses",
-"own": "Kurser med deltagare",
-"schooling": "Course",
-"platser": "Antal platser",
-"titles": {
-"end": "Tid kvar",
-"name": "Namn",
-"owner": "Användare",
-"price": "Pris",
-"platser": "Gratis platser"
-}
+	"all": "Alla",
+	"amount": "Beloppskurser",
+	"open": "Open Courses",
+	"own": "Kurser med deltagare",
+	"platser": "Antal platser",
+	"schooling": "Course",
+	"titles": {
+		"end": "Tid kvar",
+		"name": "Namn",
+		"owner": "Användare",
+		"platser": "Gratis platser",
+		"price": "Pris"
+	}
 }

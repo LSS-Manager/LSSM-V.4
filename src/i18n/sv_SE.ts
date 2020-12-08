@@ -1,6 +1,5 @@
 // import {Building} from 'typings/Building';
 
-const moduleRootFiles = require.context('../', true, MODULE_ROOT_I18N_FILES);
 const furtherFiles = require.context('./sv_SE/', true, /.*(\/index)?\.js(on)?/);
 const modules = {
     appstore: {
@@ -13,7 +12,7 @@ const modules = {
         closeVarning: {
             title: 'Osparade ändringar',
             text:
-                "Ändringar har gjorts i AppStore som inte har sparats. Spara eller återställ för att closea Appstore.",
+                'Ändringar har gjorts i AppStore som inte har sparats. Spara eller återställ för att closea Appstore.',
             close: 'close',
         },
     },
@@ -42,7 +41,7 @@ const modules = {
         closeVarning: {
             title: 'Osparade ändringar',
             text:
-                "Ändringar har gjorts i parametrar som inte har sparats. Utför en Återställ, Avbryt eller Spara för att closea parametrarna.",
+                'Ändringar har gjorts i parametrar som inte har sparats. Utför en Återställ, Avbryt eller Spara för att closea parametrarna.',
             close: 'close',
         },
         changeList: {
@@ -51,31 +50,27 @@ const modules = {
         },
     },
 } as { [moduleId: string]: { [key: string]: unknown } };
-moduleRootFiles
-    .nycklar ()
-    .forEach(key => (modules[key.split('/')[2]] = moduleRootFiles(key)));
 
-const t = {} as {[key: string]: unknown};
+const t = {} as { [key: string]: unknown };
 
 furtherFiles
     .keys()
     .forEach(
-       key => (t[key.split('/')[1].replace(/\..*$/, '')] = furtherFiles(key))
-//);
+        key => (t[key.split('/')[1].replace(/\..*$/, '')] = furtherFiles(key))
+    );
 
 export default {
     modules,
     ...t,
     error: {
         title: 'LSS Manager: Error',
-        msg:
-            "Om detta fel inträffar ofta, rapportera det till LSSM-teamet!",
+        msg: 'Om detta fel inträffar ofta, rapportera det till LSSM-teamet!',
     },
     warningar: {
         version: {
             title: 'Fel version av LSS Manager',
             text:
-                "Kära användare, tyvärr har du inte den senaste versionen av LSS Manager. Den senaste versionen är {version} och du har {aktuell}. Ladda om spelet genom att rensa cacheminnet (Ctrl + F5 eller kommando + R på Apple), detta bör lösa problemet. Om problemet kvarstår, vänligen rapportera det till teamet! Om du använder fel version kan vi inte garantera att LSS-Manager fungerar till fullo. ",
+                'Kära användare, tyvärr har du inte den senaste versionen av LSS Manager. Den senaste versionen är {version} och du har {aktuell}. Ladda om spelet genom att rensa cacheminnet (Ctrl + F5 eller kommando + R på Apple), detta bör lösa problemet. Om problemet kvarstår, vänligen rapportera det till teamet! Om du använder fel version kan vi inte garantera att LSS-Manager fungerar till fullo. ',
             close: 'close detta meddelande och ladda om spelet (rekommenderas)',
             avbryta: 'close detta meddelande utan att ladda om spelet',
         },
@@ -83,26 +78,26 @@ export default {
     globalSettings: {
         namn: 'Allmänna inställningar',
         labelInMenu: {
-            title: "title istället för en ikon i menyn",
+            title: 'title istället för en ikon i menyn',
             description:
                 'En enkel title i navigeringsfältet istället för LSSM-logotypen',
         },
         allowTelemetry: {
             description:
-                'Kontrollera om LSS-Manager får skicka data, vilket hjälper oss att utveckla detta tillägg.',
-            title: "Tillåt telemetri",
+                'Kontrollera om LSS-Manager får skicka data, vilket hjälper oss att utveckla detta extensions.',
+            title: 'Tillåt telemetri',
         },
         iconBg: {
-            description: "Ändra bakgrundsfärgen på LSSM-ikonen!",
-            title: "LSSM ikon bakgrundsfärg",				   
+            description: 'Ändra bakgrundsfärgen på LSSM-ikonen!',
+            title: 'LSSM ikon bakgrundsfärg',
         },
         iconBgAsNavBg: {
             description:
-                "färga hela navigeringsfältet med bakgrundsfärgen på LSSM-ikonen!",
+                'färga hela navigeringsfältet med bakgrundsfärgen på LSSM-ikonen!',
             title: 'färga navigeringsfältet',
         },
     },
-    vehicle: {
+    vehicles: {
         0: {
             caption: 'BAS 1 - Släckbil',
             color: '# cc0000',
@@ -129,8 +124,7 @@ export default {
             minPersonal: 1,
             maxPersonal: 3,
             wtank: 0,
-            special:
-			"Krävs när du har byggt 3 brandstationer,
+            special: 'Krävs när du har byggt 3 brandstationer',
         },
         3: {
             caption: 'Brandbefäl',
@@ -140,8 +134,7 @@ export default {
             minPersonal: 3,
             maxPersonal: 3,
             wtank: 0,
-            special:
-            "Krävs när du har byggt 6 brandstationer",
+            special: 'Krävs när du har byggt 6 brandstationer',
         },
         4: {
             caption: 'Lastväxlare',
@@ -151,8 +144,7 @@ export default {
             minPersonal: 2,
             maxPersonal: 3,
             wtank: 0,
-            special:
-            "Krävs när du har byggt 4 brandstationer",
+            special: 'Krävs när du har byggt 4 brandstationer',
         },
         5: {
             caption: 'Ambulans',
@@ -161,7 +153,7 @@ export default {
             credits: 5_000,
             minPersonal: 1,
             maxPersonal: 2,
-            wtank: 0,			  
+            wtank: 0,
         },
         6: {
             caption: 'Tankbil',
@@ -171,8 +163,7 @@ export default {
             minPersonal: 1,
             maxPersonal: 3,
             wtank: 0,
-            special:
-            "Krävs när du har byggt 7 brandstationer",
+            special: 'Krävs när du har byggt 7 brandstationer',
         },
         7: {
             caption: 'Kemskyddsenhet',
@@ -182,10 +173,8 @@ export default {
             minPersonal: 1,
             maxPersonal: 6,
             wtank: 0,
-            special:
-            "Krävs när du har byggt 11 brandstationer",
-			"Kräver specialutbildning (Farligt gods)",
-            schooling: "Brandstation - Farligt gods",
+            special: 'Krävs när du har byggt 11 brandstationer',
+            schooling: 'Brandstation - Farligt gods',
             shownSchooling: 'Farligt gods',
         },
         8: {
@@ -195,7 +184,7 @@ export default {
             credits: 5_000,
             minPersonal: 2,
             maxPersonal: 2,
-            wtank: 0,				 
+            wtank: 0,
         },
         9: {
             caption: 'Ambulanshelikopter',
@@ -204,7 +193,7 @@ export default {
             credits: 300_000,
             minPersonal: 3,
             maxPersonal: 5,
-            wtank: 0,						 
+            wtank: 0,
         },
         10: {
             caption: 'Luftvehicle',
@@ -213,8 +202,7 @@ export default {
             credits: 11_680,
             minPersonal: 1,
             maxPersonal: 3,
-			särsklid:
-			"Krävs när du har byggt 5 brandstationer",					  
+            special: 'Krävs när du har byggt 5 brandstationer',
         },
         11: {
             caption: 'Räddningsledning',
@@ -224,11 +212,9 @@ export default {
             minPersonal: 1,
             maxPersonal: 6,
             wtank: 0,
-            schooling: "Brandstation - Mobil ledning",
+            schooling: 'Brandstation - Mobil ledning',
             shownSchooling: 'Mobilt ledningsvehicle',
-            special:
-                "Nödvändigt när du har byggt 13 brandmanbaser",
-				"Kräver specialutbildning (Mobil ledning)",
+            special: 'Nödvändigt när du har byggt 13 brandmanbaser',
         },
         12: {
             caption: 'Räddningsbil',
@@ -236,18 +222,18 @@ export default {
             coins: 25,
             credits: 19_000,
             minPersonal: 2,
-            maxPersonal: 6,		  
+            maxPersonal: 6,
         },
         13: {
             caption: 'Polishelikopter',
-            coins: '#000f89',
+            color: '#000f89',
             coins: 30,
             credits: 300_000,
             minPersonal: 2,
             maxPersonal: 4,
             wtank: 0,
-            schooling: "Polisstation - Pilotlicens",
-            shownSchooling: 'Police Aviation',			  
+            schooling: 'Polisstation - Pilotlicens',
+            shownSchooling: 'Police Aviation',
         },
         14: {
             caption: 'Bepansrat insatsvehicle',
@@ -258,7 +244,7 @@ export default {
             maxPersonal: 8,
             wtank: 0,
             schooling: 'Polis - Insatspolisutbildning',
-            shownSchooling: 'Insatspolisutbildning',						  
+            shownSchooling: 'Insatspolisutbildning',
         },
         15: {
             caption: 'Hundenhet',
@@ -268,8 +254,8 @@ export default {
             minPersonal: 1,
             maxPersonal: 2,
             wtank: 0,
-			skolgång: 'Polis - Hundenhet',
-			shownSchooling: 'Hundenhet',
+            schooling: 'Polis - Hundenhet',
+            shownSchooling: 'Hundenhet',
             special: 'Krävs från 6 polisstationer',
         },
         16: {
@@ -280,8 +266,8 @@ export default {
             minPersonal: 1,
             maxPersonal: 1,
             wtank: 0,
-            skolgång: 'Polis - MC-Polisutbildning',
-            shownschooling: 'MC-Polisutbildning',							  
+            schooling: 'Polis - MC-Polisutbildning',
+            shownschooling: 'MC-Polisutbildning',
         },
         17: {
             caption: 'Insatsvehicle',
@@ -291,21 +277,21 @@ export default {
             minPersonal: 0,
             maxPersonal: 0,
             wtank: 0,
-            skolgång: 'Polis - Insatspolisutbildning)',
+            schooling: 'Polis - Insatspolisutbildning)',
             shownSchooling: 'Insatspolisutbildning)',
-			special: 'Krävs när du har byggt 8 polisstationer',
+            special: 'Krävs när du har byggt 8 polisstationer',
         },
         18: {
             caption: 'Dykbil',
             color: '#2229aa',
             coins: 25,
             credits: 19_000,
-			minPersonal: 1,
-            maxPersonal: 6,			
-            wtank: 0,						 				   
+            minPersonal: 1,
+            maxPersonal: 6,
+            wtank: 0,
         },
         20: {
-            caption: "Liten räddningsbåt",
+            caption: 'Liten räddningsbåt',
             color: '#2230aa',
             coins: 12,
             credits: 6_000,
@@ -313,7 +299,7 @@ export default {
             maxPersonal: 0,
             wtank: 0,
             special:
-            'Tillbehörsbåt som kan bogseras med verktygenheten. Kräver att Liten räddningsbåt-utbildad personal ska fungera. <br> Båttrailern kan inte tilldelas personal, <br> antingen tilldela din utbildade personal till dragvehicleet eller tilldela dem till en separat enhet på väg.
+                'Tillbehörsbåt som kan bogseras med verktygenheten. Kräver att Liten räddningsbåt-utbildad personal ska fungera. <br> Båttrailern kan inte tilldelas personal, <br> antingen tilldela din utbildade personal till dragvehicleet eller tilldela dem till en separat enhet på väg.',
         },
         21: {
             caption: 'Terrängbil',
@@ -321,9 +307,8 @@ export default {
             coins: 19,
             credits: 19_000,
             minPersonal: 3,
-            maxPersonal: 5,					 
-            special:
-                "",
+            maxPersonal: 5,
+            special: '',
         },
         22: {
             caption: 'Bandvagn',
@@ -332,8 +317,7 @@ export default {
             credits: 8_000,
             minPersonal: 1,
             maxPersonal: 3,
-            special:
-                "",
+            special: '',
         },
         23: {
             caption: 'ATV',
@@ -342,8 +326,7 @@ export default {
             credits: 5_000,
             minPersonal: 1,
             maxPersonal: 2,
-            special:
-                "",				
+            special: '',
         },
         24: {
             caption: 'Polishäst',
@@ -351,9 +334,8 @@ export default {
             coins: 25,
             credits: 10_000,
             minPersonal: 0,
-            maxPersonal: 0,			
-            special:
-                "Nödvändigt dragvehicle (Radiobil)",				 
+            maxPersonal: 0,
+            special: 'Nödvändigt dragvehicle (Radiobil)',
         },
     },
     buildings: {
@@ -362,14 +344,15 @@ export default {
             color: '#bb0000',
             coins: 30,
             credits: 100_000,
-            tillägg: [
+            extensions: [
                 {
-                    caption: "Ambulansutbyggnad",
+                    caption: 'Ambulansutbyggnad',
                     credits: 50_000,
                     coins: 20,
                     varaktighet: '7 dagar',
                 },
-				caption: "Skogsexpansionen",		  
+                {
+                    caption: 'Skogsexpansionen',
                     credits: 50_000,
                     coins: 13,
                     varaktighet: '7 dagar',
@@ -383,41 +366,41 @@ export default {
             ],
             levelcost: ['1. 10.000 ', '2. 50.000', '3.-16. 100.000'],
             maxBuildings: '4.400',
-            maxNivå: 16,
+            maxLevel: 16,
             special:
-                "Priset på dina positioner ökar när du äger 25. Så hastigheten på progressionen är konstant när du har en stor inkomstström på dessa spelnivåer. Den nuvarande formeln för att beräkna priset på positioner är följande: <kod> 100.000+ (200.000 * LOGG <sub> 2 </sub> (Antal befintliga brandstationer - 22)) </code>. ',
+                'Priset på dina positioner ökar när du äger 25. Så hastigheten på progressionen är konstant när du har en stor inkomstström på dessa spelnivåer. Den nuvarande formeln för att beräkna priset på positioner är följande: <kod> 100.000+ (200.000 * LOGG <sub> 2 </sub> (Antal befintliga brandstationer - 22)) </code>.',
             startPersonal: 10,
             startVehicles: ['BAS 1 - Släckbil', 'BAS 2 - Släckbil'],
             maxBuildingsFunction: (): number => 4_400,
         },
         1: {
-            caption: "Brandskola",
+            caption: 'Brandskola',
             color: '#992222',
             coins: 50,
             credits: 500_000,
-            extensions: new Array (3).fill({
+            extensions: new Array(3).fill({
                 caption: 'Inga fler klassrum',
                 credits: 400_000,
                 coins: 40,
                 varaktighet: '7 dagar',
             }),
-            nivåkostnad: [],
+            levelcost: [],
             maxBuildings: 'Ingen gräns',
-            maxNivå: 0,
+            maxLevel: 0,
             special:
-                "CFO och administratörer kan förbättra byggnaden genom Alliance Bank. <br> Utbildningsledare och administratörer kan initiera utbildningar.",
+                'CFO och administratörer kan förbättra byggnaden genom Alliance Bank. <br> Utbildningsledare och administratörer kan initiera utbildningar.',
             startPersonal: 0,
-            startVehicles: [],				  
+            startVehicles: [],
         },
         2: {
             caption: 'Ambulansstation',
             color: '#ffa500',
             coins: 35,
             credits: 200_000,
-            tillägg: [],
+            extensions: [],
             levelcost: ['1. 10.000', '2. 50.000 ', '3.-14. 100.000'],
             maxBuildings: 'Ingen gräns',
-            maxNivå: 14,
+            maxLevel: 14,
             special: '',
             startPersonal: 3,
             startVehicles: ['Ambulans'],
@@ -427,15 +410,15 @@ export default {
             color: '#bbe944',
             coins: 25,
             credits: 200_000,
-            tillägg: [
+            extensions: [
                 {
-                    caption: "Allmänt internt",
+                    caption: 'Allmänt internt',
                     credits: 10_000,
                     coins: 10,
                     varaktighet: '7 dagar',
                 },
                 {
-                    caption: "Allmän kirurg",
+                    caption: 'Allmän kirurg',
                     credits: 10_000,
                     coins: 10,
                     varaktighet: '7 dagar',
@@ -444,7 +427,7 @@ export default {
                     caption: 'Gynekologi',
                     credits: 70_000,
                     coins: 15,
-					varaktighet: '7 dagar',
+                    varaktighet: '7 dagar',
                 },
                 {
                     caption: 'Urologi',
@@ -477,7 +460,7 @@ export default {
                     varaktighet: '7 dagar',
                 },
                 {
-                    caption: "Hjärtkirurgi",
+                    caption: 'Hjärtkirurgi',
                     credits: 70_000,
                     coins: 15,
                     varaktighet: '7 dagar',
@@ -485,44 +468,43 @@ export default {
             ],
             levelcost: ['1.-20. 19.000 Credits / 11 coins'],
             maxBuildings: 'Ingen gräns',
-            maxNivå: 20,
+            maxLevel: 20,
             special:
-                "Ekonomichefen och administratörerna kan bygga och utöka sjukhusgranserna vid alliansbanken",
+                'Ekonomichefen och administratörerna kan bygga och utöka sjukhusgranserna vid alliansbanken',
             startPersonal: 0,
             startVehicles: [],
         },
         5: {
-            caption: "Helikopterstation",
+            caption: 'Helikopterstation',
             color: '#e7ad2f',
             coins: 50,
             credits: 1_000_000,
-            tillägg: [],
-            nivåkostnad: [],
+            extensions: [],
+            levelcost: [],
             maxBuildings: 'se Specialfunktioner',
-            maxNivå: 0,
-            special:
-                'Max antal stationer: antal buildings dividerat med 25.',
+            maxLevel: 0,
+            special: 'Max antal stationer: antal buildings dividerat med 25.',
             startPersonal: 0,
             startVehicles: [],
             maxBuildingsFunction: (buildingsAmountTotal: number): number =>
-                buildingsAmountTotal <125
+                buildingsAmountTotal < 125
                     ? 4
-                    : Math. Våning (buildingsAmountTotal / 25),
+                    : Math.floor(buildingsAmountTotal / 25),
         },
         6: {
-            caption: "Polisstation",
+            caption: 'Polisstation',
             color: '#007700',
             coins: 35,
             credits: 100_000,
-            tillägg: [
+            extensions: [
                 {
                     caption: 'Fängelsecell',
                     credits: 25_000,
                     coins: 5,
                     varaktighet: '7 dagar',
                 },
-                ... new Array (9) .fill ({
-                    caption: "Fler celler",
+                ...new Array(9).fill({
+                    caption: 'Fler celler',
                     credits: 25_000,
                     coins: 5,
                     varaktighet: '7 dagar',
@@ -530,71 +512,71 @@ export default {
             ],
             levelcost: ['1. 10.000', '2. 50 000', '3.-14. 100.000'],
             maxBuildings: '1.700 Polisstation',
-            maxNivå: 14,
+            maxLevel: 14,
             startPersonal: 2,
             startVehicles: ['Radiobil'],
             maxBuildingsFunction: (): number => 1_700,
         },
         7: {
-            caption: "Sos Alarm",
+            caption: 'Sos Alarm',
             color: '#24c3ae',
             coins: 0,
             credits: 0,
-            tillägg: [],
-            nivåkostnad: [],
-            maxBuildings: "En CTA för varje 25 buildings",
-            maxNivå: 0,
-            special: "CTA är det administrativa centrumet.",
+            extensions: [],
+            levelcost: [],
+            maxBuildings: 'En CTA för varje 25 buildings',
+            maxLevel: 0,
+            special: 'CTA är det administrativa centrumet.',
             startPersonal: 0,
             startVehicles: [],
             maxBuildingsFunction: (buildingsAmountTotal: number): number =>
-                Math.floor (buildingsAmountTotal / 25) + 1,
+                Math.floor(buildingsAmountTotal / 25) + 1,
         },
         8: {
             caption: 'Polisskola',
             color: '#225522',
             coins: 50,
             credits: 500_000,
-...new Array(3).fill({
-               caption: 'fler klassrum',
-               credits: 400_000,
-               coins: 40,
+            ...new Array(3).fill({
+                caption: 'fler klassrum',
+                credits: 400_000,
+                coins: 40,
                 varaktighet: '7 dagar',
             }),
-            nivåkostnad: [],
+            levelcost: [],
             maxBuildings: 'Ingen gräns',
-            maxNivå: 0,
+            maxLevel: 0,
             special:
-                "Finansministrar och administratörer kan (utöka) föreningspolisskolor med hjälp av poäng från föreningens finans. Kursmästare och administratörer kan starta kurser på föreningens polisskolor.",
+                'Finansministrar och administratörer kan (utöka) föreningspolisskolor med hjälp av poäng från föreningens finans. Kursmästare och administratörer kan starta kurser på föreningens polisskolor.',
             startPersonal: 0,
             startVehicles: [],
         },
         13: {
-            caption: "Polisens helikopterstation",
+            caption: 'Polisens helikopterstation',
             color: '#148423',
             coins: 50,
             credits: 1_000_000,
-            tillägg: [],
+            extensions: [],
             levelcost: ['1. 1.000.000 Credits / 50 coins'],
             maxBuildings: 'se Specialfunktioner',
-            maxNivå: 1,
+            maxLevel: 1,
             special:
-                'Upp till 7 landningsplatser kan byggas per station (expansionssteg). Upp till den 125: e byggnaden (av alla typer) totalt max. Fyra landningsplatser kommer att byggas. Sedan ökar antalet med 1 var 25: e byggnad (börjar vid 125: e).",
+                'Upp till 7 landningsplatser kan byggas per station (expansionssteg). Upp till den 125: e byggnaden (av alla typer) totalt max. Fyra landningsplatser kommer att byggas. Sedan ökar antalet med 1 var 25: e byggnad (börjar vid 125: e).',
             startPersonal: 0,
             startVehicles: [],
             maxBuildingsFunction: (buildingsAmountTotal: number): number =>
-                buildingsAmountTotal <125
+                buildingsAmountTotal < 125
                     ? 4
-                    : Math. Våning (buildingsAmountTotal / 25),
+                    : Math.floor(buildingsAmountTotal / 25),
         },
         14: {
             caption: 'Uppsamlingsområde',
             coins: 0,
             credits: 0,
-            tillägg: [],
-            nivåkostnad: [],
+            extensions: [],
+            levelcost: [],
             maxbuildings: 1,
-            maxNivå: 0,
+            maxLevel: 0,
             special:
                 'Du kan bygga mittzonen gratis. Detta fungerar som en plattform och låter dig parkera och tillfälligt distribuera dina enheter. Det försvinner efter 24 timmar. Välj den eller de enheter du vill distribuera här. ',
             startPersonal: 0,
@@ -605,44 +587,44 @@ export default {
             caption: 'Fängelse',
             coins: 'x',
             credits: 100_000,
-            tillägg: [
+            extensions: [
                 {
                     caption: 'Fängelsecell',
                     credits: 25_000,
                     coins: 5,
                     varaktighet: '7 dagar',
                 },
-                ... new Array (9) .fill ({
-                    caption: "Fler celler",
+                ...new Array(9).fill({
+                    caption: 'Fler celler',
                     credits: 25_000,
                     coins: 5,
                     varaktighet: '7 dagar',
                 }),
             ],
-            nivåkostnad: [],
+            levelcost: [],
             maxBuildings: 'Ingen gräns',
-            maxNivå: 0,
+            maxLevel: 0,
             special:
-                "Denna byggnad kan endast byggas av CFO eller administratörer med Alliance Bank-krediter. Celler är tillgängliga för alla alliansmedlemmar.",
+                'Denna byggnad kan endast byggas av CFO eller administratörer med Alliance Bank-krediter. Celler är tillgängliga för alla alliansmedlemmar.',
             startPersonal: 0,
             startVehicles: [],
         },
         18: {
-            caption: "",				 
+            caption: '',
             color: '#aa1111',
             coins: 25,
             credits: 50_000,
-            tillägg: [],
-            nivåkostnad: [
+            extensions: [],
+            levelcost: [
                 '1. 10.000 ',
                 '2. 50.000 ',
                 '3.-5. 100_000',
-                "Det här är en liten kasern. Om du vill bygga utbuildings eller öka antalet vehiclesplatser måste du uppgradera den för att göra den till en vanlig kasern. Denna process tar 24 timmar.",
+                'Det här är en liten kasern. Om du vill bygga utbuildings eller öka antalet vehiclesplatser måste du uppgradera den för att göra den till en vanlig kasern. Denna process tar 24 timmar.',
             ],
             maxBuildings: '4400 brandstationer',
-            maxNivå: 5,
+            maxLevel: 5,
             special:
-                "Priset på dina positioner ökar när du äger 25. Så hastigheten på progressionen är konstant när du har en stor inkomstström på dessa spelnivåer. Den nuvarande formeln för att beräkna priset på positioner är följande: <kod> 100.000+ (200.000 * LOGG <sub> 2 </sub> (Antal befintliga brandstationer - 22)) </code>. ',
+                'Priset på dina positioner ökar när du äger 25. Så hastigheten på progressionen är konstant när du har en stor inkomstström på dessa spelnivåer. Den nuvarande formeln för att beräkna priset på positioner är följande: <kod> 100.000+ (200.000 * LOGG <sub> 2 </sub> (Antal befintliga brandstationer - 22)) </code>.',
             startPersonal: 10,
             startVehicles: ['BAS 1 - Släckbil', 'BAS 2 - Släckbil'],
             maxBuildingsFunction: (): number => 4_400,
@@ -652,29 +634,29 @@ export default {
             color: '#116611',
             coins: 25,
             credits: 50_000,
-            tillägg: [
+            extensions: [
                 {
-                caption: 'Fängelsecell',	
-                coins: 5,
+                    caption: 'Fängelsecell',
+                    coins: 5,
                     varaktighet: '7 dagar',
                 },
-                ... ny matris (1) .fyll ({
-                    caption: "Fler celler",
+                ...new Array(1).fill({
+                    caption: 'Fler celler',
                     credits: 25_000,
                     coins: 5,
                     varaktighet: '7 dagar',
-            }),
+                }),
             ],
-            nivåkostnad: [
+            levelcost: [
                 '1. 10.000',
                 '2. 50.000',
                 '3.-4. 100.000',
-                'Det här är en liten polisstation. Om du vill utöka det eller bygga fler tillägg måste du bygga om det till en vanlig polisstation. Denna process tar 24 timmar. ',
+                'Det här är en liten polisstation. Om du vill utöka det eller bygga fler extensions måste du bygga om det till en vanlig polisstation. Denna process tar 24 timmar. ',
             ],
             maxBuildings: '1.700 polisstation',
-            maxNivå: 4,
+            maxLevel: 4,
             special:
-                "Priset på dina positioner ökar när du äger 25. Så hastigheten på progressionen är konstant när du har en stor inkomstström på dessa spelnivåer. Den nuvarande formeln för att beräkna priset på positioner är följande: <kod> 100.000+ (200.000 * LOGG <sub> 2 </sub> (Antal befintliga brandstationer - 22)) </code>. ',
+                'Priset på dina positioner ökar när du äger 25. Så hastigheten på progressionen är konstant när du har en stor inkomstström på dessa spelnivåer. Den nuvarande formeln för att beräkna priset på positioner är följande: <kod> 100.000+ (200.000 * LOGG <sub> 2 </sub> (Antal befintliga brandstationer - 22)) </code>.',
             startPersonal: 2,
             startVehicles: ['Radarbil'],
             maxBuildingsFunction: (): number => 1_700,
@@ -683,23 +665,23 @@ export default {
             caption: 'Ambulansstation (liten)',
             color: '#eeb611',
             coins: 25,
-			credits: 100_000,
-            tillägg: [],
-            nivåkostnad: [
+            credits: 100_000,
+            extensions: [],
+            levelcost: [
                 '1. 10.000',
                 '2. 50.000',
                 '3.-5. 100.000',
-                'Det här är en liten ambulansstation. Om du vill utöka det eller bygga fler tillägg måste du bygga om det till en vanlig Paramedic Post. Denna process tar 24 timmar. ',
+                'Det här är en liten ambulansstation. Om du vill utöka det eller bygga fler extensions måste du bygga om det till en vanlig Paramedic Post. Denna process tar 24 timmar. ',
             ],
             maxBuildings: 'Ingen gräns',
-            maxNivå: 5,
+            maxLevel: 5,
             special: '',
             startPersonal: 3,
             startVehicles: ['Ambulans'],
         },
     },
     buildingCategories: {
-        Brandmän: {
+        ['Brandmän']: {
             buildings: [0, 1, 18],
             color: '#ff2d2d',
         },
@@ -711,44 +693,44 @@ export default {
             buildings: [6, 8, 13, 19],
             color: '#00ac00',
         },
-        Övrig: {
+        ['Övrig']: {
             buildings: [7, 14],
             color: '#02a18c',
         },
     },
     vehicleskategorier: {
-        Brand: {
+        ['Brandmän']: {
             vehicle: {
-                "Brandkår": [0, 1, 12],
-                "Vågar": [2],
-                'Specialvehicle': [4, 6, 7, 10, 14],
-                'Gruppledare': [3, 11],
-                'Nautical': [16, 17],
-                'Skogsbränder': [21, 22, 23, 24],		  
+                ['Brandkår']: [0, 1, 12],
+                ['Vågar']: [2],
+                Specialvehicle: [4, 6, 7, 10, 14],
+                Gruppledare: [3, 11],
+                Nautical: [16, 17],
+                ['Skogsbränder']: [21, 22, 23, 24],
             },
             color: '#ff2d2d',
         },
         Ambulanser: {
             vehicle: {
                 Ambulanser: [5],
-                Drake: [9],			 
+                Drake: [9],
             },
             color: '#ffa500',
         },
         Polis: {
             vehicle: {
-                'Patrolvehicle': [8],
-                "Motorcyklistenhet": [20],
-                'Stegbil': [2],
-                "Hundlag": [15],
+                Patrolvehicle: [8],
+                Motorcyklistenhet: [20],
+                Stegbil: [2],
+                Hundlag: [15],
             },
             color: '# 000f89',
         },
     },
-    små_buildings: {
+    small_buildings: {
         0: 18,
-        2:20,
-        6:19,
+        2: 20,
+        6: 19,
     },
     vehiclebuildings: [0, 2, 5, 6, 13, 14, 18, 19, 20],
     cellBuildings: [6, 19],
@@ -766,13 +748,13 @@ export default {
         '19_0',
         '19_1',
     ],
-    sängbuildings: [4],
+    bedBuildings: [4],
     schoolBuildings: [1, 8],
     dispatchCenterBuildings: [7],
     skolor: {
         Brandman: [
             {
-                caption: '' Farligt gods '',
+                caption: 'Farligt gods',
                 varaktighet: '3 dagar',
             },
             {
@@ -788,12 +770,12 @@ export default {
                 varaktighet: '3 dagar',
             },
             {
-                caption: "Havsnavigering",
+                caption: 'Havsnavigering',
                 varaktighet: '5 dagar',
             },
             {
                 caption: 'Dykarutbildning',
-                varaktighet: '5 dagar',			   
+                varaktighet: '5 dagar',
             },
         ],
         Polis: [
@@ -806,34 +788,34 @@ export default {
                 varaktighet: '5 dagar',
             },
             {
-                caption: "Hundförarutbildning",
+                caption: 'Hundförarutbildning',
                 varaktighet: '5 dagar',
-		    },
+            },
             {
-			    caption: 'MC-Polisutbildning',
+                caption: 'MC-Polisutbildning',
                 varaktighet: '3 dagar',
             },
             {
-                caption: "Rytteriutbildning",
+                caption: 'Rytteriutbildning',
                 varaktighet: '3 dagar',
             },
         ],
     },
-    mängd: 'Antal',
-    sök: 'Sök',
+    amount: 'Antal',
+    search: 'Sök',
     allians: 'Alliance',
     premiumNotice: 'Operator112 premiumkonto krävs.',
     credits: 'Credits',
     close: 'close',
-    fullskärm: {
+    fullscreen: {
         expand: 'Aktivera helskärmsläge',
         komprimera: 'inaktivera helskärmsläge',
     },
     hideTitle: 'Visa title | Göm title ',
-    vehicle: 'vehicle | vehicle | vehicle,
-    byggnad: "buildings",
+    vehicle: 'vehicle | vehicle | vehicles',
+    byggnad: 'buildings',
     station: 'Skydd | Vakt | Vakter',
-    avstånd: 'Avstånd | Avstånd ',
+    distance: 'Avstånd | Avstånd ',
     vehicleType: 'Fordons typ',
     fmsReal2Show: {
         1: 1,
@@ -852,8 +834,8 @@ export default {
         '',
         'sjukhus',
         'helikopter',
-        "sköld-alt",
-        'rss', 
+        'sköld-alt',
+        'rss',
         'graduation-cap',
         '',
         '',
@@ -862,29 +844,29 @@ export default {
         'helikopter',
         'rss',
         '',
-        "sköld-alt",
+        'sköld-alt',
         '',
         'fire',
-        "sköld-alt",
-        'ambulans',		 
+        'sköld-alt',
+        'ambulans',
     ],
-    ärtor: [
+    pois: [
         'Park',
         'Sjö',
         'Sjukhus',
         'Skog',
         'Busshållplats',
         'Spårvagnshållplats',
-        "Tågstation (regionala rutter)",
-        "Tågstation (regionala rutter och huvudlinjer)",
+        'Tågstation (regionala rutter)',
+        'Tågstation (regionala rutter och huvudlinjer)',
         'Minilivs',
         'Supermarket (liten)',
         'Stormarknad (stor)',
         'Bensinstation',
         'Skola',
-		'Museum',
+        'Museum',
         'Köpcenter',
-        "Bilverkstad",
+        'Bilverkstad',
         'Julmarknad',
         'Hangar',
         'Nattklubb',
@@ -893,16 +875,16 @@ export default {
         'Kontor',
         'Badhus',
         'Teater',
-        `` Tivoli '',			
+        'Tivoli',
         'Flod',
         'Liten flygplats (landningsbana)',
         'Stor flygplats (landningsbana)',
-        'Flygplats terminal',				   
+        'Flygplats terminal',
         'Bank',
         'Lager',
         'Bro',
         'Snabbmat',
-        "Godshamn",
+        'Godshamn',
         'Återvinningsstation',
         'Torn',
         'Kryssningsdocka',
@@ -914,15 +896,15 @@ export default {
         'Fabrik',
         'Bruten',
         'Tunnelbanestation',
-        "Liten kemikalietank",
-        "Stor kemikalietank",
+        'Liten kemikalietank',
+        'Stor kemikalietank',
         'Hotell',
         'Bar',
         'Täckt parkering',
         'Silo',
         'Vindturbin',
         'Vattenväg',
-        'Camping',		 
+        'Camping',
     ],
     only_alliance_missions: [57, 74],
     transfer_missions: [],
