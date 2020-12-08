@@ -42,8 +42,18 @@
         <div class="alert alert-info">
             {{ $m('tip.overlay') }}
         </div>
+        <font-awesome-icon
+            class="pull-right hover-tip"
+            :icon="pushedRight ? faAngleDoubleLeft : faAngleDoubleRight"
+            :fixed-width="true"
+            @click="toggleRight"
+            v-if="!overlay"
+        ></font-awesome-icon>
+        <div class="alert alert-info" v-if="!overlay">
+            {{ $m(`tip.push${pushedRight ? 'Left' : 'Right'}`) }}
+        </div>
         <span v-if="!textMode">{{ extras }}</span>
-        <div class="row" v-if="!overlay && !textMode">
+        <div class="row" v-if="!overlay && !textMode && !pushedRight">
             <div class="col-md-6" id="lssm-missing-vehicles-left-col">
                 <enhanced-missing-vehicles-table
                     :missing-requirements="
@@ -74,7 +84,7 @@
                 ></enhanced-missing-vehicles-table>
             </div>
         </div>
-        <div class="row" v-else-if="overlay && !textMode">
+        <div class="row" v-else-if="(overlay || pushedRight) && !textMode">
             <div class="col-md-12">
                 <enhanced-missing-vehicles-table
                     :missing-requirements="missingRequirementsSorted"
@@ -101,6 +111,8 @@ import { faCompressAlt } from '@fortawesome/free-solid-svg-icons/faCompressAlt';
 import { faExpandAlt } from '@fortawesome/free-solid-svg-icons/faExpandAlt';
 import { faTable } from '@fortawesome/free-solid-svg-icons/faTable';
 import { faParagraph } from '@fortawesome/free-solid-svg-icons/faParagraph';
+import { faAngleDoubleLeft } from '@fortawesome/free-solid-svg-icons/faAngleDoubleLeft';
+import { faAngleDoubleRight } from '@fortawesome/free-solid-svg-icons/faAngleDoubleRight';
 import {
     EnhancedMissingVehicles,
     EnhancedMissingVehiclesComputed,
@@ -125,6 +137,8 @@ export default Vue.extend<
         return {
             faAngleDoubleUp,
             faAngleDoubleDown,
+            faAngleDoubleLeft,
+            faAngleDoubleRight,
             faArrowsAlt,
             faCompressAlt,
             faExpandAlt,
@@ -138,6 +152,7 @@ export default Vue.extend<
             overlay: undefined,
             minified: undefined,
             textMode: undefined,
+            pushedRight: undefined,
             drag: {
                 active: false,
                 top: 60,
@@ -254,6 +269,27 @@ export default Vue.extend<
             this.drag.top = current.y + this.drag.offset.y;
             this.drag.left = current.x + this.drag.offset.x;
         },
+        toggleRight() {
+            this.$store
+                .dispatch('settings/setSetting', {
+                    moduleId: 'extendedCallWindow',
+                    settingId: `pushRight`,
+                    value: !this.pushedRight,
+                })
+                .then(() => {
+                    this.pushedRight = !this.pushedRight;
+                    if (!this.pushedRight)
+                        document
+                            .querySelector(
+                                '.mission_header_info.row ~ div ~ .clearfix, .mission_header_info.row ~ .clearfix'
+                            )
+                            ?.after(this.$el);
+                    else
+                        document
+                            .getElementById('mission-form')
+                            ?.insertAdjacentElement('afterbegin', this.$el);
+                });
+        },
     },
     beforeMount() {
         this.$store
@@ -277,6 +313,13 @@ export default Vue.extend<
                 defaultValue: false,
             })
             .then(textMode => (this.textMode = textMode));
+        this.$store
+            .dispatch('settings/getSetting', {
+                moduleId: 'extendedCallWindow',
+                settingId: 'pushRight',
+                defaultValue: false,
+            })
+            .then(pushedRight => (this.pushedRight = pushedRight));
     },
     mounted() {
         const vehicleGroups = (this.$t(

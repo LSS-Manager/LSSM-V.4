@@ -54,7 +54,7 @@ export default (async (LSSM, MODULE_ID, $m) => {
                 await import(
                     /* webpackChunkName: "modules/extendedCallWindow/enhancedMissingVehicles" */ './assets/enhancedMissingVehicles'
                 )
-            ).default(LSSM, $m);
+            ).default(LSSM, MODULE_ID, $m);
         if (await getSetting('patientSummary'))
             (
                 await import(
@@ -76,6 +76,8 @@ export default (async (LSSM, MODULE_ID, $m) => {
             {
                 keyword: string;
                 color: string;
+                autotextcolor: boolean;
+                textcolor: string;
                 prefix: boolean;
                 missions: number[];
             }[]

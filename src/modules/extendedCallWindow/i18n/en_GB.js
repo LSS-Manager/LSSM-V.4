@@ -62,6 +62,8 @@ module.exports = {
             minified: 'collapse',
             overlay: 'overlay',
             reload: 'reload',
+            pushRight: 'show this box above vehicle list',
+            pushLeft: 'show this box at original position',
         },
         selected: 'Selected',
         vehiclesByRequirement: {
