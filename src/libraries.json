@@ -21,7 +21,7 @@
 		"version": "3.0.3"
 	},
 	"@types/jquery": {
-		"version": "3.5.4"
+		"version": "3.5.5"
 	},
 	"@types/leaflet": {
 		"version": "1.5.19"
