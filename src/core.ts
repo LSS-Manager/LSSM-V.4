@@ -188,14 +188,14 @@ if (window.location.pathname === '/') {
                     )
                 ) {
                     try {
-                        LSSM.$i18n.mergeLocaleMessage(BUILD_LANG, {
+                        LSSM.$i18n.mergeLocaleMessage(LSSM.$store.state.lang, {
                             modules: {
                                 [moduleId]: (
                                     await import(
                                         /* webpackChunkName: "modules/i18n/[request]" */
                                         /* webpackInclude: /[\\/]+modules[\\/]+.*?[\\/]+i18n[\\/]+/ */
                                         /* webpackExclude: /(telemetry|releasenotes|support)|\.root\./ */
-                                        `./modules/${moduleId}/i18n/${BUILD_LANG}`
+                                        `./modules/${moduleId}/i18n/${LSSM.$store.state.lang}`
                                     )
                                 ).default,
                             },

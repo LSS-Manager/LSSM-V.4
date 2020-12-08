@@ -7,48 +7,40 @@ import webpackConfig from '../webpack.config';
 import webpack, { Configuration } from 'webpack';
 import moment from 'moment';
 import SpeedMeasurePlugin from 'speed-measure-webpack-plugin';
-import { Module } from '../typings/Module';
 import DynamicImportQueryPlugin from './plugins/DynamicImportQueryPlugin';
 
-const locale = process.argv[3];
-
-console.time(`build_${locale}`);
+console.time(`build`);
 
 console.info(`Let's build that stuff in Version ${version}`);
 
 const moduleDirs = fs.readdirSync(`./src/modules/`);
 
-if (!fs.existsSync(`./src/i18n/${locale}.ts`)) process.exit(-1);
+const locales = Object.keys(config.games).filter(game =>
+    fs.existsSync(`./src/i18n/${game}.ts`)
+);
 
 const entry = {
     mode: process.argv[2] || 'development',
     entry: {
-        [`${locale}_core`]: path.resolve(__dirname, '../src/core.ts'),
+        core: path.resolve(__dirname, '../src/core.ts'),
     },
     output: {
-        path: path.resolve(__dirname, `../dist/${locale}`),
+        path: path.resolve(__dirname, `../dist`),
         filename: pathData =>
             `${pathData.chunk?.name?.replace(/^[a-z]{2}_[A-Z]{2}_/, '')}.js`,
-        publicPath: `${config.server}${locale}/`,
+        publicPath: `${config.server}`,
     },
     ...lodash.cloneDeep(webpackConfig),
 } as Configuration;
 
-const modules = moduleDirs.filter(module => {
-    if (
-        config.modules['core-modules'].includes(module) ||
-        module === 'template'
-    )
-        return;
-    // eslint-disable-next-line @typescript-eslint/no-var-requires
-    const registration = require(`../src/modules/${module}/register`) as Module;
-    return !registration.locales || registration.locales?.includes(locale);
-});
+const modules = moduleDirs.filter(
+    module =>
+        config.modules['core-modules'].includes(module) || module === 'template'
+);
 
 entry.plugins?.unshift(
     new webpack.DefinePlugin({
         PREFIX: JSON.stringify(config.prefix),
-        BUILD_LANG: JSON.stringify(locale),
         VERSION: JSON.stringify(version),
         MODE: process.argv[2] === 'production' ? '"stable"' : '"beta"',
         MODULE_REGISTER_FILES: new RegExp(
@@ -57,22 +49,23 @@ entry.plugins?.unshift(
         MODULE_ROOT_I18N_FILES: new RegExp(
             `modules\\/(${[...modules, ...config.modules['core-modules']].join(
                 '|'
-            )})\\/i18n\\/${locale}.root(\\/index)?\\.js(on)?$`
+            )})\\/i18n\\/(${locales.join('|')}).root(\\/index)?\\.js(on)?$`
         ),
     }),
     new webpack.ContextReplacementPlugin(
         /moment\/locale$/,
         new RegExp(
-            `${
-                locale !== 'en_US'
-                    ? // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                      // @ts-ignore
-                      moment.localeData(locale)._abbr
-                    : 'en-gb'
-            }$`
+            `(${locales
+                .map(l =>
+                    l !== 'en_US'
+                        ? // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                          // @ts-ignore
+                          moment.localeData(l)._abbr
+                        : 'en-gb'
+                )
+                .join('|')})$`
         )
-    ),
-    new webpack.ContextReplacementPlugin(/i18n$/, new RegExp(`${locale}$`))
+    )
 );
 entry.plugins?.push(
     new DynamicImportQueryPlugin({
@@ -80,7 +73,7 @@ entry.plugins?.push(
             value: version,
         },
         uid: {
-            value: `${JSON.stringify(locale)} + "-" + window.user_id`, // must be valid JS Code stringified
+            value: `window.I18n.locale + "-" + window.user_id`, // must be valid JS Code stringified
             isDynamicKey: true, // false by default
         },
     })
@@ -113,7 +106,7 @@ webpack(
             );
         console.log('Stats:');
         console.log(stats?.toString({ colors: true }));
-        console.timeEnd(`build_${locale}`);
+        console.timeEnd(`build`);
         console.log(`Build finished at ${new Date().toLocaleTimeString()}`);
         if (stats?.hasErrors()) process.exit(-1);
     }
