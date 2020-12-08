@@ -1,0 +1,14 @@
+{
+"description": "Utökar chatten med några häftiga funktioner",
+"name": "Förbättrad chatt",
+"settings": {
+"chatTime": {
+"description": "Justerar tidsstämpeln till det format du har ställt in!",
+"title": "Eget tidsstämpelformat"
+},
+"chatTimeFormat": {
+"description": "Här kan du välja det format du vill ha. Du kan hitta hjälp <a class=\"lightbox-open\" href=\"{wiki}modules/clock.html#konfiguration\">här</ a>.",
+"title": "Datum för datum och tid"
+}
+}
+}
