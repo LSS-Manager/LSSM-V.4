@@ -67,7 +67,7 @@
 				"title": "Sortera fordonets krav"
 			},
 			"title": {
-				"description": "Visar rubriken \" Fordon \" ovanför fordonets krav.",
+				"description": "Visar rubriken \"Fordon\" ovanför fordonets krav.",
 				"title": "Fordon (titel)"
 			},
 			"xAfterNumber": {
@@ -85,7 +85,7 @@
 				"title": "Antal nuvarande fångar"
 			},
 			"title": {
-				"description": "Visar rubriken \" Prisoners \" ovanför detaljerna om möjliga fångar.",
+				"description": "Visar rubriken \"Prisoners\" ovanför detaljerna om möjliga fångar.",
 				"title": "Fångar (titel)"
 			}
 		},
@@ -165,7 +165,7 @@
 				"title": "Första svarssannolikhet"
 			},
 			"title": {
-				"description": "Visar rubriken \" Patienter \" ovanför detaljerna om möjliga patienter.",
+				"description": "Visar rubriken \"Patienter\" ovanför detaljerna om möjliga patienter.",
 				"title": "Patienter (titel)"
 			}
 		},
@@ -174,7 +174,7 @@
 			"title": "POI"
 		},
 		"title": {
-			"description": "Visar uppdragsnamnet, t.ex. \" Trashcan fire \" som titel.",
+			"description": "Visar uppdragsnamnet, t.ex. \"Trashcan fire\" som titel.",
 			"title": "uppdragsnamn"
 		},
 		"typ": {
