@@ -251,7 +251,6 @@
 <script lang="ts">
 import Vue from 'vue';
 import { faHistory } from '@fortawesome/free-solid-svg-icons/faHistory';
-import { LSSM } from '../core';
 import {
     SettingsData,
     SettingsMethods,
@@ -577,7 +576,7 @@ export default Vue.extend<
                 });
             };
         },
-        $m: (key, args) => LSSM.$t(`modules.settings.${key}`, args),
+        $m: (key, args) => window[PREFIX].$t(`modules.settings.${key}`, args),
         getSelectOptions(module, setting, settingId) {
             return setting.values.map((v, vi) => ({
                 label: (setting.noLabelTranslation

@@ -11,7 +11,7 @@ if (
 ) {
     const script = document.createElement('script');
     // eslint-disable-next-line no-undef
-    script.src = `${host}${I18n.locale}/core.js?_=${new Date().getTime()}&uid=${
+    script.src = `${host}core.js?_=${new Date().getTime()}&uid=${
         I18n.locale
     }-${user_id}`;
     script.setAttribute('type', 'module');
