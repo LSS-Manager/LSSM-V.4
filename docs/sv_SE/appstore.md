@@ -6,9 +6,9 @@ lang: sv_SE
 # Appstore :shopping_cart:
 
 Appstore är en central del av LSS Manager. Här kan du (av-)aktivera varje mod individuellt. En kort beskrivning av varje modul finns också direkt i appstore.
-Så att du enkelt kan läsa om modulen utan att behöva aktivera modulen först, wiki för varje modul är tillgänglig via det lilla blåa "i".
+Så att du enkelt kan läsa om modulen utan att behöva aktivera modulen först, wiki för varje modul är tillgänglig via det lilla blåa `i`.
 
-::: tips Ändringar
+::: tip Ändringar
 
 Om du har osparade ändringar så kan du inte stänga Appstore, ett litet tipsmeddelande visas.
 :::

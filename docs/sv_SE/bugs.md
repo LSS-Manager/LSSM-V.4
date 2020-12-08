@@ -1,7 +1,7 @@
 ---
 titel: Kända buggar 🐛
 lang: sv_SE
-sidofält Djup: 2
+sidebarDepth: 2
 ---
 
 # Kända buggar :bug:

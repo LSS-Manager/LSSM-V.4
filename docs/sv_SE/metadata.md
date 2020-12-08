@@ -1,12 +1,12 @@
 ---
 titel: Metadata
 lang: sv_SE
-sidofält Djup: 2
+sidebarDepth: 2
 ---
 
 # Samling av användarmetadata
 
-Genom att använda "LSSM" (Larmcentralen-spel Manager, tillägg för webbläsaren) accepterar användaren att metadata samlas in. Följande data lagras: 'Användar-ID', 'Användarnamn', 'Antal byggnader', 'För närvarande använd webbläsare', 'Senaste anrop av skript', 'Aktiverade moduler', 'Vilken lokal version av spelet', ' Vilken karttyp som används '&' LSSM-version '.
+Genom att använda `LSSM` (Larmcentralen-spel Manager, tillägg för webbläsaren) accepterar användaren att metadata samlas in. Följande data lagras: `User ID`, `User Name`, `Amount of buildings`, `Currently used Browser`, `Last Call of Script`, `Activated Modules`, `Which local version of the game`, `Which map type is used` & `LSSM Version`.
 
 Dessa data används för att förbättra tillägget samt en ledtråd för utveckling av befintliga eller framtida moduler.
 

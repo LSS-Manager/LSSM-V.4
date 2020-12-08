@@ -7,7 +7,7 @@ lang: sv_SE
 
 Inställningarna för alla moduler hanteras centralt i inställningarna. Endast inställningarna för aktiva moduler kan ändras.
 
-Det är planerat att lägga till en möjlighet att exportera och importera inställningarna som i 'LSSM V.3'.
+Det är planerat att lägga till en möjlighet att exportera och importera inställningarna som i `LSSM V.3`.
 Dessutom vill vi erbjuda möjligheten att spara inställningar profilbundna inom en snar framtid. Det betyder att inställningarna inte längre är enhetsbundna.
 
 ::: tip Ändringar

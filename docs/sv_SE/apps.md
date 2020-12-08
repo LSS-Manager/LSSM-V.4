@@ -1,7 +1,7 @@
 ---
 titel: ℹ️ Allmänt
 lang: sv_SE
-sidofält Djup: 2
+sidebarDepth: 2
 ---
 
 # ℹ️ Allmän information om moduler

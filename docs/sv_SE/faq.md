@@ -1,7 +1,7 @@
 ---
 titel: FAQ ❓
 lang: sv_SE
-sidofält Djup: 3
+sidebarDepth: 3
 ---
 
 # FAQ ❓
@@ -24,18 +24,18 @@ Därför är det, förutom idén om frivillighet, ingen mening för oss att ta p
 :::
 
 ### Hur kan jag bidra till LSS-Manager?
-Den "normala" användaren kan [rapportera fel] [fel] eller [göra förslag] [förslag].
+Den "normala" användaren kan [rapportera fel][error] eller [göra förslag][suggestions].
 
 Vi utformar för närvarande en stilguide för utvecklare så att de också enkelt kan lägga till sina egna plugins till LSSM. Vi försökte också hålla vår kodstruktur tydlig och förståelig. Att lägga till ett plugin innebär dock inte på något sätt att gå med i laget.
 
 ### Hur rapporterar jag fel?
-Ta en titt på sidan [rapportera fel] [fel].
+Ta en titt på sidan [rapportera fel][error].
 
 ### Var kan jag få hjälp?
-Genom vårt stöd. Du hittar mer information [här] [support].
+Genom vårt stöd. Du hittar mer information [här][support].
 
 ### Hur kan jag skicka idéer?
-På sidan [förslag] [förslag] har vi sammanställt lite information om det.
+På sidan [förslag][suggestions] har vi sammanställt lite information om det.
 
 ### I vilka webbläsare fungerar LSS-Manager?
 Endast stationära webbläsare listas här, eftersom mobilwebbläsare inte stöds officiellt.
@@ -50,9 +50,9 @@ En kompatibilitet som anges här garanterar inte funktionalitet. Detta är endas
 <tabell>
 <huvud>
     <tr>
-        <th> Webbläsare </th>
-        <th> min. version </th>
-        <th> Ladda ned </th>
+        <th>Webbläsare</th>
+        <th>min. version</th>
+        <th>Ladda ned</th>
     </tr>
 </thead>
 <tbody>
@@ -64,7 +64,7 @@ En kompatibilitet som anges här garanterar inte funktionalitet. Detta är endas
 </tbody>
 </table>
 
-::: warning Internet Explorer och Microsoft Edge
+::: danger Internet Explorer och Microsoft Edge
 Dessa två webbläsare kan beskrivas som "moderna barn" för en modern webbutvecklare. Det finns vissa funktioner som inte fungerar i dem eller kräver ytterligare kod.
 
 Vi ser inte poängen med att göra detta överallt och officiellt ** stöder inte dessa två webbläsare.
@@ -78,5 +78,5 @@ För närvarande erbjuder vi inte detta, men en implementering av den här funkt
 
 
 [support]: support.md
-[fel]: error_report.md
-[förslag]: suggestions.md
+[error]: error_report.md
+[suggestions]: suggestions.md

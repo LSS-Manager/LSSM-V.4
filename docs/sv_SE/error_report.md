@@ -1,7 +1,7 @@
 ---
 titel: Rapportera buggar
 lang: sv_SE
-sidofält Djup: 2
+sidebarDepth: 2
 ---
 
 # Rapportera buggar
@@ -21,7 +21,7 @@ Observera att vi inte officiellt stöder äldre webbläsare, mobilwebbläsare oc
 Beskriv först felet. Ge all information som kan vara viktig. Förklara också vad du gjorde när felet inträffade.
 
 ### 2. Ange användardata
-Ge oss ditt användarnamn eller användar-ID. Det är också användbart att ange de aktiverade modulerna. Ange också versionen av LSSM. Du hittar den genom att klicka på 'LSSM V.4' längst upp till höger på spelets huvudsida, direkt i första raden.
+Ge oss ditt användarnamn eller användar-ID. Det är också användbart att ange de aktiverade modulerna. Ange också versionen av LSSM. Du hittar den genom att klicka på `LSSM V.4` längst upp till höger på spelets huvudsida, direkt i första raden.
 
 ### 3. Rapportera problem
 Nu kan du skicka oss ditt formulerade problem med användardata. För att göra detta, öppna ett problem på <a :href="$themeConfig.variables.github + '/issues'" target="_blank">GitHub</a>. Kontrollera om det finns ett problem för detta fel och följ sedan upp det.
