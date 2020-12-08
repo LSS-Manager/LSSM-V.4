@@ -27,7 +27,7 @@
 "title": "Snabb status 2 <=> 6-omkopplare"
 },
 "staffAssignmentBtn": {
-"description": "Infogar bredvid knappen" Redigera "för att lägga till en knapp i personaluppdraget. - Fungerar ännu inte i kontrollcenter!",
+"description": "Infogar bredvid knappen 'Redigera' för att lägga till en knapp i personaluppdraget. - Fungerar ännu inte i kontrollcenter!",
 "title": "Knapp för personaluppdrag"
 },
 "staffDemands": {
