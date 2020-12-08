@@ -1,4 +1,4 @@
-import { UAParser } from 'ua-parser-js';
+import UAParser from 'ua-parser-js';
 import { StorageSet } from '../../../typings/store/storage/Actions';
 import config from '../../config';
 
