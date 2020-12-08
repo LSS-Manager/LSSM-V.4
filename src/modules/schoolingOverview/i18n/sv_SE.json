@@ -1,0 +1,15 @@
+{
+"all": "Alla",
+"amount": "Beloppskurser",
+"open": "Open Courses",
+"own": "Kurser med deltagare",
+"schooling": "Course",
+"platser": "Antal platser",
+"titles": {
+"end": "Tid kvar",
+"name": "Namn",
+"owner": "Användare",
+"price": "Pris",
+"platser": "Gratis platser"
+}
+}
