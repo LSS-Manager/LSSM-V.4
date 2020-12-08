@@ -1,0 +1,37 @@
+{
+"deleteARR": {
+"deleteModal": {
+"btnCancel": "Avbryt",
+"btnConfirm": "Radera",
+"text": "Vill du radera denna AAO-post?",
+"title": "Radera?"
+}
+},
+"forumPost": {
+"deleteModal": {
+"btnCancel": "Avbryt",
+"btnConfirm": "Radera",
+"text": "Vill du radera det här inlägget?",
+"title": "Radera?"
+}
+},
+"memberlistManageUser": {
+"hide": "Stäng",
+"kickModal": {
+"btnCancel": "Avbryt",
+"btnConfirm": "Kick",
+"text": "Vill du verkligen sparka ut spelaren?",
+"title": "Kick?"
+},
+"set": "set",
+"unset": "ta bort"
+},
+"memberlistRoles": {
+"admin": "Alliance Admin",
+"aufsichtsrat": "Moderator åtgärdslogg",
+"coadmin": "Alliance Co-Admin",
+"finance": "Alliance Finances",
+"schooling": "Alliance Educator",
+"sprechwunsch_admin": "Transportförfrågan-Admin"
+}
+}
