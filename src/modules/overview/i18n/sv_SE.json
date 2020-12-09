@@ -1,12 +1,12 @@
 {
 	"extensionTitle": "{caption} (upp till {n} gånger)",
 	"tabs": {
-		"byggnader": "Byggnader",
-		"fordon": "Fordon",
+		"buildings": "Byggnader",
+		"vehicles": "Fordon",
 		"schoolings": "Courses"
 	},
 	"titles": {
-		"byggnader": {
+		"buildings": {
 			"caption": "Byggnadstyp",
 			"cost": "kostnad",
 			"extensions": "Extensions",

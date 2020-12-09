@@ -1,5 +1,6 @@
 {
 	"description": "Lägger till några användbara funktioner i dina byggnader.",
+	"name": "Extended building view",
 	"inställningar": {
 		"buildingsLeftRight": {
 			"description": "Visar i byggnaderna hur många av samma typ som fortfarande finns i respektive riktning.",
@@ -13,15 +14,15 @@
 			"description": "Låter dig växla mellan status 2 och 6 genom att klicka på status.",
 			"title": "Snabb status 2 <=> 6-omkopplare"
 		},
-		"fordonPersonnelCurrent": {
+		"vehiclesPersonnelCurrent": {
 			"description": "Visar hur många som för närvarande sitter i fordonet.",
 			"title": "Nuvarande besättning"
 		},
-		"fordonPersonnelMax": {
+		"vehiclesPersonnelMax": {
 			"description": "Visar maximalt antal personer som får plats i fordonet.",
 			"title": "Maximalt besättning"
 		},
-		"förbättraVehicleList": {
+		"enhanceVehicleList": {
 			"description": "Utökar fordonslistan med användbara funktioner - av vilka vissa är särskilt justerbara.",
 			"title": "Förläng fordonslistan"
 		},
@@ -37,11 +38,11 @@
 			"description": "Visar hur mycket personal som krävs med lägsta och högsta beläggning.",
 			"title": "Personalkrav"
 		},
-		"utvidgningar": {
+		"expansions": {
 			"description": "Visar en byggnads tillägg utan att först behöva trycka på tilläggsfliken.",
 			"title": "Visa utvidgningar direkt"
 		},
-		"utökadPersonnelAssignment": {
+		"enhancedPersonnelAssignment": {
 			"description": "Ger dig möjlighet att dölja personal utan lämplig utbildning.",
 			"title": "förbättrad personalallokering"
 		},
@@ -57,6 +58,5 @@
 			"description": "Markerar antalet tilldelade besättningar i rött om det är mindre än maximalt möjligt, grönt när det maximala antalet uppnås.",
 			"title": "Färgkod för tilldelad besättning"
 		}
-	},
-	"name": "Utökad byggnadsvy"
+	}
 }

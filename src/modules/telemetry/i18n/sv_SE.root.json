@@ -5,7 +5,7 @@
 		"title": "Information om insamlingen av metadata"
 	},
 	"name": "Telemetri",
-	"webbläsarsupport": {
+	"browsersupport": {
 		"close": "Göm tips",
 		"faqAnchor": "i-vilka-webbläsare-gör-lss-manager-arbete",
 		"not": {

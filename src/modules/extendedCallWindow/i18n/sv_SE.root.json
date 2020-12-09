@@ -76,7 +76,7 @@
 			"prepend": "Visa före uppdragsnamnet",
 			"preview": "Preview",
 			"title": "Uppdrag nyckelord",
-			"uppdrag": "uppdrag"
+			"missions": "uppdrag"
 		},
 		"patientSummary": {
 			"description": "Visar bredvid antalet patienter vilken räddningsutrustning de behöver i kombination.",
@@ -161,3 +161,6 @@
 					17
 				]
 			}
+		]
+	}
+}

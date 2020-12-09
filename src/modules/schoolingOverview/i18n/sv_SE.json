@@ -3,13 +3,13 @@
 	"amount": "Beloppskurser",
 	"open": "Open Courses",
 	"own": "Kurser med deltagare",
-	"platser": "Antal platser",
+	"seats": "Antal platser",
 	"schooling": "Course",
 	"titles": {
 		"end": "Tid kvar",
 		"name": "Namn",
 		"owner": "Användare",
-		"platser": "Gratis platser",
+		"seats": "Gratis platser",
 		"price": "Pris"
 	}
 }

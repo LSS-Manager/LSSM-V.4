@@ -38,10 +38,6 @@
 			"description": "Indikerar genomsnittlig kreditinkomst från ett uppdrag.",
 			"title": "Credits"
 		},
-		"efterföljande": {
-			"description": "Listar möjliga efterföljande uppdrag på framgång.",
-			"title": "Efterföljande uppdrag"
-		},
 		"expanstions": {
 			"description": "Listar möjlig spridning av detta uppdrag.",
 			"title": "Spreads"
@@ -50,8 +46,8 @@
 			"description": "Listar möjliga uppföljningsanvändningar för detta uppdrag.",
 			"title": "Uppföljningsuppdrag"
 		},
-		"fordon": {
-			"innehåll": {
+		"vehicles": {
+			"content": {
 				"description": "Visar fordonsbehov.",
 				"title": "Fordonskrav"
 			},
@@ -59,7 +55,7 @@
 				"description": "Om det för närvarande finns fler än tio patienter på plats listas EMS-Chief automatiskt i början av fordonskraven.",
 				"title": "Nämn EMS-chef extra"
 			},
-			"sortera": {
+			"sort": {
 				"amount": "Antal fordringar som krävs",
 				"caption": "Kravets namn",
 				"description": "Definiera vad fordonskraven ska sorteras efter.",
@@ -75,12 +71,12 @@
 				"title": "x efter beloppet"
 			}
 		},
-		"fångar": {
-			"innehåll": {
+		"prisoners": {
+			"content": {
 				"description": "Visar detaljer om möjliga fångar.",
 				"title": "Detaljer om möjliga fångar"
 			},
-			"leva": {
+			"live": {
 				"description": "Visar högst upp på uppdragshjälparen hur många fångar uppdraget för närvarande har.",
 				"title": "Antal nuvarande fångar"
 			},
@@ -89,7 +85,7 @@
 				"title": "Fångar (titel)"
 			}
 		},
-		"förutsättningar": {
+		"prerequisites": {
 			"description": "Visar kraven (t.ex. 3 räddningsstationer och 4 brandstationer)",
 			"title": "Förutsättningar"
 		},
@@ -147,16 +143,16 @@
 				"title": "Detaljer om möjliga patientkoder"
 			}
 		},
-		"patienter": {
+		"patients": {
 			"hideWhenNoNeed": {
 				"description": "Döljer patientuppgifterna om det inte finns fler patienter och patienter inte dyker upp förrän slutet av uppdraget.",
 				"title": "Visa endast patientinformation när det behövs"
 			},
-			"innehåll": {
+			"content": {
 				"description": "Visar detaljer om möjliga patienter.",
 				"title": "Detaljer om potentiella patienter"
 			},
-			"leva": {
+			"live": {
 				"description": "Visar högst upp på missionsassistenten hur många patienter uppdraget för närvarande har.",
 				"title": "Antal nuvarande patienter"
 			},
@@ -169,7 +165,7 @@
 				"title": "Patienter (titel)"
 			}
 		},
-		"plats": {
+		"place": {
 			"description": "Visar bredvid titeln vilken POI som krävs för detta uppdrag.",
 			"title": "POI"
 		},

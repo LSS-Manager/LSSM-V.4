@@ -3,13 +3,13 @@
 const furtherFiles = require.context('./sv_SE/', true, /.*(\/index)?\.js(on)?/);
 const modules = {
     appstore: {
-        spara: 'Spara',
+        save: 'Spara',
         reset: 'Reset',
         noMapkit:
             'Denna modul fungerar inte med "Mapkit" på grund av Mapkit-begränsningar!',
         dev:
             'Den här modulen är fortfarande under utveckling. Att aktivera det kan orsaka fel! ',
-        closeVarning: {
+        closeWarning: {
             title: 'Osparade ändringar',
             text:
                 'Ändringar har gjorts i AppStore som inte har sparats. Spara eller återställ för att closea Appstore.',
@@ -17,13 +17,13 @@ const modules = {
         },
     },
     settings: {
-        namn: 'Parametrar',
-        spara: 'Spara',
-        kassera: 'Avbryt ändringar',
+        name: 'Parametrar',
+        save: 'Spara',
+        discard: 'Avbryt ändringar',
         reset: 'Reset',
         export: 'Export',
         import: 'Import',
-        resetVarning: {
+        resetWarning: {
             title: 'Återställ parametrar',
             text:
                 'Vill du återställa standardinställningarna? Det kan inte bli ogjort! ',
@@ -66,17 +66,17 @@ export default {
         title: 'LSS Manager: Error',
         msg: 'Om detta fel inträffar ofta, rapportera det till LSSM-teamet!',
     },
-    warningar: {
+    warnings: {
         version: {
             title: 'Fel version av LSS Manager',
             text:
                 'Kära användare, tyvärr har du inte den senaste versionen av LSS Manager. Den senaste versionen är {version} och du har {aktuell}. Ladda om spelet genom att rensa cacheminnet (Ctrl + F5 eller kommando + R på Apple), detta bör lösa problemet. Om problemet kvarstår, vänligen rapportera det till teamet! Om du använder fel version kan vi inte garantera att LSS-Manager fungerar till fullo. ',
             close: 'close detta meddelande och ladda om spelet (rekommenderas)',
-            avbryta: 'close detta meddelande utan att ladda om spelet',
+            abort: 'close detta meddelande utan att ladda om spelet',
         },
     },
     globalSettings: {
-        namn: 'Allmänna inställningar',
+        name: 'Allmänna inställningar',
         labelInMenu: {
             title: 'title istället för en ikon i menyn',
             description:
@@ -100,7 +100,7 @@ export default {
     vehicles: {
         0: {
             caption: 'BAS 1 - Släckbil',
-            color: '# cc0000',
+            color: '#cc0000',
             coins: 25,
             credits: 5_000,
             minPersonal: 1,
@@ -131,7 +131,7 @@ export default {
             color: '#d02525',
             coins: 25,
             credits: 10_000,
-            minPersonal: 3,
+            minPersonal: 1,
             maxPersonal: 3,
             wtank: 0,
             special: 'Krävs när du har byggt 6 brandstationer',
@@ -141,8 +141,8 @@ export default {
             color: '#ad1f1f',
             coins: 25,
             credits: 12_180,
-            minPersonal: 2,
-            maxPersonal: 3,
+            minPersonal: 1,
+            maxPersonal: 4,
             wtank: 0,
             special: 'Krävs när du har byggt 4 brandstationer',
         },
@@ -196,7 +196,7 @@ export default {
             wtank: 0,
         },
         10: {
-            caption: 'Luftvehicle',
+            caption: 'Luftfordon',
             color: '#d90e0e',
             coins: 25,
             credits: 11_680,
@@ -236,7 +236,7 @@ export default {
             shownSchooling: 'Police Aviation',
         },
         14: {
-            caption: 'Bepansrat insatsvehicle',
+            caption: 'Bepansrat insatsfordon',
             color: '#000f89',
             coins: 25,
             credits: 10_000,
@@ -270,12 +270,12 @@ export default {
             shownschooling: 'MC-Polisutbildning',
         },
         17: {
-            caption: 'Insatsvehicle',
+            caption: 'Insatsfordon',
             color: '#000f89',
             coins: 12,
             credits: 6_000,
-            minPersonal: 0,
-            maxPersonal: 0,
+            minPersonal: 3,
+            maxPersonal: 5,
             wtank: 0,
             schooling: 'Polis - Insatspolisutbildning)',
             shownSchooling: 'Insatspolisutbildning)',
@@ -475,7 +475,7 @@ export default {
             startVehicles: [],
         },
         5: {
-            caption: 'Helikopterstation',
+            caption: 'Ambulanshelikopterstation',
             color: '#e7ad2f',
             coins: 50,
             credits: 1_000_000,
@@ -518,7 +518,7 @@ export default {
             maxBuildingsFunction: (): number => 1_700,
         },
         7: {
-            caption: 'Sos Alarm',
+            caption: 'Larmcentral',
             color: '#24c3ae',
             coins: 0,
             credits: 0,
@@ -533,7 +533,7 @@ export default {
                 Math.floor(buildingsAmountTotal / 25) + 1,
         },
         8: {
-            caption: 'Polisskola',
+            caption: 'Polishögskola',
             color: '#225522',
             coins: 50,
             credits: 500_000,
@@ -552,7 +552,7 @@ export default {
             startVehicles: [],
         },
         13: {
-            caption: 'Polisens helikopterstation',
+            caption: 'Polisflyg',
             color: '#148423',
             coins: 50,
             credits: 1_000_000,
@@ -610,7 +610,7 @@ export default {
             startVehicles: [],
         },
         18: {
-            caption: '',
+            caption: 'Brandstation (liten)',
             color: '#aa1111',
             coins: 25,
             credits: 50_000,
@@ -681,43 +681,43 @@ export default {
         },
     },
     buildingCategories: {
-        ['Brandmän']: {
+        'Brandmän': {
             buildings: [0, 1, 18],
             color: '#ff2d2d',
         },
-        Ambulanser: {
+        'Ambulanser': {
             buildings: [2, 4, 5, 20],
             color: '#ffa500',
         },
-        Polis: {
+        'Polis': {
             buildings: [6, 8, 13, 19],
             color: '#00ac00',
         },
-        ['Övrig']: {
+        'Övrig': {
             buildings: [7, 14],
             color: '#02a18c',
         },
     },
     vehicleskategorier: {
-        ['Brandmän']: {
+        'Brandmän': {
             vehicle: {
-                ['Brandkår']: [0, 1, 12],
-                ['Vågar']: [2],
-                Specialvehicle: [4, 6, 7, 10, 14],
-                Gruppledare: [3, 11],
-                Nautical: [16, 17],
-                ['Skogsbränder']: [21, 22, 23, 24],
+                'Brandkår': [0, 1, 12],
+                'Vågar': [2],
+                'Specialvehicle': [4, 6, 7, 10, 14],
+                'Gruppledare': [3, 11],
+                'Nautical': [16, 17],
+                'Skogsbränder': [21, 22, 23, 24],
             },
             color: '#ff2d2d',
         },
-        Ambulanser: {
+        'Ambulanser': {
             vehicle: {
                 Ambulanser: [5],
                 Drake: [9],
             },
             color: '#ffa500',
         },
-        Polis: {
+        'Polis': {
             vehicle: {
                 Patrolvehicle: [8],
                 Motorcyklistenhet: [20],
@@ -751,7 +751,7 @@ export default {
     bedBuildings: [4],
     schoolBuildings: [1, 8],
     dispatchCenterBuildings: [7],
-    skolor: {
+    schoolings: {
         Brandman: [
             {
                 caption: 'Farligt gods',
@@ -803,17 +803,17 @@ export default {
     },
     amount: 'Antal',
     search: 'Sök',
-    allians: 'Alliance',
+    alliance: 'Alliance',
     premiumNotice: 'Operator112 premiumkonto krävs.',
     credits: 'Credits',
     close: 'close',
     fullscreen: {
         expand: 'Aktivera helskärmsläge',
-        komprimera: 'inaktivera helskärmsläge',
+        compress: 'inaktivera helskärmsläge',
     },
     hideTitle: 'Visa title | Göm title ',
     vehicle: 'vehicle | vehicle | vehicles',
-    byggnad: 'buildings',
+    building: 'buildings',
     station: 'Skydd | Vakt | Vakter',
     distance: 'Avstånd | Avstånd ',
     vehicleType: 'Fordons typ',
