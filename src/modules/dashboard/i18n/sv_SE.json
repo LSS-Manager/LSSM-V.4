@@ -1,13 +1,13 @@
 {
-	"byggnadstyper": {
+	"building-types": {
 		"building": "Byggnader",
 		"current": "Nummer (aktiv)",
 		"extension": "Expansion",
 		"maximum": "Maximalt möjligt",
 		"unavailable": "Under uppbyggnad"
 	},
-	"diagram-sammanfattningar": {
-		"byggnader": {
+	"chart-summaries": {
+		"buildings": {
 			"columnchart": "använd stapeldiagram",
 			"personal_count": "Personal",
 			"tip": "Klicka på en av kategorierna (t.ex. brandkår eller polis) för att förstora de byggtyper som tilldelats denna kategori. Om du sedan klickar på en byggnadstyp kan du se hur många fordon av varje fordonstyp som finns byggnader av den typen. På detta sätt kan du snabbt ta reda på hur många fordon av varje fordonstyp som är parkerade vid polisstationer och hur många på små polisstationer.",
@@ -16,39 +16,39 @@
 		"vehicles": {
 			"tip": "Klicka på en grupp fordonstyper för att endast visa den här gruppen.",
 			"title": "Fordon",
-			"tom": "Du har inga fordon i kategorin {kategori} än!"
+			"empty": "Du har inga fordon i kategorin {kategori} än!"
 		}
 	},
 	"dispatchcenter-view": {
-		"inga byggnader": "Inga byggnader hittades. Justera vid behov filtren för det här kortet på \"Hantera styrelser\"-tab",
 		"manage": {
 			"newBoard": "New Board",
 			"title": "Hantera styrelser",
 			"titles": {
-				"byggnader": {
+				"buildings": {
 					"bold": "Val av byggnadstyp",
 					"small": "visa endast byggnader av dessa byggnadstyper för val"
 				},
-				"leverans": {
+				"dispatch": {
 					"bold": "Val av kontrollcenter",
 					"small": "visa endast byggnader från dessa kontrollcenter för val"
 				},
 				"name": "Board-name"
 			}
 		}
-	},
-	"fordonslista": {
-		"actions": "",
-		"building": "Byggnader",
-		"caption": "Namn",
-		"fms": "FMS",
-		"type": "Typ"
+		"no-buildings": "Inga byggnader hittades. Justera vid behov filtren för det här kortet på \"Hantera styrelser\"-tab",
 	},
 	"tabs": {
 		"building-types": "Byggnadsöversikt",
 		"chart-summary": "Sammanfattning",
 		"dispatchcenter-view": "Kontrollcentervy",
 		"vehicle-types": "Statusöversikt"
+	},
+	"vehicle-list": {
+		"actions": "",
+		"building": "Byggnader",
+		"caption": "Namn",
+		"fms": "FMS",
+		"type": "Typ"
 	},
 	"vehicle-types": {
 		"status": "Status",
