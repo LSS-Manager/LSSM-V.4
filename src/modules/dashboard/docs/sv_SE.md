@@ -1,7 +1,7 @@
 ## Sammanfattning
 Sammanfattningen ger en snabb översikt över ditt antal byggnader och fordon.
 
-! [Sammanfattning](/v4/docs/assets/dashboard/img/sv_SE/dashboardSummary.png)
+![Sammanfattning](/v4/docs/assets/dashboard/img/sv_SE/dashboardSummary.png)
 
 #### Byggnader
 Om du klickar på en kategori i byggnadsöversikten (t.ex.: "Ambulans") visas bara dessa byggnader.
@@ -18,9 +18,9 @@ Du kan sortera tabellen genom att klicka på kolumnrubrikerna.
 Om du flyttar musen över bordet ser du en knapp med en bil, om du trycker på den knappen kommer du att se en lista över alla fordon som matchar typ och status.
 Du kan också snabbt växla fordon från status 5 till 6 eller vice versa i statusöversikten.
 
-! [Statusöversikt](/v4/docs/assets/dashboard/img/sv_SE/dashboardStatusoverzicht.png)
+![Statusöversikt](/v4/docs/assets/dashboard/img/sv_SE/dashboardStatusoverzicht.png)
 
-! [Fordonsstatusöversikt](/v4/docs/assets/dashboard/img/sv_SE/dashboardVehicles.png)
+![Fordonsstatusöversikt](/v4/docs/assets/dashboard/img/sv_SE/dashboardVehicles.png)
 
 ## Byggnadsöversikt
 I byggnadsöversikten får du en snabb och enkel översikt över alla dina byggnader.
