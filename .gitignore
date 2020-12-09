@@ -10,6 +10,7 @@ package-lock.json
 /static/beta.php
 /admin/
 /src/userscript.js
+LSSM_V4.zip
 
 # TypeScript Outputs
 webpack.config.js*
