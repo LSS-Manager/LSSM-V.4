@@ -225,9 +225,7 @@ export default Vue.extend<
             return sizes.map(s => Math.ceil(s));
         },
         updateValues() {
-            return cloneDeep(this.value)
-                .filter(v => !!v)
-                .map(v => ({ ...this.setting.defaultItem, ...v }));
+            return cloneDeep(this.value).filter(v => !!v);
         },
     },
     methods: {
