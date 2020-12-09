@@ -8,4 +8,4 @@ För att göra placeringen enklare erbjuder denna modul följande förenklingar:
 * Alla befintliga intressepunkter av den valda typen är färgade.
 * Om markören rör sig utanför bildens räckvidd centreras kartan automatiskt på markören.
 
-! [Exempel: Bos] (/v4/docs/tillgångar/förbättradPOI/img/förbättradPOI_SV.png)
+![Exempel: Bos](/v4/docs/tillgångar/förbättradPOI/img/förbättradPOI_SV.png)
