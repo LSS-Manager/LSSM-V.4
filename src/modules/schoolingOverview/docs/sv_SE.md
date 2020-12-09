@@ -16,6 +16,6 @@ Så här ser det till exempel ut för kurser med dina egna deltagare:
 
 ![Kurser med egna deltagare](/v4/docs/assets/schoolingOverview/img/own_en_US.png)
 
-Und so bei offenen Lehrgängen:
+Och så med öppna kurser:
 
 ![öppna kurser](/v4/docs/assets/schoolingOverview/img/alliance_en_US.png)
