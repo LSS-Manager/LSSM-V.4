@@ -2,12 +2,12 @@
 	"name": "Utökat larmfönster",
 	"settings": {
 		"alarmIcons": {
-			"description": "Lämna ikonerna i \"Alarm\"Visa-knappen, baserat på ditt val. Du kan välja mellan <ahref=\"https://fontawesome.com/icons?d=gallery&m=gratis\"target=\"_blank\">alla fria ikoner från Font-Awesome</a>. Det räcker att ange namnet på ikonen. En liveförhandsgranskning visar dig sedan ikonen.",
+			"description": "Lämna ikonerna i \"Alarm\" Visa-knappen, baserat på ditt val. Du kan välja mellan <a href=\"https://fontawesome.com/icons?d=gallery&m=free\" target=\"_blank\">alla fria ikoner från Font-Awesome</a>. Det räcker att ange namnet på ikonen. En liveförhandsgranskning visar dig sedan ikonen.",
 			"icon": "Ikon",
 			"preview": "Preview",
 			"style": "icon type",
 			"title": "larmikoner",
-			"vehichle": "fordonstyper"
+			"vehichles": "fordonstyper"
 		},
 		"alarmTime": {
 			"description": "Visar bredvid alarmknappen hur lång tid fordonet med den längsta restiden tar.",
@@ -23,7 +23,7 @@
 		},
 		"arrClickHighlightWidth": {
 			"description": "Ange här (i pixlar) hur bred ARR-gränsen ska vara.",
-			"title": "Markeringsbredd"
+			"title": "Markera bredd"
 		},
 		"arrCounter": {
 			"description": "Räknar hur ofta en ARR eller flytt har klickats. Alla räknare kan återställas med knappen i nedre högra hörnet eller en ARR med återställningsfunktion.",
@@ -86,10 +86,10 @@
 			"description": "Skisserar genereringstiden i rött om vadet går ut nästa natt.",
 			"title": "Röd kant"
 		},
-		"skräddarsydda flikar": {
+		"tailoredTabs": {
 			"color": "Färg",
 			"description": "Justera flikarna i infogningsfönstret här. \"Alla\" och \"Fortsätt varna\" kommer alltid att vara synliga,",
-			"fordon": "fordonstyper",
+			"vehicles": "fordonstyper",
 			"name": "name",
 			"title": "fordonskategorier"
 		},
@@ -102,88 +102,63 @@
 			"title": "Gul kant"
 		}
 	},
-	"skräddarsydda flikar": {
+	"tailoredTabs": {
 		"defaultTabs": [
 			{
-				"name": "Firetruck",
+				"name": "Brandbil",
 				"vehicleTypes": [
 					0,
 					1,
-					13,
-					18,
-					33
+					12
 				]
 			},
 			{
-				"name": "Other Fire Apparatus",
+				"name": "Övriga Brandbilar",
 				"vehicleTypes": [
 					2,
 					3,
 					4,
 					6,
 					7,
-					8,
-					9,
-					12,
-					17,
+					10,
+					11,
+					19,
 					21,
 					22,
-					24,
-					30,
-					31,
-					32,
-					34,
-					35,
-					36,
-					37,
-					38,
-					39,
-					40,
-					41
+					23
 				]
 			},
 			{
 				"name": "Ambulans",
 				"vehicleTypes": [
 					5,
-					11,
-					15,
-					20,
-					25,
-					27,
-					28,
-					29
+					9
 				]
 			},
 			{
 				"name": "Polis",
 				"vehicleTypes": [
-					10,
+					8,
+					13,
 					14,
+					15,
 					16,
-					19,
-					23,
-					26,
-					47
+					17,
+					24
 				]
 			},
 			{
-				"name": "Vatten",
+				"name": "Brandfordon-Vatten",
 				"vehicleTypes": [
-					21,
-					22,
-					24,
-					25
+					18,
+					20
 				]
 			},
 			{
-				"name": "FBI",
+				"name": "Insatsstyrka",
 				"vehicleTypes": [
-					42,
-					43,
-					44,
-					45,
-					46
+					14,
+					17
 				]
 			}
 		]
