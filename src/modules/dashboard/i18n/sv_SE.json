@@ -35,7 +35,7 @@
 				"name": "Board-name"
 			}
 		},
-		"no-buildings": "Inga byggnader hittades. Justera vid behov filtren för det här kortet på \"Hantera styrelser\"-tab",
+		"no-buildings": "Inga byggnader hittades. Justera vid behov filtren för det här kortet på \"Hantera styrelser\"-tab"
 	},
 	"tabs": {
 		"building-types": "Byggnadsöversikt",
