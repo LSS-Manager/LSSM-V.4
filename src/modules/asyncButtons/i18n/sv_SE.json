@@ -28,10 +28,10 @@
 	},
 	"memberlistRoles": {
 		"admin": "Alliance Administratör",
-		"aufsichtsrat": "Moderator åtgärdslogg",
-		"coadmin": "Alliance Co-Administratör",
-		"finance": "Alliance Finans",
-		"schooling": "Alliance lärare",
+		"aufsichtsrat": "Moderator-logg",
+		"coadmin": "Alliance Vice administratör",
+		"finance": "Alliance Ekonomiansvarig",
+		"schooling": "Alliance Utbildare",
 		"sprechwunsch_admin": "Transportförfrågan-Administratör"
 		}
 	}
