@@ -27,11 +27,11 @@
 		"unset": "ta bort"
 	},
 	"memberlistRoles": {
-		"admin": "Alliance Admin",
+		"admin": "Alliance Administratör",
 		"aufsichtsrat": "Moderator åtgärdslogg",
-		"coadmin": "Alliance Co-Admin",
-		"finance": "Alliance Finances",
-		"schooling": "Alliance Educator",
-		"sprechwunsch_admin": "Transportförfrågan-Admin"
+		"coadmin": "Alliance Co-Administratör",
+		"finance": "Alliance Finans",
+		"schooling": "Alliance lärare",
+		"sprechwunsch_admin": "Transportförfrågan-Administratör"
 		}
 	}
