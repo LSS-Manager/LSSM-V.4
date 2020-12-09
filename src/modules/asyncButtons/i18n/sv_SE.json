@@ -27,11 +27,11 @@
 		"unset": "ta bort"
 	},
 	"memberlistRoles": {
-		"admin": "Alliance Administratör",
+		"admin": "Administratör",
 		"aufsichtsrat": "Moderator-logg",
-		"coadmin": "Alliance Vice administratör",
-		"finance": "Alliance Ekonomiansvarig",
-		"schooling": "Alliance Utbildare",
-		"sprechwunsch_admin": "Transportansvarig-Administratör"
+		"coadmin": "Vice administratör",
+		"finance": "Ekonomiansvarig",
+		"schooling": "Utbildare",
+		"sprechwunsch_admin": "Transportansvarig"
 		}
 	}
