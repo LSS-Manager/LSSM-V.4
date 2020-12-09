@@ -1,5 +1,5 @@
 {
-	"beskrivning": "Undvik med den här modulen att spelet laddas om när du trycker på vissa knappar.",
+	"description": "Undvik med den här modulen att spelet laddas om när du trycker på vissa knappar.",
 	"name": "Asynkrona knappar",
 	"settings": {
 		"buildingTax": {
