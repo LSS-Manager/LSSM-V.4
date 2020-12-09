@@ -1,10 +1,8 @@
 # Get amount of changed files and the branch we're working on
-git status -s
-git status -s | wc -l
 CHANGED_FILES=$(git status -s | wc -l)
 BRANCH=$(git branch --show-current)
 # if more than one file modified or we're on master -> Pushback
-if [ "$CHANGED_FILES" -gt 1 ]
+if [ "$CHANGED_FILES" -gt 1 ] || [ "$BRANCH" = "master" ]
 then
   # Get current Build Version
   PACKAGE_VERSION=$(cat $WORK_DIR/package.json | grep 'version' | awk -F: '{ print $2 }' | sed 's/[",]//g' | tr -d '[[:space:]]')
