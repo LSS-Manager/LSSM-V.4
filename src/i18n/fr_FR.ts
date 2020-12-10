@@ -108,7 +108,6 @@ export default {
             credits: 5_000,
             minPersonnel: 4,
             maxPersonnel: 6,
-            wtank: 0,
         },
         1: {
             caption: 'FPTL',
@@ -117,7 +116,6 @@ export default {
             credits: 5_000,
             minPersonnel: 4,
             maxPersonnel: 6,
-            wtank: 0,
         },
         2: {
             caption: 'EPA',
@@ -126,7 +124,6 @@ export default {
             credits: 10_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            wtank: 0,
             special:
                 'Nécessaire dès lors que vous avez construit 3 bases de pompiers',
         },
@@ -137,7 +134,6 @@ export default {
             credits: 10_000,
             minPersonnel: 1,
             maxPersonnel: 1,
-            wtank: 0,
             special:
                 'Nécessaire dès lors que vous avez construit 6 bases de pompiers',
         },
@@ -148,7 +144,6 @@ export default {
             credits: 12_180,
             minPersonnel: 2,
             maxPersonnel: 3,
-            wtank: 0,
             special:
                 'Nécessaire dès lors que vous avez construit 4 bases de pompiers',
         },
@@ -159,7 +154,6 @@ export default {
             credits: 5_000,
             minPersonnel: 3,
             maxPersonnel: 3,
-            wtank: 0,
         },
         6: {
             caption: 'CCGC',
@@ -168,7 +162,6 @@ export default {
             credits: 17_300,
             minPersonnel: 1,
             maxPersonnel: 2,
-            wtank: 0,
             special:
                 'Nécessaire dès lors que vous avez construit 7 bases de pompiers',
         },
@@ -179,7 +172,6 @@ export default {
             credits: 19_200,
             minPersonnel: 1,
             maxPersonnel: 4,
-            wtank: 0,
             special:
                 'Nécessaire dès lors que vous avez construit 7 bases de pompiers',
             schooling: 'Centre de secours - Véhicules risques chimiques',
@@ -192,7 +184,6 @@ export default {
             credits: 5_000,
             minPersonnel: 2,
             maxPersonnel: 4,
-            wtank: 0,
         },
         9: {
             caption: 'Dragon',
@@ -201,7 +192,6 @@ export default {
             credits: 300_000,
             minPersonnel: 3,
             maxPersonnel: 5,
-            wtank: 0,
         },
         10: {
             caption: 'VAR',
@@ -218,7 +208,6 @@ export default {
             credits: 25_500,
             minPersonnel: 1,
             maxPersonnel: 6,
-            wtank: 0,
             schooling: 'Centre de secours - Commandement mobile',
             shownSchooling: 'VPC',
             special:
@@ -249,7 +238,6 @@ export default {
             credits: 19_000,
             minPersonnel: 2,
             maxPersonnel: 5,
-            wtank: 0,
             schooling:
                 'Centre de secours - IMP (Intervention en Milieu Périlleux)',
             shownSchooling: 'Spécialiste IMP',
@@ -261,7 +249,6 @@ export default {
             credits: 19_000,
             minPersonnel: 2,
             maxPersonnel: 3,
-            wtank: 0,
         },
         16: {
             caption: 'VPL',
@@ -270,7 +257,6 @@ export default {
             credits: 10_000,
             minPersonnel: 3,
             maxPersonnel: 3,
-            wtank: 0,
             schooling: 'Centre de secours - PLG (Plongeur)',
             shownSchooling: 'PLG (Plongeur)',
             special: 'Nécessite une formation spéciale (PLG (Plongeur))',
@@ -282,7 +268,6 @@ export default {
             credits: 6_000,
             minPersonnel: 0,
             maxPersonnel: 0,
-            wtank: 0,
             special: 'Remorqueuse nécessaire (VPL, VTU)',
         },
         18: {
@@ -292,7 +277,6 @@ export default {
             credits: 300_000,
             minPersonnel: 2,
             maxPersonnel: 4,
-            wtank: 0,
             schooling: 'Poste de police - Licence de pilote',
             shownSchooling: 'Aviation policière',
         },
@@ -303,7 +287,6 @@ export default {
             credits: 7_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            wtank: 0,
             schooling: 'Poste de police - Maître chien',
             shownSchooling: 'Brigade canine',
             special:
@@ -316,7 +299,6 @@ export default {
             credits: 2_500,
             minPersonnel: 1,
             maxPersonnel: 1,
-            wtank: 0,
             schooling: 'Poste de police - Formation motocycliste',
             shownSchooling: 'Policie motocycliste',
         },
@@ -405,7 +387,7 @@ export default {
             maxBuildings: 'Aucune limite',
             maxLevel: 0,
             special:
-                "Le chef des finances et les administrateurs peuvent améliorer le bâtiment grâce à la banque d'alliance.<br>Les chefs de formation et les administrateurs peuvent lancer des formations.",
+                "Le chef des finances et les administrateurs peuvent améliorer le bâtiment grâce à la banque d'alliance.Les chefs de formation et les administrateurs peuvent lancer des formations.",
             startPersonnel: 0,
             startVehicles: [],
         },
@@ -555,17 +537,19 @@ export default {
             color: '#225522',
             coins: 50,
             credits: 500_000,
-            extensions: new Array(3).fill({
-                caption: 'Plus de salles de cours',
-                credits: 400_000,
-                coins: 40,
-                duration: '7 jours',
-            }),
+            extensions: [
+                ...new Array(3).fill({
+                    caption: 'Plus de salles de cours',
+                    credits: 400_000,
+                    coins: 40,
+                    duration: '7 jours',
+                }),
+            ],
             levelcost: [],
             maxBuildings: 'Aucune limite',
             maxLevel: 0,
             special:
-                "Le chef des finances et les administrateurs peuvent améliorer le bâtiment grâce à la banque d'alliance.<br>Les chefs de formation et les administrateurs peuvent lancer des formations.",
+                "Le chef des finances et les administrateurs peuvent améliorer le bâtiment grâce à la banque d'alliance.Les chefs de formation et les administrateurs peuvent lancer des formations.",
             startPersonnel: 0,
             startVehicles: [],
         },
@@ -700,25 +684,25 @@ export default {
         },
     },
     buildingCategories: {
-        Pompiers: {
+        'Pompiers': {
             buildings: [0, 1, 18],
             color: '#ff2d2d',
         },
-        Ambulances: {
+        'Ambulances': {
             buildings: [2, 4, 5, 20],
             color: '#ffa500',
         },
-        Police: {
+        'Police': {
             buildings: [6, 8, 13, 19],
             color: '#00ac00',
         },
-        Autre: {
+        'Autre': {
             buildings: [7, 14],
             color: '#02a18c',
         },
     },
     vehicleCategories: {
-        Incendie: {
+        'Incendie': {
             vehicles: {
                 'Fourgon dìncendie': [0, 1, 12, 13],
                 'Échelles': [2, 15],
@@ -729,14 +713,14 @@ export default {
             },
             color: '#ff2d2d',
         },
-        Ambulances: {
+        'Ambulances': {
             vehicles: {
                 Ambulances: [5],
                 Dragon: [9],
             },
             color: '#ffa500',
         },
-        Police: {
+        'Police': {
             vehicles: {
                 'Véhicule de patrouille': [8],
                 'Unité motocycliste': [20],
@@ -771,7 +755,7 @@ export default {
     schoolBuildings: [1, 8],
     dispatchCenterBuildings: [7],
     schoolings: {
-        Pompier: [
+        'Centre de secours': [
             {
                 caption: 'Véhicules risques chimiques',
                 duration: '3 jours',
@@ -801,7 +785,7 @@ export default {
                 duration: '5 jours',
             },
         ],
-        Police: [
+        'Poste de police': [
             {
                 caption: 'Licence de Pilote',
                 duration: '7 jours',

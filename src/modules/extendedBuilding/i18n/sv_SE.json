@@ -19,12 +19,12 @@
 		"schooling": "Schooling",
 		"title": "Personalöversikt"
 	},
-	"staffDemands": {
+	"personnelDemands": {
 		"additional": "Värden inom parentes utesluter fordon i status 6.",
 		"demand": "Personal som krävs"
 	},
 	"vehiclePersonnel": {
-		"fordonPersonnelAssigned": "tilldelad",
+		"vehiclesPersonnelAssigned": "tilldelad",
 		"vehiclesPersonnelCurrent": "aktuell",
 		"vehiclesPersonnelMax": "max"
 	}
