@@ -386,7 +386,7 @@ export default {
             maxBuildings: 'Ingen gräns',
             maxLevel: 0,
             special:
-                "CFO och administratörer kan förbättra byggnaden genom Alliance Bank. <br> Utbildningsledare och administratörer kan initiera utbildningar.",
+                'CFO och administratörer kan förbättra byggnaden genom Alliance Bank. <br> Utbildningsledare och administratörer kan initiera utbildningar.',
             startPersonnel: 0,
             startVehicles: [],
         },
@@ -680,51 +680,51 @@ export default {
         },
     },
     buildingCategories: {
-        'Brandmän': {
+        Brandmän: {
             buildings: [0, 1, 18],
             color: '#ff2d2d',
         },
-        'Ambulanser': {
+        Ambulanser: {
             buildings: [2, 4, 5, 20],
             color: '#ffa500',
         },
-        'Polis': {
+        Polis: {
             buildings: [6, 8, 13, 19],
             color: '#00ac00',
         },
-        'Övrig': {
+        Övrig: {
             buildings: [7, 14],
             color: '#02a18c',
         },
     },
     vehicleCategories: {
-        'Brandmän': {
+        Brandmän: {
             vehicles: {
-                'Brandbilar': [0, 1, 12],
-                'Stegbilar': [2],
-                'Specialfordon': [4, 6, 7, 10, 11, 19],
-                'Brandbefäl': [3],
-                'Båtar': [18, 20],
-                'Skogsbrandbilar': [21, 22, 23],
+                Brandbilar: [0, 1, 12],
+                Stegbilar: [2],
+                Specialfordon: [4, 6, 7, 10, 11, 19],
+                Brandbefäl: [3],
+                Båtar: [18, 20],
+                Skogsbrandbilar: [21, 22, 23],
             },
             color: '#ff2d2d',
         },
-        'Ambulanser': {
+        Ambulanser: {
             vehicles: {
                 Ambulanser: [5],
                 Ambulanshelikopter: [9],
             },
             color: '#ffa500',
         },
-        'Polis': {
+        Polis: {
             vehicles: {
-                Radiobil: [8],
-                Polismotorcykel: [16],
-                Hundenhet: [15],
-                Polishelikopter: [13],
-                "Bepansrat Insatsfordon": [14],
-                Insatsfordon: [17],
-                Polishäst: [24],
+                'Radiobil': [8],
+                'Polismotorcykel': [16],
+                'Hundenhet': [15],
+                'Polishelikopter': [13],
+                'Bepansrat Insatsfordon': [14],
+                'Insatsfordon': [17],
+                'Polishäst': [24],
             },
             color: '#000f89',
         },
@@ -806,7 +806,8 @@ export default {
     amount: 'Antal',
     search: 'Sök',
     alliance: 'Allians',
-    premiumNotice: 'Den här funktionen utökar en premiumfunktion i spelet och är därför endast tillgänglig för spelare med ett Larmcentralen-spelet premiumkonto!',
+    premiumNotice:
+        'Den här funktionen utökar en premiumfunktion i spelet och är därför endast tillgänglig för spelare med ett Larmcentralen-spelet premiumkonto!',
     credits: 'Krediter',
     close: 'Stäng',
     fullscreen: {

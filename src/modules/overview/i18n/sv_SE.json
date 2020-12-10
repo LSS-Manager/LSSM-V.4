@@ -2,8 +2,8 @@
 	"extensionTitle": "{caption} (upp till {n} gånger)",
 	"tabs": {
 		"buildings": "Byggnader",
-		"vehicles": "Fordon",
-		"schoolings": "Kurser"
+		"schoolings": "Kurser",
+		"vehicles": "Fordon"
 	},
 	"titles": {
 		"buildings": {

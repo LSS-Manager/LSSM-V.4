@@ -88,16 +88,16 @@
 			"description": "Skisserar genereringstiden i rött om vadet går ut nästa natt.",
 			"title": "Röd kant"
 		},
-		"tailoredTabs": {
-			"color": "Färg",
-			"description": "Justera flikarna i infogningsfönstret här. \"Alla\" och \"Fortsätt varna\" kommer alltid att vara synliga,",
-			"vehicles": "Fordonstyper",
-			"name": "name",
-			"title": "fordonskategorier"
-		},
 		"stickyHeader": {
 			"description": "Visar alltid det övre fältet i infogningsfönstret, även när du rullar nedåt.",
 			"title": "Visa alltid rubrikfält"
+		},
+		"tailoredTabs": {
+			"color": "Färg",
+			"description": "Justera flikarna i infogningsfönstret här. \"Alla\" och \"Fortsätt varna\" kommer alltid att vara synliga,",
+			"name": "name",
+			"title": "fordonskategorier",
+			"vehicles": "Fordonstyper"
 		},
 		"yellowBorder": {
 			"description": "Gränsar genereringstiden gul om användningen är äldre än det angivna antalet timmar. Om siffran är 0 dras ingen kant.",
