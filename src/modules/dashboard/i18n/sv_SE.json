@@ -14,9 +14,9 @@
 			"title": "Byggnader"
 		},
 		"vehicles": {
+			"empty": "Du har inga fordon i kategorin {kategori} än!",
 			"tip": "Klicka på en grupp fordonstyper för att endast visa den här gruppen.",
-			"title": "Fordon",
-			"empty": "Du har inga fordon i kategorin {kategori} än!"
+			"title": "Fordon"
 		}
 	},
 	"dispatchcenter-view": {

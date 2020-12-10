@@ -46,49 +46,6 @@
 			"description": "Listar möjliga uppföljningsanvändningar för detta uppdrag.",
 			"title": "Uppföljningsuppdrag"
 		},
-		"vehicles": {
-			"content": {
-				"description": "Visar fordonsbehov.",
-				"title": "Fordonskrav"
-			},
-			"patient_additionals": {
-				"description": "Om det för närvarande finns fler än tio patienter på plats listas EMS-Chief automatiskt i början av fordonskraven.",
-				"title": "Nämn EMS-chef extra"
-			},
-			"sort": {
-				"amount": "Antal fordringar som krävs",
-				"caption": "Kravets namn",
-				"description": "Definiera vad fordonskraven ska sorteras efter.",
-				"percentage": "Probability",
-				"title": "Sortera fordonets krav"
-			},
-			"title": {
-				"description": "Visar rubriken \"Fordon\" ovanför fordonets krav.",
-				"title": "Fordon (titel)"
-			},
-			"xAfterNumber": {
-				"description": "Sätter ett x bakom antalet fordon",
-				"title": "x efter beloppet"
-			}
-		},
-		"prisoners": {
-			"content": {
-				"description": "Visar detaljer om möjliga fångar.",
-				"title": "Detaljer om möjliga fångar"
-			},
-			"live": {
-				"description": "Visar högst upp på uppdragshjälparen hur många fångar uppdraget för närvarande har.",
-				"title": "Antal nuvarande fångar"
-			},
-			"title": {
-				"description": "Visar rubriken \"Prisoners\" ovanför detaljerna om möjliga fångar.",
-				"title": "Fångar (titel)"
-			}
-		},
-		"prerequisites": {
-			"description": "Visar kraven (t.ex. 3 räddningsstationer och 4 brandstationer)",
-			"title": "Förutsättningar"
-		},
 		"generatedBy": {
 			"description": "Visar från vilken byggnadstyp detta uppdrag kan genereras.",
 			"title": "Skapad av (byggnadstyp)"
@@ -144,13 +101,13 @@
 			}
 		},
 		"patients": {
-			"hideWhenNoNeed": {
-				"description": "Döljer patientuppgifterna om det inte finns fler patienter och patienter inte dyker upp förrän slutet av uppdraget.",
-				"title": "Visa endast patientinformation när det behövs"
-			},
 			"content": {
 				"description": "Visar detaljer om möjliga patienter.",
 				"title": "Detaljer om potentiella patienter"
+			},
+			"hideWhenNoNeed": {
+				"description": "Döljer patientuppgifterna om det inte finns fler patienter och patienter inte dyker upp förrän slutet av uppdraget.",
+				"title": "Visa endast patientinformation när det behövs"
 			},
 			"live": {
 				"description": "Visar högst upp på missionsassistenten hur många patienter uppdraget för närvarande har.",
@@ -169,6 +126,24 @@
 			"description": "Visar bredvid titeln vilken POI som krävs för detta uppdrag.",
 			"title": "POI"
 		},
+		"prerequisites": {
+			"description": "Visar kraven (t.ex. 3 räddningsstationer och 4 brandstationer)",
+			"title": "Förutsättningar"
+		},
+		"prisoners": {
+			"content": {
+				"description": "Visar detaljer om möjliga fångar.",
+				"title": "Detaljer om möjliga fångar"
+			},
+			"live": {
+				"description": "Visar högst upp på uppdragshjälparen hur många fångar uppdraget för närvarande har.",
+				"title": "Antal nuvarande fångar"
+			},
+			"title": {
+				"description": "Visar rubriken \"Prisoners\" ovanför detaljerna om möjliga fångar.",
+				"title": "Fångar (titel)"
+			}
+		},
 		"title": {
 			"description": "Visar uppdragsnamnet, t.ex. \"Trashcan fire\" som titel.",
 			"title": "uppdragsnamn"
@@ -176,6 +151,31 @@
 		"type": {
 			"description": "Visar typnumret för uppdraget bredvid titeln.",
 			"title": "Typnummer"
+		},
+		"vehicles": {
+			"content": {
+				"description": "Visar fordonsbehov.",
+				"title": "Fordonskrav"
+			},
+			"patient_additionals": {
+				"description": "Om det för närvarande finns fler än tio patienter på plats listas EMS-Chief automatiskt i början av fordonskraven.",
+				"title": "Nämn EMS-chef extra"
+			},
+			"sort": {
+				"amount": "Antal fordringar som krävs",
+				"caption": "Kravets namn",
+				"description": "Definiera vad fordonskraven ska sorteras efter.",
+				"percentage": "Probability",
+				"title": "Sortera fordonets krav"
+			},
+			"title": {
+				"description": "Visar rubriken \"Fordon\" ovanför fordonets krav.",
+				"title": "Fordon (titel)"
+			},
+			"xAfterNumber": {
+				"description": "Sätter ett x bakom antalet fordon",
+				"title": "x efter beloppet"
+			}
 		}
 	}
 }

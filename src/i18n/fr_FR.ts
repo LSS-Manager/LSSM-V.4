@@ -684,25 +684,25 @@ export default {
         },
     },
     buildingCategories: {
-        'Pompiers': {
+        Pompiers: {
             buildings: [0, 1, 18],
             color: '#ff2d2d',
         },
-        'Ambulances': {
+        Ambulances: {
             buildings: [2, 4, 5, 20],
             color: '#ffa500',
         },
-        'Police': {
+        Police: {
             buildings: [6, 8, 13, 19],
             color: '#00ac00',
         },
-        'Autre': {
+        Autre: {
             buildings: [7, 14],
             color: '#02a18c',
         },
     },
     vehicleCategories: {
-        'Incendie': {
+        Incendie: {
             vehicles: {
                 'Fourgon dìncendie': [0, 1, 12, 13],
                 'Échelles': [2, 15],
@@ -713,14 +713,14 @@ export default {
             },
             color: '#ff2d2d',
         },
-        'Ambulances': {
+        Ambulances: {
             vehicles: {
                 Ambulances: [5],
                 Dragon: [9],
             },
             color: '#ffa500',
         },
-        'Police': {
+        Police: {
             vehicles: {
                 'Véhicule de patrouille': [8],
                 'Unité motocycliste': [20],

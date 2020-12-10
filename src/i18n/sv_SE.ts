@@ -386,7 +386,7 @@ export default {
             maxBuildings: 'Ingen gräns',
             maxLevel: 0,
             special:
-                "CFO och administratörer kan förbättra byggnaden genom Alliance Bank. <br> Utbildningsledare och administratörer kan initiera utbildningar.",
+                'CFO och administratörer kan förbättra byggnaden genom Alliance Bank. <br> Utbildningsledare och administratörer kan initiera utbildningar.',
             startPersonnel: 0,
             startVehicles: [],
         },
@@ -680,43 +680,43 @@ export default {
         },
     },
     buildingCategories: {
-        'Brandmän': {
+        Brandmän: {
             buildings: [0, 1, 18],
             color: '#ff2d2d',
         },
-        'Ambulanser': {
+        Ambulanser: {
             buildings: [2, 4, 5, 20],
             color: '#ffa500',
         },
-        'Polis': {
+        Polis: {
             buildings: [6, 8, 13, 19],
             color: '#00ac00',
         },
-        'Övrig': {
+        Övrig: {
             buildings: [7, 14],
             color: '#02a18c',
         },
     },
     vehicleCategories: {
-        'Brandmän': {
+        Brandmän: {
             vehicles: {
-                'Brandkår': [0, 1, 12],
-                'Vågar': [2],
-                'Specialvehicle': [4, 6, 7, 10],
-                'Gruppledare': [3, 11],
-                'Nautical': [18, 19, 20],
-                'Skogsbränder': [21, 22, 23],
+                Brandkår: [0, 1, 12],
+                Vågar: [2],
+                Specialvehicle: [4, 6, 7, 10],
+                Gruppledare: [3, 11],
+                Nautical: [18, 19, 20],
+                Skogsbränder: [21, 22, 23],
             },
             color: '#ff2d2d',
         },
-        'Ambulanser': {
+        Ambulanser: {
             vehicles: {
                 Ambulanser: [5],
                 Drake: [9],
             },
             color: '#ffa500',
         },
-        'Polis': {
+        Polis: {
             vehicles: {
                 Radiobil: [8],
                 Motorcyklistenhet: [16],
