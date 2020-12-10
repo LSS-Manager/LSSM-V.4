@@ -13,5 +13,5 @@ export default (async (LSSM, MODULE_ID) => {
             await import(
                 /* webpackChunkName: "modules/extendedCallList/remainingTime" */ './assets/remainingTime'
             )
-        ).default(LSSM);
+        ).default(LSSM, await getSetting('remainingTimeGreenOnly'));
 }) as ModuleMainFunction;

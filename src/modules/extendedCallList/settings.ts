@@ -6,4 +6,9 @@ export default (() => ({
         type: 'toggle',
         default: false,
     },
+    remainingTimeGreenOnly: <Toggle>{
+        type: 'toggle',
+        default: true,
+        dependsOn: '.remainingTime',
+    },
 })) as ModuleSettingFunction;

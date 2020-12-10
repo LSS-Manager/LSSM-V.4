@@ -5,6 +5,10 @@
 		"remainingTime": {
 			"description": "Zeigt bei Einsätzen an, wie lange der Einsatz noch in Bearbeitung ist.",
 			"title": "Verbleibende Einsatzdauer"
-		}
+		},
+        "remainingTimeGreenOnly": {
+            "description": "Zeigt die Einsatzdauer nur bei grünen Einsätzen an.",
+            "title": "Einsatzdauer nur bei grünen Einsätze"
+        }
 	}
 }
