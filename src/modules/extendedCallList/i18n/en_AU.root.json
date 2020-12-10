@@ -1,0 +1,10 @@
+{
+    "name": "Extended Missionlist",
+    "description": "Extends missionlist by some cool Features!",
+    "settings": {
+        "remainingTime": {
+            "title": "Remaining Missiontime",
+            "description": "Shows at missions how long each mission still is in progress."
+        }
+    }
+}
