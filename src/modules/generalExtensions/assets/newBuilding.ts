@@ -136,6 +136,8 @@ export default async (
                         form.insertAdjacentElement('beforebegin', successAlert);
                         btn.setAttribute('type', 'submit');
                         form['building[name]'].value = '';
+                        form.build_with_coins.removeAttribute('value');
+                        form.build_as_alliance.removeAttribute('value');
 
                         const buildingId = parseInt(
                             successAlert
