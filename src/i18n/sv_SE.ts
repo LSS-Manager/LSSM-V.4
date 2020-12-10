@@ -525,7 +525,7 @@ export default {
             color: '#225522',
             coins: 50,
             credits: 500_000,
-            ...new Array(3).fill({
+            extensions: new Array(3).fill({
                 caption: 'Fler klassrum',
                 credits: 400_000,
                 coins: 40,

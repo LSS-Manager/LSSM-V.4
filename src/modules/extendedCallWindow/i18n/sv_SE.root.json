@@ -7,7 +7,7 @@
 			"preview": "Preview",
 			"style": "icon type",
 			"title": "larmikoner",
-			"vehichles": "fordonstyper"
+			"vehicles": "fordonstyper"
 		},
 		"alarmTime": {
 			"description": "Visar bredvid alarmknappen hur lång tid fordonet med den längsta restiden tar.",
@@ -70,13 +70,15 @@
 			"title": "Ladda om fordon i rubrik"
 		},
 		"missionKeywords": {
+			"autotextcolor": "Automatical text color",
 			"color": "bakgrundsfärg",
 			"description": "Få ditt eget nyckelord visat bredvid uppdragsnamnet",
 			"keyword": "sökord",
+			"missions": "uppdrag",
 			"prepend": "Visa före uppdragsnamnet",
 			"preview": "Preview",
-			"title": "Uppdrag nyckelord",
-			"missions": "uppdrag"
+			"textcolor": "Text color",
+			"title": "Uppdrag nyckelord"
 		},
 		"patientSummary": {
 			"description": "Visar bredvid antalet patienter vilken räddningsutrustning de behöver i kombination.",

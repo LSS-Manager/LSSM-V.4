@@ -173,7 +173,7 @@
 			"description": "Visar uppdragsnamnet, t.ex. \"Trashcan fire\" som titel.",
 			"title": "uppdragsnamn"
 		},
-		"typ": {
+		"type": {
 			"description": "Visar typnumret för uppdraget bredvid titeln.",
 			"title": "Typnummer"
 		}

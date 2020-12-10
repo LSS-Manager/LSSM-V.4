@@ -1,7 +1,7 @@
 {
 	"diyMission": "Det här uppdraget verkar vara ett storskaligt alliansuppdrag!",
 	"tip": {
-		"dra": "dra fönster",
+		"dragging": "dra fönster",
 		"maxState": "maximala krav på / av",
 		"minified": "kollapsa",
 		"overlay": "overlay",
