@@ -7,9 +7,9 @@ sidebarDepth: 3
 # FAQ ❓
 
 ### Vad kostar LSS-Manager?
-LSS-Manager är ett gratis erbjudande - vi har inte för avsikt att ändra detta.
+LSS-Manager är ett gratis tillägg. - vi har inte för avsikt att ändra detta.
 
-::: warning donationer
+::: warning Donationer
 Det finns några trevliga användare som vill donera pengar till oss. Men: LSS-Manager är och förblir gratis. Vi accepterar inte heller några donationer för detta projekt.
 
 Detta har flera anledningar:
@@ -24,18 +24,18 @@ Därför är det, förutom idén om frivillighet, ingen mening för oss att ta p
 :::
 
 ### Hur kan jag bidra till LSS-Manager?
-Den "normala" användaren kan [report bugs][error] eller [make suggestions][suggestions].
+Den "normala" användaren kan [Rapportera ett fel][error] eller [Skicka förslag][suggestions].
 
 Vi utformar för närvarande en stilguide för utvecklare så att de också enkelt kan lägga till sina egna plugins till LSSM. Vi försökte också hålla vår kodstruktur tydlig och förståelig. Att lägga till ett plugin innebär dock inte på något sätt att gå med i laget.
 
 ### Hur rapporterar jag fel?
-Ta en titt på sidan [report bugs][error].
+Ta en titt på sidan [Rapportera ett fel][error].
 
 ### Var kan jag få hjälp?
-Genom vårt stöd. Du hittar mer information [here][support].
+Genom vårt stöd. Du hittar mer information [här][support].
 
 ### Hur kan jag skicka idéer?
-På sidan [suggestions][suggestions] har vi sammanställt lite information om det.
+På sidan [Skicka förslag][suggestions] har vi sammanställt lite information om det.
 
 ### I vilka webbläsare fungerar LSS-Manager?
 Endast stationära webbläsare listas här, eftersom mobilwebbläsare inte stöds officiellt.
@@ -43,7 +43,7 @@ Denna tabell är inte nödvändigtvis korrekt än och kommer att uppdateras när
 
 Eftersom vi vill behålla de senaste kodningsstandarderna hela tiden, är en modern och uppdaterad webbläsare nödvändig och rekommenderad - om bara av säkerhetsskäl, även utanför spelet.
 
-::: warning kompatibilitet
+::: warning Kompatibilitet
 En kompatibilitet som anges här garanterar inte funktionalitet. Detta är endast information som samlas in och utvärderas av tredje part.
 :::
 
