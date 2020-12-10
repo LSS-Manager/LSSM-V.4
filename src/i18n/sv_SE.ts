@@ -34,7 +34,7 @@ const modules = {
         resetWarningSetting: {
             title: 'Återställ inställningar',
             text:
-                'Är du säker på att du vill återställa inställning <b> {setting} </b> för modulen <b> {module} </b> till dess standardvärde?',
+                'Är du säker på att du vill återställa inställning <b>{setting}</b> för modulen <b>{module}</b> till dess standardvärde?',
             close: 'Avbryt',
             reset: 'Reset',
         },
