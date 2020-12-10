@@ -19,8 +19,8 @@
 		"each": "Varje kurs",
 		"max": "För närvarande maximalt krävs",
 		"min": "För närvarande minimikrav",
-		"noSchooling": "Ingen utbildning",
-		"schooling": "Utbildning",
+		"noSchooling": "Ingen kurs",
+		"schooling": "Kurs",
 		"title": "Personalöversikt"
 	},
 	"vehiclePersonnel": {
