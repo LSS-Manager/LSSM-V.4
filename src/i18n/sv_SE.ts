@@ -386,7 +386,7 @@ export default {
             maxBuildings: 'Ingen gräns',
             maxLevel: 0,
             special:
-                'CFO och administratörer kan förbättra byggnaden genom Alliance Bank. <br> Utbildningsledare och administratörer kan initiera utbildningar.',
+                "CFO och administratörer kan förbättra byggnaden genom Alliance Bank. <br> Utbildningsledare och administratörer kan initiera utbildningar.",
             startPersonnel: 0,
             startVehicles: [],
         },
@@ -573,7 +573,7 @@ export default {
             credits: 0,
             extensions: [],
             levelcost: [],
-            maxbuildings: 1,
+            maxBuildings: 1,
             maxLevel: 0,
             special:
                 'Du kan bygga mittzonen gratis. Detta fungerar som en plattform och låter dig parkera och tillfälligt distribuera dina enheter. Det försvinner efter 24 timmar. Välj den eller de enheter du vill distribuera här. ',
@@ -635,6 +635,7 @@ export default {
             extensions: [
                 {
                     caption: 'Fängelsecell',
+                    credits: 25_000,
                     coins: 5,
                     duration: '7 dagar',
                 },
