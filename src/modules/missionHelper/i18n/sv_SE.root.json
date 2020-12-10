@@ -4,18 +4,18 @@
 	"noVehicleRequirements": {
 		"average_min_fire_personnel": {
 			"badge": false,
-			"in": "ytterligare",
+			"in": "Tillägg",
 			"text": "Brandmän behövs minst"
 		},
 		"average_min_police_personnel": {
 			"badge": false,
-			"in": "ytterligare",
+			"in": "Tillägg",
 			"text": "Poliser behövde minimum i genomsnitt"
 		},
 		"swat_personnel": {
 			"badge": false,
 			"in": "ytterligare",
-			"text": "SWAT-personal behövde ett minimum i genomsnitt"
+			"text": "Insatspoliser behövde ett minimum i genomsnitt"
 		},
 		"water_needed": {
 			"badge": true,
@@ -36,11 +36,11 @@
 		},
 		"credits": {
 			"description": "Indikerar genomsnittlig kreditinkomst från ett uppdrag.",
-			"title": "Credits"
+			"title": "Krediter"
 		},
 		"expansions": {
 			"description": "Listar möjlig spridning av detta uppdrag.",
-			"title": "sprida"
+			"title": "Sprida sig"
 		},
 		"followup": {
 			"description": "Listar möjliga uppföljningsanvändningar för detta uppdrag.",
@@ -51,21 +51,21 @@
 			"title": "Skapad av (byggnadstyp)"
 		},
 		"hide_battalion_chief_vehicles": {
-			"description": "Gömmer bataljonschefen fullständigt och visar endast MCV.",
-			"title": "Göm bataljoncheferna"
+			"description": "Gömmer brandbefälet fullständigt",
+			"title": "Dölj brandbefäl"
 		},
 		"id": {
 			"description": "Visar uppdrags-ID bredvid titeln.",
-			"title": "Mission ID"
+			"title": "Uppdrags-ID"
 		},
 		"multifunctionals": {
 			"battalion_chief_vehicles": {
-				"description": "Subtraherar antalet obligatoriska MCV från Battalion Chief och döljer Battalion Chief om siffran sjunker under 0.",
-				"title": "Battalion Chief Simple Rate"
+				"description": "Subtraherar antalet obligatoriska från brandfebäl och döljer brandfebäl om siffran sjunker under 0.",
+				"title": "Brandbefäl"
 			},
 			"heavy_rescue_vehicles": {
-				"description": "subtraherar antalet nödvändiga brandbilar från Heavy Rescue och döljer brandbilar om antalet sjunker under 0. Den här funktionen är avsedd för personer som kör ett rent Rescue Engine-system.",
-				"title": "Heavy Rescue Simple Rate"
+				"description": "Subtraherar antalet nödvändiga brandbilar från räddningsbilar och döljer brandbilar om antalet sjunker under 0. Den här funktionen är avsedd för personer som kör ett rent Rescue Engine-system.",
+				"title": "Utvärderar helt enkelt räddningsbilen"
 			},
 			"platform_trucks": {
 				"description": "Subtraherar antalet brandbilar från Quints och döljer brandbilar om antalet sjunker under 0.",
@@ -86,12 +86,12 @@
 				"title": "Visa drönare kan ersätta utredningen"
 			},
 			"allow_ktw_instead_of_rtw": {
-				"description": "Visar om en BLS kan användas istället för en ALS.",
-				"title": "BLS istället för ALS"
+				"description": "Visar om en ambulanshelikopter kan användas istället för en ambulans.",
+				"title": "Ambulanshelikopter istället för ambulans"
 			},
 			"allow_rw_instead_of_lf": {
-				"description": "Indikerar, om istället för en brandbil också tung räddnings- eller räddningsmotor är möjlig på plats.",
-				"title": "Visa Heavy Rescue / räddningsmotor istället för brandbilar"
+				"description": "Indikerar, om istället för en brandbil också tung räddningsfordon- eller räddningsbil är möjlig på plats.",
+				"title": "Visa räddningsfordon / räddningsbil istället för brandbilar"
 			}
 		},
 		"patient": {
@@ -162,10 +162,10 @@
 				"title": "Nämn EMS-chef extra"
 			},
 			"sort": {
-				"amount": "Antal fordringar som krävs",
+				"amount": "Antal fordon som krävs",
 				"caption": "Kravets namn",
 				"description": "Definiera vad fordonskraven ska sorteras efter.",
-				"percentage": "Probability",
+				"percentage": "Sannolikhet",
 				"title": "Sortera fordonets krav"
 			},
 			"title": {
