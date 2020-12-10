@@ -711,20 +711,20 @@ export default {
         },
         'Ambulanser': {
             vehicles: {
-                "Ambulanser": [5],
-                "Ambulanshelikopter": [9],
+                Ambulanser: [5],
+                Ambulanshelikopter: [9],
             },
             color: '#ffa500',
         },
         'Polis': {
             vehicles: {
-                "Radiobil": [8],
-                "Polismotorcykel": [16],
-                "Hundenhet": [15],
-                "Polishelikopter": [13],
+                Radiobil: [8],
+                Polismotorcykel: [16],
+                Hundenhet: [15],
+                Polishelikopter: [13],
                 "Bepansrat Insatsfordon": [14],
-                "Insatsfordon": [17],
-                "Polishäst": [24],
+                Insatsfordon: [17],
+                Polishäst: [24],
             },
             color: '#000f89',
         },
