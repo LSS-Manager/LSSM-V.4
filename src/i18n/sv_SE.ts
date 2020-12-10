@@ -526,7 +526,7 @@ export default {
             coins: 50,
             credits: 500_000,
             ...new Array(3).fill({
-                caption: 'fler klassrum',
+                caption: 'Fler klassrum',
                 credits: 400_000,
                 coins: 40,
                 duration: '7 dagar',
