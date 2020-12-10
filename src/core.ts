@@ -17,6 +17,7 @@ import { ModuleMainFunction, ModuleSettingFunction } from 'typings/Module';
 import { Color, Toggle } from 'typings/Setting';
 
 require('./natives/navTabsClicker');
+require('./natives/lightbox');
 (async () => {
     Vue.config.productionTip = false;
 

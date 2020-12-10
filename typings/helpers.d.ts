@@ -60,6 +60,7 @@ declare global {
         coinsUpdate(coins: number): void;
         unix_timestamp(): number;
         mapMoveToSearch(): void;
+        lightboxClose(): void;
     }
 }
 

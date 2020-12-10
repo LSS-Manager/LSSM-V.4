@@ -75,7 +75,8 @@ export default (async (LSSM, MODULE_ID) => {
             MODULE_ID
         );
 
-    const isProfile = !!window.location.pathname.match(/^\/profile\/\d+\/?$/);
+    const isProfile =
+        !!window.location.pathname.match(/^\/profile\/\d+\/?$/) && !!window.map;
     const addToPanelHeading = !!window.location.pathname.match(
         /^\/(verband\/(bereitstellungsraume|gebauede)|buildings\/\d+\/move)\/?$/
     );
