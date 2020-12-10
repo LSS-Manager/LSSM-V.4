@@ -56,6 +56,7 @@ declare global {
         building_maps_redraw(): void;
         creditsUpdate(credits: number): void;
         coinsUpdate(coins: number): void;
+        unix_timestamp(): number;
     }
 }
 
