@@ -1,9 +1,9 @@
 {
 	"all": "Alla",
-	"amount": "Antal utbildningar",
-	"open": "Öppna utbildningar",
-	"own": "Utbildningar med egna deltagare",
-	"schooling": "Utbildningar",
+	"amount": "Antal kurser",
+	"open": "Öppna kurser",
+	"own": "Kurser med egna deltagare",
+	"schooling": "Kurser",
 	"seats": "Antal platser",
 	"titles": {
 		"end": "Tid kvar",
