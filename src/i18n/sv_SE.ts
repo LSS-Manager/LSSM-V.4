@@ -5,7 +5,7 @@
 const modules = {
     appstore: {
         save: 'Spara',
-        reset: 'Reset',
+        reset: 'Återställ',
         noMapkit:
             'Denna modul fungerar inte med "Mapkit" på grund av Mapkit-begränsningar!',
         dev:
@@ -13,37 +13,37 @@ const modules = {
         closeWarning: {
             title: 'Osparade ändringar',
             text:
-                'Ändringar har gjorts i AppStore som inte har sparats. Spara eller återställ för att closea Appstore.',
-            close: 'close',
+                'Du har gjort ändringar i AppStore som ännu inte har sparats. Återställ eller spara dem för att stänga AppStore.',
+            close: 'Stäng meddelandet',
         },
     },
     settings: {
-        name: 'Parametrar',
+        name: 'Inställningar',
         save: 'Spara',
         discard: 'Avbryt ändringar',
-        reset: 'Reset',
-        export: 'Export',
-        import: 'Import',
+        reset: 'Återställ',
+        export: 'Exportera',
+        import: 'Importera',
         resetWarning: {
-            title: 'Återställ parametrar',
+            title: 'Återställ inställningar',
             text:
                 'Vill du återställa standardinställningarna? Det kan inte bli ogjort! ',
             close: 'Avbryt',
-            total: 'Alla parametrar',
+            total: 'Alla inställningar',
             module: 'Endast för den här modulen',
         },
         resetWarningSetting: {
             title: 'Återställ inställningar',
             text:
-                'Är du säker på att du vill återställa inställning <b>{setting}</b> för modulen <b>{module}</b> till dess standardvärde?',
+                'Vill du verkligen återställa den här inställningen <b>{setting}</b> för modulen <b>{module}</b> till dess standardvärde?',
             close: 'Avbryt',
-            reset: 'Reset',
+            reset: 'Återställ',
         },
         closeWarning: {
             title: 'Osparade ändringar',
             text:
-                'Ändringar har gjorts i parametrar som inte har sparats. Utför en Återställ, Avbryt eller Spara för att closea parametrarna.',
-            close: 'close',
+                'Du har gjort ändringar i inställningarna som ännu inte har sparats. Återställ dem, avbryt dem eller spara dem för att stänga inställningarna.',
+            close: 'Stäng meddelandet',
         },
         changeList: {
             true: 'På',
@@ -65,7 +65,7 @@ export default {
     modules,
     ...t,
     error: {
-        title: 'LSS Manager: Error',
+        title: 'LSS Manager: Fel',
         msg: 'Om detta fel inträffar ofta, rapportera det till LSSM-teamet!',
     },
     warnings: {
@@ -73,30 +73,30 @@ export default {
             title: 'Fel version av LSS Manager',
             text:
                 'Kära användare, tyvärr har du inte den senaste versionen av LSS Manager. Den senaste versionen är {version} och du har {aktuell}. Ladda om spelet genom att rensa cacheminnet (Ctrl + F5 eller kommando + R på Apple), detta bör lösa problemet. Om problemet kvarstår, vänligen rapportera det till teamet! Om du använder fel version kan vi inte garantera att LSS-Manager fungerar till fullo. ',
-            close: 'close detta meddelande och ladda om spelet (rekommenderas)',
-            abort: 'close detta meddelande utan att ladda om spelet',
+            close: 'Stäng detta meddelande och ladda om spelet (rekommenderas)',
+            abort: 'Stäng detta meddelande utan att ladda om spelet',
         },
     },
     globalSettings: {
         name: 'Allmänna inställningar',
         labelInMenu: {
-            title: 'title istället för en ikon i menyn',
+            title: 'Titel istället för en ikon i menyn',
             description:
-                'En enkel title i navigeringsfältet istället för LSSM-logotypen',
+                'Visar en enkel titel i navigeringsfältet istället för LSSM-logotypen',
         },
         allowTelemetry: {
             description:
-                'Kontrollera om LSS-Manager får skicka data, vilket hjälper oss att utveckla detta extensions.',
+                'Kontrollerar om LSS-Manager får skicka data, vilket hjälper oss att utveckla detta extensions.',
             title: 'Tillåt telemetri',
         },
         iconBg: {
-            description: 'Ändra bakgrundsfärgen på LSSM-ikonen!',
-            title: 'LSSM ikon bakgrundsfärg',
+            description: 'Ändra bakgrunden till LSSM-ikon!',
+            title: 'LSSM-ikon bakgrund',
         },
         iconBgAsNavBg: {
             description:
-                'färga hela navigeringsfältet med bakgrundsfärgen på LSSM-ikonen!',
-            title: 'färga navigeringsfältet',
+                'Färga hela navigeringsfältet med bakgrundsfärgen på LSSM-ikonen!',
+            title: 'Färga navigeringsfältet',
         },
     },
     vehicles: {
@@ -386,7 +386,7 @@ export default {
             maxBuildings: 'Ingen gräns',
             maxLevel: 0,
             special:
-                'CFO och administratörer kan förbättra byggnaden genom Alliance Bank. <br> Utbildningsledare och administratörer kan initiera utbildningar.',
+                "CFO och administratörer kan förbättra byggnaden genom Alliance Bank. <br> Utbildningsledare och administratörer kan initiera utbildningar.",
             startPersonnel: 0,
             startVehicles: [],
         },
@@ -657,7 +657,7 @@ export default {
             special:
                 'Priset på dina positioner ökar när du äger 25. Så hastigheten på progressionen är konstant när du har en stor inkomstström på dessa spelnivåer. Den nuvarande formeln för att beräkna priset på positioner är följande: <kod> 100.000+ (200.000 * LOGG <sub> 2 </sub> (Antal befintliga brandstationer - 22)) </code>.',
             startPersonnel: 2,
-            startVehicles: ['Radarbil'],
+            startVehicles: ['Radiobil'],
             maxBuildingsFunction: (): number => 1_700,
         },
         20: {
@@ -680,49 +680,50 @@ export default {
         },
     },
     buildingCategories: {
-        Brandmän: {
+        'Brandmän': {
             buildings: [0, 1, 18],
             color: '#ff2d2d',
         },
-        Ambulanser: {
+        'Ambulanser': {
             buildings: [2, 4, 5, 20],
             color: '#ffa500',
         },
-        Polis: {
+        'Polis': {
             buildings: [6, 8, 13, 19],
             color: '#00ac00',
         },
-        Övrig: {
+        'Övrig': {
             buildings: [7, 14],
             color: '#02a18c',
         },
     },
     vehicleCategories: {
-        Brandmän: {
+        'Brandmän': {
             vehicles: {
-                Brandkår: [0, 1, 12],
-                Vågar: [2],
-                Specialvehicle: [4, 6, 7, 10],
-                Gruppledare: [3, 11],
-                Nautical: [18, 19, 20],
-                Skogsbränder: [21, 22, 23],
+                'Brandbilar': [0, 1, 12],
+                'Stegbilar': [2],
+                'Specialfordon': [4, 6, 7, 10, 11, 19],
+                'Brandbefäl': [3],
+                'Båtar': [18, 20],
+                'Skogsbrandbilar': [21, 22, 23],
             },
             color: '#ff2d2d',
         },
-        Ambulanser: {
+        'Ambulanser': {
             vehicles: {
                 Ambulanser: [5],
-                Drake: [9],
+                Ambulanshelikopter: [9],
             },
             color: '#ffa500',
         },
-        Polis: {
+        'Polis': {
             vehicles: {
                 Radiobil: [8],
-                Motorcyklistenhet: [16],
-                Hundlag: [15],
-                Helikopter: [13],
-                Bepansrat: [14, 17],
+                Polismotorcykel: [16],
+                Hundenhet: [15],
+                Polishelikopter: [13],
+                "Bepansrat Insatsfordon": [14],
+                Insatsfordon: [17],
                 Polishäst: [24],
             },
             color: '#000f89',
@@ -804,17 +805,17 @@ export default {
     },
     amount: 'Antal',
     search: 'Sök',
-    alliance: 'Alliance',
-    premiumNotice: 'Operator112 premiumkonto krävs.',
-    credits: 'Credits',
-    close: 'close',
+    alliance: 'Allians',
+    premiumNotice: 'Den här funktionen utökar en premiumfunktion i spelet och är därför endast tillgänglig för spelare med ett Larmcentralen-spelet premiumkonto!',
+    credits: 'Krediter',
+    close: 'Stäng',
     fullscreen: {
         expand: 'Aktivera helskärmsläge',
         compress: 'inaktivera helskärmsläge',
     },
-    hideTitle: 'Visa title | Göm title ',
-    vehicle: 'vehicle | vehicle | vehicles',
-    building: 'buildings',
+    hideTitle: 'Visa titel | Göm titel ',
+    vehicle: 'Fordon | Fordon | Fordon',
+    building: 'Byggnader',
     station: 'Skydd | Vakt | Vakter',
     distance: 'Avstånd | Avstånd ',
     vehicleType: 'Fordons typ',

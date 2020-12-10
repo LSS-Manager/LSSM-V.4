@@ -4,10 +4,10 @@
 		"alarmIcons": {
 			"description": "Lämna ikonerna i \"Alarm\" Visa-knappen, baserat på ditt val. Du kan välja mellan <a href=\"https://fontawesome.com/icons?d=gallery&m=free\" target=\"_blank\">alla fria ikoner från Font-Awesome</a>. Det räcker att ange namnet på ikonen. En liveförhandsgranskning visar dig sedan ikonen.",
 			"icon": "Ikon",
-			"preview": "Preview",
-			"style": "icon type",
-			"title": "larmikoner",
-			"vehicles": "fordonstyper"
+			"preview": "Förhandsvisning",
+			"style": "Ikon typ",
+			"title": "Larmikoner",
+			"vehicles": "Fordonstyper"
 		},
 		"alarmTime": {
 			"description": "Visar bredvid alarmknappen hur lång tid fordonet med den längsta restiden tar.",
@@ -27,11 +27,11 @@
 		},
 		"arrCounter": {
 			"description": "Räknar hur ofta en ARR eller flytt har klickats. Alla räknare kan återställas med knappen i nedre högra hörnet eller en ARR med återställningsfunktion.",
-			"title": "ARR Counter"
+			"title": "ARR räknare"
 		},
 		"arrCounterAsBadge": {
 			"description": "Visar ARR-räknaren som ett litet märke på varje ARR",
-			"title": "ARR-Counter as Badge"
+			"title": "ARR-räknare som ett märke"
 		},
 		"arrCounterResetSelection": {
 			"description": "Lägger till en knapp längst ned till höger för att återställa föregående fordonsval. Obs: Det återställer också ARR-räknaren och gränserna, om den är aktiverad!",
@@ -39,7 +39,7 @@
 		},
 		"arrMatchHighlight": {
 			"description": "Ställer in ett grått filter över alla ARR som inte innehåller ett ord med uppdragsnamnet.",
-			"title": "Grå ut olämpliga ARR"
+			"title": "Gråa ut olämpliga ARR's"
 		},
 		"arrSpecs": {
 			"description": "Visar de sparade förfrågningarna i ARR, om du stannar kort med musen över en ARR",
@@ -59,7 +59,7 @@
 		},
 		"generationDate": {
 			"description": "Visas bredvid adressen när uppdraget genererades.",
-			"title": "Generation time"
+			"title": "Generationstid"
 		},
 		"hideVehicleList": {
 			"description": "Döljer normalt användarlistan och öppnar den sedan genom att trycka på en knapp.",
@@ -70,14 +70,14 @@
 			"title": "Ladda om fordon i rubrik"
 		},
 		"missionKeywords": {
-			"autotextcolor": "Automatical text color",
+			"autotextcolor": "Automatisk textfärg",
 			"color": "bakgrundsfärg",
 			"description": "Få ditt eget nyckelord visat bredvid uppdragsnamnet",
 			"keyword": "sökord",
 			"missions": "uppdrag",
 			"prepend": "Visa före uppdragsnamnet",
-			"preview": "Preview",
-			"textcolor": "Text color",
+			"preview": "Förhandsvisning",
+			"textcolor": "Textfärg",
 			"title": "Uppdrag nyckelord"
 		},
 		"patientSummary": {
@@ -88,16 +88,16 @@
 			"description": "Skisserar genereringstiden i rött om vadet går ut nästa natt.",
 			"title": "Röd kant"
 		},
-		"stickyHeader": {
-			"description": "Visar alltid det övre fältet i infogningsfönstret, även när du rullar nedåt.",
-			"title": "Visa alltid rubrikfält"
-		},
 		"tailoredTabs": {
 			"color": "Färg",
 			"description": "Justera flikarna i infogningsfönstret här. \"Alla\" och \"Fortsätt varna\" kommer alltid att vara synliga,",
+			"vehicles": "Fordonstyper",
 			"name": "name",
-			"title": "fordonskategorier",
-			"vehicles": "fordonstyper"
+			"title": "fordonskategorier"
+		},
+		"stickyHeader": {
+			"description": "Visar alltid det övre fältet i infogningsfönstret, även när du rullar nedåt.",
+			"title": "Visa alltid rubrikfält"
 		},
 		"yellowBorder": {
 			"description": "Gränsar genereringstiden gul om användningen är äldre än det angivna antalet timmar. Om siffran är 0 dras ingen kant.",
