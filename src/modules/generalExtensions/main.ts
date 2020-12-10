@@ -74,4 +74,23 @@ export default (async (LSSM, MODULE_ID) => {
             getSetting,
             MODULE_ID
         );
+
+    const isProfile = !!window.location.pathname.match(/^\/profile\/\d+\/?$/);
+    const addToPanelHeading = !!window.location.pathname.match(
+        /^\/(verband\/(bereitstellungsraume|gebauede)|buildings\/\d+\/move)\/?$/
+    );
+    const isDispatchCenter =
+        !!window.location.pathname.match(/^\/buildings\/\d+\/?$/) &&
+        !!document.getElementById('tab_projected_missions');
+
+    if (isProfile || addToPanelHeading || isDispatchCenter)
+        (
+            await import(
+                /* webpackChunkName: "modules/generalExtensions/mapSearches" */ './assets/mapSearches'
+            )
+        ).default(LSSM.$t('mapSearch').toString(), {
+            isProfile,
+            addToPanelHeading,
+            isDispatchCenter,
+        });
 }) as ModuleMainFunction;

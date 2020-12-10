@@ -2086,6 +2086,7 @@ export default {
     },
     amount: 'Anzahl',
     search: 'Suche',
+    mapSearch: 'Ort Suchen...',
     alliance: 'Verband',
     premiumNotice:
         'Diese Funktion erweitert eine Premium-Funktion des Spiels und ist deshalb nur für Spieler mit einem Leitstellenspiel-Premium-Account verfügbar!',
