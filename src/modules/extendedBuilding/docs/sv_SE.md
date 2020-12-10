@@ -40,7 +40,7 @@ Visar omedelbart status för alla tillägg på byggnadsskärmen.
 ### Antal byggnader av samma typ
 Visar i navigeringsknapparna hur många byggnader av samma typ som finns före och efter.
 
-![Byggnader av samma typ](/v4/ docs/assets/extendedBuilding/img/sv_SE/buildingsLeftRight.png)
+![Byggnader av samma typ](/v4/docs/assets/extendedBuilding/img/sv_SE/buildingsLeftRight.png)
 
 ### Snabbval av övervakningsstation
 Det här alternativet ger en rullgardinsmeny över dina kontrollrum så att du enkelt kan byta dem i byggnaden.

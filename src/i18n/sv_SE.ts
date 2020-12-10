@@ -28,8 +28,8 @@ const modules = {
             text:
                 'Vill du återställa standardinställningarna? Det kan inte bli ogjort! ',
             close: 'Avbryt',
-            totalt: 'Alla parametrar',
-            modul: 'Endast för den här modulen',
+            total: 'Alla parametrar',
+            module: 'Endast för den här modulen',
         },
         resetWarningSetting: {
             title: 'Återställ inställningar',

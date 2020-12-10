@@ -30,11 +30,11 @@
 			"description": "Visar i personalöversikten över en byggnad hur många personer som har någon utbildning.",
 			"title": "Personalöversikt"
 		},
-		"staffAssignmentBtn": {
+		"personnelAssignmentBtn": {
 			"description": "Infogar bredvid knappen \"Redigera\"för att lägga till en knapp i personaluppdraget. - Fungerar ännu inte i kontrollcenter!",
 			"title": "Knapp för personaluppdrag"
 		},
-		"staffDemands": {
+		"personnelDemands": {
 			"description": "Visar hur mycket personal som krävs med lägsta och högsta beläggning.",
 			"title": "Personalkrav"
 		},

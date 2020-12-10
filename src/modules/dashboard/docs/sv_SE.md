@@ -28,7 +28,7 @@ I byggnadsöversikten får du en snabb och enkel översikt över alla dina byggn
 Du ser per byggnadstyp hur många du har och hur många tillägg du har för den byggnadstypen.
 Efter antalet förlängningar, mellan parentes `()` kan du se hur många som är aktiva. Instrumentpanelen beräknar också automatiskt det maximala antalet möjliga byggnader och / eller tillägg av en typ.
 
-[Byggnadsöversikt](/v4/docs/assets/dashboard/img/sv_SE/dashboardBuildings.png)
+![Byggnadsöversikt](/v4/docs/assets/dashboard/img/sv_SE/dashboardBuildings.png)
 
 ## Översikt över kontrollrummet
 ::: warning Kontrollrumsöversikt

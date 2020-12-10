@@ -40,7 +40,7 @@
 		},
 		"expansions": {
 			"description": "Listar möjlig spridning av detta uppdrag.",
-			"title": "Spreads"
+			"title": "sprida"
 		},
 		"followup": {
 			"description": "Listar möjliga uppföljningsanvändningar för detta uppdrag.",
