@@ -1,31 +1,31 @@
 ---
-title: Other
+title: Övrigt
 lang: sv_SE
 sidebarDepth: 2
 ---
 
-# Other
+# Övrigt
 
-on this page we would like to give you other information about the LSSM.
+på den här sidan vill vi ge dig övrig information om LSSM.
 
-## License
+## Licens
 [![](https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.eu.svg)][license]
 
 
-LSS Manager is licensed under [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)][license].
+LSS-Manager är licensierad under [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)][license].
 
-We have decided to use this license to prevent misuse of our code to violate the terms and conditions of the game.
+Vi bestämde oss för att använda denna licens för att undvika att vår kod missbrukas för att bryta mot spelets villkor.
 
-## The LSSM Team
-Currently, LSS Manager consists of 4 developers and 6 additional supporters for our <a :href="$themeConfig.variables.discord" target="_blank">Discord server</a>. On Discord our developers are of course also administratively active!
+## LSSM-teamet
+För närvarande består LSS-Manager av 4 utvecklare och ytterligare 6 supportrar för våra <a :href="$themeConfig.variables.discord" target="_blank">Discord server</a>. Våra utvecklare är naturligtvis också administrativt aktiva på Discord!
 
-### The developers
+### Utvecklarna
 * Aisaka *[CEO, Serveradministrator, Senior Developer]*
 * Jan *[Senior Architect and Developer]*
 * Sanni *[Quality Check, Bugfixing, Junior Developer]*
 * Ron31 *[Bugfixer, Junior Developer]*
 
-### The Discord-Team
+### Discord-teamet
 **Administration**:
 * lost
 
@@ -39,30 +39,30 @@ Currently, LSS Manager consists of 4 developers and 6 additional supporters for 
 * 🇳🇱
     * MPR
  
-## Open Source Libraries
-LSSM of course also uses public libraries from third parties - otherwise some functions would simply be far too much to program.
+## Open Source-bibliotek
+Naturligtvis använder LSSM också offentliga bibliotek från tredje part - annars skulle vissa funktioner helt enkelt vara för mycket att programmera.
 
-A list of which libraries we use can be found directly in the game in the LSSM menu and is kept up to date :)
+En lista över biblioteken vi använder finns i spelet i LSSM-menyn, snyggt listade och ständigt uppdaterade :)
 
-## Acknowledgements
-Sometimes we too simply have to say a big thank you!
+## Bekräftelser
+Ibland måste vi bara säga ett stort tack!
 
-### The XYRALITY Team
-First of all a big thank you goes to the development team of the game. Not only for the game itself, but also for the great help when we have questions.
+### XYRALITY-teamet
+Först och främst ett stort tack till spelutvecklingsteamet. Inte bara för själva spelet utan också för stor hjälp när vi har frågor.
 
-But also for the numerous aids that make the development of the LSSM easier for us!
+Men de många hjälpmedel som förenklar utvecklingen av LSSM bör inte förbises här!
 
-### Our beta testers
-A small group of active players will get new features earlier than the rest to test them out. So we can find and fix some problems before they are released to everyone.
+### Våra beta testare
+En liten grupp aktiva spelare får nya funktioner tidigare än resten för att testa dem. Så vi kan hitta och åtgärda många problem för alla innan de släpps.
 
 :::tip
-The number of beta testers is limited and no new ones are added "in between". If there is a new application phase, we will announce this accordingly, so that everyone has the chance to become a beta tester - as long as they meet certain conditions.
+Antalet betatestare är begränsat och inga nya accepteras "emellan". Om det finns en ny ansökningsfas kommer vi att meddela detta i enlighet med detta så att alla har chansen att bli betatestare - förutsatt att de uppfyller vissa villkor.
 :::
 
-### All who report bugs and make suggestions
-Imagine how long a fault in LSSM would last if no one reported it - we would certainly not find it so quickly. Also the suggestions that keep coming in should not be underestimated. The development of LSSM is strongly influenced by the participation and wishes of its users.
+### Alla som rapporterar fel och gör förslag
+Tänk dig hur länge ett fel skulle vara i LSSM om ingen rapporterade det - vi skulle definitivt inte hitta det så snabbt. Förslagen som fortsätter att komma tillbaka till oss bör inte heller underskattas. Utvecklingen av LSSM påverkas starkt av användarnas deltagande och önskemål.
 
-### Every single user
-Each user always gives us the motivation to keep going and to expand and improve LSSM more and more.
+### Varje enskild användare
+Varje användare ger oss alltid motivation att fortsätta och att utöka och förbättra LSSM mer och mer. Vi själva har mycket roligt att programmera LSSM, men det skulle verkligen inte vara fallet om vårt samhälle inte stod bakom oss.
 
 [license]: https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en
