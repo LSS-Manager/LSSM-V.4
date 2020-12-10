@@ -78,7 +78,7 @@ export default (async (LSSM, MODULE_ID) => {
     const isProfile =
         !!window.location.pathname.match(/^\/profile\/\d+\/?$/) && !!window.map;
     const addToPanelHeading = !!window.location.pathname.match(
-        /^\/(verband\/(bereitstellungsraume|gebauede)|buildings\/\d+\/move)\/?$/
+        /^\/(verband\/(bereitstellungsraume|gebauede|location)|buildings\/\d+\/move)\/?$/
     );
     const isDispatchCenter =
         !!window.location.pathname.match(/^\/buildings\/\d+\/?$/) &&

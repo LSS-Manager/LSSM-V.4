@@ -1255,6 +1255,7 @@ export default {
     },
     amount: 'Aantal',
     search: 'Zoeken',
+    mapSearch: 'Locatie zoeken',
     alliance: 'Team',
     premiumNotice:
         'Deze functie breidt een premium functie van het spel uit en is daarom alleen beschikbaar voor spelers met een premium spelaccount!',
