@@ -28,9 +28,11 @@ declare global {
         L: typeof L;
         mission_position_new_marker?: Marker;
         building_new_marker?: Marker;
+        building_move_marker?: Marker;
         mission_graphics: [string, string, string][];
         lightboxOpen(link: string): void;
         mission_position_new_dragend(): void;
+        building_move_marker_dragend(): void;
         building_new_dragend(): void;
         vehicleSelectionReset(): void;
         aao_available(arrId: number, calculateTime: boolean): void;
@@ -57,6 +59,7 @@ declare global {
         creditsUpdate(credits: number): void;
         coinsUpdate(coins: number): void;
         unix_timestamp(): number;
+        mapMoveToSearch(): void;
     }
 }
 
