@@ -698,9 +698,9 @@ export default {
             color: '#02a18c',
         },
     },
-    vehicleskategorier: {
+    vehicleCategories: {
         'Brandmän': {
-            vehicle: {
+            vehicles: {
                 'Brandkår': [0, 1, 12],
                 'Vågar': [2],
                 'Specialvehicle': [4, 6, 7, 10, 14],
@@ -711,17 +711,16 @@ export default {
             color: '#ff2d2d',
         },
         'Ambulanser': {
-            vehicle: {
+            vehicles: {
                 Ambulanser: [5],
                 Drake: [9],
             },
             color: '#ffa500',
         },
         'Polis': {
-            vehicle: {
+            vehicles: {
                 Patrolvehicle: [8],
                 Motorcyklistenhet: [20],
-                Stegbil: [2],
                 Hundlag: [15],
             },
             color: '# 000f89',
@@ -732,7 +731,7 @@ export default {
         2: 20,
         6: 19,
     },
-    vehiclebuildings: [0, 2, 5, 6, 13, 14, 18, 19, 20],
+    vehicleBuildings: [0, 2, 5, 6, 13, 14, 18, 19, 20],
     cellBuildings: [6, 19],
     cellExtensions: [
         '6_0',
