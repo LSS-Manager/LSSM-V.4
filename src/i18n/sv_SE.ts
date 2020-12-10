@@ -277,6 +277,16 @@ export default {
             schooling: 'Brandstation - Dykarutbildning',
             shownSchooling: 'Dykarutbildning',
         },
+        19: {
+            caption: 'Tryckkammarbil',
+            color: '#2229aa',
+            coins: 25,
+            credits: 19_000,
+            minPersonnel: 1,
+            maxPersonnel: 6,
+            schooling: 'Brandstation - Livräddning',
+            shownSchooling: 'Livräddning',
+        },
         20: {
             caption: 'Liten räddningsbåt',
             color: '#2230aa',
@@ -691,10 +701,10 @@ export default {
             vehicles: {
                 'Brandkår': [0, 1, 12],
                 'Vågar': [2],
-                'Specialvehicle': [4, 6, 7, 10, 14],
+                'Specialvehicle': [4, 6, 7, 10],
                 'Gruppledare': [3, 11],
-                'Nautical': [16, 17],
-                'Skogsbränder': [21, 22, 23, 24],
+                'Nautical': [18, 19, 20],
+                'Skogsbränder': [21, 22, 23],
             },
             color: '#ff2d2d',
         },
@@ -707,11 +717,14 @@ export default {
         },
         'Polis': {
             vehicles: {
-                Patrolvehicle: [8],
-                Motorcyklistenhet: [20],
+                Radiobil: [8],
+                Motorcyklistenhet: [16],
                 Hundlag: [15],
+                Helikopter: [13],
+                Bepansrat: [14, 17],
+                Polishäst: [24],
             },
-            color: '# 000f89',
+            color: '#000f89',
         },
     },
     small_buildings: {
