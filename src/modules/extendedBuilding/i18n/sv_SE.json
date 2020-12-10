@@ -15,12 +15,12 @@
 	"schoolingSummary": {
 		"all": "Alla kombinationer",
 		"amount": "Belopp",
-		"bound": "Bound",
-		"each": "Each Courses",
-		"max": "för närvarande maximalt krävs",
-		"min": "för närvarande minimikrav",
-		"noSchooling": "Ingen skolning",
-		"schooling": "Schooling",
+		"bound": "Tilldelad",
+		"each": "Varje kurs",
+		"max": "För närvarande maximalt krävs",
+		"min": "För närvarande minimikrav",
+		"noSchooling": "Ingen kurs",
+		"schooling": "Kurs",
 		"title": "Personalöversikt"
 	},
 	"vehiclePersonnel": {

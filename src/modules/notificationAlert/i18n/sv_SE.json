@@ -14,11 +14,11 @@
 		},
 		"allianceMessage": {
 			"body": "Det finns ett nytt Alliance-meddelande! Visa dem direkt genom att klicka på detta meddelande.",
-			"title": "New Alliance Message!"
+			"title": "Nytt Alliansmeddelande!"
 		},
 		"allianceNews": {
 			"body": "Your Alliance har publicerat nya nyheter! Klicka på detta meddelande för att gå direkt till nyhetssidan.",
-			"title": "Nya Alliancenews!"
+			"title": "Nytt Alliansnyhet!"
 		},
 		"dm": {
 			"body": "Så du har totalt {n} oläst meddelande. | Så du har totalt {n} olästa meddelanden.",
@@ -32,7 +32,7 @@
 			"body": "{address} <br> Det här uppdraget behöver uppmärksamhet!"
 		},
 		"mission_getred_alliance": {
-			"body": "{address} <br> Denna alliancission behöver uppmärksamhet!"
+			"body": "{address} <br> Detta alliansuppdraget behöver uppmärksamhet!"
 		},
 		"radioMessage": {
 			"title": "{vehicle} rapporterar status {status}!"
