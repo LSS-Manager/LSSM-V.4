@@ -11,7 +11,7 @@ sidebarDepth: 2
 
 ## Om LSSM
 
-LSS-MANAGER V.4 är en tillägg för [larmcentralen-spelet.se](https://www.larmcentralen-spelet.se) och dess andra språkversioner.
+LSS-MANAGER V.4 är ett tillägg för [larmcentralen-spelet.se](https://www.larmcentralen-spelet.se) och dess andra språkversioner.
 
 Med den här tillägget läggs en appstore till i spelet, vilket möjliggör användning av plugins. Alla funktioner är modulära - du kan bestämma vad du vill aktivera, till den sista modulen.
 
