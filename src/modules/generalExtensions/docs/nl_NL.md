@@ -88,3 +88,12 @@ Deze functie onthoudt tijdens het bouwen het laatst geselecteerde gebouw. Hierdo
 
 ## Onthoud meldkamer
 Deze functie onthoudt de geselecteerde meldkamer tijdens het bouwen. Daardoor kan je snel verder met bouwen. 
+
+## Zoek locatie op kaarten
+Deze functie zorgt dat je locaties kan zoeken op kaarten op diverse plaatsen in het spel. 
+* Geplande inzetten tab in de meldkamer
+* Profiel van teamspelers of je eigen profiel
+* Bij het verplaatsen van gebouwen
+* In het teamgebouwen venster
+* In het UGS venster
+* In het Team-zoeker venster
