@@ -1,10 +1,10 @@
 ---
-titel: Rapportera buggar
+titel: Rapportera fel
 lang: sv_SE
 sidebarDepth: 2
 ---
 
-# Rapportera buggar
+# Rapportera fel
 
 ## Riktlinje
 Här är en liten riktlinje för hur du skapar ett felmeddelanden optimalt.
