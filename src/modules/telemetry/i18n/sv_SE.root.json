@@ -1,0 +1,20 @@
+{
+	"info": {
+		"close": "Visa inte den här anteckningen igen",
+		"text": "LSS-chefen samlar in metadata enligt beskrivningen i <a href='{wiki}metadata.html' class='lightbox-open'>Wiki</a>. <br> Du kan alltid återkalla ditt avtal på en senare punkt. ",
+		"title": "Information om insamlingen av metadata"
+	},
+	"name": "Telemetri",
+	"browsersupport": {
+		"close": "Göm tips",
+		"faqAnchor": "i-vilka-webbläsare-gör-lss-manager-arbete",
+		"not": {
+			"text": "Kära LSS-Manager-användare, <br> tyvärr stöder LSSM din nuvarande webbläsare <b>{name}</b> inte officiell! Det betyder att det inte garanteras att alla funktioner fungerar korrekt. Du kan hitta en lista med webbläsare som vi stöder i vår <a href='{wiki}faq.html#{wikiAnchor}' class='lightbox-open'> FAQ </a>.",
+			"title": "Webbläsaren stöds inte"
+		},
+		"old": {
+			"text": "Du verkar använda en föråldrad webbläsare! För närvarande använder du <b>{name} {current}</b>, men den senaste versionen är <b>{name} {latest}</b>! Observera att LSS-Manager endast kan använda den här webbläsaren från version <b>{stöds}</b> stöd. Detta har skäl till säkerhet och kompatibilitet. Du kan ladda ner den senaste versionen av din webbläsare på <a href = '{ ladda ner} 'class =' ​​lightbox-open '> här </a> ladda ner. <br> En aktuell lista över webbläsare som stöds finns i vår <a href =' {wiki} faq.html # {wikiAnchor} 'class = 'lightbox-open'> FAQ </a>. ",
+			"title": "Föråldrad webbläsare"
+		}
+	}
+}

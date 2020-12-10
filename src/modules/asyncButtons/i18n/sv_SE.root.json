@@ -1,0 +1,28 @@
+{
+	"description": "Undvik med den här modulen att spelet laddas om när du trycker på vissa knappar.",
+	"name": "Asynkrona knappar",
+	"settings": {
+		"buildingTax": {
+			"description": "Förhindrar laddning när du ställer in kostnaden för egna celler eller sjukhussängar.",
+			"title": "Kostnadsabsorption av celler och sängar"
+		},
+		"deleteARR": {
+			"description": "Förhindrar omladdning när du tar bort en ARR-post",
+			"title": "Ta bort ARR-poster"
+		},
+		"deleteForumPost": {
+			"description": "Förhindrar omladdning när du tar bort ett foruminlägg.",
+			"title": "Radera foruminlägg"
+		},
+		"memberlistManageUser": {
+			"description": "Förhindrar omladdning, om du har Alliance-medlem kasta eller redigera hans rättigheter",
+			"title": "Alliansens medlemmars rättigheter"
+		},
+		"missionPrisoners": {
+			"title": "Fångar i uppdragsfönstret"
+		},
+		"missionReply": {
+			"title": "MissionReplys in the Mission"
+		}
+	}
+}

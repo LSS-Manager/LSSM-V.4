@@ -1,0 +1,49 @@
+{
+	"desktopTest": {
+		"text": "Meddelanden på skrivbordet har aktiverats!",
+		"title": "Skrivbordsaviseringar"
+	},
+	"messages": {
+		"allianceCandidature": {
+			"body": "Din allians har en ny applikation! För närvarande öppna applikationer: {n}",
+			"title": "Ny applikation! | Nya applikationer!"
+		},
+		"allianceForum": {
+			"body": "Det finns ett nytt inlägg i ditt alliansforum! Öppna forumet med ett klick på detta meddelande.",
+			"title": "Nytt inlägg i alliansforumet!"
+		},
+		"allianceMessage": {
+			"body": "Det finns ett nytt Alliance-meddelande! Visa dem direkt genom att klicka på detta meddelande.",
+			"title": "New Alliance Message!"
+		},
+		"allianceNews": {
+			"body": "Your Alliance har publicerat nya nyheter! Klicka på detta meddelande för att gå direkt till nyhetssidan.",
+			"title": "Nya Alliancenews!"
+		},
+		"dm": {
+			"body": "Så du har totalt {n} oläst meddelande. | Så du har totalt {n} olästa meddelanden.",
+			"title": "Du har {n} nytt meddelande! | Du har {n} nya meddelanden!"
+		},
+		"ingame_news": {
+			"body": "Det finns nya funktioner i spelet! Ta en titt på Facebook för att se vad dagens uppdateringar är!",
+			"title": "Nyheter i spelet"
+		},
+		"mission_getred": {
+			"body": "{address} <br> Det här uppdraget behöver uppmärksamhet!"
+		},
+		"mission_getred_alliance": {
+			"body": "{address} <br> Denna alliancission behöver uppmärksamhet!"
+		},
+		"radioMessage": {
+			"title": "{vehicle} rapporterar status {status}!"
+		}
+	},
+	"noPermission": {
+		"text": "Din webbläsare är inställd så att spelet inte har behörighet att skicka skrivbordsaviseringar. Om du fortfarande vill få dessa meddelanden måste du först återställa detta i webbläsarinställningarna!",
+		"title": "Skrivbordsaviseringar"
+	},
+	"permission": {
+		"text": "Tillåt skrivbordsaviseringar genom att klicka på detta meddelande!",
+		"title": "Skrivbordsaviseringar"
+	}
+}

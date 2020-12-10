@@ -1,0 +1,16 @@
+{
+	"description": "Styr spelet med snabbtangenter på tangentbordet, som du själv kan ställa in.",
+	"name": "Snabbtangenter",
+	"settings": {
+		"nextElementKey": {
+			"title": "Nästa \"Element\""
+		},
+		"prevElementKey": {
+			"title": "Föregående \"Element\""
+		},
+		"prevNextElement": {
+			"description": "Tänk på en cool beskrivning här",
+			"title": "prevNextElement"
+		}
+	}
+}

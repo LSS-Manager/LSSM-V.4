@@ -1,0 +1,22 @@
+{
+	"description": "Visar en konfigurerbar klocka på olika platser efter behov.",
+	"name": "Clock",
+	"settings": {
+		"displayNav": {
+			"description": "Den vänstra marginalen bredvid logotypen är vald som position.",
+			"title": "Visa klocka i navigeringsfältet"
+		},
+		"displayOverlay": {
+			"description": "Klockan kan flyttas och ska stå framför alla andra element",
+			"title": "Visa klockan som överlägg"
+		},
+		"navFormat": {
+			"description": "Här kan du ställa in klockans format. Du hittar en hjälp för denna <a class=\"lightbox-open\" href=\"{wiki}modules/clock.html#configuration\">här</a>.",
+			"title": "Klockans format i navigeringsfältet"
+		},
+		"overlayFormat": {
+			"description": "Här kan du ställa in klockans format. Du hittar en hjälp för denna <a class=\"lightbox-open\" href=\"{wiki}modules/clock.html#konfiguration\">här</a>.",
+			"title": "Klockans format som överlägg"
+		}
+	}
+}

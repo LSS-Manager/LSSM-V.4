@@ -1,0 +1,56 @@
+{
+	"alertStyles": {
+		"danger": "Felmeddelande (röd)",
+		"info": "Info (blå)",
+		"success": "Bekräftelse (grön)",
+		"warning": "Warning (orange)"
+	},
+	"description": "Få meddelanden om webbläsare och spel för olika evenemang - naturligtvis helt konfigurerbara!",
+	"events": {
+		"allianceCandidature": "Ny ansökan i alliansen",
+		"allianceChat": "Chattmeddelande",
+		"allianceChatMention": "Chattmeddelande (nämns bara)",
+		"allianceChatWhisper": "Chattmeddelande (endast privata tal)",
+		"allianceForum": "Ny artikel i alliansforumet",
+		"allianceMessage": "Nytt alliansmeddelande",
+		"allianceNews": "New alliance news",
+		"dm": "Nytt meddelande i inkorgen",
+		"ingame_news": "Nyheter i spelet",
+		"mission_getred": "Ett uppdrag kräver uppmärksamhet",
+		"mission_getred_alliance": "Ett alliansuppdrag behöver uppmärksamhet",
+		"mission_new": "Ett nytt uppdrag genererades",
+		"mission_new_largescale": "En ny stor alliancission skapades",
+		"mission_share": "Ett uppdrag delades i föreningen",
+		"sicherheitswache_error": "Säkerhetsvakt avbruten",
+		"sicherheitswache_success": "Säkerhetsvakt slutförd",
+		"vehicle_fms": "Radiomeddelanden (allmänt)",
+		"vehicle_fms_1": "Radiomeddelanden (status 1)",
+		"vehicle_fms_2": "Radiomeddelanden (status 2)",
+		"vehicle_fms_3": "Radiomeddelanden (status 3)",
+		"vehicle_fms_4": "Radiomeddelanden (status 4)",
+		"vehicle_fms_5": "Radiomeddelanden (talbegäran)",
+		"vehicle_fms_6": "Radiomeddelanden (status 6)",
+		"vehicle_fms_7": "Radiomeddelanden (status 7)",
+		"vehicle_fms_9": "Radiomeddelanden (status 9)"
+	},
+	"name": "Meddelanden",
+	"positions": {
+		"bottom center": "Nedersta mitten 🡣",
+		"bottom left": "Bottom left left",
+		"bottom right": "Nederst till höger 🡦",
+		"top center": "Top center 🡡",
+		"top right": "Överst till höger 🡥",
+		"top left": "Överst till vänster 🡤"
+	},
+	"settings": {
+		"alertStyle": "Typ av avisering i spelet",
+		"alerts": {
+			"title": "Ställ in aviseringar"
+		},
+		"desktop": "Skicka skrivbordsavisering",
+		"duration": "Visningslängd",
+		"eventTypes": "Events",
+		"ingame": "Skicka meddelande i spelet",
+		"position": "Position"
+	}
+}

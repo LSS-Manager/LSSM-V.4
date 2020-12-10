@@ -1,0 +1,10 @@
+{
+	"description": "Utökar missionlistan med några häftiga funktioner!",
+	"name": "Utökad missionlista",
+	"settings": {
+		"remainingTime": {
+			"description": "Visar vid uppdrag hur länge varje uppdrag fortfarande pågår.",
+			"title": "Återstående missionstid"
+		}
+	}
+}

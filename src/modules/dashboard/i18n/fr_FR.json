@@ -8,6 +8,7 @@
 	},
 	"chart-summaries": {
 		"buildings": {
+			"columnchart": "use bar chart",
 			"personal_count": "Personnel",
 			"tip": "Cliquez sur une des catégories (par ex. Centre de secours ou police) pour ouvrir les bâtiments de cette catégorie. Ensuite si vous cliquez sur un type de bâtiment, vous pouvez voir combien de véhicules de chaque type sont dans les bâtiments de ce type là. Vous pouvez donc savoir combien de véhicule d'un type sont stationnées dans un poste de police municipale ou dans une gendarmerie.",
 			"title": "Bâtiments"

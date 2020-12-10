@@ -1,0 +1,168 @@
+{
+	"name": "Utökat larmfönster",
+	"settings": {
+		"alarmIcons": {
+			"description": "Lämna ikonerna i \"Alarm\" Visa-knappen, baserat på ditt val. Du kan välja mellan <a href=\"https://fontawesome.com/icons?d=gallery&m=free\" target=\"_blank\">alla fria ikoner från Font-Awesome</a>. Det räcker att ange namnet på ikonen. En liveförhandsgranskning visar dig sedan ikonen.",
+			"icon": "Ikon",
+			"preview": "Preview",
+			"style": "icon type",
+			"title": "larmikoner",
+			"vehicles": "fordonstyper"
+		},
+		"alarmTime": {
+			"description": "Visar bredvid alarmknappen hur lång tid fordonet med den längsta restiden tar.",
+			"title": "Längsta restid"
+		},
+		"arrClickHighlight": {
+			"description": "Ritar en ram runt redan klickade ARR.",
+			"title": "Markera klickade ARR"
+		},
+		"arrClickHighlightColor": {
+			"description": "Ställ in kantfärg för ARR-gränser.",
+			"title": "Markera färg"
+		},
+		"arrClickHighlightWidth": {
+			"description": "Ange här (i pixlar) hur bred ARR-gränsen ska vara.",
+			"title": "Markera bredd"
+		},
+		"arrCounter": {
+			"description": "Räknar hur ofta en ARR eller flytt har klickats. Alla räknare kan återställas med knappen i nedre högra hörnet eller en ARR med återställningsfunktion.",
+			"title": "ARR Counter"
+		},
+		"arrCounterAsBadge": {
+			"description": "Visar ARR-räknaren som ett litet märke på varje ARR",
+			"title": "ARR-Counter as Badge"
+		},
+		"arrCounterResetSelection": {
+			"description": "Lägger till en knapp längst ned till höger för att återställa föregående fordonsval. Obs: Det återställer också ARR-räknaren och gränserna, om den är aktiverad!",
+			"title": "Återställ val av fordon"
+		},
+		"arrMatchHighlight": {
+			"description": "Ställer in ett grått filter över alla ARR som inte innehåller ett ord med uppdragsnamnet.",
+			"title": "Grå ut olämpliga ARR"
+		},
+		"arrSpecs": {
+			"description": "Visar de sparade förfrågningarna i ARR, om du stannar kort med musen över en ARR",
+			"title": "Visa ARR-detaljer"
+		},
+		"arrTime": {
+			"description": "Visar vad som skulle vara den längsta restiden efter att ha valt denna ARR, om du stannar med musen kort över en ARR.",
+			"title": "Längsta restid"
+		},
+		"centerMap": {
+			"description": "Låter dig centrera kartan i huvudfönstret på användningsstället med en knapptryckning.",
+			"title": "Centrera karta"
+		},
+		"enhancedMissingVehicles": {
+			"description": "Konverterar visning av ytterligare fordringar till en tydligare tabell.",
+			"title": "Förbättra fordon som behövs"
+		},
+		"generationDate": {
+			"description": "Visas bredvid adressen när uppdraget genererades.",
+			"title": "Generation time"
+		},
+		"hideVehicleList": {
+			"description": "Döljer normalt användarlistan och öppnar den sedan genom att trycka på en knapp.",
+			"title": "Döljer fordonslistan"
+		},
+		"loadMoreVehiclesInHeader": {
+			"description": "Visar knappen \"Ladda om fordon\", om tillgänglig, i rubrikfältet.",
+			"title": "Ladda om fordon i rubrik"
+		},
+		"missionKeywords": {
+			"autotextcolor": "Automatical text color",
+			"color": "bakgrundsfärg",
+			"description": "Få ditt eget nyckelord visat bredvid uppdragsnamnet",
+			"keyword": "sökord",
+			"missions": "uppdrag",
+			"prepend": "Visa före uppdragsnamnet",
+			"preview": "Preview",
+			"textcolor": "Text color",
+			"title": "Uppdrag nyckelord"
+		},
+		"patientSummary": {
+			"description": "Visar bredvid antalet patienter vilken räddningsutrustning de behöver i kombination.",
+			"title": "Patientöversikt"
+		},
+		"redBorder": {
+			"description": "Skisserar genereringstiden i rött om vadet går ut nästa natt.",
+			"title": "Röd kant"
+		},
+		"tailoredTabs": {
+			"color": "Färg",
+			"description": "Justera flikarna i infogningsfönstret här. \"Alla\" och \"Fortsätt varna\" kommer alltid att vara synliga,",
+			"vehicles": "fordonstyper",
+			"name": "name",
+			"title": "fordonskategorier"
+		},
+		"stickyHeader": {
+			"description": "Visar alltid det övre fältet i infogningsfönstret, även när du rullar nedåt.",
+			"title": "Visa alltid rubrikfält"
+		},
+		"yellowBorder": {
+			"description": "Gränsar genereringstiden gul om användningen är äldre än det angivna antalet timmar. Om siffran är 0 dras ingen kant.",
+			"title": "Gul kant"
+		}
+	},
+	"tailoredTabs": {
+		"defaultTabs": [
+			{
+				"name": "Brandbil",
+				"vehicleTypes": [
+					0,
+					1,
+					12
+				]
+			},
+			{
+				"name": "Övriga Brandbilar",
+				"vehicleTypes": [
+					2,
+					3,
+					4,
+					6,
+					7,
+					10,
+					11,
+					19,
+					21,
+					22,
+					23
+				]
+			},
+			{
+				"name": "Ambulans",
+				"vehicleTypes": [
+					5,
+					9
+				]
+			},
+			{
+				"name": "Polis",
+				"vehicleTypes": [
+					8,
+					13,
+					14,
+					15,
+					16,
+					17,
+					24
+				]
+			},
+			{
+				"name": "Brandfordon-Vatten",
+				"vehicleTypes": [
+					18,
+					20
+				]
+			},
+			{
+				"name": "Insatsstyrka",
+				"vehicleTypes": [
+					14,
+					17
+				]
+			}
+		]
+	}
+}
