@@ -39,8 +39,8 @@
 		"bottom left": "Bottom left left",
 		"bottom right": "Nederst till höger 🡦",
 		"top center": "Top center 🡡",
-		"top right": "Överst till höger 🡥",
-		"top left": "Överst till vänster 🡤"
+		"top left": "Överst till vänster 🡤",
+		"top right": "Överst till höger 🡥"
 	},
 	"settings": {
 		"alertStyle": "Typ av avisering i spelet",

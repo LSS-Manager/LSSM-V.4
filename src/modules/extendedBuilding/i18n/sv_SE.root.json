@@ -6,6 +6,18 @@
 			"description": "Visar i byggnaderna hur många av samma typ som fortfarande finns i respektive riktning.",
 			"title": "Antal byggnader av samma typ"
 		},
+		"enhanceVehicleList": {
+			"description": "Utökar fordonslistan med användbara funktioner - av vilka vissa är särskilt justerbara.",
+			"title": "Förläng fordonslistan"
+		},
+		"enhancedPersonnelAssignment": {
+			"description": "Ger dig möjlighet att dölja personal utan lämplig utbildning.",
+			"title": "förbättrad personalallokering"
+		},
+		"expansions": {
+			"description": "Visar en byggnads tillägg utan att först behöva trycka på tilläggsfliken.",
+			"title": "Visa utvidgningar direkt"
+		},
 		"fastDispatchChooser": {
 			"description": "Låter dig välja direkt i en byggnad till vilken kontrollcenter den tilldelas utan att behöva komma åt inställningarna först.",
 			"title": "Snabbval av kontrollcenter"
@@ -13,22 +25,6 @@
 		"fmsSwitch": {
 			"description": "Låter dig växla mellan status 2 och 6 genom att klicka på status.",
 			"title": "Snabb status 2 <=> 6-omkopplare"
-		},
-		"vehiclesPersonnelCurrent": {
-			"description": "Visar hur många som för närvarande sitter i fordonet.",
-			"title": "Nuvarande besättning"
-		},
-		"vehiclesPersonnelMax": {
-			"description": "Visar maximalt antal personer som får plats i fordonet.",
-			"title": "Maximalt besättning"
-		},
-		"enhanceVehicleList": {
-			"description": "Utökar fordonslistan med användbara funktioner - av vilka vissa är särskilt justerbara.",
-			"title": "Förläng fordonslistan"
-		},
-		"schoolingSummary": {
-			"description": "Visar i personalöversikten över en byggnad hur många personer som har någon utbildning.",
-			"title": "Personalöversikt"
 		},
 		"personnelAssignmentBtn": {
 			"description": "Infogar bredvid knappen \"Redigera\"för att lägga till en knapp i personaluppdraget. - Fungerar ännu inte i kontrollcenter!",
@@ -38,13 +34,9 @@
 			"description": "Visar hur mycket personal som krävs med lägsta och högsta beläggning.",
 			"title": "Personalkrav"
 		},
-		"expansions": {
-			"description": "Visar en byggnads tillägg utan att först behöva trycka på tilläggsfliken.",
-			"title": "Visa utvidgningar direkt"
-		},
-		"enhancedPersonnelAssignment": {
-			"description": "Ger dig möjlighet att dölja personal utan lämplig utbildning.",
-			"title": "förbättrad personalallokering"
+		"schoolingSummary": {
+			"description": "Visar i personalöversikten över en byggnad hur många personer som har någon utbildning.",
+			"title": "Personalöversikt"
 		},
 		"vehicleTypes": {
 			"description": "Visar fordonstypen (och, om tillgänglig, egen fordonsklass) i en separat kolumn",
@@ -57,6 +49,14 @@
 		"vehiclesPersonnelColorized": {
 			"description": "Markerar antalet tilldelade besättningar i rött om det är mindre än maximalt möjligt, grönt när det maximala antalet uppnås.",
 			"title": "Färgkod för tilldelad besättning"
+		},
+		"vehiclesPersonnelCurrent": {
+			"description": "Visar hur många som för närvarande sitter i fordonet.",
+			"title": "Nuvarande besättning"
+		},
+		"vehiclesPersonnelMax": {
+			"description": "Visar maximalt antal personer som får plats i fordonet.",
+			"title": "Maximalt besättning"
 		}
 	}
 }

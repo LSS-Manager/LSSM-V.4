@@ -8,6 +8,10 @@
 	"fastDispatchChooser": {
 		"noDispatch": "Inget kontrollcenter"
 	},
+	"personnelDemands": {
+		"additional": "Värden inom parentes utesluter fordon i status 6.",
+		"demand": "Personal som krävs"
+	},
 	"schoolingSummary": {
 		"all": "Alla kombinationer",
 		"amount": "Belopp",
@@ -18,10 +22,6 @@
 		"noSchooling": "Ingen skolning",
 		"schooling": "Schooling",
 		"title": "Personalöversikt"
-	},
-	"personnelDemands": {
-		"additional": "Värden inom parentes utesluter fordon i status 6.",
-		"demand": "Personal som krävs"
 	},
 	"vehiclePersonnel": {
 		"vehiclesPersonnelAssigned": "tilldelad",

@@ -5,6 +5,10 @@
 		"remainingTime": {
 			"description": "Shows at missions how long each mission still is in progress.",
 			"title": "Remaining Missiontime"
+		},
+		"remainingTimeGreenOnly": {
+			"description": "Show remaining Time on green missions only.",
+			"title": "Missiontime for green missions only"
 		}
 	}
 }
