@@ -1,10 +1,10 @@
 {
-    "name": "Erweiterte Einsatzliste",
-    "description": "Erweitert die Einsatzliste um coole Features!",
-    "settings": {
-        "remainingTime": {
-            "title": "Verbleibende Einsatzdauer",
-            "description": "Zeigt bei Einsätzen an, wie lange der Einsatz noch in Bearbeitung ist."
-        }
-    }
+	"description": "Erweitert die Einsatzliste um coole Features!",
+	"name": "Erweiterte Einsatzliste",
+	"settings": {
+		"remainingTime": {
+			"description": "Zeigt bei Einsätzen an, wie lange der Einsatz noch in Bearbeitung ist.",
+			"title": "Verbleibende Einsatzdauer"
+		}
+	}
 }
