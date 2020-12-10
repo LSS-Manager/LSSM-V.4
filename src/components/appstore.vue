@@ -159,7 +159,7 @@ export default Vue.extend<
                     this.$store.commit('setAppstoreChanges', this.changes);
                     this.$store.commit('setAppstoreReload');
                 })
-                .catch(err => console.error(err));
+                .catch(err => this.$store.dispatch('console/error', err));
         },
         reset() {
             Object.keys(this.modules).forEach(module => {
