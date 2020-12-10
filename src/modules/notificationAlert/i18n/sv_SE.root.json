@@ -3,7 +3,7 @@
 		"danger": "Felmeddelande (röd)",
 		"info": "Info (blå)",
 		"success": "Bekräftelse (grön)",
-		"warning": "Warning (orange)"
+		"warning": "Varning (orange)"
 	},
 	"description": "Få meddelanden om webbläsare och spel för olika evenemang - naturligtvis helt konfigurerbara!",
 	"events": {
@@ -19,8 +19,8 @@
 		"mission_getred": "Ett uppdrag kräver uppmärksamhet",
 		"mission_getred_alliance": "Ett alliansuppdrag behöver uppmärksamhet",
 		"mission_new": "Ett nytt uppdrag genererades",
-		"mission_new_largescale": "En ny stor alliancission skapades",
-		"mission_share": "Ett uppdrag delades i föreningen",
+		"mission_new_largescale": "Ett nytt stort alliansuppdrag skapades",
+		"mission_share": "Ett uppdrag delades i alliansen",
 		"sicherheitswache_error": "Säkerhetsvakt avbruten",
 		"sicherheitswache_success": "Säkerhetsvakt slutförd",
 		"vehicle_fms": "Radiomeddelanden (allmänt)",
@@ -35,15 +35,15 @@
 	},
 	"name": "Meddelanden",
 	"positions": {
-		"bottom center": "Nedersta mitten 🡣",
-		"bottom left": "Bottom left left",
-		"bottom right": "Nederst till höger 🡦",
+		"bottom center": "Nedre mitten 🡣",
+		"bottom left": "Nedre vänstra 🡧",
+		"bottom right": "Nedre högra 🡦",
 		"top center": "Top center 🡡",
-		"top left": "Överst till vänster 🡤",
-		"top right": "Överst till höger 🡥"
+		"top left": "Övre vänstra 🡤",
+		"top right": "Övre högra 🡥"
 	},
 	"settings": {
-		"alertStyle": "Typ av avisering i spelet",
+		"alertStyle": "Aviseringar i spelet",
 		"alerts": {
 			"title": "Ställ in aviseringar"
 		},
