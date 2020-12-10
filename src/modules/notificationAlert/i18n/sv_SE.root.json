@@ -36,11 +36,11 @@
 	"name": "Meddelanden",
 	"positions": {
 		"bottom center": "Nedre mitten 🡣",
-		"bottom left": "Nedre vänstra 🡧",
-		"bottom right": "Nedre högra 🡦",
-		"top center": "Top center 🡡",
-		"top left": "Övre vänstra 🡤",
-		"top right": "Övre högra 🡥"
+		"bottom left": "Nedre vänster 🡧",
+		"bottom right": "Nedre höger 🡦",
+		"top center": "Top mitten 🡡",
+		"top left": "Övre vänster 🡤",
+		"top right": "Övre höger 🡥"
 	},
 	"settings": {
 		"alertStyle": "Aviseringar i spelet",
