@@ -1,6 +1,6 @@
 {
 	"description": "Visar respektive användar-ID i profilen och vid behov även ditt eget i navigeringsfältet",
-	"name": "User-ID",
+	"name": "Användar-ID",
 	"settings": {
 		"navbar": {
 			"title": "Visa eget ID i navigeringsfältet"
