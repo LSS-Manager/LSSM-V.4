@@ -53,7 +53,7 @@
 			"description": "Låter dig centrera kartan i huvudfönstret på användningsstället med en knapptryckning.",
 			"title": "Centrera karta"
 		},
-		"extendedMissingVehicles": {
+		"enhancedMissingVehicles": {
 			"description": "Konverterar visning av ytterligare fordringar till en tydligare tabell.",
 			"title": "Förbättra fordon som behövs"
 		},

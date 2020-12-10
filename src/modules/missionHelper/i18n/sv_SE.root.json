@@ -38,7 +38,7 @@
 			"description": "Indikerar genomsnittlig kreditinkomst från ett uppdrag.",
 			"title": "Credits"
 		},
-		"expanstions": {
+		"expansions": {
 			"description": "Listar möjlig spridning av detta uppdrag.",
 			"title": "Spreads"
 		},

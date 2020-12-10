@@ -38,7 +38,7 @@ const modules = {
             close: 'Avbryt',
             reset: 'Reset',
         },
-        closeVarning: {
+        closeWarning: {
             title: 'Osparade ändringar',
             text:
                 'Ändringar har gjorts i parametrar som inte har sparats. Utför en Återställ, Avbryt eller Spara för att closea parametrarna.',

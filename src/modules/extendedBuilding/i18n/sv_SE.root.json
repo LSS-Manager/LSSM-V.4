@@ -1,7 +1,7 @@
 {
 	"description": "Lägger till några användbara funktioner i dina byggnader.",
-	"name": "Extended building view",
-	"inställningar": {
+	"name": "Utökad byggnadsvy",
+	"settings": {
 		"buildingsLeftRight": {
 			"description": "Visar i byggnaderna hur många av samma typ som fortfarande finns i respektive riktning.",
 			"title": "Antal byggnader av samma typ"
