@@ -1,26 +1,21 @@
 {
 	"description": "Få all viktig information om ett uppdrag i uppdragsfönstret.",
-	"name": "Missionhelper",
+	"name": "Uppdragshjälpen",
 	"noVehicleRequirements": {
 		"average_min_fire_personnel": {
 			"badge": false,
-			"in": "Tillägg",
-			"text": "Brandmän behövs minst"
+			"in": "additional",
+			"text": "Genomsnitt min. Brandmän"
 		},
 		"average_min_police_personnel": {
 			"badge": false,
-			"in": "Tillägg",
-			"text": "Poliser behövde minimum i genomsnitt"
+			"in": "additional",
+			"text": "Genomsnitt min. Polispersonal"
 		},
 		"swat_personnel": {
 			"badge": false,
-			"in": "ytterligare",
-			"text": "Insatspoliser behövde ett minimum i genomsnitt"
-		},
-		"water_needed": {
-			"badge": true,
-			"in": "krav",
-			"text": "Vatten: {n} gallon | Vatten: {n} gallon"
+			"in": "additional",
+			"text": "Nödvändig insatspolis"
 		}
 	},
 	"settings": {
@@ -30,151 +25,147 @@
 				"title": "Visa uttryckligen 100% sannolikheter."
 			},
 			"normal": {
-				"description": "Visar sannolikheten för att ett fordon kommer att begäras.",
-				"title": "Visa sannolikheter"
+				"description": "Visar sannolikheten för att ett fordon kommer att vara efterfrågat.",
+				"title": "Visa sannolikhet för efterfrågan."
 			}
 		},
 		"credits": {
-			"description": "Indikerar genomsnittlig kreditinkomst från ett uppdrag.",
+			"description": "Visar ungefärliga krediter vid uppdrag.",
 			"title": "Krediter"
 		},
 		"expansions": {
-			"description": "Listar möjlig spridning av detta uppdrag.",
-			"title": "Sprida sig"
+			"description": "Listar upp möjliga utvecklingar för uppdraget",
+			"title": "Utveckling"
 		},
 		"followup": {
-			"description": "Listar möjliga uppföljningsanvändningar för detta uppdrag.",
+			"description": "Listar möjliga uppföljningsanvändningar för denna applikation.",
 			"title": "Uppföljningsuppdrag"
 		},
 		"generatedBy": {
-			"description": "Visar från vilken byggnadstyp detta uppdrag kan genereras.",
-			"title": "Skapad av (byggnadstyp)"
+			"description": "Visar från vilken byggnad uppdraget genererades från.",
+			"title": "Skapad av (building type)"
 		},
 		"hide_battalion_chief_vehicles": {
-			"description": "Gömmer brandbefälet fullständigt",
-			"title": "Dölj brandbefäl"
+			"description": "Döljer brandbefäl och visar istället räddningsledning.",
+			"title": "Döljer brandbefäl"
 		},
 		"id": {
-			"description": "Visar uppdrags-ID bredvid titeln.",
+			"description": "Visar uppdrags-ID efter uppdragsnamnet.",
 			"title": "Uppdrags-ID"
+		},
+		"k9_only_if_needed": {
+			"description": "Indikerar om hundenhet endast begärs, om tillgängligt.",
+			"title": "Valfri hundpatrull"
 		},
 		"multifunctionals": {
 			"battalion_chief_vehicles": {
-				"description": "Subtraherar antalet obligatoriska från brandfebäl och döljer brandfebäl om siffran sjunker under 0.",
-				"title": "Brandbefäl"
+				"description": "Trekker fra antall påkrevde innsatsstøttebil fra innsatsleder brann og skjuler innsatsleder brann hvis tallet faller under 0.",
+				"title": "Brandbefäl vs räddningsledning"
 			},
 			"heavy_rescue_vehicles": {
-				"description": "Subtraherar antalet nödvändiga brandbilar från räddningsbilar och döljer brandbilar om antalet sjunker under 0. Den här funktionen är avsedd för personer som kör ett rent Rescue Engine-system.",
-				"title": "Utvärderar helt enkelt räddningsbilen"
+				"description": "Trekker antall nødvendige brannbiler fra tungredningsbiler og skjuler brannbiler hvis tallet faller under 0. Denne funksjonen er ment for personer som kjører et rent redningsbil-system.",
+				"title": "Tungredningsbil vs räddningsbil"
 			},
 			"platform_trucks": {
-				"description": "Subtraherar antalet brandbilar från Quints och döljer brandbilar om antalet sjunker under 0.",
-				"title": "Quint Simple Rate"
+				"description": "Trekker antall brannbiler fra Snorkelbiler og skjuler brannbiler hvis tallet faller under 0.",
+				"title": "Snorkelbil vs Stegbil"
 			}
 		},
 		"noVehicleRequirements": {
-			"description": "Ange här vilka speciella krav som ska visas, om de finns för det uppdraget.",
-			"title": "Särskilda krav"
+			"description": "Set here which special requirements to show, if they exist for that mission.",
+			"title": "Special requirements"
 		},
 		"optionalAlternatives": {
 			"allow_arff_instead_of_lf": {
-				"description": "Indikerar, om istället för brandbilar arrfs är möjliga på plats.",
-				"title": "Visa om arrfs är tillåtna som brandbilar"
-			},
-			"allow_drone_instead_of_investigation": {
-				"description": "Visar om en FBI Surveillance Drone kan ersätta en FBI-undersökningsvagn",
-				"title": "Visa drönare kan ersätta utredningen"
+				"description": " Indicates, if instead of a firetruck arrfs are possible on site.",
+				"title": "Show if arrfs are allowed as firetrucks"
 			},
 			"allow_ktw_instead_of_rtw": {
-				"description": "Visar om en ambulanshelikopter kan användas istället för en ambulans.",
-				"title": "Ambulanshelikopter istället för ambulans"
+				"description": "Viser om en syketransport kan benyttes istedenfor en ambulanse.",
+				"title": "Syketransport istedenfor ambulanse"
 			},
 			"allow_rw_instead_of_lf": {
-				"description": "Indikerar, om istället för en brandbil också tung räddningsfordon- eller räddningsbil är möjlig på plats.",
-				"title": "Visa räddningsfordon / räddningsbil istället för brandbilar"
+				"description": "Indicates, if instead of a firetruck also heavy rescue or rescue engine is possible on site.",
+				"title": "Show Heavy Rescue / rescue engine instead of firetrucks"
 			}
 		},
 		"patient": {
 			"code_possible": {
-				"description": "Visar möjliga patientkoder",
-				"title": "Detaljer om möjliga patientkoder"
+				"description": "Shows possible patient codes",
+				"title": "Details of possible patient codes"
 			}
 		},
 		"patients": {
 			"content": {
-				"description": "Visar detaljer om möjliga patienter.",
-				"title": "Detaljer om potentiella patienter"
+				"description": "Shows details about possible patients.",
+				"title": "Details of potential patients"
 			},
 			"hideWhenNoNeed": {
-				"description": "Döljer patientuppgifterna om det inte finns fler patienter och patienter inte dyker upp förrän slutet av uppdraget.",
-				"title": "Visa endast patientinformation när det behövs"
+				"description": "Hides the patient details if there are no more patients and patients do not appear until the end of the assignment.",
+				"title": "Show patient details only when needed"
 			},
 			"live": {
-				"description": "Visar högst upp på missionsassistenten hur många patienter uppdraget för närvarande har.",
-				"title": "Antal nuvarande patienter"
+				"description": "Shows at the top of the mission helper how many patients the mission currently has.",
+				"title": "Number of current patients"
 			},
 			"patient_allow_first_responder_chance": {
-				"description": "Visar med hur mycket% varje fordon är tillräckligt för att behandla.",
-				"title": "Första svarssannolikhet"
+				"description": "Shows with how much % any vehicle is sufficient to treat.",
+				"title": "First Responder Probability"
 			},
 			"title": {
-				"description": "Visar rubriken \"Patienter\" ovanför detaljerna om möjliga patienter.",
-				"title": "Patienter (titel)"
+				"description": "Shows the heading \"Patients\" above the details about possible patients.",
+				"title": "Patients (Title)"
 			}
 		},
 		"place": {
-			"description": "Visar bredvid titeln vilken POI som krävs för detta uppdrag.",
+			"description": "Shows next to the title which POI is required for this mission.",
 			"title": "POI"
 		},
 		"prerequisites": {
-			"description": "Visar kraven (t.ex. 3 räddningsstationer och 4 brandstationer)",
-			"title": "Förutsättningar"
+			"description": "Shows the requirements (e.g. 3 rescue stations and 4 fire stations)",
+			"title": "Prerequisites"
 		},
 		"prisoners": {
 			"content": {
-				"description": "Visar detaljer om möjliga fångar.",
-				"title": "Detaljer om möjliga fångar"
+				"description": "Shows details about possible prisoners.",
+				"title": "Details of possible prisoners"
 			},
 			"live": {
-				"description": "Visar högst upp på uppdragshjälparen hur många fångar uppdraget för närvarande har.",
-				"title": "Antal nuvarande fångar"
+				"description": "Shows at the top of the mission helper how many prisoners the mission currently has.",
+				"title": "Number of current prisoners"
 			},
 			"title": {
-				"description": "Visar rubriken \"Prisoners\" ovanför detaljerna om möjliga fångar.",
-				"title": "Fångar (titel)"
+				"description": "Shows the heading \"Prisoners\" above the details about possible prisoners.",
+				"title": "Prisoners (Title)"
 			}
 		},
 		"title": {
-			"description": "Visar uppdragsnamnet, t.ex. \"Trashcan fire\" som titel.",
-			"title": "uppdragsnamn"
+			"description": "Shows the mission name, e.g. \"Trashcan fire\" as title.",
+			"title": "mission name"
 		},
 		"type": {
-			"description": "Visar typnumret för uppdraget bredvid titeln.",
-			"title": "Typnummer"
+			"description": "Shows the type number of the mission next to the title.",
+			"title": "Type number"
 		},
 		"vehicles": {
 			"content": {
-				"description": "Visar fordonsbehov.",
-				"title": "Fordonskrav"
+				"description": "Shows vehicle requirements.",
+				"title": "Vehicle requirements"
 			},
 			"patient_additionals": {
-				"description": "Om det för närvarande finns fler än tio patienter på plats listas EMS-Chief automatiskt i början av fordonskraven.",
-				"title": "Nämn EMS-chef extra"
+				"description": "If there are currently more than 10 patients on site, EMS-Chief is automatically listed at the beginning of the vehicle requirements.",
+				"title": "Mention EMS-Chief extra"
 			},
 			"sort": {
-				"amount": "Antal fordon som krävs",
-				"caption": "Kravets namn",
-				"description": "Definiera vad fordonskraven ska sorteras efter.",
-				"percentage": "Sannolikhet",
-				"title": "Sortera fordonets krav"
+				"amount": "Number of required vehicles",
+				"caption": "Name of the requirement",
+				"description": "Define what the vehicle requirements should be sorted by.",
+				"percentage": "Probability",
+				"title": "Sorting the vehicle requirements"
 			},
 			"title": {
-				"description": "Visar rubriken \"Fordon\" ovanför fordonets krav.",
-				"title": "Fordon (titel)"
-			},
-			"xAfterNumber": {
-				"description": "Sätter ett x bakom antalet fordon",
-				"title": "x efter beloppet"
+				"description": "Displays the heading \"Vehicles\" above the vehicle requirements.",
+				"title": "Vehicles (Title)"
 			}
 		}
 	}
