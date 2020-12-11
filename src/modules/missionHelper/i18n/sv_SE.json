@@ -11,9 +11,9 @@
 		"patient_transport": "Sannolikhet för transport",
 		"possible_patient": "Maximalt antal patienter",
 		"possible_patient_exact": "med {n} patient | endast {n} patienter",
-		"possible_patient_min": "minimimum patienter",
+		"possible_patient_min": "Minimimum patienter",
 		"specializations": "Avdeling:",
-		"title": "Patienter | {n} patient | {n} patienter"
+		"title": "Patienter | {n} Patient | {n} Patienter"
 	},
 	"prerequisites": {
 		"brush_extension": "Skogsexpansion | Skogsexpansion",
@@ -29,10 +29,17 @@
 	},
 	"prisoners": {
 		"max_possible_prisoners": "Maximalt antal fångar",
-		"title": "Fånge | {n} fånge | {n} fångar"
+		"title": "Fånge | {n} Fånge | {n} Fångar"
 	},
 	"requirements": {
 		"water_needed": "Water demand (gal)"
+	},
+	"tip": {
+		"dragging": "Dra fönster",
+		"maxState": "Maximala krav På / Av",
+		"minified": "Dölj / Expandera",
+		"overlay": "Overlay",
+		"reload": "Ladda om"
 	},
 	"vehicles": {
 		"captions": {
@@ -60,7 +67,7 @@
 			"platform_trucks": "Stegbil | Stegbilar",
 			"police_cars": "Radiobil | Radiobilar",
 			"police_helicopters": "Polishelikopter | Polishelikopter",
-			"sheriff": "Utrykningspolitibil | Utrykningspolitibiler",
+			"sheriff": "Polisfordon | Polisfordon",
 			"swat_armored_vehicle": "Bepansrat insatsfordon | Bepansrat insatsfordon",
 			"swat_suv": "Insatsfordon | Insatsfordon",
 			"traffic_car": "Polisbil | Polisbilar",
@@ -81,7 +88,7 @@
 				"firetrucks": "Släckbil or ARFF | Släckbil or ARFF"
 			},
 			"allow_rw_instead_of_lf": {
-				"firetrucks": "Släckbil eller Tung räddningsbil eller Räddningsbil | Släckbil eller Tung räddningsbil eller Räddningsbil"
+				"firetrucks": "Släckbil eller Lastväxlare eller Räddningsbil | Släckbil eller Lastväxlare eller Räddningsbil"
 			}
 		},
 		"patient_additionals": {
