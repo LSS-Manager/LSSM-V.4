@@ -549,6 +549,7 @@ export default Vue.extend<
                 nonbadge: string[];
             };
             this.settings.noVehicleRequirements?.forEach(req =>
+                reqi18n.hasOwnProperty(req) &&
                 this.missionSpecs?.[reqi18n[req].in][req]
                     ? reqs[reqi18n[req].badge ? 'badge' : 'nonbadge'].push(req)
                     : null
