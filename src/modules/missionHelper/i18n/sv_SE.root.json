@@ -170,6 +170,7 @@
 			"xAfterNumber": {
 				"description": "Sätter ett x bakom antalet fordon.",
 				"title": "x efter antal"
+			}
 		}
 	}
 }
