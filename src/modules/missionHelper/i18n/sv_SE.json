@@ -5,94 +5,88 @@
 	"generated_by": "Generated av",
 	"patients": {
 		"allow_ktw_instead_of_rtw": "En ambulans kan användas.",
-		"helicopter": "Sannolikhet för ambulanshelikopter",
+		"helicopter": "Sannolikhet för ambulanshelikopter:",
 		"patient_allow_first_responder_chance": "Chans att begära First Responder.",
 		"patient_at_end_of_mission": "Patienten visas bara i slutet av operationen!",
 		"patient_transport": "Sannolikhet för transport",
 		"possible_patient": "Maximalt antal patienter",
-		"possible_patient_exact": "exakt {n} Patient | exakt {n} patienter",
-		"possible_patient_min": "Lägsta patienter",
-		"specializations": "Avdelning",
-		"title": "Patienter | {n} Patient | {n} Patienter"
+		"possible_patient_exact": "med {n} patient | endast {n} patienter",
+		"possible_patient_min": "minimimum patienter",
+		"specializations": "Avdeling:",
+		"title": "Patienter | {n} patient | {n} patienter"
 	},
 	"prerequisites": {
 		"brush_extension": "Skogsexpansion | Skogsexpansion",
-		"fire_boat_docks": "brandbåtsdocka | eldbåtsdockor",
+		"federalpolice_stations": "Federal Police Station | Federal Police Stations",
+		"fire_aviation_count": "Firefighting Plane Station | Firefighting Plane Stations",
 		"fire_stations": "Brandstation | Brandstationer",
 		"max_police_stations": "Maximala polisstationer",
-		"max_rescue_stations": "Maximala räddningsstationer",
+		"max_rescue_stations": "Maximala ambulansstationer",
 		"police_helicopter_stations": "Polisflyg | Polisflyg",
 		"police_stations": "Polisstation | Polisstationer",
-		"rescue_boat_docks": "Räddningsbåtsdocka | Räddningsbåtsdockor",
 		"rescue_stations": "Ambulansstation | Ambulansstationer",
-		"title": "Förutsättning | Förutsättningar",
-		"wasserrettung": "Water Rescue Station"
+		"title": "Krav för generering av uppdrag | Krav för generering av uppdrag"
 	},
 	"prisoners": {
-		"max_possible_prisoners": "Maximala fångar",
-		"title": "Fånge | {n} Fånge | {n} Fångar"
+		"max_possible_prisoners": "Maximalt antal fångar",
+		"title": "Fånge | {n} fånge | {n} fångar"
 	},
 	"requirements": {
-		"water_needed": "Vattenbehov (gal)"
+		"water_needed": "Water demand (gal)"
 	},
-	"tip": {
-		"dragging": "Dra fönster",
-		"maxState": "Maximala krav på / av",
-		"minified": "Dölj / expandera",
-		"overlay": "Overlay",
-		"reload": "Ladda om"
-	},
-	"vehicle": {
+	"vehicles": {
 		"captions": {
 			"ambulances": "Ambulans | Ambulanser",
-			"arff": "Flyplatsbrandbil",
+			"arff": "Flygplats brandbil",
 			"battalion_chief_vehicles": "Brandbefäl | Brandbefäl",
 			"boats": "Båt | Båtar",
-			"brush_truck": "Skogsbrandbil | Skogsbrandbilar",
-			"fbi": "FBI-enhet | FBI-enheter",
-			"fbi_bomb": "FBI bombteknikerfordon | FBI bombteknikerfordon",
+			"brush_truck": "Skogbrannbil | Skogbrannbil",
+			"diver_car": "Dykbil | Dykbilar",
+			"fbi": "FBI Unit | FBI Units",
+			"fbi_bomb": "FBI Bomb Technician Vehicle | FBI Bomb Technician Vehicles",
 			"fbi_drone": "FBI Surveillance Drone | FBI Surveillance Drones",
 			"fbi_investigation": "FBI Investigation Wagon | FBI Investigation Wagons",
 			"fbi_mcc": "FBI Mobile Command Center Vehicle | FBI Mobile Command Center Vehicles",
-			"fire_aviation": "Luftburet brandbekämpning | Luftburet brandbekämpning",
-			"firetrucks": "Brandbil | Brandbilar",
-			"hazmat_vehicles": "Farligt gods",
-			"heavy_rescue_vehicles": "Tung räddning | Tunga räddningar",
+			"fire_aviation": "Airborne Firefighting | Airborne Firefightings",
+			"firetrucks": "Släckbil | Släckbilar",
+			"hazmat_vehicles": "CBRNe | CBRNe",
+			"heavy_rescue_vehicles": "Tungredningsbil | Tungredningsbil",
 			"helicopter": "Ambulanshelikopter",
 			"k9": "Hundenhet",
-			"large_fire_boat": "Stor eldbåt | Stora eldbåtar",
+			"large_fire_boat": "Stor brandbåt | Stora brandbåtar",
 			"large_rescue_boat": "Stor räddningsbåt | Stora räddningsbåtar",
-			"mobile_air_vehicles": "Dykbil | Dykbilar",
+			"mobile_air_vehicles": "Rökdykarbil | Rökdykarbilar",
 			"mobile_command_vehicles": "Räddningsledning | Räddningsledning",
 			"platform_trucks": "Stegbil | Stegbilar",
 			"police_cars": "Radiobil | Radiobilar",
-			"police_helicopters": "Polishelikopter | Polishelikoptrar",
-			"sheriff": "Sheriff | Sherrifs",
+			"police_helicopters": "Polishelikopter | Polishelikopter",
+			"sheriff": "Utrykningspolitibil | Utrykningspolitibiler",
 			"swat_armored_vehicle": "Bepansrat insatsfordon | Bepansrat insatsfordon",
 			"swat_suv": "Insatsfordon | Insatsfordon",
+			"traffic_car": "Polisbil | Polisbilar",
 			"water_tankers": "Tankbil | Tankbilar"
 		},
-		"multifunktionella": {
+		"multifunctionals": {
 			"battalion_chief_vehicles": {
 				"additional_text": "",
 				"reduce_from": "mobile_command_vehicles"
 			},
 			"heavy_rescue_vehicles": {
-				"extra_text": "åtminstone därav. {n} Räddningsbilar",
-				"reduce_from": "brandbilar"
+				"additional_text": "varav minst {n} är räddningsbil.",
+				"reduce_from": "släckbilar"
 			}
 		},
 		"optional_alternatives": {
 			"allow_arff_instead_of_lf": {
-				"firetrucks": "Brandbil eller ARFF | Brandbil eller ARFF"
+				"firetrucks": "Släckbil or ARFF | Släckbil or ARFF"
 			},
 			"allow_rw_instead_of_lf": {
-				"firetrucks": "Brandbil eller räddningsfordon | Brandbil eller räddningsfordon"
+				"firetrucks": "Släckbil eller Tung räddningsbil eller Räddningsbil | Släckbil eller Tung räddningsbil eller Räddningsbil"
 			}
 		},
 		"patient_additionals": {
-			"10": "EMS-chef"
+			"10": "EMS-Chief"
 		},
-		"title": "Fordon"
+		"title": "Nödvändiga fordon"
 	}
 }
