@@ -456,6 +456,7 @@ export default Vue.extend<
                     content: false,
                     patient_additionals: false,
                     sort: 'caption',
+                    sortDesc: false,
                     xAfterNumber: false,
                 },
                 chances: {
@@ -834,10 +835,14 @@ export default Vue.extend<
                 .sort(([, aVehicle], [, bVehicle]) =>
                     (aVehicle[this.settings.vehicles.sort] || 0) <
                     (bVehicle[this.settings.vehicles.sort] || 0)
-                        ? -1
+                        ? this.settings.vehicles.sortDesc
+                            ? 1
+                            : -1
                         : (aVehicle[this.settings.vehicles.sort] || 0) >
                           (bVehicle[this.settings.vehicles.sort] || 0)
-                        ? 1
+                        ? this.settings.vehicles.sortDesc
+                            ? -1
+                            : 1
                         : 0
                 )
                 .forEach(
