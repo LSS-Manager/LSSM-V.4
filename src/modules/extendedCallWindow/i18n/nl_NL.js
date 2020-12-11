@@ -87,6 +87,8 @@ module.exports = {
             minified: 'Inklappen',
             overlay: 'Overlay',
             reload: 'Herladen',
+            pushRight: 'Toon deze box boven de voertuigenlijst',
+            pushLeft: 'Toon deze box op de originele plek',
         },
         selected: 'Geselecteerd',
         vehiclesByRequirement: {
