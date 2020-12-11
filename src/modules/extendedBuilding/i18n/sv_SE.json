@@ -1,0 +1,31 @@
+{
+	"enhancedPersonnelAssignment": {
+		"toggleFittingPersonnel": "Dölj personal utan lämplig utbildning"
+	},
+	"expansions": {
+		"notBuild": "Inte byggt ännu"
+	},
+	"fastDispatchChooser": {
+		"noDispatch": "Inget kontrollcenter"
+	},
+	"personnelDemands": {
+		"additional": "Värden inom parentes utesluter fordon i status 6.",
+		"demand": "Personal som krävs"
+	},
+	"schoolingSummary": {
+		"all": "Alla kombinationer",
+		"amount": "Belopp",
+		"bound": "Tilldelad",
+		"each": "Varje kurs",
+		"max": "För närvarande maximalt krävs",
+		"min": "För närvarande minimikrav",
+		"noSchooling": "Ingen kurs",
+		"schooling": "Kurs",
+		"title": "Personalöversikt"
+	},
+	"vehiclePersonnel": {
+		"vehiclesPersonnelAssigned": "tilldelad",
+		"vehiclesPersonnelCurrent": "aktuell",
+		"vehiclesPersonnelMax": "max"
+	}
+}

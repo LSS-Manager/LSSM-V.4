@@ -24,6 +24,18 @@ export default async (
     };
     window.map.addEventListener('moveend', resetNewBuildingMarker);
 
+    const checkFormValidity = (form: HTMLFormElement) => {
+        const validForm =
+            (form.querySelector<HTMLInputElement>('#building_name')?.value
+                .length ?? 0) >= 2;
+        form.querySelectorAll<HTMLInputElement>(
+            '.coins_activate, .build_with_credits_step, .alliance_activate'
+        ).forEach(btn => {
+            btn.classList[validForm ? 'remove' : 'add']('disabled');
+            btn.disabled = !validForm;
+        });
+    };
+
     const observer = new MutationObserver(mutations => {
         mutations.forEach(mutation => {
             const form = (mutation.target as HTMLElement).querySelector<
@@ -35,6 +47,8 @@ export default async (
             }
             if (isBuildingMenu) return;
             isBuildingMenu = true;
+
+            checkFormValidity(form);
 
             if (saveLastBuildingType) {
                 const buildingTypeSelect = form.querySelector<
@@ -74,6 +88,7 @@ export default async (
             }
 
             form.addEventListener('submit', e => e.preventDefault());
+            form.addEventListener('keyup', () => checkFormValidity(form));
 
             form.addEventListener('click', e => {
                 const btn = (e.target as HTMLElement | null)?.closest(
@@ -121,6 +136,8 @@ export default async (
                         form.insertAdjacentElement('beforebegin', successAlert);
                         btn.setAttribute('type', 'submit');
                         form['building[name]'].value = '';
+                        form.build_with_coins.removeAttribute('value');
+                        form.build_as_alliance.removeAttribute('value');
 
                         const buildingId = parseInt(
                             successAlert
@@ -185,6 +202,7 @@ export default async (
                             );
                             coinsBtn.classList.add('disabled');
                         });
+                        checkFormValidity(form);
                     });
             });
         });

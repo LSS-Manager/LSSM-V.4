@@ -1,6 +1,5 @@
 import { Building } from 'typings/Building';
 
-const moduleRootFiles = require.context('../', true, MODULE_ROOT_I18N_FILES);
 const furtherFiles = require.context('./de_DE/', true, /.*(\/index)?\.js(on)?/);
 const modules = {
     appstore: {
@@ -51,9 +50,6 @@ const modules = {
         },
     },
 } as { [moduleId: string]: { [key: string]: unknown } };
-moduleRootFiles
-    .keys()
-    .forEach(key => (modules[key.split('/')[2]] = moduleRootFiles(key)));
 
 const t = {} as { [key: string]: unknown };
 
@@ -2090,6 +2086,7 @@ export default {
     },
     amount: 'Anzahl',
     search: 'Suche',
+    mapSearch: 'Ort Suchen...',
     alliance: 'Verband',
     premiumNotice:
         'Diese Funktion erweitert eine Premium-Funktion des Spiels und ist deshalb nur für Spieler mit einem Leitstellenspiel-Premium-Account verfügbar!',

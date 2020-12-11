@@ -538,7 +538,7 @@ export default {
                 const missions = Object.values(
                     await dispatch('request', {
                         // eslint-disable-next-line no-undef
-                        url: `${rootState.server}missions/${BUILD_LANG}.json`,
+                        url: `${rootState.server}missions/${rootState.lang}.json`,
                         init: {
                             method: 'GET',
                         },

@@ -26,7 +26,6 @@ import notifications from './store/notifications';
 import broadcast from './store/broadcast';
 import modules from './registerModules';
 import { Modules } from '../typings/Module';
-import { LSSM } from './core';
 
 export default (Vue: VueConstructor): Store<RootState> => {
     Vue.use(Vuex);
@@ -44,7 +43,7 @@ export default (Vue: VueConstructor): Store<RootState> => {
             prefix: PREFIX,
             version: VERSION,
             mode: MODE,
-            lang: BUILD_LANG,
+            lang: window.I18n.locale,
             discord: config.discord,
             games: config.games,
             server: config.server,
@@ -167,8 +166,12 @@ export default (Vue: VueConstructor): Store<RootState> => {
                 ),
             modulesSorted(_, getters: GetterTree<RootState, RootState>) {
                 return Object.keys(getters.appModules).sort((a, b) => {
-                    a = LSSM.$t(`modules.${a}.name`).toString();
-                    b = LSSM.$t(`modules.${b}.name`).toString();
+                    a = (window[PREFIX] as Vue)
+                        .$t(`modules.${a}.name`)
+                        .toString();
+                    b = (window[PREFIX] as Vue)
+                        .$t(`modules.${b}.name`)
+                        .toString();
                     return a < b ? -1 : a > b ? 1 : 0;
                 });
             },
@@ -264,7 +267,7 @@ export default (Vue: VueConstructor): Store<RootState> => {
             },
             loadModule({ state }: ActionStoreParams, module: keyof Modules) {
                 const script = document.createElement('script');
-                script.src = `${config.server}${BUILD_LANG}/modules/${module}/main.js?uid=${BUILD_LANG}-${window.user_id}&v=${state.version}`;
+                script.src = `${config.server}${state.lang}/modules/${module}/main.js?uid=${state.lang}-${window.user_id}&v=${state.version}`;
                 document.body.appendChild(script);
             },
             addMenuItem({ commit }: ActionStoreParams, text: string) {
