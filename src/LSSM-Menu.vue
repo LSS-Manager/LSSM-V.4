@@ -62,7 +62,12 @@
             </li>
             <li role="presentation">
                 <a class="lightbox-open" href="https://status.lss-manager.de/">
-                    Server Status
+                   LSSM-Server Status
+                </a>
+            </li>
+            <li role="presentation">
+                <a class="lightbox-open" href="https://stats.uptimerobot.com/3OVrETmBrM/786124522">
+                   LSS-Server Status
                 </a>
             </li>
             <li role="presentation">
