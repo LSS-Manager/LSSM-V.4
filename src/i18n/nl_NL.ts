@@ -1,6 +1,5 @@
 import { Building } from 'typings/Building';
 
-const moduleRootFiles = require.context('../', true, MODULE_ROOT_I18N_FILES);
 const furtherFiles = require.context('./nl_NL/', true, /.*(\/index)?\.js(on)?/);
 const modules = {
     appstore: {
@@ -51,9 +50,6 @@ const modules = {
         },
     },
 } as { [moduleId: string]: { [key: string]: unknown } };
-moduleRootFiles
-    .keys()
-    .forEach(key => (modules[key.split('/')[2]] = moduleRootFiles(key)));
 
 const t = {} as { [key: string]: unknown };
 
@@ -1259,6 +1255,7 @@ export default {
     },
     amount: 'Aantal',
     search: 'Zoeken',
+    mapSearch: 'Locatie zoeken',
     alliance: 'Team',
     premiumNotice:
         'Deze functie breidt een premium functie van het spel uit en is daarom alleen beschikbaar voor spelers met een premium spelaccount!',

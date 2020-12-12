@@ -1,8 +1,8 @@
 # LSS-Manager V.4 
 
 ## Builds & Checks
-### Prod/master [![Build Status](https://teamcity.lss-manager.de/app/rest/builds/buildType:LssmV4_MasterBuild/statusIcon.svg)]
-### Beta/dev [![Build Status](https://teamcity.lss-manager.de/app/rest/builds/buildType:LssmV4_DevBuild/statusIcon.svg)]
+### Prod/master [![Build Status](https://teamcity.lss-manager.de/app/rest/builds/buildType:LssmV4_MasterBuild/statusIcon.svg)](https://teamcity.lss-manager.de/viewType.html?buildTypeId=LssmV4_MasterBuild&guest=1)
+### Beta/dev [![Build Status](https://teamcity.lss-manager.de/app/rest/builds/buildType:LssmV4_DevBuild/statusIcon.svg)](https://teamcity.lss-manager.de/viewType.html?buildTypeId=LssmV4_DevBuild&guest=1)
 
 ![](./docs/.vuepress/public/img/lssm.png)
 
@@ -44,7 +44,7 @@ LSS-MANAGER V.4 is an extension for missionchief.co.uk, missionchief.com and mis
 With this extension an appstore is added to the game, which allows the installation of plugins. All functions are modular - you can determine down to the last module what should be activated.
 
 ### Wiki
-In our [Wiki](https://proxy.lss-manager.de/v4/docs/en_GB) you can find everything about the installation, the FAQ and an explanation of all functions.
+In our [Wiki](https://proxy.lss-manager.de/v4/docs/en_GB/) you can find everything about the installation, the FAQ and an explanation of all functions.
 
 ### Support Server
 
@@ -64,7 +64,7 @@ De LSS-MANAGER V.4 is een uitbreiding voor de meldkamerspel.com en zijn andere t
 Met deze uitbreiding wordt een appstore aan het spel toegevoegd, die de installatie van plugins mogelijk maakt. Alle functies zijn modulair - u kunt tot aan de laatste module bepalen wat er geactiveerd moet worden.
 
 ### Wiki
-In onze [Wiki](https://proxy.lss-manager.de/v4/docs/nl_NL) vindt u alles over de installatie, de FAQ en een uitleg van alle functies.
+In onze [Wiki](https://proxy.lss-manager.de/v4/docs/nl_NL/) vindt u alles over de installatie, de FAQ en een uitleg van alle functies.
 
 ### Ondersteunende server
 

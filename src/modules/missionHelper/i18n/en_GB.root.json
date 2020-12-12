@@ -150,9 +150,17 @@
 				"percentage": "Probability",
 				"title": "Sorting the vehicle requirements"
 			},
+			"sortDesc": {
+				"description": "Sorts vehicle requirements in a descending order.",
+				"title": "Vehicles in descending Order"
+			},
 			"title": {
 				"description": "Displays the heading \"Vehicles\" above the vehicle requirements.",
 				"title": "Vehicles (Title)"
+			},
+			"xAfterNumber": {
+				"description": "Puts an x behind the amount of vehicles",
+				"title": "x behind amount"
 			}
 		}
 	}

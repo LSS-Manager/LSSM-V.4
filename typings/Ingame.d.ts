@@ -75,3 +75,7 @@ export interface MissionMarkerAdd {
     user_id: number;
     vehicle_state: 0 | 1 | 2; // red | yellow | green
 }
+
+export interface MissionTimer extends MissionMarkerAdd {
+    date_end_calc: number;
+}

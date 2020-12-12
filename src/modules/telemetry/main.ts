@@ -1,4 +1,4 @@
-import { UAParser } from 'ua-parser-js';
+import UAParser from 'ua-parser-js';
 import { StorageSet } from '../../../typings/store/storage/Actions';
 import config from '../../config';
 
@@ -93,7 +93,7 @@ export default (
 
         LSSM.$store
             .dispatch('api/request', {
-                url: `${LSSM.$store.state.server}telemetry.php?uid=${BUILD_LANG}-${window.user_id}`,
+                url: `${LSSM.$store.state.server}telemetry.php?uid=${LSSM.$store.state.lang}-${window.user_id}`,
                 init: {
                     method: 'POST',
                     headers: {
@@ -102,7 +102,7 @@ export default (
                     body: JSON.stringify({
                         id: LSSM.$store.state.api.key,
                         uid: window.user_id,
-                        game: BUILD_LANG,
+                        game: LSSM.$store.state.lang,
                         police: LSSM.$store.state.policechief,
                         name: window.username,
                         version: LSSM.$store.state.version,
@@ -129,64 +129,83 @@ export default (
     };
 
     LSSM.$store
-        .dispatch('storage/get', {
-            key: NOTE_STORAGE_KEY,
-            defaultValue: false,
-        })
-        .then(async isConfirmed => {
-            if (!isConfirmed) {
-                LSSM.$modal.show('dialog', {
-                    title: $m('info.title'),
-                    text: $m('info.text', { wiki: LSSM.$store.getters.wiki }),
-                    options: {},
-                    buttons: [
-                        {
-                            title: $m('info.decline'),
-                            handler() {
-                                // First we store that we confirmed the telemetry dialog
-                                LSSM.$store
-                                    .dispatch('storage/set', {
-                                        key: NOTE_STORAGE_KEY,
-                                        value: true,
-                                    } as StorageSet)
-                                    .then(() => LSSM.$modal.hide('dialog'));
-                                // Now we store if we allowed telemetry
-                                LSSM.$store.dispatch('settings/setSetting', {
-                                    moduleId: 'global',
-                                    settingId: 'allowTelemetry',
-                                    value: false,
-                                });
-                            },
-                        },
-                        {
-                            title: $m('info.close'),
-                            handler() {
-                                // First we store that we confirmed the telemetry dialog
-                                LSSM.$store
-                                    .dispatch('storage/set', {
-                                        key: NOTE_STORAGE_KEY,
-                                        value: true,
-                                    } as StorageSet)
-                                    .then(
-                                        () =>
-                                            sendStats() &&
-                                            LSSM.$modal.hide('dialog')
-                                    );
-                                // Now we store if we allowed telemetry
-                                LSSM.$store.dispatch('settings/setSetting', {
-                                    moduleId: 'global',
-                                    settingId: 'allowTelemetry',
-                                    value: true,
-                                });
-                            },
-                        },
-                    ],
-                });
-            }
-            // Only if the telemetry dialog has been seen once, we check for the setting
-            const allowTelemetry = await getSetting('allowTelemetry');
-            if (allowTelemetry) {
-                await sendStats();
-            }
+        .dispatch('api/fetchCreditsInfo')
+        .then(({ user_directplay_registered }) => {
+            if (user_directplay_registered)
+                LSSM.$store
+                    .dispatch('storage/get', {
+                        key: NOTE_STORAGE_KEY,
+                        defaultValue: false,
+                    })
+                    .then(async isConfirmed => {
+                        if (!isConfirmed) {
+                            LSSM.$modal.show('dialog', {
+                                title: $m('info.title'),
+                                text: $m('info.text', {
+                                    wiki: LSSM.$store.getters.wiki,
+                                }),
+                                options: {},
+                                buttons: [
+                                    {
+                                        title: $m('info.decline'),
+                                        handler() {
+                                            // First we store that we confirmed the telemetry dialog
+                                            LSSM.$store
+                                                .dispatch('storage/set', {
+                                                    key: NOTE_STORAGE_KEY,
+                                                    value: true,
+                                                } as StorageSet)
+                                                .then(() =>
+                                                    LSSM.$modal.hide('dialog')
+                                                );
+                                            // Now we store if we allowed telemetry
+                                            LSSM.$store.dispatch(
+                                                'settings/setSetting',
+                                                {
+                                                    moduleId: 'global',
+                                                    settingId: 'allowTelemetry',
+                                                    value: false,
+                                                }
+                                            );
+                                        },
+                                    },
+                                    {
+                                        title: $m('info.close'),
+                                        handler() {
+                                            // First we store that we confirmed the telemetry dialog
+                                            LSSM.$store
+                                                .dispatch('storage/set', {
+                                                    key: NOTE_STORAGE_KEY,
+                                                    value: true,
+                                                } as StorageSet)
+                                                .then(
+                                                    () =>
+                                                        sendStats() &&
+                                                        LSSM.$modal.hide(
+                                                            'dialog'
+                                                        )
+                                                );
+                                            // Now we store if we allowed telemetry
+                                            LSSM.$store.dispatch(
+                                                'settings/setSetting',
+                                                {
+                                                    moduleId: 'global',
+                                                    settingId: 'allowTelemetry',
+                                                    value: true,
+                                                }
+                                            );
+                                        },
+                                    },
+                                ],
+                            });
+                        }
+                        // Only if the telemetry dialog has been seen once, we check for the setting
+                        const allowTelemetry = await getSetting(
+                            'allowTelemetry'
+                        );
+                        if (allowTelemetry) {
+                            await sendStats();
+                        }
+                    });
         });
 };

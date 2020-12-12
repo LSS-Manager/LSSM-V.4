@@ -82,6 +82,7 @@
                     v-for="(vehicle, req) in vehicles"
                     :key="req"
                     :data-amount="vehicle.amount"
+                    v-bind:class="{ 'class-x': settings.vehicles.xAfterNumber }"
                 >
                     {{ vehicle.caption }}
                     <span v-if="vehicle.additionalText">
@@ -455,6 +456,8 @@ export default Vue.extend<
                     content: false,
                     patient_additionals: false,
                     sort: 'caption',
+                    sortDesc: false,
+                    xAfterNumber: false,
                 },
                 chances: {
                     normal: false,
@@ -547,6 +550,7 @@ export default Vue.extend<
                 nonbadge: string[];
             };
             this.settings.noVehicleRequirements?.forEach(req =>
+                reqi18n.hasOwnProperty(req) &&
                 this.missionSpecs?.[reqi18n[req].in][req]
                     ? reqs[reqi18n[req].badge ? 'badge' : 'nonbadge'].push(req)
                     : null
@@ -751,7 +755,7 @@ export default Vue.extend<
                 Object.keys(patientAdditionals).forEach(
                     patients =>
                         this.currentPatients >= parseInt(patients) &&
-                        (vehicles[patients] = {
+                        (vehicles[`patients_${patients}`] = {
                             amount: 1,
                             caption: patientAdditionals[parseInt(patients)],
                         })
@@ -831,10 +835,14 @@ export default Vue.extend<
                 .sort(([, aVehicle], [, bVehicle]) =>
                     (aVehicle[this.settings.vehicles.sort] || 0) <
                     (bVehicle[this.settings.vehicles.sort] || 0)
-                        ? -1
+                        ? this.settings.vehicles.sortDesc
+                            ? 1
+                            : -1
                         : (aVehicle[this.settings.vehicles.sort] || 0) >
                           (bVehicle[this.settings.vehicles.sort] || 0)
-                        ? 1
+                        ? this.settings.vehicles.sortDesc
+                            ? -1
+                            : 1
                         : 0
                 )
                 .forEach(
@@ -1034,7 +1042,7 @@ export default Vue.extend<
         list-style: none
 
         &::before
-            content: attr(data-amount) + " "
+            content: attr(data-amount)
 
         @supports #{'selector(li::marker)'}
             &::before
@@ -1042,6 +1050,17 @@ export default Vue.extend<
                 white-space: pre
             &::marker
                 content: attr(data-amount)
+
+        &.class-x
+            &::before
+                content: attr(data-amount) "x " !important
+
+            @supports #{'selector(li::marker)'}
+                &::before
+                    content: " " !important
+                    white-space: pre !important
+                &::marker
+                    content: attr(data-amount) "x" !important
 
     .badge
         margin-right: 0.3rem

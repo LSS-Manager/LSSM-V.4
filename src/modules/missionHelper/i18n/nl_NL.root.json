@@ -139,9 +139,17 @@
 				"percentage": "Waarschijnlijkheid",
 				"title": "De voertuigvereisten sorteren"
 			},
+			"sortDesc": {
+				"description": "Sorteer de voertuigen op een aflopende volgorde.",
+				"title": "Sorteer voertuigen aflopend"
+			},
 			"title": {
 				"description": "Toont de kop \"Voertuigen\" boven de voertuigvereisten",
 				"title": "Voertuigen (Titel)"
+			},
+			"xAfterNumber": {
+				"description": "Plaats een \"x\" achter het getal van het aantal benodigde voertuigen",
+				"title": "x achter aantal"
 			}
 		}
 	}

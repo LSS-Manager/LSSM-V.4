@@ -12,11 +12,7 @@ import setVersion from './setVersion';
     console.info('\tbuildUserscript');
     await buildUserscript();
     console.info('\temptyDir');
-    emptyFolder('./dist/static');
-    emptyFolder('./dist/admin');
-    emptyFolder(
-        `./dist/${process.argv[2] === 'production' ? 'stable/' : 'beta/'}`
-    );
+    emptyFolder('./dist');
     console.info('\tcopyStatic');
     copyStatic();
     console.log('\tCollect Third-Party Libraries');

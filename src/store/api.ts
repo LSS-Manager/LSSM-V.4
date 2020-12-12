@@ -11,12 +11,14 @@ import { VehicleRadioMessage } from '../../typings/Ingame';
 import { Building, BuildingCategory } from '../../typings/Building';
 import { Mission } from 'typings/Mission';
 import { ActionStoreParams } from 'typings/store/Actions';
+import { CreditsInfo } from 'typings/api/Credits';
 
 const STORAGE_KEYS = {
     buildings: 'aBuildings',
     vehicles: 'aVehicles',
     allianceinfo: 'aAlliance',
     settings: 'aSettings',
+    credits: 'aCreditsInfo',
 } as {
     [key in StorageAPIKey]: string;
 };
@@ -25,6 +27,7 @@ const MUTATION_SETTERS = {
     vehicles: 'setVehicles',
     allianceinfo: 'setAllianceinfo',
     settings: 'setSettings',
+    credits: 'setCreditsInfo',
 } as {
     [key in StorageAPIKey]: string;
 };
@@ -173,6 +176,7 @@ export default {
         key: null,
         lastUpdates: {},
         settings: {},
+        credits: {},
     },
     mutations: {
         setBuildings(
@@ -268,6 +272,16 @@ export default {
             if (!settings) return;
             state.lastUpdates.settings = lastUpdate;
             state.settings = settings;
+        },
+        setCreditsInfo(
+            state: APIState,
+            { value: credits, lastUpdate }: StorageGetterReturn<'credits'>
+        ) {
+            // eslint-disable-next-line no-console
+            console.log('setCreditsInfo');
+            if (!credits) return;
+            state.lastUpdates.credits = lastUpdate;
+            state.credits = credits;
         },
     },
     getters: {
@@ -526,6 +540,13 @@ export default {
                 );
             }
         },
+        async fetchCreditsInfo(store: APIActionStoreParams) {
+            return new Promise(resolve =>
+                get_api_values('credits', store).then(({ value }) =>
+                    resolve(value)
+                )
+            );
+        },
         async getMissions(
             { rootState, state, dispatch, commit }: APIActionStoreParams,
             force: boolean
@@ -538,7 +559,7 @@ export default {
                 const missions = Object.values(
                     await dispatch('request', {
                         // eslint-disable-next-line no-undef
-                        url: `${rootState.server}missions/${BUILD_LANG}.json`,
+                        url: `${rootState.server}missions/${rootState.lang}.json`,
                         init: {
                             method: 'GET',
                         },
