@@ -48,6 +48,11 @@ export default ((MODULE_ID, LSSM, $m) => {
             default: 'caption',
             dependsOn: '.vehicles.content',
         },
+        'vehicles.sortDesc': <Toggle>{
+            type: 'toggle',
+            default: false,
+            dependsOn: '.vehicles.content',
+        },
         ...(['de_DE', 'en_US', 'nl_NL'].includes(locale)
             ? {
                   'vehicles.patient_additionals': <Toggle>{

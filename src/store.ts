@@ -120,9 +120,6 @@ export default (Vue: VueConstructor): Store<RootState> => {
                 document.head.appendChild(fa);
                 state.fontAwesome.inserted = true;
             },
-            setRegisteredState(state: RootState, isRegistered: boolean) {
-                state.isRegistered = isRegistered;
-            },
             addOSMBar(
                 state: RootState,
                 {
