@@ -13,7 +13,7 @@ sidebarDepth: 2
 
 [LSSM-Server-Status](https://status.lss-manager.de)
 
-[LSS-Server-Status](https://stats.uptimerobot.com/3OVrETmBrM/786124522)
+[Game-Online-Status](https://stats.uptimerobot.com/OEKDJSpmvK)
 
 ## Über den LSSM
 
