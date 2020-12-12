@@ -52,14 +52,12 @@
 		"k9_only_if_needed": {
 			"description": "Indikerar om hundenhet endast begärs, om tillgängligt.",
 			"title": "Valfri hundpatrull"
-			}
 		},
 		"noVehicleRequirements": {
 			"description": "Ange här vilka speciella krav som ska visas om de finns för det uppdraget.",
 			"title": "Speciella krav"
 		},
 		"optionalAlternatives": {
-			},
 			"allow_ktw_instead_of_rtw": {
 				"description": "Visar om en ambulans kan användas istället för en ambulanshelikopter.",
 				"title": "Ambulanstransport istället för ambulanshelikopter"
