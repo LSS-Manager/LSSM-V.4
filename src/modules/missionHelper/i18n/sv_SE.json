@@ -64,16 +64,16 @@
 			"water_tankers": "Tankbil | Tankbilar"
 		},
 		"multifunctionals": {
+			"allow_rw_instead_of_lf": {
+				"firetrucks": "Släckbil eller Lastväxlare eller Räddningsbil | Släckbil eller Lastväxlare eller Räddningsbil"
+			},
 			"battalion_chief_vehicles": {
 				"additional_text": "",
 				"reduce_from": "mobile_command_vehicles"
 			},
 			"heavy_rescue_vehicles": {
 				"additional_text": "varav minst {n} är räddningsbil.",
-				"reduce_from": "Släckbilar"
-			},
-			"allow_rw_instead_of_lf": {
-				"firetrucks": "Släckbil eller Lastväxlare eller Räddningsbil | Släckbil eller Lastväxlare eller Räddningsbil"
+				"reduce_from": "firetrucks"
 			}
 		},
 		"title": "Nödvändiga fordon"
