@@ -275,6 +275,9 @@ export default Vue.extend<
                         allowDrillToNode: true,
                         cursor: 'pointer',
                         levelIsConstant: false,
+                        traverseUpButton: {
+                            text: Highcharts.getOptions().lang.drillUpText,
+                        },
                     },
                 ] as SeriesSunburstOptions[],
             } as Options);
