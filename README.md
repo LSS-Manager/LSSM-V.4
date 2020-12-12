@@ -14,6 +14,7 @@ This work is licensed under a [Creative Commons Attribution-NonCommercial-ShareA
 <a href="https://discord.gg/RcTNjpB" target="_blank" align="right"><img src="https://discord.com/api/guilds/254167535446917120/embed.png?style=banner1" alt="Our Discord-Server: United Dispatch"></a>
 
 [LSSM-Server-Status](https://status.lss-manager.de/)
+[All Game-Server-Monitors](https://stats.uptimerobot.com/OEKDJSpmvK)
 
 ## Information on LSS-Manager V.4
 
