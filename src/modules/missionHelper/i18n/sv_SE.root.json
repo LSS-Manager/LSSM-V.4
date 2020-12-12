@@ -45,10 +45,6 @@
 			"description": "Visar från vilken byggnad uppdraget genererades från.",
 			"title": "Skapad av"
 		},
-		"hide_battalion_chief_vehicles": {
-			"description": "Döljer brandbefäl och visar istället räddningsledning.",
-			"title": "Dölj brandbefäl"
-		},
 		"id": {
 			"description": "Visar uppdrags-ID efter uppdragsnamnet.",
 			"title": "Uppdrags-ID"
@@ -56,11 +52,6 @@
 		"k9_only_if_needed": {
 			"description": "Indikerar om hundenhet endast begärs, om tillgängligt.",
 			"title": "Valfri hundpatrull"
-		},
-		"multifunctionals": {
-			"battalion_chief_vehicles": {
-				"description": "Döljer befälsfordon helt och visar bara MCV.",
-				"title": "Dölj brandbefälsfordon"
 			}
 		},
 		"noVehicleRequirements": {
