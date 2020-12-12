@@ -11,7 +11,9 @@ sidebarDepth: 2
 
 <a :href="$themeConfig.variables.discord" target="_blank" style="float: right;"><img src="https://discord.com/api/guilds/254167535446917120/embed.png?style=banner1" alt="Unser Discord-Server: United Dispatch" data-prevent-zooming></a>
 
-[Server-Status](https://status.lss-manager.de)
+[LSSM-Server-Status](https://status.lss-manager.de)
+
+[LSS-Server-Status](https://stats.uptimerobot.com/3OVrETmBrM/786124522)
 
 ## Über den LSSM
 
