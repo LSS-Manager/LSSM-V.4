@@ -603,7 +603,7 @@ export default {
             maxBuildings: 'Ingen gräns',
             maxLevel: 0,
             special:
-                'Denna byggnad kan endast byggas av CFO eller administratörer med Alliance Bank-krediter. Celler är tillgängliga för alla alliansmedlemmar.',
+                'Denna byggnad kan endast byggas av CFO eller administratörer med Alliance Bank-credits. Celler är tillgängliga för alla alliansmedlemmar.',
             startPersonnel: 0,
             startVehicles: [],
         },

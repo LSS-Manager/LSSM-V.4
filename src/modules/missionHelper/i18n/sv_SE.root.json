@@ -43,11 +43,7 @@
 		},
 		"generatedBy": {
 			"description": "Visar från vilken byggnad uppdraget genererades från.",
-			"title": "Skapad av (building type)"
-		},
-		"hide_battalion_chief_vehicles": {
-			"description": "Döljer brandbefäl och visar istället räddningsledning.",
-			"title": "Döljer brandbefäl"
+			"title": "Skapad av"
 		},
 		"id": {
 			"description": "Visar uppdrags-ID efter uppdragsnamnet.",
@@ -57,36 +53,18 @@
 			"description": "Indikerar om hundenhet endast begärs, om tillgängligt.",
 			"title": "Valfri hundpatrull"
 		},
-		"multifunctionals": {
-			"battalion_chief_vehicles": {
-				"description": "Döljer befälsfordon helt och visar bara MCV.",
-				"title": "Döljer brandbefälsfordon"
-			},
-			"heavy_rescue_vehicles": {
-				"description": "Subtraherar antalet nödvändiga brandbilar från lastväxlare och döljer brandbilar om antalet faller under 0. Den här funktionen är avsedd för personer som kör ett rent räddningsfordonsystem.",
-				"title": "Lastväxlare vs räddningsbil"
-			},
-			"platform_trucks": {
-				"description": "Subtracts the number of firetrucks from the Quints and hides firetrucks if the number drops below 0.",
-				"title": "Quint Simple Rate"
-			}
-		},
 		"noVehicleRequirements": {
 			"description": "Ange här vilka speciella krav som ska visas om de finns för det uppdraget.",
 			"title": "Speciella krav"
 		},
 		"optionalAlternatives": {
-			"allow_arff_instead_of_lf": {
-				"description": " Indikerar, om istället för en brandbil arrfs är möjliga på plats.",
-				"title": "Visa om arffs är tillåtna som brandbilar"
-			},
 			"allow_ktw_instead_of_rtw": {
-				"description": "Visar om en ambulans kan användas istället för en ambulans.",
-				"title": "Ambulanstransport istället för ambulans"
+				"description": "Visar om en ambulans kan användas istället för en ambulanshelikopter.",
+				"title": "Ambulanstransport istället för ambulanshelikopter"
 			},
 			"allow_rw_instead_of_lf": {
-				"description": "Indikerar, om istället för en brandbil också tung lastväxlare- eller räddningsbil är möjlig på plats.",
-				"title": "Visa Lastväxlare / räddningsbil istället för brandbilar"
+				"description": "Visa Lastväxlare / Räddningsbil istället för brandbilar.",
+				"title": "Visa Lastväxlare / Räddningsbil istället för brandbilar"
 			}
 		},
 		"patient": {
@@ -108,13 +86,9 @@
 				"description": "Visar i hjälpen högst upp hur många patienter som uppdraget har.",
 				"title": "Antal nuvarande patienter"
 			},
-			"patient_allow_first_responder_chance": {
-				"description": "Visar hur många % varje fordon är tillräckligt för att behandla.",
-				"title": "First Responder sannolikhet"
-			},
 			"title": {
 				"description": "Visar rubriken \"Patienter\" ovanför detaljerna om möjliga patienter.",
-				"title": "Patient (Title)"
+				"title": "Patient"
 			}
 		},
 		"place": {
@@ -136,7 +110,7 @@
 			},
 			"title": {
 				"description": "Visar rubriken \"Fångar\" ovanför detaljerna om möjliga fångar.",
-				"title": "Fångar (Title)"
+				"title": "Fångar"
 			}
 		},
 		"title": {
@@ -165,11 +139,11 @@
 			},
 			"title": {
 				"description": "Visar rubriken \"Fordon\" ovanför fordonets krav..",
-				"title": "Fordon (Titel)"
+				"title": "Fordon"
 			},
 			"xAfterNumber": {
 				"description": "Sätter ett x bakom antalet fordon.",
-				"title": "x efter antal"
+				"title": "X efter antal"
 			}
 		}
 	}
