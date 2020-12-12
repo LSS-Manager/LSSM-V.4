@@ -66,11 +66,6 @@
                 </a>
             </li>
             <li role="presentation">
-                <a class="lightbox-open" href="https://stats.uptimerobot.com/3OVrETmBrM/786124522">
-                   LSS-Server Status
-                </a>
-            </li>
-            <li role="presentation">
                 <a href="#" @click.prevent.stop.self="showLibraries">
                     Open-Source Libraries
                 </a>
