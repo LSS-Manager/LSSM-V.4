@@ -1,13 +1,11 @@
 <template>
     <lightbox name="releasenotes" no-fullscreen no-title-hide>
         <h1>LSSM V.4: {{ $t('modules.releasenotes.name') }}</h1>
-        <div v-for="note in notes" :key="note.version" class="note">
+        <div v-for="note in notes" :key="note[0]" class="note">
             <h4>
-                <b>{{ note.version }}</b
-                >:
-                {{ note.title }}
+                <b>{{ note[0] }}</b>
             </h4>
-            <div v-html="note.description"></div>
+            <div v-html="note[1].content.replace(/\n/g, '<br>')"></div>
         </div>
     </lightbox>
 </template>

@@ -11,7 +11,6 @@ import { VehicleRadioMessage } from '../../typings/Ingame';
 import { Building, BuildingCategory } from '../../typings/Building';
 import { Mission } from 'typings/Mission';
 import { ActionStoreParams } from 'typings/store/Actions';
-import { CreditsInfo } from 'typings/api/Credits';
 
 const STORAGE_KEYS = {
     buildings: 'aBuildings',
