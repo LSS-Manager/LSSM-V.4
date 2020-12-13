@@ -545,7 +545,7 @@ export default {
             coins: 25,
             credits: 15000,
             minPersonnel: 1,
-            maxPersonnel: 4,
+            maxPersonnel: 9,
             icon: 'truck-moving',
         },
         42: {
