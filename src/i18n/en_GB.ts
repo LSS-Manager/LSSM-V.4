@@ -780,7 +780,7 @@ export default {
         'Firefighters': {
             vehicles: {
                 'Fire engines': [0, 1, 16],
-                'Water Carrier': [6],
+                'Water Carrier': [6, 26],
                 'Aerial Trucks': [2, 17],
                 'Special Vehicles': [3, 4, 7, 14, 15, 18, 23],
             },
@@ -990,6 +990,10 @@ export default {
         'Intersection with lights',
         'High Rise with Cladding',
         'Major Road Standby Point',
+        'Nuclear power station',
+        'Munition dump',
+        'Restaurant',
+        'Market place',
     ],
     only_alliance_missions: [57, 74, 89],
     transfer_missions: [77],
