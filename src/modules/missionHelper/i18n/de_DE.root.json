@@ -19,6 +19,10 @@
 		}
 	},
 	"settings": {
+		"bucket_only_if_needed": {
+			"description": "Zeigt an, wenn der Außenlastbehälter nur gefordert wird, wenn vorhanden.",
+			"title": "Optionale Außenlastbehälter"
+		},
 		"chances": {
 			"100": {
 				"description": "Zeigt auch Wahrscheinlichkeiten von 100% an.",
@@ -56,10 +60,6 @@
 		"k9_only_if_needed": {
 			"description": "Zeigt an, wenn der DHuFüKW nur gefordert wird, wenn vorhanden.",
 			"title": "Optionale Diensthunde"
-		},
-		"bucket_only_if_needed": {
-			"description": "Zeigt an, wenn der Außenlastbehälter nur gefordert wird, wenn vorhanden.",
-			"title": "Optionale Außenlastbehälter"
 		},
 		"multifunctionals": {
 			"battalion_chief_vehicles": {

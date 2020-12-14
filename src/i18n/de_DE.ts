@@ -1149,7 +1149,8 @@ export default {
             credits: 50000,
             minPersonnel: 0,
             maxPersonnel: 0,
-            special: 'Der Polizeihelikopter ist das Trägerfahrzeug hier von. Der Helikopter brauch min. 2 Ausgebildete Kräfte mit der Ausbildung "Brandbekämpfung"',
+            special:
+                'Der Polizeihelikopter ist das Trägerfahrzeug hier von. Der Helikopter brauch min. 2 Ausgebildete Kräfte mit der Ausbildung "Brandbekämpfung"',
             icon: 'fill',
         },
     },
