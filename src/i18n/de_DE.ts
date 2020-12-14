@@ -2026,7 +2026,7 @@ export default {
             {
                 caption: 'Brandbekämpfung',
                 duration: '3 Tage',
-            }
+            },
             {
                 caption: 'Motorradstaffel',
                 duration: '3 Tage',
