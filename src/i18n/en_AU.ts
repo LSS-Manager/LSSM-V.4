@@ -912,7 +912,7 @@ export default {
         'Carpentry Workshop',
         'Restaurant',
         'City Centre',
-        'Hill'
+        'Hill',
     ],
     only_alliance_missions: [57, 74],
     transfer_missions: [],
