@@ -16,6 +16,7 @@ interface Additional {
     only_alliance_mission?: boolean;
     max_possible_prisoners?: number;
     allow_arff_instead_of_lf?: boolean;
+    need_helicopter_bucket_only_if_present?: boolean;
 
     // Guard missions
     duration?: number;
@@ -142,6 +143,7 @@ interface Requirements {
     ambulances?: number; // de_DE: RTW oder KTW oder KTW-B
     gw_san?: number; // de_DE: GW-San
     police_helicopters?: number; // de_DE: Polizeihubschrauber
+    helicopter_bucket?: number; // de_DE: Aussenbehälter
     boats?: number; // de_DE: Boote
     diver_units?: number; // de_DE: Taucher
     wasserwerfer?: number; // de_DE: WaWe

@@ -255,6 +255,14 @@ export default ((MODULE_ID, LSSM, $m) => {
                   },
               }
             : null),
+        ...(locale === 'de_DE'
+            ? {
+                  bucket_only_if_needed: <Toggle>{
+                      type: 'toggle',
+                      default: false,
+                  },
+              }
+            : null),
         ...(locale === 'nl_NL'
             ? {
                   bike_police_only_if_needed: <Toggle>{

@@ -493,6 +493,7 @@ export default Vue.extend<
                 followup: false,
                 subsequent: false,
                 k9_only_if_needed: false,
+                bucket_only_if_needed: false,
                 hide_battalion_chief_vehicles: false,
                 bike_police_only_if_needed: false,
                 noVehicleRequirements: [],
@@ -711,6 +712,14 @@ export default Vue.extend<
                         this.settings.k9_only_if_needed
                     )
                         vehicleName = 'k9_only_if_needed';
+                    if (
+                        !isMaxReq &&
+                        vehicle === 'helicopter_bucket' &&
+                        missionSpecs?.additional
+                            .need_helicopter_bucket_only_if_present &&
+                        this.settings.bucket_only_if_needed
+                    )
+                        vehicleName = 'bucket_only_if_needed';
                     if (
                         !isMaxReq &&
                         vehicle === 'bike_police' &&

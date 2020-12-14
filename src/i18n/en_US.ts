@@ -1260,6 +1260,8 @@ export default {
         'Fault line',
         'Carpentry Workshop',
         'Playground',
+        'Restaurant',
+        'City centre',
     ],
     only_alliance_missions: [41, 61, 62, 112],
     transfer_missions: [246],
