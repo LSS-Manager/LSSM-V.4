@@ -145,7 +145,7 @@ export default {
         },
         5: {
             caption: 'Ambulans',
-            color: '#9c1c1c',
+            color: '#9c5e1c',
             coins: 25,
             credits: 5_000,
             minPersonnel: 1,
@@ -173,7 +173,7 @@ export default {
         },
         8: {
             caption: 'Radiobil',
-            color: '#000f89',
+            color: '#277a3a',
             coins: 25,
             credits: 5_000,
             minPersonnel: 2,
@@ -181,7 +181,7 @@ export default {
         },
         9: {
             caption: 'Ambulanshelikopter',
-            color: '#e61919',
+            color: '#e68319',
             coins: 30,
             credits: 300_000,
             minPersonnel: 3,
@@ -217,7 +217,7 @@ export default {
         },
         13: {
             caption: 'Polishelikopter',
-            color: '#000f89',
+            color: '#258900',
             coins: 30,
             credits: 300_000,
             minPersonnel: 2,
@@ -227,7 +227,7 @@ export default {
         },
         14: {
             caption: 'Bepansrat insatsfordon',
-            color: '#000f89',
+            color: '#158900',
             coins: 25,
             credits: 10_000,
             minPersonnel: 8,
@@ -237,7 +237,7 @@ export default {
         },
         15: {
             caption: 'Hundenhet',
-            color: '#000f89',
+            color: '#1e8900',
             coins: 25,
             credits: 7_000,
             minPersonnel: 1,
@@ -248,7 +248,7 @@ export default {
         },
         16: {
             caption: 'Polismotorcykel',
-            color: '#000f89',
+            color: '#008902',
             coins: 18,
             credits: 2_500,
             minPersonnel: 1,
@@ -258,7 +258,7 @@ export default {
         },
         17: {
             caption: 'Insatsfordon',
-            color: '#000f89',
+            color: '#00891e',
             coins: 12,
             credits: 6_000,
             minPersonnel: 3,
@@ -269,7 +269,7 @@ export default {
         },
         18: {
             caption: 'Dykbil',
-            color: '#2229aa',
+            color: '#226baa',
             coins: 25,
             credits: 19_000,
             minPersonnel: 1,
@@ -279,7 +279,7 @@ export default {
         },
         19: {
             caption: 'Tryckkammarbil',
-            color: '#2229aa',
+            color: '#226baa',
             coins: 25,
             credits: 19_000,
             minPersonnel: 1,
@@ -289,7 +289,7 @@ export default {
         },
         20: {
             caption: 'Liten räddningsbåt',
-            color: '#2230aa',
+            color: '#2264aa',
             coins: 12,
             credits: 6_000,
             minPersonnel: 0,
@@ -326,7 +326,7 @@ export default {
         },
         24: {
             caption: 'Polishäst',
-            color: '#000f89',
+            color: '#158900',
             coins: 25,
             credits: 10_000,
             minPersonnel: 0,
@@ -726,7 +726,7 @@ export default {
                 'Insatsfordon': [17],
                 'Polishäst': [24],
             },
-            color: '#000f89',
+            color: '#1e8900',
         },
     },
     small_buildings: {
