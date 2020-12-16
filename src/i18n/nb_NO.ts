@@ -430,7 +430,7 @@ export default {
             maxBuildings: 'Ingen grense',
             maxLevel: 0,
             special:
-                "Finansministre og administratorer kan (utvide) alliansepoliti skoler ved hjelp av kreditter fra alliansekassen.",
+                'Finansministre og administratorer kan (utvide) alliansepoliti skoler ved hjelp av kreditter fra alliansekassen.',
             startPersonnel: 0,
             startVehicles: [],
         },
