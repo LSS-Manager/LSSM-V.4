@@ -89,7 +89,7 @@ interface Chances {
     helicopter?: number; // de_DE: RTH
     patient_transport?: number;
     patient_other_treatment?: number; // de_DE: Tragehilfe
-    patient_critical_care?: number; // en_GB only
+    patient_critical_care?: number; // en_GB, nb_NO only
 
     // General:
     [key: string]: number | undefined;

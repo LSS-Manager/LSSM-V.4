@@ -326,6 +326,25 @@ export default {
             schooling: 'Politi - Våpentrening',
             shownSchooling: 'Våpentrening',
         },
+        24: {
+            caption: 'Legebil',
+            color: '#b89d14',
+            coins: 20,
+            credits: 4_000,
+            minPersonnel: 1,
+            maxPersonnel: 1,
+            schooling: 'Redning - Legevaktslege',
+            shownSchooling: 'Legevaktslege',
+        },
+        25: {
+            caption: 'Innsatslederbil helse',
+            color: '#997122',
+            coins: 25,
+            credits: 25_000,
+            minPersonnel: 1,
+            maxPersonnel: 1,
+            special: 'Nødvendig etter at du har bygd 10 redningsstasjoner',
+        },
     },
     buildings: {
         0: {
@@ -393,6 +412,27 @@ export default {
             special: '',
             startPersonnel: 3,
             startVehicles: ['Ambulanse'],
+        },
+        3: {
+            caption: 'Helseskole',
+            color: '#8c852c',
+            coins: 50,
+            credits: 500_000,
+            extensions: [
+                ...new Array(3).fill({
+                    caption: 'Flere klasserom',
+                    credits: 400_000,
+                    coins: 40,
+                    duration: '7 dager',
+                }),
+            ],
+            levelcost: [],
+            maxBuildings: 'Ingen grense',
+            maxLevel: 0,
+            special:
+                "Finansministre og administratorer kan (utvide) alliansepoliti skoler ved hjelp av kreditter fra alliansekassen.",
+            startPersonnel: 0,
+            startVehicles: [],
         },
         4: {
             caption: 'Sykehus',
@@ -654,24 +694,44 @@ export default {
             startVehicles: ['Patruljebil'],
             maxBuildingsFunction: (): number => 1_700,
         },
-    },
-    20: {
-        caption: 'Ambulansestasjon (liten)',
-        color: '#eeb611',
-        coins: 25,
-        credits: 100_000,
-        extensions: [],
-        levelcost: [
-            '1. 10.000',
-            '2. 50.000',
-            '3.-5. 100.000',
-            'Konvertering til normal vakt: differansepris til normal vakt',
-        ],
-        maxBuildings: 'Ingen grense',
-        maxLevel: 5,
-        special: '',
-        startPersonnel: 3,
-        startVehicles: ['Ambulanse'],
+        20: {
+            caption: 'Ambulansestasjon (liten)',
+            color: '#eeb611',
+            coins: 25,
+            credits: 100_000,
+            extensions: [],
+            levelcost: [
+                '1. 10.000',
+                '2. 50.000',
+                '3.-5. 100.000',
+                'Konvertering til normal vakt: differansepris til normal vakt',
+            ],
+            maxBuildings: 'Ingen grense',
+            maxLevel: 5,
+            special: '',
+            startPersonnel: 3,
+            startVehicles: ['Ambulanse'],
+        },
+        21: {
+            caption: 'Legevakt',
+            color: '#e2e53b',
+            coins: 25,
+            credits: 100_000,
+            extensions: [
+                {
+                    caption: 'Generell medisin',
+                    credits: 10_000,
+                    coins: 10,
+                    duration: '7 dager',
+                },
+            ],
+            levelcost: ['1. 10.000', '2. 50.000', '3.-5. 100.000'],
+            maxBuildings: 'Ingen grense',
+            maxLevel: 5,
+            special: '',
+            startPersonnel: 0,
+            startVehicles: ['Ikke. Du kan kjøpe maks. 2 Kjøretøy'],
+        },
     },
 
     buildingCategories: {
@@ -680,7 +740,7 @@ export default {
             color: '#ff2d2d',
         },
         Helse: {
-            buildings: [4, 5, 6, 11],
+            buildings: [4, 5, 6, 11, 21],
             color: '#ffa500',
         },
         Politi: {
@@ -742,13 +802,13 @@ export default {
         '6_8',
         '6_9',
     ],
-    bedBuildings: [4],
-    schoolBuildings: [1, 8],
+    bedBuildings: [4, 21],
+    schoolBuildings: [1, 3, 8],
     dispatchCenterBuildings: [7],
     schoolings: {
-        Brannvesenet: [
+        Brannstasjon: [
             {
-                caption: 'CBRNe',
+                caption: 'CBRNe-enhet',
                 duration: '3 dager',
             },
             {
@@ -788,6 +848,12 @@ export default {
             {
                 caption: 'Utrykningspoliti',
                 duration: '3 dager',
+            },
+        ],
+        Redning: [
+            {
+                caption: 'Legevaktslege',
+                duration: '5 dager',
             },
         ],
     },
