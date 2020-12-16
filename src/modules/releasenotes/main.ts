@@ -14,7 +14,26 @@ export default async (LSSM: Vue): Promise<void> => {
                 },
             })
             .then(res => res.json())) as Releasenotes
-    ).sort((a, b) => (a[0] > b[0] ? -1 : a[0] < b[0] ? 1 : 0));
+    )
+        .sort((a, b) => (a[0] > b[0] ? -1 : a[0] < b[0] ? 1 : 0))
+        .map(([version, note]) => [
+            version,
+            {
+                ...note,
+                content: note.content
+                    .replace(/(?<=\n) +/g, $0 =>
+                        new Array(Math.ceil($0.length / 4))
+                            .fill('&nbsp;')
+                            .join('')
+                    )
+                    .replace(/\n/g, '<br>')
+                    .replace(
+                        /#(\d+)/,
+                        ($0, $1) =>
+                            `<a href="https://github.com/LSS-Manager/LSSM-V.4/issues/${$1}" class="lightbox-open">${$0}</a>`
+                    ),
+            },
+        ]);
 
     const openNotes = (last_seen?: string): void =>
         LSSM.$modal.show(

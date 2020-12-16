@@ -13,7 +13,7 @@
                     >{{ moment(note[1].timestamp).fromNow() }}</small
                 >
             </h4>
-            <div v-html="note[1].content.replace(/\n/g, '<br>')"></div>
+            <div v-html="note[1].content"></div>
         </div>
     </lightbox>
 </template>
