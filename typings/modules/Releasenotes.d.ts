@@ -9,4 +9,5 @@ export interface Releasenotes {
 
 export interface ReleaseNoteProps {
     notes: [string, Releasenote][];
+    last_seen?: string;
 }

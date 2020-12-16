@@ -4,6 +4,9 @@
         <div v-for="note in notes" :key="note[0]" class="note">
             <h4>
                 <b>{{ note[0] }}</b>
+                <sup class="badge message_new" v-if="last_seen < note[0]"
+                    >New!</sup
+                >
             </h4>
             <div v-html="note[1].content.replace(/\n/g, '<br>')"></div>
         </div>
@@ -36,6 +39,11 @@ export default Vue.extend<
         notes: {
             type: Array,
             required: true,
+        },
+        last_seen: {
+            type: String,
+            required: false,
+            default: '4.0.0',
         },
     },
 });

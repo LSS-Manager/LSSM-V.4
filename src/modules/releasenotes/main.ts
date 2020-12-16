@@ -16,34 +16,29 @@ export default async (LSSM: Vue): Promise<void> => {
             .then(res => res.json())) as Releasenotes
     ).sort((a, b) => (a[0] > b[0] ? -1 : a[0] < b[0] ? 1 : 0));
 
-    // eslint-disable-next-line no-console
-    console.log(notes);
-
-    const openNotes = (): void =>
+    const openNotes = (last_seen?: string): void =>
         LSSM.$modal.show(
             () =>
                 import(
                     /* webpackChunkName: "releasenotes/releasenotes" */ './releasenotes.vue'
                 ),
-            { notes },
+            { notes, last_seen: last_seen ?? notes[0][0] },
             { name: 'releasenotes', height: 'auto' },
             {
                 async 'before-close'() {
-                    // await LSSM.$store.dispatch('storage/set', {
-                    //     key: LAST_VERSION_STORAGE_KEY,
-                    //     value: notes[0]?.version,
-                    // });
+                    await LSSM.$store.dispatch('storage/set', {
+                        key: LAST_VERSION_STORAGE_KEY,
+                        value: notes[0][0],
+                    });
                 },
             }
         );
 
     LSSM.$store
         .dispatch('addMenuItem', $m('name').toString())
-        .then(element => (element.onclick = openNotes));
+        .then(element => (element.onclick = () => openNotes()));
 
-    openNotes();
-
-    // LSSM.$store
-    //     .dispatch('storage/get', { key: LAST_VERSION_STORAGE_KEY })
-    //     .then(key => (key || 0).toString() < notes[0]?.version && openNotes());
+    LSSM.$store
+        .dispatch('storage/get', { key: LAST_VERSION_STORAGE_KEY })
+        .then(key => (key || 0).toString() < notes[0][0] && openNotes(key));
 };
