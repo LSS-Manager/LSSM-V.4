@@ -131,7 +131,7 @@ export default (
     LSSM.$store
         .dispatch('api/fetchCreditsInfo')
         .then(({ user_directplay_registered }) => {
-            if (user_directplay_registered)
+            if (!user_directplay_registered)
                 LSSM.$store
                     .dispatch('storage/get', {
                         key: NOTE_STORAGE_KEY,
