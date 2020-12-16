@@ -7,6 +7,11 @@
                 <sup class="badge message_new" v-if="last_seen < note[0]"
                     >New!</sup
                 >
+                <small
+                    class="pull-right"
+                    :title="moment(note[1].timestamp).format('LLLL')"
+                    >{{ moment(note[1].timestamp).fromNow() }}</small
+                >
             </h4>
             <div v-html="note[1].content.replace(/\n/g, '<br>')"></div>
         </div>
@@ -21,6 +26,7 @@ import {
     DefaultComputed,
 } from 'vue/types/options';
 import { ReleaseNoteProps } from 'typings/modules/Releasenotes';
+import moment from 'moment';
 
 export default Vue.extend<
     DefaultData<Vue>,
@@ -29,6 +35,11 @@ export default Vue.extend<
     ReleaseNoteProps
 >({
     name: 'releasenotes',
+    data() {
+        return {
+            moment,
+        };
+    },
     components: {
         Lightbox: () =>
             import(
@@ -45,6 +56,9 @@ export default Vue.extend<
             required: false,
             default: '4.0.0',
         },
+    },
+    mounted() {
+        moment.locale(this.$store.state.lang);
     },
 });
 </script>
