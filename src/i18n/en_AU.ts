@@ -146,7 +146,7 @@ export default {
         },
         5: {
             caption: 'Ambulance',
-            color: '#9c1c1c',
+            color: '#9c691c',
             coins: 25,
             credits: 5_000,
             minPersonnel: 1,
@@ -174,7 +174,7 @@ export default {
         },
         8: {
             caption: 'Police car',
-            color: '#8b1818',
+            color: '#0b6911',
             coins: 25,
             credits: 5_000,
             minPersonnel: 1,
@@ -182,7 +182,7 @@ export default {
         },
         9: {
             caption: 'Air Ambulance',
-            color: '#e61919',
+            color: '#ba9d0b',
             coins: 30,
             credits: 300_000,
             minPersonnel: 1,
@@ -234,7 +234,7 @@ export default {
         },
         14: {
             caption: 'Police helicopter',
-            color: '#ca1616',
+            color: '#0e661d',
             coins: 30,
             credits: 300_000,
             minPersonnel: 1,
@@ -244,7 +244,7 @@ export default {
         },
         15: {
             caption: 'TOG Armoured Bearcat',
-            color: '#dc1818',
+            color: '#257513',
             coins: 25,
             credits: 10_000,
             minPersonnel: 1,
@@ -255,7 +255,7 @@ export default {
         },
         16: {
             caption: 'K-9 Unit',
-            color: '#791515',
+            color: '#15791a',
             coins: 25,
             credits: 7_000,
             minPersonnel: 1,
@@ -267,7 +267,7 @@ export default {
         },
         17: {
             caption: 'Police Motorcycle',
-            color: '#662222',
+            color: '#346622',
             coins: 18,
             credits: 2_500,
             minPersonnel: 1,
@@ -278,7 +278,7 @@ export default {
         },
         18: {
             caption: 'TOG SUV',
-            color: '#dc1818',
+            color: '#2c642e',
             coins: 23,
             credits: 7_000,
             minPersonnel: 2,
@@ -297,7 +297,7 @@ export default {
         },
         20: {
             caption: 'SES Vehicle',
-            color: '#992222',
+            color: '#22997d',
             coins: 25,
             credits: 10_000,
             minPersonnel: 1,
@@ -308,7 +308,7 @@ export default {
         },
         21: {
             caption: 'Rescue Boat',
-            color: '#882222',
+            color: '#229b7a',
             coins: 12,
             credits: 6_000,
             minPersonnel: 0,
@@ -318,7 +318,7 @@ export default {
         },
         22: {
             caption: 'Mounted Police',
-            color: '#772222',
+            color: '#105d36',
             coins: 10,
             credits: 15_000,
             minPersonnel: 0,

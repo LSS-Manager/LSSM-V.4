@@ -502,7 +502,7 @@ export default {
         },
         37: {
             caption: 'TSF-W',
-            color: '#220000',
+            color: '#4a0303',
             coins: 25,
             credits: 5000,
             minPersonnel: 1,
@@ -1085,7 +1085,7 @@ export default {
         },
         91: {
             caption: 'Rettungshundefahrzeug',
-            color: '#663300',
+            color: '#864708',
             coins: 25,
             credits: 25000,
             minPersonnel: 4,
@@ -1098,7 +1098,7 @@ export default {
         },
         92: {
             caption: 'Anh Hund',
-            color: '#422629',
+            color: '#131f6e',
             coins: 0,
             credits: 6000,
             minPersonnel: 0,
@@ -1144,7 +1144,7 @@ export default {
         },
         96: {
             caption: 'Außenlastbehälter (allgemein)',
-            color: '#ad0e0e',
+            color: '#0a580c',
             coins: 10,
             credits: 50000,
             minPersonnel: 0,

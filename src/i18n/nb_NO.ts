@@ -145,7 +145,7 @@ export default {
         },
         5: {
             caption: 'Ambulanse',
-            color: '#9c1c1c',
+            color: '#9c691c',
             coins: 25,
             credits: 5_000,
             minPersonnel: 1,
@@ -173,7 +173,7 @@ export default {
         },
         8: {
             caption: 'Patruljebil',
-            color: '#8b1818',
+            color: '#378b18',
             coins: 25,
             credits: 5_000,
             minPersonnel: 1,
@@ -181,7 +181,7 @@ export default {
         },
         9: {
             caption: 'Luftambulanse',
-            color: '#e61919',
+            color: '#e67219',
             coins: 30,
             credits: 300_000,
             minPersonnel: 1,
@@ -199,7 +199,7 @@ export default {
         },
         11: {
             caption: 'Politihelikopter',
-            color: '#ca1616',
+            color: '#1b8f0f',
             coins: 30,
             credits: 300_000,
             minPersonnel: 1,
@@ -209,7 +209,7 @@ export default {
         },
         12: {
             caption: 'Pansret kjøretøy',
-            color: '#a51212',
+            color: '#1ca512',
             coins: 25,
             credits: 17_300,
             minPersonnel: 6,
@@ -220,7 +220,7 @@ export default {
         },
         13: {
             caption: 'Hundepatrulje',
-            color: '#aa2222',
+            color: '#1a6d22',
             coins: 25,
             credits: 7_000,
             minPersonnel: 1,
@@ -231,7 +231,7 @@ export default {
         },
         14: {
             caption: 'Politimotorsykkel',
-            color: '#662222',
+            color: '#3a6622',
             coins: 18,
             credits: 2_500,
             minPersonnel: 1,
@@ -241,7 +241,7 @@ export default {
         },
         15: {
             caption: 'Delta kjøretøy',
-            color: '#332222',
+            color: '#253322',
             coins: 23,
             credits: 7_000,
             minPersonnel: 2,
@@ -281,7 +281,7 @@ export default {
         },
         19: {
             caption: 'Dykkerbil',
-            color: '#772222',
+            color: '#225577',
             coins: 25,
             credits: 10_000,
             minPersonnel: 4,
@@ -290,7 +290,7 @@ export default {
         },
         20: {
             caption: 'Lett redningsbåt',
-            color: '#772222',
+            color: '#22776d',
             coins: 12,
             credits: 6_000,
             minPersonnel: 0,
@@ -308,7 +308,7 @@ export default {
         },
         22: {
             caption: 'Utrykningspolitibil',
-            color: '#ad0e0e',
+            color: '#0ead23',
             coins: 10,
             credits: 10_000,
             minPersonnel: 1,
@@ -318,7 +318,7 @@ export default {
         },
         23: {
             caption: 'Utrykningsenhetbil',
-            color: '#ad0e0e',
+            color: '#1f8d20',
             coins: 15,
             credits: 19_000,
             minPersonnel: 1,
