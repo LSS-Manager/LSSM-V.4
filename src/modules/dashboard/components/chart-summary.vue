@@ -276,7 +276,9 @@ export default Vue.extend<
                         cursor: 'pointer',
                         levelIsConstant: false,
                         traverseUpButton: {
-                            text: Highcharts.getOptions().lang.drillUpText,
+                            text:
+                                Highcharts.getOptions().lang?.drillUpText ??
+                                '← Back',
                         },
                     },
                 ] as SeriesSunburstOptions[],
