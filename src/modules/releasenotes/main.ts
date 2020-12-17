@@ -28,7 +28,7 @@ export default async (LSSM: Vue): Promise<void> => {
                     )
                     .replace(/\n/g, '<br>')
                     .replace(
-                        /#(\d+)/,
+                        /#(\d+)/g,
                         ($0, $1) =>
                             `<a href="https://github.com/LSS-Manager/LSSM-V.4/issues/${$1}" class="lightbox-open">${$0}</a>`
                     ),
