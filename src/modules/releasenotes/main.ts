@@ -29,6 +29,7 @@ export default async (LSSM: Vue): Promise<void> => {
             })
             .then(res => res.json())) as Releasenotes
     )
+        .filter(([version]) => version <= VERSION)
         .sort((a, b) => (a[0] > b[0] ? -1 : a[0] < b[0] ? 1 : 0))
         .map(([version, note]) => [
             version,
