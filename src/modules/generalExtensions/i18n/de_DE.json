@@ -1,16 +1,16 @@
 {
 	"inputMaxLen": "Dieses Eingabefeld muss zwischen {min} und {max} Zeichen haben!",
 	"protocolDeletionConfirmation": {
-        "cancel": "Abbrechen",
-        "confirm": "Fortfahren",
-        "all": {
-            "text": "Möchtest du das Protokoll wirklich komplett löschen? Dies kann nicht rückgängig gemacht werden!",
-            "title": "Protokoll löschen"
-        },
-        "toggleSingle": "Bestätigung auch bei einzelnen Einträgen",
-        "single": {
-            "text": "Möchtest du diesen Protokolleintrag wirklich komplett löschen? Dies kann nicht rückgängig gemacht werden!",
-            "title": "Protokolleintrag löschen"
-        }
+		"all": {
+			"text": "Möchtest du das Protokoll wirklich komplett löschen? Dies kann nicht rückgängig gemacht werden!",
+			"title": "Protokoll löschen"
+		},
+		"cancel": "Abbrechen",
+		"confirm": "Fortfahren",
+		"single": {
+			"text": "Möchtest du diesen Protokolleintrag wirklich komplett löschen? Dies kann nicht rückgängig gemacht werden!",
+			"title": "Protokolleintrag löschen"
+		},
+		"toggleSingle": "Bestätigung auch bei einzelnen Einträgen"
 	}
 }
