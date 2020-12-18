@@ -1369,6 +1369,7 @@ export default {
         'Frietkraam',
         'Verzorgingsplaats (Snelweg)',
         'Zendmast',
+        'Stadscentrum',
     ],
     only_alliance_missions: [41, 43, 59, 145, 234, 346, 347],
     transfer_missions: [137],
