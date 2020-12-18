@@ -1,3 +1,9 @@
 {
-	"inputMaxLen": "This input field must have between {min} and {max} characters!"
+	"inputMaxLen": "This input field must have between {min} and {max} characters!",
+	"protocolDeletionConfirmation": {
+		"cancel": "Cancel",
+		"confirm": "Proceed",
+		"text": "Do you really want to delete the protocol? This cannot be undone!",
+		"title": "Delete protocol"
+	}
 }

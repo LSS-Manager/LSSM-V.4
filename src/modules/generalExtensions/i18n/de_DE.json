@@ -1,3 +1,9 @@
 {
-	"inputMaxLen": "Dieses Eingabefeld muss zwischen {min} und {max} Zeichen haben!"
+	"inputMaxLen": "Dieses Eingabefeld muss zwischen {min} und {max} Zeichen haben!",
+	"protocolDeletionConfirmation": {
+		"cancel": "Abbrechen",
+		"confirm": "Fortfahren",
+		"text": "Möchtest du das Protokoll wirklich komplett löschen? Dies kann nicht rückgängig gemacht werden!",
+		"title": "Protokoll löschen"
+	}
 }
