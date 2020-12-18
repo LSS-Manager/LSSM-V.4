@@ -502,7 +502,7 @@ export default {
         },
         37: {
             caption: 'TSF-W',
-            color: '#220000',
+            color: '#4a0303',
             coins: 25,
             credits: 5000,
             minPersonnel: 1,
@@ -545,7 +545,7 @@ export default {
             coins: 25,
             credits: 15000,
             minPersonnel: 1,
-            maxPersonnel: 4,
+            maxPersonnel: 9,
             icon: 'truck-moving',
         },
         42: {
@@ -1085,7 +1085,7 @@ export default {
         },
         91: {
             caption: 'Rettungshundefahrzeug',
-            color: '#663300',
+            color: '#864708',
             coins: 25,
             credits: 25000,
             minPersonnel: 4,
@@ -1098,7 +1098,7 @@ export default {
         },
         92: {
             caption: 'Anh Hund',
-            color: '#422629',
+            color: '#131f6e',
             coins: 0,
             credits: 6000,
             minPersonnel: 0,
@@ -1141,6 +1141,17 @@ export default {
             special:
                 'Das Polizeimotorrad kann im Spiel anstelle eines FuStW verwendet werden. Der Nachteil: Es kann keine Gefangenen transportieren und arbeitet nur halb so schnell wie ein FuStW.',
             icon: 'motorcycle',
+        },
+        96: {
+            caption: 'Außenlastbehälter (allgemein)',
+            color: '#0a580c',
+            coins: 10,
+            credits: 50000,
+            minPersonnel: 0,
+            maxPersonnel: 0,
+            special:
+                'Der Polizeihelikopter ist das Trägerfahrzeug hier von. Der Helikopter brauch min. 2 Ausgebildete Kräfte mit der Ausbildung "Brandbekämpfung"',
+            icon: 'fill',
         },
     },
     buildings: {
@@ -1629,7 +1640,14 @@ export default {
             color: '#148423',
             coins: 50,
             credits: 1_000_000,
-            extensions: [],
+            extensions: [
+                {
+                    caption: 'Außenlastbehälter-Erweiterung',
+                    credits: 200_000,
+                    coins: 15,
+                    duration: '3 Tage',
+                },
+            ],
             levelcost: ['1.-7. 1.000.000 Credits / 50 Coins'],
             maxBuildings: 'siehe Besonderheiten',
             maxLevel: 6,
@@ -1889,7 +1907,7 @@ export default {
             vehicles: {
                 'Funkstreifenwagen': [32, 95],
                 'Bereitschaftspolizei-Fahrzeuge': [35, 50, 51, 52, 72],
-                'Polizeihubschrauber': [61],
+                'Polizeihubschrauber': [61, 96],
                 'SEK': [79, 80],
                 'MEK': [81, 82],
                 'Diensthunde': [94],
@@ -2005,6 +2023,10 @@ export default {
             {
                 caption: 'MEK',
                 duration: '7 Tage',
+            },
+            {
+                caption: 'Brandbekämpfung',
+                duration: '3 Tage',
             },
             {
                 caption: 'Motorradstaffel',

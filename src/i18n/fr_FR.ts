@@ -149,7 +149,7 @@ export default {
         },
         5: {
             caption: 'UMH',
-            color: '#9c1c1c',
+            color: '#9c691c',
             coins: 25,
             credits: 5_000,
             minPersonnel: 3,
@@ -179,7 +179,7 @@ export default {
         },
         8: {
             caption: 'Véhicule de patrouille',
-            color: '#8b1818',
+            color: '#3a8b18',
             coins: 25,
             credits: 5_000,
             minPersonnel: 2,
@@ -187,7 +187,7 @@ export default {
         },
         9: {
             caption: 'Dragon',
-            color: '#e61919',
+            color: '#e68a19',
             coins: 30,
             credits: 300_000,
             minPersonnel: 3,
@@ -252,7 +252,7 @@ export default {
         },
         16: {
             caption: 'VPL',
-            color: '#bb2222',
+            color: '#2285bb',
             coins: 25,
             credits: 10_000,
             minPersonnel: 3,
@@ -263,7 +263,7 @@ export default {
         },
         17: {
             caption: 'BLS',
-            color: '#772222',
+            color: '#225f77',
             coins: 12,
             credits: 6_000,
             minPersonnel: 0,
@@ -272,7 +272,7 @@ export default {
         },
         18: {
             caption: 'Choucas',
-            color: '#162eca',
+            color: '#36a21e',
             coins: 30,
             credits: 300_000,
             minPersonnel: 2,
@@ -282,7 +282,7 @@ export default {
         },
         19: {
             caption: 'Equipe cynophile',
-            color: '#2229aa',
+            color: '#27aa22',
             coins: 25,
             credits: 7_000,
             minPersonnel: 1,
@@ -294,7 +294,7 @@ export default {
         },
         20: {
             caption: 'Unité motocycliste',
-            color: '#2230aa',
+            color: '#22aa30',
             coins: 18,
             credits: 2_500,
             minPersonnel: 1,
@@ -858,7 +858,7 @@ export default {
         'Arrêt de tram',
         'Gare ferroviaire (trajets régionaux)',
         'Gare ferroviaire (trajets régionaux et grandes lignes)',
-        'Supérette',
+        'Gare de marchandises',
         'Supermarché (petit)',
         'Supermarché (grand)',
         'Station-service',
@@ -874,6 +874,7 @@ export default {
         'Ferme',
         'Bureaux',
         'Piscine',
+        '',
         'Théâtre',
         'Fête foraine',
         'Rivière',
@@ -906,6 +907,9 @@ export default {
         'Eolienne',
         'Voie navigable',
         'Camping',
+        'Atelier de menuiserie',
+        'Centre-ville',
+        'Colline',
     ],
     only_alliance_missions: [57, 74],
     transfer_missions: [],

@@ -42,12 +42,6 @@
 			"boats": "Båt | Båter",
 			"brush_truck": "Skogbrannbil | Skogbrannbil",
 			"diver_car": "Dykkerbil | Dykkerbiler",
-			"fbi": "FBI Unit | FBI Units",
-			"fbi_bomb": "FBI Bomb Technician Vehicle | FBI Bomb Technician Vehicles",
-			"fbi_drone": "FBI Surveillance Drone | FBI Surveillance Drones",
-			"fbi_investigation": "FBI Investigation Wagon | FBI Investigation Wagons",
-			"fbi_mcc": "FBI Mobile Command Center Vehicle | FBI Mobile Command Center Vehicles",
-			"fire_aviation": "Airborne Firefighting | Airborne Firefightings",
 			"firetrucks": "Mannskapsbil | Mannskapsbiler",
 			"hazmat_vehicles": "CBRNe | CBRNe",
 			"heavy_rescue_vehicles": "Tungredningsbil | Tungredningsbil",
@@ -85,7 +79,7 @@
 			}
 		},
 		"patient_additionals": {
-			"10": "EMS-Chief"
+			"10": "Innsatslederbil helse"
 		},
 		"title": "Nødvendige kjøretøy"
 	}

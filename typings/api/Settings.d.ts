@@ -17,7 +17,7 @@ export interface Settings {
     mission_expansion: boolean;
     mission_expansion_fms_5: boolean;
     follow_up_missions_enabled: boolean;
-    critical_care_enabled: boolean; //Uk-Only
+    critical_care_enabled: boolean; //Uk and no Only
     disable_mission_group_1: boolean; //US-Only , Disable Earthquake Missions true/false
     patients_use_nef_count: boolean; //IT-Only?
     progress_animation: boolean;

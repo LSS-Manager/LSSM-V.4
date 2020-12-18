@@ -576,7 +576,8 @@ export default Vue.extend<
                 });
             };
         },
-        $m: (key, args) => window[PREFIX].$t(`modules.settings.${key}`, args),
+        $m: (key, args) =>
+            (window[PREFIX] as Vue).$t(`modules.settings.${key}`, args),
         getSelectOptions(module, setting, settingId) {
             return setting.values.map((v, vi) => ({
                 label: (setting.noLabelTranslation

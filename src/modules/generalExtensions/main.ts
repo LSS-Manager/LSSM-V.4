@@ -1,6 +1,6 @@
 import { ModuleMainFunction } from 'typings/Module';
 
-export default (async (LSSM, MODULE_ID) => {
+export default (async (LSSM, MODULE_ID, $m) => {
     const getSetting = <returnType>(settingId: string): Promise<returnType> => {
         return LSSM.$store.dispatch('settings/getSetting', {
             moduleId: MODULE_ID,
@@ -94,4 +94,16 @@ export default (async (LSSM, MODULE_ID) => {
             addToPanelHeading,
             isDispatchCenter,
         });
+
+    if (isDispatchCenter)
+        await (
+            await import(
+                /* webpackChunkName: "modules/generalExtensions/protocolDeletionConfirmation" */ './assets/protocolDeletionConfirmation'
+            )
+        ).default(
+            LSSM,
+            t => $m(`protocolDeletionConfirmation.${t}`),
+            !!(await getSetting('deleteSingleProtocolEntry')),
+            MODULE_ID
+        );
 }) as ModuleMainFunction;
