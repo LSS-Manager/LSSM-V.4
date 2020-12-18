@@ -1,8 +1,7 @@
-// import { Building } from 'typings/Building';
+//import { Building } from 'typings/Building';
 
-const moduleRootFiles = require.context('../', true, MODULE_ROOT_I18N_FILES);
-// Commented as dir ./en_US does not exist currently
-// const furtherFiles = require.context('./en_US/', true, /.*(\/index)?\.js(on)?/);
+// Commented as dir ./sv_SE does not exist currently
+// const furtherFiles = require.context('./sv_SE/', true, /.*(\/index)?\.js(on)?/);
 const modules = {
     appstore: {
         save: 'Zapisz',
@@ -52,9 +51,6 @@ const modules = {
         },
     },
 } as { [moduleId: string]: { [key: string]: unknown } };
-moduleRootFiles
-    .keys()
-    .forEach(key => (modules[key.split('/')[2]] = moduleRootFiles(key)));
 
 const t = {} as { [key: string]: unknown };
 
@@ -89,9 +85,23 @@ export default {
             description:
                 'Wyświetla prostą etykietę na pasku nawigacji zamiast logo LSSM',
         },
+        allowTelemetry: {
+            description:
+                'Controls whether LSS-Manager is allowed to send Data which helps us in developing this extension.',
+            title: 'Allow Telemetry',
+        },
+        iconBg: {
+            description: 'Change the background of LSSM-Icon!',
+            title: 'LSSM-Icon Background',
+        },
+        iconBgAsNavBg: {
+            description:
+                'Color the whole navbar in the color of LSSM-Icon Background!',
+            title: 'colorize navbar',
+        },
     },
     vehicles: {
-       0: {
+        0: {
             caption: 'Ciężki samochód gaśniczy',
             color: '#990000',
             coins: 25,
@@ -100,7 +110,7 @@ export default {
             maxPersonnel: 2,
             wtank: 5_000,
         },
-       1: {
+        1: {
             caption: 'Średni samochód gaśniczy',
             color: '#990000',
             coins: 25,
@@ -109,7 +119,7 @@ export default {
             maxPersonnel: 2,
             wtank: 2_500,
         },
-       2: {
+        2: {
             caption: 'SD',
             color: '#990000',
             coins: 30,
@@ -119,7 +129,7 @@ export default {
             wtank: 0,
             special: 'Wymagane po zbudowaniu 3 remiz',
         },
-       3: {
+        3: {
             caption: 'SLOp',
             color: '#990000',
             coins: 25,
@@ -129,7 +139,7 @@ export default {
             wtank: 0,
             special: 'Wymagane po zbudowaniu 6 remiz',
         },
-       4: {
+        4: {
             caption: 'Samochód ratownictwa technicznego',
             color: '#990000',
             coins: 25,
@@ -139,7 +149,7 @@ export default {
             wtank: 0,
             special: 'Wymagane po zbudowaniu 4 remiz',
         },
-       5: {
+        5: {
             caption: 'Ambulans P',
             color: '#FFFFCC',
             coins: 25,
@@ -148,7 +158,7 @@ export default {
             maxPersonnel: 2,
             wtank: 0,
         },
-       6: {
+        6: {
             caption: 'Cysterna gaśnicza',
             color: '#990000',
             coins: 25,
@@ -158,7 +168,7 @@ export default {
             wtank: 14_000,
             special: 'Wymagane po zbudowaniu 7 remiz',
         },
-       7: {
+        7: {
             caption: 'Samochód ratownictwa chemicznego',
             color: '#990000',
             coins: 25,
@@ -170,7 +180,7 @@ export default {
             shownSchooling: 'Wymaga specjalnej edukacji (Ratownictwo chemiczne)',
             special: 'Wymagane po zbudowaniu 11 remiz',
         },
-       8: {
+        8: {
             caption: 'Radiowóz OPI',
             color: '#93B7FF',
             coins: 25,
@@ -179,7 +189,7 @@ export default {
             maxPersonnel: 1,
             wtank: 0,
         },
-       9: {
+        9: {
             caption: 'Śmigłowiec LPR',
             color: '#FFFFCC',
             coins: 30,
@@ -188,7 +198,7 @@ export default {
             maxPersonnel: 3,
             wtank: 0,
         },
-       10: {
+        10: {
             caption: 'SPGaz',
             color: '#990000',
             coins: 25,
@@ -198,7 +208,7 @@ export default {
             wtank: 0,
             special: 'Wymagane po zbudowaniu 5 remiz',
         },
-       11: {
+        11: {
             caption: 'Samochód Dowodzenia i Łączności',
             color: '#990000',
             coins: 25,
@@ -210,7 +220,7 @@ export default {
             shownSchooling: 'Wymaga specjalnej edukacji (Szkolenie w dowodzeniu)',
             special: 'Wymagane po zbudowaniu 13 remiz',
         },
-       12: {
+        12: {
             caption: 'GBARt',
             color: '#990000',
             coins: 25,
@@ -220,7 +230,7 @@ export default {
             wtank: 3_000,
             special: 'Potrzebujesz przynajmniej stopnia: Kapitan',
         },
-       13: {
+        13: {
             caption: 'SH',
             color: '#990000',
             coins: 25,
@@ -229,7 +239,7 @@ export default {
             maxPersonnel: 1,
             wtank: 0,
         },
-       14: {
+        14: {
             caption: 'Helikopter Policyjny',
             color: '#93B7FF',
             coins: 30,
@@ -240,7 +250,7 @@ export default {
             schooling: 'Akademia Policyjna',
             shownSchooling: 'Wymaga specjalnej edukacji (Lotnictwo policyjne)',
         },
-       15: {
+        15: {
             caption: 'Opancerzony Pojazd SPKP',
             color: '#93B7FF',
             coins: 25,
@@ -252,7 +262,7 @@ export default {
             shownSchooling: 'Wymaga specjalnej edukacji (SPKP)',
             special: 'Wymagane po zbudowaniu 8 posterunków policji',
         },
-       16: {
+        16: {
             caption: 'Jednostka K-9',
             color: '#93B7FF',
             coins: 25,
@@ -264,7 +274,7 @@ export default {
             shownSchooling: 'Wymaga specjalnej edukacji (K-9)',
             special: 'Wymagane po zbudowaniu 8 posterunków policji',
         },
-       17: {
+        17: {
             caption: 'Motocykl Policyjny',
             color: '#93B7FF',
             coins: 18,
@@ -275,7 +285,7 @@ export default {
             schooling: 'Akademia Policyjna',
             shownSchooling: 'Wymaga specjalnej edukacji (Funkcjonariusz na motocyklu)',
         },
-       18: {
+        18: {
             caption: 'SUV SPKP',
             color: '#93B7FF',
             coins: 23,
@@ -287,7 +297,7 @@ export default {
             shownSchooling: 'Wymaga specjalnej edukacji (SPKP)',
             special: 'Wymagane po zbudowaniu 8 posterunków policji',
         },
-       19: {
+        19: {
             caption: 'S.WOPR',
             color: '#F9D74A',
             coins: 25,
@@ -298,7 +308,7 @@ export default {
             schooling: 'Akademia Służb Ratownictwa Medycznego, Szkoła Pożarnicza',
             shownSchooling: 'Wymaga specjalnej edukacji (Szybkie ratownictwo wodne)',
         },
-       20: {
+        20: {
             caption: 'Quad',
             color: '#F9D74A',
             coins: 25,
@@ -309,7 +319,7 @@ export default {
             schooling: 'Akademia Służb Ratownictwa Medycznego, Szkoła Pożarnicza',
             shownSchooling: 'Wymaga specjalnej edukacji (Szybkie ratownictwo wodne)',
         },
-       21: {
+        21: {
             caption: 'L.Ratownicza',
             color: '#F9D74A',
             coins: 12,
@@ -319,7 +329,7 @@ export default {
             wtank: 0,
             special: 'Potrzebna laweta (S.WOPR, Samochód SLRw, Samochód ratownictwa technicznego, SLOp, Ciężki samochód gaśniczy, Średni samochód gaśniczy, GBARt)',
         },
-       22: {
+        22: {
             caption: 'Ponton',
             color: '#F9D74A',
             coins: 12,
@@ -329,7 +339,7 @@ export default {
             wtank: 0,
             special: 'Potrzebna laweta (S.WOPR, Quad, Samochód ratownictwa technicznego, SLOp, Ciężki samochód gaśniczy, Średni samochód gaśniczy, GBARt)',
         },
-       23: {
+        23: {
             caption: 'Skuter',
             color: '#F9D74A',
             coins: 12,
@@ -339,7 +349,7 @@ export default {
             wtank: 0,
             special: 'Potrzebna laweta (S.WOPR, Quad, Samochód ratownictwa technicznego, SLOp, Ciężki samochód gaśniczy, Średni samochód gaśniczy, GBARt)',
         },
-       24: {
+        24: {
             caption: 'Samochód SLRw',
             color: '#F9D74A',
             coins: 25,
@@ -350,7 +360,7 @@ export default {
             schooling: 'Akademia Służb Ratownictwa Medycznego, Szkoła Pożarnicza',
             shownSchooling: 'Wymaga specjalnej edukacji (Kurs Nurka MSWiA)',
         },
-       25: {
+        25: {
             caption: 'Dźwig SP',
             color: '#990000',
             coins: 25,
@@ -359,7 +369,7 @@ export default {
             maxPersonnel: 1,
             wtank: 0,
         },
-       26: {
+        26: {
             caption: 'Łódź SP',
             color: '#F9D74A',
             coins: 12,
@@ -369,7 +379,7 @@ export default {
             wtank: 0,
             special: 'Potrzebna laweta (S.WOPR, Quad, Samochód ratownictwa technicznego, SLOp, Ciężki samochód gaśniczy, Średni samochód gaśniczy, GBARt)',
         },
-       27: {
+        27: {
             caption: 'SRWys',
             color: '#990000',
             coins: 25,
@@ -381,7 +391,7 @@ export default {
             shownSchooling: 'Wymaga specjalnej edukacji (Ratownictwo Wysokościowe)',
             special: 'Wymagane po zbudowaniu 12 remiz',
         },
-       28: {
+        28: {
             caption: 'SLRr',
             color: '#990000',
             coins: 25,
@@ -391,7 +401,7 @@ export default {
             wtank: 0,
             special: 'Wymagane po zbudowaniu 6 remiz',
         },
-       29: {
+        29: {
             caption: 'GLBA',
             color: '#990000',
             coins: 25,
@@ -400,7 +410,7 @@ export default {
             maxPersonnel: 1,
             wtank: 1_000,
         },
-       30: {
+        30: {
             caption: 'Radiowóz WRD',
             color: '#93B7FF',
             coins: 10,
@@ -439,7 +449,7 @@ export default {
                 'Przy posiadaniu powyżej 24 budynków straży pożarnej koszt budowy wzrasta według wzoru:<code>100.000+200.000*LOG<sub>2</sub>(Liczba istniejących straży pożarnej â’ 22)</code>. Cena za Monety pozostaje bez zmian!',
             startPersonnel: 10,
             startVehicles: ['Ciężki samochód gaśniczy', 'Średni samochód gaśniczy', 'GBARt', 'GLBA'],
-            maxBuildingsFunction: (): number => 4_000,
+            maxBuildingsFunction: (): number => 4_400,
         },
         1: {
             caption: 'Szkoła pożarnicza',
@@ -607,7 +617,7 @@ export default {
                 'Przy posiadaniu powyżej 24 budynków policji koszt budowy wzrasta według wzoru:<code>100.000+200.000*LOG<sub>2</sub>(Liczba istniejących budynków policji â’ 22)</code>. Cena za Monety pozostaje bez zmian!',
             startPersonnel: 2,
             startVehicles: ['Radiowóz OPI'],
-            maxBuildingsFunction: (): number => 1_500,
+            maxBuildingsFunction: (): number => 1_700,
         },
         7: {
             caption: 'Centrum Powiadamiania Ratunkowego',
@@ -677,7 +687,7 @@ export default {
             startVehicles: [],
             maxBuildingsFunction: (): number => 4,
         },
-		15: {
+        15: {
             caption: 'Stacja WOPR',
             color: '#F9D74A',
             coins: 35,
@@ -694,7 +704,6 @@ export default {
             startPersonnel: 10,
             startVehicles: ['S.WOPR'],
         },
-
         16: {
             caption: 'Prison',
             coins: 'x',
@@ -739,7 +748,7 @@ export default {
                 'Przy posiadaniu powyżej 24 budynków straży pożarnej koszt budowy wzrasta według wzoru:<code>100.000+200.000*LOG<sub>2</sub>(Liczba istniejących straży pożarnej â’ 22)</code>, max 1 milion kredytów. Cena za Monety pozostaje bez zmian!',
             startPersonnel: 10,
             startVehicles: ['Ciężki samochód gaśniczy', 'Średni samochód gaśniczy', 'GBARt', 'GLBA'],
-            maxBuildingsFunction: (): number => 4_000,
+            maxBuildingsFunction: (): number => 4_400,
         },
         19: {
             caption: 'Posterunek Policji',
@@ -772,7 +781,7 @@ export default {
                 'Przy posiadaniu powyżej 24 budynków policji koszt budowy wzrasta według wzoru:<code>100.000+200.000*LOG<sub>2</sub>(Liczba istniejących budynków policji â’ 22)</code>. Cena za Monety pozostaje bez zmian!',
             startPersonnel: 2,
             startVehicles: ['Radiowóz OPI'],
-            maxBuildingsFunction: (): number => 1_500,
+            maxBuildingsFunction: (): number => 1_700,
         },
         20: {
             caption: 'Podstacja Pogotowia Ratunkowego',
@@ -850,8 +859,8 @@ export default {
         2: 20,
         6: 19,
     },
-    vehicleBuildings: [0, 2, 5, 6, 13, 14, 18, 19, 20],
-    cellBuildings: [6, 16, 19],
+    vehicleBuildings: [0, 2, 5, 6, 13, 14, 15, 18, 19, 20],
+    cellBuildings: [6, 19],
     cellExtensions: [
         '6_0',
         '6_1',
@@ -863,16 +872,6 @@ export default {
         '6_7',
         '6_8',
         '6_9',
-	'16_0',
-        '16_1',
-        '16_2',
-        '16_3',
-        '16_4',
-        '16_5',
-        '16_6',
-        '16_7',
-        '16_8',
-        '16_9',
         '19_1',
         '19_2',
     ],
@@ -880,7 +879,7 @@ export default {
     schoolBuildings: [1, 3, 8],
     dispatchCenterBuildings: [7],
     schoolings: {
-        'Straż pożarna': [
+        'Posterunek straży pożarnej': [
             {
                 caption: 'Ratownictwo chemiczne',
                 duration: '3 Dni',
@@ -897,7 +896,7 @@ export default {
                 caption: 'Szybkie ratownictwo wodne',
                 duration: '4 Dni',
             },
-	    {
+            {
                 caption: 'Kurs Nurka MSWiA',
                 duration: '5 Dni',
             },
@@ -924,21 +923,21 @@ export default {
                 duration: '5 Dni',
             },
             {
-                caption: 'Funkcjonariusz na motocyklu',
+                caption: 'Motocykl Policyjny',
                 duration: '3 Dni',
             },
-	        {
+            {
                 caption: 'Szkolenie WRD',
                 duration: '3 Dni',
             },
 
         ],
-        'WOPR': [
+        'Ratownictwo': [
             {
                 caption: 'Szybkie ratownictwo wodne',
                 duration: '4 Dni',
             },
-	    {
+            {
                 caption: 'Kurs Nurka MSWiA',
                 duration: '5 Dni',
             },
@@ -992,7 +991,7 @@ export default {
         'plane',
         'shield-alt',
     ],
- pois: [
+    pois: [
         'Park',
         'Jezioro',
         'Szpital',
@@ -1047,6 +1046,6 @@ export default {
         'Parking',
         'Silos',
     ],
-    only_alliance_missions: [57, 74, 89],
-    transfer_missions: [77],
+    only_alliance_missions: [57, 74],
+    transfer_missions: [],
 };
