@@ -51,4 +51,7 @@ export default (() => ({
     lastSavedDispatchCenter: <Hidden>{
         type: 'hidden',
     },
+    deleteSingleProtocolEntry: <Hidden>{
+        type: 'hidden',
+    },
 })) as ModuleSettingFunction;
