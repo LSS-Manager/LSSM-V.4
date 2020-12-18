@@ -12,7 +12,7 @@
 	"@fortawesome/vue-fontawesome": {
 		"icon": "https://fontawesome.com/images/favicons/apple-icon-180x180.png",
 		"url": "https://github.com/FortAwesome/vue-fontawesome",
-		"version": "2.0.0"
+		"version": "2.0.2"
 	},
 	"@types/combokeys": {
 		"version": "2.4.6"
