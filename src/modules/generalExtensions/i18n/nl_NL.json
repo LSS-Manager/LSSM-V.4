@@ -3,7 +3,14 @@
 	"protocolDeletionConfirmation": {
 		"cancel": "Annuleer",
 		"confirm": "Bevestig",
-		"text": "Weet je zeker dat je de afrondingsgeschiedenis wilt verwijderen? Dit kan niet ongedaan gemaakt worden!",
-		"title": "Verwijder afrondingsgeschiedenis"
+        "all": {
+            "text": "Do you really want to delete the protocol? This cannot be undone!",
+            "title": "Delete protocol"
+        },
+        "toggleSingle": "Toon bevestiging bij het verwijderen van losse items",
+        "single": {
+            "text": "Weet je zeker dat je dit item van de afrondingsgeschiedenis wilt verwijderen? Dit kan niet ongedaan gemaakt worden!",
+            "title": "Verwijder item"
+        }
 	}
 }

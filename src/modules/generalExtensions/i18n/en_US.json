@@ -3,7 +3,14 @@
 	"protocolDeletionConfirmation": {
 		"cancel": "Cancel",
 		"confirm": "Proceed",
-		"text": "Do you really want to delete the protocol? This cannot be undone!",
-		"title": "Delete protocol"
+        "all": {
+            "text": "Do you really want to delete the protocol? This cannot be undone!",
+            "title": "Delete protocol"
+        },
+        "toggleSingle": "Show confirmation when deleting single entries",
+        "single": {
+            "text": "Do you really want to delete this single protocol entry? This cannot be undone!",
+            "title": "Delete Entry"
+        }
 	}
 }

@@ -100,5 +100,10 @@ export default (async (LSSM, MODULE_ID, $m) => {
             await import(
                 /* webpackChunkName: "modules/generalExtensions/protocolDeletionConfirmation" */ './assets/protocolDeletionConfirmation'
             )
-        ).default(LSSM, t => $m(`protocolDeletionConfirmation.${t}`));
+        ).default(
+            LSSM,
+            t => $m(`protocolDeletionConfirmation.${t}`),
+            !!(await getSetting('deleteSingleProtocolEntry')),
+            MODULE_ID
+        );
 }) as ModuleMainFunction;
