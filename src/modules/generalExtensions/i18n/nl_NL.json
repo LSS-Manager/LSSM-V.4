@@ -1,3 +1,9 @@
 {
-	"inputMaxLen": "Dit invulveld moet tussen de {min} en {max} karakters hebben!"
+	"inputMaxLen": "Dit invulveld moet tussen de {min} en {max} karakters hebben!",
+    "protocolDeletionConfirmation": {
+        "title": "Verwijder afrondingsgeschiedenis",
+        "text": "Weet je zeker dat je de afrondingsgeschiedenis wilt verwijderen? Dit kan niet ongedaan gemaakt worden!",
+        "cancel": "Annuleer",
+        "confirm": "Bevestig"
+    }
 }
