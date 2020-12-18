@@ -1,10 +1,24 @@
 import { Releasenotes } from '../../../typings/modules/Releasenotes';
+import Showdown from 'showdown';
 
 const LAST_VERSION_STORAGE_KEY = 'releasenotes_lastVersion';
 
 export default async (LSSM: Vue): Promise<void> => {
     const $m = (key: string, args?: { [key: string]: unknown }) =>
         LSSM.$t(`modules.releasenotes.${key}`, args);
+
+    const sdConverter = new Showdown.Converter({
+        headerLevelStart: 5,
+        literalMidWordUnderscores: true,
+        strikethrough: true,
+        tables: true,
+        tasklists: true,
+        smartIndentationFix: true,
+        disableForced4SpacesIndentedSublists: true,
+        simpleLineBreaks: true,
+        openLinksInNewWindow: true,
+    });
+
     const notes = Object.entries(
         (await LSSM.$store
             .dispatch('api/request', {
@@ -20,18 +34,13 @@ export default async (LSSM: Vue): Promise<void> => {
             version,
             {
                 ...note,
-                content: note.content
-                    .replace(/(?<=\n) +/g, $0 =>
-                        new Array(Math.ceil($0.length / 4))
-                            .fill('&nbsp;')
-                            .join('')
-                    )
-                    .replace(/\n/g, '<br>')
-                    .replace(
-                        /#(\d+)/,
+                content: sdConverter.makeHtml(
+                    note.content.replace(
+                        /#(\d+)/g,
                         ($0, $1) =>
-                            `<a href="https://github.com/LSS-Manager/LSSM-V.4/issues/${$1}" class="lightbox-open">${$0}</a>`
-                    ),
+                            `[${$0}](https://github.com/LSS-Manager/LSSM-V.4/issues/${$1})`
+                    )
+                ),
             },
         ]);
 

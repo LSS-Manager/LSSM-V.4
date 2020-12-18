@@ -12,7 +12,7 @@
 	"@fortawesome/vue-fontawesome": {
 		"icon": "https://fontawesome.com/images/favicons/apple-icon-180x180.png",
 		"url": "https://github.com/FortAwesome/vue-fontawesome",
-		"version": "2.0.0"
+		"version": "2.0.2"
 	},
 	"@types/combokeys": {
 		"version": "2.4.6"
@@ -31,6 +31,9 @@
 	},
 	"@types/node": {
 		"version": "14.14.14"
+	},
+	"@types/showdown": {
+		"version": "1.9.3"
 	},
 	"@types/speed-measure-webpack-plugin": {
 		"version": "1.3.0"
@@ -61,14 +64,17 @@
 		"version": "1.7.1"
 	},
 	"all-contributors-cli": {
+		"icon": "https://avatars3.githubusercontent.com/u/46843839",
 		"url": "https://github.com/all-contributors/all-contributors-cli#readme",
 		"version": "6.19.0"
 	},
 	"broadcast-channel": {
+		"icon": "https://raw.githubusercontent.com/pubkey/broadcast-channel/master/docs/files/icon.png",
 		"url": "https://github.com/pubkey/broadcast-channel#readme",
 		"version": "3.3.0"
 	},
 	"cache-loader": {
+		"icon": "https://webpack.js.org/assets/icon-square-big.svg",
 		"url": "https://github.com/webpack-contrib/cache-loader",
 		"version": "4.1.0"
 	},
@@ -133,6 +139,7 @@
 		"version": "2.29.1"
 	},
 	"sass": {
+		"icon": "https://sass-lang.com/assets/img/logos/logo-b6e1ef6e.svg",
 		"url": "https://github.com/sass/dart-sass",
 		"version": "1.30.0"
 	},
@@ -141,11 +148,18 @@
 		"url": "https://github.com/webpack-contrib/sass-loader",
 		"version": "10.1.0"
 	},
+	"showdown": {
+		"icon": "https://raw.githubusercontent.com/showdownjs/logo/master/dist/logo.readme.png",
+		"url": "http://showdownjs.com/",
+		"version": "1.9.1"
+	},
 	"speed-measure-webpack-plugin": {
+		"icon": "https://camo.githubusercontent.com/ec10cfa726400257ca0f80a273449f9d4502312ebf06c3bca2f8145f32d6743f/68747470733a2f2f7261776769742e636f6d2f7374657068656e636f6f6b6465762f73706565642d6d6561737572652d7765627061636b2d706c7567696e2f6d61737465722f6c6f676f2e737667",
 		"url": "https://github.com/stephencookdev/speed-measure-webpack-plugin#readme",
 		"version": "1.3.3"
 	},
 	"string-replace-loader": {
+		"icon": "https://webpack.js.org/assets/icon-square-big.svg",
 		"url": "https://github.com/Va1/string-replace-loader",
 		"version": "2.3.0"
 	},
@@ -155,10 +169,12 @@
 		"version": "5.5.1"
 	},
 	"ts-loader": {
+		"icon": "https://webpack.js.org/assets/icon-square-big.svg",
 		"url": "https://github.com/TypeStrong/ts-loader",
 		"version": "8.0.12"
 	},
 	"typescript": {
+		"icon": "https://www.typescriptlang.org/icons/icon-512x512.png",
 		"url": "https://www.typescriptlang.org/",
 		"version": "4.1.3"
 	},
@@ -168,6 +184,7 @@
 		"version": "0.7.23"
 	},
 	"url-loader": {
+		"icon": "https://webpack.js.org/assets/icon-square-big.svg",
 		"url": "https://github.com/webpack-contrib/url-loader",
 		"version": "4.1.1"
 	},
@@ -192,7 +209,7 @@
 	"vue-loader": {
 		"icon": "https://vuejs.org/images/logo.png",
 		"url": "https://github.com/vuejs/vue-loader",
-		"version": "15.9.5"
+		"version": "15.9.6"
 	},
 	"vue-notification": {
 		"version": "1.3.20"
@@ -251,6 +268,7 @@
 		"version": "4.2.0"
 	},
 	"webpack-loader-append-prepend": {
+		"icon": "https://webpack.js.org/assets/icon-square-big.svg",
 		"url": "https://github.com/fedemp/webpack-loader-append-prepend",
 		"version": "1.0.2"
 	}

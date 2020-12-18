@@ -3,7 +3,16 @@
         <h1>LSSM V.4: {{ $t('modules.releasenotes.name') }}</h1>
         <div v-for="note in notes" :key="note[0]" class="note">
             <h4>
-                <b>{{ note[0] }}</b>
+                <b
+                    ><a
+                        class="lightbox-open"
+                        target="_blank"
+                        :href="
+                            `https://github.com/LSS-Manager/LSSM-V.4/releases/tag/v.${note[0]}`
+                        "
+                        >{{ note[0] }}</a
+                    ></b
+                >
                 <sup class="badge message_new" v-if="last_seen < note[0]"
                     >New!</sup
                 >
