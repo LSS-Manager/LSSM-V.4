@@ -1,6 +1,5 @@
 // import { Building } from 'typings/Building';
 
-const moduleRootFiles = require.context('../', true, MODULE_ROOT_I18N_FILES);
 // Commented as dir ./it_IT does not exist currently
 // const furtherFiles = require.context('./it_IT/', true, /.*(\/index)?\.js(on)?/);
 const modules = {
@@ -52,9 +51,6 @@ const modules = {
         },
     },
 } as { [moduleId: string]: { [key: string]: unknown } };
-moduleRootFiles
-    .keys()
-    .forEach(key => (modules[key.split('/')[2]] = moduleRootFiles(key)));
 
 const t = {} as { [key: string]: unknown };
 
@@ -107,12 +103,11 @@ export default {
     vehicles: {
         0: {
             caption: 'ABP',
-            color: '#00FFCC',
+            color: '#bf0a0a',
             coins: 25,
             credits: 5_000,
             minPersonnel: 1,
             maxPersonnel: 3,
-            wtank: 0,
         },
         1: {
             caption: 'AS',
@@ -121,7 +116,6 @@ export default {
             credits: 10_000,
             minPersonnel: 1,
             maxPersonnel: 3,
-            wtank: 0,
             special: 'Richiesto dopo aver costruito 3 caserme dei pompieri',
         },
         2: {
@@ -131,7 +125,6 @@ export default {
             credits: 10_000,
             minPersonnel: 1,
             maxPersonnel: 3,
-            wtank: 0,
             special: 'Richiesto dopo aver costruito 6 caserme dei pompieri',
         },
         3: {
@@ -141,17 +134,15 @@ export default {
             credits: 12_180,
             minPersonnel: 1,
             maxPersonnel: 4,
-            wtank: 0,
             special: 'Richiesto dopo aver costruito 4 caserme dei pompieri',
         },
         4: {
             caption: 'Ambulanza BLSD',
-            color: '#9c1c1c',
+            color: '#9c6d1c',
             coins: 25,
             credits: 5_000,
             minPersonnel: 2,
             maxPersonnel: 5,
-            wtank: 0,
         },
         5: {
             caption: 'KILO',
@@ -160,7 +151,6 @@ export default {
             credits: 17_300,
             minPersonnel: 1,
             maxPersonnel: 3,
-            wtank: 0,
             special: 'Richiesta dopo aver costruito 7 caserme dei pompieri',
         },
         6: {
@@ -170,28 +160,25 @@ export default {
             credits: 19_200,
             minPersonnel: 1,
             maxPersonnel: 6,
-            wtank: 0,
             special: 'Richiesto dopo aver costruito 11 caserme dei pompieri',
             schooling: 'Caserma dei vigili del fuoco - N.B.C.R.',
             shownSchooling: 'N.B.C.R.',
         },
         7: {
             caption: 'Volante',
-            color: '#8b1818',
+            color: '#2c8123',
             coins: 25,
             credits: 5_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            wtank: 0,
         },
         8: {
             caption: 'Elisoccorso',
-            color: '#e61919',
+            color: '#e69b19',
             coins: 30,
             credits: 300_000,
             minPersonnel: 1,
             maxPersonnel: 1,
-            wtank: 0,
         },
         9: {
             caption: 'APS',
@@ -200,7 +187,6 @@ export default {
             credits: 19_000,
             minPersonnel: 1,
             maxPersonnel: 6,
-            wtank: 0,
         },
         10: {
             caption: 'AF/ARIA',
@@ -209,7 +195,6 @@ export default {
             credits: 10_000,
             minPersonnel: 1,
             maxPersonnel: 3,
-            wtank: 0,
             special: 'Richiesto dopo aver cstruito 5 caserme dei pompieri.',
         },
         11: {
@@ -219,7 +204,6 @@ export default {
             credits: 20_000,
             minPersonnel: 1,
             maxPersonnel: 6,
-            wtank: 0,
             schooling:
                 'Caserma dei vigili del fuoco - Corso per funzionario (UCL)',
             shownSchooling: 'Comando mobile',
@@ -232,7 +216,6 @@ export default {
             credits: 18_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            wtank: 0,
             schooling:
                 'Caserma dei vigili del fuoco - Corso autista di Autogrù',
             shownSchooling: 'Autogrù',
@@ -240,12 +223,11 @@ export default {
         },
         13: {
             caption: 'Elicottero della Polizia',
-            color: '#ca1616',
+            color: '#227723',
             coins: 30,
             credits: 300_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            wtank: 0,
             schooling: 'Polizia - Reparto volo della polizia',
             shownSchooling: 'Reparto volo della polizia',
             special:
@@ -253,7 +235,7 @@ export default {
         },
         14: {
             caption: 'Furgone antisommossa',
-            color: '#a51212',
+            color: '#12a521',
             coins: 25,
             credits: 10_000,
             minPersonnel: 6,
@@ -264,47 +246,43 @@ export default {
         },
         15: {
             caption: 'Unità cinofila antidroga',
-            color: '#aa2222',
+            color: '#36aa22',
             coins: 25,
             credits: 7_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            wtank: 0,
             schooling: 'Polizia - Specializzazione unità cinoflia',
             shownSchooling: 'Specializzazione unità cinoflia',
             special: 'Richiesto dopo aver costruito 6 stazioni di polizia',
         },
         16: {
             caption: 'Moto della Polizia',
-            color: '#662222',
+            color: '#296622',
             coins: 18,
             credits: 2_500,
             minPersonnel: 1,
             maxPersonnel: 1,
-            wtank: 0,
             schooling: 'Polizia - Specializzazione motociclista',
             shownSchooling: 'Specializzazione motociclista',
         },
         17: {
             caption: 'UOPI SUV',
-            color: '#332222',
+            color: '#178813',
             coins: 23,
             credits: 7_000,
             minPersonnel: 2,
             maxPersonnel: 4,
-            wtank: 0,
             special: 'Richiesto dopo aver costruito 8 stazioni di polizia',
             schooling: 'Polizia - Specializzazione antisommossa/UOPI',
             shownSchooling: 'Specializzazione antisommossa/UOPI',
         },
         18: {
             caption: 'VLV',
-            color: '#681212',
+            color: '#685d12',
             coins: 25,
             credits: 20_000,
             minPersonnel: 2,
             maxPersonnel: 3,
-            wtank: 0,
             special: 'Richiesto dopo aver costruito 3 stazioni di soccorso ',
             schooling: 'Soccorso - Corso medico di emergenza',
             shownSchooling: 'Medico di emergenza',
@@ -742,7 +720,7 @@ export default {
         },
         21: {
             caption: 'Caserma della Finanza',
-            color: '#116612',
+            color: '#113a66',
             coins: 35,
             credits: 200_000,
             extensions: [],
@@ -818,8 +796,8 @@ export default {
         '6_7',
         '6_8',
         '6_9',
+        '19_0',
         '19_1',
-        '19_2',
     ],
     bedBuildings: [4],
     schoolBuildings: [1, 3, 8],
@@ -953,11 +931,13 @@ export default {
         'Officina meccanica',
         'Uscita autostradale',
         'Mercatino di Natale',
+        '',
         'Discoteca',
         'Stadio',
         'Azienda agricola',
         'Edificio adibito a uffici',
         'Piscina',
+        '',
         'Teatro',
         'Luna park',
         'Fiume',

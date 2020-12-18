@@ -2,7 +2,7 @@
 CHANGED_FILES=$(git status -s | wc -l)
 BRANCH=$(git branch --show-current)
 # if more than one file modified or we're on master -> Pushback
-if [ "$CHANGED_FILES" -gt 1 ] || [ "$BRANCH" = "master" ] 
+if [ "$CHANGED_FILES" -gt 1 ] || [ "$BRANCH" = "master" ]
 then
   # Get current Build Version
   PACKAGE_VERSION=$(cat $WORK_DIR/package.json | grep 'version' | awk -F: '{ print $2 }' | sed 's/[",]//g' | tr -d '[[:space:]]')
@@ -14,6 +14,6 @@ then
   # Prepare and push a new commit
   git config user.email "$GIT_MAIL"
   git config user.name "$GIT_USERNAME"
-  git commit -am ":package: Version $PACKAGE_VERSION [tc-push]"
+  git commit -am "📦 Version $PACKAGE_VERSION [tc-push]"
   git push
 fi

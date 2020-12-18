@@ -281,7 +281,7 @@ export default Vue.extend<
                     if (!this.pushedRight)
                         document
                             .querySelector(
-                                '.mission_header_info.row ~ div ~ .clearfix'
+                                '.mission_header_info.row ~ div ~ .clearfix, .mission_header_info.row ~ .clearfix'
                             )
                             ?.after(this.$el);
                     else
@@ -339,7 +339,6 @@ export default Vue.extend<
         const vehicleList = document.getElementById('vehicle_show_table_all');
         if (!vehicleList) return;
         const amountObserver = new MutationObserver(() => {
-            console.log('selected');
             this.requirements.forEach(req => (req.selected = 0));
             vehicleList
                 .querySelectorAll<HTMLInputElement>('.vehicle_checkbox:checked')
@@ -352,7 +351,6 @@ export default Vue.extend<
                         const req = this.requirements.find(({ vehicle }) =>
                             vehicle.match(new RegExp(group))
                         );
-                        console.log(group, req);
                         if (req) this.$set(req, 'selected', req.selected + 1);
                     });
                 });

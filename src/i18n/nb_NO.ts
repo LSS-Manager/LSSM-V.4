@@ -1,6 +1,5 @@
 // import { Building } from 'typings/Building';
 
-const moduleRootFiles = require.context('../', true, MODULE_ROOT_I18N_FILES);
 // Commented as dir ./en_US does not exist currently
 // const furtherFiles = require.context('./en_US/', true, /.*(\/index)?\.js(on)?/);
 const modules = {
@@ -51,9 +50,6 @@ const modules = {
         },
     },
 } as { [moduleId: string]: { [key: string]: unknown } };
-moduleRootFiles
-    .keys()
-    .forEach(key => (modules[key.split('/')[2]] = moduleRootFiles(key)));
 
 const t = {} as { [key: string]: unknown };
 
@@ -149,7 +145,7 @@ export default {
         },
         5: {
             caption: 'Ambulanse',
-            color: '#9c1c1c',
+            color: '#9c691c',
             coins: 25,
             credits: 5_000,
             minPersonnel: 1,
@@ -177,7 +173,7 @@ export default {
         },
         8: {
             caption: 'Patruljebil',
-            color: '#8b1818',
+            color: '#378b18',
             coins: 25,
             credits: 5_000,
             minPersonnel: 1,
@@ -185,7 +181,7 @@ export default {
         },
         9: {
             caption: 'Luftambulanse',
-            color: '#e61919',
+            color: '#e67219',
             coins: 30,
             credits: 300_000,
             minPersonnel: 1,
@@ -203,7 +199,7 @@ export default {
         },
         11: {
             caption: 'Politihelikopter',
-            color: '#ca1616',
+            color: '#1b8f0f',
             coins: 30,
             credits: 300_000,
             minPersonnel: 1,
@@ -213,7 +209,7 @@ export default {
         },
         12: {
             caption: 'Pansret kjøretøy',
-            color: '#a51212',
+            color: '#1ca512',
             coins: 25,
             credits: 17_300,
             minPersonnel: 6,
@@ -224,7 +220,7 @@ export default {
         },
         13: {
             caption: 'Hundepatrulje',
-            color: '#aa2222',
+            color: '#1a6d22',
             coins: 25,
             credits: 7_000,
             minPersonnel: 1,
@@ -235,7 +231,7 @@ export default {
         },
         14: {
             caption: 'Politimotorsykkel',
-            color: '#662222',
+            color: '#3a6622',
             coins: 18,
             credits: 2_500,
             minPersonnel: 1,
@@ -245,7 +241,7 @@ export default {
         },
         15: {
             caption: 'Delta kjøretøy',
-            color: '#332222',
+            color: '#253322',
             coins: 23,
             credits: 7_000,
             minPersonnel: 2,
@@ -285,7 +281,7 @@ export default {
         },
         19: {
             caption: 'Dykkerbil',
-            color: '#772222',
+            color: '#225577',
             coins: 25,
             credits: 10_000,
             minPersonnel: 4,
@@ -294,7 +290,7 @@ export default {
         },
         20: {
             caption: 'Lett redningsbåt',
-            color: '#772222',
+            color: '#22776d',
             coins: 12,
             credits: 6_000,
             minPersonnel: 0,
@@ -312,7 +308,7 @@ export default {
         },
         22: {
             caption: 'Utrykningspolitibil',
-            color: '#ad0e0e',
+            color: '#0ead23',
             coins: 10,
             credits: 10_000,
             minPersonnel: 1,
@@ -322,13 +318,32 @@ export default {
         },
         23: {
             caption: 'Utrykningsenhetbil',
-            color: '#ad0e0e',
+            color: '#1f8d20',
             coins: 15,
             credits: 19_000,
             minPersonnel: 1,
             maxPersonnel: 2,
             schooling: 'Politi - Våpentrening',
             shownSchooling: 'Våpentrening',
+        },
+        24: {
+            caption: 'Legebil',
+            color: '#b89d14',
+            coins: 20,
+            credits: 4_000,
+            minPersonnel: 1,
+            maxPersonnel: 1,
+            schooling: 'Redning - Legevaktslege',
+            shownSchooling: 'Legevaktslege',
+        },
+        25: {
+            caption: 'Innsatslederbil helse',
+            color: '#997122',
+            coins: 25,
+            credits: 25_000,
+            minPersonnel: 1,
+            maxPersonnel: 1,
+            special: 'Nødvendig etter at du har bygd 10 redningsstasjoner',
         },
     },
     buildings: {
@@ -397,6 +412,27 @@ export default {
             special: '',
             startPersonnel: 3,
             startVehicles: ['Ambulanse'],
+        },
+        3: {
+            caption: 'Helseskole',
+            color: '#8c852c',
+            coins: 50,
+            credits: 500_000,
+            extensions: [
+                ...new Array(3).fill({
+                    caption: 'Flere klasserom',
+                    credits: 400_000,
+                    coins: 40,
+                    duration: '7 dager',
+                }),
+            ],
+            levelcost: [],
+            maxBuildings: 'Ingen grense',
+            maxLevel: 0,
+            special:
+                'Finansministre og administratorer kan (utvide) alliansepoliti skoler ved hjelp av kreditter fra alliansekassen.',
+            startPersonnel: 0,
+            startVehicles: [],
         },
         4: {
             caption: 'Sykehus',
@@ -658,24 +694,44 @@ export default {
             startVehicles: ['Patruljebil'],
             maxBuildingsFunction: (): number => 1_700,
         },
-    },
-    20: {
-        caption: 'Ambulansestasjon (liten)',
-        color: '#eeb611',
-        coins: 25,
-        credits: 100_000,
-        extensions: [],
-        levelcost: [
-            '1. 10.000',
-            '2. 50.000',
-            '3.-5. 100.000',
-            'Konvertering til normal vakt: differansepris til normal vakt',
-        ],
-        maxBuildings: 'Ingen grense',
-        maxLevel: 5,
-        special: '',
-        startPersonnel: 3,
-        startVehicles: ['Ambulanse'],
+        20: {
+            caption: 'Ambulansestasjon (liten)',
+            color: '#eeb611',
+            coins: 25,
+            credits: 100_000,
+            extensions: [],
+            levelcost: [
+                '1. 10.000',
+                '2. 50.000',
+                '3.-5. 100.000',
+                'Konvertering til normal vakt: differansepris til normal vakt',
+            ],
+            maxBuildings: 'Ingen grense',
+            maxLevel: 5,
+            special: '',
+            startPersonnel: 3,
+            startVehicles: ['Ambulanse'],
+        },
+        21: {
+            caption: 'Legevakt',
+            color: '#e2e53b',
+            coins: 25,
+            credits: 100_000,
+            extensions: [
+                {
+                    caption: 'Generell medisin',
+                    credits: 10_000,
+                    coins: 10,
+                    duration: '7 dager',
+                },
+            ],
+            levelcost: ['1. 10.000', '2. 50.000', '3.-5. 100.000'],
+            maxBuildings: 'Ingen grense',
+            maxLevel: 5,
+            special: '',
+            startPersonnel: 0,
+            startVehicles: ['Ikke. Du kan kjøpe maks. 2 Kjøretøy'],
+        },
     },
 
     buildingCategories: {
@@ -684,7 +740,7 @@ export default {
             color: '#ff2d2d',
         },
         Helse: {
-            buildings: [4, 5, 6, 11],
+            buildings: [4, 5, 6, 11, 21],
             color: '#ffa500',
         },
         Politi: {
@@ -746,13 +802,13 @@ export default {
         '6_8',
         '6_9',
     ],
-    bedBuildings: [4],
-    schoolBuildings: [1, 8],
+    bedBuildings: [4, 21],
+    schoolBuildings: [1, 3, 8],
     dispatchCenterBuildings: [7],
     schoolings: {
-        Brannvesenet: [
+        Brannstasjon: [
             {
-                caption: 'CBRNe',
+                caption: 'CBRNe-enhet',
                 duration: '3 dager',
             },
             {
@@ -792,6 +848,12 @@ export default {
             {
                 caption: 'Utrykningspoliti',
                 duration: '3 dager',
+            },
+        ],
+        Redning: [
+            {
+                caption: 'Legevaktslege',
+                duration: '5 dager',
             },
         ],
     },
@@ -868,6 +930,7 @@ export default {
         'Gård',
         'Kontorbygning',
         'Basseng',
+        '',
         'Teater',
         'Tivoli',
         'Elv',
@@ -898,6 +961,9 @@ export default {
         'Parkeringshus',
         'Silo',
         'Lyskryss',
+        'Snekkerverksted',
+        'Restaurant',
+        'Sentrum',
     ],
     only_alliance_missions: [57, 74],
     transfer_missions: [77],

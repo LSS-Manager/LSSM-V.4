@@ -139,9 +139,15 @@ export default {
             { state, dispatch }: SettingsActionStoreParams,
             { moduleId, settingId, defaultValue = null }: SettingsGet
         ) {
+            const setting = state.settings[moduleId]?.[settingId];
             return (
-                state.settings[moduleId]?.[settingId]?.value ??
-                state.settings[moduleId]?.[settingId]?.default ??
+                (setting?.type === 'appendable-list'
+                    ? setting?.value.map(v => ({
+                          ...setting.defaultItem,
+                          ...v,
+                      }))
+                    : setting?.value) ??
+                setting?.default ??
                 (await dispatch('getModule', moduleId))[settingId] ??
                 defaultValue
             );

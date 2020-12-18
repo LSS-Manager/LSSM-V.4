@@ -1,6 +1,5 @@
 // import { Building } from 'typings/Building';
 
-const moduleRootFiles = require.context('../', true, MODULE_ROOT_I18N_FILES);
 const furtherFiles = require.context('./en_US/', true, /.*(\/index)?\.js(on)?/);
 const modules = {
     appstore: {
@@ -51,9 +50,6 @@ const modules = {
         },
     },
 } as { [moduleId: string]: { [key: string]: unknown } };
-moduleRootFiles
-    .keys()
-    .forEach(key => (modules[key.split('/')[2]] = moduleRootFiles(key)));
 
 const t = {} as { [key: string]: unknown };
 
@@ -153,7 +149,7 @@ export default {
         },
         5: {
             caption: 'ALS Ambulance',
-            color: '#9c1c1c',
+            color: '#9c6d1c',
             coins: 25,
             credits: 5_000,
             minPersonnel: 1,
@@ -204,7 +200,7 @@ export default {
         },
         10: {
             caption: 'Patrol Car',
-            color: '#8b1818',
+            color: '#488b18',
             coins: 25,
             credits: 5_000,
             minPersonnel: 1,
@@ -213,7 +209,7 @@ export default {
         },
         11: {
             caption: 'HEMS',
-            color: '#e61919',
+            color: '#e68319',
             coins: 30,
             credits: 300_000,
             minPersonnel: 1,
@@ -245,7 +241,7 @@ export default {
         },
         14: {
             caption: 'Police helicopter',
-            color: '#ca1616',
+            color: '#70ca16',
             coins: 30,
             credits: 300_000,
             minPersonnel: 1,
@@ -256,7 +252,7 @@ export default {
         },
         15: {
             caption: 'Fly-Car',
-            color: '#b81414',
+            color: '#b88f14',
             coins: 20,
             credits: 4_000,
             minPersonnel: 1,
@@ -265,7 +261,7 @@ export default {
         },
         16: {
             caption: 'SWAT Armoured Vehicle',
-            color: '#a51212',
+            color: '#68a512',
             coins: 25,
             credits: 17_300,
             minPersonnel: 6,
@@ -299,7 +295,7 @@ export default {
         },
         19: {
             caption: 'K-9 Unit',
-            color: '#aa2222',
+            color: '#30aa22',
             coins: 25,
             credits: 7_000,
             minPersonnel: 1,
@@ -311,7 +307,7 @@ export default {
         },
         20: {
             caption: 'Mass Casualty Unit',
-            color: '#992222',
+            color: '#996d22',
             coins: 25,
             credits: 25_000,
             minPersonnel: 6,
@@ -346,7 +342,7 @@ export default {
         },
         23: {
             caption: 'Police Motorcycle',
-            color: '#662222',
+            color: '#638a2a',
             coins: 18,
             credits: 2_500,
             minPersonnel: 1,
@@ -368,7 +364,7 @@ export default {
         },
         25: {
             caption: 'Large Rescue Boat',
-            color: '#442222',
+            color: '#92702e',
             coins: 35,
             credits: 35_000,
             minPersonnel: 2,
@@ -379,7 +375,7 @@ export default {
         },
         26: {
             caption: 'SWAT SUV',
-            color: '#332222',
+            color: '#415a30',
             coins: 23,
             credits: 7_000,
             minPersonnel: 2,
@@ -391,7 +387,7 @@ export default {
         },
         27: {
             caption: 'BLS Ambulance',
-            color: '#681212',
+            color: '#a4752e',
             coins: 25,
             credits: 5_000,
             minPersonnel: 1,
@@ -428,7 +424,7 @@ export default {
         },
         31: {
             caption: 'Type 5 engine',
-            color: '#ddaa3c',
+            color: '#b01d2f',
             coins: 8,
             credits: 8_000,
             minPersonnel: 1,
@@ -436,7 +432,7 @@ export default {
         },
         32: {
             caption: 'Type 7 engine',
-            color: '#005500',
+            color: '#a01717',
             coins: 5,
             credits: 5_000,
             minPersonnel: 1,
@@ -463,7 +459,7 @@ export default {
         },
         35: {
             caption: 'Water drop helicopter',
-            color: '#288f28',
+            color: '#800e20',
             coins: 130,
             credits: 300_000,
             minPersonnel: 2,
@@ -485,7 +481,7 @@ export default {
         },
         37: {
             caption: 'Heavy air tanker',
-            color: '#220000',
+            color: '#5f0606',
             coins: 65,
             credits: 1_500_000,
             minPersonnel: 2,
@@ -496,7 +492,7 @@ export default {
         },
         38: {
             caption: 'Type 4 engine',
-            color: '#ffb61a',
+            color: '#9f0d13',
             coins: 10,
             credits: 10_000,
             minPersonnel: 3,
@@ -505,7 +501,7 @@ export default {
         },
         39: {
             caption: 'Type 6 engine',
-            color: '#00138f',
+            color: '#a70e0e',
             coins: 5,
             credits: 5_000,
             minPersonnel: 1,
@@ -514,7 +510,7 @@ export default {
         },
         40: {
             caption: 'Dozer Trailer',
-            color: '#0016a3',
+            color: '#a30021',
             coins: 15,
             credits: 20_000,
             minPersonnel: 0,
@@ -526,7 +522,7 @@ export default {
         },
         41: {
             caption: 'Crew cap semi',
-            color: '#0018b8',
+            color: '#9f1616',
             coins: 12,
             credits: 5_000,
             minPersonnel: 1,
@@ -572,7 +568,7 @@ export default {
         },
         46: {
             caption: 'FBI Surveillance Drone',
-            color: '#f04242',
+            color: '#4282f0',
             coins: 25,
             credits: 25_000,
             minPersonnel: 1,
@@ -582,7 +578,7 @@ export default {
         },
         47: {
             caption: 'Sheriff Unit',
-            color: '#ad0e0e',
+            color: '#58ad0e',
             coins: 20,
             credits: 15_000,
             minPersonnel: 1,
@@ -994,7 +990,7 @@ export default {
         },
         18: {
             caption: 'Federal Police Station',
-            color: '#268926',
+            color: '#264289',
             coins: 50,
             credits: 5_000_000,
             extensions: [],
@@ -1154,6 +1150,7 @@ export default {
     },
     amount: 'Quantity',
     search: 'Search',
+    mapSearch: 'Location search',
     alliance: 'Alliance',
     premiumNotice:
         'This feature extends a premium feature of the game and is therefore only available for players with a Missionchief game premium account!',
@@ -1263,6 +1260,8 @@ export default {
         'Fault line',
         'Carpentry Workshop',
         'Playground',
+        'Restaurant',
+        'City centre',
     ],
     only_alliance_missions: [41, 61, 62, 112],
     transfer_missions: [246],

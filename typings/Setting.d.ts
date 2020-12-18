@@ -85,6 +85,7 @@ export interface PreviewElement
 }
 
 export interface AppendableList extends SettingTemplate {
+    type: 'appendable-list';
     default: AppendableListItem[];
     value: AppendableListItem[];
     listItem: (AppendableListSetting | PreviewElement)[];

@@ -7,5 +7,6 @@ export default async (LSSM: Vue): Promise<void> => {
         'api/fetchBuilding',
         buildingId
     );
+    // eslint-disable-next-line no-console
     console.log(building);
 };

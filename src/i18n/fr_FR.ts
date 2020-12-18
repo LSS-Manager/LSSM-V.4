@@ -1,6 +1,5 @@
 // import { Building } from 'typings/Building';
 
-const moduleRootFiles = require.context('../', true, MODULE_ROOT_I18N_FILES);
 // Commented as dir ./en_US does not exist currently
 // const furtherFiles = require.context('./en_US/', true, /.*(\/index)?\.js(on)?/);
 const modules = {
@@ -52,9 +51,6 @@ const modules = {
         },
     },
 } as { [moduleId: string]: { [key: string]: unknown } };
-moduleRootFiles
-    .keys()
-    .forEach(key => (modules[key.split('/')[2]] = moduleRootFiles(key)));
 
 const t = {} as { [key: string]: unknown };
 
@@ -112,7 +108,6 @@ export default {
             credits: 5_000,
             minPersonnel: 4,
             maxPersonnel: 6,
-            wtank: 0,
         },
         1: {
             caption: 'FPTL',
@@ -121,7 +116,6 @@ export default {
             credits: 5_000,
             minPersonnel: 4,
             maxPersonnel: 6,
-            wtank: 0,
         },
         2: {
             caption: 'EPA',
@@ -130,7 +124,6 @@ export default {
             credits: 10_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            wtank: 0,
             special:
                 'Nécessaire dès lors que vous avez construit 3 bases de pompiers',
         },
@@ -141,7 +134,6 @@ export default {
             credits: 10_000,
             minPersonnel: 1,
             maxPersonnel: 1,
-            wtank: 0,
             special:
                 'Nécessaire dès lors que vous avez construit 6 bases de pompiers',
         },
@@ -152,18 +144,16 @@ export default {
             credits: 12_180,
             minPersonnel: 2,
             maxPersonnel: 3,
-            wtank: 0,
             special:
                 'Nécessaire dès lors que vous avez construit 4 bases de pompiers',
         },
         5: {
             caption: 'UMH',
-            color: '#9c1c1c',
+            color: '#9c691c',
             coins: 25,
             credits: 5_000,
             minPersonnel: 3,
             maxPersonnel: 3,
-            wtank: 0,
         },
         6: {
             caption: 'CCGC',
@@ -172,7 +162,6 @@ export default {
             credits: 17_300,
             minPersonnel: 1,
             maxPersonnel: 2,
-            wtank: 0,
             special:
                 'Nécessaire dès lors que vous avez construit 7 bases de pompiers',
         },
@@ -183,7 +172,6 @@ export default {
             credits: 19_200,
             minPersonnel: 1,
             maxPersonnel: 4,
-            wtank: 0,
             special:
                 'Nécessaire dès lors que vous avez construit 7 bases de pompiers',
             schooling: 'Centre de secours - Véhicules risques chimiques',
@@ -191,21 +179,19 @@ export default {
         },
         8: {
             caption: 'Véhicule de patrouille',
-            color: '#8b1818',
+            color: '#3a8b18',
             coins: 25,
             credits: 5_000,
             minPersonnel: 2,
             maxPersonnel: 4,
-            wtank: 0,
         },
         9: {
             caption: 'Dragon',
-            color: '#e61919',
+            color: '#e68a19',
             coins: 30,
             credits: 300_000,
             minPersonnel: 3,
             maxPersonnel: 5,
-            wtank: 0,
         },
         10: {
             caption: 'VAR',
@@ -222,7 +208,6 @@ export default {
             credits: 25_500,
             minPersonnel: 1,
             maxPersonnel: 6,
-            wtank: 0,
             schooling: 'Centre de secours - Commandement mobile',
             shownSchooling: 'VPC',
             special:
@@ -253,7 +238,6 @@ export default {
             credits: 19_000,
             minPersonnel: 2,
             maxPersonnel: 5,
-            wtank: 0,
             schooling:
                 'Centre de secours - IMP (Intervention en Milieu Périlleux)',
             shownSchooling: 'Spécialiste IMP',
@@ -265,49 +249,44 @@ export default {
             credits: 19_000,
             minPersonnel: 2,
             maxPersonnel: 3,
-            wtank: 0,
         },
         16: {
             caption: 'VPL',
-            color: '#bb2222',
+            color: '#2285bb',
             coins: 25,
             credits: 10_000,
             minPersonnel: 3,
             maxPersonnel: 3,
-            wtank: 0,
             schooling: 'Centre de secours - PLG (Plongeur)',
             shownSchooling: 'PLG (Plongeur)',
             special: 'Nécessite une formation spéciale (PLG (Plongeur))',
         },
         17: {
             caption: 'BLS',
-            color: '#772222',
+            color: '#225f77',
             coins: 12,
             credits: 6_000,
             minPersonnel: 0,
             maxPersonnel: 0,
-            wtank: 0,
             special: 'Remorqueuse nécessaire (VPL, VTU)',
         },
         18: {
             caption: 'Choucas',
-            color: '#162eca',
+            color: '#36a21e',
             coins: 30,
             credits: 300_000,
             minPersonnel: 2,
             maxPersonnel: 4,
-            wtank: 0,
             schooling: 'Poste de police - Licence de pilote',
             shownSchooling: 'Aviation policière',
         },
         19: {
             caption: 'Equipe cynophile',
-            color: '#2229aa',
+            color: '#27aa22',
             coins: 25,
             credits: 7_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            wtank: 0,
             schooling: 'Poste de police - Maître chien',
             shownSchooling: 'Brigade canine',
             special:
@@ -315,12 +294,11 @@ export default {
         },
         20: {
             caption: 'Unité motocycliste',
-            color: '#2230aa',
+            color: '#22aa30',
             coins: 18,
             credits: 2_500,
             minPersonnel: 1,
             maxPersonnel: 1,
-            wtank: 0,
             schooling: 'Poste de police - Formation motocycliste',
             shownSchooling: 'Policie motocycliste',
         },
@@ -409,7 +387,7 @@ export default {
             maxBuildings: 'Aucune limite',
             maxLevel: 0,
             special:
-                "Le chef des finances et les administrateurs peuvent améliorer le bâtiment grâce à la banque d'alliance.<br>Les chefs de formation et les administrateurs peuvent lancer des formations.",
+                "Le chef des finances et les administrateurs peuvent améliorer le bâtiment grâce à la banque d'alliance.Les chefs de formation et les administrateurs peuvent lancer des formations.",
             startPersonnel: 0,
             startVehicles: [],
         },
@@ -559,17 +537,19 @@ export default {
             color: '#225522',
             coins: 50,
             credits: 500_000,
-            extensions: new Array(3).fill({
-                caption: 'Plus de salles de cours',
-                credits: 400_000,
-                coins: 40,
-                duration: '7 jours',
-            }),
+            extensions: [
+                ...new Array(3).fill({
+                    caption: 'Plus de salles de cours',
+                    credits: 400_000,
+                    coins: 40,
+                    duration: '7 jours',
+                }),
+            ],
             levelcost: [],
             maxBuildings: 'Aucune limite',
             maxLevel: 0,
             special:
-                "Le chef des finances et les administrateurs peuvent améliorer le bâtiment grâce à la banque d'alliance.<br>Les chefs de formation et les administrateurs peuvent lancer des formations.",
+                "Le chef des finances et les administrateurs peuvent améliorer le bâtiment grâce à la banque d'alliance.Les chefs de formation et les administrateurs peuvent lancer des formations.",
             startPersonnel: 0,
             startVehicles: [],
         },
@@ -775,7 +755,7 @@ export default {
     schoolBuildings: [1, 8],
     dispatchCenterBuildings: [7],
     schoolings: {
-        Pompier: [
+        'Centre de secours': [
             {
                 caption: 'Véhicules risques chimiques',
                 duration: '3 jours',
@@ -805,7 +785,7 @@ export default {
                 duration: '5 jours',
             },
         ],
-        Police: [
+        'Poste de police': [
             {
                 caption: 'Licence de Pilote',
                 duration: '7 jours',
@@ -878,7 +858,7 @@ export default {
         'Arrêt de tram',
         'Gare ferroviaire (trajets régionaux)',
         'Gare ferroviaire (trajets régionaux et grandes lignes)',
-        'Supérette',
+        'Gare de marchandises',
         'Supermarché (petit)',
         'Supermarché (grand)',
         'Station-service',
@@ -894,6 +874,7 @@ export default {
         'Ferme',
         'Bureaux',
         'Piscine',
+        '',
         'Théâtre',
         'Fête foraine',
         'Rivière',
@@ -926,6 +907,9 @@ export default {
         'Eolienne',
         'Voie navigable',
         'Camping',
+        'Atelier de menuiserie',
+        'Centre-ville',
+        'Colline',
     ],
     only_alliance_missions: [57, 74],
     transfer_missions: [],

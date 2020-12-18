@@ -17,6 +17,7 @@ Hieronder zal ik de mogelijkheden opsommen, deze zijn per stuk in en uit te scha
 * Koptekst Voertuigen
 * Voertuigbenodigdheden (Welke voertuigen zijn nodig)
 * Sorteervolgorde voor de voertuigbenodigdheden, mogelijkheden: Naam, aantal of kans
+    * Optie om de sorteervolgorde op aflopende volgorde te sorteren. 
 * Toon OvD-G als er momenteel 3 of meer patiënten zijn
 * Toen het kans percentage
 * Vermeld ook 100% kans op een voertuig

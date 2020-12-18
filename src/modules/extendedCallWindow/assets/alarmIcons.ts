@@ -48,6 +48,8 @@ export default (
 
     vehicleList.addEventListener('change', calcIcons);
 
+    calcIcons();
+
     LSSM.$store
         .dispatch('hook', {
             event: 'aaoClickHandler',

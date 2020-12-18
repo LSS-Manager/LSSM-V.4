@@ -26,7 +26,6 @@ import notifications from './store/notifications';
 import broadcast from './store/broadcast';
 import modules from './registerModules';
 import { Modules } from '../typings/Module';
-import { LSSM } from './core';
 
 export default (Vue: VueConstructor): Store<RootState> => {
     Vue.use(Vuex);
@@ -121,9 +120,6 @@ export default (Vue: VueConstructor): Store<RootState> => {
                 document.head.appendChild(fa);
                 state.fontAwesome.inserted = true;
             },
-            setRegisteredState(state: RootState, isRegistered: boolean) {
-                state.isRegistered = isRegistered;
-            },
             addOSMBar(
                 state: RootState,
                 {
@@ -167,8 +163,12 @@ export default (Vue: VueConstructor): Store<RootState> => {
                 ),
             modulesSorted(_, getters: GetterTree<RootState, RootState>) {
                 return Object.keys(getters.appModules).sort((a, b) => {
-                    a = LSSM.$t(`modules.${a}.name`).toString();
-                    b = LSSM.$t(`modules.${b}.name`).toString();
+                    a = (window[PREFIX] as Vue)
+                        .$t(`modules.${a}.name`)
+                        .toString();
+                    b = (window[PREFIX] as Vue)
+                        .$t(`modules.${b}.name`)
+                        .toString();
                     return a < b ? -1 : a > b ? 1 : 0;
                 });
             },

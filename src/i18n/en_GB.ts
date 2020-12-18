@@ -1,6 +1,5 @@
 // import { Building } from 'typings/Building';
 
-const moduleRootFiles = require.context('../', true, MODULE_ROOT_I18N_FILES);
 // Commented as dir ./en_US does not exist currently
 // const furtherFiles = require.context('./en_US/', true, /.*(\/index)?\.js(on)?/);
 const modules = {
@@ -52,9 +51,6 @@ const modules = {
         },
     },
 } as { [moduleId: string]: { [key: string]: unknown } };
-moduleRootFiles
-    .keys()
-    .forEach(key => (modules[key.split('/')[2]] = moduleRootFiles(key)));
 
 const t = {} as { [key: string]: unknown };
 
@@ -150,7 +146,7 @@ export default {
         },
         5: {
             caption: 'Ambulance',
-            color: '#9c1c1c',
+            color: '#9c871c',
             coins: 25,
             credits: 5_000,
             minPersonnel: 1,
@@ -178,7 +174,7 @@ export default {
         },
         8: {
             caption: 'Incident response vehicle (IRV)',
-            color: '#8b1818',
+            color: '#188b35',
             coins: 25,
             credits: 5_000,
             minPersonnel: 1,
@@ -186,7 +182,7 @@ export default {
         },
         9: {
             caption: 'HEMS',
-            color: '#e61919',
+            color: '#e68319',
             coins: 30,
             credits: 300_000,
             minPersonnel: 1,
@@ -194,7 +190,7 @@ export default {
         },
         10: {
             caption: 'Rapid Response Vehicle',
-            color: '#b81414',
+            color: '#b89d14',
             coins: 20,
             credits: 4_000,
             minPersonnel: 1,
@@ -202,7 +198,7 @@ export default {
         },
         11: {
             caption: 'Police helicopter',
-            color: '#ca1616',
+            color: '#0a7c16',
             coins: 30,
             credits: 300_000,
             minPersonnel: 1,
@@ -212,7 +208,7 @@ export default {
         },
         12: {
             caption: 'Dog Support Unit (DSU)',
-            color: '#791515',
+            color: '#1f7915',
             coins: 25,
             credits: 7_000,
             minPersonnel: 1,
@@ -223,7 +219,7 @@ export default {
         },
         13: {
             caption: 'Armed Response Vehicle (ARV)',
-            color: '#dc1818',
+            color: '#438a17',
             coins: 23,
             credits: 7_000,
             minPersonnel: 1,
@@ -284,7 +280,7 @@ export default {
         },
         19: {
             caption: 'Joint Response Unit',
-            color: '#aa2222',
+            color: '#48832e',
             coins: 30,
             credits: 6_000,
             minPersonnel: 1,
@@ -292,7 +288,7 @@ export default {
         },
         20: {
             caption: 'Operational Team Leader',
-            color: '#992222',
+            color: '#997122',
             coins: 25,
             credits: 20_000,
             minPersonnel: 1,
@@ -301,7 +297,7 @@ export default {
         },
         21: {
             caption: 'General Practitioner',
-            color: '#882222',
+            color: '#99631f',
             coins: 20,
             credits: 4_000,
             minPersonnel: 1,
@@ -312,7 +308,7 @@ export default {
         },
         22: {
             caption: 'Community First Responder',
-            color: '#772222',
+            color: '#996719',
             coins: 12,
             credits: 2_500,
             minPersonnel: 1,
@@ -329,7 +325,7 @@ export default {
         },
         24: {
             caption: 'Traffic Car',
-            color: '#552222',
+            color: '#3a5522',
             coins: 35,
             credits: 35_000,
             minPersonnel: 2,
@@ -339,7 +335,7 @@ export default {
         },
         25: {
             caption: 'Armed Traffic Car',
-            color: '#442222',
+            color: '#577529',
             coins: 35,
             credits: 35_000,
             minPersonnel: 2,
@@ -428,7 +424,7 @@ export default {
         },
         3: {
             caption: 'Rescue (EMS) Academy',
-            color: '#225522',
+            color: '#8c852c',
             coins: 50,
             credits: 500_000,
             extensions: [
@@ -784,7 +780,7 @@ export default {
         'Firefighters': {
             vehicles: {
                 'Fire engines': [0, 1, 16],
-                'Water Carrier': [6],
+                'Water Carrier': [6, 26],
                 'Aerial Trucks': [2, 17],
                 'Special Vehicles': [3, 4, 7, 14, 15, 18, 23],
             },
@@ -888,6 +884,7 @@ export default {
     },
     amount: 'Quantity',
     search: 'Search',
+    mapSearch: 'Location search',
     alliance: 'Alliance',
     premiumNotice:
         'This feature extends a premium feature of the game and is therefore only available for players with a Missionchief game premium account!',
@@ -993,6 +990,10 @@ export default {
         'Intersection with lights',
         'High Rise with Cladding',
         'Major Road Standby Point',
+        'Nuclear power station',
+        'Munition dump',
+        'Restaurant',
+        'Market place',
     ],
     only_alliance_missions: [57, 74, 89],
     transfer_missions: [77],

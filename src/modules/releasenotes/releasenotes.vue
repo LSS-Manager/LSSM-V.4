@@ -1,13 +1,28 @@
 <template>
     <lightbox name="releasenotes" no-fullscreen no-title-hide>
         <h1>LSSM V.4: {{ $t('modules.releasenotes.name') }}</h1>
-        <div v-for="note in notes" :key="note.version" class="note">
+        <div v-for="note in notes" :key="note[0]" class="note">
             <h4>
-                <b>{{ note.version }}</b
-                >:
-                {{ note.title }}
+                <b
+                    ><a
+                        class="lightbox-open"
+                        target="_blank"
+                        :href="
+                            `https://github.com/LSS-Manager/LSSM-V.4/releases/tag/v.${note[0]}`
+                        "
+                        >{{ note[0] }}</a
+                    ></b
+                >
+                <sup class="badge message_new" v-if="last_seen < note[0]"
+                    >New!</sup
+                >
+                <small
+                    class="pull-right"
+                    :title="moment(note[1].timestamp).format('LLLL')"
+                    >{{ moment(note[1].timestamp).fromNow() }}</small
+                >
             </h4>
-            <div v-html="note.description"></div>
+            <div v-html="note[1].content"></div>
         </div>
     </lightbox>
 </template>
@@ -20,6 +35,7 @@ import {
     DefaultComputed,
 } from 'vue/types/options';
 import { ReleaseNoteProps } from 'typings/modules/Releasenotes';
+import moment from 'moment';
 
 export default Vue.extend<
     DefaultData<Vue>,
@@ -28,6 +44,11 @@ export default Vue.extend<
     ReleaseNoteProps
 >({
     name: 'releasenotes',
+    data() {
+        return {
+            moment,
+        };
+    },
     components: {
         Lightbox: () =>
             import(
@@ -39,6 +60,14 @@ export default Vue.extend<
             type: Array,
             required: true,
         },
+        last_seen: {
+            type: String,
+            required: false,
+            default: '4.0.0',
+        },
+    },
+    mounted() {
+        moment.locale(this.$store.state.lang);
     },
 });
 </script>

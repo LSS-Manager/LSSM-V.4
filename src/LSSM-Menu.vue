@@ -62,7 +62,7 @@
             </li>
             <li role="presentation">
                 <a class="lightbox-open" href="https://status.lss-manager.de/">
-                    Server Status
+                    LSSM-Server Status
                 </a>
             </li>
             <li role="presentation">
@@ -90,7 +90,6 @@ import lssmLogo from './img/lssm_logo';
 import LibraryOverview from './components/libraryOverview.vue';
 import Appstore from './components/appstore.vue';
 import Settings from './components/settings.vue';
-import { LSSM } from './core';
 import { mapState } from 'vuex';
 import {
     lssmMenuComputed,
@@ -133,6 +132,8 @@ export default Vue.extend<
     },
     methods: {
         showAppstore() {
+            // eslint-disable-next-line @typescript-eslint/no-this-alias
+            const LSSM = this;
             this.$modal.show(
                 Appstore,
                 {},
@@ -170,6 +171,8 @@ export default Vue.extend<
             );
         },
         showSettings() {
+            // eslint-disable-next-line @typescript-eslint/no-this-alias
+            const LSSM = this;
             LSSM.$modal.show(
                 Settings,
                 {},
@@ -227,7 +230,7 @@ export default Vue.extend<
                     },
                 });
             }
-            LSSM.$store.dispatch('settings/setSetting', {
+            this.$store.dispatch('settings/setSetting', {
                 moduleId: 'global',
                 settingId: 'iconBg',
                 value: this.iconBg,
