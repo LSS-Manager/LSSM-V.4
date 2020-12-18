@@ -66,8 +66,7 @@ export default {
     ...t,
     error: {
         title: 'LSS Manager: Błąd',
-        msg:
-            'Jeśli ten błąd występuje często, zgłoś go zespołowi LSSM!',
+        msg: 'Jeśli ten błąd występuje często, zgłoś go zespołowi LSSM!',
     },
     warnings: {
         version: {
@@ -177,7 +176,8 @@ export default {
             maxPersonnel: 1,
             wtank: 0,
             schooling: 'Szkoła Pożarnicza',
-            shownSchooling: 'Wymaga specjalnej edukacji (Ratownictwo chemiczne)',
+            shownSchooling:
+                'Wymaga specjalnej edukacji (Ratownictwo chemiczne)',
             special: 'Wymagane po zbudowaniu 11 remiz',
         },
         8: {
@@ -217,7 +217,8 @@ export default {
             maxPersonnel: 1,
             wtank: 0,
             schooling: 'Szkoła Pożarnicza',
-            shownSchooling: 'Wymaga specjalnej edukacji (Szkolenie w dowodzeniu)',
+            shownSchooling:
+                'Wymaga specjalnej edukacji (Szkolenie w dowodzeniu)',
             special: 'Wymagane po zbudowaniu 13 remiz',
         },
         12: {
@@ -283,7 +284,8 @@ export default {
             maxPersonnel: 1,
             wtank: 0,
             schooling: 'Akademia Policyjna',
-            shownSchooling: 'Wymaga specjalnej edukacji (Funkcjonariusz na motocyklu)',
+            shownSchooling:
+                'Wymaga specjalnej edukacji (Funkcjonariusz na motocyklu)',
         },
         18: {
             caption: 'SUV SPKP',
@@ -305,8 +307,10 @@ export default {
             minPersonnel: 2,
             maxPersonnel: 2,
             wtank: 0,
-            schooling: 'Akademia Służb Ratownictwa Medycznego, Szkoła Pożarnicza',
-            shownSchooling: 'Wymaga specjalnej edukacji (Szybkie ratownictwo wodne)',
+            schooling:
+                'Akademia Służb Ratownictwa Medycznego, Szkoła Pożarnicza',
+            shownSchooling:
+                'Wymaga specjalnej edukacji (Szybkie ratownictwo wodne)',
         },
         20: {
             caption: 'Quad',
@@ -316,8 +320,10 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 1,
             wtank: 0,
-            schooling: 'Akademia Służb Ratownictwa Medycznego, Szkoła Pożarnicza',
-            shownSchooling: 'Wymaga specjalnej edukacji (Szybkie ratownictwo wodne)',
+            schooling:
+                'Akademia Służb Ratownictwa Medycznego, Szkoła Pożarnicza',
+            shownSchooling:
+                'Wymaga specjalnej edukacji (Szybkie ratownictwo wodne)',
         },
         21: {
             caption: 'L.Ratownicza',
@@ -327,7 +333,8 @@ export default {
             minPersonnel: 0,
             maxPersonnel: 0,
             wtank: 0,
-            special: 'Potrzebna laweta (S.WOPR, Samochód SLRw, Samochód ratownictwa technicznego, SLOp, Ciężki samochód gaśniczy, Średni samochód gaśniczy, GBARt)',
+            special:
+                'Potrzebna laweta (S.WOPR, Samochód SLRw, Samochód ratownictwa technicznego, SLOp, Ciężki samochód gaśniczy, Średni samochód gaśniczy, GBARt)',
         },
         22: {
             caption: 'Ponton',
@@ -337,7 +344,8 @@ export default {
             minPersonnel: 0,
             maxPersonnel: 0,
             wtank: 0,
-            special: 'Potrzebna laweta (S.WOPR, Quad, Samochód ratownictwa technicznego, SLOp, Ciężki samochód gaśniczy, Średni samochód gaśniczy, GBARt)',
+            special:
+                'Potrzebna laweta (S.WOPR, Quad, Samochód ratownictwa technicznego, SLOp, Ciężki samochód gaśniczy, Średni samochód gaśniczy, GBARt)',
         },
         23: {
             caption: 'Skuter',
@@ -347,7 +355,8 @@ export default {
             minPersonnel: 0,
             maxPersonnel: 0,
             wtank: 0,
-            special: 'Potrzebna laweta (S.WOPR, Quad, Samochód ratownictwa technicznego, SLOp, Ciężki samochód gaśniczy, Średni samochód gaśniczy, GBARt)',
+            special:
+                'Potrzebna laweta (S.WOPR, Quad, Samochód ratownictwa technicznego, SLOp, Ciężki samochód gaśniczy, Średni samochód gaśniczy, GBARt)',
         },
         24: {
             caption: 'Samochód SLRw',
@@ -357,7 +366,8 @@ export default {
             minPersonnel: 2,
             maxPersonnel: 2,
             wtank: 0,
-            schooling: 'Akademia Służb Ratownictwa Medycznego, Szkoła Pożarnicza',
+            schooling:
+                'Akademia Służb Ratownictwa Medycznego, Szkoła Pożarnicza',
             shownSchooling: 'Wymaga specjalnej edukacji (Kurs Nurka MSWiA)',
         },
         25: {
@@ -377,7 +387,8 @@ export default {
             minPersonnel: 0,
             maxPersonnel: 0,
             wtank: 0,
-            special: 'Potrzebna laweta (S.WOPR, Quad, Samochód ratownictwa technicznego, SLOp, Ciężki samochód gaśniczy, Średni samochód gaśniczy, GBARt)',
+            special:
+                'Potrzebna laweta (S.WOPR, Quad, Samochód ratownictwa technicznego, SLOp, Ciężki samochód gaśniczy, Średni samochód gaśniczy, GBARt)',
         },
         27: {
             caption: 'SRWys',
@@ -388,7 +399,8 @@ export default {
             maxPersonnel: 3,
             wtank: 0,
             schooling: 'Szkoła Pożarnicza',
-            shownSchooling: 'Wymaga specjalnej edukacji (Ratownictwo Wysokościowe)',
+            shownSchooling:
+                'Wymaga specjalnej edukacji (Ratownictwo Wysokościowe)',
             special: 'Wymagane po zbudowaniu 12 remiz',
         },
         28: {
@@ -448,7 +460,12 @@ export default {
             special:
                 'Przy posiadaniu powyżej 24 budynków straży pożarnej koszt budowy wzrasta według wzoru:<code>100.000+200.000*LOG<sub>2</sub>(Liczba istniejących straży pożarnej â’ 22)</code>. Cena za Monety pozostaje bez zmian!',
             startPersonnel: 10,
-            startVehicles: ['Ciężki samochód gaśniczy', 'Średni samochód gaśniczy', 'GBARt', 'GLBA'],
+            startVehicles: [
+                'Ciężki samochód gaśniczy',
+                'Średni samochód gaśniczy',
+                'GBARt',
+                'GLBA',
+            ],
             maxBuildingsFunction: (): number => 4_400,
         },
         1: {
@@ -466,7 +483,7 @@ export default {
             maxBuildings: 'Bez limitu',
             maxLevel: 0,
             special:
-                "Administratorzy Finansów sojuszu mogą rozbudować szkołę z finansów sojuszu. Administratorzy Edukacji mogą rozpoczynać szkolenia",
+                'Administratorzy Finansów sojuszu mogą rozbudować szkołę z finansów sojuszu. Administratorzy Edukacji mogą rozpoczynać szkolenia',
             startPersonnel: 0,
             startVehicles: [],
         },
@@ -500,7 +517,7 @@ export default {
             maxBuildings: 'Bez limitu',
             maxLevel: 0,
             special:
-                "Administratorzy Finansów sojuszu mogą rozbudować szkołę z finansów sojuszu. Administratorzy Edukacji mogą rozpoczynać szkolenia",
+                'Administratorzy Finansów sojuszu mogą rozbudować szkołę z finansów sojuszu. Administratorzy Edukacji mogą rozpoczynać szkolenia',
             startPersonnel: 0,
             startVehicles: [],
         },
@@ -626,7 +643,8 @@ export default {
             credits: 0,
             extensions: [],
             levelcost: [],
-            maxBuildings: 'Maksymalnie 1 na 25 pozostałych zbudowanych budynków',
+            maxBuildings:
+                'Maksymalnie 1 na 25 pozostałych zbudowanych budynków',
             maxLevel: 0,
             special: 'The control center is the administrative center.',
             startPersonnel: 0,
@@ -693,14 +711,11 @@ export default {
             coins: 35,
             credits: 150_000,
             extensions: [],
-            levelcost: [
-                '1. 10.000',
-                '2. 50.000',
-                '3.-5. 100.000',
-            ],
+            levelcost: ['1. 10.000', '2. 50.000', '3.-5. 100.000'],
             maxBuildings: 'Bez limitu',
             maxLevel: 5,
-            special: 'Żeby stacja poprawnie funkcjonowała potrzebujemy do każdej łodzi pojazdu które posłuży jako laweta do holowania łodzi.',
+            special:
+                'Żeby stacja poprawnie funkcjonowała potrzebujemy do każdej łodzi pojazdu które posłuży jako laweta do holowania łodzi.',
             startPersonnel: 10,
             startVehicles: ['S.WOPR'],
         },
@@ -747,7 +762,12 @@ export default {
             special:
                 'Przy posiadaniu powyżej 24 budynków straży pożarnej koszt budowy wzrasta według wzoru:<code>100.000+200.000*LOG<sub>2</sub>(Liczba istniejących straży pożarnej â’ 22)</code>, max 1 milion kredytów. Cena za Monety pozostaje bez zmian!',
             startPersonnel: 10,
-            startVehicles: ['Ciężki samochód gaśniczy', 'Średni samochód gaśniczy', 'GBARt', 'GLBA'],
+            startVehicles: [
+                'Ciężki samochód gaśniczy',
+                'Średni samochód gaśniczy',
+                'GBARt',
+                'GLBA',
+            ],
             maxBuildingsFunction: (): number => 4_400,
         },
         19: {
@@ -930,7 +950,6 @@ export default {
                 caption: 'Szkolenie WRD',
                 duration: '3 Dni',
             },
-
         ],
         'Ratownictwo': [
             {
