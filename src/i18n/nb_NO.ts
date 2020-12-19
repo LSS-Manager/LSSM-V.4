@@ -335,7 +335,7 @@ export default {
             shownSchooling: 'Legevaktslege',
             minPersonnel: 1,
             maxPersonnel: 1,
-            special: 'Krever spesialistutdanning (Legevaktslege)'
+            special: 'Krever spesialistutdanning (Legevaktslege)',
         },
         25: {
             caption: 'Innsatslederbil helse',
@@ -344,8 +344,8 @@ export default {
             credits: 25_000,
             minPersonnel: 1,
             maxPersonnel: 1,
-            special: 'Nødvendig etter at du har bygd 10 redningsstasjoner'
-        }
+            special: 'Nødvendig etter at du har bygd 10 redningsstasjoner',
+        },
     },
     buildings: {
         0: {
