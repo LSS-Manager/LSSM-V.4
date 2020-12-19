@@ -32,6 +32,8 @@
 </template>
 
 <script lang="ts">
+// TODO: Remove eslint disable no-console ^^
+/* eslint-disable no-console */
 import Vue from 'vue';
 import { faTerminal } from '@fortawesome/free-solid-svg-icons/faTerminal';
 import { Parser, Grammar } from 'nearley';
