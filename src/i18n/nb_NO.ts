@@ -358,8 +358,6 @@ export default {
             maxPersonnel: 1,
             special: 'Nødvendig etter at du har bygd 10 redningsstasjoner'
         }
-            special: 'Nødvendig etter at du har bygd 10 redningsstasjoner',
-        },
     },
     buildings: {
         0: {
