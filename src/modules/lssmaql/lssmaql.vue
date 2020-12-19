@@ -41,6 +41,7 @@ import { Parser, Grammar } from 'nearley';
 // @ts-ignore
 import lssmaqlGrammar from '../../../lssmaql/specs/grammar.ne';
 import cloneDeep from 'lodash/cloneDeep';
+import isEqual from 'lodash/isEqual';
 import {
     LSSMAQL,
     LSSMAQLMethods,
@@ -176,6 +177,66 @@ const apply_filter = (
                         rightSide[0].includes(leftSide[0])
                             ? null
                             : result,
+                        false,
+                    ];
+            case '=':
+                if (rightSide[1] && leftSide[1])
+                    return [
+                        (result[0] as LSSMAQLResult[]).filter((_, index) =>
+                            isEqual(rightSide[0][index], leftSide[0][index])
+                        ) ?? [],
+                        true,
+                    ];
+                else if (rightSide[1])
+                    return [
+                        (result[0] as LSSMAQLResult[]).filter((_, index) =>
+                            isEqual(rightSide[0][index], leftSide[0])
+                        ) ?? [],
+                        true,
+                    ];
+                else if (leftSide[1])
+                    return [
+                        (result[0] as LSSMAQLResult[]).filter((_, index) =>
+                            isEqual(rightSide[0], leftSide[0][index])
+                        ) ?? [],
+                        true,
+                    ];
+                else
+                    return [
+                        rightSide[0] === leftSide[0] ? rightSide[0] : null,
+                        false,
+                    ];
+            case '!=':
+                if (rightSide[1] && leftSide[1])
+                    return [
+                        (result[0] as LSSMAQLResult[]).filter(
+                            (_, index) =>
+                                !isEqual(
+                                    rightSide[0][index],
+                                    leftSide[0][index]
+                                )
+                        ) ?? [],
+                        true,
+                    ];
+                else if (rightSide[1])
+                    return [
+                        (result[0] as LSSMAQLResult[]).filter(
+                            (_, index) =>
+                                !isEqual(rightSide[0][index], leftSide[0])
+                        ) ?? [],
+                        true,
+                    ];
+                else if (leftSide[1])
+                    return [
+                        (result[0] as LSSMAQLResult[]).filter(
+                            (_, index) =>
+                                !isEqual(rightSide[0], leftSide[0][index])
+                        ) ?? [],
+                        true,
+                    ];
+                else
+                    return [
+                        rightSide[0] !== leftSide[0] ? rightSide[0] : null,
                         false,
                     ];
         }
