@@ -331,10 +331,10 @@ export default {
             color: '#9c1c1c',
             coins: 20,
             credits: 4_000,
-            schooling: 'Redning - Legevaktslege',
-            shownSchooling: 'Legevaktslege',
             minPersonnel: 1,
             maxPersonnel: 1,
+            schooling: 'Redning - Legevaktslege',
+            shownSchooling: 'Legevaktslege',
             special: 'Krever spesialistutdanning (Legevaktslege)',
         },
         25: {
