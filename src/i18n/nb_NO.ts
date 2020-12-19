@@ -327,7 +327,6 @@ export default {
             shownSchooling: 'Våpentrening',
         },
         24: {
-<<<<<<< HEAD
             caption: "Legebil", 1],
             color: '#9c1c1c',
             coins: 20,
@@ -341,7 +340,6 @@ export default {
         25: {
             caption: "Innsatslederbil helse", 1],
             color: '#9c1c1c',
-=======
             caption: 'Legebil',
             color: '#b89d14',
             coins: 20,
@@ -354,18 +352,14 @@ export default {
         25: {
             caption: 'Innsatslederbil helse',
             color: '#997122',
->>>>>>> 5d3cd718854950b1ea1a8e102ee07bbc188b255c
             coins: 25,
             credits: 25_000,
             minPersonnel: 1,
             maxPersonnel: 1,
-<<<<<<< HEAD
             special: 'Nødvendig etter at du har bygd 10 redningsstasjoner'
         }
-=======
             special: 'Nødvendig etter at du har bygd 10 redningsstasjoner',
         },
->>>>>>> 5d3cd718854950b1ea1a8e102ee07bbc188b255c
     },
     buildings: {
         0: {
