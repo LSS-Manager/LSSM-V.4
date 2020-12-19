@@ -8,6 +8,7 @@
 	},
 	"chart-summaries": {
 		"buildings": {
+			"columnchart": "Balkendiagramm verwenden",
 			"personal_count": "Personal",
 			"tip": "Klicke auf eine der Kategorien (z.B. Feuerwehr oder Polizei), um die dieser Kategorie zugeordneten Gebäudetypen vergrößert dargzustellen. Klickst du anschließend auf einen Gebäudetyp, kannst du sehen, wie viele Fahrzeuge der einzelnen Fahrzeugtypen an den Gebäuden dieses Typs stehen. Somit kannst du z.B. schnell herausfinden, wie viele FuStW an Polizeiwachen und wie viele an Polizei-Kleinwachen stehen.",
 			"title": "Gebäude"

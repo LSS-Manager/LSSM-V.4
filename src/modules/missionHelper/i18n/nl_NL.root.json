@@ -1,6 +1,13 @@
 {
 	"description": "Krijg alle belangrijke info direct in je meldingenscherm",
 	"name": "Inzethelper",
+	"noVehicleRequirements": {
+		"average_min_fire_personnel": {
+			"badge": false,
+			"in": "additional",
+			"text": "Gemiddeld minimaal aantal brandweerpersoneel"
+		}
+	},
 	"settings": {
 		"bike_police_only_if_needed": {
 			"description": "Geeft aan wanneer biketeams alleen nodig zijn als je ze hebt.",
@@ -40,10 +47,6 @@
 			"description": "Toont het ID van de inzet naast de naam",
 			"title": "Inzet ID"
 		},
-		"minified": {
-			"description": "",
-			"title": ""
-		},
 		"multifunctionals": {
 			"battalion_chief_vehicles": {
 				"description": "Trekt het aantal vereiste Hoofd Officieren van Dienst af van de Offieren van Dienst en verbergt de Officieren van Dienst als het aantal onder de 0 komt.",
@@ -53,6 +56,10 @@
 				"description": "Trekt het aantal vereiste Hondengeleiders af van de Noodhulpvoertuigen en verbergt de Noodhulpvoertuigen als het aantal onder de 0 komt.",
 				"title": "Noodhulpvoertuigen gemakkelijk beoordelen"
 			}
+		},
+		"noVehicleRequirements": {
+			"description": "Stel hier in welke bijzondere benodigdheden moeten worden getoond indien ze nodig zijn bij die inzet.",
+			"title": "Bijzondere benodigdheden"
 		},
 		"optionalAlternatives": {
 			"allow_arff_instead_of_lf": {
@@ -67,10 +74,6 @@
 				"description": "Geeft aan of een hulpverleningsvoertuig kan worden gebruikt als een tankautospuit",
 				"title": "Toon Hulpverleningsvoertuig als Tankautospuit"
 			}
-		},
-		"overlay": {
-			"description": "",
-			"title": ""
 		},
 		"patients": {
 			"content": {
@@ -130,15 +133,23 @@
 				"title": "Benoem OVD-G"
 			},
 			"sort": {
-				"amount": "Aantal Benodigde voertuigen",
+				"amount": "Aantal benodigde voertuigen",
 				"caption": "Naam van de vereiste",
 				"description": "Bepaal waarop de voertuigvereisten moeten worden gesorteerd.",
 				"percentage": "Waarschijnlijkheid",
 				"title": "De voertuigvereisten sorteren"
 			},
+			"sortDesc": {
+				"description": "Sorteer de voertuigen op een aflopende volgorde.",
+				"title": "Sorteer voertuigen aflopend"
+			},
 			"title": {
 				"description": "Toont de kop \"Voertuigen\" boven de voertuigvereisten",
 				"title": "Voertuigen (Titel)"
+			},
+			"xAfterNumber": {
+				"description": "Plaats een \"x\" achter het getal van het aantal benodigde voertuigen",
+				"title": "x achter aantal"
 			}
 		}
 	}

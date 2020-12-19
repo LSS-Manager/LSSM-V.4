@@ -1,7 +1,28 @@
 {
 	"description": "Lasse dir alle wichtigen Infos zum Einsatz direkt im Einsatzfenster anzeigen.",
 	"name": "Einsatzhelfer",
+	"noVehicleRequirements": {
+		"average_min_fire_personnel": {
+			"badge": false,
+			"in": "additional",
+			"text": "Feuerwehrleute ⌀ mind. benötigt"
+		},
+		"average_min_police_personnel": {
+			"badge": false,
+			"in": "additional",
+			"text": "Polizisten ⌀ mind. benötigt"
+		},
+		"water_needed": {
+			"badge": true,
+			"in": "requirements",
+			"text": "Wasserbedarf: {n} L."
+		}
+	},
 	"settings": {
+		"bucket_only_if_needed": {
+			"description": "Zeigt an, wenn der Außenlastbehälter nur gefordert wird, wenn vorhanden.",
+			"title": "Optionale Außenlastbehälter"
+		},
 		"chances": {
 			"100": {
 				"description": "Zeigt auch Wahrscheinlichkeiten von 100% an.",
@@ -53,6 +74,10 @@
 				"description": "Zieht die Zahl der benötigten TM 50 von den DLK ab und blendet DLK aus, falls die Anzahl unter 0 sinkt.",
 				"title": "DLK einfach werten"
 			}
+		},
+		"noVehicleRequirements": {
+			"description": "Lege hier fest, welche besonderen Anforderungen angezeigt werden sollen, falls vorhanden.",
+			"title": "Besondere Anforderungen"
 		},
 		"optionalAlternatives": {
 			"allow_arff_instead_of_lf": {
@@ -136,9 +161,17 @@
 				"percentage": "Wahrscheinlichkeit",
 				"title": "Sortierung der Fahrzeuganforderungen"
 			},
+			"sortDesc": {
+				"description": "Sortiert die Fahrzeuganforderungen in absteigender Reihenfolge.",
+				"title": "Fahrzeuge absteigend sortieren"
+			},
 			"title": {
 				"description": "Zeigt die Überschrift \"Fahrzeuge\" über den Fahrzeuganforderungen an.",
 				"title": "Fahrzeuge (Titel)"
+			},
+			"xAfterNumber": {
+				"description": "Packt ein x hinter die Anzahl wie oft das Fahrzeug benötigt wird.",
+				"title": "x nach Anzahl"
 			}
 		}
 	}

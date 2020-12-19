@@ -26,7 +26,6 @@ import notifications from './store/notifications';
 import broadcast from './store/broadcast';
 import modules from './registerModules';
 import { Modules } from '../typings/Module';
-import { LSSM } from './core';
 
 export default (Vue: VueConstructor): Store<RootState> => {
     Vue.use(Vuex);
@@ -44,7 +43,7 @@ export default (Vue: VueConstructor): Store<RootState> => {
             prefix: PREFIX,
             version: VERSION,
             mode: MODE,
-            lang: BUILD_LANG,
+            lang: window.I18n.locale,
             discord: config.discord,
             games: config.games,
             server: config.server,
@@ -121,9 +120,6 @@ export default (Vue: VueConstructor): Store<RootState> => {
                 document.head.appendChild(fa);
                 state.fontAwesome.inserted = true;
             },
-            setRegisteredState(state: RootState, isRegistered: boolean) {
-                state.isRegistered = isRegistered;
-            },
             addOSMBar(
                 state: RootState,
                 {
@@ -155,10 +151,10 @@ export default (Vue: VueConstructor): Store<RootState> => {
                 return res;
             },
             wiki: (state: RootState): string =>
-                `${config.server}docs/${state.lang}`,
+                `${config.server}docs/${state.lang}/`,
             moduleWiki: (_, getters: GetterTree<RootState, RootState>) => (
                 moduleId: keyof Modules
-            ): string => `${getters.wiki}/modules/${moduleId}.html`,
+            ): string => `${getters.wiki}modules/${moduleId}.html`,
             appModules: (state: RootState) =>
                 Object.fromEntries(
                     Object.entries(state.modules).filter(
@@ -167,8 +163,12 @@ export default (Vue: VueConstructor): Store<RootState> => {
                 ),
             modulesSorted(_, getters: GetterTree<RootState, RootState>) {
                 return Object.keys(getters.appModules).sort((a, b) => {
-                    a = LSSM.$t(`modules.${a}.name`).toString();
-                    b = LSSM.$t(`modules.${b}.name`).toString();
+                    a = (window[PREFIX] as Vue)
+                        .$t(`modules.${a}.name`)
+                        .toString();
+                    b = (window[PREFIX] as Vue)
+                        .$t(`modules.${b}.name`)
+                        .toString();
                     return a < b ? -1 : a > b ? 1 : 0;
                 });
             },
@@ -193,20 +193,20 @@ export default (Vue: VueConstructor): Store<RootState> => {
                     // @ts-ignore
                     trueBase[trueEvent] = (...args: unknown[]) => {
                         document.dispatchEvent(
-                            new CustomEvent(`lssm_${event}_before`, {
+                            new CustomEvent(`${PREFIX}_${event}_before`, {
                                 detail: args,
                             })
                         );
                         state.hooks[event](...args);
                         document.dispatchEvent(
-                            new CustomEvent(`lssm_${event}_after`, {
+                            new CustomEvent(`${PREFIX}_${event}_after`, {
                                 detail: args,
                             })
                         );
                     };
                 }
                 document.addEventListener(
-                    `lssm_${event}_${post ? 'after' : 'before'}`,
+                    `${PREFIX}_${event}_${post ? 'after' : 'before'}`,
                     event =>
                         callback(...((event as unknown) as LSSMEvent).detail)
                 );
@@ -241,7 +241,7 @@ export default (Vue: VueConstructor): Store<RootState> => {
                     // @ts-ignore
                     trueBase.__proto__[event] = (...args: unknown[]) => {
                         document.dispatchEvent(
-                            new CustomEvent(`lssm_${eventString}_before`, {
+                            new CustomEvent(`${PREFIX}_${eventString}_before`, {
                                 detail: args,
                             })
                         );
@@ -250,21 +250,21 @@ export default (Vue: VueConstructor): Store<RootState> => {
                             ...args
                         );
                         document.dispatchEvent(
-                            new CustomEvent(`lssm_${eventString}_after`, {
+                            new CustomEvent(`${PREFIX}_${eventString}_after`, {
                                 detail: args,
                             })
                         );
                     };
                 }
                 document.addEventListener(
-                    `lssm_${eventString}_${post ? 'after' : 'before'}`,
+                    `${PREFIX}_${eventString}_${post ? 'after' : 'before'}`,
                     event =>
                         callback(...((event as unknown) as LSSMEvent).detail)
                 );
             },
             loadModule({ state }: ActionStoreParams, module: keyof Modules) {
                 const script = document.createElement('script');
-                script.src = `${config.server}${BUILD_LANG}/modules/${module}/main.js?uid=${BUILD_LANG}-${window.user_id}&v=${state.version}`;
+                script.src = `${config.server}${state.lang}/modules/${module}/main.js?uid=${state.lang}-${window.user_id}&v=${state.version}`;
                 document.body.appendChild(script);
             },
             addMenuItem({ commit }: ActionStoreParams, text: string) {

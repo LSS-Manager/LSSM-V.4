@@ -11,11 +11,11 @@
 			"title": "Uhr als Overlay anzeigen"
 		},
 		"navFormat": {
-			"description": "Hier kannst du das Format der Uhr festlegen. Eine Hilfe hierzu findest du <a class=\"lightbox-open\" href=\"{wiki}/modules/clock.html#konfiguration\">hier</a>.",
+			"description": "Hier kannst du das Format der Uhr festlegen. Eine Hilfe hierzu findest du <a class=\"lightbox-open\" href=\"{wiki}modules/clock.html#konfiguration\">hier</a>.",
 			"title": "Format der Uhr in der Navigationsleiste"
 		},
 		"overlayFormat": {
-			"description": "Hier kannst du das Format der Uhr festlegen. Eine Hilfe hierzu findest du <a class=\"lightbox-open\" href=\"{wiki}/modules/clock.html#konfiguration\">hier</a>.",
+			"description": "Hier kannst du das Format der Uhr festlegen. Eine Hilfe hierzu findest du <a class=\"lightbox-open\" href=\"{wiki}modules/clock.html#konfiguration\">hier</a>.",
 			"title": "Format der Uhr als overlay"
 		}
 	}

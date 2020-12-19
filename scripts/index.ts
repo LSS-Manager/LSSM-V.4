@@ -1,23 +1,11 @@
 import { execSync } from 'child_process';
-import config from '../src/config';
 import sort from './sort';
-import fs from 'fs';
 
 const scripts = process.argv.splice(2);
 
 const build = (mode: string) => {
     console.time('games');
-    const games = [] as string[];
-    const builds = Object.keys(config.games).filter(game =>
-        fs.existsSync(`./src/i18n/${game}.ts`)
-    );
-    const games_rem = [...builds];
-    builds.map(game => {
-        console.log(execSync(`node build ${mode} ${game}`).toString());
-        games.push(game);
-        games_rem.shift();
-        console.log(`built ${games}, remaining ${games_rem}`);
-    });
+    console.log(execSync(`node build ${mode}`).toString());
     console.timeEnd('games');
 };
 
@@ -30,7 +18,7 @@ const scriptHandlers = {
         this.sort();
         console.log(
             execSync(
-                'eslint ./docs/.vuepress/ ./static/ ./prebuild/ ./build/ ./src/ ./scripts/ ./typings/ --ext .ts,.vue -f table --no-error-on-unmatched-pattern --fix'
+                'eslint ./docs/.vuepress/ ./static/ ./prebuild/ ./build/ ./src/ ./scripts/ ./typings/ --ext .js,.ts,.vue -f table --no-error-on-unmatched-pattern --fix'
             ).toString()
         );
     },

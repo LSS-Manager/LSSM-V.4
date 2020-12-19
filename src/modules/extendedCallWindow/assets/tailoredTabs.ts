@@ -3,7 +3,7 @@ import { $m } from 'typings/Module';
 
 export default (
     LSSM: Vue,
-    tabs: { name: string; vehicleTypes: number[] }[],
+    tabs: { name: string; vehicleTypes: (string | number)[] }[],
     stagingMode: boolean,
     $m: $m
 ): void => {
@@ -112,7 +112,7 @@ export default (
         };
     };
     const vehicleTypeMap = {} as {
-        [id: string]: number[];
+        [id: string]: string[];
     };
     tabs.forEach(({ name, vehicleTypes }) => {
         if (!tabList || !allTab || !occupiedTab || !panelWrapper) return;
@@ -191,8 +191,22 @@ export default (
 
         panels[tabId] = tabPane;
         tabBar[tabId] = { tablesorterId: `vehicle_show_table_${tabId}` };
-        vehicleTypeMap[tabId] = vehicleTypes;
+        vehicleTypeMap[tabId] = vehicleTypes.map(v => v.toString());
     });
+
+    if (stagingMode)
+        document
+            .getElementById('vehicle_show_table_body_all')
+            ?.addEventListener('change', ({ target }) => {
+                const checkbox = target as HTMLInputElement;
+                document
+                    .querySelectorAll<HTMLInputElement>(
+                        `.vehicle_checkbox[value="${checkbox.getAttribute(
+                            'value'
+                        )}"]`
+                    )
+                    .forEach(box => (box.checked = checkbox.checked));
+            });
 
     tabList.addEventListener('click', e => {
         if (!tabList || !allTab || !occupiedTab || !panelWrapper) return;
@@ -221,7 +235,7 @@ export default (
         )
             .filter(v =>
                 vehicleTypeMap[tab].includes(
-                    parseInt(v.getAttribute('vehicle_type_id') || '-1')
+                    v.getAttribute('vehicle_type_id') ?? ''
                 )
             )
             .map(v => v.parentElement)

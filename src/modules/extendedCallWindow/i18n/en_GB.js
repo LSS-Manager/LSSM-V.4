@@ -14,6 +14,12 @@ module.exports = {
     },
     arrHover: {
         reset: 'The vehicle selection is reset before!',
+        headers: {
+            set: 'Set',
+            attribute: 'Name',
+            free: 'Free',
+            max: 'Max',
+        },
         titles: {
             set: 'So often this combination is selected when you press the ARR',
             attribute: 'The combination described in this line',
@@ -50,14 +56,23 @@ module.exports = {
         missing: 'Missing on mission',
         driving: 'En-route',
         total: 'Still needed',
+        tip: {
+            dragging: 'drag window',
+            textMode: 'textmode on/off',
+            minified: 'collapse',
+            overlay: 'overlay',
+            reload: 'reload',
+            pushRight: 'show this box above vehicle list',
+            pushLeft: 'show this box at original position',
+        },
         selected: 'Selected',
         vehiclesByRequirement: {
-            [/^Fire engine(s)?$/]: [0, 1, 16, 17],
+            [/^Fire engine(s)?$/]: [0, 1, 16, 17, 26],
             [/^Aerial Appliance Trucks?$/]: [2, 17],
             [/^Fire Officer(s)?$/]: [3, 15],
             [/^Rescue Support Unit or Rescue Pump?$/]: [4, 16],
             [/^Breathing Apparatus Support Unit$/]: [14],
-            [/^Water Carrier(s)?$/]: [6],
+            [/^Water Carrier(s)?$/]: [6, 26],
             [/^Incident Command and Control Unit(s)?$/]: [15],
             [/^HazMat Unit(s)$/]: [7],
             [/^Ambulance(s)?$/]: [5],

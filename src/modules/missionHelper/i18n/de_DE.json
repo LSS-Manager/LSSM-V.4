@@ -3,9 +3,6 @@
 	"expansions": "Ausbreitung | Ausbreitungen",
 	"followups": "Folgeeinsatz | Folgeeinsätze",
 	"generated_by": "Generiert von",
-	"noVehicleRequirements": [
-		"water_needed"
-	],
 	"patients": {
 		"allow_ktw_instead_of_rtw": "Es kann ein KTW anstelle eines RTW genutzt werden.",
 		"helicopter": "Wahrscheinlichkeit für einen RTH",
@@ -30,7 +27,7 @@
 		"rescue_dog_units": "Rettungshundestaffel | Rettungshundestaffeln",
 		"rescue_stations": "Rettungswache | Rettungswachen",
 		"sek": "SEK-Zug | SEK-Züge",
-		"thw": "THW-Ortsverein | THW-Ortsvereine",
+		"thw": "THW-Ortsverband | THW-Ortsverbände",
 		"title": "Vorraussetzung | Vorraussetzungen",
 		"wasserrettung": "Wasserrettung | Wasserrettungen",
 		"werkfeuerwehr": "Werkfeuerwehr | Werkfeuerwehren"
@@ -39,8 +36,12 @@
 		"max_possible_prisoners": "Gefangener maximal | Gefangene maximal",
 		"title": "Gefangene | {n} Gefangener | {n} Gefangene"
 	},
-	"requirements": {
-		"water_needed": "Wasserbedarf (L)"
+	"tip": {
+		"dragging": "Feld verschieben",
+		"maxState": "Maximale Anforderungen (de-)aktivieren",
+		"minified": "Ein/Ausklappen",
+		"overlay": "Overlay",
+		"reload": "Reload"
 	},
 	"vehicles": {
 		"captions": {
@@ -48,6 +49,7 @@
 			"arff": "FLF",
 			"battalion_chief_vehicles": "ELW 1",
 			"boats": "Boot | Boote",
+			"bucket_only_if_needed": "Außenlastbehälter (allgemein) (nur wenn aktiver Ausbau vorhanden)",
 			"diver_units": "GW-Taucher oder Tauchkraftwagen",
 			"firetrucks": "Löschfahrzeug | Löschfahrzeuge",
 			"fukw": "FüKw",
@@ -62,6 +64,7 @@
 			"hazmat_vehicles": "GW-Gefahrgut",
 			"heavy_rescue_vehicles": "Rüstwagen",
 			"height_rescue_units": "GW-Höhenrettung",
+			"helicopter_bucket": "Außenlastbehälter (allgemein)",
 			"k9": "DHuFüKW",
 			"k9_only_if_needed": "DHuFüKW (nur wenn aktiver Ausbau vorhanden)",
 			"lebefkw": "leBefKw",

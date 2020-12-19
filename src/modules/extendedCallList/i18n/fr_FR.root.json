@@ -1,0 +1,10 @@
+{
+	"description": "Étend la liste des missions avec quelques fonctionnalités intéressantes!",
+	"name": "Liste de mission étendue",
+	"settings": {
+		"remainingTime": {
+			"description": "Montre pendant les missions combien de temps chaque mission est encore en cours.",
+			"title": "Temps de mission restant"
+		}
+	}
+}

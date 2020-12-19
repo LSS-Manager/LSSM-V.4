@@ -7,19 +7,27 @@ interface Additional {
     followup_missions_names?: {
         [id: number]: string;
     };
+    subsequent_missions_ids?: number[];
+    subsequent_missions_names?: {
+        [id: number]: string;
+    };
+    allow_drone_instead_of_investigation?: boolean;
     allow_rw_instead_of_lf?: boolean;
     only_alliance_mission?: boolean;
     max_possible_prisoners?: number;
     allow_arff_instead_of_lf?: boolean;
+    need_helicopter_bucket_only_if_present?: boolean;
 
     // Guard missions
-    duration?: string;
+    duration?: number;
+    duration_text?: string;
     guard_mission?: boolean;
 
     // Personnel
     average_min_police_personnel?: number;
     average_min_fire_personnel?: number;
     swat_personnel?: number;
+    height_rescue_personnel?: number;
     personnel_educations?: {
         // currently fr_FR only
         [education: string]: number;
@@ -35,6 +43,7 @@ interface Additional {
     patient_allow_first_responder_chance?: number;
     patient_uk_code_possible?: string[]; // en_GB only
     patient_us_code_possible?: string[]; // en_US only
+    patient_it_code_possible?: string[]; // it_IT only
 
     // General:
     [key: string]:
@@ -80,7 +89,7 @@ interface Chances {
     helicopter?: number; // de_DE: RTH
     patient_transport?: number;
     patient_other_treatment?: number; // de_DE: Tragehilfe
-    patient_critical_care?: number; // en_GB only
+    patient_critical_care?: number; // en_GB, nb_NO only
 
     // General:
     [key: string]: number | undefined;
@@ -134,6 +143,7 @@ interface Requirements {
     ambulances?: number; // de_DE: RTW oder KTW oder KTW-B
     gw_san?: number; // de_DE: GW-San
     police_helicopters?: number; // de_DE: Polizeihubschrauber
+    helicopter_bucket?: number; // de_DE: Aussenbehälter
     boats?: number; // de_DE: Boote
     diver_units?: number; // de_DE: Taucher
     wasserwerfer?: number; // de_DE: WaWe

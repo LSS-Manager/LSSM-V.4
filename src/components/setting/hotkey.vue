@@ -78,7 +78,6 @@ export default Vue.extend<Hotkey, HotkeyMethods, HotkeyComputed, HotkeyProps>({
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore
             this.combokeys.record((sequence: string[]) => {
-                console.log(this.name, sequence);
                 this.updateValue = sequence.join(' ');
             });
         },

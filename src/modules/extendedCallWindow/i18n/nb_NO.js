@@ -14,6 +14,12 @@ module.exports = {
     },
     arrHover: {
         reset: 'The vehicle selection is reset before!',
+        headers: {
+            set: 'Set',
+            attribute: 'Name',
+            free: 'Free',
+            max: 'Max',
+        },
         titles: {
             set: 'So often this combination is selected when you press the AAR',
             attribute: 'The combination described in this line',
@@ -32,8 +38,10 @@ module.exports = {
             hlf_only: 'Redningsbil',
             hlf_or_rw_and_lf: 'Redningsbil eller Tungredningsbil og Brannbil',
             gwa: 'Røykdykkerbil',
+            fly_car: 'Legebil',
             gwl2wasser: 'Tankbil',
             gwgefahrgut: 'CBRNe-enhet',
+            kdow_orgl: 'Innsatslederbil helse',
             fustw: 'Patruljebil',
             police_motorcycle: 'Politimotorsykkel',
             fustw_or_police_motorcycle: 'Patruljebil eller Politimotorsykkel',

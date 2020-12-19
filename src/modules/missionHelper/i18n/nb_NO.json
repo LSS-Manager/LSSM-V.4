@@ -3,9 +3,6 @@
 	"expansions": "Utvikling | Utviklinger",
 	"followups": "Follow-up Mission | Follow-up Missions",
 	"generated_by": "Generert av",
-	"noVehicleRequirements": [
-		"water_needed"
-	],
 	"patients": {
 		"allow_ktw_instead_of_rtw": "En syketransport kan bli brukt.",
 		"helicopter": "Sannsynlighet for Luftambulanse:",
@@ -44,12 +41,7 @@
 			"battalion_chief_vehicles": "Innsatsleder brann | Innsatsleder brann",
 			"boats": "Båt | Båter",
 			"brush_truck": "Skogbrannbil | Skogbrannbil",
-			"fbi": "FBI Unit | FBI Units",
-			"fbi_bomb": "FBI Bomb Technician Vehicle | FBI Bomb Technician Vehicles",
-			"fbi_drone": "FBI Surveillance Drone | FBI Surveillance Drones",
-			"fbi_investigation": "FBI Investigation Wagon | FBI Investigation Wagons",
-			"fbi_mcc": "FBI Mobile Command Center Vehicle | FBI Mobile Command Center Vehicles",
-			"fire_aviation": "Airborne Firefighting | Airborne Firefightings",
+			"diver_car": "Dykkerbil | Dykkerbiler",
 			"firetrucks": "Mannskapsbil | Mannskapsbiler",
 			"hazmat_vehicles": "CBRNe | CBRNe",
 			"heavy_rescue_vehicles": "Tungredningsbil | Tungredningsbil",
@@ -65,8 +57,8 @@
 			"sheriff": "Utrykningspolitibil | Utrykningspolitibiler",
 			"swat_armored_vehicle": "Delta kjøretøy | Delta kjøretøy",
 			"swat_suv": "Panstret kjøretøy | Pansdrede kjøretøy",
-			"water_tankers": "Tankbil | Tankbiler",
-			"traffic_car": "Utrykningspolitibil"
+			"traffic_car": "Utrykningspolitibil | Utrykningspolitibiler",
+			"water_tankers": "Tankbil | Tankbiler"
 		},
 		"multifunctionals": {
 			"battalion_chief_vehicles": {
@@ -75,7 +67,7 @@
 			},
 			"heavy_rescue_vehicles": {
 				"additional_text": "hvorav hvertfall {n} er redningsbiler.",
-				"reduce_from": "mannskapsbiler"
+				"reduce_from": "firetrucks"
 			}
 		},
 		"optional_alternatives": {
@@ -87,7 +79,7 @@
 			}
 		},
 		"patient_additionals": {
-			"10": "EMS-Chief"
+			"10": "Innsatslederbil helse"
 		},
 		"title": "Nødvendige kjøretøy"
 	}

@@ -20,7 +20,7 @@ export default (
         alarmBtn.prepend(iconEl);
     });
 
-    vehicleList.addEventListener('change', () => {
+    const calcIcons = () => {
         const vehicles = vehicleList.querySelectorAll(
             '.vehicle_checkbox:checked'
         );
@@ -44,5 +44,22 @@ export default (
                     )
             );
         });
-    });
+    };
+
+    vehicleList.addEventListener('change', calcIcons);
+
+    calcIcons();
+
+    LSSM.$store
+        .dispatch('hook', {
+            event: 'aaoClickHandler',
+            callback: calcIcons,
+        })
+        .then();
+    LSSM.$store
+        .dispatch('hook', {
+            event: 'vehicleGroupClickHandler',
+            callback: calcIcons,
+        })
+        .then();
 };

@@ -1,9 +1,13 @@
 {
-	"description": "Geeft datum en tijd weer in de chat i.p.v. alleen tijd.",
-	"name": "Chat datumweergave",
+	"description": "Voegt een aantal nuttige verbeteringen in de chat toe.",
+	"name": "Chat verbeteringen",
 	"settings": {
-		"format": {
-			"description": "Hier kunt u het formaat kiezen van uw keuze. Hulp kunt u <a class=\"lightbox-open\" href=\"{wiki}/modules/clock.html#configuratie\">hier</a> vinden.",
+		"chatTime": {
+			"description": "Verandert de tijdsnotatie in de chat. Je kan het formaat zelf aanpassen.",
+			"title": "Tijdnotatie in chat aanpassen"
+		},
+		"chatTimeFormat": {
+			"description": "Hier kunt u het formaat kiezen van uw keuze. Hulp kunt u <a class=\"lightbox-open\" href=\"{wiki}modules/clock.html#configuratie\">hier</a> vinden.",
 			"title": "Formaat van de datum en tijd"
 		}
 	}

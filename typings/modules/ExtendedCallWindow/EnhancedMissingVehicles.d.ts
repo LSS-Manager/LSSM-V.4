@@ -1,4 +1,5 @@
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import VueI18n from 'vue-i18n';
 
 export interface Requirement {
     missing: number;
@@ -14,6 +15,8 @@ export interface Requirement {
 export interface EnhancedMissingVehicles {
     faAngleDoubleUp: IconDefinition;
     faAngleDoubleDown: IconDefinition;
+    faAngleDoubleLeft: IconDefinition;
+    faAngleDoubleRight: IconDefinition;
     faArrowsAlt: IconDefinition;
     faCompressAlt: IconDefinition;
     faExpandAlt: IconDefinition;
@@ -26,6 +29,7 @@ export interface EnhancedMissingVehicles {
     overlay: boolean | undefined;
     minified: boolean | undefined;
     textMode: boolean | undefined;
+    pushedRight: boolean | undefined;
     drag: {
         active: boolean;
         top: number;
@@ -49,6 +53,12 @@ export interface EnhancedMissingVehiclesComputed {
 }
 
 export interface EnhancedMissingVehiclesMethods {
+    $m(
+        key: string,
+        args?: {
+            [key: string]: unknown;
+        }
+    ): VueI18n.TranslateResult;
     setSort(s: string): void;
     toggleOverlay(): void;
     toggleMinified(): void;
@@ -56,4 +66,5 @@ export interface EnhancedMissingVehiclesMethods {
     dragStart(e: MouseEvent): void;
     dragEnd(): void;
     dragging(e: MouseEvent): void;
+    toggleRight(): void;
 }

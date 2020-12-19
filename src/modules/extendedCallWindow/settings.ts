@@ -44,7 +44,7 @@ export default (async (_: string, LSSM: Vue, $m: $m) => {
     const missionNames = [] as string[];
     missions.forEach(({ id, name }) => {
         missionIds.push(id.toString());
-        missionNames.push(name);
+        missionNames.push(`${id}: ${name}`);
     });
 
     return {
@@ -75,6 +75,11 @@ export default (async (_: string, LSSM: Vue, $m: $m) => {
         arrCounter: <Toggle>{
             type: 'toggle',
             default: false,
+        },
+        arrCounterAsBadge: <Toggle>{
+            type: 'toggle',
+            default: false,
+            dependsOn: '.arrCounter',
         },
         arrClickHighlight: <Toggle>{
             type: 'toggle',
@@ -175,6 +180,22 @@ export default (async (_: string, LSSM: Vue, $m: $m) => {
                         type: 'color',
                     },
                 },
+                <AppendableListSetting<Toggle>>{
+                    name: 'autotextcolor',
+                    title: $m('settings.missionKeywords.autotextcolor'),
+                    size: 2,
+                    setting: {
+                        type: 'toggle',
+                    },
+                },
+                <AppendableListSetting<Color>>{
+                    name: 'textcolor',
+                    title: $m('settings.missionKeywords.textcolor'),
+                    size: 1,
+                    setting: {
+                        type: 'color',
+                    },
+                },
                 <PreviewElement>{
                     type: 'preview',
                     component: mkpreview,
@@ -203,6 +224,8 @@ export default (async (_: string, LSSM: Vue, $m: $m) => {
             defaultItem: {
                 keyword: '',
                 color: '#777777',
+                autotextcolor: true,
+                textcolor: '#ffffff',
                 prefix: false,
                 missions: [],
             },
@@ -263,6 +286,10 @@ export default (async (_: string, LSSM: Vue, $m: $m) => {
             default: false,
         },
         textMode: <Hidden>{
+            type: 'hidden',
+            default: false,
+        },
+        pushRight: <Hidden>{
             type: 'hidden',
             default: false,
         },

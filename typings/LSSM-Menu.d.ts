@@ -2,6 +2,7 @@ export interface lssmMenuData {
     id: string;
     menuId: string;
     iconBg: string | null;
+    iconBgAsNavBg: boolean;
     labelInMenu: boolean;
     lssmLogo: URL;
     discord: string;

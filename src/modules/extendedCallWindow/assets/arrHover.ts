@@ -55,7 +55,7 @@ export default (
         const specsHeadRow = specsHeader.insertRow();
         ['set', 'attribute', 'free', 'max'].forEach(title => {
             const titleEl = specsHeadRow.insertCell();
-            titleEl.textContent = title;
+            titleEl.textContent = $m(`arrHover.headers.${title}`).toString();
             titleEl.setAttribute(
                 'title',
                 $m(`arrHover.titles.${title}`).toString()

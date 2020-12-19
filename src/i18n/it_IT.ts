@@ -1,6 +1,5 @@
 // import { Building } from 'typings/Building';
 
-const moduleRootFiles = require.context('../', true, MODULE_ROOT_I18N_FILES);
 // Commented as dir ./it_IT does not exist currently
 // const furtherFiles = require.context('./it_IT/', true, /.*(\/index)?\.js(on)?/);
 const modules = {
@@ -20,18 +19,25 @@ const modules = {
     },
     settings: {
         name: 'Impostazioni',
-        save: 'Save',
+        save: 'Salva',
         discard: 'Annulla i Cambiamenti',
-        reset: 'Reset',
-        export: 'Export',
-        import: 'Import',
+        reset: 'Resetta',
+        export: 'Esporta',
+        import: 'Importa',
         resetWarning: {
             title: 'Resetta i cambiamenti',
             text:
                 'Vuoi davvero ripristinare le impostazioni ai valori predefiniti? Questo non può essere annullato!',
-            close: 'Cancel',
+            close: 'Annulla',
             total: 'All settings',
             module: 'Solo per questo modulo',
+        },
+        resetWarningSetting: {
+            title: 'Reset impostazioni',
+            text:
+                'Volete davvero ripristinare questa impostazione <b>{setting}</b> del modulo <b>{modul}</b> al suo valore di default?',
+            close: 'Annulla',
+            reset: 'Resetta',
         },
         closeWarning: {
             title: 'Cambiamenti non salvati',
@@ -40,14 +46,11 @@ const modules = {
             close: 'Chiudi messaggio',
         },
         changeList: {
-            true: 'On',
+            true: 'Su',
             false: 'Off',
         },
     },
 } as { [moduleId: string]: { [key: string]: unknown } };
-moduleRootFiles
-    .keys()
-    .forEach(key => (modules[key.split('/')[2]] = moduleRootFiles(key)));
 
 const t = {} as { [key: string]: unknown };
 
@@ -82,16 +85,29 @@ export default {
             description:
                 'Visualizza una semplice etichetta nella barra di navigazione al posto del logo LSSM',
         },
+        allowTelemetry: {
+            description:
+                'Controlla se LSS-Manager è autorizzato a inviare dati che ci aiutano nello sviluppo di questa estensione.',
+            title: 'Consenti telemetria',
+        },
+        iconBg: {
+            description: 'Cambia il colore di sfondo di LSSM-Icon!',
+            title: 'LSSM-Icon Colore di sfondo',
+        },
+        iconBgAsNavBg: {
+            description:
+                "Colora l'intera barra di navigazione con il colore di LSSM-Icon sfondo!",
+            title: 'colorare la barra di navigazione',
+        },
     },
     vehicles: {
         0: {
             caption: 'ABP',
-            color: '#00FFCC',
+            color: '#bf0a0a',
             coins: 25,
             credits: 5_000,
             minPersonnel: 1,
             maxPersonnel: 3,
-            wtank: 0,
         },
         1: {
             caption: 'AS',
@@ -100,7 +116,6 @@ export default {
             credits: 10_000,
             minPersonnel: 1,
             maxPersonnel: 3,
-            wtank: 0,
             special: 'Richiesto dopo aver costruito 3 caserme dei pompieri',
         },
         2: {
@@ -110,7 +125,6 @@ export default {
             credits: 10_000,
             minPersonnel: 1,
             maxPersonnel: 3,
-            wtank: 0,
             special: 'Richiesto dopo aver costruito 6 caserme dei pompieri',
         },
         3: {
@@ -120,17 +134,15 @@ export default {
             credits: 12_180,
             minPersonnel: 1,
             maxPersonnel: 4,
-            wtank: 0,
             special: 'Richiesto dopo aver costruito 4 caserme dei pompieri',
         },
         4: {
             caption: 'Ambulanza BLSD',
-            color: '#9c1c1c',
+            color: '#9c6d1c',
             coins: 25,
             credits: 5_000,
             minPersonnel: 2,
             maxPersonnel: 5,
-            wtank: 0,
         },
         5: {
             caption: 'KILO',
@@ -139,7 +151,6 @@ export default {
             credits: 17_300,
             minPersonnel: 1,
             maxPersonnel: 3,
-            wtank: 0,
             special: 'Richiesta dopo aver costruito 7 caserme dei pompieri',
         },
         6: {
@@ -149,28 +160,25 @@ export default {
             credits: 19_200,
             minPersonnel: 1,
             maxPersonnel: 6,
-            wtank: 0,
             special: 'Richiesto dopo aver costruito 11 caserme dei pompieri',
             schooling: 'Caserma dei vigili del fuoco - N.B.C.R.',
             shownSchooling: 'N.B.C.R.',
         },
         7: {
             caption: 'Volante',
-            color: '#8b1818',
+            color: '#2c8123',
             coins: 25,
             credits: 5_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            wtank: 0,
         },
         8: {
             caption: 'Elisoccorso',
-            color: '#e61919',
+            color: '#e69b19',
             coins: 30,
             credits: 300_000,
             minPersonnel: 1,
             maxPersonnel: 1,
-            wtank: 0,
         },
         9: {
             caption: 'APS',
@@ -179,7 +187,6 @@ export default {
             credits: 19_000,
             minPersonnel: 1,
             maxPersonnel: 6,
-            wtank: 0,
         },
         10: {
             caption: 'AF/ARIA',
@@ -188,7 +195,6 @@ export default {
             credits: 10_000,
             minPersonnel: 1,
             maxPersonnel: 3,
-            wtank: 0,
             special: 'Richiesto dopo aver cstruito 5 caserme dei pompieri.',
         },
         11: {
@@ -198,7 +204,6 @@ export default {
             credits: 20_000,
             minPersonnel: 1,
             maxPersonnel: 6,
-            wtank: 0,
             schooling:
                 'Caserma dei vigili del fuoco - Corso per funzionario (UCL)',
             shownSchooling: 'Comando mobile',
@@ -211,7 +216,6 @@ export default {
             credits: 18_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            wtank: 0,
             schooling:
                 'Caserma dei vigili del fuoco - Corso autista di Autogrù',
             shownSchooling: 'Autogrù',
@@ -219,12 +223,11 @@ export default {
         },
         13: {
             caption: 'Elicottero della Polizia',
-            color: '#ca1616',
+            color: '#227723',
             coins: 30,
             credits: 300_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            wtank: 0,
             schooling: 'Polizia - Reparto volo della polizia',
             shownSchooling: 'Reparto volo della polizia',
             special:
@@ -232,7 +235,7 @@ export default {
         },
         14: {
             caption: 'Furgone antisommossa',
-            color: '#a51212',
+            color: '#12a521',
             coins: 25,
             credits: 10_000,
             minPersonnel: 6,
@@ -243,47 +246,43 @@ export default {
         },
         15: {
             caption: 'Unità cinofila antidroga',
-            color: '#aa2222',
+            color: '#36aa22',
             coins: 25,
             credits: 7_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            wtank: 0,
             schooling: 'Polizia - Specializzazione unità cinoflia',
             shownSchooling: 'Specializzazione unità cinoflia',
             special: 'Richiesto dopo aver costruito 6 stazioni di polizia',
         },
         16: {
             caption: 'Moto della Polizia',
-            color: '#662222',
+            color: '#296622',
             coins: 18,
             credits: 2_500,
             minPersonnel: 1,
             maxPersonnel: 1,
-            wtank: 0,
             schooling: 'Polizia - Specializzazione motociclista',
             shownSchooling: 'Specializzazione motociclista',
         },
         17: {
             caption: 'UOPI SUV',
-            color: '#332222',
+            color: '#178813',
             coins: 23,
             credits: 7_000,
             minPersonnel: 2,
             maxPersonnel: 4,
-            wtank: 0,
             special: 'Richiesto dopo aver costruito 8 stazioni di polizia',
             schooling: 'Polizia - Specializzazione antisommossa/UOPI',
             shownSchooling: 'Specializzazione antisommossa/UOPI',
         },
         18: {
             caption: 'VLV',
-            color: '#681212',
+            color: '#685d12',
             coins: 25,
             credits: 20_000,
             minPersonnel: 2,
             maxPersonnel: 3,
-            wtank: 0,
             special: 'Richiesto dopo aver costruito 3 stazioni di soccorso ',
             schooling: 'Soccorso - Corso medico di emergenza',
             shownSchooling: 'Medico di emergenza',
@@ -340,13 +339,13 @@ export default {
                 },
             ],
             levelcost: ['1. 10.000', '2. 50.000', '3.-16. 100.000'],
-            maxBuildings: '4.000 together with small fire stations',
+            maxBuildings: '4.400 together with small fire stations',
             maxLevel: 16,
             special:
                 'Dalla 24° Caserma ,i costi aumentano con questa formula: <code>100.000+200.000*LOG<sub>2</sub>(Numero di caserme dei vigili del fuoco esistenti − 22)</code>. Il prezzo delle monete rimane costante!',
             startPersonnel: 10,
             startVehicles: ['ABP, APS'],
-            maxBuildingsFunction: (): number => 4_000,
+            maxBuildingsFunction: (): number => 4_400,
         },
         1: {
             caption: 'Scuola dei vigili del fuoco',
@@ -534,21 +533,27 @@ export default {
             coins: 35,
             credits: 100_000,
             extensions: [
-                ...new Array(10).fill({
-                    caption: 'Cella',
+                {
+                    caption: 'Cella della prigione',
+                    credits: 25_000,
+                    coins: 5,
+                    duration: '7 giorni',
+                },
+                ...new Array(9).fill({
+                    caption: 'Altra cella',
                     credits: 25_000,
                     coins: 5,
                     duration: '7 giorni',
                 }),
             ],
             levelcost: ['1. 10.000', '2. 50.000', '3.-16. 100.000'],
-            maxBuildings: '1.500comprese stazioni di polizia piccole',
+            maxBuildings: '1.700 comprese stazioni di polizia piccole',
             maxLevel: 16,
             special:
                 'Dalla 24° caserma i costi aumenteranno secondo la seguente formula: <code>100.000+200.000*LOG<sub>2</sub>(Number of existing police stations − 22)</code>. The Coins price remains constant!',
             startPersonnel: 2,
             startVehicles: ['Volante'],
-            maxBuildingsFunction: (): number => 1_500,
+            maxBuildingsFunction: (): number => 1_700,
         },
         7: {
             caption: 'Centrale operativa',
@@ -620,12 +625,20 @@ export default {
             caption: 'Carcere',
             coins: 'x',
             credits: 100_000,
-            extensions: new Array(10).fill({
-                caption: 'Cella',
-                credits: 25_000,
-                coins: 5,
-                duration: '7 giorni',
-            }),
+            extensions: [
+                {
+                    caption: 'Cella della prigione',
+                    credits: 25_000,
+                    coins: 5,
+                    duration: '7 giorni',
+                },
+                ...new Array(9).fill({
+                    caption: 'Altra cella',
+                    credits: 25_000,
+                    coins: 5,
+                    duration: '7 giorni',
+                }),
+            ],
             levelcost: [],
             maxBuildings: 'No limit',
             maxLevel: 0,
@@ -646,33 +659,46 @@ export default {
                 '3.-5. 100.000',
                 'Conversione a caserma grande ,il costo della caserma piccola',
             ],
-            maxBuildings: '4.000 together with fire stations',
+            maxBuildings: '4.400 together with fire stations',
             maxLevel: 5,
             special:
                 'A partire dalla 24° caserma i costi aumenteranno secondo la seguente formula: <code>(100.000+200.000*LOG<sub>2</sub>(Number of existing fire stations − 22)) / 2</code>. max. 1 Million Credits. The Coins price remains constant!',
             startPersonnel: 10,
             startVehicles: ['ABP', 'APS'],
-            maxBuildingsFunction: (): number => 4_000,
+            maxBuildingsFunction: (): number => 4_400,
         },
         19: {
             caption: 'Stazione di polizia (piccola)',
             color: '#116611',
             coins: 25,
             credits: 50_000,
-            extensions: [],
+            extensions: [
+                {
+                    caption: 'Cella della prigione',
+                    credits: 25_000,
+                    coins: 5,
+                    duration: '7 giorni',
+                },
+                ...new Array(1).fill({
+                    caption: 'Altra cella',
+                    credits: 25_000,
+                    coins: 5,
+                    duration: '7 giorni',
+                }),
+            ],
             levelcost: [
                 '1. 10.000',
                 '2. 50.000',
                 '3.-4. 100.000',
                 'Conversione a caserma grande ,il costo della caserma piccola',
             ],
-            maxBuildings: '1.500 insieme alle stazioni di polizia',
+            maxBuildings: '1.700 insieme alle stazioni di polizia',
             maxLevel: 4,
             special:
                 'A partire dalla 24° caserma i costi aumenteranno secondo la seguente formula:<code>(100.000+200.000*LOG<sub>2</sub>(Number of existing police stations − 22)) / 2</code>. The Coins price remains constant!',
             startPersonnel: 2,
             startVehicles: ['Volante'],
-            maxBuildingsFunction: (): number => 1_500,
+            maxBuildingsFunction: (): number => 1_700,
         },
         20: {
             caption: 'Stazione ambulanze (stazione piccola)',
@@ -694,7 +720,7 @@ export default {
         },
         21: {
             caption: 'Caserma della Finanza',
-            color: '#116612',
+            color: '#113a66',
             coins: 35,
             credits: 200_000,
             extensions: [],
@@ -710,7 +736,7 @@ export default {
             buildings: [0, 1, 18],
             color: '#ff2d2d',
         },
-        'Ambulanzia': {
+        'Soccorso': {
             buildings: [2, 3, 4, 5, 20],
             color: '#ffa500',
         },
@@ -732,7 +758,7 @@ export default {
             },
             color: '#ff2d2d',
         },
-        'Ambulanzia': {
+        'Soccorso': {
             vehicles: {
                 Ambulanza: [4, 20],
                 Elisoccorso: [8],
@@ -758,7 +784,7 @@ export default {
         6: 19,
     },
     vehicleBuildings: [0, 2, 5, 6, 13, 14, 18, 19, 20, 21],
-    cellBuildings: [6],
+    cellBuildings: [6, 19],
     cellExtensions: [
         '6_0',
         '6_1',
@@ -770,6 +796,8 @@ export default {
         '6_7',
         '6_8',
         '6_9',
+        '19_0',
+        '19_1',
     ],
     bedBuildings: [4],
     schoolBuildings: [1, 3, 8],
@@ -903,11 +931,13 @@ export default {
         'Officina meccanica',
         'Uscita autostradale',
         'Mercatino di Natale',
+        '',
         'Discoteca',
         'Stadio',
         'Azienda agricola',
         'Edificio adibito a uffici',
         'Piscina',
+        '',
         'Teatro',
         'Luna park',
         'Fiume',

@@ -1,6 +1,23 @@
 {
 	"description": "Få masse nyttig informasjon om et oppdrag, i oppdragsvinduet.",
 	"name": "Missionhelper",
+	"noVehicleRequirements": {
+		"average_min_fire_personnel": {
+			"badge": false,
+			"in": "additional",
+			"text": "Gjennomsnittlig min. Brannpersonell"
+		},
+		"average_min_police_personnel": {
+			"badge": false,
+			"in": "additional",
+			"text": "Gjennomsnittlig min. Politipersonell"
+		},
+		"swat_personnel": {
+			"badge": false,
+			"in": "additional",
+			"text": "Nødvendig politi med våpentrening"
+		}
+	},
 	"settings": {
 		"chances": {
 			"100": {
@@ -53,6 +70,10 @@
 				"description": "Trekker antall brannbiler fra Snorkelbiler og skjuler brannbiler hvis tallet faller under 0.",
 				"title": "Snorkelbil vs Stigebil"
 			}
+		},
+		"noVehicleRequirements": {
+			"description": "Set here which special requirements to show, if they exist for that mission.",
+			"title": "Special requirements"
 		},
 		"optionalAlternatives": {
 			"allow_arff_instead_of_lf": {
@@ -132,8 +153,8 @@
 				"title": "Vehicle requirements"
 			},
 			"patient_additionals": {
-				"description": "If there are currently more than 10 patients on site, EMS-Chief is automatically listed at the beginning of the vehicle requirements.",
-				"title": "Mention EMS-Chief extra"
+				"description": "Hvis det for tiden er mer enn 10 pasienter på stedet, blir Innsatslederbil helse automatisk oppført i begynnelsen av kjøretøyets krav.",
+				"title": "Nevn Innsatslederbil helse ekstra"
 			},
 			"sort": {
 				"amount": "Number of required vehicles",

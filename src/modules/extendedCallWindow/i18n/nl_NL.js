@@ -14,10 +14,16 @@ module.exports = {
     },
     arrHover: {
         reset: 'De voertuigselectie zal vooraf worden gereset!',
+        headers: {
+            set: 'Aantal',
+            attribute: 'Naam',
+            free: 'Vrij',
+            max: 'Max',
+        },
         titles: {
             set:
                 'Zo vaak wordt dit voertuigtype geselecteerd, als je op deze inzetvoorstel drukt',
-            attribute: 'Die Kombination, die in dieser Zeile beschrieben wird',
+            attribute: 'Het voertuigtype dat geselecteerd wordt',
             free: 'Zo vaak is dit voertuigtype beschikbaar',
             max:
                 'Zo vaak kan je dit inzetvoorstel selecteren, totdat dit voertuigtype niet meer beschikbaar is',
@@ -75,6 +81,15 @@ module.exports = {
         missing: 'Missende voertuigen',
         driving: 'Aanrijdend',
         total: 'Nog nodig',
+        tip: {
+            dragging: 'Verplaats venster',
+            textMode: 'Tekstmodus aan/uit',
+            minified: 'Inklappen',
+            overlay: 'Overlay',
+            reload: 'Herladen',
+            pushRight: 'Toon deze box boven de voertuigenlijst',
+            pushLeft: 'Toon deze box op de originele plek',
+        },
         selected: 'Geselecteerd',
         vehiclesByRequirement: {
             [/^Tankautospuit(en)?$/]: [0, 1, 6, 7, 8, 9, 12, 14, 15, 17, 50],
@@ -95,7 +110,7 @@ module.exports = {
             ],
             [/^Waterongevallenaanhanger(s)?$/]: [36],
             [/^Crashtender(s)?$/]: [41, 42, 43],
-            [/^AFO\/OSC$/]: [44],
+            [/^AFO\/OSC('s)?$/]: [44],
             [/^Voorlichter(s)?$/]: [56],
             [/^Noodhulpeenhe(id|den)$/]: [22, 25, 46, 47, 48, 59, 60],
             [/^Officier(en)? van Dienst - Politie$/]: [35],

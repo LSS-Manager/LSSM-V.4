@@ -1,0 +1,14 @@
+{
+	"description": "Rozšiřuje chat o některé skvělé funkce",
+	"name": "Rozšířený chat",
+	"settings": {
+		"chatTime": {
+			"description": "Upraví časové razítko na formát, který jste nastavili!",
+			"title": "Vlastní formát časového razítka"
+		},
+		"chatTimeFormat": {
+			"description": "Zde můžete zvolit formát datumu. Nápovědu naleznete <a class=\"lightbox-open\" href=\"{wiki}modules/clock.html#configuration\">zde</a>.",
+			"title": "Formát datumu a času"
+		}
+	}
+}

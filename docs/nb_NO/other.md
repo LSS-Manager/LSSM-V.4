@@ -9,7 +9,7 @@ sidebarDepth: 2
 on this page we would like to give you other information about the LSSM.
 
 ## Lisens
-[! [] (https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.eu.svg)] [license]
+[![](https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.eu.svg)][license]
 
 
 LSS Manager er lisensert under [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)][license].
@@ -17,12 +17,13 @@ LSS Manager er lisensert under [Creative Commons Attribution-NonCommercial-Share
 Vi har besluttet å bruke denne lisensen for å forhindre misbruk av koden vår for å bryte vilkårene for spillet.
 
 ## LSSM Teamet
-For tiden består LSS Manager av 3 utviklere og 6 ekstra støttespillere for <a :href="$themeConfig.variables.discord" target="_blank">Discord server</a>. On Discord er utviklerne våre selvfølgelig administrativt aktive!
+For tiden består LSS Manager av 4 utviklere og 6 ekstra støttespillere for <a :href="$themeConfig.variables.discord" target="_blank">Discord server</a>. On Discord er utviklerne våre selvfølgelig administrativt aktive!
 
 ### Utviklerne
-* Aisaka * [administrerende direktør, serveradministrator, seniorutvikler] *
-* Jan * [Seniorarkitekt og utvikler] *
-* Sanni * [Quality Check, Bugfixing, Junior Developer] *
+* Aisaka *[administrerende direktør, serveradministrator, seniorutvikler]*
+* Jan *[Seniorarkitekt og utvikler]*
+* Sanni *[Quality Check, Bugfixing, Junior Developer]*
+* Ron31 *[Bugfixer, Junior Developer]*
 
 ### Discord-teamet
 **Administrasjon**:
@@ -64,4 +65,4 @@ Tenk deg hvor lenge en feil i LSSM ville vare hvis ingen rapporterte det - vi vi
 ### Hver enkelt bruker
 Hver bruker gir oss alltid motivasjonen til å fortsette og utvide og forbedre LSSM mer og mer.
 
-[license]: https://creativecommons.org/licenses/by-nc-sa/4.0/deed.de
+[license]: https://creativecommons.org/licenses/by-nc-sa/4.0/deed.no

@@ -29,6 +29,10 @@
 			"description": "Zählt, wie oft bereits auf eine AAO oder einen Zug geklickt wurde. Alle Zähler können mittels des Knopfes unten rechts oder einer AAO mit Reset-Funktion zurückgesetzt werden.",
 			"title": "AAO-Zähler"
 		},
+		"arrCounterAsBadge": {
+			"description": "Zeigt den AAO-Zähler als kleinen roten Kreis neben der AAO an.",
+			"title": "AAO-Zähler als Badge"
+		},
 		"arrCounterResetSelection": {
 			"description": "Fügt unten rechts einen Knopf hinzu, um die bisherige Fahrzeugauswahl zurückzusetzen. Hinweis: Er setzt auch den AAO-Zähler und die Umrandungen, falls aktiviert, zurück!",
 			"title": "Fahrzeugauswahl zurücksetzen"
@@ -66,12 +70,14 @@
 			"title": "Fahrzeuge nachladen in Kopfleiste"
 		},
 		"missionKeywords": {
+			"autotextcolor": "automatische Schriftfarbe",
 			"color": "Hintergrundfarbe",
 			"description": "Lasse dir ein eigenes Stichwort neben dem Einsatznamen anzeigen",
 			"keyword": "Stichwort",
 			"missions": "Einsätze",
 			"prepend": "Vor dem Einsatznamen anzeigen",
 			"preview": "Vorschau",
+			"textcolor": "Schriftfarbe",
 			"title": "Einsatzstichworte"
 		},
 		"patientSummary": {
@@ -186,7 +192,8 @@
 				"vehicleTypes": [
 					32,
 					61,
-					95
+					95,
+					96
 				]
 			},
 			{

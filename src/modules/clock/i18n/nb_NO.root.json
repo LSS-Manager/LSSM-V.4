@@ -11,11 +11,11 @@
 			"title": "Vis klokke fremst"
 		},
 		"navFormat": {
-			"description": "Her kan du konfigurere formatet på klokken. Dersom du trenger hjelp, finner du det <a class=\"lightbox-open\" href=\"{wiki}/modules/clock.html#konfiguration\">her</a>.",
+			"description": "Her kan du konfigurere formatet på klokken. Dersom du trenger hjelp, finner du det <a class=\"lightbox-open\" href=\"{wiki}modules/clock.html#konfiguration\">her</a>.",
 			"title": "Klokkeformat i navigasjonslinjen"
 		},
 		"overlayFormat": {
-			"description": "Her kan du stille inn formatet på klokken. Dersom du trenger hjelp, finner du det <a class=\"lightbox-open\" href=\"{wiki}/modules/clock.html#konfiguration\">her</a>.",
+			"description": "Her kan du stille inn formatet på klokken. Dersom du trenger hjelp, finner du det <a class=\"lightbox-open\" href=\"{wiki}modules/clock.html#konfiguration\">her</a>.",
 			"title": "Klokkeformat som overlegg"
 		}
 	}

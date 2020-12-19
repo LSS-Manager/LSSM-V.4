@@ -3,11 +3,7 @@
 	"expansions": "Extension | Extensions",
 	"followups": "Mission à suivre | Missions à suivre",
 	"generated_by": "Généré par",
-	"noVehicleRequirements": [
-		"water_needed"
-	],
 	"patients": {
-		"allow_ktw_instead_of_rtw": "A BLS can be used instead of an ALS.",
 		"helicopter": "Probabilité de déclencher le Dragon",
 		"patient_allow_first_responder_chance": "First Responder Probability",
 		"patient_at_end_of_mission": "Le patient n'apparait qu'à la fin du traitement de la mission",
@@ -19,53 +15,56 @@
 		"title": "Patients | {n} Patient | {n} Patients"
 	},
 	"prerequisites": {
-		"brush_extension": "Extension feu de forêt | Extensions feu de forêt",
-		"federalpolice_stations": "Federal Police Station | Federal Police Stations",
-		"fire_aviation_count": "Firefighting Plane Station | Firefighting Plane Stations",
+		"brush_extension": "Expansion du secteur forestier | Expansion de la foresterie",
 		"fire_stations": "Caserne de pompier | Casernes de pompier",
 		"max_police_stations": "Postes de police max.",
 		"max_rescue_stations": "Postes de secours max.",
 		"police_helicopter_stations": "Poste d'hélicoptère de police | Postes d'hélicoptère de police",
 		"police_stations": "Poste de police | Postes de police",
-		"rescue_stations": "Ambulance Station | Ambulance Stations",
-		"title": "Condition | Conditions"
+		"rescue_helicopter_stations": "Base d'hélicoptère de secour | Bases d'hélicoptère de secours",
+		"rescue_stations": "Poste de secour | Postes de secours",
+		"title": "Condition | Conditions",
+		"wasserrettung": "Unité nautique"
 	},
 	"prisoners": {
 		"max_possible_prisoners": "Prisonniers max.",
 		"title": "Prisonnier | {n} Prisonnier | {n} Prisonniers"
 	},
 	"requirements": {
-		"water_needed": "Replissage en eau (galons)"
+		"water_needed": "Water demand (gal)"
+	},
+	"tip": {
+		"dragging": "glisser la fenêtre",
+		"maxState": "exigences maximales on/off",
+		"minified": "effondrement",
+		"overlay": "superposition",
+		"reload": "recharger"
 	},
 	"vehicles": {
 		"captions": {
 			"ambulances": "Ambulance | Ambulances",
 			"arff": "ARFF",
-			"battalion_chief_vehicles": "Battalion Chief Vehicle | Battalion Chief Vehicles",
+			"battalion_chief_vehicles": "Chefs de groupe",
 			"boats": "Bateau | Bateaux",
-			"brush_truck": "Wildland Fire Engine | Wildland Fire Engines",
-			"fbi": "FBI Unit | FBI Units",
-			"fbi_bomb": "FBI Bomb Technician Vehicle | FBI Bomb Technician Vehicles",
-			"fbi_drone": "FBI Surveillance Drone | FBI Surveillance Drones",
-			"fbi_investigation": "FBI Investigation Wagon | FBI Investigation Wagons",
-			"fbi_mcc": "FBI Mobile Command Center Vehicle | FBI Mobile Command Center Vehicles",
-			"fire_aviation": "Airborne Firefighting | Airborne Firefightings",
+			"brush_truck": "CCF",
+			"elw3": "VLHR",
 			"firetrucks": "Fourgon d'incendie | Fourgons d'incendie",
-			"hazmat_vehicles": "VIRT | VIRT",
-			"heavy_rescue_vehicles": "Heavy Rescue | Heavy Rescues",
+			"hazmat_vehicles": "véhicule risques technologiques | véhicule risques technologiques",
+			"heavy_rescue_vehicles": "Véhicule de secours routier | Véhicules de secours routier",
 			"helicopter": "Dragon",
 			"k9": "Unité cynophile",
-			"large_fire_boat": "Large Fireboat | Large Fireboats",
-			"large_rescue_boat": "Large Rescueboat | Large Rescueboats",
 			"mobile_air_vehicles": "VAR | VAR",
 			"mobile_command_vehicles": "VPC | VPC",
-			"platform_trucks": "MEA | MEA",
+			"platform_trucks": "Moyen Elévateur Aérien | Moyens Elévateurs Aériens",
 			"police_cars": "Véhicule de patrouille | Véhicules de patrouille",
-			"police_helicopters": "Choucas | Choucas",
+			"police_helicopters": "soutien aérien FAG",
+			"rth": "Hélicoptères de secours",
 			"sheriff": "Sheriff | Sherrifs",
 			"swat_armored_vehicle": "SWAT Armoured Vehicle | SWAT Armoured Vehicles",
 			"swat_suv": "SWAT SUV | SWAT SUVs",
-			"water_tankers": "Water Tanker | Water Tankers"
+			"thw_gkw": "VTU",
+			"water_rescue": "VPL",
+			"water_tankers": "Camion-citerne | Camions-citernes"
 		},
 		"multifunctionals": {
 			"battalion_chief_vehicles": {

@@ -1,8 +1,8 @@
 import moment from 'moment';
 
-moment.locale(BUILD_LANG);
-
 export default (LSSM: Vue, yellowBorder: number, redBorder: boolean): void => {
+    moment.locale(LSSM.$store.state.lang);
+
     LSSM.$store.commit('useFontAwesome');
 
     const generationDate = moment(
@@ -15,10 +15,9 @@ export default (LSSM: Vue, yellowBorder: number, redBorder: boolean): void => {
         '#mission_general_info > small'
     );
     if (!general_info) return;
-    general_info.textContent += ' | ';
 
     const generationDateNode = document.createElement('span');
-    generationDateNode.innerHTML = `<i class="fas fa-history"></i>&nbsp;${generationDate.fromNow()} (${generationDate.calendar()})`;
+    generationDateNode.innerHTML = `&nbsp;|&nbsp;<i class="fas fa-history"></i>&nbsp;${generationDate.fromNow()} (${generationDate.calendar()})`;
     document
         .querySelector('#mission_general_info > small')
         ?.append(generationDateNode);

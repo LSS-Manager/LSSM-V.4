@@ -292,12 +292,14 @@ export default Vue.extend<
                             if (v.schooling) {
                                 const [, school, schooling] = v.schooling.match(
                                     /^(.*?) - (.*?)$/
-                                );
-                                resolvedSchoolings[school]
-                                    .find(
-                                        ({ caption }) => caption === schooling
-                                    )
-                                    ?.required_for.push(v.caption);
+                                ) ?? [null, null, null];
+                                if (school && schooling)
+                                    resolvedSchoolings[school]
+                                        .find(
+                                            ({ caption }) =>
+                                                caption === schooling
+                                        )
+                                        ?.required_for.push(v.caption);
                             }
                             return v;
                         }))

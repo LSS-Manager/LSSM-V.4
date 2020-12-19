@@ -23,19 +23,23 @@
 			"title": "Kleur kader inzetvoorstellen"
 		},
 		"arrClickHighlightWidth": {
-			"description": "Stel hier in hoe breed (in Pixels) het kader om de inzetvoorstellen moet zijn.",
-			"title": "Breedte kader inzetvoorstellen "
+			"description": "Stel hier in hoe breed (in pixels) het kader om de inzetvoorstellen moet zijn.",
+			"title": "Breedte kader inzetvoorstellen"
 		},
 		"arrCounter": {
 			"description": "Telt hoe vaak er op een inzetvoorstel is geklikt. Alle tellers kunnen met de knop rechtsonder of met een inzetvoorstel met resetfunctie worden gereset.",
-			"title": "Inzetvoorstel-tellers"
+			"title": "Inzetvoorsteltellers"
+		},
+		"arrCounterAsBadge": {
+			"description": "Toont de inzetvoorstel-teller in een klein rood rondje naast het inzetvoorstel.",
+			"title": "Inzetvoorstelteller als badge"
 		},
 		"arrCounterResetSelection": {
-			"description": "Voegt rechtsonder een knop toe om de voertuig selectie te reseten. Let op: de inzetvoorstel-tellers en kaders worden ook gereset.",
+			"description": "Voegt rechtsonder een knop toe om de voertuig selectie te reseten. Let op: de inzetvoorsteltellers en -kaders worden ook gereset.",
 			"title": "Voertuigselectie reseten"
 		},
 		"arrMatchHighlight": {
-			"description": "Zet een grijsfilter over alle inzetvoorstellen waarin geen woord van de naam van de missie voorkomt.",
+			"description": "Zet een grijsfilter over alle inzetvoorstellen waarin geen woord van de naam van de inzet voorkomt.",
 			"title": "Niet passende inzetvoorstellen grijs"
 		},
 		"arrSpecs": {
@@ -66,22 +70,16 @@
 			"description": "Toont de knop \"Voertuigen laden\", indien beschikbaar, in de koptekst.",
 			"title": "Voertuigen laden knop in koptekst"
 		},
-		"minified": {
-			"description": "",
-			"title": ""
-		},
 		"missionKeywords": {
+			"autotextcolor": "Automatische tekstkleur",
 			"color": "Achtergrondkleur",
 			"description": "Laat je eigen trefwoord naast de meldingsnaam weergeven.",
 			"keyword": "Trefwoord",
 			"missions": "Meldingen",
 			"prepend": "Vóór de meldingsnaam weergeven",
 			"preview": "Voorvertoning",
+			"textcolor": "Tekstkleur",
 			"title": "Meldingstrefwoord"
-		},
-		"overlay": {
-			"description": "",
-			"title": ""
 		},
 		"patientSummary": {
 			"description": "Toont naast het aantal patiënten, welke reddingsvoertuigen ze nodig hebben.",
@@ -101,10 +99,6 @@
 			"name": "Naam",
 			"title": "Voertuigcategorieën",
 			"vehicles": "Voertuigtypen"
-		},
-		"textMode": {
-			"description": "",
-			"title": ""
 		},
 		"yellowBorder": {
 			"description": "De generatietijd krijgt een geel kader als de inzet ouder is dan een ingesteld aantal uren. Bij 0 is er geen kader.",

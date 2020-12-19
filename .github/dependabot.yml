@@ -4,11 +4,13 @@ updates:
     directory: "/" # Location of package manifests
     schedule:
       interval: "daily"
+      time: "03:00"
+      timezone: "Europe/Berlin"
     assignees:
-      - "KBOE2"
+      - "jxn-30"
     commit-message:
         prefix: "⬆️"
         include: "scope"
     reviewers:
-      - "KBOE2"
+      - "jxn-30"
     target-branch: "dev"

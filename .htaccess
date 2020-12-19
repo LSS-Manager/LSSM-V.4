@@ -1,5 +1,6 @@
 RewriteEngine On
-RewriteRule "^(((?!^static/)(?!^admin/).*\.(php|user\.js))|(missions/[a-z]{2}_[A-Z]{2}\.json))$" "./static/$0" [L]
+RewriteRule "^(((?!^static/)(?!^admin/).*\.(php|user\.js))|((missions|releasenotes)/[a-z]{2}_[A-Z]{2}\.json))$" "./static/$0" [L]
+RewriteRule "^.._../(.*)$" "$1" [L]
 
 DirectoryIndex "/docs/de_DE/index.html"
 

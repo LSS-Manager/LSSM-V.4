@@ -29,6 +29,10 @@
 			"description": "Compte le nombre de fois où une régulation a été séléctionnée. Les compteurs peuvent être remis à zéro en utilisant le bouton dans le coin en bas à droite ou une régulation qui remet à zéro.",
 			"title": "Compteur de régulations"
 		},
+		"arrCounterAsBadge": {
+			"description": "Affiche le compteur ARR sous la forme d'un petit badge sur chaque ARR",
+			"title": "Le compteur ARR comme insigne"
+		},
 		"arrCounterResetSelection": {
 			"description": "Ajoute un bouton pour remettre à zéro la séléction de véhicules. Attention : Cela remet aussi à zéro le compteur de régulations et la coloration des bordures si ces options ont été activées.",
 			"title": "Remise à zéro de la séléction de véhicules"
@@ -143,6 +147,15 @@
 				"vehicleTypes": [
 					16,
 					17
+				]
+			},
+			{
+				"name": "Feux de Forêt",
+				"vehicleTypes": [
+					21,
+					22,
+					23,
+					24
 				]
 			}
 		]

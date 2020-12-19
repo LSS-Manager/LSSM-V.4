@@ -24,6 +24,7 @@ export interface ChartSummary {
     vehiclesByBuilding: {
         [building: string]: Vehicle[];
     };
+    buildingsAsColumn: boolean;
 }
 
 export interface ChartSummaryMethods {
@@ -39,6 +40,8 @@ export interface ChartSummaryMethods {
             [key: string]: unknown;
         }
     ): VueI18n.TranslateResult;
+    changeBuildingChart(): void;
+    mountBuildingChart(): void;
 }
 
 export interface ChartSummaryComputed {

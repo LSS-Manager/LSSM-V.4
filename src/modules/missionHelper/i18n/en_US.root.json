@@ -1,6 +1,28 @@
 {
 	"description": "Get all important information about a mission, in the mission window.",
 	"name": "Missionhelper",
+	"noVehicleRequirements": {
+		"average_min_fire_personnel": {
+			"badge": false,
+			"in": "additional",
+			"text": "Firefighters needed minimum"
+		},
+		"average_min_police_personnel": {
+			"badge": false,
+			"in": "additional",
+			"text": "Police officers needed minimum in average"
+		},
+		"swat_personnel": {
+			"badge": false,
+			"in": "additional",
+			"text": "SWAT staff needed minimum in average"
+		},
+		"water_needed": {
+			"badge": true,
+			"in": "requirements",
+			"text": "Water: {n} gallon | Water: {n} gallons"
+		}
+	},
 	"settings": {
 		"chances": {
 			"100": {
@@ -17,11 +39,11 @@
 			"title": "Credits"
 		},
 		"expansions": {
-			"description": "Lists possible spread of this application.",
+			"description": "Lists possible spread of this mission.",
 			"title": "Spreads"
 		},
 		"followup": {
-			"description": "Lists possible follow-up uses for this application.",
+			"description": "Lists possible follow-up uses for this mission.",
 			"title": "Follow-up missions"
 		},
 		"generatedBy": {
@@ -50,10 +72,18 @@
 				"title": "Quint Simple Rate"
 			}
 		},
+		"noVehicleRequirements": {
+			"description": "Set here which special requirements to show, if they exist for that mission.",
+			"title": "Special requirements"
+		},
 		"optionalAlternatives": {
 			"allow_arff_instead_of_lf": {
 				"description": " Indicates, if instead of a firetruck arrfs are possible on site.",
 				"title": "Show if arrfs are allowed as firetrucks"
+			},
+			"allow_drone_instead_of_investigation": {
+				"description": "Shows whether an FBI Surveillance Drone can replace an FBI Investigation wagon",
+				"title": "Show drone can replace investigation"
 			},
 			"allow_ktw_instead_of_rtw": {
 				"description": "Shows whether a BLS can be used instead of an ALS.",
@@ -114,6 +144,10 @@
 				"title": "Prisoners (Title)"
 			}
 		},
+		"subsequent": {
+			"description": "Lists possible Subsequent missions on succes.",
+			"title": "Subsequent mission"
+		},
 		"title": {
 			"description": "Shows the mission name, e.g. \"Trashcan fire\" as title.",
 			"title": "mission name"
@@ -138,9 +172,17 @@
 				"percentage": "Probability",
 				"title": "Sorting the vehicle requirements"
 			},
+			"sortDesc": {
+				"description": "Sorts vehicle requirements in a descending order.",
+				"title": "Vehicles in descending Order"
+			},
 			"title": {
 				"description": "Displays the heading \"Vehicles\" above the vehicle requirements.",
 				"title": "Vehicles (Title)"
+			},
+			"xAfterNumber": {
+				"description": "Puts an x behind the amount of vehicles",
+				"title": "x behind amount"
 			}
 		}
 	}

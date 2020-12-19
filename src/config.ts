@@ -4,12 +4,12 @@ export default {
     admins: ['de_DE-205976', 'de_DE-675'],
     browser: {
         chrome: {
-            latest: 86,
+            latest: 87,
             supported: 84,
             download: 'https://chrome.com',
         },
         firefox: {
-            latest: 82,
+            latest: 83,
             supported: 79,
             download: 'https://firefox.com',
         },
@@ -24,7 +24,7 @@ export default {
             download: 'https://apple.com/safari/',
         },
         edge: {
-            latest: 86,
+            latest: 87,
             supported: 86,
             download: 'https://microsoft.com/edge',
         },

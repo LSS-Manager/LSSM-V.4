@@ -78,6 +78,21 @@ export default Vue.extend<
                 props.close();
         },
     },
+    mounted() {
+        this.$store
+            .dispatch('settings/getModule', 'global')
+            .then(({ iconBg, iconBgAsNavBg }) => {
+                if (iconBgAsNavBg) {
+                    this.$store.dispatch('addStyle', {
+                        selectorText:
+                            '.navbar-default, .navbar-default .dropdown-menu',
+                        style: {
+                            'background-color': iconBg,
+                        },
+                    });
+                }
+            });
+    },
 });
 </script>
 
@@ -124,10 +139,6 @@ body.dark
 
         &.leaflet-tooltip-right::before
             border-right-color: #505050
-
-    h1, h2, h3, h4, h5, h6
-        small
-            color: #444
 
     .bg-danger
         background-color: #a94442

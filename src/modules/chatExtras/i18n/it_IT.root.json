@@ -1,9 +1,13 @@
 {
-	"description": "Mostra la data e l'ora anziché solo l'ora",
-	"name": "Formato della data della chat",
+	"description": "Estende la chat con alcune caratteristiche interessanti",
+	"name": "Chat migliorata",
 	"settings": {
-		"format": {
-			"description": "Qui puoi scegliere il formato che preferisci. Puoi trovare aiuto <a class=\"lightbox-open\" href=\"{wiki}/modules/clock.html#configuration\">here</a>.",
+		"chatTime": {
+			"description": "Adatta il timestamp al formato che hai impostato!",
+			"title": "Formato timestamp proprio"
+		},
+		"chatTimeFormat": {
+			"description": "Qui puoi scegliere il formato che preferisci. Puoi trovare aiuto <a class=\"lightbox-open\" href=\"{wiki}modules/clock.html#configuration\">here</a>.",
 			"title": "Formato della data e dell'ora."
 		}
 	}

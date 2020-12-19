@@ -77,6 +77,9 @@ Aktuell geht das nicht, wir arbeiten aber daran, das einzubauen.
 ### Gibt es eine Möglichkeit, Einstellungen Account-gebunden zu speichern, um sie an einem anderen Gerät nicht importieren zu müssen?
 Derzeit bieten wir das nicht an, eine Implementierung dieses Features ist aber geplant.
 
+### Wo so seh ich ob die LSSM-Server grad online sind? 
+Am besten hier: [https://status.lss-manager.de/](https://status.lss-manager.de/)
+Oder im Uptime-Channel auf unserem <a :href="$themeConfig.variables.discord" target="_blank">Discord</a> 
 
 [support]: support.md
 [error]: error_report.md

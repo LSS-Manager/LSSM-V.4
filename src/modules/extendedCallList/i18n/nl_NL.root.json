@@ -1,0 +1,14 @@
+{
+	"description": "Breidt de meldingenlijst uit met leuke functies!",
+	"name": "Uitgebreide meldingenlijst",
+	"settings": {
+		"remainingTime": {
+			"description": "Toont bij inzetten hoe lang de melding nog duurt, voordat deze is afgerond.",
+			"title": "Resterende inzettijd"
+		},
+		"remainingTimeGreenOnly": {
+			"description": "Toont de resterende inzettijd alleen bij groene meldingen.",
+			"title": "Inzettijd alleen bij groene meldingen"
+		}
+	}
+}

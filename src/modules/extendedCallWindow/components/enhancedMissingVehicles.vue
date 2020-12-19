@@ -6,32 +6,54 @@
         :id="id"
     >
         <font-awesome-icon
-            class="pull-right"
+            class="pull-right hover-tip"
             :icon="textMode ? faTable : faParagraph"
             :fixed-width="true"
             @click="toggleTextMode"
         ></font-awesome-icon>
+        <div class="alert alert-info">
+            {{ $m('tip.textMode') }}
+        </div>
         <font-awesome-icon
-            class="pull-right"
+            class="pull-right hover-tip"
             :icon="minified ? faExpandAlt : faCompressAlt"
             :fixed-width="true"
             @click="toggleMinified"
         ></font-awesome-icon>
+        <div class="alert alert-info">
+            {{ $m('tip.minified') }}
+        </div>
         <font-awesome-icon
             v-show="overlay"
             :icon="faArrowsAlt"
-            class="pull-right dragging-field"
+            class="pull-right dragging-field hover-tip"
             :fixed-width="true"
             @mousedown="dragStart"
         ></font-awesome-icon>
+        <div class="alert alert-info">
+            {{ $m('tip.dragging') }}
+        </div>
         <font-awesome-icon
-            class="pull-right"
+            class="pull-right hover-tip"
             :icon="overlay ? faAngleDoubleDown : faAngleDoubleUp"
             :fixed-width="true"
             @click="toggleOverlay"
         ></font-awesome-icon>
+        <div class="alert alert-info">
+            {{ $m('tip.overlay') }}
+        </div>
+        <font-awesome-icon
+            class="pull-right hover-tip"
+            :icon="pushedRight ? faAngleDoubleLeft : faAngleDoubleRight"
+            :fixed-width="true"
+            @click="toggleRight"
+            v-if="!overlay"
+        ></font-awesome-icon>
+        <div class="alert alert-info" v-if="!overlay">
+            {{ $m(`tip.push${pushedRight ? 'Left' : 'Right'}`) }}
+        </div>
         <span v-if="!textMode">{{ extras }}</span>
-        <div class="row" v-if="!overlay && !textMode">
+        <div class="row" v-if="!overlay && !textMode && !pushedRight">
             <div class="col-md-6" id="lssm-missing-vehicles-left-col">
                 <enhanced-missing-vehicles-table
                     :missing-requirements="
@@ -62,7 +84,7 @@
                 ></enhanced-missing-vehicles-table>
             </div>
         </div>
-        <div class="row" v-else-if="overlay && !textMode">
+        <div class="row" v-else-if="(overlay || pushedRight) && !textMode">
             <div class="col-md-12">
                 <enhanced-missing-vehicles-table
                     :missing-requirements="missingRequirementsSorted"
@@ -89,6 +111,8 @@ import { faCompressAlt } from '@fortawesome/free-solid-svg-icons/faCompressAlt';
 import { faExpandAlt } from '@fortawesome/free-solid-svg-icons/faExpandAlt';
 import { faTable } from '@fortawesome/free-solid-svg-icons/faTable';
 import { faParagraph } from '@fortawesome/free-solid-svg-icons/faParagraph';
+import { faAngleDoubleLeft } from '@fortawesome/free-solid-svg-icons/faAngleDoubleLeft';
+import { faAngleDoubleRight } from '@fortawesome/free-solid-svg-icons/faAngleDoubleRight';
 import {
     EnhancedMissingVehicles,
     EnhancedMissingVehiclesComputed,
@@ -113,6 +137,8 @@ export default Vue.extend<
         return {
             faAngleDoubleUp,
             faAngleDoubleDown,
+            faAngleDoubleLeft,
+            faAngleDoubleRight,
             faArrowsAlt,
             faCompressAlt,
             faExpandAlt,
@@ -126,6 +152,7 @@ export default Vue.extend<
             overlay: undefined,
             minified: undefined,
             textMode: undefined,
+            pushedRight: undefined,
             drag: {
                 active: false,
                 top: 60,
@@ -175,6 +202,12 @@ export default Vue.extend<
         },
     },
     methods: {
+        $m(key, args) {
+            return this.$t(
+                `modules.extendedCallWindow.enhancedMissingVehicles.${key}`,
+                args
+            );
+        },
         setSort(s) {
             this.sortDir =
                 s === this.sort && this.sortDir === 'asc' ? 'desc' : 'asc';
@@ -236,6 +269,27 @@ export default Vue.extend<
             this.drag.top = current.y + this.drag.offset.y;
             this.drag.left = current.x + this.drag.offset.x;
         },
+        toggleRight() {
+            this.$store
+                .dispatch('settings/setSetting', {
+                    moduleId: 'extendedCallWindow',
+                    settingId: `pushRight`,
+                    value: !this.pushedRight,
+                })
+                .then(() => {
+                    this.pushedRight = !this.pushedRight;
+                    if (!this.pushedRight)
+                        document
+                            .querySelector(
+                                '.mission_header_info.row ~ div ~ .clearfix, .mission_header_info.row ~ .clearfix'
+                            )
+                            ?.after(this.$el);
+                    else
+                        document
+                            .getElementById('mission-form')
+                            ?.insertAdjacentElement('afterbegin', this.$el);
+                });
+        },
     },
     beforeMount() {
         this.$store
@@ -259,6 +313,13 @@ export default Vue.extend<
                 defaultValue: false,
             })
             .then(textMode => (this.textMode = textMode));
+        this.$store
+            .dispatch('settings/getSetting', {
+                moduleId: 'extendedCallWindow',
+                settingId: 'pushRight',
+                defaultValue: false,
+            })
+            .then(pushedRight => (this.pushedRight = pushedRight));
     },
     mounted() {
         const vehicleGroups = (this.$t(
@@ -278,7 +339,6 @@ export default Vue.extend<
         const vehicleList = document.getElementById('vehicle_show_table_all');
         if (!vehicleList) return;
         const amountObserver = new MutationObserver(() => {
-            console.log('selected');
             this.requirements.forEach(req => (req.selected = 0));
             vehicleList
                 .querySelectorAll<HTMLInputElement>('.vehicle_checkbox:checked')
@@ -291,7 +351,6 @@ export default Vue.extend<
                         const req = this.requirements.find(({ vehicle }) =>
                             vehicle.match(new RegExp(group))
                         );
-                        console.log(group, req);
                         if (req) this.$set(req, 'selected', req.selected + 1);
                     });
                 });
@@ -308,6 +367,18 @@ export default Vue.extend<
 </script>
 
 <style scoped lang="sass">
+.hover-tip
+  cursor: pointer
+
+  &:hover
+    &+ .alert
+      display: block
+
+  &+ .alert
+    display: none
+    position: absolute
+    z-index: 1
+
 .alert
 
     &:not(.overlay) #lssm-missing-vehicles-left-col

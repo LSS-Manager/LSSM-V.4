@@ -1,6 +1,6 @@
 {
 	"description": "Bestuur het spel met sneltoetsen op het toetsenbord, die je zelf kunt instellen.",
-	"name": "Hotkeys",
+	"name": "Sneltoetsen",
 	"settings": {
 		"nextElementKey": {
 			"description": "",
