@@ -308,6 +308,26 @@ export default {
             schooling: 'Politi - Våpentrening',
             shownSchooling: 'Våpentrening',
         },
+        24: {
+            caption: "Legebil", 1],
+            color: '#9c1c1c',
+            coins: 20,
+            credits: 4_000,
+            schooling: 'Redning - Legevaktslege',
+            shownSchooling: 'Legevaktslege',
+            minPersonnel: 1,
+            maxPersonnel: 1,
+            special: 'Krever spesialistutdanning (Legevaktslege)'
+        }
+        25: {
+            caption: "Innsatslederbil helse", 1],
+            color: '#9c1c1c',
+            coins: 25,
+            credits: 25_000,
+            minPersonnel: 1,
+            maxPersonnel: 1,
+            special: 'Nødvendig etter at du har bygd 10 redningsstasjoner'
+        }
     },
     buildings: {
         0: {
