@@ -148,7 +148,9 @@
                         "
                         :disabled="setting.isDisabled"
                         :hidden="setting.type === 'hidden'"
-                        :settingType="setting.type"
+                        :appendableListDisableable="
+                            !!settings[moduleId][settingId].disableable
+                        "
                         :appendableListEnabled="
                             setting.type === 'appendable-list'
                                 ? settings[moduleId][settingId].value.enabled

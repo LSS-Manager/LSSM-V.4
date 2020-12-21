@@ -94,6 +94,7 @@ export interface AppendableList extends SettingTemplate {
     listItem: (AppendableListSetting | PreviewElement)[];
     defaultItem: AppendableListItem;
     orderable?: boolean;
+    disableable?: boolean;
 }
 
 type SettingType =

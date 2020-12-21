@@ -7,6 +7,6 @@ export interface SettingProps {
     disabled: boolean;
     hidden: boolean;
     wide: boolean;
-    settingType: string;
+    appendableListDisableable: boolean;
     appendableListEnabled: boolean;
 }

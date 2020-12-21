@@ -99,7 +99,7 @@ export default {
                                 )
                                     settings[key].value = {
                                         value,
-                                        enabled: true,
+                                        enabled: !setting.disableable,
                                     };
                                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                                 // @ts-ignore

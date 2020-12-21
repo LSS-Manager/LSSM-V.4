@@ -5,7 +5,7 @@
             &nbsp;
             <toggle-button
                 labels
-                v-if="settingType === 'appendable-list'"
+                v-if="appendableListDisableable"
                 v-model="appendableListEnabledUpdate"
             ></toggle-button>
         </h4>
@@ -78,8 +78,8 @@ export default Vue.extend<
             required: false,
             default: false,
         },
-        settingType: {
-            type: String,
+        appendableListDisableable: {
+            type: Boolean,
             required: true,
         },
         appendableListEnabled: {
