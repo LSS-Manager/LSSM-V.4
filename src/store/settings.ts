@@ -149,11 +149,16 @@ export default {
             { moduleId, settingId, defaultValue = null }: SettingsGet
         ) {
             const setting = state.settings[moduleId]?.[settingId];
+            if (
+                setting?.type === 'appendable-list' &&
+                !setting.hasOwnProperty('value')
+            )
+                setting.value = { value: [], enabled: true };
             return (
                 (setting?.type === 'appendable-list'
                     ? {
                           enabled: setting?.value.enabled ?? true,
-                          value: setting?.value.value.map(v => ({
+                          value: (setting?.value.value ?? []).map(v => ({
                               ...setting.defaultItem,
                               ...v,
                           })),
