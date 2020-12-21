@@ -159,7 +159,7 @@ export default (async (_: string, LSSM: Vue, $m: $m) => {
                 vehicleTypes: [],
             },
             orderable: true,
-            disableable: false,
+            disableable: true,
         },
         missionKeywords: <Omit<AppendableList, 'value' | 'isDisabled'>>{
             type: 'appendable-list',
