@@ -18,6 +18,11 @@ export interface SettingsData {
 
 export interface SettingsMethods {
     update(moduleId?: string, settingId?: string): void;
+    updateAppendableList(
+        state: boolean,
+        moduleId: string,
+        settingId: string
+    ): void;
     save(): void;
     discard(): void;
     reset(): void;

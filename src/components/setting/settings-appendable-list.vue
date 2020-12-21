@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div :class="{ disabled: !enabled }">
         <div class="row" style="margin-left: 0px; margin-right: 0px;">
             <div class="col col-xs-11 row">
                 <div
@@ -210,6 +210,10 @@ export default Vue.extend<
             type: Boolean,
             required: true,
         },
+        enabled: {
+            type: Boolean,
+            required: true,
+        },
     },
     computed: {
         layout() {
@@ -322,4 +326,8 @@ export default Vue.extend<
     .appendable-list-flex
         justify-content: space-evenly
         align-items: center
+.disabled
+    pointer-events: none
+    cursor: not-allowed
+    opacity: 0.5
 </style>

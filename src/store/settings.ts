@@ -92,9 +92,18 @@ export default {
                     if (storage)
                         Object.entries(storage).forEach(([key, value]) => {
                             if (settings.hasOwnProperty(key)) {
+                                const setting = settings[key];
+                                if (
+                                    setting.type === 'appendable-list' &&
+                                    Array.isArray(value)
+                                )
+                                    settings[key].value = {
+                                        value,
+                                        enabled: true,
+                                    };
                                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                                 // @ts-ignore
-                                settings[key].value = value;
+                                else settings[key].value = value;
                             }
                         });
                     Object.values(settings).forEach(value => {
@@ -142,10 +151,13 @@ export default {
             const setting = state.settings[moduleId]?.[settingId];
             return (
                 (setting?.type === 'appendable-list'
-                    ? setting?.value.map(v => ({
-                          ...setting.defaultItem,
-                          ...v,
-                      }))
+                    ? {
+                          enabled: setting?.value.enabled ?? true,
+                          value: setting?.value.value.map(v => ({
+                              ...setting.defaultItem,
+                              ...v,
+                          })),
+                      }
                     : setting?.value) ??
                 setting?.default ??
                 (await dispatch('getModule', moduleId))[settingId] ??

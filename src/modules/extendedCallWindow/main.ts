@@ -1,5 +1,10 @@
 import { ModuleMainFunction } from 'typings/Module';
 
+interface AppendableListSetting<valueType> {
+    value: valueType;
+    enabled: boolean;
+}
+
 export default (async (LSSM, MODULE_ID, $m) => {
     const defaultTailoredTabs = Object.values(
         $m('tailoredTabs.defaultTabs')
@@ -73,22 +78,24 @@ export default (async (LSSM, MODULE_ID, $m) => {
             ).default(LSSM, getSetting, $m);
 
         const missionKeywordsSettings = await getSetting<
-            {
-                keyword: string;
-                color: string;
-                autotextcolor: boolean;
-                textcolor: string;
-                prefix: boolean;
-                missions: number[];
-            }[]
+            AppendableListSetting<
+                {
+                    keyword: string;
+                    color: string;
+                    autotextcolor: boolean;
+                    textcolor: string;
+                    prefix: boolean;
+                    missions: number[];
+                }[]
+            >
         >('missionKeywords');
 
-        if (missionKeywordsSettings.length)
+        if (missionKeywordsSettings.value.length)
             (
                 await import(
                     /* webpackChunkName: "modules/extendedCallWindow/missionKeywords" */ './assets/missionKeywords'
                 )
-            ).default(LSSM, missionKeywordsSettings);
+            ).default(LSSM, missionKeywordsSettings.value);
 
         if (await getSetting('arrMatchHighlight'))
             (
@@ -104,18 +111,20 @@ export default (async (LSSM, MODULE_ID, $m) => {
             ).default(LSSM);
 
         const alarmIconsSettings = await getSetting<
-            {
-                icon: string;
-                type: 'fas' | 'far' | 'fab';
-                vehicleTypes: (number | string)[];
-            }[]
+            AppendableListSetting<
+                {
+                    icon: string;
+                    type: 'fas' | 'far' | 'fab';
+                    vehicleTypes: (number | string)[];
+                }[]
+            >
         >('alarmIcons');
-        if (alarmIconsSettings.length)
+        if (alarmIconsSettings.value.length)
             (
                 await import(
                     /* webpackChunkName: "modules/extendedCallWindow/alarmIcons" */ './assets/alarmIcons'
                 )
-            ).default(LSSM, alarmIconsSettings);
+            ).default(LSSM, alarmIconsSettings.value);
 
         const arrSpecs = await getSetting('arrSpecs');
         const arrTime = await getSetting('arrTime');
@@ -150,20 +159,20 @@ export default (async (LSSM, MODULE_ID, $m) => {
             ).default(LSSM);
     }
 
-    const tailoredTabSettings = await getSetting<typeof defaultTailoredTabs>(
-        'tailoredTabs'
-    );
+    const tailoredTabSettings = await getSetting<
+        AppendableListSetting<typeof defaultTailoredTabs>
+    >('tailoredTabs');
     if (
-        !(
-            await import(
-                /* webpackChunkName: "node_modules/lodash/isEqual" */ 'lodash/isEqual'
-            )
-        ).default(tailoredTabSettings, defaultTailoredTabs) ||
+        (tailoredTabSettings.enabled &&
+            !(await import('lodash/isEqual')).default(
+                tailoredTabSettings.value,
+                defaultTailoredTabs
+            )) ||
         stagingMode
     )
         (
             await import(
                 /* webpackChunkName: "modules/extendedCallWindow/tailoredTabs" */ './assets/tailoredTabs'
             )
-        ).default(LSSM, tailoredTabSettings, stagingMode, $m);
+        ).default(LSSM, tailoredTabSettings.value, stagingMode, $m);
 }) as ModuleMainFunction;
