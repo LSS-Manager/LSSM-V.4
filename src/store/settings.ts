@@ -1,7 +1,12 @@
 import { ActionTree, Module, MutationTree } from 'vuex';
 import { SettingsState } from '../../typings/store/settings/State';
 import { RootState } from '../../typings/store/RootState';
-import { ModuleSettings, Setting, Settings } from '../../typings/Setting';
+import {
+    AppendableList,
+    ModuleSettings,
+    Setting,
+    Settings,
+} from '../../typings/Setting';
 import {
     SettingsActionStoreParams,
     SettingsRegister,
@@ -106,8 +111,16 @@ export default {
                                 else settings[key].value = value;
                             }
                         });
-                    Object.values(settings).forEach(value => {
-                        value.value = value.value ?? (value as Setting).default;
+                    Object.values(settings).forEach(setting => {
+                        if (setting.type === 'appendable-list') {
+                            setting.value = setting.value ?? {
+                                value: (setting as AppendableList).default,
+                                enabled: !(setting as AppendableList)
+                                    .disableable,
+                            };
+                        } else
+                            setting.value =
+                                setting.value ?? (setting as Setting).default;
                     });
                     commit('register', { moduleId, settings });
                     resolve();
