@@ -194,11 +194,11 @@ module.exports = {
             [/^MEK-Fahrzeuge?$/]: [81, 82],
             [/^Polizeihubschrauber$/]: [61],
             [/^Radlader \(BRmG R\)$/]: [43],
-            [/^Rettungshundestaffel\/n$/]: [91],
+            [/^Rettungshundestaffel\/n$/]: [91, 92],
             [/^Rettungstreppen?$/]: [76],
             [/^RTW$/]: [28],
             [/^RTW oder KTW oder KTW-B$/]: [28, 38, 58],
-            [/^Rüstwagen oder HLF$/]: [4, 30, 39, 90],
+            [/^Rüstwagen oder HLF$/]: [4, 30, 39, 47, 90],
             [/^SEK-Fahrzeuge$/]: [79, 80],
             [/^DHuFüKw$/]: [94],
             [/^Schlauchwagen \(GW-L2 Wasser, SW 1000, SW 2000 oder Ähnliches\)$/]: [
