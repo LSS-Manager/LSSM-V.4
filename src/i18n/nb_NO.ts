@@ -328,13 +328,14 @@ export default {
         },
         24: {
             caption: 'Legebil',
-            color: '#b89d14',
+            color: '#9c1c1c',
             coins: 20,
             credits: 4_000,
             minPersonnel: 1,
             maxPersonnel: 1,
             schooling: 'Redning - Legevaktslege',
             shownSchooling: 'Legevaktslege',
+            special: 'Krever spesialistutdanning (Legevaktslege)',
         },
         25: {
             caption: 'Innsatslederbil helse',
