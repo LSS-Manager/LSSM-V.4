@@ -776,7 +776,7 @@ export default {
                 'TST-NB 4/5',
                 'TS 6/7',
             ],
-            maxBuildingsFunction: (): number => 4_000,
+            maxBuildingsFunction: (): number => 4_400,
         },
         1: {
             caption: 'Meldkamer',
