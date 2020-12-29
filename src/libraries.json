@@ -30,7 +30,7 @@
 		"version": "4.14.165"
 	},
 	"@types/node": {
-		"version": "14.14.14"
+		"version": "14.14.16"
 	},
 	"@types/showdown": {
 		"version": "1.9.3"
@@ -265,7 +265,7 @@
 	"webpack-cli": {
 		"icon": "https://webpack.js.org/assets/icon-square-big.svg",
 		"url": "https://webpack.js.org/api/cli/",
-		"version": "4.2.0"
+		"version": "4.3.0"
 	},
 	"webpack-loader-append-prepend": {
 		"icon": "https://webpack.js.org/assets/icon-square-big.svg",
