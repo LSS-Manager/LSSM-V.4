@@ -751,7 +751,7 @@ export default {
                     }): number =>
                         Math.floor((buildingsByType[0]?.length ?? 0) / 10),
                 },
-                ...new Array(9).fill({
+                ...new Array(10).fill({
                     caption: 'Haakarmbak parkeerplaats',
                     credits: 100_000,
                     coins: 20,
