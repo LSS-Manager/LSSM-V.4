@@ -5,7 +5,7 @@ interface AppendableListSetting<valueType> {
     enabled: boolean;
 }
 
-export default (async (LSSM, MODULE_ID, $m) => {
+export default (async (LSSM, MODULE_ID, $m, $mc) => {
     const defaultTailoredTabs = Object.values(
         $m('tailoredTabs.defaultTabs')
     ).map(({ name, vehicleTypes }) => ({
@@ -174,5 +174,5 @@ export default (async (LSSM, MODULE_ID, $m) => {
             await import(
                 /* webpackChunkName: "modules/extendedCallWindow/tailoredTabs" */ './assets/tailoredTabs'
             )
-        ).default(LSSM, tailoredTabSettings.value, stagingMode, $m);
+        ).default(LSSM, tailoredTabSettings.value, stagingMode, $m, $mc);
 }) as ModuleMainFunction;
