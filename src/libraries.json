@@ -30,7 +30,7 @@
 		"version": "4.14.166"
 	},
 	"@types/node": {
-		"version": "14.14.16"
+		"version": "14.14.17"
 	},
 	"@types/showdown": {
 		"version": "1.9.3"
