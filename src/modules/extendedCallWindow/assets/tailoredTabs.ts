@@ -208,6 +208,10 @@ export default (
                     .forEach(box => (box.checked = checkbox.checked));
             });
 
+    tabList
+        .querySelector<HTMLAnchorElement>('#tabs > li > a[href="#all"]')
+        ?.click();
+
     tabList.addEventListener('click', e => {
         if (!tabList || !allTab || !occupiedTab || !panelWrapper) return;
         const tabSelector = (e.target as HTMLElement)?.closest('a[tabload]');
