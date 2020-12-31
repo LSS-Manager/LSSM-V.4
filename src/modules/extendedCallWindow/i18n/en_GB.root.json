@@ -94,7 +94,7 @@
 		},
 		"tailoredTabs": {
 			"color": "Color",
-			"description": "Adjust the tabs in the insert window here. \"All\" and \"Continue alerting\" will always be visible,",
+			"description": "Adjust the tabs in the insert window here. \"All\" and \"Follow-up\" will always be visible,",
 			"name": "name",
 			"title": "vehicle categories",
 			"vehicles": "vehicle types"
@@ -126,7 +126,8 @@
 					14,
 					15,
 					18,
-					23
+					23,
+					26
 				]
 			},
 			{
@@ -145,6 +146,7 @@
 				"name": "Police",
 				"vehicleTypes": [
 					8,
+					11,
 					12,
 					13,
 					24,

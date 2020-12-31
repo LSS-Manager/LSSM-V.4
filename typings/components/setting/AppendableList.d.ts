@@ -18,7 +18,7 @@ export interface AppendableList {
 
 export interface AppendableListComputed {
     layout: number[];
-    updateValues: AppendableListSetting['value'];
+    updateValues: AppendableListSetting['value']['value'];
 }
 
 export interface AppendableListMethods {
@@ -38,8 +38,9 @@ export interface AppendableListMethods {
 
 export interface AppendableListProps {
     setting: Setting<AppendableListSetting>;
-    value: AppendableListSetting['value'];
+    value: AppendableListSetting['value']['value'];
     moduleId: string;
     settingId: string;
     orderable: boolean;
+    enabled: boolean;
 }

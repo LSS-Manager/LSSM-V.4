@@ -2,6 +2,12 @@
     <div :class="{ disabled, hidden, wide }" class="setting">
         <h4>
             <b>{{ title }}</b>
+            &nbsp;
+            <toggle-button
+                labels
+                v-if="appendableListDisableable"
+                v-model="appendableListEnabledUpdate"
+            ></toggle-button>
         </h4>
         <slot v-if="beforeDescription"></slot>
         <span
@@ -71,6 +77,24 @@ export default Vue.extend<
             type: Boolean,
             required: false,
             default: false,
+        },
+        appendableListDisableable: {
+            type: Boolean,
+            required: true,
+        },
+        appendableListEnabled: {
+            type: Boolean,
+            required: false,
+        },
+    },
+    computed: {
+        appendableListEnabledUpdate: {
+            get() {
+                return this.appendableListEnabled;
+            },
+            set(value) {
+                this.$emit('toggleEnabled', value);
+            },
         },
     },
 });

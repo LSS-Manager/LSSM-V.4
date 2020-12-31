@@ -148,6 +148,17 @@
                         "
                         :disabled="setting.isDisabled"
                         :hidden="setting.type === 'hidden'"
+                        :appendableListDisableable="
+                            !!settings[moduleId][settingId].disableable
+                        "
+                        :appendableListEnabled="
+                            setting.type === 'appendable-list'
+                                ? settings[moduleId][settingId].value.enabled
+                                : false
+                        "
+                        @toggleEnabled="
+                            updateAppendableList($event, moduleId, settingId)
+                        "
                     >
                         <settings-text
                             v-if="setting.type === 'text'"
@@ -234,11 +245,14 @@
                         <settings-appendable-list
                             v-else-if="setting.type === 'appendable-list'"
                             :setting="setting"
-                            v-model="settings[moduleId][settingId].value"
+                            v-model="settings[moduleId][settingId].value.value"
                             @input="update(moduleId, settingId)"
                             :module-id="moduleId"
                             :setting-id="settingId"
                             :orderable="!!setting.orderable"
+                            :enabled="
+                                settings[moduleId][settingId].value.enabled
+                            "
                         ></settings-appendable-list>
                         <pre v-else>{{ setting }}</pre>
                     </setting>
@@ -259,7 +273,11 @@ import {
 import cloneDeep from 'lodash/cloneDeep';
 import isEqual from 'lodash/isEqual';
 import { DefaultProps } from 'vue/types/options';
-import { ModuleSettings, Setting as SettingType } from '../../typings/Setting';
+import {
+    AppendableList,
+    ModuleSettings,
+    Setting as SettingType,
+} from '../../typings/Setting';
 
 export default Vue.extend<
     SettingsData,
@@ -414,6 +432,12 @@ export default Vue.extend<
                     )
                 );
             this.$store.commit('settings/setSettingsChanges', this.changes);
+        },
+        updateAppendableList(state, moduleId, settingId) {
+            (this.settings[moduleId][
+                settingId
+            ] as AppendableList).value.enabled = state;
+            this.update(moduleId, settingId);
         },
         save() {
             this.$store

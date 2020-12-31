@@ -221,6 +221,13 @@ module.exports = {
     tailoredTabs: {
         allTab: 'Alle',
         occupiedTab: 'Weiteralarmieren',
+        vehicleMissing: {
+            title:
+                'Ein Fahrzeug ist in keinem Tab vorhanden | Mehrere Fahrzeuge sind in keinem Tab vorhanden',
+            text: 'Folgende Fahrzeugtypen werden nur im "Alle" Tab angezeigt:',
+            hide: 'Hinweis ausblenden',
+            close: 'Hinweis für diese Konfiguration schliessen',
+        },
     },
     hideVehicleList: {
         show: 'Fahrzeugliste zeigen',

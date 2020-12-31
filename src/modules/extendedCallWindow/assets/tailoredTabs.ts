@@ -1,11 +1,14 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { $m } from 'typings/Module';
+import { $m, $mc } from 'typings/Module';
+import { InternalVehicle } from 'typings/Vehicle';
+import { StorageSet } from 'typings/store/storage/Actions';
 
 export default (
     LSSM: Vue,
     tabs: { name: string; vehicleTypes: (string | number)[] }[],
     stagingMode: boolean,
-    $m: $m
+    $m: $m,
+    $mc: $mc
 ): void => {
     const missionHelpBtn = document.getElementById('mission_help');
     const isDiyMission = !missionHelpBtn;
@@ -39,6 +42,90 @@ export default (
     let panelWrapper = document.querySelector(
         '#vehicle_list_step .tab-content'
     );
+
+    const vehiclesInTabs = [
+        ...new Set(tabs.flatMap(({ vehicleTypes }) => vehicleTypes)),
+    ].map(vehicle => vehicle.toString());
+    const vehiclesNotInTabs = Object.keys(LSSM.$t('vehicles'))
+        .filter(vehicle => !vehiclesInTabs.includes(vehicle))
+        .sort();
+
+    if (vehiclesNotInTabs.length) {
+        const NOT_IN_TABS_ALERTED = 'ecw_tt_not_in_tabs_alerted';
+        const vehicleTypes = LSSM.$t('vehicles') as {
+            [type: number]: InternalVehicle;
+        };
+
+        const warningBtnWrapper = document.createElement('span');
+        const warningBtn = document.createElement('i');
+        warningBtn.classList.add(
+            'fas',
+            'fa-exclamation-triangle',
+            'text-warning'
+        );
+        warningBtn.id = LSSM.$store.getters.nodeAttribute('ecw-tt-missingbtn');
+        warningBtnWrapper.append(warningBtn);
+
+        document
+            .querySelector<HTMLDivElement>('#dispatch_buttons')
+            ?.parentElement?.before(warningBtnWrapper);
+        LSSM.$store
+            .dispatch('addStyle', {
+                selectorText: `#${warningBtn.id}`,
+                style: {
+                    cursor: 'pointer',
+                },
+            })
+            .then();
+
+        const showAlert = () => {
+            LSSM.$modal.show('dialog', {
+                title: $mc(
+                    'tailoredTabs.vehicleMissing.title',
+                    vehiclesNotInTabs.length
+                ),
+                text: `${$m(
+                    'tailoredTabs.vehicleMissing.text'
+                )}<ul>${vehiclesNotInTabs
+                    .map(
+                        type =>
+                            `<li>${vehicleTypes[parseInt(type)].caption}</li>`
+                    )
+                    .join('')}</ul>`,
+                options: {},
+                buttons: [
+                    {
+                        title: $m('tailoredTabs.vehicleMissing.hide'),
+                    },
+                    {
+                        title: $m('tailoredTabs.vehicleMissing.close'),
+                        handler() {
+                            LSSM.$store
+                                .dispatch('storage/set', {
+                                    key: NOT_IN_TABS_ALERTED,
+                                    value: vehiclesNotInTabs,
+                                } as StorageSet)
+                                .then(() => LSSM.$modal.hide('dialog'));
+                        },
+                    },
+                ],
+            });
+        };
+
+        warningBtnWrapper?.addEventListener('click', showAlert);
+        LSSM.$store
+            .dispatch('storage/get', {
+                key: NOT_IN_TABS_ALERTED,
+                defaultValue: [],
+            })
+            .then(
+                async alerted =>
+                    !(await import('lodash/isEqual')).default(
+                        alerted.sort(),
+                        vehiclesNotInTabs
+                    ) && showAlert()
+            );
+    }
 
     if (!document.querySelector('#vehicle_list_step')) {
         const vehicleListStep = document.createElement('div');
@@ -207,6 +294,10 @@ export default (
                     )
                     .forEach(box => (box.checked = checkbox.checked));
             });
+
+    tabList
+        .querySelector<HTMLAnchorElement>('#tabs > li > a[href="#all"]')
+        ?.click();
 
     tabList.addEventListener('click', e => {
         if (!tabList || !allTab || !occupiedTab || !panelWrapper) return;

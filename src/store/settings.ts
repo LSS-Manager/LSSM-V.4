@@ -1,7 +1,12 @@
 import { ActionTree, Module, MutationTree } from 'vuex';
 import { SettingsState } from '../../typings/store/settings/State';
 import { RootState } from '../../typings/store/RootState';
-import { ModuleSettings, Setting, Settings } from '../../typings/Setting';
+import {
+    AppendableList,
+    ModuleSettings,
+    Setting,
+    Settings,
+} from '../../typings/Setting';
 import {
     SettingsActionStoreParams,
     SettingsRegister,
@@ -92,13 +97,30 @@ export default {
                     if (storage)
                         Object.entries(storage).forEach(([key, value]) => {
                             if (settings.hasOwnProperty(key)) {
+                                const setting = settings[key];
+                                if (
+                                    setting.type === 'appendable-list' &&
+                                    Array.isArray(value)
+                                )
+                                    settings[key].value = {
+                                        value,
+                                        enabled: !setting.disableable,
+                                    };
                                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                                 // @ts-ignore
-                                settings[key].value = value;
+                                else settings[key].value = value;
                             }
                         });
-                    Object.values(settings).forEach(value => {
-                        value.value = value.value ?? (value as Setting).default;
+                    Object.values(settings).forEach(setting => {
+                        if (setting.type === 'appendable-list') {
+                            setting.value = setting.value ?? {
+                                value: (setting as AppendableList).default,
+                                enabled: !(setting as AppendableList)
+                                    .disableable,
+                            };
+                        } else
+                            setting.value =
+                                setting.value ?? (setting as Setting).default;
                     });
                     commit('register', { moduleId, settings });
                     resolve();
@@ -140,12 +162,20 @@ export default {
             { moduleId, settingId, defaultValue = null }: SettingsGet
         ) {
             const setting = state.settings[moduleId]?.[settingId];
+            if (
+                setting?.type === 'appendable-list' &&
+                !setting.hasOwnProperty('value')
+            )
+                setting.value = { value: [], enabled: true };
             return (
                 (setting?.type === 'appendable-list'
-                    ? setting?.value.map(v => ({
-                          ...setting.defaultItem,
-                          ...v,
-                      }))
+                    ? {
+                          enabled: setting?.value.enabled ?? true,
+                          value: (setting?.value.value ?? []).map(v => ({
+                              ...setting.defaultItem,
+                              ...v,
+                          })),
+                      }
                     : setting?.value) ??
                 setting?.default ??
                 (await dispatch('getModule', moduleId))[settingId] ??

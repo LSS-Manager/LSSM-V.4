@@ -126,7 +126,7 @@ require('./natives/lightbox');
                 settingId,
             });
         });
-        releasenotes(LSSM);
+        await releasenotes(LSSM);
         // TODO: Load core modules: [support] ← Will be done in a more efficient way than polling
 
         await LSSM.$store.dispatch('hook', {

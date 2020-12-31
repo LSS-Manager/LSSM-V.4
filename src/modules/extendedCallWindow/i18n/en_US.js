@@ -125,6 +125,14 @@ module.exports = {
     tailoredTabs: {
         allTab: 'All',
         occupiedTab: 'Follow-up',
+        vehicleMissing: {
+            title:
+                'One vehicle is not present in any tab | Several vehicles are not present in any tab',
+            text:
+                'The following vehicle types are only present in the "All" tab:',
+            hide: 'Hide Note',
+            close: 'Close Note till change',
+        },
     },
     hideVehicleList: {
         show: 'Show vehicle list',
