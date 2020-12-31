@@ -130,6 +130,14 @@ module.exports = {
     tailoredTabs: {
         allTab: 'Alles',
         occupiedTab: 'Dooralarmeren',
+        vehicleMissing: {
+            title:
+                'Eén voertuig is op geen enkel tabblad aanwezig | Meerdere voertuigen zijn op geen enkel tabblad aanwezig',
+            text:
+                'De volgende voertuigtypes zijn alleen aanwezig op het tabblad `Allles`:',
+            hide: 'Verberg Melding',
+            close: 'Sluit Meldingen tot wijziging',
+        },
     },
     hideVehicleList: {
         show: 'Toon voertuigenlijst',

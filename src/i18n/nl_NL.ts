@@ -751,7 +751,7 @@ export default {
                     }): number =>
                         Math.floor((buildingsByType[0]?.length ?? 0) / 10),
                 },
-                ...new Array(9).fill({
+                ...new Array(10).fill({
                     caption: 'Haakarmbak parkeerplaats',
                     credits: 100_000,
                     coins: 20,
@@ -776,7 +776,7 @@ export default {
                 'TST-NB 4/5',
                 'TS 6/7',
             ],
-            maxBuildingsFunction: (): number => 4_000,
+            maxBuildingsFunction: (): number => 4_400,
         },
         1: {
             caption: 'Meldkamer',

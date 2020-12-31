@@ -96,7 +96,7 @@
 			"color": "Farbe",
 			"description": "Passe dir hier die Tabs im Einsatzfenster an. \"Alle\" und \"Weiteralarmieren\" werden immer sichtbar sein.",
 			"name": "Name",
-			"title": "Fahrzeugkategorien",
+			"title": "Eigene Fahrzeugkategorien",
 			"vehicles": "Fahrzeugtypen"
 		},
 		"yellowBorder": {

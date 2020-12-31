@@ -7,10 +7,12 @@ import {
 import { ModuleMainFunction } from 'typings/Module';
 
 export default (async (LSSM, MODULE_ID, $m, $mc) => {
-    const alerts = (await LSSM.$store.dispatch('settings/getSetting', {
-        moduleId: MODULE_ID,
-        settingId: 'alerts',
-    })) as NotificationSetting[];
+    const alerts = (
+        await LSSM.$store.dispatch('settings/getSetting', {
+            moduleId: MODULE_ID,
+            settingId: 'alerts',
+        })
+    ).value as NotificationSetting[];
 
     const events = {} as {
         [event: string]: {
