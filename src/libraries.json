@@ -265,7 +265,7 @@
 	"webpack-cli": {
 		"icon": "https://webpack.js.org/assets/icon-square-big.svg",
 		"url": "https://webpack.js.org/api/cli/",
-		"version": "4.3.0"
+		"version": "4.3.1"
 	},
 	"webpack-loader-append-prepend": {
 		"icon": "https://webpack.js.org/assets/icon-square-big.svg",
