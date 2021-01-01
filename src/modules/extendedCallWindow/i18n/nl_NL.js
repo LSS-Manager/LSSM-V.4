@@ -134,7 +134,7 @@ module.exports = {
             title:
                 'Eén voertuig is op geen enkel tabblad aanwezig | Meerdere voertuigen zijn op geen enkel tabblad aanwezig',
             text:
-                'De volgende voertuigtypes zijn alleen aanwezig op het tabblad `Allles`:',
+                'De volgende voertuigtypes zijn alleen aanwezig op het tabblad `Alles`:',
             hide: 'Verberg Melding',
             close: 'Sluit Meldingen tot wijziging',
         },
