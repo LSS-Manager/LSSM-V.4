@@ -134,12 +134,16 @@ export default (async (LSSM, MODULE_ID) => {
     });
 
     await LSSM.$store.dispatch('event/addListener', {
-        name: 'buildingHover-update',
-        listener({ detail }: CustomEvent<{ id: number; building: Building }>) {
+        name: 'buildingMarkerAdd',
+        listener({
+            detail: { building },
+        }: CustomEvent<{ building: Building }>) {
             updateBuildings();
             setTooltip(
-                window.building_markers.find(x => x.building_id === detail.id),
-                detail.building
+                window.building_markers.find(
+                    x => x.building_id === building.id
+                ),
+                building
             );
         },
     });

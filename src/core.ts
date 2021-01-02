@@ -165,20 +165,27 @@ require('./natives/lightbox');
                 )
                     LSSM.$store
                         .dispatch('api/fetchBuilding', buildingMarker.id)
-                        .then(
-                            async building =>
-                                await LSSM.$store.dispatch(
-                                    'event/dispatchEvent',
-                                    await LSSM.$store.dispatch(
-                                        'event/createEvent',
-                                        {
-                                            name: 'buildingHover-update',
-                                            detail: {
-                                                id: building.id,
-                                                building,
-                                            },
-                                        }
-                                    )
+                        .then(building =>
+                            LSSM.$store
+                                .dispatch(
+                                    'api/fetchVehiclesAtBuilding',
+                                    building.id
+                                )
+                                .then(
+                                    async () =>
+                                        await LSSM.$store.dispatch(
+                                            'event/dispatchEvent',
+                                            await LSSM.$store.dispatch(
+                                                'event/createEvent',
+                                                {
+                                                    name: 'buildingMarkerAdd',
+                                                    detail: {
+                                                        marker: buildingMarker,
+                                                        building,
+                                                    },
+                                                }
+                                            )
+                                        )
                                 )
                         );
             },

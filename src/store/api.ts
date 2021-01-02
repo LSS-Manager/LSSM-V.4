@@ -276,8 +276,6 @@ export default {
             state: APIState,
             { value: credits, lastUpdate }: StorageGetterReturn<'credits'>
         ) {
-            // eslint-disable-next-line no-console
-            console.log('setCreditsInfo');
             if (!credits) return;
             state.lastUpdates.credits = lastUpdate;
             state.credits = credits;
