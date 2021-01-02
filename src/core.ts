@@ -11,9 +11,10 @@ import i18n from './i18n';
 import utils from './utils';
 import telemetry from './modules/telemetry/main';
 import releasenotes from './modules/releasenotes/main';
-import { RadioMessage } from '../typings/Ingame';
+import { BuildingMarkerAdd, RadioMessage } from '../typings/Ingame';
 import { ModuleMainFunction, ModuleSettingFunction } from 'typings/Module';
 import { Color, Toggle } from 'typings/Setting';
+import { Building } from 'typings/Building';
 
 require('./natives/navTabsClicker');
 require('./natives/lightbox');
@@ -146,6 +147,40 @@ require('./natives/lightbox');
                         id,
                         caption,
                     });
+            },
+        });
+
+        await LSSM.$store.dispatch('hook', {
+            event: 'buildingMarkerAdd',
+            callback(buildingMarker: BuildingMarkerAdd) {
+                const buildings = LSSM.$store.state.api.buildings as Building[];
+                const building = buildings.find(
+                    ({ id }) => id === buildingMarker.id
+                );
+                if (
+                    !building ||
+                    LSSM.$store.state.api.lastUpdates.buildings <
+                        new Date().getTime() - 5 * 1000 * 60 ||
+                    building.caption !== buildingMarker.name
+                )
+                    LSSM.$store
+                        .dispatch('api/fetchBuilding', buildingMarker.id)
+                        .then(
+                            async building =>
+                                await LSSM.$store.dispatch(
+                                    'event/dispatchEvent',
+                                    await LSSM.$store.dispatch(
+                                        'event/createEvent',
+                                        {
+                                            name: 'buildingHover-update',
+                                            detail: {
+                                                id: building.id,
+                                                building,
+                                            },
+                                        }
+                                    )
+                                )
+                        );
             },
         });
     }

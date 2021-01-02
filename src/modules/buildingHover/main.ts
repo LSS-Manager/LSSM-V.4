@@ -23,17 +23,22 @@ export default (async (LSSM, MODULE_ID) => {
 
     LSSM.$store.commit('useFontAwesome');
 
-    const vehiclesByBuilding = LSSM.$store.getters[
-        'api/vehiclesByBuilding'
-    ] as {
+    let vehiclesByBuilding: {
         [buildingId: number]: Vehicle[];
     };
 
-    const buildings = LSSM.$store.state.api.buildings as Building[];
+    let buildings: Building[];
+
+    const updateBuildings = () => {
+        vehiclesByBuilding = LSSM.$store.getters['api/vehiclesByBuilding'];
+        buildings = LSSM.$store.state.api.buildings;
+    };
+
+    updateBuildings();
 
     const buildingIcons = (LSSM.$t('buildingIcons') as unknown) as string[];
 
-    const setTooltip = (marker: BuildingMarker | undefined) => {
+    const setTooltip = (marker?: BuildingMarker, building?: Building) => {
         if (!marker) return;
         const hasTt = !!marker.getTooltip();
         const reopen = hasTt && marker.isTooltipOpen();
@@ -45,7 +50,7 @@ export default (async (LSSM, MODULE_ID) => {
         vehicles.sort((a, b) =>
             a.caption > b.caption ? 1 : b.caption > a.caption ? -1 : 0
         );
-        const building = buildings.find(b => b.id === marker.building_id);
+        building = building ?? buildings.find(b => b.id === marker.building_id);
 
         let icon = 'sitemap';
         if (building)
@@ -128,9 +133,21 @@ export default (async (LSSM, MODULE_ID) => {
         setTooltip(marker);
     });
 
+    await LSSM.$store.dispatch('event/addListener', {
+        name: 'buildingHover-update',
+        listener({ detail }: CustomEvent<{ id: number; building: Building }>) {
+            updateBuildings();
+            setTooltip(
+                window.building_markers.find(x => x.building_id === detail.id),
+                detail.building
+            );
+        },
+    });
+
     await LSSM.$store.dispatch('hook', {
         event: 'building_maps_draw',
         callback({ id }: { id: number }) {
+            updateBuildings();
             setTooltip(window.building_markers.find(x => x.building_id === id));
         },
     });
@@ -148,6 +165,7 @@ export default (async (LSSM, MODULE_ID) => {
                 v => v.id === id
             ) as Vehicle;
             if (!vehicle) return;
+            updateBuildings();
             const v = vehiclesByBuilding[vehicle.building_id].find(
                 v => v.id === vehicle.id
             );

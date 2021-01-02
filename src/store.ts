@@ -24,6 +24,7 @@ import api from './store/api';
 import console from './store/console';
 import notifications from './store/notifications';
 import broadcast from './store/broadcast';
+import event from './store/event';
 import modules from './registerModules';
 import { Modules } from '../typings/Module';
 
@@ -38,6 +39,7 @@ export default (Vue: VueConstructor): Store<RootState> => {
             console,
             notifications,
             broadcast,
+            event,
         } as ModuleTree<RootState>,
         state: {
             prefix: PREFIX,
