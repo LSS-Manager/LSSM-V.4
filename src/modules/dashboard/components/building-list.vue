@@ -24,7 +24,7 @@
                 </td>
                 <td>
                     <a
-                        :href="`/buidlings/${building.id}`"
+                        :href="`/buildings/${building.id}`"
                         class="lightbox-open"
                     >
                         {{ building.caption }}
