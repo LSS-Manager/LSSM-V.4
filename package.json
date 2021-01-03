@@ -22,7 +22,6 @@
         "broadcast-channel": "^3.3.0",
         "combokeys": "^3.0.1",
         "highcharts": "^8.2.2",
-        "jspdf": "^2.2.0",
         "localforage": "^1.8.1",
         "lodash": ">=4.17.19",
         "mini-svg-data-uri": "^1.2.3",
