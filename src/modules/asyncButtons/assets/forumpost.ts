@@ -50,6 +50,13 @@ export default (LSSM: Vue, $m: $m): void => {
                                     init: {
                                         method: 'POST',
                                         body: url.searchParams.toString(),
+                                        credentials: 'include',
+                                        mode: 'cors',
+                                        headers: {
+                                            'content-type':
+                                                'application/x-www-form-urlencoded',
+                                            'upgrade-insecure-requests': '1',
+                                        },
                                     },
                                 })
                                 .then(({ status }) => {
