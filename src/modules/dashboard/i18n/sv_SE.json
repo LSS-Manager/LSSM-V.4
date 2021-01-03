@@ -1,9 +1,17 @@
 {
+	"building-list": {
+		"actions": "",
+		"caption": "Namn",
+		"current": "Nummer (aktiv)",
+		"type": "Typ",
+		"unavailable": "Under uppbyggnad"
+	},
 	"building-types": {
 		"building": "Byggnader",
 		"current": "Nummer (aktiv)",
 		"extension": "Expansion",
 		"maximum": "Maximalt möjligt",
+		"title": "Alla {type}",
 		"unavailable": "Under uppbyggnad"
 	},
 	"chart-summaries": {

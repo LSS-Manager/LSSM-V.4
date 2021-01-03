@@ -1,9 +1,17 @@
 {
+	"building-list": {
+		"actions": "",
+		"caption": "Nom",
+		"current": "Nombre (actif)",
+		"type": "Type",
+		"unavailable": "En construction"
+	},
 	"building-types": {
 		"building": "Bâtiments",
 		"current": "Nombre (actif)",
 		"extension": "Extension",
 		"maximum": "Maximum possible",
+		"title": "Tout {type}",
 		"unavailable": "En construction"
 	},
 	"chart-summaries": {

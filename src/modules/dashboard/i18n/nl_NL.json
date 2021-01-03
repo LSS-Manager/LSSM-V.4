@@ -1,9 +1,17 @@
 {
+	"building-list": {
+		"actions": "",
+		"caption": "Naam",
+		"current": "Aantal (actief)",
+		"type": "Type",
+		"unavailable": "In ontwikkeling"
+	},
 	"building-types": {
 		"building": "Gebouwen",
 		"current": "Aantal (actief)",
 		"extension": "Uitbreiding",
 		"maximum": "Maximaal mogelijk",
+		"title": "Alle {type}",
 		"unavailable": "In ontwikkeling"
 	},
 	"chart-summaries": {

@@ -1,9 +1,17 @@
 {
+	"building-list": {
+		"actions": "",
+		"caption": "Name",
+		"current": "Number (active)",
+		"type": "Type",
+		"unavailable": "Under construction"
+	},
 	"building-types": {
 		"building": "Buildings",
 		"current": "Number (active)",
 		"extension": "Expansion",
 		"maximum": "Maximum possible",
+		"title": "All {type}",
 		"unavailable": "Under construction"
 	},
 	"chart-summaries": {
