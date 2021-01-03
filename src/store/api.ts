@@ -538,11 +538,23 @@ export default {
             }
         },
         async fetchCreditsInfo(store: APIActionStoreParams) {
-            return new Promise(resolve =>
-                get_api_values('credits', store).then(({ value }) =>
-                    resolve(value)
-                )
-            );
+            return new Promise((resolve, reject) => {
+                get_api_values('credits', store).then(
+                    ({ value: credits, lastUpdate }) => {
+                        if (!credits) reject();
+                        set_api_storage(
+                            'credits',
+                            {
+                                value: credits,
+                                lastUpdate,
+                                user_id: window.user_id,
+                            },
+                            store
+                        );
+                        resolve(credits);
+                    }
+                );
+            });
         },
         async getMissions(
             { rootState, state, dispatch, commit }: APIActionStoreParams,

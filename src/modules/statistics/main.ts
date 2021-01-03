@@ -3,12 +3,13 @@ import * as pdfFonts from 'pdfmake/build/vfs_fonts';
 import moment from 'moment';
 import { ModuleMainFunction } from 'typings/Module';
 import config from '../../config';
+import { CreditsInfo } from 'typings/api/Credits';
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
-export default (LSSM => {
+export default (async LSSM => {
     if (
         !window.location.pathname.match(
             new RegExp(`/profile/${window.user_id}/?`)
@@ -29,12 +30,32 @@ export default (LSSM => {
     if (!header) return;
     header.before(generationBtn);
 
+    await LSSM.$store.dispatch('api/fetchCreditsInfo');
+
+    const alliance = document.querySelector<HTMLAnchorElement>(
+        '.page-header a[href^="/alliances/"]'
+    );
+
     generationBtn.addEventListener('click', () => {
+        const {
+            credits_user_current,
+            credits_user_total,
+            user_name,
+            user_id,
+            user_toplist_position,
+            user_level_title,
+            credits_alliance_active,
+            credits_alliance_current,
+            credits_alliance_total,
+        }: CreditsInfo = LSSM.$store.state.api.credits;
+        const profileLink = `${window.location.origin}/profile/${user_id}`;
+        const allianceName = alliance?.innerText;
+
         pdfMake
             .createPdf({
                 pageSize: 'A4',
                 info: {
-                    title: `LSS-Manager Report für ${window.username}`,
+                    title: `LSS-Manager Report für ${user_name}`,
                     author: 'LSS-Manager',
                 },
                 watermark: {
@@ -52,10 +73,10 @@ export default (LSSM => {
                         },
                         {
                             width: '*',
-                            text: window.username,
+                            text: user_name,
                             alignment: 'center',
                             margin: 10,
-                            link: `${window.location.origin}/profile/${window.user_id}`,
+                            link: profileLink,
                         },
                         {
                             width: '*',
@@ -81,6 +102,98 @@ export default (LSSM => {
                         tocItem: true,
                     },
                     {
+                        table: {
+                            body: [
+                                [
+                                    'Spielername',
+                                    { text: user_name, link: profileLink },
+                                ],
+                                ['User-ID', user_id],
+                                [
+                                    'Premium-Account',
+                                    window.user_premium ? 'Ja' : 'Nein',
+                                ],
+                                [
+                                    'Aktuelle Credits',
+                                    credits_user_current.toLocaleString(),
+                                ],
+                                [
+                                    'Gesamtverdiente Credits',
+                                    credits_user_total.toLocaleString(),
+                                ],
+                                ['Dienstgrad', user_level_title],
+                                [
+                                    'Rang in der Toplist',
+                                    user_toplist_position.toLocaleString(),
+                                ],
+                                ...(alliance
+                                    ? [
+                                          [
+                                              'Verband',
+                                              {
+                                                  text: allianceName,
+                                                  link: alliance.href,
+                                              },
+                                          ],
+                                      ]
+                                    : []),
+                            ].map(([title, ...content]) => [
+                                { text: `${title}:`, style: 'bold' },
+                                ...content,
+                            ]),
+                        },
+                        layout: 'noBorders',
+                        margin: 10,
+                    },
+                    ...(alliance
+                        ? [
+                              {
+                                  text: 'Verband',
+                                  style: 'h1',
+                                  tocItem: true,
+                              },
+                              {
+                                  table: {
+                                      body: [
+                                          [
+                                              'Verbandsname',
+                                              {
+                                                  text: allianceName,
+                                                  link: alliance.href,
+                                              },
+                                          ],
+                                          [
+                                              'Verbands-ID',
+                                              alliance.href.match(/\d+/)?.[0] ??
+                                                  '',
+                                          ],
+                                          [
+                                              'Verdiente Credits',
+                                              credits_alliance_total?.toLocaleString() ??
+                                                  0,
+                                          ],
+                                          [
+                                              'Verbandskasse aktiv',
+                                              credits_alliance_active
+                                                  ? 'Ja'
+                                                  : 'Nein',
+                                          ],
+                                          [
+                                              'Credits in der Verbandskasse',
+                                              credits_alliance_current?.toLocaleString() ??
+                                                  0,
+                                          ],
+                                      ].map(([title, ...content]) => [
+                                          { text: `${title}:`, style: 'bold' },
+                                          ...content,
+                                      ]),
+                                  },
+                                  layout: 'noBorders',
+                                  margin: 10,
+                              },
+                          ]
+                        : []),
+                    {
                         text: 'Fahrzeuge',
                         style: 'h1',
                         tocItem: true,
@@ -89,12 +202,27 @@ export default (LSSM => {
                         text: 'Gebäude',
                         style: 'h1',
                         tocItem: true,
-                        tocMargin: [10, 0],
                     },
                     {
                         text: 'Dokumenteninfos',
                         style: 'h1',
                         tocItem: true,
+                    },
+                    {
+                        table: {
+                            body: [
+                                [
+                                    'LSS-Manager Version',
+                                    LSSM.$store.state.version,
+                                ],
+                                ['Generiert am', moment().format('LLLL:ss')],
+                            ].map(([title, ...content]) => [
+                                { text: `${title}:`, style: 'bold' },
+                                ...content,
+                            ]),
+                        },
+                        layout: 'noBorders',
+                        margin: 10,
                     },
                 ],
                 footer: (currentPage, pageCount) => ({
@@ -128,6 +256,9 @@ export default (LSSM => {
                     h1: {
                         bold: true,
                         fontSize: 15,
+                    },
+                    bold: {
+                        bold: true,
                     },
                 },
             })
