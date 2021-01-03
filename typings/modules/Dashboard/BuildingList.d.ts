@@ -25,11 +25,12 @@ export interface BuildingListMethods {
 }
 
 export interface BuildingListComputed {
-    buildingsFiltered: Building[];
-    buildingsSorted: Building[];
+    buildingsFiltered: buildingWithExtension[] | Building[];
+    buildingsSorted: buildingWithExtension[] | Building[];
 }
 
 export interface BuildingListProps {
     title: string;
-    buildings: buildingWithExtension[];
+    buildings: buildingWithExtension[] | Building[];
+    listType: string;
 }

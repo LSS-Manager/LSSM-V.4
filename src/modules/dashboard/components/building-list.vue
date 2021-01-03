@@ -3,11 +3,7 @@
         <h4>{{ title }}: {{ buildings.length }}</h4>
         <enhanced-table
             :head="{
-                building_type: { title: $m('type') },
-                caption: { title: $m('caption') },
-                actions: { title: $m('actions'), noSort: true },
-                current: { title: $m('current'), noSort: true },
-                unavailable: { title: $m('unavailable'), noSort: true },
+                ...headings,
             }"
             :table-attrs="{ class: 'table table-striped' }"
             @sort="setSort"
@@ -42,12 +38,12 @@
                         </a>
                     </div>
                 </td>
-                <td>
+                <td v-if="listType === 'extension'">
                     {{ building.extension_available.toLocaleString() }} ({{
                         building.extension_enabled.toLocaleString()
                     }})
                 </td>
-                <td>
+                <td v-if="listType === 'extension'">
                     {{ building.extension_unavailable.toLocaleString() }}
                 </td>
             </tr>
@@ -84,6 +80,39 @@ export default Vue.extend<
             ),
     },
     data() {
+        const headingsAll = {
+            building_type: { title: this.$m('type') },
+            caption: { title: this.$m('caption') },
+            actions: { title: this.$m('actions'), noSort: true },
+        } as {
+            [name: string]: {
+                title: string;
+                noSort?: boolean;
+            };
+        };
+        const headingsExtensions = {
+            current: { title: this.$m('current'), noSort: true },
+            unavailable: {
+                title: this.$m('unavailable'),
+                noSort: true,
+            },
+        } as {
+            [name: string]: {
+                title: string;
+                noSort?: boolean;
+            };
+        };
+        const headings = (this.listType === 'extension'
+            ? {
+                  ...headingsAll,
+                  ...headingsExtensions,
+              }
+            : { ...headingsAll }) as {
+            [name: string]: {
+                title: string;
+                noSort?: boolean;
+            };
+        };
         return {
             buildingTypeNames: Object.fromEntries(
                 Object.entries(
@@ -96,6 +125,7 @@ export default Vue.extend<
             sort: 'caption',
             sortDir: 'asc',
             faPencilAlt,
+            headings,
         } as BuildingList;
     },
     props: {
@@ -105,6 +135,10 @@ export default Vue.extend<
         },
         buildings: {
             type: Array,
+            required: true,
+        },
+        listType: {
+            type: String,
             required: true,
         },
     },

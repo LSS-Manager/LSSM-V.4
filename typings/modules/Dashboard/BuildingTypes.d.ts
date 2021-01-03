@@ -70,5 +70,9 @@ export interface BuildingTypesMethods {
             [key: string]: unknown;
         }
     ): VueI18n.TranslateResult;
-    showBuildings(number: number, type: string, buildings: Building[]): void;
+    showBuildings(
+        listType: string,
+        type: string,
+        buildings: buildingWithExtension[] | Building[]
+    ): void;
 }

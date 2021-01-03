@@ -32,6 +32,21 @@
                         :rowspan="row.children + 1"
                     >
                         {{ caption }}
+                        <button
+                            v-if="row.type === 'building'"
+                            class="btn btn-default btn-xs building-btn"
+                            @click="
+                                showBuildings(
+                                    'building',
+                                    caption,
+                                    row.buildings
+                                )
+                            "
+                        >
+                            <font-awesome-icon
+                                :icon="faBuilding"
+                            ></font-awesome-icon>
+                        </button>
                     </td>
                     <td>
                         <span v-if="row.type === 'extension'">
@@ -42,7 +57,7 @@
                             class="btn btn-default btn-xs building-btn"
                             @click="
                                 showBuildings(
-                                    0,
+                                    'extension',
                                     caption.replace(/^\d+_/, ''),
                                     row.buildings
                                 )
@@ -222,6 +237,7 @@ export default Vue.extend<
                                                 this.$store.state.api.buildings
                                                     .length
                                             ) ?? '–',
+                                        buildings: buildingsOfType,
                                     },
                                 ],
                                 ...Object.values(
@@ -333,12 +349,13 @@ export default Vue.extend<
         $smc(key, amount, args) {
             return this.$mc(`building-types.${key}`, amount, args);
         },
-        showBuildings(number, type, buildings) {
+        showBuildings(listType, type, buildings) {
             this.$modal.show(
                 buildingList,
                 {
-                    title: this.$smc('title', number, { type: type }),
+                    title: this.$smc('title', 0, { type: type }),
                     buildings,
+                    listType,
                 },
                 { name: 'building-list', height: 'auto' }
             );
