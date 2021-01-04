@@ -5,6 +5,7 @@ import { ModuleMainFunction } from 'typings/Module';
 import config from '../../config';
 import { CreditsInfo } from 'typings/api/Credits';
 import { AllianceInfo } from 'typings/api/AllianceInfo';
+import { Building } from 'typings/Building';
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
@@ -31,8 +32,10 @@ export default (async LSSM => {
     if (!header) return;
     header.before(generationBtn);
 
-    await LSSM.$store.dispatch('api/fetchCreditsInfo');
+    await LSSM.$store.dispatch('api/registerBuildingsUsage');
+    await LSSM.$store.dispatch('api/registerVehiclesUsage');
     await LSSM.$store.dispatch('api/registerAllianceinfoUsage');
+    await LSSM.$store.dispatch('api/fetchCreditsInfo');
 
     const alliance = document.querySelector<HTMLAnchorElement>(
         '.page-header a[href^="/alliances/"]'
@@ -67,6 +70,24 @@ export default (async LSSM => {
                     allianceRoles[role]++;
                 })
             );
+
+        const buildings: Building[] = LSSM.$store.state.api.buildings;
+        const extremeBuildings = {} as {
+            north?: Building;
+            south?: Building;
+            west?: Building;
+            east?: Building;
+        };
+        buildings.forEach(building => {
+            if (building.latitude > (extremeBuildings.north?.latitude ?? -90))
+                extremeBuildings.north = building;
+            if (building.latitude < (extremeBuildings.south?.latitude ?? 90))
+                extremeBuildings.south = building;
+            if (building.longitude < (extremeBuildings.west?.longitude ?? 180))
+                extremeBuildings.west = building;
+            if (building.longitude > (extremeBuildings.east?.longitude ?? -180))
+                extremeBuildings.east = building;
+        });
 
         pdfMake
             .createPdf({
@@ -111,7 +132,7 @@ export default (async LSSM => {
                                 bold: true,
                             },
                         },
-                        margin: [0, 0, 0, 50],
+                        margin: [0, 0, 0, 30],
                     },
                     {
                         text: 'Spielerinfos',
@@ -251,7 +272,7 @@ export default (async LSSM => {
                                       ]),
                                   },
                                   layout: 'noBorders',
-                                  margin: 20,
+                                  margin: [20, 10] as [number, number],
                               },
                           ]
                         : []),
@@ -264,6 +285,59 @@ export default (async LSSM => {
                         text: 'Gebäude',
                         style: 'h1',
                         tocItem: true,
+                    },
+                    {
+                        table: {
+                            body: [
+                                [
+                                    'Anzahl Gebäude',
+                                    buildings.length.toLocaleString(),
+                                ],
+                            ].map(([title, ...content]) => [
+                                { text: `${title}:`, style: 'bold' },
+                                ...content,
+                            ]),
+                        },
+                        layout: 'noBorders',
+                        margin: 10,
+                    },
+                    {
+                        text: 'Unnützes Wissen',
+                        style: 'h2',
+                        tocItem: true,
+                        tocMargin: [10, 0] as [number, number],
+                        margin: [10, 0] as [number, number],
+                    },
+                    {
+                        text: 'Extremstellen',
+                        style: 'h2',
+                        tocItem: true,
+                        tocMargin: [20, 0] as [number, number],
+                        margin: [20, 0] as [number, number],
+                    },
+                    {
+                        table: {
+                            body: [
+                                ...Object.entries(extremeBuildings)
+                                    .map(([spec, building]) =>
+                                        building
+                                            ? [
+                                                  spec,
+                                                  {
+                                                      text: building.caption,
+                                                      link: `${window.location.origin}/buildings/${building.id}`,
+                                                  },
+                                              ]
+                                            : []
+                                    )
+                                    .filter(e => e.length),
+                            ].map(([title, ...content]) => [
+                                { text: `${title}:`, style: 'bold' },
+                                ...content,
+                            ]),
+                        },
+                        layout: 'noBorders',
+                        margin: [30, 10] as [number, number],
                     },
                     {
                         text: 'Dokumenteninfos',
