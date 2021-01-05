@@ -1,5 +1,13 @@
 import VueI18n from 'vue-i18n';
 import { InternalBuilding } from 'typings/Building';
+import { Building } from 'typings/Building';
+import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+
+interface buildingWithExtension extends Building {
+    extension_available: number;
+    extension_enabled: number;
+    extension_unavailable: number;
+}
 
 export interface BuildingTypes {
     buildingTypes: { [id: number]: InternalBuilding };
@@ -9,6 +17,7 @@ export interface BuildingTypes {
     groups: {
         [category: string]: Category;
     };
+    faBuilding: IconDefinition;
 }
 
 export interface Category {
@@ -49,4 +58,23 @@ export interface BuildingTypesMethods {
             [key: string]: unknown;
         }
     ): VueI18n.TranslateResult;
+    $mc(
+        key: string,
+        amount: number,
+        args?: {
+            [key: string]: unknown;
+        }
+    ): VueI18n.TranslateResult;
+    $smc(
+        key: string,
+        amount: number,
+        args?: {
+            [key: string]: unknown;
+        }
+    ): VueI18n.TranslateResult;
+    showBuildings(
+        listType: string,
+        type: string,
+        buildings: buildingWithExtension[] | Building[]
+    ): void;
 }
