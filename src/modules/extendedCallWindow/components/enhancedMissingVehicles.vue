@@ -258,6 +258,11 @@ export default Vue.extend<
         },
         async dragEnd() {
             this.drag.active = false;
+            await this.$store.dispatch('settings/setSetting', {
+                moduleId: 'extendedCallWindow',
+                settingId: `drag`,
+                value: this.drag,
+            });
             document.body.classList.remove('lssm-is-dragging');
             document.removeEventListener('mouseup', this.dragEnd);
             document.removeEventListener('mousemove', this.dragging);
@@ -320,6 +325,13 @@ export default Vue.extend<
                 defaultValue: false,
             })
             .then(pushedRight => (this.pushedRight = pushedRight));
+        this.$store
+            .dispatch('settings/getSetting', {
+                moduleId: 'extendedCallWindow',
+                settingId: 'drag',
+                defaultValue: false,
+            })
+            .then(drag => (this.drag = drag));
     },
     mounted() {
         const vehicleGroups = (this.$t(

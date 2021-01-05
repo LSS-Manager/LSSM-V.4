@@ -4,6 +4,8 @@ import moment from 'moment';
 import { ModuleMainFunction } from 'typings/Module';
 import config from '../../config';
 import { CreditsInfo } from 'typings/api/Credits';
+import { AllianceInfo } from 'typings/api/AllianceInfo';
+import { Building } from 'typings/Building';
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
@@ -30,6 +32,9 @@ export default (async LSSM => {
     if (!header) return;
     header.before(generationBtn);
 
+    await LSSM.$store.dispatch('api/registerBuildingsUsage');
+    await LSSM.$store.dispatch('api/registerVehiclesUsage');
+    await LSSM.$store.dispatch('api/registerAllianceinfoUsage');
     await LSSM.$store.dispatch('api/fetchCreditsInfo');
 
     const alliance = document.querySelector<HTMLAnchorElement>(
@@ -49,7 +54,40 @@ export default (async LSSM => {
             credits_alliance_total,
         }: CreditsInfo = LSSM.$store.state.api.credits;
         const profileLink = `${window.location.origin}/profile/${user_id}`;
+        const toplistPage = Math.ceil(user_toplist_position / 20);
+
         const allianceName = alliance?.innerText;
+        const allianceInfo: AllianceInfo = LSSM.$store.state.api.allianceinfo;
+        const allianceRoles = {} as { [role: string]: number };
+        const allianceListPage = alliance
+            ? Math.ceil(allianceInfo.rank / 20)
+            : 0;
+        if (alliance)
+            allianceInfo.users.forEach(({ roles }) =>
+                roles.forEach(role => {
+                    if (!allianceRoles.hasOwnProperty(role))
+                        allianceRoles[role] = 0;
+                    allianceRoles[role]++;
+                })
+            );
+
+        const buildings: Building[] = LSSM.$store.state.api.buildings;
+        const extremeBuildings = {} as {
+            north?: Building;
+            south?: Building;
+            west?: Building;
+            east?: Building;
+        };
+        buildings.forEach(building => {
+            if (building.latitude > (extremeBuildings.north?.latitude ?? -90))
+                extremeBuildings.north = building;
+            if (building.latitude < (extremeBuildings.south?.latitude ?? 90))
+                extremeBuildings.south = building;
+            if (building.longitude < (extremeBuildings.west?.longitude ?? 180))
+                extremeBuildings.west = building;
+            if (building.longitude > (extremeBuildings.east?.longitude ?? -180))
+                extremeBuildings.east = building;
+        });
 
         pdfMake
             .createPdf({
@@ -94,7 +132,7 @@ export default (async LSSM => {
                                 bold: true,
                             },
                         },
-                        margin: [0, 0, 0, 50],
+                        margin: [0, 0, 0, 30],
                     },
                     {
                         text: 'Spielerinfos',
@@ -125,6 +163,13 @@ export default (async LSSM => {
                                 [
                                     'Rang in der Toplist',
                                     user_toplist_position.toLocaleString(),
+                                ],
+                                [
+                                    'Seite auf der Toplist',
+                                    {
+                                        text: `Seite ${toplistPage.toLocaleString()}`,
+                                        link: `${window.location.origin}/toplist?page=${toplistPage}`,
+                                    },
                                 ],
                                 ...(alliance
                                     ? [
@@ -173,6 +218,21 @@ export default (async LSSM => {
                                                   0,
                                           ],
                                           [
+                                              'Anzahl Mitglieder',
+                                              allianceInfo.user_count.toLocaleString(),
+                                          ],
+                                          [
+                                              'Platzierung in der Verbandsliste',
+                                              allianceInfo.rank.toLocaleString(),
+                                          ],
+                                          [
+                                              'Seite auf der Verbandsliste',
+                                              {
+                                                  text: `Seite ${allianceListPage.toLocaleString()}`,
+                                                  link: `${window.location.origin}/alliances?page=${allianceListPage}`,
+                                              },
+                                          ],
+                                          [
                                               'Verbandskasse aktiv',
                                               credits_alliance_active
                                                   ? 'Ja'
@@ -191,6 +251,29 @@ export default (async LSSM => {
                                   layout: 'noBorders',
                                   margin: 10,
                               },
+                              {
+                                  text: 'Mitglieder',
+                                  style: 'h2',
+                                  tocItem: true,
+                                  tocMargin: [10, 0] as [number, number],
+                                  margin: [10, 0] as [number, number],
+                              },
+                              {
+                                  table: {
+                                      body: [
+                                          [
+                                              'Anzahl Mitglieder',
+                                              allianceInfo.user_count.toLocaleString(),
+                                          ],
+                                          ...Object.entries(allianceRoles),
+                                      ].map(([title, ...content]) => [
+                                          { text: `${title}:`, style: 'bold' },
+                                          ...content,
+                                      ]),
+                                  },
+                                  layout: 'noBorders',
+                                  margin: [20, 10] as [number, number],
+                              },
                           ]
                         : []),
                     {
@@ -202,6 +285,59 @@ export default (async LSSM => {
                         text: 'Gebäude',
                         style: 'h1',
                         tocItem: true,
+                    },
+                    {
+                        table: {
+                            body: [
+                                [
+                                    'Anzahl Gebäude',
+                                    buildings.length.toLocaleString(),
+                                ],
+                            ].map(([title, ...content]) => [
+                                { text: `${title}:`, style: 'bold' },
+                                ...content,
+                            ]),
+                        },
+                        layout: 'noBorders',
+                        margin: 10,
+                    },
+                    {
+                        text: 'Unnützes Wissen',
+                        style: 'h2',
+                        tocItem: true,
+                        tocMargin: [10, 0] as [number, number],
+                        margin: [10, 0] as [number, number],
+                    },
+                    {
+                        text: 'Extremstellen',
+                        style: 'h2',
+                        tocItem: true,
+                        tocMargin: [20, 0] as [number, number],
+                        margin: [20, 0] as [number, number],
+                    },
+                    {
+                        table: {
+                            body: [
+                                ...Object.entries(extremeBuildings)
+                                    .map(([spec, building]) =>
+                                        building
+                                            ? [
+                                                  spec,
+                                                  {
+                                                      text: building.caption,
+                                                      link: `${window.location.origin}/buildings/${building.id}`,
+                                                  },
+                                              ]
+                                            : []
+                                    )
+                                    .filter(e => e.length),
+                            ].map(([title, ...content]) => [
+                                { text: `${title}:`, style: 'bold' },
+                                ...content,
+                            ]),
+                        },
+                        layout: 'noBorders',
+                        margin: [30, 10] as [number, number],
                     },
                     {
                         text: 'Dokumenteninfos',
@@ -256,6 +392,10 @@ export default (async LSSM => {
                     h1: {
                         bold: true,
                         fontSize: 15,
+                    },
+                    h2: {
+                        bold: true,
+                        fontSize: 14,
                     },
                     bold: {
                         bold: true,

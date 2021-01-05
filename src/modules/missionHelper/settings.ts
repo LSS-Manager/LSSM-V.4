@@ -247,6 +247,18 @@ export default ((MODULE_ID, LSSM, $m) => {
             type: 'hidden',
             default: false,
         },
+        'drag': <Hidden>{
+            type: 'hidden',
+            default: <any>{
+                active: false,
+                top: 60,
+                left: window.innerWidth * 0.03,
+                offset: {
+                    x: 0,
+                    y: 0,
+                },
+            },
+        },
         ...(locale === 'de_DE'
             ? {
                   k9_only_if_needed: <Toggle>{
