@@ -22,6 +22,14 @@ export interface BuildingListMethods {
             [key: string]: unknown;
         }
     ): VueI18n.TranslateResult;
+    setDispatchCenter(
+        building: buildingWithExtension | Building,
+        dispatchBuilding: Building
+    ): void;
+    getDispatchCenterCaption(
+        dispatchBuildings: Building[],
+        building: Building
+    ): string;
 }
 
 export interface BuildingListComputed {

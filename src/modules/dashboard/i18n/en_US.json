@@ -3,6 +3,9 @@
 		"actions": "",
 		"caption": "Name",
 		"current": "Number (active)",
+		"fastDispatchChooser": {
+			"noDispatch": "No control center"
+		},
 		"type": "Type",
 		"unavailable": "Under construction"
 	},

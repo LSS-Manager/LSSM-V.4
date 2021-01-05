@@ -3,6 +3,9 @@
 		"actions": "",
 		"caption": "Nom",
 		"current": "Nombre (actif)",
+		"fastDispatchChooser": {
+			"noDispatch": "Sans CTA"
+		},
 		"type": "Type",
 		"unavailable": "En construction"
 	},

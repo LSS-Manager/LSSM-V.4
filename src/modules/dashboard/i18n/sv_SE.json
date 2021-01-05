@@ -3,6 +3,9 @@
 		"actions": "",
 		"caption": "Namn",
 		"current": "Nummer (aktiv)",
+		"fastDispatchChooser": {
+			"noDispatch": "Ingen larmcentral"
+		},
 		"type": "Typ",
 		"unavailable": "Under uppbyggnad"
 	},

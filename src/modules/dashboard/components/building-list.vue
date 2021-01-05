@@ -3,7 +3,8 @@
         <h4>{{ title }}: {{ buildings.length }}</h4>
         <enhanced-table
             :head="{
-                ...headings,
+                ...headingsAll,
+                ...headingsExtensions,
             }"
             :table-attrs="{ class: 'table table-striped' }"
             @sort="setSort"
@@ -36,6 +37,72 @@
                                 :icon="faPencilAlt"
                             ></font-awesome-icon>
                         </a>
+                        <button
+                            v-if="
+                                !dispatchCenterBuildings.includes(
+                                    building.building_type
+                                ) && listType === 'building'
+                            "
+                            :href="
+                                `${
+                                    building.leitstelle_building_id
+                                        ? `/buildings/${building.leitstelle_building_id}`
+                                        : '#'
+                                }`
+                            "
+                            class="btn btn-default btn-xs lightbox-open"
+                            :id="`dispatch-btn-${building.id}`"
+                        >
+                            {{
+                                getDispatchCenterCaption(
+                                    dispatchBuildings,
+                                    building
+                                )
+                            }}
+                        </button>
+                        <button
+                            v-if="
+                                !dispatchCenterBuildings.includes(
+                                    building.building_type
+                                ) && listType === 'building'
+                            "
+                            class="btn btn-default btn-xs dropdown-toggle"
+                            data-toggle="dropdown"
+                            aria-haspopup="true"
+                            aria-expanded="false"
+                        >
+                            <span class="caret"> </span>
+                        </button>
+                        <ul
+                            v-if="
+                                !dispatchCenterBuildings.includes(
+                                    building.building_type
+                                ) && listType === 'building'
+                            "
+                            class="dropdown-menu"
+                            style="right: 0; left: auto"
+                        >
+                            <li
+                                v-for="dispatchBuilding in dispatchBuildings"
+                                :key="dispatchBuilding.id"
+                            >
+                                <a>
+                                    {{ dispatchBuilding.caption }}
+                                    <button
+                                        class="btn btn-xs btn-success pull-right"
+                                        style="marginleft: 1ch"
+                                        @click="
+                                            setDispatchCenter(
+                                                building,
+                                                dispatchBuilding
+                                            )
+                                        "
+                                    >
+                                        <i class="fas fa-check"></i>
+                                    </button>
+                                </a>
+                            </li>
+                        </ul>
                     </div>
                 </td>
                 <td v-if="listType === 'extension'">
@@ -60,7 +127,7 @@ import {
     BuildingListMethods,
     BuildingListProps,
 } from '../../../../typings/modules/Dashboard/BuildingList';
-import { InternalBuilding } from 'typings/Building';
+import { Building, InternalBuilding } from 'typings/Building';
 
 export default Vue.extend<
     BuildingList,
@@ -90,29 +157,44 @@ export default Vue.extend<
                 noSort?: boolean;
             };
         };
-        const headingsExtensions = {
-            current: { title: this.$m('current'), noSort: true },
-            unavailable: {
-                title: this.$m('unavailable'),
-                noSort: true,
-            },
-        } as {
-            [name: string]: {
-                title: string;
-                noSort?: boolean;
-            };
-        };
-        const headings = (this.listType === 'extension'
+        const headingsExtensions = (this.listType === 'extension'
             ? {
-                  ...headingsAll,
-                  ...headingsExtensions,
+                  current: { title: this.$m('current'), noSort: true },
+                  unavailable: {
+                      title: this.$m('unavailable'),
+                      noSort: true,
+                  },
               }
-            : { ...headingsAll }) as {
+            : {}) as {
             [name: string]: {
                 title: string;
                 noSort?: boolean;
             };
         };
+        const dispatchBuildings = [
+            {
+                caption: this.$m('fastDispatchChooser.noDispatch'),
+                id: 0,
+            },
+        ] as Building[];
+        const buildingsByType = this.$store.getters['api/buildingsByType'] as {
+            [type: number]: Building[];
+        };
+        const dispatchCenterBuildings = Object.values(
+            this.$t('dispatchCenterBuildings')
+        ) as number[];
+        dispatchCenterBuildings.forEach(type =>
+            dispatchBuildings.push(...(buildingsByType[type] ?? []))
+        );
+        dispatchBuildings.sort((a, b) =>
+            !a.id
+                ? 1
+                : a.caption < b.caption
+                ? -1
+                : a.caption > b.caption
+                ? 1
+                : 0
+        );
         return {
             buildingTypeNames: Object.fromEntries(
                 Object.entries(
@@ -125,7 +207,10 @@ export default Vue.extend<
             sort: 'caption',
             sortDir: 'asc',
             faPencilAlt,
-            headings,
+            headingsExtensions,
+            headingsAll,
+            dispatchBuildings,
+            dispatchCenterBuildings,
         } as BuildingList;
     },
     props: {
@@ -166,14 +251,35 @@ export default Vue.extend<
         $m(key, args) {
             return this.$t(`modules.dashboard.building-list.${key}`, args);
         },
-        $mc(key, amount, args) {
-            return this.$tc(`modules.dashboard.${key}`, amount, args);
-        },
         setSort(type) {
             if (this.sort === type)
                 return (this.sortDir = this.sortDir === 'asc' ? 'desc' : 'asc');
             this.sort = type;
             this.sortDir = 'asc';
+        },
+        setDispatchCenter(building, dispatchBuilding) {
+            this.$store
+                .dispatch('api/request', {
+                    url: `/buildings/${building.id}/leitstelle-set/${dispatchBuilding.id}`,
+                })
+                .then(() => {
+                    const dispatchBtn = document.getElementById(
+                        `dispatch-btn-${building.id}`
+                    );
+                    if (!dispatchBtn) return;
+                    dispatchBtn.setAttribute(
+                        'href',
+                        dispatchBuilding.id
+                            ? `/buildings/${dispatchBuilding.id}`
+                            : '#'
+                    );
+                    dispatchBtn.textContent = dispatchBuilding.caption;
+                });
+        },
+        getDispatchCenterCaption(dispatchBuildings, building) {
+            return dispatchBuildings.find(
+                b => b.id === (building.leitstelle_building_id ?? 0)
+            ).caption;
         },
     },
 });

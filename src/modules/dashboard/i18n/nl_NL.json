@@ -3,6 +3,9 @@
 		"actions": "",
 		"caption": "Naam",
 		"current": "Aantal (actief)",
+		"fastDispatchChooser": {
+			"noDispatch": "Geen meldkamer"
+		},
 		"type": "Type",
 		"unavailable": "In ontwikkeling"
 	},
