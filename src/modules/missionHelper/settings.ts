@@ -247,9 +247,9 @@ export default ((MODULE_ID, LSSM, $m) => {
             type: 'hidden',
             default: false,
         },
-        'drag': <Hidden>{
+        'drag': <Hidden<unknown>>{
             type: 'hidden',
-            default: <any>{
+            default: {
                 active: false,
                 top: 60,
                 left: window.innerWidth * 0.03,
