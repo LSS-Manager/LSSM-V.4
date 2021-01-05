@@ -26,7 +26,7 @@ export default (() => ({
         default: false,
         noMapkit: true,
     },
-    savedOwnMapMarkers: <Hidden>{
+    savedOwnMapMarkers: <Hidden<{ lat: number; lng: number; zoom: number }[]>>{
         type: 'hidden',
     },
     browserTitle: <Toggle>{
@@ -41,14 +41,14 @@ export default (() => ({
         type: 'toggle',
         default: true,
     },
-    lastSavedBuildingType: <Hidden>{
+    lastSavedBuildingType: <Hidden<string>>{
         type: 'hidden',
     },
     saveLastDispatchCenter: <Toggle>{
         type: 'toggle',
         default: true,
     },
-    lastSavedDispatchCenter: <Hidden>{
+    lastSavedDispatchCenter: <Hidden<string>>{
         type: 'hidden',
     },
     deleteSingleProtocolEntry: <Hidden>{
