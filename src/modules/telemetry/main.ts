@@ -39,7 +39,7 @@ export default (
                 const browserSupport =
                     config.browser[browser.name?.toLowerCase() || ''];
 
-                if (!browserSupport)
+                if (!browserSupport) {
                     LSSM.$modal.show('dialog', {
                         title: $m('browsersupport.not.title'),
                         text: $m('browsersupport.not.text', {
@@ -62,7 +62,7 @@ export default (
                             },
                         ],
                     });
-                else if (browserMajor < browserSupport.supported)
+                } else if (browserMajor < browserSupport.supported) {
                     LSSM.$modal.show('dialog', {
                         title: $m('browsersupport.old.title'),
                         text: $m('browsersupport.old.text', {
@@ -89,6 +89,7 @@ export default (
                             },
                         ],
                     });
+                }
             });
 
         LSSM.$store
@@ -131,7 +132,7 @@ export default (
     LSSM.$store
         .dispatch('api/fetchCreditsInfo')
         .then(({ user_directplay_registered }) => {
-            if (!user_directplay_registered)
+            if (!user_directplay_registered) {
                 LSSM.$store
                     .dispatch('storage/get', {
                         key: NOTE_STORAGE_KEY,
@@ -203,9 +204,8 @@ export default (
                         const allowTelemetry = await getSetting(
                             'allowTelemetry'
                         );
-                        if (allowTelemetry) {
-                            await sendStats();
-                        }
+                        if (allowTelemetry) await sendStats();
                     });
+            }
         });
 };

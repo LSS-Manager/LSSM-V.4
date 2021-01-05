@@ -3,9 +3,11 @@ import { $m } from 'typings/Module';
 export default async (
     LSSM: Vue,
     $sm: $m,
-    singleState: boolean,
+    initialSingleState: boolean,
     MODULE_ID: string
 ): Promise<void> => {
+    let singleState = initialSingleState;
+
     const remove_single_entry = async (
         btn: HTMLAnchorElement,
         link: string

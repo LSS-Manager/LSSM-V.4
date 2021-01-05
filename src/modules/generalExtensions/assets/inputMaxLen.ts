@@ -101,7 +101,7 @@ export default (LSSM: Vue): void => {
         target.setAttribute('minlength', minMax.min.toString());
         target.setAttribute('maxlength', minMax.max.toString());
         const placeholder = target.getAttribute('placeholder') || '';
-        if (!placeholder.endsWith(']'))
+        if (!placeholder.endsWith(']')) {
             target.setAttribute(
                 'placeholder',
                 `${placeholder} [${LSSM.$t(
@@ -112,8 +112,9 @@ export default (LSSM: Vue): void => {
                     }
                 )}]`.trim()
             );
+        }
         const title = target.getAttribute('title') || '';
-        if (!title.endsWith(']'))
+        if (!title.endsWith(']')) {
             target.setAttribute(
                 'title',
                 `${title} [${LSSM.$t('modules.generalExtensions.inputMaxLen', {
@@ -121,6 +122,7 @@ export default (LSSM: Vue): void => {
                     max: minMax.max,
                 })}]`.trim()
             );
+        }
         const counterId = LSSM.$store.getters.nodeAttribute(
             `${target.id}_${entry[0]}`,
             true

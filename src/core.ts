@@ -140,13 +140,14 @@ require('./natives/lightbox');
                 )
                     return;
                 const { id, fms, fms_real, user_id, caption } = radioMessage;
-                if (user_id === window.user_id)
+                if (user_id === window.user_id) {
                     LSSM.$store.commit('api/setVehicleState', {
                         fms,
                         fms_real,
                         id,
                         caption,
                     });
+                }
             },
         });
 
@@ -162,7 +163,7 @@ require('./natives/lightbox');
                     LSSM.$store.state.api.lastUpdates.buildings <
                         new Date().getTime() - 5 * 1000 * 60 ||
                     building.caption !== buildingMarker.name
-                )
+                ) {
                     LSSM.$store
                         .dispatch('api/fetchBuilding', buildingMarker.id)
                         .then(building =>
@@ -188,6 +189,7 @@ require('./natives/lightbox');
                                         )
                                 )
                         );
+                }
             },
         });
     }
@@ -197,14 +199,15 @@ require('./natives/lightbox');
             defaultValue: [],
         })
         .then((activeModules: string[]) => {
-            activeModules = activeModules.filter(module =>
+            let filteredActiveModules = activeModules.filter(module =>
                 LSSM.$store.state.modules.hasOwnProperty(module)
             );
-            if (LSSM.$store.state.mapkit)
-                activeModules = activeModules.filter(
+            if (LSSM.$store.state.mapkit) {
+                filteredActiveModules = filteredActiveModules.filter(
                     module => !LSSM.$store.state.modules[module].noMapkit
                 );
-            activeModules.forEach(async moduleId => {
+            }
+            filteredActiveModules.forEach(async moduleId => {
                 LSSM.$store.commit('setModuleActive', moduleId);
                 const $m = (key: string, args?: { [key: string]: unknown }) =>
                     LSSM.$t(`modules.${moduleId}.${key}`, args);

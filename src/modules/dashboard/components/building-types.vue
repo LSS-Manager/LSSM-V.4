@@ -173,10 +173,11 @@ export default Vue.extend<
                                             !buildingsWithExtensionOfType.hasOwnProperty(
                                                 caption
                                             )
-                                        )
+                                        ) {
                                             buildingsWithExtensionOfType[
                                                 caption
                                             ] = [];
+                                        }
                                         if (
                                             buildingsWithExtensionOfType[
                                                 caption

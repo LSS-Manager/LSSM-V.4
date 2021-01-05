@@ -8,11 +8,12 @@ export default (LSSM: Vue, greenOnly: boolean): void => {
             const timeElement = document.getElementById(
                 `mission_overview_countdown_${id}`
             );
-            if (timeElement)
+            if (timeElement) {
                 timeElement.innerText = window.formatTime(
                     Math.floor(date_end_calc - window.unix_timestamp()),
                     false
                 );
+            }
         },
     });
 };

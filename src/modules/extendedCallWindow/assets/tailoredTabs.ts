@@ -13,12 +13,13 @@ export default (
     const missionHelpBtn = document.getElementById('mission_help');
     const isDiyMission = !missionHelpBtn;
     let missionTypeID = -1;
-    if (!isDiyMission)
+    if (!isDiyMission) {
         missionTypeID = parseInt(
             missionHelpBtn
                 ?.getAttribute('href')
                 ?.match(/(?!^\/einsaetze\/)\d+/)?.[0] || '-1'
         );
+    }
     if (
         !stagingMode &&
         Object.values(
@@ -30,9 +31,9 @@ export default (
         document.querySelectorAll(
             '#tabs > li > a:not([href="#all"]):not([href="#occupied"])'
         ) as NodeListOf<HTMLAnchorElement>
-    ).map(e => {
+    ).forEach(e => {
         const target = e.getAttribute('href');
-        target && document.querySelector(target)?.remove();
+        if (target) document.querySelector(target)?.remove();
         e.parentElement?.remove();
     });
 
@@ -281,7 +282,7 @@ export default (
         vehicleTypeMap[tabId] = vehicleTypes.map(v => v.toString());
     });
 
-    if (stagingMode)
+    if (stagingMode) {
         document
             .getElementById('vehicle_show_table_body_all')
             ?.addEventListener('change', ({ target }) => {
@@ -294,6 +295,7 @@ export default (
                     )
                     .forEach(box => (box.checked = checkbox.checked));
             });
+    }
 
     tabList
         .querySelector<HTMLAnchorElement>('#tabs > li > a[href="#all"]')

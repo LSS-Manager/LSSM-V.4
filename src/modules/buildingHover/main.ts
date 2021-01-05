@@ -38,7 +38,7 @@ export default (async (LSSM, MODULE_ID) => {
 
     const buildingIcons = (LSSM.$t('buildingIcons') as unknown) as string[];
 
-    const setTooltip = (marker?: BuildingMarker, building?: Building) => {
+    const setTooltip = (marker?: BuildingMarker, presetBuilding?: Building) => {
         if (!marker) return;
         const hasTt = !!marker.getTooltip();
         const reopen = hasTt && marker.isTooltipOpen();
@@ -50,7 +50,8 @@ export default (async (LSSM, MODULE_ID) => {
         vehicles.sort((a, b) =>
             a.caption > b.caption ? 1 : b.caption > a.caption ? -1 : 0
         );
-        building = building ?? buildings.find(b => b.id === marker.building_id);
+        const building =
+            presetBuilding ?? buildings.find(b => b.id === marker.building_id);
 
         let icon = 'sitemap';
         if (building)
@@ -82,10 +83,11 @@ export default (async (LSSM, MODULE_ID) => {
                     Object.values(LSSM.$t('cellBuildings')).includes(
                         building.building_type
                     )
-                )
+                ) {
                     data += `&nbsp;<i class="fa fa-border-all"></i>&nbsp;${
                         building.extensions.filter(x => x.available).length
                     }&nbsp;(${building.extensions.length})`;
+                }
                 data += `<table class="${LSSM.$store.getters.nodeAttribute(
                     `${MODULE_ID}-vehiclelist`
                 )}">`;

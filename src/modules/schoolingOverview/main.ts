@@ -27,11 +27,12 @@ export default (LSSM => {
         .forEach(schooling => {
             const name = schooling.querySelector('a.btn-success')?.textContent;
             if (!name) return;
-            if (!openSchoolings.hasOwnProperty(name))
+            if (!openSchoolings.hasOwnProperty(name)) {
                 openSchoolings[name] = {
                     amount: 0,
                     seats: 0,
                 };
+            }
             openSchoolings[name].amount++;
             openSchoolings[name].seats += parseInt(
                 schooling.querySelector('td:nth-of-type(2)')?.textContent || '0'
@@ -54,7 +55,7 @@ export default (LSSM => {
     );
 
     const clear = document.querySelector('.clear');
-    clear &&
+    if (clear) {
         new LSSM.$vue({
             store: LSSM.$store,
             i18n: LSSM.$i18n,
@@ -66,6 +67,7 @@ export default (LSSM => {
                     },
                 }),
         }).$mount(clear);
+    }
 
     const openTable = document.getElementById('schooling_opened_table');
     if (openTable) {
@@ -82,10 +84,11 @@ export default (LSSM => {
     }
 
     const ownTable = document.getElementById('schooling_own_table');
-    ownTable &&
+    if (ownTable) {
         new LSSM.$vue({
             store: LSSM.$store,
             i18n: LSSM.$i18n,
             render: h => h(ownSchoolingTabs),
         }).$mount(ownTable);
+    }
 }) as ModuleMainFunction;

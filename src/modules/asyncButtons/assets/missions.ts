@@ -8,8 +8,7 @@ export default (LSSM: Vue, missionSettings: string[]): void => {
         let currentPrisoners = parseInt(
             prisonersLabel?.textContent?.trim().match(/^\d+/)?.[0] || '0'
         );
-        prisonersLabel &&
-            currentPrisoners &&
+        if (prisonersLabel && currentPrisoners) {
             document
                 .getElementById('mission_vehicle_at_mission')
                 ?.addEventListener('click', e => {
@@ -74,14 +73,16 @@ export default (LSSM: Vue, missionSettings: string[]): void => {
                                         /^\d+/,
                                         currentPrisoners.toString()
                                     ) || '';
-                            if (!currentPrisoners)
+                            if (!currentPrisoners) {
                                 Array.from(
                                     document.querySelectorAll(
                                         '.vehicle_prisoner_select'
                                     )
                                 ).forEach(p => p.remove());
+                            }
                         });
                 });
+        }
     }
 
     // MissionReply [WIP]

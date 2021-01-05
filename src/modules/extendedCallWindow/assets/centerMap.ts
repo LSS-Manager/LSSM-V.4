@@ -28,7 +28,9 @@ export default (LSSM: Vue): void => {
                         // @ts-ignore
                         new window.mapkit.Coordinate(lat, lng)
                     );
-                } else window.map.setView([lat, lng], window.map.getZoom());
+                } else {
+                    window.map.setView([lat, lng], window.map.getZoom());
+                }
             },
             data: {
                 lat: latitude,

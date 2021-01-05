@@ -20,8 +20,8 @@ export default async (
     const counterClass = LSSM.$store.getters.nodeAttribute('arr-counter');
     const highlightClass = LSSM.$store.getters.nodeAttribute('arr-clicked');
 
-    (counter || highlight) &&
-        (await LSSM.$store.dispatch('addStyles', [
+    if (counter || highlight) {
+        await LSSM.$store.dispatch('addStyles', [
             ...(counterBadge
                 ? [
                       {
@@ -70,20 +70,22 @@ export default async (
                     )} !important`,
                 },
             },
-        ]));
+        ]);
+    }
 
     const counterNodes = {} as { [aao_id: string]: HTMLSpanElement };
 
     const resetCounters = () => {
-        if (counter)
+        if (counter) {
             Object.values(counterNodes).forEach(counter => {
                 counter.removeAttribute('data-amount');
                 counter.parentElement?.classList.remove(highlightClass);
             });
-        else
+        } else {
             Array.from(
                 document.querySelectorAll(`.${highlightClass}`)
             ).forEach(arr => arr.classList.remove(highlightClass));
+        }
         if (resetSelection) window.vehicleSelectionReset();
     };
 
@@ -109,7 +111,7 @@ export default async (
 
             if (arr.getAttribute('reset') === 'true') resetCounters();
 
-            if (counter)
+            if (counter) {
                 counterNode.setAttribute(
                     'data-amount',
                     (
@@ -118,6 +120,7 @@ export default async (
                         ) + 1
                     ).toLocaleString()
                 );
+            }
 
             if (highlight) arr.classList.add(highlightClass);
         };

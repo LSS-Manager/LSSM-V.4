@@ -94,23 +94,27 @@ export default {
                         root: true,
                     }
                 ).then(storage => {
-                    if (storage)
+                    if (storage) {
                         Object.entries(storage).forEach(([key, value]) => {
                             if (settings.hasOwnProperty(key)) {
                                 const setting = settings[key];
                                 if (
                                     setting.type === 'appendable-list' &&
                                     Array.isArray(value)
-                                )
+                                ) {
                                     settings[key].value = {
                                         value,
                                         enabled: !setting.disableable,
                                     };
+                                }
                                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                                 // @ts-ignore
-                                else settings[key].value = value;
+                                else {
+                                    settings[key].value = value;
+                                }
                             }
                         });
+                    }
                     Object.values(settings).forEach(setting => {
                         if (setting.type === 'appendable-list') {
                             setting.value = setting.value ?? {
@@ -118,9 +122,10 @@ export default {
                                 enabled: !(setting as AppendableList)
                                     .disableable,
                             };
-                        } else
+                        } else {
                             setting.value =
                                 setting.value ?? (setting as Setting).default;
+                        }
                     });
                     commit('register', { moduleId, settings });
                     resolve();

@@ -235,8 +235,7 @@ export default Vue.extend<
             this.building = null;
             this.vehicle = null;
         },
-        _setIcon(icon) {
-            if (!icon) icon = '';
+        _setIcon(icon = '') {
             this.icon = icon;
         },
         _setType(type) {

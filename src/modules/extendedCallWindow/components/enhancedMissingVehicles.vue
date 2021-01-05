@@ -296,16 +296,17 @@ export default Vue.extend<
                 })
                 .then(() => {
                     this.pushedRight = !this.pushedRight;
-                    if (!this.pushedRight)
+                    if (!this.pushedRight) {
                         document
                             .querySelector(
                                 '.mission_header_info.row ~ div ~ .clearfix, .mission_header_info.row ~ .clearfix'
                             )
                             ?.after(this.$el);
-                    else
+                    } else {
                         document
                             .getElementById('mission-form')
                             ?.insertAdjacentElement('afterbegin', this.$el);
+                    }
                 });
         },
     },
@@ -382,11 +383,12 @@ export default Vue.extend<
         });
         const amountElement = document.getElementById('vehicle_amount');
 
-        amountElement &&
+        if (amountElement) {
             amountObserver.observe(amountElement, {
                 childList: true,
                 characterData: true,
             });
+        }
     },
 });
 </script>

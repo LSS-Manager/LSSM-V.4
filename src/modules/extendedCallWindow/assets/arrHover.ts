@@ -153,7 +153,7 @@ export default (
         (document.querySelectorAll(
             '#all .vehicle_checkbox:not(:checked)'
         ) as NodeListOf<HTMLInputElement>).forEach(vehicle => {
-            if (!vehicle.checked)
+            if (!vehicle.checked) {
                 attributeNames.forEach(attr => {
                     if (!amounts.hasOwnProperty(attr)) amounts[attr] = 0;
                     switch (attr) {
@@ -200,15 +200,17 @@ export default (
                             }
                             break;
                         default:
-                            if (vehicle.getAttribute(attr) === '1')
+                            if (vehicle.getAttribute(attr) === '1') {
                                 amounts[attr]++;
-                            else if (attr === 'wasser_amount')
+                            } else if (attr === 'wasser_amount') {
                                 amounts[attr] += parseInt(
                                     vehicle.getAttribute(attr) || '0'
                                 );
+                            }
                             break;
                     }
                 });
+            }
         });
         return amounts;
     };

@@ -38,24 +38,26 @@ export default (LSSM: Vue, $m: $m): void => {
             children[1].textContent?.trim() ||
             $m('schoolingSummary.noSchooling').toString();
         const bound = children[2].textContent?.trim().length || 0;
-        if (!summaryAll.hasOwnProperty(schoolings))
+        if (!summaryAll.hasOwnProperty(schoolings)) {
             summaryAll[schoolings] = {
                 amount: 0,
                 bound: 0,
             };
+        }
         summaryAll[schoolings].amount++;
         if (bound) summaryAll[schoolings].bound++;
         schoolings.split(',').forEach(schooling => {
-            schooling = schooling.trim();
-            if (!summaryEach.hasOwnProperty(schooling))
-                summaryEach[schooling] = {
+            const schoolingName = schooling.trim();
+            if (!summaryEach.hasOwnProperty(schoolingName)) {
+                summaryEach[schoolingName] = {
                     amount: 0,
                     bound: 0,
                     min: 0,
                     max: 0,
                 };
-            summaryEach[schooling].amount++;
-            if (bound) summaryEach[schooling].bound++;
+            }
+            summaryEach[schoolingName].amount++;
+            if (bound) summaryEach[schoolingName].bound++;
         });
     });
 

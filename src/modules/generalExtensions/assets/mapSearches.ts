@@ -31,11 +31,13 @@ export default (
     if (isProfile) document.getElementById('tabs')?.appendChild(form);
     if (addToPanelHeading) {
         const resetNewBuildingMarker = () => {
-            window.building_move_marker &&
+            if (
+                window.building_move_marker &&
                 !window.map
                     .getBounds()
                     .contains(window.building_move_marker.getLatLng()) &&
-                window.building_move_marker.setLatLng(window.map.getCenter()) &&
+                window.building_move_marker.setLatLng(window.map.getCenter())
+            )
                 window.building_move_marker_dragend();
         };
         window.map.addEventListener('moveend', resetNewBuildingMarker);

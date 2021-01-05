@@ -26,19 +26,21 @@ const parser = (tokens: Token[], base?: ObjectTree['base']): QueryTree => {
             tokens.length &&
             ['getter_dot', 'getter_num'].includes(tokens[0].type)
         ) {
-            if (tokens[0].type === 'getter_num')
+            if (tokens[0].type === 'getter_num') {
                 tree.attributes.push(
                     parseInt(
                         tokens.shift()?.value.replace(/^\[|]$/g, '') || '-1'
                     )
                 );
-            else if (tokens.length >= 2 && tokens[1].type === 'identifier') {
+            } else if (tokens.length >= 2 && tokens[1].type === 'identifier') {
                 tokens.shift();
                 tree.attributes.push(tokens.shift()?.value || -1);
             } else if (tokens.length >= 2 && tokens[1].type === 'getter_dot') {
                 tokens.shift();
                 tree.attributes.push('..');
-            } else break;
+            } else {
+                break;
+            }
         }
         if (tokens.length >= 2 && tokens[0].type === 'where') {
             tokens.shift();

@@ -18,10 +18,11 @@ export default (async (LSSM, MODULE_ID) => {
     }
     if (window.location.pathname.match(/\/profile\/\d+/)) {
         const h1 = document.querySelector('h1');
-        if (h1)
+        if (h1) {
             h1.innerHTML += `&nbsp;<small>(${window.location.pathname.replace(
                 /\D+/g,
                 ''
             )})</small>`;
+        }
     }
 }) as ModuleMainFunction;

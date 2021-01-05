@@ -33,10 +33,11 @@ export default {
             { state }: StorageActionStoreParams,
             { key, value }: StorageSet
         ): Promise<typeof value> {
-            if ('undefined' === typeof key || 'undefined' === typeof value)
+            if (typeof key === 'undefined' || typeof value === 'undefined') {
                 throw new Error(
                     `Trying to store a value for LSSM but one of the following Parameters is not defined: key: ${key}, value: ${value}`
                 );
+            }
             return state.localforage.setItem(key, value);
         },
         getAllItems({

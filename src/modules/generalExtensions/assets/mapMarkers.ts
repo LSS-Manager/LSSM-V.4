@@ -195,11 +195,12 @@ export default async (
         if (!target) return;
         const span = target.querySelector<HTMLSpanElement>('span');
         if (!span) return;
-        if (span.getAttribute('data-address-resolved') !== 'true')
+        if (span.getAttribute('data-address-resolved') !== 'true') {
             currentAddressTimeout = window.setTimeout(
                 () => getAddress(span),
                 200
             );
+        }
         currentPreviewTimeout = window.setTimeout(() => mapPreview(span), 500);
     });
 
@@ -224,14 +225,14 @@ export default async (
         previewEnabled = false;
     });
 
-    if (mapUndo)
+    if (mapUndo) {
         await LSSM.$store.dispatch('hookPrototype', {
             post: false,
             base: 'map',
             event: 'setView',
             callback(
                 coordinates: [number, number] | { lat: number; lng: number },
-                zoom: number
+                zoom = window.map.getZoom()
             ) {
                 if (previewEnabled) return;
                 let latExtract;
@@ -239,12 +240,14 @@ export default async (
                 if (Array.isArray(coordinates)) {
                     latExtract = coordinates[0];
                     lngExtract = coordinates[1];
-                } else return; // This happens at Zoom – we don't want to log zooming currently
+                } else {
+                    return;
+                } // This happens at Zoom – we don't want to log zooming currently
                 const lat = latExtract;
                 const lng = lngExtract;
-                zoom = zoom ?? window.map.getZoom();
                 history.push({ lat, lng, zoom });
                 updateHistoryList();
             },
         });
+    }
 };

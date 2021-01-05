@@ -35,9 +35,8 @@ const API_MIN_UPDATE = 5 * 1000 * 60; // 5 Minutes
 
 const get_from_storage = <API extends StorageAPIKey>(
     key: API,
-    storageBase?: Window
+    storageBase = window
 ): StorageGetterReturn<API> => {
-    if (!storageBase) storageBase = window;
     try {
         return JSON.parse(
             storageBase[
@@ -58,12 +57,15 @@ const get_from_parent = <API extends StorageAPIKey>(
     const parent_api_state = (window.parent[PREFIX] as Vue).$store.state
         .api as APIState;
     const parent_state = parent_api_state[key];
-    if (Object.values(parent_state).length)
+    if (Object.values(parent_state).length) {
         return {
             value: parent_state,
             lastUpdate: parent_api_state.lastUpdates[key] ?? 0,
             user_id: window.user_id,
         };
+    }
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     return get_from_storage(key, window.parent);
 };
 const get_from_broadcast = async <API extends StorageAPIKey>(
@@ -590,11 +592,10 @@ export default {
         },
         async request(
             { rootState, dispatch, state, commit }: APIActionStoreParams,
-            { input, url = '', init }
+            { input, url = '', init = {} }
         ) {
-            input &&
-                url &&
-                (await dispatch(
+            if (input && url) {
+                await dispatch(
                     'console/warn',
                     [
                         `Request was initialized with both, input and URL, input object will be used!`,
@@ -606,11 +607,11 @@ export default {
                     {
                         root: true,
                     }
-                ));
-            init = init || {};
+                );
+            }
             init.headers = init.headers || {};
-            init.headers.hasOwnProperty('X-LSS-Manager') &&
-                (await dispatch(
+            if (init.headers.hasOwnProperty('X-LSS-Manager')) {
+                await dispatch(
                     'console/warn',
                     [
                         `Request Header "X-LSS-Manager" with value ${JSON.stringify(
@@ -622,12 +623,13 @@ export default {
                     {
                         root: true,
                     }
-                ));
+                );
+            }
             init.headers['X-LSS-Manager'] = rootState.version;
             init.cache = init.cache || 'no-cache';
             const target = input || url;
             if (target.toString().startsWith(rootState.server)) {
-                if (!state.key)
+                if (!state.key) {
                     commit(
                         'setKey',
                         await dispatch('request', {
@@ -636,6 +638,7 @@ export default {
                             .then(res => res.json())
                             .then(({ code }) => code)
                     );
+                }
                 init.headers['X-LSSM-User'] = btoa(
                     `${state.key}:${rootState.version}-${MODE}`
                 );

@@ -62,7 +62,7 @@ export default (async LSSM => {
         const allianceListPage = alliance
             ? Math.ceil(allianceInfo.rank / 20)
             : 0;
-        if (alliance)
+        if (alliance) {
             allianceInfo.users.forEach(({ roles }) =>
                 roles.forEach(role => {
                     if (!allianceRoles.hasOwnProperty(role))
@@ -70,6 +70,7 @@ export default (async LSSM => {
                     allianceRoles[role]++;
                 })
             );
+        }
 
         const buildings: Building[] = LSSM.$store.state.api.buildings;
         const extremeBuildings = {} as {

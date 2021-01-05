@@ -53,13 +53,14 @@ export default async (
 
         if (personnelAssignmentBtn) LSSM.$store.commit('useFontAwesome');
 
-        if (fmsSwitch)
+        if (fmsSwitch) {
             await LSSM.$store.dispatch('addStyle', {
                 selectorText: '.building_list_fms_2, .building_list_fms_6',
                 style: {
                     cursor: 'pointer',
                 },
             });
+        }
 
         const lastRowItems = [
             'vehiclesPersonnelCurrent',
@@ -174,7 +175,7 @@ export default async (
                 if (lastRowItems.length && storedVehicle) {
                     (async () => {
                         let currentPersonnel = 0;
-                        if (lastRowItems.includes('vehiclesPersonnelCurrent'))
+                        if (lastRowItems.includes('vehiclesPersonnelCurrent')) {
                             currentPersonnel = await LSSM.$store
                                 .dispatch('api/request', {
                                     url: `/vehicles/${vehicleId}`,
@@ -189,6 +190,7 @@ export default async (
                                                 '#vehicle_details table tbody tr'
                                             ).length
                                 );
+                        }
                         const assigned_personnel_count =
                             storedVehicle.assigned_personnel_count || 0;
                         const maxPersonnel =

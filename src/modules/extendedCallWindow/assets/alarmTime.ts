@@ -56,11 +56,12 @@ export default (LSSM: Vue): void => {
 
             const amountElement = document.getElementById('vehicle_amount');
 
-            amountElement &&
+            if (amountElement) {
                 amountObserver.observe(amountElement, {
                     childList: true,
                     characterData: true,
                 });
+            }
 
             update();
         });

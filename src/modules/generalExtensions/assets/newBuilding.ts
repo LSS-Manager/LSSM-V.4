@@ -14,11 +14,13 @@ export default async (
     // Reset Marker for new building
     const resetNewBuildingMarker = () => {
         if (isBuildingMenu) {
-            window.building_new_marker &&
+            if (
+                window.building_new_marker &&
                 !window.map
                     .getBounds()
                     .contains(window.building_new_marker.getLatLng()) &&
-                window.building_new_marker.setLatLng(window.map.getCenter()) &&
+                window.building_new_marker.setLatLng(window.map.getCenter())
+            )
                 window.building_new_dragend();
         }
     };
@@ -209,5 +211,6 @@ export default async (
     });
 
     const buildingsElement = document.getElementById('buildings');
-    buildingsElement && observer.observe(buildingsElement, { childList: true });
+    if (buildingsElement)
+        observer.observe(buildingsElement, { childList: true });
 };

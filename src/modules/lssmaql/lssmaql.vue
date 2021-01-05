@@ -116,14 +116,15 @@ const parse_filter = (
         if (!baseAttr) return;
         let newObject = vm.$store.state.api[baseAttr];
         sideObject.forEach(attr => {
-            if (Array.isArray(newObject) && typeof attr !== 'number')
+            if (Array.isArray(newObject) && typeof attr !== 'number') {
                 newObject = (newObject as never[]).map(e => e[attr]);
-            else
+            } else {
                 newObject = (newObject as Record<string, unknown>)[attr] as
                     | string
                     | number
                     | Record<string, unknown>
                     | never[];
+            }
         });
         sideObject = newObject;
     }
