@@ -1,6 +1,7 @@
 import VueI18n from 'vue-i18n';
 import { InternalBuilding } from 'typings/Building';
 import { Building } from 'typings/Building';
+import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 
 interface buildingWithExtension extends Building {
     extension_available: number;
@@ -16,6 +17,7 @@ export interface BuildingTypes {
     groups: {
         [category: string]: Category;
     };
+    faBuilding: IconDefinition;
 }
 
 export interface Category {
