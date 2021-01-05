@@ -38,6 +38,12 @@
         <tr
             v-for="requirement in missingRequirements"
             :key="requirement.vehicle"
+            :class="{
+                overRequirement:
+                    (requirement.hasOwnProperty('total')
+                        ? requirement.total
+                        : requirement.missing) <= requirement.selected,
+            }"
         >
             <td>
                 <b>{{ requirement.vehicle }}</b>
@@ -101,4 +107,6 @@ export default Vue.extend<
 <style scoped lang="sass">
 th
     cursor: pointer
+.overRequirement
+    color: #00cc00
 </style>

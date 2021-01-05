@@ -1,7 +1,12 @@
 <template>
     <div
-        class="alert alert-danger alert-missing-vehicles"
-        :class="{ overlay, minified }"
+        class="alert alert-missing-vehicles"
+        :class="{
+            overlay,
+            minified,
+            'alert-success': missingRequirementsCheck,
+            'alert-danger': !missingRequirementsCheck,
+        }"
         :style="`top: ${drag.top}px; left: ${drag.left}px`"
         :id="id"
     >
@@ -199,6 +204,14 @@ export default Vue.extend<
                 if (a[this.sort] > b[this.sort]) return modifier;
                 return 0;
             });
+        },
+        missingRequirementsCheck() {
+            return this.requirements.every(
+                (req: { total: number; missing: number; selected: number }) => {
+                    if ((req.total ?? req.missing) <= req.selected) return true;
+                    else return false;
+                }
+            );
         },
     },
     methods: {

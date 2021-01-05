@@ -50,6 +50,7 @@ export interface EnhancedMissingVehiclesProps {
 export interface EnhancedMissingVehiclesComputed {
     missingRequirementsFiltered: Requirement[];
     missingRequirementsSorted: Requirement[];
+    missingRequirementsCheck: boolean;
 }
 
 export interface EnhancedMissingVehiclesMethods {
