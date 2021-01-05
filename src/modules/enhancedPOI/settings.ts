@@ -26,7 +26,7 @@ export default ((MODULE_ID: string, LSSM: Vue) => ({
         default: Object.values(LSSM.$t('pois')) as string[],
         noLabelTranslation: true,
     },
-    lastSavedPOIType: <Hidden>{
+    lastSavedPOIType: <Hidden<string>>{
         type: 'hidden',
     },
 })) as ModuleSettingFunction;

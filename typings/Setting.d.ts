@@ -61,10 +61,10 @@ interface HotKey extends SettingTemplate {
     value: string;
 }
 
-interface Hidden extends SettingTemplate {
+interface Hidden<Type = boolean> extends SettingTemplate {
     type: 'hidden';
-    default: false;
-    value: false;
+    default: Type;
+    value: Type;
 }
 
 interface AppendableListItem {
