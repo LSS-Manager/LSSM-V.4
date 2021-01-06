@@ -5,6 +5,8 @@ Eine Hilfestellung zur Konfiguration findest du unter [Konfiguration](#konfigura
 
 Aktuell bieten wir dir die Möglichkeit von Uhren an folgenden Stellen:
 * Navigationsleiste *Format hier: `LLLL:ss`*  ![Uhr in der Navigationsleiste](/v4/docs/assets/clock/img/navbar.png)
+* Als Overlay über allen Elementen
+    * Das hatten wir in der V3 schon für die Karte, hier ist die Uhr jetzt im gesamten Fenster erreichbar.
 
 ## Konfiguration
 
