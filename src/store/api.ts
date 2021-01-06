@@ -363,7 +363,7 @@ export default {
         ) {
             return new Promise<void>(resolve => {
                 dispatch('request', {
-                    url: 'api/vehicle_states',
+                    url: '/api/vehicle_states',
                     feature: `store/api/setVehicleStates(${feature})`,
                 })
                     .then(res => res.json())
