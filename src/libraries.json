@@ -59,7 +59,7 @@
 	"@vuepress/plugin-active-header-links": {
 		"icon": "https://vuepress.vuejs.org/hero.png",
 		"url": "https://github.com/vuejs/vuepress/blob/master/packages/@vuepress/plugin-active-header-links#readme",
-		"version": "1.7.1"
+		"version": "1.8.0"
 	},
 	"@vuepress/plugin-back-to-top": {
 		"icon": "https://vuepress.vuejs.org/hero.png",
