@@ -80,7 +80,7 @@ module.exports = {
             [/^fourgon(s)? d’incendie$/]: [0, 1, 12, 13],
             [/^Moyen(s)? Élévateur(s)? Aérien(s)?$/]: [2, 15],
             [/^Chef(s)? de (g|G)roupe(s)?$/]: [3, 11, 24],
-            [/^Véhicule(s)? de secours routier$/]: [4],
+            [/^Véhicule(s)? de secours routier$/]: [4, 12],
             [/^UMH$/]: [5],
             [/^camion(s)?-citerne(s)?$/]: [6],
             [/^véhicule(s)? risque(s)? technologique(s)?$/]: [7],
