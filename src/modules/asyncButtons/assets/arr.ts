@@ -1,7 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { $m } from 'typings/Module';
 
-export default (LSSM: Vue, $m: $m): void => {
+export default (LSSM: Vue, $m: $m, MODULE_ID: string): void => {
     const $sm = (key: string, args?: Parameters<$m>[1]) =>
         $m(`deleteARR.${key}`, args);
     const btns = Array.from(
@@ -61,6 +61,7 @@ export default (LSSM: Vue, $m: $m): void => {
                                             'Upgrade-Insecure-Requests': '1',
                                         },
                                     },
+                                    feature: `${MODULE_ID}-arr`,
                                 })
                                 .then(({ status }) => {
                                     if (status !== 200) return;

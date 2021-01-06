@@ -26,6 +26,7 @@ export default async (LSSM: Vue): Promise<void> => {
                 init: {
                     method: 'GET',
                 },
+                feature: 'releasenotes',
             })
             .then(res => res.json())) as Releasenotes
     )

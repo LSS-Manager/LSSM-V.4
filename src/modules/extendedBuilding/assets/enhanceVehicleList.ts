@@ -6,7 +6,8 @@ export default async (
     LSSM: Vue,
     BUILDING_MODE: 'building' | 'dispatch',
     getSetting: (key: string) => Promise<boolean>,
-    $m: $m
+    $m: $m,
+    MODULE_ID: string
 ): Promise<void> => {
     const callback = async () => {
         const vehicles = Array.from(
@@ -108,6 +109,7 @@ export default async (
                     LSSM.$store
                         .dispatch('api/request', {
                             url: `/vehicles/${vehicleId}/set_fms/${nextFms}`,
+                            feature: `${MODULE_ID}-enhanceVehicleList-fmsSwitch`,
                         })
                         .then(({ status }) => {
                             if (status === 200) {
@@ -179,6 +181,7 @@ export default async (
                             currentPersonnel = await LSSM.$store
                                 .dispatch('api/request', {
                                     url: `/vehicles/${vehicleId}`,
+                                    feature: `${MODULE_ID}-enhanceVehicleList-personnel`,
                                 })
                                 .then(res => res.text())
                                 .then(
@@ -235,11 +238,16 @@ export default async (
             tabSelector: '#tab_vehicle',
             callback,
         });
-        await LSSM.$store.dispatch('api/registerVehiclesUsage', false);
+        await LSSM.$store.dispatch('api/registerVehiclesUsage', {
+            feature: `${MODULE_ID}-enhanceVehicleList`,
+        });
     } else {
         const path = window.location.pathname.split('/').filter(s => !!s);
         const buildingId = parseInt(path[path.length - 1]);
-        await LSSM.$store.dispatch('api/fetchVehiclesAtBuilding', buildingId);
+        await LSSM.$store.dispatch('api/fetchVehiclesAtBuilding', {
+            id: buildingId,
+            feature: `${MODULE_ID}-enhanceVehicleList`,
+        });
         await callback();
     }
 };

@@ -7,7 +7,7 @@ import { InternalVehicle, Vehicle } from 'typings/Vehicle';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { $m } from 'typings/Module';
 
-export default (LSSM: Vue, $m: $m): void => {
+export default (LSSM: Vue, $m: $m, MODULE_ID: string): void => {
     const dataList = document.querySelector<HTMLDataListElement>(
         'dl:last-of-type'
     );
@@ -71,7 +71,10 @@ export default (LSSM: Vue, $m: $m): void => {
     };
 
     LSSM.$store
-        .dispatch('api/fetchVehiclesAtBuilding', buildingId)
+        .dispatch('api/fetchVehiclesAtBuilding', {
+            id: buildingId,
+            feature: `${MODULE_ID}-schoolingSummary`,
+        })
         .then((vehicles: Vehicle[]) => {
             vehicles.forEach(v => {
                 const type = vehicleTypes[v.vehicle_type];

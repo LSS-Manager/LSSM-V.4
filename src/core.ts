@@ -97,11 +97,9 @@ require('./natives/lightbox');
     }
 
     if (window.location.pathname.match(/^\/users\//)) return;
-    LSSM.$store.commit(
+    await LSSM.$store.dispatch(
         'api/setVehicleStates',
-        await LSSM.$store
-            .dispatch('api/request', { url: '/api/vehicle_states' })
-            .then(res => res.json())
+        'core-initialVehicleStates'
     );
     for (const moduleId of MODULES_OF_LOCALE[LSSM.$store.state.lang]) {
         try {
@@ -165,7 +163,10 @@ require('./natives/lightbox');
                     building.caption !== buildingMarker.name
                 ) {
                     LSSM.$store
-                        .dispatch('api/fetchBuilding', buildingMarker.id)
+                        .dispatch('api/fetchBuilding', {
+                            id: buildingMarker.id,
+                            feature: 'core-buildingMarkerAdd',
+                        })
                         .then(
                             async building =>
                                 // LSSM.$store

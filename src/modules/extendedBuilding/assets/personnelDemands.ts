@@ -2,7 +2,12 @@ import { InternalVehicle, Vehicle } from 'typings/Vehicle';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { $m } from 'typings/Module';
 
-export default (LSSM: Vue, $m: $m, buildingId: number): void => {
+export default (
+    LSSM: Vue,
+    $m: $m,
+    buildingId: number,
+    MODULE_ID: string
+): void => {
     const dataList = document.querySelector('.dl-horizontal');
 
     if (!dataList) return;
@@ -18,7 +23,10 @@ export default (LSSM: Vue, $m: $m, buildingId: number): void => {
     let sumMaxPersonnelS6 = 0;
 
     LSSM.$store
-        .dispatch('api/fetchVehiclesAtBuilding', buildingId)
+        .dispatch('api/fetchVehiclesAtBuilding', {
+            id: buildingId,
+            feature: `${MODULE_ID}-personnelDemands`,
+        })
         .then((vehicles: Vehicle[]) => {
             vehicles.forEach(v => {
                 const type = vehicleTypes[v.vehicle_type];

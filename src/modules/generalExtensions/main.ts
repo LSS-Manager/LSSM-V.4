@@ -46,7 +46,7 @@ export default (async (LSSM, MODULE_ID, $m) => {
             await import(
                 /* webpackChunkName: "modules/generalExtensions/linkPreviews" */ './assets/linkPreviews'
             )
-        ).default(LSSM, linkPreviewSetting);
+        ).default(LSSM, linkPreviewSetting, MODULE_ID);
     }
     const mapUndo = await getSetting<boolean>('mapUndo');
     const ownMapMarkers = await getSetting<boolean>('ownMapMarkers');

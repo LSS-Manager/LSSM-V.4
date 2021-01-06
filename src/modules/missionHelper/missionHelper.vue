@@ -588,10 +588,10 @@ export default Vue.extend<
             this.isReloading = false;
         },
         async getMission(id, force) {
-            const missions = (await this.$store.dispatch(
-                'api/getMissions',
-                force
-            )) as Mission[];
+            const missions = (await this.$store.dispatch('api/getMissions', {
+                force,
+                feature: 'missionHelper-getMission',
+            })) as Mission[];
             const mission = missions?.find(spec => spec.id === id);
             if (mission) {
                 if (this.settings.expansions && mission.additional) {

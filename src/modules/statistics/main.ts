@@ -11,7 +11,7 @@ import { Building } from 'typings/Building';
 // @ts-ignore
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
-export default (async LSSM => {
+export default (async (LSSM, MODULE_ID) => {
     if (
         !window.location.pathname.match(
             new RegExp(`/profile/${window.user_id}/?`)
@@ -32,10 +32,16 @@ export default (async LSSM => {
     if (!header) return;
     header.before(generationBtn);
 
-    await LSSM.$store.dispatch('api/registerBuildingsUsage');
-    await LSSM.$store.dispatch('api/registerVehiclesUsage');
-    await LSSM.$store.dispatch('api/registerAllianceinfoUsage');
-    await LSSM.$store.dispatch('api/fetchCreditsInfo');
+    await LSSM.$store.dispatch('api/registerBuildingsUsage', {
+        feature: MODULE_ID,
+    });
+    await LSSM.$store.dispatch('api/registerVehiclesUsage', {
+        feature: MODULE_ID,
+    });
+    await LSSM.$store.dispatch('api/registerAllianceinfoUsage', {
+        feature: MODULE_ID,
+    });
+    await LSSM.$store.dispatch('api/fetchCreditsInfo', MODULE_ID);
 
     const alliance = document.querySelector<HTMLAnchorElement>(
         '.page-header a[href^="/alliances/"]'

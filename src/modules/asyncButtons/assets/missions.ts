@@ -1,4 +1,8 @@
-export default (LSSM: Vue, missionSettings: string[]): void => {
+export default (
+    LSSM: Vue,
+    missionSettings: string[],
+    MODULE_ID: string
+): void => {
     // Prisoners
     if (
         document.querySelector('.vehicle_prisoner_select') &&
@@ -24,6 +28,7 @@ export default (LSSM: Vue, missionSettings: string[]): void => {
                     LSSM.$store
                         .dispatch('api/request', {
                             url: target.getAttribute('href'),
+                            feature: `${MODULE_ID}-missions-prisoners`,
                         })
                         .then(() => {
                             const vehicleId = target.parentElement?.getAttribute(

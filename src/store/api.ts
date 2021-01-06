@@ -94,6 +94,7 @@ const get_from_broadcast = async <API extends StorageAPIKey>(
 const get_api_values = async <API extends StorageAPIKey>(
     key: API,
     { dispatch, state, commit }: APIActionStoreParams,
+    feature: string,
     preventUpdateFetch = false
 ): Promise<StorageGetterReturn<API>> => {
     let stored = {
@@ -129,6 +130,7 @@ const get_api_values = async <API extends StorageAPIKey>(
             lastUpdate: new Date().getTime(),
             value: await dispatch('request', {
                 url: `/api/${key}`,
+                feature,
             }).then(res => res.json()),
             user_id: window.user_id,
         };
@@ -339,17 +341,31 @@ export default {
         },
     } as GetterTree<APIState, RootState>,
     actions: {
-        initialUpdate(store: APIActionStoreParams, type: StorageAPIKey) {
+        initialUpdate(
+            store: APIActionStoreParams,
+            { type, feature }: { type: StorageAPIKey; feature: string }
+        ) {
             return new Promise<void>(resolve =>
-                get_api_values(type, store, true).then(result => {
+                get_api_values(
+                    type,
+                    store,
+                    `store/api/initialUpdate/${type}(${feature})`,
+                    true
+                ).then(result => {
                     store.commit(MUTATION_SETTERS[type], result);
                     resolve();
                 })
             );
         },
-        setVehicleStates({ dispatch, commit }: APIActionStoreParams) {
+        setVehicleStates(
+            { dispatch, commit }: APIActionStoreParams,
+            feature: string
+        ) {
             return new Promise<void>(resolve => {
-                dispatch('request', { url: 'api/vehicle_states' })
+                dispatch('request', {
+                    url: 'api/vehicle_states',
+                    feature: `store/api/setVehicleStates(${feature})`,
+                })
                     .then(res => res.json())
                     .then(states => {
                         commit('setVehicleStates', states);
@@ -359,11 +375,15 @@ export default {
         },
         async registerBuildingsUsage(
             store: APIActionStoreParams,
-            autoUpdate = false
+            {
+                autoUpdate = false,
+                feature,
+            }: { autoUpdate: boolean; feature: string }
         ) {
             const { value: buildings, lastUpdate } = await get_api_values(
                 'buildings',
-                store
+                store,
+                `store/api/registerBuildingsUsage(${feature})`
             );
             if (!buildings) return;
             set_api_storage(
@@ -379,7 +399,10 @@ export default {
                 );
             }
         },
-        async fetchBuilding(store: APIActionStoreParams, id: number) {
+        async fetchBuilding(
+            store: APIActionStoreParams,
+            { id, feature }: { id: number; feature: string }
+        ) {
             return new Promise((resolve, reject) => {
                 store
                     .dispatch('request', {
@@ -390,7 +413,11 @@ export default {
                         const {
                             value: buildings,
                             lastUpdate,
-                        } = await get_api_values('buildings', store);
+                        } = await get_api_values(
+                            'buildings',
+                            store,
+                            `store/api/fetchBuilding(${feature})`
+                        );
                         if (!buildings) return reject();
                         buildings[
                             buildings.findIndex(b => b.id === id)
@@ -410,11 +437,15 @@ export default {
         },
         async registerVehiclesUsage(
             store: APIActionStoreParams,
-            autoUpdate = false
+            {
+                autoUpdate = false,
+                feature,
+            }: { autoUpdate: boolean; feature: string }
         ) {
             const { value: vehicles, lastUpdate } = await get_api_values(
                 'vehicles',
-                store
+                store,
+                `store/api/registerVehiclesUsage(${feature})`
             );
             if (!vehicles) return;
             set_api_storage(
@@ -430,7 +461,10 @@ export default {
                 );
             }
         },
-        async fetchVehicle(store: APIActionStoreParams, id: number) {
+        async fetchVehicle(
+            store: APIActionStoreParams,
+            { id, feature }: { id: number; feature: string }
+        ) {
             return new Promise((resolve, reject) => {
                 store
                     .dispatch('request', {
@@ -441,7 +475,11 @@ export default {
                         const {
                             value: vehicles,
                             lastUpdate,
-                        } = await get_api_values('vehicles', store);
+                        } = await get_api_values(
+                            'vehicles',
+                            store,
+                            `store/api/fetchVehicle(${feature})`
+                        );
                         if (!vehicles) return reject();
                         const index = vehicles.findIndex(v => v.id === id);
                         if (index < 0) vehicles.push(vehicle);
@@ -459,7 +497,10 @@ export default {
                     });
             });
         },
-        async fetchVehiclesAtBuilding(store: APIActionStoreParams, id: number) {
+        async fetchVehiclesAtBuilding(
+            store: APIActionStoreParams,
+            { id, feature }: { id: number; feature: string }
+        ) {
             return new Promise((resolve, reject) => {
                 store
                     .dispatch('request', {
@@ -470,7 +511,11 @@ export default {
                         const {
                             value: vehicles,
                             lastUpdate,
-                        } = await get_api_values('vehicles', store);
+                        } = await get_api_values(
+                            'vehicles',
+                            store,
+                            `store/api/fetchVehiclesAtBuilding(${feature})`
+                        );
                         if (!vehicles) return reject();
                         vehiclesAt.forEach(vehicle => {
                             const index = vehicles.findIndex(
@@ -494,11 +539,15 @@ export default {
         },
         async registerAllianceinfoUsage(
             store: APIActionStoreParams,
-            autoUpdate = false
+            {
+                autoUpdate = false,
+                feature,
+            }: { autoUpdate: boolean; feature: string }
         ) {
             const { value: allianceinfo, lastUpdate } = await get_api_values(
                 'allianceinfo',
-                store
+                store,
+                `store/api/registerAllianceinfoUsage(${feature})`
             );
             if (!allianceinfo) return;
             set_api_storage(
@@ -519,11 +568,15 @@ export default {
         },
         async registerSettings(
             store: APIActionStoreParams,
-            autoUpdate = false
+            {
+                autoUpdate = false,
+                feature,
+            }: { autoUpdate: boolean; feature: string }
         ) {
             const { value: settings, lastUpdate } = await get_api_values(
                 'settings',
-                store
+                store,
+                `store/api/registerSettings(${feature})`
             );
             if (!settings) return;
             set_api_storage(
@@ -539,28 +592,30 @@ export default {
                 );
             }
         },
-        async fetchCreditsInfo(store: APIActionStoreParams) {
+        async fetchCreditsInfo(store: APIActionStoreParams, feature: string) {
             return new Promise((resolve, reject) => {
-                get_api_values('credits', store).then(
-                    ({ value: credits, lastUpdate }) => {
-                        if (!credits) reject();
-                        set_api_storage(
-                            'credits',
-                            {
-                                value: credits,
-                                lastUpdate,
-                                user_id: window.user_id,
-                            },
-                            store
-                        );
-                        resolve(credits);
-                    }
-                );
+                get_api_values(
+                    'credits',
+                    store,
+                    `store/api/fetchCreditsInfo(${feature})`
+                ).then(({ value: credits, lastUpdate }) => {
+                    if (!credits) reject();
+                    set_api_storage(
+                        'credits',
+                        {
+                            value: credits,
+                            lastUpdate,
+                            user_id: window.user_id,
+                        },
+                        store
+                    );
+                    resolve(credits);
+                });
             });
         },
         async getMissions(
             { rootState, state, dispatch, commit }: APIActionStoreParams,
-            force: boolean
+            { force, feature }: { force: boolean; feature: string }
         ) {
             if (state.missions.length) return state.missions;
             if (
@@ -574,6 +629,7 @@ export default {
                         init: {
                             method: 'GET',
                         },
+                        feature: `store/api/getMissions(${feature})`,
                     }).then(res => res.json())
                 );
                 sessionStorage.setItem(
@@ -592,7 +648,7 @@ export default {
         },
         async request(
             { rootState, dispatch, state, commit }: APIActionStoreParams,
-            { input, url = '', init = {} }
+            { input, url = '', init = {}, feature }
         ) {
             if (input && url) {
                 await dispatch(
@@ -626,6 +682,7 @@ export default {
                 );
             }
             init.headers['X-LSS-Manager'] = rootState.version;
+            init.headers['X-LSS-Manager-Feature'] = feature;
             init.cache = init.cache || 'no-cache';
             const target = input || url;
             if (target.toString().startsWith(rootState.server)) {

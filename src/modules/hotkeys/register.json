@@ -1,5 +1,6 @@
 {
 	"dev": true,
 	"location": ".*",
+	"noapp": true,
 	"settings": true
 }

@@ -5,8 +5,14 @@ import { Building } from '../../../typings/Building';
 import { ModuleMainFunction } from 'typings/Module';
 
 export default (async (LSSM, MODULE_ID) => {
-    await LSSM.$store.dispatch('api/registerBuildingsUsage', true);
-    await LSSM.$store.dispatch('api/registerVehiclesUsage', true);
+    await LSSM.$store.dispatch('api/registerBuildingsUsage', {
+        autoUpdate: true,
+        feature: MODULE_ID,
+    });
+    await LSSM.$store.dispatch('api/registerVehiclesUsage', {
+        autoUpdate: true,
+        feature: MODULE_ID,
+    });
 
     const vehicleTypes = LSSM.$t('vehicles') as {
         [id: number]: InternalVehicle;

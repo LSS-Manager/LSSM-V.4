@@ -216,9 +216,16 @@ export default Vue.extend<
     },
     beforeMount() {
         this.$store.dispatch('api/registerAllianceinfoUsage');
-        this.$store.dispatch('api/registerBuildingsUsage');
-        this.$store.dispatch('api/registerVehiclesUsage');
-        this.$store.dispatch('api/getMissions', false);
+        this.$store.dispatch('api/registerBuildingsUsage', {
+            feature: 'lssmaql-beforeMount',
+        });
+        this.$store.dispatch('api/registerVehiclesUsage', {
+            feature: 'lssmaql-beforeMount',
+        });
+        this.$store.dispatch('api/getMissions', {
+            force: false,
+            feature: 'lssmaql-beforeMount',
+        });
     },
 });
 </script>

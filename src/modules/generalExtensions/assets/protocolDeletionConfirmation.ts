@@ -18,6 +18,7 @@ export default async (
         if (!row) return;
         await LSSM.$store.dispatch('api/request', {
             url: link,
+            feature: `${MODULE_ID}-protocolDeletionConfirmation`,
         });
         row.style.display = 'none';
     };

@@ -125,6 +125,7 @@ export default async (
                             mode: 'cors',
                             body: url.searchParams.toString(),
                         },
+                        feature: `${MODULE_ID}-newBuilding`,
                     })
                     .then(res => res.text())
                     .then(res => {

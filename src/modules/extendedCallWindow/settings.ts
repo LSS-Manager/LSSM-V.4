@@ -17,7 +17,7 @@ import {
 import { InternalVehicle } from 'typings/Vehicle';
 import { Mission } from 'typings/Mission';
 
-export default (async (_: string, LSSM: Vue, $m: $m) => {
+export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
     const defaultTailoredTabs = Object.values(
         $m('tailoredTabs.defaultTabs')
     ).map(({ name, vehicleTypes }) => ({
@@ -36,10 +36,10 @@ export default (async (_: string, LSSM: Vue, $m: $m) => {
         vehicleIds.push(id);
     });
 
-    const missions = (await LSSM.$store.dispatch(
-        'api/getMissions',
-        false
-    )) as Mission[];
+    const missions = (await LSSM.$store.dispatch('api/getMissions', {
+        force: false,
+        feature: `${MODULE_ID}-settings`,
+    })) as Mission[];
     const missionIds = [] as string[];
     const missionNames = [] as string[];
     missions.forEach(({ id, name }) => {

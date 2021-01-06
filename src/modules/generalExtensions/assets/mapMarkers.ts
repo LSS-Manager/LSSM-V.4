@@ -177,6 +177,7 @@ export default async (
         LSSM.$store
             .dispatch('api/request', {
                 url: `/reverse_address?latitude=${lat}&longitude=${lng}`,
+                feature: `${MODULE_ID}-mapMarkers`,
             })
             .then(res => res.text())
             .then(address => {

@@ -131,8 +131,8 @@ import { Building, InternalBuilding } from 'typings/Building';
 
 export default Vue.extend<
     BuildingList,
-    BuildingListComputed,
     BuildingListMethods,
+    BuildingListComputed,
     BuildingListProps
 >({
     name: 'building-list',
@@ -261,6 +261,7 @@ export default Vue.extend<
             this.$store
                 .dispatch('api/request', {
                     url: `/buildings/${building.id}/leitstelle-set/${dispatchBuilding.id}`,
+                    feature: `dashboard-buildingList-fastDispatchChooser`,
                 })
                 .then(() => {
                     const dispatchBtn = document.getElementById(
@@ -277,9 +278,11 @@ export default Vue.extend<
                 });
         },
         getDispatchCenterCaption(dispatchBuildings, building) {
-            return dispatchBuildings.find(
-                b => b.id === (building.leitstelle_building_id ?? 0)
-            ).caption;
+            return (
+                dispatchBuildings.find(
+                    b => b.id === (building.leitstelle_building_id ?? 0)
+                )?.caption ?? ''
+            );
         },
     },
 });

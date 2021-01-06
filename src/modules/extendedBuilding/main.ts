@@ -26,14 +26,17 @@ export default (async (LSSM, MODULE_ID, $m) => {
 
         const path = window.location.pathname.split('/').filter(s => !!s);
         const buildingId = parseInt(path[path.length - 1]);
-        await LSSM.$store.dispatch('api/fetchBuilding', buildingId);
+        await LSSM.$store.dispatch('api/fetchBuilding', {
+            id: buildingId,
+            feature: `${MODULE_ID}-main`,
+        });
 
         if (await getSetting('enhanceVehicleList')) {
             await (
                 await import(
                     /* webpackChunkName: "modules/extendedBuilding/enhanceVehicleList" */ './assets/enhanceVehicleList'
                 )
-            ).default(LSSM, BUILDING_MODE, getSetting, $m);
+            ).default(LSSM, BUILDING_MODE, getSetting, $m, MODULE_ID);
         }
 
         if (BUILDING_MODE === 'building') {
@@ -45,14 +48,14 @@ export default (async (LSSM, MODULE_ID, $m) => {
                     await import(
                         /* webpackChunkName: "modules/extendedBuilding/personnelDemands" */ './assets/personnelDemands'
                     )
-                ).default(LSSM, $m, buildingId);
+                ).default(LSSM, $m, buildingId, MODULE_ID);
             }
             if (await getSetting('fastDispatchChooser')) {
                 (
                     await import(
                         /* webpackChunkName: "modules/extendedBuilding/fastDispatchChooser" */ './assets/fastDispatchChooser'
                     )
-                ).default(LSSM, $m);
+                ).default(LSSM, $m, MODULE_ID);
             }
         }
 
@@ -82,7 +85,7 @@ export default (async (LSSM, MODULE_ID, $m) => {
                 await import(
                     /* webpackChunkName: "modules/extendedBuilding/schoolingSummary" */ './assets/schoolingSummary'
                 )
-            ).default(LSSM, $m);
+            ).default(LSSM, $m, MODULE_ID);
         }
     } else if (
         window.location.pathname.match(/^\/buildings\/\d+\/vehicles\/new\/?$/)
@@ -92,7 +95,7 @@ export default (async (LSSM, MODULE_ID, $m) => {
                 await import(
                     /* webpackChunkName: "modules/extendedBuilding/autoBuyLevels" */ './assets/autoBuyLevels'
                 )
-            ).default(LSSM);
+            ).default(LSSM, MODULE_ID);
         }
     } else if (
         window.location.pathname.match(/^\/vehicles\/\d+\/zuweisung\/?$/)

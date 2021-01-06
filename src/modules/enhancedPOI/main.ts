@@ -7,7 +7,7 @@ export default (async (LSSM, MODULE_ID, $m: $m) => {
     const poi_types = Object.values(LSSM.$t('pois')) as string[];
     poi_types.sort();
 
-    await LSSM.$store.dispatch('api/registerSettings');
+    await LSSM.$store.dispatch('api/registerSettings', MODULE_ID);
 
     const style = await (async () => {
         const predef = await LSSM.$store.dispatch('settings/getSetting', {
@@ -50,6 +50,7 @@ export default (async (LSSM, MODULE_ID, $m: $m) => {
         LSSM.$store
             .dispatch('api/request', {
                 url: '/mission_positions',
+                feature: MODULE_ID,
             })
             .then(res => res.json())
             .then(
