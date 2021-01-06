@@ -394,7 +394,7 @@ export default {
             if (autoUpdate && !store.state.autoUpdates.includes('buildings')) {
                 store.commit('enableAutoUpdate', 'buildings');
                 window.setInterval(
-                    () => store.dispatch('registerBuildingsUsage'),
+                    () => store.dispatch('registerBuildingsUsage', { feature }),
                     API_MIN_UPDATE
                 );
             }
@@ -456,7 +456,7 @@ export default {
             if (autoUpdate && !store.state.autoUpdates.includes('vehicles')) {
                 store.commit('enableAutoUpdate', 'vehicles');
                 window.setInterval(
-                    () => store.dispatch('registerVehiclesUsage'),
+                    () => store.dispatch('registerVehiclesUsage', { feature }),
                     API_MIN_UPDATE
                 );
             }
@@ -561,7 +561,10 @@ export default {
             ) {
                 store.commit('enableAutoUpdate', 'allianceinfo');
                 window.setInterval(
-                    () => store.dispatch('registerAllianceinfoUsage'),
+                    () =>
+                        store.dispatch('registerAllianceinfoUsage', {
+                            feature,
+                        }),
                     API_MIN_UPDATE
                 );
             }
@@ -587,7 +590,7 @@ export default {
             if (autoUpdate && !store.state.autoUpdates.includes('settings')) {
                 store.commit('enableAutoUpdate', 'settings');
                 window.setInterval(
-                    () => store.dispatch('registerSettings'),
+                    () => store.dispatch('registerSettings', { feature }),
                     API_MIN_UPDATE
                 );
             }
