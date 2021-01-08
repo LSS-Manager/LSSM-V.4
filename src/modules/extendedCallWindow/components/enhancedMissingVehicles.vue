@@ -352,13 +352,13 @@ export default Vue.extend<
                 defaultValue: false,
             })
             .then(drag => (this.drag = drag));
-      this.$store
-          .dispatch('settings/getSetting', {
-            moduleId: 'extendedCallWindow',
-            settingId: 'hoverTip',
-            defaultValue: false,
-          })
-          .then(hoverTip => (this.hoverTip = hoverTip));
+        this.$store
+            .dispatch('settings/getSetting', {
+                moduleId: 'extendedCallWindow',
+                settingId: 'hoverTip',
+                defaultValue: false,
+            })
+            .then(hoverTip => (this.hoverTip = hoverTip));
     },
     mounted() {
         const vehicleGroups = (this.$t(
