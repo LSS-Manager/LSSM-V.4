@@ -156,12 +156,7 @@ require('./natives/lightbox');
                 const building = buildings.find(
                     ({ id }) => id === buildingMarker.id
                 );
-                if (
-                    !building ||
-                    LSSM.$store.state.api.lastUpdates.buildings <
-                        new Date().getTime() - 5 * 1000 * 60 ||
-                    building.caption !== buildingMarker.name
-                ) {
+                if (!building || building.caption !== buildingMarker.name) {
                     LSSM.$store
                         .dispatch('api/fetchBuilding', {
                             id: buildingMarker.id,
