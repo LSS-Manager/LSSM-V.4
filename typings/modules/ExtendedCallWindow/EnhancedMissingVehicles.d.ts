@@ -30,6 +30,7 @@ export interface EnhancedMissingVehicles {
     minified: boolean | undefined;
     textMode: boolean | undefined;
     pushedRight: boolean | undefined;
+    hoverTip: boolean;
     drag: {
         active: boolean;
         top: number;

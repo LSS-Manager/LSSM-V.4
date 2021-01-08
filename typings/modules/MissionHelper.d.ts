@@ -76,6 +76,7 @@ export interface MissionHelper {
         k9_only_if_needed: boolean;
         bucket_only_if_needed: boolean;
         noVehicleRequirements: string[];
+        hoverTip: boolean;
 
         // General
         [key: string]: boolean | unknown;

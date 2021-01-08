@@ -11,50 +11,55 @@
         :id="id"
     >
         <font-awesome-icon
-            class="pull-right hover-tip"
+            class="pull-right"
+            :class="{ 'hover-tip': settings.hoverTip }"
             :icon="textMode ? faTable : faParagraph"
             :fixed-width="true"
             @click="toggleTextMode"
         ></font-awesome-icon>
-        <div class="alert alert-info">
+        <div v-if="settings.hoverTip" class="alert alert-info">
             {{ $m('tip.textMode') }}
         </div>
         <font-awesome-icon
-            class="pull-right hover-tip"
+            class="pull-right"
+            :class="{ 'hover-tip': settings.hoverTip }"
             :icon="minified ? faExpandAlt : faCompressAlt"
             :fixed-width="true"
             @click="toggleMinified"
         ></font-awesome-icon>
-        <div class="alert alert-info">
+        <div v-if="settings.hoverTip" class="alert alert-info">
             {{ $m('tip.minified') }}
         </div>
         <font-awesome-icon
             v-show="overlay"
             :icon="faArrowsAlt"
-            class="pull-right dragging-field hover-tip"
+            class="pull-right dragging-field"
+            :class="{ 'hover-tip': settings.hoverTip }"
             :fixed-width="true"
             @mousedown="dragStart"
         ></font-awesome-icon>
-        <div class="alert alert-info">
+        <div v-if="settings.hoverTip" class="alert alert-info">
             {{ $m('tip.dragging') }}
         </div>
         <font-awesome-icon
-            class="pull-right hover-tip"
+            class="pull-right"
+            :class="{ 'hover-tip': settings.hoverTip }"
             :icon="overlay ? faAngleDoubleDown : faAngleDoubleUp"
             :fixed-width="true"
             @click="toggleOverlay"
         ></font-awesome-icon>
-        <div class="alert alert-info">
+        <div v-if="settings.hoverTip" class="alert alert-info">
             {{ $m('tip.overlay') }}
         </div>
         <font-awesome-icon
-            class="pull-right hover-tip"
+            class="pull-right"
+            :class="{ 'hover-tip': settings.hoverTip }"
             :icon="pushedRight ? faAngleDoubleLeft : faAngleDoubleRight"
             :fixed-width="true"
             @click="toggleRight"
             v-if="!overlay"
         ></font-awesome-icon>
-        <div class="alert alert-info" v-if="!overlay">
+        <div class="alert alert-info" v-if="!overlay && settings.hoverTip">
             {{ $m(`tip.push${pushedRight ? 'Left' : 'Right'}`) }}
         </div>
         <span v-if="!textMode">{{ extras }}</span>
@@ -158,6 +163,7 @@ export default Vue.extend<
             minified: undefined,
             textMode: undefined,
             pushedRight: undefined,
+            hoverTip: false,
             drag: {
                 active: false,
                 top: 60,
@@ -346,6 +352,13 @@ export default Vue.extend<
                 defaultValue: false,
             })
             .then(drag => (this.drag = drag));
+      this.$store
+          .dispatch('settings/getSetting', {
+            moduleId: 'extendedCallWindow',
+            settingId: 'hoverTip',
+            defaultValue: false,
+          })
+          .then(hoverTip => (this.hoverTip = hoverTip));
     },
     mounted() {
         const vehicleGroups = (this.$t(

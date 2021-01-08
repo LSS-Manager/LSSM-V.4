@@ -6,50 +6,55 @@
         :id="id"
     >
         <font-awesome-icon
-            class="pull-right hover-tip"
+            class="pull-right"
+            :class="{ 'hover-tip': settings.hoverTip }"
             :icon="minified ? faExpandAlt : faCompressAlt"
             :fixed-width="true"
             @click="toggleMinified"
         ></font-awesome-icon>
-        <div class="alert alert-info">
+        <div v-if="settings.hoverTip" class="alert alert-info">
             {{ $m('tip.minified') }}
         </div>
         <font-awesome-icon
             v-show="overlay"
             :icon="faArrowsAlt"
-            class="pull-right dragging-field hover-tip"
+            class="pull-right dragging-field"
+            :class="{ 'hover-tip': settings.hoverTip }"
             :fixed-width="true"
             @mousedown="dragStart"
         ></font-awesome-icon>
-        <div class="alert alert-info">
+        <div v-if="settings.hoverTip" class="alert alert-info">
             {{ $m('tip.dragging') }}
         </div>
         <font-awesome-icon
-            class="pull-right hover-tip"
+            class="pull-right"
+            :class="{ 'hover-tip': settings.hoverTip }"
             :icon="faSyncAlt"
             :spin="isReloading"
             :fixed-width="true"
             @click="reloadSpecs(true)"
         ></font-awesome-icon>
-        <div class="alert alert-info">
+        <div v-if="settings.hoverTip" class="alert alert-info">
             {{ $m('tip.reload') }}
         </div>
         <font-awesome-icon
-            class="pull-right hover-tip"
+            class="pull-right"
+            :class="{ 'hover-tip': settings.hoverTip }"
             :icon="overlay ? faAngleDoubleDown : faAngleDoubleUp"
             :fixed-width="true"
             @click="toggleOverlay"
         ></font-awesome-icon>
-        <div class="alert alert-info">
+        <div v-if="settings.hoverTip" class="alert alert-info">
             {{ $m('tip.overlay') }}
         </div>
         <font-awesome-icon
-            class="pull-right hover-tip"
+            class="pull-right"
+            :class="{ 'hover-tip': settings.hoverTip }"
             :icon="maxState ? faSubscript : faSuperscript"
             :fixed-width="true"
             @click="toggleMaximum"
         ></font-awesome-icon>
-        <div class="alert alert-info">
+        <div v-if="settings.hoverTip" class="alert alert-info">
             {{ $m('tip.maxState') }}
         </div>
         <span v-if="isDiyMission">{{ $m('diyMission') }}</span>
@@ -497,6 +502,7 @@ export default Vue.extend<
                 hide_battalion_chief_vehicles: false,
                 bike_police_only_if_needed: false,
                 noVehicleRequirements: [],
+                hoverTip: false,
             },
             noVehicleRequirements: Object.keys(
                 this.$m('noVehicleRequirements')

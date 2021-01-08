@@ -65,6 +65,10 @@
 			"description": "Normally hides the use list, then opens it by pressing a button.",
 			"title": "Hides the vehicle list"
 		},
+		"hoverTip": {
+			"description": "Tooltips for as example the overlay button.",
+			"title": "Tooltips"
+		},
 		"loadMoreVehiclesInHeader": {
 			"description": "Displays the button \"Reload vehicles\", if available, in the header bar.",
 			"title": "Reload vehicles in header"
