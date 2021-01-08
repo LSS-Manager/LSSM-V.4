@@ -225,7 +225,7 @@ export default ((MODULE_ID, LSSM, $m) => {
         },
         'hoverTip': <Toggle>{
             type: 'toggle',
-            default: false,
+            default: true,
         },
         ...(locale === 'en_US'
             ? {

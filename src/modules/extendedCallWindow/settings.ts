@@ -133,7 +133,7 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
         },
         hoverTip: <Toggle>{
             type: 'toggle',
-            default: false,
+            default: true,
         },
         tailoredTabs: <Omit<AppendableList, 'value' | 'isDisabled'>>{
             type: 'appendable-list',

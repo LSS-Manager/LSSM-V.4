@@ -66,6 +66,10 @@
 			"description": "Verbergt de voertuigenlijst en opent deze weer met een druk op de knop.",
 			"title": "Voertuigenlijst verbergen"
 		},
+		"hoverTip": {
+			"description": "Toont de naam van de knop als je met de muis er boven gaat staan. Bijvoorbeeld bij de overlay knop.",
+			"title": "Knopinfo"
+		},
 		"loadMoreVehiclesInHeader": {
 			"description": "Toont de knop \"Voertuigen laden\", indien beschikbaar, in de koptekst.",
 			"title": "Voertuigen laden knop in koptekst"
