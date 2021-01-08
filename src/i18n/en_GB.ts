@@ -99,6 +99,11 @@ export default {
                 'Color the whole navbar in the color of LSSM-Icon Background!',
             title: 'colorize navbar',
         },
+        osmDarkTooltip: {
+            description:
+                'This settings darkens tooltips on map if you have enabled the dark mode',
+            title: 'Dark tooltips on map',
+        },
     },
     vehicles: {
         0: {

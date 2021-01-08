@@ -19,6 +19,7 @@ import { Building } from 'typings/Building';
 require('./natives/navTabsClicker');
 require('./natives/lightbox');
 (async () => {
+    if (window.location.pathname.match(/^\/users\//)) return;
     Vue.config.productionTip = false;
 
     const appContainer = document.createElement('div') as HTMLDivElement;
@@ -85,6 +86,12 @@ require('./natives/lightbox');
                         type: 'toggle',
                         default: false,
                     },
+                    osmDarkTooltip: <Toggle>{
+                        type: 'toggle',
+                        default: LSSM.$store.state.darkmode,
+                        noMapkit: true,
+                        disabled: () => !LSSM.$store.state.darkmode,
+                    },
                 },
             })
             .then(() => {
@@ -93,10 +100,23 @@ require('./natives/lightbox');
                     i18n: LSSM.$i18n,
                     render: h => h(LSSMMenu),
                 }).$mount(indicatorWrapper);
+
+                LSSM.$store
+                    .dispatch('settings/getSetting', {
+                        moduleId: 'global',
+                        settingId: 'osmDarkTooltip',
+                        default: true,
+                    })
+                    .then(
+                        allowDark =>
+                            !allowDark &&
+                            document.body.classList.add(
+                                'leaflet-no-dark-tooltip'
+                            )
+                    );
             });
     }
 
-    if (window.location.pathname.match(/^\/users\//)) return;
     await LSSM.$store.dispatch(
         'api/setVehicleStates',
         'core-initialVehicleStates'
