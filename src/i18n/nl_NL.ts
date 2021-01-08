@@ -97,6 +97,11 @@ export default {
                 'Kleur de hele menubalk in de kleur van de achtergrond van het LSSM-logo!',
             title: 'Kleur menubalk',
         },
+        osmDarkTooltip: {
+            description:
+                'Deze instelling maakt tooltips op de kaart donker als je de donkere spelmodus gebruikt',
+            title: 'Donkere tooltips op de kaart',
+        },
     },
     vehicles: {
         0: {
