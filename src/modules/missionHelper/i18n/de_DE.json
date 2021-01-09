@@ -28,9 +28,9 @@
 		"rescue_stations": "Rettungswache | Rettungswachen",
 		"sek": "SEK-Zug | SEK-Züge",
 		"thw": "THW-Ortsverband | THW-Ortsverbände",
-		"thw_fg_raeumen_count": "THW-Ausbau: Fachgruppe Räumen",
-		"thw_gkw_count": "THW-Ausbau: Technischer Zug | THW-Ausbau: Technische Züge",
-		"thw_zugtrupp_count": "THW Ausbau: Zugtrupp",
+		"thw_fg_raeumen_count": "THW-Ausbau: Fachgruppe Räumen | THW-Ausbauten: Fachgruppe Räumen",
+		"thw_gkw_count": "THW-Ausbau: Technischer Zug | THW-Ausbauten: Technische Züge",
+		"thw_zugtrupp_count": "THW-Ausbau: Zugtrupp | THW-Ausbauten: Zugtrupp",
 		"title": "Vorraussetzung | Vorraussetzungen",
 		"wasserrettung": "Wasserrettung | Wasserrettungen",
 		"werkfeuerwehr": "Werkfeuerwehr | Werkfeuerwehren"
