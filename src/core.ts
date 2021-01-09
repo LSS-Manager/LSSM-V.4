@@ -184,14 +184,14 @@ require('./natives/lightbox');
                             feature: 'core-buildingMarkerAdd',
                         })
                         .then(
-                            async building =>
-                                // LSSM.$store
-                                //     .dispatch(
-                                //         'api/fetchVehiclesAtBuilding',
-                                //         building.id
-                                //     )
-                                //     .then(
-                                //         async () =>
+                            building =>
+                                LSSM.$store
+                                     .dispatch(
+                                         'api/fetchVehiclesAtBuilding',
+                                         building.id
+                                    )
+                                   .then(
+                                        async () =>
                                 await LSSM.$store.dispatch(
                                     'event/dispatchEvent',
                                     await LSSM.$store.dispatch(
@@ -205,7 +205,7 @@ require('./natives/lightbox');
                                         }
                                     )
                                 )
-                            // )
+                             )
                         );
                 }
             },
