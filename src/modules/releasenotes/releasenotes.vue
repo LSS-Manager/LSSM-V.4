@@ -13,7 +13,9 @@
                         >{{ note[0] }}</a
                     ></b
                 >
-                <sup class="badge message_new" v-if="last_seen < note[0]"
+                <sup
+                    class="badge message_new"
+                    v-if="semverLt(last_seen, coerce(note[0]) || '4.0.0')"
                     >New!</sup
                 >
                 <small
@@ -36,6 +38,8 @@ import {
 } from 'vue/types/options';
 import { ReleaseNoteProps } from 'typings/modules/Releasenotes';
 import moment from 'moment';
+import semverLt from 'semver/functions/lt';
+import coerce from 'semver/functions/coerce';
 
 export default Vue.extend<
     DefaultData<Vue>,
@@ -47,6 +51,8 @@ export default Vue.extend<
     data() {
         return {
             moment,
+            semverLt,
+            coerce,
         };
     },
     components: {
