@@ -76,7 +76,7 @@ export default (LSSM: Vue, MODULE_ID: string, $m: $m): void => {
             expansion.querySelector('a[href*="extension_ready"]') ||
             successLabel
         ) {
-            label.classList.add('.label-danger');
+            label.classList.add(expansion.querySelector('.label-danger') ? 'label-danger' : 'label-success');
             label.textContent =
                 successLabel?.textContent ??
                 expansion.querySelector('.label-danger')?.textContent ??
