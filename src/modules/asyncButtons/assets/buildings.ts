@@ -1,4 +1,8 @@
-export default (LSSM: Vue, buildingSettings: string[]): void => {
+export default (
+    LSSM: Vue,
+    buildingSettings: string[],
+    MODULE_ID: string
+): void => {
     const BUILDING_MODE = document.getElementById('ausbauten')
         ? 'building'
         : 'dispatch';
@@ -17,6 +21,7 @@ export default (LSSM: Vue, buildingSettings: string[]): void => {
                 await LSSM.$store
                     .dispatch('api/request', {
                         url: btn.getAttribute('href'),
+                        feature: `${MODULE_ID}-buildings`,
                     })
                     .then(({ status }) => {
                         if (status === 200) {

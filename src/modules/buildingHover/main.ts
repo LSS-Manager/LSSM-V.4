@@ -5,8 +5,14 @@ import { Building } from '../../../typings/Building';
 import { ModuleMainFunction } from 'typings/Module';
 
 export default (async (LSSM, MODULE_ID) => {
-    await LSSM.$store.dispatch('api/registerBuildingsUsage', true);
-    await LSSM.$store.dispatch('api/registerVehiclesUsage', true);
+    await LSSM.$store.dispatch('api/registerBuildingsUsage', {
+        autoUpdate: true,
+        feature: MODULE_ID,
+    });
+    await LSSM.$store.dispatch('api/registerVehiclesUsage', {
+        autoUpdate: true,
+        feature: MODULE_ID,
+    });
 
     const vehicleTypes = LSSM.$t('vehicles') as {
         [id: number]: InternalVehicle;
@@ -23,17 +29,22 @@ export default (async (LSSM, MODULE_ID) => {
 
     LSSM.$store.commit('useFontAwesome');
 
-    const vehiclesByBuilding = LSSM.$store.getters[
-        'api/vehiclesByBuilding'
-    ] as {
+    let vehiclesByBuilding: {
         [buildingId: number]: Vehicle[];
     };
 
-    const buildings = LSSM.$store.state.api.buildings as Building[];
+    let buildings: Building[];
+
+    const updateBuildings = () => {
+        vehiclesByBuilding = LSSM.$store.getters['api/vehiclesByBuilding'];
+        buildings = LSSM.$store.state.api.buildings;
+    };
+
+    updateBuildings();
 
     const buildingIcons = (LSSM.$t('buildingIcons') as unknown) as string[];
 
-    const setTooltip = (marker: BuildingMarker | undefined) => {
+    const setTooltip = (marker?: BuildingMarker, presetBuilding?: Building) => {
         if (!marker) return;
         const hasTt = !!marker.getTooltip();
         const reopen = hasTt && marker.isTooltipOpen();
@@ -45,7 +56,8 @@ export default (async (LSSM, MODULE_ID) => {
         vehicles.sort((a, b) =>
             a.caption > b.caption ? 1 : b.caption > a.caption ? -1 : 0
         );
-        const building = buildings.find(b => b.id === marker.building_id);
+        const building =
+            presetBuilding ?? buildings.find(b => b.id === marker.building_id);
 
         let icon = 'sitemap';
         if (building)
@@ -77,10 +89,11 @@ export default (async (LSSM, MODULE_ID) => {
                     Object.values(LSSM.$t('cellBuildings')).includes(
                         building.building_type
                     )
-                )
+                ) {
                     data += `&nbsp;<i class="fa fa-border-all"></i>&nbsp;${
                         building.extensions.filter(x => x.available).length
                     }&nbsp;(${building.extensions.length})`;
+                }
                 data += `<table class="${LSSM.$store.getters.nodeAttribute(
                     `${MODULE_ID}-vehiclelist`
                 )}">`;
@@ -128,9 +141,25 @@ export default (async (LSSM, MODULE_ID) => {
         setTooltip(marker);
     });
 
+    await LSSM.$store.dispatch('event/addListener', {
+        name: 'buildingMarkerAdd',
+        listener({
+            detail: { building },
+        }: CustomEvent<{ building: Building }>) {
+            updateBuildings();
+            setTooltip(
+                window.building_markers.find(
+                    x => x.building_id === building.id
+                ),
+                building
+            );
+        },
+    });
+
     await LSSM.$store.dispatch('hook', {
         event: 'building_maps_draw',
         callback({ id }: { id: number }) {
+            updateBuildings();
             setTooltip(window.building_markers.find(x => x.building_id === id));
         },
     });
@@ -148,6 +177,7 @@ export default (async (LSSM, MODULE_ID) => {
                 v => v.id === id
             ) as Vehicle;
             if (!vehicle) return;
+            updateBuildings();
             const v = vehiclesByBuilding[vehicle.building_id].find(
                 v => v.id === vehicle.id
             );

@@ -113,13 +113,14 @@ webpack(
             }
         }
 
-        if (stats)
+        if (stats) {
             fs.writeFileSync(
                 `./dist/webpack.out.${
                     process.argv[2] === 'production' ? 'public' : 'beta'
                 }.json`,
                 JSON.stringify(stats.toJson(), null, '\t')
             );
+        }
         console.log('Stats:');
         console.log(stats?.toString({ colors: true }));
         console.timeEnd(`build`);

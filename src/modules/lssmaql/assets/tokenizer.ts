@@ -23,13 +23,14 @@ const regexes = {
 } as TokenRegexes;
 
 const consume = (query: string, token_list: Token[]): string => {
+    let newQuery = query;
     Object.entries(regexes).some(([token, regex]) => {
         const startRegex = new RegExp(
             `^(${regex.toString().replace(/^\/|\/$/g, '')})`
         );
         const match = query.match(startRegex);
         if (match) {
-            query = query.replace(startRegex, '');
+            newQuery = query.replace(startRegex, '');
             token_list.push({
                 type: token as QueryTokens,
                 value: match[0].replace(/^["']|["']$/g, ''),
@@ -38,16 +39,16 @@ const consume = (query: string, token_list: Token[]): string => {
         }
         return false;
     });
-    return query.trim();
+    return newQuery.trim();
 };
 
 export default (query: string): Token[] => {
-    query = query.trim();
+    let newQuery = query.trim();
     const token_list = [] as Token[];
-    while (query.length) {
-        const queryBefore = query;
-        query = consume(query, token_list);
-        if (queryBefore === query) break;
+    while (newQuery.length) {
+        const queryBefore = newQuery;
+        newQuery = consume(newQuery, token_list);
+        if (queryBefore === newQuery) break;
     }
     return token_list;
 };

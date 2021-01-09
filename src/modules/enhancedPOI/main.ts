@@ -7,18 +7,19 @@ export default (async (LSSM, MODULE_ID, $m: $m) => {
     const poi_types = Object.values(LSSM.$t('pois')) as string[];
     poi_types.sort();
 
-    await LSSM.$store.dispatch('api/registerSettings');
+    await LSSM.$store.dispatch('api/registerSettings', { feature: MODULE_ID });
 
     const style = await (async () => {
         const predef = await LSSM.$store.dispatch('settings/getSetting', {
             moduleId: MODULE_ID,
             settingId: 'predefined_style',
         });
-        if (predef === 'custom')
+        if (predef === 'custom') {
             return await LSSM.$store.dispatch('settings/getSetting', {
                 moduleId: MODULE_ID,
                 settingId: 'custom_style',
             });
+        }
         switch (predef) {
             case 'brown':
                 return 'sepia(100%) contrast(500%)';
@@ -49,6 +50,7 @@ export default (async (LSSM, MODULE_ID, $m: $m) => {
         LSSM.$store
             .dispatch('api/request', {
                 url: '/mission_positions',
+                feature: MODULE_ID,
             })
             .then(res => res.json())
             .then(
@@ -87,13 +89,15 @@ export default (async (LSSM, MODULE_ID, $m: $m) => {
 
     const resetNewPoiMarker = () => {
         if (isPOIWindow) {
-            window.mission_position_new_marker &&
+            if (
+                window.mission_position_new_marker &&
                 !window.map
                     .getBounds()
                     .contains(window.mission_position_new_marker.getLatLng()) &&
                 window.mission_position_new_marker.setLatLng(
                     window.map.getCenter()
-                ) &&
+                )
+            )
                 window.mission_position_new_dragend();
         }
     };
@@ -227,7 +231,7 @@ export default (async (LSSM, MODULE_ID, $m: $m) => {
                             : poi === 'none'
                             ? shown_types === []
                             : shown_types.includes(poi);
-                    if (poi === 'all')
+                    if (poi === 'all') {
                         input.addEventListener('change', () => {
                             if (!input.checked) return;
                             shown_types = poi_types;
@@ -248,7 +252,7 @@ export default (async (LSSM, MODULE_ID, $m: $m) => {
                                 ) as NodeListOf<HTMLInputElement>
                             ).forEach(input => (input.checked = false));
                         });
-                    else if (poi === 'none')
+                    } else if (poi === 'none') {
                         input.addEventListener('change', () => {
                             if (!input.checked) return;
                             shown_types = [];
@@ -269,14 +273,16 @@ export default (async (LSSM, MODULE_ID, $m: $m) => {
                                 ) as NodeListOf<HTMLInputElement>
                             ).forEach(input => (input.checked = false));
                         });
-                    else
+                    } else {
                         input.addEventListener('change', () => {
-                            if (input.checked) shown_types.push(poi);
-                            else
+                            if (input.checked) {
+                                shown_types.push(poi);
+                            } else {
                                 shown_types.splice(
                                     shown_types.findIndex(p => p === poi),
                                     1
                                 );
+                            }
                             shown_types.sort();
                             LSSM.$store.dispatch('settings/setSetting', {
                                 moduleId: MODULE_ID,
@@ -285,6 +291,7 @@ export default (async (LSSM, MODULE_ID, $m: $m) => {
                             });
                             refresh_shown_pois();
                         });
+                    }
                     label.textContent =
                         poi === 'all'
                             ? $m('all').toString()
@@ -300,5 +307,6 @@ export default (async (LSSM, MODULE_ID, $m: $m) => {
     });
 
     const buildingsElement = document.getElementById('buildings');
-    buildingsElement && observer.observe(buildingsElement, { childList: true });
+    if (buildingsElement)
+        observer.observe(buildingsElement, { childList: true });
 }) as ModuleMainFunction;

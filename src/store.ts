@@ -24,6 +24,7 @@ import api from './store/api';
 import console from './store/console';
 import notifications from './store/notifications';
 import broadcast from './store/broadcast';
+import event from './store/event';
 import modules from './registerModules';
 import { Modules } from '../typings/Module';
 
@@ -38,6 +39,7 @@ export default (Vue: VueConstructor): Store<RootState> => {
             console,
             notifications,
             broadcast,
+            event,
         } as ModuleTree<RootState>,
         state: {
             prefix: PREFIX,
@@ -49,7 +51,7 @@ export default (Vue: VueConstructor): Store<RootState> => {
             server: config.server,
             hooks: {},
             prototypeHooks: {},
-            mapkit: 'undefined' !== typeof window.mapkit,
+            mapkit: typeof window.mapkit !== 'undefined',
             darkmode: document.body.classList.contains('dark'),
             premium: window.user_premium,
             policechief: window.gameFlavour === 'policechief',
@@ -143,11 +145,12 @@ export default (Vue: VueConstructor): Store<RootState> => {
                 id = false
             ): string => {
                 const res = `${state.prefix}-${attr}`;
-                if (id)
+                if (id) {
                     return res
                         .replace(/ /g, '_')
                         .replace(/["']/g, '')
                         .replace(/[^a-zA-Z0-9_\-.]/g, '-');
+                }
                 return res;
             },
             wiki: (state: RootState): string =>
@@ -163,13 +166,13 @@ export default (Vue: VueConstructor): Store<RootState> => {
                 ),
             modulesSorted(_, getters: GetterTree<RootState, RootState>) {
                 return Object.keys(getters.appModules).sort((a, b) => {
-                    a = (window[PREFIX] as Vue)
+                    const left = (window[PREFIX] as Vue)
                         .$t(`modules.${a}.name`)
                         .toString();
-                    b = (window[PREFIX] as Vue)
+                    const right = (window[PREFIX] as Vue)
                         .$t(`modules.${b}.name`)
                         .toString();
-                    return a < b ? -1 : a > b ? 1 : 0;
+                    return left < right ? -1 : left > right ? 1 : 0;
                 });
             },
         } as GetterTree<RootState, RootState>,
@@ -284,12 +287,13 @@ export default (Vue: VueConstructor): Store<RootState> => {
                 { selectorText, style }: addStyle
             ) {
                 if (!state.styles.inserted) commit('insertStyleSheet');
-                state.styles.styleSheet &&
-                    (state.styles.styleSheet.innerHTML += `${selectorText} {\n${Object.entries(
+                if (state.styles.styleSheet) {
+                    state.styles.styleSheet.innerHTML += `${selectorText} {\n${Object.entries(
                         style
                     )
                         .map(([rule, value]) => `\t${rule}: ${value};\n`)
-                        .join('')}\n}`);
+                        .join('')}\n}`;
+                }
             },
             premodifyParams(
                 _,
@@ -299,7 +303,7 @@ export default (Vue: VueConstructor): Store<RootState> => {
                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                 // @ts-ignore
                 window[event] = (...args) => {
-                    callback && callback(...args);
+                    callback?.(...args);
                     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                     // @ts-ignore
                     originalEvent(...args);
@@ -310,9 +314,12 @@ export default (Vue: VueConstructor): Store<RootState> => {
                 if (!tab) return;
                 const observer = new MutationObserver(mutations => {
                     mutations.forEach(record => {
-                        Array.from(record.addedNodes).find(
-                            node => node.nodeName === 'SCRIPT'
-                        ) && callback();
+                        if (
+                            Array.from(record.addedNodes).find(
+                                node => node.nodeName === 'SCRIPT'
+                            )
+                        )
+                            callback();
                     });
                 });
                 observer.observe(tab, {

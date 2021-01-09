@@ -11,9 +11,9 @@ fs.writeFileSync(
 const getJsons = (folder: string): string[] => {
     const jsons = [] as string[];
     fs.readdirSync(folder, { withFileTypes: true }).forEach(item => {
-        if (item.isDirectory()) {
+        if (item.isDirectory())
             jsons.push(...getJsons(`${folder}/${item.name}`));
-        } else if (item.isFile() && item.name.endsWith('.json'))
+        else if (item.isFile() && item.name.endsWith('.json'))
             jsons.push(`${folder}/${item.name}`);
     });
     return jsons;

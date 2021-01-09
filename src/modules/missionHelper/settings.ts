@@ -223,6 +223,10 @@ export default ((MODULE_ID, LSSM, $m) => {
             type: 'toggle',
             default: true,
         },
+        'hoverTip': <Toggle>{
+            type: 'toggle',
+            default: true,
+        },
         ...(locale === 'en_US'
             ? {
                   subsequent: <Toggle>{
@@ -246,6 +250,18 @@ export default ((MODULE_ID, LSSM, $m) => {
         'minified': <Hidden>{
             type: 'hidden',
             default: false,
+        },
+        'drag': <Hidden<unknown>>{
+            type: 'hidden',
+            default: {
+                active: false,
+                top: 60,
+                left: window.innerWidth * 0.03,
+                offset: {
+                    x: 0,
+                    y: 0,
+                },
+            },
         },
         ...(locale === 'de_DE'
             ? {

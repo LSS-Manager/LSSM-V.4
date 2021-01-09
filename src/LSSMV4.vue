@@ -129,16 +129,20 @@ body.dark
         color: #f5f5f5
         background: #333
 
-    .leaflet-tooltip
-        background-color: #505050
-        color: #ddd
-        border: #505050
+    &:not(.leaflet-no-dark-tooltip)
+        .leaflet-tooltip
+            background-color: #505050
+            color: #ddd
+            border: #505050
 
-        &.leaflet-tooltip-left::before
-            border-left-color: #505050
+            &.leaflet-tooltip-left::before
+                border-left-color: #505050
 
-        &.leaflet-tooltip-right::before
-            border-right-color: #505050
+            &.leaflet-tooltip-right::before
+                border-right-color: #505050
+
+    &.leaflet-no-dark-tooltip .leaflet-tooltip tr
+        background-color: unset
 
     .bg-danger
         background-color: #a94442

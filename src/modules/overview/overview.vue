@@ -293,13 +293,14 @@ export default Vue.extend<
                                 const [, school, schooling] = v.schooling.match(
                                     /^(.*?) - (.*?)$/
                                 ) ?? [null, null, null];
-                                if (school && schooling)
+                                if (school && schooling) {
                                     resolvedSchoolings[school]
                                         .find(
                                             ({ caption }) =>
                                                 caption === schooling
                                         )
                                         ?.required_for.push(v.caption);
+                                }
                             }
                             return v;
                         }))
@@ -333,19 +334,22 @@ export default Vue.extend<
                         if (!multipleExtensions.hasOwnProperty(e.caption))
                             multipleExtensions[e.caption] = 1;
                         multipleExtensions[e.caption]++;
-                    } else minifiedExtensions.push(extension);
+                    } else {
+                        minifiedExtensions.push(extension);
+                    }
                 });
                 Object.entries(multipleExtensions).forEach(
                     ([caption, amount]) => {
                         const e = minifiedExtensions.find(
                             e => e.caption === caption
                         );
-                        if (e)
+                        if (e) {
                             e.caption = this.$tc(
                                 `modules.overview.extensionTitle`,
                                 amount,
                                 { caption }
                             );
+                        }
                     }
                 );
                 return [
@@ -541,23 +545,26 @@ export default Vue.extend<
             return this.$t(`modules.overview.${key}`, args);
         },
         setSortVehicles(type) {
-            if (this.vehiclesTab.sort === type)
+            if (this.vehiclesTab.sort === type) {
                 return (this.vehiclesTab.sortDir =
                     this.vehiclesTab.sortDir === 'asc' ? 'desc' : 'asc');
+            }
             this.vehiclesTab.sort = type;
             this.vehiclesTab.sortDir = 'asc';
         },
         setSortBuildings(type) {
-            if (this.buildingsTab.sort === type)
+            if (this.buildingsTab.sort === type) {
                 return (this.buildingsTab.sortDir =
                     this.buildingsTab.sortDir === 'asc' ? 'desc' : 'asc');
+            }
             this.buildingsTab.sort = type;
             this.buildingsTab.sortDir = 'asc';
         },
         setSortSchoolings(type) {
-            if (this.schoolingsTab.sort === type)
+            if (this.schoolingsTab.sort === type) {
                 return (this.schoolingsTab.sortDir =
                     this.schoolingsTab.sortDir === 'asc' ? 'desc' : 'asc');
+            }
             this.schoolingsTab.sort = type;
             this.schoolingsTab.sortDir = 'asc';
         },

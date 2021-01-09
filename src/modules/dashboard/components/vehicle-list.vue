@@ -168,6 +168,7 @@ export default Vue.extend<
             this.$store
                 .dispatch('api/request', {
                     url: `/vehicles/${vehicle.id}/set_fms/${target}`,
+                    feature: `dashboard-vehicleList-setfms`,
                 })
                 .then(() => {
                     vehicle.fms_real = target;

@@ -12,11 +12,8 @@ const emptyFolder = (path: string, deleteFolder = true): void => {
     if (fs.existsSync(path)) {
         fs.readdirSync(path).forEach((file: string) => {
             const curPath = path + '/' + file;
-            if (fs.lstatSync(curPath).isDirectory()) {
-                emptyFolder(curPath, true);
-            } else {
-                fs.unlinkSync(curPath);
-            }
+            if (fs.lstatSync(curPath).isDirectory()) emptyFolder(curPath, true);
+            else fs.unlinkSync(curPath);
         });
         if (deleteFolder) fs.rmdirSync(path);
     }
@@ -156,10 +153,11 @@ Object.keys(modulesSorted).forEach(lang => {
             )
             .map(file => file.f),
     ];
-    if (fs.existsSync(`./docs/${lang}/apps.md`))
+    if (fs.existsSync(`./docs/${lang}/apps.md`)) {
         ((modulesSorted as unknown) as { [lang: string]: string[] })[
             lang
         ].unshift(`${lang}/apps.md`);
+    }
 });
 
 const locales = {} as { [langPath: string]: { lang: string; title: string } };

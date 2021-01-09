@@ -9,9 +9,19 @@ import { CombinedVueInstance } from 'vue/types/vue';
 import { DefaultProps } from 'vue/types/options';
 import { Vehicle } from 'typings/Vehicle';
 
-export default async (LSSM: Vue, previews: string[]): Promise<void> => {
-    await LSSM.$store.dispatch('api/registerBuildingsUsage', true);
-    await LSSM.$store.dispatch('api/registerVehiclesUsage', true);
+export default async (
+    LSSM: Vue,
+    previews: string[],
+    MODULE_ID: string
+): Promise<void> => {
+    await LSSM.$store.dispatch('api/registerBuildingsUsage', {
+        autoUpdate: true,
+        feature: `${MODULE_ID}-linkPreviews`,
+    });
+    await LSSM.$store.dispatch('api/registerVehiclesUsage', {
+        autoUpdate: true,
+        feature: `${MODULE_ID}-linkPreviews`,
+    });
 
     const previewLinkClass = LSSM.$store.getters.nodeAttribute(
         'is-previewLink'

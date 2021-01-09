@@ -32,11 +32,41 @@
                         :rowspan="row.children + 1"
                     >
                         {{ caption }}
+                        <button
+                            v-if="row.type === 'building'"
+                            class="btn btn-default btn-xs building-btn"
+                            @click="
+                                showBuildings(
+                                    'building',
+                                    caption,
+                                    row.buildings
+                                )
+                            "
+                        >
+                            <font-awesome-icon
+                                :icon="faBuilding"
+                            ></font-awesome-icon>
+                        </button>
                     </td>
                     <td>
                         <span v-if="row.type === 'extension'">
                             {{ caption.replace(/^\d+_/, '') }}
                         </span>
+                        <button
+                            v-if="row.type === 'extension'"
+                            class="btn btn-default btn-xs building-btn"
+                            @click="
+                                showBuildings(
+                                    'extension',
+                                    caption.replace(/^\d+_/, ''),
+                                    row.buildings
+                                )
+                            "
+                        >
+                            <font-awesome-icon
+                                :icon="faBuilding"
+                            ></font-awesome-icon>
+                        </button>
                     </td>
                     <td>
                         {{ row.total.toLocaleString() }} ({{
@@ -53,7 +83,10 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import buildingList from './building-list.vue';
+import { faBuilding } from '@fortawesome/free-solid-svg-icons/faBuilding';
 import {
+    buildingWithExtension,
     BuildingTypes,
     BuildingTypesMethods,
     BuildingTypesComputed,
@@ -110,6 +143,9 @@ export default Vue.extend<
                             const extensionsOfType = {} as {
                                 [caption: string]: Extension[];
                             };
+                            const buildingsWithExtensionOfType = {} as {
+                                [caption: string]: buildingWithExtension[];
+                            };
                             [
                                 ...new Set(
                                     Object.values(
@@ -132,6 +168,45 @@ export default Vue.extend<
                                         extensionsOfType[caption].push(
                                             extension
                                         );
+
+                                        if (
+                                            !buildingsWithExtensionOfType.hasOwnProperty(
+                                                caption
+                                            )
+                                        ) {
+                                            buildingsWithExtensionOfType[
+                                                caption
+                                            ] = [];
+                                        }
+                                        if (
+                                            buildingsWithExtensionOfType[
+                                                caption
+                                            ].find(
+                                                b => b.id === building.id
+                                            ) !== undefined
+                                        )
+                                            return;
+                                        buildingsWithExtensionOfType[
+                                            caption
+                                        ].push({
+                                            ...building,
+                                            extension_available: building.extensions.filter(
+                                                e =>
+                                                    e.caption === caption &&
+                                                    !!e.available
+                                            ).length,
+                                            extension_enabled: building.extensions.filter(
+                                                e =>
+                                                    e.caption === caption &&
+                                                    !!e.enabled &&
+                                                    !!e.available
+                                            ).length,
+                                            extension_unavailable: building.extensions.filter(
+                                                e =>
+                                                    e.caption === caption &&
+                                                    !e.available
+                                            ).length,
+                                        });
                                     });
                                 });
                             });
@@ -163,6 +238,7 @@ export default Vue.extend<
                                                 this.$store.state.api.buildings
                                                     .length
                                             ) ?? '–',
+                                        buildings: buildingsOfType,
                                     },
                                 ],
                                 ...Object.values(
@@ -212,6 +288,10 @@ export default Vue.extend<
                                                         ).length *
                                                             (buildingsOfType?.length ??
                                                                 0),
+                                                    buildings:
+                                                        buildingsWithExtensionOfType[
+                                                            caption
+                                                        ] ?? [],
                                                 },
                                             ];
                                         }
@@ -226,6 +306,7 @@ export default Vue.extend<
             buildingTypes,
             categoryColors,
             groups,
+            faBuilding,
         };
     },
     computed: {
@@ -262,6 +343,23 @@ export default Vue.extend<
         },
         $sm(key, args) {
             return this.$m(`building-types.${key}`, args);
+        },
+        $mc(key, amount, args) {
+            return this.$tc(`modules.dashboard.${key}`, amount, args);
+        },
+        $smc(key, amount, args) {
+            return this.$mc(`building-types.${key}`, amount, args);
+        },
+        showBuildings(listType, type, buildings) {
+            this.$modal.show(
+                buildingList,
+                {
+                    title: this.$smc('title', 0, { type: type }),
+                    buildings,
+                    listType,
+                },
+                { name: 'building-list', height: 'auto' }
+            );
         },
     },
 });

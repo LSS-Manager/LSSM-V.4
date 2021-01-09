@@ -6,50 +6,55 @@
         :id="id"
     >
         <font-awesome-icon
-            class="pull-right hover-tip"
+            class="pull-right"
+            :class="{ 'hover-tip': settings.hoverTip }"
             :icon="minified ? faExpandAlt : faCompressAlt"
             :fixed-width="true"
             @click="toggleMinified"
         ></font-awesome-icon>
-        <div class="alert alert-info">
+        <div v-if="settings.hoverTip" class="alert alert-info">
             {{ $m('tip.minified') }}
         </div>
         <font-awesome-icon
             v-show="overlay"
             :icon="faArrowsAlt"
-            class="pull-right dragging-field hover-tip"
+            class="pull-right dragging-field"
+            :class="{ 'hover-tip': settings.hoverTip }"
             :fixed-width="true"
             @mousedown="dragStart"
         ></font-awesome-icon>
-        <div class="alert alert-info">
+        <div v-if="settings.hoverTip" class="alert alert-info">
             {{ $m('tip.dragging') }}
         </div>
         <font-awesome-icon
-            class="pull-right hover-tip"
+            class="pull-right"
+            :class="{ 'hover-tip': settings.hoverTip }"
             :icon="faSyncAlt"
             :spin="isReloading"
             :fixed-width="true"
             @click="reloadSpecs(true)"
         ></font-awesome-icon>
-        <div class="alert alert-info">
+        <div v-if="settings.hoverTip" class="alert alert-info">
             {{ $m('tip.reload') }}
         </div>
         <font-awesome-icon
-            class="pull-right hover-tip"
+            class="pull-right"
+            :class="{ 'hover-tip': settings.hoverTip }"
             :icon="overlay ? faAngleDoubleDown : faAngleDoubleUp"
             :fixed-width="true"
             @click="toggleOverlay"
         ></font-awesome-icon>
-        <div class="alert alert-info">
+        <div v-if="settings.hoverTip" class="alert alert-info">
             {{ $m('tip.overlay') }}
         </div>
         <font-awesome-icon
-            class="pull-right hover-tip"
+            class="pull-right"
+            :class="{ 'hover-tip': settings.hoverTip }"
             :icon="maxState ? faSubscript : faSuperscript"
             :fixed-width="true"
             @click="toggleMaximum"
         ></font-awesome-icon>
-        <div class="alert alert-info">
+        <div v-if="settings.hoverTip" class="alert alert-info">
             {{ $m('tip.maxState') }}
         </div>
         <span v-if="isDiyMission">{{ $m('diyMission') }}</span>
@@ -497,6 +502,7 @@ export default Vue.extend<
                 hide_battalion_chief_vehicles: false,
                 bike_police_only_if_needed: false,
                 noVehicleRequirements: [],
+                hoverTip: false,
             },
             noVehicleRequirements: Object.keys(
                 this.$m('noVehicleRequirements')
@@ -574,7 +580,7 @@ export default Vue.extend<
 
             this.missionSpecs = undefined;
 
-            if (!this.isDiyMission)
+            if (!this.isDiyMission) {
                 this.missionSpecs = await this.getMission(
                     parseInt(
                         missionHelpBtn
@@ -583,37 +589,41 @@ export default Vue.extend<
                     ),
                     force
                 );
+            }
 
             this.isReloading = false;
         },
         async getMission(id, force) {
-            const missions = (await this.$store.dispatch(
-                'api/getMissions',
-                force
-            )) as Mission[];
+            const missions = (await this.$store.dispatch('api/getMissions', {
+                force,
+                feature: 'missionHelper-getMission',
+            })) as Mission[];
             const mission = missions?.find(spec => spec.id === id);
             if (mission) {
-                if (this.settings.expansions && mission.additional)
+                if (this.settings.expansions && mission.additional) {
                     mission.additional.expansion_missions_names = Object.fromEntries(
                         mission.additional.expansion_missions_ids?.map(id => [
                             id,
                             missions.find(spec => spec.id === id)?.name || '',
                         ]) || []
                     );
-                if (this.settings.followup && mission.additional)
+                }
+                if (this.settings.followup && mission.additional) {
                     mission.additional.followup_missions_names = Object.fromEntries(
                         mission.additional.followup_missions_ids?.map(id => [
                             id,
                             missions.find(spec => spec.id === id)?.name || '',
                         ]) || []
                     );
-                if (this.settings.subsequent && mission.additional)
+                }
+                if (this.settings.subsequent && mission.additional) {
                     mission.additional.subsequent_missions_names = Object.fromEntries(
                         mission.additional.subsequent_missions_ids?.map(id => [
                             id,
                             missions.find(spec => spec.id === id)?.name || '',
                         ]) || []
                     );
+                }
             }
             return mission;
         },
@@ -680,6 +690,11 @@ export default Vue.extend<
         },
         async dragEnd() {
             this.drag.active = false;
+            await this.$store.dispatch('settings/setSetting', {
+                moduleId: 'missionHelper',
+                settingId: `drag`,
+                value: this.drag,
+            });
             document.body.classList.remove('lssm-is-dragging');
             document.removeEventListener('mouseup', this.dragEnd);
             document.removeEventListener('mousemove', this.dragging);
@@ -746,13 +761,14 @@ export default Vue.extend<
                         !isMaxReq &&
                         this.settings.hide_battalion_chief_vehicles &&
                         vehicle === 'mobile_command_vehicles'
-                    )
+                    ) {
                         vehicles[vehicle].amount = Math.max(
                             vehicles[vehicle].amount,
                             missionSpecs?.requirements[
                                 'battalion_chief_vehicles'
                             ] ?? 0
                         );
+                    }
                 });
 
             if (this.settings.vehicles.patient_additionals) {
@@ -787,7 +803,7 @@ export default Vue.extend<
                     if (
                         missionSpecs?.additional.hasOwnProperty(alt) &&
                         missionSpecs.additional[alt]
-                    )
+                    ) {
                         return Object.keys(optionalAlternatives[alt]).forEach(
                             rep => {
                                 if (
@@ -802,6 +818,7 @@ export default Vue.extend<
                                 ).toString();
                             }
                         );
+                    }
                 });
             }
             const multifunctionals = (this.$m(
@@ -876,29 +893,32 @@ export default Vue.extend<
                 );
                 Object.entries(specs?.requirements ?? {}).forEach(
                     ([req, amount]) => {
-                        if (this.maxMissionSpecs)
+                        if (this.maxMissionSpecs) {
                             this.maxMissionSpecs.requirements[req] = Math.max(
                                 this.maxMissionSpecs.requirements[req] ?? 0,
                                 amount ?? 0
                             );
+                        }
                     }
                 );
                 Object.entries(specs?.prerequisites ?? {}).forEach(
                     ([req, amount]) => {
-                        if (this.maxMissionSpecs)
+                        if (this.maxMissionSpecs) {
                             this.maxMissionSpecs.prerequisites[req] = Math.max(
                                 this.maxMissionSpecs.prerequisites[req] ?? 0,
                                 amount ?? 0
                             );
+                        }
                     }
                 );
                 Object.entries(specs?.chances ?? {}).forEach(
                     ([req, amount]) => {
-                        if (this.maxMissionSpecs)
+                        if (this.maxMissionSpecs) {
                             this.maxMissionSpecs.chances[req] = Math.max(
                                 this.maxMissionSpecs.chances[req] ?? 100,
                                 amount ?? 100
                             );
+                        }
                     }
                 );
                 this.maxMissionSpecs?.additional?.expansion_missions_ids?.push(
@@ -936,7 +956,7 @@ export default Vue.extend<
                     if (
                         this.maxMissionSpecs &&
                         this.maxMissionSpecs.additional.personnel_educations
-                    )
+                    ) {
                         this.maxMissionSpecs.additional.personnel_educations[
                             req
                         ] = Math.max(
@@ -944,6 +964,7 @@ export default Vue.extend<
                                 .personnel_educations[req] ?? 0,
                             amount ?? 0
                         );
+                    }
                 });
                 if (
                     !this.maxMissionSpecs.additional.all_patient_specializations
@@ -954,10 +975,11 @@ export default Vue.extend<
                     !this.maxMissionSpecs.additional.all_patient_specializations.includes(
                         specs?.additional.patient_specializations
                     )
-                )
+                ) {
                     this.maxMissionSpecs.additional.all_patient_specializations.push(
                         specs?.additional.patient_specializations
                     );
+                }
             }
         },
         toggleMaximum() {
@@ -986,6 +1008,13 @@ export default Vue.extend<
                 defaultValue: false,
             })
             .then(minified => (this.minified = minified));
+        this.$store
+            .dispatch('settings/getSetting', {
+                moduleId: 'missionHelper',
+                settingId: 'drag',
+                defaultValue: false,
+            })
+            .then(drag => (this.drag = drag));
     },
     mounted() {
         Object.keys(this.settings).forEach(id =>

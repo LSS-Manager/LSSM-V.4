@@ -11,13 +11,15 @@ import i18n from './i18n';
 import utils from './utils';
 import telemetry from './modules/telemetry/main';
 import releasenotes from './modules/releasenotes/main';
-import { RadioMessage } from '../typings/Ingame';
+import { BuildingMarkerAdd, RadioMessage } from '../typings/Ingame';
 import { ModuleMainFunction, ModuleSettingFunction } from 'typings/Module';
 import { Color, Toggle } from 'typings/Setting';
+import { Building } from 'typings/Building';
 
 require('./natives/navTabsClicker');
 require('./natives/lightbox');
 (async () => {
+    if (window.location.pathname.match(/^\/users\//)) return;
     Vue.config.productionTip = false;
 
     const appContainer = document.createElement('div') as HTMLDivElement;
@@ -84,6 +86,12 @@ require('./natives/lightbox');
                         type: 'toggle',
                         default: false,
                     },
+                    osmDarkTooltip: <Toggle>{
+                        type: 'toggle',
+                        default: LSSM.$store.state.darkmode,
+                        noMapkit: true,
+                        disabled: () => !LSSM.$store.state.darkmode,
+                    },
                 },
             })
             .then(() => {
@@ -92,15 +100,26 @@ require('./natives/lightbox');
                     i18n: LSSM.$i18n,
                     render: h => h(LSSMMenu),
                 }).$mount(indicatorWrapper);
+
+                LSSM.$store
+                    .dispatch('settings/getSetting', {
+                        moduleId: 'global',
+                        settingId: 'osmDarkTooltip',
+                        default: true,
+                    })
+                    .then(
+                        allowDark =>
+                            !allowDark &&
+                            document.body.classList.add(
+                                'leaflet-no-dark-tooltip'
+                            )
+                    );
             });
     }
 
-    if (window.location.pathname.match(/^\/users\//)) return;
-    LSSM.$store.commit(
+    await LSSM.$store.dispatch(
         'api/setVehicleStates',
-        await LSSM.$store
-            .dispatch('api/request', { url: '/api/vehicle_states' })
-            .then(res => res.json())
+        'core-initialVehicleStates'
     );
     for (const moduleId of MODULES_OF_LOCALE[LSSM.$store.state.lang]) {
         try {
@@ -139,13 +158,55 @@ require('./natives/lightbox');
                 )
                     return;
                 const { id, fms, fms_real, user_id, caption } = radioMessage;
-                if (user_id === window.user_id)
+                if (user_id === window.user_id) {
                     LSSM.$store.commit('api/setVehicleState', {
                         fms,
                         fms_real,
                         id,
                         caption,
                     });
+                }
+            },
+        });
+
+        await LSSM.$store.dispatch('hook', {
+            event: 'buildingMarkerAdd',
+            callback(buildingMarker: BuildingMarkerAdd) {
+                if (buildingMarker.user_id !== window.user_id) return;
+                const buildings = LSSM.$store.state.api.buildings as Building[];
+                const building = buildings.find(
+                    ({ id }) => id === buildingMarker.id
+                );
+                if (!building || building.caption !== buildingMarker.name) {
+                    LSSM.$store
+                        .dispatch('api/fetchBuilding', {
+                            id: buildingMarker.id,
+                            feature: 'core-buildingMarkerAdd',
+                        })
+                        .then(building =>
+                            LSSM.$store
+                                .dispatch(
+                                    'api/fetchVehiclesAtBuilding',
+                                    building.id
+                                )
+                                .then(
+                                    async () =>
+                                        await LSSM.$store.dispatch(
+                                            'event/dispatchEvent',
+                                            await LSSM.$store.dispatch(
+                                                'event/createEvent',
+                                                {
+                                                    name: 'buildingMarkerAdd',
+                                                    detail: {
+                                                        marker: buildingMarker,
+                                                        building,
+                                                    },
+                                                }
+                                            )
+                                        )
+                                )
+                        );
+                }
             },
         });
     }
@@ -155,14 +216,15 @@ require('./natives/lightbox');
             defaultValue: [],
         })
         .then((activeModules: string[]) => {
-            activeModules = activeModules.filter(module =>
+            let filteredActiveModules = activeModules.filter(module =>
                 LSSM.$store.state.modules.hasOwnProperty(module)
             );
-            if (LSSM.$store.state.mapkit)
-                activeModules = activeModules.filter(
+            if (LSSM.$store.state.mapkit) {
+                filteredActiveModules = filteredActiveModules.filter(
                     module => !LSSM.$store.state.modules[module].noMapkit
                 );
-            activeModules.forEach(async moduleId => {
+            }
+            filteredActiveModules.forEach(async moduleId => {
                 LSSM.$store.commit('setModuleActive', moduleId);
                 const $m = (key: string, args?: { [key: string]: unknown }) =>
                     LSSM.$t(`modules.${moduleId}.${key}`, args);

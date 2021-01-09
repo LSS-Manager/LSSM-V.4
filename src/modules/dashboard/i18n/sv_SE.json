@@ -1,9 +1,20 @@
 {
+	"building-list": {
+		"actions": "",
+		"caption": "Namn",
+		"current": "Nummer (aktiv)",
+		"fastDispatchChooser": {
+			"noDispatch": "Ingen larmcentral"
+		},
+		"type": "Typ",
+		"unavailable": "Under uppbyggnad"
+	},
 	"building-types": {
 		"building": "Byggnader",
 		"current": "Nummer (aktiv)",
 		"extension": "Expansion",
 		"maximum": "Maximalt möjligt",
+		"title": "Alla {type}",
 		"unavailable": "Under uppbyggnad"
 	},
 	"chart-summaries": {

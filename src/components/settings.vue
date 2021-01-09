@@ -528,11 +528,12 @@ export default Vue.extend<
                         (previousValue || base)[currentValue],
                     base
                 ) as unknown) as SettingType;
-                if (invert)
+                if (invert) {
                     return (
                         setting?.isDisabled ||
                         (!!setting?.value ?? !!setting?.default)
                     );
+                }
                 return (
                     setting?.isDisabled ||
                     (!setting?.value ?? !setting?.default)
@@ -578,11 +579,12 @@ export default Vue.extend<
                               [key: string]: SettingType['value'];
                           };
                 };
-                if (result.activeModules)
+                if (result.activeModules) {
                     await this.$store.dispatch('storage/set', {
                         key: 'activeModules',
                         value: result.activeModules,
                     });
+                }
                 const resultEntries = Object.entries(result);
                 resultEntries.forEach(([module, value], index) => {
                     if (['activeModules'].includes(module)) return;

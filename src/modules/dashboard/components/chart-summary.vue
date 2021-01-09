@@ -397,10 +397,11 @@ export default Vue.extend<
                                                     !vehicle_types.hasOwnProperty(
                                                         vehicle.vehicle_type
                                                     )
-                                                )
+                                                ) {
                                                     vehicle_types[
                                                         vehicle.vehicle_type
                                                     ] = 0;
+                                                }
                                                 vehicle_types[
                                                     vehicle.vehicle_type
                                                 ]++;

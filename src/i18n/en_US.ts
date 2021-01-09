@@ -97,6 +97,11 @@ export default {
                 'Color the whole navbar in the color of LSSM-Icon Background!',
             title: 'colorize navbar',
         },
+        osmDarkTooltip: {
+            description:
+                'This settings darkens tooltips on map if you have enabled the dark mode',
+            title: 'Dark tooltips on map',
+        },
     },
     vehicles: {
         0: {
@@ -1262,6 +1267,7 @@ export default {
         'Playground',
         'Restaurant',
         'City centre',
+        'Hill',
     ],
     only_alliance_missions: [41, 61, 62, 112],
     transfer_missions: [246],

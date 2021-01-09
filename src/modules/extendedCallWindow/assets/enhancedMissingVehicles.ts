@@ -16,13 +16,13 @@ export default (LSSM: Vue, MODULE_ID: string, $m: $m): void => {
     );
     if (!missingRequirementMatches) return;
     const missingRequirements = missingRequirementMatches.map(req => {
-        req = req.trim();
-        const isColonMode = !!req.match(/^.*: \d+$/);
+        const requirement = req.trim();
+        const isColonMode = !!requirement.match(/^.*: \d+$/);
         return {
             missing: parseInt(
-                req.match(isColonMode ? /\d+$/ : /^\d+/)?.[0] || '0'
+                requirement.match(isColonMode ? /\d+$/ : /^\d+/)?.[0] || '0'
             ),
-            vehicle: req
+            vehicle: requirement
                 .trim()
                 .replace(isColonMode ? /: \d+$/ : /^\d+/, '')
                 .trim(),
@@ -85,10 +85,11 @@ export default (LSSM: Vue, MODULE_ID: string, $m: $m): void => {
             defaultValue: false,
         })
         .then(pushedRight => {
-            if (pushedRight)
+            if (pushedRight) {
                 document
                     .getElementById('mission-form')
                     ?.insertAdjacentElement('afterbegin', missingDialog);
+            }
 
             new LSSM.$vue({
                 store: LSSM.$store,

@@ -1,0 +1,4 @@
+{
+	"location": "^/profile/\\d+/?",
+	"noapp": true
+}

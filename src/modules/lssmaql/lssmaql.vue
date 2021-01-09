@@ -116,14 +116,15 @@ const parse_filter = (
         if (!baseAttr) return;
         let newObject = vm.$store.state.api[baseAttr];
         sideObject.forEach(attr => {
-            if (Array.isArray(newObject) && typeof attr !== 'number')
+            if (Array.isArray(newObject) && typeof attr !== 'number') {
                 newObject = (newObject as never[]).map(e => e[attr]);
-            else
+            } else {
                 newObject = (newObject as Record<string, unknown>)[attr] as
                     | string
                     | number
                     | Record<string, unknown>
                     | never[];
+            }
         });
         sideObject = newObject;
     }
@@ -215,9 +216,16 @@ export default Vue.extend<
     },
     beforeMount() {
         this.$store.dispatch('api/registerAllianceinfoUsage');
-        this.$store.dispatch('api/registerBuildingsUsage');
-        this.$store.dispatch('api/registerVehiclesUsage');
-        this.$store.dispatch('api/getMissions', false);
+        this.$store.dispatch('api/registerBuildingsUsage', {
+            feature: 'lssmaql-beforeMount',
+        });
+        this.$store.dispatch('api/registerVehiclesUsage', {
+            feature: 'lssmaql-beforeMount',
+        });
+        this.$store.dispatch('api/getMissions', {
+            force: false,
+            feature: 'lssmaql-beforeMount',
+        });
     },
 });
 </script>

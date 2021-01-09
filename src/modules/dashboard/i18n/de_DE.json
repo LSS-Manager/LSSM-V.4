@@ -1,9 +1,20 @@
 {
+	"building-list": {
+		"actions": "",
+		"caption": "Name",
+		"current": "Anzahl (aktiv)",
+		"fastDispatchChooser": {
+			"noDispatch": "Keine Leitstelle"
+		},
+		"type": "Typ",
+		"unavailable": "Im Bau"
+	},
 	"building-types": {
 		"building": "Gebäude",
 		"current": "Anzahl (aktiv)",
 		"extension": "Ausbau",
 		"maximum": "Maximal möglich",
+		"title": "Alle {type}",
 		"unavailable": "Im Bau"
 	},
 	"chart-summaries": {

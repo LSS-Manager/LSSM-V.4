@@ -6,7 +6,8 @@ export default async (
     LSSM: Vue,
     BUILDING_MODE: 'building' | 'dispatch',
     getSetting: (key: string) => Promise<boolean>,
-    $m: $m
+    $m: $m,
+    MODULE_ID: string
 ): Promise<void> => {
     const callback = async () => {
         const vehicles = Array.from(
@@ -53,13 +54,14 @@ export default async (
 
         if (personnelAssignmentBtn) LSSM.$store.commit('useFontAwesome');
 
-        if (fmsSwitch)
+        if (fmsSwitch) {
             await LSSM.$store.dispatch('addStyle', {
                 selectorText: '.building_list_fms_2, .building_list_fms_6',
                 style: {
                     cursor: 'pointer',
                 },
             });
+        }
 
         const lastRowItems = [
             'vehiclesPersonnelCurrent',
@@ -107,6 +109,7 @@ export default async (
                     LSSM.$store
                         .dispatch('api/request', {
                             url: `/vehicles/${vehicleId}/set_fms/${nextFms}`,
+                            feature: `${MODULE_ID}-enhanceVehicleList-fmsSwitch`,
                         })
                         .then(({ status }) => {
                             if (status === 200) {
@@ -174,10 +177,11 @@ export default async (
                 if (lastRowItems.length && storedVehicle) {
                     (async () => {
                         let currentPersonnel = 0;
-                        if (lastRowItems.includes('vehiclesPersonnelCurrent'))
+                        if (lastRowItems.includes('vehiclesPersonnelCurrent')) {
                             currentPersonnel = await LSSM.$store
                                 .dispatch('api/request', {
                                     url: `/vehicles/${vehicleId}`,
+                                    feature: `${MODULE_ID}-enhanceVehicleList-personnel`,
                                 })
                                 .then(res => res.text())
                                 .then(
@@ -189,6 +193,7 @@ export default async (
                                                 '#vehicle_details table tbody tr'
                                             ).length
                                 );
+                        }
                         const assigned_personnel_count =
                             storedVehicle.assigned_personnel_count || 0;
                         const maxPersonnel =
@@ -233,11 +238,16 @@ export default async (
             tabSelector: '#tab_vehicle',
             callback,
         });
-        await LSSM.$store.dispatch('api/registerVehiclesUsage', false);
+        await LSSM.$store.dispatch('api/registerVehiclesUsage', {
+            feature: `${MODULE_ID}-enhanceVehicleList`,
+        });
     } else {
         const path = window.location.pathname.split('/').filter(s => !!s);
         const buildingId = parseInt(path[path.length - 1]);
-        await LSSM.$store.dispatch('api/fetchVehiclesAtBuilding', buildingId);
+        await LSSM.$store.dispatch('api/fetchVehiclesAtBuilding', {
+            id: buildingId,
+            feature: `${MODULE_ID}-enhanceVehicleList`,
+        });
         await callback();
     }
 };

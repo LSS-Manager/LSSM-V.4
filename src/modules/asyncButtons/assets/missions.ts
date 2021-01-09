@@ -1,4 +1,8 @@
-export default (LSSM: Vue, missionSettings: string[]): void => {
+export default (
+    LSSM: Vue,
+    missionSettings: string[],
+    MODULE_ID: string
+): void => {
     // Prisoners
     if (
         document.querySelector('.vehicle_prisoner_select') &&
@@ -8,8 +12,7 @@ export default (LSSM: Vue, missionSettings: string[]): void => {
         let currentPrisoners = parseInt(
             prisonersLabel?.textContent?.trim().match(/^\d+/)?.[0] || '0'
         );
-        prisonersLabel &&
-            currentPrisoners &&
+        if (prisonersLabel && currentPrisoners) {
             document
                 .getElementById('mission_vehicle_at_mission')
                 ?.addEventListener('click', e => {
@@ -25,6 +28,7 @@ export default (LSSM: Vue, missionSettings: string[]): void => {
                     LSSM.$store
                         .dispatch('api/request', {
                             url: target.getAttribute('href'),
+                            feature: `${MODULE_ID}-missions-prisoners`,
                         })
                         .then(() => {
                             const vehicleId = target.parentElement?.getAttribute(
@@ -74,14 +78,16 @@ export default (LSSM: Vue, missionSettings: string[]): void => {
                                         /^\d+/,
                                         currentPrisoners.toString()
                                     ) || '';
-                            if (!currentPrisoners)
+                            if (!currentPrisoners) {
                                 Array.from(
                                     document.querySelectorAll(
                                         '.vehicle_prisoner_select'
                                     )
                                 ).forEach(p => p.remove());
+                            }
                         });
                 });
+        }
     }
 
     // MissionReply [WIP]

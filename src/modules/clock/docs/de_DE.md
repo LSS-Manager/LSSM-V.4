@@ -5,6 +5,8 @@ Eine Hilfestellung zur Konfiguration findest du unter [Konfiguration](#konfigura
 
 Aktuell bieten wir dir die Möglichkeit von Uhren an folgenden Stellen:
 * Navigationsleiste *Format hier: `LLLL:ss`*  ![Uhr in der Navigationsleiste](/v4/docs/assets/clock/img/navbar.png)
+* Als Overlay über allen Elementen
+    * Das hatten wir in der V3 schon für die Karte, hier ist die Uhr jetzt im gesamten Fenster erreichbar.
 
 ## Konfiguration
 
@@ -65,5 +67,5 @@ Im folgenden versuchen wir die Möglichkeiten so verständlich wie möglich aufz
 
 ### Normaler Text
 Möchte man die aktuelle Uhrzeit mit nachfolgendem `Uhr` ausgeben lassen, also z.B. `08:33:31 Uhr`, kann man einfach `LTS Uhr` schreiben. Das Problem hierbei ist jedoch, dass das `h` ebenfalls ersetzt wird. Das Ergebnis wäre `08:33:31 U8r`.
-Deshalb kann man reinen Text "ausklammern", um eine Formatierung zu verhindern. Das geschieht, indem man in in eckige Klammern `[]` setzen. Eigentlich ist nur das umklammern von Variablen im reinen Text nötig, um eine schönere und lesbarere Formatierung zu erhalten kann man aber auch den gesamten Text in Klammern setzen.
+Deshalb kann man reinen Text "ausklammern", um eine Formatierung zu verhindern. Das geschieht, indem man ihn in eckige Klammern `[]` setzt. Eigentlich ist nur das umklammern von Variablen im reinen Text nötig, um eine schönere und lesbarere Formatierung zu erhalten kann man aber auch den gesamten Text in Klammern setzen.
 Das oben gewünschte Ergebnis von `08:33:31 Uhr` erreicht man über `LTS [Uhr]` oder `LTS U[h]r`. 

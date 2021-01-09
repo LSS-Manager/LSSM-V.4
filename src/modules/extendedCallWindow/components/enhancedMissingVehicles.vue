@@ -1,55 +1,65 @@
 <template>
     <div
-        class="alert alert-danger alert-missing-vehicles"
-        :class="{ overlay, minified }"
+        class="alert alert-missing-vehicles"
+        :class="{
+            overlay,
+            minified,
+            'alert-success': missingRequirementsCheck,
+            'alert-danger': !missingRequirementsCheck,
+        }"
         :style="`top: ${drag.top}px; left: ${drag.left}px`"
         :id="id"
     >
         <font-awesome-icon
-            class="pull-right hover-tip"
+            class="pull-right"
+            :class="{ 'hover-tip': hoverTip }"
             :icon="textMode ? faTable : faParagraph"
             :fixed-width="true"
             @click="toggleTextMode"
         ></font-awesome-icon>
-        <div class="alert alert-info">
+        <div v-if="hoverTip" class="alert alert-info">
             {{ $m('tip.textMode') }}
         </div>
         <font-awesome-icon
-            class="pull-right hover-tip"
+            class="pull-right"
+            :class="{ 'hover-tip': hoverTip }"
             :icon="minified ? faExpandAlt : faCompressAlt"
             :fixed-width="true"
             @click="toggleMinified"
         ></font-awesome-icon>
-        <div class="alert alert-info">
+        <div v-if="hoverTip" class="alert alert-info">
             {{ $m('tip.minified') }}
         </div>
         <font-awesome-icon
             v-show="overlay"
             :icon="faArrowsAlt"
-            class="pull-right dragging-field hover-tip"
+            class="pull-right dragging-field"
+            :class="{ 'hover-tip': hoverTip }"
             :fixed-width="true"
             @mousedown="dragStart"
         ></font-awesome-icon>
-        <div class="alert alert-info">
+        <div v-if="hoverTip" class="alert alert-info">
             {{ $m('tip.dragging') }}
         </div>
         <font-awesome-icon
-            class="pull-right hover-tip"
+            class="pull-right"
+            :class="{ 'hover-tip': hoverTip }"
             :icon="overlay ? faAngleDoubleDown : faAngleDoubleUp"
             :fixed-width="true"
             @click="toggleOverlay"
         ></font-awesome-icon>
-        <div class="alert alert-info">
+        <div v-if="hoverTip" class="alert alert-info">
             {{ $m('tip.overlay') }}
         </div>
         <font-awesome-icon
-            class="pull-right hover-tip"
+            class="pull-right"
+            :class="{ 'hover-tip': hoverTip }"
             :icon="pushedRight ? faAngleDoubleLeft : faAngleDoubleRight"
             :fixed-width="true"
             @click="toggleRight"
             v-if="!overlay"
         ></font-awesome-icon>
-        <div class="alert alert-info" v-if="!overlay">
+        <div class="alert alert-info" v-if="!overlay && hoverTip">
             {{ $m(`tip.push${pushedRight ? 'Left' : 'Right'}`) }}
         </div>
         <span v-if="!textMode">{{ extras }}</span>
@@ -153,6 +163,7 @@ export default Vue.extend<
             minified: undefined,
             textMode: undefined,
             pushedRight: undefined,
+            hoverTip: false,
             drag: {
                 active: false,
                 top: 60,
@@ -199,6 +210,14 @@ export default Vue.extend<
                 if (a[this.sort] > b[this.sort]) return modifier;
                 return 0;
             });
+        },
+        missingRequirementsCheck() {
+            return this.requirements.every(
+                (req: { total: number; missing: number; selected: number }) => {
+                    if ((req.total ?? req.missing) <= req.selected) return true;
+                    else return false;
+                }
+            );
         },
     },
     methods: {
@@ -258,6 +277,11 @@ export default Vue.extend<
         },
         async dragEnd() {
             this.drag.active = false;
+            await this.$store.dispatch('settings/setSetting', {
+                moduleId: 'extendedCallWindow',
+                settingId: `drag`,
+                value: this.drag,
+            });
             document.body.classList.remove('lssm-is-dragging');
             document.removeEventListener('mouseup', this.dragEnd);
             document.removeEventListener('mousemove', this.dragging);
@@ -278,16 +302,17 @@ export default Vue.extend<
                 })
                 .then(() => {
                     this.pushedRight = !this.pushedRight;
-                    if (!this.pushedRight)
+                    if (!this.pushedRight) {
                         document
                             .querySelector(
                                 '.mission_header_info.row ~ div ~ .clearfix, .mission_header_info.row ~ .clearfix'
                             )
                             ?.after(this.$el);
-                    else
+                    } else {
                         document
                             .getElementById('mission-form')
                             ?.insertAdjacentElement('afterbegin', this.$el);
+                    }
                 });
         },
     },
@@ -320,6 +345,20 @@ export default Vue.extend<
                 defaultValue: false,
             })
             .then(pushedRight => (this.pushedRight = pushedRight));
+        this.$store
+            .dispatch('settings/getSetting', {
+                moduleId: 'extendedCallWindow',
+                settingId: 'drag',
+                defaultValue: false,
+            })
+            .then(drag => (this.drag = drag));
+        this.$store
+            .dispatch('settings/getSetting', {
+                moduleId: 'extendedCallWindow',
+                settingId: 'hoverTip',
+                defaultValue: false,
+            })
+            .then(hoverTip => (this.hoverTip = hoverTip));
     },
     mounted() {
         const vehicleGroups = (this.$t(
@@ -357,11 +396,12 @@ export default Vue.extend<
         });
         const amountElement = document.getElementById('vehicle_amount');
 
-        amountElement &&
+        if (amountElement) {
             amountObserver.observe(amountElement, {
                 childList: true,
                 characterData: true,
             });
+        }
     },
 });
 </script>

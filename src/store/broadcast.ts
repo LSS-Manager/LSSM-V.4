@@ -74,6 +74,7 @@ channel.addEventListener('message', msg => {
             { root: true }
         );
     } else if (msg.type === 'custom') {
+        // eslint-disable-next-line no-eval
         eval(msg.handler)?.(msg);
     }
 });

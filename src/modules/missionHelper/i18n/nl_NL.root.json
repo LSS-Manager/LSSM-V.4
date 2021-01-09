@@ -43,6 +43,10 @@
 			"description": "Verbergt Officiers van Dienst - Brandweer en toont alleen Hoofd Officier van Dienst - Brandweer",
 			"title": "Verberg Officier van Dienst - Brandweer"
 		},
+		"hoverTip": {
+			"description": "Toont de naam van de knop als je met de muis er boven gaat staan. Bijvoorbeeld bij de overlay knop.",
+			"title": "Knopinfo"
+		},
 		"id": {
 			"description": "Toont het ID van de inzet naast de naam",
 			"title": "Inzet ID"

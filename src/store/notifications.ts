@@ -65,7 +65,7 @@ export default {
                         close();
                     },
                 });
-            } else if (state.permission === 'denied')
+            } else if (state.permission === 'denied') {
                 await dispatch('sendNotification', {
                     type: 'danger',
                     title: (window[PREFIX] as Vue)
@@ -78,6 +78,7 @@ export default {
                     duration: -1,
                     desktop: false,
                 });
+            }
         },
         async sendNotification(
             { state, dispatch, commit }: NotificationsActionStoreParams,
@@ -96,16 +97,25 @@ export default {
                 clickHandler,
             }: NotificationsSend
         ) {
-            if (!group || !group.match(/^(top|bottom)[ _](left|center|right)$/))
-                group = 'bottom right';
-            if (!state.groups.includes(group)) commit('addGroup', group);
-            if (!type || !type.match(/^(warning|danger|success|info)$/))
-                type = 'info';
-            if (ingame)
+            let computedGroup = group;
+            let computedType = type;
+            if (
+                !computedGroup ||
+                !computedGroup.match(/^(top|bottom)[ _](left|center|right)$/)
+            )
+                computedGroup = 'bottom right';
+            if (!state.groups.includes(computedGroup))
+                commit('addGroup', computedGroup);
+            if (
+                !computedType ||
+                !computedType.match(/^(warning|danger|success|info)$/)
+            )
+                computedType = 'info';
+            if (ingame) {
                 (window[PREFIX] as Vue).$nextTick().then(() => {
                     (window[PREFIX] as Vue).$notify({
-                        group: group.replace(/ /g, '_'),
-                        type,
+                        group: computedGroup.replace(/ /g, '_'),
+                        type: computedType,
                         title,
                         text,
                         duration,
@@ -114,24 +124,26 @@ export default {
                         clean,
                     });
                 });
+            }
             if (desktop) {
                 const titleElement = document.createElement('div');
                 titleElement.innerHTML = title;
-                title = titleElement.textContent || '';
+                const newTitle = titleElement.textContent || '';
                 const body = document.createElement('body');
                 body.innerHTML = text;
                 const desktopText = body.textContent || '';
                 await dispatch('getPermission');
-                const notification = new Notification(title, {
+                const notification = new Notification(newTitle, {
                     badge: icon || lssm_logo.toString(),
                     body: desktopText,
                     data,
                     icon: icon || lssm_logo.toString(),
                     requireInteraction: duration <= 0,
                 });
-                if (clickHandler)
+                if (clickHandler) {
                     notification.onclick = e =>
                         clickHandler(null, e as MouseEvent);
+                }
                 if (duration > 0)
                     window.setTimeout(() => notification.close(), duration);
             }

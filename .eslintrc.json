@@ -23,9 +23,41 @@
         "sourceType": "module"
     },
     "rules": {
-        "guard-for-in": 2,
-        "no-prototype-builtins": 0,
+        "array-callback-return": ["error"],
+        "block-scoped-var": "warn",
+        "curly": ["error", "multi-or-nest", "consistent"],
+        "default-case-last": "error",
+        "guard-for-in": "error",
+        "no-eval": "error",
+        "no-floating-decimal": "warn",
+        "no-loop-func": "error",
+        "no-loss-of-precision": "error",
+//        "no-magic-numbers": ["warn", {
+//            "ignoreArrayIndexes": true,
+//            "ignoreDefaultValues": true,
+//            "enforceConst": true
+//        }],
+        "no-multi-str": "warn",
+        "no-param-reassign": "error",
+        "no-prototype-builtins": "off",
+        "no-self-compare": "error",
+        "no-sequences": "error",
+        "no-template-curly-in-string": "warn",
+        "no-unmodified-loop-condition": "error",
+        "no-unreachable-loop": "error",
+        "no-unsafe-optional-chaining": "error",
+        "no-unused-expressions": "error",
+        "no-useless-concat": "warn",
+        "no-useless-return": "warn",
+        "prefer-regex-literals": ["error", {
+            "disallowRedundantWrapping": true
+        }],
         "prettier/prettier": "error",
-        "semi": ["error", "always"]
+        "semi": ["error", "always"],
+        "yoda": ["error", "never", {
+            "exceptRange": true
+        }]
+        // TODO: Style
+        // TODO: ES6
     }
 }

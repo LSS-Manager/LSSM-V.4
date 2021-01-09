@@ -65,6 +65,10 @@
 			"description": "Versteckt die Fahrzeugliste, öffnet diese dann per Knopfdruck.",
 			"title": "Fahrzeugliste Verstecken"
 		},
+		"hoverTip": {
+			"description": "Tooltips für die Buttons wie der Overlay-Button",
+			"title": "Tooltips"
+		},
 		"loadMoreVehiclesInHeader": {
 			"description": "Zeigt den Knopf \"Fahrzeuge nachladen\", wenn vorhanden, in der Kopfleiste an.",
 			"title": "Fahrzeuge nachladen in Kopfleiste"

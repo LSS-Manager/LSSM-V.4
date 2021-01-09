@@ -517,7 +517,7 @@ export default Vue.extend<
         moveBoard({ id, y }) {
             const boards = Object.values(this.boards).filter(b => b.id !== id);
             const building = Object.values(this.boards).find(b => b.id === id);
-            building && boards.splice(y, 0, building);
+            if (building) boards.splice(y, 0, building);
             this.boards = boards.map(b => ({ ...b, id: b.title }));
             this.saveBoards();
         },
@@ -644,13 +644,13 @@ export default Vue.extend<
                 .querySelector('.panel-heading')
                 .getBoundingClientRect().height;
             const buildingOverlay = building.$refs[`${id}-overlay`];
-            buildingOverlay &&
-                (buildingOverlay.style.inset = `0 0 calc(100% - ${headingHeight}px) 0`);
-            buildingOverlay &&
-                (buildingOverlay.style.bottom = `calc(100% - ${headingHeight}px)`);
+            if (buildingOverlay) {
+                buildingOverlay.style.inset = `0 0 calc(100% - ${headingHeight}px) 0`;
+                buildingOverlay.style.bottom = `calc(100% - ${headingHeight}px)`;
+            }
             const buildingPanelBody = building.$el.querySelector('.panel-body');
-            buildingPanelBody &&
-                (buildingPanelBody.style.maxHeight = `calc(100% - ${headingHeight}px)`);
+            if (buildingPanelBody)
+                buildingPanelBody.style.maxHeight = `calc(100% - ${headingHeight}px)`;
             this.$set(
                 this.columns,
                 this.columns.findIndex(column => column.building === id),
@@ -659,11 +659,13 @@ export default Vue.extend<
             this.saveBoards();
         },
         modifyTitle({ id, width, height, x, y }) {
-            id = id?.replace(/(^\d+_)|(_\d+$)/g, '');
+            const checked_id = id?.replace(/(^\d+_)|(_\d+$)/g, '');
             this.$set(
                 this.board.titles,
-                this.board.titles.findIndex(title => title.title === id),
-                { title: id, width, height, x, y }
+                this.board.titles.findIndex(
+                    title => title.title === checked_id
+                ),
+                { title: checked_id, width, height, x, y }
             );
             this.saveBoards();
         },

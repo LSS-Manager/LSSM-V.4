@@ -150,6 +150,10 @@
 				"description": "Zeigt Fahrzeuganforderungen an.",
 				"title": "Fahrzeuganforderungen"
 			},
+			"hoverTip": {
+				"description": "Tooltips für die Buttons wie der Overlay-Button",
+				"title": "Tooltips"
+			},
 			"patient_additionals": {
 				"description": "Sind aktuell mehr als 5 bzw. 10 Patienten am Einsatzort, werden LNA & OrgL automatisch am Anfang der Fahrzeuganforderungen gelistet.",
 				"title": "LNA & OrgL extra erwähnen"

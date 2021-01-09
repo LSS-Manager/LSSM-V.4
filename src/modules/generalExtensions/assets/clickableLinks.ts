@@ -11,11 +11,12 @@ export default (LSSM: Vue, showImg: boolean): void => {
                 const links = (n.textContent || '').match(urlRegex) || [];
                 const texts = (n.textContent || '').split(urlRegex);
                 texts.forEach(text => {
-                    if (text)
+                    if (text) {
                         n.parentNode?.insertBefore(
                             document.createTextNode(text),
                             n
                         );
+                    }
                     const link = links.shift();
                     if (!link) return;
                     const linkNode = document.createElement('a');
@@ -48,12 +49,13 @@ export default (LSSM: Vue, showImg: boolean): void => {
                 texts.forEach(text => {
                     if (text) e.message += text;
                     const link = links.shift();
-                    if (link)
+                    if (link) {
                         e.message += `<a href="${link}" target="_blank">${
                             showImg
                                 ? `<img src="${link}" alt="${link}" style="max-width: 10%;"/>`
                                 : link
                         }</a>`;
+                    }
                 });
             },
         })

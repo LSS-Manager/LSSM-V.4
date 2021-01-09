@@ -11,9 +11,8 @@ export default (LSSM: Vue, format: string): void => {
                 'data-message-time'
             );
             const timeStampModified = moment(rawDate).format(format);
-            if (msg_user_span.firstChild) {
+            if (msg_user_span.firstChild)
                 msg_user_span.firstChild.textContent = `[${timeStampModified}] `;
-            }
         });
     LSSM.$store.dispatch('premodifyParams', {
         event: 'allianceChat',

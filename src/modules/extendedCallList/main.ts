@@ -8,10 +8,11 @@ export default (async (LSSM, MODULE_ID) => {
         });
     };
 
-    if (await getSetting('remainingTime'))
+    if (await getSetting('remainingTime')) {
         (
             await import(
                 /* webpackChunkName: "modules/extendedCallList/remainingTime" */ './assets/remainingTime'
             )
         ).default(LSSM, await getSetting('remainingTimeGreenOnly'));
+    }
 }) as ModuleMainFunction;

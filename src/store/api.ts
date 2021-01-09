@@ -35,9 +35,8 @@ const API_MIN_UPDATE = 5 * 1000 * 60; // 5 Minutes
 
 const get_from_storage = <API extends StorageAPIKey>(
     key: API,
-    storageBase?: Window
+    storageBase = window
 ): StorageGetterReturn<API> => {
-    if (!storageBase) storageBase = window;
     try {
         return JSON.parse(
             storageBase[
@@ -58,12 +57,15 @@ const get_from_parent = <API extends StorageAPIKey>(
     const parent_api_state = (window.parent[PREFIX] as Vue).$store.state
         .api as APIState;
     const parent_state = parent_api_state[key];
-    if (Object.values(parent_state).length)
+    if (Object.values(parent_state).length) {
         return {
             value: parent_state,
             lastUpdate: parent_api_state.lastUpdates[key] ?? 0,
             user_id: window.user_id,
         };
+    }
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     return get_from_storage(key, window.parent);
 };
 const get_from_broadcast = async <API extends StorageAPIKey>(
@@ -92,6 +94,7 @@ const get_from_broadcast = async <API extends StorageAPIKey>(
 const get_api_values = async <API extends StorageAPIKey>(
     key: API,
     { dispatch, state, commit }: APIActionStoreParams,
+    feature: string,
     preventUpdateFetch = false
 ): Promise<StorageGetterReturn<API>> => {
     let stored = {
@@ -127,6 +130,7 @@ const get_api_values = async <API extends StorageAPIKey>(
             lastUpdate: new Date().getTime(),
             value: await dispatch('request', {
                 url: `/api/${key}`,
+                feature,
             }).then(res => res.json()),
             user_id: window.user_id,
         };
@@ -276,8 +280,6 @@ export default {
             state: APIState,
             { value: credits, lastUpdate }: StorageGetterReturn<'credits'>
         ) {
-            // eslint-disable-next-line no-console
-            console.log('setCreditsInfo');
             if (!credits) return;
             state.lastUpdates.credits = lastUpdate;
             state.credits = credits;
@@ -339,17 +341,31 @@ export default {
         },
     } as GetterTree<APIState, RootState>,
     actions: {
-        initialUpdate(store: APIActionStoreParams, type: StorageAPIKey) {
+        initialUpdate(
+            store: APIActionStoreParams,
+            { type, feature }: { type: StorageAPIKey; feature: string }
+        ) {
             return new Promise<void>(resolve =>
-                get_api_values(type, store, true).then(result => {
+                get_api_values(
+                    type,
+                    store,
+                    `store/api/initialUpdate/${type}(${feature})`,
+                    true
+                ).then(result => {
                     store.commit(MUTATION_SETTERS[type], result);
                     resolve();
                 })
             );
         },
-        setVehicleStates({ dispatch, commit }: APIActionStoreParams) {
+        setVehicleStates(
+            { dispatch, commit }: APIActionStoreParams,
+            feature: string
+        ) {
             return new Promise<void>(resolve => {
-                dispatch('request', { url: 'api/vehicle_states' })
+                dispatch('request', {
+                    url: '/api/vehicle_states',
+                    feature: `store/api/setVehicleStates(${feature})`,
+                })
                     .then(res => res.json())
                     .then(states => {
                         commit('setVehicleStates', states);
@@ -359,11 +375,15 @@ export default {
         },
         async registerBuildingsUsage(
             store: APIActionStoreParams,
-            autoUpdate = false
+            {
+                autoUpdate = false,
+                feature,
+            }: { autoUpdate: boolean; feature: string }
         ) {
             const { value: buildings, lastUpdate } = await get_api_values(
                 'buildings',
-                store
+                store,
+                `store/api/registerBuildingsUsage(${feature})`
             );
             if (!buildings) return;
             set_api_storage(
@@ -374,23 +394,31 @@ export default {
             if (autoUpdate && !store.state.autoUpdates.includes('buildings')) {
                 store.commit('enableAutoUpdate', 'buildings');
                 window.setInterval(
-                    () => store.dispatch('registerBuildingsUsage'),
+                    () => store.dispatch('registerBuildingsUsage', { feature }),
                     API_MIN_UPDATE
                 );
             }
         },
-        async fetchBuilding(store: APIActionStoreParams, id: number) {
+        async fetchBuilding(
+            store: APIActionStoreParams,
+            { id, feature }: { id: number; feature: string }
+        ) {
             return new Promise((resolve, reject) => {
                 store
                     .dispatch('request', {
                         url: `/api/buildings/${id}`,
+                        feature: `store/api/fetchBuilding(${feature})`,
                     })
                     .then(res => res.json())
                     .then(async (building: Building) => {
                         const {
                             value: buildings,
                             lastUpdate,
-                        } = await get_api_values('buildings', store);
+                        } = await get_api_values(
+                            'buildings',
+                            store,
+                            `store/api/fetchBuilding(${feature})`
+                        );
                         if (!buildings) return reject();
                         buildings[
                             buildings.findIndex(b => b.id === id)
@@ -410,11 +438,15 @@ export default {
         },
         async registerVehiclesUsage(
             store: APIActionStoreParams,
-            autoUpdate = false
+            {
+                autoUpdate = false,
+                feature,
+            }: { autoUpdate: boolean; feature: string }
         ) {
             const { value: vehicles, lastUpdate } = await get_api_values(
                 'vehicles',
-                store
+                store,
+                `store/api/registerVehiclesUsage(${feature})`
             );
             if (!vehicles) return;
             set_api_storage(
@@ -425,23 +457,31 @@ export default {
             if (autoUpdate && !store.state.autoUpdates.includes('vehicles')) {
                 store.commit('enableAutoUpdate', 'vehicles');
                 window.setInterval(
-                    () => store.dispatch('registerVehiclesUsage'),
+                    () => store.dispatch('registerVehiclesUsage', { feature }),
                     API_MIN_UPDATE
                 );
             }
         },
-        async fetchVehicle(store: APIActionStoreParams, id: number) {
+        async fetchVehicle(
+            store: APIActionStoreParams,
+            { id, feature }: { id: number; feature: string }
+        ) {
             return new Promise((resolve, reject) => {
                 store
                     .dispatch('request', {
                         url: `/api/vehicles/${id}`,
+                        feature: `store/api/fetchVehicle(${feature})`,
                     })
                     .then(res => res.json())
                     .then(async (vehicle: Vehicle) => {
                         const {
                             value: vehicles,
                             lastUpdate,
-                        } = await get_api_values('vehicles', store);
+                        } = await get_api_values(
+                            'vehicles',
+                            store,
+                            `store/api/fetchVehicle(${feature})`
+                        );
                         if (!vehicles) return reject();
                         const index = vehicles.findIndex(v => v.id === id);
                         if (index < 0) vehicles.push(vehicle);
@@ -459,18 +499,26 @@ export default {
                     });
             });
         },
-        async fetchVehiclesAtBuilding(store: APIActionStoreParams, id: number) {
+        async fetchVehiclesAtBuilding(
+            store: APIActionStoreParams,
+            { id, feature }: { id: number; feature: string }
+        ) {
             return new Promise((resolve, reject) => {
                 store
                     .dispatch('request', {
                         url: `/api/buildings/${id}/vehicles`,
+                        feature: `store/api/fetchVehiclesAtBuilding(${feature})`,
                     })
                     .then(res => res.json())
                     .then(async (vehiclesAt: Vehicle[]) => {
                         const {
                             value: vehicles,
                             lastUpdate,
-                        } = await get_api_values('vehicles', store);
+                        } = await get_api_values(
+                            'vehicles',
+                            store,
+                            `store/api/fetchVehiclesAtBuilding(${feature})`
+                        );
                         if (!vehicles) return reject();
                         vehiclesAt.forEach(vehicle => {
                             const index = vehicles.findIndex(
@@ -494,11 +542,15 @@ export default {
         },
         async registerAllianceinfoUsage(
             store: APIActionStoreParams,
-            autoUpdate = false
+            {
+                autoUpdate = false,
+                feature,
+            }: { autoUpdate: boolean; feature: string }
         ) {
             const { value: allianceinfo, lastUpdate } = await get_api_values(
                 'allianceinfo',
-                store
+                store,
+                `store/api/registerAllianceinfoUsage(${feature})`
             );
             if (!allianceinfo) return;
             set_api_storage(
@@ -512,18 +564,25 @@ export default {
             ) {
                 store.commit('enableAutoUpdate', 'allianceinfo');
                 window.setInterval(
-                    () => store.dispatch('registerAllianceinfoUsage'),
+                    () =>
+                        store.dispatch('registerAllianceinfoUsage', {
+                            feature,
+                        }),
                     API_MIN_UPDATE
                 );
             }
         },
         async registerSettings(
             store: APIActionStoreParams,
-            autoUpdate = false
+            {
+                autoUpdate = false,
+                feature,
+            }: { autoUpdate: boolean; feature: string }
         ) {
             const { value: settings, lastUpdate } = await get_api_values(
                 'settings',
-                store
+                store,
+                `store/api/registerSettings(${feature})`
             );
             if (!settings) return;
             set_api_storage(
@@ -534,21 +593,35 @@ export default {
             if (autoUpdate && !store.state.autoUpdates.includes('settings')) {
                 store.commit('enableAutoUpdate', 'settings');
                 window.setInterval(
-                    () => store.dispatch('registerSettings'),
+                    () => store.dispatch('registerSettings', { feature }),
                     API_MIN_UPDATE
                 );
             }
         },
-        async fetchCreditsInfo(store: APIActionStoreParams) {
-            return new Promise(resolve =>
-                get_api_values('credits', store).then(({ value }) =>
-                    resolve(value)
-                )
-            );
+        async fetchCreditsInfo(store: APIActionStoreParams, feature: string) {
+            return new Promise((resolve, reject) => {
+                get_api_values(
+                    'credits',
+                    store,
+                    `store/api/fetchCreditsInfo(${feature})`
+                ).then(({ value: credits, lastUpdate }) => {
+                    if (!credits) reject();
+                    set_api_storage(
+                        'credits',
+                        {
+                            value: credits,
+                            lastUpdate,
+                            user_id: window.user_id,
+                        },
+                        store
+                    );
+                    resolve(credits);
+                });
+            });
         },
         async getMissions(
             { rootState, state, dispatch, commit }: APIActionStoreParams,
-            force: boolean
+            { force, feature }: { force: boolean; feature: string }
         ) {
             if (state.missions.length) return state.missions;
             if (
@@ -562,6 +635,7 @@ export default {
                         init: {
                             method: 'GET',
                         },
+                        feature: `store/api/getMissions(${feature})`,
                     }).then(res => res.json())
                 );
                 sessionStorage.setItem(
@@ -580,11 +654,10 @@ export default {
         },
         async request(
             { rootState, dispatch, state, commit }: APIActionStoreParams,
-            { input, url = '', init }
+            { input, url = '', init = {}, feature }
         ) {
-            input &&
-                url &&
-                (await dispatch(
+            if (input && url) {
+                await dispatch(
                     'console/warn',
                     [
                         `Request was initialized with both, input and URL, input object will be used!`,
@@ -596,11 +669,11 @@ export default {
                     {
                         root: true,
                     }
-                ));
-            init = init || {};
+                );
+            }
             init.headers = init.headers || {};
-            init.headers.hasOwnProperty('X-LSS-Manager') &&
-                (await dispatch(
+            if (init.headers.hasOwnProperty('X-LSS-Manager')) {
+                await dispatch(
                     'console/warn',
                     [
                         `Request Header "X-LSS-Manager" with value ${JSON.stringify(
@@ -612,12 +685,14 @@ export default {
                     {
                         root: true,
                     }
-                ));
+                );
+            }
             init.headers['X-LSS-Manager'] = rootState.version;
+            init.headers['X-LSS-Manager-Feature'] = feature;
             init.cache = init.cache || 'no-cache';
             const target = input || url;
             if (target.toString().startsWith(rootState.server)) {
-                if (!state.key)
+                if (!state.key) {
                     commit(
                         'setKey',
                         await dispatch('request', {
@@ -626,6 +701,7 @@ export default {
                             .then(res => res.json())
                             .then(({ code }) => code)
                     );
+                }
                 init.headers['X-LSSM-User'] = btoa(
                     `${state.key}:${rootState.version}-${MODE}`
                 );

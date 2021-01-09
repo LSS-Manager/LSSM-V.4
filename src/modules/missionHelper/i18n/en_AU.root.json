@@ -144,6 +144,10 @@
 				"description": "Shows vehicle requirements.",
 				"title": "Vehicle requirements"
 			},
+			"hoverTip": {
+				"description": "Tooltips for as example the overlay button.",
+				"title": "Tooltips"
+			},
 			"patient_additionals": {
 				"description": "If there are currently more than 10 patients on site, EMS-Chief is automatically listed at the beginning of the vehicle requirements.",
 				"title": "Mention EMS-Chief extra"

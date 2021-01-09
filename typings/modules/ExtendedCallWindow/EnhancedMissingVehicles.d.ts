@@ -30,6 +30,7 @@ export interface EnhancedMissingVehicles {
     minified: boolean | undefined;
     textMode: boolean | undefined;
     pushedRight: boolean | undefined;
+    hoverTip: boolean;
     drag: {
         active: boolean;
         top: number;
@@ -50,6 +51,7 @@ export interface EnhancedMissingVehiclesProps {
 export interface EnhancedMissingVehiclesComputed {
     missingRequirementsFiltered: Requirement[];
     missingRequirementsSorted: Requirement[];
+    missingRequirementsCheck: boolean;
 }
 
 export interface EnhancedMissingVehiclesMethods {

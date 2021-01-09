@@ -79,3 +79,20 @@ export interface MissionMarkerAdd {
 export interface MissionTimer extends MissionMarkerAdd {
     date_end_calc: number;
 }
+
+export interface BuildingMarkerAdd {
+    id: number;
+    user_id: number;
+    name: string;
+    longitude: number;
+    latitude: number;
+    icon: string;
+    vgi: unknown | null;
+    lbid: number;
+    show_vehicles_at_startpage: boolean;
+    level: number;
+    personal_count: number;
+    building_type: number;
+    filter_id: string;
+    detail_button: string;
+}
