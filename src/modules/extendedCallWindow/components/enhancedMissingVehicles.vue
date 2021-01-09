@@ -12,54 +12,54 @@
     >
         <font-awesome-icon
             class="pull-right"
-            :class="{ 'hover-tip': settings.hoverTip }"
+            :class="{ 'hover-tip': hoverTip }"
             :icon="textMode ? faTable : faParagraph"
             :fixed-width="true"
             @click="toggleTextMode"
         ></font-awesome-icon>
-        <div v-if="settings.hoverTip" class="alert alert-info">
+        <div v-if="hoverTip" class="alert alert-info">
             {{ $m('tip.textMode') }}
         </div>
         <font-awesome-icon
             class="pull-right"
-            :class="{ 'hover-tip': settings.hoverTip }"
+            :class="{ 'hover-tip': hoverTip }"
             :icon="minified ? faExpandAlt : faCompressAlt"
             :fixed-width="true"
             @click="toggleMinified"
         ></font-awesome-icon>
-        <div v-if="settings.hoverTip" class="alert alert-info">
+        <div v-if="hoverTip" class="alert alert-info">
             {{ $m('tip.minified') }}
         </div>
         <font-awesome-icon
             v-show="overlay"
             :icon="faArrowsAlt"
             class="pull-right dragging-field"
-            :class="{ 'hover-tip': settings.hoverTip }"
+            :class="{ 'hover-tip': hoverTip }"
             :fixed-width="true"
             @mousedown="dragStart"
         ></font-awesome-icon>
-        <div v-if="settings.hoverTip" class="alert alert-info">
+        <div v-if="hoverTip" class="alert alert-info">
             {{ $m('tip.dragging') }}
         </div>
         <font-awesome-icon
             class="pull-right"
-            :class="{ 'hover-tip': settings.hoverTip }"
+            :class="{ 'hover-tip': hoverTip }"
             :icon="overlay ? faAngleDoubleDown : faAngleDoubleUp"
             :fixed-width="true"
             @click="toggleOverlay"
         ></font-awesome-icon>
-        <div v-if="settings.hoverTip" class="alert alert-info">
+        <div v-if="hoverTip" class="alert alert-info">
             {{ $m('tip.overlay') }}
         </div>
         <font-awesome-icon
             class="pull-right"
-            :class="{ 'hover-tip': settings.hoverTip }"
+            :class="{ 'hover-tip': hoverTip }"
             :icon="pushedRight ? faAngleDoubleLeft : faAngleDoubleRight"
             :fixed-width="true"
             @click="toggleRight"
             v-if="!overlay"
         ></font-awesome-icon>
-        <div class="alert alert-info" v-if="!overlay && settings.hoverTip">
+        <div class="alert alert-info" v-if="!overlay && hoverTip">
             {{ $m(`tip.push${pushedRight ? 'Left' : 'Right'}`) }}
         </div>
         <span v-if="!textMode">{{ extras }}</span>
