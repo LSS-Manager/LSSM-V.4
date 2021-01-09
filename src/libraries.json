@@ -35,6 +35,9 @@
 	"@types/pdfmake": {
 		"version": "0.1.16"
 	},
+	"@types/semver": {
+		"version": "7.3.4"
+	},
 	"@types/showdown": {
 		"version": "1.9.3"
 	},
@@ -154,6 +157,9 @@
 		"icon": "https://webpack.js.org/assets/icon-square-big.svg",
 		"url": "https://github.com/webpack-contrib/sass-loader",
 		"version": "10.1.0"
+	},
+	"semver": {
+		"version": "7.3.4"
 	},
 	"showdown": {
 		"icon": "https://raw.githubusercontent.com/showdownjs/logo/master/dist/logo.readme.png",
