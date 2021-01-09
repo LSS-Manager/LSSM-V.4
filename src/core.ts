@@ -172,6 +172,7 @@ require('./natives/lightbox');
         await LSSM.$store.dispatch('hook', {
             event: 'buildingMarkerAdd',
             callback(buildingMarker: BuildingMarkerAdd) {
+if (buildingMarker.user_id !== window.user_id) return;
                 const buildings = LSSM.$store.state.api.buildings as Building[];
                 const building = buildings.find(
                     ({ id }) => id === buildingMarker.id
