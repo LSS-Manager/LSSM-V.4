@@ -114,5 +114,3 @@ export default (LSSM: Vue, MODULE_ID: string, $m: $m): void => {
         }
     };
 };
-
-
