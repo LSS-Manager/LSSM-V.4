@@ -53,6 +53,10 @@
 			"description": "Blendet ELW 1 komplett aus und zeigt nur ELW 2 an.",
 			"title": "ELW 1 ausblenden"
 		},
+		"hoverTip": {
+				"description": "Tooltips für die Buttons wie der Overlay-Button",
+				"title": "Tooltips"
+			},
 		"id": {
 			"description": "Zeigt die ID des Einsatzes neben dem Titel an.",
 			"title": "Einsatz-ID"
@@ -149,11 +153,7 @@
 			"content": {
 				"description": "Zeigt Fahrzeuganforderungen an.",
 				"title": "Fahrzeuganforderungen"
-			},
-			"hoverTip": {
-				"description": "Tooltips für die Buttons wie der Overlay-Button",
-				"title": "Tooltips"
-			},
+			},			
 			"patient_additionals": {
 				"description": "Sind aktuell mehr als 5 bzw. 10 Patienten am Einsatzort, werden LNA & OrgL automatisch am Anfang der Fahrzeuganforderungen gelistet.",
 				"title": "LNA & OrgL extra erwähnen"
