@@ -56,7 +56,7 @@
 		"hoverTip": {
 				"description": "Tooltips für die Buttons wie der Overlay-Button",
 				"title": "Tooltips"
-			},
+		},
 		"id": {
 			"description": "Zeigt die ID des Einsatzes neben dem Titel an.",
 			"title": "Einsatz-ID"
