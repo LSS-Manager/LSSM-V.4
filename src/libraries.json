@@ -18,7 +18,7 @@
 		"version": "2.4.6"
 	},
 	"@types/i18n-js": {
-		"version": "3.0.3"
+		"version": "3.8.0"
 	},
 	"@types/jquery": {
 		"version": "3.5.5"
@@ -209,7 +209,7 @@
 	"vue-i18n": {
 		"icon": "https://kazupon.github.io/vue-i18n/vue-i18n-logo.png",
 		"url": "https://github.com/kazupon/vue-i18n#readme",
-		"version": "8.22.2"
+		"version": "8.22.3"
 	},
 	"vue-js-modal": {
 		"url": "http://vue-js-modal.yev.io/",
