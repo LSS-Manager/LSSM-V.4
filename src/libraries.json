@@ -18,7 +18,7 @@
 		"version": "2.4.6"
 	},
 	"@types/i18n-js": {
-		"version": "3.0.3"
+		"version": "3.8.0"
 	},
 	"@types/jquery": {
 		"version": "3.5.5"
