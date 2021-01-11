@@ -273,7 +273,7 @@
 	"webpack": {
 		"icon": "https://webpack.js.org/assets/icon-square-big.svg",
 		"url": "https://github.com/webpack/webpack",
-		"version": "4.44.2"
+		"version": "4.45.0"
 	},
 	"webpack-cli": {
 		"icon": "https://webpack.js.org/assets/icon-square-big.svg",
