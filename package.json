@@ -81,7 +81,7 @@
         "vuepress-plugin-redirect": "^1.2.5",
         "vuepress-plugin-smooth-scroll": "^0.0.10",
         "vuepress-plugin-zooming": "^1.1.8",
-        "webpack": "^4.44.2",
+        "webpack": "^4.45.0",
         "webpack-cli": "^4.3.1",
         "webpack-loader-append-prepend": "^1.0.2"
     },
