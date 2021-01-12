@@ -187,7 +187,7 @@ require('./natives/lightbox');
                             LSSM.$store
                                 .dispatch(
                                     'api/fetchVehiclesAtBuilding',
-                                    building.id
+                        {id: building.id, feature: 'core-buildingMarkerAdd'}
                                 )
                                 .then(
                                     async () =>
