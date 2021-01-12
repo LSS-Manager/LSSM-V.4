@@ -156,7 +156,7 @@
 	"sass-loader": {
 		"icon": "https://webpack.js.org/assets/icon-square-big.svg",
 		"url": "https://github.com/webpack-contrib/sass-loader",
-		"version": "10.1.0"
+		"version": "10.1.1"
 	},
 	"semver": {
 		"version": "7.3.4"
