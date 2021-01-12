@@ -1,5 +1,5 @@
 {
-    "version": "4.1.10-p1+20210112.0527",
+    "version": "4.1.10-p1+20210112.0657",
     "license": "CC-BY-NC-SA-4.0",
     "scripts": {
         "predev": "tsc -b scripts && node scripts predev",
@@ -81,7 +81,7 @@
         "vuepress-plugin-redirect": "^1.2.5",
         "vuepress-plugin-smooth-scroll": "^0.0.10",
         "vuepress-plugin-zooming": "^1.1.8",
-        "webpack": "^4.45.0",
+        "webpack": "^4.46.0",
         "webpack-cli": "^4.3.1",
         "webpack-loader-append-prepend": "^1.0.2"
     },
