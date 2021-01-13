@@ -407,6 +407,7 @@ export default {
                 store
                     .dispatch('request', {
                         url: `/api/buildings/${id}`,
+                        feature: `store/api/fetchBuilding(${feature})`,
                     })
                     .then(res => res.json())
                     .then(async (building: Building) => {
@@ -469,6 +470,7 @@ export default {
                 store
                     .dispatch('request', {
                         url: `/api/vehicles/${id}`,
+                        feature: `store/api/fetchVehicle(${feature})`,
                     })
                     .then(res => res.json())
                     .then(async (vehicle: Vehicle) => {
@@ -505,6 +507,7 @@ export default {
                 store
                     .dispatch('request', {
                         url: `/api/buildings/${id}/vehicles`,
+feature: `store/api/fetchVehiclesAtBuilding(${feature})`
                     })
                     .then(res => res.json())
                     .then(async (vehiclesAt: Vehicle[]) => {
