@@ -61,6 +61,14 @@ export default (async (LSSM, MODULE_ID, $m) => {
             )
         ).default(LSSM, mapUndo, ownMapMarkers, getSetting, MODULE_ID);
     }
+    const extensionCloseCall = await getSetting<boolean>('extensionCloseCall');
+    if (window.location.pathname === '/') {
+        await (
+            await import(
+                /* webpackChunkName: "modules/generalExtensions/mapMarkers" */ './assets/extensionCloseCall'
+            )
+        ).default(LSSM);
+    }
     const saveLastBuildingType = await getSetting<boolean>(
         'saveLastBuildingType'
     );
@@ -109,7 +117,7 @@ export default (async (LSSM, MODULE_ID, $m) => {
             )
         ).default(
             LSSM,
-            t => $m(`protocolDeletionConfirmation.${t}`),
+            (t) => $m(`protocolDeletionConfirmation.${t}`),
             !!(await getSetting('deleteSingleProtocolEntry')),
             MODULE_ID
         );
