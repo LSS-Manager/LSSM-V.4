@@ -6,6 +6,11 @@
 			"badge": false,
 			"in": "additional",
 			"text": "Gemiddeld minimaal aantal brandweerpersoneel"
+		},
+		"water_needed": {
+			"badge": true,
+			"in": "requirements",
+			"text": "{n} L. water benodigd"
 		}
 	},
 	"settings": {
