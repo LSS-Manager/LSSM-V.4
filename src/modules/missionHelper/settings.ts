@@ -75,15 +75,11 @@ export default ((MODULE_ID, LSSM, $m) => {
             default: false,
             dependsOn: '.chances.normal',
         },
-        ...(locale !== 'nl_NL'
-            ? {
                   'multifunctionals.heavy_rescue_vehicles': <Toggle>{
                       type: 'toggle',
                       default: false,
                       dependsOn: '.vehicles.content',
                   },
-              }
-            : null),
         'multifunctionals.battalion_chief_vehicles': <Toggle>{
             type: 'toggle',
             default: false,
