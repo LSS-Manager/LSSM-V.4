@@ -386,7 +386,7 @@ export default Vue.extend<
                     },
                     cost: { title: this.$m('titles.vehicles.cost') },
                     schooling: { title: this.$m('titles.vehicles.schooling') },
-                    ...(['de_DE', 'en_US', 'pl_PL'].includes(
+                    ...(['de_DE', 'en_US', 'pl_PL', 'nl_NL'].includes(
                         this.$store.state.lang
                     )
                         ? {
