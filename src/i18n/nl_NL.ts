@@ -211,7 +211,8 @@ export default {
             maxPersonnel: 9,
             credits: 17_300,
             coins: 25,
-            special: 'Benodigd vanaf 7 brandweerposten. De slangenwagen zorgt dat de aanwezige waterhoeveelheid wordt verhoogd met 15%',
+            special:
+                'Benodigd vanaf 7 brandweerposten. De slangenwagen zorgt dat de aanwezige waterhoeveelheid wordt verhoogd met 15%',
             icon: 'truck-moving',
         },
         11: {
@@ -577,7 +578,8 @@ export default {
             maxPersonnel: 0,
             credits: 6_000,
             coins: 12,
-            special: 'Haakarmvoertuig benodigd. Deze haakarmbak zorgt dat de aanwezige waterhoeveelheid wordt verhoogd met 25%',
+            special:
+                'Haakarmvoertuig benodigd. Deze haakarmbak zorgt dat de aanwezige waterhoeveelheid wordt verhoogd met 25%',
             icon: 'square',
         },
         46: {
@@ -749,7 +751,8 @@ export default {
             maxPersonnel: 0,
             credits: 6_000,
             coins: 12,
-            special: 'Haakarmvoertuig benodigd. Deze haakarmbak zorgt dat de aanwezige waterhoeveelheid wordt verhoogd met 15%',
+            special:
+                'Haakarmvoertuig benodigd. Deze haakarmbak zorgt dat de aanwezige waterhoeveelheid wordt verhoogd met 15%',
             icon: 'square',
         },
         62: {
@@ -1171,7 +1174,7 @@ export default {
                     31,
                     34,
                     56,
-                    62
+                    62,
                 ],
                 'Waterongevallen': [33, 36, 49, 50],
                 'Vliegtuigbrandbestrijding': [41, 42, 43, 44],

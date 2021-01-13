@@ -75,11 +75,11 @@ export default ((MODULE_ID, LSSM, $m) => {
             default: false,
             dependsOn: '.chances.normal',
         },
-                  'multifunctionals.heavy_rescue_vehicles': <Toggle>{
-                      type: 'toggle',
-                      default: false,
-                      dependsOn: '.vehicles.content',
-                  },
+        'multifunctionals.heavy_rescue_vehicles': <Toggle>{
+            type: 'toggle',
+            default: false,
+            dependsOn: '.vehicles.content',
+        },
         'multifunctionals.battalion_chief_vehicles': <Toggle>{
             type: 'toggle',
             default: false,
