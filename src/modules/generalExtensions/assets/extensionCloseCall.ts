@@ -1,4 +1,4 @@
-export default (LSSM: Vue): void => {
+export default (): void => {
     const observer = new MutationObserver(handleObserved);
     const observertarget = document.getElementById('radio_messages_important');
     const observerOptions = {

@@ -61,13 +61,15 @@ export default (async (LSSM, MODULE_ID, $m) => {
             )
         ).default(LSSM, mapUndo, ownMapMarkers, getSetting, MODULE_ID);
     }
-    const extensionCloseCall = await getSetting<boolean>('extensionCloseCall');
-    if (window.location.pathname === '/') {
+    if (
+        window.location.pathname === '/' &&
+        (await getSetting<boolean>('extensionCloseCall'))
+    ) {
         await (
             await import(
-                /* webpackChunkName: "modules/generalExtensions/mapMarkers" */ './assets/extensionCloseCall'
+                /* webpackChunkName: "modules/generalExtensions/extensionCloseCall" */ './assets/extensionCloseCall'
             )
-        ).default(LSSM);
+        ).default();
     }
     const saveLastBuildingType = await getSetting<boolean>(
         'saveLastBuildingType'
