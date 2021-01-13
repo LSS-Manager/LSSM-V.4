@@ -172,6 +172,7 @@ require('./natives/lightbox');
         await LSSM.$store.dispatch('hook', {
             event: 'buildingMarkerAdd',
             callback(buildingMarker: BuildingMarkerAdd) {
+                if (buildingMarker.user_id !== window.user_id) return;
                 const buildings = LSSM.$store.state.api.buildings as Building[];
                 const building = buildings.find(
                     ({ id }) => id === buildingMarker.id
@@ -182,29 +183,28 @@ require('./natives/lightbox');
                             id: buildingMarker.id,
                             feature: 'core-buildingMarkerAdd',
                         })
-                        .then(
-                            async building =>
-                                // LSSM.$store
-                                //     .dispatch(
-                                //         'api/fetchVehiclesAtBuilding',
-                                //         building.id
-                                //     )
-                                //     .then(
-                                //         async () =>
-                                await LSSM.$store.dispatch(
-                                    'event/dispatchEvent',
-                                    await LSSM.$store.dispatch(
-                                        'event/createEvent',
-                                        {
-                                            name: 'buildingMarkerAdd',
-                                            detail: {
-                                                marker: buildingMarker,
-                                                building,
-                                            },
-                                        }
-                                    )
+                        .then(building =>
+                            LSSM.$store
+                                .dispatch('api/fetchVehiclesAtBuilding', {
+                                    id: building.id,
+                                    feature: 'core-buildingMarkerAdd',
+                                })
+                                .then(
+                                    async () =>
+                                        await LSSM.$store.dispatch(
+                                            'event/dispatchEvent',
+                                            await LSSM.$store.dispatch(
+                                                'event/createEvent',
+                                                {
+                                                    name: 'buildingMarkerAdd',
+                                                    detail: {
+                                                        marker: buildingMarker,
+                                                        building,
+                                                    },
+                                                }
+                                            )
+                                        )
                                 )
-                            // )
                         );
                 }
             },

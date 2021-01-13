@@ -282,7 +282,7 @@ export default {
             coins: 25,
             credits: 20_000,
             minPersonnel: 1,
-            maxPersonnel: 3,
+            maxPersonnel: 2,
             wtank: 0,
             schooling: 'Fire Station - ARFF-Training',
             shownSchooling: 'ARFF',

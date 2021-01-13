@@ -54,6 +54,10 @@
 			"description": "Hides Battalion Chief completely and shows only MCV.",
 			"title": "Hide Battalion Chiefs"
 		},
+		"hoverTip": {
+			"description": "Tooltips for as example the overlay button.",
+			"title": "Tooltips"
+		},
 		"id": {
 			"description": "Shows the Mission ID next to the title.",
 			"title": "Mission ID"
@@ -160,10 +164,6 @@
 			"content": {
 				"description": "Shows vehicle requirements.",
 				"title": "Vehicle requirements"
-			},
-			"hoverTip": {
-				"description": "Tooltips for as example the overlay button.",
-				"title": "Tooltips"
 			},
 			"patient_additionals": {
 				"description": "If there are currently more than 10 patients on site, EMS-Chief is automatically listed at the beginning of the vehicle requirements.",
