@@ -65,7 +65,7 @@ export default (async (LSSM, MODULE_ID, $m) => {
         window.location.pathname === '/' &&
         (await getSetting<boolean>('extensionCloseCall'))
     ) {
-        await (
+        (
             await import(
                 /* webpackChunkName: "modules/generalExtensions/extensionCloseCall" */ './assets/extensionCloseCall'
             )

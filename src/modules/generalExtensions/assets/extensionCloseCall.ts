@@ -1,11 +1,15 @@
 export default (): void => {
-    const observer = new MutationObserver(handleObserved);
+    /* const observer = new MutationObserver(handleObserved);
     const observertarget = document.getElementById('radio_messages_important');
     const observerOptions = {
         childList: true,
-    };
-
-    function handleObserved() {
+    }; */
+    const ListenerTarget = document.getElementById('radio_messages_important');
+    if (ListenerTarget == null || window.location.pathname != '/') {
+        return;
+    }
+    ListenerTarget.addEventListener('click', handleListen);
+    /* function handleObserved() {
         const msgClose = document.getElementsByClassName('radio_message_close');
         for (let i = 0; i < msgClose.length; i++) {
             let vid = msgClose[i].getAttribute('vehicle_id');
@@ -16,8 +20,16 @@ export default (): void => {
             prev.classList.add('radio_message_close');
             prev.setAttribute('vehicle_id', vid);
         }
-    }
-    if (window.location.pathname == '/' && observertarget != null) {
-        observer.observe(observertarget, observerOptions);
+    } */
+    function handleListen(event: { target: any; }) {
+        const clickedBtn = event.target;
+
+        if (clickedBtn.nextElementSibling.hasAttribute('vehicle_id')) {
+            clickedBtn.classList.add('radio_message_close');
+            clickedBtn.setAttribute(
+                'vehicle_id',
+                clickedBtn.nextElementSibling.getAttribute('vehicle_id')
+            );
+        }
     }
 };
