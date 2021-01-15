@@ -72,6 +72,10 @@
 				"additional_text": "",
 				"reduce_from": "mobile_command_vehicles"
 			},
+			"heavy_rescue_vehicles": {
+				"additional_text": "daarvan min. {n} TS-HV",
+				"reduce_from": "firetrucks"
+			},
 			"police_cars": {
 				"additional_text": "",
 				"reduce_from": "hondengeleider"

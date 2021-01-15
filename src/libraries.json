@@ -2,12 +2,12 @@
 	"@fortawesome/fontawesome-svg-core": {
 		"icon": "https://fontawesome.com/images/favicons/apple-icon-180x180.png",
 		"url": "https://fontawesome.com",
-		"version": "1.2.32"
+		"version": "1.2.34"
 	},
 	"@fortawesome/free-solid-svg-icons": {
 		"icon": "https://fontawesome.com/images/favicons/apple-icon-180x180.png",
 		"url": "https://fontawesome.com",
-		"version": "5.15.1"
+		"version": "5.15.2"
 	},
 	"@fortawesome/vue-fontawesome": {
 		"icon": "https://fontawesome.com/images/favicons/apple-icon-180x180.png",
@@ -24,13 +24,13 @@
 		"version": "3.5.5"
 	},
 	"@types/leaflet": {
-		"version": "1.5.19"
+		"version": "1.5.20"
 	},
 	"@types/lodash": {
 		"version": "4.14.167"
 	},
 	"@types/node": {
-		"version": "14.14.20"
+		"version": "14.14.21"
 	},
 	"@types/pdfmake": {
 		"version": "0.1.16"

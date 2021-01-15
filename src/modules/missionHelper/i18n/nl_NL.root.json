@@ -6,6 +6,11 @@
 			"badge": false,
 			"in": "additional",
 			"text": "Gemiddeld minimaal aantal brandweerpersoneel"
+		},
+		"water_needed": {
+			"badge": true,
+			"in": "requirements",
+			"text": "{n} L. water benodigd"
 		}
 	},
 	"settings": {
@@ -55,6 +60,10 @@
 			"battalion_chief_vehicles": {
 				"description": "Trekt het aantal vereiste Hoofd Officieren van Dienst af van de Offieren van Dienst en verbergt de Officieren van Dienst als het aantal onder de 0 komt.",
 				"title": "Officier van Dienst gemakkelijk beoordelen"
+			},
+			"heavy_rescue_vehicles": {
+				"description": "Trekt het aantal vereiste Tankautospuiten af van de Hulpverleningsvoertuigen en verbergt de Hulpverleningsvoertuigen als het aantal onder de 0 komt. Deze functie is voor spelers die de TS-HV gebruiken.",
+				"title": "Hulpverleningsvoertuigen gemakkelijk beoordelen"
 			},
 			"police_cars": {
 				"description": "Trekt het aantal vereiste Hondengeleiders af van de Noodhulpvoertuigen en verbergt de Noodhulpvoertuigen als het aantal onder de 0 komt.",

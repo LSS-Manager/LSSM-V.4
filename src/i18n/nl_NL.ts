@@ -111,6 +111,7 @@ export default {
             maxPersonnel: 2,
             credits: 5_000,
             coins: 25,
+            wtank: 500,
             icon: 'shuttle-van',
         },
         1: {
@@ -120,6 +121,7 @@ export default {
             maxPersonnel: 9,
             credits: 5_000,
             coins: 25,
+            wtank: 2000,
             icon: 'truck-moving',
         },
         2: {
@@ -169,6 +171,7 @@ export default {
             maxPersonnel: 9,
             credits: 5_000,
             coins: 25,
+            wtank: 3000,
             icon: 'truck-moving',
         },
         7: {
@@ -178,6 +181,7 @@ export default {
             maxPersonnel: 7,
             credits: 5_000,
             coins: 25,
+            wtank: 3000,
             icon: 'truck-moving',
         },
         8: {
@@ -187,6 +191,7 @@ export default {
             maxPersonnel: 5,
             credits: 5_000,
             coins: 25,
+            wtank: 2000,
             icon: 'truck-moving',
         },
         9: {
@@ -196,6 +201,7 @@ export default {
             maxPersonnel: 5,
             credits: 5_000,
             coins: 25,
+            wtank: 1500,
             icon: 'truck-moving',
         },
         10: {
@@ -205,7 +211,8 @@ export default {
             maxPersonnel: 9,
             credits: 17_300,
             coins: 25,
-            special: 'Benodigd vanaf 7 brandweerposten.',
+            special:
+                'Benodigd vanaf 7 brandweerposten. De slangenwagen zorgt dat de aanwezige waterhoeveelheid wordt verhoogd met 15%',
             icon: 'truck-moving',
         },
         11: {
@@ -227,6 +234,7 @@ export default {
             maxPersonnel: 9,
             credits: 5_000,
             coins: 25,
+            wtank: 4000,
             icon: 'truck-moving',
         },
         14: {
@@ -236,6 +244,7 @@ export default {
             maxPersonnel: 7,
             credits: 5_000,
             coins: 25,
+            wtank: 4000,
             icon: 'truck-moving',
         },
         15: {
@@ -245,6 +254,7 @@ export default {
             maxPersonnel: 5,
             credits: 5_000,
             coins: 25,
+            wtank: 4000,
             icon: 'truck-moving',
         },
         16: {
@@ -263,6 +273,7 @@ export default {
             maxPersonnel: 7,
             credits: 5_000,
             coins: 25,
+            wtank: 2000,
             icon: 'truck-moving',
         },
         18: {
@@ -387,6 +398,7 @@ export default {
             maxPersonnel: 0,
             credits: 6_000,
             coins: 12,
+            wtank: 10000,
             special: 'Haakarmvoertuig benodigd',
             icon: 'square',
         },
@@ -439,6 +451,7 @@ export default {
             maxPersonnel: 3,
             credits: 17_000,
             coins: 25,
+            wtank: 15000,
             special: 'Benodigd vanaf 7 brandweerposten.',
             icon: 'truck-moving',
         },
@@ -518,6 +531,7 @@ export default {
             maxPersonnel: 3,
             credits: 60_000,
             coins: 25,
+            wtank: 13300,
             schooling: 'Brandweer - Vliegtuigbrandbestrijding',
             shownSchooling: 'Vliegtuigbrandbestrijding',
             icon: 'truck-moving',
@@ -529,6 +543,7 @@ export default {
             maxPersonnel: 3,
             credits: 40_000,
             coins: 25,
+            wtank: 10000,
             schooling: 'Brandweer - Vliegtuigbrandbestrijding',
             shownSchooling: 'Vliegtuigbrandbestrijding',
             icon: 'truck-moving',
@@ -540,6 +555,7 @@ export default {
             maxPersonnel: 3,
             credits: 15_000,
             coins: 25,
+            wtank: 6000,
             schooling: 'Brandweer - Vliegtuigbrandbestrijding',
             shownSchooling: 'Vliegtuigbrandbestrijding',
             icon: 'truck-moving',
@@ -562,7 +578,8 @@ export default {
             maxPersonnel: 0,
             credits: 6_000,
             coins: 12,
-            special: 'Haakarmvoertuig benodigd',
+            special:
+                'Haakarmvoertuig benodigd. Deze haakarmbak zorgt dat de aanwezige waterhoeveelheid wordt verhoogd met 25%',
             icon: 'square',
         },
         46: {
@@ -614,6 +631,7 @@ export default {
             maxPersonnel: 9,
             credits: 10_000,
             coins: 25,
+            wtank: 2000,
             schooling: 'Brandweer - Oppervlakteredder',
             shownSchooling: 'Oppervlakteredder',
             icon: 'truck-moving',
@@ -725,6 +743,28 @@ export default {
             schooling: 'Politie - Biketeam',
             shownSchooling: 'Biketeam',
             icon: 'shuttle-van',
+        },
+        61: {
+            caption: 'Slangenhaakarmbak',
+            color: '#550000',
+            minPersonnel: 0,
+            maxPersonnel: 0,
+            credits: 6_000,
+            coins: 12,
+            special:
+                'Haakarmvoertuig benodigd. Deze haakarmbak zorgt dat de aanwezige waterhoeveelheid wordt verhoogd met 15%',
+            icon: 'square',
+        },
+        62: {
+            caption: 'TS-HV | Tankautospuit-Hulpverlening',
+            color: '#881b1b',
+            minPersonnel: 3,
+            maxPersonnel: 7,
+            credits: 20_000,
+            coins: 25,
+            wtank: 2000,
+            special: 'Per 10 brandweerposten kan één TS-HV gekocht worden.',
+            icon: 'truck-moving',
         },
     },
     buildings: {
@@ -1134,10 +1174,11 @@ export default {
                     31,
                     34,
                     56,
+                    62,
                 ],
                 'Waterongevallen': [33, 36, 49, 50],
                 'Vliegtuigbrandbestrijding': [41, 42, 43, 44],
-                'Haakarmbakken': [26, 27, 29, 32, 45, 51],
+                'Haakarmbakken': [26, 27, 29, 32, 45, 51, 61],
             },
             color: '#ff2d2d',
         },
