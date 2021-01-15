@@ -1,9 +1,9 @@
 export default (): void => {
-    const ListenerTarget = document.getElementById('radio_messages_important');
-    if (ListenerTarget == null || window.location.pathname != '/') {
+    const listenerTarget = document.getElementById('radio_messages_important');
+    if (listenerTarget == null) {
         return;
     }
-    ListenerTarget.addEventListener('click', handleListen);
+    listenerTarget.addEventListener('click', handleListen);
     function handleListen(event: { target: any }) {
         const clickedBtn = event.target;
 
