@@ -119,7 +119,7 @@ export default (async (LSSM, MODULE_ID, $m) => {
             )
         ).default(
             LSSM,
-            (t) => $m(`protocolDeletionConfirmation.${t}`),
+            t => $m(`protocolDeletionConfirmation.${t}`),
             !!(await getSetting('deleteSingleProtocolEntry')),
             MODULE_ID
         );
