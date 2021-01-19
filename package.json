@@ -1,5 +1,5 @@
 {
-    "version": "4.1.11-pre1+20210116.1407",
+    "version": "4.1.11-pre1+20210119.0504",
     "license": "CC-BY-NC-SA-4.0",
     "scripts": {
         "predev": "tsc -b scripts && node scripts predev",
@@ -26,7 +26,7 @@
         "lodash": ">=4.17.19",
         "mini-svg-data-uri": "^1.2.3",
         "moment": "^2.29.1",
-        "pdfmake": "^0.1.69",
+        "pdfmake": "^0.1.70",
         "semver": "^7.3.4",
         "showdown": "^1.9.1",
         "ua-parser-js": "^0.7.23",
@@ -44,7 +44,7 @@
         "@types/combokeys": "^2.4.6",
         "@types/i18n-js": "^3.8.0",
         "@types/jquery": "^3.5.5",
-        "@types/leaflet": "^1.5.20",
+        "@types/leaflet": "^1.5.21",
         "@types/lodash": "^4.14.167",
         "@types/node": "^14.14.21",
         "@types/pdfmake": "^0.1.16",
