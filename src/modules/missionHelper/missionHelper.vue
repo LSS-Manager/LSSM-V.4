@@ -168,7 +168,10 @@
                     )
                 </li>
                 <li
-                    v-if="missionSpecs.chances.patient_critical_care"
+                    v-if="
+                        missionSpecs.chances.patient_critical_care &&
+                            settings.patients.critical_care
+                    "
                     :data-amount="
                         `${missionSpecs.chances.patient_critical_care}%`
                     "

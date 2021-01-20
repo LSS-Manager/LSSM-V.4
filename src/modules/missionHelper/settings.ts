@@ -168,6 +168,7 @@ export default ((MODULE_ID, LSSM, $m) => {
                   'patients.code_possible': <Toggle>{
                       type: 'toggle',
                       default: false,
+                      disabled: () => true,
                   },
               }
             : null),

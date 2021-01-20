@@ -60,6 +60,8 @@ export interface MissionHelper {
         patients: {
             title: boolean;
             content: boolean;
+            critical_care: boolean;
+            code_possible: boolean;
             live: boolean;
             hideWhenNoNeed: boolean;
             patient_allow_first_responder_chance: boolean;
