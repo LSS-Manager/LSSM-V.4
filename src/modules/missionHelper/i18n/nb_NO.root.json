@@ -100,6 +100,10 @@
 				"description": "Shows details about possible patients.",
 				"title": "Details of potential patients"
 			},
+			"critical_care": {
+				"description": "Viser den mulige kritiske omsorgsmuligheten",
+				"title": "Detaljer om mulige kritiske sjanser"
+			},
 			"hideWhenNoNeed": {
 				"description": "Hides the patient details if there are no more patients and patients do not appear until the end of the assignment.",
 				"title": "Show patient details only when needed"

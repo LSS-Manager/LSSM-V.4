@@ -173,11 +173,11 @@ export default ((MODULE_ID, LSSM, $m) => {
             : null),
         ...(['en_GB', 'nb_NO', 'da_DK'].includes(locale)
             ? {
-                'patients.critical_care': <Toggle>{
-                    type: 'toggle',
-                    default: false,
-                },
-            }
+                  'patients.critical_care': <Toggle>{
+                      type: 'toggle',
+                      default: false,
+                  },
+              }
             : null),
         ...(locale !== 'nl_NL'
             ? {

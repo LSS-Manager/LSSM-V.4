@@ -85,13 +85,13 @@
 				"description": "Shows possible patient codes",
 				"title": "Details of possible patient codes"
 			},
-			"critical_care": {
-				"description": "Shows the possible Critical Care Chance",
-				"title": "Details of possible Critical Chances"
-			},
 			"content": {
 				"description": "Shows details about possible patients.",
 				"title": "Details of potential patients"
+			},
+			"critical_care": {
+				"description": "Shows the possible Critical Care Chance",
+				"title": "Details of possible Critical Chances"
 			},
 			"hideWhenNoNeed": {
 				"description": "Hides the patient details if there are no more patients and patients do not appear until the end of the assignment.",
