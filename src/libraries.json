@@ -27,7 +27,7 @@
 		"version": "1.5.21"
 	},
 	"@types/lodash": {
-		"version": "4.14.167"
+		"version": "4.14.168"
 	},
 	"@types/node": {
 		"version": "14.14.21"
@@ -57,7 +57,7 @@
 		"version": "4.14.0"
 	},
 	"@typescript-eslint/parser": {
-		"version": "4.13.0"
+		"version": "4.14.0"
 	},
 	"@vuepress/plugin-active-header-links": {
 		"icon": "https://vuepress.vuejs.org/hero.png",
@@ -278,7 +278,7 @@
 	"webpack-cli": {
 		"icon": "https://webpack.js.org/assets/icon-square-big.svg",
 		"url": "https://webpack.js.org/api/cli/",
-		"version": "4.3.1"
+		"version": "4.4.0"
 	},
 	"webpack-loader-append-prepend": {
 		"icon": "https://webpack.js.org/assets/icon-square-big.svg",

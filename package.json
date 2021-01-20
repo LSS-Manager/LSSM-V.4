@@ -1,5 +1,5 @@
 {
-    "version": "4.1.11-pre1+20210119.1025",
+    "version": "4.1.11-pre1+20210120.0827",
     "license": "CC-BY-NC-SA-4.0",
     "scripts": {
         "predev": "tsc -b scripts && node scripts predev",
@@ -55,7 +55,7 @@
         "@types/vue-select": "^2.5.1",
         "@types/webpack-env": "^1.16.0",
         "@typescript-eslint/eslint-plugin": "^4.14.0",
-        "@typescript-eslint/parser": "^4.13.0",
+        "@typescript-eslint/parser": "^4.14.0",
         "@vuepress/plugin-active-header-links": "^1.8.0",
         "@vuepress/plugin-back-to-top": "^1.8.0",
         "all-contributors-cli": "^6.19.0",
@@ -82,7 +82,7 @@
         "vuepress-plugin-smooth-scroll": "^0.0.10",
         "vuepress-plugin-zooming": "^1.1.8",
         "webpack": "^4.46.0",
-        "webpack-cli": "^4.3.1",
+        "webpack-cli": "^4.4.0",
         "webpack-loader-append-prepend": "^1.0.2"
     },
     "engines": {
