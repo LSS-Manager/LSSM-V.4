@@ -168,8 +168,8 @@
                     )
                 </li>
                 <li
-                    v-if="missionSpecs.chances.critical_care"
-                    :data-amount="`${missionSpecs.chances.critical_care}%`"
+                    v-if="missionSpecs.chances.patient_critical_care"
+                    :data-amount="`${missionSpecs.chances.patient_critical_care}%`"
                 >
                     {{ $m('patients.critical_care') }}
                 </li>
