@@ -89,12 +89,6 @@
 				"title": "Show Heavy Rescue / rescue engine instead of firetrucks"
 			}
 		},
-		"patient": {
-			"code_possible": {
-				"description": "Shows possible patient codes",
-				"title": "Details of possible patient codes"
-			}
-		},
 		"patients": {
 			"content": {
 				"description": "Shows details about possible patients.",

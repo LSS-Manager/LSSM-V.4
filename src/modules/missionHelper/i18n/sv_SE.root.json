@@ -67,12 +67,6 @@
 				"title": "Visa Lastväxlare / Räddningsbil istället för brandbilar"
 			}
 		},
-		"patient": {
-			"code_possible": {
-				"description": "Shows possible patient codes",
-				"title": "Details of possible patient codes"
-			}
-		},
 		"patients": {
 			"content": {
 				"description": "Visar detaljer om möjliga patienter.",
