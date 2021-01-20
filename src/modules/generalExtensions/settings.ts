@@ -54,4 +54,8 @@ export default (() => ({
     deleteSingleProtocolEntry: <Hidden>{
         type: 'hidden',
     },
+    extensionCloseCall: <Toggle>{
+        type: 'toggle',
+        default: true,
+    },
 })) as ModuleSettingFunction;

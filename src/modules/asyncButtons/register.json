@@ -1,5 +1,5 @@
 {
 	"dev": true,
-	"location": "(^/(buildings|missions|alliance_threads)/\\d+/?$)|(^/(verband/mitglieder|aaos)/?)",
+	"location": "(^/(buildings|missions|alliance_threads)/\\d+/?$)|(^/(verband/mitglieder|aaos)/?)|(^/buildings/\\d+/personals/?$)",
 	"settings": true
 }
