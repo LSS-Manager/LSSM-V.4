@@ -1,5 +1,5 @@
 {
-    "version": "4.1.11-pre1+20210119.1025",
+    "version": "4.1.11-pre1+20210120.0810",
     "license": "CC-BY-NC-SA-4.0",
     "scripts": {
         "predev": "tsc -b scripts && node scripts predev",
@@ -45,7 +45,7 @@
         "@types/i18n-js": "^3.8.0",
         "@types/jquery": "^3.5.5",
         "@types/leaflet": "^1.5.21",
-        "@types/lodash": "^4.14.167",
+        "@types/lodash": "^4.14.168",
         "@types/node": "^14.14.21",
         "@types/pdfmake": "^0.1.16",
         "@types/semver": "^7.3.4",
@@ -55,7 +55,7 @@
         "@types/vue-select": "^2.5.1",
         "@types/webpack-env": "^1.16.0",
         "@typescript-eslint/eslint-plugin": "^4.14.0",
-        "@typescript-eslint/parser": "^4.13.0",
+        "@typescript-eslint/parser": "^4.14.0",
         "@vuepress/plugin-active-header-links": "^1.8.0",
         "@vuepress/plugin-back-to-top": "^1.8.0",
         "all-contributors-cli": "^6.19.0",
