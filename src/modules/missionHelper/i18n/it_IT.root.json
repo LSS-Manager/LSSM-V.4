@@ -71,13 +71,11 @@
 				"title": "Mostra Salvataggio Pesante / Motre di salvataggio invece dei camion VVF"
 			}
 		},
-		"patient": {
+		"patients": {
 			"code_possible": {
 				"description": "Mostra i possibili codici dei pazienti",
 				"title": "Dettagli sui possibili codici dei pazienti"
-			}
-		},
-		"patients": {
+			},
 			"content": {
 				"description": "Mostra i dettagli sui potenziali pazienti.",
 				"title": "Dettagli sui potenziali pazienti"
