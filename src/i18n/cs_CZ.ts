@@ -304,7 +304,8 @@ export default {
             credits: 6_000,
             minPersonnel: 0,
             maxPersonnel: 0,
-            special: 'Je potřeba tažné vozidlo (SUV VZS ČČK, Dodávka VZS ČČK). Vyžaduje osoby(4) se speciálním vzděláním v oboru odtahové vozidlo',
+            special:
+                'Je potřeba tažné vozidlo (SUV VZS ČČK, Dodávka VZS ČČK). Vyžaduje osoby(4) se speciálním vzděláním v oboru odtahové vozidlo',
         },
         22: {
             caption: 'Potápěčský automobil',
