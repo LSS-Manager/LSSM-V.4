@@ -191,6 +191,12 @@
                     {{ $m('patients.helicopter') }}
                 </li>
                 <li
+                    v-if="missionSpecs.chances.patient_other_treatment"
+                    :data-amount="`${missionSpecs.chances.patient_other_treatment}%`"
+                >
+                    {{ $m('patients.patient_other_treatment') }}
+                </li>
+                <li
                     v-if="
                         missionSpecs.additional
                             .patient_allow_first_responder_chance &&
