@@ -75,15 +75,11 @@ export default ((MODULE_ID, LSSM, $m) => {
             default: false,
             dependsOn: '.chances.normal',
         },
-        ...(locale !== 'nl_NL'
-            ? {
-                  'multifunctionals.heavy_rescue_vehicles': <Toggle>{
-                      type: 'toggle',
-                      default: false,
-                      dependsOn: '.vehicles.content',
-                  },
-              }
-            : null),
+        'multifunctionals.heavy_rescue_vehicles': <Toggle>{
+            type: 'toggle',
+            default: false,
+            dependsOn: '.vehicles.content',
+        },
         'multifunctionals.battalion_chief_vehicles': <Toggle>{
             type: 'toggle',
             default: false,
@@ -169,7 +165,16 @@ export default ((MODULE_ID, LSSM, $m) => {
         },
         ...(['en_GB', 'en_US', 'it_IT'].includes(locale)
             ? {
-                  'patient.code_possible': <Toggle>{
+                  'patients.code_possible': <Toggle>{
+                      type: 'toggle',
+                      default: false,
+                      disabled: () => true,
+                  },
+              }
+            : null),
+        ...(['en_GB', 'nb_NO', 'da_DK'].includes(locale)
+            ? {
+                  'patients.critical_care': <Toggle>{
                       type: 'toggle',
                       default: false,
                   },

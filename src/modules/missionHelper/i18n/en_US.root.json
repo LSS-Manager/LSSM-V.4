@@ -54,6 +54,10 @@
 			"description": "Hides Battalion Chief completely and shows only MCV.",
 			"title": "Hide Battalion Chiefs"
 		},
+		"hoverTip": {
+			"description": "Tooltips for as example the overlay button.",
+			"title": "Tooltips"
+		},
 		"id": {
 			"description": "Shows the Mission ID next to the title.",
 			"title": "Mission ID"
@@ -94,13 +98,11 @@
 				"title": "Show Heavy Rescue / rescue engine instead of firetrucks"
 			}
 		},
-		"patient": {
+		"patients": {
 			"code_possible": {
 				"description": "Shows possible patient codes",
 				"title": "Details of possible patient codes"
-			}
-		},
-		"patients": {
+			},
 			"content": {
 				"description": "Shows details about possible patients.",
 				"title": "Details of potential patients"
@@ -160,10 +162,6 @@
 			"content": {
 				"description": "Shows vehicle requirements.",
 				"title": "Vehicle requirements"
-			},
-			"hoverTip": {
-				"description": "Tooltips for as example the overlay button.",
-				"title": "Tooltips"
 			},
 			"patient_additionals": {
 				"description": "If there are currently more than 10 patients on site, EMS-Chief is automatically listed at the beginning of the vehicle requirements.",
