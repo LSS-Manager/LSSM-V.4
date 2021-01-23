@@ -1,0 +1,62 @@
+{
+	"description": "Dodaje przydatne funkcje do budynków.",
+	"name": "Rozszerzony widok budynku",
+	"settings": {
+		"buildingsLeftRight": {
+			"description": "Pokazuje w budynkach, ile innych budynków tego samego typu w danym kierunku.",
+			"title": "Liczba budynków tego samego typu"
+		},
+		"enhanceVehicleList": {
+			"description": "Rozszerza listę pojazdów o przydatne funkcje - niektóre z nich można regulować.",
+			"title": "Rozszerz listę pojazdów"
+		},
+		"enhancedPersonnelAssignment": {
+			"description": "Daje możliwość ukrycia personelu bez odpowiedniego przeszkolenia.",
+			"title": "Lepsza alokacja personelu"
+		},
+		"expansions": {
+			"description": "Pokazuje rozszerzenia budynku bez konieczności wcześniejszego naciskania karty rozszerzeń.",
+			"title": "Pokaż rozszerzenia bezpośrednio"
+		},
+		"fastDispatchChooser": {
+			"description": "Pozwala wybrać bezpośrednio w budynku, do którego centrum sterowania jest przypisane, bez konieczności wcześniejszego uzyskiwania dostępu do ustawień.",
+			"title": "Szybki wybór centrum sterowania"
+		},
+		"fmsSwitch": {
+			"description": "Umożliwia przełączanie się między stanem 2 i 6, klikając stan.",
+			"title": "Szybka zmiana statusu 2 <=> 6 switch"
+		},
+		"personnelAssignmentBtn": {
+			"description": "Wstawia obok przycisku 'Edytuj ', aby dodać przycisk do przydziału personelu. - Jeszcze nie działa w centrach kontroli!",
+			"title": "Przycisk przydziału personelu"
+		},
+		"personnelDemands": {
+			"description": "Pokazuje, ile personelu jest wymagane przy minimalnym i maksymalnym obłożeniu pojazdu.",
+			"title": "Wymagania dotyczące personelu"
+		},
+		"schoolingSummary": {
+			"description": "Pokazuje w przeglądzie personelu budynku, ile osób przeszło które szkolenie (a).",
+			"title": "Podsumowanie personelu"
+		},
+		"vehicleTypes": {
+			"description": "Pokazuje typ pojazdu (i jeśli jest dostępna, własną klasę pojazdu) w oddzielnej kolumnie",
+			"title": "Typ pojazdu"
+		},
+		"vehiclesPersonnelAssigned": {
+			"description": "Pokazuje, ile osób jest przypisanych do pojazdu.",
+			"title": "Przydzielona załoga"
+		},
+		"vehiclesPersonnelColorized": {
+			"description": "Podświetla liczbę przydzielonych załóg na czerwono, jeśli jest mniejsza niż maksymalna możliwa, a na zielono, gdy maksymalna liczba zostanie osiągnięta.",
+			"title": "Kod koloru dla przydzielonej załogi"
+		},
+		"vehiclesPersonnelCurrent": {
+			"description": "Pokazuje, ile osób aktualnie siedzi w pojeździe.",
+			"title": "Obecna załoga"
+		},
+		"vehiclesPersonnelMax": {
+			"description": "Pokazuje maksymalną liczbę osób, które mogą się zmieścić w pojeździe.",
+			"title": "Maksymalna załoga"
+		}
+	}
+}
