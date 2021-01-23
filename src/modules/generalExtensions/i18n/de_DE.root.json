@@ -14,6 +14,10 @@
 			"description": "Zeigt dir Emojis zur auswahl an, wenn du : gefolgt von Text eingibst.",
 			"title": "Emoji-Picker"
 		},
+		"extensionCloseCall": {
+			"description": "Schließt Ausbreitungssprechwünsche auch bei drücken des Buttons \"zum Einsatz\".",
+			"title": "Ausbreitung verbesserter FMS 5"
+		},
 		"linkPreviews": {
 			"buildings": "Gebäude",
 			"description": "Zeigt eine kleine Infobox an, wenn du mit der Maus kurz über einem Link wartest. Du kannst hier einstellen, bei welchen Links die Infobox aktiviert sein soll:",

@@ -1,4 +1,12 @@
 {
+	"buildingPersonal": {
+		"deleteModal": {
+			"btnCancel": "Abbrechen",
+			"btnConfirm": "Kündigen",
+			"text": "Möchtest du diese Person kündigen?",
+			"title": "Kündigen?"
+		}
+	},
 	"deleteARR": {
 		"deleteModal": {
 			"btnCancel": "Abbrechen",

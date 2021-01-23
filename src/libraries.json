@@ -2,12 +2,12 @@
 	"@fortawesome/fontawesome-svg-core": {
 		"icon": "https://fontawesome.com/images/favicons/apple-icon-180x180.png",
 		"url": "https://fontawesome.com",
-		"version": "1.2.32"
+		"version": "1.2.34"
 	},
 	"@fortawesome/free-solid-svg-icons": {
 		"icon": "https://fontawesome.com/images/favicons/apple-icon-180x180.png",
 		"url": "https://fontawesome.com",
-		"version": "5.15.1"
+		"version": "5.15.2"
 	},
 	"@fortawesome/vue-fontawesome": {
 		"icon": "https://fontawesome.com/images/favicons/apple-icon-180x180.png",
@@ -24,13 +24,13 @@
 		"version": "3.5.5"
 	},
 	"@types/leaflet": {
-		"version": "1.5.19"
+		"version": "1.5.21"
 	},
 	"@types/lodash": {
-		"version": "4.14.167"
+		"version": "4.14.168"
 	},
 	"@types/node": {
-		"version": "14.14.20"
+		"version": "14.14.22"
 	},
 	"@types/pdfmake": {
 		"version": "0.1.16"
@@ -54,10 +54,10 @@
 		"version": "1.16.0"
 	},
 	"@typescript-eslint/eslint-plugin": {
-		"version": "4.13.0"
+		"version": "4.14.0"
 	},
 	"@typescript-eslint/parser": {
-		"version": "4.13.0"
+		"version": "4.14.0"
 	},
 	"@vuepress/plugin-active-header-links": {
 		"icon": "https://vuepress.vuejs.org/hero.png",
@@ -104,7 +104,7 @@
 	"eslint": {
 		"icon": "https://eslint.org/assets/img/favicon.512x512.png",
 		"url": "https://eslint.org",
-		"version": "7.17.0"
+		"version": "7.18.0"
 	},
 	"eslint-plugin-prettier": {
 		"icon": "https://prettier.io/icon.png",
@@ -114,7 +114,7 @@
 	"eslint-plugin-vue": {
 		"icon": "https://vuejs.org/images/logo.png",
 		"url": "https://eslint.vuejs.org",
-		"version": "7.4.1"
+		"version": "7.5.0"
 	},
 	"highcharts": {
 		"icon": "https://www.highcharts.com/images/ico/favicon-192x192.png",
@@ -146,12 +146,12 @@
 	},
 	"pdfmake": {
 		"url": "http://pdfmake.org",
-		"version": "0.1.69"
+		"version": "0.1.70"
 	},
 	"sass": {
 		"icon": "https://sass-lang.com/assets/img/logos/logo-b6e1ef6e.svg",
 		"url": "https://github.com/sass/dart-sass",
-		"version": "1.32.4"
+		"version": "1.32.5"
 	},
 	"sass-loader": {
 		"icon": "https://webpack.js.org/assets/icon-square-big.svg",
@@ -209,7 +209,7 @@
 	"vue-i18n": {
 		"icon": "https://kazupon.github.io/vue-i18n/vue-i18n-logo.png",
 		"url": "https://github.com/kazupon/vue-i18n#readme",
-		"version": "8.22.3"
+		"version": "8.22.4"
 	},
 	"vue-js-modal": {
 		"url": "http://vue-js-modal.yev.io/",
@@ -278,7 +278,7 @@
 	"webpack-cli": {
 		"icon": "https://webpack.js.org/assets/icon-square-big.svg",
 		"url": "https://webpack.js.org/api/cli/",
-		"version": "4.3.1"
+		"version": "4.4.0"
 	},
 	"webpack-loader-append-prepend": {
 		"icon": "https://webpack.js.org/assets/icon-square-big.svg",
