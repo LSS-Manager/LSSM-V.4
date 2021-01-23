@@ -14,6 +14,10 @@
 			"description": "Toont je emoji's die je kunt selecteren wanneer je typt : gevolgd door tekst.",
 			"title": "Emoji-kiezer"
 		},
+		"extensionCloseCall": {
+			"description": "Sluit de uitbreidingsspraakaanvraag ook bij het indrukken van de knop \"Naar incident\".",
+			"title": "Uitbreiding verbeterde status 7"
+		},
 		"linkPreviews": {
 			"buildings": "Gebouwen",
 			"description": "Toont een klein informatievenster als u een korte tijd met de muis op een link wacht. Hier kunt u instellen voor welke links de infobox moet worden geactiveerd:",

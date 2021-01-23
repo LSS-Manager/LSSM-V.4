@@ -34,6 +34,7 @@ module.exports = {
             elw2: 'Hoofdofficier van Dienst - Brandweer',
             elw3: 'Commandovoertuig of haakarmbak',
             dlk: 'Redvoertuig',
+            wasser_amount: 'Water (in Liters)',
             arff: 'Crashtender',
             elw_airport: 'Airport Fire Officer / On Scene Commander',
             rtw: 'Ambulance',
@@ -46,7 +47,8 @@ module.exports = {
             ambulance_or_rapid_responder: 'Ambulance of Rapid Responder',
             kdow_orgl_any: 'OVD-G of OVDG-RR',
             fly_car_any: 'OVDG-RR of Rapid Responder',
-            rw: 'Hulpverleningsvoertuig',
+            rw_only: 'Hulpverleningsvoertuig',
+            rw: 'HV of TS-HV',
             gwl2wasser:
                 'Slangenwagen / Watertankwagen of Watertransportsysteem-haakarmbak',
             gwl2wasser_only: 'Alleen Slangenwagen / Watertankwagen',

@@ -168,6 +168,17 @@
                     )
                 </li>
                 <li
+                    v-if="
+                        missionSpecs.chances.patient_critical_care &&
+                            settings.patients.critical_care
+                    "
+                    :data-amount="
+                        `${missionSpecs.chances.patient_critical_care}%`
+                    "
+                >
+                    {{ $m('patients.critical_care') }}
+                </li>
+                <li
                     v-if="missionSpecs.chances.nef"
                     :data-amount="`${missionSpecs.chances.nef}%`"
                 >
@@ -178,6 +189,14 @@
                     :data-amount="`${missionSpecs.chances.helicopter}%`"
                 >
                     {{ $m('patients.helicopter') }}
+                </li>
+                <li
+                    v-if="missionSpecs.chances.patient_other_treatment"
+                    :data-amount="
+                        `${missionSpecs.chances.patient_other_treatment}%`
+                    "
+                >
+                    {{ $m('patients.patient_other_treatment') }}
                 </li>
                 <li
                     v-if="
@@ -481,6 +500,8 @@ export default Vue.extend<
                     allow_drone_instead_of_investigation: false,
                 },
                 patients: {
+                    code_possible: false,
+                    critical_care: false,
                     title: false,
                     content: false,
                     live: false,

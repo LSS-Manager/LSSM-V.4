@@ -2,6 +2,10 @@
 	"description": "Voorkom met deze module dat het venster opnieuw wordt geladen als je op bepaalde knoppen drukt.",
 	"name": "Niet herladen",
 	"settings": {
+		"buildingPersonal": {
+			"description": "Voorkomt herladen wanneer u een personeelslid verwijdert",
+			"title": "Personeel verwijderen"
+		},
 		"buildingTax": {
 			"description": "Voorkomt herladen wanneer u de kosten van eigen cellen of ziekenhuisbedden instelt.",
 			"title": "Kosten van cellen en bedden"

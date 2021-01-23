@@ -1,0 +1,37 @@
+{
+	"deleteARR": {
+		"deleteModal": {
+			"btnCancel": "anuluj",
+			"btnConfirm": "usuń",
+			"text": "Czy chcesz usunąć ten wpis (Zasad reagowania)",
+			"title": "Usunąć?"
+		}
+	},
+	"forumPost": {
+		"deleteModal": {
+			"btnCancel": "anuluj",
+			"btnConfirm": "usuń",
+			"text": "Czy chcesz usunąć ten wpis?",
+			"title": "Usunąć?"
+		}
+	},
+	"memberlistManageUser": {
+		"hide": "ukryj",
+		"kickModal": {
+			"btnCancel": "anuluj",
+			"btnConfirm": "Wyrzuć (Kick)",
+			"text": "Czy naprawdę chcesz wyrzucić gracza?",
+			"title": "Wyrzucić?"
+		},
+		"set": "zestaw",
+		"unset": "usuń"
+	},
+	"memberlistRoles": {
+		"admin": "Administrator sojuszu",
+		"aufsichtsrat": "Dziennik działań moderatora",
+		"coadmin": "Współadministrator sojuszu",
+		"finance": "Finanse sojuszu",
+		"schooling": "Szkoleniowy sojuszu",
+		"sprechwunsch_admin": "Żądanie transportu - Administrator"
+	}
+}

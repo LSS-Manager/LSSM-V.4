@@ -5,6 +5,7 @@
 	"generated_by": "Generert av",
 	"patients": {
 		"allow_ktw_instead_of_rtw": "En syketransport kan bli brukt.",
+		"critical_care": "Sannsynlighet for at legevaktslege trengs",
 		"helicopter": "Sannsynlighet for Luftambulanse:",
 		"patient_allow_first_responder_chance": "sjanse for anmodning av First Responder.",
 		"patient_at_end_of_mission": "NB: Pasienten dukker opp på slutten av oppdraget!",
