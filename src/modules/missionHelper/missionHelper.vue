@@ -192,7 +192,9 @@
                 </li>
                 <li
                     v-if="missionSpecs.chances.patient_other_treatment"
-                    :data-amount="`${missionSpecs.chances.patient_other_treatment}%`"
+                    :data-amount="
+                        `${missionSpecs.chances.patient_other_treatment}%`
+                    "
                 >
                     {{ $m('patients.patient_other_treatment') }}
                 </li>
