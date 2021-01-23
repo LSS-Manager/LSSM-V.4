@@ -1,4 +1,12 @@
 {
+	"buildingPersonal": {
+		"deleteModal": {
+			"btnCancel": "Annuleren",
+			"btnConfirm": "Verwijderen",
+			"text": "Wil je deze persoon verwijderen?",
+			"title": "Verwijderen?"
+		}
+	},
 	"deleteARR": {
 		"deleteModal": {
 			"btnCancel": "Annuleren",
