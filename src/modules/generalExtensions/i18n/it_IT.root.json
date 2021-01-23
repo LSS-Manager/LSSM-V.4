@@ -14,6 +14,10 @@
 			"description": "Ti mostra le emoji per la selezione quando digiti : seguito da testo.",
 			"title": "Selettore di emoji"
 		},
+		"extensionCloseCall": {
+			"description": "Closes propagation speech requests even if the button \"to mission\" is pressed.",
+			"title": "Spreading improved FMS 5"
+		},
 		"linkPreviews": {
 			"buildings": "Edifici",
 			"description": "Ti mostra un piccolo box di informazioni se ti fermi col mouse sopra un link per un breve periodo. Qui puoi impostare per quali link la finestra d'informazioni dovrebbe essere attivata:",
