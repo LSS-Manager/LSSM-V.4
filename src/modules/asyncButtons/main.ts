@@ -26,6 +26,17 @@ export default (async (LSSM, MODULE_ID, $m) => {
     }
 
     if (
+        window.location.pathname.match(/^\/buildings\/\d+\/personals\/?$/) &&
+        (await getSetting('buildingPersonal'))
+    ) {
+        (
+            await import(
+                /* webpackChunkName: "modules/asyncButtons/buildingPersonal" */ './assets/buildingPersonal'
+            )
+        ).default(LSSM, $m, MODULE_ID);
+    }
+
+    if (
         window.location.pathname.match(/^\/missions\/\d+\/?$/) &&
         missions.length
     ) {

@@ -8,11 +8,17 @@ export default (LSSM: Vue): void => {
         ({ id }) => id === buildingId
     );
     if (!building) return;
-    const buildings = (
-        (LSSM.$store.getters['api/buildingsByType'] as {
-            [type: number]: Building[];
-        })[building.building_type] || []
-    )
+    const buildingsByType = LSSM.$store.getters['api/buildingsByType'] as {
+        [type: number]: Building[];
+    };
+    const small_building =
+        ((LSSM.$t('small_buildings') as unknown) as { [type: number]: number })[
+            building.building_type
+        ] ?? (NaN as number);
+    const buildings = [
+        ...(buildingsByType[building.building_type] || []),
+        ...(isNaN(small_building) ? [] : buildingsByType[small_building] || []),
+    ]
         .map(({ id }) => id)
         .sort();
     const position = buildings.indexOf(buildingId);

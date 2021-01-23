@@ -34,6 +34,7 @@ module.exports = {
             elw2: 'Hoofdofficier van Dienst - Brandweer',
             elw3: 'Commandovoertuig of haakarmbak',
             dlk: 'Redvoertuig',
+            wasser_amount: 'Water (in Liters)',
             arff: 'Crashtender',
             elw_airport: 'Airport Fire Officer / On Scene Commander',
             rtw: 'Ambulance',

@@ -145,7 +145,7 @@ export default async (
                         ]?.caption;
                     typeWrapper.append(vehicleTypeNode);
                     if (storedVehicle.vehicle_type_caption) {
-                        const customTypeNode = document.createElement('button');
+                        const customTypeNode = document.createElement('a');
                         customTypeNode.classList.add(
                             'btn',
                             'btn-default',
