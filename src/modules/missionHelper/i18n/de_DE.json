@@ -9,6 +9,7 @@
 		"nef": "Wahrscheinlichkeit für einen Notarzt",
 		"patient_allow_first_responder_chance": "First Responder Wahrscheinlichkeit",
 		"patient_at_end_of_mission": "Der Patient tritt erst am Ende des Einsatzes auf! | Die Patienten treten erst am Ende des Einsatzes auf!",
+		"patient_other_treatment": "Wahrscheinlichkeit für Tragehilfe",
 		"patient_transport": "Transportwahrscheinlichkeit",
 		"possible_patient": "Patient maximal | Patienten maximal",
 		"possible_patient_exact": "genau {n} Patient | genau {n} Patienten",

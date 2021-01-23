@@ -8,6 +8,14 @@ export default (async (LSSM, MODULE_ID) => {
         });
     };
 
+    if (window.location.pathname.match(/^\/vehicles\/\d+\/?/)) {
+        return await (
+            await import(
+                /* webpackChunkName: "modules/extendedCallList/vehicleMissionParticipitationState" */ './assets/vehicleMissionParticipitationState'
+            )
+        ).default(LSSM, MODULE_ID);
+    }
+
     if (await getSetting('remainingTime')) {
         (
             await import(

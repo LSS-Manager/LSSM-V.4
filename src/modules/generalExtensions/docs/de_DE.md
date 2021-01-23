@@ -68,3 +68,9 @@ Mittels `←` und `→` kannst du auch durch die Vorschläge durchwechseln und m
 :::
 
 Als zusätzliches Feature werden sog. gängige Shortcuts automatisch ersetzt. Zum Beispiel wird `;)` in `😉` ersetzt, sobald du ein Leerzeichen dahinter setzt.
+
+## Ausbreitung verbesserter FMS 5
+
+Nervt es dich auch das bei Ausbreitungen der Sprechwunsch beim Klick auf "zum Einsatz" nicht beendet wird? Diese kleine Erweiterung fügt genau das ein. 
+
+Ausbreitungssprechwünsche werden auch beim Klick auf "zum Einsatz" geschlossen.
