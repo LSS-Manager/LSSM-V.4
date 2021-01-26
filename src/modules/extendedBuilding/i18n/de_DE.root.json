@@ -57,6 +57,10 @@
 		"vehiclesPersonnelMax": {
 			"description": "Zeigt an, wie viele Personen maximal auf das Fahrzeug passen.",
 			"title": "Maximale Besatzung"
+		},
+		"upgradeConfirmation": {
+			"description": "Fragt ab ob man das Gebäude wirklich ausbauen möchte.",
+			"title": "Gebäude ausbauen"
 		}
 	}
 }

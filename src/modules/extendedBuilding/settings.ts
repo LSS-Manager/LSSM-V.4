@@ -75,6 +75,10 @@ export default ((MODULE_ID: string) => ({
         type: 'toggle',
         default: true,
     },
+    upgradeConfirmation: <Toggle>{
+        type: 'toggle',
+        default: true,
+    },
     //autoBuyLevels: {
     //    type: 'toggle',
     //    default: false,

@@ -57,6 +57,10 @@
 		"vehiclesPersonnelMax": {
 			"description": "Shows the maximum number of people that can fit on the vehicle.",
 			"title": "Maximum crew"
+		},
+		"upgradeConfirmation": {
+			"description": "Asks if you really want to upgrade your building.",
+			"title": "Upgrade Building"
 		}
 	}
 }

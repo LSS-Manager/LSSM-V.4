@@ -27,5 +27,13 @@
 		"vehiclesPersonnelAssigned": "assigned",
 		"vehiclesPersonnelCurrent": "current",
 		"vehiclesPersonnelMax": "max"
+	},
+	"upgradeConfirmation": {
+		"modal": {
+			"title": "Upgrade Building?",
+			"text": "Do you really want to upgrade this building??",
+			"btnCancel": "Cancel",
+			"btnConfirm": "Confirm"
+		}
 	}
 }
