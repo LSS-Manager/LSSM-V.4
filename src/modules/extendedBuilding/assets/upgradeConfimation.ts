@@ -58,7 +58,7 @@ export default (LSSM: Vue, $m: $m, MODULE_ID: string): void => {
                         LSSM.$modal.hide('dialog');
                     },
                 },
-            ]
-        })
+            ],
+        });
     });
 };

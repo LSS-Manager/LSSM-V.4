@@ -38,6 +38,10 @@
 			"description": "Zeigt in der Personalübersicht eines Gebäudes an, wie viele Personen welche Ausbildung(en) haben.",
 			"title": "Personalzusammenfassung"
 		},
+		"upgradeConfirmation": {
+			"description": "Fragt ab ob man das Gebäude wirklich ausbauen möchte.",
+			"title": "Gebäude ausbauen"
+		},
 		"vehicleTypes": {
 			"description": "Zeigt den Fahrzeugtyp (und falls vorhanden die eigene Fahrzeugklasse) in einer eigenen Spalte mit an.",
 			"title": "Fahrzeugtyp"
@@ -57,10 +61,6 @@
 		"vehiclesPersonnelMax": {
 			"description": "Zeigt an, wie viele Personen maximal auf das Fahrzeug passen.",
 			"title": "Maximale Besatzung"
-		},
-		"upgradeConfirmation": {
-			"description": "Fragt ab ob man das Gebäude wirklich ausbauen möchte.",
-			"title": "Gebäude ausbauen"
 		}
 	}
 }

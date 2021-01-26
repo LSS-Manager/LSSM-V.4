@@ -23,17 +23,17 @@
 		"schooling": "Ausbildung",
 		"title": "Personalübersicht"
 	},
+	"upgradeConfirmation": {
+		"modal": {
+			"btnCancel": "Abbrechen",
+			"btnConfirm": "Bestätigen",
+			"text": "Möchtest du das Gebäude wirklich ausbauen?",
+			"title": "Gebäude ausbauen?"
+		}
+	},
 	"vehiclePersonnel": {
 		"vehiclesPersonnelAssigned": "zugewiesen",
 		"vehiclesPersonnelCurrent": "aktuell",
 		"vehiclesPersonnelMax": "max"
-	},
-	"upgradeConfirmation": {
-		"modal": {
-			"title": "Gebäude ausbauen?",
-			"text": "Möchtest du das Gebäude wirklich ausbauen?",
-			"btnCancel": "Abbrechen",
-			"btnConfirm": "Bestätigen"
-		}
 	}
 }
