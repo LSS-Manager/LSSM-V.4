@@ -38,7 +38,7 @@
         "vue-responsive-dash": "^0.5.0",
         "vue-select": "^3.11.2",
         "vue-slim-tabs": "^0.4.0",
-        "vuex": "^3.6.0"
+        "vuex": "^3.6.2"
     },
     "devDependencies": {
         "@types/combokeys": "^2.4.6",
