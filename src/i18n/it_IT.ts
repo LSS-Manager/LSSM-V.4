@@ -330,7 +330,8 @@ export default {
             credits: 10_000,
             minPersonnel: 2,
             maxPersonnel: 2,
-            schooling: 'Caserma dei vigili del fuoco - Corso per operatore tecnico NSSA',
+            schooling:
+                'Caserma dei vigili del fuoco - Corso per operatore tecnico NSSA',
             shownSchooling: 'Corso per operatore tecnico NSSA',
         },
         24: {
@@ -340,7 +341,8 @@ export default {
             credits: 10_000,
             minPersonnel: 3,
             maxPersonnel: 3,
-            schooling: 'Caserma dei vigili del fuoco - Corso per operatore tecnico SAF',
+            schooling:
+                'Caserma dei vigili del fuoco - Corso per operatore tecnico SAF',
             shownSchooling: 'Corso per operatore tecnico SAF',
         },
         25: {
