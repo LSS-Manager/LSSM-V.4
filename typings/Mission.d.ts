@@ -17,6 +17,8 @@ interface Additional {
     max_possible_prisoners?: number;
     allow_arff_instead_of_lf?: boolean;
     need_helicopter_bucket_only_if_present?: boolean;
+    need_elw_police_only_if_present?: boolean;
+    need_police_horse_only_if_present?: boolean;
 
     // Guard missions
     duration?: number;
@@ -83,6 +85,7 @@ interface Chances {
     ovdp?: number;
     boats?: number; // de_DE: Boote
     elw_airport?: number;
+    elw_police?: number;
 
     // Patients
     nef?: number;
@@ -97,6 +100,7 @@ interface Chances {
 
 interface Prerequisites {
     fire_stations?: number;
+    commerce_police_stations?: number;
     max_police_stations?: number;
     rescue_stations?: number;
     police_stations?: number;
@@ -109,6 +113,10 @@ interface Prerequisites {
     sek?: number;
     werkfeuerwehr?: number;
     rescue_dog_units?: number;
+    federalpolice_stations?: number;
+    brush_extension?: number;
+    fire_aviation_count?: number;
+    divers_extension_count?: number;
 
     // General:
     [key: string]: number | undefined;
@@ -166,6 +174,18 @@ interface Requirements {
     at_c?: number;
     at_m?: number;
     at_o?: number;
+    water_rescue?: number;
+    commerce_police?: number;
+    elw_police?: number;
+    police_horse?: number;
+    fbi?: number;
+    brush_truck?: number;
+    sheriff?: number;
+    fbi_mcc?: number;
+    fbi_drone?: number;
+    fbi_bomb?: number;
+    fbi_investigation?: number;
+    fire_aviation?: number;
 
     // General:
     [key: string]: number | undefined;

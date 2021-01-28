@@ -323,6 +323,43 @@ export default {
             schooling: 'Polizia - Corso Artificieri',
             shownSchooling: 'Corso Artificieri',
         },
+        23: {
+            caption: 'Camion NSSA',
+            color: '#7181e7',
+            coins: 25,
+            credits: 10_000,
+            minPersonnel: 2,
+            maxPersonnel: 2,
+            schooling: 'Caserma dei vigili del fuoco - Corso per operatore tecnico NSSA',
+            shownSchooling: 'Corso per operatore tecnico NSSA',
+        },
+        24: {
+            caption: 'Pickup SAF',
+            color: '#6b7dee',
+            coins: 25,
+            credits: 10_000,
+            minPersonnel: 3,
+            maxPersonnel: 3,
+            schooling: 'Caserma dei vigili del fuoco - Corso per operatore tecnico SAF',
+            shownSchooling: 'Corso per operatore tecnico SAF',
+        },
+        25: {
+            caption: 'Barca',
+            color: '#7187ff',
+            coins: 12,
+            credits: 6_000,
+            minPersonnel: 0,
+            maxPersonnel: 0,
+            special: 'Mezzo di rimorchio necessario (Pickup SAF, Camion NSSA)',
+        },
+        26: {
+            caption: 'AF/BUS',
+            color: '#9b1624',
+            coins: 25,
+            credits: 10_000,
+            minPersonnel: 1,
+            maxPersonnel: 9,
+        },
     },
     buildings: {
         0: {
@@ -621,6 +658,19 @@ export default {
             startVehicles: [],
             maxBuildingsFunction: (): number => 1,
         },
+        15: {
+            caption: 'Caserma soccorso acquatico VVF',
+            color: '#7fffd4',
+            coins: 50,
+            credits: 500_000,
+            extensions: [],
+            levelcost: ['1. 10.000', '2. 50.000', '3.-5. 100.000'],
+            maxBuildings: 'No Limit',
+            maxLevel: 5,
+            special: 'Avrete 10 persone e un Pickup SAF gratis.',
+            startPersonnel: 10,
+            startVehicles: ['Pickup SAF'],
+        },
         16: {
             caption: 'Carcere',
             coins: 'x',
@@ -733,7 +783,7 @@ export default {
     },
     buildingCategories: {
         'Vigili del Fuoco': {
-            buildings: [0, 1, 18],
+            buildings: [0, 1, 15, 18],
             color: '#ff2d2d',
         },
         'Soccorso': {
@@ -754,7 +804,8 @@ export default {
             vehicles: {
                 'Autopompa': [0, 9],
                 'Kilolitrica': [5],
-                'Veicoli speciali': [1, 2, 3, 6, 10, 11, 12],
+                'Veicoli speciali': [1, 2, 3, 6, 10, 11, 12, 26],
+                'soccorso in acqua': [23, 24, 25],
             },
             color: '#ff2d2d',
         },
@@ -817,8 +868,8 @@ export default {
                 duration: '3 giorni',
             },
             {
-                caption: 'Soccorso acquatico rapido',
-                duration: '4 giorni',
+                caption: 'Corso per operatore tecnico SAF',
+                duration: '3 giorni',
             },
             {
                 caption: 'Navigazione in oceano',
@@ -829,8 +880,12 @@ export default {
                 duration: '3 giorni',
             },
             {
-                caption: 'Corso medico di emergenza ',
+                caption: 'Corso medico di emergenza',
                 duration: '7 giorni',
+            },
+            {
+                caption: 'Corso per operatore tecnico NSSA',
+                duration: '5 giorni',
             },
         ],
         'Polizia': [
