@@ -621,7 +621,8 @@ export default {
             maxPersonnel: 3,
             schooling: 'Rescue - Hazmat Medic Training',
             shownSchooling: 'HazMat',
-            special: 'Required once you have built 11 firehouses, works as HazMat and Ambulance',
+            special:
+                'Required once you have built 11 firehouses, works as HazMat and Ambulance',
         },
     },
     buildings: {
@@ -1339,7 +1340,7 @@ export default {
         'Restaurant',
         'City centre',
         'Hill',
-		'Laboratory',
+        'Laboratory',
     ],
     only_alliance_missions: [41, 61, 62, 112],
     transfer_missions: [246],
