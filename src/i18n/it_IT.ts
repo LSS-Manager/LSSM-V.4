@@ -376,6 +376,12 @@ export default {
                     coins: 20,
                     duration: '7 Giorni',
                 },
+				{
+                    caption: 'Esentsione soccorso acquatico VVF,
+                    credits: 100_000,
+                    coins: 20,
+                    duration: '7 Giorni',
+                },
             ],
             levelcost: ['1. 10.000', '2. 50.000', '3.-16. 100.000'],
             maxBuildings: '4.400 together with small fire stations',
