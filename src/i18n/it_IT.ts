@@ -377,7 +377,7 @@ export default {
                     duration: '7 Giorni',
                 },
 				{
-                    caption: 'Esentsione soccorso acquatico VVF,
+                    caption: 'Esentsione soccorso acquatico VVF',
                     credits: 100_000,
                     coins: 20,
                     duration: '7 Giorni',
