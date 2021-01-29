@@ -57,6 +57,10 @@
 		"vehiclesPersonnelMax": {
 			"description": "Laat het maximaal aantal personen die in een voertuig passen zien.",
 			"title": "Maximum personeel"
+		},
+		"upgradeConfirmation": {
+			"description": "Vraagt of u uw gebouw echt wilt upgraden.",
+			"title": "Upgrade Gebouw"
 		}
 	}
 }
