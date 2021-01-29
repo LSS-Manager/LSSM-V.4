@@ -27,5 +27,13 @@
 		"vehiclesPersonnelAssigned": "toegewezen",
 		"vehiclesPersonnelCurrent": "huidig",
 		"vehiclesPersonnelMax": "max"
+	},
+	"upgradeConfirmation": {
+		"modal": {
+			"title": "Upgrade Gebouw?",
+			"text": "Wil je dit gebouw echt upgraden?",
+			"btnCancel": "Annuleer",
+			"btnConfirm": "Bevestig"
+		}
 	}
 }
