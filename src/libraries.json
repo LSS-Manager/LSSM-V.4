@@ -54,10 +54,10 @@
 		"version": "1.16.0"
 	},
 	"@typescript-eslint/eslint-plugin": {
-		"version": "4.14.0"
+		"version": "4.14.1"
 	},
 	"@typescript-eslint/parser": {
-		"version": "4.14.0"
+		"version": "4.14.1"
 	},
 	"@vuepress/plugin-active-header-links": {
 		"icon": "https://vuepress.vuejs.org/hero.png",
@@ -268,7 +268,7 @@
 	"vuex": {
 		"icon": "https://vuejs.org/images/logo.png",
 		"url": "https://github.com/vuejs/vuex#readme",
-		"version": "3.6.0"
+		"version": "3.6.2"
 	},
 	"webpack": {
 		"icon": "https://webpack.js.org/assets/icon-square-big.svg",

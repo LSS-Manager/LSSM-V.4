@@ -38,6 +38,10 @@
 			"description": "Shows in the staff overview of a building how many people have which training(s).",
 			"title": "Personnel summary"
 		},
+		"upgradeConfirmation": {
+			"description": "Asks if you really want to upgrade your building.",
+			"title": "Upgrade Building"
+		},
 		"vehicleTypes": {
 			"description": "Shows the vehicle type (and if available the own vehicle class) in a separate column",
 			"title": "Vehicle type"

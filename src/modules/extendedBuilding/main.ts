@@ -57,6 +57,16 @@ export default (async (LSSM, MODULE_ID, $m) => {
                     )
                 ).default(LSSM, $m, MODULE_ID);
             }
+            if (
+                (await getSetting('upgradeConfirmation')) &&
+                document.querySelector('.alert a[href$="/small_expand"]')
+            ) {
+                (
+                    await import(
+                        /* webpackChunkName: "modules/extendedBuilding/upgradeConfirmation" */ './assets/upgradeConfimation'
+                    )
+                ).default(LSSM, $m, MODULE_ID);
+            }
         }
 
         if (

@@ -583,7 +583,7 @@ export default {
             maxBuildings: 'No Limit',
             maxLevel: 5,
             special: 'You will get 10 people and an SES vehicle for free.',
-            startPersonnel: 6,
+            startPersonnel: 10,
             startVehicles: ['SES Vehicle'],
         },
         16: {
