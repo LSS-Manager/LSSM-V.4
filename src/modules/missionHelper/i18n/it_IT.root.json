@@ -6,6 +6,11 @@
 			"badge": false,
 			"in": "additional",
 			"text": "Vigili del Fuoco richiesti"
+		},
+		"average_min_police_personnel": {
+			"badge": false,
+			"in": "additional",
+			"text": "Media min. Personale di polizia"
 		}
 	},
 	"settings": {

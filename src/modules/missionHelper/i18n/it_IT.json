@@ -23,7 +23,8 @@
 		"police_helicopter_stations": "Stazione elicottero polizia | Stazioni elicottero polizia",
 		"police_stations": "Stazione di Polizia | Stazioni di Polizia",
 		"rescue_stations": "Stazione ambulanza | Stazioni ambulanze",
-		"title": "Prerequisito | Prerequisitp"
+		"title": "Prerequisito | Prerequisitp",
+		"wasserrettung": "Caserma soccorso acquatico VVF"
 	},
 	"prisoners": {
 		"max_possible_prisoners": "Massimo prigioniere | Prigionieri massimali",
@@ -42,7 +43,9 @@
 			"ambulances": "Ambulanza Medicalizzata",
 			"arff": "Flotta antincendio aereporti",
 			"battalion_chief_vehicles": "Funzionari",
+			"boats": "Barche",
 			"commerce_police": "Volante finanza",
+			"diver_units": "Camion tecnico NSSA",
 			"fbi_bomb": "Furgone artificieri",
 			"firetrucks": "APS/ABP",
 			"fwk": "Autogrù",
@@ -57,6 +60,7 @@
 			"police_helicopters": "Elicottero della polizia",
 			"swat_armored_vehicle": "Furgone Antisommossa",
 			"swat_suv": "Suv UOPI",
+			"water_rescue": "Pickup SAF",
 			"water_tankers": "Kilolitriche"
 		},
 		"multifunctionals": {

@@ -23,6 +23,14 @@
 		"schooling": "Schooling",
 		"title": "Personnel overview"
 	},
+	"upgradeConfirmation": {
+		"modal": {
+			"btnCancel": "Cancel",
+			"btnConfirm": "Confirm",
+			"text": "Do you really want to upgrade this building??",
+			"title": "Upgrade Building?"
+		}
+	},
 	"vehiclePersonnel": {
 		"vehiclesPersonnelAssigned": "assigned",
 		"vehiclesPersonnelCurrent": "current",

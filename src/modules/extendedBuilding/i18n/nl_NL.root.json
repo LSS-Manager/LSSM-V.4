@@ -38,6 +38,10 @@
 			"description": "Laat in het personeelsoverzicht van een gebouw zien hoeveel personen welke opleiding(en) hebben.",
 			"title": "Personeelsamenvatting"
 		},
+		"upgradeConfirmation": {
+			"description": "Vraagt of u uw gebouw echt wilt upgraden.",
+			"title": "Upgrade Gebouw"
+		},
 		"vehicleTypes": {
 			"description": "Laat het voertuigtype zien (en indien beschikbaar het eigen voertuigtype) in een aparte kolom.",
 			"title": "Voertuigtype"

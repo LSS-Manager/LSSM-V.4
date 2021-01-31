@@ -38,6 +38,10 @@
 			"description": "Zeigt in der Personalübersicht eines Gebäudes an, wie viele Personen welche Ausbildung(en) haben.",
 			"title": "Personalzusammenfassung"
 		},
+		"upgradeConfirmation": {
+			"description": "Fragt ab ob man das Gebäude wirklich ausbauen möchte.",
+			"title": "Gebäude ausbauen"
+		},
 		"vehicleTypes": {
 			"description": "Zeigt den Fahrzeugtyp (und falls vorhanden die eigene Fahrzeugklasse) in einer eigenen Spalte mit an.",
 			"title": "Fahrzeugtyp"

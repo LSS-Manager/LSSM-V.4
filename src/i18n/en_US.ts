@@ -397,7 +397,6 @@ export default {
             credits: 5_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            wtank: 0,
         },
         28: {
             caption: 'EMS Rescue',
@@ -590,6 +589,40 @@ export default {
             maxPersonnel: 2,
             schooling: 'Police - Sheriff',
             shownSchooling: 'Sheriff',
+        },
+        48: {
+            caption: 'EMS Fire Engine/Ambulance',
+            color: '#cb9240',
+            coins: 30,
+            credits: 25_000,
+            minPersonnel: 1,
+            maxPersonnel: 6,
+            schooling: 'Rescue - ALS Medical Training for Fire Apparatus',
+            shownSchooling: 'ALS Medical Training for Fire Apparatus',
+            special: 'Works as Fire Engine and Ambulance',
+        },
+        49: {
+            caption: 'Tactical Ambulance',
+            color: '#a7741e',
+            coins: 30,
+            credits: 25_000,
+            minPersonnel: 1,
+            maxPersonnel: 3,
+            schooling: 'Rescue - Tactical Medic Training',
+            shownSchooling: 'Tactical Medic Training',
+            special: 'Works as Police Car and Ambulance',
+        },
+        50: {
+            caption: 'Hazmat Ambulance',
+            color: '#bc893d',
+            coins: 35,
+            credits: 30_000,
+            minPersonnel: 1,
+            maxPersonnel: 3,
+            schooling: 'Rescue - Hazmat Medic Training',
+            shownSchooling: 'HazMat',
+            special:
+                'Required once you have built 11 firehouses, works as HazMat and Ambulance',
         },
     },
     buildings: {
@@ -1006,6 +1039,27 @@ export default {
             startPersonnel: 10,
             startVehicles: ['FBI Unit'],
         },
+        19: {
+            caption: 'Rescue (EMS) academy',
+            color: '#caa318',
+            coins: 50,
+            credits: 500_000,
+            extensions: [
+                ...new Array(3).fill({
+                    caption: 'Additional classroom',
+                    credits: 400_000,
+                    coins: 40,
+                    duration: '7 Days',
+                }),
+            ],
+            levelcost: [],
+            maxBuildings: 'No limit',
+            maxLevel: 0,
+            special:
+                "Finance ministers and admins can (expand) association police schools with the help of credits from the association's treasury.Training course masters and admins can start training courses at association police schools.",
+            startPersonnel: 0,
+            startVehicles: [],
+        },
     },
     buildingCategories: {
         'Fire Department': {
@@ -1013,7 +1067,7 @@ export default {
             color: '#ff2d2d',
         },
         'Rescue Stations': {
-            buildings: [3, 6, 12, 16],
+            buildings: [3, 6, 12, 16, 19],
             color: '#ffa500',
         },
         'Police Stations': {
@@ -1040,7 +1094,7 @@ export default {
         },
         'Rescue Vehicles': {
             vehicles: {
-                'Ambulances': [5, 27],
+                'Ambulances': [5, 27, 48, 49, 50],
                 'HEMS': [11],
                 'First Responder': [15],
                 'Rescue Boat': [25],
@@ -1081,7 +1135,7 @@ export default {
         '5_9',
     ],
     bedBuildings: [2, 14],
-    schoolBuildings: [4, 7],
+    schoolBuildings: [4, 7, 19],
     dispatchCenterBuildings: [1],
     schoolings: {
         'Fire Station': [
@@ -1117,6 +1171,10 @@ export default {
                 caption: "Truck Driver's License",
                 duration: '2 Days',
             },
+            {
+                caption: 'ALS Medical Training for Fire Apparatus',
+                duration: '3 Days',
+            },
         ],
         'Police': [
             {
@@ -1150,6 +1208,20 @@ export default {
             {
                 caption: 'Sheriff',
                 duration: '5 Days',
+            },
+        ],
+        'Rescue': [
+            {
+                caption: 'ALS Medical Training for Fire Apparatus',
+                duration: '3 Days',
+            },
+            {
+                caption: 'Tactical Medic Training',
+                duration: '4 Days',
+            },
+            {
+                caption: 'Hazmat Medic Training',
+                duration: '3 Days',
             },
         ],
     },
@@ -1268,6 +1340,7 @@ export default {
         'Restaurant',
         'City centre',
         'Hill',
+        'Laboratory',
     ],
     only_alliance_missions: [41, 61, 62, 112],
     transfer_missions: [246],

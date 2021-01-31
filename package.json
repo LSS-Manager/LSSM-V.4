@@ -1,5 +1,5 @@
 {
-    "version": "4.1.11+20210123.1852",
+    "version": "4.1.12+20210129.1807",
     "license": "CC-BY-NC-SA-4.0",
     "scripts": {
         "predev": "tsc -b scripts && node scripts predev",
@@ -19,7 +19,7 @@
         "@fortawesome/fontawesome-svg-core": "^1.2.34",
         "@fortawesome/free-solid-svg-icons": "^5.15.2",
         "@fortawesome/vue-fontawesome": "^2.0.2",
-        "broadcast-channel": "^3.3.0",
+        "broadcast-channel": "^3.4.1",
         "combokeys": "^3.0.1",
         "highcharts": "^8.2.2",
         "localforage": "^1.8.1",
@@ -38,7 +38,7 @@
         "vue-responsive-dash": "^0.5.0",
         "vue-select": "^3.11.2",
         "vue-slim-tabs": "^0.4.0",
-        "vuex": "^3.6.0"
+        "vuex": "^3.6.2"
     },
     "devDependencies": {
         "@types/combokeys": "^2.4.6",
@@ -54,8 +54,8 @@
         "@types/ua-parser-js": "^0.7.35",
         "@types/vue-select": "^2.5.1",
         "@types/webpack-env": "^1.16.0",
-        "@typescript-eslint/eslint-plugin": "^4.14.0",
-        "@typescript-eslint/parser": "^4.14.0",
+        "@typescript-eslint/eslint-plugin": "^4.14.1",
+        "@typescript-eslint/parser": "^4.14.1",
         "@vuepress/plugin-active-header-links": "^1.8.0",
         "@vuepress/plugin-back-to-top": "^1.8.0",
         "all-contributors-cli": "^6.19.0",
@@ -69,7 +69,7 @@
         "html-loader": "^1.3.2",
         "sass": "^1.32.5",
         "sass-loader": "^10.1.1",
-        "speed-measure-webpack-plugin": "^1.3.3",
+        "speed-measure-webpack-plugin": "^1.4.2",
         "string-replace-loader": "^2.3.0",
         "terser": "^5.5.1",
         "ts-loader": "^8.0.14",
