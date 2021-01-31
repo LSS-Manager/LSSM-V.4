@@ -200,12 +200,13 @@ export default (Vue: VueConstructor): Store<RootState> => {
                                 detail: args,
                             })
                         );
-                        state.hooks[event](...args);
+                        const result = state.hooks[event](...args);
                         document.dispatchEvent(
                             new CustomEvent(`${PREFIX}_${event}_after`, {
                                 detail: args,
                             })
                         );
+                        return result;
                     };
                 }
                 document.addEventListener(
@@ -248,7 +249,7 @@ export default (Vue: VueConstructor): Store<RootState> => {
                                 detail: args,
                             })
                         );
-                        state.prototypeHooks[base][event].call(
+                        const result = state.prototypeHooks[base][event].call(
                             trueBase,
                             ...args
                         );
@@ -257,6 +258,7 @@ export default (Vue: VueConstructor): Store<RootState> => {
                                 detail: args,
                             })
                         );
+                        return result;
                     };
                 }
                 document.addEventListener(
