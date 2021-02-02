@@ -173,8 +173,8 @@ export default {
             credits: 17_300,
             minPersonnel: 1,
             maxPersonnel: 3,
-            schooling: 'Fire Station - Hazmat Course',
-            shownSchooling: 'Hazmat',
+            schooling: 'Fire Station - HAZMAT Course',
+            shownSchooling: 'HazMat Unit',
             special: 'Required once you have built 11 firehouses',
         },
         8: {
@@ -278,8 +278,8 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 1,
             wtank: 0,
-            schooling: 'Police - Motor Officer',
-            shownSchooling: 'Motor Officer',
+            schooling: 'Police - Police Motorcycle',
+            shownSchooling: 'Police Motorcycle',
         },
         18: {
             caption: 'TOG SUV',
@@ -308,8 +308,8 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 6,
             wtank: 0,
-            schooling: 'Fire Station - SES Water rescue',
-            shownSchooling: 'SES Water rescue',
+            schooling: 'Fire Station - SES Water Rescue',
+            shownSchooling: 'SES Water Rescue',
         },
         21: {
             caption: 'Rescue Boat',
@@ -779,7 +779,7 @@ export default {
                 duration: '3 Days',
             },
             {
-                caption: 'SES Water rescue',
+                caption: 'SES Water Rescue',
                 duration: '4 Days',
             },
             {

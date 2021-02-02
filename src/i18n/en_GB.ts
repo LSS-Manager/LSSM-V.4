@@ -173,8 +173,8 @@ export default {
             credits: 17_300,
             minPersonnel: 1,
             maxPersonnel: 3,
-            schooling: 'Fire Station - Hazmat',
-            shownSchooling: 'Hazmat',
+            schooling: 'Fire Station - HazMat',
+            shownSchooling: 'HazMat Unit',
             special: 'Required once you have built 11 firehouses',
         },
         8: {
@@ -250,7 +250,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 6,
             schooling: 'Fire Station - Mobile command',
-            shownSchooling: 'Mobile command',
+            shownSchooling: 'Level 1 Incident Commander Training',
             special: 'Required once you have built 13 firehouses',
         },
         16: {
@@ -281,7 +281,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 6,
             schooling: 'Fire Station - Co-Responder Training',
-            shownSchooling: 'Co-Responder Training',
+            shownSchooling: 'Co-Responder',
         },
         19: {
             caption: 'Joint Response Unit',
@@ -336,7 +336,7 @@ export default {
             minPersonnel: 2,
             maxPersonnel: 7,
             schooling: 'Police - Roads Policing Officer Training',
-            shownSchooling: 'Roads Policing Officer Training',
+            shownSchooling: 'Roads Policing Officer',
         },
         25: {
             caption: 'Armed Traffic Car',
