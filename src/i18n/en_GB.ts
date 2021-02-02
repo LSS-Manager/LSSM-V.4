@@ -208,8 +208,8 @@ export default {
             credits: 300_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            schooling: 'Police - Police Aviation',
-            shownSchooling: 'Police Aviation',
+            schooling: 'Police - Police aviation',
+            shownSchooling: 'Police aviation',
         },
         12: {
             caption: 'Dog Support Unit (DSU)',
@@ -864,7 +864,7 @@ export default {
         ],
         'Police': [
             {
-                caption: 'Police Aviation',
+                caption: 'Police aviation',
                 duration: '7 Days',
             },
             {
