@@ -55,23 +55,6 @@ entry.plugins?.unshift(
                 ])
             )
         ),
-        MODULES_OF_LOCALE: Object.fromEntries(
-            locales.map(locale => [
-                locale,
-                JSON.stringify(
-                    [...modules, ...config.modules['core-modules']].filter(
-                        module => {
-                            // eslint-disable-next-line @typescript-eslint/no-var-requires
-                            const registration = require(`../src/modules/${module}/register`) as Module;
-                            return (
-                                !registration.locales ||
-                                registration.locales?.includes(locale)
-                            );
-                        }
-                    )
-                ),
-            ])
-        ),
     }),
     new webpack.ContextReplacementPlugin(
         /moment\/locale$/,

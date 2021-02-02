@@ -121,7 +121,10 @@ require('./natives/lightbox');
         'api/setVehicleStates',
         'core-initialVehicleStates'
     );
-    for (const moduleId of MODULES_OF_LOCALE[LSSM.$store.state.lang]) {
+    for (const moduleId of [
+        ...Object.keys(LSSM.$store.state.modules),
+        ...LSSM.$store.state.coreModules,
+    ]) {
         try {
             LSSM.$i18n.mergeLocaleMessage(LSSM.$store.state.lang, {
                 modules: {

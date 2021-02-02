@@ -56,6 +56,7 @@ export default (Vue: VueConstructor): Store<RootState> => {
             policechief: window.gameFlavour === 'policechief',
             isRegistered: false,
             modules: <Modules>MODULE_REGISTER_FILES,
+            coreModules: config.modules['core-modules'],
             appstore: {
                 changes: false,
                 reload: false,
