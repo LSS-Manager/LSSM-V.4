@@ -10,7 +10,6 @@ import store from './store';
 import i18n from './i18n';
 import utils from './utils';
 import telemetry from './modules/telemetry/main';
-import releasenotes from './modules/releasenotes/main';
 import { BuildingMarkerAdd, RadioMessage } from '../typings/Ingame';
 import { ModuleMainFunction, ModuleSettingFunction } from 'typings/Module';
 import { Color, Toggle } from 'typings/Setting';
@@ -148,7 +147,10 @@ require('./natives/lightbox');
                 settingId,
             });
         });
-        await releasenotes(LSSM);
+        import(
+            /* webpackChunkName: "releasenotes/main" */
+            `./modules/releasenotes/main`
+        ).then(module => module.default(LSSM));
         // TODO: Load core modules: [support] ← Will be done in a more efficient way than polling
 
         await LSSM.$store.dispatch('hook', {
