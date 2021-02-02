@@ -838,7 +838,7 @@ export default {
     schoolings: {
         'Fire Station': [
             {
-                caption: 'Hazmat',
+                caption: 'HazMat',
                 duration: '3 Days',
             },
             {
