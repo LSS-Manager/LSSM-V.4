@@ -47,8 +47,13 @@ entry.plugins?.unshift(
         PREFIX: JSON.stringify(config.prefix),
         VERSION: JSON.stringify(version),
         MODE: process.argv[2] === 'production' ? '"stable"' : '"beta"',
-        MODULE_REGISTER_FILES: new RegExp(
-            `modules\\/(${modules.join('|')})\\/register\\.js(on)?`
+        MODULE_REGISTER_FILES: JSON.stringify(
+            Object.fromEntries(
+                modules.map(module => [
+                    module,
+                    require(`../src/modules/${module}/register`),
+                ])
+            )
         ),
         MODULES_OF_LOCALE: Object.fromEntries(
             locales.map(locale => [
