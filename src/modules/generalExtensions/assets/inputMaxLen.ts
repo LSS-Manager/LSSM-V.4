@@ -74,6 +74,10 @@ export default (LSSM: Vue): void => {
             min: 1,
             max: 40,
         },
+        'note[message]': {
+            min: 1,
+            max: 1048576,
+        },
     } as {
         [name: string]: {
             min: number;
