@@ -21,7 +21,7 @@
         "@fortawesome/vue-fontawesome": "^2.0.2",
         "broadcast-channel": "^3.4.1",
         "combokeys": "^3.0.1",
-        "highcharts": "^8.2.2",
+        "highcharts": "^9.0.0",
         "localforage": "^1.8.1",
         "lodash": ">=4.17.19",
         "mini-svg-data-uri": "^1.2.3",
