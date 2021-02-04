@@ -30,7 +30,7 @@
 		"version": "4.14.168"
 	},
 	"@types/node": {
-		"version": "14.14.22"
+		"version": "14.14.24"
 	},
 	"@types/pdfmake": {
 		"version": "0.1.16"
