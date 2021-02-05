@@ -48,7 +48,7 @@
 		"version": "0.7.35"
 	},
 	"@types/vue-select": {
-		"version": "2.5.1"
+		"version": "3.11.0"
 	},
 	"@types/webpack-env": {
 		"version": "1.16.0"
