@@ -5,17 +5,17 @@
 		"average_min_fire_personnel": {
 			"badge": false,
 			"in": "additional",
-			"text": "Firefighters needed minimum"
+			"text": "Average min . Fire Personnel"
 		},
 		"average_min_police_personnel": {
 			"badge": false,
 			"in": "additional",
-			"text": "Police officers needed minimum in average"
+			"text": "Average min . Police Personnel"
 		},
 		"swat_personnel": {
 			"badge": false,
 			"in": "additional",
-			"text": "TOG staff needed minimum in average"
+			"text": "Required TOG Personnel"
 		}
 	},
 	"settings": {
