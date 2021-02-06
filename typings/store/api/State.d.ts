@@ -35,4 +35,5 @@ export interface APIState extends StorageAPIs {
     lastUpdates: {
         [key in StorageAPIKey]?: number;
     };
+    storageOverflow: boolean;
 }

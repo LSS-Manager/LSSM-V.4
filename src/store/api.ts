@@ -142,17 +142,19 @@ const get_api_values = async <API extends StorageAPIKey>(
 const set_api_storage = <API extends StorageAPIKey>(
     key: API,
     { value, lastUpdate }: StorageGetterReturn<API>,
-    { commit, dispatch }: APIActionStoreParams
+    { commit, dispatch, state }: APIActionStoreParams
 ) => {
     try {
         commit(MUTATION_SETTERS[key], { value, lastUpdate });
-        sessionStorage.setItem(
-            STORAGE_KEYS[key],
-            JSON.stringify({
-                lastUpdate,
-                value,
-            })
-        );
+        if (!state.storageOverflow) {
+            sessionStorage.setItem(
+                STORAGE_KEYS[key],
+                JSON.stringify({
+                    lastUpdate,
+                    value,
+                })
+            );
+        }
         dispatch(
             'broadcast/broadcast',
             {
@@ -162,7 +164,7 @@ const set_api_storage = <API extends StorageAPIKey>(
             { root: true }
         ).then();
     } catch {
-        // Do nothing
+        commit('disableStorageCache');
     }
 };
 
@@ -180,6 +182,7 @@ export default {
         lastUpdates: {},
         settings: {},
         credits: {},
+        storageOverflow: false,
     },
     mutations: {
         setBuildings(
@@ -283,6 +286,9 @@ export default {
             if (!credits) return;
             state.lastUpdates.credits = lastUpdate;
             state.credits = credits;
+        },
+        disableStorageCache(state: APIState) {
+            state.storageOverflow = true;
         },
     },
     getters: {
