@@ -11,7 +11,8 @@ export interface ActionStoreParams {
 export interface Hook {
     post: boolean;
     event: string;
-    callback(...args: unknown[]): void;
+    abortOnFalse: boolean;
+    callback(...args: unknown[]): void | unknown;
 }
 
 export interface HookPrototype {

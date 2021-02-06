@@ -179,7 +179,12 @@ export default (Vue: VueConstructor): Store<RootState> => {
         actions: {
             hook(
                 { state, commit }: ActionStoreParams,
-                { post = true, event, callback = () => null }: Hook
+                {
+                    post = true,
+                    event,
+                    callback = () => null,
+                    abortOnFalse = false,
+                }: Hook
             ) {
                 if (!state.hooks.hasOwnProperty(event)) {
                     const split = event.split('.');
@@ -195,11 +200,16 @@ export default (Vue: VueConstructor): Store<RootState> => {
                     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                     // @ts-ignore
                     trueBase[trueEvent] = (...args: unknown[]) => {
-                        document.dispatchEvent(
-                            new CustomEvent(`${PREFIX}_${event}_before`, {
-                                detail: args,
-                            })
-                        );
+                        if (!abortOnFalse) {
+                            document.dispatchEvent(
+                                new CustomEvent(`${PREFIX}_${event}_before`, {
+                                    detail: args,
+                                })
+                            );
+                        } else if (!callback(...args)) {
+                            return;
+                        }
+
                         const result = state.hooks[event](...args);
                         document.dispatchEvent(
                             new CustomEvent(`${PREFIX}_${event}_after`, {
