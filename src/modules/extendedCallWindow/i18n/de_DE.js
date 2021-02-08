@@ -216,8 +216,8 @@ module.exports = {
             [/^ULF mit Löscharm$/]: [84],
             [/^Wasserwerfer$/]: [72],
             [/^leBefKw$/]: [35],
-			[/^Außenlastbehälter \(allgemein\)$/]: [96],
-			[/^Außenlastbehälter$/]: [96],
+            [/^Außenlastbehälter \(allgemein\)$/]: [96],
+            [/^Außenlastbehälter$/]: [96],
         },
     },
     tailoredTabs: {
