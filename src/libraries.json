@@ -57,7 +57,7 @@
 		"version": "4.14.2"
 	},
 	"@typescript-eslint/parser": {
-		"version": "4.14.2"
+		"version": "4.15.0"
 	},
 	"@vuepress/plugin-active-header-links": {
 		"icon": "https://vuepress.vuejs.org/hero.png",
@@ -184,7 +184,7 @@
 	"ts-loader": {
 		"icon": "https://webpack.js.org/assets/icon-square-big.svg",
 		"url": "https://github.com/TypeStrong/ts-loader",
-		"version": "8.0.15"
+		"version": "8.0.16"
 	},
 	"typescript": {
 		"icon": "https://www.typescriptlang.org/icons/icon-512x512.png",
