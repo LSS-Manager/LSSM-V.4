@@ -1127,10 +1127,10 @@
   dependencies:
     source-map "^0.6.1"
 
-"@types/vue-select@^3.11.0":
-  version "3.11.0"
-  resolved "https://registry.yarnpkg.com/@types/vue-select/-/vue-select-3.11.0.tgz#efd927f2706fc651b597615933711c1b36553f9b"
-  integrity sha512-Bq+D6WUrMM1bAhGuyS1IZbZMmJn54bi3XG/F4h4SgNbywW3xA4wOn9ZFS8QOHjnLhD12q3BliejQgzqHuSQCfQ==
+"@types/vue-select@^3.11.1":
+  version "3.11.1"
+  resolved "https://registry.yarnpkg.com/@types/vue-select/-/vue-select-3.11.1.tgz#440ecbe3f200bdc29af2e263b329e7ba0b0aaabc"
+  integrity sha512-7Ho92vg5smiwCQLF6KXp50TNCYEaotXTloxw3OB1cinRb8WKIEYVU7Xiu95ObdQDZyz1ghL8Pzx39blNoIl4wg==
   dependencies:
     vue "^2.0.0"
 
