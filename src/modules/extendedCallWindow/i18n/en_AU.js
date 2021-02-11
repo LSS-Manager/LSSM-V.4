@@ -81,7 +81,7 @@ module.exports = {
             [/^HEMS$/]: [9],
             [/^Police Helicopter(s)?$/]: [14],
             [/^TOG Vehicles$/]: [15, 18],
-            [/^K-9 Unit(s)$/]: [16],
+            [/^K-9 Unit(s)?$/]: [16],
             [/^Mounted Police?$/]: [22],
             [/^SES?$/]: [20],
         },
