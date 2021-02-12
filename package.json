@@ -1,5 +1,5 @@
 {
-    "version": "4.1.12+20210211.0915",
+    "version": "4.1.12+20210212.0455",
     "license": "CC-BY-NC-SA-4.0",
     "scripts": {
         "predev": "tsc -b scripts && node scripts predev",
@@ -77,7 +77,7 @@
         "url-loader": "^4.1.1",
         "vue-loader": "^15.9.6",
         "vue-template-compiler": "^2.6.12",
-        "vuepress": "^1.8.0",
+        "vuepress": "^1.8.1",
         "vuepress-plugin-redirect": "^1.2.5",
         "vuepress-plugin-smooth-scroll": "^0.0.10",
         "vuepress-plugin-zooming": "^1.1.8",
