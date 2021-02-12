@@ -1417,17 +1417,10 @@
     markdown-it-table-of-contents "^0.4.0"
     prismjs "^1.13.0"
 
-"@vuepress/plugin-active-header-links@1.8.1":
+"@vuepress/plugin-active-header-links@1.8.1", "@vuepress/plugin-active-header-links@^1.8.1":
   version "1.8.1"
   resolved "https://registry.yarnpkg.com/@vuepress/plugin-active-header-links/-/plugin-active-header-links-1.8.1.tgz#944cbb74840a3dc849461d4c713f4c9f6d0b8333"
   integrity sha512-aIGDn5npbMJQwYEWVoNnO0BndJ4sSNGoLzMknxQCsG00oGZYHE2OsWUqL4t7nYcx+yZk5hB5Itx4ibbtIRM9Xg==
-  dependencies:
-    lodash.debounce "^4.0.8"
-
-"@vuepress/plugin-active-header-links@^1.8.0":
-  version "1.8.0"
-  resolved "https://registry.yarnpkg.com/@vuepress/plugin-active-header-links/-/plugin-active-header-links-1.8.0.tgz#1e3f9c1057a58f3bc849d0eebbcd492975f63a88"
-  integrity sha512-0SqdkJLJSQqhPTgGccu/ev5zRCfeKKMkyPnUMJYsQe4zGhSosmwLcfB7LDo/VLqLhRipipzBnONESr12OgI4SQ==
   dependencies:
     lodash.debounce "^4.0.8"
 
