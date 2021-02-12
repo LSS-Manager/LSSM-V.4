@@ -248,7 +248,7 @@
 	"vuepress": {
 		"icon": "https://vuepress.vuejs.org/hero.png",
 		"url": "https://github.com/vuejs/vuepress#readme",
-		"version": "1.8.0"
+		"version": "1.8.1"
 	},
 	"vuepress-plugin-redirect": {
 		"icon": "https://vuepress.vuejs.org/hero.png",
