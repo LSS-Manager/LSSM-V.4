@@ -450,7 +450,7 @@ export default {
             coins: 20,
             credits: 15_000,
             minPersonnel: 1,
-            maxPersonnel: 1, 
+            maxPersonnel: 1,
             schooling: 'Ratownictwo - Lekarz',
             shownSchooling: 'Lekarz',
         },
