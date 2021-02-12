@@ -62,12 +62,12 @@
 	"@vuepress/plugin-active-header-links": {
 		"icon": "https://vuepress.vuejs.org/hero.png",
 		"url": "https://github.com/vuejs/vuepress/blob/master/packages/@vuepress/plugin-active-header-links#readme",
-		"version": "1.8.0"
+		"version": "1.8.1"
 	},
 	"@vuepress/plugin-back-to-top": {
 		"icon": "https://vuepress.vuejs.org/hero.png",
 		"url": "https://github.com/vuejs/vuepress/tree/master/packages/%40vuepress/plugin-back-to-top#readme",
-		"version": "1.8.0"
+		"version": "1.8.1"
 	},
 	"all-contributors-cli": {
 		"icon": "https://avatars3.githubusercontent.com/u/46843839",
@@ -248,7 +248,7 @@
 	"vuepress": {
 		"icon": "https://vuepress.vuejs.org/hero.png",
 		"url": "https://github.com/vuejs/vuepress#readme",
-		"version": "1.8.0"
+		"version": "1.8.1"
 	},
 	"vuepress-plugin-redirect": {
 		"icon": "https://vuepress.vuejs.org/hero.png",
