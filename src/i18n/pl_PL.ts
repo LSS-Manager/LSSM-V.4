@@ -433,6 +433,47 @@ export default {
             schooling: 'Akademia Policyjna',
             shownSchooling: 'Wymaga specjalnej edukacji (Szkolenie WRD)',
         },
+        31: {
+            caption: 'Ambulans S',
+            color: '#FFFFCC',
+            coins: 25,
+            credits: 20_000,
+            minPersonnel: 3,
+            maxPersonnel: 3,
+            wtank: 0,
+            schooling: 'Ratownictwo - Lekarz',
+            shownSchooling: 'Lekarz',
+        },
+        32: {
+            caption: 'Samochód Lekarza',
+            color: '#FFFFCC',
+            coins: 20,
+            credits: 15_000,
+            minPersonnel: 1,
+            maxPersonnel: 1, 
+            schooling: 'Ratownictwo - Lekarz',
+            shownSchooling: 'Lekarz',
+        },
+        33: {
+            caption: 'Motoambulans',
+            color: '#FFFFCC',
+            coins: 20,
+            credits: 6_000,
+            minPersonnel: 1,
+            maxPersonnel: 1,
+            wtank: 0,
+            schooling: 'Ratownictwo - Motoambulans',
+            shownSchooling: 'Motoambulans',
+        },
+        34: {
+            caption: 'Ambulans T',
+            color: '#FFFFCC',
+            coins: 12,
+            credits: 5_000,
+            minPersonnel: 2,
+            maxPersonnel: 2,
+            wtank: 0,
+        },
     },
     buildings: {
         0: {
@@ -856,7 +897,7 @@ export default {
         },
         'Rescue Vehicles': {
             vehicles: {
-                'Ambulances': [5],
+                'Ambulances': [5, 31, 32, 33, 34],
                 'HEMS': [9],
                 'First Responder': [10, 19, 21, 22],
                 'Other EMS Vehicle': [20],
@@ -959,6 +1000,14 @@ export default {
             {
                 caption: 'Kurs Nurka MSWiA',
                 duration: '5 Dni',
+            },
+            {
+                caption: 'Lekarz',
+                duration: '3 Dni',
+            },
+            {
+                caption: 'Motoambulans',
+                duration: '2 Dni',
             },
         ],
     },
