@@ -774,7 +774,6 @@ export default {
             credits: 2_500,
             coins: 18,
             icon: 'motorcycle',
-
         },
     },
     buildings: {
