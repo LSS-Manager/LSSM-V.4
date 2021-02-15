@@ -1,4 +1,4 @@
-import { ActionTree, GetterTree, Module } from 'vuex';
+import { ActionTree, GetterTree, Module, Dispatch } from 'vuex';
 import { RootState } from '../../typings/store/RootState';
 import {
     APIState,
@@ -32,6 +32,7 @@ const MUTATION_SETTERS = {
 };
 
 const API_MIN_UPDATE = 5 * 1000 * 60; // 5 Minutes
+const STORAGE_DISABLED_KEY = 'lssmv4-storage-disabled';
 
 const get_from_storage = <API extends StorageAPIKey>(
     key: API,
@@ -142,11 +143,14 @@ const get_api_values = async <API extends StorageAPIKey>(
 const set_api_storage = <API extends StorageAPIKey>(
     key: API,
     { value, lastUpdate }: StorageGetterReturn<API>,
-    { commit, dispatch, state }: APIActionStoreParams
+    { commit, dispatch }: APIActionStoreParams
 ) => {
+    const disabled: string[] = JSON.parse(
+        localStorage.getItem(STORAGE_DISABLED_KEY) || '[]'
+    );
     try {
         commit(MUTATION_SETTERS[key], { value, lastUpdate });
-        if (!state.storageOverflow) {
+        if (!disabled.includes(key)) {
             sessionStorage.setItem(
                 STORAGE_KEYS[key],
                 JSON.stringify({
@@ -164,7 +168,10 @@ const set_api_storage = <API extends StorageAPIKey>(
             { root: true }
         ).then();
     } catch {
-        commit('disableStorageCache');
+        localStorage.setItem(
+            STORAGE_DISABLED_KEY,
+            JSON.stringify([...disabled, key])
+        );
     }
 };
 
@@ -182,7 +189,6 @@ export default {
         lastUpdates: {},
         settings: {},
         credits: {},
-        storageOverflow: false,
     },
     mutations: {
         setBuildings(
@@ -286,9 +292,6 @@ export default {
             if (!credits) return;
             state.lastUpdates.credits = lastUpdate;
             state.credits = credits;
-        },
-        disableStorageCache(state: APIState) {
-            state.storageOverflow = true;
         },
     },
     getters: {
