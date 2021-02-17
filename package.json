@@ -29,7 +29,7 @@
         "pdfmake": "^0.1.70",
         "semver": "^7.3.4",
         "showdown": "^1.9.1",
-        "ua-parser-js": "^0.7.23",
+        "ua-parser-js": "^0.7.24",
         "vue": "^2.6.12",
         "vue-i18n": "^8.22.4",
         "vue-js-modal": "2.0.0-rc.3",
