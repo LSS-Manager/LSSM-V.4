@@ -119,7 +119,7 @@
 	"highcharts": {
 		"icon": "https://www.highcharts.com/images/ico/favicon-192x192.png",
 		"url": "http://www.highcharts.com",
-		"version": "9.0.0"
+		"version": "9.0.1"
 	},
 	"html-loader": {
 		"icon": "https://webpack.js.org/assets/icon-square-big.svg",
