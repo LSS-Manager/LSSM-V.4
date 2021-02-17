@@ -766,6 +766,15 @@ export default {
             special: 'Per 10 brandweerposten kan één TS-HV gekocht worden.',
             icon: 'truck-moving',
         },
+        63: {
+            caption: 'DM - Rapid Responder',
+            color: '#9f6000',
+            minPersonnel: 1,
+            maxPersonnel: 1,
+            credits: 2_500,
+            coins: 18,
+            icon: 'motorcycle',
+        },
     },
     buildings: {
         0: {
@@ -1184,7 +1193,7 @@ export default {
         },
         Ambulance: {
             vehicles: {
-                'Ambulances': [16, 30, 38, 52, 57],
+                'Ambulances': [16, 30, 38, 52, 57, 63],
                 'MMT voertuigen': [23, 37],
             },
             color: '#ffa500',

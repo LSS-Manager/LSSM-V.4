@@ -30,7 +30,7 @@
 		"version": "4.14.168"
 	},
 	"@types/node": {
-		"version": "14.14.25"
+		"version": "14.14.26"
 	},
 	"@types/pdfmake": {
 		"version": "0.1.16"
@@ -104,7 +104,7 @@
 	"eslint": {
 		"icon": "https://eslint.org/assets/img/favicon.512x512.png",
 		"url": "https://eslint.org",
-		"version": "7.19.0"
+		"version": "7.20.0"
 	},
 	"eslint-plugin-prettier": {
 		"icon": "https://prettier.io/icon.png",

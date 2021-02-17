@@ -136,7 +136,7 @@ module.exports = {
             [/^AT Commandant(en)?$/]: [53],
             [/^AT Materiaalwagen(s)?$/]: [55],
             [/^AT Operator(s)?$/]: [54],
-            [/^Ambulance(s)?$/]: [16, 52, 57],
+            [/^Ambulance(s)?$/]: [16, 52, 57, 63],
             [/^Biketeam(s)?$/]: [60],
             [/^Er ontbre(ekt|ken):$/]: [],
             [/^Arrestanten zullen vervoerd worden$/]: [],
