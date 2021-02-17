@@ -1,10 +1,17 @@
 import { ModuleMainFunction } from 'typings/Module';
+import { VehicleWindow } from './parsers/vehicle';
 
 type types = 'vehicle';
+interface Results {
+    vehicle: VehicleWindow;
+}
 
 const routeChecks = {
     '^/vehicles/\\d+/?$': 'vehicle',
 } as Record<string, types>;
+
+const getIdFromEl = (el: HTMLAnchorElement | null): number =>
+    parseInt(el?.href?.match(/\d+\/?$/)?.[0] ?? '-1');
 
 export default (LSSM => {
     LSSM.$store
@@ -27,7 +34,13 @@ export default (LSSM => {
                     .then(html =>
                         import(
                             /*webpackChunkName: "modules/redesign/parsers/[request]"*/ `./parsers/${type}`
-                        ).then(parser => parser.default(html))
+                        ).then(parser => {
+                            const result: Results[typeof type] = parser.default(
+                                html,
+                                getIdFromEl
+                            );
+                            console.log(result);
+                        })
                     );
                 return false;
             },

@@ -1,43 +1,156 @@
-/* still missing:
-    max staff
-    water amount
-    mileage
-*/
-
-interface Groups {
-    building: string;
-    building_id: string;
-    previous_vehicle_id: string;
-    next_vehicle_id: string;
-    vehicle_name: string;
-    user?: string;
-    user_state?: 'green' | 'gray';
-    user_id?: string;
-    fms: string;
-    current_mission?: string;
-    current_mission_id?: string;
-    followup_mission?: string;
-    followup_mission_id?: string;
-    staff?: string | Record<string, string>;
-    own_missions?: string;
-    alliance_missions?: string;
+interface Mission {
+    image: string;
+    caption: string;
+    id: number;
+    adress: string;
+    distance: string;
+    progress: {
+        active: boolean;
+        width: number;
+    };
+    patients: {
+        current: number;
+        total: number;
+    };
 }
 
-const REGEX = /(?<building>(?<=<a\s+href="\/buildings\/(?<building_id>\d+)"\s+id="back_to_building">\s*).*?(?=\s*<\/a>))(?:.|\n)*?(?<previous_vehicle_id>(?<=<a\s+href="\/vehicles\/)\d+(?="\s+class="btn\s+btn-xs\s+btn-(?:default|success)">\s*<span\s+class='glyphicon\s+glyphicon-arrow-left'>))(?:.|\n)*?(?<next_vehicle_id>(?<=<a\s+href="\/vehicles\/)\d+(?="\s+class="btn\s+btn-xs\s+btn-(?:default|success)">\s*<span\s+class='glyphicon\s+glyphicon-arrow-right'>))(?:.|\n)*?(?<vehicle_name>(?<=<h1>\s*).*?(?=\s*<\/h1>))(?:.|\n)*?(?:(?<user>(?<=<img\s*.*?src="\/images\/user_(?<user_state>green|gray)\.png"(?:.|\n)*?<a href="\/profile\/(?<user_id>\d+)">\s*).*?(?=\s*<\/a>))(?:.|\n)*?)?(?<fms>(?<=<span\s+title=".*?"\s+class="building_list_fms\s+building_list_fms_)\d+(?=">\s*\d+\s*<\/span>))(?:.|\n)*?(?:(?<current_mission>(?<=<div\s+class="col-xs-6">\s*<a\s+href="\/missions\/(?<current_mission_id>\d+)">\s*).*?(?=\s*<\/a>))(?:.|\n)*?)?(?:(?<followup_mission>(?<=<h3>.*?<\/h3>\s*<ul>\s*<li>\s*<a\s+href="\/missions\/(?<followup_mission_id>\d+)">\s*).*?(?=\s*<\/a>))(?:.|\n)*?)?(?:(?<staff>(?<=<\/h4>(?:.|\n)*?<table(?:.|\n)*?<tbody>\s*)(?:<tr>(?:\s*<td>.*?<\/td>){2}\s*<\/tr>\s*)+(?=\s*<\/tbody>))(?:.|\n)*?)?(?:(?<own_missions>(?<=id="mission_own"(?:.|\n)*?<table(?:.|\n)*?<\/thead>\s*)(?:<tr>(?:\s*<td>(?:.|\n)*?<\/td>){6}\s*<\/tr>\s*)+(?=\s*<\/table>))(?:.|\n)*?)?(?:(?<alliance_missions>(?<=id="mission_alliance"(?:.|\n)*?<table(?:.|\n)*?<\/thead>\s*)(?:<tr>(?:\s*<td>(?:.|\n)*?<\/td>){6}\s*<\/tr>\s*)+(?=\s*<\/table>))(?:.|\n)*?)?<\/html>/;
+export interface VehicleWindow {
+    building: {
+        caption: string;
+        id: number;
+    };
+    previous_vehicle_id: number;
+    next_vehicle_id: number;
+    vehicle_name: string;
+    fms: number;
+    max_staff: number;
+    mileage: string;
+    user?: {
+        name: string;
+        online: boolean;
+        id: number;
+    };
+    current_mission?: {
+        caption: string;
+        id: number;
+    };
+    followup_mission?: {
+        caption: string;
+        id: number;
+    };
+    staff?: Record<string, string>;
+    water_amount?: string;
+    mission_own?: Mission[];
+    mission_alliance?: Mission[];
+}
 
-export default (source: string): void => {
-    // TODO: Vehicle image
-    const groups = source.match(REGEX)?.groups as Groups | undefined;
-    if (!groups) return;
-    if (groups.staff && typeof groups.staff === 'string') {
-        groups.staff = Object.fromEntries(
-            <[string, string][]>groups.staff
-                .match(/(?<=<td>).*?(?=<\/td>)/g)
-                ?.map((match, index, array) =>
-                    index % 2 ? null : [match, array[index + 1]]
+// TODO: Vehicle image, follow_up_mission
+
+export default (
+    source: string,
+    getIdFromEl: (el: HTMLAnchorElement | null) => number
+): VehicleWindow => {
+    const doc = new DOMParser().parseFromString(source, 'text/html');
+    const buildingEl = doc.querySelector<HTMLAnchorElement>(
+        '#vehicle-attr-station a[href^="/buildings/"]'
+    );
+    const navBtns = doc.querySelectorAll<HTMLAnchorElement>(
+        '.btn-group.pull-right .btn.btn-xs[href^="/vehicles/"]'
+    );
+    const userEl = doc.querySelector<HTMLAnchorElement>(
+        '#vehicle_details a[href^="/profile/"]'
+    );
+    const currentMissionEl = doc.querySelector<HTMLAnchorElement>(
+        '#vehicle-attr-current-mission a[href^="/missions/"]'
+    );
+    return {
+        building: {
+            caption: buildingEl?.textContent ?? '',
+            id: getIdFromEl(buildingEl),
+        },
+        previous_vehicle_id: getIdFromEl(navBtns[0]),
+        next_vehicle_id: getIdFromEl(navBtns[1]),
+        vehicle_name: doc.querySelector('h1')?.textContent ?? '',
+        fms: parseInt(
+            doc
+                .querySelector<HTMLSpanElement>('#vehicle-attr-fms span')
+                ?.className?.match(/(?<=building_list_fms_)\d+/)?.[0] ?? '-1'
+        ),
+        max_staff: parseInt(
+            doc.getElementById('vehicle-attr-max-personnel')?.textContent ??
+                '-1'
+        ),
+        mileage: doc.getElementById('vehicle-attr-total-km')?.textContent ?? '',
+        user: userEl
+            ? {
+                  name: userEl.textContent ?? '',
+                  id: getIdFromEl(userEl),
+                  online:
+                      (userEl?.previousElementSibling as HTMLImageElement | null)?.src?.endsWith(
+                          '/images/user_green.png'
+                      ) ?? false,
+              }
+            : undefined,
+        current_mission: currentMissionEl
+            ? {
+                  caption: currentMissionEl?.textContent ?? '',
+                  id: getIdFromEl(currentMissionEl),
+              }
+            : undefined,
+        staff: Object.fromEntries(
+            Array.from(
+                doc.querySelectorAll<HTMLTableRowElement>(
+                    '#vehicle-attr-personnel tbody tr'
                 )
-                .filter(s => !!s)
-        );
-    }
-    console.log(groups);
+            ).map(({ children }) =>
+                Array.from(children).map(({ textContent }) => textContent)
+            )
+        ),
+        water_amount:
+            doc.getElementById('vehicle-attr-water-amount')?.textContent ??
+            undefined,
+        ...Object.fromEntries(
+            ['mission_own', 'mission_alliance'].map(list => [
+                list,
+                Array.from(
+                    doc.querySelectorAll<HTMLTableRowElement>(
+                        `#${list} tbody tr`
+                    )
+                ).map(m => {
+                    const linkEl = m.children[1]?.querySelector<
+                        HTMLAnchorElement
+                    >('a[href^="/missions/"]');
+                    const progressEl = m.children[3]?.querySelector<
+                        HTMLDivElement
+                    >('.progress .progress-bar');
+                    return {
+                        image: m.children[0]?.querySelector('img')?.src ?? '',
+                        caption: linkEl?.textContent?.trim() ?? '',
+                        id: getIdFromEl(linkEl),
+                        adress: Array.from(m.children[1]?.childNodes ?? [])
+                            .map(c => (c as Text).wholeText ?? '')
+                            .join('')
+                            .trim(),
+                        distance: m.children[2]?.textContent?.trim() ?? '',
+                        progress: {
+                            active: !!progressEl?.querySelector(
+                                '.progress-striped-inner-active'
+                            ),
+                            width: parseInt(progressEl?.style.width ?? '100'),
+                        },
+                        patients: {
+                            current: parseInt(
+                                m.children[4]?.textContent?.trim() ?? '-1'
+                            ),
+                            total: parseInt(
+                                m.children[4]?.textContent
+                                    ?.trim()
+                                    ?.match(/\d+$/)?.[0] ?? '-1'
+                            ),
+                        },
+                    };
+                }),
+            ])
+        ),
+    };
 };

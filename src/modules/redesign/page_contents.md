@@ -1,6 +1,5 @@
 <!--
 progress-states:
-🔍: Regex created
 📤: group exported
 ✅: Shown in new lightbox
 -->
@@ -11,9 +10,9 @@ progress-states:
     * id 📤
 * vehicle name 📤
 * FMS 📤
-* max staff
-* Water amount
-* Mileage
+* max staff 📤
+* Water amount 📤
+* Mileage 📤
 * current mission *if assigned* 📤
     * name 📤
     * id 📤
@@ -32,14 +31,14 @@ progress-states:
 * stats btn `/vehicles/{id}/stats`
 * staff assignment btn `/vehicles/{id}/zuweisung`
 * delete btn `DELETE /vehicles/{id}` *if in FMS 2*
-* list of own missions and alliance missions 🔍
-    * icon
-    * name
-    * id
-    * address
-    * distance (km)
-    * status bar
-    * patients current & max
+* list of own missions and alliance missions 📤
+    * icon 📤
+    * name 📤
+    * id 📤
+    * address 📤
+    * distance (km) 📤
+    * status bar 📤
+    * patients current & max 📤
     * alarm btn
 
 ## vehicles of other players
