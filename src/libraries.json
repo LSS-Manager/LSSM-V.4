@@ -114,7 +114,7 @@
 	"eslint-plugin-vue": {
 		"icon": "https://vuejs.org/images/logo.png",
 		"url": "https://eslint.vuejs.org",
-		"version": "7.5.0"
+		"version": "7.6.0"
 	},
 	"highcharts": {
 		"icon": "https://www.highcharts.com/images/ico/favicon-192x192.png",
