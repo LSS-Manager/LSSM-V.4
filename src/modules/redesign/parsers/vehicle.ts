@@ -15,7 +15,12 @@ interface Mission {
 }
 
 export interface VehicleWindow {
+    id: number;
     building: {
+        caption: string;
+        id: number;
+    };
+    vehicle_type: {
         caption: string;
         id: number;
     };
@@ -48,11 +53,15 @@ export interface VehicleWindow {
 
 export default (
     source: string,
+    href: string,
     getIdFromEl: (el: HTMLAnchorElement | null) => number
 ): VehicleWindow => {
     const doc = new DOMParser().parseFromString(source, 'text/html');
     const buildingEl = doc.querySelector<HTMLAnchorElement>(
         '#vehicle-attr-station a[href^="/buildings/"]'
+    );
+    const vehicleTypeEl = doc.querySelector<HTMLAnchorElement>(
+        '#vehicle-attr-type a[href^="/fahrzeugfarbe/"]'
     );
     const navBtns = doc.querySelectorAll<HTMLAnchorElement>(
         '.btn-group.pull-right .btn.btn-xs[href^="/vehicles/"]'
@@ -64,9 +73,18 @@ export default (
         '#vehicle-attr-current-mission a[href^="/missions/"]'
     );
     return {
+        id: parseInt(
+            new URL(href, window.location.href).pathname.match(
+                /\d+\/?$/
+            )?.[0] ?? '-1'
+        ),
         building: {
             caption: buildingEl?.textContent ?? '',
             id: getIdFromEl(buildingEl),
+        },
+        vehicle_type: {
+            caption: vehicleTypeEl?.textContent ?? '',
+            id: getIdFromEl(vehicleTypeEl),
         },
         previous_vehicle_id: getIdFromEl(navBtns[0]),
         next_vehicle_id: getIdFromEl(navBtns[1]),

@@ -11,7 +11,11 @@ const routeChecks = {
 } as Record<string, types>;
 
 const getIdFromEl = (el: HTMLAnchorElement | null): number =>
-    parseInt(el?.href?.match(/\d+\/?$/)?.[0] ?? '-1');
+    parseInt(
+        new URL(el?.href ?? '', window.location.href).pathname?.match(
+            /\d+\/?$/
+        )?.[0] ?? '-1'
+    );
 
 export default (LSSM => {
     LSSM.$store
@@ -37,9 +41,21 @@ export default (LSSM => {
                         ).then(parser => {
                             const result: Results[typeof type] = parser.default(
                                 html,
+                                href,
                                 getIdFromEl
                             );
-                            console.log(result);
+                            LSSM.$modal.show(
+                                () =>
+                                    import(
+                                        /* webpackChunkName: "modules/redesign/windows/[request]" */ `./components/${type}-lightbox`
+                                    ),
+                                { vehicle: result },
+                                {
+                                    name: `vehicle-${result.id}`,
+                                    height: '96%',
+                                    width: '96%',
+                                }
+                            );
                         })
                     );
                 return false;

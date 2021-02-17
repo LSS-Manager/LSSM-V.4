@@ -9,6 +9,7 @@ progress-states:
     * name 📤
     * id 📤
 * vehicle name 📤
+* vehicle type 📤
 * FMS 📤
 * max staff 📤
 * Water amount 📤
