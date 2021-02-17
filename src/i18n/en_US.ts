@@ -1175,6 +1175,10 @@ export default {
                 caption: 'ALS Medical Training for Fire Apparatus',
                 duration: '3 Days',
             },
+            {
+                caption: 'Tactical Medic Training',
+                duration: '4 Days',
+            },
         ],
         'Police': [
             {
