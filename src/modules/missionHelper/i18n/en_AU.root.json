@@ -147,8 +147,8 @@
 				"title": "Vehicle requirements"
 			},
 			"patient_additionals": {
-				"description": "If there are currently more than 10 patients on site, EMS-Chief is automatically listed at the beginning of the vehicle requirements.",
-				"title": "Mention EMS-Chief extra"
+				"description": "If there are currently more than 10 patients on site, Paramedic Supervisor is automatically listed at the beginning of the vehicle requirements.",
+				"title": "Mention Paramedic Supervisor extra"
 			},
 			"sort": {
 				"amount": "Number of required vehicles",
