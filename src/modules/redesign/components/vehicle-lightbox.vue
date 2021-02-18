@@ -1,5 +1,6 @@
 <template>
     <lightbox name="redesign-lightbox">
+        <img :src="vehicle.image" alt="" class="pull-right vehicle-img" />
         <h1>{{ vehicle.vehicle_name }}</h1>
         <div class="vehicle-window">
             <div class="well">
@@ -202,4 +203,6 @@ export default Vue.extend<
             border-top-width: 0
         > th
             float: right
+.vehicle-img
+    margin-right: calc(3 * 34px)
 </style>

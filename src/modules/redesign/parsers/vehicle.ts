@@ -31,6 +31,7 @@ export interface VehicleWindow {
     fms: number;
     max_staff: number;
     mileage: string;
+    image: string;
     user?: {
         name: string;
         online: boolean;
@@ -76,6 +77,10 @@ export default (
     const followUpMissionEls = doc.querySelectorAll<HTMLAnchorElement>(
         '#vehicle_details h3 + ul li a[href^="/missions/"]'
     );
+    const vehicleType = getIdFromEl(vehicleTypeEl);
+    const imageEl = doc.querySelector<HTMLImageElement>(
+        'img.vehicle_image_reload[vehicle_type_id]'
+    );
     return {
         id: parseInt(
             new URL(href, window.location.href).pathname.match(
@@ -88,7 +93,7 @@ export default (
         },
         vehicle_type: {
             caption: vehicleTypeEl?.textContent ?? '',
-            id: getIdFromEl(vehicleTypeEl),
+            id: vehicleType,
             custom: vehicleTypeEl?.href?.includes('?') ?? false,
         },
         previous_vehicle_id: getIdFromEl(navBtns[0]),
@@ -104,6 +109,14 @@ export default (
                 '-1'
         ),
         mileage: doc.getElementById('vehicle-attr-total-km')?.textContent ?? '',
+        image:
+            imageEl?.getAttribute('image_replace_allowed') === 'true'
+                ? JSON.parse(
+                      doc.scripts[userEl ? 7 : 8].innerText.match(
+                          /(?<=vehicle_graphics\s*=\s*)\[(?:\[".*?",".*?","(true|false)"],?)+]/
+                      )?.[0] ?? '[]'
+                  )[vehicleType][0]
+                : imageEl?.src ?? '',
         user: userEl
             ? {
                   name: userEl.textContent ?? '',
