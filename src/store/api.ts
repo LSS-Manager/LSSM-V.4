@@ -1,4 +1,4 @@
-import { ActionTree, GetterTree, Module, Dispatch } from 'vuex';
+import { ActionTree, GetterTree, Module } from 'vuex';
 import { RootState } from '../../typings/store/RootState';
 import {
     APIState,
