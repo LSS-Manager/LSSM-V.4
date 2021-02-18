@@ -90,6 +90,10 @@
 				"description": "Shows details about possible patients.",
 				"title": "Details of potential patients"
 			},
+			"critical_care": {
+				"description": "Shows the possible Intensive Care Chance",
+				"title": "Details of possible Intensive Chances"
+			},
 			"hideWhenNoNeed": {
 				"description": "Hides the patient details if there are no more patients and patients do not appear until the end of the assignment.",
 				"title": "Show patient details only when needed"
