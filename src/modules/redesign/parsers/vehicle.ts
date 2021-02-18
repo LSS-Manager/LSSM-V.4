@@ -23,6 +23,7 @@ export interface VehicleWindow {
     vehicle_type: {
         caption: string;
         id: number;
+        custom: boolean;
     };
     previous_vehicle_id: number;
     next_vehicle_id: number;
@@ -39,17 +40,17 @@ export interface VehicleWindow {
         caption: string;
         id: number;
     };
-    followup_mission?: {
+    followup_missions: {
         caption: string;
         id: number;
-    };
+    }[];
     staff?: Record<string, string>;
     water_amount?: string;
     mission_own?: Mission[];
     mission_alliance?: Mission[];
 }
 
-// TODO: Vehicle image, follow_up_mission
+// TODO: Vehicle image, Speech requests
 
 export default (
     source: string,
@@ -72,6 +73,9 @@ export default (
     const currentMissionEl = doc.querySelector<HTMLAnchorElement>(
         '#vehicle-attr-current-mission a[href^="/missions/"]'
     );
+    const followUpMissionEls = doc.querySelectorAll<HTMLAnchorElement>(
+        '#vehicle_details h3 + ul li a[href^="/missions/"]'
+    );
     return {
         id: parseInt(
             new URL(href, window.location.href).pathname.match(
@@ -85,6 +89,7 @@ export default (
         vehicle_type: {
             caption: vehicleTypeEl?.textContent ?? '',
             id: getIdFromEl(vehicleTypeEl),
+            custom: vehicleTypeEl?.href?.includes('?') ?? false,
         },
         previous_vehicle_id: getIdFromEl(navBtns[0]),
         next_vehicle_id: getIdFromEl(navBtns[1]),
@@ -115,6 +120,10 @@ export default (
                   id: getIdFromEl(currentMissionEl),
               }
             : undefined,
+        followup_missions: Array.from(followUpMissionEls).map(m => ({
+            id: getIdFromEl(m),
+            caption: m.textContent ?? '',
+        })),
         staff: Object.fromEntries(
             Array.from(
                 doc.querySelectorAll<HTMLTableRowElement>(
