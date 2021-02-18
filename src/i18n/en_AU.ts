@@ -379,7 +379,8 @@ export default {
             credits: 25_000,
             minPersonnel: 4,
             maxPersonnel: 10,
-            special: 'You can buy 1 Mass Casualty Vehicle for every 20 ambulance stations (respectively 15 with premium account).',
+            special:
+                'You can buy 1 Mass Casualty Vehicle for every 20 ambulance stations (respectively 15 with premium account).',
         },
     },
     buildings: {
@@ -787,7 +788,7 @@ export default {
         },
         'Rescue Vehicles': {
             vehicles: {
-                Ambulances: [5],
+                'Ambulances': [5],
                 'Air Ambulance': [9],
                 'Other Rescue Vehicles': [23, 24, 25, 26, 27],
             },
