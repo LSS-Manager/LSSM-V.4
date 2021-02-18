@@ -47,25 +47,13 @@ entry.plugins?.unshift(
         PREFIX: JSON.stringify(config.prefix),
         VERSION: JSON.stringify(version),
         MODE: process.argv[2] === 'production' ? '"stable"' : '"beta"',
-        MODULE_REGISTER_FILES: new RegExp(
-            `modules\\/(${modules.join('|')})\\/register\\.js(on)?`
-        ),
-        MODULES_OF_LOCALE: Object.fromEntries(
-            locales.map(locale => [
-                locale,
-                JSON.stringify(
-                    [...modules, ...config.modules['core-modules']].filter(
-                        module => {
-                            // eslint-disable-next-line @typescript-eslint/no-var-requires
-                            const registration = require(`../src/modules/${module}/register`) as Module;
-                            return (
-                                !registration.locales ||
-                                registration.locales?.includes(locale)
-                            );
-                        }
-                    )
-                ),
-            ])
+        MODULE_REGISTER_FILES: JSON.stringify(
+            Object.fromEntries(
+                modules.map(module => [
+                    module,
+                    require(`../src/modules/${module}/register`),
+                ])
+            )
         ),
     }),
     new webpack.ContextReplacementPlugin(

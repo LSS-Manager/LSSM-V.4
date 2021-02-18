@@ -1,4 +1,4 @@
-import { ActionTree, GetterTree, Module } from 'vuex';
+import { ActionTree, GetterTree, Module, Dispatch } from 'vuex';
 import { RootState } from '../../typings/store/RootState';
 import {
     APIState,
@@ -32,6 +32,7 @@ const MUTATION_SETTERS = {
 };
 
 const API_MIN_UPDATE = 5 * 1000 * 60; // 5 Minutes
+const STORAGE_DISABLED_KEY = 'lssmv4-storage-disabled';
 
 const get_from_storage = <API extends StorageAPIKey>(
     key: API,
@@ -144,15 +145,20 @@ const set_api_storage = <API extends StorageAPIKey>(
     { value, lastUpdate }: StorageGetterReturn<API>,
     { commit, dispatch }: APIActionStoreParams
 ) => {
+    const disabled: string[] = JSON.parse(
+        localStorage.getItem(STORAGE_DISABLED_KEY) || '[]'
+    );
     try {
         commit(MUTATION_SETTERS[key], { value, lastUpdate });
-        sessionStorage.setItem(
-            STORAGE_KEYS[key],
-            JSON.stringify({
-                lastUpdate,
-                value,
-            })
-        );
+        if (!disabled.includes(key)) {
+            sessionStorage.setItem(
+                STORAGE_KEYS[key],
+                JSON.stringify({
+                    lastUpdate,
+                    value,
+                })
+            );
+        }
         dispatch(
             'broadcast/broadcast',
             {
@@ -162,7 +168,10 @@ const set_api_storage = <API extends StorageAPIKey>(
             { root: true }
         ).then();
     } catch {
-        // Do nothing
+        localStorage.setItem(
+            STORAGE_DISABLED_KEY,
+            JSON.stringify([...disabled, key])
+        );
     }
 };
 

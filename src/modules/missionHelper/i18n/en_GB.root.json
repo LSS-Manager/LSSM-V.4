@@ -5,12 +5,12 @@
 		"average_min_fire_personnel": {
 			"badge": false,
 			"in": "additional",
-			"text": "Firefighters needed minimum"
+			"text": "Average min . Fire Personnel"
 		},
 		"swat_personnel": {
 			"badge": false,
 			"in": "additional",
-			"text": "Armed Response Personnel needed minimum in average"
+			"text": "Required Armed Response Personnel"
 		}
 	},
 	"settings": {

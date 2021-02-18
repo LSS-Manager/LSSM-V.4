@@ -200,8 +200,8 @@ export default {
             maxPersonnel: 6,
             wtank: 0,
             special: 'Required once you have built 11 firehouses',
-            schooling: 'Fire Station - Hazmat',
-            shownSchooling: 'Hazmat',
+            schooling: 'Fire Station - HazMat',
+            shownSchooling: 'HazMat',
         },
         10: {
             caption: 'Patrol Car',
@@ -230,7 +230,7 @@ export default {
             maxPersonnel: 6,
             wtank: 0,
             schooling: 'Fire Station - Mobile command',
-            shownSchooling: 'Mobile command',
+            shownSchooling: 'Mobile Command',
             special: 'Required once you have built 13 firehouses',
         },
         13: {
@@ -272,7 +272,7 @@ export default {
             minPersonnel: 6,
             maxPersonnel: 6,
             wtank: 0,
-            schooling: 'Police - Swat',
+            schooling: 'Police - SWAT',
             shownSchooling: 'SWAT',
             special: 'Required once you have built 8 police stations',
         },
@@ -353,8 +353,8 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 1,
             wtank: 0,
-            schooling: 'Police - Motor Officer',
-            shownSchooling: 'Motor Officer',
+            schooling: 'Police - Police Motorcycle',
+            shownSchooling: 'Police Motorcycle',
         },
         24: {
             caption: 'Large Fireboat',
@@ -1140,7 +1140,7 @@ export default {
     schoolings: {
         'Fire Station': [
             {
-                caption: 'Hazmat',
+                caption: 'HazMat',
                 duration: '3 Days',
             },
             {
@@ -1174,6 +1174,10 @@ export default {
             {
                 caption: 'ALS Medical Training for Fire Apparatus',
                 duration: '3 Days',
+            },
+            {
+                caption: 'Tactical Medic Training',
+                duration: '4 Days',
             },
         ],
         'Police': [

@@ -17,7 +17,7 @@
 	"prerequisites": {
 		"brush_extension": "Skogsexpansion | Skogsexpansion",
 		"federalpolice_stations": "Federal Police Station | Federal Police Stations",
-		"fire_aviation_count": "Firefighting Plane Station | Firefighting Plane Stations",
+		"fire_aviation_count": "Brandflygsstation",
 		"fire_stations": "Brandstation | Brandstationer",
 		"max_police_stations": "Maximala polisstationer",
 		"max_rescue_stations": "Maximala ambulansstationer",
@@ -29,6 +29,9 @@
 	"prisoners": {
 		"max_possible_prisoners": "Maximalt antal fångar",
 		"title": "Fånge | {n} Fånge | {n} Fångar"
+	},
+	"requirements": {
+		"water_needed": "Liter av vatten"
 	},
 	"tip": {
 		"dragging": "Dra fönster",
@@ -44,7 +47,7 @@
 			"boats": "Båt | Båtar",
 			"brush_truck": "Skogbrandbil",
 			"diver_car": "Dykbil | Dykbilar",
-			"fire_aviation": "Airborne Firefighting | Airborne Firefightings",
+			"fire_aviation": "brandflygsenhet",
 			"firetrucks": "Släckbil | Släckbilar",
 			"hazmat_vehicles": "Kemskyddsenhet | Kemskyddsenheter",
 			"heavy_rescue_vehicles": "Lastväxlare",

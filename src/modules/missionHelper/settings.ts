@@ -53,7 +53,7 @@ export default ((MODULE_ID, LSSM, $m) => {
             default: false,
             dependsOn: '.vehicles.content',
         },
-        ...(['de_DE', 'en_US', 'nl_NL', 'nb_NO'].includes(locale)
+        ...(['de_DE', 'en_US', 'nl_NL', 'nb_NO', 'en_AU'].includes(locale)
             ? {
                   'vehicles.patient_additionals': <Toggle>{
                       type: 'toggle',
@@ -172,7 +172,7 @@ export default ((MODULE_ID, LSSM, $m) => {
                   },
               }
             : null),
-        ...(['en_GB', 'nb_NO', 'da_DK'].includes(locale)
+        ...(['en_GB', 'nb_NO', 'da_DK', 'pl_PL', 'en_AU'].includes(locale)
             ? {
                   'patients.critical_care': <Toggle>{
                       type: 'toggle',

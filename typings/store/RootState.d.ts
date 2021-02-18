@@ -24,6 +24,7 @@ export interface RootState {
     readonly policechief: boolean;
     isRegistered: boolean;
     readonly modules: Modules;
+    readonly coreModules: string[];
     readonly appstore: {
         changes: boolean;
         reload: boolean;

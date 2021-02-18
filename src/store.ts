@@ -25,7 +25,6 @@ import console from './store/console';
 import notifications from './store/notifications';
 import broadcast from './store/broadcast';
 import event from './store/event';
-import modules from './registerModules';
 import { Modules } from '../typings/Module';
 
 export default (Vue: VueConstructor): Store<RootState> => {
@@ -56,7 +55,8 @@ export default (Vue: VueConstructor): Store<RootState> => {
             premium: window.user_premium,
             policechief: window.gameFlavour === 'policechief',
             isRegistered: false,
-            modules,
+            modules: <Modules>MODULE_REGISTER_FILES,
+            coreModules: config.modules['core-modules'],
             appstore: {
                 changes: false,
                 reload: false,
