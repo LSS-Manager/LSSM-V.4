@@ -440,7 +440,7 @@ export default {
             startPersonnel: 3,
             startVehicles: ['Ambulance'],
         },
-        1: {
+        3: {
             caption: 'Paramedic Training Centre',
             color: '#ffa501',
             coins: 50,
