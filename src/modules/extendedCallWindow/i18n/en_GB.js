@@ -74,7 +74,7 @@ module.exports = {
             [/^Breathing Apparatus Support Unit$/]: [14],
             [/^Water Carrier(s)?$/]: [6, 26],
             [/^Incident Command and Control Unit(s)?$/]: [15],
-            [/^HazMat Unit(s)$/]: [7],
+            [/^HazMat Unit(s)?$/]: [7],
             [/^Ambulance(s)?$/]: [5],
             [/^Police car(s)?$/]: [8, 12],
             [/^HEMS$/]: [9],
