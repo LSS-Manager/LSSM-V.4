@@ -1,7 +1,9 @@
 <template>
     <lightbox :name="`vehicle-${vehicle.id}`">
-        <img :src="vehicle.image" alt="" class="vehicle-img" />
-        <h1>{{ vehicle.vehicle_name }}</h1>
+        <h1>
+            {{ vehicle.vehicle_name }}
+            <img :src="vehicle.image" alt="" class="vehicle-img" />
+        </h1>
         <div class="vehicle-window">
             <div class="well">
                 <table class="table">
@@ -223,6 +225,44 @@
                     </tr>
                 </enhanced-table>
             </div>
+            <div class="btn-group nav-btns">
+                <button
+                    class="btn btn-xs lightbox-open"
+                    :class="
+                        `btn-${
+                            vehicle.id === vehicle.previous_vehicle_id
+                                ? 'default'
+                                : 'success'
+                        }`
+                    "
+                    :href="
+                        vehicle.id === vehicle.previous_vehicle_id
+                            ? '#'
+                            : `/vehicles/${vehicle.previous_vehicle_id}`
+                    "
+                    disabled
+                >
+                    <span class="glyphicon glyphicon-arrow-left"></span>
+                </button>
+                <button
+                    class="btn btn-xs lightbox-open"
+                    :class="
+                        `btn-${
+                            vehicle.id === vehicle.next_vehicle_id
+                                ? 'default'
+                                : 'success'
+                        }`
+                    "
+                    :href="
+                        vehicle.id === vehicle.next_vehicle_id
+                            ? '#'
+                            : `/vehicles/${vehicle.next_vehicle_id}`
+                    "
+                    disabled
+                >
+                    <span class="glyphicon glyphicon-arrow-right"></span>
+                </button>
+            </div>
         </div>
     </lightbox>
 </template>
@@ -412,5 +452,12 @@ export default Vue.extend<
 .vehicle-img
     right: calc(4 * 34px)
     position: absolute
-    top: 1em
+
+.nav-btns
+    position: absolute
+    right: 1em
+    transition: right 1s
+
+.titleHidden .nav-btns
+    right: calc(3 * 34px)
 </style>
