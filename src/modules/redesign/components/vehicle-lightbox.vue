@@ -1,6 +1,6 @@
 <template>
-    <lightbox name="redesign-lightbox">
-        <img :src="vehicle.image" alt="" class="pull-right vehicle-img" />
+    <lightbox :name="`vehicle-${vehicle.id}`">
+        <img :src="vehicle.image" alt="" class="vehicle-img" />
         <h1>{{ vehicle.vehicle_name }}</h1>
         <div class="vehicle-window">
             <div class="well">
@@ -168,12 +168,15 @@
                 </tabs>
                 <enhanced-table
                     :head="head"
-                    :table-attrs="{ class: 'table table-striped' }"
+                    :table-attrs="{ class: 'table' }"
                     :search="search"
                     @search="setSearch"
+                    :sort="sort"
+                    :sort-dir="sortDir"
+                    @sort="setSort"
                 >
                     <tr
-                        v-for="mission in missionListFiltered"
+                        v-for="mission in missionListSorted"
                         :key="mission.id"
                         :class="{ hidden: mission.hidden }"
                     >
@@ -239,16 +242,18 @@ export default Vue.extend<
         missionListSrc: number;
         search: string;
         searchTimeout: null | number;
-        // sort: string;
-        // sortDir: string;
+        sort: string;
+        sortDir: 'asc' | 'desc';
     },
     {
         setMissionList(_: unknown, group: number): void;
         setSearch(search: string): void;
+        setSort(type: string): void;
     },
     {
         missionList: VehicleWindow['mission_own'];
         missionListFiltered: VehicleWindow['mission_own'];
+        missionListSorted: VehicleWindow['mission_own'];
     },
     { vehicle: VehicleWindow }
 >({
@@ -293,6 +298,8 @@ export default Vue.extend<
             missionListSrc: 0,
             search: '',
             searchTimeout: null,
+            sort: 'distance',
+            sortDir: 'asc',
         };
     },
     computed: {
@@ -300,11 +307,20 @@ export default Vue.extend<
             return [
                 ...this.vehicle.mission_own,
                 ...this.vehicle.mission_alliance,
-            ];
+            ].sort((a, b) => {
+                const l = parseInt(
+                    a.distance.match(/\d+([,.]?\d+)?/)?.[0] ?? '-1'
+                );
+                const r = parseInt(
+                    b.distance.match(/\d+([,.]?\d+)?/)?.[0] ?? '-1'
+                );
+                return l < r ? -1 : l > r ? 1 : 0;
+            });
         },
         missionListFiltered() {
             return this.missionList.map(m => ({
                 ...m,
+                participation: true,
                 hidden: !(
                     (this.missionListSrc === 2 ||
                         (this.missionListSrc === 0 &&
@@ -313,9 +329,35 @@ export default Vue.extend<
                             m.list === 'mission_alliance')) &&
                     JSON.stringify(Object.values(m))
                         .toLowerCase()
-                        .match(this.search.toLowerCase())
+                        .match(this.search.trim().toLowerCase())
                 ),
             }));
+        },
+        missionListSorted() {
+            if (this.sort === 'distance') {
+                if (this.sortDir === 'asc') return this.missionListFiltered;
+                return [...this.missionListFiltered].reverse();
+            }
+            const modifier = this.sortDir === 'desc' ? -1 : 1;
+            return [...this.missionListFiltered].sort((a, b) => {
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
+                let f = a[this.sort] ?? '';
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
+                let s = b[this.sort] ?? '';
+                if (this.sort === 'mission') {
+                    f = a['caption'] ?? '';
+                    s = b['caption'] ?? '';
+                } else if (this.sort === 'progress') {
+                    f = f['width'] ?? 100;
+                    s = s['width'] ?? 100;
+                } else if (this.sort === 'patients') {
+                    f = f['current'] ?? 0;
+                    s = s['current'] ?? 0;
+                }
+                return f < s ? -1 * modifier : f > s ? modifier : 0;
+            });
         },
     },
     methods: {
@@ -328,6 +370,14 @@ export default Vue.extend<
                 () => (this.search = search),
                 100
             );
+        },
+        setSort(type) {
+            if (this.sort === type) {
+                this.sortDir = this.sortDir === 'asc' ? 'desc' : 'asc';
+            } else {
+                this.sort = type;
+                this.sortDir = 'asc';
+            }
         },
     },
     props: {
@@ -360,5 +410,7 @@ export default Vue.extend<
             width: 100%
 
 .vehicle-img
-    margin-right: calc(3 * 34px)
+    right: calc(4 * 34px)
+    position: absolute
+    top: 1em
 </style>
