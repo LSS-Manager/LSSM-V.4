@@ -4,6 +4,7 @@ interface Mission {
     id: number;
     adress: string;
     distance: string;
+    list: 'mission_own' | 'mission_alliance';
     progress: {
         active: boolean;
         width: number;
@@ -47,11 +48,11 @@ export interface VehicleWindow {
     }[];
     staff?: Record<string, string>;
     water_amount?: string;
-    mission_own?: Mission[];
-    mission_alliance?: Mission[];
+    mission_own: Mission[];
+    mission_alliance: Mission[];
 }
 
-// TODO: Vehicle image, Speech requests
+// TODO: Speech requests
 
 export default (
     source: string,
@@ -149,7 +150,7 @@ export default (
         water_amount:
             doc.getElementById('vehicle-attr-water-amount')?.textContent ??
             undefined,
-        ...Object.fromEntries(
+        ...(Object.fromEntries(
             ['mission_own', 'mission_alliance'].map(list => [
                 list,
                 Array.from(
@@ -172,6 +173,7 @@ export default (
                             .join('')
                             .trim(),
                         distance: m.children[2]?.textContent?.trim() ?? '',
+                        list,
                         progress: {
                             active: !!progressEl?.querySelector(
                                 '.progress-striped-inner-active'
@@ -191,6 +193,6 @@ export default (
                     };
                 }),
             ])
-        ),
+        ) as { mission_own: Mission[]; mission_alliance: Mission[] }),
     };
 };

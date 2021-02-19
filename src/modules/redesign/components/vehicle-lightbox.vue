@@ -158,24 +158,98 @@
                     </tbody>
                 </table>
             </div>
-            <div></div>
+            <div v-if="!vehicle.user" class="mission-tabs">
+                <tabs :on-select="setMissionList">
+                    <tab
+                        v-for="group in ['own', 'alliance', 'all']"
+                        :title="group"
+                        :key="group"
+                    ></tab>
+                </tabs>
+                <enhanced-table
+                    :head="head"
+                    :table-attrs="{ class: 'table table-striped' }"
+                    :search="search"
+                    @search="setSearch"
+                >
+                    <tr
+                        v-for="mission in missionListFiltered"
+                        :key="mission.id"
+                        :class="{ hidden: mission.hidden }"
+                    >
+                        <td>
+                            <img :src="mission.image" :alt="mission.caption" />
+                        </td>
+                        <td>männle / starndl</td>
+                        <td>
+                            <a
+                                :href="`/missions/${mission.id}`"
+                                class="lightbox-open"
+                                >{{ mission.caption }}</a
+                            >
+                            <br />
+                            <small>{{ mission.adress }}</small>
+                        </td>
+                        <td>{{ mission.distance }}</td>
+                        <td>
+                            <div class="progress">
+                                <div
+                                    class="progress-bar progress-bar-danger"
+                                    :style="
+                                        `width: ${mission.progress.width}%;`
+                                    "
+                                >
+                                    <div
+                                        class="progress-striped-inner"
+                                        :class="{
+                                            'progress-striped-inner-active':
+                                                mission.progress.active,
+                                        }"
+                                    ></div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            {{ mission.patients.current }}
+                            of
+                            {{ mission.patients.total }}
+                        </td>
+                        <td>
+                            'alarm'
+                        </td>
+                    </tr>
+                </enhanced-table>
+            </div>
         </div>
     </lightbox>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
-import {
-    DefaultData,
-    DefaultMethods,
-    DefaultComputed,
-} from 'vue/types/options';
 import { VehicleWindow } from '../parsers/vehicle';
 
 export default Vue.extend<
-    DefaultData<Vue>,
-    DefaultMethods<Vue>,
-    DefaultComputed,
+    {
+        head: {
+            [key: string]: {
+                title: string;
+                noSort?: boolean;
+            };
+        };
+        missionListSrc: number;
+        search: string;
+        searchTimeout: null | number;
+        // sort: string;
+        // sortDir: string;
+    },
+    {
+        setMissionList(_: unknown, group: number): void;
+        setSearch(search: string): void;
+    },
+    {
+        missionList: VehicleWindow['mission_own'];
+        missionListFiltered: VehicleWindow['mission_own'];
+    },
     { vehicle: VehicleWindow }
 >({
     name: 'vehicle-lightbox',
@@ -184,6 +258,77 @@ export default Vue.extend<
             import(
                 /* webpackChunkName: "components/lightbox" */ '../../../components/lightbox.vue'
             ),
+        EnhancedTable: () =>
+            import(
+                /* webpackChunkName: "components/enhanced-table" */ '../../../components/enhanced-table.vue'
+            ),
+    },
+    data() {
+        return {
+            head: {
+                img: {
+                    title: '',
+                    noSort: true,
+                },
+                participation: {
+                    title: 'participation',
+                },
+                mission: {
+                    title: 'mission',
+                },
+                distance: {
+                    title: 'distance',
+                },
+                progress: {
+                    title: 'progress',
+                },
+                patients: {
+                    title: 'patients',
+                },
+                alarm: {
+                    title: '',
+                    noSort: true,
+                },
+            },
+            missionListSrc: 0,
+            search: '',
+            searchTimeout: null,
+        };
+    },
+    computed: {
+        missionList() {
+            return [
+                ...this.vehicle.mission_own,
+                ...this.vehicle.mission_alliance,
+            ];
+        },
+        missionListFiltered() {
+            return this.missionList.map(m => ({
+                ...m,
+                hidden: !(
+                    (this.missionListSrc === 2 ||
+                        (this.missionListSrc === 0 &&
+                            m.list === 'mission_own') ||
+                        (this.missionListSrc === 1 &&
+                            m.list === 'mission_alliance')) &&
+                    JSON.stringify(Object.values(m))
+                        .toLowerCase()
+                        .match(this.search.toLowerCase())
+                ),
+            }));
+        },
+    },
+    methods: {
+        setMissionList(_, list) {
+            this.missionListSrc = list;
+        },
+        setSearch(search) {
+            if (this.searchTimeout) window.clearTimeout(this.searchTimeout);
+            this.searchTimeout = window.setTimeout(
+                () => (this.search = search),
+                100
+            );
+        },
     },
     props: {
         vehicle: {
@@ -198,11 +343,22 @@ export default Vue.extend<
 .vehicle-window
     display: flex
 
-    > .well > table > tbody > tr
-        > *
-            border-top-width: 0
-        > th
-            float: right
+    > .well
+        width: calc(100% / 3)
+
+        > table > tbody > tr
+            > *
+                border-top-width: 0
+            > th
+                float: right
+
+    > div
+        margin-left: 1em
+        margin-right: 1em
+
+        &.mission-tabs
+            width: 100%
+
 .vehicle-img
     margin-right: calc(3 * 34px)
 </style>
