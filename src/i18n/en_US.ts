@@ -327,7 +327,7 @@ export default {
             coins: 25,
             credits: 19_000,
             minPersonnel: 1,
-            maxPersonnel: 4,
+            maxPersonnel: 5,
             wtank: 0,
             schooling: 'Fire Station - Swift water rescue',
             shownSchooling: 'Swift water rescue',
