@@ -23,7 +23,7 @@
         "combokeys": "^3.0.1",
         "highcharts": "^9.0.1",
         "localforage": "^1.8.1",
-        "lodash": ">=4.17.19",
+        "lodash": ">=4.17.21",
         "mini-svg-data-uri": "^1.2.3",
         "moment": "^2.29.1",
         "pdfmake": "^0.1.70",
