@@ -1,5 +1,5 @@
 <template>
-    <lightbox :name="`vehicle-${vehicle.id}`">
+    <div>
         <h1>
             {{ vehicle.vehicle_name }}
             <img :src="vehicle.image" alt="" class="vehicle-img" />
@@ -324,7 +324,7 @@
                 </button>
             </div>
         </div>
-    </lightbox>
+    </div>
 </template>
 
 <script lang="ts">
@@ -370,10 +370,6 @@ export default Vue.extend<
 >({
     name: 'vehicle-lightbox',
     components: {
-        Lightbox: () =>
-            import(
-                /* webpackChunkName: "components/lightbox" */ '../../../components/lightbox.vue'
-            ),
         EnhancedTable: () =>
             import(
                 /* webpackChunkName: "components/enhanced-table" */ '../../../components/enhanced-table.vue'
