@@ -1,5 +1,5 @@
 {
-    "version": "4.1.13+20210219.1207",
+    "version": "4.1.13+20210222.0649",
     "license": "CC-BY-NC-SA-4.0",
     "scripts": {
         "predev": "tsc -b scripts && node scripts predev",
@@ -23,7 +23,7 @@
         "combokeys": "^3.0.1",
         "highcharts": "^9.0.1",
         "localforage": "^1.8.1",
-        "lodash": ">=4.17.19",
+        "lodash": ">=4.17.21",
         "mini-svg-data-uri": "^1.2.3",
         "moment": "^2.29.1",
         "pdfmake": "^0.1.70",

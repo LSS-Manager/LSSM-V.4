@@ -133,7 +133,7 @@
 	"lodash": {
 		"icon": "https://lodash.com/assets/img/lodash.svg",
 		"url": "https://lodash.com/",
-		"version": "4.17.20"
+		"version": "4.17.21"
 	},
 	"mini-svg-data-uri": {
 		"url": "https://github.com/tigt/mini-svg-data-uri#readme",
