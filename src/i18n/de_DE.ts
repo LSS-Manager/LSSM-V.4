@@ -1682,7 +1682,7 @@ export default {
         15: {
             caption: 'Wasserrettung',
             color: '#7fffd4',
-            coins: 30,
+            coins: 50,
             credits: 500_000,
             extensions: [],
             levelcost: ['1. 10.000', '2. 50.000', '3.-5. 100.000'],
