@@ -15,6 +15,17 @@ interface Mission {
     };
 }
 
+interface Hospital {
+    caption: string;
+    id: number;
+    distance: string;
+    beds: number;
+    department: boolean;
+    label: 'success' | 'danger' | 'warning';
+    list: 'own_hospitals' | 'alliance_hospitals';
+    tax: number;
+}
+
 export interface VehicleWindow {
     id: number;
     building: {
@@ -50,6 +61,9 @@ export interface VehicleWindow {
     water_amount?: string;
     mission_own: Mission[];
     mission_alliance: Mission[];
+    own_hospitals: Hospital[];
+    alliance_hospitals: Hospital[];
+    has_hospitals: boolean;
 }
 
 // TODO: Speech requests
@@ -82,6 +96,9 @@ export default (
     const imageEl = doc.querySelector<HTMLImageElement>(
         'img.vehicle_image_reload[vehicle_type_id]'
     );
+    const hasHospitals = !!doc.querySelector<HTMLAnchorElement>(
+        'a[href$="/patient/-1"]'
+    );
     return {
         id: parseInt(
             new URL(href, window.location.href).pathname.match(
@@ -113,7 +130,9 @@ export default (
         image:
             imageEl?.getAttribute('image_replace_allowed') === 'true'
                 ? JSON.parse(
-                      doc.scripts[userEl ? 7 : 8].innerText.match(
+                      doc.scripts[
+                          userEl || hasHospitals ? 7 : 8
+                      ].innerText.match(
                           /(?<=vehicle_graphics\s*=\s*)\[(?:\[".*?",".*?","(true|false)"],?)+]/
                       )?.[0] ?? '[]'
                   )[vehicleType][0]
@@ -194,5 +213,52 @@ export default (
                 }),
             ])
         ) as { mission_own: Mission[]; mission_alliance: Mission[] }),
+        ...(Object.fromEntries(
+            ['own_hospitals', 'alliance_hospitals'].map((key, index) => [
+                key,
+                hasHospitals
+                    ? Array.from(
+                          doc.querySelectorAll<HTMLTableRowElement>(
+                              `.col-md-9:first-of-type table:nth-of-type(${index +
+                                  1}) tbody tr`
+                          )
+                      )
+                          .map(h => {
+                              if (h.children.length <= 1) return null;
+                              const isOwn = key === 'own_hospitals';
+                              const alarmEl = h.children[
+                                  isOwn ? 4 : 5
+                              ].querySelector<HTMLAnchorElement>('a');
+                              return {
+                                  caption:
+                                      ((h.children[0] as HTMLElement | null)
+                                          ?.firstChild as Text)?.wholeText?.trim() ??
+                                      '',
+                                  distance:
+                                      h.children[1]?.textContent?.trim() ?? '',
+                                  beds: parseInt(
+                                      h.children[2]?.textContent?.trim() ?? '-1'
+                                  ),
+                                  department: !!h.children[
+                                      isOwn ? 3 : 4
+                                  ].querySelector('.label.label-success'),
+                                  id: getIdFromEl(alarmEl),
+                                  list: key,
+                                  tax: isOwn
+                                      ? 0
+                                      : parseInt(
+                                            h.children[3]?.textContent?.trim() ??
+                                                '-1'
+                                        ),
+                              };
+                          })
+                          .filter(h => !!h)
+                    : [],
+            ])
+        ) as {
+            own_hospitals: Hospital[];
+            alliance_hospitals: Hospital[];
+        }),
+        has_hospitals: hasHospitals,
     };
 };

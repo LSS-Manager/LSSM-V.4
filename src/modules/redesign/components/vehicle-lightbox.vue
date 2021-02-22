@@ -160,7 +160,10 @@
                     </tbody>
                 </table>
             </div>
-            <div v-if="!vehicle.user" class="mission-tabs">
+            <div
+                v-if="!vehicle.user && !vehicle.has_hospitals"
+                class="table-tabs"
+            >
                 <tabs :on-select="setMissionList">
                     <tab
                         v-for="group in ['own', 'alliance', 'all']"
@@ -169,7 +172,7 @@
                     ></tab>
                 </tabs>
                 <enhanced-table
-                    :head="head"
+                    :head="mission_head"
                     :table-attrs="{ class: 'table' }"
                     :search="search"
                     @search="setSearch"
@@ -225,6 +228,63 @@
                     </tr>
                 </enhanced-table>
             </div>
+            <div
+                v-else-if="!vehicle.user && vehicle.has_hospitals"
+                class="table-tabs"
+            >
+                <tabs :on-select="setHospitalList">
+                    <tab
+                        v-for="group in ['own', 'alliance', 'all']"
+                        :title="group"
+                        :key="group"
+                    ></tab>
+                </tabs>
+                <enhanced-table
+                    :head="hospital_head"
+                    :table-attrs="{ class: 'table' }"
+                    :search="search"
+                    @search="setSearch"
+                    :sort="sort"
+                    :sort-dir="sortDir"
+                    @sort="setSort"
+                >
+                    <tr
+                        v-for="hospital in hospitalListSorted"
+                        :key="hospital.id"
+                        :class="{ hidden: hospital.hidden }"
+                    >
+                        <td>
+                            <a
+                                :href="`/buildings/${hospital.id}`"
+                                class="lightbox-open"
+                            >
+                                {{ hospital.caption }}
+                            </a>
+                        </td>
+                        <td>{{ hospital.distance }}</td>
+                        <td>{{ hospital.beds }}</td>
+                        <td v-if="hospitalListSrc">
+                            {{ hospital.tax }}
+                            %
+                        </td>
+                        <td>
+                            <span
+                                class="label"
+                                :class="
+                                    `label-${
+                                        hospital.department
+                                            ? 'success'
+                                            : 'warning'
+                                    }`
+                                "
+                            >
+                                {{ hospital.department }}
+                            </span>
+                        </td>
+                        <td>nafahra</td>
+                    </tr>
+                </enhanced-table>
+            </div>
             <div class="btn-group nav-btns">
                 <button
                     class="btn btn-xs lightbox-open"
@@ -273,7 +333,7 @@ import { VehicleWindow } from '../parsers/vehicle';
 
 export default Vue.extend<
     {
-        head: {
+        mission_head: {
             [key: string]: {
                 title: string;
                 noSort?: boolean;
@@ -284,9 +344,11 @@ export default Vue.extend<
         searchTimeout: null | number;
         sort: string;
         sortDir: 'asc' | 'desc';
+        hospitalListSrc: number;
     },
     {
         setMissionList(_: unknown, group: number): void;
+        setHospitalList(_: unknown, group: number): void;
         setSearch(search: string): void;
         setSort(type: string): void;
     },
@@ -294,6 +356,15 @@ export default Vue.extend<
         missionList: VehicleWindow['mission_own'];
         missionListFiltered: VehicleWindow['mission_own'];
         missionListSorted: VehicleWindow['mission_own'];
+        hospital_head: {
+            [key: string]: {
+                title: string;
+                noSort?: boolean;
+            };
+        };
+        hospitalList: VehicleWindow['own_hospitals'];
+        hospitalListFiltered: VehicleWindow['own_hospitals'];
+        hospitalListSorted: VehicleWindow['own_hospitals'];
     },
     { vehicle: VehicleWindow }
 >({
@@ -310,7 +381,7 @@ export default Vue.extend<
     },
     data() {
         return {
-            head: {
+            mission_head: {
                 img: {
                     title: '',
                     noSort: true,
@@ -340,6 +411,7 @@ export default Vue.extend<
             searchTimeout: null,
             sort: 'distance',
             sortDir: 'asc',
+            hospitalListSrc: 0,
         };
     },
     computed: {
@@ -399,6 +471,72 @@ export default Vue.extend<
                 return f < s ? -1 * modifier : f > s ? modifier : 0;
             });
         },
+        hospital_head() {
+            return {
+                caption: {
+                    title: 'hospital',
+                },
+                distance: {
+                    title: 'distance',
+                },
+                beds: {
+                    title: 'beds',
+                },
+                ...(this.hospitalListSrc ? { tax: { title: 'tax' } } : {}),
+                department: {
+                    title: 'department',
+                },
+                dispatch: {
+                    title: '',
+                    noSort: true,
+                },
+            };
+        },
+        hospitalList() {
+            return [
+                ...this.vehicle.own_hospitals,
+                ...this.vehicle.alliance_hospitals,
+            ].sort((a, b) => {
+                const l = parseInt(
+                    a.distance.match(/\d+([,.]?\d+)?/)?.[0] ?? '-1'
+                );
+                const r = parseInt(
+                    b.distance.match(/\d+([,.]?\d+)?/)?.[0] ?? '-1'
+                );
+                return l < r ? -1 : l > r ? 1 : 0;
+            });
+        },
+        hospitalListFiltered() {
+            return this.hospitalList.map(m => ({
+                ...m,
+                hidden: !(
+                    (this.hospitalListSrc === 2 ||
+                        (this.hospitalListSrc === 0 &&
+                            m.list === 'own_hospitals') ||
+                        (this.hospitalListSrc === 1 &&
+                            m.list === 'alliance_hospitals')) &&
+                    JSON.stringify(Object.values(m))
+                        .toLowerCase()
+                        .match(this.search.trim().toLowerCase())
+                ),
+            }));
+        },
+        hospitalListSorted() {
+            if (this.sort === 'distance') {
+                if (this.sortDir === 'asc') return this.hospitalListFiltered;
+                return [...this.hospitalListFiltered].reverse();
+            }
+            const modifier = this.sortDir === 'desc' ? -1 : 1;
+            return [...this.hospitalListFiltered].sort((a, b) => {
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
+                let f = a[this.sort] ?? '';
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
+                let s = b[this.sort] ?? '';
+                return f < s ? -1 * modifier : f > s ? modifier : 0;
+            });
+        },
     },
     methods: {
         setMissionList(_, list) {
@@ -418,6 +556,9 @@ export default Vue.extend<
                 this.sort = type;
                 this.sortDir = 'asc';
             }
+        },
+        setHospitalList(_, list) {
+            this.hospitalListSrc = list;
         },
     },
     props: {
@@ -446,7 +587,7 @@ export default Vue.extend<
         margin-left: 1em
         margin-right: 1em
 
-        &.mission-tabs
+        &.table-tabs
             width: 100%
 
 .vehicle-img
