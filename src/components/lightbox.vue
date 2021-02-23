@@ -1,5 +1,5 @@
 <template>
-    <div :class="{ titleHidden }">
+    <div :class="{ titleHidden, fullHeight }">
         <div class="controlbtn-container">
             <span
                 v-if="!noXBtn"
@@ -91,6 +91,11 @@ export default Vue.extend<
             required: false,
             default: false,
         },
+        fullHeight: {
+            type: Boolean,
+            required: false,
+            default: false,
+        },
     },
     methods: {
         expand() {
@@ -142,4 +147,7 @@ h1
 
     .toggle-title svg
         transform: rotate(180deg)
+
+.fullHeight
+    height: 100%
 </style>

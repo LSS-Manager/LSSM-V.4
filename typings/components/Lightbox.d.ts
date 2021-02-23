@@ -17,6 +17,7 @@ export interface LightboxProps {
     noXBtn: boolean;
     noFullscreen: boolean;
     noTitleHide: boolean;
+    fullHeight: boolean;
 }
 
 export interface LightboxMethods {

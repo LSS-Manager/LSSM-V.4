@@ -1,22 +1,34 @@
 <template>
-    <lightbox name="redesign-lightbox">
+    <lightbox name="redesign-lightbox" full-height :no-title-hide="!type">
         <div v-if="type === 'vehicle'">
-            <Vehicle :vehicle="data"></Vehicle>
+            <Vehicle :vehicle="data" :lightbox="this"></Vehicle>
         </div>
-        <iframe v-else :src="url"></iframe>
+        <div v-show="!type" class="iframe-wrapper">
+            <iframe
+                ref="iframe"
+                :src="url"
+                :id="$store.getters.nodeAttribute('redesign-lightbox-iframe')"
+            ></iframe>
+        </div>
     </lightbox>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
 import { VehicleWindow } from '../parsers/vehicle';
-import { DefaultComputed } from 'vue/types/options';
+import { DefaultComputed, DefaultMethods } from 'vue/types/options';
 
 type types = 'vehicle';
 
 const routeChecks = {
     '^/vehicles/\\d+/?$': 'vehicle',
 } as Record<string, types>;
+
+interface Data<T, D> {
+    type: T;
+    data: D;
+    html: string;
+}
 
 const getIdFromEl = (el: HTMLAnchorElement | null): number =>
     parseInt(
@@ -26,14 +38,8 @@ const getIdFromEl = (el: HTMLAnchorElement | null): number =>
     );
 
 export default Vue.extend<
-    {
-        type: 'vehicle';
-        data: VehicleWindow;
-        html: string;
-    },
-    {
-        parse(url: string): void;
-    },
+    Data<'', null> | Data<'vehicle', VehicleWindow>,
+    DefaultMethods<Vue>,
     DefaultComputed,
     { url: string }
 >({
@@ -51,7 +57,7 @@ export default Vue.extend<
     data() {
         return {
             type: '',
-            data: {},
+            data: null,
             html: '',
         };
     },
@@ -61,31 +67,48 @@ export default Vue.extend<
             required: true,
         },
     },
-    methods: {
-        parse(url) {
-            const type = Object.entries(routeChecks).find(([regex]) =>
-                new URL(url, window.location.href).pathname.match(regex)
-            )?.[1];
-            if (!type) return (this.type = '');
+    computed: {
+        src: {
+            get() {
+                return this.src ?? this.url;
+            },
+            set(url) {
+                const type = Object.entries(routeChecks).find(([regex]) =>
+                    new URL(url, window.location.href).pathname.match(regex)
+                )?.[1];
+                if (!type) {
+                    this.type = '';
+                    if (this.$refs.iframe)
+                        (this.$refs.iframe as HTMLIFrameElement).src = url;
+                    return;
+                }
 
-            this.$store
-                .dispatch('api/request', {
-                    url,
-                    feature: `redesign-${type}`,
-                })
-                .then((res: Response) => res.text())
-                .then(html =>
-                    import(
-                        /*webpackChunkName: "modules/redesign/parsers/[request]"*/ `../parsers/${type}`
-                    ).then(parser => {
-                        this.type = type;
-                        this.data = parser.default(html, url, getIdFromEl);
+                this.$store
+                    .dispatch('api/request', {
+                        url,
+                        feature: `redesign-${type}`,
                     })
-                );
+                    .then((res: Response) => res.text())
+                    .then(html =>
+                        import(
+                            /*webpackChunkName: "modules/redesign/parsers/[request]"*/ `../parsers/${type}`
+                        ).then(parser => {
+                            this.data = parser.default(html, url, getIdFromEl);
+                            this.type = type;
+                        })
+                    );
+            },
         },
     },
     mounted() {
-        this.parse(this.url);
+        this.src = this.url;
     },
 });
 </script>
+
+<style lang="sass" scoped>
+.iframe-wrapper
+    &, iframe
+        width: 100%
+        height: 100%
+</style>

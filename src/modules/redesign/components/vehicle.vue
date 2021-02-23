@@ -11,10 +11,7 @@
                         <tr v-if="vehicle.user">
                             <th>owner</th>
                             <td>
-                                <a
-                                    class="lightbox-open"
-                                    :href="`/profile/${vehicle.user.id}`"
-                                >
+                                <a :href="`/profile/${vehicle.user.id}`">
                                     <img
                                         :src="
                                             `/images/user_${
@@ -32,17 +29,14 @@
                         <tr>
                             <th>station</th>
                             <td>
-                                <a
-                                    class="lightbox-open"
-                                    :href="`/buildings/${vehicle.building.id}`"
-                                >
+                                <a :href="`/buildings/${vehicle.building.id}`">
                                     {{ vehicle.building.caption }}
                                 </a>
                             </td>
                             <td>
                                 <a
                                     :href="`/vehicles/${vehicle.id}/move`"
-                                    class="btn btn-default btn-xs lightbox-open"
+                                    class="btn btn-default btn-xs"
                                 >
                                     move
                                 </a>
@@ -64,7 +58,7 @@
                                                 : ''
                                         }`
                                     "
-                                    class="btn btn-default btn-xs lightbox-open"
+                                    class="btn btn-default btn-xs"
                                 >
                                     edit color
                                 </a>
@@ -109,7 +103,6 @@
                                     :href="
                                         `/missions/${vehicle.current_mission.id}`
                                     "
-                                    class="lightbox-open"
                                 >
                                     {{ vehicle.current_mission.caption }}
                                 </a>
@@ -123,10 +116,7 @@
                                         v-for="mission in vehicle.followup_missions"
                                         :key="mission.id"
                                     >
-                                        <a
-                                            :href="`/missions/${mission.id}`"
-                                            class="lightbox-open"
-                                        >
+                                        <a :href="`/missions/${mission.id}`">
                                             {{ mission.caption }}
                                         </a>
                                     </li>
@@ -190,11 +180,9 @@
                         </td>
                         <td>männle / starndl</td>
                         <td>
-                            <a
-                                :href="`/missions/${mission.id}`"
-                                class="lightbox-open"
-                                >{{ mission.caption }}</a
-                            >
+                            <a :href="`/missions/${mission.id}`">{{
+                                mission.caption
+                            }}</a>
                             <br />
                             <small>{{ mission.adress }}</small>
                         </td>
@@ -254,10 +242,7 @@
                         :class="{ hidden: hospital.hidden }"
                     >
                         <td>
-                            <a
-                                :href="`/buildings/${hospital.id}`"
-                                class="lightbox-open"
-                            >
+                            <a :href="`/buildings/${hospital.id}`">
                                 {{ hospital.caption }}
                             </a>
                         </td>
@@ -287,7 +272,7 @@
             </div>
             <div class="btn-group nav-btns">
                 <button
-                    class="btn btn-xs lightbox-open"
+                    class="btn btn-xs"
                     :class="
                         `btn-${
                             vehicle.id === vehicle.previous_vehicle_id
@@ -305,7 +290,7 @@
                     <span class="glyphicon glyphicon-arrow-left"></span>
                 </button>
                 <button
-                    class="btn btn-xs lightbox-open"
+                    class="btn btn-xs"
                     :class="
                         `btn-${
                             vehicle.id === vehicle.next_vehicle_id
@@ -330,6 +315,7 @@
 <script lang="ts">
 import Vue from 'vue';
 import { VehicleWindow } from '../parsers/vehicle';
+import RedesignLightbox from './lightbox.vue';
 
 export default Vue.extend<
     {
@@ -366,7 +352,7 @@ export default Vue.extend<
         hospitalListFiltered: VehicleWindow['own_hospitals'];
         hospitalListSorted: VehicleWindow['own_hospitals'];
     },
-    { vehicle: VehicleWindow }
+    { vehicle: VehicleWindow; lightbox: Vue }
 >({
     name: 'vehicle-lightbox',
     components: {
@@ -562,6 +548,18 @@ export default Vue.extend<
             type: Object,
             required: true,
         },
+        lightbox: {
+            type: Object,
+            required: true,
+        },
+    },
+    mounted() {
+        this.$el.addEventListener('click', e => {
+            e.preventDefault();
+            const target = (e.target as HTMLElement)?.closest('a');
+            if (!target) return;
+            this.$set(this.lightbox, 'src', target.href);
+        });
     },
 });
 </script>
