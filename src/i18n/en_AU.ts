@@ -858,6 +858,10 @@ export default {
                 caption: 'Ocean Navigation',
                 duration: '5 Days',
             },
+            {
+                caption: 'Intensive Care Education',
+                duration: '5 Days',
+            },
         ],
         'Police': [
             {
