@@ -49,7 +49,14 @@ export default (LSSM => {
                 );
                 if (modal) {
                     modal.style.padding = '0';
-                    modal.style.setProperty('overflow', 'hidden', 'important');
+                    const isIframe = !!modal.querySelector<HTMLDivElement>(
+                        '.is-iframe'
+                    );
+                    modal.style.setProperty(
+                        'overflow',
+                        isIframe ? 'hidden' : null,
+                        'important'
+                    );
                 }
                 return false;
             },

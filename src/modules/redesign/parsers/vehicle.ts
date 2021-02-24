@@ -13,6 +13,7 @@ interface Mission {
         current: number;
         total: number;
     };
+    status: 'red' | 'yellow' | 'green';
 }
 
 interface Hospital {
@@ -209,6 +210,7 @@ export default (
                                     ?.match(/\d+$/)?.[0] ?? '-1'
                             ),
                         },
+                        status: m.getAttribute('data-mission-status') ?? 'red',
                     };
                 }),
             ])

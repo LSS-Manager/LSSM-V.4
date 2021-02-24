@@ -1,5 +1,5 @@
 <template>
-    <div :class="{ titleHidden, fullHeight }">
+    <div :class="{ titleHidden, fullHeight, ...extraClasses }">
         <div class="controlbtn-container">
             <span
                 v-if="!noXBtn"
@@ -96,6 +96,11 @@ export default Vue.extend<
             required: false,
             default: false,
         },
+        extraClasses: {
+            type: Object,
+            required: false,
+            default: {}
+        }
     },
     methods: {
         expand() {

@@ -1,5 +1,10 @@
 <template>
-    <lightbox name="redesign-lightbox" full-height :no-title-hide="!type">
+    <lightbox
+        name="redesign-lightbox"
+        full-height
+        :no-title-hide="!type"
+        :extra-classes="{ 'is-iframe': !type }"
+    >
         <div v-if="type === 'vehicle'">
             <Vehicle :vehicle="data" :lightbox="this"></Vehicle>
         </div>

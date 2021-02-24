@@ -75,7 +75,7 @@
                                 </span>
                             </td>
                             <td>
-                                switch FMS (2 ←→ 6)
+                                switch FMS (2 ←→ 6) / backalarm
                             </td>
                         </tr>
                         <tr>
@@ -190,7 +190,12 @@
                         <td>
                             <div class="progress">
                                 <div
-                                    class="progress-bar progress-bar-danger"
+                                    class="progress-bar"
+                                    :class="
+                                        `progress-bar-${
+                                            color2Class[mission.status]
+                                        }`
+                                    "
                                     :style="
                                         `width: ${mission.progress.width}%;`
                                     "
@@ -315,7 +320,6 @@
 <script lang="ts">
 import Vue from 'vue';
 import { VehicleWindow } from '../parsers/vehicle';
-import RedesignLightbox from './lightbox.vue';
 
 export default Vue.extend<
     {
@@ -331,6 +335,11 @@ export default Vue.extend<
         sort: string;
         sortDir: 'asc' | 'desc';
         hospitalListSrc: number;
+        color2Class: {
+            red: 'danger';
+            yellow: 'warning';
+            green: 'success';
+        };
     },
     {
         setMissionList(_: unknown, group: number): void;
@@ -394,6 +403,11 @@ export default Vue.extend<
             sort: 'distance',
             sortDir: 'asc',
             hospitalListSrc: 0,
+            color2Class: {
+                red: 'danger',
+                yellow: 'warning',
+                green: 'success',
+            },
         };
     },
     computed: {
