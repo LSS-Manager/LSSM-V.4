@@ -5,150 +5,192 @@
             <img :src="vehicle.image" alt="" class="vehicle-img" />
         </h1>
         <div class="vehicle-window">
-            <div class="well">
-                <table class="table">
-                    <tbody>
-                        <tr v-if="vehicle.user">
-                            <th>owner</th>
-                            <td>
-                                <a :href="`/profile/${vehicle.user.id}`">
-                                    <img
-                                        :src="
-                                            `/images/user_${
-                                                vehicle.user.online
-                                                    ? 'green'
-                                                    : 'gray'
-                                            }.png`
+            <div>
+                <div class="well">
+                    <table class="table">
+                        <tbody>
+                            <tr v-if="vehicle.user">
+                                <th>owner</th>
+                                <td>
+                                    <a :href="`/profile/${vehicle.user.id}`">
+                                        <img
+                                            :src="
+                                                `/images/user_${
+                                                    vehicle.user.online
+                                                        ? 'green'
+                                                        : 'gray'
+                                                }.png`
+                                            "
+                                            alt=""
+                                        />
+                                        {{ vehicle.user.name }}
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>station</th>
+                                <td>
+                                    <a
+                                        :href="
+                                            `/buildings/${vehicle.building.id}`
                                         "
-                                        alt=""
-                                    />
-                                    {{ vehicle.user.name }}
-                                </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>station</th>
-                            <td>
-                                <a :href="`/buildings/${vehicle.building.id}`">
-                                    {{ vehicle.building.caption }}
-                                </a>
-                            </td>
-                            <td>
-                                <a
-                                    :href="`/vehicles/${vehicle.id}/move`"
-                                    class="btn btn-default btn-xs"
-                                >
-                                    move
-                                </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>vehicletype</th>
-                            <td>
-                                {{ vehicle.vehicle_type.caption }}
-                            </td>
-                            <td>
-                                <a
-                                    :href="
-                                        `/fahrzeugfarbe/${
-                                            vehicle.vehicle_type.id
-                                        }${
-                                            vehicle.vehicle_type.custom
-                                                ? `?vehicle_type_caption=${vehicle.vehicle_type.caption}`
-                                                : ''
-                                        }`
-                                    "
-                                    class="btn btn-default btn-xs"
-                                >
-                                    edit color
-                                </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>FMS</th>
-                            <td>
-                                <span
-                                    class="building_list_fms"
-                                    :class="`building_list_fms_${vehicle.fms}`"
-                                >
-                                    {{ $i18n.t('fmsReal2Show')[vehicle.fms] }}
-                                </span>
-                            </td>
-                            <td>
-                                switch FMS (2 ←→ 6) / backalarm
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>max staff</th>
-                            <td>
-                                {{ vehicle.max_staff }}
-                            </td>
-                        </tr>
-                        <tr v-if="vehicle.water_amount">
-                            <th>water amount</th>
-                            <td>
-                                {{ vehicle.water_amount }}
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>mileage</th>
-                            <td>
-                                {{ vehicle.mileage }}
-                            </td>
-                        </tr>
-                        <tr v-if="vehicle.current_mission">
-                            <th>current mission</th>
-                            <td>
-                                <a
-                                    :href="
-                                        `/missions/${vehicle.current_mission.id}`
-                                    "
-                                >
-                                    {{ vehicle.current_mission.caption }}
-                                </a>
-                            </td>
-                        </tr>
-                        <tr v-if="vehicle.followup_missions.length">
-                            <th>followup missions</th>
-                            <td>
-                                <ul>
-                                    <li
-                                        v-for="mission in vehicle.followup_missions"
-                                        :key="mission.id"
                                     >
-                                        <a :href="`/missions/${mission.id}`">
-                                            {{ mission.caption }}
-                                        </a>
-                                    </li>
-                                </ul>
-                            </td>
-                        </tr>
-                        <tr v-if="Object.keys(vehicle.staff).length">
-                            <th>schdaff</th>
-                            <td>
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th>namö</th>
-                                            <th>schooling</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr
-                                            v-for="(schooling,
-                                            name,
-                                            index) in vehicle.staff"
-                                            :key="index"
+                                        {{ vehicle.building.caption }}
+                                    </a>
+                                </td>
+                                <td>
+                                    <a
+                                        :href="`/vehicles/${vehicle.id}/move`"
+                                        class="btn btn-default btn-xs"
+                                    >
+                                        move
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>vehicletype</th>
+                                <td>
+                                    {{ vehicle.vehicle_type.caption }}
+                                </td>
+                                <td>
+                                    <a
+                                        :href="
+                                            `/fahrzeugfarbe/${
+                                                vehicle.vehicle_type.id
+                                            }${
+                                                vehicle.vehicle_type.custom
+                                                    ? `?vehicle_type_caption=${vehicle.vehicle_type.caption}`
+                                                    : ''
+                                            }`
+                                        "
+                                        class="btn btn-default btn-xs"
+                                    >
+                                        edit color
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>FMS</th>
+                                <td>
+                                    <span
+                                        class="building_list_fms"
+                                        :class="
+                                            `building_list_fms_${vehicle.fms}`
+                                        "
+                                    >
+                                        {{
+                                            $i18n.t('fmsReal2Show')[vehicle.fms]
+                                        }}
+                                    </span>
+                                </td>
+                                <td>
+                                    switch FMS (2 ←→ 6) / backalarm
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>max staff</th>
+                                <td>
+                                    {{ vehicle.max_staff }}
+                                </td>
+                            </tr>
+                            <tr v-if="vehicle.water_amount">
+                                <th>water amount</th>
+                                <td>
+                                    {{ vehicle.water_amount }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>mileage</th>
+                                <td>
+                                    {{ vehicle.mileage }}
+                                </td>
+                            </tr>
+                            <tr v-if="vehicle.current_mission">
+                                <th>current mission</th>
+                                <td>
+                                    <a
+                                        :href="
+                                            `/missions/${vehicle.current_mission.id}`
+                                        "
+                                    >
+                                        {{ vehicle.current_mission.caption }}
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr v-if="vehicle.followup_missions.length">
+                                <th>followup missions</th>
+                                <td>
+                                    <ul>
+                                        <li
+                                            v-for="mission in vehicle.followup_missions"
+                                            :key="mission.id"
                                         >
-                                            <td>{{ name }}</td>
-                                            <td>{{ schooling }}</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                                            <a
+                                                :href="
+                                                    `/missions/${mission.id}`
+                                                "
+                                            >
+                                                {{ mission.caption }}
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr v-if="Object.keys(vehicle.staff).length">
+                                <th>schdaff</th>
+                                <td>
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>namö</th>
+                                                <th>schooling</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr
+                                                v-for="(schooling,
+                                                name,
+                                                index) in vehicle.staff"
+                                                :key="index"
+                                            >
+                                                <td>{{ name }}</td>
+                                                <td>{{ schooling }}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="btn-group pull-right" v-if="!vehicle.user">
+                    <a
+                        :href="`/vehicles/${vehicle.id}/edit`"
+                        class="btn btn-default"
+                    >
+                        edüt
+                    </a>
+                    <a
+                        :href="`/vehicles/${vehicle.id}/stats`"
+                        class="btn btn-default"
+                    >
+                        Statistiken
+                    </a>
+                    <a
+                        :href="`/vehicles/${vehicle.id}/zuweisung`"
+                        class="btn btn-default"
+                    >
+                        Leude druff
+                    </a>
+
+                    <button
+                        class="btn btn-danger"
+                        disabled
+                        v-if="vehicle.fms === 2"
+                    >
+                        löschen
+                    </button>
+                </div>
             </div>
             <div
                 v-if="!vehicle.user && !vehicle.has_hospitals"
@@ -676,10 +718,10 @@ export default Vue.extend<
 .vehicle-window
     display: flex
 
-    > .well
+    > div:first-child
         width: calc(100% / 3)
 
-        > table > tbody > tr
+        > .well > table > tbody > tr
             > *
                 border-top-width: 0
             > th
