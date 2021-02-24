@@ -332,7 +332,7 @@
                             ? '#'
                             : `/vehicles/${vehicle.previous_vehicle_id}`
                     "
-                    disabled
+                    :disabled="vehicle.id === vehicle.previous_vehicle_id"
                 >
                     <span class="glyphicon glyphicon-arrow-left"></span>
                 </button>
@@ -350,7 +350,7 @@
                             ? '#'
                             : `/vehicles/${vehicle.next_vehicle_id}`
                     "
-                    disabled
+                    :disabled="vehicle.id === vehicle.next_vehicle_id"
                 >
                     <span class="glyphicon glyphicon-arrow-right"></span>
                 </button>
@@ -662,9 +662,11 @@ export default Vue.extend<
     mounted() {
         this.$el.addEventListener('click', e => {
             e.preventDefault();
-            const target = (e.target as HTMLElement)?.closest('a');
-            if (!target) return;
-            this.$set(this.lightbox, 'src', target.href);
+            const target = (e.target as HTMLElement)?.closest<
+                HTMLAnchorElement | HTMLButtonElement
+            >('a, button');
+            if (!target || !target.hasAttribute('href')) return;
+            this.$set(this.lightbox, 'src', target.getAttribute('href'));
         });
     },
 });
