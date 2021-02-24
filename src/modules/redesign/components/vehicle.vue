@@ -216,7 +216,22 @@
                             {{ mission.patients.total }}
                         </td>
                         <td>
-                            'alarm'
+                            <button
+                                @click.prevent="alarm(mission.id)"
+                                class="btn btn-success"
+                            >
+                                nafahra
+                            </button>
+                            <span
+                                class="label label-default"
+                                v-if="
+                                    vehicle.current_mission &&
+                                        mission.id ===
+                                            vehicle.current_mission.id
+                                "
+                            >
+                                is scho dahanna na alarmiert
+                            </span>
                         </td>
                     </tr>
                 </enhanced-table>
@@ -346,6 +361,7 @@ export default Vue.extend<
         setHospitalList(_: unknown, group: number): void;
         setSearch(search: string): void;
         setSort(type: string): void;
+        alarm(missionId: number): void;
     },
     {
         missionList: VehicleWindow['mission_own'];
@@ -555,6 +571,44 @@ export default Vue.extend<
         },
         setHospitalList(_, list) {
             this.hospitalListSrc = list;
+        },
+        alarm(mission) {
+            const url = new URL(
+                `/missions/${mission}/alarm`,
+                window.location.href
+            );
+            url.searchParams.append('utf8', '✓');
+            url.searchParams.append(
+                'authenticity_token',
+                this.vehicle.authenticity_token
+            );
+            url.searchParams.append(
+                'vehicle_ids[]',
+                this.vehicle.id.toString()
+            );
+            url.searchParams.append('vehicle_return', '1');
+            this.$store
+                .dispatch('api/request', {
+                    url: `/missions/${mission}/alarm`,
+                    init: {
+                        credentials: 'include',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded',
+                        },
+                        referrer: `https://www.leitstellenspiel.de/vehicles/${this.vehicle.id}`,
+                        body: url.searchParams.toString(),
+                        method: 'POST',
+                        mode: 'cors',
+                    },
+                    feature: `redesign-vehicle-alarm-${this.vehicle.id}-to-${mission}`,
+                })
+                .then(() =>
+                    this.$set(
+                        this.lightbox,
+                        'src',
+                        `/vehicles/${this.vehicle.id}`
+                    )
+                );
         },
     },
     props: {

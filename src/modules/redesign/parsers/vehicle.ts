@@ -65,6 +65,7 @@ export interface VehicleWindow {
     own_hospitals: Hospital[];
     alliance_hospitals: Hospital[];
     has_hospitals: boolean;
+    authenticity_token: string;
 }
 
 // TODO: Speech requests
@@ -262,5 +263,8 @@ export default (
             alliance_hospitals: Hospital[];
         }),
         has_hospitals: hasHospitals,
+        authenticity_token:
+            doc.querySelector<HTMLMetaElement>('meta[name="csrf-token"]')
+                ?.content ?? '',
     };
 };
