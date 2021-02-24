@@ -99,8 +99,8 @@ export default Vue.extend<
         extraClasses: {
             type: Object,
             required: false,
-            default: {}
-        }
+            default: () => ({}),
+        },
     },
     methods: {
         expand() {

@@ -1,20 +1,14 @@
 <template>
-    <lightbox
-        name="redesign-lightbox"
-        full-height
-        :no-title-hide="!type"
-        :extra-classes="{ 'is-iframe': !type }"
-    >
+    <lightbox name="redesign-lightbox" full-height :no-title-hide="!type">
         <div v-if="type === 'vehicle'">
             <Vehicle :vehicle="data" :lightbox="this"></Vehicle>
         </div>
-        <div v-show="!type" class="iframe-wrapper">
-            <iframe
-                ref="iframe"
-                :src="url"
-                :id="$store.getters.nodeAttribute('redesign-lightbox-iframe')"
-            ></iframe>
-        </div>
+        <iframe
+            v-if="!type"
+            ref="iframe"
+            :src="url"
+            :id="$store.getters.nodeAttribute('redesign-lightbox-iframe')"
+        ></iframe>
     </lightbox>
 </template>
 
@@ -112,8 +106,8 @@ export default Vue.extend<
 </script>
 
 <style lang="sass" scoped>
-.iframe-wrapper
-    &, iframe
-        width: 100%
-        height: 100%
+iframe
+    width: 100%
+    height: 100%
+    display: block
 </style>

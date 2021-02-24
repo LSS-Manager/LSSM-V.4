@@ -215,7 +215,9 @@ export default Vue.extend<
         },
     },
     beforeMount() {
-        this.$store.dispatch('api/registerAllianceinfoUsage');
+        this.$store.dispatch('api/registerAllianceinfoUsage', {
+            feature: 'lssmaql-beforeMount',
+        });
         this.$store.dispatch('api/registerBuildingsUsage', {
             feature: 'lssmaql-beforeMount',
         });

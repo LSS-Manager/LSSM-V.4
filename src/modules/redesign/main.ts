@@ -47,17 +47,8 @@ export default (LSSM => {
                 const modal = document.querySelector<HTMLDivElement>(
                     '.vm--overlay[data-modal="redesign-lightbox"] ~ .vm--modal'
                 );
-                if (modal) {
-                    modal.style.padding = '0';
-                    const isIframe = !!modal.querySelector<HTMLDivElement>(
-                        '.is-iframe'
-                    );
-                    modal.style.setProperty(
-                        'overflow',
-                        isIframe ? 'hidden' : null,
-                        'important'
-                    );
-                }
+                if (modal) modal.style.padding = '0';
+
                 return false;
             },
         })
