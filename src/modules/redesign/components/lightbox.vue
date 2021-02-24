@@ -1,5 +1,9 @@
 <template>
-    <lightbox name="redesign-lightbox" full-height :no-title-hide="!type">
+    <lightbox
+        name="redesign-lightbox"
+        :full-height="!type"
+        :no-title-hide="!type"
+    >
         <div v-if="type === 'vehicle'">
             <Vehicle :vehicle="data" :lightbox="this"></Vehicle>
         </div>
