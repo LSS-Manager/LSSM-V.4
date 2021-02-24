@@ -59,10 +59,8 @@ export default (LSSM => {
     LSSM.$store
         .dispatch('hook', {
             event: 'lightboxClose',
-            abortOnFalse: true,
             callback() {
                 LSSM.$modal.hide('redesign-lightbox');
-                return false;
             },
         })
         .then();
