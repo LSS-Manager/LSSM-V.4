@@ -4,7 +4,7 @@
             <Vehicle :vehicle="data" :lightbox="this"></Vehicle>
         </div>
         <iframe
-            v-if="!type"
+            v-show="!type"
             ref="iframe"
             :src="url"
             :id="$store.getters.nodeAttribute('redesign-lightbox-iframe')"
@@ -76,9 +76,9 @@ export default Vue.extend<
                     new URL(url, window.location.href).pathname.match(regex)
                 )?.[1];
                 if (!type) {
-                    this.type = '';
                     if (this.$refs.iframe)
                         (this.$refs.iframe as HTMLIFrameElement).src = url;
+                    this.type = '';
                     return;
                 }
 

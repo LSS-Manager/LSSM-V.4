@@ -175,6 +175,15 @@
                         :key="mission.id"
                         :class="{ hidden: mission.hidden }"
                     >
+                        <td v-if="missionListSrc === 2">
+                            <font-awesome-icon
+                                :icon="
+                                    mission.list === 'mission_own'
+                                        ? faPortrait
+                                        : faSitemap
+                                "
+                            ></font-awesome-icon>
+                        </td>
                         <td>
                             <img :src="mission.image" :alt="mission.caption" />
                         </td>
@@ -261,6 +270,15 @@
                         :key="hospital.id"
                         :class="{ hidden: hospital.hidden }"
                     >
+                        <td v-if="hospitalListSrc === 2">
+                            <font-awesome-icon
+                                :icon="
+                                    hospital.list === 'own_hospitals'
+                                        ? faPortrait
+                                        : faSitemap
+                                "
+                            ></font-awesome-icon>
+                        </td>
                         <td>
                             <a :href="`/buildings/${hospital.id}`">
                                 {{ hospital.caption }}
@@ -286,7 +304,16 @@
                                 {{ hospital.department }}
                             </span>
                         </td>
-                        <td>nafahra</td>
+                        <td>
+                            <a
+                                :href="
+                                    `/vehicles/${vehicle.id}/patient/${hospital.id}`
+                                "
+                                class="btn btn-success"
+                            >
+                                nafahra
+                            </a>
+                        </td>
                     </tr>
                 </enhanced-table>
             </div>
@@ -334,16 +361,15 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import { faSitemap } from '@fortawesome/free-solid-svg-icons/faSitemap';
+import { faPortrait } from '@fortawesome/free-solid-svg-icons/faPortrait';
 import { VehicleWindow } from '../parsers/vehicle';
+import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 
 export default Vue.extend<
     {
-        mission_head: {
-            [key: string]: {
-                title: string;
-                noSort?: boolean;
-            };
-        };
+        faSitemap: IconDefinition;
+        faPortrait: IconDefinition;
         missionListSrc: number;
         search: string;
         searchTimeout: null | number;
@@ -364,6 +390,12 @@ export default Vue.extend<
         alarm(missionId: number): void;
     },
     {
+        mission_head: {
+            [key: string]: {
+                title: string;
+                noSort?: boolean;
+            };
+        };
         missionList: VehicleWindow['mission_own'];
         missionListFiltered: VehicleWindow['mission_own'];
         missionListSorted: VehicleWindow['mission_own'];
@@ -388,7 +420,25 @@ export default Vue.extend<
     },
     data() {
         return {
-            mission_head: {
+            faSitemap,
+            faPortrait,
+            missionListSrc: 0,
+            search: '',
+            searchTimeout: null,
+            sort: 'distance',
+            sortDir: 'asc',
+            hospitalListSrc: 0,
+            color2Class: {
+                red: 'danger',
+                yellow: 'warning',
+                green: 'success',
+            },
+        };
+    },
+    computed: {
+        mission_head() {
+            return {
+                ...(this.missionListSrc === 2 ? { list: { title: '' } } : {}),
                 img: {
                     title: '',
                     noSort: true,
@@ -412,21 +462,8 @@ export default Vue.extend<
                     title: '',
                     noSort: true,
                 },
-            },
-            missionListSrc: 0,
-            search: '',
-            searchTimeout: null,
-            sort: 'distance',
-            sortDir: 'asc',
-            hospitalListSrc: 0,
-            color2Class: {
-                red: 'danger',
-                yellow: 'warning',
-                green: 'success',
-            },
-        };
-    },
-    computed: {
+            };
+        },
         missionList() {
             return [
                 ...this.vehicle.mission_own,
@@ -485,6 +522,7 @@ export default Vue.extend<
         },
         hospital_head() {
             return {
+                ...(this.hospitalListSrc === 2 ? { list: { title: '' } } : {}),
                 caption: {
                     title: 'hospital',
                 },
