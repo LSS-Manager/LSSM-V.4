@@ -230,11 +230,15 @@
                             <img :src="mission.image" :alt="mission.caption" />
                         </td>
                         <td>
-                            {{
-                                participated_missions.includes(
-                                    mission.id.toString()
-                                )
-                            }}
+                            <font-awesome-icon
+                                :icon="
+                                    participated_missions.includes(
+                                        mission.id.toString()
+                                    )
+                                        ? faUser
+                                        : faAsterisk
+                                "
+                            ></font-awesome-icon>
                         </td>
                         <td>
                             <a :href="`/missions/${mission.id}`">{{
@@ -412,6 +416,8 @@
 import Vue from 'vue';
 import { faSitemap } from '@fortawesome/free-solid-svg-icons/faSitemap';
 import { faPortrait } from '@fortawesome/free-solid-svg-icons/faPortrait';
+import { faUser } from '@fortawesome/free-solid-svg-icons/faUser';
+import { faAsterisk } from '@fortawesome/free-solid-svg-icons/faAsterisk';
 import { VehicleWindow } from '../parsers/vehicle';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { Vehicle } from 'typings/Vehicle';
@@ -420,6 +426,8 @@ export default Vue.extend<
     {
         faSitemap: IconDefinition;
         faPortrait: IconDefinition;
+        faUser: IconDefinition;
+        faAsterisk: IconDefinition;
         missionListSrc: number;
         search: string;
         searchTimeout: null | number;
@@ -473,6 +481,8 @@ export default Vue.extend<
         return {
             faSitemap,
             faPortrait,
+            faUser,
+            faAsterisk,
             missionListSrc: 0,
             search: '',
             searchTimeout: null,
