@@ -12,6 +12,7 @@
             ref="iframe"
             :src="url"
             :id="$store.getters.nodeAttribute('redesign-lightbox-iframe')"
+            :name="$store.getters.nodeAttribute('redesign-lightbox-iframe')"
         ></iframe>
     </lightbox>
 </template>
@@ -76,12 +77,21 @@ export default Vue.extend<
                 return this.src ?? this.url;
             },
             set(url) {
+                const link = new URL(url, window.location.href);
                 const type = Object.entries(routeChecks).find(([regex]) =>
-                    new URL(url, window.location.href).pathname.match(regex)
+                    link.pathname.match(regex)
                 )?.[1];
                 if (!type) {
-                    if (this.$refs.iframe)
-                        (this.$refs.iframe as HTMLIFrameElement).src = url;
+                    const iframe = this.$refs
+                        .iframe as HTMLIFrameElement | null;
+                    if (
+                        iframe &&
+                        new URL(
+                            iframe.contentWindow?.location.href ?? '',
+                            window.location.href
+                        ).toString() !== link.toString()
+                    )
+                        iframe.src = url;
                     this.type = '';
                     return;
                 }
@@ -105,6 +115,7 @@ export default Vue.extend<
     },
     mounted() {
         this.src = this.url;
+        window['lssmv4-redesign-lightbox'] = this;
     },
 });
 </script>

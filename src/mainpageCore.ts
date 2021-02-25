@@ -84,19 +84,10 @@ export default async (LSSM: Vue): Promise<void> => {
         post: false,
         callback(radioMessage: RadioMessage) {
             if (
-                radioMessage.type !== 'vehicle_fms' ||
-                radioMessage.user_id !== window.user_id
+                radioMessage.type === 'vehicle_fms' &&
+                radioMessage.user_id === window.user_id
             )
-                return;
-            const { id, fms, fms_real, user_id, caption } = radioMessage;
-            if (user_id === window.user_id) {
-                LSSM.$store.commit('api/setVehicleState', {
-                    fms,
-                    fms_real,
-                    id,
-                    caption,
-                });
-            }
+                LSSM.$store.commit('api/setVehicleState', radioMessage);
         },
     });
 

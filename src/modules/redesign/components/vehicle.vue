@@ -229,7 +229,13 @@
                         <td>
                             <img :src="mission.image" :alt="mission.caption" />
                         </td>
-                        <td>männle / starndl</td>
+                        <td>
+                            {{
+                                participated_missions.includes(
+                                    mission.id.toString()
+                                )
+                            }}
+                        </td>
                         <td>
                             <a :href="`/missions/${mission.id}`">{{
                                 mission.caption
@@ -273,6 +279,7 @@
                             >
                                 nafahra
                             </button>
+                            <br />
                             <span
                                 class="label label-default"
                                 v-if="
@@ -407,6 +414,7 @@ import { faSitemap } from '@fortawesome/free-solid-svg-icons/faSitemap';
 import { faPortrait } from '@fortawesome/free-solid-svg-icons/faPortrait';
 import { VehicleWindow } from '../parsers/vehicle';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import { Vehicle } from 'typings/Vehicle';
 
 export default Vue.extend<
     {
@@ -432,6 +440,7 @@ export default Vue.extend<
         alarm(missionId: number): void;
     },
     {
+        participated_missions: string[];
         mission_head: {
             [key: string]: {
                 title: string;
@@ -478,6 +487,14 @@ export default Vue.extend<
         };
     },
     computed: {
+        participated_missions() {
+            return Object.keys(
+                (this.$store.getters['api/vehiclesByTarget'] as {
+                    mission: { [id: number]: Vehicle[] };
+                    building: { [id: number]: Vehicle[] };
+                }).mission
+            );
+        },
         mission_head() {
             return {
                 ...(this.missionListSrc === 2 ? { list: { title: '' } } : {}),
