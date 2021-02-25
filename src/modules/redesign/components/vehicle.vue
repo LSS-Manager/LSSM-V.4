@@ -575,6 +575,9 @@ export default Vue.extend<
                 } else if (this.sort === 'patients') {
                     f = f['current'] ?? 0;
                     s = s['current'] ?? 0;
+                } else if (this.sort === 'participation') {
+                    f = this.participated_missions.includes(a.id.toString());
+                    s = this.participated_missions.includes(b.id.toString());
                 }
                 return f < s ? -1 * modifier : f > s ? modifier : 0;
             });
