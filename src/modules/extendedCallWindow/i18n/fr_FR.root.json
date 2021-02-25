@@ -130,7 +130,12 @@
 				"name": "Ambulance",
 				"vehicleTypes": [
 					5,
-					9
+					9,
+					25,
+					26,
+					27,
+					28,
+					29
 				]
 			},
 			{
