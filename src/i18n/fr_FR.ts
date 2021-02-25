@@ -391,7 +391,7 @@ export default {
             maxPersonnel: 3,
             schooling: 'Secours - DSM',
             shownSchooling: 'Chef du pôle urgences',
-            special: 
+            special:
                 'Nécessaire dès lors que vous avez construit 6 postes de secours',
         },
     },
