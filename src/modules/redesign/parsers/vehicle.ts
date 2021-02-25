@@ -27,6 +27,16 @@ interface Hospital {
     tax: number;
 }
 
+interface Cell {
+    caption: string;
+    id: number;
+    distance: string;
+    free: number;
+    state: 'success' | 'danger' | 'warning';
+    list: 'own_cells' | 'alliance_cells';
+    tax: number;
+}
+
 export interface VehicleWindow {
     id: number;
     building: {
@@ -62,13 +72,15 @@ export interface VehicleWindow {
     water_amount?: string;
     mission_own: Mission[];
     mission_alliance: Mission[];
+    has_hospitals: boolean;
     own_hospitals: Hospital[];
     alliance_hospitals: Hospital[];
-    has_hospitals: boolean;
+    has_cells: boolean;
+    own_cells: Cell[];
+    alliance_cells: Cell[];
+    prisoners_releaseable: boolean;
     authenticity_token: string;
 }
-
-// TODO: Speech requests
 
 export default (
     source: string,
@@ -76,6 +88,10 @@ export default (
     getIdFromEl: (el: HTMLAnchorElement | null) => number
 ): VehicleWindow => {
     const doc = new DOMParser().parseFromString(source, 'text/html');
+    const id = parseInt(
+        new URL(href, window.location.href).pathname.match(/\d+\/?$/)?.[0] ??
+            '-1'
+    );
     const buildingEl = doc.querySelector<HTMLAnchorElement>(
         '#vehicle-attr-station a[href^="/buildings/"]'
     );
@@ -101,12 +117,44 @@ export default (
     const hasHospitals = !!doc.querySelector<HTMLAnchorElement>(
         'a[href$="/patient/-1"]'
     );
+    const hasCells = !!doc.querySelector<HTMLAnchorElement>(
+        `a[href^="/vehicles/${id}/gefangener/"]`
+    );
+    const own_cells: Cell[] = [];
+    const alliance_cells: Cell[] = [];
+    if (hasCells) {
+        let list: 'own_cells' | 'alliance_cells' = 'own_cells';
+        doc.querySelectorAll<HTMLAnchorElement>(
+            `.col-md-9 .alert-info > a[href^="/vehicles/${id}/gefangener/"]`
+        ).forEach(cell => {
+            if (cell.previousElementSibling?.matches('h5'))
+                list = 'alliance_cells';
+            const text = cell.textContent ?? '';
+            const infos = (text.match(/(?<=\()[^(]*?(?=\)$)/)?.[0] ?? '').split(
+                ':'
+            );
+            const cellinfos: Cell = {
+                id: getIdFromEl(cell),
+                caption: text.replace(/\([^(]*?\)$/, ''),
+                list,
+                state: cell.classList.contains('btn-success')
+                    ? 'success'
+                    : cell.classList.contains('btn-warning')
+                    ? 'warning'
+                    : 'danger',
+                free: parseInt(infos[1].trim()),
+                distance: infos[2].split(/,(?=\s)/)[0].trim(),
+                tax:
+                    list === 'own_cells'
+                        ? 0
+                        : parseInt(infos[3].match(/\d+(?=%)/)?.[0] ?? '-1'),
+            };
+            if (list === 'own_cells') own_cells.push(cellinfos);
+            else alliance_cells.push(cellinfos);
+        });
+    }
     return {
-        id: parseInt(
-            new URL(href, window.location.href).pathname.match(
-                /\d+\/?$/
-            )?.[0] ?? '-1'
-        ),
+        id,
         building: {
             caption: buildingEl?.textContent ?? '',
             id: getIdFromEl(buildingEl),
@@ -133,7 +181,7 @@ export default (
             imageEl?.getAttribute('image_replace_allowed') === 'true'
                 ? JSON.parse(
                       doc.scripts[
-                          userEl || hasHospitals ? 7 : 8
+                          userEl || hasHospitals || hasCells ? 7 : 8
                       ].innerText.match(
                           /(?<=vehicle_graphics\s*=\s*)\[(?:\[".*?",".*?","(true|false)"],?)+]/
                       )?.[0] ?? '[]'
@@ -216,6 +264,7 @@ export default (
                 }),
             ])
         ) as { mission_own: Mission[]; mission_alliance: Mission[] }),
+        has_hospitals: hasHospitals,
         ...(Object.fromEntries(
             ['own_hospitals', 'alliance_hospitals'].map((key, index) => [
                 key,
@@ -253,6 +302,15 @@ export default (
                                             h.children[3]?.textContent?.trim() ??
                                                 '-1'
                                         ),
+                                  label: alarmEl?.classList.contains(
+                                      'btn-success'
+                                  )
+                                      ? 'success'
+                                      : alarmEl?.classList.contains(
+                                            'btn-warning'
+                                        )
+                                      ? 'warning'
+                                      : 'danger',
                               };
                           })
                           .filter(h => !!h)
@@ -262,7 +320,12 @@ export default (
             own_hospitals: Hospital[];
             alliance_hospitals: Hospital[];
         }),
-        has_hospitals: hasHospitals,
+        has_cells: hasCells,
+        own_cells,
+        alliance_cells,
+        prisoners_releaseable: !!doc.querySelector(
+            'a[href$="/gefangene/entlassen"]'
+        ),
         authenticity_token:
             doc.querySelector<HTMLMetaElement>('meta[name="csrf-token"]')
                 ?.content ?? '',

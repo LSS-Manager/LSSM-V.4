@@ -193,7 +193,11 @@
                 </div>
             </div>
             <div
-                v-if="!vehicle.user && !vehicle.has_hospitals"
+                v-if="
+                    !vehicle.user &&
+                        !vehicle.has_hospitals &&
+                        !vehicle.has_cells
+                "
                 class="table-tabs"
             >
                 <tabs :on-select="setMissionList">
@@ -354,14 +358,76 @@
                             </span>
                         </td>
                         <td>
-                            <a
+                            <button
                                 :href="
                                     `/vehicles/${vehicle.id}/patient/${hospital.id}`
                                 "
-                                class="btn btn-success"
+                                class="btn"
+                                :class="`btn-${hospital.state}`"
+                                :disabled="hospital.state === 'danger'"
                             >
                                 nafahra
+                            </button>
+                        </td>
+                    </tr>
+                </enhanced-table>
+            </div>
+            <div
+                v-else-if="!vehicle.user && vehicle.has_cells"
+                class="table-tabs"
+            >
+                <tabs :on-select="setCellList">
+                    <tab
+                        v-for="group in ['own', 'alliance', 'all']"
+                        :title="group"
+                        :key="group"
+                    ></tab>
+                </tabs>
+                <enhanced-table
+                    :head="cell_head"
+                    :table-attrs="{ class: 'table' }"
+                    :search="search"
+                    @search="setSearch"
+                    :sort="sort"
+                    :sort-dir="sortDir"
+                    @sort="setSort"
+                >
+                    <tr
+                        v-for="cell in cellListSorted"
+                        :key="cell.id"
+                        :class="{ hidden: cell.hidden }"
+                    >
+                        <td v-if="cellListSrc === 2">
+                            <font-awesome-icon
+                                :icon="
+                                    cell.list === 'own_cells'
+                                        ? faPortrait
+                                        : faSitemap
+                                "
+                            ></font-awesome-icon>
+                        </td>
+                        <td>
+                            <a :href="`/buildings/${cell.id}`">
+                                {{ cell.caption }}
                             </a>
+                        </td>
+                        <td>{{ cell.distance }}</td>
+                        <td>{{ cell.free }}</td>
+                        <td v-if="cellListSrc">
+                            {{ cell.tax }}
+                            %
+                        </td>
+                        <td>
+                            <button
+                                :href="
+                                    `/vehicles/${vehicle.id}/gefangener/${cell.id}`
+                                "
+                                class="btn"
+                                :class="`btn-${cell.state}`"
+                                :disabled="cell.state === 'danger'"
+                            >
+                                nafahra
+                            </button>
                         </td>
                     </tr>
                 </enhanced-table>
@@ -430,6 +496,7 @@ export default Vue.extend<
         sort: string;
         sortDir: 'asc' | 'desc';
         hospitalListSrc: number;
+        cellListSrc: number;
         color2Class: {
             red: 'danger';
             yellow: 'warning';
@@ -439,6 +506,7 @@ export default Vue.extend<
     {
         setMissionList(_: unknown, group: number): void;
         setHospitalList(_: unknown, group: number): void;
+        setCellList(_: unknown, group: number): void;
         setSearch(search: string): void;
         setSort(type: string): void;
         alarm(missionId: number): void;
@@ -463,6 +531,15 @@ export default Vue.extend<
         hospitalList: VehicleWindow['own_hospitals'];
         hospitalListFiltered: VehicleWindow['own_hospitals'];
         hospitalListSorted: VehicleWindow['own_hospitals'];
+        cell_head: {
+            [key: string]: {
+                title: string;
+                noSort?: boolean;
+            };
+        };
+        cellList: VehicleWindow['own_cells'];
+        cellListFiltered: VehicleWindow['own_cells'];
+        cellListSorted: VehicleWindow['own_cells'];
     },
     { vehicle: VehicleWindow; lightbox: Vue }
 >({
@@ -485,6 +562,7 @@ export default Vue.extend<
             sort: 'distance',
             sortDir: 'asc',
             hospitalListSrc: 0,
+            cellListSrc: 0,
             color2Class: {
                 red: 'danger',
                 yellow: 'warning',
@@ -654,10 +732,79 @@ export default Vue.extend<
                 return f < s ? -1 * modifier : f > s ? modifier : 0;
             });
         },
+        cell_head() {
+            return {
+                ...(this.cellListSrc === 2 ? { list: { title: '' } } : {}),
+                caption: {
+                    title: 'cell',
+                },
+                distance: {
+                    title: 'distance',
+                },
+                free: {
+                    title: 'free',
+                },
+                ...(this.cellListSrc ? { tax: { title: 'tax' } } : {}),
+                dispatch: {
+                    title: '',
+                    noSort: true,
+                },
+            };
+        },
+        cellList() {
+            return [
+                ...this.vehicle.own_cells,
+                ...this.vehicle.alliance_cells,
+            ].sort((a, b) => {
+                const l = parseInt(
+                    a.distance.match(/\d+([,.]?\d+)?/)?.[0] ?? '-1'
+                );
+                const r = parseInt(
+                    b.distance.match(/\d+([,.]?\d+)?/)?.[0] ?? '-1'
+                );
+                return l < r ? -1 : l > r ? 1 : 0;
+            });
+        },
+        cellListFiltered() {
+            return this.cellList.map(m => ({
+                ...m,
+                hidden: !(
+                    (this.cellListSrc === 2 ||
+                        (this.cellListSrc === 0 && m.list === 'own_cells') ||
+                        (this.cellListSrc === 1 &&
+                            m.list === 'alliance_cells')) &&
+                    JSON.stringify(Object.values(m))
+                        .toLowerCase()
+                        .match(this.search.trim().toLowerCase())
+                ),
+            }));
+        },
+        cellListSorted() {
+            if (this.sort === 'distance') {
+                if (this.sortDir === 'asc') return this.cellListFiltered;
+                return [...this.cellListFiltered].reverse();
+            }
+            const modifier = this.sortDir === 'desc' ? -1 : 1;
+            return [...this.cellListFiltered].sort((a, b) => {
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
+                let f = a[this.sort] ?? '';
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
+                let s = b[this.sort] ?? '';
+                return f < s ? -1 * modifier : f > s ? modifier : 0;
+            });
+        },
     },
     methods: {
         setMissionList(_, list) {
             this.missionListSrc = list;
+        },
+        setHospitalList(_, list) {
+            this.hospitalListSrc = list;
+        },
+        setCellList(_, list) {
+            this.cellListSrc = list;
         },
         setSearch(search) {
             if (this.searchTimeout) window.clearTimeout(this.searchTimeout);
@@ -673,9 +820,6 @@ export default Vue.extend<
                 this.sort = type;
                 this.sortDir = 'asc';
             }
-        },
-        setHospitalList(_, list) {
-            this.hospitalListSrc = list;
         },
         alarm(mission) {
             const url = new URL(
