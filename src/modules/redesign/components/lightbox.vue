@@ -4,8 +4,12 @@
         :full-height="!type"
         :no-title-hide="!type"
     >
-        <div v-if="type === 'vehicle'">
-            <Vehicle :vehicle="data" :lightbox="this"></Vehicle>
+        <div v-show="type" class="redesign-wrapper">
+            <Vehicle
+                v-if="type === 'vehicle'"
+                :vehicle="data"
+                :lightbox="this"
+            ></Vehicle>
         </div>
         <iframe
             v-show="!type"
@@ -121,6 +125,9 @@ export default Vue.extend<
 </script>
 
 <style lang="sass" scoped>
+.redesign-wrapper
+    margin: 1rem
+
 iframe
     width: 100%
     height: 100%

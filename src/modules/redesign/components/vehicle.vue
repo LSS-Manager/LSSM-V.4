@@ -232,11 +232,7 @@
                         <td>
                             <font-awesome-icon
                                 :icon="
-                                    participated_missions.includes(
-                                        mission.id.toString()
-                                    )
-                                        ? faUser
-                                        : faAsterisk
+                                    mission.participation ? faUser : faAsterisk
                                 "
                             ></font-awesome-icon>
                         </td>
@@ -550,7 +546,9 @@ export default Vue.extend<
         missionListFiltered() {
             return this.missionList.map(m => ({
                 ...m,
-                participation: true,
+                participation: this.participated_missions.includes(
+                    m.id.toString()
+                ),
                 hidden: !(
                     (this.missionListSrc === 2 ||
                         (this.missionListSrc === 0 &&
@@ -585,9 +583,6 @@ export default Vue.extend<
                 } else if (this.sort === 'patients') {
                     f = f['current'] ?? 0;
                     s = s['current'] ?? 0;
-                } else if (this.sort === 'participation') {
-                    f = this.participated_missions.includes(a.id.toString());
-                    s = this.participated_missions.includes(b.id.toString());
                 }
                 return f < s ? -1 * modifier : f > s ? modifier : 0;
             });
