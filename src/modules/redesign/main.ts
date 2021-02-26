@@ -1,6 +1,6 @@
 import { ModuleMainFunction } from 'typings/Module';
 
-export default (LSSM => {
+export default ((LSSM, MODULE_ID) => {
     LSSM.$store
         .dispatch('hook', {
             event: 'lightboxOpen',
@@ -11,7 +11,27 @@ export default (LSSM => {
                         import(
                             /* webpackChunkName: "modules/redesign/lightbox" */ `./components/lightbox.vue`
                         ),
-                    { url: href },
+                    {
+                        url: href,
+                        $m: (
+                            key: string,
+                            args?: {
+                                [key: string]: unknown;
+                            }
+                        ) => LSSM.$t(`modules.${MODULE_ID}.${key}`, args),
+                        $mc: (
+                            key: string,
+                            amount: number,
+                            args?: {
+                                [key: string]: unknown;
+                            }
+                        ) =>
+                            LSSM.$tc(
+                                `modules.${MODULE_ID}.${key}`,
+                                amount,
+                                args
+                            ),
+                    },
                     {
                         name: 'redesign-lightbox',
                         height: '96%',

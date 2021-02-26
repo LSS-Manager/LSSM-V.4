@@ -9,6 +9,8 @@
                 v-if="type === 'vehicle'"
                 :vehicle="data"
                 :lightbox="this"
+                :$m="$m"
+                :$mc="$mc"
             ></Vehicle>
         </div>
         <iframe
@@ -25,6 +27,7 @@
 import Vue from 'vue';
 import { VehicleWindow } from '../parsers/vehicle';
 import { DefaultComputed, DefaultMethods } from 'vue/types/options';
+import VueI18n from 'vue-i18n';
 
 type types = 'vehicle';
 
@@ -49,7 +52,22 @@ export default Vue.extend<
     Data<'', null> | Data<'vehicle', VehicleWindow>,
     DefaultMethods<Vue>,
     DefaultComputed,
-    { url: string }
+    {
+        url: string;
+        $m(
+            key: string,
+            args?: {
+                [key: string]: unknown;
+            }
+        ): VueI18n.TranslateResult;
+        $mc(
+            key: string,
+            amount: number,
+            args?: {
+                [key: string]: unknown;
+            }
+        ): VueI18n.TranslateResult;
+    }
 >({
     name: 'redesign-lightbox',
     components: {
@@ -72,6 +90,14 @@ export default Vue.extend<
     props: {
         url: {
             type: String,
+            required: true,
+        },
+        $m: {
+            type: Function,
+            required: true,
+        },
+        $mc: {
+            type: Function,
             required: true,
         },
     },

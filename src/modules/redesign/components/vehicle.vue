@@ -10,8 +10,8 @@
                     <table class="table">
                         <tbody>
                             <tr v-if="vehicle.user">
-                                <th>owner</th>
-                                <td>
+                                <th>{{ $sm('owner') }}</th>
+                                <td colspan="2">
                                     <a :href="`/profile/${vehicle.user.id}`">
                                         <img
                                             :src="
@@ -21,14 +21,21 @@
                                                         : 'gray'
                                                 }.png`
                                             "
-                                            alt=""
+                                            :alt="
+                                                $sm(
+                                                    vehicle.user.online
+                                                        ? 'online'
+                                                        : 'offline',
+                                                    { user: vehicle.user.name }
+                                                )
+                                            "
                                         />
                                         {{ vehicle.user.name }}
                                     </a>
                                 </td>
                             </tr>
                             <tr>
-                                <th>station</th>
+                                <th>{{ $sm('station') }}</th>
                                 <td>
                                     <a
                                         :href="
@@ -43,12 +50,12 @@
                                         :href="`/vehicles/${vehicle.id}/move`"
                                         class="btn btn-default btn-xs"
                                     >
-                                        move
+                                        {{ $sm('move') }}
                                     </a>
                                 </td>
                             </tr>
                             <tr>
-                                <th>vehicletype</th>
+                                <th>{{ $sm('vehicletype') }}</th>
                                 <td>
                                     {{ vehicle.vehicle_type.caption }}
                                 </td>
@@ -64,13 +71,16 @@
                                             }`
                                         "
                                         class="btn btn-default btn-xs"
+                                        :title="$sm('color')"
                                     >
-                                        edit color
+                                        <font-awesome-icon
+                                            :icon="faPalette"
+                                        ></font-awesome-icon>
                                     </a>
                                 </td>
                             </tr>
                             <tr>
-                                <th>FMS</th>
+                                <th>{{ $sm('fms') }}</th>
                                 <td>
                                     <span
                                         class="building_list_fms"
@@ -88,26 +98,26 @@
                                 </td>
                             </tr>
                             <tr>
-                                <th>max staff</th>
-                                <td>
+                                <th>{{ $sm('max_staff') }}</th>
+                                <td colspan="2">
                                     {{ vehicle.max_staff }}
                                 </td>
                             </tr>
                             <tr v-if="vehicle.water_amount">
-                                <th>water amount</th>
-                                <td>
+                                <th>{{ $sm('water_amount') }}</th>
+                                <td colspan="2">
                                     {{ vehicle.water_amount }}
                                 </td>
                             </tr>
                             <tr>
-                                <th>mileage</th>
-                                <td>
+                                <th>{{ $sm('mileage') }}</th>
+                                <td colspan="2">
                                     {{ vehicle.mileage }}
                                 </td>
                             </tr>
                             <tr v-if="vehicle.current_mission">
-                                <th>current mission</th>
-                                <td>
+                                <th>{{ $sm('current_mission') }}</th>
+                                <td colspan="2">
                                     <a
                                         :href="
                                             `/missions/${vehicle.current_mission.id}`
@@ -118,8 +128,15 @@
                                 </td>
                             </tr>
                             <tr v-if="vehicle.followup_missions.length">
-                                <th>followup missions</th>
-                                <td>
+                                <th>
+                                    {{
+                                        $smc(
+                                            'followup_missions',
+                                            vehicle.followup_missions.length
+                                        )
+                                    }}
+                                </th>
+                                <td colspan="2">
                                     <ul>
                                         <li
                                             v-for="mission in vehicle.followup_missions"
@@ -137,13 +154,15 @@
                                 </td>
                             </tr>
                             <tr v-if="Object.keys(vehicle.staff).length">
-                                <th>schdaff</th>
-                                <td>
+                                <th>{{ $sm('staff.title') }}</th>
+                                <td colspan="2">
                                     <table class="table">
                                         <thead>
                                             <tr>
-                                                <th>namö</th>
-                                                <th>schooling</th>
+                                                <th>{{ $sm('staff.name') }}</th>
+                                                <th>
+                                                    {{ $sm('staff.schooling') }}
+                                                </th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -167,20 +186,25 @@
                     <a
                         :href="`/vehicles/${vehicle.id}/edit`"
                         class="btn btn-default"
+                        :title="$sm('edit')"
                     >
-                        edüt
+                        <font-awesome-icon :icon="faEdit"></font-awesome-icon>
                     </a>
                     <a
                         :href="`/vehicles/${vehicle.id}/stats`"
                         class="btn btn-default"
+                        :title="$sm('stats')"
                     >
-                        Statistiken
+                        <font-awesome-icon
+                            :icon="faChartLine"
+                        ></font-awesome-icon>
                     </a>
                     <a
                         :href="`/vehicles/${vehicle.id}/zuweisung`"
                         class="btn btn-default"
+                        :title="$sm('zuweisung')"
                     >
-                        Leude druff
+                        <font-awesome-icon :icon="faUsers"></font-awesome-icon>
                     </a>
 
                     <button
@@ -188,7 +212,8 @@
                         @click="deleteVehicle"
                         v-if="vehicle.fms === 2"
                     >
-                        löschen
+                        <font-awesome-icon :icon="faTrash"></font-awesome-icon>
+                        {{ $sm('delete.button') }}
                     </button>
                 </div>
             </div>
@@ -203,7 +228,9 @@
                 <tabs :on-select="setMissionList">
                     <tab
                         v-for="group in ['own', 'alliance', 'all']"
-                        :title="group"
+                        :title="
+                            $sm(`tabs.${group}`, { type: $sm('tabs.missions') })
+                        "
                         :key="group"
                     ></tab>
                 </tabs>
@@ -281,7 +308,7 @@
                                 @click.prevent="alarm(mission.id)"
                                 class="btn btn-success"
                             >
-                                nafahra
+                                {{ $sm('missions.alarm') }}
                             </button>
                             <br />
                             <span
@@ -292,7 +319,7 @@
                                             vehicle.current_mission.id
                                 "
                             >
-                                is scho dahanna na alarmiert
+                                {{ $sm('missions.alarmed') }}
                             </span>
                         </td>
                     </tr>
@@ -305,7 +332,11 @@
                 <tabs :on-select="setHospitalList">
                     <tab
                         v-for="group in ['own', 'alliance', 'all']"
-                        :title="group"
+                        :title="
+                            $sm(`tabs.${group}`, {
+                                type: $sm('tabs.hospitals'),
+                            })
+                        "
                         :key="group"
                     ></tab>
                 </tabs>
@@ -354,7 +385,7 @@
                                     }`
                                 "
                             >
-                                {{ hospital.department }}
+                                {{ $sm(`hospitals.${hospital.department}`) }}
                             </span>
                         </td>
                         <td>
@@ -366,7 +397,7 @@
                                 :class="`btn-${hospital.state}`"
                                 :disabled="hospital.state === 'danger'"
                             >
-                                nafahra
+                                {{ $sm('approach') }}
                             </button>
                         </td>
                     </tr>
@@ -379,7 +410,9 @@
                 <tabs :on-select="setCellList">
                     <tab
                         v-for="group in ['own', 'alliance', 'all']"
-                        :title="group"
+                        :title="
+                            $sm(`tabs.${group}`, { type: $sm('tabs.cells') })
+                        "
                         :key="group"
                     ></tab>
                 </tabs>
@@ -426,7 +459,7 @@
                                 :class="`btn-${cell.state}`"
                                 :disabled="cell.state === 'danger'"
                             >
-                                nafahra
+                                {{ $sm('approach') }}
                             </button>
                         </td>
                     </tr>
@@ -480,9 +513,15 @@ import { faSitemap } from '@fortawesome/free-solid-svg-icons/faSitemap';
 import { faPortrait } from '@fortawesome/free-solid-svg-icons/faPortrait';
 import { faUser } from '@fortawesome/free-solid-svg-icons/faUser';
 import { faAsterisk } from '@fortawesome/free-solid-svg-icons/faAsterisk';
+import { faPalette } from '@fortawesome/free-solid-svg-icons/faPalette';
+import { faEdit } from '@fortawesome/free-solid-svg-icons/faEdit';
+import { faChartLine } from '@fortawesome/free-solid-svg-icons/faChartLine';
+import { faUsers } from '@fortawesome/free-solid-svg-icons/faUsers';
+import { faTrash } from '@fortawesome/free-solid-svg-icons/faTrash';
 import { VehicleWindow } from '../parsers/vehicle';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { Vehicle } from 'typings/Vehicle';
+import VueI18n from 'vue-i18n';
 
 export default Vue.extend<
     {
@@ -490,6 +529,11 @@ export default Vue.extend<
         faPortrait: IconDefinition;
         faUser: IconDefinition;
         faAsterisk: IconDefinition;
+        faPalette: IconDefinition;
+        faEdit: IconDefinition;
+        faChartLine: IconDefinition;
+        faUsers: IconDefinition;
+        faTrash: IconDefinition;
         missionListSrc: number;
         search: string;
         searchTimeout: null | number;
@@ -504,6 +548,19 @@ export default Vue.extend<
         };
     },
     {
+        $sm(
+            key: string,
+            args?: {
+                [key: string]: unknown;
+            }
+        ): VueI18n.TranslateResult;
+        $smc(
+            key: string,
+            amount: number,
+            args?: {
+                [key: string]: unknown;
+            }
+        ): VueI18n.TranslateResult;
         setMissionList(_: unknown, group: number): void;
         setHospitalList(_: unknown, group: number): void;
         setCellList(_: unknown, group: number): void;
@@ -542,7 +599,23 @@ export default Vue.extend<
         cellListFiltered: VehicleWindow['own_cells'];
         cellListSorted: VehicleWindow['own_cells'];
     },
-    { vehicle: VehicleWindow; lightbox: Vue }
+    {
+        vehicle: VehicleWindow;
+        lightbox: Vue;
+        $m(
+            key: string,
+            args?: {
+                [key: string]: unknown;
+            }
+        ): VueI18n.TranslateResult;
+        $mc(
+            key: string,
+            amount: number,
+            args?: {
+                [key: string]: unknown;
+            }
+        ): VueI18n.TranslateResult;
+    }
 >({
     name: 'vehicle-lightbox',
     components: {
@@ -557,6 +630,11 @@ export default Vue.extend<
             faPortrait,
             faUser,
             faAsterisk,
+            faPalette,
+            faEdit,
+            faChartLine,
+            faUsers,
+            faTrash,
             missionListSrc: 0,
             search: '',
             searchTimeout: null,
@@ -588,19 +666,19 @@ export default Vue.extend<
                     noSort: true,
                 },
                 participation: {
-                    title: 'participation',
+                    title: this.$sm('missions.participation').toString(),
                 },
                 mission: {
-                    title: 'mission',
+                    title: this.$sm('missions.mission').toString(),
                 },
                 distance: {
-                    title: 'distance',
+                    title: this.$sm('distance').toString(),
                 },
                 progress: {
-                    title: 'progress',
+                    title: this.$sm('missions.progress').toString(),
                 },
                 patients: {
-                    title: 'patients',
+                    title: this.$sm('missions.patients').toString(),
                 },
                 alarm: {
                     title: '',
@@ -670,17 +748,19 @@ export default Vue.extend<
             return {
                 ...(this.hospitalListSrc === 2 ? { list: { title: '' } } : {}),
                 caption: {
-                    title: 'hospital',
+                    title: this.$sm('hospitals.hospital').toString(),
                 },
                 distance: {
-                    title: 'distance',
+                    title: this.$sm('distance').toString(),
                 },
                 beds: {
-                    title: 'beds',
+                    title: this.$sm('hospitals.beds').toString(),
                 },
-                ...(this.hospitalListSrc ? { tax: { title: 'tax' } } : {}),
+                ...(this.hospitalListSrc
+                    ? { tax: { title: this.$sm('tax').toString() } }
+                    : {}),
                 department: {
-                    title: 'department',
+                    title: this.$sm('hospitals.department').toString(),
                 },
                 dispatch: {
                     title: '',
@@ -737,15 +817,17 @@ export default Vue.extend<
             return {
                 ...(this.cellListSrc === 2 ? { list: { title: '' } } : {}),
                 caption: {
-                    title: 'cell',
+                    title: this.$sm('cells.cell').toString(),
                 },
                 distance: {
-                    title: 'distance',
+                    title: this.$sm('distance').toString(),
                 },
                 free: {
-                    title: 'free',
+                    title: this.$sm('cells.free').toString(),
                 },
-                ...(this.cellListSrc ? { tax: { title: 'tax' } } : {}),
+                ...(this.cellListSrc
+                    ? { tax: { title: this.$sm('tax').toString() } }
+                    : {}),
                 dispatch: {
                     title: '',
                     noSort: true,
@@ -798,6 +880,23 @@ export default Vue.extend<
         },
     },
     methods: {
+        $sm(
+            key: string,
+            args?: {
+                [key: string]: unknown;
+            }
+        ) {
+            return this.$m(`vehicles.${key}`, args);
+        },
+        $smc(
+            key: string,
+            amount: number,
+            args?: {
+                [key: string]: unknown;
+            }
+        ) {
+            return this.$mc(`vehicles.${key}`, amount, args);
+        },
         setMissionList(_, list) {
             this.missionListSrc = list;
         },
@@ -864,18 +963,18 @@ export default Vue.extend<
             // eslint-disable-next-line @typescript-eslint/no-this-alias
             const LSSM = this;
             this.$modal.show('dialog', {
-                title: 'löschen',
-                text: 'willsch des wirklich löschen?',
+                title: this.$sm('delete.title'),
+                text: this.$sm('delete.text'),
                 buttons: [
                     {
-                        title: 'abbrecchen',
+                        title: this.$sm('delete.cancel'),
                         default: true,
                         handler() {
                             LSSM.$modal.hide('dialog');
                         },
                     },
                     {
-                        title: 'Jau',
+                        title: this.$sm('delete.confirm'),
                         async handler() {
                             const url = new URL(
                                 `/vehicles/${LSSM.vehicle.id}`,
@@ -923,6 +1022,14 @@ export default Vue.extend<
         },
         lightbox: {
             type: Object,
+            required: true,
+        },
+        $m: {
+            type: Function,
+            required: true,
+        },
+        $mc: {
+            type: Function,
             required: true,
         },
     },

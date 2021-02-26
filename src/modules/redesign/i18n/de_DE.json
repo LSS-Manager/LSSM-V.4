@@ -1,0 +1,67 @@
+{
+    "vehicles": {
+        "owner": "Besitzer",
+        "owner_pic_state": {
+            "online": "{user} ist online!",
+            "offline": "{user} ist offline!"
+        },
+        "station": "Wache",
+        "move": "Verschieben",
+        "vehicletype": "Fahrzeugtyp",
+        "color": "Farbe anpassen",
+        "fms": "FMS",
+        "backalarm": "Rückalarmieren",
+        "s6": "S6 setzen",
+        "s2": "S2 setzen",
+        "max_staff": "Max. Personal",
+        "water_amount": "Wassermenge",
+        "mileage": "Laufleistung",
+        "current_mission": "Aktueller Einsatz",
+        "followup_missions": "Folgeeinsatz | Folgeeinsätze",
+        "staff": {
+            "title": "Personal",
+            "name": "Name",
+            "schooling": "Ausbildung"
+        },
+        "edit": "Bearbeiten",
+        "stats": "Statistiken",
+        "zuweisung": "Personalzuweisung",
+        "delete": {
+            "button": "Löschen",
+            "title": "Fahrzeug löschen",
+            "text": "Möchtest du wirklich das Fahrzeug **{caption}** von Gebäude **{building}** löschen?",
+            "cancel": "Abbrechen",
+            "confirm": "Löschen"
+        },
+        "tabs": {
+            "missions": "Einsätze",
+            "hospitals": "Krankenhäuser",
+            "cells": "Zellen",
+            "own": "eigene {type}",
+            "alliance": "Verbands-{type}",
+            "all": "Alle {type}"
+        },
+        "distance": "Entfernung",
+        "tax": "Abgabe an Besitzer",
+        "approach": "Anfahren",
+        "missions": {
+            "participation": "Anwesenheit",
+            "mission": "Einsatz",
+            "progress": "Fortschritt",
+            "patients": "Patienten",
+            "alarm": "Alarmieren",
+            "alarmed": "Aktueller Einsatz"
+        },
+        "hospitals": {
+            "hospital": "Krankenhaus",
+            "beds": "Freie Betten",
+            "department": "Fachabteilung",
+            "true": "Ja",
+            "false": "Nein"
+        },
+        "cells": {
+            "cell": "Gebäude",
+            "free": "Freie Zellen"
+        }
+    }
+}
