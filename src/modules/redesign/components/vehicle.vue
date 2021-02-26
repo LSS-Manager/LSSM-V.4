@@ -574,9 +574,9 @@ export default Vue.extend<
         participated_missions() {
             return Object.keys(
                 (this.$store.getters['api/vehiclesByTarget'] as {
-                    mission: { [id: number]: Vehicle[] };
-                    building: { [id: number]: Vehicle[] };
-                }).mission
+                    mission?: { [id: number]: Vehicle[] };
+                    building?: { [id: number]: Vehicle[] };
+                }).mission ?? {}
             );
         },
         mission_head() {
