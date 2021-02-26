@@ -185,7 +185,7 @@
 
                     <button
                         class="btn btn-danger"
-                        disabled
+                        @click="deleteVehicle"
                         v-if="vehicle.fms === 2"
                     >
                         löschen
@@ -510,6 +510,7 @@ export default Vue.extend<
         setSearch(search: string): void;
         setSort(type: string): void;
         alarm(missionId: number): void;
+        deleteVehicle(): void;
     },
     {
         participated_missions: string[];
@@ -858,6 +859,61 @@ export default Vue.extend<
                         `/vehicles/${this.vehicle.id}`
                     )
                 );
+        },
+        deleteVehicle() {
+            // eslint-disable-next-line @typescript-eslint/no-this-alias
+            const LSSM = this;
+            this.$modal.show('dialog', {
+                title: 'löschen',
+                text: 'willsch des wirklich löschen?',
+                buttons: [
+                    {
+                        title: 'abbrecchen',
+                        default: true,
+                        handler() {
+                            LSSM.$modal.hide('dialog');
+                        },
+                    },
+                    {
+                        title: 'Jau',
+                        async handler() {
+                            const url = new URL(
+                                `/vehicles/${LSSM.vehicle.id}`,
+                                window.location.href
+                            );
+                            url.searchParams.append('_method', 'delete');
+                            url.searchParams.append(
+                                'authenticity_token',
+                                LSSM.vehicle.authenticity_token
+                            );
+                            LSSM.$store
+                                .dispatch('api/request', {
+                                    url: `/vehicles/${LSSM.vehicle.id}`,
+                                    init: {
+                                        credentials: 'include',
+                                        headers: {
+                                            'Content-Type':
+                                                'application/x-www-form-urlencoded',
+                                        },
+                                        referrer: `https://www.leitstellenspiel.de/vehicles/${LSSM.vehicle.id}`,
+                                        body: url.searchParams.toString(),
+                                        method: 'POST',
+                                        mode: 'cors',
+                                    },
+                                    feature: `redesign-vehicle-delete-${LSSM.vehicle.id}`,
+                                })
+                                .then(() => {
+                                    LSSM.$modal.hide('dialog');
+                                    LSSM.$set(
+                                        LSSM.lightbox,
+                                        'src',
+                                        `/buildings/${LSSM.vehicle.building.id}`
+                                    );
+                                });
+                        },
+                    },
+                ],
+            });
         },
     },
     props: {
