@@ -191,7 +191,9 @@ export default {
             coins: 30,
             credits: 300_000,
             minPersonnel: 1,
-            maxPersonnel: 1,
+            maxPersonnel: 4,
+            schooling: 'Rescue - Intensive Care Education',
+            shownSchooling: 'Intensive Care Paramedic',
         },
         10: {
             caption: 'BASU',
@@ -332,6 +334,54 @@ export default {
             shownSchooling: 'Mounted Police Training',
             special: 'Towing Vehicle is Police Car',
         },
+        23: {
+            caption: 'Paramedic Supervisor',
+            color: '#ba9d0b',
+            coins: 25,
+            credits: 20_000,
+            minPersonnel: 1,
+            maxPersonnel: 2,
+            special: 'Required once you have built 6 Rescue stations',
+        },
+        24: {
+            caption: 'ICP',
+            color: '#ba9d0b',
+            coins: 15,
+            credits: 12_000,
+            minPersonnel: 1,
+            maxPersonnel: 2,
+            schooling: 'Rescue - Intensive Care Education',
+            shownSchooling: 'Intensive Care Paramedic',
+        },
+        25: {
+            caption: 'ICS',
+            color: '#ba9d0b',
+            coins: 15,
+            credits: 12_000,
+            minPersonnel: 1,
+            maxPersonnel: 1,
+            schooling: 'Rescue - Intensive Care Education',
+            shownSchooling: 'Intensive Care Paramedic',
+        },
+        26: {
+            caption: 'Ambulance Rescue',
+            color: '#ba9d0b',
+            coins: 15,
+            credits: 10_000,
+            minPersonnel: 2,
+            maxPersonnel: 4,
+            special: 'Can work as MRU',
+        },
+        27: {
+            caption: 'Mass Casualty Unit',
+            color: '#ba9d0b',
+            coins: 25,
+            credits: 25_000,
+            minPersonnel: 4,
+            maxPersonnel: 10,
+            special:
+                'You can buy 1 Mass Casualty Vehicle for every 20 ambulance stations (respectively 15 with premium account).',
+        },
     },
     buildings: {
         0: {
@@ -348,13 +398,13 @@ export default {
                 },
             ],
             levelcost: ['1. 10.000', '2. 50.000', '3.-16. 100.000'],
-            maxBuildings: '4.400 together with small fire stations',
+            maxBuildings: '5.000 together with small fire stations',
             maxLevel: 16,
             special:
                 'From the 24th fire station onwards, the cost of building a new fire station increases according to the following formula: <code>100.000+200.000*LOG<sub>2</sub>(Number of existing fire stations − 22)</code>. The Coins price remains constant!',
             startPersonnel: 10,
             startVehicles: ['Pumper', 'Light Tanker', 'Tanker'],
-            maxBuildingsFunction: (): number => 4_400,
+            maxBuildingsFunction: (): number => 5_000,
         },
         1: {
             caption: 'Fire academy',
@@ -389,6 +439,27 @@ export default {
             special: '',
             startPersonnel: 3,
             startVehicles: ['Ambulance'],
+        },
+        3: {
+            caption: 'Paramedic Training Centre',
+            color: '#ffa501',
+            coins: 50,
+            credits: 500_000,
+            extensions: [
+                ...new Array(3).fill({
+                    caption: 'Additional classroom',
+                    credits: 400_000,
+                    coins: 40,
+                    duration: '7 Days',
+                }),
+            ],
+            levelcost: [],
+            maxBuildings: 'No limit',
+            maxLevel: 0,
+            special:
+                "Finance ministers and admins can (expand) Paramedic Training Centre with the help of credits from the association's treasury.Training course masters and admins can start training courses at association fire- brigade schools.",
+            startPersonnel: 0,
+            startVehicles: [],
         },
         4: {
             caption: 'Hospital',
@@ -624,13 +695,13 @@ export default {
                 '3.-5. 100.000',
                 'Conversion to normal guard: difference price to normal guard',
             ],
-            maxBuildings: '4.400 together with fire stations',
+            maxBuildings: '5.000 together with fire stations',
             maxLevel: 5,
             special:
                 'From the 24th fire station onwards, the cost of building a new fire station increases according to the following formula: <code>(100.000+200.000*LOG<sub>2</sub>(Number of existing fire stations − 22)) / 2</code>. max. 1 Million Credits. The Coins price remains constant!',
             startPersonnel: 10,
             startVehicles: ['Pumper', 'Light Tanker', 'Tanker'],
-            maxBuildingsFunction: (): number => 4_400,
+            maxBuildingsFunction: (): number => 5_000,
         },
         19: {
             caption: 'Police Station (Small station)',
@@ -690,7 +761,7 @@ export default {
             color: '#ff2d2d',
         },
         'Rescue Stations': {
-            buildings: [2, 4, 5, 20],
+            buildings: [2, 3, 4, 5, 20],
             color: '#ffa500',
         },
         'Police Stations': {
@@ -717,8 +788,9 @@ export default {
         },
         'Rescue Vehicles': {
             vehicles: {
-                Ambulances: [5],
-                HEMS: [9],
+                'Ambulances': [5],
+                'Air Ambulance': [9],
+                'Other Rescue Vehicles': [23, 24, 25, 26, 27],
             },
             color: '#ffa500',
         },
@@ -762,7 +834,7 @@ export default {
         '19_2',
     ],
     bedBuildings: [4],
-    schoolBuildings: [1, 8],
+    schoolBuildings: [1, 3, 8],
     dispatchCenterBuildings: [7],
     schoolings: {
         'Fire Station': [
@@ -786,6 +858,10 @@ export default {
                 caption: 'Ocean Navigation',
                 duration: '5 Days',
             },
+            {
+                caption: 'Intensive Care Education',
+                duration: '5 Days',
+            },
         ],
         'Police': [
             {
@@ -807,6 +883,12 @@ export default {
             {
                 caption: 'Mounted Police Training',
                 duration: '3 Days',
+            },
+        ],
+        'Rescue': [
+            {
+                caption: 'Intensive Care Education',
+                duration: '5 Days',
             },
         ],
     },

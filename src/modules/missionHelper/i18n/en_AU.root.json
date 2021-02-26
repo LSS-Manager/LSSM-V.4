@@ -90,6 +90,10 @@
 				"description": "Shows details about possible patients.",
 				"title": "Details of potential patients"
 			},
+			"critical_care": {
+				"description": "Shows the possible Intensive Care Chance",
+				"title": "Details of possible Intensive Chances"
+			},
 			"hideWhenNoNeed": {
 				"description": "Hides the patient details if there are no more patients and patients do not appear until the end of the assignment.",
 				"title": "Show patient details only when needed"
@@ -143,8 +147,8 @@
 				"title": "Vehicle requirements"
 			},
 			"patient_additionals": {
-				"description": "If there are currently more than 10 patients on site, EMS-Chief is automatically listed at the beginning of the vehicle requirements.",
-				"title": "Mention EMS-Chief extra"
+				"description": "If there are currently more than 10 patients on site, Paramedic Supervisor is automatically listed at the beginning of the vehicle requirements.",
+				"title": "Mention Paramedic Supervisor extra"
 			},
 			"sort": {
 				"amount": "Number of required vehicles",

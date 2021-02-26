@@ -30,7 +30,7 @@
 		"version": "4.14.168"
 	},
 	"@types/node": {
-		"version": "14.14.28"
+		"version": "14.14.31"
 	},
 	"@types/pdfmake": {
 		"version": "0.1.16"
@@ -54,20 +54,20 @@
 		"version": "1.16.0"
 	},
 	"@typescript-eslint/eslint-plugin": {
-		"version": "4.15.1"
+		"version": "4.15.2"
 	},
 	"@typescript-eslint/parser": {
-		"version": "4.15.1"
+		"version": "4.15.2"
 	},
 	"@vuepress/plugin-active-header-links": {
 		"icon": "https://vuepress.vuejs.org/hero.png",
 		"url": "https://github.com/vuejs/vuepress/blob/master/packages/@vuepress/plugin-active-header-links#readme",
-		"version": "1.8.1"
+		"version": "1.8.2"
 	},
 	"@vuepress/plugin-back-to-top": {
 		"icon": "https://vuepress.vuejs.org/hero.png",
 		"url": "https://github.com/vuejs/vuepress/tree/master/packages/%40vuepress/plugin-back-to-top#readme",
-		"version": "1.8.1"
+		"version": "1.8.2"
 	},
 	"all-contributors-cli": {
 		"icon": "https://avatars3.githubusercontent.com/u/46843839",
@@ -133,7 +133,7 @@
 	"lodash": {
 		"icon": "https://lodash.com/assets/img/lodash.svg",
 		"url": "https://lodash.com/",
-		"version": "4.17.20"
+		"version": "4.17.21"
 	},
 	"mini-svg-data-uri": {
 		"url": "https://github.com/tigt/mini-svg-data-uri#readme",
@@ -151,7 +151,7 @@
 	"sass": {
 		"icon": "https://sass-lang.com/assets/img/logos/logo-b6e1ef6e.svg",
 		"url": "https://github.com/sass/dart-sass",
-		"version": "1.32.7"
+		"version": "1.32.8"
 	},
 	"sass-loader": {
 		"icon": "https://webpack.js.org/assets/icon-square-big.svg",
@@ -189,7 +189,7 @@
 	"typescript": {
 		"icon": "https://www.typescriptlang.org/icons/icon-512x512.png",
 		"url": "https://www.typescriptlang.org/",
-		"version": "4.1.5"
+		"version": "4.2.2"
 	},
 	"ua-parser-js": {
 		"icon": "https://raw.githubusercontent.com/faisalman/ua-parser-js/gh-pages/images/logo.png",
@@ -209,7 +209,7 @@
 	"vue-i18n": {
 		"icon": "https://kazupon.github.io/vue-i18n/vue-i18n-logo.png",
 		"url": "https://github.com/kazupon/vue-i18n#readme",
-		"version": "8.22.4"
+		"version": "8.23.0"
 	},
 	"vue-js-modal": {
 		"url": "http://vue-js-modal.yev.io/",
@@ -248,7 +248,7 @@
 	"vuepress": {
 		"icon": "https://vuepress.vuejs.org/hero.png",
 		"url": "https://github.com/vuejs/vuepress#readme",
-		"version": "1.8.1"
+		"version": "1.8.2"
 	},
 	"vuepress-plugin-redirect": {
 		"icon": "https://vuepress.vuejs.org/hero.png",
