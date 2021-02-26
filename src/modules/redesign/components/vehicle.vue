@@ -248,7 +248,15 @@
                     <tab
                         v-for="group in ['own', 'alliance', 'all']"
                         :title="
-                            $sm(`tabs.${group}`, { type: $sm('tabs.missions') })
+                            $sm(`tabs.${group}`, {
+                                type: $sm('tabs.missions'),
+                                amount: (group === 'own'
+                                    ? vehicle.mission_own.length
+                                    : group === 'alliance'
+                                    ? vehicle.mission_alliance.length
+                                    : missionList.length
+                                ).toLocaleString(),
+                            })
                         "
                         :key="group"
                     ></tab>
@@ -358,6 +366,12 @@
                         :title="
                             $sm(`tabs.${group}`, {
                                 type: $sm('tabs.hospitals'),
+                                amount: (group === 'own'
+                                    ? vehicle.own_hospitals.length
+                                    : group === 'alliance'
+                                    ? vehicle.alliance_hospitals.length
+                                    : hospitalList.length
+                                ).toLocaleString(),
                             })
                         "
                         :key="group"
@@ -434,7 +448,15 @@
                     <tab
                         v-for="group in ['own', 'alliance', 'all']"
                         :title="
-                            $sm(`tabs.${group}`, { type: $sm('tabs.cells') })
+                            $sm(`tabs.${group}`, {
+                                type: $sm('tabs.cells'),
+                                amount: (group === 'own'
+                                    ? vehicle.own_cells.length
+                                    : group === 'alliance'
+                                    ? vehicle.alliance_cells.length
+                                    : cellList.length
+                                ).toLocaleString(),
+                            })
                         "
                         :key="group"
                     ></tab>

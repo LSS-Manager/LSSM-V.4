@@ -39,9 +39,9 @@
             "missions": "Einsätze",
             "hospitals": "Krankenhäuser",
             "cells": "Zellen",
-            "own": "eigene {type}",
-            "alliance": "Verbands-{type}",
-            "all": "Alle {type}"
+            "own": "eigene {type}: {amount}",
+            "alliance": "Verbands-{type}: {amount}",
+            "all": "Alle {type}: {amount}"
         },
         "distance": "Entfernung",
         "tax": "Abgabe an Besitzer",
