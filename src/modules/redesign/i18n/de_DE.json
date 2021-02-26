@@ -1,70 +1,88 @@
 {
-    "vehicles": {
-        "owner": "Besitzer",
-        "owner_pic_state": {
-            "online": "{user} ist online!",
-            "offline": "{user} ist offline!"
-        },
-        "station": "Wache",
-        "move": "Verschieben",
-        "vehicletype": "Fahrzeugtyp",
-        "color": "Farbe anpassen",
-        "fms": "FMS",
-        "backalarm": "Rückalarmieren",
-        "fms_switch": {
-            "is_s2": "S6 setzen",
-            "is_s6": "S2 setzen"
-        },
-        "max_staff": "Max. Personal",
-        "water_amount": "Wassermenge",
-        "mileage": "Laufleistung",
-        "current_mission": "Aktueller Einsatz",
-        "followup_missions": "Folgeeinsatz | Folgeeinsätze",
-        "staff": {
-            "title": "Personal",
-            "name": "Name",
-            "schooling": "Ausbildung"
-        },
-        "edit": "Bearbeiten",
-        "stats": "Statistiken",
-        "zuweisung": "Personalzuweisung",
-        "delete": {
-            "button": "Löschen",
-            "title": "Fahrzeug löschen",
-            "text": "Möchtest du wirklich das Fahrzeug **{caption}** von Gebäude **{building}** löschen?",
-            "cancel": "Abbrechen",
-            "confirm": "Löschen"
-        },
-        "tabs": {
-            "missions": "Einsätze",
-            "hospitals": "Krankenhäuser",
-            "cells": "Zellen",
-            "own": "eigene {type}: {amount}",
-            "alliance": "Verbands-{type}: {amount}",
-            "all": "Alle {type}: {amount}"
-        },
-        "distance": "Entfernung",
-        "tax": "Abgabe an Besitzer",
-        "approach": "Anfahren",
-        "missions": {
-            "participation": "Anwesenheit",
-            "mission": "Einsatz",
-            "progress": "Fortschritt",
-            "patients": "Patienten",
-            "alarm": "Alarmieren",
-            "alarmed": "Aktueller Einsatz",
-            "credits": "Verdienst"
-        },
-        "hospitals": {
-            "hospital": "Krankenhaus",
-            "beds": "Freie Betten",
-            "department": "Fachabteilung",
-            "true": "Ja",
-            "false": "Nein"
-        },
-        "cells": {
-            "cell": "Gebäude",
-            "free": "Freie Zellen"
-        }
-    }
+	"vehicles": {
+		"approach": "Anfahren",
+		"backalarm": "Rückalarmieren",
+		"cells": {
+			"cell": "Gebäude",
+			"free": "Freie Zellen"
+		},
+		"color": "Farbe anpassen",
+		"current_mission": "Aktueller Einsatz",
+		"delete": {
+			"button": "Löschen",
+			"cancel": "Abbrechen",
+			"confirm": "Löschen",
+			"text": "Möchtest du wirklich das Fahrzeug **{caption}** von Gebäude **{building}** löschen?",
+			"title": "Fahrzeug löschen"
+		},
+		"distance": "Entfernung",
+		"edit": "Bearbeiten",
+		"filter": {
+			"missions": {
+				"credits": "Minimaler Verdienst",
+				"distance": "Maximale Entfernung",
+				"participation": {
+					"false": "Nein",
+					"title": "Anwesend",
+					"true": "Ja"
+				},
+				"progress": "Abgearbeitet zu max %",
+				"status": {
+					"green": "grün",
+					"red": "rot",
+					"title": "Status",
+					"yellow": "gelb"
+				}
+			}
+		},
+		"fms": "FMS",
+		"fms_switch": {
+			"is_s2": "S6 setzen",
+			"is_s6": "S2 setzen"
+		},
+		"followup_missions": "Folgeeinsatz | Folgeeinsätze",
+		"hospitals": {
+			"beds": "Freie Betten",
+			"department": "Fachabteilung",
+			"false": "Nein",
+			"hospital": "Krankenhaus",
+			"true": "Ja"
+		},
+		"max_staff": "Max. Personal",
+		"mileage": "Laufleistung",
+		"missions": {
+			"alarm": "Alarmieren",
+			"alarmed": "Aktueller Einsatz",
+			"credits": "Verdienst",
+			"mission": "Einsatz",
+			"participation": "Anwesenheit",
+			"patients": "Patienten",
+			"progress": "Fortschritt"
+		},
+		"move": "Verschieben",
+		"owner": "Besitzer",
+		"owner_pic_state": {
+			"offline": "{user} ist offline!",
+			"online": "{user} ist online!"
+		},
+		"staff": {
+			"name": "Name",
+			"schooling": "Ausbildung",
+			"title": "Personal"
+		},
+		"station": "Wache",
+		"stats": "Statistiken",
+		"tabs": {
+			"all": "Alle {type}: {amount}",
+			"alliance": "Verbands-{type}: {amount}",
+			"cells": "Zellen",
+			"hospitals": "Krankenhäuser",
+			"missions": "Einsätze",
+			"own": "eigene {type}: {amount}"
+		},
+		"tax": "Abgabe an Besitzer",
+		"vehicletype": "Fahrzeugtyp",
+		"water_amount": "Wassermenge",
+		"zuweisung": "Personalzuweisung"
+	}
 }

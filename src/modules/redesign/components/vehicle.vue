@@ -270,6 +270,94 @@
                     :sort-dir="sortDir"
                     @sort="setSort"
                 >
+                    <template v-slot:head>
+                        <div class="form-group">
+                            <label>{{
+                                $sm('filter.missions.status.title')
+                            }}</label>
+                            <multi-select
+                                name="mission_status"
+                                :placeholder="
+                                    $sm('filter.missions.status.title')
+                                "
+                                v-model="filter.mission.status"
+                                :options="[
+                                    {
+                                        value: 'red',
+                                        label: $sm(
+                                            'filter.missions.status.red'
+                                        ),
+                                    },
+                                    {
+                                        value: 'yellow',
+                                        label: $sm(
+                                            'filter.missions.status.yellow'
+                                        ),
+                                    },
+                                    {
+                                        value: 'green',
+                                        label: $sm(
+                                            'filter.missions.status.green'
+                                        ),
+                                    },
+                                ]"
+                            ></multi-select>
+                        </div>
+                        <div class="form-group">
+                            <label>{{
+                                $sm('filter.missions.participation.title')
+                            }}</label>
+                            <multi-select
+                                name="mission_participation"
+                                :placeholder="
+                                    $sm('filter.missions.participation.title')
+                                "
+                                v-model="filter.mission.participation"
+                                :options="[
+                                    {
+                                        value: true,
+                                        label: $sm(
+                                            'filter.missions.participation.true'
+                                        ),
+                                    },
+                                    {
+                                        value: false,
+                                        label: $sm(
+                                            'filter.missions.participation.false'
+                                        ),
+                                    },
+                                ]"
+                            ></multi-select>
+                        </div>
+                        <div class="form-group">
+                            <label>{{ $sm('filter.missions.distance') }}</label>
+                            <settings-number
+                                name="mission_distance"
+                                :placeholder="$sm('filter.missions.distance')"
+                                v-model="filter.mission.distance"
+                                :min="0"
+                            ></settings-number>
+                        </div>
+                        <div class="form-group">
+                            <label>{{ $sm('filter.missions.credits') }}</label>
+                            <settings-number
+                                name="mission_credits"
+                                :placeholder="$sm('filter.missions.credits')"
+                                v-model="filter.mission.credits"
+                                :min="0"
+                            ></settings-number>
+                        </div>
+                        <div class="form-group">
+                            <label>{{ $sm('filter.missions.progress') }}</label>
+                            <settings-number
+                                name="mission_progress"
+                                :placeholder="$sm('filter.missions.progress')"
+                                v-model="filter.mission.progress"
+                                :min="0"
+                                :max="100"
+                            ></settings-number>
+                        </div>
+                    </template>
                     <tr
                         v-for="mission in missionListSorted"
                         :key="mission.id"
@@ -602,6 +690,15 @@ export default Vue.extend<
             yellow: 'warning';
             green: 'success';
         };
+        filter: {
+            mission: {
+                status: ('red' | 'green' | 'yellow')[];
+                participation: boolean[];
+                distance: number;
+                credits: number;
+                progress: number;
+            };
+        };
     },
     {
         $sm(
@@ -681,6 +778,14 @@ export default Vue.extend<
             import(
                 /* webpackChunkName: "components/enhanced-table" */ '../../../components/enhanced-table.vue'
             ),
+        MultiSelect: () =>
+            import(
+                /* webpackChunkName: "components/settings/multi-select" */ '../../../components/setting/multi-select.vue'
+            ),
+        SettingsNumber: () =>
+            import(
+                /* webpackChunkName: "components/settings/number" */ '../../../components/setting/number.vue'
+            ),
     },
     data() {
         return {
@@ -704,6 +809,15 @@ export default Vue.extend<
                 red: 'danger',
                 yellow: 'warning',
                 green: 'success',
+            },
+            filter: {
+                mission: {
+                    status: ['red', 'yellow', 'green'],
+                    participation: [true, false],
+                    distance: 0,
+                    credits: 0,
+                    progress: 0,
+                },
             },
         };
     },
@@ -766,15 +880,27 @@ export default Vue.extend<
                 const missionType = this.$store.getters['api/missionsById'][
                     m.type
                 ];
+                const participation = this.participated_missions.includes(
+                    m.id.toString()
+                );
+                const credits = missionType
+                    ? missionType.average_credits || 0
+                    : Number.MAX_SAFE_INTEGER;
                 return {
                     ...m,
-                    participation: this.participated_missions.includes(
-                        m.id.toString()
-                    ),
-                    credits: missionType
-                        ? missionType.average_credits || 0
-                        : Number.MAX_SAFE_INTEGER,
+                    participation,
+                    credits,
                     hidden: !(
+                        this.filter.mission.status.includes(m.status) &&
+                        this.filter.mission.participation.includes(
+                            participation
+                        ) &&
+                        credits >= this.filter.mission.credits &&
+                        (!this.filter.mission.distance ||
+                            parseInt(m.distance) <=
+                                this.filter.mission.distance) &&
+                        m.progress.width >=
+                            100 - this.filter.mission.progress &&
                         (this.missionListSrc === 2 ||
                             (this.missionListSrc === 0 &&
                                 m.list === 'mission_own') ||
