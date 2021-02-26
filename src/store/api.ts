@@ -384,6 +384,9 @@ export default {
             });
             return result;
         },
+        missionsById(state) {
+            return Object.fromEntries(state.missions.map(m => [m.id, m]));
+        },
     } as GetterTree<APIState, RootState>,
     actions: {
         initialUpdate(

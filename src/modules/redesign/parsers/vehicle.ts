@@ -2,6 +2,7 @@ interface Mission {
     image: string;
     caption: string;
     id: number;
+    type: number;
     adress: string;
     distance: string;
     list: 'mission_own' | 'mission_alliance';
@@ -240,6 +241,9 @@ export default (
                         image: m.children[0]?.querySelector('img')?.src ?? '',
                         caption: linkEl?.textContent?.trim() ?? '',
                         id: getIdFromEl(linkEl),
+                        type: parseInt(
+                            m.getAttribute('data-mission-type') ?? '-1'
+                        ),
                         adress: Array.from(m.children[1]?.childNodes ?? [])
                             .map(c => (c as Text).wholeText ?? '')
                             .join('')

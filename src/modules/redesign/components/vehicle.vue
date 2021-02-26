@@ -307,6 +307,17 @@
                         </td>
                         <td>{{ mission.distance }}</td>
                         <td>
+                            <span
+                                v-if="
+                                    mission.credits !== Number.MAX_SAFE_INTEGER
+                                "
+                            >
+                                ~
+                                {{ mission.credits.toLocaleString() }}
+                                Credits
+                            </span>
+                        </td>
+                        <td>
                             <div class="progress">
                                 <div
                                     class="progress-bar"
@@ -721,6 +732,9 @@ export default Vue.extend<
                 distance: {
                     title: this.$sm('distance').toString(),
                 },
+                credits: {
+                    title: this.$sm('missions.credits').toString(),
+                },
                 progress: {
                     title: this.$sm('missions.progress').toString(),
                 },
@@ -748,22 +762,30 @@ export default Vue.extend<
             });
         },
         missionListFiltered() {
-            return this.missionList.map(m => ({
-                ...m,
-                participation: this.participated_missions.includes(
-                    m.id.toString()
-                ),
-                hidden: !(
-                    (this.missionListSrc === 2 ||
-                        (this.missionListSrc === 0 &&
-                            m.list === 'mission_own') ||
-                        (this.missionListSrc === 1 &&
-                            m.list === 'mission_alliance')) &&
-                    JSON.stringify(Object.values(m))
-                        .toLowerCase()
-                        .match(this.search.trim().toLowerCase())
-                ),
-            }));
+            return this.missionList.map(m => {
+                const missionType = this.$store.getters['api/missionsById'][
+                    m.type
+                ];
+                return {
+                    ...m,
+                    participation: this.participated_missions.includes(
+                        m.id.toString()
+                    ),
+                    credits: missionType
+                        ? missionType.average_credits || 0
+                        : Number.MAX_SAFE_INTEGER,
+                    hidden: !(
+                        (this.missionListSrc === 2 ||
+                            (this.missionListSrc === 0 &&
+                                m.list === 'mission_own') ||
+                            (this.missionListSrc === 1 &&
+                                m.list === 'mission_alliance')) &&
+                        JSON.stringify(Object.values(m))
+                            .toLowerCase()
+                            .match(this.search.trim().toLowerCase())
+                    ),
+                };
+            });
         },
         missionListSorted() {
             if (this.sort === 'distance') {
