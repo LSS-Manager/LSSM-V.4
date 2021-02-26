@@ -258,7 +258,11 @@
                             ></font-awesome-icon>
                         </td>
                         <td>
-                            <img :src="mission.image" :alt="mission.caption" />
+                            <img
+                                loading="lazy"
+                                :src="mission.image"
+                                :alt="mission.caption"
+                            />
                         </td>
                         <td>
                             <font-awesome-icon
