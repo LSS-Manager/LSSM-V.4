@@ -101,6 +101,18 @@
                                     >
                                         {{ $sm('backalarm') }}
                                     </button>
+                                    <button
+                                        v-if="
+                                            vehicle.fms === 2 ||
+                                                vehicle.fms === 6
+                                        "
+                                        class="btn btn-default btn-xs"
+                                        @click="switch_state"
+                                    >
+                                        {{
+                                            $sm(`fms_switch.is_s${vehicle.fms}`)
+                                        }}
+                                    </button>
                                 </td>
                             </tr>
                             <tr>
@@ -227,7 +239,8 @@
                 v-if="
                     !vehicle.user &&
                         !vehicle.has_hospitals &&
-                        !vehicle.has_cells
+                        !vehicle.has_cells &&
+                        missionList.length
                 "
                 class="table-tabs"
             >
@@ -579,6 +592,7 @@ export default Vue.extend<
         alarm(missionId: number): void;
         deleteVehicle(): void;
         backalarm(): void;
+        switch_state(): void;
     },
     {
         participated_missions: string[];
@@ -1038,6 +1052,22 @@ export default Vue.extend<
                         `/vehicles/${this.vehicle.id}`
                     )
                 );
+        },
+        switch_state() {
+            if (![2, 6].includes(this.vehicle.fms)) return;
+            const target = this.vehicle.fms === 2 ? 6 : 2;
+            this.$store
+                .dispatch('api/request', {
+                    url: `/vehicles/${this.vehicle.id}/set_fms/${target}`,
+                    feature: `dashboard-vehicleList-setfms`,
+                })
+                .then(() => {
+                    this.$set(
+                        this.lightbox,
+                        'src',
+                        `/vehicles/${this.vehicle.id}`
+                    );
+                });
         },
     },
     props: {

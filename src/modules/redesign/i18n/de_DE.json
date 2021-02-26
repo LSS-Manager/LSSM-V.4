@@ -11,8 +11,10 @@
         "color": "Farbe anpassen",
         "fms": "FMS",
         "backalarm": "Rückalarmieren",
-        "s6": "S6 setzen",
-        "s2": "S2 setzen",
+        "fms_switch": {
+            "is_s2": "S6 setzen",
+            "is_s6": "S2 setzen"
+        },
         "max_staff": "Max. Personal",
         "water_amount": "Wassermenge",
         "mileage": "Laufleistung",

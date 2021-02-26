@@ -92,6 +92,11 @@ export default (
         new URL(href, window.location.href).pathname.match(/\d+\/?$/)?.[0] ??
             '-1'
     );
+    const fms = parseInt(
+        doc
+            .querySelector<HTMLSpanElement>('#vehicle-attr-fms span')
+            ?.className?.match(/(?<=building_list_fms_)\d+/)?.[0] ?? '-1'
+    );
     const buildingEl = doc.querySelector<HTMLAnchorElement>(
         '#vehicle-attr-station a[href^="/buildings/"]'
     );
@@ -167,11 +172,7 @@ export default (
         previous_vehicle_id: getIdFromEl(navBtns[0]),
         next_vehicle_id: getIdFromEl(navBtns[1]),
         vehicle_name: doc.querySelector('h1')?.textContent ?? '',
-        fms: parseInt(
-            doc
-                .querySelector<HTMLSpanElement>('#vehicle-attr-fms span')
-                ?.className?.match(/(?<=building_list_fms_)\d+/)?.[0] ?? '-1'
-        ),
+        fms,
         max_staff: parseInt(
             doc.getElementById('vehicle-attr-max-personnel')?.textContent ??
                 '-1'
@@ -181,7 +182,9 @@ export default (
             imageEl?.getAttribute('image_replace_allowed') === 'true'
                 ? JSON.parse(
                       doc.scripts[
-                          userEl || hasHospitals || hasCells ? 7 : 8
+                          userEl || hasHospitals || hasCells || fms === 6
+                              ? 7
+                              : 8
                       ].innerText.match(
                           /(?<=vehicle_graphics\s*=\s*)\[(?:\[".*?",".*?","(true|false)"],?)+]/
                       )?.[0] ?? '[]'
