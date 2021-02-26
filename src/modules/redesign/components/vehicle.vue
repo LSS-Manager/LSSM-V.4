@@ -94,7 +94,13 @@
                                     </span>
                                 </td>
                                 <td>
-                                    switch FMS (2 ←→ 6) / backalarm
+                                    <button
+                                        v-if="vehicle.current_mission"
+                                        class="btn btn-default btn-xs"
+                                        @click="backalarm"
+                                    >
+                                        {{ $sm('backalarm') }}
+                                    </button>
                                 </td>
                             </tr>
                             <tr>
@@ -572,6 +578,7 @@ export default Vue.extend<
         setSort(type: string): void;
         alarm(missionId: number): void;
         deleteVehicle(): void;
+        backalarm(): void;
     },
     {
         participated_missions: string[];
@@ -1017,6 +1024,20 @@ export default Vue.extend<
                     },
                 ],
             });
+        },
+        backalarm() {
+            this.$store
+                .dispatch('api/request', {
+                    url: `/vehicles/${this.vehicle.id}/backalarm`,
+                    feature: `redesign-vehicle-alarm-${this.vehicle.id}-backalarm`,
+                })
+                .then(() =>
+                    this.$set(
+                        this.lightbox,
+                        'src',
+                        `/vehicles/${this.vehicle.id}`
+                    )
+                );
         },
     },
     props: {
