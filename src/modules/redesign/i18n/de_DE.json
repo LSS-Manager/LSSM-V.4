@@ -26,6 +26,7 @@
                     "true": "Ja"
                 },
                 "distance": "Maximale Entfernung",
+                "each": "Jeweils nur x Krankenhäuser zeigen",
                 "tax": "Maximale Verbandsabgabe"
             },
 			"missions": {

@@ -487,6 +487,15 @@
                 >
                     <template v-slot:head>
                         <div class="form-group">
+                            <label>{{ $sm('filter.hospitals.each') }}</label>
+                            <settings-number
+                                name="hospital_each"
+                                :placeholder="$sm('filter.hospitals.each')"
+                                v-model="filter.hospital.each"
+                                :min="0"
+                            ></settings-number>
+                        </div>
+                        <div class="form-group">
                             <label>{{
                                 $sm('filter.hospitals.distance')
                             }}</label>
@@ -767,6 +776,7 @@ export default Vue.extend<
                 distance: number;
                 tax: number;
                 beds: number;
+                each: number;
             };
         };
     },
@@ -893,6 +903,7 @@ export default Vue.extend<
                     distance: 0,
                     tax: 50,
                     beds: 0,
+                    each: 0,
                 },
             },
         };
@@ -1056,14 +1067,19 @@ export default Vue.extend<
             });
         },
         hospitalListFiltered() {
-            return this.hospitalList.map(h => ({
-                ...h,
-                hidden: !(
+            const eachFilterLists = {
+                own_hospitals: 0,
+                alliance_hospitals: 0,
+            };
+            return this.hospitalList.map(h => {
+                const hidden = !(
                     this.filter.hospital.department.includes(h.department) &&
                     h.tax <= this.filter.hospital.tax &&
                     h.beds >= this.filter.hospital.beds &&
                     (!this.filter.hospital.distance ||
                         parseInt(h.distance) < this.filter.hospital.distance) &&
+                    (!this.filter.hospital.each ||
+                        eachFilterLists[h.list] < this.filter.hospital.each) &&
                     (this.hospitalListSrc === 2 ||
                         (this.hospitalListSrc === 0 &&
                             h.list === 'own_hospitals') ||
@@ -1072,8 +1088,13 @@ export default Vue.extend<
                     JSON.stringify(Object.values(h))
                         .toLowerCase()
                         .match(this.search.trim().toLowerCase())
-                ),
-            }));
+                );
+                if (!hidden) eachFilterLists[h.list]++;
+                return {
+                    ...h,
+                    hidden,
+                };
+            });
         },
         hospitalListSorted() {
             if (this.sort === 'distance') {
