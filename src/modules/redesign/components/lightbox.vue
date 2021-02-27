@@ -120,8 +120,15 @@ export default Vue.extend<
                             iframe.contentWindow?.location.href ?? '',
                             window.location.href
                         ).toString() !== link.toString()
-                    )
+                    ) {
                         iframe.src = url;
+                    } else {
+                        window.dispatchEvent(
+                            new Event(
+                                'lssmv4-redesign-iframe-trigger-lssm-load'
+                            )
+                        );
+                    }
                     this.type = '';
                     return;
                 }
