@@ -18,17 +18,23 @@
 		"distance": "Entfernung",
 		"edit": "Bearbeiten",
 		"filter": {
-            "hospitals": {
-                "beds": "mindestens freie Betten",
-                "department": {
-                    "false": "Nein",
-                    "title": "Fachabteilung: {department}",
-                    "true": "Ja"
-                },
-                "distance": "Maximale Entfernung",
-                "each": "Jeweils nur x Krankenhäuser zeigen",
-                "tax": "Maximale Verbandsabgabe"
-            },
+			"cells": {
+				"distance": "Maximale Entfernung",
+				"each": "Jeweils nur x Gebäude zeigen",
+				"free": "mindestens freie Zellen",
+				"tax": "Maximale Verbandsabgabe"
+			},
+			"hospitals": {
+				"beds": "mindestens freie Betten",
+				"department": {
+					"false": "Nein",
+					"title": "Fachabteilung: {department}",
+					"true": "Ja"
+				},
+				"distance": "Maximale Entfernung",
+				"each": "Jeweils nur x Krankenhäuser zeigen",
+				"tax": "Maximale Verbandsabgabe"
+			},
 			"missions": {
 				"credits": "Minimaler Verdienst",
 				"distance": "Maximale Entfernung",

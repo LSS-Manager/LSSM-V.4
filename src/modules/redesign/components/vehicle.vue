@@ -642,6 +642,47 @@
                     :sort-dir="sortDir"
                     @sort="setSort"
                 >
+                    <template v-slot:head>
+                        <div class="form-group">
+                            <label>{{ $sm('filter.cells.each') }}</label>
+                            <settings-number
+                                name="cell_each"
+                                :placeholder="$sm('filter.cells.each')"
+                                v-model="filter.cell.each"
+                                :min="0"
+                            ></settings-number>
+                        </div>
+                        <div class="form-group">
+                            <label>{{ $sm('filter.cells.distance') }}</label>
+                            <settings-number
+                                name="cell_distance"
+                                :placeholder="$sm('filter.cells.distance')"
+                                v-model="filter.cell.distance"
+                                :min="0"
+                            ></settings-number>
+                        </div>
+                        <div class="form-group">
+                            <label>{{ $sm('filter.cells.free') }}</label>
+                            <settings-number
+                                name="cell_free"
+                                :placeholder="$sm('filter.cells.free')"
+                                v-model="filter.cell.free"
+                                :min="0"
+                                :max="30"
+                            ></settings-number>
+                        </div>
+                        <div class="form-group">
+                            <label>{{ $sm('filter.cells.tax') }}</label>
+                            <settings-number
+                                name="cell_tax"
+                                :placeholder="$sm('filter.cells.tax')"
+                                v-model="filter.cell.tax"
+                                :min="0"
+                                :max="50"
+                                :step="10"
+                            ></settings-number>
+                        </div>
+                    </template>
                     <tr
                         v-for="cell in cellListSorted"
                         :key="cell.id"
@@ -905,6 +946,12 @@ export default Vue.extend<
                     beds: 0,
                     each: 0,
                 },
+                cell: {
+                    distance: 0,
+                    tax: 50,
+                    free: 0,
+                    each: 0,
+                },
             },
         };
     },
@@ -1148,18 +1195,32 @@ export default Vue.extend<
             });
         },
         cellListFiltered() {
-            return this.cellList.map(m => ({
-                ...m,
-                hidden: !(
+            const eachFilterLists = {
+                own_cells: 0,
+                alliance_cells: 0,
+            };
+            return this.cellList.map(c => {
+                const hidden = !(
+                    c.tax <= this.filter.cell.tax &&
+                    c.free >= this.filter.cell.free &&
+                    (!this.filter.cell.distance ||
+                        parseInt(c.distance) < this.filter.cell.distance) &&
+                    (!this.filter.cell.each ||
+                        eachFilterLists[c.list] < this.filter.cell.each) &&
                     (this.cellListSrc === 2 ||
-                        (this.cellListSrc === 0 && m.list === 'own_cells') ||
+                        (this.cellListSrc === 0 && c.list === 'own_cells') ||
                         (this.cellListSrc === 1 &&
-                            m.list === 'alliance_cells')) &&
-                    JSON.stringify(Object.values(m))
+                            c.list === 'alliance_cells')) &&
+                    JSON.stringify(Object.values(c))
                         .toLowerCase()
                         .match(this.search.trim().toLowerCase())
-                ),
-            }));
+                );
+                if (!hidden) eachFilterLists[c.list]++;
+                return {
+                    ...c,
+                    hidden,
+                };
+            });
         },
         cellListSorted() {
             if (this.sort === 'distance') {
