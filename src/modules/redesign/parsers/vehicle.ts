@@ -23,7 +23,7 @@ interface Hospital {
     distance: string;
     beds: number;
     department: boolean;
-    label: 'success' | 'danger' | 'warning';
+    state: 'success' | 'danger' | 'warning';
     list: 'own_hospitals' | 'alliance_hospitals';
     tax: number;
 }
@@ -76,6 +76,7 @@ export interface VehicleWindow {
     has_hospitals: boolean;
     own_hospitals: Hospital[];
     alliance_hospitals: Hospital[];
+    hospital_department: string;
     has_cells: boolean;
     own_cells: Cell[];
     alliance_cells: Cell[];
@@ -309,7 +310,7 @@ export default (
                                             h.children[3]?.textContent?.trim() ??
                                                 '-1'
                                         ),
-                                  label: alarmEl?.classList.contains(
+                                  state: alarmEl?.classList.contains(
                                       'btn-success'
                                   )
                                       ? 'success'
@@ -327,6 +328,11 @@ export default (
             own_hospitals: Hospital[];
             alliance_hospitals: Hospital[];
         }),
+        hospital_department: hasHospitals
+            ? doc
+                  .querySelector('.col-md-9 .alert.alert-info b')
+                  ?.textContent?.trim() ?? ''
+            : '',
         has_cells: hasCells,
         own_cells,
         alliance_cells,

@@ -18,6 +18,16 @@
 		"distance": "Entfernung",
 		"edit": "Bearbeiten",
 		"filter": {
+            "hospitals": {
+                "beds": "mindestens freie Betten",
+                "department": {
+                    "false": "Nein",
+                    "title": "Fachabteilung: {department}",
+                    "true": "Ja"
+                },
+                "distance": "Maximale Entfernung",
+                "tax": "Maximale Verbandsabgabe"
+            },
 			"missions": {
 				"credits": "Minimaler Verdienst",
 				"distance": "Maximale Entfernung",
@@ -43,7 +53,7 @@
 		"followup_missions": "Folgeeinsatz | Folgeeinsätze",
 		"hospitals": {
 			"beds": "Freie Betten",
-			"department": "Fachabteilung",
+			"department": "Fachabteilung: {department}",
 			"false": "Nein",
 			"hospital": "Krankenhaus",
 			"true": "Ja"

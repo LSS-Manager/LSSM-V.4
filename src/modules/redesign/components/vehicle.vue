@@ -485,6 +485,70 @@
                     :sort-dir="sortDir"
                     @sort="setSort"
                 >
+                    <template v-slot:head>
+                        <div class="form-group">
+                            <label>{{
+                                $sm('filter.hospitals.distance')
+                            }}</label>
+                            <settings-number
+                                name="hospital_distance"
+                                :placeholder="$sm('filter.hospitals.distance')"
+                                v-model="filter.hospital.distance"
+                                :min="0"
+                            ></settings-number>
+                        </div>
+                        <div class="form-group">
+                            <label>{{ $sm('filter.hospitals.beds') }}</label>
+                            <settings-number
+                                name="hospital_beds"
+                                :placeholder="$sm('filter.hospitals.beds')"
+                                v-model="filter.hospital.beds"
+                                :min="0"
+                                :max="30"
+                            ></settings-number>
+                        </div>
+                        <div class="form-group">
+                            <label>{{ $sm('filter.hospitals.tax') }}</label>
+                            <settings-number
+                                name="hospital_tax"
+                                :placeholder="$sm('filter.hospitals.tax')"
+                                v-model="filter.hospital.tax"
+                                :min="0"
+                                :max="50"
+                                :step="10"
+                            ></settings-number>
+                        </div>
+                        <div class="form-group">
+                            <label>{{
+                                $sm('filter.hospitals.department.title', {
+                                    department: vehicle.hospital_department,
+                                })
+                            }}</label>
+                            <multi-select
+                                name="hospital_department"
+                                :placeholder="
+                                    $sm('filter.hospitals.department.title', {
+                                        department: vehicle.hospital_department,
+                                    })
+                                "
+                                v-model="filter.hospital.department"
+                                :options="[
+                                    {
+                                        value: true,
+                                        label: $sm(
+                                            'filter.hospitals.department.true'
+                                        ),
+                                    },
+                                    {
+                                        value: false,
+                                        label: $sm(
+                                            'filter.hospitals.department.false'
+                                        ),
+                                    },
+                                ]"
+                            ></multi-select>
+                        </div>
+                    </template>
                     <tr
                         v-for="hospital in hospitalListSorted"
                         :key="hospital.id"
@@ -698,6 +762,12 @@ export default Vue.extend<
                 credits: number;
                 progress: number;
             };
+            hospital: {
+                department: boolean[];
+                distance: number;
+                tax: number;
+                beds: number;
+            };
         };
     },
     {
@@ -816,7 +886,13 @@ export default Vue.extend<
                     participation: [true, false],
                     distance: 0,
                     credits: 0,
-                    progress: 0,
+                    progress: 100,
+                },
+                hospital: {
+                    department: [true, false],
+                    distance: 0,
+                    tax: 50,
+                    beds: 0,
                 },
             },
         };
@@ -897,7 +973,7 @@ export default Vue.extend<
                         ) &&
                         credits >= this.filter.mission.credits &&
                         (!this.filter.mission.distance ||
-                            parseInt(m.distance) <=
+                            parseInt(m.distance) <
                                 this.filter.mission.distance) &&
                         m.progress.width >=
                             100 - this.filter.mission.progress &&
@@ -955,7 +1031,9 @@ export default Vue.extend<
                     ? { tax: { title: this.$sm('tax').toString() } }
                     : {}),
                 department: {
-                    title: this.$sm('hospitals.department').toString(),
+                    title: this.$sm('hospitals.department', {
+                        department: this.vehicle.hospital_department,
+                    }).toString(),
                 },
                 dispatch: {
                     title: '',
@@ -978,15 +1056,20 @@ export default Vue.extend<
             });
         },
         hospitalListFiltered() {
-            return this.hospitalList.map(m => ({
-                ...m,
+            return this.hospitalList.map(h => ({
+                ...h,
                 hidden: !(
+                    this.filter.hospital.department.includes(h.department) &&
+                    h.tax <= this.filter.hospital.tax &&
+                    h.beds >= this.filter.hospital.beds &&
+                    (!this.filter.hospital.distance ||
+                        parseInt(h.distance) < this.filter.hospital.distance) &&
                     (this.hospitalListSrc === 2 ||
                         (this.hospitalListSrc === 0 &&
-                            m.list === 'own_hospitals') ||
+                            h.list === 'own_hospitals') ||
                         (this.hospitalListSrc === 1 &&
-                            m.list === 'alliance_hospitals')) &&
-                    JSON.stringify(Object.values(m))
+                            h.list === 'alliance_hospitals')) &&
+                    JSON.stringify(Object.values(h))
                         .toLowerCase()
                         .match(this.search.trim().toLowerCase())
                 ),
