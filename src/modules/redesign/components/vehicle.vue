@@ -301,6 +301,12 @@
                                         ),
                                     },
                                 ]"
+                                @input="
+                                    updateFilter(
+                                        'mission.status',
+                                        filter.mission.status
+                                    )
+                                "
                             ></multi-select>
                         </div>
                         <div class="form-group">
@@ -327,6 +333,12 @@
                                         ),
                                     },
                                 ]"
+                                @input="
+                                    updateFilter(
+                                        'mission.participation',
+                                        filter.mission.participation
+                                    )
+                                "
                             ></multi-select>
                         </div>
                         <div class="form-group">
@@ -336,6 +348,12 @@
                                 :placeholder="$sm('filter.missions.distance')"
                                 v-model="filter.mission.distance"
                                 :min="0"
+                                @input="
+                                    updateFilter(
+                                        'mission.distance',
+                                        filter.mission.distance
+                                    )
+                                "
                             ></settings-number>
                         </div>
                         <div class="form-group">
@@ -345,6 +363,12 @@
                                 :placeholder="$sm('filter.missions.credits')"
                                 v-model="filter.mission.credits"
                                 :min="0"
+                                @input="
+                                    updateFilter(
+                                        'mission.credits',
+                                        filter.mission.credits
+                                    )
+                                "
                             ></settings-number>
                         </div>
                         <div class="form-group">
@@ -355,6 +379,12 @@
                                 v-model="filter.mission.progress"
                                 :min="0"
                                 :max="100"
+                                @input="
+                                    updateFilter(
+                                        'mission.progress',
+                                        filter.mission.progress
+                                    )
+                                "
                             ></settings-number>
                         </div>
                     </template>
@@ -493,6 +523,12 @@
                                 :placeholder="$sm('filter.hospitals.each')"
                                 v-model="filter.hospital.each"
                                 :min="0"
+                                @input="
+                                    updateFilter(
+                                        'hospital.each',
+                                        filter.hospital.each
+                                    )
+                                "
                             ></settings-number>
                         </div>
                         <div class="form-group">
@@ -504,6 +540,12 @@
                                 :placeholder="$sm('filter.hospitals.distance')"
                                 v-model="filter.hospital.distance"
                                 :min="0"
+                                @input="
+                                    updateFilter(
+                                        'hospital.distance',
+                                        filter.hospital.distance
+                                    )
+                                "
                             ></settings-number>
                         </div>
                         <div class="form-group">
@@ -514,6 +556,12 @@
                                 v-model="filter.hospital.beds"
                                 :min="0"
                                 :max="30"
+                                @input="
+                                    updateFilter(
+                                        'hospital.beds',
+                                        filter.hospital.beds
+                                    )
+                                "
                             ></settings-number>
                         </div>
                         <div class="form-group">
@@ -525,6 +573,12 @@
                                 :min="0"
                                 :max="50"
                                 :step="10"
+                                @input="
+                                    updateFilter(
+                                        'hospital.tax',
+                                        filter.hospital.tax
+                                    )
+                                "
                             ></settings-number>
                         </div>
                         <div class="form-group">
@@ -555,6 +609,12 @@
                                         ),
                                     },
                                 ]"
+                                @input="
+                                    updateFilter(
+                                        'hospital.department',
+                                        filter.hospital.department
+                                    )
+                                "
                             ></multi-select>
                         </div>
                     </template>
@@ -650,6 +710,9 @@
                                 :placeholder="$sm('filter.cells.each')"
                                 v-model="filter.cell.each"
                                 :min="0"
+                                @input="
+                                    updateFilter('cell.each', filter.cell.each)
+                                "
                             ></settings-number>
                         </div>
                         <div class="form-group">
@@ -659,6 +722,12 @@
                                 :placeholder="$sm('filter.cells.distance')"
                                 v-model="filter.cell.distance"
                                 :min="0"
+                                @input="
+                                    updateFilter(
+                                        'cell.distance',
+                                        filter.cell.distance
+                                    )
+                                "
                             ></settings-number>
                         </div>
                         <div class="form-group">
@@ -669,6 +738,9 @@
                                 v-model="filter.cell.free"
                                 :min="0"
                                 :max="30"
+                                @input="
+                                    updateFilter('cell.free', filter.cell.free)
+                                "
                             ></settings-number>
                         </div>
                         <div class="form-group">
@@ -680,6 +752,9 @@
                                 :min="0"
                                 :max="50"
                                 :step="10"
+                                @input="
+                                    updateFilter('cell.tax', filter.cell.tax)
+                                "
                             ></settings-number>
                         </div>
                     </template>
@@ -844,6 +919,7 @@ export default Vue.extend<
         deleteVehicle(): void;
         backalarm(): void;
         switch_state(): void;
+        updateFilter(filter: string, value: unknown): void;
     },
     {
         participated_missions: string[];
@@ -891,6 +967,8 @@ export default Vue.extend<
                 [key: string]: unknown;
             }
         ): VueI18n.TranslateResult;
+        getSetting: <T>(setting: string, defaultValue: T) => Promise<T>;
+        setSetting: <T>(settingId: string, value: T) => Promise<void>;
     }
 >({
     name: 'vehicle-lightbox',
@@ -1404,6 +1482,9 @@ export default Vue.extend<
                     );
                 });
         },
+        updateFilter(filter, value) {
+            this.setSetting(filter, value).then();
+        },
     },
     props: {
         vehicle: {
@@ -1422,6 +1503,23 @@ export default Vue.extend<
             type: Function,
             required: true,
         },
+        getSetting: {
+            type: Function,
+            required: true,
+        },
+        setSetting: {
+            type: Function,
+            required: true,
+        },
+    },
+    beforeMount() {
+        Object.entries(this.filter).forEach(([filter, props]) => {
+            Object.entries(props).forEach(([prop, value]) => {
+                this.getSetting(`${filter}.${prop}`, value).then(v =>
+                    this.$set(props, prop, v)
+                );
+            });
+        });
     },
     mounted() {
         this.$el.addEventListener('click', e => {

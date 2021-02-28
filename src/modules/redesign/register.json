@@ -1,4 +1,5 @@
 {
 	"location": ".*",
-	"noapp": true
+	"noapp": true,
+	"settings": true
 }

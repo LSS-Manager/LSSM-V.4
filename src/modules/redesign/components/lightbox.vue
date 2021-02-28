@@ -11,6 +11,8 @@
                 :lightbox="this"
                 :$m="$m"
                 :$mc="$mc"
+                :get-setting="getSetting()"
+                :set-setting="setSetting()"
             ></Vehicle>
         </div>
         <iframe
@@ -50,7 +52,10 @@ const getIdFromEl = (el: HTMLAnchorElement | null): number =>
 
 export default Vue.extend<
     Data<'', null> | Data<'vehicle', VehicleWindow>,
-    DefaultMethods<Vue>,
+    {
+        getSetting(): <T>(setting: string, defaultValue: T) => Promise<T>;
+        setSetting(): <T>(settingId: string, value: T) => Promise<void>;
+    },
     DefaultComputed,
     {
         url: string;
@@ -148,6 +153,38 @@ export default Vue.extend<
                         })
                     );
             },
+        },
+    },
+    methods: {
+        getSetting() {
+            return <T>(setting: string, defaultValue: T): Promise<T> =>
+                new Promise(resolve =>
+                    this.$store
+                        .dispatch('settings/getSetting', {
+                            moduleId: 'redesign',
+                            settingId: this.type,
+                        })
+                        .then(settings =>
+                            resolve(settings[setting] ?? defaultValue)
+                        )
+                );
+        },
+        setSetting() {
+            return <T>(settingId: string, value: T): Promise<void> =>
+                this.$store
+                    .dispatch('settings/getSetting', {
+                        moduleId: 'redesign',
+                        settingId: this.type,
+                    })
+                    .then(settings =>
+                        this.$store
+                            .dispatch('settings/setSetting', {
+                                moduleId: 'redesign',
+                                settingId: this.type,
+                                value: { ...settings, [settingId]: value },
+                            })
+                            .then()
+                    );
         },
     },
     mounted() {
