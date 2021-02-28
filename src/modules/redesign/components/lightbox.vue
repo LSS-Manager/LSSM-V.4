@@ -28,7 +28,7 @@
 <script lang="ts">
 import Vue from 'vue';
 import { VehicleWindow } from '../parsers/vehicle';
-import { DefaultComputed, DefaultMethods } from 'vue/types/options';
+import { DefaultComputed } from 'vue/types/options';
 import VueI18n from 'vue-i18n';
 
 type types = 'vehicle';

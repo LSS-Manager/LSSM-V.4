@@ -244,7 +244,7 @@
                 "
                 class="table-tabs"
             >
-                <tabs :on-select="setMissionList">
+                <tabs :on-select="setMissionList" ref="tabs">
                     <tab
                         v-for="group in ['own', 'alliance', 'all']"
                         :title="
@@ -489,7 +489,7 @@
                 v-else-if="!vehicle.user && vehicle.has_hospitals"
                 class="table-tabs"
             >
-                <tabs :on-select="setHospitalList">
+                <tabs :on-select="setHospitalList" ref="tabs">
                     <tab
                         v-for="group in ['own', 'alliance', 'all']"
                         :title="
@@ -676,7 +676,7 @@
                 v-else-if="!vehicle.user && vehicle.has_cells"
                 class="table-tabs"
             >
-                <tabs :on-select="setCellList">
+                <tabs :on-select="setCellList" ref="tabs">
                     <tab
                         v-for="group in ['own', 'alliance', 'all']"
                         :title="
@@ -1336,12 +1336,15 @@ export default Vue.extend<
             return this.$mc(`vehicles.${key}`, amount, args);
         },
         setMissionList(_, list) {
+            this.setSetting('missionListSrc', list).then();
             this.missionListSrc = list;
         },
         setHospitalList(_, list) {
+            this.setSetting('hospitalListSrc', list).then();
             this.hospitalListSrc = list;
         },
         setCellList(_, list) {
+            this.setSetting('cellListSrc', list).then();
             this.cellListSrc = list;
         },
         setSearch(search) {
@@ -1529,6 +1532,17 @@ export default Vue.extend<
             >('a, button');
             if (!target || !target.hasAttribute('href')) return;
             this.$set(this.lightbox, 'src', target.getAttribute('href'));
+        });
+        this.$nextTick(() => {
+            const tabSrc = this.vehicle.has_hospitals
+                ? 'hospitalListSrc'
+                : this.vehicle.has_cells
+                ? 'cellListSrc'
+                : 'missionListSrc';
+            this.getSetting(tabSrc, this[tabSrc]).then(list => {
+                this[tabSrc] = list;
+                if (this.$refs.tabs) this.$refs.tabs.selectedIndex = list;
+            });
         });
     },
 });
