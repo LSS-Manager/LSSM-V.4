@@ -1045,10 +1045,7 @@ export default Vue.extend<
         mission_head() {
             return {
                 ...(this.missionListSrc === 2 ? { list: { title: '' } } : {}),
-                img: {
-                    title: '',
-                    noSort: true,
-                },
+                img: { title: '' },
                 participation: {
                     title: this.$sm('missions.participation').toString(),
                 },
@@ -1141,6 +1138,9 @@ export default Vue.extend<
                 if (this.sort === 'mission') {
                     f = a['caption'] ?? '';
                     s = b['caption'] ?? '';
+                } else if (this.sort === 'img') {
+                    f = a['status'] ?? '';
+                    s = b['status'] ?? '';
                 } else if (this.sort === 'progress') {
                     f = f['width'] ?? 100;
                     s = s['width'] ?? 100;
@@ -1361,6 +1361,14 @@ export default Vue.extend<
                 this.sort = type;
                 this.sortDir = 'asc';
             }
+            const mode = this.vehicle.has_hospitals
+                ? 'hospital'
+                : this.vehicle.has_cells
+                ? 'cell'
+                : 'mission';
+            this.setSetting(`${mode}.sort`, type).then(() =>
+                this.setSetting(`${mode}.sortDir`, this.sortDir).then()
+            );
         },
         alarm(mission) {
             const url = new URL(
@@ -1533,6 +1541,17 @@ export default Vue.extend<
             if (!target || !target.hasAttribute('href')) return;
             this.$set(this.lightbox, 'src', target.getAttribute('href'));
         });
+        const mode = this.vehicle.has_hospitals
+            ? 'hospital'
+            : this.vehicle.has_cells
+            ? 'cell'
+            : 'mission';
+        this.getSetting(`${mode}.sort`, this.sort).then(
+            sort => (this.sort = sort)
+        );
+        this.getSetting(`${mode}.sortDir`, this.sortDir).then(
+            dir => (this.sortDir = dir)
+        );
         this.$nextTick(() => {
             const tabSrc = this.vehicle.has_hospitals
                 ? 'hospitalListSrc'
@@ -1541,6 +1560,8 @@ export default Vue.extend<
                 : 'missionListSrc';
             this.getSetting(tabSrc, this[tabSrc]).then(list => {
                 this[tabSrc] = list;
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
                 if (this.$refs.tabs) this.$refs.tabs.selectedIndex = list;
             });
         });
