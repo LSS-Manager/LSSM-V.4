@@ -894,6 +894,12 @@ export default Vue.extend<
                 beds: number;
                 each: number;
             };
+            cell: {
+                distance: number;
+                tax: number;
+                free: number;
+                each: number;
+            };
         };
     },
     {
