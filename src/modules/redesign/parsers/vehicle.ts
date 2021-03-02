@@ -188,7 +188,7 @@ export default (
                               ? 7
                               : 8
                       ].innerText.match(
-                          /(?<=vehicle_graphics\s*=\s*)\[(?:\[".*?",".*?","(true|false)"],?)+]/
+                          /(?<=vehicle_graphics\s*=\s*)\[(?:(?:(?:\[".*?",".*?","(?:true|false)"])|null),?)+]/
                       )?.[0] ?? '[]'
                   )[vehicleType][0]
                 : imageEl?.src ?? '',
