@@ -57,7 +57,7 @@
 		"version": "4.15.2"
 	},
 	"@typescript-eslint/parser": {
-		"version": "4.15.2"
+		"version": "4.16.1"
 	},
 	"@vuepress/plugin-active-header-links": {
 		"icon": "https://vuepress.vuejs.org/hero.png",
