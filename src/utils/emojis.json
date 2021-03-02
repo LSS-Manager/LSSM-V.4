@@ -813,6 +813,12 @@
 		":heart:",
 		"<3"
 	],
+	"❤🔥": [
+		":heart_on_fire:"
+	],
+	"❤🩹": [
+		":mending_heart:"
+	],
 	"➕": [
 		":plus_sign:",
 		":heavy_plus_sign:"
@@ -4449,6 +4455,46 @@
 		":man_pilot_light_skin_tone:",
 		":man_pilot_tone1:"
 	],
+	"👨🏻❤👨🏻": [
+		":couple_with_heart_man_man_light_skin_tone:",
+		":couple_with_heart_man_man_tone1:"
+	],
+	"👨🏻❤👨🏼": [
+		":couple_with_heart_man_man_light_skin_tone_medium_light_skin_tone:",
+		":couple_with_heart_man_man_tone1_tone2:"
+	],
+	"👨🏻❤👨🏽": [
+		":couple_with_heart_man_man_light_skin_tone_medium_skin_tone:",
+		":couple_with_heart_man_man_tone1_tone3:"
+	],
+	"👨🏻❤👨🏾": [
+		":couple_with_heart_man_man_light_skin_tone_medium_dark_skin_tone:",
+		":couple_with_heart_man_man_tone1_tone4:"
+	],
+	"👨🏻❤👨🏿": [
+		":couple_with_heart_man_man_light_skin_tone_dark_skin_tone:",
+		":couple_with_heart_man_man_tone1_tone5:"
+	],
+	"👨🏻❤💋👨🏻": [
+		":kiss_man_man_light_skin_tone:",
+		":kiss_man_man_tone1:"
+	],
+	"👨🏻❤💋👨🏼": [
+		":kiss_man_man_light_skin_tone_medium_light_skin_tone:",
+		":kiss_man_man_tone1_tone2:"
+	],
+	"👨🏻❤💋👨🏽": [
+		":kiss_man_man_light_skin_tone_medium_skin_tone:",
+		":kiss_man_man_tone1_tone3:"
+	],
+	"👨🏻❤💋👨🏾": [
+		":kiss_man_man_light_skin_tone_medium_dark_skin_tone:",
+		":kiss_man_man_tone1_tone4:"
+	],
+	"👨🏻❤💋👨🏿": [
+		":kiss_man_man_light_skin_tone_dark_skin_tone:",
+		":kiss_man_man_tone1_tone5:"
+	],
 	"👨🏻🌾": [
 		":man_farmer_light_skin_tone:",
 		":man_farmer_tone1:"
@@ -4564,6 +4610,46 @@
 	"👨🏼✈": [
 		":man_pilot_medium_light_skin_tone:",
 		":man_pilot_tone2:"
+	],
+	"👨🏼❤👨🏻": [
+		":couple_with_heart_man_man_medium_light_skin_tone_light_skin_tone:",
+		":couple_with_heart_man_man_tone2_tone1:"
+	],
+	"👨🏼❤👨🏼": [
+		":couple_with_heart_man_man_medium_light_skin_tone:",
+		":couple_with_heart_man_man_tone2:"
+	],
+	"👨🏼❤👨🏽": [
+		":couple_with_heart_man_man_medium_light_skin_tone_medium_skin_tone:",
+		":couple_with_heart_man_man_tone2_tone3:"
+	],
+	"👨🏼❤👨🏾": [
+		":couple_with_heart_man_man_medium_light_skin_tone_medium_dark_skin_tone:",
+		":couple_with_heart_man_man_tone2_tone4:"
+	],
+	"👨🏼❤👨🏿": [
+		":couple_with_heart_man_man_medium_light_skin_tone_dark_skin_tone:",
+		":couple_with_heart_man_man_tone2_tone5:"
+	],
+	"👨🏼❤💋👨🏻": [
+		":kiss_man_man_medium_light_skin_tone_light_skin_tone:",
+		":kiss_man_man_tone2_tone1:"
+	],
+	"👨🏼❤💋👨🏼": [
+		":kiss_man_man_medium_light_skin_tone:",
+		":kiss_man_man_tone2:"
+	],
+	"👨🏼❤💋👨🏽": [
+		":kiss_man_man_medium_light_skin_tone_medium_skin_tone:",
+		":kiss_man_man_tone2_tone3:"
+	],
+	"👨🏼❤💋👨🏾": [
+		":kiss_man_man_medium_light_skin_tone_medium_dark_skin_tone:",
+		":kiss_man_man_tone2_tone4:"
+	],
+	"👨🏼❤💋👨🏿": [
+		":kiss_man_man_medium_light_skin_tone_dark_skin_tone:",
+		":kiss_man_man_tone2_tone5:"
 	],
 	"👨🏼🌾": [
 		":man_farmer_medium_light_skin_tone:",
@@ -4681,6 +4767,46 @@
 		":man_pilot_medium_skin_tone:",
 		":man_pilot_tone3:"
 	],
+	"👨🏽❤👨🏻": [
+		":couple_with_heart_man_man_medium_skin_tone_light_skin_tone:",
+		":couple_with_heart_man_man_tone3_tone1:"
+	],
+	"👨🏽❤👨🏼": [
+		":couple_with_heart_man_man_medium_skin_tone_medium_light_skin_tone:",
+		":couple_with_heart_man_man_tone3_tone2:"
+	],
+	"👨🏽❤👨🏽": [
+		":couple_with_heart_man_man_medium_skin_tone:",
+		":couple_with_heart_man_man_tone3:"
+	],
+	"👨🏽❤👨🏾": [
+		":couple_with_heart_man_man_medium_skin_tone_medium_dark_skin_tone:",
+		":couple_with_heart_man_man_tone3_tone4:"
+	],
+	"👨🏽❤👨🏿": [
+		":couple_with_heart_man_man_medium_skin_tone_dark_skin_tone:",
+		":couple_with_heart_man_man_tone3_tone5:"
+	],
+	"👨🏽❤💋👨🏻": [
+		":kiss_man_man_medium_skin_tone_light_skin_tone:",
+		":kiss_man_man_tone3_tone1:"
+	],
+	"👨🏽❤💋👨🏼": [
+		":kiss_man_man_medium_skin_tone_medium_light_skin_tone:",
+		":kiss_man_man_tone3_tone2:"
+	],
+	"👨🏽❤💋👨🏽": [
+		":kiss_man_man_medium_skin_tone:",
+		":kiss_man_man_tone3:"
+	],
+	"👨🏽❤💋👨🏾": [
+		":kiss_man_man_medium_skin_tone_medium_dark_skin_tone:",
+		":kiss_man_man_tone3_tone4:"
+	],
+	"👨🏽❤💋👨🏿": [
+		":kiss_man_man_medium_skin_tone_dark_skin_tone:",
+		":kiss_man_man_tone3_tone5:"
+	],
 	"👨🏽🌾": [
 		":man_farmer_medium_skin_tone:",
 		":man_farmer_tone3:"
@@ -4797,6 +4923,46 @@
 		":man_pilot_medium_dark_skin_tone:",
 		":man_pilot_tone4:"
 	],
+	"👨🏾❤👨🏻": [
+		":couple_with_heart_man_man_medium_dark_skin_tone_light_skin_tone:",
+		":couple_with_heart_man_man_tone4_tone1:"
+	],
+	"👨🏾❤👨🏼": [
+		":couple_with_heart_man_man_medium_dark_skin_tone_medium_light_skin_tone:",
+		":couple_with_heart_man_man_tone4_tone2:"
+	],
+	"👨🏾❤👨🏽": [
+		":couple_with_heart_man_man_medium_dark_skin_tone_medium_skin_tone:",
+		":couple_with_heart_man_man_tone4_tone3:"
+	],
+	"👨🏾❤👨🏾": [
+		":couple_with_heart_man_man_medium_dark_skin_tone:",
+		":couple_with_heart_man_man_tone4:"
+	],
+	"👨🏾❤👨🏿": [
+		":couple_with_heart_man_man_medium_dark_skin_tone_dark_skin_tone:",
+		":couple_with_heart_man_man_tone4_tone5:"
+	],
+	"👨🏾❤💋👨🏻": [
+		":kiss_man_man_medium_dark_skin_tone_light_skin_tone:",
+		":kiss_man_man_tone4_tone1:"
+	],
+	"👨🏾❤💋👨🏼": [
+		":kiss_man_man_medium_dark_skin_tone_medium_light_skin_tone:",
+		":kiss_man_man_tone4_tone2:"
+	],
+	"👨🏾❤💋👨🏽": [
+		":kiss_man_man_medium_dark_skin_tone_medium_skin_tone:",
+		":kiss_man_man_tone4_tone3:"
+	],
+	"👨🏾❤💋👨🏾": [
+		":kiss_man_man_medium_dark_skin_tone:",
+		":kiss_man_man_tone4:"
+	],
+	"👨🏾❤💋👨🏿": [
+		":kiss_man_man_medium_dark_skin_tone_dark_skin_tone:",
+		":kiss_man_man_tone4_tone5:"
+	],
 	"👨🏾🌾": [
 		":man_farmer_medium_dark_skin_tone:",
 		":man_farmer_tone4:"
@@ -4912,6 +5078,46 @@
 	"👨🏿✈": [
 		":man_pilot_dark_skin_tone:",
 		":man_pilot_tone5:"
+	],
+	"👨🏿❤👨🏻": [
+		":couple_with_heart_man_man_dark_skin_tone_light_skin_tone:",
+		":couple_with_heart_man_man_tone5_tone1:"
+	],
+	"👨🏿❤👨🏼": [
+		":couple_with_heart_man_man_dark_skin_tone_medium_light_skin_tone:",
+		":couple_with_heart_man_man_tone5_tone2:"
+	],
+	"👨🏿❤👨🏽": [
+		":couple_with_heart_man_man_dark_skin_tone_medium_skin_tone:",
+		":couple_with_heart_man_man_tone5_tone3:"
+	],
+	"👨🏿❤👨🏾": [
+		":couple_with_heart_man_man_dark_skin_tone_medium_dark_skin_tone:",
+		":couple_with_heart_man_man_tone5_tone4:"
+	],
+	"👨🏿❤👨🏿": [
+		":couple_with_heart_man_man_dark_skin_tone:",
+		":couple_with_heart_man_man_tone5:"
+	],
+	"👨🏿❤💋👨🏻": [
+		":kiss_man_man_dark_skin_tone_light_skin_tone:",
+		":kiss_man_man_tone5_tone1:"
+	],
+	"👨🏿❤💋👨🏼": [
+		":kiss_man_man_dark_skin_tone_medium_light_skin_tone:",
+		":kiss_man_man_tone5_tone2:"
+	],
+	"👨🏿❤💋👨🏽": [
+		":kiss_man_man_dark_skin_tone_medium_skin_tone:",
+		":kiss_man_man_tone5_tone3:"
+	],
+	"👨🏿❤💋👨🏾": [
+		":kiss_man_man_dark_skin_tone_medium_dark_skin_tone:",
+		":kiss_man_man_tone5_tone4:"
+	],
+	"👨🏿❤💋👨🏿": [
+		":kiss_man_man_dark_skin_tone:",
+		":kiss_man_man_tone5:"
 	],
 	"👨🏿🌾": [
 		":man_farmer_dark_skin_tone:",
@@ -5177,6 +5383,86 @@
 		":woman_pilot_light_skin_tone:",
 		":woman_pilot_tone1:"
 	],
+	"👩🏻❤👨🏻": [
+		":couple_with_heart_woman_man_light_skin_tone:",
+		":couple_with_heart_woman_man_tone1:"
+	],
+	"👩🏻❤👨🏼": [
+		":couple_with_heart_woman_man_light_skin_tone_medium_light_skin_tone:",
+		":couple_with_heart_woman_man_tone1_tone2:"
+	],
+	"👩🏻❤👨🏽": [
+		":couple_with_heart_woman_man_light_skin_tone_medium_skin_tone:",
+		":couple_with_heart_woman_man_tone1_tone3:"
+	],
+	"👩🏻❤👨🏾": [
+		":couple_with_heart_woman_man_light_skin_tone_medium_dark_skin_tone:",
+		":couple_with_heart_woman_man_tone1_tone4:"
+	],
+	"👩🏻❤👨🏿": [
+		":couple_with_heart_woman_man_light_skin_tone_dark_skin_tone:",
+		":couple_with_heart_woman_man_tone1_tone5:"
+	],
+	"👩🏻❤👩🏻": [
+		":couple_with_heart_woman_woman_light_skin_tone:",
+		":couple_with_heart_woman_woman_tone1:"
+	],
+	"👩🏻❤👩🏼": [
+		":couple_with_heart_woman_woman_light_skin_tone_medium_light_skin_tone:",
+		":couple_with_heart_woman_woman_tone1_tone2:"
+	],
+	"👩🏻❤👩🏽": [
+		":couple_with_heart_woman_woman_light_skin_tone_medium_skin_tone:",
+		":couple_with_heart_woman_woman_tone1_tone3:"
+	],
+	"👩🏻❤👩🏾": [
+		":couple_with_heart_woman_woman_light_skin_tone_medium_dark_skin_tone:",
+		":couple_with_heart_woman_woman_tone1_tone4:"
+	],
+	"👩🏻❤👩🏿": [
+		":couple_with_heart_woman_woman_light_skin_tone_dark_skin_tone:",
+		":couple_with_heart_woman_woman_tone1_tone5:"
+	],
+	"👩🏻❤💋👨🏻": [
+		":kiss_woman_man_light_skin_tone:",
+		":kiss_woman_man_tone1:"
+	],
+	"👩🏻❤💋👨🏼": [
+		":kiss_woman_man_light_skin_tone_medium_light_skin_tone:",
+		":kiss_woman_man_tone1_tone2:"
+	],
+	"👩🏻❤💋👨🏽": [
+		":kiss_woman_man_light_skin_tone_medium_skin_tone:",
+		":kiss_woman_man_tone1_tone3:"
+	],
+	"👩🏻❤💋👨🏾": [
+		":kiss_woman_man_light_skin_tone_medium_dark_skin_tone:",
+		":kiss_woman_man_tone1_tone4:"
+	],
+	"👩🏻❤💋👨🏿": [
+		":kiss_woman_man_light_skin_tone_dark_skin_tone:",
+		":kiss_woman_man_tone1_tone5:"
+	],
+	"👩🏻❤💋👩🏻": [
+		":kiss_woman_woman_light_skin_tone:",
+		":kiss_woman_woman_tone1:"
+	],
+	"👩🏻❤💋👩🏼": [
+		":kiss_woman_woman_light_skin_tone_medium_light_skin_tone:",
+		":kiss_woman_woman_tone1_tone2:"
+	],
+	"👩🏻❤💋👩🏽": [
+		":kiss_woman_woman_light_skin_tone_medium_skin_tone:",
+		":kiss_woman_woman_tone1_tone3:"
+	],
+	"👩🏻❤💋👩🏾": [
+		":kiss_woman_woman_light_skin_tone_medium_dark_skin_tone:",
+		":kiss_woman_woman_tone1_tone4:"
+	],
+	"👩🏻❤💋👩🏿": [
+		":kiss_woman_woman_light_skin_tone_dark_skin_tone:",
+		":kiss_woman_woman_tone1_tone5:"
+	],
 	"👩🏻🌾": [
 		":woman_farmer_light_skin_tone:",
 		":woman_farmer_tone1:"
@@ -5308,6 +5594,86 @@
 	"👩🏼✈": [
 		":woman_pilot_medium_light_skin_tone:",
 		":woman_pilot_tone2:"
+	],
+	"👩🏼❤👨🏻": [
+		":couple_with_heart_woman_man_medium_light_skin_tone_light_skin_tone:",
+		":couple_with_heart_woman_man_tone2_tone1:"
+	],
+	"👩🏼❤👨🏼": [
+		":couple_with_heart_woman_man_medium_light_skin_tone:",
+		":couple_with_heart_woman_man_tone2:"
+	],
+	"👩🏼❤👨🏽": [
+		":couple_with_heart_woman_man_medium_light_skin_tone_medium_skin_tone:",
+		":couple_with_heart_woman_man_tone2_tone3:"
+	],
+	"👩🏼❤👨🏾": [
+		":couple_with_heart_woman_man_medium_light_skin_tone_medium_dark_skin_tone:",
+		":couple_with_heart_woman_man_tone2_tone4:"
+	],
+	"👩🏼❤👨🏿": [
+		":couple_with_heart_woman_man_medium_light_skin_tone_dark_skin_tone:",
+		":couple_with_heart_woman_man_tone2_tone5:"
+	],
+	"👩🏼❤👩🏻": [
+		":couple_with_heart_woman_woman_medium_light_skin_tone_light_skin_tone:",
+		":couple_with_heart_woman_woman_tone2_tone1:"
+	],
+	"👩🏼❤👩🏼": [
+		":couple_with_heart_woman_woman_medium_light_skin_tone:",
+		":couple_with_heart_woman_woman_tone2:"
+	],
+	"👩🏼❤👩🏽": [
+		":couple_with_heart_woman_woman_medium_light_skin_tone_medium_skin_tone:",
+		":couple_with_heart_woman_woman_tone2_tone3:"
+	],
+	"👩🏼❤👩🏾": [
+		":couple_with_heart_woman_woman_medium_light_skin_tone_medium_dark_skin_tone:",
+		":couple_with_heart_woman_woman_tone2_tone4:"
+	],
+	"👩🏼❤👩🏿": [
+		":couple_with_heart_woman_woman_medium_light_skin_tone_dark_skin_tone:",
+		":couple_with_heart_woman_woman_tone2_tone5:"
+	],
+	"👩🏼❤💋👨🏻": [
+		":kiss_woman_man_medium_light_skin_tone_light_skin_tone:",
+		":kiss_woman_man_tone2_tone1:"
+	],
+	"👩🏼❤💋👨🏼": [
+		":kiss_woman_man_medium_light_skin_tone:",
+		":kiss_woman_man_tone2:"
+	],
+	"👩🏼❤💋👨🏽": [
+		":kiss_woman_man_medium_light_skin_tone_medium_skin_tone:",
+		":kiss_woman_man_tone2_tone3:"
+	],
+	"👩🏼❤💋👨🏾": [
+		":kiss_woman_man_medium_light_skin_tone_medium_dark_skin_tone:",
+		":kiss_woman_man_tone2_tone4:"
+	],
+	"👩🏼❤💋👨🏿": [
+		":kiss_woman_man_medium_light_skin_tone_dark_skin_tone:",
+		":kiss_woman_man_tone2_tone5:"
+	],
+	"👩🏼❤💋👩🏻": [
+		":kiss_woman_woman_medium_light_skin_tone_light_skin_tone:",
+		":kiss_woman_woman_tone2_tone1:"
+	],
+	"👩🏼❤💋👩🏼": [
+		":kiss_woman_woman_medium_light_skin_tone:",
+		":kiss_woman_woman_tone2:"
+	],
+	"👩🏼❤💋👩🏽": [
+		":kiss_woman_woman_medium_light_skin_tone_medium_skin_tone:",
+		":kiss_woman_woman_tone2_tone3:"
+	],
+	"👩🏼❤💋👩🏾": [
+		":kiss_woman_woman_medium_light_skin_tone_medium_dark_skin_tone:",
+		":kiss_woman_woman_tone2_tone4:"
+	],
+	"👩🏼❤💋👩🏿": [
+		":kiss_woman_woman_medium_light_skin_tone_dark_skin_tone:",
+		":kiss_woman_woman_tone2_tone5:"
 	],
 	"👩🏼🌾": [
 		":woman_farmer_medium_light_skin_tone:",
@@ -5441,6 +5807,86 @@
 		":woman_pilot_medium_skin_tone:",
 		":woman_pilot_tone3:"
 	],
+	"👩🏽❤👨🏻": [
+		":couple_with_heart_woman_man_medium_skin_tone_light_skin_tone:",
+		":couple_with_heart_woman_man_tone3_tone1:"
+	],
+	"👩🏽❤👨🏼": [
+		":couple_with_heart_woman_man_medium_skin_tone_medium_light_skin_tone:",
+		":couple_with_heart_woman_man_tone3_tone2:"
+	],
+	"👩🏽❤👨🏽": [
+		":couple_with_heart_woman_man_medium_skin_tone:",
+		":couple_with_heart_woman_man_tone3:"
+	],
+	"👩🏽❤👨🏾": [
+		":couple_with_heart_woman_man_medium_skin_tone_medium_dark_skin_tone:",
+		":couple_with_heart_woman_man_tone3_tone4:"
+	],
+	"👩🏽❤👨🏿": [
+		":couple_with_heart_woman_man_medium_skin_tone_dark_skin_tone:",
+		":couple_with_heart_woman_man_tone3_tone5:"
+	],
+	"👩🏽❤👩🏻": [
+		":couple_with_heart_woman_woman_medium_skin_tone_light_skin_tone:",
+		":couple_with_heart_woman_woman_tone3_tone1:"
+	],
+	"👩🏽❤👩🏼": [
+		":couple_with_heart_woman_woman_medium_skin_tone_medium_light_skin_tone:",
+		":couple_with_heart_woman_woman_tone3_tone2:"
+	],
+	"👩🏽❤👩🏽": [
+		":couple_with_heart_woman_woman_medium_skin_tone:",
+		":couple_with_heart_woman_woman_tone3:"
+	],
+	"👩🏽❤👩🏾": [
+		":couple_with_heart_woman_woman_medium_skin_tone_medium_dark_skin_tone:",
+		":couple_with_heart_woman_woman_tone3_tone4:"
+	],
+	"👩🏽❤👩🏿": [
+		":couple_with_heart_woman_woman_medium_skin_tone_dark_skin_tone:",
+		":couple_with_heart_woman_woman_tone3_tone5:"
+	],
+	"👩🏽❤💋👨🏻": [
+		":kiss_woman_man_medium_skin_tone_light_skin_tone:",
+		":kiss_woman_man_tone3_tone1:"
+	],
+	"👩🏽❤💋👨🏼": [
+		":kiss_woman_man_medium_skin_tone_medium_light_skin_tone:",
+		":kiss_woman_man_tone3_tone2:"
+	],
+	"👩🏽❤💋👨🏽": [
+		":kiss_woman_man_medium_skin_tone:",
+		":kiss_woman_man_tone3:"
+	],
+	"👩🏽❤💋👨🏾": [
+		":kiss_woman_man_medium_skin_tone_medium_dark_skin_tone:",
+		":kiss_woman_man_tone3_tone4:"
+	],
+	"👩🏽❤💋👨🏿": [
+		":kiss_woman_man_medium_skin_tone_dark_skin_tone:",
+		":kiss_woman_man_tone3_tone5:"
+	],
+	"👩🏽❤💋👩🏻": [
+		":kiss_woman_woman_medium_skin_tone_light_skin_tone:",
+		":kiss_woman_woman_tone3_tone1:"
+	],
+	"👩🏽❤💋👩🏼": [
+		":kiss_woman_woman_medium_skin_tone_medium_light_skin_tone:",
+		":kiss_woman_woman_tone3_tone2:"
+	],
+	"👩🏽❤💋👩🏽": [
+		":kiss_woman_woman_medium_skin_tone:",
+		":kiss_woman_woman_tone3:"
+	],
+	"👩🏽❤💋👩🏾": [
+		":kiss_woman_woman_medium_skin_tone_medium_dark_skin_tone:",
+		":kiss_woman_woman_tone3_tone4:"
+	],
+	"👩🏽❤💋👩🏿": [
+		":kiss_woman_woman_medium_skin_tone_dark_skin_tone:",
+		":kiss_woman_woman_tone3_tone5:"
+	],
 	"👩🏽🌾": [
 		":woman_farmer_medium_skin_tone:",
 		":woman_farmer_tone3:"
@@ -5573,6 +6019,86 @@
 		":woman_pilot_medium_dark_skin_tone:",
 		":woman_pilot_tone4:"
 	],
+	"👩🏾❤👨🏻": [
+		":couple_with_heart_woman_man_medium_dark_skin_tone_light_skin_tone:",
+		":couple_with_heart_woman_man_tone4_tone1:"
+	],
+	"👩🏾❤👨🏼": [
+		":couple_with_heart_woman_man_medium_dark_skin_tone_medium_light_skin_tone:",
+		":couple_with_heart_woman_man_tone4_tone2:"
+	],
+	"👩🏾❤👨🏽": [
+		":couple_with_heart_woman_man_medium_dark_skin_tone_medium_skin_tone:",
+		":couple_with_heart_woman_man_tone4_tone3:"
+	],
+	"👩🏾❤👨🏾": [
+		":couple_with_heart_woman_man_medium_dark_skin_tone:",
+		":couple_with_heart_woman_man_tone4:"
+	],
+	"👩🏾❤👨🏿": [
+		":couple_with_heart_woman_man_medium_dark_skin_tone_dark_skin_tone:",
+		":couple_with_heart_woman_man_tone4_tone5:"
+	],
+	"👩🏾❤👩🏻": [
+		":couple_with_heart_woman_woman_medium_dark_skin_tone_light_skin_tone:",
+		":couple_with_heart_woman_woman_tone4_tone1:"
+	],
+	"👩🏾❤👩🏼": [
+		":couple_with_heart_woman_woman_medium_dark_skin_tone_medium_light_skin_tone:",
+		":couple_with_heart_woman_woman_tone4_tone2:"
+	],
+	"👩🏾❤👩🏽": [
+		":couple_with_heart_woman_woman_medium_dark_skin_tone_medium_skin_tone:",
+		":couple_with_heart_woman_woman_tone4_tone3:"
+	],
+	"👩🏾❤👩🏾": [
+		":couple_with_heart_woman_woman_medium_dark_skin_tone:",
+		":couple_with_heart_woman_woman_tone4:"
+	],
+	"👩🏾❤👩🏿": [
+		":couple_with_heart_woman_woman_medium_dark_skin_tone_dark_skin_tone:",
+		":couple_with_heart_woman_woman_tone4_tone5:"
+	],
+	"👩🏾❤💋👨🏻": [
+		":kiss_woman_man_medium_dark_skin_tone_light_skin_tone:",
+		":kiss_woman_man_tone4_tone1:"
+	],
+	"👩🏾❤💋👨🏼": [
+		":kiss_woman_man_medium_dark_skin_tone_medium_light_skin_tone:",
+		":kiss_woman_man_tone4_tone2:"
+	],
+	"👩🏾❤💋👨🏽": [
+		":kiss_woman_man_medium_dark_skin_tone_medium_skin_tone:",
+		":kiss_woman_man_tone4_tone3:"
+	],
+	"👩🏾❤💋👨🏾": [
+		":kiss_woman_man_medium_dark_skin_tone:",
+		":kiss_woman_man_tone4:"
+	],
+	"👩🏾❤💋👨🏿": [
+		":kiss_woman_man_medium_dark_skin_tone_dark_skin_tone:",
+		":kiss_woman_man_tone4_tone5:"
+	],
+	"👩🏾❤💋👩🏻": [
+		":kiss_woman_woman_medium_dark_skin_tone_light_skin_tone:",
+		":kiss_woman_woman_tone4_tone1:"
+	],
+	"👩🏾❤💋👩🏼": [
+		":kiss_woman_woman_medium_dark_skin_tone_medium_light_skin_tone:",
+		":kiss_woman_woman_tone4_tone2:"
+	],
+	"👩🏾❤💋👩🏽": [
+		":kiss_woman_woman_medium_dark_skin_tone_medium_skin_tone:",
+		":kiss_woman_woman_tone4_tone3:"
+	],
+	"👩🏾❤💋👩🏾": [
+		":kiss_woman_woman_medium_dark_skin_tone:",
+		":kiss_woman_woman_tone4:"
+	],
+	"👩🏾❤💋👩🏿": [
+		":kiss_woman_woman_medium_dark_skin_tone_dark_skin_tone:",
+		":kiss_woman_woman_tone4_tone5:"
+	],
 	"👩🏾🌾": [
 		":woman_farmer_medium_dark_skin_tone:",
 		":woman_farmer_tone4:"
@@ -5704,6 +6230,86 @@
 	"👩🏿✈": [
 		":woman_pilot_dark_skin_tone:",
 		":woman_pilot_tone5:"
+	],
+	"👩🏿❤👨🏻": [
+		":couple_with_heart_woman_man_dark_skin_tone_light_skin_tone:",
+		":couple_with_heart_woman_man_tone5_tone1:"
+	],
+	"👩🏿❤👨🏼": [
+		":couple_with_heart_woman_man_dark_skin_tone_medium_light_skin_tone:",
+		":couple_with_heart_woman_man_tone5_tone2:"
+	],
+	"👩🏿❤👨🏽": [
+		":couple_with_heart_woman_man_dark_skin_tone_medium_skin_tone:",
+		":couple_with_heart_woman_man_tone5_tone3:"
+	],
+	"👩🏿❤👨🏾": [
+		":couple_with_heart_woman_man_dark_skin_tone_medium_dark_skin_tone:",
+		":couple_with_heart_woman_man_tone5_tone4:"
+	],
+	"👩🏿❤👨🏿": [
+		":couple_with_heart_woman_man_dark_skin_tone:",
+		":couple_with_heart_woman_man_tone5:"
+	],
+	"👩🏿❤👩🏻": [
+		":couple_with_heart_woman_woman_dark_skin_tone_light_skin_tone:",
+		":couple_with_heart_woman_woman_tone5_tone1:"
+	],
+	"👩🏿❤👩🏼": [
+		":couple_with_heart_woman_woman_dark_skin_tone_medium_light_skin_tone:",
+		":couple_with_heart_woman_woman_tone5_tone2:"
+	],
+	"👩🏿❤👩🏽": [
+		":couple_with_heart_woman_woman_dark_skin_tone_medium_skin_tone:",
+		":couple_with_heart_woman_woman_tone5_tone3:"
+	],
+	"👩🏿❤👩🏾": [
+		":couple_with_heart_woman_woman_dark_skin_tone_medium_dark_skin_tone:",
+		":couple_with_heart_woman_woman_tone5_tone4:"
+	],
+	"👩🏿❤👩🏿": [
+		":couple_with_heart_woman_woman_dark_skin_tone:",
+		":couple_with_heart_woman_woman_tone5:"
+	],
+	"👩🏿❤💋👨🏻": [
+		":kiss_woman_man_dark_skin_tone_light_skin_tone:",
+		":kiss_woman_man_tone5_tone1:"
+	],
+	"👩🏿❤💋👨🏼": [
+		":kiss_woman_man_dark_skin_tone_medium_light_skin_tone:",
+		":kiss_woman_man_tone5_tone2:"
+	],
+	"👩🏿❤💋👨🏽": [
+		":kiss_woman_man_dark_skin_tone_medium_skin_tone:",
+		":kiss_woman_man_tone5_tone3:"
+	],
+	"👩🏿❤💋👨🏾": [
+		":kiss_woman_man_dark_skin_tone_medium_dark_skin_tone:",
+		":kiss_woman_man_tone5_tone4:"
+	],
+	"👩🏿❤💋👨🏿": [
+		":kiss_woman_man_dark_skin_tone:",
+		":kiss_woman_man_tone5:"
+	],
+	"👩🏿❤💋👩🏻": [
+		":kiss_woman_woman_dark_skin_tone_light_skin_tone:",
+		":kiss_woman_woman_tone5_tone1:"
+	],
+	"👩🏿❤💋👩🏼": [
+		":kiss_woman_woman_dark_skin_tone_medium_light_skin_tone:",
+		":kiss_woman_woman_tone5_tone2:"
+	],
+	"👩🏿❤💋👩🏽": [
+		":kiss_woman_woman_dark_skin_tone_medium_skin_tone:",
+		":kiss_woman_woman_tone5_tone3:"
+	],
+	"👩🏿❤💋👩🏾": [
+		":kiss_woman_woman_dark_skin_tone_medium_dark_skin_tone:",
+		":kiss_woman_woman_tone5_tone4:"
+	],
+	"👩🏿❤💋👩🏿": [
+		":kiss_woman_woman_dark_skin_tone:",
+		":kiss_woman_woman_tone5:"
 	],
 	"👩🏿🌾": [
 		":woman_farmer_dark_skin_tone:",
@@ -6933,11 +7539,51 @@
 		":kiss:",
 		":couplekiss:"
 	],
+	"💏🏻": [
+		":kiss_light_skin_tone:",
+		":kiss_tone1:"
+	],
+	"💏🏼": [
+		":kiss_medium_light_skin_tone:",
+		":kiss_tone2:"
+	],
+	"💏🏽": [
+		":kiss_medium_skin_tone:",
+		":kiss_tone3:"
+	],
+	"💏🏾": [
+		":kiss_medium_dark_skin_tone:",
+		":kiss_tone4:"
+	],
+	"💏🏿": [
+		":kiss_dark_skin_tone:",
+		":kiss_tone5:"
+	],
 	"💐": [
 		":bouquet:"
 	],
 	"💑": [
 		":couple_with_heart:"
+	],
+	"💑🏻": [
+		":couple_with_heart_light_skin_tone:",
+		":couple_with_heart_tone1:"
+	],
+	"💑🏼": [
+		":couple_with_heart_medium_light_skin_tone:",
+		":couple_with_heart_tone2:"
+	],
+	"💑🏽": [
+		":couple_with_heart_medium_skin_tone:",
+		":couple_with_heart_tone3:"
+	],
+	"💑🏾": [
+		":couple_with_heart_medium_dark_skin_tone:",
+		":couple_with_heart_tone4:"
+	],
+	"💑🏿": [
+		":couple_with_heart_dark_skin_tone:",
+		":couple_with_heart_tone5:"
 	],
 	"💒": [
 		":wedding:"
@@ -8332,6 +8978,9 @@
 		"O_O",
 		">:O"
 	],
+	"😮💨": [
+		":face_exhaling:"
+	],
 	"😯": [
 		":hushed_face:",
 		":hushed:"
@@ -8367,6 +9016,9 @@
 		"X)",
 		"X-)"
 	],
+	"😵💫": [
+		":face_with_spiral_eyes:"
+	],
 	"😶": [
 		":face_without_mouth:",
 		":no_mouth:",
@@ -8376,6 +9028,9 @@
 		":#",
 		"=X",
 		"=#"
+	],
+	"😶🌫": [
+		":face_in_clouds:"
 	],
 	"😷": [
 		":face_with_medical_mask:",
@@ -11649,6 +12304,38 @@
 		":pilot_light_skin_tone:",
 		":pilot_tone1:"
 	],
+	"🧑🏻❤💋🧑🏼": [
+		":kiss_person_person_light_skin_tone_medium_light_skin_tone:",
+		":kiss_person_person_tone1_tone2:"
+	],
+	"🧑🏻❤💋🧑🏽": [
+		":kiss_person_person_light_skin_tone_medium_skin_tone:",
+		":kiss_person_person_tone1_tone3:"
+	],
+	"🧑🏻❤💋🧑🏾": [
+		":kiss_person_person_light_skin_tone_medium_dark_skin_tone:",
+		":kiss_person_person_tone1_tone4:"
+	],
+	"🧑🏻❤💋🧑🏿": [
+		":kiss_person_person_light_skin_tone_dark_skin_tone:",
+		":kiss_person_person_tone1_tone5:"
+	],
+	"🧑🏻❤🧑🏼": [
+		":couple_with_heart_person_person_light_skin_tone_medium_light_skin_tone:",
+		":couple_with_heart_person_person_tone1_tone2:"
+	],
+	"🧑🏻❤🧑🏽": [
+		":couple_with_heart_person_person_light_skin_tone_medium_skin_tone:",
+		":couple_with_heart_person_person_tone1_tone3:"
+	],
+	"🧑🏻❤🧑🏾": [
+		":couple_with_heart_person_person_light_skin_tone_medium_dark_skin_tone:",
+		":couple_with_heart_person_person_tone1_tone4:"
+	],
+	"🧑🏻❤🧑🏿": [
+		":couple_with_heart_person_person_light_skin_tone_dark_skin_tone:",
+		":couple_with_heart_person_person_tone1_tone5:"
+	],
 	"🧑🏻🌾": [
 		":farmer_light_skin_tone:",
 		":farmer_tone1:"
@@ -11773,6 +12460,38 @@
 	"🧑🏼✈": [
 		":pilot_medium_light_skin_tone:",
 		":pilot_tone2:"
+	],
+	"🧑🏼❤💋🧑🏻": [
+		":kiss_person_person_medium_light_skin_tone_light_skin_tone:",
+		":kiss_person_person_tone2_tone1:"
+	],
+	"🧑🏼❤💋🧑🏽": [
+		":kiss_person_person_medium_light_skin_tone_medium_skin_tone:",
+		":kiss_person_person_tone2_tone3:"
+	],
+	"🧑🏼❤💋🧑🏾": [
+		":kiss_person_person_medium_light_skin_tone_medium_dark_skin_tone:",
+		":kiss_person_person_tone2_tone4:"
+	],
+	"🧑🏼❤💋🧑🏿": [
+		":kiss_person_person_medium_light_skin_tone_dark_skin_tone:",
+		":kiss_person_person_tone2_tone5:"
+	],
+	"🧑🏼❤🧑🏻": [
+		":couple_with_heart_person_person_medium_light_skin_tone_light_skin_tone:",
+		":couple_with_heart_person_person_tone2_tone1:"
+	],
+	"🧑🏼❤🧑🏽": [
+		":couple_with_heart_person_person_medium_light_skin_tone_medium_skin_tone:",
+		":couple_with_heart_person_person_tone2_tone3:"
+	],
+	"🧑🏼❤🧑🏾": [
+		":couple_with_heart_person_person_medium_light_skin_tone_medium_dark_skin_tone:",
+		":couple_with_heart_person_person_tone2_tone4:"
+	],
+	"🧑🏼❤🧑🏿": [
+		":couple_with_heart_person_person_medium_light_skin_tone_dark_skin_tone:",
+		":couple_with_heart_person_person_tone2_tone5:"
 	],
 	"🧑🏼🌾": [
 		":farmer_medium_light_skin_tone:",
@@ -11899,6 +12618,38 @@
 		":pilot_medium_skin_tone:",
 		":pilot_tone3:"
 	],
+	"🧑🏽❤💋🧑🏻": [
+		":kiss_person_person_medium_skin_tone_light_skin_tone:",
+		":kiss_person_person_tone3_tone1:"
+	],
+	"🧑🏽❤💋🧑🏼": [
+		":kiss_person_person_medium_skin_tone_medium_light_skin_tone:",
+		":kiss_person_person_tone3_tone2:"
+	],
+	"🧑🏽❤💋🧑🏾": [
+		":kiss_person_person_medium_skin_tone_medium_dark_skin_tone:",
+		":kiss_person_person_tone3_tone4:"
+	],
+	"🧑🏽❤💋🧑🏿": [
+		":kiss_person_person_medium_skin_tone_dark_skin_tone:",
+		":kiss_person_person_tone3_tone5:"
+	],
+	"🧑🏽❤🧑🏻": [
+		":couple_with_heart_person_person_medium_skin_tone_light_skin_tone:",
+		":couple_with_heart_person_person_tone3_tone1:"
+	],
+	"🧑🏽❤🧑🏼": [
+		":couple_with_heart_person_person_medium_skin_tone_medium_light_skin_tone:",
+		":couple_with_heart_person_person_tone3_tone2:"
+	],
+	"🧑🏽❤🧑🏾": [
+		":couple_with_heart_person_person_medium_skin_tone_medium_dark_skin_tone:",
+		":couple_with_heart_person_person_tone3_tone4:"
+	],
+	"🧑🏽❤🧑🏿": [
+		":couple_with_heart_person_person_medium_skin_tone_dark_skin_tone:",
+		":couple_with_heart_person_person_tone3_tone5:"
+	],
 	"🧑🏽🌾": [
 		":farmer_medium_skin_tone:",
 		":farmer_tone3:"
@@ -12024,6 +12775,38 @@
 		":pilot_medium_dark_skin_tone:",
 		":pilot_tone4:"
 	],
+	"🧑🏾❤💋🧑🏻": [
+		":kiss_person_person_medium_dark_skin_tone_light_skin_tone:",
+		":kiss_person_person_tone4_tone1:"
+	],
+	"🧑🏾❤💋🧑🏼": [
+		":kiss_person_person_medium_dark_skin_tone_medium_light_skin_tone:",
+		":kiss_person_person_tone4_tone2:"
+	],
+	"🧑🏾❤💋🧑🏽": [
+		":kiss_person_person_medium_dark_skin_tone_medium_skin_tone:",
+		":kiss_person_person_tone4_tone3:"
+	],
+	"🧑🏾❤💋🧑🏿": [
+		":kiss_person_person_medium_dark_skin_tone_dark_skin_tone:",
+		":kiss_person_person_tone4_tone5:"
+	],
+	"🧑🏾❤🧑🏻": [
+		":couple_with_heart_person_person_medium_dark_skin_tone_light_skin_tone:",
+		":couple_with_heart_person_person_tone4_tone1:"
+	],
+	"🧑🏾❤🧑🏼": [
+		":couple_with_heart_person_person_medium_dark_skin_tone_medium_light_skin_tone:",
+		":couple_with_heart_person_person_tone4_tone2:"
+	],
+	"🧑🏾❤🧑🏽": [
+		":couple_with_heart_person_person_medium_dark_skin_tone_medium_skin_tone:",
+		":couple_with_heart_person_person_tone4_tone3:"
+	],
+	"🧑🏾❤🧑🏿": [
+		":couple_with_heart_person_person_medium_dark_skin_tone_dark_skin_tone:",
+		":couple_with_heart_person_person_tone4_tone5:"
+	],
 	"🧑🏾🌾": [
 		":farmer_medium_dark_skin_tone:",
 		":farmer_tone4:"
@@ -12148,6 +12931,38 @@
 	"🧑🏿✈": [
 		":pilot_dark_skin_tone:",
 		":pilot_tone5:"
+	],
+	"🧑🏿❤💋🧑🏻": [
+		":kiss_person_person_dark_skin_tone_light_skin_tone:",
+		":kiss_person_person_tone5_tone1:"
+	],
+	"🧑🏿❤💋🧑🏼": [
+		":kiss_person_person_dark_skin_tone_medium_light_skin_tone:",
+		":kiss_person_person_tone5_tone2:"
+	],
+	"🧑🏿❤💋🧑🏽": [
+		":kiss_person_person_dark_skin_tone_medium_skin_tone:",
+		":kiss_person_person_tone5_tone3:"
+	],
+	"🧑🏿❤💋🧑🏾": [
+		":kiss_person_person_dark_skin_tone_medium_dark_skin_tone:",
+		":kiss_person_person_tone5_tone4:"
+	],
+	"🧑🏿❤🧑🏻": [
+		":couple_with_heart_person_person_dark_skin_tone_light_skin_tone:",
+		":couple_with_heart_person_person_tone5_tone1:"
+	],
+	"🧑🏿❤🧑🏼": [
+		":couple_with_heart_person_person_dark_skin_tone_medium_light_skin_tone:",
+		":couple_with_heart_person_person_tone5_tone2:"
+	],
+	"🧑🏿❤🧑🏽": [
+		":couple_with_heart_person_person_dark_skin_tone_medium_skin_tone:",
+		":couple_with_heart_person_person_tone5_tone3:"
+	],
+	"🧑🏿❤🧑🏾": [
+		":couple_with_heart_person_person_dark_skin_tone_medium_dark_skin_tone:",
+		":couple_with_heart_person_person_tone5_tone4:"
 	],
 	"🧑🏿🌾": [
 		":farmer_dark_skin_tone:",
@@ -12352,28 +13167,74 @@
 		":older_adult_dark_skin_tone:"
 	],
 	"🧔": [
-		":man_beard:",
+		":person_beard:",
 		":bearded_person:"
+	],
+	"🧔♀": [
+		":woman_beard:"
+	],
+	"🧔♂": [
+		":man_beard:"
 	],
 	"🧔🏻": [
 		":bearded_person_light_skin_tone:",
 		":bearded_person_tone1:"
 	],
+	"🧔🏻♀": [
+		":woman_light_skin_tone_beard:",
+		":woman_tone1_beard:"
+	],
+	"🧔🏻♂": [
+		":man_light_skin_tone_beard:",
+		":man_tone1_beard:"
+	],
 	"🧔🏼": [
 		":bearded_person_medium_light_skin_tone:",
 		":bearded_person_tone2:"
+	],
+	"🧔🏼♀": [
+		":woman_medium_light_skin_tone_beard:",
+		":woman_tone2_beard:"
+	],
+	"🧔🏼♂": [
+		":man_medium_light_skin_tone_beard:",
+		":man_tone2_beard:"
 	],
 	"🧔🏽": [
 		":bearded_person_medium_skin_tone:",
 		":bearded_person_tone3:"
 	],
+	"🧔🏽♀": [
+		":woman_medium_skin_tone_beard:",
+		":woman_tone3_beard:"
+	],
+	"🧔🏽♂": [
+		":man_medium_skin_tone_beard:",
+		":man_tone3_beard:"
+	],
 	"🧔🏾": [
 		":bearded_person_medium_dark_skin_tone:",
 		":bearded_person_tone4:"
 	],
+	"🧔🏾♀": [
+		":woman_medium_dark_skin_tone_beard:",
+		":woman_tone4_beard:"
+	],
+	"🧔🏾♂": [
+		":man_medium_dark_skin_tone_beard:",
+		":man_tone4_beard:"
+	],
 	"🧔🏿": [
 		":bearded_person_dark_skin_tone:",
 		":bearded_person_tone5:"
+	],
+	"🧔🏿♀": [
+		":woman_dark_skin_tone_beard:",
+		":woman_tone5_beard:"
+	],
+	"🧔🏿♂": [
+		":man_dark_skin_tone_beard:",
+		":man_tone5_beard:"
 	],
 	"🧕": [
 		":woman_with_headscarf:"
