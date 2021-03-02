@@ -1,15 +1,8 @@
 import { RootState } from '../RootState';
-import { Commit, Dispatch, GetterTree } from 'vuex';
+import { ActionContext } from 'vuex';
 import { StorageState } from './State';
 
-export interface StorageActionStoreParams {
-    state: StorageState;
-    rootState: RootState;
-    commit: Commit;
-    dispatch: Dispatch;
-    getters: GetterTree<StorageState, RootState>;
-    rootGetters: GetterTree<RootState, RootState>;
-}
+export type StorageActionStoreParams = ActionContext<StorageState, RootState>;
 
 export interface StorageGet {
     key: string;

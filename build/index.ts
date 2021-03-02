@@ -8,7 +8,6 @@ import webpack, { Configuration } from 'webpack';
 import moment from 'moment';
 import SpeedMeasurePlugin from 'speed-measure-webpack-plugin';
 import DynamicImportQueryPlugin from './plugins/DynamicImportQueryPlugin';
-import { Module } from '../typings/Module';
 
 console.time(`build`);
 

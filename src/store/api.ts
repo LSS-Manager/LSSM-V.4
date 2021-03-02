@@ -1,4 +1,4 @@
-import { ActionTree, GetterTree, Module, Dispatch } from 'vuex';
+import { ActionTree, GetterTree, Module } from 'vuex';
 import { RootState } from '../../typings/store/RootState';
 import {
     APIState,
@@ -245,7 +245,14 @@ export default {
         },
         setVehicleState(
             state: APIState,
-            { fms, fms_real, id, caption }: VehicleRadioMessage
+            {
+                fms,
+                fms_real,
+                id,
+                caption,
+                target_building_id,
+                mission_id,
+            }: VehicleRadioMessage
         ) {
             const vehicle = state.vehicles.find(v => v.id === id);
             if (!vehicle) return;
@@ -256,6 +263,16 @@ export default {
             vehicle.caption = caption;
             vehicle.fms_show = fms;
             vehicle.fms_real = fms_real;
+            if (mission_id) {
+                vehicle.target_type = 'mission';
+                vehicle.target_id = mission_id;
+            } else if (target_building_id) {
+                vehicle.target_type = 'building';
+                vehicle.target_id = target_building_id;
+            } else {
+                vehicle.target_type = null;
+                vehicle.target_id = null;
+            }
         },
         enableAutoUpdate(state: APIState, api: StorageAPIKey) {
             state.autoUpdates.push(api);
@@ -347,6 +364,28 @@ export default {
                 types[vehicle.vehicle_type].push(vehicle);
             });
             return types;
+        },
+        vehiclesByTarget(state) {
+            const result = {} as {
+                mission: { [id: number]: Vehicle[] };
+                building: { [id: number]: Vehicle[] };
+            };
+            state.vehicles.forEach(vehicle => {
+                if (!vehicle.target_type || !vehicle.target_id) return;
+                if (!result.hasOwnProperty(vehicle.target_type))
+                    result[vehicle.target_type] = {};
+                if (
+                    !result[vehicle.target_type].hasOwnProperty(
+                        vehicle.target_id
+                    )
+                )
+                    result[vehicle.target_type][vehicle.target_id] = [];
+                result[vehicle.target_type][vehicle.target_id].push(vehicle);
+            });
+            return result;
+        },
+        missionsById(state) {
+            return Object.fromEntries(state.missions.map(m => [m.id, m]));
         },
     } as GetterTree<APIState, RootState>,
     actions: {

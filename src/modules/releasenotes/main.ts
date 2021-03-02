@@ -42,7 +42,9 @@ export default async (LSSM: Vue): Promise<void> => {
         .filter(([version]) =>
             semverLte(coerce(version) ?? '4.0.0', currentVersion)
         )
-        .sort((a, b) => semverRcompare(coerce(a[0]), coerce(b[0])))
+        .sort((a, b) =>
+            semverRcompare(coerce(a[0]) ?? '0', coerce(b[0]) ?? '0')
+        )
         .map(([version, note]) => [
             version,
             {

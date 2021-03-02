@@ -1,15 +1,11 @@
 import { RootState } from '../RootState';
-import { Commit, Dispatch, GetterTree } from 'vuex';
+import { ActionContext } from 'vuex';
 import { NotificationsState } from './State';
 
-export interface NotificationsActionStoreParams {
-    state: NotificationsState;
-    rootState: RootState;
-    commit: Commit;
-    dispatch: Dispatch;
-    getters: GetterTree<NotificationsState, RootState>;
-    rootGetters: GetterTree<RootState, RootState>;
-}
+export type NotificationsActionStoreParams = ActionContext<
+    NotificationsState,
+    RootState
+>;
 
 export interface NotificationsSend {
     group: NotificationsState['groups'][0];

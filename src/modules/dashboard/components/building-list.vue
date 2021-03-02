@@ -241,7 +241,11 @@ export default Vue.extend<
                 : this.buildings;
             return buildings.sort((a, b) => {
                 let modifier = this.sortDir === 'desc' ? -1 : 1;
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
                 let f = a[this.sort] || '';
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
                 let s = b[this.sort] || '';
                 return f < s ? -1 * modifier : f > s ? modifier : 0;
             });

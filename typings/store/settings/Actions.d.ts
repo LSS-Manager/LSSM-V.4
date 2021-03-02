@@ -1,16 +1,9 @@
 import { RootState } from '../RootState';
-import { Commit, Dispatch, GetterTree } from 'vuex';
+import { ActionContext } from 'vuex';
 import { SettingsState } from './State';
 import { ModuleSettings, Settings } from '../../Setting';
 
-export interface SettingsActionStoreParams {
-    state: SettingsState;
-    rootState: RootState;
-    commit: Commit;
-    dispatch: Dispatch;
-    getters: GetterTree<SettingsState, RootState>;
-    rootGetters: GetterTree<RootState, RootState>;
-}
+export type SettingsActionStoreParams = ActionContext<SettingsState, RootState>;
 
 export interface SettingsRegister {
     moduleId: string;
