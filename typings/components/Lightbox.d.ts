@@ -19,6 +19,7 @@ export interface LightboxProps {
     noTitleHide: boolean;
     fullHeight: boolean;
     extraClasses: Record<string, boolean>;
+    noModal: boolean;
 }
 
 export interface LightboxMethods {

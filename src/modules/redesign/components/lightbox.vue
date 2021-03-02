@@ -3,6 +3,7 @@
         name="redesign-lightbox"
         :full-height="!type"
         :no-title-hide="!type"
+        :no-modal="noModal"
     >
         <div v-show="type" class="redesign-wrapper">
             <Vehicle
@@ -30,12 +31,7 @@ import Vue from 'vue';
 import { VehicleWindow } from '../parsers/vehicle';
 import { DefaultComputed } from 'vue/types/options';
 import VueI18n from 'vue-i18n';
-
-type types = 'vehicle';
-
-const routeChecks = {
-    '^/vehicles/\\d+/?$': 'vehicle',
-} as Record<string, types>;
+import { routeChecks } from 'typings/modules/Redesign';
 
 interface Data<T, D> {
     type: T;
@@ -72,6 +68,8 @@ export default Vue.extend<
                 [key: string]: unknown;
             }
         ): VueI18n.TranslateResult;
+        routeChecks: routeChecks;
+        noModal: boolean;
     }
 >({
     name: 'redesign-lightbox',
@@ -105,6 +103,15 @@ export default Vue.extend<
             type: Function,
             required: true,
         },
+        routeChecks: {
+            type: Object,
+            required: true,
+        },
+        noModal: {
+            type: Boolean,
+            required: false,
+            default: () => false,
+        },
     },
     computed: {
         src: {
@@ -113,7 +120,7 @@ export default Vue.extend<
             },
             set(url) {
                 const link = new URL(url, window.location.href);
-                const type = Object.entries(routeChecks).find(([regex]) =>
+                const type = Object.entries(this.routeChecks).find(([regex]) =>
                     link.pathname.match(regex)
                 )?.[1];
                 if (!type) {
@@ -202,4 +209,5 @@ iframe
     width: 100%
     height: 100%
     display: block
+    border: none
 </style>
