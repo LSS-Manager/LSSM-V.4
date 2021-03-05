@@ -38,6 +38,17 @@ interface Cell {
     tax: number;
 }
 
+interface WLF {
+    id: number;
+    caption: string;
+    distance: string;
+    building: {
+        id: number;
+        caption: string;
+        same: boolean;
+    };
+}
+
 export interface VehicleWindow {
     id: number;
     building: {
@@ -81,6 +92,8 @@ export interface VehicleWindow {
     own_cells: Cell[];
     alliance_cells: Cell[];
     prisoners_releaseable: boolean;
+    has_wlfs: boolean;
+    wlfs: WLF[];
     authenticity_token: string;
 }
 
@@ -160,6 +173,9 @@ export default (
             else alliance_cells.push(cellinfos);
         });
     }
+    const wlf_table = doc.querySelector<HTMLTableElement>(
+        '#vehicle_show_table'
+    );
     return {
         id,
         building: {
@@ -342,6 +358,33 @@ export default (
         prisoners_releaseable: !!doc.querySelector(
             'a[href$="/gefangene/entlassen"]'
         ),
+        has_wlfs: !!wlf_table,
+        wlfs: wlf_table
+            ? Array.from(
+                  wlf_table.querySelectorAll<HTMLTableRowElement>('tbody tr')
+              ).map(wlf => {
+                  const building = wlf.children[3];
+                  const buildingA = building.querySelector<HTMLAnchorElement>(
+                      'a'
+                  );
+                  return {
+                      id: parseInt(
+                          wlf.children[0]
+                              .querySelector<HTMLAnchorElement>('a')
+                              ?.href?.match(/\d+$/)?.[0] ?? '-1'
+                      ),
+                      caption: wlf.children[1].textContent?.trim() ?? '',
+                      distance: wlf.children[2].textContent?.trim() ?? '',
+                      building: {
+                          caption: buildingA?.textContent?.trim() ?? '',
+                          id: getIdFromEl(buildingA),
+                          same: !!building.querySelector<HTMLSpanElement>(
+                              '.label.label-success'
+                          ),
+                      },
+                  };
+              })
+            : [],
         authenticity_token:
             doc.querySelector<HTMLMetaElement>('meta[name="csrf-token"]')
                 ?.content ?? '',

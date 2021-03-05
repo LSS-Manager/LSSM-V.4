@@ -253,6 +253,7 @@
                     !vehicle.user &&
                         !vehicle.has_hospitals &&
                         !vehicle.has_cells &&
+                        !vehicle.has_wlfs &&
                         missionList.length
                 "
                 class="table-tabs"
@@ -335,15 +336,11 @@
                                 :options="[
                                     {
                                         value: true,
-                                        label: $sm(
-                                            'filter.missions.participation.true'
-                                        ),
+                                        label: $sm('true'),
                                     },
                                     {
                                         value: false,
-                                        label: $sm(
-                                            'filter.missions.participation.false'
-                                        ),
+                                        label: $sm('false'),
                                     },
                                 ]"
                                 @input="
@@ -611,15 +608,11 @@
                                 :options="[
                                     {
                                         value: true,
-                                        label: $sm(
-                                            'filter.hospitals.department.true'
-                                        ),
+                                        label: $sm('true'),
                                     },
                                     {
                                         value: false,
-                                        label: $sm(
-                                            'filter.hospitals.department.false'
-                                        ),
+                                        label: $sm('false'),
                                     },
                                 ]"
                                 @input="
@@ -811,6 +804,98 @@
                     </tr>
                 </enhanced-table>
             </div>
+            <div
+                v-else-if="!vehicle.user && vehicle.has_wlfs"
+                class="table-tabs"
+            >
+                <enhanced-table
+                    :head="wlf_head"
+                    :table-attrs="{ class: 'table' }"
+                    :search="search"
+                    @search="setSearch"
+                    :sort="sort"
+                    :sort-dir="sortDir"
+                    @sort="setSort"
+                >
+                    <template v-slot:head>
+                        <div class="form-group">
+                            <label>{{ $sm('filter.wlf.same') }}</label>
+                            <multi-select
+                                name="wlf_same"
+                                :placeholder="$sm('filter.wlf.same.title')"
+                                v-model="filter.wlf.same"
+                                :options="[
+                                    {
+                                        value: true,
+                                        label: $sm('true'),
+                                    },
+                                    {
+                                        value: false,
+                                        label: $sm('false'),
+                                    },
+                                ]"
+                                @input="
+                                    updateFilter('wlf.same', filter.wlf.same)
+                                "
+                            ></multi-select>
+                        </div>
+                        <div class="form-group">
+                            <label>{{ $sm('filter.wlf.distance') }}</label>
+                            <settings-number
+                                name="wlf_distance"
+                                :placeholder="$sm('filter.wlf.distance')"
+                                v-model="filter.wlf.distance"
+                                :min="0"
+                                @input="
+                                    updateFilter(
+                                        'wlf.distance',
+                                        filter.wlf.distance
+                                    )
+                                "
+                            ></settings-number>
+                        </div>
+                    </template>
+                    <tr
+                        v-for="wlf in wlfListSorted"
+                        :key="wlf.id"
+                        :class="{ hidden: wlf.hidden }"
+                    >
+                        <td>
+                            <a :href="`/vehicles/${wlf.id}`">{{
+                                wlf.caption
+                            }}</a>
+                        </td>
+                        <td>{{ wlf.distance }}</td>
+                        <td>
+                            <a :href="`/vehicles/${wlf.building.id}`">{{
+                                wlf.building.caption
+                            }}</a>
+                        </td>
+                        <td>
+                            <span
+                                class="label"
+                                :class="
+                                    `label-${
+                                        wlf.building.same ? 'success' : 'danger'
+                                    }`
+                                "
+                            >
+                                {{ $sm(wlf.building.same) }}
+                            </span>
+                        </td>
+                        <td>
+                            <button
+                                :href="
+                                    `/vehicles/${vehicle.id}/alarm?vehicle_ids%5B%5D=${wlf.id}`
+                                "
+                                class="btn btn-success"
+                            >
+                                {{ $sm('wlf.alarm') }}
+                            </button>
+                        </td>
+                    </tr>
+                </enhanced-table>
+            </div>
             <div class="btn-group nav-btns">
                 <button
                     class="btn btn-xs"
@@ -913,6 +998,11 @@ export default Vue.extend<
                 free: number;
                 each: number;
             };
+            wlf: {
+                distance: number;
+                same: boolean[];
+                show: number;
+            };
         };
     },
     {
@@ -969,6 +1059,14 @@ export default Vue.extend<
         cellList: VehicleWindow['own_cells'];
         cellListFiltered: VehicleWindow['own_cells'];
         cellListSorted: VehicleWindow['own_cells'];
+        wlf_head: {
+            [key: string]: {
+                title: string;
+                noSort?: boolean;
+            };
+        };
+        wlfListFiltered: VehicleWindow['wlfs'];
+        wlfListSorted: VehicleWindow['wlfs'];
     },
     {
         vehicle: VehicleWindow;
@@ -1048,6 +1146,11 @@ export default Vue.extend<
                     tax: 50,
                     free: 0,
                     each: 0,
+                },
+                wlf: {
+                    distance: 0,
+                    same: [true, false],
+                    show: 0,
                 },
             },
         };
@@ -1335,6 +1438,67 @@ export default Vue.extend<
                 return f < s ? -1 * modifier : f > s ? modifier : 0;
             });
         },
+        wlf_head() {
+            return {
+                vehicle: {
+                    title: this.$sm('wlf.caption').toString(),
+                },
+                distance: {
+                    title: this.$sm('distance').toString(),
+                },
+                building: {
+                    title: this.$sm('wlf.building').toString(),
+                },
+                same: {
+                    title: this.$sm('wlf.same', {
+                        building: this.vehicle.building.caption,
+                    }).toString(),
+                },
+                dispatch: { title: '', noSort: true },
+            };
+        },
+        wlfListFiltered() {
+            let shown = 0;
+            return this.vehicle.wlfs.map(w => {
+                const hidden = !(
+                    this.filter.wlf.same.includes(w.building.same) &&
+                    (!this.filter.wlf.distance ||
+                        parseInt(w.distance) < this.filter.wlf.distance) &&
+                    (!this.filter.wlf.show || shown < this.filter.wlf.show) &&
+                    JSON.stringify(Object.values(w))
+                        .toLowerCase()
+                        .match(this.search.trim().toLowerCase())
+                );
+                if (!hidden) shown++;
+                return {
+                    ...w,
+                    hidden,
+                };
+            });
+        },
+        wlfListSorted() {
+            if (this.sort === 'distance') {
+                if (this.sortDir === 'asc') return this.wlfListFiltered;
+                return [...this.wlfListFiltered].reverse();
+            }
+            const modifier = this.sortDir === 'desc' ? -1 : 1;
+            return [...this.wlfListFiltered].sort((a, b) => {
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
+                let f = a[this.sort] ?? '';
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
+                let s = b[this.sort] ?? '';
+                if (this.sort === 'same') {
+                    f = a.building.same ?? '';
+                    s = b.building.same ?? '';
+                } else if (this.sort === 'building') {
+                    f = f['caption'] ?? '';
+                    s = s['caption'] ?? '';
+                }
+                return f < s ? -1 * modifier : f > s ? modifier : 0;
+            });
+        },
     },
     methods: {
         $sm(
@@ -1384,6 +1548,8 @@ export default Vue.extend<
                 ? 'hospital'
                 : this.vehicle.has_cells
                 ? 'cell'
+                : this.vehicle.has_wlfs
+                ? 'wlf'
                 : 'mission';
             this.setSetting(`${mode}.sort`, type).then(() =>
                 this.setSetting(`${mode}.sortDir`, this.sortDir).then()
@@ -1571,19 +1737,21 @@ export default Vue.extend<
         this.getSetting(`${mode}.sortDir`, this.sortDir).then(
             dir => (this.sortDir = dir)
         );
-        this.$nextTick(() => {
-            const tabSrc = this.vehicle.has_hospitals
-                ? 'hospitalListSrc'
-                : this.vehicle.has_cells
-                ? 'cellListSrc'
-                : 'missionListSrc';
-            this.getSetting(tabSrc, this[tabSrc]).then(list => {
-                this[tabSrc] = list;
-                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                // @ts-ignore
-                if (this.$refs.tabs) this.$refs.tabs.selectedIndex = list;
+        if (!this.vehicle.has_wlfs) {
+            this.$nextTick(() => {
+                const tabSrc = this.vehicle.has_hospitals
+                    ? 'hospitalListSrc'
+                    : this.vehicle.has_cells
+                    ? 'cellListSrc'
+                    : 'missionListSrc';
+                this.getSetting(tabSrc, this[tabSrc]).then(list => {
+                    this[tabSrc] = list;
+                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                    // @ts-ignore
+                    if (this.$refs.tabs) this.$refs.tabs.selectedIndex = list;
+                });
             });
-        });
+        }
     },
 });
 </script>
