@@ -121,6 +121,19 @@
                                     {{ vehicle.max_staff }}
                                 </td>
                             </tr>
+                            <tr v-if="vehicle.has_hospitals">
+                                <th></th>
+                                <td colspan="2">
+                                    <a
+                                        :href="
+                                            `/vehicles/${vehicle.id}/patient/-1`
+                                        "
+                                        class="btn btn-default btn-xs btn-sm"
+                                    >
+                                        {{ $sm('release_patient') }}
+                                    </a>
+                                </td>
+                            </tr>
                             <tr v-if="vehicle.water_amount">
                                 <th>{{ $sm('water_amount') }}</th>
                                 <td colspan="2">
@@ -1603,7 +1616,4 @@ export default Vue.extend<
     position: absolute
     right: 1em
     transition: right 1s
-
-.titleHidden .nav-btns
-    right: calc(3 * 34px)
 </style>
