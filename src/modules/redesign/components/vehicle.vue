@@ -1598,7 +1598,10 @@ export default Vue.extend<
             const LSSM = this;
             this.$modal.show('dialog', {
                 title: this.$sm('delete.title'),
-                text: this.$sm('delete.text'),
+                text: this.$sm('delete.text', {
+                    caption: this.vehicle.vehicle_name,
+                    building: this.vehicle.building.caption,
+                }),
                 buttons: [
                     {
                         title: this.$sm('delete.cancel'),
