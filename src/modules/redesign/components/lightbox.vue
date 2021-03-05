@@ -2,7 +2,7 @@
     <lightbox
         name="redesign-lightbox"
         :full-height="!type"
-        :no-title-hide="!type"
+        :no-title-hide="true"
         :no-modal="noModal"
     >
         <div v-show="type" class="redesign-wrapper">
