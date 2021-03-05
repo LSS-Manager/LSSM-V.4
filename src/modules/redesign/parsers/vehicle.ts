@@ -181,14 +181,17 @@ export default (
         ),
         mileage: doc.getElementById('vehicle-attr-total-km')?.textContent ?? '',
         image:
-            imageEl?.getAttribute('image_replace_allowed') === 'true'
+            imageEl?.getAttribute('image_replace_allowed') === 'true' &&
+            doc.documentElement.innerHTML.match(
+                /vehicle_graphics(_sorted\[\d+])?\s*=\s*/
+            )
                 ? JSON.parse(
                       doc.scripts[
                           userEl || hasHospitals || hasCells || fms === 6
                               ? 7
                               : 8
                       ].innerText.match(
-                          /(?<=vehicle_graphics\s*=\s*)\[(?:(?:(?:\[".*?",".*?","(?:true|false)"])|null),?)+]/
+                          /(?<=vehicle_graphics(_sorted\[\d+])?\s*=\s*)\[(?:(?:(?:\[".*?",".*?","(?:true|false)"])|null),?)+]/
                       )?.[0] ?? '[]'
                   )[vehicleType][0]
                 : imageEl?.src ?? '',
