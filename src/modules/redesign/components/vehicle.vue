@@ -660,7 +660,7 @@
                                     }`
                                 "
                             >
-                                {{ $sm(`hospitals.${hospital.department}`) }}
+                                {{ $sm(hospital.department) }}
                             </span>
                         </td>
                         <td>
