@@ -1158,6 +1158,19 @@ export default {
                 'Der Polizeihelikopter ist das Trägerfahrzeug hier von. Der Helikopter brauch min. 2 Ausgebildete Kräfte mit der Ausbildung "Brandbekämpfung"',
             icon: 'fill',
         },
+        97: {
+            caption: 'ITW',
+            color: '#b87700',
+            coins: 25,
+            credits: 30000,
+            minPersonnel: 3,
+            maxPersonnel: 3,
+            schooling: 'Rettungsdienst - Intenstivblabla',
+            shownSchooling: 'Intenstivblabla',
+            special:
+                'Kann auch als NAW eingesetzt werden. Verdienst bei der Mission: 30 Credits pro km, max. 1.500 Credits. Hat das angefahrene Krankenhaus nicht die erforderliche Abteilung, wird der Verdienst 30% weniger betragen. Kann alle 15 (10 mit Premium) Rettungswachen gekauft werden. Alle 3 brauchen die ^^ Ausbildung, einer davon die Notarzt Ausbildung',
+            icon: 'ambulance',
+        },
     },
     buildings: {
         0: {
@@ -1900,7 +1913,7 @@ export default {
         },
         Rettungsdienst: {
             vehicles: {
-                'Rettungsdienstfahrzeuge': [28, 29, 55, 56, 73, 74],
+                'Rettungsdienstfahrzeuge': [28, 29, 55, 56, 73, 74, 97],
                 'Rettungshubschrauber': [31],
                 'KTW': [38],
                 'SEG-Fahrzeuge': [58, 59, 60],
@@ -2085,6 +2098,10 @@ export default {
             },
             {
                 caption: 'SEG - GW-San',
+                duration: '3 Tage',
+            },
+            {
+                caption: 'Intenstivblabla',
                 duration: '3 Tage',
             },
         ],

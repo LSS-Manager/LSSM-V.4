@@ -62,6 +62,10 @@ export default (LSSM: Vue): void => {
             min: 3,
             max: 30,
         },
+        'mission_graphic[caption]': {
+            min: 3,
+            max: 30,
+        },
         'alliance[caption]': {
             min: 3,
             max: 30,
