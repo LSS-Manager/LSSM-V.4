@@ -121,10 +121,10 @@ export default Vue.extend<
 >({
     name: 'vehicle-lightbox',
     components: {
-        EnhancedTable: () =>
-            import(
-                /* webpackChunkName: "components/enhanced-table" */ '../../../components/enhanced-table.vue'
-            ),
+        // EnhancedTable: () =>
+            // import(
+                // /* webpackChunkName: "components/enhanced-table" */ '../../../components/enhanced-table.vue'
+            // ),
     },
     data() {
         moment.locale(this.$store.state.lang);
