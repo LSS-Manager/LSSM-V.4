@@ -5,16 +5,27 @@
         :no-title-hide="true"
         :no-modal="noModal"
     >
-        <div v-show="type" class="redesign-wrapper">
+        <div v-show="type" class="redesign-wrapper" :type="type">
             <Vehicle
                 v-if="type === 'vehicle'"
                 :vehicle="data"
+                :url="urlProp"
                 :lightbox="this"
                 :$m="$m"
                 :$mc="$mc"
                 :get-setting="getSetting()"
                 :set-setting="setSetting()"
             ></Vehicle>
+            <CreditsDaily
+                v-else-if="type === 'credits.daily'"
+                :credits="data"
+                :url="urlProp"
+                :lightbox="this"
+                :$m="$m"
+                :$mc="$mc"
+                :get-setting="getSetting()"
+                :set-setting="setSetting()"
+            ></CreditsDaily>
         </div>
         <iframe
             v-show="!type"
@@ -32,11 +43,13 @@ import { VehicleWindow } from '../parsers/vehicle';
 import { DefaultComputed } from 'vue/types/options';
 import VueI18n from 'vue-i18n';
 import { routeChecks } from 'typings/modules/Redesign';
+import { CreditsDailyWindow } from '../parsers/credits.daily';
 
 interface Data<T, D> {
     type: T;
     data: D;
     html: string;
+    urlProp: string;
 }
 
 const getIdFromEl = (el: HTMLAnchorElement | null): number =>
@@ -47,7 +60,9 @@ const getIdFromEl = (el: HTMLAnchorElement | null): number =>
     );
 
 export default Vue.extend<
-    Data<'', null> | Data<'vehicle', VehicleWindow>,
+    | Data<'', null>
+    | Data<'vehicle', VehicleWindow>
+    | Data<'credits.daily', CreditsDailyWindow>,
     {
         getSetting(): <T>(setting: string, defaultValue: T) => Promise<T>;
         setSetting(): <T>(settingId: string, value: T) => Promise<void>;
@@ -82,12 +97,17 @@ export default Vue.extend<
             import(
                 /*webpackChunkName: "modules/redesign/windows/vehicle"*/ './vehicle.vue'
             ),
+        CreditsDaily: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/credits.daily"*/ './credits.daily.vue'
+            ),
     },
     data() {
         return {
             type: '',
             data: null,
             html: '',
+            urlProp: '',
         };
     },
     props: {
@@ -151,14 +171,29 @@ export default Vue.extend<
                         feature: `redesign-${type}`,
                     })
                     .then((res: Response) => res.text())
-                    .then(html =>
+                    .then(html => {
+                        import(
+                            /* webpackChunkName: "modules/i18n/redesign/[request]" */ `../i18n/${this.$store.state.lang}/${type}.json`
+                        ).then(translation => {
+                            this.$i18n.mergeLocaleMessage(
+                                this.$store.state.lang,
+                                {
+                                    modules: {
+                                        redesign: {
+                                            [type]: translation,
+                                        },
+                                    },
+                                }
+                            );
+                        });
                         import(
                             /*webpackChunkName: "modules/redesign/parsers/[request]"*/ `../parsers/${type}`
                         ).then(parser => {
                             this.data = parser.default(html, url, getIdFromEl);
                             this.type = type;
-                        })
-                    );
+                            this.urlProp = url;
+                        });
+                    });
             },
         },
     },
@@ -204,6 +239,9 @@ export default Vue.extend<
 <style lang="sass" scoped>
 .redesign-wrapper
     margin: 1rem
+
+    &[type="credits.daily"]
+        margin-top: 0
 
 iframe
     width: 100%

@@ -3,6 +3,7 @@ import { routeChecks } from 'typings/modules/Redesign';
 
 const routeChecks: routeChecks = {
     '^/vehicles/\\d+/?$': 'vehicle',
+    // '^/credits/daily/?$': 'credits.daily',
 };
 
 export default ((LSSM, MODULE_ID) => {

@@ -1070,6 +1070,7 @@ export default Vue.extend<
     },
     {
         vehicle: VehicleWindow;
+        url: string;
         lightbox: Vue;
         $m(
             key: string,
@@ -1507,7 +1508,7 @@ export default Vue.extend<
                 [key: string]: unknown;
             }
         ) {
-            return this.$m(`vehicles.${key}`, args);
+            return this.$m(`vehicle.${key}`, args);
         },
         $smc(
             key: string,
@@ -1516,7 +1517,7 @@ export default Vue.extend<
                 [key: string]: unknown;
             }
         ) {
-            return this.$mc(`vehicles.${key}`, amount, args);
+            return this.$mc(`vehicle.${key}`, amount, args);
         },
         setMissionList(_, list) {
             this.setSetting('missionListSrc', list).then();
@@ -1688,6 +1689,10 @@ export default Vue.extend<
     props: {
         vehicle: {
             type: Object,
+            required: true,
+        },
+        url: {
+            type: String,
             required: true,
         },
         lightbox: {
