@@ -27,8 +27,8 @@ export default (source: string): CreditsDailyWindow => {
         parseInt(
             el?.textContent
                 ?.trim()
-                .match(/\d{1,3}([.,]\d{3})*/)?.[0]
-                ?.replace(/[.,]/g, '') ?? '-1'
+                .match(/-?\d{1,3}([.,]\d{3})*/)?.[0]
+                ?.replace(/[.,]/g, '') ?? '0'
         );
     return {
         entries: Array.from(

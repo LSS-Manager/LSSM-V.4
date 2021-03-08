@@ -60,8 +60,95 @@
                 +1
             </button>
             <!-- Date input -->
+            <small>
+                <span class="text-success">
+                    +{{ sum.plus.toLocaleString() }}
+                </span>
+                |
+                <span class="text-danger">
+                    -{{ Math.abs(sum.minus).toLocaleString() }}
+                </span>
+                |
+                <span
+                    :class="
+                        `text-${
+                            sum.total > 0
+                                ? 'success'
+                                : sum.total < 0
+                                ? 'danger'
+                                : ''
+                        }`
+                    "
+                    >{{
+                        (sum.total > 0 ? '+' : '') + sum.total.toLocaleString()
+                    }}</span
+                ></small
+            >
         </h1>
-        <pre>{{ entriesSorted }}</pre>
+        <enhanced-table
+            :head="head"
+            :table-attrs="{ class: 'table' }"
+            :search="search"
+            @search="s => (search = s)"
+            :sort="sort"
+            :sort-dir="sortDir"
+            @sort="setSort"
+            :shown-sum="(shown_sum = { total: 0, average: 0, amount: 0 })"
+        >
+            <tr
+                v-for="(entry, id) in entriesSorted"
+                :key="id"
+                :class="{ hidden: entry.hidden }"
+                :color="
+                    (color = `text-${
+                        entry.total > 0
+                            ? 'success'
+                            : entry.total < 0
+                            ? 'danger'
+                            : ''
+                    }`)
+                "
+                :sum="
+                    (() => {
+                        if (entry.hidden) return;
+                        shown_sum.total += entry.total;
+                        shown_sum.average += entry.average;
+                        shown_sum.amount += entry.amount;
+                    })()
+                "
+            >
+                <td :class="color">
+                    {{ entry.total.toLocaleString() }} Credits
+                </td>
+                <td :class="color">
+                    {{ entry.average.toLocaleString() }} Credits
+                </td>
+                <td>{{ entry.amount.toLocaleString() }}x</td>
+                <td>{{ entry.desc }}</td>
+            </tr>
+            <template v-slot:foot>
+                <tr
+                    :sum-color="
+                        (sum_color = `text-${
+                            shown_sum.total > 0
+                                ? 'success'
+                                : shown_sum.total < 0
+                                ? 'danger'
+                                : ''
+                        }`)
+                    "
+                >
+                    <th :class="sum_color">
+                        {{ shown_sum.total.toLocaleString() }} Credits
+                    </th>
+                    <th :class="sum_color">
+                        {{ shown_sum.average.toLocaleString() }} Credits
+                    </th>
+                    <th>{{ shown_sum.amount.toLocaleString() }}x</th>
+                    <th></th>
+                </tr>
+            </template>
+        </enhanced-table>
     </div>
 </template>
 
@@ -77,6 +164,12 @@ export default Vue.extend<
         search: string;
         sort: string;
         sortDir: 'asc' | 'desc';
+        head: {
+            [key: string]: {
+                title: string;
+                noSort?: boolean;
+            };
+        };
     },
     {
         $sm(
@@ -96,7 +189,9 @@ export default Vue.extend<
     },
     {
         page: number;
+        entriesFiltered: CreditsDailyWindow['entries'];
         entriesSorted: CreditsDailyWindow['entries'];
+        sum: { plus: number; minus: number; total: number };
     },
     {
         credits: CreditsDailyWindow;
@@ -121,10 +216,10 @@ export default Vue.extend<
 >({
     name: 'vehicle-lightbox',
     components: {
-        // EnhancedTable: () =>
-        // import(
-        // /* webpackChunkName: "components/enhanced-table" */ '../../../components/enhanced-table.vue'
-        // ),
+        EnhancedTable: () =>
+            import(
+                /* webpackChunkName: "components/enhanced-table" */ '../../../components/enhanced-table.vue'
+            ),
     },
     data() {
         moment.locale(this.$store.state.lang);
@@ -133,6 +228,12 @@ export default Vue.extend<
             search: '',
             sort: 'distance',
             sortDir: 'asc',
+            head: {
+                total: { title: 'total' },
+                average: { title: 'Ø' },
+                amount: { title: 'amount' },
+                desc: { title: 'desc' },
+            },
         };
     },
     computed: {
@@ -143,8 +244,24 @@ export default Vue.extend<
                 ) ?? '0'
             );
         },
+        entriesFiltered() {
+            return this.credits.entries.map(e => ({
+                ...e,
+                hidden: !JSON.stringify(Object.values(e))
+                    .toLowerCase()
+                    .match(this.search.trim().toLowerCase()),
+            }));
+        },
         entriesSorted() {
-            return this.credits.entries;
+            return this.entriesFiltered;
+        },
+        sum() {
+            const result = { plus: 0, minus: 0, total: 0 };
+            this.credits.entries.forEach(({ total }) => {
+                result.total += total;
+                if (total !== 0) result[total > 0 ? 'plus' : 'minus'] += total;
+            });
+            return result;
         },
     },
     methods: {
@@ -225,6 +342,10 @@ export default Vue.extend<
             if (!target || !target.hasAttribute('href')) return;
             this.$set(this.lightbox, 'src', target.getAttribute('href'));
         });
+        this.getSetting('sort', this.sort).then(sort => (this.sort = sort));
+        this.getSetting('sortDir', this.sortDir).then(
+            dir => (this.sortDir = dir)
+        );
     },
 });
 </script>

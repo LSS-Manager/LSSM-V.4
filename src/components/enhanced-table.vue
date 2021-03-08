@@ -123,7 +123,7 @@ export default Vue.extend<
 </script>
 
 <style scoped lang="sass">
-th:not(.noSort)
+thead th:not(.noSort)
     cursor: pointer
 
 .head
