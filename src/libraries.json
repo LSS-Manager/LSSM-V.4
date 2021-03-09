@@ -54,7 +54,7 @@
 		"version": "1.16.0"
 	},
 	"@typescript-eslint/eslint-plugin": {
-		"version": "4.16.1"
+		"version": "4.17.0"
 	},
 	"@typescript-eslint/parser": {
 		"version": "4.17.0"
