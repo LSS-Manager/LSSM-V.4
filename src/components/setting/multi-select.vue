@@ -7,7 +7,11 @@
             :options="filteredOptions"
             :disabled="disabled"
             :clearable="false"
-        ></v-select>
+        >
+            <div slot="no-options">
+                {{ $t('noOptions') }}
+            </div>
+        </v-select>
     </div>
 </template>
 

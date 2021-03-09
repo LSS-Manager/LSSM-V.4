@@ -1326,6 +1326,7 @@ export default {
     station: 'Posten | Post | Posten',
     distance: 'Afstand | Afstanden',
     vehicleType: 'Voertuig type',
+    noOptions: 'Geen opties beschikbaar.',
     fmsReal2Show: {
         1: 4,
         2: 5,

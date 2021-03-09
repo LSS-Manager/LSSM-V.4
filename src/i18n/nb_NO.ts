@@ -875,6 +875,7 @@ export default {
     station: 'Stasjoner | Stasjon | Stasjoner',
     distance: 'Distanse | Distanser',
     vehicleType: 'Kjøretøytype',
+    noOptions: 'Sorry, no matching options.',
     fmsReal2Show: {
         1: 1,
         2: 2,

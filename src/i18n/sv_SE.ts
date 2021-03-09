@@ -874,6 +874,7 @@ export default {
     station: 'Skydd | Vakt | Vakter',
     distance: 'Avstånd | Avstånd ',
     vehicleType: 'Fordons typ',
+    noOptions: 'Sorry, no matching options.',
     fmsReal2Show: {
         1: 1,
         2: 2,
