@@ -253,7 +253,20 @@ export default Vue.extend<
             }));
         },
         entriesSorted() {
-            return this.entriesFiltered;
+            if (this.sort === 'total') {
+                if (this.sortDir === 'desc') return this.entriesFiltered;
+                return [...this.entriesFiltered].reverse();
+            }
+            const modifier = this.sortDir === 'desc' ? -1 : 1;
+            return [...this.entriesFiltered].sort((a, b) => {
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
+                let f = a[this.sort] ?? '';
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
+                let s = b[this.sort] ?? '';
+                return f < s ? -1 * modifier : f > s ? modifier : 0;
+            });
         },
         sum() {
             const result = { plus: 0, minus: 0, total: 0 };
