@@ -1168,7 +1168,7 @@ export default {
             schooling: 'Rettungsdienst - Intensivpflege',
             shownSchooling: 'Intensivpflege',
             special:
-                'Kann auch als NAW eingesetzt werden. Verdienst bei der Mission: 30 Credits pro km, max. 1.500 Credits. Hat das angefahrene Krankenhaus nicht die erforderliche Abteilung, wird der Verdienst 30% weniger betragen. Kann alle 15 (10 mit Premium) Rettungswachen gekauft werden. Alle 3 brauchen die "Intensivpflege" Ausbildung, einer davon die Notarzt Ausbildung',
+                'Kann auch als NAW eingesetzt werden. Verdienst bei der Mission: 30 Credits pro km, max. 1.500 Credits. Hat das angefahrene Krankenhaus nicht die erforderliche Abteilung, wird der Verdienst 30% weniger betragen. Kann alle 15 (10 mit Premium) Rettungswachen gekauft werden. 2 Leute brauchen die "Intensivpflege" Ausbildung, Eine weitere Person davon die Notarzt Ausbildung',
             icon: 'ambulance',
         },
     },
