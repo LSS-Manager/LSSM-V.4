@@ -2028,6 +2028,10 @@ export default {
                 caption: 'Werkfeuerwehr-Ausbildung',
                 duration: '2 Tage',
             },
+			{
+                caption: 'Intensivpflege',
+                duration: '3 Tage',
+            },
         ],
         Polizei: [
             {
