@@ -354,7 +354,7 @@ export default {
             maxPersonnel: 1,
             wtank: 0,
             schooling: 'Police - Police Motorcycle',
-            shownSchooling: 'Police Motorcycle',
+            shownSchooling: 'Motor Officer',
         },
         24: {
             caption: 'Large Fireboat',
