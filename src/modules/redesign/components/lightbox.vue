@@ -16,16 +16,17 @@
                 :get-setting="getSetting()"
                 :set-setting="setSetting()"
             ></Vehicle>
-            <CreditsDaily
-                v-else-if="type === 'credits/daily'"
-                :credits="data"
+            <Credits
+                v-else-if="type.startsWith('credits/')"
+                :data="data"
                 :url="urlProp"
                 :lightbox="this"
                 :$m="$m"
                 :$mc="$mc"
                 :get-setting="getSetting()"
                 :set-setting="setSetting()"
-            ></CreditsDaily>
+                :type="type"
+            ></Credits>
         </div>
         <iframe
             v-show="!type"
@@ -97,9 +98,9 @@ export default Vue.extend<
             import(
                 /*webpackChunkName: "modules/redesign/windows/vehicle"*/ './vehicle.vue'
             ),
-        CreditsDaily: () =>
+        Credits: () =>
             import(
-                /*webpackChunkName: "modules/redesign/windows/credits.daily"*/ './credits/daily.vue'
+                /*webpackChunkName: "modules/redesign/windows/credits"*/ './credits.vue'
             ),
     },
     data() {
@@ -171,21 +172,28 @@ export default Vue.extend<
                         feature: `redesign-${type}`,
                     })
                     .then((res: Response) => res.text())
-                    .then(html => {
-                        import(
-                            /* webpackChunkName: "modules/i18n/redesign/[request]" */ `../i18n/${this.$store.state.lang}/${type}.json`
-                        ).then(translation => {
-                            this.$i18n.mergeLocaleMessage(
-                                this.$store.state.lang,
-                                {
-                                    modules: {
-                                        redesign: {
-                                            [type]: translation,
+                    .then(async html => {
+                        const types = type.split('/');
+                        for (let i = 1; i <= types.length; i++) {
+                            try {
+                                const typePath = types.slice(0, i).join('/');
+                                const t = await import(
+                                    /* webpackChunkName: "modules/i18n/redesign/[request]" */ `../i18n/${this.$store.state.lang}/${typePath}.json`
+                                );
+                                this.$i18n.mergeLocaleMessage(
+                                    this.$store.state.lang,
+                                    {
+                                        modules: {
+                                            redesign: {
+                                                [typePath]: t,
+                                            },
                                         },
-                                    },
-                                }
-                            );
-                        });
+                                    }
+                                );
+                            } catch (e) {
+                                // Do nothing
+                            }
+                        }
                         import(
                             /*webpackChunkName: "modules/redesign/parsers/[request]"*/ `../parsers/${type}`
                         ).then(parser => {

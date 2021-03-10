@@ -1,36 +1,5 @@
 <template>
     <div>
-        <nav class="navbar navbar-default">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <button
-                        type="button"
-                        class="navbar-toggle collapsed"
-                        data-toggle="collapse"
-                        data-target="#bs-example-navbar-collapse-alliance"
-                        aria-expanded="false"
-                    >
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="#">{{ credits.nav.title }}</a>
-                </div>
-                <div
-                    class="collapse navbar-collapse"
-                    id="bs-example-navbar-collapse-alliance"
-                >
-                    <ul class="nav navbar-nav navbar-right">
-                        <li v-for="link in credits.nav.links" :key="link.href">
-                            <a :href="link.href">
-                                {{ link.text }}
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
         <h1>
             {{ $sm('summary') }}:
             {{
@@ -180,7 +149,7 @@
 import Vue from 'vue';
 import moment from 'moment';
 import VueI18n from 'vue-i18n';
-import { CreditsDailyWindow } from '../parsers/credits.daily';
+import { CreditsDailyWindow } from '../../parsers/credits/daily';
 
 export default Vue.extend<
     {
@@ -245,7 +214,7 @@ export default Vue.extend<
         setSetting: <T>(settingId: string, value: T) => Promise<void>;
     }
 >({
-    name: 'vehicle-lightbox',
+    name: 'credits-daily-lightbox',
     components: {
         EnhancedTable: () =>
             import(
