@@ -1,13 +1,13 @@
 {
-    "summary": "Zusammenfassung",
-    "total": "Gesamt",
-    "amount": "Anzahl",
-    "description": "Beschreibung",
-    "today": "Heute",
-    "filter": {
-        "total": {
-            "min": "Min. Gesamtcredits",
-            "max": "Max. Gesamtcredits"
-        }
-    }
+	"amount": "Anzahl",
+	"description": "Beschreibung",
+	"filter": {
+		"total": {
+			"max": "Max. Gesamtcredits",
+			"min": "Min. Gesamtcredits"
+		}
+	},
+	"summary": "Zusammenfassung",
+	"today": "Heute",
+	"total": "Gesamt"
 }

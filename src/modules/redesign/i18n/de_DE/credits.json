@@ -1,23 +1,23 @@
 {
-    "nav": {
-        "title": "Credits",
-        "links": [
-            {
-                "href": "/credits",
-                "text": "Einzeltransaktionen"
-            },
-            {
-                "href": "/credits/overview",
-                "text": "Übersicht"
-            },
-            {
-                "href": "/credits/daily",
-                "text": "Tageszusammenfassung"
-            },
-            {
-                "href": "/coins/list",
-                "text": "Coins-Protokoll"
-            }
-        ]
-    }
+	"nav": {
+		"links": [
+			{
+				"href": "/credits",
+				"text": "Einzeltransaktionen"
+			},
+			{
+				"href": "/credits/overview",
+				"text": "Übersicht"
+			},
+			{
+				"href": "/credits/daily",
+				"text": "Tageszusammenfassung"
+			},
+			{
+				"href": "/coins/list",
+				"text": "Coins-Protokoll"
+			}
+		],
+		"title": "Credits"
+	}
 }
