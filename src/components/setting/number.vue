@@ -65,10 +65,15 @@ export default Vue.extend<
     computed: {
         updateValue: {
             get() {
-                return this.value;
+                const int = parseInt(this.value.toString());
+                return Number.isNaN(int) ? this.min ?? this.max ?? 0 : int;
             },
             set(value) {
-                this.$emit('input', value);
+                const int = parseInt(value.toString());
+                this.$emit(
+                    'input',
+                    Number.isNaN(int) ? this.min ?? this.max ?? 0 : int
+                );
             },
         },
     },

@@ -32,7 +32,7 @@
             </div>
         </nav>
         <h1>
-            summary:
+            {{ $sm('summary') }}:
             {{
                 moment()
                     .add(page, 'days')
@@ -50,7 +50,7 @@
                 href="/credits/daily?page=0"
                 :disabled="page === 0"
             >
-                today
+                {{ $sm('today') }}
             </button>
             <button
                 class="btn btn-success"
@@ -95,6 +95,30 @@
             @sort="setSort"
             :shown-sum="(shown_sum = { total: 0, average: 0, amount: 0 })"
         >
+            <template v-slot:head>
+                <div class="form-group">
+                    <label>{{ $sm('filter.total.min') }}</label>
+                    <settings-number
+                        name="total_min"
+                        :placeholder="$sm('filter.total.min')"
+                        v-model="filter.total.min"
+                        :min="Number.MIN_SAFE_INTEGER"
+                        :max="filter.total.max"
+                        @input="updateFilter('total.min', filter.total.min)"
+                    ></settings-number>
+                </div>
+                <div class="form-group">
+                    <label>{{ $sm('filter.total.max') }}</label>
+                    <settings-number
+                        name="total_max"
+                        :placeholder="$sm('filter.total.max')"
+                        v-model="filter.total.max"
+                        :min="filter.total.min"
+                        :max="Number.MAX_SAFE_INTEGER"
+                        @input="updateFilter('total.max', filter.total.max)"
+                    ></settings-number>
+                </div>
+            </template>
             <tr
                 v-for="(entry, id) in entriesSorted"
                 :key="id"
@@ -170,6 +194,12 @@ export default Vue.extend<
                 noSort?: boolean;
             };
         };
+        filter: {
+            total: {
+                min: number;
+                max: number;
+            };
+        };
     },
     {
         $sm(
@@ -186,6 +216,7 @@ export default Vue.extend<
             }
         ): VueI18n.TranslateResult;
         setSort(type: string): void;
+        updateFilter(filter: string, value: unknown): void;
     },
     {
         page: number;
@@ -220,6 +251,10 @@ export default Vue.extend<
             import(
                 /* webpackChunkName: "components/enhanced-table" */ '../../../components/enhanced-table.vue'
             ),
+        SettingsNumber: () =>
+            import(
+                /* webpackChunkName: "components/settings/number" */ '../../../components/setting/number.vue'
+            ),
     },
     data() {
         moment.locale(this.$store.state.lang);
@@ -228,11 +263,12 @@ export default Vue.extend<
             search: '',
             sort: 'distance',
             sortDir: 'asc',
-            head: {
-                total: { title: 'total' },
-                average: { title: 'Ø' },
-                amount: { title: 'amount' },
-                desc: { title: 'desc' },
+            head: {},
+            filter: {
+                total: {
+                    min: Number.MIN_SAFE_INTEGER,
+                    max: Number.MAX_SAFE_INTEGER,
+                },
             },
         };
     },
@@ -247,13 +283,30 @@ export default Vue.extend<
         entriesFiltered() {
             return this.credits.entries.map(e => ({
                 ...e,
-                hidden: !JSON.stringify(Object.values(e))
-                    .toLowerCase()
-                    .match(this.search.trim().toLowerCase()),
+                hidden: !(
+                    e.total >= this.filter.total.min &&
+                    e.total <= this.filter.total.max &&
+                    JSON.stringify(Object.values(e))
+                        .toLowerCase()
+                        .match(this.search.trim().toLowerCase())
+                ),
             }));
         },
         entriesSorted() {
-            return this.entriesFiltered;
+            if (this.sort === 'total') {
+                if (this.sortDir === 'desc') return this.entriesFiltered;
+                return [...this.entriesFiltered].reverse();
+            }
+            const modifier = this.sortDir === 'desc' ? -1 : 1;
+            return [...this.entriesFiltered].sort((a, b) => {
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
+                let f = a[this.sort] ?? '';
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
+                let s = b[this.sort] ?? '';
+                return f < s ? -1 * modifier : f > s ? modifier : 0;
+            });
         },
         sum() {
             const result = { plus: 0, minus: 0, total: 0 };
@@ -293,6 +346,9 @@ export default Vue.extend<
                 this.setSetting('sortDir', this.sortDir).then()
             );
         },
+        updateFilter(filter, value) {
+            this.setSetting(filter, value).then();
+        },
     },
     props: {
         credits: {
@@ -325,13 +381,19 @@ export default Vue.extend<
         },
     },
     beforeMount() {
-        // Object.entries(this.filter).forEach(([filter, props]) => {
-        //     Object.entries(props).forEach(([prop, value]) => {
-        //         this.getSetting(`${filter}.${prop}`, value).then(v =>
-        //             this.$set(props, prop, v)
-        //         );
-        //     });
-        // });
+        Object.entries(this.filter).forEach(([filter, props]) => {
+            Object.entries(props).forEach(([prop, value]) => {
+                this.getSetting(`${filter}.${prop}`, value).then(v =>
+                    this.$set(props, prop, v)
+                );
+            });
+        });
+        this.head = {
+            total: { title: this.$sm('total').toString() },
+            average: { title: 'Ø' },
+            amount: { title: this.$sm('amount').toString() },
+            desc: { title: this.$sm('description').toString() },
+        };
     },
     mounted() {
         this.$el.addEventListener('click', e => {
