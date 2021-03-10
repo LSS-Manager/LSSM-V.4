@@ -144,6 +144,7 @@ export default Vue.extend<
                 const type = Object.entries(this.routeChecks).find(([regex]) =>
                     link.pathname.match(regex)
                 )?.[1];
+                window.history.pushState({}, url, url);
                 if (!type) {
                     const iframe = this.$refs
                         .iframe as HTMLIFrameElement | null;
