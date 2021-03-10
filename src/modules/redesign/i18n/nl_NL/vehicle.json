@@ -1,0 +1,110 @@
+{
+	"approach": "Aanrijden",
+	"backalarm": "Terugroepen",
+	"cells": {
+		"cell": "Gebouw",
+		"free": "Vrije cellen"
+	},
+	"color": "Kleur aanpassen",
+	"current_mission": "Huidige inzet",
+	"delete": {
+		"button": "Verwijderen",
+		"cancel": "Abbrechen",
+		"confirm": "Annuleren",
+		"text": "Weet u zeker dat u het voertuig **{caption}** van gebouw **{building}** wilt verwijderen?",
+		"title": "Voertuig verwijderen"
+	},
+	"distance": "Afstand",
+	"edit": "Bewerken",
+	"false": "Nee",
+	"filter": {
+		"cells": {
+			"distance": "Maximale afstand",
+			"each": "Alleen eerste x gebouwen weergeven",
+			"free": "Minimale vrije cellen",
+			"tax": "Maximale afdracht"
+		},
+		"hospitals": {
+			"beds": "Minimale vrije bedden",
+			"department": {
+				"title": "Specialisatie: {department}"
+			},
+			"distance": "Maximale afstand",
+			"each": "Alleen eerste x ziekenhuizen weergeven",
+			"tax": "Maximale afdracht"
+		},
+		"missions": {
+			"credits": "Minimale opbrengst",
+			"distance": "Maximale afstand",
+			"participation": {
+				"title": "Aanwezig"
+			},
+			"progress": "Afgerond tot max %",
+			"status": {
+				"green": "groen",
+				"red": "rood",
+				"title": "Status",
+				"yellow": "geel"
+			}
+		},
+		"wlf": {
+			"distance": "Maximale afstand",
+			"same": "Zelfde gebouw"
+		}
+	},
+	"fms": "Status",
+	"fms_switch": {
+		"is_s2": "Status 6 toewijzen",
+		"is_s6": "Status 5 toewijzen"
+	},
+	"followup_missions": "Vervolginzet | Vervolginzetten",
+	"hospitals": {
+		"beds": "Vrije bedden",
+		"department": "Specialisatie: {department}",
+		"hospital": "Ziekenhuis"
+	},
+	"max_staff": "Max. personeel",
+	"mileage": "Totale kilometers",
+	"missions": {
+		"alarm": "Alarmeren",
+		"alarmed": "Huidige inzet",
+		"credits": "Opbrengst",
+		"mission": "Inzet",
+		"participation": "Aanwezigheid",
+		"patients": "Patiënten",
+		"progress": "Voortgang"
+	},
+	"move": "Verplaatsen",
+	"owner": "Eigenaar",
+	"owner_pic_state": {
+		"offline": "{user} is offline!",
+		"online": "{user} is online!"
+	},
+	"release_patient": "Patiënt ontslaan",
+	"staff": {
+		"name": "Naam",
+		"schooling": "Opleiding",
+		"title": "Personeel"
+	},
+	"station": "Post",
+	"stats": "Statistieken",
+	"tabs": {
+		"all": "Alle {type}: {amount}",
+		"alliance": "Team-{type}: {amount}",
+		"cells": "Cellen",
+		"hospitals": "Ziekenhuizen",
+		"missions": "Inzetten",
+		"own": "Eigen {type}: {amount}"
+	},
+	"tax": "Afdracht aan eigenaar",
+	"true": "Ja",
+	"vehicletype": "Voertuigtype",
+	"water_amount": "Hoeveelheid water",
+	"wlf": {
+		"alarm": "Alarmeren",
+		"building": "Gebouw",
+		"caption": "Haakarmvoertuig",
+		"same": "Zelfde gebouw: {building}"
+	},
+	"zuweisung": "Personeel toewijzen"
+}

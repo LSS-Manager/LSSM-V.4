@@ -941,6 +941,7 @@ export default {
     station: 'stazioni | Stazione | Stazioni',
     distance: 'Distanza | Distanze',
     vehicleType: 'Tipo di veicolo',
+    noOptions: 'Sorry, no matching options.',
     fmsReal2Show: {
         1: 1,
         2: 2,

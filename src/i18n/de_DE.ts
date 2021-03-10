@@ -2146,6 +2146,7 @@ export default {
     station: 'Wachen | Wache | Wachen',
     distance: 'Entfernung | Entferungen',
     vehicleType: 'Fahrzeugtyp',
+    noOptions: 'Keine Auswahlmöglichkeiten passen zu deiner Suche.',
     fmsReal2Show: {
         1: 1,
         2: 2,
