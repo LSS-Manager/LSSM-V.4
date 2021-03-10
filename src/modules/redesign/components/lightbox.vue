@@ -17,7 +17,7 @@
                 :set-setting="setSetting()"
             ></Vehicle>
             <CreditsDaily
-                v-else-if="type === 'credits.daily'"
+                v-else-if="type === 'credits/daily'"
                 :credits="data"
                 :url="urlProp"
                 :lightbox="this"
@@ -43,7 +43,7 @@ import { VehicleWindow } from '../parsers/vehicle';
 import { DefaultComputed } from 'vue/types/options';
 import VueI18n from 'vue-i18n';
 import { routeChecks } from 'typings/modules/Redesign';
-import { CreditsDailyWindow } from '../parsers/credits.daily';
+import { CreditsDailyWindow } from '../parsers/credits/daily';
 
 interface Data<T, D> {
     type: T;
@@ -99,7 +99,7 @@ export default Vue.extend<
             ),
         CreditsDaily: () =>
             import(
-                /*webpackChunkName: "modules/redesign/windows/credits.daily"*/ './credits.daily.vue'
+                /*webpackChunkName: "modules/redesign/windows/credits.daily"*/ './credits/daily.vue'
             ),
     },
     data() {

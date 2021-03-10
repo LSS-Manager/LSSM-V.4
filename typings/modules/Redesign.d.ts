@@ -1,2 +1,2 @@
-type types = 'vehicle' | 'credits.daily';
+type types = 'vehicle' | 'credits/daily';
 export type routeChecks = Record<string, types>;

@@ -249,11 +249,11 @@ export default Vue.extend<
     components: {
         EnhancedTable: () =>
             import(
-                /* webpackChunkName: "components/enhanced-table" */ '../../../components/enhanced-table.vue'
+                /* webpackChunkName: "components/enhanced-table" */ '../../../../components/enhanced-table.vue'
             ),
         SettingsNumber: () =>
             import(
-                /* webpackChunkName: "components/settings/number" */ '../../../components/setting/number.vue'
+                /* webpackChunkName: "components/settings/number" */ '../../../../components/setting/number.vue'
             ),
     },
     data() {
@@ -324,7 +324,7 @@ export default Vue.extend<
                 [key: string]: unknown;
             }
         ) {
-            return this.$m(`credits.daily.${key}`, args);
+            return this.$m(`credits/daily.${key}`, args);
         },
         $smc(
             key: string,
@@ -333,7 +333,7 @@ export default Vue.extend<
                 [key: string]: unknown;
             }
         ) {
-            return this.$mc(`credits.daily.${key}`, amount, args);
+            return this.$mc(`credits/daily.${key}`, amount, args);
         },
         setSort(type) {
             if (this.sort === type) {

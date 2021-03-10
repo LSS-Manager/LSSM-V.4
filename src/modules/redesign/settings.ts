@@ -6,7 +6,7 @@ export default (() => ({
         type: 'hidden',
         default: {},
     },
-    'credits.daily': <Hidden>{
+    'credits/daily': <Hidden>{
         type: 'hidden',
         default: {},
     },
