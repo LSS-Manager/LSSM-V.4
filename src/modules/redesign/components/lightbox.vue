@@ -45,6 +45,7 @@ import { DefaultComputed } from 'vue/types/options';
 import VueI18n from 'vue-i18n';
 import { routeChecks } from 'typings/modules/Redesign';
 import { CreditsDailyWindow } from '../parsers/credits/daily';
+import { CreditsOverviewWindow } from '../parsers/credits/overview';
 
 interface Data<T, D> {
     type: T;
@@ -63,7 +64,8 @@ const getIdFromEl = (el: HTMLAnchorElement | null): number =>
 export default Vue.extend<
     | Data<'', null>
     | Data<'vehicle', VehicleWindow>
-    | Data<'credits.daily', CreditsDailyWindow>,
+    | Data<'credits/daily', CreditsDailyWindow>
+    | Data<'credits/overview', CreditsOverviewWindow>,
     {
         getSetting(): <T>(setting: string, defaultValue: T) => Promise<T>;
         setSetting(): <T>(settingId: string, value: T) => Promise<void>;
@@ -144,7 +146,7 @@ export default Vue.extend<
                 const type = Object.entries(this.routeChecks).find(([regex]) =>
                     link.pathname.match(regex)
                 )?.[1];
-                window.history.pushState({}, url, url);
+                if (this.noModal) window.history.pushState({}, url, url);
                 if (!type) {
                     const iframe = this.$refs
                         .iframe as HTMLIFrameElement | null;

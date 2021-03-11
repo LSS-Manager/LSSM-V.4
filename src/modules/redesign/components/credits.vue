@@ -41,6 +41,15 @@
             :get-setting="getSetting"
             :set-setting="setSetting"
         ></CreditsDaily>
+        <CreditsOverview
+            v-else-if="type === 'credits/overview'"
+            :data="data"
+            :lightbox="lightbox"
+            :$m="$m"
+            :$mc="$mc"
+            :get-setting="getSetting"
+            :set-setting="setSetting"
+        ></CreditsOverview>
     </div>
 </template>
 
@@ -49,6 +58,7 @@ import Vue from 'vue';
 import VueI18n from 'vue-i18n';
 import { CreditsDailyWindow } from '../parsers/credits/daily';
 import { DefaultData } from 'vue/types/options';
+import { CreditsOverviewWindow } from '../parsers/credits/overview';
 
 interface Link {
     href: string;
@@ -76,7 +86,7 @@ export default Vue.extend<
         nav: { title: string; links: Link[] };
     },
     {
-        data: CreditsDailyWindow;
+        data: CreditsDailyWindow | CreditsOverviewWindow;
         url: string;
         lightbox: Vue;
         $m(
@@ -94,7 +104,7 @@ export default Vue.extend<
         ): VueI18n.TranslateResult;
         getSetting: <T>(setting: string, defaultValue: T) => Promise<T>;
         setSetting: <T>(settingId: string, value: T) => Promise<void>;
-        type: 'credits/daily';
+        type: string;
     }
 >({
     name: 'credits-lightbox',
@@ -102,6 +112,10 @@ export default Vue.extend<
         CreditsDaily: () =>
             import(
                 /*webpackChunkName: "modules/redesign/windows/credits/daily"*/ './credits/daily.vue'
+            ),
+        CreditsOverview: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/credits/overview"*/ './credits/overview.vue'
             ),
     },
     data() {
@@ -112,7 +126,9 @@ export default Vue.extend<
             return {
                 title: this.$sm('nav.title').toString(),
                 links: Object.values(
-                    this.$sm('nav.links') as { [index: number]: Link }
+                    (this.$sm('nav.links') as unknown) as {
+                        [index: number]: Link;
+                    }
                 ).filter(
                     ({ href }) =>
                         new URL(this.url, window.location.href).pathname !==
