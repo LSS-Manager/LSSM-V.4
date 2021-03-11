@@ -19,7 +19,7 @@
         "@fortawesome/fontawesome-svg-core": "^1.2.34",
         "@fortawesome/free-solid-svg-icons": "^5.15.2",
         "@fortawesome/vue-fontawesome": "^2.0.2",
-        "broadcast-channel": "^3.4.1",
+        "broadcast-channel": "^3.5.0",
         "combokeys": "^3.0.1",
         "highcharts": "^9.0.1",
         "localforage": "^1.8.1",
