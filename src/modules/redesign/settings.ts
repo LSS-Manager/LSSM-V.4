@@ -10,4 +10,8 @@ export default (() => ({
         type: 'hidden',
         default: {},
     },
+    'coins/list': <Hidden>{
+        type: 'hidden',
+        default: {},
+    },
 })) as ModuleSettingFunction;

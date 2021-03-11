@@ -50,6 +50,16 @@
             :get-setting="getSetting"
             :set-setting="setSetting"
         ></CreditsOverview>
+        <CoinsList
+            v-else-if="type === 'coins/list'"
+            :coins="data"
+            :url="url"
+            :lightbox="lightbox"
+            :$m="$m"
+            :$mc="$mc"
+            :get-setting="getSetting"
+            :set-setting="setSetting"
+        ></CoinsList>
     </div>
 </template>
 
@@ -116,6 +126,10 @@ export default Vue.extend<
         CreditsOverview: () =>
             import(
                 /*webpackChunkName: "modules/redesign/windows/credits/overview"*/ './credits/overview.vue'
+            ),
+        CoinsList: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/coins/list"*/ './coins/list.vue'
             ),
     },
     data() {

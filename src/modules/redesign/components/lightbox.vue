@@ -17,7 +17,7 @@
                 :set-setting="setSetting()"
             ></Vehicle>
             <Credits
-                v-else-if="type.startsWith('credits/')"
+                v-else-if="type.startsWith('credits/') || type === 'coins/list'"
                 :data="data"
                 :url="urlProp"
                 :lightbox="this"
@@ -46,6 +46,7 @@ import VueI18n from 'vue-i18n';
 import { routeChecks } from 'typings/modules/Redesign';
 import { CreditsDailyWindow } from '../parsers/credits/daily';
 import { CreditsOverviewWindow } from '../parsers/credits/overview';
+import { CoinsListWindow } from '../parsers/coins/list';
 
 interface Data<T, D> {
     type: T;
@@ -54,19 +55,14 @@ interface Data<T, D> {
     urlProp: string;
 }
 
-const getIdFromEl = (el: HTMLAnchorElement | null): number =>
-    parseInt(
-        new URL(el?.href ?? '', window.location.href).pathname?.match(
-            /\d+\/?$/
-        )?.[0] ?? '-1'
-    );
-
 export default Vue.extend<
     | Data<'', null>
     | Data<'vehicle', VehicleWindow>
     | Data<'credits/daily', CreditsDailyWindow>
     | Data<'credits/overview', CreditsOverviewWindow>,
+    Data<'coins/list', CoinsListWindow>,
     {
+        getIdFromEl(el: HTMLAnchorElement | null): number;
         getSetting(): <T>(setting: string, defaultValue: T) => Promise<T>;
         setSetting(): <T>(settingId: string, value: T) => Promise<void>;
     },
@@ -177,30 +173,36 @@ export default Vue.extend<
                     .then((res: Response) => res.text())
                     .then(async html => {
                         const types = type.split('/');
+                        const addLocas = async (typePath: string) =>
+                            this.$i18n.mergeLocaleMessage(
+                                this.$store.state.lang,
+                                {
+                                    modules: {
+                                        redesign: {
+                                            [typePath]: await import(
+                                                /* webpackChunkName: "modules/i18n/redesign/[request]" */ `../i18n/${this.$store.state.lang}/${typePath}.json`
+                                            ),
+                                        },
+                                    },
+                                }
+                            );
                         for (let i = 1; i <= types.length; i++) {
                             try {
                                 const typePath = types.slice(0, i).join('/');
-                                const t = await import(
-                                    /* webpackChunkName: "modules/i18n/redesign/[request]" */ `../i18n/${this.$store.state.lang}/${typePath}.json`
-                                );
-                                this.$i18n.mergeLocaleMessage(
-                                    this.$store.state.lang,
-                                    {
-                                        modules: {
-                                            redesign: {
-                                                [typePath]: t,
-                                            },
-                                        },
-                                    }
-                                );
+                                await addLocas(typePath);
                             } catch (e) {
                                 // Do nothing
                             }
                         }
+                        if (type === 'coins/list') await addLocas('credits');
                         import(
                             /*webpackChunkName: "modules/redesign/parsers/[request]"*/ `../parsers/${type}`
                         ).then(parser => {
-                            this.data = parser.default(html, url, getIdFromEl);
+                            this.data = parser.default(
+                                html,
+                                url,
+                                this.getIdFromEl
+                            );
                             this.type = type;
                             this.urlProp = url;
                         });
@@ -238,6 +240,13 @@ export default Vue.extend<
                             })
                             .then()
                     );
+        },
+        getIdFromEl(el) {
+            return parseInt(
+                new URL(el?.href ?? '', window.location.href).pathname?.match(
+                    /\d+\/?$/
+                )?.[0] ?? '-1'
+            );
         },
     },
     mounted() {

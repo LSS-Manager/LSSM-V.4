@@ -96,7 +96,7 @@ export default Vue.extend<
         setSetting: <T>(settingId: string, value: T) => Promise<void>;
     }
 >({
-    name: 'credits-daily-lightbox',
+    name: 'credits-overview',
     components: {
         EnhancedTable: () =>
             import(
