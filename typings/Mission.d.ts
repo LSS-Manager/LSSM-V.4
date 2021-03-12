@@ -117,6 +117,7 @@ interface Prerequisites {
     brush_extension?: number;
     fire_aviation_count?: number;
     divers_extension_count?: number;
+    guard_dog_count?: number;
 
     // General:
     [key: string]: number | undefined;
