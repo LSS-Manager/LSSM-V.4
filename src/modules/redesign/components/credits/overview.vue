@@ -44,6 +44,7 @@ import VueI18n, { TranslateResult } from 'vue-i18n';
 import Highcharts, { Options } from 'highcharts';
 import HighchartsMore from 'highcharts/highcharts-more';
 import { CreditsOverviewWindow } from '../../parsers/credits/overview';
+import { RedesignLightboxVue } from 'typings/modules/Redesign';
 
 HighchartsMore(Highcharts);
 
@@ -78,7 +79,10 @@ export default Vue.extend<
     },
     {
         data: CreditsOverviewWindow;
-        lightbox: Vue;
+        lightbox: RedesignLightboxVue<
+            'credits/overview',
+            CreditsOverviewWindow
+        >;
         $m(
             key: string,
             args?: {

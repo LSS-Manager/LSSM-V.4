@@ -150,6 +150,7 @@ import Vue from 'vue';
 import moment from 'moment';
 import VueI18n from 'vue-i18n';
 import { CreditsDailyWindow } from '../../parsers/credits/daily';
+import { RedesignLightboxVue } from 'typings/modules/Redesign';
 
 export default Vue.extend<
     {
@@ -196,7 +197,7 @@ export default Vue.extend<
     {
         credits: CreditsDailyWindow;
         url: string;
-        lightbox: Vue;
+        lightbox: RedesignLightboxVue<'credits/daily', CreditsDailyWindow>;
         $m(
             key: string,
             args?: {

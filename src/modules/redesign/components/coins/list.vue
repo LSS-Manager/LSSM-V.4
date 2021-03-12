@@ -1,10 +1,12 @@
 <template>
     <div>
-        <h1>{{ $sm('title') }}</h1>
-        <pre>{{ page }}</pre>
-        <pre>{{ coins.lastPage }}</pre>
-        <pre>{{ startPage }}</pre>
-        <pre>{{ endPage }}</pre>
+        <h1>
+            {{ $sm('title') }}
+            <br />
+            <small>
+                {{ subtitle }}
+            </small>
+        </h1>
         <button
             class="btn btn-success"
             :disabled="startPage <= 1"
@@ -22,7 +24,19 @@
         >
             {{ $sm('load.next') }}
         </button>
-        <pre>{{ coins.entries }}</pre>
+        <enhanced-table
+            :head="head"
+            :table-attrs="{ class: 'table' }"
+            :no-search="true"
+        >
+            <tr v-for="(entry, id) in coins.entries" :key="id">
+                <td :class="`text-${entry.amount > 0 ? 'success' : 'danger'}`">
+                    {{ entry.amount > 0 ? '+' : '' }}{{ entry.amount }}
+                </td>
+                <td>{{ entry.desc }}</td>
+                <td>{{ entry.date }}</td>
+            </tr>
+        </enhanced-table>
     </div>
 </template>
 
@@ -31,6 +45,7 @@ import Vue from 'vue';
 import moment from 'moment';
 import VueI18n from 'vue-i18n';
 import { CoinsListWindow } from '../../parsers/coins/list';
+import { RedesignLightboxVue } from 'typings/modules/Redesign';
 
 export default Vue.extend<
     {
@@ -63,14 +78,16 @@ export default Vue.extend<
         ): VueI18n.TranslateResult;
         setSort(type: string): void;
         loadPrev(): void;
+        loadNext(): void;
     },
     {
         page: number;
+        subtitle: string;
     },
     {
         coins: CoinsListWindow;
         url: string;
-        lightbox: Vue;
+        lightbox: RedesignLightboxVue<'coins/list', CoinsListWindow>;
         $m(
             key: string,
             args?: {
@@ -90,14 +107,10 @@ export default Vue.extend<
 >({
     name: 'coins-list',
     components: {
-        // EnhancedTable: () =>
-        //     import(
-        //         /* webpackChunkName: "components/enhanced-table" */ '../../../../components/enhanced-table.vue'
-        //     ),
-        // SettingsNumber: () =>
-        //     import(
-        //         /* webpackChunkName: "components/settings/number" */ '../../../../components/setting/number.vue'
-        //     ),
+        EnhancedTable: () =>
+            import(
+                /* webpackChunkName: "components/enhanced-table" */ '../../../../components/enhanced-table.vue'
+            ),
     },
     data() {
         moment.locale(this.$store.state.lang);
@@ -151,11 +164,7 @@ export default Vue.extend<
                 .then((res: Response) => res.text())
                 .then(async html => {
                     import('../../parsers/coins/list').then(parser => {
-                        const result = parser.default(
-                            html,
-                            url,
-                            this.lightbox.getIdFromEl
-                        );
+                        const result = parser.default(html);
                         this.$set(
                             this.lightbox.data,
                             'lastPage',
@@ -179,11 +188,7 @@ export default Vue.extend<
                 .then((res: Response) => res.text())
                 .then(async html => {
                     import('../../parsers/coins/list').then(parser => {
-                        const result = parser.default(
-                            html,
-                            url,
-                            this.lightbox.getIdFromEl
-                        );
+                        const result = parser.default(html);
                         this.$set(
                             this.lightbox.data,
                             'lastPage',
@@ -204,6 +209,17 @@ export default Vue.extend<
                     'page'
                 ) ?? '1'
             );
+        },
+        subtitle() {
+            return this.$smc('subtitle', this.coins.entries.length, {
+                startPage: this.startPage,
+                endPage: this.endPage,
+                firstDate: this.coins.entries[0]?.date ?? '',
+                lastDate:
+                    this.coins.entries[this.coins.entries.length - 1]?.date ??
+                    '',
+                totalPages: this.coins.lastPage,
+            }).toString();
         },
     },
     props: {

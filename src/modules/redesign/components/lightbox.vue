@@ -40,51 +40,13 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import { VehicleWindow } from '../parsers/vehicle';
-import { DefaultComputed } from 'vue/types/options';
-import VueI18n from 'vue-i18n';
-import { routeChecks } from 'typings/modules/Redesign';
-import { CreditsDailyWindow } from '../parsers/credits/daily';
-import { CreditsOverviewWindow } from '../parsers/credits/overview';
-import { CoinsListWindow } from '../parsers/coins/list';
-
-interface Data<T, D> {
-    type: T;
-    data: D;
-    html: string;
-    urlProp: string;
-}
+import { RedesignLightbox } from 'typings/modules/Redesign';
 
 export default Vue.extend<
-    | Data<'', null>
-    | Data<'vehicle', VehicleWindow>
-    | Data<'credits/daily', CreditsDailyWindow>
-    | Data<'credits/overview', CreditsOverviewWindow>,
-    Data<'coins/list', CoinsListWindow>,
-    {
-        getIdFromEl(el: HTMLAnchorElement | null): number;
-        getSetting(): <T>(setting: string, defaultValue: T) => Promise<T>;
-        setSetting(): <T>(settingId: string, value: T) => Promise<void>;
-    },
-    DefaultComputed,
-    {
-        url: string;
-        $m(
-            key: string,
-            args?: {
-                [key: string]: unknown;
-            }
-        ): VueI18n.TranslateResult;
-        $mc(
-            key: string,
-            amount: number,
-            args?: {
-                [key: string]: unknown;
-            }
-        ): VueI18n.TranslateResult;
-        routeChecks: routeChecks;
-        noModal: boolean;
-    }
+    RedesignLightbox['Data'],
+    RedesignLightbox['Methods'],
+    RedesignLightbox['Computed'],
+    RedesignLightbox['Props']
 >({
     name: 'redesign-lightbox',
     components: {

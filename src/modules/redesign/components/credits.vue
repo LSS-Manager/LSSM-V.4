@@ -69,6 +69,8 @@ import VueI18n from 'vue-i18n';
 import { CreditsDailyWindow } from '../parsers/credits/daily';
 import { DefaultData } from 'vue/types/options';
 import { CreditsOverviewWindow } from '../parsers/credits/overview';
+import { CoinsListWindow } from '../parsers/coins/list';
+import { RedesignLightboxVue } from 'typings/modules/Redesign';
 
 interface Link {
     href: string;
@@ -96,9 +98,12 @@ export default Vue.extend<
         nav: { title: string; links: Link[] };
     },
     {
-        data: CreditsDailyWindow | CreditsOverviewWindow;
+        data: CreditsDailyWindow | CreditsOverviewWindow | CoinsListWindow;
         url: string;
-        lightbox: Vue;
+        lightbox:
+            | RedesignLightboxVue<'credits/daily', CreditsDailyWindow>
+            | RedesignLightboxVue<'credits/overview', CreditsOverviewWindow>
+            | RedesignLightboxVue<'coins/list', CoinsListWindow>;
         $m(
             key: string,
             args?: {

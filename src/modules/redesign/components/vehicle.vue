@@ -953,6 +953,7 @@ import { VehicleWindow } from '../parsers/vehicle';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { Vehicle } from 'typings/Vehicle';
 import VueI18n from 'vue-i18n';
+import { RedesignLightboxVue } from 'typings/modules/Redesign';
 
 export default Vue.extend<
     {
@@ -1071,7 +1072,7 @@ export default Vue.extend<
     {
         vehicle: VehicleWindow;
         url: string;
-        lightbox: Vue;
+        lightbox: RedesignLightboxVue<'vehicle', VehicleWindow>;
         $m(
             key: string,
             args?: {

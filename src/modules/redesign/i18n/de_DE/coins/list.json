@@ -3,5 +3,9 @@
 		"next": "20 ältere Einträge laden",
 		"prev": "20 neuere Einträge laden"
 	},
-	"title": "Coins"
+    "subtitle": "Zeige {n} Einträge der Seiten {startPage} ({firstDate}) bis {endPage} ({lastDate}) von insg. {totalPages} Seiten",
+	"title": "Coins-Protokoll",
+    "amount": "Menge",
+    "description": "Beschreibung",
+    "date": "Datum"
 }

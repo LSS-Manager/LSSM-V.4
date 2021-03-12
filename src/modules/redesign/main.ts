@@ -5,7 +5,7 @@ const routeChecks: routeChecks = {
     '^/vehicles/\\d+/?$': 'vehicle',
     '^/credits/daily/?$': 'credits/daily',
     '^/credits/overview/?$': 'credits/overview',
-    // '^/coins/list/?$': 'coins/list',
+    '^/coins/list/?$': 'coins/list',
 };
 
 export default ((LSSM, MODULE_ID) => {
