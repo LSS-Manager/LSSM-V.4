@@ -2257,10 +2257,10 @@ brfs@^2.0.0, brfs@^2.0.2:
     static-module "^3.0.2"
     through2 "^2.0.0"
 
-broadcast-channel@^3.5.0:
-  version "3.5.0"
-  resolved "https://registry.yarnpkg.com/broadcast-channel/-/broadcast-channel-3.5.0.tgz#0b472e862e5c36179e417daac54d2294571f60b6"
-  integrity sha512-tg58fj8lt++tv+tTrz204emcYDyEWN6xpsrhBXA3uNo2enMPTm5HTKXG+PwkxZ0Rqha78hqqupY/SmfgsX35Cw==
+broadcast-channel@^3.5.3:
+  version "3.5.3"
+  resolved "https://registry.yarnpkg.com/broadcast-channel/-/broadcast-channel-3.5.3.tgz#c75c39d923ae8af6284a893bfdc8bd3996d2dd2d"
+  integrity sha512-OLOXfwReZa2AAAh9yOUyiALB3YxBe0QpThwwuyRHLgpl8bSznSDmV6Mz7LeBJg1VZsMcDcNMy7B53w12qHrIhQ==
   dependencies:
     "@babel/runtime" "^7.7.2"
     detect-node "^2.0.4"
