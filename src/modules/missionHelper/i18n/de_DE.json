@@ -19,8 +19,8 @@
 	},
 	"prerequisites": {
 		"bereitschaftspolizei": "Bereitschaftspolizei-Standort | Bereitschaftspolizei-Standorte",
-		"guard_dog_count": "Diensthundestaffel | Diensthundestaffeln",
 		"fire_stations": "Feuerwache | Feuerwachen",
+		"guard_dog_count": "Diensthundestaffel | Diensthundestaffeln",
 		"max_police_stations": "Polizeiwache maximal | Polizeiwachen maximal",
 		"max_rescue_stations": "Rettungswache maximal | Rettungswachen maximal",
 		"mek": "MEK-Zug | MEK-Züge",
