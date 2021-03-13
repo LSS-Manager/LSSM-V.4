@@ -31,7 +31,8 @@
         >
             <tr v-for="(entry, id) in credits.entries" :key="id">
                 <td :class="`text-${entry.amount > 0 ? 'success' : 'danger'}`">
-                    {{ entry.amount > 0 ? '+' : '' }}{{ entry.amount }}
+                    {{ entry.amount > 0 ? '+' : ''
+                    }}{{ entry.amount.toLocaleString() }}
                 </td>
                 <td>{{ entry.desc }}</td>
                 <td>{{ entry.date }}</td>
@@ -44,7 +45,7 @@
 import Vue from 'vue';
 import moment from 'moment';
 import VueI18n from 'vue-i18n';
-import { CreditsListWindow } from '../../parsers/credits/index';
+import { CreditsListWindow } from '../../parsers/credits/list';
 import { RedesignLightboxVue } from 'typings/modules/Redesign';
 
 export default Vue.extend<
