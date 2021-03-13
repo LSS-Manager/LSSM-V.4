@@ -81,6 +81,7 @@ module.exports = {
             naw: 'NAW',
             naw_or_rtw_and_nef: 'NAW oder NEF+RTW',
             naw_or_rtw_and_nef_or_rth: 'NAW oder NEF/RTH+RTW',
+            naw_or_critical_transport: 'NAW oder ITW',
             kdow_lna: 'KdoW-LNA',
             kdow_orgl: 'KdoW-OrgL',
             grtw: 'GRTW',

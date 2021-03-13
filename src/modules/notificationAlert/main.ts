@@ -525,6 +525,8 @@ export default (async (LSSM, MODULE_ID, $m, $mc) => {
                               mission.vehicle_state
                           ]
                         : 0) || `/images/${mission.icon}.png`;
+                const isEventMission =
+                    isAllianceMission && mission.user_id === null;
                 let caption = mission.caption;
                 if (isAllianceMission) caption = `📤 ${caption}`;
                 if (color === 'red') {
@@ -583,7 +585,11 @@ export default (async (LSSM, MODULE_ID, $m, $mc) => {
                         );
                     }
                 }
-                if (isAllianceOnlyMission && !missionElement) {
+                if (
+                    isAllianceOnlyMission &&
+                    !isEventMission &&
+                    !missionElement
+                ) {
                     events['mission_new_largescale']?.forEach(alert =>
                         LSSM.$store.dispatch('notifications/sendNotification', {
                             group: alert.position,

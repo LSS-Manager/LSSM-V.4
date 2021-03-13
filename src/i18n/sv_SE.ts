@@ -400,13 +400,13 @@ export default {
                 },
             ],
             levelcost: ['1. 10.000 ', '2. 50.000', '3.-16. 100.000'],
-            maxBuildings: '4.400',
+            maxBuildings: '5.000',
             maxLevel: 16,
             special:
                 'Priset på dina positioner ökar när du äger 25. Så hastigheten på progressionen är konstant när du har en stor inkomstström på dessa spelnivåer. Den nuvarande formeln för att beräkna priset på positioner är följande: <kod> 100.000+ (200.000 * LOGG <sub> 2 </sub> (Antal befintliga brandstationer - 22)) </code>.',
             startPersonnel: 10,
             startVehicles: ['BAS 1 - Släckbil', 'BAS 2 - Släckbil'],
-            maxBuildingsFunction: (): number => 4_400,
+            maxBuildingsFunction: (): number => 5_000,
         },
         1: {
             caption: 'Brandskola',
@@ -656,13 +656,13 @@ export default {
                 '3.-5. 100_000',
                 'Det här är en liten kasern. Om du vill bygga utbuildings eller öka antalet vehiclesplatser måste du uppgradera den för att göra den till en vanlig kasern. Denna process tar 24 timmar.',
             ],
-            maxBuildings: '4400 brandstationer',
+            maxBuildings: '5.000 brandstationer',
             maxLevel: 5,
             special:
                 'Priset på dina positioner ökar när du äger 25. Så hastigheten på progressionen är konstant när du har en stor inkomstström på dessa spelnivåer. Den nuvarande formeln för att beräkna priset på positioner är följande: <kod> 100.000+ (200.000 * LOGG <sub> 2 </sub> (Antal befintliga brandstationer - 22)) </code>.',
             startPersonnel: 10,
             startVehicles: ['BAS 1 - Släckbil', 'BAS 2 - Släckbil'],
-            maxBuildingsFunction: (): number => 4_400,
+            maxBuildingsFunction: (): number => 5_000,
         },
         19: {
             caption: 'Polisstation (liten)',
@@ -874,6 +874,7 @@ export default {
     station: 'Skydd | Vakt | Vakter',
     distance: 'Avstånd | Avstånd ',
     vehicleType: 'Fordons typ',
+    noOptions: 'Sorry, no matching options.',
     fmsReal2Show: {
         1: 1,
         2: 2,

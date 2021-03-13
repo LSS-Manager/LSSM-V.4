@@ -813,7 +813,7 @@ export default {
                 }),
             ],
             levelcost: ['1. 10.000', '2. 50.000', '3.-24. 100.000'],
-            maxBuildings: '4.400',
+            maxBuildings: '5.000',
             maxLevel: 24,
             special:
                 'Vanaf de 25e brandweerkazerne stijgen de kosten voor de bouw van een nieuwe brandweerkazerne volgens de volgende formule: <code>100.000+200.000*LOG<sub>2</sub>(Aantal brandweerposten − 22)</code>. De Coins prijs blijft gelijk!',
@@ -830,7 +830,7 @@ export default {
                 'TST-NB 4/5',
                 'TS 6/7',
             ],
-            maxBuildingsFunction: (): number => 4_400,
+            maxBuildingsFunction: (): number => 5_000,
         },
         1: {
             caption: 'Meldkamer',
@@ -1326,6 +1326,7 @@ export default {
     station: 'Posten | Post | Posten',
     distance: 'Afstand | Afstanden',
     vehicleType: 'Voertuig type',
+    noOptions: 'Geen opties beschikbaar.',
     fmsReal2Show: {
         1: 4,
         2: 5,

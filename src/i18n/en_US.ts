@@ -354,7 +354,7 @@ export default {
             maxPersonnel: 1,
             wtank: 0,
             schooling: 'Police - Police Motorcycle',
-            shownSchooling: 'Police Motorcycle',
+            shownSchooling: 'Motor Officer',
         },
         24: {
             caption: 'Large Fireboat',
@@ -658,13 +658,13 @@ export default {
                 },
             ],
             levelcost: ['1. 10.000', '2. 50.000', '3.-39. 100.000'],
-            maxBuildings: '4.400 together with small fire stations',
+            maxBuildings: '5.000 together with small fire stations',
             maxLevel: 39,
             special:
                 'From the 24th fire station onwards, the cost of building a new fire station increases according to the following formula: <code>100.000+200.000*LOG<sub>2</sub>(Number of existing fire stations − 22)</code>. The Coins price remains constant!',
             startPersonnel: 10,
             startVehicles: ['Type 1 fire engine', 'Type 2 fire engine'],
-            maxBuildingsFunction: (): number => 4_400,
+            maxBuildingsFunction: (): number => 5_000,
         },
         1: {
             caption: 'Dispatch Center',
@@ -947,13 +947,13 @@ export default {
                 '3.-5. 100.000',
                 'Conversion to normal guard: difference price to normal guard',
             ],
-            maxBuildings: '4.400 together with fire stations',
+            maxBuildings: '5.000 together with fire stations',
             maxLevel: 5,
             special:
                 'From the 24th fire station onwards, the cost of building a new fire station increases according to the following formula: <code>(100.000+200.000*LOG<sub>2</sub>(Number of existing fire stations − 22)) / 2</code>. max. 1 Million Credits. The Coins price remains constant!',
             startPersonnel: 10,
             startVehicles: ['Type 1 fire engine', 'Type 2 fire engine'],
-            maxBuildingsFunction: (): number => 4_400,
+            maxBuildingsFunction: (): number => 5_000,
         },
         14: {
             caption: 'Clinic',
@@ -1247,6 +1247,7 @@ export default {
     station: 'Stations | Station | Stations',
     distance: 'Distance | Distances',
     vehicleType: 'Vehicle type',
+    noOptions: 'Sorry, no matching options.',
     fmsReal2Show: {
         1: 1,
         2: 2,

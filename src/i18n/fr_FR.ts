@@ -148,7 +148,7 @@ export default {
                 'Nécessaire dès lors que vous avez construit 4 bases de pompiers',
         },
         5: {
-            caption: 'UMH',
+            caption: 'ASSU',
             color: '#9c691c',
             coins: 25,
             credits: 5_000,
@@ -192,6 +192,8 @@ export default {
             credits: 300_000,
             minPersonnel: 3,
             maxPersonnel: 5,
+            schooling: 'Secours - Médecin',
+            shownSchooling: 'Médecin urgentiste',
         },
         10: {
             caption: 'VAR',
@@ -342,6 +344,56 @@ export default {
             special:
                 'Nécessaire dès lors que vous avez construit 6 bases de pompiers',
         },
+        25: {
+            caption: 'VSAV',
+            color: '#9c691c',
+            coins: 25,
+            credits: 5_000,
+            minPersonnel: 3,
+            maxPersonnel: 3,
+        },
+        26: {
+            caption: 'VL SSSM',
+            color: '#9c691c',
+            coins: 20,
+            credits: 4_000,
+            minPersonnel: 1,
+            maxPersonnel: 2,
+            schooling: 'Centre de secours - Médecin',
+            shownSchooling: 'Médecin urgentiste',
+        },
+        27: {
+            caption: 'VLM',
+            color: '#9c691c',
+            coins: 20,
+            credits: 4_000,
+            minPersonnel: 3,
+            maxPersonnel: 3,
+            schooling: 'Secours - Médecin',
+            shownSchooling: 'Médecin urgentiste',
+        },
+        28: {
+            caption: 'AR',
+            color: '#9c691c',
+            coins: 30,
+            credits: 10_000,
+            minPersonnel: 3,
+            maxPersonnel: 3,
+            schooling: 'Secours - Médecin',
+            shownSchooling: 'Médecin urgentiste',
+        },
+        29: {
+            caption: 'PC DSM',
+            color: '#9c691c',
+            coins: 25,
+            credits: 20_000,
+            minPersonnel: 2,
+            maxPersonnel: 3,
+            schooling: 'Secours - DSM',
+            shownSchooling: 'Chef du pôle urgences',
+            special:
+                'Nécessaire dès lors que vous avez construit 6 postes de secours',
+        },
     },
     buildings: {
         0: {
@@ -364,13 +416,13 @@ export default {
                 },
             ],
             levelcost: ['1. 10.000', '2. 50.000', '3.-16. 100.000'],
-            maxBuildings: '4.400',
+            maxBuildings: '5.000',
             maxLevel: 16,
             special:
                 'Le prix de vos postes augmente lorsque vous en possédez 25. Ainsi, le rythme de progression est constant une fois que vous possédez un grand flux de revenus à ces niveaux de jeu. La formule actuelle pour calculer le prix des postes est la suivante : <code>100.000+(200.000*LOG<sub>2</sub>(Number of existing fire stations − 22))</code>.',
             startPersonnel: 10,
             startVehicles: ['FPT', 'FPTL'],
-            maxBuildingsFunction: (): number => 4_400,
+            maxBuildingsFunction: (): number => 5_000,
         },
         1: {
             caption: 'Centre de Formation Départemental',
@@ -403,6 +455,25 @@ export default {
             special: '',
             startPersonnel: 3,
             startVehicles: ['UMH'],
+        },
+        3: {
+            caption: 'École de médecine',
+            color: '#ffa500',
+            coins: 50,
+            credits: 500_000,
+            extensions: new Array(3).fill({
+                caption: 'Plus de salles de cours',
+                credits: 400_000,
+                coins: 40,
+                duration: '7 jours',
+            }),
+            levelcost: [],
+            maxBuildings: 'Aucune limite',
+            maxLevel: 0,
+            special:
+                "Le chef des finances et les administrateurs peuvent améliorer le bâtiment grâce à la banque d'alliance.Les chefs de formation et les administrateurs peuvent lancer des formations.",
+            startPersonnel: 0,
+            startVehicles: [],
         },
         4: {
             caption: 'Centre Hospitalier',
@@ -623,13 +694,13 @@ export default {
                 '3.-5. 100.000',
                 "Ceci est une petite caserne. Si vous souhaitez construire des extensions ou augmenter le nombre d'emplacements de véhicules, vous devez l'améliorer pour en faire une caserne ordinaire. Ce processus prend 24 heures.",
             ],
-            maxBuildings: '4400 casernes de pompiers',
+            maxBuildings: '5.000 casernes de pompiers',
             maxLevel: 5,
             special:
                 'Le prix de vos postes augmente lorsque vous en possédez 25. Ainsi, le rythme de progression est constant une fois que vous possédez un grand flux de revenus à ces niveaux de jeu. La formule actuelle pour calculer le prix des postes est la suivante : <code>100.000+(200.000*LOG<sub>2</sub>(Number of existing fire stations − 22))</code>.',
             startPersonnel: 10,
             startVehicles: ['FPT', 'FPTL'],
-            maxBuildingsFunction: (): number => 4_400,
+            maxBuildingsFunction: (): number => 5_000,
         },
         19: {
             caption: 'Poste de police (petit)',
@@ -689,7 +760,7 @@ export default {
             color: '#ff2d2d',
         },
         Ambulances: {
-            buildings: [2, 4, 5, 20],
+            buildings: [2, 3, 4, 5, 20],
             color: '#ffa500',
         },
         Police: {
@@ -708,6 +779,7 @@ export default {
                 'Échelles': [2, 15],
                 'Véhicules spéciaux': [4, 6, 7, 10, 14],
                 'Chefs de groupe': [3, 11],
+                'Ambulance': [25, 26],
                 'Nautique': [16, 17],
                 'Feux de Forêt': [21, 22, 23, 24],
             },
@@ -715,7 +787,7 @@ export default {
         },
         Ambulances: {
             vehicles: {
-                Ambulances: [5],
+                Ambulances: [5, 27, 28, 29],
                 Dragon: [9],
             },
             color: '#ffa500',
@@ -752,7 +824,7 @@ export default {
         '19_1',
     ],
     bedBuildings: [4],
-    schoolBuildings: [1, 8],
+    schoolBuildings: [1, 3, 8],
     dispatchCenterBuildings: [7],
     schoolings: {
         'Centre de secours': [
@@ -782,6 +854,20 @@ export default {
             },
             {
                 caption: 'PLG (Plongeur)',
+                duration: '5 jours',
+            },
+            {
+                caption: 'Médecin',
+                duration: '5 jours',
+            },
+        ],
+        'Secours': [
+            {
+                caption: 'DSM',
+                duration: '7 jours',
+            },
+            {
+                caption: 'Médecin',
                 duration: '5 jours',
             },
         ],
@@ -816,6 +902,7 @@ export default {
     station: 'Casernes | Caserne | Casernes',
     distance: 'Distance | Distances',
     vehicleType: 'Type de véhicule',
+    noOptions: 'Sorry, no matching options.',
     fmsReal2Show: {
         1: 1,
         2: 2,

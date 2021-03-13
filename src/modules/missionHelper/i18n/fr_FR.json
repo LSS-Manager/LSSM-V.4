@@ -4,7 +4,8 @@
 	"followups": "Mission à suivre | Missions à suivre",
 	"generated_by": "Généré par",
 	"patients": {
-		"helicopter": "Probabilité de déclencher le Dragon",
+		"critical_care": "Probabilité qu'un médecin soit requis",
+		"helicopter": "Probabilité de déclencher l'hélicoptère de secours",
 		"patient_allow_first_responder_chance": "First Responder Probability",
 		"patient_at_end_of_mission": "Le patient n'apparait qu'à la fin du traitement de la mission",
 		"patient_transport": "Probabilité de transport",
@@ -83,6 +84,9 @@
 			"allow_rw_instead_of_lf": {
 				"firetrucks": "Fire Engine or Heavy Rescue or Rescue Engine | Fire Engines or Heavy Rescue or Rescue Engine"
 			}
+		},
+		"patient_additionals": {
+			"10": "PC DSM"
 		},
 		"title": "Véhicules"
 	}

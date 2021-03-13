@@ -1,8 +1,8 @@
 <template>
-    <div :class="{ titleHidden }">
+    <div :class="{ titleHidden, fullHeight, ...extraClasses }">
         <div class="controlbtn-container">
             <span
-                v-if="!noXBtn"
+                v-if="!noXBtn && !noModal"
                 class="lightbox-close"
                 @click="$modal.hide(name)"
                 :title="$t('close')"
@@ -10,7 +10,7 @@
                 <font-awesome-icon :icon="faTimes"></font-awesome-icon>
             </span>
             <span
-                v-if="!noFullscreen && !fullscreen"
+                v-if="!noFullscreen && !fullscreen && !noModal"
                 class="toggle-modal-fullscreen"
                 @click="expand"
                 :title="$t('fullscreen.expand')"
@@ -18,7 +18,7 @@
                 <font-awesome-icon :icon="faExpand"></font-awesome-icon>
             </span>
             <span
-                v-if="!noFullscreen && fullscreen"
+                v-if="!noFullscreen && fullscreen && !noModal"
                 class="toggle-modal-fullscreen"
                 @click="compress"
                 :title="$t('fullscreen.compress')"
@@ -29,7 +29,7 @@
                 v-if="!noTitleHide"
                 class="toggle-title"
                 @click="titleHidden = !titleHidden"
-                :title="$tc('hideTitle', !titleHidden)"
+                :title="$tc('hideTitle', +!titleHidden)"
             >
                 <font-awesome-icon :icon="faChevronUp"></font-awesome-icon>
             </span>
@@ -62,8 +62,8 @@ export default Vue.extend<
         return {
             fullscreen: false,
             fullscreenBefore: window.fullScreen,
-            origWidth: this.$parent.$parent.modal.width,
-            origHeight: this.$parent.$parent.modal.height,
+            origWidth: this.noModal ? 0 : this.$parent.$parent.modal.width,
+            origHeight: this.noModal ? 0 : this.$parent.$parent.modal.height,
             titleHidden: false,
             faTimes,
             faExpand,
@@ -91,9 +91,25 @@ export default Vue.extend<
             required: false,
             default: false,
         },
+        fullHeight: {
+            type: Boolean,
+            required: false,
+            default: false,
+        },
+        extraClasses: {
+            type: Object,
+            required: false,
+            default: () => ({}),
+        },
+        noModal: {
+            type: Boolean,
+            required: false,
+            default: () => false,
+        },
     },
     methods: {
         expand() {
+            if (this.noModal) return;
             this.fullscreen = true;
             this.$parent.$parent.modal.width = 100;
             this.$parent.$parent.modal.height = 100;
@@ -101,6 +117,7 @@ export default Vue.extend<
                 this.$parent.$parent.$el.requestFullscreen();
         },
         compress() {
+            if (this.noModal) return;
             this.fullscreen = false;
             this.$parent.$parent.modal.width = this.origWidth;
             this.$parent.$parent.modal.height = this.origHeight;
@@ -142,4 +159,7 @@ h1
 
     .toggle-title svg
         transform: rotate(180deg)
+
+.fullHeight
+    height: 100%
 </style>

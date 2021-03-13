@@ -1,15 +1,18 @@
 <template>
     <div>
-        <label class="pull-right" v-if="!noSearch">
-            <input
-                type="search"
-                ref="searchField"
-                class="search_input_field"
-                :value="search"
-                @input="$emit('search', $refs.searchField.value)"
-                :placeholder="$t('search')"
-            />
-        </label>
+        <div class="head">
+            <slot name="head"></slot>
+            <label class="pull-right" v-if="!noSearch">
+                <input
+                    type="search"
+                    ref="searchField"
+                    class="search_input_field"
+                    :value="search"
+                    @input="$emit('search', $refs.searchField.value)"
+                    :placeholder="$t('search')"
+                />
+            </label>
+        </div>
         <table v-bind="tableAttrs">
             <thead>
                 <tr>
@@ -120,6 +123,14 @@ export default Vue.extend<
 </script>
 
 <style scoped lang="sass">
-th:not(.noSort)
+thead th:not(.noSort)
     cursor: pointer
+
+.head
+    display: flex
+    justify-content: end
+    align-items: end
+
+    > *
+        margin-left: 1rem
 </style>

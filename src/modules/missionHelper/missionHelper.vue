@@ -872,7 +872,13 @@ export default Vue.extend<
                     ].additionalText =
                         this.$mc(
                             `vehicles.multifunctionals.${vehicle}.additional_text`,
-                            vehicles[vehicle].old || 0
+                            vehicles[vehicle].old >
+                                vehicles[multifunctionals[vehicle].reduce_from]
+                                    .amount
+                                ? vehicles[
+                                      multifunctionals[vehicle].reduce_from
+                                  ].amount
+                                : vehicles[vehicle].old || 0
                         )?.toString() ?? '';
                 }
             });

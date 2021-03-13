@@ -374,13 +374,13 @@ export default {
                 },
             ],
             levelcost: ['1. 10.000', '2. 50.000', '3.-39. 100.000'],
-            maxBuildings: '4.400 sammen med små brannstasjoner',
+            maxBuildings: '5.000 sammen med små brannstasjoner',
             maxLevel: 39,
             special:
                 'Fra og med den 24. brannstasjonen øker kostnadene for å bygge en ny brannstasjon i henhold til følgende formel: <code> 100.000 + 200.000 * LOG <sub> 2 </sub> (Antall eksisterende brannstasjoner - 22) </code>. Myntprisen forblir konstant!',
             startPersonnel: 10,
             startVehicles: ['Mannskapsbil', 'Lett mannskapsbil'],
-            maxBuildingsFunction: (): number => 4_400,
+            maxBuildingsFunction: (): number => 5_000,
         },
         1: {
             caption: 'Brannskole',
@@ -654,13 +654,13 @@ export default {
                 '3.-5. 100.000',
                 'Konvertering til normal vakt: differansepris til normal vakt',
             ],
-            maxBuildings: '4.400 sammen med brannstasjoner',
+            maxBuildings: '5.000 sammen med brannstasjoner',
             maxLevel: 5,
             special:
                 'Fra og med den 24. brannstasjonen øker kostnadene for å bygge en ny brannstasjon i henhold til følgende formel: <code> (100.000 + 200.000 * LOG <sub> 2 </sub> (Antall eksisterende brannstasjoner - 22)) / 2 </code>. maks. 1 million kreditter. Myntprisen forblir konstant!',
             startPersonnel: 10,
             startVehicles: ['Mannskapsbil', 'Lett mannskapsbil'],
-            maxBuildingsFunction: (): number => 4_400,
+            maxBuildingsFunction: (): number => 5_000,
         },
         19: {
             caption: 'Politistasjon (liten)',
@@ -875,6 +875,7 @@ export default {
     station: 'Stasjoner | Stasjon | Stasjoner',
     distance: 'Distanse | Distanser',
     vehicleType: 'Kjøretøytype',
+    noOptions: 'Sorry, no matching options.',
     fmsReal2Show: {
         1: 1,
         2: 2,

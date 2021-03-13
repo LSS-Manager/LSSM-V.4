@@ -1,0 +1,11 @@
+{
+	"amount": "Menge",
+	"date": "Datum",
+	"description": "Beschreibung",
+	"load": {
+		"next": "20 ältere Einträge laden",
+		"prev": "20 neuere Einträge laden"
+	},
+	"subtitle": "Zeige {n} Einträge der Seiten {startPage} ({firstDate}) bis {endPage} ({lastDate}) von insg. {totalPages} Seiten",
+	"title": "Einzeltransaktionen"
+}

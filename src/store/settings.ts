@@ -93,7 +93,7 @@ export default {
                     {
                         root: true,
                     }
-                ).then(storage => {
+                ).then((storage: Setting) => {
                     if (storage) {
                         Object.entries(storage).forEach(([key, value]) => {
                             if (settings.hasOwnProperty(key)) {

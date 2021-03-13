@@ -9,7 +9,11 @@ export default (LSSM: Vue): void => {
     const navbarBrand = document.querySelector('.navbar-brand');
     if (navbarBrand && navbarBrand?.textContent?.trim())
         title = `${navbarBrand?.textContent.trim()}: ${title}`;
-    if (window.location !== window.parent.location && title.length)
+    if (
+        window.location !== window.parent.location &&
+        title.length &&
+        !window.parent.hasOwnProperty('lssmv4-redesign-lightbox')
+    )
         title = `[${title}] `;
     else if (title.length) title = `${title} | `;
     window.tellParent(

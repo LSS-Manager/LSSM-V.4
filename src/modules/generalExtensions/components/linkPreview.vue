@@ -62,7 +62,7 @@
                 >
                     |
                     <font-awesome-icon :icon="faProcedures"></font-awesome-icon>
-                    {{ building.level }}
+                    {{ building.level + 10 }}
                 </span>
                 <span
                     v-if="

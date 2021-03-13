@@ -496,7 +496,7 @@ export default {
                 },
             ],
             levelcost: ['1. 10.000', '2. 50.000', '3.-16. 100.000'],
-            maxBuildings: '4.000 włącznie z Remizami',
+            maxBuildings: '5.000 włącznie z Remizami',
             maxLevel: 16,
             special:
                 'Przy posiadaniu powyżej 24 budynków straży pożarnej koszt budowy wzrasta według wzoru:<code>100.000+200.000*LOG<sub>2</sub>(Liczba istniejących straży pożarnej â’ 22)</code>. Cena za Monety pozostaje bez zmian!',
@@ -507,7 +507,7 @@ export default {
                 'GBARt',
                 'GLBA',
             ],
-            maxBuildingsFunction: (): number => 4_400,
+            maxBuildingsFunction: (): number => 5_000,
         },
         1: {
             caption: 'Szkoła pożarnicza',
@@ -798,7 +798,7 @@ export default {
                 '3.-5. 100.000',
                 'Ulepszenie do JRG wynosi różnicę w cenie budynków',
             ],
-            maxBuildings: '4.000 włącznie z JRG',
+            maxBuildings: '5.000 włącznie z JRG',
             maxLevel: 5,
             special:
                 'Przy posiadaniu powyżej 24 budynków straży pożarnej koszt budowy wzrasta według wzoru:<code>100.000+200.000*LOG<sub>2</sub>(Liczba istniejących straży pożarnej â’ 22)</code>, max 1 milion kredytów. Cena za Monety pozostaje bez zmian!',
@@ -809,7 +809,7 @@ export default {
                 'GBARt',
                 'GLBA',
             ],
-            maxBuildingsFunction: (): number => 4_400,
+            maxBuildingsFunction: (): number => 5_000,
         },
         19: {
             caption: 'Posterunek Policji',
@@ -1028,6 +1028,7 @@ export default {
     station: 'Stations | Station | Stations',
     distance: 'Distance | Distances',
     vehicleType: 'Vehicle type',
+    noOptions: 'Sorry, no matching options.',
     fmsReal2Show: {
         1: 1,
         2: 2,

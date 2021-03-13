@@ -1158,6 +1158,19 @@ export default {
                 'Der Polizeihelikopter ist das Trägerfahrzeug hier von. Der Helikopter brauch min. 2 Ausgebildete Kräfte mit der Ausbildung "Brandbekämpfung"',
             icon: 'fill',
         },
+        97: {
+            caption: 'ITW',
+            color: '#b87700',
+            coins: 25,
+            credits: 30000,
+            minPersonnel: 3,
+            maxPersonnel: 3,
+            schooling: 'Rettungsdienst - Intensivpflege',
+            shownSchooling: 'Intensivpflege',
+            special:
+                'Kann auch als NAW eingesetzt werden. Verdienst bei der Mission: 30 Credits pro km, max. 1.500 Credits. Hat das angefahrene Krankenhaus nicht die erforderliche Abteilung, wird der Verdienst 30% weniger betragen. Kann alle 15 (10 mit Premium) Rettungswachen gekauft werden. 2 Leute brauchen die "Intensivpflege" Ausbildung, Eine weitere Person davon die Notarzt Ausbildung',
+            icon: 'ambulance',
+        },
     },
     buildings: {
         0: {
@@ -1232,7 +1245,7 @@ export default {
                 },
             ],
             levelcost: ['1. 10.000', '2. 50.000', '3.-16. 100.000'],
-            maxBuildings: '4.400 mit kleinen Feuerwachen zusammen',
+            maxBuildings: '5.000 mit kleinen Feuerwachen zusammen',
             maxLevel: 16,
             special:
                 'Ab der 24. Feuerwache steigen die Kosten für den Neubau einer Wache nach folgender Formel: <code>100.000+200.000*LOG<sub>2</sub>(Anzahl der vorhandenen Feuerwachen − 22)</code>. Der Coins-Preis bleibt konstant!',
@@ -1249,7 +1262,7 @@ export default {
                 'TSF-W',
                 '(HLF 20 und HLF 10 ab Dienstgrad "Gruppenfüher(in)" => Baukosten 20.000 höher)',
             ],
-            maxBuildingsFunction: (): number => 4_400,
+            maxBuildingsFunction: (): number => 5_000,
         },
         1: {
             caption: 'Feuerwehrschule',
@@ -1775,7 +1788,7 @@ export default {
                 '3.-5. 100.000',
                 'Umbau zur normalen Wache: Differenz-Preis zur normalen Wache',
             ],
-            maxBuildings: '4.400 mit Feuerwachen zusammen',
+            maxBuildings: '5.000 mit Feuerwachen zusammen',
             maxLevel: 5,
             special:
                 'Ab der 24. Feuerwache steigen die Kosten für den Neubau einer Wache nach folgender Formel: <code>(100.000+200.000*LOG<sub>2</sub>(Anzahl der vorhandenen Feuerwachen − 22)) / 2</code>. max. 1 Million Credits. Der Coins-Preis bleibt konstant!',
@@ -1792,7 +1805,7 @@ export default {
                 'TSF-W',
                 '(HLF 20 und HLF 10 ab Dienstgrad "Gruppenfüher(in)" => Baukosten 15.000 höher)',
             ],
-            maxBuildingsFunction: (): number => 4_400,
+            maxBuildingsFunction: (): number => 5_000,
         },
         19: {
             caption: 'Polizeiwache (Kleinwache)',
@@ -1900,7 +1913,7 @@ export default {
         },
         Rettungsdienst: {
             vehicles: {
-                'Rettungsdienstfahrzeuge': [28, 29, 55, 56, 73, 74],
+                'Rettungsdienstfahrzeuge': [28, 29, 55, 56, 73, 74, 97],
                 'Rettungshubschrauber': [31],
                 'KTW': [38],
                 'SEG-Fahrzeuge': [58, 59, 60],
@@ -2015,6 +2028,10 @@ export default {
                 caption: 'Werkfeuerwehr-Ausbildung',
                 duration: '2 Tage',
             },
+            {
+                caption: 'Intensivpflege',
+                duration: '3 Tage',
+            },
         ],
         Polizei: [
             {
@@ -2087,6 +2104,10 @@ export default {
                 caption: 'SEG - GW-San',
                 duration: '3 Tage',
             },
+            {
+                caption: 'Intensivpflege',
+                duration: '3 Tage',
+            },
         ],
         THW: [
             {
@@ -2129,6 +2150,7 @@ export default {
     station: 'Wachen | Wache | Wachen',
     distance: 'Entfernung | Entferungen',
     vehicleType: 'Fahrzeugtyp',
+    noOptions: 'Keine Auswahlmöglichkeiten passen zu deiner Suche.',
     fmsReal2Show: {
         1: 1,
         2: 2,
