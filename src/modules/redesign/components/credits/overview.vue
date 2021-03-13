@@ -5,7 +5,7 @@
             <div :id="chartId"></div>
             <enhanced-table
                 :head="head"
-                :table-attrs="{ class: 'table' }"
+                :table-attrs="{ class: 'table table-striped' }"
                 :no-search="true"
             >
                 <tr
