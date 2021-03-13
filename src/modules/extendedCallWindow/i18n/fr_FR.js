@@ -74,7 +74,8 @@ module.exports = {
             minified: 'effondrement',
             overlay: 'superposition',
             reload: 'recharger',
-			pushRight: 'afficher cette case au-dessus de la liste des véhicules',
+            pushRight:
+                'afficher cette case au-dessus de la liste des véhicules',
             pushLeft: 'montrer cette boîte à la position originale',
         },
         selected: 'Séléctionné',
