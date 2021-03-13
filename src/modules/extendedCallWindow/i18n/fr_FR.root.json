@@ -65,16 +65,23 @@
 			"description": "Cache la liste des véhicules. Ouvre la liste en appuyant sur un bouton.",
 			"title": "Cache la liste des véhicules"
 		},
+		"hoverTip": {
+			"description": "Des infobulles pour, par exemple, le bouton de superposition.",
+			"title": "Infobulles"
+		},
 		"loadMoreVehiclesInHeader": {
 			"description": "Affiche le bouton \"Recharger les véhicules\" dans l'en-tête (si disponible).",
 			"title": "Recharge la liste des véhicules dans l'en-tête"
 		},
 		"missionKeywords": {
+			"autotextcolor": "Couleur automatique du texte",
 			"color": "couleur de fond",
 			"description": "Affiche votre clavier à côté du nom de la mission",
 			"keyword": "mot-clef",
 			"missions": "missions",
+			"prepend": "Spectacle avant le nom de la mission",
 			"preview": "Prévisualiser",
+			"textcolor": "Couleur du texte",
 			"title": "Mots-clefs de mission"
 		},
 		"patientSummary": {

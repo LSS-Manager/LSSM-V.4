@@ -74,6 +74,8 @@ module.exports = {
             minified: 'effondrement',
             overlay: 'superposition',
             reload: 'recharger',
+			pushRight: 'afficher cette case au-dessus de la liste des véhicules',
+            pushLeft: 'montrer cette boîte à la position originale',
         },
         selected: 'Séléctionné',
         vehiclesByRequirement: {
@@ -102,6 +104,14 @@ module.exports = {
     tailoredTabs: {
         allTab: 'Tout',
         occupiedTab: 'Poursuivre',
+        vehicleMissing: {
+            title:
+                "Un véhicule n'est présent dans aucun onglet | Plusieurs véhicules ne sont présents dans aucun onglet",
+            text:
+                'Les types de véhicules suivants ne sont présents que dans l\'onglet "Tout" :',
+            hide: 'Cacher la note',
+            close: "Fermer Note jusqu'au changement",
+        },
     },
     hideVehicleList: {
         show: 'Afficher la liste des véhicules',
