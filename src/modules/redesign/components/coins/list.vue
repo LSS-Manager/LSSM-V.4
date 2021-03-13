@@ -31,7 +31,8 @@
         >
             <tr v-for="(entry, id) in coins.entries" :key="id">
                 <td :class="`text-${entry.amount > 0 ? 'success' : 'danger'}`">
-                    {{ entry.amount > 0 ? '+' : '' }}{{ entry.amount.toLocaleString() }}
+                    {{ entry.amount > 0 ? '+' : ''
+                    }}{{ entry.amount.toLocaleString() }}
                 </td>
                 <td>{{ entry.desc }}</td>
                 <td>{{ entry.date }}</td>
