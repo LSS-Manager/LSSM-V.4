@@ -17,8 +17,8 @@
         <button
             class="btn btn-success"
             :disabled="
-                endPage >= coins.lastPage ||
-                    coins.lastPage === Number.MAX_SAFE_INTEGER
+                endPage >= credits.lastPage ||
+                    credits.lastPage === Number.MAX_SAFE_INTEGER
             "
             @click="loadNext"
         >
@@ -29,7 +29,7 @@
             :table-attrs="{ class: 'table' }"
             :no-search="true"
         >
-            <tr v-for="(entry, id) in coins.entries" :key="id">
+            <tr v-for="(entry, id) in credits.entries" :key="id">
                 <td :class="`text-${entry.amount > 0 ? 'success' : 'danger'}`">
                     {{ entry.amount > 0 ? '+' : '' }}{{ entry.amount }}
                 </td>
@@ -44,7 +44,7 @@
 import Vue from 'vue';
 import moment from 'moment';
 import VueI18n from 'vue-i18n';
-import { CoinsListWindow } from '../../parsers/coins/list';
+import { CreditsListWindow } from '../../parsers/credits/index';
 import { RedesignLightboxVue } from 'typings/modules/Redesign';
 
 export default Vue.extend<
@@ -85,9 +85,9 @@ export default Vue.extend<
         subtitle: string;
     },
     {
-        coins: CoinsListWindow;
+        credits: CreditsListWindow;
         url: string;
-        lightbox: RedesignLightboxVue<'coins/list', CoinsListWindow>;
+        lightbox: RedesignLightboxVue<'credits/list', CreditsListWindow>;
         $m(
             key: string,
             args?: {
@@ -105,7 +105,7 @@ export default Vue.extend<
         setSetting: <T>(settingId: string, value: T) => Promise<void>;
     }
 >({
-    name: 'coins-list',
+    name: 'credits-index',
     components: {
         EnhancedTable: () =>
             import(
@@ -131,7 +131,7 @@ export default Vue.extend<
                 [key: string]: unknown;
             }
         ) {
-            return this.$m(`coins/list.${key}`, args);
+            return this.$m(`credits/list.${key}`, args);
         },
         $smc(
             key: string,
@@ -140,7 +140,7 @@ export default Vue.extend<
                 [key: string]: unknown;
             }
         ) {
-            return this.$mc(`coins/list.${key}`, amount, args);
+            return this.$mc(`credits/list.${key}`, amount, args);
         },
         setSort(type) {
             if (this.sort === type) {
@@ -155,15 +155,15 @@ export default Vue.extend<
         },
         loadPrev() {
             this.startPage--;
-            const url = `/coins/list?page=${this.startPage}`;
+            const url = `/credits?page=${this.startPage}`;
             this.$store
                 .dispatch('api/request', {
                     url,
-                    feature: `redesign-coins-list-load-prev-${this.startPage}`,
+                    feature: `redesign-credits-index-load-prev-${this.startPage}`,
                 })
                 .then((res: Response) => res.text())
                 .then(async html => {
-                    import('../../parsers/coins/list').then(parser => {
+                    import('../../parsers/credits/list').then(parser => {
                         const result = parser.default(html);
                         this.$set(
                             this.lightbox.data,
@@ -179,15 +179,15 @@ export default Vue.extend<
         },
         loadNext() {
             this.endPage++;
-            const url = `/coins/list?page=${this.endPage}`;
+            const url = `/credits?page=${this.endPage}`;
             this.$store
                 .dispatch('api/request', {
                     url,
-                    feature: `redesign-coins-list-load-next-${this.endPage}`,
+                    feature: `redesign-credits-index-load-next-${this.endPage}`,
                 })
                 .then((res: Response) => res.text())
                 .then(async html => {
-                    import('../../parsers/coins/list').then(parser => {
+                    import('../../parsers/credits/list').then(parser => {
                         const result = parser.default(html);
                         this.$set(
                             this.lightbox.data,
@@ -211,19 +211,19 @@ export default Vue.extend<
             );
         },
         subtitle() {
-            return this.$smc('subtitle', this.coins.entries.length, {
+            return this.$smc('subtitle', this.credits.entries.length, {
                 startPage: this.startPage,
                 endPage: this.endPage,
-                firstDate: this.coins.entries[0]?.date ?? '',
+                firstDate: this.credits.entries[0]?.date ?? '',
                 lastDate:
-                    this.coins.entries[this.coins.entries.length - 1]?.date ??
-                    '',
-                totalPages: this.coins.lastPage,
+                    this.credits.entries[this.credits.entries.length - 1]
+                        ?.date ?? '',
+                totalPages: this.credits.lastPage,
             }).toString();
         },
     },
     props: {
-        coins: {
+        credits: {
             type: Object,
             required: true,
         },
@@ -275,6 +275,10 @@ export default Vue.extend<
             if (!target || !target.hasAttribute('href')) return;
             this.$set(this.lightbox, 'src', target.getAttribute('href'));
         });
+        this.getSetting('sort', this.sort).then(sort => (this.sort = sort));
+        this.getSetting('sortDir', this.sortDir).then(
+            dir => (this.sortDir = dir)
+        );
         this.startPage = this.page;
         this.endPage = this.page;
     },

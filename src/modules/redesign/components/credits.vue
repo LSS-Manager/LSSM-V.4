@@ -31,8 +31,18 @@
                 </div>
             </div>
         </nav>
+        <CreditsList
+            v-if="type === 'credits/list'"
+            :credits="data"
+            :url="url"
+            :lightbox="lightbox"
+            :$m="$m"
+            :$mc="$mc"
+            :get-setting="getSetting"
+            :set-setting="setSetting"
+        ></CreditsList>
         <CreditsDaily
-            v-if="type === 'credits/daily'"
+            v-else-if="type === 'credits/daily'"
             :credits="data"
             :url="url"
             :lightbox="lightbox"
@@ -71,6 +81,7 @@ import { DefaultData } from 'vue/types/options';
 import { CreditsOverviewWindow } from '../parsers/credits/overview';
 import { CoinsListWindow } from '../parsers/coins/list';
 import { RedesignLightboxVue } from 'typings/modules/Redesign';
+import { CreditsListWindow } from '../parsers/credits/list';
 
 interface Link {
     href: string;
@@ -98,9 +109,14 @@ export default Vue.extend<
         nav: { title: string; links: Link[] };
     },
     {
-        data: CreditsDailyWindow | CreditsOverviewWindow | CoinsListWindow;
+        data:
+            | CreditsListWindow
+            | CreditsDailyWindow
+            | CreditsOverviewWindow
+            | CoinsListWindow;
         url: string;
         lightbox:
+            | RedesignLightboxVue<'credits/list', CreditsListWindow>
             | RedesignLightboxVue<'credits/daily', CreditsDailyWindow>
             | RedesignLightboxVue<'credits/overview', CreditsOverviewWindow>
             | RedesignLightboxVue<'coins/list', CoinsListWindow>;
@@ -124,6 +140,10 @@ export default Vue.extend<
 >({
     name: 'credits-lightbox',
     components: {
+        CreditsList: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/credits/list"*/ './credits/list.vue'
+            ),
         CreditsDaily: () =>
             import(
                 /*webpackChunkName: "modules/redesign/windows/credits/daily"*/ './credits/daily.vue'

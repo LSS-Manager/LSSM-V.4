@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import { VehicleWindow } from '../../src/modules/redesign/parsers/vehicle';
+import { CreditsListWindow } from '../../src/modules/redesign/parsers/credits';
 import { CreditsDailyWindow } from '../../src/modules/redesign/parsers/credits/daily';
 import { CreditsOverviewWindow } from '../../src/modules/redesign/parsers/credits/overview';
 import { CoinsListWindow } from '../../src/modules/redesign/parsers/coins/list';
@@ -7,9 +8,15 @@ import { DefaultComputed } from 'vue/types/options';
 import VueI18n from 'vue-i18n';
 import { CombinedVueInstance } from 'vue/types/vue';
 
-type types = 'vehicle' | 'credits/daily' | 'credits/overview' | 'coins/list';
+type types =
+    | 'vehicle'
+    | 'credits/list'
+    | 'credits/daily'
+    | 'credits/overview'
+    | 'coins/list';
 type windows =
     | VehicleWindow
+    | CreditsListWindow
     | CreditsDailyWindow
     | CreditsOverviewWindow
     | CoinsListWindow;
