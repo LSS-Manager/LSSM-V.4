@@ -21,7 +21,7 @@
                         }`)
                     "
                 >
-                    <td>{{ dates[id] }}</td>
+                    <td>{{ dates[7 - id] }}</td>
                     <td class="text-success">
                         {{ entry.plus.toLocaleString() }} Credits
                     </td>
@@ -211,7 +211,7 @@ export default Vue.extend<
                 name: this.$sm(series).toString(),
                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                 //@ts-ignore
-                data: this.data.entries.map(entry => entry[series]),
+                data: this.data.entries.map(entry => entry[series]).reverse(),
                 color: ['#28a828', '#a32323', '#74868f'][index],
             })),
         } as Options);
