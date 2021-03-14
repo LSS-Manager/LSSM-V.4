@@ -7,12 +7,14 @@ import { VehicleWindow } from '../../src/modules/redesign/parsers/vehicle';
 import { DefaultComputed } from 'vue/types/options';
 import VueI18n from 'vue-i18n';
 import { CombinedVueInstance } from 'vue/types/vue';
+import { TopListWindow } from '../../src/modules/redesign/parsers/toplist';
 
 type types =
     | 'coins/list'
     | 'credits/daily'
     | 'credits/list'
     | 'credits/overview'
+    | 'toplist'
     | 'vehicle'
     | 'vehicle/nextfms';
 type windows =
@@ -20,6 +22,7 @@ type windows =
     | CreditsDailyWindow
     | CreditsListWindow
     | CreditsOverviewWindow
+    | TopListWindow
     | VehicleWindow;
 export type routeChecks = Record<string, types>;
 

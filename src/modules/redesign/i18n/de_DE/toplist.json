@@ -1,0 +1,11 @@
+{
+    "title": "Spielerliste",
+    "credits": "Gesamtverdiente Credits",
+    "name": "Spieler",
+    "alliance": "Verband",
+    "load": {
+        "prev": "20 Spieler mit mehr Credits laden",
+        "next": "20 Spieler mit weniger Credits laden"
+    },
+    "subtitle": "Zeige {n} Spieler der Seiten {startPage} ({firstCredits}) bis {endPage} ({lastCredits}) von insg. {totalPages} Seiten"
+}

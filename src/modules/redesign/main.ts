@@ -6,6 +6,7 @@ const routeChecks: routeChecks = {
     '^/credits/daily/?$': 'credits/daily',
     '^/credits/?$': 'credits/list',
     '^/credits/overview/?$': 'credits/overview',
+    '^/toplist/?$': 'toplist',
     '^/vehicles/\\d+/?$': 'vehicle',
     '^/vehicles/\\d+/(patient|gefangener)/\\d+/?': 'vehicle/nextfms',
 };
@@ -118,7 +119,7 @@ export default ((LSSM, MODULE_ID) => {
                       )
                       ?.href?.match(/\d+$/)?.[0]
                 : null;
-        if (type) {
+        if (type && (nextVehicle || type !== 'vehicle/nextfms')) {
             import(
                 /* webpackChunkName: "modules/redesign/lightbox" */ `./components/lightbox.vue`
             ).then(lightbox => {

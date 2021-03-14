@@ -219,7 +219,7 @@ export default Vue.extend<
                 lastDate:
                     this.coins.entries[this.coins.entries.length - 1]?.date ??
                     '',
-                totalPages: this.coins.lastPage,
+                totalPages: this.coins.lastPage.toLocaleString(),
             }).toString();
         },
     },

@@ -7,6 +7,10 @@
                 {{ subtitle }}
             </small>
         </h1>
+        <label class="pull-right">
+            <input placeholder="imagine the user search in here" disabled />
+            <button class="btn btn-success">sörtsch</button>
+        </label>
         <button
             class="btn btn-success"
             :disabled="startPage <= 1"
@@ -17,8 +21,8 @@
         <button
             class="btn btn-success"
             :disabled="
-                endPage >= credits.lastPage ||
-                    credits.lastPage === Number.MAX_SAFE_INTEGER
+                endPage >= toplist.lastPage ||
+                    toplist.lastPage === Number.MAX_SAFE_INTEGER
             "
             @click="loadNext"
         >
@@ -29,13 +33,37 @@
             :table-attrs="{ class: 'table' }"
             :no-search="true"
         >
-            <tr v-for="(entry, id) in credits.entries" :key="id">
-                <td :class="`text-${entry.amount > 0 ? 'success' : 'danger'}`">
-                    {{ entry.amount > 0 ? '+' : ''
-                    }}{{ entry.amount.toLocaleString() }}
+            <tr v-for="(entry, id) in toplist.entries" :key="id">
+                <td>
+                    <img
+                        :src="entry.img"
+                        :alt="entry.name"
+                        v-if="entry.img"
+                        loading="lazy"
+                    />
                 </td>
-                <td>{{ entry.desc }}</td>
-                <td>{{ entry.date }}</td>
+                <td>{{ entry.credits.toLocaleString() }}</td>
+                <td>
+                    <img
+                        :src="
+                            `/images/user_${
+                                entry.online ? 'green' : 'gray'
+                            }.png`
+                        "
+                        alt=""
+                    />
+                    <a :href="`/profile/${entry.id}`">
+                        {{ entry.name }}
+                    </a>
+                </td>
+                <td>
+                    <a
+                        :href="`/alliances/${entry.alliance.id}`"
+                        v-if="entry.alliance.name"
+                    >
+                        {{ entry.alliance.name }}
+                    </a>
+                </td>
             </tr>
         </enhanced-table>
     </div>
@@ -43,14 +71,12 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import moment from 'moment';
 import VueI18n from 'vue-i18n';
-import { CreditsListWindow } from '../../parsers/credits/list';
+import { TopListWindow } from '../parsers/toplist';
 import { RedesignLightboxVue } from 'typings/modules/Redesign';
 
 export default Vue.extend<
     {
-        moment: typeof moment;
         search: string;
         sort: string;
         sortDir: 'asc' | 'desc';
@@ -86,9 +112,9 @@ export default Vue.extend<
         subtitle: string;
     },
     {
-        credits: CreditsListWindow;
+        toplist: TopListWindow;
         url: string;
-        lightbox: RedesignLightboxVue<'credits/list', CreditsListWindow>;
+        lightbox: RedesignLightboxVue<'toplist', TopListWindow>;
         $m(
             key: string,
             args?: {
@@ -106,17 +132,15 @@ export default Vue.extend<
         setSetting: <T>(settingId: string, value: T) => Promise<void>;
     }
 >({
-    name: 'credits-index',
+    name: 'toplist',
     components: {
         EnhancedTable: () =>
             import(
-                /* webpackChunkName: "components/enhanced-table" */ '../../../../components/enhanced-table.vue'
+                /* webpackChunkName: "components/enhanced-table" */ '../../../components/enhanced-table.vue'
             ),
     },
     data() {
-        moment.locale(this.$store.state.lang);
         return {
-            moment,
             search: '',
             sort: 'date',
             sortDir: 'asc',
@@ -132,7 +156,7 @@ export default Vue.extend<
                 [key: string]: unknown;
             }
         ) {
-            return this.$m(`credits/list.${key}`, args);
+            return this.$m(`toplist.${key}`, args);
         },
         $smc(
             key: string,
@@ -141,7 +165,7 @@ export default Vue.extend<
                 [key: string]: unknown;
             }
         ) {
-            return this.$mc(`credits/list.${key}`, amount, args);
+            return this.$mc(`toplist.${key}`, amount, args);
         },
         setSort(type) {
             if (this.sort === type) {
@@ -156,16 +180,20 @@ export default Vue.extend<
         },
         loadPrev() {
             this.startPage--;
-            const url = `/credits?page=${this.startPage}`;
+            const url = `/toplist?page=${this.startPage}`;
             this.$store
                 .dispatch('api/request', {
                     url,
-                    feature: `redesign-credits-index-load-prev-${this.startPage}`,
+                    feature: `redesign-toplist-load-prev-${this.startPage}`,
                 })
                 .then((res: Response) => res.text())
                 .then(async html => {
-                    import('../../parsers/credits/list').then(parser => {
-                        const result = parser.default(html);
+                    import('../parsers/toplist').then(parser => {
+                        const result = parser.default(
+                            html,
+                            url,
+                            this.lightbox.getIdFromEl
+                        );
                         this.$set(
                             this.lightbox.data,
                             'lastPage',
@@ -180,16 +208,20 @@ export default Vue.extend<
         },
         loadNext() {
             this.endPage++;
-            const url = `/credits?page=${this.endPage}`;
+            const url = `/toplist?page=${this.endPage}`;
             this.$store
                 .dispatch('api/request', {
                     url,
-                    feature: `redesign-credits-index-load-next-${this.endPage}`,
+                    feature: `redesign-toplist-load-next-${this.endPage}`,
                 })
                 .then((res: Response) => res.text())
                 .then(async html => {
-                    import('../../parsers/credits/list').then(parser => {
-                        const result = parser.default(html);
+                    import('../parsers/toplist').then(parser => {
+                        const result = parser.default(
+                            html,
+                            url,
+                            this.lightbox.getIdFromEl
+                        );
                         this.$set(
                             this.lightbox.data,
                             'lastPage',
@@ -212,19 +244,21 @@ export default Vue.extend<
             );
         },
         subtitle() {
-            return this.$smc('subtitle', this.credits.entries.length, {
+            return this.$smc('subtitle', this.toplist.entries.length, {
                 startPage: this.startPage,
                 endPage: this.endPage,
-                firstDate: this.credits.entries[0]?.date ?? '',
-                lastDate:
-                    this.credits.entries[this.credits.entries.length - 1]
-                        ?.date ?? '',
-                totalPages: this.credits.lastPage.toLocaleString(),
+                firstCredits:
+                    this.toplist.entries[0]?.credits?.toLocaleString() ?? '',
+                lastCredits:
+                    this.toplist.entries[
+                        this.toplist.entries.length - 1
+                    ]?.credits?.toLocaleString() ?? '',
+                totalPages: this.toplist.lastPage.toLocaleString(),
             }).toString();
         },
     },
     props: {
-        credits: {
+        toplist: {
             type: Object,
             required: true,
         },
@@ -262,9 +296,10 @@ export default Vue.extend<
         //     });
         // });
         this.head = {
-            amount: { title: this.$sm('amount').toString(), noSort: true },
-            desc: { title: this.$sm('description').toString(), noSort: true },
-            date: { title: this.$sm('date').toString(), noSort: true },
+            image: { title: '', noSort: true },
+            credits: { title: this.$sm('credits').toString() },
+            name: { title: this.$sm('name').toString() },
+            alliance: { title: this.$sm('alliance').toString() },
         };
     },
     mounted() {
@@ -278,9 +313,7 @@ export default Vue.extend<
         });
         this.startPage = this.page;
         this.endPage = this.page;
-        document.title = `${this.$t(
-            'modules.redesign.credits.nav.title'
-        )}: ${this.$sm('title')}`;
+        document.title = this.$sm('title');
     },
 });
 </script>

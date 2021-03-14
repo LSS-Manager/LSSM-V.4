@@ -5,7 +5,11 @@
         :no-title-hide="true"
         :no-modal="noModal"
     >
-        <div v-show="type" class="redesign-wrapper" :type="type">
+        <div
+            v-show="type && type !== 'default'"
+            class="redesign-wrapper"
+            :type="type"
+        >
             <Vehicle
                 v-if="type === 'vehicle'"
                 :vehicle="data"
@@ -27,6 +31,17 @@
                 :set-setting="setSetting()"
                 :type="type"
             ></Credits>
+            <Toplist
+                v-else-if="type === 'toplist'"
+                :toplist="data"
+                :url="urlProp"
+                :lightbox="this"
+                :$m="$m"
+                :$mc="$mc"
+                :get-setting="getSetting()"
+                :set-setting="setSetting()"
+                :type="type"
+            ></Toplist>
             <div
                 v-else-if="type === 'vehicle/nextfms'"
                 class="alert alert-success"
@@ -35,9 +50,9 @@
             </div>
         </div>
         <iframe
-            v-show="!type"
+            v-show="!type || type === 'default'"
             ref="iframe"
-            :src="url"
+            :src="type || type === 'default' ? 'about:blank' : url"
             :id="$store.getters.nodeAttribute('redesign-lightbox-iframe')"
             :name="$store.getters.nodeAttribute('redesign-lightbox-iframe')"
         ></iframe>
@@ -68,10 +83,14 @@ export default Vue.extend<
             import(
                 /*webpackChunkName: "modules/redesign/windows/credits"*/ './credits.vue'
             ),
+        Toplist: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/toplist"*/ './toplist.vue'
+            ),
     },
     data() {
         return {
-            type: '',
+            type: 'default',
             data: null,
             html: '',
             urlProp: '',
