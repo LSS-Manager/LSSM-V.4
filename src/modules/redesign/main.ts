@@ -2,11 +2,12 @@ import { ModuleMainFunction } from 'typings/Module';
 import { routeChecks } from 'typings/modules/Redesign';
 
 const routeChecks: routeChecks = {
-    '^/vehicles/\\d+/?$': 'vehicle',
-    '^/credits/?$': 'credits/list',
-    '^/credits/daily/?$': 'credits/daily',
-    '^/credits/overview/?$': 'credits/overview',
     '^/coins/list/?$': 'coins/list',
+    '^/credits/daily/?$': 'credits/daily',
+    '^/credits/?$': 'credits/list',
+    '^/credits/overview/?$': 'credits/overview',
+    '^/vehicles/\\d+/?$': 'vehicle',
+    '^/vehicles/\\d+/(patient|gefangener)/\\d+/?': 'vehicle/nextfms',
 };
 
 export default ((LSSM, MODULE_ID) => {
@@ -109,6 +110,14 @@ export default ((LSSM, MODULE_ID) => {
         const type = Object.entries(routeChecks).find(([regex]) =>
             window.location.pathname.match(regex)
         )?.[1];
+        const nextVehicle =
+            type === 'vehicle/nextfms'
+                ? document
+                      .querySelector<HTMLAnchorElement>(
+                          'a.btn.btn-success[href^="/vehicles/"]'
+                      )
+                      ?.href?.match(/\d+$/)?.[0]
+                : null;
         if (type) {
             import(
                 /* webpackChunkName: "modules/redesign/lightbox" */ `./components/lightbox.vue`
@@ -119,7 +128,9 @@ export default ((LSSM, MODULE_ID) => {
                     render: h =>
                         h(lightbox.default, {
                             props: {
-                                url: window.location.href,
+                                url: nextVehicle
+                                    ? `/vehicles/${nextVehicle}`
+                                    : window.location.href,
                                 $m: (
                                     key: string,
                                     args?: {

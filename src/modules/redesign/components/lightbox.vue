@@ -27,6 +27,12 @@
                 :set-setting="setSetting()"
                 :type="type"
             ></Credits>
+            <div
+                v-else-if="type === 'vehicle/nextfms'"
+                class="alert alert-success"
+            >
+                {{ $m('vehicle.nextfms.finished') }}
+            </div>
         </div>
         <iframe
             v-show="!type"
@@ -127,13 +133,22 @@ export default Vue.extend<
                     return;
                 }
 
+                let redirected = false;
+
                 this.$store
                     .dispatch('api/request', {
                         url,
                         feature: `redesign-${type}`,
                     })
-                    .then((res: Response) => res.text())
+                    .then((res: Response) => {
+                        if (res.redirected) {
+                            redirected = true;
+                            return (this.src = res.url);
+                        }
+                        return res.text();
+                    })
                     .then(async html => {
+                        if (redirected) return;
                         const types = type.split('/');
                         const addLocas = async (typePath: string) =>
                             this.$i18n.mergeLocaleMessage(
@@ -165,6 +180,8 @@ export default Vue.extend<
                                 url,
                                 this.getIdFromEl
                             );
+                            if (type === 'vehicle/nextfms' && this.data)
+                                this.src = `/vehicles/${this.data}`;
                             this.type = type;
                             this.urlProp = url;
                         });

@@ -13,7 +13,8 @@ type types =
     | 'credits/daily'
     | 'credits/list'
     | 'credits/overview'
-    | 'vehicle';
+    | 'vehicle'
+    | 'vehicle/nextfms';
 type windows =
     | CoinsListWindow
     | CreditsDailyWindow
