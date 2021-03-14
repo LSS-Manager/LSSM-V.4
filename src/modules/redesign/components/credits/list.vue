@@ -276,12 +276,11 @@ export default Vue.extend<
             if (!target || !target.hasAttribute('href')) return;
             this.$set(this.lightbox, 'src', target.getAttribute('href'));
         });
-        this.getSetting('sort', this.sort).then(sort => (this.sort = sort));
-        this.getSetting('sortDir', this.sortDir).then(
-            dir => (this.sortDir = dir)
-        );
         this.startPage = this.page;
         this.endPage = this.page;
+        document.title = `${this.$t(
+            'modules.redesign.credits.nav.title'
+        )}: ${this.$sm('title')}`;
     },
 });
 </script>

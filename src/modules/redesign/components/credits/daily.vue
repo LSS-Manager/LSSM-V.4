@@ -1,7 +1,7 @@
 <template>
     <div>
         <h1>
-            {{ $sm('summary') }}:
+            {{ $sm('title') }}:
             {{
                 moment()
                     .add(page, 'days')
@@ -378,6 +378,9 @@ export default Vue.extend<
         this.getSetting('sortDir', this.sortDir).then(
             dir => (this.sortDir = dir)
         );
+        document.title = `${this.$t(
+            'modules.redesign.credits.nav.title'
+        )}: ${this.$sm('title')}`;
     },
 });
 </script>
