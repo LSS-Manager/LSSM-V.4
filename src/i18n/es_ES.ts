@@ -1,48 +1,48 @@
 // import { Building } from 'typings/Building';
 
-const furtherFiles = require.context('./en_US/', true, /.*(\/index)?\.js(on)?/);
+const furtherFiles = require.context('./es_ES/', true, /.*(\/index)?\.js(on)?/);
 const modules = {
     appstore: {
-        save: 'Save',
-        reset: 'Reset',
+        save: 'Guardar',
+        reset: 'Restablecer',
         noMapkit:
-            'This module does not work with the map type "Mapkit" due to limitations of Mapkit!',
+            '¡Este módulo no funciona con el tipo de mapa "Mapkit" debido a las limitaciones de Mapkit!',
         dev:
-            'This module is currently still under development. Activating it can lead to incomplete and faulty functions!',
+            'Este módulo aún se encuentra en desarrollo. ¡Activarlo puede provocar funciones incompletas y defectuosas!',
         closeWarning: {
-            title: 'Unsaved changes',
+            title: 'Cambios no guardados',
             text:
-                'You made changes in the AppStore that have not yet been saved. Reset them or save them to close the AppStore.',
-            close: 'Close message',
+                'Hizo cambios en la AppStore que aún no se han guardado. Reinícielos o guárdelos para cerrar la AppStore.',
+            close: 'Cerrar mensaje',
         },
     },
     settings: {
-        name: 'Settings',
-        save: 'Save',
-        discard: 'Discard changes',
-        reset: 'Reset',
-        export: 'Export',
-        import: 'Import',
+        name: 'Ajustes',
+        save: 'Guardar',
+        discard: 'Descartar cambios',
+        reset: 'Restablecer',
+        export: 'Exportar',
+        import: 'Importar',
         resetWarning: {
-            title: 'Reset the settings',
+            title: 'Restablecer la configuración',
             text:
-                'Do you really want to reset settings to their default values? This cannot be undone!',
-            close: 'Cancel',
-            total: 'All settings',
-            module: 'Only from this module',
+                '¿Realmente desea restablecer la configuración a sus valores predeterminados? ¡Esto no se puede deshacer!',
+            close: 'Cancelar',
+            total: 'Todos los ajustes',
+            module: 'Sólo de éste módulo',
         },
         resetWarningSetting: {
-            title: 'Reset settings',
+            title: 'Restablecer ajustes',
             text:
-                'Do you really want to reset this one setting <b>{setting}</b> of the module <b>{module}</b> to its default value?',
-            close: 'Cancel',
-            reset: 'Reset',
+                '¿Quiere restablecer esta configuración <b>{setting}</b> del modulo <b>{module}</b> a su valor predeterminado?',
+            close: 'Cancelar',
+            reset: 'Restablecer',
         },
         closeWarning: {
-            title: 'Unsaved changes',
+            title: 'Cambios no guardados',
             text:
-                'You have made changes in the settings that are not yet saved. Reset them, discard them or save them to close the settings.',
-            close: 'Close message',
+                'Ha realizado cambios en la configuración que aún no se han guardado. Restablecerlos, descartarlos o guardarlos para cerrar la configuración.',
+            close: 'Cerrar mensaje',
         },
         changeList: {
             true: 'On',
@@ -65,42 +65,42 @@ export default {
     error: {
         title: 'LSS Manager: Error',
         msg:
-            'If this error occurs frequently, please report it to the LSSM team!',
+            'Si este error ocurre con frecuencia, ¡Infórmelo al equipo de LSSM!',
     },
     warnings: {
         version: {
-            title: 'Wrong LSS Manager version',
+            title: 'Versión de LSS Manager incorrecta',
             text:
-                'Dear user, unfortunately we had to discover that you do not have the latest version of LSS Manager. The latest version is {version}, but you have {curver} first. Please reload the game without cache (with Ctrl + F5, on Apple devices command + R), this should fix the bug. If the error persists, please report it to the team! If you use a wrong version we cannot guarantee the full functionality of the LSS-Manager.',
-            close: 'Close message and reload game (recommended)',
-            abort: 'Close message without reloading game',
+                'Estimado usuario, lamentablemente tuvimos que descubrir que no tiene la última versión de LSS Manager. La última versión es {version}, pero primero tienes {curver}. Vuelva a cargar el juego sin caché (con Ctrl + F5, en dispositivos Apple comando + R), esto debería corregir el error. Si el error persiste, ¡Infórmalo al equipo! Si usa una versión incorrecta, no podemos garantizar la funcionalidad completa del LSS-Manager.',
+            close: 'Cerrar mensaje y recargar el juego (recomendado)',
+            abort: 'Cerrar el mensaje sin recargar el juego',
         },
     },
     globalSettings: {
-        name: 'General Settings',
+        name: 'Ajustes generales',
         labelInMenu: {
-            title: 'Label instead of icon in menu',
+            title: 'Etiqueta en lugar de icono en el menú',
             description:
-                'Displays a simple label in the navigation bar instead of the LSSM logo',
+                'Muestra una etiqueta simple en la barra de navegación en lugar del logotipo de LSSM',
         },
         allowTelemetry: {
             description:
-                'Controls whether LSS-Manager is allowed to send Data which helps us in developing this extension.',
-            title: 'Allow Telemetry',
+                'Controla si LSS Manager puede enviar datos, lo que nos ayuda a desarrollar esta extensión.',
+            title: 'Permitir Telemetría',
         },
         iconBg: {
-            description: 'Change the background of LSSM-Icon!',
-            title: 'LSSM-Icon Background',
+            description: 'Cambiar el fondo de icono de LSSM',
+            title: 'Fondo de icono LSSM',
         },
         iconBgAsNavBg: {
             description:
-                'Color the whole navbar in the color of LSSM-Icon Background!',
-            title: 'colorize navbar',
+                '¡Colorea toda la barra de navegación con el color del fondo del icono LSSM!',
+            title: 'Colorear barra de navegación',
         },
         osmDarkTooltip: {
             description:
-                'This settings darkens tooltips on map if you have enabled the dark mode',
-            title: 'Dark tooltips on map',
+                'Esta configuración oscurece la información sobre herramientas en el mapa si ha habilitado el modo oscuro',
+            title: 'Información sobre herramienta oscura en el mapa',
         },
     },
     vehicles: {
