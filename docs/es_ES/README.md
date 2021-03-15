@@ -44,7 +44,7 @@ Para otros navegadores puedes descargar Tampermonkey en [tampermonkey.net](https
 **Atención** Tenga en cuenta que no admitimos oficialmente navegadores más antiguos, navegadores móviles, Microsoft Edge o Internet Explorer.
 
 ### Paso Nº 2: Userscript
-Si Tampermonkey ha sido instalado con éxito en tu navegador, puedes hacer click [AQUI](chrome-extension://dhdgffkkebhmkfjojejmpbldmpobfkfo/ask.html?aid=25d20530-7782-457f-b56d-27fd01ec0a19) para descargar e instalar el Script para que posteriormente funcione.
+Si Tampermonkey ha sido instalado con éxito en tu navegador, puedes hacer click [AQUI](chrome-extension://dhdgffkkebhmkfjojejmpbldmpobfkfo/ask.html?aid=f4d8a3c9-9edc-4dfd-8bf4-4ea46d754d66) para descargar e instalar el Script para que posteriormente funcione.
 
 
 ### Paso Nº 3: Activación
