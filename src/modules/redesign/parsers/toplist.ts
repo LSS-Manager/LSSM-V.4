@@ -57,7 +57,7 @@ export default (
                 .querySelector<HTMLAnchorElement>(
                     '.pagination.pagination li:nth-last-of-type(2)'
                 )
-                ?.textContent?.trim() ?? Number.MAX_SAFE_INTEGER.toString()
+                ?.textContent?.trim() ?? '1'
         ),
     };
 };

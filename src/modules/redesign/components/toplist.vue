@@ -2,14 +2,25 @@
     <div>
         <h1>
             {{ $sm('title') }}
+            <small v-if="urlSearch">
+                {{ $sm('search') }}:
+                <span class="url-search">{{ urlSearch }}</span>
+            </small>
             <br />
             <small>
                 {{ subtitle }}
             </small>
         </h1>
         <label class="pull-right">
-            <input placeholder="imagine the user search in here" disabled />
-            <button class="btn btn-success">sörtsch</button>
+            <input
+                :placeholder="$t('search')"
+                ref="urlSearch"
+                :value="urlSearch"
+                @keyup.enter="setUrlSearch"
+            />
+            <button class="btn btn-success" @click="setUrlSearch">
+                {{ $sm('search') }}
+            </button>
         </label>
         <button
             class="btn btn-success"
@@ -106,8 +117,10 @@ export default Vue.extend<
         setSort(type: string): void;
         loadPrev(): void;
         loadNext(): void;
+        setUrlSearch(): void;
     },
     {
+        urlSearch: string;
         page: number;
         subtitle: string;
     },
@@ -180,7 +193,11 @@ export default Vue.extend<
         },
         loadPrev() {
             this.startPage--;
-            const url = `/toplist?page=${this.startPage}`;
+            const url = new URL('/toplist', window.location.href);
+            url.searchParams.set('page', this.startPage);
+            const search =
+                (this.$refs.urlSearch as HTMLInputElement)?.value?.trim() ?? '';
+            if (search) url.searchParams.set('username', search);
             this.$store
                 .dispatch('api/request', {
                     url,
@@ -208,7 +225,11 @@ export default Vue.extend<
         },
         loadNext() {
             this.endPage++;
-            const url = `/toplist?page=${this.endPage}`;
+            const url = new URL('/toplist', window.location.href);
+            url.searchParams.set('page', this.endPage);
+            const search =
+                (this.$refs.urlSearch as HTMLInputElement)?.value?.trim() ?? '';
+            if (search) url.searchParams.set('username', search);
             this.$store
                 .dispatch('api/request', {
                     url,
@@ -234,8 +255,24 @@ export default Vue.extend<
                     });
                 });
         },
+        setUrlSearch() {
+            const url = new URL(this.url, window.location.href);
+            const search =
+                (this.$refs.urlSearch as HTMLInputElement)?.value?.trim() ?? '';
+            if (search) url.searchParams.set('username', search);
+            else url.searchParams.delete('username');
+
+            this.$set(this.lightbox, 'src', url.toString());
+        },
     },
     computed: {
+        urlSearch() {
+            return (
+                new URL(this.url, window.location.href).searchParams.get(
+                    'username'
+                ) ?? ''
+            );
+        },
         page() {
             return parseInt(
                 new URL(this.url, window.location.href).searchParams.get(
@@ -244,17 +281,22 @@ export default Vue.extend<
             );
         },
         subtitle() {
-            return this.$smc('subtitle', this.toplist.entries.length, {
-                startPage: this.startPage,
-                endPage: this.endPage,
-                firstCredits:
-                    this.toplist.entries[0]?.credits?.toLocaleString() ?? '',
-                lastCredits:
-                    this.toplist.entries[
-                        this.toplist.entries.length - 1
-                    ]?.credits?.toLocaleString() ?? '',
-                totalPages: this.toplist.lastPage.toLocaleString(),
-            }).toString();
+            return this.$smc(
+                this.urlSearch ? 'search_subtitle' : 'subtitle',
+                this.toplist.entries.length,
+                {
+                    startPage: this.startPage,
+                    endPage: this.endPage,
+                    firstCredits:
+                        this.toplist.entries[0]?.credits?.toLocaleString() ??
+                        '',
+                    lastCredits:
+                        this.toplist.entries[
+                            this.toplist.entries.length - 1
+                        ]?.credits?.toLocaleString() ?? '',
+                    totalPages: this.toplist.lastPage.toLocaleString(),
+                }
+            ).toString();
         },
     },
     props: {
@@ -313,7 +355,12 @@ export default Vue.extend<
         });
         this.startPage = this.page;
         this.endPage = this.page;
-        document.title = this.$sm('title');
+        document.title = this.$sm('title').toString();
     },
 });
 </script>
+
+<style lang="sass" scoped>
+.url-search
+    font-family: monospace
+</style>

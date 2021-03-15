@@ -168,6 +168,15 @@ export default Vue.extend<
                     })
                     .then(async html => {
                         if (redirected) return;
+                        if (type === 'vehicle/nextfms') {
+                            const nextVehicle = document
+                                .querySelector<HTMLAnchorElement>(
+                                    'a.btn.btn-success[href^="/vehicles/"]'
+                                )
+                                ?.href?.match(/\d+$/)?.[0];
+                            if (nextVehicle)
+                                return (this.src = `/vehicles/${nextVehicle}`);
+                        }
                         const types = type.split('/');
                         const addLocas = async (typePath: string) =>
                             this.$i18n.mergeLocaleMessage(

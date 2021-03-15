@@ -10,6 +10,7 @@ import { CombinedVueInstance } from 'vue/types/vue';
 import { TopListWindow } from '../../src/modules/redesign/parsers/toplist';
 
 type types =
+    | 'default'
     | 'coins/list'
     | 'credits/daily'
     | 'credits/list'
