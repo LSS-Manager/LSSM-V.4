@@ -806,6 +806,6 @@ export default {
         'Túnel',
         'Vertedero',     
     ],
-    only_alliance_missions: [41, 61, 62, 112],
-    transfer_missions: [246],
+    only_alliance_missions: [57, 74],
+    transfer_missions: [],
 };
