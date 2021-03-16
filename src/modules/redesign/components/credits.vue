@@ -170,8 +170,14 @@ export default Vue.extend<
                     }
                 ).filter(
                     ({ href }) =>
-                        new URL(this.url, window.location.href).pathname !==
-                        new URL(href, window.location.href).pathname
+                        new URL(
+                            this.url,
+                            window.location.href
+                        ).pathname.replace(/\/$/g, '') !==
+                        new URL(href, window.location.href).pathname.replace(
+                            /\/$/g,
+                            ''
+                        )
                 ),
             };
         },

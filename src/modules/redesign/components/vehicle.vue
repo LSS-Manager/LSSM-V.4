@@ -95,7 +95,10 @@
                                 </td>
                                 <td>
                                     <button
-                                        v-if="vehicle.current_mission"
+                                        v-if="
+                                            vehicle.current_mission &&
+                                                !vehicle.user
+                                        "
                                         class="btn btn-default btn-xs"
                                         @click="backalarm"
                                     >
@@ -665,8 +668,10 @@
                         </td>
                         <td>
                             <button
-                                :href="
-                                    `/vehicles/${vehicle.id}/patient/${hospital.id}`
+                                @click="
+                                    fms(
+                                        `/vehicles/${vehicle.id}/patient/${hospital.id}`
+                                    )
                                 "
                                 class="btn"
                                 :class="`btn-${hospital.state}`"
@@ -791,8 +796,10 @@
                         </td>
                         <td>
                             <button
-                                :href="
-                                    `/vehicles/${vehicle.id}/gefangener/${cell.id}`
+                                @click="
+                                    fms(
+                                        `/vehicles/${vehicle.id}/gefangener/${cell.id}`
+                                    )
                                 "
                                 class="btn"
                                 :class="`btn-${cell.state}`"
@@ -1030,6 +1037,7 @@ export default Vue.extend<
         backalarm(): void;
         switch_state(): void;
         updateFilter(filter: string, value: unknown): void;
+        fms(url: string): void;
     },
     {
         participated_missions: string[];
@@ -1686,6 +1694,34 @@ export default Vue.extend<
         updateFilter(filter, value) {
             this.setSetting(filter, value).then();
         },
+        fms(url) {
+            this.$store
+                .dispatch('api/request', {
+                    url,
+                    feature: `redesign-vehicle-fms`,
+                })
+                .then((res: Response) => {
+                    if (res.redirected)
+                        return this.$set(this.lightbox, 'src', res.url);
+
+                    res.text().then(html => {
+                        import(
+                            /*webpackChunkName: "modules/redesign/parsers/vehicle/nextfms"*/ `../parsers/vehicle/nextfms`
+                        ).then(parser => {
+                            const next_vehicle = parser.default(
+                                html,
+                                url,
+                                this.lightbox.getIdFromEl
+                            );
+                            this.$set(
+                                this.lightbox,
+                                'src',
+                                `/vehicles/${next_vehicle}`
+                            );
+                        });
+                    });
+                });
+        },
     },
     props: {
         vehicle: {
@@ -1715,6 +1751,11 @@ export default Vue.extend<
         setSetting: {
             type: Function,
             required: true,
+        },
+    },
+    watch: {
+        vehicle() {
+            this.lightbox.finishLoading('vehicle-updated-data');
         },
     },
     beforeMount() {
@@ -1761,6 +1802,8 @@ export default Vue.extend<
                 });
             });
         }
+        document.title = this.vehicle.vehicle_name;
+        this.lightbox.finishLoading('vehicle-mounted');
     },
 });
 </script>

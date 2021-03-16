@@ -9,7 +9,12 @@
                     class="search_input_field"
                     :value="search"
                     @input="$emit('search', $refs.searchField.value)"
-                    :placeholder="$t('search')"
+                    :placeholder="
+                        searchPlaceholder ? searchPlaceholder : $t('search')
+                    "
+                    :title="
+                        searchPlaceholder ? searchPlaceholder : $t('search')
+                    "
                 />
             </label>
         </div>
@@ -99,6 +104,11 @@ export default Vue.extend<
             default: false,
         },
         search: {
+            type: String,
+            required: false,
+            default: '',
+        },
+        searchPlaceholder: {
             type: String,
             required: false,
             default: '',
