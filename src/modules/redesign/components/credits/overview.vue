@@ -173,6 +173,11 @@ export default Vue.extend<
             required: true,
         },
     },
+    watch: {
+        data() {
+            this.lightbox.finishLoading('credits/overview-updated-data');
+        },
+    },
     beforeMount() {
         this.head = {
             date: { title: this.$sm('date').toString(), noSort: true },
@@ -218,6 +223,7 @@ export default Vue.extend<
         document.title = `${this.$t(
             'modules.redesign.credits.nav.title'
         )}: ${this.$sm('title')}`;
+        this.lightbox.finishLoading('credits/overview-mounted');
     },
 });
 </script>

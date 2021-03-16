@@ -8,6 +8,7 @@ import { DefaultComputed } from 'vue/types/options';
 import VueI18n from 'vue-i18n';
 import { CombinedVueInstance } from 'vue/types/vue';
 import { TopListWindow } from '../../src/modules/redesign/parsers/toplist';
+import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 
 type types =
     | 'default'
@@ -28,10 +29,12 @@ type windows =
 export type routeChecks = Record<string, types>;
 
 interface Data<T, D> {
+    faSyncAlt: IconDefinition;
     type: T;
     data: D;
     html: string;
     urlProp: string;
+    loading: boolean;
 }
 
 export interface RedesignLightbox<
@@ -43,6 +46,7 @@ export interface RedesignLightbox<
         getIdFromEl(el: HTMLAnchorElement | null): number;
         getSetting(): <T>(setting: string, defaultValue: T) => Promise<T>;
         setSetting(): <T>(settingId: string, value: T) => Promise<void>;
+        finishLoading(text?: string): void;
     };
     Computed: DefaultComputed;
     Props: {

@@ -155,6 +155,7 @@ export default Vue.extend<
             );
         },
         loadPrev() {
+            this.$set(this.lightbox, 'loading', true);
             this.startPage--;
             const url = `/credits?page=${this.startPage}`;
             this.$store
@@ -175,10 +176,14 @@ export default Vue.extend<
                             ...result.entries,
                             ...this.lightbox.data.entries,
                         ]);
+                        this.lightbox.finishLoading(
+                            'credits/overview-loadprev'
+                        );
                     });
                 });
         },
         loadNext() {
+            this.$set(this.lightbox, 'loading', true);
             this.endPage++;
             const url = `/credits?page=${this.endPage}`;
             this.$store
@@ -199,6 +204,9 @@ export default Vue.extend<
                             ...this.lightbox.data.entries,
                             ...result.entries,
                         ]);
+                        this.lightbox.finishLoading(
+                            'credits/overview-loadnext'
+                        );
                     });
                 });
         },
@@ -253,6 +261,11 @@ export default Vue.extend<
             required: true,
         },
     },
+    watch: {
+        credits() {
+            this.lightbox.finishLoading('credits/list-updated-data');
+        },
+    },
     beforeMount() {
         // Object.entries(this.filter).forEach(([filter, props]) => {
         //     Object.entries(props).forEach(([prop, value]) => {
@@ -281,6 +294,7 @@ export default Vue.extend<
         document.title = `${this.$t(
             'modules.redesign.credits.nav.title'
         )}: ${this.$sm('title')}`;
+        this.lightbox.finishLoading('credits/list-mounted');
     },
 });
 </script>

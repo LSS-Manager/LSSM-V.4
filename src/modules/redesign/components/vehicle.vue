@@ -1753,6 +1753,11 @@ export default Vue.extend<
             required: true,
         },
     },
+    watch: {
+        vehicle() {
+            this.lightbox.finishLoading('vehicle-updated-data');
+        },
+    },
     beforeMount() {
         Object.entries(this.filter).forEach(([filter, props]) => {
             Object.entries(props).forEach(([prop, value]) => {
@@ -1798,6 +1803,7 @@ export default Vue.extend<
             });
         }
         document.title = this.vehicle.vehicle_name;
+        this.lightbox.finishLoading('vehicle-mounted');
     },
 });
 </script>

@@ -202,6 +202,7 @@ export default Vue.extend<
             );
         },
         loadPrev() {
+            this.$set(this.lightbox, 'loading', true);
             this.startPage--;
             const url = new URL('/toplist', window.location.href);
             url.searchParams.set('page', this.startPage.toString());
@@ -230,10 +231,12 @@ export default Vue.extend<
                             ...result.users,
                             ...this.lightbox.data.users,
                         ]);
+                        this.lightbox.finishLoading('toplist-loadprev');
                     });
                 });
         },
         loadNext() {
+            this.$set(this.lightbox, 'loading', true);
             this.endPage++;
             const url = new URL('/toplist', window.location.href);
             url.searchParams.set('page', this.endPage.toString());
@@ -262,6 +265,7 @@ export default Vue.extend<
                             ...this.lightbox.data.users,
                             ...result.users,
                         ]);
+                        this.lightbox.finishLoading('toplist-loadnext');
                     });
                 });
         },
@@ -367,6 +371,11 @@ export default Vue.extend<
             required: true,
         },
     },
+    watch: {
+        toplist() {
+            this.lightbox.finishLoading('toplist-updated-data');
+        },
+    },
     beforeMount() {
         // Object.entries(this.filter).forEach(([filter, props]) => {
         //     Object.entries(props).forEach(([prop, value]) => {
@@ -398,6 +407,7 @@ export default Vue.extend<
         this.startPage = this.page;
         this.endPage = this.page;
         document.title = this.$sm('title').toString();
+        this.lightbox.finishLoading('toplist-mounted');
     },
 });
 </script>

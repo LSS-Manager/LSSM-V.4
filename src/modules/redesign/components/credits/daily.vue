@@ -350,6 +350,11 @@ export default Vue.extend<
             required: true,
         },
     },
+    watch: {
+        credits() {
+            this.lightbox.finishLoading('credits/daily-updated-data');
+        },
+    },
     beforeMount() {
         Object.entries(this.filter).forEach(([filter, props]) => {
             Object.entries(props).forEach(([prop, value]) => {
@@ -381,6 +386,7 @@ export default Vue.extend<
         document.title = `${this.$t(
             'modules.redesign.credits.nav.title'
         )}: ${this.$sm('title')}`;
+        this.lightbox.finishLoading('credits/daily-mounted');
     },
 });
 </script>

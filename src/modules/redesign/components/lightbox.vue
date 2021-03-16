@@ -56,11 +56,19 @@
             :id="$store.getters.nodeAttribute('redesign-lightbox-iframe')"
             :name="$store.getters.nodeAttribute('redesign-lightbox-iframe')"
         ></iframe>
+        <div id="redesign-loader" v-show="loading">
+            <font-awesome-icon
+                :icon="faSyncAlt"
+                spin
+                size="10x"
+            ></font-awesome-icon>
+        </div>
     </lightbox>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
+import { faSyncAlt } from '@fortawesome/free-solid-svg-icons/faSyncAlt';
 import { RedesignLightbox } from 'typings/modules/Redesign';
 
 export default Vue.extend<
@@ -90,10 +98,12 @@ export default Vue.extend<
     },
     data() {
         return {
+            faSyncAlt,
             type: 'default',
             data: null,
             html: '',
             urlProp: '',
+            loading: true,
         };
     },
     props: {
@@ -125,6 +135,7 @@ export default Vue.extend<
                 return this.src ?? this.url;
             },
             set(url) {
+                this.loading = true;
                 const link = new URL(url, window.location.href);
                 const type = Object.entries(this.routeChecks).find(([regex]) =>
                     link.pathname.match(regex)
@@ -149,6 +160,7 @@ export default Vue.extend<
                         );
                     }
                     this.type = '';
+                    this.finishLoading();
                     return;
                 }
 
@@ -255,6 +267,18 @@ export default Vue.extend<
                 )?.[0] ?? '-1'
             );
         },
+        finishLoading(text) {
+            this.loading = false;
+            this.$store.dispatch('event/createEvent', {
+                name: 'redesign-finished-loading',
+                detail: {
+                    extra: text,
+                    type: this.type,
+                    data: this.data,
+                },
+            });
+            // this.$store.dispatch('event/dispatchEvent', )
+        },
     },
     mounted() {
         this.src = this.url;
@@ -275,4 +299,16 @@ iframe
     height: 100%
     display: block
     border: none
+
+#redesign-loader
+    position: fixed
+    top: 0
+    left: 0
+    background: rgba(255, 255, 255, 0.5)
+    width: 100%
+    height: 100%
+    display: flex
+    justify-content: center
+    align-items: center
+    color: black
 </style>
