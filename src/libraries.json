@@ -30,7 +30,7 @@
 		"version": "4.14.168"
 	},
 	"@types/node": {
-		"version": "14.14.33"
+		"version": "14.14.35"
 	},
 	"@types/pdfmake": {
 		"version": "0.1.17"
@@ -54,10 +54,10 @@
 		"version": "1.16.0"
 	},
 	"@typescript-eslint/eslint-plugin": {
-		"version": "4.17.0"
+		"version": "4.18.0"
 	},
 	"@typescript-eslint/parser": {
-		"version": "4.17.0"
+		"version": "4.18.0"
 	},
 	"@vuepress/plugin-active-header-links": {
 		"icon": "https://vuepress.vuejs.org/hero.png",
@@ -104,7 +104,7 @@
 	"eslint": {
 		"icon": "https://eslint.org/assets/img/favicon.512x512.png",
 		"url": "https://eslint.org",
-		"version": "7.21.0"
+		"version": "7.22.0"
 	},
 	"eslint-plugin-prettier": {
 		"icon": "https://prettier.io/icon.png",
