@@ -1,4 +1,4 @@
-interface Entry {
+interface User {
     img: string;
     credits: number;
     name: string;
@@ -11,7 +11,7 @@ interface Entry {
 }
 
 export interface TopListWindow {
-    entries: Entry[];
+    users: User[];
     lastPage: number;
 }
 
@@ -29,26 +29,26 @@ export default (
                 ?.replace(/[.,]/g, '') ?? '0'
         );
     return {
-        entries: Array.from(
+        users: Array.from(
             doc.querySelectorAll<HTMLTableRowElement>(
                 'table tbody:last-of-type tr'
             )
-        ).map(entry => ({
+        ).map(user => ({
             img:
-                entry.children[0]?.querySelector<HTMLImageElement>('img')
-                    ?.src ?? '',
-            credits: getNum(entry.children[1]),
-            name: entry.children[2]?.textContent?.trim() ?? '',
+                user.children[0]?.querySelector<HTMLImageElement>('img')?.src ??
+                '',
+            credits: getNum(user.children[1]),
+            name: user.children[2]?.textContent?.trim() ?? '',
             id: getIdFromEl(
-                entry.children[2]?.querySelector<HTMLAnchorElement>('a')
+                user.children[2]?.querySelector<HTMLAnchorElement>('a')
             ),
-            online: !!entry.children[2].querySelector<HTMLImageElement>(
+            online: !!user.children[2].querySelector<HTMLImageElement>(
                 'img[src="/images/user_green.png"]'
             ),
             alliance: {
-                name: entry.children[3]?.textContent?.trim() ?? '',
+                name: user.children[3]?.textContent?.trim() ?? '',
                 id: getIdFromEl(
-                    entry.children[3]?.querySelector<HTMLAnchorElement>('a')
+                    user.children[3]?.querySelector<HTMLAnchorElement>('a')
                 ),
             },
         })),

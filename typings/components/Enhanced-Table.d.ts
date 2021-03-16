@@ -19,6 +19,7 @@ export interface EnhancedTableProps {
     sortDir: string;
     noSearch: boolean;
     search: string;
+    searchPlaceholder: string;
     tableAttrs: {
         [key: string]: unknown;
     };

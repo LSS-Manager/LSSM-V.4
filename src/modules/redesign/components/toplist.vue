@@ -1,9 +1,20 @@
 <template>
     <div>
+        <label class="pull-right">
+            <input
+                :placeholder="$sm('search_global')"
+                ref="urlSearch"
+                :value="urlSearch"
+                @keyup.enter="setUrlSearch"
+            />
+            <button class="btn btn-success" @click="setUrlSearch">
+                {{ $sm('search_global') }}
+            </button>
+        </label>
         <h1>
             {{ $sm('title') }}
             <small v-if="urlSearch">
-                {{ $sm('search') }}:
+                {{ $sm('search_global') }}:
                 <span class="url-search">{{ urlSearch }}</span>
             </small>
             <br />
@@ -11,17 +22,6 @@
                 {{ subtitle }}
             </small>
         </h1>
-        <label class="pull-right">
-            <input
-                :placeholder="$t('search')"
-                ref="urlSearch"
-                :value="urlSearch"
-                @keyup.enter="setUrlSearch"
-            />
-            <button class="btn btn-success" @click="setUrlSearch">
-                {{ $sm('search') }}
-            </button>
-        </label>
         <button
             class="btn btn-success"
             :disabled="startPage <= 1"
@@ -42,9 +42,14 @@
         <enhanced-table
             :head="head"
             :table-attrs="{ class: 'table' }"
-            :no-search="true"
+            :search="search"
+            :search-placeholder="$sm('search_local')"
+            @search="s => (search = s)"
         >
-            <tr v-for="(entry, id) in toplist.entries" :key="id">
+            <template v-slot:head>
+                <span>{{ $smc('amount', usersFiltered.length) }}</span>
+            </template>
+            <tr v-for="(entry, id) in usersFiltered" :key="id">
                 <td>
                     <img
                         :src="entry.img"
@@ -123,6 +128,7 @@ export default Vue.extend<
         urlSearch: string;
         page: number;
         subtitle: string;
+        usersFiltered: TopListWindow['users'];
     },
     {
         toplist: TopListWindow;
@@ -194,7 +200,7 @@ export default Vue.extend<
         loadPrev() {
             this.startPage--;
             const url = new URL('/toplist', window.location.href);
-            url.searchParams.set('page', this.startPage);
+            url.searchParams.set('page', this.startPage.toString());
             const search =
                 (this.$refs.urlSearch as HTMLInputElement)?.value?.trim() ?? '';
             if (search) url.searchParams.set('username', search);
@@ -208,7 +214,7 @@ export default Vue.extend<
                     import('../parsers/toplist').then(parser => {
                         const result = parser.default(
                             html,
-                            url,
+                            url.toString(),
                             this.lightbox.getIdFromEl
                         );
                         this.$set(
@@ -216,9 +222,9 @@ export default Vue.extend<
                             'lastPage',
                             result.lastPage
                         );
-                        this.$set(this.lightbox.data, 'entries', [
-                            ...result.entries,
-                            ...this.lightbox.data.entries,
+                        this.$set(this.lightbox.data, 'users', [
+                            ...result.users,
+                            ...this.lightbox.data.users,
                         ]);
                     });
                 });
@@ -226,7 +232,7 @@ export default Vue.extend<
         loadNext() {
             this.endPage++;
             const url = new URL('/toplist', window.location.href);
-            url.searchParams.set('page', this.endPage);
+            url.searchParams.set('page', this.endPage.toString());
             const search =
                 (this.$refs.urlSearch as HTMLInputElement)?.value?.trim() ?? '';
             if (search) url.searchParams.set('username', search);
@@ -240,7 +246,7 @@ export default Vue.extend<
                     import('../parsers/toplist').then(parser => {
                         const result = parser.default(
                             html,
-                            url,
+                            url.toString(),
                             this.lightbox.getIdFromEl
                         );
                         this.$set(
@@ -248,9 +254,9 @@ export default Vue.extend<
                             'lastPage',
                             result.lastPage
                         );
-                        this.$set(this.lightbox.data, 'entries', [
-                            ...this.lightbox.data.entries,
-                            ...result.entries,
+                        this.$set(this.lightbox.data, 'users', [
+                            ...this.lightbox.data.users,
+                            ...result.users,
                         ]);
                     });
                 });
@@ -283,20 +289,26 @@ export default Vue.extend<
         subtitle() {
             return this.$smc(
                 this.urlSearch ? 'search_subtitle' : 'subtitle',
-                this.toplist.entries.length,
+                this.toplist.users.length,
                 {
                     startPage: this.startPage,
                     endPage: this.endPage,
                     firstCredits:
-                        this.toplist.entries[0]?.credits?.toLocaleString() ??
-                        '',
+                        this.toplist.users[0]?.credits?.toLocaleString() ?? '',
                     lastCredits:
-                        this.toplist.entries[
-                            this.toplist.entries.length - 1
+                        this.toplist.users[
+                            this.toplist.users.length - 1
                         ]?.credits?.toLocaleString() ?? '',
                     totalPages: this.toplist.lastPage.toLocaleString(),
                 }
             ).toString();
+        },
+        usersFiltered() {
+            return this.toplist.users.filter(user =>
+                JSON.stringify(Object.values(user))
+                    .toLowerCase()
+                    .match(this.search.trim().toLowerCase())
+            );
         },
     },
     props: {
