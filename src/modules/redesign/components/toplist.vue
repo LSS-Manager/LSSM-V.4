@@ -45,11 +45,14 @@
             :search="search"
             :search-placeholder="$sm('search_local')"
             @search="s => (search = s)"
+            :sort="sort"
+            :sort-dir="sortDir"
+            @sort="setSort"
         >
             <template v-slot:head>
                 <span>{{ $smc('amount', usersFiltered.length) }}</span>
             </template>
-            <tr v-for="(entry, id) in usersFiltered" :key="id">
+            <tr v-for="(entry, id) in usersSorted" :key="id">
                 <td>
                     <img
                         :src="entry.img"
@@ -129,6 +132,7 @@ export default Vue.extend<
         page: number;
         subtitle: string;
         usersFiltered: TopListWindow['users'];
+        usersSorted: TopListWindow['users'];
     },
     {
         toplist: TopListWindow;
@@ -304,11 +308,33 @@ export default Vue.extend<
             ).toString();
         },
         usersFiltered() {
-            return this.toplist.users.filter(user =>
-                JSON.stringify(Object.values(user))
-                    .toLowerCase()
-                    .match(this.search.trim().toLowerCase())
-            );
+            return this.search.trim().length
+                ? this.toplist.users.filter(user =>
+                      JSON.stringify(Object.values(user))
+                          .toLowerCase()
+                          .match(this.search.trim().toLowerCase())
+                  )
+                : this.toplist.users;
+        },
+        usersSorted() {
+            if (this.sort === 'credits' && !this.urlSearch) {
+                if (this.sortDir === 'asc') return this.usersFiltered;
+                return [...this.usersFiltered].reverse();
+            }
+            const modifier = this.sortDir === 'desc' ? -1 : 1;
+            return [...this.usersFiltered].sort((a, b) => {
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
+                let f = a[this.sort] ?? '';
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
+                let s = b[this.sort] ?? '';
+                if (this.sort === 'alliance') {
+                    f = a.alliance.name ?? '';
+                    s = b.alliance.name ?? '';
+                }
+                return f < s ? -1 * modifier : f > s ? modifier : 0;
+            });
         },
     },
     props: {
@@ -365,6 +391,10 @@ export default Vue.extend<
             if (!target || !target.hasAttribute('href')) return;
             this.$set(this.lightbox, 'src', target.getAttribute('href'));
         });
+        this.getSetting(`sort`, this.sort).then(sort => (this.sort = sort));
+        this.getSetting(`sortDir`, this.sortDir).then(
+            dir => (this.sortDir = dir)
+        );
         this.startPage = this.page;
         this.endPage = this.page;
         document.title = this.$sm('title').toString();
