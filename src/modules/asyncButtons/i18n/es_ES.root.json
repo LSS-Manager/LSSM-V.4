@@ -1,1 +1,32 @@
-
+{
+	"description": "Evita con este módulo que el juego se recargue al pulsar determinados botones.",
+	"name": "Botones asincrónicos",
+	"settings": {
+		"buildingPersonal": {
+			"description": "Evita la recarga cuando libera personal.",
+			"title": "Liberación de personal"
+		},
+		"buildingTax": {
+			"description": "Evita la recarga cuando se fija el coste de las propias celdas o camas de hospital.",
+			"title": "Absorción de costes de celdas y camas"
+		},
+		"deleteARR": {
+			"description": "Evita la recarga cuando elimina una entrada ARR",
+			"title": "Eliminar entradas ARR"
+		},
+		"deleteForumPost": {
+			"description": "Evitar la recarga cuando elimina una publicación del foro.",
+			"title": "Eliminar publicaciones del foro"
+		},
+		"memberlistManageUser": {
+			"description": "Evita la recarga, si hace que un miembro de la alianza edite o elimine sus cargos",
+			"title": "Cargos de los miembros de la alianza"
+		},
+		"missionPrisoners": {
+			"title": "Prisioneros en la ventana de la misión"
+		},
+		"missionReply": {
+			"title": "Misiones repetidas en la misión"
+		}
+	}
+}
