@@ -35,11 +35,11 @@
 		"unset": "Retirar"
 	},
 	"memberlistRoles": {
-		"admin": "Administrador de la alianza",
-		"aufsichtsrat": "Registro de acciones del moderador",
-		"coadmin": "Co-Administrador de la alianza",
-		"finance": "Finanzas de la alianza",
-		"schooling": "Administrador de formación",
-		"sprechwunsch_admin": "Administrador de peticiones de transporte"
+		"admin": "Administrador de alianza",
+		"aufsichtsrat": "Registro de acciones de moderación",
+		"coadmin": "Coadministrador de alianza",
+		"finance": "Economía de la alianza",
+		"schooling": "Formador de alianza",
+		"sprechwunsch_admin": "Petición de transporte (admin.)"
 	}
 }
