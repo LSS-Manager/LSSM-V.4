@@ -1,7 +1,7 @@
 <template>
     <div>
         <h1>
-            {{ $sm('summary') }}:
+            {{ $sm('title') }}:
             {{
                 moment()
                     .add(page, 'days')
@@ -350,6 +350,11 @@ export default Vue.extend<
             required: true,
         },
     },
+    watch: {
+        credits() {
+            this.lightbox.finishLoading('credits/daily-updated-data');
+        },
+    },
     beforeMount() {
         Object.entries(this.filter).forEach(([filter, props]) => {
             Object.entries(props).forEach(([prop, value]) => {
@@ -378,6 +383,10 @@ export default Vue.extend<
         this.getSetting('sortDir', this.sortDir).then(
             dir => (this.sortDir = dir)
         );
+        document.title = `${this.$t(
+            'modules.redesign.credits.nav.title'
+        )}: ${this.$sm('title')}`;
+        this.lightbox.finishLoading('credits/daily-mounted');
     },
 });
 </script>

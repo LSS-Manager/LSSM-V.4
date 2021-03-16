@@ -5,7 +5,11 @@
         :no-title-hide="true"
         :no-modal="noModal"
     >
-        <div v-show="type" class="redesign-wrapper" :type="type">
+        <div
+            v-show="type && type !== 'default'"
+            class="redesign-wrapper"
+            :type="type"
+        >
             <Vehicle
                 v-if="type === 'vehicle'"
                 :vehicle="data"
@@ -27,19 +31,44 @@
                 :set-setting="setSetting()"
                 :type="type"
             ></Credits>
+            <Toplist
+                v-else-if="type === 'toplist'"
+                :toplist="data"
+                :url="urlProp"
+                :lightbox="this"
+                :$m="$m"
+                :$mc="$mc"
+                :get-setting="getSetting()"
+                :set-setting="setSetting()"
+                :type="type"
+            ></Toplist>
+            <div
+                v-else-if="type === 'vehicle/nextfms'"
+                class="alert alert-success"
+            >
+                {{ $m('vehicle.nextfms.finished') }}
+            </div>
         </div>
         <iframe
-            v-show="!type"
+            v-show="!type || type === 'default'"
             ref="iframe"
             :src="url"
             :id="$store.getters.nodeAttribute('redesign-lightbox-iframe')"
             :name="$store.getters.nodeAttribute('redesign-lightbox-iframe')"
         ></iframe>
+        <div id="redesign-loader" v-show="loading">
+            <font-awesome-icon
+                :icon="faSyncAlt"
+                spin
+                size="10x"
+            ></font-awesome-icon>
+        </div>
     </lightbox>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
+import { faSyncAlt } from '@fortawesome/free-solid-svg-icons/faSyncAlt';
 import { RedesignLightbox } from 'typings/modules/Redesign';
 
 export default Vue.extend<
@@ -62,13 +91,19 @@ export default Vue.extend<
             import(
                 /*webpackChunkName: "modules/redesign/windows/credits"*/ './credits.vue'
             ),
+        Toplist: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/toplist"*/ './toplist.vue'
+            ),
     },
     data() {
         return {
-            type: '',
+            faSyncAlt,
+            type: 'default',
             data: null,
             html: '',
             urlProp: '',
+            loading: true,
         };
     },
     props: {
@@ -100,6 +135,7 @@ export default Vue.extend<
                 return this.src ?? this.url;
             },
             set(url) {
+                this.loading = true;
                 const link = new URL(url, window.location.href);
                 const type = Object.entries(this.routeChecks).find(([regex]) =>
                     link.pathname.match(regex)
@@ -124,16 +160,35 @@ export default Vue.extend<
                         );
                     }
                     this.type = '';
+                    this.finishLoading();
                     return;
                 }
+
+                let redirected = false;
 
                 this.$store
                     .dispatch('api/request', {
                         url,
                         feature: `redesign-${type}`,
                     })
-                    .then((res: Response) => res.text())
+                    .then((res: Response) => {
+                        if (res.redirected) {
+                            redirected = true;
+                            return (this.src = res.url);
+                        }
+                        return res.text();
+                    })
                     .then(async html => {
+                        if (redirected) return;
+                        if (type === 'vehicle/nextfms') {
+                            const nextVehicle = document
+                                .querySelector<HTMLAnchorElement>(
+                                    'a.btn.btn-success[href^="/vehicles/"]'
+                                )
+                                ?.href?.match(/\d+$/)?.[0];
+                            if (nextVehicle)
+                                return (this.src = `/vehicles/${nextVehicle}`);
+                        }
                         const types = type.split('/');
                         const addLocas = async (typePath: string) =>
                             this.$i18n.mergeLocaleMessage(
@@ -165,6 +220,8 @@ export default Vue.extend<
                                 url,
                                 this.getIdFromEl
                             );
+                            if (type === 'vehicle/nextfms' && this.data)
+                                this.src = `/vehicles/${this.data}`;
                             this.type = type;
                             this.urlProp = url;
                         });
@@ -210,6 +267,18 @@ export default Vue.extend<
                 )?.[0] ?? '-1'
             );
         },
+        finishLoading(text) {
+            this.loading = false;
+            this.$store.dispatch('event/createEvent', {
+                name: 'redesign-finished-loading',
+                detail: {
+                    extra: text,
+                    type: this.type,
+                    data: this.data,
+                },
+            });
+            // this.$store.dispatch('event/dispatchEvent', )
+        },
     },
     mounted() {
         this.src = this.url;
@@ -230,4 +299,16 @@ iframe
     height: 100%
     display: block
     border: none
+
+#redesign-loader
+    position: fixed
+    top: 0
+    left: 0
+    background: rgba(255, 255, 255, 0.5)
+    width: 100%
+    height: 100%
+    display: flex
+    justify-content: center
+    align-items: center
+    color: black
 </style>

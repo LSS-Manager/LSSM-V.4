@@ -10,4 +10,8 @@ export default (() => ({
         type: 'hidden',
         default: {},
     },
+    'toplist': <Hidden>{
+        type: 'hidden',
+        default: {},
+    },
 })) as ModuleSettingFunction;
