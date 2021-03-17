@@ -21,7 +21,10 @@
 		"police_stations": "Politiebureau | Politiebureaus",
 		"rescue_stations": "Ambulancestandplaats | Ambulancestandplaatsen",
 		"title": "Vereist | Vereisten",
-		"wasserrettung": "Waterongevallenuitbreiding | Waterongevallenuitbreidingen"
+		"wasserrettung": "Waterongevallenuitbreiding | Waterongevallenuitbreidingen",
+		"riot_unit_count": "ME sectie uitbreiding| ME sectie uitbreidingen",
+		"prisoner_transport_count": "Arrestantenvervoeruitbreiding | Arrestantenvervoeruitbreidingen",
+		"detention_unit_count": "Aanhoudingseenheiduitbreiding | Aanhoudingseenheiduitbreidingen"
 	},
 	"prisoners": {
 		"max_possible_prisoners": "Arrestant maximaal | Arrestanten maximaal",
@@ -49,9 +52,11 @@
 			"bike_police_only_if_needed": "Biketeam alleen indien aanwezig | Biketeams alleen indien aanwezig",
 			"boats": "Waterongevallenaanhanger | Waterongevallenaanhangers",
 			"diver_units": "Waterongevallen- of oppervlaktereddingsvoertuig | Waterongevallen- of oppervlaktereddingsvoertuigen",
+			"detention_unit": "Aanhoudingseenheid | Aanhoudingseenheden",
 			"elw3": "Commandovoertuig | Commandovoertuigen",
 			"elw_airport": "Airport Fire Officer / On Scene Commander",
 			"firetrucks": "Tankautospuit | Tankautospuiten",
+			"gefkw": "Arrestantenvervoer",
 			"grukw": "ME Groepsvoertuig | ME Groepsvoertuig",
 			"gwmess": "Verkenningseenheid Brandweer | Verkenningseenheden Brandweer",
 			"hazmat_vehicles": "Adviseur Gevaarlijke Stoffen | Adviseurs Gevaarlijke Stoffen",

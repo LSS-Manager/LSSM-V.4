@@ -1,0 +1,13 @@
+{
+	"amount": "Aantal",
+	"description": "Beschrijving",
+	"filter": {
+		"total": {
+			"max": "Max. totaal",
+			"min": "Min. totaal"
+		}
+	},
+	"summary": "Dagsamenvatting",
+	"today": "Vandaag",
+	"total": "Totaal"
+}

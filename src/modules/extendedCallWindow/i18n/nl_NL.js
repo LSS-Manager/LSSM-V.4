@@ -138,6 +138,8 @@ module.exports = {
             [/^AT Operator(s)?$/]: [54],
             [/^Ambulance(s)?$/]: [16, 52, 57, 63],
             [/^Biketeam(s)?$/]: [60],
+            [/^Aanhoudingseenhe(id|den)$/]: [64],
+            [/^Dienstbus(sen)? Arrestantenvervoer$/]: [58],
             [/^Er ontbre(ekt|ken):$/]: [],
             [/^Arrestanten zullen vervoerd worden$/]: [],
         },
