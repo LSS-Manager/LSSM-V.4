@@ -82,7 +82,7 @@ export default async (
     pinBtn.id = pinBtnId;
     const pinIcon = document.createElement('i');
     pinIcon.classList.add('fas', 'fa-thumbtack');
-    pinBtn.addEventListener('click', e =>
+    pinBtn.addEventListener('click', () =>
         historyList.classList.toggle('pinned')
     );
     pinBtn.append(pinIcon);
