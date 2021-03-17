@@ -1,0 +1,39 @@
+{
+	"enhancedPersonnelAssignment": {
+		"toggleFittingPersonnel": "Ocultar personal sin información adecuada"
+	},
+	"expansions": {
+		"notBuild": "Aún no construido"
+	},
+	"fastDispatchChooser": {
+		"noDispatch": "Sin centralita"
+	},
+	"personnelDemands": {
+		"additional": "Los valores entre paréntesis excluyen los vehículos en el estado 6.",
+		"demand": "Personal requerido"
+	},
+	"schoolingSummary": {
+		"all": "Todas las combinaciones",
+		"amount": "Cantidad",
+		"bound": "Destinado a",
+		"each": "Cada Curso",
+		"max": "Requerido máximo actualmente",
+		"min": "Requerido mínimo actualmente",
+		"noSchooling": "Sin cursos",
+		"schooling": "Cursos",
+		"title": "Resumen del personal"
+	},
+	"upgradeConfirmation": {
+		"modal": {
+			"btnCancel": "Cancelar",
+			"btnConfirm": "Confirmar",
+			"text": "¿De verdad quieres mejorar este edificio?",
+			"title": "¿Mejorar edificio?"
+		}
+	},
+	"vehiclePersonnel": {
+		"vehiclesPersonnelAssigned": "asignado",
+		"vehiclesPersonnelCurrent": "actual",
+		"vehiclesPersonnelMax": "máx"
+	}
+}

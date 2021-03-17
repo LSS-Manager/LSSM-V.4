@@ -1,0 +1,45 @@
+{
+	"buildingPersonal": {
+		"deleteModal": {
+			"btnCancel": "Cancelar",
+			"btnConfirm": "Liberar",
+			"text": "¿Estás seguro de que quieres liberar a esta persona?",
+			"title": "¿Liberar?"
+		}
+	},
+	"deleteARR": {
+		"deleteModal": {
+			"btnCancel": "Cancelar",
+			"btnConfirm": "Eliminar",
+			"text": "¿Quiere eliminar esta entrada de AAO?",
+			"title": "¿Eliminar?"
+		}
+	},
+	"forumPost": {
+		"deleteModal": {
+			"btnCancel": "Cancelar",
+			"btnConfirm": "Eliminar",
+			"text": "¿Quieres eliminar esta publicación?",
+			"title": "¿Eliminar?"
+		}
+	},
+	"memberlistManageUser": {
+		"hide": "Cerrar",
+		"kickModal": {
+			"btnCancel": "Cancelar",
+			"btnConfirm": "Expulsar",
+			"text": "¿De verdad quieres expulsar al jugador?",
+			"title": "¿Expulsar?"
+		},
+		"set": "Colocar",
+		"unset": "Retirar"
+	},
+	"memberlistRoles": {
+		"admin": "Administrador de alianza",
+		"aufsichtsrat": "Registro de acciones de moderación",
+		"coadmin": "Coadministrador de alianza",
+		"finance": "Economía de la alianza",
+		"schooling": "Formador de alianza",
+		"sprechwunsch_admin": "Petición de transporte (admin.)"
+	}
+}
