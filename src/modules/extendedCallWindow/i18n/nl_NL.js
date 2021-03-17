@@ -132,7 +132,7 @@ module.exports = {
             [/^Politiehelikopter$/]: [28],
             [/^Hondengeleider(s)?$/]: [47, 48],
             [/^ME Commandovoertuig(en)?$/]: [39],
-            [/^ME Groepsvoertuig(en)?$/]: [40],
+            [/^ME Flexbus(sen)?$/]: [40],
             [/^AT Commandant(en)?$/]: [53],
             [/^AT Materiaalwagen(s)?$/]: [55],
             [/^AT Operator(s)?$/]: [54],
