@@ -1,6 +1,7 @@
 // import { Building } from 'typings/Building';
 
-const furtherFiles = require.context('./es_ES/', true, /.*(\/index)?\.js(on)?/);
+// Commented as dir ./es_ES does not exist currently
+// const furtherFiles = require.context('./es_ES/', true, /.*(\/index)?\.js(on)?/);
 const modules = {
     appstore: {
         save: 'Guardar',
@@ -53,12 +54,12 @@ const modules = {
 
 const t = {} as { [key: string]: unknown };
 
-furtherFiles
-    .keys()
-    .forEach(
-        key => (t[key.split('/')[1].replace(/\..*$/, '')] = furtherFiles(key))
-    );
-
+// Commented as dir ./es_ES does not exist currently
+// furtherFiles
+//     .keys()
+//     .forEach(
+//         key => (t[key.split('/')[1].replace(/\..*$/, '')] = furtherFiles(key))
+//     );
 export default {
     modules,
     ...t,
