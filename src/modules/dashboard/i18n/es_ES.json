@@ -58,7 +58,7 @@
 		"actions": "",
 		"building": "Edificio",
 		"caption": "Nombre",
-		"fms": "FMS",
+		"fms": "Estado",
 		"type": "Tipo"
 	},
 	"vehicle-types": {
