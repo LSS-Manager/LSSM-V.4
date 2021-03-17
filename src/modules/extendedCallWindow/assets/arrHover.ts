@@ -144,7 +144,7 @@ export default (
 
         document
             .querySelectorAll<HTMLInputElement>(
-                '#all .vehicle_checkbox:not(:checked)'
+                '#all .vehicle_checkbox:not(:checked):not([ignore_aao="1"])'
             )
             .forEach(vehicle => {
                 if (!vehicle.checked) {
