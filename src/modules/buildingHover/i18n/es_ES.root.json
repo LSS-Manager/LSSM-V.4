@@ -1,1 +1,4 @@
-
+{
+	"description": "Muestra una breve información de cada edificio cuando mueves el ratón sobre él en el mapa.",
+	"name": "Breve información de un edificio"
+}
