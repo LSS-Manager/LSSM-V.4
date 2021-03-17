@@ -1,1 +1,81 @@
-
+{
+	"building-list": {
+		"actions": "",
+		"caption": "Nombre",
+		"current": "Número (activo)",
+		"fastDispatchChooser": {
+			"noDispatch": "Sin centralita"
+		},
+		"type": "Tipo",
+		"unavailable": "En construcción"
+	},
+	"building-types": {
+		"building": "Edificios",
+		"current": "Número (activo)",
+		"extension": "Expansión",
+		"maximum": "Máximo posible",
+		"title": "Todos {type}",
+		"unavailable": "En construcción"
+	},
+	"chart-summaries": {
+		"buildings": {
+			"columnchart": "Usar gráfico de barras",
+			"personal_count": "Personal",
+			"tip": "Haga clic en una de las categorías (por ejemplo, parque de bomberos o policía) para ampliar los tipos de edificios asignados a esta categoría. Si luego hace clic en un tipo de edificio, puede ver cuántos vehículos de cada tipo de vehículo se encuentran en los edificios de ese tipo. De esta manera, puede averiguar rápidamente cuántos vehículos de cada tipo de vehículo están estacionados en las comisarías y cuántos en las pequeñas comisarías.",
+			"title": "Edificios"
+		},
+		"vehicles": {
+			"empty": "¡Aún no tiene vehículos en la categoria {category}!",
+			"tip": "Haz click en un grupo de tipo de vehículos para mostar solo este grupo",
+			"title": "Vehículos"
+		}
+	},
+	"dispatchcenter-view": {
+		"manage": {
+			"newBoard": "Nuevo tablón",
+			"title": "Administar tablón",
+			"titles": {
+				"buildings": {
+					"bold": "Selección del tipo de edificio",
+					"small": "mostrar solo edificios de este tipo para la selección"
+				},
+				"dispatch": {
+					"bold": "Selección de la centralita",
+					"small": "mostrar solo edificios de centralitas para la selección"
+				},
+				"name": "Título del tablón"
+			}
+		},
+		"no-buildings": "No hay edificios. Es necesario ajustar los filtros del tablón en \"Manage Boards\"-tab."
+	},
+	"tabs": {
+		"building-types": "Descripción del edificio",
+		"chart-summary": "Resumen",
+		"dispatchcenter-view": "Vista de la centralita",
+		"vehicle-types": "Descripción del estado"
+	},
+	"vehicle-list": {
+		"actions": "",
+		"building": "Edificio",
+		"caption": "Nombre",
+		"fms": "FMS",
+		"type": "Tipo"
+	},
+	"vehicle-types": {
+		"status": "Estado",
+		"statuses": [
+			1,
+			2,
+			3,
+			4,
+			5,
+			6,
+			7,
+			9
+		],
+		"sum": "Total",
+		"title": "Todo {type} | Todo {type} en estado {n} | Todo {type} en estado {n}",
+		"type": "Tipo de vehículo",
+		"vehicles": "Vehículos"
+	}
+}
