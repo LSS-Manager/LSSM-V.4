@@ -1,5 +1,5 @@
 {
-    "version": "4.2.0+20210316.2121",
+    "version": "4.2.0+20210317.1854",
     "license": "CC-BY-NC-SA-4.0",
     "scripts": {
         "predev": "tsc -b scripts && node scripts predev",
@@ -16,8 +16,8 @@
         "tsc:docs": "tsc -b scripts && node scripts tscDocs"
     },
     "dependencies": {
-        "@fortawesome/fontawesome-svg-core": "^1.2.34",
-        "@fortawesome/free-solid-svg-icons": "^5.15.2",
+        "@fortawesome/fontawesome-svg-core": "^1.2.35",
+        "@fortawesome/free-solid-svg-icons": "^5.15.3",
         "@fortawesome/vue-fontawesome": "^2.0.2",
         "broadcast-channel": "^3.5.3",
         "combokeys": "^3.0.1",

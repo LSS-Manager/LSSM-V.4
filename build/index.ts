@@ -100,7 +100,10 @@ webpack(
             }
         }
 
-        if (stats) {
+        if (!stats) {
+            console.error('Build Error: stats is a falsy value!');
+            return process.exit(-1);
+        } else {
             fs.writeFileSync(
                 `./dist/webpack.out.${
                     process.argv[2] === 'production' ? 'public' : 'beta'
