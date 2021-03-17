@@ -1,1 +1,66 @@
-
+{
+	"description": "Agrega algunas funciones útiles a sus edificios.",
+	"name": "Vista ampliada del edificio",
+	"settings": {
+		"buildingsLeftRight": {
+			"description": "Muestra en los edificios cuántos del mismo tipo aún existen en la dirección respectiva.",
+			"title": "Número de edificios del mismo tipo"
+		},
+		"enhanceVehicleList": {
+			"description": "Amplía la lista de vehículos con funciones útiles, algunas de las cuales son especialmente ajustables.",
+			"title": "Ampliar la lista de vehículos"
+		},
+		"enhancedPersonnelAssignment": {
+			"description": "Te da la oportunidad de esconder personal sin la formación adecuada.",
+			"title": "Mejorar la asignacion de personal"
+		},
+		"expansions": {
+			"description": "Muestra las extensiones de un edificio sin tener que presionar primero la pestaña de extensiones.",
+			"title": "Muestra las extensiones directamente"
+		},
+		"fastDispatchChooser": {
+			"description": "Le permite seleccionar directamente en un edificio a qué centralita está asignado sin tener que acceder primero a la configuración.",
+			"title": "Selección rápida de la centralita"
+		},
+		"fmsSwitch": {
+			"description": "Le permite cambiar entre el estado 2 y 6 haciendo clic en el estado.",
+			"title": "Botón de estado rápido 2 <=> 6"
+		},
+		"personnelAssignmentBtn": {
+			"description": "Se inserta junto al botón \"Edit\" para agregar un botón a la asignación de personal. - ¡Aún no funciona en las centralitas!",
+			"title": "Botón para asignación de personal"
+		},
+		"personnelDemands": {
+			"description": "Muestra cuánto personal se requiere con ocupación mínima y máxima de vehículos.",
+			"title": "Requerimientos de personal"
+		},
+		"schoolingSummary": {
+			"description": "Muestra un resumen general del personal de un edificio de cuántas personas tienen formación(es).",
+			"title": "Resumen del personal"
+		},
+		"upgradeConfirmation": {
+			"description": "Pregunta si realmente desea mejorar su edificio.",
+			"title": "Mejorar edificio"
+		},
+		"vehicleTypes": {
+			"description": "Muestra el tipo de vehículo (y, si está disponible, la propia clase de vehículo) en una columna separada.",
+			"title": "Tipo de vehículo"
+		},
+		"vehiclesPersonnelAssigned": {
+			"description": "Muestra cuántas personas están asignadas al vehículo.",
+			"title": "Tripulación asignada"
+		},
+		"vehiclesPersonnelColorized": {
+			"description": "Resalta el número de tripulantes asignados en rojo si es menor que el máximo posible, en verde cuando se alcanza el número máximo.",
+			"title": "Código de color para la tripulación asignada"
+		},
+		"vehiclesPersonnelCurrent": {
+			"description": "Muestra cuántas personas están actualmente en el vehículo.",
+			"title": "Tripulación actual"
+		},
+		"vehiclesPersonnelMax": {
+			"description": "Muestra el número máximo de personas que caben en el vehículo.",
+			"title": "Tripulación máxima"
+		}
+	}
+}
