@@ -1,1 +1,14 @@
-
+{
+	"description": "Amplía el chat con algunas funciones interesantes",
+	"name": "Chat mejorado",
+	"settings": {
+		"chatTime": {
+			"description": "¡Ajusta la marca de tiempo al formato que ha establecido!",
+			"title": "Formato de marca de tiempo propio"
+		},
+		"chatTimeFormat": {
+			"description": "Aquí puede elegir el formato que desee. Puedes encontrar ayuda <a class=\"lightbox-open\" href=\"{wiki}modules/clock.html#configuration\">aquí</a>.",
+			"title": "Formato de fecha y hora"
+		}
+	}
+}
