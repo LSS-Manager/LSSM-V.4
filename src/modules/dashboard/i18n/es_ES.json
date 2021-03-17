@@ -71,7 +71,7 @@
 			5,
 			6,
 			7,
-			9
+			8
 		],
 		"sum": "Total",
 		"title": "Todo {type} | Todo {type} en estado {n} | Todo {type} en estado {n}",
