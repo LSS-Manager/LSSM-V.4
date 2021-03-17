@@ -1,1 +1,22 @@
-
+{
+	"description": "Muestra un reloj configurable en varias ubicaciones según sea necesario",
+	"name": "Reloj",
+	"settings": {
+		"displayNav": {
+			"description": "Está situado en el margen izquierdo junto al logotipo",
+			"title": "Mostrar reloj en la barra de navegación"
+		},
+		"displayOverlay": {
+			"description": "El reloj se puede mover y estará delante de todos los elementos, es decir, superpuesto",
+			"title": "Mostrar reloj superpuesto"
+		},
+		"navFormat": {
+			"description": "Aquí puede configurar el formato del reloj. Encontrarás ayuda de ésto <a class=\"lightbox-open\" href=\"{wiki}modules/clock.html#configuration\">aquí</a>.",
+			"title": "Formato de reloj en la barra de navegación"
+		},
+		"overlayFormat": {
+			"description": "Aquí puede configurar el formato del reloj. Encontrarás ayuda de ésto <a class=\"lightbox-open\" href=\"{wiki}modules/clock.html#configuration\">aquí</a>.",
+			"title": "Formato de reloj superpuesto"
+		}
+	}
+}
