@@ -133,137 +133,147 @@ export default (
     }
 
     const check_amount_available = (
-        buildings: string[],
-        attributes: NamedNodeMap
+        buildings: number[],
+        attributes: Record<string, number>
     ): { [attribute: string]: number } => {
-        const attributeNames = Array.from(attributes)
-            .filter(
-                ({ name, value }) =>
-                    (ARRSpecTranslations.hasOwnProperty(name) ||
-                        name.startsWith('vehicle_type_caption')) &&
-                    value !== '0'
-            )
-            .map(({ name }) => name);
         let hlf_or_rw_lf = 0;
         let naw_or_rtw_nef = 0;
         let naw_or_rtw_nef_rth = 0;
 
         const amounts = {} as { [attribute: string]: number };
 
-        (document.querySelectorAll(
-            '#all .vehicle_checkbox:not(:checked)'
-        ) as NodeListOf<HTMLInputElement>).forEach(vehicle => {
-            if (!vehicle.checked) {
-                attributeNames.forEach(attr => {
-                    if (!amounts.hasOwnProperty(attr)) amounts[attr] = 0;
-                    switch (attr) {
-                        case 'hlf_or_rw_and_lf':
-                            if (vehicle.getAttribute('hlf_only') === '1') {
-                                amounts[attr]++;
+        document
+            .querySelectorAll<HTMLInputElement>(
+                '#all .vehicle_checkbox:not(:checked):not([ignore_aao="1"])'
+            )
+            .forEach(vehicle => {
+                if (
+                    !vehicle.checked &&
+                    window.aao_building_check(buildings, window.$(vehicle))
+                ) {
+                    Object.keys(attributes).forEach(attr => {
+                        if (!amounts.hasOwnProperty(attr)) amounts[attr] = 0;
+                        switch (attr) {
+                            case 'hlf_or_rw_and_lf':
+                                if (vehicle.getAttribute('hlf_only') === '1') {
+                                    amounts[attr]++;
+                                    break;
+                                } else if (
+                                    vehicle.getAttribute('rw_only') === '1'
+                                ) {
+                                    if (hlf_or_rw_lf > 0) amounts[attr]++;
+                                    hlf_or_rw_lf--;
+                                } else if (
+                                    vehicle.getAttribute('lf_only') === '1'
+                                ) {
+                                    if (hlf_or_rw_lf < 0) amounts[attr]++;
+                                    hlf_or_rw_lf++;
+                                }
                                 break;
-                            } else if (
-                                vehicle.getAttribute('rw_only') === '1'
-                            ) {
-                                if (hlf_or_rw_lf > 0) amounts[attr]++;
-                                hlf_or_rw_lf--;
-                            } else if (
-                                vehicle.getAttribute('lf_only') === '1'
-                            ) {
-                                if (hlf_or_rw_lf < 0) amounts[attr]++;
-                                hlf_or_rw_lf++;
-                            }
-                            break;
-                        case 'naw_or_rtw_and_nef':
-                            if (vehicle.getAttribute('naw') === '1') {
-                                amounts[attr]++;
+                            case 'naw_or_rtw_and_nef':
+                                if (vehicle.getAttribute('naw') === '1') {
+                                    amounts[attr]++;
+                                    break;
+                                } else if (
+                                    vehicle.getAttribute('rtw') === '1'
+                                ) {
+                                    if (naw_or_rtw_nef > 0) amounts[attr]++;
+                                    naw_or_rtw_nef--;
+                                } else if (
+                                    vehicle.getAttribute('nef_only') === '1'
+                                ) {
+                                    if (naw_or_rtw_nef < 0) amounts[attr]++;
+                                    naw_or_rtw_nef++;
+                                }
                                 break;
-                            } else if (vehicle.getAttribute('rtw') === '1') {
-                                if (naw_or_rtw_nef > 0) amounts[attr]++;
-                                naw_or_rtw_nef--;
-                            } else if (
-                                vehicle.getAttribute('nef_only') === '1'
-                            ) {
-                                if (naw_or_rtw_nef < 0) amounts[attr]++;
-                                naw_or_rtw_nef++;
-                            }
-                            break;
-                        case 'naw_or_rtw_and_nef_or_rth':
-                            if (vehicle.getAttribute('naw') === '1') {
-                                amounts[attr]++;
+                            case 'naw_or_rtw_and_nef_or_rth':
+                                if (vehicle.getAttribute('naw') === '1') {
+                                    amounts[attr]++;
+                                    break;
+                                } else if (
+                                    vehicle.getAttribute('rtw') === '1'
+                                ) {
+                                    if (naw_or_rtw_nef_rth > 0) amounts[attr]++;
+                                    naw_or_rtw_nef_rth--;
+                                } else if (
+                                    vehicle.getAttribute('nef') === '1'
+                                ) {
+                                    if (naw_or_rtw_nef_rth < 0) amounts[attr]++;
+                                    naw_or_rtw_nef_rth++;
+                                }
                                 break;
-                            } else if (vehicle.getAttribute('rtw') === '1') {
-                                if (naw_or_rtw_nef_rth > 0) amounts[attr]++;
-                                naw_or_rtw_nef_rth--;
-                            } else if (vehicle.getAttribute('nef') === '1') {
-                                if (naw_or_rtw_nef_rth < 0) amounts[attr]++;
-                                naw_or_rtw_nef_rth++;
-                            }
-                            break;
-                        default:
-                            if (vehicle.getAttribute(attr) === '1') {
-                                amounts[attr]++;
-                            } else if (attr === 'wasser_amount') {
-                                amounts[attr] += parseInt(
-                                    vehicle.getAttribute(attr) || '0'
-                                );
-                            }
-                            break;
-                    }
-                });
-            }
-        });
+                            default:
+                                if (
+                                    (!Number.isNaN(parseInt(attr)) &&
+                                        attr ===
+                                            vehicle.getAttribute(
+                                                'vehicle_type_id'
+                                            )) ||
+                                    vehicle.getAttribute(attr) === '1'
+                                ) {
+                                    amounts[attr]++;
+                                } else if (attr === 'wasser_amount') {
+                                    amounts[attr] += parseInt(
+                                        vehicle.getAttribute(attr) || '0'
+                                    );
+                                }
+                                break;
+                        }
+                    });
+                }
+            });
         return amounts;
     };
 
-    const updateSpecs = (buildingIds: string[], arr: HTMLAnchorElement) => {
-        const availabilities = check_amount_available(
-            buildingIds,
-            arr.attributes
-        );
-        if (specs && arrSpecs) {
+    const updateSpecs = (buildingIds: number[], arr: HTMLAnchorElement) => {
+        const pspecs: Record<string, number> = {};
+        Array.from(arr.attributes).forEach(({ name, value }) => {
+            if (name === 'vehicle_type_ids' /* || name === 'custom'*/) {
+                Object.entries(
+                    JSON.parse(value) as Record<string, string>
+                ).forEach(([id, amount]) => (pspecs[id] = parseInt(amount)));
+            } else {
+                const amount = parseInt(value);
+                if (
+                    ARRSpecTranslations.hasOwnProperty(name) &&
+                    amount &&
+                    !Number.isNaN(amount)
+                )
+                    pspecs[name] = amount;
+            }
+        });
+        const availabilities = check_amount_available(buildingIds, pspecs);
+        if (specs && pspecs && arrSpecs) {
             resetNote?.classList[
                 arr.getAttribute('reset') === 'true' ? 'remove' : 'add'
             ]('hidden');
             arrSpecs.innerHTML = '';
             let minimumAvailable = Infinity;
+            const vehicleTypeCaptionsAttr: Record<string, string> = JSON.parse(
+                arr.getAttribute('vehicle_type_captions') ?? '{}'
+            );
             arrSpecs.append(
-                ...(Array.from(arr.attributes)
-                    .map(attr => {
-                        const name = ARRSpecTranslations[attr.name];
-                        const amount = parseInt(attr.value);
-                        if (
-                            (!name &&
-                                !attr.name.startsWith(
-                                    'vehicle_type_caption'
-                                )) ||
-                            !amount ||
-                            Number.isNaN(amount)
-                        )
-                            return null;
+                ...(Object.entries(pspecs).map(([name, amount]) => [
+                    name,
+                    ARRSpecTranslations[name] ??
+                        vehicleTypeCaptionsAttr[name] ??
+                        name,
+                    amount,
+                ]) as [string, string, number][])
+                    .sort(([, a], [, b]) => (a < b ? -1 : a > b ? 1 : 0))
+                    .map(([attr, name, amount]) => {
                         const rowElement = document.createElement('tr');
-                        const available = availabilities[attr.name] || 0;
+                        const available = availabilities[attr] || 0;
                         if (available < amount)
                             rowElement.classList.add('bg-danger');
                         rowElement.insertCell().textContent = `${amount.toLocaleString()}x`;
-                        rowElement.insertCell().textContent =
-                            name ??
-                            attr.name.match(
-                                /^vehicle_type_caption\[(.*)]$/
-                            )?.[1] ??
-                            '';
+                        rowElement.insertCell().textContent = name;
                         rowElement.insertCell().textContent = available.toLocaleString();
                         const max = Math.floor(available / amount);
                         rowElement.insertCell().textContent = max.toLocaleString();
                         if (max < minimumAvailable) minimumAvailable = max;
                         return rowElement;
                     })
-                    .filter(v => !!v) as HTMLTableRowElement[]).sort((a, b) =>
-                    (a.textContent || '') < (b.textContent || '')
-                        ? -1
-                        : (a.textContent || '') > (b.textContent || '')
-                        ? 1
-                        : 0
-                )
             );
             if (maxAmountNode)
                 maxAmountNode.textContent = minimumAvailable.toLocaleString();
@@ -278,7 +288,7 @@ export default (
                     `aao_${id}`
                 ) as HTMLAnchorElement | null;
                 if (!arr) return;
-                const buildingIds = JSON.parse(
+                const buildingIds: number[] = JSON.parse(
                     arr.getAttribute('building_ids') || '[]'
                 );
                 updateSpecs(buildingIds, arr);

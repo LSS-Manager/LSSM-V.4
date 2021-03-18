@@ -239,15 +239,16 @@
                         :title="$sm('zuweisung')"
                     >
                         <font-awesome-icon :icon="faUsers"></font-awesome-icon>
+                        {{ $sm('zuweisung') }}
                     </a>
 
                     <button
                         class="btn btn-danger"
                         @click="deleteVehicle"
                         v-if="vehicle.fms === 2"
+                        :title="$sm('delete.button')"
                     >
                         <font-awesome-icon :icon="faTrash"></font-awesome-icon>
-                        {{ $sm('delete.button') }}
                     </button>
                 </div>
             </div>

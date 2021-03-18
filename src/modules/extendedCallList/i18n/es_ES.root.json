@@ -1,0 +1,14 @@
+{
+	"description": "¡Extiende la lista de misiones con algunas características interesantes!",
+	"name": "Lista de misiones extendida",
+	"settings": {
+		"remainingTime": {
+			"description": "Muestra en las misiones cuánto tiempo está una misión en progreso.",
+			"title": "Tiempo restante de la misión"
+		},
+		"remainingTimeGreenOnly": {
+			"description": "Muestra el tiempo restante solo en misiones verdes.",
+			"title": "Tiempo de misión solo para misiones verdes"
+		}
+	}
+}

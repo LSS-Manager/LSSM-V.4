@@ -9,6 +9,7 @@ import { POI } from './modules/EnhancedPOI';
 
 declare global {
     interface Window {
+        $: JQueryStatic;
         keepAlive: boolean;
         tellParent(code: string): void;
         fullScreen: boolean;
@@ -36,6 +37,10 @@ declare global {
         building_new_dragend(): void;
         vehicleSelectionReset(): void;
         aao_available(arrId: number, calculateTime: boolean): void;
+        aao_building_check(
+            buildingIds: number[],
+            checkbox: JQuery<HTMLInputElement>
+        ): boolean;
         extensionCountdown(remaining: number, id: number): void;
         formatTime(remaining: number, t?: boolean): string;
         buildingMarkerAdd(marker: BuildingMarkerAdd): boolean;
