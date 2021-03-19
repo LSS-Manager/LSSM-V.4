@@ -5,7 +5,7 @@
             <div :id="chartId"></div>
             <enhanced-table
                 :head="head"
-                :table-attrs="{ class: 'table' }"
+                :table-attrs="{ class: 'table table-striped' }"
                 :no-search="true"
             >
                 <tr
@@ -21,7 +21,7 @@
                         }`)
                     "
                 >
-                    <td>{{ dates[id] }}</td>
+                    <td>{{ dates[7 - id] }}</td>
                     <td class="text-success">
                         {{ entry.plus.toLocaleString() }} Credits
                     </td>
@@ -173,6 +173,11 @@ export default Vue.extend<
             required: true,
         },
     },
+    watch: {
+        data() {
+            this.lightbox.finishLoading('credits/overview-updated-data');
+        },
+    },
     beforeMount() {
         this.head = {
             date: { title: this.$sm('date').toString(), noSort: true },
@@ -211,10 +216,14 @@ export default Vue.extend<
                 name: this.$sm(series).toString(),
                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                 //@ts-ignore
-                data: this.data.entries.map(entry => entry[series]),
+                data: this.data.entries.map(entry => entry[series]).reverse(),
                 color: ['#28a828', '#a32323', '#74868f'][index],
             })),
         } as Options);
+        document.title = `${this.$t(
+            'modules.redesign.credits.nav.title'
+        )}: ${this.$sm('title')}`;
+        this.lightbox.finishLoading('credits/overview-mounted');
     },
 });
 </script>

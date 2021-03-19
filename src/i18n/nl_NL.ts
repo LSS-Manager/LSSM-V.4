@@ -775,6 +775,17 @@ export default {
             coins: 18,
             icon: 'motorcycle',
         },
+        64: {
+            caption: 'ME Aanhoudingseenheid',
+            color: '#00005c',
+            minPersonnel: 6,
+            maxPersonnel: 8,
+            credits: 20_000,
+            coins: 25,
+            schooling: 'Politie - ME - Aanhoudingseenheid',
+            shownSchooling: 'AE-er',
+            icon: 'shuttle-van',
+        },
     },
     buildings: {
         0: {
@@ -1074,13 +1085,31 @@ export default {
                     duration: '3 Dagen',
                 },
                 {
+                    caption: 'Arrestantenvervoer',
+                    credits: 100_000,
+                    coins: 10,
+                    duration: '5 Dagen',
+                },
+                {
                     caption: 'Mobiele Eenheid, Sectie',
                     credits: 100_000,
                     coins: 20,
                     duration: '5 Dagen',
                 },
                 {
-                    caption: 'Levende Have',
+                    caption: 'Mobiele Eenheid, 2e Sectie',
+                    credits: 100_000,
+                    coins: 20,
+                    duration: '7 Dagen',
+                },
+                {
+                    caption: 'Mobiele Eenheid, Aanhoudingseenheid',
+                    credits: 100_000,
+                    coins: 20,
+                    duration: '5 Dagen',
+                },
+                {
+                    caption: 'Hondenbrigade',
                     credits: 100_000,
                     coins: 20,
                     duration: '7 Dagen',
@@ -1089,12 +1118,6 @@ export default {
                     caption: 'Arrestatieteam',
                     credits: 200_000,
                     coins: 20,
-                    duration: '5 Dagen',
-                },
-                {
-                    caption: 'Arrestantenvervoer',
-                    credits: 100_000,
-                    coins: 10,
                     duration: '5 Dagen',
                 },
             ],
@@ -1201,7 +1224,7 @@ export default {
         Politie: {
             vehicles: {
                 'Noodhulp': [22, 25, 46, 59],
-                'Mobiele Eenheid': [39, 40],
+                'Mobiele Eenheid': [39, 40, 64],
                 'Hondengeleider': [47, 48],
                 'Politiehelikopter': [28],
                 'Officier van Dienst - Politie': [35],
@@ -1295,6 +1318,10 @@ export default {
             {
                 caption: 'Biketeam',
                 duration: '3 Dagen',
+            },
+            {
+                caption: 'ME - Aanhoudingseenheid',
+                duration: '5 Dagen',
             },
         ],
         Ambulance: [

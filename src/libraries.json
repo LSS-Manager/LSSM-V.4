@@ -2,12 +2,12 @@
 	"@fortawesome/fontawesome-svg-core": {
 		"icon": "https://fontawesome.com/images/favicons/apple-icon-180x180.png",
 		"url": "https://fontawesome.com",
-		"version": "1.2.34"
+		"version": "1.2.35"
 	},
 	"@fortawesome/free-solid-svg-icons": {
 		"icon": "https://fontawesome.com/images/favicons/apple-icon-180x180.png",
 		"url": "https://fontawesome.com",
-		"version": "5.15.2"
+		"version": "5.15.3"
 	},
 	"@fortawesome/vue-fontawesome": {
 		"icon": "https://fontawesome.com/images/favicons/apple-icon-180x180.png",
@@ -30,7 +30,7 @@
 		"version": "4.14.168"
 	},
 	"@types/node": {
-		"version": "14.14.33"
+		"version": "14.14.35"
 	},
 	"@types/pdfmake": {
 		"version": "0.1.17"
@@ -54,10 +54,10 @@
 		"version": "1.16.0"
 	},
 	"@typescript-eslint/eslint-plugin": {
-		"version": "4.17.0"
+		"version": "4.18.0"
 	},
 	"@typescript-eslint/parser": {
-		"version": "4.17.0"
+		"version": "4.18.0"
 	},
 	"@vuepress/plugin-active-header-links": {
 		"icon": "https://vuepress.vuejs.org/hero.png",
@@ -104,7 +104,7 @@
 	"eslint": {
 		"icon": "https://eslint.org/assets/img/favicon.512x512.png",
 		"url": "https://eslint.org",
-		"version": "7.21.0"
+		"version": "7.22.0"
 	},
 	"eslint-plugin-prettier": {
 		"icon": "https://prettier.io/icon.png",
@@ -179,7 +179,7 @@
 	"terser": {
 		"icon": "https://terser.org/img/terser-square-logo.png",
 		"url": "https://terser.org",
-		"version": "5.6.0"
+		"version": "5.6.1"
 	},
 	"ts-loader": {
 		"icon": "https://webpack.js.org/assets/icon-square-big.svg",

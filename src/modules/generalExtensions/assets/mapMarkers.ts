@@ -15,6 +15,10 @@ export default async (
         'map-history-list',
         true
     );
+    const pinBtnId = LSSM.$store.getters.nodeAttribute(
+        'map-history-pin-btn',
+        true
+    );
 
     await LSSM.$store.dispatch('addStyles', [
         {
@@ -29,14 +33,22 @@ export default async (
             },
         },
         {
-            selectorText: `#${historyBtnId}:hover #${historyListId}`,
+            selectorText: `#${historyBtnId}:hover #${historyListId}, #${historyListId}.pinned`,
             style: {
                 display: 'block',
                 cursor: 'pointer',
             },
         },
         {
-            selectorText: `#${historyBtnId} #${historyListId} li`,
+            selectorText: `#${pinBtnId}`,
+            style: {
+                position: 'absolute',
+                left: '-1em',
+                bottom: '-1em',
+            },
+        },
+        {
+            selectorText: `#${historyBtnId} #${historyListId} li, #${historyListId}.pinned #${pinBtnId}`,
             style: {
                 transform: 'rotate(180deg)',
             },
@@ -65,7 +77,18 @@ export default async (
     const historyList = document.createElement('ul');
     historyList.id = historyListId;
 
-    historyBtn.appendChild(historyList);
+    const pinBtn = document.createElement('button');
+    pinBtn.classList.add('btn', 'btn-xs');
+    pinBtn.id = pinBtnId;
+    const pinIcon = document.createElement('i');
+    pinIcon.classList.add('fas', 'fa-thumbtack');
+    pinBtn.addEventListener('click', () =>
+        historyList.classList.toggle('pinned')
+    );
+    pinBtn.append(pinIcon);
+
+    historyList.prepend(pinBtn);
+    historyBtn.append(historyList);
 
     let currentPreviewTimeout = null as number | null;
     let currentAddressTimeout = null as number | null;

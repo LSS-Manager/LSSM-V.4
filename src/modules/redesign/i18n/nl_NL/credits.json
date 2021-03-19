@@ -1,0 +1,23 @@
+{
+	"nav": {
+		"links": [
+			{
+				"href": "/credits",
+				"text": "Recente inkomsten"
+			},
+			{
+				"href": "/credits/overview",
+				"text": "Overzicht statistiek"
+			},
+			{
+				"href": "/credits/daily",
+				"text": "Dagsamenvatting"
+			},
+			{
+				"href": "/coins/list",
+				"text": "Coins overzicht"
+			}
+		],
+		"title": "Credits"
+	}
+}
