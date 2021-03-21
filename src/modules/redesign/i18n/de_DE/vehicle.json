@@ -80,7 +80,20 @@
 		"offline": "{user} ist offline!",
 		"online": "{user} ist online!"
 	},
+	"release": {
+		"cancel": "Abbrechen",
+		"confirm": "Ja, entlassen!",
+		"patient": {
+			"text": "Möchtest du wirklich den Patienten dieses Fahrzeugs entlassen? Es wird keine Vergütung für den Patienten gutgeschrieben werden!",
+			"title": "Patienten entlassen"
+		},
+		"prisoner": {
+			"text": "Möchtest du wirklich **alle** Gefangene dieses Einsatzes entlassen? Es wird keine Vergütung für diese Gefangenen gutgeschrieben werden!",
+			"title": "Gefangene entlassen"
+		}
+	},
 	"release_patient": "Patienten entlassen",
+	"release_prisoner": "Gefangene entlassen",
 	"staff": {
 		"name": "Name",
 		"schooling": "Ausbildung",

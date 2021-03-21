@@ -88,6 +88,7 @@ export interface VehicleWindow {
     own_hospitals: Hospital[];
     alliance_hospitals: Hospital[];
     hospital_department: string;
+    patient_releaseable: boolean;
     has_cells: boolean;
     own_cells: Cell[];
     alliance_cells: Cell[];
@@ -352,6 +353,7 @@ export default (
                   .querySelector('.col-md-9 .alert.alert-info b')
                   ?.textContent?.trim() ?? ''
             : '',
+        patient_releaseable: !!doc.querySelector('a[href$="/patient/-1"]'),
         has_cells: hasCells,
         own_cells,
         alliance_cells,
