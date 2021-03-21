@@ -38,6 +38,13 @@ export default (async (LSSM, MODULE_ID, $m) => {
                 )
             ).default(LSSM, BUILDING_MODE, getSetting, $m, MODULE_ID);
         }
+        if (await getSetting('fastDispatchChooser')) {
+            await (
+                await import(
+                    /* webpackChunkName: "modules/extendedBuilding/fastDispatchChooser" */ './assets/fastDispatchChooser'
+                )
+            ).default(LSSM, BUILDING_MODE, $m, MODULE_ID);
+        }
 
         if (BUILDING_MODE === 'building') {
             if (
@@ -49,13 +56,6 @@ export default (async (LSSM, MODULE_ID, $m) => {
                         /* webpackChunkName: "modules/extendedBuilding/personnelDemands" */ './assets/personnelDemands'
                     )
                 ).default(LSSM, $m, buildingId, MODULE_ID);
-            }
-            if (await getSetting('fastDispatchChooser')) {
-                (
-                    await import(
-                        /* webpackChunkName: "modules/extendedBuilding/fastDispatchChooser" */ './assets/fastDispatchChooser'
-                    )
-                ).default(LSSM, $m, MODULE_ID);
             }
             if (
                 (await getSetting('upgradeConfirmation')) &&
