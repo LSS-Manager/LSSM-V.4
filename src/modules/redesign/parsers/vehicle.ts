@@ -1,3 +1,5 @@
+import { RedesignParser } from 'typings/modules/Redesign';
+
 interface Mission {
     image: string;
     caption: string;
@@ -98,11 +100,7 @@ export interface VehicleWindow {
     authenticity_token: string;
 }
 
-export default (
-    source: string,
-    href: string,
-    getIdFromEl: (el: HTMLAnchorElement | null) => number
-): VehicleWindow => {
+export default <RedesignParser<VehicleWindow>>((source, href, getIdFromEl) => {
     const doc = new DOMParser().parseFromString(source, 'text/html');
     const id = parseInt(
         new URL(href, window.location.href).pathname.match(/\d+\/?$/)?.[0] ??
@@ -391,4 +389,4 @@ export default (
             doc.querySelector<HTMLMetaElement>('meta[name="csrf-token"]')
                 ?.content ?? '',
     };
-};
+});

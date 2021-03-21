@@ -69,6 +69,12 @@ export interface RedesignLightbox<
     };
 }
 
+export type RedesignParser<Window extends windows> = (
+    source: string,
+    href: string,
+    getIdFromEl: (el: HTMLAnchorElement | null) => number
+) => Window;
+
 export type RedesignLightboxVue<
     Type extends types,
     Window extends windows
