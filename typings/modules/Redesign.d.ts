@@ -3,11 +3,12 @@ import { CoinsListWindow } from '../../src/modules/redesign/parsers/coins/list';
 import { CreditsDailyWindow } from '../../src/modules/redesign/parsers/credits/daily';
 import { CreditsListWindow } from '../../src/modules/redesign/parsers/credits/list';
 import { CreditsOverviewWindow } from '../../src/modules/redesign/parsers/credits/overview';
+import { ProfileWindow } from '../../src/modules/redesign/parsers/profile';
+import { TopListWindow } from '../../src/modules/redesign/parsers/toplist';
 import { VehicleWindow } from '../../src/modules/redesign/parsers/vehicle';
 import { DefaultComputed } from 'vue/types/options';
 import VueI18n from 'vue-i18n';
 import { CombinedVueInstance } from 'vue/types/vue';
-import { TopListWindow } from '../../src/modules/redesign/parsers/toplist';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 
 type types =
@@ -16,6 +17,7 @@ type types =
     | 'credits/daily'
     | 'credits/list'
     | 'credits/overview'
+    | 'profile'
     | 'toplist'
     | 'vehicle'
     | 'vehicle/nextfms';
@@ -24,6 +26,7 @@ type windows =
     | CreditsDailyWindow
     | CreditsListWindow
     | CreditsOverviewWindow
+    | ProfileWindow
     | TopListWindow
     | VehicleWindow;
 export type routeChecks = Record<string, types>;

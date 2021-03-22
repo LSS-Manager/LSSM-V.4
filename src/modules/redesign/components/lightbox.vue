@@ -42,6 +42,17 @@
                 :set-setting="setSetting()"
                 :type="type"
             ></Toplist>
+            <Profile
+                v-else-if="type === 'profile'"
+                :profile="data"
+                :url="urlProp"
+                :lightbox="this"
+                :$m="$m"
+                :$mc="$mc"
+                :get-setting="getSetting()"
+                :set-setting="setSetting()"
+                :type="type"
+            ></Profile>
             <div
                 v-else-if="type === 'vehicle/nextfms'"
                 class="alert alert-success"
@@ -94,6 +105,10 @@ export default Vue.extend<
         Toplist: () =>
             import(
                 /*webpackChunkName: "modules/redesign/windows/toplist"*/ './toplist.vue'
+            ),
+        Profile: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/profile"*/ './profile.vue'
             ),
     },
     data() {
