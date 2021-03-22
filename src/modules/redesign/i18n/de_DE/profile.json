@@ -1,0 +1,15 @@
+{
+    "rank": "Dienstgrad",
+    "registration": "Anmeldedatum",
+    "credits": "{credits} verdiente Credits",
+    "alliance": "Verband",
+    "text": "Profiltext",
+    "map": "Karte",
+    "awards": {
+        "title": "Auszeichnungen",
+        "bronze": "Bronze",
+        "silver": "Silber",
+        "gold": "Gold",
+        "max": "20"
+    }
+}

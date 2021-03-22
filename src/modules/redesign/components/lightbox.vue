@@ -284,15 +284,18 @@ export default Vue.extend<
         },
         finishLoading(text) {
             this.loading = false;
-            this.$store.dispatch('event/createEvent', {
-                name: 'redesign-finished-loading',
-                detail: {
-                    extra: text,
-                    type: this.type,
-                    data: this.data,
-                },
-            });
-            // this.$store.dispatch('event/dispatchEvent', )
+            this.$store
+                .dispatch('event/createEvent', {
+                    name: 'redesign-finished-loading',
+                    detail: {
+                        extra: text,
+                        type: this.type,
+                        data: this.data,
+                    },
+                })
+                .then(event =>
+                    this.$store.dispatch('event/dispatchEvent', event)
+                );
         },
     },
     mounted() {

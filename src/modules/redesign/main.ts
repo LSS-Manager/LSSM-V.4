@@ -6,6 +6,7 @@ const routeChecks: routeChecks = {
     '^/credits/daily/?$': 'credits/daily',
     '^/credits/?$': 'credits/list',
     '^/credits/overview/?$': 'credits/overview',
+    // '^/profile/\\d+/?$': 'profile',
     '^/toplist/?$': 'toplist',
     '^/vehicles/\\d+/?$': 'vehicle',
     // '^/vehicles/\\d+/(patient|gefangener)/\\d+/?': 'vehicle/nextfms',

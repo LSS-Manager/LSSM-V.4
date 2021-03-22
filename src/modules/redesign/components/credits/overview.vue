@@ -113,7 +113,8 @@ export default Vue.extend<
             moment,
             head: {},
             chartId: this.$store.getters.nodeAttribute(
-                'redesign-credits-overview-chart'
+                'redesign-credits-overview-chart',
+                true
             ),
         };
     },
