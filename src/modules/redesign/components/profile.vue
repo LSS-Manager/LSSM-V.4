@@ -1,6 +1,6 @@
 <template>
     <div>
-        <!-- TODO: btns (ban), friend, ignore, msg, gift -->
+        <!-- TODO: btns (ban), friend, ignore, msg, gift, kick, deny applicaton -->
         <h1 class="redesign-profile-title" :id="profile.id">
             <img
                 :src="`/images/user_${profile.online ? 'green' : 'gray'}.png`"
