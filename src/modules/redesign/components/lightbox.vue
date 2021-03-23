@@ -239,6 +239,10 @@ export default Vue.extend<
                                 this.src = `/vehicles/${this.data}`;
                             this.type = type;
                             this.urlProp = url;
+                            document.documentElement.style.removeProperty(
+                                'height'
+                            );
+                            document.body.style.removeProperty('height');
                         });
                     });
             },

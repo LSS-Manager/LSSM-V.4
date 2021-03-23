@@ -3,9 +3,10 @@
 	"awards": {
 		"bronze": "Bronze",
 		"gold": "Gold",
-		"max": "20",
+		"max": "15",
 		"silver": "Silber",
-		"title": "Auszeichnungen"
+		"title": "Auszeichnungen",
+		"title_amounts": "{sum} von {max} Auszeichnungen"
 	},
 	"credits": "{credits} verdiente Credits",
 	"map": "Karte",

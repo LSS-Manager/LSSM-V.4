@@ -8,49 +8,69 @@
             />
             {{ profile.name }}
         </h1>
-        <div class="pull-left profile-sidebar">
-            <div class="well">
-                <div>
-                    <b>{{ $sm('rank') }}</b>
-                    : {{ rank }}
+        <div class="profile-content">
+            <div class="pull-left profile-sidebar">
+                <div class="well">
+                    <div>
+                        <b>{{ $sm('rank') }}</b>
+                        : {{ rank }}
+                    </div>
+                    <div v-if="profile.registration">
+                        <b>{{ $sm('registration') }}</b>
+                        : {{ moment(profile.registration).format('LLLL') }}
+                    </div>
+                    <div>
+                        {{
+                            $sm('credits', {
+                                credits: profile.credits.toLocaleString(),
+                            })
+                        }}
+                    </div>
+                    <div v-if="profile.alliance">
+                        {{ $sm('alliance') }}:
+                        <a :href="`/alliances/${profile.alliance.id}`">
+                            {{ profile.alliance.name }}
+                        </a>
+                    </div>
                 </div>
-                <div v-if="profile.registration">
-                    <b>{{ $sm('registration') }}</b>
-                    : {{ moment(profile.registration).format('LLLL') }}
-                </div>
-                <div>
-                    {{
-                        $sm('credits', {
-                            credits: profile.credits.toLocaleString(),
-                        })
-                    }}
-                </div>
-                <div v-if="profile.alliance">
-                    {{ $sm('alliance') }}:
-                    <a :href="`/alliances/${profile.alliance.id}`">
-                        {{ profile.alliance.name }}
-                    </a>
-                </div>
+                <img
+                    v-if="profile.image"
+                    :src="profile.image"
+                    alt=""
+                    class="profile-image"
+                />
+                <div :id="awardsChartId"></div>
             </div>
-            <img
-                v-if="profile.image"
-                :src="profile.image"
-                alt=""
-                class="profile-image"
-            />
-            <div :id="awardsChartId"></div>
+            <tabs class="profile-tabs">
+                <tab :title="$sm('text')">
+                    <div v-html="profile.text.replace(/\n/g, '<br>')"></div>
+                </tab>
+                <tab v-if="profile.has_map" :title="$sm('map')">
+                    <pre>{{ profile.buildings }}</pre>
+                </tab>
+                <tab v-if="profile.awards.length" :title="$sm('awards.title')">
+                    <div class="profile-awards">
+                        <div
+                            class="panel panel-default"
+                            v-for="award in profile.awards"
+                            :key="award.caption"
+                        >
+                            <div class="panel-heading">
+                                <h3 class="panel-title">{{ award.caption }}</h3>
+                            </div>
+                            <div class="panel-body">
+                                <img
+                                    loading="lazy"
+                                    :alt="award.caption"
+                                    :src="award.image"
+                                />
+                                <p>{{ award.desc }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </tab>
+            </tabs>
         </div>
-        <tabs>
-            <tab :title="$sm('text')">
-                <div v-html="profile.text.replace(/\n/g, '<br>')"></div>
-            </tab>
-            <tab v-if="profile.has_map" :title="$sm('map')">
-                <pre>{{ profile.buildings }}</pre>
-            </tab>
-            <tab v-if="profile.awards.length" :title="$sm('awards.title')">
-                <pre>{{ profile.awards }}</pre>
-            </tab>
-        </tabs>
     </div>
 </template>
 
@@ -71,6 +91,7 @@ export default Vue.extend<
     {
         moment: typeof moment;
         awardsChartId: string;
+        maxAwards: number;
     },
     {
         $sm(
@@ -125,6 +146,7 @@ export default Vue.extend<
                 'redesign-profile-awards-gauge-chart',
                 true
             ),
+            maxAwards: 0,
         };
     },
     methods: {
@@ -230,12 +252,17 @@ export default Vue.extend<
                 }),
             },
         });
+        this.maxAwards = parseInt(this.$sm('awards.max').toString());
         Highcharts.chart(this.awardsChartId, {
             chart: {
                 type: 'solidgauge',
+                height: 200,
             },
             title: {
-                text: this.$sm('awards.title').toString(),
+                text: this.$sm('awards.title_amounts', {
+                    sum: this.profile.awards.length,
+                    max: this.maxAwards,
+                }),
                 margin: 0,
                 style: {
                     fontWeight: 'bold',
@@ -297,7 +324,7 @@ export default Vue.extend<
             },
             yAxis: {
                 min: 0,
-                max: parseInt(this.$sm('awards.max').toString()),
+                max: this.maxAwards,
                 lineWidth: 0,
                 tickPositions: [],
             },
@@ -354,11 +381,32 @@ export default Vue.extend<
 </script>
 
 <style lang="sass" scoped>
-.profile-sidebar
-    margin-right: 1rem
+.profile-content
+    display: flex
 
-.profile-image
-    min-width: 90%
-    display: block
-    margin: auto
+    .profile-sidebar
+        margin-right: 1rem
+
+        .profile-image
+            min-width: 90%
+            display: block
+            margin: auto
+
+    .profile-tabs
+        width: 100%
+
+        .profile-awards
+            display: grid
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr))
+            grid-gap: 1em
+
+            .panel-body
+                display: flex
+                flex-flow: row
+
+                img
+                    max-width: 50%
+
+                p
+                    margin-left: 10px
 </style>
