@@ -1,6 +1,5 @@
 <template>
     <div>
-        <!-- TODO: btns (ban), friend, ignore, msg, gift, kick, deny applicaton -->
         <h1 class="redesign-profile-title" :id="profile.id">
             <img
                 :src="`/images/user_${profile.online ? 'green' : 'gray'}.png`"
@@ -10,6 +9,52 @@
         </h1>
         <div class="profile-content">
             <div class="pull-left profile-sidebar">
+                <!-- TODO: btns (ban), friend, ignore, kick, deny applicaton -->
+                <div class="btn-group pull-right profile-btns">
+                    <a
+                        v-if="profile.self"
+                        class="btn btn-default btn-xs"
+                        href="/profile/edit"
+                        :title="$sm('buttons.edit')"
+                    >
+                        <font-awesome-icon :icon="faEdit"></font-awesome-icon>
+                    </a>
+                    <a
+                        v-if="profile.self"
+                        class="btn btn-default btn-xs"
+                        href="/avatar"
+                        :title="$sm('buttons.avatar')"
+                    >
+                        <font-awesome-icon :icon="faImage"></font-awesome-icon>
+                    </a>
+                    <a
+                        v-if="!profile.self && !profile.ignored"
+                        class="btn btn-success btn-xs"
+                        :href="
+                            `/messages/new?target=${encodeURIComponent(
+                                profile.name
+                            )}`
+                        "
+                        :title="$sm('buttons.message')"
+                    >
+                        <font-awesome-icon
+                            :icon="faEnvelope"
+                        ></font-awesome-icon>
+                    </a>
+                    <a
+                        v-if="!profile.self && !profile.ignored"
+                        class="btn btn-success btn-xs"
+                        :href="
+                            `/coins?gift_for_user=${encodeURIComponent(
+                                profile.id
+                            )}`
+                        "
+                        :title="$sm('buttons.gift')"
+                    >
+                        <font-awesome-icon :icon="faGift"></font-awesome-icon>
+                    </a>
+                </div>
+                <div class="clearfix"></div>
                 <div class="well">
                     <div>
                         <b>{{ $sm('rank') }}</b>
@@ -80,9 +125,14 @@ import moment from 'moment';
 import Highcharts, { PlotGaugeOptions } from 'highcharts';
 import HighchartsMore from 'highcharts/highcharts-more';
 import HighchartsSolidGauge from 'highcharts/modules/solid-gauge';
+import { faEdit } from '@fortawesome/free-solid-svg-icons/faEdit';
+import { faImage } from '@fortawesome/free-solid-svg-icons/faImage';
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons/faEnvelope';
+import { faGift } from '@fortawesome/free-solid-svg-icons/faGift';
 import VueI18n, { TranslateResult } from 'vue-i18n';
 import { ProfileWindow } from '../parsers/profile';
 import { RedesignLightboxVue } from 'typings/modules/Redesign';
+import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 
 HighchartsMore(Highcharts);
 HighchartsSolidGauge(Highcharts);
@@ -90,6 +140,10 @@ HighchartsSolidGauge(Highcharts);
 export default Vue.extend<
     {
         moment: typeof moment;
+        faEdit: IconDefinition;
+        faImage: IconDefinition;
+        faEnvelope: IconDefinition;
+        faGift: IconDefinition;
         awardsChartId: string;
         maxAwards: number;
     },
@@ -142,6 +196,10 @@ export default Vue.extend<
         moment.locale(this.$store.state.lang);
         return {
             moment,
+            faEdit,
+            faImage,
+            faEnvelope,
+            faGift,
             awardsChartId: this.$store.getters.nodeAttribute(
                 'redesign-profile-awards-gauge-chart',
                 true
@@ -386,6 +444,9 @@ export default Vue.extend<
 
     .profile-sidebar
         margin-right: 1rem
+
+        .profile-btns
+            margin-bottom: 1rem
 
         .profile-image
             min-width: 90%

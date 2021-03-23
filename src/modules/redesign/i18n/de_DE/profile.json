@@ -8,6 +8,12 @@
 		"title": "Auszeichnungen",
 		"title_amounts": "{sum} von {max} Auszeichnungen"
 	},
+    "buttons": {
+        "edit": "Profiltext bearbeiten",
+        "avatar": "Avatar bearbeiten",
+        "message": "Neue Konversation starten",
+        "gift": "Coins verschenken"
+    },
 	"credits": "{credits} verdiente Credits",
 	"map": "Karte",
 	"rank": "Dienstgrad",
