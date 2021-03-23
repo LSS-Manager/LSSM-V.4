@@ -31,6 +31,7 @@
 		}
 	},
 	"dispatchcenter-view": {
+		"building-selection": "Add buildings:",
 		"manage": {
 			"newBoard": "Neues Board",
 			"title": "Boards verwalten",

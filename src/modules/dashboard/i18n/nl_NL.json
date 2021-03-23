@@ -31,6 +31,7 @@
 		}
 	},
 	"dispatchcenter-view": {
+		"building-selection": "Voeg gebouwen toe:",
 		"manage": {
 			"newBoard": "Nieuw dashboard",
 			"title": "Beheer dashboards",
@@ -46,7 +47,7 @@
 				"name": "Dashboard naam"
 			}
 		},
-		"no-buildings": "Geen gebouwn gevonden. Indien nodig, pas de filters aan voor dit dashboard in het \"Beheer dashboards\"-tab."
+		"no-buildings": "Geen gebouwen gevonden. Indien nodig, pas de filters aan voor dit dashboard in het \"Beheer dashboards\"-tab."
 	},
 	"tabs": {
 		"building-types": "Gebouw overzicht",
