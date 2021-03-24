@@ -112,12 +112,12 @@ export default ((MODULE_ID, LSSM, $m) => {
             : null),
         ...(locale === 'en_US'
             ? {
-                'multifunctionals.sheriff_unit': <Toggle>{
-                    type: 'toggle',
-                    default: false,
-                    dependsOn: '.vehicles.content',
-                },
-            }
+                  'multifunctionals.sheriff_unit': <Toggle>{
+                      type: 'toggle',
+                      default: false,
+                      dependsOn: '.vehicles.content',
+                  },
+              }
             : null),
         ...(locale === 'de_DE'
             ? {
