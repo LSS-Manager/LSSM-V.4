@@ -1865,27 +1865,118 @@ export default {
         },
         22: {
             caption: 'Große 💩',
-            color: '#FF8CF8',
+            color: '#8B4513',
             coins: 'Zu Teuer',
             credits: 'Zu Teuer',
-            extensions: [],
+            extensions: [
+                ...new Array(2).fill({
+                    caption: 'Rettungsdienst-Erweiterung',
+                    credits: 100_000,
+                    coins: 20,
+                    duration: '7 Tage',
+                }),
+                ...new Array(10).fill({
+                    caption: 'Abrollbehälter-Stellplatz',
+                    credits: 100_000,
+                    coins: 20,
+                    duration: '7 Tage',
+                }),
+                ...new Array(2).fill({
+                    caption: 'Wasserrettungs-Erweiterung',
+                    credits: 400_000,
+                    coins: 25,
+                    duration: '7 Tage',
+                }),
+                ...new Array(2).fill({
+                    caption: 'Abrollbehälter-Stellplatz',
+                    credits: 100_000,
+                    coins: 20,
+                    duration: '7 Tage',
+                }),
+                ...new Array(2).fill({
+                    caption: 'Flughafen-Erweiterung',
+                    credits: 300_000,
+                    coins: 25,
+                    duration: '7 Tage',
+                    maxExtensionsFunction: (buildingsByType: {
+                        [type: number]: Building[];
+                    }): number =>
+                        Math.floor(
+                            ((buildingsByType[0]?.length ?? 0) +
+                                (buildingsByType[18]?.length ?? 0)) /
+                            10
+                        ),
+                }),
+                ...new Array(2).fill({
+                    caption: 'Großwache',
+                    credits: 1_000_000,
+                    coins: 50,
+                    duration: '7 Tage',
+                    maxExtensionsFunction: (buildingsByType: {
+                        [type: number]: Building[];
+                    }): number =>
+                        Math.floor(
+                            ((buildingsByType[0]?.length ?? 0) +
+                                (buildingsByType[18]?.length ?? 0)) /
+                            10
+                        ),
+                }),
+                ...new Array(6).fill({
+                    caption: 'Abrollbehälter-Stellplatz',
+                    credits: 100_000,
+                    coins: 20,
+                    duration: '7 Tage',
+                }),
+                ...new Array(2).fill({
+                    caption: 'Werkfeuerwehr',
+                    credits: 100_000,
+                    coins: 20,
+                    duration: '7 Tage',
+                }),
+                ...new Array(20).fill({
+                    caption: 'Zelle',
+                    credits: 25_000,
+                    coins: 5,
+                    duration: '7 Tage',
+                }),
+                ...new Array(2).fill({
+                    caption: 'Diensthundestaffel',
+                    credits: 100_000,
+                    coins: 10,
+                    duration: '5 Tage',
+                }),
+            ],
             levelcost: ['Zu Teuer'],
             maxBuildings: 'Keine Grenze',
             maxLevel: 5,
-            special: '',
+            special: 'ZU TEUER, KAUFT ES NICHT, BAUT ES NICHT AUS',
             startPersonnel: 'gibt keins',
             startVehicles: [''],
         },
         23: {
             caption: 'Kleine 💩',
-            color: '#FF8CF8',
+            color: '#8B4513',
             coins: 'Zu Teuer',
             credits: 'Zu Teuer',
-            extensions: [],
+            extensions: [
+                null,
+                ...new Array(4).fill({
+                    caption: 'Abrollbehälter-Stellplatz',
+                    credits: 100_000,
+                    coins: 20,
+                    duration: '7 Tage',
+                }),
+                ...new Array(4).fill({
+                    caption: 'Zelle',
+                    credits: 25_000,
+                    coins: 5,
+                    duration: '7 Tage',
+                }),
+            ],
             levelcost: ['Zu Teuer'],
             maxBuildings: 'Keine Grenze',
             maxLevel: 5,
-            special: '',
+            special: 'ZU TEUER, KAUFT ES NICHT, BAUT ES NICHT AUS',
             startPersonnel: 'gibt keins',
             startVehicles: [''],
         },
