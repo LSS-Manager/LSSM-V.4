@@ -83,6 +83,10 @@
 			"heavy_rescue_vehicles": {
 				"additional_text": "thereof at least. {n} Rescue Engines",
 				"reduce_from": "firetrucks"
+			},
+			"sheriff_unit": {
+				"additional_text": "",
+				"reduce_from": "police_cars"
 			}
 		},
 		"optional_alternatives": {
