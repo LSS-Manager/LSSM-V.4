@@ -558,7 +558,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 4,
             schooling: 'Police - FBI Mobile Center Commander',
-            shownSchooling: 'FBI Mobile Center Commander',
+            shownSchooling: 'FBI Mobile Center Commmander',
         },
         45: {
             caption: 'FBI Bomb Technician Vehicle',
