@@ -12,11 +12,23 @@
 		"avatar": "Avatar bearbeiten",
 		"edit": "Profiltext bearbeiten",
 		"gift": "Coins verschenken",
-		"message": "Neue Konversation starten"
+		"message": "Neue Konversation starten",
+        "ignore": {
+            "do": "Spieler ignorieren",
+            "undo": "Spieler nichtmehr ignorieren"
+        },
+        "friend": {
+            "do": "Als Freund hinzufügen",
+            "undo": "Als Freund entfernen"
+        }
 	},
 	"credits": "{credits} verdiente Credits",
 	"map": "Karte",
 	"rank": "Dienstgrad",
 	"registration": "Anmeldedatum",
-	"text": "Profiltext"
+	"text": "Profiltext",
+    "alerts": {
+        "ignored": "Du ignorierst diesen Spieler. {name} kann dir keine Nachrichten mehr senden!",
+        "friend": "{name} steht auf deiner Freundesliste! \uD83E\uDD73"
+    }
 }

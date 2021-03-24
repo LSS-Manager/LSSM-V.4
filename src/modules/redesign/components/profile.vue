@@ -9,52 +9,148 @@
         </h1>
         <div class="profile-content">
             <div class="pull-left profile-sidebar">
-                <!-- TODO: btns (ban), friend, ignore, kick, deny applicaton -->
-                <div class="btn-group pull-right profile-btns">
-                    <a
-                        v-if="profile.self"
-                        class="btn btn-default btn-xs"
-                        href="/profile/edit"
-                        :title="$sm('buttons.edit')"
-                    >
-                        <font-awesome-icon :icon="faEdit"></font-awesome-icon>
-                    </a>
-                    <a
-                        v-if="profile.self"
-                        class="btn btn-default btn-xs"
-                        href="/avatar"
-                        :title="$sm('buttons.avatar')"
-                    >
-                        <font-awesome-icon :icon="faImage"></font-awesome-icon>
-                    </a>
-                    <a
+                <!-- TODO: btns: kick, deny applicaton -->
+                <div class="btn-toolbar pull-right profile-btns">
+                    <div class="btn-group" v-if="profile.self">
+                        <a
+                            class="btn btn-default btn-xs"
+                            href="/profile/edit"
+                            :title="$sm('buttons.edit')"
+                        >
+                            <font-awesome-icon
+                                :icon="faEdit"
+                            ></font-awesome-icon>
+                        </a>
+                        <a
+                            class="btn btn-default btn-xs"
+                            href="/avatar"
+                            :title="$sm('buttons.avatar')"
+                        >
+                            <font-awesome-icon
+                                :icon="faImage"
+                            ></font-awesome-icon>
+                        </a>
+                    </div>
+                    <div class="btn-group" v-if="profile.ban.length">
+                        <div v-if="profile.ban[0] !== 0">
+                            <button
+                                class="btn btn-danger dropdown-toggle btn-xs"
+                                data-toggle="dropdown"
+                            >
+                                ban chat <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li v-for="time in profile.ban" :key="time">
+                                    <a
+                                        :href="
+                                            `/profile/${profile.id}/chatban/${time}`
+                                        "
+                                    >
+                                        {{
+                                            moment
+                                                .duration(time, 'seconds')
+                                                .humanize()
+                                        }}
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <a
+                            v-else
+                            :href="`/profile/${profile.id}/chatban/0`"
+                            class="btn btn-warning btn-xs"
+                        >
+                            unban chat
+                        </a>
+                    </div>
+                    <div class="btn-group" v-if="!profile.self">
+                        <a
+                            class="btn btn-xs"
+                            :class="
+                                `btn-${profile.ignored ? 'warning' : 'danger'}`
+                            "
+                            :href="
+                                `/ignoriert/${
+                                    profile.ignored
+                                        ? 'entfernen'
+                                        : 'hinzufuegen'
+                                }/${profile.id}?user=${encodeURIComponent(
+                                    profile.id
+                                )}`
+                            "
+                            :title="
+                                $sm(
+                                    `buttons.ignore.${
+                                        profile.ignored ? 'undo' : 'do'
+                                    }`
+                                )
+                            "
+                        >
+                            Ignore {{ !profile.ignored }}
+                        </a>
+                        <a
+                            v-if="!profile.ignored"
+                            class="btn btn-xs"
+                            :class="
+                                `btn-${profile.friend ? 'danger' : 'success'}`
+                            "
+                            :href="
+                                `/freunde/${
+                                    profile.friend ? 'entfernen' : 'hinzufuegen'
+                                }/${profile.id}?user=${encodeURIComponent(
+                                    profile.id
+                                )}`
+                            "
+                            :title="
+                                $sm(
+                                    `buttons.friend.${
+                                        profile.friend ? 'undo' : 'do'
+                                    }`
+                                )
+                            "
+                        >
+                            Friend {{ !profile.friend }}
+                        </a>
+                    </div>
+                    <div
+                        class="btn-group"
                         v-if="!profile.self && !profile.ignored"
-                        class="btn btn-success btn-xs"
-                        :href="
-                            `/messages/new?target=${encodeURIComponent(
-                                profile.name
-                            )}`
-                        "
-                        :title="$sm('buttons.message')"
                     >
-                        <font-awesome-icon
-                            :icon="faEnvelope"
-                        ></font-awesome-icon>
-                    </a>
-                    <a
-                        v-if="!profile.self && !profile.ignored"
-                        class="btn btn-success btn-xs"
-                        :href="
-                            `/coins?gift_for_user=${encodeURIComponent(
-                                profile.id
-                            )}`
-                        "
-                        :title="$sm('buttons.gift')"
-                    >
-                        <font-awesome-icon :icon="faGift"></font-awesome-icon>
-                    </a>
+                        <a
+                            class="btn btn-success btn-xs"
+                            :href="
+                                `/messages/new?target=${encodeURIComponent(
+                                    profile.name
+                                )}`
+                            "
+                            :title="$sm('buttons.message')"
+                        >
+                            <font-awesome-icon
+                                :icon="faEnvelope"
+                            ></font-awesome-icon>
+                        </a>
+                        <a
+                            class="btn btn-success btn-xs"
+                            :href="
+                                `/coins?gift_for_user=${encodeURIComponent(
+                                    profile.id
+                                )}`
+                            "
+                            :title="$sm('buttons.gift')"
+                        >
+                            <font-awesome-icon
+                                :icon="faGift"
+                            ></font-awesome-icon>
+                        </a>
+                    </div>
                 </div>
                 <div class="clearfix"></div>
+                <div v-if="profile.friend" class="alert alert-success">
+                    {{ $sm('alerts.friend', { name: profile.name }) }}
+                </div>
+                <div v-if="profile.ignored" class="alert alert-danger">
+                    {{ $sm('alerts.ignored', { name: profile.name }) }}
+                </div>
                 <div class="well">
                     <div>
                         <b>{{ $sm('rank') }}</b>
