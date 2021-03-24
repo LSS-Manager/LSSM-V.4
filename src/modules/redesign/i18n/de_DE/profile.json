@@ -1,4 +1,8 @@
 {
+	"alerts": {
+		"friend": "{name} steht auf deiner Freundesliste! 🥳",
+		"ignored": "Du ignorierst diesen Spieler. {name} kann dir keine Nachrichten mehr senden!"
+	},
 	"alliance": "Verband",
 	"awards": {
 		"bronze": "Bronze",
@@ -11,24 +15,20 @@
 	"buttons": {
 		"avatar": "Avatar bearbeiten",
 		"edit": "Profiltext bearbeiten",
+		"friend": {
+			"do": "Als Freund hinzufügen",
+			"undo": "Als Freund entfernen"
+		},
 		"gift": "Coins verschenken",
-		"message": "Neue Konversation starten",
-        "ignore": {
-            "do": "Spieler ignorieren",
-            "undo": "Spieler nichtmehr ignorieren"
-        },
-        "friend": {
-            "do": "Als Freund hinzufügen",
-            "undo": "Als Freund entfernen"
-        }
+		"ignore": {
+			"do": "Spieler ignorieren",
+			"undo": "Spieler nichtmehr ignorieren"
+		},
+		"message": "Neue Konversation starten"
 	},
 	"credits": "{credits} verdiente Credits",
 	"map": "Karte",
 	"rank": "Dienstgrad",
 	"registration": "Anmeldedatum",
-	"text": "Profiltext",
-    "alerts": {
-        "ignored": "Du ignorierst diesen Spieler. {name} kann dir keine Nachrichten mehr senden!",
-        "friend": "{name} steht auf deiner Freundesliste! \uD83E\uDD73"
-    }
+	"text": "Profiltext"
 }
