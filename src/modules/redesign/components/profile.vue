@@ -9,7 +9,6 @@
         </h1>
         <div class="profile-content">
             <div class="pull-left profile-sidebar">
-                <!-- TODO: btns: kick, deny applicaton -->
                 <div class="btn-toolbar pull-right profile-btns">
                     <div class="btn-group" v-if="profile.self">
                         <a
@@ -31,11 +30,36 @@
                             ></font-awesome-icon>
                         </a>
                     </div>
+                    <div class="btn-group" v-if="profile.can_alliance_ignore">
+                        <button
+                            class="btn btn-xs"
+                            :class="
+                                `btn-${
+                                    profile.alliance_ignored
+                                        ? 'warning'
+                                        : 'danger'
+                                }`
+                            "
+                            :title="
+                                $sm(
+                                    `buttons.alliance_ignore.${
+                                        !profile.alliance_ignored
+                                            ? 'add'
+                                            : 'destroy'
+                                    }`
+                                )
+                            "
+                            @click="allianceIgnore"
+                        >
+                            alliance ignore {{ !profile.alliance_ignored }}
+                        </button>
+                    </div>
                     <div class="btn-group" v-if="profile.ban.length">
                         <div v-if="profile.ban[0] !== 0">
                             <button
                                 class="btn btn-danger dropdown-toggle btn-xs"
                                 data-toggle="dropdown"
+                                :title="$sm(`buttons.chat.ban`)"
                             >
                                 ban chat <span class="caret"></span>
                             </button>
@@ -59,6 +83,7 @@
                             v-else
                             :href="`/profile/${profile.id}/chatban/0`"
                             class="btn btn-warning btn-xs"
+                            :title="$sm(`buttons.chat.unban`)"
                         >
                             unban chat
                         </a>
@@ -150,6 +175,9 @@
                 </div>
                 <div v-if="profile.ignored" class="alert alert-danger">
                     {{ $sm('alerts.ignored', { name: profile.name }) }}
+                </div>
+                <div v-if="profile.alliance_ignored" class="alert alert-danger">
+                    {{ $sm('alerts.alliance_ignored', { name: profile.name }) }}
                 </div>
                 <div class="well">
                     <div>
@@ -257,6 +285,7 @@ export default Vue.extend<
                 [key: string]: unknown;
             }
         ): VueI18n.TranslateResult;
+        allianceIgnore(): void;
     },
     {
         rank: string;
@@ -320,6 +349,40 @@ export default Vue.extend<
             }
         ) {
             return this.$mc(`profile.${key}`, amount, args);
+        },
+        allianceIgnore() {
+            const url = new URL(window.location.href);
+            url.searchParams.append('_method', 'post');
+            url.searchParams.append(
+                'authenticity_token',
+                this.profile.authenticity_token
+            );
+            this.$store
+                .dispatch('api/request', {
+                    url: `/allianceIgnore/${this.profile.id}/${
+                        this.profile.alliance_ignored ? 'destroy' : 'add'
+                    }`,
+                    init: {
+                        credentials: 'include',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded',
+                        },
+                        referrer: `https://www.leitstellenspiel.de/profile/${this.profile.id}`,
+                        body: url.searchParams.toString(),
+                        method: 'POST',
+                        mode: 'cors',
+                    },
+                    feature: `redesign-profile-allianceignore-${
+                        this.profile.id
+                    }-to-${!this.profile.alliance_ignored}`,
+                })
+                .then(() =>
+                    this.$set(
+                        this.lightbox,
+                        'src',
+                        `/profile/${this.profile.id}`
+                    )
+                );
         },
     },
     computed: {
