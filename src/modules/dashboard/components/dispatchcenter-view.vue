@@ -48,8 +48,11 @@
                                 column.height ||
                                     Math.ceil(
                                         14 +
-                                            vehiclesByBuilding[column.building]
-                                                .length *
+                                            (
+                                                vehiclesByBuilding[
+                                                    column.building
+                                                ] || []
+                                            ).length *
                                                 1.5
                                     )
                             "
@@ -104,7 +107,7 @@
                                             "
                                             :width="10"
                                             class="building-vehicle"
-                                            v-for="vehicle in vehiclesByBuilding[
+                                            v-for="vehicle in vehiclesByBuildingSorted[
                                                 column.building
                                             ]"
                                             :maxHeight="1"
@@ -125,16 +128,11 @@
                                             >
                                                 {{ vehicle.caption }}
                                             </a>
-                                            <template #resizeBottomRight>
-                                                ⤡
-                                            </template>
                                         </grid-item>
                                     </grid-layout>
                                 </grid-board>
                             </div>
-                            <template #resizeBottomRight>
-                                ⤡
-                            </template>
+                            <template #resizeBottomRight> ⤡ </template>
                         </grid-item>
                         <grid-item
                             :height="buildingSelection.height"
@@ -151,9 +149,13 @@
                             :y="buildingSelection.y"
                             @moveEnd="saveSelection"
                             @resizeEnd="saveSelection"
-                            class="building-selection"
+                            class="building-selection panel-default"
                         >
-                            <div class="dragging-field"></div>
+                            <div class="panel-heading">
+                                <b>
+                                    {{ $sm('building-selection') }}
+                                </b>
+                            </div>
                             <v-select
                                 :filterable="false"
                                 :options="buildingList"
@@ -209,11 +211,7 @@
                                     </li>
                                 </template>
                                 <template #no-options>
-                                    {{
-                                        $t(
-                                            'modules.dashboard.dispatchcenter-view.no-buildings'
-                                        )
-                                    }}
+                                    {{ $sm('no-buildings') }}
                                 </template>
                             </v-select>
                             <button
@@ -235,75 +233,40 @@
                     </grid-layout>
                 </grid-board>
             </tab>
-            <tab
-                :title="
-                    $t('modules.dashboard.dispatchcenter-view.manage.title')
-                "
-            >
-                <div class="board-management-title">
-                    <div style="width: 1em"></div>
-                    <span class="name-title">
-                        <b>{{
-                            $t(
-                                'modules.dashboard.dispatchcenter-view.manage.titles.name'
-                            )
-                        }}</b>
-                    </span>
-                    <div style="width: 22.5px"></div>
-                    <span class="select-title">
-                        <b>{{
-                            $t(
-                                'modules.dashboard.dispatchcenter-view.manage.titles.buildings.bold'
-                            )
-                        }}</b>
-                        <small>
-                            {{
-                                $t(
-                                    'modules.dashboard.dispatchcenter-view.manage.titles.buildings.small'
-                                )
-                            }}
-                        </small>
-                    </span>
-                    <span class="select-title">
-                        <b>{{
-                            $t(
-                                'modules.dashboard.dispatchcenter-view.manage.titles.dispatch.bold'
-                            )
-                        }}</b>
-                        <small>
-                            {{
-                                $t(
-                                    'modules.dashboard.dispatchcenter-view.manage.titles.dispatch.small'
-                                )
-                            }}
-                        </small>
-                    </span>
-                </div>
-                <grid-board
-                    :id="
-                        $store.getters.nodeAttribute(
+            <tab :title="$sm('manage.title')">
+                <enhanced-table
+                    :head="{
+                        name: {
+                            title: $sm('manage.titles.name'),
+                            noSort: true,
+                        },
+                        buildings: {
+                            title: $sm('manage.titles.buildings.bold'),
+                            titleAttr: $sm('manage.titles.buildings.small'),
+                            noSort: true,
+                        },
+                        dispatch: {
+                            title: $sm('manage.titles.dispatch.bold'),
+                            titleAttr: $sm('manage.titles.dispatch.small'),
+                            noSort: true,
+                        },
+                        delete: { title: '', noSort: true },
+                    }"
+                    :table-attrs="{
+                        class: 'table table-striped',
+                        id: $store.getters.nodeAttribute(
                             'dispatchcenter-view_manage',
                             true
-                        )
-                    "
+                        ),
+                    }"
+                    :noSearch="true"
                 >
-                    <grid-layout
-                        :numberOfCols="1"
-                        :rowHeight="34"
-                        breakpoint="xl"
+                    <tr
+                        :id="board.id"
+                        :key="board.id"
+                        v-for="(board, boardId) in boards"
                     >
-                        <grid-item
-                            :draggable="true"
-                            :id="board.id"
-                            :key="board.id"
-                            :resizable="false"
-                            :y="boardId * 2"
-                            :height="2"
-                            @moveEnd="moveBoard"
-                            class="board-management-field"
-                            v-for="(board, boardId) in boards"
-                        >
-                            <div class="dragging-field"></div>
+                        <td>
                             <label>
                                 <input
                                     :placeholder="board.id"
@@ -312,12 +275,8 @@
                                     v-model="board.title"
                                 />
                             </label>
-                            <button
-                                @click="removeBoard(boardId)"
-                                class="btn btn-xs btn-danger"
-                            >
-                                <i class="fas fa-minus" data-v-eea344b4=""></i>
-                            </button>
+                        </td>
+                        <td>
                             <v-select
                                 :options="vehicleBuildings"
                                 :reduce="type => type.type"
@@ -326,6 +285,8 @@
                                 v-model="board.buildingTypes"
                                 @input="saveBoards"
                             ></v-select>
+                        </td>
+                        <td>
                             <v-select
                                 :options="dispatchBuildings"
                                 :reduce="building => building.id"
@@ -334,28 +295,48 @@
                                 v-model="board.dispatchBuildings"
                                 @input="saveBoards"
                             ></v-select>
-                        </grid-item>
-                        <grid-item
-                            :draggable="false"
-                            :resizable="false"
-                            :y="Object.keys(boards).length * 2"
-                            id="manageBoards"
-                        >
+                        </td>
+                        <td>
+                            <button
+                                @click="removeBoard(boardId)"
+                                class="btn btn-xs btn-danger"
+                            >
+                                <i class="fas fa-minus" data-v-eea344b4=""></i>
+                            </button>
+                            <div class="btn-group">
+                                <button
+                                    v-if="boardId > 0"
+                                    class="btn btn-xs btn-success"
+                                    @click="boardUp(boardId)"
+                                >
+                                    <i class="fas fa-long-arrow-alt-up"></i>
+                                </button>
+                                <button
+                                    v-if="
+                                        boardId < boards.length - 1 &&
+                                            boards.length > 1
+                                    "
+                                    class="btn btn-xs btn-success"
+                                    @click="boardDown(boardId)"
+                                >
+                                    <i class="fas fa-long-arrow-alt-down"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr id="manageBoards">
+                        <td>
                             <label>
                                 <input
-                                    :placeholder="
-                                        $t(
-                                            'modules.dashboard.dispatchcenter-view.manage.newBoard'
-                                        )
-                                    "
+                                    :placeholder="$sm('manage.newBoard')"
                                     @change="addBoard"
                                     type="text"
                                     v-model="newBoardTitle"
                                 />
                             </label>
-                        </grid-item>
-                    </grid-layout>
-                </grid-board>
+                        </td>
+                    </tr>
+                </enhanced-table>
             </tab>
         </tabs>
     </div>
@@ -364,6 +345,7 @@
 <script lang="ts">
 import Vue from 'vue';
 import { Building, InternalBuilding } from 'typings/Building';
+import { Vehicle } from 'typings/Vehicle';
 import {
     DispatchcenterView,
     DispatchcenterViewComputed,
@@ -401,6 +383,10 @@ export default Vue.extend<
                     /* webpackChunkName: "components/vue-select" */ 'vue-responsive-dash'
                 )
             ).DashItem,
+        EnhancedTable: () =>
+            import(
+                /* webpackChunkName: "components/enhanced-table" */ '../../../components/enhanced-table.vue'
+            ),
     },
     data() {
         const buildingTypes = this.$t('buildings') as {
@@ -512,14 +498,24 @@ export default Vue.extend<
                 this.buildingLimit + nextOffset
             ).length;
         },
+        vehiclesByBuildingSorted() {
+            let vehiclesSorted = {} as { [building: number]: Vehicle[] };
+            Object.keys(this.vehiclesByBuilding).forEach(building => {
+                vehiclesSorted[parseInt(building)] = this.vehiclesByBuilding[
+                    parseInt(building)
+                ].sort((a, b) =>
+                    a.caption > b.caption ? -1 : a.caption < b.caption ? 1 : 0
+                );
+            });
+            return vehiclesSorted;
+        },
     },
     methods: {
-        moveBoard({ id, y }) {
-            const boards = Object.values(this.boards).filter(b => b.id !== id);
-            const building = Object.values(this.boards).find(b => b.id === id);
-            if (building) boards.splice(y, 0, building);
-            this.boards = boards.map(b => ({ ...b, id: b.title }));
-            this.saveBoards();
+        $m(key, args) {
+            return this.$t(`modules.dashboard.${key}`, args);
+        },
+        $sm(key, args) {
+            return this.$m(`dispatchcenter-view.${key}`, args);
         },
         setBoardName(id) {
             this.$set(this.boards, id, {
@@ -553,6 +549,28 @@ export default Vue.extend<
             this.boards.splice(id, 1);
             await this.$nextTick();
             this.currentBoard = this.boards.length;
+            this.saveBoards();
+        },
+        async boardUp(id) {
+            const up = this.boards[id];
+            const down = this.boards[id - 1];
+            this.$set(this.boards, id - 1, {
+                ...up,
+            });
+            this.$set(this.boards, id, {
+                ...down,
+            });
+            this.saveBoards();
+        },
+        async boardDown(id) {
+            const up = this.boards[id + 1];
+            const down = this.boards[id];
+            this.$set(this.boards, id, {
+                ...up,
+            });
+            this.$set(this.boards, id + 1, {
+                ...down,
+            });
             this.saveBoards();
         },
         async addColumn() {
@@ -599,15 +617,36 @@ export default Vue.extend<
             }
         },
         bulkAddColumn() {
+            let currentColumn = 0;
+            let currentY = 8;
+            let currentRow = 0;
             this.buildingListFiltered.forEach(building =>
                 (async () => {
-                    this.columns.push({ building: building.id });
+                    let height = Math.ceil(
+                        14 +
+                            (this.vehiclesByBuilding[building.id] || [])
+                                .length *
+                                1.5
+                    );
+                    if (height > currentRow) currentRow = height;
+                    this.columns.push({
+                        building: building.id,
+                        width: 15,
+                        height: height,
+                        x: currentColumn * 16,
+                        y: currentY,
+                    });
+                    currentColumn++;
+                    if (currentColumn === 6) {
+                        currentColumn = 0;
+                        currentY += currentRow + 1;
+                        currentRow = 0;
+                    }
                     await this.$nextTick();
                     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                     // @ts-ignore
-                    const column = this.$refs[
-                        `building-${this.selectedBuilding}`
-                    ][0].item;
+                    const column = this.$refs[`building-${building.id}`][0]
+                        .item;
                     this.selectedBuilding = null;
                     this.modifyBuilding({
                         id: column._id,
@@ -643,11 +682,6 @@ export default Vue.extend<
             const headingHeight = building.$el
                 .querySelector('.panel-heading')
                 .getBoundingClientRect().height;
-            const buildingOverlay = building.$refs[`${id}-overlay`];
-            if (buildingOverlay) {
-                buildingOverlay.style.inset = `0 0 calc(100% - ${headingHeight}px) 0`;
-                buildingOverlay.style.bottom = `calc(100% - ${headingHeight}px)`;
-            }
             const buildingPanelBody = building.$el.querySelector('.panel-body');
             if (buildingPanelBody)
                 buildingPanelBody.style.maxHeight = `calc(100% - ${headingHeight}px)`;
@@ -703,10 +737,12 @@ export default Vue.extend<
                 this.columns.forEach(col =>
                     (async () => {
                         await this.$nextTick();
-                        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                        // @ts-ignore
-                        const column = this.$refs[`building-${col.building}`][0]
-                            .item;
+                        const column = this.$refs[`building-${col.building}`]
+                            ? // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                              // @ts-ignore
+                              this.$refs[`building-${col.building}`][0].item
+                            : false;
+                        if (!column) return;
                         this.modifyBuilding({
                             id: column._id,
                             width: column._width,
@@ -722,137 +758,91 @@ export default Vue.extend<
 </script>
 
 <style lang="sass" scoped>
-.board-management-title
-    display: flex
-    align-items: center
-    justify-content: space-around
+.building-selection
 
-    span
-        width: 100%
+	.v-select
+		width: 100%
+		margin-right: 1rem
 
-        &.select-title
-            max-width: calc(((100% - 22.5px - 4em) / 7) * 3)
+		::v-deep .vs__dropdown-toggle
+			padding: 0 0 6.4px 0
 
-        &.name-title
-            max-width: calc((100% - 22.5px - 4em) / 7)
+		::v-deep .vs-pagination
+			display: flex
 
-.building-selection,
-.board-management-field
-    display: flex
+			.btn
+				width: 50%
 
-    ::v-deep [id$="-overlay"]
-        inset: 0 calc(100% - 1em) 0 0 !important
-        right: calc(100% - 1em) !important
-
-    .dragging-field
-        width: 1em
-        height: 100%
-        background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABZJREFUeNpi2r9//38gYGAEESAAEGAAasgJOgzOKCoAAAAASUVORK5CYII=)
-
-    .v-select
-        width: 100%
-        margin-right: 1rem
-
-        ::v-deep .vs__dropdown-toggle
-            padding: 0 0 6.4px 0
-
-        ::v-deep .vs-pagination
-            display: flex
-
-            .btn
-                width: 50%
-
-.board-management-field
-    align-items: center
-    justify-content: space-around
-
-    label,
-    .v-select
-        width: 100%
-
-    label
-        max-width: calc((100% - 22.5px - 4em) / 7)
-
-        input
-            width: 100%
-
-    .v-select
-        max-width: calc(((100% - 22.5px - 4em) / 7) * 3)
-
-        ::v-deep .vs__selected-options
-            flex-wrap: unset
-            overflow: auto
 
 .item.panel
 
-    a,
-    .btn
-        z-index: 2
+	a,
+	.btn
+		z-index: 2
 
-    a
-        position: relative
+	a
+		position: relative
 
-    .btn
-        position: absolute
-        right: 1rem
+	.btn
+		position: absolute
+		right: 1rem
 
-    ::v-deep [id$="-resizeBottomRight"]
-        cursor: nwse-resize !important
-        width: 1em !important
-        height: unset !important
-        right: -1em !important
-        bottom: -1em !important
+	::v-deep [id$="-resizeBottomRight"]
+		cursor: nwse-resize !important
+		width: 1em !important
+		height: unset !important
+		right: -1em !important
+		bottom: -1em !important
 
-    .panel-body
-        background: transparent
-        overflow: hidden auto
+	.panel-body
+		background: transparent
+		overflow: hidden auto
 
-        .building-vehicle
-            display: flex
+		.building-vehicle
+			display: flex
 
-            span,
-            a
-                display: flex
-                align-items: center
-                justify-content: center
+			span,
+			a
+				display: flex
+				align-items: center
+				justify-content: center
 
-            span
-                border-radius: .25em 0 0 .25em !important
-                padding: .4em .6em .3em !important
-                border: 1px solid !important
-                margin-right: 0
+			span
+				border-radius: .25em 0 0 .25em !important
+				padding: .4em .6em .3em !important
+				border: 1px solid !important
+				margin-right: 0
 
-            a
-                border: 1px solid
-                border-left: 0
-                margin-left: -5px
-                margin-right: 0
-                border-radius: 0 .25em .25em 0 !important
-                padding: .4em .6em .3em !important
-                color: #4a4a4a !important
-                width: 100%
+			a
+				border: 1px solid
+				border-left: 0
+				margin-left: -5px
+				margin-right: 0
+				border-radius: 0 .25em .25em 0 !important
+				padding: .4em .6em .3em !important
+				color: #4a4a4a !important
+				width: 100%
 
 .board-title-item
-    display: flex
-    align-items: center
-    justify-content: center
+	display: flex !important
+	align-items: center
+	justify-content: center
 
-    &:hover
-        border: gray solid thin
+	&:hover
+		border: gray solid thin
 
-    .btn
-        z-index: 2
-        position: absolute
-        right: 0
-        top: 0
+	.btn
+		z-index: 2
+		position: absolute
+		right: 1rem
 
 body.dark
 
-    .item.panel .building-vehicle
+	.item.panel .building-vehicle
 
-        span
-            border-color: #ddd !important
+		span
+			border-color: #ddd !important
 
-        a
-            color: unset !important
+		a
+			color: unset !important
 </style>
