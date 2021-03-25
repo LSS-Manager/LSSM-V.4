@@ -16,11 +16,14 @@
 		"title": "Patients | {n} Patient | {n} Patients"
 	},
 	"prerequisites": {
+		"atf_count": "ATF Expansion | ATF Expansions",
 		"brush_extension": "Forestry Expansion | Forestry Expansions",
+		"dea_count": "DEA Expansion | DEA Expansions",
 		"federalpolice_stations": "Federal Police Station | Federal Police Stations",
 		"fire_aviation_count": "Firefighting Plane Station | Firefighting Plane Stations",
 		"fire_boat_docks": "fire boat dock | fire boat docks",
 		"fire_stations": "Fire Station | Fire Stations",
+		"game_warden_count": "Game Warden Expansion | Game Warden Expansions",
 		"max_police_stations": "Maximum Police Stations",
 		"max_rescue_stations": "Maximum Rescue Stations",
 		"police_helicopter_stations": "Police Helicopter Station | Police Helicopter Stations",
@@ -29,10 +32,7 @@
 		"rescue_stations": "Ambulance Station | Ambulance Stations",
 		"title": "Prerequisite | Prerequisites",
 		"wasserrettung": "Water Rescue Station",
-		"game_warden_count": "Game Warden Expansion | Game Warden Expansions",
-		"water_police_count": "Water Police Expansion | Water Police Expansions",
-		"dea_count": "DEA Expansion | DEA Expansions",
-		"atf_count": "ATF Expansion | ATF Expansions"
+		"water_police_count": "Water Police Expansion | Water Police Expansions"
 	},
 	"prisoners": {
 		"max_possible_prisoners": "Maximum Prisoners",
@@ -53,9 +53,13 @@
 		"captions": {
 			"ambulances": "Ambulance | Ambulances",
 			"arff": "ARFF",
+			"atf_lab_vehicle": "ATF Lab Vehicle | ATF Lab Vehicles",
+			"atf_unit": "ATF Unit | ATF Units",
 			"battalion_chief_vehicles": "Battalion Chief Vehicle | Battalion Chief Vehicles",
 			"boats": "Light Boat | Light Boats",
 			"brush_truck": "Wildland Fire Engine | Wildland Fire Engines",
+			"dea_clan_lab": "DEA Clan Lab | DEA Clan Labs",
+			"dea_unit": "DEA Unit | DEA Units",
 			"fbi": "FBI Unit | FBI Units",
 			"fbi_bomb": "FBI Bomb Technician Vehicle | FBI Bomb Technician Vehicles",
 			"fbi_drone": "FBI Surveillance Drone | FBI Surveillance Drones",
@@ -63,6 +67,7 @@
 			"fbi_mcc": "FBI Mobile Command Center Vehicle | FBI Mobile Command Center Vehicles",
 			"fire_aviation": "Airborne Firefighting | Airborne Firefightings",
 			"firetrucks": "Fire Engine | Fire Engines",
+			"game_warden": "Warden Truck | Warden Trucks",
 			"hazmat_vehicles": "HazMat | HazMats",
 			"heavy_rescue_vehicles": "Heavy Rescue | Heavy Rescues",
 			"helicopter": "HEMS",
@@ -72,18 +77,13 @@
 			"mobile_air_vehicles": "Mobile Air Unit | Mobile Air Unit",
 			"mobile_command_vehicles": "Mobile Command Vehicle | Mobile Command Vehicles",
 			"platform_trucks": "Platform Truck | Platform Trucks",
+			"police_boat": "Patrol Boat | Patrol Boats",
 			"police_cars": "Patrol Car | Patrol Cars",
 			"police_helicopters": "Police Helicopter | Police Helicopters",
 			"sheriff": "Sheriff | Sherrifs",
 			"swat_armored_vehicle": "SWAT Armoured Vehicle | SWAT Armoured Vehicles",
 			"swat_suv": "SWAT SUV | SWAT SUVs",
-			"water_tankers": "Water Tanker | Water Tankers",
-			"game_warden": "Warden Truck | Warden Trucks",
-			"police_boat": "Patrol Boat | Patrol Boats",
-			"dea_unit": "DEA Unit | DEA Units",
-            "dea_clan_lab": "DEA Clan Lab | DEA Clan Labs",
-			"atf_unit": "ATF Unit | ATF Units",
-            "atf_lab_vehicle": "ATF Lab Vehicle | ATF Lab Vehicles"
+			"water_tankers": "Water Tanker | Water Tankers"
 		},
 		"multifunctionals": {
 			"battalion_chief_vehicles": {
