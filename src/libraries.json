@@ -194,7 +194,7 @@
 	"ua-parser-js": {
 		"icon": "https://raw.githubusercontent.com/faisalman/ua-parser-js/gh-pages/images/logo.png",
 		"url": "https://github.com/faisalman/ua-parser-js",
-		"version": "0.7.24"
+		"version": "0.7.25"
 	},
 	"url-loader": {
 		"icon": "https://webpack.js.org/assets/icon-square-big.svg",
