@@ -1279,7 +1279,7 @@ export default {
                 duration: '3 Days',
             },
             {
-                caption: 'FBI Mobile Center Commander ',
+                caption: 'FBI Mobile Center Commander',
                 duration: '7 Days',
             },
             {
