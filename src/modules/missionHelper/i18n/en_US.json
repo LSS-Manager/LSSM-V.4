@@ -28,7 +28,11 @@
 		"rescue_boat_docks": "rescue boat dock | rescue boat docks",
 		"rescue_stations": "Ambulance Station | Ambulance Stations",
 		"title": "Prerequisite | Prerequisites",
-		"wasserrettung": "Water Rescue Station"
+		"wasserrettung": "Water Rescue Station",
+		"game_warden_count": "Game Warden Expansion | Game Warden Expansions",
+		"water_police_count": "Water Police Expansion | Water Police Expansions",
+		"dea_count": "DEA Expansion | DEA Expansions",
+		"atf_count": "ATF Expansion | ATF Expansions"
 	},
 	"prisoners": {
 		"max_possible_prisoners": "Maximum Prisoners",
@@ -73,7 +77,13 @@
 			"sheriff": "Sheriff | Sherrifs",
 			"swat_armored_vehicle": "SWAT Armoured Vehicle | SWAT Armoured Vehicles",
 			"swat_suv": "SWAT SUV | SWAT SUVs",
-			"water_tankers": "Water Tanker | Water Tankers"
+			"water_tankers": "Water Tanker | Water Tankers",
+			"game_warden": "Warden Truck | Warden Trucks",
+			"police_boat": "Patrol Boat | Patrol Boats",
+			"dea_unit": "DEA Unit | DEA Units",
+            "dea_clan_lab": "DEA Clan Lab | DEA Clan Labs",
+			"atf_unit": "ATF Unit | ATF Units",
+            "atf_lab_vehicle": "ATF Lab Vehicle | ATF Lab Vehicles"
 		},
 		"multifunctionals": {
 			"battalion_chief_vehicles": {

@@ -120,6 +120,7 @@ module.exports = {
             [/^FBI Bomb Technician Vehicle(s)?$/]: [45],
             [/^FBI Surveillance Drone(s)?$/]: [46],
             [/^Sheriff(s)?$/]: [47],
+            [/^Patrol Boat(s)?$/]: [55],
         },
     },
     tailoredTabs: {
