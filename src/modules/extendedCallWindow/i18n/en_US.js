@@ -125,7 +125,7 @@ module.exports = {
             [/^ATF Lab Vehicle(s)?$/]: [54],
             [/^DEA Unit(s)?$/]: [51],
             [/^DEA Clan Lab(s)?$/]: [52],
-            [/^Warden's Truck(s)?$/]: [56],
+            [/^Warden('s)? Truck(s)?$/]: [56],
         },
     },
     tailoredTabs: {
