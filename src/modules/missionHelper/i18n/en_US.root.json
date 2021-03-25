@@ -71,9 +71,9 @@
 				"description": "Subtracts the number of required firetrucks from the Heavy Rescue and hides firetrucks if the number drops below 0. This function is intended for people who drive a pure Rescue Engine system.",
 				"title": "Heavy Rescue Simple Rate"
 			},
-			"platform_trucks": {
-				"description": "Subtracts the number of firetrucks from the Quints and hides firetrucks if the number drops below 0.",
-				"title": "Quint Simple Rate"
+			"sheriff_unit": {
+				"description": "Subtracts the number of required patrol cars from the sheriff's and hides patrolcars if the number drops below 0.",
+				"title": "Sheriff Unit Simple Rate"
 			}
 		},
 		"noVehicleRequirements": {

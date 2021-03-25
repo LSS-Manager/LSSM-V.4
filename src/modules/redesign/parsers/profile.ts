@@ -28,6 +28,9 @@ export interface ProfileWindow {
     ignored: boolean;
     friend: boolean;
     ban: number[];
+    can_alliance_ignore: boolean;
+    alliance_ignored: boolean;
+    authenticity_token: string;
 }
 
 export default <RedesignParser<ProfileWindow>>((source, href) => {
@@ -45,6 +48,9 @@ export default <RedesignParser<ProfileWindow>>((source, href) => {
         'a[href^="/alliances"]'
     );
     const profileText = doc.getElementById('profile_text_photo');
+    const allianceIgnore = doc.querySelector<HTMLAnchorElement>(
+        '.page-header a[href^="/allianceIgnore/"]'
+    );
     return {
         id,
         name: doc.querySelector<HTMLHeadingElement>('h1')?.textContent?.trim(),
@@ -104,5 +110,10 @@ export default <RedesignParser<ProfileWindow>>((source, href) => {
         ).map(option =>
             parseInt(option.href.match(/\d+(?=\/?$)/)?.[0] ?? '-1')
         ),
+        can_alliance_ignore: !!allianceIgnore,
+        alliance_ignored: allianceIgnore?.href.endsWith('destroy'),
+        authenticity_token:
+            doc.querySelector<HTMLMetaElement>('meta[name="csrf-token"]')
+                ?.content ?? '',
     };
 });

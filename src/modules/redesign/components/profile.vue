@@ -1,6 +1,5 @@
 <template>
     <div>
-        <!-- TODO: btns (ban), friend, ignore, msg, gift, kick, deny applicaton -->
         <h1 class="redesign-profile-title" :id="profile.id">
             <img
                 :src="`/images/user_${profile.online ? 'green' : 'gray'}.png`"
@@ -8,49 +7,239 @@
             />
             {{ profile.name }}
         </h1>
-        <div class="pull-left profile-sidebar">
-            <div class="well">
-                <div>
-                    <b>{{ $sm('rank') }}</b>
-                    : {{ rank }}
+        <div class="profile-content">
+            <div class="pull-left profile-sidebar">
+                <div class="btn-toolbar pull-right profile-btns">
+                    <div class="btn-group" v-if="profile.self">
+                        <a
+                            class="btn btn-default btn-xs"
+                            href="/profile/edit"
+                            :title="$sm('buttons.edit')"
+                        >
+                            <font-awesome-icon
+                                :icon="faEdit"
+                            ></font-awesome-icon>
+                        </a>
+                        <a
+                            class="btn btn-default btn-xs"
+                            href="/avatar"
+                            :title="$sm('buttons.avatar')"
+                        >
+                            <font-awesome-icon
+                                :icon="faImage"
+                            ></font-awesome-icon>
+                        </a>
+                    </div>
+                    <div class="btn-group" v-if="profile.can_alliance_ignore">
+                        <button
+                            class="btn btn-xs"
+                            :class="
+                                `btn-${
+                                    profile.alliance_ignored
+                                        ? 'warning'
+                                        : 'danger'
+                                }`
+                            "
+                            :title="
+                                $sm(
+                                    `buttons.alliance_ignore.${
+                                        !profile.alliance_ignored
+                                            ? 'add'
+                                            : 'destroy'
+                                    }`
+                                )
+                            "
+                            @click="allianceIgnore"
+                        >
+                            alliance ignore {{ !profile.alliance_ignored }}
+                        </button>
+                    </div>
+                    <div class="btn-group" v-if="profile.ban.length">
+                        <div v-if="profile.ban[0] !== 0">
+                            <button
+                                class="btn btn-danger dropdown-toggle btn-xs"
+                                data-toggle="dropdown"
+                                :title="$sm(`buttons.chat.ban`)"
+                            >
+                                ban chat <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li v-for="time in profile.ban" :key="time">
+                                    <a
+                                        :href="
+                                            `/profile/${profile.id}/chatban/${time}`
+                                        "
+                                    >
+                                        {{
+                                            moment
+                                                .duration(time, 'seconds')
+                                                .humanize()
+                                        }}
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <a
+                            v-else
+                            :href="`/profile/${profile.id}/chatban/0`"
+                            class="btn btn-warning btn-xs"
+                            :title="$sm(`buttons.chat.unban`)"
+                        >
+                            unban chat
+                        </a>
+                    </div>
+                    <div class="btn-group" v-if="!profile.self">
+                        <a
+                            class="btn btn-xs"
+                            :class="
+                                `btn-${profile.ignored ? 'warning' : 'danger'}`
+                            "
+                            :href="
+                                `/ignoriert/${
+                                    profile.ignored
+                                        ? 'entfernen'
+                                        : 'hinzufuegen'
+                                }/${profile.id}?user=${encodeURIComponent(
+                                    profile.id
+                                )}`
+                            "
+                            :title="
+                                $sm(
+                                    `buttons.ignore.${
+                                        profile.ignored ? 'undo' : 'do'
+                                    }`
+                                )
+                            "
+                        >
+                            Ignore {{ !profile.ignored }}
+                        </a>
+                        <a
+                            v-if="!profile.ignored"
+                            class="btn btn-xs"
+                            :class="
+                                `btn-${profile.friend ? 'danger' : 'success'}`
+                            "
+                            :href="
+                                `/freunde/${
+                                    profile.friend ? 'entfernen' : 'hinzufuegen'
+                                }/${profile.id}?user=${encodeURIComponent(
+                                    profile.id
+                                )}`
+                            "
+                            :title="
+                                $sm(
+                                    `buttons.friend.${
+                                        profile.friend ? 'undo' : 'do'
+                                    }`
+                                )
+                            "
+                        >
+                            Friend {{ !profile.friend }}
+                        </a>
+                    </div>
+                    <div
+                        class="btn-group"
+                        v-if="!profile.self && !profile.ignored"
+                    >
+                        <a
+                            class="btn btn-success btn-xs"
+                            :href="
+                                `/messages/new?target=${encodeURIComponent(
+                                    profile.name
+                                )}`
+                            "
+                            :title="$sm('buttons.message')"
+                        >
+                            <font-awesome-icon
+                                :icon="faEnvelope"
+                            ></font-awesome-icon>
+                        </a>
+                        <a
+                            class="btn btn-success btn-xs"
+                            :href="
+                                `/coins?gift_for_user=${encodeURIComponent(
+                                    profile.id
+                                )}`
+                            "
+                            :title="$sm('buttons.gift')"
+                        >
+                            <font-awesome-icon
+                                :icon="faGift"
+                            ></font-awesome-icon>
+                        </a>
+                    </div>
                 </div>
-                <div v-if="profile.registration">
-                    <b>{{ $sm('registration') }}</b>
-                    : {{ moment(profile.registration).format('LLLL') }}
+                <div class="clearfix"></div>
+                <div v-if="profile.friend" class="alert alert-success">
+                    {{ $sm('alerts.friend', { name: profile.name }) }}
                 </div>
-                <div>
-                    {{
-                        $sm('credits', {
-                            credits: profile.credits.toLocaleString(),
-                        })
-                    }}
+                <div v-if="profile.ignored" class="alert alert-danger">
+                    {{ $sm('alerts.ignored', { name: profile.name }) }}
                 </div>
-                <div v-if="profile.alliance">
-                    {{ $sm('alliance') }}:
-                    <a :href="`/alliances/${profile.alliance.id}`">
-                        {{ profile.alliance.name }}
-                    </a>
+                <div v-if="profile.alliance_ignored" class="alert alert-danger">
+                    {{ $sm('alerts.alliance_ignored', { name: profile.name }) }}
                 </div>
+                <div class="well">
+                    <div>
+                        <b>{{ $sm('rank') }}</b>
+                        : {{ rank }}
+                    </div>
+                    <div v-if="profile.registration">
+                        <b>{{ $sm('registration') }}</b>
+                        : {{ moment(profile.registration).format('LLLL') }}
+                    </div>
+                    <div>
+                        {{
+                            $sm('credits', {
+                                credits: profile.credits.toLocaleString(),
+                            })
+                        }}
+                    </div>
+                    <div v-if="profile.alliance">
+                        {{ $sm('alliance') }}:
+                        <a :href="`/alliances/${profile.alliance.id}`">
+                            {{ profile.alliance.name }}
+                        </a>
+                    </div>
+                </div>
+                <img
+                    v-if="profile.image"
+                    :src="profile.image"
+                    alt=""
+                    class="profile-image"
+                />
+                <div :id="awardsChartId"></div>
             </div>
-            <img
-                v-if="profile.image"
-                :src="profile.image"
-                alt=""
-                class="profile-image"
-            />
-            <div :id="awardsChartId"></div>
+            <tabs class="profile-tabs">
+                <tab :title="$sm('text')">
+                    <div v-html="profile.text.replace(/\n/g, '<br>')"></div>
+                </tab>
+                <tab v-if="profile.has_map" :title="$sm('map')">
+                    <pre>{{ profile.buildings }}</pre>
+                </tab>
+                <tab v-if="profile.awards.length" :title="$sm('awards.title')">
+                    <div class="profile-awards">
+                        <div
+                            class="panel panel-default"
+                            v-for="award in profile.awards"
+                            :key="award.caption"
+                        >
+                            <div class="panel-heading">
+                                <h3 class="panel-title">{{ award.caption }}</h3>
+                            </div>
+                            <div class="panel-body">
+                                <img
+                                    loading="lazy"
+                                    :alt="award.caption"
+                                    :src="award.image"
+                                />
+                                <p>{{ award.desc }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </tab>
+            </tabs>
         </div>
-        <tabs>
-            <tab :title="$sm('text')">
-                <div v-html="profile.text.replace(/\n/g, '<br>')"></div>
-            </tab>
-            <tab v-if="profile.has_map" :title="$sm('map')">
-                <pre>{{ profile.buildings }}</pre>
-            </tab>
-            <tab v-if="profile.awards.length" :title="$sm('awards.title')">
-                <pre>{{ profile.awards }}</pre>
-            </tab>
-        </tabs>
     </div>
 </template>
 
@@ -60,9 +249,14 @@ import moment from 'moment';
 import Highcharts, { PlotGaugeOptions } from 'highcharts';
 import HighchartsMore from 'highcharts/highcharts-more';
 import HighchartsSolidGauge from 'highcharts/modules/solid-gauge';
+import { faEdit } from '@fortawesome/free-solid-svg-icons/faEdit';
+import { faImage } from '@fortawesome/free-solid-svg-icons/faImage';
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons/faEnvelope';
+import { faGift } from '@fortawesome/free-solid-svg-icons/faGift';
 import VueI18n, { TranslateResult } from 'vue-i18n';
 import { ProfileWindow } from '../parsers/profile';
 import { RedesignLightboxVue } from 'typings/modules/Redesign';
+import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 
 HighchartsMore(Highcharts);
 HighchartsSolidGauge(Highcharts);
@@ -70,7 +264,12 @@ HighchartsSolidGauge(Highcharts);
 export default Vue.extend<
     {
         moment: typeof moment;
+        faEdit: IconDefinition;
+        faImage: IconDefinition;
+        faEnvelope: IconDefinition;
+        faGift: IconDefinition;
         awardsChartId: string;
+        maxAwards: number;
     },
     {
         $sm(
@@ -86,6 +285,7 @@ export default Vue.extend<
                 [key: string]: unknown;
             }
         ): VueI18n.TranslateResult;
+        allianceIgnore(): void;
     },
     {
         rank: string;
@@ -121,10 +321,15 @@ export default Vue.extend<
         moment.locale(this.$store.state.lang);
         return {
             moment,
+            faEdit,
+            faImage,
+            faEnvelope,
+            faGift,
             awardsChartId: this.$store.getters.nodeAttribute(
                 'redesign-profile-awards-gauge-chart',
                 true
             ),
+            maxAwards: 0,
         };
     },
     methods: {
@@ -144,6 +349,40 @@ export default Vue.extend<
             }
         ) {
             return this.$mc(`profile.${key}`, amount, args);
+        },
+        allianceIgnore() {
+            const url = new URL(window.location.href);
+            url.searchParams.append('_method', 'post');
+            url.searchParams.append(
+                'authenticity_token',
+                this.profile.authenticity_token
+            );
+            this.$store
+                .dispatch('api/request', {
+                    url: `/allianceIgnore/${this.profile.id}/${
+                        this.profile.alliance_ignored ? 'destroy' : 'add'
+                    }`,
+                    init: {
+                        credentials: 'include',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded',
+                        },
+                        referrer: `https://www.leitstellenspiel.de/profile/${this.profile.id}`,
+                        body: url.searchParams.toString(),
+                        method: 'POST',
+                        mode: 'cors',
+                    },
+                    feature: `redesign-profile-allianceignore-${
+                        this.profile.id
+                    }-to-${!this.profile.alliance_ignored}`,
+                })
+                .then(() =>
+                    this.$set(
+                        this.lightbox,
+                        'src',
+                        `/profile/${this.profile.id}`
+                    )
+                );
         },
     },
     computed: {
@@ -230,12 +469,17 @@ export default Vue.extend<
                 }),
             },
         });
+        this.maxAwards = parseInt(this.$sm('awards.max').toString());
         Highcharts.chart(this.awardsChartId, {
             chart: {
                 type: 'solidgauge',
+                height: 200,
             },
             title: {
-                text: this.$sm('awards.title').toString(),
+                text: this.$sm('awards.title_amounts', {
+                    sum: this.profile.awards.length,
+                    max: this.maxAwards,
+                }),
                 margin: 0,
                 style: {
                     fontWeight: 'bold',
@@ -297,7 +541,7 @@ export default Vue.extend<
             },
             yAxis: {
                 min: 0,
-                max: parseInt(this.$sm('awards.max').toString()),
+                max: this.maxAwards,
                 lineWidth: 0,
                 tickPositions: [],
             },
@@ -354,11 +598,35 @@ export default Vue.extend<
 </script>
 
 <style lang="sass" scoped>
-.profile-sidebar
-    margin-right: 1rem
+.profile-content
+    display: flex
 
-.profile-image
-    min-width: 90%
-    display: block
-    margin: auto
+    .profile-sidebar
+        margin-right: 1rem
+
+        .profile-btns
+            margin-bottom: 1rem
+
+        .profile-image
+            min-width: 90%
+            display: block
+            margin: auto
+
+    .profile-tabs
+        width: 100%
+
+        .profile-awards
+            display: grid
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr))
+            grid-gap: 1em
+
+            .panel-body
+                display: flex
+                flex-flow: row
+
+                img
+                    max-width: 50%
+
+                p
+                    margin-left: 10px
 </style>
