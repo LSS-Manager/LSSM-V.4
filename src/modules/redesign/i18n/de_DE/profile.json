@@ -13,6 +13,7 @@
 		"title": "Auszeichnungen",
 		"title_amounts": "{sum} von {max} Auszeichnungen"
 	},
+	"buildings": "Gebäude",
 	"buttons": {
 		"alliance_ignore": {
 			"add": "Bewerben beim Verband verbieten",
@@ -39,6 +40,5 @@
 	"map": "Karte",
 	"rank": "Dienstgrad",
 	"registration": "Anmeldedatum",
-	"text": "Profiltext",
-    "buildings": "Gebäude"
+	"text": "Profiltext"
 }
