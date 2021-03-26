@@ -217,6 +217,48 @@
                 <tab v-if="profile.has_map" :title="$sm('map')">
                     <pre>{{ profile.buildings }}</pre>
                 </tab>
+                <tab v-if="profile.has_map" :title="$sm('buildings')">
+                    <div
+                        class="panel panel-default profile-dispatchcenter"
+                        v-for="dc in buildings"
+                        :key="dc.id"
+                    >
+                        <div
+                            class="panel-heading"
+                            @click="
+                                expandedDispatches.includes(dc.id)
+                                    ? expandedDispatches.splice(
+                                          expandedDispatches.findIndex(
+                                              n => n === dc.id
+                                          ),
+                                          1
+                                      )
+                                    : expandedDispatches.push(dc.id)
+                            "
+                        >
+                            <h3 class="panel-title">
+                                <img
+                                    loading="lazy"
+                                    :src="
+                                        dc.id
+                                            ? dc.icon
+                                            : '/images/building_leitstelle.png'
+                                    "
+                                    :alt="dc.name"
+                                />
+                                <a :href="`/buildings/${dc.id}`" v-if="dc.id">
+                                    {{ dc.name }}
+                                </a>
+                            </h3>
+                        </div>
+                        <div
+                            class="panel-body"
+                            v-if="expandedDispatches.includes(dc.id)"
+                        >
+                            <pre>{{ dc }}</pre>
+                        </div>
+                    </div>
+                </tab>
                 <tab v-if="profile.awards.length" :title="$sm('awards.title')">
                     <div class="profile-awards">
                         <div
@@ -261,6 +303,12 @@ import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 HighchartsMore(Highcharts);
 HighchartsSolidGauge(Highcharts);
 
+type DispatchCenter = {
+    [id: number]: Partial<ProfileWindow['buildings'][0]> & {
+        buildings: ProfileWindow['buildings'];
+    };
+};
+
 export default Vue.extend<
     {
         moment: typeof moment;
@@ -270,6 +318,7 @@ export default Vue.extend<
         faGift: IconDefinition;
         awardsChartId: string;
         maxAwards: number;
+        expandedDispatches: number[];
     },
     {
         $sm(
@@ -294,6 +343,7 @@ export default Vue.extend<
             silver: number;
             gold: number;
         };
+        buildings: DispatchCenter;
     },
     {
         profile: ProfileWindow;
@@ -330,6 +380,7 @@ export default Vue.extend<
                 true
             ),
             maxAwards: 0,
+            expandedDispatches: [],
         };
     },
     methods: {
@@ -414,6 +465,28 @@ export default Vue.extend<
                 else if (image.match(/award_gold/)) colors.gold++;
             });
             return colors;
+        },
+        buildings() {
+            const dispatchCenters: DispatchCenter = {
+                0: { buildings: [], id: 0 },
+            };
+            this.profile.buildings.forEach(
+                (building: ProfileWindow['buildings'][0]) => {
+                    if (building.filter_id === 'dispatch_center') {
+                        return (dispatchCenters[building.id] = {
+                            ...dispatchCenters[building.id],
+                            ...building,
+                            buildings:
+                                dispatchCenters[building.id]?.buildings ?? [],
+                        });
+                    }
+                    if (!dispatchCenters.hasOwnProperty(building.lbid))
+                        dispatchCenters[building.lbid] = { buildings: [] };
+
+                    dispatchCenters[building.lbid].buildings.push(building);
+                }
+            );
+            return dispatchCenters;
         },
     },
     props: {
@@ -614,6 +687,14 @@ export default Vue.extend<
 
     .profile-tabs
         width: 100%
+
+        .profile-dispatchcenter
+
+            .panel-heading
+                cursor: pointer
+
+                .panel-title img
+                    max-height: calc(16px + 1em)
 
         .profile-awards
             display: grid

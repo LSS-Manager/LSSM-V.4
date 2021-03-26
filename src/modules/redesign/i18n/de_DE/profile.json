@@ -39,5 +39,6 @@
 	"map": "Karte",
 	"rank": "Dienstgrad",
 	"registration": "Anmeldedatum",
-	"text": "Profiltext"
+	"text": "Profiltext",
+    "buildings": "Gebäude"
 }
