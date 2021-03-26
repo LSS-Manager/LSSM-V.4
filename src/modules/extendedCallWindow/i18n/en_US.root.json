@@ -92,6 +92,10 @@
 			"description": "Outlines the generation time in red if the bet will expire the following night.",
 			"title": "Red border"
 		},
+		"stagingAreaSelectedCounter": {
+			"description": "Shows in staging areas the amount of selected vehicles next to the alarm buttons",
+			"title": "Alarm-Counter within staging areas"
+		},
 		"stickyHeader": {
 			"description": "Always shows the top bar in the insert window, even when you scroll down.",
 			"title": "Always show header bar"

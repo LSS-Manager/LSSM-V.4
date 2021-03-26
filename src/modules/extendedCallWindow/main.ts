@@ -188,4 +188,14 @@ export default (async (LSSM, MODULE_ID, $m, $mc) => {
             )
         ).default(LSSM, tailoredTabSettings.value, stagingMode, $m, $mc);
     }
+    if (
+        stagingMode &&
+        (await getSetting<boolean>('stagingAreaSelectedCounter'))
+    ) {
+        (
+            await import(
+                /* webpackChunkName: "modules/extendedCallWindow/stagingAreaSelectedCounter" */ './assets/stagingAreaSelectedCounter'
+            )
+        ).default();
+    }
 }) as ModuleMainFunction;
