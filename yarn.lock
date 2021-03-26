@@ -1102,17 +1102,17 @@
   resolved "https://registry.yarnpkg.com/@types/source-list-map/-/source-list-map-0.1.2.tgz#0078836063ffaf17412349bba364087e0ac02ec9"
   integrity sha512-K5K+yml8LTo9bWJI/rECfIPrGgxdpeNbj+d53lwN4QjW1MCwlkhUms+gtdzigTeUyBr09+u8BwOIY3MXvHdcsA==
 
-"@types/speed-measure-webpack-plugin@^1.3.1":
-  version "1.3.1"
-  resolved "https://registry.yarnpkg.com/@types/speed-measure-webpack-plugin/-/speed-measure-webpack-plugin-1.3.1.tgz#a9054bc32da286cbab2ffaed83bd09608c6ddfad"
-  integrity sha512-6wE+7uZBLSfTdJH041TQCrSoYd7M4ujgnapDNh1lJcHKnoVtE93UtY1FF4slHhTAdW3ADgyr87Gttyil18wIYQ==
+"@types/speed-measure-webpack-plugin@^1.3.2":
+  version "1.3.2"
+  resolved "https://registry.yarnpkg.com/@types/speed-measure-webpack-plugin/-/speed-measure-webpack-plugin-1.3.2.tgz#33c792cb40f3f5a6d7ea53a49d6091ea1d5a8aef"
+  integrity sha512-LjkvEMqpVdybWFj16NiJ6wSoueG02Yy5Vms2F/bDL2nXGT7tY/80wdDJITFDahw94v2dlSTHUDxP3JIbCfZpWA==
   dependencies:
-    "@types/webpack" "*"
+    "@types/webpack" "^4"
 
-"@types/tapable@*":
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/@types/tapable/-/tapable-1.0.6.tgz#a9ca4b70a18b270ccb2bc0aaafefd1d486b7ea74"
-  integrity sha512-W+bw9ds02rAQaMvaLYxAbJ6cvguW/iJXNT6lTssS1ps6QdrMKttqEAMEG/b5CR8TZl3/L7/lH0ZV5nNR1LXikA==
+"@types/tapable@^1":
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/@types/tapable/-/tapable-1.0.7.tgz#545158342f949e8fd3bfd813224971ecddc3fac4"
+  integrity sha512-0VBprVqfgFD7Ehb2vd8Lh9TG3jP98gvr8rgehQqzztZNI7o8zS8Ad4jyZneKELphpuE212D8J70LnSNQSyO6bQ==
 
 "@types/ua-parser-js@^0.7.35":
   version "0.7.35"
@@ -1147,14 +1147,14 @@
     "@types/source-list-map" "*"
     source-map "^0.7.3"
 
-"@types/webpack@*", "@types/webpack@^4.4.31":
-  version "4.41.25"
-  resolved "https://registry.yarnpkg.com/@types/webpack/-/webpack-4.41.25.tgz#4d3b5aecc4e44117b376280fbfd2dc36697968c4"
-  integrity sha512-cr6kZ+4m9lp86ytQc1jPOJXgINQyz3kLLunZ57jznW+WIAL0JqZbGubQk4GlD42MuQL5JGOABrxdpqqWeovlVQ==
+"@types/webpack@^4", "@types/webpack@^4.4.31":
+  version "4.41.27"
+  resolved "https://registry.yarnpkg.com/@types/webpack/-/webpack-4.41.27.tgz#f47da488c8037e7f1b2dbf2714fbbacb61ec0ffc"
+  integrity sha512-wK/oi5gcHi72VMTbOaQ70VcDxSQ1uX8S2tukBK9ARuGXrYM/+u4ou73roc7trXDNmCxCoerE8zruQqX/wuHszA==
   dependencies:
     "@types/anymatch" "*"
     "@types/node" "*"
-    "@types/tapable" "*"
+    "@types/tapable" "^1"
     "@types/uglify-js" "*"
     "@types/webpack-sources" "*"
     source-map "^0.6.0"
