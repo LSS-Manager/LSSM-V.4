@@ -1,4 +1,4 @@
-export default (): void => {
+export default (LSSM: Vue): void => {
     const counters: HTMLSpanElement[] = [];
     document
         .querySelectorAll('form input.btn.btn-success[type="submit"]')
@@ -10,12 +10,27 @@ export default (): void => {
             counters.push(counter);
         });
     const form = document.querySelector<HTMLFormElement>('form');
-    form?.addEventListener('change', () => {
+    if (!form) return;
+    const clickHandler = () => {
         const amount = form
             .querySelectorAll<HTMLInputElement>(
                 'input.vehicle_checkbox:checked'
             )
             .length.toLocaleString();
         counters.forEach(counter => (counter.innerText = amount));
-    });
+    };
+    LSSM.$store
+        .dispatch('hook', {
+            event: 'aaoClickHandler',
+            callback: clickHandler,
+        })
+        .then();
+
+    LSSM.$store
+        .dispatch('hook', {
+            event: 'vehicleGroupClickHandler',
+            callback: clickHandler,
+        })
+        .then();
+    form?.addEventListener('change', clickHandler);
 };

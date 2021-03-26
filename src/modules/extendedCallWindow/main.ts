@@ -196,6 +196,6 @@ export default (async (LSSM, MODULE_ID, $m, $mc) => {
             await import(
                 /* webpackChunkName: "modules/extendedCallWindow/stagingAreaSelectedCounter" */ './assets/stagingAreaSelectedCounter'
             )
-        ).default();
+        ).default(LSSM);
     }
 }) as ModuleMainFunction;
