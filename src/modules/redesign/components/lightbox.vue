@@ -73,6 +73,12 @@
                 spin
                 size="10x"
             ></font-awesome-icon>
+            <div class="error-list well" v-show="errors.length">
+                <div v-for="(error, id) in errors" :key="id">
+                    <b>{{ error.toString() }}</b>
+                    <pre class="bg-danger">{{ error.stack }}</pre>
+                </div>
+            </div>
         </div>
     </lightbox>
 </template>
@@ -119,6 +125,7 @@ export default Vue.extend<
             html: '',
             urlProp: '',
             loading: true,
+            errors: [],
         };
     },
     props: {
@@ -151,6 +158,7 @@ export default Vue.extend<
             },
             set(url) {
                 this.loading = true;
+                this.errors = [];
                 const link = new URL(url, window.location.href);
                 const type = Object.entries(this.routeChecks).find(([regex]) =>
                     link.pathname.match(regex)
@@ -230,19 +238,23 @@ export default Vue.extend<
                         import(
                             /*webpackChunkName: "modules/redesign/parsers/[request]"*/ `../parsers/${type}`
                         ).then(parser => {
-                            this.data = parser.default(
-                                html,
-                                url,
-                                this.getIdFromEl
-                            );
-                            if (type === 'vehicle/nextfms' && this.data)
-                                this.src = `/vehicles/${this.data}`;
-                            this.type = type;
-                            this.urlProp = url;
-                            document.documentElement.style.removeProperty(
-                                'height'
-                            );
-                            document.body.style.removeProperty('height');
+                            try {
+                                this.data = parser.default(
+                                    html,
+                                    url,
+                                    this.getIdFromEl
+                                );
+                                if (type === 'vehicle/nextfms' && this.data)
+                                    this.src = `/vehicles/${this.data}`;
+                                this.type = type;
+                                this.urlProp = url;
+                                document.documentElement.style.removeProperty(
+                                    'height'
+                                );
+                                document.body.style.removeProperty('height');
+                            } catch (e) {
+                                this.errors.push(e);
+                            }
                         });
                     });
             },
@@ -333,4 +345,14 @@ iframe
     justify-content: center
     align-items: center
     color: black
+
+    .error-list
+        position: absolute
+        right: 0
+        max-height: 100%
+        max-width: calc(50% - 7em)
+        overflow: auto
+
+        *
+            overflow: auto
 </style>

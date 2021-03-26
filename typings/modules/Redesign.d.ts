@@ -38,6 +38,7 @@ interface Data<T, D> {
     html: string;
     urlProp: string;
     loading: boolean;
+    errors: Error[];
 }
 
 export interface RedesignLightbox<
