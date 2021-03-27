@@ -13,7 +13,10 @@
 		"title": "Auszeichnungen",
 		"title_amounts": "{sum} von {max} Auszeichnungen"
 	},
-	"buildings": "Gebäude",
+	"buildings": {
+		"amount": "{n} Gebäude",
+		"title": "Gebäude"
+	},
 	"buttons": {
 		"alliance_ignore": {
 			"add": "Bewerben beim Verband verbieten",

@@ -217,7 +217,10 @@
                 <tab v-if="profile.has_map" :title="$sm('map')">
                     <pre>{{ profile.buildings }}</pre>
                 </tab>
-                <tab v-if="profile.has_map" :title="$sm('buildings')">
+                <tab
+                    v-if="profile.has_map"
+                    :title="$smc('buildings.amount', profile.buildings.length)"
+                >
                     <div
                         class="panel panel-default profile-dispatchcenter"
                         v-for="dc in buildings"
@@ -236,6 +239,9 @@
                                     : expandedDispatches.push(dc.id)
                             "
                         >
+                            <span class="pull-right">{{
+                                $smc('buildings.amount', dc.buildings.length)
+                            }}</span>
                             <h3 class="panel-title">
                                 <img
                                     loading="lazy"
@@ -247,20 +253,37 @@
                                     :alt="dc.name"
                                 />
                                 <a :href="`/buildings/${dc.id}`" v-if="dc.id">
-                                    {{ dc.name }}
+                                    {{ he.decode(dc.name) }}
                                 </a>
                             </h3>
                         </div>
                         <div
-                            class="panel-body"
+                            class="panel-body profile-grid"
                             v-if="expandedDispatches.includes(dc.id)"
                         >
-                            <pre>{{ dc }}</pre>
+                            <div
+                                class="panel panel-default"
+                                v-for="building in dc.buildings"
+                                :key="building.id"
+                            >
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">
+                                        <img
+                                            loading="lazy"
+                                            :src="building.icon"
+                                            :alt="building.name"
+                                        />
+                                        <a :href="`/buildings/${building.id}`">
+                                            {{ he.decode(building.name) }}
+                                        </a>
+                                    </h3>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </tab>
                 <tab v-if="profile.awards.length" :title="$sm('awards.title')">
-                    <div class="profile-awards">
+                    <div class="profile-awards profile-grid">
                         <div
                             class="panel panel-default"
                             v-for="award in profile.awards"
@@ -288,6 +311,7 @@
 <script lang="ts">
 import Vue from 'vue';
 import moment from 'moment';
+import he from 'he';
 import Highcharts, { PlotGaugeOptions } from 'highcharts';
 import HighchartsMore from 'highcharts/highcharts-more';
 import HighchartsSolidGauge from 'highcharts/modules/solid-gauge';
@@ -312,6 +336,7 @@ type DispatchCenter = {
 export default Vue.extend<
     {
         moment: typeof moment;
+        he: typeof he;
         faEdit: IconDefinition;
         faImage: IconDefinition;
         faEnvelope: IconDefinition;
@@ -371,6 +396,7 @@ export default Vue.extend<
         moment.locale(this.$store.state.lang);
         return {
             moment,
+            he,
             faEdit,
             faImage,
             faEnvelope,
@@ -690,24 +716,29 @@ export default Vue.extend<
 
         .profile-dispatchcenter
 
-            .panel-heading
+            > .panel-heading
                 cursor: pointer
 
                 .panel-title img
                     max-height: calc(16px + 1em)
 
-        .profile-awards
+            .profile-grid::before,
+            .profile-grid::after
+                content: unset
+
+        .profile-awards .panel-body
+            display: flex
+            flex-flow: row
+
+            img
+                max-width: 50%
+
+            p
+                margin-left: 10px
+
+
+        .profile-grid
             display: grid
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr))
             grid-gap: 1em
-
-            .panel-body
-                display: flex
-                flex-flow: row
-
-                img
-                    max-width: 50%
-
-                p
-                    margin-left: 10px
 </style>
