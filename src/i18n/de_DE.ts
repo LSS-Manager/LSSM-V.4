@@ -1864,7 +1864,7 @@ export default {
             startVehicles: ['Rettungshundefahrzeug'],
         },
         22: {
-            caption: 'Große 💩',
+            caption: 'Großer Komplex',
             color: '#8B4513',
             coins: 'Zu Teuer',
             credits: 'Zu Teuer',
@@ -1954,7 +1954,7 @@ export default {
             startVehicles: [''],
         },
         23: {
-            caption: 'Kleine 💩',
+            caption: 'Kleiner Komplex',
             color: '#8B4513',
             coins: 'Zu Teuer',
             credits: 'Zu Teuer',
