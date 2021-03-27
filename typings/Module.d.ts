@@ -4,6 +4,7 @@ import { RegisterSettings } from './Setting';
 
 export interface Module {
     active: boolean;
+    alpha: boolean;
     location: RegExp | string;
     locales: null | (keyof Games)[];
     collisions: null | (keyof Modules)[];

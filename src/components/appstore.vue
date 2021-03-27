@@ -23,7 +23,7 @@
                 :key="moduleId"
                 class="card"
                 :class="{
-                    dev: modules[moduleId].dev,
+                    dev: modules[moduleId].dev || modules[moduleId].alpha,
                     mapkit: hasMapkitConflict(moduleId),
                 }"
             >

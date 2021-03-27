@@ -1,4 +1,9 @@
 {
+	"alerts": {
+		"alliance_ignored": "{name} is es verboten, sich bei deinem Verband zu bewerben!",
+		"friend": "{name} steht auf deiner Freundesliste! 🥳",
+		"ignored": "Du ignorierst diesen Spieler. {name} kann dir keine Nachrichten mehr senden!"
+	},
 	"alliance": "Verband",
 	"awards": {
 		"bronze": "Bronze",
@@ -8,10 +13,29 @@
 		"title": "Auszeichnungen",
 		"title_amounts": "{sum} von {max} Auszeichnungen"
 	},
+	"buildings": {
+		"amount": "{n} Gebäude"
+	},
 	"buttons": {
+		"alliance_ignore": {
+			"add": "Bewerben beim Verband verbieten",
+			"destroy": "Bewerben beim Verband erlauben"
+		},
 		"avatar": "Avatar bearbeiten",
+		"chat": {
+			"ban": "Schreiben im Verbandschat verbieten",
+			"unban": "Schreiben im Verbandschat erlauben"
+		},
 		"edit": "Profiltext bearbeiten",
+		"friend": {
+			"do": "Als Freund hinzufügen",
+			"undo": "Als Freund entfernen"
+		},
 		"gift": "Coins verschenken",
+		"ignore": {
+			"do": "Spieler ignorieren",
+			"undo": "Spieler nichtmehr ignorieren"
+		},
 		"message": "Neue Konversation starten"
 	},
 	"credits": "{credits} verdiente Credits",

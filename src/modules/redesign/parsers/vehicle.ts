@@ -201,13 +201,13 @@ export default <RedesignParser<VehicleWindow>>((source, href, getIdFromEl) => {
                 /vehicle_graphics(_sorted\[\d+])?\s*=\s*/
             )
                 ? JSON.parse(
-                      doc.scripts[
-                          userEl || hasHospitals || hasCells || fms === 6
-                              ? 7
-                              : 8
-                      ].innerText.match(
-                          /(?<=vehicle_graphics(_sorted\[\d+])?\s*=\s*)\[(?:(?:(?:\[".*?",".*?","(?:true|false)"])|null),?)+]/
-                      )?.[0] ?? '[]'
+                      Array.from(doc.scripts)
+                          .find(({ innerText }) =>
+                              innerText.match(/vehicle_graphics/)
+                          )
+                          ?.innerText.match(
+                              /(?<=vehicle_graphics(_sorted\[\d+])?\s*=\s*)\[(?:(?:(?:\[".*?",".*?","(?:true|false)"])|null),?)+]/
+                          )?.[0] ?? '[]'
                   )[vehicleType][0]
                 : imageEl?.src ?? '',
         user: userEl

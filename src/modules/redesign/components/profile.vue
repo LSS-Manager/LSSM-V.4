@@ -9,52 +9,176 @@
         </h1>
         <div class="profile-content">
             <div class="pull-left profile-sidebar">
-                <!-- TODO: btns (ban), friend, ignore, kick, deny applicaton -->
-                <div class="btn-group pull-right profile-btns">
-                    <a
-                        v-if="profile.self"
-                        class="btn btn-default btn-xs"
-                        href="/profile/edit"
-                        :title="$sm('buttons.edit')"
-                    >
-                        <font-awesome-icon :icon="faEdit"></font-awesome-icon>
-                    </a>
-                    <a
-                        v-if="profile.self"
-                        class="btn btn-default btn-xs"
-                        href="/avatar"
-                        :title="$sm('buttons.avatar')"
-                    >
-                        <font-awesome-icon :icon="faImage"></font-awesome-icon>
-                    </a>
-                    <a
+                <div class="btn-toolbar pull-right profile-btns">
+                    <div class="btn-group" v-if="profile.self">
+                        <a
+                            class="btn btn-default btn-xs"
+                            href="/profile/edit"
+                            :title="$sm('buttons.edit')"
+                        >
+                            <font-awesome-icon
+                                :icon="faEdit"
+                            ></font-awesome-icon>
+                        </a>
+                        <a
+                            class="btn btn-default btn-xs"
+                            href="/avatar"
+                            :title="$sm('buttons.avatar')"
+                        >
+                            <font-awesome-icon
+                                :icon="faImage"
+                            ></font-awesome-icon>
+                        </a>
+                    </div>
+                    <div class="btn-group" v-if="profile.can_alliance_ignore">
+                        <button
+                            class="btn btn-xs"
+                            :class="
+                                `btn-${
+                                    profile.alliance_ignored
+                                        ? 'warning'
+                                        : 'danger'
+                                }`
+                            "
+                            :title="
+                                $sm(
+                                    `buttons.alliance_ignore.${
+                                        !profile.alliance_ignored
+                                            ? 'add'
+                                            : 'destroy'
+                                    }`
+                                )
+                            "
+                            @click="allianceIgnore"
+                        >
+                            alliance ignore {{ !profile.alliance_ignored }}
+                        </button>
+                    </div>
+                    <div class="btn-group" v-if="profile.ban.length">
+                        <div v-if="profile.ban[0] !== 0">
+                            <button
+                                class="btn btn-danger dropdown-toggle btn-xs"
+                                data-toggle="dropdown"
+                                :title="$sm(`buttons.chat.ban`)"
+                            >
+                                ban chat <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li v-for="time in profile.ban" :key="time">
+                                    <a
+                                        :href="
+                                            `/profile/${profile.id}/chatban/${time}`
+                                        "
+                                    >
+                                        {{
+                                            moment
+                                                .duration(time, 'seconds')
+                                                .humanize()
+                                        }}
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <a
+                            v-else
+                            :href="`/profile/${profile.id}/chatban/0`"
+                            class="btn btn-warning btn-xs"
+                            :title="$sm(`buttons.chat.unban`)"
+                        >
+                            unban chat
+                        </a>
+                    </div>
+                    <div class="btn-group" v-if="!profile.self">
+                        <a
+                            class="btn btn-xs"
+                            :class="
+                                `btn-${profile.ignored ? 'warning' : 'danger'}`
+                            "
+                            :href="
+                                `/ignoriert/${
+                                    profile.ignored
+                                        ? 'entfernen'
+                                        : 'hinzufuegen'
+                                }/${profile.id}?user=${encodeURIComponent(
+                                    profile.id
+                                )}`
+                            "
+                            :title="
+                                $sm(
+                                    `buttons.ignore.${
+                                        profile.ignored ? 'undo' : 'do'
+                                    }`
+                                )
+                            "
+                        >
+                            Ignore {{ !profile.ignored }}
+                        </a>
+                        <a
+                            v-if="!profile.ignored"
+                            class="btn btn-xs"
+                            :class="
+                                `btn-${profile.friend ? 'danger' : 'success'}`
+                            "
+                            :href="
+                                `/freunde/${
+                                    profile.friend ? 'entfernen' : 'hinzufuegen'
+                                }/${profile.id}?user=${encodeURIComponent(
+                                    profile.id
+                                )}`
+                            "
+                            :title="
+                                $sm(
+                                    `buttons.friend.${
+                                        profile.friend ? 'undo' : 'do'
+                                    }`
+                                )
+                            "
+                        >
+                            Friend {{ !profile.friend }}
+                        </a>
+                    </div>
+                    <div
+                        class="btn-group"
                         v-if="!profile.self && !profile.ignored"
-                        class="btn btn-success btn-xs"
-                        :href="
-                            `/messages/new?target=${encodeURIComponent(
-                                profile.name
-                            )}`
-                        "
-                        :title="$sm('buttons.message')"
                     >
-                        <font-awesome-icon
-                            :icon="faEnvelope"
-                        ></font-awesome-icon>
-                    </a>
-                    <a
-                        v-if="!profile.self && !profile.ignored"
-                        class="btn btn-success btn-xs"
-                        :href="
-                            `/coins?gift_for_user=${encodeURIComponent(
-                                profile.id
-                            )}`
-                        "
-                        :title="$sm('buttons.gift')"
-                    >
-                        <font-awesome-icon :icon="faGift"></font-awesome-icon>
-                    </a>
+                        <a
+                            class="btn btn-success btn-xs"
+                            :href="
+                                `/messages/new?target=${encodeURIComponent(
+                                    profile.name
+                                )}`
+                            "
+                            :title="$sm('buttons.message')"
+                        >
+                            <font-awesome-icon
+                                :icon="faEnvelope"
+                            ></font-awesome-icon>
+                        </a>
+                        <a
+                            class="btn btn-success btn-xs"
+                            :href="
+                                `/coins?gift_for_user=${encodeURIComponent(
+                                    profile.id
+                                )}`
+                            "
+                            :title="$sm('buttons.gift')"
+                        >
+                            <font-awesome-icon
+                                :icon="faGift"
+                            ></font-awesome-icon>
+                        </a>
+                    </div>
                 </div>
                 <div class="clearfix"></div>
+                <div v-if="profile.friend" class="alert alert-success">
+                    {{ $sm('alerts.friend', { name: profile.name }) }}
+                </div>
+                <div v-if="profile.ignored" class="alert alert-danger">
+                    {{ $sm('alerts.ignored', { name: profile.name }) }}
+                </div>
+                <div v-if="profile.alliance_ignored" class="alert alert-danger">
+                    {{ $sm('alerts.alliance_ignored', { name: profile.name }) }}
+                </div>
                 <div class="well">
                     <div>
                         <b>{{ $sm('rank') }}</b>
@@ -86,35 +210,274 @@
                 />
                 <div :id="awardsChartId"></div>
             </div>
-            <tabs class="profile-tabs">
-                <tab :title="$sm('text')">
-                    <div v-html="profile.text.replace(/\n/g, '<br>')"></div>
-                </tab>
-                <tab v-if="profile.has_map" :title="$sm('map')">
-                    <pre>{{ profile.buildings }}</pre>
-                </tab>
-                <tab v-if="profile.awards.length" :title="$sm('awards.title')">
-                    <div class="profile-awards">
+            <div class="profile-tabs">
+                <tabs
+                    ref="tabs"
+                    :on-select="
+                        (_, i) => {
+                            show_map = profile.has_map && i === 1;
+                            if (
+                                show_map &&
+                                Object.values($refs.map.map.getSize()).includes(
+                                    0
+                                )
+                            )
+                                $nextTick($refs.map.redraw);
+                        }
+                    "
+                >
+                    <tab :title="$sm('text')">
+                        <div v-html="profile.text.replace(/\n/g, '<br>')"></div>
+                    </tab>
+                    <tab v-if="profile.has_map" :title="$sm('map')"></tab>
+                    <tab
+                        v-if="profile.has_map"
+                        :title="
+                            $smc('buildings.amount', profile.buildings.length, {
+                                n: profile.buildings.length.toLocaleString(),
+                            })
+                        "
+                    >
+                        <label class="pull-right">
+                            <input
+                                type="search"
+                                class="search_input_field"
+                                v-model="search"
+                            />
+                        </label>
+                        <div class="dispatchcenter-summary">
+                            <span
+                                v-for="type in buildingTypesSorted"
+                                :key="type"
+                            >
+                                <span
+                                    class="label"
+                                    :class="
+                                        `label-${
+                                            hiddenFilters.includes(
+                                                parseInt(type)
+                                            )
+                                                ? 'danger'
+                                                : 'success'
+                                        }`
+                                    "
+                                    v-if="buildings[0].buildingTypes.sum[type]"
+                                    @click="toggleFilter(parseInt(type))"
+                                    @dblclick="onlyFilter(parseInt(type))"
+                                >
+                                    {{ buildingTypes[type].caption }}:
+                                    {{
+                                        buildings[0].buildingTypes.sum[
+                                            type
+                                        ].toLocaleString()
+                                    }}
+                                </span>
+                            </span>
+                        </div>
                         <div
-                            class="panel panel-default"
-                            v-for="award in profile.awards"
-                            :key="award.caption"
+                            class="panel panel-default profile-dispatchcenter"
+                            v-for="dc in buildings"
+                            :key="dc.id"
                         >
-                            <div class="panel-heading">
-                                <h3 class="panel-title">{{ award.caption }}</h3>
+                            <div
+                                class="panel-heading"
+                                @click="
+                                    expandedDispatches.includes(dc.id)
+                                        ? expandedDispatches.splice(
+                                              expandedDispatches.findIndex(
+                                                  n => n === dc.id
+                                              ),
+                                              1
+                                          )
+                                        : expandedDispatches.push(dc.id)
+                                "
+                            >
+                                <span class="pull-right">{{
+                                    $smc(
+                                        'buildings.amount',
+                                        (dc.buildings || []).length,
+                                        {
+                                            n: (
+                                                dc.buildings || []
+                                            ).length.toLocaleString(),
+                                        }
+                                    )
+                                }}</span>
+                                <h3 class="panel-title">
+                                    <font-awesome-icon
+                                        class="map-locator"
+                                        v-if="dc.id"
+                                        :icon="faMapMarkedAlt"
+                                        @click.stop="
+                                            () => {
+                                                $refs.map.setView(
+                                                    dc.latitude,
+                                                    dc.longitude,
+                                                    15
+                                                );
+                                                $set(
+                                                    $refs.tabs,
+                                                    'selectedIndex',
+                                                    1
+                                                );
+                                                $refs.tabs.onSelect(
+                                                    undefined,
+                                                    1
+                                                );
+                                            }
+                                        "
+                                    ></font-awesome-icon>
+                                    <img
+                                        loading="lazy"
+                                        :src="
+                                            dc.id
+                                                ? dc.icon
+                                                : '/images/building_leitstelle.png'
+                                        "
+                                        :alt="dc.name"
+                                    />
+                                    <a
+                                        :href="`/buildings/${dc.id}`"
+                                        v-if="dc.id"
+                                    >
+                                        {{ he.decode(dc.name) }}
+                                    </a>
+                                </h3>
                             </div>
-                            <div class="panel-body">
-                                <img
-                                    loading="lazy"
-                                    :alt="award.caption"
-                                    :src="award.image"
-                                />
-                                <p>{{ award.desc }}</p>
+                            <div
+                                class="panel-body"
+                                v-if="
+                                    expandedDispatches.includes(dc.id) &&
+                                        dc.buildingTypes
+                                "
+                            >
+                                <div class="dispatchcenter-summary">
+                                    <span
+                                        v-for="type in buildingTypesSorted"
+                                        :key="type"
+                                    >
+                                        <span
+                                            class="label label-default"
+                                            v-if="dc.buildingTypes[type]"
+                                        >
+                                            {{ buildingTypes[type].caption }}:
+                                            {{
+                                                dc.buildingTypes[
+                                                    type
+                                                ].toLocaleString()
+                                            }}
+                                        </span>
+                                    </span>
+                                </div>
+                                <div class="profile-grid">
+                                    <div
+                                        class="panel panel-default"
+                                        v-for="building in dc.buildings"
+                                        :key="building.id"
+                                        :class="{
+                                            hidden:
+                                                (search &&
+                                                    !building.name
+                                                        .toLowerCase()
+                                                        .trim()
+                                                        .match(
+                                                            search
+                                                                .toLowerCase()
+                                                                .trim()
+                                                        )) ||
+                                                hiddenFilters.includes(
+                                                    building.building_type
+                                                ),
+                                        }"
+                                    >
+                                        <div class="panel-heading">
+                                            <span
+                                                class="pull-right label label-default"
+                                            >
+                                                {{
+                                                    buildingTypes[
+                                                        building.building_type
+                                                    ].caption
+                                                }}
+                                            </span>
+                                            <h3 class="panel-title">
+                                                <font-awesome-icon
+                                                    class="map-locator"
+                                                    :icon="faMapMarkedAlt"
+                                                    @click="
+                                                        () => {
+                                                            $refs.map.setView(
+                                                                building.latitude,
+                                                                building.longitude,
+                                                                15
+                                                            );
+                                                            $set(
+                                                                $refs.tabs,
+                                                                'selectedIndex',
+                                                                1
+                                                            );
+                                                            $refs.tabs.onSelect(
+                                                                undefined,
+                                                                1
+                                                            );
+                                                        }
+                                                    "
+                                                ></font-awesome-icon>
+                                                <img
+                                                    loading="lazy"
+                                                    :src="building.icon"
+                                                    :alt="building.name"
+                                                />
+                                                <a
+                                                    :href="
+                                                        `/buildings/${building.id}`
+                                                    "
+                                                >
+                                                    {{
+                                                        he.decode(building.name)
+                                                    }}
+                                                </a>
+                                            </h3>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </tab>
-            </tabs>
+                    </tab>
+                    <tab
+                        v-if="profile.awards.length"
+                        :title="$sm('awards.title')"
+                    >
+                        <div class="profile-awards profile-grid">
+                            <div
+                                class="panel panel-default"
+                                v-for="award in profile.awards"
+                                :key="award.caption"
+                            >
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">
+                                        {{ award.caption }}
+                                    </h3>
+                                </div>
+                                <div class="panel-body">
+                                    <img
+                                        loading="lazy"
+                                        :alt="award.caption"
+                                        :src="award.image"
+                                    />
+                                    <p>{{ award.desc }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </tab>
+                </tabs>
+                <leaflet-map
+                    v-if="profile.has_map"
+                    v-show="show_map"
+                    ref="map"
+                    :id="`profile-${profile.id}-map`"
+                ></leaflet-map>
+            </div>
         </div>
     </div>
 </template>
@@ -122,6 +485,7 @@
 <script lang="ts">
 import Vue from 'vue';
 import moment from 'moment';
+import he from 'he';
 import Highcharts, { PlotGaugeOptions } from 'highcharts';
 import HighchartsMore from 'highcharts/highcharts-more';
 import HighchartsSolidGauge from 'highcharts/modules/solid-gauge';
@@ -129,23 +493,45 @@ import { faEdit } from '@fortawesome/free-solid-svg-icons/faEdit';
 import { faImage } from '@fortawesome/free-solid-svg-icons/faImage';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons/faEnvelope';
 import { faGift } from '@fortawesome/free-solid-svg-icons/faGift';
+import { faMapMarkedAlt } from '@fortawesome/free-solid-svg-icons/faMapMarkedAlt';
 import VueI18n, { TranslateResult } from 'vue-i18n';
 import { ProfileWindow } from '../parsers/profile';
 import { RedesignLightboxVue } from 'typings/modules/Redesign';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import { InternalBuilding } from 'typings/Building';
 
 HighchartsMore(Highcharts);
 HighchartsSolidGauge(Highcharts);
 
+type DispatchCenter = {
+    [id: number]: Partial<ProfileWindow['buildings'][0]> & {
+        buildings: ProfileWindow['buildings'];
+        buildingTypes: {
+            [type: number]: number;
+            sum?: { [type: number]: number };
+        };
+    };
+};
+
 export default Vue.extend<
     {
         moment: typeof moment;
+        he: typeof he;
         faEdit: IconDefinition;
         faImage: IconDefinition;
         faEnvelope: IconDefinition;
         faGift: IconDefinition;
+        faMapMarkedAlt: IconDefinition;
         awardsChartId: string;
         maxAwards: number;
+        buildingTypes: {
+            [type: number]: InternalBuilding;
+        };
+        buildingTypesSorted: number[];
+        expandedDispatches: number[];
+        search: string;
+        hiddenFilters: number[];
+        show_map: boolean;
     },
     {
         $sm(
@@ -161,6 +547,9 @@ export default Vue.extend<
                 [key: string]: unknown;
             }
         ): VueI18n.TranslateResult;
+        allianceIgnore(): void;
+        toggleFilter(type: number): void;
+        onlyFilter(type: number): void;
     },
     {
         rank: string;
@@ -169,6 +558,7 @@ export default Vue.extend<
             silver: number;
             gold: number;
         };
+        buildings: DispatchCenter;
     },
     {
         profile: ProfileWindow;
@@ -192,19 +582,43 @@ export default Vue.extend<
     }
 >({
     name: 'profile',
+    components: {
+        LeafletMap: () =>
+            import(
+                /* webpackChunkName: "components/leaflet-map" */ '../../../components/leaflet-map.vue'
+            ),
+    },
     data() {
         moment.locale(this.$store.state.lang);
+        const maxAwards = parseInt(this.$sm('awards.max').toString());
+        const buildingTypes = this.$t('buildings') as {
+            [type: number]: InternalBuilding;
+        };
         return {
             moment,
+            he,
             faEdit,
             faImage,
             faEnvelope,
             faGift,
+            faMapMarkedAlt,
             awardsChartId: this.$store.getters.nodeAttribute(
                 'redesign-profile-awards-gauge-chart',
                 true
             ),
-            maxAwards: 0,
+            maxAwards,
+            buildingTypes,
+            buildingTypesSorted: Object.keys(buildingTypes).sort((a, b) =>
+                buildingTypes[a].caption < buildingTypes[b].caption
+                    ? -1
+                    : buildingTypes[a].caption > buildingTypes[b].caption
+                    ? 1
+                    : 0
+            ),
+            expandedDispatches: [],
+            search: '',
+            hiddenFilters: [],
+            show_map: false,
         };
     },
     methods: {
@@ -224,6 +638,57 @@ export default Vue.extend<
             }
         ) {
             return this.$mc(`profile.${key}`, amount, args);
+        },
+        allianceIgnore() {
+            const url = new URL(window.location.href);
+            url.searchParams.append('_method', 'post');
+            url.searchParams.append(
+                'authenticity_token',
+                this.profile.authenticity_token
+            );
+            this.$store
+                .dispatch('api/request', {
+                    url: `/allianceIgnore/${this.profile.id}/${
+                        this.profile.alliance_ignored ? 'destroy' : 'add'
+                    }`,
+                    init: {
+                        credentials: 'include',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded',
+                        },
+                        referrer: `https://www.leitstellenspiel.de/profile/${this.profile.id}`,
+                        body: url.searchParams.toString(),
+                        method: 'POST',
+                        mode: 'cors',
+                    },
+                    feature: `redesign-profile-allianceignore-${
+                        this.profile.id
+                    }-to-${!this.profile.alliance_ignored}`,
+                })
+                .then(() =>
+                    this.$set(
+                        this.lightbox,
+                        'src',
+                        `/profile/${this.profile.id}`
+                    )
+                );
+        },
+        toggleFilter(type) {
+            if (this.hiddenFilters.includes(type)) {
+                this.hiddenFilters.splice(
+                    this.hiddenFilters.findIndex(t => t === type),
+                    1
+                );
+            } else {
+                this.hiddenFilters.push(type);
+            }
+            this.setSetting('hiddenFilters', this.hiddenFilters).then();
+        },
+        onlyFilter(type) {
+            this.hiddenFilters = this.buildingTypesSorted
+                .filter(t => parseInt(t) !== type)
+                .map(t => parseInt(t));
+            this.setSetting('hiddenFilters', this.hiddenFilters).then();
         },
     },
     computed: {
@@ -255,6 +720,77 @@ export default Vue.extend<
                 else if (image.match(/award_gold/)) colors.gold++;
             });
             return colors;
+        },
+        buildings() {
+            const dispatchCenters: DispatchCenter = {
+                0: { buildings: [], id: 0, buildingTypes: { sum: {} } },
+            };
+            this.profile.buildings.forEach(
+                (building: ProfileWindow['buildings'][0]) => {
+                    if (building.filter_id === 'dispatch_center') {
+                        if (
+                            !dispatchCenters[0].buildingTypes.sum.hasOwnProperty(
+                                building.building_type
+                            )
+                        ) {
+                            dispatchCenters[0].buildingTypes.sum[
+                                building.building_type
+                            ] = 0;
+                        }
+                        dispatchCenters[0].buildingTypes.sum[
+                            building.building_type
+                        ]++;
+                        return (dispatchCenters[building.id] = {
+                            ...dispatchCenters[building.id],
+                            ...building,
+                        });
+                    }
+                    if (!dispatchCenters.hasOwnProperty(building.lbid)) {
+                        dispatchCenters[building.lbid] = {
+                            buildings: [],
+                            buildingTypes: {},
+                        };
+                    }
+                    if (
+                        !dispatchCenters[building.lbid].hasOwnProperty(
+                            'buildings'
+                        )
+                    )
+                        dispatchCenters[building.lbid].buildings = [];
+                    if (
+                        !dispatchCenters[building.lbid].hasOwnProperty(
+                            'buildingTypes'
+                        )
+                    )
+                        dispatchCenters[building.lbid].buildingTypes = {};
+                    dispatchCenters[building.lbid].buildings.push(building);
+                    if (
+                        !dispatchCenters[
+                            building.lbid
+                        ].buildingTypes.hasOwnProperty(building.building_type)
+                    ) {
+                        dispatchCenters[building.lbid].buildingTypes[
+                            building.building_type
+                        ] = 0;
+                    }
+                    dispatchCenters[building.lbid].buildingTypes[
+                        building.building_type
+                    ]++;
+                    if (
+                        !dispatchCenters[0].buildingTypes.sum.hasOwnProperty(
+                            building.building_type
+                        )
+                    ) {
+                        dispatchCenters[0].buildingTypes.sum[
+                            building.building_type
+                        ] = 0;
+                    }
+                    dispatchCenters[0].buildingTypes.sum[
+                        building.building_type
+                    ]++;
+                }
+            );
+            return dispatchCenters;
         },
     },
     props: {
@@ -301,6 +837,9 @@ export default Vue.extend<
             if (!target || !target.hasAttribute('href')) return;
             this.$set(this.lightbox, 'src', target.getAttribute('href'));
         });
+        this.getSetting('hiddenFilters', []).then(
+            f => (this.hiddenFilters = f)
+        );
         if (this.$store.state.darkmode)
             Highcharts.setOptions(this.$utils.highChartsDarkMode);
         Highcharts.setOptions({
@@ -310,7 +849,6 @@ export default Vue.extend<
                 }),
             },
         });
-        this.maxAwards = parseInt(this.$sm('awards.max').toString());
         Highcharts.chart(this.awardsChartId, {
             chart: {
                 type: 'solidgauge',
@@ -456,18 +994,47 @@ export default Vue.extend<
     .profile-tabs
         width: 100%
 
-        .profile-awards
+        .profile-dispatchcenter
+
+            > .panel-heading
+                cursor: pointer
+
+                .panel-title img
+                    max-height: calc(16px + 1em)
+
+            .profile-grid::before,
+            .profile-grid::after
+                content: unset
+
+        .dispatchcenter-summary
+            display: flex
+            flex-flow: wrap
+            margin-bottom: 1rem
+            user-select: none
+
+            span.label
+                margin: 0 .5em
+
+                &.label-success,
+                &.label-danger
+                    cursor: pointer
+
+        .profile-awards .panel-body
+            display: flex
+            flex-flow: row
+
+            img
+                max-width: 50%
+
+            p
+                margin-left: 10px
+
+
+        .profile-grid
             display: grid
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr))
             grid-gap: 1em
 
-            .panel-body
-                display: flex
-                flex-flow: row
-
-                img
-                    max-width: 50%
-
-                p
-                    margin-left: 10px
+.map-locator
+    cursor: pointer
 </style>

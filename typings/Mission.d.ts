@@ -118,6 +118,10 @@ interface Prerequisites {
     fire_aviation_count?: number;
     divers_extension_count?: number;
     guard_dog_count?: number;
+    game_warden_count?: number;
+    water_police_count?: number;
+    dea_count?: number;
+    atf_count?: number;
 
     // General:
     [key: string]: number | undefined;
@@ -187,6 +191,12 @@ interface Requirements {
     fbi_bomb?: number;
     fbi_investigation?: number;
     fire_aviation?: number;
+    police_boat?: number;
+    atf_unit?: number;
+    atf_lab_vehicle?: number;
+    dea_unit?: number;
+    dea_clan_lab?: number;
+    game_warden?: number;
 
     // General:
     [key: string]: number | undefined;
