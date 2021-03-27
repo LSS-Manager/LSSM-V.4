@@ -245,6 +245,7 @@
                                 "
                                 v-if="buildings[0].buildingTypes.sum[type]"
                                 @click="toggleFilter(parseInt(type))"
+                                @dblclick="onlyFilter(parseInt(type))"
                             >
                                 {{ buildingTypes[type].caption }}:
                                 {{
@@ -465,6 +466,7 @@ export default Vue.extend<
         ): VueI18n.TranslateResult;
         allianceIgnore(): void;
         toggleFilter(type: number): void;
+        onlyFilter(type: number): void;
     },
     {
         rank: string;
@@ -589,6 +591,12 @@ export default Vue.extend<
             } else {
                 this.hiddenFilters.push(type);
             }
+            this.setSetting('hiddenFilters', this.hiddenFilters).then();
+        },
+        onlyFilter(type) {
+            this.hiddenFilters = this.buildingTypesSorted
+                .filter(t => parseInt(t) !== type)
+                .map(t => parseInt(t));
             this.setSetting('hiddenFilters', this.hiddenFilters).then();
         },
     },
@@ -911,6 +919,7 @@ export default Vue.extend<
             display: flex
             flex-flow: wrap
             margin-bottom: 1rem
+            user-select: none
 
             span.label
                 margin: 0 .5em
