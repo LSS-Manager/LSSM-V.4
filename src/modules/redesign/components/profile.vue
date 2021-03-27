@@ -219,8 +219,27 @@
                 </tab>
                 <tab
                     v-if="profile.has_map"
-                    :title="$smc('buildings.amount', profile.buildings.length)"
+                    :title="
+                        $smc('buildings.amount', profile.buildings.length, {
+                            n: profile.buildings.length.toLocaleString(),
+                        })
+                    "
                 >
+                    <div class="dispatchcenter-summary">
+                        <span v-for="type in buildingTypesSorted" :key="type">
+                            <span
+                                class="label label-default"
+                                v-if="buildings[0].buildingTypes.sum[type]"
+                            >
+                                {{ buildingTypes[type].caption }}:
+                                {{
+                                    buildings[0].buildingTypes.sum[
+                                        type
+                                    ].toLocaleString()
+                                }}
+                            </span>
+                        </span>
+                    </div>
                     <div
                         class="panel panel-default profile-dispatchcenter"
                         v-for="dc in buildings"
@@ -240,7 +259,15 @@
                             "
                         >
                             <span class="pull-right">{{
-                                $smc('buildings.amount', dc.buildings.length)
+                                $smc(
+                                    'buildings.amount',
+                                    (dc.buildings || []).length,
+                                    {
+                                        n: (
+                                            dc.buildings || []
+                                        ).length.toLocaleString(),
+                                    }
+                                )
                             }}</span>
                             <h3 class="panel-title">
                                 <img
@@ -258,25 +285,61 @@
                             </h3>
                         </div>
                         <div
-                            class="panel-body profile-grid"
-                            v-if="expandedDispatches.includes(dc.id)"
+                            class="panel-body"
+                            v-if="
+                                expandedDispatches.includes(dc.id) &&
+                                    dc.buildingTypes
+                            "
                         >
-                            <div
-                                class="panel panel-default"
-                                v-for="building in dc.buildings"
-                                :key="building.id"
-                            >
-                                <div class="panel-heading">
-                                    <h3 class="panel-title">
-                                        <img
-                                            loading="lazy"
-                                            :src="building.icon"
-                                            :alt="building.name"
-                                        />
-                                        <a :href="`/buildings/${building.id}`">
-                                            {{ he.decode(building.name) }}
-                                        </a>
-                                    </h3>
+                            <div class="dispatchcenter-summary">
+                                <span
+                                    v-for="type in buildingTypesSorted"
+                                    :key="type"
+                                >
+                                    <span
+                                        class="label label-default"
+                                        v-if="dc.buildingTypes[type]"
+                                    >
+                                        {{ buildingTypes[type].caption }}:
+                                        {{
+                                            dc.buildingTypes[
+                                                type
+                                            ].toLocaleString()
+                                        }}
+                                    </span>
+                                </span>
+                            </div>
+                            <div class="profile-grid">
+                                <div
+                                    class="panel panel-default"
+                                    v-for="building in dc.buildings"
+                                    :key="building.id"
+                                >
+                                    <div class="panel-heading">
+                                        <span
+                                            class="pull-right label label-default"
+                                        >
+                                            {{
+                                                buildingTypes[
+                                                    building.building_type
+                                                ].caption
+                                            }}
+                                        </span>
+                                        <h3 class="panel-title">
+                                            <img
+                                                loading="lazy"
+                                                :src="building.icon"
+                                                :alt="building.name"
+                                            />
+                                            <a
+                                                :href="
+                                                    `/buildings/${building.id}`
+                                                "
+                                            >
+                                                {{ he.decode(building.name) }}
+                                            </a>
+                                        </h3>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -323,6 +386,7 @@ import VueI18n, { TranslateResult } from 'vue-i18n';
 import { ProfileWindow } from '../parsers/profile';
 import { RedesignLightboxVue } from 'typings/modules/Redesign';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import { InternalBuilding } from 'typings/Building';
 
 HighchartsMore(Highcharts);
 HighchartsSolidGauge(Highcharts);
@@ -330,6 +394,10 @@ HighchartsSolidGauge(Highcharts);
 type DispatchCenter = {
     [id: number]: Partial<ProfileWindow['buildings'][0]> & {
         buildings: ProfileWindow['buildings'];
+        buildingTypes: {
+            [type: number]: number;
+            sum?: { [type: number]: number };
+        };
     };
 };
 
@@ -343,6 +411,10 @@ export default Vue.extend<
         faGift: IconDefinition;
         awardsChartId: string;
         maxAwards: number;
+        buildingTypes: {
+            [type: number]: InternalBuilding;
+        };
+        buildingTypesSorted: number[];
         expandedDispatches: number[];
     },
     {
@@ -394,6 +466,10 @@ export default Vue.extend<
     name: 'profile',
     data() {
         moment.locale(this.$store.state.lang);
+        const maxAwards = parseInt(this.$sm('awards.max').toString());
+        const buildingTypes = this.$t('buildings') as {
+            [type: number]: InternalBuilding;
+        };
         return {
             moment,
             he,
@@ -405,7 +481,15 @@ export default Vue.extend<
                 'redesign-profile-awards-gauge-chart',
                 true
             ),
-            maxAwards: 0,
+            maxAwards,
+            buildingTypes,
+            buildingTypesSorted: Object.keys(buildingTypes).sort((a, b) =>
+                buildingTypes[a].caption < buildingTypes[b].caption
+                    ? -1
+                    : buildingTypes[a].caption > buildingTypes[b].caption
+                    ? 1
+                    : 0
+            ),
             expandedDispatches: [],
         };
     },
@@ -494,22 +578,71 @@ export default Vue.extend<
         },
         buildings() {
             const dispatchCenters: DispatchCenter = {
-                0: { buildings: [], id: 0 },
+                0: { buildings: [], id: 0, buildingTypes: { sum: {} } },
             };
             this.profile.buildings.forEach(
                 (building: ProfileWindow['buildings'][0]) => {
                     if (building.filter_id === 'dispatch_center') {
+                        if (
+                            !dispatchCenters[0].buildingTypes.sum.hasOwnProperty(
+                                building.building_type
+                            )
+                        ) {
+                            dispatchCenters[0].buildingTypes.sum[
+                                building.building_type
+                            ] = 0;
+                        }
+                        dispatchCenters[0].buildingTypes.sum[
+                            building.building_type
+                        ]++;
                         return (dispatchCenters[building.id] = {
                             ...dispatchCenters[building.id],
                             ...building,
-                            buildings:
-                                dispatchCenters[building.id]?.buildings ?? [],
                         });
                     }
-                    if (!dispatchCenters.hasOwnProperty(building.lbid))
-                        dispatchCenters[building.lbid] = { buildings: [] };
-
+                    if (!dispatchCenters.hasOwnProperty(building.lbid)) {
+                        dispatchCenters[building.lbid] = {
+                            buildings: [],
+                            buildingTypes: {},
+                        };
+                    }
+                    if (
+                        !dispatchCenters[building.lbid].hasOwnProperty(
+                            'buildings'
+                        )
+                    )
+                        dispatchCenters[building.lbid].buildings = [];
+                    if (
+                        !dispatchCenters[building.lbid].hasOwnProperty(
+                            'buildingTypes'
+                        )
+                    )
+                        dispatchCenters[building.lbid].buildingTypes = {};
                     dispatchCenters[building.lbid].buildings.push(building);
+                    if (
+                        !dispatchCenters[
+                            building.lbid
+                        ].buildingTypes.hasOwnProperty(building.building_type)
+                    ) {
+                        dispatchCenters[building.lbid].buildingTypes[
+                            building.building_type
+                        ] = 0;
+                    }
+                    dispatchCenters[building.lbid].buildingTypes[
+                        building.building_type
+                    ]++;
+                    if (
+                        !dispatchCenters[0].buildingTypes.sum.hasOwnProperty(
+                            building.building_type
+                        )
+                    ) {
+                        dispatchCenters[0].buildingTypes.sum[
+                            building.building_type
+                        ] = 0;
+                    }
+                    dispatchCenters[0].buildingTypes.sum[
+                        building.building_type
+                    ]++;
                 }
             );
             return dispatchCenters;
@@ -568,7 +701,6 @@ export default Vue.extend<
                 }),
             },
         });
-        this.maxAwards = parseInt(this.$sm('awards.max').toString());
         Highcharts.chart(this.awardsChartId, {
             chart: {
                 type: 'solidgauge',
@@ -725,6 +857,14 @@ export default Vue.extend<
             .profile-grid::before,
             .profile-grid::after
                 content: unset
+
+        .dispatchcenter-summary
+            display: flex
+            flex-flow: wrap
+            margin-bottom: 1rem
+
+            span.label
+                margin: 0 .5em
 
         .profile-awards .panel-body
             display: flex

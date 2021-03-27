@@ -14,8 +14,7 @@
 		"title_amounts": "{sum} von {max} Auszeichnungen"
 	},
 	"buildings": {
-		"amount": "{n} Gebäude",
-		"title": "Gebäude"
+		"amount": "{n} Gebäude"
 	},
 	"buttons": {
 		"alliance_ignore": {
