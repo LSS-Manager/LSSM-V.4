@@ -225,6 +225,13 @@
                         })
                     "
                 >
+                    <label class="pull-right">
+                        <input
+                            type="search"
+                            class="search_input_field"
+                            v-model="search"
+                        />
+                    </label>
                     <div class="dispatchcenter-summary">
                         <span v-for="type in buildingTypesSorted" :key="type">
                             <span
@@ -314,6 +321,16 @@
                                     class="panel panel-default"
                                     v-for="building in dc.buildings"
                                     :key="building.id"
+                                    :class="{
+                                        hidden:
+                                            search &&
+                                            !building.name
+                                                .toLowerCase()
+                                                .trim()
+                                                .match(
+                                                    search.toLowerCase().trim()
+                                                ),
+                                    }"
                                 >
                                     <div class="panel-heading">
                                         <span
@@ -416,6 +433,7 @@ export default Vue.extend<
         };
         buildingTypesSorted: number[];
         expandedDispatches: number[];
+        search: string;
     },
     {
         $sm(
@@ -491,6 +509,7 @@ export default Vue.extend<
                     : 0
             ),
             expandedDispatches: [],
+            search: '',
         };
     },
     methods: {
