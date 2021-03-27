@@ -210,194 +210,274 @@
                 />
                 <div :id="awardsChartId"></div>
             </div>
-            <tabs class="profile-tabs">
-                <tab :title="$sm('text')">
-                    <div v-html="profile.text.replace(/\n/g, '<br>')"></div>
-                </tab>
-                <tab v-if="profile.has_map" :title="$sm('map')">
-                    <pre>{{ profile.buildings }}</pre>
-                </tab>
-                <tab
-                    v-if="profile.has_map"
-                    :title="
-                        $smc('buildings.amount', profile.buildings.length, {
-                            n: profile.buildings.length.toLocaleString(),
-                        })
+            <div class="profile-tabs">
+                <tabs
+                    ref="tabs"
+                    :on-select="
+                        (_, i) => {
+                            show_map = profile.has_map && i === 1;
+                            if (
+                                show_map &&
+                                Object.values($refs.map.map.getSize()).includes(
+                                    0
+                                )
+                            )
+                                $nextTick($refs.map.redraw);
+                        }
                     "
                 >
-                    <label class="pull-right">
-                        <input
-                            type="search"
-                            class="search_input_field"
-                            v-model="search"
-                        />
-                    </label>
-                    <div class="dispatchcenter-summary">
-                        <span v-for="type in buildingTypesSorted" :key="type">
-                            <span
-                                class="label"
-                                :class="
-                                    `label-${
-                                        hiddenFilters.includes(parseInt(type))
-                                            ? 'danger'
-                                            : 'success'
-                                    }`
-                                "
-                                v-if="buildings[0].buildingTypes.sum[type]"
-                                @click="toggleFilter(parseInt(type))"
-                                @dblclick="onlyFilter(parseInt(type))"
-                            >
-                                {{ buildingTypes[type].caption }}:
-                                {{
-                                    buildings[0].buildingTypes.sum[
-                                        type
-                                    ].toLocaleString()
-                                }}
-                            </span>
-                        </span>
-                    </div>
-                    <div
-                        class="panel panel-default profile-dispatchcenter"
-                        v-for="dc in buildings"
-                        :key="dc.id"
+                    <tab :title="$sm('text')">
+                        <div v-html="profile.text.replace(/\n/g, '<br>')"></div>
+                    </tab>
+                    <tab v-if="profile.has_map" :title="$sm('map')"></tab>
+                    <tab
+                        v-if="profile.has_map"
+                        :title="
+                            $smc('buildings.amount', profile.buildings.length, {
+                                n: profile.buildings.length.toLocaleString(),
+                            })
+                        "
                     >
-                        <div
-                            class="panel-heading"
-                            @click="
-                                expandedDispatches.includes(dc.id)
-                                    ? expandedDispatches.splice(
-                                          expandedDispatches.findIndex(
-                                              n => n === dc.id
-                                          ),
-                                          1
-                                      )
-                                    : expandedDispatches.push(dc.id)
-                            "
-                        >
-                            <span class="pull-right">{{
-                                $smc(
-                                    'buildings.amount',
-                                    (dc.buildings || []).length,
-                                    {
-                                        n: (
-                                            dc.buildings || []
-                                        ).length.toLocaleString(),
-                                    }
-                                )
-                            }}</span>
-                            <h3 class="panel-title">
-                                <img
-                                    loading="lazy"
-                                    :src="
-                                        dc.id
-                                            ? dc.icon
-                                            : '/images/building_leitstelle.png'
+                        <label class="pull-right">
+                            <input
+                                type="search"
+                                class="search_input_field"
+                                v-model="search"
+                            />
+                        </label>
+                        <div class="dispatchcenter-summary">
+                            <span
+                                v-for="type in buildingTypesSorted"
+                                :key="type"
+                            >
+                                <span
+                                    class="label"
+                                    :class="
+                                        `label-${
+                                            hiddenFilters.includes(
+                                                parseInt(type)
+                                            )
+                                                ? 'danger'
+                                                : 'success'
+                                        }`
                                     "
-                                    :alt="dc.name"
-                                />
-                                <a :href="`/buildings/${dc.id}`" v-if="dc.id">
-                                    {{ he.decode(dc.name) }}
-                                </a>
-                            </h3>
+                                    v-if="buildings[0].buildingTypes.sum[type]"
+                                    @click="toggleFilter(parseInt(type))"
+                                    @dblclick="onlyFilter(parseInt(type))"
+                                >
+                                    {{ buildingTypes[type].caption }}:
+                                    {{
+                                        buildings[0].buildingTypes.sum[
+                                            type
+                                        ].toLocaleString()
+                                    }}
+                                </span>
+                            </span>
                         </div>
                         <div
-                            class="panel-body"
-                            v-if="
-                                expandedDispatches.includes(dc.id) &&
-                                    dc.buildingTypes
-                            "
+                            class="panel panel-default profile-dispatchcenter"
+                            v-for="dc in buildings"
+                            :key="dc.id"
                         >
-                            <div class="dispatchcenter-summary">
-                                <span
-                                    v-for="type in buildingTypesSorted"
-                                    :key="type"
-                                >
-                                    <span
-                                        class="label label-default"
-                                        v-if="dc.buildingTypes[type]"
+                            <div
+                                class="panel-heading"
+                                @click="
+                                    expandedDispatches.includes(dc.id)
+                                        ? expandedDispatches.splice(
+                                              expandedDispatches.findIndex(
+                                                  n => n === dc.id
+                                              ),
+                                              1
+                                          )
+                                        : expandedDispatches.push(dc.id)
+                                "
+                            >
+                                <span class="pull-right">{{
+                                    $smc(
+                                        'buildings.amount',
+                                        (dc.buildings || []).length,
+                                        {
+                                            n: (
+                                                dc.buildings || []
+                                            ).length.toLocaleString(),
+                                        }
+                                    )
+                                }}</span>
+                                <h3 class="panel-title">
+                                    <font-awesome-icon
+                                        class="map-locator"
+                                        v-if="dc.id"
+                                        :icon="faMapMarkedAlt"
+                                        @click.stop="
+                                            () => {
+                                                $refs.map.setView(
+                                                    dc.latitude,
+                                                    dc.longitude,
+                                                    15
+                                                );
+                                                $set(
+                                                    $refs.tabs,
+                                                    'selectedIndex',
+                                                    1
+                                                );
+                                                $refs.tabs.onSelect(
+                                                    undefined,
+                                                    1
+                                                );
+                                            }
+                                        "
+                                    ></font-awesome-icon>
+                                    <img
+                                        loading="lazy"
+                                        :src="
+                                            dc.id
+                                                ? dc.icon
+                                                : '/images/building_leitstelle.png'
+                                        "
+                                        :alt="dc.name"
+                                    />
+                                    <a
+                                        :href="`/buildings/${dc.id}`"
+                                        v-if="dc.id"
                                     >
-                                        {{ buildingTypes[type].caption }}:
-                                        {{
-                                            dc.buildingTypes[
-                                                type
-                                            ].toLocaleString()
-                                        }}
-                                    </span>
-                                </span>
+                                        {{ he.decode(dc.name) }}
+                                    </a>
+                                </h3>
                             </div>
-                            <div class="profile-grid">
-                                <div
-                                    class="panel panel-default"
-                                    v-for="building in dc.buildings"
-                                    :key="building.id"
-                                    :class="{
-                                        hidden:
-                                            (search &&
-                                                !building.name
-                                                    .toLowerCase()
-                                                    .trim()
-                                                    .match(
-                                                        search
-                                                            .toLowerCase()
-                                                            .trim()
-                                                    )) ||
-                                            hiddenFilters.includes(
-                                                building.building_type
-                                            ),
-                                    }"
-                                >
-                                    <div class="panel-heading">
+                            <div
+                                class="panel-body"
+                                v-if="
+                                    expandedDispatches.includes(dc.id) &&
+                                        dc.buildingTypes
+                                "
+                            >
+                                <div class="dispatchcenter-summary">
+                                    <span
+                                        v-for="type in buildingTypesSorted"
+                                        :key="type"
+                                    >
                                         <span
-                                            class="pull-right label label-default"
+                                            class="label label-default"
+                                            v-if="dc.buildingTypes[type]"
                                         >
+                                            {{ buildingTypes[type].caption }}:
                                             {{
-                                                buildingTypes[
-                                                    building.building_type
-                                                ].caption
+                                                dc.buildingTypes[
+                                                    type
+                                                ].toLocaleString()
                                             }}
                                         </span>
-                                        <h3 class="panel-title">
-                                            <img
-                                                loading="lazy"
-                                                :src="building.icon"
-                                                :alt="building.name"
-                                            />
-                                            <a
-                                                :href="
-                                                    `/buildings/${building.id}`
-                                                "
+                                    </span>
+                                </div>
+                                <div class="profile-grid">
+                                    <div
+                                        class="panel panel-default"
+                                        v-for="building in dc.buildings"
+                                        :key="building.id"
+                                        :class="{
+                                            hidden:
+                                                (search &&
+                                                    !building.name
+                                                        .toLowerCase()
+                                                        .trim()
+                                                        .match(
+                                                            search
+                                                                .toLowerCase()
+                                                                .trim()
+                                                        )) ||
+                                                hiddenFilters.includes(
+                                                    building.building_type
+                                                ),
+                                        }"
+                                    >
+                                        <div class="panel-heading">
+                                            <span
+                                                class="pull-right label label-default"
                                             >
-                                                {{ he.decode(building.name) }}
-                                            </a>
-                                        </h3>
+                                                {{
+                                                    buildingTypes[
+                                                        building.building_type
+                                                    ].caption
+                                                }}
+                                            </span>
+                                            <h3 class="panel-title">
+                                                <font-awesome-icon
+                                                    class="map-locator"
+                                                    :icon="faMapMarkedAlt"
+                                                    @click="
+                                                        () => {
+                                                            $refs.map.setView(
+                                                                building.latitude,
+                                                                building.longitude,
+                                                                15
+                                                            );
+                                                            $set(
+                                                                $refs.tabs,
+                                                                'selectedIndex',
+                                                                1
+                                                            );
+                                                            $refs.tabs.onSelect(
+                                                                undefined,
+                                                                1
+                                                            );
+                                                        }
+                                                    "
+                                                ></font-awesome-icon>
+                                                <img
+                                                    loading="lazy"
+                                                    :src="building.icon"
+                                                    :alt="building.name"
+                                                />
+                                                <a
+                                                    :href="
+                                                        `/buildings/${building.id}`
+                                                    "
+                                                >
+                                                    {{
+                                                        he.decode(building.name)
+                                                    }}
+                                                </a>
+                                            </h3>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </tab>
-                <tab v-if="profile.awards.length" :title="$sm('awards.title')">
-                    <div class="profile-awards profile-grid">
-                        <div
-                            class="panel panel-default"
-                            v-for="award in profile.awards"
-                            :key="award.caption"
-                        >
-                            <div class="panel-heading">
-                                <h3 class="panel-title">{{ award.caption }}</h3>
-                            </div>
-                            <div class="panel-body">
-                                <img
-                                    loading="lazy"
-                                    :alt="award.caption"
-                                    :src="award.image"
-                                />
-                                <p>{{ award.desc }}</p>
+                    </tab>
+                    <tab
+                        v-if="profile.awards.length"
+                        :title="$sm('awards.title')"
+                    >
+                        <div class="profile-awards profile-grid">
+                            <div
+                                class="panel panel-default"
+                                v-for="award in profile.awards"
+                                :key="award.caption"
+                            >
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">
+                                        {{ award.caption }}
+                                    </h3>
+                                </div>
+                                <div class="panel-body">
+                                    <img
+                                        loading="lazy"
+                                        :alt="award.caption"
+                                        :src="award.image"
+                                    />
+                                    <p>{{ award.desc }}</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </tab>
-            </tabs>
+                    </tab>
+                </tabs>
+                <leaflet-map
+                    v-if="profile.has_map"
+                    v-show="show_map"
+                    ref="map"
+                    :id="`profile-${profile.id}-map`"
+                ></leaflet-map>
+            </div>
         </div>
     </div>
 </template>
@@ -413,6 +493,7 @@ import { faEdit } from '@fortawesome/free-solid-svg-icons/faEdit';
 import { faImage } from '@fortawesome/free-solid-svg-icons/faImage';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons/faEnvelope';
 import { faGift } from '@fortawesome/free-solid-svg-icons/faGift';
+import { faMapMarkedAlt } from '@fortawesome/free-solid-svg-icons/faMapMarkedAlt';
 import VueI18n, { TranslateResult } from 'vue-i18n';
 import { ProfileWindow } from '../parsers/profile';
 import { RedesignLightboxVue } from 'typings/modules/Redesign';
@@ -440,6 +521,7 @@ export default Vue.extend<
         faImage: IconDefinition;
         faEnvelope: IconDefinition;
         faGift: IconDefinition;
+        faMapMarkedAlt: IconDefinition;
         awardsChartId: string;
         maxAwards: number;
         buildingTypes: {
@@ -449,6 +531,7 @@ export default Vue.extend<
         expandedDispatches: number[];
         search: string;
         hiddenFilters: number[];
+        show_map: boolean;
     },
     {
         $sm(
@@ -499,6 +582,12 @@ export default Vue.extend<
     }
 >({
     name: 'profile',
+    components: {
+        LeafletMap: () =>
+            import(
+                /* webpackChunkName: "components/leaflet-map" */ '../../../components/leaflet-map.vue'
+            ),
+    },
     data() {
         moment.locale(this.$store.state.lang);
         const maxAwards = parseInt(this.$sm('awards.max').toString());
@@ -512,6 +601,7 @@ export default Vue.extend<
             faImage,
             faEnvelope,
             faGift,
+            faMapMarkedAlt,
             awardsChartId: this.$store.getters.nodeAttribute(
                 'redesign-profile-awards-gauge-chart',
                 true
@@ -528,6 +618,7 @@ export default Vue.extend<
             expandedDispatches: [],
             search: '',
             hiddenFilters: [],
+            show_map: false,
         };
     },
     methods: {
@@ -943,4 +1034,7 @@ export default Vue.extend<
             display: grid
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr))
             grid-gap: 1em
+
+.map-locator
+    cursor: pointer
 </style>
