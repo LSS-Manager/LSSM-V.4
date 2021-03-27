@@ -1177,7 +1177,8 @@ export default {
             levelcost: ['Te duur'],
             maxBuildings: 'Geen limiet',
             maxLevel: 5,
-            special: 'We weten niet wat het nut is behalve dat je een hoop credits of coins kwijt bent.',
+            special:
+                'We weten niet wat het nut is behalve dat je een hoop credits of coins kwijt bent.',
             startPersonnel: 0,
             startVehicles: [],
         },
@@ -1190,7 +1191,8 @@ export default {
             levelcost: ['Te duur'],
             maxBuildings: 'Geen limiet',
             maxLevel: 5,
-            special: 'We weten niet wat het nut is behalve dat je een hoop credits of coins kwijt bent.',
+            special:
+                'We weten niet wat het nut is behalve dat je een hoop credits of coins kwijt bent.',
             startPersonnel: 0,
             startVehicles: [],
         },
