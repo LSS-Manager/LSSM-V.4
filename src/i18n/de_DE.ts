@@ -1904,7 +1904,7 @@ export default {
                         Math.floor(
                             ((buildingsByType[0]?.length ?? 0) +
                                 (buildingsByType[18]?.length ?? 0)) /
-                            10
+                                10
                         ),
                 }),
                 ...new Array(2).fill({
@@ -1918,7 +1918,7 @@ export default {
                         Math.floor(
                             ((buildingsByType[0]?.length ?? 0) +
                                 (buildingsByType[18]?.length ?? 0)) /
-                            10
+                                10
                         ),
                 }),
                 ...new Array(6).fill({
@@ -2072,7 +2072,24 @@ export default {
         2: 20,
         6: 19,
     },
-    vehicleBuildings: [0, 2, 5, 6, 9, 11, 12, 13, 15, 17, 18, 19, 20, 21, 22, 23],
+    vehicleBuildings: [
+        0,
+        2,
+        5,
+        6,
+        9,
+        11,
+        12,
+        13,
+        15,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+    ],
     cellBuildings: [6, 19],
     cellExtensions: [
         '6_0',
