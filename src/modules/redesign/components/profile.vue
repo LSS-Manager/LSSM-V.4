@@ -235,8 +235,16 @@
                     <div class="dispatchcenter-summary">
                         <span v-for="type in buildingTypesSorted" :key="type">
                             <span
-                                class="label label-default"
+                                class="label"
+                                :class="
+                                    `label-${
+                                        hiddenFilters.includes(parseInt(type))
+                                            ? 'danger'
+                                            : 'success'
+                                    }`
+                                "
                                 v-if="buildings[0].buildingTypes.sum[type]"
+                                @click="toggleFilter(parseInt(type))"
                             >
                                 {{ buildingTypes[type].caption }}:
                                 {{
@@ -323,13 +331,18 @@
                                     :key="building.id"
                                     :class="{
                                         hidden:
-                                            search &&
-                                            !building.name
-                                                .toLowerCase()
-                                                .trim()
-                                                .match(
-                                                    search.toLowerCase().trim()
-                                                ),
+                                            (search &&
+                                                !building.name
+                                                    .toLowerCase()
+                                                    .trim()
+                                                    .match(
+                                                        search
+                                                            .toLowerCase()
+                                                            .trim()
+                                                    )) ||
+                                            hiddenFilters.includes(
+                                                building.building_type
+                                            ),
                                     }"
                                 >
                                     <div class="panel-heading">
@@ -434,6 +447,7 @@ export default Vue.extend<
         buildingTypesSorted: number[];
         expandedDispatches: number[];
         search: string;
+        hiddenFilters: number[];
     },
     {
         $sm(
@@ -450,6 +464,7 @@ export default Vue.extend<
             }
         ): VueI18n.TranslateResult;
         allianceIgnore(): void;
+        toggleFilter(type: number): void;
     },
     {
         rank: string;
@@ -510,6 +525,7 @@ export default Vue.extend<
             ),
             expandedDispatches: [],
             search: '',
+            hiddenFilters: [],
         };
     },
     methods: {
@@ -563,6 +579,17 @@ export default Vue.extend<
                         `/profile/${this.profile.id}`
                     )
                 );
+        },
+        toggleFilter(type) {
+            if (this.hiddenFilters.includes(type)) {
+                this.hiddenFilters.splice(
+                    this.hiddenFilters.findIndex(t => t === type),
+                    1
+                );
+            } else {
+                this.hiddenFilters.push(type);
+            }
+            this.setSetting('hiddenFilters', this.hiddenFilters).then();
         },
     },
     computed: {
@@ -711,6 +738,9 @@ export default Vue.extend<
             if (!target || !target.hasAttribute('href')) return;
             this.$set(this.lightbox, 'src', target.getAttribute('href'));
         });
+        this.getSetting('hiddenFilters', []).then(
+            f => (this.hiddenFilters = f)
+        );
         if (this.$store.state.darkmode)
             Highcharts.setOptions(this.$utils.highChartsDarkMode);
         Highcharts.setOptions({
@@ -884,6 +914,10 @@ export default Vue.extend<
 
             span.label
                 margin: 0 .5em
+
+                &.label-success,
+                &.label-danger
+                    cursor: pointer
 
         .profile-awards .panel-body
             display: flex
