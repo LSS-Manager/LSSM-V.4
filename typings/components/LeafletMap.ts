@@ -6,6 +6,7 @@ export interface MapData {
 
 export interface MapMethods {
     redraw(): void;
+    setView(lat: number, long: number, zoom?: number): void;
 }
 
 export interface MapComputed {

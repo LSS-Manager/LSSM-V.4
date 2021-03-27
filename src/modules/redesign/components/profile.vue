@@ -212,6 +212,7 @@
             </div>
             <div class="profile-tabs">
                 <tabs
+                    ref="tabs"
                     :on-select="
                         (_, i) => {
                             show_map = profile.has_map && i === 1;
@@ -303,6 +304,29 @@
                                     )
                                 }}</span>
                                 <h3 class="panel-title">
+                                    <font-awesome-icon
+                                        class="map-locator"
+                                        v-if="dc.id"
+                                        :icon="faMapMarkedAlt"
+                                        @click.stop="
+                                            () => {
+                                                $refs.map.setView(
+                                                    dc.latitude,
+                                                    dc.longitude,
+                                                    15
+                                                );
+                                                $set(
+                                                    $refs.tabs,
+                                                    'selectedIndex',
+                                                    1
+                                                );
+                                                $refs.tabs.onSelect(
+                                                    undefined,
+                                                    1
+                                                );
+                                            }
+                                        "
+                                    ></font-awesome-icon>
                                     <img
                                         loading="lazy"
                                         :src="
@@ -377,6 +401,28 @@
                                                 }}
                                             </span>
                                             <h3 class="panel-title">
+                                                <font-awesome-icon
+                                                    class="map-locator"
+                                                    :icon="faMapMarkedAlt"
+                                                    @click="
+                                                        () => {
+                                                            $refs.map.setView(
+                                                                building.latitude,
+                                                                building.longitude,
+                                                                15
+                                                            );
+                                                            $set(
+                                                                $refs.tabs,
+                                                                'selectedIndex',
+                                                                1
+                                                            );
+                                                            $refs.tabs.onSelect(
+                                                                undefined,
+                                                                1
+                                                            );
+                                                        }
+                                                    "
+                                                ></font-awesome-icon>
                                                 <img
                                                     loading="lazy"
                                                     :src="building.icon"
@@ -447,6 +493,7 @@ import { faEdit } from '@fortawesome/free-solid-svg-icons/faEdit';
 import { faImage } from '@fortawesome/free-solid-svg-icons/faImage';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons/faEnvelope';
 import { faGift } from '@fortawesome/free-solid-svg-icons/faGift';
+import { faMapMarkedAlt } from '@fortawesome/free-solid-svg-icons/faMapMarkedAlt';
 import VueI18n, { TranslateResult } from 'vue-i18n';
 import { ProfileWindow } from '../parsers/profile';
 import { RedesignLightboxVue } from 'typings/modules/Redesign';
@@ -474,6 +521,7 @@ export default Vue.extend<
         faImage: IconDefinition;
         faEnvelope: IconDefinition;
         faGift: IconDefinition;
+        faMapMarkedAlt: IconDefinition;
         awardsChartId: string;
         maxAwards: number;
         buildingTypes: {
@@ -553,6 +601,7 @@ export default Vue.extend<
             faImage,
             faEnvelope,
             faGift,
+            faMapMarkedAlt,
             awardsChartId: this.$store.getters.nodeAttribute(
                 'redesign-profile-awards-gauge-chart',
                 true
@@ -985,4 +1034,7 @@ export default Vue.extend<
             display: grid
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr))
             grid-gap: 1em
+
+.map-locator
+    cursor: pointer
 </style>

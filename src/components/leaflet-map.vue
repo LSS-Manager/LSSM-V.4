@@ -20,7 +20,6 @@ export default Vue.extend<MapData, MapMethods, MapComputed, MapProps>({
     },
     methods: {
         redraw() {
-            console.log('map redraw');
             if (this.map) this.map.remove();
             this.map = window.L.map(this.mapId).setView(
                 [this.startLat, this.startLong],
@@ -33,6 +32,9 @@ export default Vue.extend<MapData, MapMethods, MapComputed, MapProps>({
                 maxZoom: 17,
                 noWrap: true,
             }).addTo(this.map);
+        },
+        setView(lat, long, zoom = undefined) {
+            this.map?.setView([lat, long], zoom ?? this.map?.getZoom() ?? 15);
         },
     },
     computed: {
