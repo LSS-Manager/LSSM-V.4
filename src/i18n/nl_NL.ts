@@ -1211,7 +1211,7 @@ export default {
             color: '#00ac00',
         },
         Algemeen: {
-            buildings: [1, 10],
+            buildings: [1, 10, 14, 15],
             color: '#02a18c',
         },
     },
@@ -1266,7 +1266,7 @@ export default {
     small_buildings: {
         3: 13,
     },
-    vehicleBuildings: [0, 3, 5, 6, 9, 11, 13],
+    vehicleBuildings: [0, 3, 5, 6, 9, 11, 13, 14, 15],
     cellBuildings: [5],
     cellExtensions: [
         '5_0',

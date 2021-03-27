@@ -1,7 +1,7 @@
 import { Map as LMap } from 'leaflet';
 
 export interface MapData {
-    map: LMap;
+    map?: LMap;
 }
 
 export interface MapMethods {

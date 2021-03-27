@@ -15,7 +15,7 @@ export default Vue.extend<MapData, MapMethods, MapComputed, MapProps>({
     name: 'leaflet-map',
     data() {
         return {
-            map: null,
+            map: undefined,
         };
     },
     methods: {

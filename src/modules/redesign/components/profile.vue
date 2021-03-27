@@ -229,7 +229,35 @@
                     <tab :title="$sm('text')">
                         <div v-html="profile.text.replace(/\n/g, '<br>')"></div>
                     </tab>
-                    <tab v-if="profile.has_map" :title="$sm('map')"></tab>
+                    <tab v-if="profile.has_map" :title="$sm('map')">
+                        <div class="dispatchcenter-summary">
+                            <span
+                                v-for="type in buildingTypesSorted"
+                                :key="type"
+                            >
+                                <span
+                                    class="label"
+                                    :class="
+                                        `label-${
+                                            hiddenFilters.includes(type)
+                                                ? 'danger'
+                                                : 'success'
+                                        }`
+                                    "
+                                    v-if="buildings[0].buildingTypes.sum[type]"
+                                    @click="toggleFilter(type)"
+                                    @dblclick="onlyFilter(type)"
+                                >
+                                    {{ buildingTypes[type].caption }}:
+                                    {{
+                                        buildings[0].buildingTypes.sum[
+                                            type
+                                        ].toLocaleString()
+                                    }}
+                                </span>
+                            </span>
+                        </div>
+                    </tab>
                     <tab
                         v-if="profile.has_map"
                         :title="
@@ -254,16 +282,14 @@
                                     class="label"
                                     :class="
                                         `label-${
-                                            hiddenFilters.includes(
-                                                parseInt(type)
-                                            )
+                                            hiddenFilters.includes(type)
                                                 ? 'danger'
                                                 : 'success'
                                         }`
                                     "
                                     v-if="buildings[0].buildingTypes.sum[type]"
-                                    @click="toggleFilter(parseInt(type))"
-                                    @dblclick="onlyFilter(parseInt(type))"
+                                    @click="toggleFilter(type)"
+                                    @dblclick="onlyFilter(type)"
                                 >
                                     {{ buildingTypes[type].caption }}:
                                     {{
@@ -310,19 +336,19 @@
                                         :icon="faMapMarkedAlt"
                                         @click.stop="
                                             () => {
-                                                $refs.map.setView(
-                                                    dc.latitude,
-                                                    dc.longitude,
-                                                    15
+                                                $refs.tabs.onSelect(
+                                                    undefined,
+                                                    1
                                                 );
                                                 $set(
                                                     $refs.tabs,
                                                     'selectedIndex',
                                                     1
                                                 );
-                                                $refs.tabs.onSelect(
-                                                    undefined,
-                                                    1
+                                                $refs.map.setView(
+                                                    dc.latitude,
+                                                    dc.longitude,
+                                                    15
                                                 );
                                             }
                                         "
@@ -406,19 +432,19 @@
                                                     :icon="faMapMarkedAlt"
                                                     @click="
                                                         () => {
-                                                            $refs.map.setView(
-                                                                building.latitude,
-                                                                building.longitude,
-                                                                15
+                                                            $refs.tabs.onSelect(
+                                                                undefined,
+                                                                1
                                                             );
                                                             $set(
                                                                 $refs.tabs,
                                                                 'selectedIndex',
                                                                 1
                                                             );
-                                                            $refs.tabs.onSelect(
-                                                                undefined,
-                                                                1
+                                                            $refs.map.setView(
+                                                                building.latitude,
+                                                                building.longitude,
+                                                                15
                                                             );
                                                         }
                                                     "
@@ -499,6 +525,7 @@ import { ProfileWindow } from '../parsers/profile';
 import { RedesignLightboxVue } from 'typings/modules/Redesign';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { InternalBuilding } from 'typings/Building';
+import { LayerGroup } from 'leaflet';
 
 HighchartsMore(Highcharts);
 HighchartsSolidGauge(Highcharts);
@@ -528,6 +555,8 @@ export default Vue.extend<
             [type: number]: InternalBuilding;
         };
         buildingTypesSorted: number[];
+        mapLayerGroups: { [id: number]: LayerGroup };
+        buildingMarkerIds: number[];
         expandedDispatches: number[];
         search: string;
         hiddenFilters: number[];
@@ -590,7 +619,6 @@ export default Vue.extend<
     },
     data() {
         moment.locale(this.$store.state.lang);
-        const maxAwards = parseInt(this.$sm('awards.max').toString());
         const buildingTypes = this.$t('buildings') as {
             [type: number]: InternalBuilding;
         };
@@ -606,15 +634,24 @@ export default Vue.extend<
                 'redesign-profile-awards-gauge-chart',
                 true
             ),
-            maxAwards,
+            maxAwards: 0,
             buildingTypes,
-            buildingTypesSorted: Object.keys(buildingTypes).sort((a, b) =>
-                buildingTypes[a].caption < buildingTypes[b].caption
-                    ? -1
-                    : buildingTypes[a].caption > buildingTypes[b].caption
-                    ? 1
-                    : 0
+            buildingTypesSorted: Object.keys(buildingTypes)
+                .map(t => parseInt(t))
+                .sort((a, b) =>
+                    buildingTypes[a].caption < buildingTypes[b].caption
+                        ? -1
+                        : buildingTypes[a].caption > buildingTypes[b].caption
+                        ? 1
+                        : 0
+                ),
+            mapLayerGroups: Object.fromEntries(
+                Object.keys(buildingTypes).map(type => [
+                    parseInt(type),
+                    window.L.layerGroup(),
+                ])
             ),
+            buildingMarkerIds: [],
             expandedDispatches: [],
             search: '',
             hiddenFilters: [],
@@ -685,9 +722,9 @@ export default Vue.extend<
             this.setSetting('hiddenFilters', this.hiddenFilters).then();
         },
         onlyFilter(type) {
-            this.hiddenFilters = this.buildingTypesSorted
-                .filter(t => parseInt(t) !== type)
-                .map(t => parseInt(t));
+            this.hiddenFilters = this.buildingTypesSorted.filter(
+                t => t !== type
+            );
             this.setSetting('hiddenFilters', this.hiddenFilters).then();
         },
     },
@@ -727,7 +764,30 @@ export default Vue.extend<
             };
             this.profile.buildings.forEach(
                 (building: ProfileWindow['buildings'][0]) => {
-                    if (building.filter_id === 'dispatch_center') {
+                    if (!this.buildingMarkerIds.includes(building.id)) {
+                        const img = document.createElement('img');
+                        img.src = building.icon;
+                        img.onload = () =>
+                            this.mapLayerGroups[
+                                building.building_type
+                            ].addLayer(
+                                window.L.marker(
+                                    [building.latitude, building.longitude],
+                                    {
+                                        icon: window.L.icon({
+                                            iconUrl: building.icon,
+                                            iconSize: [
+                                                img.naturalWidth,
+                                                img.naturalHeight,
+                                            ],
+                                        }),
+                                        title: building.name,
+                                    }
+                                ).bindTooltip(building.name)
+                            );
+                        this.buildingMarkerIds.push(building.id);
+                    }
+                    if (dispatchCenters[0].buildingTypes.sum) {
                         if (
                             !dispatchCenters[0].buildingTypes.sum.hasOwnProperty(
                                 building.building_type
@@ -740,6 +800,8 @@ export default Vue.extend<
                         dispatchCenters[0].buildingTypes.sum[
                             building.building_type
                         ]++;
+                    }
+                    if (building.filter_id === 'dispatch_center') {
                         return (dispatchCenters[building.id] = {
                             ...dispatchCenters[building.id],
                             ...building,
@@ -774,18 +836,6 @@ export default Vue.extend<
                         ] = 0;
                     }
                     dispatchCenters[building.lbid].buildingTypes[
-                        building.building_type
-                    ]++;
-                    if (
-                        !dispatchCenters[0].buildingTypes.sum.hasOwnProperty(
-                            building.building_type
-                        )
-                    ) {
-                        dispatchCenters[0].buildingTypes.sum[
-                            building.building_type
-                        ] = 0;
-                    }
-                    dispatchCenters[0].buildingTypes.sum[
                         building.building_type
                     ]++;
                 }
@@ -840,6 +890,7 @@ export default Vue.extend<
         this.getSetting('hiddenFilters', []).then(
             f => (this.hiddenFilters = f)
         );
+        this.maxAwards = parseInt(this.$sm('awards.max').toString());
         if (this.$store.state.darkmode)
             Highcharts.setOptions(this.$utils.highChartsDarkMode);
         Highcharts.setOptions({
