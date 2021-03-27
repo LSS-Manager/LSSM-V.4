@@ -7,7 +7,7 @@
 			"min": "Min. totaal"
 		}
 	},
-	"summary": "Dagsamenvatting",
+	"title": "Dagsamenvatting",
 	"today": "Vandaag",
 	"total": "Totaal"
 }

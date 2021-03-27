@@ -1,0 +1,46 @@
+{
+	"alerts": {
+		"alliance_ignored": "{name} is verboden om zich bij je team aan te melden!",
+		"friend": "{name} staat op je vriendenlijst! 🥳",
+		"ignored": "Je negeert deze speler. {name} kan je geen berichten meer sturen!"
+	},
+	"alliance": "Team",
+	"awards": {
+		"bronze": "Brons",
+		"gold": "Goud",
+		"max": "15",
+		"silver": "Zilver",
+		"title": "Awards",
+		"title_amounts": "{sum} van {max} awards"
+	},
+	"buildings": {
+		"amount": "{n} gebouwen"
+	},
+	"buttons": {
+		"alliance_ignore": {
+			"add": "Aanmelden bij team verbieden",
+			"destroy": "Aanmelden bij team toestaan"
+		},
+		"avatar": "Profielfoto veranderen",
+		"chat": {
+			"ban": "In teamchat blokkeren",
+			"unban": "In teamchat toestaan"
+		},
+		"edit": "Profieltekst bewerken",
+		"friend": {
+			"do": "Als vriend toevoegen",
+			"undo": "Als vriend verwijderen"
+		},
+		"gift": "Coins schenken",
+		"ignore": {
+			"do": "Speler negeren",
+			"undo": "Speler niet meer negeren"
+		},
+		"message": "Nieuw bericht sturen"
+	},
+	"credits": "{credits} verdiende credits",
+	"map": "Kaart",
+	"rank": "Rang",
+	"registration": "Aanmelddatum",
+	"text": "Profieltekst"
+}
