@@ -1,1 +1,186 @@
-
+{
+	"description": "Obtén toda la información importante sobre una misión en la ventana de la misión..",
+	"name": "Ayudante de misiones",
+	"noVehicleRequirements": {
+		"average_min_fire_personnel": {
+			"badge": false,
+			"in": "adicional",
+			"text": "Promedio mínimo . Personal de bomberos"
+		},
+		"average_min_police_personnel": {
+			"badge": false,
+			"in": "adicional",
+			"text": "Promedio mínimo . Personal de policía"
+		},
+		"swat_personnel": {
+			"badge": false,
+			"in": "adicional",
+			"text": "Requiere personal de Fuerzas Especiales"
+		},
+		"water_needed": {
+			"badge": true,
+			"in": "requisitos",
+			"text": "Agua: {n} litro | Agua: {n} litros"
+		}
+	},
+	"settings": {
+		"chances": {
+			"100": {
+				"description": "Muestra probabilidades del 100%",
+				"title": "Muestre explícitamente el 100% de probabilidades. "
+			},
+			"normal": {
+				"description": "Muestra la probabilidad de que se solicite un vehículo..",
+				"title": "Mostrar probabilidades"
+			}
+		},
+		"credits": {
+			"description": "Indica el ingreso de créditos promedio de una asignación.",
+			"title": "Créditos"
+		},
+		"expansions": {
+			"description": "Enumera la posible expansión de esta misión..",
+			"title": "Expansión de misiones"
+		},
+		"followup": {
+			"description": "Enumera los posibles usos de seguimiento para esta misión.",
+			"title": "Misiones de seguimiento"
+		},
+		"generatedBy": {
+			"description": "Muestra a partir de qué tipo de edificio se puede generar esta misión.",
+			"title": "Generado por (tipo de edificio)"
+		},
+		"hide_battalion_chief_vehicles": {
+			"description": "Oculta el UMC por completo y muestra solo Vehículo de mando móvil.",
+			"title": "Ocultar UMC"
+		},
+		"hoverTip": {
+			"description": "Información sobre herramientas, por ejemplo, el botón de superposición.",
+			"title": "Información sobre herramientas"
+		},
+		"id": {
+			"description": "Muestra la ID de la misión junto al título.",
+			"title": "Misión ID"
+		},
+		"multifunctionals": {
+			"battalion_chief_vehicles": {
+				"description": "Resta el número de Mando móvil requeridos del UMC y oculta el UMC si el número cae por debajo de 0.",
+				"title": "UMC tasa simple"
+			},
+			"heavy_rescue_vehicles": {
+				"description": "Resta el número de camiones de bomberos necesarios del FUV y oculta los camiones de bomberos si el número cae por debajo de 0. Esta función está destinada a personas que conducen un sistema de vehículos de rescate puro.",
+				"title": "Tasa simple de FUV"
+			},
+		"noVehicleRequirements": {
+			"description": "Establezca aquí qué requisitos especiales mostrar, si existen para esa misión.",
+			"title": "Requisitos especiales"
+		},
+		"optionalAlternatives": {
+			"allow_arff_instead_of_lf": {
+				"description": " Indica, si en lugar de un camión de bomberos es posible CBAs en el sitio.",
+				"title": "Mostrar si los CBAs están permitidos como camiones de bomberos"
+			},
+			"allow_drone_instead_of_investigation": {
+				"description": "Shows whether an FBI Surveillance Drone can replace an FBI Investigation wagon",
+				"title": "Show drone can replace investigation"
+			},
+			"allow_ktw_instead_of_rtw": {
+				"description": "Shows whether a BLS can be used instead of an ALS.",
+				"title": "BLS instead of ALS"
+			},
+			"allow_rw_instead_of_lf": {
+				"description": "Indica, si en lugar de un camión de bomberos también es posible un Vehiculo BUP o un Vehículo de rescate en el sitio.",
+				"title": "Mostrar Vehículo BUP / Vehículo de rescate en lugar de camiones de bomberos"
+			}
+		},
+		"patients": {
+			"code_possible": {
+				"description": "Muestra posibles pacientes",
+				"title": "Detalles de posibles pacientes"
+			},
+			"content": {
+				"description": "Muestra detalles sobre posibles pacientes.",
+				"title": "Detalles sobre posibles pacientes"
+			},
+			"hideWhenNoNeed": {
+				"description": "Oculta los detalles del paciente si no hay más pacientes y los pacientes no aparecen hasta el final de la asignación.",
+				"title": "Muestre los detalles del paciente solo cuando sea necesario"
+			},
+			"live": {
+				"description": "Muestra en la parte superior del ayudante de la misión cuántos pacientes tiene actualmente la misión.",
+				"title": "Número de pacientes actual"
+			},
+			"patient_allow_first_responder_chance": {
+				"description": "Muestra cuánto % es suficiente para tratar cualquier vehículo.",
+				"title": "Probabilida del primer respondedor"
+			},
+			"title": {
+				"description": "Muestra el título \"Pacientes\" encima de los detalles sobre posibles pacientes.",
+				"title": "Pacientes (Título)"
+			}
+		},
+		"place": {
+			"description": "Muestra junto al título qué PI se requiere para esta misión.",
+			"title": "PI"
+		},
+		"prerequisites": {
+			"description": "Muestra los requisitos (por ejemplo, 3 estaciones de rescate y 4 estaciones de bomberos)",
+			"title": "Prerrequisitos"
+		},
+		"prisoners": {
+			"content": {
+				"description": "Muestra detalles sobre posibles presos.",
+				"title": "Detalles de posibles presos"
+			},
+			"live": {
+				"description": "Muestra en la parte superior del ayudante de la misión cuántos presos tiene actualmente la misión.",
+				"title": "Número actual de presos"
+			},
+			"title": {
+				"description": "Muestra el título \"Presos\" encima de los detalles sobre posibles presos.",
+				"title": "Presos (Título)"
+			}
+		},
+		"subsequent": {
+			"description": "Enumera posibles misiones posteriores con éxito.",
+			"title": "Misión posterior"
+		},
+		"title": {
+			"description": "Muestra el nombre de la misión, p. Ej. \"Incendio papelera\" como título.",
+			"title": "Nombre de la misión"
+		},
+		"type": {
+			"description": "Muestra el tipo de número de la misión junto al título.",
+			"title": "Tipo de número"
+		},
+		"vehicles": {
+			"content": {
+				"description": "Muestra vehículos necesarios.",
+				"title": "Vehículos necesarios"
+			},
+			"patient_additionals": {
+				"description": "Si actualmente hay más de 10 pacientes en el sitio, HEMS se enumera automáticamente al comienzo de los requisitos del vehículo.",
+				"title": "Mencionar HEMS"
+			},
+			"sort": {
+				"amount": "Número de vehículos necesarios",
+				"caption": "Nombre del requisito",
+				"description": "Defina por qué se deben ordenar los requisitos del vehículo.",
+				"percentage": "Probabilidad",
+				"title": "Clasificación de los requisitos del vehículo"
+			},
+			"sortDesc": {
+				"description": "Clasifica los requisitos del vehículo en orden descendente.",
+				"title": "Vehículos en orden descendente"
+			},
+			"title": {
+				"description": "Muestra el título \"Vehículos\" encima de los requisitos del vehículo.",
+				"title": "Vehículos (Título)"
+			},
+			"xAfterNumber": {
+				"description": "Pone una x detrás de la cantidad de vehículos",
+				"title": "X detrás de la cantidad"
+			}
+		}
+	}
+}
