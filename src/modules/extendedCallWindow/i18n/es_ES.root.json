@@ -1,1 +1,210 @@
-
+{
+	"name": "Ventana de alarma ampliada",
+	"settings": {
+		"alarmIcons": {
+			"description": "Deja los iconos en el boton mostrar \"Alarm\" según su seleccion. Puede elegir entre <a href=\"https://fontawesome.com/icons?d=gallery&m=free\" target=\"_blank\">todos los iconos gratuitos de Font-Awesome</a>. Suficiente con especificar el nombre del icono. Una vista previa en directo le mostrará el icono",
+			"icon": "Icono",
+			"preview": "Avance",
+			"style": "tipo de icono",
+			"title": "iconos de alarma",
+			"vehicles": "tipo de vehículos"
+		},
+		"alarmTime": {
+			"description": "Muestra junto al botón de alarma cuánto tarda el vehículo con el mayor tiempo de viaje.",
+			"title": "Mayor tiempo de viaje"
+		},
+		"arrClickHighlight": {
+			"description": "Dibuja un borde alrededor de los ARR en los que ya se hizo click.",
+			"title": "Resaltar ARR en los que se hizo click"
+		},
+		"arrClickHighlightColor": {
+			"description": "Establecer el color del borde para los bordes ARR.",
+			"title": "Resaltar color."
+		},
+		"arrClickHighlightWidth": {
+			"description": "Especifique aquí (en píxeles) el ancho del borde ARR.",
+			"title": "Resaltar ancho"
+		},
+		"arrCounter": {
+			"description": "Cuenta las veces con la que se ha hecho clic en un ARR o movimiento. Todos los contadores se pueden reiniciar usando el botón en la esquina inferior derecha o un ARR con función de reinicio.",
+			"title": "Contador ARR"
+		},
+		"arrCounterAsBadge": {
+			"description": "Muestra el contador de ARR como una pequeña insignia en cada ARR",
+			"title": "Contador ARR como insignia"
+		},
+		"arrCounterResetSelection": {
+			"description": "Agrega un botón en la parte inferior derecha para restablecer la selección de vehículo anterior. Nota: ¡También restablece el contador ARR y los bordes, si está activado!",
+			"title": "Restablecer la selección del vehículo"
+		},
+		"arrMatchHighlight": {
+			"description": "Establece un filtro gris sobre todos los ARR que no contienen una palabra del nombre de la misión.",
+			"title": "Gris ARR no apto"
+		},
+		"arrSpecs": {
+			"description": "Muestra las solicitudes almacenadas en el ARR, si permanece con el mouse brevemente sobre un ARR",
+			"title": " Mostrar detalles de ARR"
+		},
+		"arrTime": {
+			"description": "Muestra cuál sería el tiempo de viaje más largo después de seleccionar este ARR, si permanece con el mouse brevemente sobre un ARR.",
+			"title": "Mayor tiempo de viaje"
+		},
+		"centerMap": {
+			"description": "Le permite centrar el mapa en la ventana principal en el lugar de uso con solo tocar un botón.",
+			"title": "Centrar mapa"
+		},
+		"enhancedMissingVehicles": {
+			"description": "Convierte la visualización de vehículos adicionales necesarios en una tabla más clara.",
+			"title": "Mejorar los vehiculos necesarios"
+		},
+		"generationDate": {
+			"description": "Se muestra junto a la dirección cuando se generó la misión..",
+			"title": "Tiempo generado"
+		},
+		"hideVehicleList": {
+			"description": "Normalmente oculta la lista de uso, luego la abre presionando un botón.",
+			"title": "Ocultar lista de vehículos"
+		},
+		"hoverTip": {
+			"description": "Información sobre herramientas, por ejemplo, el botón de superposición.",
+			"title": "Información sobre herramientas"
+		},
+		"loadMoreVehiclesInHeader": {
+			"description": "Muestra el botón \"Recargar vehículos\", Si está disponible en la barra de encabezado.",
+			"title": "Recargar vehículos en el encabezado"
+		},
+		"missionKeywords": {
+			"autotextcolor": "Color de texto automático",
+			"color": "color de fondo",
+			"description": "Haz que se muestre tu propia palabra clave junto al nombre de la misión.",
+			"keyword": "palabra clave",
+			"missions": "misiones",
+			"prepend": "Mostrar antes del nombre de la misión",
+			"preview": "Avance",
+			"textcolor": "Color de texto",
+			"title": "Palabras claves de la misión"
+		},
+		"patientSummary": {
+			"description": "Muestra junto al número de pacientes, qué equipo de rescate necesitan en combinación.",
+			"title": "Resumen de pacientes"
+		},
+		"redBorder": {
+			"description": "Describe el tiempo de generación en rojo si la apuesta vence la noche siguiente.",
+			"title": "Borde rojo"
+		},
+		"stagingAreaSelectedCounter": {
+			"description": "Muestra en las áreas de preparación la cantidad de vehículos seleccionados junto a los botones de alarma.",
+			"title": "Contador de vehículos dentro del área de preparación"
+		},
+		"stickyHeader": {
+			"description": "Siempre muestra la barra superior en la ventana de inserción, incluso cuando se desplaza hacia abajo.",
+			"title": "Mostrar siempre la barra de encabezado"
+		},
+		"tailoredTabs": {
+			"color": "Color",
+			"description": "Ajuste las pestañas en la ventana de inserción aquí. \"Todo\" y \"Seguimiento\" siempre estarán visibles,",
+			"name": "nombre",
+			"title": "categoría de vehículos",
+			"vehicles": "tipo de vehículos"
+		},
+		"yellowBorder": {
+			"description": "Limita el tiempo de generación con amarillo si el uso es anterior al número de horas ingresado. Si el número es 0, no se dibuja ningún borde.",
+			"title": "Borde amarillo"
+		}
+	},
+	"tailoredTabs": {
+		"defaultTabs": [
+			{
+				"name": "Camiones de bomberos",
+				"vehicleTypes": [
+					0,
+					1,
+					13,
+					18,
+					33
+				]
+			},
+			{
+				"name": "Otros vehículos",
+				"vehicleTypes": [
+					2,
+					3,
+					4,
+					6,
+					7,
+					8,
+					9,
+					12,
+					17,
+					21,
+					22,
+					24,
+					30,
+					31,
+					32,
+					34,
+					35,
+					36,
+					37,
+					38,
+					39,
+					40,
+					41
+				]
+			},
+			{
+				"name": "Ambulancia",
+				"vehicleTypes": [
+					5,
+					11,
+					15,
+					20,
+					25,
+					27,
+					28,
+					29,
+					48,
+					49,
+					50
+				]
+			},
+			{
+				"name": "Policía",
+				"vehicleTypes": [
+					10,
+					14,
+					16,
+					19,
+					23,
+					26,
+					47,
+					55,
+					56
+				]
+			},
+			{
+				"name": "Agua",
+				"vehicleTypes": [
+					21,
+					22,
+					24,
+					25
+				]
+			},
+			{
+				"name": "FBI",
+				"vehicleTypes": [
+					42,
+					43,
+					44,
+					45,
+					46,
+					51,
+					52,
+					53,
+					54
+				]
+			}
+		]
+	}
+}
