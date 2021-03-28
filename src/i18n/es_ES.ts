@@ -210,7 +210,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 3,
             wtank: 0,
-            special: 'Necesario cuando hayas construido 5 parques de bomberos'
+            special: 'Necesario cuando hayas construido 5 parques de bomberos',
         },
         11: {
             caption: 'Vehículo de mando móvil',
@@ -243,7 +243,7 @@ export default {
             wtank: 0,
             schooling: 'Policía - Piloto de Helicóptero',
             shownSchooling: 'Piloto de Helicóptero',
-            },
+        },
         14: {
             caption: 'Unidad Antidisturbios',
             color: '#70ca16',
@@ -254,7 +254,8 @@ export default {
             wtank: 0,
             schooling: 'Policía - Fuerzas Especiales',
             shownSchooling: 'Fuerzas Especiales',
-            special: 'Necesario cuando hayas construido 8 comisarías de policía',
+            special:
+                'Necesario cuando hayas construido 8 comisarías de policía',
         },
         15: {
             caption: 'Unidad GEO',
@@ -266,7 +267,8 @@ export default {
             wtank: 0,
             schooling: 'Policía - Fuerzas Especiales',
             shownSchooling: 'Fuerzas Especiales',
-            special: 'Necesario cuando hayas construido 8 comisarías de policía',
+            special:
+                'Necesario cuando hayas construido 8 comisarías de policía',
         },
         16: {
             caption: 'Unidad Canina',
@@ -278,7 +280,8 @@ export default {
             wtank: 0,
             schooling: 'Policía - Guía Canino',
             shownSchooling: 'Guía Canino',
-            special: 'Necesario cuando hayas construido 6 comisarías de policía',
+            special:
+                'Necesario cuando hayas construido 6 comisarías de policía',
         },
         17: {
             caption: 'Moto de Policía',
@@ -307,7 +310,8 @@ export default {
                 },
             ],
             levelcost: ['1. 10.000', '2. 50.000', '3.-16. 100.000'],
-            maxBuildings: '5.000 edificios junto con pequeñas estaciones de bomberos',
+            maxBuildings:
+                '5.000 edificios junto con pequeñas estaciones de bomberos',
             maxLevel: 16,
             special:
                 'A partir del 24º parque de bomberos en adelante, el coste de construcción de un nuevo parque de bomberos aumenta según la siguiente fórmula: <code>100.000+200.000*LOG<sub>2</sub>(Number of existing fire stations − 22)</code>. ¡El precio de las monedas es constante!',
@@ -320,8 +324,8 @@ export default {
             color: '#24c3ae',
             coins: 50,
             credits: 500_000,
-            extensions: [ 
-                 ...new Array(3).fill({
+            extensions: [
+                ...new Array(3).fill({
                     caption: 'Aula adicional',
                     credits: 400_000,
                     coins: 40,
@@ -331,7 +335,8 @@ export default {
             levelcost: [],
             maxBuildings: 'No hay límite',
             maxLevel: 0,
-            special: 'Los ministros y administradores de finanzas pueden (expandir) las escuelas del departamento de bomberos con la ayuda de créditos de la tesorería de la asociación. Los maestros y administradores de cursos de capacitación pueden comenzar cursos de capacitación en las escuelas del cuerpo de bomberos de la asociación.',
+            special:
+                'Los ministros y administradores de finanzas pueden (expandir) las escuelas del departamento de bomberos con la ayuda de créditos de la tesorería de la asociación. Los maestros y administradores de cursos de capacitación pueden comenzar cursos de capacitación en las escuelas del cuerpo de bomberos de la asociación.',
             startPersonnel: 0,
             startVehicles: [],
         },
@@ -344,7 +349,7 @@ export default {
             levelcost: ['1. 10.000', '2. 50.000', '3.-14. 100.000'],
             maxBuildings: 'No hay límite',
             maxLevel: 14,
-            special:'',
+            special: '',
             startPersonnel: 0,
             startVehicles: ['Ambulancia'],
         },
@@ -412,7 +417,8 @@ export default {
             levelcost: ['1.-20. 19.000 / 11 Monedas'],
             maxBuildings: 'No hay límite',
             maxLevel: 20,
-            special: 'Los ministros de finanzas y los administradores pueden (ampliar) los hospitales de la alianza con la ayuda de créditos de la tesorería de la alianza.',
+            special:
+                'Los ministros de finanzas y los administradores pueden (ampliar) los hospitales de la alianza con la ayuda de créditos de la tesorería de la alianza.',
             startPersonnel: 0,
             startVehicles: [],
         },
@@ -454,7 +460,8 @@ export default {
                 }),
             ],
             levelcost: ['1. 10.000', '2. 50.000', '3.-14. 100.000'],
-            maxBuildings: '1.700 comisarías de policía junto con pequeñas comisarías',
+            maxBuildings:
+                '1.700 comisarías de policía junto con pequeñas comisarías',
             maxLevel: 14,
             special:
                 'A partir de la comisaría 24 en adelante, los costes de la nueva construcción de una comisaría aumentan según la siguiente fórmula: <code>100.000+200.000*LOG<sub>2</sub>(Number of existing police stations − 22)</code>. ¡El precio de las monedas es constante!',
@@ -462,7 +469,7 @@ export default {
             startVehicles: ['Coche patrulla'],
             maxBuildingsFunction: (): number => 1_700,
         },
-        
+
         7: {
             caption: 'Centralita',
             color: '#225522',
@@ -495,7 +502,7 @@ export default {
             maxBuildings: 'No hay límite',
             maxLevel: 0,
             special:
-                "Los ministros y administradores de finanzas pueden (expandir) las escuelas de policía de la alianza con la ayuda de créditos de la tesorería de la alianza. Los maestros y administradores de cursos de formación pueden comenzar cursos de formación en las escuelas de policía de la alianza.",
+                'Los ministros y administradores de finanzas pueden (expandir) las escuelas de policía de la alianza con la ayuda de créditos de la tesorería de la alianza. Los maestros y administradores de cursos de formación pueden comenzar cursos de formación en las escuelas de policía de la alianza.',
             startPersonnel: 0,
             startVehicles: [],
         },
@@ -569,7 +576,8 @@ export default {
                 '3.-5. 100.000',
                 'Convertir a parque de bombero normal: precio de la diferencia a parque de bombero normal',
             ],
-            maxBuildings: '5.000 parques de bomberos junto con parques de bomberos pequeños',
+            maxBuildings:
+                '5.000 parques de bomberos junto con parques de bomberos pequeños',
             maxLevel: 5,
             special:
                 'A partir del 24º parque de bomberos en adelante, el coste de construcción de un nuevo parque de bomberos aumenta según la siguiente fórmula: <code>(100.000+200.000*LOG<sub>2</sub>(Number of existing fire stations − 22)) / 2</code>. max. 1 Million Credits. ¡El precio de las monedas es constante!',
@@ -589,7 +597,8 @@ export default {
                 '3.-4. 100.000',
                 'Convertir a comisaria de policía normal: precio de la diferencia a comisaría de policía normal',
             ],
-            maxBuildings: '1.700 comisarías de polcía junto con comisarías de policías pequeños',
+            maxBuildings:
+                '1.700 comisarías de polcía junto con comisarías de policías pequeños',
             maxLevel: 4,
             special:
                 'A partir de la comisaría 24º en adelante, los costes de la nueva construcción de una comisaría se calculan de acuerdo con la siguiente fórmula: <code>(100.000+200.000*LOG<sub>2</sub>(Number of existing police stations − 22)) / 2</code>. ¡El precio de las monedas es constante!',
@@ -644,8 +653,8 @@ export default {
         },
         'Vehículos de ambulancias': {
             vehicles: {
-                'Ambulancias': [5],
-                'HEMS': [9],
+                Ambulancias: [5],
+                HEMS: [9],
             },
             color: '#ffa500',
         },
@@ -832,7 +841,7 @@ export default {
         'Restaurante',
         'Centro de la ciudad',
         'Montaña',
-        'Muelle',     
+        'Muelle',
     ],
     only_alliance_missions: [57, 74],
     transfer_missions: [],

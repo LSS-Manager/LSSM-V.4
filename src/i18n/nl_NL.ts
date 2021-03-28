@@ -1168,6 +1168,34 @@ export default {
             startPersonnel: 3,
             startVehicles: ['Ambulance'],
         },
+        14: {
+            caption: 'Groot gebouwencomplex',
+            color: '#ffffff',
+            coins: 'Te duur',
+            credits: 'Te duur',
+            extensions: [],
+            levelcost: ['Te duur'],
+            maxBuildings: 'Geen limiet',
+            maxLevel: 5,
+            special:
+                'We weten niet wat het nut is behalve dat je een hoop credits of coins kwijt bent.',
+            startPersonnel: 0,
+            startVehicles: [],
+        },
+        15: {
+            caption: 'Klein gebouwencomplex',
+            color: '#ffffff',
+            coins: 'Te duur',
+            credits: 'Te duur',
+            extensions: [],
+            levelcost: ['Te duur'],
+            maxBuildings: 'Geen limiet',
+            maxLevel: 5,
+            special:
+                'We weten niet wat het nut is behalve dat je een hoop credits of coins kwijt bent.',
+            startPersonnel: 0,
+            startVehicles: [],
+        },
     },
     buildingCategories: {
         Brandweer: {
@@ -1183,7 +1211,7 @@ export default {
             color: '#00ac00',
         },
         Algemeen: {
-            buildings: [1, 10],
+            buildings: [1, 10, 14, 15],
             color: '#02a18c',
         },
     },
@@ -1238,7 +1266,7 @@ export default {
     small_buildings: {
         3: 13,
     },
-    vehicleBuildings: [0, 3, 5, 6, 9, 11, 13],
+    vehicleBuildings: [0, 3, 5, 6, 9, 11, 13, 14, 15],
     cellBuildings: [5],
     cellExtensions: [
         '5_0',
@@ -1456,4 +1484,28 @@ export default {
     ],
     only_alliance_missions: [41, 43, 59, 145, 234, 346, 347],
     transfer_missions: [137],
+    ranks: {
+        missionchief: {
+            0: 'Aspirant',
+            200: 'Brandwacht (Manschap A)',
+            10_000: 'Hoofdbrandwacht (Manschap B)',
+            100_000: 'Brandmeester',
+            1_000_000: 'Hoofdbrandmeester',
+            5_000_000: 'Commandeur',
+            50_000_000: 'Adjunct-Hoofdcommandeur',
+            500_000_000: 'Hoofdcommandeur',
+            5_000_000_000: 'Erelid',
+        },
+        policechief: {
+            0: 'Aspirant',
+            200: 'Surveillant',
+            10_000: 'Agent',
+            100_000: 'Hoofdagent',
+            1_000_000: 'Brigadier',
+            5_000_000: 'Inspecteur',
+            50_000_000: 'Hoofdinspecteur',
+            500_000_000: 'Commissaris',
+            5_000_000_000: 'Hoofdcommissaris',
+        },
+    },
 };

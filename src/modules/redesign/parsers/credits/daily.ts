@@ -1,3 +1,5 @@
+import { RedesignParser } from 'typings/modules/Redesign';
+
 interface Entry {
     total: number;
     average: number;
@@ -9,7 +11,7 @@ export interface CreditsDailyWindow {
     entries: Entry[];
 }
 
-export default (source: string): CreditsDailyWindow => {
+export default <RedesignParser<CreditsDailyWindow>>(source => {
     const doc = new DOMParser().parseFromString(source, 'text/html');
     const getNum = (el: Element | null) =>
         parseInt(
@@ -28,4 +30,4 @@ export default (source: string): CreditsDailyWindow => {
             desc: entry.children[3]?.textContent?.trim() ?? '',
         })),
     };
-};
+});

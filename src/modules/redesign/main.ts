@@ -6,9 +6,10 @@ const routeChecks: routeChecks = {
     '^/credits/daily/?$': 'credits/daily',
     '^/credits/?$': 'credits/list',
     '^/credits/overview/?$': 'credits/overview',
+    '^/profile/\\d+/?$': 'profile',
     '^/toplist/?$': 'toplist',
     '^/vehicles/\\d+/?$': 'vehicle',
-    '^/vehicles/\\d+/(patient|gefangener)/\\d+/?': 'vehicle/nextfms',
+    // '^/vehicles/\\d+/(patient|gefangener)/\\d+/?': 'vehicle/nextfms',
 };
 
 export default ((LSSM, MODULE_ID) => {
@@ -66,17 +67,31 @@ export default ((LSSM, MODULE_ID) => {
         })
         .then();
 
-    const lightboxAdjust = () => {
-        const iframe = document.getElementById(
-            LSSM.$store.getters.nodeAttribute('redesign-lightbox-iframe')
-        ) as HTMLIFrameElement | null;
-        if (!iframe) return true;
-        const container = iframe.contentDocument?.getElementById(
-            'iframe-inside-container'
+    const findIframes = (doc: Document | null): HTMLIFrameElement[] => {
+        const frames = Array.from(
+            doc?.querySelectorAll<HTMLIFrameElement>(
+                `[name="${LSSM.$store.getters.nodeAttribute(
+                    'redesign-lightbox-iframe'
+                )}"]`
+            ) ?? []
         );
-        if (!container) return true;
-        container.style.width = '100%';
-        container.style.height = '100%';
+        return [
+            ...frames,
+            ...frames.flatMap(frame => findIframes(frame.contentDocument)),
+        ];
+    };
+
+    const lightboxAdjust = () => {
+        const iframes = findIframes(document);
+        if (!iframes || !iframes.length) return true;
+        iframes.forEach(iframe => {
+            const container = iframe.contentDocument?.getElementById(
+                'iframe-inside-container'
+            );
+            if (!container) return true;
+            container.style.width = '100%';
+            container.style.height = '100%';
+        });
         const modal = document.querySelector<HTMLDivElement>(
             '.vm--overlay[data-modal="redesign-lightbox"] ~ .vm--modal'
         );

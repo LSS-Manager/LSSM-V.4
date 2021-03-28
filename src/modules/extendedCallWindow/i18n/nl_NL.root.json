@@ -93,6 +93,10 @@
 			"description": "De generatietijd krijgt een rood kader, als de inzet in de komende nacht vervalt.",
 			"title": "Rood kader"
 		},
+		"stagingAreaSelectedCounter": {
+			"description": "Geeft in de UGS naast de \"Alarmeren\" knop het aantal geselecteerde voertuigen weer.",
+			"title": "Voertuigselectieteller in UGS"
+		},
 		"stickyHeader": {
 			"description": "Toont altijd de bovenste balk in het meldingenscherm, zelfs als je naar beneden scrolt.",
 			"title": "Koptekst altijd laten zien"

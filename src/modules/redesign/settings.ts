@@ -2,15 +2,19 @@ import { ModuleSettingFunction } from 'typings/Module';
 import { Hidden } from 'typings/Setting';
 
 export default (() => ({
-    'vehicle': <Hidden>{
-        type: 'hidden',
-        default: {},
-    },
     'credits/daily': <Hidden>{
         type: 'hidden',
         default: {},
     },
+    'profile': <Hidden>{
+        type: 'hidden',
+        default: {},
+    },
     'toplist': <Hidden>{
+        type: 'hidden',
+        default: {},
+    },
+    'vehicle': <Hidden>{
         type: 'hidden',
         default: {},
     },

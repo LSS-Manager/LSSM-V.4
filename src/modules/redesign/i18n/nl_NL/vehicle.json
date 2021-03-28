@@ -80,7 +80,20 @@
 		"offline": "{user} is offline!",
 		"online": "{user} is online!"
 	},
+	"release": {
+		"cancel": "Annuleren",
+		"confirm": "Ja",
+		"patient": {
+			"text": "Wil je werkelijk de patiënt in dit voertuig ontslaan? Je krijgt hierdoor geen vergoeding voor de patiënt!",
+			"title": "Patiënt ontslaan"
+		},
+		"prisoner": {
+			"text": "Wil je werkelijk **alle** gevangene van deze inzet vrijlaten? Je krijgt hierdoor geen vergoeding voor deze gevangenen!",
+			"title": "Gevangene vrijlaten"
+		}
+	},
 	"release_patient": "Patiënt ontslaan",
+	"release_prisoner": "Gevangene vrijlaten",
 	"staff": {
 		"name": "Naam",
 		"schooling": "Opleiding",

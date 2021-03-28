@@ -1,3 +1,5 @@
+import { RedesignParser } from 'typings/modules/Redesign';
+
 interface User {
     img: string;
     credits: number;
@@ -15,11 +17,7 @@ export interface TopListWindow {
     lastPage: number;
 }
 
-export default (
-    source: string,
-    _: string,
-    getIdFromEl: (el: HTMLAnchorElement | null) => number
-): TopListWindow => {
+export default <RedesignParser<TopListWindow>>((source, _, getIdFromEl) => {
     const doc = new DOMParser().parseFromString(source, 'text/html');
     const getNum = (el: Element | null) =>
         parseInt(
@@ -60,4 +58,4 @@ export default (
                 ?.textContent?.trim() ?? '1'
         ),
     };
-};
+});

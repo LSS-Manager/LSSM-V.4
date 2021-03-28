@@ -492,6 +492,7 @@ export default Vue.extend<
                     battalion_chief_vehicles: false,
                     platform_trucks: false,
                     police_cars: false,
+                    sheriff_unit: false,
                 },
                 optionalAlternatives: {
                     allow_rw_instead_of_lf: false,

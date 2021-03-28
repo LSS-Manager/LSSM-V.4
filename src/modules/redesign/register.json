@@ -1,5 +1,8 @@
 {
+	"alpha": true,
+	"locales": [
+		"de_DE"
+	],
 	"location": ".*",
-	"noapp": true,
 	"settings": true
 }

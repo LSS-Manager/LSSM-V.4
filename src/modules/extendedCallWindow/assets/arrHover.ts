@@ -133,7 +133,7 @@ export default (
     }
 
     const check_amount_available = (
-        buildings: string[],
+        buildings: number[],
         attributes: Record<string, number>
     ): { [attribute: string]: number } => {
         let hlf_or_rw_lf = 0;
@@ -144,10 +144,13 @@ export default (
 
         document
             .querySelectorAll<HTMLInputElement>(
-                '#all .vehicle_checkbox:not(:checked)'
+                '#all .vehicle_checkbox:not(:checked):not([ignore_aao="1"])'
             )
             .forEach(vehicle => {
-                if (!vehicle.checked) {
+                if (
+                    !vehicle.checked &&
+                    window.aao_building_check(buildings, window.$(vehicle))
+                ) {
                     Object.keys(attributes).forEach(attr => {
                         if (!amounts.hasOwnProperty(attr)) amounts[attr] = 0;
                         switch (attr) {
@@ -222,7 +225,7 @@ export default (
         return amounts;
     };
 
-    const updateSpecs = (buildingIds: string[], arr: HTMLAnchorElement) => {
+    const updateSpecs = (buildingIds: number[], arr: HTMLAnchorElement) => {
         const pspecs: Record<string, number> = {};
         Array.from(arr.attributes).forEach(({ name, value }) => {
             if (name === 'vehicle_type_ids' /* || name === 'custom'*/) {
@@ -285,7 +288,7 @@ export default (
                     `aao_${id}`
                 ) as HTMLAnchorElement | null;
                 if (!arr) return;
-                const buildingIds = JSON.parse(
+                const buildingIds: number[] = JSON.parse(
                     arr.getAttribute('building_ids') || '[]'
                 );
                 updateSpecs(buildingIds, arr);

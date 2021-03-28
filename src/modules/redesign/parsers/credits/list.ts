@@ -1,3 +1,5 @@
+import { RedesignParser } from 'typings/modules/Redesign';
+
 interface Entry {
     amount: number;
     desc: string;
@@ -9,7 +11,7 @@ export interface CreditsListWindow {
     lastPage: number;
 }
 
-export default (source: string): CreditsListWindow => {
+export default <RedesignParser<CreditsListWindow>>(source => {
     const doc = new DOMParser().parseFromString(source, 'text/html');
     const getNum = (el: Element | null) =>
         parseInt(
@@ -34,4 +36,4 @@ export default (source: string): CreditsListWindow => {
                 ?.textContent?.trim() ?? Number.MAX_SAFE_INTEGER.toString()
         ),
     };
-};
+});

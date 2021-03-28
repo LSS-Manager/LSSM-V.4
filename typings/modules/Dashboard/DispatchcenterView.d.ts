@@ -1,5 +1,6 @@
 import { Building, InternalBuilding } from 'typings/Building';
 import { Vehicle } from 'typings/Vehicle';
+import VueI18n from 'vue-i18n';
 
 interface Title {
     id?: string;
@@ -67,11 +68,9 @@ export interface DispatchcenterViewComputed {
     buildingListFiltered: Building[];
     buildingListHasPrevPage: boolean;
     buildingListHasNextPage: boolean;
-}
-
-interface MoveBoard {
-    id: string;
-    y: number;
+    vehiclesByBuildingSorted: {
+        [building: number]: Vehicle[];
+    };
 }
 
 interface Selection {
@@ -81,10 +80,23 @@ interface Selection {
 }
 
 export interface DispatchcenterViewMethods {
-    moveBoard(moving: MoveBoard): void;
+    $m(
+        key: string,
+        args?: {
+            [key: string]: unknown;
+        }
+    ): VueI18n.TranslateResult;
+    $sm(
+        key: string,
+        args?: {
+            [key: string]: unknown;
+        }
+    ): VueI18n.TranslateResult;
     setBoardName(id: number): void;
     addBoard(): void;
     removeBoard(id: number): void;
+    boardUp(id: number): void;
+    boardDown(id: number): void;
     addColumn(): void;
     bulkAddColumn(): void;
     removeBuilding(id: number): void;
@@ -92,6 +104,6 @@ export interface DispatchcenterViewMethods {
     modifyBuilding(building: Column): void;
     modifyTitle(building: Title): void;
     saveBoards(): void;
-    saveSelection(slection: Selection): void;
+    saveSelection(selection: Selection): void;
     switchTab(): void;
 }
