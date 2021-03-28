@@ -1,1 +1,50 @@
-
+{
+	"description": "Te permite activar mejoras generales, como enlaces en los que se puede hacer clic en todo el juego..",
+	"name": "Mejoras generales",
+	"settings": {
+		"browserTitle": {
+			"description": "Ajusta el título de la pestaña del navegador para que muestre lo que está abierto actualmente en el juego.",
+			"title": "Título de la pestaña del navegador"
+		},
+		"clickableLinks": {
+			"description": "Se puede hacer clic en los enlaces que se muestran como texto sin formato (por ejemplo, en el chat, foro, mensajes, etc.). Se abren automáticamente en una nueva pestaña.",
+			"title": "Hacer clic en los enlaces"
+		},
+		"emojiPicker": {
+			"description": "Muestra emojis para seleccionar cuando escribe : seguido de texto.",
+			"title": "Selector de emojis"
+		},
+		"extensionCloseCall": {
+			"description": "Cierra las solicitudes de propagación de voz incluso si se presiona el botón \"a misión\"",
+			"title": "Difusión de FMS 5 mejorado"
+		},
+		"linkPreviews": {
+			"buildings": "Edificios",
+			"description": "Muestra un pequeño cuadro de información cuando espera con el mouse sobre un enlace durante un breve período de tiempo. Aquí puede establecer para qué enlaces se debe activar el cuadro de información:",
+			"missions": "Misiones",
+			"profile": "Usuario",
+			"title": "Vista previa del enlace",
+			"vehicles": "Vehículos"
+		},
+		"mapUndo": {
+			"description": "Centre el mapa en las posiciones que estaban centradas antes. - Actualmente solo funciona con el tipo de mapa \"OpenStreetMap\"",
+			"title": "Guardar saltos de mapa"
+		},
+		"ownMapMarkers": {
+			"description": "¡Guarde sus propias ubicaciones en el mapa para acceder a ellas con un solo clic!",
+			"title": "Marcadores para el mapa"
+		},
+		"saveLastBuildingType": {
+			"description": "Recuerda el tipo de edificio seleccionado al construir un edificio nuevo y lo selecciona automáticamente para edificios nuevos.",
+			"title": "Recuerda el tipo de edificio"
+		},
+		"saveLastDispatchCenter": {
+			"description": "Recuerda la centralita seleccionada al construir un edificio nuevo y lo selecciona automáticamente para edificios nuevos.",
+			"title": "Recuerda la centralita"
+		},
+		"showImg": {
+			"description": "Intente generar una vista previa de la imagen. ¡Solo funciona en combinación con \"Hacer que se pueda hacer clic en los enlaces\"!",
+			"title": "Activar la vista previa de la imagen"
+		}
+	}
+}
