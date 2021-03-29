@@ -1,4 +1,3 @@
-  
 {
 	"description": "Muestra el ID de usuario respectivo en el perfil y, si es necesario, también el suyo en la barra de navegación",
 	"name": "Usuario ID",

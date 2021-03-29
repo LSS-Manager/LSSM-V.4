@@ -51,11 +51,11 @@
 	},
 	"vehicles": {
 		"captions": {
-			    "ambulances": "Ambulancia | Ambulancias",
+			"ambulances": "Ambulancia | Ambulancias",
 			"arff": "CBA",
 			"atf_lab_vehicle": "Vehículo de laboratorio ATF | Vehículos de laboratorio ATF",
 			"atf_unit": "Unidad ATF | Unidades ATF",
-			    "battalion_chief_vehicles": "Vehículo UMC | Vehículos UMC",
+			"battalion_chief_vehicles": "Vehículo UMC | Vehículos UMC",
 			"boats": "Barco ligero | Barcos ligeros",
 			"brush_truck": "Camión de bomberos | Camiones de bomberos",
 			"dea_clan_lab": "DEA Clan Lab | DEA Clan Labs",
@@ -66,24 +66,24 @@
 			"fbi_investigation": "FBI Investigation Wagon | FBI Investigation Wagons",
 			"fbi_mcc": "FBI Mobile Command Center Vehicle | FBI Mobile Command Center Vehicles",
 			"fire_aviation": "Airborne Firefighting | Airborne Firefightings",
-			    "firetrucks": "Vehículo de rescate | Vehículos de rescate",
+			"firetrucks": "Vehículo de rescate | Vehículos de rescate",
 			"game_warden": "Warden Truck | Warden Trucks",
-			    "hazmat_vehicles": "Vehículo TPP | Vehículos TPP",
-			    "heavy_rescue_vehicles": "Vehiculo FUV | Vehículos FUV",
-			    "helicopter": "HEMS",
-			    "k9": "Unidad Canina",
+			"hazmat_vehicles": "Vehículo TPP | Vehículos TPP",
+			"heavy_rescue_vehicles": "Vehiculo FUV | Vehículos FUV",
+			"helicopter": "HEMS",
+			"k9": "Unidad Canina",
 			"large_fire_boat": "Large Fireboat | Large Fireboats",
 			"large_rescue_boat": "Large Rescueboat | Large Rescueboats",
-			    "mobile_air_vehicles": "Vehículo aéreo | Vehículos aéreos",
-			    "mobile_command_vehicles": "Vehículo de mando móvil | Vehículos de mando móvil",
-			    "platform_trucks": "Camión AE | Camiones AE",
+			"mobile_air_vehicles": "Vehículo aéreo | Vehículos aéreos",
+			"mobile_command_vehicles": "Vehículo de mando móvil | Vehículos de mando móvil",
+			"platform_trucks": "Camión AE | Camiones AE",
 			"police_boat": "Patrol Boat | Patrol Boats",
-			    "police_cars": "Coche patrulla | Coches patrullas",
-			    "police_helicopters": "Helicóptero Policíal | Helicópteros Policiales",
+			"police_cars": "Coche patrulla | Coches patrullas",
+			"police_helicopters": "Helicóptero Policíal | Helicópteros Policiales",
 			"sheriff": "Sheriff | Sherrifs",
-			    "swat_armored_vehicle": "Unidad Antidisturbios | Unidades Antidisturbio",
-			    "swat_suv": "Unidad GEO | Unidades GEO",
-			    "water_tankers": "Camión BNP | Camiones BNP"
+			"swat_armored_vehicle": "Unidad Antidisturbios | Unidades Antidisturbio",
+			"swat_suv": "Unidad GEO | Unidades GEO",
+			"water_tankers": "Camión BNP | Camiones BNP"
 		},
 		"multifunctionals": {
 			"battalion_chief_vehicles": {
@@ -91,7 +91,7 @@
 				"reduce_from": "Vehículo de mando movil"
 			},
 			"heavy_rescue_vehicles": {
-          "additional_text": "thereof at least. {n} Vehículos de rescate",
+				"additional_text": "thereof at least. {n} Vehículos de rescate",
 				"reduce_from": "Camiones de bomberos"
 			},
 			"sheriff_unit": {
