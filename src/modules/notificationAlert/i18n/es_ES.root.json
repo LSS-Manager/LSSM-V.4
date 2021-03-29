@@ -1,1 +1,56 @@
-
+{
+	"alertStyles": {
+		"danger": "Mensaje de error (rojo)",
+		"info": "Información (azul)",
+		"success": "Confirmación (verde)",
+		"warning": "Advertencia (naranja)"
+	},
+	"description": "Obtén notificaciones del navegador y del juego para varios eventos, ¡por supuesto, completamente configurable!",
+	"events": {
+		"allianceCandidature": "Nueva aplicación en la alianza",
+		"allianceChat": "Mensaje de chat",
+		"allianceChatMention": "Mensaje de chat (sólo menciones)",
+		"allianceChatWhisper": "Mensaje de chat (sólo mensajes privados)",
+		"allianceForum": "Nuevo artículo en el foro de la alianza",
+		"allianceMessage": "Nuevo mensaje de alianza",
+		"allianceNews": "Nuevas noticias de la alianza",
+		"dm": "Nuevo mensaje en la bandeja de entrada",
+		"ingame_news": "Noticias en el juego",
+		"mission_getred": "Una misión requiere atención",
+		"mission_getred_alliance": "Una misión de alianza requiere atención
+		"mission_new": "Se generó una misión nueva",
+		"mission_new_largescale": "Se creó una misión de alianza a gran escala",
+		"mission_share": "Se compartió una misión en la alianza",
+		"sicherheitswache_error": "Guardia de seguridad cancelado",
+		"sicherheitswache_success": "Guardia de seguridad completado",
+		"vehicle_fms": "Mensajes de radio (general)",
+		"vehicle_fms_1": "Mensajes de radio (estado 1)",
+		"vehicle_fms_2": "Mensajes de radio (estado 2)",
+		"vehicle_fms_3": "Mensajes de radio (estado 3)",
+		"vehicle_fms_4": "Mensajes de radio (estado 4)",
+		"vehicle_fms_5": "Mensajes de radio (Solicitud de voz)",
+		"vehicle_fms_6": "Mensajes de radio (estado 6)",
+		"vehicle_fms_7": "Mensajes de radio (estado 7)",
+		"vehicle_fms_9": "Mensajes de radio (estado 8)"
+	},
+	"name": "Notifications",
+	"positions": {
+		"bottom center": "Medio inferior 🡣",
+		"bottom left": "Abajo a la izquiera 🡧",
+		"bottom right": "Abajo a la derecha 🡦",
+		"top center": "Centro superior 🡡",
+		"top left": "Arriba a la izquierda 🡤",
+		"top right": "Arriba a la derecha 🡥"
+	},
+	"settings": {
+		"alertStyle": "Tipo de notificación en el juego",
+		"alerts": {
+			"title": "Establecer notificaciones"
+		},
+		"desktop": "Enviar notificación de escritorio",
+		"duration": "Duración de la visualización",
+		"eventTypes": "Eventos",
+		"ingame": "Enviar notificación en el juego",
+		"position": "Posición"
+	}
+}
