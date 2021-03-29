@@ -1,1 +1,35 @@
-
+{
+	"extensionTitle": "{caption} (hasta {n} veces)",
+	"tabs": {
+		"buildings": "Edificios",
+		"schoolings": "Cursos",
+		"vehicles": "Vehículos"
+	},
+	"titles": {
+		"buildings": {
+			"caption": "Tipo de edificio",
+			"cost": "Precio",
+			"extensions": "Extensiones",
+			"levelcost": "Costes de las etapas de expansión",
+			"maxBuildings": "Perímetro",
+			"maxLevel": "nivel máximo de expansión",
+			"special": "Especiales",
+			"startPersonnel": "Iniciar personal",
+			"startVehicles": "Posibles vehículos de arranque"
+		},
+		"schoolings": {
+			"caption": "Nombre del curso",
+			"duration": "Periodo de formación",
+			"required_for": "Requerido para"
+		},
+		"vehicles": {
+			"caption": "Tipo de vehículo",
+			"cost": "Precio",
+			"maxPersonnel": "personal máximo",
+			"minPersonnel": "personal mínimo",
+			"schooling": "Formación",
+			"special": "Especiales",
+			"wtank": "BNP"
+		}
+	}
+}
