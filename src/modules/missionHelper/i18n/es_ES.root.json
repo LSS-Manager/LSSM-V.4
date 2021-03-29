@@ -125,7 +125,7 @@
 				"description": "Muestra el título \"Presos\" encima de los detalles sobre posibles presos.",
 				"title": "Presos (Título)"
 			}
-		}
+		},
 		"title": {
 			"description": "Muestra el nombre de la misión, p. Ej. \"Incendio papelera\" como título.",
 			"title": "Nombre de la misión"
