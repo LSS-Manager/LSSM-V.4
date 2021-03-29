@@ -107,7 +107,7 @@
 	"eslint": {
 		"icon": "https://eslint.org/assets/img/favicon.512x512.png",
 		"url": "https://eslint.org",
-		"version": "7.22.0"
+		"version": "7.23.0"
 	},
 	"eslint-plugin-prettier": {
 		"icon": "https://prettier.io/icon.png",
@@ -176,7 +176,7 @@
 	"speed-measure-webpack-plugin": {
 		"icon": "https://camo.githubusercontent.com/ec10cfa726400257ca0f80a273449f9d4502312ebf06c3bca2f8145f32d6743f/68747470733a2f2f7261776769742e636f6d2f7374657068656e636f6f6b6465762f73706565642d6d6561737572652d7765627061636b2d706c7567696e2f6d61737465722f6c6f676f2e737667",
 		"url": "https://github.com/stephencookdev/speed-measure-webpack-plugin#readme",
-		"version": "1.4.2"
+		"version": "1.5.0"
 	},
 	"string-replace-loader": {
 		"icon": "https://webpack.js.org/assets/icon-square-big.svg",
@@ -191,7 +191,7 @@
 	"ts-loader": {
 		"icon": "https://webpack.js.org/assets/icon-square-big.svg",
 		"url": "https://github.com/TypeStrong/ts-loader",
-		"version": "8.0.18"
+		"version": "8.1.0"
 	},
 	"typescript": {
 		"icon": "https://www.typescriptlang.org/icons/icon-512x512.png",
@@ -201,7 +201,7 @@
 	"ua-parser-js": {
 		"icon": "https://raw.githubusercontent.com/faisalman/ua-parser-js/gh-pages/images/logo.png",
 		"url": "https://github.com/faisalman/ua-parser-js",
-		"version": "0.7.25"
+		"version": "0.7.26"
 	},
 	"url-loader": {
 		"icon": "https://webpack.js.org/assets/icon-square-big.svg",
@@ -285,7 +285,7 @@
 	"webpack-cli": {
 		"icon": "https://webpack.js.org/assets/icon-square-big.svg",
 		"url": "https://webpack.js.org/api/cli/",
-		"version": "4.5.0"
+		"version": "4.6.0"
 	},
 	"webpack-loader-append-prepend": {
 		"icon": "https://webpack.js.org/assets/icon-square-big.svg",
