@@ -1,1 +1,21 @@
-
+{
+	"browsersupport": {
+		"close": "Ocultar pista",
+		"faqAnchor": "en qué navegadores funciona lss manager",
+		"not": {
+			"text": "Estimado usuario de LSS-Manager, <br> lamentablemente, el LSSM es compatible con su navegador actual. <b> {name} </b> ¡no es oficial! Esto significa que no se garantiza que todas las funcionalidades funcionen correctamente. Puede encontrar una lista de los navegadores que admitimos en nuestro <a href='{wiki}faq.html#{wikiAnchor}' class='lightbox-open'>FAQ</a>.",
+			"title": "Navegador no compatible"
+		},
+		"old": {
+			"text": "¡Parece que usa un navegador desactualizado! Actualmente estás usando <b> {name} {current} </b>, ¡pero la última versión es <b> {name} {latest} </b>! Tenga en cuenta que LSS-Manager solo puede utilizar este navegador a partir de la versión <b> {compatible} </b> compatible. Esto tiene razones de seguridad y compatibilidad. Puede descargar la última versión de su navegador <a href='{download}' class='lightbox-open'>aquí</a>.<br> Puede encontrar una lista actualizada de navegadores compatibles en nuestro <a href='{wiki}faq.html#{wikiAnchor}' class='lightbox-open'>FAQ</a>.",
+			"title": "Navegador desactualizado"
+		}
+	},
+	"info": {
+		"close": "No volver a mostrar esta nota",
+		"decline": "No permitir la recopilación",
+		"text": "LSS Manager recopila metadatos como se describe en <a href='{wiki}metadata.html' class='lightbox-open'>Wiki</a> described.<br>Siempre puede revocar su acuerdo en un momento posterior.",
+		"title": "Información sobre la recopilación de metadatos"
+	},
+	"name": "Telemetría"
+}
