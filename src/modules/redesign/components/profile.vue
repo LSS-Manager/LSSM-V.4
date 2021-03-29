@@ -736,9 +736,12 @@ export default Vue.extend<
             this.setSetting('hiddenFilters', this.hiddenFilters).then();
         },
         onlyFilter(type) {
-            this.hiddenFilters = this.buildingTypesSorted.filter(
-                t => t !== type
-            );
+            this.hiddenFilters = this.buildingTypesSorted.filter(t => {
+                (this.$refs.map as MapVue)?.map?.[
+                    t === type ? 'addLayer' : 'removeLayer'
+                ](this.mapLayerGroups[t]);
+                return t !== type;
+            });
             this.setSetting('hiddenFilters', this.hiddenFilters).then();
         },
     },
