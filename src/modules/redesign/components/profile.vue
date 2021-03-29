@@ -800,7 +800,13 @@ export default Vue.extend<
                                         }),
                                         title: building.name,
                                     }
-                                ).bindTooltip(building.name)
+                                )
+                                    .bindTooltip(building.name)
+                                    .on('click', () =>
+                                        window.lightboxOpen(
+                                            `/buildings/${building.id}`
+                                        )
+                                    )
                             );
                         this.buildingMarkerIds.push(building.id);
                     }
