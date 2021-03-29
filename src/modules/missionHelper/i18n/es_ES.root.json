@@ -80,6 +80,10 @@
 			"allow_rw_instead_of_lf": {
 				"description": "Indica, si en lugar de un camión de bomberos también es posible un Vehiculo BUP o un Vehículo de rescate en el sitio.",
 				"title": "Mostrar Vehículo BUP / Vehículo de rescate en lugar de camiones de bomberos"
+			},
+			"allow_arff_instead_of_lf": {
+				"description": " Indica, si en lugar de un camión de bomberos es posible CBAs en el sitio.",
+				"title": "Mostrar si los CBAs están permitidos como camiones de bomberos"
 			}
 		},
 		"patients": {
