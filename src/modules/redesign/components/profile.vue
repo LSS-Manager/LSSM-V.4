@@ -502,6 +502,13 @@
                     v-show="show_map"
                     ref="map"
                     :id="`profile-${profile.id}-map`"
+                    :layers="
+                        Object.entries(mapLayerGroups)
+                            .filter(
+                                ([t]) => !hiddenFilters.includes(parseInt(t))
+                            )
+                            .map(([, l]) => l)
+                    "
                 ></leaflet-map>
             </div>
         </div>
@@ -526,6 +533,7 @@ import { RedesignLightboxVue } from 'typings/modules/Redesign';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { InternalBuilding } from 'typings/Building';
 import { LayerGroup } from 'leaflet';
+import { MapVue } from 'typings/components/LeafletMap';
 
 HighchartsMore(Highcharts);
 HighchartsSolidGauge(Highcharts);
@@ -716,8 +724,14 @@ export default Vue.extend<
                     this.hiddenFilters.findIndex(t => t === type),
                     1
                 );
+                (this.$refs.map as MapVue)?.map?.addLayer(
+                    this.mapLayerGroups[type]
+                );
             } else {
                 this.hiddenFilters.push(type);
+                (this.$refs.map as MapVue)?.map?.removeLayer(
+                    this.mapLayerGroups[type]
+                );
             }
             this.setSetting('hiddenFilters', this.hiddenFilters).then();
         },

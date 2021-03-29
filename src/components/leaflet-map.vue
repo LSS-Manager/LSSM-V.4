@@ -21,10 +21,9 @@ export default Vue.extend<MapData, MapMethods, MapComputed, MapProps>({
     methods: {
         redraw() {
             if (this.map) this.map.remove();
-            this.map = window.L.map(this.mapId).setView(
-                [this.startLat, this.startLong],
-                this.startZoom
-            );
+            this.map = window.L.map(this.mapId, {
+                layers: this.layers,
+            }).setView([this.startLat, this.startLong], this.startZoom);
             window.L.tileLayer('https://{s}/{z}/{x}/{y}.png', {
                 attribution:
                     '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors',
@@ -66,6 +65,11 @@ export default Vue.extend<MapData, MapMethods, MapComputed, MapProps>({
             type: Number,
             required: false,
             default: () => 15,
+        },
+        layers: {
+            type: Array,
+            required: false,
+            default: () => [],
         },
     },
     mounted() {
