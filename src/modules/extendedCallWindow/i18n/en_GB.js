@@ -83,7 +83,10 @@ module.exports = {
             [/^Dog Support Units? \(DSUs?\)$/]: [12],
             [/^Operational Team Leader(s)?$/]: [20],
             [/^Traffic Car(s)?$/]: [24, 25],
-            [/^ATV Carrier$/]: [30],
+            [/^ATV Carrier(s)?$/]: [30],
+            [/^Primary Response Vehicle(s)?$/]: [27],
+            [/^Secondary Response Vehicle(s)?$/]: [28],
+            [/^Welfare Vehicle(s)?$/]: [29],
         },
     },
     tailoredTabs: {
