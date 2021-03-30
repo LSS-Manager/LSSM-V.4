@@ -1,8 +1,9 @@
 import { Building } from 'typings/Building';
 
 export default (LSSM: Vue): void => {
-    const path = window.location.pathname.split('/').filter(s => !!s);
-    const buildingId = parseInt(path[path.length - 1]);
+    const buildingId = parseInt(
+        window.location.pathname.match(/\d+\/?$/)?.[0] ?? '0'
+    );
     if (!buildingId) return;
     const building = (LSSM.$store.state.api.buildings as Building[]).find(
         ({ id }) => id === buildingId
@@ -20,7 +21,7 @@ export default (LSSM: Vue): void => {
         ...(isNaN(small_building) ? [] : buildingsByType[small_building] || []),
     ]
         .map(({ id }) => id)
-        .sort();
+        .sort((a, b) => (a < b ? -1 : a > b ? 1 : 0));
     const position = buildings.indexOf(buildingId);
     if (position < 0) return;
     const btnGroup = document.getElementById('building-navigation-container');
