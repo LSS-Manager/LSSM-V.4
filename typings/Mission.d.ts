@@ -197,6 +197,10 @@ interface Requirements {
     dea_unit?: number;
     dea_clan_lab?: number;
     game_warden?: number;
+    hazard_response_primary?: number;
+    hazard_response_secondary?: number;
+    emergency_welfare?: number;
+    atv_carrier?: number;
 
     // General:
     [key: string]: number | undefined;
