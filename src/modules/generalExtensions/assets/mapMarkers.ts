@@ -43,7 +43,7 @@ export default async (
             selectorText: `#${pinBtnId}`,
             style: {
                 position: 'absolute',
-                left: '-1em',
+                right: '-1em',
                 bottom: '-1em',
             },
         },
@@ -79,12 +79,19 @@ export default async (
 
     const pinBtn = document.createElement('button');
     pinBtn.classList.add('btn', 'btn-xs');
+    if (await getSetting<boolean>('mapMarkerPinned'))
+        historyList.classList.add('pinned');
     pinBtn.id = pinBtnId;
     const pinIcon = document.createElement('i');
     pinIcon.classList.add('fas', 'fa-thumbtack');
-    pinBtn.addEventListener('click', () =>
-        historyList.classList.toggle('pinned')
-    );
+    pinBtn.addEventListener('click', () => {
+        historyList.classList.toggle('pinned');
+        LSSM.$store.dispatch('settings/setSetting', {
+            moduleId: MODULE_ID,
+            settingId: 'mapMarkerPinned',
+            value: historyList.classList.contains('pinned'),
+        });
+    });
     pinBtn.append(pinIcon);
 
     historyList.prepend(pinBtn);

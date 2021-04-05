@@ -1,3 +1,5 @@
+import { RedesignParser } from 'typings/modules/Redesign';
+
 interface Entry {
     total: number;
     minus: number;
@@ -8,7 +10,7 @@ export interface CreditsOverviewWindow {
     entries: Entry[];
 }
 
-export default (source: string): CreditsOverviewWindow => {
+export default <RedesignParser<CreditsOverviewWindow>>(source => {
     const doc = new DOMParser().parseFromString(source, 'text/html');
     const getNum = (el: Element | null) =>
         parseInt(
@@ -28,4 +30,4 @@ export default (source: string): CreditsOverviewWindow => {
             }))
             .reverse(),
     };
-};
+});

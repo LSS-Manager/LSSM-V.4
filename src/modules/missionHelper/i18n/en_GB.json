@@ -18,6 +18,7 @@
 	},
 	"prerequisites": {
 		"fire_stations": "Fire Station | Fire Stations",
+		"hazard_response_ems_count": "HART Base | HART Bases",
 		"max_police_stations": "Maximum Police Stations",
 		"max_rescue_stations": "Maximum Rescue Stations",
 		"police_helicopter_stations": "Police Helicopter Station | Police Helicopter Stations",
@@ -40,8 +41,12 @@
 	"vehicles": {
 		"captions": {
 			"ambulances": "Ambulance | Ambulances",
+			"atv_carrier": "ATV Carrier | ATV Carriers",
 			"battalion_chief_vehicles": "Fire Officer | Fire Officers",
+			"emergency_welfare": "Welfare Vehicle | Welfare Vehicles",
 			"firetrucks": "Fire engine | Fire engines",
+			"hazard_response_primary": "Primary Response Vehicle | Primary Response Vehicles",
+			"hazard_response_secondary": "Secondary Response Vehicle | Secondary Response Vehicles",
 			"hazmat_vehicles": "HazMat Unit | HazMat Units",
 			"heavy_rescue_vehicles": "Rescue Support Unit or Rescue Pump | Rescue Support Unit or Rescue Pump",
 			"helicopter": "HEMS",
@@ -52,6 +57,7 @@
 			"platform_trucks": "Aerial Appliance Trucks | Aerial Appliance Trucks",
 			"police_cars": "Police car | Police cars",
 			"police_helicopters": "Police Helicopter | Police Helicopters",
+			"rth": "HEMS",
 			"swat_suv": "Armed Response | Armed Response",
 			"traffic_car": "Traffic Car | Traffic Cars",
 			"water_tankers": "Water Carrier | Water Carriers"

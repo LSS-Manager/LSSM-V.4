@@ -61,9 +61,28 @@
         <div v-else-if="missionSpecs">
             <h3 v-if="settings.title">
                 {{ missionSpecs.name }}
-                <small v-if="settings.place && missionSpecs.place">{{
-                    missionSpecs.place
-                }}</small>
+                <small v-if="settings.place && missionSpecs.place_array.length">
+                    <span v-if="missionSpecs.place_array.length === 1">
+                        {{ missionSpecs.place_array[0] }}
+                    </span>
+                    <span v-else>
+                        <span
+                            @click="$refs.poiList.classList.toggle('active')"
+                            class="poi-list-toggle"
+                        >
+                            POI
+                            <span class="caret"></span>
+                        </span>
+                        <ul class="poi-list" ref="poiList">
+                            <li
+                                v-for="place in missionSpecs.place_array"
+                                :key="place"
+                            >
+                                {{ place }}
+                            </li>
+                        </ul>
+                    </span>
+                </small>
                 <small v-if="settings.type">Type: {{ missionSpecs.id }}</small>
                 <small v-if="settings.id">ID: {{ missionId }}</small>
             </h3>
@@ -492,6 +511,7 @@ export default Vue.extend<
                     battalion_chief_vehicles: false,
                     platform_trucks: false,
                     police_cars: false,
+                    sheriff_unit: false,
                 },
                 optionalAlternatives: {
                     allow_rw_instead_of_lf: false,
@@ -602,7 +622,7 @@ export default Vue.extend<
             this.missionSpecs = undefined;
 
             if (!this.isDiyMission) {
-                this.missionSpecs = await this.getMission(
+                let specs = await this.getMission(
                     parseInt(
                         missionHelpBtn
                             ?.getAttribute('href')
@@ -610,6 +630,13 @@ export default Vue.extend<
                     ),
                     force
                 );
+                if (
+                    document
+                        .getElementById('mission_general_info')
+                        ?.hasAttribute('data-overlay-index')
+                )
+                    specs = specs.alternate_version.mission_type;
+                this.missionSpecs = specs;
             }
 
             this.isReloading = false;
@@ -1103,7 +1130,7 @@ export default Vue.extend<
         &.dragging-field
             cursor: move
 
-    ul li
+    ul:not(.poi-list) li
         list-style: none
 
         &::before
@@ -1129,4 +1156,14 @@ export default Vue.extend<
 
     .badge
         margin-right: 0.3rem
+
+
+    .poi-list-toggle
+        cursor: pointer
+
+    .poi-list
+        display: none
+
+        &.active
+            display: block
 </style>

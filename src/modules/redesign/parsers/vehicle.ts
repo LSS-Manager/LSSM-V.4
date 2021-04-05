@@ -1,3 +1,5 @@
+import { RedesignParser } from 'typings/modules/Redesign';
+
 interface Mission {
     image: string;
     caption: string;
@@ -88,6 +90,7 @@ export interface VehicleWindow {
     own_hospitals: Hospital[];
     alliance_hospitals: Hospital[];
     hospital_department: string;
+    patient_releaseable: boolean;
     has_cells: boolean;
     own_cells: Cell[];
     alliance_cells: Cell[];
@@ -97,11 +100,7 @@ export interface VehicleWindow {
     authenticity_token: string;
 }
 
-export default (
-    source: string,
-    href: string,
-    getIdFromEl: (el: HTMLAnchorElement | null) => number
-): VehicleWindow => {
+export default <RedesignParser<VehicleWindow>>((source, href, getIdFromEl) => {
     const doc = new DOMParser().parseFromString(source, 'text/html');
     const id = parseInt(
         new URL(href, window.location.href).pathname.match(/\d+\/?$/)?.[0] ??
@@ -202,13 +201,13 @@ export default (
                 /vehicle_graphics(_sorted\[\d+])?\s*=\s*/
             )
                 ? JSON.parse(
-                      doc.scripts[
-                          userEl || hasHospitals || hasCells || fms === 6
-                              ? 7
-                              : 8
-                      ].innerText.match(
-                          /(?<=vehicle_graphics(_sorted\[\d+])?\s*=\s*)\[(?:(?:(?:\[".*?",".*?","(?:true|false)"])|null),?)+]/
-                      )?.[0] ?? '[]'
+                      Array.from(doc.scripts)
+                          .find(({ innerText }) =>
+                              innerText.match(/vehicle_graphics/)
+                          )
+                          ?.innerText.match(
+                              /(?<=vehicle_graphics(_sorted\[\d+])?\s*=\s*)\[(?:(?:(?:\[".*?",".*?","(?:true|false)"])|null),?)+]/
+                          )?.[0] ?? '[]'
                   )[vehicleType][0]
                 : imageEl?.src ?? '',
         user: userEl
@@ -352,6 +351,7 @@ export default (
                   .querySelector('.col-md-9 .alert.alert-info b')
                   ?.textContent?.trim() ?? ''
             : '',
+        patient_releaseable: !!doc.querySelector('a[href$="/patient/-1"]'),
         has_cells: hasCells,
         own_cells,
         alliance_cells,
@@ -389,4 +389,4 @@ export default (
             doc.querySelector<HTMLMetaElement>('meta[name="csrf-token"]')
                 ?.content ?? '',
     };
-};
+});

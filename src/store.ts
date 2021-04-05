@@ -161,7 +161,13 @@ export default (Vue: VueConstructor): Store<RootState> => {
             appModules: (state: RootState) =>
                 Object.fromEntries(
                     Object.entries(state.modules).filter(
-                        module => !module[1].noapp
+                        ([, module]) =>
+                            !(
+                                module.noapp ||
+                                (module.alpha && MODE !== 'beta') ||
+                                (module.locales?.length &&
+                                    !module.locales.includes(state.lang))
+                            )
                     )
                 ),
             modulesSorted(_, getters: GetterTree<RootState, RootState>) {

@@ -1863,6 +1863,123 @@ export default {
             startPersonnel: 10,
             startVehicles: ['Rettungshundefahrzeug'],
         },
+        22: {
+            caption: 'Großer Komplex',
+            color: '#8B4513',
+            coins: 'Zu Teuer',
+            credits: 'Zu Teuer',
+            extensions: [
+                ...new Array(2).fill({
+                    caption: 'Rettungsdienst-Erweiterung',
+                    credits: 100_000,
+                    coins: 20,
+                    duration: '7 Tage',
+                }),
+                ...new Array(10).fill({
+                    caption: 'Abrollbehälter-Stellplatz',
+                    credits: 100_000,
+                    coins: 20,
+                    duration: '7 Tage',
+                }),
+                ...new Array(2).fill({
+                    caption: 'Wasserrettungs-Erweiterung',
+                    credits: 400_000,
+                    coins: 25,
+                    duration: '7 Tage',
+                }),
+                ...new Array(2).fill({
+                    caption: 'Abrollbehälter-Stellplatz',
+                    credits: 100_000,
+                    coins: 20,
+                    duration: '7 Tage',
+                }),
+                ...new Array(2).fill({
+                    caption: 'Flughafen-Erweiterung',
+                    credits: 300_000,
+                    coins: 25,
+                    duration: '7 Tage',
+                    maxExtensionsFunction: (buildingsByType: {
+                        [type: number]: Building[];
+                    }): number =>
+                        Math.floor(
+                            ((buildingsByType[0]?.length ?? 0) +
+                                (buildingsByType[18]?.length ?? 0)) /
+                                10
+                        ),
+                }),
+                ...new Array(2).fill({
+                    caption: 'Großwache',
+                    credits: 1_000_000,
+                    coins: 50,
+                    duration: '7 Tage',
+                    maxExtensionsFunction: (buildingsByType: {
+                        [type: number]: Building[];
+                    }): number =>
+                        Math.floor(
+                            ((buildingsByType[0]?.length ?? 0) +
+                                (buildingsByType[18]?.length ?? 0)) /
+                                10
+                        ),
+                }),
+                ...new Array(6).fill({
+                    caption: 'Abrollbehälter-Stellplatz',
+                    credits: 100_000,
+                    coins: 20,
+                    duration: '7 Tage',
+                }),
+                ...new Array(2).fill({
+                    caption: 'Werkfeuerwehr',
+                    credits: 100_000,
+                    coins: 20,
+                    duration: '7 Tage',
+                }),
+                ...new Array(20).fill({
+                    caption: 'Zelle',
+                    credits: 25_000,
+                    coins: 5,
+                    duration: '7 Tage',
+                }),
+                ...new Array(2).fill({
+                    caption: 'Diensthundestaffel',
+                    credits: 100_000,
+                    coins: 10,
+                    duration: '5 Tage',
+                }),
+            ],
+            levelcost: ['Zu Teuer'],
+            maxBuildings: 'Keine Grenze',
+            maxLevel: 5,
+            special: 'ZU TEUER, KAUFT ES NICHT, BAUT ES NICHT AUS',
+            startPersonnel: 'gibt keins',
+            startVehicles: [''],
+        },
+        23: {
+            caption: 'Kleiner Komplex',
+            color: '#8B4513',
+            coins: 'Zu Teuer',
+            credits: 'Zu Teuer',
+            extensions: [
+                null,
+                ...new Array(4).fill({
+                    caption: 'Abrollbehälter-Stellplatz',
+                    credits: 100_000,
+                    coins: 20,
+                    duration: '7 Tage',
+                }),
+                ...new Array(4).fill({
+                    caption: 'Zelle',
+                    credits: 25_000,
+                    coins: 5,
+                    duration: '7 Tage',
+                }),
+            ],
+            levelcost: ['Zu Teuer'],
+            maxBuildings: 'Keine Grenze',
+            maxLevel: 5,
+            special: 'ZU TEUER, KAUFT ES NICHT, BAUT ES NICHT AUS',
+            startPersonnel: 'gibt keins',
+            startVehicles: [''],
+        },
     },
     buildingCategories: {
         Feuerwehr: {
@@ -1882,7 +1999,7 @@ export default {
             color: '#0000ff',
         },
         Sonstiges: {
-            buildings: [4, 7, 14, 16],
+            buildings: [4, 7, 14, 16, 22, 23],
             color: '#02a18c',
         },
     },
@@ -1955,7 +2072,24 @@ export default {
         2: 20,
         6: 19,
     },
-    vehicleBuildings: [0, 2, 5, 6, 9, 11, 12, 13, 15, 17, 18, 19, 20, 21],
+    vehicleBuildings: [
+        0,
+        2,
+        5,
+        6,
+        9,
+        11,
+        12,
+        13,
+        15,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+    ],
     cellBuildings: [6, 19],
     cellExtensions: [
         '6_0',
@@ -2248,4 +2382,40 @@ export default {
     ],
     only_alliance_missions: [41, 43, 59, 75, 99, 207, 221, 222, 256, 350],
     transfer_missions: [147, 613],
+    ranks: {
+        missionchief: {
+            0: 'Anwärter(in)',
+            200: 'Feuerwehrmann/-frau',
+            10_000: 'Oberfeuerwehrmann/-frau',
+            100_000: 'Hauptfeuerwehrmann/-frau',
+            1_000_000: 'Stv. Gruppenführer(in)',
+            5_000_000: 'Gruppenführer(in)',
+            10_000_000: 'Stv. Zugführer(in)',
+            20_000_000: 'Zugführer(in)',
+            50_000_000: 'Stv. Wehrführer(in)',
+            100_000_000: 'Wehrführer(in)',
+            200_000_000: 'Stv. Kreisbrandmeister(in)',
+            500_000_000: 'Kreisbrandmeister(in)',
+            1_000_000_000: 'Stv. Landesbrandmeister(in)',
+            2_000_000_000: 'Landesbrandmeister(in)',
+            5_000_000_000: 'Ehrenmitglied',
+        },
+        policechief: {
+            0: 'Polizeimeisteranwärter(in)',
+            200: 'Polizeimeister(in)',
+            10_000: 'Polizeiobermeister(in)',
+            100_000: 'Polizeihauptmeister(in)',
+            1_000_000: 'Polizeikommissar(in)',
+            5_000_000: 'Polizeioberkommissar(in)',
+            10_000_000: 'Polizeihauptkommissar(in)',
+            20_000_000: 'Erste(r) Polizeihauptkommissar(in)',
+            50_000_000: 'Polizeirat / Polizeirätin',
+            100_000_000: 'Polizeioberrat / Polizeioberrätin',
+            200_000_000: 'Polizeidirektor(in)',
+            500_000_000: 'Leitende(r) Polizeidirektor(in)',
+            1_000_000_000: 'Direktor(in) der Bundespolizei',
+            2_000_000_000: 'Präsident(in) der Bundespolizeidirektion',
+            5_000_000_000: 'Präsident(in) der Bundespolizei',
+        },
+    },
 };

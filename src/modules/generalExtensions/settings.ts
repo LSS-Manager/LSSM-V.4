@@ -29,6 +29,10 @@ export default (() => ({
     savedOwnMapMarkers: <Hidden<{ lat: number; lng: number; zoom: number }[]>>{
         type: 'hidden',
     },
+    mapMarkerPinned: <Hidden>{
+        type: 'hidden',
+        default: false,
+    },
     browserTitle: <Toggle>{
         type: 'toggle',
         default: true,

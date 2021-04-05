@@ -30,6 +30,7 @@
 		}
 	},
 	"dispatchcenter-view": {
+		"building-selection": "Add buildings:",
 		"manage": {
 			"newBoard": "New Board",
 			"title": "Manage boards",

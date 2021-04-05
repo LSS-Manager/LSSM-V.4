@@ -1,0 +1,118 @@
+{
+	"diyMission": "¡Esta misión parece ser una misión de alianza a gran escala!",
+	"expansions": "Extenderse",
+	"followups": "Siguiente misión | Siguientes misiones",
+	"generated_by": "Generado por",
+	"patients": {
+		"allow_ktw_instead_of_rtw": "Se puede usar un BLS en lugar de un ALS.",
+		"helicopter": "Probabilidad de HEMS",
+		"patient_allow_first_responder_chance": "Probabilidad del primer respondedor",
+		"patient_at_end_of_mission": "¡El paciente solo aparece al final de la operación!",
+		"patient_transport": "Probabilidad de transporte",
+		"possible_patient": "Pacientes máximo",
+		"possible_patient_exact": "exacto {n} paciente | exacto {n} pacientes",
+		"possible_patient_min": "Pacientes mínimo",
+		"specializations": "Especialización",
+		"title": "Pacientes | {n} Paciente | {n} Pacientes"
+	},
+	"prerequisites": {
+		"atf_count": "Expansión ATF | Expansiónes ATF",
+		"brush_extension": "Expansión forestal | Expansiones forestales",
+		"dea_count": "Expansión DEA | Expansiónes DEA",
+		"federalpolice_stations": "Comisaría de policía federal | Comisarías de policía federal",
+		"fire_aviation_count": "Estación de aviones de extinción de incendios | Estaciones de aviones de extinción de incendios",
+		"fire_boat_docks": "Muelle de barco de bomberos | Muelles de barcos de bomberos",
+		"fire_stations": "Estación de bomberos | Estaciones de bomberos",
+		"game_warden_count": "Expansión game warden | Expansiones game warden",
+		"max_police_stations": "Comisarías de policia máximo",
+		"max_rescue_stations": "Parques de bombero máximo",
+		"police_helicopter_stations": "Helipuerto policial | Helipuertos policiales",
+		"police_stations": "Comisaría de policía | Comisarías de policía",
+		"rescue_boat_docks": "Muelle de barcos de salvamento | Muelles de barcos de salvamento",
+		"rescue_stations": "Parque de ambulancias | Parques de ambulancias",
+		"title": "Requisito previo | Requisitos previos",
+		"wasserrettung": "Estación de rescate acuático",
+		"water_police_count": "Expansión de policía acuático | Expansiones de policía acuático"
+	},
+	"prisoners": {
+		"max_possible_prisoners": "Presos máximo",
+		"title": "Presos | {n} Preso | {n} Presos"
+	},
+	"requirements": {
+		"water_needed": "Demanda de agua (L)"
+	},
+	"subsequent": "Misión posterior | Misiones posteriores",
+	"tip": {
+		"dragging": "arrastrar ventana",
+		"maxState": "requisitos máximo on/off",
+		"minified": "minimizar",
+		"overlay": "maximizar",
+		"reload": "recargar"
+	},
+	"vehicles": {
+		"captions": {
+			"ambulances": "Ambulancia | Ambulancias",
+			"arff": "CBA",
+			"atf_lab_vehicle": "Vehículo de laboratorio ATF | Vehículos de laboratorio ATF",
+			"atf_unit": "Unidad ATF | Unidades ATF",
+			"battalion_chief_vehicles": "Vehículo UMC | Vehículos UMC",
+			"boats": "Barco ligero | Barcos ligeros",
+			"brush_truck": "Camión de bomberos | Camiones de bomberos",
+			"dea_clan_lab": "DEA Clan Lab | DEA Clan Labs",
+			"dea_unit": "Unidad DEA | Unidades DEA",
+			"fbi": "Unidad FBI | Unidades FBI",
+			"fbi_bomb": "FBI Bomb Technician Vehicle | FBI Bomb Technician Vehicles",
+			"fbi_drone": "FBI Surveillance Drone | FBI Surveillance Drones",
+			"fbi_investigation": "FBI Investigation Wagon | FBI Investigation Wagons",
+			"fbi_mcc": "FBI Mobile Command Center Vehicle | FBI Mobile Command Center Vehicles",
+			"fire_aviation": "Airborne Firefighting | Airborne Firefightings",
+			"firetrucks": "Vehículo de rescate | Vehículos de rescate",
+			"game_warden": "Warden Truck | Warden Trucks",
+			"hazmat_vehicles": "Vehículo TPP | Vehículos TPP",
+			"heavy_rescue_vehicles": "Vehiculo FUV | Vehículos FUV",
+			"helicopter": "HEMS",
+			"k9": "Unidad Canina",
+			"large_fire_boat": "Large Fireboat | Large Fireboats",
+			"large_rescue_boat": "Large Rescueboat | Large Rescueboats",
+			"mobile_air_vehicles": "Vehículo aéreo | Vehículos aéreos",
+			"mobile_command_vehicles": "Vehículo de mando móvil | Vehículos de mando móvil",
+			"platform_trucks": "Camión AE | Camiones AE",
+			"police_boat": "Patrol Boat | Patrol Boats",
+			"police_cars": "Coche patrulla | Coches patrullas",
+			"police_helicopters": "Helicóptero Policíal | Helicópteros Policiales",
+			"sheriff": "Sheriff | Sherrifs",
+			"swat_armored_vehicle": "Unidad Antidisturbios | Unidades Antidisturbio",
+			"swat_suv": "Unidad GEO | Unidades GEO",
+			"water_tankers": "Camión BNP | Camiones BNP"
+		},
+		"multifunctionals": {
+			"battalion_chief_vehicles": {
+				"additional_text": "",
+				"reduce_from": "Vehículo de mando movil"
+			},
+			"heavy_rescue_vehicles": {
+				"additional_text": "thereof at least. {n} Vehículos de rescate",
+				"reduce_from": "Camiones de bomberos"
+			},
+			"sheriff_unit": {
+				"additional_text": "",
+				"reduce_from": "Coches patrullas"
+			}
+		},
+		"optional_alternatives": {
+			"allow_arff_instead_of_lf": {
+				"firetrucks": "Vehículo de rescate o CBA | Vehículos de rescates o CBAs"
+			},
+			"allow_drone_instead_of_investigation": {
+				"fbi_investigation": "El dron de vigilancia del FBI puede reemplazar el vagón de investigación"
+			},
+			"allow_rw_instead_of_lf": {
+				"firetrucks": "Camión BUP o Vehículo FUV o Vehículo de rescate | Camiones BUP o Vehículos FUV o Vehículos de rescates"
+			}
+		},
+		"patient_additionals": {
+			"10": "EMS-Chief"
+		},
+		"title": "Vehículos"
+	}
+}

@@ -1,0 +1,10 @@
+{
+	"templates": {
+		"selection": "Seleccionar plantilla...",
+		"selectionHint": "¿Crear una nueva plantilla? ¡Simplemente ingrese el nombre y seleccione!",
+		"status": {
+			"template": "Espere la selección de la plantilla ...",
+			"waiting": "Esperando entrada ..."
+		}
+	}
+}

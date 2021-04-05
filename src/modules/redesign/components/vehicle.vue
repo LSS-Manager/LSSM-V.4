@@ -124,17 +124,26 @@
                                     {{ vehicle.max_staff }}
                                 </td>
                             </tr>
-                            <tr v-if="vehicle.has_hospitals">
+                            <tr v-if="vehicle.patient_releaseable">
                                 <th></th>
                                 <td colspan="2">
-                                    <a
-                                        :href="
-                                            `/vehicles/${vehicle.id}/patient/-1`
-                                        "
+                                    <button
+                                        @click="release('patient')"
                                         class="btn btn-default btn-xs btn-sm"
                                     >
                                         {{ $sm('release_patient') }}
-                                    </a>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr v-else-if="vehicle.prisoners_releaseable">
+                                <th></th>
+                                <td colspan="2">
+                                    <button
+                                        @click="release('prisoner')"
+                                        class="btn btn-default btn-xs btn-sm"
+                                    >
+                                        {{ $sm('release_prisoner') }}
+                                    </button>
                                 </td>
                             </tr>
                             <tr v-if="vehicle.water_amount">
@@ -1039,6 +1048,7 @@ export default Vue.extend<
         switch_state(): void;
         updateFilter(filter: string, value: unknown): void;
         fms(url: string): void;
+        release(type: 'patient' | 'prisoner'): void;
     },
     {
         participated_missions: string[];
@@ -1682,7 +1692,7 @@ export default Vue.extend<
             this.$store
                 .dispatch('api/request', {
                     url: `/vehicles/${this.vehicle.id}/set_fms/${target}`,
-                    feature: `dashboard-vehicleList-setfms`,
+                    feature: `redesign-vehicle-setfms`,
                 })
                 .then(() => {
                     this.$set(
@@ -1696,32 +1706,100 @@ export default Vue.extend<
             this.setSetting(filter, value).then();
         },
         fms(url) {
-            this.$store
-                .dispatch('api/request', {
-                    url,
-                    feature: `redesign-vehicle-fms`,
-                })
-                .then((res: Response) => {
-                    if (res.redirected)
-                        return this.$set(this.lightbox, 'src', res.url);
-
-                    res.text().then(html => {
-                        import(
-                            /*webpackChunkName: "modules/redesign/parsers/vehicle/nextfms"*/ `../parsers/vehicle/nextfms`
-                        ).then(parser => {
-                            const next_vehicle = parser.default(
-                                html,
-                                url,
-                                this.lightbox.getIdFromEl
+            return this.$set(this.lightbox, 'src', url);
+            // this.$store
+            //     .dispatch('api/request', {
+            //         url,
+            //         feature: `redesign-vehicle-fms`,
+            //     })
+            //     .then((res: Response) => {
+            //         if (res.redirected)
+            //             return this.$set(this.lightbox, 'src', res.url);
+            //
+            //         res.text().then(html => {
+            //             import(
+            //                 /*webpackChunkName: "modules/redesign/parsers/vehicle/nextfms"*/ `../parsers/vehicle/nextfms`
+            //             ).then(parser => {
+            //                 const next_vehicle = parser.default(
+            //                     html,
+            //                     url,
+            //                     this.lightbox.getIdFromEl
+            //                 );
+            //                 this.$set(
+            //                     this.lightbox,
+            //                     'src',
+            //                     `/vehicles/${next_vehicle}`
+            //                 );
+            //             });
+            //         });
+            //     });
+        },
+        release(type) {
+            // eslint-disable-next-line @typescript-eslint/no-this-alias
+            const LSSM = this;
+            this.$modal.show('dialog', {
+                title: this.$sm(`release.${type}.title`),
+                text: this.$sm(`release.${type}.text`),
+                buttons: [
+                    {
+                        title: this.$sm('release.cancel'),
+                        default: true,
+                        handler() {
+                            LSSM.$modal.hide('dialog');
+                        },
+                    },
+                    {
+                        title: this.$sm('release.confirm'),
+                        async handler() {
+                            if (type === 'patient') {
+                                LSSM.$set(
+                                    LSSM.lightbox,
+                                    'src',
+                                    `/vehicles/${LSSM.vehicle.id}/patient/-1`
+                                );
+                                return LSSM.$modal.hide('dialog');
+                            }
+                            const url = new URL(
+                                `/missions/${LSSM.vehicle.current_mission?.id ??
+                                    0}/gefangene/entlassen`,
+                                window.location.href
                             );
-                            this.$set(
-                                this.lightbox,
-                                'src',
-                                `/vehicles/${next_vehicle}`
+                            url.searchParams.append('_method', 'post');
+                            url.searchParams.append(
+                                'authenticity_token',
+                                LSSM.vehicle.authenticity_token
                             );
-                        });
-                    });
-                });
+                            LSSM.$store
+                                .dispatch('api/request', {
+                                    url: url.pathname,
+                                    init: {
+                                        credentials: 'include',
+                                        headers: {
+                                            'Content-Type':
+                                                'application/x-www-form-urlencoded',
+                                        },
+                                        referrer: `https://www.leitstellenspiel.de/vehicles/${LSSM.vehicle.id}`,
+                                        body: url.searchParams.toString(),
+                                        method: 'POST',
+                                        mode: 'cors',
+                                    },
+                                    feature: `redesign-vehicle-release-prisoners`,
+                                })
+                                .then((res: Response) => {
+                                    LSSM.$set(
+                                        LSSM.lightbox,
+                                        'src',
+                                        new URL(res.url, window.location.href)
+                                            .pathname === url.pathname
+                                            ? `/vehicles/${LSSM.vehicle.id}`
+                                            : res.url
+                                    );
+                                    LSSM.$modal.hide('dialog');
+                                });
+                        },
+                    },
+                ],
+            });
         },
     },
     props: {
