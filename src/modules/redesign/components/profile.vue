@@ -347,8 +347,7 @@
                                                 );
                                                 $refs.map.setView(
                                                     dc.latitude,
-                                                    dc.longitude,
-                                                    15
+                                                    dc.longitude
                                                 );
                                             }
                                         "
@@ -443,8 +442,7 @@
                                                             );
                                                             $refs.map.setView(
                                                                 building.latitude,
-                                                                building.longitude,
-                                                                15
+                                                                building.longitude
                                                             );
                                                         }
                                                     "
@@ -502,6 +500,8 @@
                     v-show="show_map"
                     ref="map"
                     :id="`profile-${profile.id}-map`"
+                    :start-lat="profile.buildings[0].latitude"
+                    :start-long="profile.buildings[0].longitude"
                     :layers="
                         Object.entries(mapLayerGroups)
                             .filter(
