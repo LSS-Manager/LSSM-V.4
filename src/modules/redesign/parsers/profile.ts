@@ -59,7 +59,7 @@ export default <RedesignParser<ProfileWindow>>((source, href) => {
         ),
         self,
         credits: parseInt(
-            headTexts[self ? 2 : 1]
+            headTexts[1]
                 .match(/-?\d{1,3}([.,]\d{3})*/)?.[0]
                 ?.replace(/[.,]/g, '') ?? '-1'
         ),
@@ -69,7 +69,13 @@ export default <RedesignParser<ProfileWindow>>((source, href) => {
                   name: alliance.textContent?.trim() ?? '',
               }
             : undefined,
-        registration: self ? new Date(0) : undefined,
+        registration: self
+            ? new Date(
+                  doc
+                      .getElementById('signup_date')
+                      ?.getAttribute('data-signup-date') ?? 0
+              )
+            : undefined,
         text: profileText?.textContent?.trim() ?? '',
         image: profileText?.querySelector<HTMLImageElement>('img')?.src ?? '',
         awards: Array.from(
