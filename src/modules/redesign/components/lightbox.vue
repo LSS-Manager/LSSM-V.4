@@ -63,7 +63,7 @@
         <iframe
             v-show="!type || type === 'default'"
             ref="iframe"
-            :src="url"
+            src="about:blank"
             :id="$store.getters.nodeAttribute('redesign-lightbox-iframe')"
             :name="$store.getters.nodeAttribute('redesign-lightbox-iframe')"
         ></iframe>

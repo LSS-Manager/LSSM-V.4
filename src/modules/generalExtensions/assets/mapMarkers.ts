@@ -257,13 +257,17 @@ export default async (
     });
 
     if (mapUndo) {
-        await LSSM.$store.dispatch('hookPrototype', {
+        await LSSM.$store.dispatch('proxy', {
             post: false,
-            base: 'map',
-            event: 'setView',
+            name: 'map.setView',
+            trap: 'apply',
             callback(
-                coordinates: [number, number] | { lat: number; lng: number },
-                zoom = window.map.getZoom()
+                _: unknown,
+                __: unknown,
+                [coordinates, zoom = window.map.getZoom()]: [
+                    [number, number] | { lat: number; lng: number },
+                    number
+                ]
             ) {
                 if (previewEnabled) return;
                 let latExtract;
@@ -276,7 +280,7 @@ export default async (
                 } // This happens at Zoom – we don't want to log zooming currently
                 const lat = latExtract;
                 const lng = lngExtract;
-                history.push({ lat, lng, zoom });
+                history.push({ lat, lng, zoom: zoom });
                 updateHistoryList();
             },
         });

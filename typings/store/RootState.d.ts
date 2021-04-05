@@ -13,11 +13,6 @@ export interface RootState {
     readonly hooks: {
         [event: string]: returnTypeFunction;
     };
-    readonly prototypeHooks: {
-        [base: string]: {
-            [event: string]: returnTypeFunction;
-        };
-    };
     readonly mapkit: boolean;
     readonly darkmode: boolean;
     readonly premium: boolean;

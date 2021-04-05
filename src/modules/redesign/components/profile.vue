@@ -215,8 +215,7 @@
                     ref="tabs"
                     :on-select="
                         (_, i) => {
-                            show_map =
-                                !isLightbox && profile.has_map && i === 1;
+                            show_map = profile.has_map && i === 1;
                             if (
                                 show_map &&
                                 Object.values($refs.map.map.getSize()).includes(
@@ -257,22 +256,6 @@
                                     }}
                                 </span>
                             </span>
-                        </div>
-                        <div class="alert alert-danger" v-if="isLightbox">
-                            Liebster Nutzer,
-                            <br />
-                            wegen einer schwer zu umgehenden Eigenheit von
-                            <a href="https://leafletjs.com/" target="_blank">
-                                Leaflet
-                            </a>
-                            (Der Bibliothek für die OSM-Karten) funktioniert die
-                            Karte in Lightboxen derzeit <b>nicht</b>! 😒
-                            <br />
-                            Wir kümmern uns natürlich darum, da so schnell wie
-                            möglich einen geeigneten Weg zu finden, aber das ist
-                            leider nicht ganz so einfach. Damit die Karte auf
-                            der Hauptseite trotzdem noch funktioniert haben wir
-                            hier die Karte derzeit deaktiviert!
                         </div>
                     </tab>
                     <tab
@@ -362,12 +345,11 @@
                                                     'selectedIndex',
                                                     1
                                                 );
-                                                !isLightbox &&
-                                                    $refs.map.setView(
-                                                        dc.latitude,
-                                                        dc.longitude,
-                                                        15
-                                                    );
+                                                $refs.map.setView(
+                                                    dc.latitude,
+                                                    dc.longitude,
+                                                    15
+                                                );
                                             }
                                         "
                                     ></font-awesome-icon>
@@ -459,12 +441,11 @@
                                                                 'selectedIndex',
                                                                 1
                                                             );
-                                                            !isLightbox &&
-                                                                $refs.map.setView(
-                                                                    building.latitude,
-                                                                    building.longitude,
-                                                                    15
-                                                                );
+                                                            $refs.map.setView(
+                                                                building.latitude,
+                                                                building.longitude,
+                                                                15
+                                                            );
                                                         }
                                                     "
                                                 ></font-awesome-icon>
@@ -517,7 +498,7 @@
                     </tab>
                 </tabs>
                 <leaflet-map
-                    v-if="profile.has_map && !isLightbox"
+                    v-if="profile.has_map"
                     v-show="show_map"
                     ref="map"
                     :id="`profile-${profile.id}-map`"
@@ -615,7 +596,6 @@ export default Vue.extend<
             gold: number;
         };
         buildings: DispatchCenter;
-        isLightbox: boolean;
     },
     {
         profile: ProfileWindow;
@@ -884,9 +864,6 @@ export default Vue.extend<
                 }
             );
             return dispatchCenters;
-        },
-        isLightbox() {
-            return !window.location.pathname.startsWith('/profile/');
         },
     },
     props: {

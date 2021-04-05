@@ -10,11 +10,11 @@ export interface Hook {
     callback(...args: unknown[]): void | unknown;
 }
 
-export interface HookPrototype {
+export interface ProxyParams {
     post: boolean;
-    base: string;
-    event: string;
-    callback(...args: unknown[]): void;
+    name: string;
+    trap: keyof ProxyHandler<never>;
+    callback(...args: unknown[]): void | unknown;
 }
 
 export interface addStyle {
