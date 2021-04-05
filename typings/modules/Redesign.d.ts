@@ -4,6 +4,7 @@ import { CreditsDailyWindow } from '../../src/modules/redesign/parsers/credits/d
 import { CreditsListWindow } from '../../src/modules/redesign/parsers/credits/list';
 import { CreditsOverviewWindow } from '../../src/modules/redesign/parsers/credits/overview';
 import { ProfileWindow } from '../../src/modules/redesign/parsers/profile';
+import { ProfileEditWindow } from '../../src/modules/redesign/parsers/profile/edit';
 import { TopListWindow } from '../../src/modules/redesign/parsers/toplist';
 import { VehicleWindow } from '../../src/modules/redesign/parsers/vehicle';
 import { DefaultComputed } from 'vue/types/options';
@@ -18,6 +19,7 @@ type types =
     | 'credits/list'
     | 'credits/overview'
     | 'profile'
+    | 'profile/edit'
     | 'toplist'
     | 'vehicle'
     | 'vehicle/nextfms';
@@ -27,6 +29,7 @@ type windows =
     | CreditsListWindow
     | CreditsOverviewWindow
     | ProfileWindow
+    | ProfileEditWindow
     | TopListWindow
     | VehicleWindow;
 export type routeChecks = Record<string, types>;

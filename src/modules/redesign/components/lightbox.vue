@@ -53,6 +53,17 @@
                 :set-setting="setSetting()"
                 :type="type"
             ></Profile>
+            <ProfileEdit
+                v-else-if="type === 'profile/edit'"
+                :profile="data"
+                :url="urlProp"
+                :lightbox="this"
+                :$m="$m"
+                :$mc="$mc"
+                :get-setting="getSetting()"
+                :set-setting="setSetting()"
+                :type="type"
+            ></ProfileEdit>
             <div
                 v-else-if="type === 'vehicle/nextfms'"
                 class="alert alert-success"
@@ -115,6 +126,10 @@ export default Vue.extend<
         Profile: () =>
             import(
                 /*webpackChunkName: "modules/redesign/windows/profile"*/ './profile.vue'
+            ),
+        ProfileEdit: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/profile/edit"*/ './profile/edit.vue'
             ),
     },
     data() {
