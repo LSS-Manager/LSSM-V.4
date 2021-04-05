@@ -210,7 +210,7 @@ export interface Mission {
     id: number;
     name: string;
     place: string;
-	 place_array: string[];
+    place_array: string[];
     average_credits?: number;
     generated_by: string;
     icons: string[3];
