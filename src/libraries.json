@@ -152,7 +152,7 @@
 		"version": "2.29.1"
 	},
 	"moment-timezone": {
-        "icon": "https://momentjs.com/static/img/moment-timezone-favicon.png",
+		"icon": "https://momentjs.com/static/img/moment-timezone-favicon.png",
 		"url": "http://momentjs.com/timezone/",
 		"version": "0.5.33"
 	},
