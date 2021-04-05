@@ -43,7 +43,7 @@ export default async (
             selectorText: `#${pinBtnId}`,
             style: {
                 position: 'absolute',
-                left: '-1em',
+                right: '-1em',
                 bottom: '-1em',
             },
         },
