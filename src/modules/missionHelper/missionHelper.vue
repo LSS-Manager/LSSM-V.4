@@ -66,7 +66,10 @@
                         {{ missionSpecs.place_array[0] }}
                     </span>
                     <span v-else>
-                        <span @click="$refs.poiList.classList.toggle('active')">
+                        <span
+                            @click="$refs.poiList.classList.toggle('active')"
+                            class="poi-list-toggle"
+                        >
                             POI
                             <span class="caret"></span>
                         </span>
@@ -1127,7 +1130,7 @@ export default Vue.extend<
         &.dragging-field
             cursor: move
 
-    ul:not(poi-list) li
+    ul:not(.poi-list) li
         list-style: none
 
         &::before
@@ -1153,6 +1156,10 @@ export default Vue.extend<
 
     .badge
         margin-right: 0.3rem
+
+
+    .poi-list-toggle
+        cursor: pointer
 
     .poi-list
         display: none
