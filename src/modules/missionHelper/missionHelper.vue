@@ -619,7 +619,7 @@ export default Vue.extend<
             this.missionSpecs = undefined;
 
             if (!this.isDiyMission) {
-                this.missionSpecs = await this.getMission(
+                let specs = await this.getMission(
                     parseInt(
                         missionHelpBtn
                             ?.getAttribute('href')
@@ -627,6 +627,13 @@ export default Vue.extend<
                     ),
                     force
                 );
+                if (
+                    document
+                        .getElementById('mission_general_info')
+                        ?.hasAttribute('data-overlay-index')
+                )
+                    specs = specs.alternate_version.mission_type;
+                this.missionSpecs = specs;
             }
 
             this.isReloading = false;
