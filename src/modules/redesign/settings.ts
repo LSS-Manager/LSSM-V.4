@@ -2,6 +2,10 @@ import { ModuleSettingFunction } from 'typings/Module';
 import { Hidden } from 'typings/Setting';
 
 export default (() => ({
+    'alliances': <Hidden>{
+        type: 'hidden',
+        default: {},
+    },
     'credits/daily': <Hidden>{
         type: 'hidden',
         default: {},

@@ -32,8 +32,8 @@
         <button
             class="btn btn-success"
             :disabled="
-                endPage >= toplist.lastPage ||
-                    toplist.lastPage === Number.MAX_SAFE_INTEGER
+                endPage >= alliances.lastPage ||
+                    alliances.lastPage === Number.MAX_SAFE_INTEGER
             "
             @click="loadNext"
         >
@@ -50,9 +50,9 @@
             @sort="setSort"
         >
             <template v-slot:head>
-                <span>{{ $smc('amount', usersFiltered.length) }}</span>
+                <span>{{ $smc('amount', alliancesFiltered.length) }}</span>
             </template>
-            <tr v-for="(entry, id) in usersSorted" :key="id">
+            <tr v-for="(entry, id) in alliancesSorted" :key="id">
                 <td>
                     <img
                         :src="entry.img"
@@ -61,27 +61,14 @@
                         loading="lazy"
                     />
                 </td>
-                <td>{{ entry.credits.toLocaleString() }}</td>
                 <td>
-                    <img
-                        :src="
-                            `/images/user_${
-                                entry.online ? 'green' : 'gray'
-                            }.png`
-                        "
-                        alt=""
-                    />
-                    <a :href="`/profile/${entry.id}`">
+                    <a :href="`/alliances/${entry.id}`">
                         {{ entry.name }}
                     </a>
                 </td>
+                <td>{{ entry.credits.toLocaleString() }}</td>
                 <td>
-                    <a
-                        :href="`/alliances/${entry.alliance.id}`"
-                        v-if="entry.alliance.name"
-                    >
-                        {{ entry.alliance.name }}
-                    </a>
+                    {{ entry.members.toLocaleString() }}
                 </td>
             </tr>
         </enhanced-table>
@@ -91,7 +78,7 @@
 <script lang="ts">
 import Vue from 'vue';
 import VueI18n from 'vue-i18n';
-import { TopListWindow } from '../parsers/toplist';
+import { AllianceListWindow } from '../parsers/alliances';
 import { RedesignLightboxVue } from 'typings/modules/Redesign';
 
 export default Vue.extend<
@@ -131,13 +118,13 @@ export default Vue.extend<
         urlSearch: string;
         page: number;
         subtitle: string;
-        usersFiltered: TopListWindow['users'];
-        usersSorted: TopListWindow['users'];
+        alliancesFiltered: AllianceListWindow['alliances'];
+        alliancesSorted: AllianceListWindow['alliances'];
     },
     {
-        toplist: TopListWindow;
+        alliances: AllianceListWindow;
         url: string;
-        lightbox: RedesignLightboxVue<'toplist', TopListWindow>;
+        lightbox: RedesignLightboxVue<'alliances', AllianceListWindow>;
         $m(
             key: string,
             args?: {
@@ -155,7 +142,7 @@ export default Vue.extend<
         setSetting: <T>(settingId: string, value: T) => Promise<void>;
     }
 >({
-    name: 'toplist',
+    name: 'alliances',
     components: {
         EnhancedTable: () =>
             import(
@@ -179,7 +166,7 @@ export default Vue.extend<
                 [key: string]: unknown;
             }
         ) {
-            return this.$m(`toplist.${key}`, args);
+            return this.$m(`alliances.${key}`, args);
         },
         $smc(
             key: string,
@@ -188,7 +175,7 @@ export default Vue.extend<
                 [key: string]: unknown;
             }
         ) {
-            return this.$mc(`toplist.${key}`, amount, args);
+            return this.$mc(`alliances.${key}`, amount, args);
         },
         setSort(type) {
             if (this.sort === type) {
@@ -204,19 +191,19 @@ export default Vue.extend<
         loadPrev() {
             this.$set(this.lightbox, 'loading', true);
             this.startPage--;
-            const url = new URL('/toplist', window.location.href);
+            const url = new URL('/alliances', window.location.href);
             url.searchParams.set('page', this.startPage.toString());
             const search =
                 (this.$refs.urlSearch as HTMLInputElement)?.value?.trim() ?? '';
-            if (search) url.searchParams.set('username', search);
+            if (search) url.searchParams.set('caption', search);
             this.$store
                 .dispatch('api/request', {
                     url,
-                    feature: `redesign-toplist-load-prev-${this.startPage}`,
+                    feature: `redesign-alliances-load-prev-${this.startPage}`,
                 })
                 .then((res: Response) => res.text())
                 .then(async html => {
-                    import('../parsers/toplist').then(parser => {
+                    import('../parsers/alliances').then(parser => {
                         const result = parser.default(
                             html,
                             url.toString(),
@@ -227,30 +214,30 @@ export default Vue.extend<
                             'lastPage',
                             result.lastPage
                         );
-                        this.$set(this.lightbox.data, 'users', [
-                            ...result.users,
-                            ...this.lightbox.data.users,
+                        this.$set(this.lightbox.data, 'alliances', [
+                            ...result.alliances,
+                            ...this.lightbox.data.alliances,
                         ]);
-                        this.lightbox.finishLoading('toplist-loadprev');
+                        this.lightbox.finishLoading('alliances-loadprev');
                     });
                 });
         },
         loadNext() {
             this.$set(this.lightbox, 'loading', true);
             this.endPage++;
-            const url = new URL('/toplist', window.location.href);
+            const url = new URL('/alliances', window.location.href);
             url.searchParams.set('page', this.endPage.toString());
             const search =
                 (this.$refs.urlSearch as HTMLInputElement)?.value?.trim() ?? '';
-            if (search) url.searchParams.set('username', search);
+            if (search) url.searchParams.set('caption', search);
             this.$store
                 .dispatch('api/request', {
                     url,
-                    feature: `redesign-toplist-load-next-${this.endPage}`,
+                    feature: `redesign-alliances-load-next-${this.endPage}`,
                 })
                 .then((res: Response) => res.text())
                 .then(async html => {
-                    import('../parsers/toplist').then(parser => {
+                    import('../parsers/alliances').then(parser => {
                         const result = parser.default(
                             html,
                             url.toString(),
@@ -261,11 +248,11 @@ export default Vue.extend<
                             'lastPage',
                             result.lastPage
                         );
-                        this.$set(this.lightbox.data, 'users', [
-                            ...this.lightbox.data.users,
-                            ...result.users,
+                        this.$set(this.lightbox.data, 'alliances', [
+                            ...this.lightbox.data.alliances,
+                            ...result.alliances,
                         ]);
-                        this.lightbox.finishLoading('toplist-loadnext');
+                        this.lightbox.finishLoading('alliances-loadnext');
                     });
                 });
         },
@@ -273,8 +260,8 @@ export default Vue.extend<
             const url = new URL(this.url, window.location.href);
             const search =
                 (this.$refs.urlSearch as HTMLInputElement)?.value?.trim() ?? '';
-            if (search) url.searchParams.set('username', search);
-            else url.searchParams.delete('username');
+            if (search) url.searchParams.set('caption', search);
+            else url.searchParams.delete('caption');
 
             this.$set(this.lightbox, 'src', url.toString());
         },
@@ -283,7 +270,7 @@ export default Vue.extend<
         urlSearch() {
             return (
                 new URL(this.url, window.location.href).searchParams.get(
-                    'username'
+                    'caption'
                 ) ?? ''
             );
         },
@@ -297,52 +284,49 @@ export default Vue.extend<
         subtitle() {
             return this.$smc(
                 this.urlSearch ? 'search_subtitle' : 'subtitle',
-                this.toplist.users.length,
+                this.alliances.alliances.length,
                 {
                     startPage: this.startPage,
                     endPage: this.endPage,
                     firstCredits:
-                        this.toplist.users[0]?.credits?.toLocaleString() ?? '',
+                        this.alliances.alliances[0]?.credits?.toLocaleString() ??
+                        '',
                     lastCredits:
-                        this.toplist.users[
-                            this.toplist.users.length - 1
+                        this.alliances.alliances[
+                            this.alliances.alliances.length - 1
                         ]?.credits?.toLocaleString() ?? '',
-                    totalPages: this.toplist.lastPage.toLocaleString(),
+                    totalPages: this.alliances.lastPage.toLocaleString(),
                 }
             ).toString();
         },
-        usersFiltered() {
+        alliancesFiltered() {
             return this.search.trim().length
-                ? this.toplist.users.filter(user =>
-                      JSON.stringify(Object.values(user))
+                ? this.alliances.alliances.filter(alliance =>
+                      JSON.stringify(Object.values(alliance))
                           .toLowerCase()
                           .match(this.search.trim().toLowerCase())
                   )
-                : this.toplist.users;
+                : this.alliances.alliances;
         },
-        usersSorted() {
+        alliancesSorted() {
             if (this.sort === 'credits' && !this.urlSearch) {
-                if (this.sortDir === 'asc') return this.usersFiltered;
-                return [...this.usersFiltered].reverse();
+                if (this.sortDir === 'asc') return this.alliancesFiltered;
+                return [...this.alliancesFiltered].reverse();
             }
             const modifier = this.sortDir === 'desc' ? -1 : 1;
-            return [...this.usersFiltered].sort((a, b) => {
+            return [...this.alliancesFiltered].sort((a, b) => {
                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                 // @ts-ignore
                 let f = a[this.sort] ?? '';
                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                 // @ts-ignore
                 let s = b[this.sort] ?? '';
-                if (this.sort === 'alliance') {
-                    f = a.alliance.name ?? '';
-                    s = b.alliance.name ?? '';
-                }
                 return f < s ? -1 * modifier : f > s ? modifier : 0;
             });
         },
     },
     props: {
-        toplist: {
+        alliances: {
             type: Object,
             required: true,
         },
@@ -372,8 +356,8 @@ export default Vue.extend<
         },
     },
     watch: {
-        toplist() {
-            this.lightbox.finishLoading('toplist-updated-data');
+        alliances() {
+            this.lightbox.finishLoading('alliances-updated-data');
         },
     },
     beforeMount() {
@@ -386,9 +370,9 @@ export default Vue.extend<
         // });
         this.head = {
             image: { title: '', noSort: true },
-            credits: { title: this.$sm('credits').toString() },
             name: { title: this.$sm('name').toString() },
-            alliance: { title: this.$sm('alliance').toString() },
+            credits: { title: this.$sm('credits').toString() },
+            members: { title: this.$sm('members').toString() },
         };
     },
     mounted() {
@@ -407,7 +391,7 @@ export default Vue.extend<
         this.startPage = this.page;
         this.endPage = this.page;
         document.title = this.$sm('title').toString();
-        this.lightbox.finishLoading('toplist-mounted');
+        this.lightbox.finishLoading('alliances-mounted');
     },
 });
 </script>

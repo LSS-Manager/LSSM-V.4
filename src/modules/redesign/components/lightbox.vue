@@ -10,16 +10,17 @@
             class="redesign-wrapper"
             :type="type"
         >
-            <Vehicle
-                v-if="type === 'vehicle'"
-                :vehicle="data"
+            <Alliances
+                v-if="type === 'alliances'"
+                :alliances="data"
                 :url="urlProp"
                 :lightbox="this"
                 :$m="$m"
                 :$mc="$mc"
                 :get-setting="getSetting()"
                 :set-setting="setSetting()"
-            ></Vehicle>
+                :type="type"
+            ></Alliances>
             <Credits
                 v-else-if="type.startsWith('credits/') || type === 'coins/list'"
                 :data="data"
@@ -31,17 +32,6 @@
                 :set-setting="setSetting()"
                 :type="type"
             ></Credits>
-            <Toplist
-                v-else-if="type === 'toplist'"
-                :toplist="data"
-                :url="urlProp"
-                :lightbox="this"
-                :$m="$m"
-                :$mc="$mc"
-                :get-setting="getSetting()"
-                :set-setting="setSetting()"
-                :type="type"
-            ></Toplist>
             <Profile
                 v-else-if="type === 'profile'"
                 :profile="data"
@@ -64,6 +54,27 @@
                 :set-setting="setSetting()"
                 :type="type"
             ></ProfileEdit>
+            <Toplist
+                v-else-if="type === 'toplist'"
+                :toplist="data"
+                :url="urlProp"
+                :lightbox="this"
+                :$m="$m"
+                :$mc="$mc"
+                :get-setting="getSetting()"
+                :set-setting="setSetting()"
+                :type="type"
+            ></Toplist>
+            <Vehicle
+                v-else-if="type === 'vehicle'"
+                :vehicle="data"
+                :url="urlProp"
+                :lightbox="this"
+                :$m="$m"
+                :$mc="$mc"
+                :get-setting="getSetting()"
+                :set-setting="setSetting()"
+            ></Vehicle>
             <div
                 v-else-if="type === 'vehicle/nextfms'"
                 class="alert alert-success"
@@ -111,17 +122,13 @@ export default Vue.extend<
             import(
                 /* webpackChunkName: "components/lightbox" */ '../../../components/lightbox.vue'
             ),
-        Vehicle: () =>
+        Alliances: () =>
             import(
-                /*webpackChunkName: "modules/redesign/windows/vehicle"*/ './vehicle.vue'
+                /*webpackChunkName: "modules/redesign/windows/alliances"*/ './alliances.vue'
             ),
         Credits: () =>
             import(
                 /*webpackChunkName: "modules/redesign/windows/credits"*/ './credits.vue'
-            ),
-        Toplist: () =>
-            import(
-                /*webpackChunkName: "modules/redesign/windows/toplist"*/ './toplist.vue'
             ),
         Profile: () =>
             import(
@@ -130,6 +137,14 @@ export default Vue.extend<
         ProfileEdit: () =>
             import(
                 /*webpackChunkName: "modules/redesign/windows/profile/edit"*/ './profile/edit.vue'
+            ),
+        Toplist: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/toplist"*/ './toplist.vue'
+            ),
+        Vehicle: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/vehicle"*/ './vehicle.vue'
             ),
     },
     data() {
