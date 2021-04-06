@@ -60,7 +60,7 @@
 		"version": "4.20.0"
 	},
 	"@typescript-eslint/parser": {
-		"version": "4.20.0"
+		"version": "4.21.0"
 	},
 	"@vuepress/plugin-active-header-links": {
 		"icon": "https://vuepress.vuejs.org/hero.png",
@@ -158,7 +158,7 @@
 	},
 	"pdfmake": {
 		"url": "http://pdfmake.org",
-		"version": "0.1.70"
+		"version": "0.1.71"
 	},
 	"sass": {
 		"icon": "https://sass-lang.com/assets/img/logos/logo-b6e1ef6e.svg",
