@@ -83,19 +83,6 @@ export default Vue.extend<
         const input = document.createElement('input');
         input.type = 'file';
         input.accept = 'image/*';
-        input.onchange = () => {
-            if (!input.files.length) return;
-            const reader = new FileReader();
-            reader.onload = () => {
-                this.image = reader.result;
-                this.imageFile = input.files[0];
-            };
-            reader.onerror = () => {
-                this.image = '';
-                this.imageFile = null;
-            };
-            reader.readAsDataURL(input.files[0]);
-        };
         return {
             faTrash,
             image: '',
@@ -122,6 +109,7 @@ export default Vue.extend<
             return this.$mc(`avatar.${key}`, amount, args);
         },
         submit() {
+            if (!this.imageFile) return;
             const formData = new FormData();
             formData.append('utf8', '✓');
             formData.append('_method', 'put');
@@ -253,7 +241,20 @@ export default Vue.extend<
             if (!target || !target.hasAttribute('href')) return;
             this.$set(this.lightbox, 'src', target.getAttribute('href'));
         });
-        document.title = this.$sm('title');
+        this.input.onchange = () => {
+            if (!this.input.files?.length) return;
+            const reader = new FileReader();
+            reader.onload = () => {
+                this.image = reader.result?.toString() ?? '';
+                this.imageFile = this.input.files?.[0] ?? null;
+            };
+            reader.onerror = () => {
+                this.image = '';
+                this.imageFile = null;
+            };
+            reader.readAsDataURL(this.input.files[0]);
+        };
+        document.title = this.$sm('title').toString();
         this.lightbox.finishLoading('avatar-edit-mounted');
     },
 });
