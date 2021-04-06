@@ -21,6 +21,17 @@
                 :set-setting="setSetting()"
                 :type="type"
             ></Alliances>
+            <Avatar
+                v-else-if="type === 'avatar'"
+                :profile="data"
+                :url="urlProp"
+                :lightbox="this"
+                :$m="$m"
+                :$mc="$mc"
+                :get-setting="getSetting()"
+                :set-setting="setSetting()"
+                :type="type"
+            ></Avatar>
             <Credits
                 v-else-if="type.startsWith('credits/') || type === 'coins/list'"
                 :data="data"
@@ -125,6 +136,10 @@ export default Vue.extend<
         Alliances: () =>
             import(
                 /*webpackChunkName: "modules/redesign/windows/alliances"*/ './alliances.vue'
+            ),
+        Avatar: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/avatar"*/ './avatar.vue'
             ),
         Credits: () =>
             import(

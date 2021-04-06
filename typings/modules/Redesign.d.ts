@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import { AllianceListWindow } from '../../src/modules/redesign/parsers/alliances';
+import { AvatarWindow } from '../../src/modules/redesign/parsers/avatar';
 import { CoinsListWindow } from '../../src/modules/redesign/parsers/coins/list';
 import { CreditsDailyWindow } from '../../src/modules/redesign/parsers/credits/daily';
 import { CreditsListWindow } from '../../src/modules/redesign/parsers/credits/list';
@@ -15,6 +16,7 @@ import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 
 type types =
     | 'alliances'
+    | 'avatar'
     | 'default'
     | 'coins/list'
     | 'credits/daily'
@@ -27,6 +29,7 @@ type types =
     | 'vehicle/nextfms';
 type windows =
     | AllianceListWindow
+    | AvatarWindow
     | CoinsListWindow
     | CreditsDailyWindow
     | CreditsListWindow

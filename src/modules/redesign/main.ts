@@ -3,6 +3,7 @@ import { routeChecks } from 'typings/modules/Redesign';
 
 const routeChecks: routeChecks = {
     '^/alliances/?$': 'alliances',
+    '^/avatar/?$': 'avatar',
     '^/coins/list/?$': 'coins/list',
     '^/credits/daily/?$': 'credits/daily',
     '^/credits/?$': 'credits/list',

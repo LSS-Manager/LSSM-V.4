@@ -23,7 +23,8 @@
                         </a>
                         <a
                             class="btn btn-default btn-xs"
-                            href="/avatar"
+                            lightbox-open
+                            href="/avatar?close-after-submit"
                             :title="$sm('buttons.avatar')"
                         >
                             <font-awesome-icon
@@ -921,6 +922,13 @@ export default Vue.extend<
             listener({ detail: { content } }: CustomEvent) {
                 if (Profile.profile.self)
                     Profile.$set(Profile.lightbox.data, 'text', content);
+            },
+        });
+        this.$store.dispatch('event/addListener', {
+            name: 'redesign-edit-avatar-submitted',
+            listener({ detail: { img } }: CustomEvent) {
+                if (Profile.profile.self)
+                    Profile.$set(Profile.lightbox.data, 'image', img);
             },
         });
         this.getSetting('hiddenFilters', []).then(
