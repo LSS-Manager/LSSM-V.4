@@ -9,6 +9,7 @@ import { ProfileWindow } from '../../src/modules/redesign/parsers/profile';
 import { ProfileEditWindow } from '../../src/modules/redesign/parsers/profile/edit';
 import { TopListWindow } from '../../src/modules/redesign/parsers/toplist';
 import { VehicleWindow } from '../../src/modules/redesign/parsers/vehicle';
+import { VerbandHomeWindow } from '../../src/modules/redesign/parsers/verband/home';
 import { DefaultComputed } from 'vue/types/options';
 import VueI18n from 'vue-i18n';
 import { CombinedVueInstance } from 'vue/types/vue';
@@ -26,7 +27,8 @@ type types =
     | 'profile/edit'
     | 'toplist'
     | 'vehicle'
-    | 'vehicle/nextfms';
+    | 'vehicle/nextfms'
+    | 'verband/home';
 type windows =
     | AllianceListWindow
     | AvatarWindow
@@ -37,7 +39,8 @@ type windows =
     | ProfileWindow
     | ProfileEditWindow
     | TopListWindow
-    | VehicleWindow;
+    | VehicleWindow
+    | VerbandHomeWindow;
 export type routeChecks = Record<string, types>;
 
 interface Data<T, D> {

@@ -86,6 +86,17 @@
                 :get-setting="getSetting()"
                 :set-setting="setSetting()"
             ></Vehicle>
+            <Verband
+                v-else-if="type.startsWith('verband/')"
+                :data="data"
+                :url="urlProp"
+                :lightbox="this"
+                :$m="$m"
+                :$mc="$mc"
+                :get-setting="getSetting()"
+                :set-setting="setSetting()"
+                :type="type"
+            ></Verband>
             <div
                 v-else-if="type === 'vehicle/nextfms'"
                 class="alert alert-success"
@@ -160,6 +171,10 @@ export default Vue.extend<
         Vehicle: () =>
             import(
                 /*webpackChunkName: "modules/redesign/windows/vehicle"*/ './vehicle.vue'
+            ),
+        Verband: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/verband"*/ './verband.vue'
             ),
     },
     data() {
