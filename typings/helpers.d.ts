@@ -50,7 +50,7 @@ declare global {
         coinsUpdate(coins: number): void;
         unix_timestamp(): number;
         mapMoveToSearch(): void;
-        lightboxClose(): void;
+        lightboxClose(creation?: string): void; // creation Param only for LSSM Redesign
     }
 }
 

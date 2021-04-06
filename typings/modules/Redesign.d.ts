@@ -73,6 +73,7 @@ export interface RedesignLightbox<
         ): VueI18n.TranslateResult;
         routeChecks: routeChecks;
         noModal: boolean;
+        creation: string;
     };
 }
 

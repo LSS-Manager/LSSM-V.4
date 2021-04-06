@@ -25,6 +25,7 @@ export default ((LSSM, MODULE_ID) => {
                         feature: 'redesign-lightboxOpen',
                     })
                     .then();
+                const creation = new Date().toISOString();
                 LSSM.$modal.show(
                     () =>
                         import(
@@ -51,9 +52,10 @@ export default ((LSSM, MODULE_ID) => {
                                 args
                             ),
                         routeChecks,
+                        creation,
                     },
                     {
-                        name: 'redesign-lightbox',
+                        name: `redesign-lightbox-${creation}`,
                         height: '96%',
                         width: '96%',
                     },
@@ -117,8 +119,8 @@ export default ((LSSM, MODULE_ID) => {
     LSSM.$store
         .dispatch('hook', {
             event: 'lightboxClose',
-            callback() {
-                LSSM.$modal.hide('redesign-lightbox');
+            callback(creation?: string) {
+                if (creation) LSSM.$modal.hide(`redesign-lightbox-${creation}`);
             },
         })
         .then();
@@ -172,6 +174,7 @@ export default ((LSSM, MODULE_ID) => {
                                     ),
                                 routeChecks,
                                 noModal: true,
+                                creation: new Date().toISOString(),
                             },
                         }),
                 }).$mount(

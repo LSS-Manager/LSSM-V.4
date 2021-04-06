@@ -13,7 +13,8 @@
                     <div class="btn-group" v-if="profile.self">
                         <a
                             class="btn btn-default btn-xs"
-                            href="/profile/edit"
+                            lightbox-open
+                            href="/profile/edit?close-after-submit"
                             :title="$sm('buttons.edit')"
                         >
                             <font-awesome-icon
@@ -499,7 +500,7 @@
                     v-if="profile.has_map"
                     v-show="show_map"
                     ref="map"
-                    :id="`profile-${profile.id}-map`"
+                    :id="`profile-${profile.id}-map-${lightbox.creation}`"
                     :start-lat="profile.buildings[0].latitude"
                     :start-long="profile.buildings[0].longitude"
                     :layers="
@@ -907,8 +908,20 @@ export default Vue.extend<
             const target = (e.target as HTMLElement)?.closest<
                 HTMLAnchorElement | HTMLButtonElement
             >('a, button');
-            if (!target || !target.hasAttribute('href')) return;
-            this.$set(this.lightbox, 'src', target.getAttribute('href'));
+            const href = target?.getAttribute('href');
+            if (!target || !href) return;
+            if (target.hasAttribute('lightbox-open'))
+                return window.lightboxOpen(href);
+            else this.$set(this.lightbox, 'src', href);
+        });
+        // eslint-disable-next-line @typescript-eslint/no-this-alias
+        const Profile = this;
+        this.$store.dispatch('event/addListener', {
+            name: 'redesign-edit-profile-submitted',
+            listener({ detail: { content } }: CustomEvent) {
+                if (Profile.profile.self)
+                    Profile.$set(Profile.lightbox.data, 'text', content);
+            },
         });
         this.getSetting('hiddenFilters', []).then(
             f => (this.hiddenFilters = f)

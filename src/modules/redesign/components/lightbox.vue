@@ -1,6 +1,6 @@
 <template>
     <lightbox
-        name="redesign-lightbox"
+        :name="`redesign-lightbox-${creation}`"
         :full-height="!type"
         :no-title-hide="true"
         :no-modal="noModal"
@@ -164,6 +164,10 @@ export default Vue.extend<
             type: Boolean,
             required: false,
             default: () => false,
+        },
+        creation: {
+            type: String,
+            required: true,
         },
     },
     computed: {

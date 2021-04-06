@@ -112,7 +112,25 @@ export default Vue.extend<
                     feature: `redesign-profile-edit`,
                 })
                 .then(({ url }) => {
-                    this.$set(this.lightbox, 'src', url);
+                    if (
+                        !new URL(
+                            this.url,
+                            window.location.href
+                        ).searchParams.has('close-after-submit') ||
+                        this.lightbox.noModal
+                    )
+                        return this.$set(this.lightbox, 'src', url);
+                    this.$store
+                        .dispatch('event/createEvent', {
+                            name: 'redesign-edit-profile-submitted',
+                            detail: {
+                                content: this.$refs.content?.value ?? '',
+                            },
+                        })
+                        .then(event =>
+                            this.$store.dispatch('event/dispatchEvent', event)
+                        );
+                    window.lightboxClose(this.lightbox.creation);
                 });
         },
     },
