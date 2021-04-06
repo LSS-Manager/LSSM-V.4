@@ -98,7 +98,7 @@ export default ((LSSM, MODULE_ID) => {
             container.style.height = '100%';
         });
         const modal = document.querySelector<HTMLDivElement>(
-            '.vm--overlay[data-modal="redesign-lightbox"] ~ .vm--modal'
+            '.vm--overlay[data-modal^="redesign-lightbox-"] ~ .vm--modal'
         );
         if (modal) {
             modal.style.padding = '0';
