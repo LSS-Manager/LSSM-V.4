@@ -11,7 +11,8 @@ This work is licensed under a [Creative Commons Attribution-NonCommercial-ShareA
 
 **It is forbidden to use code of the LSS-Manager to violate the terms and conditions of Leitstellenspiel.de or one of its other language versions!**
 
-<a href="https://discord.gg/RcTNjpB" target="_blank" align="right"><img src="https://discord.com/api/guilds/254167535446917120/embed.png?style=banner1" alt="Our Discord-Server: United Dispatch"></a>
+<a href="https://discord.gg/RcTNjpB" target="_blank" align="center"><img src="https://discord.com/api/guilds/254167535446917120/embed.png?style=banner1" alt="Our Discord-Server: United Dispatch"></a>
+<a href="https://github.com/LSS-Manager/LSSM-V.4" target="_blank" align="center"><img src="https://github-readme-stats.vercel.app/api/pin?username=LSS-Manager&repo=LSSM-V.4&theme=vue-dark&show_owner=true" alt=""></a>
 
 [LSSM-Server-Status](https://status.lss-manager.de/)
 
