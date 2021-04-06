@@ -36,7 +36,7 @@
                             </tr>
                             <tr>
                                 <th>{{ $sm('station') }}</th>
-                                <td>
+                                <td :colspan="vehicle.can_move ? 1 : 2">
                                     <a
                                         :href="
                                             `/buildings/${vehicle.building.id}`
@@ -45,7 +45,7 @@
                                         {{ vehicle.building.caption }}
                                     </a>
                                 </td>
-                                <td>
+                                <td v-if="vehicle.can_move">
                                     <a
                                         :href="`/vehicles/${vehicle.id}/move`"
                                         class="btn btn-default btn-xs"

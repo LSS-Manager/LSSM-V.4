@@ -65,6 +65,7 @@ export interface VehicleWindow {
     previous_vehicle_id: number;
     next_vehicle_id: number;
     vehicle_name: string;
+    can_move: boolean;
     fms: number;
     max_staff: number;
     mileage: string;
@@ -189,6 +190,7 @@ export default <RedesignParser<VehicleWindow>>((source, href, getIdFromEl) => {
         previous_vehicle_id: getIdFromEl(navBtns[0]),
         next_vehicle_id: getIdFromEl(navBtns[1]),
         vehicle_name: doc.querySelector('h1')?.textContent ?? '',
+        can_move: !!doc.querySelector('a[href$="/move"]'),
         fms,
         max_staff: parseInt(
             doc.getElementById('vehicle-attr-max-personnel')?.textContent ??
