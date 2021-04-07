@@ -122,7 +122,14 @@ export default ((LSSM, MODULE_ID) => {
         .dispatch('hook', {
             event: 'lightboxClose',
             callback(creation?: string) {
-                if (creation) LSSM.$modal.hide(`redesign-lightbox-${creation}`);
+                if (creation) {
+                    LSSM.$modal.hide(`redesign-lightbox-${creation}`);
+                } else {
+                    // $modal.hideAll actually exists but typedefs don't know…
+                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                    // @ts-ignore
+                    LSSM.$modal.hideAll();
+                }
             },
         })
         .then();
