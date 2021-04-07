@@ -7,7 +7,8 @@
                     home.meta.self ||
                     home.edit_text ||
                     home.edit_name ||
-                    home.edit_logo
+                    home.edit_logo ||
+                    home.apply
             "
         >
             <div
@@ -53,6 +54,26 @@
             >
                 {{ lightbox.$sm('leave.title') }}
             </button>
+            <button
+                v-if="home.appliable"
+                class="btn btn-success pull-right"
+                @click="apply"
+                :title="lightbox.$sm('apply')"
+            >
+                {{ lightbox.$sm('apply') }}
+            </button>
+            <button
+                v-if="home.applied"
+                class="btn btn-danger pull-right"
+                @click="unapply"
+                :title="lightbox.$sm('unapply')"
+            >
+                {{ lightbox.$sm('unapply') }}
+            </button>
+            <div class="clearfix"></div>
+            <div class="alert alert-success" v-if="home.applied">
+                {{ lightbox.$sm('applied') }}
+            </div>
         </div>
         <div class="alliance-home-text">
             <p v-for="(t, index) in home.text" :key="index" v-html="t"></p>
@@ -76,7 +97,11 @@ type Component = RedesignSubComponent<
         faEdit: IconDefinition;
         faImage: IconDefinition;
     },
-    { leave(): void }
+    {
+        leave(): void;
+        apply(): void;
+        unapply(): void;
+    }
 >;
 
 export default Vue.extend<
@@ -90,6 +115,7 @@ export default Vue.extend<
         return {
             faEdit,
             faImage,
+            applied: false,
         };
     },
     methods: {
@@ -152,6 +178,28 @@ export default Vue.extend<
                     },
                 ],
             });
+        },
+        apply() {
+            this.$store
+                .dispatch('api/request', {
+                    url: `/verband/bewerben/${this.home.meta.id}`,
+                    feature: `redesign-alliance-leave`,
+                })
+                .then(() => {
+                    this.$set(this.lightbox.data, 'applied', true);
+                    this.$set(this.lightbox.data, 'appliable', false);
+                });
+        },
+        unapply() {
+            this.$store
+                .dispatch('api/request', {
+                    url: `/verband/bewerben/${this.home.meta.id}/zurueckziehen`,
+                    feature: `redesign-alliance-leave`,
+                })
+                .then(() => {
+                    this.$set(this.lightbox.data, 'applied', false);
+                    this.$set(this.lightbox.data, 'appliable', true);
+                });
         },
     },
     props: {
@@ -224,6 +272,7 @@ export default Vue.extend<
 
     .alliance-home-sidebar
         margin-right: 1rem
+        max-width: 300px
 
         .edit-btns
             margin-bottom: 1rem
