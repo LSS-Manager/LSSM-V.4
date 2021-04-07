@@ -176,6 +176,8 @@ export default <RedesignParser<VehicleWindow>>((source, href, getIdFromEl) => {
     const wlf_table = doc.querySelector<HTMLTableElement>(
         '#vehicle_show_table'
     );
+    // because missions may appear in own and alliance lists
+    const mission_ids: number[] = [];
     return {
         id,
         building: {
@@ -251,45 +253,54 @@ export default <RedesignParser<VehicleWindow>>((source, href, getIdFromEl) => {
                     doc.querySelectorAll<HTMLTableRowElement>(
                         `#${list} tbody tr`
                     )
-                ).map(m => {
-                    const linkEl = m.children[1]?.querySelector<
-                        HTMLAnchorElement
-                    >('a[href^="/missions/"]');
-                    const progressEl = m.children[3]?.querySelector<
-                        HTMLDivElement
-                    >('.progress .progress-bar');
-                    return {
-                        image: m.children[0]?.querySelector('img')?.src ?? '',
-                        caption: linkEl?.textContent?.trim() ?? '',
-                        id: getIdFromEl(linkEl),
-                        type: parseInt(
-                            m.getAttribute('data-mission-type') ?? '-1'
-                        ),
-                        adress: Array.from(m.children[1]?.childNodes ?? [])
-                            .map(c => (c as Text).wholeText ?? '')
-                            .join('')
-                            .trim(),
-                        distance: m.children[2]?.textContent?.trim() ?? '',
-                        list,
-                        progress: {
-                            active: !!progressEl?.querySelector(
-                                '.progress-striped-inner-active'
+                )
+                    .map(m => {
+                        const linkEl = m.children[1]?.querySelector<
+                            HTMLAnchorElement
+                        >('a[href^="/missions/"]');
+                        const progressEl = m.children[3]?.querySelector<
+                            HTMLDivElement
+                        >('.progress .progress-bar');
+                        const id = getIdFromEl(linkEl);
+                        if (mission_ids.includes(id)) return null;
+                        mission_ids.push(id);
+                        return {
+                            image:
+                                m.children[0]?.querySelector('img')?.src ?? '',
+                            caption: linkEl?.textContent?.trim() ?? '',
+                            id: getIdFromEl(linkEl),
+                            type: parseInt(
+                                m.getAttribute('data-mission-type') ?? '-1'
                             ),
-                            width: parseInt(progressEl?.style.width ?? '100'),
-                        },
-                        patients: {
-                            current: parseInt(
-                                m.children[4]?.textContent?.trim() ?? '-1'
-                            ),
-                            total: parseInt(
-                                m.children[4]?.textContent
-                                    ?.trim()
-                                    ?.match(/\d+$/)?.[0] ?? '-1'
-                            ),
-                        },
-                        status: m.getAttribute('data-mission-status') ?? 'red',
-                    };
-                }),
+                            adress: Array.from(m.children[1]?.childNodes ?? [])
+                                .map(c => (c as Text).wholeText ?? '')
+                                .join('')
+                                .trim(),
+                            distance: m.children[2]?.textContent?.trim() ?? '',
+                            list,
+                            progress: {
+                                active: !!progressEl?.querySelector(
+                                    '.progress-striped-inner-active'
+                                ),
+                                width: parseInt(
+                                    progressEl?.style.width ?? '100'
+                                ),
+                            },
+                            patients: {
+                                current: parseInt(
+                                    m.children[4]?.textContent?.trim() ?? '-1'
+                                ),
+                                total: parseInt(
+                                    m.children[4]?.textContent
+                                        ?.trim()
+                                        ?.match(/\d+$/)?.[0] ?? '-1'
+                                ),
+                            },
+                            status:
+                                m.getAttribute('data-mission-status') ?? 'red',
+                        };
+                    })
+                    .filter(m => !!m),
             ])
         ) as { mission_own: Mission[]; mission_alliance: Mission[] }),
         has_hospitals: hasHospitals,
