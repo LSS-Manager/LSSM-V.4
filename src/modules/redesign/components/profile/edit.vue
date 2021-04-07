@@ -5,7 +5,7 @@
             <textarea
                 class="form-control"
                 :value="profile.text"
-                rows="20"
+                :rows="Math.max(5, profile.text.split(/\n/).length + 1)"
                 ref="content"
             />
         </label>
@@ -41,7 +41,7 @@ export default Vue.extend<
     },
     methods: {
         submit() {
-            const url = new URL(`/profile`, window.location.href);
+            const url = new URL(`/profile`, window.location.origin);
             url.searchParams.append('utf8', '✓');
             url.searchParams.append('_method', 'put');
             url.searchParams.append(
@@ -59,7 +59,10 @@ export default Vue.extend<
                         headers: {
                             'Content-Type': 'application/x-www-form-urlencoded',
                         },
-                        referrer: `https://www.leitstellenspiel.de/profile/edit`,
+                        referrer: new URL(
+                            `profile/edit`,
+                            window.location.origin
+                        ),
                         body: url.searchParams.toString(),
                         method: 'POST',
                         mode: 'cors',
@@ -70,7 +73,7 @@ export default Vue.extend<
                     if (
                         !new URL(
                             this.url,
-                            window.location.href
+                            window.location.origin
                         ).searchParams.has('close-after-submit') ||
                         this.lightbox.noModal
                     )

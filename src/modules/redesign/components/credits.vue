@@ -142,9 +142,9 @@ export default Vue.extend<
                     ({ href }) =>
                         new URL(
                             this.url,
-                            window.location.href
+                            window.location.origin
                         ).pathname.replace(/\/$/g, '') !==
-                        new URL(href, window.location.href).pathname.replace(
+                        new URL(href, window.location.origin).pathname.replace(
                             /\/$/g,
                             ''
                         )

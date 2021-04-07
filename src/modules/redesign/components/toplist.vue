@@ -163,7 +163,7 @@ export default Vue.extend<
         loadPrev() {
             this.$set(this.lightbox, 'loading', true);
             this.startPage--;
-            const url = new URL('/toplist', window.location.href);
+            const url = new URL('/toplist', window.location.origin);
             url.searchParams.set('page', this.startPage.toString());
             const search =
                 (this.$refs.urlSearch as HTMLInputElement)?.value?.trim() ?? '';
@@ -197,7 +197,7 @@ export default Vue.extend<
         loadNext() {
             this.$set(this.lightbox, 'loading', true);
             this.endPage++;
-            const url = new URL('/toplist', window.location.href);
+            const url = new URL('/toplist', window.location.origin);
             url.searchParams.set('page', this.endPage.toString());
             const search =
                 (this.$refs.urlSearch as HTMLInputElement)?.value?.trim() ?? '';
@@ -229,7 +229,7 @@ export default Vue.extend<
                 });
         },
         setUrlSearch() {
-            const url = new URL(this.url, window.location.href);
+            const url = new URL(this.url, window.location.origin);
             const search =
                 (this.$refs.urlSearch as HTMLInputElement)?.value?.trim() ?? '';
             if (search) url.searchParams.set('username', search);
@@ -241,14 +241,14 @@ export default Vue.extend<
     computed: {
         urlSearch() {
             return (
-                new URL(this.url, window.location.href).searchParams.get(
+                new URL(this.url, window.location.origin).searchParams.get(
                     'username'
                 ) ?? ''
             );
         },
         page() {
             return parseInt(
-                new URL(this.url, window.location.href).searchParams.get(
+                new URL(this.url, window.location.origin).searchParams.get(
                     'page'
                 ) ?? '1'
             );

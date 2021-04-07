@@ -74,7 +74,7 @@ export default Vue.extend<
                     if (
                         !new URL(
                             this.url,
-                            window.location.href
+                            window.location.origin
                         ).searchParams.has('close-after-submit') ||
                         this.lightbox.noModal
                     )

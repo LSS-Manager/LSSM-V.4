@@ -90,7 +90,10 @@ export default Vue.extend<
                                 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
                             'Upgrade-Insecure-Requests': '1',
                         },
-                        referrer: `https://www.leitstellenspiel.de/verband/avatar`,
+                        referrer: new URL(
+                            `verband/avatar`,
+                            window.location.origin
+                        ),
                         body: formData,
                         method: 'POST',
                         mode: 'cors',
@@ -104,7 +107,7 @@ export default Vue.extend<
                     if (
                         !new URL(
                             this.url,
-                            window.location.href
+                            window.location.origin
                         ).searchParams.has('close-after-submit') ||
                         this.lightbox.noModal
                     )
@@ -129,7 +132,10 @@ export default Vue.extend<
                     url: `/verband/avatar/delete`,
                     init: {
                         credentials: 'include',
-                        referrer: `https://www.leitstellenspiel.de/verband/avatar`,
+                        referrer: new URL(
+                            `verband/avatar`,
+                            window.location.origin
+                        ),
                         method: 'GET',
                         mode: 'cors',
                     },

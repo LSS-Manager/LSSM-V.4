@@ -10,6 +10,8 @@ import { ProfileWindow } from '../../src/modules/redesign/parsers/profile';
 import { ProfileEditWindow } from '../../src/modules/redesign/parsers/profile/edit';
 import { TopListWindow } from '../../src/modules/redesign/parsers/toplist';
 import { VehicleWindow } from '../../src/modules/redesign/parsers/vehicle';
+import { VerbandEditNameWindow } from '../../src/modules/redesign/parsers/verband/edit_name';
+import { VerbandEditTextWindow } from '../../src/modules/redesign/parsers/verband/edit_text';
 import { VerbandHomeWindow } from '../../src/modules/redesign/parsers/verband/home';
 import {
     DefaultComputed,
@@ -20,7 +22,6 @@ import {
 import VueI18n from 'vue-i18n';
 import { CombinedVueInstance } from 'vue/types/vue';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-import { VerbandEditNameWindow } from '../../src/modules/redesign/parsers/verband/edit_name';
 
 type types =
     | 'alliance_avatar'
@@ -37,6 +38,7 @@ type types =
     | 'vehicle'
     | 'vehicle/nextfms'
     | 'verband/edit_name'
+    | 'verband/edit_text'
     | 'verband/home';
 type windows =
     | AllianceAvatarWindow
@@ -51,6 +53,7 @@ type windows =
     | TopListWindow
     | VehicleWindow
     | VerbandEditNameWindow
+    | VerbandEditTextWindow
     | VerbandHomeWindow;
 export type routeChecks = Record<string, types>;
 

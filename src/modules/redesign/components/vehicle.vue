@@ -1609,7 +1609,7 @@ export default Vue.extend<
         alarm(mission) {
             const url = new URL(
                 `/missions/${mission}/alarm`,
-                window.location.href
+                window.location.origin
             );
             url.searchParams.append('utf8', '✓');
             url.searchParams.append(
@@ -1629,7 +1629,10 @@ export default Vue.extend<
                         headers: {
                             'Content-Type': 'application/x-www-form-urlencoded',
                         },
-                        referrer: `https://www.leitstellenspiel.de/vehicles/${this.vehicle.id}`,
+                        referrer: new URL(
+                            `vehicles/${this.vehicle.id}`,
+                            window.location.origin
+                        ),
                         body: url.searchParams.toString(),
                         method: 'POST',
                         mode: 'cors',
@@ -1666,7 +1669,7 @@ export default Vue.extend<
                         async handler() {
                             const url = new URL(
                                 `/vehicles/${LSSM.vehicle.id}`,
-                                window.location.href
+                                window.location.origin
                             );
                             url.searchParams.append('_method', 'delete');
                             url.searchParams.append(
@@ -1682,7 +1685,10 @@ export default Vue.extend<
                                             'Content-Type':
                                                 'application/x-www-form-urlencoded',
                                         },
-                                        referrer: `https://www.leitstellenspiel.de/vehicles/${LSSM.vehicle.id}`,
+                                        referrer: new URL(
+                                            `vehicles/${LSSM.vehicle.id}`,
+                                            window.location.origin
+                                        ),
                                         body: url.searchParams.toString(),
                                         method: 'POST',
                                         mode: 'cors',
@@ -1792,7 +1798,7 @@ export default Vue.extend<
                             const url = new URL(
                                 `/missions/${LSSM.vehicle.current_mission?.id ??
                                     0}/gefangene/entlassen`,
-                                window.location.href
+                                window.location.origin
                             );
                             url.searchParams.append('_method', 'post');
                             url.searchParams.append(
@@ -1808,7 +1814,10 @@ export default Vue.extend<
                                             'Content-Type':
                                                 'application/x-www-form-urlencoded',
                                         },
-                                        referrer: `https://www.leitstellenspiel.de/vehicles/${LSSM.vehicle.id}`,
+                                        referrer: new URL(
+                                            `vehicles/${LSSM.vehicle.id}`,
+                                            window.location.origin
+                                        ),
                                         body: url.searchParams.toString(),
                                         method: 'POST',
                                         mode: 'cors',
@@ -1819,7 +1828,7 @@ export default Vue.extend<
                                     LSSM.$set(
                                         LSSM.lightbox,
                                         'src',
-                                        new URL(res.url, window.location.href)
+                                        new URL(res.url, window.location.origin)
                                             .pathname === url.pathname
                                             ? `/vehicles/${LSSM.vehicle.id}`
                                             : res.url

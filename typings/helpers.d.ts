@@ -6,10 +6,12 @@ import VueI18n from 'vue-i18n';
 import L, { Map, Marker } from 'leaflet';
 import 'i18n-js';
 import { POI } from './modules/EnhancedPOI';
+import { sceditor } from './SCEditor';
 
 declare global {
     interface Window {
         $: JQueryStatic;
+        sceditor: sceditor;
         keepAlive: boolean;
         tellParent(code: string): void;
         fullScreen: boolean;

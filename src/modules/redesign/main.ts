@@ -2,6 +2,7 @@ import { ModuleMainFunction } from 'typings/Module';
 import { routeChecks } from 'typings/modules/Redesign';
 
 const routeChecks: routeChecks = {
+    '^/verband/avatar/?$': 'alliance_avatar',
     '^/alliances/?$': 'alliances',
     '^/avatar/?$': 'avatar',
     '^/coins/list/?$': 'coins/list',
@@ -12,6 +13,9 @@ const routeChecks: routeChecks = {
     '^/profile/edit/?$': 'profile/edit',
     '^/toplist/?$': 'toplist',
     '^/vehicles/\\d+/?$': 'vehicle',
+    '^/alliances/\\d+/edit/?$': 'verband/edit_name',
+    '^/veband/text/edit/?$': 'verband/edit_text',
+    '^/(verband|alliances/\\d+)/?$': 'verband/home',
     // '^/vehicles/\\d+/(patient|gefangener)/\\d+/?': 'vehicle/nextfms',
 };
 

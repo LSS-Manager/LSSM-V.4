@@ -18,7 +18,8 @@
                 <a
                     v-if="home.edit_text"
                     class="btn btn-default btn-xs"
-                    href="/veband/text/edit"
+                    lightbox-open
+                    href="/veband/text/edit?close-after-submit"
                     :title="lightbox.$sm('edit_text')"
                 >
                     <font-awesome-icon :icon="faEdit"></font-awesome-icon>

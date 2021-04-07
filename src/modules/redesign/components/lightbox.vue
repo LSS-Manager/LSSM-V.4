@@ -214,7 +214,7 @@ export default Vue.extend<
             set(url) {
                 this.loading = true;
                 this.errors = [];
-                const link = new URL(url, window.location.href);
+                const link = new URL(url, window.location.origin);
                 const type = Object.entries(this.routeChecks).find(([regex]) =>
                     link.pathname.match(regex)
                 )?.[1];
@@ -226,7 +226,7 @@ export default Vue.extend<
                         iframe &&
                         new URL(
                             iframe.contentWindow?.location.href ?? '',
-                            window.location.href
+                            window.location.origin
                         ).toString() !== link.toString()
                     ) {
                         iframe.src = url;
@@ -365,7 +365,7 @@ export default Vue.extend<
         },
         getIdFromEl(el) {
             return parseInt(
-                new URL(el?.href ?? '', window.location.href).pathname?.match(
+                new URL(el?.href ?? '', window.location.origin).pathname?.match(
                     /\d+\/?$/
                 )?.[0] ?? '-1'
             );

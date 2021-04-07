@@ -245,7 +245,7 @@ export default Vue.extend<
     computed: {
         page() {
             return parseInt(
-                new URL(this.url, window.location.href).searchParams.get(
+                new URL(this.url, window.location.origin).searchParams.get(
                     'page'
                 ) ?? '0'
             );

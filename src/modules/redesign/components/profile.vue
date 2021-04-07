@@ -655,7 +655,7 @@ export default Vue.extend<
     },
     methods: {
         allianceIgnore() {
-            const url = new URL(window.location.href);
+            const url = new URL(window.location.origin);
             url.searchParams.append('_method', 'post');
             url.searchParams.append(
                 'authenticity_token',
@@ -671,7 +671,10 @@ export default Vue.extend<
                         headers: {
                             'Content-Type': 'application/x-www-form-urlencoded',
                         },
-                        referrer: `https://www.leitstellenspiel.de/profile/${this.profile.id}`,
+                        referrer: new URL(
+                            `profile/${this.profile.id}`,
+                            window.location.origin
+                        ),
                         body: url.searchParams.toString(),
                         method: 'POST',
                         mode: 'cors',

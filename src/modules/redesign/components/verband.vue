@@ -45,6 +45,16 @@
             :get-setting="getSetting"
             :set-setting="setSetting"
         ></VerbandEditName>
+        <VerbandEditText
+            v-else-if="type === 'verband/edit_text'"
+            :alliance="data"
+            :url="url"
+            :lightbox="lightbox"
+            :$m="$m"
+            :$mc="$mc"
+            :get-setting="getSetting"
+            :set-setting="setSetting"
+        ></VerbandEditText>
         <VerbandHome
             v-else-if="type === 'verband/home'"
             :home="data"
@@ -106,6 +116,10 @@ export default Vue.extend<
             import(
                 /*webpackChunkName: "modules/redesign/windows/verband/edit_name"*/ './verband/edit_name.vue'
             ),
+        VerbandEditText: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/verband/edit_text"*/ './verband/edit_text.vue'
+            ),
         VerbandHome: () =>
             import(
                 /*webpackChunkName: "modules/redesign/windows/verband/home"*/ './verband/home.vue'
@@ -128,15 +142,15 @@ export default Vue.extend<
                     link =>
                         new URL(
                             this.url,
-                            window.location.href
+                            window.location.origin
                         ).pathname.replace(/\/$/g, '') !==
                         new URL(
-                            link.replace(/{id}/g, this.data.meta.id),
-                            window.location.href
+                            link.replace(/{id}/g, this.data.meta.id.toString()),
+                            window.location.origin
                         ).pathname.replace(/\/$/g, '')
                 )
                 .map(link => ({
-                    href: link.replace(/{id}/g, this.data.meta.id),
+                    href: link.replace(/{id}/g, this.data.meta.id.toString()),
                     text: links[link],
                 }));
         },
