@@ -40,8 +40,8 @@
             :home="data"
             :url="url"
             :lightbox="lightbox"
-            :$m="$m"
-            :$mc="$mc"
+            :$m="lightbox.$m"
+            :$mc="lightbox.$mc"
             :get-setting="getSetting"
             :set-setting="setSetting"
         ></VerbandHome>
@@ -50,9 +50,8 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import VueI18n from 'vue-i18n';
-import { DefaultData } from 'vue/types/options';
-import { RedesignLightboxVue } from 'typings/modules/Redesign';
+import { DefaultData, DefaultMethods } from 'vue/types/options';
+import { RedesignComponent } from 'typings/modules/Redesign';
 import { VerbandHomeWindow } from '../parsers/verband/home';
 
 interface Link {
@@ -60,47 +59,21 @@ interface Link {
     text: string;
 }
 
-export default Vue.extend<
+type Component = RedesignComponent<
+    'data',
+    'verband/home',
+    VerbandHomeWindow,
     DefaultData<Vue>,
-    {
-        $sm(
-            key: string,
-            args?: {
-                [key: string]: unknown;
-            }
-        ): VueI18n.TranslateResult;
-        $smc(
-            key: string,
-            amount: number,
-            args?: {
-                [key: string]: unknown;
-            }
-        ): VueI18n.TranslateResult;
-    },
-    {
-        nav: Link[];
-    },
-    {
-        data: VerbandHomeWindow;
-        url: string;
-        lightbox: RedesignLightboxVue<'verband/home', VerbandHomeWindow>;
-        $m(
-            key: string,
-            args?: {
-                [key: string]: unknown;
-            }
-        ): VueI18n.TranslateResult;
-        $mc(
-            key: string,
-            amount: number,
-            args?: {
-                [key: string]: unknown;
-            }
-        ): VueI18n.TranslateResult;
-        getSetting: <T>(setting: string, defaultValue: T) => Promise<T>;
-        setSetting: <T>(settingId: string, value: T) => Promise<void>;
-        type: string;
-    }
+    DefaultMethods<Vue>,
+    { nav: Link[] },
+    { type: string }
+>;
+
+export default Vue.extend<
+    Component['Data'],
+    Component['Methods'],
+    Component['Computed'],
+    Component['Props']
 >({
     name: 'verband-lightbox',
     components: {
@@ -114,10 +87,12 @@ export default Vue.extend<
     },
     computed: {
         nav() {
-            const links = this.$sm('nav.links') as Record<string, string>;
+            const links = (this.lightbox.$m(
+                'verband.nav.links'
+            ) as unknown) as Record<string, string>;
             return Object.values(
-                (this.$sm(
-                    `nav.${this.data.meta.self ? 'self' : 'other'}`
+                (this.lightbox.$m(
+                    `verband.nav.${this.data.meta.self ? 'self' : 'other'}`
                 ) as unknown) as Record<number, string>
             )
                 .filter(
@@ -137,25 +112,6 @@ export default Vue.extend<
                 }));
         },
     },
-    methods: {
-        $sm(
-            key: string,
-            args?: {
-                [key: string]: unknown;
-            }
-        ) {
-            return this.$m(`verband.${key}`, args);
-        },
-        $smc(
-            key: string,
-            amount: number,
-            args?: {
-                [key: string]: unknown;
-            }
-        ) {
-            return this.$mc(`verband.${key}`, amount, args);
-        },
-    },
     props: {
         data: {
             type: Object,
@@ -167,14 +123,6 @@ export default Vue.extend<
         },
         lightbox: {
             type: Object,
-            required: true,
-        },
-        $m: {
-            type: Function,
-            required: true,
-        },
-        $mc: {
-            type: Function,
             required: true,
         },
         getSetting: {

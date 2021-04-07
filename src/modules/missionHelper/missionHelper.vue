@@ -633,7 +633,8 @@ export default Vue.extend<
                 if (
                     document
                         .getElementById('mission_general_info')
-                        ?.hasAttribute('data-overlay-index')
+                        ?.hasAttribute('data-overlay-index') &&
+                    specs
                 )
                     specs = specs.alternate_version.mission_type;
                 this.missionSpecs = specs;
@@ -899,7 +900,7 @@ export default Vue.extend<
                     ].additionalText =
                         this.$mc(
                             `vehicles.multifunctionals.${vehicle}.additional_text`,
-                            vehicles[vehicle].old >
+                            (vehicles[vehicle].old ?? 0) >
                                 vehicles[multifunctionals[vehicle].reduce_from]
                                     .amount
                                 ? vehicles[

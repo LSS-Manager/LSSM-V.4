@@ -2,19 +2,19 @@
     <div>
         <label class="pull-right">
             <input
-                :placeholder="$sm('search_global')"
+                :placeholder="lightbox.$sm('search_global')"
                 ref="urlSearch"
                 :value="urlSearch"
                 @keyup.enter="setUrlSearch"
             />
             <button class="btn btn-success" @click="setUrlSearch">
-                {{ $sm('search_global') }}
+                {{ lightbox.$sm('search_global') }}
             </button>
         </label>
         <h1>
-            {{ $sm('title') }}
+            {{ lightbox.$sm('title') }}
             <small v-if="urlSearch">
-                {{ $sm('search_global') }}:
+                {{ lightbox.$sm('search_global') }}:
                 <span class="url-search">{{ urlSearch }}</span>
             </small>
             <br />
@@ -27,7 +27,7 @@
             :disabled="startPage <= 1"
             @click="loadPrev"
         >
-            {{ $sm('load.prev') }}
+            {{ lightbox.$sm('load.prev') }}
         </button>
         <button
             class="btn btn-success"
@@ -37,20 +37,20 @@
             "
             @click="loadNext"
         >
-            {{ $sm('load.next') }}
+            {{ lightbox.$sm('load.next') }}
         </button>
         <enhanced-table
             :head="head"
             :table-attrs="{ class: 'table' }"
             :search="search"
-            :search-placeholder="$sm('search_local')"
+            :search-placeholder="lightbox.$sm('search_local')"
             @search="s => (search = s)"
             :sort="sort"
             :sort-dir="sortDir"
             @sort="setSort"
         >
             <template v-slot:head>
-                <span>{{ $smc('amount', usersFiltered.length) }}</span>
+                <span>{{ lightbox.$smc('amount', usersFiltered.length) }}</span>
             </template>
             <tr v-for="(entry, id) in usersSorted" :key="id">
                 <td>
@@ -90,11 +90,13 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import VueI18n from 'vue-i18n';
 import { TopListWindow } from '../parsers/toplist';
-import { RedesignLightboxVue } from 'typings/modules/Redesign';
+import { RedesignComponent } from 'typings/modules/Redesign';
 
-export default Vue.extend<
+type Component = RedesignComponent<
+    'toplist',
+    'toplist',
+    TopListWindow,
     {
         search: string;
         sort: string;
@@ -109,19 +111,6 @@ export default Vue.extend<
         endPage: number;
     },
     {
-        $sm(
-            key: string,
-            args?: {
-                [key: string]: unknown;
-            }
-        ): VueI18n.TranslateResult;
-        $smc(
-            key: string,
-            amount: number,
-            args?: {
-                [key: string]: unknown;
-            }
-        ): VueI18n.TranslateResult;
         setSort(type: string): void;
         loadPrev(): void;
         loadNext(): void;
@@ -133,27 +122,14 @@ export default Vue.extend<
         subtitle: string;
         usersFiltered: TopListWindow['users'];
         usersSorted: TopListWindow['users'];
-    },
-    {
-        toplist: TopListWindow;
-        url: string;
-        lightbox: RedesignLightboxVue<'toplist', TopListWindow>;
-        $m(
-            key: string,
-            args?: {
-                [key: string]: unknown;
-            }
-        ): VueI18n.TranslateResult;
-        $mc(
-            key: string,
-            amount: number,
-            args?: {
-                [key: string]: unknown;
-            }
-        ): VueI18n.TranslateResult;
-        getSetting: <T>(setting: string, defaultValue: T) => Promise<T>;
-        setSetting: <T>(settingId: string, value: T) => Promise<void>;
     }
+>;
+
+export default Vue.extend<
+    Component['Data'],
+    Component['Methods'],
+    Component['Computed'],
+    Component['Props']
 >({
     name: 'toplist',
     components: {
@@ -173,23 +149,6 @@ export default Vue.extend<
         };
     },
     methods: {
-        $sm(
-            key: string,
-            args?: {
-                [key: string]: unknown;
-            }
-        ) {
-            return this.$m(`toplist.${key}`, args);
-        },
-        $smc(
-            key: string,
-            amount: number,
-            args?: {
-                [key: string]: unknown;
-            }
-        ) {
-            return this.$mc(`toplist.${key}`, amount, args);
-        },
         setSort(type) {
             if (this.sort === type) {
                 this.sortDir = this.sortDir === 'asc' ? 'desc' : 'asc';
@@ -354,14 +313,6 @@ export default Vue.extend<
             type: Object,
             required: true,
         },
-        $m: {
-            type: Function,
-            required: true,
-        },
-        $mc: {
-            type: Function,
-            required: true,
-        },
         getSetting: {
             type: Function,
             required: true,
@@ -386,9 +337,9 @@ export default Vue.extend<
         // });
         this.head = {
             image: { title: '', noSort: true },
-            credits: { title: this.$sm('credits').toString() },
-            name: { title: this.$sm('name').toString() },
-            alliance: { title: this.$sm('alliance').toString() },
+            credits: { title: this.lightbox.$sm('credits').toString() },
+            name: { title: this.lightbox.$sm('name').toString() },
+            alliance: { title: this.lightbox.$sm('alliance').toString() },
         };
     },
     mounted() {
@@ -406,7 +357,7 @@ export default Vue.extend<
         );
         this.startPage = this.page;
         this.endPage = this.page;
-        document.title = this.$sm('title').toString();
+        document.title = this.lightbox.$sm('title').toString();
         this.lightbox.finishLoading('toplist-mounted');
     },
 });

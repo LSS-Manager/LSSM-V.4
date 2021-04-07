@@ -10,7 +10,7 @@
                     <table class="table">
                         <tbody>
                             <tr v-if="vehicle.user">
-                                <th>{{ $sm('owner') }}</th>
+                                <th>{{ lightbox.$sm('owner') }}</th>
                                 <td colspan="2">
                                     <a :href="`/profile/${vehicle.user.id}`">
                                         <img
@@ -22,7 +22,7 @@
                                                 }.png`
                                             "
                                             :alt="
-                                                $sm(
+                                                lightbox.$sm(
                                                     vehicle.user.online
                                                         ? 'online'
                                                         : 'offline',
@@ -35,7 +35,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <th>{{ $sm('station') }}</th>
+                                <th>{{ lightbox.$sm('station') }}</th>
                                 <td :colspan="vehicle.can_move ? 1 : 2">
                                     <a
                                         :href="
@@ -50,12 +50,12 @@
                                         :href="`/vehicles/${vehicle.id}/move`"
                                         class="btn btn-default btn-xs"
                                     >
-                                        {{ $sm('move') }}
+                                        {{ lightbox.$sm('move') }}
                                     </a>
                                 </td>
                             </tr>
                             <tr>
-                                <th>{{ $sm('vehicletype') }}</th>
+                                <th>{{ lightbox.$sm('vehicletype') }}</th>
                                 <td>
                                     {{ vehicle.vehicle_type.caption }}
                                 </td>
@@ -71,7 +71,7 @@
                                             }`
                                         "
                                         class="btn btn-default btn-xs"
-                                        :title="$sm('color')"
+                                        :title="lightbox.$sm('color')"
                                     >
                                         <font-awesome-icon
                                             :icon="faPalette"
@@ -80,7 +80,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <th>{{ $sm('fms') }}</th>
+                                <th>{{ lightbox.$sm('fms') }}</th>
                                 <td>
                                     <span
                                         class="building_list_fms"
@@ -102,7 +102,7 @@
                                         class="btn btn-default btn-xs"
                                         @click="backalarm"
                                     >
-                                        {{ $sm('backalarm') }}
+                                        {{ lightbox.$sm('backalarm') }}
                                     </button>
                                     <button
                                         v-if="
@@ -113,13 +113,15 @@
                                         @click="switch_state"
                                     >
                                         {{
-                                            $sm(`fms_switch.is_s${vehicle.fms}`)
+                                            lightbox.$sm(
+                                                `fms_switch.is_s${vehicle.fms}`
+                                            )
                                         }}
                                     </button>
                                 </td>
                             </tr>
                             <tr>
-                                <th>{{ $sm('max_staff') }}</th>
+                                <th>{{ lightbox.$sm('max_staff') }}</th>
                                 <td colspan="2">
                                     {{ vehicle.max_staff }}
                                 </td>
@@ -131,7 +133,7 @@
                                         @click="release('patient')"
                                         class="btn btn-default btn-xs btn-sm"
                                     >
-                                        {{ $sm('release_patient') }}
+                                        {{ lightbox.$sm('release_patient') }}
                                     </button>
                                 </td>
                             </tr>
@@ -142,24 +144,24 @@
                                         @click="release('prisoner')"
                                         class="btn btn-default btn-xs btn-sm"
                                     >
-                                        {{ $sm('release_prisoner') }}
+                                        {{ lightbox.$sm('release_prisoner') }}
                                     </button>
                                 </td>
                             </tr>
                             <tr v-if="vehicle.water_amount">
-                                <th>{{ $sm('water_amount') }}</th>
+                                <th>{{ lightbox.$sm('water_amount') }}</th>
                                 <td colspan="2">
                                     {{ vehicle.water_amount }}
                                 </td>
                             </tr>
                             <tr>
-                                <th>{{ $sm('mileage') }}</th>
+                                <th>{{ lightbox.$sm('mileage') }}</th>
                                 <td colspan="2">
                                     {{ vehicle.mileage }}
                                 </td>
                             </tr>
                             <tr v-if="vehicle.current_mission">
-                                <th>{{ $sm('current_mission') }}</th>
+                                <th>{{ lightbox.$sm('current_mission') }}</th>
                                 <td colspan="2">
                                     <a
                                         :href="
@@ -173,7 +175,7 @@
                             <tr v-if="vehicle.followup_missions.length">
                                 <th>
                                     {{
-                                        $smc(
+                                        lightbox.$smc(
                                             'followup_missions',
                                             vehicle.followup_missions.length
                                         )
@@ -197,14 +199,24 @@
                                 </td>
                             </tr>
                             <tr v-if="Object.keys(vehicle.staff).length">
-                                <th>{{ $sm('staff.title') }}</th>
+                                <th>{{ lightbox.$sm('staff.title') }}</th>
                                 <td colspan="2">
                                     <table class="table">
                                         <thead>
                                             <tr>
-                                                <th>{{ $sm('staff.name') }}</th>
                                                 <th>
-                                                    {{ $sm('staff.schooling') }}
+                                                    {{
+                                                        lightbox.$sm(
+                                                            'staff.name'
+                                                        )
+                                                    }}
+                                                </th>
+                                                <th>
+                                                    {{
+                                                        lightbox.$sm(
+                                                            'staff.schooling'
+                                                        )
+                                                    }}
                                                 </th>
                                             </tr>
                                         </thead>
@@ -229,14 +241,14 @@
                     <a
                         :href="`/vehicles/${vehicle.id}/edit`"
                         class="btn btn-default"
-                        :title="$sm('edit')"
+                        :title="lightbox.$sm('edit')"
                     >
                         <font-awesome-icon :icon="faEdit"></font-awesome-icon>
                     </a>
                     <a
                         :href="`/vehicles/${vehicle.id}/stats`"
                         class="btn btn-default"
-                        :title="$sm('stats')"
+                        :title="lightbox.$sm('stats')"
                     >
                         <font-awesome-icon
                             :icon="faChartLine"
@@ -245,17 +257,17 @@
                     <a
                         :href="`/vehicles/${vehicle.id}/zuweisung`"
                         class="btn btn-default"
-                        :title="$sm('zuweisung')"
+                        :title="lightbox.$sm('zuweisung')"
                     >
                         <font-awesome-icon :icon="faUsers"></font-awesome-icon>
-                        {{ $sm('zuweisung') }}
+                        {{ lightbox.$sm('zuweisung') }}
                     </a>
 
                     <button
                         class="btn btn-danger"
                         @click="deleteVehicle"
                         v-if="vehicle.fms === 2"
-                        :title="$sm('delete.button')"
+                        :title="lightbox.$sm('delete.button')"
                     >
                         <font-awesome-icon :icon="faTrash"></font-awesome-icon>
                     </button>
@@ -275,8 +287,8 @@
                     <tab
                         v-for="group in ['own', 'alliance', 'all']"
                         :title="
-                            $sm(`tabs.${group}`, {
-                                type: $sm('tabs.missions'),
+                            lightbox.$sm(`tabs.${group}`, {
+                                type: lightbox.$sm('tabs.missions'),
                                 amount: (group === 'own'
                                     ? vehicle.mission_own.length
                                     : group === 'alliance'
@@ -300,30 +312,30 @@
                     <template v-slot:head>
                         <div class="form-group">
                             <label>{{
-                                $sm('filter.missions.status.title')
+                                lightbox.$sm('filter.missions.status.title')
                             }}</label>
                             <multi-select
                                 name="mission_status"
                                 :placeholder="
-                                    $sm('filter.missions.status.title')
+                                    lightbox.$sm('filter.missions.status.title')
                                 "
                                 v-model="filter.mission.status"
                                 :options="[
                                     {
                                         value: 'red',
-                                        label: $sm(
+                                        label: lightbox.$sm(
                                             'filter.missions.status.red'
                                         ),
                                     },
                                     {
                                         value: 'yellow',
-                                        label: $sm(
+                                        label: lightbox.$sm(
                                             'filter.missions.status.yellow'
                                         ),
                                     },
                                     {
                                         value: 'green',
-                                        label: $sm(
+                                        label: lightbox.$sm(
                                             'filter.missions.status.green'
                                         ),
                                     },
@@ -338,22 +350,26 @@
                         </div>
                         <div class="form-group">
                             <label>{{
-                                $sm('filter.missions.participation.title')
+                                lightbox.$sm(
+                                    'filter.missions.participation.title'
+                                )
                             }}</label>
                             <multi-select
                                 name="mission_participation"
                                 :placeholder="
-                                    $sm('filter.missions.participation.title')
+                                    lightbox.$sm(
+                                        'filter.missions.participation.title'
+                                    )
                                 "
                                 v-model="filter.mission.participation"
                                 :options="[
                                     {
                                         value: true,
-                                        label: $sm('true'),
+                                        label: lightbox.$sm('true'),
                                     },
                                     {
                                         value: false,
-                                        label: $sm('false'),
+                                        label: lightbox.$sm('false'),
                                     },
                                 ]"
                                 @input="
@@ -365,10 +381,14 @@
                             ></multi-select>
                         </div>
                         <div class="form-group">
-                            <label>{{ $sm('filter.missions.distance') }}</label>
+                            <label>{{
+                                lightbox.$sm('filter.missions.distance')
+                            }}</label>
                             <settings-number
                                 name="mission_distance"
-                                :placeholder="$sm('filter.missions.distance')"
+                                :placeholder="
+                                    lightbox.$sm('filter.missions.distance')
+                                "
                                 v-model="filter.mission.distance"
                                 :min="0"
                                 @input="
@@ -380,10 +400,14 @@
                             ></settings-number>
                         </div>
                         <div class="form-group">
-                            <label>{{ $sm('filter.missions.credits') }}</label>
+                            <label>{{
+                                lightbox.$sm('filter.missions.credits')
+                            }}</label>
                             <settings-number
                                 name="mission_credits"
-                                :placeholder="$sm('filter.missions.credits')"
+                                :placeholder="
+                                    lightbox.$sm('filter.missions.credits')
+                                "
                                 v-model="filter.mission.credits"
                                 :min="0"
                                 @input="
@@ -395,10 +419,14 @@
                             ></settings-number>
                         </div>
                         <div class="form-group">
-                            <label>{{ $sm('filter.missions.progress') }}</label>
+                            <label>{{
+                                lightbox.$sm('filter.missions.progress')
+                            }}</label>
                             <settings-number
                                 name="mission_progress"
-                                :placeholder="$sm('filter.missions.progress')"
+                                :placeholder="
+                                    lightbox.$sm('filter.missions.progress')
+                                "
                                 v-model="filter.mission.progress"
                                 :min="0"
                                 :max="100"
@@ -491,7 +519,7 @@
                                 @click.prevent="alarm(mission.id)"
                                 class="btn btn-success"
                             >
-                                {{ $sm('missions.alarm') }}
+                                {{ lightbox.$sm('missions.alarm') }}
                             </button>
                             <br />
                             <span
@@ -502,7 +530,7 @@
                                             vehicle.current_mission.id
                                 "
                             >
-                                {{ $sm('missions.alarmed') }}
+                                {{ lightbox.$sm('missions.alarmed') }}
                             </span>
                         </td>
                     </tr>
@@ -516,8 +544,8 @@
                     <tab
                         v-for="group in ['own', 'alliance', 'all']"
                         :title="
-                            $sm(`tabs.${group}`, {
-                                type: $sm('tabs.hospitals'),
+                            lightbox.$sm(`tabs.${group}`, {
+                                type: lightbox.$sm('tabs.hospitals'),
                                 amount: (group === 'own'
                                     ? vehicle.own_hospitals.length
                                     : group === 'alliance'
@@ -540,10 +568,14 @@
                 >
                     <template v-slot:head>
                         <div class="form-group">
-                            <label>{{ $sm('filter.hospitals.each') }}</label>
+                            <label>{{
+                                lightbox.$sm('filter.hospitals.each')
+                            }}</label>
                             <settings-number
                                 name="hospital_each"
-                                :placeholder="$sm('filter.hospitals.each')"
+                                :placeholder="
+                                    lightbox.$sm('filter.hospitals.each')
+                                "
                                 v-model="filter.hospital.each"
                                 :min="0"
                                 @input="
@@ -556,11 +588,13 @@
                         </div>
                         <div class="form-group">
                             <label>{{
-                                $sm('filter.hospitals.distance')
+                                lightbox.$sm('filter.hospitals.distance')
                             }}</label>
                             <settings-number
                                 name="hospital_distance"
-                                :placeholder="$sm('filter.hospitals.distance')"
+                                :placeholder="
+                                    lightbox.$sm('filter.hospitals.distance')
+                                "
                                 v-model="filter.hospital.distance"
                                 :min="0"
                                 @input="
@@ -572,10 +606,14 @@
                             ></settings-number>
                         </div>
                         <div class="form-group">
-                            <label>{{ $sm('filter.hospitals.beds') }}</label>
+                            <label>{{
+                                lightbox.$sm('filter.hospitals.beds')
+                            }}</label>
                             <settings-number
                                 name="hospital_beds"
-                                :placeholder="$sm('filter.hospitals.beds')"
+                                :placeholder="
+                                    lightbox.$sm('filter.hospitals.beds')
+                                "
                                 v-model="filter.hospital.beds"
                                 :min="0"
                                 :max="30"
@@ -588,10 +626,14 @@
                             ></settings-number>
                         </div>
                         <div class="form-group">
-                            <label>{{ $sm('filter.hospitals.tax') }}</label>
+                            <label>{{
+                                lightbox.$sm('filter.hospitals.tax')
+                            }}</label>
                             <settings-number
                                 name="hospital_tax"
-                                :placeholder="$sm('filter.hospitals.tax')"
+                                :placeholder="
+                                    lightbox.$sm('filter.hospitals.tax')
+                                "
                                 v-model="filter.hospital.tax"
                                 :min="0"
                                 :max="50"
@@ -606,26 +648,33 @@
                         </div>
                         <div class="form-group">
                             <label>{{
-                                $sm('filter.hospitals.department.title', {
-                                    department: vehicle.hospital_department,
-                                })
+                                lightbox.$sm(
+                                    'filter.hospitals.department.title',
+                                    {
+                                        department: vehicle.hospital_department,
+                                    }
+                                )
                             }}</label>
                             <multi-select
                                 name="hospital_department"
                                 :placeholder="
-                                    $sm('filter.hospitals.department.title', {
-                                        department: vehicle.hospital_department,
-                                    })
+                                    lightbox.$sm(
+                                        'filter.hospitals.department.title',
+                                        {
+                                            department:
+                                                vehicle.hospital_department,
+                                        }
+                                    )
                                 "
                                 v-model="filter.hospital.department"
                                 :options="[
                                     {
                                         value: true,
-                                        label: $sm('true'),
+                                        label: lightbox.$sm('true'),
                                     },
                                     {
                                         value: false,
-                                        label: $sm('false'),
+                                        label: lightbox.$sm('false'),
                                     },
                                 ]"
                                 @input="
@@ -673,7 +722,7 @@
                                     }`
                                 "
                             >
-                                {{ $sm(hospital.department) }}
+                                {{ lightbox.$sm(hospital.department) }}
                             </span>
                         </td>
                         <td>
@@ -687,7 +736,7 @@
                                 :class="`btn-${hospital.state}`"
                                 :disabled="hospital.state === 'danger'"
                             >
-                                {{ $sm('approach') }}
+                                {{ lightbox.$sm('approach') }}
                             </button>
                         </td>
                     </tr>
@@ -701,8 +750,8 @@
                     <tab
                         v-for="group in ['own', 'alliance', 'all']"
                         :title="
-                            $sm(`tabs.${group}`, {
-                                type: $sm('tabs.cells'),
+                            lightbox.$sm(`tabs.${group}`, {
+                                type: lightbox.$sm('tabs.cells'),
                                 amount: (group === 'own'
                                     ? vehicle.own_cells.length
                                     : group === 'alliance'
@@ -725,10 +774,12 @@
                 >
                     <template v-slot:head>
                         <div class="form-group">
-                            <label>{{ $sm('filter.cells.each') }}</label>
+                            <label>{{
+                                lightbox.$sm('filter.cells.each')
+                            }}</label>
                             <settings-number
                                 name="cell_each"
-                                :placeholder="$sm('filter.cells.each')"
+                                :placeholder="lightbox.$sm('filter.cells.each')"
                                 v-model="filter.cell.each"
                                 :min="0"
                                 @input="
@@ -737,10 +788,14 @@
                             ></settings-number>
                         </div>
                         <div class="form-group">
-                            <label>{{ $sm('filter.cells.distance') }}</label>
+                            <label>{{
+                                lightbox.$sm('filter.cells.distance')
+                            }}</label>
                             <settings-number
                                 name="cell_distance"
-                                :placeholder="$sm('filter.cells.distance')"
+                                :placeholder="
+                                    lightbox.$sm('filter.cells.distance')
+                                "
                                 v-model="filter.cell.distance"
                                 :min="0"
                                 @input="
@@ -752,10 +807,12 @@
                             ></settings-number>
                         </div>
                         <div class="form-group">
-                            <label>{{ $sm('filter.cells.free') }}</label>
+                            <label>{{
+                                lightbox.$sm('filter.cells.free')
+                            }}</label>
                             <settings-number
                                 name="cell_free"
-                                :placeholder="$sm('filter.cells.free')"
+                                :placeholder="lightbox.$sm('filter.cells.free')"
                                 v-model="filter.cell.free"
                                 :min="0"
                                 :max="30"
@@ -765,10 +822,12 @@
                             ></settings-number>
                         </div>
                         <div class="form-group">
-                            <label>{{ $sm('filter.cells.tax') }}</label>
+                            <label>{{
+                                lightbox.$sm('filter.cells.tax')
+                            }}</label>
                             <settings-number
                                 name="cell_tax"
-                                :placeholder="$sm('filter.cells.tax')"
+                                :placeholder="lightbox.$sm('filter.cells.tax')"
                                 v-model="filter.cell.tax"
                                 :min="0"
                                 :max="50"
@@ -815,7 +874,7 @@
                                 :class="`btn-${cell.state}`"
                                 :disabled="cell.state === 'danger'"
                             >
-                                {{ $sm('approach') }}
+                                {{ lightbox.$sm('approach') }}
                             </button>
                         </td>
                     </tr>
@@ -836,19 +895,21 @@
                 >
                     <template v-slot:head>
                         <div class="form-group">
-                            <label>{{ $sm('filter.wlf.same') }}</label>
+                            <label>{{ lightbox.$sm('filter.wlf.same') }}</label>
                             <multi-select
                                 name="wlf_same"
-                                :placeholder="$sm('filter.wlf.same.title')"
+                                :placeholder="
+                                    lightbox.$sm('filter.wlf.same.title')
+                                "
                                 v-model="filter.wlf.same"
                                 :options="[
                                     {
                                         value: true,
-                                        label: $sm('true'),
+                                        label: lightbox.$sm('true'),
                                     },
                                     {
                                         value: false,
-                                        label: $sm('false'),
+                                        label: lightbox.$sm('false'),
                                     },
                                 ]"
                                 @input="
@@ -857,10 +918,14 @@
                             ></multi-select>
                         </div>
                         <div class="form-group">
-                            <label>{{ $sm('filter.wlf.distance') }}</label>
+                            <label>{{
+                                lightbox.$sm('filter.wlf.distance')
+                            }}</label>
                             <settings-number
                                 name="wlf_distance"
-                                :placeholder="$sm('filter.wlf.distance')"
+                                :placeholder="
+                                    lightbox.$sm('filter.wlf.distance')
+                                "
                                 v-model="filter.wlf.distance"
                                 :min="0"
                                 @input="
@@ -897,7 +962,7 @@
                                     }`
                                 "
                             >
-                                {{ $sm(wlf.building.same) }}
+                                {{ lightbox.$sm(wlf.building.same) }}
                             </span>
                         </td>
                         <td>
@@ -907,7 +972,7 @@
                                 "
                                 class="btn btn-success"
                             >
-                                {{ $sm('wlf.alarm') }}
+                                {{ lightbox.$sm('wlf.alarm') }}
                             </button>
                         </td>
                     </tr>
@@ -969,10 +1034,12 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons/faTrash';
 import { VehicleWindow } from '../parsers/vehicle';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { Vehicle } from 'typings/Vehicle';
-import VueI18n from 'vue-i18n';
-import { RedesignLightboxVue } from 'typings/modules/Redesign';
+import { RedesignComponent } from 'typings/modules/Redesign';
 
-export default Vue.extend<
+type Component = RedesignComponent<
+    'vehicle',
+    'vehicle',
+    VehicleWindow,
     {
         faSitemap: IconDefinition;
         faPortrait: IconDefinition;
@@ -1024,19 +1091,6 @@ export default Vue.extend<
         };
     },
     {
-        $sm(
-            key: string,
-            args?: {
-                [key: string]: unknown;
-            }
-        ): VueI18n.TranslateResult;
-        $smc(
-            key: string,
-            amount: number,
-            args?: {
-                [key: string]: unknown;
-            }
-        ): VueI18n.TranslateResult;
         setMissionList(_: unknown, group: number): void;
         setHospitalList(_: unknown, group: number): void;
         setCellList(_: unknown, group: number): void;
@@ -1087,27 +1141,14 @@ export default Vue.extend<
         };
         wlfListFiltered: VehicleWindow['wlfs'];
         wlfListSorted: VehicleWindow['wlfs'];
-    },
-    {
-        vehicle: VehicleWindow;
-        url: string;
-        lightbox: RedesignLightboxVue<'vehicle', VehicleWindow>;
-        $m(
-            key: string,
-            args?: {
-                [key: string]: unknown;
-            }
-        ): VueI18n.TranslateResult;
-        $mc(
-            key: string,
-            amount: number,
-            args?: {
-                [key: string]: unknown;
-            }
-        ): VueI18n.TranslateResult;
-        getSetting: <T>(setting: string, defaultValue: T) => Promise<T>;
-        setSetting: <T>(settingId: string, value: T) => Promise<void>;
     }
+>;
+
+export default Vue.extend<
+    Component['Data'],
+    Component['Methods'],
+    Component['Computed'],
+    Component['Props']
 >({
     name: 'vehicle-lightbox',
     components: {
@@ -1190,22 +1231,24 @@ export default Vue.extend<
                 ...(this.missionListSrc === 2 ? { list: { title: '' } } : {}),
                 img: { title: '' },
                 participation: {
-                    title: this.$sm('missions.participation').toString(),
+                    title: this.lightbox
+                        .$sm('missions.participation')
+                        .toString(),
                 },
                 mission: {
-                    title: this.$sm('missions.mission').toString(),
+                    title: this.lightbox.$sm('missions.mission').toString(),
                 },
                 distance: {
-                    title: this.$sm('distance').toString(),
+                    title: this.lightbox.$sm('distance').toString(),
                 },
                 credits: {
-                    title: this.$sm('missions.credits').toString(),
+                    title: this.lightbox.$sm('missions.credits').toString(),
                 },
                 progress: {
-                    title: this.$sm('missions.progress').toString(),
+                    title: this.lightbox.$sm('missions.progress').toString(),
                 },
                 patients: {
-                    title: this.$sm('missions.patients').toString(),
+                    title: this.lightbox.$sm('missions.patients').toString(),
                 },
                 alarm: {
                     title: '',
@@ -1298,21 +1341,23 @@ export default Vue.extend<
             return {
                 ...(this.hospitalListSrc === 2 ? { list: { title: '' } } : {}),
                 caption: {
-                    title: this.$sm('hospitals.hospital').toString(),
+                    title: this.lightbox.$sm('hospitals.hospital').toString(),
                 },
                 distance: {
-                    title: this.$sm('distance').toString(),
+                    title: this.lightbox.$sm('distance').toString(),
                 },
                 beds: {
-                    title: this.$sm('hospitals.beds').toString(),
+                    title: this.lightbox.$sm('hospitals.beds').toString(),
                 },
                 ...(this.hospitalListSrc
-                    ? { tax: { title: this.$sm('tax').toString() } }
+                    ? { tax: { title: this.lightbox.$sm('tax').toString() } }
                     : {}),
                 department: {
-                    title: this.$sm('hospitals.department', {
-                        department: this.vehicle.hospital_department,
-                    }).toString(),
+                    title: this.lightbox
+                        .$sm('hospitals.department', {
+                            department: this.vehicle.hospital_department,
+                        })
+                        .toString(),
                 },
                 dispatch: {
                     title: '',
@@ -1384,16 +1429,16 @@ export default Vue.extend<
             return {
                 ...(this.cellListSrc === 2 ? { list: { title: '' } } : {}),
                 caption: {
-                    title: this.$sm('cells.cell').toString(),
+                    title: this.lightbox.$sm('cells.cell').toString(),
                 },
                 distance: {
-                    title: this.$sm('distance').toString(),
+                    title: this.lightbox.$sm('distance').toString(),
                 },
                 free: {
-                    title: this.$sm('cells.free').toString(),
+                    title: this.lightbox.$sm('cells.free').toString(),
                 },
                 ...(this.cellListSrc
-                    ? { tax: { title: this.$sm('tax').toString() } }
+                    ? { tax: { title: this.lightbox.$sm('tax').toString() } }
                     : {}),
                 dispatch: {
                     title: '',
@@ -1462,18 +1507,20 @@ export default Vue.extend<
         wlf_head() {
             return {
                 vehicle: {
-                    title: this.$sm('wlf.caption').toString(),
+                    title: this.lightbox.$sm('wlf.caption').toString(),
                 },
                 distance: {
-                    title: this.$sm('distance').toString(),
+                    title: this.lightbox.$sm('distance').toString(),
                 },
                 building: {
-                    title: this.$sm('wlf.building').toString(),
+                    title: this.lightbox.$sm('wlf.building').toString(),
                 },
                 same: {
-                    title: this.$sm('wlf.same', {
-                        building: this.vehicle.building.caption,
-                    }).toString(),
+                    title: this.lightbox
+                        .$sm('wlf.same', {
+                            building: this.vehicle.building.caption,
+                        })
+                        .toString(),
                 },
                 dispatch: { title: '', noSort: true },
             };
@@ -1522,23 +1569,6 @@ export default Vue.extend<
         },
     },
     methods: {
-        $sm(
-            key: string,
-            args?: {
-                [key: string]: unknown;
-            }
-        ) {
-            return this.$m(`vehicle.${key}`, args);
-        },
-        $smc(
-            key: string,
-            amount: number,
-            args?: {
-                [key: string]: unknown;
-            }
-        ) {
-            return this.$mc(`vehicle.${key}`, amount, args);
-        },
         setMissionList(_, list) {
             this.setSetting('missionListSrc', list).then();
             this.missionListSrc = list;
@@ -1618,21 +1648,21 @@ export default Vue.extend<
             // eslint-disable-next-line @typescript-eslint/no-this-alias
             const LSSM = this;
             this.$modal.show('dialog', {
-                title: this.$sm('delete.title'),
-                text: this.$sm('delete.text', {
+                title: this.lightbox.$sm('delete.title'),
+                text: this.lightbox.$sm('delete.text', {
                     caption: this.vehicle.vehicle_name,
                     building: this.vehicle.building.caption,
                 }),
                 buttons: [
                     {
-                        title: this.$sm('delete.cancel'),
+                        title: this.lightbox.$sm('delete.cancel'),
                         default: true,
                         handler() {
                             LSSM.$modal.hide('dialog');
                         },
                     },
                     {
-                        title: this.$sm('delete.confirm'),
+                        title: this.lightbox.$sm('delete.confirm'),
                         async handler() {
                             const url = new URL(
                                 `/vehicles/${LSSM.vehicle.id}`,
@@ -1738,18 +1768,18 @@ export default Vue.extend<
             // eslint-disable-next-line @typescript-eslint/no-this-alias
             const LSSM = this;
             this.$modal.show('dialog', {
-                title: this.$sm(`release.${type}.title`),
-                text: this.$sm(`release.${type}.text`),
+                title: this.lightbox.$sm(`release.${type}.title`),
+                text: this.lightbox.$sm(`release.${type}.text`),
                 buttons: [
                     {
-                        title: this.$sm('release.cancel'),
+                        title: this.lightbox.$sm('release.cancel'),
                         default: true,
                         handler() {
                             LSSM.$modal.hide('dialog');
                         },
                     },
                     {
-                        title: this.$sm('release.confirm'),
+                        title: this.lightbox.$sm('release.confirm'),
                         async handler() {
                             if (type === 'patient') {
                                 LSSM.$set(
@@ -1813,14 +1843,6 @@ export default Vue.extend<
         },
         lightbox: {
             type: Object,
-            required: true,
-        },
-        $m: {
-            type: Function,
-            required: true,
-        },
-        $mc: {
-            type: Function,
             required: true,
         },
         getSetting: {

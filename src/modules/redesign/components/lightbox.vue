@@ -15,30 +15,22 @@
                 :alliances="data"
                 :url="urlProp"
                 :lightbox="this"
-                :$m="$m"
-                :$mc="$mc"
                 :get-setting="getSetting()"
                 :set-setting="setSetting()"
-                :type="type"
             ></Alliances>
             <Avatar
                 v-else-if="type === 'avatar'"
                 :profile="data"
                 :url="urlProp"
                 :lightbox="this"
-                :$m="$m"
-                :$mc="$mc"
                 :get-setting="getSetting()"
                 :set-setting="setSetting()"
-                :type="type"
             ></Avatar>
             <Credits
                 v-else-if="type.startsWith('credits/') || type === 'coins/list'"
                 :data="data"
                 :url="urlProp"
                 :lightbox="this"
-                :$m="$m"
-                :$mc="$mc"
                 :get-setting="getSetting()"
                 :set-setting="setSetting()"
                 :type="type"
@@ -48,41 +40,30 @@
                 :profile="data"
                 :url="urlProp"
                 :lightbox="this"
-                :$m="$m"
-                :$mc="$mc"
                 :get-setting="getSetting()"
                 :set-setting="setSetting()"
-                :type="type"
             ></Profile>
             <ProfileEdit
                 v-else-if="type === 'profile/edit'"
                 :profile="data"
                 :url="urlProp"
                 :lightbox="this"
-                :$m="$m"
-                :$mc="$mc"
                 :get-setting="getSetting()"
                 :set-setting="setSetting()"
-                :type="type"
             ></ProfileEdit>
             <Toplist
                 v-else-if="type === 'toplist'"
                 :toplist="data"
                 :url="urlProp"
                 :lightbox="this"
-                :$m="$m"
-                :$mc="$mc"
                 :get-setting="getSetting()"
                 :set-setting="setSetting()"
-                :type="type"
             ></Toplist>
             <Vehicle
                 v-else-if="type === 'vehicle'"
                 :vehicle="data"
                 :url="urlProp"
                 :lightbox="this"
-                :$m="$m"
-                :$mc="$mc"
                 :get-setting="getSetting()"
                 :set-setting="setSetting()"
             ></Vehicle>
@@ -91,8 +72,6 @@
                 :data="data"
                 :url="urlProp"
                 :lightbox="this"
-                :$m="$m"
-                :$mc="$mc"
                 :get-setting="getSetting()"
                 :set-setting="setSetting()"
                 :type="type"
@@ -325,6 +304,23 @@ export default Vue.extend<
         },
     },
     methods: {
+        $sm(
+            key: string,
+            args?: {
+                [key: string]: unknown;
+            }
+        ) {
+            return this.$m(`${this.type}.${key}`, args);
+        },
+        $smc(
+            key: string,
+            amount: number,
+            args?: {
+                [key: string]: unknown;
+            }
+        ) {
+            return this.$mc(`${this.type}.${key}`, amount, args);
+        },
         getSetting() {
             return <T>(setting: string, defaultValue: T): Promise<T> =>
                 new Promise(resolve =>

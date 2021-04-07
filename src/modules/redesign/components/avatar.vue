@@ -1,8 +1,8 @@
 <template>
     <div>
-        <h1>{{ $sm('title') }}</h1>
+        <h1>{{ lightbox.$sm('title') }}</h1>
         <div class="well pull-right" v-if="profile.image">
-            <b>{{ $sm('current') }}</b>
+            <b>{{ lightbox.$sm('current') }}</b>
             <button class="btn btn-danger pull-right" @click="deleteAvatar">
                 <font-awesome-icon :icon="faTrash"></font-awesome-icon>
             </button>
@@ -10,13 +10,13 @@
             <img :src="profile.image" alt="" loading="lazy" />
         </div>
         <button @click="select" class="btn btn-success">
-            {{ $sm('select') }}
+            {{ lightbox.$sm('select') }}
         </button>
         <button @click="submit" class="btn btn-success" :disabled="!imageFile">
-            {{ $sm('save') }}
+            {{ lightbox.$sm('save') }}
         </button>
         <br />
-        <b v-if="image">{{ $sm('preview') }}:</b>
+        <b v-if="image">{{ lightbox.$sm('preview') }}:</b>
         <br />
         <img :src="image" alt="" />
     </div>
@@ -24,14 +24,15 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import VueI18n from 'vue-i18n';
 import { faTrash } from '@fortawesome/free-solid-svg-icons/faTrash';
 import { AvatarWindow } from '../parsers/avatar';
-import { RedesignLightboxVue } from 'typings/modules/Redesign';
-import { DefaultComputed } from 'vue/types/options';
+import { RedesignComponent } from 'typings/modules/Redesign';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 
-export default Vue.extend<
+type Component = RedesignComponent<
+    'profile',
+    'avatar',
+    AvatarWindow,
     {
         faTrash: IconDefinition;
         image: string;
@@ -39,44 +40,17 @@ export default Vue.extend<
         input: HTMLInputElement;
     },
     {
-        $sm(
-            key: string,
-            args?: {
-                [key: string]: unknown;
-            }
-        ): VueI18n.TranslateResult;
-        $smc(
-            key: string,
-            amount: number,
-            args?: {
-                [key: string]: unknown;
-            }
-        ): VueI18n.TranslateResult;
         submit(): void;
         deleteAvatar(): void;
         select(): void;
-    },
-    DefaultComputed,
-    {
-        profile: AvatarWindow;
-        url: string;
-        lightbox: RedesignLightboxVue<'avatar', AvatarWindow>;
-        $m(
-            key: string,
-            args?: {
-                [key: string]: unknown;
-            }
-        ): VueI18n.TranslateResult;
-        $mc(
-            key: string,
-            amount: number,
-            args?: {
-                [key: string]: unknown;
-            }
-        ): VueI18n.TranslateResult;
-        getSetting: <T>(setting: string, defaultValue: T) => Promise<T>;
-        setSetting: <T>(settingId: string, value: T) => Promise<void>;
     }
+>;
+
+export default Vue.extend<
+    Component['Data'],
+    Component['Methods'],
+    Component['Computed'],
+    Component['Props']
 >({
     name: 'avatar-edit',
     data() {
@@ -91,23 +65,6 @@ export default Vue.extend<
         };
     },
     methods: {
-        $sm(
-            key: string,
-            args?: {
-                [key: string]: unknown;
-            }
-        ) {
-            return this.$m(`avatar.${key}`, args);
-        },
-        $smc(
-            key: string,
-            amount: number,
-            args?: {
-                [key: string]: unknown;
-            }
-        ) {
-            return this.$mc(`avatar.${key}`, amount, args);
-        },
         submit() {
             if (!this.imageFile) return;
             const formData = new FormData();
@@ -210,14 +167,6 @@ export default Vue.extend<
             type: Object,
             required: true,
         },
-        $m: {
-            type: Function,
-            required: true,
-        },
-        $mc: {
-            type: Function,
-            required: true,
-        },
         getSetting: {
             type: Function,
             required: true,
@@ -254,7 +203,7 @@ export default Vue.extend<
             };
             reader.readAsDataURL(this.input.files[0]);
         };
-        document.title = this.$sm('title').toString();
+        document.title = this.lightbox.$sm('title').toString();
         this.lightbox.finishLoading('avatar-edit-mounted');
     },
 });

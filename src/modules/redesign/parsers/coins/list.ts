@@ -1,4 +1,4 @@
-import { RedesignParser } from 'typings/modules/Redesign';
+import { RedesignParserSrcOnly } from 'typings/modules/Redesign';
 
 interface Entry {
     amount: number;
@@ -11,7 +11,7 @@ export interface CoinsListWindow {
     lastPage: number;
 }
 
-export default <RedesignParser<CoinsListWindow>>(source => {
+export default <RedesignParserSrcOnly<CoinsListWindow>>(source => {
     const doc = new DOMParser().parseFromString(source, 'text/html');
     const getNum = (el: Element | null) =>
         parseInt(

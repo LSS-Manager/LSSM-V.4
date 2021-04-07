@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>{{ $sm('title') }}</h1>
+        <h1>{{ lightbox.$sm('title') }}</h1>
         <label>
             <textarea
                 class="form-control"
@@ -10,80 +10,36 @@
             />
         </label>
         <button @click="submit" class="btn btn-success">
-            {{ $sm('save') }}
+            {{ lightbox.$sm('save') }}
         </button>
     </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
-import VueI18n from 'vue-i18n';
 import { ProfileEditWindow } from '../../parsers/profile/edit';
-import { RedesignLightboxVue } from 'typings/modules/Redesign';
-import { DefaultComputed, DefaultData } from 'vue/types/options';
+import { RedesignComponent } from 'typings/modules/Redesign';
+import { DefaultData } from 'vue/types/options';
+
+type Component = RedesignComponent<
+    'profile',
+    'profile/edit',
+    ProfileEditWindow,
+    DefaultData<Vue>,
+    { submit(): void }
+>;
 
 export default Vue.extend<
-    DefaultData<Vue>,
-    {
-        $sm(
-            key: string,
-            args?: {
-                [key: string]: unknown;
-            }
-        ): VueI18n.TranslateResult;
-        $smc(
-            key: string,
-            amount: number,
-            args?: {
-                [key: string]: unknown;
-            }
-        ): VueI18n.TranslateResult;
-        submit(): void;
-    },
-    DefaultComputed,
-    {
-        profile: ProfileEditWindow;
-        url: string;
-        lightbox: RedesignLightboxVue<'profile/edit', ProfileEditWindow>;
-        $m(
-            key: string,
-            args?: {
-                [key: string]: unknown;
-            }
-        ): VueI18n.TranslateResult;
-        $mc(
-            key: string,
-            amount: number,
-            args?: {
-                [key: string]: unknown;
-            }
-        ): VueI18n.TranslateResult;
-        getSetting: <T>(setting: string, defaultValue: T) => Promise<T>;
-        setSetting: <T>(settingId: string, value: T) => Promise<void>;
-    }
+    Component['Data'],
+    Component['Methods'],
+    Component['Computed'],
+    Component['Props']
 >({
     name: 'profile-edit',
     data() {
         return {};
     },
     methods: {
-        $sm(
-            key: string,
-            args?: {
-                [key: string]: unknown;
-            }
-        ) {
-            return this.$m(`profile/edit.${key}`, args);
-        },
-        $smc(
-            key: string,
-            amount: number,
-            args?: {
-                [key: string]: unknown;
-            }
-        ) {
-            return this.$mc(`profile/edit.${key}`, amount, args);
-        },
         submit() {
             const url = new URL(`/profile`, window.location.href);
             url.searchParams.append('utf8', '✓');
@@ -92,10 +48,9 @@ export default Vue.extend<
                 'authenticity_token',
                 this.profile.authenticity_token
             );
-            url.searchParams.append(
-                'profile[content]',
-                this.$refs.content?.value ?? ''
-            );
+            const content =
+                (this.$refs.content as HTMLTextAreaElement | null)?.value ?? '';
+            url.searchParams.append('profile[content]', content);
             this.$store
                 .dispatch('api/request', {
                     url: `/profile`,
@@ -124,7 +79,7 @@ export default Vue.extend<
                         .dispatch('event/createEvent', {
                             name: 'redesign-edit-profile-submitted',
                             detail: {
-                                content: this.$refs.content?.value ?? '',
+                                content,
                             },
                         })
                         .then(event =>
@@ -145,14 +100,6 @@ export default Vue.extend<
         },
         lightbox: {
             type: Object,
-            required: true,
-        },
-        $m: {
-            type: Function,
-            required: true,
-        },
-        $mc: {
-            type: Function,
             required: true,
         },
         getSetting: {
@@ -178,7 +125,7 @@ export default Vue.extend<
             if (!target || !target.hasAttribute('href')) return;
             this.$set(this.lightbox, 'src', target.getAttribute('href'));
         });
-        document.title = this.$sm('title');
+        document.title = this.lightbox.$sm('title').toString();
         this.lightbox.finishLoading('profile-edit-mounted');
     },
 });

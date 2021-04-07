@@ -15,7 +15,7 @@
                             class="btn btn-default btn-xs"
                             lightbox-open
                             href="/profile/edit?close-after-submit"
-                            :title="$sm('buttons.edit')"
+                            :title="lightbox.$sm('buttons.edit')"
                         >
                             <font-awesome-icon
                                 :icon="faEdit"
@@ -25,7 +25,7 @@
                             class="btn btn-default btn-xs"
                             lightbox-open
                             href="/avatar?close-after-submit"
-                            :title="$sm('buttons.avatar')"
+                            :title="lightbox.$sm('buttons.avatar')"
                         >
                             <font-awesome-icon
                                 :icon="faImage"
@@ -43,7 +43,7 @@
                                 }`
                             "
                             :title="
-                                $sm(
+                                lightbox.$sm(
                                     `buttons.alliance_ignore.${
                                         !profile.alliance_ignored
                                             ? 'add'
@@ -61,7 +61,7 @@
                             <button
                                 class="btn btn-danger dropdown-toggle btn-xs"
                                 data-toggle="dropdown"
-                                :title="$sm(`buttons.chat.ban`)"
+                                :title="lightbox.$sm(`buttons.chat.ban`)"
                             >
                                 ban chat <span class="caret"></span>
                             </button>
@@ -85,7 +85,7 @@
                             v-else
                             :href="`/profile/${profile.id}/chatban/0`"
                             class="btn btn-warning btn-xs"
-                            :title="$sm(`buttons.chat.unban`)"
+                            :title="lightbox.$sm(`buttons.chat.unban`)"
                         >
                             unban chat
                         </a>
@@ -106,7 +106,7 @@
                                 )}`
                             "
                             :title="
-                                $sm(
+                                lightbox.$sm(
                                     `buttons.ignore.${
                                         profile.ignored ? 'undo' : 'do'
                                     }`
@@ -129,7 +129,7 @@
                                 )}`
                             "
                             :title="
-                                $sm(
+                                lightbox.$sm(
                                     `buttons.friend.${
                                         profile.friend ? 'undo' : 'do'
                                     }`
@@ -150,7 +150,7 @@
                                     profile.name
                                 )}`
                             "
-                            :title="$sm('buttons.message')"
+                            :title="lightbox.$sm('buttons.message')"
                         >
                             <font-awesome-icon
                                 :icon="faEnvelope"
@@ -163,7 +163,7 @@
                                     profile.id
                                 )}`
                             "
-                            :title="$sm('buttons.gift')"
+                            :title="lightbox.$sm('buttons.gift')"
                         >
                             <font-awesome-icon
                                 :icon="faGift"
@@ -173,32 +173,36 @@
                 </div>
                 <div class="clearfix"></div>
                 <div v-if="profile.friend" class="alert alert-success">
-                    {{ $sm('alerts.friend', { name: profile.name }) }}
+                    {{ lightbox.$sm('alerts.friend', { name: profile.name }) }}
                 </div>
                 <div v-if="profile.ignored" class="alert alert-danger">
-                    {{ $sm('alerts.ignored', { name: profile.name }) }}
+                    {{ lightbox.$sm('alerts.ignored', { name: profile.name }) }}
                 </div>
                 <div v-if="profile.alliance_ignored" class="alert alert-danger">
-                    {{ $sm('alerts.alliance_ignored', { name: profile.name }) }}
+                    {{
+                        lightbox.$sm('alerts.alliance_ignored', {
+                            name: profile.name,
+                        })
+                    }}
                 </div>
                 <div class="well">
                     <div>
-                        <b>{{ $sm('rank') }}</b>
+                        <b>{{ lightbox.$sm('rank') }}</b>
                         : {{ rank }}
                     </div>
                     <div v-if="profile.registration">
-                        <b>{{ $sm('registration') }}</b>
+                        <b>{{ lightbox.$sm('registration') }}</b>
                         : {{ moment(profile.registration).format('LLLL') }}
                     </div>
                     <div>
                         {{
-                            $sm('credits', {
+                            lightbox.$sm('credits', {
                                 credits: profile.credits.toLocaleString(),
                             })
                         }}
                     </div>
                     <div v-if="profile.alliance">
-                        {{ $sm('alliance') }}:
+                        {{ lightbox.$sm('alliance') }}:
                         <a :href="`/alliances/${profile.alliance.id}`">
                             {{ profile.alliance.name }}
                         </a>
@@ -228,10 +232,10 @@
                         }
                     "
                 >
-                    <tab :title="$sm('text')">
+                    <tab :title="lightbox.$sm('text')">
                         <div v-html="profile.text.replace(/\n/g, '<br>')"></div>
                     </tab>
-                    <tab v-if="profile.has_map" :title="$sm('map')">
+                    <tab v-if="profile.has_map" :title="lightbox.$sm('map')">
                         <div class="dispatchcenter-summary">
                             <span
                                 v-for="type in buildingTypesSorted"
@@ -263,9 +267,13 @@
                     <tab
                         v-if="profile.has_map"
                         :title="
-                            $smc('buildings.amount', profile.buildings.length, {
-                                n: profile.buildings.length.toLocaleString(),
-                            })
+                            lightbox.$smc(
+                                'buildings.amount',
+                                profile.buildings.length,
+                                {
+                                    n: profile.buildings.length.toLocaleString(),
+                                }
+                            )
                         "
                     >
                         <label class="pull-right">
@@ -321,7 +329,7 @@
                                 "
                             >
                                 <span class="pull-right">{{
-                                    $smc(
+                                    lightbox.$smc(
                                         'buildings.amount',
                                         (dc.buildings || []).length,
                                         {
@@ -472,7 +480,7 @@
                     </tab>
                     <tab
                         v-if="profile.awards.length"
-                        :title="$sm('awards.title')"
+                        :title="lightbox.$sm('awards.title')"
                     >
                         <div class="profile-awards profile-grid">
                             <div
@@ -529,9 +537,9 @@ import { faImage } from '@fortawesome/free-solid-svg-icons/faImage';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons/faEnvelope';
 import { faGift } from '@fortawesome/free-solid-svg-icons/faGift';
 import { faMapMarkedAlt } from '@fortawesome/free-solid-svg-icons/faMapMarkedAlt';
-import VueI18n, { TranslateResult } from 'vue-i18n';
+import { TranslateResult } from 'vue-i18n';
 import { ProfileWindow } from '../parsers/profile';
-import { RedesignLightboxVue } from 'typings/modules/Redesign';
+import { RedesignComponent } from 'typings/modules/Redesign';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { InternalBuilding } from 'typings/Building';
 import { LayerGroup } from 'leaflet';
@@ -550,7 +558,10 @@ type DispatchCenter = {
     };
 };
 
-export default Vue.extend<
+type Component = RedesignComponent<
+    'profile',
+    'profile',
+    ProfileWindow,
     {
         moment: typeof moment;
         he: typeof he;
@@ -573,19 +584,6 @@ export default Vue.extend<
         show_map: boolean;
     },
     {
-        $sm(
-            key: string,
-            args?: {
-                [key: string]: unknown;
-            }
-        ): VueI18n.TranslateResult;
-        $smc(
-            key: string,
-            amount: number,
-            args?: {
-                [key: string]: unknown;
-            }
-        ): VueI18n.TranslateResult;
         allianceIgnore(): void;
         toggleFilter(type: number): void;
         onlyFilter(type: number): void;
@@ -598,27 +596,14 @@ export default Vue.extend<
             gold: number;
         };
         buildings: DispatchCenter;
-    },
-    {
-        profile: ProfileWindow;
-        url: string;
-        lightbox: RedesignLightboxVue<'profile', ProfileWindow>;
-        $m(
-            key: string,
-            args?: {
-                [key: string]: unknown;
-            }
-        ): VueI18n.TranslateResult;
-        $mc(
-            key: string,
-            amount: number,
-            args?: {
-                [key: string]: unknown;
-            }
-        ): VueI18n.TranslateResult;
-        getSetting: <T>(setting: string, defaultValue: T) => Promise<T>;
-        setSetting: <T>(settingId: string, value: T) => Promise<void>;
     }
+>;
+
+export default Vue.extend<
+    Component['Data'],
+    Component['Methods'],
+    Component['Computed'],
+    Component['Props']
 >({
     name: 'profile',
     components: {
@@ -669,23 +654,6 @@ export default Vue.extend<
         };
     },
     methods: {
-        $sm(
-            key: string,
-            args?: {
-                [key: string]: unknown;
-            }
-        ) {
-            return this.$m(`profile.${key}`, args);
-        },
-        $smc(
-            key: string,
-            amount: number,
-            args?: {
-                [key: string]: unknown;
-            }
-        ) {
-            return this.$mc(`profile.${key}`, amount, args);
-        },
         allianceIgnore() {
             const url = new URL(window.location.href);
             url.searchParams.append('_method', 'post');
@@ -881,14 +849,6 @@ export default Vue.extend<
             type: Object,
             required: true,
         },
-        $m: {
-            type: Function,
-            required: true,
-        },
-        $mc: {
-            type: Function,
-            required: true,
-        },
         getSetting: {
             type: Function,
             required: true,
@@ -934,7 +894,7 @@ export default Vue.extend<
         this.getSetting('hiddenFilters', []).then(
             f => (this.hiddenFilters = f)
         );
-        this.maxAwards = parseInt(this.$sm('awards.max').toString());
+        this.maxAwards = parseInt(this.lightbox.$sm('awards.max').toString());
         if (this.$store.state.darkmode)
             Highcharts.setOptions(this.$utils.highChartsDarkMode);
         Highcharts.setOptions({
@@ -950,7 +910,7 @@ export default Vue.extend<
                 height: 200,
             },
             title: {
-                text: this.$sm('awards.title_amounts', {
+                text: this.lightbox.$sm('awards.title_amounts', {
                     sum: this.profile.awards.length,
                     max: this.maxAwards,
                 }),
@@ -1031,7 +991,7 @@ export default Vue.extend<
             },
             series: [
                 {
-                    name: this.$sm('awards.gold').toString(),
+                    name: this.lightbox.$sm('awards.gold').toString(),
                     data: [
                         {
                             color: '#f6cd4f',
@@ -1042,7 +1002,7 @@ export default Vue.extend<
                     ],
                 },
                 {
-                    name: this.$sm('awards.silver').toString(),
+                    name: this.lightbox.$sm('awards.silver').toString(),
                     data: [
                         {
                             color: '#b6b6b6',
@@ -1053,7 +1013,7 @@ export default Vue.extend<
                     ],
                 },
                 {
-                    name: this.$sm('awards.bronze').toString(),
+                    name: this.lightbox.$sm('awards.bronze').toString(),
                     data: [
                         {
                             color: '#cd7f32',

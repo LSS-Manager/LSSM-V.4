@@ -10,7 +10,12 @@ import { ProfileEditWindow } from '../../src/modules/redesign/parsers/profile/ed
 import { TopListWindow } from '../../src/modules/redesign/parsers/toplist';
 import { VehicleWindow } from '../../src/modules/redesign/parsers/vehicle';
 import { VerbandHomeWindow } from '../../src/modules/redesign/parsers/verband/home';
-import { DefaultComputed } from 'vue/types/options';
+import {
+    DefaultComputed,
+    DefaultData,
+    DefaultMethods,
+    DefaultProps,
+} from 'vue/types/options';
 import VueI18n from 'vue-i18n';
 import { CombinedVueInstance } from 'vue/types/vue';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
@@ -59,6 +64,19 @@ export interface RedesignLightbox<
 > {
     Data: Data<Type, Window>;
     Methods: {
+        $sm(
+            key: string,
+            args?: {
+                [key: string]: unknown;
+            }
+        ): VueI18n.TranslateResult;
+        $smc(
+            key: string,
+            amount: number,
+            args?: {
+                [key: string]: unknown;
+            }
+        ): VueI18n.TranslateResult;
         getIdFromEl(el: HTMLAnchorElement | null): number;
         getSetting(): <T>(setting: string, defaultValue: T) => Promise<T>;
         setSetting(): <T>(settingId: string, value: T) => Promise<void>;
@@ -92,6 +110,15 @@ export type RedesignParser<Window extends windows> = (
     getIdFromEl: (el: HTMLAnchorElement | null) => number
 ) => Window;
 
+export type RedesignParserNoIDFun<Window extends windows> = (
+    source: string,
+    href: string
+) => Window;
+
+export type RedesignParserSrcOnly<Window extends windows> = (
+    source: string
+) => Window;
+
 export type RedesignLightboxVue<
     Type extends types,
     Window extends windows
@@ -102,3 +129,24 @@ export type RedesignLightboxVue<
     RedesignLightbox<Type, Window>['Computed'],
     RedesignLightbox<Type, Window>['Props']
 >;
+
+export type RedesignComponent<
+    DataName extends string,
+    Type extends types,
+    Window extends windows,
+    Data = DefaultData<Vue>,
+    Methods = DefaultMethods<Vue>,
+    Computed = DefaultComputed,
+    Props = DefaultProps
+> = {
+    Data: Data;
+    Methods: Methods;
+    Computed: Computed;
+    Props: Props &
+        Record<DataName, Window> & {
+            url: string;
+            lightbox: RedesignLightboxVue<Type, Window>;
+            getSetting: <T>(setting: string, defaultValue: T) => Promise<T>;
+            setSetting: <T>(settingId: string, value: T) => Promise<void>;
+        };
+};
