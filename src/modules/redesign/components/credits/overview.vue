@@ -188,14 +188,6 @@ export default Vue.extend<
         };
     },
     mounted() {
-        this.$el.addEventListener('click', e => {
-            e.preventDefault();
-            const target = (e.target as HTMLElement)?.closest<
-                HTMLAnchorElement | HTMLButtonElement
-            >('a, button');
-            if (!target || !target.hasAttribute('href')) return;
-            this.$set(this.lightbox, 'src', target.getAttribute('href'));
-        });
         if (this.$store.state.darkmode)
             Highcharts.setOptions(this.$utils.highChartsDarkMode);
         Highcharts.setOptions({

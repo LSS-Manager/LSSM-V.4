@@ -10,8 +10,16 @@
             class="redesign-wrapper"
             :type="type"
         >
+            <AllianceAvatar
+                v-if="type === 'alliance_avatar'"
+                :alliance="data"
+                :url="urlProp"
+                :lightbox="this"
+                :get-setting="getSetting()"
+                :set-setting="setSetting()"
+            ></AllianceAvatar>
             <Alliances
-                v-if="type === 'alliances'"
+                v-else-if="type === 'alliances'"
                 :alliances="data"
                 :url="urlProp"
                 :lightbox="this"
@@ -122,6 +130,10 @@ export default Vue.extend<
         Lightbox: () =>
             import(
                 /* webpackChunkName: "components/lightbox" */ '../../../components/lightbox.vue'
+            ),
+        AllianceAvatar: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/alliance_avatar"*/ './alliance_avatar.vue'
             ),
         Alliances: () =>
             import(

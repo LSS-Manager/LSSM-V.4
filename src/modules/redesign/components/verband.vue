@@ -40,8 +40,8 @@
             :home="data"
             :url="url"
             :lightbox="lightbox"
-            :$m="lightbox.$m"
-            :$mc="lightbox.$mc"
+            :$m="$m"
+            :$mc="$mc"
             :get-setting="getSetting"
             :set-setting="setSetting"
         ></VerbandHome>
@@ -50,9 +50,10 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import { DefaultData, DefaultMethods } from 'vue/types/options';
+import { DefaultData } from 'vue/types/options';
 import { RedesignComponent } from 'typings/modules/Redesign';
 import { VerbandHomeWindow } from '../parsers/verband/home';
+import VueI18n from 'vue-i18n';
 
 interface Link {
     href: string;
@@ -64,7 +65,21 @@ type Component = RedesignComponent<
     'verband/home',
     VerbandHomeWindow,
     DefaultData<Vue>,
-    DefaultMethods<Vue>,
+    {
+        $m(
+            key: string,
+            args?: {
+                [key: string]: unknown;
+            }
+        ): VueI18n.TranslateResult;
+        $mc(
+            key: string,
+            amount: number,
+            args?: {
+                [key: string]: unknown;
+            }
+        ): VueI18n.TranslateResult;
+    },
     { nav: Link[] },
     { type: string }
 >;
@@ -112,6 +127,25 @@ export default Vue.extend<
                 }));
         },
     },
+    methods: {
+        $m(
+            key: string,
+            args?: {
+                [key: string]: unknown;
+            }
+        ) {
+            return this.lightbox.$m(`verband.${key}`, args);
+        },
+        $mc(
+            key: string,
+            amount: number,
+            args?: {
+                [key: string]: unknown;
+            }
+        ) {
+            return this.lightbox.$mc(`verband.${key}`, amount, args);
+        },
+    },
     props: {
         data: {
             type: Object,
@@ -144,8 +178,11 @@ export default Vue.extend<
             const target = (e.target as HTMLElement)?.closest<
                 HTMLAnchorElement | HTMLButtonElement
             >('a, button');
-            if (!target || !target.hasAttribute('href')) return;
-            this.$set(this.lightbox, 'src', target.getAttribute('href'));
+            const href = target?.getAttribute('href');
+            if (!target || !href) return;
+            if (target.hasAttribute('lightbox-open'))
+                return window.lightboxOpen(href);
+            else this.$set(this.lightbox, 'src', href);
         });
         this.lightbox.finishLoading('yknfdwef');
     },

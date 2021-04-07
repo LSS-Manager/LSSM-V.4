@@ -3,21 +3,53 @@
         <div
             class="pull-left alliance-home-sidebar"
             v-if="
-                home.image || home.meta.self || home.edit_text || home.edit_logo
+                home.image ||
+                    home.meta.self ||
+                    home.edit_text ||
+                    home.edit_name ||
+                    home.edit_logo
             "
         >
             <div
                 class="btn-group pull-right edit-btns"
-                v-if="home.edit_text || home.edit_logo"
+                v-if="home.edit_text || home.edit_logo || home.edit_name"
             >
                 <!-- Ah yes, there is really missing an `r` in `verband`. But adding the `r` results in a sweet and cool 404 :) -->
-                <a v-if="home.edit_text" href="/veband/text/edit">t</a>
-                <a v-if="home.edit_logo" href="/verband/avatar">a</a>
+                <a
+                    v-if="home.edit_text"
+                    class="btn btn-default btn-xs"
+                    href="/veband/text/edit"
+                    :title="lightbox.$sm('edit_text')"
+                >
+                    <font-awesome-icon :icon="faEdit"></font-awesome-icon>
+                </a>
+                <a
+                    v-if="home.edit_name"
+                    class="btn btn-default btn-xs"
+                    :href="`/alliances/${home.meta.id}/edit`"
+                    :title="lightbox.$sm('edit_name')"
+                >
+                    {{ lightbox.$sm('edit_name') }}
+                </a>
+                <a
+                    v-if="home.edit_logo"
+                    class="btn btn-default btn-xs"
+                    lightbox-open
+                    href="/verband/avatar?close-after-submit"
+                    :title="lightbox.$sm('edit_logo')"
+                >
+                    <font-awesome-icon :icon="faImage"></font-awesome-icon>
+                </a>
             </div>
             <div class="clearfix"></div>
             <img :src="home.image" alt="" v-if="home.image" />
-            <button v-if="home.meta.self" class="btn btn-danger" disabled>
-                leave
+            <button
+                v-if="home.meta.self"
+                class="btn btn-danger pull-right"
+                disabled
+                :title="lightbox.$sm('leave')"
+            >
+                {{ lightbox.$sm('leave') }}
             </button>
         </div>
         <div class="alliance-home-text">
@@ -28,72 +60,34 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import VueI18n from 'vue-i18n';
-import { RedesignLightboxVue } from 'typings/modules/Redesign';
+import { faEdit } from '@fortawesome/free-solid-svg-icons/faEdit';
+import { faImage } from '@fortawesome/free-solid-svg-icons/faImage';
+import { RedesignSubComponent } from 'typings/modules/Redesign';
 import { VerbandHomeWindow } from '../../parsers/verband/home';
-import { DefaultComputed, DefaultData } from 'vue/types/options';
+import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+
+type Component = RedesignSubComponent<
+    'home',
+    'verband/home',
+    VerbandHomeWindow,
+    {
+        faEdit: IconDefinition;
+        faImage: IconDefinition;
+    }
+>;
 
 export default Vue.extend<
-    DefaultData<Vue>,
-    {
-        $sm(
-            key: string,
-            args?: {
-                [key: string]: unknown;
-            }
-        ): VueI18n.TranslateResult;
-        $smc(
-            key: string,
-            amount: number,
-            args?: {
-                [key: string]: unknown;
-            }
-        ): VueI18n.TranslateResult;
-    },
-    DefaultComputed,
-    {
-        home: VerbandHomeWindow;
-        url: string;
-        lightbox: RedesignLightboxVue<'verband/home', VerbandHomeWindow>;
-        $m(
-            key: string,
-            args?: {
-                [key: string]: unknown;
-            }
-        ): VueI18n.TranslateResult;
-        $mc(
-            key: string,
-            amount: number,
-            args?: {
-                [key: string]: unknown;
-            }
-        ): VueI18n.TranslateResult;
-        getSetting: <T>(setting: string, defaultValue: T) => Promise<T>;
-        setSetting: <T>(settingId: string, value: T) => Promise<void>;
-    }
+    Component['Data'],
+    Component['Methods'],
+    Component['Computed'],
+    Component['Props']
 >({
     name: 'verband-home',
     data() {
-        return {};
-    },
-    methods: {
-        $sm(
-            key: string,
-            args?: {
-                [key: string]: unknown;
-            }
-        ) {
-            return this.$m(`credits/daily.${key}`, args);
-        },
-        $smc(
-            key: string,
-            amount: number,
-            args?: {
-                [key: string]: unknown;
-            }
-        ) {
-            return this.$mc(`credits/daily.${key}`, amount, args);
-        },
+        return {
+            faEdit,
+            faImage,
+        };
     },
     props: {
         home: {
@@ -131,13 +125,21 @@ export default Vue.extend<
         },
     },
     mounted() {
-        this.$el.addEventListener('click', e => {
-            e.preventDefault();
-            const target = (e.target as HTMLElement)?.closest<
-                HTMLAnchorElement | HTMLButtonElement
-            >('a, button');
-            if (!target || !target.hasAttribute('href')) return;
-            this.$set(this.lightbox, 'src', target.getAttribute('href'));
+        // eslint-disable-next-line @typescript-eslint/no-this-alias
+        const Alliance = this;
+        this.$store.dispatch('event/addListener', {
+            name: 'redesign-edit-alliance-text-submitted',
+            listener({ detail: { content } }: CustomEvent) {
+                if (Alliance.home.meta.self)
+                    Alliance.$set(Alliance.lightbox.data, 'text', content);
+            },
+        });
+        this.$store.dispatch('event/addListener', {
+            name: 'redesign-edit-alliance-avatar-submitted',
+            listener({ detail: { img } }: CustomEvent) {
+                if (Alliance.home.meta.self)
+                    Alliance.$set(Alliance.lightbox.data, 'image', img);
+            },
         });
         this.lightbox.finishLoading('verband/home-mounted');
     },

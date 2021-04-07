@@ -184,8 +184,11 @@ export default Vue.extend<
             const target = (e.target as HTMLElement)?.closest<
                 HTMLAnchorElement | HTMLButtonElement
             >('a, button');
-            if (!target || !target.hasAttribute('href')) return;
-            this.$set(this.lightbox, 'src', target.getAttribute('href'));
+            const href = target?.getAttribute('href');
+            if (!target || !href) return;
+            if (target.hasAttribute('lightbox-open'))
+                return window.lightboxOpen(href);
+            else this.$set(this.lightbox, 'src', href);
         });
     },
 });

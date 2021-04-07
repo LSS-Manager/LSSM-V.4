@@ -1,4 +1,5 @@
 import Vue from 'vue';
+import { AllianceAvatarWindow } from '../../src/modules/redesign/parsers/alliance_avatar';
 import { AllianceListWindow } from '../../src/modules/redesign/parsers/alliances';
 import { AvatarWindow } from '../../src/modules/redesign/parsers/avatar';
 import { CoinsListWindow } from '../../src/modules/redesign/parsers/coins/list';
@@ -21,6 +22,7 @@ import { CombinedVueInstance } from 'vue/types/vue';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 
 type types =
+    | 'alliance_avatar'
     | 'alliances'
     | 'avatar'
     | 'default'
@@ -35,6 +37,7 @@ type types =
     | 'vehicle/nextfms'
     | 'verband/home';
 type windows =
+    | AllianceAvatarWindow
     | AllianceListWindow
     | AvatarWindow
     | CoinsListWindow
@@ -146,6 +149,40 @@ export type RedesignComponent<
         Record<DataName, Window> & {
             url: string;
             lightbox: RedesignLightboxVue<Type, Window>;
+            getSetting: <T>(setting: string, defaultValue: T) => Promise<T>;
+            setSetting: <T>(settingId: string, value: T) => Promise<void>;
+        };
+};
+
+export type RedesignSubComponent<
+    DataName extends string,
+    Type extends types,
+    Window extends windows,
+    Data = DefaultData<Vue>,
+    Methods = DefaultMethods<Vue>,
+    Computed = DefaultComputed,
+    Props = DefaultProps
+> = {
+    Data: Data;
+    Methods: Methods;
+    Computed: Computed;
+    Props: Props &
+        Record<DataName, Window> & {
+            url: string;
+            lightbox: RedesignLightboxVue<Type, Window>;
+            $m(
+                key: string,
+                args?: {
+                    [key: string]: unknown;
+                }
+            ): VueI18n.TranslateResult;
+            $mc(
+                key: string,
+                amount: number,
+                args?: {
+                    [key: string]: unknown;
+                }
+            ): VueI18n.TranslateResult;
             getSetting: <T>(setting: string, defaultValue: T) => Promise<T>;
             setSetting: <T>(settingId: string, value: T) => Promise<void>;
         };

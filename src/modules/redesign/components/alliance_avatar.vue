@@ -1,13 +1,13 @@
 <template>
     <div>
         <h1>{{ lightbox.$sm('title') }}</h1>
-        <div class="well pull-right" v-if="profile.image">
+        <div class="well pull-right" v-if="alliance.image">
             <b>{{ lightbox.$sm('current') }}</b>
             <button class="btn btn-danger pull-right" @click="deleteAvatar">
                 <font-awesome-icon :icon="faTrash"></font-awesome-icon>
             </button>
             <br />
-            <img :src="profile.image" alt="" loading="lazy" />
+            <img :src="alliance.image" alt="" loading="lazy" />
         </div>
         <button @click="select" class="btn btn-success">
             {{ lightbox.$sm('select') }}
@@ -25,14 +25,14 @@
 <script lang="ts">
 import Vue from 'vue';
 import { faTrash } from '@fortawesome/free-solid-svg-icons/faTrash';
-import { AvatarWindow } from '../parsers/avatar';
+import { AllianceAvatarWindow } from '../parsers/alliance_avatar';
 import { RedesignComponent } from 'typings/modules/Redesign';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 
 type Component = RedesignComponent<
-    'profile',
-    'avatar',
-    AvatarWindow,
+    'alliance',
+    'alliance_avatar',
+    AllianceAvatarWindow,
     {
         faTrash: IconDefinition;
         image: string;
@@ -52,7 +52,7 @@ export default Vue.extend<
     Component['Computed'],
     Component['Props']
 >({
-    name: 'avatar-edit',
+    name: 'alliance-avatar-edit',
     data() {
         const input = document.createElement('input');
         input.type = 'file';
@@ -72,17 +72,17 @@ export default Vue.extend<
             formData.append('_method', 'put');
             formData.append(
                 'authenticity_token',
-                this.profile.authenticity_token
+                this.alliance.authenticity_token
             );
             formData.append(
-                'avatar[image]',
+                'alliance_avatar[image]',
                 this.imageFile,
                 this.imageFile.name
             );
             formData.append('commit', 'save');
             this.$store
                 .dispatch('api/request', {
-                    url: `/avatar/upload`,
+                    url: `/verband/avatar/upload`,
                     init: {
                         credentials: 'include',
                         headers: {
@@ -90,12 +90,12 @@ export default Vue.extend<
                                 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
                             'Upgrade-Insecure-Requests': '1',
                         },
-                        referrer: `https://www.leitstellenspiel.de/avatar`,
+                        referrer: `https://www.leitstellenspiel.de/verband/avatar`,
                         body: formData,
                         method: 'POST',
                         mode: 'cors',
                     },
-                    feature: `redesign-avatar-edit`,
+                    feature: `redesign-alliance-avatar-edit`,
                 })
                 .then(({ url }) => {
                     const img = this.image;
@@ -111,7 +111,7 @@ export default Vue.extend<
                         return this.$set(this.lightbox, 'src', url);
                     this.$store
                         .dispatch('event/createEvent', {
-                            name: 'redesign-edit-avatar-submitted',
+                            name: 'redesign-edit-alliance-avatar-submitted',
                             detail: {
                                 img,
                             },
@@ -126,21 +126,21 @@ export default Vue.extend<
             this.$set(this.lightbox, 'loading', true);
             this.$store
                 .dispatch('api/request', {
-                    url: `/avatar/delete`,
+                    url: `/verband/avatar/delete`,
                     init: {
                         credentials: 'include',
-                        referrer: `https://www.leitstellenspiel.de/avatar`,
+                        referrer: `https://www.leitstellenspiel.de/verband/avatar`,
                         method: 'GET',
                         mode: 'cors',
                     },
-                    feature: `redesign-avatar-delete`,
+                    feature: `redesign-alliance-avatar-delete`,
                 })
                 .then(() => {
                     this.$set(this.lightbox.data, 'image', '');
                     this.lightbox.finishLoading('avatar-deleted');
                     this.$store
                         .dispatch('event/createEvent', {
-                            name: 'redesign-edit-avatar-submitted',
+                            name: 'redesign-edit-alliance-avatar-submitted',
                             detail: {
                                 img: '',
                             },
@@ -155,7 +155,7 @@ export default Vue.extend<
         },
     },
     props: {
-        profile: {
+        alliance: {
             type: Object,
             required: true,
         },
@@ -177,8 +177,8 @@ export default Vue.extend<
         },
     },
     watch: {
-        profile() {
-            this.lightbox.finishLoading('avatar-edit-updated');
+        alliance() {
+            this.lightbox.finishLoading('alliance-avatar-edit-updated');
         },
     },
     mounted() {
@@ -207,7 +207,7 @@ export default Vue.extend<
             reader.readAsDataURL(this.input.files[0]);
         };
         document.title = this.lightbox.$sm('title').toString();
-        this.lightbox.finishLoading('avatar-edit-mounted');
+        this.lightbox.finishLoading('alliance-avatar-edit-mounted');
     },
 });
 </script>
