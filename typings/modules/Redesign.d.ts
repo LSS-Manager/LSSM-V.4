@@ -20,6 +20,7 @@ import {
 import VueI18n from 'vue-i18n';
 import { CombinedVueInstance } from 'vue/types/vue';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import { VerbandEditNameWindow } from '../../src/modules/redesign/parsers/verband/edit_name';
 
 type types =
     | 'alliance_avatar'
@@ -35,6 +36,7 @@ type types =
     | 'toplist'
     | 'vehicle'
     | 'vehicle/nextfms'
+    | 'verband/edit_name'
     | 'verband/home';
 type windows =
     | AllianceAvatarWindow
@@ -48,6 +50,7 @@ type windows =
     | ProfileEditWindow
     | TopListWindow
     | VehicleWindow
+    | VerbandEditNameWindow
     | VerbandHomeWindow;
 export type routeChecks = Record<string, types>;
 

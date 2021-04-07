@@ -26,7 +26,8 @@
                 <a
                     v-if="home.edit_name"
                     class="btn btn-default btn-xs"
-                    :href="`/alliances/${home.meta.id}/edit`"
+                    lightbox-open
+                    :href="`/alliances/${home.meta.id}/edit?close-after-submit`"
                     :title="lightbox.$sm('edit_name')"
                 >
                     {{ lightbox.$sm('edit_name') }}
@@ -139,6 +140,13 @@ export default Vue.extend<
             listener({ detail: { img } }: CustomEvent) {
                 if (Alliance.home.meta.self)
                     Alliance.$set(Alliance.lightbox.data, 'image', img);
+            },
+        });
+        this.$store.dispatch('event/addListener', {
+            name: 'redesign-edit-alliance-name-submitted',
+            listener({ detail: { content } }: CustomEvent) {
+                if (Alliance.home.meta.self)
+                    Alliance.$set(Alliance.lightbox.data.meta, 'name', content);
             },
         });
         this.lightbox.finishLoading('verband/home-mounted');

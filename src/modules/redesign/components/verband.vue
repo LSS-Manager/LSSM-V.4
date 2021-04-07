@@ -35,8 +35,18 @@
                 </div>
             </div>
         </nav>
+        <VerbandEditName
+            v-if="type === 'verband/edit_name'"
+            :alliance="data"
+            :url="url"
+            :lightbox="lightbox"
+            :$m="$m"
+            :$mc="$mc"
+            :get-setting="getSetting"
+            :set-setting="setSetting"
+        ></VerbandEditName>
         <VerbandHome
-            v-if="type === 'verband/home'"
+            v-else-if="type === 'verband/home'"
             :home="data"
             :url="url"
             :lightbox="lightbox"
@@ -92,6 +102,10 @@ export default Vue.extend<
 >({
     name: 'verband-lightbox',
     components: {
+        VerbandEditName: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/verband/edit_name"*/ './verband/edit_name.vue'
+            ),
         VerbandHome: () =>
             import(
                 /*webpackChunkName: "modules/redesign/windows/verband/home"*/ './verband/home.vue'
