@@ -257,10 +257,3 @@ export default Vue.extend<
 textarea
     resize: vertical
 </style>
-
-<!--
-Dieser Verband dient dem LSS-Manager zu Testzwecken!
-Homepage: https://lss-manager.de
-V4: https://lss-manager.de/docs
-V3: https://docs.lss-manager.de
--->

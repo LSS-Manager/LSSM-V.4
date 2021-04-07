@@ -48,10 +48,10 @@
             <button
                 v-if="home.meta.self"
                 class="btn btn-danger pull-right"
-                disabled
-                :title="lightbox.$sm('leave')"
+                @click="leave"
+                :title="lightbox.$sm('leave.title')"
             >
-                {{ lightbox.$sm('leave') }}
+                {{ lightbox.$sm('leave.title') }}
             </button>
         </div>
         <div class="alliance-home-text">
@@ -75,7 +75,8 @@ type Component = RedesignSubComponent<
     {
         faEdit: IconDefinition;
         faImage: IconDefinition;
-    }
+    },
+    { leave(): void }
 >;
 
 export default Vue.extend<
@@ -90,6 +91,68 @@ export default Vue.extend<
             faEdit,
             faImage,
         };
+    },
+    methods: {
+        leave() {
+            // eslint-disable-next-line @typescript-eslint/no-this-alias
+            const LSSM = this;
+            this.$modal.show('dialog', {
+                title: this.lightbox.$sm('leave.title'),
+                text: this.lightbox.$sm('leave.text', {
+                    caption: this.home.meta.name,
+                }),
+                buttons: [
+                    {
+                        title: this.lightbox.$sm('leave.cancel'),
+                        default: true,
+                        handler() {
+                            LSSM.$modal.hide('dialog');
+                        },
+                    },
+                    {
+                        title: this.lightbox.$sm('leave.confirm'),
+                        async handler() {
+                            const url = new URL(
+                                `/verband/verlassen`,
+                                window.location.origin
+                            );
+                            url.searchParams.append('_method', 'post');
+                            url.searchParams.append(
+                                'authenticity_token',
+                                LSSM.home.authenticity_token
+                            );
+                            LSSM.$store
+                                .dispatch('api/request', {
+                                    url: `/verband/verlassen`,
+                                    init: {
+                                        credentials: 'include',
+                                        headers: {
+                                            'Content-Type':
+                                                'application/x-www-form-urlencoded',
+                                        },
+                                        referrer: new URL(
+                                            `/verband`,
+                                            window.location.origin
+                                        ),
+                                        body: url.searchParams.toString(),
+                                        method: 'POST',
+                                        mode: 'cors',
+                                    },
+                                    feature: `redesign-alliance-leave`,
+                                })
+                                .then(() => {
+                                    LSSM.$modal.hide('dialog');
+                                    LSSM.$set(
+                                        LSSM.lightbox,
+                                        'src',
+                                        `/alliances`
+                                    );
+                                });
+                        },
+                    },
+                ],
+            });
+        },
     },
     props: {
         home: {

@@ -2,5 +2,10 @@
 	"edit_logo": "Logo bearbeiten",
 	"edit_name": "Verband umbennen",
 	"edit_text": "Vorstellungstext, Regeln, wichtige Verbandsinformationen und Discord-Webhooks bearbeiten",
-	"leave": "Verband verlassen"
+	"leave": {
+        "title": "Verband verlassen",
+        "text": "Möchtest du wirklich den Verband **{caption}** verlassen? Die Aktion kann nicht rückgängig gemacht werden!",
+        "cancel": "Abbrechen",
+        "confirm": "Verlassen!"
+    }
 }

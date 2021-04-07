@@ -243,22 +243,24 @@ export default Vue.extend<
             );
         },
         subtitle() {
-            return this.$smc(
-                this.urlSearch ? 'search_subtitle' : 'subtitle',
-                this.alliances.alliances.length,
-                {
-                    startPage: this.startPage,
-                    endPage: this.endPage,
-                    firstCredits:
-                        this.alliances.alliances[0]?.credits?.toLocaleString() ??
-                        '',
-                    lastCredits:
-                        this.alliances.alliances[
-                            this.alliances.alliances.length - 1
-                        ]?.credits?.toLocaleString() ?? '',
-                    totalPages: this.alliances.lastPage.toLocaleString(),
-                }
-            ).toString();
+            return this.lightbox
+                .$smc(
+                    this.urlSearch ? 'search_subtitle' : 'subtitle',
+                    this.alliances.alliances.length,
+                    {
+                        startPage: this.startPage,
+                        endPage: this.endPage,
+                        firstCredits:
+                            this.alliances.alliances[0]?.credits?.toLocaleString() ??
+                            '',
+                        lastCredits:
+                            this.alliances.alliances[
+                                this.alliances.alliances.length - 1
+                            ]?.credits?.toLocaleString() ?? '',
+                        totalPages: this.alliances.lastPage.toLocaleString(),
+                    }
+                )
+                .toString();
         },
         alliancesFiltered() {
             return this.search.trim().length

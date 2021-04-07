@@ -7,6 +7,7 @@ export interface VerbandHomeWindow extends VerbandWindow {
     edit_name: boolean;
     edit_logo: boolean;
     text: string[];
+    authenticity_token: string;
 }
 
 export default <RedesignParser<VerbandHomeWindow>>((source, _, getIdFromEl) => {
@@ -34,5 +35,8 @@ export default <RedesignParser<VerbandHomeWindow>>((source, _, getIdFromEl) => {
         text: Array.from(
             doc.querySelectorAll<HTMLParagraphElement>('h3 ~ p')
         ).map(p => (p.matches('.clearfix ~ p') ? '' : p.innerHTML.trim())),
+        authenticity_token:
+            doc.querySelector<HTMLMetaElement>('meta[name="csrf-token"]')
+                ?.content ?? '',
     };
 });
