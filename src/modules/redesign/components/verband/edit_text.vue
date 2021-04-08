@@ -157,12 +157,21 @@ export default Vue.extend<
                         this.lightbox.noModal
                     )
                         return this.$set(this.lightbox, 'src', url);
-                    if (this.textEditor) {
+                    if (this.textEditor && this.rulesEditor) {
                         this.$store
                             .dispatch('event/createEvent', {
                                 name: 'redesign-edit-alliance-text-submitted',
                                 detail: {
                                     content: this.textEditor
+                                        .getWysiwygEditorValue(false)
+                                        .split('\n')
+                                        .map(l =>
+                                            l.replace(
+                                                /^<div>|(<br>)?<\/div>$/g,
+                                                ''
+                                            )
+                                        ),
+                                    rules: this.rulesEditor
                                         .getWysiwygEditorValue(false)
                                         .split('\n')
                                         .map(l =>

@@ -65,6 +65,16 @@
             :get-setting="getSetting"
             :set-setting="setSetting"
         ></VerbandHome>
+        <VerbandRegeln
+            v-else-if="type === 'verband/regeln'"
+            :rules="data"
+            :url="url"
+            :lightbox="lightbox"
+            :$m="$m"
+            :$mc="$mc"
+            :get-setting="getSetting"
+            :set-setting="setSetting"
+        ></VerbandRegeln>
     </div>
 </template>
 
@@ -124,6 +134,10 @@ export default Vue.extend<
             import(
                 /*webpackChunkName: "modules/redesign/windows/verband/home"*/ './verband/home.vue'
             ),
+        VerbandRegeln: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/verband/regeln"*/ './verband/regeln.vue'
+            ),
     },
     data() {
         return {};
@@ -141,7 +155,7 @@ export default Vue.extend<
                 .filter(
                     link =>
                         new URL(
-                            this.url.match('/verband')
+                            this.url.match(/\/verband\/?$/)
                                 ? `/alliances/${this.data.meta.id}`
                                 : this.url,
                             window.location.origin
