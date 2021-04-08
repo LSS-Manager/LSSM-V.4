@@ -141,7 +141,9 @@ export default Vue.extend<
                 .filter(
                     link =>
                         new URL(
-                            this.url,
+                            this.url.match('/verband')
+                                ? `/alliances/${this.data.meta.id}`
+                                : this.url,
                             window.location.origin
                         ).pathname.replace(/\/$/g, '') !==
                         new URL(
