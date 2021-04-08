@@ -94,7 +94,7 @@
         <iframe
             v-show="!type || type === 'default'"
             ref="iframe"
-            :src="url"
+            src="about:blank"
             :id="$store.getters.nodeAttribute('redesign-lightbox-iframe')"
             :name="$store.getters.nodeAttribute('redesign-lightbox-iframe')"
         ></iframe>
@@ -387,8 +387,10 @@ export default Vue.extend<
         },
     },
     mounted() {
-        this.src = this.url;
         window['lssmv4-redesign-lightbox'] = this;
+        this.$nextTick(() => {
+            this.$set(this, 'src', this.url);
+        });
     },
 });
 </script>
