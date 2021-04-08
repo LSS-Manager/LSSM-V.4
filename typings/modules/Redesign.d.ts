@@ -13,6 +13,7 @@ import { VehicleWindow } from '../../src/modules/redesign/parsers/vehicle';
 import { VerbandEditNameWindow } from '../../src/modules/redesign/parsers/verband/edit_name';
 import { VerbandEditTextWindow } from '../../src/modules/redesign/parsers/verband/edit_text';
 import { VerbandHomeWindow } from '../../src/modules/redesign/parsers/verband/home';
+import { VerbandMitgliederWindow } from '../../src/modules/redesign/parsers/verband/mitglieder';
 import { VerbandRegelnWindow } from '../../src/modules/redesign/parsers/verband/regeln';
 import {
     DefaultComputed,
@@ -41,6 +42,7 @@ type types =
     | 'verband/edit_name'
     | 'verband/edit_text'
     | 'verband/home'
+    | 'verband/mitglieder'
     | 'verband/regeln';
 type windows =
     | AllianceAvatarWindow
@@ -57,6 +59,7 @@ type windows =
     | VerbandEditNameWindow
     | VerbandEditTextWindow
     | VerbandHomeWindow
+    | VerbandMitgliederWindow
     | VerbandRegelnWindow;
 export type routeChecks = Record<string, types>;
 

@@ -22,4 +22,8 @@ export default (() => ({
         type: 'hidden',
         default: {},
     },
+    'verband/mitglieder': <Hidden>{
+        type: 'hidden',
+        default: {},
+    },
 })) as ModuleSettingFunction;

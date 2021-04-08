@@ -254,7 +254,7 @@ export default Vue.extend<
             );
         },
         subtitle() {
-            return this.$smc(
+            return this.lightbox.$smc(
                 this.urlSearch ? 'search_subtitle' : 'subtitle',
                 this.toplist.users.length,
                 {

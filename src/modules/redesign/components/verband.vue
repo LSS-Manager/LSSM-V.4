@@ -65,6 +65,16 @@
             :get-setting="getSetting"
             :set-setting="setSetting"
         ></VerbandHome>
+        <VerbandMitglieder
+            v-else-if="type === 'verband/mitglieder'"
+            :mitglieder="data"
+            :url="url"
+            :lightbox="lightbox"
+            :$m="$m"
+            :$mc="$mc"
+            :get-setting="getSetting"
+            :set-setting="setSetting"
+        ></VerbandMitglieder>
         <VerbandRegeln
             v-else-if="type === 'verband/regeln'"
             :rules="data"
@@ -133,6 +143,10 @@ export default Vue.extend<
         VerbandHome: () =>
             import(
                 /*webpackChunkName: "modules/redesign/windows/verband/home"*/ './verband/home.vue'
+            ),
+        VerbandMitglieder: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/verband/mitglieder"*/ './verband/mitglieder.vue'
             ),
         VerbandRegeln: () =>
             import(

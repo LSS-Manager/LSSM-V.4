@@ -1,0 +1,55 @@
+{
+	"amount": "{n} gefilterter Spieler | {n} gefilterte Spieler",
+	"credits": "Gesamtverdiente Credits",
+	"discount": "Rabatt",
+	"edit_caption": {
+		"save": "Speichern"
+	},
+	"load": {
+		"next": "nächste Seite laden",
+		"prev": "vorherige Seite laden"
+	},
+	"name": "Spieler",
+	"online": {
+		"subtitle": "Es werden nur online Mitglieder angezeigt!",
+		"titles": {
+			"blue": "{user} ist offline und war in den letzten 30 Tagen online!",
+			"gray": "{user} ist offline und war in den letzten 7 Tagen online!",
+			"green": "{user} ist online!",
+			"red": "{user} ist seit mehr als 60 Tagen offline!",
+			"yellow": "{user} ist offline und war in den letzten 60 Tagen online!"
+		},
+		"toggle": {
+			"false": "Nur online Spieler anzeigen",
+			"true": "Alle Mitglieder anzeigen (auch offline)"
+		}
+	},
+	"rights": {
+		"admin": "Verbands-Admin",
+		"aufsichtsrat": "Aufsichtsrat",
+		"coadmin": "Verbands-Co-Admin",
+		"edit": "Rechte bearbeiten",
+		"finance": "Finanzminister",
+		"hide": "Schließen",
+		"kick": {
+			"btn": "Rauswerfen"
+		},
+		"schooling": "Lehrgangsmeister",
+		"set": "Als {role} setzen",
+		"sprechwunsch_admin": "Sprechwunsch-Admin",
+		"unset": "Als {role} entfernen",
+        "kickModal": {
+            "btnCancel": "Abbrechen",
+            "btnConfirm": "Rauswerfen",
+            "text": "Möchtest du den Spieler **{user}** wirklich aus dem Verband rauswerfen?",
+            "title": "Rauswerfen?"
+        }
+    },
+	"roles": "Rolle(n)",
+	"search_global": "Globale Suche",
+	"search_local": "Suche in geladenen Spielern",
+	"search_subtitle": "Zeige {n} Spieler der Seiten {startPage} bis {endPage} von insg. {totalPages} Seiten",
+	"subtitle": "Zeige {n} Spieler der Seiten {startPage} ({firstCredits}) bis {endPage} ({lastCredits}) von insg. {totalPages} Seiten",
+	"tax": "Abgabenrate",
+	"title": "Mitglieder"
+}
