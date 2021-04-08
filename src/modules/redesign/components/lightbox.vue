@@ -388,9 +388,13 @@ export default Vue.extend<
     },
     mounted() {
         window['lssmv4-redesign-lightbox'] = this;
-        this.$nextTick(() => {
-            this.$set(this, 'src', this.url);
-        });
+        const trySetIframe = () =>
+            this.$refs.iframe
+                ? this.$nextTick(() => {
+                      this.$set(this, 'src', this.url);
+                  })
+                : setTimeout(trySetIframe, 100);
+        trySetIframe();
     },
 });
 </script>
