@@ -131,7 +131,6 @@ export default Vue.extend<
                 return window.lightboxOpen(href);
             else this.$set(this.lightbox, 'src', href);
         });
-        document.title = this.lightbox.$sm('title').toString();
         this.lightbox.finishLoading('profile-edit-mounted');
     },
 });

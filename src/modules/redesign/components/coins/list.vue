@@ -290,9 +290,6 @@ export default Vue.extend<
         });
         this.startPage = this.page;
         this.endPage = this.page;
-        document.title = `${this.$t(
-            'modules.redesign.credits.nav.title'
-        )}: ${this.$sm('title')}`;
         this.lightbox.finishLoading('coins/list-mounted');
     },
 });

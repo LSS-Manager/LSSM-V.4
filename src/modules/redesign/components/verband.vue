@@ -242,7 +242,6 @@ export default Vue.extend<
                 return window.lightboxOpen(href);
             else this.$set(this.lightbox, 'src', href);
         });
-        this.lightbox.finishLoading('yknfdwef');
     },
 });
 </script>

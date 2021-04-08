@@ -375,9 +375,6 @@ export default Vue.extend<
         this.getSetting('sortDir', this.sortDir).then(
             dir => (this.sortDir = dir)
         );
-        document.title = `${this.$t(
-            'modules.redesign.credits.nav.title'
-        )}: ${this.$sm('title')}`;
         this.lightbox.finishLoading('credits/daily-mounted');
     },
 });

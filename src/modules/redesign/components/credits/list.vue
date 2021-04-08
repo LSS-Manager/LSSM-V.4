@@ -283,9 +283,6 @@ export default Vue.extend<
     mounted() {
         this.startPage = this.page;
         this.endPage = this.page;
-        document.title = `${this.$t(
-            'modules.redesign.credits.nav.title'
-        )}: ${this.$sm('title')}`;
         this.lightbox.finishLoading('credits/list-mounted');
     },
 });

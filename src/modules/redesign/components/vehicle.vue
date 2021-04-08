@@ -1915,7 +1915,6 @@ export default Vue.extend<
                 });
             });
         }
-        document.title = this.vehicle.vehicle_name;
         this.lightbox.finishLoading('vehicle-mounted');
     },
 });

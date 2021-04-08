@@ -212,7 +212,6 @@ export default Vue.extend<
             };
             reader.readAsDataURL(this.input.files[0]);
         };
-        document.title = this.lightbox.$sm('title').toString();
         this.lightbox.finishLoading('alliance-avatar-edit-mounted');
     },
 });

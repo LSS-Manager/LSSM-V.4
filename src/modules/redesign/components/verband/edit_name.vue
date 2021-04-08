@@ -129,7 +129,6 @@ export default Vue.extend<
         },
     },
     mounted() {
-        document.title = this.lightbox.$sm('title').toString();
         this.lightbox.finishLoading('verband/edit_name-mounted');
     },
 });

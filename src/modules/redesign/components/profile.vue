@@ -1028,7 +1028,6 @@ export default Vue.extend<
                 },
             ],
         } as PlotGaugeOptions);
-        document.title = this.profile.name;
         this.lightbox.finishLoading('profile-mounted');
     },
 });

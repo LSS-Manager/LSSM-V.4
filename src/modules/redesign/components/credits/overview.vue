@@ -213,9 +213,6 @@ export default Vue.extend<
                 color: ['#28a828', '#a32323', '#74868f'][index],
             })),
         } as Options);
-        document.title = `${this.$t(
-            'modules.redesign.credits.nav.title'
-        )}: ${this.$sm('title')}`;
         this.lightbox.finishLoading('credits/overview-mounted');
     },
 });

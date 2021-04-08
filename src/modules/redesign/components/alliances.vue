@@ -348,7 +348,6 @@ export default Vue.extend<
         );
         this.startPage = this.page;
         this.endPage = this.page;
-        document.title = this.lightbox.$sm('title').toString();
         this.lightbox.finishLoading('alliances-mounted');
     },
 });
