@@ -254,21 +254,24 @@ export default Vue.extend<
             );
         },
         subtitle() {
-            return this.lightbox.$smc(
-                this.urlSearch ? 'search_subtitle' : 'subtitle',
-                this.toplist.users.length,
-                {
-                    startPage: this.startPage,
-                    endPage: this.endPage,
-                    firstCredits:
-                        this.toplist.users[0]?.credits?.toLocaleString() ?? '',
-                    lastCredits:
-                        this.toplist.users[
-                            this.toplist.users.length - 1
-                        ]?.credits?.toLocaleString() ?? '',
-                    totalPages: this.toplist.lastPage.toLocaleString(),
-                }
-            ).toString();
+            return this.lightbox
+                .$smc(
+                    this.urlSearch ? 'search_subtitle' : 'subtitle',
+                    this.toplist.users.length,
+                    {
+                        startPage: this.startPage,
+                        endPage: this.endPage,
+                        firstCredits:
+                            this.toplist.users[0]?.credits?.toLocaleString() ??
+                            '',
+                        lastCredits:
+                            this.toplist.users[
+                                this.toplist.users.length - 1
+                            ]?.credits?.toLocaleString() ?? '',
+                        totalPages: this.toplist.lastPage.toLocaleString(),
+                    }
+                )
+                .toString();
         },
         usersFiltered() {
             return this.search.trim().length

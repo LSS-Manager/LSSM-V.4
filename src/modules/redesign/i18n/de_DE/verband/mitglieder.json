@@ -34,17 +34,17 @@
 		"kick": {
 			"btn": "Rauswerfen"
 		},
+		"kickModal": {
+			"btnCancel": "Abbrechen",
+			"btnConfirm": "Rauswerfen",
+			"text": "Möchtest du den Spieler **{user}** wirklich aus dem Verband rauswerfen?",
+			"title": "Rauswerfen?"
+		},
 		"schooling": "Lehrgangsmeister",
 		"set": "Als {role} setzen",
 		"sprechwunsch_admin": "Sprechwunsch-Admin",
-		"unset": "Als {role} entfernen",
-        "kickModal": {
-            "btnCancel": "Abbrechen",
-            "btnConfirm": "Rauswerfen",
-            "text": "Möchtest du den Spieler **{user}** wirklich aus dem Verband rauswerfen?",
-            "title": "Rauswerfen?"
-        }
-    },
+		"unset": "Als {role} entfernen"
+	},
 	"roles": "Rolle(n)",
 	"search_global": "Globale Suche",
 	"search_local": "Suche in geladenen Spielern",
