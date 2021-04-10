@@ -1761,8 +1761,16 @@ export default Vue.extend<
                     feature: `redesign-vehicle-fms`,
                 })
                 .then((res: Response) => {
-                    if (res.redirected)
+                    if (res.redirected) {
+                        if (
+                            new URL(res.url, window.location.origin)
+                                .pathname === '/'
+                        ) {
+                            this.$set(this.lightbox, 'type', 'vehicle/nextfms');
+                            return window.lightboxClose(this.lightbox.creation);
+                        }
                         return this.$set(this.lightbox, 'src', res.url);
+                    }
 
                     res.text().then(html => {
                         import(
@@ -1773,8 +1781,32 @@ export default Vue.extend<
                                 url,
                                 this.lightbox.getIdFromEl
                             );
-                            if (next_vehicle < 0)
-                                return this.$set(this.lightbox, 'src', res.url);
+                            if (next_vehicle < 0) {
+                                import(
+                                    `../i18n/${this.$store.state.lang}/vehicle/nextfms.json`
+                                ).then(t => {
+                                    this.$i18n.mergeLocaleMessage(
+                                        this.$store.state.lang,
+                                        {
+                                            modules: {
+                                                redesign: {
+                                                    vehicle: {
+                                                        nextfms: t,
+                                                    },
+                                                },
+                                            },
+                                        }
+                                    );
+                                    this.$set(
+                                        this.lightbox,
+                                        'type',
+                                        'vehicle/nextfms'
+                                    );
+                                });
+                                return window.lightboxClose(
+                                    this.lightbox.creation
+                                );
+                            }
                             this.$set(
                                 this.lightbox,
                                 'src',
