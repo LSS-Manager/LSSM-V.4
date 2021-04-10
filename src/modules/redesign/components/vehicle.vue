@@ -7,6 +7,18 @@
         <div class="vehicle-window">
             <div>
                 <div class="well">
+                    <span
+                        v-if="hospitalListSrc > 0 && vehicle.load_all_hospitals"
+                        class="pull-right"
+                    >
+                        {{ lightbox.$sm('load_all_hospitals.text') }}
+                        <button
+                            class="btn btn-default btn-xs pull-right"
+                            @click="loadAllHospitals"
+                        >
+                            {{ lightbox.$sm('load_all_hospitals.btn') }}
+                        </button>
+                    </span>
                     <table class="table">
                         <tbody>
                             <tr v-if="vehicle.user">
@@ -1103,6 +1115,7 @@ type Component = RedesignComponent<
         updateFilter(filter: string, value: unknown): void;
         fms(url: string): void;
         release(type: 'patient' | 'prisoner'): void;
+        loadAllHospitals(): void;
     },
     {
         participated_missions: string[];
@@ -1839,6 +1852,41 @@ export default Vue.extend<
                     },
                 ],
             });
+        },
+        loadAllHospitals() {
+            this.$set(this.lightbox, 'loading', true);
+            const url = new URL(
+                `/vehicles/${this.vehicle.id}?load_all=true`,
+                window.location.origin
+            );
+            this.$store
+                .dispatch('api/request', {
+                    url,
+                    feature: `redesign-vehicle-load_all_hospitals`,
+                })
+                .then((res: Response) => res.text())
+                .then(async html => {
+                    import('../parsers/vehicle').then(parser => {
+                        const result = parser.default(
+                            html,
+                            url.toString(),
+                            this.lightbox.getIdFromEl
+                        );
+                        this.$set(
+                            this.lightbox.data,
+                            'alliance_hospitals',
+                            result.alliance_hospitals
+                        );
+                        this.$set(
+                            this.lightbox.data,
+                            'load_all_hospitals',
+                            false
+                        );
+                        this.lightbox.finishLoading(
+                            'toplist-vehicle-load_all_hospitals'
+                        );
+                    });
+                });
         },
     },
     props: {

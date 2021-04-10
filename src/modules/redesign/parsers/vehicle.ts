@@ -90,6 +90,7 @@ export interface VehicleWindow {
     has_hospitals: boolean;
     own_hospitals: Hospital[];
     alliance_hospitals: Hospital[];
+    load_all_hospitals: boolean;
     hospital_department: string;
     patient_releaseable: boolean;
     has_cells: boolean;
@@ -359,6 +360,9 @@ export default <RedesignParser<VehicleWindow>>((source, href, getIdFromEl) => {
             own_hospitals: Hospital[];
             alliance_hospitals: Hospital[];
         }),
+        load_all_hospitals: !!doc.querySelector<HTMLAnchorElement>(
+            'a[href$="?load_all=true"]'
+        ),
         hospital_department: hasHospitals
             ? doc
                   .querySelector('.col-md-9 .alert.alert-info b')
