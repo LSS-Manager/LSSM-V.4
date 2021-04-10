@@ -1755,33 +1755,34 @@ export default Vue.extend<
             this.setSetting(filter, value).then();
         },
         fms(url) {
-            return this.$set(this.lightbox, 'src', url);
-            // this.$store
-            //     .dispatch('api/request', {
-            //         url,
-            //         feature: `redesign-vehicle-fms`,
-            //     })
-            //     .then((res: Response) => {
-            //         if (res.redirected)
-            //             return this.$set(this.lightbox, 'src', res.url);
-            //
-            //         res.text().then(html => {
-            //             import(
-            //                 /*webpackChunkName: "modules/redesign/parsers/vehicle/nextfms"*/ `../parsers/vehicle/nextfms`
-            //             ).then(parser => {
-            //                 const next_vehicle = parser.default(
-            //                     html,
-            //                     url,
-            //                     this.lightbox.getIdFromEl
-            //                 );
-            //                 this.$set(
-            //                     this.lightbox,
-            //                     'src',
-            //                     `/vehicles/${next_vehicle}`
-            //                 );
-            //             });
-            //         });
-            //     });
+            this.$store
+                .dispatch('api/request', {
+                    url,
+                    feature: `redesign-vehicle-fms`,
+                })
+                .then((res: Response) => {
+                    if (res.redirected)
+                        return this.$set(this.lightbox, 'src', res.url);
+
+                    res.text().then(html => {
+                        import(
+                            /*webpackChunkName: "modules/redesign/parsers/vehicle/nextfms"*/ `../parsers/vehicle/nextfms`
+                        ).then(parser => {
+                            const next_vehicle = parser.default(
+                                html,
+                                url,
+                                this.lightbox.getIdFromEl
+                            );
+                            if (next_vehicle < 0)
+                                return this.$set(this.lightbox, 'src', res.url);
+                            this.$set(
+                                this.lightbox,
+                                'src',
+                                `/vehicles/${next_vehicle}`
+                            );
+                        });
+                    });
+                });
         },
         release(type) {
             // eslint-disable-next-line @typescript-eslint/no-this-alias

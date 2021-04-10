@@ -60,7 +60,8 @@ type windows =
     | VerbandEditTextWindow
     | VerbandHomeWindow
     | VerbandMitgliederWindow
-    | VerbandRegelnWindow;
+    | VerbandRegelnWindow
+    | number;
 export type routeChecks = Record<string, types>;
 
 interface Data<T, D> {
