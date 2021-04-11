@@ -231,7 +231,8 @@ export default Vue.extend<
                 const type = Object.entries(this.routeChecks).find(([regex]) =>
                     link.pathname.match(regex)
                 )?.[1];
-                if (this.noModal) window.history.pushState({}, url, url);
+                if (this.noModal && !link.searchParams.has('ignore-history'))
+                    window.history.pushState({}, url, url);
                 if (!type) {
                     const iframe = this.$refs
                         .iframe as HTMLIFrameElement | null;
@@ -405,6 +406,11 @@ export default Vue.extend<
             this.$refs.iframe
                 ? this.$nextTick(() => {
                       this.$set(this, 'src', this.url);
+                      window.addEventListener('popstate', () => {
+                          const url = new URL(window.location);
+                          url.searchParams.append('ignore-history', 'true');
+                          this.$set(this, 'src', url.toString());
+                      });
                   })
                 : setTimeout(trySetIframe, 100);
         trySetIframe();

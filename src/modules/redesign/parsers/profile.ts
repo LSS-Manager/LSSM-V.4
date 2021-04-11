@@ -35,7 +35,11 @@ export interface ProfileWindow {
 
 export default <RedesignParser<ProfileWindow>>((source, href) => {
     const doc = new DOMParser().parseFromString(source, 'text/html');
-    const id = parseInt(href.match(/\d+(?=\/?$)/)?.[0] ?? '-1');
+    const id = parseInt(
+        new URL(href, window.location.origin).pathname.match(
+            /\d+(?=\/?$)/
+        )?.[0] ?? '-1'
+    );
     const self = id === window.user_id;
     const pageHeader = doc.querySelector<HTMLDivElement>('.page-header');
     const headTexts: string[] = (window[PREFIX] as Vue).$utils
