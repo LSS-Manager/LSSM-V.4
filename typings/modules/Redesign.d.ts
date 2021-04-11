@@ -25,6 +25,7 @@ import {
 import VueI18n from 'vue-i18n';
 import { CombinedVueInstance } from 'vue/types/vue';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import { FreundeWindow } from '../../src/modules/redesign/parsers/freunde';
 
 type types =
     | 'alliance_avatar'
@@ -35,6 +36,7 @@ type types =
     | 'credits/daily'
     | 'credits/list'
     | 'credits/overview'
+    | 'freunde'
     | 'profile'
     | 'profile/edit'
     | 'toplist'
@@ -54,6 +56,7 @@ type windows =
     | CreditsDailyWindow
     | CreditsListWindow
     | CreditsOverviewWindow
+    | FreundeWindow
     | ProfileWindow
     | ProfileEditWindow
     | TopListWindow

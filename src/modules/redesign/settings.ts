@@ -10,6 +10,10 @@ export default (() => ({
         type: 'hidden',
         default: {},
     },
+    'freunde': <Hidden>{
+        type: 'hidden',
+        default: {},
+    },
     'profile': <Hidden>{
         type: 'hidden',
         default: {},

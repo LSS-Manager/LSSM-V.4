@@ -43,6 +43,15 @@
                 :set-setting="setSetting()"
                 :type="type"
             ></Credits>
+            <Freunde
+                v-else-if="type === 'freunde'"
+                :friends="data"
+                :url="urlProp"
+                :lightbox="this"
+                :get-setting="getSetting()"
+                :set-setting="setSetting()"
+                :type="type"
+            ></Freunde>
             <Profile
                 v-else-if="type === 'profile'"
                 :profile="data"
@@ -146,6 +155,10 @@ export default Vue.extend<
         Credits: () =>
             import(
                 /*webpackChunkName: "modules/redesign/windows/credits"*/ './credits.vue'
+            ),
+        Freunde: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/freunde"*/ './freunde.vue'
             ),
         Profile: () =>
             import(
