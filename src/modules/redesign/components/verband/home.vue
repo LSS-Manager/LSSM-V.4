@@ -54,8 +54,14 @@
             >
                 {{ lightbox.$sm('leave.title') }}
             </button>
+            <div
+                class="alert alert-danger"
+                v-if="home.no_apply_box.length"
+                v-html="home.no_apply_box"
+            ></div>
             <button
                 v-if="home.appliable"
+                :disabled="home.no_apply_box.length"
                 class="btn btn-success pull-right"
                 @click="apply"
                 :title="lightbox.$sm('apply')"

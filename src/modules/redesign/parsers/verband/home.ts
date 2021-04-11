@@ -8,6 +8,7 @@ export interface VerbandHomeWindow extends VerbandWindow {
     edit_logo: boolean;
     text: string[];
     appliable: boolean;
+    no_apply_box: string;
     applied: boolean;
     authenticity_token: string;
 }
@@ -18,6 +19,9 @@ export default <RedesignParser<VerbandHomeWindow>>((source, _, getIdFromEl) => {
         doc.querySelector<HTMLAnchorElement>(
             'nav ul.navbar-right li:first-child a[href^="/alliances/"]'
         )
+    );
+    const applyBtn = doc.querySelector<HTMLAnchorElement>(
+        `a[href="/verband/bewerben/${id}"]`
     );
     return {
         meta: {
@@ -37,9 +41,11 @@ export default <RedesignParser<VerbandHomeWindow>>((source, _, getIdFromEl) => {
         text: Array.from(
             doc.querySelectorAll<HTMLParagraphElement>('h3 ~ p')
         ).map(p => (p.matches('.clearfix ~ p') ? '' : p.innerHTML.trim())),
-        appliable: !!doc.querySelector<HTMLAnchorElement>(
-            `a[href="/verband/bewerben/${id}"]`
-        ),
+        appliable: !!applyBtn,
+        no_apply_box: applyBtn?.classList.contains('disabled')
+            ? doc.querySelector<HTMLDivElement>('.alert.alert-info')
+                  ?.innerHTML ?? ''
+            : '',
         applied: !!doc.querySelector<HTMLAnchorElement>(
             `a[href="/verband/bewerben/${id}/zurueckziehen"]`
         ),
