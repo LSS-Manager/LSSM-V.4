@@ -229,7 +229,6 @@ export default Vue.extend<
         },
     },
     mounted() {
-        document.title = this.lightbox.$sm('title').toString();
         const textArea = document.getElementById(
             this.textId
         ) as HTMLTextAreaElement | null;

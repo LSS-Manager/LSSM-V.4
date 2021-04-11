@@ -14,6 +14,7 @@ import { VerbandEditNameWindow } from '../../src/modules/redesign/parsers/verban
 import { VerbandEditTextWindow } from '../../src/modules/redesign/parsers/verband/edit_text';
 import { VerbandHomeWindow } from '../../src/modules/redesign/parsers/verband/home';
 import { VerbandMitgliederWindow } from '../../src/modules/redesign/parsers/verband/mitglieder';
+import { VerbandNewsEditWindow } from '../../src/modules/redesign/parsers/verband/news/edit';
 import { VerbandRegelnWindow } from '../../src/modules/redesign/parsers/verband/regeln';
 import {
     DefaultComputed,
@@ -43,6 +44,7 @@ type types =
     | 'verband/edit_text'
     | 'verband/home'
     | 'verband/mitglieder'
+    | 'verband/news/edit'
     | 'verband/regeln';
 type windows =
     | AllianceAvatarWindow
@@ -60,6 +62,7 @@ type windows =
     | VerbandEditTextWindow
     | VerbandHomeWindow
     | VerbandMitgliederWindow
+    | VerbandNewsEditWindow
     | VerbandRegelnWindow
     | number;
 export type routeChecks = Record<string, types>;

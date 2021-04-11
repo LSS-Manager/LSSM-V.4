@@ -17,6 +17,7 @@ const routeChecks: routeChecks = {
     '^/veband/text/edit/?$': 'verband/edit_text',
     '^/(verband|alliances/\\d+)/?$': 'verband/home',
     '^/verband/mitglieder(/\\d+)?/?$': 'verband/mitglieder',
+    '^/alliance_newses/(new|\\d+/edit)/?$': 'verband/news/edit',
     '^/verband/regeln/\\d+/?$': 'verband/regeln',
     // '^/vehicles/\\d+/(patient|gefangener)/\\d+/?': 'vehicle/nextfms',
 };

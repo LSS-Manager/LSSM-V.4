@@ -121,12 +121,12 @@ export default Vue.extend<
     },
     mounted() {
         this.$el.addEventListener('click', e => {
-            e.preventDefault();
             const target = (e.target as HTMLElement)?.closest<
                 HTMLAnchorElement | HTMLButtonElement
             >('a, button');
             const href = target?.getAttribute('href');
             if (!target || !href) return;
+            e.preventDefault();
             if (target.hasAttribute('lightbox-open'))
                 return window.lightboxOpen(href);
             else this.$set(this.lightbox, 'src', href);

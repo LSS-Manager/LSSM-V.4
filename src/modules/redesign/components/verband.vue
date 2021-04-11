@@ -75,6 +75,16 @@
             :get-setting="getSetting"
             :set-setting="setSetting"
         ></VerbandMitglieder>
+        <VerbandNewsEdit
+            v-else-if="type === 'verband/news/edit'"
+            :news="data"
+            :url="url"
+            :lightbox="lightbox"
+            :$m="$m"
+            :$mc="$mc"
+            :get-setting="getSetting"
+            :set-setting="setSetting"
+        ></VerbandNewsEdit>
         <VerbandRegeln
             v-else-if="type === 'verband/regeln'"
             :rules="data"
@@ -147,6 +157,10 @@ export default Vue.extend<
         VerbandMitglieder: () =>
             import(
                 /*webpackChunkName: "modules/redesign/windows/verband/mitglieder"*/ './verband/mitglieder.vue'
+            ),
+        VerbandNewsEdit: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/verband/news/edit"*/ './verband/news/edit.vue'
             ),
         VerbandRegeln: () =>
             import(
@@ -232,12 +246,12 @@ export default Vue.extend<
     },
     mounted() {
         this.$el.addEventListener('click', e => {
-            e.preventDefault();
             const target = (e.target as HTMLElement)?.closest<
                 HTMLAnchorElement | HTMLButtonElement
             >('a, button');
             const href = target?.getAttribute('href');
             if (!target || !href) return;
+            e.preventDefault();
             if (target.hasAttribute('lightbox-open'))
                 return window.lightboxOpen(href);
             else this.$set(this.lightbox, 'src', href);
