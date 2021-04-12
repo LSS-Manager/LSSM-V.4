@@ -176,11 +176,14 @@ export default Vue.extend<
                 .then((res: Response) => res.text())
                 .then(async html => {
                     import('../parsers/toplist').then(parser => {
-                        const result = parser.default(
-                            html,
-                            url.toString(),
-                            this.lightbox.getIdFromEl
-                        );
+                        const result = parser.default({
+                            doc: new DOMParser().parseFromString(
+                                html,
+                                'text/html'
+                            ),
+                            href: url.toString(),
+                            getIdFromEl: this.lightbox.getIdFromEl,
+                        });
                         this.$set(
                             this.lightbox.data,
                             'lastPage',
@@ -210,11 +213,14 @@ export default Vue.extend<
                 .then((res: Response) => res.text())
                 .then(async html => {
                     import('../parsers/toplist').then(parser => {
-                        const result = parser.default(
-                            html,
-                            url.toString(),
-                            this.lightbox.getIdFromEl
-                        );
+                        const result = parser.default({
+                            doc: new DOMParser().parseFromString(
+                                html,
+                                'text/html'
+                            ),
+                            href: url.toString(),
+                            getIdFromEl: this.lightbox.getIdFromEl,
+                        });
                         this.$set(
                             this.lightbox.data,
                             'lastPage',

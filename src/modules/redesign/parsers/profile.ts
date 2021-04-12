@@ -30,11 +30,9 @@ export interface ProfileWindow {
     ban: number[];
     can_alliance_ignore: boolean;
     alliance_ignored: boolean;
-    authenticity_token: string;
 }
 
-export default <RedesignParser<ProfileWindow>>((source, href) => {
-    const doc = new DOMParser().parseFromString(source, 'text/html');
+export default <RedesignParser<ProfileWindow>>(({ doc, href }) => {
     const id = parseInt(
         new URL(href, window.location.origin).pathname.match(
             /\d+(?=\/?$)/
@@ -122,8 +120,5 @@ export default <RedesignParser<ProfileWindow>>((source, href) => {
         ),
         can_alliance_ignore: !!allianceIgnore,
         alliance_ignored: allianceIgnore?.href.endsWith('destroy'),
-        authenticity_token:
-            doc.querySelector<HTMLMetaElement>('meta[name="csrf-token"]')
-                ?.content ?? '',
     };
 });

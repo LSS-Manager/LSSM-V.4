@@ -10,15 +10,10 @@ interface Friend {
 
 export interface FreundeWindow {
     friends: Friend[];
-    authenticity_token: string;
 }
 
-export default <RedesignParser<FreundeWindow>>((source, _, getIdFromEl) => {
-    const doc = new DOMParser().parseFromString(source, 'text/html');
+export default <RedesignParser<FreundeWindow>>(({ doc, getIdFromEl }) => {
     return {
-        authenticity_token:
-            doc.querySelector<HTMLMetaElement>('meta[name="csrf-token"]')
-                ?.content ?? '',
         friends: Array.from(
             doc.querySelectorAll<HTMLTableRowElement>('table tbody tr')
         ).map(row => ({

@@ -2,7 +2,6 @@ import { RedesignParser } from 'typings/modules/Redesign';
 import { VerbandWindow } from 'typings/modules/Redesign/Verband';
 
 export interface VerbandEditTextWindow extends VerbandWindow {
-    authenticity_token: string;
     text: string;
     rules: string;
     header: string;
@@ -10,12 +9,10 @@ export interface VerbandEditTextWindow extends VerbandWindow {
     faq: string;
 }
 
-export default <RedesignParser<VerbandEditTextWindow>>((
-    source,
-    _,
-    getIdFromEl
-) => {
-    const doc = new DOMParser().parseFromString(source, 'text/html');
+export default <RedesignParser<VerbandEditTextWindow>>(({
+    doc,
+    getIdFromEl,
+}) => {
     const id = getIdFromEl(
         doc.querySelector<HTMLAnchorElement>(
             'nav ul.navbar-right li:first-child a[href^="/alliances/"]'
@@ -33,9 +30,6 @@ export default <RedesignParser<VerbandEditTextWindow>>((
             id,
             self: !!doc.querySelector('a[href="/alliance_threads"]'),
         },
-        authenticity_token:
-            (form?.elements.namedItem('authenticity_token') as HTMLInputElement)
-                ?.value ?? '',
         text:
             form?.querySelector<HTMLTextAreaElement>(
                 'textarea[name="alliance_text[content]"]'

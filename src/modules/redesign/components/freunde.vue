@@ -156,7 +156,7 @@ export default Vue.extend<
             );
             const note = (this.$refs[
                 `notes_${friend_id}`
-            ][0] as HTMLTextAreaElement).value;
+            ] as HTMLTextAreaElement[])[0].value;
             url.searchParams.append('friend[comment]', note);
             this.$store
                 .dispatch('api/request', {

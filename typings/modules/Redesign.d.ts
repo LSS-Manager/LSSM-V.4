@@ -6,6 +6,8 @@ import { CoinsListWindow } from '../../src/modules/redesign/parsers/coins/list';
 import { CreditsDailyWindow } from '../../src/modules/redesign/parsers/credits/daily';
 import { CreditsListWindow } from '../../src/modules/redesign/parsers/credits/list';
 import { CreditsOverviewWindow } from '../../src/modules/redesign/parsers/credits/overview';
+import { FreundeWindow } from '../../src/modules/redesign/parsers/freunde';
+import { NextFMSWindow } from '../../src/modules/redesign/parsers/vehicle/nextfms';
 import { ProfileWindow } from '../../src/modules/redesign/parsers/profile';
 import { ProfileEditWindow } from '../../src/modules/redesign/parsers/profile/edit';
 import { TopListWindow } from '../../src/modules/redesign/parsers/toplist';
@@ -25,7 +27,6 @@ import {
 import VueI18n from 'vue-i18n';
 import { CombinedVueInstance } from 'vue/types/vue';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-import { FreundeWindow } from '../../src/modules/redesign/parsers/freunde';
 
 type types =
     | 'alliance_avatar'
@@ -57,6 +58,7 @@ type windows =
     | CreditsListWindow
     | CreditsOverviewWindow
     | FreundeWindow
+    | NextFMSWindow
     | ProfileWindow
     | ProfileEditWindow
     | TopListWindow
@@ -66,14 +68,15 @@ type windows =
     | VerbandHomeWindow
     | VerbandMitgliederWindow
     | VerbandNewsEditWindow
-    | VerbandRegelnWindow
-    | number;
+    | VerbandRegelnWindow;
 export type routeChecks = Record<string, types>;
 
-interface Data<T, D> {
+interface Data<T, W> {
     faSyncAlt: IconDefinition;
     type: T;
-    data: D;
+    data: W & {
+        authenticity_token: string;
+    };
     html: string;
     urlProp: string;
     loading: boolean;
@@ -126,19 +129,14 @@ export interface RedesignLightbox<
     };
 }
 
+interface ParserParam {
+    doc: Document;
+    href: string;
+    getIdFromEl: (el: HTMLAnchorElement | null) => number;
+}
+
 export type RedesignParser<Window extends windows> = (
-    source: string,
-    href: string,
-    getIdFromEl: (el: HTMLAnchorElement | null) => number
-) => Window;
-
-export type RedesignParserNoIDFun<Window extends windows> = (
-    source: string,
-    href: string
-) => Window;
-
-export type RedesignParserSrcOnly<Window extends windows> = (
-    source: string
+    data: ParserParam
 ) => Window;
 
 export type RedesignLightboxVue<
@@ -165,7 +163,7 @@ export type RedesignComponent<
     Methods: Methods;
     Computed: Computed;
     Props: Props &
-        Record<DataName, Window> & {
+        Record<DataName, Window & { authenticity_token: string }> & {
             url: string;
             lightbox: RedesignLightboxVue<Type, Window>;
             getSetting: <T>(setting: string, defaultValue: T) => Promise<T>;
@@ -181,28 +179,26 @@ export type RedesignSubComponent<
     Methods = DefaultMethods<Vue>,
     Computed = DefaultComputed,
     Props = DefaultProps
-> = {
-    Data: Data;
-    Methods: Methods;
-    Computed: Computed;
-    Props: Props &
-        Record<DataName, Window> & {
-            url: string;
-            lightbox: RedesignLightboxVue<Type, Window>;
-            $m(
-                key: string,
-                args?: {
-                    [key: string]: unknown;
-                }
-            ): VueI18n.TranslateResult;
-            $mc(
-                key: string,
-                amount: number,
-                args?: {
-                    [key: string]: unknown;
-                }
-            ): VueI18n.TranslateResult;
-            getSetting: <T>(setting: string, defaultValue: T) => Promise<T>;
-            setSetting: <T>(settingId: string, value: T) => Promise<void>;
-        };
-};
+> = RedesignComponent<
+    DataName,
+    Type,
+    Window,
+    Data,
+    Methods,
+    Computed,
+    Props & {
+        $m(
+            key: string,
+            args?: {
+                [key: string]: unknown;
+            }
+        ): VueI18n.TranslateResult;
+        $mc(
+            key: string,
+            amount: number,
+            args?: {
+                [key: string]: unknown;
+            }
+        ): VueI18n.TranslateResult;
+    }
+>;

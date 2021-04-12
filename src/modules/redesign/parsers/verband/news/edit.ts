@@ -2,19 +2,17 @@ import { RedesignParser } from 'typings/modules/Redesign';
 import { VerbandWindow } from 'typings/modules/Redesign/Verband';
 
 export interface VerbandNewsEditWindow extends VerbandWindow {
-    authenticity_token: string;
     caption: string;
     content: string;
     is_public: boolean;
     id: number;
 }
 
-export default <RedesignParser<VerbandNewsEditWindow>>((
-    source,
+export default <RedesignParser<VerbandNewsEditWindow>>(({
+    doc,
     href,
-    getIdFromEl
-) => {
-    const doc = new DOMParser().parseFromString(source, 'text/html');
+    getIdFromEl,
+}) => {
     const id = getIdFromEl(
         doc.querySelector<HTMLAnchorElement>(
             'nav ul.navbar-right li:first-child a[href^="/alliances/"]'
@@ -32,9 +30,6 @@ export default <RedesignParser<VerbandNewsEditWindow>>((
             id,
             self: !!doc.querySelector('a[href="/alliance_threads"]'),
         },
-        authenticity_token:
-            doc.querySelector<HTMLMetaElement>('meta[name="csrf-token"]')
-                ?.content ?? '',
         caption:
             form?.querySelector<HTMLInputElement>(
                 'input[name="alliance_newse[caption]"]'

@@ -6,12 +6,7 @@ export interface VerbandRegelnWindow extends VerbandWindow {
     rules: string[];
 }
 
-export default <RedesignParser<VerbandRegelnWindow>>((
-    source,
-    _,
-    getIdFromEl
-) => {
-    const doc = new DOMParser().parseFromString(source, 'text/html');
+export default <RedesignParser<VerbandRegelnWindow>>(({ doc, getIdFromEl }) => {
     const id = getIdFromEl(
         doc.querySelector<HTMLAnchorElement>(
             'nav ul.navbar-right li:first-child a[href^="/alliances/"]'

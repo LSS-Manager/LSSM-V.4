@@ -10,11 +10,9 @@ export interface VerbandHomeWindow extends VerbandWindow {
     appliable: boolean;
     no_apply_box: string;
     applied: boolean;
-    authenticity_token: string;
 }
 
-export default <RedesignParser<VerbandHomeWindow>>((source, _, getIdFromEl) => {
-    const doc = new DOMParser().parseFromString(source, 'text/html');
+export default <RedesignParser<VerbandHomeWindow>>(({ doc, getIdFromEl }) => {
     const id = getIdFromEl(
         doc.querySelector<HTMLAnchorElement>(
             'nav ul.navbar-right li:first-child a[href^="/alliances/"]'
@@ -49,8 +47,5 @@ export default <RedesignParser<VerbandHomeWindow>>((source, _, getIdFromEl) => {
         applied: !!doc.querySelector<HTMLAnchorElement>(
             `a[href="/verband/bewerben/${id}/zurueckziehen"]`
         ),
-        authenticity_token:
-            doc.querySelector<HTMLMetaElement>('meta[name="csrf-token"]')
-                ?.content ?? '',
     };
 });

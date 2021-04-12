@@ -99,11 +99,9 @@ export interface VehicleWindow {
     prisoners_releaseable: boolean;
     has_wlfs: boolean;
     wlfs: WLF[];
-    authenticity_token: string;
 }
 
-export default <RedesignParser<VehicleWindow>>((source, href, getIdFromEl) => {
-    const doc = new DOMParser().parseFromString(source, 'text/html');
+export default <RedesignParser<VehicleWindow>>(({ doc, href, getIdFromEl }) => {
     const id = parseInt(
         new URL(href, window.location.href).pathname.match(/\d+\/?$/)?.[0] ??
             '-1'
@@ -402,8 +400,5 @@ export default <RedesignParser<VehicleWindow>>((source, href, getIdFromEl) => {
                   };
               })
             : [],
-        authenticity_token:
-            doc.querySelector<HTMLMetaElement>('meta[name="csrf-token"]')
-                ?.content ?? '',
     };
 });

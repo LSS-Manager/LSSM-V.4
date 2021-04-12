@@ -145,6 +145,7 @@
                     >
                         <a
                             class="btn btn-success btn-xs"
+                            lightbox-open
                             :href="
                                 `/messages/new?target=${encodeURIComponent(
                                     profile.name
@@ -158,6 +159,7 @@
                         </a>
                         <a
                             class="btn btn-success btn-xs"
+                            lightbox-open
                             :href="
                                 `/coins?gift_for_user=${encodeURIComponent(
                                     profile.id

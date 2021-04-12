@@ -14,12 +14,7 @@ export interface AllianceListWindow {
     lastPage: number;
 }
 
-export default <RedesignParser<AllianceListWindow>>((
-    source,
-    _,
-    getIdFromEl
-) => {
-    const doc = new DOMParser().parseFromString(source, 'text/html');
+export default <RedesignParser<AllianceListWindow>>(({ doc, getIdFromEl }) => {
     const getNum = (el: Element | null) =>
         parseInt(
             el?.textContent

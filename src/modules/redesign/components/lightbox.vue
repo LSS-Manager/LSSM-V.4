@@ -126,7 +126,7 @@
 <script lang="ts">
 import Vue from 'vue';
 import { faSyncAlt } from '@fortawesome/free-solid-svg-icons/faSyncAlt';
-import { RedesignLightbox } from 'typings/modules/Redesign';
+import { RedesignLightbox, RedesignParser } from 'typings/modules/Redesign';
 
 export default Vue.extend<
     RedesignLightbox['Data'],
@@ -306,25 +306,42 @@ export default Vue.extend<
                         if (type === 'coins/list') await addLocas('credits');
                         import(
                             /*webpackChunkName: "modules/redesign/parsers/[request]"*/ `../parsers/${type}`
-                        ).then(parser => {
-                            try {
-                                this.data = parser.default(
-                                    html,
-                                    url,
-                                    this.getIdFromEl
-                                );
-                                if (type === 'vehicle/nextfms' && this.data)
-                                    this.src = `/vehicles/${this.data}`;
-                                this.type = type;
-                                this.urlProp = url;
-                                document.documentElement.style.removeProperty(
-                                    'height'
-                                );
-                                document.body.style.removeProperty('height');
-                            } catch (e) {
-                                this.errors.push(e);
+                        ).then(
+                            ({
+                                default: parser,
+                            }: {
+                                default: RedesignParser;
+                            }) => {
+                                try {
+                                    const doc = new DOMParser().parseFromString(
+                                        html,
+                                        'text/html'
+                                    );
+                                    this.data = parser({
+                                        source: html,
+                                        href: url,
+                                        getIdFromEl: this.getIdFromEl,
+                                        doc,
+                                    });
+                                    this.data.authenticity_token =
+                                        doc.querySelector<HTMLMetaElement>(
+                                            'meta[name="csrf-token"]'
+                                        )?.content ?? '';
+                                    if (type === 'vehicle/nextfms' && this.data)
+                                        this.src = `/vehicles/${this.data}`;
+                                    this.type = type;
+                                    this.urlProp = url;
+                                    document.documentElement.style.removeProperty(
+                                        'height'
+                                    );
+                                    document.body.style.removeProperty(
+                                        'height'
+                                    );
+                                } catch (e) {
+                                    this.errors.push(e);
+                                }
                             }
-                        });
+                        );
                     });
             },
         },

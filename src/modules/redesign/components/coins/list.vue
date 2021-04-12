@@ -166,7 +166,12 @@ export default Vue.extend<
                 .then((res: Response) => res.text())
                 .then(async html => {
                     import('../../parsers/coins/list').then(parser => {
-                        const result = parser.default(html);
+                        const result = parser.default({
+                            doc: new DOMParser().parseFromString(
+                                html,
+                                'text/html'
+                            ),
+                        });
                         this.$set(
                             this.lightbox.data,
                             'lastPage',
@@ -192,7 +197,12 @@ export default Vue.extend<
                 .then((res: Response) => res.text())
                 .then(async html => {
                     import('../../parsers/coins/list').then(parser => {
-                        const result = parser.default(html);
+                        const result = parser.default({
+                            doc: new DOMParser().parseFromString(
+                                html,
+                                'text/html'
+                            ),
+                        });
                         this.$set(
                             this.lightbox.data,
                             'lastPage',

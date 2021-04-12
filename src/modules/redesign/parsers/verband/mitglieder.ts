@@ -27,15 +27,13 @@ export interface VerbandMitgliederWindow extends VerbandWindow {
     lastPage: number;
     edit_caption: boolean;
     edit_discount: boolean;
-    authenticity_token: string;
 }
 
-export default <RedesignParser<VerbandMitgliederWindow>>((
-    source,
+export default <RedesignParser<VerbandMitgliederWindow>>(({
+    doc,
     href,
-    getIdFromEl
-) => {
-    const doc = new DOMParser().parseFromString(source, 'text/html');
+    getIdFromEl,
+}) => {
     const getNum = (el: Element | null) =>
         parseInt(
             el?.textContent
@@ -137,8 +135,5 @@ export default <RedesignParser<VerbandMitgliederWindow>>((
         edit_discount: !!doc.querySelector<HTMLAnchorElement>(
             'a[href^="/verband/discount/"]'
         ),
-        authenticity_token:
-            doc.querySelector<HTMLMetaElement>('meta[name="csrf-token"]')
-                ?.content ?? '',
     };
 });

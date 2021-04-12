@@ -5,12 +5,10 @@ export interface VerbandEditNameWindow extends VerbandWindow {
     authenticity_token: string;
 }
 
-export default <RedesignParser<VerbandEditNameWindow>>((
-    source,
-    _,
-    getIdFromEl
-) => {
-    const doc = new DOMParser().parseFromString(source, 'text/html');
+export default <RedesignParser<VerbandEditNameWindow>>(({
+    doc,
+    getIdFromEl,
+}) => {
     const id = getIdFromEl(
         doc.querySelector<HTMLAnchorElement>(
             'nav ul.navbar-right li:first-child a[href^="/alliances/"]'
@@ -25,10 +23,5 @@ export default <RedesignParser<VerbandEditNameWindow>>((
             id,
             self: !!doc.querySelector('a[href="/alliance_threads"]'),
         },
-        authenticity_token:
-            (doc
-                .querySelector<HTMLFormElement>('form[id^="edit_alliance_"]')
-                ?.elements.namedItem('authenticity_token') as HTMLInputElement)
-                ?.value ?? '',
     };
 });
