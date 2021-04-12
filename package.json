@@ -1,5 +1,5 @@
 {
-    "version": "4.2.2+20210411.2045",
+    "version": "4.2.2+20210412.0622",
     "license": "CC-BY-NC-SA-4.0",
     "scripts": {
         "predev": "tsc -b scripts && node scripts predev",
