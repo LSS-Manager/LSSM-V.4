@@ -206,7 +206,7 @@
 	"ua-parser-js": {
 		"icon": "https://raw.githubusercontent.com/faisalman/ua-parser-js/gh-pages/images/logo.png",
 		"url": "https://github.com/faisalman/ua-parser-js",
-		"version": "0.7.27"
+		"version": "0.7.28"
 	},
 	"url-loader": {
 		"icon": "https://webpack.js.org/assets/icon-square-big.svg",
@@ -221,7 +221,7 @@
 	"vue-i18n": {
 		"icon": "https://kazupon.github.io/vue-i18n/vue-i18n-logo.png",
 		"url": "https://github.com/kazupon/vue-i18n#readme",
-		"version": "8.24.2"
+		"version": "8.24.3"
 	},
 	"vue-js-modal": {
 		"url": "http://vue-js-modal.yev.io/",
