@@ -1,4 +1,5 @@
 import Vue from 'vue';
+import { AAOsWindow } from '../../src/modules/redesign/parsers/aaos';
 import { AllianceAvatarWindow } from '../../src/modules/redesign/parsers/alliance_avatar';
 import { AllianceListWindow } from '../../src/modules/redesign/parsers/alliances';
 import { AvatarWindow } from '../../src/modules/redesign/parsers/avatar';
@@ -29,6 +30,7 @@ import { CombinedVueInstance } from 'vue/types/vue';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 
 type types =
+    | 'aaos'
     | 'alliance_avatar'
     | 'alliances'
     | 'avatar'
@@ -50,6 +52,7 @@ type types =
     | 'verband/news/edit'
     | 'verband/regeln';
 type windows =
+    | AAOsWindow
     | AllianceAvatarWindow
     | AllianceListWindow
     | AvatarWindow

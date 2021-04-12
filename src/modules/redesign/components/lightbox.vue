@@ -10,8 +10,16 @@
             class="redesign-wrapper"
             :type="type"
         >
+            <AAOs
+                v-if="type === 'aaos'"
+                :aaos="data"
+                :url="urlProp"
+                :lightbox="this"
+                :get-setting="getSetting()"
+                :set-setting="setSetting()"
+            ></AAOs>
             <AllianceAvatar
-                v-if="type === 'alliance_avatar'"
+                v-else-if="type === 'alliance_avatar'"
                 :alliance="data"
                 :url="urlProp"
                 :lightbox="this"
@@ -139,6 +147,10 @@ export default Vue.extend<
         Lightbox: () =>
             import(
                 /* webpackChunkName: "components/lightbox" */ '../../../components/lightbox.vue'
+            ),
+        AAOs: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/aaos"*/ './aaos.vue'
             ),
         AllianceAvatar: () =>
             import(
