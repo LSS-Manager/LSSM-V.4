@@ -54,6 +54,7 @@
         }],
         "prettier/prettier": "error",
         "semi": ["error", "always"],
+        "vue/no-unused-refs": "warn",
         "yoda": ["error", "never", {
             "exceptRange": true
         }]

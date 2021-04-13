@@ -26,7 +26,6 @@
                 <div
                     class="alert alert-info premiumNotice"
                     v-if="!$store.state.premium"
-                    ref="premiumNotice"
                 >
                     {{ $t('premiumNotice') }}
                 </div>

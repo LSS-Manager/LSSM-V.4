@@ -96,7 +96,6 @@
         <tabs
             :class="$store.getters.nodeAttribute('settings-tabs')"
             v-if="modulesSorted.length > 0"
-            ref="settingsTabs"
             :default-index="tab"
             :on-select="(_, i) => (this.tab = i)"
         >
