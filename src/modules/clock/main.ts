@@ -47,12 +47,12 @@ export default (async (LSSM, MODULE_ID) => {
         });
         clock.addEventListener('drag', drag => {
             const bounds = clock.getBoundingClientRect();
-            clock.style.top = drag.screenY - bounds.height / 2 + 'px';
-            clock.style.left = drag.screenX - bounds.width / 2 + 'px';
+            clock.style.top = `${drag.screenY - bounds.height / 2}px`;
+            clock.style.left = `${drag.screenX - bounds.width / 2}px`;
         });
         clock.addEventListener('dragend', async drag => {
-            clock.style.top = drag.screenY + 'px';
-            clock.style.left = drag.screenX + 'px';
+            clock.style.top = `${drag.screenY}px`;
+            clock.style.left = `${drag.screenX}px`;
             await LSSM.$store.dispatch('settings/setSetting', {
                 moduleId: MODULE_ID,
                 settingId: 'overlayPosition',

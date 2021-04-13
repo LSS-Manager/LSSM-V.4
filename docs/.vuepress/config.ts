@@ -11,7 +11,7 @@ const langModules = fs
 const emptyFolder = (path: string, deleteFolder = true): void => {
     if (fs.existsSync(path)) {
         fs.readdirSync(path).forEach((file: string) => {
-            const curPath = path + '/' + file;
+            const curPath = `${path}/${file}`;
             if (fs.lstatSync(curPath).isDirectory()) emptyFolder(curPath, true);
             else fs.unlinkSync(curPath);
         });
