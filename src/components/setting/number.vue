@@ -18,11 +18,12 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import {
-    NumberProps,
-    NumberComputed,
-} from '../../../typings/components/setting/Number';
+
 import { DefaultData, DefaultMethods } from 'vue/types/options';
+import {
+    NumberComputed,
+    NumberProps,
+} from '../../../typings/components/setting/Number';
 
 export default Vue.extend<
     DefaultData<Vue>,

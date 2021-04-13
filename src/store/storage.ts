@@ -1,7 +1,8 @@
-import { ActionTree, Module } from 'vuex';
-import { StorageState } from '../../typings/store/storage/State';
-import { RootState } from '../../typings/store/RootState';
 import localforage from 'localforage';
+
+import { RootState } from '../../typings/store/RootState';
+import { StorageState } from '../../typings/store/storage/State';
+import { ActionTree, Module } from 'vuex';
 import {
     StorageActionStoreParams,
     StorageGet,
@@ -16,7 +17,7 @@ localforage.config({
 export default {
     namespaced: true,
     state: {
-        localforage: localforage,
+        localforage,
     },
     actions: {
         get(

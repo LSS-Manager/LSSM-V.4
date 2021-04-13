@@ -1,5 +1,5 @@
-import moment from 'moment';
 import { AllianceChatMessage } from 'typings/Ingame';
+import moment from 'moment';
 
 export default (LSSM: Vue, format: string): void => {
     moment.locale(LSSM.$store.state.lang);

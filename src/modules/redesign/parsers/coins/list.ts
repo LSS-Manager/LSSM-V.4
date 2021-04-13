@@ -1,4 +1,5 @@
 import CreditsListParser from '../credits/list';
+
 import { RedesignParser } from 'typings/modules/Redesign';
 
 interface Entry {

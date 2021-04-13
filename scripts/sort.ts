@@ -1,7 +1,7 @@
 import * as fs from 'fs';
-import sortJSON from './utils/sortJSON';
 
 import * as tsconfig from '../tsconfig.json';
+import sortJSON from './utils/sortJSON';
 
 fs.writeFileSync(
     '../tsconfig.json',

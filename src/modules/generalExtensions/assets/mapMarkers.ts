@@ -272,15 +272,13 @@ export default async (
                 if (previewEnabled) return;
                 let latExtract;
                 let lngExtract;
-                if (Array.isArray(coordinates)) {
-                    latExtract = coordinates[0];
-                    lngExtract = coordinates[1];
-                } else {
-                    return;
-                } // This happens at Zoom – we don't want to log zooming currently
+                if (Array.isArray(coordinates))
+                    [latExtract, lngExtract] = coordinates;
+                else return;
+                // This happens at Zoom – we don't want to log zooming currently
                 const lat = latExtract;
                 const lng = lngExtract;
-                history.push({ lat, lng, zoom: zoom });
+                history.push({ lat, lng, zoom });
                 updateHistoryList();
             },
         });

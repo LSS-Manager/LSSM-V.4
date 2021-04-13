@@ -75,12 +75,13 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import { CreditsDailyWindow } from '../parsers/credits/daily';
-import { DefaultData, DefaultMethods } from 'vue/types/options';
-import { CreditsOverviewWindow } from '../parsers/credits/overview';
+
 import { CoinsListWindow } from '../parsers/coins/list';
-import { RedesignComponent } from 'typings/modules/Redesign';
+import { CreditsDailyWindow } from '../parsers/credits/daily';
 import { CreditsListWindow } from '../parsers/credits/list';
+import { CreditsOverviewWindow } from '../parsers/credits/overview';
+import { RedesignComponent } from 'typings/modules/Redesign';
+import { DefaultData, DefaultMethods } from 'vue/types/options';
 
 interface Link {
     href: string;

@@ -17,7 +17,10 @@ export interface TopListWindow {
     lastPage: number;
 }
 
-export default <RedesignParser<TopListWindow>>(({ doc, getIdFromEl }) => {
+export default <RedesignParser<TopListWindow>>(({
+    doc,
+    getIdFromEl = () => -1,
+}) => {
     const getNum = (el: Element | null) =>
         parseInt(
             el?.textContent

@@ -1,12 +1,13 @@
 import { ModuleSettingFunction } from 'typings/Module';
 import {
+    AppendableList,
     AppendableListSetting,
     MultiSelect,
-    AppendableList,
     NumberInput,
     Select,
     Toggle,
 } from 'typings/Setting';
+
 export default ((_, __, $m) => {
     const events = $m('events');
     const alertStyles = $m('alertStyles');

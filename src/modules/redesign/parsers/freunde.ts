@@ -12,7 +12,10 @@ export interface FreundeWindow {
     friends: Friend[];
 }
 
-export default <RedesignParser<FreundeWindow>>(({ doc, getIdFromEl }) => {
+export default <RedesignParser<FreundeWindow>>(({
+    doc,
+    getIdFromEl = () => -1,
+}) => {
     return {
         friends: Array.from(
             doc.querySelectorAll<HTMLTableRowElement>('table tbody tr')

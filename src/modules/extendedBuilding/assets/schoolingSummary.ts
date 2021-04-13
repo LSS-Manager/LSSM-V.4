@@ -1,11 +1,11 @@
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import { $m } from 'typings/Module';
 import SchoolingSummary from '../components/schoolingSummary.vue';
 import {
     EachSchooling,
     SchoolingSummaryObject,
 } from 'typings/modules/ExtendedBuilding/schoolingSummary';
 import { InternalVehicle, Vehicle } from 'typings/Vehicle';
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { $m } from 'typings/Module';
 
 export default (LSSM: Vue, $m: $m, MODULE_ID: string): void => {
     const dataList = document.querySelector<HTMLDataListElement>(

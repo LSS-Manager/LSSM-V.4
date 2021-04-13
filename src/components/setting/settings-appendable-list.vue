@@ -129,18 +129,20 @@
 
 <script lang="ts">
 import Vue from 'vue';
+
 import cloneDeep from 'lodash/cloneDeep';
+import { faLongArrowAltDown } from '@fortawesome/free-solid-svg-icons/faLongArrowAltDown';
+import { faLongArrowAltUp } from '@fortawesome/free-solid-svg-icons/faLongArrowAltUp';
+import { faMinus } from '@fortawesome/free-solid-svg-icons/faMinus';
+import { faPlus } from '@fortawesome/free-solid-svg-icons/faPlus';
+import { faUndoAlt } from '@fortawesome/free-solid-svg-icons/faUndoAlt';
+
 import {
     AppendableList,
-    AppendableListMethods,
     AppendableListComputed,
+    AppendableListMethods,
     AppendableListProps,
 } from 'typings/components/setting/AppendableList';
-import { faUndoAlt } from '@fortawesome/free-solid-svg-icons/faUndoAlt';
-import { faMinus } from '@fortawesome/free-solid-svg-icons/faMinus';
-import { faLongArrowAltUp } from '@fortawesome/free-solid-svg-icons/faLongArrowAltUp';
-import { faLongArrowAltDown } from '@fortawesome/free-solid-svg-icons/faLongArrowAltDown';
-import { faPlus } from '@fortawesome/free-solid-svg-icons/faPlus';
 
 export default Vue.extend<
     AppendableList,

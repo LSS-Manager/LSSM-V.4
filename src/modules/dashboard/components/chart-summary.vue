@@ -74,30 +74,35 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import Highcharts, {
-    DrilldownOptions,
-    Options,
-    SeriesSunburstOptions,
-    PointOptionsObject,
-} from 'highcharts';
-import HighchartsMore from 'highcharts/highcharts-more';
+
+import Highcharts from 'highcharts';
 import HighchartsDrilldown from 'highcharts/modules/drilldown';
-import HighchartsSunburst from 'highcharts/modules/sunburst';
-import HighchartsExporting from 'highcharts/modules/exporting';
 import HighchartsExportData from 'highcharts/modules/export-data';
+import HighchartsExporting from 'highcharts/modules/exporting';
+import HighchartsMore from 'highcharts/highcharts-more';
 import HighchartsOfflineExporting from 'highcharts/modules/offline-exporting';
-import { TranslateResult } from 'vue-i18n';
+import HighchartsSunburst from 'highcharts/modules/sunburst';
+
 import { DefaultProps } from 'vue/types/options';
-import {
-    ChartSummary,
-    ChartSummaryMethods,
-    ChartSummaryComputed,
-} from '../../../../typings/modules/Dashboard/ChartSummary';
+import { TranslateResult } from 'vue-i18n';
 import {
     Building,
     BuildingCategory,
     InternalBuilding,
 } from '../../../../typings/Building';
+import {
+    ChartSummary,
+    ChartSummaryComputed,
+    ChartSummaryMethods,
+} from '../../../../typings/modules/Dashboard/ChartSummary';
+// to seperate types
+// eslint-disable-next-line no-duplicate-imports
+import {
+    DrilldownOptions,
+    Options,
+    PointOptionsObject,
+    SeriesSunburstOptions,
+} from 'highcharts';
 import { InternalVehicle, VehicleCategory } from '../../../../typings/Vehicle';
 
 HighchartsMore(Highcharts);

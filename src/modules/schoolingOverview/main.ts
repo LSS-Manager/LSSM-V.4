@@ -1,12 +1,13 @@
-import schoolingOverview from './schoolingOverview.vue';
 import openSchoolingTabs from './components/openSchoolingTabs.vue';
 import ownSchoolingTabs from './components/ownSchoolingTabs.vue';
+import schoolingOverview from './schoolingOverview.vue';
+
+import { ModuleMainFunction } from 'typings/Module';
+import { Schooling } from 'typings/Schooling';
 import {
     OpenSchoolings,
     OwnSchoolings,
 } from 'typings/modules/SchoolingOverview/main';
-import { Schooling } from 'typings/Schooling';
-import { ModuleMainFunction } from 'typings/Module';
 
 export default (LSSM => {
     const ownSchoolings = {} as OwnSchoolings;

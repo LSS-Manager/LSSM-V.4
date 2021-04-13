@@ -15,10 +15,12 @@
 
 <script lang="ts">
 import Vue from 'vue';
+
 import { faEdit } from '@fortawesome/free-solid-svg-icons/faEdit';
+
+import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { RedesignSubComponent } from 'typings/modules/Redesign';
 import { VerbandRegelnWindow } from '../../parsers/verband/regeln';
-import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 
 type Component = RedesignSubComponent<
     'rules',

@@ -17,9 +17,10 @@
 
 <script lang="ts">
 import Vue from 'vue';
+
+import { DefaultData } from 'vue/types/options';
 import { ProfileEditWindow } from '../../parsers/profile/edit';
 import { RedesignComponent } from 'typings/modules/Redesign';
-import { DefaultData } from 'vue/types/options';
 
 type Component = RedesignComponent<
     'profile',

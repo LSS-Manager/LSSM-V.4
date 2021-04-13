@@ -1,4 +1,4 @@
-import { TokenRegexes, QueryTokens, Token } from 'typings/modules/LSSMAQL';
+import { QueryTokens, Token, TokenRegexes } from 'typings/modules/LSSMAQL';
 
 const regexes = {
     getter_dot: /\./,

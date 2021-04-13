@@ -1,5 +1,5 @@
-import moment from 'moment';
 import { ModuleMainFunction } from 'typings/Module';
+import moment from 'moment';
 
 export default (async (LSSM, MODULE_ID) => {
     const getSetting = (settingId: string) =>

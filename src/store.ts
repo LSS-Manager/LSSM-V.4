@@ -1,14 +1,18 @@
-import Vuex, {
-    ActionTree,
-    GetterTree,
-    ModuleTree,
-    MutationTree,
-    Store,
-    StoreOptions,
-} from 'vuex';
+import Vuex from 'vuex';
+
+import api from './store/api';
+import broadcast from './store/broadcast';
+import config from './config';
+import console from './store/console';
+import event from './store/event';
+import notifications from './store/notifications';
+import settings from './store/settings';
+import storage from './store/storage';
+
+import { LSSMEvent } from '../typings/helpers';
+import { Modules } from '../typings/Module';
 import { RootState } from '../typings/store/RootState';
 import { VueConstructor } from 'vue/types/vue';
-import config from './config';
 import {
     ActionStoreParams,
     addStyle,
@@ -17,15 +21,16 @@ import {
     premodifyParams,
     ProxyParams,
 } from '../typings/store/Actions';
-import { LSSMEvent } from '../typings/helpers';
-import storage from './store/storage';
-import settings from './store/settings';
-import api from './store/api';
-import console from './store/console';
-import notifications from './store/notifications';
-import broadcast from './store/broadcast';
-import event from './store/event';
-import { Modules } from '../typings/Module';
+// to seperate typings
+// eslint-disable-next-line no-duplicate-imports
+import {
+    ActionTree,
+    GetterTree,
+    ModuleTree,
+    MutationTree,
+    Store,
+    StoreOptions,
+} from 'vuex';
 
 export default (Vue: VueConstructor): Store<RootState> => {
     Vue.use(Vuex);

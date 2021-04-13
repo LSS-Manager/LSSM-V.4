@@ -101,7 +101,11 @@ export interface VehicleWindow {
     wlfs: WLF[];
 }
 
-export default <RedesignParser<VehicleWindow>>(({ doc, href, getIdFromEl }) => {
+export default <RedesignParser<VehicleWindow>>(({
+    doc,
+    href = '',
+    getIdFromEl = () => -1,
+}) => {
     const id = parseInt(
         new URL(href, window.location.href).pathname.match(/\d+\/?$/)?.[0] ??
             '-1'

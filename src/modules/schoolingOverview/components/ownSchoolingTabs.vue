@@ -40,13 +40,14 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import {
-    OwnSchoolingTabs,
-    OwnSchoolingTabsMethods,
-    OwnSchoolingTabsComputed,
-    OwnSchooling,
-} from 'typings/modules/SchoolingOverview/OwnSchoolingTabs';
+
 import { DefaultProps } from 'vue/types/options';
+import {
+    OwnSchooling,
+    OwnSchoolingTabs,
+    OwnSchoolingTabsComputed,
+    OwnSchoolingTabsMethods,
+} from 'typings/modules/SchoolingOverview/OwnSchoolingTabs';
 
 export default Vue.extend<
     OwnSchoolingTabs,
@@ -109,33 +110,33 @@ export default Vue.extend<
     },
     methods: {
         setSorting(key) {
-            let s = key;
+            const s = key;
             this.sortDir =
                 s === this.sort && this.sortDir === 'asc' ? 'desc' : 'asc';
             this.sort = s;
         },
     },
     beforeMount() {
-        let tabs = { [this.all]: [] } as {
+        const tabs = { [this.all]: [] } as {
             [tab: string]: OwnSchooling[];
         };
         document
             .querySelectorAll('#schooling_own_table tbody tr')
             .forEach(schooling => {
-                let btn = schooling.querySelector(
+                const btn = schooling.querySelector(
                     'a.btn-success'
                 ) as HTMLLinkElement;
                 if (!btn) return;
-                let name = btn.textContent || '';
-                let category =
+                const name = btn.textContent || '';
+                const category =
                     name
                         ?.match(/^.*?-/)?.[0]
                         .replace('-', '')
                         .trim() || '';
                 const endNode = schooling.querySelector('td:nth-of-type(2)');
-                let owner = schooling.querySelector('td:nth-of-type(3)');
+                const owner = schooling.querySelector('td:nth-of-type(3)');
                 if (!endNode || !owner) return;
-                let end = parseInt(endNode.getAttribute('sortvalue') || '0');
+                const end = parseInt(endNode.getAttribute('sortvalue') || '0');
                 if (!tabs.hasOwnProperty(category)) tabs[category] = [];
                 const element = {
                     id: btn.href.replace(/\D+/g, ''),

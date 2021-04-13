@@ -43,10 +43,12 @@
 
 <script lang="ts">
 import Vue from 'vue';
+
 import moment from 'moment';
-import VueI18n from 'vue-i18n';
+
 import { CreditsListWindow } from '../../parsers/credits/list';
 import { RedesignLightboxVue } from 'typings/modules/Redesign';
+import VueI18n from 'vue-i18n';
 
 export default Vue.extend<
     {

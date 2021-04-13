@@ -147,10 +147,12 @@
 
 <script lang="ts">
 import Vue from 'vue';
+
 import moment from 'moment';
-import VueI18n from 'vue-i18n';
+
 import { CreditsDailyWindow } from '../../parsers/credits/daily';
 import { RedesignLightboxVue } from 'typings/modules/Redesign';
+import VueI18n from 'vue-i18n';
 
 export default Vue.extend<
     {
@@ -271,10 +273,10 @@ export default Vue.extend<
             return [...this.entriesFiltered].sort((a, b) => {
                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                 // @ts-ignore
-                let f = a[this.sort] ?? '';
+                const f = a[this.sort] ?? '';
                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                 // @ts-ignore
-                let s = b[this.sort] ?? '';
+                const s = b[this.sort] ?? '';
                 return f < s ? -1 * modifier : f > s ? modifier : 0;
             });
         },

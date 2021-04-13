@@ -31,8 +31,8 @@ export interface VerbandMitgliederWindow extends VerbandWindow {
 
 export default <RedesignParser<VerbandMitgliederWindow>>(({
     doc,
-    href,
-    getIdFromEl,
+    href = '',
+    getIdFromEl = () => -1,
 }) => {
     const getNum = (el: Element | null) =>
         parseInt(

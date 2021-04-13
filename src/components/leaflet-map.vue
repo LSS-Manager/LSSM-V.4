@@ -4,6 +4,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
+
 import {
     MapComputed,
     MapData,

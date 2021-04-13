@@ -1,4 +1,5 @@
 import Vue from 'vue';
+
 import { AAOsWindow } from '../../src/modules/redesign/parsers/aaos';
 import { AllianceAvatarWindow } from '../../src/modules/redesign/parsers/alliance_avatar';
 import { AllianceListWindow } from '../../src/modules/redesign/parsers/alliances';
@@ -9,8 +10,8 @@ import { CreditsListWindow } from '../../src/modules/redesign/parsers/credits/li
 import { CreditsOverviewWindow } from '../../src/modules/redesign/parsers/credits/overview';
 import { FreundeWindow } from '../../src/modules/redesign/parsers/freunde';
 import { NextFMSWindow } from '../../src/modules/redesign/parsers/vehicle/nextfms';
-import { ProfileWindow } from '../../src/modules/redesign/parsers/profile';
 import { ProfileEditWindow } from '../../src/modules/redesign/parsers/profile/edit';
+import { ProfileWindow } from '../../src/modules/redesign/parsers/profile';
 import { TopListWindow } from '../../src/modules/redesign/parsers/toplist';
 import { VehicleWindow } from '../../src/modules/redesign/parsers/vehicle';
 import { VerbandEditNameWindow } from '../../src/modules/redesign/parsers/verband/edit_name';
@@ -19,15 +20,16 @@ import { VerbandHomeWindow } from '../../src/modules/redesign/parsers/verband/ho
 import { VerbandMitgliederWindow } from '../../src/modules/redesign/parsers/verband/mitglieder';
 import { VerbandNewsEditWindow } from '../../src/modules/redesign/parsers/verband/news/edit';
 import { VerbandRegelnWindow } from '../../src/modules/redesign/parsers/verband/regeln';
+
+import { CombinedVueInstance } from 'vue/types/vue';
+import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import VueI18n from 'vue-i18n';
 import {
     DefaultComputed,
     DefaultData,
     DefaultMethods,
     DefaultProps,
 } from 'vue/types/options';
-import VueI18n from 'vue-i18n';
-import { CombinedVueInstance } from 'vue/types/vue';
-import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 
 type types =
     | 'aaos'
@@ -62,8 +64,8 @@ type windows =
     | CreditsOverviewWindow
     | FreundeWindow
     | NextFMSWindow
-    | ProfileWindow
     | ProfileEditWindow
+    | ProfileWindow
     | TopListWindow
     | VehicleWindow
     | VerbandEditNameWindow
@@ -134,11 +136,11 @@ export interface RedesignLightbox<
 
 interface ParserParam {
     doc: Document;
-    href: string;
-    getIdFromEl: (el: HTMLAnchorElement | null) => number;
+    href?: string;
+    getIdFromEl?: (el: HTMLAnchorElement | null) => number;
 }
 
-export type RedesignParser<Window extends windows> = (
+export type RedesignParser<Window extends windows = windows> = (
     data: ParserParam
 ) => Window;
 

@@ -1,5 +1,5 @@
-import { ModuleSettingFunction } from 'typings/Module';
 import { Hidden } from 'typings/Setting';
+import { ModuleSettingFunction } from 'typings/Module';
 
 export default (() => ({
     'alliances': <Hidden>{

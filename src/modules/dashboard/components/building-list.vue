@@ -120,14 +120,16 @@
 
 <script lang="ts">
 import Vue from 'vue';
+
 import { faPencilAlt } from '@fortawesome/free-solid-svg-icons/faPencilAlt';
+
+import { Building, InternalBuilding } from 'typings/Building';
 import {
     BuildingList,
     BuildingListComputed,
     BuildingListMethods,
     BuildingListProps,
 } from '../../../../typings/modules/Dashboard/BuildingList';
-import { Building, InternalBuilding } from 'typings/Building';
 
 export default Vue.extend<
     BuildingList,
@@ -240,13 +242,13 @@ export default Vue.extend<
                 ? this.buildingsFiltered
                 : this.buildings;
             return buildings.sort((a, b) => {
-                let modifier = this.sortDir === 'desc' ? -1 : 1;
+                const modifier = this.sortDir === 'desc' ? -1 : 1;
                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                 // @ts-ignore
-                let f = a[this.sort] || '';
+                const f = a[this.sort] || '';
                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                 // @ts-ignore
-                let s = b[this.sort] || '';
+                const s = b[this.sort] || '';
                 return f < s ? -1 * modifier : f > s ? modifier : 0;
             });
         },

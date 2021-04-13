@@ -7,7 +7,7 @@ export interface VerbandEditNameWindow extends VerbandWindow {
 
 export default <RedesignParser<VerbandEditNameWindow>>(({
     doc,
-    getIdFromEl,
+    getIdFromEl = () => -1,
 }) => {
     const id = getIdFromEl(
         doc.querySelector<HTMLAnchorElement>(

@@ -89,11 +89,13 @@
 
 <script lang="ts">
 import Vue from 'vue';
+
 import { faEdit } from '@fortawesome/free-solid-svg-icons/faEdit';
 import { faImage } from '@fortawesome/free-solid-svg-icons/faImage';
+
+import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { RedesignSubComponent } from 'typings/modules/Redesign';
 import { VerbandHomeWindow } from '../../parsers/verband/home';
-import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 
 type Component = RedesignSubComponent<
     'home',

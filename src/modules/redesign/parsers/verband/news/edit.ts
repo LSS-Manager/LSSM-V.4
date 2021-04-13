@@ -10,8 +10,8 @@ export interface VerbandNewsEditWindow extends VerbandWindow {
 
 export default <RedesignParser<VerbandNewsEditWindow>>(({
     doc,
-    href,
-    getIdFromEl,
+    href = '',
+    getIdFromEl = () => -1,
 }) => {
     const id = getIdFromEl(
         doc.querySelector<HTMLAnchorElement>(

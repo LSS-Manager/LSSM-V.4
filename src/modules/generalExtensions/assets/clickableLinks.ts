@@ -1,7 +1,7 @@
 import { AllianceChatMessage } from 'typings/Ingame';
 
 export default (LSSM: Vue, showImg: boolean): void => {
-    const urlRegex = LSSM.$utils.urlRegex;
+    const { urlRegex } = LSSM.$utils;
 
     const clickableLinks = (node: Node) => {
         LSSM.$utils

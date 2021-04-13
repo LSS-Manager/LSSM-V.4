@@ -39,17 +39,20 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import tokenizer from './assets/tokenizer';
-import parser from './assets/parser';
-import { faTerminal } from '@fortawesome/free-solid-svg-icons/faTerminal';
+
 import cloneDeep from 'lodash/cloneDeep';
-import {
-    LSSMAQL,
-    LSSMAQLMethods,
-    LSSMAQLComputed,
-} from 'typings/modules/LSSMAQL/LSSMAQL';
+import { faTerminal } from '@fortawesome/free-solid-svg-icons/faTerminal';
+
+import parser from './assets/parser';
+import tokenizer from './assets/tokenizer';
+
 import { DefaultProps } from 'vue/types/options';
 import { Condition, ObjectTree, QueryTree } from 'typings/modules/LSSMAQL';
+import {
+    LSSMAQL,
+    LSSMAQLComputed,
+    LSSMAQLMethods,
+} from 'typings/modules/LSSMAQL/LSSMAQL';
 
 const comparison = (
     left: unknown,
@@ -83,7 +86,7 @@ const parse_filter = (
     tree: ObjectTree,
     vm: Vue
 ) => {
-    const side = filter[0];
+    const [side] = filter;
     const oneside =
         side.type === 'string'
             ? side.value
@@ -182,7 +185,7 @@ export default Vue.extend<
                 /* webpackChunkName: "components/lightbox" */ '../../components/lightbox.vue'
             ),
     },
-    data: function() {
+    data() {
         return {
             faTerminal,
             query: '',

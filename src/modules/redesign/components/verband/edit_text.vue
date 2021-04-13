@@ -58,9 +58,10 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import { VerbandEditTextWindow } from '../../parsers/verband/edit_text';
+
 import { RedesignSubComponent } from 'typings/modules/Redesign';
 import { SCEditor } from 'typings/SCEditor/SCEditor';
+import { VerbandEditTextWindow } from '../../parsers/verband/edit_text';
 
 type Component = RedesignSubComponent<
     'alliance',

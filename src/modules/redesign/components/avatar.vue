@@ -24,10 +24,12 @@
 
 <script lang="ts">
 import Vue from 'vue';
+
 import { faTrash } from '@fortawesome/free-solid-svg-icons/faTrash';
+
 import { AvatarWindow } from '../parsers/avatar';
-import { RedesignComponent } from 'typings/modules/Redesign';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import { RedesignComponent } from 'typings/modules/Redesign';
 
 type Component = RedesignComponent<
     'profile',

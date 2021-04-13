@@ -1,6 +1,6 @@
 import { Games } from '../Game';
-import { returnTypeFunction } from 'typings/helpers';
 import { Modules } from '../Module';
+import { returnTypeFunction } from 'typings/helpers';
 
 export interface RootState {
     readonly prefix: string;

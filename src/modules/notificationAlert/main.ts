@@ -1,10 +1,10 @@
+import { ModuleMainFunction } from 'typings/Module';
 import { NotificationSetting } from 'typings/modules/NotificationAlert';
 import {
     AllianceChatMessage,
     MissionMarkerAdd,
     RadioMessage,
 } from 'typings/Ingame';
-import { ModuleMainFunction } from 'typings/Module';
 
 export default (async (LSSM, MODULE_ID, $m, $mc) => {
     const alerts = (
@@ -527,7 +527,7 @@ export default (async (LSSM, MODULE_ID, $m, $mc) => {
                         : 0) || `/images/${mission.icon}.png`;
                 const isEventMission =
                     isAllianceMission && mission.user_id === null;
-                let caption = mission.caption;
+                let { caption } = mission;
                 if (isAllianceMission) caption = `📤 ${caption}`;
                 if (color === 'red') {
                     if (!missionElement && !isAllianceMission) {

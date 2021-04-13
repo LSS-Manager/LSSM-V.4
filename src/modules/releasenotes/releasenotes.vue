@@ -31,15 +31,17 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import {
-    DefaultData,
-    DefaultMethods,
-    DefaultComputed,
-} from 'vue/types/options';
-import { ReleaseNoteProps } from 'typings/modules/Releasenotes';
+
+import coerce from 'semver/functions/coerce';
 import moment from 'moment';
 import semverLt from 'semver/functions/lt';
-import coerce from 'semver/functions/coerce';
+
+import { ReleaseNoteProps } from 'typings/modules/Releasenotes';
+import {
+    DefaultComputed,
+    DefaultData,
+    DefaultMethods,
+} from 'vue/types/options';
 
 export default Vue.extend<
     DefaultData<Vue>,

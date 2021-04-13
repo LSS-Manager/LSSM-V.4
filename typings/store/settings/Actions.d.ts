@@ -1,5 +1,5 @@
-import { RootState } from '../RootState';
 import { ActionContext } from 'vuex';
+import { RootState } from '../RootState';
 import { SettingsState } from './State';
 import { ModuleSettings, Settings } from '../../Setting';
 

@@ -19,7 +19,7 @@ export default (sticky: boolean, load: boolean): void => {
                     head.getBoundingClientRect().height
                 }px`)
         );
-        window.addEventListener('scroll', function() {
+        window.addEventListener('scroll', () => {
             head.style.top = scrollY !== 0 ? '0px' : '';
         });
     }

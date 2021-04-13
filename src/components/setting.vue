@@ -26,12 +26,13 @@
 
 <script lang="ts">
 import Vue from 'vue';
+
+import { SettingProps } from '../../typings/components/Setting';
 import {
+    DefaultComputed,
     DefaultData,
     DefaultMethods,
-    DefaultComputed,
 } from 'vue/types/options';
-import { SettingProps } from '../../typings/components/Setting';
 
 export default Vue.extend<
     DefaultData<Vue>,

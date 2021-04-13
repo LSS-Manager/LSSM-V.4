@@ -83,22 +83,25 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import buildingList from './building-list.vue';
+
+import cloneDeep from 'lodash/cloneDeep';
 import { faBuilding } from '@fortawesome/free-solid-svg-icons/faBuilding';
-import {
-    buildingWithExtension,
-    BuildingTypes,
-    BuildingTypesMethods,
-    BuildingTypesComputed,
-} from 'typings/modules/Dashboard/BuildingTypes';
+
+import buildingList from './building-list.vue';
+
 import { DefaultProps } from 'vue/types/options';
 import {
-    InternalBuilding,
-    BuildingCategory,
     Building,
+    BuildingCategory,
     Extension,
+    InternalBuilding,
 } from 'typings/Building';
-import cloneDeep from 'lodash/cloneDeep';
+import {
+    BuildingTypes,
+    BuildingTypesComputed,
+    BuildingTypesMethods,
+    buildingWithExtension,
+} from 'typings/modules/Dashboard/BuildingTypes';
 
 export default Vue.extend<
     BuildingTypes,
@@ -354,7 +357,7 @@ export default Vue.extend<
             this.$modal.show(
                 buildingList,
                 {
-                    title: this.$smc('title', 0, { type: type }),
+                    title: this.$smc('title', 0, { type }),
                     buildings,
                     listType,
                 },

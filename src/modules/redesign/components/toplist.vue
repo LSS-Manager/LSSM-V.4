@@ -90,8 +90,9 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import { TopListWindow } from '../parsers/toplist';
+
 import { RedesignComponent } from 'typings/modules/Redesign';
+import { TopListWindow } from '../parsers/toplist';
 
 type Component = RedesignComponent<
     'toplist',

@@ -1,21 +1,21 @@
-import mkpreview from './components/missionKeywords/preview.vue';
 import aipreview from './components/alarmIcons/preview.vue';
+import mkpreview from './components/missionKeywords/preview.vue';
 
+import { InternalVehicle } from 'typings/Vehicle';
+import { Mission } from 'typings/Mission';
 import { $m, ModuleSettingFunction } from 'typings/Module';
 import {
     AppendableList,
     AppendableListSetting,
     Color,
     Hidden,
-    NumberInput,
-    Toggle,
-    Text,
     MultiSelect,
-    Select,
+    NumberInput,
     PreviewElement,
+    Select,
+    Text,
+    Toggle,
 } from 'typings/Setting';
-import { InternalVehicle } from 'typings/Vehicle';
-import { Mission } from 'typings/Mission';
 
 export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
     const defaultTailoredTabs = Object.values(

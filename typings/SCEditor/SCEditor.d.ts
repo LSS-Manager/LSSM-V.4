@@ -1,5 +1,5 @@
-import RangeHelper from './RangeHelper';
 import { Options } from 'typings/SCEditor/Options';
+import RangeHelper from './RangeHelper';
 
 export class SCEditor {
     constructor(original: HTMLTextAreaElement, userOptions: Options);

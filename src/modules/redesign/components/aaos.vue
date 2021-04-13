@@ -52,9 +52,10 @@
 
 <script lang="ts">
 import Vue from 'vue';
+
 import { AAOsWindow } from '../parsers/aaos';
-import { RedesignComponent } from 'typings/modules/Redesign';
 import { DefaultData } from 'vue/types/options';
+import { RedesignComponent } from 'typings/modules/Redesign';
 
 type Component = RedesignComponent<
     'aaos',

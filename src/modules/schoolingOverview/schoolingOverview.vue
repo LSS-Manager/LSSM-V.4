@@ -71,13 +71,14 @@
 
 <script lang="ts">
 import Vue from 'vue';
+
+import { OpenSchoolings } from 'typings/modules/SchoolingOverview/main';
 import {
     SchoolingOverview,
     SchoolingOverviewComputed,
     SchoolingOverviewMethods,
     SchoolingOverviewProps,
 } from 'typings/modules/SchoolingOverview/SchoolingOverview';
-import { OpenSchoolings } from 'typings/modules/SchoolingOverview/main';
 
 export default Vue.extend<
     SchoolingOverview,

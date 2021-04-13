@@ -1,13 +1,15 @@
-import fs from 'fs';
-import path from 'path';
-import lodash from 'lodash';
-import { version } from '../package.json';
-import config from '../src/config';
-import webpackConfig from '../webpack.config';
-import webpack, { Configuration } from 'webpack';
-import moment from 'moment';
-import SpeedMeasurePlugin from 'speed-measure-webpack-plugin';
 import DynamicImportQueryPlugin from './plugins/DynamicImportQueryPlugin';
+import fs from 'fs';
+import lodash from 'lodash';
+import moment from 'moment';
+import path from 'path';
+import SpeedMeasurePlugin from 'speed-measure-webpack-plugin';
+
+import config from '../src/config';
+import { version } from '../package.json';
+import webpackConfig from '../webpack.config';
+
+import webpack, { Configuration } from 'webpack';
 
 console.time(`build`);
 

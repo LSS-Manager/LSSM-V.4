@@ -529,23 +529,28 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import moment from 'moment';
-import he from 'he';
-import Highcharts, { PlotGaugeOptions } from 'highcharts';
-import HighchartsMore from 'highcharts/highcharts-more';
-import HighchartsSolidGauge from 'highcharts/modules/solid-gauge';
+
 import { faEdit } from '@fortawesome/free-solid-svg-icons/faEdit';
-import { faImage } from '@fortawesome/free-solid-svg-icons/faImage';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons/faEnvelope';
 import { faGift } from '@fortawesome/free-solid-svg-icons/faGift';
+import { faImage } from '@fortawesome/free-solid-svg-icons/faImage';
 import { faMapMarkedAlt } from '@fortawesome/free-solid-svg-icons/faMapMarkedAlt';
-import { TranslateResult } from 'vue-i18n';
-import { ProfileWindow } from '../parsers/profile';
-import { RedesignComponent } from 'typings/modules/Redesign';
+import he from 'he';
+import Highcharts from 'highcharts';
+import HighchartsMore from 'highcharts/highcharts-more';
+import HighchartsSolidGauge from 'highcharts/modules/solid-gauge';
+import moment from 'moment';
+
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { InternalBuilding } from 'typings/Building';
 import { LayerGroup } from 'leaflet';
 import { MapVue } from 'typings/components/LeafletMap';
+// to seperate typings
+// eslint-disable-next-line no-duplicate-imports
+import { PlotGaugeOptions } from 'highcharts';
+import { ProfileWindow } from '../parsers/profile';
+import { RedesignComponent } from 'typings/modules/Redesign';
+import { TranslateResult } from 'vue-i18n';
 
 HighchartsMore(Highcharts);
 HighchartsSolidGauge(Highcharts);

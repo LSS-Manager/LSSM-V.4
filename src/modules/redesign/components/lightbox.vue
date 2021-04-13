@@ -133,7 +133,9 @@
 
 <script lang="ts">
 import Vue from 'vue';
+
 import { faSyncAlt } from '@fortawesome/free-solid-svg-icons/faSyncAlt';
+
 import { RedesignLightbox, RedesignParser } from 'typings/modules/Redesign';
 
 export default Vue.extend<
@@ -197,7 +199,7 @@ export default Vue.extend<
         return {
             faSyncAlt,
             type: 'default',
-            data: null,
+            data: { authenticity_token: '' },
             html: '',
             urlProp: '',
             loading: true,
@@ -329,16 +331,17 @@ export default Vue.extend<
                                         html,
                                         'text/html'
                                     );
-                                    this.data = parser({
-                                        source: html,
-                                        href: url,
-                                        getIdFromEl: this.getIdFromEl,
-                                        doc,
-                                    });
-                                    this.data.authenticity_token =
-                                        doc.querySelector<HTMLMetaElement>(
-                                            'meta[name="csrf-token"]'
-                                        )?.content ?? '';
+                                    this.data = {
+                                        ...parser({
+                                            href: url,
+                                            getIdFromEl: this.getIdFromEl,
+                                            doc,
+                                        }),
+                                        authenticity_token:
+                                            doc.querySelector<HTMLMetaElement>(
+                                                'meta[name="csrf-token"]'
+                                            )?.content ?? '',
+                                    };
                                     if (type === 'vehicle/nextfms' && this.data)
                                         this.src = `/vehicles/${this.data}`;
                                     this.type = type;
@@ -436,7 +439,10 @@ export default Vue.extend<
                 ? this.$nextTick(() => {
                       this.$set(this, 'src', this.url);
                       window.addEventListener('popstate', () => {
-                          const url = new URL(window.location);
+                          const url = new URL(
+                              window.location.href,
+                              window.location.origin
+                          );
                           url.searchParams.append('ignore-history', 'true');
                           this.$set(this, 'src', url.toString());
                       });

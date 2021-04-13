@@ -4,9 +4,9 @@ import VueI18n from 'vue-i18n';
 export default async (Vue: VueConstructor): Promise<VueI18n> => {
     Vue.use(VueI18n);
 
-    const locale = window.I18n.locale;
+    const { locale } = window.I18n;
     const i18n = new VueI18n({
-        locale: locale,
+        locale,
         messages: {
             // eslint-disable-next-line @typescript-eslint/no-var-requires
             [locale]: (

@@ -39,12 +39,17 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import moment from 'moment';
-import VueI18n, { TranslateResult } from 'vue-i18n';
-import Highcharts, { Options } from 'highcharts';
+
+import Highcharts from 'highcharts';
 import HighchartsMore from 'highcharts/highcharts-more';
+import moment from 'moment';
+
 import { CreditsOverviewWindow } from '../../parsers/credits/overview';
+// to seperate typings
+// eslint-disable-next-line no-duplicate-imports
+import { Options } from 'highcharts';
 import { RedesignLightboxVue } from 'typings/modules/Redesign';
+import VueI18n, { TranslateResult } from 'vue-i18n';
 
 HighchartsMore(Highcharts);
 

@@ -1,13 +1,14 @@
-import { Building } from 'typings/Building';
 import linkPreview from '../components/linkPreview.vue';
+
+import { Building } from 'typings/Building';
+import { CombinedVueInstance } from 'vue/types/vue';
+import { DefaultProps } from 'vue/types/options';
+import { Vehicle } from 'typings/Vehicle';
 import {
     LinkPreview,
     LinkPreviewComputed,
     LinkPreviewMethods,
 } from 'typings/modules/GeneralExtensions/LinkPreview';
-import { CombinedVueInstance } from 'vue/types/vue';
-import { DefaultProps } from 'vue/types/options';
-import { Vehicle } from 'typings/Vehicle';
 
 export default async (
     LSSM: Vue,

@@ -1,7 +1,7 @@
-import enhancedMissingVehicles from '../components/enhancedMissingVehicles.vue';
-import { Requirement } from 'typings/modules/ExtendedCallWindow/EnhancedMissingVehicles';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { $m } from 'typings/Module';
+import enhancedMissingVehicles from '../components/enhancedMissingVehicles.vue';
+import { Requirement } from 'typings/modules/ExtendedCallWindow/EnhancedMissingVehicles';
 
 export default (LSSM: Vue, MODULE_ID: string, $m: $m): void => {
     const missingDialog = document.getElementById('missing_text');
@@ -100,7 +100,7 @@ export default (LSSM: Vue, MODULE_ID: string, $m: $m): void => {
                             missingRequirements: missingRequirements.filter(
                                 req => !!req.vehicle
                             ),
-                            extras: extras,
+                            extras,
                             missingText: missingDialog.textContent,
                         },
                     }),

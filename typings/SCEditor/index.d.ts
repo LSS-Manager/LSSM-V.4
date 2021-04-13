@@ -1,9 +1,9 @@
-import { Escape } from './Escape';
-import { DOM } from './DOM';
-import { Utils } from './Utils';
-import { Options } from './Options';
 import { Command } from './Command';
+import { DOM } from './DOM';
+import { Escape } from './Escape';
+import { Options } from './Options';
 import { SCEditor } from './SCEditor';
+import { Utils } from './Utils';
 
 export interface sceditor {
     command: {

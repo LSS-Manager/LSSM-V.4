@@ -100,6 +100,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
+
 import { DefaultData } from 'vue/types/options';
 import { RedesignComponent } from 'typings/modules/Redesign';
 import { VerbandHomeWindow } from '../parsers/verband/home';

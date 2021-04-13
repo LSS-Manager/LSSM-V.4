@@ -57,15 +57,17 @@
 
 <script lang="ts">
 import Vue from 'vue';
+
 import { faSort } from '@fortawesome/free-solid-svg-icons/faSort';
-import { faSortUp } from '@fortawesome/free-solid-svg-icons/faSortUp';
 import { faSortDown } from '@fortawesome/free-solid-svg-icons/faSortDown';
+import { faSortUp } from '@fortawesome/free-solid-svg-icons/faSortUp';
+
+import { DefaultComputed } from 'vue/types/options';
 import {
     EnhancedTableData,
     EnhancedTableMethods,
     EnhancedTableProps,
 } from '../../typings/components/Enhanced-Table';
-import { DefaultComputed } from 'vue/types/options';
 
 export default Vue.extend<
     EnhancedTableData,

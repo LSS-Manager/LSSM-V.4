@@ -41,9 +41,10 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import { VerbandNewsEditWindow } from '../../../parsers/verband/news/edit';
+
 import { RedesignSubComponent } from 'typings/modules/Redesign';
 import { SCEditor } from 'typings/SCEditor/SCEditor';
+import { VerbandNewsEditWindow } from '../../../parsers/verband/news/edit';
 
 type Component = RedesignSubComponent<
     'news',

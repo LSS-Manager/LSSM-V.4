@@ -32,7 +32,7 @@ export interface ProfileWindow {
     alliance_ignored: boolean;
 }
 
-export default <RedesignParser<ProfileWindow>>(({ doc, href }) => {
+export default <RedesignParser<ProfileWindow>>(({ doc, href = '' }) => {
     const id = parseInt(
         new URL(href, window.location.origin).pathname.match(
             /\d+(?=\/?$)/

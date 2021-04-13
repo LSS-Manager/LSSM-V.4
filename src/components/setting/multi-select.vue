@@ -17,11 +17,12 @@
 
 <script lang="ts">
 import Vue from 'vue';
+
+import { DefaultData, DefaultMethods } from 'vue/types/options';
 import {
     MultiSelectComputed,
     MultiSelectProps,
 } from 'typings/components/setting/MultiSelect';
-import { DefaultData, DefaultMethods } from 'vue/types/options';
 
 export default Vue.extend<
     DefaultData<Vue>,

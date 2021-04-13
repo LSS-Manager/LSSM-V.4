@@ -68,11 +68,13 @@
 
 <script lang="ts">
 import Vue from 'vue';
+
 import { faEdit } from '@fortawesome/free-solid-svg-icons/faEdit';
 import { faUserSlash } from '@fortawesome/free-solid-svg-icons/faUserSlash';
+
 import { FreundeWindow } from '../parsers/freunde';
-import { RedesignComponent } from 'typings/modules/Redesign';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import { RedesignComponent } from 'typings/modules/Redesign';
 
 type Component = RedesignComponent<
     'friends',
@@ -231,10 +233,10 @@ export default Vue.extend<
             return [...this.friendsFiltered].sort((a, b) => {
                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                 // @ts-ignore
-                let f = a[this.sort] ?? '';
+                const f = a[this.sort] ?? '';
                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                 // @ts-ignore
-                let s = b[this.sort] ?? '';
+                const s = b[this.sort] ?? '';
                 return f < s ? -1 * modifier : f > s ? modifier : 0;
             });
         },

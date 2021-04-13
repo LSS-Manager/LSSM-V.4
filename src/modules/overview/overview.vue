@@ -220,24 +220,26 @@
 
 <script lang="ts">
 import Vue from 'vue';
+
+import cloneDeep from 'lodash/cloneDeep';
+
 import { DefaultProps } from 'vue/types/options';
+import { Schooling } from 'typings/Schooling';
 import {
-    Overview,
-    OverviewMethods,
-    OverviewComputed,
-} from '../../../typings/modules/Overview';
+    BuildingCategory,
+    InternalBuilding,
+    ResolvedBuildingCategory,
+} from 'typings/Building';
 import {
     InternalVehicle,
     ResolvedVehicleCategory,
     VehicleCategory,
 } from '../../../typings/Vehicle';
 import {
-    BuildingCategory,
-    InternalBuilding,
-    ResolvedBuildingCategory,
-} from 'typings/Building';
-import cloneDeep from 'lodash/cloneDeep';
-import { Schooling } from 'typings/Schooling';
+    Overview,
+    OverviewComputed,
+    OverviewMethods,
+} from '../../../typings/modules/Overview';
 
 export default Vue.extend<
     Overview,
@@ -478,9 +480,9 @@ export default Vue.extend<
                     ? this.buildingsFiltered
                     : this.currentBuildings
             ).sort((a, b) => {
-                let modifier = this.buildingsTab.sortDir === 'desc' ? -1 : 1;
-                let f = a[this.buildingsTab.sort] || '';
-                let s = b[this.buildingsTab.sort] || '';
+                const modifier = this.buildingsTab.sortDir === 'desc' ? -1 : 1;
+                const f = a[this.buildingsTab.sort] || '';
+                const s = b[this.buildingsTab.sort] || '';
                 return f < s ? -1 * modifier : f > s ? modifier : 0;
             });
         },
@@ -506,9 +508,9 @@ export default Vue.extend<
                     ? this.schoolingsFiltered
                     : this.currentSchoolings
             ).sort((a, b) => {
-                let modifier = this.schoolingsTab.sortDir === 'desc' ? -1 : 1;
-                let f = a[this.schoolingsTab.sort] || '';
-                let s = b[this.schoolingsTab.sort] || '';
+                const modifier = this.schoolingsTab.sortDir === 'desc' ? -1 : 1;
+                const f = a[this.schoolingsTab.sort] || '';
+                const s = b[this.schoolingsTab.sort] || '';
                 return f < s ? -1 * modifier : f > s ? modifier : 0;
             });
         },
@@ -519,7 +521,7 @@ export default Vue.extend<
                     this.vehiclesTab.current.category
                 ]
             ];
-            let vehicles =
+            const vehicles =
                 category.vehicles[
                     Object.keys(category.vehicles)[
                         this.vehiclesTab.current.group
@@ -533,9 +535,9 @@ export default Vue.extend<
                   )
                 : vehicles
             ).sort((a, b) => {
-                let modifier = this.vehiclesTab.sortDir === 'desc' ? -1 : 1;
-                let f = a[this.vehiclesTab.sort] || '';
-                let s = b[this.vehiclesTab.sort] || '';
+                const modifier = this.vehiclesTab.sortDir === 'desc' ? -1 : 1;
+                const f = a[this.vehiclesTab.sort] || '';
+                const s = b[this.vehiclesTab.sort] || '';
                 return f < s ? -1 * modifier : f > s ? modifier : 0;
             });
         },

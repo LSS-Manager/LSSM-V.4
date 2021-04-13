@@ -1,6 +1,6 @@
+import copydir from 'copy-dir';
 import fs from 'fs';
 import path from 'path';
-import copydir from 'copy-dir';
 
 import config from '../../src/config';
 
@@ -36,7 +36,7 @@ moduleDirs.forEach((module: string) => {
             .filter((f: string) => f.match(/^[a-z]{2}_[A-Z]{2}\.md$/));
         const availableLangs = [] as string[];
         docs.forEach((f: string) => {
-            const lang = f.split('.')[0];
+            const [lang] = f.split('.');
             availableLangs.push(lang);
             if (!modulesSorted.hasOwnProperty(lang)) modulesSorted[lang] = [];
             if (!fs.existsSync(`./docs/${lang}/modules`))

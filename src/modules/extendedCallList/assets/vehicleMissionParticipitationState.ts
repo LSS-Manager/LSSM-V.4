@@ -5,7 +5,7 @@ export default async (LSSM: Vue, MODULE_ID: string): Promise<void> => {
         feature: `${MODULE_ID}-vehicleMissionParticipitationState`,
     });
 
-    const vehicles: Vehicle[] = LSSM.$store.state.api.vehicles;
+    const { vehicles }: { vehicles: Vehicle[] } = LSSM.$store.state.api;
     const missions: number[] = [];
     vehicles.forEach(({ target_type, target_id }) => {
         if (target_type === 'mission' && target_id) missions.push(target_id);

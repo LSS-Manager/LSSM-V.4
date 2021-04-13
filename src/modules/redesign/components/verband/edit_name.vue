@@ -20,9 +20,10 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import { VerbandEditNameWindow } from '../../parsers/verband/edit_name';
-import { RedesignSubComponent } from 'typings/modules/Redesign';
+
 import { DefaultData } from 'vue/types/options';
+import { RedesignSubComponent } from 'typings/modules/Redesign';
+import { VerbandEditNameWindow } from '../../parsers/verband/edit_name';
 
 type Component = RedesignSubComponent<
     'alliance',

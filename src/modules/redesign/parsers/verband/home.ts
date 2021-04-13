@@ -12,7 +12,10 @@ export interface VerbandHomeWindow extends VerbandWindow {
     applied: boolean;
 }
 
-export default <RedesignParser<VerbandHomeWindow>>(({ doc, getIdFromEl }) => {
+export default <RedesignParser<VerbandHomeWindow>>(({
+    doc,
+    getIdFromEl = () => -1,
+}) => {
     const id = getIdFromEl(
         doc.querySelector<HTMLAnchorElement>(
             'nav ul.navbar-right li:first-child a[href^="/alliances/"]'

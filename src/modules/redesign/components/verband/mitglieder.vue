@@ -224,10 +224,12 @@
 
 <script lang="ts">
 import Vue from 'vue';
+
 import { faEdit } from '@fortawesome/free-solid-svg-icons/faEdit';
+
+import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { RedesignSubComponent } from 'typings/modules/Redesign';
 import { VerbandMitgliederWindow } from '../../parsers/verband/mitglieder';
-import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 
 type Component = RedesignSubComponent<
     'mitglieder',
@@ -514,7 +516,7 @@ export default Vue.extend<
                     const userIndex = this.mitglieder.users.findIndex(
                         ({ id }) => id === user_id
                     );
-                    const roles = this.lightbox.data.users[userIndex].roles;
+                    const { roles } = this.lightbox.data.users[userIndex];
                     const right_t = this.lightbox
                         .$sm(`rights.${right}`)
                         .toString();
@@ -526,11 +528,9 @@ export default Vue.extend<
                             1
                         );
                     }
-                    this.$set(
-                        this.lightbox.data.users[userIndex].edit,
-                        right,
-                        !!new_state
-                    );
+                    const { edit } = this.lightbox.data.users[userIndex];
+                    if (edit) this.$set(edit, right, !!new_state);
+
                     this.$set(
                         this.lightbox.data.users[userIndex],
                         'roles',
@@ -654,10 +654,10 @@ export default Vue.extend<
             return [...this.usersFiltered].sort((a, b) => {
                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                 // @ts-ignore
-                let f = a[this.sort] ?? '';
+                const f = a[this.sort] ?? '';
                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                 // @ts-ignore
-                let s = b[this.sort] ?? '';
+                const s = b[this.sort] ?? '';
                 return f < s ? -1 * modifier : f > s ? modifier : 0;
             });
         },

@@ -40,16 +40,18 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import { faTimes } from '@fortawesome/free-solid-svg-icons/faTimes';
-import { faExpand } from '@fortawesome/free-solid-svg-icons/faExpand';
-import { faCompress } from '@fortawesome/free-solid-svg-icons/faCompress';
+
 import { faChevronUp } from '@fortawesome/free-solid-svg-icons/faChevronUp';
+import { faCompress } from '@fortawesome/free-solid-svg-icons/faCompress';
+import { faExpand } from '@fortawesome/free-solid-svg-icons/faExpand';
+import { faTimes } from '@fortawesome/free-solid-svg-icons/faTimes';
+
+import { DefaultComputed } from 'vue/types/options';
 import {
     LightboxData,
     LightboxMethods,
     LightboxProps,
 } from '../../typings/components/Lightbox';
-import { DefaultComputed } from 'vue/types/options';
 
 export default Vue.extend<
     LightboxData,

@@ -104,7 +104,7 @@ export default async (LSSM: Vue): Promise<void> => {
             !end[0].length
         )
             return (popupMap[input.name].style.display = 'none');
-        const search = end[0];
+        const [search] = end;
         const matching = emojiNames.filter(name =>
             name.toLowerCase().match(search.toLowerCase())
         );

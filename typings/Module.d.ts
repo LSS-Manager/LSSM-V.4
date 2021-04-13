@@ -1,6 +1,6 @@
 import { Games } from './Game';
-import VueI18n from 'vue-i18n';
 import { RegisterSettings } from './Setting';
+import VueI18n from 'vue-i18n';
 
 export interface Module {
     active: boolean;

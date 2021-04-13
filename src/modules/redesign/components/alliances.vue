@@ -79,6 +79,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
+
 import { AllianceListWindow } from '../parsers/alliances';
 import { RedesignComponent } from 'typings/modules/Redesign';
 
@@ -286,10 +287,10 @@ export default Vue.extend<
             return [...this.alliancesFiltered].sort((a, b) => {
                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                 // @ts-ignore
-                let f = a[this.sort] ?? '';
+                const f = a[this.sort] ?? '';
                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                 // @ts-ignore
-                let s = b[this.sort] ?? '';
+                const s = b[this.sort] ?? '';
                 return f < s ? -1 * modifier : f > s ? modifier : 0;
             });
         },

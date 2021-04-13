@@ -11,7 +11,7 @@ export interface VerbandEditTextWindow extends VerbandWindow {
 
 export default <RedesignParser<VerbandEditTextWindow>>(({
     doc,
-    getIdFromEl,
+    getIdFromEl = () => 1,
 }) => {
     const id = getIdFromEl(
         doc.querySelector<HTMLAnchorElement>(

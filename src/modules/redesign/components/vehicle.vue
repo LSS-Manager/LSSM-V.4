@@ -1034,19 +1034,21 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import { faSitemap } from '@fortawesome/free-solid-svg-icons/faSitemap';
-import { faPortrait } from '@fortawesome/free-solid-svg-icons/faPortrait';
-import { faUser } from '@fortawesome/free-solid-svg-icons/faUser';
+
 import { faAsterisk } from '@fortawesome/free-solid-svg-icons/faAsterisk';
-import { faPalette } from '@fortawesome/free-solid-svg-icons/faPalette';
-import { faEdit } from '@fortawesome/free-solid-svg-icons/faEdit';
 import { faChartLine } from '@fortawesome/free-solid-svg-icons/faChartLine';
-import { faUsers } from '@fortawesome/free-solid-svg-icons/faUsers';
+import { faEdit } from '@fortawesome/free-solid-svg-icons/faEdit';
+import { faPalette } from '@fortawesome/free-solid-svg-icons/faPalette';
+import { faPortrait } from '@fortawesome/free-solid-svg-icons/faPortrait';
+import { faSitemap } from '@fortawesome/free-solid-svg-icons/faSitemap';
 import { faTrash } from '@fortawesome/free-solid-svg-icons/faTrash';
-import { VehicleWindow } from '../parsers/vehicle';
+import { faUser } from '@fortawesome/free-solid-svg-icons/faUser';
+import { faUsers } from '@fortawesome/free-solid-svg-icons/faUsers';
+
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-import { Vehicle } from 'typings/Vehicle';
 import { RedesignComponent } from 'typings/modules/Redesign';
+import { Vehicle } from 'typings/Vehicle';
+import { VehicleWindow } from '../parsers/vehicle';
 
 type Component = RedesignComponent<
     'vehicle',
@@ -1431,10 +1433,10 @@ export default Vue.extend<
             return [...this.hospitalListFiltered].sort((a, b) => {
                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                 // @ts-ignore
-                let f = a[this.sort] ?? '';
+                const f = a[this.sort] ?? '';
                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                 // @ts-ignore
-                let s = b[this.sort] ?? '';
+                const s = b[this.sort] ?? '';
                 return f < s ? -1 * modifier : f > s ? modifier : 0;
             });
         },
@@ -1510,10 +1512,10 @@ export default Vue.extend<
             return [...this.cellListFiltered].sort((a, b) => {
                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                 // @ts-ignore
-                let f = a[this.sort] ?? '';
+                const f = a[this.sort] ?? '';
                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                 // @ts-ignore
-                let s = b[this.sort] ?? '';
+                const s = b[this.sort] ?? '';
                 return f < s ? -1 * modifier : f > s ? modifier : 0;
             });
         },
@@ -1776,11 +1778,14 @@ export default Vue.extend<
                         import(
                             /*webpackChunkName: "modules/redesign/parsers/vehicle/nextfms"*/ `../parsers/vehicle/nextfms`
                         ).then(parser => {
-                            const next_vehicle = parser.default(
-                                html,
-                                url,
-                                this.lightbox.getIdFromEl
-                            );
+                            const { next: next_vehicle } = parser.default({
+                                doc: new DOMParser().parseFromString(
+                                    html,
+                                    'text/html'
+                                ),
+                                href: url,
+                                getIdFromEl: this.lightbox.getIdFromEl,
+                            });
                             if (next_vehicle < 0) {
                                 import(
                                     `../i18n/${this.$store.state.lang}/vehicle/nextfms.json`
@@ -1900,11 +1905,14 @@ export default Vue.extend<
                 .then((res: Response) => res.text())
                 .then(async html => {
                     import('../parsers/vehicle').then(parser => {
-                        const result = parser.default(
-                            html,
-                            url.toString(),
-                            this.lightbox.getIdFromEl
-                        );
+                        const result = parser.default({
+                            doc: new DOMParser().parseFromString(
+                                html,
+                                'text/html'
+                            ),
+                            href: url.toString(),
+                            getIdFromEl: this.lightbox.getIdFromEl,
+                        });
                         this.$set(
                             this.lightbox.data,
                             'alliance_hospitals',
