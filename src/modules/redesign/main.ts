@@ -36,6 +36,12 @@ export default ((LSSM, MODULE_ID) => {
                     })
                     .then();
                 const creation = new Date().toISOString();
+                const size =
+                    96 -
+                    2 *
+                        document.querySelectorAll<HTMLDivElement>(
+                            '#modals-container > .vm--container'
+                        ).length;
                 LSSM.$modal.show(
                     () =>
                         import(
@@ -66,12 +72,12 @@ export default ((LSSM, MODULE_ID) => {
                     },
                     {
                         name: `redesign-lightbox-${creation}`,
-                        height: '96%',
-                        width: '96%',
+                        height: `${size}%`,
+                        width: `${size}%`,
                     },
                     {
                         closed() {
-                            window.lightboxClose();
+                            window.lightboxClose(creation);
                         },
                     }
                 );
