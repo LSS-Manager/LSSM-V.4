@@ -1,13 +1,16 @@
 import Vue from 'vue';
-import VueJSModal from 'vue-js-modal';
-import ToggleButton from 'vue-js-toggle-button';
+
 import * as Tabs from 'vue-slim-tabs';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import Notifications from 'vue-notification';
+import ToggleButton from 'vue-js-toggle-button';
+import VueJSModal from 'vue-js-modal';
+
+import i18n from './i18n';
 import LSSMV4 from './LSSMV4.vue';
 import store from './store';
-import i18n from './i18n';
 import utils from './utils';
+
 import { ModuleMainFunction, ModuleSettingFunction } from 'typings/Module';
 
 require('./natives/navTabsClicker');

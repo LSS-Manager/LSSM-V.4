@@ -1,8 +1,9 @@
-import { Color, Toggle } from 'typings/Setting';
 import LSSMMenu from './LSSM-Menu.vue';
 import telemetry from './modules/telemetry/main';
-import { BuildingMarkerAdd, RadioMessage } from 'typings/Ingame';
+
 import { Building } from 'typings/Building';
+import { BuildingMarkerAdd, RadioMessage } from 'typings/Ingame';
+import { Color, Toggle } from 'typings/Setting';
 
 export default async (LSSM: Vue): Promise<void> => {
     window.console.info(

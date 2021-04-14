@@ -36,8 +36,8 @@
             :credits="data"
             :url="url"
             :lightbox="lightbox"
-            :$m="$m"
-            :$mc="$mc"
+            :$m="lightbox.$m"
+            :$mc="lightbox.$mc"
             :get-setting="getSetting"
             :set-setting="setSetting"
         ></CreditsList>
@@ -46,8 +46,8 @@
             :credits="data"
             :url="url"
             :lightbox="lightbox"
-            :$m="$m"
-            :$mc="$mc"
+            :$m="lightbox.$m"
+            :$mc="lightbox.$mc"
             :get-setting="getSetting"
             :set-setting="setSetting"
         ></CreditsDaily>
@@ -55,8 +55,8 @@
             v-else-if="type === 'credits/overview'"
             :data="data"
             :lightbox="lightbox"
-            :$m="$m"
-            :$mc="$mc"
+            :$m="lightbox.$m"
+            :$mc="lightbox.$mc"
             :get-setting="getSetting"
             :set-setting="setSetting"
         ></CreditsOverview>
@@ -65,8 +65,8 @@
             :coins="data"
             :url="url"
             :lightbox="lightbox"
-            :$m="$m"
-            :$mc="$mc"
+            :$m="lightbox.$m"
+            :$mc="lightbox.$mc"
             :get-setting="getSetting"
             :set-setting="setSetting"
         ></CoinsList>
@@ -75,68 +75,39 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import VueI18n from 'vue-i18n';
-import { CreditsDailyWindow } from '../parsers/credits/daily';
-import { DefaultData } from 'vue/types/options';
-import { CreditsOverviewWindow } from '../parsers/credits/overview';
+
 import { CoinsListWindow } from '../parsers/coins/list';
-import { RedesignLightboxVue } from 'typings/modules/Redesign';
+import { CreditsDailyWindow } from '../parsers/credits/daily';
 import { CreditsListWindow } from '../parsers/credits/list';
+import { CreditsOverviewWindow } from '../parsers/credits/overview';
+import { RedesignComponent } from 'typings/modules/Redesign';
+import { DefaultData, DefaultMethods } from 'vue/types/options';
 
 interface Link {
     href: string;
     text: string;
 }
 
-export default Vue.extend<
+type Component = RedesignComponent<
+    'data',
+    'credits/list' | 'credits/daily' | 'credits/overview' | 'coins/list',
+    | CreditsListWindow
+    | CreditsDailyWindow
+    | CreditsOverviewWindow
+    | CoinsListWindow,
     DefaultData<Vue>,
-    {
-        $sm(
-            key: string,
-            args?: {
-                [key: string]: unknown;
-            }
-        ): VueI18n.TranslateResult;
-        $smc(
-            key: string,
-            amount: number,
-            args?: {
-                [key: string]: unknown;
-            }
-        ): VueI18n.TranslateResult;
-    },
+    DefaultMethods<Vue>,
     {
         nav: { title: string; links: Link[] };
     },
-    {
-        data:
-            | CreditsListWindow
-            | CreditsDailyWindow
-            | CreditsOverviewWindow
-            | CoinsListWindow;
-        url: string;
-        lightbox:
-            | RedesignLightboxVue<'credits/list', CreditsListWindow>
-            | RedesignLightboxVue<'credits/daily', CreditsDailyWindow>
-            | RedesignLightboxVue<'credits/overview', CreditsOverviewWindow>
-            | RedesignLightboxVue<'coins/list', CoinsListWindow>;
-        $m(
-            key: string,
-            args?: {
-                [key: string]: unknown;
-            }
-        ): VueI18n.TranslateResult;
-        $mc(
-            key: string,
-            amount: number,
-            args?: {
-                [key: string]: unknown;
-            }
-        ): VueI18n.TranslateResult;
-        getSetting: <T>(setting: string, defaultValue: T) => Promise<T>;
-        setSetting: <T>(settingId: string, value: T) => Promise<void>;
-        type: string;
-    }
+    { type: string }
+>;
+
+export default Vue.extend<
+    Component['Data'],
+    Component['Methods'],
+    Component['Computed'],
+    Component['Props']
 >({
     name: 'credits-lightbox',
     components: {
@@ -163,42 +134,23 @@ export default Vue.extend<
     computed: {
         nav() {
             return {
-                title: this.$sm('nav.title').toString(),
+                title: this.lightbox.$m('credits.nav.title').toString(),
                 links: Object.values(
-                    (this.$sm('nav.links') as unknown) as {
+                    (this.lightbox.$m('credits.nav.links') as unknown) as {
                         [index: number]: Link;
                     }
                 ).filter(
                     ({ href }) =>
                         new URL(
                             this.url,
-                            window.location.href
+                            window.location.origin
                         ).pathname.replace(/\/$/g, '') !==
-                        new URL(href, window.location.href).pathname.replace(
+                        new URL(href, window.location.origin).pathname.replace(
                             /\/$/g,
                             ''
                         )
                 ),
             };
-        },
-    },
-    methods: {
-        $sm(
-            key: string,
-            args?: {
-                [key: string]: unknown;
-            }
-        ) {
-            return this.$m(`credits.${key}`, args);
-        },
-        $smc(
-            key: string,
-            amount: number,
-            args?: {
-                [key: string]: unknown;
-            }
-        ) {
-            return this.$mc(`credits.${key}`, amount, args);
         },
     },
     props: {
@@ -212,14 +164,6 @@ export default Vue.extend<
         },
         lightbox: {
             type: Object,
-            required: true,
-        },
-        $m: {
-            type: Function,
-            required: true,
-        },
-        $mc: {
-            type: Function,
             required: true,
         },
         getSetting: {
@@ -237,12 +181,15 @@ export default Vue.extend<
     },
     mounted() {
         this.$el.addEventListener('click', e => {
-            e.preventDefault();
             const target = (e.target as HTMLElement)?.closest<
                 HTMLAnchorElement | HTMLButtonElement
             >('a, button');
-            if (!target || !target.hasAttribute('href')) return;
-            this.$set(this.lightbox, 'src', target.getAttribute('href'));
+            const href = target?.getAttribute('href');
+            if (!target || !href) return;
+            e.preventDefault();
+            if (target.hasAttribute('lightbox-open'))
+                return window.lightboxOpen(href);
+            else this.$set(this.lightbox, 'src', href);
         });
     },
 });

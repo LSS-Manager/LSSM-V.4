@@ -257,23 +257,25 @@ export default async (
     });
 
     if (mapUndo) {
-        await LSSM.$store.dispatch('hookPrototype', {
+        await LSSM.$store.dispatch('proxy', {
             post: false,
-            base: 'map',
-            event: 'setView',
+            name: 'map.setView',
+            trap: 'apply',
             callback(
-                coordinates: [number, number] | { lat: number; lng: number },
-                zoom = window.map.getZoom()
+                _: unknown,
+                __: unknown,
+                [coordinates, zoom = window.map.getZoom()]: [
+                    [number, number] | { lat: number; lng: number },
+                    number
+                ]
             ) {
                 if (previewEnabled) return;
                 let latExtract;
                 let lngExtract;
-                if (Array.isArray(coordinates)) {
-                    latExtract = coordinates[0];
-                    lngExtract = coordinates[1];
-                } else {
-                    return;
-                } // This happens at Zoom – we don't want to log zooming currently
+                if (Array.isArray(coordinates))
+                    [latExtract, lngExtract] = coordinates;
+                else return;
+                // This happens at Zoom – we don't want to log zooming currently
                 const lat = latExtract;
                 const lng = lngExtract;
                 history.push({ lat, lng, zoom });

@@ -1,5 +1,5 @@
-import { Layer, Map as LMap } from 'leaflet';
 import { CombinedVueInstance } from 'vue/types/vue';
+import { Layer, Map as LMap } from 'leaflet';
 
 export interface MapData {
     map?: LMap;

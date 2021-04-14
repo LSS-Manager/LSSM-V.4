@@ -1,16 +1,16 @@
-import { ActionTree, GetterTree, Module } from 'vuex';
+import { ActionStoreParams } from 'typings/store/Actions';
+import { APIActionStoreParams } from '../../typings/store/api/Actions';
+import { Mission } from 'typings/Mission';
 import { RootState } from '../../typings/store/RootState';
+import { Vehicle } from '../../typings/Vehicle';
+import { VehicleRadioMessage } from '../../typings/Ingame';
+import { ActionTree, GetterTree, Module } from 'vuex';
 import {
     APIState,
     StorageAPIKey,
     StorageGetterReturn,
 } from '../../typings/store/api/State';
-import { Vehicle } from '../../typings/Vehicle';
-import { APIActionStoreParams } from '../../typings/store/api/Actions';
-import { VehicleRadioMessage } from '../../typings/Ingame';
 import { Building, BuildingCategory } from '../../typings/Building';
-import { Mission } from 'typings/Mission';
-import { ActionStoreParams } from 'typings/store/Actions';
 
 const STORAGE_KEYS = {
     buildings: 'aBuildings',
@@ -343,7 +343,7 @@ export default {
             const buildingsByCategory = {} as {
                 [category: string]: Building[];
             };
-            const buildingsByType = getters.buildingsByType;
+            const { buildingsByType } = getters;
             Object.entries(categories).forEach(
                 ([category, { buildings }]) =>
                     (buildingsByCategory[category] = [

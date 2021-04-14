@@ -344,14 +344,15 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import { Building, InternalBuilding } from 'typings/Building';
+
+import { DefaultProps } from 'vue/types/options';
 import { Vehicle } from 'typings/Vehicle';
+import { Building, InternalBuilding } from 'typings/Building';
 import {
     DispatchcenterView,
     DispatchcenterViewComputed,
     DispatchcenterViewMethods,
 } from 'typings/modules/Dashboard/DispatchcenterView';
-import { DefaultProps } from 'vue/types/options';
 
 export default Vue.extend<
     DispatchcenterView,
@@ -499,7 +500,7 @@ export default Vue.extend<
             ).length;
         },
         vehiclesByBuildingSorted() {
-            let vehiclesSorted = {} as { [building: number]: Vehicle[] };
+            const vehiclesSorted = {} as { [building: number]: Vehicle[] };
             Object.keys(this.vehiclesByBuilding).forEach(building => {
                 vehiclesSorted[parseInt(building)] = this.vehiclesByBuilding[
                     parseInt(building)
@@ -529,7 +530,7 @@ export default Vue.extend<
             this.newBoardTitle = '';
             this.boards.push({
                 id: title,
-                title: title,
+                title,
                 columns: [],
                 buildingTypes: [],
                 dispatchBuildings: [],
@@ -622,7 +623,7 @@ export default Vue.extend<
             let currentRow = 0;
             this.buildingListFiltered.forEach(building =>
                 (async () => {
-                    let height = Math.ceil(
+                    const height = Math.ceil(
                         14 +
                             (this.vehiclesByBuilding[building.id] || [])
                                 .length *
@@ -632,7 +633,7 @@ export default Vue.extend<
                     this.columns.push({
                         building: building.id,
                         width: 15,
-                        height: height,
+                        height,
                         x: currentColumn * 16,
                         y: currentY,
                     });
@@ -678,7 +679,7 @@ export default Vue.extend<
         modifyBuilding({ id, width, height, x, y }) {
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore
-            const building = this.$refs[`building-${id}`][0];
+            const [building] = this.$refs[`building-${id}`];
             const headingHeight = building.$el
                 .querySelector('.panel-heading')
                 .getBoundingClientRect().height;

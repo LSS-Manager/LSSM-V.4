@@ -1,6 +1,7 @@
-import packageJson from '../package.json';
-import moment from 'moment-timezone';
 import fs from 'fs';
+import moment from 'moment-timezone';
+
+import packageJson from '../package.json';
 
 packageJson.version = packageJson.version.replace(
     /\+.*$/,

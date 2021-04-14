@@ -441,23 +441,25 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import { faSyncAlt } from '@fortawesome/free-solid-svg-icons/faSyncAlt';
-import { faAngleDoubleUp } from '@fortawesome/free-solid-svg-icons/faAngleDoubleUp';
+
+import cloneDeep from 'lodash/cloneDeep';
 import { faAngleDoubleDown } from '@fortawesome/free-solid-svg-icons/faAngleDoubleDown';
+import { faAngleDoubleUp } from '@fortawesome/free-solid-svg-icons/faAngleDoubleUp';
 import { faArrowsAlt } from '@fortawesome/free-solid-svg-icons/faArrowsAlt';
 import { faCompressAlt } from '@fortawesome/free-solid-svg-icons/faCompressAlt';
 import { faExpandAlt } from '@fortawesome/free-solid-svg-icons/faExpandAlt';
-import { faSuperscript } from '@fortawesome/free-solid-svg-icons/faSuperscript';
 import { faSubscript } from '@fortawesome/free-solid-svg-icons/faSubscript';
+import { faSuperscript } from '@fortawesome/free-solid-svg-icons/faSuperscript';
+import { faSyncAlt } from '@fortawesome/free-solid-svg-icons/faSyncAlt';
+
+import { DefaultProps } from 'vue/types/options';
+import { Mission } from 'typings/Mission';
 import {
     MissionHelper,
-    MissionHelperMethods,
     MissionHelperComputed,
+    MissionHelperMethods,
     VehicleRequirements,
 } from 'typings/modules/MissionHelper';
-import { Mission } from 'typings/Mission';
-import { DefaultProps } from 'vue/types/options';
-import cloneDeep from 'lodash/cloneDeep';
 
 export default Vue.extend<
     MissionHelper,
@@ -633,7 +635,8 @@ export default Vue.extend<
                 if (
                     document
                         .getElementById('mission_general_info')
-                        ?.hasAttribute('data-overlay-index')
+                        ?.hasAttribute('data-overlay-index') &&
+                    specs
                 )
                     specs = specs.alternate_version.mission_type;
                 this.missionSpecs = specs;
@@ -899,7 +902,7 @@ export default Vue.extend<
                     ].additionalText =
                         this.$mc(
                             `vehicles.multifunctionals.${vehicle}.additional_text`,
-                            vehicles[vehicle].old >
+                            (vehicles[vehicle].old ?? 0) >
                                 vehicles[multifunctionals[vehicle].reduce_from]
                                     .amount
                                 ? vehicles[

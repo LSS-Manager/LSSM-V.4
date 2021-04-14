@@ -65,6 +65,7 @@ export interface VehicleWindow {
     previous_vehicle_id: number;
     next_vehicle_id: number;
     vehicle_name: string;
+    can_move: boolean;
     fms: number;
     max_staff: number;
     mileage: string;
@@ -89,6 +90,7 @@ export interface VehicleWindow {
     has_hospitals: boolean;
     own_hospitals: Hospital[];
     alliance_hospitals: Hospital[];
+    load_all_hospitals: boolean;
     hospital_department: string;
     patient_releaseable: boolean;
     has_cells: boolean;
@@ -97,11 +99,13 @@ export interface VehicleWindow {
     prisoners_releaseable: boolean;
     has_wlfs: boolean;
     wlfs: WLF[];
-    authenticity_token: string;
 }
 
-export default <RedesignParser<VehicleWindow>>((source, href, getIdFromEl) => {
-    const doc = new DOMParser().parseFromString(source, 'text/html');
+export default <RedesignParser<VehicleWindow>>(({
+    doc,
+    href = '',
+    getIdFromEl = () => -1,
+}) => {
     const id = parseInt(
         new URL(href, window.location.href).pathname.match(/\d+\/?$/)?.[0] ??
             '-1'
@@ -175,6 +179,8 @@ export default <RedesignParser<VehicleWindow>>((source, href, getIdFromEl) => {
     const wlf_table = doc.querySelector<HTMLTableElement>(
         '#vehicle_show_table'
     );
+    // because missions may appear in own and alliance lists
+    const mission_ids: number[] = [];
     return {
         id,
         building: {
@@ -189,6 +195,7 @@ export default <RedesignParser<VehicleWindow>>((source, href, getIdFromEl) => {
         previous_vehicle_id: getIdFromEl(navBtns[0]),
         next_vehicle_id: getIdFromEl(navBtns[1]),
         vehicle_name: doc.querySelector('h1')?.textContent ?? '',
+        can_move: !!doc.querySelector('a[href$="/move"]'),
         fms,
         max_staff: parseInt(
             doc.getElementById('vehicle-attr-max-personnel')?.textContent ??
@@ -249,45 +256,54 @@ export default <RedesignParser<VehicleWindow>>((source, href, getIdFromEl) => {
                     doc.querySelectorAll<HTMLTableRowElement>(
                         `#${list} tbody tr`
                     )
-                ).map(m => {
-                    const linkEl = m.children[1]?.querySelector<
-                        HTMLAnchorElement
-                    >('a[href^="/missions/"]');
-                    const progressEl = m.children[3]?.querySelector<
-                        HTMLDivElement
-                    >('.progress .progress-bar');
-                    return {
-                        image: m.children[0]?.querySelector('img')?.src ?? '',
-                        caption: linkEl?.textContent?.trim() ?? '',
-                        id: getIdFromEl(linkEl),
-                        type: parseInt(
-                            m.getAttribute('data-mission-type') ?? '-1'
-                        ),
-                        adress: Array.from(m.children[1]?.childNodes ?? [])
-                            .map(c => (c as Text).wholeText ?? '')
-                            .join('')
-                            .trim(),
-                        distance: m.children[2]?.textContent?.trim() ?? '',
-                        list,
-                        progress: {
-                            active: !!progressEl?.querySelector(
-                                '.progress-striped-inner-active'
+                )
+                    .map(m => {
+                        const linkEl = m.children[1]?.querySelector<
+                            HTMLAnchorElement
+                        >('a[href^="/missions/"]');
+                        const progressEl = m.children[3]?.querySelector<
+                            HTMLDivElement
+                        >('.progress .progress-bar');
+                        const id = getIdFromEl(linkEl);
+                        if (mission_ids.includes(id)) return null;
+                        mission_ids.push(id);
+                        return {
+                            image:
+                                m.children[0]?.querySelector('img')?.src ?? '',
+                            caption: linkEl?.textContent?.trim() ?? '',
+                            id: getIdFromEl(linkEl),
+                            type: parseInt(
+                                m.getAttribute('data-mission-type') ?? '-1'
                             ),
-                            width: parseInt(progressEl?.style.width ?? '100'),
-                        },
-                        patients: {
-                            current: parseInt(
-                                m.children[4]?.textContent?.trim() ?? '-1'
-                            ),
-                            total: parseInt(
-                                m.children[4]?.textContent
-                                    ?.trim()
-                                    ?.match(/\d+$/)?.[0] ?? '-1'
-                            ),
-                        },
-                        status: m.getAttribute('data-mission-status') ?? 'red',
-                    };
-                }),
+                            adress: Array.from(m.children[1]?.childNodes ?? [])
+                                .map(c => (c as Text).wholeText ?? '')
+                                .join('')
+                                .trim(),
+                            distance: m.children[2]?.textContent?.trim() ?? '',
+                            list,
+                            progress: {
+                                active: !!progressEl?.querySelector(
+                                    '.progress-striped-inner-active'
+                                ),
+                                width: parseInt(
+                                    progressEl?.style.width ?? '100'
+                                ),
+                            },
+                            patients: {
+                                current: parseInt(
+                                    m.children[4]?.textContent?.trim() ?? '-1'
+                                ),
+                                total: parseInt(
+                                    m.children[4]?.textContent
+                                        ?.trim()
+                                        ?.match(/\d+$/)?.[0] ?? '-1'
+                                ),
+                            },
+                            status:
+                                m.getAttribute('data-mission-status') ?? 'red',
+                        };
+                    })
+                    .filter(m => !!m),
             ])
         ) as { mission_own: Mission[]; mission_alliance: Mission[] }),
         has_hospitals: hasHospitals,
@@ -346,6 +362,9 @@ export default <RedesignParser<VehicleWindow>>((source, href, getIdFromEl) => {
             own_hospitals: Hospital[];
             alliance_hospitals: Hospital[];
         }),
+        load_all_hospitals: !!doc.querySelector<HTMLAnchorElement>(
+            'a[href$="?load_all=true"]'
+        ),
         hospital_department: hasHospitals
             ? doc
                   .querySelector('.col-md-9 .alert.alert-info b')
@@ -385,8 +404,5 @@ export default <RedesignParser<VehicleWindow>>((source, href, getIdFromEl) => {
                   };
               })
             : [],
-        authenticity_token:
-            doc.querySelector<HTMLMetaElement>('meta[name="csrf-token"]')
-                ?.content ?? '',
     };
 });

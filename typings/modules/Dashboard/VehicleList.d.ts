@@ -1,5 +1,5 @@
-import { Vehicle } from 'typings/Vehicle';
 import { Building } from 'typings/Building';
+import { Vehicle } from 'typings/Vehicle';
 import VueI18n from 'vue-i18n';
 
 interface VehicleWithBuilding extends Vehicle {

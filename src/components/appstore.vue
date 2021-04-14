@@ -75,14 +75,16 @@
 
 <script lang="ts">
 import Vue from 'vue';
+
+import isEqual from 'lodash/isEqual';
+
+import { DefaultProps } from 'vue/types/options';
+import { Modules } from '../../typings/Module';
 import {
     AppstoreComputed,
     AppstoreData,
     AppstoreMethods,
 } from '../../typings/components/Appstore';
-import isEqual from 'lodash/isEqual';
-import { Modules } from '../../typings/Module';
-import { DefaultProps } from 'vue/types/options';
 
 export default Vue.extend<
     AppstoreData,
@@ -98,7 +100,7 @@ export default Vue.extend<
             ),
     },
     data() {
-        let modules = this.$store.getters.appModules as Modules;
+        const modules = this.$store.getters.appModules as Modules;
         Object.keys(modules).forEach(
             moduleId =>
                 (modules[moduleId] = {

@@ -1,11 +1,13 @@
-import * as pdfMake from 'pdfmake/build/pdfmake';
 import * as pdfFonts from 'pdfmake/build/vfs_fonts';
+import * as pdfMake from 'pdfmake/build/pdfmake';
 import moment from 'moment';
-import { ModuleMainFunction } from 'typings/Module';
+
 import config from '../../config';
-import { CreditsInfo } from 'typings/api/Credits';
+
 import { AllianceInfo } from 'typings/api/AllianceInfo';
 import { Building } from 'typings/Building';
+import { CreditsInfo } from 'typings/api/Credits';
+import { ModuleMainFunction } from 'typings/Module';
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
@@ -78,7 +80,7 @@ export default (async (LSSM, MODULE_ID) => {
             );
         }
 
-        const buildings: Building[] = LSSM.$store.state.api.buildings;
+        const { buildings }: { buildings: Building[] } = LSSM.$store.state.api;
         const extremeBuildings = {} as {
             north?: Building;
             south?: Building;

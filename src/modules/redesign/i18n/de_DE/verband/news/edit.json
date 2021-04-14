@@ -1,0 +1,10 @@
+{
+	"caption": "Titel",
+	"public": "Öffentlich (Auch für Spieler ausserhalb des Verbands sichtbar)",
+	"save": "Speichern",
+	"text": "Inhalt",
+	"title": {
+		"edit": "Verbandsnews bearbeiten",
+		"new": "Neue Verbandsnews anlegen"
+	}
+}

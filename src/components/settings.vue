@@ -96,7 +96,6 @@
         <tabs
             :class="$store.getters.nodeAttribute('settings-tabs')"
             v-if="modulesSorted.length > 0"
-            ref="settingsTabs"
             :default-index="tab"
             :on-select="(_, i) => (this.tab = i)"
         >
@@ -264,20 +263,22 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import { faHistory } from '@fortawesome/free-solid-svg-icons/faHistory';
-import {
-    SettingsData,
-    SettingsMethods,
-    SettingsComputed,
-} from '../../typings/components/Settings';
+
 import cloneDeep from 'lodash/cloneDeep';
+import { faHistory } from '@fortawesome/free-solid-svg-icons/faHistory';
 import isEqual from 'lodash/isEqual';
+
 import { DefaultProps } from 'vue/types/options';
 import {
     AppendableList,
     ModuleSettings,
     Setting as SettingType,
 } from '../../typings/Setting';
+import {
+    SettingsComputed,
+    SettingsData,
+    SettingsMethods,
+} from '../../typings/components/Settings';
 
 export default Vue.extend<
     SettingsData,
@@ -395,7 +396,7 @@ export default Vue.extend<
                                 .map(([setting, saved]) => [
                                     setting,
                                     {
-                                        saved: saved,
+                                        saved,
                                         current: this.liveValueMap[module][
                                             setting
                                         ],
@@ -513,7 +514,7 @@ export default Vue.extend<
             )
                 return true;
             let dependence = this.settings[moduleId][settingId].dependsOn;
-            let disabledFun = this.settings[moduleId][settingId].disabled;
+            const disabledFun = this.settings[moduleId][settingId].disabled;
             if (dependence) {
                 const invert = dependence.startsWith('!');
                 dependence = dependence.replace(/^!/, '');
@@ -521,7 +522,7 @@ export default Vue.extend<
                     ? this.settings[moduleId]
                     : this.settings;
                 dependence = dependence.replace(/^\./, '');
-                let setting = (dependence.split('/').reduce(
+                const setting = (dependence.split('/').reduce(
                     (previousValue, currentValue) =>
                         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                         // @ts-ignore
@@ -565,8 +566,8 @@ export default Vue.extend<
         },
         importSettings() {
             const { files } = this.$refs.import as HTMLInputElement;
-            if (!files) return;
-            const file = files[0];
+            if (!files || !files.length) return;
+            const [file] = files;
             const fileReader = new FileReader();
 
             fileReader.readAsText(file);

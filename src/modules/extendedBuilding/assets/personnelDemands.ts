@@ -1,6 +1,6 @@
-import { InternalVehicle, Vehicle } from 'typings/Vehicle';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { $m } from 'typings/Module';
+import { InternalVehicle, Vehicle } from 'typings/Vehicle';
 
 export default (
     LSSM: Vue,

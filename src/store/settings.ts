@@ -1,6 +1,6 @@
-import { ActionTree, Module, MutationTree } from 'vuex';
-import { SettingsState } from '../../typings/store/settings/State';
 import { RootState } from '../../typings/store/RootState';
+import { SettingsState } from '../../typings/store/settings/State';
+import { ActionTree, Module, MutationTree } from 'vuex';
 import {
     AppendableList,
     ModuleSettings,
@@ -9,8 +9,8 @@ import {
 } from '../../typings/Setting';
 import {
     SettingsActionStoreParams,
-    SettingsRegister,
     SettingsGet,
+    SettingsRegister,
     SettingsSave,
     SettingsSet,
 } from '../../typings/store/settings/Actions';

@@ -1,6 +1,6 @@
-import { InternalVehicle, Vehicle } from 'typings/Vehicle';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { $m } from 'typings/Module';
+import { InternalVehicle, Vehicle } from 'typings/Vehicle';
 
 export default async (
     LSSM: Vue,
@@ -38,7 +38,7 @@ export default async (
     const schooling = vehicleTypes[vehicle.vehicle_type].schooling
         ?.replace(/^.*? - /, '')
         .trim();
-    const shownSchooling = vehicleTypes[vehicle.vehicle_type].shownSchooling;
+    const { shownSchooling } = vehicleTypes[vehicle.vehicle_type];
     personnel.forEach(row => {
         (!schooling ||
         !shownSchooling ||

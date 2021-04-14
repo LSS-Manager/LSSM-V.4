@@ -147,10 +147,12 @@
 
 <script lang="ts">
 import Vue from 'vue';
+
 import moment from 'moment';
-import VueI18n from 'vue-i18n';
+
 import { CreditsDailyWindow } from '../../parsers/credits/daily';
 import { RedesignLightboxVue } from 'typings/modules/Redesign';
+import VueI18n from 'vue-i18n';
 
 export default Vue.extend<
     {
@@ -245,7 +247,7 @@ export default Vue.extend<
     computed: {
         page() {
             return parseInt(
-                new URL(this.url, window.location.href).searchParams.get(
+                new URL(this.url, window.location.origin).searchParams.get(
                     'page'
                 ) ?? '0'
             );
@@ -271,10 +273,10 @@ export default Vue.extend<
             return [...this.entriesFiltered].sort((a, b) => {
                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                 // @ts-ignore
-                let f = a[this.sort] ?? '';
+                const f = a[this.sort] ?? '';
                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                 // @ts-ignore
-                let s = b[this.sort] ?? '';
+                const s = b[this.sort] ?? '';
                 return f < s ? -1 * modifier : f > s ? modifier : 0;
             });
         },
@@ -371,21 +373,10 @@ export default Vue.extend<
         };
     },
     mounted() {
-        this.$el.addEventListener('click', e => {
-            e.preventDefault();
-            const target = (e.target as HTMLElement)?.closest<
-                HTMLAnchorElement | HTMLButtonElement
-            >('a, button');
-            if (!target || !target.hasAttribute('href')) return;
-            this.$set(this.lightbox, 'src', target.getAttribute('href'));
-        });
         this.getSetting('sort', this.sort).then(sort => (this.sort = sort));
         this.getSetting('sortDir', this.sortDir).then(
             dir => (this.sortDir = dir)
         );
-        document.title = `${this.$t(
-            'modules.redesign.credits.nav.title'
-        )}: ${this.$sm('title')}`;
         this.lightbox.finishLoading('credits/daily-mounted');
     },
 });

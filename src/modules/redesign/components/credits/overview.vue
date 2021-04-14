@@ -39,12 +39,17 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import moment from 'moment';
-import VueI18n, { TranslateResult } from 'vue-i18n';
-import Highcharts, { Options } from 'highcharts';
+
+import Highcharts from 'highcharts';
 import HighchartsMore from 'highcharts/highcharts-more';
+import moment from 'moment';
+
 import { CreditsOverviewWindow } from '../../parsers/credits/overview';
+// to seperate typings
+// eslint-disable-next-line no-duplicate-imports
+import { Options } from 'highcharts';
 import { RedesignLightboxVue } from 'typings/modules/Redesign';
+import VueI18n, { TranslateResult } from 'vue-i18n';
 
 HighchartsMore(Highcharts);
 
@@ -188,14 +193,6 @@ export default Vue.extend<
         };
     },
     mounted() {
-        this.$el.addEventListener('click', e => {
-            e.preventDefault();
-            const target = (e.target as HTMLElement)?.closest<
-                HTMLAnchorElement | HTMLButtonElement
-            >('a, button');
-            if (!target || !target.hasAttribute('href')) return;
-            this.$set(this.lightbox, 'src', target.getAttribute('href'));
-        });
         if (this.$store.state.darkmode)
             Highcharts.setOptions(this.$utils.highChartsDarkMode);
         Highcharts.setOptions({
@@ -221,9 +218,6 @@ export default Vue.extend<
                 color: ['#28a828', '#a32323', '#74868f'][index],
             })),
         } as Options);
-        document.title = `${this.$t(
-            'modules.redesign.credits.nav.title'
-        )}: ${this.$sm('title')}`;
         this.lightbox.finishLoading('credits/overview-mounted');
     },
 });

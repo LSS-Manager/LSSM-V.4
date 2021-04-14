@@ -1,0 +1,36 @@
+{
+	"nav": {
+		"links": {
+			"/alliance_logfiles": "Protokoll",
+			"/alliance_threads": "Forum",
+			"/alliances/{id}": "Start",
+			"/schoolings": "Lehrgänge",
+			"/verband/bereitstellungsraeume": "Bereitstellungsräume",
+			"/verband/gebaeude": "Gebäude",
+			"/verband/kasse": "Verbandskasse",
+			"/verband/mitglieder/{id}": "Mitglieder",
+			"/verband/news/{id}": "News",
+			"/verband/regeln/{id}": "Regeln",
+			"/verband/werbung": "Bewerben"
+		},
+		"other": [
+			"/alliances/{id}",
+			"/verband/news/{id}",
+			"/verband/mitglieder/{id}",
+			"/verband/regeln/{id}"
+		],
+		"self": [
+			"/alliances/{id}",
+			"/verband/news/{id}",
+			"/verband/mitglieder/{id}",
+			"/verband/regeln/{id}",
+			"/alliance_logfiles",
+			"/alliance_threads",
+			"/verband/werbung",
+			"/schoolings",
+			"/verband/bereitstellungsraeume",
+			"/verband/kasse",
+			"/verband/gebaeude"
+		]
+	}
+}

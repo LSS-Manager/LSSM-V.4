@@ -30,12 +30,14 @@ export interface ProfileWindow {
     ban: number[];
     can_alliance_ignore: boolean;
     alliance_ignored: boolean;
-    authenticity_token: string;
 }
 
-export default <RedesignParser<ProfileWindow>>((source, href) => {
-    const doc = new DOMParser().parseFromString(source, 'text/html');
-    const id = parseInt(href.match(/\d+(?=\/?$)/)?.[0] ?? '-1');
+export default <RedesignParser<ProfileWindow>>(({ doc, href = '' }) => {
+    const id = parseInt(
+        new URL(href, window.location.origin).pathname.match(
+            /\d+(?=\/?$)/
+        )?.[0] ?? '-1'
+    );
     const self = id === window.user_id;
     const pageHeader = doc.querySelector<HTMLDivElement>('.page-header');
     const headTexts: string[] = (window[PREFIX] as Vue).$utils
@@ -59,7 +61,7 @@ export default <RedesignParser<ProfileWindow>>((source, href) => {
         ),
         self,
         credits: parseInt(
-            headTexts[self ? 2 : 1]
+            headTexts[1]
                 .match(/-?\d{1,3}([.,]\d{3})*/)?.[0]
                 ?.replace(/[.,]/g, '') ?? '-1'
         ),
@@ -69,7 +71,13 @@ export default <RedesignParser<ProfileWindow>>((source, href) => {
                   name: alliance.textContent?.trim() ?? '',
               }
             : undefined,
-        registration: self ? new Date(0) : undefined,
+        registration: self
+            ? new Date(
+                  doc
+                      .getElementById('signup_date')
+                      ?.getAttribute('data-signup-date') ?? 0
+              )
+            : undefined,
         text: profileText?.textContent?.trim() ?? '',
         image: profileText?.querySelector<HTMLImageElement>('img')?.src ?? '',
         awards: Array.from(
@@ -112,8 +120,5 @@ export default <RedesignParser<ProfileWindow>>((source, href) => {
         ),
         can_alliance_ignore: !!allianceIgnore,
         alliance_ignored: allianceIgnore?.href.endsWith('destroy'),
-        authenticity_token:
-            doc.querySelector<HTMLMetaElement>('meta[name="csrf-token"]')
-                ?.content ?? '',
     };
 });

@@ -28,6 +28,7 @@
         "curly": ["error", "multi-or-nest", "consistent"],
         "default-case-last": "error",
         "guard-for-in": "error",
+        "no-duplicate-imports": ["error", { "includeExports": true }],
         "no-eval": "error",
         "no-floating-decimal": "warn",
         "no-loop-func": "error",
@@ -48,16 +49,30 @@
         "no-unsafe-optional-chaining": "error",
         "no-unused-expressions": "error",
         "no-useless-concat": "warn",
+        "no-useless-rename": "error",
         "no-useless-return": "warn",
+        "no-var": "error",
+        "object-shorthand": ["error", "always", { "avoidQuotes": true }],
+        "prefer-arrow-callback": "error",
+        "prefer-const": "error",
         "prefer-regex-literals": ["error", {
             "disallowRedundantWrapping": true
         }],
+        "prefer-rest-params": "error",
+        "prefer-spread": "error",
+        "prefer-template": "error",
         "prettier/prettier": "error",
         "semi": ["error", "always"],
+        "sort-imports": ["error", {
+            "allowSeparatedGroups": true,
+            "ignoreCase": true,
+            "memberSyntaxSortOrder": ["none", "all", "single", "multiple"]
+        }],
+        "template-curly-spacing": "error",
+        "vue/no-unused-refs": "warn",
         "yoda": ["error", "never", {
             "exceptRange": true
         }]
         // TODO: Style
-        // TODO: ES6
     }
 }

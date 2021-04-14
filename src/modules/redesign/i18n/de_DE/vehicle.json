@@ -63,6 +63,10 @@
 		"department": "Fachabteilung: {department}",
 		"hospital": "Krankenhaus"
 	},
+	"load_all_hospitals": {
+		"btn": "Alle laden",
+		"text": "Es werden nur 50 Verbands-Krankenhäuser angezeigt. Das Laden aller Krankenhäuser kann je nach Menge viel Zeit in Anspruch nehmen!"
+	},
 	"max_staff": "Max. Personal",
 	"mileage": "Laufleistung",
 	"missions": {

@@ -1,6 +1,6 @@
-import VueI18n from 'vue-i18n';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { Mission } from 'typings/Mission';
+import VueI18n from 'vue-i18n';
 
 export interface VehicleRequirements {
     [vehicle: string]: {

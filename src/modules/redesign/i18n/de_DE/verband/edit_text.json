@@ -1,0 +1,11 @@
+{
+	"faq": "FAQ",
+	"header": "wichtige Notiz",
+	"header_help": "Dieser Text wird in einem blauen Kasten über dem Verbandschat angezeigt.",
+	"rules": "Verbandsregeln",
+	"save": "Speichern",
+	"text": "Verbandstext (Startseite)",
+	"title": "Verband bearbeiten",
+	"webhook": "Discord-Webhook Link",
+	"webhook_help": "Weitere Informationen zu den Discord-Webhooks findest du in unseren"
+}

@@ -18,11 +18,12 @@
 
 <script lang="ts">
 import Vue from 'vue';
+
 import {
     Hotkey,
     HotkeyComputed,
-    HotkeyProps,
     HotkeyMethods,
+    HotkeyProps,
 } from 'typings/components/setting/Hotkey';
 
 import Combokeys from 'combokeys';
@@ -61,7 +62,7 @@ export default Vue.extend<Hotkey, HotkeyMethods, HotkeyComputed, HotkeyProps>({
     computed: {
         updateValue: {
             get(): string {
-                let hotkey = this.value;
+                const hotkey = this.value;
                 Object.entries(hotkeyMap).forEach(([key, name]) =>
                     this.value.replaceAll(key, name)
                 );

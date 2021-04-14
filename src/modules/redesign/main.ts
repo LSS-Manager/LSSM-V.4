@@ -2,13 +2,24 @@ import { ModuleMainFunction } from 'typings/Module';
 import { routeChecks } from 'typings/modules/Redesign';
 
 const routeChecks: routeChecks = {
+    '^/verband/avatar/?$': 'alliance_avatar',
+    '^/alliances/?$': 'alliances',
+    '^/avatar/?$': 'avatar',
     '^/coins/list/?$': 'coins/list',
     '^/credits/daily/?$': 'credits/daily',
     '^/credits/?$': 'credits/list',
     '^/credits/overview/?$': 'credits/overview',
+    '^/freunde/?$': 'freunde',
     '^/profile/\\d+/?$': 'profile',
+    '^/profile/edit/?$': 'profile/edit',
     '^/toplist/?$': 'toplist',
     '^/vehicles/\\d+/?$': 'vehicle',
+    '^/alliances/\\d+/edit/?$': 'verband/edit_name',
+    '^/veband/text/edit/?$': 'verband/edit_text',
+    '^/(verband|alliances/\\d+)/?$': 'verband/home',
+    '^/verband/mitglieder(/\\d+)?/?$': 'verband/mitglieder',
+    '^/alliance_newses/(new|\\d+/edit)/?$': 'verband/news/edit',
+    '^/verband/regeln/\\d+/?$': 'verband/regeln',
     // '^/vehicles/\\d+/(patient|gefangener)/\\d+/?': 'vehicle/nextfms',
 };
 
@@ -24,6 +35,13 @@ export default ((LSSM, MODULE_ID) => {
                         feature: 'redesign-lightboxOpen',
                     })
                     .then();
+                const creation = new Date().toISOString();
+                const size =
+                    96 -
+                    2 *
+                        document.querySelectorAll<HTMLDivElement>(
+                            '#modals-container > .vm--container'
+                        ).length;
                 LSSM.$modal.show(
                     () =>
                         import(
@@ -50,15 +68,16 @@ export default ((LSSM, MODULE_ID) => {
                                 args
                             ),
                         routeChecks,
+                        creation,
                     },
                     {
-                        name: 'redesign-lightbox',
-                        height: '96%',
-                        width: '96%',
+                        name: `redesign-lightbox-${creation}`,
+                        height: `${size}%`,
+                        width: `${size}%`,
                     },
                     {
                         closed() {
-                            window.lightboxClose();
+                            window.lightboxClose(creation);
                         },
                     }
                 );
@@ -93,7 +112,7 @@ export default ((LSSM, MODULE_ID) => {
             container.style.height = '100%';
         });
         const modal = document.querySelector<HTMLDivElement>(
-            '.vm--overlay[data-modal="redesign-lightbox"] ~ .vm--modal'
+            '.vm--overlay[data-modal^="redesign-lightbox-"] ~ .vm--modal'
         );
         if (modal) {
             modal.style.padding = '0';
@@ -116,8 +135,15 @@ export default ((LSSM, MODULE_ID) => {
     LSSM.$store
         .dispatch('hook', {
             event: 'lightboxClose',
-            callback() {
-                LSSM.$modal.hide('redesign-lightbox');
+            callback(creation?: string) {
+                if (creation) {
+                    LSSM.$modal.hide(`redesign-lightbox-${creation}`);
+                } else {
+                    // $modal.hideAll actually exists but typedefs don't know…
+                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                    // @ts-ignore
+                    LSSM.$modal.hideAll();
+                }
             },
         })
         .then();
@@ -171,6 +197,7 @@ export default ((LSSM, MODULE_ID) => {
                                     ),
                                 routeChecks,
                                 noModal: true,
+                                creation: new Date().toISOString(),
                             },
                         }),
                 }).$mount(

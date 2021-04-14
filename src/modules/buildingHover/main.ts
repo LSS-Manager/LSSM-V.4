@@ -1,8 +1,8 @@
-import { BuildingMarker, RadioMessage } from '../../../typings/Ingame';
-import { InternalVehicle, Vehicle } from '../../../typings/Vehicle';
-import { PointTuple } from 'leaflet';
 import { Building } from '../../../typings/Building';
 import { ModuleMainFunction } from 'typings/Module';
+import { PointTuple } from 'leaflet';
+import { BuildingMarker, RadioMessage } from '../../../typings/Ingame';
+import { InternalVehicle, Vehicle } from '../../../typings/Vehicle';
 
 export default (async (LSSM, MODULE_ID) => {
     await LSSM.$store.dispatch('api/registerBuildingsUsage', {
@@ -37,7 +37,7 @@ export default (async (LSSM, MODULE_ID) => {
 
     const updateBuildings = () => {
         vehiclesByBuilding = LSSM.$store.getters['api/vehiclesByBuilding'];
-        buildings = LSSM.$store.state.api.buildings;
+        ({ buildings } = LSSM.$store.state.api);
     };
 
     updateBuildings();

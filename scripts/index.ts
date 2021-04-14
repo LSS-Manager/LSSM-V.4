@@ -1,4 +1,5 @@
 import { execSync } from 'child_process';
+
 import sort from './sort';
 
 const scripts = process.argv.splice(2);

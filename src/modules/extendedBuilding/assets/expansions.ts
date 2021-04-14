@@ -1,6 +1,6 @@
-import moment from 'moment';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { $m } from 'typings/Module';
+import moment from 'moment';
 
 export default (LSSM: Vue, MODULE_ID: string, $m: $m): void => {
     const expansionRows = document.querySelectorAll(
@@ -112,7 +112,7 @@ export default (LSSM: Vue, MODULE_ID: string, $m: $m): void => {
                         .add(remaining, 'seconds')
                         .calendar()})`)
             );
-            setTimeout(function() {
+            setTimeout(() => {
                 window.extensionCountdown(remaining - 1, id);
             }, 1000);
         }

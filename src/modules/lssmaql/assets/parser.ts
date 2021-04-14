@@ -1,9 +1,9 @@
 import {
-    ObjectTree,
-    Token,
-    QueryTree,
-    FunctionTree,
     Condition,
+    FunctionTree,
+    ObjectTree,
+    QueryTree,
+    Token,
 } from 'typings/modules/LSSMAQL';
 
 const baseObjects = ['allianceinfo', 'buildings', 'vehicles', 'missions'];

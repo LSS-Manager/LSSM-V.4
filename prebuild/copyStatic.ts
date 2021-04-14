@@ -1,8 +1,9 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import copydir from 'copy-dir';
-import config from '../src/config';
 import fs from 'fs';
+
+import config from '../src/config';
 
 export default (): void => {
     const staticConfigs = JSON.parse(

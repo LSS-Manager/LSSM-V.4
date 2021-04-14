@@ -1,5 +1,5 @@
-import copyStatic from './copyStatic';
 import buildUserscript from './buildUserscript';
+import copyStatic from './copyStatic';
 import { emptyFolder } from './emptyDir';
 import getLibraries from './getLibraries';
 import setVersion from './setVersion';

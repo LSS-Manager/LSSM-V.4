@@ -1,6 +1,6 @@
-import { Building } from 'typings/Building';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { $m } from 'typings/Module';
+import { Building } from 'typings/Building';
 
 export default async (
     LSSM: Vue,

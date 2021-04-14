@@ -11,8 +11,7 @@ export interface CreditsListWindow {
     lastPage: number;
 }
 
-export default <RedesignParser<CreditsListWindow>>(source => {
-    const doc = new DOMParser().parseFromString(source, 'text/html');
+export default <RedesignParser<CreditsListWindow>>(({ doc }) => {
     const getNum = (el: Element | null) =>
         parseInt(
             el?.textContent

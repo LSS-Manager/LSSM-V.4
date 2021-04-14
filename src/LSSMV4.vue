@@ -48,8 +48,9 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import { LSSMV4Data, LSSMV4Computed } from '../typings/LSSMV4';
+
 import { DefaultMethods, DefaultProps } from 'vue/types/options';
+import { LSSMV4Computed, LSSMV4Data } from '../typings/LSSMV4';
 
 export default Vue.extend<
     LSSMV4Data,

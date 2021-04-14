@@ -1,6 +1,6 @@
+import { LayersControlEvent } from 'leaflet';
 import { POI } from 'typings/modules/EnhancedPOI';
 import { POIMarker } from 'typings/Ingame';
-import { LayersControlEvent } from 'leaflet';
 import { $m, ModuleMainFunction } from 'typings/Module';
 
 export default (async (LSSM, MODULE_ID, $m: $m) => {

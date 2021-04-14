@@ -1,12 +1,13 @@
+import coerce from 'semver/functions/coerce';
+import semverLt from 'semver/functions/lt';
+import semverLte from 'semver/functions/lte';
+import semverRcompare from 'semver/functions/rcompare';
+import Showdown from 'showdown';
+
 import {
     Releasenote,
     Releasenotes,
 } from '../../../typings/modules/Releasenotes';
-import Showdown from 'showdown';
-import semverRcompare from 'semver/functions/rcompare';
-import semverLte from 'semver/functions/lte';
-import coerce from 'semver/functions/coerce';
-import semverLt from 'semver/functions/lt';
 
 const LAST_VERSION_STORAGE_KEY = 'releasenotes_lastVersion';
 
@@ -68,7 +69,7 @@ export default async (LSSM: Vue): Promise<void> => {
             { notes, last_seen: last_seen ?? notes[0][0] },
             { name: 'releasenotes', height: 'auto' },
             {
-                async 'before-close'() {
+                'before-close': async function() {
                     await LSSM.$store.dispatch('storage/set', {
                         key: LAST_VERSION_STORAGE_KEY,
                         value: notes[0][0],

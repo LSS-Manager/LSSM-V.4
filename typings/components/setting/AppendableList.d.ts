@@ -1,11 +1,11 @@
 import cloneDeep from 'lodash/cloneDeep';
-import {
-    Setting,
-    AppendableList as AppendableListSetting,
-    Select,
-    MultiSelect,
-} from 'typings/Setting';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import {
+    AppendableList as AppendableListSetting,
+    MultiSelect,
+    Select,
+    Setting,
+} from 'typings/Setting';
 
 export interface AppendableList {
     faUndoAlt: IconDefinition;

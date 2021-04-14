@@ -1,6 +1,6 @@
-import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-import { Token, QueryTree } from 'typings/modules/LSSMAQL/index';
 import { APIState } from 'typings/store/api/State';
+import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import { QueryTree, Token } from 'typings/modules/LSSMAQL/index';
 
 export interface LSSMAQL {
     faTerminal: IconDefinition;

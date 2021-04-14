@@ -1,6 +1,6 @@
+import VueI18n from 'vue-i18n';
 import { Building, BuildingCategory } from 'typings/Building';
 import { Vehicle, VehicleCategory } from 'typings/Vehicle';
-import VueI18n from 'vue-i18n';
 
 export interface ChartSummary {
     buildingsId: string;

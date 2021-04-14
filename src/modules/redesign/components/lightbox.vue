@@ -1,6 +1,6 @@
 <template>
     <lightbox
-        name="redesign-lightbox"
+        :name="`redesign-lightbox-${creation}`"
         :full-height="!type"
         :no-title-hide="true"
         :no-modal="noModal"
@@ -10,49 +10,97 @@
             class="redesign-wrapper"
             :type="type"
         >
-            <Vehicle
-                v-if="type === 'vehicle'"
-                :vehicle="data"
+            <AAOs
+                v-if="type === 'aaos'"
+                :aaos="data"
                 :url="urlProp"
                 :lightbox="this"
-                :$m="$m"
-                :$mc="$mc"
                 :get-setting="getSetting()"
                 :set-setting="setSetting()"
-            ></Vehicle>
+            ></AAOs>
+            <AllianceAvatar
+                v-else-if="type === 'alliance_avatar'"
+                :alliance="data"
+                :url="urlProp"
+                :lightbox="this"
+                :get-setting="getSetting()"
+                :set-setting="setSetting()"
+            ></AllianceAvatar>
+            <Alliances
+                v-else-if="type === 'alliances'"
+                :alliances="data"
+                :url="urlProp"
+                :lightbox="this"
+                :get-setting="getSetting()"
+                :set-setting="setSetting()"
+            ></Alliances>
+            <Avatar
+                v-else-if="type === 'avatar'"
+                :profile="data"
+                :url="urlProp"
+                :lightbox="this"
+                :get-setting="getSetting()"
+                :set-setting="setSetting()"
+            ></Avatar>
             <Credits
                 v-else-if="type.startsWith('credits/') || type === 'coins/list'"
                 :data="data"
                 :url="urlProp"
                 :lightbox="this"
-                :$m="$m"
-                :$mc="$mc"
                 :get-setting="getSetting()"
                 :set-setting="setSetting()"
                 :type="type"
             ></Credits>
-            <Toplist
-                v-else-if="type === 'toplist'"
-                :toplist="data"
+            <Freunde
+                v-else-if="type === 'freunde'"
+                :friends="data"
                 :url="urlProp"
                 :lightbox="this"
-                :$m="$m"
-                :$mc="$mc"
                 :get-setting="getSetting()"
                 :set-setting="setSetting()"
                 :type="type"
-            ></Toplist>
+            ></Freunde>
             <Profile
                 v-else-if="type === 'profile'"
                 :profile="data"
                 :url="urlProp"
                 :lightbox="this"
-                :$m="$m"
-                :$mc="$mc"
+                :get-setting="getSetting()"
+                :set-setting="setSetting()"
+            ></Profile>
+            <ProfileEdit
+                v-else-if="type === 'profile/edit'"
+                :profile="data"
+                :url="urlProp"
+                :lightbox="this"
+                :get-setting="getSetting()"
+                :set-setting="setSetting()"
+            ></ProfileEdit>
+            <Toplist
+                v-else-if="type === 'toplist'"
+                :toplist="data"
+                :url="urlProp"
+                :lightbox="this"
+                :get-setting="getSetting()"
+                :set-setting="setSetting()"
+            ></Toplist>
+            <Vehicle
+                v-else-if="type === 'vehicle'"
+                :vehicle="data"
+                :url="urlProp"
+                :lightbox="this"
+                :get-setting="getSetting()"
+                :set-setting="setSetting()"
+            ></Vehicle>
+            <Verband
+                v-else-if="type.startsWith('verband/')"
+                :data="data"
+                :url="urlProp"
+                :lightbox="this"
                 :get-setting="getSetting()"
                 :set-setting="setSetting()"
                 :type="type"
-            ></Profile>
+            ></Verband>
             <div
                 v-else-if="type === 'vehicle/nextfms'"
                 class="alert alert-success"
@@ -63,7 +111,7 @@
         <iframe
             v-show="!type || type === 'default'"
             ref="iframe"
-            :src="url"
+            src="about:blank"
             :id="$store.getters.nodeAttribute('redesign-lightbox-iframe')"
             :name="$store.getters.nodeAttribute('redesign-lightbox-iframe')"
         ></iframe>
@@ -85,8 +133,10 @@
 
 <script lang="ts">
 import Vue from 'vue';
+
 import { faSyncAlt } from '@fortawesome/free-solid-svg-icons/faSyncAlt';
-import { RedesignLightbox } from 'typings/modules/Redesign';
+
+import { RedesignLightbox, RedesignParser } from 'typings/modules/Redesign';
 
 export default Vue.extend<
     RedesignLightbox['Data'],
@@ -100,28 +150,56 @@ export default Vue.extend<
             import(
                 /* webpackChunkName: "components/lightbox" */ '../../../components/lightbox.vue'
             ),
-        Vehicle: () =>
+        AAOs: () =>
             import(
-                /*webpackChunkName: "modules/redesign/windows/vehicle"*/ './vehicle.vue'
+                /*webpackChunkName: "modules/redesign/windows/aaos"*/ './aaos.vue'
+            ),
+        AllianceAvatar: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/alliance_avatar"*/ './alliance_avatar.vue'
+            ),
+        Alliances: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/alliances"*/ './alliances.vue'
+            ),
+        Avatar: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/avatar"*/ './avatar.vue'
             ),
         Credits: () =>
             import(
                 /*webpackChunkName: "modules/redesign/windows/credits"*/ './credits.vue'
             ),
-        Toplist: () =>
+        Freunde: () =>
             import(
-                /*webpackChunkName: "modules/redesign/windows/toplist"*/ './toplist.vue'
+                /*webpackChunkName: "modules/redesign/windows/freunde"*/ './freunde.vue'
             ),
         Profile: () =>
             import(
                 /*webpackChunkName: "modules/redesign/windows/profile"*/ './profile.vue'
+            ),
+        ProfileEdit: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/profile/edit"*/ './profile/edit.vue'
+            ),
+        Toplist: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/toplist"*/ './toplist.vue'
+            ),
+        Vehicle: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/vehicle"*/ './vehicle.vue'
+            ),
+        Verband: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/verband"*/ './verband.vue'
             ),
     },
     data() {
         return {
             faSyncAlt,
             type: 'default',
-            data: null,
+            data: { authenticity_token: '' },
             html: '',
             urlProp: '',
             loading: true,
@@ -150,6 +228,10 @@ export default Vue.extend<
             required: false,
             default: () => false,
         },
+        creation: {
+            type: String,
+            required: true,
+        },
     },
     computed: {
         src: {
@@ -159,11 +241,12 @@ export default Vue.extend<
             set(url) {
                 this.loading = true;
                 this.errors = [];
-                const link = new URL(url, window.location.href);
+                const link = new URL(url, window.location.origin);
                 const type = Object.entries(this.routeChecks).find(([regex]) =>
                     link.pathname.match(regex)
                 )?.[1];
-                if (this.noModal) window.history.pushState({}, url, url);
+                if (this.noModal && !link.searchParams.has('ignore-history'))
+                    window.history.pushState({}, url, url);
                 if (!type) {
                     const iframe = this.$refs
                         .iframe as HTMLIFrameElement | null;
@@ -171,7 +254,7 @@ export default Vue.extend<
                         iframe &&
                         new URL(
                             iframe.contentWindow?.location.href ?? '',
-                            window.location.href
+                            window.location.origin
                         ).toString() !== link.toString()
                     ) {
                         iframe.src = url;
@@ -237,30 +320,65 @@ export default Vue.extend<
                         if (type === 'coins/list') await addLocas('credits');
                         import(
                             /*webpackChunkName: "modules/redesign/parsers/[request]"*/ `../parsers/${type}`
-                        ).then(parser => {
-                            try {
-                                this.data = parser.default(
-                                    html,
-                                    url,
-                                    this.getIdFromEl
-                                );
-                                if (type === 'vehicle/nextfms' && this.data)
-                                    this.src = `/vehicles/${this.data}`;
-                                this.type = type;
-                                this.urlProp = url;
-                                document.documentElement.style.removeProperty(
-                                    'height'
-                                );
-                                document.body.style.removeProperty('height');
-                            } catch (e) {
-                                this.errors.push(e);
+                        ).then(
+                            ({
+                                default: parser,
+                            }: {
+                                default: RedesignParser;
+                            }) => {
+                                try {
+                                    const doc = new DOMParser().parseFromString(
+                                        html,
+                                        'text/html'
+                                    );
+                                    this.data = {
+                                        ...parser({
+                                            href: url,
+                                            getIdFromEl: this.getIdFromEl,
+                                            doc,
+                                        }),
+                                        authenticity_token:
+                                            doc.querySelector<HTMLMetaElement>(
+                                                'meta[name="csrf-token"]'
+                                            )?.content ?? '',
+                                    };
+                                    if (type === 'vehicle/nextfms' && this.data)
+                                        this.src = `/vehicles/${this.data}`;
+                                    this.type = type;
+                                    this.urlProp = url;
+                                    document.documentElement.style.removeProperty(
+                                        'height'
+                                    );
+                                    document.body.style.removeProperty(
+                                        'height'
+                                    );
+                                } catch (e) {
+                                    this.errors.push(e);
+                                }
                             }
-                        });
+                        );
                     });
             },
         },
     },
     methods: {
+        $sm(
+            key: string,
+            args?: {
+                [key: string]: unknown;
+            }
+        ) {
+            return this.$m(`${this.type}.${key}`, args);
+        },
+        $smc(
+            key: string,
+            amount: number,
+            args?: {
+                [key: string]: unknown;
+            }
+        ) {
+            return this.$mc(`${this.type}.${key}`, amount, args);
+        },
         getSetting() {
             return <T>(setting: string, defaultValue: T): Promise<T> =>
                 new Promise(resolve =>
@@ -293,7 +411,7 @@ export default Vue.extend<
         },
         getIdFromEl(el) {
             return parseInt(
-                new URL(el?.href ?? '', window.location.href).pathname?.match(
+                new URL(el?.href ?? '', window.location.origin).pathname?.match(
                     /\d+\/?$/
                 )?.[0] ?? '-1'
             );
@@ -315,8 +433,22 @@ export default Vue.extend<
         },
     },
     mounted() {
-        this.src = this.url;
         window['lssmv4-redesign-lightbox'] = this;
+        const trySetIframe = () =>
+            this.$refs.iframe
+                ? this.$nextTick(() => {
+                      this.$set(this, 'src', this.url);
+                      window.addEventListener('popstate', () => {
+                          const url = new URL(
+                              window.location.href,
+                              window.location.origin
+                          );
+                          url.searchParams.append('ignore-history', 'true');
+                          this.$set(this, 'src', url.toString());
+                      });
+                  })
+                : setTimeout(trySetIframe, 100);
+        trySetIframe();
     },
 });
 </script>

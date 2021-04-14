@@ -1,7 +1,7 @@
+import { Schooling } from 'typings/Schooling';
 import VueI18n from 'vue-i18n';
 import { InternalBuilding, ResolvedBuildingCategory } from '../Building';
 import { InternalVehicle, ResolvedVehicleCategory } from 'typings/Vehicle';
-import { Schooling } from 'typings/Schooling';
 
 interface ResolvedSchooling extends Pick<Schooling, 'caption' | 'duration'> {
     required_for: string[];

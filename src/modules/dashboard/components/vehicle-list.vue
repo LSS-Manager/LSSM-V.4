@@ -77,15 +77,17 @@
 
 <script lang="ts">
 import Vue from 'vue';
+
 import { faPencilAlt } from '@fortawesome/free-solid-svg-icons/faPencilAlt';
 import { faUsers } from '@fortawesome/free-solid-svg-icons/faUsers';
+
+import { InternalVehicle } from 'typings/Vehicle';
 import {
     VehicleList,
     VehicleListComputed,
     VehicleListMethods,
     VehicleListProps,
 } from '../../../../typings/modules/Dashboard/VehicleList';
-import { InternalVehicle } from 'typings/Vehicle';
 
 export default Vue.extend<
     VehicleList,
@@ -145,9 +147,9 @@ export default Vue.extend<
                 ? this.vehiclesFiltered
                 : this.vehiclesWithBuildings;
             return vehicles.sort((a, b) => {
-                let modifier = this.sortDir === 'desc' ? -1 : 1;
-                let f = a[this.sort] || '';
-                let s = b[this.sort] || '';
+                const modifier = this.sortDir === 'desc' ? -1 : 1;
+                const f = a[this.sort] || '';
+                const s = b[this.sort] || '';
                 return f < s ? -1 * modifier : f > s ? modifier : 0;
             });
         },

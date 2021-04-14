@@ -1,5 +1,5 @@
 import { ModuleSettingFunction } from 'typings/Module';
-import { ModuleSettings, Toggle, Hidden } from 'typings/Setting';
+import { Hidden, ModuleSettings, Toggle } from 'typings/Setting';
 
 export default ((MODULE_ID: string) => ({
     enhanceVehicleList: <Toggle>{

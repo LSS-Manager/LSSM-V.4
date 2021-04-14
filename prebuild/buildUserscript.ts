@@ -1,7 +1,8 @@
 import fs from 'fs';
 import Terser from 'terser';
-import packageJson from '../package.json';
+
 import config from '../src/config';
+import packageJson from '../package.json';
 
 const script = packageJson.userscript;
 

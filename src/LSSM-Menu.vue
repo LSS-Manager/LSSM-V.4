@@ -86,17 +86,19 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import lssmLogo from './img/lssm_logo';
-import LibraryOverview from './components/libraryOverview.vue';
+
 import Appstore from './components/appstore.vue';
-import Settings from './components/settings.vue';
+import LibraryOverview from './components/libraryOverview.vue';
+import lssmLogo from './img/lssm_logo';
 import { mapState } from 'vuex';
+import Settings from './components/settings.vue';
+
+import { DefaultProps } from 'vue/types/options';
 import {
     lssmMenuComputed,
     lssmMenuData,
     lssmMenuMethods,
 } from '../typings/LSSM-Menu';
-import { DefaultProps } from 'vue/types/options';
 
 export default Vue.extend<
     lssmMenuData,
@@ -143,7 +145,7 @@ export default Vue.extend<
                     width: '96%',
                 },
                 {
-                    'before-close'(event: { cancel: () => void }) {
+                    'before-close': function(event: { cancel: () => void }) {
                         if (!LSSM.$store.state.appstore.changes) {
                             if (LSSM.$store.state.appstore.reload) {
                                 event.cancel();
@@ -182,7 +184,7 @@ export default Vue.extend<
                     width: '96%',
                 },
                 {
-                    'before-close'(event: { cancel: () => void }) {
+                    'before-close': function(event: { cancel: () => void }) {
                         if (!LSSM.$store.state.settings.changes) {
                             if (LSSM.$store.state.settings.reload) {
                                 event.cancel();

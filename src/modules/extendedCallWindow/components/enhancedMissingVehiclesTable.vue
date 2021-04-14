@@ -61,11 +61,12 @@
 
 <script lang="ts">
 import Vue from 'vue';
+
 import { EnhancedMissingVehiclesTableProps } from 'typings/modules/ExtendedCallWindow/EnhancedMissingVehiclesTable';
 import {
+    DefaultComputed,
     DefaultData,
     DefaultMethods,
-    DefaultComputed,
 } from 'vue/types/options';
 
 export default Vue.extend<

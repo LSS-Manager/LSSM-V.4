@@ -1,4 +1,29 @@
-import Vuex, {
+import Vuex from 'vuex';
+
+import api from './store/api';
+import broadcast from './store/broadcast';
+import config from './config';
+import console from './store/console';
+import event from './store/event';
+import notifications from './store/notifications';
+import settings from './store/settings';
+import storage from './store/storage';
+
+import { LSSMEvent } from '../typings/helpers';
+import { Modules } from '../typings/Module';
+import { RootState } from '../typings/store/RootState';
+import { VueConstructor } from 'vue/types/vue';
+import {
+    ActionStoreParams,
+    addStyle,
+    Hook,
+    ObserveAsyncTab,
+    premodifyParams,
+    ProxyParams,
+} from '../typings/store/Actions';
+// to seperate typings
+// eslint-disable-next-line no-duplicate-imports
+import {
     ActionTree,
     GetterTree,
     ModuleTree,
@@ -6,26 +31,6 @@ import Vuex, {
     Store,
     StoreOptions,
 } from 'vuex';
-import { RootState } from '../typings/store/RootState';
-import { VueConstructor } from 'vue/types/vue';
-import config from './config';
-import {
-    ActionStoreParams,
-    addStyle,
-    Hook,
-    HookPrototype,
-    ObserveAsyncTab,
-    premodifyParams,
-} from '../typings/store/Actions';
-import { LSSMEvent, returnTypeFunction } from '../typings/helpers';
-import storage from './store/storage';
-import settings from './store/settings';
-import api from './store/api';
-import console from './store/console';
-import notifications from './store/notifications';
-import broadcast from './store/broadcast';
-import event from './store/event';
-import { Modules } from '../typings/Module';
 
 export default (Vue: VueConstructor): Store<RootState> => {
     Vue.use(Vuex);
@@ -49,7 +54,6 @@ export default (Vue: VueConstructor): Store<RootState> => {
             games: config.games,
             server: config.server,
             hooks: {},
-            prototypeHooks: {},
             mapkit: typeof window.mapkit !== 'undefined',
             darkmode: document.body.classList.contains('dark'),
             premium: window.user_premium,
@@ -79,23 +83,6 @@ export default (Vue: VueConstructor): Store<RootState> => {
                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                 // @ts-ignore
                 state.hooks[fullname] = base[event];
-            },
-            addPrototypeHookBase(state: RootState, base: string) {
-                state.prototypeHooks[base] = {};
-            },
-            addPrototypeHook(
-                state: RootState,
-                {
-                    base,
-                    event,
-                    trueEvent,
-                }: {
-                    base: string;
-                    event: string;
-                    trueEvent: returnTypeFunction;
-                }
-            ) {
-                state.prototypeHooks[base][event] = trueEvent;
             },
             setModuleActive(state: RootState, moduleId: keyof Modules) {
                 state.modules[moduleId].active = true;
@@ -231,17 +218,10 @@ export default (Vue: VueConstructor): Store<RootState> => {
                         callback(...((event as unknown) as LSSMEvent).detail)
                 );
             },
-            hookPrototype(
-                { state, commit }: ActionStoreParams,
-                {
-                    post = true,
-                    base,
-                    event,
-                    callback = () => null,
-                }: HookPrototype
-            ) {
-                const eventString = `${base}.${event}`;
-                const trueBase = base.split('.').reduce(
+            proxy(_, { post = true, name, callback, trap }: ProxyParams) {
+                const split = name.split('.');
+                const trueProp = split.pop();
+                const trueBase = split.reduce(
                     (previousValue, currentValue) =>
                         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                         // @ts-ignore
@@ -250,38 +230,16 @@ export default (Vue: VueConstructor): Store<RootState> => {
                 ) as unknown;
                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                 // @ts-ignore
-                const trueEvent = trueBase.__proto__[
-                    event
-                ] as returnTypeFunction;
-                if (!state.prototypeHooks.hasOwnProperty(base))
-                    commit('addPrototypeHookBase', base);
-                if (!state.prototypeHooks[base].hasOwnProperty(event)) {
-                    commit('addPrototypeHook', { base, event, trueEvent });
-                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                    // @ts-ignore
-                    trueBase.__proto__[event] = (...args: unknown[]) => {
-                        document.dispatchEvent(
-                            new CustomEvent(`${PREFIX}_${eventString}_before`, {
-                                detail: args,
-                            })
-                        );
-                        const result = state.prototypeHooks[base][event].call(
-                            trueBase,
-                            ...args
-                        );
-                        document.dispatchEvent(
-                            new CustomEvent(`${PREFIX}_${eventString}_after`, {
-                                detail: args,
-                            })
-                        );
+                trueBase[trueProp] = new Proxy(trueBase[trueProp], {
+                    [trap](...args: unknown[]) {
+                        if (!post) callback(...args);
+                        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                        // @ts-ignore
+                        const result = Reflect[trap](...args);
+                        if (post) callback(...args);
                         return result;
-                    };
-                }
-                document.addEventListener(
-                    `${PREFIX}_${eventString}_${post ? 'after' : 'before'}`,
-                    event =>
-                        callback(...((event as unknown) as LSSMEvent).detail)
-                );
+                    },
+                });
             },
             loadModule({ state }: ActionStoreParams, module: keyof Modules) {
                 const script = document.createElement('script');

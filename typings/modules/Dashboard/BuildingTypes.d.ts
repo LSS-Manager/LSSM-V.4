@@ -1,7 +1,6 @@
-import VueI18n from 'vue-i18n';
-import { InternalBuilding } from 'typings/Building';
-import { Building } from 'typings/Building';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import VueI18n from 'vue-i18n';
+import { Building, InternalBuilding } from 'typings/Building';
 
 interface buildingWithExtension extends Building {
     extension_available: number;

@@ -1,15 +1,17 @@
-import { VueConstructor } from 'vue/types/vue';
-import { Store } from 'vuex';
-import { BuildingMarker, BuildingMarkerAdd, POIMarker } from './Ingame';
-import Highcharts from 'highcharts';
-import VueI18n from 'vue-i18n';
-import L, { Map, Marker } from 'leaflet';
 import 'i18n-js';
+import Highcharts from 'highcharts';
 import { POI } from './modules/EnhancedPOI';
+import { sceditor } from './SCEditor';
+import { Store } from 'vuex';
+import { VueConstructor } from 'vue/types/vue';
+import VueI18n from 'vue-i18n';
+import { BuildingMarker, BuildingMarkerAdd, POIMarker } from './Ingame';
+import L, { Map, Marker } from 'leaflet';
 
 declare global {
     interface Window {
         $: JQueryStatic;
+        sceditor: sceditor;
         keepAlive: boolean;
         tellParent(code: string): void;
         fullScreen: boolean;
@@ -50,7 +52,7 @@ declare global {
         coinsUpdate(coins: number): void;
         unix_timestamp(): number;
         mapMoveToSearch(): void;
-        lightboxClose(): void;
+        lightboxClose(creation?: string): void; // creation Param only for LSSM Redesign
     }
 }
 

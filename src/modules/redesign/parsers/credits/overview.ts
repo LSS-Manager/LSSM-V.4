@@ -10,8 +10,7 @@ export interface CreditsOverviewWindow {
     entries: Entry[];
 }
 
-export default <RedesignParser<CreditsOverviewWindow>>(source => {
-    const doc = new DOMParser().parseFromString(source, 'text/html');
+export default <RedesignParser<CreditsOverviewWindow>>(({ doc }) => {
     const getNum = (el: Element | null) =>
         parseInt(
             el?.textContent

@@ -43,10 +43,12 @@
 
 <script lang="ts">
 import Vue from 'vue';
+
 import moment from 'moment';
-import VueI18n from 'vue-i18n';
+
 import { CoinsListWindow } from '../../parsers/coins/list';
 import { RedesignLightboxVue } from 'typings/modules/Redesign';
+import VueI18n from 'vue-i18n';
 
 export default Vue.extend<
     {
@@ -166,7 +168,12 @@ export default Vue.extend<
                 .then((res: Response) => res.text())
                 .then(async html => {
                     import('../../parsers/coins/list').then(parser => {
-                        const result = parser.default(html);
+                        const result = parser.default({
+                            doc: new DOMParser().parseFromString(
+                                html,
+                                'text/html'
+                            ),
+                        });
                         this.$set(
                             this.lightbox.data,
                             'lastPage',
@@ -192,7 +199,12 @@ export default Vue.extend<
                 .then((res: Response) => res.text())
                 .then(async html => {
                     import('../../parsers/coins/list').then(parser => {
-                        const result = parser.default(html);
+                        const result = parser.default({
+                            doc: new DOMParser().parseFromString(
+                                html,
+                                'text/html'
+                            ),
+                        });
                         this.$set(
                             this.lightbox.data,
                             'lastPage',
@@ -210,7 +222,7 @@ export default Vue.extend<
     computed: {
         page() {
             return parseInt(
-                new URL(this.url, window.location.href).searchParams.get(
+                new URL(this.url, window.location.origin).searchParams.get(
                     'page'
                 ) ?? '1'
             );
@@ -282,14 +294,14 @@ export default Vue.extend<
             const target = (e.target as HTMLElement)?.closest<
                 HTMLAnchorElement | HTMLButtonElement
             >('a, button');
-            if (!target || !target.hasAttribute('href')) return;
-            this.$set(this.lightbox, 'src', target.getAttribute('href'));
+            const href = target?.getAttribute('href');
+            if (!target || !href) return;
+            if (target.hasAttribute('lightbox-open'))
+                return window.lightboxOpen(href);
+            else this.$set(this.lightbox, 'src', href);
         });
         this.startPage = this.page;
         this.endPage = this.page;
-        document.title = `${this.$t(
-            'modules.redesign.credits.nav.title'
-        )}: ${this.$sm('title')}`;
         this.lightbox.finishLoading('coins/list-mounted');
     },
 });

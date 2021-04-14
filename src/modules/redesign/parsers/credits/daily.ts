@@ -11,8 +11,7 @@ export interface CreditsDailyWindow {
     entries: Entry[];
 }
 
-export default <RedesignParser<CreditsDailyWindow>>(source => {
-    const doc = new DOMParser().parseFromString(source, 'text/html');
+export default <RedesignParser<CreditsDailyWindow>>(({ doc }) => {
     const getNum = (el: Element | null) =>
         parseInt(
             el?.textContent

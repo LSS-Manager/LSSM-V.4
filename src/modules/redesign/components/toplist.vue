@@ -2,19 +2,19 @@
     <div>
         <label class="pull-right">
             <input
-                :placeholder="$sm('search_global')"
+                :placeholder="lightbox.$sm('search_global')"
                 ref="urlSearch"
                 :value="urlSearch"
                 @keyup.enter="setUrlSearch"
             />
             <button class="btn btn-success" @click="setUrlSearch">
-                {{ $sm('search_global') }}
+                {{ lightbox.$sm('search_global') }}
             </button>
         </label>
         <h1>
-            {{ $sm('title') }}
+            {{ lightbox.$sm('title') }}
             <small v-if="urlSearch">
-                {{ $sm('search_global') }}:
+                {{ lightbox.$sm('search_global') }}:
                 <span class="url-search">{{ urlSearch }}</span>
             </small>
             <br />
@@ -27,7 +27,7 @@
             :disabled="startPage <= 1"
             @click="loadPrev"
         >
-            {{ $sm('load.prev') }}
+            {{ lightbox.$sm('load.prev') }}
         </button>
         <button
             class="btn btn-success"
@@ -37,20 +37,20 @@
             "
             @click="loadNext"
         >
-            {{ $sm('load.next') }}
+            {{ lightbox.$sm('load.next') }}
         </button>
         <enhanced-table
             :head="head"
             :table-attrs="{ class: 'table' }"
             :search="search"
-            :search-placeholder="$sm('search_local')"
+            :search-placeholder="lightbox.$sm('search_local')"
             @search="s => (search = s)"
             :sort="sort"
             :sort-dir="sortDir"
             @sort="setSort"
         >
             <template v-slot:head>
-                <span>{{ $smc('amount', usersFiltered.length) }}</span>
+                <span>{{ lightbox.$smc('amount', usersFiltered.length) }}</span>
             </template>
             <tr v-for="(entry, id) in usersSorted" :key="id">
                 <td>
@@ -90,11 +90,14 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import VueI18n from 'vue-i18n';
-import { TopListWindow } from '../parsers/toplist';
-import { RedesignLightboxVue } from 'typings/modules/Redesign';
 
-export default Vue.extend<
+import { RedesignComponent } from 'typings/modules/Redesign';
+import { TopListWindow } from '../parsers/toplist';
+
+type Component = RedesignComponent<
+    'toplist',
+    'toplist',
+    TopListWindow,
     {
         search: string;
         sort: string;
@@ -109,19 +112,6 @@ export default Vue.extend<
         endPage: number;
     },
     {
-        $sm(
-            key: string,
-            args?: {
-                [key: string]: unknown;
-            }
-        ): VueI18n.TranslateResult;
-        $smc(
-            key: string,
-            amount: number,
-            args?: {
-                [key: string]: unknown;
-            }
-        ): VueI18n.TranslateResult;
         setSort(type: string): void;
         loadPrev(): void;
         loadNext(): void;
@@ -133,27 +123,14 @@ export default Vue.extend<
         subtitle: string;
         usersFiltered: TopListWindow['users'];
         usersSorted: TopListWindow['users'];
-    },
-    {
-        toplist: TopListWindow;
-        url: string;
-        lightbox: RedesignLightboxVue<'toplist', TopListWindow>;
-        $m(
-            key: string,
-            args?: {
-                [key: string]: unknown;
-            }
-        ): VueI18n.TranslateResult;
-        $mc(
-            key: string,
-            amount: number,
-            args?: {
-                [key: string]: unknown;
-            }
-        ): VueI18n.TranslateResult;
-        getSetting: <T>(setting: string, defaultValue: T) => Promise<T>;
-        setSetting: <T>(settingId: string, value: T) => Promise<void>;
     }
+>;
+
+export default Vue.extend<
+    Component['Data'],
+    Component['Methods'],
+    Component['Computed'],
+    Component['Props']
 >({
     name: 'toplist',
     components: {
@@ -165,7 +142,7 @@ export default Vue.extend<
     data() {
         return {
             search: '',
-            sort: 'date',
+            sort: 'credits',
             sortDir: 'asc',
             head: {},
             startPage: 0,
@@ -173,23 +150,6 @@ export default Vue.extend<
         };
     },
     methods: {
-        $sm(
-            key: string,
-            args?: {
-                [key: string]: unknown;
-            }
-        ) {
-            return this.$m(`toplist.${key}`, args);
-        },
-        $smc(
-            key: string,
-            amount: number,
-            args?: {
-                [key: string]: unknown;
-            }
-        ) {
-            return this.$mc(`toplist.${key}`, amount, args);
-        },
         setSort(type) {
             if (this.sort === type) {
                 this.sortDir = this.sortDir === 'asc' ? 'desc' : 'asc';
@@ -204,7 +164,7 @@ export default Vue.extend<
         loadPrev() {
             this.$set(this.lightbox, 'loading', true);
             this.startPage--;
-            const url = new URL('/toplist', window.location.href);
+            const url = new URL('/toplist', window.location.origin);
             url.searchParams.set('page', this.startPage.toString());
             const search =
                 (this.$refs.urlSearch as HTMLInputElement)?.value?.trim() ?? '';
@@ -217,11 +177,14 @@ export default Vue.extend<
                 .then((res: Response) => res.text())
                 .then(async html => {
                     import('../parsers/toplist').then(parser => {
-                        const result = parser.default(
-                            html,
-                            url.toString(),
-                            this.lightbox.getIdFromEl
-                        );
+                        const result = parser.default({
+                            doc: new DOMParser().parseFromString(
+                                html,
+                                'text/html'
+                            ),
+                            href: url.toString(),
+                            getIdFromEl: this.lightbox.getIdFromEl,
+                        });
                         this.$set(
                             this.lightbox.data,
                             'lastPage',
@@ -238,7 +201,7 @@ export default Vue.extend<
         loadNext() {
             this.$set(this.lightbox, 'loading', true);
             this.endPage++;
-            const url = new URL('/toplist', window.location.href);
+            const url = new URL('/toplist', window.location.origin);
             url.searchParams.set('page', this.endPage.toString());
             const search =
                 (this.$refs.urlSearch as HTMLInputElement)?.value?.trim() ?? '';
@@ -251,11 +214,14 @@ export default Vue.extend<
                 .then((res: Response) => res.text())
                 .then(async html => {
                     import('../parsers/toplist').then(parser => {
-                        const result = parser.default(
-                            html,
-                            url.toString(),
-                            this.lightbox.getIdFromEl
-                        );
+                        const result = parser.default({
+                            doc: new DOMParser().parseFromString(
+                                html,
+                                'text/html'
+                            ),
+                            href: url.toString(),
+                            getIdFromEl: this.lightbox.getIdFromEl,
+                        });
                         this.$set(
                             this.lightbox.data,
                             'lastPage',
@@ -270,7 +236,7 @@ export default Vue.extend<
                 });
         },
         setUrlSearch() {
-            const url = new URL(this.url, window.location.href);
+            const url = new URL(this.url, window.location.origin);
             const search =
                 (this.$refs.urlSearch as HTMLInputElement)?.value?.trim() ?? '';
             if (search) url.searchParams.set('username', search);
@@ -282,34 +248,37 @@ export default Vue.extend<
     computed: {
         urlSearch() {
             return (
-                new URL(this.url, window.location.href).searchParams.get(
+                new URL(this.url, window.location.origin).searchParams.get(
                     'username'
                 ) ?? ''
             );
         },
         page() {
             return parseInt(
-                new URL(this.url, window.location.href).searchParams.get(
+                new URL(this.url, window.location.origin).searchParams.get(
                     'page'
                 ) ?? '1'
             );
         },
         subtitle() {
-            return this.$smc(
-                this.urlSearch ? 'search_subtitle' : 'subtitle',
-                this.toplist.users.length,
-                {
-                    startPage: this.startPage,
-                    endPage: this.endPage,
-                    firstCredits:
-                        this.toplist.users[0]?.credits?.toLocaleString() ?? '',
-                    lastCredits:
-                        this.toplist.users[
-                            this.toplist.users.length - 1
-                        ]?.credits?.toLocaleString() ?? '',
-                    totalPages: this.toplist.lastPage.toLocaleString(),
-                }
-            ).toString();
+            return this.lightbox
+                .$smc(
+                    this.urlSearch ? 'search_subtitle' : 'subtitle',
+                    this.toplist.users.length,
+                    {
+                        startPage: this.startPage,
+                        endPage: this.endPage,
+                        firstCredits:
+                            this.toplist.users[0]?.credits?.toLocaleString() ??
+                            '',
+                        lastCredits:
+                            this.toplist.users[
+                                this.toplist.users.length - 1
+                            ]?.credits?.toLocaleString() ?? '',
+                        totalPages: this.toplist.lastPage.toLocaleString(),
+                    }
+                )
+                .toString();
         },
         usersFiltered() {
             return this.search.trim().length
@@ -354,14 +323,6 @@ export default Vue.extend<
             type: Object,
             required: true,
         },
-        $m: {
-            type: Function,
-            required: true,
-        },
-        $mc: {
-            type: Function,
-            required: true,
-        },
         getSetting: {
             type: Function,
             required: true,
@@ -386,19 +347,22 @@ export default Vue.extend<
         // });
         this.head = {
             image: { title: '', noSort: true },
-            credits: { title: this.$sm('credits').toString() },
-            name: { title: this.$sm('name').toString() },
-            alliance: { title: this.$sm('alliance').toString() },
+            credits: { title: this.lightbox.$sm('credits').toString() },
+            name: { title: this.lightbox.$sm('name').toString() },
+            alliance: { title: this.lightbox.$sm('alliance').toString() },
         };
     },
     mounted() {
         this.$el.addEventListener('click', e => {
-            e.preventDefault();
             const target = (e.target as HTMLElement)?.closest<
                 HTMLAnchorElement | HTMLButtonElement
             >('a, button');
-            if (!target || !target.hasAttribute('href')) return;
-            this.$set(this.lightbox, 'src', target.getAttribute('href'));
+            const href = target?.getAttribute('href');
+            if (!target || !href) return;
+            e.preventDefault();
+            if (target.hasAttribute('lightbox-open'))
+                return window.lightboxOpen(href);
+            else this.$set(this.lightbox, 'src', href);
         });
         this.getSetting(`sort`, this.sort).then(sort => (this.sort = sort));
         this.getSetting(`sortDir`, this.sortDir).then(
@@ -406,7 +370,6 @@ export default Vue.extend<
         );
         this.startPage = this.page;
         this.endPage = this.page;
-        document.title = this.$sm('title').toString();
         this.lightbox.finishLoading('toplist-mounted');
     },
 });

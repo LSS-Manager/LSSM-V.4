@@ -1,6 +1,6 @@
 import { Games } from '../Game';
-import { returnTypeFunction } from 'typings/helpers';
 import { Modules } from '../Module';
+import { returnTypeFunction } from 'typings/helpers';
 
 export interface RootState {
     readonly prefix: string;
@@ -12,11 +12,6 @@ export interface RootState {
     readonly server: string;
     readonly hooks: {
         [event: string]: returnTypeFunction;
-    };
-    readonly prototypeHooks: {
-        [base: string]: {
-            [event: string]: returnTypeFunction;
-        };
     };
     readonly mapkit: boolean;
     readonly darkmode: boolean;
