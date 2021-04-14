@@ -153,7 +153,7 @@ export default (async (LSSM, MODULE_ID, $m, $mc) => {
                 await import(
                     /* webpackChunkName: "modules/extendedCallWindow/enhancedHeader" */ './assets/enhancedHeader'
                 )
-            ).default(stickyHeader, loadMoreVehiclesInHeader);
+            ).default(LSSM, stickyHeader, loadMoreVehiclesInHeader);
         }
         if (await getSetting('hideVehicleList')) {
             (

@@ -1,4 +1,4 @@
-export default (sticky: boolean, load: boolean): void => {
+export default (LSSM: Vue, sticky: boolean, load: boolean): void => {
     const head = document.querySelector(
         '.mission_header_info'
     ) as HTMLDivElement | null;
@@ -6,6 +6,10 @@ export default (sticky: boolean, load: boolean): void => {
     if (sticky) {
         const clearfix = document.createElement('div');
         clearfix.style.width = '100%';
+        clearfix.id = LSSM.$store.getters.nodeAttribute(
+            'ecw-sticky_header-heightdiv',
+            true
+        );
         head.after(clearfix);
         head.style.zIndex = '2';
         head.style.position = 'fixed';
