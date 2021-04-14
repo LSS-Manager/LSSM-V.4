@@ -76,7 +76,7 @@ module.exports = {
             [/^Incident Command and Control Unit(s)?$/]: [15],
             [/^HazMat Unit(s)?$/]: [7],
             [/^Ambulance(s)?$/]: [5],
-            [/^Police car(s)?$/]: [8, 12, 24, 25],
+            [/^Police car(s)?$/]: [8, 12, 13,  24, 25],
             [/^HEMS$/]: [9],
             [/^Policehelicopter(s)?$/]: [11],
             [/^Armed Response$/]: [13, 25],
