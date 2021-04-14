@@ -29,6 +29,9 @@ export default (LSSM: Vue): void => {
         );
         return title;
     };
+
+    findTitle();
+
     LSSM.$store
         .dispatch('hook', {
             event: 'lightboxClose',
