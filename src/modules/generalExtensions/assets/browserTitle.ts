@@ -6,11 +6,13 @@ export default (LSSM: Vue): void => {
                 .join(',')
         );
         let title =
-            heading?.textContent
-                ?.trim()
-                .replace(/\n/g, ' ')
-                .replace(/ {2,}/g, ' ') ||
-            window.location.pathname.replace(/^\/|\/$/g, '');
+            window.location.pathname === '/'
+                ? ''
+                : heading?.textContent
+                      ?.trim()
+                      .replace(/\n/g, ' ')
+                      .replace(/ {2,}/g, ' ') ||
+                  window.location.pathname.replace(/^\/|\/$/g, '');
         const navbarBrand = document.querySelector('.navbar-brand');
         if (navbarBrand && navbarBrand?.textContent?.trim())
             title = `${navbarBrand?.textContent.trim()}: ${title}`;
