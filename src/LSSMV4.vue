@@ -147,10 +147,13 @@ body.dark
     .bg-danger
         background-color: #a94442
 
-    .dropdown-menu
+    > :not(nav):not(#col_navbar_holder) .dropdown-menu
         background-image: linear-gradient(to bottom, #505050 0, #000 100%)
         color: #fff
         border: #000
+
+        a
+            color: #fff
 
 .vm--container
     z-index: 5001 !important
