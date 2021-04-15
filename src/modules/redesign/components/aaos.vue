@@ -140,7 +140,7 @@ export default Vue.extend<
             );
         },
         deleteARR(id, type) {
-            // delete
+            alert(`deleting ${type}#${id} not yet implemented`);
         },
     },
     computed: {

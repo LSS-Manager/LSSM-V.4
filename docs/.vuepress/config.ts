@@ -244,7 +244,7 @@ const options = {
         variables: {
             discord: config.discord,
             discord_support: config.discord_support,
-            github: config.github.repo,
+            github: `https://github.com/${config.github.repo}`,
             server: config.server,
             // eslint-disable-next-line @typescript-eslint/no-var-requires
             versions: require('../../static/.configs.json').versions,

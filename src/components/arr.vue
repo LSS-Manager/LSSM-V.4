@@ -17,6 +17,7 @@
         <button
             v-if="editable"
             class="btn btn-default btn-xs dropdown-toggle"
+            :style="style"
             data-toggle="dropdown"
         >
             <span class="caret"></span>
