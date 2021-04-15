@@ -139,7 +139,9 @@ export default Vue.extend<
                 `/${type === 'arr' ? 'aaos' : 'vehicle_groups'}/${id}/copy`
             );
         },
-        deleteARR(id, type) {},
+        deleteARR(id, type) {
+            // delete
+        },
     },
     computed: {
         categories() {
