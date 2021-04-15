@@ -314,7 +314,7 @@
                         </div>
                         <div
                             class="panel panel-default profile-dispatchcenter"
-                            v-for="dc in buildings"
+                            v-for="dc in dispatchCentersSorted"
                             :key="dc.id"
                         >
                             <div
@@ -603,6 +603,7 @@ type Component = RedesignComponent<
             gold: number;
         };
         buildings: DispatchCenter;
+        dispatchCentersSorted: DispatchCenter[number][];
     }
 >;
 
@@ -844,6 +845,11 @@ export default Vue.extend<
                 }
             );
             return dispatchCenters;
+        },
+        dispatchCentersSorted() {
+            return Object.values(
+                this.buildings
+            ).sort(({ name: a }, { name: b }) => (a < b ? -1 : a > b ? 1 : 0));
         },
     },
     props: {
