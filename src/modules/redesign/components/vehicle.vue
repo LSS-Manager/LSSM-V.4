@@ -827,7 +827,7 @@
                                 :placeholder="lightbox.$sm('filter.cells.free')"
                                 v-model="filter.cell.free"
                                 :min="0"
-                                :max="30"
+                                :max="10"
                                 @input="
                                     updateFilter('cell.free', filter.cell.free)
                                 "
@@ -1972,8 +1972,8 @@ export default Vue.extend<
                 HTMLAnchorElement | HTMLButtonElement
             >('a, button');
             const href = target?.getAttribute('href');
-            e.preventDefault();
             if (!target || !href) return;
+            e.preventDefault();
             if (target.hasAttribute('lightbox-open'))
                 return window.lightboxOpen(href);
             else this.$set(this.lightbox, 'src', href);

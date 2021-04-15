@@ -5,7 +5,7 @@ interface AAO {
     bg_color: string;
     color: string;
     title: string;
-    type: 'arr' | 'group';
+    type: 'arr' | 'vehicle_group';
 }
 
 type Category = Record<'0' | '1' | '2' | '3' | '4' | '5' | '6', AAO[]>;
@@ -26,7 +26,9 @@ export default <RedesignParser<AAOsWindow>>(({ doc }) => {
                   bg_color: arr.style.backgroundColor,
                   color: arr.style.color,
                   title: arr.textContent?.trim() ?? '',
-                  type: arr.hasAttribute('vehicle_group_id') ? 'group' : 'arr',
+                  type: arr.hasAttribute('vehicle_group_id')
+                      ? 'vehicle_group'
+                      : 'arr',
               }))
             : [];
     const getAAOCategory = (wrapper_id: string): Category => ({
