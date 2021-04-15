@@ -112,7 +112,7 @@
 	"eslint-plugin-prettier": {
 		"icon": "https://prettier.io/icon.png",
 		"url": "https://github.com/prettier/eslint-plugin-prettier#readme",
-		"version": "3.3.1"
+		"version": "3.4.0"
 	},
 	"eslint-plugin-vue": {
 		"icon": "https://vuejs.org/images/logo.png",
