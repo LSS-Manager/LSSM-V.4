@@ -58,7 +58,7 @@
                     @click="edit(arr.id, arr.type)"
                     @edit="edit(arr.id, arr.type)"
                     @copy="copy(arr.id, arr.type)"
-                    @delete="deleteARR(arr.id, arr.type)"
+                    @delete="deleteARR(arr.id, arr.type, '', row.toString())"
                 ></ARR>
             </div>
         </div>
@@ -87,7 +87,14 @@
                             @click="edit(arr.id, arr.type)"
                             @edit="edit(arr.id, arr.type)"
                             @copy="copy(arr.id, arr.type)"
-                            @delete="deleteARR(arr.id, arr.type)"
+                            @delete="
+                                deleteARR(
+                                    arr.id,
+                                    arr.type,
+                                    title,
+                                    row.toString()
+                                )
+                            "
                         ></ARR>
                     </div>
                 </div>
@@ -105,7 +112,7 @@
                         @click="edit(arr.id, arr.type)"
                         @edit="edit(arr.id, arr.type)"
                         @copy="copy(arr.id, arr.type)"
-                        @delete="deleteARR(arr.id, arr.type)"
+                        @delete="deleteARR(arr.id, arr.type, title, '0')"
                     ></ARR>
                 </div>
             </tab>
@@ -124,7 +131,7 @@
                 @click="edit(arr.id, arr.type)"
                 @edit="edit(arr.id, arr.type)"
                 @copy="copy(arr.id, arr.type)"
-                @delete="deleteARR(arr.id, arr.type)"
+                @delete="deleteARR(arr.id, arr.type, '', '0')"
             ></ARR>
         </div>
     </div>
@@ -153,7 +160,12 @@ type Component = RedesignComponent<
     {
         edit(id: number, type: 'arr' | 'vehicle_group'): void;
         copy(id: number, type: 'arr' | 'vehicle_group'): void;
-        deleteARR(id: number, type: 'arr' | 'vehicle_group'): void;
+        deleteARR(
+            id: number,
+            type: 'arr' | 'vehicle_group',
+            category: string,
+            row: '0' | '1' | '2' | '3' | '4' | '5' | '6'
+        ): void;
     },
     { categories: AAOsWindow['categories'] }
 >;
@@ -189,8 +201,71 @@ export default Vue.extend<
                 `/${type === 'arr' ? 'aaos' : 'vehicle_groups'}/${id}/copy`
             );
         },
-        deleteARR(id, type) {
-            alert(`deleting ${type}#${id} not yet implemented`);
+        deleteARR(id, type, category, row) {
+            // eslint-disable-next-line @typescript-eslint/no-this-alias
+            const LSSM = this;
+            this.$modal.show('dialog', {
+                title: this.lightbox.$sm(`delete.${type}.title`),
+                text: this.lightbox.$sm(`delete.${type}.text`),
+                buttons: [
+                    {
+                        title: this.lightbox.$sm('delete.cancel'),
+                        default: true,
+                        handler() {
+                            LSSM.$modal.hide('dialog');
+                        },
+                    },
+                    {
+                        title: this.lightbox.$sm('delete.confirm'),
+                        async handler() {
+                            const url = new URL(
+                                window.location.href,
+                                window.location.origin
+                            );
+                            url.searchParams.append('_method', 'delete');
+                            url.searchParams.append(
+                                'authenticity_token',
+                                LSSM.aaos.authenticity_token
+                            );
+                            LSSM.$store
+                                .dispatch('api/request', {
+                                    url: `/${
+                                        type === 'arr'
+                                            ? 'aaos'
+                                            : 'vehicle_groups'
+                                    }/${id}`,
+                                    init: {
+                                        credentials: 'include',
+                                        headers: {
+                                            'Content-Type':
+                                                'application/x-www-form-urlencoded',
+                                            'Upgrade-Insecure-Requests': '1',
+                                        },
+                                        refferer: new URL(
+                                            type === 'arr'
+                                                ? '/aaos'
+                                                : `/vehicle_groups/${id}/edit`,
+                                            window.location.origin
+                                        ).toString(),
+                                        body: url.searchParams.toString(),
+                                        method: 'POST',
+                                        mode: 'cors',
+                                    },
+                                })
+                                .then(() => {
+                                    LSSM.$set(
+                                        LSSM.aaos.categories[category],
+                                        row,
+                                        LSSM.aaos.categories[category][
+                                            row
+                                        ].filter(({ id: aId }) => aId !== id)
+                                    );
+                                    LSSM.$modal.hide('dialog');
+                                });
+                        },
+                    },
+                ],
+            });
         },
     },
     computed: {
