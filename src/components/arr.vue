@@ -31,7 +31,7 @@
                     ></font-awesome-icon>
                 </button>
             </li>
-            <li>
+            <li v-if="type !== 'vehicle_group'">
                 <button class="btn btn-default btn-xs" @click="$listeners.copy">
                     <font-awesome-icon
                         :icon="faCopy"

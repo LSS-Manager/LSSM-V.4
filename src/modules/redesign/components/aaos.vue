@@ -35,7 +35,11 @@
             >
                 {{ lightbox.$sm('categories') }}
             </a>
-            <button class="btn btn-danger btn-xs" disabled>
+            <button
+                class="btn btn-danger btn-xs"
+                @click="deleteAll"
+                :title="lightbox.$sm('delete_all')"
+            >
                 <font-awesome-icon :icon="faTrash"></font-awesome-icon>
             </button>
         </div>
@@ -63,7 +67,7 @@
             </div>
         </div>
         <div class="clearfix margined"></div>
-        <tabs>
+        <tabs v-if="Object.keys(categories).length">
             <tab
                 v-for="(category, title) in categories"
                 :key="title"
@@ -166,6 +170,7 @@ type Component = RedesignComponent<
             category: string,
             row: '0' | '1' | '2' | '3' | '4' | '5' | '6'
         ): void;
+        deleteAll(): void;
     },
     { categories: AAOsWindow['categories'] }
 >;
@@ -254,12 +259,57 @@ export default Vue.extend<
                                 })
                                 .then(() => {
                                     LSSM.$set(
-                                        LSSM.aaos.categories[category],
+                                        LSSM.lightbox.data.categories[category],
                                         row,
-                                        LSSM.aaos.categories[category][
+                                        LSSM.lightbox.data.categories[category][
                                             row
                                         ].filter(({ id: aId }) => aId !== id)
                                     );
+                                    LSSM.$modal.hide('dialog');
+                                });
+                        },
+                    },
+                ],
+            });
+        },
+        deleteAll() {
+            // eslint-disable-next-line @typescript-eslint/no-this-alias
+            const LSSM = this;
+            this.$modal.show('dialog', {
+                title: this.lightbox.$sm(`delete.all.title`),
+                text: this.lightbox.$sm(`delete.all.text`),
+                buttons: [
+                    {
+                        title: this.lightbox.$sm('delete.cancel'),
+                        default: true,
+                        handler() {
+                            LSSM.$modal.hide('dialog');
+                        },
+                    },
+                    {
+                        title: this.lightbox.$sm('delete.confirm'),
+                        async handler() {
+                            LSSM.$store
+                                .dispatch('api/request', {
+                                    url: '/aao/alle_loeschen',
+                                })
+                                .then(() => {
+                                    Object.entries(
+                                        LSSM.aaos.categories
+                                    ).forEach(([category, rows]) => {
+                                        Object.entries(rows).forEach(
+                                            ([row, arrs]) =>
+                                                LSSM.$set(
+                                                    LSSM.lightbox.data
+                                                        .categories[category],
+                                                    row,
+                                                    arrs.filter(
+                                                        ({ type }) =>
+                                                            type !== 'arr'
+                                                    )
+                                                )
+                                        );
+                                    });
                                     LSSM.$modal.hide('dialog');
                                 });
                         },
