@@ -1,6 +1,44 @@
 <template>
     <div>
+        <div class="btn-group pull-right">
+            <a lightbox-open href="/aaos/new" class="btn btn-success">
+                <font-awesome-icon :icon="faPlus"></font-awesome-icon>
+                {{ lightbox.$sm('add.arr') }}
+            </a>
+            <a lightbox-open href="/vehicle_groups/new" class="btn btn-default">
+                <font-awesome-icon :icon="faPlus"></font-awesome-icon>
+                {{ lightbox.$sm('add.group') }}
+            </a>
+        </div>
         <h1>{{ lightbox.$sm('title') }}</h1>
+        <div class="btn-group pull-right">
+            <a
+                class="btn btn-default btn-xs"
+                lightbox-open
+                href="https://www.youtube.com/embed/SQw3ChM7X70"
+                v-if="$store.state.lang === 'de_DE'"
+            >
+                Erklärungsvideo
+            </a>
+            <a
+                lightbox-open
+                href="/aao_exports/new"
+                class="btn btn-default btn-xs"
+                :title="lightbox.$sm('export')"
+            >
+                <font-awesome-icon :icon="faFileExport"></font-awesome-icon>
+            </a>
+            <a
+                lightbox-open
+                href="/aao_categorys"
+                class="btn btn-default btn-xs"
+            >
+                {{ lightbox.$sm('categories') }}
+            </a>
+            <button class="btn btn-danger btn-xs" disabled>
+                <font-awesome-icon :icon="faTrash"></font-awesome-icon>
+            </button>
+        </div>
         <hr />
         <div class="row">
             <div
@@ -95,15 +133,23 @@
 <script lang="ts">
 import Vue from 'vue';
 
+import { faFileExport } from '@fortawesome/free-solid-svg-icons/faFileExport';
+import { faPlus } from '@fortawesome/free-solid-svg-icons/faPlus';
+import { faTrash } from '@fortawesome/free-solid-svg-icons/faTrash';
+
 import { AAOsWindow } from '../parsers/aaos';
-import { DefaultData } from 'vue/types/options';
+import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { RedesignComponent } from 'typings/modules/Redesign';
 
 type Component = RedesignComponent<
     'aaos',
     'aaos',
     AAOsWindow,
-    DefaultData<Vue>,
+    {
+        faPlus: IconDefinition;
+        faFileExport: IconDefinition;
+        faTrash: IconDefinition;
+    },
     {
         edit(id: number, type: 'arr' | 'vehicle_group'): void;
         copy(id: number, type: 'arr' | 'vehicle_group'): void;
@@ -126,7 +172,11 @@ export default Vue.extend<
             ),
     },
     data() {
-        return {};
+        return {
+            faFileExport,
+            faPlus,
+            faTrash,
+        };
     },
     methods: {
         edit(id, type) {
