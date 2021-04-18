@@ -188,7 +188,7 @@ export default Vue.extend<
         },
     },
     watch: {
-        alliance() {
+        news() {
             this.lightbox.finishLoading('verband/news/edit-updated-data');
         },
     },

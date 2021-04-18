@@ -84,6 +84,14 @@
                 :get-setting="getSetting()"
                 :set-setting="setSetting()"
             ></Toplist>
+            <VehicleGroup
+                v-else-if="type === 'vehicle_group'"
+                :vehicle_group="data"
+                :url="urlProp"
+                :lightbox="this"
+                :get-setting="getSetting()"
+                :set-setting="setSetting()"
+            ></VehicleGroup>
             <Vehicle
                 v-else-if="type === 'vehicle'"
                 :vehicle="data"
@@ -185,6 +193,10 @@ export default Vue.extend<
         Toplist: () =>
             import(
                 /*webpackChunkName: "modules/redesign/windows/toplist"*/ './toplist.vue'
+            ),
+        VehicleGroup: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/vehicle_group"*/ './vehicle_group.vue'
             ),
         Vehicle: () =>
             import(
