@@ -87,10 +87,6 @@
 		"url": "https://github.com/webpack-contrib/cache-loader",
 		"version": "4.1.0"
 	},
-	"clean-webpack-plugin": {
-		"url": "https://github.com/johnagan/clean-webpack-plugin",
-		"version": "3.0.0"
-	},
 	"combokeys": {
 		"url": "https://github.com/PolicyStat/combokeys",
 		"version": "3.0.1"
@@ -102,7 +98,7 @@
 	"css-loader": {
 		"icon": "https://webpack.js.org/assets/icon-square-big.svg",
 		"url": "https://github.com/webpack-contrib/css-loader",
-		"version": "3.6.0"
+		"version": "5.2.4"
 	},
 	"eslint": {
 		"icon": "https://eslint.org/assets/img/favicon.512x512.png",
@@ -286,11 +282,6 @@
 		"icon": "https://webpack.js.org/assets/icon-square-big.svg",
 		"url": "https://github.com/webpack/webpack",
 		"version": "4.46.0"
-	},
-	"webpack-cli": {
-		"icon": "https://webpack.js.org/assets/icon-square-big.svg",
-		"url": "https://webpack.js.org/api/cli/",
-		"version": "4.6.0"
 	},
 	"webpack-loader-append-prepend": {
 		"icon": "https://webpack.js.org/assets/icon-square-big.svg",
