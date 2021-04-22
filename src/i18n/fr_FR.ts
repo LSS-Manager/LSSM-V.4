@@ -394,6 +394,14 @@ export default {
             special:
                 'Nécessaire dès lors que vous avez construit 6 postes de secours',
         },
+        30: {
+            caption: 'Ambulance Type A',
+            color: '#9c691c',
+            coins: 25,
+            credits: 5_000,
+            minPersonnel: 1,
+            maxPersonnel: 2,
+        },
     },
     buildings: {
         0: {
@@ -787,7 +795,7 @@ export default {
         },
         Ambulances: {
             vehicles: {
-                Ambulances: [5, 27, 28, 29],
+                Ambulances: [5, 27, 28, 29, 30],
                 Dragon: [9],
             },
             color: '#ffa500',
@@ -999,5 +1007,5 @@ export default {
         'Colline',
     ],
     only_alliance_missions: [57, 74],
-    transfer_missions: [],
+    transfer_missions: [325, 326],
 };
