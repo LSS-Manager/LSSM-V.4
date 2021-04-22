@@ -53,7 +53,7 @@ export default ((MODULE_ID, LSSM, $m) => {
             default: false,
             dependsOn: '.vehicles.content',
         },
-        ...(['de_DE', 'en_US', 'nl_NL', 'nb_NO', 'en_AU', 'fr_FR'].includes(
+        ...(['de_DE', 'en_US', 'nl_NL', 'nb_NO', 'en_AU', 'fr_FR', 'es_ES'].includes(
             locale
         )
             ? {
@@ -183,7 +183,7 @@ export default ((MODULE_ID, LSSM, $m) => {
                   },
               }
             : null),
-        ...(['en_GB', 'nb_NO', 'da_DK', 'pl_PL', 'en_AU', 'fr_FR'].includes(
+        ...(['en_GB', 'nb_NO', 'da_DK', 'pl_PL', 'en_AU', 'fr_FR', 'es_ES'].includes(
             locale
         )
             ? {

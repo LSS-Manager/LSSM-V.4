@@ -121,6 +121,10 @@
 				"description": "Muestra detalles sobre posibles presos.",
 				"title": "Detalles de posibles presos"
 			},
+			"critical_care": {
+				"description": "Muestra la posible oportunidad de cuidados críticos",
+				"title": "Detalles de las posibles oportunidades críticas"
+			},
 			"live": {
 				"description": "Muestra en la parte superior del ayudante de la misión cuántos presos tiene actualmente la misión.",
 				"title": "Número actual de presos"
