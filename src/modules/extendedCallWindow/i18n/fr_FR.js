@@ -38,7 +38,7 @@ module.exports = {
             elw3: 'VLHR',
             dlk: 'Moyen Elévateur Aérien',
             rtw: 'ASSU',
-            ktw: 'Ambulance Type A'
+            ktw: 'Ambulance Type A',
             rw: 'Véhicule de secours routier',
             gkw: 'Véhicule Tout Usage',
             gwl2wasser: 'Camion-citerne',
