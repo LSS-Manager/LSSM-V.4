@@ -45,7 +45,7 @@
 		"version": "1.9.3"
 	},
 	"@types/speed-measure-webpack-plugin": {
-		"version": "1.3.2"
+		"version": "1.3.3"
 	},
 	"@types/ua-parser-js": {
 		"version": "0.7.35"
