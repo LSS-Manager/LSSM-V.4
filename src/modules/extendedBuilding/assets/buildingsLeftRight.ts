@@ -12,9 +12,16 @@ export default (LSSM: Vue): void => {
     const buildingsByType = LSSM.$store.getters['api/buildingsByType'] as {
         [type: number]: Building[];
     };
-    const smallBuildingsArray = Object.entries(
-        (LSSM.$t('small_buildings') as unknown) as { [type: number]: number }
-    ).find(ids => ids.includes(building.building_type));
+    const smallBuildings = (LSSM.$t('small_buildings') as unknown) as {
+        [type: number]: number;
+    };
+    const smallBuildingsArray:
+        | (string | number)[]
+        | undefined = smallBuildings.hasOwnProperty(building.building_type)
+        ? Object.entries(smallBuildings).find(ids =>
+              ids.includes(building.building_type)
+          )
+        : [building.building_type];
     if (!smallBuildingsArray) return;
     const buildings = smallBuildingsArray
         .flatMap(
