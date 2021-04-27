@@ -1,5 +1,5 @@
 {
-    "version": "4.2.3+20210426.0613",
+    "version": "4.2.3+20210427.0629",
     "license": "CC-BY-NC-SA-4.0",
     "scripts": {
         "predev": "tsc -b scripts && node scripts predev",
@@ -73,7 +73,7 @@
         "sass-loader": "^10.1.1",
         "speed-measure-webpack-plugin": "^1.5.0",
         "string-replace-loader": "^2.3.0",
-        "terser": "^5.6.1",
+        "terser": "^5.7.0",
         "ts-loader": "^9.0.0",
         "typescript": "^4.2.4",
         "url-loader": "^4.1.1",
