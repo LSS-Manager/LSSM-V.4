@@ -39,7 +39,7 @@
 		"version": "0.1.17"
 	},
 	"@types/semver": {
-		"version": "7.3.4"
+		"version": "7.3.5"
 	},
 	"@types/showdown": {
 		"version": "1.9.3"
