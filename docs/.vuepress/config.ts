@@ -45,7 +45,7 @@ moduleDirs.forEach((module: string) => {
             const title = require(`../../src/modules/${module}/i18n/${lang}.root`)
                 .name;
             // eslint-disable-next-line @typescript-eslint/no-var-requires
-            const register = require(`../../src/modules/${module}/register`)
+            const register = require(`../../src/modules/${module}/register`);
             modulesSorted[lang].push({
                 title,
                 f: `${lang}/modules/${f.replace(lang, module)}`,
@@ -68,7 +68,11 @@ title: ${title}
 lang: ${lang}
 ---
 
-# ${title} ${register.github ? `<a href="https://github.com/LSS-Manager/LSSM-V.4/issues/${register.github}" title="Issue #${register.github} on GitHub" target="_blank"><img src="https://github.githubassets.com/pinned-octocat.svg" alt="Issue #${register.github} on GitHub" style="height: 1.5ex"/></a>`: ''}
+# ${title} ${
+                    register.github
+                        ? `<a href="https://github.com/LSS-Manager/LSSM-V.4/issues/${register.github}" title="Issue #${register.github} on GitHub" target="_blank"><img src="https://github.githubassets.com/pinned-octocat.svg" alt="Issue #${register.github} on GitHub" style="height: 1.5ex"/></a>`
+                        : ''
+                }
 
 ${content}`
             );
