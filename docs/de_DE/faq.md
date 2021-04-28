@@ -72,7 +72,7 @@ Wir sehen es nicht ein, dies überall zu machen und unterstützen diese beiden B
 :::
 
 ### Ich möchte mein Setup an Freunde weitergeben oder es an mehreren Geräten nutzen. Geht das?
-Aktuell geht das nicht, wir arbeiten aber daran, das einzubauen.
+Ja, das geht. Klicke dazu einfach in den [Einstellungen][settings] auf `Export`, um eine Datei herunterzuladen und `Import` um die Einstellungen aus einer Datei zu importieren.
 
 ### Gibt es eine Möglichkeit, Einstellungen Account-gebunden zu speichern, um sie an einem anderen Gerät nicht importieren zu müssen?
 Derzeit bieten wir das nicht an, eine Implementierung dieses Features ist aber geplant.
@@ -84,3 +84,4 @@ Oder im Uptime-Channel auf unserem <a :href="$themeConfig.variables.discord" tar
 [support]: support.md
 [error]: error_report.md
 [suggestions]: suggestions.md
+[settings]: settings.md
