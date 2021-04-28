@@ -44,7 +44,7 @@ module.exports = {
             gwgefahrgut: 'HazMat',
             arff: 'ARFF',
             hems: 'HEMS',
-            kdow_orgl: 'EMS Chief',
+            kdow_orgl: 'inspektor provozu',
             grtw: 'Mass Casualty Unit',
             fustw: 'Patrol Car',
             police_motorcycle: 'Police Motorcycle',

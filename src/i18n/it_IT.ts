@@ -362,6 +362,15 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 9,
         },
+        27: {
+            caption: 'Ambulanza ordinaria',
+            color: '#e09200',
+            coins: 25,
+            credits: 20_000,
+            minPersonnel: 2,
+            maxPersonnel: 3,
+            special: 'Richiesto dopo aver costruito 6 stazioni di soccorso',
+        },
     },
     buildings: {
         0: {
@@ -819,7 +828,7 @@ export default {
         },
         'Soccorso': {
             vehicles: {
-                Ambulanza: [4, 20],
+                Ambulanza: [4, 20, 27],
                 Elisoccorso: [8],
                 Medica: [18, 19],
             },
