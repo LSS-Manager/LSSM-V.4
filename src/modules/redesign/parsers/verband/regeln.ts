@@ -3,7 +3,7 @@ import { VerbandWindow } from 'typings/modules/Redesign/Verband';
 
 export interface VerbandRegelnWindow extends VerbandWindow {
     edit_text: boolean;
-    rules: string[];
+    rules: string;
 }
 
 export default <RedesignParser<VerbandRegelnWindow>>(({
@@ -25,8 +25,8 @@ export default <RedesignParser<VerbandRegelnWindow>>(({
             self: !!doc.querySelector('a[href="/alliance_threads"]'),
         },
         edit_text: !!doc.querySelector('a[href="/veband/text/edit"]'),
-        rules: Array.from(
-            doc.querySelectorAll<HTMLParagraphElement>('h3 ~ p')
-        ).map(p => p.innerHTML.trim()),
+        rules:
+            doc.querySelector<HTMLDivElement>('#alliance-rules')?.innerHTML ??
+            '',
     };
 });

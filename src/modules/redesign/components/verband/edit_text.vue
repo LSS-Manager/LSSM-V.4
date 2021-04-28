@@ -163,24 +163,12 @@ export default Vue.extend<
                             .dispatch('event/createEvent', {
                                 name: 'redesign-edit-alliance-text-submitted',
                                 detail: {
-                                    content: this.textEditor
-                                        .getWysiwygEditorValue(false)
-                                        .split('\n')
-                                        .map(l =>
-                                            l.replace(
-                                                /^<div>|(<br>)?<\/div>$/g,
-                                                ''
-                                            )
-                                        ),
-                                    rules: this.rulesEditor
-                                        .getWysiwygEditorValue(false)
-                                        .split('\n')
-                                        .map(l =>
-                                            l.replace(
-                                                /^<div>|(<br>)?<\/div>$/g,
-                                                ''
-                                            )
-                                        ),
+                                    content: this.textEditor.getWysiwygEditorValue(
+                                        false
+                                    ),
+                                    rules: this.rulesEditor.getWysiwygEditorValue(
+                                        false
+                                    ),
                                 },
                             })
                             .then(event =>

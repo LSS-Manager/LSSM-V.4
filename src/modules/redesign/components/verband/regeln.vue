@@ -9,7 +9,7 @@
             <font-awesome-icon :icon="faEdit"></font-awesome-icon>
         </a>
         <h1>{{ lightbox.$sm('title') }}</h1>
-        <p v-for="(t, index) in rules.rules" :key="index" v-html="t"></p>
+        <div v-html="rules.rules"></div>
     </div>
 </template>
 
