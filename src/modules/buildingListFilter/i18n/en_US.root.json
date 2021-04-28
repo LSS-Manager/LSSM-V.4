@@ -1,0 +1,22 @@
+{
+	"default": [],
+	"description": "Customize filters of the buildinglist!",
+	"name": "Customizable buildings list",
+	"settings": {
+		"buildings": "Building Types",
+		"contentType": {
+			"labels": [
+				"Text",
+				"Icon"
+			],
+			"title": "Text or Icon?"
+		},
+		"filters": {
+			"description": "Leave icons in the \"Alarm\" Show button, based on your selection. You can choose between <a href=\"https://fontawesome.com/icons?d=gallery&m=free\" target=\"_blank\">all free icons from Font-Awesome</a>. It is enough to specify the name of the icon. A live preview will then show you the icon.",
+			"title": "Buildinglist filter"
+		},
+		"icon_style": "Icon-Type",
+		"preview": "Preview",
+		"title": "Title (or Icon)"
+	}
+}
