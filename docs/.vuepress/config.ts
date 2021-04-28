@@ -70,7 +70,7 @@ lang: ${lang}
 
 # ${title} ${
                     register.github
-                        ? `<a href="https://github.com/LSS-Manager/LSSM-V.4/issues/${register.github}" title="Issue #${register.github} on GitHub" target="_blank"><img src="https://github.githubassets.com/pinned-octocat.svg" alt="Issue #${register.github} on GitHub" style="height: 1.5ex"/></a>`
+                        ? `<a href="https://github.com/LSS-Manager/LSSM-V.4/issues/${register.github}" title="Issue #${register.github} on GitHub" target="_blank"><img src="https://github.githubassets.com/pinned-octocat.svg" alt="Issue #${register.github} on GitHub" style="height: 1.5ex" data-prevent-zooming/></a>`
                         : ''
                 }
 
