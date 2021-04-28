@@ -1,4 +1,5 @@
 {
+	"github": 27,
 	"location": "^/?$",
 	"noMapkit": true
 }

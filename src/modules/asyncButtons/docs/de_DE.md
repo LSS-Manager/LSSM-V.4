@@ -24,7 +24,3 @@ Wir haben an verschiedenen Stellen diese Asynchronität eingebaut:
 
 ### geplant:
 * Rückmeldung schreiben
-
----
-
-[Issue auf GitHub](https://github.com/LSS-Manager/LSSM-V.4/issues/42)

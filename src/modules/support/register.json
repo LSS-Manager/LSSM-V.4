@@ -1,5 +1,6 @@
 {
 	"active": true,
+	"github": 32,
 	"location": "^/?$",
 	"noapp": true
 }
