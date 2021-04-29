@@ -1,0 +1,14 @@
+{
+	"applied": "Je hebt je bij dit team aangemeldt. Je mmoet nog door een (Co-)Admin van het team worden aangenomen. Veel geluk!",
+	"apply": "Aanmeldingsverzoek versturen",
+	"edit_logo": "Logo bewerken",
+	"edit_name": "Team hernoemen",
+	"edit_text": "Introductietekst, regels, belanrijke mededeling en Discord Webhook bewerken.",
+	"leave": {
+		"cancel": "Annuleren",
+		"confirm": "Verlaten!",
+		"text": "Wilt u werkelijk **{caption}** verlaten? Deze actie kan niet ongedaan gemaakt worden!",
+		"title": "Team verlaten"
+	},
+	"unapply": "Aanmelding terugtrekken"
+}
