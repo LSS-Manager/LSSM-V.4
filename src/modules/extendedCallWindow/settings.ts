@@ -239,6 +239,7 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
                 missions: [],
             },
             orderable: true,
+            disableable: false,
         },
         alarmIcons: <Omit<AppendableList, 'value' | 'isDisabled'>>{
             type: 'appendable-list',
@@ -285,6 +286,7 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
                 vehicleTypes: [],
             },
             orderable: true,
+            disableable: false,
         },
         overlay: <Hidden>{
             type: 'hidden',

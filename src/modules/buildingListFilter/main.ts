@@ -57,6 +57,13 @@ export default <ModuleMainFunction>(async (LSSM, MODULE_ID) => {
         filters[index].state = 'disabled';
     };
 
+    const updateSettings = () =>
+        LSSM.$store.dispatch('settings/setSetting', {
+            moduleId: MODULE_ID,
+            settingId: 'filters',
+            value: { value: filters, enabled: true },
+        });
+
     const updateFilters = () => {
         const wrapper = document.getElementById('btn-group-building-select');
         if (!wrapper) return;
@@ -78,22 +85,14 @@ export default <ModuleMainFunction>(async (LSSM, MODULE_ID) => {
                     if (btn.classList.contains('btn-danger'))
                         enable(btn, buildings, index);
                     else disable(btn, buildings, index);
-                    LSSM.$store.dispatch('settings/setSetting', {
-                        moduleId: MODULE_ID,
-                        settingId: 'filters',
-                        value: filters,
-                    });
+                    updateSettings();
                     window.buildingsVehicleLoadVisible();
                 });
                 btn.addEventListener('dblclick', () => {
                     btns.forEach(([btnI, buildings], index) => {
                         if (btnI === btn) enable(btnI, buildings, index);
                         else disable(btnI, buildings, index);
-                        LSSM.$store.dispatch('settings/setSetting', {
-                            moduleId: MODULE_ID,
-                            settingId: 'filters',
-                            value: filters,
-                        });
+                        updateSettings();
                         window.buildingsVehicleLoadVisible();
                     });
                 });

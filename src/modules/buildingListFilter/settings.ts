@@ -102,6 +102,7 @@ export default <ModuleSettingFunction>((MODULE_ID, LSSM, $m) => {
                 state: 'enabled',
             },
             orderable: true,
+            disableable: false,
         },
     };
 });
