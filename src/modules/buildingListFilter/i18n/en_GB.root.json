@@ -40,13 +40,6 @@
 				7
 			],
 			"name": "Dispatch Center"
-		},
-		{
-			"ids": [
-				23,
-				24
-			],
-			"name": "Complex"
 		}
 	],
 	"description": "Customize filters of the buildinglist!",
