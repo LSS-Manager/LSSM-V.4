@@ -78,7 +78,7 @@ export default <ModuleMainFunction>(async (LSSM, MODULE_ID) => {
                     btn.innerText = title;
                 } else {
                     const icon = document.createElement('i');
-                    icon.classList.add(icon_style, `fa-${title}`);
+                    icon.classList.add(icon_style, `fa-${title}`, 'fa-fw');
                     btn.append(icon);
                 }
                 btn.addEventListener('click', () => {

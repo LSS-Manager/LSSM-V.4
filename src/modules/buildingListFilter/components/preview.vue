@@ -3,6 +3,7 @@
         <font-awesome-icon
             v-if="setting.contentType === 'icon'"
             :icon="[setting.icon_style, setting.title]"
+            fixed-width
             class="type-icon"
         ></font-awesome-icon>
         <span v-else>{{ setting.title }}</span>
