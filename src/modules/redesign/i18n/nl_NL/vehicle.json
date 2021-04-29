@@ -9,8 +9,8 @@
 	"current_mission": "Huidige inzet",
 	"delete": {
 		"button": "Verwijderen",
-		"cancel": "Abbrechen",
-		"confirm": "Annuleren",
+		"cancel": "Annuleren",
+		"confirm": "Verwijderen",
 		"text": "Weet u zeker dat u het voertuig **{caption}** van gebouw **{building}** wilt verwijderen?",
 		"title": "Voertuig verwijderen"
 	},
@@ -62,6 +62,10 @@
 		"beds": "Vrije bedden",
 		"department": "Specialisatie: {department}",
 		"hospital": "Ziekenhuis"
+	},
+	"load_all_hospitals": {
+		"btn": "Alle ziekenhuizen laden",
+		"text": "Er worden maar 50 ziekenhuizen weergegeven. Het laden van alle ziekenhuizen kan, afhankelijk van het aantal, veel tijd in beslag nemen!"
 	},
 	"max_staff": "Max. personeel",
 	"mileage": "Totale kilometers",

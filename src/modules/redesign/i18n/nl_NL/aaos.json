@@ -1,0 +1,26 @@
+{
+	"add": {
+		"arr": "Nieuw inzetvoorstel",
+		"group": "Nieuwe groep"
+	},
+	"categories": "Eigen categorieën beheren",
+	"delete": {
+		"all": {
+			"text": "Weet je zeker dat je alle inzetvoorstellen wilt verwijderen? Dit kan niet ongedaan worden gemaakt en de exports zullen niet meer functioneren!",
+			"title": "Alle inzetvoorstellen verwijderen"
+		},
+		"arr": {
+			"text": "Weet je zeker dat je dit inzetvoorstel wilt verwijderen? Dit kan niet ongedaan gemaakt worden. Dit voorstel zal ook niet meer in de exports voorkomen!",
+			"title": "Inzetvoorstel verwijderen"
+		},
+		"cancel": "Annuleren",
+		"confirm": "Verwijderen!",
+		"vehicle_group": {
+			"text": "Weet je zeker dat je deze groep wilt verwijderen? Dit kan niet ongedaan gemaakt worden!",
+			"title": "Groep verwijderen"
+		}
+	},
+	"delete_all": "Alle inzetvoorstellen verwijderen!",
+	"export": "Inzetvoorstellen exporteren",
+	"title": "Inzetvoorstellen"
+}
