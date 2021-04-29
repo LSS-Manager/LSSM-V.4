@@ -89,6 +89,10 @@
                         v-model="value[item.name]"
                         @input="changeValue(index, value)"
                     ></settings-hotkey>
+                    <div
+                        v-else-if="item.setting.type === 'hidden'"
+                        class="hidden"
+                    ></div>
                     <pre v-else>{{ setting }}</pre>
                 </div>
             </div>
