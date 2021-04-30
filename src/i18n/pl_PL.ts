@@ -1124,5 +1124,5 @@ export default {
         'Silos',
     ],
     only_alliance_missions: [57, 74],
-    transfer_missions: [],
+    transfer_missions: [373],
 };
