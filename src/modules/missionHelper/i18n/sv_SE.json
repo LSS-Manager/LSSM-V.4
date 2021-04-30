@@ -5,6 +5,7 @@
 	"generated_by": "Skapad av",
 	"patients": {
 		"allow_ktw_instead_of_rtw": "En ambulans kan användas.",
+		"critical_care": "intensivvård behövs",
 		"helicopter": "Sannolikhet för ambulanshelikopter:",
 		"patient_at_end_of_mission": "Patienten visas bara i slutet av operationen!",
 		"patient_transport": "Sannolikhet för transport",
@@ -53,6 +54,7 @@
 			"heavy_rescue_vehicles": "Lastväxlare",
 			"helicopter": "Ambulanshelikopter",
 			"k9": "Hundenhet",
+			"kdow_orgl": "Ledningsfordon",
 			"large_fire_boat": "Stor brandbåt | Stora brandbåtar",
 			"large_rescue_boat": "Stor räddningsbåt | Stora räddningsbåtar",
 			"mobile_air_vehicles": "Luftfordon",
@@ -78,6 +80,9 @@
 				"additional_text": "varav minst {n} är räddningsbil.",
 				"reduce_from": "firetrucks"
 			}
+		},
+		"patient_additionals": {
+			"8": "Ledningsfordon"
 		},
 		"title": "Nödvändiga fordon"
 	}

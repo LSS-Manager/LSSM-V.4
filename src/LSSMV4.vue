@@ -130,23 +130,30 @@ body.dark
         color: #f5f5f5
         background: #333
 
-    &:not(.leaflet-no-dark-tooltip)
-        .leaflet-tooltip
-            background-color: #505050
-            color: #ddd
-            border: #505050
+    &:not(.leaflet-no-dark-tooltip) .leaflet-tooltip
+        background-color: #505050
+        color: #ddd
+        border: #505050
 
-            &.leaflet-tooltip-left::before
-                border-left-color: #505050
+        &.leaflet-tooltip-left::before
+            border-left-color: #505050
 
-            &.leaflet-tooltip-right::before
-                border-right-color: #505050
+        &.leaflet-tooltip-right::before
+            border-right-color: #505050
 
     &.leaflet-no-dark-tooltip .leaflet-tooltip tr
         background-color: unset
 
     .bg-danger
         background-color: #a94442
+
+    > :not(nav):not(#col_navbar_holder) .dropdown-menu
+        background-image: linear-gradient(to bottom, #505050 0, #000 100%)
+        color: #fff
+        border: #000
+
+        a
+            color: #fff
 
 .vm--container
     z-index: 5001 !important

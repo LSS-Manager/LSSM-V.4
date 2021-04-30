@@ -53,9 +53,15 @@ export default ((MODULE_ID, LSSM, $m) => {
             default: false,
             dependsOn: '.vehicles.content',
         },
-        ...(['de_DE', 'en_US', 'nl_NL', 'nb_NO', 'en_AU', 'fr_FR'].includes(
-            locale
-        )
+        ...([
+            'de_DE',
+            'en_US',
+            'nl_NL',
+            'nb_NO',
+            'en_AU',
+            'fr_FR',
+            'es_ES',
+        ].includes(locale)
             ? {
                   'vehicles.patient_additionals': <Toggle>{
                       type: 'toggle',
@@ -149,7 +155,9 @@ export default ((MODULE_ID, LSSM, $m) => {
                   },
               }
             : null),
-        ...(['de_DE', 'en_US', 'nl_NL', 'it_IT'].includes(locale)
+        ...(['de_DE', 'en_US', 'nl_NL', 'it_IT', 'fr_FR', 'nb_NO'].includes(
+            locale
+        )
             ? {
                   'optionalAlternatives.allow_ktw_instead_of_rtw': <Toggle>{
                       type: 'toggle',
@@ -183,9 +191,17 @@ export default ((MODULE_ID, LSSM, $m) => {
                   },
               }
             : null),
-        ...(['en_GB', 'nb_NO', 'da_DK', 'pl_PL', 'en_AU', 'fr_FR'].includes(
-            locale
-        )
+        ...([
+            'en_GB',
+            'nb_NO',
+            'da_DK',
+            'pl_PL',
+            'en_AU',
+            'fr_FR',
+            'es_ES',
+            'cs_CZ',
+            'sv_SE',
+        ].includes(locale)
             ? {
                   'patients.critical_care': <Toggle>{
                       type: 'toggle',

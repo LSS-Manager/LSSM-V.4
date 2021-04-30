@@ -81,9 +81,7 @@
                 {{ lightbox.$sm('applied') }}
             </div>
         </div>
-        <div class="alliance-home-text">
-            <p v-for="(t, index) in home.text" :key="index" v-html="t"></p>
-        </div>
+        <div class="alliance-home-text" v-html="home.text"></div>
     </div>
 </template>
 

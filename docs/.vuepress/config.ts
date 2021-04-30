@@ -44,12 +44,13 @@ moduleDirs.forEach((module: string) => {
             // eslint-disable-next-line @typescript-eslint/no-var-requires
             const title = require(`../../src/modules/${module}/i18n/${lang}.root`)
                 .name;
+            // eslint-disable-next-line @typescript-eslint/no-var-requires
+            const register = require(`../../src/modules/${module}/register`);
             modulesSorted[lang].push({
                 title,
                 f: `${lang}/modules/${f.replace(lang, module)}`,
                 // eslint-disable-next-line @typescript-eslint/no-var-requires
-                noMapkit: require(`../../src/modules/${module}/register`)
-                    .noMapkit,
+                noMapkit: register.noMapkit,
             });
             fs.copyFileSync(
                 path.join(__dirname, `../../src/modules/${module}/docs/${f}`),
@@ -67,7 +68,11 @@ title: ${title}
 lang: ${lang}
 ---
 
-# ${title}
+# ${title} ${
+                    register.github
+                        ? `<a href="https://github.com/LSS-Manager/LSSM-V.4/issues/${register.github}" title="Issue #${register.github} on GitHub" target="_blank"><img src="https://github.githubassets.com/pinned-octocat.svg" alt="Issue #${register.github} on GitHub" style="height: 1.5ex" data-prevent-zooming/></a>`
+                        : ''
+                }
 
 ${content}`
             );
@@ -110,6 +115,7 @@ lang: ${lang}
 # ${title}
 :::warning No module page existing yet
 Dear User,
+
 thanks for your interest in the Wiki page of **${title}**!
 Unfortunately, we weren't able to create the content for your language \`${lang}\` yet. If you want to contribute to our wiki, feel free to create this page [on GitHub](https://github.com/${
                     config.github.repo
@@ -122,7 +128,7 @@ This module already has a Wiki page in the following languages:
 ${availableLangs
     .map(
         l =>
-            `* [${config.games[l].flag} ${config.games[l].name}](/v4/docs/${l}/modules/${module}.html)`
+            `* [${config.games[l].flag} ${config.games[l].name}](/${l}/modules/${module}.html)`
     )
     .join('\n')}
 :::
@@ -244,7 +250,7 @@ const options = {
         variables: {
             discord: config.discord,
             discord_support: config.discord_support,
-            github: config.github.repo,
+            github: `https://github.com/${config.github.repo}`,
             server: config.server,
             // eslint-disable-next-line @typescript-eslint/no-var-requires
             versions: require('../../static/.configs.json').versions,

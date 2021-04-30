@@ -474,6 +474,14 @@ export default {
             maxPersonnel: 2,
             wtank: 0,
         },
+        35: {
+            caption: 'SRMed',
+            color: '#FFFFCC',
+            coins: 20,
+            credits: 4_000,
+            minPersonnel: 2,
+            maxPersonnel: 4,
+        },
     },
     buildings: {
         0: {
@@ -1116,5 +1124,5 @@ export default {
         'Silos',
     ],
     only_alliance_missions: [57, 74],
-    transfer_missions: [],
+    transfer_missions: [373],
 };

@@ -1,0 +1,11 @@
+{
+	"faq": "FAQ",
+	"header": "Belangrijke mededeling",
+	"header_help": "Deze tekst wordt in een blauwe balk boven de chat weergegeven.",
+	"rules": "Teamregels",
+	"save": "Opslaan",
+	"text": "Teamtekst (Startpagina)",
+	"title": "Team bewerken",
+	"webhook": "Discord-Webhook Link",
+	"webhook_help": "Meer informatie over de Discord-Webhook vind je in onze"
+}

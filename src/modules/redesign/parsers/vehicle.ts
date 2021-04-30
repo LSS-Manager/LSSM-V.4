@@ -204,7 +204,7 @@ export default <RedesignParser<VehicleWindow>>(({
         mileage: doc.getElementById('vehicle-attr-total-km')?.textContent ?? '',
         image:
             imageEl?.getAttribute('image_replace_allowed') === 'true' &&
-            doc.documentElement.innerHTML.match(
+            ((doc.documentElement.innerHTML.match(
                 /vehicle_graphics(_sorted\[\d+])?\s*=\s*/
             )
                 ? JSON.parse(
@@ -215,8 +215,10 @@ export default <RedesignParser<VehicleWindow>>(({
                           ?.innerText.match(
                               /(?<=vehicle_graphics(_sorted\[\d+])?\s*=\s*)\[(?:(?:(?:\[".*?",".*?","(?:true|false)"])|null),?)+]/
                           )?.[0] ?? '[]'
-                  )[vehicleType][0]
-                : imageEl?.src ?? '',
+                  )[vehicleType]?.[0]
+                : imageEl?.src) ??
+                imageEl?.src ??
+                ''),
         user: userEl
             ? {
                   name: userEl.textContent ?? '',

@@ -372,6 +372,69 @@ export default {
             schooling: 'Brandstation - Luftburen brandbekämparutbildning',
             shownSchooling: 'Luftburen brandbekämparutbildning',
         },
+        28: {
+            caption: 'Akutläkarbil',
+            color: '#e68319',
+            coins: 20,
+            credits: 4_000,
+            minPersonnel: 2,
+            maxPersonnel: 2,
+        },
+        29: {
+            caption: 'FIP',
+            color: '#e68319',
+            coins: 25,
+            credits: 4_000,
+            minPersonnel: 1,
+            maxPersonnel: 1,
+            schooling: 'Brandstation - Insatsutbildning',
+            shownSchooling: 'Insatsutbildning',
+        },
+        30: {
+            caption: 'Lättvårdsambulans',
+            color: '#e68319',
+            coins: 12,
+            credits: 5_000,
+            minPersonnel: 2,
+            maxPersonnel: 2,
+        },
+        31: {
+            caption: 'Ledningsfordon',
+            color: '#e68319',
+            coins: 25,
+            credits: 25_000,
+            minPersonnel: 3,
+            maxPersonnel: 5,
+            special: 'Krävs när du har byggt 10 ambulansstationer',
+        },
+        32: {
+            caption: 'Jourläkare',
+            color: '#e68319',
+            coins: 20,
+            credits: 4_000,
+            minPersonnel: 1,
+            maxPersonnel: 1,
+            schooling: 'Rädda - Intensivvårdsutbildning',
+            shownSchooling: 'Intensivvårdsutbildning',
+        },
+        33: {
+            caption: 'IVPA',
+            color: '#e68319',
+            coins: 20,
+            credits: 4_000,
+            minPersonnel: 2,
+            maxPersonnel: 4,
+        },
+        34: {
+            caption: 'MC-Ambulans',
+            color: '#e68319',
+            coins: 15,
+            credits: 12_000,
+            minPersonnel: 1,
+            maxPersonnel: 1,
+            schooling: 'Rädda - MC-Ambulans',
+            shownSchooling: 'MC-Ambulans',
+        },
     },
     buildings: {
         0: {
@@ -432,13 +495,39 @@ export default {
             color: '#ffa500',
             coins: 35,
             credits: 200_000,
-            extensions: [],
+            extensions: [
+                {
+                    caption: 'Intensivvårdsavdelning',
+                    credits: 200_000,
+                    coins: 25,
+                    duration: '7 dagar',
+                },
+            ],
             levelcost: ['1. 10.000', '2. 50.000 ', '3.-14. 100.000'],
             maxBuildings: 'Ingen gräns',
             maxLevel: 14,
             special: '',
             startPersonnel: 3,
             startVehicles: ['Ambulans'],
+        },
+        3: {
+            caption: 'Vård- och hälsohögskola',
+            color: '#992222',
+            coins: 50,
+            credits: 500_000,
+            extensions: new Array(3).fill({
+                caption: 'Fler klassrum',
+                credits: 400_000,
+                coins: 40,
+                duration: '7 dagar',
+            }),
+            levelcost: [],
+            maxBuildings: 'Ingen gräns',
+            maxLevel: 0,
+            special:
+                'CFO och administratörer kan förbättra byggnaden genom Alliance Bank. <br> Utbildningsledare och administratörer kan initiera utbildningar.',
+            startPersonnel: 0,
+            startVehicles: [],
         },
         4: {
             caption: 'Sjukhus',
@@ -735,7 +824,7 @@ export default {
             color: '#ff2d2d',
         },
         Ambulanser: {
-            buildings: [2, 4, 5, 20],
+            buildings: [2, 3, 4, 5, 20],
             color: '#ffa500',
         },
         Polis: {
@@ -752,7 +841,7 @@ export default {
             vehicles: {
                 Brandbilar: [0, 1, 12],
                 Stegbilar: [2],
-                Specialfordon: [4, 6, 7, 10, 11, 19],
+                Specialfordon: [4, 6, 7, 10, 11, 19, 29],
                 Brandbefäl: [3],
                 Båtar: [18, 20],
                 Skogsbrandbilar: [21, 22, 23, 25, 26, 27],
@@ -761,7 +850,7 @@ export default {
         },
         Ambulanser: {
             vehicles: {
-                Ambulanser: [5],
+                Ambulanser: [5, 28, 30, 31, 32, 33, 34],
                 Ambulanshelikopter: [9],
             },
             color: '#ffa500',
@@ -801,7 +890,7 @@ export default {
         '19_1',
     ],
     bedBuildings: [4],
-    schoolBuildings: [1, 8],
+    schoolBuildings: [1, 3, 8],
     dispatchCenterBuildings: [7],
     schoolings: {
         Brandstation: [
@@ -833,10 +922,14 @@ export default {
                 caption: 'Luftburen brandbekämparutbildning',
                 duration: '5 dagar',
             },
+            {
+                caption: 'Insatsutbildning',
+                duration: '3 dagar',
+            },
         ],
         Polis: [
             {
-                caption: 'Polishelikopterpilotutbildning ',
+                caption: 'Polishelikopterpilotutbildning',
                 duration: '7 dagar',
             },
             {
@@ -853,6 +946,16 @@ export default {
             },
             {
                 caption: 'Rytteriutbildning',
+                duration: '3 dagar',
+            },
+        ],
+        Rädda: [
+            {
+                caption: 'Intensivvårdsutbildning',
+                duration: '5 dagar',
+            },
+            {
+                caption: 'MC-Ambulans',
                 duration: '3 dagar',
             },
         ],

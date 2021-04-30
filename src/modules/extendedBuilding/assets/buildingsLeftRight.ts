@@ -12,15 +12,24 @@ export default (LSSM: Vue): void => {
     const buildingsByType = LSSM.$store.getters['api/buildingsByType'] as {
         [type: number]: Building[];
     };
-    const small_building =
-        ((LSSM.$t('small_buildings') as unknown) as { [type: number]: number })[
-            building.building_type
-        ] ?? (NaN as number);
-    const buildings = [
-        ...(buildingsByType[building.building_type] || []),
-        ...(isNaN(small_building) ? [] : buildingsByType[small_building] || []),
-    ]
-        .map(({ id }) => id)
+    const smallBuildings = (LSSM.$t('small_buildings') as unknown) as {
+        [type: number]: number;
+    };
+    const smallBuildingsArray:
+        | (string | number)[]
+        | undefined = smallBuildings.hasOwnProperty(building.building_type)
+        ? Object.entries(smallBuildings).find(ids =>
+              ids.includes(building.building_type)
+          )
+        : [building.building_type];
+    if (!smallBuildingsArray) return;
+    const buildings = smallBuildingsArray
+        .flatMap(
+            type =>
+                buildingsByType[parseInt(type.toString())].map(
+                    ({ id }) => id
+                ) || []
+        )
         .sort((a, b) => (a < b ? -1 : a > b ? 1 : 0));
     const position = buildings.indexOf(buildingId);
     if (position < 0) return;

@@ -138,8 +138,8 @@
 				"title": "Veicoli richiesti"
 			},
 			"patient_additionals": {
-				"description": "Se attualmente ci sono più di 10 pazienti sul sito, EMS-Chief viene automaticamente elencato all'inizio dei requisiti del veicolo.",
-				"title": "Menziona extra EMS-Chief"
+				"description": "Se attualmente ci sono più di 10 pazienti sul sito, DTS viene automaticamente elencato all'inizio dei requisiti del veicolo.",
+				"title": "Menziona extra DTS"
 			},
 			"sort": {
 				"amount": "Numero dei veicoli richiesti",

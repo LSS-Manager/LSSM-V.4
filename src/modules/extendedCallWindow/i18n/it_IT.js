@@ -55,7 +55,7 @@ module.exports = {
             arff: 'ARFF',
             hems: 'Elisoccorso',
             rth_only: 'Elisoccorso',
-            kdow_orgl: 'Capo EMS',
+            kdow_orgl: 'DTS',
             grtw: 'Unità vittime di massa',
             fustw: 'Auto di pattuglia',
             police_motorcycle: 'Moto della Polizia',

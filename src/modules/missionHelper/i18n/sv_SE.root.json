@@ -77,6 +77,10 @@
 				"description": "Visar detaljer om möjliga patienter.",
 				"title": "Detaljer om möjliga patienter"
 			},
+			"critical_care": {
+				"description": "Shows the possible Critical Care Chance",
+				"title": "Details of possible Critical Chances"
+			},
 			"hideWhenNoNeed": {
 				"description": "Döljer patient-information när det inte finns fler patienter och patienter inte dyker upp i slutet av uppdraget.",
 				"title": "Visa endast patient-information när det behövs"
@@ -126,8 +130,8 @@
 				"title": "Fordonskrav"
 			},
 			"patient_additionals": {
-				"description": "If there are currently more than 10 patients on site, EMS-Chief is automatically listed at the beginning of the vehicle requirements.",
-				"title": "Mention EMS-Chief extra"
+				"description": "If there are currently more than 10 patients on site, Ledningsfordon is automatically listed at the beginning of the vehicle requirements.",
+				"title": "Mention Ledningsfordon extra"
 			},
 			"sort": {
 				"amount": "Antal fordon som krävs",

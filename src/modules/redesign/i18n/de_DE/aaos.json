@@ -1,0 +1,26 @@
+{
+	"add": {
+		"arr": "Neue AAO",
+		"group": "Neuer Zug"
+	},
+	"categories": "Eigene Kategorien bearbeiten",
+	"delete": {
+		"all": {
+			"text": "Möchtest du wirklich ALLE AAO-Einträge löschen? Dies kann NICHT rückgängig gemacht werden und alle bisherigen Exports deiner AAO werden NICHT mehr funktionieren!",
+			"title": "Komplette AAO löschen"
+		},
+		"arr": {
+			"text": "Möchtest du wirklich diesen einen AAO-Eintrag löschen? Das kann nicht rückgängig gemacht werden! Der Eintrag wird in keinen vorhandenen Exports mehr erscheinen!",
+			"title": "AAO löschen"
+		},
+		"cancel": "Abbrechen",
+		"confirm": "Löschen!",
+		"vehicle_group": {
+			"text": "Möchtest du wirklich diesen einen Zug löschen? Das kann nicht rückgängig gemacht werden!",
+			"title": "Zug löschen"
+		}
+	},
+	"delete_all": "Komplette AAO löschen!",
+	"export": "AAO exportieren",
+	"title": "Alarm- und Ausrückeordnung & Züge"
+}

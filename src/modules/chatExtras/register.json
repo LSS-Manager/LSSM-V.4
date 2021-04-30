@@ -1,4 +1,5 @@
 {
+	"github": 34,
 	"location": "^/?$",
 	"settings": true
 }

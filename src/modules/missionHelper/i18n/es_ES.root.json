@@ -4,23 +4,8 @@
 	"noVehicleRequirements": {
 		"average_min_fire_personnel": {
 			"badge": false,
-			"in": "adicional",
-			"text": "Promedio mínimo . Personal de bomberos"
-		},
-		"average_min_police_personnel": {
-			"badge": false,
-			"in": "adicional",
-			"text": "Promedio mínimo . Personal de policía"
-		},
-		"swat_personnel": {
-			"badge": false,
-			"in": "adicional",
-			"text": "Requiere personal de Fuerzas Especiales"
-		},
-		"water_needed": {
-			"badge": true,
-			"in": "requisitos",
-			"text": "Agua: {n} litro | Agua: {n} litros"
+			"in": "additional",
+			"text": "Media de personal antiincendios mín."
 		}
 	},
 	"settings": {
@@ -120,6 +105,10 @@
 			"content": {
 				"description": "Muestra detalles sobre posibles presos.",
 				"title": "Detalles de posibles presos"
+			},
+			"critical_care": {
+				"description": "Muestra la posible oportunidad de cuidados críticos",
+				"title": "Detalles de las posibles oportunidades críticas"
 			},
 			"live": {
 				"description": "Muestra en la parte superior del ayudante de la misión cuántos presos tiene actualmente la misión.",

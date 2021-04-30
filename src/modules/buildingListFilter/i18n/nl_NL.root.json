@@ -1,0 +1,88 @@
+{
+	"default": [
+		{
+			"ids": [
+				0
+			],
+			"name": "Brandweer"
+		},
+		{
+			"ids": [
+				3,
+				13
+			],
+			"name": "Ambulance"
+		},
+		{
+			"ids": [
+				5,
+				11
+			],
+			"name": "Politie"
+		},
+		{
+			"ids": [
+				4,
+				7,
+				8
+			],
+			"name": "Scholen"
+		},
+		{
+			"ids": [
+				1
+			],
+			"name": "Meldkamer"
+		},
+		{
+			"ids": [
+				9
+			],
+			"name": "Politiehelikopter"
+		},
+		{
+			"ids": [
+				6
+			],
+			"name": "MMT"
+		},
+		{
+			"ids": [
+				2
+			],
+			"name": "Ziekenhuizen"
+		},
+		{
+			"ids": [
+				10
+			],
+			"name": "UGS"
+		},
+		{
+			"ids": [
+				14,
+				15
+			],
+			"name": "Complexen"
+		}
+	],
+	"description": "Pas de filter van de gebouwenlijst aan!",
+	"name": "Aanpasbare gebouwenlijst",
+	"settings": {
+		"buildings": "Gebouwtypen",
+		"contentType": {
+			"labels": [
+				"Tekst",
+				"Afbeelding"
+			],
+			"title": "Tekst of afbeelding?"
+		},
+		"filters": {
+			"description": "Stel hier de filters in. Je kan kiezen voor een tekst of een afbeelding voor de knoppen. Voor de afbeelding kun je kiezen uit <a href=\"https://fontawesome.com/icons?d=gallery&m=free\" target=\"_blank\">alle gratis afbeeldingen van Font-Awesome</a>. Het is genoeg om de naam van de afbeelding op te geven. Een live voorvertoning zal dan worden weergegeven.",
+			"title": "Gebouwenfilter"
+		},
+		"icon_style": "Afbeeldingstype",
+		"preview": "Voorvertoning",
+		"title": "Titel (of afbeelding)"
+	}
+}

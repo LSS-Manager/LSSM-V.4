@@ -334,7 +334,7 @@ export default {
             coins: 35,
             credits: 35_000,
             minPersonnel: 2,
-            maxPersonnel: 7,
+            maxPersonnel: 2,
             schooling: 'Police - Roads Policing Officer Training',
             shownSchooling: 'Roads Policing Officer',
         },
@@ -344,7 +344,7 @@ export default {
             coins: 35,
             credits: 35_000,
             minPersonnel: 2,
-            maxPersonnel: 6,
+            maxPersonnel: 2,
             schooling: 'Police - Firearms training',
             shownSchooling: 'Firearms training',
             special:

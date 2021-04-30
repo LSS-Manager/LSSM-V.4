@@ -159,7 +159,7 @@ export default {
             coins: 25,
             credits: 5_000,
             minPersonnel: 1,
-            maxPersonnel: 3,
+            maxPersonnel: 2,
             wtank: 0,
         },
         6: {
@@ -200,7 +200,6 @@ export default {
             credits: 300_000,
             minPersonnel: 1,
             maxPersonnel: 1,
-            wtank: 0,
         },
         10: {
             caption: 'Vehículo aéreo',
@@ -294,6 +293,52 @@ export default {
             schooling: 'Policía - Motorista',
             shownSchooling: 'Motorista',
         },
+        18: {
+            caption: 'VIR',
+            color: '#770000',
+            coins: 20,
+            credits: 4_000,
+            minPersonnel: 2,
+            maxPersonnel: 2,
+        },
+        19: {
+            caption: 'Unidad logística de AMV',
+            color: '#770000',
+            coins: 25,
+            credits: 20_000,
+            minPersonnel: 2,
+            maxPersonnel: 3,
+            special:
+                'Necesario cuando hayas construido 6 estaciones de rescate',
+        },
+        20: {
+            caption: 'Médico de cabecera',
+            color: '#770000',
+            coins: 20,
+            credits: 4_000,
+            minPersonnel: 1,
+            maxPersonnel: 1,
+            schooling: 'Rescate - Formación en cuidados intensivos',
+            shownSchooling: 'Formación en cuidados intensivos',
+        },
+        21: {
+            caption: 'Motocicleta de intervención rápida',
+            color: '#770000',
+            coins: 15,
+            credits: 12_000,
+            minPersonnel: 1,
+            maxPersonnel: 1,
+            schooling: 'Rescate - Motocicleta de intervención rápida',
+            shownSchooling: 'Motocicleta de intervención rápida',
+        },
+        22: {
+            caption: 'Ambulancia SVB',
+            color: '#770000',
+            coins: 12,
+            credits: 5_000,
+            minPersonnel: 2,
+            maxPersonnel: 2,
+        },
     },
     buildings: {
         0: {
@@ -326,7 +371,7 @@ export default {
             credits: 500_000,
             extensions: [
                 ...new Array(3).fill({
-                    caption: 'Aula adicional',
+                    caption: 'Más aulas',
                     credits: 400_000,
                     coins: 40,
                     duration: '7 Días',
@@ -345,13 +390,41 @@ export default {
             color: '#bbe944',
             coins: 35,
             credits: 200_000,
-            extensions: [],
+            extensions: [
+                {
+                    caption: 'Expansión de cuidados de emergencia',
+                    credits: 200_000,
+                    coins: 25,
+                    duration: '7 Días',
+                },
+            ],
             levelcost: ['1. 10.000', '2. 50.000', '3.-14. 100.000'],
             maxBuildings: 'No hay límite',
             maxLevel: 14,
             special: '',
             startPersonnel: 0,
             startVehicles: ['Ambulancia'],
+        },
+        3: {
+            caption: 'Academia de servicios de emergencia',
+            color: '#24c3ae',
+            coins: 50,
+            credits: 500_000,
+            extensions: [
+                ...new Array(3).fill({
+                    caption: 'Más aulas',
+                    credits: 400_000,
+                    coins: 40,
+                    duration: '7 Días',
+                }),
+            ],
+            levelcost: [],
+            maxBuildings: 'No hay límite',
+            maxLevel: 0,
+            special:
+                'Los ministros y administradores de finanzas pueden (expandir) las escuelas del departamento de bomberos con la ayuda de créditos de la tesorería de la asociación. Los maestros y administradores de cursos de capacitación pueden comenzar cursos de capacitación en las escuelas del cuerpo de bomberos de la asociación.',
+            startPersonnel: 0,
+            startVehicles: [],
         },
         4: {
             caption: 'Hospital',
@@ -469,7 +542,6 @@ export default {
             startVehicles: ['Coche patrulla'],
             maxBuildingsFunction: (): number => 1_700,
         },
-
         7: {
             caption: 'Centralita',
             color: '#225522',
@@ -492,7 +564,7 @@ export default {
             credits: 500_000,
             extensions: [
                 ...new Array(3).fill({
-                    caption: 'Aula adicional',
+                    caption: 'Más aulas',
                     credits: 400_000,
                     coins: 40,
                     duration: '7 Días',
@@ -631,7 +703,7 @@ export default {
             color: '#ff2d2d',
         },
         'Parques de ambulancias': {
-            buildings: [2, 5, 20],
+            buildings: [2, 3, 5, 20],
             color: '#ffa500',
         },
         'Parques de policías': {
@@ -653,7 +725,7 @@ export default {
         },
         'Vehículos de ambulancias': {
             vehicles: {
-                Ambulancias: [5],
+                Ambulancias: [5, 18, 19, 20, 21, 22],
                 HEMS: [9],
             },
             color: '#ffa500',
@@ -688,7 +760,7 @@ export default {
         '6_9',
     ],
     bedBuildings: [4],
-    schoolBuildings: [1, 8],
+    schoolBuildings: [1, 3, 8],
     dispatchCenterBuildings: [7],
     schoolings: {
         'Parque de bomberos': [
@@ -728,6 +800,16 @@ export default {
             },
             {
                 caption: 'Motorista',
+                duration: '3 Días',
+            },
+        ],
+        'Rescate': [
+            {
+                caption: 'Formación en cuidados intensivos',
+                duration: '5 Días',
+            },
+            {
+                caption: 'Motocicleta de intervención rápida',
                 duration: '3 Días',
             },
         ],

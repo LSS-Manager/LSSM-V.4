@@ -49,7 +49,12 @@ export default {
                 test: /\.sass$/,
                 use: [
                     'vue-style-loader',
-                    'css-loader',
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            esModule: false,
+                        },
+                    },
                     {
                         loader: 'sass-loader',
                         options: {

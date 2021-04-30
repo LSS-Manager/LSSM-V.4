@@ -76,9 +76,9 @@
 			"title": "Special requirements"
 		},
 		"optionalAlternatives": {
-			"allow_arff_instead_of_lf": {
-				"description": " Indicates, if instead of a firetruck arrfs are possible on site.",
-				"title": "Show if arrfs are allowed as firetrucks"
+			"allow_ktw_instead_of_rtw": {
+				"description": "Indique si une ambulance de type A peut être utilisée à la place d'une ASSU..",
+				"title": "Ambulance de type A au lieu d'ASSU"
 			},
 			"allow_rw_instead_of_lf": {
 				"description": "Indicates, if instead of a firetruck also heavy rescue or rescue engine is possible on site.",

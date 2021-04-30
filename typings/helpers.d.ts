@@ -53,6 +53,7 @@ declare global {
         unix_timestamp(): number;
         mapMoveToSearch(): void;
         lightboxClose(creation?: string): void; // creation Param only for LSSM Redesign
+        buildingsVehicleLoadVisible(): void;
     }
 }
 

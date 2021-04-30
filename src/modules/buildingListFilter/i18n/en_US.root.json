@@ -1,0 +1,78 @@
+{
+	"default": [
+		{
+			"ids": [
+				0,
+				11,
+				13,
+				17
+			],
+			"name": "Firehouse"
+		},
+		{
+			"ids": [
+				2,
+				3,
+				6,
+				12,
+				14,
+				16
+			],
+			"name": "Rescue"
+		},
+		{
+			"ids": [
+				5,
+				8,
+				15
+			],
+			"name": "Police"
+		},
+		{
+			"ids": [
+				4,
+				7,
+				19
+			],
+			"name": "School"
+		},
+		{
+			"ids": [
+				1
+			],
+			"name": "Dispatch Center"
+		},
+		{
+			"ids": [
+				18
+			],
+			"name": "FBI"
+		},
+		{
+			"ids": [
+				20,
+				21
+			],
+			"name": "Complex"
+		}
+	],
+	"description": "Customize filters of the buildinglist!",
+	"name": "Customizable buildings list",
+	"settings": {
+		"buildings": "Building Types",
+		"contentType": {
+			"labels": [
+				"Text",
+				"Icon"
+			],
+			"title": "Text or Icon?"
+		},
+		"filters": {
+			"description": "Leave icons in the \"Alarm\" Show button, based on your selection. You can choose between <a href=\"https://fontawesome.com/icons?d=gallery&m=free\" target=\"_blank\">all free icons from Font-Awesome</a>. It is enough to specify the name of the icon. A live preview will then show you the icon.",
+			"title": "Buildinglist filter"
+		},
+		"icon_style": "Icon-Type",
+		"preview": "Preview",
+		"title": "Title (or Icon)"
+	}
+}

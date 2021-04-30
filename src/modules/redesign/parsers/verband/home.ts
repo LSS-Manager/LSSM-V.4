@@ -6,7 +6,7 @@ export interface VerbandHomeWindow extends VerbandWindow {
     edit_text: boolean;
     edit_name: boolean;
     edit_logo: boolean;
-    text: string[];
+    text: string;
     appliable: boolean;
     no_apply_box: string;
     applied: boolean;
@@ -39,9 +39,9 @@ export default <RedesignParser<VerbandHomeWindow>>(({
         edit_text: !!doc.querySelector('a[href="/veband/text/edit"]'),
         edit_name: !!doc.querySelector(`a[href="/alliances/${id}/edit"]`),
         edit_logo: !!doc.querySelector('a[href="/verband/avatar"]'),
-        text: Array.from(
-            doc.querySelectorAll<HTMLParagraphElement>('h3 ~ p')
-        ).map(p => (p.matches('.clearfix ~ p') ? '' : p.innerHTML.trim())),
+        text:
+            doc.querySelector<HTMLDivElement>('#alliance-description')
+                ?.innerHTML ?? '',
         appliable: !!applyBtn,
         no_apply_box: applyBtn?.classList.contains('disabled')
             ? doc.querySelector<HTMLDivElement>('.alert.alert-info')

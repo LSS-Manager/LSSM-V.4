@@ -13,6 +13,7 @@ import { NextFMSWindow } from '../../src/modules/redesign/parsers/vehicle/nextfm
 import { ProfileEditWindow } from '../../src/modules/redesign/parsers/profile/edit';
 import { ProfileWindow } from '../../src/modules/redesign/parsers/profile';
 import { TopListWindow } from '../../src/modules/redesign/parsers/toplist';
+import { VehicleGroupWindow } from 'modules/redesign/parsers/vehicle_group';
 import { VehicleWindow } from '../../src/modules/redesign/parsers/vehicle';
 import { VerbandEditNameWindow } from '../../src/modules/redesign/parsers/verband/edit_name';
 import { VerbandEditTextWindow } from '../../src/modules/redesign/parsers/verband/edit_text';
@@ -45,6 +46,7 @@ type types =
     | 'profile'
     | 'profile/edit'
     | 'toplist'
+    | 'vehicle_group'
     | 'vehicle'
     | 'vehicle/nextfms'
     | 'verband/edit_name'
@@ -67,6 +69,7 @@ type windows =
     | ProfileEditWindow
     | ProfileWindow
     | TopListWindow
+    | VehicleGroupWindow
     | VehicleWindow
     | VerbandEditNameWindow
     | VerbandEditTextWindow

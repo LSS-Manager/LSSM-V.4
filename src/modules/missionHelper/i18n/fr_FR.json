@@ -4,6 +4,7 @@
 	"followups": "Mission à suivre | Missions à suivre",
 	"generated_by": "Généré par",
 	"patients": {
+		"allow_ktw_instead_of_rtw": "Une ambulance de type A peut être utilisée à la place d'une ASSU.",
 		"critical_care": "Probabilité qu'un médecin soit requis",
 		"helicopter": "Probabilité de déclencher l'hélicoptère de secours",
 		"patient_allow_first_responder_chance": "First Responder Probability",
@@ -86,7 +87,7 @@
 			}
 		},
 		"patient_additionals": {
-			"10": "PC DSM"
+			"8": "PC DSM"
 		},
 		"title": "Véhicules"
 	}

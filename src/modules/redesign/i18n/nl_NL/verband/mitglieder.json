@@ -1,0 +1,55 @@
+{
+	"amount": "{n} gefilterde speler | {n} gefilterde spelers",
+	"credits": "Totaalverdiende credits",
+	"discount": "Korting",
+	"edit_caption": {
+		"save": "Opslaan"
+	},
+	"load": {
+		"next": "Volgende pagina laden",
+		"prev": "Vorige pagina laden"
+	},
+	"name": "Speler",
+	"online": {
+		"subtitle": "Alleen online teamleden worden getoond!",
+		"titles": {
+			"blue": "{user} is offline en was in de laatste 30 dagen online!",
+			"gray": "{user} is offline en was in de laatste 7 dagen online!",
+			"green": "{user} istonline!",
+			"red": "{user} is meer dan 60 dagen offline!",
+			"yellow": "{user} is offline en was in de laatste 60 dagen online!"
+		},
+		"toggle": {
+			"false": "Alleen online spelers weergeven",
+			"true": "Alle teamleden weergeven (ook offline spelers)"
+		}
+	},
+	"rights": {
+		"admin": "Team-Admin",
+		"aufsichtsrat": "Toezichthouder",
+		"coadmin": "Team-Co-Admin",
+		"edit": "Rechten bewerken",
+		"finance": "Penningmeester",
+		"hide": "Sluiten",
+		"kick": {
+			"btn": "Speler verwijderen"
+		},
+		"kickModal": {
+			"btnCancel": "Annuleren",
+			"btnConfirm": "Verwijderen",
+			"text": "Weet je zeker dat je **{user}** werkelijk uit het team wilt verwijderen?",
+			"title": "Speler verwijderen?"
+		},
+		"schooling": "Docent",
+		"set": "{role} maken",
+		"sprechwunsch_admin": "Spraakaanvraag-Admin",
+		"unset": "Als {role} verwijderen"
+	},
+	"roles": "Rol(len)",
+	"search_global": "Alles doorzoeken",
+	"search_local": "Zoeken in geladen spelers",
+	"search_subtitle": "Geeft {n} spelers van pagina {startPage} tot {endPage} van totaal {totalPages} pagina's",
+	"subtitle": "Geeft {n} spelers van pagina {startPage} ({firstCredits}) tot {endPage} ({lastCredits}) van totaal {totalPages} pagina's",
+	"tax": "Donatiepercentage",
+	"title": "Teamleden"
+}

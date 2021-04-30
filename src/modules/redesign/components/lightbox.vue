@@ -84,6 +84,14 @@
                 :get-setting="getSetting()"
                 :set-setting="setSetting()"
             ></Toplist>
+            <VehicleGroup
+                v-else-if="type === 'vehicle_group'"
+                :vehicle_group="data"
+                :url="urlProp"
+                :lightbox="this"
+                :get-setting="getSetting()"
+                :set-setting="setSetting()"
+            ></VehicleGroup>
             <Vehicle
                 v-else-if="type === 'vehicle'"
                 :vehicle="data"
@@ -185,6 +193,10 @@ export default Vue.extend<
         Toplist: () =>
             import(
                 /*webpackChunkName: "modules/redesign/windows/toplist"*/ './toplist.vue'
+            ),
+        VehicleGroup: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/vehicle_group"*/ './vehicle_group.vue'
             ),
         Vehicle: () =>
             import(
@@ -331,6 +343,25 @@ export default Vue.extend<
                                         html,
                                         'text/html'
                                     );
+                                    const script = Array.from(doc.scripts)
+                                        .map(({ innerText }) =>
+                                            innerText.trim()
+                                        )
+                                        .join('\n');
+                                    window.coinsUpdate(
+                                        parseInt(
+                                            script.match(
+                                                /(?<=coinsUpdate\()\d+(?=\))/
+                                            )?.[0] ?? '-1'
+                                        )
+                                    );
+                                    window.creditsUpdate(
+                                        parseInt(
+                                            script.match(
+                                                /(?<=creditsUpdate\()\d+(?=\))/
+                                            )?.[0] ?? '-1'
+                                        )
+                                    );
                                     this.data = {
                                         ...parser({
                                             href: url,
@@ -354,6 +385,7 @@ export default Vue.extend<
                                     );
                                 } catch (e) {
                                     this.errors.push(e);
+                                    this.$store.dispatch('console/error', e);
                                 }
                             }
                         );

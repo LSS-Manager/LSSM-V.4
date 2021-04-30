@@ -89,6 +89,10 @@
                         v-model="value[item.name]"
                         @input="changeValue(index, value)"
                     ></settings-hotkey>
+                    <div
+                        v-else-if="item.setting.type === 'hidden'"
+                        class="hidden"
+                    ></div>
                     <pre v-else>{{ setting }}</pre>
                 </div>
             </div>
@@ -220,9 +224,9 @@ export default Vue.extend<
     computed: {
         layout() {
             const sizes = this.setting.listItem.map(
-                ({ size }) => size % 12
+                ({ size }) => (size ?? -1) % 12
             ) as number[];
-            const sum = sizes.reduce((a, b) => a + b, 0);
+            const sum = sizes.reduce((a, b) => (b >= 0 ? a + b : a), 0);
             const autos = sizes.filter(s => s === 0).length;
             sizes.forEach(
                 (s, index) =>
