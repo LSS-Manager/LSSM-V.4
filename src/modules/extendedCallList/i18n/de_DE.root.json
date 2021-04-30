@@ -9,6 +9,10 @@
 		"remainingTimeGreenOnly": {
 			"description": "Zeigt die Einsatzdauer nur bei grünen Einsätzen an.",
 			"title": "Einsatzdauer nur bei grünen Einsätze"
+		},
+		"starrableMissions": {
+			"description": "Markiere dir Einsätze, damit diese in der Einsatzliste oben angezeigt werden dürfen. Du kannst die Markierung im Einsatzfenster und in der Einsatzliste vornehmen.",
+			"title": "Einsätze markieren"
 		}
 	}
 }

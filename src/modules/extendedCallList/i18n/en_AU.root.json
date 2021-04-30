@@ -9,6 +9,10 @@
 		"remainingTimeGreenOnly": {
 			"description": "Show remaining Time on green missions only.",
 			"title": "Missiontime for green missions only"
+		},
+		"starrableMissions": {
+			"description": "Mark missions so that they are be displayed in the mission list at the top. You can mark them in the mission window and in the mission list.",
+			"title": "Mark Missions"
 		}
 	}
 }
