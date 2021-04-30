@@ -16,6 +16,31 @@ export default (async (LSSM, MODULE_ID) => {
         ).default(LSSM, MODULE_ID);
     }
 
+    const starrableMissions = await getSetting('starrableMissions');
+
+    if (
+        window.location.pathname.match(/^\/missions\/\d+\/?/) &&
+        starrableMissions
+    ) {
+        return (
+            await import(
+                /* webpackChunkName: "modules/extendedCallList/starrableMissions/mission" */ './assets/starrableMissions/mission'
+            )
+        ).default(LSSM, MODULE_ID);
+    }
+
+    if (starrableMissions) {
+        (
+            await import(
+                /* webpackChunkName: "modules/extendedCallList/starrableMissions/missionlist" */ './assets/starrableMissions/missionlist'
+            )
+        ).default(
+            LSSM,
+            (await getSetting<string[]>('starredMissions')) ?? [],
+            MODULE_ID
+        );
+    }
+
     if (await getSetting('remainingTime')) {
         (
             await import(
