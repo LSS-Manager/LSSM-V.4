@@ -97,6 +97,7 @@ export default <ModuleMainFunction>(async (LSSM, MODULE_ID) => {
                     });
                 });
                 if (state === 'disabled') disable(btn, buildings, index);
+                else enable(btn, buildings, index);
                 btns.push([btn, buildings]);
                 wrapper.append(btn);
             }
