@@ -115,6 +115,7 @@ lang: ${lang}
 # ${title}
 :::warning No module page existing yet
 Dear User,
+
 thanks for your interest in the Wiki page of **${title}**!
 Unfortunately, we weren't able to create the content for your language \`${lang}\` yet. If you want to contribute to our wiki, feel free to create this page [on GitHub](https://github.com/${
                     config.github.repo
@@ -127,7 +128,7 @@ This module already has a Wiki page in the following languages:
 ${availableLangs
     .map(
         l =>
-            `* [${config.games[l].flag} ${config.games[l].name}](/v4/docs/${l}/modules/${module}.html)`
+            `* [${config.games[l].flag} ${config.games[l].name}](/${l}/modules/${module}.html)`
     )
     .join('\n')}
 :::
