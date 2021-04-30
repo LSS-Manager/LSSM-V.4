@@ -849,7 +849,9 @@ export default Vue.extend<
         dispatchCentersSorted() {
             return Object.values(
                 this.buildings
-            ).sort(({ name: a }, { name: b }) => (a < b ? -1 : a > b ? 1 : 0));
+            ).sort(({ name: a }, { name: b }) =>
+                (a ?? '') < (b ?? '') ? -1 : (a ?? '') > (b ?? '') ? 1 : 0
+            );
         },
     },
     props: {

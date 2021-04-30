@@ -343,6 +343,25 @@ export default Vue.extend<
                                         html,
                                         'text/html'
                                     );
+                                    const script = Array.from(doc.scripts)
+                                        .map(({ innerText }) =>
+                                            innerText.trim()
+                                        )
+                                        .join('\n');
+                                    window.coinsUpdate(
+                                        parseInt(
+                                            script.match(
+                                                /(?<=coinsUpdate\()\d+(?=\))/
+                                            )?.[0] ?? '-1'
+                                        )
+                                    );
+                                    window.creditsUpdate(
+                                        parseInt(
+                                            script.match(
+                                                /(?<=creditsUpdate\()\d+(?=\))/
+                                            )?.[0] ?? '-1'
+                                        )
+                                    );
                                     this.data = {
                                         ...parser({
                                             href: url,
