@@ -5,6 +5,24 @@ export default (LSSM: Vue, missions: string[], MODULE_ID: string): void => {
         'ecl-sm-starbutton'
     );
 
+    const removes: string[] = [];
+    missions.forEach(id => {
+        if (!document.getElementById(`mission_${id}`)) removes.push(id);
+    });
+    removes.forEach(id =>
+        missions.splice(
+            missions.findIndex(m => m === id),
+            1
+        )
+    );
+    LSSM.$store
+        .dispatch('settings/setSetting', {
+            moduleId: MODULE_ID,
+            settingId: 'starredMissions',
+            value: missions,
+        })
+        .then();
+
     const moveMissionUp = (id: string): void => {
         const missionElement = document.getElementById(`mission_${id}`);
         if (!missionElement) return;
