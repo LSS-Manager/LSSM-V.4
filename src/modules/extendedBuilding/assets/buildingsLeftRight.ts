@@ -19,16 +19,17 @@ export default (LSSM: Vue): void => {
         | (string | number)[]
         | undefined = smallBuildings.hasOwnProperty(building.building_type)
         ? Object.entries(smallBuildings).find(ids =>
-              ids.includes(building.building_type)
+              ids
+                  .map(id => parseInt(id.toString()))
+                  .includes(building.building_type)
           )
         : [building.building_type];
     if (!smallBuildingsArray) return;
     const buildings = smallBuildingsArray
-        .flatMap(
-            type =>
-                buildingsByType[parseInt(type.toString())].map(
-                    ({ id }) => id
-                ) || []
+        .flatMap(type =>
+            (buildingsByType[parseInt(type.toString())] || []).map(
+                ({ id }) => id
+            )
         )
         .sort((a, b) => (a < b ? -1 : a > b ? 1 : 0));
     const position = buildings.indexOf(buildingId);
