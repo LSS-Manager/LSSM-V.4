@@ -2,6 +2,10 @@
 	"description": "Erweitert die Einsatzliste um coole Features!",
 	"name": "Erweiterte Einsatzliste",
 	"settings": {
+		"averageCredits": {
+			"description": "Lasse dir in der Einsatzliste kompakt anzeigen, wie viel Credits ein Einsatz im Durchschnitt gibt.",
+			"title": "Verdienst anzeigen"
+		},
 		"remainingTime": {
 			"description": "Zeigt bei Einsätzen an, wie lange der Einsatz noch in Bearbeitung ist.",
 			"title": "Verbleibende Einsatzdauer"

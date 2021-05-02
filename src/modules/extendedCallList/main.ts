@@ -48,4 +48,16 @@ export default (async (LSSM, MODULE_ID) => {
             )
         ).default(LSSM, await getSetting('remainingTimeGreenOnly'));
     }
+
+    if (await getSetting('averageCredits')) {
+        await LSSM.$store.dispatch('api/getMissions', {
+            force: false,
+            feature: 'ecl-averageCredits',
+        });
+        (
+            await import(
+                /* webpackChunkName: "modules/extendedCallList/averageCredits" */ './assets/averageCredits'
+            )
+        ).default(LSSM);
+    }
 }) as ModuleMainFunction;

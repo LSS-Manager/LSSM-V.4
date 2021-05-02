@@ -18,4 +18,8 @@ export default (() => ({
     starredMissions: <Hidden>{
         type: 'hidden',
     },
+    averageCredits: <Toggle>{
+        type: 'toggle',
+        default: true,
+    },
 })) as ModuleSettingFunction;
