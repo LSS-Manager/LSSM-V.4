@@ -15,15 +15,11 @@ export default (LSSM: Vue): void => {
     const smallBuildings = (LSSM.$t('small_buildings') as unknown) as {
         [type: number]: number;
     };
-    const smallBuildingsArray:
-        | (string | number)[]
-        | undefined = smallBuildings.hasOwnProperty(building.building_type)
-        ? Object.entries(smallBuildings).find(ids =>
-              ids
-                  .map(id => parseInt(id.toString()))
-                  .includes(building.building_type)
-          )
-        : [building.building_type];
+    const smallBuildingsArray: (string | number)[] = Object.entries(
+        smallBuildings
+    ).find(ids =>
+        ids.map(id => parseInt(id.toString())).includes(building.building_type)
+    ) ?? [building.building_type];
     if (!smallBuildingsArray) return;
     const buildings = smallBuildingsArray
         .flatMap(type =>
