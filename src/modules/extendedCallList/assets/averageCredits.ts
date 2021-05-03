@@ -18,6 +18,8 @@ export default (LSSM: Vue): void => {
 
         const span = document.createElement('span');
         span.classList.add('label');
+        if (!LSSM.$store.state.darkmode)
+            span.style.setProperty('color', 'black');
         span.textContent = `~ ${(LSSM.$store.state.api.missions as Mission[])
             .find(({ id }) => id === mission)
             ?.average_credits?.toLocaleString() ?? '–'}`;
