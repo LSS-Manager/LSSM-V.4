@@ -1,6 +1,9 @@
 import { ModuleMainFunction } from 'typings/Module';
 
 export default <ModuleMainFunction>(async (LSSM, MODULE_ID) => {
+    const wrapper = document.getElementById('btn-group-building-select');
+    if (!wrapper) return;
+
     const filters: {
         contentType: 'text' | 'icon';
         icon_style: 'fas' | 'far' | 'fab';
@@ -65,8 +68,6 @@ export default <ModuleMainFunction>(async (LSSM, MODULE_ID) => {
         });
 
     const updateFilters = () => {
-        const wrapper = document.getElementById('btn-group-building-select');
-        if (!wrapper) return;
         wrapper.querySelectorAll('a').forEach(a => a.remove());
         const btns: [HTMLButtonElement, number[]][] = [];
 
@@ -111,4 +112,53 @@ export default <ModuleMainFunction>(async (LSSM, MODULE_ID) => {
         observer.observe(buildingsElement, { childList: true });
 
     updateFilters();
+
+    const buildings: [HTMLLIElement, string][] = Array.from(
+        document.querySelectorAll<HTMLLIElement>(
+            '#building_list li.building_list_li'
+        )
+    ).map(building => [
+        building,
+        building.querySelector<HTMLAnchorElement>(
+            '.building_list_caption a.map_position_mover'
+        )?.textContent ?? '',
+    ]);
+    const searchHideClass = LSSM.$store.getters.nodeAttribute(
+        'blf-search-not-matching'
+    );
+
+    LSSM.$store
+        .dispatch('addStyle', {
+            selectorText: `.${searchHideClass}`,
+            style: {
+                display: 'none !important',
+            },
+        })
+        .then();
+
+    let searchTimeout = null as number | null;
+
+    const search = document.createElement('input');
+    search.type = 'search';
+    search.classList.add('pull-right', 'search_input_field');
+
+    search.addEventListener('keyup', () => {
+        if (searchTimeout) window.clearTimeout(searchTimeout);
+        searchTimeout = window.setTimeout(
+            () =>
+                buildings.forEach(([building, caption]) =>
+                    building.classList[
+                        caption.match(
+                            LSSM.$utils.escapeRegex(search.value.trim())
+                        )
+                            ? 'remove'
+                            : 'add'
+                    ](searchHideClass)
+                ),
+            100
+        );
+    });
+
+    wrapper.style.setProperty('width', '100%');
+    wrapper.prepend(search);
 });
