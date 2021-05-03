@@ -143,6 +143,7 @@ export default <ModuleMainFunction>(async (LSSM, MODULE_ID) => {
     const search = document.createElement('input');
     search.type = 'search';
     search.classList.add('pull-right', 'search_input_field');
+    search.style.setProperty('margin-top', '-4px');
 
     search.addEventListener('keyup', () => {
         if (searchTimeout) window.clearTimeout(searchTimeout);
