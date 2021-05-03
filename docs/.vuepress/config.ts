@@ -1,8 +1,10 @@
 import copydir from 'copy-dir';
+import fetch from 'node-fetch';
 import fs from 'fs';
 import path from 'path';
 
 import config from '../../src/config';
+import { version } from '../../package.json';
 
 const langModules = fs
     .readdirSync('./docs/')
@@ -187,104 +189,142 @@ const sidebar_others = [
     'other',
 ];
 
-Object.keys(config.games).forEach(lang => {
-    if (!fs.existsSync(`./docs/${lang}`)) return;
-    const game = config.games[lang];
-    const langPath = `/${lang}/`;
-    locales[langPath] = {
-        lang,
-        title: `LSS-Manager V.4 Wiki ${game.flag}`,
-    };
-    themeLocales[langPath] = {
-        label: `${game.flag} ${game.name}`,
-        nav: [
-            {
-                text: 'Discord',
-                link: config.discord,
-            },
-        ],
-        sidebar: [
-            {
-                title: 'LSSM',
-                collapsable: false,
-                children: sidebar_lssm
+module.exports = async () => {
+    const { version: stable } = await fetch(
+        `${config.server}build_stats.json`
+    ).then(res =>
+        res.status === 200
+            ? res.json()
+            : new Promise(resolve => resolve({ version: '4.x.x' }))
+    );
+    Object.entries(config.games).forEach(([lang, { flag }]) => {
+        if (!fs.existsSync(`./docs/${lang}`)) return;
+        fs.writeFileSync(
+            `./docs/${lang}/README.md`,
+            fs
+                .readFileSync(`./docs/${lang}/README.md`)
+                .toString()
+                .replace(
+                    /(.|\n)*?(?=\n## )/,
+                    `---
+title: LSS-Manager V.4
+lang: ${lang}
+sidebarDepth: 2
+---
+
+# Wiki ${flag} <Badge :text="'v.' + $themeConfig.variables.versions.short"/>
+
+> stable: <i>{{ $themeConfig.variables.versions.stable }}</i>
+> 
+> beta: <i>{{ $themeConfig.variables.versions.beta }}</i>
+
+<a :href="$themeConfig.variables.discord" target="_blank" style="float: right;"><img src="https://discord.com/api/guilds/254167535446917120/embed.png?style=banner1" alt="Our Discord-Server: United Dispatch" data-prevent-zooming></a>
+
+[LSSM-Server-Status](https://status.lss-manager.de)
+
+[Game-Online-Status](https://stats.uptimerobot.com/OEKDJSpmvK)
+`
+                )
+        );
+        const game = config.games[lang];
+        const langPath = `/${lang}/`;
+        locales[langPath] = {
+            lang,
+            title: `LSS-Manager V.4 Wiki ${game.flag}`,
+        };
+        themeLocales[langPath] = {
+            label: `${game.flag} ${game.name}`,
+            nav: [
+                {
+                    text: 'Discord',
+                    link: config.discord,
+                },
+            ],
+            sidebar: [
+                {
+                    title: 'LSSM',
+                    collapsable: false,
+                    children: sidebar_lssm
+                        .filter(f =>
+                            fs.existsSync(
+                                `./docs${langPath}${f || 'README'}.md`
+                            )
+                        )
+                        .map(f => `${langPath}${f}`),
+                },
+                ...sidebar_others
                     .filter(f =>
                         fs.existsSync(`./docs${langPath}${f || 'README'}.md`)
                     )
                     .map(f => `${langPath}${f}`),
-            },
-            ...sidebar_others
-                .filter(f =>
-                    fs.existsSync(`./docs${langPath}${f || 'README'}.md`)
-                )
-                .map(f => `${langPath}${f}`),
-            {
-                title: 'Apps 📦',
-                collapsable: true,
-                children: modulesSorted[lang] || [],
-            },
+                {
+                    title: 'Apps 📦',
+                    collapsable: true,
+                    children: modulesSorted[lang] || [],
+                },
+            ],
+        };
+    });
+    return {
+        title: 'LSS-Manager V.4 Wiki',
+        description: 'The Wiki for the LSS-Manager',
+        base: '/v4/docs/',
+        dest: './dist/docs',
+        head: [
+            [
+                'link',
+                {
+                    rel: 'icon',
+                    href: '/img/lssm.png',
+                },
+            ],
         ],
+        markdown: {
+            sluglify: '',
+            lineNumbers: true,
+        },
+        themeConfig: {
+            logo: '/img/lssm.png',
+            variables: {
+                discord: config.discord,
+                discord_support: config.discord_support,
+                github: `https://github.com/${config.github.repo}`,
+                server: config.server,
+                versions: {
+                    beta: version,
+                    stable,
+                    short: stable.match(/4(\.(x|\d+)){2}/)[0],
+                },
+                browsers: config.browser,
+                noMapkitModules,
+            },
+            locales: themeLocales,
+            activeHeaderLinks: true,
+            repo: config.github.repo,
+            editLinks: false,
+        },
+        locales,
+        plugins: {
+            '@vuepress/active-header-links': {},
+            '@vuepress/back-to-top': {},
+            '@vuepress/last-updated': {
+                transformer(timestamp: number, lang: string) {
+                    // eslint-disable-next-line @typescript-eslint/no-var-requires
+                    const moment = require('moment');
+                    moment.locale(lang);
+                    return moment(timestamp).format('LLL');
+                },
+            },
+            'vuepress-plugin-redirect': {
+                locales: true,
+            },
+            'vuepress-plugin-smooth-scroll': {},
+            'vuepress-plugin-zooming': {
+                selector: 'img:not([data-prevent-zooming])',
+                options: {
+                    bgColor: 'black',
+                },
+            },
+        },
     };
-});
-
-const options = {
-    title: 'LSS-Manager V.4 Wiki',
-    description: 'The Wiki for the LSS-Manager',
-    base: '/v4/docs/',
-    dest: './dist/docs',
-    head: [
-        [
-            'link',
-            {
-                rel: 'icon',
-                href: '/img/lssm.png',
-            },
-        ],
-    ],
-    markdown: {
-        sluglify: '',
-        lineNumbers: true,
-    },
-    themeConfig: {
-        logo: '/img/lssm.png',
-        variables: {
-            discord: config.discord,
-            discord_support: config.discord_support,
-            github: `https://github.com/${config.github.repo}`,
-            server: config.server,
-            // eslint-disable-next-line @typescript-eslint/no-var-requires
-            versions: require('../../static/.configs.json').versions,
-            browsers: config.browser,
-            noMapkitModules,
-        },
-        locales: themeLocales,
-        activeHeaderLinks: true,
-        repo: config.github.repo,
-        editLinks: false,
-    },
-    locales,
-    plugins: {
-        '@vuepress/active-header-links': {},
-        '@vuepress/back-to-top': {},
-        '@vuepress/last-updated': {
-            transformer(timestamp: number, lang: string) {
-                // eslint-disable-next-line @typescript-eslint/no-var-requires
-                const moment = require('moment');
-                moment.locale(lang);
-                return moment(timestamp).format('LLL');
-            },
-        },
-        'vuepress-plugin-redirect': {
-            locales: true,
-        },
-        'vuepress-plugin-smooth-scroll': {},
-        'vuepress-plugin-zooming': {
-            selector: 'img:not([data-prevent-zooming])',
-            options: {
-                bgColor: 'black',
-            },
-        },
-    },
 };
-
-module.exports = options;
