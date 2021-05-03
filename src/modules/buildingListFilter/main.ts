@@ -119,9 +119,11 @@ export default <ModuleMainFunction>(async (LSSM, MODULE_ID) => {
         )
     ).map(building => [
         building,
-        building.querySelector<HTMLAnchorElement>(
-            '.building_list_caption a.map_position_mover'
-        )?.textContent ?? '',
+        building
+            .querySelector<HTMLAnchorElement>(
+                '.building_list_caption a.map_position_mover'
+            )
+            ?.textContent?.toLowerCase() ?? '',
     ]);
     const searchHideClass = LSSM.$store.getters.nodeAttribute(
         'blf-search-not-matching'
@@ -149,7 +151,9 @@ export default <ModuleMainFunction>(async (LSSM, MODULE_ID) => {
                 buildings.forEach(([building, caption]) =>
                     building.classList[
                         caption.match(
-                            LSSM.$utils.escapeRegex(search.value.trim())
+                            LSSM.$utils.escapeRegex(
+                                search.value.trim().toLowerCase()
+                            )
                         )
                             ? 'remove'
                             : 'add'
