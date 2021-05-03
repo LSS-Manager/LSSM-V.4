@@ -113,10 +113,13 @@ export default <ModuleMainFunction>(async (LSSM, MODULE_ID) => {
 
     updateFilters();
 
+    const buildingList = document.querySelector<HTMLUListElement>(
+        '#building_list'
+    );
+    if (!buildingList) return;
+
     const buildings: [HTMLLIElement, string][] = Array.from(
-        document.querySelectorAll<HTMLLIElement>(
-            '#building_list li.building_list_li'
-        )
+        buildingList.querySelectorAll<HTMLLIElement>('li.building_list_li')
     ).map(building => [
         building,
         building
@@ -125,18 +128,46 @@ export default <ModuleMainFunction>(async (LSSM, MODULE_ID) => {
             )
             ?.textContent?.toLowerCase() ?? '',
     ]);
+
     const searchHideClass = LSSM.$store.getters.nodeAttribute(
         'blf-search-not-matching'
     );
+    const reversedListClass = LSSM.$store.getters.nodeAttribute(
+        'blf-reversed-buildinglist'
+    );
 
     LSSM.$store
-        .dispatch('addStyle', {
-            selectorText: `.${searchHideClass}`,
-            style: {
-                display: 'none !important',
+        .dispatch('addStyles', [
+            {
+                selectorText: `.${searchHideClass}`,
+                style: {
+                    display: 'none !important',
+                },
             },
-        })
+            {
+                selectorText: `.${reversedListClass}, .${reversedListClass} > li`,
+                style: {
+                    transform: 'rotate(180deg)',
+                },
+            },
+        ])
         .then();
+
+    const sortBtn = document.createElement('button');
+    sortBtn.classList.add('btn', 'btn-xs', 'btn-default', 'pull-right');
+    sortBtn.style.setProperty('margin-top', '-4px');
+    const sortIcon = document.createElement('i');
+    sortIcon.classList.add('fas', 'fa-sort-alpha-down');
+
+    sortBtn.append(sortIcon);
+
+    sortBtn.addEventListener('click', () => {
+        const icon = sortBtn.querySelector('svg');
+        if (!icon) return;
+        if (buildingList.classList.toggle(reversedListClass))
+            icon.setAttribute('data-icon', 'sort-alpha-up-alt');
+        else icon.setAttribute('data-icon', 'sort-alpha-down');
+    });
 
     let searchTimeout = null as number | null;
 
@@ -186,6 +217,6 @@ export default <ModuleMainFunction>(async (LSSM, MODULE_ID) => {
     });
 
     wrapper.style.setProperty('width', '100%');
-    wrapper.prepend(searchBtn);
+    wrapper.prepend(searchBtn, sortBtn);
     wrapper.append(search);
 });
