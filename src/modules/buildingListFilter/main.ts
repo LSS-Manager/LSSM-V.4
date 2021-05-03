@@ -140,10 +140,31 @@ export default <ModuleMainFunction>(async (LSSM, MODULE_ID) => {
 
     let searchTimeout = null as number | null;
 
+    const searchBtn = document.createElement('button');
+    searchBtn.classList.add('btn', 'btn-xs', 'btn-default', 'pull-right');
+    searchBtn.style.setProperty('margin-top', '-4px');
+    const searchIcon = document.createElement('i');
+    searchIcon.classList.add('fas', 'fa-search');
+
+    searchBtn.append(searchIcon);
+
     const search = document.createElement('input');
     search.type = 'search';
-    search.classList.add('pull-right', 'search_input_field');
+    search.classList.add('pull-right', 'search_input_field', 'hidden');
+    search.style.setProperty('position', 'absolute');
     search.style.setProperty('margin-top', '-4px');
+    search.style.setProperty('right', '22px');
+    search.style.setProperty('height', '20px');
+
+    searchBtn.addEventListener('click', e => {
+        e.stopPropagation();
+        search.classList.toggle('hidden');
+        search.focus();
+    });
+
+    document.addEventListener('click', e => {
+        if (e.target !== search) search.classList.add('hidden');
+    });
 
     search.addEventListener('keyup', () => {
         if (searchTimeout) window.clearTimeout(searchTimeout);
@@ -165,5 +186,6 @@ export default <ModuleMainFunction>(async (LSSM, MODULE_ID) => {
     });
 
     wrapper.style.setProperty('width', '100%');
-    wrapper.prepend(search);
+    wrapper.prepend(searchBtn);
+    wrapper.append(search);
 });
