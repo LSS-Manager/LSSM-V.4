@@ -1,15 +1,16 @@
 ---
-title: Allgemein
+title: LSS-Manager V.4
 lang: de_DE
 sidebarDepth: 2
 ---
 
-# Wiki :de: <Badge :text="'LSSM V.' + ($themeConfig.variables.versions.stable || 4)"/>
+# Wiki 🇩🇪 <Badge :text="'v.' + $themeConfig.variables.versions.short"/>
 
-*Aktuelle Versionen:*
-> Stable: <i>{{ $themeConfig.variables.versions.stable }}</i>
+> stable: <i>{{ $themeConfig.variables.versions.stable }}</i>
+> 
+> beta: <i>{{ $themeConfig.variables.versions.beta }}</i>
 
-<a :href="$themeConfig.variables.discord" target="_blank" style="float: right;"><img src="https://discord.com/api/guilds/254167535446917120/embed.png?style=banner1" alt="Unser Discord-Server: United Dispatch" data-prevent-zooming></a>
+<a :href="$themeConfig.variables.discord" target="_blank" style="float: right;"><img src="https://discord.com/api/guilds/254167535446917120/embed.png?style=banner1" alt="Our Discord-Server: United Dispatch" data-prevent-zooming></a>
 
 [LSSM-Server-Status](https://status.lss-manager.de)
 

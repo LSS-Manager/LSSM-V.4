@@ -35,6 +35,9 @@
 	"@types/node": {
 		"version": "15.0.1"
 	},
+	"@types/node-fetch": {
+		"version": "2.5.10"
+	},
 	"@types/pdfmake": {
 		"version": "0.1.17"
 	},
@@ -151,6 +154,10 @@
 		"icon": "https://momentjs.com/static/img/moment-timezone-favicon.png",
 		"url": "http://momentjs.com/timezone/",
 		"version": "0.5.33"
+	},
+	"node-fetch": {
+		"url": "https://github.com/bitinn/node-fetch",
+		"version": "2.6.1"
 	},
 	"pdfmake": {
 		"url": "http://pdfmake.org",
