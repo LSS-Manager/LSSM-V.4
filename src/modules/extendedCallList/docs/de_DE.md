@@ -7,7 +7,7 @@ Du möchstest wissen, wie lange ein Einsatz noch braucht, bis er vollständig ab
 Diese Einstellung zeigt dir genau diese Information an:
 ![Einsatzdauer in der Einsatzliste](/v4/docs/assets/extendedCallList/img/de_DE/einsatzdauer.png)
 
-### Einsatzdauer nur bei grünen Einsätze
+### Einsatzdauer nur bei grünen Einsätzen
 Ist diese Einstellung deaktiviert (Standardmäßig ist sie aktiviert), werden die Zeiten auch angezeigt, wenn der Einsatz im Status `gelb` ist.
 
 Warum ist das so?
