@@ -104,5 +104,8 @@ export default <ModuleSettingFunction>((MODULE_ID, LSSM, $m) => {
             orderable: true,
             disableable: false,
         },
+        sortDesc: <Hidden>{
+            type: 'hidden',
+        },
     };
 });

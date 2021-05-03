@@ -164,10 +164,25 @@ export default <ModuleMainFunction>(async (LSSM, MODULE_ID) => {
     sortBtn.addEventListener('click', () => {
         const icon = sortBtn.querySelector('svg');
         if (!icon) return;
-        if (buildingList.classList.toggle(reversedListClass))
-            icon.setAttribute('data-icon', 'sort-alpha-up-alt');
+        const state = buildingList.classList.toggle(reversedListClass);
+        if (state) icon.setAttribute('data-icon', 'sort-alpha-up-alt');
         else icon.setAttribute('data-icon', 'sort-alpha-down');
+        LSSM.$store
+            .dispatch('settings/setSetting', {
+                moduleId: MODULE_ID,
+                settingId: 'sortDesc',
+                value: state,
+            })
+            .then();
     });
+
+    if (
+        await LSSM.$store.dispatch('settings/getSetting', {
+            moduleId: MODULE_ID,
+            settingId: 'sortDesc',
+        })
+    )
+        sortBtn.click();
 
     let searchTimeout = null as number | null;
 
