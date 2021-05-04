@@ -88,6 +88,14 @@ export default Vue.extend<
         },
     },
     mounted() {
+        if (!this.lightbox.noModal) {
+            (this.schoolings as SchoolingsWindow).ownSchoolings.tabs[
+                this.$t('modules.schoolingOverview.all').toString()
+            ].forEach(({ end, id }) => window.educationCountdown(end, id));
+            (this.schoolings as SchoolingsWindow).openSchoolings.tabs[
+                this.$t('modules.schoolingOverview.all').toString()
+            ].forEach(({ end, id }) => window.educationCountdown(end, id));
+        }
         this.lightbox.finishLoading('schoolings-mounted');
     },
 });

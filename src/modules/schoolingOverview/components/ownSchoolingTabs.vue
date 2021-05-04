@@ -23,12 +23,7 @@
                             {{ schooling.name }}
                         </a>
                     </td>
-                    <td
-                        :id="`education_schooling_${schooling.id}_1`"
-                        :onload="
-                            `educationCountdown(${schooling.end}, ${schooling.id}_1);`
-                        "
-                    >
+                    <td :id="`education_schooling_${schooling.id}`">
                         {{ schooling.end }}
                     </td>
                     <td v-html="schooling.owner"></td>
