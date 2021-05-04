@@ -1,11 +1,10 @@
+import { OwnSchoolings } from 'typings/modules/SchoolingOverview/main';
+
 export interface OwnSchooling {
     end: number;
     id: string;
     name: string;
     owner: string;
-
-    // General
-    [key: string]: number | string;
 }
 
 export interface OwnSchoolingTabs {
@@ -16,9 +15,6 @@ export interface OwnSchoolingTabs {
     };
     tabTitles: string[];
     currentTab: string;
-    tabs: {
-        [tab: string]: OwnSchooling[];
-    };
     search: string;
     sort: string;
     sortDir: string;
@@ -31,4 +27,8 @@ export interface OwnSchoolingTabsComputed {
 
 export interface OwnSchoolingTabsMethods {
     setSorting(s: string): void;
+}
+
+export interface OwnSchoolingTabsProps {
+    tabs: OwnSchoolings['tabs'];
 }
