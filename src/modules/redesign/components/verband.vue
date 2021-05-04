@@ -95,6 +95,16 @@
             :get-setting="getSetting"
             :set-setting="setSetting"
         ></VerbandRegeln>
+        <Schoolings
+            v-else-if="type === 'schoolings'"
+            :schoolings="data"
+            :url="url"
+            :lightbox="lightbox"
+            :$m="$m"
+            :$mc="$mc"
+            :get-setting="getSetting"
+            :set-setting="setSetting"
+        ></Schoolings>
     </div>
 </template>
 
@@ -166,6 +176,10 @@ export default Vue.extend<
         VerbandRegeln: () =>
             import(
                 /*webpackChunkName: "modules/redesign/windows/verband/regeln"*/ './verband/regeln.vue'
+            ),
+        Schoolings: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/schoolings"*/ './schoolings.vue'
             ),
     },
     data() {

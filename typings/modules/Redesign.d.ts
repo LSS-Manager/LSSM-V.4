@@ -9,6 +9,7 @@ import { CreditsDailyWindow } from '../../src/modules/redesign/parsers/credits/d
 import { CreditsListWindow } from '../../src/modules/redesign/parsers/credits/list';
 import { CreditsOverviewWindow } from '../../src/modules/redesign/parsers/credits/overview';
 import { FreundeWindow } from '../../src/modules/redesign/parsers/freunde';
+import { SchoolingsWindow } from '../../src/modules/redesign/parsers/schoolings';
 import { NextFMSWindow } from '../../src/modules/redesign/parsers/vehicle/nextfms';
 import { ProfileEditWindow } from '../../src/modules/redesign/parsers/profile/edit';
 import { ProfileWindow } from '../../src/modules/redesign/parsers/profile';
@@ -45,6 +46,7 @@ type types =
     | 'freunde'
     | 'profile'
     | 'profile/edit'
+    | 'schoolings'
     | 'toplist'
     | 'vehicle_group'
     | 'vehicle'
@@ -66,8 +68,9 @@ type windows =
     | CreditsOverviewWindow
     | FreundeWindow
     | NextFMSWindow
-    | ProfileEditWindow
     | ProfileWindow
+    | ProfileEditWindow
+    | SchoolingsWindow
     | TopListWindow
     | VehicleGroupWindow
     | VehicleWindow
@@ -141,6 +144,7 @@ interface ParserParam {
     doc: Document;
     href?: string;
     getIdFromEl?: (el: HTMLAnchorElement | null) => number;
+    LSSM: Vue;
 }
 
 export type RedesignParser<Window extends windows = windows> = (

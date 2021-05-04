@@ -12,6 +12,7 @@ const routeChecks: routeChecks = {
     '^/freunde/?$': 'freunde',
     '^/profile/\\d+/?$': 'profile',
     '^/profile/edit/?$': 'profile/edit',
+    '^/schoolings/?$': 'schoolings',
     '^/toplist/?$': 'toplist',
     '^/vehicles/\\d+/?$': 'vehicle',
     '^/alliances/\\d+/edit/?$': 'verband/edit_name',

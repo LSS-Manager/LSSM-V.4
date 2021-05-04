@@ -101,7 +101,7 @@
                 :set-setting="setSetting()"
             ></Vehicle>
             <Verband
-                v-else-if="type.startsWith('verband/')"
+                v-else-if="type.startsWith('verband/') || type === 'schoolings'"
                 :data="data"
                 :url="urlProp"
                 :lightbox="this"
@@ -330,6 +330,19 @@ export default Vue.extend<
                             }
                         }
                         if (type === 'coins/list') await addLocas('credits');
+                        if (type === 'schoolings') {
+                            await addLocas('verband');
+                            this.$i18n.mergeLocaleMessage(
+                                this.$store.state.lang,
+                                {
+                                    modules: {
+                                        schoolingOverview: await import(
+                                            /* webpackChunkName: "modules/i18n/schoolingOverview/[request]" */ `../../schoolingOverview/i18n/${this.$store.state.lang}.json`
+                                        ),
+                                    },
+                                }
+                            );
+                        }
                         import(
                             /*webpackChunkName: "modules/redesign/parsers/[request]"*/ `../parsers/${type}`
                         ).then(
@@ -367,6 +380,7 @@ export default Vue.extend<
                                             href: url,
                                             getIdFromEl: this.getIdFromEl,
                                             doc,
+                                            LSSM: this,
                                         }),
                                         authenticity_token:
                                             doc.querySelector<HTMLMetaElement>(
