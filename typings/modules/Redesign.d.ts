@@ -21,6 +21,7 @@ import { VerbandEditTextWindow } from '../../src/modules/redesign/parsers/verban
 import { VerbandHomeWindow } from '../../src/modules/redesign/parsers/verband/home';
 import { VerbandMitgliederWindow } from '../../src/modules/redesign/parsers/verband/mitglieder';
 import { VerbandNewsEditWindow } from '../../src/modules/redesign/parsers/verband/news/edit';
+import { VerbandProtokollWindow } from '../../src/modules/redesign/parsers/verband/protokoll';
 import { VerbandRegelnWindow } from '../../src/modules/redesign/parsers/verband/regeln';
 
 import { CombinedVueInstance } from 'vue/types/vue';
@@ -56,6 +57,7 @@ type types =
     | 'verband/home'
     | 'verband/mitglieder'
     | 'verband/news/edit'
+    | 'verband/protokoll'
     | 'verband/regeln';
 type windows =
     | AAOsWindow
@@ -79,6 +81,7 @@ type windows =
     | VerbandHomeWindow
     | VerbandMitgliederWindow
     | VerbandNewsEditWindow
+    | VerbandProtokollWindow
     | VerbandRegelnWindow;
 export type routeChecks = Record<string, types>;
 
@@ -153,7 +156,7 @@ interface ParserParam {
 
 export type RedesignParser<Window extends windows = windows> = (
     data: ParserParam
-) => Window;
+) => Window | Promise<Window>;
 
 export type RedesignLightboxVue<
     Type extends types,

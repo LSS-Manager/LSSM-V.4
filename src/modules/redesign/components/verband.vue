@@ -85,6 +85,16 @@
             :get-setting="getSetting"
             :set-setting="setSetting"
         ></VerbandNewsEdit>
+        <VerbandProtokoll
+            v-else-if="type === 'verband/protokoll'"
+            :protokoll="data"
+            :url="url"
+            :lightbox="lightbox"
+            :$m="$m"
+            :$mc="$mc"
+            :get-setting="getSetting"
+            :set-setting="setSetting"
+        ></VerbandProtokoll>
         <VerbandRegeln
             v-else-if="type === 'verband/regeln'"
             :rules="data"
@@ -172,6 +182,10 @@ export default Vue.extend<
         VerbandNewsEdit: () =>
             import(
                 /*webpackChunkName: "modules/redesign/windows/verband/news/edit"*/ './verband/news/edit.vue'
+            ),
+        VerbandProtokoll: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/verband/protokoll"*/ './verband/protokoll.vue'
             ),
         VerbandRegeln: () =>
             import(

@@ -360,7 +360,7 @@ export default Vue.extend<
                         import(
                             /*webpackChunkName: "modules/redesign/parsers/[request]"*/ `../parsers/${type}`
                         ).then(
-                            ({
+                            async ({
                                 default: parser,
                             }: {
                                 default: RedesignParser;
@@ -390,12 +390,12 @@ export default Vue.extend<
                                         )
                                     );
                                     this.data = {
-                                        ...parser({
+                                        ...(await parser({
                                             href: url,
                                             getIdFromEl: this.getIdFromEl,
                                             doc,
                                             LSSM: this,
-                                        }),
+                                        })),
                                         authenticity_token:
                                             doc.querySelector<HTMLMetaElement>(
                                                 'meta[name="csrf-token"]'
