@@ -123,7 +123,13 @@
             :id="$store.getters.nodeAttribute('redesign-lightbox-iframe')"
             :name="$store.getters.nodeAttribute('redesign-lightbox-iframe')"
         ></iframe>
-        <div id="redesign-loader" v-show="loading">
+        <div
+            id="redesign-loader"
+            v-show="loading"
+            :style="
+                `width: ${size}%; height: ${size}%; top: ${loaderOffset}%; left: ${loaderOffset}%`
+            "
+        >
             <font-awesome-icon
                 :icon="faSyncAlt"
                 spin
@@ -244,8 +250,16 @@ export default Vue.extend<
             type: String,
             required: true,
         },
+        size: {
+            type: Number,
+            required: false,
+            default: 100,
+        },
     },
     computed: {
+        loaderOffset() {
+            return (100 - this.size) / 2;
+        },
         src: {
             get() {
                 return this.src ?? this.url;
@@ -514,11 +528,7 @@ iframe
 
 #redesign-loader
     position: fixed
-    top: 0
-    left: 0
     background: rgba(255, 255, 255, 0.5)
-    width: 100%
-    height: 100%
     display: flex
     justify-content: center
     align-items: center

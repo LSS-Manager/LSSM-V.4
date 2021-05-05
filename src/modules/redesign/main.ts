@@ -70,6 +70,7 @@ export default ((LSSM, MODULE_ID) => {
                             ),
                         routeChecks,
                         creation,
+                        size,
                     },
                     {
                         name: `redesign-lightbox-${creation}`,

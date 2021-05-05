@@ -118,7 +118,10 @@ export interface RedesignLightbox<
         setSetting(): <T>(settingId: string, value: T) => Promise<void>;
         finishLoading(text?: string): void;
     };
-    Computed: DefaultComputed;
+    Computed: {
+        loaderOffset: number;
+        src: string;
+    };
     Props: {
         url: string;
         $m(
@@ -137,6 +140,7 @@ export interface RedesignLightbox<
         routeChecks: routeChecks;
         noModal: boolean;
         creation: string;
+        size: number;
     };
 }
 
