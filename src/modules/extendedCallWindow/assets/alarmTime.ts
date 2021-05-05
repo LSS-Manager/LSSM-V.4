@@ -18,7 +18,7 @@ export default (LSSM: Vue): void => {
                 const vehicleId = lastVehicle?.getAttribute('value');
                 const alarmTime =
                     document.getElementById(`vehicle_sort_${vehicleId}`)
-                        ?.textContent || '';
+                        ?.childNodes[0]?.textContent ?? '';
                 return { lastVehicle, alarmTime };
             };
 
