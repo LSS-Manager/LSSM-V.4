@@ -226,9 +226,8 @@ export default Vue.extend<
                                     )?.textContent ?? '';
                             } else if (type === 'building') {
                                 title =
-                                    document.querySelector<HTMLHeadingElement>(
-                                        'h1'
-                                    )?.textContent ?? '';
+                                    doc.querySelector<HTMLHeadingElement>('h1')
+                                        ?.textContent ?? '';
                             }
                             this.$el
                                 .querySelectorAll<HTMLAnchorElement>(
