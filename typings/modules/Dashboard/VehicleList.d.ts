@@ -13,6 +13,8 @@ export interface VehicleList {
     search: string;
     sort: string;
     sortDir: string;
+    resolveLinkClass: string;
+    resolving: number | null;
 }
 
 export interface VehicleListMethods {
@@ -24,6 +26,8 @@ export interface VehicleListMethods {
             [key: string]: unknown;
         }
     ): VueI18n.TranslateResult;
+    startResolve(type: 'mission' | 'building', id: number): void;
+    endResolve(): void;
 }
 
 export interface VehicleListComputed {

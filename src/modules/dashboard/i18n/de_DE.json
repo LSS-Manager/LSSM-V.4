@@ -60,6 +60,7 @@
 		"building": "Gebäude",
 		"caption": "Name",
 		"fms": "FMS",
+		"target": "Anfahrt",
 		"type": "Typ"
 	},
 	"vehicle-types": {

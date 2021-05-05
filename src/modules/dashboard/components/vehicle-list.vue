@@ -8,6 +8,7 @@
                 actions: { title: $m('actions'), noSort: true },
                 fms_show: { title: $m('fms') },
                 building: { title: $m('building') },
+                target: { title: $m('target') },
             }"
             :table-attrs="{ class: 'table table-striped' }"
             @sort="setSort"
@@ -70,6 +71,23 @@
                         {{ vehicle.building }}
                     </a>
                 </td>
+                <td>
+                    <a
+                        v-if="vehicle.target_type"
+                        class="lightbox-open"
+                        :class="resolveLinkClass"
+                        :data-resolve-type="vehicle.target_type"
+                        :data-resolve-id="vehicle.target_id"
+                        :href="`/${vehicle.target_type}s/${vehicle.target_id}`"
+                        @mouseover="
+                            startResolve(vehicle.target_type, vehicle.target_id)
+                        "
+                        @mouseout="endResolve()"
+                    >
+                        {{ vehicle.target_id }}
+                        <small>{{ vehicle.target_type }}</small>
+                    </a>
+                </td>
             </tr>
         </enhanced-table>
     </lightbox>
@@ -122,6 +140,10 @@ export default Vue.extend<
             sortDir: 'asc',
             faPencilAlt,
             faUsers,
+            resolveLinkClass: this.$store.getters.nodeAttribute(
+                'dashboard-vehiclelist-resolvable-link'
+            ),
+            resolving: null,
         } as VehicleList;
     },
     props: {
@@ -176,6 +198,59 @@ export default Vue.extend<
                     vehicle.fms_real = target;
                     vehicle.fms_show = target;
                 });
+        },
+        startResolve(type, id) {
+            if (this.resolving) return;
+            this.resolving = window.setTimeout(
+                () =>
+                    this.$store
+                        .dispatch('api/request', {
+                            url: `/${type}s/${id}`,
+                            feature: 'dashboard-vehiclelist-resolve-title',
+                        })
+                        .then(res => res.text())
+                        .then(html => {
+                            const doc = new DOMParser().parseFromString(
+                                html,
+                                'text/html'
+                            );
+                            let title = '';
+                            let subtitle = '';
+                            if (type === 'mission') {
+                                title =
+                                    doc.getElementById('missionH1')
+                                        ?.textContent ?? '';
+                                subtitle =
+                                    doc.querySelector<HTMLElement>(
+                                        '#missionH1 + small'
+                                    )?.textContent ?? '';
+                            } else if (type === 'building') {
+                                title =
+                                    document.querySelector<HTMLHeadingElement>(
+                                        'h1'
+                                    )?.textContent ?? '';
+                            }
+                            this.$el
+                                .querySelectorAll<HTMLAnchorElement>(
+                                    `a[data-resolve-type="${type}"][data-resolve-id="${id}"]`
+                                )
+                                .forEach(link => {
+                                    const small = link.querySelector('small');
+                                    if (small)
+                                        small.innerText = subtitle.trim();
+                                    link.innerText = title.trim();
+                                    link.classList.remove(
+                                        this.resolveLinkClass
+                                    );
+                                });
+                            this.resolving = null;
+                        }),
+                200
+            );
+        },
+        endResolve() {
+            if (this.resolving) window.clearTimeout(this.resolving);
+            this.resolving = null;
         },
     },
     beforeMount() {
