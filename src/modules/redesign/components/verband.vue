@@ -195,8 +195,13 @@ export default Vue.extend<
                     `verband.nav.${this.data.meta.self ? 'self' : 'other'}`
                 ) as unknown) as Record<number, string>
             )
-                .filter(
-                    link =>
+                .filter(link => {
+                    if (
+                        !this.data.meta.nav.protokoll &&
+                        link === '/alliance_logfiles'
+                    )
+                        return false;
+                    return (
                         new URL(
                             this.url.match(/\/verband\/?$/)
                                 ? `/alliances/${this.data.meta.id}`
@@ -207,7 +212,8 @@ export default Vue.extend<
                             link.replace(/{id}/g, this.data.meta.id.toString()),
                             window.location.origin
                         ).pathname.replace(/\/$/g, '')
-                )
+                    );
+                })
                 .map(link => ({
                     href: link.replace(/{id}/g, this.data.meta.id.toString()),
                     text: links[link],

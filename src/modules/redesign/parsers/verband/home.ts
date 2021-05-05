@@ -1,3 +1,5 @@
+import verbandParser from './verbandParser';
+
 import { RedesignParser } from 'typings/modules/Redesign';
 import { VerbandWindow } from 'typings/modules/Redesign/Verband';
 
@@ -25,14 +27,7 @@ export default <RedesignParser<VerbandHomeWindow>>(({
         `a[href="/verband/bewerben/${id}"]`
     );
     return {
-        meta: {
-            name:
-                doc
-                    .querySelector<HTMLAnchorElement>('nav .navbar-brand')
-                    ?.innerText?.trim() ?? '',
-            id,
-            self: !!doc.querySelector('a[href="/alliance_threads"]'),
-        },
+        ...verbandParser({ doc, getIdFromEl }),
         image:
             doc.querySelector<HTMLImageElement>('img.profile_avatar')?.src ??
             '',

@@ -3,5 +3,8 @@ export interface VerbandWindow {
         name: string;
         id: number;
         self: boolean;
+        nav: {
+            protokoll: boolean;
+        };
     };
 }

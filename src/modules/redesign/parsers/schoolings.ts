@@ -1,4 +1,6 @@
 import getSchoolings from '../../schoolingOverview/assets/getSchoolings';
+import verbandParser from './verband/verbandParser';
+
 import { RedesignParser } from 'typings/modules/Redesign';
 import { VerbandWindow } from 'typings/modules/Redesign/Verband';
 import {
@@ -16,18 +18,6 @@ export default <RedesignParser<SchoolingsWindow>>(({
     doc,
     getIdFromEl,
 }) => ({
-    meta: {
-        name:
-            doc
-                .querySelector<HTMLAnchorElement>('nav .navbar-brand')
-                ?.innerText?.trim() ?? '',
-        id:
-            getIdFromEl?.(
-                doc.querySelector<HTMLAnchorElement>(
-                    'nav ul.navbar-right li:first-child a[href^="/alliances/"]'
-                )
-            ) ?? -1,
-        self: !!doc.querySelector('a[href="/alliance_threads"]'),
-    },
+    ...verbandParser({ doc, getIdFromEl }),
     ...getSchoolings(LSSM, doc),
 }));
