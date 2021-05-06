@@ -23,7 +23,7 @@
                             {{ schooling.name }}
                         </a>
                     </td>
-                    <td :id="`education_schooling_${schooling.id}`">
+                    <td :id="`education_schooling_${schooling.id}_1`">
                         {{ schooling.end }}
                     </td>
                     <td v-html="schooling.owner"></td>

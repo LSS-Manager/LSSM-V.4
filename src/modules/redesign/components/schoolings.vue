@@ -91,7 +91,9 @@ export default Vue.extend<
         if (!this.lightbox.noModal) {
             (this.schoolings as SchoolingsWindow).ownSchoolings.tabs[
                 this.$t('modules.schoolingOverview.all').toString()
-            ].forEach(({ end, id }) => window.educationCountdown(end, id));
+            ].forEach(({ end, id }) =>
+                window.educationCountdown(end, `${id}_1`)
+            );
             (this.schoolings as SchoolingsWindow).openSchoolings.tabs[
                 this.$t('modules.schoolingOverview.all').toString()
             ].forEach(({ end, id }) => window.educationCountdown(end, id));
