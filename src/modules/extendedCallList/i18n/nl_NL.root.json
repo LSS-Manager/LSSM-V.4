@@ -2,6 +2,10 @@
 	"description": "Breidt de meldingenlijst uit met leuke functies!",
 	"name": "Uitgebreide meldingenlijst",
 	"settings": {
+		"averageCredits": {
+			"description": "Toont de gemiddeld te verdienen credits op een compacte manier.",
+			"title": "Toon gemiddelde credits"
+		},
 		"remainingTime": {
 			"description": "Toont bij inzetten hoe lang de melding nog duurt, voordat deze is afgerond.",
 			"title": "Resterende inzettijd"
@@ -9,6 +13,10 @@
 		"remainingTimeGreenOnly": {
 			"description": "Toont de resterende inzettijd alleen bij groene meldingen.",
 			"title": "Inzettijd alleen bij groene meldingen"
+		},
+		"starrableMissions": {
+			"description": "Markeer meldingen zodat ze bovenaan de meldingenlijst worden weergegeven. Je kan ze in de meldingenlijst of in de melding zelf markeren.",
+			"title": "Markeer meldingen"
 		}
 	}
 }

@@ -60,6 +60,7 @@
 		"building": "Gebouw",
 		"caption": "Naam",
 		"fms": "Status",
+		"target": "Bestemming",
 		"type": "Type"
 	},
 	"vehicle-types": {
