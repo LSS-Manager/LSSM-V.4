@@ -44,6 +44,7 @@ declare global {
             checkbox: JQuery<HTMLInputElement>
         ): boolean;
         extensionCountdown(remaining: number, id: number): void;
+        educationCountdown(remaining: number, id: string | number): void;
         formatTime(remaining: number, t?: boolean): string;
         buildingMarkerAdd(marker: BuildingMarkerAdd): boolean;
         buildingMarkerBulkContentCacheDraw(): void;

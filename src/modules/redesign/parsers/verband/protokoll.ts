@@ -1,3 +1,5 @@
+import moment from 'moment';
+
 import verbandParser from './verbandParser';
 
 import { RedesignParser } from 'typings/modules/Redesign';
@@ -11,6 +13,7 @@ interface User {
 
 interface Entry {
     time: Date;
+    timestring: string;
     executor?: User;
     description: string;
     type:
@@ -40,6 +43,8 @@ export default <RedesignParser<VerbandProtokollWindow>>(async ({
     getIdFromEl = () => -1,
     LSSM,
 }) => {
+    moment.locale(LSSM.$store.state.lang);
+
     const protokoll_types: Record<
         Entry['type'],
         { regex: RegExp; title?: string }
@@ -68,8 +73,10 @@ export default <RedesignParser<VerbandProtokollWindow>>(async ({
                     .split(/\n/g)
                     .map(t => t.trim())
                     .join(' ') ?? '';
+            const time = new Date();
             return {
-                time: new Date(),
+                time,
+                timestring: moment(time).format('L LT'),
                 executor: getUser(
                     row.querySelector<HTMLTableCellElement>('td:nth-child(2)')
                 ),
