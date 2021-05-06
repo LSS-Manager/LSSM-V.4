@@ -30,4 +30,8 @@ export default (() => ({
         type: 'hidden',
         default: {},
     },
+    'verband/protokoll': <Hidden>{
+        type: 'hidden',
+        default: {},
+    },
 })) as ModuleSettingFunction;

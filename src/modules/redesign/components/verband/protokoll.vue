@@ -16,6 +16,16 @@
             @sort="setSort"
         >
             <template v-slot:head>
+                <div class="form-group">
+                    <label>{{ lightbox.$sm('filter.type') }}</label>
+                    <multi-select
+                        name="types_select"
+                        :placeholder="lightbox.$sm('filter.type')"
+                        v-model="filter.type"
+                        :options="types"
+                        @input="updateFilter('type', filter.type)"
+                    ></multi-select>
+                </div>
                 <span>{{ lightbox.$smc('amount', entriesSorted.length) }}</span>
             </template>
             <tr v-for="(entry, index) in entriesSorted" :key="index">
@@ -51,8 +61,13 @@
 <script lang="ts">
 import Vue from 'vue';
 
+import protokoll_types from '../../i18n/de_DE/verband/protokoll_types';
+
 import { RedesignSubComponent } from 'typings/modules/Redesign';
 import { VerbandProtokollWindow } from '../../parsers/verband/protokoll';
+
+type sort = 'time' | 'executor' | 'description' | 'affected';
+type types = Exclude<VerbandProtokollWindow['entries'][0]['type'], ''>;
 
 type Component = RedesignSubComponent<
     'protokoll',
@@ -63,11 +78,16 @@ type Component = RedesignSubComponent<
         endPage: number;
         head: Record<string, { title: string; noSort?: boolean }>;
         search: string;
-        sort: 'time' | 'executor' | 'description' | 'affected';
+        sort: sort;
         sortDir: 'asc' | 'desc';
+        types: { value: string; label: string }[];
+        filter: {
+            type: types[];
+        };
     },
     {
-        setSort(type: string): void;
+        setSort(type: sort): void;
+        updateFilter(filter: string, value: unknown): void;
     },
     {
         page: number;
@@ -89,8 +109,16 @@ export default Vue.extend<
             import(
                 /* webpackChunkName: "components/enhanced-table" */ '../../../../components/enhanced-table.vue'
             ),
+        MultiSelect: () =>
+            import(
+                /* webpackChunkName: "components/settings/multi-select" */ '../../../../components/setting/multi-select.vue'
+            ),
     },
     data() {
+        const types: Record<
+            types,
+            { regex: RegExp; title?: string }
+        > = protokoll_types;
         return {
             startPage: 0,
             endPage: 0,
@@ -98,6 +126,13 @@ export default Vue.extend<
             search: '',
             sort: 'time',
             sortDir: 'asc',
+            types: Object.entries(types).map(([value, { regex, title }]) => ({
+                value,
+                label: title ?? regex.toString().replace(/^\/|\/$/g, ''),
+            })),
+            filter: {
+                type: Object.keys(types) as types[],
+            },
         };
     },
     computed: {
@@ -123,13 +158,14 @@ export default Vue.extend<
                 .toString();
         },
         entriesFiltered() {
-            return this.search.trim().length
-                ? this.protokoll.entries.filter(entry =>
-                      JSON.stringify(Object.values(entry))
-                          .toLowerCase()
-                          .match(this.search.trim().toLowerCase())
-                  )
-                : this.protokoll.entries;
+            return this.protokoll.entries.filter(
+                entry =>
+                    entry.type &&
+                    this.filter.type.includes(entry.type) &&
+                    JSON.stringify(Object.values(entry))
+                        .toLowerCase()
+                        .match(this.search.trim().toLowerCase())
+            );
         },
         entriesSorted() {
             if (this.sort === 'time') {
@@ -142,8 +178,12 @@ export default Vue.extend<
                 let s = b[this.sort] ?? '';
                 // console.log(this.sort, a, b, f, s);
                 if (['executor', 'affected'].includes(this.sort)) {
-                    f = f?.name?.toLowerCase() ?? '';
-                    s = s?.name?.toLowerCase() ?? '';
+                    f =
+                        (f as VerbandProtokollWindow['entries'][0]['executor'])?.name?.toLowerCase() ??
+                        '';
+                    s =
+                        (s as VerbandProtokollWindow['entries'][0]['executor'])?.name?.toLowerCase() ??
+                        '';
                 }
                 // console.log(f, s);
                 return f < s ? -1 * modifier : f > s ? modifier : 0;
@@ -161,6 +201,9 @@ export default Vue.extend<
             this.setSetting('sort', type).then(() =>
                 this.setSetting('sortDir', this.sortDir).then()
             );
+        },
+        updateFilter(filter, value) {
+            this.setSetting(filter, value).then();
         },
     },
     props: {
@@ -199,13 +242,10 @@ export default Vue.extend<
         },
     },
     beforeMount() {
-        // Object.entries(this.filter).forEach(([filter, props]) => {
-        //     Object.entries(props).forEach(([prop, value]) => {
-        //         this.getSetting(`${filter}.${prop}`, value).then(v =>
-        //             this.$set(props, prop, v)
-        //         );
-        //     });
-        // });
+        this.getSetting('type', this.filter.type).then(v => {
+            console.log(v);
+            this.$set(this.filter, 'type', v);
+        });
         this.head = {
             time: { title: this.lightbox.$sm('time').toString() },
             executor: { title: this.lightbox.$sm('executor').toString() },
@@ -214,10 +254,6 @@ export default Vue.extend<
         };
     },
     mounted() {
-        // this.getSetting(`sort`, this.sort).then(sort => (this.sort = sort));
-        // this.getSetting(`sortDir`, this.sortDir).then(
-        //     dir => (this.sortDir = dir)
-        // );
         this.startPage = this.page;
         this.endPage = this.page;
         this.lightbox.finishLoading('verband/protokoll-mounted');
