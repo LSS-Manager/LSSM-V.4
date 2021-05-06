@@ -3,11 +3,11 @@
 	"amount": "{n} gefilterter Eintrag | {n} gefilterte Einträge",
 	"description": "Beschreibung",
 	"executor": "Auslöser",
+	"filter": {
+		"type": ""
+	},
 	"search_local": "In geladenen Einträgen suchen",
 	"subtitle": "Zeige {n} Einträge der Seiten {startPage} ({firstDate}) bis {endPage} ({lastDate}) von insg. {totalPages} Seiten",
 	"time": "Zeitpunkt",
-	"title": "Verbandsprotokoll",
-	"filter": {
-		"type": ""
-	}
+	"title": "Verbandsprotokoll"
 }
