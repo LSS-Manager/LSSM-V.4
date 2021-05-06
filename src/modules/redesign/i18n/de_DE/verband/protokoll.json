@@ -1,10 +1,10 @@
 {
-    "title": "Verbandsprotokoll",
-    "subtitle": "Zeige {n} Einträge der Seiten {startPage} ({firstDate}) bis {endPage} ({lastDate}) von insg. {totalPages} Seiten",
-    "amount": "{n} gefilterter Eintrag | {n} gefilterte Einträge",
-    "time": "Zeitpunkt",
-    "executor": "Auslöser",
-    "description": "Beschreibung",
-    "affected": "Betroffen",
-    "search_local": "In geladenen Einträgen suchen"
+	"affected": "Betroffen",
+	"amount": "{n} gefilterter Eintrag | {n} gefilterte Einträge",
+	"description": "Beschreibung",
+	"executor": "Auslöser",
+	"search_local": "In geladenen Einträgen suchen",
+	"subtitle": "Zeige {n} Einträge der Seiten {startPage} ({firstDate}) bis {endPage} ({lastDate}) von insg. {totalPages} Seiten",
+	"time": "Zeitpunkt",
+	"title": "Verbandsprotokoll"
 }
