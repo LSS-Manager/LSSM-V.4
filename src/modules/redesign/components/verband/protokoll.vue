@@ -242,10 +242,9 @@ export default Vue.extend<
         },
     },
     beforeMount() {
-        this.getSetting('type', this.filter.type).then(v => {
-            console.log(v);
-            this.$set(this.filter, 'type', v);
-        });
+        this.getSetting('type', this.filter.type).then(v =>
+            this.$set(this.filter, 'type', v)
+        );
         this.head = {
             time: { title: this.lightbox.$sm('time').toString() },
             executor: { title: this.lightbox.$sm('executor').toString() },
