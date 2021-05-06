@@ -184,6 +184,7 @@ export default Vue.extend<
                             ),
                             href: url.toString(),
                             getIdFromEl: this.lightbox.getIdFromEl,
+                            LSSM: this,
                         });
                         this.$set(
                             this.lightbox.data,
@@ -221,6 +222,7 @@ export default Vue.extend<
                             ),
                             href: url.toString(),
                             getIdFromEl: this.lightbox.getIdFromEl,
+                            LSSM: this,
                         });
                         this.$set(
                             this.lightbox.data,

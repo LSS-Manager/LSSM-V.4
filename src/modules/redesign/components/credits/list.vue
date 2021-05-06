@@ -173,6 +173,7 @@ export default Vue.extend<
                                 html,
                                 'text/html'
                             ),
+                            LSSM: this,
                         });
                         this.$set(
                             this.lightbox.data,
@@ -206,6 +207,7 @@ export default Vue.extend<
                                 html,
                                 'text/html'
                             ),
+                            LSSM: this,
                         });
                         this.$set(
                             this.lightbox.data,

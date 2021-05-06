@@ -1785,6 +1785,7 @@ export default Vue.extend<
                                 ),
                                 href: url,
                                 getIdFromEl: this.lightbox.getIdFromEl,
+                                LSSM: this,
                             });
                             if (next_vehicle < 0) {
                                 import(
@@ -1912,6 +1913,7 @@ export default Vue.extend<
                             ),
                             href: url.toString(),
                             getIdFromEl: this.lightbox.getIdFromEl,
+                            LSSM: this,
                         });
                         this.$set(
                             this.lightbox.data,
