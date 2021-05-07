@@ -339,29 +339,31 @@ export default Vue.extend<
                 })
                 .then((res: Response) => res.text())
                 .then(async html => {
-                    import('../../parsers/verband/mitglieder').then(parser => {
-                        const result = parser.default({
-                            doc: new DOMParser().parseFromString(
-                                html,
-                                'text/html'
-                            ),
-                            href: url.toString(),
-                            getIdFromEl: this.lightbox.getIdFromEl,
-                            LSSM: this,
-                        });
-                        this.$set(
-                            this.lightbox.data,
-                            'lastPage',
-                            result.lastPage
-                        );
-                        this.$set(this.lightbox.data, 'users', [
-                            ...result.users,
-                            ...this.lightbox.data.users,
-                        ]);
-                        this.lightbox.finishLoading(
-                            'verband-mitgliederliste-loadprev'
-                        );
-                    });
+                    import('../../parsers/verband/mitglieder').then(
+                        async parser => {
+                            const result = await parser.default({
+                                doc: new DOMParser().parseFromString(
+                                    html,
+                                    'text/html'
+                                ),
+                                href: url.toString(),
+                                getIdFromEl: this.lightbox.getIdFromEl,
+                                LSSM: this,
+                            });
+                            this.$set(
+                                this.lightbox.data,
+                                'lastPage',
+                                result.lastPage
+                            );
+                            this.$set(this.lightbox.data, 'users', [
+                                ...result.users,
+                                ...this.lightbox.data.users,
+                            ]);
+                            this.lightbox.finishLoading(
+                                'verband-mitgliederliste-loadprev'
+                            );
+                        }
+                    );
                 });
         },
         loadNext() {
@@ -383,29 +385,31 @@ export default Vue.extend<
                 })
                 .then((res: Response) => res.text())
                 .then(async html => {
-                    import('../../parsers/verband/mitglieder').then(parser => {
-                        const result = parser.default({
-                            doc: new DOMParser().parseFromString(
-                                html,
-                                'text/html'
-                            ),
-                            href: url.toString(),
-                            getIdFromEl: this.lightbox.getIdFromEl,
-                            LSSM: this,
-                        });
-                        this.$set(
-                            this.lightbox.data,
-                            'lastPage',
-                            result.lastPage
-                        );
-                        this.$set(this.lightbox.data, 'users', [
-                            ...this.lightbox.data.users,
-                            ...result.users,
-                        ]);
-                        this.lightbox.finishLoading(
-                            'verband-mitgliederliste-loadnext'
-                        );
-                    });
+                    import('../../parsers/verband/mitglieder').then(
+                        async parser => {
+                            const result = await parser.default({
+                                doc: new DOMParser().parseFromString(
+                                    html,
+                                    'text/html'
+                                ),
+                                href: url.toString(),
+                                getIdFromEl: this.lightbox.getIdFromEl,
+                                LSSM: this,
+                            });
+                            this.$set(
+                                this.lightbox.data,
+                                'lastPage',
+                                result.lastPage
+                            );
+                            this.$set(this.lightbox.data, 'users', [
+                                ...this.lightbox.data.users,
+                                ...result.users,
+                            ]);
+                            this.lightbox.finishLoading(
+                                'verband-mitgliederliste-loadnext'
+                            );
+                        }
+                    );
                 });
         },
         setUrlSearch() {

@@ -5,6 +5,23 @@
             <br />
             <small>{{ subtitle }}</small>
         </h1>
+        <button
+            class="btn btn-success"
+            :disabled="startPage <= 1"
+            @click="loadPrev"
+        >
+            {{ lightbox.$sm('load.prev') }}
+        </button>
+        <button
+            class="btn btn-success"
+            :disabled="
+                endPage >= protokoll.lastPage ||
+                    protokoll.lastPage === Number.MAX_SAFE_INTEGER
+            "
+            @click="loadNext"
+        >
+            {{ lightbox.$sm('load.next') }}
+        </button>
         <enhanced-table
             :head="head"
             :table-attrs="{ class: 'table' }"
@@ -88,6 +105,8 @@ type Component = RedesignSubComponent<
     {
         setSort(type: sort): void;
         updateFilter(filter: string, value: unknown): void;
+        loadPrev(): void;
+        loadNext(): void;
     },
     {
         page: number;
@@ -204,6 +223,84 @@ export default Vue.extend<
         },
         updateFilter(filter, value) {
             this.setSetting(filter, value).then();
+        },
+        loadPrev() {
+            this.$set(this.lightbox, 'loading', true);
+            this.startPage--;
+            const url = new URL(`/alliance_logfiles`, window.location.origin);
+            url.searchParams.set('page', this.startPage.toString());
+            this.$store
+                .dispatch('api/request', {
+                    url,
+                    feature: `redesign-verband-mitgliederliste-load-prev-${this.startPage}`,
+                })
+                .then((res: Response) => res.text())
+                .then(async html => {
+                    import('../../parsers/verband/protokoll').then(
+                        async parser => {
+                            const result = await parser.default({
+                                doc: new DOMParser().parseFromString(
+                                    html,
+                                    'text/html'
+                                ),
+                                href: url.toString(),
+                                getIdFromEl: this.lightbox.getIdFromEl,
+                                LSSM: this,
+                            });
+                            this.$set(
+                                this.lightbox.data,
+                                'lastPage',
+                                result.lastPage
+                            );
+                            this.$set(this.lightbox.data, 'entries', [
+                                ...result.entries,
+                                ...this.lightbox.data.entries,
+                            ]);
+                            this.lightbox.finishLoading(
+                                'verband-protokoll-loadprev'
+                            );
+                        }
+                    );
+                });
+        },
+        loadNext() {
+            this.$set(this.lightbox, 'loading', true);
+            this.endPage++;
+            const url = new URL(`/alliance_logfiles`, window.location.origin);
+            url.searchParams.set('page', this.endPage.toString());
+            this.$store
+                .dispatch('api/request', {
+                    url,
+                    feature: `redesign-verband-mitgliederliste-load-prev-${this.endPage}`,
+                })
+                .then((res: Response) => res.text())
+                .then(async html => {
+                    import('../../parsers/verband/protokoll').then(
+                        async parser => {
+                            const result = await parser.default({
+                                doc: new DOMParser().parseFromString(
+                                    html,
+                                    'text/html'
+                                ),
+                                href: url.toString(),
+                                getIdFromEl: this.lightbox.getIdFromEl,
+                                LSSM: this,
+                            });
+                            this.$set(
+                                this.lightbox.data,
+                                'lastPage',
+                                result.lastPage
+                            );
+                            this.$set(this.lightbox.data, 'entries', [
+                                ...this.lightbox.data.entries,
+                                ...result.entries,
+                            ]);
+                            this.lightbox.finishLoading(
+                                'verband-protokoll-loadnext'
+                            );
+                        }
+                    );
+                });
         },
     },
     props: {

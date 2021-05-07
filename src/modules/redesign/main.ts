@@ -20,6 +20,7 @@ const routeChecks: routeChecks = {
     '^/(verband|alliances/\\d+)/?$': 'verband/home',
     '^/verband/mitglieder(/\\d+)?/?$': 'verband/mitglieder',
     '^/alliance_newses/(new|\\d+/edit)/?$': 'verband/news/edit',
+    '^/alliance_logfiles/?$': 'verband/protokoll',
     '^/verband/regeln/\\d+/?$': 'verband/regeln',
     // '^/vehicles/\\d+/(patient|gefangener)/\\d+/?': 'vehicle/nextfms',
 };

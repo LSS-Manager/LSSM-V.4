@@ -73,7 +73,11 @@ export default <RedesignParser<VerbandProtokollWindow>>(async ({
                     .split(/\n/g)
                     .map(t => t.trim())
                     .join(' ') ?? '';
-            const time = new Date();
+            const time = new Date(
+                row
+                    .querySelector<HTMLTableCellElement>('td:first-child span')
+                    ?.getAttribute('data-log-time') ?? 0
+            );
             return {
                 time,
                 timestring: moment(time).format('L LT'),
