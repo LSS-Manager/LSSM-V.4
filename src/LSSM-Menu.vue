@@ -312,9 +312,8 @@ export default Vue.extend<
                     },
                 });
                 this.setNavbarBG(
-                    this.iconBg?.toString() ?? (this.$store.state.policechief
-                        ? '#004997'
-                        : '#C9302C')
+                    this.iconBg?.toString() ??
+                        (this.$store.state.policechief ? '#004997' : '#C9302C')
                 );
             }
             this.$store.dispatch('settings/setSetting', {
