@@ -87,10 +87,12 @@
 <script lang="ts">
 import Vue from 'vue';
 
+import { mapState } from 'vuex';
+import svgToMiniDataURI from 'mini-svg-data-uri';
+
 import Appstore from './components/appstore.vue';
 import LibraryOverview from './components/libraryOverview.vue';
 import lssmLogo from './img/lssm_logo';
-import { mapState } from 'vuex';
 import Settings from './components/settings.vue';
 
 import { DefaultProps } from 'vue/types/options';
@@ -99,6 +101,76 @@ import {
     lssmMenuData,
     lssmMenuMethods,
 } from '../typings/LSSM-Menu';
+
+const draw = (img: HTMLImageElement) => {
+    const canvas = document.createElement('canvas');
+    const c = canvas.getContext('2d');
+    if (!c) return c;
+    canvas.width = img.width;
+    canvas.height = img.height;
+    c.clearRect(0, 0, canvas.width, canvas.height);
+    c.drawImage(img, 0, 0);
+    return c;
+};
+
+const rgbToHex = (r: number, g: number, b: number): string =>
+    ((r << 16) | (g << 8) | b).toString(16);
+
+const getColors = (c: CanvasRenderingContext2D) => {
+    const colors: Record<string, number> = {};
+    let r = 0;
+    let g = 0;
+    let b = 0;
+    let a = 0;
+    const pixels = c.getImageData(0, 0, c.canvas.width, c.canvas.height);
+    for (let i = 0, data = pixels.data; i < data.length; i += 4) {
+        r = data[i];
+        g = data[i + 1];
+        b = data[i + 2];
+        a = data[i + 3]; // alpha
+        // skip pixels >50% transparent
+        if (a < 255 / 2) continue;
+        const col = rgbToHex(r, g, b);
+        if (!colors.hasOwnProperty(col)) colors[col] = 0;
+        colors[col]++;
+    }
+    return colors;
+};
+
+const rgbToHsl = (
+    r: number,
+    g: number,
+    b: number
+): [number, number, number] => {
+    const red = r / 255;
+    const green = g / 255;
+    const blue = b / 255;
+    const max = Math.max(red, green, blue);
+    const min = Math.min(red, green, blue);
+    let h = 0;
+    let s: number;
+    const l = (max + min) / 2;
+    if (max == min) {
+        h = s = 0; // achromatic
+    } else {
+        const d = max - min;
+        s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+        switch (max) {
+            case red:
+                h = (green - blue) / d + (green < blue ? 6 : 0);
+                break;
+            case green:
+                h = (blue - red) / d + 2;
+                break;
+            case blue:
+                h = (red - green) / d + 4;
+                break;
+        }
+        h /= 6;
+    }
+
+    return [Math.floor(h * 360), Math.floor(s * 100), Math.floor(l * 100)];
+};
 
 export default Vue.extend<
     lssmMenuData,
@@ -120,6 +192,14 @@ export default Vue.extend<
             wiki: this.$store.getters.wiki,
             version: this.$store.state.version,
             mode: this.$store.state.mode,
+            navbg: {
+                svg: document.createElementNS(
+                    'http://www.w3.org/2000/svg',
+                    'svg'
+                ),
+                hsl: [0, 0, 0],
+                navbar: null,
+            },
         };
     },
     computed: {
@@ -231,12 +311,37 @@ export default Vue.extend<
                         'background-color': this.iconBg,
                     },
                 });
+                this.setNavbarBG(
+                    this.iconBg?.toString() ?? (this.$store.state.policechief
+                        ? '#004997'
+                        : '#C9302C')
+                );
             }
             this.$store.dispatch('settings/setSetting', {
                 moduleId: 'global',
                 settingId: 'iconBg',
                 value: this.iconBg,
             });
+        },
+        setNavbarBG(color) {
+            console.log(`set navbar bg to ${color}`);
+            const navr = parseInt(color.slice(1, 3), 16);
+            const navg = parseInt(color.slice(3, 5), 16);
+            const navb = parseInt(color.slice(5, 7), 16);
+            const target = rgbToHsl(navr, navg, navb);
+            const hue = target[0] - this.navbg.hsl[0];
+            const sat = 100 + (target[1] - this.navbg.hsl[1]);
+            const lig = 100 + (target[2] - this.navbg.hsl[2]);
+
+            this.navbg.svg.style.setProperty(
+                'filter',
+                `hue-rotate(${hue}deg) saturate(${sat}%) brightness(${lig}%)`
+            );
+            const dataURL = svgToMiniDataURI(this.navbg.svg.outerHTML);
+            this.navbg.navbar?.style.setProperty(
+                'background-image',
+                `url("${dataURL}")`
+            );
         },
     },
     beforeMount() {
@@ -248,6 +353,50 @@ export default Vue.extend<
                 this.labelInMenu = labelInMenu;
                 this.iconBg = iconBg;
                 this.iconBgAsNavBg = iconBgAsNavBg;
+
+                if (iconBgAsNavBg) {
+                    this.navbg.navbar = document.getElementById('main_navbar');
+                    const bgImg = this.navbg.navbar
+                        ? window.getComputedStyle(this.navbg.navbar)
+                              .backgroundImage
+                        : false;
+                    if (!this.navbg.navbar || !bgImg) return;
+
+                    const img = new Image(4000, 120);
+                    img.addEventListener('load', () => {
+                        const context = draw(img);
+                        if (!context) return;
+                        const colors = getColors(context);
+                        const mainColor = Object.entries(
+                            colors
+                        ).sort(([, a], [, b]) =>
+                            a < b ? 1 : a > b ? -1 : 0
+                        )[0][0];
+                        const r = parseInt(mainColor.slice(0, 2), 16);
+                        const g = parseInt(mainColor.slice(2, 4), 16);
+                        const b = parseInt(mainColor.slice(4, 6), 16);
+                        this.navbg.hsl = rgbToHsl(r, g, b);
+
+                        const width = `${4000 / (120 / 50)}px`;
+                        const height = `50px`;
+                        this.navbg.svg.setAttribute(
+                            'xmlns',
+                            'http://www.w3.org/2000/svg'
+                        );
+                        this.navbg.svg.setAttribute('height', height);
+                        this.navbg.svg.setAttribute('width', width);
+                        const image = document.createElementNS(
+                            'http://www.w3.org/2000/svg',
+                            'image'
+                        );
+                        image.setAttribute('height', height);
+                        image.setAttribute('width', width);
+                        image.setAttribute('href', context.canvas.toDataURL());
+                        this.navbg.svg.append(image);
+                        this.setNavbarBG(iconBg);
+                    });
+                    img.src = bgImg.replace(/^url\("|"\)$/g, '');
+                }
             });
     },
 });
