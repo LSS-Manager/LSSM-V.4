@@ -324,7 +324,6 @@ export default Vue.extend<
             });
         },
         setNavbarBG(color) {
-            console.log(`set navbar bg to ${color}`);
             const navr = parseInt(color.slice(1, 3), 16);
             const navg = parseInt(color.slice(3, 5), 16);
             const navb = parseInt(color.slice(5, 7), 16);
