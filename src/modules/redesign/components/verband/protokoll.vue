@@ -41,6 +41,7 @@
                         v-model="filter.type"
                         :options="types"
                         @input="updateFilter('type', filter.type)"
+                        all-on-none
                     ></multi-select>
                 </div>
                 <span>{{ lightbox.$smc('amount', entriesSorted.length) }}</span>
@@ -77,8 +78,6 @@
 
 <script lang="ts">
 import Vue from 'vue';
-
-import protokoll_types from '../../i18n/de_DE/verband/protokoll_types';
 
 import { RedesignSubComponent } from 'typings/modules/Redesign';
 import { VerbandProtokollWindow } from '../../parsers/verband/protokoll';
@@ -134,10 +133,6 @@ export default Vue.extend<
             ),
     },
     data() {
-        const types: Record<
-            types,
-            { regex: RegExp; title?: string }
-        > = protokoll_types;
         return {
             startPage: 0,
             endPage: 0,
@@ -145,12 +140,9 @@ export default Vue.extend<
             search: '',
             sort: 'time',
             sortDir: 'asc',
-            types: Object.entries(types).map(([value, { regex, title }]) => ({
-                value,
-                label: title ?? regex.toString().replace(/^\/|\/$/g, ''),
-            })),
+            types: [],
             filter: {
-                type: Object.keys(types) as types[],
+                type: [],
             },
         };
     },
@@ -339,8 +331,13 @@ export default Vue.extend<
         },
     },
     beforeMount() {
-        this.getSetting('type', this.filter.type).then(v =>
-            this.$set(this.filter, 'type', v)
+        const types = this.protokoll.protokoll_types;
+        this.types = Object.entries(types).map(([value, { regex, title }]) => ({
+            value,
+            label: title ?? regex.toString().replace(/^\/|\/$/g, ''),
+        }));
+        this.getSetting('type', Object.keys(types)).then(v =>
+            this.$set(this.filter, 'type', v.length ? v : Object.keys(types))
         );
         this.head = {
             time: { title: this.lightbox.$sm('time').toString() },

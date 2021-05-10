@@ -36,6 +36,10 @@ interface Entry {
 export interface VerbandProtokollWindow extends VerbandWindow {
     lastPage: number;
     entries: Entry[];
+    protokoll_types: Record<
+        Exclude<Entry['type'], ''>,
+        { regex: RegExp; title?: string }
+    >;
 }
 
 export default <RedesignParser<VerbandProtokollWindow>>(async ({
@@ -45,10 +49,7 @@ export default <RedesignParser<VerbandProtokollWindow>>(async ({
 }) => {
     moment.locale(LSSM.$store.state.lang);
 
-    const protokoll_types: Record<
-        Entry['type'],
-        { regex: RegExp; title?: string }
-    > = (
+    const protokoll_types: VerbandProtokollWindow['protokoll_types'] = (
         await import(
             /* webpackChunkName: "modules/i18n/redesign/[request]" */ `../../i18n/${LSSM.$store.state.lang}/verband/protokoll_types`
         )
@@ -94,6 +95,7 @@ export default <RedesignParser<VerbandProtokollWindow>>(async ({
                 ),
             };
         }),
+        protokoll_types,
         lastPage: parseInt(
             doc
                 .querySelector<HTMLAnchorElement>(
