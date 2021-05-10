@@ -358,7 +358,8 @@ export default Vue.extend<
                         ? window.getComputedStyle(this.navbg.navbar)
                               .backgroundImage
                         : false;
-                    if (!this.navbg.navbar || !bgImg) return;
+                    if (!this.navbg.navbar || !bgImg || bgImg === 'none')
+                        return;
 
                     const img = new Image(4000, 120);
                     img.addEventListener('load', () => {
