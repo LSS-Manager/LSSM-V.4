@@ -36,7 +36,13 @@ interface Entry {
         | 'set_chatban'
         | 'remove_chatban'
         | 'added_role'
-        | 'removed_role';
+        | 'removed_role'
+        | 'start_schooling'
+        | 'complete_schooling'
+        | 'start_extension'
+        | 'complete_extension'
+        | 'build'
+        | 'demolish';
     affected?: User | Building;
 }
 
