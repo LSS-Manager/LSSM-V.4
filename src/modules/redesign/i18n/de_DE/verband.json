@@ -5,7 +5,7 @@
 			"/alliance_threads": "Forum",
 			"/alliances/{id}": "Start",
 			"/schoolings": "Lehrgänge",
-			"/verband/bereitstellungsraeume": "Bereitstellungsräume",
+			"/verband/bereitstellungsraume": "Bereitstellungsräume",
 			"/verband/gebaeude": "Gebäude",
 			"/verband/kasse": "Verbandskasse",
 			"/verband/mitglieder/{id}": "Mitglieder",
@@ -28,7 +28,7 @@
 			"/alliance_threads",
 			"/verband/werbung",
 			"/schoolings",
-			"/verband/bereitstellungsraeume",
+			"/verband/bereitstellungsraume",
 			"/verband/kasse",
 			"/verband/gebaeude"
 		]
