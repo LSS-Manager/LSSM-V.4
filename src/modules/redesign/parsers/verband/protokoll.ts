@@ -5,10 +5,17 @@ import verbandParser from './verbandParser';
 import { RedesignParser } from 'typings/modules/Redesign';
 import { VerbandWindow } from 'typings/modules/Redesign/Verband';
 
+interface Building {
+    name: string;
+    id: number;
+    type: 'building';
+}
+
 interface User {
     icon: string;
     name: string;
     id: number;
+    type: 'user';
 }
 
 interface Entry {
@@ -30,7 +37,7 @@ interface Entry {
         | 'remove_chatban'
         | 'added_role'
         | 'removed_role';
-    affected?: User;
+    affected?: User | Building;
 }
 
 export interface VerbandProtokollWindow extends VerbandWindow {
@@ -54,13 +61,28 @@ export default <RedesignParser<VerbandProtokollWindow>>(async ({
             /* webpackChunkName: "modules/i18n/redesign/[request]" */ `../../i18n/${LSSM.$store.state.lang}/verband/protokoll_types`
         )
     ).default;
-    const getUser = (cell: HTMLTableCellElement | null): User | undefined =>
+    const getUser = (
+        cell: HTMLTableCellElement | null
+    ): User | Building | undefined =>
         cell?.innerText.trim()
-            ? {
-                  icon: cell.querySelector<HTMLImageElement>('img')?.src ?? '',
-                  name: cell.innerText.trim(),
-                  id: getIdFromEl(cell.querySelector<HTMLAnchorElement>('a')),
-              }
+            ? cell?.querySelector<HTMLAnchorElement>('a[href^="/profile/"]')
+                ? {
+                      icon:
+                          cell.querySelector<HTMLImageElement>('img')?.src ??
+                          '',
+                      name: cell.innerText.trim(),
+                      id: getIdFromEl(
+                          cell.querySelector<HTMLAnchorElement>('a')
+                      ),
+                      type: 'user',
+                  }
+                : {
+                      name: cell.innerText.trim(),
+                      id: getIdFromEl(
+                          cell.querySelector<HTMLAnchorElement>('a')
+                      ),
+                      type: 'building',
+                  }
             : void 0;
     return {
         ...verbandParser({ doc, getIdFromEl }),

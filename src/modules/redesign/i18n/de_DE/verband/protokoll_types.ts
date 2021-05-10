@@ -11,4 +11,10 @@ export default {
     remove_chatban: { regex: /Chat-Ban entfernt/ },
     added_role: { regex: /Als .*? gesetzt/, title: 'Rolle zugeteilt' },
     removed_role: { regex: /Als .*? entfernt/, title: 'Rolle entfernt' },
+    start_schooling: { regex: /Lehrgang angelegt/ },
+    complete_schooling: { regex: /Lehrgang durchgeführt/ },
+    start_extension: { regex: /Ausbau gestartet/ },
+    complete_extension: { regex: /Ausbau fertiggestellt/ },
+    build: { regex: /Gebäude gebaut/ },
+    demolish: { regex: /Gebäude abgerissen/ },
 };

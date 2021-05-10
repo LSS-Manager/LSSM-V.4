@@ -62,10 +62,20 @@
                 <td>{{ entry.description }}</td>
                 <td>
                     <span v-if="entry.affected">
-                        <img :src="entry.affected.icon" alt="" />
+                        <img
+                            v-if="entry.affected.type === 'user'"
+                            :src="entry.affected.icon"
+                            alt=""
+                        />
                         <a
                             lightbox-open
-                            :href="`/profile/${entry.affected.id}`"
+                            :href="
+                                `/${
+                                    entry.affected.type === 'user'
+                                        ? 'profile'
+                                        : 'buildings'
+                                }/${entry.affected.id}`
+                            "
                         >
                             {{ entry.affected.name }}
                         </a>
@@ -171,11 +181,11 @@ export default Vue.extend<
         entriesFiltered() {
             return this.protokoll.entries.filter(
                 entry =>
-                    entry.type &&
-                    this.filter.type.includes(entry.type) &&
-                    JSON.stringify(Object.values(entry))
-                        .toLowerCase()
-                        .match(this.search.trim().toLowerCase())
+                    !entry.type ||
+                    (this.filter.type.includes(entry.type) &&
+                        JSON.stringify(Object.values(entry))
+                            .toLowerCase()
+                            .match(this.search.trim().toLowerCase()))
             );
         },
         entriesSorted() {
