@@ -35,8 +35,18 @@
                 </div>
             </div>
         </nav>
+        <VerbandBSR
+            v-if="type === 'verband/bsr'"
+            :bsr="data"
+            :url="url"
+            :lightbox="lightbox"
+            :$m="$m"
+            :$mc="$mc"
+            :get-setting="getSetting"
+            :set-setting="setSetting"
+        ></VerbandBSR>
         <VerbandEditName
-            v-if="type === 'verband/edit_name'"
+            v-else-if="type === 'verband/edit_name'"
             :alliance="data"
             :url="url"
             :lightbox="lightbox"
@@ -163,6 +173,10 @@ export default Vue.extend<
 >({
     name: 'verband-lightbox',
     components: {
+        VerbandBSR: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/verband/bsr"*/ './verband/bsr.vue'
+            ),
         VerbandEditName: () =>
             import(
                 /*webpackChunkName: "modules/redesign/windows/verband/edit_name"*/ './verband/edit_name.vue'

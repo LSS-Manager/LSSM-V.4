@@ -16,6 +16,7 @@ import { SchoolingsWindow } from '../../src/modules/redesign/parsers/schoolings'
 import { TopListWindow } from '../../src/modules/redesign/parsers/toplist';
 import { VehicleGroupWindow } from 'modules/redesign/parsers/vehicle_group';
 import { VehicleWindow } from '../../src/modules/redesign/parsers/vehicle';
+import { VerbandBSRWindow } from '../../src/modules/redesign/parsers/verband/bsr';
 import { VerbandEditNameWindow } from '../../src/modules/redesign/parsers/verband/edit_name';
 import { VerbandEditTextWindow } from '../../src/modules/redesign/parsers/verband/edit_text';
 import { VerbandHomeWindow } from '../../src/modules/redesign/parsers/verband/home';
@@ -52,6 +53,7 @@ type types =
     | 'vehicle_group'
     | 'vehicle'
     | 'vehicle/nextfms'
+    | 'verband/bsr'
     | 'verband/edit_name'
     | 'verband/edit_text'
     | 'verband/home'
@@ -76,6 +78,7 @@ type windows =
     | TopListWindow
     | VehicleGroupWindow
     | VehicleWindow
+    | VerbandBSRWindow
     | VerbandEditNameWindow
     | VerbandEditTextWindow
     | VerbandHomeWindow
