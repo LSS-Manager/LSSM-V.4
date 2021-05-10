@@ -16,7 +16,7 @@ export interface OwnSchoolingTabs {
     tabTitles: string[];
     currentTab: string;
     search: string;
-    sort: string;
+    sort: 'name' | 'end' | 'owner';
     sortDir: string;
     all: string;
 }
@@ -26,7 +26,7 @@ export interface OwnSchoolingTabsComputed {
 }
 
 export interface OwnSchoolingTabsMethods {
-    setSorting(s: string): void;
+    setSorting(s: OwnSchoolingTabs['sort']): void;
 }
 
 export interface OwnSchoolingTabsProps {

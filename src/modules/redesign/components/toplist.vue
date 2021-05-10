@@ -176,8 +176,8 @@ export default Vue.extend<
                 })
                 .then((res: Response) => res.text())
                 .then(async html => {
-                    import('../parsers/toplist').then(parser => {
-                        const result = parser.default({
+                    import('../parsers/toplist').then(async parser => {
+                        const result = await parser.default({
                             doc: new DOMParser().parseFromString(
                                 html,
                                 'text/html'
@@ -214,8 +214,8 @@ export default Vue.extend<
                 })
                 .then((res: Response) => res.text())
                 .then(async html => {
-                    import('../parsers/toplist').then(parser => {
-                        const result = parser.default({
+                    import('../parsers/toplist').then(async parser => {
+                        const result = await parser.default({
                             doc: new DOMParser().parseFromString(
                                 html,
                                 'text/html'

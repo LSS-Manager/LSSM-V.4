@@ -1777,16 +1777,18 @@ export default Vue.extend<
                     res.text().then(html => {
                         import(
                             /*webpackChunkName: "modules/redesign/parsers/vehicle/nextfms"*/ `../parsers/vehicle/nextfms`
-                        ).then(parser => {
-                            const { next: next_vehicle } = parser.default({
-                                doc: new DOMParser().parseFromString(
-                                    html,
-                                    'text/html'
-                                ),
-                                href: url,
-                                getIdFromEl: this.lightbox.getIdFromEl,
-                                LSSM: this,
-                            });
+                        ).then(async parser => {
+                            const { next: next_vehicle } = await parser.default(
+                                {
+                                    doc: new DOMParser().parseFromString(
+                                        html,
+                                        'text/html'
+                                    ),
+                                    href: url,
+                                    getIdFromEl: this.lightbox.getIdFromEl,
+                                    LSSM: this,
+                                }
+                            );
                             if (next_vehicle < 0) {
                                 import(
                                     `../i18n/${this.$store.state.lang}/vehicle/nextfms.json`
@@ -1905,8 +1907,8 @@ export default Vue.extend<
                 })
                 .then((res: Response) => res.text())
                 .then(async html => {
-                    import('../parsers/vehicle').then(parser => {
-                        const result = parser.default({
+                    import('../parsers/vehicle').then(async parser => {
+                        const result = await parser.default({
                             doc: new DOMParser().parseFromString(
                                 html,
                                 'text/html'

@@ -18,7 +18,7 @@ export interface OpenSchoolingTabs {
     tabTitles: string[];
     currentTab: string;
     search: string;
-    sort: string;
+    sort: 'name' | 'seats' | 'price' | 'end' | 'owner';
     sortDir: string;
     all: string;
 }
@@ -28,7 +28,7 @@ export interface OpenSchoolingTabsComputed {
 }
 
 export interface OpenSchoolingTabsMethods {
-    setSorting(s: string): void;
+    setSorting(s: OpenSchoolingTabs['sort']): void;
 }
 
 export interface OpenSchoolingTabsProps {
