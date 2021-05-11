@@ -44,7 +44,6 @@ Navegador|Enlace
 -------|----
 Chrome | [Descargar](https://chrome.google.com/webstore/detail/dhdgffkkebhmkfjojejmpbldmpobfkfo)
 Firefox| [Descargar](https://addons.mozilla.org/en-US/firefox/addon/tampermonkey/)
-Safari | [Descargar](https://safari.tampermonkey.net/tampermonkey.safariextz)
 Opera  | [Descargar](https://addons.opera.com/en/extensions/details/tampermonkey-beta/)
 
 Para otros navegadores puedes descargar Tampermonkey en [tampermonkey.net](https://www.tampermonkey.net/).

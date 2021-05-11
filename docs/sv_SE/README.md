@@ -43,7 +43,6 @@ Webbläsare | Länk
 -------|----
 Chrome | [Ladda ner](https://chrome.google.com/webstore/detail/dhdgffkkebhmkfjojejmpbldmpobfkfo)
 Firefox | [Ladda ner](https://addons.mozilla.org/en-US/firefox/addon/tampermonkey/)
-Safari | [Ladda ner](https://safari.tampermonkey.net/tampermonkey.safariextz)
 Opera | [Ladda ner](https://addons.opera.com/en/extensions/details/tampermonkey-beta/)
 
 För andra webbläsare kan du ladda ner Tampermonkey på [tampermonkey.net](https://www.tampermonkey.net/).

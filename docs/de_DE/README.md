@@ -43,7 +43,6 @@ Browser|Link
 -------|----
 Chrome | [Download](https://chrome.google.com/webstore/detail/dhdgffkkebhmkfjojejmpbldmpobfkfo)
 Firefox| [Download](https://addons.mozilla.org/en-US/firefox/addon/tampermonkey/)
-Safari | [Download](https://safari.tampermonkey.net/tampermonkey.safariextz)
 Opera  | [Download](https://addons.opera.com/en/extensions/details/tampermonkey-beta/)
 
 Für sonstige Browser kann man Tampermonkey auf [tampermonkey.net](https://www.tampermonkey.net/) herunterladen.

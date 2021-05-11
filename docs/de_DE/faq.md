@@ -65,7 +65,7 @@ Eine hier aufgelistete Kompatibilität gewährleistet keine Funktionalität. Die
     </tbody>
 </table>
 
-::: danger Internet Explorer und Microsoft Edge
+::: danger Internet Explorer und Safari
 Diese beiden Browser kann man als "Problemkinder" eines modernen Web-Entwicklers beschreiben. Es gibt einige Funktionen, die in ihnen nicht funktionieren, oder zusätzlichen Code benötigen.
 
 Wir sehen es nicht ein, dies überall zu machen und unterstützen diese beiden Browser offiziell **nicht**.
