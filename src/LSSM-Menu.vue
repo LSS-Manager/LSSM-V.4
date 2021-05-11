@@ -308,7 +308,7 @@ export default Vue.extend<
                     selectorText:
                         '.navbar-default, .navbar-default .dropdown-menu',
                     style: {
-                        'background-color': this.iconBg,
+                        'background-color': `${this.iconBg} !important`,
                     },
                 });
                 this.setNavbarBG(
