@@ -18,11 +18,6 @@ export default {
             supported: 70,
             download: 'https://opera.com',
         },
-        safari: {
-            latest: 14,
-            supported: 13,
-            download: 'https://apple.com/safari/',
-        },
         edge: {
             latest: 87,
             supported: 86,
