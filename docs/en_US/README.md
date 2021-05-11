@@ -39,11 +39,7 @@ Official support of mobile browsers is currently **not** planned.
 ### Step 1: Install Tampermonkey
 Install Tampermonkey extension into your browser.
 
-Browser|Link
--------|----
-Chrome | [Download](https://chrome.google.com/webstore/detail/dhdgffkkebhmkfjojejmpbldmpobfkfo)
-Firefox| [Download](https://addons.mozilla.org/en-US/firefox/addon/tampermonkey/)
-Opera  | [Download](https://addons.opera.com/en/extensions/details/tampermonkey-beta/)
+<tampermonkey-download-table/>
 
 For other browsers you can download Tampermonkey on [tampermonkey.net](https://www.tampermonkey.net/).
 

@@ -39,11 +39,7 @@ Supporto ufficiale per le versioni mobili attualmente **non è** programmato.
 ### Passo 1: Tampermonkey
 Se ancora non hai installato Tampermonkey nel tuo browser, devi farlo. Qui puoi trovare una panoramica dei link per i browser più comuni:
 
-Browser|Link
--------|----
-Chrome | [Download](https://chrome.google.com/webstore/detail/dhdgffkkebhmkfjojejmpbldmpobfkfo)
-Firefox| [Download](https://addons.mozilla.org/en-US/firefox/addon/tampermonkey/)
-Opera  | [Download](https://addons.opera.com/en/extensions/details/tampermonkey-beta/)
+<tampermonkey-download-table/>
 
 Per altri browser puoi scaricare Tampermonkey su [tampermonkey.net](https://www.tampermonkey.net/).
 

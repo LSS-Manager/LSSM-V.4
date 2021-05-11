@@ -40,11 +40,7 @@ Actualmente **NO** está previsto el soporte oficial de los navegadores móviles
 ### Paso Nº 1: Instalar Tampermonkey
 Instala la extensión **Tampermonkey** en tu navegador.
 
-Navegador|Enlace
--------|----
-Chrome | [Descargar](https://chrome.google.com/webstore/detail/dhdgffkkebhmkfjojejmpbldmpobfkfo)
-Firefox| [Descargar](https://addons.mozilla.org/en-US/firefox/addon/tampermonkey/)
-Opera  | [Descargar](https://addons.opera.com/en/extensions/details/tampermonkey-beta/)
+<tampermonkey-download-table/>
 
 Para otros navegadores puedes descargar Tampermonkey en [tampermonkey.net](https://www.tampermonkey.net/).
 

@@ -39,11 +39,7 @@ Officiellt stöd för mobilwebbläsare är för närvarande **inte** planerat.
 ### Steg 1: Tampermonkey
 Om du ännu inte har installerat Tampermonkey i din webbläsare måste du fortfarande göra det. Här är en översikt över länkar för de vanligaste webbläsarna:
 
-Webbläsare | Länk
--------|----
-Chrome | [Ladda ner](https://chrome.google.com/webstore/detail/dhdgffkkebhmkfjojejmpbldmpobfkfo)
-Firefox | [Ladda ner](https://addons.mozilla.org/en-US/firefox/addon/tampermonkey/)
-Opera | [Ladda ner](https://addons.opera.com/en/extensions/details/tampermonkey-beta/)
+<tampermonkey-download-table/>
 
 För andra webbläsare kan du ladda ner Tampermonkey på [tampermonkey.net](https://www.tampermonkey.net/).
 

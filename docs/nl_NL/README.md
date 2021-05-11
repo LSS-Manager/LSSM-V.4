@@ -39,11 +39,7 @@ Officiële ondersteuning van mobiele browsers is momenteel **niet** gepland.
 ### Stap 1: Tampermonkey
 Als u Tampermonkey nog niet in uw browser heeft geïnstalleerd, moet u dit alsnog doen. Hier is een overzicht van links voor de meest voorkomende browsers:
 
-Browser|Link
--------|----
-Chrome | [Download](https://chrome.google.com/webstore/detail/dhdgffkkebhmkfjojejmpbldmpobfkfo)
-Firefox| [Download](https://addons.mozilla.org/en-US/firefox/addon/tampermonkey/)
-Opera  | [Download](https://addons.opera.com/en/extensions/details/tampermonkey-beta/)
+<tampermonkey-download-table/>
 
 Voor andere browsers kunt u Tampermonkey downloaden op [tampermonkey.net](https://www.tampermonkey.net/).
 

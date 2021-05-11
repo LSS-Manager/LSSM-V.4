@@ -39,12 +39,7 @@ Oficiální podpora mobilních prohlížečů **není** plánována.
 ### Krok 1: Instalace Tampermonkey
 Nainstaluj doplněk Tampermonkey do tvého prohlížeče.
 
-Browser|Link
--------|----
-Chrome | [Stáhnout](https://chrome.google.com/webstore/detail/dhdgffkkebhmkfjojejmpbldmpobfkfo)
-Firefox| [Stáhnout](https://addons.mozilla.org/en-US/firefox/addon/tampermonkey/)
-Safari | [Stáhnout](https://safari.tampermonkey.net/tampermonkey.safariextz)
-Opera  | [Stáhnout](https://addons.opera.com/en/extensions/details/tampermonkey-beta/)
+<tampermonkey-download-table/>
 
 Pro ostatní prohlížeče můžete stáhnout Tampermonkey na [tampermonkey.net](https://www.tampermonkey.net/).
 
