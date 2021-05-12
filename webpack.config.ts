@@ -17,6 +17,10 @@ export default {
     module: {
         rules: [
             {
+                test: /\.ne(arley)?$/,
+                loader: 'nearley-loader',
+            },
+            {
                 test: /\.svg$/i,
                 use: [
                     {
