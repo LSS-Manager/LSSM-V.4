@@ -34,7 +34,21 @@
         >
             <template v-slot:head>
                 <div class="form-group">
-                    <label>{{ lightbox.$sm('filter.type') }}</label>
+                    <label>
+                        {{ lightbox.$sm('filter.type') }}
+                        <button
+                            class="btn btn-xs btn-default"
+                            @click.prevent.stop="
+                                $set(
+                                    filter,
+                                    'type',
+                                    Object.keys(protokoll.protokoll_types)
+                                )
+                            "
+                        >
+                            {{ lightbox.$sm('filter.all_types') }}
+                        </button>
+                    </label>
                     <multi-select
                         name="types_select"
                         :placeholder="lightbox.$sm('filter.type')"

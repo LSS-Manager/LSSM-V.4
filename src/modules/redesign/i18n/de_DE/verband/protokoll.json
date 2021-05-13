@@ -4,6 +4,7 @@
 	"description": "Beschreibung",
 	"executor": "Auslöser",
 	"filter": {
+		"all_types": "Alle Typen anzeigen",
 		"type": "angezeigte Eintragstypen"
 	},
 	"load": {
