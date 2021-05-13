@@ -15,6 +15,7 @@ const routeChecks: routeChecks = {
     '^/schoolings/?$': 'schoolings',
     '^/toplist/?$': 'toplist',
     '^/vehicles/\\d+/?$': 'vehicle',
+    '^/verband/bereitstellungsraume/?$': 'verband/bsr',
     '^/alliances/\\d+/edit/?$': 'verband/edit_name',
     '^/veband/text/edit/?$': 'verband/edit_text',
     '^/(verband|alliances/\\d+)/?$': 'verband/home',
