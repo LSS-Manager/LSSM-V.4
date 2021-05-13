@@ -199,7 +199,7 @@ const sidebar_others = [
 
 module.exports = async () => {
     const { version: stable } = await fetch(
-        `${config.server}build_stats.json`
+        `${config.server}static/build_stats.json`
     ).then(res =>
         res.status === 200
             ? res.json()
