@@ -199,6 +199,7 @@ export default Vue.extend<
                 ),
                 hsl: [0, 0, 0],
                 navbar: null,
+                aborted: false,
             },
         };
     },
@@ -323,6 +324,7 @@ export default Vue.extend<
             });
         },
         setNavbarBG(color) {
+            if (this.navbg.aborted) return;
             const navr = parseInt(color.slice(1, 3), 16);
             const navg = parseInt(color.slice(3, 5), 16);
             const navb = parseInt(color.slice(5, 7), 16);
@@ -370,7 +372,8 @@ export default Vue.extend<
                             colors
                         ).sort(([, a], [, b]) =>
                             a < b ? 1 : a > b ? -1 : 0
-                        )[0][0];
+                        )?.[0]?.[0];
+                        if (!mainColor) return (this.navbg.aborted = true);
                         const r = parseInt(mainColor.slice(0, 2), 16);
                         const g = parseInt(mainColor.slice(2, 4), 16);
                         const b = parseInt(mainColor.slice(4, 6), 16);

@@ -13,6 +13,7 @@ export interface lssmMenuData {
         svg: SVGElement;
         hsl: [number, number, number];
         navbar: HTMLElement | null;
+        aborted: boolean;
     };
 }
 
