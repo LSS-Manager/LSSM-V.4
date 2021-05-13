@@ -26,7 +26,7 @@ Please provide us your username or userId. It is also useful to name the activat
 Now you can send us your formulated problem with user data. Use one of the options listed below.
 
 ## via Discord
-On our <a :href="$themeConfig.variables.discord" target="_blank">Discord</a> you can get support in the channel <a :href="$themeConfig.variables.discord_support" target="_blank">`#support`</a>.
+On our <discord/> you can get support in the channel <discord-channel channel="support"/>.
 
 ## on GitHub
 You may also open an issue on <a :href="$themeConfig.variables.github + '/issues'" target="_blank">GitHub</a>. Please check here if an issue for this problem already exists and then follow it up.

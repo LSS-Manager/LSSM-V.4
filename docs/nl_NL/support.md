@@ -26,7 +26,7 @@ Geef ons uw gebruikersnaam of gebruikers-ID. Het is ook handig om de geactiveerd
 Nu kunt u ons uw geformuleerde probleem met gebruikersgegevens sturen. Gebruik een van de onderstaande opties.
 
 ## Via Discord
-In onze <a :href="$themeConfig.variables.discord" target="_blank">Discord</a> kun je support krijgen in het kanaal <a :href="$themeConfig.variables.discord_support" target="_blank">`#support`</a>.
+In onze <discord/> kun je support krijgen in het kanaal <discord-channel channel="lssm-help"/>.
 
 ## Op GitHub
 U kunt ook een issue openen op <a :href="$themeConfig.variables.github + '/issues'" target="_blank">GitHub</a>. Controleer hier of er al een issue voor dit probleem bestaat en volg het dan op.

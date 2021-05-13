@@ -10,7 +10,7 @@ sidebarDepth: 2
 > 
 > beta: <i>{{ $themeConfig.variables.versions.beta }}</i>
 
-<a :href="$themeConfig.variables.discord" target="_blank" style="float: right;"><img src="https://discord.com/api/guilds/254167535446917120/embed.png?style=banner1" alt="Our Discord-Server: United Dispatch" data-prevent-zooming></a>
+<discord style="float: right;"><img src="https://discord.com/api/guilds/254167535446917120/embed.png?style=banner1" alt="Our Discord-Server: United Dispatch" data-prevent-zooming></discord>
 
 [LSSM-Server-Status](https://status.lss-manager.de)
 

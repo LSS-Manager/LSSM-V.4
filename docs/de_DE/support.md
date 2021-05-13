@@ -26,7 +26,7 @@ Bitte gebe uns deinen Benutzernamen oder deine NutzerId an. Ebenfalls ist es sin
 Nun kannst du uns dein ausformuliertes Problem mit Nutzerdaten senden. Nutze hierfür eine der unten aufgeführten Möglichkeiten.
 
 ## via Discord
-Auf unserem <a :href="$themeConfig.variables.discord" target="_blank">Discord</a> kann man sich im Channel <a :href="$themeConfig.variables.discord_support" target="_blank">`#support`</a> Support einholen.
+Auf unserem <discord/> kann man sich im Channel <discord-channel channel="lssm-help"/> Support einholen.
 
 ## auf GitHub
 Gerne darf auch ein Issue auf <a :href="$themeConfig.variables.github + '/issues'" target="_blank">GitHub</a> eröffnet werden. Bitte hier vorher nachschauen, ob ein Issue zu diesem Problem bereits existiert und diesem dann auch anschließen.

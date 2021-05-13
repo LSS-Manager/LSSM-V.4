@@ -6,6 +6,14 @@ import path from 'path';
 import config from '../../src/config';
 import { version } from '../../package.json';
 
+config.discord.invite = `https://discord.gg/${config.discord.invite}`;
+config.discord.channels = Object.fromEntries(
+    Object.entries(config.discord.channels).map(([channel, id]) => [
+        channel,
+        `https://discordapp.com/channels/${config.discord.id}/${id}`,
+    ])
+);
+
 const langModules = fs
     .readdirSync('./docs/')
     .filter((x: string) => Object.keys(config.games).indexOf(x) >= 0);
@@ -218,7 +226,7 @@ sidebarDepth: 2
 > 
 > beta: <i>{{ $themeConfig.variables.versions.beta }}</i>
 
-<a :href="$themeConfig.variables.discord" target="_blank" style="float: right;"><img src="https://discord.com/api/guilds/254167535446917120/embed.png?style=banner1" alt="Our Discord-Server: United Dispatch" data-prevent-zooming></a>
+<discord style="float: right;"><img src="https://discord.com/api/guilds/254167535446917120/embed.png?style=banner1" alt="Our Discord-Server: United Dispatch" data-prevent-zooming></discord>
 
 [LSSM-Server-Status](https://status.lss-manager.de)
 
@@ -237,7 +245,7 @@ sidebarDepth: 2
             nav: [
                 {
                     text: 'Discord',
-                    link: config.discord,
+                    link: config.discord.invite,
                 },
             ],
             sidebar: [
@@ -287,7 +295,6 @@ sidebarDepth: 2
             logo: '/img/lssm.png',
             variables: {
                 discord: config.discord,
-                discord_support: config.discord_support,
                 github: `https://github.com/${config.github.repo}`,
                 server: config.server,
                 versions: {

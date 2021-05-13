@@ -10,7 +10,7 @@ Siete pregati di elaborare i suggerimenti il meglio possibile prima di proporgli
 :::
 
 ## via Discord
-Sul nostro <a :href="$themeConfig.variables.discord" target="_blank">Discord</a> puoi proporre le idee/suggerimenti nel canale <a :href="$themeConfig.variables.discord_support" target="_blank">`#support`</a>.
+Sul nostro <discord/> puoi proporre le idee/suggerimenti nel canale <discord-channel channel="lssm-help"/>.
 
 ## su GitHub
 Puoi anche aprire una segnalazione su <a :href="$themeConfig.variables.github + '/issues'" target="_blank">GitHub</a>. Si prega di controllare se questa segnalazione di questa idea/suggerimento già esiste e quindi seguilo
