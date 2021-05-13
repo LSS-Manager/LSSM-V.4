@@ -4,6 +4,7 @@ import { AAOsWindow } from '../../src/modules/redesign/parsers/aaos';
 import { AllianceAvatarWindow } from '../../src/modules/redesign/parsers/alliance_avatar';
 import { AllianceListWindow } from '../../src/modules/redesign/parsers/alliances';
 import { AvatarWindow } from '../../src/modules/redesign/parsers/avatar';
+import { AwardsWindow } from '../../src/modules/redesign/parsers/awards';
 import { CoinsListWindow } from '../../src/modules/redesign/parsers/coins/list';
 import { CreditsDailyWindow } from '../../src/modules/redesign/parsers/credits/daily';
 import { CreditsListWindow } from '../../src/modules/redesign/parsers/credits/list';
@@ -12,14 +13,17 @@ import { FreundeWindow } from '../../src/modules/redesign/parsers/freunde';
 import { NextFMSWindow } from '../../src/modules/redesign/parsers/vehicle/nextfms';
 import { ProfileEditWindow } from '../../src/modules/redesign/parsers/profile/edit';
 import { ProfileWindow } from '../../src/modules/redesign/parsers/profile';
+import { SchoolingsWindow } from '../../src/modules/redesign/parsers/schoolings';
 import { TopListWindow } from '../../src/modules/redesign/parsers/toplist';
 import { VehicleGroupWindow } from 'modules/redesign/parsers/vehicle_group';
 import { VehicleWindow } from '../../src/modules/redesign/parsers/vehicle';
+import { VerbandBSRWindow } from '../../src/modules/redesign/parsers/verband/bsr';
 import { VerbandEditNameWindow } from '../../src/modules/redesign/parsers/verband/edit_name';
 import { VerbandEditTextWindow } from '../../src/modules/redesign/parsers/verband/edit_text';
 import { VerbandHomeWindow } from '../../src/modules/redesign/parsers/verband/home';
 import { VerbandMitgliederWindow } from '../../src/modules/redesign/parsers/verband/mitglieder';
 import { VerbandNewsEditWindow } from '../../src/modules/redesign/parsers/verband/news/edit';
+import { VerbandProtokollWindow } from '../../src/modules/redesign/parsers/verband/protokoll';
 import { VerbandRegelnWindow } from '../../src/modules/redesign/parsers/verband/regeln';
 
 import { CombinedVueInstance } from 'vue/types/vue';
@@ -37,6 +41,7 @@ type types =
     | 'alliance_avatar'
     | 'alliances'
     | 'avatar'
+    | 'awards'
     | 'default'
     | 'coins/list'
     | 'credits/daily'
@@ -45,37 +50,44 @@ type types =
     | 'freunde'
     | 'profile'
     | 'profile/edit'
+    | 'schoolings'
     | 'toplist'
     | 'vehicle_group'
     | 'vehicle'
     | 'vehicle/nextfms'
+    | 'verband/bsr'
     | 'verband/edit_name'
     | 'verband/edit_text'
     | 'verband/home'
     | 'verband/mitglieder'
     | 'verband/news/edit'
+    | 'verband/protokoll'
     | 'verband/regeln';
 type windows =
     | AAOsWindow
     | AllianceAvatarWindow
     | AllianceListWindow
     | AvatarWindow
+    | AwardsWindow
     | CoinsListWindow
     | CreditsDailyWindow
     | CreditsListWindow
     | CreditsOverviewWindow
     | FreundeWindow
     | NextFMSWindow
-    | ProfileEditWindow
     | ProfileWindow
+    | ProfileEditWindow
+    | SchoolingsWindow
     | TopListWindow
     | VehicleGroupWindow
     | VehicleWindow
+    | VerbandBSRWindow
     | VerbandEditNameWindow
     | VerbandEditTextWindow
     | VerbandHomeWindow
     | VerbandMitgliederWindow
     | VerbandNewsEditWindow
+    | VerbandProtokollWindow
     | VerbandRegelnWindow;
 export type routeChecks = Record<string, types>;
 
@@ -115,7 +127,10 @@ export interface RedesignLightbox<
         setSetting(): <T>(settingId: string, value: T) => Promise<void>;
         finishLoading(text?: string): void;
     };
-    Computed: DefaultComputed;
+    Computed: {
+        loaderOffset: number;
+        src: string;
+    };
     Props: {
         url: string;
         $m(
@@ -134,6 +149,7 @@ export interface RedesignLightbox<
         routeChecks: routeChecks;
         noModal: boolean;
         creation: string;
+        size: number;
     };
 }
 
@@ -141,11 +157,12 @@ interface ParserParam {
     doc: Document;
     href?: string;
     getIdFromEl?: (el: HTMLAnchorElement | null) => number;
+    LSSM: Vue;
 }
 
 export type RedesignParser<Window extends windows = windows> = (
     data: ParserParam
-) => Window;
+) => Window | Promise<Window>;
 
 export type RedesignLightboxVue<
     Type extends types,

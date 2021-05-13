@@ -64,7 +64,7 @@ Een hier vermelde compatibiliteit garandeert geen functionaliteit. Dit is alleen
 </tbody>
 </table>
 
-::: danger Internet Explorer en Microsoft Edge
+::: danger Internet Explorer en Safari
 Deze twee browsers kunnen worden omschreven als de "probleemkinderen" van een moderne webontwikkelaar. Er zijn enkele functies die er niet in werken, of waarvoor extra code vereist is.
 
 We zien het nut niet in om dit overal te doen en ondersteunen deze twee browsers daarom **niet** officieel.

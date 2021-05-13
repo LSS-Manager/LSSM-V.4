@@ -26,7 +26,7 @@ Vennligst oppgi brukernavn eller bruker-ID. Det er også nyttig å navngi de akt
 Nå kan du sende oss det formulerte problemet ditt med brukerdata. Bruk ett av alternativene som er oppført nedenfor.
 
 ## via Discord
-På vår <a :href="$themeConfig.variables.discord" target="_blank">Discord</a> kan du komme med forslag i <a :href="$themeConfig.variables.discord_support" target="_blank">`#support`</a> kanalen.
+På vår <discord/> kan du komme med forslag i <discord-channel channel="lssm-help"/> kanalen.
 
 ## på GitHub
 Du kan også åpne et problem på <a :href="$themeConfig.variables.github + '/issues'" target="_blank">GitHub</a>. Sjekk om det allerede finnes et problem med dette forslaget, og følg det opp.

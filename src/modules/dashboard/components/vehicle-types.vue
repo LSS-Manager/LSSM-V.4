@@ -240,7 +240,7 @@ export default Vue.extend<
                     title: this.$smc('title', status, { type: type.title }),
                     vehicles,
                 },
-                { name: 'vehicle-list', height: 'auto' }
+                { name: 'vehicle-list', height: 'auto', width: '45%' }
             );
         },
     },

@@ -25,7 +25,7 @@ Indíquenos su nombre de usuario o ID de usuario. También es útil nombrar los 
 Ahora puede enviarnos su problema formulado con datos de usuario. Utilice una de las opciones que se enumeran a continuación.
 
 ## Por Discord
-En nuestro servidor de <a :href="$themeConfig.variables.discord" target="_blank">Discord</a> puede obtener apoyo en el canal de <a :href="$themeConfig.variables.discord_support" target="_blank">`#support`</a>.
+En nuestro servidor de <discord/> puede obtener apoyo en el canal de <discord-channel channel="lssm-help"/>.
 
 ## Por GitHub
 También puede abrir un problema en <a :href="$themeConfig.variables.github + '/issues'" target="_blank">GitHub</a>. Por favor, marque aquí si ya existe un problema relacionado con este problema y luego haga un seguimiento.

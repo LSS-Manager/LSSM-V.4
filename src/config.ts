@@ -18,20 +18,21 @@ export default {
             supported: 70,
             download: 'https://opera.com',
         },
-        safari: {
-            latest: 14,
-            supported: 13,
-            download: 'https://apple.com/safari/',
-        },
         edge: {
             latest: 87,
             supported: 86,
             download: 'https://microsoft.com/edge',
         },
     },
-    discord: 'https://discord.gg/RcTNjpB',
-    discord_support:
-        'https://discordapp.com/channels/254167535446917120/607913643140579348',
+    discord: {
+        invite: 'RcTNjpB',
+        id: '254167535446917120',
+        channels: {
+            'suggestions': '607913643140579348',
+            'lssm-help': '632909910895755264',
+            'uptime': '649734648901009419',
+        },
+    },
     games: {
         cs_CZ: {
             flag: '🇨🇿',

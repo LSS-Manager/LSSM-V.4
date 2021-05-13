@@ -32,6 +32,8 @@ export default Vue.extend<MapData, MapMethods, MapComputed, MapProps>({
                 maxZoom: 17,
                 noWrap: true,
             }).addTo(this.map);
+            if (this.centerGroup)
+                this.map.fitBounds(this.centerGroup.getBounds());
         },
         setView(lat, long, zoom = undefined) {
             this.map?.setView([lat, long], zoom ?? this.map?.getZoom() ?? 15);
@@ -71,6 +73,10 @@ export default Vue.extend<MapData, MapMethods, MapComputed, MapProps>({
             type: Array,
             required: false,
             default: () => [],
+        },
+        centerGroup: {
+            type: Object,
+            required: false,
         },
     },
     mounted() {

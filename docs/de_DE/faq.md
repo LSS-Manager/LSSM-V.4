@@ -65,7 +65,7 @@ Eine hier aufgelistete Kompatibilität gewährleistet keine Funktionalität. Die
     </tbody>
 </table>
 
-::: danger Internet Explorer und Microsoft Edge
+::: danger Internet Explorer und Safari
 Diese beiden Browser kann man als "Problemkinder" eines modernen Web-Entwicklers beschreiben. Es gibt einige Funktionen, die in ihnen nicht funktionieren, oder zusätzlichen Code benötigen.
 
 Wir sehen es nicht ein, dies überall zu machen und unterstützen diese beiden Browser offiziell **nicht**.
@@ -79,7 +79,8 @@ Derzeit bieten wir das nicht an, eine Implementierung dieses Features ist aber g
 
 ### Wo so seh ich ob die LSSM-Server grad online sind? 
 Am besten hier: [https://status.lss-manager.de/](https://status.lss-manager.de/)
-Oder im Uptime-Channel auf unserem <a :href="$themeConfig.variables.discord" target="_blank">Discord</a> 
+
+Oder im <discord-channel channel="uptime"/> auf unserem <discord/> 
 
 [support]: support.md
 [error]: error_report.md

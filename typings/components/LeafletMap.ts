@@ -1,5 +1,5 @@
 import { CombinedVueInstance } from 'vue/types/vue';
-import { Layer, Map as LMap } from 'leaflet';
+import { Layer, LayerGroup, Map as LMap } from 'leaflet';
 
 export interface MapData {
     map?: LMap;
@@ -21,6 +21,7 @@ export interface MapProps {
     startLong: number;
     startZoom: number;
     layers: Layer[];
+    centerGroup?: LayerGroup;
 }
 
 export type MapVue = CombinedVueInstance<

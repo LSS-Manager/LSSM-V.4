@@ -1,0 +1,19 @@
+{
+	"affected": "Betroffen",
+	"amount": "{n} gefilterter Eintrag | {n} gefilterte Einträge",
+	"description": "Beschreibung",
+	"executor": "Auslöser",
+	"filter": {
+		"all_types": "Alle Typen anzeigen",
+		"no_types": "Keine Typen anzeigen",
+		"type": "angezeigte Eintragstypen"
+	},
+	"load": {
+		"next": "nächste Seite laden",
+		"prev": "vorherige Seite laden"
+	},
+	"search_local": "In geladenen Einträgen suchen",
+	"subtitle": "Zeige {n} Einträge der Seiten {startPage} ({firstDate}) bis {endPage} ({lastDate}) von insg. {totalPages} Seiten",
+	"time": "Zeitpunkt",
+	"title": "Verbandsprotokoll"
+}

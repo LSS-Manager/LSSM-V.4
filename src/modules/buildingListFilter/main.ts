@@ -1,6 +1,9 @@
 import { ModuleMainFunction } from 'typings/Module';
 
 export default <ModuleMainFunction>(async (LSSM, MODULE_ID) => {
+    let wrapper = document.getElementById('btn-group-building-select');
+    if (!wrapper) return;
+
     const filters: {
         contentType: 'text' | 'icon';
         icon_style: 'fas' | 'far' | 'fab';
@@ -64,8 +67,8 @@ export default <ModuleMainFunction>(async (LSSM, MODULE_ID) => {
             value: { value: filters, enabled: true },
         });
 
-    const updateFilters = () => {
-        const wrapper = document.getElementById('btn-group-building-select');
+    const updateFilters = async () => {
+        wrapper = document.getElementById('btn-group-building-select');
         if (!wrapper) return;
         wrapper.querySelectorAll('a').forEach(a => a.remove());
         const btns: [HTMLButtonElement, number[]][] = [];
@@ -99,9 +102,131 @@ export default <ModuleMainFunction>(async (LSSM, MODULE_ID) => {
                 if (state === 'disabled') disable(btn, buildings, index);
                 else enable(btn, buildings, index);
                 btns.push([btn, buildings]);
-                wrapper.append(btn);
+                wrapper?.append(btn);
             }
         );
+
+        const buildingList = document.querySelector<HTMLUListElement>(
+            '#building_list'
+        );
+        if (!buildingList) return;
+
+        const buildings: [HTMLLIElement, string][] = Array.from(
+            buildingList.querySelectorAll<HTMLLIElement>('li.building_list_li')
+        ).map(building => [
+            building,
+            building
+                .querySelector<HTMLAnchorElement>(
+                    '.building_list_caption a.map_position_mover'
+                )
+                ?.textContent?.toLowerCase() ?? '',
+        ]);
+
+        const searchHideClass = LSSM.$store.getters.nodeAttribute(
+            'blf-search-not-matching'
+        );
+        const reversedListClass = LSSM.$store.getters.nodeAttribute(
+            'blf-reversed-buildinglist'
+        );
+
+        LSSM.$store
+            .dispatch('addStyles', [
+                {
+                    selectorText: `.${searchHideClass}`,
+                    style: {
+                        display: 'none !important',
+                    },
+                },
+                {
+                    selectorText: `.${reversedListClass}, .${reversedListClass} > li`,
+                    style: {
+                        transform: 'rotate(180deg)',
+                    },
+                },
+            ])
+            .then();
+
+        const sortBtn = document.createElement('button');
+        sortBtn.classList.add('btn', 'btn-xs', 'btn-default', 'pull-right');
+        sortBtn.style.setProperty('margin-top', '-4px');
+        const sortIcon = document.createElement('i');
+        sortIcon.classList.add('fas', 'fa-sort-alpha-down');
+
+        sortBtn.append(sortIcon);
+
+        sortBtn.addEventListener('click', () => {
+            const icon = sortBtn.querySelector('svg');
+            if (!icon) return;
+            const state = buildingList.classList.toggle(reversedListClass);
+            if (state) icon.setAttribute('data-icon', 'sort-alpha-up-alt');
+            else icon.setAttribute('data-icon', 'sort-alpha-down');
+            LSSM.$store
+                .dispatch('settings/setSetting', {
+                    moduleId: MODULE_ID,
+                    settingId: 'sortDesc',
+                    value: state,
+                })
+                .then();
+        });
+
+        if (
+            await LSSM.$store.dispatch('settings/getSetting', {
+                moduleId: MODULE_ID,
+                settingId: 'sortDesc',
+            })
+        )
+            sortBtn.click();
+
+        let searchTimeout = null as number | null;
+
+        const searchBtn = document.createElement('button');
+        searchBtn.classList.add('btn', 'btn-xs', 'btn-default', 'pull-right');
+        searchBtn.style.setProperty('margin-top', '-4px');
+        const searchIcon = document.createElement('i');
+        searchIcon.classList.add('fas', 'fa-search');
+
+        searchBtn.append(searchIcon);
+
+        const search = document.createElement('input');
+        search.type = 'search';
+        search.classList.add('pull-right', 'search_input_field', 'hidden');
+        search.style.setProperty('position', 'absolute');
+        search.style.setProperty('margin-top', '-4px');
+        search.style.setProperty('right', '22px');
+        search.style.setProperty('height', '20px');
+
+        searchBtn.addEventListener('click', e => {
+            e.stopPropagation();
+            search.classList.toggle('hidden');
+            search.focus();
+        });
+
+        document.addEventListener('click', e => {
+            if (e.target !== search) search.classList.add('hidden');
+        });
+
+        search.addEventListener('keyup', () => {
+            if (searchTimeout) window.clearTimeout(searchTimeout);
+            searchTimeout = window.setTimeout(
+                () =>
+                    buildings.forEach(([building, caption]) =>
+                        building.classList[
+                            caption.match(
+                                LSSM.$utils.escapeRegex(
+                                    search.value.trim().toLowerCase()
+                                )
+                            )
+                                ? 'remove'
+                                : 'add'
+                        ](searchHideClass)
+                    ),
+                100
+            );
+        });
+
+        wrapper.style.setProperty('width', '100%');
+        wrapper.prepend(searchBtn, sortBtn);
+        wrapper.append(search);
     };
 
     const observer = new MutationObserver(updateFilters);
@@ -110,5 +235,5 @@ export default <ModuleMainFunction>(async (LSSM, MODULE_ID) => {
     if (buildingsElement)
         observer.observe(buildingsElement, { childList: true });
 
-    updateFilters();
+    await updateFilters();
 });

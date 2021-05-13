@@ -2,13 +2,21 @@
 	"description": "Erweitert die Einsatzliste um coole Features!",
 	"name": "Erweiterte Einsatzliste",
 	"settings": {
+		"averageCredits": {
+			"description": "Lasse dir in der Einsatzliste kompakt anzeigen, wie viel Credits ein Einsatz im Durchschnitt gibt.",
+			"title": "Verdienst anzeigen"
+		},
 		"remainingTime": {
 			"description": "Zeigt bei Einsätzen an, wie lange der Einsatz noch in Bearbeitung ist.",
 			"title": "Verbleibende Einsatzdauer"
 		},
 		"remainingTimeGreenOnly": {
 			"description": "Zeigt die Einsatzdauer nur bei grünen Einsätzen an.",
-			"title": "Einsatzdauer nur bei grünen Einsätze"
+			"title": "Einsatzdauer nur bei grünen Einsätzen"
+		},
+		"starrableMissions": {
+			"description": "Markiere dir Einsätze, damit diese in der Einsatzliste oben angezeigt werden dürfen. Du kannst die Markierung im Einsatzfenster und in der Einsatzliste vornehmen.",
+			"title": "Einsätze markieren"
 		}
 	}
 }

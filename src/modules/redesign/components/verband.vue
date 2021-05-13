@@ -35,8 +35,18 @@
                 </div>
             </div>
         </nav>
+        <VerbandBSR
+            v-if="type === 'verband/bsr'"
+            :bsr="data"
+            :url="url"
+            :lightbox="lightbox"
+            :$m="$m"
+            :$mc="$mc"
+            :get-setting="getSetting"
+            :set-setting="setSetting"
+        ></VerbandBSR>
         <VerbandEditName
-            v-if="type === 'verband/edit_name'"
+            v-else-if="type === 'verband/edit_name'"
             :alliance="data"
             :url="url"
             :lightbox="lightbox"
@@ -85,6 +95,16 @@
             :get-setting="getSetting"
             :set-setting="setSetting"
         ></VerbandNewsEdit>
+        <VerbandProtokoll
+            v-else-if="type === 'verband/protokoll'"
+            :protokoll="data"
+            :url="url"
+            :lightbox="lightbox"
+            :$m="$m"
+            :$mc="$mc"
+            :get-setting="getSetting"
+            :set-setting="setSetting"
+        ></VerbandProtokoll>
         <VerbandRegeln
             v-else-if="type === 'verband/regeln'"
             :rules="data"
@@ -95,6 +115,16 @@
             :get-setting="getSetting"
             :set-setting="setSetting"
         ></VerbandRegeln>
+        <Schoolings
+            v-else-if="type === 'schoolings'"
+            :schoolings="data"
+            :url="url"
+            :lightbox="lightbox"
+            :$m="$m"
+            :$mc="$mc"
+            :get-setting="getSetting"
+            :set-setting="setSetting"
+        ></Schoolings>
     </div>
 </template>
 
@@ -143,6 +173,10 @@ export default Vue.extend<
 >({
     name: 'verband-lightbox',
     components: {
+        VerbandBSR: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/verband/bsr"*/ './verband/bsr.vue'
+            ),
         VerbandEditName: () =>
             import(
                 /*webpackChunkName: "modules/redesign/windows/verband/edit_name"*/ './verband/edit_name.vue'
@@ -163,9 +197,17 @@ export default Vue.extend<
             import(
                 /*webpackChunkName: "modules/redesign/windows/verband/news/edit"*/ './verband/news/edit.vue'
             ),
+        VerbandProtokoll: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/verband/protokoll"*/ './verband/protokoll.vue'
+            ),
         VerbandRegeln: () =>
             import(
                 /*webpackChunkName: "modules/redesign/windows/verband/regeln"*/ './verband/regeln.vue'
+            ),
+        Schoolings: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/schoolings"*/ './schoolings.vue'
             ),
     },
     data() {
@@ -181,8 +223,13 @@ export default Vue.extend<
                     `verband.nav.${this.data.meta.self ? 'self' : 'other'}`
                 ) as unknown) as Record<number, string>
             )
-                .filter(
-                    link =>
+                .filter(link => {
+                    if (
+                        !this.data.meta.nav.protokoll &&
+                        link === '/alliance_logfiles'
+                    )
+                        return false;
+                    return (
                         new URL(
                             this.url.match(/\/verband\/?$/)
                                 ? `/alliances/${this.data.meta.id}`
@@ -193,7 +240,8 @@ export default Vue.extend<
                             link.replace(/{id}/g, this.data.meta.id.toString()),
                             window.location.origin
                         ).pathname.replace(/\/$/g, '')
-                )
+                    );
+                })
                 .map(link => ({
                     href: link.replace(/{id}/g, this.data.meta.id.toString()),
                     text: links[link],

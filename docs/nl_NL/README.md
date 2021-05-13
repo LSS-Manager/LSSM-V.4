@@ -1,13 +1,20 @@
 ---
-title: Algemeen
+title: LSS-Manager V.4
 lang: nl_NL
 sidebarDepth: 2
 ---
 
-# Wiki :netherlands: <Badge :text="'LSSM V.' + ($themeConfig.variables.versions.stable || 4)"/>
+# Wiki 🇳🇱 <Badge :text="'v.' + $themeConfig.variables.versions.short"/>
 
-*Actuele versies:*
-> Stable: <i>{{ $themeConfig.variables.versions.stable }}
+> stable: <i>{{ $themeConfig.variables.versions.stable }}</i>
+> 
+> beta: <i>{{ $themeConfig.variables.versions.beta }}</i>
+
+<discord style="float: right;"><img src="https://discord.com/api/guilds/254167535446917120/embed.png?style=banner1" alt="Our Discord-Server: United Dispatch" data-prevent-zooming></discord>
+
+[LSSM-Server-Status](https://status.lss-manager.de)
+
+[Game-Online-Status](https://stats.uptimerobot.com/OEKDJSpmvK)
 
 ## Over LSSM
 
@@ -32,12 +39,7 @@ Officiële ondersteuning van mobiele browsers is momenteel **niet** gepland.
 ### Stap 1: Tampermonkey
 Als u Tampermonkey nog niet in uw browser heeft geïnstalleerd, moet u dit alsnog doen. Hier is een overzicht van links voor de meest voorkomende browsers:
 
-Browser|Link
--------|----
-Chrome | [Download](https://chrome.google.com/webstore/detail/dhdgffkkebhmkfjojejmpbldmpobfkfo)
-Firefox| [Download](https://addons.mozilla.org/en-US/firefox/addon/tampermonkey/)
-Safari | [Download](https://safari.tampermonkey.net/tampermonkey.safariextz)
-Opera  | [Download](https://addons.opera.com/en/extensions/details/tampermonkey-beta/)
+<tampermonkey-download-table/>
 
 Voor andere browsers kunt u Tampermonkey downloaden op [tampermonkey.net](https://www.tampermonkey.net/).
 

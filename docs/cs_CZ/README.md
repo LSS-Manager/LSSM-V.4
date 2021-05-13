@@ -1,13 +1,20 @@
 ---
-title: General
+title: LSS-Manager V.4
 lang: cs_CZ
 sidebarDepth: 2
 ---
 
-# Wiki 🇨🇿 <Badge :text="'LSSM V.' + ($themeConfig.variables.versions.stable || 4)"/>
+# Wiki 🇨🇿 <Badge :text="'v.' + $themeConfig.variables.versions.short"/>
 
-*Current versions:*
-> Stable: <i>{{ $themeConfig.variables.versions.stable }}</i>
+> stable: <i>{{ $themeConfig.variables.versions.stable }}</i>
+> 
+> beta: <i>{{ $themeConfig.variables.versions.beta }}</i>
+
+<discord style="float: right;"><img src="https://discord.com/api/guilds/254167535446917120/embed.png?style=banner1" alt="Our Discord-Server: United Dispatch" data-prevent-zooming></discord>
+
+[LSSM-Server-Status](https://status.lss-manager.de)
+
+[Game-Online-Status](https://stats.uptimerobot.com/OEKDJSpmvK)
 
 ## O LSSM
 
@@ -32,12 +39,7 @@ Oficiální podpora mobilních prohlížečů **není** plánována.
 ### Krok 1: Instalace Tampermonkey
 Nainstaluj doplněk Tampermonkey do tvého prohlížeče.
 
-Browser|Link
--------|----
-Chrome | [Stáhnout](https://chrome.google.com/webstore/detail/dhdgffkkebhmkfjojejmpbldmpobfkfo)
-Firefox| [Stáhnout](https://addons.mozilla.org/en-US/firefox/addon/tampermonkey/)
-Safari | [Stáhnout](https://safari.tampermonkey.net/tampermonkey.safariextz)
-Opera  | [Stáhnout](https://addons.opera.com/en/extensions/details/tampermonkey-beta/)
+<tampermonkey-download-table/>
 
 Pro ostatní prohlížeče můžete stáhnout Tampermonkey na [tampermonkey.net](https://www.tampermonkey.net/).
 

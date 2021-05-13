@@ -64,7 +64,7 @@ A compatibility listed here does not guarantee functionality. This is only infor
 </tbody>
 </table>
 
-::: danger Internet Explorer and Microsoft Edge
+::: danger Internet Explorer and Safari
 These two browsers can be described as the "problem children" of a modern web developer. There are some functions that do not work in them, or require additional code.
 
 We don't see the point of doing this everywhere and officially **do not** support these two browsers.

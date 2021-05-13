@@ -1,13 +1,20 @@
 ---
-title: General
+title: LSS-Manager V.4
 lang: es_ES
 sidebarDepth: 2
 ---
 
-# Wiki :es: <Badge :text="'LSSM V.' + ($themeConfig.variables.versions.stable || 4)"/>
+# Wiki 🇪🇸 <Badge :text="'v.' + $themeConfig.variables.versions.short"/>
 
-*Versiones actuales:*
-> Stable: <i>{{ $themeConfig.variables.versions.stable }}</i>
+> stable: <i>{{ $themeConfig.variables.versions.stable }}</i>
+> 
+> beta: <i>{{ $themeConfig.variables.versions.beta }}</i>
+
+<discord style="float: right;"><img src="https://discord.com/api/guilds/254167535446917120/embed.png?style=banner1" alt="Our Discord-Server: United Dispatch" data-prevent-zooming></discord>
+
+[LSSM-Server-Status](https://status.lss-manager.de)
+
+[Game-Online-Status](https://stats.uptimerobot.com/OEKDJSpmvK)
 
 ## Sobre LSSM
 
@@ -33,12 +40,7 @@ Actualmente **NO** está previsto el soporte oficial de los navegadores móviles
 ### Paso Nº 1: Instalar Tampermonkey
 Instala la extensión **Tampermonkey** en tu navegador.
 
-Navegador|Enlace
--------|----
-Chrome | [Descargar](https://chrome.google.com/webstore/detail/dhdgffkkebhmkfjojejmpbldmpobfkfo)
-Firefox| [Descargar](https://addons.mozilla.org/en-US/firefox/addon/tampermonkey/)
-Safari | [Descargar](https://safari.tampermonkey.net/tampermonkey.safariextz)
-Opera  | [Descargar](https://addons.opera.com/en/extensions/details/tampermonkey-beta/)
+<tampermonkey-download-table/>
 
 Para otros navegadores puedes descargar Tampermonkey en [tampermonkey.net](https://www.tampermonkey.net/).
 

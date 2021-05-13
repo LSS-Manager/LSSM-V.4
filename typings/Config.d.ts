@@ -11,8 +11,11 @@ export interface Config {
     browser: {
         [browser: string]: Browser;
     };
-    discord: string;
-    discord_support: string;
+    discord: {
+        invite: string;
+        id: string;
+        channels: Record<string, string>; // string because are to big for numbers
+    };
     games: Games;
     github: {
         repo: string;

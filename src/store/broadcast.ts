@@ -156,7 +156,9 @@ export default {
                 sender: getWindowName(),
                 receiver,
                 name,
-                handler: `(${handler.toString()})`,
+                handler: `(${handler
+                    .toString()
+                    .replace(/^.*?(?=\()/, 'function')})`,
                 ...data,
             } as CustomBroadcastMessage);
         },

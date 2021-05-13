@@ -59,28 +59,38 @@ export default Vue.extend<
             required: false,
             default: false,
         },
+        allOnNone: {
+            type: Boolean,
+            required: false,
+            default: false,
+        },
     },
     computed: {
         updateValue: {
             get() {
-                return (this.value
-                    .map(v =>
-                        this.options.find(
-                            o => o.value.toString() === v.toString()
-                        )
-                    )
-                    .filter(
-                        v => !!v
-                    ) as MultiSelectComputed['updateValue']).sort((a, b) =>
-                    a.value > b.value ? 1 : a.value < b.value ? -1 : 0
-                );
+                return !this.value.length && this.allOnNone
+                    ? this.options
+                    : (this.value
+                          .map(v =>
+                              this.options.find(
+                                  o => o.value.toString() === v.toString()
+                              )
+                          )
+                          .filter(
+                              v => !!v
+                          ) as MultiSelectComputed['updateValue']).sort(
+                          (a, b) =>
+                              a.value > b.value ? 1 : a.value < b.value ? -1 : 0
+                      );
             },
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore
             set(values: ({ label: string; value: string } | string)[]) {
                 this.$emit(
                     'input',
-                    values.map(v => (typeof v === 'string' ? v : v.value))
+                    !values.length && this.allOnNone
+                        ? this.options.map(({ value }) => value)
+                        : values.map(v => (typeof v === 'string' ? v : v.value))
                 );
             },
         },

@@ -1,13 +1,20 @@
 ---
-titel: Allmänt
+title: LSS-Manager V.4
 lang: sv_SE
 sidebarDepth: 2
 ---
 
-# Wiki 🇸🇪 <Badge :text="'LSSM V.' + ($themeConfig.variables.versions.stable || 4)"/>
+# Wiki 🇸🇪 <Badge :text="'v.' + $themeConfig.variables.versions.short"/>
 
-*Current versions:*
-> Stable: <i>{{ $themeConfig.variables.versions.stable }}</i>
+> stable: <i>{{ $themeConfig.variables.versions.stable }}</i>
+> 
+> beta: <i>{{ $themeConfig.variables.versions.beta }}</i>
+
+<discord style="float: right;"><img src="https://discord.com/api/guilds/254167535446917120/embed.png?style=banner1" alt="Our Discord-Server: United Dispatch" data-prevent-zooming></discord>
+
+[LSSM-Server-Status](https://status.lss-manager.de)
+
+[Game-Online-Status](https://stats.uptimerobot.com/OEKDJSpmvK)
 
 ## Om LSSM
 
@@ -32,12 +39,7 @@ Officiellt stöd för mobilwebbläsare är för närvarande **inte** planerat.
 ### Steg 1: Tampermonkey
 Om du ännu inte har installerat Tampermonkey i din webbläsare måste du fortfarande göra det. Här är en översikt över länkar för de vanligaste webbläsarna:
 
-Webbläsare | Länk
--------|----
-Chrome | [Ladda ner](https://chrome.google.com/webstore/detail/dhdgffkkebhmkfjojejmpbldmpobfkfo)
-Firefox | [Ladda ner](https://addons.mozilla.org/en-US/firefox/addon/tampermonkey/)
-Safari | [Ladda ner](https://safari.tampermonkey.net/tampermonkey.safariextz)
-Opera | [Ladda ner](https://addons.opera.com/en/extensions/details/tampermonkey-beta/)
+<tampermonkey-download-table/>
 
 För andra webbläsare kan du ladda ner Tampermonkey på [tampermonkey.net](https://www.tampermonkey.net/).
 

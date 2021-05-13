@@ -165,14 +165,15 @@ export default Vue.extend<
                 })
                 .then((res: Response) => res.text())
                 .then(async html => {
-                    import('../parsers/alliances').then(parser => {
-                        const result = parser.default({
+                    import('../parsers/alliances').then(async parser => {
+                        const result = await parser.default({
                             doc: new DOMParser().parseFromString(
                                 html,
                                 'text/html'
                             ),
                             href: url.toString(),
                             getIdFromEl: this.lightbox.getIdFromEl,
+                            LSSM: this,
                         });
                         this.$set(
                             this.lightbox.data,
@@ -202,14 +203,15 @@ export default Vue.extend<
                 })
                 .then((res: Response) => res.text())
                 .then(async html => {
-                    import('../parsers/alliances').then(parser => {
-                        const result = parser.default({
+                    import('../parsers/alliances').then(async parser => {
+                        const result = await parser.default({
                             doc: new DOMParser().parseFromString(
                                 html,
                                 'text/html'
                             ),
                             href: url.toString(),
                             getIdFromEl: this.lightbox.getIdFromEl,
+                            LSSM: this,
                         });
                         this.$set(
                             this.lightbox.data,

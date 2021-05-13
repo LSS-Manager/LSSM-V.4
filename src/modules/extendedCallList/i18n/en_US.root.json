@@ -2,6 +2,10 @@
 	"description": "Extends missionlist by some cool Features!",
 	"name": "Extended Missionlist",
 	"settings": {
+		"averageCredits": {
+			"description": "Shows the average earnable credits for each mission in a compact way.",
+			"title": "Show avg. credits"
+		},
 		"remainingTime": {
 			"description": "Shows at missions how long each mission still is in progress.",
 			"title": "Remaining Missiontime"
@@ -9,6 +13,10 @@
 		"remainingTimeGreenOnly": {
 			"description": "Show remaining Time on green missions only.",
 			"title": "Missiontime for green missions only"
+		},
+		"starrableMissions": {
+			"description": "Mark missions so that they are be displayed in the mission list at the top. You can mark them in the mission window and in the mission list.",
+			"title": "Mark Missions"
 		}
 	}
 }

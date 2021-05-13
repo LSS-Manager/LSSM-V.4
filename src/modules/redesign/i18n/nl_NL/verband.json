@@ -5,7 +5,7 @@
 			"/alliance_threads": "Forum",
 			"/alliances/{id}": "Start",
 			"/schoolings": "Opleidingen",
-			"/verband/bereitstellungsraeume": "UGS",
+			"/verband/bereitstellungsraume": "UGS",
 			"/verband/gebaeude": "Gebouwen",
 			"/verband/kasse": "Teamkas",
 			"/verband/mitglieder/{id}": "Teamleden",
@@ -28,7 +28,7 @@
 			"/alliance_threads",
 			"/verband/werbung",
 			"/schoolings",
-			"/verband/bereitstellungsraeume",
+			"/verband/bereitstellungsraume",
 			"/verband/kasse",
 			"/verband/gebaeude"
 		]

@@ -23,12 +23,7 @@
                             {{ schooling.name }}
                         </a>
                     </td>
-                    <td
-                        :id="`education_schooling_${schooling.id}_1`"
-                        :onload="
-                            `educationCountdown(${schooling.end}, ${schooling.id}_1);`
-                        "
-                    >
+                    <td :id="`education_schooling_${schooling.id}_1`">
                         {{ schooling.end }}
                     </td>
                     <td v-html="schooling.owner"></td>
@@ -41,19 +36,18 @@
 <script lang="ts">
 import Vue from 'vue';
 
-import { DefaultProps } from 'vue/types/options';
 import {
-    OwnSchooling,
     OwnSchoolingTabs,
     OwnSchoolingTabsComputed,
     OwnSchoolingTabsMethods,
+    OwnSchoolingTabsProps,
 } from 'typings/modules/SchoolingOverview/OwnSchoolingTabs';
 
 export default Vue.extend<
     OwnSchoolingTabs,
     OwnSchoolingTabsMethods,
     OwnSchoolingTabsComputed,
-    DefaultProps
+    OwnSchoolingTabsProps
 >({
     name: 'ownSchoolingTabs',
     components: {
@@ -82,7 +76,6 @@ export default Vue.extend<
             heads,
             tabTitles,
             currentTab: tabTitles[0],
-            tabs: {},
             search: '',
             sort: 'name',
             sortDir: 'asc',
@@ -116,38 +109,11 @@ export default Vue.extend<
             this.sort = s;
         },
     },
-    beforeMount() {
-        const tabs = { [this.all]: [] } as {
-            [tab: string]: OwnSchooling[];
-        };
-        document
-            .querySelectorAll('#schooling_own_table tbody tr')
-            .forEach(schooling => {
-                const btn = schooling.querySelector(
-                    'a.btn-success'
-                ) as HTMLLinkElement;
-                if (!btn) return;
-                const name = btn.textContent || '';
-                const category =
-                    name
-                        ?.match(/^.*?-/)?.[0]
-                        .replace('-', '')
-                        .trim() || '';
-                const endNode = schooling.querySelector('td:nth-of-type(2)');
-                const owner = schooling.querySelector('td:nth-of-type(3)');
-                if (!endNode || !owner) return;
-                const end = parseInt(endNode.getAttribute('sortvalue') || '0');
-                if (!tabs.hasOwnProperty(category)) tabs[category] = [];
-                const element = {
-                    id: btn.href.replace(/\D+/g, ''),
-                    name,
-                    end,
-                    owner: owner.innerHTML,
-                };
-                tabs[category].push(element);
-                tabs[this.all].push(element);
-            });
-        this.tabs = tabs;
+    props: {
+        tabs: {
+            type: Object,
+            required: true,
+        },
     },
 });
 </script>

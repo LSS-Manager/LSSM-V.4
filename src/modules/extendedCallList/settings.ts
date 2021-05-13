@@ -1,5 +1,5 @@
 import { ModuleSettingFunction } from 'typings/Module';
-import { Toggle } from 'typings/Setting';
+import { Hidden, Toggle } from 'typings/Setting';
 
 export default (() => ({
     remainingTime: <Toggle>{
@@ -10,5 +10,16 @@ export default (() => ({
         type: 'toggle',
         default: true,
         dependsOn: '.remainingTime',
+    },
+    starrableMissions: <Toggle>{
+        type: 'toggle',
+        default: false,
+    },
+    starredMissions: <Hidden>{
+        type: 'hidden',
+    },
+    averageCredits: <Toggle>{
+        type: 'toggle',
+        default: true,
     },
 })) as ModuleSettingFunction;

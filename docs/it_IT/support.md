@@ -26,7 +26,7 @@ Siete pregati di fornirci il vostro Nome Utente o User ID. Questo ci è utile pe
 Ora puoi mandarci la tua problematica forumata con i tuoi dati. Usa una delle opzioni scritte qui sotto.
 
 ## via Discord
-Sul nostro <a :href="$themeConfig.variables.discord" target="_blank">Discord</a> puoi ricevere il supporto nel canale <a :href="$themeConfig.variables.discord_support" target="_blank">`#support`</a>.
+Sul nostro <discord/> puoi ricevere il supporto nel canale <discord-channel channel="lssm-help"/>.
 
 ## su GitHub
 Puoi anche aprire una segnalazione su <a :href="$themeConfig.variables.github + '/issues'" target="_blank">GitHub</a>. Per favore controlla se questa segnalazione di questa problematica già esiste e quindi seguila.

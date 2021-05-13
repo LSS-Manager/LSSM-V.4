@@ -50,7 +50,7 @@ export default (Vue: VueConstructor): Store<RootState> => {
             version: VERSION,
             mode: MODE,
             lang: window.I18n.locale,
-            discord: config.discord,
+            discord: `https://discord.gg/${config.discord.invite}`,
             games: config.games,
             server: config.server,
             hooks: {},

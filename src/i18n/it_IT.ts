@@ -363,7 +363,7 @@ export default {
             maxPersonnel: 9,
         },
         27: {
-            caption: 'Ambulanza ordinaria',
+            caption: 'DTS',
             color: '#e09200',
             coins: 25,
             credits: 20_000,

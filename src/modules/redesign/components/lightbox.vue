@@ -42,6 +42,14 @@
                 :get-setting="getSetting()"
                 :set-setting="setSetting()"
             ></Avatar>
+            <Awards
+                v-else-if="type === 'awards'"
+                :awards="data"
+                :url="urlProp"
+                :lightbox="this"
+                :get-setting="getSetting()"
+                :set-setting="setSetting()"
+            ></Awards>
             <Credits
                 v-else-if="type.startsWith('credits/') || type === 'coins/list'"
                 :data="data"
@@ -101,7 +109,7 @@
                 :set-setting="setSetting()"
             ></Vehicle>
             <Verband
-                v-else-if="type.startsWith('verband/')"
+                v-else-if="type.startsWith('verband/') || type === 'schoolings'"
                 :data="data"
                 :url="urlProp"
                 :lightbox="this"
@@ -123,7 +131,13 @@
             :id="$store.getters.nodeAttribute('redesign-lightbox-iframe')"
             :name="$store.getters.nodeAttribute('redesign-lightbox-iframe')"
         ></iframe>
-        <div id="redesign-loader" v-show="loading">
+        <div
+            id="redesign-loader"
+            v-show="loading"
+            :style="
+                `width: ${size}%; height: ${size}%; top: ${loaderOffset}%; left: ${loaderOffset}%`
+            "
+        >
             <font-awesome-icon
                 :icon="faSyncAlt"
                 spin
@@ -173,6 +187,10 @@ export default Vue.extend<
         Avatar: () =>
             import(
                 /*webpackChunkName: "modules/redesign/windows/avatar"*/ './avatar.vue'
+            ),
+        Awards: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/awards"*/ './awards.vue'
             ),
         Credits: () =>
             import(
@@ -244,8 +262,16 @@ export default Vue.extend<
             type: String,
             required: true,
         },
+        size: {
+            type: Number,
+            required: false,
+            default: 100,
+        },
     },
     computed: {
+        loaderOffset() {
+            return (100 - this.size) / 2;
+        },
         src: {
             get() {
                 return this.src ?? this.url;
@@ -330,10 +356,23 @@ export default Vue.extend<
                             }
                         }
                         if (type === 'coins/list') await addLocas('credits');
+                        if (type === 'schoolings') {
+                            await addLocas('verband');
+                            this.$i18n.mergeLocaleMessage(
+                                this.$store.state.lang,
+                                {
+                                    modules: {
+                                        schoolingOverview: await import(
+                                            /* webpackChunkName: "modules/i18n/schoolingOverview/[request]" */ `../../schoolingOverview/i18n/${this.$store.state.lang}.json`
+                                        ),
+                                    },
+                                }
+                            );
+                        }
                         import(
                             /*webpackChunkName: "modules/redesign/parsers/[request]"*/ `../parsers/${type}`
                         ).then(
-                            ({
+                            async ({
                                 default: parser,
                             }: {
                                 default: RedesignParser;
@@ -363,11 +402,12 @@ export default Vue.extend<
                                         )
                                     );
                                     this.data = {
-                                        ...parser({
+                                        ...(await parser({
                                             href: url,
                                             getIdFromEl: this.getIdFromEl,
                                             doc,
-                                        }),
+                                            LSSM: this,
+                                        })),
                                         authenticity_token:
                                             doc.querySelector<HTMLMetaElement>(
                                                 'meta[name="csrf-token"]'
@@ -500,11 +540,7 @@ iframe
 
 #redesign-loader
     position: fixed
-    top: 0
-    left: 0
     background: rgba(255, 255, 255, 0.5)
-    width: 100%
-    height: 100%
     display: flex
     justify-content: center
     align-items: center
