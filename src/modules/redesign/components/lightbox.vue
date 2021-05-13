@@ -42,6 +42,14 @@
                 :get-setting="getSetting()"
                 :set-setting="setSetting()"
             ></Avatar>
+            <Awards
+                v-else-if="type === 'awards'"
+                :awards="data"
+                :url="urlProp"
+                :lightbox="this"
+                :get-setting="getSetting()"
+                :set-setting="setSetting()"
+            ></Awards>
             <Credits
                 v-else-if="type.startsWith('credits/') || type === 'coins/list'"
                 :data="data"
@@ -179,6 +187,10 @@ export default Vue.extend<
         Avatar: () =>
             import(
                 /*webpackChunkName: "modules/redesign/windows/avatar"*/ './avatar.vue'
+            ),
+        Awards: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/awards"*/ './awards.vue'
             ),
         Credits: () =>
             import(

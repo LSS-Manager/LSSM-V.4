@@ -4,6 +4,7 @@ import { AAOsWindow } from '../../src/modules/redesign/parsers/aaos';
 import { AllianceAvatarWindow } from '../../src/modules/redesign/parsers/alliance_avatar';
 import { AllianceListWindow } from '../../src/modules/redesign/parsers/alliances';
 import { AvatarWindow } from '../../src/modules/redesign/parsers/avatar';
+import { AwardsWindow } from '../../src/modules/redesign/parsers/awards';
 import { CoinsListWindow } from '../../src/modules/redesign/parsers/coins/list';
 import { CreditsDailyWindow } from '../../src/modules/redesign/parsers/credits/daily';
 import { CreditsListWindow } from '../../src/modules/redesign/parsers/credits/list';
@@ -40,6 +41,7 @@ type types =
     | 'alliance_avatar'
     | 'alliances'
     | 'avatar'
+    | 'awards'
     | 'default'
     | 'coins/list'
     | 'credits/daily'
@@ -66,6 +68,7 @@ type windows =
     | AllianceAvatarWindow
     | AllianceListWindow
     | AvatarWindow
+    | AwardsWindow
     | CoinsListWindow
     | CreditsDailyWindow
     | CreditsListWindow

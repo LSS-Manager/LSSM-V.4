@@ -5,6 +5,7 @@ const routeChecks: routeChecks = {
     '^/verband/avatar/?$': 'alliance_avatar',
     '^/alliances/?$': 'alliances',
     '^/avatar/?$': 'avatar',
+    '^/auszeichnungen/?$': 'awards',
     '^/coins/list/?$': 'coins/list',
     '^/credits/daily/?$': 'credits/daily',
     '^/credits/?$': 'credits/list',
