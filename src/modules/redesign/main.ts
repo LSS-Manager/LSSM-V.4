@@ -33,12 +33,6 @@ export default ((LSSM, MODULE_ID) => {
             event: 'lightboxOpen',
             abortOnFalse: true,
             callback(href: string) {
-                LSSM.$store
-                    .dispatch('api/getMissions', {
-                        force: false,
-                        feature: 'redesign-lightboxOpen',
-                    })
-                    .then();
                 const creation = new Date().toISOString();
                 const size =
                     96 -

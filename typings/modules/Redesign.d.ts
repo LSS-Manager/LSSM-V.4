@@ -9,6 +9,7 @@ import { CoinsListWindow } from '../../src/modules/redesign/parsers/coins/list';
 import { CreditsDailyWindow } from '../../src/modules/redesign/parsers/credits/daily';
 import { CreditsListWindow } from '../../src/modules/redesign/parsers/credits/list';
 import { CreditsOverviewWindow } from '../../src/modules/redesign/parsers/credits/overview';
+import { EinsaetzeWindow } from '../../src/modules/redesign/parsers/einsaetze';
 import { FreundeWindow } from '../../src/modules/redesign/parsers/freunde';
 import { NextFMSWindow } from '../../src/modules/redesign/parsers/vehicle/nextfms';
 import { ProfileEditWindow } from '../../src/modules/redesign/parsers/profile/edit';
@@ -47,6 +48,7 @@ type types =
     | 'credits/daily'
     | 'credits/list'
     | 'credits/overview'
+    | 'einsaetze'
     | 'freunde'
     | 'profile'
     | 'profile/edit'
@@ -73,6 +75,7 @@ type windows =
     | CreditsDailyWindow
     | CreditsListWindow
     | CreditsOverviewWindow
+    | EinsaetzeWindow
     | FreundeWindow
     | NextFMSWindow
     | ProfileWindow
