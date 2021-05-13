@@ -10,7 +10,7 @@ Bitte arbeite Vorschläge vor dem Veröffentlichen grundsätzlich möglichst gut
 :::
 
 ## via Discord
-Auf unserem <discord/> kann man Vorschläge im Channel <discord-channel channel="lssm-help"/> machen.
+Auf unserem <discord/> kann man Vorschläge im Channel <discord-channel channel="suggestions"/> machen.
 
 ## auf GitHub
 Gerne darf auch ein Issue auf <a :href="$themeConfig.variables.github + '/issues'" target="_blank">GitHub</a> eröffnet werden. Bitte hier vorher nachschauen, ob ein Issue zu diesem Vorschlag bereits existiert und diesem dann auch anschließen.

@@ -10,7 +10,7 @@ Návrh na zlepšení prosím co nejdetailněji vypracujte před zveřejněním. 
 :::
 
 ## přes Discord
-Na našem <discord/> můžete vytvořit návrh v kanálu <discord-channel channel="lssm-help"/>.
+Na našem <discord/> můžete vytvořit návrh v kanálu <discord-channel channel="suggestions"/>.
 
 ## přes GitHub
 Můžete také otevřít požadavek na <a :href="$themeConfig.variables.github + '/issues'" target="_blank">GitHubu</a>. Před zveřejněním návrhu prosím zkontrolujte, zda již tento požadavek neexistuje. 
