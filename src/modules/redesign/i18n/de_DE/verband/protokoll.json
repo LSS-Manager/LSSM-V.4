@@ -5,6 +5,7 @@
 	"executor": "Auslöser",
 	"filter": {
 		"all_types": "Alle Typen anzeigen",
+		"no_types": "Keine Typen anzeigen",
 		"type": "angezeigte Eintragstypen"
 	},
 	"load": {

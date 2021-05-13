@@ -36,26 +36,33 @@
                 <div class="form-group">
                     <label>
                         {{ lightbox.$sm('filter.type') }}
-                        <button
-                            class="btn btn-xs btn-default"
-                            @click.prevent.stop="
-                                $set(
-                                    filter,
-                                    'type',
-                                    Object.keys(protokoll.protokoll_types)
-                                )
-                            "
-                        >
-                            {{ lightbox.$sm('filter.all_types') }}
-                        </button>
                     </label>
+                    <button
+                        class="btn btn-xs btn-default"
+                        :disabled="filter.type.length === types.length"
+                        @click.prevent.stop="
+                            $set(
+                                filter,
+                                'type',
+                                Object.keys(protokoll.protokoll_types)
+                            )
+                        "
+                    >
+                        {{ lightbox.$sm('filter.all_types') }}
+                    </button>
+                    <button
+                        class="btn btn-xs btn-default"
+                        :disabled="!filter.type.length"
+                        @click.prevent.stop="$set(filter, 'type', [])"
+                    >
+                        {{ lightbox.$sm('filter.no_types') }}
+                    </button>
                     <multi-select
                         name="types_select"
                         :placeholder="lightbox.$sm('filter.type')"
                         v-model="filter.type"
                         :options="types"
                         @input="updateFilter('type', filter.type)"
-                        all-on-none
                     ></multi-select>
                 </div>
                 <span>{{ lightbox.$smc('amount', entriesSorted.length) }}</span>
