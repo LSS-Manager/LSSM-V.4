@@ -6,7 +6,7 @@ sidebarDepth: 3
 
 # FAQ ❓
 
-### Was kostet der LSS-Manager?
+## Was kostet der LSS-Manager?
 Der LSS-Manager ist ein kostenloses Angebot - Wir haben auch nicht vor, dies zu ändern.
 Auch wenn er sicherlich einen Mehrwert liefert, liegt keine Mehrwersteuer auf diesem Produkt :wink:
 
@@ -24,21 +24,24 @@ Dies hat mehrere Gründe:
 Daher macht es für uns, neben dem Gedanken der Freiwilligkeit, auch keinen Sinn Geld für den LSS-Manager zu nehmen.
 :::
 
-### Wie kann ich zum LSS-Manager beitragen?
+## Wie kann ich zum LSS-Manager beitragen?
 Der "normale" Nutzer kann [Fehler melden][error] oder [Vorschläge einreichen][suggestions].
 
 Wir gestalten derzeit einen Styleguide für Entwickler, damit auch diese einfach eigene Plugins dem LSSM hinzufügen können. Zudem haben wir versucht, die Code-Struktur übersichtlich und verständlich zu halten. Das Hinzufügen eines Plugins bedeuted jedoch keinenfalls eine Aufnahme in das Team.
 
-### Wie melde ich Fehler?
+## Wie melde ich Fehler?
 Bitte schaue dir unsere Seite [Fehler melden][error] an.
 
-### Wo bekomme ich Hilfe?
+## Wo bekomme ich Hilfe?
 Über unseren Support. Nähere Infos dazu gibt es [hier][support].
 
-### Wie kann ich Vorschläge einreichen?
+## Wie kann ich Vorschläge einreichen?
 Auf der Seite [Vorschläge][suggestions] haben wir dir Informationen darüber zusammengestellt.
 
-### In welchen Browsern funktioniert der LSS-Manager?
+## Wieso werden meine Einstellungen und aktivierten AddOns nicht gespeichert?
+Das passiert nur, wenn in deinem Browser die `Indexed DB` geleert wird. Man kann das irgendwo in den Einstellungen des Browsers ändern (ist oft gleich mit den Cookie-Einstellungen).
+
+## In welchen Browsern funktioniert der LSS-Manager?
 Hier werden nur Desktop Browser aufgelistet, da mobile Browser nicht offiziell unterstützt werden.
 Diese Tabelle ist noch nicht umbedingt korrekt und wird bei neuen Informationen aktualisiert!
 
@@ -71,13 +74,13 @@ Diese beiden Browser kann man als "Problemkinder" eines modernen Web-Entwicklers
 Wir sehen es nicht ein, dies überall zu machen und unterstützen diese beiden Browser offiziell **nicht**.
 :::
 
-### Ich möchte mein Setup an Freunde weitergeben oder es an mehreren Geräten nutzen. Geht das?
+## Ich möchte mein Setup an Freunde weitergeben oder es an mehreren Geräten nutzen. Geht das?
 Ja, das geht. Klicke dazu einfach in den [Einstellungen][settings] auf `Export`, um eine Datei herunterzuladen und `Import` um die Einstellungen aus einer Datei zu importieren.
 
-### Gibt es eine Möglichkeit, Einstellungen Account-gebunden zu speichern, um sie an einem anderen Gerät nicht importieren zu müssen?
+## Gibt es eine Möglichkeit, Einstellungen Account-gebunden zu speichern, um sie an einem anderen Gerät nicht importieren zu müssen?
 Derzeit bieten wir das nicht an, eine Implementierung dieses Features ist aber geplant.
 
-### Wo so seh ich ob die LSSM-Server grad online sind? 
+## Wo so seh ich ob die LSSM-Server grad online sind? 
 Am besten hier: [https://status.lss-manager.de/](https://status.lss-manager.de/)
 
 Oder im <discord-channel channel="uptime"/> auf unserem <discord/> 
