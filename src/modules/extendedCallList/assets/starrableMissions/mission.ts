@@ -3,6 +3,7 @@ export default (LSSM: Vue, MODULE_ID: string): void => {
         .dispatch('settings/getSetting', {
             moduleId: MODULE_ID,
             settingId: 'starredMissions',
+            defaultValue: [],
         })
         .then((missions: string[]) => {
             const id = window.location.pathname.match(/\d+\/?$/)?.[0];
