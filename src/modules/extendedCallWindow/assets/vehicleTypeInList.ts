@@ -7,10 +7,10 @@ export default (): void =>
             const type = row.getAttribute('vehicle_type');
             row.querySelector<HTMLLabelElement>(
                 'td[vehicle_type_id] label.mission_vehicle_label'
-            )?.before(
+            )?.append(
                 (() => {
                     const holder = document.createElement('small');
-                    holder.classList.add('pull-right');
+                    holder.style.setProperty('font-weight', 'normal');
                     holder.textContent = `[${type}]`;
                     return holder;
                 })()
