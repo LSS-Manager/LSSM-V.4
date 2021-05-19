@@ -1180,7 +1180,8 @@ export default {
             maxPersonnel: 2,
             schooling: 'Polizei - Kriminalpolizei',
             shownSchooling: 'Kriminalpolizei',
-            special: 'Kann FuStW in bestimmten Einsätzen ersetzen. Wird auf vorhandene Polizeistellplätze gestellt.',
+            special:
+                'Kann FuStW in bestimmten Einsätzen ersetzen. Wird auf vorhandene Polizeistellplätze gestellt.',
             icon: 'taxi',
         },
     },
