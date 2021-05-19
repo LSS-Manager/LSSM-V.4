@@ -1171,6 +1171,18 @@ export default {
                 'Kann auch als NAW eingesetzt werden. Verdienst bei der Mission: 30 Credits pro km, max. 1.500 Credits. Hat das angefahrene Krankenhaus nicht die erforderliche Abteilung, wird der Verdienst 30% weniger betragen. Kann alle 15 (10 mit Premium) Rettungswachen gekauft werden. 2 Leute brauchen die "Intensivpflege" Ausbildung, Eine weitere Person davon die Notarzt Ausbildung',
             icon: 'ambulance',
         },
+        98: {
+            caption: 'Zivilstreifenwagen',
+            color: '#005500',
+            coins: 25,
+            credits: 5000,
+            minPersonnel: 1,
+            maxPersonnel: 2,
+            schooling: 'Polizei - Kriminalpolizei',
+            shownSchooling: 'Kriminalpolizei',
+            special: 'Kann FuStW in bestimmten Einsätzen ersetzen. Wird auf vorhandene Polizeistellplätze gestellt.',
+            icon: 'taxi',
+        },
     },
     buildings: {
         0: {
@@ -1419,6 +1431,12 @@ export default {
                     credits: 100_000,
                     coins: 10,
                     duration: '5 Tage',
+                },
+                {
+                    caption: 'Kriminalpolizei',
+                    credits: 100_000,
+                    coins: 20,
+                    duration: '7 Tage',
                 },
             ],
             levelcost: ['1. 10.000', '2. 50.000', '3.-14. 100.000'],
@@ -2040,7 +2058,7 @@ export default {
         },
         Polizei: {
             vehicles: {
-                'Funkstreifenwagen': [32, 95],
+                'Funkstreifenwagen': [32, 95, 98],
                 'Bereitschaftspolizei-Fahrzeuge': [35, 50, 51, 52, 72],
                 'Polizeihubschrauber': [61, 96],
                 'SEK': [79, 80],
@@ -2202,6 +2220,10 @@ export default {
             },
             {
                 caption: 'Zugführer (leBefKw)',
+                duration: '7 Tage',
+            },
+            {
+                caption: 'Kriminalpolizei',
                 duration: '7 Tage',
             },
         ],
