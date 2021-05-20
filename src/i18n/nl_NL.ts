@@ -1379,7 +1379,7 @@ export default {
                 duration: '5 Dagen',
             },
             {
-                caption: 'Waterredder',
+                caption: 'Waterredding',
                 duration: '3 Dagen',
             },
         ],
