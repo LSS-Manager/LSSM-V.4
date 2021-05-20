@@ -786,6 +786,39 @@ export default {
             shownSchooling: 'AE-er',
             icon: 'shuttle-van',
         },
+        65: {
+            caption: 'DA Terreinwaardig - Reddingsbrigade',
+            color: '#F49A13',
+            minPersonnel: 2,
+            maxPersonnel: 4,
+            credits: 7_500,
+            coins: 15,
+            schooling: 'Brandweer - Waterredding',
+            shownSchooling: 'Waterredder',
+            icon: 'car-side',
+        },
+        66: {
+            caption: 'Kusthulpverleningsvoertuig',
+            color: '#F5A42A',
+            minPersonnel: 2,
+            maxPersonnel: 6,
+            credits: 8_000,
+            coins: 15,
+            schooling: 'Brandweer - Waterredding',
+            shownSchooling: 'Waterredder',
+            icon: 'car-side',
+        },
+        67: {
+            caption: 'Bootaanhanger Reddingsbrigade',
+            color: '#F5A42A',
+            minPersonnel: 0,
+            maxPersonnel: 0,
+            credits: 5_000,
+            coins: 15,
+            special:
+                'DAT-RB of KHV benodigd',
+            icon: 'trailer',
+        },
     },
     buildings: {
         0: {
@@ -1196,6 +1229,19 @@ export default {
             startPersonnel: 0,
             startVehicles: [],
         },
+        16: {
+            caption: 'Waterreddingspost',
+            color: '#f5a42a',
+            coins: 50,
+            credits: 500_000,
+            extensions: [],
+            levelcost: ['1. 10.000', '2. 25.000', '3. 50.000', '4. 75.000', '5-9. 100.000', '10-14. 150.000', '15-20. 200.000'],
+            maxBuildings: 'Geen limiet',
+            maxLevel: 20,
+            special: '',
+            startPersonnel: 4,
+            startVehicles: [],
+        },
     },
     buildingCategories: {
         Brandweer: {
@@ -1209,6 +1255,10 @@ export default {
         Politie: {
             buildings: [5, 8, 9, 11],
             color: '#00ac00',
+        },
+        Waterredding: {
+            buildings: [16],
+            color: '#f5a42a',
         },
         Algemeen: {
             buildings: [1, 10, 14, 15],
@@ -1236,7 +1286,7 @@ export default {
                     56,
                     62,
                 ],
-                'Waterongevallen': [33, 36, 49, 50],
+                'Waterongevallen': [33, 36, 49, 50, 65, 66, 67],
                 'Vliegtuigbrandbestrijding': [41, 42, 43, 44],
                 'Haakarmbakken': [26, 27, 29, 32, 45, 51, 61],
             },
@@ -1266,7 +1316,7 @@ export default {
     small_buildings: {
         3: 13,
     },
-    vehicleBuildings: [0, 3, 5, 6, 9, 11, 13, 14, 15],
+    vehicleBuildings: [0, 3, 5, 6, 9, 11, 13, 14, 15, 16],
     cellBuildings: [5],
     cellExtensions: [
         '5_0',
@@ -1320,6 +1370,10 @@ export default {
             {
                 caption: 'Voorlichter',
                 duration: '5 Dagen',
+            },
+            {
+                caption: 'Waterredder',
+                duration: '3 Dagen',
             },
         ],
         Politie: [
@@ -1417,6 +1471,9 @@ export default {
         'shield-alt',
         'boarder-all',
         'ambulance',
+        'warehouse',
+        'warehouse',
+        'water',
     ],
     pois: [
         'Park',
@@ -1481,6 +1538,9 @@ export default {
         'Verzorgingsplaats (Snelweg)',
         'Zendmast',
         'Stadscentrum',
+        'Strand',
+        'Strandopgang',
+        'Duinen',
     ],
     only_alliance_missions: [41, 43, 59, 145, 234, 346, 347],
     transfer_missions: [137],
