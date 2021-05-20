@@ -19,6 +19,7 @@
 	},
 	"prerequisites": {
 		"bereitschaftspolizei": "Bereitschaftspolizei-Standort | Bereitschaftspolizei-Standorte",
+		"criminal_investigation_count": "Kriminalpolizei-Ausbau | Kriminalpolizei-Ausbauten",
 		"fire_stations": "Feuerwache | Feuerwachen",
 		"guard_dog_count": "Diensthundestaffel | Diensthundestaffeln",
 		"max_police_stations": "Polizeiwache maximal | Polizeiwachen maximal",
