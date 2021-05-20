@@ -108,6 +108,10 @@
 			"title": "Voertuigcategorieën",
 			"vehicles": "Voertuigtypen"
 		},
+		"vehicleTypeInList": {
+			"description": "Geeft het voertuigtype in de lijst met te selecteren voertuigen weer.",
+			"title": "Voertuigtype weergeven"
+		},
 		"yellowBorder": {
 			"description": "De generatietijd krijgt een geel kader als de inzet ouder is dan een ingesteld aantal uren. Bij 0 is er geen kader.",
 			"title": "Geel kader"
@@ -165,7 +169,10 @@
 					33,
 					49,
 					50,
-					36
+					36,
+					65,
+					66,
+					67
 				]
 			},
 			{

@@ -24,7 +24,8 @@
 		"rescue_stations": "Ambulancestandplaats | Ambulancestandplaatsen",
 		"riot_unit_count": "ME sectie uitbreiding| ME sectie uitbreidingen",
 		"title": "Vereist | Vereisten",
-		"wasserrettung": "Waterongevallenuitbreiding | Waterongevallenuitbreidingen"
+		"wasserrettung": "Waterongevallenuitbreiding | Waterongevallenuitbreidingen",
+		"water_rescue_2": "Waterreddingspost | Waterreddingsposten"
 	},
 	"prisoners": {
 		"max_possible_prisoners": "Arrestant maximaal | Arrestanten maximaal",
@@ -50,7 +51,7 @@
 			"battalion_chief_vehicles": "Officier van Dienst - Brandweer | Officieren van Dienst - Brandweer",
 			"bike_police": "Biketeam | Biketeams",
 			"bike_police_only_if_needed": "Biketeam alleen indien aanwezig | Biketeams alleen indien aanwezig",
-			"boats": "Waterongevallenaanhanger | Waterongevallenaanhangers",
+			"boats": "WOA of BA-RB",
 			"detention_unit": "Aanhoudingseenheid | Aanhoudingseenheden",
 			"diver_units": "Waterongevallen- of oppervlaktereddingsvoertuig | Waterongevallen- of oppervlaktereddingsvoertuigen",
 			"elw3": "Commandovoertuig | Commandovoertuigen",
@@ -70,7 +71,8 @@
 			"police_cars": "Noodhulpvoertuig | Noodhulpvoertuigen",
 			"police_helicopters": "Politiehelikopter | Politiehelikopters",
 			"spokesman": "Voorlichter | Voorlichters",
-			"water_tankers": "Slangenwagen of watertankwagen | Slangenwagens of watertankwagens"
+			"water_tankers": "Slangenwagen of watertankwagen | Slangenwagens of watertankwagens",
+			"water_rescue": "Strandvoertuig | Strandvoertuigen"
 		},
 		"multifunctionals": {
 			"battalion_chief_vehicles": {
