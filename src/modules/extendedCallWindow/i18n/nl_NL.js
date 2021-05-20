@@ -76,7 +76,7 @@ module.exports = {
             police_car_3: 'NH-O',
             bike_police: 'DB-Bike',
             gefkw: 'DB-AV',
-            gw_wasserrettung: "Strandvoertuig (DAT-RB of KHV)"
+            gw_wasserrettung: 'Strandvoertuig (DAT-RB of KHV)',
         },
     },
     enhancedMissingVehicles: {
