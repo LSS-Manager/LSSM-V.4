@@ -54,7 +54,7 @@ module.exports = {
             gwl2wasser_only: 'Alleen Slangenwagen / Watertankwagen',
             abl2wasser_only: 'Watertransportsysteem-haakarmbak',
             gw_taucher: 'Waterongevallenvoertuig',
-            boot: 'WOA (Water ongeval aanhanger)',
+            boot: 'WOA of BA-RB',
             gwa: 'Adembeschermingsvoertuig of haakarmbak',
             ab_atemschutz_only: 'Adembeschermingshaakarmbak',
             gwmesstechnik: 'Dienstbus Verkenningseenheid Brandweer',
@@ -76,6 +76,7 @@ module.exports = {
             police_car_3: 'NH-O',
             bike_police: 'DB-Bike',
             gefkw: 'DB-AV',
+            gw_wasserrettung: 'Strandvoertuig (DAT-RB of KHV)',
         },
     },
     enhancedMissingVehicles: {
@@ -113,7 +114,7 @@ module.exports = {
             [/^Hulpverleningsvoertuig(en)?$/]: [4, 51, 62],
             [/^Adembeschermingsvoertuig of haakarmbak$/]: [5, 27],
             [/^Slangenwagen$/]: [10, 29, 34, 45, 61],
-            [/^watertankwagen of gelijkwaardige haakarmbak$/]: [], //hopefully dont show
+            [/^watertankwagen of gelijkwaardige haakarmbak$/]: [],
             [/^Hoofd Officier(en)? van Dienst$/]: [19],
             [/^Commandowagen(s)?$/]: [31, 32],
             [/^Verkenningseenh(eden|eid)$/]: [11],
@@ -123,7 +124,7 @@ module.exports = {
                 49,
                 50,
             ],
-            [/^Waterongevallenaanhanger(s)?$/]: [36],
+            [/^WOA of BA-RB$/]: [36, 67],
             [/^Crashtender(s)?$/]: [41, 42, 43],
             [/^AFO\/OSC('s)?$/]: [44],
             [/^Voorlichter(s)?$/]: [56],
@@ -142,6 +143,7 @@ module.exports = {
             [/^Dienstbus(sen)? Arrestantenvervoer$/]: [58],
             [/^Er ontbre(ekt|ken):$/]: [],
             [/^Arrestanten zullen vervoerd worden$/]: [],
+            [/^Strandvoertuig(en)?$/]: [65, 66],
         },
     },
     tailoredTabs: {

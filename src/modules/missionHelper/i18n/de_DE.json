@@ -19,6 +19,7 @@
 	},
 	"prerequisites": {
 		"bereitschaftspolizei": "Bereitschaftspolizei-Standort | Bereitschaftspolizei-Standorte",
+		"criminal_investigation_count": "Kriminalpolizei-Ausbau | Kriminalpolizei-Ausbauten",
 		"fire_stations": "Feuerwache | Feuerwachen",
 		"guard_dog_count": "Diensthundestaffel | Diensthundestaffeln",
 		"max_police_stations": "Polizeiwache maximal | Polizeiwachen maximal",
@@ -56,6 +57,7 @@
 			"battalion_chief_vehicles": "ELW 1",
 			"boats": "Boot | Boote",
 			"bucket_only_if_needed": "Außenlastbehälter (allgemein) (nur wenn aktiver Ausbau vorhanden)",
+			"civil_patrolcar": "Zivilstreifenwagen",
 			"diver_units": "GW-Taucher oder Tauchkraftwagen",
 			"firetrucks": "Löschfahrzeug | Löschfahrzeuge",
 			"fukw": "FüKw",

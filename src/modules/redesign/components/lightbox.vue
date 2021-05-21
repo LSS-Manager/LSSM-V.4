@@ -59,6 +59,15 @@
                 :set-setting="setSetting()"
                 :type="type"
             ></Credits>
+            <Einsaetze
+                v-else-if="type === 'einsaetze'"
+                :window="data"
+                :url="urlProp"
+                :lightbox="this"
+                :get-setting="getSetting()"
+                :set-setting="setSetting()"
+                :type="type"
+            ></Einsaetze>
             <Freunde
                 v-else-if="type === 'freunde'"
                 :friends="data"
@@ -195,6 +204,10 @@ export default Vue.extend<
         Credits: () =>
             import(
                 /*webpackChunkName: "modules/redesign/windows/credits"*/ './credits.vue'
+            ),
+        Einsaetze: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/einsaetze"*/ './einsaetze.vue'
             ),
         Freunde: () =>
             import(
@@ -503,6 +516,26 @@ export default Vue.extend<
                     this.$store.dispatch('event/dispatchEvent', event)
                 );
         },
+    },
+    beforeMount() {
+        this.$store
+            .dispatch('api/getMissions', {
+                force: false,
+                feature: 'redesign-lightbox-mount',
+            })
+            .then();
+        [
+            'vehicles',
+            'buildings',
+            'allianceinfo',
+            'settings',
+            'credits',
+        ].forEach(type =>
+            this.$store.dispatch('api/initialUpdate', {
+                type,
+                feature: 'redesign-lightbox-mount',
+            })
+        );
     },
     mounted() {
         window['lssmv4-redesign-lightbox'] = this;

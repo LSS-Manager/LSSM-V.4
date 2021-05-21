@@ -113,7 +113,7 @@ webpack(
                 JSON.stringify(stats.toJson(), null, '\t')
             );
             fs.writeFileSync(
-                './dist/build_stats.json',
+                './dist/static/build_stats.json',
                 JSON.stringify({
                     version,
                 })

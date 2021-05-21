@@ -154,6 +154,7 @@ module.exports = {
             [/^ELW 2$/]: [34, 78],
             [/^Flugfeldlöschfahrzeuge?$/]: [75],
             [/^FuStW$/]: [32, 95],
+            [/^Zivilstreifenwagen$/]: [98],
             [/^FwK$/]: [57],
             [/^FüKw$/]: [51],
             [/^GefKw$/]: [52],

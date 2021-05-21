@@ -107,6 +107,10 @@
 			"title": "Eigene Fahrzeugkategorien",
 			"vehicles": "Fahrzeugtypen"
 		},
+		"vehicleTypeInList": {
+			"description": "Zeigt den Fahrzeugtypen in der Liste der Verfügbaren Fahrzeuge an.",
+			"title": "Fahrzeugtyp anzeigen"
+		},
 		"yellowBorder": {
 			"description": "Umrandet die Generierungszeit gelb, wenn der Einsatz älter als die eingegebene Zahl der Stunden ist. Bei 0 wird nicht umrandet.",
 			"title": "Gelbe Umrandung"
@@ -202,7 +206,8 @@
 					32,
 					61,
 					95,
-					96
+					96,
+					98
 				]
 			},
 			{

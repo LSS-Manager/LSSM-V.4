@@ -44,6 +44,13 @@ export default (async (LSSM, MODULE_ID, $m, $mc) => {
             },
         });
 
+        if (await getSetting('vehicleTypeInList')) {
+            (
+                await import(
+                    /* webpackChunkName: "modules/extendedCallWindow/vehicleTypeInList" */ './assets/vehicleTypeInList'
+                )
+            ).default();
+        }
         if (await getSetting('generationDate')) {
             (
                 await import(
