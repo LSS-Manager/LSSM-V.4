@@ -135,8 +135,12 @@ export default Vue.extend<
 </script>
 
 <style scoped lang="sass">
-thead th:not(.noSort)
-    cursor: pointer
+thead
+    position: sticky
+    top: 0
+
+    th:not(.noSort)
+        cursor: pointer
 
 .head
     display: flex
