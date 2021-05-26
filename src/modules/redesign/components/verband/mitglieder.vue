@@ -55,7 +55,7 @@
         </a>
         <enhanced-table
             :head="head"
-            :table-attrs="{ class: 'table' }"
+            :table-attrs="{ class: 'table table-striped' }"
             :search="search"
             :search-placeholder="lightbox.$sm('search_local')"
             @search="s => (search = s)"

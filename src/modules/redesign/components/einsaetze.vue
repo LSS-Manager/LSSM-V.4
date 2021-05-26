@@ -3,7 +3,7 @@
         <h1>{{ lightbox.$sm('title') }}</h1>
         <enhanced-table
             :head="head"
-            :table-attrs="{ class: 'table' }"
+            :table-attrs="{ class: 'table table-striped' }"
             no-search
         >
             <tr v-for="mission in missions" :key="mission.id">
@@ -32,16 +32,35 @@
                         <li
                             v-for="(place, pindex) in mission.place_array"
                             :key="
-                                `${mission.id}_${index}_${col}_${pindex}_${place}`
+                                `${mission.id}_${index}_${col}_places_${pindex}_${place}`
                             "
                         >
                             {{ place }}
+                        </li>
+                    </ul>
+                    <ul v-else-if="col === 'prerequisites'">
+                        <li
+                            v-for="(amount, req) in mission.prerequisites"
+                            :key="
+                                `${mission.id}_${index}_${col}_prerequisites_${req}`
+                            "
+                        >
+                            {{ amount.toLocaleString() }}x {{ req }}
                         </li>
                     </ul>
                     <span v-else-if="col === 'duration'">
                         {{ mission.additional.duration_text }}
                     </span>
                     <pre v-else>{{ col }}{{ '\n' }}{{ mission }}</pre>
+                </td>
+                <td>
+                    <button
+                        lightbox-open
+                        :href="`/einsaetze/${mission.id}`"
+                        class="btn btn-default"
+                    >
+                        Details
+                    </button>
                 </td>
             </tr>
         </enhanced-table>
