@@ -26,7 +26,7 @@
         </button>
         <enhanced-table
             :head="head"
-            :table-attrs="{ class: 'table' }"
+            :table-attrs="{ class: 'table table-striped' }"
             :no-search="true"
         >
             <tr v-for="(entry, id) in credits.entries" :key="id">

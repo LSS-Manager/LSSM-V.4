@@ -56,7 +56,14 @@
         </h1>
         <enhanced-table
             :head="head"
-            :table-attrs="{ class: 'table' }"
+            :table-attrs="{
+                class: {
+                    'table': true,
+                    'table-striped':
+                        entriesFiltered.filter(({ hidden }) => !hidden)
+                            .length === credits.entries.length,
+                },
+            }"
             :search="search"
             @search="s => (search = s)"
             :sort="sort"
