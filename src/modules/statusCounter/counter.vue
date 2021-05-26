@@ -33,14 +33,18 @@ export default Vue.extend<
     { fmsReal2Show: Record<string, number> },
     DefaultMethods<Vue>,
     {
-        vehicle_states: Record<string, { real: number; amount: number }>;
+        vehicles: number;
+        vehicle_states: Record<string, { real: string; amount: number }>;
     },
     { settings: { percentRounding: number } & Record<string, boolean> }
 >({
     name: 'status-counter',
     data() {
         return {
-            fmsReal2Show: this.$t('fmsReal2Show'),
+            fmsReal2Show: (this.$t('fmsReal2Show') as unknown) as Record<
+                string,
+                number
+            >,
         };
     },
     computed: {

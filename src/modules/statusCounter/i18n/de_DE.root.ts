@@ -21,7 +21,7 @@ export default {
                     `hide_${status}`,
                     {
                         title: `Status ${status} nur bei Bedarf`,
-                        description: `Zeige Zahl der Fahrzeuge im Status ${status} nur bei Bedarf.`,
+                        description: `Zeige Zahl der Fahrzeuge im Status ${status} nur, wenn Fahrzeuge in diesem Status sind.`,
                     },
                 ],
                 [

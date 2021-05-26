@@ -1,3 +1,5 @@
+import Vue from 'vue';
+
 import { ActionStoreParams } from 'typings/store/Actions';
 import { APIActionStoreParams } from '../../typings/store/api/Actions';
 import { Mission } from 'typings/Mission';
@@ -416,7 +418,16 @@ export default {
                 })
                     .then(res => res.json())
                     .then(states => {
-                        commit('setVehicleStates', states);
+                        commit('setVehicleStates', {
+                            ...Object.fromEntries(
+                                Object.entries(
+                                    ((window[PREFIX] as Vue).$t(
+                                        'fmsReal2Show'
+                                    ) as unknown) as Record<string, number>
+                                ).map(([, show]) => [show, 0])
+                            ),
+                            ...states,
+                        });
                         resolve();
                     });
             });
