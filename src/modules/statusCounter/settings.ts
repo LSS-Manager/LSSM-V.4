@@ -5,7 +5,6 @@ export default <ModuleSettingFunction>((MODULE_ID, LSSM) => ({
     percentRounding: <NumberInput>{
         type: 'number',
         default: 2,
-        value: 2,
         min: 0,
         disabled: settings =>
             !Object.entries(settings[MODULE_ID]).find(
@@ -41,4 +40,18 @@ export default <ModuleSettingFunction>((MODULE_ID, LSSM) => ({
             ],
         ])
     ),
+    s5noblink: <Toggle>{
+        type: 'toggle',
+        default: false,
+        disabled: settings =>
+            !settings[MODULE_ID].show_5.value ||
+            settings[MODULE_ID].s5blinkOnGt0.value,
+    },
+    s5blinkOnGt0: <Toggle>{
+        type: 'toggle',
+        default: true,
+        disabled: settings =>
+            !settings[MODULE_ID].show_5.value ||
+            settings[MODULE_ID].s5noblink.value,
+    },
 }));

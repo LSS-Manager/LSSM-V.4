@@ -33,5 +33,14 @@ export default {
                 ],
             ])
         ),
+        s5noblink: {
+            title: 'Blinken für S5 abschalten',
+            description: 'Deaktiviert das Blinken des Status 5 Zählers.',
+        },
+        s5blinkOnGt0: {
+            title: 'Blinken für S5 nur bei Bedarf',
+            description:
+                'Der Status 5 Zähler blinkt nur wenn Fahrzeuge im Status 5 sind.',
+        },
     },
 };

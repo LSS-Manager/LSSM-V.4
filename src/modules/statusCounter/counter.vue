@@ -4,7 +4,13 @@
             v-for="({ real, amount }, show) in vehicle_states"
             :key="show"
             class="building_list_fms"
-            :class="`building_list_fms_${real}`"
+            :class="{
+                [`building_list_fms_${real}`]: true,
+                noblink:
+                    real === '5' &&
+                    (settings.s5noblink ||
+                        (settings.s5blinkOnGt0 && amount <= 0)),
+            }"
             :title="`Status ${show}: ${amount.toLocaleString()}`"
             v-show="
                 settings[`show_${show}`] &&
@@ -72,4 +78,7 @@ export default Vue.extend<
 });
 </script>
 
-<style scoped></style>
+<style scoped lang="sass">
+.noblink
+    background-image: none
+</style>
