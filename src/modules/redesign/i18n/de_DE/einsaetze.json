@@ -1,0 +1,21 @@
+{
+    "prerequisite_calculations": {
+        "fire_stations": [0, 18],
+        "rescue_stations": [2, 20, "0.0"],
+        "police_stations": [6, 19],
+        "thw": [9],
+        "bereitschaftspolizei": [11],
+        "police_helicopter_stations": ["13.level"],
+        "wasserrettung": [15, "0.6", "9.3", "12.2"],
+        "mek": ["11.6", "11.7", "17.2", "17.3"],
+        "sek": ["11.4", "11.5", "17.0", "17.1"],
+        "werkfeuerwehr": ["0.13"],
+        "rescue_dog_units": [21, "9.7", "12.3"],
+        "guard_dog_count": ["6.10", "11.8", "17.4"],
+        "criminal_investigation_count": ["6.11"],
+        "thw_bergung_count": ["9.0", "9.5"],
+        "thw_zugtrupp_count": ["9.1", "9.6"],
+        "thw_fg_raeumen_count": ["9.2"],
+        "thw_gkw_count": [9, "9.4"]
+    }
+}

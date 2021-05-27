@@ -1,6 +1,7 @@
 <template>
     <div>
         <h1>{{ lightbox.$sm('title') }}</h1>
+        <pre>{{ prerequisites }}</pre>
         <enhanced-table
             :head="head"
             :table-attrs="{ class: 'table table-striped' }"
@@ -51,6 +52,9 @@
                     <span v-else-if="col === 'duration'">
                         {{ mission.additional.duration_text }}
                     </span>
+                    <pre v-else-if="col === 'green'">
+                        {{ mission.green }}
+                    </pre>
                     <pre v-else>{{ col }}{{ '\n' }}{{ mission }}</pre>
                 </td>
                 <td>
@@ -70,6 +74,7 @@
 <script lang="ts">
 import Vue from 'vue';
 
+import { Building } from 'typings/Building';
 import { DefaultMethods } from 'vue/types/options';
 import { EinsaetzeWindow } from '../parsers/einsaetze';
 import { Mission } from 'typings/Mission';
@@ -92,7 +97,10 @@ type Component = RedesignComponent<
     },
     DefaultMethods<Vue>,
     {
-        missions: Mission[];
+        prerequisites: Mission['prerequisites'];
+        missions: (Mission & {
+            green: boolean;
+        })[];
         head: Record<string, { title: string; noSort?: boolean }>;
     }
 >;
@@ -120,12 +128,62 @@ export default Vue.extend<
                 'generated_by',
                 'prerequisites',
                 'duration',
+                'green',
             ],
         };
     },
     computed: {
+        prerequisites() {
+            const calcs = (this.lightbox.$sm(
+                'prerequisite_calculations'
+            ) as unknown) as Record<string, Record<number, number | string>>;
+            const buildings: Record<string, Building[]> = this.$store.getters[
+                'api/buildingsByType'
+            ];
+            console.log(calcs);
+            return Object.fromEntries(
+                Object.entries(calcs).map(([req, stations]) => [
+                    req,
+                    Object.values(stations)
+                        .map(station => {
+                            if (typeof station === 'number') {
+                                return (buildings[station] ?? []).filter(
+                                    ({ enabled }) => enabled
+                                ).length;
+                            } else {
+                                const [type, extension] = station.split('.');
+                                const buildingsOfType =
+                                    buildings[parseInt(type)] ?? [];
+                                if (extension === 'level') {
+                                    return buildingsOfType
+                                        .filter(({ enabled }) => enabled)
+                                        .map(({ level }) => level + 1)
+                                        .reduce((a, b) => a + b, 0);
+                                }
+                                return buildingsOfType
+                                    .map(
+                                        building =>
+                                            building.extensions?.[
+                                                parseInt(extension)
+                                            ] ?? { enabled: false }
+                                    )
+                                    .filter(({ enabled }) => enabled).length;
+                            }
+                        })
+                        .reduce((a, b) => a + b, 0),
+                ])
+            );
+        },
         missions() {
-            return this.$store.state.api.missions;
+            return (this.$store.state.api.missions as Mission[]).map(
+                mission => ({
+                    ...mission,
+                    green: Object.entries(mission.prerequisites).filter(
+                        ([req, amount]) =>
+                            (this.prerequisites[req] ?? 0) < (amount ?? 0)
+                    ),
+                })
+            );
         },
         head() {
             return Object.fromEntries(

@@ -122,6 +122,11 @@ interface Prerequisites {
     water_police_count?: number;
     dea_count?: number;
     atf_count?: number;
+    criminal_investigation_count?: number;
+    thw_bergung_count?: number;
+    thw_zugtrupp_count?: number;
+    thw_fg_raeumen_count?: number;
+    thw_gkw_count?: number;
 
     // General:
     [key: string]: number | undefined;
