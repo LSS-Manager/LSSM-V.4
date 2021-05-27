@@ -285,12 +285,10 @@ export default Vue.extend<
                             req.startsWith('max_') ? diff < 0 : diff > 0
                         ),
                     date_not_fitting:
-                        new Date() <
-                            new Date(
-                                mission.additional.date_start ?? new Date()
-                            ) ||
-                        new Date() >
-                            new Date(mission.additional.date_end ?? new Date()),
+                        mission.additional.date_start &&
+                        mission.additional.date_end &&
+                        (new Date() < new Date(mission.additional.date_start) ||
+                            new Date() > new Date(mission.additional.date_end)),
                 })
             );
         },
