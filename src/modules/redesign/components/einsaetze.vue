@@ -1,14 +1,15 @@
 <template>
     <div>
         <h1>{{ lightbox.$sm('title') }}</h1>
-        <pre>{{ prerequisites }}</pre>
+        <!-- <pre>{{ prerequisites }}</pre> -->
         <enhanced-table
             :head="head"
             :table-attrs="{ class: 'table table-striped' }"
-            no-search
+            :search="search"
+            @search="s => (search = s)"
         >
             <tr
-                v-for="mission in missions"
+                v-for="mission in missionsFiltered"
                 :key="mission.id"
                 :class="{ success: !mission.unfullfilled_prerequisites.length }"
                 :disabled="mission.date_not_fitting"
@@ -147,6 +148,14 @@ import { EinsaetzeWindow } from '../parsers/einsaetze';
 import { Mission } from 'typings/Mission';
 import { RedesignComponent } from 'typings/modules/Redesign';
 
+type MissionEntry = Mission & {
+    unfullfilled_prerequisites: [
+        string,
+        Record<'have' | 'need' | 'diff', number>
+    ][];
+    date_not_fitting: boolean;
+};
+
 type Component = RedesignComponent<
     'window',
     'einsaetze',
@@ -163,17 +172,13 @@ type Component = RedesignComponent<
             | 'duration'
             | 'missing'
         )[];
+        search: string;
     },
     DefaultMethods<Vue>,
     {
         prerequisites: Mission['prerequisites'];
-        missions: (Mission & {
-            unfullfilled_prerequisites: [
-                string,
-                Record<'have' | 'need' | 'diff', number>
-            ][];
-            date_not_fitting: boolean;
-        })[];
+        missions: MissionEntry[];
+        missionsFiltered: MissionEntry[];
         head: Record<string, { title: string; noSort?: boolean }>;
     }
 >;
@@ -205,6 +210,7 @@ export default Vue.extend<
                 'duration',
                 'missing',
             ],
+            search: '',
         };
     },
     computed: {
@@ -282,6 +288,37 @@ export default Vue.extend<
                             new Date(mission.additional.date_end ?? new Date()),
                 })
             );
+        },
+        missionsFiltered() {
+            return this.search.trim().length
+                ? this.missions.filter(
+                      ({
+                          name,
+                          place_array,
+                          average_credits,
+                          generated_by,
+                          additional: { duration_text },
+                          prerequisites,
+                      }) =>
+                          [
+                              name,
+                              ...place_array,
+                              average_credits?.toString() ?? '',
+                              generated_by,
+                              duration_text ?? '',
+                              ...Object.entries(prerequisites).map(
+                                  ([req, amount]) =>
+                                      `${amount} ${this.lightbox.$sm(
+                                          `prerequisites_long.${req}`
+                                      )}`
+                              ),
+                          ].filter(attr =>
+                              attr
+                                  .toLowerCase()
+                                  .match(this.search.trim().toLowerCase())
+                          ).length
+                  )
+                : this.missions;
         },
         head() {
             return Object.fromEntries(
