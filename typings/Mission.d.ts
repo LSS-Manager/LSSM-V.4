@@ -47,6 +47,10 @@ interface Additional {
     patient_us_code_possible?: string[]; // en_US only
     patient_it_code_possible?: string[]; // it_IT only
 
+    // seasonal missions
+    date_start: string;
+    date_end: string;
+
     // General:
     [key: string]:
         | number

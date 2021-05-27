@@ -11,6 +11,7 @@
                 v-for="mission in missions"
                 :key="mission.id"
                 :class="{ success: !mission.unfullfilled_prerequisites.length }"
+                :disabled="mission.date_not_fitting"
             >
                 <td
                     v-for="(col, index) in cols"
@@ -22,17 +23,19 @@
                         alt=""
                         loading="lazy"
                     />
-                    <span v-else-if="['name', 'generated_by'].includes(col)">
+                    <template
+                        v-else-if="['name', 'generated_by'].includes(col)"
+                    >
                         {{ mission[col].toLocaleString() }}
-                    </span>
-                    <span v-else-if="col === 'credits'">
+                    </template>
+                    <template v-else-if="col === 'credits'">
                         ~
                         {{
                             mission.average_credits
                                 ? mission.average_credits.toLocaleString()
                                 : '–'
                         }}
-                    </span>
+                    </template>
                     <ul v-else-if="col === 'place'">
                         <li
                             v-for="(place, pindex) in mission.place_array"
@@ -50,44 +53,72 @@
                                 `${mission.id}_${index}_${col}_prerequisites_${req}`
                             "
                         >
-                            {{ amount.toLocaleString() }}x {{ req }}
+                            {{ amount.toLocaleString() }}
+                            {{
+                                lightbox.$smc(
+                                    `prerequisites_short.${req}`,
+                                    amount
+                                )
+                            }}
                         </li>
                     </ul>
-                    <span v-else-if="col === 'duration'">
+                    <template v-else-if="col === 'duration'">
                         {{ mission.additional.duration_text }}
-                    </span>
-                    <table
-                        v-else-if="col === 'missing'"
-                        v-show="mission.unfullfilled_prerequisites.length"
-                        class="table table-striped"
-                    >
-                        <thead>
-                            <tr>
-                                <th>req</th>
-                                <th>have</th>
-                                <th>need</th>
-                                <th>diff</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr
-                                v-for="[
-                                    req,
-                                    { have, need, diff },
-                                ] in mission.unfullfilled_prerequisites"
-                                :key="
-                                    `${mission.id}_${index}_${col}_unfullfilled_${req}`
-                                "
-                            >
-                                <td>
-                                    <b>{{ req }}</b>
-                                </td>
-                                <td>{{ have.toLocaleString() }}</td>
-                                <td>{{ need.toLocaleString() }}</td>
-                                <td>{{ diff.toLocaleString() }}</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    </template>
+                    <template v-else-if="col === 'missing'">
+                        <b v-if="mission.date_not_fitting">
+                            {{
+                                lightbox.$sm('missing.date', {
+                                    date_start: moment(
+                                        mission.additional.date_start
+                                    ).format('llll'),
+                                    date_end: moment(
+                                        mission.additional.date_end
+                                    ).format('llll'),
+                                })
+                            }}
+                        </b>
+                        <table
+                            v-if="mission.unfullfilled_prerequisites.length"
+                            class="table table-striped"
+                        >
+                            <thead>
+                                <tr>
+                                    <th>{{ lightbox.$sm('missing.req') }}</th>
+                                    <th>{{ lightbox.$sm('missing.have') }}</th>
+                                    <th>{{ lightbox.$sm('missing.need') }}</th>
+                                    <th>{{ lightbox.$sm('missing.diff') }}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr
+                                    v-for="[
+                                        req,
+                                        { have, need, diff },
+                                    ] in mission.unfullfilled_prerequisites"
+                                    :key="
+                                        `${mission.id}_${index}_${col}_unfullfilled_${req}`
+                                    "
+                                >
+                                    <td>
+                                        <b>
+                                            {{
+                                                lightbox.$smc(
+                                                    `prerequisites_short.${req}`,
+                                                    need
+                                                )
+                                            }}
+                                        </b>
+                                    </td>
+                                    <td>{{ have.toLocaleString() }}</td>
+                                    <td>{{ need.toLocaleString() }}</td>
+                                    <td>
+                                        <b>{{ diff.toLocaleString() }}</b>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </template>
                     <pre v-else>{{ col }}{{ '\n' }}{{ mission }}</pre>
                 </td>
                 <td>
@@ -95,6 +126,7 @@
                         lightbox-open
                         :href="`/einsaetze/${mission.id}`"
                         class="btn btn-default"
+                        :disabled="mission.date_not_fitting"
                     >
                         Details
                     </button>
@@ -107,6 +139,8 @@
 <script lang="ts">
 import Vue from 'vue';
 
+import moment from 'moment';
+
 import { Building } from 'typings/Building';
 import { DefaultMethods } from 'vue/types/options';
 import { EinsaetzeWindow } from '../parsers/einsaetze';
@@ -118,6 +152,7 @@ type Component = RedesignComponent<
     'einsaetze',
     EinsaetzeWindow,
     {
+        moment: typeof moment;
         cols: (
             | 'icon'
             | 'name'
@@ -137,6 +172,7 @@ type Component = RedesignComponent<
                 string,
                 Record<'have' | 'need' | 'diff', number>
             ][];
+            date_not_fitting: boolean;
         })[];
         head: Record<string, { title: string; noSort?: boolean }>;
     }
@@ -156,7 +192,9 @@ export default Vue.extend<
             ),
     },
     data() {
+        moment.locale(this.$store.state.lang);
         return {
+            moment,
             cols: [
                 'icon',
                 'name',
@@ -177,7 +215,6 @@ export default Vue.extend<
             const buildings: Record<string, Building[]> = this.$store.getters[
                 'api/buildingsByType'
             ];
-            console.log(calcs);
             return Object.fromEntries(
                 Object.entries(calcs).map(([req, stations]) => [
                     req,
@@ -236,6 +273,13 @@ export default Vue.extend<
                         .filter(([req, { diff }]) =>
                             req.startsWith('max_') ? diff < 0 : diff > 0
                         ),
+                    date_not_fitting:
+                        new Date() <
+                            new Date(
+                                mission.additional.date_start ?? new Date()
+                            ) ||
+                        new Date() >
+                            new Date(mission.additional.date_end ?? new Date()),
                 })
             );
         },
@@ -243,7 +287,10 @@ export default Vue.extend<
             return Object.fromEntries(
                 [...this.cols, 'details'].map(col => [
                     col,
-                    { title: col, noSort: true },
+                    {
+                        title: this.lightbox.$sm(`columns.${col}`).toString(),
+                        noSort: true,
+                    },
                 ])
             );
         },
@@ -293,6 +340,6 @@ export default Vue.extend<
 </script>
 
 <style scoped lang="sass">
-textarea
-    resize: vertical
+tr[disabled]
+    opacity: .65
 </style>
