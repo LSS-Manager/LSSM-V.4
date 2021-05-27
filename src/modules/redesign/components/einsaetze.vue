@@ -8,6 +8,11 @@
             :search="search"
             @search="s => (search = s)"
         >
+            <template v-slot:head>
+                <span>{{
+                    lightbox.$smc('amount', missionsFiltered.length)
+                }}</span>
+            </template>
             <tr
                 v-for="mission in missionsFiltered"
                 :key="mission.id"

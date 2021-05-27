@@ -1,4 +1,5 @@
 {
+	"amount": "{n} angezeigter Einsatz | {n} angezeigte Einsätze",
 	"columns": {
 		"credits": "Durchschnittlicher Verdienst",
 		"details": "",
