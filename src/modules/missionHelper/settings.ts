@@ -95,7 +95,7 @@ export default ((MODULE_ID, LSSM, $m) => {
             // @ts-ignore
             disabled: (settings): boolean =>
                 !settings[MODULE_ID]['vehicles.content'].value ||
-                settings[MODULE_ID]['hide_battalion_chief_vehicles'].value,
+                !!settings[MODULE_ID]['hide_battalion_chief_vehicles'].value,
         },
         'hide_battalion_chief_vehicles': <Toggle>{
             type: 'toggle',
@@ -104,8 +104,9 @@ export default ((MODULE_ID, LSSM, $m) => {
             // @ts-ignore
             disabled: (settings): boolean =>
                 !settings[MODULE_ID]['vehicles.content'].value ||
-                settings[MODULE_ID]['multifunctionals.battalion_chief_vehicles']
-                    .value,
+                !!settings[MODULE_ID][
+                    'multifunctionals.battalion_chief_vehicles'
+                ].value,
         },
         ...(locale === 'nl_NL'
             ? {

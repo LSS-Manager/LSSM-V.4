@@ -1,7 +1,7 @@
 import { ModuleSettingFunction } from 'typings/Module';
 import { NumberInput, Toggle } from 'typings/Setting';
 
-export default <ModuleSettingFunction>((MODULE_ID, LSSM) => ({
+export default <ModuleSettingFunction>((MODULE_ID: string, LSSM: Vue) => ({
     percentRounding: <NumberInput>{
         type: 'number',
         default: 2,

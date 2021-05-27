@@ -9,7 +9,7 @@ export default {
                 'Rundet Prozente – falls angezeigt – auf so viele Nachkommastellen',
         },
         ...Object.fromEntries(
-            new Array(10).fill([]).flatMap((_, status) => [
+            (new Array(10).fill('') as string[]).flatMap((_, status) => [
                 [
                     `show_${status}`,
                     {
