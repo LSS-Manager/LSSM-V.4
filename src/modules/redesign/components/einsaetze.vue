@@ -7,7 +7,11 @@
             :table-attrs="{ class: 'table table-striped' }"
             no-search
         >
-            <tr v-for="mission in missions" :key="mission.id">
+            <tr
+                v-for="mission in missions"
+                :key="mission.id"
+                :class="{ success: !mission.unfullfilled_prerequisites.length }"
+            >
                 <td
                     v-for="(col, index) in cols"
                     :key="`${mission.id}_${index}_${col}`"
@@ -52,9 +56,38 @@
                     <span v-else-if="col === 'duration'">
                         {{ mission.additional.duration_text }}
                     </span>
-                    <pre v-else-if="col === 'green'">
-                        {{ mission.green }}
-                    </pre>
+                    <table
+                        v-else-if="col === 'missing'"
+                        v-show="mission.unfullfilled_prerequisites.length"
+                        class="table table-striped"
+                    >
+                        <thead>
+                            <tr>
+                                <th>req</th>
+                                <th>have</th>
+                                <th>need</th>
+                                <th>diff</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr
+                                v-for="[
+                                    req,
+                                    { have, need, diff },
+                                ] in mission.unfullfilled_prerequisites"
+                                :key="
+                                    `${mission.id}_${index}_${col}_unfullfilled_${req}`
+                                "
+                            >
+                                <td>
+                                    <b>{{ req }}</b>
+                                </td>
+                                <td>{{ have.toLocaleString() }}</td>
+                                <td>{{ need.toLocaleString() }}</td>
+                                <td>{{ diff.toLocaleString() }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
                     <pre v-else>{{ col }}{{ '\n' }}{{ mission }}</pre>
                 </td>
                 <td>
@@ -93,13 +126,17 @@ type Component = RedesignComponent<
             | 'generated_by'
             | 'prerequisites'
             | 'duration'
+            | 'missing'
         )[];
     },
     DefaultMethods<Vue>,
     {
         prerequisites: Mission['prerequisites'];
         missions: (Mission & {
-            green: boolean;
+            unfullfilled_prerequisites: [
+                string,
+                Record<'have' | 'need' | 'diff', number>
+            ][];
         })[];
         head: Record<string, { title: string; noSort?: boolean }>;
     }
@@ -128,7 +165,7 @@ export default Vue.extend<
                 'generated_by',
                 'prerequisites',
                 'duration',
-                'green',
+                'missing',
             ],
         };
     },
@@ -140,7 +177,6 @@ export default Vue.extend<
             const buildings: Record<string, Building[]> = this.$store.getters[
                 'api/buildingsByType'
             ];
-            // eslint-disable-next-line no-console
             console.log(calcs);
             return Object.fromEntries(
                 Object.entries(calcs).map(([req, stations]) => [
@@ -179,10 +215,27 @@ export default Vue.extend<
             return (this.$store.state.api.missions as Mission[]).map(
                 mission => ({
                     ...mission,
-                    green: Object.entries(mission.prerequisites).filter(
-                        ([req, amount]) =>
-                            (this.prerequisites[req] ?? 0) < (amount ?? 0)
-                    ),
+                    unfullfilled_prerequisites: Object.entries(
+                        (mission.prerequisites ?? {}) as Record<string, number>
+                    )
+                        .map<
+                            [string, Record<'have' | 'need' | 'diff', number>]
+                        >(([req, amount]) => {
+                            const have =
+                                this.prerequisites[req.replace(/^max_/, '')] ??
+                                0;
+                            return [
+                                req,
+                                {
+                                    have,
+                                    need: amount,
+                                    diff: amount - have,
+                                },
+                            ];
+                        })
+                        .filter(([req, { diff }]) =>
+                            req.startsWith('max_') ? diff < 0 : diff > 0
+                        ),
                 })
             );
         },
