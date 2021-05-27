@@ -140,6 +140,7 @@ export default Vue.extend<
             const buildings: Record<string, Building[]> = this.$store.getters[
                 'api/buildingsByType'
             ];
+            // eslint-disable-next-line no-console
             console.log(calcs);
             return Object.fromEntries(
                 Object.entries(calcs).map(([req, stations]) => [
