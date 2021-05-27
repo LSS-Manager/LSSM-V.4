@@ -7,6 +7,9 @@
             :table-attrs="{ class: 'table table-striped' }"
             :search="search"
             @search="s => (search = s)"
+            :sort="sort"
+            :sort-dir="sortDir"
+            @sort="setSort"
         >
             <template v-slot:head>
                 <span>{{
@@ -14,7 +17,7 @@
                 }}</span>
             </template>
             <tr
-                v-for="mission in missionsFiltered"
+                v-for="mission in missionsSorted"
                 :key="mission.id"
                 :class="{ success: !mission.unfullfilled_prerequisites.length }"
                 :disabled="mission.date_not_fitting"
@@ -24,7 +27,7 @@
                     :key="`${mission.id}_${index}_${col}`"
                 >
                     <img
-                        v-if="col === 'icon'"
+                        v-if="col === 'id'"
                         :src="mission.icons[2]"
                         alt=""
                         loading="lazy"
@@ -33,8 +36,11 @@
                         v-else-if="['name', 'generated_by'].includes(col)"
                     >
                         {{ mission[col].toLocaleString() }}
+                        <small v-if="col === 'name'" class="pull-right">
+                            [{{ mission.id.toLocaleString() }}]
+                        </small>
                     </template>
-                    <template v-else-if="col === 'credits'">
+                    <template v-else-if="col === 'average_credits'">
                         ~
                         {{
                             mission.average_credits
@@ -148,7 +154,6 @@ import Vue from 'vue';
 import moment from 'moment';
 
 import { Building } from 'typings/Building';
-import { DefaultMethods } from 'vue/types/options';
 import { EinsaetzeWindow } from '../parsers/einsaetze';
 import { Mission } from 'typings/Mission';
 import { RedesignComponent } from 'typings/modules/Redesign';
@@ -161,29 +166,37 @@ type MissionEntry = Mission & {
     date_not_fitting: boolean;
 };
 
+type cols =
+    | 'id'
+    | 'name'
+    | 'place'
+    | 'average_credits'
+    | 'generated_by'
+    | 'prerequisites'
+    | 'duration'
+    | 'missing';
+
+type sort = Exclude<cols, 'missing' | 'prerequisites'>;
+
 type Component = RedesignComponent<
     'window',
     'einsaetze',
     EinsaetzeWindow,
     {
         moment: typeof moment;
-        cols: (
-            | 'icon'
-            | 'name'
-            | 'place'
-            | 'credits'
-            | 'generated_by'
-            | 'prerequisites'
-            | 'duration'
-            | 'missing'
-        )[];
+        cols: cols[];
         search: string;
+        sort: sort;
+        sortDir: 'asc' | 'desc';
     },
-    DefaultMethods<Vue>,
+    {
+        setSort(type: sort): void;
+    },
     {
         prerequisites: Mission['prerequisites'];
         missions: MissionEntry[];
         missionsFiltered: MissionEntry[];
+        missionsSorted: MissionEntry[];
         head: Record<string, { title: string; noSort?: boolean }>;
     }
 >;
@@ -206,17 +219,29 @@ export default Vue.extend<
         return {
             moment,
             cols: [
-                'icon',
+                'id',
                 'name',
                 'place',
-                'credits',
+                'average_credits',
                 'generated_by',
                 'prerequisites',
                 'duration',
                 'missing',
             ],
             search: '',
+            sort: 'id',
+            sortDir: 'asc',
         };
+    },
+    methods: {
+        setSort(type) {
+            if (this.sort === type) {
+                this.sortDir = this.sortDir === 'asc' ? 'desc' : 'asc';
+            } else {
+                this.sort = type;
+                this.sortDir = 'asc';
+            }
+        },
     },
     computed: {
         prerequisites() {
@@ -284,11 +309,12 @@ export default Vue.extend<
                         .filter(([req, { diff }]) =>
                             req.startsWith('max_') ? diff < 0 : diff > 0
                         ),
-                    date_not_fitting:
+                    date_not_fitting: !!(
                         mission.additional.date_start &&
                         mission.additional.date_end &&
                         (new Date() < new Date(mission.additional.date_start) ||
-                            new Date() > new Date(mission.additional.date_end)),
+                            new Date() > new Date(mission.additional.date_end))
+                    ),
                 })
             );
         },
@@ -323,13 +349,35 @@ export default Vue.extend<
                   )
                 : this.missions;
         },
+        missionsSorted() {
+            if (this.sort === 'id') {
+                if (this.sortDir === 'asc') return this.missionsFiltered;
+                return [...this.missionsFiltered].reverse();
+            }
+            const modifier = this.sortDir === 'desc' ? -1 : 1;
+            return [...this.missionsFiltered].sort((a, b) => {
+                const f =
+                    (this.sort === 'duration'
+                        ? a.additional.duration
+                        : a[this.sort]) ?? '';
+                const s =
+                    (this.sort === 'duration'
+                        ? b.additional.duration
+                        : b[this.sort]) ?? '';
+                return f < s ? -1 * modifier : f > s ? modifier : 0;
+            });
+        },
         head() {
             return Object.fromEntries(
                 [...this.cols, 'details'].map(col => [
                     col,
                     {
                         title: this.lightbox.$sm(`columns.${col}`).toString(),
-                        noSort: true,
+                        noSort: [
+                            'missing',
+                            'prerequisites',
+                            'details',
+                        ].includes(col),
                     },
                 ])
             );

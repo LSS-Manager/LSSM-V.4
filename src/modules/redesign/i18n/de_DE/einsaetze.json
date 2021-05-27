@@ -1,11 +1,11 @@
 {
 	"amount": "{n} angezeigter Einsatz | {n} angezeigte Einsätze",
 	"columns": {
-		"credits": "Durchschnittlicher Verdienst",
+		"average_credits": "Durchschnittlicher Verdienst",
 		"details": "",
 		"duration": "Dauer",
 		"generated_by": "Generiert durch",
-		"icon": "Icon",
+		"id": "",
 		"missing": "fehlende Anforderungen",
 		"name": "Einsatz",
 		"place": "POI / POIs",
