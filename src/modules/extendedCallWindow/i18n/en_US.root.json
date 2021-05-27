@@ -107,6 +107,10 @@
 			"title": "vehicle categories",
 			"vehicles": "vehicle types"
 		},
+		"vehicleTypeInList": {
+			"description": "Displays the vehicle type in the Available Units list.",
+			"title": "Show vehicle type"
+		},
 		"yellowBorder": {
 			"description": "Borders the generation time yellow if the usage is older than the entered number of hours. If the number is 0, no border is drawn.",
 			"title": "Yellow border"
