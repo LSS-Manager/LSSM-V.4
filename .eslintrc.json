@@ -28,6 +28,7 @@
         "curly": ["error", "multi-or-nest", "consistent"],
         "default-case-last": "error",
         "guard-for-in": "error",
+        "no-console": "warn",
         "no-duplicate-imports": ["error", { "includeExports": true }],
         "no-eval": "error",
         "no-floating-decimal": "warn",
