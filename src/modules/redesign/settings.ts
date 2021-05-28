@@ -1,5 +1,5 @@
-import { Hidden } from 'typings/Setting';
 import { ModuleSettingFunction } from 'typings/Module';
+import { Hidden, Toggle } from 'typings/Setting';
 
 export default (() => ({
     'alliances': <Hidden>{
@@ -33,5 +33,29 @@ export default (() => ({
     'verband/protokoll': <Hidden>{
         type: 'hidden',
         default: {},
+    },
+    'category.alliance': <Toggle>{
+        type: 'toggle',
+        default: true,
+    },
+    'category.credits': <Toggle>{
+        type: 'toggle',
+        default: true,
+    },
+    'category.profile': <Toggle>{
+        type: 'toggle',
+        default: true,
+    },
+    'category.vehicles': <Toggle>{
+        type: 'toggle',
+        default: true,
+    },
+    'category.einsaetze': <Hidden>{
+        type: 'hidden',
+        default: true,
+    },
+    'category.toplist': <Toggle>{
+        type: 'toggle',
+        default: true,
     },
 })) as ModuleSettingFunction;
