@@ -6,7 +6,7 @@
 			"/alliances/{id}": "Intro",
 			"/schoolings": "Courses",
 			"/verband/bereitstellungsraume": "Staging Areas",
-			"/verband/gebaeude": "Buildings",
+			"/verband/gebauede": "Buildings",
 			"/verband/kasse": "Alliance Funds",
 			"/verband/mitglieder/{id}": "Members",
 			"/verband/news/{id}": "News",
@@ -30,7 +30,7 @@
 			"/schoolings",
 			"/verband/bereitstellungsraume",
 			"/verband/kasse",
-			"/verband/gebaeude"
+			"/verband/gebauede"
 		]
 	}
 }
