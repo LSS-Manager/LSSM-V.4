@@ -82,6 +82,10 @@ export default (LSSM: Vue): void => {
             min: 1,
             max: 1048576,
         },
+		'friend[comment]': {
+            min: 1,
+            max: 65535,
+        },
     } as {
         [name: string]: {
             min: number;
