@@ -4,6 +4,7 @@ export interface EnhancedTableData {
     faSort: IconDefinition;
     faSortUp: IconDefinition;
     faSortDown: IconDefinition;
+    faSlidersH: IconDefinition;
 }
 
 export interface EnhancedTableProps {
