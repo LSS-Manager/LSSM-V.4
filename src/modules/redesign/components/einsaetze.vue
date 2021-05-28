@@ -12,6 +12,24 @@
             @sort="setSort"
         >
             <template v-slot:head>
+                <div class="form-group">
+                    <label>{{ lightbox.$sm('select_dispatchcenter') }}</label>
+                    <settings-select
+                        name="dispatchcenter-choose"
+                        :placeholder="lightbox.$sm('select_dispatchcenter')"
+                        v-model="selectedDispatchCenter"
+                        :options="[
+                            {
+                                value: '0',
+                                label: lightbox.$sm('no_dispatchcenter'),
+                            },
+                            ...dispatchCenters.map(({ id, caption }) => ({
+                                label: caption,
+                                value: id.toString(),
+                            })),
+                        ]"
+                    ></settings-select>
+                </div>
                 <span>{{
                     lightbox.$smc('amount', missionsFiltered.length)
                 }}</span>
@@ -32,13 +50,31 @@
                         alt=""
                         loading="lazy"
                     />
-                    <template
-                        v-else-if="['name', 'generated_by'].includes(col)"
-                    >
-                        {{ mission[col].toLocaleString() }}
-                        <small v-if="col === 'name'" class="pull-right">
+                    <template v-else-if="col === 'name'">
+                        {{ mission.name }}
+                        <small class="pull-right">
                             [{{ mission.id.toLocaleString() }}]
                         </small>
+                    </template>
+                    <template v-else-if="col === 'generated_by'">
+                        {{ mission.generated_by }}
+                        <template v-if="mission.main_building_extensions">
+                            {{ lightbox.$sm('main_building_extensions.text') }}:
+                            <ul>
+                                <li
+                                    v-for="extension in mission.main_building_extensions"
+                                    :key="
+                                        `${mission.id}_${index}_generatedby_extensions_${extension}`
+                                    "
+                                >
+                                    {{
+                                        $t(
+                                            `buildings.${mission.main_building}.extensions.${extension}.caption`
+                                        )
+                                    }}
+                                </li>
+                            </ul>
+                        </template>
                     </template>
                     <template v-else-if="col === 'average_credits'">
                         ~
@@ -113,7 +149,37 @@
                                     "
                                 >
                                     <td>
-                                        <b>
+                                        <template
+                                            v-if="
+                                                req.match(
+                                                    /^\d+\.\d+(,\d+\.\d+)*$/
+                                                )
+                                            "
+                                        >
+                                            <b>
+                                                {{ mission.generated_by }}
+                                            </b>
+                                            {{
+                                                lightbox.$sm(
+                                                    'main_building_extensions.text'
+                                                )
+                                            }}:
+                                            <ul>
+                                                <li
+                                                    v-for="extension in mission.main_building_extensions"
+                                                    :key="
+                                                        `${mission.id}_${index}_generatedby_extensions_${extension}`
+                                                    "
+                                                >
+                                                    {{
+                                                        $t(
+                                                            `buildings.${mission.main_building}.extensions.${extension}.caption`
+                                                        )
+                                                    }}
+                                                </li>
+                                            </ul>
+                                        </template>
+                                        <b v-else>
                                             {{
                                                 lightbox.$smc(
                                                     `prerequisites_short.${req}`,
@@ -158,7 +224,10 @@ import { EinsaetzeWindow } from '../parsers/einsaetze';
 import { Mission } from 'typings/Mission';
 import { RedesignComponent } from 'typings/modules/Redesign';
 
-type MissionEntry = Mission & {
+type MissionEntry = Omit<Mission, 'prerequisites'> & {
+    prerequisites: Record<string, number>;
+    main_building: number;
+    main_building_extensions: Mission['prerequisites']['main_building_extensions'];
     unfullfilled_prerequisites: [
         string,
         Record<'have' | 'need' | 'diff', number>
@@ -185,6 +254,7 @@ type Component = RedesignComponent<
     {
         moment: typeof moment;
         cols: cols[];
+        selectedDispatchCenter: string;
         search: string;
         sort: sort;
         sortDir: 'asc' | 'desc';
@@ -193,7 +263,9 @@ type Component = RedesignComponent<
         setSort(type: sort): void;
     },
     {
-        prerequisites: Mission['prerequisites'];
+        buildings: Record<string, Building[]>;
+        dispatchCenters: Building[];
+        prerequisites: Record<string, Record<string, number>>;
         missions: MissionEntry[];
         missionsFiltered: MissionEntry[];
         missionsSorted: MissionEntry[];
@@ -213,9 +285,14 @@ export default Vue.extend<
             import(
                 /* webpackChunkName: "components/enhanced-table" */ '../../../components/enhanced-table.vue'
             ),
+        SettingsSelect: () =>
+            import(
+                /* webpackChunkName: "components/settings/select" */ '../../../components/setting/select.vue'
+            ),
     },
     data() {
         moment.locale(this.$store.state.lang);
+
         return {
             moment,
             cols: [
@@ -228,6 +305,7 @@ export default Vue.extend<
                 'duration',
                 'missing',
             ],
+            selectedDispatchCenter: '0',
             search: '',
             sort: 'id',
             sortDir: 'asc',
@@ -244,78 +322,170 @@ export default Vue.extend<
         },
     },
     computed: {
+        buildings() {
+            return this.$store.getters['api/buildingsByType'];
+        },
+        dispatchCenters() {
+            return Object.values(this.$t('dispatchCenterBuildings'))
+                .flatMap(type => this.buildings[type])
+                .filter(d => d?.generate_own_missions);
+        },
         prerequisites() {
             const calcs = (this.lightbox.$sm(
                 'prerequisite_calculations'
             ) as unknown) as Record<string, Record<number, number | string>>;
-            const buildings: Record<string, Building[]> = this.$store.getters[
-                'api/buildingsByType'
-            ];
-            return Object.fromEntries(
-                Object.entries(calcs).map(([req, stations]) => [
-                    req,
-                    Object.values(stations)
-                        .map(station => {
+            const dispatches: Record<string, Record<string, number>> = {
+                '0': {},
+                ...Object.fromEntries(
+                    this.dispatchCenters.map(({ id }) => [id.toString(), {}])
+                ),
+            };
+            Object.values(this.buildings)
+                .flat()
+                .forEach(building => {
+                    const addTo: string[] = [building.building_type.toString()];
+                    Object.entries(calcs).forEach(([req, stations]) =>
+                        Object.values(stations).forEach(station => {
                             if (typeof station === 'number') {
-                                return (buildings[station] ?? []).filter(
-                                    ({ enabled }) => enabled
-                                ).length;
-                            } else {
-                                const [type, extension] = station.split('.');
-                                const buildingsOfType =
-                                    buildings[parseInt(type)] ?? [];
-                                if (extension === 'level') {
-                                    return buildingsOfType
-                                        .filter(({ enabled }) => enabled)
-                                        .map(({ level }) => level + 1)
-                                        .reduce((a, b) => a + b, 0);
-                                }
-                                return buildingsOfType
-                                    .map(
-                                        building =>
-                                            building.extensions?.[
-                                                parseInt(extension)
-                                            ] ?? { enabled: false }
-                                    )
-                                    .filter(({ enabled }) => enabled).length;
+                                return (
+                                    building.building_type === station &&
+                                    addTo.push(req)
+                                );
                             }
+                            const [type, extension] = station.split('.');
+                            if (building.building_type !== parseInt(type))
+                                return;
+                            if (extension === 'level') {
+                                return addTo.push(
+                                    ...new Array(building.level + 1).fill(req)
+                                );
+                            }
+                            if (
+                                building.extensions[parseInt(extension)]
+                                    ?.enabled
+                            )
+                                return addTo.push(req);
                         })
-                        .reduce((a, b) => a + b, 0),
-                ])
-            );
+                    );
+
+                    building.extensions.forEach(({ enabled }, index) => {
+                        if (enabled)
+                            addTo.push(`${building.building_type}.${index}`);
+                    });
+
+                    const dispatch =
+                        building.leitstelle_building_id?.toString() ?? '-1';
+                    const addToDispatch = dispatches.hasOwnProperty(dispatch);
+                    addTo.forEach(req => {
+                        if (!dispatches['0'].hasOwnProperty(req))
+                            dispatches['0'][req] = 0;
+                        dispatches['0'][req]++;
+                        if (addToDispatch) {
+                            if (!dispatches[dispatch].hasOwnProperty(req))
+                                dispatches[dispatch][req] = 0;
+                            dispatches[dispatch][req]++;
+                        }
+                    });
+                });
+            return dispatches;
         },
         missions() {
             return (this.$store.state.api.missions as Mission[]).map(
-                mission => ({
-                    ...mission,
-                    unfullfilled_prerequisites: Object.entries(
-                        (mission.prerequisites ?? {}) as Record<string, number>
-                    )
-                        .map<
-                            [string, Record<'have' | 'need' | 'diff', number>]
-                        >(([req, amount]) => {
-                            const have =
-                                this.prerequisites[req.replace(/^max_/, '')] ??
-                                0;
-                            return [
-                                req,
-                                {
-                                    have,
-                                    need: amount,
-                                    diff: amount - have,
-                                },
-                            ];
-                        })
-                        .filter(([req, { diff }]) =>
-                            req.startsWith('max_') ? diff < 0 : diff > 0
+                mission => {
+                    const prerequisites = (Object.fromEntries(
+                        Object.entries(mission.prerequisites ?? {}).filter(
+                            ([req, amount]) =>
+                                typeof amount === 'number' &&
+                                ![
+                                    'main_building',
+                                    'main_building_extensions',
+                                ].includes(req)
+                        )
+                    ) as unknown) as Record<string, number>;
+                    return {
+                        ...mission,
+                        prerequisites,
+                        main_building_extensions:
+                            mission.prerequisites.main_building_extensions,
+                        main_building: mission.prerequisites.main_building,
+                        unfullfilled_prerequisites: ([
+                            ...Object.entries(prerequisites),
+                            ...(mission.prerequisites.main_building_extensions
+                                ? [
+                                      [
+                                          Object.values(
+                                              mission.prerequisites
+                                                  .main_building_extensions ??
+                                                  {}
+                                          )
+                                              .map(
+                                                  extension =>
+                                                      `${mission.prerequisites.main_building}.${extension}`
+                                              )
+                                              .join(','),
+                                          1,
+                                      ],
+                                  ]
+                                : []),
+                        ] as [string, number][])
+                            .map<
+                                [
+                                    string,
+                                    Record<'have' | 'need' | 'diff', number>
+                                ]
+                            >(([req, amount]) => {
+                                const have = req.match(/\d+\.\d+/)
+                                    ? this.buildings[
+                                          mission.prerequisites.main_building
+                                      ]?.find(
+                                          b =>
+                                              (this.selectedDispatchCenter ===
+                                                  '0' ||
+                                                  b.leitstelle_building_id.toString() ===
+                                                      this
+                                                          .selectedDispatchCenter) &&
+                                              req
+                                                  .split(',')
+                                                  .every(
+                                                      ex =>
+                                                          b.extensions.find(
+                                                              e =>
+                                                                  e.type_id ===
+                                                                  parseInt(
+                                                                      ex.split(
+                                                                          '.'
+                                                                      )[1]
+                                                                  )
+                                                          )?.enabled
+                                                  )
+                                      )
+                                        ? 1
+                                        : 0
+                                    : this.prerequisites[
+                                          this.selectedDispatchCenter
+                                      ][req.replace(/^max_/, '')] ?? 0;
+                                return [
+                                    req,
+                                    {
+                                        have,
+                                        need: amount,
+                                        diff: amount - have,
+                                    },
+                                ];
+                            })
+                            .filter(([req, { diff }]) =>
+                                req.startsWith('max_') ? diff < 0 : diff > 0
+                            ),
+                        date_not_fitting: !!(
+                            mission.additional.date_start &&
+                            mission.additional.date_end &&
+                            (new Date() <
+                                new Date(mission.additional.date_start) ||
+                                new Date() >
+                                    new Date(mission.additional.date_end))
                         ),
-                    date_not_fitting: !!(
-                        mission.additional.date_start &&
-                        mission.additional.date_end &&
-                        (new Date() < new Date(mission.additional.date_start) ||
-                            new Date() > new Date(mission.additional.date_end))
-                    ),
-                })
+                    };
+                }
             );
         },
         missionsFiltered() {

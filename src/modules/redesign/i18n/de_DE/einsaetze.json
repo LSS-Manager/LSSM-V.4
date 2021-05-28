@@ -11,6 +11,9 @@
 		"place": "POI / POIs",
 		"prerequisites": "Anforderungen"
 	},
+	"main_building_extensions": {
+		"text": "mit folgenden aktiven Ausbauten"
+	},
 	"missing": {
 		"date": "Dieser Einsatz kann derzeit nicht generiert werden, da er aktuell nur für den Zeitraum von **{date_start}** bis **{date_end}** freigegeben ist.",
 		"diff": "Noch benötigt",
@@ -18,6 +21,7 @@
 		"need": "Benötigt",
 		"req": "Anforderung"
 	},
+	"no_dispatchcenter": "Keine Leitstelle",
 	"prerequisite_calculations": {
 		"bereitschaftspolizei": [
 			"11.0"
@@ -138,5 +142,6 @@
 		"wasserrettung": "Wasserrettung | Wasserrettungen",
 		"werkfeuerwehr": "Werkfeuerwehr | Werkfeuerwehren"
 	},
+	"select_dispatchcenter": "Leitstelle auswählen",
 	"title": "Mögliche Einsätze"
 }
