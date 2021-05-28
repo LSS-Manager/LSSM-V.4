@@ -1,7 +1,8 @@
 {
 	"alpha": true,
 	"locales": [
-		"de_DE"
+		"de_DE",
+		"nl_NL"
 	],
 	"location": ".*",
 	"settings": true
