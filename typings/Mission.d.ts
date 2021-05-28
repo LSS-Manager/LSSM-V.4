@@ -103,6 +103,9 @@ interface Chances {
 }
 
 interface Prerequisites {
+    main_building: number;
+    main_building_extensions?: Record<string, number>;
+
     fire_stations?: number;
     commerce_police_stations?: number;
     max_police_stations?: number;
@@ -133,7 +136,7 @@ interface Prerequisites {
     thw_gkw_count?: number;
 
     // General:
-    [key: string]: number | undefined;
+    [key: string]: number | Record<string, number> | undefined;
 }
 
 interface Requirements {
