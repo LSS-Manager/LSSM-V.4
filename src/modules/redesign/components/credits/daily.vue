@@ -4,6 +4,7 @@
             {{ $sm('title') }}:
             {{
                 moment()
+                    .utc()
                     .add(page, 'days')
                     .format('L')
             }}
