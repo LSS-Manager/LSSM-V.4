@@ -14,7 +14,7 @@ export default <ModuleSettingFunction>((MODULE_ID: string, LSSM: Vue) => ({
     ...Object.fromEntries(
         Object.entries(
             (LSSM.$t('fmsReal2Show') as unknown) as Record<string, number>
-        ).flatMap(([, status]) => [
+        ).sort(([, a], [, b]) => a - b).flatMap(([, status]) => [
             [
                 `show_${status}`,
                 <Toggle>{

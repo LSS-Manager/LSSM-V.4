@@ -1,4 +1,32 @@
 {
 	"description": "Ein generelles Redesign – derzeit noch in einer Alpha-Phase und in Entwicklung.",
-	"name": "Redesign"
+	"name": "Redesign",
+    "settings": {
+        "category": {
+            "alliance": {
+                "description": "Ein Redesign der Verbandsseiten",
+                "title": "Verbandsseiten"
+            },
+            "credits": {
+                "description": "Ein Redesign der Credits- und Coins-Listen",
+                "title": "Credits und coins"
+            },
+            "einsaetze": {
+                "description": "Ein Redesign der Liste der möglichen Einsätze und der \"Hilfe zu diesem Einsatz\"-Seiten",
+                "title": "Mögliche Einsätze"
+            },
+            "profile": {
+                "description": "Ein Redesign der Profile.",
+                "title": "Profile"
+            },
+            "toplist": {
+                "description": "Ein Redesign der Spielerliste.",
+                "title": "Toplist"
+            },
+            "vehicles": {
+                "description": "Ein Redesign der Fahrzeuge und von allen zugehörigen Seiten",
+                "title": "Fahrzeuge"
+            }
+        }
+    }
 }

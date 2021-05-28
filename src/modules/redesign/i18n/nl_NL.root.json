@@ -1,4 +1,32 @@
 {
-	"description": "Een algemene redesign. - Momenteel nog in ontwikkeling",
-	"name": "Redesign"
+	"description": "Een algemene redesign. - Momenteel nog in de Alpha fase van de ontwikkeling",
+	"name": "Redesign",
+	"settings": {
+		"category": {
+			"alliance": {
+				"description": "Een redesign voor diverse teampagina's.",
+				"title": "Team"
+			},
+			"credits": {
+				"description": "Een redesign voor de credits en coins overzichten.",
+				"title": "Credits en coins"
+			},
+			"einsaetze": {
+				"description": "Een redesign van de mogelijke incidentenlijst en de \"Hulp bij deze inzet\"-pagina.",
+				"title": "Mogelijke incidenten"
+			},
+			"profile": {
+				"description": "Een redesign voor diverse pagina's van je profiel.",
+				"title": "Profiel"
+			},
+			"toplist": {
+				"description": "Een redesign van de lijst van beste spelers.",
+				"title": "Beste spelers"
+			},
+			"vehicles": {
+				"description": "Een redesign voor de diverse pagina's van voertuigen inclusief de spraakaanvragen.",
+				"title": "Voertuigen"
+			}
+		}
+	}
 }
