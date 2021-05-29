@@ -346,8 +346,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 2,
             schooling: 'Police - Firearms training',
-            shownSchooling: 'Firearms
-              Training',
+            shownSchooling: 'Firearms training',
             special:
                 'He Needs Firearms training and Roads Policing Officer Training',
         },
