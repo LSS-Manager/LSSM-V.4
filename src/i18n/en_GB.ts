@@ -220,7 +220,8 @@ export default {
             maxPersonnel: 2,
             schooling: 'Police - Dog handling',
             shownSchooling: 'Dog handling',
-            special: 'Required once you have built 6 policestations. Acts as a Dog Support Unit (DSU) and Incident Response Vehicle.',
+            special:
+                'Required once you have built 6 policestations. Acts as a Dog Support Unit (DSU) and Incident Response Vehicle.',
         },
         13: {
             caption: 'Armed Response Vehicle (ARV)',
@@ -231,7 +232,8 @@ export default {
             maxPersonnel: 4,
             schooling: 'Police - Firearms training',
             shownSchooling: 'Firearms training',
-            special: 'Required once you have built 8 policestations. Acts as a Armed Response Vehicle and Incident Response Vehicle.',
+            special:
+                'Required once you have built 8 policestations. Acts as a Armed Response Vehicle and Incident Response Vehicle.',
         },
         14: {
             caption: 'BASU',
@@ -290,7 +292,8 @@ export default {
             credits: 6_000,
             minPersonnel: 1,
             maxPersonnel: 3,
-            special:' Acts as a Rapid Response Vehicle and Incident Response Vehicle.' ,
+            special:
+                ' Acts as a Rapid Response Vehicle and Incident Response Vehicle.',
         },
         20: {
             caption: 'Operational Team Leader',
@@ -328,7 +331,7 @@ export default {
             credits: 8_000,
             minPersonnel: 1,
             maxPersonnel: 12,
-            special: 'Can be placed at HART bases and Fire Stations.' ,
+            special: 'Can be placed at HART bases and Fire Stations.',
         },
         24: {
             caption: 'Traffic Car',
@@ -350,7 +353,8 @@ export default {
             maxPersonnel: 2,
             schooling: 'Police - Firearms training',
             shownSchooling: 'Firearms training',
-            special: 'He Needs Firearms training and Roads Policing Officer Training , Works as a Traffic Car, Armed Response Vehicle and a Incident Response Vehicle.',
+            special:
+                'He Needs Firearms training and Roads Policing Officer Training , Works as a Traffic Car, Armed Response Vehicle and a Incident Response Vehicle.',
         },
         26: {
             caption: 'Heavy 4x4 Tanker',
@@ -867,7 +871,7 @@ export default {
         'Fire Fighting Vehicles': {
             vehicles: {
                 'Pumps': [0, 1, 16, 26, 17],
-                'Special Vehicles': [4, 7, 14, 18,6 , 2],
+                'Special Vehicles': [4, 7, 14, 18, 6, 2],
                 'Command Vehicles': [15, 3],
             },
             color: '#ff2d2d',
