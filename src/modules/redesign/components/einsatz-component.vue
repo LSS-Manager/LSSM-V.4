@@ -1,6 +1,11 @@
 <template>
     <div>
         <h1>title #{{ type }}</h1>
+        <div class="alert alert-danger" v-if="!mission">
+            Aiaiai, da konnt ich doch tatsächlich keinen Einsatz des Typs
+            {{ type }} aufspüren. Da muss ich vielleicht mal einen Rettungshund
+            losschicken?
+        </div>
         <pre>{{ mission }}</pre>
     </div>
 </template>
@@ -15,7 +20,7 @@ export default Vue.extend<
     DefaultData<Vue>,
     DefaultMethods<Vue>,
     {
-        mission: Mission;
+        mission: Mission | undefined;
     },
     {
         type: number;
@@ -25,7 +30,9 @@ export default Vue.extend<
     name: 'einsatz-component',
     computed: {
         mission() {
-            return this.$store.state.api.missions[this.type];
+            return (this.$store.state.api.missions as Mission[]).find(
+                ({ id }) => id === this.type
+            );
         },
     },
     props: {
