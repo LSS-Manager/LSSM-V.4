@@ -292,6 +292,7 @@
                     v-for="(amount, req) in missionSpecs.prerequisites"
                     :key="req"
                     :data-amount="amount"
+                    v-show="req !== 'main_building'"
                 >
                     {{ $mc(`prerequisites.${req}`, amount) }}
                 </li>
