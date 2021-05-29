@@ -202,14 +202,14 @@ export default {
             maxPersonnel: 1,
         },
         11: {
-            caption: 'Police helicopter',
+            caption: 'Police Helicopter',
             color: '#0a7c16',
             coins: 30,
             credits: 300_000,
             minPersonnel: 1,
             maxPersonnel: 3,
-            schooling: 'Police - Police aviation',
-            shownSchooling: 'Police aviation',
+            schooling: 'Police - Police Aviation',
+            shownSchooling: 'Police Aviation',
         },
         12: {
             caption: 'Dog Support Unit (DSU)',
@@ -218,8 +218,8 @@ export default {
             credits: 7_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            schooling: 'Police - Dog handling',
-            shownSchooling: 'Dog handling',
+            schooling: 'Police - Dog Handling',
+            shownSchooling: 'Dog Handling',
             special: 'Required once you have built 6 policestations',
         },
         13: {
@@ -229,8 +229,8 @@ export default {
             credits: 7_000,
             minPersonnel: 1,
             maxPersonnel: 4,
-            schooling: 'Police - Firearms training',
-            shownSchooling: 'Firearms training',
+            schooling: 'Police - Firearms Training',
+            shownSchooling: 'Firearms Training',
             special: 'Required once you have built 8 policestations',
         },
         14: {
@@ -249,7 +249,7 @@ export default {
             credits: 25_500,
             minPersonnel: 1,
             maxPersonnel: 6,
-            schooling: 'Fire Station - Mobile command',
+            schooling: 'Fire Station - Mobile Command',
             shownSchooling: 'Level 1 Incident Commander Training',
             special: 'Required once you have built 13 firehouses',
         },
@@ -307,9 +307,9 @@ export default {
             credits: 4_000,
             minPersonnel: 1,
             maxPersonnel: 1,
-            schooling: 'Rescue - Critical care',
-            shownSchooling: 'Critical care',
-            special: 'Can only be placed at the home response location',
+            schooling: 'Rescue - Critical Care',
+            shownSchooling: 'Critical Care',
+            special: 'Can only be placed at the Home Response Location',
         },
         22: {
             caption: 'Community First Responder',
@@ -318,7 +318,7 @@ export default {
             credits: 2_500,
             minPersonnel: 1,
             maxPersonnel: 1,
-            special: 'Can only be placed at the home response location',
+            special: 'Can only be placed at the Home Response Location',
         },
         23: {
             caption: 'Crew Carrier',
@@ -345,8 +345,9 @@ export default {
             credits: 19_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            schooling: 'Police - Firearms training',
-            shownSchooling: 'Firearms training',
+            schooling: 'Police - Firearms Training',
+            shownSchooling: 'Firearms
+              Training',
             special:
                 'He Needs Firearms training and Roads Policing Officer Training',
         },
@@ -875,7 +876,7 @@ export default {
             vehicles: {
                 'Ambulances': [5],
                 'HEMS': [9],
-                'First Responder': [10, 19, 21, 22],
+                'Rapid Response Vehicles': [10, 19, 21, 22],
                 'HART': [27, 28, 29, 30, 31, 32],
                 'Other EMS Vehicle': [20],
             },
@@ -945,15 +946,15 @@ export default {
         ],
         'Police': [
             {
-                caption: 'Police aviation',
+                caption: 'Police Aviation',
                 duration: '7 Days',
             },
             {
-                caption: 'Firearms training',
+                caption: 'Firearms Training',
                 duration: '5 Days',
             },
             {
-                caption: 'Dog handling',
+                caption: 'Dog Handling',
                 duration: '5 Days',
             },
             {
@@ -963,7 +964,7 @@ export default {
         ],
         'Rescue': [
             {
-                caption: 'Critical care',
+                caption: 'Critical Care',
                 duration: '5 Days',
             },
             {
