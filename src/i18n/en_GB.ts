@@ -864,7 +864,7 @@ export default {
     vehicleCategories: {
         'Fire Fighting Vehicles': {
             vehicles: {
-                'Pumps': [0, 1, 16, 26, 17]
+                'Pumps': [0, 1, 16, 26, 17],
                 'Special Vehicles': [4, 7, 14, 18, 23, 6, 2],
                 'Command Vehicles': [15, 3],
             },
