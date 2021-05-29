@@ -129,7 +129,7 @@ export default {
             credits: 10_000,
             minPersonnel: 1,
             maxPersonnel: 3,
-            special: 'Required once you have built 3 firehouses',
+            special: 'Required once you have built 3 fire stations',
         },
         3: {
             caption: 'Fire Officer',
@@ -138,7 +138,7 @@ export default {
             credits: 10_000,
             minPersonnel: 1,
             maxPersonnel: 3,
-            special: 'Required once you have built 6 firehouses',
+            special: 'Required once you have built 6 fire stations',
         },
         4: {
             caption: 'Rescue Support Unit (RSU)',
@@ -147,7 +147,7 @@ export default {
             credits: 12_180,
             minPersonnel: 1,
             maxPersonnel: 5,
-            special: 'Required once you have built 4 firehouses',
+            special: 'Required once you have built 4 fire stations',
         },
         5: {
             caption: 'Ambulance',
@@ -164,7 +164,7 @@ export default {
             credits: 17_300,
             minPersonnel: 1,
             maxPersonnel: 3,
-            special: 'Required once you have built 7 firehouses',
+            special: 'Required once you have built 7 fire stations',
         },
         7: {
             caption: 'HazMat Unit',
@@ -175,7 +175,7 @@ export default {
             maxPersonnel: 6,
             schooling: 'Fire Station - HazMat',
             shownSchooling: 'HazMat Unit',
-            special: 'Required once you have built 11 firehouses',
+            special: 'Required once you have built 11 fire stations',
         },
         8: {
             caption: 'Incident response vehicle (IRV)',
@@ -221,7 +221,7 @@ export default {
             schooling: 'Police - Dog handling',
             shownSchooling: 'Dog handling',
             special:
-                'Required once you have built 6 policestations. Acts as a Dog Support Unit (DSU) and Incident Response Vehicle.',
+                'Required once you have built 6 police stations. Acts as a Dog Support Unit (DSU) and Incident Response Vehicle.',
         },
         13: {
             caption: 'Armed Response Vehicle (ARV)',
@@ -233,7 +233,7 @@ export default {
             schooling: 'Police - Firearms training',
             shownSchooling: 'Firearms training',
             special:
-                'Required once you have built 8 policestations. Acts as a Armed Response Vehicle and Incident Response Vehicle.',
+                'Required once you have built 8 police stations. Acts as a Armed Response Vehicle and Incident Response Vehicle.',
         },
         14: {
             caption: 'BASU',
@@ -253,7 +253,7 @@ export default {
             maxPersonnel: 6,
             schooling: 'Fire Station - Mobile command',
             shownSchooling: 'Level 1 Incident Commander Training',
-            special: 'Required once you have built 13 firehouses',
+            special: 'Required once you have built 13 fire stations',
         },
         16: {
             caption: 'Rescue Pump',
