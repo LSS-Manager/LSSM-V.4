@@ -354,7 +354,7 @@ export default {
             schooling: 'Police - Firearms training',
             shownSchooling: 'Firearms training',
             special:
-                'He Needs Firearms training and Roads Policing Officer Training , Works as a Traffic Car, Armed Response Vehicle and a Incident Response Vehicle.',
+                'Requires both, Firearms training and Roads Policing Officer Training. Works as a Traffic Car, Armed Response Vehicle and an Incident Response Vehicle.',
         },
         26: {
             caption: 'Heavy 4x4 Tanker',
@@ -889,7 +889,7 @@ export default {
             vehicles: {
                 'Police Car': [8],
                 'ARV': [13],
-                'Police helicopter': [11],
+                'Police Helicopter': [11],
                 'DSU': [12],
                 'Traffic Cars': [24, 25],
             },
