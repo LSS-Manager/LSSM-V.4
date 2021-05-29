@@ -5,5 +5,5 @@
 		"dev": "This module is still under development. It is possible that there are still some bugs!",
 		"mapkit": "Due to restrictions on the part of Mapkit, it is unfortunately not possible for us to offer this module with the map type `mapkit` at the moment.",
 		"settings": "This module has settings! Feel free to customize it to your liking."
-	},
+	}
 }
