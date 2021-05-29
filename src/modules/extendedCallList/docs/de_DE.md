@@ -5,7 +5,7 @@ Mit diesem Modul möchten wir sie etwas aufpeppen. Dies sind die möglichen Eins
 ## verbleibende Einsatzdauer
 Du möchstest wissen, wie lange ein Einsatz noch braucht, bis er vollständig abgearbeitet ist?
 Diese Einstellung zeigt dir genau diese Information an:
-![Einsatzdauer in der Einsatzliste](/v4/docs/assets/extendedCallList/img/de_DE/einsatzdauer.png)
+![Einsatzdauer in der Einsatzliste](einsatzdauer.png)
 
 ### Einsatzdauer nur bei grünen Einsätzen
 Ist diese Einstellung deaktiviert (Standardmäßig ist sie aktiviert), werden die Zeiten auch angezeigt, wenn der Einsatz im Status `gelb` ist.
@@ -17,9 +17,9 @@ Warum ist das so?
 
 ## Einsätze markieren
 Mit diesem Feature hast du die Möglichkeit, dir Einsätze zu markieren, so dass sie stets oben in der Einsatzliste angezeigt werden. Du kannst die Markierung sowohl in der Einsatzliste als auch im Einsatzfenster vornehmen. Ein gelber Stern zeigt an, dass ein Einsatz markiert ist.
-![Markieren in der Einsatzliste](/v4/docs/assets/extendedCallList/img/de_DE/markieren.png)
-![Markieren im Einsatzfenster](/v4/docs/assets/extendedCallList/img/de_DE/markieren_einsatz.png)
+![Markieren in der Einsatzliste](markieren.png)
+![Markieren im Einsatzfenster](markieren_einsatz.png)
 
 ## Verdienst anzeigen
 Dieses Feature zeigt dir an, wie viel ein Einsatz im Durchschnitt gibt:
-![Verdienst anzeigen](/v4/docs/assets/extendedCallList/img/de_DE/verdienst.png)
+![Verdienst anzeigen](verdienst.png)

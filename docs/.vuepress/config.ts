@@ -19,6 +19,8 @@ interface ModuleRegistration {
     hasSrc: boolean;
 }
 
+const BASE = '/v4/docs/';
+
 const ROOT_PATH = path.join(__dirname, '../../');
 const MODULES_PATH = path.join(ROOT_PATH, 'src/modules');
 const DOCS_PATH = path.join(ROOT_PATH, 'docs');
@@ -201,7 +203,8 @@ ${getLocale(lang, 'head.mapkit')}
                 register,
                 hasSrc,
             });
-            if (!hasSrc) {
+            const content = hasSrc ? fs.readFileSync(srcPath).toString().trim() : '';
+            if (!hasSrc || !content.length) {
                 noDocs[lang] = { i18n, register };
                 continue;
             }
@@ -209,7 +212,9 @@ ${getLocale(lang, 'head.mapkit')}
                 targetPath,
                 `${getYaml(i18n.name, lang)}
 ${getModuleHead(i18n.name, lang, register)}
-${fs.readFileSync(srcPath).toString()}`
+${content.replace(/(?<=!\[.*?]\().*?(?=\))/g, asset =>
+    path.join(BASE, 'assets', module, lang, asset)
+)}`
             );
         }
         const docsLangs = usedLangs.filter(
@@ -398,7 +403,7 @@ module.exports = async () => {
     return {
         title: 'LSS-Manager V.4 Wiki',
         description: 'The Wiki for the LSS-Manager',
-        base: '/v4/docs/',
+        base: BASE,
         dest: './dist/docs',
         head: [
             [

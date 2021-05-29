@@ -17,15 +17,15 @@ Het werkt alleen met een directe link naar afbeeldingen! Daarnaast werkt deze fu
 ## Link Voorbeeld
 Soms wil je gewoon korte informatie over een gebouw, gebruiker o.i.d., zonder de link te moeten openen. Daarom kan je link voorbeelden activeren in de instellingen:
 
-![Instellingen voor Link Voorbeeld](/v4/docs/assets/generalExtensions/img/nl_NL/linkPreview_setting.png)
+![Instellingen voor Link Voorbeeld](linkPreview_setting.png)
 
 Hieronder een aantal voorbeelden:
 
 ### Gebouwen
-![Link Voorbeeld gebouw](/v4/docs/assets/generalExtensions/img/nl_NL/linkPreview_building.png)
+![Link Voorbeeld gebouw](linkPreview_building.png)
 
 ### Voertuigen
-![Link Voorbeeld voertuig](/v4/docs/assets/generalExtensions/img/nl_NL/linkPreview_vehicle.png)
+![Link Voorbeeld voertuig](linkPreview_vehicle.png)
 
 ### Spelers
 :::warning Spelers
@@ -46,7 +46,7 @@ Deze functie kan momenteel niet gebruikt worden met kaarttype `Mapkit`!
 
 Er zijn een aantal momenten in het spel, dat de kaart op een andere locatie gecentreerd wordt. Met deze instellingen worden deze verplaatsingen opgeslagen en zijn terug te vinden onder een kleine knop rechtsboven in de kaart. 
 
-![Kaart verplaatsings historie](/v4/docs/assets/generalExtensions/img/nl_NL/mapUndo.png)
+![Kaart verplaatsings historie](mapUndo.png)
 
 Als u met de muis kort op hetzelfde adres blijft, wordt het op de kaart weergegeven, maar de kaart springt alleen naar dit adres als op het adres klikt. 
 
@@ -60,14 +60,14 @@ Sla uw eigen locaties op de kaart op, waarna je ze met een enkele klik weer kan 
 
 Door op de groene `+` te drukken, kan je de huidige locatie opslaan. Door daarna over een opgeslagen locatie te gaan met je muis, krijg je een voorvertoning van de locatie. Door er op te klikken ga je naar die locatie toe. 
 
-![Bladwijzers voor de kaart](/v4/docs/assets/generalExtensions/img/nl_NL/ownMapMarkers.png)
+![Bladwijzers voor de kaart](ownMapMarkers.png)
 
 
 ## Titel van het browsertabblad
 
 Met deze functie kunt u in de titel van het browsertabblad zien welk venster van het spel momenteel geopend is. Hieronder een voorbeeld:
 
-![Browsertitel bij een gebouw](/v4/docs/assets/generalExtensions/img/nl_NL/browsertitle.png)
+![Browsertitel bij een gebouw](browsertitle.png)
 
 ## Emoji-kiezer
 
@@ -75,7 +75,7 @@ Heb je een eenvoudige, maar goed functionerende Emoji-kiezer nodig? Wij geven je
 
 Typ een dubbele punt `:` en begin met het typen van de emoji. Een halve seconde na het stoppen met typen zullen er suggesties worden weergegeven. Als je op één van die suggesties drukt, zal die worden ingevoegd in je chatbalk.  Houd er rekening mee dat momenteel alleen de officiële namen worden gebruikt voor het zoeken van de emoji. Bijvoobreeld: `slightly_smiling_face` voor `🙂`. De belangrijkste namen zul je echter snel onthouden als je het regelmatig gebruikt. 😉
 
-![Emoji-Kiezer](/v4/docs/assets/generalExtensions/img/nl_NL/emojipicker.png)
+![Emoji-Kiezer](emojipicker.png)
 
 :::tip Selectie via het toetsenbord
 Middels de `←` en `→` toetsen kan je ook door de suggesties heen bladeren en deze selecteren met `enter`. We dwingen je dus niet om de muis te gebruiken voor de module. 

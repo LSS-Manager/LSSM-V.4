@@ -23,4 +23,4 @@ De volgende informatie is beschikbaar:
 
 Een voorbeeld van hoe het er uit ziet bij een opkomstbureau, welke 3 voltooide cellen en 1 cel in aanbouw heeft:
 
-![Een voorbeeldig opkomstbureau](/v4/docs/assets/buildingHover/img/buildingHover_Opkomstbureau_nl_NL.png)
+![Een voorbeeldig opkomstbureau](opkomstbureau.png)

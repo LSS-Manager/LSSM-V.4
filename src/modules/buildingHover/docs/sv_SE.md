@@ -22,4 +22,4 @@ Följande information ingår:
 
 Så här ser det till exempel ut på en polisstation som har en utvecklad cell och en cell under uppbyggnad:
 
-![Ett exempel på polisstation](/v4/docs/assets/buildingHover/img/polizei.png)
+![Ett exempel på polisstation](polizei.png)

@@ -5,7 +5,7 @@ sidebarDepth: 2
 ---
 
 # Vorschläge :bulb:
-::: tip
+::: tip Tipp
 Bitte arbeite Vorschläge vor dem Veröffentlichen grundsätzlich möglichst gut aus. Das hilft uns schneller zu verstehen, was dein Vorschlag ist und wir müssen weniger nachfragen.
 :::
 
