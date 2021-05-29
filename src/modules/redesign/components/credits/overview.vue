@@ -129,6 +129,7 @@ export default Vue.extend<
                 .fill('')
                 .map((_, index) =>
                     moment()
+                        .utc()
                         .subtract(index, 'days')
                         .format('L')
                 )
