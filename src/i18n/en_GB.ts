@@ -848,7 +848,7 @@ export default {
             buildings: [0, 1, 18],
             color: '#ff2d2d',
         },
-        'Rescue Stations': {
+        'Ambulance Stations': {
             buildings: [2, 3, 5, 20, 21, 25],
             color: '#ffa500',
         },
@@ -862,29 +862,27 @@ export default {
         },
     },
     vehicleCategories: {
-        'Firefighters': {
+        'Fire Fighting Vehicles': {
             vehicles: {
-                'Fire engines': [0, 1, 16],
-                'Water Carrier': [6, 26],
-                'Aerial Trucks': [2, 17],
-                'Special Vehicles': [3, 4, 7, 14, 15, 18, 23],
+                'Pumps': [0, 1, 16, 26, 17]
+                'Special Vehicles': [4, 7, 14, 18, 23, 6, 2],
+                'Command Vehicles': [15, 3],
             },
             color: '#ff2d2d',
         },
-        'Rescue Vehicles': {
+        'Ambulance Vehicles': {
             vehicles: {
                 'Ambulances': [5],
                 'HEMS': [9],
-                'Rapid Response Vehicles': [10, 19, 21, 22],
-                'HART': [27, 28, 29, 30, 31, 32],
-                'Other EMS Vehicle': [20],
+                'Rapid Response Vehicles': [10, 19, 20, 21, 22],
+                'HART': [27, 28, 29, 30, 31, 32] 
             },
             color: '#ffa500',
         },
         'Police Vehicles': {
             vehicles: {
                 'Police Car': [8],
-                'ARP': [13],
+                'ARV': [13, 25],
                 'Police helicopter': [11],
                 'DSU': [12],
                 'Traffic Cars': [24, 25],
