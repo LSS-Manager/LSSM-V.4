@@ -154,13 +154,22 @@ lang: ${lang}
     const getGithub = (issue: number) =>
         `<a href="https://github.com/${config.github.repo}/issues/${issue}" title="Issue #${issue} on GitHub" target="_blank"><img src="https://github.githubassets.com/pinned-octocat.svg" alt="Issue #${issue} on GitHub" style="height: 1.5ex" data-prevent-zooming/></a>`;
 
-    const getModuleHead = (title: string, description: string, lang: string, register: Module) => `
+    const getModuleHead = (
+        title: string,
+        description: string,
+        lang: string,
+        register: Module
+    ) => `
 # ${title} ${register.github ? getGithub(register.github) : ``}
 
-${description ? `
+${
+    description
+        ? `
 > ℹ **${description}**
 >
-` : ``}
+`
+        : ``
+}
 ${(['alpha', 'dev', 'settings'] as ('alpha' | 'dev' | 'settings')[])
     .filter(attr => register[attr])
     .map(
