@@ -208,8 +208,8 @@ export default {
             credits: 300_000,
             minPersonnel: 1,
             maxPersonnel: 3,
-            schooling: 'Police - Police Aviation',
-            shownSchooling: 'Police Aviation',
+            schooling: 'Police - Police aviation',
+            shownSchooling: 'Police aviation',
         },
         12: {
             caption: 'Dog Support Unit (DSU)',
@@ -218,8 +218,8 @@ export default {
             credits: 7_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            schooling: 'Police - Dog Handling',
-            shownSchooling: 'Dog Handling',
+            schooling: 'Police - Dog handling',
+            shownSchooling: 'Dog handling',
             special: 'Required once you have built 6 policestations',
         },
         13: {
@@ -229,8 +229,8 @@ export default {
             credits: 7_000,
             minPersonnel: 1,
             maxPersonnel: 4,
-            schooling: 'Police - Firearms Training',
-            shownSchooling: 'Firearms Training',
+            schooling: 'Police - Firearms training',
+            shownSchooling: 'Firearms training',
             special: 'Required once you have built 8 policestations',
         },
         14: {
@@ -249,7 +249,7 @@ export default {
             credits: 25_500,
             minPersonnel: 1,
             maxPersonnel: 6,
-            schooling: 'Fire Station - Mobile Command',
+            schooling: 'Fire Station - Mobile command',
             shownSchooling: 'Level 1 Incident Commander Training',
             special: 'Required once you have built 13 firehouses',
         },
@@ -307,8 +307,8 @@ export default {
             credits: 4_000,
             minPersonnel: 1,
             maxPersonnel: 1,
-            schooling: 'Rescue - Critical Care',
-            shownSchooling: 'Critical Care',
+            schooling: 'Rescue - Critical care',
+            shownSchooling: 'Critical care',
             special: 'Can only be placed at the Home Response Location',
         },
         22: {
@@ -345,7 +345,7 @@ export default {
             credits: 19_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            schooling: 'Police - Firearms Training',
+            schooling: 'Police - Firearms training',
             shownSchooling: 'Firearms
               Training',
             special:
