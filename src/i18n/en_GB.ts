@@ -945,15 +945,15 @@ export default {
         ],
         'Police': [
             {
-                caption: 'Police Aviation',
+                caption: 'Police aviation',
                 duration: '7 Days',
             },
             {
-                caption: 'Firearms Training',
+                caption: 'Firearms training',
                 duration: '5 Days',
             },
             {
-                caption: 'Dog Handling',
+                caption: 'Dog handling',
                 duration: '5 Days',
             },
             {
@@ -963,7 +963,7 @@ export default {
         ],
         'Rescue': [
             {
-                caption: 'Critical Care',
+                caption: 'Critical care',
                 duration: '5 Days',
             },
             {
