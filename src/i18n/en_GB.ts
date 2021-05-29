@@ -202,7 +202,7 @@ export default {
             maxPersonnel: 1,
         },
         11: {
-            caption: 'Police helicopter',
+            caption: 'Police Helicopter',
             color: '#0a7c16',
             coins: 30,
             credits: 300_000,
@@ -309,7 +309,7 @@ export default {
             maxPersonnel: 1,
             schooling: 'Rescue - Critical care',
             shownSchooling: 'Critical care',
-            special: 'Can only be placed at the home response location',
+            special: 'Can only be placed at the Home Response Location',
         },
         22: {
             caption: 'Community First Responder',
@@ -318,7 +318,7 @@ export default {
             credits: 2_500,
             minPersonnel: 1,
             maxPersonnel: 1,
-            special: 'Can only be placed at the home response location',
+            special: 'Can only be placed at the Home Response Location',
         },
         23: {
             caption: 'Crew Carrier',
@@ -875,7 +875,7 @@ export default {
             vehicles: {
                 'Ambulances': [5],
                 'HEMS': [9],
-                'First Responder': [10, 19, 21, 22],
+                'Rapid Response Vehicles': [10, 19, 21, 22],
                 'HART': [27, 28, 29, 30, 31, 32],
                 'Other EMS Vehicle': [20],
             },
