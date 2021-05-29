@@ -154,9 +154,13 @@ lang: ${lang}
     const getGithub = (issue: number) =>
         `<a href="https://github.com/${config.github.repo}/issues/${issue}" title="Issue #${issue} on GitHub" target="_blank"><img src="https://github.githubassets.com/pinned-octocat.svg" alt="Issue #${issue} on GitHub" style="height: 1.5ex" data-prevent-zooming/></a>`;
 
-    const getModuleHead = (title: string, lang: string, register: Module) => `
+    const getModuleHead = (title: string, description: string, lang: string, register: Module) => `
 # ${title} ${register.github ? getGithub(register.github) : ``}
 
+${description ? `
+> ℹ **${description}**
+>
+` : ``}
 ${(['alpha', 'dev', 'settings'] as ('alpha' | 'dev' | 'settings')[])
     .filter(attr => register[attr])
     .map(
@@ -216,7 +220,7 @@ ${getLocale(lang, 'head.mapkit')}
             fs.writeFileSync(
                 targetPath,
                 `${getYaml(i18n.name, lang)}
-${getModuleHead(i18n.name, lang, register)}
+${getModuleHead(i18n.name, i18n.description, lang, register)}
 ${content.replace(/(?<=!\[.*?]\().*?(?=\))/g, asset =>
     path.join(BASE, 'assets', module, lang, asset)
 )}`
@@ -229,7 +233,7 @@ ${content.replace(/(?<=!\[.*?]\().*?(?=\))/g, asset =>
             fs.writeFileSync(
                 getTargetPath(module, lang),
                 `${getYaml(i18n.name, lang)}
-${getModuleHead(i18n.name, lang, register)}
+${getModuleHead(i18n.name, i18n.description, lang, register)}
 :::warning No module page existing yet
 Dear User,
 
