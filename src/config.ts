@@ -4,22 +4,22 @@ export default {
     admins: ['de_DE-205976', 'de_DE-675'],
     browser: {
         chrome: {
-            latest: 87,
+            latest: 91,
             supported: 84,
             download: 'https://chrome.com',
         },
         firefox: {
-            latest: 83,
+            latest: 88,
             supported: 79,
             download: 'https://firefox.com',
         },
         opera: {
-            latest: 72,
+            latest: 76,
             supported: 70,
             download: 'https://opera.com',
         },
         edge: {
-            latest: 87,
+            latest: 90,
             supported: 86,
             download: 'https://microsoft.com/edge',
         },

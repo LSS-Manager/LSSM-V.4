@@ -20,10 +20,13 @@ export default (LSSM: Vue): void => {
         span.classList.add('label');
         if (!LSSM.$store.state.darkmode)
             span.style.setProperty('color', 'black');
-        span.textContent = `~ ${(LSSM.$store.state.api.missions as Mission[])
-            .find(({ id }) => id === mission)
-            ?.average_credits?.toLocaleString() ?? '–'}`;
-
+        let missionSpecs = (LSSM.$store.state.api.missions as Mission[]).find(
+            ({ id }) => id === mission
+        );
+        if ((panel.getAttribute('data-overlay-index') ?? 'null') !== 'null')
+            missionSpecs = missionSpecs?.alternate_version.mission_type;
+        span.textContent = `~ ${missionSpecs?.average_credits?.toLocaleString() ??
+            '–'}`;
         wrapper.append(span);
         bar.before(wrapper);
     };

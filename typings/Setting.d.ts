@@ -4,8 +4,7 @@ interface SettingTemplate {
     type: string;
     dependsOn?: string;
     noMapkit?: boolean;
-    disabled?(): boolean;
-    disabled?(settings: ModuleSettings): boolean;
+    disabled?: ((settings: ModuleSettings) => boolean) | (() => boolean);
 
     // Will be generated in Settings
     isDisabled: boolean;

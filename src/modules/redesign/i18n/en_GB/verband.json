@@ -1,17 +1,17 @@
 {
 	"nav": {
 		"links": {
-			"/alliance_logfiles": "Toezicht",
-			"/alliance_threads": "Forum",
-			"/alliances/{id}": "Start",
-			"/schoolings": "Opleidingen",
-			"/verband/bereitstellungsraume": "UGS",
-			"/verband/gebauede": "Gebouwen",
-			"/verband/kasse": "Teamkas",
-			"/verband/mitglieder/{id}": "Teamleden",
-			"/verband/news/{id}": "Nieuws",
-			"/verband/regeln/{id}": "Regels",
-			"/verband/werbung": "Adverteren"
+			"/alliance_logfiles": "Protocol",
+			"/alliance_threads": "Board",
+			"/alliances/{id}": "Intro",
+			"/schoolings": "Courses",
+			"/verband/bereitstellungsraume": "Staging Areas",
+			"/verband/gebauede": "Buildings",
+			"/verband/kasse": "Alliance Funds",
+			"/verband/mitglieder/{id}": "Members",
+			"/verband/news/{id}": "News",
+			"/verband/regeln/{id}": "Rules",
+			"/verband/werbung": "Advertise"
 		},
 		"other": [
 			"/alliances/{id}",

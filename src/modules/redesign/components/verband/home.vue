@@ -56,12 +56,12 @@
             </button>
             <div
                 class="alert alert-danger"
-                v-if="home.no_apply_box.length"
+                v-if="home.no_apply_box.length > 0"
                 v-html="home.no_apply_box"
             ></div>
             <button
                 v-if="home.appliable"
-                :disabled="home.no_apply_box.length"
+                :disabled="home.no_apply_box.length > 0"
                 class="btn btn-success pull-right"
                 @click="apply"
                 :title="lightbox.$sm('apply')"

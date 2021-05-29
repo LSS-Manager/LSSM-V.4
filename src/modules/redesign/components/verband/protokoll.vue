@@ -24,7 +24,7 @@
         </button>
         <enhanced-table
             :head="head"
-            :table-attrs="{ class: 'table' }"
+            :table-attrs="{ class: 'table table-striped' }"
             :search="search"
             :search-placeholder="lightbox.$sm('search_local')"
             @search="s => (search = s)"
@@ -218,7 +218,6 @@ export default Vue.extend<
             return [...this.entriesFiltered].sort((a, b) => {
                 let f = a[this.sort] ?? '';
                 let s = b[this.sort] ?? '';
-                // console.log(this.sort, a, b, f, s);
                 if (['executor', 'affected'].includes(this.sort)) {
                     f =
                         (f as VerbandProtokollWindow['entries'][0]['executor'])?.name?.toLowerCase() ??
@@ -227,7 +226,6 @@ export default Vue.extend<
                         (s as VerbandProtokollWindow['entries'][0]['executor'])?.name?.toLowerCase() ??
                         '';
                 }
-                // console.log(f, s);
                 return f < s ? -1 * modifier : f > s ? modifier : 0;
             });
         },

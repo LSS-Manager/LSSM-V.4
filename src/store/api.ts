@@ -1,3 +1,5 @@
+import Vue from 'vue';
+
 import { ActionStoreParams } from 'typings/store/Actions';
 import { APIActionStoreParams } from '../../typings/store/api/Actions';
 import { Mission } from 'typings/Mission';
@@ -121,10 +123,10 @@ const get_api_values = async <API extends StorageAPIKey>(
         stored = (await get_from_broadcast<API>(key, dispatch)) ?? stored;
     if (
         !state.currentlyUpdating.includes(key) &&
-        !preventUpdateFetch &&
         (!stored.value ||
             !Object.values(stored.value).length ||
-            stored.lastUpdate < new Date().getTime() - API_MIN_UPDATE)
+            (stored.lastUpdate < new Date().getTime() - API_MIN_UPDATE &&
+                !preventUpdateFetch))
     ) {
         commit('startedUpdating', key);
         stored = {
@@ -416,7 +418,16 @@ export default {
                 })
                     .then(res => res.json())
                     .then(states => {
-                        commit('setVehicleStates', states);
+                        commit('setVehicleStates', {
+                            ...Object.fromEntries(
+                                Object.entries(
+                                    ((window[PREFIX] as Vue).$t(
+                                        'fmsReal2Show'
+                                    ) as unknown) as Record<string, number>
+                                ).map(([, show]) => [show, 0])
+                            ),
+                            ...states,
+                        });
                         resolve();
                     });
             });

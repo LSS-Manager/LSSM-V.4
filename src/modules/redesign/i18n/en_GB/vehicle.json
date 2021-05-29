@@ -1,0 +1,127 @@
+{
+	"approach": "Approach",
+	"backalarm": "Backalarm",
+	"cells": {
+		"cell": "Building",
+		"free": "Free cells"
+	},
+	"color": "Adjust color",
+	"current_mission": "Current mission",
+	"delete": {
+		"button": "delete",
+		"cancel": "cancel",
+		"confirm": "Delete",
+		"text": "Do you really want to destroy **{caption}** at building **{building}** permanently?",
+		"title": "Destroy vehicle"
+	},
+	"distance": "Distance",
+	"edit": "Edit",
+	"false": "No",
+	"filter": {
+		"cells": {
+			"distance": "Maximum distance",
+			"each": "Show x buildings of each",
+			"free": "Minimum free cells",
+			"tax": "Maximum tax"
+		},
+		"hospitals": {
+			"beds": "Minimum free beds",
+			"department": {
+				"title": "Department: {department}"
+			},
+			"distance": "Maximum Distance",
+			"each": "Show x buildings of each",
+			"tax": "Maximum tax"
+		},
+		"missions": {
+			"credits": "Minimum Credits",
+			"distance": "Maximum Distance",
+			"participation": {
+				"title": "Participating"
+			},
+			"progress": "Progress max %",
+			"status": {
+				"green": "green",
+				"red": "red",
+				"title": "Status",
+				"yellow": "yellow"
+			}
+		},
+		"wlf": {
+			"distance": "Maximum Distance",
+			"same": "Same Building"
+		}
+	},
+	"fms": "FMS",
+	"fms_switch": {
+		"is_s2": "set S6",
+		"is_s6": "set S2"
+	},
+	"followup_missions": "Follow-up mission | Follow-up missions",
+	"hospitals": {
+		"beds": "free beds",
+		"department": "Department: {department}",
+		"hospital": "Hospital"
+	},
+	"load_all_hospitals": {
+		"btn": "Load all ",
+		"text": "Only 50 alliance hospitals are displayed. Loading all hospitals can take a long time depending on the quantity!"
+	},
+	"max_staff": "Max. Staff",
+	"mileage": "Mileage",
+	"missions": {
+		"alarm": "Alarm",
+		"alarmed": "Current mission",
+		"credits": "Reward",
+		"mission": "Mission",
+		"participation": "Participation",
+		"patients": "Patients",
+		"progress": "Progress"
+	},
+	"move": "Move",
+	"owner": "Owner",
+	"owner_pic_state": {
+		"offline": "{user} is offline!",
+		"online": "{user} is online!"
+	},
+	"release": {
+		"cancel": "Abort",
+		"confirm": "Yes, discharge!",
+		"patient": {
+			"text": "Do you really want to discharge the patient of this vehicle? No payment will be credited for the patient!",
+			"title": "Discharge patient"
+		},
+		"prisoner": {
+			"text": "Do you really want to release **all** prisoners of this operation? There will be no compensation credited for these prisoners!",
+			"title": "Release prisoners"
+		}
+	},
+	"release_patient": "Discharge patient",
+	"release_prisoner": "Release prisoners",
+	"staff": {
+		"name": "Name",
+		"schooling": "Training",
+		"title": "Staff"
+	},
+	"station": "Building",
+	"stats": "Statistics",
+	"tabs": {
+		"all": "all {type}: {amount}",
+		"alliance": "alliance {type}: {amount}",
+		"cells": "Cells",
+		"hospitals": "Hospitals",
+		"missions": "Missions",
+		"own": "own {type}: {amount}"
+	},
+	"tax": "tax",
+	"true": "yes",
+	"vehicletype": "Vehicle type",
+	"water_amount": "Water amount",
+	"wlf": {
+		"alarm": "Dispatch",
+		"building": "Building",
+		"caption": "Wechselladerfahrzeug",
+		"same": "same Building: {building}"
+	},
+	"zuweisung": "Staff assignment"
+}

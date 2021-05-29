@@ -1435,6 +1435,8 @@ export default {
         'City centre',
         'Hill',
         'Laboratory',
+        'Dirt Race Track',
+        'Sheltered housing facility',
     ],
     only_alliance_missions: [41, 61, 62, 112],
     transfer_missions: [246],

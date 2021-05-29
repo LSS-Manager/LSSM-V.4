@@ -30,10 +30,10 @@
 		"version": "1.7.0"
 	},
 	"@types/lodash": {
-		"version": "4.14.169"
+		"version": "4.14.170"
 	},
 	"@types/node": {
-		"version": "15.3.1"
+		"version": "15.6.1"
 	},
 	"@types/node-fetch": {
 		"version": "2.5.10"
@@ -60,10 +60,10 @@
 		"version": "1.16.0"
 	},
 	"@typescript-eslint/eslint-plugin": {
-		"version": "4.24.0"
+		"version": "4.25.0"
 	},
 	"@typescript-eslint/parser": {
-		"version": "4.24.0"
+		"version": "4.25.0"
 	},
 	"@vuepress/plugin-active-header-links": {
 		"icon": "https://vuepress.vuejs.org/hero.png",
@@ -106,7 +106,7 @@
 	"eslint": {
 		"icon": "https://eslint.org/assets/img/favicon.512x512.png",
 		"url": "https://eslint.org",
-		"version": "7.26.0"
+		"version": "7.27.0"
 	},
 	"eslint-plugin-prettier": {
 		"icon": "https://prettier.io/icon.png",
@@ -166,7 +166,7 @@
 	"sass": {
 		"icon": "https://sass-lang.com/assets/img/logos/logo-b6e1ef6e.svg",
 		"url": "https://github.com/sass/dart-sass",
-		"version": "1.33.0"
+		"version": "1.34.0"
 	},
 	"sass-loader": {
 		"icon": "https://webpack.js.org/assets/icon-square-big.svg",
@@ -204,7 +204,7 @@
 	"typescript": {
 		"icon": "https://www.typescriptlang.org/icons/icon-512x512.png",
 		"url": "https://www.typescriptlang.org/",
-		"version": "4.2.4"
+		"version": "4.3.2"
 	},
 	"ua-parser-js": {
 		"icon": "https://raw.githubusercontent.com/faisalman/ua-parser-js/gh-pages/images/logo.png",

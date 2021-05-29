@@ -74,6 +74,7 @@ export interface MissionMarkerAdd {
     tv: number; // target progress
     user_id: number;
     vehicle_state: 0 | 1 | 2; // red | yellow | green
+    overlay_index: null | number;
 }
 
 export interface MissionTimer extends MissionMarkerAdd {

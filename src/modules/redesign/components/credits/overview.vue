@@ -21,7 +21,7 @@
                         }`)
                     "
                 >
-                    <td>{{ dates[7 - id] }}</td>
+                    <td>{{ dates[dates.length - 1 - id] }}</td>
                     <td class="text-success">
                         {{ entry.plus.toLocaleString() }} Credits
                     </td>
@@ -125,13 +125,14 @@ export default Vue.extend<
     },
     computed: {
         dates() {
-            return Array(8)
+            return Array(this.data.entries.length)
                 .fill('')
                 .map((_, index) =>
                     moment()
                         .subtract(index, 'days')
                         .format('L')
-                );
+                )
+                .reverse();
         },
     },
     methods: {
@@ -208,7 +209,7 @@ export default Vue.extend<
             },
             title: { text: '' },
             xAxis: {
-                categories: this.dates.reverse(),
+                categories: this.dates,
             },
             series: ['plus', 'minus', 'total'].map((series, index) => ({
                 name: this.$sm(series).toString(),
