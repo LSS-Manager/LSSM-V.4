@@ -68,6 +68,15 @@
                 :set-setting="setSetting()"
                 :type="type"
             ></Einsaetze>
+            <Einsatz
+                v-else-if="type === 'einsatz'"
+                :mission="data"
+                :url="urlProp"
+                :lightbox="this"
+                :get-setting="getSetting()"
+                :set-setting="setSetting()"
+                :type="type"
+            ></Einsatz>
             <Freunde
                 v-else-if="type === 'freunde'"
                 :friends="data"
@@ -209,6 +218,10 @@ export default Vue.extend<
             import(
                 /*webpackChunkName: "modules/redesign/windows/einsaetze"*/ './einsaetze.vue'
             ),
+        Einsatz: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/einsatz"*/ './einsatz.vue'
+            ),
         Freunde: () =>
             import(
                 /*webpackChunkName: "modules/redesign/windows/freunde"*/ './freunde.vue'
@@ -329,7 +342,7 @@ export default Vue.extend<
                         feature: `redesign-${type}`,
                     })
                     .then((res: Response) => {
-                        if (res.redirected) {
+                        if (res.redirected && type !== 'einsatz') {
                             redirected = true;
                             return (this.src = res.url);
                         }

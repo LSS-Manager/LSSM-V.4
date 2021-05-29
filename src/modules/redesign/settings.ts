@@ -52,7 +52,7 @@ export default (() => ({
     },
     'category.einsaetze': <Hidden>{
         type: 'hidden',
-        default: true,
+        default: false,
     },
     'category.toplist': <Toggle>{
         type: 'toggle',
