@@ -290,7 +290,7 @@ export default {
             credits: 6_000,
             minPersonnel: 1,
             maxPersonnel: 3,
-            special:' Acts as a Rapid Response Vehicle and Incident Response Vehicle.
+            special:' Acts as a Rapid Response Vehicle and Incident Response Vehicle.' ,
         },
         20: {
             caption: 'Operational Team Leader',
@@ -328,7 +328,7 @@ export default {
             credits: 8_000,
             minPersonnel: 1,
             maxPersonnel: 12,
-            special: 'Can be placed at HART bases and Fire Stations.
+            special: 'Can be placed at HART bases and Fire Stations.' ,
         },
         24: {
             caption: 'Traffic Car',
@@ -339,7 +339,7 @@ export default {
             maxPersonnel: 2,
             schooling: 'Police - Roads Policing Officer Training',
             shownSchooling: 'Roads Policing Officer',
-            special: 'Acts as a Traffic Car and Incident Response Vehicle.
+            special: 'Acts as a Traffic Car and Incident Response Vehicle.',
         },
         25: {
             caption: 'Armed Traffic Car',
