@@ -875,7 +875,7 @@ export default {
                 'Ambulances': [5],
                 'HEMS': [9],
                 'Rapid Response Vehicles': [10, 19, 20, 21, 22],
-                'HART': [27, 28, 29, 30, 31, 32] 
+                'HART': [27, 28, 29, 30, 31, 32],
             },
             color: '#ffa500',
         },
