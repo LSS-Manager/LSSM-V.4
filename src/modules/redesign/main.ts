@@ -41,6 +41,7 @@ export default (async (LSSM, MODULE_ID) => {
         }),
         ...((await getSetting('category.einsaetze')) && {
             '^/einsaetze/?$': 'einsaetze',
+            '^/einsaetze/\\d+/?$': 'einsatz',
         }),
         ...((await getSetting('category.toplist')) && {
             '^/toplist/?$': 'toplist',

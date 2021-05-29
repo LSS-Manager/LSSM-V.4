@@ -1,7 +1,6 @@
 <template>
     <div>
         <h1>{{ lightbox.$sm('title') }}</h1>
-        <!-- <pre>{{ prerequisites }}</pre> -->
         <enhanced-table
             :head="head"
             :table-attrs="{ class: 'table table-striped' }"
@@ -204,7 +203,6 @@
                         lightbox-open
                         :href="`/einsaetze/${mission.id}`"
                         class="btn btn-default"
-                        :disabled="mission.date_not_fitting"
                     >
                         Details
                     </button>
