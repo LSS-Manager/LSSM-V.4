@@ -203,7 +203,12 @@ ${getLocale(lang, 'head.mapkit')}
                 register,
                 hasSrc,
             });
-            const content = hasSrc ? fs.readFileSync(srcPath).toString().trim() : '';
+            const content = hasSrc
+                ? fs
+                      .readFileSync(srcPath)
+                      .toString()
+                      .trim()
+                : '';
             if (!hasSrc || !content.length) {
                 noDocs[lang] = { i18n, register };
                 continue;
