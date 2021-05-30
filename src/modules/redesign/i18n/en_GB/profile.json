@@ -1,0 +1,46 @@
+{
+	"alerts": {
+		"alliance_ignored": "{name} it is forbidden to apply to your alliance!",
+		"friend": "{name} is on your friends list! 🥳",
+		"ignored": "You ignore this player. {name} can no longer send you messages!"
+	},
+	"alliance": "Alliance",
+	"awards": {
+		"bronze": "Bronze",
+		"gold": "Gold",
+		"max": "12",
+		"silver": "Silver",
+		"title": "Awards",
+		"title_amounts": "{sum} from {max} Awards"
+	},
+	"buildings": {
+		"amount": "{n} Buildings"
+	},
+	"buttons": {
+		"alliance_ignore": {
+			"add": "Forbid Alliance Application",
+			"destroy": "Allow Alliance Application"
+		},
+		"avatar": "Edit profile picture",
+		"chat": {
+			"ban": "Ban from alliance chat",
+			"unban": "Unban from alliance chat"
+		},
+		"edit": "Edit profile",
+		"friend": {
+			"do": "Add as Friend",
+			"undo": "Remove from your friends"
+		},
+		"gift": "Send Gift",
+		"ignore": {
+			"do": "Ignore the Player",
+			"undo": "Stop ignoring the Player"
+		},
+		"message": "Send a Message"
+	},
+	"credits": "{credits} earned Credits",
+	"map": "Map",
+	"rank": "Current Rank",
+	"registration": "Signup Date",
+	"text": "Profiltext"
+}

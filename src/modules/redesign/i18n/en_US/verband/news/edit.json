@@ -1,0 +1,10 @@
+{
+	"caption": "Title",
+	"public": "Public (will be visible to all players of the game)",
+	"save": "Save",
+	"text": "Content",
+	"title": {
+		"edit": "Alliancenews edited",
+		"new": "Create News"
+	}
+}
