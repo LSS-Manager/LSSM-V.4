@@ -1,5 +1,5 @@
 {
-    "head": {
-        "mapkit": "På grund av begränsningarna i Mapkit är det för närvarande inte möjligt att använda den här modulen om du använder karttypen `Mapkit`."
-    }
+	"head": {
+		"mapkit": "På grund av begränsningarna i Mapkit är det för närvarande inte möjligt att använda den här modulen om du använder karttypen `Mapkit`."
+	}
 }
