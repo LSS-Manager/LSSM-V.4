@@ -1,10 +1,6 @@
 Häufig möchte man einen schnellen Überblick über den Status eines Gebäudes haben.
 Mit diesem Modul erhälst du die wichtigsten Informationen zu jeder Wache, die auf der Karte angezeigt wird, wenn du mit der Maus über das Bild fährst.
 
-:::danger Mapkit
-Aufgrund von Beschränkungen seitens Mapkit ist es uns leider derzeit nicht möglich, dieses Modul beim Kartentyp `Mapkit` anzubieten.
-:::
-
 Folgende Informationen sind enthalten:
 * Name des Gebäudes
 * Zahl der Stellplätze (bei Wachen)

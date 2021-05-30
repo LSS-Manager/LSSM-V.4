@@ -1,10 +1,6 @@
 Vaak wil je snel overzicht van de status van een gebouw.
 Met deze module krijg je de meest belangrijke informatie voor elke gebouw, die zal worden weergegeven als je op kaart over de post heen gaat.
 
-:::danger Mapkit
-Door de beperkingen van Mapkit is het momenteel niet mogelijk om deze module te gebruiken als je het kaarttype `Mapkit` gebruikt.
-:::
-
 De volgende informatie is beschikbaar:
 * Naam van het gebouw
 * Aantal parkeerplaatsen (voor posten)

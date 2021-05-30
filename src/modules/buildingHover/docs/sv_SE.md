@@ -1,10 +1,6 @@
 Ofta vill du ha en snabb överblick över byggnadens status.
 Med den här modulen får du den viktigaste informationen om varje station, som visas på kartan när du flyttar musen över bilden.
 
-::: danger Mapkit
-På grund av begränsningar som införts av Mapkit är det för närvarande inte möjligt att använda den här modulen med karttypen 'Mapkit' att erbjuda.
-:::
-
 Följande information ingår:
 * Namn på byggnaden
 * Antal parkeringsplatser (för stationer)
