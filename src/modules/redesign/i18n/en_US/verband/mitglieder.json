@@ -17,7 +17,7 @@
 			"gray": "{user} is offline and was online in the last 7 days!",
 			"green": "{user} is online!",
 			"red": "{user} has been offline for more than 60 days!",
-			"yellow":"{user} is offline and has been online for the last 60 days!"
+			"yellow": "{user} is offline and has been online for the last 60 days!"
 		},
 		"toggle": {
 			"false": "Show only online players",

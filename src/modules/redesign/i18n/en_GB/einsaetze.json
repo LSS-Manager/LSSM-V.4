@@ -27,6 +27,9 @@
 			0,
 			18
 		],
+		"hazard_response_ems_count": [
+			25
+		],
 		"police_helicopter_stations": [
 			"13.level"
 		],
@@ -41,9 +44,6 @@
 			2,
 			20,
 			"0.0"
-		],
-		"hazard_response_ems_count": [
-			25
 		]
 	},
 	"prerequisites_long": {
