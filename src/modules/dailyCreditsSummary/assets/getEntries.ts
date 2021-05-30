@@ -16,19 +16,29 @@ export default async (
     })) as Mission[];
 
     const missionsString = missions
-        .map(({ name }) => name.replace(/[()[\]\-{}/*+?.^$|\\]/g, '\\$&'))
+        .map(({ name }) => LSSM.$utils.escapeRegex(name))
         .join('|');
 
-    const credits_types = $m('categories');
+    const credits_types: CreditsTypes = (
+        await import(
+            /* webpackChunkName: "modules/i18n/dailyCreditsSummary/[request]" */ `../i18n/${LSSM.$store.state.lang}.ts`
+        )
+    ).default.categories;
     const creditsTypes: CreditsTypes = Object.fromEntries([
         ...Object.entries(credits_types).map(([key, { regex, title }]) => {
             return [
                 key,
                 {
                     ...(!!regex && {
-                        regex: new RegExp(
-                            regex.replace(/%missions%/, `(${missionsString})`)
-                        ),
+                        regex:
+                            typeof regex === 'string'
+                                ? new RegExp(
+                                      regex.replace(
+                                          /%missions%/,
+                                          `(${missionsString})`
+                                      )
+                                  )
+                                : regex,
                     }),
                     ...(!!title && { title }),
                 },
