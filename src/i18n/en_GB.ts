@@ -122,7 +122,7 @@ export default {
             credits: 5_000,
             minPersonnel: 1,
             maxPersonnel: 5,
-            special: ' A smaller pump used in ruarl areas, will act as a pump.' ,
+            special: ' A smaller pump used in ruarl areas, will act as a pump.',
         },
         2: {
             caption: 'Aerial Appliance',
@@ -131,7 +131,8 @@ export default {
             credits: 10_000,
             minPersonnel: 1,
             maxPersonnel: 3,
-            special: 'Required once you have built 3 fire stations. A Areial Asset, very useful for fighting fires in high rises and rescuing people.',
+            special:
+                'Required once you have built 3 fire stations. A Areial Asset, very useful for fighting fires in high rises and rescuing people.',
         },
         3: {
             caption: 'Fire Officer',
@@ -140,7 +141,8 @@ export default {
             credits: 10_000,
             minPersonnel: 1,
             maxPersonnel: 3,
-            special: 'Required once you have built 6 fire stations. A small car used for transporting Station Manager+ to calls, not uncommon to see 6-8 of these at Major Incidents.',
+            special:
+                'Required once you have built 6 fire stations. A small car used for transporting Station Manager+ to calls, not uncommon to see 6-8 of these at Major Incidents.',
         },
         4: {
             caption: 'Rescue Support Unit (RSU)',
@@ -149,7 +151,8 @@ export default {
             credits: 12_180,
             minPersonnel: 1,
             maxPersonnel: 5,
-            special: 'Required once you have built 4 fire stations. A big lorry with specialist rescue equipment, use full for Road Traffic Collisions.',
+            special:
+                'Required once you have built 4 fire stations. A big lorry with specialist rescue equipment, use full for Road Traffic Collisions.',
         },
         5: {
             caption: 'Ambulance',
@@ -158,7 +161,8 @@ export default {
             credits: 5_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            special: ' A standard ambulance for tackling your medical emergencys.',
+            special:
+                ' A standard ambulance for tackling your medical emergencys.',
         },
         6: {
             caption: 'Water Carrier',
@@ -167,7 +171,8 @@ export default {
             credits: 17_300,
             minPersonnel: 1,
             maxPersonnel: 3,
-            special: 'Required once you have built 7 fire stations. Used for conveying water to a fire, Very useful for ruarl fires.',
+            special:
+                'Required once you have built 7 fire stations. Used for conveying water to a fire, Very useful for ruarl fires.',
         },
         7: {
             caption: 'HazMat Unit',
@@ -178,7 +183,8 @@ export default {
             maxPersonnel: 6,
             schooling: 'Fire Station - HazMat',
             shownSchooling: 'HazMat Unit',
-            special: 'Required once you have built 11 fire stations. A HazMat unit which can be used for a range of hazardous calls. ',
+            special:
+                'Required once you have built 11 fire stations. A HazMat unit which can be used for a range of hazardous calls. ',
         },
         8: {
             caption: 'Incident response vehicle (IRV)',
@@ -196,7 +202,7 @@ export default {
             credits: 300_000,
             minPersonnel: 1,
             maxPersonnel: 1,
-            special: ' A Air Ambulance for the most serious cases.' ,
+            special: ' A Air Ambulance for the most serious cases.',
         },
         10: {
             caption: 'Rapid Response Vehicle',
@@ -205,7 +211,8 @@ export default {
             credits: 4_000,
             minPersonnel: 1,
             maxPersonnel: 1,
-            special: ' A fast and angile ambulance car, very useful when a ambulance has a long response. ',
+            special:
+                ' A fast and angile ambulance car, very useful when a ambulance has a long response. ',
         },
         11: {
             caption: 'Police Helicopter',
@@ -216,7 +223,8 @@ export default {
             maxPersonnel: 3,
             schooling: 'Police - Police aviation',
             shownSchooling: 'Police aviation',
-            special: ' A Police Helicopter, useful for pursuits and firearms attacks.',
+            special:
+                ' A Police Helicopter, useful for pursuits and firearms attacks.',
         },
         12: {
             caption: 'Dog Support Unit (DSU)',
@@ -249,7 +257,8 @@ export default {
             coins: 25,
             minPersonnel: 1,
             maxPersonnel: 3,
-            special: 'Required from 5 fire stations. Carrys air tanks to a call.',
+            special:
+                'Required from 5 fire stations. Carrys air tanks to a call.',
         },
         15: {
             caption: 'ICCU',
@@ -260,7 +269,8 @@ export default {
             maxPersonnel: 6,
             schooling: 'Fire Station - Mobile command',
             shownSchooling: 'Level 1 Incident Commander Training',
-            special: 'Required once you have built 13 fire stations. A command post for Major Incidents.',
+            special:
+                'Required once you have built 13 fire stations. A command post for Major Incidents.',
         },
         16: {
             caption: 'Rescue Pump',
@@ -291,7 +301,8 @@ export default {
             maxPersonnel: 1,
             schooling: 'Fire Station - Co-Responder Training',
             shownSchooling: 'Co-Responder',
-            special: 'A Rapid Response Vehicle operated by the fire service where there is little to no ambulance coverage.',
+            special:
+                'A Rapid Response Vehicle operated by the fire service where there is little to no ambulance coverage.',
         },
         19: {
             caption: 'Joint Response Unit',
@@ -310,7 +321,8 @@ export default {
             credits: 20_000,
             minPersonnel: 1,
             maxPersonnel: 1,
-            special: 'Required from 6 ambulance stations. A medical command unit, usefull for co-ordinating scenes.',
+            special:
+                'Required from 6 ambulance stations. A medical command unit, usefull for co-ordinating scenes.',
         },
         21: {
             caption: 'General Practitioner',
@@ -321,7 +333,8 @@ export default {
             maxPersonnel: 1,
             schooling: 'Rescue - Critical care',
             shownSchooling: 'Critical care',
-            special: 'Can only be placed at the Home Response Location. A General Practitioner that can respond as a on call doctor currently. ',
+            special:
+                'Can only be placed at the Home Response Location. A General Practitioner that can respond as a on call doctor currently. ',
         },
         22: {
             caption: 'Community First Responder',
@@ -330,7 +343,8 @@ export default {
             credits: 2_500,
             minPersonnel: 1,
             maxPersonnel: 1,
-            special: 'Can only be placed at the Home Response Location. A ambulance Rapid Response Vehicle but staffed with volunteers',
+            special:
+                'Can only be placed at the Home Response Location. A ambulance Rapid Response Vehicle but staffed with volunteers',
         },
         23: {
             caption: 'Crew Carrier',
@@ -339,7 +353,8 @@ export default {
             credits: 8_000,
             minPersonnel: 1,
             maxPersonnel: 12,
-            special: 'Can be placed at HART bases and Fire Stations. Transporting many staff to a scene.',
+            special:
+                'Can be placed at HART bases and Fire Stations. Transporting many staff to a scene.',
         },
         24: {
             caption: 'Traffic Car',
@@ -350,7 +365,8 @@ export default {
             maxPersonnel: 2,
             schooling: 'Police - Roads Policing Officer Training',
             shownSchooling: 'Roads Policing Officer',
-            special: 'Acts as a Traffic Car and Incident Response Vehicle. A pursuit vehicle for high speed chases.',
+            special:
+                'Acts as a Traffic Car and Incident Response Vehicle. A pursuit vehicle for high speed chases.',
         },
         25: {
             caption: 'Armed Traffic Car',
@@ -371,7 +387,8 @@ export default {
             credits: 25_000,
             minPersonnel: 1,
             maxPersonnel: 3,
-            special: 'Work as a Water Carrier and Water Ladder. Used in ruarl areas to save money.',
+            special:
+                'Work as a Water Carrier and Water Ladder. Used in ruarl areas to save money.',
         },
         27: {
             caption: 'PRV',
@@ -382,7 +399,8 @@ export default {
             maxPersonnel: 2,
             schooling: 'Rescue - HART Training',
             shownSchooling: 'HART Training',
-            special: ' Responds to the most serious of calls, where lives are in serious danger.',
+            special:
+                ' Responds to the most serious of calls, where lives are in serious danger.',
         },
         28: {
             caption: 'SRV',
@@ -393,7 +411,8 @@ export default {
             maxPersonnel: 2,
             schooling: 'Rescue - HART Training',
             shownSchooling: 'HART Training',
-            special: ' Responds to the most serious of calls, where lives are in serious danger.',
+            special:
+                ' Responds to the most serious of calls, where lives are in serious danger.',
         },
         29: {
             caption: 'Welfare Vehicle',
@@ -404,7 +423,8 @@ export default {
             maxPersonnel: 2,
             schooling: 'Rescue - HART Training',
             shownSchooling: 'HART Training',
-            special: ' Responds to the most serious of calls, Used for Major Fires.',
+            special:
+                ' Responds to the most serious of calls, Used for Major Fires.',
         },
         30: {
             caption: 'ATV Carrier',
@@ -415,7 +435,8 @@ export default {
             maxPersonnel: 2,
             schooling: 'Rescue - HART Training',
             shownSchooling: 'HART Training',
-            special: ' Responds to the most serious of calls, where lives are in serious danger in ruarl areas.',
+            special:
+                ' Responds to the most serious of calls, where lives are in serious danger in ruarl areas.',
         },
         31: {
             caption: 'Ambulance Control Unit',
@@ -426,7 +447,8 @@ export default {
             maxPersonnel: 2,
             schooling: 'Rescue - Tactical Command Course',
             shownSchooling: 'Tactical Command Course',
-            special: 'Command Post run by the ambulance service for the most serious of calls.' ,
+            special:
+                'Command Post run by the ambulance service for the most serious of calls.',
         },
         32: {
             caption: 'CBRN Vehicle',
@@ -437,7 +459,7 @@ export default {
             maxPersonnel: 2,
             schooling: 'Rescue - SORT Training',
             shownSchooling: 'SORT',
-            special: ' A HazMat run by the ambulance service.' ,
+            special: ' A HazMat run by the ambulance service.',
         },
     },
     buildings: {
