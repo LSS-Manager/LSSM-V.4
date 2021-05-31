@@ -342,7 +342,11 @@ ${docsLangs
                 ...sidebar_others
                     .filter(file =>
                         fs.existsSync(
-                            path.posix.join(DOCS_PATH, lang, `${file || 'README'}.md`)
+                            path.posix.join(
+                                DOCS_PATH,
+                                lang,
+                                `${file || 'README'}.md`
+                            )
                         )
                     )
                     .map(file => `${langPath}${file}`),
