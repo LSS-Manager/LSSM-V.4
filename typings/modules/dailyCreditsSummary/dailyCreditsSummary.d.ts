@@ -1,6 +1,6 @@
 import { CreditsDailyWindow } from 'modules/redesign/parsers/credits/daily';
-import VueI18n from 'vue-i18n';
 import { CreditsTypes } from './main';
+import VueI18n from 'vue-i18n';
 
 export interface DailyCreditsSummary {
     hidden: boolean;
