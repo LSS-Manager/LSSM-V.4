@@ -26,10 +26,9 @@ const MODULES_PATH = path.join(ROOT_PATH, 'src/modules');
 const DOCS_PATH = path.join(ROOT_PATH, 'docs');
 const DOCS_I18N_PATH = path.join(DOCS_PATH, '.vuepress/i18n');
 
-// const LANGS = Object.keys(config.games).filter(lang =>
-//     fs.existsSync(path.join(DOCS_PATH, lang))
-// );
-const LANGS = ['de_DE'];
+const LANGS = Object.keys(config.games).filter(lang =>
+    fs.existsSync(path.join(DOCS_PATH, lang))
+);
 const MODULES = fs
     .readdirSync(MODULES_PATH)
     .filter(
