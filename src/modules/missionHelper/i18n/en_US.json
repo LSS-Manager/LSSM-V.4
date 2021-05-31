@@ -111,7 +111,8 @@
 			}
 		},
 		"patient_additionals": {
-			"10": "EMS-Chief"
+			"10": "EMS-Chief",
+			"25": "EMS Mobile Command Unit"
 		},
 		"title": "Vehicles"
 	}
