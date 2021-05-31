@@ -31,6 +31,10 @@ export default {
             regex: /(Gebouw bevestigd aan|Uitgebreid tot|(Geü|Up)grade naar) Gebouwencomplex/,
             title: 'Gebouwencomplexen',
         },
+        fireAlarmSystemCancel: {
+            regex: /Loos alarm/,
+            title: 'Melding via OMS/PAC - Loos alarm'
+        },
     },
     category: 'Categorie',
     name: 'Samenvatting',

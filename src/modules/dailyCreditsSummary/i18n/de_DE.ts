@@ -32,6 +32,7 @@ export default {
                 /(An den Gebäudekomplex angehängte Gebäude|Aus(bau|gebaut) zu einem Gebäudekomplex)/,
             title: 'Gebäudekomplexe',
         },
+        fireAlarmSystemCancel: { regex: /Fehlalarm/, },
     },
     category: 'Kategorie',
     name: 'Zusammenfassung',
