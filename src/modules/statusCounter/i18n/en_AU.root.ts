@@ -1,4 +1,4 @@
-export default {
+module.exports = {
     name: 'Status counter',
     description:
         'Shows a quick overview of how many vehicles are in which status.',

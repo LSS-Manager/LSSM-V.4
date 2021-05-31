@@ -26,9 +26,10 @@ const MODULES_PATH = path.join(ROOT_PATH, 'src/modules');
 const DOCS_PATH = path.join(ROOT_PATH, 'docs');
 const DOCS_I18N_PATH = path.join(DOCS_PATH, '.vuepress/i18n');
 
-const LANGS = Object.keys(config.games).filter(lang =>
-    fs.existsSync(path.join(DOCS_PATH, lang))
-);
+// const LANGS = Object.keys(config.games).filter(lang =>
+//     fs.existsSync(path.join(DOCS_PATH, lang))
+// );
+const LANGS = ['de_DE']
 const MODULES = fs
     .readdirSync(MODULES_PATH)
     .filter(
@@ -350,15 +351,15 @@ ${docsLangs
                     collapsable: true,
                     children: [
                         ...(fs.existsSync(path.join(DOCS_PATH, lang, 'apps.md'))
-                            ? [`${lang}/apps.md`]
+                            ? [`/${lang}/apps`]
                             : []),
                         ...MODULES_BY_LANG[lang]
-                            .filter(({ hasSrc }) => hasSrc)
+                            .filter(({ hasSrc, file }) => hasSrc && fs.existsSync(file))
                             .map(({ file }) =>
-                                path.relative(
+                                `/${path.relative(
                                     DOCS_PATH,
                                     file.replace('.md', '')
-                                )
+                                )}`
                             ),
                     ],
                 },
@@ -409,9 +410,9 @@ const fetchStableVersion = (): Promise<{ version: string }> =>
         res.status === 200
             ? res.json()
             : new Promise(resolve => resolve({ version: '4.x.x' }))
-    );
+    ).catch(() => new Promise(resolve => resolve({ version: '4.x.x' })));
 
-module.exports = async () => {
+const exp = async () => {
     await setLocales();
     updateConfigs();
     emptyFolders();
@@ -480,3 +481,7 @@ module.exports = async () => {
         },
     };
 };
+
+exp().then(config => fs.writeFileSync(path.join(DOCS_PATH, '.vuepress/config.json'), JSON.stringify(config, null, 4)));
+
+module.exports = exp;
