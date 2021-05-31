@@ -100,11 +100,10 @@ module.exports = {
             [/^Kynolog(ové)? Policie$/]: [13],
             [/^Vozidl[oa] vyšetřovatelů DN$/]: [18],
             [/^Vozid(lo|el) pyrotechik[aů] PČR$/]: [19],
-            [/^Přívěs(y)? se člunem$/]: [20, 21], 
+            [/^Přívěs(y)? se člunem$/]: [20, 21],
             [/^Potápěčsk(ý(ch)?|é) automobil[yů]?$/]: [22],
-            [/^SUV VZS ČČK nebo Dodávka VZS ČČK$/]: [23, 24], 
-            [/^Inspekto(r|ři|rů) provozu$/]: [26], 
-            
+            [/^SUV VZS ČČK nebo Dodávka VZS ČČK$/]: [23, 24],
+            [/^Inspekto(r|ři|rů) provozu$/]: [26],
         },
     },
     tailoredTabs: {
