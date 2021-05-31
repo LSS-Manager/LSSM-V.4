@@ -87,7 +87,7 @@ module.exports = {
             [/^CAS$/]: [0, 1],
             [/^AP nebo AZ$/]: [2, 10],
             [/^VEA$/]: [3, 17],
-            [/^[Tt]echnický(ch) automobil(ů)$/]: [4],
+            [/^[Tt]echnický(ch)? automobil(ů)?$/]: [4],
             [/^Protiplynový automobil$/]: [16],
             [/^Mobilní operační středisk[oa]$/]: [17],
             [/^Vozidel pro práci s nebezpečnými látkami$/]: [7],
