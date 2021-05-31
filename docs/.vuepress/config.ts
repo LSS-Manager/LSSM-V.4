@@ -1,7 +1,7 @@
 import copydir from 'copy-dir';
 import fetch from 'node-fetch';
 import fs from 'fs';
-import path from 'path';
+import path from 'path/posix';
 
 import addToBuildStats from '../../build/addToBuildStats';
 import config from '../../src/config';
