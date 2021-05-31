@@ -3,6 +3,7 @@ import fetch from 'node-fetch';
 import fs from 'fs';
 import path from 'path';
 
+import addToBuildStats from '../../build/addToBuildStats';
 import config from '../../src/config';
 import { version } from '../../package.json';
 
@@ -417,14 +418,14 @@ const fetchStableVersion = (): Promise<{ version: string }> =>
         )
         .catch(() => new Promise(resolve => resolve({ version: '4.x.x' })));
 
-const exp = async () => {
+module.exports = async () => {
     await setLocales();
     updateConfigs();
     emptyFolders();
     setReadmeHeads();
     const { locales, themeLocales, noMapkitModules } = await processModules();
     const { version: stable } = await fetchStableVersion();
-    return {
+    const vuepressConfig = {
         title: 'LSS-Manager V.4 Wiki',
         description: 'The Wiki for the LSS-Manager',
         base: BASE,
@@ -485,13 +486,6 @@ const exp = async () => {
             },
         },
     };
+    addToBuildStats({ docs_config: vuepressConfig });
+    return vuepressConfig;
 };
-
-exp().then(config =>
-    fs.writeFileSync(
-        path.join(DOCS_PATH, '.vuepress/config.json'),
-        JSON.stringify(config, null, 4)
-    )
-);
-
-module.exports = exp;
