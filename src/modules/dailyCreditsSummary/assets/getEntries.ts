@@ -25,26 +25,30 @@ export default async (
         )
     ).default.categories;
     const creditsTypes: CreditsTypes = Object.fromEntries([
-        ...Object.entries(credits_types).map(([key, { regex, title }]) => {
-            return [
-                key,
-                {
-                    ...(!!regex && {
-                        regex:
-                            typeof regex === 'string'
-                                ? new RegExp(
-                                      regex.replace(
-                                          /%missions%/,
-                                          `(${missionsString})`
+        ...Object.entries(credits_types).map(
+            ([key, { regex, title, backgroundColor, textColor }]) => {
+                return [
+                    key,
+                    {
+                        ...(!!regex && {
+                            regex:
+                                typeof regex === 'string'
+                                    ? new RegExp(
+                                          regex.replace(
+                                              /%missions%/,
+                                              `(${missionsString})`
+                                          )
                                       )
-                                  )
-                                : regex,
-                    }),
-                    ...(!!title && { title }),
-                },
-            ];
-        }),
-        ['others', { title: $m('others').toString() }],
+                                    : regex,
+                        }),
+                        ...(!!title && { title }),
+                        backgroundColor,
+                        textColor,
+                    },
+                ];
+            }
+        ),
+        ['others', { title: $m('others').toString(), backgroundColor: '#dcdcdc', textColor: 'black' }],
     ]);
 
     const getNum = (el: Element | null) =>
