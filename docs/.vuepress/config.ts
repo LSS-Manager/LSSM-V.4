@@ -1,7 +1,7 @@
 import copydir from 'copy-dir';
 import fetch from 'node-fetch';
 import fs from 'fs';
-import path from 'path/posix';
+import path from 'path';
 
 import addToBuildStats from '../../build/addToBuildStats';
 import config from '../../src/config';
@@ -330,7 +330,7 @@ ${docsLangs
                     children: sidebar_lssm
                         .filter(file =>
                             fs.existsSync(
-                                path.join(
+                                path.posix.join(
                                     DOCS_PATH,
                                     lang,
                                     `${file || 'README'}.md`
@@ -342,7 +342,11 @@ ${docsLangs
                 ...sidebar_others
                     .filter(file =>
                         fs.existsSync(
-                            path.join(DOCS_PATH, lang, `${file || 'README'}.md`)
+                            path.posix.join(
+                                DOCS_PATH,
+                                lang,
+                                `${file || 'README'}.md`
+                            )
                         )
                     )
                     .map(file => `${langPath}${file}`),
@@ -360,7 +364,7 @@ ${docsLangs
                             )
                             .map(
                                 ({ file }) =>
-                                    `/${path.relative(
+                                    `/${path.posix.relative(
                                         DOCS_PATH,
                                         file.replace('.md', '')
                                     )}`
