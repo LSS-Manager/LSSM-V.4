@@ -350,15 +350,19 @@ ${docsLangs
                     collapsable: true,
                     children: [
                         ...(fs.existsSync(path.join(DOCS_PATH, lang, 'apps.md'))
-                            ? [`${lang}/apps.md`]
+                            ? [`/${lang}/apps`]
                             : []),
                         ...MODULES_BY_LANG[lang]
-                            .filter(({ hasSrc }) => hasSrc)
-                            .map(({ file }) =>
-                                path.relative(
-                                    DOCS_PATH,
-                                    file.replace('.md', '')
-                                )
+                            .filter(
+                                ({ hasSrc, file }) =>
+                                    hasSrc && fs.existsSync(file)
+                            )
+                            .map(
+                                ({ file }) =>
+                                    `/${path.relative(
+                                        DOCS_PATH,
+                                        file.replace('.md', '')
+                                    )}`
                             ),
                     ],
                 },
@@ -405,13 +409,15 @@ sidebarDepth: 2
     });
 
 const fetchStableVersion = (): Promise<{ version: string }> =>
-    fetch(`${config.server}static/build_stats.json`).then(res =>
-        res.status === 200
-            ? res.json()
-            : new Promise(resolve => resolve({ version: '4.x.x' }))
-    );
+    fetch(`${config.server}static/build_stats.json`)
+        .then(res =>
+            res.status === 200
+                ? res.json()
+                : new Promise(resolve => resolve({ version: '4.x.x' }))
+        )
+        .catch(() => new Promise(resolve => resolve({ version: '4.x.x' })));
 
-module.exports = async () => {
+const exp = async () => {
     await setLocales();
     updateConfigs();
     emptyFolders();
@@ -480,3 +486,12 @@ module.exports = async () => {
         },
     };
 };
+
+exp().then(config =>
+    fs.writeFileSync(
+        path.join(DOCS_PATH, '.vuepress/config.json'),
+        JSON.stringify(config, null, 4)
+    )
+);
+
+module.exports = exp;

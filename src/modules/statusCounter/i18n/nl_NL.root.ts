@@ -1,4 +1,4 @@
-export default {
+module.exports = {
     name: 'Statusteller',
     description:
         'Geeft een snel overzicht hoeveel voertuigen welke status hebben.',
