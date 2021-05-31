@@ -122,7 +122,7 @@ export default {
             credits: 5_000,
             minPersonnel: 1,
             maxPersonnel: 5,
-            special: ' A smaller pump used in ruarl areas, will act as a pump.
+            special: ' A smaller pump used in ruarl areas, will act as a pump.' ,
         },
         2: {
             caption: 'Aerial Appliance',
@@ -158,7 +158,7 @@ export default {
             credits: 5_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            special: ' A standard ambulance for tackling your medical emergencys.
+            special: ' A standard ambulance for tackling your medical emergencys.',
         },
         6: {
             caption: 'Water Carrier',
@@ -196,7 +196,7 @@ export default {
             credits: 300_000,
             minPersonnel: 1,
             maxPersonnel: 1,
-            special: ' A Air Ambulance for the most serious cases.
+            special: ' A Air Ambulance for the most serious cases.' ,
         },
         10: {
             caption: 'Rapid Response Vehicle',
@@ -205,7 +205,7 @@ export default {
             credits: 4_000,
             minPersonnel: 1,
             maxPersonnel: 1,
-            special: ' A fast and angile ambulance car, very useful when a ambulance has a long response.
+            special: ' A fast and angile ambulance car, very useful when a ambulance has a long response. ',
         },
         11: {
             caption: 'Police Helicopter',
@@ -291,7 +291,7 @@ export default {
             maxPersonnel: 1,
             schooling: 'Fire Station - Co-Responder Training',
             shownSchooling: 'Co-Responder',
-            special: 'A Rapid Response Vehicle operated by the fire service where there is little to no ambulance coverage.
+            special: 'A Rapid Response Vehicle operated by the fire service where there is little to no ambulance coverage.',
         },
         19: {
             caption: 'Joint Response Unit',
@@ -426,7 +426,7 @@ export default {
             maxPersonnel: 2,
             schooling: 'Rescue - Tactical Command Course',
             shownSchooling: 'Tactical Command Course',
-            special: 'Command Post run by the ambulance service for the most serious of calls.'
+            special: 'Command Post run by the ambulance service for the most serious of calls.' ,
         },
         32: {
             caption: 'CBRN Vehicle',
@@ -437,7 +437,7 @@ export default {
             maxPersonnel: 2,
             schooling: 'Rescue - SORT Training',
             shownSchooling: 'SORT',
-            special: ' A HazMat run by the ambulance service.
+            special: ' A HazMat run by the ambulance service.' ,
         },
     },
     buildings: {
