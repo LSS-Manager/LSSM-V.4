@@ -29,7 +29,7 @@ const DOCS_I18N_PATH = path.join(DOCS_PATH, '.vuepress/i18n');
 // const LANGS = Object.keys(config.games).filter(lang =>
 //     fs.existsSync(path.join(DOCS_PATH, lang))
 // );
-const LANGS = ['de_DE']
+const LANGS = ['de_DE'];
 const MODULES = fs
     .readdirSync(MODULES_PATH)
     .filter(
@@ -354,12 +354,16 @@ ${docsLangs
                             ? [`/${lang}/apps`]
                             : []),
                         ...MODULES_BY_LANG[lang]
-                            .filter(({ hasSrc, file }) => hasSrc && fs.existsSync(file))
-                            .map(({ file }) =>
-                                `/${path.relative(
-                                    DOCS_PATH,
-                                    file.replace('.md', '')
-                                )}`
+                            .filter(
+                                ({ hasSrc, file }) =>
+                                    hasSrc && fs.existsSync(file)
+                            )
+                            .map(
+                                ({ file }) =>
+                                    `/${path.relative(
+                                        DOCS_PATH,
+                                        file.replace('.md', '')
+                                    )}`
                             ),
                     ],
                 },
@@ -406,11 +410,13 @@ sidebarDepth: 2
     });
 
 const fetchStableVersion = (): Promise<{ version: string }> =>
-    fetch(`${config.server}static/build_stats.json`).then(res =>
-        res.status === 200
-            ? res.json()
-            : new Promise(resolve => resolve({ version: '4.x.x' }))
-    ).catch(() => new Promise(resolve => resolve({ version: '4.x.x' })));
+    fetch(`${config.server}static/build_stats.json`)
+        .then(res =>
+            res.status === 200
+                ? res.json()
+                : new Promise(resolve => resolve({ version: '4.x.x' }))
+        )
+        .catch(() => new Promise(resolve => resolve({ version: '4.x.x' })));
 
 const exp = async () => {
     await setLocales();
@@ -482,6 +488,11 @@ const exp = async () => {
     };
 };
 
-exp().then(config => fs.writeFileSync(path.join(DOCS_PATH, '.vuepress/config.json'), JSON.stringify(config, null, 4)));
+exp().then(config =>
+    fs.writeFileSync(
+        path.join(DOCS_PATH, '.vuepress/config.json'),
+        JSON.stringify(config, null, 4)
+    )
+);
 
 module.exports = exp;
