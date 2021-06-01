@@ -51,5 +51,5 @@ export default Vue.extend({
     margin-right: 1rem
 
 .text-danger
-    color: #a94442
+    color: #a94442 !important
 </style>
