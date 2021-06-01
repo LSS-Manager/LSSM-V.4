@@ -6,7 +6,10 @@
         >
             {{ desc }}
         </span>
-        <span class="input-group-addon">
+        <span
+            class="input-group-addon"
+            :class="{ 'text-success': total > 0, 'text-danger': total < 0 }"
+        >
             {{ total.toLocaleString() }} ({{ amount.toLocaleString() }}x,
             {{ Math.round(total / amount).toLocaleString() }}Ø)
         </span>
