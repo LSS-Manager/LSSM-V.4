@@ -48,5 +48,8 @@ export default Vue.extend({
 
 <style scoped lang="sass">
 .input-group:not(last-of-type)
-  margin-right: 1rem
+    margin-right: 1rem
+
+.text-danger
+    color: #a94442
 </style>
