@@ -30,7 +30,7 @@ export default {
 			textColor: 'black',
 		},
 		upgradeBuilding: {
-			regex: /((Kleine p|P)ost uitgebreid|Cancel:|Gebouw-upgrade terugbetalen|)/,
+			regex: /((Kleine p|P)ost uitgebreid|Cancel:|Gebouw-upgrade terugbetalen)/,
 			title: 'Gebouwuitbreidingen',
 			backgroundColor: '#000080',
 			textColor: 'white',
