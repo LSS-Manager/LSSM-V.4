@@ -4,7 +4,13 @@
             v-for="({ real, amount }, show) in vehicle_states"
             :key="show"
             class="building_list_fms"
-            :class="`building_list_fms_${real}`"
+            :class="{
+                [`building_list_fms_${real}`]: true,
+                noblink:
+                    real === '5' &&
+                    (settings.s5noblink ||
+                        (settings.s5blinkOnGt0 && amount <= 0)),
+            }"
             :title="`Status ${show}: ${amount.toLocaleString()}`"
             v-show="
                 settings[`show_${show}`] &&
@@ -33,14 +39,18 @@ export default Vue.extend<
     { fmsReal2Show: Record<string, number> },
     DefaultMethods<Vue>,
     {
-        vehicle_states: Record<string, { real: number; amount: number }>;
+        vehicles: number;
+        vehicle_states: Record<string, { real: string; amount: number }>;
     },
     { settings: { percentRounding: number } & Record<string, boolean> }
 >({
     name: 'status-counter',
     data() {
         return {
-            fmsReal2Show: this.$t('fmsReal2Show'),
+            fmsReal2Show: (this.$t('fmsReal2Show') as unknown) as Record<
+                string,
+                number
+            >,
         };
     },
     computed: {
@@ -68,4 +78,7 @@ export default Vue.extend<
 });
 </script>
 
-<style scoped></style>
+<style scoped lang="sass">
+.noblink
+    background-image: none
+</style>

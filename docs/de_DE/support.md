@@ -9,10 +9,10 @@ sidebarDepth: 2
 ## Guideline
 Eine kleine Hilfe, die beim Erstellen einer Supportanfrage helfen soll.
 
-::: tip
+::: tip Tipp
 Wenn du Hilfe benötigst, beschreibe dein Problem so genau wie möglich. Je besser und detaillierter du dein Problem beschreibst, desto schneller und besser können wir dir helfen.
 :::
-::: warning
+::: warning Hinweis
 Bitte beachte, dass wir ältere Browser, sowie mobile Browser und Microsoft Edge bzw. Internet Explorer nicht offiziell unterstützen. Der Support für diese Browser ist also weder garantiert, noch wahrscheinlich.
 :::
 

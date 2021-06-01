@@ -3,7 +3,7 @@
         <h1>{{ lightbox.$sm('title') }}</h1>
         <enhanced-table
             :head="head"
-            :table-attrs="{ class: 'table' }"
+            :table-attrs="{ class: 'table table-striped' }"
             :search="search"
             :search-placeholder="$t('search')"
             @search="s => (search = s)"

@@ -6,7 +6,7 @@
 			"/alliances/{id}": "Start",
 			"/schoolings": "Opleidingen",
 			"/verband/bereitstellungsraume": "UGS",
-			"/verband/gebaeude": "Gebouwen",
+			"/verband/gebauede": "Gebouwen",
 			"/verband/kasse": "Teamkas",
 			"/verband/mitglieder/{id}": "Teamleden",
 			"/verband/news/{id}": "Nieuws",
@@ -30,7 +30,7 @@
 			"/schoolings",
 			"/verband/bereitstellungsraume",
 			"/verband/kasse",
-			"/verband/gebaeude"
+			"/verband/gebauede"
 		]
 	}
 }

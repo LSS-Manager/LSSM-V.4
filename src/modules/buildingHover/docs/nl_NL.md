@@ -1,10 +1,6 @@
 Vaak wil je snel overzicht van de status van een gebouw.
 Met deze module krijg je de meest belangrijke informatie voor elke gebouw, die zal worden weergegeven als je op kaart over de post heen gaat.
 
-:::danger Mapkit
-Door de beperkingen van Mapkit is het momenteel niet mogelijk om deze module te gebruiken als je het kaarttype `Mapkit` gebruikt.
-:::
-
 De volgende informatie is beschikbaar:
 * Naam van het gebouw
 * Aantal parkeerplaatsen (voor posten)
@@ -23,4 +19,4 @@ De volgende informatie is beschikbaar:
 
 Een voorbeeld van hoe het er uit ziet bij een opkomstbureau, welke 3 voltooide cellen en 1 cel in aanbouw heeft:
 
-![Een voorbeeldig opkomstbureau](/v4/docs/assets/buildingHover/img/buildingHover_Opkomstbureau_nl_NL.png)
+![Een voorbeeldig opkomstbureau](opkomstbureau.png)

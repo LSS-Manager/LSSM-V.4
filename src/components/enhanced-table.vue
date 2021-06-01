@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="head">
+        <div class="head" ref="head">
             <slot name="head"></slot>
             <label class="pull-right" v-if="!noSearch">
                 <input
@@ -18,7 +18,14 @@
                 />
             </label>
         </div>
-        <table v-bind="tableAttrs">
+        <button
+            class="btn btn-default toggle-head-btn hidden"
+            ref="toggleHeadBtn"
+            @click="$refs.head.classList.toggle('shown')"
+        >
+            <font-awesome-icon :icon="faSlidersH"></font-awesome-icon>
+        </button>
+        <table v-bind="tableAttrs" ref="table">
             <thead>
                 <tr>
                     <th
@@ -58,6 +65,7 @@
 <script lang="ts">
 import Vue from 'vue';
 
+import { faSlidersH } from '@fortawesome/free-solid-svg-icons/faSlidersH';
 import { faSort } from '@fortawesome/free-solid-svg-icons/faSort';
 import { faSortDown } from '@fortawesome/free-solid-svg-icons/faSortDown';
 import { faSortUp } from '@fortawesome/free-solid-svg-icons/faSortUp';
@@ -81,6 +89,7 @@ export default Vue.extend<
             faSort,
             faSortUp,
             faSortDown,
+            faSlidersH,
         };
     },
     props: {
@@ -131,18 +140,56 @@ export default Vue.extend<
             return i.titleAttr ?? i.title;
         },
     },
+    mounted() {
+        document.addEventListener('scroll', () => {
+            const head = this.$refs.head as HTMLDivElement | null;
+            const table = this.$refs.table as HTMLTableElement | null;
+            const btn = this.$refs.toggleHeadBtn as HTMLButtonElement | null;
+            if (!head || !table || !btn) return;
+            const above = (table.getBoundingClientRect().top ?? 0) < 0;
+            if (above) {
+                btn.classList.remove('hidden');
+                head.classList.add('fixed');
+            } else {
+                btn.classList.add('hidden');
+                head.classList.remove('fixed');
+            }
+        });
+    },
 });
 </script>
 
 <style scoped lang="sass">
-thead th:not(.noSort)
-    cursor: pointer
+thead
+    position: sticky
+    top: 0
+
+    th:not(.noSort)
+        cursor: pointer
 
 .head
     display: flex
     justify-content: end
     align-items: end
 
+    &.fixed
+        position: fixed
+        top: 1rem
+        z-index: 1
+        right: 6rem
+        background: #a0a0a0af
+        padding: .5rem
+        border-radius: 15px
+
+        &:not(.shown)
+            display: none
+
     > *
         margin-left: 1rem
+
+.toggle-head-btn
+    position: fixed
+    top: 1rem
+    z-index: 1
+    right: 4rem
 </style>

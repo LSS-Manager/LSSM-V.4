@@ -5,6 +5,7 @@ import moment from 'moment';
 import path from 'path';
 import SpeedMeasurePlugin from 'speed-measure-webpack-plugin';
 
+import addToBuildStats from './addToBuildStats';
 import config from '../src/config';
 import { version } from '../package.json';
 import webpackConfig from '../webpack.config';
@@ -112,12 +113,7 @@ webpack(
                 }.json`,
                 JSON.stringify(stats.toJson(), null, '\t')
             );
-            fs.writeFileSync(
-                './dist/static/build_stats.json',
-                JSON.stringify({
-                    version,
-                })
-            );
+            addToBuildStats({ version });
         }
         console.log('Stats:');
         console.log(stats?.toString({ colors: true }));

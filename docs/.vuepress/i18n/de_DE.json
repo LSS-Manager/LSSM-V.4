@@ -1,0 +1,9 @@
+{
+	"apps": "Apps",
+	"head": {
+		"alpha": "Dieses Modul steht noch in seinen absoluten Anfängen und ist aktuell nur für Beta-Tester verfügbar!",
+		"dev": "Dieses Modul ist noch in Entwicklung. Es ist möglich, dass noch einige Fehler vorhanden sind!",
+		"mapkit": "Aufgrund von Beschränkungen seitens Mapkit ist es uns leider derzeit nicht möglich, dieses Modul beim Kartentyp `Mapkit` anzubieten.",
+		"settings": "Dieses Modul hat Einstellungen! Pass es dir gerne nach deinem Geschmack an."
+	}
+}

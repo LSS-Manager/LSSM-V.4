@@ -1,0 +1,13 @@
+{
+	"amount": "Amount",
+	"description": "Description",
+	"filter": {
+		"total": {
+			"max": "Max. Total credits",
+			"min": "Min. Total credits"
+		}
+	},
+	"title": "Summary",
+	"today": "Today",
+	"total": "Total"
+}

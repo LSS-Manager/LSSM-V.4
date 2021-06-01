@@ -118,8 +118,9 @@
                                     </button>
                                     <button
                                         v-if="
-                                            vehicle.fms === 2 ||
-                                                vehicle.fms === 6
+                                            (vehicle.fms === 2 ||
+                                                vehicle.fms === 6) &&
+                                                !vehicle.user
                                         "
                                         class="btn btn-default btn-xs"
                                         @click="switch_state"
@@ -314,7 +315,15 @@
                 </tabs>
                 <enhanced-table
                     :head="mission_head"
-                    :table-attrs="{ class: 'table' }"
+                    :table-attrs="{
+                        class: {
+                            'table': true,
+                            'table-striped':
+                                missionListFiltered.filter(
+                                    ({ hidden }) => !hidden
+                                ).length === missionList.length,
+                        },
+                    }"
                     :search="search"
                     @search="setSearch"
                     :sort="sort"
@@ -571,7 +580,15 @@
                 </tabs>
                 <enhanced-table
                     :head="hospital_head"
-                    :table-attrs="{ class: 'table' }"
+                    :table-attrs="{
+                        class: {
+                            'table': true,
+                            'table-striped':
+                                hospitalListFiltered.filter(
+                                    ({ hidden }) => !hidden
+                                ).length === hospitalList.length,
+                        },
+                    }"
                     :search="search"
                     @search="setSearch"
                     :sort="sort"
@@ -777,7 +794,14 @@
                 </tabs>
                 <enhanced-table
                     :head="cell_head"
-                    :table-attrs="{ class: 'table' }"
+                    :table-attrs="{
+                        class: {
+                            'table': true,
+                            'table-striped':
+                                cellListFiltered.filter(({ hidden }) => !hidden)
+                                    .length === cellList.length,
+                        },
+                    }"
                     :search="search"
                     @search="setSearch"
                     :sort="sort"
@@ -898,7 +922,14 @@
             >
                 <enhanced-table
                     :head="wlf_head"
-                    :table-attrs="{ class: 'table' }"
+                    :table-attrs="{
+                        class: {
+                            'table': true,
+                            'table-striped':
+                                wlfListFiltered.filter(({ hidden }) => !hidden)
+                                    .length === vehicle.wlfs.length,
+                        },
+                    }"
                     :search="search"
                     @search="setSearch"
                     :sort="sort"

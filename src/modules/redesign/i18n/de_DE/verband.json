@@ -6,7 +6,7 @@
 			"/alliances/{id}": "Start",
 			"/schoolings": "Lehrgänge",
 			"/verband/bereitstellungsraume": "Bereitstellungsräume",
-			"/verband/gebaeude": "Gebäude",
+			"/verband/gebauede": "Gebäude",
 			"/verband/kasse": "Verbandskasse",
 			"/verband/mitglieder/{id}": "Mitglieder",
 			"/verband/news/{id}": "News",
@@ -30,7 +30,7 @@
 			"/schoolings",
 			"/verband/bereitstellungsraume",
 			"/verband/kasse",
-			"/verband/gebaeude"
+			"/verband/gebauede"
 		]
 	}
 }

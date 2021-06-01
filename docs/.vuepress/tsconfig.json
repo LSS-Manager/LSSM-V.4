@@ -18,7 +18,7 @@
 		"resolveJsonModule": true,
 		"sourceMap": true,
 		"strict": true,
-		"target": "ES2017",
+		"target": "ESNext",
 		"types": [
 			"node",
 			"vue"

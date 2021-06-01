@@ -47,6 +47,10 @@ interface Additional {
     patient_us_code_possible?: string[]; // en_US only
     patient_it_code_possible?: string[]; // it_IT only
 
+    // seasonal missions
+    date_start: string;
+    date_end: string;
+
     // General:
     [key: string]:
         | number
@@ -99,6 +103,9 @@ interface Chances {
 }
 
 interface Prerequisites {
+    main_building: number;
+    main_building_extensions?: Record<string, number>;
+
     fire_stations?: number;
     commerce_police_stations?: number;
     max_police_stations?: number;
@@ -122,9 +129,14 @@ interface Prerequisites {
     water_police_count?: number;
     dea_count?: number;
     atf_count?: number;
+    criminal_investigation_count?: number;
+    thw_bergung_count?: number;
+    thw_zugtrupp_count?: number;
+    thw_fg_raeumen_count?: number;
+    thw_gkw_count?: number;
 
     // General:
-    [key: string]: number | undefined;
+    [key: string]: number | Record<string, number> | undefined;
 }
 
 interface Requirements {

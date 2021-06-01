@@ -2,17 +2,17 @@ import { Games } from './Game';
 import { RegisterSettings } from './Setting';
 import VueI18n from 'vue-i18n';
 
-export interface Module {
+export type Module = { location: RegExp | string } & Partial<{
     active: boolean;
     alpha: boolean;
-    location: RegExp | string;
+    dev: boolean;
+    github: number;
     locales: null | (keyof Games)[];
     collisions: null | (keyof Modules)[];
     noapp: boolean;
     noMapkit: boolean;
-    description: string;
     settings: boolean;
-}
+}>;
 
 export interface Modules {
     [moduleId: string]: Module;
@@ -37,13 +37,13 @@ export type ModuleMainFunction = (
 ) => void | Promise<void>;
 
 export type ModuleSettingFunction =
-    | ((
-          MODULE_ID: string,
-          LSSM: Vue,
-          $m: $m
-      ) => RegisterSettings | Promise<RegisterSettings>)
+    | ((MODULE_ID: string) => RegisterSettings | Promise<RegisterSettings>)
     | ((
           MODULE_ID: string,
           LSSM: Vue
       ) => RegisterSettings | Promise<RegisterSettings>)
-    | ((MODULE_ID: string) => RegisterSettings | Promise<RegisterSettings>);
+    | ((
+          MODULE_ID: string,
+          LSSM: Vue,
+          $m: $m
+      ) => RegisterSettings | Promise<RegisterSettings>);

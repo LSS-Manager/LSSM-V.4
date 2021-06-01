@@ -676,6 +676,56 @@ export default {
             schooling: 'Police - Environmental Game Warden',
             shownSchooling: 'Environmental Game Warden',
         },
+        57: {
+            caption: 'EMS Mass Casualty Trailer (large)',
+            color: '#bc893d',
+            coins: 30,
+            credits: 30_000,
+            minPersonnel: 0,
+            maxPersonnel: 0,
+            special:
+                'Needed towing vehicle (Crew cab semi). Works like the Mass Casualty Unit but without transport.',
+        },
+        58: {
+            caption: 'EMS Mass Casualty Trailer (small)',
+            color: '#bc893d',
+            coins: 15,
+            credits: 15_000,
+            minPersonnel: 0,
+            maxPersonnel: 0,
+            special:
+                'Needed towing vehicle (Fly-Car, EMS Rescue, EMS Chief).Works like the Mass Casualty Unit but without transport.',
+        },
+        59: {
+            caption: 'EMS Operations Support',
+            color: '#bc893d',
+            coins: 20,
+            credits: 25_000,
+            minPersonnel: 3,
+            maxPersonnel: 3,
+            special:
+                'You can buy 1 EMS Operations Support Unit for every 20 ambulance stations (respectively 15 with premium account).',
+        },
+        60: {
+            caption: 'EMS Mobile Command Unit',
+            color: '#bc893d',
+            coins: 35,
+            credits: 40_000,
+            minPersonnel: 6,
+            maxPersonnel: 6,
+            schooling: 'Rescue - EMS Mobile Command',
+            shownSchooling: 'EMS Mobile Command',
+        },
+        61: {
+            caption: 'ALS Rescue Ambulance',
+            color: '#bc893d',
+            coins: 30,
+            credits: 25_000,
+            minPersonnel: 3,
+            maxPersonnel: 3,
+            special:
+                'To purchase with credits it requires the rank: Captain, <br>Lower ranked members can purchase the vehicle for 30 Coins.<br>Works as Heavy Resuce and Ambulance',
+        },
     },
     buildings: {
         0: {
@@ -807,7 +857,14 @@ export default {
             color: '#ffa500',
             coins: 35,
             credits: 200_000,
-            extensions: [],
+            extensions: [
+                {
+                    caption: 'Mass Casualty Trailer Extension',
+                    credits: 200_000,
+                    coins: 25,
+                    duration: '7 Days',
+                },
+            ],
             levelcost: ['1. 10.000', '2. 50.000', '3.-39. 100.000'],
             maxBuildings: 'No limit',
             maxLevel: 39,
@@ -1171,11 +1228,11 @@ export default {
         },
         'Rescue Vehicles': {
             vehicles: {
-                'Ambulances': [5, 27, 48, 49, 50],
+                'Ambulances': [5, 27, 48, 49, 50, 57, 58, 61],
                 'HEMS': [11],
                 'First Responder': [15],
                 'Rescue Boat': [25],
-                'Other EMS Vehicle': [20, 28, 29],
+                'Other EMS Vehicle': [20, 28, 29, 59, 60],
             },
             color: '#ffa500',
         },
@@ -1316,6 +1373,14 @@ export default {
                 caption: 'Hazmat Medic Training',
                 duration: '3 Days',
             },
+            {
+                caption: 'EMS Mobile Command',
+                duration: '7 Days',
+            },
+            {
+                caption: "Truck Driver's License",
+                duration: '2 Days',
+            },
         ],
     },
     amount: 'Quantity',
@@ -1435,6 +1500,11 @@ export default {
         'City centre',
         'Hill',
         'Laboratory',
+        'Dirt Race Track',
+        'Sheltered housing facility',
+        'Village',
+        'Valley',
+        'Coast Line',
     ],
     only_alliance_missions: [41, 61, 62, 112],
     transfer_missions: [246],

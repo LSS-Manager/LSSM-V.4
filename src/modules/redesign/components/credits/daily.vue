@@ -4,6 +4,7 @@
             {{ $sm('title') }}:
             {{
                 moment()
+                    .utc()
                     .add(page, 'days')
                     .format('L')
             }}
@@ -54,9 +55,20 @@
                 ></small
             >
         </h1>
+        <daily-credits-summary
+            :entries="credits.entries"
+            :creditsTypes="credits.creditsTypes"
+        ></daily-credits-summary>
         <enhanced-table
             :head="head"
-            :table-attrs="{ class: 'table' }"
+            :table-attrs="{
+                class: {
+                    'table': true,
+                    'table-striped':
+                        entriesFiltered.filter(({ hidden }) => !hidden)
+                            .length === credits.entries.length,
+                },
+            }"
             :search="search"
             @search="s => (search = s)"
             :sort="sort"
@@ -87,6 +99,41 @@
                         @input="updateFilter('total.max', filter.total.max)"
                     ></settings-number>
                 </div>
+                <div class="form-group">
+                    <label>
+                        {{ lightbox.$sm('filter.type.type') }}
+                    </label>
+                    <button
+                        class="btn btn-xs btn-default"
+                        :disabled="filter.type.types.length === types.length"
+                        @click.prevent.stop="
+                            $set(
+                                filter.type,
+                                'types',
+                                Object.keys(credits.creditsTypes)
+                            )
+                        "
+                    >
+                        {{ lightbox.$sm('filter.type.all_types') }}
+                    </button>
+                    <button
+                        class="btn btn-xs btn-default"
+                        :disabled="!filter.type.types.length"
+                        @click.prevent.stop="$set(filter.type, 'types', [])"
+                    >
+                        {{ lightbox.$sm('filter.type.no_types') }}
+                    </button>
+                    <multi-select
+                        name="types_select"
+                        :placeholder="lightbox.$sm('filter.type.type')"
+                        v-model="filter.type.types"
+                        :options="types"
+                        @input="updateFilter('type.types', filter.type.types)"
+                    ></multi-select>
+                </div>
+                <span style="align-self: center">{{
+                    lightbox.$smc('filter.type.amount', entriesSorted.length)
+                }}</span>
             </template>
             <tr
                 v-for="(entry, id) in entriesSorted"
@@ -171,7 +218,11 @@ export default Vue.extend<
                 min: number;
                 max: number;
             };
+            type: {
+                types: string[];
+            };
         };
+        types: { value: string; label: string }[];
     },
     {
         $sm(
@@ -219,9 +270,17 @@ export default Vue.extend<
 >({
     name: 'credits-daily',
     components: {
+        DailyCreditsSummary: () =>
+            import(
+                /*webpackChunkName: "modules/dailyCreditsSummary/dailyCreditsSummary"*/ '../../../dailyCreditsSummary/dailyCreditsSummary.vue'
+            ),
         EnhancedTable: () =>
             import(
                 /* webpackChunkName: "components/enhanced-table" */ '../../../../components/enhanced-table.vue'
+            ),
+        MultiSelect: () =>
+            import(
+                /* webpackChunkName: "components/settings/multi-select" */ '../../../../components/setting/multi-select.vue'
             ),
         SettingsNumber: () =>
             import(
@@ -231,6 +290,7 @@ export default Vue.extend<
     data() {
         moment.locale(this.$store.state.lang);
         return {
+            hidden: true,
             moment,
             search: '',
             sort: 'distance',
@@ -241,7 +301,11 @@ export default Vue.extend<
                     min: Number.MIN_SAFE_INTEGER,
                     max: Number.MAX_SAFE_INTEGER,
                 },
+                type: {
+                    types: [],
+                },
             },
+            types: [],
         };
     },
     computed: {
@@ -260,7 +324,8 @@ export default Vue.extend<
                     e.total <= this.filter.total.max &&
                     JSON.stringify(Object.values(e))
                         .toLowerCase()
-                        .match(this.search.trim().toLowerCase())
+                        .match(this.search.trim().toLowerCase()) &&
+                    !!this.filter.type.types.some(a => e.types.includes(a))
                 ),
             }));
         },
@@ -358,6 +423,12 @@ export default Vue.extend<
         },
     },
     beforeMount() {
+        const types = this.credits.creditsTypes;
+        this.types = Object.entries(types).map(([value, { regex, title }]) => ({
+            value,
+            label: title ?? regex?.toString().replace(/^\/|\/$/g, '') ?? value,
+        }));
+        this.filter.type.types = Object.keys(types);
         Object.entries(this.filter).forEach(([filter, props]) => {
             Object.entries(props).forEach(([prop, value]) => {
                 this.getSetting(`${filter}.${prop}`, value).then(v =>

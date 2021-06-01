@@ -1,0 +1,16 @@
+{
+	"alliance": "Alliance",
+	"amount": "{n} filtered alliance | {n} filtered alliances",
+	"credits": "Earned Credits",
+	"load": {
+		"next": "Load next page",
+		"prev": "Load previous page"
+	},
+	"members": "Member count",
+	"name": "Alliance",
+	"search_global": "Global Search",
+	"search_local": "Search in loaded alliances",
+	"search_subtitle": "Show {n} Alliances of the pages {startPage} to {endPage} of total {totalPages} Sides",
+	"subtitle": "Show {n} Alliances of the pages {startPage} ({firstCredits}) to {endPage} ({lastCredits}) of total {totalPages} Sides",
+	"title": "Verbandsliste"
+}

@@ -1434,7 +1434,7 @@ export default {
                     duration: '5 Tage',
                 },
                 {
-                    caption: 'Kriminalpolizei',
+                    caption: 'Kriminalpolizei-Erweiterung',
                     credits: 100_000,
                     coins: 20,
                     duration: '7 Tage',

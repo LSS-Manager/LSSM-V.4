@@ -1,10 +1,6 @@
 Ofta vill du ha en snabb överblick över byggnadens status.
 Med den här modulen får du den viktigaste informationen om varje station, som visas på kartan när du flyttar musen över bilden.
 
-::: danger Mapkit
-På grund av begränsningar som införts av Mapkit är det för närvarande inte möjligt att använda den här modulen med karttypen 'Mapkit' att erbjuda.
-:::
-
 Följande information ingår:
 * Namn på byggnaden
 * Antal parkeringsplatser (för stationer)
@@ -22,4 +18,4 @@ Följande information ingår:
 
 Så här ser det till exempel ut på en polisstation som har en utvecklad cell och en cell under uppbyggnad:
 
-![Ett exempel på polisstation](/v4/docs/assets/buildingHover/img/polizei.png)
+![Ett exempel på polisstation](polizei.png)

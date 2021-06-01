@@ -1,0 +1,147 @@
+{
+	"amount": "{n} angezeigter Einsatz | {n} angezeigte Einsätze",
+	"columns": {
+		"average_credits": "Durchschnittlicher Verdienst",
+		"details": "",
+		"duration": "Dauer",
+		"generated_by": "Generiert durch",
+		"id": "",
+		"missing": "fehlende Anforderungen",
+		"name": "Einsatz",
+		"place": "POI / POIs",
+		"prerequisites": "Anforderungen"
+	},
+	"main_building_extensions": {
+		"text": "mit folgenden aktiven Ausbauten"
+	},
+	"missing": {
+		"date": "Dieser Einsatz kann derzeit nicht generiert werden, da er aktuell nur für den Zeitraum von **{date_start}** bis **{date_end}** freigegeben ist.",
+		"diff": "Noch benötigt",
+		"have": "Du hast",
+		"need": "Benötigt",
+		"req": "Anforderung"
+	},
+	"no_dispatchcenter": "Keine Leitstelle",
+	"prerequisite_calculations": {
+		"bereitschaftspolizei": [
+			"11.0"
+		],
+		"criminal_investigation_count": [
+			"6.11"
+		],
+		"fire_stations": [
+			0,
+			18
+		],
+		"guard_dog_count": [
+			"6.10",
+			"11.8",
+			"17.4"
+		],
+		"mek": [
+			"11.6",
+			"11.7",
+			"17.2",
+			"17.3"
+		],
+		"police_helicopter_stations": [
+			"13.level"
+		],
+		"police_stations": [
+			6,
+			19
+		],
+		"rescue_dog_units": [
+			21,
+			"9.7",
+			"12.3"
+		],
+		"rescue_stations": [
+			2,
+			20,
+			"0.0"
+		],
+		"seg": [
+			12
+		],
+		"sek": [
+			"11.4",
+			"11.5",
+			"17.0",
+			"17.1"
+		],
+		"thw": [
+			9
+		],
+		"thw_bergung_count": [
+			"9.0",
+			"9.5"
+		],
+		"thw_fg_raeumen_count": [
+			"9.2"
+		],
+		"thw_gkw_count": [
+			9,
+			"9.4"
+		],
+		"thw_zugtrupp_count": [
+			"9.1",
+			"9.6"
+		],
+		"wasserrettung": [
+			15,
+			"0.6",
+			"9.3",
+			"12.2"
+		],
+		"werkfeuerwehr": [
+			"0.13"
+		]
+	},
+	"prerequisites_long": {
+		"bereitschaftspolizei": "Bereitschaftspolizei | Bereitschaftspolizeien",
+		"criminal_investigation_count": "Kriminalpolizei | Kriminalpolizeien",
+		"fire_stations": "Feuerwache | Feuerwachen",
+		"guard_dog_count": "aktiver Diensthund-Ausbau | aktive Diensthundeausbauten",
+		"max_police_stations": "Polizeiwache maximal | Polizeiwachen maximal",
+		"max_rescue_stations": "Rettungswache oder aktive Rettungsdienst-Erweiterung maximal | Rettungswachen oder aktive Rettungsdienst-Erweiterungen maximal",
+		"mek": "aktiver MEK Ausbau | aktive MEK Ausbauten",
+		"police_helicopter_stations": "Polizeihubschrauber Stellplatz | Polizeihubschrauber Stellplätze",
+		"police_stations": "Polizeiwache | Polizeiwachen",
+		"rescue_dog_units": "Rettungshund oder aktiver Rettungshund-Ausbau | Rettungshunde oder aktive Rettungshundeausbauten",
+		"rescue_stations": "Rettungswache oder aktive Rettungsdienst-Erweiterung | Rettungswachen oder aktive Rettungsdienst-Erweiterungen",
+		"seg": "SEG",
+		"sek": "aktiver SEK Ausbau | aktive SEK Ausbauten",
+		"thw": "THW-Ortsverein | THW-Ortsvereine",
+		"thw_bergung_count": "aktiver \"Bergungsgruppe 2\" THW-Ausbau | aktive \"Bergungsgruppe 2\" THW-Ausbauten",
+		"thw_fg_raeumen_count": "aktiver \"Fachgruppe Räumen\" THW-Ausbau | aktive \"Fachgruppe Räumen\" THW-Ausbauten",
+		"thw_gkw_count": "THW-Ortsverein oder 2. Technischer Zug - Grundvorraussetzungen | THW-Ortsvereine oder 2. Technischer Zug - Grundvorraussetzungen",
+		"thw_zugtrupp_count": "aktiver \"Zugtrupp\" THW-Ausbau | aktive \"Zugtrupp\" THW-Ausbauten",
+		"wasserrettung": "Wasserrettungswache oder aktiver Ausbau Wasserrettung bzw. Wassergefahren | Wasserrettungswachen oder aktiver Ausbauten Wasserrettung bzw. Wassergefahren",
+		"werkfeuerwehr": "aktive Werkfeuerwehr | aktive Werkfeuerwehren"
+	},
+	"prerequisites_short": {
+		"bereitschaftspolizei": "Bereitschaftspolizei | Bereitschaftspolizeien",
+		"criminal_investigation_count": "Kriminalpolizei | Kriminalpolizeien",
+		"fire_stations": "Feuerwache | Feuerwachen",
+		"guard_dog_count": "Diensthund | Diensthunde",
+		"max_police_stations": "Polizeiwache maximal | Polizeiwachen maximal",
+		"max_rescue_stations": "Rettungswache maximal | Rettungswachen maximal",
+		"mek": "MEK",
+		"police_helicopter_stations": "Polizeihubschrauber",
+		"police_stations": "Polizeiwache | Polizeiwachen",
+		"rescue_dog_units": "Rettungshund | Rettungshunde",
+		"rescue_stations": "Rettungswache | Rettungswachen",
+		"seg": "SEG",
+		"sek": "SEK",
+		"thw": "THW-Ortsverein | THW-Ortsvereine",
+		"thw_bergung_count": "THW: Bergungsgruppe 2",
+		"thw_fg_raeumen_count": "THW: Fachgruppe Räumen",
+		"thw_gkw_count": "THW-Ortsverein oder 2. Technischer Zug - Grundvorraussetzungen",
+		"thw_zugtrupp_count": "THW: Zugtrupp | THW: Zugtrupps",
+		"wasserrettung": "Wasserrettung | Wasserrettungen",
+		"werkfeuerwehr": "Werkfeuerwehr | Werkfeuerwehren"
+	},
+	"select_dispatchcenter": "Leitstelle auswählen",
+	"title": "Mögliche Einsätze"
+}

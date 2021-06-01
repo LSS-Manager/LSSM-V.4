@@ -1,33 +1,52 @@
 import { ModuleMainFunction } from 'typings/Module';
 import { routeChecks } from 'typings/modules/Redesign';
 
-const routeChecks: routeChecks = {
-    '^/verband/avatar/?$': 'alliance_avatar',
-    '^/alliances/?$': 'alliances',
-    '^/avatar/?$': 'avatar',
-    '^/auszeichnungen/?$': 'awards',
-    '^/coins/list/?$': 'coins/list',
-    '^/credits/daily/?$': 'credits/daily',
-    '^/credits/?$': 'credits/list',
-    '^/credits/overview/?$': 'credits/overview',
-    '^/freunde/?$': 'freunde',
-    '^/profile/\\d+/?$': 'profile',
-    '^/profile/edit/?$': 'profile/edit',
-    '^/schoolings/?$': 'schoolings',
-    '^/toplist/?$': 'toplist',
-    '^/vehicles/\\d+/?$': 'vehicle',
-    '^/verband/bereitstellungsraume/?$': 'verband/bsr',
-    '^/alliances/\\d+/edit/?$': 'verband/edit_name',
-    '^/veband/text/edit/?$': 'verband/edit_text',
-    '^/(verband|alliances/\\d+)/?$': 'verband/home',
-    '^/verband/mitglieder(/\\d+)?/?$': 'verband/mitglieder',
-    '^/alliance_newses/(new|\\d+/edit)/?$': 'verband/news/edit',
-    '^/alliance_logfiles/?$': 'verband/protokoll',
-    '^/verband/regeln/\\d+/?$': 'verband/regeln',
-    // '^/vehicles/\\d+/(patient|gefangener)/\\d+/?': 'vehicle/nextfms',
-};
-
-export default ((LSSM, MODULE_ID) => {
+export default (async (LSSM, MODULE_ID) => {
+    const getSetting = <type = boolean>(settingId: string): Promise<type> => {
+        return LSSM.$store.dispatch('settings/getSetting', {
+            moduleId: MODULE_ID,
+            settingId,
+        });
+    };
+    const routeChecks: routeChecks = {
+        ...((await getSetting('category.alliance')) && {
+            '^/verband/avatar/?$': 'alliance_avatar',
+            '^/alliances/?$': 'alliances',
+            '^/schoolings/?$': 'schoolings',
+            '^/verband/bereitstellungsraume/?$': 'verband/bsr',
+            '^/alliances/\\d+/edit/?$': 'verband/edit_name',
+            '^/veband/text/edit/?$': 'verband/edit_text',
+            '^/(verband|alliances/\\d+)/?$': 'verband/home',
+            '^/verband/mitglieder(/\\d+)?/?$': 'verband/mitglieder',
+            '^/alliance_newses/(new|\\d+/edit)/?$': 'verband/news/edit',
+            '^/alliance_logfiles/?$': 'verband/protokoll',
+            '^/verband/regeln/\\d+/?$': 'verband/regeln',
+        }),
+        ...((await getSetting('category.credits')) && {
+            '^/coins/list/?$': 'coins/list',
+            '^/credits/daily/?$': 'credits/daily',
+            '^/credits/?$': 'credits/list',
+            '^/credits/overview/?$': 'credits/overview',
+        }),
+        ...((await getSetting('category.vehicles')) && {
+            '^/vehicles/\\d+/?$': 'vehicle',
+            // '^/vehicles/\\d+/(patient|gefangener)/\\d+/?': 'vehicle/nextfms',
+        }),
+        ...((await getSetting('category.profile')) && {
+            '^/avatar/?$': 'avatar',
+            '^/auszeichnungen/?$': 'awards',
+            '^/profile/\\d+/?$': 'profile',
+            '^/profile/edit/?$': 'profile/edit',
+            '^/freunde/?$': 'freunde',
+        }),
+        ...((await getSetting('category.einsaetze')) && {
+            '^/einsaetze/?$': 'einsaetze',
+            '^/einsaetze/\\d+/?$': 'einsatz',
+        }),
+        ...((await getSetting('category.toplist')) && {
+            '^/toplist/?$': 'toplist',
+        }),
+    };
     LSSM.$store
         .dispatch('hook', {
             event: 'lightboxOpen',

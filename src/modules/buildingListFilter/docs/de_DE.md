@@ -9,8 +9,8 @@ Dieses Modul bietet dir die Möglichkeit, die Filter über der Geböudeliste **k
 
 Beispiel:
 
-![Eine Beispielhafte Filter-Konfiguration](/v4/docs/assets/buildingListFilter/img/de_DE/btns.png)
+![Eine Beispielhafte Filter-Konfiguration](btns.png)
 
 Die Konfiguration dafür sieht so aus:
 
-![Konfiguration](/v4/docs/assets/buildingListFilter/img/de_DE/settings.png)
+![Konfiguration](settings.png)
