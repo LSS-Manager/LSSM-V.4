@@ -48,7 +48,14 @@ export default async (
                 ];
             }
         ),
-        ['others', { title: $m('others').toString(), backgroundColor: '#dcdcdc', textColor: 'black' }],
+        [
+            'others',
+            {
+                title: $m('others').toString(),
+                backgroundColor: '#dcdcdc',
+                textColor: 'black',
+            },
+        ],
     ]);
 
     const getNum = (el: Element | null) =>

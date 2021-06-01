@@ -2,7 +2,12 @@
     <div>
         <h1>
             {{ $sm('title') }}:
-            {{ moment().utc().add(page, 'days').format('L') }}
+            {{
+                moment()
+                    .utc()
+                    .add(page, 'days')
+                    .format('L')
+            }}
             <button
                 class="btn btn-success"
                 :href="`/credits/daily?page=${page - 1}`"
@@ -35,13 +40,15 @@
                 </span>
                 |
                 <span
-                    :class="`text-${
-                        sum.total > 0
-                            ? 'success'
-                            : sum.total < 0
-                            ? 'danger'
-                            : ''
-                    }`"
+                    :class="
+                        `text-${
+                            sum.total > 0
+                                ? 'success'
+                                : sum.total < 0
+                                ? 'danger'
+                                : ''
+                        }`
+                    "
                     >{{
                         (sum.total > 0 ? '+' : '') + sum.total.toLocaleString()
                     }}</span
@@ -63,7 +70,7 @@
                 },
             }"
             :search="search"
-            @search="(s) => (search = s)"
+            @search="s => (search = s)"
             :sort="sort"
             :sort-dir="sortDir"
             @sort="setSort"
@@ -310,7 +317,7 @@ export default Vue.extend<
             );
         },
         entriesFiltered() {
-            return this.credits.entries.map((e) => ({
+            return this.credits.entries.map(e => ({
                 ...e,
                 hidden: !(
                     e.total >= this.filter.total.min &&
@@ -318,7 +325,7 @@ export default Vue.extend<
                     JSON.stringify(Object.values(e))
                         .toLowerCase()
                         .match(this.search.trim().toLowerCase()) &&
-                    !!this.filter.type.types.some((a) => e.types.includes(a))
+                    !!this.filter.type.types.some(a => e.types.includes(a))
                 ),
             }));
         },
@@ -424,7 +431,7 @@ export default Vue.extend<
         this.filter.type.types = Object.keys(types);
         Object.entries(this.filter).forEach(([filter, props]) => {
             Object.entries(props).forEach(([prop, value]) => {
-                this.getSetting(`${filter}.${prop}`, value).then((v) =>
+                this.getSetting(`${filter}.${prop}`, value).then(v =>
                     this.$set(props, prop, v)
                 );
             });
@@ -437,9 +444,9 @@ export default Vue.extend<
         };
     },
     mounted() {
-        this.getSetting('sort', this.sort).then((sort) => (this.sort = sort));
+        this.getSetting('sort', this.sort).then(sort => (this.sort = sort));
         this.getSetting('sortDir', this.sortDir).then(
-            (dir) => (this.sortDir = dir)
+            dir => (this.sortDir = dir)
         );
         this.lightbox.finishLoading('credits/daily-mounted');
     },

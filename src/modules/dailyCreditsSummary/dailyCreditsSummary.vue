@@ -13,7 +13,9 @@
             >
                 ×
             </button>
-            <h4 v-if="!hidden" style="margin-left: 1em">{{ $m('title').toString() }}</h4>
+            <h4 v-if="!hidden" style="margin-left: 1em">
+                {{ $m('title').toString() }}
+            </h4>
             <div
                 :class="{ 'col-lg-6': !hidden, 'col-lg-12': hidden }"
                 style="display: flex; flex-wrap: wrap"
@@ -53,24 +55,28 @@
                     <tr v-for="type in sorted" :key="type.desc">
                         <td>{{ type.desc }}</td>
                         <td
-                            :class="`text-${
-                                type.total > 0
-                                    ? 'success'
-                                    : type.total < 0
-                                    ? 'danger'
-                                    : ''
-                            }`"
+                            :class="
+                                `text-${
+                                    type.total > 0
+                                        ? 'success'
+                                        : type.total < 0
+                                        ? 'danger'
+                                        : ''
+                                }`
+                            "
                         >
                             {{ type.total.toLocaleString() }}
                         </td>
                         <td
-                            :class="`text-${
-                                type.total > 0
-                                    ? 'success'
-                                    : type.total < 0
-                                    ? 'danger'
-                                    : ''
-                            }`"
+                            :class="
+                                `text-${
+                                    type.total > 0
+                                        ? 'success'
+                                        : type.total < 0
+                                        ? 'danger'
+                                        : ''
+                                }`
+                            "
                         >
                             {{
                                 Math.round(
@@ -169,7 +175,7 @@ export default Vue.extend<
             );
 
             this.entries.forEach(({ total, amount, types }) => {
-                types.forEach((type) => {
+                types.forEach(type => {
                     result[type].total += total;
                     result[type].amount += amount;
                 });
