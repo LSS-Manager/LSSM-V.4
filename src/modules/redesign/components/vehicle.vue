@@ -118,8 +118,9 @@
                                     </button>
                                     <button
                                         v-if="
-                                            vehicle.fms === 2 ||
-                                                vehicle.fms === 6
+                                            (vehicle.fms === 2 ||
+                                                vehicle.fms === 6) &&
+                                                !vehicle.user
                                         "
                                         class="btn btn-default btn-xs"
                                         @click="switch_state"
