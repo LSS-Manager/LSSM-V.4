@@ -3,7 +3,7 @@ export default {
     categories: {
         allianceMission: {
             regex: /^\[Alliance]/,
-            title: 'Alliancemissions',
+            title: 'Alliance Missions',
             backgroundColor: '#ff2800',
             textColor: 'white',
         },
@@ -19,7 +19,7 @@ export default {
             textColor: 'white',
         },
         dailyLogin: {
-            regex: /Daily login reward/,
+            regex: /Daily Login Reward/,
             backgroundColor: '#8db600',
             textColor: 'black',
         },

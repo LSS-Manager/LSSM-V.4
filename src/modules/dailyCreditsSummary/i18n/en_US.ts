@@ -3,7 +3,7 @@ export default {
     categories: {
         allianceMission: {
             regex: /^\[Alliance]/,
-            title: 'Alliancemissions',
+            title: 'Alliance Missions',
             backgroundColor: '#ff2800',
             textColor: 'white',
         },
