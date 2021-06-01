@@ -50,4 +50,4 @@ Folgende Kategorien verwenden wir:
     * Gebäude an ein Gebäudekomplex angehängt
     * Gebäude zu einem Gebäudekomplex ausgebaut
 * Falschalarm
-    * Wenn sich ein Einsatz, der durch eine brandmeldeanlage ausgelöst wurde, als Falschalarm herausstellt.
+    * Wenn sich ein Einsatz, der durch eine Brandmeldeanlage ausgelöst wurde, als Falschalarm herausstellt.
