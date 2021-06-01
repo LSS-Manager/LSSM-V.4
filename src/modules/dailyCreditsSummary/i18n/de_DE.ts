@@ -52,6 +52,11 @@ export default {
             backgroundColor: '#ffff99',
             textColor: 'black',
         },
+        alliancePrisoners: {
+            regex: /Polizei - Verbandseinlieferung/,
+            backgroundColor: '#ffff99',
+            textColor: 'black',
+        },
         prisoners: {
             regex: /Gefangenen? transportiert/,
             title: 'Gefangene',
