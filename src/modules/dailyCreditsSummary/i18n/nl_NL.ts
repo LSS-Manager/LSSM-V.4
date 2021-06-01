@@ -2,7 +2,7 @@ export default {
     amount: 'Aantal',
     categories: {
         allianceMission: {
-            regex: /^\[Team\]/,
+            regex: /^\[Team]/,
             title: 'Teammeldingen',
             backgroundColor: '#ff2800',
             textColor: 'white',

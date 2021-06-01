@@ -2,7 +2,7 @@ export default {
     amount: 'Anzahl',
     categories: {
         allianceMission: {
-            regex: /^\[Verband\]/,
+            regex: /^\[Verband]/,
             title: 'Verbandseinsätze',
             backgroundColor: '#ff2800',
             textColor: 'white',
@@ -37,7 +37,7 @@ export default {
         },
         task: {
             regex: /Erfüllte Aufgabe ".*?"/,
-            title: 'Erfüllte Aufgabe',
+            title: 'Erfüllte Aufgaben',
             backgroundColor: '#bb3385',
             textColor: 'white',
         },
@@ -72,6 +72,7 @@ export default {
         },
         fireAlarmSystemCancel: {
             regex: /Fehlalarm/,
+            title: 'Falschalarm',
             backgroundColor: '#c80815',
             textColor: 'white',
         },
