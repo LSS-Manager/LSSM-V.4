@@ -98,6 +98,7 @@ import Vue from 'vue';
 
 import { CreditsTypes } from 'typings/modules/dailyCreditsSummary/main';
 import {
+    Category,
     DailyCreditsSummary,
     DailyCreditsSummaryComputed,
     DailyCreditsSummaryMethods,
@@ -159,12 +160,7 @@ export default Vue.extend<
         },
         creditsTypeSum() {
             const result: {
-                [key: string]: {
-                    desc: string;
-                    total: number;
-                    amount: number;
-                    backgroundColor: string;
-                };
+                [key: string]: Category;
             } = Object.fromEntries(
                 Object.entries(this.creditsTypes as CreditsTypes).map(
                     ([key, { regex, title, backgroundColor, textColor }]) => [

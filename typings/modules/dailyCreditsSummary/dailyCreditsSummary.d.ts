@@ -9,10 +9,12 @@ export interface DailyCreditsSummary {
     search: '';
 }
 
-interface Category {
+export interface Category {
     desc: string;
     total: number;
     amount: number;
+    backgroundColor: string,
+    textColor: string,
 }
 
 export interface DailyCreditsSummaryComputed {
