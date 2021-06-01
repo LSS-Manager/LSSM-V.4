@@ -382,6 +382,20 @@ export default Vue.extend<
                             }
                         }
                         if (type === 'coins/list') await addLocas('credits');
+                        if (type === 'credits/daily') {
+                            this.$i18n.mergeLocaleMessage(
+                                this.$store.state.lang,
+                                {
+                                    modules: {
+                                        dailyCreditsSummary: (
+                                            await import(
+                                                /* webpackChunkName: "modules/i18n/dailyCreditsSummary/[request]" */ `../../dailyCreditsSummary/i18n/${this.$store.state.lang}.ts`
+                                            )
+                                        ).default,
+                                    },
+                                }
+                            );
+                        }
                         if (type === 'schoolings') {
                             await addLocas('verband');
                             this.$i18n.mergeLocaleMessage(
