@@ -6,19 +6,19 @@ export interface DailyCreditsSummary {
     hidden: boolean;
     sort: 'desc' | 'total' | 'amount';
     sortDir: 'asc' | 'desc';
+    search: '';
+}
+
+interface Category {
+    desc: string;
+    total: number;
+    amount: number;
 }
 
 export interface DailyCreditsSummaryComputed {
-    sorted: {
-        desc: string;
-        total: number;
-        amount: number;
-    }[];
-    creditsTypeSum: {
-        desc: string;
-        total: number;
-        amount: number;
-    }[];
+    sorted: Category[];
+    filtered: Category[];
+    creditsTypeSum: Category[];
 }
 
 export interface DailyCreditsSummaryMethods {

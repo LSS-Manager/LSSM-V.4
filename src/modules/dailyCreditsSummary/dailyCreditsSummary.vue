@@ -4,7 +4,7 @@
             class="glyphicon glyphicon-info-sign"
             @click="hidden = !hidden"
         ></span>
-        <div class="" :class="{ 'alert alert-info': !hidden, 'row': true }">
+        <div class="row" :class="{ 'alert alert-info': !hidden }">
             <button
                 v-if="!hidden"
                 class="close"
@@ -50,7 +50,8 @@
                     @sort="setSort"
                     :sort="sort"
                     :sort-dir="sortDir"
-                    :noSearch="true"
+                    :search="search"
+                    @search="s => (search = s)"
                 >
                     <tr v-for="type in sorted" :key="type.desc">
                         <td>{{ type.desc }}</td>
@@ -125,6 +126,7 @@ export default Vue.extend<
             hidden: true,
             sort: 'total',
             sortDir: 'desc',
+            search: '',
         } as DailyCreditsSummary;
     },
     props: {
@@ -139,7 +141,7 @@ export default Vue.extend<
     },
     computed: {
         sorted() {
-            const types = this.creditsTypeSum;
+            const types = this.filtered;
             return types.sort((a, b) => {
                 let modifier = 1;
                 if (this.sortDir === 'desc') modifier = -1;
@@ -148,13 +150,20 @@ export default Vue.extend<
                 return 0;
             });
         },
+        filtered() {
+            if (!this.search.trim().length || this.hidden)
+                return this.creditsTypeSum;
+            return this.creditsTypeSum.filter(({ desc }) =>
+                desc.toLowerCase().match(this.search.trim().toLowerCase())
+            );
+        },
         creditsTypeSum() {
             const result: {
                 [key: string]: {
                     desc: string;
                     total: number;
                     amount: number;
-                    badgeColor: string;
+                    backgroundColor: string;
                 };
             } = Object.fromEntries(
                 Object.entries(this.creditsTypes as CreditsTypes).map(
