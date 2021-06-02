@@ -999,7 +999,7 @@ export default {
             maxBuildings: 4,
             maxLevel: 0,
             special:
-                'You can station as many of your own vehicles as you like at a staging area, members of the association can use the room. A staging area remains for 24 hours, but you can reset it to 24 hours at any time.With Premium Account you can have 8 stating areas at the same time',
+                'You can station as many of your own vehicles as you like at a staging area, members of the association can use the room. A staging area remains for 24 hours, but you can reset it to 24 hours at any time.With Premium Account you can have 8 staging areas at the same time',
             startPersonnel: 0,
             startVehicles: [],
             maxBuildingsFunction: (): number => 4,
@@ -1108,7 +1108,7 @@ export default {
                 '3.-4. 100.000',
                 'Conversion to normal guard: difference price to normal guard',
             ],
-            maxBuildings: '1.700 mit Polizeiwachen zusammen',
+            maxBuildings: '1.700 together with small police stations',
             maxLevel: 4,
             special:
                 'From the 24th police station onwards, the costs for the new construction of a police station are calculated according to the following formula: <code>(100.000+200.000*LOG<sub>2</sub>(Number of existing police stations − 22)) / 2</code>. The Coins price remains constant!',
@@ -1151,7 +1151,7 @@ export default {
             caption: 'Federal Police Station',
             color: '#264289',
             coins: 50,
-            credits: 5_000_000,
+            credits: 500_000,
             extensions: [
                 {
                     caption: 'DEA Expansion',
