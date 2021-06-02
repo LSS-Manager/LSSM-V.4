@@ -218,7 +218,10 @@ export default Vue.extend<
             // eslint-disable-next-line @typescript-eslint/no-this-alias
             const LSSM = this;
             this.$modal.show(
-                Appstore,
+                () =>
+                    import(
+                        /* webpackChunkName: "components/appstore" */ './components/appstore.vue'
+                    ),
                 {},
                 {
                     name: 'appstore',
@@ -243,7 +246,30 @@ export default Vue.extend<
                             buttons: [
                                 {
                                     title: LSSM.$t(
-                                        'modules.appstore.closeWarning.close'
+                                        'modules.appstore.closeWarning.saveAndExit'
+                                    ),
+                                    handler() {
+                                        (window[
+                                            PREFIX
+                                        ] as Vue).$appstore.save();
+                                        LSSM.$modal.hide('appstore');
+                                    },
+                                },
+                                {
+                                    title: LSSM.$t(
+                                        'modules.appstore.closeWarning.exit'
+                                    ),
+                                    handler() {
+                                        (window[
+                                            PREFIX
+                                        ] as Vue).$appstore.reset();
+                                        LSSM.$modal.hide('appstore');
+                                        LSSM.$modal.hide('dialog');
+                                    },
+                                },
+                                {
+                                    title: LSSM.$t(
+                                        'modules.appstore.closeWarning.abort'
                                     ),
                                     default: true,
                                 },

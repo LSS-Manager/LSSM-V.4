@@ -13,7 +13,9 @@ const modules = {
             title: 'Ungespeicherte Änderungen',
             text:
                 'Du hast Änderungen im AppStore vorgenommen, die noch nicht gespeichert sind. Setze sie zurück oder speichere sie, um den AppStore zu schliessen.',
-            close: 'Meldung schliessen',
+            abort: 'Abbrechen',
+            saveAndExit: 'Speichern und verlassen',
+            exit: 'Ohne speichern verlassen',
         },
     },
     settings: {

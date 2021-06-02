@@ -179,6 +179,9 @@ export default Vue.extend<
         $m: (key, args) =>
             (window[PREFIX] as Vue).$t(`modules.appstore.${key}`, args),
     },
+    mounted() {
+        (window[PREFIX] as Vue).$appstore = this;
+    },
 });
 </script>
 

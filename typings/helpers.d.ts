@@ -1,11 +1,17 @@
 import 'i18n-js';
+import { DefaultProps } from 'vue/types/options';
 import Highcharts from 'highcharts';
 import { POI } from './modules/EnhancedPOI';
 import { sceditor } from './SCEditor';
 import { Store } from 'vuex';
-import { VueConstructor } from 'vue/types/vue';
 import VueI18n from 'vue-i18n';
+import {
+    AppstoreComputed,
+    AppstoreData,
+    AppstoreMethods,
+} from 'typings/components/Appstore';
 import { BuildingMarker, BuildingMarkerAdd, POIMarker } from './Ingame';
+import { CombinedVueInstance, VueConstructor } from 'vue/types/vue';
 import L, { Map, Marker } from 'leaflet';
 
 declare global {
@@ -76,6 +82,13 @@ declare module 'vue/types/vue' {
             ): Text[];
             highChartsDarkMode: Highcharts.Options;
         };
+        $appstore: CombinedVueInstance<
+            Vue,
+            AppstoreData,
+            AppstoreMethods,
+            AppstoreComputed,
+            DefaultProps
+        >;
         $m(
             key: string,
             args?: {
