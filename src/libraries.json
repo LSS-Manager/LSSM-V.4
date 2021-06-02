@@ -280,6 +280,10 @@
 		"url": "https://github.com/vuepress",
 		"version": "1.1.8"
 	},
+	"vuepress-theme-yuu": {
+		"url": "https://vuepress-theme-yuu.netlify.app/",
+		"version": "3.0.1"
+	},
 	"vuex": {
 		"icon": "https://vuejs.org/images/logo.png",
 		"url": "https://github.com/vuejs/vuex#readme",

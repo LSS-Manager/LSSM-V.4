@@ -470,9 +470,9 @@ module.exports = async () => {
                 defaultDarkTheme: true,
                 disableThemeIgnore: true,
                 labels: {
-                    darkTheme: '☀️ / 🌜'
-                }
-            }
+                    darkTheme: '☀️ / 🌜',
+                },
+            },
         },
         locales,
         plugins: {
