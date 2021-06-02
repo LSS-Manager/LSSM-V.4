@@ -570,6 +570,24 @@ export default Vue.extend<
             this.$refs.iframe
                 ? this.$nextTick(() => {
                       this.$set(this, 'src', this.url);
+                      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                      // @ts-ignore // Yes, Typescript does not understand that a 'mouseup' eventListener results in a MouseEvent…
+                      this.$el.addEventListener('mouseup', (e: MouseEvent) => {
+                          const target = (e.target as HTMLElement)?.closest<
+                              HTMLAnchorElement | HTMLButtonElement
+                          >('a, button');
+                          const href = target?.getAttribute('href');
+                          if (!target || !href) return;
+                          e.preventDefault();
+                          if (e.ctrlKey || e.button === 1)
+                              return window.open(href, '_blank');
+                          if (
+                              e.button === 0 &&
+                              target.hasAttribute('lightbox-open')
+                          )
+                              return window.lightboxOpen(href);
+                          else this.$set(this, 'src', href);
+                      });
                       window.addEventListener('popstate', () => {
                           const url = new URL(
                               window.location.href,
