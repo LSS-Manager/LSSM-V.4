@@ -588,6 +588,14 @@ export default Vue.extend<
                               return window.lightboxOpen(href);
                           else this.$set(this, 'src', href);
                       });
+                      this.$el.addEventListener('click', e => {
+                          const target = (e.target as HTMLElement)?.closest<
+                              HTMLAnchorElement | HTMLButtonElement
+                          >('a, button');
+                          const href = target?.getAttribute('href');
+                          if (!target || !href) return;
+                          e.preventDefault();
+                      });
                       window.addEventListener('popstate', () => {
                           const url = new URL(
                               window.location.href,
