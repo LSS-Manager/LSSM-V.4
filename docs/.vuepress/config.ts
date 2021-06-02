@@ -447,6 +447,7 @@ module.exports = async () => {
             sluglify: '',
             lineNumbers: true,
         },
+        theme: 'yuu',
         themeConfig: {
             logo: '/img/lssm.png',
             variables: {
@@ -465,6 +466,13 @@ module.exports = async () => {
             activeHeaderLinks: true,
             repo: config.github.repo,
             editLinks: false,
+            yuu: {
+                defaultDarkTheme: true,
+                disableThemeIgnore: true,
+                labels: {
+                    darkTheme: '☀️ / 🌜'
+                }
+            }
         },
         locales,
         plugins: {
@@ -483,7 +491,7 @@ module.exports = async () => {
             },
             'vuepress-plugin-smooth-scroll': {},
             'vuepress-plugin-zooming': {
-                selector: 'img:not([data-prevent-zooming])',
+                selector: 'img:not([data-prevent-zooming]):not(.logo)',
                 options: {
                     bgColor: 'black',
                 },
