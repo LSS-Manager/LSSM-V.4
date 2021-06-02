@@ -728,7 +728,7 @@ export default {
             maxBuildings: 4,
             maxLevel: 0,
             special:
-                'You can station as many of your own vehicles as you like at a staging area, members of the association can use the room. A staging area remains for 24 hours, but you can reset it to 24 hours at any time.With Premium Account you can have 8 stating areas at the same time',
+                'You can station as many of your own vehicles as you like at a staging area, members of the association can use the room. A staging area remains for 24 hours, but you can reset it to 24 hours at any time.With Premium Account you can have 8 staging areas at the same time',
             startPersonnel: 0,
             startVehicles: [],
             maxBuildingsFunction: (): number => 4,
