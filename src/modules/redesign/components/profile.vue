@@ -512,8 +512,16 @@
                     v-show="show_map"
                     ref="map"
                     :id="`profile-${profile.id}-map-${lightbox.creation}`"
-                    :start-lat="profile.buildings[0].latitude"
-                    :start-long="profile.buildings[0].longitude"
+                    :start-lat="
+                        profile.buildings.length
+                            ? profile.buildings[0].latitude
+                            : void 0
+                    "
+                    :start-long="
+                        profile.buildings.length
+                            ? profile.buildings[0].longitude
+                            : void 0
+                    "
                     :layers="
                         Object.entries(mapLayerGroups)
                             .filter(
