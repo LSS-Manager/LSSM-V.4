@@ -176,7 +176,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 3,
             special:
-                'Required once you have built 7 fire stations. Used for conveying water to a fire, Very useful for ruarl fires.',
+                'Required once you have built 7 fire stations. Used for conveying water to a fire, Very useful for rural fires.',
         },
         7: {
             caption: 'HazMat Unit',
@@ -284,7 +284,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 9,
             special:
-                'To purchase with credits it requires the rank: Captain, <br>Lower ranked members can purchase the vehicle for 25 Coins. A Pump with extraction tools. Perfect for your Road Traffic Collsions.',
+                'To purchase with credits it requires the rank: Captain, <br>Lower ranked members can purchase the vehicle for 25 Coins. A Pump with extraction tools. Perfect for your Road Traffic Collisions.',
         },
         17: {
             caption: 'CARP',
@@ -392,7 +392,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 3,
             special:
-                'Work as a Water Carrier and Water Ladder. Used in ruarl areas to save money.',
+                'Work as a Water Carrier and Water Ladder. Used in rural areas to save money.',
         },
         27: {
             caption: 'PRV',
