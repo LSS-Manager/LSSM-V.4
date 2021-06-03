@@ -15,7 +15,7 @@ const modules = {
                 'Du hast Änderungen im AppStore vorgenommen, die noch nicht gespeichert sind. Setze sie zurück oder speichere sie, um den AppStore zu schliessen.',
             abort: 'Abbrechen',
             saveAndExit: 'Speichern und verlassen',
-            exit: 'Ohne speichern verlassen',
+            exit: 'Ohne Speichern verlassen',
         },
     },
     settings: {
