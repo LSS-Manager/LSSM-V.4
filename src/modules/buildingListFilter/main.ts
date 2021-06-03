@@ -1,8 +1,13 @@
+import { Building } from 'typings/Building';
 import { ModuleMainFunction } from 'typings/Module';
 
 export default <ModuleMainFunction>(async (LSSM, MODULE_ID) => {
     let wrapper = document.getElementById('btn-group-building-select');
     if (!wrapper) return;
+
+    await LSSM.$store.dispatch('api/registerBuildingsUsage', {
+        feature: 'buildingListFilter-initial',
+    });
 
     const filters: {
         contentType: 'text' | 'icon';
@@ -67,11 +72,40 @@ export default <ModuleMainFunction>(async (LSSM, MODULE_ID) => {
             value: { value: filters, enabled: true },
         });
 
+    const smallBuildings = (LSSM.$t('small_buildings') as unknown) as Record<
+        number,
+        number
+    >;
+
     const updateFilters = async () => {
         wrapper = document.getElementById('btn-group-building-select');
         if (!wrapper) return;
         wrapper.querySelectorAll('a').forEach(a => a.remove());
         const btns: [HTMLButtonElement, number[]][] = [];
+
+        const buildingsByType: Record<number, Building[]> =
+            LSSM.$store.getters['api/buildingsByType'];
+        Object.entries(smallBuildings).forEach(([big, small]) =>
+            document
+                .querySelectorAll<HTMLLIElement>(
+                    `#buildings .building_list_li[building_type_id="${big}"]`
+                )
+                .forEach(building => {
+                    const id = parseInt(
+                        building
+                            .querySelector<HTMLUListElement>(
+                                'ul[data-building_id]'
+                            )
+                            ?.getAttribute('data-building_id') ?? '-1'
+                    );
+                    if (buildingsByType[small]?.find(b => b.id === id)) {
+                        building.setAttribute(
+                            'building_type_id',
+                            small.toString()
+                        );
+                    }
+                })
+        );
 
         filters.forEach(
             ({ contentType, title, icon_style, buildings, state }, index) => {
