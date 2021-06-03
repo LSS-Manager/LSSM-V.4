@@ -6,7 +6,7 @@ In den Einstellungen lassen sich verschiedene Templates anlegen:
 
 ![Einstellungen](settings.png)
 
-Dabei kannst du den Platzhalter `{{'{{username}}'}}` verwenden, dieser wird **bei neuen Nachrichten** gegen den Nutzernamen des Empfängers ausgetauscht.
+Dabei kannst du den Platzhalter <code><span>{{</span>username<span>}}</span></code> verwenden, dieser wird **bei neuen Nachrichten** gegen den Nutzernamen des Empfängers ausgetauscht.
 
 :::tip Warum geht das nur bei neuen Nachrichten?
 Ganz einfach: Aktuell haben wir leider keine Möglichkeit bei existierenden Konversationen, den Empfänger eindeutig zu bestimmen!
