@@ -50,6 +50,16 @@
                 :get-setting="getSetting()"
                 :set-setting="setSetting()"
             ></Awards>
+            <Bewerbungen
+                v-if="type === 'bewerbungen'"
+                :bewerbungen="data"
+                :url="url"
+                :lightbox="this"
+                :$m="$m"
+                :$mc="$mc"
+                :get-setting="getSetting"
+                :set-setting="setSetting"
+            ></Bewerbungen>
             <Credits
                 v-else-if="type.startsWith('credits/') || type === 'coins/list'"
                 :data="data"
@@ -209,6 +219,10 @@ export default Vue.extend<
         Awards: () =>
             import(
                 /*webpackChunkName: "modules/redesign/windows/awards"*/ './awards.vue'
+            ),
+        Bewerbungen: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/bewerbungen"*/ './bewerbungen.vue'
             ),
         Credits: () =>
             import(

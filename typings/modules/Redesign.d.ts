@@ -5,6 +5,7 @@ import { AllianceAvatarWindow } from '../../src/modules/redesign/parsers/allianc
 import { AllianceListWindow } from '../../src/modules/redesign/parsers/alliances';
 import { AvatarWindow } from '../../src/modules/redesign/parsers/avatar';
 import { AwardsWindow } from '../../src/modules/redesign/parsers/awards';
+import { BewerbungenWindow } from '../../src/modules/redesign/parsers/bewerbungen';
 import { CoinsListWindow } from '../../src/modules/redesign/parsers/coins/list';
 import { CreditsDailyWindow } from '../../src/modules/redesign/parsers/credits/daily';
 import { CreditsListWindow } from '../../src/modules/redesign/parsers/credits/list';
@@ -44,6 +45,7 @@ type types =
     | 'alliances'
     | 'avatar'
     | 'awards'
+    | 'bewerbungen'
     | 'default'
     | 'coins/list'
     | 'credits/daily'
@@ -73,6 +75,7 @@ type windows =
     | AllianceListWindow
     | AvatarWindow
     | AwardsWindow
+    | BewerbungenWindow
     | CoinsListWindow
     | CreditsDailyWindow
     | CreditsListWindow
