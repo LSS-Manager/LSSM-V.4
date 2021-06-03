@@ -116,7 +116,7 @@ const emptyFolders = () => {
     });
 };
 
-const processModules = async () => {
+const processModules = async (shortVersion: string) => {
     const HEAD_EMOJIS = {
         alpha: '🧑‍🔬',
         dev: '🐛',
@@ -319,6 +319,10 @@ ${docsLangs
             label: `${game.flag} ${game.name}`,
             nav: [
                 {
+                    text: `v.${shortVersion}`,
+                    link: `https://github.com/${config.github.repo}/releases/tag/v.${shortVersion}`,
+                },
+                {
                     text: 'Discord',
                     link: config.discord.invite,
                 },
@@ -427,8 +431,11 @@ module.exports = async () => {
     updateConfigs();
     emptyFolders();
     setReadmeHeads();
-    const { locales, themeLocales, noMapkitModules } = await processModules();
     const { version: stable } = await fetchStableVersion();
+    const shortVersion = stable.match(/4(\.(x|\d+)){2}/)?.[0] ?? '4.x.x';
+    const { locales, themeLocales, noMapkitModules } = await processModules(
+        shortVersion
+    );
     const vuepressConfig = {
         title: 'LSS-Manager V.4 Wiki',
         description: 'The Wiki for the LSS-Manager',
@@ -457,7 +464,7 @@ module.exports = async () => {
                 versions: {
                     beta: version,
                     stable,
-                    short: stable.match(/4(\.(x|\d+)){2}/)?.[0] ?? '4.x',
+                    short: shortVersion,
                 },
                 browsers: config.browser,
                 noMapkitModules,
