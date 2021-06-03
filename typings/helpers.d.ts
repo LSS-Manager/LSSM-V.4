@@ -13,6 +13,11 @@ import {
 import { BuildingMarker, BuildingMarkerAdd, POIMarker } from './Ingame';
 import { CombinedVueInstance, VueConstructor } from 'vue/types/vue';
 import L, { Map, Marker } from 'leaflet';
+import {
+    SettingsComputed,
+    SettingsData,
+    SettingsMethods,
+} from 'typings/components/Settings';
 
 declare global {
     interface Window {
@@ -87,6 +92,13 @@ declare module 'vue/types/vue' {
             AppstoreData,
             AppstoreMethods,
             AppstoreComputed,
+            DefaultProps
+        >;
+        $settings: CombinedVueInstance<
+            Vue,
+            SettingsData,
+            SettingsMethods,
+            SettingsComputed,
             DefaultProps
         >;
         $m(

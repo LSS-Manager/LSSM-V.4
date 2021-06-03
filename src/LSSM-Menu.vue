@@ -90,10 +90,8 @@ import Vue from 'vue';
 import { mapState } from 'vuex';
 import svgToMiniDataURI from 'mini-svg-data-uri';
 
-import Appstore from './components/appstore.vue';
 import LibraryOverview from './components/libraryOverview.vue';
 import lssmLogo from './img/lssm_logo';
-import Settings from './components/settings.vue';
 
 import { DefaultProps } from 'vue/types/options';
 import {
@@ -283,7 +281,10 @@ export default Vue.extend<
             // eslint-disable-next-line @typescript-eslint/no-this-alias
             const LSSM = this;
             LSSM.$modal.show(
-                Settings,
+                () =>
+                    import(
+                        /* webpackChunkName: "components/settings" */ './components/settings.vue'
+                    ),
                 {},
                 {
                     name: 'settings',
@@ -308,7 +309,30 @@ export default Vue.extend<
                             buttons: [
                                 {
                                     title: LSSM.$t(
-                                        'modules.settings.closeWarning.close'
+                                        'modules.settings.closeWarning.saveAndExit'
+                                    ),
+                                    handler() {
+                                        (window[
+                                            PREFIX
+                                        ] as Vue).$settings.save();
+                                        LSSM.$modal.hide('settings');
+                                    },
+                                },
+                                {
+                                    title: LSSM.$t(
+                                        'modules.settings.closeWarning.exit'
+                                    ),
+                                    handler() {
+                                        (window[
+                                            PREFIX
+                                        ] as Vue).$settings.reset();
+                                        LSSM.$modal.hide('settings');
+                                        LSSM.$modal.hide('dialog');
+                                    },
+                                },
+                                {
+                                    title: LSSM.$t(
+                                        'modules.settings.closeWarning.abort'
                                     ),
                                     default: true,
                                 },

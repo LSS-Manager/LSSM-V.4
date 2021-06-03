@@ -44,7 +44,9 @@ const modules = {
             title: 'Ungespeicherte Änderungen',
             text:
                 'Du hast Änderungen in den Einstellungen vorgenommen, die noch nicht gespeichert sind. Setze sie zurück, verwerfe sie oder speichere sie, um die Einstellungen zu schliessen.',
-            close: 'Meldung schliessen',
+            abort: 'Abbrechen',
+            saveAndExit: 'Speichern und verlassen',
+            exit: 'Ohne Speichern verlassen',
         },
         changeList: {
             true: 'An',
