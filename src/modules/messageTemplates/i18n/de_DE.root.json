@@ -1,0 +1,12 @@
+{
+	"description": "Schreibe dir vorgefertigte Texte für private Konversationen.",
+	"name": "Nachrichten-Templates",
+	"settings": {
+		"name": "Name",
+		"subject": "Betreff",
+		"template": "Template (nutze {{username}}, um den Namen des Empfängers einzufügen)",
+		"templates": {
+			"title": "Templates"
+		}
+	}
+}

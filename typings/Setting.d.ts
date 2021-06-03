@@ -22,6 +22,12 @@ interface Text extends SettingTemplate {
     value: string;
 }
 
+interface Textarea extends SettingTemplate {
+    type: 'textarea';
+    default: string;
+    value: string;
+}
+
 interface Color extends SettingTemplate {
     type: 'color';
     default: string;
@@ -99,6 +105,7 @@ export interface AppendableList extends SettingTemplate {
 type SettingType =
     | Toggle
     | Text
+    | Textarea
     | AppendableList
     | Select
     | MultiSelect

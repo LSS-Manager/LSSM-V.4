@@ -152,8 +152,11 @@ body.dark
         color: #fff
         border: #000
 
-        a
+        > li > a
             color: #fff
+
+            &:focus,&:hover
+                background-image: linear-gradient(to bottom, #5a5a5a 0, #353535 100%)
 
 .vm--container
     z-index: 5001 !important

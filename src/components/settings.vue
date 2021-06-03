@@ -171,6 +171,18 @@
                             @input="update(moduleId, settingId)"
                             :disabled="setting.isDisabled"
                         ></settings-text>
+                        <settings-textarea
+                            v-else-if="setting.type === 'textarea'"
+                            :name="setting.name"
+                            :placeholder="
+                                $t(
+                                    `modules.${moduleId}.settings.${settingId}.title`
+                                )
+                            "
+                            v-model="settings[moduleId][settingId].value"
+                            @input="update(moduleId, settingId)"
+                            :disabled="setting.isDisabled"
+                        ></settings-textarea>
                         <settings-toggle
                             v-else-if="setting.type === 'toggle'"
                             :name="setting.name"
@@ -299,6 +311,10 @@ export default Vue.extend<
         SettingsText: () =>
             import(
                 /* webpackChunkName: "components/setting/text" */ './setting/text.vue'
+            ),
+        SettingsTextarea: () =>
+            import(
+                /* webpackChunkName: "components/setting/textarea" */ './setting/textarea.vue'
             ),
         SettingsSelect: () =>
             import(

@@ -1,0 +1,12 @@
+{
+	"description": "Write your own templates for messages in private conversations.",
+	"name": "Message-Templates",
+	"settings": {
+		"name": "Name",
+		"subject": "Subject",
+		"template": "Template (use {{username}}, to insert the username of recipient)",
+		"templates": {
+			"title": "Templates"
+		}
+	}
+}
