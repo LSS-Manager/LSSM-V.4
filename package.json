@@ -1,5 +1,5 @@
 {
-    "version": "4.2.7+20210602.2335",
+    "version": "4.2.7+20210603.0836",
     "license": "CC-BY-NC-SA-4.0",
     "scripts": {
         "predev": "tsc -b scripts && node scripts predev",
@@ -48,7 +48,7 @@
         "@types/jquery": "^3.5.5",
         "@types/leaflet": "^1.7.1",
         "@types/lodash": "^4.14.170",
-        "@types/node": "^15.6.1",
+        "@types/node": "^15.9.0",
         "@types/node-fetch": "^2.5.10",
         "@types/pdfmake": "^0.1.17",
         "@types/semver": "^7.3.6",
@@ -71,7 +71,7 @@
         "html-loader": "^2.1.2",
         "moment-timezone": "^0.5.33",
         "node-fetch": "^2.6.1",
-        "sass": "^1.34.0",
+        "sass": "^1.34.1",
         "sass-loader": "^10.1.1",
         "speed-measure-webpack-plugin": "^1.5.0",
         "string-replace-loader": "^2.3.0",
