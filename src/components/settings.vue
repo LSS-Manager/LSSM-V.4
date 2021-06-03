@@ -441,7 +441,7 @@ export default Vue.extend<
             this.update(moduleId, settingId);
         },
         save() {
-            this.$store
+            return this.$store
                 .dispatch('settings/saveSettings', {
                     settings: this.settings,
                 })

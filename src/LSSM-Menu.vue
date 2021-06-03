@@ -312,10 +312,11 @@ export default Vue.extend<
                                         'modules.settings.closeWarning.saveAndExit'
                                     ),
                                     handler() {
-                                        (window[
-                                            PREFIX
-                                        ] as Vue).$settings.save();
-                                        LSSM.$modal.hide('settings');
+                                        (window[PREFIX] as Vue).$settings
+                                            .save()
+                                            .then(() =>
+                                                LSSM.$modal.hide('settings')
+                                            );
                                     },
                                 },
                                 {
