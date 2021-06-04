@@ -102,6 +102,7 @@ export type routeChecks = Record<string, types>;
 
 interface Data<T, W> {
     faSyncAlt: IconDefinition;
+    cliboardIconId: string;
     type: T;
     data: W & {
         authenticity_token: string;
@@ -135,9 +136,11 @@ export interface RedesignLightbox<
         getSetting(): <T>(setting: string, defaultValue: T) => Promise<T>;
         setSetting(): <T>(settingId: string, value: T) => Promise<void>;
         finishLoading(text?: string): void;
+        copyUrl(): void;
     };
     Computed: {
         loaderOffset: number;
+        fullUrl: string;
         src: string;
     };
     Props: {

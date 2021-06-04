@@ -1,4 +1,5 @@
 {
+	"copy_url": "Copy link into clipboard: {url}",
 	"description": "A general Redesign – currently in an alpha phase and still in development.",
 	"name": "Redesign",
 	"settings": {

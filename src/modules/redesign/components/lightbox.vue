@@ -5,6 +5,15 @@
         :no-title-hide="true"
         :no-modal="noModal"
     >
+        <template v-slot:control-buttons v-if="!noModal">
+            <span
+                class="toggle-title"
+                @click="copyUrl()"
+                :title="$m('copy_url', { url: fullUrl })"
+            >
+                <i :id="cliboardIconId" class="fas fa-clipboard"></i>
+            </span>
+        </template>
         <div
             v-show="type && type !== 'default'"
             class="redesign-wrapper"
@@ -268,6 +277,10 @@ export default Vue.extend<
     data() {
         return {
             faSyncAlt,
+            cliboardIconId: this.$store.getters.nodeAttribute(
+                'redesign-clipboard-icon',
+                true
+            ),
             type: 'default',
             data: { authenticity_token: '' },
             html: '',
@@ -311,6 +324,9 @@ export default Vue.extend<
     computed: {
         loaderOffset() {
             return (100 - this.size) / 2;
+        },
+        fullUrl() {
+            return new URL(this.urlProp, window.location.origin).toString();
         },
         src: {
             get() {
@@ -557,6 +573,20 @@ export default Vue.extend<
                     this.$store.dispatch('event/dispatchEvent', event)
                 );
         },
+        copyUrl() {
+            navigator.clipboard.writeText(this.fullUrl).then(() => {
+                this.$el
+                    .querySelector(`#${this.cliboardIconId}`)
+                    ?.setAttribute('data-icon', 'check');
+                window.setTimeout(
+                    () =>
+                        this.$el
+                            .querySelector(`#${this.cliboardIconId}`)
+                            ?.setAttribute('data-icon', 'clipboard'),
+                    1000
+                );
+            });
+        },
     },
     beforeMount() {
         this.$store
@@ -579,6 +609,7 @@ export default Vue.extend<
         );
     },
     mounted() {
+        this.$store.commit('useFontAwesome');
         window['lssmv4-redesign-lightbox'] = this;
         const trySetIframe = () =>
             this.$refs.iframe
