@@ -8,6 +8,10 @@ export default <ModuleMainFunction>(async (LSSM, MODULE_ID, $m) => {
         })
     ).value;
 
+    const preselected = parseInt(
+        new URL(window.location.toString()).searchParams.get('template') ?? '-1'
+    );
+
     const group = document.createElement('div');
     group.classList.add('btn-group', 'pull-right');
     const insert = document.createElement('button');
@@ -16,7 +20,7 @@ export default <ModuleMainFunction>(async (LSSM, MODULE_ID, $m) => {
     insert.innerHTML = `${$m('name')}&nbsp;<span class="caret"></span>`;
     const optionList = document.createElement('ul');
     optionList.classList.add('dropdown-menu');
-    messages.forEach(({ name, subject, template }) => {
+    messages.forEach(({ name, subject, template }, index) => {
         const liEl = document.createElement('li');
         const aEl = document.createElement('a');
         aEl.textContent = `${name}: ${subject}`;
@@ -38,6 +42,7 @@ export default <ModuleMainFunction>(async (LSSM, MODULE_ID, $m) => {
                 );
             }
         };
+        if (preselected === index) aEl.click();
         liEl.append(aEl);
         optionList.append(liEl);
     });
