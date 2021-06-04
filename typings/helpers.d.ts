@@ -1,6 +1,7 @@
 import 'i18n-js';
 import { DefaultProps } from 'vue/types/options';
 import Highcharts from 'highcharts';
+import { MapFilterInitializer } from '../src/modules/centerMap/assets/getMapFilterInitializer';
 import { POI } from './modules/EnhancedPOI';
 import { sceditor } from './SCEditor';
 import { Store } from 'vuex';
@@ -12,7 +13,12 @@ import {
 } from 'typings/components/Appstore';
 import { BuildingMarker, BuildingMarkerAdd, POIMarker } from './Ingame';
 import { CombinedVueInstance, VueConstructor } from 'vue/types/vue';
-import L, { Map, Marker } from 'leaflet';
+import L, {
+    LayerGroup,
+    LayersControlEventHandlerFn,
+    Map,
+    Marker,
+} from 'leaflet';
 import {
     SettingsComputed,
     SettingsData,
@@ -36,6 +42,17 @@ declare global {
         map_pois_service: {
             getMissionPoiMarkersArray(): POIMarker[];
             leafletMissionPositionMarkerAdd(poi: POI): void;
+        };
+        map_filters_service: {
+            initialize(a: MapFilterInitializer): void;
+            getMapFiltersLayersForMap(): Record<string, LayerGroup>;
+            getMapFiltersLayers(): Record<string, LayerGroup>;
+            getFilterLayerByBuildingParams(
+                building: BuildingMarkerAdd
+            ): LayerGroup | Map;
+            onOverlayChanged: LayersControlEventHandlerFn;
+            massFiltersChange(filter_id: string, add: boolean): void;
+            decorateFilterText(text: string, filter_id: string): string;
         };
         [PREFIX: string]: Vue | unknown;
         map: Map;

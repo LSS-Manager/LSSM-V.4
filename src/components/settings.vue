@@ -643,8 +643,11 @@ export default Vue.extend<
 <style scoped lang="sass">
 @import 'src/sass/mixins/autoSizedGrid'
 
-.vue-tab[aria-selected="true"]
-    border-bottom-color: white !important
+.vue-tablist
+    flex-flow: wrap
+
+    .vue-tab[aria-selected="true"]
+        border-bottom-color: white !important
 .vue-tabpanel
     transition: 0.5s
 

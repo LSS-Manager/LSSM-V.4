@@ -1,0 +1,18 @@
+{
+	"description": "Zentriere die Karte beim Laden auf einen Punkt deiner Wünsche.",
+	"filters": {
+		"buildings": "Gebäude",
+		"missions": "Einsätze"
+	},
+	"name": "Karte zentrieren",
+	"settings": {
+		"dynamic": {
+			"description": "Zeigt die Karte so an, dass alle gewünschten Elemente zu sehen sind.",
+			"text": "Dynamisch"
+		},
+		"dynamicFilters": {
+			"description": "Wähle hier aus, welche Elemente beachtet werden sollen, wenn es darum geht, die Karte dynamisch zu zentrieren.",
+			"text": "Elemente für Dynamik"
+		}
+	}
+}
