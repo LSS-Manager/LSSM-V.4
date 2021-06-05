@@ -127,7 +127,7 @@ export default Vue.extend<
         return {
             hidden: true,
             sort: 'desc',
-            sortDir: 'desc',
+            sortDir: 'asc',
             search: '',
             showAverage: true,
         } as DailyCreditsSummary;
