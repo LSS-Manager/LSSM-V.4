@@ -4,8 +4,9 @@
 	"settings": {
 		"name": "Name",
 		"subject": "Betreff",
-		"template": "Template (nutze {{username}}, um den Namen des Empfängers einzufügen)",
+		"template": "Template (Variablen (siehe Wiki): {{username}}, {{today[+n]}})",
 		"templates": {
+			"description": "Für die Templates stehen Variablen zur Verfügung. Schau hierfür gerne in unser <a class=\"lightbox-open\" href=\"{wiki}modules/messageTemplates.html#variablen\">Wiki</a>.",
 			"title": "Templates"
 		}
 	}

@@ -1,6 +1,12 @@
+import moment from 'moment';
+
 import { ModuleMainFunction } from 'typings/Module';
 
 export default <ModuleMainFunction>(async (LSSM, MODULE_ID, $m) => {
+    moment.locale(LSSM.$store.state.lang);
+
+    window.moment = moment;
+
     const messages: { name: string; subject: string; template: string }[] = (
         await LSSM.$store.dispatch('settings/getSetting', {
             moduleId: MODULE_ID,
@@ -34,12 +40,22 @@ export default <ModuleMainFunction>(async (LSSM, MODULE_ID, $m) => {
                 '#message_body'
             );
             if (bodyEl) {
-                bodyEl.value = template.replace(
-                    /{{username}}/g,
-                    document
-                        .querySelector<HTMLInputElement>('#message_recipients')
-                        ?.value?.trim() ?? '{{username}}'
-                );
+                bodyEl.value = template
+                    .replace(
+                        /{{username}}/g,
+                        document
+                            .querySelector<HTMLInputElement>(
+                                '#message_recipients'
+                            )
+                            ?.value?.trim() ?? '{{username}}'
+                    )
+                    .replace(
+                        /{{today(?<offset>[+-]\d+)?}}/g,
+                        (_, offsetString) =>
+                            moment()
+                                .add(parseInt(offsetString ?? '0'), 'days')
+                                .format('L')
+                    );
             }
         };
         if (preselected === index) aEl.click();
