@@ -28,6 +28,7 @@
                     :amount="type.amount"
                     :total="type.total"
                     :desc="type.desc"
+                    :show-average="showAverage"
                 ></dsc-badge>
             </div>
             <div v-if="!hidden" class="col-lg-6">
@@ -119,7 +120,7 @@ export default Vue.extend<
             ),
         dscBadge: () =>
             import(
-                /* webpackChunkName: "modules/dailyCreditsSummary/components/enhanced-table" */ './components/dscBadge.vue'
+                /* webpackChunkName: "modules/dailyCreditsSummary/components/dsc-badge" */ './components/dscBadge.vue'
             ),
     },
     data() {
@@ -128,6 +129,7 @@ export default Vue.extend<
             sort: 'total',
             sortDir: 'desc',
             search: '',
+            showAverage: true,
         } as DailyCreditsSummary;
     },
     props: {
@@ -197,6 +199,14 @@ export default Vue.extend<
         $m(key, args) {
             return this.$t(`modules.dailyCreditsSummary.${key}`, args);
         },
+    },
+    mounted() {
+        this.$store
+            .dispatch('settings/getSetting', {
+                moduleId: 'dailyCreditsSummary',
+                settingId: 'showAverage',
+            })
+            .then(showAverage => (this.showAverage = showAverage));
     },
 });
 </script>

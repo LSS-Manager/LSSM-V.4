@@ -1,4 +1,10 @@
 {
 	"description": "Summarises the daily overview in categories so you can get a quick overview of what you got money for.",
-	"name": "Credit summary"
+	"name": "Credit summary",
+	"settings": {
+		"showAverage": {
+			"description": "Shows the average credits for each category.",
+			"name": "show average"
+		}
+	}
 }

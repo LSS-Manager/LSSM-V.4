@@ -1,4 +1,10 @@
 {
 	"description": "Fasst die Tagesübersicht in Kategorien zusammen, damit du einen schnellen Überblick bekommst, für was du Geld bekommen hast.",
-	"name": "Creditszusammenfassung"
+	"name": "Creditszusammenfassung",
+	"settings": {
+		"showAverage": {
+			"description": "Zeigt in den Badges an, wie viele Credits jede Kategorie im Durchschnitt gebracht hat.",
+			"name": "Durchschnitt anzeigen"
+		}
+	}
 }

@@ -7,6 +7,7 @@ export interface DailyCreditsSummary {
     sort: 'desc' | 'total' | 'amount';
     sortDir: 'asc' | 'desc';
     search: '';
+    showAverage: boolean;
 }
 
 export interface Category {
