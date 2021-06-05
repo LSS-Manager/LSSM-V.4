@@ -1,10 +1,14 @@
 <template>
-    <div>
+    <div style="display: flex;">
         <span
             class="glyphicon glyphicon-info-sign"
             @click="hidden = !hidden"
         ></span>
-        <div class="row" :class="{ 'alert alert-info': !hidden }">
+        <div
+            class="row"
+            :class="{ 'alert alert-info': !hidden }"
+            :style="`margin-left: ${hidden ? 0 : -15}px;`"
+        >
             <button
                 v-if="!hidden"
                 class="close"
