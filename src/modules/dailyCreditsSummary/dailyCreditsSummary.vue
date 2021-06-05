@@ -1,14 +1,10 @@
 <template>
-    <div style="display: flex;">
+    <div class="dcs-wrapper">
         <span
             class="glyphicon glyphicon-info-sign"
             @click="hidden = !hidden"
         ></span>
-        <div
-            class="row"
-            :class="{ 'alert alert-info': !hidden }"
-            :style="`margin-left: ${hidden ? 0 : -15}px;`"
-        >
+        <div class="row" :class="{ 'alert alert-info': !hidden }">
             <button
                 v-if="!hidden"
                 class="close"
@@ -22,7 +18,7 @@
             </h4>
             <div
                 :class="{ 'col-lg-6': !hidden, 'col-lg-12': hidden }"
-                style="display: flex; flex-wrap: wrap"
+                class="badges"
             >
                 <dsc-badge
                     v-for="type in sorted"
@@ -216,11 +212,20 @@ export default Vue.extend<
 </script>
 
 <style scoped lang="sass">
-th,
 .glyphicon
-	cursor: pointer
+    cursor: pointer
 
-.alert
-	&.external
-		margin: 0
+.dcs-wrapper
+    display: flex
+
+    > .row
+        margin-left: 0
+
+        &.alert-info
+            margin-left: -15px
+            width: 100%
+
+        .badges
+            display: flex
+            flex-wrap: wrap
 </style>
