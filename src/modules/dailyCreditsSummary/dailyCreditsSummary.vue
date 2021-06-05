@@ -126,7 +126,7 @@ export default Vue.extend<
     data() {
         return {
             hidden: true,
-            sort: 'total',
+            sort: 'desc',
             sortDir: 'desc',
             search: '',
             showAverage: true,
