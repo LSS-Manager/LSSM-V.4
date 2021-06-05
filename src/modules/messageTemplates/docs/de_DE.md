@@ -9,7 +9,7 @@ In den Einstellungen lassen sich verschiedene Templates anlegen:
 Dabei kannst du den Platzhalter <code><span>{{</span>username<span>}}</span></code> verwenden, dieser wird **bei neuen Nachrichten** gegen den Nutzernamen des Empfängers ausgetauscht.
 
 :::tip Warum geht das nur bei neuen Nachrichten?
-Ganz einfach: Aktuell haben wir leider keine Möglichkeit bei existierenden Konversationen, den Empfänger eindeutig zu bestimmen!
+Ganz einfach: Aktuell haben wir leider keine Möglichkeit bei existierenden Konversationen den Empfänger eindeutig zu bestimmen!
 :::
 
 Bei neuen Nachrichten sieht das dann beispielsweise so aus:
