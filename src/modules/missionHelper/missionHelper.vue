@@ -548,6 +548,7 @@ export default Vue.extend<
                 k9_only_if_needed: false,
                 bucket_only_if_needed: false,
                 hide_battalion_chief_vehicles: false,
+                max_civil_patrol_replace_police_cars: false,
                 bike_police_only_if_needed: false,
                 noVehicleRequirements: [],
                 hoverTip: false,
@@ -799,6 +800,14 @@ export default Vue.extend<
                         this.settings.bike_police_only_if_needed
                     )
                         vehicleName = 'bike_police_only_if_needed';
+                    if (
+                        !isMaxReq &&
+                        vehicle === 'civil_patrol' &&
+                        missionSpecs?.additional
+                            .max_civil_patrol_replacing_police_cars &&
+                        this.settings.max_civil_patrol_replace_police_cars
+                    )
+                        vehicleName = 'max_civil_patrol_replace_police_cars';
                     if (
                         !isMaxReq &&
                         this.settings.hide_battalion_chief_vehicles &&

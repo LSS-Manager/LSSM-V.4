@@ -58,6 +58,7 @@
 			"boats": "Boot | Boote",
 			"bucket_only_if_needed": "Außenlastbehälter (allgemein) (nur wenn aktiver Ausbau vorhanden)",
 			"civil_patrolcar": "Zivilstreifenwagen",
+			"max_civil_patrol_replace_police_cars": "Zivilstreifenwagen kann Funkstreifenwagen ersetzen",
 			"diver_units": "GW-Taucher oder Tauchkraftwagen",
 			"firetrucks": "Löschfahrzeug | Löschfahrzeuge",
 			"fukw": "FüKw",

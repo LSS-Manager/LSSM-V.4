@@ -23,6 +23,10 @@
 			"description": "Zeigt an, wenn der Außenlastbehälter nur gefordert wird, wenn vorhanden.",
 			"title": "Optionale Außenlastbehälter"
 		},
+		"max_civil_patrol_replace_police_cars": {
+			"description": "Zeigt an, wieviele Zivilstreifenwagen, Funkstreifenwagen ersetzen können",
+			"title": "Anzeige ob FuStW ersetzt werde können"
+		},
 		"chances": {
 			"100": {
 				"description": "Zeigt auch Wahrscheinlichkeiten von 100% an.",
