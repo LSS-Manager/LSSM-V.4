@@ -319,7 +319,7 @@ export default ((MODULE_ID, LSSM, $m) => {
                   max_civil_patrol_replace_police_cars: <Toggle>{
                       type: 'toggle',
                       default: false,
-					  disabled: () => true,
+                      disabled: () => true,
                   },
               }
             : null),
