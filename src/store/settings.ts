@@ -61,11 +61,9 @@ export default {
                     moduleSettings
                 )) {
                     await dispatch('setSetting', {
-                        value: {
-                            moduleId,
-                            settingId,
-                            value,
-                        },
+                        moduleId,
+                        settingId,
+                        value,
                     });
                 }
             }
