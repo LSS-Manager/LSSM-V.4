@@ -4,7 +4,7 @@
 	"settings": {
 		"showAverage": {
 			"description": "Geeft in de badges aan hoeveel credits je gemiddeld hebt verdiend in die categorie.",
-			"name": "Gemiddelde weergeven"
+			"title": "Gemiddelde weergeven"
 		}
 	}
 }

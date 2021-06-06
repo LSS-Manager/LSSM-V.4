@@ -67,7 +67,7 @@
 		},
 		"max_civil_patrol_replace_police_cars": {
 			"description": "Zeigt an, wieviele Zivilstreifenwagen, Funkstreifenwagen ersetzen können",
-			"title": "Anzeige ob FuStW ersetzt werde können"
+			"title": "Anzeige ob FuStW ersetzt werden können"
 		},
 		"multifunctionals": {
 			"battalion_chief_vehicles": {

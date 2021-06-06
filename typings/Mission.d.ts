@@ -19,6 +19,7 @@ interface Additional {
     need_helicopter_bucket_only_if_present?: boolean;
     need_elw_police_only_if_present?: boolean;
     need_police_horse_only_if_present?: boolean;
+	max_civil_patrol_replacing_police_cars?: number;
 
     // Guard missions
     duration?: number;
@@ -90,6 +91,7 @@ interface Chances {
     boats?: number; // de_DE: Boote
     elw_airport?: number;
     elw_police?: number;
+	civil_patrolcar?: number;
 
     // Patients
     nef?: number;
@@ -213,6 +215,7 @@ interface Requirements {
     hazard_response_secondary?: number;
     emergency_welfare?: number;
     atv_carrier?: number;
+	civil_patrolcar?: number;
 
     // General:
     [key: string]: number | undefined;

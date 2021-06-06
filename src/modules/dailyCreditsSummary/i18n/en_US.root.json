@@ -4,7 +4,7 @@
 	"settings": {
 		"showAverage": {
 			"description": "Shows the average credits for each category.",
-			"name": "show average"
+			"title": "show average"
 		}
 	}
 }
