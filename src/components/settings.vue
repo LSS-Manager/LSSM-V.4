@@ -456,19 +456,24 @@ export default Vue.extend<
             ] as AppendableList).value.enabled = state;
             this.update(moduleId, settingId);
         },
-        save() {
-            return this.$store
-                .dispatch('settings/saveSettings', {
-                    settings: this.settings,
-                })
-                .then(() => {
-                    this.settings = cloneDeep(
-                        this.$store.state.settings.settings
-                    );
-                    this.startSettings = cloneDeep(this.settings);
-                    this.update();
-                    this.getExportData();
-                });
+        async save() {
+            for (const [moduleId, settings] of Object.entries(
+                this.changeList
+            )) {
+                for (const [settingId, { current }] of Object.entries(
+                    settings
+                )) {
+                    await this.$store.dispatch('settings/setSetting', {
+                        moduleId,
+                        settingId,
+                        value: current,
+                    });
+                }
+            }
+            this.settings = cloneDeep(this.$store.state.settings.settings);
+            this.startSettings = cloneDeep(this.settings);
+            this.update();
+            this.getExportData();
         },
         discard() {
             this.settings = cloneDeep(this.startSettings);
