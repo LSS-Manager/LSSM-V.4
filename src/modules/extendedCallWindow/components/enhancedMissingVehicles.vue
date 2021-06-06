@@ -363,11 +363,10 @@ export default Vue.extend<
             .then(hoverTip => (this.hoverTip = hoverTip));
     },
     mounted() {
-        const vehicleGroups = (this.$t(
-            'modules.extendedCallWindow.enhancedMissingVehicles.vehiclesByRequirement'
-        ) as unknown) as {
+        const vehicleGroups = (this.$m('vehiclesByRequirement') as unknown) as {
             [group: string]: number[];
         };
+        const water = this.$m('water').toString();
         const categoriesById = {} as {
             [id: number]: string[];
         };
@@ -381,6 +380,19 @@ export default Vue.extend<
         if (!vehicleList) return;
         const amountObserver = new MutationObserver(() => {
             this.requirements.forEach(req => (req.selected = 0));
+            const waterReq = this.requirements.find(
+                ({ vehicle }) => vehicle === water
+            );
+            if (waterReq) {
+                waterReq.selected = parseInt(
+                    document
+                        .querySelector<HTMLDivElement>(
+                            'div.progress-bar-mission-window-water[id^="mission_water_bar_selected_"]'
+                        )
+                        ?.textContent?.match(/\d{1,3}([,.]\d{3})*/)?.[0]
+                        ?.replace(/[,.]/g, '') ?? '0'
+                );
+            }
             vehicleList
                 .querySelectorAll<HTMLInputElement>('.vehicle_checkbox:checked')
                 .forEach(vehicle => {
