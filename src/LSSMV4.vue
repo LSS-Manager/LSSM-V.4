@@ -173,6 +173,7 @@ body.dark
 .vue-tablist
     list-style: none
     display: flex
+    flex-flow: wrap
     padding-left: 0
     border-bottom: 1px solid #e2e2e2
 
