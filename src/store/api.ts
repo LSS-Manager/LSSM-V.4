@@ -169,12 +169,30 @@ const set_api_storage = <API extends StorageAPIKey>(
             },
             { root: true }
         ).then();
+        if (key === 'vehicles') {
+            updateVehicleStates(
+                value as StorageGetterReturn<'vehicles'>['value'],
+                commit
+            );
+        }
     } catch {
         localStorage.setItem(
             STORAGE_DISABLED_KEY,
             JSON.stringify([...disabled, key])
         );
     }
+};
+
+const updateVehicleStates = (
+    vehicles: StorageGetterReturn<'vehicles'>['value'],
+    commit: APIActionStoreParams['commit']
+) => {
+    const states: Record<number, number> = {};
+    vehicles?.forEach(({ fms_show }) => {
+        if (!states.hasOwnProperty(fms_show)) states[fms_show] = 0;
+        states[fms_show]++;
+    });
+    commit('setVehicleStates', states);
 };
 
 export default {
@@ -238,10 +256,9 @@ export default {
                 [status: number]: number;
             };
             const states_show = {} as { [state: number]: number };
-            Object.keys(states).forEach(
-                key =>
-                    (states_show[fmsReal2Show[parseInt(key)]] =
-                        states[parseInt(key)])
+            Object.entries(fmsReal2Show).forEach(
+                ([real, show]) =>
+                    (states_show[show] = states[parseInt(real)] ?? 0)
             );
             state.vehicleStates = states_show;
         },
