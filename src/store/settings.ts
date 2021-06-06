@@ -136,21 +136,23 @@ export default {
             { moduleId, settingId, value }: SettingsSet
         ) {
             commit('modifyValue', { moduleId, settingId, value });
-            dispatch('getModule', moduleId).then(async module => {
-                await dispatch(
-                    'storage/set',
-                    {
-                        key: `settings_${moduleId}`,
-                        value: {
-                            ...module,
-                            [settingId]: value,
+            return new Promise(resolve =>
+                dispatch('getModule', moduleId).then(module => {
+                    dispatch(
+                        'storage/set',
+                        {
+                            key: `settings_${moduleId}`,
+                            value: {
+                                ...module,
+                                [settingId]: value,
+                            },
                         },
-                    },
-                    {
-                        root: true,
-                    }
-                );
-            });
+                        {
+                            root: true,
+                        }
+                    ).then(resolve);
+                })
+            );
         },
         async getSetting(
             { state, dispatch }: SettingsActionStoreParams,
