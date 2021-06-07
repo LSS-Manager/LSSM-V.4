@@ -35,7 +35,7 @@
 	},
 	"@types/node": {
 		"url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/node",
-		"version": "15.12.0"
+		"version": "15.12.1"
 	},
 	"@types/node-fetch": {
 		"version": "2.5.10"
@@ -108,7 +108,7 @@
 	"eslint": {
 		"icon": "https://eslint.org/assets/img/favicon.512x512.png",
 		"url": "https://eslint.org",
-		"version": "7.27.0"
+		"version": "7.28.0"
 	},
 	"eslint-plugin-prettier": {
 		"icon": "https://prettier.io/icon.png",
