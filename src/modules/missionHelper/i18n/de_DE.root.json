@@ -65,6 +65,10 @@
 			"description": "Zeigt an, wenn der DHuFüKW nur gefordert wird, wenn vorhanden.",
 			"title": "Optionale Diensthunde"
 		},
+		"max_civil_patrol_replace_police_cars": {
+			"description": "Zeigt an, wieviele Zivilstreifenwagen, Funkstreifenwagen ersetzen können",
+			"title": "Anzeige ob FuStW ersetzt werden können"
+		},
 		"multifunctionals": {
 			"battalion_chief_vehicles": {
 				"description": "Zieht die Zahl der benötigten ELW 2 von den ELW 1 ab und blendet ELW 1 aus, falls die Anzahl unter 0 sinkt.",

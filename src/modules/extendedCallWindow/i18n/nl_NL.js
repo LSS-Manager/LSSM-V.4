@@ -94,6 +94,7 @@ module.exports = {
             pushLeft: 'Toon deze box op de originele plek',
         },
         selected: 'Geselecteerd',
+        water: 'L. water',
         vehiclesByRequirement: {
             [/^Tankautospuit(en)?$/]: [
                 0,
