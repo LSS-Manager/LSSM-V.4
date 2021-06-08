@@ -221,7 +221,7 @@
 	"vue": {
 		"icon": "https://vuejs.org/images/logo.png",
 		"url": "https://github.com/vuejs/vue#readme",
-		"version": "2.6.13"
+		"version": "2.6.14"
 	},
 	"vue-i18n": {
 		"icon": "https://kazupon.github.io/vue-i18n/vue-i18n-logo.png",
@@ -260,7 +260,7 @@
 	"vue-template-compiler": {
 		"icon": "https://vuejs.org/images/logo.png",
 		"url": "https://github.com/vuejs/vue/tree/dev/packages/vue-template-compiler#readme",
-		"version": "2.6.13"
+		"version": "2.6.14"
 	},
 	"vuepress": {
 		"icon": "https://vuepress.vuejs.org/hero.png",
