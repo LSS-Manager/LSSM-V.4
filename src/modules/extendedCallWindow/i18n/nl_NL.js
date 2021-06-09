@@ -125,7 +125,7 @@ module.exports = {
                 49,
                 50,
             ],
-            [/^WOA of BA-RB$/]: [36, 67],
+            [/^WOA( of BA-RB)?$/]: [36, 67],
             [/^Crashtender(s)?$/]: [41, 42, 43],
             [/^AFO\/OSC('s)?$/]: [44],
             [/^Voorlichter(s)?$/]: [56],
