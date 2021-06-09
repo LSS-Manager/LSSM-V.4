@@ -59,7 +59,8 @@
 			"swat_armored_vehicle": "TOG Armoured Vehicle | TOG Armoured Vehicles",
 			"swat_suv": "TOG SUV | TOG SUVs",
 			"water_rescue": "SES Vehicle | SES Vehicles",
-			"water_tankers": "Water Carrier | Water Carriers"
+			"water_tankers": "Water Carrier | Water Carriers",
+			"kdow_orgl": "Paramedic Supervisor | Paramedic Supervisors"
 		},
 		"multifunctionals": {
 			"battalion_chief_vehicles": {
