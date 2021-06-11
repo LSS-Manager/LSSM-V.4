@@ -4,8 +4,9 @@
 	"settings": {
 		"name": "Naam",
 		"subject": "Onderwerp",
-		"template": "Template (gebruik {{username}}, om de gebruikersnaam van een speler in te voegen)",
-		"templates": {
+		"template": "Template (Variabelen (Zie docs): {{username}}, {{today[+n]}})",
+		"templates": {			
+			"description": "Voor de templates kan je variabelen gebruiken. Kijk hiervoor in onze <a class=\"lightbox-open\" href=\"{wiki}modules/messageTemplates.html#variabelen\">Wiki</a>.",
 			"title": "Templates"
 		}
 	}
