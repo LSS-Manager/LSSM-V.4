@@ -116,7 +116,7 @@ const emptyFolders = () => {
     });
 };
 
-const processModules = async () => {
+const processModules = async (shortVersion: string) => {
     const HEAD_EMOJIS = {
         alpha: '🧑‍🔬',
         dev: '🐛',
@@ -319,6 +319,10 @@ ${docsLangs
             label: `${game.flag} ${game.name}`,
             nav: [
                 {
+                    text: `v.${shortVersion}`,
+                    link: `https://github.com/${config.github.repo}/releases/tag/v.${shortVersion}`,
+                },
+                {
                     text: 'Discord',
                     link: config.discord.invite,
                 },
@@ -427,8 +431,11 @@ module.exports = async () => {
     updateConfigs();
     emptyFolders();
     setReadmeHeads();
-    const { locales, themeLocales, noMapkitModules } = await processModules();
     const { version: stable } = await fetchStableVersion();
+    const shortVersion = stable.match(/4(\.(x|\d+)){2}/)?.[0] ?? '4.x.x';
+    const { locales, themeLocales, noMapkitModules } = await processModules(
+        shortVersion
+    );
     const vuepressConfig = {
         title: 'LSS-Manager V.4 Wiki',
         description: 'The Wiki for the LSS-Manager',
@@ -447,6 +454,7 @@ module.exports = async () => {
             sluglify: '',
             lineNumbers: true,
         },
+        theme: 'yuu',
         themeConfig: {
             logo: '/img/lssm.png',
             variables: {
@@ -456,7 +464,7 @@ module.exports = async () => {
                 versions: {
                     beta: version,
                     stable,
-                    short: stable.match(/4(\.(x|\d+)){2}/)?.[0] ?? '4.x',
+                    short: shortVersion,
                 },
                 browsers: config.browser,
                 noMapkitModules,
@@ -465,6 +473,13 @@ module.exports = async () => {
             activeHeaderLinks: true,
             repo: config.github.repo,
             editLinks: false,
+            yuu: {
+                defaultDarkTheme: true,
+                disableThemeIgnore: true,
+                labels: {
+                    darkTheme: '☀️ / 🌜',
+                },
+            },
         },
         locales,
         plugins: {
@@ -483,7 +498,7 @@ module.exports = async () => {
             },
             'vuepress-plugin-smooth-scroll': {},
             'vuepress-plugin-zooming': {
-                selector: 'img:not([data-prevent-zooming])',
+                selector: 'img:not([data-prevent-zooming]):not(.logo)',
                 options: {
                     bgColor: 'black',
                 },

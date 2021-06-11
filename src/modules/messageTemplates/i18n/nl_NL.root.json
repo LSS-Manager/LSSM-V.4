@@ -1,0 +1,12 @@
+{
+	"description": "Maak je eigen templates voor privé berichten.",
+	"name": "Berichten-templates",
+	"settings": {
+		"name": "Naam",
+		"subject": "Onderwerp",
+		"template": "Template (gebruik {{username}}, om de gebruikersnaam van een speler in te voegen)",
+		"templates": {
+			"title": "Templates"
+		}
+	}
+}

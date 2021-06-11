@@ -512,8 +512,16 @@
                     v-show="show_map"
                     ref="map"
                     :id="`profile-${profile.id}-map-${lightbox.creation}`"
-                    :start-lat="profile.buildings[0].latitude"
-                    :start-long="profile.buildings[0].longitude"
+                    :start-lat="
+                        profile.buildings.length
+                            ? profile.buildings[0].latitude
+                            : void 0
+                    "
+                    :start-long="
+                        profile.buildings.length
+                            ? profile.buildings[0].longitude
+                            : void 0
+                    "
                     :layers="
                         Object.entries(mapLayerGroups)
                             .filter(
@@ -882,17 +890,6 @@ export default Vue.extend<
         },
     },
     mounted() {
-        this.$el.addEventListener('click', e => {
-            const target = (e.target as HTMLElement)?.closest<
-                HTMLAnchorElement | HTMLButtonElement
-            >('a, button');
-            const href = target?.getAttribute('href');
-            if (!target || !href) return;
-            e.preventDefault();
-            if (target.hasAttribute('lightbox-open'))
-                return window.lightboxOpen(href);
-            else this.$set(this.lightbox, 'src', href);
-        });
         // eslint-disable-next-line @typescript-eslint/no-this-alias
         const Profile = this;
         this.$store.dispatch('event/addListener', {

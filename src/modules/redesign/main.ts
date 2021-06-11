@@ -13,6 +13,7 @@ export default (async (LSSM, MODULE_ID) => {
             '^/verband/avatar/?$': 'alliance_avatar',
             '^/alliances/?$': 'alliances',
             '^/schoolings/?$': 'schoolings',
+            '^/verband/bewerbungen/?$': 'bewerbungen',
             '^/verband/bereitstellungsraume/?$': 'verband/bsr',
             '^/alliances/\\d+/edit/?$': 'verband/edit_name',
             '^/veband/text/edit/?$': 'verband/edit_text',

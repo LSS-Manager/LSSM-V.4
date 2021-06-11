@@ -92,6 +92,7 @@ module.exports = {
             pushLeft: 'show this box at original position',
         },
         selected: 'Selected',
+        water: 'gal. Water',
         vehiclesByRequirement: {
             [/^firetruck(s)?$/]: [0, 1, 13, 18, 30, 33, 48],
             [/^platform truck(s)?$/]: [2, 13],

@@ -1,0 +1,13 @@
+{
+	"description": "Write your own templates for messages in private conversations.",
+	"name": "Message-Templates",
+	"settings": {
+		"name": "Name",
+		"subject": "Subject",
+		"template": "Template (variables (see wiki): {{username}}, {{today[+n]}})",
+		"templates": {
+			"description": "Variables are available for the templates. Please have a look at our <a class=\"lightbox-open\" href=\"{wiki}modules/messageTemplates.html#variables\">Wiki</a>.",
+			"title": "Templates"
+		}
+	}
+}

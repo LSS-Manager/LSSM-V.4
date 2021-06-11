@@ -14,7 +14,9 @@ const modules = {
             title: 'Unsaved changes',
             text:
                 'You made changes in the AppStore that have not yet been saved. Reset them or save them to close the AppStore.',
-            close: 'Close message',
+            abort: 'Cancel',
+            saveAndExit: 'Save and Exit',
+            exit: 'Exit without saving',
         },
     },
     settings: {
@@ -43,7 +45,9 @@ const modules = {
             title: 'Unsaved changes',
             text:
                 'You have made changes in the settings that are not yet saved. Reset them, discard them or save them to close the settings.',
-            close: 'Close message',
+            abort: 'Cancel',
+            saveAndExit: 'Save and Exit',
+            exit: 'Exit without saving',
         },
         changeList: {
             true: 'On',
@@ -639,7 +643,7 @@ export default {
             maxBuildings: 4,
             maxLevel: 0,
             special:
-                'You can station as many of your own vehicles as you like at a staging area, members of the association can use the room. A staging area remains for 24 hours, but you can reset it to 24 hours at any time.With Premium Account you can have 8 stating areas at the same time',
+                'You can station as many of your own vehicles as you like at a staging area, members of the association can use the room. A staging area remains for 24 hours, but you can reset it to 24 hours at any time.With Premium Account you can have 8 staging areas at the same time',
             startPersonnel: 0,
             startVehicles: [],
             maxBuildingsFunction: (): number => 4,

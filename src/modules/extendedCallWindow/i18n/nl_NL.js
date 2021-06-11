@@ -94,6 +94,7 @@ module.exports = {
             pushLeft: 'Toon deze box op de originele plek',
         },
         selected: 'Geselecteerd',
+        water: 'L. water',
         vehiclesByRequirement: {
             [/^Tankautospuit(en)?$/]: [
                 0,
@@ -124,7 +125,7 @@ module.exports = {
                 49,
                 50,
             ],
-            [/^WOA of BA-RB$/]: [36, 67],
+            [/^WOA( of BA-RB)?$/]: [36, 67],
             [/^Crashtender(s)?$/]: [41, 42, 43],
             [/^AFO\/OSC('s)?$/]: [44],
             [/^Voorlichter(s)?$/]: [56],
@@ -143,7 +144,7 @@ module.exports = {
             [/^Dienstbus(sen)? Arrestantenvervoer$/]: [58],
             [/^Er ontbre(ekt|ken):$/]: [],
             [/^Arrestanten zullen vervoerd worden$/]: [],
-            [/^Strandvoertuig(en)?$/]: [65, 66],
+            [/^(S|s)trandvoertuig(en)?$/]: [65, 66],
         },
     },
     tailoredTabs: {

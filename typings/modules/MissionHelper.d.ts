@@ -77,6 +77,7 @@ export interface MissionHelper {
         followup: boolean;
         k9_only_if_needed: boolean;
         bucket_only_if_needed: boolean;
+        max_civil_patrol_replace_police_cars: boolean;
         noVehicleRequirements: string[];
         hoverTip: boolean;
 
