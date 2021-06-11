@@ -8,7 +8,7 @@
 	"awards": {
 		"bronze": "Brons",
 		"gold": "Goud",
-		"max": "15",
+		"max": "16",
 		"silver": "Zilver",
 		"title": "Awards",
 		"title_amounts": "{sum} van {max} awards"
