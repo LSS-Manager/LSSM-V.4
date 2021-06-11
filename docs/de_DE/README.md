@@ -43,8 +43,8 @@ Sofern du Tampermonkey in deinem Browser noch nicht installiert hast, musst du d
 
 Für sonstige Browser kann man Tampermonkey auf [tampermonkey.net](https://www.tampermonkey.net/) herunterladen.
 
-::: warning
-Bitte beachte, dass wir ältere Browser, sowie mobile Browser und Microsoft Edge bzw. Internet Explorer nicht offiziell unterstützen. Der Support für diese Browser ist also weder garantiert, noch wahrscheinlich.
+::: warning Hinweis
+Bitte beachte, dass wir ältere Browser, sowie mobile Browser, Safari und Microsoft Edge bzw. Internet Explorer nicht offiziell unterstützen. Der Support für diese Browser ist also weder garantiert, noch wahrscheinlich.
 :::
 
 ### Schritt 2: Userscript

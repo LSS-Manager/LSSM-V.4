@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="dcs-wrapper">
         <span
             class="glyphicon glyphicon-info-sign"
             @click="hidden = !hidden"
@@ -18,7 +18,7 @@
             </h4>
             <div
                 :class="{ 'col-lg-6': !hidden, 'col-lg-12': hidden }"
-                style="display: flex; flex-wrap: wrap"
+                class="badges"
             >
                 <dsc-badge
                     v-for="type in sorted"
@@ -28,6 +28,7 @@
                     :amount="type.amount"
                     :total="type.total"
                     :desc="type.desc"
+                    :show-average="showAverage"
                 ></dsc-badge>
             </div>
             <div v-if="!hidden" class="col-lg-6">
@@ -119,15 +120,16 @@ export default Vue.extend<
             ),
         dscBadge: () =>
             import(
-                /* webpackChunkName: "modules/dailyCreditsSummary/components/enhanced-table" */ './components/dscBadge.vue'
+                /* webpackChunkName: "modules/dailyCreditsSummary/components/dsc-badge" */ './components/dscBadge.vue'
             ),
     },
     data() {
         return {
             hidden: true,
-            sort: 'total',
-            sortDir: 'desc',
+            sort: 'desc',
+            sortDir: 'asc',
             search: '',
+            showAverage: true,
         } as DailyCreditsSummary;
     },
     props: {
@@ -198,15 +200,32 @@ export default Vue.extend<
             return this.$t(`modules.dailyCreditsSummary.${key}`, args);
         },
     },
+    mounted() {
+        this.$store
+            .dispatch('settings/getSetting', {
+                moduleId: 'dailyCreditsSummary',
+                settingId: 'showAverage',
+            })
+            .then(showAverage => (this.showAverage = showAverage));
+    },
 });
 </script>
 
 <style scoped lang="sass">
-th,
 .glyphicon
-	cursor: pointer
+    cursor: pointer
 
-.alert
-	&.external
-		margin: 0
+.dcs-wrapper
+    display: flex
+
+    > .row
+        margin-left: 0
+
+        &.alert-info
+            margin-left: -15px
+            width: 100%
+
+        .badges
+            display: flex
+            flex-wrap: wrap
 </style>

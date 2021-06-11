@@ -1,3 +1,4 @@
 {
-	"location": "^/credits/daily/?$"
+	"location": "^/credits/daily/?$",
+	"settings": true
 }

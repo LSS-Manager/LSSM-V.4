@@ -10,8 +10,11 @@
             class="input-group-addon"
             :class="{ 'text-success': total > 0, 'text-danger': total < 0 }"
         >
-            {{ total.toLocaleString() }} ({{ amount.toLocaleString() }}x,
-            {{ Math.round(total / amount).toLocaleString() }}Ø)
+            {{ total.toLocaleString() }} ({{ amount.toLocaleString() }}x
+            <template v-if="showAverage">
+                , {{ Math.round(total / amount).toLocaleString() }}Ø
+            </template>
+            )
         </span>
     </div>
 </template>
@@ -40,6 +43,10 @@ export default Vue.extend({
         },
         amount: {
             type: Number,
+            required: true,
+        },
+        showAverage: {
+            type: Boolean,
             required: true,
         },
     },

@@ -5,6 +5,15 @@
         :no-title-hide="true"
         :no-modal="noModal"
     >
+        <template v-slot:control-buttons v-if="!noModal">
+            <span
+                class="toggle-title"
+                @click="copyUrl()"
+                :title="$m('copy_url', { url: fullUrl })"
+            >
+                <i :id="cliboardIconId" class="fas fa-clipboard"></i>
+            </span>
+        </template>
         <div
             v-show="type && type !== 'default'"
             class="redesign-wrapper"
@@ -50,6 +59,16 @@
                 :get-setting="getSetting()"
                 :set-setting="setSetting()"
             ></Awards>
+            <Bewerbungen
+                v-if="type === 'bewerbungen'"
+                :bewerbungen="data"
+                :url="url"
+                :lightbox="this"
+                :$m="$m"
+                :$mc="$mc"
+                :get-setting="getSetting"
+                :set-setting="setSetting"
+            ></Bewerbungen>
             <Credits
                 v-else-if="type.startsWith('credits/') || type === 'coins/list'"
                 :data="data"
@@ -210,6 +229,10 @@ export default Vue.extend<
             import(
                 /*webpackChunkName: "modules/redesign/windows/awards"*/ './awards.vue'
             ),
+        Bewerbungen: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/bewerbungen"*/ './bewerbungen.vue'
+            ),
         Credits: () =>
             import(
                 /*webpackChunkName: "modules/redesign/windows/credits"*/ './credits.vue'
@@ -254,6 +277,10 @@ export default Vue.extend<
     data() {
         return {
             faSyncAlt,
+            cliboardIconId: this.$store.getters.nodeAttribute(
+                'redesign-clipboard-icon',
+                true
+            ),
             type: 'default',
             data: { authenticity_token: '' },
             html: '',
@@ -297,6 +324,9 @@ export default Vue.extend<
     computed: {
         loaderOffset() {
             return (100 - this.size) / 2;
+        },
+        fullUrl() {
+            return new URL(this.urlProp, window.location.origin).toString();
         },
         src: {
             get() {
@@ -543,6 +573,20 @@ export default Vue.extend<
                     this.$store.dispatch('event/dispatchEvent', event)
                 );
         },
+        copyUrl() {
+            navigator.clipboard.writeText(this.fullUrl).then(() => {
+                this.$el
+                    .querySelector(`#${this.cliboardIconId}`)
+                    ?.setAttribute('data-icon', 'check');
+                window.setTimeout(
+                    () =>
+                        this.$el
+                            .querySelector(`#${this.cliboardIconId}`)
+                            ?.setAttribute('data-icon', 'clipboard'),
+                    1000
+                );
+            });
+        },
     },
     beforeMount() {
         this.$store
@@ -565,11 +609,38 @@ export default Vue.extend<
         );
     },
     mounted() {
+        this.$store.commit('useFontAwesome');
         window['lssmv4-redesign-lightbox'] = this;
         const trySetIframe = () =>
             this.$refs.iframe
                 ? this.$nextTick(() => {
                       this.$set(this, 'src', this.url);
+                      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                      // @ts-ignore // Yes, Typescript does not understand that a 'mouseup' eventListener results in a MouseEvent…
+                      this.$el.addEventListener('mouseup', (e: MouseEvent) => {
+                          const target = (e.target as HTMLElement)?.closest<
+                              HTMLAnchorElement | HTMLButtonElement
+                          >('a, button');
+                          const href = target?.getAttribute('href');
+                          if (!target || !href) return;
+                          e.preventDefault();
+                          if (e.ctrlKey || e.button === 1)
+                              return window.open(href, '_blank');
+                          if (
+                              e.button === 0 &&
+                              target.hasAttribute('lightbox-open')
+                          )
+                              return window.lightboxOpen(href);
+                          else this.$set(this, 'src', href);
+                      });
+                      this.$el.addEventListener('click', e => {
+                          const target = (e.target as HTMLElement)?.closest<
+                              HTMLAnchorElement | HTMLButtonElement
+                          >('a, button');
+                          const href = target?.getAttribute('href');
+                          if (!target || !href) return;
+                          e.preventDefault();
+                      });
                       window.addEventListener('popstate', () => {
                           const url = new URL(
                               window.location.href,

@@ -314,6 +314,15 @@ export default ((MODULE_ID, LSSM, $m) => {
                   },
               }
             : null),
+        ...(locale === 'de_DE'
+            ? {
+                  max_civil_patrol_replace_police_cars: <Toggle>{
+                      type: 'toggle',
+                      default: false,
+                      disabled: () => true,
+                  },
+              }
+            : null),
         ...(locale === 'nl_NL'
             ? {
                   bike_police_only_if_needed: <Toggle>{

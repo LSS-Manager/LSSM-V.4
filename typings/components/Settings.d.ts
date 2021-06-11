@@ -23,7 +23,7 @@ export interface SettingsMethods {
         moduleId: string,
         settingId: string
     ): void;
-    save(): void;
+    save(): Promise<void>;
     discard(): void;
     reset(): void;
     disabled(moduleId: string, settingId: string): boolean;

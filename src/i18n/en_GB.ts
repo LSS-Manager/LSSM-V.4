@@ -14,7 +14,9 @@ const modules = {
             title: 'Unsaved changes',
             text:
                 'You made changes in the AppStore that have not yet been saved. Reset them or save them to close the AppStore.',
-            close: 'Close message',
+            abort: 'Cancel',
+            saveAndExit: 'Save and Exit',
+            exit: 'Exit without saving',
         },
     },
     settings: {
@@ -43,7 +45,9 @@ const modules = {
             title: 'Unsaved changes',
             text:
                 'You have made changes in the settings that are not yet saved. Reset them, discard them or save them to close the settings.',
-            close: 'Close message',
+            abort: 'Cancel',
+            saveAndExit: 'Save and Exit',
+            exit: 'Exit without saving',
         },
         changeList: {
             true: 'On',
@@ -132,7 +136,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 3,
             special:
-                'Required once you have built 3 fire stations. A Areial Asset, very useful for fighting fires in high rises and rescuing people.',
+                'Required once you have built 3 fire stations. A Aerial Asset, very useful for fighting fires in high rises and rescuing people.',
         },
         3: {
             caption: 'Fire Officer',
@@ -142,7 +146,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 3,
             special:
-                'Required once you have built 6 fire stations. A small car used for transporting Station Manager+ to calls, not uncommon to see 6-8 of these at Major Incidents.',
+                'Required once you have built 6 fire stations. A small car used for transporting Station Managers+ to calls, not uncommon to see 6-8 of these at Major Incidents.',
         },
         4: {
             caption: 'Rescue Support Unit (RSU)',
@@ -172,7 +176,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 3,
             special:
-                'Required once you have built 7 fire stations. Used for conveying water to a fire, Very useful for ruarl fires.',
+                'Required once you have built 7 fire stations. Used for conveying water to a fire, Very useful for rural fires.',
         },
         7: {
             caption: 'HazMat Unit',
@@ -280,7 +284,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 9,
             special:
-                'To purchase with credits it requires the rank: Captain, <br>Lower ranked members can purchase the vehicle for 25 Coins. A Pump with extraction tools. Perfect for your Road Traffic Collsions.',
+                'To purchase with credits it requires the rank: Captain, <br>Lower ranked members can purchase the vehicle for 25 Coins. A Pump with extraction tools. Perfect for your Road Traffic Collisions.',
         },
         17: {
             caption: 'CARP',
@@ -290,7 +294,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 6,
             special:
-                'To purchase with credits it requires the rank: Captain, <br>Lower ranked members can purchase the vehicle for 25 Coins. A Pump with a Areial Asset on top, perfect for high rise fires and rescuing people form tall buildings ',
+                'To purchase with credits it requires the rank: Captain, <br>Lower ranked members can purchase the vehicle for 25 Coins. A Pump with a Aerial Asset on top, perfect for high rise fires and rescuing people form tall buildings ',
         },
         18: {
             caption: 'Co-Responder Vehicle',
@@ -388,7 +392,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 3,
             special:
-                'Work as a Water Carrier and Water Ladder. Used in ruarl areas to save money.',
+                'Work as a Water Carrier and Water Ladder. Used in rural areas to save money.',
         },
         27: {
             caption: 'PRV',
@@ -728,7 +732,7 @@ export default {
             maxBuildings: 4,
             maxLevel: 0,
             special:
-                'You can station as many of your own vehicles as you like at a staging area, members of the association can use the room. A staging area remains for 24 hours, but you can reset it to 24 hours at any time.With Premium Account you can have 8 stating areas at the same time',
+                'You can station as many of your own vehicles as you like at a staging area, members of the association can use the room. A staging area remains for 24 hours, but you can reset it to 24 hours at any time.With Premium Account you can have 8 staging areas at the same time',
             startPersonnel: 0,
             startVehicles: [],
             maxBuildingsFunction: (): number => 4,
