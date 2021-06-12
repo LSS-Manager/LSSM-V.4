@@ -44,7 +44,9 @@ const modules = {
             title: 'Niet opgeslagen wijzigingen',
             text:
                 'Je hebt aanpassingen gedaan die je nog niet hebt opgeslagen. Reset of sla de aanpassingen op om de instellingen te sluiten',
-            close: 'Sluit melding',
+            abort: 'Annuleren',
+            saveAndExit: 'Opslaan en sluiten',
+            exit: 'Sluiten zonder op te slaan',
         },
         changeList: {
             true: 'Aan',

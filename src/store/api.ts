@@ -188,9 +188,9 @@ const updateVehicleStates = (
     commit: APIActionStoreParams['commit']
 ) => {
     const states: Record<number, number> = {};
-    vehicles?.forEach(({ fms_show }) => {
-        if (!states.hasOwnProperty(fms_show)) states[fms_show] = 0;
-        states[fms_show]++;
+    vehicles?.forEach(({ fms_real }) => {
+        if (!states.hasOwnProperty(fms_real)) states[fms_real] = 0;
+        states[fms_real]++;
     });
     commit('setVehicleStates', states);
 };
@@ -435,16 +435,7 @@ export default {
                 })
                     .then(res => res.json())
                     .then(states => {
-                        commit('setVehicleStates', {
-                            ...Object.fromEntries(
-                                Object.entries(
-                                    ((window[PREFIX] as Vue).$t(
-                                        'fmsReal2Show'
-                                    ) as unknown) as Record<string, number>
-                                ).map(([, show]) => [show, 0])
-                            ),
-                            ...states,
-                        });
+                        commit('setVehicleStates', states);
                         resolve();
                     });
             });
