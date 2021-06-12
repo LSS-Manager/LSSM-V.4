@@ -171,6 +171,18 @@
                             @input="update(moduleId, settingId)"
                             :disabled="setting.isDisabled"
                         ></settings-text>
+                        <settings-textarea
+                            v-else-if="setting.type === 'textarea'"
+                            :name="setting.name"
+                            :placeholder="
+                                $t(
+                                    `modules.${moduleId}.settings.${settingId}.title`
+                                )
+                            "
+                            v-model="settings[moduleId][settingId].value"
+                            @input="update(moduleId, settingId)"
+                            :disabled="setting.isDisabled"
+                        ></settings-textarea>
                         <settings-toggle
                             v-else-if="setting.type === 'toggle'"
                             :name="setting.name"
@@ -299,6 +311,10 @@ export default Vue.extend<
         SettingsText: () =>
             import(
                 /* webpackChunkName: "components/setting/text" */ './setting/text.vue'
+            ),
+        SettingsTextarea: () =>
+            import(
+                /* webpackChunkName: "components/setting/textarea" */ './setting/textarea.vue'
             ),
         SettingsSelect: () =>
             import(
@@ -440,19 +456,24 @@ export default Vue.extend<
             ] as AppendableList).value.enabled = state;
             this.update(moduleId, settingId);
         },
-        save() {
-            this.$store
-                .dispatch('settings/saveSettings', {
-                    settings: this.settings,
-                })
-                .then(() => {
-                    this.settings = cloneDeep(
-                        this.$store.state.settings.settings
-                    );
-                    this.startSettings = cloneDeep(this.settings);
-                    this.update();
-                    this.getExportData();
-                });
+        async save() {
+            for (const [moduleId, settings] of Object.entries(
+                this.changeList
+            )) {
+                for (const [settingId, { current }] of Object.entries(
+                    settings
+                )) {
+                    await this.$store.dispatch('settings/setSetting', {
+                        moduleId,
+                        settingId,
+                        value: current,
+                    });
+                }
+            }
+            this.settings = cloneDeep(this.$store.state.settings.settings);
+            this.startSettings = cloneDeep(this.settings);
+            this.update();
+            this.getExportData();
         },
         discard() {
             this.settings = cloneDeep(this.startSettings);
@@ -619,6 +640,7 @@ export default Vue.extend<
     mounted() {
         this.getExportData();
         this.$store.commit('useFontAwesome');
+        (window[PREFIX] as Vue).$settings = this;
     },
 });
 </script>
@@ -626,8 +648,11 @@ export default Vue.extend<
 <style scoped lang="sass">
 @import 'src/sass/mixins/autoSizedGrid'
 
-.vue-tab[aria-selected="true"]
-    border-bottom-color: white !important
+.vue-tablist
+    flex-flow: wrap
+
+    .vue-tab[aria-selected="true"]
+        border-bottom-color: white !important
 .vue-tabpanel
     transition: 0.5s
 

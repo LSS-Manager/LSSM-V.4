@@ -33,6 +33,7 @@
             >
                 <font-awesome-icon :icon="faChevronUp"></font-awesome-icon>
             </span>
+            <slot name="control-buttons"></slot>
         </div>
         <slot></slot>
     </div>

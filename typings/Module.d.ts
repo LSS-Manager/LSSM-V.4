@@ -12,6 +12,9 @@ export type Module = { location: RegExp | string } & Partial<{
     noapp: boolean;
     noMapkit: boolean;
     settings: boolean;
+
+    // being generated in AppStore
+    description: string;
 }>;
 
 export interface Modules {

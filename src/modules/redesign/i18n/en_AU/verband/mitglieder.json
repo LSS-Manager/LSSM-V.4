@@ -1,0 +1,55 @@
+{
+	"amount": "{n} filtered player | {n} filtered players",
+	"credits": "total credits earned",
+	"discount": "discount",
+	"edit_caption": {
+		"save": "save"
+	},
+	"load": {
+		"next": "load next page",
+		"prev": "load previous page"
+	},
+	"name": "player",
+	"online": {
+		"subtitle": "Only online members are displayed!",
+		"titles": {
+			"blue": "{user} is offline and has been online in the last 30 days!",
+			"gray": "{user} is offline and was online in the last 7 days!",
+			"green": "{user} is online!",
+			"red": "{user} has been offline for more than 60 days!",
+			"yellow": "{user} is offline and has been online for the last 60 days!"
+		},
+		"toggle": {
+			"false": "Show only online players",
+			"true": "Show all members (also offline)"
+		}
+	},
+	"rights": {
+		"admin": "Alliance Admin",
+		"aufsichtsrat": "Moderator action log",
+		"coadmin": "Alliance Co-Admin",
+		"edit": "Edit rights",
+		"finance": "Alliance Finances",
+		"hide": "Close",
+		"kick": {
+			"btn": "Kick"
+		},
+		"kickModal": {
+			"btnCancel": "Cancel",
+			"btnConfirm": "Kick",
+			"text": "Do you really want to kick the player **{user}** out of the Alliance?",
+			"title": "Kick?"
+		},
+		"schooling": "Alliance Educator",
+		"set": "Set as {role}",
+		"sprechwunsch_admin": "Transport Request - Admin",
+		"unset": "Remove as {role}"
+	},
+	"roles": "Role(s)",
+	"search_global": "Global Search",
+	"search_local": "Search in loaded players",
+	"search_subtitle": "Show {n} players from {startPage} to {endPage} of {totalPages} pages",
+	"subtitle": "Show {n} players of {startPage} ({firstCredits}) to {endPage} ({lastCredits}) of {totalPages} pages",
+	"tax": "tax rate",
+	"title": "Members"
+}

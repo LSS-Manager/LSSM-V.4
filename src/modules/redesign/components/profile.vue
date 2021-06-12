@@ -113,7 +113,9 @@
                                 )
                             "
                         >
-                            Ignore {{ !profile.ignored }}
+                            <font-awesome-icon
+                                :icon="profile.ignored ? faUnlock : faLock"
+                            ></font-awesome-icon>
                         </a>
                         <a
                             v-if="!profile.ignored"
@@ -136,7 +138,11 @@
                                 )
                             "
                         >
-                            Friend {{ !profile.friend }}
+                            <font-awesome-icon
+                                :icon="
+                                    profile.friend ? faUserSlash : faUserFriends
+                                "
+                            ></font-awesome-icon>
                         </a>
                     </div>
                     <div
@@ -512,8 +518,16 @@
                     v-show="show_map"
                     ref="map"
                     :id="`profile-${profile.id}-map-${lightbox.creation}`"
-                    :start-lat="profile.buildings[0].latitude"
-                    :start-long="profile.buildings[0].longitude"
+                    :start-lat="
+                        profile.buildings.length
+                            ? profile.buildings[0].latitude
+                            : void 0
+                    "
+                    :start-long="
+                        profile.buildings.length
+                            ? profile.buildings[0].longitude
+                            : void 0
+                    "
                     :layers="
                         Object.entries(mapLayerGroups)
                             .filter(
@@ -534,7 +548,11 @@ import { faEdit } from '@fortawesome/free-solid-svg-icons/faEdit';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons/faEnvelope';
 import { faGift } from '@fortawesome/free-solid-svg-icons/faGift';
 import { faImage } from '@fortawesome/free-solid-svg-icons/faImage';
+import { faLock } from '@fortawesome/free-solid-svg-icons/faLock';
 import { faMapMarkedAlt } from '@fortawesome/free-solid-svg-icons/faMapMarkedAlt';
+import { faUnlock } from '@fortawesome/free-solid-svg-icons/faUnlock';
+import { faUserFriends } from '@fortawesome/free-solid-svg-icons/faUserFriends';
+import { faUserSlash } from '@fortawesome/free-solid-svg-icons/faUserSlash';
 import he from 'he';
 import Highcharts from 'highcharts';
 import HighchartsMore from 'highcharts/highcharts-more';
@@ -577,6 +595,10 @@ type Component = RedesignComponent<
         faEnvelope: IconDefinition;
         faGift: IconDefinition;
         faMapMarkedAlt: IconDefinition;
+        faUserFriends: IconDefinition;
+        faUserSlash: IconDefinition;
+        faLock: IconDefinition;
+        faUnlock: IconDefinition;
         awardsChartId: string;
         maxAwards: number;
         buildingTypes: {
@@ -633,6 +655,10 @@ export default Vue.extend<
             faEnvelope,
             faGift,
             faMapMarkedAlt,
+            faUserFriends,
+            faUserSlash,
+            faLock,
+            faUnlock,
             awardsChartId: this.$store.getters.nodeAttribute(
                 'redesign-profile-awards-gauge-chart',
                 true
@@ -882,17 +908,6 @@ export default Vue.extend<
         },
     },
     mounted() {
-        this.$el.addEventListener('click', e => {
-            const target = (e.target as HTMLElement)?.closest<
-                HTMLAnchorElement | HTMLButtonElement
-            >('a, button');
-            const href = target?.getAttribute('href');
-            if (!target || !href) return;
-            e.preventDefault();
-            if (target.hasAttribute('lightbox-open'))
-                return window.lightboxOpen(href);
-            else this.$set(this.lightbox, 'src', href);
-        });
         // eslint-disable-next-line @typescript-eslint/no-this-alias
         const Profile = this;
         this.$store.dispatch('event/addListener', {

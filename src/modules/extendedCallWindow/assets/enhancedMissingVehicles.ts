@@ -11,8 +11,14 @@ export default (LSSM: Vue, MODULE_ID: string, $m: $m): void => {
         .replace(/(^[^:]*:)|(\.$)/g, '')
         .trim();
     if (!missingRequirementsText) return;
+    const water = $m('enhancedMissingVehicles.water').toString();
     const missingRequirementMatches = missingRequirementsText.match(
-        /(?:\d+\s(?:[^(]|\(.*?\))+?(?=[,.]|$))|(?:(?<=^|,\s)(?:[^(]|\(.*?\))+?:\s\d+)/g
+        new RegExp(
+            `\\d+\\s(?:${LSSM.$utils.escapeRegex(
+                water
+            )}|(?:[^(]|\\(.*?\\))+?(?=[,.]|$))`,
+            'g'
+        )
     );
     if (!missingRequirementMatches) return;
     const missingRequirements = missingRequirementMatches.map(req => {
@@ -46,35 +52,47 @@ export default (LSSM: Vue, MODULE_ID: string, $m: $m): void => {
     if (drivingTable) {
         const drivingRows = drivingTable.innerHTML;
         missingRequirements.forEach(requirement => {
-            const vehicleGroupRequirement = Object.keys(
-                vehicleGroups
-            ).find(group =>
-                requirement.vehicle.match(
-                    new RegExp(group.replace(/(^\/)|(\/$)/g, ''))
+            const isWater = requirement.vehicle === water;
+            if (isWater) {
+                requirement.driving = parseInt(
+                    document
+                        .querySelector<HTMLDivElement>(
+                            'div.progress-bar-mission-window-water[id^="mission_water_bar_driving_"]'
+                        )
+                        ?.textContent?.match(/\d{1,3}([,.]\d{3})*/)?.[0]
+                        ?.replace(/[,.]/g, '') ?? '0'
+                );
+            } else {
+                const vehicleGroupRequirement = Object.keys(
+                    vehicleGroups
+                ).find(group =>
+                    requirement.vehicle.match(
+                        new RegExp(group.replace(/(^\/)|(\/$)/g, ''))
+                    )
+                );
+                if (!vehicleGroupRequirement) {
+                    extras += `, ${requirement.missing.toLocaleString()} ${
+                        requirement.vehicle
+                    }`;
+                    requirement.vehicle = '';
+                    return;
+                }
+                requirement.driving = Object.values(
+                    vehicleGroups[vehicleGroupRequirement]
                 )
-            );
-            if (!vehicleGroupRequirement) {
-                extras += `, ${requirement.missing.toLocaleString()} ${
-                    requirement.vehicle
-                }`;
-                requirement.vehicle = '';
-                return;
+                    .map(
+                        vehicleType =>
+                            (
+                                drivingRows.match(
+                                    new RegExp(
+                                        `vehicle_type_id="${vehicleType}"`,
+                                        'g'
+                                    )
+                                ) || []
+                            ).length
+                    )
+                    .reduce((a, b) => a + b, 0);
             }
-            requirement.driving = Object.values(
-                vehicleGroups[vehicleGroupRequirement]
-            )
-                .map(
-                    vehicleType =>
-                        (
-                            drivingRows.match(
-                                new RegExp(
-                                    `vehicle_type_id="${vehicleType}"`,
-                                    'g'
-                                )
-                            ) || []
-                        ).length
-                )
-                .reduce((a, b) => a + b, 0);
             requirement.total = requirement.missing - requirement.driving;
         });
     }

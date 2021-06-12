@@ -3,6 +3,7 @@ import fetch from 'node-fetch';
 import fs from 'fs';
 import path from 'path';
 
+import addToBuildStats from '../../build/addToBuildStats';
 import config from '../../src/config';
 import { version } from '../../package.json';
 
@@ -115,7 +116,7 @@ const emptyFolders = () => {
     });
 };
 
-const processModules = async () => {
+const processModules = async (shortVersion: string) => {
     const HEAD_EMOJIS = {
         alpha: '🧑‍🔬',
         dev: '🐛',
@@ -318,6 +319,10 @@ ${docsLangs
             label: `${game.flag} ${game.name}`,
             nav: [
                 {
+                    text: `v.${shortVersion}`,
+                    link: `https://github.com/${config.github.repo}/releases/tag/v.${shortVersion}`,
+                },
+                {
                     text: 'Discord',
                     link: config.discord.invite,
                 },
@@ -329,7 +334,7 @@ ${docsLangs
                     children: sidebar_lssm
                         .filter(file =>
                             fs.existsSync(
-                                path.join(
+                                path.posix.join(
                                     DOCS_PATH,
                                     lang,
                                     `${file || 'README'}.md`
@@ -341,7 +346,11 @@ ${docsLangs
                 ...sidebar_others
                     .filter(file =>
                         fs.existsSync(
-                            path.join(DOCS_PATH, lang, `${file || 'README'}.md`)
+                            path.posix.join(
+                                DOCS_PATH,
+                                lang,
+                                `${file || 'README'}.md`
+                            )
                         )
                     )
                     .map(file => `${langPath}${file}`),
@@ -350,15 +359,19 @@ ${docsLangs
                     collapsable: true,
                     children: [
                         ...(fs.existsSync(path.join(DOCS_PATH, lang, 'apps.md'))
-                            ? [`${lang}/apps.md`]
+                            ? [`/${lang}/apps`]
                             : []),
                         ...MODULES_BY_LANG[lang]
-                            .filter(({ hasSrc }) => hasSrc)
-                            .map(({ file }) =>
-                                path.relative(
-                                    DOCS_PATH,
-                                    file.replace('.md', '')
-                                )
+                            .filter(
+                                ({ hasSrc, file }) =>
+                                    hasSrc && fs.existsSync(file)
+                            )
+                            .map(
+                                ({ file }) =>
+                                    `/${path.posix.relative(
+                                        DOCS_PATH,
+                                        file.replace('.md', '')
+                                    )}`
                             ),
                     ],
                 },
@@ -405,20 +418,25 @@ sidebarDepth: 2
     });
 
 const fetchStableVersion = (): Promise<{ version: string }> =>
-    fetch(`${config.server}static/build_stats.json`).then(res =>
-        res.status === 200
-            ? res.json()
-            : new Promise(resolve => resolve({ version: '4.x.x' }))
-    );
+    fetch(`${config.server}static/build_stats.json`)
+        .then(res =>
+            res.status === 200
+                ? res.json()
+                : new Promise(resolve => resolve({ version: '4.x.x' }))
+        )
+        .catch(() => new Promise(resolve => resolve({ version: '4.x.x' })));
 
 module.exports = async () => {
     await setLocales();
     updateConfigs();
     emptyFolders();
     setReadmeHeads();
-    const { locales, themeLocales, noMapkitModules } = await processModules();
     const { version: stable } = await fetchStableVersion();
-    return {
+    const shortVersion = stable.match(/4(\.(x|\d+)){2}/)?.[0] ?? '4.x.x';
+    const { locales, themeLocales, noMapkitModules } = await processModules(
+        shortVersion
+    );
+    const vuepressConfig = {
         title: 'LSS-Manager V.4 Wiki',
         description: 'The Wiki for the LSS-Manager',
         base: BASE,
@@ -436,6 +454,7 @@ module.exports = async () => {
             sluglify: '',
             lineNumbers: true,
         },
+        theme: 'yuu',
         themeConfig: {
             logo: '/img/lssm.png',
             variables: {
@@ -445,7 +464,7 @@ module.exports = async () => {
                 versions: {
                     beta: version,
                     stable,
-                    short: stable.match(/4(\.(x|\d+)){2}/)?.[0] ?? '4.x',
+                    short: shortVersion,
                 },
                 browsers: config.browser,
                 noMapkitModules,
@@ -454,6 +473,13 @@ module.exports = async () => {
             activeHeaderLinks: true,
             repo: config.github.repo,
             editLinks: false,
+            yuu: {
+                defaultDarkTheme: true,
+                disableThemeIgnore: true,
+                labels: {
+                    darkTheme: '☀️ / 🌜',
+                },
+            },
         },
         locales,
         plugins: {
@@ -472,11 +498,13 @@ module.exports = async () => {
             },
             'vuepress-plugin-smooth-scroll': {},
             'vuepress-plugin-zooming': {
-                selector: 'img:not([data-prevent-zooming])',
+                selector: 'img:not([data-prevent-zooming]):not(.logo)',
                 options: {
                     bgColor: 'black',
                 },
             },
         },
     };
+    addToBuildStats({ docs_config: vuepressConfig });
+    return vuepressConfig;
 };

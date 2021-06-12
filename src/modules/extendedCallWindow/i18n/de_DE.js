@@ -145,6 +145,7 @@ module.exports = {
             pushLeft: 'Anzeige an originaler Position anzeigen',
         },
         selected: 'Ausgewählt',
+        water: 'l. Wasser',
         vehiclesByRequirement: {
             [/^Anhänger Drucklufterzeugung$/]: [44],
             [/^Boote?$/]: [66, 67, 68, 70, 71],

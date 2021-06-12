@@ -43,6 +43,14 @@
                         @input="changeValue(index, value)"
                         :disabled="false"
                     ></settings-text>
+                    <settings-textarea
+                        v-else-if="item.setting.type === 'textarea'"
+                        :name="item.name"
+                        :placeholder="item.title"
+                        v-model="value[item.name]"
+                        @input="changeValue(index, value)"
+                        :disabled="false"
+                    ></settings-textarea>
                     <settings-toggle
                         v-else-if="item.setting.type === 'toggle'"
                         :name="item.name"
@@ -163,6 +171,10 @@ export default Vue.extend<
         SettingsText: () =>
             import(
                 /* webpackChunkName: "components/setting/text" */ './text.vue'
+            ),
+        SettingsTextarea: () =>
+            import(
+                /* webpackChunkName: "components/setting/textarea" */ './textarea.vue'
             ),
         SettingsSelect: () =>
             import(

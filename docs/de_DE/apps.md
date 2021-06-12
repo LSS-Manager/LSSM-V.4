@@ -74,7 +74,7 @@ Grundsätzlich möchten wir mit der Zeit alle Funktionen der V.3 in die V.4 inte
 |         show Chatbutton Above          |                                                |                           |                                                              |
 |      show Patient entlassen Above      |                                                |                           |                                                              |
 |             Status-Zähler              |         [Statuszähler][statusCounter]          |                           |                                                              |
-| Summe für die tägliche Zusammenfassung |                                                |                           |                                                              |
+| Summe für die tägliche Zusammenfassung | [Creditszusammenfassung][dailyCreditsSummary]  |                           |                                                              |
 |                User-ID                 |               [User-ID][userid]                |                           |                                                              |
 |           Verbandsverwaltung           |                                                |                           |                                                              |
 |          Verbesserte Status 5          |                                                |                           |                                                              |
@@ -91,6 +91,7 @@ Grundsätzlich möchten wir mit der Zeit alle Funktionen der V.3 in die V.4 inte
 [extendedBuilding]: modules/extendedBuilding.md
 [notificationAlert]: modules/notificationAlert.md
 [statusCounter]: modules/statusCounter.md
+[dailyCreditsSummary]: modules/dailyCreditsSummary.md
 [userid]: modules/userid.md
 [buildingHover]: modules/buildingHover.md
 [overview]: modules/overview.md

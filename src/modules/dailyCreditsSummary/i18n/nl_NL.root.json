@@ -1,0 +1,10 @@
+{
+	"description": "Telt catgorieën bij elkaar op in de dagsamenvatting en geeft deze weer in een tabel, waardoor je snel een overzicht hebt.",
+	"name": "Totaalweergave dagsamenvatting",
+	"settings": {
+		"showAverage": {
+			"description": "Geeft in de badges aan hoeveel credits je gemiddeld hebt verdiend in die categorie.",
+			"title": "Gemiddelde weergeven"
+		}
+	}
+}

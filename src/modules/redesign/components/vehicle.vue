@@ -118,8 +118,9 @@
                                     </button>
                                     <button
                                         v-if="
-                                            vehicle.fms === 2 ||
-                                                vehicle.fms === 6
+                                            (vehicle.fms === 2 ||
+                                                vehicle.fms === 6) &&
+                                                !vehicle.user
                                         "
                                         class="btn btn-default btn-xs"
                                         @click="switch_state"
@@ -2001,17 +2002,6 @@ export default Vue.extend<
         });
     },
     mounted() {
-        this.$el.addEventListener('click', e => {
-            const target = (e.target as HTMLElement)?.closest<
-                HTMLAnchorElement | HTMLButtonElement
-            >('a, button');
-            const href = target?.getAttribute('href');
-            if (!target || !href) return;
-            e.preventDefault();
-            if (target.hasAttribute('lightbox-open'))
-                return window.lightboxOpen(href);
-            else this.$set(this.lightbox, 'src', href);
-        });
         const mode = this.vehicle.has_hospitals
             ? 'hospital'
             : this.vehicle.has_cells

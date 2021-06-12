@@ -3,7 +3,7 @@
 	"head": {
 		"alpha": "Deze module is nog in zijn absolute begin en is momenteel alleen beschikbaar voor Beta testers!",
 		"dev": "Deze module is nog in ontwikkeling. Daarom is het mogelijk dat er nog fouten in zitten!",
-		"mapkit": "Due to restrictions on the part of Mapkit, it is unfortunately not possible for us to offer this module with the map type `mapkit` at the moment.",
+		"mapkit": "Door de beperkingen van Mapkit is het momenteel niet mogelijk om deze module te gebruiken als je het kaarttype `Mapkit` gebruikt.",
 		"settings": "Deze module heeft instellingen! Voel je vrij om het naar eigen smaak aan te passen."
 	}
 }
