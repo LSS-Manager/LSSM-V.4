@@ -29,7 +29,7 @@ export default <ModuleMainFunction>(async (LSSM, MODULE_ID, $m) => {
     messages.forEach(({ name, subject, template }, index) => {
         const liEl = document.createElement('li');
         const aEl = document.createElement('a');
-        aEl.textContent = `${name}: ${subject}`;
+        aEl.textContent = name;
         aEl.title = `${subject}\n---\n${template}`;
         aEl.onclick = () => {
             const titleEl = document.querySelector<HTMLInputElement>(
