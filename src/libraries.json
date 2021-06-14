@@ -85,7 +85,7 @@
 	"broadcast-channel": {
 		"icon": "https://raw.githubusercontent.com/pubkey/broadcast-channel/master/docs/files/icon.png",
 		"url": "https://github.com/pubkey/broadcast-channel#readme",
-		"version": "3.6.0"
+		"version": "3.7.0"
 	},
 	"cache-loader": {
 		"icon": "https://webpack.js.org/assets/icon-square-big.svg",
@@ -118,7 +118,7 @@
 	"eslint-plugin-vue": {
 		"icon": "https://vuejs.org/images/logo.png",
 		"url": "https://eslint.vuejs.org",
-		"version": "7.10.0"
+		"version": "7.11.1"
 	},
 	"he": {
 		"url": "https://mths.be/he",
