@@ -622,7 +622,8 @@ export default Vue.extend<
                               HTMLAnchorElement | HTMLButtonElement
                           >('a, button');
                           const href = target?.getAttribute('href');
-                          if (!target || !href) return;
+                          if (!target || !href || ![0, 1].includes(e.button))
+                              return;
                           e.preventDefault();
                           if (e.ctrlKey || e.button === 1)
                               return window.open(href, '_blank');
