@@ -118,7 +118,7 @@
 	"eslint-plugin-vue": {
 		"icon": "https://vuejs.org/images/logo.png",
 		"url": "https://eslint.vuejs.org",
-		"version": "7.10.0"
+		"version": "7.11.1"
 	},
 	"he": {
 		"url": "https://mths.be/he",
