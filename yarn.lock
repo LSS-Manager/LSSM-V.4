@@ -1045,10 +1045,10 @@
   resolved "https://registry.yarnpkg.com/@types/json-schema/-/json-schema-7.0.7.tgz#98a993516c859eb0d5c4c8f098317a9ea68db9ad"
   integrity sha512-cxWFQVseBm6O9Gbw1IWb8r6OS4OhSt3hPZLkFApLjM8TEXROBuQGLAH2i2gZpcXdLBIrpXuTDhH7Vbm1iXmNGA==
 
-"@types/leaflet@^1.7.1":
-  version "1.7.1"
-  resolved "https://registry.yarnpkg.com/@types/leaflet/-/leaflet-1.7.1.tgz#6128b27ee3ec9eb2d130705044ed2a5e8291c709"
-  integrity sha512-Wi51IivrMUsBkcAc2spSnFnlJ6oMpAXC/bCUd/Jtzy/sww1A8xtsmLYj6vxnc2kgC53PyC2g4gduWv3esNxWig==
+"@types/leaflet@^1.7.2":
+  version "1.7.2"
+  resolved "https://registry.yarnpkg.com/@types/leaflet/-/leaflet-1.7.2.tgz#7f4c059c2a1a2c0dbe63d1d9c2f7576b5f0914f4"
+  integrity sha512-W1NQTL4Jy0RB+bKADkOzj9O94WYtJzMBPwWU0BjrWlaa+WyMMH6bMjARUr/A4+jeunYGhG+MVeZIYfE810kFxA==
   dependencies:
     "@types/geojson" "*"
 
