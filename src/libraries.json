@@ -62,10 +62,10 @@
 		"version": "1.16.0"
 	},
 	"@typescript-eslint/eslint-plugin": {
-		"version": "4.26.1"
+		"version": "4.27.0"
 	},
 	"@typescript-eslint/parser": {
-		"version": "4.26.1"
+		"version": "4.27.0"
 	},
 	"@vuepress/plugin-active-header-links": {
 		"icon": "https://vuepress.vuejs.org/hero.png",
