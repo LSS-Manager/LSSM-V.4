@@ -37,6 +37,7 @@ The building overview lists building types and how many. It also shows informati
 
 The same as with the vehicle overview, the button will appear when you hover over a cell.
 
+
 ### All buildings of one type
 ![All buildings of one type](buildinglist_type.png)
 
