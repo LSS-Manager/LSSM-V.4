@@ -67,7 +67,7 @@ module.exports = {
             fire_aviation: 'Fire aviation',
             water_drop_helicopter: 'Water drop helicopter',
             air_tanker: 'Air tanker',
-            heavy_aur_tanker: 'Heavy air tanker',
+            heavy_air_tanker: 'Heavy air tanker',
             crew_carrier: 'Crew Carrier',
             fbi_unit: 'FBI Unit',
             fbi_investigation_unit: 'FBI Investigation Unit',

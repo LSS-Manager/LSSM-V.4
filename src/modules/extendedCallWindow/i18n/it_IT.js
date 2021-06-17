@@ -30,6 +30,7 @@ module.exports = {
         },
         arrSpecs: {
             fire: 'Autopompe',
+            wasser_amount: "Litri d'acqua",
             elw: 'Funzionario',
             elw2: 'UCL',
             dlk: 'Autoscala',
@@ -70,6 +71,9 @@ module.exports = {
             boot: 'Barca',
             fwk: 'AG',
             fbi_bomb_tech: 'Furgone artificieri',
+            brush_vehicle: 'Mezzo AIB',
+            brush_truck: 'Mezzo AIB',
+            fire_aviation: 'Unità Aerea Antincendio',
         },
     },
     generationDate: {
@@ -86,8 +90,11 @@ module.exports = {
             minified: 'crollo',
             overlay: 'Sovrapposizione',
             reload: 'Ricaricare',
+            pushRight: 'mostra questa casella sopra la lista dei veicoli',
+            pushLeft: 'mostra questa scatola nella posizione originale',
         },
         selected: 'Selezionato',
+        water: "l. d'acqua",
         vehiclesByRequirement: {
             [/^APS\/ABP$/]: [0, 9],
             [/^Autogrù$/]: [12],
@@ -109,11 +116,20 @@ module.exports = {
             [/^Camion Tecnico NSSA?$/]: [23],
             [/^Pickup SAF?$/]: [24],
             [/^Barche?$/]: [25],
+            [/^Mezzi AIB?$/]: [28, 29, 30, 31, 32, 33],
         },
     },
     tailoredTabs: {
         allTab: 'Tutti',
         occupiedTab: 'Continua missioni',
+        vehicleMissing: {
+            title:
+                'Un veicolo non è presente in nessuna scheda | Diversi veicoli non sono presenti in nessuna scheda',
+            text:
+                'I seguenti tipi di veicoli sono presenti solo nella scheda "Tutti":',
+            hide: 'Nascondere la nota',
+            close: 'Chiudere Nota fino al cambiamento',
+        },
     },
     hideVehicleList: {
         show: 'Mostra lista veicoli',

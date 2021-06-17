@@ -65,17 +65,24 @@
 			"description": "Normalmente nasconde la lista, successivamente la apre premendo un pulsante.",
 			"title": "Nascondi la lista dei veicoli"
 		},
+		"hoverTip": {
+			"description": "Tooltips per esempio per il pulsante di sovrapposizione.",
+			"title": "Tooltips"
+		},
 		"loadMoreVehiclesInHeader": {
 			"description": "Mostra il pulsante \"Reload vehicles\", se disponibile, nella barra dell'intestazione.",
 			"title": "Ricarica i veicoli nell'intestazione"
 		},
 		"missionKeywords": {
-			"color": "colore background",
+			"color": "colore sfondo",
 			"description": "Ottieni la tua parola chiave visualizzata accanto al nome della missione",
 			"keyword": "parola chiave",
 			"missions": "missioni",
 			"preview": "Anteprima",
-			"title": "Parole chiavi missioni"
+			"title": "Parole chiavi missioni",
+			"autotextcolor": "Colore del testo automatico",
+			"prepend": "Mostra prima del nome della missione",
+			"textcolor": "Colore del testo"
 		},
 		"patientSummary": {
 			"description": "Mostra accanto al numero dei pazienti, di quale equipaggiamento medico necessitano.",
@@ -84,6 +91,10 @@
 		"redBorder": {
 			"description": "Delinea in rosso il tempo di generazione se l'allarme scadrà la notte successiva.",
 			"title": "Bordo rosso"
+		},
+		"stagingAreaSelectedCounter": {
+			"description": "Mostra nelle aree di sosta la quantità di veicoli selezionati accanto ai pulsanti di allarme",
+			"title": "Contatore di allarmi nelle aree di sosta"
 		},
 		"stickyHeader": {
 			"description": "Mostra sempre la barra in alto nella finestra di inserimento, anche quando scorri verso il basso.",
@@ -95,6 +106,10 @@
 			"name": "nome",
 			"title": "Categorie dei Veicoli",
 			"vehicles": "Tipi di veicoli"
+		},
+		"vehicleTypeInList": {
+			"description": "Visualizza il tipo di veicolo nell'elenco Unità disponibili.",
+			"title": "Mostra il tipo di veicolo"
 		},
 		"yellowBorder": {
 			"description": "Delinea in giallo l'ora di generazione se l'utilizzo è più vecchio del numero di ore immesso. Se il numero è 0, non viene tracciato alcun bordo.",
@@ -124,7 +139,15 @@
 					23,
 					24,
 					25,
-					26
+					26,
+					28,
+					29,
+					30,
+					31,
+					32,
+					33,
+					34,
+					35
 				]
 			},
 			{

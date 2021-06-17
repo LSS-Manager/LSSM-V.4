@@ -1,5 +1,4 @@
 // import { Building } from 'typings/Building';
-
 // Commented as dir ./it_IT does not exist currently
 // const furtherFiles = require.context('./it_IT/', true, /.*(\/index)?\.js(on)?/);
 const modules = {
@@ -14,7 +13,9 @@ const modules = {
             title: 'Cambiamenti non salvati',
             text:
                 "Hai apportato modifiche nell'AppStore che non sono state ancora salvate. Resettali o salvali per chiudere l'AppStore.",
-            close: 'Chiudi il messaggio',
+            abort: 'Cancella',
+            saveAndExit: 'Salvare e uscire',
+            exit: 'Chiudi il messaggio',
         },
     },
     settings: {
@@ -29,7 +30,7 @@ const modules = {
             text:
                 'Vuoi davvero ripristinare le impostazioni ai valori predefiniti? Questo non può essere annullato!',
             close: 'Annulla',
-            total: 'All settings',
+            total: 'Tutte le impostazioni',
             module: 'Solo per questo modulo',
         },
         resetWarningSetting: {
@@ -43,7 +44,9 @@ const modules = {
             title: 'Cambiamenti non salvati',
             text:
                 'Hai apportato modifiche alle impostazioni che non sono ancora state salvate. Ripristinarli, eliminarli o salvarli per chiudere le impostazioni.',
-            close: 'Chiudi messaggio',
+            abort: 'Cancella',
+            saveAndExit: 'Salvare e uscire',
+            exit: 'Uscire senza salvare',
         },
         changeList: {
             true: 'Su',
@@ -99,6 +102,11 @@ export default {
                 "Colora l'intera barra di navigazione con il colore di LSSM-Icon sfondo!",
             title: 'colorare la barra di navigazione',
         },
+        osmDarkTooltip: {
+            description:
+                'Questa impostazione scurisce i tooltip sulla mappa se hai abilitato la modalità scura',
+            title: 'Tooltips scuri sulla mappa',
+        },
     },
     vehicles: {
         0: {
@@ -108,6 +116,7 @@ export default {
             credits: 5_000,
             minPersonnel: 1,
             maxPersonnel: 3,
+            wtank: 8_000,
         },
         1: {
             caption: 'AS',
@@ -151,6 +160,7 @@ export default {
             credits: 17_300,
             minPersonnel: 1,
             maxPersonnel: 3,
+            wtank: 18_000,
             special: 'Richiesta dopo aver costruito 7 caserme dei pompieri',
         },
         6: {
@@ -187,6 +197,7 @@ export default {
             credits: 19_000,
             minPersonnel: 1,
             maxPersonnel: 6,
+            wtank: 2_500,
         },
         10: {
             caption: 'AF/ARIA',
@@ -371,6 +382,88 @@ export default {
             maxPersonnel: 3,
             special: 'Richiesto dopo aver costruito 6 stazioni di soccorso',
         },
+        28: {
+            caption: 'Pickup con Modulo Boschivo',
+            color: '#6b7dee',
+            coins: 5,
+            credits: 5_000,
+            minPersonnel: 2,
+            maxPersonnel: 4,
+            wtank: 400,
+        },
+        29: {
+            caption: 'Autocarro AIB - AF/BOSC',
+            color: '#6b7dee',
+            coins: 8,
+            credits: 8_000,
+            minPersonnel: 2,
+            maxPersonnel: 4,
+            wtank: 1_000,
+        },
+        30: {
+            caption: 'Autobotte AIB',
+            color: '#6b7dee',
+            coins: 15,
+            credits: 19_000,
+            minPersonnel: 1,
+            maxPersonnel: 3,
+            wtank: 4_000,
+        },
+        31: {
+            caption: 'Funzionario AIB - DOS',
+            color: '#6b7dee',
+            coins: 15,
+            credits: 20_000,
+            minPersonnel: 1,
+            maxPersonnel: 2,
+            schooling:
+                'Caserma dei vigili del fuoco - Direttore Operazioni Spegnimento',
+            shownSchooling: 'Direttore Operazioni Spegnimento',
+        },
+        32: {
+            caption: 'Camion con Rimorchio',
+            color: '#6b7dee',
+            coins: 10,
+            credits: 5_000,
+            minPersonnel: 1,
+            maxPersonnel: 2,
+            schooling: 'Caserma dei vigili del fuoco - Autista Movimento Terra',
+            shownSchooling: 'Autista Movimento Terra',
+        },
+        33: {
+            caption: 'Scavatore su Rimorchio',
+            color: '#6b7dee',
+            coins: 15,
+            credits: 20_000,
+            minPersonnel: 0,
+            maxPersonnel: 0,
+            special:
+                'Richiede 1 persona formato nel veicolo trainante (Autista Movimento Terra)',
+        },
+        34: {
+            caption: 'Elicottero Antincendio',
+            color: '#6b7dee',
+            coins: 25,
+            credits: 300_000,
+            minPersonnel: 2,
+            maxPersonnel: 2,
+            wtank: 2_000,
+            schooling:
+                'Caserma dei vigili del fuoco - Pilota Velivoli Antincendio',
+            shownSchooling: 'Pilota Velivoli Antincendio',
+        },
+        35: {
+            caption: 'Canadair',
+            color: '#6b7dee',
+            coins: 25,
+            credits: 600_000,
+            minPersonnel: 2,
+            maxPersonnel: 5,
+            wtank: 6_000,
+            schooling:
+                'Caserma dei vigili del fuoco - Pilota Velivoli Antincendio',
+            shownSchooling: 'Pilota Velivoli Antincendio',
+        },
     },
     buildings: {
         0: {
@@ -389,6 +482,12 @@ export default {
                     caption: 'Esentsione soccorso acquatico VVF',
                     credits: 100_000,
                     coins: 20,
+                    duration: '7 Giorni',
+                },
+                {
+                    caption: 'Anticendio Boschivo',
+                    credits: 50_000,
+                    coins: 15,
                     duration: '7 Giorni',
                 },
             ],
@@ -797,10 +896,22 @@ export default {
             startPersonnel: 4,
             startVehicles: ['Volante Finanza'],
         },
+        24: {
+            caption: 'Base Aerea Antincendio',
+            color: '#aa1112',
+            coins: 50,
+            credits: 1_000_000,
+            extensions: [],
+            levelcost: ['1.-5. 1.000.000'],
+            maxBuildings: '',
+            maxLevel: 5,
+            startPersonnel: 2,
+            startVehicles: ['Elicottero Antincendio'],
+        },
     },
     buildingCategories: {
         'Vigili del Fuoco': {
-            buildings: [0, 1, 15, 18],
+            buildings: [0, 1, 15, 18, 24],
             color: '#ff2d2d',
         },
         'Soccorso': {
@@ -822,7 +933,8 @@ export default {
                 'Autopompa': [0, 9],
                 'Kilolitrica': [5],
                 'Veicoli speciali': [1, 2, 3, 6, 10, 11, 12, 26],
-                'soccorso in acqua': [23, 24, 25],
+                'Soccorso in acqua': [23, 24, 25],
+                'Mezzi AIB': [28, 29, 30, 31, 32, 33, 34, 35]
             },
             color: '#ff2d2d',
         },
@@ -851,7 +963,7 @@ export default {
         2: 20,
         6: 19,
     },
-    vehicleBuildings: [0, 2, 5, 6, 13, 14, 18, 19, 20, 21],
+    vehicleBuildings: [0, 2, 5, 6, 13, 14, 18, 19, 20, 21, 24],
     cellBuildings: [6, 19],
     cellExtensions: [
         '6_0',
@@ -903,6 +1015,18 @@ export default {
             {
                 caption: 'Corso per operatore tecnico NSSA',
                 duration: '5 giorni',
+            },
+            {
+                caption: 'Autista Movimento Terra',
+                duration: '3 giorni',
+            },
+            {
+                caption: 'Pilota Velivoli Antincendio',
+                duration: '5 giorni',
+            },
+            {
+                caption: 'Direttore Operazioni Spegnimento',
+                duration: '3 giorni',
             },
         ],
         'Polizia': [

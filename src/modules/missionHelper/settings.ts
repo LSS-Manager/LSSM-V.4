@@ -262,7 +262,7 @@ export default ((MODULE_ID, LSSM, $m) => {
             type: 'toggle',
             default: true,
         },
-        ...(locale === 'en_US'
+        ...(['en_US', 'it_IT'].includes(locale)
             ? {
                   subsequent: <Toggle>{
                       type: 'toggle',

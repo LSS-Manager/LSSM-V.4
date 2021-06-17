@@ -11,6 +11,11 @@
 			"badge": false,
 			"in": "additional",
 			"text": "Media min. Personale di polizia"
+		},
+		"water_needed": {
+			"badge": true,
+			"in": "requirements",
+			"text": "Acqua Necessaria: {n} l. | Acqua Necessaria: {n}  l."
 		}
 	},
 	"settings": {
@@ -124,6 +129,10 @@
 				"title": "Prigionieri (Title)"
 			}
 		},
+		"subsequent": {
+			"description": "Elenca le possibili missioni successive al successo.",
+			"title": "Missione successiva"
+		},
 		"title": {
 			"description": "Mostra il nome della missione, es. \"Trashcan fire\" come titolo.",
 			"title": "Nome missione"
@@ -148,9 +157,17 @@
 				"percentage": "Probabilità",
 				"title": "Ordinamento dei requisiti del veicolo"
 			},
+			"sortDesc": {
+				"description": "Ordina i requisiti dei veicoli in ordine decrescente.",
+				"title": "Veicoli in ordine decrescente"
+			},
 			"title": {
 				"description": "Mostra l'intestazione \"Vehicles\" sopra i veicoli richiesti.",
 				"title": "Veicoli (Title)"
+			},
+			"xAfterNumber": {
+				"description": "Mette una x dietro la quantità di veicoli",
+				"title": "x dietro l'importo"
 			}
 		}
 	}
