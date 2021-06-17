@@ -384,7 +384,7 @@ export default {
         },
         28: {
             caption: 'Pickup con Modulo Boschivo',
-            color: '#6b7dee',
+            color: '#dc1818',
             coins: 5,
             credits: 5_000,
             minPersonnel: 2,
@@ -393,7 +393,7 @@ export default {
         },
         29: {
             caption: 'Autocarro AIB - AF/BOSC',
-            color: '#6b7dee',
+            color: '#dc1818',
             coins: 8,
             credits: 8_000,
             minPersonnel: 2,
@@ -402,7 +402,7 @@ export default {
         },
         30: {
             caption: 'Autobotte AIB',
-            color: '#6b7dee',
+            color: '#dc1818',
             coins: 15,
             credits: 19_000,
             minPersonnel: 1,
@@ -411,7 +411,7 @@ export default {
         },
         31: {
             caption: 'Funzionario AIB - DOS',
-            color: '#6b7dee',
+            color: '#dc1818',
             coins: 15,
             credits: 20_000,
             minPersonnel: 1,
@@ -422,7 +422,7 @@ export default {
         },
         32: {
             caption: 'Camion con Rimorchio',
-            color: '#6b7dee',
+            color: '#dc1818',
             coins: 10,
             credits: 5_000,
             minPersonnel: 1,
@@ -432,7 +432,7 @@ export default {
         },
         33: {
             caption: 'Scavatore su Rimorchio',
-            color: '#6b7dee',
+            color: '#dc1818',
             coins: 15,
             credits: 20_000,
             minPersonnel: 0,
@@ -442,7 +442,7 @@ export default {
         },
         34: {
             caption: 'Elicottero Antincendio',
-            color: '#6b7dee',
+            color: '#dc1818',
             coins: 25,
             credits: 300_000,
             minPersonnel: 2,
@@ -454,7 +454,7 @@ export default {
         },
         35: {
             caption: 'Canadair',
-            color: '#6b7dee',
+            color: '#dc1818',
             coins: 25,
             credits: 600_000,
             minPersonnel: 2,

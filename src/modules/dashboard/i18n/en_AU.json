@@ -60,6 +60,7 @@
 		"building": "Building",
 		"caption": "Name",
 		"fms": "FMS",
+		"target": "Target",
 		"type": "Type"
 	},
 	"vehicle-types": {

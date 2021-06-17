@@ -49,6 +49,10 @@
 			"description": "Nasconde completamente il capo del battaglione e mostra solo MCV.",
 			"title": "Nascondi il capo del battaglione"
 		},
+		"hoverTip": {
+			"description": "Tooltips per esempio per il pulsante di sovrapposizione.",
+			"title": "Tooltips"
+		},
 		"id": {
 			"description": "Mostra l'ID Missione affianco al titolo.",
 			"title": "ID Missione"
