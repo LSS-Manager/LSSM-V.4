@@ -491,7 +491,7 @@ export default {
                     duration: '7 Giorni',
                 },
             ],
-            levelcost: ['1. 10.000', '2. 50.000', '3.-16. 100.000'],
+            levelcost: ['1. 10.000', '2. 50.000', '3.-24. 100.000'],
             maxBuildings: '5.000 together with small fire stations',
             maxLevel: 16,
             special:

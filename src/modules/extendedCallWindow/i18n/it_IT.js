@@ -116,7 +116,7 @@ module.exports = {
             [/^Camion Tecnico NSSA?$/]: [23],
             [/^Pickup SAF?$/]: [24],
             [/^Barche?$/]: [25],
-            [/^Mezzi AIB?$/]: [28, 29, 30, 31, 32, 33],
+            [/^Mezz(i|o) AIB?$/]: [28, 29, 30, 31, 32, 33],
         },
     },
     tailoredTabs: {
