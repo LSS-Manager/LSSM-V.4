@@ -74,15 +74,15 @@
 			"title": "Ricarica i veicoli nell'intestazione"
 		},
 		"missionKeywords": {
+			"autotextcolor": "Colore del testo automatico",
 			"color": "colore sfondo",
 			"description": "Ottieni la tua parola chiave visualizzata accanto al nome della missione",
 			"keyword": "parola chiave",
 			"missions": "missioni",
-			"preview": "Anteprima",
-			"title": "Parole chiavi missioni",
-			"autotextcolor": "Colore del testo automatico",
 			"prepend": "Mostra prima del nome della missione",
-			"textcolor": "Colore del testo"
+			"preview": "Anteprima",
+			"textcolor": "Colore del testo",
+			"title": "Parole chiavi missioni"
 		},
 		"patientSummary": {
 			"description": "Mostra accanto al numero dei pazienti, di quale equipaggiamento medico necessitano.",

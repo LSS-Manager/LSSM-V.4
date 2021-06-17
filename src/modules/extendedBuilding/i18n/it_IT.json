@@ -19,9 +19,9 @@
 		"each": "Ciascun corso",
 		"max": "attualmente massimo richiesto",
 		"min": "attualmente minimo richiesto",
+		"noSchooling": "Nessuna scuola",
 		"schooling": "Formazione",
-		"title": "Panoramica del personale",
-		"noSchooling": "Nessuna scuola"
+		"title": "Panoramica del personale"
 	},
 	"upgradeConfirmation": {
 		"modal": {
