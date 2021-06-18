@@ -13,4 +13,5 @@ updates:
         include: "scope"
     reviewers:
       - "jxn-30"
+      - "kdev"
     target-branch: "dev"
