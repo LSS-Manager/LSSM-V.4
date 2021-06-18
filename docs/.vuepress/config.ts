@@ -291,7 +291,7 @@ ${docsLangs
         }
     > = {};
     const noMapkitModules: Record<string, { title: string; f: string }[]> = {};
-    const locales: Record<string, { lang: string; title: string }> = {};
+    const locales: Record<string, { lang: string; title: string, description: string }> = {};
 
     Object.entries(MODULES_BY_LANG).forEach(([lang, modules]) => {
         MODULES_BY_LANG[lang] = modules.sort((a, b) =>
@@ -313,6 +313,7 @@ ${docsLangs
         locales[langPath] = {
             lang,
             title: `LSS-Manager V.4 Wiki ${game.flag}`,
+            description: getLocale(lang, 'description').toString()
         };
 
         themeLocales[langPath] = {
