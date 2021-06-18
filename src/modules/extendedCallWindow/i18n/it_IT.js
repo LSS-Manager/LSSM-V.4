@@ -117,6 +117,7 @@ module.exports = {
             [/^Pickup SAF?$/]: [24],
             [/^Barche?$/]: [25],
             [/^Mezz(i|o) AIB?$/]: [28, 29, 30, 31, 32, 33],
+			[/^Velivol(i|o) Antincendio?$/]: [34, 35],
         },
     },
     tailoredTabs: {
