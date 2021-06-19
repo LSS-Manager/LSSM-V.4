@@ -16,7 +16,9 @@
 		"title": "Pazienti | {n} Paziente | {n} Pazienti"
 	},
 	"prerequisites": {
+		"brush_extension": "espansione Anticendio Boschivo",
 		"commerce_police_stations": "Caserma della Finanza",
+		"fire_aviation_count": "Base Aerea Antincendio",
 		"fire_stations": "Caserma VVF | Caserme VVF",
 		"max_police_stations": "Massimale delle polizze",
 		"max_rescue_stations": "Massimale di soccorso",
@@ -30,7 +32,10 @@
 		"max_possible_prisoners": "Massimo prigioniere | Prigionieri massimali",
 		"title": "Prigionieri | {n} Prigioniere | {n} Prigionieri"
 	},
-	"requirements": {},
+	"requirements": {
+		"water_needed": "Acqua Necessaria"
+	},
+	"subsequent": "Missione successiva | Missioni successive",
 	"tip": {
 		"dragging": "trascinare la finestra",
 		"maxState": "requisiti massimi on/off",
@@ -44,9 +49,12 @@
 			"arff": "Flotta antincendio aereporti",
 			"battalion_chief_vehicles": "Funzionari",
 			"boats": "Barche",
+			"brush_truck": "Mezzi AIB",
 			"commerce_police": "Volante finanza",
 			"diver_units": "Camion tecnico NSSA",
+			"elw3": "DOS",
 			"fbi_bomb": "Furgone artificieri",
+			"fire_aviation": "Mezzi Aerei Antincendio",
 			"firetrucks": "APS/ABP",
 			"fwk": "Autogrù",
 			"hazmat_vehicles": "NBCR",

@@ -19,6 +19,7 @@
 	},
 	"chart-summaries": {
 		"buildings": {
+			"columnchart": "utilizzare il grafico a barre",
 			"personal_count": "Personale",
 			"tip": "Clicca su una delle categorie (es. dipartimento VVF o polizia) per ingrandire gli edifici assegnati a questa categoria. Se poi clicchi su un tipo di edificio, puoi vedere quanti veicoli per ogni categoria di veicoli, sono situati presso gli edifici di quel tipo. In questa maniera puoi sapere rapidamente quanti veicoli ci sono di ogni tipo parcheggiati alla stazione di polizia e quanti alla stazione di polizia piccola.",
 			"title": "Edifici"
@@ -59,6 +60,7 @@
 		"building": "Edificio",
 		"caption": "Nome",
 		"fms": "FMS",
+		"target": "Obiettivo",
 		"type": "Tipo"
 	},
 	"vehicle-types": {

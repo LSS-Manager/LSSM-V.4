@@ -325,12 +325,17 @@
                 class="badge badge-default"
                 v-for="req in specialRequirements.badge"
                 :key="req"
+                :amount="
+                    (amount =
+                        missionSpecs[$m(`noVehicleRequirements.${req}.in`)][
+                            req
+                        ])
+                "
             >
                 {{
-                    $mc(
-                        `noVehicleRequirements.${req}.text`,
-                        missionSpecs[$m(`noVehicleRequirements.${req}.in`)][req]
-                    )
+                    $mc(`noVehicleRequirements.${req}.text`, amount, {
+                        n: amount.toLocaleString(),
+                    })
                 }}
             </span>
             <br />

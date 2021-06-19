@@ -51,22 +51,11 @@ export default {
         },
     } as MutationTree<SettingsState>,
     actions: {
-        async saveSettings(
+        saveSettings(
             { commit, dispatch }: SettingsActionStoreParams,
             { settings }: SettingsSave
         ) {
             commit('save', settings);
-            for (const [moduleId, moduleSettings] of Object.entries(settings)) {
-                for (const [settingId, { value }] of Object.entries(
-                    moduleSettings
-                )) {
-                    await dispatch('setSetting', {
-                        moduleId,
-                        settingId,
-                        value,
-                    });
-                }
-            }
             commit('setSettingsReload');
         },
         register(

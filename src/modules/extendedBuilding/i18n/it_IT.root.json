@@ -38,6 +38,10 @@
 			"description": "Mostra nella panoramica del personale dell'edificio, quante persone hanno quale formazione.",
 			"title": "Sommario del personale"
 		},
+		"upgradeConfirmation": {
+			"description": "Chiede se vuoi davvero aggiornare il tuo edificio",
+			"title": "Aggiorna l'edificio"
+		},
 		"vehicleTypes": {
 			"description": "Mostra il tipo di veicolo (e se disponibile la propria classe del veicolo) in una colonna separata.",
 			"title": "Tipo di veicolo"

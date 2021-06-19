@@ -35,7 +35,7 @@
 	},
 	"@types/node": {
 		"url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/node",
-		"version": "15.12.2"
+		"version": "15.12.3"
 	},
 	"@types/node-fetch": {
 		"version": "2.5.10"
@@ -127,7 +127,7 @@
 	"highcharts": {
 		"icon": "https://www.highcharts.com/images/ico/favicon-192x192.png",
 		"url": "http://www.highcharts.com",
-		"version": "9.1.1"
+		"version": "9.1.2"
 	},
 	"html-loader": {
 		"icon": "https://webpack.js.org/assets/icon-square-big.svg",
@@ -206,7 +206,7 @@
 	"typescript": {
 		"icon": "https://www.typescriptlang.org/icons/icon-512x512.png",
 		"url": "https://www.typescriptlang.org/",
-		"version": "4.3.2"
+		"version": "4.3.4"
 	},
 	"ua-parser-js": {
 		"icon": "https://raw.githubusercontent.com/faisalman/ua-parser-js/gh-pages/images/logo.png",
