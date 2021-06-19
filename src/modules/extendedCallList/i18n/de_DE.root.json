@@ -128,7 +128,7 @@
 			"title": "Verdienst anzeigen"
 		},
 		"eventMissions": {
-			"descripition": "Markiert Saisonale Einsätze. Optional kannst du das ganze individuell anpassen und auch nicht-saisonale Einsätze markieren.",
+			"description": "Markiert Saisonale Einsätze. Optional kannst du das ganze individuell anpassen und auch nicht-saisonale Einsätze markieren.",
 			"missions": "Einsätze",
 			"text": "Text",
 			"title": "Saisonale Einsätze markieren"

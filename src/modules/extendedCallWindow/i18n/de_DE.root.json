@@ -76,8 +76,8 @@
 		"missionKeywords": {
 			"autotextcolor": "automatische Schriftfarbe",
 			"color": "Hintergrundfarbe",
-			"description": "Lasse dir ein eigenes Stichwort neben dem Einsatznamen anzeigen",
-			"keyword": "Stichwort",
+			"description": "Lasse dir ein eigenes Stichwort neben dem Einsatznamen anzeigen. Du kannst Variablen verwenden, werf hierzu ein Blick ins <a class=\"lightbox-open\" href=\"{wiki}modules/extendedCallWindow.html#variablen\">Wiki</a>.",
+			"keyword": "Stichwort (Variablen: {{credits}}, {{type}})",
 			"missions": "Einsätze",
 			"prepend": "Vor dem Einsatznamen anzeigen",
 			"preview": "Vorschau",

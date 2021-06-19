@@ -1,4 +1,6 @@
-export default (
+import { Mission } from 'typings/Mission';
+
+export default async (
     LSSM: Vue,
     settings: {
         keyword: string;
@@ -8,7 +10,7 @@ export default (
         prefix: boolean;
         missions: (string | number)[];
     }[]
-): void => {
+): Promise<void> => {
     const missionHelpBtn = document.getElementById('mission_help');
     const missionTitle = document.getElementById('missionH1');
     if (!missionHelpBtn || !missionTitle) return;
@@ -18,6 +20,11 @@ export default (
             ?.match(/(?!^\/einsaetze\/)\d+/)?.[0] || '-1'
     );
     if (missionType < 0) return;
+
+    const mission = ((await LSSM.$store.dispatch('api/getMissions', {
+        force: false,
+        feature: `ecl-missionKeywords-settings`,
+    })) as Mission[]).find(({ id }) => id === missionType);
 
     const addLabel = (
         text: string,
@@ -30,7 +37,12 @@ export default (
         label.classList.add('label');
         label.style.backgroundColor = color;
         const textNode = document.createElement('span');
-        textNode.textContent = text;
+        textNode.textContent = text
+            .replace(/{{type}}/g, missionType.toString())
+            .replace(
+                /{{credits}}/g,
+                (mission?.average_credits ?? 0).toLocaleString()
+            );
         textNode.style.background = autotextcolor ? 'inherit' : 'transparent';
         textNode.style.backgroundClip = 'text';
         textNode.style.webkitBackgroundClip = 'text';

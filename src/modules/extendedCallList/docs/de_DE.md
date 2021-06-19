@@ -23,3 +23,9 @@ Mit diesem Feature hast du die Möglichkeit, dir Einsätze zu markieren, so dass
 ## Verdienst anzeigen
 Dieses Feature zeigt dir an, wie viel ein Einsatz im Durchschnitt gibt:
 ![Verdienst anzeigen](verdienst.png)
+
+## Saisonale Einsätze markieren
+Mit dieser Einstellung kannst du für jeden einzelnen Einsatz beliebig viele kurze Hinweise notieren, welche vor dem Namen in der Einsatzliste gezeigt werden. Standardmäßig sind hier saisonale Einsätze eingetragen (Sommer, Halloween, Fußbal etc.), daher auch der Name.
+
+So sieht das z.B. bei Standardeinstellung für einen Fußball-Einsatz aus:
+![Eventmission bei einem Fußalleinsatz](eventMission.png)
