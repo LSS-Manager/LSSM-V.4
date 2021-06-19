@@ -12,14 +12,24 @@ export default (
         })
     );
 
+    const wrapperClass = LSSM.$store.getters.nodeAttribute(
+        'ecl-eventmission-wrapper'
+    );
+
     const checkEvent = (panel: HTMLDivElement): void => {
         const mission = parseInt(panel.getAttribute('mission_type_id') ?? '-1');
         const title = panel.querySelector<HTMLAnchorElement>(
             '.map_position_mover[id^="mission_caption_"]'
         );
-        if (!eventsById.hasOwnProperty(mission) || !title) return;
+        if (
+            !eventsById.hasOwnProperty(mission) ||
+            !title ||
+            panel.querySelector(`.${wrapperClass}`)
+        )
+            return;
         const wrapper = document.createElement('span');
         wrapper.innerText = `[${eventsById[mission].join(' ')}]`;
+        wrapper.classList.add(wrapperClass);
         wrapper.style.setProperty('margin-right', '0.5rem');
         title.before(wrapper);
     };
