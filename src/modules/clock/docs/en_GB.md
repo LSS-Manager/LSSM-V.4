@@ -52,19 +52,19 @@ This module uses [Moment.js](https://momentjs.com) to offer a large selection of
 
 ## Localised Formats
 
-| Category                                   | Variable | Output                            |
-|--------------------------------------------|----------|-----------------------------------|
-| Time                                       | LT       | 8:30                              |
-| Time with seconds                          | LTS      | 8:30:25                           |
-| Date with leading zeros                    | L        | 02/04/2021                        |
-| Date without leading zeros                 | l        | 2/4/2021                          |
-| Date with month as word                    | LL       | 17th February 2021                |
-| Date with shortened month as word          | ll       | 17th Feb 2021                     |
-| Date with month as word and time           | LLL      | February 17, 2020 8:30 am         |
-| Date with shortened month as word and time | lll      | 17th Feb 2020 08:30               |
-| Full date with time                        | LLLL     | Monday, February 17, 2020 8:30 am |
-| Full date in shortened form with time      | llll     | Mon, 17th Feb 2020 08:30          |
+| Category                                   | Variable | Output                              |
+|--------------------------------------------|----------|-------------------------------------|
+| Time                                       | LT       | 8:30 PM                             |
+| Time with seconds                          | LTS      | 8:30:25 PM                          |
+| Date with leading zeros                    | L        | 30/04/2021                          |
+| Date without leading zeros                 | l        | 30/4/2021                           |
+| Date with month as word                    | LL       | September 4, 1986                   |
+| Date with shortened month as word          | ll       | Sep 4, 1986                         |
+| Date with month as word and time           | LLL      | September 4, 1986 8:30 PM           |
+| Date with shortened month as word and time | lll      | Sep 4, 1986 8:30 PM                 |
+| Full date with time                        | LLLL     | Thursday, September 4, 1986 8:30 PM |
+| Full date in shortened form with time      | llll     | Thu, Sep 4, 1986 8:30 PM            |
 
 ## Normal Text
 
-If you want to include other text with your clock such as `hour`, simply typing `LTS hour` will not work. That results in `11:13:27 11our`. In order to include text that shouldn't be formatted, surround it in `[]`. `LTS [Hour]` or `LTS [H]our` will both result in `11:13:27 Hour` being displayed.
+If you want to include other text with your clock such as `hour`, simply typing `LTS hour` will not work. That results in `11:13:27 AM 11our`. In order to include text that shouldn't be formatted, surround it in `[]`. `LTS [Hour]` or `LTS [H]our` will both result in `11:13:27 AM Hour` being displayed.
