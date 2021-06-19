@@ -1,5 +1,6 @@
 {
 	"apps": "Apps",
+	"description": "De Wiki voor LSS-Manager V.4",
 	"head": {
 		"alpha": "Deze module is nog in zijn absolute begin en is momenteel alleen beschikbaar voor Beta testers!",
 		"dev": "Deze module is nog in ontwikkeling. Daarom is het mogelijk dat er nog fouten in zitten!",

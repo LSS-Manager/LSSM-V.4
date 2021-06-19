@@ -23,7 +23,7 @@ export default async (
 
     const mission = ((await LSSM.$store.dispatch('api/getMissions', {
         force: false,
-        feature: `ecl-missionKeywords-settings`,
+        feature: `ecw-missionKeywords-settings`,
     })) as Mission[]).find(({ id }) => id === missionType);
 
     const addLabel = (
