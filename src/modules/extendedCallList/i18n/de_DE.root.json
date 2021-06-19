@@ -1,10 +1,137 @@
 {
 	"description": "Erweitert die Einsatzliste um coole Features!",
+	"eventMissions": {
+		"default": {
+			"🌞": [
+				183,
+				184,
+				185,
+				461,
+				546,
+				547,
+				548
+			],
+			"🌹": [
+				360,
+				361,
+				362,
+				363,
+				364,
+				365,
+				597,
+				598,
+				599,
+				600,
+				601,
+				602,
+				603,
+				604,
+				605
+			],
+			"🍺": [
+				88,
+				216,
+				217,
+				218,
+				219,
+				220,
+				452,
+				453,
+				454,
+				456,
+				457,
+				626,
+				627,
+				628,
+				629,
+				630
+			],
+			"🎃": [
+				111,
+				112,
+				113,
+				114,
+				115,
+				116,
+				117,
+				118,
+				119
+			],
+			"🎅": [
+				52,
+				53,
+				54,
+				55,
+				56,
+				129,
+				130,
+				202,
+				203,
+				582,
+				583,
+				584,
+				585,
+				586,
+				587,
+				588,
+				589,
+				590
+			],
+			"🥅": [
+				371,
+				372,
+				373,
+				374,
+				375,
+				376,
+				641,
+				642
+			],
+			"🥚": [
+				284,
+				285,
+				286,
+				287,
+				288,
+				289,
+				290,
+				291,
+				442,
+				443,
+				444,
+				445,
+				446,
+				618
+			],
+			"🧨": [
+				259,
+				260,
+				261,
+				262,
+				263,
+				264,
+				265,
+				266,
+				267,
+				268,
+				269,
+				270,
+				326,
+				591
+			]
+		}
+	},
 	"name": "Erweiterte Einsatzliste",
 	"settings": {
 		"averageCredits": {
 			"description": "Lasse dir in der Einsatzliste kompakt anzeigen, wie viel Credits ein Einsatz im Durchschnitt gibt.",
 			"title": "Verdienst anzeigen"
+		},
+		"eventMissions": {
+			"descripition": "Markiert Saisonale Einsätze. Optional kannst du das ganze individuell anpassen und auch nicht-saisonale Einsätze markieren.",
+			"missions": "Einsätze",
+			"text": "Text",
+			"title": "Saisonale Einsätze markieren"
 		},
 		"remainingTime": {
 			"description": "Zeigt bei Einsätzen an, wie lange der Einsatz noch in Bearbeitung ist.",
@@ -17,24 +144,6 @@
 		"starrableMissions": {
 			"description": "Markiere dir Einsätze, damit diese in der Einsatzliste oben angezeigt werden dürfen. Du kannst die Markierung im Einsatzfenster und in der Einsatzliste vornehmen.",
 			"title": "Einsätze markieren"
-		},
-		"eventMissions": {
-			"descripition": "Markiert Saisonale Einsätze. Optional kannst du das ganze individuell anpassen und auch nicht-saisonale Einsätze markieren.",
-			"title": "Saisonale Einsätze markieren",
-			"text": "Text",
-			"missions": "Einsätze"
-		}
-	},
-	"eventMissions": {
-		"default": {
-			"🍺": [88, 216, 217, 218, 219, 220, 452, 453, 454, 456, 457, 626, 627, 628, 629, 630],
-			"🌹": [360, 361, 362, 363, 364, 365, 597, 598, 599, 600, 601, 602, 603, 604, 605],
-			"🥚": [284, 285, 286, 287, 288, 289, 290, 291, 442, 443, 444, 445, 446, 618],
-			"🌞": [183, 184, 185, 461, 546, 547, 548],
-			"🎃": [111, 112, 113, 114, 115, 116, 117, 118, 119],
-			"🥅": [371, 372, 373, 374, 375, 376, 641, 642],
-			"🎅": [52, 53, 54, 55, 56, 129, 130, 202, 203, 582, 583, 584, 585, 586, 587, 588, 589, 590],
-			"🧨": [259, 260, 261, 262, 263, 264, 265, 266, 267, 268, 269, 270, 326, 591]
 		}
 	}
 }
