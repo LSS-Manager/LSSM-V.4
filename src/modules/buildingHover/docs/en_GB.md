@@ -1,10 +1,6 @@
 Sometimes you may want to get a quick overview of a building's status.
 This module allows you to get the important details of a station, when you hover over it with your mouse on the map.
 
-:::danger Mapkit
-Due to restrictions imposed by Mapkit, it is currently not possible to use this module with the map type `Mapkit`.
-:::
-
 The following information is included:
 * Name of the building
 * Number of parking spaces (for stations)
