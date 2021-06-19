@@ -8,9 +8,15 @@ export default {
             textColor: 'white',
         },
         mission: {
-            regex: '^%missions%',
+            regex: '^%missions%( \\(Melding via OMS / PAC\\))?( - Loos alarm)?$',
             title: 'Eigen meldingen',
             backgroundColor: '#ff2400',
+            textColor: 'white',
+        },
+        cancelledMissions: {
+            regex: '^%missions%( \\(Melding via OMS / PAC\\))? - Gecanceld$',
+            title: 'Gecancelde meldingen',
+            backgroundColor: '#7C7978',
             textColor: 'white',
         },
         buyVehicle: {
@@ -77,7 +83,7 @@ export default {
             textColor: 'white',
         },
         fireAlarmSystemCancel: {
-            regex: /Loos alarm/,
+            regex: /Loos alarm$/,
             title: 'Melding via OMS/PAC - Loos alarm',
             backgroundColor: '#c80815',
             textColor: 'white',
