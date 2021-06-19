@@ -1,5 +1,10 @@
 import { ModuleMainFunction } from 'typings/Module';
 
+interface AppendableListSetting<valueType> {
+    value: valueType;
+    enabled: boolean;
+}
+
 export default (async (LSSM, MODULE_ID) => {
     const getSetting = <type = boolean>(settingId: string): Promise<type> => {
         return LSSM.$store.dispatch('settings/getSetting', {
@@ -59,5 +64,22 @@ export default (async (LSSM, MODULE_ID) => {
                 /* webpackChunkName: "modules/extendedCallList/averageCredits" */ './assets/averageCredits'
             )
         ).default(LSSM);
+    }
+
+    const eventMissionsSettings = await getSetting<
+        AppendableListSetting<
+            {
+                text: string;
+                missions: number[];
+            }[]
+        >
+    >('eventMissions');
+
+    if (eventMissionsSettings.enabled && eventMissionsSettings.value.length) {
+        (
+            await import(
+                /* webpackChunkName: "modules/extendedCallList/eventMissions" */ './assets/eventMissions'
+            )
+        ).default(LSSM, eventMissionsSettings.value);
     }
 }) as ModuleMainFunction;
