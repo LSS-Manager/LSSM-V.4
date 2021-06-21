@@ -1,73 +1,7 @@
 {
 	"description": "Breidt de meldingenlijst uit met leuke functies!",
-	"name": "Uitgebreide meldingenlijst",
-	"settings": {
-		"averageCredits": {
-			"description": "Toont de gemiddeld te verdienen credits op een compacte manier.",
-			"title": "Toon gemiddelde credits"
-		},
-		"remainingTime": {
-			"description": "Toont bij inzetten hoe lang de melding nog duurt, voordat deze is afgerond.",
-			"title": "Resterende inzettijd"
-		},
-		"remainingTimeGreenOnly": {
-			"description": "Toont de resterende inzettijd alleen bij groene meldingen.",
-			"title": "Inzettijd alleen bij groene meldingen"
-		},
-		"starrableMissions": {
-			"description": "Markeer meldingen zodat ze bovenaan de meldingenlijst worden weergegeven. Je kan ze in de meldingenlijst of in de melding zelf markeren.",
-			"title": "Markeer meldingen"
-		},
-		"eventMissions": {
-			"description": "Markeert seizoensmeldingen. Optioneel kan je het helemaal aanpassen en ook niet seizoensmeldingen markeren.",
-			"title": "Seizoensmeldingen markeren",
-			"text": "Tekst",
-			"missions": "Melding"
-		}
-	},
 	"eventMissions": {
 		"default": {
-			"🥰": [
-				562,
-				563
-			],
-			"🥚": [
-				578,
-				579,
-				580,
-				581,
-				582,
-				583,
-				584,
-				585,
-				586,
-				587,
-				588,
-				788,
-				789,
-				790,
-				791,
-				792,
-				793
-			],
-			"🌞": [
-				617,
-				618,
-				619,
-				620,
-				621
-			],
-			"🎃": [
-				146,
-				147,
-				148,
-				149,
-				150,
-				151,
-				152,
-				153,
-				154
-			],
 			"⚽": [
 				820,
 				821,
@@ -79,6 +13,35 @@
 				827,
 				828,
 				829
+			],
+			"🌞": [
+				617,
+				618,
+				619,
+				620,
+				621
+			],
+			"🌹": [
+				727,
+				728,
+				729,
+				730,
+				731,
+				732,
+				733,
+				734,
+				735
+			],
+			"🎃": [
+				146,
+				147,
+				148,
+				149,
+				150,
+				151,
+				152,
+				153,
+				154
 			],
 			"🎅": [
 				160,
@@ -115,6 +78,48 @@
 				546,
 				547
 			],
+			"🎇": [
+				736,
+				737,
+				738,
+				739,
+				740,
+				741,
+				742,
+				743,
+				744,
+				745,
+				746,
+				747,
+				748,
+				749,
+				750,
+				751,
+				752
+			],
+			"🥚": [
+				578,
+				579,
+				580,
+				581,
+				582,
+				583,
+				584,
+				585,
+				586,
+				587,
+				588,
+				788,
+				789,
+				790,
+				791,
+				792,
+				793
+			],
+			"🥰": [
+				562,
+				563
+			],
 			"🧨": [
 				525,
 				526,
@@ -148,37 +153,32 @@
 				700,
 				701,
 				702
-			],
-			"🌹": [
-				727,
-				728,
-				729,
-				730,
-				731,
-				732,
-				733,
-				734,
-				735
-			],
-			"🎇": [
-				736,
-				737,
-				738,
-				739,
-				740,
-				741,
-				742,
-				743,
-				744,
-				745,
-				746,
-				747,
-				748,
-				749,
-				750,
-				751,
-				752
 			]
+		}
+	},
+	"name": "Uitgebreide meldingenlijst",
+	"settings": {
+		"averageCredits": {
+			"description": "Toont de gemiddeld te verdienen credits op een compacte manier.",
+			"title": "Toon gemiddelde credits"
+		},
+		"eventMissions": {
+			"description": "Markeert seizoensmeldingen. Optioneel kan je het helemaal aanpassen en ook niet seizoensmeldingen markeren.",
+			"missions": "Melding",
+			"text": "Tekst",
+			"title": "Seizoensmeldingen markeren"
+		},
+		"remainingTime": {
+			"description": "Toont bij inzetten hoe lang de melding nog duurt, voordat deze is afgerond.",
+			"title": "Resterende inzettijd"
+		},
+		"remainingTimeGreenOnly": {
+			"description": "Toont de resterende inzettijd alleen bij groene meldingen.",
+			"title": "Inzettijd alleen bij groene meldingen"
+		},
+		"starrableMissions": {
+			"description": "Markeer meldingen zodat ze bovenaan de meldingenlijst worden weergegeven. Je kan ze in de meldingenlijst of in de melding zelf markeren.",
+			"title": "Markeer meldingen"
 		}
 	}
 }

@@ -8,7 +8,8 @@ export default {
             textColor: 'white',
         },
         mission: {
-            regex: '^%missions%( \\(Melding via OMS / PAC\\))?( - Loos alarm)?$',
+            regex:
+                '^%missions%( \\(Melding via OMS / PAC\\))?( - Loos alarm)?$',
             title: 'Eigen meldingen',
             backgroundColor: '#ff2400',
             textColor: 'white',
