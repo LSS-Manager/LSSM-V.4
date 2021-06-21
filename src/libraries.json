@@ -28,14 +28,14 @@
 	},
 	"@types/leaflet": {
 		"url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/leaflet",
-		"version": "1.7.2"
+		"version": "1.7.3"
 	},
 	"@types/lodash": {
 		"version": "4.14.170"
 	},
 	"@types/node": {
 		"url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/node",
-		"version": "15.12.3"
+		"version": "15.12.4"
 	},
 	"@types/node-fetch": {
 		"version": "2.5.10"
@@ -108,7 +108,7 @@
 	"eslint": {
 		"icon": "https://eslint.org/assets/img/favicon.512x512.png",
 		"url": "https://eslint.org",
-		"version": "7.28.0"
+		"version": "7.29.0"
 	},
 	"eslint-plugin-prettier": {
 		"icon": "https://prettier.io/icon.png",
