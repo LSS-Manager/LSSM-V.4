@@ -8,9 +8,15 @@ export default {
             textColor: 'white',
         },
         mission: {
-            regex: '^%missions%',
+            regex: '^%missions%( \\(Fire Alarm System\\))?( - False Alarm)?$',
             title: 'Own Missions',
             backgroundColor: '#ff2400',
+            textColor: 'white',
+        },
+        cancelledMissions: {
+            regex: '^%missions%( \\(Fire Alarm System\\))? - [cC]anceled$',
+            title: 'Cancelled Missions',
+            backgroundColor: '#7C7978',
             textColor: 'white',
         },
         buyVehicle: {
