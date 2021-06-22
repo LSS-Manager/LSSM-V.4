@@ -8,9 +8,15 @@ export default {
             textColor: 'white',
         },
         mission: {
-            regex: '^%missions%',
+            regex: '^%missions%( \\(Brandmeldeanlage\\))?( - Fehlalarm)?$',
             title: 'Eigene Einsätze',
             backgroundColor: '#ff2400',
+            textColor: 'white',
+        },
+        cancelledMissions: {
+            regex: '^%missions%( \\(Brandmeldeanlage\\))? - [aA]bgebrochen$',
+            title: 'Abgebrochene Einsätze',
+            backgroundColor: '#7C7978',
             textColor: 'white',
         },
         buyVehicle: {
