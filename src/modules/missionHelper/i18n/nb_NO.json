@@ -33,7 +33,7 @@
 		"title": "Fange | {n} fange | {n} fanger"
 	},
 	"requirements": {
-		"water_needed": "Water demand (lit)"
+		"water_needed": "vann (lit)"
 	},
 	"vehicles": {
 		"captions": {
