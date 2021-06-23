@@ -74,6 +74,7 @@ module.exports = {
             pushLeft: 'show this box at original position',
         },
         selected: 'Selected',
+		water: 'l. water',
         vehiclesByRequirement: {
             [/^Fire engine(s)?$/]: [0, 1, 12, 13, 19],
             [/^Turntable Ladder trucks?$/]: [2, 13],
