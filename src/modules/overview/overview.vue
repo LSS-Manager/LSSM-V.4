@@ -395,6 +395,8 @@ export default Vue.extend<
                         'nl_NL',
                         'sv_SE',
                         'it_IT',
+                        'nb_NO',
+                        'en_AU',
                     ].includes(this.$store.state.lang)
                         ? {
                               wtank: {
