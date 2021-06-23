@@ -29,7 +29,7 @@ module.exports = {
         },
         arrSpecs: {
             fire: 'Brannbil',
-            elw: 'Innsatsleder brann', 
+            elw: 'Innsatsleder brann',
             dlk: 'Stigebil',
             rtw: 'Ambulanse',
             rw: 'Tungredningsbil',
