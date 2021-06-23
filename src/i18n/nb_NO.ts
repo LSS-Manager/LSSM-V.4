@@ -410,6 +410,28 @@ export default {
             minPersonnel: 2,
             maxPersonnel: 4,
         },
+        33: {
+            caption: 'ATV',
+            color: '#570f0f',
+            coins: 5,
+            credits: 5_000,
+            minPersonnel: 1,
+            maxPersonnel: 2,
+            wtank: 2_000,
+            schooling: 'Brannstasjon - ATV',
+            shownSchooling: 'ATV',
+        },
+        34: {
+            caption: 'Branntankbil',
+            color: '#570f0f',
+            coins: 25,
+            credits: 300_000,
+            minPersonnel: 2,
+            maxPersonnel: 5,
+            wtank: 2_000,
+            schooling: 'Brannstasjon - Skogbrann helikopterutdannin',
+            shownSchooling: 'Skogbrann helikopterutdannin',
+        },
     },
     buildings: {
         0: {
@@ -804,11 +826,29 @@ export default {
             startPersonnel: 0,
             startVehicles: ['Ikke. Du kan kjøpe maks. 2 Kjøretøy'],
         },
+        25: {
+            caption: 'Brannheliport',
+            color: '#148423',
+            coins: 50,
+            credits: 1_000_000,
+            extensions: [],
+            levelcost: ['1. 1.000.000 kreditter / 50 mynter'],
+            maxBuildings: 'se spesiells',
+            maxLevel: 1,
+            special:
+                'Opptil 3 landingsplasser kan bygges per stasjon (utvidelsesetapper). Opp til den 125. bygningen (av alle typer) totalt maks. Fire landingsplasser kan bygges. Deretter øker antallet med 1 hver 25. bygning (begynner på 125).',
+            startPersonnel: 2,
+            startVehicles: ['Skogbrannhelikopter'],
+            maxBuildingsFunction: (buildingsAmountTotal: number): number =>
+                buildingsAmountTotal < 125
+                    ? 3
+                    : Math.floor(buildingsAmountTotal / 25),
+        },
     },
 
     buildingCategories: {
         Brann: {
-            buildings: [1, 2, 3],
+            buildings: [1, 2, 3, 25],
             color: '#ff2d2d',
         },
         Helse: {
