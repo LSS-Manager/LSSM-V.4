@@ -20,8 +20,7 @@
 		"water_needed": {
 			"badge": true,
 			"in": "requirements",
-			"text": "vann: {n} liter | vann
-: {n} liter"
+			"text": "vann: {n} liter | vann: {n} liter"
 		}
 	},
 	"settings": {
