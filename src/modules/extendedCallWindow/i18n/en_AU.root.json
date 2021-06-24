@@ -164,6 +164,18 @@
 				]
 			},
 			{
+				"name": "Bushfire Vehicles",
+				"vehicleTypes": [
+					19,
+					28,
+					29,
+					30,
+					31,
+					32,
+					33
+				]
+			},
+			{
 				"name": "Water",
 				"vehicleTypes": [
 					20,

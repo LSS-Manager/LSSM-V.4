@@ -16,6 +16,8 @@
 		"title": "Patients | {n} Patient | {n} Patients"
 	},
 	"prerequisites": {
+		"brush_extension": "Bushfire extension | Bushfire extensions",
+		"fire_aviation_count": "Fire Airbase | Fire Airbases",
 		"fire_stations": "Fire Station | Fire Stations",
 		"max_police_stations": "Maximum Police Stations",
 		"max_rescue_stations": "Maximum Rescue Stations",
@@ -30,8 +32,9 @@
 		"title": "Prisoner | {n} Prisoner | {n} Prisoner"
 	},
 	"requirements": {
-		"water_needed": "Water demand (gal)"
+		"water_needed": "Water demand (lit)"
 	},
+	"subsequent": "Subsequent Mission | Subsequent Missions",
 	"tip": {
 		"dragging": "drag window",
 		"maxState": "maximum requirements on/off",
@@ -44,6 +47,8 @@
 			"ambulances": "Ambulance | Ambulances",
 			"battalion_chief_vehicles": "Support",
 			"boats": "Boat | Boats",
+			"brush_truck": "Brush Truck | Brush Trucks",
+			"fire_aviation": "Airborne Firefighting | Airborne Firefightings",
 			"firetrucks": "Fire Engine | Fire Engines",
 			"gw_wasserrettung": "SES Unit",
 			"hazmat_vehicles": "HAZMAT | HAZMATS",

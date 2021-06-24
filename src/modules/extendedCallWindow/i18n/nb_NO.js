@@ -55,6 +55,13 @@ module.exports = {
             gw_taucher: 'Dykkerbil',
             boot: 'Båter (generelt)',
             mzb: 'Lett redningsbåt',
+            wasser_amount: '',
+            brush_vehicle: '',
+            brush_truck: '',
+            fire_aviation: '',
+            water_drop_helicopter: 'Water drop helicopter',
+            air_tanker: 'Air tanker',
+            heavy_air_tanker: 'Heavy air tanker',
         },
     },
     generationDate: {

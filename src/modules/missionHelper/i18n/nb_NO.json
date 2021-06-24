@@ -33,7 +33,7 @@
 		"title": "Fange | {n} fange | {n} fanger"
 	},
 	"requirements": {
-		"water_needed": "Water demand (gal)"
+		"water_needed": "vann (lit)"
 	},
 	"vehicles": {
 		"captions": {
@@ -43,6 +43,7 @@
 			"boats": "Båt | Båter",
 			"brush_truck": "Skogbrannbil | Skogbrannbil",
 			"diver_car": "Dykkerbil | Dykkerbiler",
+			"fire_aviation": "",
 			"firetrucks": "Mannskapsbil | Mannskapsbiler",
 			"hazmat_vehicles": "CBRNe | CBRNe",
 			"heavy_rescue_vehicles": "Tungredningsbil | Tungredningsbil",

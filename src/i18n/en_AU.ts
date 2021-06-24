@@ -117,14 +117,16 @@ export default {
             credits: 5_000,
             minPersonnel: 1,
             maxPersonnel: 6,
+            wtank: 2_000,
         },
         1: {
-            caption: 'Light Tanker',
+            caption: 'Medium Tanker',
             color: '#bb0000',
             coins: 25,
             credits: 5_000,
             minPersonnel: 1,
             maxPersonnel: 2,
+            wtank: 1_800,
         },
         2: {
             caption: 'Turntable Ladder',
@@ -162,12 +164,13 @@ export default {
             maxPersonnel: 3,
         },
         6: {
-            caption: 'Bulk Water Tankers',
+            caption: 'Bulk Water Tanker',
             color: '#aa0000',
             coins: 25,
             credits: 17_300,
             minPersonnel: 1,
             maxPersonnel: 3,
+            wtank: 11_000,
             special: 'Required once you have built 7 firehouses',
         },
         7: {
@@ -299,12 +302,13 @@ export default {
             special: 'Required once you have built 8 policestations',
         },
         19: {
-            caption: 'Tanker',
+            caption: 'Heavy Tanker',
             color: '#bb0000',
             coins: 25,
             credits: 5_000,
             minPersonnel: 1,
             maxPersonnel: 5,
+            wtank: 4_000,
         },
         20: {
             caption: 'SES Vehicle',
@@ -386,6 +390,66 @@ export default {
             special:
                 'You can buy 1 Mass Casualty Vehicle for every 20 ambulance stations (respectively 15 with premium account).',
         },
+        28: {
+            caption: 'Ultra-Light Tanker',
+            color: '#bb0000',
+            coins: 5,
+            credits: 5_000,
+            minPersonnel: 1,
+            maxPersonnel: 2,
+            wtank: 500,
+        },
+        29: {
+            caption: 'Light Tanker',
+            color: '#bb0000',
+            coins: 8,
+            credits: 8_000,
+            minPersonnel: 2,
+            maxPersonnel: 4,
+            wtank: 3_000,
+        },
+        30: {
+            caption: 'Pumper Tanker',
+            color: '#bb0000',
+            coins: 15,
+            credits: 19_000,
+            minPersonnel: 4,
+            maxPersonnel: 6,
+            wtank: 3_000,
+        },
+        31: {
+            caption: 'Fire Helicopter',
+            color: '#bb0000',
+            coins: 25,
+            credits: 300_000,
+            minPersonnel: 1,
+            maxPersonnel: 2,
+            wtank: 1_500,
+            schooling: 'Fire Station - Airborne firefighting',
+            shownSchooling: 'Airborne firefighting',
+        },
+        32: {
+            caption: 'Bomber',
+            color: '#bb0000',
+            coins: 25,
+            credits: 1_000_000,
+            minPersonnel: 1,
+            maxPersonnel: 1,
+            wtank: 3_200,
+            schooling: 'Fire Station - Airborne firefighting',
+            shownSchooling: 'Airborne firefighting',
+        },
+        33: {
+            caption: 'Large Air Tanker',
+            color: '#bb0000',
+            coins: 25,
+            credits: 1_500_000,
+            minPersonnel: 2,
+            maxPersonnel: 3,
+            wtank: 13_000,
+            schooling: 'Fire Station - Airborne firefighting',
+            shownSchooling: 'Airborne firefighting',
+        },
     },
     buildings: {
         0: {
@@ -400,6 +464,12 @@ export default {
                     coins: 20,
                     duration: '7 Days',
                 },
+                {
+                    caption: 'Bushfire Expansion',
+                    credits: 50_000,
+                    coins: 15,
+                    duration: '7 Days',
+                },
             ],
             levelcost: ['1. 10.000', '2. 50.000', '3.-16. 100.000'],
             maxBuildings: '5.000 together with small fire stations',
@@ -407,7 +477,7 @@ export default {
             special:
                 'From the 24th fire station onwards, the cost of building a new fire station increases according to the following formula: <code>100.000+200.000*LOG<sub>2</sub>(Number of existing fire stations − 22)</code>. The Coins price remains constant!',
             startPersonnel: 10,
-            startVehicles: ['Pumper', 'Light Tanker', 'Tanker'],
+            startVehicles: ['Pumper', 'Medium Tanker', ' Heavy Tanker'],
             maxBuildingsFunction: (): number => 5_000,
         },
         1: {
@@ -704,7 +774,7 @@ export default {
             special:
                 'From the 24th fire station onwards, the cost of building a new fire station increases according to the following formula: <code>(100.000+200.000*LOG<sub>2</sub>(Number of existing fire stations − 22)) / 2</code>. max. 1 Million Credits. The Coins price remains constant!',
             startPersonnel: 10,
-            startVehicles: ['Pumper', 'Light Tanker', 'Tanker'],
+            startVehicles: ['Pumper', 'Medium Tanker', ' Heavy Tanker'],
             maxBuildingsFunction: (): number => 5_000,
         },
         19: {
@@ -758,10 +828,28 @@ export default {
             startPersonnel: 3,
             startVehicles: ['Ambulance'],
         },
+        23: {
+            caption: 'Fire Airbase',
+            color: '#e7ad2f',
+            coins: 50,
+            credits: 1_500_000,
+            extensions: [],
+            levelcost: ['1.-5. 1.000.000'],
+            maxBuildings: 'see specials',
+            maxLevel: 0,
+            special:
+                'Up to the 125th building (of all types) a total of max. 3 landing sites can be built. After that the number increases by 1 every 25 buildings (starting at the 125th).',
+            startPersonnel: 2,
+            startVehicles: ['Fire Helicopter'],
+            maxBuildingsFunction: (buildingsAmountTotal: number): number =>
+                buildingsAmountTotal < 125
+                    ? 3
+                    : Math.floor(buildingsAmountTotal / 25),
+        },
     },
     buildingCategories: {
         'Fire Department': {
-            buildings: [0, 1, 18],
+            buildings: [0, 1, 18, 23],
             color: '#ff2d2d',
         },
         'Rescue Stations': {
@@ -785,6 +873,7 @@ export default {
         'Firefighters': {
             vehicles: {
                 'Fire trucks': [0, 1, 19],
+                'Bushfire': [28, 29, 30, 31, 32, 33],
                 'WaterTanker': [6],
                 'Special vehicles': [2, 3, 4, 7, 10, 11, 12, 13],
             },
@@ -821,7 +910,7 @@ export default {
         2: 20,
         6: 19,
     },
-    vehicleBuildings: [0, 2, 5, 6, 13, 14, 15, 18, 19, 20],
+    vehicleBuildings: [0, 2, 5, 6, 13, 14, 15, 18, 19, 20, 23],
     cellBuildings: [6, 19],
     cellExtensions: [
         '6_0',
@@ -860,6 +949,10 @@ export default {
             },
             {
                 caption: 'Ocean Navigation',
+                duration: '5 Days',
+            },
+            {
+                caption: 'Airborne firefighting',
                 duration: '5 Days',
             },
             {
@@ -1009,6 +1102,11 @@ export default {
         'Playground',
         'Dirt Race Track',
         'Sheltered housing facility',
+        'Field',
+        'Heathland',
+        'Moorland',
+        'Cabin',
+        'Campsite',
     ],
     only_alliance_missions: [57, 74],
     transfer_missions: [],
