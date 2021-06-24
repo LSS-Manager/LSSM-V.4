@@ -21,7 +21,7 @@ Hieronder een voorbeeld van de bovenstaande functies:
 ### Personeel benodigd
 Laat zien hoeveel personeel minimaal en maximaal nodig is voor de voertuigen. 
 
-![Personeel Benodigd](PersonalNeeded.png)
+![Personeel Benodigd](personalNeeded.png)
 
 ### Personeelssamenvatting
 Geeft in het personeelsoverzicht een samenvatting van hoeveel personen welke opleiding(en) hebben. 
