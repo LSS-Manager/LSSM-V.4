@@ -34,6 +34,7 @@
 	"requirements": {
 		"water_needed": "Water demand (lit)"
 	},
+	"subsequent": "Subsequent Mission | Subsequent Missions",
 	"tip": {
 		"dragging": "drag window",
 		"maxState": "maximum requirements on/off",
