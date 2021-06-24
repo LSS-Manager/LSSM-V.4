@@ -8,13 +8,15 @@ export default {
             textColor: 'white',
         },
         mission: {
-            regex: '^%missions%( \\(Sistema de alarma antiincendios\\))?( - False Alarm)?$',
+            regex:
+                '^%missions%( \\(Sistema de alarma antiincendios\\))?( - False Alarm)?$',
             title: 'Misiones Propias',
             backgroundColor: '#ff2400',
             textColor: 'white',
         },
         cancelledMissions: {
-            regex: '^%missions%( \\(Sistema de alarma antiincendios\\))? - Cancelado$',
+            regex:
+                '^%missions%( \\(Sistema de alarma antiincendios\\))? - Cancelado$',
             title: 'Misiones Canceladas',
             backgroundColor: '#7C7978',
             textColor: 'white',
