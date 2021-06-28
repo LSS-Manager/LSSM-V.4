@@ -67,7 +67,7 @@
         "css-loader": "^5.2.4",
         "eslint": "^7.29.0",
         "eslint-plugin-prettier": "^3.4.0",
-        "eslint-plugin-vue": "^7.11.1",
+        "eslint-plugin-vue": "^7.12.1",
         "html-loader": "^2.1.2",
         "moment-timezone": "^0.5.33",
         "node-fetch": "^2.6.1",
