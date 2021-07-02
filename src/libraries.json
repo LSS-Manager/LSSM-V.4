@@ -59,7 +59,8 @@
 		"version": "3.11.1"
 	},
 	"@types/webpack-env": {
-		"version": "1.16.0"
+		"url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/webpack-env",
+		"version": "1.16.1"
 	},
 	"@typescript-eslint/eslint-plugin": {
 		"version": "4.28.1"
