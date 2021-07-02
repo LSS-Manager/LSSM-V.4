@@ -35,7 +35,7 @@
 	},
 	"@types/node": {
 		"url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/node",
-		"version": "15.12.5"
+		"version": "15.14.0"
 	},
 	"@types/node-fetch": {
 		"version": "2.5.10"
