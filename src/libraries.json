@@ -56,7 +56,8 @@
 		"version": "0.7.36"
 	},
 	"@types/vue-select": {
-		"version": "3.11.1"
+		"url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/vue-select",
+		"version": "3.11.2"
 	},
 	"@types/webpack-env": {
 		"url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/webpack-env",
