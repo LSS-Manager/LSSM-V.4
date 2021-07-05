@@ -45,6 +45,7 @@
 			"ambulances": "Ambulans | Ambulans",
 			"battalion_chief_vehicles": "Fire Officer | Fire Officers",
 			"firetrucks": "Fire engine | Fire engines",
+			"flood_equipment": "sprzęt przeciwpowodziowy",
 			"hazmat_vehicles": "HazMat Unit | HazMat Units",
 			"heavy_rescue_vehicles": "Rescue Support Unit or Rescue Pump | Rescue Support Unit or Rescue Pump",
 			"helicopter": "HEMS",
@@ -57,7 +58,6 @@
 			"police_helicopters": "Police Helicopter | Police Helicopters",
 			"swat_suv": "Armed Response | Armed Response",
 			"traffic_car": "Traffic Car | Traffic Cars",
-			"flood_equipment": "sprzęt przeciwpowodziowy",
 			"water_tankers": "Water Carrier | Water Carriers"
 		},
 		"multifunctionals": {
