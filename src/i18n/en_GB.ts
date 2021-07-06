@@ -1005,7 +1005,7 @@ export default {
                 duration: '3 Days',
             },
         ],
-        'Rescue': [
+        'Ambulance': [
             {
                 caption: 'Critical care',
                 duration: '5 Days',
