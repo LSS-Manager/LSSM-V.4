@@ -1,5 +1,5 @@
 {
 	"github": 10,
-	"location": "^/((buildings/\\d+(/personals)?)|vehicles/\\d+/zuweisung)/?$",
+	"location": "^/((buildings/\\d+(/personals|/vehicles/new)?)|vehicles/\\d+/zuweisung)/?$",
 	"settings": true
 }
