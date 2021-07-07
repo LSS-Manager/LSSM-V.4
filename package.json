@@ -47,7 +47,7 @@
         "@types/i18n-js": "^3.8.1",
         "@types/jquery": "^3.5.5",
         "@types/leaflet": "^1.7.3",
-        "@types/lodash": "^4.14.170",
+        "@types/lodash": "^4.14.171",
         "@types/node": "^16.0.0",
         "@types/node-fetch": "^2.5.11",
         "@types/pdfmake": "^0.1.17",
