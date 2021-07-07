@@ -30,7 +30,7 @@
 	},
 	"@types/leaflet": {
 		"url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/leaflet",
-		"version": "1.7.3"
+		"version": "1.7.4"
 	},
 	"@types/lodash": {
 		"url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/lodash",
