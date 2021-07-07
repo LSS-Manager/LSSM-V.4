@@ -32,7 +32,8 @@
 		"version": "1.7.3"
 	},
 	"@types/lodash": {
-		"version": "4.14.170"
+		"url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/lodash",
+		"version": "4.14.171"
 	},
 	"@types/node": {
 		"url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/node",
