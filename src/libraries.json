@@ -25,7 +25,8 @@
 		"version": "3.8.1"
 	},
 	"@types/jquery": {
-		"version": "3.5.5"
+		"url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/jquery",
+		"version": "3.5.6"
 	},
 	"@types/leaflet": {
 		"url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/leaflet",
@@ -47,10 +48,12 @@
 		"version": "0.1.17"
 	},
 	"@types/semver": {
-		"version": "7.3.6"
+		"url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/semver",
+		"version": "7.3.7"
 	},
 	"@types/showdown": {
-		"version": "1.9.3"
+		"url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/showdown",
+		"version": "1.9.4"
 	},
 	"@types/speed-measure-webpack-plugin": {
 		"url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/speed-measure-webpack-plugin",
