@@ -52,7 +52,8 @@
 		"version": "7.3.7"
 	},
 	"@types/showdown": {
-		"version": "1.9.3"
+		"url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/showdown",
+		"version": "1.9.4"
 	},
 	"@types/speed-measure-webpack-plugin": {
 		"url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/speed-measure-webpack-plugin",
