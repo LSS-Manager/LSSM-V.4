@@ -51,7 +51,7 @@
         "@types/node": "^16.0.0",
         "@types/node-fetch": "^2.5.11",
         "@types/pdfmake": "^0.1.17",
-        "@types/semver": "^7.3.6",
+        "@types/semver": "^7.3.7",
         "@types/showdown": "^1.9.3",
         "@types/speed-measure-webpack-plugin": "^1.3.4",
         "@types/ua-parser-js": "^0.7.36",
