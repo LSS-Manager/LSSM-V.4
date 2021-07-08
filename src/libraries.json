@@ -46,7 +46,8 @@
 		"version": "2.5.11"
 	},
 	"@types/pdfmake": {
-		"version": "0.1.17"
+		"url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/pdfmake",
+		"version": "0.1.18"
 	},
 	"@types/semver": {
 		"url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/semver",
