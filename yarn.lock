@@ -1124,10 +1124,10 @@
     "@types/node" "*"
     form-data "^3.0.0"
 
-"@types/node@*", "@types/node@^16.0.0":
-  version "16.0.0"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-16.0.0.tgz#067a6c49dc7a5c2412a505628e26902ae967bf6f"
-  integrity sha512-TmCW5HoZ2o2/z2EYi109jLqIaPIi9y/lc2LmDCWzuCi35bcaQ+OtUh6nwBiFK7SOu25FAU5+YKdqFZUwtqGSdg==
+"@types/node@*", "@types/node@^16.0.1":
+  version "16.0.1"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-16.0.1.tgz#70cedfda26af7a2ca073fdcc9beb2fff4aa693f8"
+  integrity sha512-hBOx4SUlEPKwRi6PrXuTGw1z6lz0fjsibcWCM378YxsSu/6+C30L6CR49zIBKHiwNWCYIcOLjg4OHKZaFeLAug==
 
 "@types/pdfkit@*":
   version "0.10.6"
@@ -1136,10 +1136,10 @@
   dependencies:
     "@types/node" "*"
 
-"@types/pdfmake@^0.1.17":
-  version "0.1.17"
-  resolved "https://registry.yarnpkg.com/@types/pdfmake/-/pdfmake-0.1.17.tgz#4427735be263d3c4826d3f1504f1400b4de9a76c"
-  integrity sha512-hMDtR+sSSD1MA6q0KKLr+zZRRCieEcF9HsbYIMhF33DTvHNIPo6qJEQAY3jtY/zglAVtQyzwjsWCjGLa5vcx2A==
+"@types/pdfmake@^0.1.18":
+  version "0.1.18"
+  resolved "https://registry.yarnpkg.com/@types/pdfmake/-/pdfmake-0.1.18.tgz#1c23ff16df8a8ec6256cbadb8e1cbf7bed53fadd"
+  integrity sha512-RwKeBlDXm13p3/hyS0/pDZpC+078yp+liR+8PEq1TnvKfI6qlnI2ht7zJC+xgbw9kZAExnNKA/2fZedByxghiA==
   dependencies:
     "@types/node" "*"
     "@types/pdfkit" "*"
