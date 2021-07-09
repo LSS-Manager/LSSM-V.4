@@ -1,10 +1,92 @@
 {
 	"description": "Extends missionlist by some cool Features!",
+	"eventMissions": {
+		"default": {
+			"🌞": [
+				178, 179, 180, 181, 182, 183, 337, 338, 339
+			],
+			"🌹": [
+				275,
+				276,
+				277,
+				278,
+				279,
+				280,
+				281,
+				282,
+				283
+			],
+			"🎃": [
+				75, 76, 77, 78, 79, 80, 81, 82, 83
+			],
+			"🎅": [
+				86, 87, 88, 89, 90, 91, 92
+			],
+			"🥚": [
+				154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 312, 313, 314, 315, 316, 317
+			],
+			"🧨": [
+				99,
+				100,
+				101,
+				102,
+				103,
+				104,
+				105,
+				106,
+				107,
+				108,
+				109,
+				110,
+				111,
+				227,
+				228,
+				229,
+				230,
+				231,
+				232,
+				233,
+				234,
+				235,
+				236,
+				237,
+				238,
+				239,
+				240,
+				241,
+				243,
+				254,
+				255,
+				256, 
+				257,
+				258,
+				259,
+				260,
+				261,
+				262,
+				263
+			],
+			"☘️": [
+				296,
+				297,
+				298,
+				299,
+				300,
+				301
+			]
+		}
+	},
 	"name": "Extended Missionlist",
 	"settings": {
 		"averageCredits": {
 			"description": "Shows the average earnable credits for each mission in a compact way.",
 			"title": "Show avg. credits"
+		},
+		"eventMissions": {
+			"description": "Marks seasonal missions. Optionally, you can customise the whole thing and also mark non-seasonal missions.",
+			"missions": "Missions",
+			"text": "Text",
+			"title": "Mark seasonal missions"
 		},
 		"remainingTime": {
 			"description": "Shows at missions how long each mission still is in progress.",
