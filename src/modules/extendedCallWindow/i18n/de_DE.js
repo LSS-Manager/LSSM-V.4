@@ -221,6 +221,7 @@ module.exports = {
             [/^leBefKw$/]: [35],
             [/^Außenlastbehälter \(allgemein\)$/]: [96],
             [/^Außenlastbehälter$/]: [96],
+            [/^ELW 1 \(SEG\)$/]: [59],
         },
     },
     tailoredTabs: {

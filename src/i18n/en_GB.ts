@@ -136,7 +136,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 3,
             special:
-                'Required once you have built 3 fire stations. A Aerial Asset, very useful for fighting fires in high rises and rescuing people.',
+                'Required once you have built 3 fire stations. An Aerial Asset, very useful for fighting fires in high rises and rescuing people.',
         },
         3: {
             caption: 'Fire Officer',
@@ -294,7 +294,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 6,
             special:
-                'To purchase with credits it requires the rank: Captain, <br>Lower ranked members can purchase the vehicle for 25 Coins. A Pump with a Aerial Asset on top, perfect for high rise fires and rescuing people form tall buildings ',
+                'To purchase with credits it requires the rank: Captain, <br>Lower ranked members can purchase the vehicle for 25 Coins. A Pump with an Aerial Asset on top, perfect for high rise fires and rescuing people form tall buildings ',
         },
         18: {
             caption: 'Co-Responder Vehicle',

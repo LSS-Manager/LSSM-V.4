@@ -1,5 +1,6 @@
 {
 	"apps": "Apps",
+	"description": "The Wiki for LSS-Manager V.4",
 	"head": {
 		"alpha": "This module is still in its absolute beginnings and is currently only available for beta testers!",
 		"dev": "This module is still under development. It is possible that there are still some bugs!",

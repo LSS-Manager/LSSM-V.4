@@ -102,7 +102,7 @@ export default (async (LSSM, MODULE_ID, $m, $mc) => {
         >('missionKeywords');
 
         if (missionKeywordsSettings.value.length) {
-            (
+            await (
                 await import(
                     /* webpackChunkName: "modules/extendedCallWindow/missionKeywords" */ './assets/missionKeywords'
                 )

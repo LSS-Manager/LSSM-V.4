@@ -50,6 +50,13 @@ module.exports = {
             police_horse: 'Mounted Police',
             gw_wasserrettung: 'SES Vehicle',
             mzb: 'Rescue Boat',
+            wasser_amount: 'Litres of water',
+            brush_vehicle: 'Brush Truck',
+            brush_truck: 'Brush Truck',
+            fire_aviation: 'Fire Aviation',
+            water_drop_helicopter: 'Fire Helicopter',
+            air_tanker: 'Bomber',
+            heavy_air_tanker: 'Large Air tanker',
         },
     },
     enhancedMissingVehicles: {
@@ -67,6 +74,7 @@ module.exports = {
             pushLeft: 'show this box at original position',
         },
         selected: 'Selected',
+        water: 'l. water',
         vehiclesByRequirement: {
             [/^Fire engine(s)?$/]: [0, 1, 12, 13, 19],
             [/^Turntable Ladder trucks?$/]: [2, 13],
@@ -84,6 +92,8 @@ module.exports = {
             [/^K-9 Unit(s)?$/]: [16],
             [/^Mounted Police?$/]: [22],
             [/^SES?$/]: [20],
+            [/^Brush Truck(s)?$/]: [19, 28, 29, 30],
+            [/^Airborne firefighting vehicle(s)?$/]: [31, 32, 33],
         },
     },
     tailoredTabs: {

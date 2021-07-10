@@ -40,10 +40,11 @@ export default (async (LSSM, MODULE_ID) => {
             '^/profile/edit/?$': 'profile/edit',
             '^/freunde/?$': 'freunde',
         }),
-        ...((await getSetting('category.einsaetze')) && {
-            '^/einsaetze/?$': 'einsaetze',
-            '^/einsaetze/\\d+/?$': 'einsatz',
-        }),
+        ...(MODE === 'beta' &&
+            (await getSetting('category.einsaetze')) && {
+                '^/einsaetze/?$': 'einsaetze',
+                '^/einsaetze/\\d+/?$': 'einsatz',
+            }),
         ...((await getSetting('category.toplist')) && {
             '^/toplist/?$': 'toplist',
         }),

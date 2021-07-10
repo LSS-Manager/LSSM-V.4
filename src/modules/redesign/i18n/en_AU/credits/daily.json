@@ -5,6 +5,12 @@
 		"total": {
 			"max": "Max. Total credits",
 			"min": "Min. Total credits"
+		},
+		"type": {
+			"all_types": "Show all types",
+			"amount": "{n} filtered entry | {n} filtered entries",
+			"no_types": "Do not show types",
+			"type": "Entry types displayed"
 		}
 	},
 	"title": "Summary",

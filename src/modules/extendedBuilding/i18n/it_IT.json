@@ -19,8 +19,17 @@
 		"each": "Ciascun corso",
 		"max": "attualmente massimo richiesto",
 		"min": "attualmente minimo richiesto",
+		"noSchooling": "Nessuna scuola",
 		"schooling": "Formazione",
 		"title": "Panoramica del personale"
+	},
+	"upgradeConfirmation": {
+		"modal": {
+			"btnCancel": "Annulla",
+			"btnConfirm": "Conferma",
+			"text": "Vuoi davvero aggiornare questo edificio?",
+			"title": "Aggiornare l'edificio?"
+		}
 	},
 	"vehiclePersonnel": {
 		"vehiclesPersonnelAssigned": "assegnato",

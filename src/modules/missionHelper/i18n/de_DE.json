@@ -43,6 +43,7 @@
 		"max_possible_prisoners": "Gefangener maximal | Gefangene maximal",
 		"title": "Gefangene | {n} Gefangener | {n} Gefangene"
 	},
+	"subsequent": "Anschlusseinsatz | Anschlusseinsätze",
 	"tip": {
 		"dragging": "Feld verschieben",
 		"maxState": "Maximale Anforderungen (de-)aktivieren",

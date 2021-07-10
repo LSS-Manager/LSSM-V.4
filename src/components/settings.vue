@@ -470,6 +470,9 @@ export default Vue.extend<
                     });
                 }
             }
+            await this.$store.dispatch('settings/saveSettings', {
+                settings: this.settings,
+            });
             this.settings = cloneDeep(this.$store.state.settings.settings);
             this.startSettings = cloneDeep(this.settings);
             this.update();

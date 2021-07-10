@@ -1,0 +1,10 @@
+{
+	"description": "Resume la descripción general diaria en categorías para que pueda obtener una descripción general de para qué obtuvo los créditos.",
+	"name": "Resumen créditos",
+	"settings": {
+		"showAverage": {
+			"description": "Muestra los créditos promedio para cada categoría.",
+			"title": "Mostrar promedio"
+		}
+	}
+}

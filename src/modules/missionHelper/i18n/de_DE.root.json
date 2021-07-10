@@ -145,6 +145,10 @@
 				"title": "Gefangene (Titel)"
 			}
 		},
+		"subsequent": {
+			"description": "Listet mögliche Anschlusseinsätze bei Abschluss auf.",
+			"title": "Anschlusseinsatz"
+		},
 		"title": {
 			"description": "Zeigt den Einsatznamen, z.B. \"Mülleimerbrand\" als Titel an.",
 			"title": "Einsatzname"
