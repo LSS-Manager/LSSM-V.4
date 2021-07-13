@@ -73,7 +73,7 @@
 		"version": "1.16.2"
 	},
 	"@typescript-eslint/eslint-plugin": {
-		"version": "4.28.2"
+		"version": "4.28.3"
 	},
 	"@typescript-eslint/parser": {
 		"version": "4.28.2"
