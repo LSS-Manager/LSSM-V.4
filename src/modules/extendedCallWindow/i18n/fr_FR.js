@@ -106,7 +106,7 @@ module.exports = {
             [/^unité(s)? cynophile(s)?$/]: [19],
             [/^Unité(s)? motocycliste(s)?$/]: [20],
             [/^camion(s)? dévidoir?$/]: [36, 37],
-            [/^motopompe(s)?$/]: [38],
+            [/^motopompe(s)?$/]: [37, 38],
             [/^FMOGP$/]: [35],
         },
     },
