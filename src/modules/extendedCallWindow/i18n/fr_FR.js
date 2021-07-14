@@ -90,7 +90,7 @@ module.exports = {
             [/^Chef(s)? de (g|G)roupe(s)?$/]: [3, 11, 24],
             [/^Véhicule(s)? de secours routier$/]: [4, 12],
             [/^ambulance(s)?$/]: [5, 25, 28],
-            [/^camion(s)?-citerne(s)?$/]: [6],
+            [/^camion(s)?-citerne(s)?$/]: [6, 21, 35],
             [/^véhicule(s)? risque(s)? technologique(s)?$/]: [7],
             [/^voiture de patrouille$/]: [8],
             [/^Hélicoptères de secours?$/]: [9],
