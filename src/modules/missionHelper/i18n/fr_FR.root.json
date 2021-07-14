@@ -50,13 +50,13 @@
 			"description": "Affiche le type de bâtiment qui a généré cette mission.",
 			"title": "Généré par (type de bâtiment)"
 		},
-		"hoverTip": {
-			"description": "Infobulles pour le bouton de superposition, par exemple.",
-			"title": "Infobulles"
-		},
 		"hide_battalion_chief_vehicles": {
 			"description": "Cache le nombre de VLCG et affiche seulement les VPC.",
 			"title": "Cacher VLCG"
+		},
+		"hoverTip": {
+			"description": "Infobulles pour le bouton de superposition, par exemple.",
+			"title": "Infobulles"
 		},
 		"id": {
 			"description": "Affiche l'ID de la mission à côté de son titre.",
