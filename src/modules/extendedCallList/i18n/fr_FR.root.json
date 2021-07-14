@@ -1,10 +1,41 @@
 {
 	"description": "Étend la liste des missions avec quelques fonctionnalités intéressantes!",
+	"eventMissions": {
+		"default": {
+			"🥚": [121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131],
+        "🌞": [169, 170, 171, 172, 173, 349, 350, 351],
+		"🌹": [298, 299, 300, 301, 302, 303, 304, 305, 306],
+		"🥅": [335, 336, 337, 338, 339, 340, 341, 342, 343, 344],
+        "🎃": [229, 230, 231, 232, 233, 234, 235, 236, 237],
+        "🎅": [75, 76, 77, 78, 79, 80, 81],
+        "🧨": [85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 278, 279, 280, 281, 282, 283, 284, 285, 286, 287],
+        "🌠": [181, 182, 183, 184, 185, 186, 187, 188, 189, 190, 191, 192, 193, 194, 243, 244, 245, 246, 247, 248, 249, 250, 251, 252, 253, 254, 255, 256, 257, 258, 259]
+
+			}
+	},
 	"name": "Liste de mission étendue",
 	"settings": {
+		"averageCredits": {
+			"description": "Affiche la moyenne des crédits gagnés pour chaque mission de manière compacte.",
+			"title": "Afficher les crédits moyens"
+		},
+		"eventMissions": {
+			"description": "Marque les missions saisonnières. En option, vous pouvez personnaliser l'ensemble et marquer également les missions non saisonnières.",
+			"missions": "Missions",
+			"text": "Texte",
+			"title": "Marquer les missions saisonnières"
+		},
 		"remainingTime": {
 			"description": "Montre pendant les missions combien de temps chaque mission est encore en cours.",
 			"title": "Temps de mission restant"
+		},
+		"remainingTimeGreenOnly ": {
+			"description": "Afficher le temps restant sur les missions vertes uniquement.",
+			"title": "Temps de mission pour les missions vertes uniquement"
+		},
+		"starrableMissions": {
+			"description": "Marquez les missions pour qu'elles soient affichées dans la liste des missions en haut de la page. Vous pouvez les marquer dans la fenêtre de mission et dans la liste des missions.",
+			"title": "Missions de Mark"
 		}
 	}
 }

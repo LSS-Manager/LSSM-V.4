@@ -19,6 +19,7 @@
 	"prerequisites": {
 		"brush_extension": "Expansion du secteur forestier | Expansion de la foresterie",
 		"fire_stations": "Caserne de pompier | Casernes de pompier",
+		"fire_support_count": "Extension de soutien à incendie | Extensions de soutien à incendie",
 		"max_police_stations": "Postes de police max.",
 		"max_rescue_stations": "Postes de secours max.",
 		"police_helicopter_stations": "Poste d'hélicoptère de police | Postes d'hélicoptère de police",
@@ -33,7 +34,7 @@
 		"title": "Prisonnier | {n} Prisonnier | {n} Prisonniers"
 	},
 	"requirements": {
-		"water_needed": "Water demand (gal)"
+		"water_needed": "Demande d'eau (litres)"
 	},
 	"tip": {
 		"dragging": "glisser la fenêtre",
@@ -50,6 +51,9 @@
 			"boats": "Bateau | Bateaux",
 			"brush_truck": "CCF",
 			"elw3": "VLHR",
+			"foam": "FMOGP",
+			"pump": "Motopompe | Motopompes",
+			"hose": "Camion dévidoir",
 			"firetrucks": "Fourgon d'incendie | Fourgons d'incendie",
 			"hazmat_vehicles": "véhicule risques technologiques | véhicule risques technologiques",
 			"heavy_rescue_vehicles": "Véhicule de secours routier | Véhicules de secours routier",

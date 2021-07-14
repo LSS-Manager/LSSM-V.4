@@ -1,4 +1,12 @@
 {
+	"buildingPersonal": {
+		"deleteModal": {
+			"btnCancel": "Annuler",
+			"btnConfirm": "Communiqué",
+			"text": "Êtes-vous sûr de vouloir libérer cette personne ?",
+			"title": "Libérer ?"
+		}
+	},
 	"deleteARR": {
 		"deleteModal": {
 			"btnCancel": "Annuler",

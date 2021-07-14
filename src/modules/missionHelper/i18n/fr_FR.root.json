@@ -16,6 +16,11 @@
 			"badge": false,
 			"in": "additional",
 			"text": "Spécialistes IMP requis"
+		},
+		"water_needed": {
+			"badge": true,
+			"in": "requirements",
+			"text": "Eau: {n} litre | Eau: {n} litres"
 		}
 	},
 	"settings": {
@@ -44,6 +49,10 @@
 		"generatedBy": {
 			"description": "Affiche le type de bâtiment qui a généré cette mission.",
 			"title": "Généré par (type de bâtiment)"
+		},
+		"hoverTip": {
+			"description": "Infobulles pour le bouton de superposition, par exemple.",
+			"title": "Infobulles"
 		},
 		"hide_battalion_chief_vehicles": {
 			"description": "Cache le nombre de VLCG et affiche seulement les VPC.",
@@ -157,9 +166,17 @@
 				"percentage": "Probabilité",
 				"title": "Tri des véhicules requis"
 			},
+			"sortDesc": {
+				"description": "Trie les exigences du véhicule dans un ordre décroissant.",
+				"title": "Véhicules par ordre décroissant"
+			},
 			"title": {
 				"description": "Affiche l'en-tête \"Véhicules\" au dessus des véhicules requis.",
 				"title": "Véhicules (Title)"
+			},
+			"xAfterNumber": {
+				"description": "Met un x derrière le nombre de véhicules",
+				"title": "x derrière le montant"
 			}
 		}
 	}

@@ -92,6 +92,10 @@
 			"description": "Surligne en rouge l'heure de génération si l'expiration se produire dans la nuit prochaine.",
 			"title": "Surligner en rouge"
 		},
+		"stagingAreaSelectedCounter": {
+			"description": "Indique dans les zones de transit le nombre de véhicules sélectionnés à côté des boutons d'alarme.",
+			"title": "Compteur d'alarme dans les zones de transit"
+		},
 		"stickyHeader": {
 			"description": "Toujours montrer l'en-tête, même quand vous défilez vers le bas de page.",
 			"title": "Toujours montrer l'en-tête"
@@ -102,6 +106,10 @@
 			"name": "nom",
 			"title": "catégories de véhicules",
 			"vehicles": "types de véhicules"
+		},
+		"vehicleTypeInList": {
+			"description": "Affiche le type de véhicule dans la liste des unités disponibles.",
+			"title": "Afficher le type de véhicule"
 		},
 		"yellowBorder": {
 			"description": "Encadre de jaune l'heure de génération si la mission est plus vieille que le nombre d'heures demandé. Si le nombre est 0, la bordure n'est pas appliquée.",
@@ -130,7 +138,11 @@
 					10,
 					11,
 					14,
-					15
+					15,
+					31,
+					36,
+					37,
+					38
 				]
 			},
 			{
@@ -168,7 +180,11 @@
 					21,
 					22,
 					23,
-					24
+					24,
+					32,
+					33,
+					34,
+					35
 				]
 			}
 		]

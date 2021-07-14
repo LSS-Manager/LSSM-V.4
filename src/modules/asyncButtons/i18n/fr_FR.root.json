@@ -2,6 +2,10 @@
 	"description": "Empêcher l'actualisation de la page quand vous appuyez sur certains boutons.",
 	"name": "Boutons asynchrones",
 	"settings": {
+		"buildingPersonal": {
+			"description": "Empêche le rechargement lorsque vous relâchez le personnel.",
+			"title": "Divulgation de données personnelles"
+		},
 		"buildingTax": {
 			"description": "Empêche l'actualisation quand vous changez le taux des cellules ou lits d'hôpitaux.",
 			"title": "Taux des cellules ou lits"
