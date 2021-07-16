@@ -310,7 +310,12 @@ export default <RedesignParser<VehicleWindow>>(({
         ) as { mission_own: Mission[]; mission_alliance: Mission[] }),
         has_hospitals: hasHospitals,
         ...(Object.fromEntries(
-            ['own_hospitals', 'alliance_hospitals'].map((key, index) => [
+            (doc.querySelectorAll<HTMLTableElement>(
+                `.col-md-9:first-of-type table`
+            ).length === 1
+                ? ['alliance_hospitals', 'own_hospitals']
+                : ['own_hospitals', 'alliance_hospitals']
+            ).map((key, index) => [
                 key,
                 hasHospitals
                     ? Array.from(
