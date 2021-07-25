@@ -1306,6 +1306,6 @@ export default {
         'Parking',
         'Silos',
     ],
-    only_alliance_missions: [57, 74],
+    only_alliance_missions: [57, 74, 351],
     transfer_missions: [373],
 };
