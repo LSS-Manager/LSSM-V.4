@@ -51,7 +51,7 @@
 	},
 	"@types/semver": {
 		"url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/semver",
-		"version": "7.3.7"
+		"version": "7.3.8"
 	},
 	"@types/showdown": {
 		"url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/showdown",
@@ -179,7 +179,7 @@
 	"sass": {
 		"icon": "https://sass-lang.com/assets/img/logos/logo-b6e1ef6e.svg",
 		"url": "https://github.com/sass/dart-sass",
-		"version": "1.35.2"
+		"version": "1.36.0"
 	},
 	"sass-loader": {
 		"icon": "https://webpack.js.org/assets/icon-square-big.svg",
