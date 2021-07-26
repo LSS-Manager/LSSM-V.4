@@ -51,7 +51,7 @@
 	},
 	"@types/semver": {
 		"url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/semver",
-		"version": "7.3.7"
+		"version": "7.3.8"
 	},
 	"@types/showdown": {
 		"url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/showdown",
