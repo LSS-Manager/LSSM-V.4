@@ -85,6 +85,10 @@
 				"description": " Indicates, if instead of a firetruck arrfs are possible on site.",
 				"title": "Show if arrfs are allowed as firetrucks"
 			},
+			"allow_dlk_instead_of_lf": {
+				"description": "Indicates, if instead of a firetruck also platform trucks is possible on site.",
+				"title": "Show Platform trucks instead of firetrucks"
+			},
 			"allow_drone_instead_of_investigation": {
 				"description": "Shows whether an FBI Surveillance Drone can replace an FBI Investigation wagon",
 				"title": "Show drone can replace investigation"
@@ -96,10 +100,6 @@
 			"allow_rw_instead_of_lf": {
 				"description": "Indicates, if instead of a firetruck also heavy rescue or rescue engine is possible on site.",
 				"title": "Show Heavy Rescue / rescue engine instead of firetrucks"
-			},
-			"allow_dlk_instead_of_lf": {
-				"description": "Indicates, if instead of a firetruck also platform trucks is possible on site.",
-				"title": "Show Platform trucks instead of firetrucks"
 			}
 		},
 		"patients": {

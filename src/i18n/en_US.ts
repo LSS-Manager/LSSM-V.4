@@ -737,8 +737,8 @@ export default {
             credits: 25_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            schooling: "Fire Station - Law Enforcement for Arson Investigation",
-            shownSchooling: "Peace Officer",
+            schooling: 'Fire Station - Law Enforcement for Arson Investigation',
+            shownSchooling: 'Peace Officer',
         },
         63: {
             caption: 'Fire Prevention Unit',
