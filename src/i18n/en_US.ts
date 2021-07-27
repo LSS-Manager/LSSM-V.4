@@ -730,6 +730,24 @@ export default {
             special:
                 'To purchase with credits it requires the rank: Captain, <br>Lower ranked members can purchase the vehicle for 30 Coins.<br>Works as Heavy Resuce and Ambulance',
         },
+        62: {
+            caption: 'Fire Investigator Unit',
+            color: '#9f1616',
+            coins: 15,
+            credits: 25_000,
+            minPersonnel: 1,
+            maxPersonnel: 2,
+            schooling: "Fire Station - Law Enforcement for Arson Investigation",
+            shownSchooling: "Peace Officer",
+        },
+        63: {
+            caption: 'Fire Prevention Unit',
+            color: '#9f1616',
+            coins: 15,
+            credits: 15_000,
+            minPersonnel: 1,
+            maxPersonnel: 2,
+        },
     },
     buildings: {
         0: {
@@ -754,6 +772,12 @@ export default {
                     caption: 'Forestry Expansion',
                     credits: 50_000,
                     coins: 13,
+                    duration: '7 Days',
+                },
+                {
+                    caption: 'Fire Investigation Extension',
+                    credits: 150_000,
+                    coins: 15,
                     duration: '7 Days',
                 },
                 {
@@ -1198,10 +1222,23 @@ export default {
             startPersonnel: 0,
             startVehicles: [],
         },
+        22: {
+            caption: "Fire Marshal's Office",
+            color: '#db7918',
+            coins: 30,
+            credits: 250_000,
+            extensions: [],
+            levelcost: ['1.- 5. 150.000'],
+            maxBuildings: 'No limit',
+            maxLevel: 5,
+            special: '',
+            startPersonnel: 2,
+            startVehicles: ['Fire Prevention Unit'],
+        },
     },
     buildingCategories: {
         'Fire Department': {
-            buildings: [0, 4, 11, 13, 17],
+            buildings: [0, 4, 11, 13, 17, 22],
             color: '#ff2d2d',
         },
         'Rescue Stations': {
@@ -1222,7 +1259,7 @@ export default {
             vehicles: {
                 'Fire trucks': [0, 1, 13, 18],
                 'WaterTanker': [7],
-                'Special vehicles': [2, 3, 4, 6, 8, 9, 12],
+                'Special vehicles': [2, 3, 4, 6, 8, 9, 12, 62, 63],
                 'Wildland vehicles': [30, 31, 32, 33, 34, 38, 39, 40, 41],
                 'Airport Vehicles': [17],
                 'Boats': [21, 22, 24],
@@ -1262,7 +1299,7 @@ export default {
         3: 16,
         5: 15,
     },
-    vehicleBuildings: [0, 3, 5, 6, 8, 9, 11, 12, 13, 14, 15, 16, 17, 18],
+    vehicleBuildings: [0, 3, 5, 6, 8, 9, 11, 12, 13, 14, 15, 16, 17, 18, 22],
     cellBuildings: [5],
     cellExtensions: [
         '5_0',
@@ -1319,6 +1356,14 @@ export default {
             },
             {
                 caption: 'Tactical Medic Training',
+                duration: '4 Days',
+            },
+            {
+                caption: 'EMS Mobile Command',
+                duration: '7 Days',
+            },
+            {
+                caption: 'Law Enforcement for Arson Investigation',
                 duration: '4 Days',
             },
         ],

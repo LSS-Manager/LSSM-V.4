@@ -136,6 +136,7 @@ interface Prerequisites {
     thw_zugtrupp_count?: number;
     thw_fg_raeumen_count?: number;
     thw_gkw_count?: number;
+    fire_investigation_count?: number;
 
     // General:
     [key: string]: number | Record<string, number> | undefined;
@@ -216,6 +217,7 @@ interface Requirements {
     emergency_welfare?: number;
     atv_carrier?: number;
     civil_patrolcar?: number;
+    fire_investigation?: number;
 
     // General:
     [key: string]: number | undefined;

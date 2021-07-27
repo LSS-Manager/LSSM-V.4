@@ -151,6 +151,15 @@ export default ((MODULE_ID, LSSM, $m) => {
             : null),
         ...(locale === 'en_US'
             ? {
+                  'optionalAlternatives.allow_dlk_instead_of_lf': <Toggle>{
+                      type: 'toggle',
+                      default: false,
+                      dependsOn: '.vehicles.content',
+                  },
+              }
+            : null),
+        ...(locale === 'en_US'
+            ? {
                   'optionalAlternatives.allow_drone_instead_of_investigation': <
                       Toggle
                   >{
