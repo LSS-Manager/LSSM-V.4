@@ -119,7 +119,7 @@
 	"eslint": {
 		"icon": "https://eslint.org/assets/img/favicon.512x512.png",
 		"url": "https://eslint.org",
-		"version": "7.31.0"
+		"version": "7.32.0"
 	},
 	"eslint-plugin-prettier": {
 		"icon": "https://prettier.io/icon.png",
