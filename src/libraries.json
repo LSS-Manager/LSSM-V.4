@@ -96,7 +96,7 @@
 	"broadcast-channel": {
 		"icon": "https://raw.githubusercontent.com/pubkey/broadcast-channel/master/docs/files/icon.png",
 		"url": "https://github.com/pubkey/broadcast-channel#readme",
-		"version": "4.0.0"
+		"version": "4.1.0"
 	},
 	"cache-loader": {
 		"icon": "https://webpack.js.org/assets/icon-square-big.svg",
