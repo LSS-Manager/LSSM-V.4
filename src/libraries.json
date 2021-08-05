@@ -7,7 +7,7 @@
 	"@fortawesome/free-solid-svg-icons": {
 		"icon": "https://fontawesome.com/images/favicons/apple-icon-180x180.png",
 		"url": "https://fontawesome.com",
-		"version": "5.15.3"
+		"version": "5.15.4"
 	},
 	"@fortawesome/vue-fontawesome": {
 		"icon": "https://fontawesome.com/images/favicons/apple-icon-180x180.png",
