@@ -1,5 +1,5 @@
 {
-    "version": "4.3.0+20210804.1028",
+    "version": "4.3.0+20210805.1132",
     "license": "CC-BY-NC-SA-4.0",
     "scripts": {
         "predev": "tsc -b scripts && node scripts predev",
@@ -71,7 +71,7 @@
         "html-loader": "^2.1.2",
         "moment-timezone": "^0.5.33",
         "node-fetch": "^2.6.1",
-        "sass": "^1.37.4",
+        "sass": "^1.37.5",
         "sass-loader": "^10.1.1",
         "speed-measure-webpack-plugin": "^1.5.0",
         "string-replace-loader": "^2.3.0",
