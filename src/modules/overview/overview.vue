@@ -407,6 +407,17 @@ export default Vue.extend<
                         : null),
                     special: { title: this.$m('titles.vehicles.special') },
                 },
+              ...([
+                'de_DE',
+              ].includes(this.$store.state.lang)
+                  ? {
+                    pumpcap: {
+                      title: this.$m('titles.vehicles.pumpcap'),
+                    },
+                  }
+                  : null),
+              special: { title: this.$m('titles.vehicles.special') },
+            },
                 search: '',
                 sort: 'caption',
                 sortDir: 'asc',

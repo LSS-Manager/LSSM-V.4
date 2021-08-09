@@ -117,6 +117,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 9,
             wtank: 2000,
+            pumpcap: 2000,
             icon: 'truck-moving',
         },
         1: {
@@ -127,6 +128,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 9,
             wtank: 1200,
+            pumpcap: 1000,
             icon: 'truck-moving',
         },
         2: {
@@ -181,6 +183,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 9,
             wtank: 600,
+            pumpcap: 800,
             icon: 'truck-moving',
         },
         7: {
@@ -191,6 +194,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 9,
             wtank: 1600,
+            pumpcap: 2000,
             icon: 'truck-moving',
         },
         8: {
@@ -201,6 +205,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 9,
             wtank: 600,
+            pumpcap: 1000,
             icon: 'truck-moving',
         },
         9: {
@@ -211,6 +216,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 9,
             wtank: 0,
+            pumpcap: 1600,
             icon: 'truck-moving',
         },
         10: {
@@ -305,6 +311,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 3,
             wtank: 2000,
+            pumpcap: 1000,
             icon: 'truck-moving',
         },
         18: {
@@ -315,6 +322,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 3,
             wtank: 3000,
+            pumpcap: 2000,
             icon: 'truck-moving',
         },
         19: {
@@ -325,6 +333,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 3,
             wtank: 800,
+            pumpcap: 800,
             icon: 'truck-moving',
         },
         20: {
@@ -335,6 +344,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 3,
             wtank: 1800,
+            pumpcap: 800,
             icon: 'truck-moving',
         },
         21: {
@@ -345,6 +355,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 3,
             wtank: 2400,
+            pumpcap: 1600,
             icon: 'truck-moving',
         },
         22: {
@@ -355,6 +366,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 6,
             wtank: 2400,
+            pumpcap: 1600,
             icon: 'truck-moving',
         },
         23: {
@@ -365,6 +377,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 3,
             wtank: 4500,
+            pumpcap: 1600,
             icon: 'truck-moving',
         },
         24: {
@@ -375,6 +388,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 3,
             wtank: 4000,
+            pumpcap: 2000,
             icon: 'truck-moving',
         },
         25: {
@@ -385,6 +399,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 3,
             wtank: 4000,
+            pumpcap: 2000,
             icon: 'truck-moving',
         },
         26: {
@@ -395,6 +410,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 3,
             wtank: 1800,
+            pumpcap: 1600,
             icon: 'truck-moving',
         },
         27: {
@@ -439,6 +455,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 9,
             wtank: 1600,
+            pumpcap: 2000,
             icon: 'truck-moving',
         },
         31: {
@@ -517,6 +534,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 6,
             wtank: 500,
+            pumpcap: 1000,
             icon: 'truck-moving',
         },
         38: {
@@ -1060,6 +1078,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 3,
             wtank: 4000,
+            pumpcap: 2000,
             icon: 'truck-moving',
         },
         88: {
@@ -1070,6 +1089,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 6,
             wtank: 500,
+            pumpcap: 1000,
             icon: 'truck-moving',
         },
         89: {
@@ -1080,6 +1100,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 6,
             wtank: 1000,
+            pumpcap: 1000,
             icon: 'truck-moving',
         },
         90: {
@@ -1090,6 +1111,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 9,
             wtank: 1000,
+            pumpcap: 1000,
             icon: 'truck-moving',
         },
         91: {

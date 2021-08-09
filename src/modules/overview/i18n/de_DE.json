@@ -29,7 +29,8 @@
 			"minPersonnel": "mindest Personal",
 			"schooling": "Ausbildung",
 			"special": "Besonderes",
-			"wtank": "Wassertank"
+			"wtank": "Wassertank",
+			"pumpcap": "Pumpleistung l/min"
 		}
 	}
 }
