@@ -405,9 +405,7 @@ export default Vue.extend<
                               },
                           }
                         : null),
-                    ...([
-                        'de_DE',
-                    ].includes(this.$store.state.lang)
+                    ...(['de_DE'].includes(this.$store.state.lang)
                         ? {
                               pumpcap: {
                                   title: this.$m('titles.vehicles.pumpcap'),

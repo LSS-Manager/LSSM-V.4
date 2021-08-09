@@ -27,10 +27,10 @@
 			"cost": "Preis",
 			"maxPersonnel": "maximal Personal",
 			"minPersonnel": "mindest Personal",
+			"pumpcap": "Pumpleistung l/min",
 			"schooling": "Ausbildung",
 			"special": "Besonderes",
-			"wtank": "Wassertank",
-			"pumpcap": "Pumpleistung l/min"
+			"wtank": "Wassertank"
 		}
 	}
 }
