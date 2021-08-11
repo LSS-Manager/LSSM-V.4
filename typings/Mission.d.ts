@@ -20,6 +20,7 @@ interface Additional {
     need_elw_police_only_if_present?: boolean;
     need_police_horse_only_if_present?: boolean;
     max_civil_patrol_replacing_police_cars?: number;
+    pump_water_amount?: number;
 
     // Guard missions
     duration?: number;
