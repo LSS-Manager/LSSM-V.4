@@ -16,6 +16,21 @@
 			"badge": true,
 			"in": "requirements",
 			"text": "Wasserbedarf: {n} L."
+		},
+		"min_pump_speed": {
+			"badge": true,
+			"in": "requirements",
+			"text": "Min.Pumpenleistung"
+		},
+		"pump_water_amount": {
+			"badge": true,
+			"in": "additional",
+			"text": "Wasser abzupumpen (in Litern)"
+		},
+		"pump_mission_mode": {
+			"badge": true,
+			"in": "additional",
+			"text": "Pumpeneinsatz"
 		}
 	},
 	"settings": {
