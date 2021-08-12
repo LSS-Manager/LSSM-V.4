@@ -118,6 +118,7 @@ module.exports = {
             [/^Barche?$/]: [25],
             [/^Mezz(i|o) AIB?$/]: [28, 29, 30, 31, 32, 33],
             [/^Velivol(i|o) Antincendio?$/]: [34, 35],
+            [/^DOS?$/]: [11, 31],
         },
     },
     tailoredTabs: {
