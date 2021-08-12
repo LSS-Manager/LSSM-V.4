@@ -49,6 +49,7 @@ export interface InternalVehicle {
     minPersonnel: number;
     maxPersonnel: number;
     wtank?: number;
+    pumpcap?: number;
     schooling?: string;
     shownSchooling?: string;
     special?: string;

@@ -495,7 +495,7 @@ export default Vue.extend<
                                     );
                                 } catch (e) {
                                     this.errors.push(e);
-                                    this.$store.dispatch('console/error', e);
+                                    this.$store.dispatch('console/error', [e]);
                                 }
                             }
                         );

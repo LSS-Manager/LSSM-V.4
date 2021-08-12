@@ -425,10 +425,17 @@ const fetchStableVersion = (): Promise<{ version: string }> =>
     fetch(`${config.server}static/build_stats.json`)
         .then(res =>
             res.status === 200
-                ? res.json()
-                : new Promise(resolve => resolve({ version: '4.x.x' }))
+                ? (res.json() as Promise<{ version: string }>)
+                : (new Promise(resolve =>
+                      resolve({ version: '4.x.x' })
+                  ) as Promise<{ version: string }>)
         )
-        .catch(() => new Promise(resolve => resolve({ version: '4.x.x' })));
+        .catch(
+            () =>
+                new Promise(resolve =>
+                    resolve({ version: '4.x.x' })
+                ) as Promise<{ version: string }>
+        );
 
 module.exports = async () => {
     await setLocales();

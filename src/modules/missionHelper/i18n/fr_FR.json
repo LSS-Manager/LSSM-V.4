@@ -19,6 +19,7 @@
 	"prerequisites": {
 		"brush_extension": "Expansion du secteur forestier | Expansion de la foresterie",
 		"fire_stations": "Caserne de pompier | Casernes de pompier",
+		"fire_support_count": "Extension de soutien à incendie | Extensions de soutien à incendie",
 		"max_police_stations": "Postes de police max.",
 		"max_rescue_stations": "Postes de secours max.",
 		"police_helicopter_stations": "Poste d'hélicoptère de police | Postes d'hélicoptère de police",
@@ -33,7 +34,7 @@
 		"title": "Prisonnier | {n} Prisonnier | {n} Prisonniers"
 	},
 	"requirements": {
-		"water_needed": "Water demand (gal)"
+		"water_needed": "Demande d'eau (litres)"
 	},
 	"tip": {
 		"dragging": "glisser la fenêtre",
@@ -51,15 +52,18 @@
 			"brush_truck": "CCF",
 			"elw3": "VLHR",
 			"firetrucks": "Fourgon d'incendie | Fourgons d'incendie",
+			"foam": "FMOGP",
 			"hazmat_vehicles": "véhicule risques technologiques | véhicule risques technologiques",
 			"heavy_rescue_vehicles": "Véhicule de secours routier | Véhicules de secours routier",
 			"helicopter": "Dragon",
+			"hose": "Camion dévidoir",
 			"k9": "Unité cynophile",
 			"mobile_air_vehicles": "VAR | VAR",
 			"mobile_command_vehicles": "VPC | VPC",
 			"platform_trucks": "Moyen Elévateur Aérien | Moyens Elévateurs Aériens",
 			"police_cars": "Véhicule de patrouille | Véhicules de patrouille",
 			"police_helicopters": "soutien aérien FAG",
+			"pump": "Motopompe | Motopompes",
 			"rth": "Hélicoptères de secours",
 			"sheriff": "Sheriff | Sherrifs",
 			"swat_armored_vehicle": "SWAT Armoured Vehicle | SWAT Armoured Vehicles",

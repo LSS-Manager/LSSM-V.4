@@ -12,6 +12,21 @@
 			"in": "additional",
 			"text": "Polizisten ⌀ mind. benötigt"
 		},
+		"min_pump_speed": {
+			"badge": true,
+			"in": "requirements",
+			"text": "Min.Pumpenleistung: {n}"
+		},
+		"pump_mission_mode": {
+			"badge": true,
+			"in": "additional",
+			"text": "Pumpeneinsatz"
+		},
+		"pump_water_amount": {
+			"badge": true,
+			"in": "additional",
+			"text": "Wasser abzupumpen (in Litern): {n}"
+		},
 		"water_needed": {
 			"badge": true,
 			"in": "requirements",

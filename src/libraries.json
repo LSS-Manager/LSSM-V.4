@@ -2,12 +2,12 @@
 	"@fortawesome/fontawesome-svg-core": {
 		"icon": "https://fontawesome.com/images/favicons/apple-icon-180x180.png",
 		"url": "https://fontawesome.com",
-		"version": "1.2.35"
+		"version": "1.2.36"
 	},
 	"@fortawesome/free-solid-svg-icons": {
 		"icon": "https://fontawesome.com/images/favicons/apple-icon-180x180.png",
 		"url": "https://fontawesome.com",
-		"version": "5.15.3"
+		"version": "5.15.4"
 	},
 	"@fortawesome/vue-fontawesome": {
 		"icon": "https://fontawesome.com/images/favicons/apple-icon-180x180.png",
@@ -35,15 +35,15 @@
 	},
 	"@types/lodash": {
 		"url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/lodash",
-		"version": "4.14.171"
+		"version": "4.14.172"
 	},
 	"@types/node": {
 		"url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/node",
-		"version": "16.0.3"
+		"version": "16.6.0"
 	},
 	"@types/node-fetch": {
 		"url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/node-fetch",
-		"version": "2.5.11"
+		"version": "2.5.12"
 	},
 	"@types/pdfmake": {
 		"url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/pdfmake",
@@ -51,7 +51,7 @@
 	},
 	"@types/semver": {
 		"url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/semver",
-		"version": "7.3.7"
+		"version": "7.3.8"
 	},
 	"@types/showdown": {
 		"url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/showdown",
@@ -73,10 +73,10 @@
 		"version": "1.16.2"
 	},
 	"@typescript-eslint/eslint-plugin": {
-		"version": "4.28.2"
+		"version": "4.29.1"
 	},
 	"@typescript-eslint/parser": {
-		"version": "4.28.2"
+		"version": "4.29.1"
 	},
 	"@vuepress/plugin-active-header-links": {
 		"icon": "https://vuepress.vuejs.org/hero.png",
@@ -96,7 +96,7 @@
 	"broadcast-channel": {
 		"icon": "https://raw.githubusercontent.com/pubkey/broadcast-channel/master/docs/files/icon.png",
 		"url": "https://github.com/pubkey/broadcast-channel#readme",
-		"version": "3.7.0"
+		"version": "4.2.0"
 	},
 	"cache-loader": {
 		"icon": "https://webpack.js.org/assets/icon-square-big.svg",
@@ -119,7 +119,7 @@
 	"eslint": {
 		"icon": "https://eslint.org/assets/img/favicon.512x512.png",
 		"url": "https://eslint.org",
-		"version": "7.30.0"
+		"version": "7.32.0"
 	},
 	"eslint-plugin-prettier": {
 		"icon": "https://prettier.io/icon.png",
@@ -129,7 +129,7 @@
 	"eslint-plugin-vue": {
 		"icon": "https://vuejs.org/images/logo.png",
 		"url": "https://eslint.vuejs.org",
-		"version": "7.13.0"
+		"version": "7.16.0"
 	},
 	"he": {
 		"url": "https://mths.be/he",
@@ -174,12 +174,12 @@
 	},
 	"pdfmake": {
 		"url": "http://pdfmake.org",
-		"version": "0.2.0"
+		"version": "0.2.2"
 	},
 	"sass": {
 		"icon": "https://sass-lang.com/assets/img/logos/logo-b6e1ef6e.svg",
 		"url": "https://github.com/sass/dart-sass",
-		"version": "1.35.2"
+		"version": "1.37.5"
 	},
 	"sass-loader": {
 		"icon": "https://webpack.js.org/assets/icon-square-big.svg",
@@ -237,7 +237,7 @@
 	"vue-i18n": {
 		"icon": "https://kazupon.github.io/vue-i18n/vue-i18n-logo.png",
 		"url": "https://github.com/kazupon/vue-i18n#readme",
-		"version": "8.24.5"
+		"version": "8.25.0"
 	},
 	"vue-js-modal": {
 		"url": "http://vue-js-modal.yev.io/",
@@ -250,7 +250,7 @@
 	"vue-loader": {
 		"icon": "https://vuejs.org/images/logo.png",
 		"url": "https://github.com/vuejs/vue-loader",
-		"version": "15.9.7"
+		"version": "15.9.8"
 	},
 	"vue-notification": {
 		"version": "1.3.20"
@@ -262,7 +262,7 @@
 	"vue-select": {
 		"icon": "https://vuejs.org/images/logo.png",
 		"url": "https://vue-select.org",
-		"version": "3.11.2"
+		"version": "3.12.2"
 	},
 	"vue-slim-tabs": {
 		"url": "https://vue-slim-tabs.egoist.sh/",

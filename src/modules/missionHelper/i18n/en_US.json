@@ -22,6 +22,7 @@
 		"federalpolice_stations": "Federal Police Station | Federal Police Stations",
 		"fire_aviation_count": "Firefighting Plane Station | Firefighting Plane Stations",
 		"fire_boat_docks": "fire boat dock | fire boat docks",
+		"fire_investigation_count": "Fire Marshal's Office | Fire Marshal's Offices",
 		"fire_stations": "Fire Station | Fire Stations",
 		"game_warden_count": "Game Warden Expansion | Game Warden Expansions",
 		"max_police_stations": "Maximum Police Stations",
@@ -66,6 +67,7 @@
 			"fbi_investigation": "FBI Investigation Wagon | FBI Investigation Wagons",
 			"fbi_mcc": "FBI Mobile Command Center Vehicle | FBI Mobile Command Center Vehicles",
 			"fire_aviation": "Airborne Firefighting | Airborne Firefightings",
+			"fire_investigation": "Fire Investigation Unit | Fire Investigation Units",
 			"firetrucks": "Fire Engine | Fire Engines",
 			"game_warden": "Warden Truck | Warden Trucks",
 			"hazmat_vehicles": "HazMat | HazMats",
@@ -102,6 +104,9 @@
 		"optional_alternatives": {
 			"allow_arff_instead_of_lf": {
 				"firetrucks": "Fire Engine or ARFF | Fire Engine or ARFF"
+			},
+			"allow_dlk_instead_of_lf": {
+				"firetrucks": "Fire Engine or Platform truck  | Fire Engines or Platform trucks"
 			},
 			"allow_drone_instead_of_investigation": {
 				"fbi_investigation": "FBI Surveillance Drone can Replace Investigation wagon"

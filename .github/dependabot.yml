@@ -7,11 +7,11 @@ updates:
       time: "03:00"
       timezone: "Europe/Berlin"
     assignees:
-      - "jxn-30"
+      - "Suchty112"
     commit-message:
         prefix: "⬆️"
         include: "scope"
     reviewers:
-      - "jxn-30"
+      - "Suchty112"
       - "kdev"
     target-branch: "dev"
