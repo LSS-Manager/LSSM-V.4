@@ -464,6 +464,16 @@ export default {
                 'Caserma dei vigili del fuoco - Pilota Velivoli Antincendio',
             shownSchooling: 'Pilota Velivoli Antincendio',
         },
+        36: {
+            caption: 'P.M.A.',
+            color: '#f59f00',
+            coins: 15,
+            credits: 50_000,
+            minPersonnel: 1,
+            maxPersonnel: 4,
+            schooling: 'Soccorso - Corso Operatore MaxiEmergenze',
+            shownSchooling: 'Operatore MaxiEmergenze',
+        },
     },
     buildings: {
         0: {
@@ -489,6 +499,12 @@ export default {
                     credits: 50_000,
                     coins: 15,
                     duration: '7 Giorni',
+                },
+                {
+                    caption: 'Soccorso di Massa',
+                    credits: 150_000,
+                    coins: 20,
+                    duration: '5 Giorni',
                 },
             ],
             levelcost: ['1. 10.000', '2. 50.000', '3.-24. 100.000'],
@@ -524,7 +540,14 @@ export default {
             color: '#ffa500',
             coins: 35,
             credits: 200_000,
-            extensions: [],
+            extensions: [
+                {
+                    caption: 'MaxiEmergenza',
+                    credits: 150_000,
+                    coins: 20,
+                    duration: '5 giorni',
+                },
+            ],
             levelcost: ['1. 10.000', '2. 50.000', '3.-16. 100.000'],
             maxBuildings: 'No limit',
             maxLevel: 16,
@@ -942,7 +965,7 @@ export default {
             vehicles: {
                 Ambulanza: [4, 20, 27],
                 Elisoccorso: [8],
-                Medica: [18, 19],
+                Medica: [18, 19, 36],
             },
             color: '#ffa500',
         },
@@ -1028,6 +1051,10 @@ export default {
                 caption: 'Direttore Operazioni Spegnimento',
                 duration: '3 giorni',
             },
+            {
+                caption: 'Corso Operatore MaxiEmergenze',
+                duration: '5 giorni',
+            },
         ],
         'Polizia': [
             {
@@ -1055,6 +1082,10 @@ export default {
             {
                 caption: 'Corso medico di emergenza',
                 duration: '7 giorni',
+            },
+            {
+                caption: 'Corso Operatore MaxiEmergenze ',
+                duration: '5 giorni',
             },
         ],
     },
