@@ -681,7 +681,7 @@ export default {
             maxBuildings: 'No limit',
             maxLevel: 20,
             special:
-                'L\'Amministratore finanziario ed l\'Admin Alleanza ,possono espandere e costruire gli ospedali usando i fondi alleanza',
+                "L'Amministratore finanziario ed l'Admin Alleanza ,possono espandere e costruire gli ospedali usando i fondi alleanza",
             startPersonnel: 0,
             startVehicles: [],
         },
