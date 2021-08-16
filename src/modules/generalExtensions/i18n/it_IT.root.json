@@ -7,7 +7,7 @@
 			"title": "Titolo della scheda del browser"
 		},
 		"clickableLinks": {
-			"description": "I link che sono visualizzati come semplice testo (es. in chat, forum, messaggi, etc.) sono resi cliccabili. Si aprono automaticamente in una nuova scheda.",
+			"description": "I link che sono visualizzati come semplice testo (es. in chat, bacheca, messaggi, etc.) sono resi cliccabili. Si aprono automaticamente in una nuova scheda.",
 			"title": "Rendi i link cliccabili"
 		},
 		"emojiPicker": {
@@ -43,7 +43,7 @@
 			"title": "Ricordati del centro di spedizione"
 		},
 		"showImg": {
-			"description": "Prova a generare un'anteprima dell'immagine. Funziona solo in combinazione con \"Make links clickable\"!",
+			"description": "Prova a generare un'anteprima dell'immagine. Funziona solo in combinazione con \"Rendi i link cliccabili\"!",
 			"title": "Attivazione dell'anteprima dell'immagine"
 		}
 	}
