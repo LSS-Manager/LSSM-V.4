@@ -387,7 +387,7 @@ export default Vue.extend<
                 waterReq.selected = parseInt(
                     document
                         .querySelector<HTMLDivElement>(
-                            'div.progress-bar-mission-window-water[id^="mission_water_bar_selected_"]'
+                            'div.progress-bar-mission-window-water.progress-bar-danger, div.progress-bar-mission-window-water.progress-bar-success'
                         )
                         ?.textContent?.match(/\d{1,3}([,.]\d{3})*/)?.[0]
                         ?.replace(/[,.]/g, '') ?? '0'

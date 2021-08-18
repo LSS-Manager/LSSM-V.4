@@ -11,12 +11,36 @@ export default (LSSM: Vue, MODULE_ID: string, $m: $m): void => {
         .replace(/(^[^:]*:)|(\.$)/g, '')
         .trim();
     if (!missingRequirementsText) return;
+
     const water = $m('enhancedMissingVehicles.water').toString();
+    const vehicleGroupTranslation = ($m(
+        'enhancedMissingVehicles.vehiclesByRequirement'
+    ) as unknown) as
+        | {
+              [group: string]: number[];
+          }
+        | string;
+    const staffGroupTranslation = ($m(
+        'enhancedMissingVehicles.staff'
+    ) as unknown) as
+        | {
+              [group: string]: number[];
+          }
+        | string;
+    const vehicleGroups =
+        typeof vehicleGroupTranslation === 'string'
+            ? {}
+            : vehicleGroupTranslation;
+    const staffGroups =
+        typeof staffGroupTranslation === 'string' ? {} : staffGroupTranslation;
+
     const missingRequirementMatches = missingRequirementsText.match(
         new RegExp(
-            `\\d+\\s(?:${LSSM.$utils.escapeRegex(
+            `\\d{1,3}([,.]?\\d{3})*\\s+(${LSSM.$utils.escapeRegex(
                 water
-            )}|(?:[^(]|\\(.*?\\))+?(?=[,.]|$))`,
+            )}|${Object.keys({ ...vehicleGroups, ...staffGroups })
+                .map(r => r.replace(/^\/\^|\$\/$/g, ''))
+                .join('|')})`,
             'g'
         )
     );
@@ -41,11 +65,6 @@ export default (LSSM: Vue, MODULE_ID: string, $m: $m): void => {
         extras = last.vehicle.match(/\..*$/)?.[0].replace(/^\./, '') || '';
         last.vehicle = last.vehicle.replace(/\..*$/, '');
     }
-    const vehicleGroups = ($m(
-        'enhancedMissingVehicles.vehiclesByRequirement'
-    ) as unknown) as {
-        [group: string]: number[];
-    };
     const drivingTable = document.querySelector(
         '#mission_vehicle_driving tbody'
     );
@@ -57,7 +76,7 @@ export default (LSSM: Vue, MODULE_ID: string, $m: $m): void => {
                 requirement.driving = parseInt(
                     document
                         .querySelector<HTMLDivElement>(
-                            'div.progress-bar-mission-window-water[id^="mission_water_bar_driving_"]'
+                            'div.progress-bar-mission-window-water.progress-bar-warning'
                         )
                         ?.textContent?.match(/\d{1,3}([,.]\d{3})*/)?.[0]
                         ?.replace(/[,.]/g, '') ?? '0'
@@ -77,21 +96,32 @@ export default (LSSM: Vue, MODULE_ID: string, $m: $m): void => {
                     requirement.vehicle = '';
                     return;
                 }
-                requirement.driving = Object.values(
-                    vehicleGroups[vehicleGroupRequirement]
-                )
-                    .map(
-                        vehicleType =>
-                            (
-                                drivingRows.match(
-                                    new RegExp(
-                                        `vehicle_type_id="${vehicleType}"`,
-                                        'g'
-                                    )
-                                ) || []
-                            ).length
+                const staffGroupRequirement = Object.keys(
+                    staffGroups
+                ).find(group =>
+                    requirement.vehicle.match(
+                        new RegExp(group.replace(/(^\/)|(\/$)/g, ''))
                     )
-                    .reduce((a, b) => a + b, 0);
+                );
+                if (staffGroupRequirement) {
+                    requirement.driving = 0;
+                } else {
+                    requirement.driving = Object.values(
+                        vehicleGroups[vehicleGroupRequirement]
+                    )
+                        .map(
+                            vehicleType =>
+                                (
+                                    drivingRows.match(
+                                        new RegExp(
+                                            `vehicle_type_id="${vehicleType}"`,
+                                            'g'
+                                        )
+                                    ) || []
+                                ).length
+                        )
+                        .reduce((a, b) => a + b, 0);
+                }
             }
             requirement.total = requirement.missing - requirement.driving;
         });

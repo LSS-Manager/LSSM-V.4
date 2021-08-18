@@ -148,6 +148,11 @@ module.exports = {
         },
         selected: 'Ausgewählt',
         water: 'l. Wasser',
+        staff: {
+            // Note: This is not functional yet.
+            [/^Feuerwehrleute$/]: [0, 18],
+            [/^Polizisten$/]: [6, 11, 13, 17, 19],
+        },
         vehiclesByRequirement: {
             [/^Anhänger Drucklufterzeugung$/]: [44],
             [/^Boote?$/]: [66, 67, 68, 70, 71],
