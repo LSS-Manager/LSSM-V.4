@@ -105,7 +105,7 @@ module.exports = {
             [/^Kilolitric(a|he)?$/]: [5],
             [/^UCL?$/]: [11],
             [/^N\.B\.C\.R\.$/]: [6],
-            [/^Ambulance(s)?$/]: [4, 20],
+            [/^Ambulanz(a|e) BLSD?$/]: [4, 20],
             [/^Volanti?$/]: [7, 16, 15],
             [/^Furgoni artificieri$/]: [22],
             [/^Elicottero della polizia?$/]: [13],
