@@ -40,7 +40,7 @@ export default (LSSM: Vue, MODULE_ID: string, $m: $m): void => {
                 water
             )}|${Object.keys({ ...vehicleGroups, ...staffGroups })
                 .map(r => r.replace(/^\/\^|\$\/$/g, ''))
-                .join('|')})`,
+                .join('|')})(?=,|$)`,
             'g'
         )
     );
