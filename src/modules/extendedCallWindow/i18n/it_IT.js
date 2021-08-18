@@ -94,7 +94,7 @@ module.exports = {
             pushLeft: 'Mostra questa scatola nella posizione originale',
         },
         selected: 'Selezionato',
-        water: "Litri d'acqua",
+        water: "l. d'acqua",
         vehiclesByRequirement: {
             [/^APS\/ABP$/]: [0, 9],
             [/^Autogrù$/]: [12],
