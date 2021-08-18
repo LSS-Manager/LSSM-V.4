@@ -59,12 +59,7 @@ export default (LSSM: Vue, MODULE_ID: string, $m: $m): void => {
             selected: 0,
         };
     }) as Requirement[];
-    const last = missingRequirements[missingRequirements.length - 1];
     let extras = '';
-    if (last.vehicle.match(/\..*$/)) {
-        extras = last.vehicle.match(/\..*$/)?.[0].replace(/^\./, '') || '';
-        last.vehicle = last.vehicle.replace(/\..*$/, '');
-    }
     const drivingTable = document.querySelector(
         '#mission_vehicle_driving tbody'
     );
@@ -78,7 +73,7 @@ export default (LSSM: Vue, MODULE_ID: string, $m: $m): void => {
                         .querySelector<HTMLDivElement>(
                             'div.progress-bar-mission-window-water.progress-bar-warning'
                         )
-                        ?.textContent?.match(/\d{1,3}([,.]\d{3})*/)?.[0]
+                        ?.textContent?.match(/\d{1,3}([,.]?\d{3})*/)?.[0]
                         ?.replace(/[,.]/g, '') ?? '0'
                 );
             } else {
@@ -89,13 +84,7 @@ export default (LSSM: Vue, MODULE_ID: string, $m: $m): void => {
                         new RegExp(group.replace(/(^\/)|(\/$)/g, ''))
                     )
                 );
-                if (!vehicleGroupRequirement) {
-                    extras += `, ${requirement.missing.toLocaleString()} ${
-                        requirement.vehicle
-                    }`;
-                    requirement.vehicle = '';
-                    return;
-                }
+
                 const staffGroupRequirement = Object.keys(
                     staffGroups
                 ).find(group =>
@@ -106,6 +95,13 @@ export default (LSSM: Vue, MODULE_ID: string, $m: $m): void => {
                 if (staffGroupRequirement) {
                     requirement.driving = 0;
                 } else {
+                    if (!vehicleGroupRequirement) {
+                        extras += `, ${requirement.missing.toLocaleString()} ${
+                            requirement.vehicle
+                        }`;
+                        requirement.vehicle = '';
+                        return;
+                    }
                     requirement.driving = Object.values(
                         vehicleGroups[vehicleGroupRequirement]
                     )
