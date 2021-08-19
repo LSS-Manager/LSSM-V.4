@@ -147,7 +147,7 @@
 	},
 	"localforage": {
 		"url": "https://github.com/localForage/localForage",
-		"version": "1.9.0"
+		"version": "1.10.0"
 	},
 	"lodash": {
 		"icon": "https://lodash.com/assets/img/lodash.svg",
