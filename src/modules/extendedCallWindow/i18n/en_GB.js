@@ -79,7 +79,7 @@ module.exports = {
             [/^Ambulance(s)?$/]: [5],
             [/^Police car(s)?$/]: [8, 12, 13, 19, 24, 25],
             [/^HEMS$/]: [9],
-            [/^Policehelicopter(s)?$/]: [11],
+            [/^Police helicopter(s)?$/]: [11],
             [/^Armed Response$/]: [13, 25],
             [/^Dog Support Units? \(DSUs?\)$/]: [12],
             [/^Operational Team Leader(s)?$/]: [20, 31],
