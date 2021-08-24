@@ -73,10 +73,10 @@
 		"version": "1.16.2"
 	},
 	"@typescript-eslint/eslint-plugin": {
-		"version": "4.29.2"
+		"version": "4.29.3"
 	},
 	"@typescript-eslint/parser": {
-		"version": "4.29.2"
+		"version": "4.29.3"
 	},
 	"@vuepress/plugin-active-header-links": {
 		"icon": "https://vuepress.vuejs.org/hero.png",
@@ -262,7 +262,7 @@
 	"vue-select": {
 		"icon": "https://vuejs.org/images/logo.png",
 		"url": "https://vue-select.org",
-		"version": "3.12.2"
+		"version": "3.12.3"
 	},
 	"vue-slim-tabs": {
 		"url": "https://vue-slim-tabs.egoist.sh/",
