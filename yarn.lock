@@ -9542,10 +9542,10 @@ vue-router@^3.4.5:
   resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-3.4.6.tgz#f7bda2c9a43d39837621c9a02ba7789f5daa24b2"
   integrity sha512-kaXnB3pfFxhAJl/Mp+XG1HJMyFqrL/xPqV7oXlpXn4AwMmm6VNgf0nllW8ksflmZANfI4kdo0bVn/FYSsAolPQ==
 
-vue-select@^3.12.3:
-  version "3.12.3"
-  resolved "https://registry.yarnpkg.com/vue-select/-/vue-select-3.12.3.tgz#e833e409bcb17132dfa0d640224b3f16021563a0"
-  integrity sha512-pCvOtbg0V+XDmkhKSrraWlmGChO5KggFz1wsH7qv85lZYk1uiWEeD1FwKyyohCWq65YifJh2VztB5bXhZBcTJw==
+vue-select@^3.13.0:
+  version "3.13.0"
+  resolved "https://registry.yarnpkg.com/vue-select/-/vue-select-3.13.0.tgz#78d519984139156adcbf56af260fb6c2a69093a6"
+  integrity sha512-+PcWtfA1i3WVtkVwBPQknnOZL6QWSD2XiAVbSn0xAQvjOrmGAg7z+o9HkezXhtGdEstloJOdM8SujrUVyphKqg==
 
 vue-server-renderer@^2.6.10:
   version "2.6.14"
