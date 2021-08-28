@@ -629,7 +629,7 @@ export default {
             coins: 50,
             credits: 1_000_000,
             extensions: [],
-            levelcost: [1.000.000 / 50 Coins],
+            levelcost: ['1.000.000 / 50 Coins'],
             maxBuildings: 'see specials',
             maxLevel: 2,
             special:
