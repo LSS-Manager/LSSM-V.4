@@ -492,9 +492,9 @@ export default {
                     duration: '7 Days',
                 },
             ],
-            levelcost: ['1. 10.000', '2. 50.000', '3.-16. 100.000'],
+            levelcost: ['1. 10.000', '2. 50.000', '3.-24. 100.000'],
             maxBuildings: '5.000 together with small fire stations',
-            maxLevel: 16,
+            maxLevel: 24,
             special:
                 'From the 24th fire station onwards, the cost of building a new fire station increases according to the following formula: <code>100.000+200.000*LOG<sub>2</sub>(Number of existing fire stations − 22)</code>. The Coins price remains constant!',
             startPersonnel: 10,
@@ -526,9 +526,9 @@ export default {
             coins: 35,
             credits: 200_000,
             extensions: [],
-            levelcost: ['1. 10.000', '2. 50.000', '3.-16. 100.000'],
+            levelcost: ['1. 10.000', '2. 50.000', '3.-19. 100.000'],
             maxBuildings: 'No limit',
-            maxLevel: 16,
+            maxLevel: 19,
             special: '',
             startPersonnel: 3,
             startVehicles: ['Ambulance'],
@@ -629,12 +629,12 @@ export default {
             coins: 50,
             credits: 1_000_000,
             extensions: [],
-            levelcost: [],
+            levelcost: ['1.000.000 / 50 Coins'],
             maxBuildings: 'see specials',
-            maxLevel: 0,
+            maxLevel: 2,
             special:
                 'Up to the 125th building (of all types) a total of max. 4 landing sites can be built. After that the number increases by 1 every 25 buildings (starting at the 125th).',
-            startPersonnel: 0,
+            startPersonnel: 1,
             startVehicles: [],
             maxBuildingsFunction: (buildingsAmountTotal: number): number =>
                 buildingsAmountTotal < 125
@@ -662,7 +662,7 @@ export default {
             ],
             levelcost: ['1. 10.000', '2. 50.000', '3.-16. 100.000'],
             maxBuildings: '1.700 together with small police stations',
-            maxLevel: 16,
+            maxLevel: 19,
             special:
                 'From the 24th police station onwards, the costs for the new construction of a police station increase according to the following formula: <code>100.000+200.000*LOG<sub>2</sub>(Number of existing police stations − 22)</code>. The Coins price remains constant!',
             startPersonnel: 2,
@@ -711,11 +711,11 @@ export default {
             coins: 50,
             credits: 1_000_000,
             extensions: [],
-            levelcost: ['1. 1.000.000 Credits / 50 Coins'],
+            levelcost: ['1-5. 1.000.000 Credits / 50 Coins'],
             maxBuildings: 'see specials',
-            maxLevel: 1,
+            maxLevel: 5,
             special:
-                'Up to 2 landing sites can be built per station (expansion stages). Up to the 125th building (of all types) a total of max. 4 landing sites can be built. After that the number increases by 1 every 25 buildings (starting at the 125th).',
+                'Up to 6 landing sites can be built per station (expansion stages). Up to the 125th building (of all types) a total of max. 4 landing sites can be built. After that the number increases by 1 every 25 buildings (starting at the 125th).',
             startPersonnel: 3,
             startVehicles: [],
             maxBuildingsFunction: (buildingsAmountTotal: number): number =>
@@ -809,7 +809,7 @@ export default {
                 'Conversion to normal guard: difference price to normal guard',
             ],
             maxBuildings: '1.700 together with police stations',
-            maxLevel: 4,
+            maxLevel: 5,
             special:
                 'From the 24th police station onwards, the costs for the new construction of a police station are calculated according to the following formula: <code>(100.000+200.000*LOG<sub>2</sub>(Number of existing police stations − 22)) / 2</code>. The Coins price remains constant!',
             startPersonnel: 2,
