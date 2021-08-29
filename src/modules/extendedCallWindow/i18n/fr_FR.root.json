@@ -7,7 +7,7 @@
 			"preview": "Prévisualiser",
 			"style": "Type de pictogramme",
 			"title": "Pictos de déploiement",
-			"vehicles": "Types de véhicule"
+			"vehicles": "Types de véhicules"
 		},
 		"alarmTime": {
 			"description": "Affiche à côté du bouton \"Déployer\" le temps de trajet le plus long des véhicules sélectionnés.",
@@ -76,7 +76,7 @@
 		"missionKeywords": {
 			"autotextcolor": "Couleur automatique du texte",
 			"color": "Couleur de fond",
-			"description": "Affiche votre mot-clef à côté du nom de la mission",
+			"description": "Affiche votre mot-clef à côté du nom de la mission.",
 			"keyword": "Mot-clef",
 			"missions": "Missions",
 			"prepend": "Afficher avant le nom de la mission",
@@ -93,7 +93,7 @@
 			"title": "Bordure rouge"
 		},
 		"stagingAreaSelectedCounter": {
-			"description": "Dans la vue d'un Centre de Regroupement des Moyens, affiche le nombre de véhicules sélectionnés à côté des boutons \"Déployer\".",
+			"description": "Affiche le nombre de véhicules sélectionnés à côté des boutons \"Déployer\" dans la vue d'un Centre de Regroupement des Moyens.",
 			"title": "Compteur de véhicules dans les CRM"
 		},
 		"stickyHeader": {
@@ -112,7 +112,7 @@
 			"title": "Afficher le type de véhicule"
 		},
 		"yellowBorder": {
-			"description": "Encadre en jaune l'heure de génération si elle est antérieure au nombre d'heures spécifié. Si le nombre est 0, la bordure n'est pas affichée.",
+			"description": "Encadre en jaune l'heure de génération si elle est antérieure au nombre d'heures spécifié. La bordure n'est pas affichée si 0.",
 			"title": "Bordure jaune"
 		}
 	},
