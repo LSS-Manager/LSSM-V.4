@@ -76,7 +76,7 @@
 		"missionKeywords": {
 			"autotextcolor": "Couleur automatique du texte",
 			"color": "couleur de fond",
-			"description": "Affiche votre clavier à côté du nom de la mission",
+			"description": "Affiche votre mot-clef à côté du nom de la mission",
 			"keyword": "mot-clef",
 			"missions": "missions",
 			"prepend": "Spectacle avant le nom de la mission",
@@ -102,7 +102,7 @@
 		},
 		"tailoredTabs": {
 			"color": "Couleur",
-			"description": "Ajuster les pannels dans cette fenêtre. \"Tout\" et \"Alerte continue\" seront toujours visibles.",
+			"description": "Ajuster les onglets dans cette fenêtre. \"Tout\" et \"Alerte continue\" seront toujours visibles.",
 			"name": "nom",
 			"title": "catégories de véhicules",
 			"vehicles": "types de véhicules"
