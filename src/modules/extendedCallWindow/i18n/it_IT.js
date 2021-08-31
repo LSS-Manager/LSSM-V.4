@@ -106,7 +106,7 @@ module.exports = {
             [/^UCL?$/]: [11],
             [/^N\.B\.C\.R\.$/]: [6],
             [/^Ambulanz[ae] BLSD?$/]: [4, 20],
-            [/^Volanti?$/]: [7, 16, 15],
+            [/^Volanti?$/]: [7, 16, 15, 21],
             [/^Furgon[ie] artificieri$/]: [22],
             [/^Elicotter[io] della polizia?$/]: [13],
             [/^furgon[ae] antisommossa$/]: [14],
