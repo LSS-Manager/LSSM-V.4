@@ -1,4 +1,4 @@
-Spesso vuoi avere una veloce panorarmica sullo stato di un edificio.
+Spesso vuoi avere una veloce panoramica sullo stato di un edificio.
 Con questo modulo ottieni le informazioni più importanti per ogni stazione, le quali sono visualizzate nella mappa quando muovi il mouse sopra l'immagine.
 
 Sono contenute le seguenti informazioni:
