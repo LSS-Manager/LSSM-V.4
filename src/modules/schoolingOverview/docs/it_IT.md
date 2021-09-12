@@ -1,6 +1,6 @@
 Soprattutto nelle grandi associazioni, l'elenco dei corsi disponibili diventa rapidamente molto lungo. Se si prende parte a molti corsi di formazione, anche allora, si perde rapidamente traccia di ciò che sta succedendo.
 
-Con il modulo Panoramica del corso`cerchiamo di risolvere questo problema.
+Con il modulo `Panoramica del Corso` cerchiamo di risolvere questo problema.
 
 In alto si trova un piccolo `i`, che apre un sommario. Naturalmente abbiamo integrato una funzione di ricerca e le tabelle possono essere ordinati. L'intera faccenda è questa:
 
