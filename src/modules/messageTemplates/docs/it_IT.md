@@ -18,9 +18,9 @@ Puoi usare il segnaposto <code><span>{{</span>username<span>}}</span></code> che
 
 ### Data
 
-Con <code><span>{{</span>oggi<span>}}</span></code> puoi inserire semplicemente la data di oggi.
+Con <code><span>{{</span>today<span>}}</span></code> puoi inserire semplicemente la data di oggi.
 
-Vuoi aggiungere una data futura o una data precedente, per esempio oggi tra due settimane? Usa per questo <code><span>{{</span>oggi+14<span>}}</span></code>, da inserire oggi tra 14 giorni. È la stessa cosa, per esempio. <code><span>{{</span>oggi-436<span>}}</span></code>, da inserire oggi 436 giorni fa.
+Vuoi aggiungere una data futura o una data precedente, per esempio oggi tra due settimane? Usa per questo <code><span>{{</span>today+14<span>}}</span></code>, da inserire oggi tra 14 giorni. È la stessa cosa, per esempio. <code><span>{{</span>today-436<span>}}</span></code>, da inserire oggi 436 giorni fa.
 
 
 ## Esempi
