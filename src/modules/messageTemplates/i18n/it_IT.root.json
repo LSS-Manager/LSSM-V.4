@@ -6,7 +6,7 @@
 		"subject": "Soggetto",
 		"template": "Modello (variabili (vedi wiki): {{username}}, {{today[+n]}})",
 		"templates": {
-			"description": "Le variabili sono disponibili per i modelli. Dai un'occhiata alla nostra <a class=\"lightbox-open\" href=\"{wiki}modules/messageTemplates.html#variables\">Wiki</a>.",
+			"description": "Le variabili sono disponibili per i modelli. Dai un'occhiata alla nostra <a class=\"lightbox-open\" href=\"{wiki}modules/messageTemplates.html#variabili\">Wiki</a>.",
 			"title": "Modelli"
 		}
 	}
