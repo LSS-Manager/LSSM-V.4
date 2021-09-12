@@ -21,7 +21,7 @@
 		"need": "Necessari",
 		"req": "requisito"
 	},
-	"no_dispatchcenter": "No Centrale Operativa",
+	"no_dispatchcenter": "Nessuna Centrale Operativa",
 	"prerequisite_calculations": {
 		"fire_stations": [
 			0,
