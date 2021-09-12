@@ -7,4 +7,4 @@ L'impostazione dei PDI è fondamentale per alcune missioni come `Incidente aereo
   * Questo può essere controllato quando si apre il `Impostare un nuovo menu PDI`
  
  
- ! [Esempio di barra](POI.png)
+ ![Esempio di barra](POI.png)
