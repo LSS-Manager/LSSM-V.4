@@ -1,0 +1,33 @@
+{
+	"copy_url": "Copia collegamento negli appunti: {url}",
+	"description": "Un aggiornamento grafico generale - attualmente in fase alpha e ancora in fase di sviluppo.",
+	"name": "Aggiornamento Grafico",
+	"settings": {
+		"category": {
+			"alliance": {
+				"description": "Una riprogettazione delle pagine dell'alleanza.",
+				"title": "Alleanza"
+			},
+			"credits": {
+				"description": "Una riprogettazione per le panoramiche di crediti e monete.",
+				"title": "Crediti e monete"
+			},
+			"einsaetze": {
+				"description": "Una riprogettazione della lista delle possibili missioni e \"Requisiti per questa missione\".",
+				"title": "Missioni possibili"
+			},
+			"profile": {
+				"description": "Una riprogettazione delle pagine del profilo.",
+				"title": "Profilo"
+			},
+			"toplist": {
+				"description": "Una riprogettazione della top list.",
+				"title": "Toplist"
+			},
+			"vehicles": {
+				"description": "Una riprogettazione delle pagine del veicolo e di tutte le pagine corrispondenti.",
+				"title": "Veicoli"
+			}
+		}
+	}
+}

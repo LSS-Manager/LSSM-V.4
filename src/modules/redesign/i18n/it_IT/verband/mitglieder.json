@@ -1,0 +1,55 @@
+{
+	"amount": "{n} giocatore filtrato | {n} giocatori filtrati",
+	"credits": "Totale crediti guadagnati",
+	"discount": "Sconto",
+	"edit_caption": {
+		"save": "Salva"
+	},
+	"load": {
+		"next": "Carica pagina successiva",
+		"prev": "Carica pagina precedente"
+	},
+	"name": "Giocatore",
+	"online": {
+		"subtitle": "Solo i membri online sono visualizzati!",
+		"titles": {
+			"blue": "{user} è offline ed è stato online negli ultimi 30 giorni!",
+			"gray": "{user} è offline ed è stato online negli ultimi 7 giorni!",
+			"green": "{user} è online!",
+			"red": "{user} è offline da più di 60 giorni!",
+			"yellow": "{user} è offline ed è stato online negli ultimi 60 giorni!"
+		},
+		"toggle": {
+			"false": "Mostra solo giocatori online",
+			"true": "Mostra tutti gli utenti (anche offline)"
+		}
+	},
+	"rights": {
+		"admin": "Amministratore Alleanza",
+		"aufsichtsrat": "Registro delle azioni del moderatore",
+		"coadmin": "Co-Amministratore dell'Alleanza",
+		"edit": "Modifica permessi",
+		"finance": "Finanze dell'Alleanza",
+		"hide": "Chiudi",
+		"kick": {
+			"btn": "Espelli"
+		},
+		"kickModal": {
+			"btnCancel": "Cancella",
+			"btnConfirm": "Espelli",
+			"text": "Vuoi davvero espellere il giocatore **{user}** fuori dall'Alleanza?",
+			"title": "Espelli?"
+		},
+		"schooling": "Formatore Alleanza",
+		"set": "Imposta come {role}",
+		"sprechwunsch_admin": "Richiesta Trasporto - Amministratore",
+		"unset": "Rimuovi come {role}"
+	},
+	"roles": "Ruolo(i)",
+	"search_global": "Ricerca globale",
+	"search_local": "Cerca nei giocatori caricati",
+	"search_subtitle": "Mostra {n} giocatori da {startPage} a {endPage} di {totalPages} pagine",
+	"subtitle": "Mostra {n} giocatori da {startPage} ({firstCredits}) a {endPage} ({lastCredits}) di {totalPages} pagine",
+	"tax": "Rata tassa",
+	"title": "Membri"
+}

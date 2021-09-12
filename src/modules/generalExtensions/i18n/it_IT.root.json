@@ -15,8 +15,8 @@
 			"title": "Selettore di emoji"
 		},
 		"extensionCloseCall": {
-			"description": "Closes propagation speech requests even if the button \"to mission\" is pressed.",
-			"title": "Spreading improved FMS 5"
+			"description": "Chiude le richieste vocali di propagazione anche se viene premuto il pulsante\"alla missione\".",
+			"title": "Spargimento migliorato FMS 5"
 		},
 		"linkPreviews": {
 			"buildings": "Edifici",
