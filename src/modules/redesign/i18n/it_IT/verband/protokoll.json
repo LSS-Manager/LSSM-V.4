@@ -2,7 +2,7 @@
 	"affected": "Interessato",
 	"amount": "{n} voce filtrata | {n} voci filtrate",
 	"description": "descrizione",
-	"executor": "trigger",
+	"executor": "aziona",
 	"filter": {
 		"all_types": "Mostra tutti i tipi",
 		"no_types": "Non visualizzare i tipi",
