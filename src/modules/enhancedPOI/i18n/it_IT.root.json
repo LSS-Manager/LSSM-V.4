@@ -1,6 +1,6 @@
 {
-	"description": "Facilita l'impostazione dei POI attraverso piccole, e utili caratteristiche",
-	"name": "POI Avanzato",
+	"description": "Facilita l'impostazione dei PDI attraverso piccole, e utili caratteristiche",
+	"name": "PDI Avanzato",
 	"settings": {
 		"custom_style": {
 			"title": "Stile personalizzato per l'evidenziazione"
@@ -14,8 +14,8 @@
 			"white": "Bianco"
 		},
 		"shown_types": {
-			"description": "Specifica qui quale tipo di POI dev'essere visualizzato. Puoi anche cambiare direttamente queste impostazioni in \"Set POI\"-Change menu.",
-			"title": "Tipi di POI visualizzati"
+			"description": "Specifica qui quale tipo di PDI dev'essere visualizzato. Puoi anche cambiare direttamente queste impostazioni in \"Set PDI\"-Change menu.",
+			"title": "Tipi di PDI visualizzati"
 		}
 	}
 }

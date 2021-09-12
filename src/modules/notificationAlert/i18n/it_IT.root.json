@@ -1,9 +1,9 @@
 {
 	"alertStyles": {
-		"danger": "Messaggio errore (red)",
-		"info": "Info (blue)",
-		"success": "Conferma (green)",
-		"warning": "Attenzione (orange)"
+		"danger": "Messaggio errore (rosso)",
+		"info": "Info (blu)",
+		"success": "Conferma (verde)",
+		"warning": "Attenzione (arancionr)"
 	},
 	"description": "Ricevi notifiche dal browser e dal gioco per vari eventi - ovviamente completamente configurabile!",
 	"events": {
@@ -28,7 +28,7 @@
 		"vehicle_fms_2": "Messaggio radio (Stato 2)",
 		"vehicle_fms_3": "Messaggio radio (Stato 3)",
 		"vehicle_fms_4": "Messaggio radio (Stato 4)",
-		"vehicle_fms_5": "Messaggio radio (Richiesta di parola)",
+		"vehicle_fms_5": "Messaggio radio (Richiesta vocale)",
 		"vehicle_fms_6": "Messaggio radio (Stato 6)",
 		"vehicle_fms_7": "Messaggio radio (Stato 7)",
 		"vehicle_fms_9": "Messaggio radio (Stato 9)"

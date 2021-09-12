@@ -59,7 +59,7 @@
 			]
 		}
 	},
-	"name": "Missionlist estesa",
+	"name": "Lista Missioni estesa",
 	"settings": {
 		"averageCredits": {
 			"description": "Mostra la media dei crediti guadagnabili per ogni missione in modo compatto.",
@@ -73,7 +73,7 @@
 		},
 		"remainingTime": {
 			"description": "Mostra alle missioni per quanto tempo ogni missione è ancora in corso.",
-			"title": "Missiontime rimanente"
+			"title": "Tempo missione rimanente"
 		},
 		"remainingTimeGreenOnly": {
 			"description": "Mostra il tempo rimanente solo sulle missioni verdi.",

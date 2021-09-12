@@ -80,6 +80,26 @@ Klik op de onderstaande banner om naar onze Support Discord Server te gaan!
 Het gebruik van het script is op eigen risico. Wij zijn niet aansprakelijk voor eventuele schade of iets dergelijks, die wordt veroorzaakt door het gebruik van dit script. SHPlay GmbH is op geen enkele wijze verantwoordelijk voor de inhoud van het script.
 </details>
 
+<details>
+  <summary>🇮🇹</summary>
+LSS-MANAGER V.4 è un'estensione per operatore112.it e le sue altre versioni linguistiche.
+
+Con questa estensione viene aggiunto un Appstore al gioco, che permette l'installazione di plugin. Tutte le funzioni sono modulari - è possibile determinare fino all'ultimo modulo cosa deve essere attivato.
+
+### Wiki
+Nel nostro [Wiki](https://proxy.lss-manager.de/v4/docs/en_GB/) potete trovare tutto sull'installazione, le FAQ e una spiegazione di tutte le funzioni.
+
+### Supporto Server
+
+Basta cliccare sul banner qui sotto per accedere al Server Discord di Supporto!
+
+[![](https://discord.com/api/guilds/254167535446917120/embed.png?style=banner1)](https://discord.gg/RcTNjpB)
+
+## Responsabilità / Altro
+
+L'uso dello script è a proprio rischio. Non siamo responsabili per eventuali danni o simili, che sono causati dall'uso di questo script. Shplay Gmbh non è in alcun modo responsabile del contenuto dello script.
+</details>
+
 ## Contributors & Contributing ✨
 
 ### [Code of Conduct](CODE_OF_CONDUCT.md)

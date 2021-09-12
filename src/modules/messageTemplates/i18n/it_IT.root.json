@@ -1,0 +1,13 @@
+{
+	"description": "Scrivi i tuoi modelli per i messaggi nelle conversazioni private.",
+	"name": "Modello Messaggi",
+	"settings": {
+		"name": "Nome",
+		"subject": "Soggetto",
+		"template": "Modello (variabili (vedi wiki): {{username}}, {{today[+n]}})",
+		"templates": {
+			"description": "Le variabili sono disponibili per i modelli. Dai un'occhiata alla nostra <a class=\"lightbox-open\" href=\"{wiki}modules/messageTemplates.html#variables\">Wiki</a>.",
+			"title": "Modelli"
+		}
+	}
+}

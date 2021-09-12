@@ -1,0 +1,23 @@
+{
+	"nav": {
+		"links": [
+			{
+				"href": "/credits",
+				"text": "Transazioni"
+			},
+			{
+				"href": "/credits/overview",
+				"text": "Riepilogo"
+			},
+			{
+				"href": "/credits/daily",
+				"text": "Riepilogo giornaliero"
+			},
+			{
+				"href": "/coins/list",
+				"text": "Protocollo delle monete"
+			}
+		],
+		"title": "Crediti"
+	}
+}

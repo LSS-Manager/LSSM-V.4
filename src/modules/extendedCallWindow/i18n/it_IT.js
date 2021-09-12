@@ -15,9 +15,9 @@ module.exports = {
     arrHover: {
         reset: 'La selezione del veicolo viene ripristinata prima!',
         headers: {
-            set: 'Set',
-            attribute: 'Name',
-            free: 'Free',
+            set: 'Assegna',
+            attribute: 'Nome',
+            free: 'Libero',
             max: 'Max',
         },
         titles: {
