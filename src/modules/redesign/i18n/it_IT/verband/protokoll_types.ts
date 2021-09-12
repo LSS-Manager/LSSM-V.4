@@ -2,7 +2,7 @@ export default {
     mission: { regex: /Missione grande avviata/ },
     event: { regex: /Evento alleanza avviato/ },
     appl_accepted: { regex: /Aggiunto all'alleanza/ },
-    appl_declined: { regex: /Domanda respinta/ },
+    appl_declined: { regex: /Candidatura respinta/ },
     deny_appl: { regex: /Non autorizzato a presentare domanda per l'alleanza/ },
     allow_appl: { regex: /Autorizzato a presentare domanda per l'alleanza/ },
     left: { regex: /Lasciato l'alleanza/ },
