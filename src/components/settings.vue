@@ -498,7 +498,7 @@ export default Vue.extend<
                         handler: () => {
                             Object.values(this.settings).forEach(module =>
                                 Object.values(module).forEach(setting =>
-                                    this.$set(setting, 'value', setting.default)
+                                    this.$set(setting, 'value', setting.type === 'appendable-list' ? {value: setting.default, enabled: !setting.disableable} : setting.default)
                                 )
                             );
                             this.save();
@@ -521,7 +521,7 @@ export default Vue.extend<
                             Object.values(
                                 this.settings[this.modulesSorted[this.tab]]
                             ).forEach(setting =>
-                                this.$set(setting, 'value', setting.default)
+                                this.$set(setting, 'value', setting.type === 'appendable-list' ? {value: setting.default, enabled: !setting.disableable} : setting.default)
                             );
                             this.save();
                             this.key++;
