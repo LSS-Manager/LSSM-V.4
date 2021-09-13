@@ -510,6 +510,7 @@ export default Vue.extend<
                                     )
                                 )
                             );
+                            this.update();
                             this.save();
                             this.key++;
                             this.$modal.hide('dialog');
@@ -541,6 +542,7 @@ export default Vue.extend<
                                         : setting.default
                                 )
                             );
+                            this.update();
                             this.save();
                             this.key++;
                             this.$modal.hide('dialog');
