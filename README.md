@@ -87,7 +87,7 @@ LSS-MANAGER V.4 è un'estensione per operatore112.it e le sue altre versioni lin
 Con questa estensione viene aggiunto un Appstore al gioco, che permette l'installazione di plugin. Tutte le funzioni sono modulari - è possibile determinare fino all'ultimo modulo cosa deve essere attivato.
 
 ### Wiki
-Nel nostro [Wiki](https://proxy.lss-manager.de/v4/docs/en_GB/) potete trovare tutto sull'installazione, le FAQ e una spiegazione di tutte le funzioni.
+Nel nostro [Wiki](https://proxy.lss-manager.de/v4/docs/it_IT/) potete trovare tutto sull'installazione, le FAQ e una spiegazione di tutte le funzioni.
 
 ### Supporto Server
 
