@@ -37,9 +37,12 @@ export default (LSSM: Vue, MODULE_ID: string, $m: $m): void => {
 
     const missingRequirementMatches = missingRequirementsText.match(
         new RegExp(
-            `\\d{1,3}([,.]?\\d{3})*\\s+(${LSSM.$utils.escapeRegex(
+            `\\d{1,3}(([,.]|\\s)?\\d{3})*\\s+(${LSSM.$utils.escapeRegex(
                 water
-            )}|${Object.keys({ ...vehicleGroups, ...staffGroups })
+            )}|${LSSM.$utils.escapeRegex(foam)}|${Object.keys({
+                ...vehicleGroups,
+                ...staffGroups,
+            })
                 .map(r => r.replace(/^\/\^|\$\/$/g, ''))
                 .join('|')})(?=[,.]|$)`,
             'g'
@@ -68,14 +71,24 @@ export default (LSSM: Vue, MODULE_ID: string, $m: $m): void => {
         const drivingRows = drivingTable.innerHTML;
         missingRequirements.forEach(requirement => {
             const isWater = requirement.vehicle === water;
+            const isFoam = requirement.vehicle === foam;
             if (isWater) {
                 requirement.driving = parseInt(
                     document
                         .querySelector<HTMLDivElement>(
-                            'div.progress-bar-mission-window-water.progress-bar-warning'
+                            '[id^="mission_water_holder_"] div.progress-bar-mission-window-water.progress-bar-warning'
                         )
-                        ?.textContent?.match(/\d{1,3}([,.]?\d{3})*/)?.[0]
-                        ?.replace(/[,.]/g, '') ?? '0'
+                        ?.textContent?.match(/\d{1,3}(([,.]|\s)\d{3})*/)?.[0]
+                        ?.replace(/[,.]|\s/g, '') ?? '0'
+                );
+            } else if (isFoam) {
+                requirement.driving = parseInt(
+                    document
+                        .querySelector<HTMLDivElement>(
+                            '[id^="mission_foam_holder_"] div.progress-bar-mission-window-water.progress-bar-warning'
+                        )
+                        ?.textContent?.match(/\d{1,3}(([,.]|\s)\d{3})*/)?.[0]
+                        ?.replace(/[,.]|\s/g, '') ?? '0'
                 );
             } else {
                 const vehicleGroupRequirement = Object.keys(

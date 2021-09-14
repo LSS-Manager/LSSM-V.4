@@ -38,13 +38,13 @@ export default {
             textColor: 'black',
         },
         upgradeBuilding: {
-            regex: /(Instalación (upgraded( \(from small .*? station\))??|construida)|Cancel:|Refund Building upgrade)/,
+            regex: /(Instalación (upgraded( \(from small .*? station\))??|construida)|Cancel:|Refund Building upgrade|guardia extendida)/,
             title: 'Instalaciones Construidas',
             backgroundColor: '#000080',
             textColor: 'white',
         },
         task: {
-            regex: /Tarea ".*?"/,
+            regex: /Tarea («.*?»|".*?")/,
             title: 'Tareas Completadas',
             backgroundColor: '#bb3385',
             textColor: 'white',
