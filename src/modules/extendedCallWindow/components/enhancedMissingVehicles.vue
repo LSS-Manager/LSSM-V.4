@@ -396,7 +396,8 @@ export default Vue.extend<
                         ?.textContent?.match(/\d{1,3}(([,.]|\s)\d{3})*/)?.[0]
                         ?.replace(/[,.]|\s/g, '') ?? '0'
                 );
-            } else if (foamReq) {
+            }
+            if (foamReq) {
                 foamReq.selected = parseInt(
                     document
                         .querySelector<HTMLDivElement>(
