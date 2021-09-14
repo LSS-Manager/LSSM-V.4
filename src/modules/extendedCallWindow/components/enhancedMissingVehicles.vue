@@ -367,6 +367,7 @@ export default Vue.extend<
             [group: string]: number[];
         };
         const water = this.$m('water').toString();
+        const foam = this.$m('foam').toString();
         const categoriesById = {} as {
             [id: number]: string[];
         };
