@@ -62,8 +62,8 @@ export default async (
         parseInt(
             el?.textContent
                 ?.trim()
-                .match(/-?\d{1,3}([., ]\d{3})*/)?.[0]
-                ?.replace(/[., ]/g, '') ?? '0'
+                .match(/-?\d{1,3}(([,.]|\s)\d{3})*/)?.[0]
+                ?.replace(/[,.]|\s/g, '') ?? '0'
         );
 
     return {

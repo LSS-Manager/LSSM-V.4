@@ -2,18 +2,18 @@
 	"nav": {
 		"links": {
 			"/alliance_logfiles": "Toezicht",
+			"/alliance_messages": "Berichten",
 			"/alliance_threads": "Forum",
 			"/alliances/{id}": "Start",
 			"/schoolings": "Opleidingen",
 			"/verband/bereitstellungsraume": "UGS",
+			"/verband/bewerbungen": "Aanmeldingen",
 			"/verband/gebauede": "Gebouwen",
 			"/verband/kasse": "Teamkas",
 			"/verband/mitglieder/{id}": "Teamleden",
 			"/verband/news/{id}": "Nieuws",
 			"/verband/regeln/{id}": "Regels",
-			"/verband/werbung": "Adverteren",
-			"/alliance_messages": "Berichten",
-			"/verband/bewerbungen": "Aanmeldingen"
+			"/verband/werbung": "Adverteren"
 		},
 		"other": [
 			"/alliances/{id}",
