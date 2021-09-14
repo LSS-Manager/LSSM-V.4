@@ -1,4 +1,3 @@
-import { bounds } from 'leaflet';
 import { ModuleMainFunction } from 'typings/Module';
 import moment from 'moment';
 
