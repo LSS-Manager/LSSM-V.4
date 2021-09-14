@@ -1,6 +1,6 @@
+import { bounds } from 'leaflet';
 import { ModuleMainFunction } from 'typings/Module';
 import moment from 'moment';
-import { bounds } from 'leaflet';
 
 export default (async (LSSM, MODULE_ID) => {
     const getSetting = (settingId: string) =>
