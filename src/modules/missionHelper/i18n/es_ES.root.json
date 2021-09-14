@@ -11,6 +11,11 @@
 			"badge": true,
 			"in": "requirements",
 			"text": "Agua: {n} l"
+		},
+		"foam_needed": {
+			"badge": true,
+			"in": "requirements",
+			"text": "Espuma necesaria: {n} l"
 		}
 	},
 	"settings": {
