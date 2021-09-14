@@ -60,7 +60,7 @@ module.exports = {
             dragging: 'arrastrar ventana',
             textMode: 'modo de texto on/off',
             minified: 'minimizar',
-            overlay: 'cubrir',g
+            overlay: 'cubrir',
             reload: 'recargar',
             pushRight: 'muestra este cuadro encima de la lista de vehículos',
             pushLeft: 'muestra este cuadro en la posición original',
