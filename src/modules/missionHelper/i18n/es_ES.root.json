@@ -7,15 +7,15 @@
 			"in": "additional",
 			"text": "Media de personal antiincendios mín."
 		},
-		"water_needed": {
-			"badge": true,
-			"in": "requirements",
-			"text": "Agua: {n} l"
-		},
 		"foam_needed": {
 			"badge": true,
 			"in": "requirements",
 			"text": "Espuma necesaria: {n} l"
+		},
+		"water_needed": {
+			"badge": true,
+			"in": "requirements",
+			"text": "Agua: {n} l"
 		}
 	},
 	"settings": {
