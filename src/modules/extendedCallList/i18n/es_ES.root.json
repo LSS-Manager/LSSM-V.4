@@ -1,7 +1,25 @@
 {
 	"description": "¡Extiende la lista de misiones con algunas características interesantes!",
+	"eventMissions": {
+		"default": {
+			"🥚": [127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137],
+        "🌞": [161, 162, 163, 164, 165],
+        "🎅": [86, 87, 88, 89, 90, 91, 92],
+        "🧨": [99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111]
+		}
+	},
 	"name": "Lista de misiones extendida",
 	"settings": {
+		"averageCredits": {
+			"description": "Muestra el promedio de créditos ganables para cada misión de forma compacta.",
+			"title": "Mostrar créditos medios"
+		},
+		"eventMissions": {
+			"description": "Marca las misiones de temporada. Opcionalmente, puedes personalizarlo todo y marcar también las misiones no estacionales.",
+			"missions": "Misiones",
+			"text": "Texto",
+			"title": "Marcar las misiones estacionales"
+		},
 		"remainingTime": {
 			"description": "Muestra en las misiones cuánto tiempo está una misión en progreso.",
 			"title": "Tiempo restante de la misión"
@@ -9,6 +27,10 @@
 		"remainingTimeGreenOnly": {
 			"description": "Muestra el tiempo restante solo en misiones verdes.",
 			"title": "Tiempo de misión solo para misiones verdes"
+		},
+		"starrableMissions": {
+			"description": "Marque las misiones para que se muestren en la lista de misiones en la parte superior. Puede marcarlas en la ventana de misiones y en la lista de misiones.",
+			"title": "Misiones de la marca"
 		}
 	}
 }

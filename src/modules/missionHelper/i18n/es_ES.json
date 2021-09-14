@@ -18,6 +18,7 @@
 	},
 	"prerequisites": {
 		"fire_boat_docks": "Muelle de barco de bomberos | Muelles de barcos de bomberos",
+		"fire_support_count": "Ampliaciones de apoyo en incendios",
 		"fire_stations": "Estación de bomberos | Estaciones de bomberos",
 		"max_police_stations": "Comisarías de policia máximo",
 		"max_rescue_stations": "Parques de bombero máximo",
@@ -32,7 +33,7 @@
 		"title": "Presos | {n} Preso | {n} Presos"
 	},
 	"requirements": {
-		"water_needed": "Demanda de agua (L)"
+		"water_needed": "Demanda de agua (l)"
 	},
 	"subsequent": "Misión posterior | Misiones posteriores",
 	"tip": {
@@ -53,6 +54,7 @@
 			"fbi_investigation": "FBI Investigation Wagon | FBI Investigation Wagons",
 			"fbi_mcc": "FBI Mobile Command Center Vehicle | FBI Mobile Command Center Vehicles",
 			"firetrucks": "Vehículo de rescate | Vehículos de rescate",
+			"foam": "Vehículos de extinción por espuma",
 			"hazmat_vehicles": "Vehículo TPP | Vehículos TPP",
 			"heavy_rescue_vehicles": "Vehiculo FUV | Vehículos FUV",
 			"helicopter": "HEMS",
@@ -62,6 +64,7 @@
 			"platform_trucks": "Camión AE | Camiones AE",
 			"police_cars": "Coche patrulla | Coches patrullas",
 			"police_helicopters": "Helicóptero Policíal | Helicópteros Policiales",
+			"pump": "Bombas accionadas por motor",
 			"swat_armored_vehicle": "Unidad Antidisturbios | Unidades Antidisturbio",
 			"swat_suv": "Unidad GEO | Unidades GEO",
 			"water_tankers": "Camión BNP | Camiones BNP"

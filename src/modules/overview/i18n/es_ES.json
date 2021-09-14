@@ -29,7 +29,8 @@
 			"minPersonnel": "personal mínimo",
 			"schooling": "Formación",
 			"special": "Especiales",
-			"wtank": "BNP"
+			"wtank": "Cantidad de agua",
+			"ftank": "Cantidad de espuma"
 		}
 	}
 }

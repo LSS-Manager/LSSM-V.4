@@ -112,7 +112,8 @@ export default {
             credits: 5_000,
             minPersonnel: 1,
             maxPersonnel: 6,
-            wtank: 0,
+            wtank: 3000,
+            ftank: 500,
         },
         1: {
             caption: 'Camión BUL',
@@ -121,7 +122,8 @@ export default {
             credits: 5_000,
             minPersonnel: 1,
             maxPersonnel: 3,
-            wtank: 0,
+            wtank: 1500,
+            ftank: 250,
         },
         2: {
             caption: 'Camión AE',
@@ -130,7 +132,6 @@ export default {
             credits: 10_000,
             minPersonnel: 1,
             maxPersonnel: 3,
-            wtank: 0,
             special: 'Necesario cuando hayas construido 3 parques de bomberos',
         },
         3: {
@@ -140,7 +141,6 @@ export default {
             credits: 10_000,
             minPersonnel: 1,
             maxPersonnel: 3,
-            wtank: 0,
             special: 'Necesario cuando hayas construido 6 parques de bomberos',
         },
         4: {
@@ -150,7 +150,6 @@ export default {
             credits: 12_180,
             minPersonnel: 1,
             maxPersonnel: 4,
-            wtank: 0,
             special: 'Necesario cuando hayas construido 4 parques de bomberos',
         },
         5: {
@@ -160,7 +159,6 @@ export default {
             credits: 5_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            wtank: 0,
         },
         6: {
             caption: 'Camión BNP',
@@ -169,7 +167,7 @@ export default {
             credits: 17_300,
             minPersonnel: 1,
             maxPersonnel: 3,
-            wtank: 0,
+            wtank: 6000,
             special: 'Necesario cuando hayas construido 7 parques de bomberos',
         },
         7: {
@@ -179,7 +177,6 @@ export default {
             credits: 19_200,
             minPersonnel: 1,
             maxPersonnel: 3,
-            wtank: 3_000,
             special: 'Necesario cuando hayas construido 11 parques de bomberos',
             schooling: 'Parque de bomberos - Hazmat',
             shownSchooling: 'Hazmat',
@@ -191,7 +188,6 @@ export default {
             credits: 5_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            wtank: 0,
         },
         9: {
             caption: 'HEMS',
@@ -208,7 +204,6 @@ export default {
             credits: 11_680,
             minPersonnel: 1,
             maxPersonnel: 3,
-            wtank: 0,
             special: 'Necesario cuando hayas construido 5 parques de bomberos',
         },
         11: {
@@ -218,7 +213,6 @@ export default {
             credits: 25_500,
             minPersonnel: 1,
             maxPersonnel: 6,
-            wtank: 0,
             special: 'Necesario cuando hayas construido 13 parques de bomberos',
             schooling: 'Parque de bomberos - Mando móvil',
             shownSchooling: 'Mando móvil',
@@ -230,7 +224,8 @@ export default {
             credits: 19_000,
             minPersonnel: 1,
             maxPersonnel: 6,
-            wtank: 0,
+            wtank: 3000,
+            ftank: 500,
         },
         13: {
             caption: 'Helicóptero de Policía',
@@ -239,7 +234,6 @@ export default {
             credits: 300_000,
             minPersonnel: 1,
             maxPersonnel: 3,
-            wtank: 0,
             schooling: 'Policía - Piloto de Helicóptero',
             shownSchooling: 'Piloto de Helicóptero',
         },
@@ -250,7 +244,6 @@ export default {
             credits: 10_000,
             minPersonnel: 6,
             maxPersonnel: 6,
-            wtank: 0,
             schooling: 'Policía - Fuerzas Especiales',
             shownSchooling: 'Fuerzas Especiales',
             special:
@@ -263,7 +256,6 @@ export default {
             credits: 7_000,
             minPersonnel: 2,
             maxPersonnel: 4,
-            wtank: 0,
             schooling: 'Policía - Fuerzas Especiales',
             shownSchooling: 'Fuerzas Especiales',
             special:
@@ -276,7 +268,6 @@ export default {
             credits: 7_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            wtank: 0,
             schooling: 'Policía - Guía Canino',
             shownSchooling: 'Guía Canino',
             special:
@@ -289,7 +280,6 @@ export default {
             credits: 2_500,
             minPersonnel: 1,
             maxPersonnel: 1,
-            wtank: 0,
             schooling: 'Policía - Motorista',
             shownSchooling: 'Motorista',
         },
@@ -339,6 +329,25 @@ export default {
             minPersonnel: 2,
             maxPersonnel: 2,
         },
+        23: {
+            caption: 'Vehículo de extinción por espuma',
+            color: '#791515',
+            coins: 15,
+            credits: 35_000,
+            minPersonnel: 2,
+            maxPersonnel: 3,
+            ftank: 3000,
+        },
+        242: {
+            caption: 'Remolque con bomba accionada por motor',
+            color: '#791515',
+            coins: 10,
+            credits: 10_000,
+            minPersonnel: 0,
+            maxPersonnel: 0,
+            special:
+                'Se necesita un vehículo de remolque (Camión BUP, Camión BUL, Camión BNP, Vehículo de extinción por espuma)',
+        },
     },
     buildings: {
         0: {
@@ -351,13 +360,19 @@ export default {
                     caption: 'Extensión de ambulancia',
                     credits: 100_000,
                     coins: 20,
-                    duration: '7 Días',
+                    duration: '7 días',
+                },
+                {
+                    caption: 'Ampliación de apoyo en incendios',
+                    credits: 150_000,
+                    coins: 15,
+                    duration: '5 días',
                 },
             ],
-            levelcost: ['1. 10.000', '2. 50.000', '3.-16. 100.000'],
+            levelcost: ['1. 10.000', '2. 50.000', '3.-24. 100.000'],
             maxBuildings:
                 '5.000 edificios junto con pequeñas estaciones de bomberos',
-            maxLevel: 16,
+            maxLevel: 25,
             special:
                 'A partir del 24º parque de bomberos en adelante, el coste de construcción de un nuevo parque de bomberos aumenta según la siguiente fórmula: <code>100.000+200.000*LOG<sub>2</sub>(Number of existing fire stations − 22)</code>. ¡El precio de las monedas es constante!',
             startPersonnel: 10,
@@ -719,7 +734,7 @@ export default {
         'Bomberos': {
             vehicles: {
                 'Camiones de bomberos': [0, 1, 12],
-                'Vehículos especiales': [2, 3, 4, 6, 7, 10, 11],
+                'Vehículos especiales': [2, 3, 4, 6, 7, 10, 11, 23, 24],
             },
             color: '#ff2d2d',
         },
@@ -924,6 +939,13 @@ export default {
         'Centro de la ciudad',
         'Montaña',
         'Muelle',
+        'Zona de juegos',
+        'Pista de carreras de tierra',
+        'Residencia',
+        'Central Nuclear',
+        'Acantilado',
+        'Aserradero',
+        'Refinería petrolera',
     ],
     only_alliance_missions: [57, 74],
     transfer_missions: [],
