@@ -39,7 +39,10 @@ export default (LSSM: Vue, MODULE_ID: string, $m: $m): void => {
         new RegExp(
             `\\d{1,3}([,. ]?\\d{3})*\\s+(${LSSM.$utils.escapeRegex(
                 water
-            )}|${Object.keys({ ...vehicleGroups, ...staffGroups })
+            )}|${LSSM.$utils.escapeRegex(foam)}|${Object.keys({
+                ...vehicleGroups,
+                ...staffGroups,
+            })
                 .map(r => r.replace(/^\/\^|\$\/$/g, ''))
                 .join('|')})(?=[,.]|$)`,
             'g'
