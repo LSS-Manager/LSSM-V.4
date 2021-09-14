@@ -338,7 +338,7 @@ export default {
             maxPersonnel: 3,
             ftank: 3000,
         },
-        242: {
+        24: {
             caption: 'Remolque con bomba accionada por motor',
             color: '#791515',
             coins: 10,
