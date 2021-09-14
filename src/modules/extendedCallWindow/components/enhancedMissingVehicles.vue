@@ -393,17 +393,18 @@ export default Vue.extend<
                         .querySelector<HTMLDivElement>(
                             '[id^="mission_water_holder_"] div.progress-bar-mission-window-water.progress-bar-danger, [id^="mission_water_holder_"] div.progress-bar-mission-window-water.progress-bar-success'
                         )
-                        ?.textContent?.match(/\d{1,3}([,. ]\d{3})*/)?.[0]
-                        ?.replace(/[,. ]/g, '') ?? '0'
+                        ?.textContent?.match(/\d{1,3}(([,.]|\s)\d{3})*/)?.[0]
+                        ?.replace(/[,.]|\s/g, '') ?? '0'
                 );
-            } else if (foamReq) {
+            }
+            if (foamReq) {
                 foamReq.selected = parseInt(
                     document
                         .querySelector<HTMLDivElement>(
                             '[id^="mission_foam_holder_"] div.progress-bar-mission-window-water.progress-bar-danger, [id^="mission_foam_holder_"] div.progress-bar-mission-window-water.progress-bar-success'
                         )
-                        ?.textContent?.match(/\d{1,3}([,. ]\d{3})*/)?.[0]
-                        ?.replace(/[,. ]/g, '') ?? '0'
+                        ?.textContent?.match(/\d{1,3}(([,.]|\s)\d{3})*/)?.[0]
+                        ?.replace(/[,.]|\s/g, '') ?? '0'
                 );
             }
             vehicleList
