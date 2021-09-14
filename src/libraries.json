@@ -73,10 +73,10 @@
 		"version": "1.16.2"
 	},
 	"@typescript-eslint/eslint-plugin": {
-		"version": "4.31.0"
+		"version": "4.31.1"
 	},
 	"@typescript-eslint/parser": {
-		"version": "4.31.0"
+		"version": "4.31.1"
 	},
 	"@vuepress/plugin-active-header-links": {
 		"icon": "https://vuepress.vuejs.org/hero.png",
@@ -179,7 +179,7 @@
 	"sass": {
 		"icon": "https://sass-lang.com/assets/img/logos/logo-b6e1ef6e.svg",
 		"url": "https://github.com/sass/dart-sass",
-		"version": "1.39.2"
+		"version": "1.40.1"
 	},
 	"sass-loader": {
 		"icon": "https://webpack.js.org/assets/icon-square-big.svg",
@@ -207,7 +207,7 @@
 	"terser": {
 		"icon": "https://terser.org/img/terser-square-logo.png",
 		"url": "https://terser.org",
-		"version": "5.7.2"
+		"version": "5.8.0"
 	},
 	"ts-loader": {
 		"icon": "https://webpack.js.org/assets/icon-square-big.svg",
@@ -237,7 +237,7 @@
 	"vue-i18n": {
 		"icon": "https://kazupon.github.io/vue-i18n/vue-i18n-logo.png",
 		"url": "https://github.com/kazupon/vue-i18n#readme",
-		"version": "8.25.0"
+		"version": "8.25.1"
 	},
 	"vue-js-modal": {
 		"url": "http://vue-js-modal.yev.io/",
