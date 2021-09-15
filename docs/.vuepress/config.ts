@@ -1,5 +1,5 @@
 import copydir from 'copy-dir';
-import fetch from 'node-fetch';
+import axios from 'axios';
 import fs from 'fs';
 import path from 'path';
 
@@ -422,10 +422,12 @@ sidebarDepth: 2
     });
 
 const fetchStableVersion = (): Promise<{ version: string }> =>
-    fetch(`${config.server}static/build_stats.json`)
+  axios(`${config.server}static/build_stats.json`)
         .then(res =>
             res.status === 200
-                ? (res.json() as Promise<{ version: string }>)
+                ? (new Promise(resolve =>
+                resolve(res.data)
+              ) as Promise<{ version: string }>)
                 : (new Promise(resolve =>
                       resolve({ version: '4.x.x' })
                   ) as Promise<{ version: string }>)
