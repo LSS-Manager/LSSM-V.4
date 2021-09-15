@@ -9,7 +9,7 @@ export default {
         },
         mission: {
             regex:
-                '^%missions%( \\(Sistema de alarma antiincendios\\))?( - False Alarm)?$',
+                '^%missions%( \\(Sistema de alarma antiincendios\\))?( - Falsa alarma)?$',
             title: 'Misiones Propias',
             backgroundColor: '#ff2400',
             textColor: 'white',
@@ -84,8 +84,8 @@ export default {
             textColor: 'white',
         },
         fireAlarmSystemCancel: {
-            regex: /False Alarm/,
-            titel: 'False Alarms',
+            regex: /Falsa alarma/,
+            titel: 'Falsa alarma',
             backgroundColor: '#c80815',
             textColor: 'white',
         },
