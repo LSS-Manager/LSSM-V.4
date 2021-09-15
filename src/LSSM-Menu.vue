@@ -326,9 +326,9 @@ export default Vue.extend<
                                     handler() {
                                         (window[
                                             PREFIX
-                                        ] as Vue).$settings.reset();
-                                        LSSM.$modal.hide('settings');
+                                        ] as Vue).$settings.discard();
                                         LSSM.$modal.hide('dialog');
+                                        LSSM.$modal.hide('settings');
                                     },
                                 },
                                 {
