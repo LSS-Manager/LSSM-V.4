@@ -1,5 +1,5 @@
+import axios from 'axios';
 import copydir from 'copy-dir';
-import fetch from 'node-fetch';
 import fs from 'fs';
 import path from 'path';
 
@@ -28,22 +28,22 @@ const DOCS_PATH = path.join(ROOT_PATH, 'docs');
 const DOCS_I18N_PATH = path.join(DOCS_PATH, '.vuepress/i18n');
 
 const LANGS = Object.keys(config.games).filter(lang =>
-    fs.existsSync(path.join(DOCS_PATH, lang))
+  fs.existsSync(path.join(DOCS_PATH, lang))
 );
 const MODULES = fs
-    .readdirSync(MODULES_PATH)
-    .filter(
-        module =>
-            !['template', ...config.modules['core-modules']].includes(module)
-    );
+  .readdirSync(MODULES_PATH)
+  .filter(
+    module =>
+      !['template', ...config.modules['core-modules']].includes(module)
+  );
 const I18N: Record<string, Translation> = {};
 
 const setLocales = async () => {
     if (Object.keys(I18N).length) return;
     for (const lang of fs.readdirSync(DOCS_I18N_PATH)) {
         I18N[lang.split('.')[0]] = await import(
-            path.join(DOCS_I18N_PATH, lang)
-        );
+          path.join(DOCS_I18N_PATH, lang)
+          );
     }
 };
 
@@ -61,8 +61,8 @@ const sidebar_others = [
 
 const getLocale = (lang: string, key: string): Translation | string => {
     const walk = (
-        base: Translation | string,
-        path: string[]
+      base: Translation | string,
+      path: string[]
     ): Translation | string => {
         if (typeof base === 'string' || !base) return base;
         if (path.length === 1) return base[path[0]];
@@ -82,10 +82,10 @@ const getLocale = (lang: string, key: string): Translation | string => {
 const updateConfigs = () => {
     config.discord.invite = `https://discord.gg/${config.discord.invite}`;
     config.discord.channels = Object.fromEntries(
-        Object.entries(config.discord.channels).map(([channel, id]) => [
-            channel,
-            `https://discordapp.com/channels/${config.discord.id}/${id}`,
-        ])
+      Object.entries(config.discord.channels).map(([channel, id]) => [
+          channel,
+          `https://discordapp.com/channels/${config.discord.id}/${id}`,
+      ])
     );
 };
 
@@ -106,9 +106,9 @@ const emptyFolders = () => {
     [
         'dist/docs',
         ...fs
-            .readdirSync(path.join(ROOT_PATH, 'docs/'))
-            .filter((name: string) => LANGS.indexOf(name) >= 0)
-            .map(lang => `docs/${lang}/modules`),
+          .readdirSync(path.join(ROOT_PATH, 'docs/'))
+          .filter((name: string) => LANGS.indexOf(name) >= 0)
+          .map(lang => `docs/${lang}/modules`),
         'docs/.vuepress/public/assets',
     ].forEach(folder => {
         emptyFolder(folder);
@@ -123,28 +123,28 @@ const processModules = async (shortVersion: string) => {
         settings: '⚙️',
     };
     const MODULES_BY_LANG: Record<
-        string,
-        ModuleRegistration[]
-    > = Object.fromEntries(LANGS.map(lang => [lang, []]));
+      string,
+      ModuleRegistration[]
+      > = Object.fromEntries(LANGS.map(lang => [lang, []]));
 
     const getRootI18n = (
-        module: string,
-        lang: string
+      module: string,
+      lang: string
     ): Promise<{ name: string; description?: string }> =>
-        new Promise(resolve =>
-            import(path.join(MODULES_PATH, module, 'i18n', `${lang}.root`))
-                .then(({ name, description }) => resolve({ name, description }))
-                .catch(() =>
-                    import(path.join(MODULES_PATH, module, 'i18n/en_US.root'))
-                        .then(({ name, description }) =>
-                            resolve({ name, description })
-                        )
-                        .catch(() => resolve({ name: module }))
-                )
-        );
+      new Promise(resolve =>
+        import(path.join(MODULES_PATH, module, 'i18n', `${lang}.root`))
+          .then(({ name, description }) => resolve({ name, description }))
+          .catch(() =>
+            import(path.join(MODULES_PATH, module, 'i18n/en_US.root'))
+              .then(({ name, description }) =>
+                resolve({ name, description })
+              )
+              .catch(() => resolve({ name: module }))
+          )
+      );
 
     const getTargetPath = (module: string, lang: string) =>
-        path.join(DOCS_PATH, lang, 'modules', `${module}.md`);
+      path.join(DOCS_PATH, lang, 'modules', `${module}.md`);
 
     const getYaml = (title: string, lang: string) => `---
 title: ${title}
@@ -153,55 +153,55 @@ lang: ${lang}
 `;
 
     const getGithub = (issue: number) =>
-        `<a href="https://github.com/${config.github.repo}/issues/${issue}" title="Issue #${issue} on GitHub" target="_blank"><img src="https://github.githubassets.com/pinned-octocat.svg" alt="Issue #${issue} on GitHub" style="height: 1.5ex" data-prevent-zooming/></a>`;
+      `<a href="https://github.com/${config.github.repo}/issues/${issue}" title="Issue #${issue} on GitHub" target="_blank"><img src="https://github.githubassets.com/pinned-octocat.svg" alt="Issue #${issue} on GitHub" style="height: 1.5ex" data-prevent-zooming/></a>`;
 
     const getModuleHead = (
-        title: string,
-        description: string,
-        lang: string,
-        register: Module
+      title: string,
+      description: string,
+      lang: string,
+      register: Module
     ) => `
 # ${title} ${register.github ? getGithub(register.github) : ``}
 
 ${
-    description
+      description
         ? `
 > ℹ **${description}**
 >
 `
         : ``
-}
+    }
 ${(['alpha', 'dev', 'settings'] as ('alpha' | 'dev' | 'settings')[])
-    .filter(attr => register[attr])
-    .map(
+      .filter(attr => register[attr])
+      .map(
         attr =>
-            `> ${HEAD_EMOJIS[attr] ?? ''} ${getLocale(lang, `head.${attr}`)}`
-    )
-    .join('\n>\n')}
+          `> ${HEAD_EMOJIS[attr] ?? ''} ${getLocale(lang, `head.${attr}`)}`
+      )
+      .join('\n>\n')}
 ${
-    register.noMapkit
+      register.noMapkit
         ? `
 :::danger Mapkit
 ${getLocale(lang, 'head.mapkit')}
 :::`
         : ``
-}
+    }
 `;
 
     for (const module of MODULES) {
         const MODULE_PATH = path.join(MODULES_PATH, module);
         const MODULE_DOC_PATH = path.join(MODULE_PATH, 'docs');
         const register: Module = await import(
-            path.join(MODULE_PATH, 'register')
-        );
+          path.join(MODULE_PATH, 'register')
+          );
         if (register.noapp) continue;
         const usedLangs = LANGS.filter(lang =>
-            (register.locales ?? LANGS).includes(lang)
+          (register.locales ?? LANGS).includes(lang)
         );
         const noDocs: Record<
-            string,
-            { i18n: { name: string; description: string }; register: Module }
-        > = {};
+          string,
+          { i18n: { name: string; description: string }; register: Module }
+          > = {};
         for (const lang of usedLangs) {
             const i18n = {
                 description: '',
@@ -218,50 +218,50 @@ ${getLocale(lang, 'head.mapkit')}
                 hasSrc,
             });
             const content = hasSrc
-                ? fs
-                      .readFileSync(srcPath)
-                      .toString()
-                      .trim()
-                : '';
+              ? fs
+                .readFileSync(srcPath)
+                .toString()
+                .trim()
+              : '';
             if (!hasSrc || !content.length) {
                 noDocs[lang] = { i18n, register };
                 continue;
             }
             fs.writeFileSync(
-                targetPath,
-                `${getYaml(i18n.name, lang)}
+              targetPath,
+              `${getYaml(i18n.name, lang)}
 ${getModuleHead(i18n.name, i18n.description, lang, register)}
 ${content.replace(/(?<=!\[.*?]\().*?(?=\))/g, asset =>
-    path.join(BASE, 'assets', module, lang, asset)
-)}`
+                path.join(BASE, 'assets', module, lang, asset)
+              )}`
             );
         }
         const docsLangs = usedLangs.filter(
-            lang => !noDocs.hasOwnProperty(lang)
+          lang => !noDocs.hasOwnProperty(lang)
         );
         Object.entries(noDocs).forEach(([lang, { i18n, register }]) => {
             fs.writeFileSync(
-                getTargetPath(module, lang),
-                `${getYaml(i18n.name, lang)}
+              getTargetPath(module, lang),
+              `${getYaml(i18n.name, lang)}
 ${getModuleHead(i18n.name, i18n.description, lang, register)}
 :::warning No module page existing yet
 Dear User,
 
 thanks for your interest in the Wiki page of **${i18n.name}**!
 Unfortunately, we weren't able to create the content for your language \`${lang}\` yet. If you want to contribute to our wiki, feel free to create this page [on GitHub](https://github.com/${
-                    config.github.repo
-                }/new/dev/src/modules/${module}/docs?filename=${lang}.md)!
+                config.github.repo
+              }/new/dev/src/modules/${module}/docs?filename=${lang}.md)!
 We suggest to have a look at the files of the other languages for examples in the [docs directory](https://github.com/${
-                    config.github.repo
-                }/tree/dev/src/modules/${module}/docs)
+                config.github.repo
+              }/tree/dev/src/modules/${module}/docs)
 
 This module already has a Wiki page in the following languages:
 ${docsLangs
-    .map(
-        l =>
-            `* [${config.games[l].flag} ${config.games[l].name}](/${l}/modules/${module}.html)`
-    )
-    .join('\n')}
+                .map(
+                  l =>
+                    `* [${config.games[l].flag} ${config.games[l].name}](/${l}/modules/${module}.html)`
+                )
+                .join('\n')}
 :::
 `
             );
@@ -269,9 +269,9 @@ ${docsLangs
 
         const assetDir = path.join(MODULE_DOC_PATH, 'assets');
         const targetDir = path.join(
-            DOCS_PATH,
-            '.vuepress/public/assets',
-            module
+          DOCS_PATH,
+          '.vuepress/public/assets',
+          module
         );
         if (fs.existsSync(assetDir)) {
             if (!fs.existsSync(targetDir)) fs.mkdirSync(targetDir);
@@ -280,35 +280,35 @@ ${docsLangs
     }
 
     const themeLocales: Record<
-        string,
-        {
-            label: string;
-            nav: { text: string; link: string }[];
-            sidebar: (
-                | { title: string; collapsable: boolean; children: string[] }
-                | string
+      string,
+      {
+          label: string;
+          nav: { text: string; link: string }[];
+          sidebar: (
+            | { title: string; collapsable: boolean; children: string[] }
+            | string
             )[];
-        }
-    > = {};
+      }
+      > = {};
     const noMapkitModules: Record<string, { title: string; f: string }[]> = {};
     const locales: Record<
-        string,
-        { lang: string; title: string; description: string }
-    > = {};
+      string,
+      { lang: string; title: string; description: string }
+      > = {};
 
     Object.entries(MODULES_BY_LANG).forEach(([lang, modules]) => {
         MODULES_BY_LANG[lang] = modules.sort((a, b) =>
-            a.title < b.title ? -1 : a.title > b.title ? 1 : 0
+          a.title < b.title ? -1 : a.title > b.title ? 1 : 0
         );
         noMapkitModules[lang] = MODULES_BY_LANG[lang]
-            .filter(({ register: { noMapkit } }) => noMapkit)
-            .map(m => ({
-                title: m.title,
-                f: path.relative(
-                    path.join(DOCS_PATH, lang),
-                    m.file.replace('.md', '')
-                ),
-            }));
+          .filter(({ register: { noMapkit } }) => noMapkit)
+          .map(m => ({
+              title: m.title,
+              f: path.relative(
+                path.join(DOCS_PATH, lang),
+                m.file.replace('.md', '')
+              ),
+          }));
 
         const langPath = `/${lang}/`;
         const game = config.games[lang];
@@ -336,47 +336,47 @@ ${docsLangs
                     title: 'LSSM',
                     collapsable: false,
                     children: sidebar_lssm
-                        .filter(file =>
-                            fs.existsSync(
-                                path.posix.join(
-                                    DOCS_PATH,
-                                    lang,
-                                    `${file || 'README'}.md`
-                                )
-                            )
+                      .filter(file =>
+                        fs.existsSync(
+                          path.posix.join(
+                            DOCS_PATH,
+                            lang,
+                            `${file || 'README'}.md`
+                          )
                         )
-                        .map(file => `${langPath}${file}`),
+                      )
+                      .map(file => `${langPath}${file}`),
                 },
                 ...sidebar_others
-                    .filter(file =>
-                        fs.existsSync(
-                            path.posix.join(
-                                DOCS_PATH,
-                                lang,
-                                `${file || 'README'}.md`
-                            )
-                        )
+                  .filter(file =>
+                    fs.existsSync(
+                      path.posix.join(
+                        DOCS_PATH,
+                        lang,
+                        `${file || 'README'}.md`
+                      )
                     )
-                    .map(file => `${langPath}${file}`),
+                  )
+                  .map(file => `${langPath}${file}`),
                 {
                     title: `${getLocale(lang, 'apps')} 📦`,
                     collapsable: true,
                     children: [
                         ...(fs.existsSync(path.join(DOCS_PATH, lang, 'apps.md'))
-                            ? [`/${lang}/apps`]
-                            : []),
+                          ? [`/${lang}/apps`]
+                          : []),
                         ...MODULES_BY_LANG[lang]
-                            .filter(
-                                ({ hasSrc, file }) =>
-                                    hasSrc && fs.existsSync(file)
-                            )
-                            .map(
-                                ({ file }) =>
-                                    `/${path.posix.relative(
-                                        DOCS_PATH,
-                                        file.replace('.md', '')
-                                    )}`
-                            ),
+                          .filter(
+                            ({ hasSrc, file }) =>
+                              hasSrc && fs.existsSync(file)
+                          )
+                          .map(
+                            ({ file }) =>
+                              `/${path.posix.relative(
+                                DOCS_PATH,
+                                file.replace('.md', '')
+                              )}`
+                          ),
                     ],
                 },
             ],
@@ -391,15 +391,15 @@ ${docsLangs
 };
 
 const setReadmeHeads = () =>
-    LANGS.forEach(lang => {
-        if (!fs.existsSync(path.join(DOCS_PATH, lang))) return;
-        const filePath = path.join(DOCS_PATH, lang, 'README.md');
-        const flag = config.games[lang].flag;
-        fs.writeFileSync(
-            filePath,
-            (fs.readFileSync(filePath).toString() ?? '').replace(
-                /(.|\n)*?(?=\n## )/,
-                `---
+  LANGS.forEach(lang => {
+      if (!fs.existsSync(path.join(DOCS_PATH, lang))) return;
+      const filePath = path.join(DOCS_PATH, lang, 'README.md');
+      const flag = config.games[lang].flag;
+      fs.writeFileSync(
+        filePath,
+        (fs.readFileSync(filePath).toString() ?? '').replace(
+          /(.|\n)*?(?=\n## )/,
+          `---
 title: LSS-Manager V.4
 lang: ${lang}
 sidebarDepth: 2
@@ -417,25 +417,27 @@ sidebarDepth: 2
 
 [Game-Online-Status](https://stats.uptimerobot.com/OEKDJSpmvK)
 `
-            )
-        );
-    });
+        )
+      );
+  });
 
 const fetchStableVersion = (): Promise<{ version: string }> =>
-    fetch(`${config.server}static/build_stats.json`)
-        .then(res =>
-            res.status === 200
-                ? (res.json() as Promise<{ version: string }>)
-                : (new Promise(resolve =>
-                      resolve({ version: '4.x.x' })
-                  ) as Promise<{ version: string }>)
-        )
-        .catch(
-            () =>
-                new Promise(resolve =>
-                    resolve({ version: '4.x.x' })
-                ) as Promise<{ version: string }>
-        );
+  axios(`${config.server}static/build_stats.json`)
+    .then(res =>
+      res.status === 200
+        ? (new Promise(resolve =>
+          resolve(res.data)
+        ) as Promise<{ version: string }>)
+        : (new Promise(resolve =>
+          resolve({ version: '4.x.x' })
+        ) as Promise<{ version: string }>)
+    )
+    .catch(
+      () =>
+        new Promise(resolve =>
+          resolve({ version: '4.x.x' })
+        ) as Promise<{ version: string }>
+    );
 
 module.exports = async () => {
     await setLocales();
@@ -445,7 +447,7 @@ module.exports = async () => {
     const { version: stable } = await fetchStableVersion();
     const shortVersion = stable.match(/4(\.(x|\d+)){2}/)?.[0] ?? '4.x.x';
     const { locales, themeLocales, noMapkitModules } = await processModules(
-        shortVersion
+      shortVersion
     );
     const vuepressConfig = {
         title: 'LSS-Manager V.4 Wiki',
