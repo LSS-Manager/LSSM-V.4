@@ -1,5 +1,5 @@
 {
-    "version": "4.3.1+20210915.0107",
+    "version": "4.3.1+20210915.0232",
     "license": "CC-BY-NC-SA-4.0",
     "scripts": {
         "predev": "tsc -b scripts && node scripts predev",
@@ -19,6 +19,7 @@
         "@fortawesome/fontawesome-svg-core": "^1.2.36",
         "@fortawesome/free-solid-svg-icons": "^5.15.4",
         "@fortawesome/vue-fontawesome": "^2.0.2",
+        "axios": "^0.21.4",
         "broadcast-channel": "^4.2.0",
         "combokeys": "^3.0.1",
         "he": "^1.2.0",
@@ -49,7 +50,6 @@
         "@types/leaflet": "^1.7.5",
         "@types/lodash": "^4.14.172",
         "@types/node": "^16.9.1",
-        "@types/node-fetch": "^2.5.12",
         "@types/pdfmake": "^0.1.18",
         "@types/semver": "^7.3.8",
         "@types/showdown": "^1.9.4",
@@ -70,7 +70,6 @@
         "eslint-plugin-vue": "^7.17.0",
         "html-loader": "^2.1.2",
         "moment-timezone": "^0.5.33",
-        "node-fetch": "^2.6.1",
         "sass": "^1.40.1",
         "sass-loader": "^10.1.1",
         "speed-measure-webpack-plugin": "^1.5.0",
