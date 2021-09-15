@@ -238,7 +238,7 @@ export default {
             coins: 30,
             credits: 300_000,
             minPersonnel: 1,
-            maxPersonnel: 2,
+            maxPersonnel: 5,
             schooling: 'Polizia - Reparto volo della polizia',
             shownSchooling: 'Reparto volo della polizia',
             special:

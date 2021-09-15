@@ -1,0 +1,11 @@
+{
+	"amount": "Quantità",
+	"date": "Data",
+	"description": "Descrizione",
+	"load": {
+		"next": "Carica 20 voci più vecchie",
+		"prev": "Carica 20 voci più recenti"
+	},
+	"subtitle": "Mostra {n} voci dalla pagina {startPage} ({firstCredits}) alla {endPage} ({lastCredits}) per un totale di {totalPages} pagine",
+	"title": "Lista delle monete"
+}

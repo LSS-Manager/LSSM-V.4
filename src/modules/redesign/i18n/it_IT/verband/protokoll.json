@@ -1,0 +1,19 @@
+{
+	"affected": "Interessato",
+	"amount": "{n} voce filtrata | {n} voci filtrate",
+	"description": "descrizione",
+	"executor": "aziona",
+	"filter": {
+		"all_types": "Mostra tutti i tipi",
+		"no_types": "Non visualizzare i tipi",
+		"type": "tipi di ingresso visualizzati"
+	},
+	"load": {
+		"next": "carica pagina successiva",
+		"prev": "carica pagina precedente"
+	},
+	"search_local": "Ricerca nelle voci caricate",
+	"subtitle": "Mostra {n} voci da pagina {startPage} ({firstDate}) a {endPage} ({lastDate}) di {totalPages} pagine",
+	"time": "tempo",
+	"title": "Protocollo Alleanza"
+}

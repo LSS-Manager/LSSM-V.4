@@ -1,0 +1,71 @@
+{
+	"amount": "{n} missione visualizzata | {n} missioni visualizzate",
+	"columns": {
+		"average_credits": "Crediti medi",
+		"details": "",
+		"duration": "Durata",
+		"generated_by": "Generato da",
+		"id": "",
+		"missing": "requisiti mancanti",
+		"name": "inserisci",
+		"place": "PDI / PDI",
+		"prerequisites": "requisiti"
+	},
+	"main_building_extensions": {
+		"text": "con la seguente estensione attiva"
+	},
+	"missing": {
+		"date": "Questa Missione non può essere generata in questo momento perché al momento è abilitata solo per il periodo da **{date_start}** a **{date_end}**.",
+		"diff": "Ancora bisognor",
+		"have": "Tu hai",
+		"need": "Necessari",
+		"req": "requisito"
+	},
+	"no_dispatchcenter": "Nessuna Centrale Operativa",
+	"prerequisite_calculations": {
+		"fire_stations": [
+			0,
+			18
+		],
+		"hazard_response_ems_count": [
+			25
+		],
+		"police_helicopter_stations": [
+			"13.level"
+		],
+		"police_stations": [
+			6,
+			19
+		],
+		"rescue_helicopter_station": [
+			"5.level"
+		],
+		"rescue_stations": [
+			2,
+			20,
+			"0.0"
+		]
+	},
+	"prerequisites_long": {
+		"fire_stations": "Stazione VVF | Stazioni VVF",
+		"hazard_response_ems_count": "Base HART | Basi HART",
+		"max_police_stations": "Stazioni Polizia Massime",
+		"max_rescue_stations": "Stazioni Soccorso Massime",
+		"police_helicopter_stations": "Stazione Elicottero Polizia | Stazioni Elicottero Polizia",
+		"police_stations": "Stazione Polizia | Stazioni Polizia",
+		"rescue_helicopter_stations": "Elisoccorso numero",
+		"rescue_stations": "Stazione Ambulanza | Stazioni Ambulanza"
+	},
+	"prerequisites_short": {
+		"fire_stations": "Stazione VVF | Stazioni VVF",
+		"hazard_response_ems_count": "Base HART | Basi HART",
+		"max_police_stations": "Stazioni Polizia Massime",
+		"max_rescue_stations": "Stazioni Soccorso Massime",
+		"police_helicopter_stations": "Stazione Elicottero Polizia | Stazioni Elicottero Polizia",
+		"police_stations": "Stazione Polizia | Stazioni Polizia",
+		"rescue_helicopter_stations": "Elisoccorso numero",
+		"rescue_stations": "Stazione Ambulanza | Stazioni Ambulanza"
+	},
+	"select_dispatchcenter": "Seleziona Centrale Operativa",
+	"title": "Missioni possibili"
+}

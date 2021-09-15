@@ -39,11 +39,7 @@
 	},
 	"@types/node": {
 		"url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/node",
-		"version": "16.7.8"
-	},
-	"@types/node-fetch": {
-		"url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/node-fetch",
-		"version": "2.5.12"
+		"version": "16.9.1"
 	},
 	"@types/pdfmake": {
 		"url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/pdfmake",
@@ -73,10 +69,10 @@
 		"version": "1.16.2"
 	},
 	"@typescript-eslint/eslint-plugin": {
-		"version": "4.30.0"
+		"version": "4.31.1"
 	},
 	"@typescript-eslint/parser": {
-		"version": "4.30.0"
+		"version": "4.31.1"
 	},
 	"@vuepress/plugin-active-header-links": {
 		"icon": "https://vuepress.vuejs.org/hero.png",
@@ -92,6 +88,10 @@
 		"icon": "https://avatars3.githubusercontent.com/u/46843839",
 		"url": "https://github.com/all-contributors/all-contributors-cli#readme",
 		"version": "6.20.0"
+	},
+	"axios": {
+		"url": "https://axios-http.com",
+		"version": "0.21.4"
 	},
 	"broadcast-channel": {
 		"icon": "https://raw.githubusercontent.com/pubkey/broadcast-channel/master/docs/files/icon.png",
@@ -168,10 +168,6 @@
 		"url": "http://momentjs.com/timezone/",
 		"version": "0.5.33"
 	},
-	"node-fetch": {
-		"url": "https://github.com/bitinn/node-fetch",
-		"version": "2.6.1"
-	},
 	"pdfmake": {
 		"url": "http://pdfmake.org",
 		"version": "0.2.2"
@@ -179,7 +175,7 @@
 	"sass": {
 		"icon": "https://sass-lang.com/assets/img/logos/logo-b6e1ef6e.svg",
 		"url": "https://github.com/sass/dart-sass",
-		"version": "1.38.2"
+		"version": "1.41.0"
 	},
 	"sass-loader": {
 		"icon": "https://webpack.js.org/assets/icon-square-big.svg",
@@ -207,7 +203,7 @@
 	"terser": {
 		"icon": "https://terser.org/img/terser-square-logo.png",
 		"url": "https://terser.org",
-		"version": "5.7.2"
+		"version": "5.8.0"
 	},
 	"ts-loader": {
 		"icon": "https://webpack.js.org/assets/icon-square-big.svg",
@@ -217,7 +213,7 @@
 	"typescript": {
 		"icon": "https://www.typescriptlang.org/icons/icon-512x512.png",
 		"url": "https://www.typescriptlang.org/",
-		"version": "4.4.2"
+		"version": "4.4.3"
 	},
 	"ua-parser-js": {
 		"icon": "https://raw.githubusercontent.com/faisalman/ua-parser-js/gh-pages/images/logo.png",
@@ -237,7 +233,7 @@
 	"vue-i18n": {
 		"icon": "https://kazupon.github.io/vue-i18n/vue-i18n-logo.png",
 		"url": "https://github.com/kazupon/vue-i18n#readme",
-		"version": "8.25.0"
+		"version": "8.25.1"
 	},
 	"vue-js-modal": {
 		"url": "http://vue-js-modal.yev.io/",

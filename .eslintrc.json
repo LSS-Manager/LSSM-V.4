@@ -63,7 +63,7 @@
         "prefer-template": "error",
         "prettier/prettier": "error",
         "semi": ["error", "always"],
-        "sort-imports": ["error", {
+        "sort-imports": ["warn", {
             "allowSeparatedGroups": true,
             "ignoreCase": true,
             "memberSyntaxSortOrder": ["none", "all", "single", "multiple"]
