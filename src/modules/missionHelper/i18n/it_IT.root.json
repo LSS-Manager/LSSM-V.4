@@ -63,7 +63,7 @@
 				"title": "Il capo del battaglione valuta semplicemente"
 			},
 			"heavy_rescue_vehicles": {
-				"description": "Sestrae il numero di camion dei pompieri richiesti da Salvataggio Pesante e nasconde Salvataggio Pesante se il numero scende al di sotto di 0. Questa funzione è intesa per le persone che usano un sistema puro di Motore di salvataggio.",
+				"description": "Sottrae il numero di camion dei pompieri richiesti da Salvataggio Pesante e nasconde Salvataggio Pesante se il numero scende al di sotto di 0. Questa funzione è intesa per le persone che usano un sistema puro di Motore di salvataggio.",
 				"title": "Valutazione semplice di salvataggio pesante"
 			}
 		},
