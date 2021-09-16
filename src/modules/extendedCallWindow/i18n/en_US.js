@@ -94,6 +94,12 @@ module.exports = {
         },
         selected: 'Selected',
         water: 'gal. water',
+        towingVehicles: {
+            // Note: Only the ones that are towed by vehicles of the same group! If e.g. a MzB can be towed by vehicles of several groups, it MUST NOT be listed here.
+            57: [41],
+            40: [41],
+            22: [8],
+        },
         vehiclesByRequirement: {
             [/^firetruck(s)?$/]: [0, 1, 13, 18, 30, 33, 48],
             [/^platform truck(s)?$/]: [2, 13],

@@ -213,6 +213,23 @@ module.exports = {
                 98,
             ],
         },
+        towingVehicles: {
+            // Note: Only the ones that are towed by vehicles of the same group! If e.g. a MzB can be towed by vehicles of several groups, it MUST NOT be listed here.
+            43: [42],
+            47: [46],
+            48: [46],
+            49: [46],
+            54: [46],
+            62: [46],
+            71: [46],
+            77: [46],
+            78: [46],
+            66: [65],
+            67: [65],
+            68: [65],
+            92: [93],
+            96: [61],
+        },
         vehiclesByRequirement: {
             [/^Anhänger Drucklufterzeugung$/]: [44],
             [/^Boote?$/]: [66, 67, 68, 70, 71],
