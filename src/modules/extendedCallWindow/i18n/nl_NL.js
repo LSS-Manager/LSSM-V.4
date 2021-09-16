@@ -95,6 +95,15 @@ module.exports = {
         },
         selected: 'Geselecteerd',
         water: 'L. water',
+        towingVehicles: {
+            // Note: Only the ones that are towed by vehicles of the same group! If e.g. a MzB can be towed by vehicles of several groups, it MUST NOT be listed here.
+            27: [26],
+            32: [26],
+            45: [26],
+            29: [26],
+            51: [26],
+            61: [26],
+        },
         vehiclesByRequirement: {
             [/^Tankautospuit(en)?$/]: [
                 0,
