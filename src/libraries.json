@@ -14,6 +14,10 @@
 		"url": "https://github.com/FortAwesome/vue-fontawesome",
 		"version": "2.0.2"
 	},
+	"@primer/octicons": {
+		"url": "https://primer.style/octicons",
+		"version": "15.1.0"
+	},
 	"@types/combokeys": {
 		"version": "2.4.6"
 	},
