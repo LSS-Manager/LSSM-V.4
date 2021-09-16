@@ -131,6 +131,7 @@ import {
     EnhancedMissingVehiclesMethods,
     EnhancedMissingVehiclesProps,
 } from 'typings/modules/ExtendedCallWindow/EnhancedMissingVehicles';
+import { InternalVehicle, Vehicle } from 'typings/Vehicle';
 
 export default Vue.extend<
     EnhancedMissingVehicles,
@@ -208,17 +209,28 @@ export default Vue.extend<
             ).sort((a, b) => {
                 let modifier = 1;
                 if (this.sortDir === 'desc') modifier = -1;
-                if (a[this.sort] < b[this.sort]) return -1 * modifier;
-                if (a[this.sort] > b[this.sort]) return modifier;
+                let left = a[this.sort];
+                if (typeof left !== 'number' && typeof left !== 'string')
+                    left = left.min;
+                let right = b[this.sort];
+                if (typeof right !== 'number' && typeof right !== 'string')
+                    right = right.min;
+                if (left < right) return -1 * modifier;
+                if (left > right) return modifier;
                 return 0;
             });
         },
         missingRequirementsCheck() {
             return this.requirements.every(
-                (req: { total: number; missing: number; selected: number }) => {
-                    if ((req.total ?? req.missing) <= req.selected) return true;
-                    else return false;
-                }
+                (req: {
+                    total: number;
+                    missing: number;
+                    selected: number | { min: number; max: number };
+                }) =>
+                    (req.total ?? req.missing) <=
+                    (typeof req.selected === 'number'
+                        ? req.selected
+                        : req.selected.min)
             );
         },
     },
@@ -361,11 +373,31 @@ export default Vue.extend<
                 defaultValue: false,
             })
             .then(hoverTip => (this.hoverTip = hoverTip));
+        this.$store
+            .dispatch('api/registerVehiclesUsage', { feature: 'emv' })
+            .then();
     },
     mounted() {
-        const vehicleGroups = (this.$m('vehiclesByRequirement') as unknown) as {
-            [group: string]: number[];
-        };
+        const vehicleGroupTranslation = (this.$m(
+            'vehiclesByRequirement'
+        ) as unknown) as
+            | {
+                  [group: string]: number[];
+              }
+            | string;
+        const staffGroupTranslation = (this.$m('staff') as unknown) as
+            | {
+                  [group: string]: number[];
+              }
+            | string;
+        const vehicleGroups =
+            typeof vehicleGroupTranslation === 'string'
+                ? {}
+                : vehicleGroupTranslation;
+        const staffGroups =
+            typeof staffGroupTranslation === 'string'
+                ? {}
+                : staffGroupTranslation;
         const water = this.$m('water').toString();
         const foam = this.$m('foam').toString();
         const categoriesById = {} as {
@@ -377,10 +409,20 @@ export default Vue.extend<
                 categoriesById[id].push(group.replace(/(^\/)|(\/$)/g, ''));
             });
         });
+        Object.entries(staffGroups).forEach(([group, ids]) => {
+            Object.values(ids).forEach(id => {
+                if (!categoriesById.hasOwnProperty(id)) categoriesById[id] = [];
+                categoriesById[id].push(group.replace(/(^\/)|(\/$)/g, ''));
+            });
+        });
         const vehicleList = document.getElementById('vehicle_show_table_all');
         if (!vehicleList) return;
         const amountObserver = new MutationObserver(() => {
-            this.requirements.forEach(req => (req.selected = 0));
+            this.requirements.forEach(req =>
+                typeof req.selected === 'number'
+                    ? (req.selected = 0)
+                    : (req.selected = { min: 0, max: 0 })
+            );
             const waterReq = this.requirements.find(
                 ({ vehicle }) => vehicle === water
             );
@@ -410,15 +452,38 @@ export default Vue.extend<
             vehicleList
                 .querySelectorAll<HTMLInputElement>('.vehicle_checkbox:checked')
                 .forEach(vehicle => {
-                    categoriesById[
-                        parseInt(
-                            vehicle.getAttribute('vehicle_type_id') || '-1'
-                        )
-                    ]?.forEach(group => {
+                    const vehicleType = parseInt(
+                        vehicle.getAttribute('vehicle_type_id') || '-1'
+                    );
+                    categoriesById[vehicleType]?.forEach(group => {
                         const req = this.requirements.find(({ vehicle }) =>
                             vehicle.match(new RegExp(group))
                         );
-                        if (req) this.$set(req, 'selected', req.selected + 1);
+                        if (!req) return;
+                        if (typeof req.selected === 'number') {
+                            this.$set(req, 'selected', req.selected + 1);
+                        } else {
+                            const type = (this.$t('vehicles') as {
+                                [id: number]: InternalVehicle;
+                            })[vehicleType] as InternalVehicle;
+                            const actualVehicle = this.$store.getters[
+                                'api/vehicle'
+                            ](parseInt(vehicle.value ?? '-1')) as
+                                | Vehicle
+                                | undefined;
+                            this.$set(
+                                req.selected,
+                                'min',
+                                req.selected.min + type.minPersonnel
+                            );
+                            this.$set(
+                                req.selected,
+                                'max',
+                                req.selected.max +
+                                    (actualVehicle?.max_personnel_override ??
+                                        type.maxPersonnel)
+                            );
+                        }
                     });
                 });
         });

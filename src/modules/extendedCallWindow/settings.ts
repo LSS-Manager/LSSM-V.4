@@ -16,7 +16,6 @@ import {
     Text,
     Toggle,
 } from 'typings/Setting';
-import number from '../../components/setting/number.vue';
 
 export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
     const defaultTailoredTabs = Object.values(

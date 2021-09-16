@@ -52,15 +52,20 @@ export default (LSSM: Vue, MODULE_ID: string, $m: $m): void => {
     const missingRequirements = missingRequirementMatches.map(req => {
         const requirement = req.trim();
         const isColonMode = !!requirement.match(/^.*: \d+$/);
+        const vehicle = requirement
+            .trim()
+            .replace(isColonMode ? /: \d+$/ : /^\d+/, '')
+            .trim();
         return {
             missing: parseInt(
                 requirement.match(isColonMode ? /\d+$/ : /^\d+/)?.[0] || '0'
             ),
-            vehicle: requirement
-                .trim()
-                .replace(isColonMode ? /: \d+$/ : /^\d+/, '')
-                .trim(),
-            selected: 0,
+            vehicle,
+            selected: Object.keys(staffGroups).find(group =>
+                vehicle.match(new RegExp(group.replace(/(^\/)|(\/$)/g, '')))
+            )
+                ? { min: 0, max: 0 }
+                : 0,
         };
     }) as Requirement[];
     let extras = '';
