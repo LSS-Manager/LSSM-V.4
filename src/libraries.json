@@ -35,11 +35,15 @@
 	},
 	"@types/lodash": {
 		"url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/lodash",
-		"version": "4.14.173"
+		"version": "4.14.172"
 	},
 	"@types/node": {
 		"url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/node",
 		"version": "16.9.1"
+	},
+	"@types/node-fetch": {
+		"url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/node-fetch",
+		"version": "2.5.12"
 	},
 	"@types/pdfmake": {
 		"url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/pdfmake",
@@ -88,10 +92,6 @@
 		"icon": "https://avatars3.githubusercontent.com/u/46843839",
 		"url": "https://github.com/all-contributors/all-contributors-cli#readme",
 		"version": "6.20.0"
-	},
-	"axios": {
-		"url": "https://axios-http.com",
-		"version": "0.21.4"
 	},
 	"broadcast-channel": {
 		"icon": "https://raw.githubusercontent.com/pubkey/broadcast-channel/master/docs/files/icon.png",
@@ -168,6 +168,10 @@
 		"url": "http://momentjs.com/timezone/",
 		"version": "0.5.33"
 	},
+	"node-fetch": {
+		"url": "https://github.com/bitinn/node-fetch",
+		"version": "2.6.1"
+	},
 	"pdfmake": {
 		"url": "http://pdfmake.org",
 		"version": "0.2.2"
@@ -175,7 +179,7 @@
 	"sass": {
 		"icon": "https://sass-lang.com/assets/img/logos/logo-b6e1ef6e.svg",
 		"url": "https://github.com/sass/dart-sass",
-		"version": "1.41.0"
+		"version": "1.40.1"
 	},
 	"sass-loader": {
 		"icon": "https://webpack.js.org/assets/icon-square-big.svg",

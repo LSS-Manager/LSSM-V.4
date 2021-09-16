@@ -6,16 +6,6 @@
 			"badge": false,
 			"in": "additional",
 			"text": "Media de personal antiincendios mín."
-		},
-		"foam_needed": {
-			"badge": true,
-			"in": "requirements",
-			"text": "Espuma necesaria: {n} l"
-		},
-		"water_needed": {
-			"badge": true,
-			"in": "requirements",
-			"text": "Agua: {n} l"
 		}
 	},
 	"settings": {
@@ -86,10 +76,6 @@
 				"description": "Muestra detalles sobre posibles pacientes.",
 				"title": "Detalles sobre posibles pacientes"
 			},
-			"critical_care": {
-				"description": "Muestra la posible oportunidad de cuidados críticos",
-				"title": "Detalles de las posibles oportunidades críticas"
-			},
 			"hideWhenNoNeed": {
 				"description": "Oculta los detalles del paciente si no hay más pacientes y los pacientes no aparecen hasta el final de la asignación.",
 				"title": "Muestre los detalles del paciente solo cuando sea necesario"
@@ -119,6 +105,10 @@
 			"content": {
 				"description": "Muestra detalles sobre posibles presos.",
 				"title": "Detalles de posibles presos"
+			},
+			"critical_care": {
+				"description": "Muestra la posible oportunidad de cuidados críticos",
+				"title": "Detalles de las posibles oportunidades críticas"
 			},
 			"live": {
 				"description": "Muestra en la parte superior del ayudante de la misión cuántos presos tiene actualmente la misión.",

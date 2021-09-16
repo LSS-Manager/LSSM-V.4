@@ -107,10 +107,6 @@
 			"title": "categoría de vehículos",
 			"vehicles": "tipo de vehículos"
 		},
-		"vehicleTypeInList": {
-			"description": "Muestra el tipo de vehículo en la lista de unidades disponibles.",
-			"title": "Mostrar tipo de vehículo"
-		},
 		"yellowBorder": {
 			"description": "Limita el tiempo de generación con amarillo si el uso es anterior al número de horas ingresado. Si el número es 0, no se dibuja ningún borde.",
 			"title": "Borde amarillo"
@@ -135,9 +131,7 @@
 					6,
 					7,
 					10,
-					11,
-					23,
-					24
+					11
 				]
 			},
 			{

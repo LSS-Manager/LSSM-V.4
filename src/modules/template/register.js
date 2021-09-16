@@ -1,6 +1,3 @@
-// Module Registering can happen in a register.js or in a register.json file
-// in both cases there are some configuration options, explained below:
-
 module.exports = {
     /***
      * type:    Boolean
@@ -8,27 +5,6 @@ module.exports = {
      * defines if the module should be active by default
      */
     active: false,
-
-    /***
-     * type:    Boolean
-     * default: false
-     * defines if the module is in alpha state (only available to beta users)
-     */
-    alpha: false,
-
-    /***
-     * type:    Boolean
-     * default: false
-     * defines if the module is in beta state (available to all users but with a hint that it is still in development)
-     */
-    dev: false,
-
-    /***
-     * type:    Number | null
-     * default: null
-     * If there exists a GitHub-Issue as reference for this module, set the issues ID here so that it gets referenced automatically in the docs
-     */
-    github: 0,
 
     /***
      * type:    RexExp or String
@@ -68,7 +44,7 @@ module.exports = {
     /***
      * type:    Boolean
      * default: false
-     * set this value to true if the module has a own settings.ts file to register settings
+     * set this valur to true if the module has a own settings.ts file to register settings
      */
 
     settings: false,

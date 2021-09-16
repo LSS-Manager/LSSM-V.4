@@ -101,7 +101,7 @@ module.exports = {
             [/^Autoscal[ae]$/]: [1],
             [/^Funzionari(o)?$/]: [2, 11],
             [/^Polisoccorso?$/]: [3, 9, 12],
-            [/^AF\/ARIA$/]: [10],
+            [/^Carro aria$/]: [10],
             [/^Kilolitric(a|he)?$/]: [5],
             [/^UCL?$/]: [11],
             [/^N\.B\.C\.R\.$/]: [6],

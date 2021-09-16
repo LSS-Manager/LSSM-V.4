@@ -2,12 +2,10 @@
 	"nav": {
 		"links": {
 			"/alliance_logfiles": "Toezicht",
-			"/alliance_messages": "Berichten",
 			"/alliance_threads": "Forum",
 			"/alliances/{id}": "Start",
 			"/schoolings": "Opleidingen",
 			"/verband/bereitstellungsraume": "UGS",
-			"/verband/bewerbungen": "Aanmeldingen",
 			"/verband/gebauede": "Gebouwen",
 			"/verband/kasse": "Teamkas",
 			"/verband/mitglieder/{id}": "Teamleden",
@@ -32,9 +30,7 @@
 			"/schoolings",
 			"/verband/bereitstellungsraume",
 			"/verband/kasse",
-			"/verband/gebauede",
-			"/alliance_messages",
-			"/verband/bewerbungen"
+			"/verband/gebauede"
 		]
 	}
 }

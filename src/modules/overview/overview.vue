@@ -398,7 +398,6 @@ export default Vue.extend<
                         'nb_NO',
                         'en_AU',
                         'fr_FR',
-                        'es_ES',
                     ].includes(this.$store.state.lang)
                         ? {
                               wtank: {
@@ -410,13 +409,6 @@ export default Vue.extend<
                         ? {
                               pumpcap: {
                                   title: this.$m('titles.vehicles.pumpcap'),
-                              },
-                          }
-                        : null),
-                    ...(['es_ES'].includes(this.$store.state.lang)
-                        ? {
-                              ftank: {
-                                  title: this.$m('titles.vehicles.ftank'),
                               },
                           }
                         : null),

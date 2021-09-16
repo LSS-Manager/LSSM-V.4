@@ -399,7 +399,6 @@ export default Vue.extend<
                 ? {}
                 : staffGroupTranslation;
         const water = this.$m('water').toString();
-        const foam = this.$m('foam').toString();
         const categoriesById = {} as {
             [id: number]: string[];
         };
@@ -426,27 +425,14 @@ export default Vue.extend<
             const waterReq = this.requirements.find(
                 ({ vehicle }) => vehicle === water
             );
-            const foamReq = this.requirements.find(
-                ({ vehicle }) => vehicle === foam
-            );
             if (waterReq) {
                 waterReq.selected = parseInt(
                     document
                         .querySelector<HTMLDivElement>(
-                            '[id^="mission_water_holder_"] div.progress-bar-mission-window-water.progress-bar-danger, [id^="mission_water_holder_"] div.progress-bar-mission-window-water.progress-bar-success'
+                            'div.progress-bar-mission-window-water.progress-bar-danger, div.progress-bar-mission-window-water.progress-bar-success'
                         )
-                        ?.textContent?.match(/\d{1,3}(([,.]|\s)\d{3})*/)?.[0]
-                        ?.replace(/[,.]|\s/g, '') ?? '0'
-                );
-            }
-            if (foamReq) {
-                foamReq.selected = parseInt(
-                    document
-                        .querySelector<HTMLDivElement>(
-                            '[id^="mission_foam_holder_"] div.progress-bar-mission-window-water.progress-bar-danger, [id^="mission_foam_holder_"] div.progress-bar-mission-window-water.progress-bar-success'
-                        )
-                        ?.textContent?.match(/\d{1,3}(([,.]|\s)\d{3})*/)?.[0]
-                        ?.replace(/[,.]|\s/g, '') ?? '0'
+                        ?.textContent?.match(/\d{1,3}([,.]\d{3})*/)?.[0]
+                        ?.replace(/[,.]/g, '') ?? '0'
                 );
             }
             vehicleList

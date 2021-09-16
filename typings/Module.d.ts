@@ -12,7 +12,6 @@ export type Module = { location: RegExp | string } & Partial<{
     noapp: boolean;
     noMapkit: boolean;
     settings: boolean;
-    location: RegExp;
 
     // being generated in AppStore
     description: string;

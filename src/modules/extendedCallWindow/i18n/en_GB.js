@@ -72,7 +72,7 @@ module.exports = {
             [/^Aerial Appliance Trucks?$/]: [2, 17],
             [/^Fire Officer(s)?$/]: [3, 15],
             [/^Rescue Support Unit(s)? or Rescue Pump(s)?$/]: [4, 16],
-            [/^BASU(s)?$/]: [14],
+            [/^Breathing Apparatus Support Unit$/]: [14],
             [/^Water Carrier(s)?$/]: [6, 26],
             [/^ICCU or Ambulance Control Unit(s)?$/]: [15, 31],
             [/^HazMat Unit(s)? or CBRN Vehicle(s)?$/]: [7, 32],

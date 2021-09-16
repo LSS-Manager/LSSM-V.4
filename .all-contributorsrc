@@ -74,8 +74,8 @@
         "code",
         "review"
       ],
-      "login": "kdev",
-      "name": "kdev",
+      "login": "KokosnussDEV",
+      "name": "KokosnussDEV",
       "profile": "https://github.com/KokosnussDEV"
     },
     {
@@ -210,47 +210,6 @@
       "login": "mattnounet",
       "name": "mattnounet",
       "profile": "https://github.com/mattnounet"
-    },
-    {
-      "login": "scottyboii",
-      "name": "scottybbooyy",
-      "avatar_url": "https://avatars.githubusercontent.com/u/32883419?v=4",
-      "profile": "https://github.com/scottyboii",
-      "contributions": [
-        "doc",
-        "en_GB"
-      ]
-    },
-    {
-      "login": "rikivideo9",
-      "name": "Riccardo Tocchetto",
-      "avatar_url": "https://avatars.githubusercontent.com/u/21045919?v=4",
-      "profile": "https://github.com/rikivideo9",
-      "contributions": [
-        "doc",
-        "translation",
-        "it_IT"
-      ]
-    },
-    {
-      "login": "Gooochy",
-      "name": "Gooochy",
-      "avatar_url": "https://avatars.githubusercontent.com/u/85019809?v=4",
-      "profile": "https://github.com/Gooochy",
-      "contributions": [
-        "translation",
-        "en_GB"
-      ]
-    },
-    {
-      "login": "02Miki",
-      "name": "02Miki",
-      "avatar_url": "https://avatars.githubusercontent.com/u/35926600?v=4",
-      "profile": "https://github.com/02Miki",
-      "contributions": [
-        "translation",
-        "it_IT"
-      ]
     }
   ],
   "contributorsPerLine": 7,
@@ -267,122 +226,122 @@
   "types": {
     "cs_CZ": {
       "description": "Translations for Operacni-Stredisko.cz (cs_CZ)",
-      "link": "https://www.operacni-stredisko.cz",
+      "link": "[<%= symbol %>](https://www.operacni-stredisko.cz \"<%= description %>\"),",
       "symbol": "🇨🇿"
     },
     "da_DK": {
       "description": "Translations for Alarmcentral-Spil.dk (da_DK)",
-      "link": "https://www.alarmcentral-spil.dk",
+      "link": "[<%= symbol %>](https://www.alarmcentral-spil.dk \"<%= description %>\"),",
       "symbol": "🇩🇰"
     },
     "de_DE": {
       "description": "Translations for Leitstellenspiel.de (de_DE)",
-      "link": "https://www.leitstellenspiel.de",
+      "link": "[<%= symbol %>](https://www.leitstellenspiel.de \"<%= description %>\"),",
       "symbol": "🇩🇪"
     },
     "en_AU": {
       "description": "Translations for Missionchief-Australia.com (en_AU)",
-      "link": "https://www.missionchief-australia.com",
+      "link": "[<%= symbol %>](https://www.missionchief-australia.com \"<%= description %>\"),",
       "symbol": "🇦🇺"
     },
     "en_GB": {
       "description": "Translations for Missionchief.co.uk (en_GB)",
-      "link": "https://www.missionchief.co.uk",
+      "link": "[<%= symbol %>](https://www.missionchief.co.uk \"<%= description %>\"),",
       "symbol": "🇬🇧"
     },
     "en_US": {
       "description": "Translations for Missionschief.com (en_US)",
-      "link": "https://www.missionchief.com",
+      "link": "[<%= symbol %>](https://www.missionchief.com \"<%= description %>\"),",
       "symbol": "🇺🇸"
     },
     "es_ES": {
       "description": "Translations for Centro-de-Mando.es (es_ES)",
-      "link": "https://www.centro-de-mando.es",
+      "link": "[<%= symbol %>](https://www.centro-de-mando.es \"<%= description %>\"),",
       "symbol": "🇪🇸"
     },
     "es_MX": {
       "description": "Translations for Centro-de-Mando.mx (es_MX)",
-      "link": "https://www.centro-de-mando.mx",
+      "link": "[<%= symbol %>](https://www.centro-de-mando.mx \"<%= description %>\"),",
       "symbol": "🇲🇽"
     },
     "fi_FI": {
       "description": "Translations for Hätäkeskuspeli.com (fi_FI)",
-      "link": "https://www.hatakeskuspeli.com",
+      "link": "[<%= symbol %>](https://www.hatakeskuspeli.com \"<%= description %>\"),",
       "symbol": "🇫🇮"
     },
     "fr_FR": {
       "description": "Translations for Operateur112.fr (fr_FR)",
-      "link": "https://www.operateur112.fr",
+      "link": "[<%= symbol %>](https://www.operateur112.fr \"<%= description %>\"),",
       "symbol": "🇫🇷"
     },
     "it_IT": {
       "description": "Translations for Operatore112.it (it_IT)",
-      "link": "https://www.operatore112.it",
+      "link": "[<%= symbol %>](https://www.operatore112.it \"<%= description %>\"),",
       "symbol": "🇮🇹"
     },
     "ja_JP": {
       "description": "Translations for Missionchief-Japan.com (ja_JP)",
-      "link": "https://www.missionchief-japan.com",
+      "link": "[<%= symbol %>](https://www.missionchief-japan.com \"<%= description %>\"),",
       "symbol": "🇯🇵"
     },
     "ko_KR": {
       "description": "Translations for Missionchief-Korea.com (ko_KR)",
-      "link": "https://www.missionchief-korea.com",
+      "link": "[<%= symbol %>](https://www.missionchief-korea.com \"<%= description %>\"),",
       "symbol": "🇰🇷"
     },
     "nb_NO": {
       "description": "Translations for Nodsentralspillet.com (nb_NO)",
-      "link": "https://www.nodsentralspillet.com",
+      "link": "[<%= symbol %>](https://www.nodsentralspillet.com \"<%= description %>\"),",
       "symbol": "🇳🇴"
     },
     "nl_NL": {
       "description": "Translations for Meldkamerspel.com (nl_NL)",
-      "link": "https://www.meldkamerspel.com",
+      "link": "[<%= symbol %>](https://www.meldkamerspel.com \"<%= description %>\"),",
       "symbol": "🇳🇱"
     },
     "pl_PL": {
       "description": "Translations for Operatorraunkowy.pl (pl_PL)",
-      "link": "https://www.operatorratunkowy.pl",
+      "link": "[<%= symbol %>](https://www.operatorratunkowy.pl \"<%= description %>\"),",
       "symbol": "🇵🇱"
     },
     "pt_BR": {
       "description": "Translations for Operador193.com (pt_BR)",
-      "link": "https://www.operador193.com",
+      "link": "[<%= symbol %>](https://www.operador193.com \"<%= description %>\"),",
       "symbol": "🇧🇷"
     },
     "pt_PT": {
       "description": "Translations for Jogo-operador112.com (pt_PT)",
-      "link": "https://www.jogo-operador112.com",
+      "link": "[<%= symbol %>](https://www.jogo-operador112.com \"<%= description %>\"),",
       "symbol": "🇵🇹"
     },
     "ro_RO": {
       "description": "Translations for Jocdispecerat112.com (ro_RO)",
-      "link": "https://www.jocdispecerat112.com",
+      "link": "[<%= symbol %>](https://www.jocdispecerat112.com \"<%= description %>\"),",
       "symbol": "🇷🇴"
     },
     "ru_RU": {
       "description": "Translations for Dispetcher112.ru (ru_RU)",
-      "link": "https://www.dispetcher112.ru",
+      "link": "[<%= symbol %>](https://www.dispetcher112.ru \"<%= description %>\"),",
       "symbol": "🇷🇺"
     },
     "sk_SK": {
       "description": "Translations for Dispečerskom-centrum.com (sk_SK)",
-      "link": "https://www.dispecerske-centrum.com",
+      "link": "[<%= symbol %>](https://www.dispecerske-centrum.com \"<%= description %>\"),",
       "symbol": "🇸🇰"
     },
     "sv_SE": {
       "description": "Translations for Larmcentralen-spelet.se (sv_SE)",
-      "link": "https://www.larmcentralen-spelet.se",
+      "link": "[<%= symbol %>](https://www.larmcentralen-spelet.se \"<%= description %>\"),",
       "symbol": "🇸🇪"
     },
     "tr_TR": {
       "description": "Translations for 112-Merkez.com (tr_TR)",
-      "link": "https://www.112-merkez.com",
+      "link": "[<%= symbol %>](https://www.112-merkez.com \"<%= description %>\"),",
       "symbol": "🇹🇷"
     },
     "uk_UA": {
       "description": "Translations for Dyspetcher101-game.com (uk_UA)",
-      "link": "https://www.dyspetcher101-game.com",
+      "link": "[<%= symbol %>](https://www.dyspetcher101-game.com \"<%= description %>\"),",
       "symbol": "🇺🇦"
     }
   }

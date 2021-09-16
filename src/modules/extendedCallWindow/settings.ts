@@ -42,17 +42,9 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
     })) as Mission[];
     const missionIds = [] as string[];
     const missionNames = [] as string[];
-    const idLength = (missions.length - 1).toString().length;
-
-    const numToLength = (length: number, num: number): string => {
-        let numString = num.toString();
-        while (numString.length < length) numString = `0${numString}`;
-        return numString;
-    };
-
     missions.forEach(({ id, name }) => {
         missionIds.push(id.toString());
-        missionNames.push(`${numToLength(idLength, id)}: ${name}`);
+        missionNames.push(`${id}: ${name}`);
     });
 
     return {
@@ -237,11 +229,8 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
                     size: 0,
                     setting: {
                         type: 'multiSelect',
-                        values: [-1, ...missionIds],
-                        labels: [
-                            $m('settings.missionKeywords.allMissions'),
-                            ...missionNames,
-                        ],
+                        values: missionIds,
+                        labels: missionNames,
                     },
                 },
             ],

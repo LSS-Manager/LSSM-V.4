@@ -25,12 +25,11 @@
 		"vehicles": {
 			"caption": "Tipo de vehículo",
 			"cost": "Precio",
-			"ftank": "Cantidad de espuma",
 			"maxPersonnel": "personal máximo",
 			"minPersonnel": "personal mínimo",
 			"schooling": "Formación",
 			"special": "Especiales",
-			"wtank": "Cantidad de agua"
+			"wtank": "BNP"
 		}
 	}
 }
