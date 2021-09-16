@@ -56,7 +56,10 @@ export default async (
     };
 
     settings.forEach(s => {
-        if (!s.missions.map(m => m.toString()).includes(missionType.toString()))
+        if (
+            !s.missions.includes(-1) &&
+            !s.missions.map(m => m.toString()).includes(missionType.toString())
+        )
             return;
         addLabel(s.keyword, s.color, s.autotextcolor, s.textcolor, s.prefix);
     });
