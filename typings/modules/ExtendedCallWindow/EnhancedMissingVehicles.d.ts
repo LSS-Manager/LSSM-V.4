@@ -6,10 +6,10 @@ export interface Requirement {
     driving: number;
     total: number;
     vehicle: string;
-    selected: number;
+    selected: number | { min: number; max: number };
 
     // General
-    [key: string]: number | string;
+    [key: string]: number | string | { min: number; max: number };
 }
 
 export interface EnhancedMissingVehicles {
