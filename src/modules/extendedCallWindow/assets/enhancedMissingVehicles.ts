@@ -107,17 +107,19 @@ export default (LSSM: Vue, MODULE_ID: string, $m: $m): void => {
                     )
                 );
                 if (staffGroupRequirement) {
-                    const vehicleTypes = Array.from(
+                    const vehicleTypes: number[] = Object.values(
                         staffGroups[staffGroupRequirement]
                     );
                     let drivingStaff = 0;
                     drivingTable
                         .querySelectorAll<HTMLTableRowElement>('tbody tr')
                         .forEach(vehicle => {
-                            const vehicleType = vehicle
-                                .querySelector('[vehicle_type_id]')
-                                ?.getAttribute('vehicle_type_id');
-                            if (vehicleType) {
+                            const vehicleType = parseInt(
+                                vehicle
+                                    .querySelector('[vehicle_type_id]')
+                                    ?.getAttribute('vehicle_type_id') ?? '-1'
+                            );
+                            if (vehicleTypes.includes(vehicleType)) {
                                 drivingStaff += parseInt(
                                     vehicle
                                         .querySelector('td:nth-of-type(5)')
