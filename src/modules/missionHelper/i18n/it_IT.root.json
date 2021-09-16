@@ -43,7 +43,7 @@
 		},
 		"generatedBy": {
 			"description": "Mostra da quale tipo di edificio questa missione può essere generata.",
-			"title": "Generata da (building type)"
+			"title": "Generata da (tipo edificio)"
 		},
 		"hide_battalion_chief_vehicles": {
 			"description": "Nasconde completamente il capo del battaglione e mostra solo MCV.",
@@ -68,8 +68,8 @@
 			}
 		},
 		"noVehicleRequirements": {
-			"description": "Set here which special requirements to show, if they exist for that mission.",
-			"title": "Special requirements"
+			"description": "Imposta qui quali requisiti speciali mostrare, se esistono per quella missione.",
+			"title": "Requisiti speciali"
 		},
 		"optionalAlternatives": {
 			"allow_arff_instead_of_lf": {
@@ -77,7 +77,7 @@
 				"title": "Mostra se gli arrf sono ammessi come camion dei pompieri"
 			},
 			"allow_ktw_instead_of_rtw": {
-				"description": "Mostra  Shows se una MSB può essere usata invece di una MSA.",
+				"description": "Mostra se una MSB può essere usata invece di una MSA.",
 				"title": "MSB invece di MSA"
 			},
 			"allow_rw_instead_of_lf": {
@@ -107,13 +107,13 @@
 				"title": "Probabilità del primo soccorritore"
 			},
 			"title": {
-				"description": "Mostra l'intestazione \"Patients\" sopra i dettagli dei possibili pazienti.",
-				"title": "Pazienti (Title)"
+				"description": "Mostra l'intestazione \"Pazienti\" sopra i dettagli dei possibili pazienti.",
+				"title": "Pazienti (Titolo)"
 			}
 		},
 		"place": {
-			"description": "Mostra accanto al titolo quale POI è richiesto per questa missione.",
-			"title": "POI"
+			"description": "Mostra accanto al titolo quale PDI è richiesto per questa missione.",
+			"title": "PDI"
 		},
 		"prerequisites": {
 			"description": "Mostra i requisiti (es. 3 stazioni di soccorso e 4 stazioni VVF)",
@@ -129,8 +129,8 @@
 				"title": "Numero attuale dei prigionieri"
 			},
 			"title": {
-				"description": "Mostra l'intestazione \"Prisoners\" sopra i dettagli dei possibili prigionieri.",
-				"title": "Prigionieri (Title)"
+				"description": "Mostra l'intestazione \"Prigionieri\" sopra i dettagli dei possibili prigionieri.",
+				"title": "Prigionieri (Titolo)"
 			}
 		},
 		"subsequent": {
@@ -138,7 +138,7 @@
 			"title": "Missione successiva"
 		},
 		"title": {
-			"description": "Mostra il nome della missione, es. \"Trashcan fire\" come titolo.",
+			"description": "Mostra il nome della missione, es. \"Incendio dei rifiuti\" come titolo.",
 			"title": "Nome missione"
 		},
 		"type": {
@@ -166,8 +166,8 @@
 				"title": "Veicoli in ordine decrescente"
 			},
 			"title": {
-				"description": "Mostra l'intestazione \"Vehicles\" sopra i veicoli richiesti.",
-				"title": "Veicoli (Title)"
+				"description": "Mostra l'intestazione \"Veicoli\" sopra i veicoli richiesti.",
+				"title": "Veicoli (Titolo)"
 			},
 			"xAfterNumber": {
 				"description": "Mette una x dietro la quantità di veicoli",

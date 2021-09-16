@@ -183,5 +183,5 @@ export default {
         'core-modules': ['telemetry', 'releasenotes', 'support'],
     },
     prefix: 'lssmv4',
-    server: 'https://proxy.lss-manager.de/v4/',
+    server: 'https://ron.v4.lssm.ledbrain.de/',
 } as Config;

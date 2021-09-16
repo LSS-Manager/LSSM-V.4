@@ -1,0 +1,10 @@
+{
+	"description": "Riassume la panoramica giornaliera in categorie in modo da poter ottenere una rapida panoramica di come hai guadagnato i soldi",
+	"name": "Riepilogo Crediti",
+	"settings": {
+		"showAverage": {
+			"description": "Mostra i crediti medi per ogni categoria.",
+			"title": "Mostra la media"
+		}
+	}
+}
