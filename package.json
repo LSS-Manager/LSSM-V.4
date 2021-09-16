@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
     "version": "4.3.1+20210915.2049",
+=======
+    "version": "4.3.1+20210916.0315",
+>>>>>>> ebfaae014619d1c88c3613697b56e6c1c3a51849
     "license": "CC-BY-NC-SA-4.0",
     "scripts": {
         "predev": "tsc -b scripts && node scripts predev",
@@ -19,6 +23,7 @@
         "@fortawesome/fontawesome-svg-core": "^1.2.36",
         "@fortawesome/free-solid-svg-icons": "^5.15.4",
         "@fortawesome/vue-fontawesome": "^2.0.2",
+        "axios": "^0.21.4",
         "broadcast-channel": "^4.2.0",
         "combokeys": "^3.0.1",
         "he": "^1.2.0",
@@ -47,9 +52,8 @@
         "@types/i18n-js": "^3.8.2",
         "@types/jquery": "^3.5.6",
         "@types/leaflet": "^1.7.5",
-        "@types/lodash": "^4.14.172",
+        "@types/lodash": "^4.14.173",
         "@types/node": "^16.9.1",
-        "@types/node-fetch": "^2.5.12",
         "@types/pdfmake": "^0.1.18",
         "@types/semver": "^7.3.8",
         "@types/showdown": "^1.9.4",
@@ -70,8 +74,7 @@
         "eslint-plugin-vue": "^7.17.0",
         "html-loader": "^2.1.2",
         "moment-timezone": "^0.5.33",
-        "node-fetch": "^2.6.1",
-        "sass": "^1.40.1",
+        "sass": "^1.41.0",
         "sass-loader": "^10.1.1",
         "speed-measure-webpack-plugin": "^1.5.0",
         "string-replace-loader": "^2.3.0",

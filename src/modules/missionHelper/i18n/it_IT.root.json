@@ -1,6 +1,6 @@
 {
 	"description": "Ottieni tutte le informazioni importanti sulla missione direttamente all'interno della finestra della missione.",
-	"name": "Missionhelper",
+	"name": "Aiuto Missioni",
 	"noVehicleRequirements": {
 		"average_min_fire_personnel": {
 			"badge": false,
