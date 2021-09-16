@@ -390,6 +390,13 @@ export default Vue.extend<
                   [group: string]: number[];
               }
             | string;
+        const towingVehiclesTranslation = (this.$m(
+            'towingVehicles'
+        ) as unknown) as
+            | {
+                  [group: string]: number[];
+              }
+            | string;
         const vehicleGroups =
             typeof vehicleGroupTranslation === 'string'
                 ? {}
@@ -398,10 +405,17 @@ export default Vue.extend<
             typeof staffGroupTranslation === 'string'
                 ? {}
                 : staffGroupTranslation;
+        const towingVehicles =
+            typeof towingVehiclesTranslation === 'string'
+                ? {}
+                : towingVehiclesTranslation;
         const water = this.$m('water').toString();
         const foam = this.$m('foam').toString();
         const categoriesById = {} as {
             [id: number]: string[];
+        };
+        const doubleCountedById = {} as {
+            [id: number]: number[];
         };
         Object.entries(vehicleGroups).forEach(([group, ids]) => {
             Object.values(ids).forEach(id => {
@@ -415,9 +429,17 @@ export default Vue.extend<
                 categoriesById[id].push(group.replace(/(^\/)|(\/$)/g, ''));
             });
         });
+        Object.entries(towingVehicles).forEach(([trailer, towings]) => {
+            Object.values(towings as Record<number, number>).forEach(towing => {
+                if (!doubleCountedById.hasOwnProperty(towing))
+                    doubleCountedById[towing] = [];
+                doubleCountedById[towing].push(trailer);
+            });
+        });
         const vehicleList = document.getElementById('vehicle_show_table_all');
         if (!vehicleList) return;
         const amountObserver = new MutationObserver(() => {
+            const amountsOfVehicleType = {} as { [type: number]: number };
             this.requirements.forEach(req =>
                 typeof req.selected === 'number'
                     ? (req.selected = 0)
@@ -455,6 +477,9 @@ export default Vue.extend<
                     const vehicleType = parseInt(
                         vehicle.getAttribute('vehicle_type_id') || '-1'
                     );
+                    if (!amountsOfVehicleType.hasOwnProperty(vehicleType))
+                        amountsOfVehicleType[vehicleType] = 0;
+                    amountsOfVehicleType[vehicleType]++;
                     categoriesById[vehicleType]?.forEach(group => {
                         const req = this.requirements.find(({ vehicle }) =>
                             vehicle.match(new RegExp(group))
@@ -486,6 +511,22 @@ export default Vue.extend<
                         }
                     });
                 });
+            Object.entries(doubleCountedById).forEach(([towing, trailers]) => {
+                const amount = Math.max(
+                    amountsOfVehicleType[parseInt(towing)] ?? 0,
+                    trailers
+                        .map(trailer => amountsOfVehicleType[trailer] ?? 0)
+                        .reduce((a, b) => a + b, 0)
+                );
+                categoriesById[towing]?.forEach(group => {
+                    const req = this.requirements.find(({ vehicle }) =>
+                        vehicle.match(new RegExp(group))
+                    );
+                    if (!req) return;
+                    if (typeof req.selected === 'number')
+                        this.$set(req, 'selected', amount);
+                });
+            });
         });
         const amountElement = document.getElementById('vehicle_amount');
 
