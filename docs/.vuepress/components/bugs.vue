@@ -53,7 +53,8 @@
                     <span class="bug-labels">
                         <a
                             class="bug-label"
-                            :href="label.url"
+                            :href="`https://github.com/${$themeConfig.variables.github}/issues?q=is%3Aissue+is%3Aopen+label%3A${label.name}`"
+                            target="_blank"
                             :title="label.description"
                             :style="labelStyle(label.color)"
                             v-for="label in bug.labels"
