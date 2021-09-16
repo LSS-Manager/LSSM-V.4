@@ -238,8 +238,8 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
                     size: 0,
                     setting: {
                         type: 'multiSelect',
-                        values: missionIds,
-                        labels: missionNames,
+                        values: [-1, ...missionIds],
+                        labels: [$m('settings.missionKeywords.allMissions'), ...missionNames],
                     },
                 },
             ],
