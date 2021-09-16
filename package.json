@@ -43,6 +43,7 @@
         "vuex": "^3.6.2"
     },
     "devDependencies": {
+        "@primer/octicons": "^15.1.0",
         "@types/combokeys": "^2.4.6",
         "@types/he": "^1.1.2",
         "@types/i18n-js": "^3.8.2",

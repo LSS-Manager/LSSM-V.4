@@ -290,7 +290,7 @@ ${docsLangs
             )[];
         }
     > = {};
-    const noMapkitModules: Record<string, { title: string; f: string }[]> = {};
+    const noMapkitModules: Vue['$themeConfig']['variables']['noMapkitModules'] = {};
     const locales: Record<
         string,
         { lang: string; title: string; description: string }
@@ -481,6 +481,11 @@ module.exports = async () => {
                 },
                 browsers: config.browser,
                 noMapkitModules,
+                bugIssues: (
+                    await axios(
+                        `https://api.github.com/repos/${config.github.repo}/issues?labels=bug&per_page=100&sort=created`
+                    )
+                ).data,
             },
             locales: themeLocales,
             activeHeaderLinks: true,
