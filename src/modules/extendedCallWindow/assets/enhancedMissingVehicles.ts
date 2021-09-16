@@ -107,7 +107,25 @@ export default (LSSM: Vue, MODULE_ID: string, $m: $m): void => {
                     )
                 );
                 if (staffGroupRequirement) {
-                    requirement.driving = 0;
+                    const vehicleTypes = Array.from(
+                        staffGroups[staffGroupRequirement]
+                    );
+                    let drivingStaff = 0;
+                    drivingTable
+                        .querySelectorAll<HTMLTableRowElement>('tbody tr')
+                        .forEach(vehicle => {
+                            const vehicleType = vehicle
+                                .querySelector('[vehicle_type_id]')
+                                ?.getAttribute('vehicle_type_id');
+                            if (vehicleType) {
+                                drivingStaff += parseInt(
+                                    vehicle
+                                        .querySelector('td:nth-of-type(5)')
+                                        ?.getAttribute('sortvalue') ?? '0'
+                                );
+                            }
+                        });
+                    requirement.driving = drivingStaff;
                 } else {
                     if (!vehicleGroupRequirement) {
                         extras += `, ${requirement.missing.toLocaleString()} ${
