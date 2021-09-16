@@ -1,5 +1,5 @@
 export default {
-    amount: 'Amount',
+    amount: 'Quantità',
     categories: {
         allianceMission: {
             regex: /^\[Alleanza]/,
@@ -9,23 +9,23 @@ export default {
         },
         mission: {
             regex: '^%missions%( \\(Fire Alarm System\\))?( - False Alarm)?$',
-            title: 'Own Missions',
+            title: 'Missioni Proprie',
             backgroundColor: '#ff2400',
             textColor: 'white',
         },
         cancelledMissions: {
             regex: '^%missions%( \\(Fire Alarm System\\))? - [cC]anceled$',
-            title: 'Cancelled Missions',
+            title: 'Missioni Cancellate',
             backgroundColor: '#7C7978',
             textColor: 'white',
         },
         buyVehicle: {
-            regex: /Vehicle bought/,
+            regex: /Veicolo acquistato/,
             backgroundColor: '#007fff',
             textColor: 'white',
         },
         dailyLogin: {
-            regex: /Daily login reward/,
+            regex: /Ricompensa per accesso giornaliero/,
             backgroundColor: '#8db600',
             textColor: 'black',
         },
@@ -37,7 +37,7 @@ export default {
         },
         upgradeBuilding: {
             regex: /(Station (upgraded( \(from small .*? station\))??|constructed)|Cancel:|Refund Building upgrade)/,
-            title: 'Station constructed',
+            title: 'Stazione costruita',
             backgroundColor: '#000080',
             textColor: 'white',
         },
@@ -48,30 +48,30 @@ export default {
             textColor: 'white',
         },
         patients: {
-            regex: /Patient Treatment/,
-            title: 'Patients',
+            regex: /Trattamento Paziente/,
+            title: 'Pazienti',
             backgroundColor: '#fff600',
             textColor: 'black',
         },
         alliancePatients: {
-            regex: /Hospital - Alliance/,
+            regex: /Ospedale - Alleanza/,
             backgroundColor: '#ffff99',
             textColor: 'black',
         },
         alliancePrisoners: {
-            regex: /Police - Alliance/,
+            regex: /Polizia - Alleanza/,
             backgroundColor: '#ffff99',
             textColor: 'black',
         },
         prisoners: {
-            regex: /Prisoner? Transported/,
-            title: 'Prisoner',
+            regex: /Prigioniero? Trasportato/,
+            title: 'Prigioniero',
             backgroundColor: '#0bda51',
             textColor: 'black',
         },
         schoolings: {
             regex: /(education|Alliance Training Applicant)/,
-            title: 'Education',
+            title: 'Educazione',
             backgroundColor: '#ff00ff',
             textColor: 'white',
         },
@@ -82,14 +82,14 @@ export default {
             textColor: 'white',
         },
         fireAlarmSystemCancel: {
-            regex: /False Alarm/,
-            titel: 'False Alarms',
+            regex: /Falso Allarme/,
+            titel: 'Falso Allarme',
             backgroundColor: '#c80815',
             textColor: 'white',
         },
     },
-    category: 'Category',
-    title: 'Summary',
-    total: 'Total',
-    others: 'Others',
+    category: 'Categoria',
+    title: 'Riepilogo',
+    total: 'Totale',
+    others: 'Altro',
 };
