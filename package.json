@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
+    "version": "4.3.1+20210915.2049",
+=======
     "version": "4.3.1+20210916.0315",
+>>>>>>> ebfaae014619d1c88c3613697b56e6c1c3a51849
     "license": "CC-BY-NC-SA-4.0",
     "scripts": {
         "predev": "tsc -b scripts && node scripts predev",

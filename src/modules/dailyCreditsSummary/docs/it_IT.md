@@ -1,4 +1,4 @@
-Questo modulo sostituisce il `Totale per il sommario giornaliero` in V3, che è mostra [riassunto giornaliero](https://www.operatore112.it/credits/daily) quanto hai guadagnato per ogni categoria (ad esempio trasportando pazienti).
+Questo modulo sostituisce il `Totale per il sommario giornaliero` in V3, che mostra [riassunto giornaliero](https://www.operatore112.it/credits/daily) quanto hai guadagnato per ogni categoria (ad esempio trasportando pazienti).
 
 Questo modulo è stato leggermente ravvivato per la V4.
 
