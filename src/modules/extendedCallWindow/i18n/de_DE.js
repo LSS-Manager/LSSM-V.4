@@ -243,7 +243,7 @@ module.exports = {
             [/^FwK$/]: [57],
             [/^FüKw$/]: [51],
             [/^GefKw$/]: [52],
-            [/^GW-A oder AB-Atemschutz$/]: [5, 48],
+            [/^GW-Atemschutz$/]: [5, 48],
             [/^GW-Gefahrgut$/]: [27, 77],
             [/^GW-Höhenrettung$/]: [33],
             [/^GW-Messtechnik$/]: [12],
