@@ -84,6 +84,7 @@
                                         "
                                         class="btn btn-default btn-xs"
                                         :title="lightbox.$sm('color')"
+                                        lightbox-open
                                     >
                                         <font-awesome-icon
                                             :icon="faPalette"

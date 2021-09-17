@@ -1,0 +1,7 @@
+{
+	"noColor": "Aktuell ist keine Fahrzeugfarbe festgelegt",
+	"reset": "Farbe löschen",
+	"save": "Speichern",
+	"savedNote": "Die Fahrzeugfarbe wurde erfolgreich gespeichert!",
+	"title": "Fahrzeugfarbe bearbeiten: {type}"
+}

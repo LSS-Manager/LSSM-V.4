@@ -1,0 +1,7 @@
+{
+	"noColor": "No vehicle colour is currently set",
+	"reset": "Delete colour",
+	"save": "Save",
+	"savedNote": "The vehicle colour has been successfully saved!",
+	"title": "Edit vehicle colour: {type}"
+}
