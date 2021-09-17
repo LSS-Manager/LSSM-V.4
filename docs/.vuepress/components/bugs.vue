@@ -312,9 +312,15 @@ body.yuu-theme-dark .bug >>> {
     --label-s: 0;
     --label-l: 0;
 
-    --lightness-threshold: 0.6;
-    --background-alpha: 0.18;
-    --border-alpha: 0.3;
+    --lightness-threshold: 0.453;
+    --border-threshold: 0.96;
+    --border-alpha: max(
+        0,
+        min(
+            calc((var(--perceived-lightness) - var(--border-threshold)) * 100),
+            1
+        )
+    );
     --perceived-lightness: calc(
         (
                 (var(--label-r) * 0.2126) + (var(--label-g) * 0.7152) +
@@ -336,6 +342,33 @@ body.yuu-theme-dark .bug >>> {
             var(--lightness-switch)
     );
 
+    background: rgb(var(--label-r), var(--label-g), var(--label-b));
+    color: hsl(0, 0%, calc(var(--lightness-switch) * 100%));
+    display: inline-block;
+    padding: 0 7px;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 18px;
+    border: 1px solid
+        hsla(
+            var(--label-h),
+            calc(var(--label-s) * 1%),
+            calc((var(--label-l) - 25) * 1%),
+            var(--border-alpha)
+        );
+    border-radius: 2em;
+    margin-left: 0.25em;
+    margin-right: 0.25em;
+}
+
+body.yuu-theme-dark .bug .bug-labels .bug-label >>> {
+    --lightness-threshold: 0.6;
+    --background-alpha: 0.18;
+    --border-alpha: 0.3;
+    --lighten-by: calc(
+        ((var(--lightness-threshold) - var(--perceived-lightness)) * 100) *
+            var(--lightness-switch)
+    );
     background: rgba(
         var(--label-r),
         var(--label-g),
@@ -347,21 +380,12 @@ body.yuu-theme-dark .bug >>> {
         calc(var(--label-s) * 1%),
         calc((var(--label-l) + var(--lighten-by)) * 1%)
     );
-    display: inline-block;
-    padding: 0 7px;
-    font-size: 12px;
-    font-weight: 500;
-    line-height: 18px;
-    border: 1px solid
-        hsla(
-            var(--label-h),
-            calc(var(--label-s) * 1%),
-            calc((var(--label-l) + var(--lighten-by)) * 1%),
-            var(--border-alpha)
-        );
-    border-radius: 2em;
-    margin-left: 0.25em;
-    margin-right: 0.25em;
+    border-color: hsla(
+        var(--label-h),
+        calc(var(--label-s) * 1%),
+        calc((var(--label-l) + var(--lighten-by)) * 1%),
+        var(--border-alpha)
+    );
 }
 
 .bug[data-content-state='open'] .bug-header-icon .icon {
