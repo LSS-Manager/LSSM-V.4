@@ -13,6 +13,8 @@ export default async (LSSM: Vue): Promise<void> => {
         'font-style: italic;'
     );
 
+    require('./natives/betterFooterLinks');
+
     const indicatorWrapper = document.createElement('li') as HTMLLIElement;
     document
         .querySelector('.navbar-default .navbar-right')
