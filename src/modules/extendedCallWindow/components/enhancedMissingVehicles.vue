@@ -433,7 +433,7 @@ export default Vue.extend<
             Object.values(towings as Record<number, number>).forEach(towing => {
                 if (!doubleCountedById.hasOwnProperty(towing))
                     doubleCountedById[towing] = [];
-                doubleCountedById[towing].push(trailer);
+                doubleCountedById[towing].push(parseInt(trailer));
             });
         });
         const vehicleList = document.getElementById('vehicle_show_table_all');
@@ -471,46 +471,52 @@ export default Vue.extend<
                         ?.replace(/[,.]|\s/g, '') ?? '0'
                 );
             }
+            const countVehicle = (vehicle: HTMLInputElement) => {
+                const vehicleType = parseInt(
+                    vehicle.getAttribute('vehicle_type_id') || '-1'
+                );
+                if (!amountsOfVehicleType.hasOwnProperty(vehicleType))
+                    amountsOfVehicleType[vehicleType] = 0;
+                amountsOfVehicleType[vehicleType]++;
+                const actualVehicle = this.$store.getters['api/vehicle'](
+                    parseInt(vehicle.value ?? '-1')
+                ) as Vehicle | undefined;
+                categoriesById[vehicleType]?.forEach(group => {
+                    const req = this.requirements.find(({ vehicle }) =>
+                        vehicle.match(new RegExp(group))
+                    );
+                    if (!req) return;
+                    if (typeof req.selected === 'number') {
+                        this.$set(req, 'selected', req.selected + 1);
+                    } else {
+                        const type = (this.$t('vehicles') as {
+                            [id: number]: InternalVehicle;
+                        })[vehicleType] as InternalVehicle;
+                        this.$set(
+                            req.selected,
+                            'min',
+                            req.selected.min + type.minPersonnel
+                        );
+                        this.$set(
+                            req.selected,
+                            'max',
+                            req.selected.max +
+                                (actualVehicle?.max_personnel_override ??
+                                    type.maxPersonnel)
+                        );
+                    }
+                });
+                if (actualVehicle?.tractive_vehicle_id) {
+                    const tractiveCheckbox = vehicleList.querySelector<
+                        HTMLInputElement
+                    >(`#vehicle_checkbox_${actualVehicle.tractive_vehicle_id}`);
+                    if (tractiveCheckbox && !tractiveCheckbox.checked)
+                        countVehicle(tractiveCheckbox);
+                }
+            };
             vehicleList
                 .querySelectorAll<HTMLInputElement>('.vehicle_checkbox:checked')
-                .forEach(vehicle => {
-                    const vehicleType = parseInt(
-                        vehicle.getAttribute('vehicle_type_id') || '-1'
-                    );
-                    if (!amountsOfVehicleType.hasOwnProperty(vehicleType))
-                        amountsOfVehicleType[vehicleType] = 0;
-                    amountsOfVehicleType[vehicleType]++;
-                    categoriesById[vehicleType]?.forEach(group => {
-                        const req = this.requirements.find(({ vehicle }) =>
-                            vehicle.match(new RegExp(group))
-                        );
-                        if (!req) return;
-                        if (typeof req.selected === 'number') {
-                            this.$set(req, 'selected', req.selected + 1);
-                        } else {
-                            const type = (this.$t('vehicles') as {
-                                [id: number]: InternalVehicle;
-                            })[vehicleType] as InternalVehicle;
-                            const actualVehicle = this.$store.getters[
-                                'api/vehicle'
-                            ](parseInt(vehicle.value ?? '-1')) as
-                                | Vehicle
-                                | undefined;
-                            this.$set(
-                                req.selected,
-                                'min',
-                                req.selected.min + type.minPersonnel
-                            );
-                            this.$set(
-                                req.selected,
-                                'max',
-                                req.selected.max +
-                                    (actualVehicle?.max_personnel_override ??
-                                        type.maxPersonnel)
-                            );
-                        }
-                    });
-                });
+                .forEach(countVehicle);
             Object.entries(doubleCountedById).forEach(([towing, trailers]) => {
                 const amount = Math.max(
                     amountsOfVehicleType[parseInt(towing)] ?? 0,
@@ -518,7 +524,7 @@ export default Vue.extend<
                         .map(trailer => amountsOfVehicleType[trailer] ?? 0)
                         .reduce((a, b) => a + b, 0)
                 );
-                categoriesById[towing]?.forEach(group => {
+                categoriesById[parseInt(towing)]?.forEach(group => {
                     const req = this.requirements.find(({ vehicle }) =>
                         vehicle.match(new RegExp(group))
                     );

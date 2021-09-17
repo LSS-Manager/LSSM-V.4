@@ -16,6 +16,7 @@ export interface Vehicle {
     ignore_aao: boolean;
     target_type: 'mission' | 'building' | null; // Where the vehicle is currently driving to
     target_id: number | null; // The ID of where the vehicle is currently driving to
+    tractive_vehicle_id: number | null;
     faPencilAlt: IconDefinition;
     faUsers: IconDefinition;
     [key: string]:
