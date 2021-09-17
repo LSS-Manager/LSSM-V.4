@@ -71,7 +71,7 @@
         "eslint-plugin-vue": "^7.17.0",
         "html-loader": "^2.1.2",
         "moment-timezone": "^0.5.33",
-        "sass": "^1.41.0",
+        "sass": "^1.41.1",
         "sass-loader": "^10.1.1",
         "speed-measure-webpack-plugin": "^1.5.0",
         "string-replace-loader": "^2.3.0",
