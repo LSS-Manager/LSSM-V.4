@@ -1,6 +1,7 @@
 <template>
     <div>
         <h1>{{ lightbox.$sm('title', { type: vehicleTypeCaption }) }}</h1>
+        <div class="alert alert-info">{{ lightbox.$sm('description') }}</div>
         <div class="alert alert-success" v-show="showSavedNote">
             <button
                 class="close"
@@ -22,11 +23,7 @@
                 <button class="btn btn-success" @click="updateColor">
                     {{ lightbox.$sm('save') }}
                 </button>
-                <button
-                    class="btn btn-danger"
-                    @click="resetColor"
-                    :disabled="!hasColor"
-                >
+                <button class="btn btn-danger" @click="resetColor">
                     {{ lightbox.$sm('reset') }}
                 </button>
             </div>
@@ -54,6 +51,7 @@ type Component = RedesignComponent<
         vehicleTypeCaption: string;
         hasColor: boolean;
         urlSearchParam: string;
+        closeAfterSubmit: boolean;
     }
 >;
 
@@ -86,6 +84,11 @@ export default Vue.extend<
                 ? `?vehicle_type_caption=${this.fahrzeugfarbe.customVehicleType}`
                 : '';
         },
+        closeAfterSubmit() {
+            return new URL(this.url, window.location.origin).searchParams.has(
+                'close-after-submit'
+            );
+        },
     },
     methods: {
         updateColor() {
@@ -97,7 +100,7 @@ export default Vue.extend<
             url.searchParams.append('_method', 'put');
             url.searchParams.append(
                 'vehicle_color[color]',
-                this.$refs.color.value.replace(/^#/, '')
+                (this.$refs.color as HTMLInputElement).value.replace(/^#/, '')
             );
             url.searchParams.append(
                 'authenticity_token',
@@ -120,11 +123,13 @@ export default Vue.extend<
                     feature: `redesign-update-fahrzeugfarbe-${this.fahrzeugfarbe.vehicleType}`,
                 })
                 .then(() => {
+                    if (this.closeAfterSubmit)
+                        return window.lightboxClose(this.lightbox.creation);
                     this.$set(this, 'showSavedNote', true);
                     this.$set(
                         this.fahrzeugfarbe,
                         'color',
-                        this.$refs.color.value
+                        (this.$refs.color as HTMLInputElement).value
                     );
                 });
         },
@@ -143,7 +148,11 @@ export default Vue.extend<
                     },
                     feature: `redesign-destroy-fahrzeugfarbe-${this.fahrzeugfarbe.vehicleType}`,
                 })
-                .then(() => this.$set(this.fahrzeugfarbe, 'color', '#'));
+                .then(() => {
+                    if (this.closeAfterSubmit)
+                        return window.lightboxClose(this.lightbox.creation);
+                    this.$set(this.fahrzeugfarbe, 'color', '#');
+                });
         },
     },
     props: {
