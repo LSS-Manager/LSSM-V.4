@@ -492,9 +492,9 @@ export default {
                     duration: '7 Days',
                 },
             ],
-            levelcost: ['1. 10.000', '2. 50.000', '3.-16. 100.000'],
+            levelcost: ['1. 10.000', '2. 50.000', '3.-24. 100.000'],
             maxBuildings: '5.000 together with small fire stations',
-            maxLevel: 16,
+            maxLevel: 24,
             special:
                 'From the 24th fire station onwards, the cost of building a new fire station increases according to the following formula: <code>100.000+200.000*LOG<sub>2</sub>(Number of existing fire stations − 22)</code>. The Coins price remains constant!',
             startPersonnel: 10,
@@ -526,9 +526,9 @@ export default {
             coins: 35,
             credits: 200_000,
             extensions: [],
-            levelcost: ['1. 10.000', '2. 50.000', '3.-16. 100.000'],
+            levelcost: ['1. 10.000', '2. 50.000', '3.-19. 100.000'],
             maxBuildings: 'No limit',
-            maxLevel: 16,
+            maxLevel: 19,
             special: '',
             startPersonnel: 3,
             startVehicles: ['Ambulance'],
@@ -629,12 +629,12 @@ export default {
             coins: 50,
             credits: 1_000_000,
             extensions: [],
-            levelcost: [],
+            levelcost: ['1.000.000 / 50 Coins'],
             maxBuildings: 'see specials',
-            maxLevel: 0,
+            maxLevel: 2,
             special:
                 'Up to the 125th building (of all types) a total of max. 4 landing sites can be built. After that the number increases by 1 every 25 buildings (starting at the 125th).',
-            startPersonnel: 0,
+            startPersonnel: 1,
             startVehicles: [],
             maxBuildingsFunction: (buildingsAmountTotal: number): number =>
                 buildingsAmountTotal < 125
@@ -662,11 +662,11 @@ export default {
             ],
             levelcost: ['1. 10.000', '2. 50.000', '3.-16. 100.000'],
             maxBuildings: '1.700 together with small police stations',
-            maxLevel: 16,
+            maxLevel: 19,
             special:
                 'From the 24th police station onwards, the costs for the new construction of a police station increase according to the following formula: <code>100.000+200.000*LOG<sub>2</sub>(Number of existing police stations − 22)</code>. The Coins price remains constant!',
             startPersonnel: 2,
-            startVehicles: ['Police Car'],
+            startVehicles: ['Incident response vehicle (IRV)'],
             maxBuildingsFunction: (): number => 1_700,
         },
         7: {
@@ -711,11 +711,11 @@ export default {
             coins: 50,
             credits: 1_000_000,
             extensions: [],
-            levelcost: ['1. 1.000.000 Credits / 50 Coins'],
+            levelcost: ['1-5. 1.000.000 Credits / 50 Coins'],
             maxBuildings: 'see specials',
-            maxLevel: 1,
+            maxLevel: 5,
             special:
-                'Up to 2 landing sites can be built per station (expansion stages). Up to the 125th building (of all types) a total of max. 4 landing sites can be built. After that the number increases by 1 every 25 buildings (starting at the 125th).',
+                'Up to 6 landing sites can be built per station (expansion stages). Up to the 125th building (of all types) a total of max. 4 landing sites can be built. After that the number increases by 1 every 25 buildings (starting at the 125th).',
             startPersonnel: 3,
             startVehicles: [],
             maxBuildingsFunction: (buildingsAmountTotal: number): number =>
@@ -732,7 +732,7 @@ export default {
             maxBuildings: 4,
             maxLevel: 0,
             special:
-                'You can station as many of your own vehicles as you like at a staging area, members of the association can use the room. A staging area remains for 24 hours, but you can reset it to 24 hours at any time.With Premium Account you can have 8 staging areas at the same time',
+                'You can station as many of your own vehicles as you like at a staging area, members of the alliance can use the staging area. A staging area remains for 24 hours, but you can reset it to 24 hours at any time.With Premium Account you can have 8 staging areas at the same time',
             startPersonnel: 0,
             startVehicles: [],
             maxBuildingsFunction: (): number => 4,
@@ -805,15 +805,15 @@ export default {
             levelcost: [
                 '1. 10.000',
                 '2. 50.000',
-                '3.-4. 100.000',
+                '3.-5. 100.000',
                 'Conversion to normal guard: difference price to normal guard',
             ],
             maxBuildings: '1.700 together with police stations',
-            maxLevel: 4,
+            maxLevel: 5,
             special:
                 'From the 24th police station onwards, the costs for the new construction of a police station are calculated according to the following formula: <code>(100.000+200.000*LOG<sub>2</sub>(Number of existing police stations − 22)) / 2</code>. The Coins price remains constant!',
             startPersonnel: 2,
-            startVehicles: ['Police Car'],
+            startVehicles: ['Incident response vehicle (IRV)'],
             maxBuildingsFunction: (): number => 1_700,
         },
         20: {
@@ -852,7 +852,7 @@ export default {
             maxLevel: 5,
             special: '',
             startPersonnel: 0,
-            startVehicles: ['Non. You can buy max. 2 Vehicles'],
+            startVehicles: ['None. You can buy max. 2 Vehicles'],
         },
         22: {
             caption: 'Home Response Location',
@@ -864,7 +864,7 @@ export default {
             maxBuildings: 'No limit',
             maxLevel: 0,
             special:
-                'It can only: Fire Officer, Rapid Response Vehicle, Operational Team Leader, General Practitioner, Community First Responder, Dog Support Unit (DSU) be stationed',
+                'It can only Store: Fire Officer, Rapid Response Vehicle, Operational Team Leader, General Practitioner, Community First Responder, Dog Support Unit (DSU)',
             startPersonnel: 1,
             startVehicles: [''],
         },

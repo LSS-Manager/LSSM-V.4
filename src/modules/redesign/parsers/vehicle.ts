@@ -181,6 +181,47 @@ export default <RedesignParser<VehicleWindow>>(({
     );
     // because missions may appear in own and alliance lists
     const mission_ids: number[] = [];
+    const get_hospitals = (
+        list: 'own_hospitals' | 'alliance_hospitals'
+    ): Hospital[] => {
+        if (!hasHospitals) return [];
+        return Array.from(
+            doc.querySelectorAll<HTMLTableRowElement>(
+                `.col-md-9:first-of-type table#${list.replace(
+                    '_',
+                    '-'
+                )} tbody tr`
+            )
+        )
+            .map(h => {
+                if (h.children.length <= 1) return null;
+                const isOwn = list === 'own_hospitals';
+                const alarmEl = h.children[isOwn ? 4 : 5].querySelector<
+                    HTMLAnchorElement
+                >('a');
+                return {
+                    caption:
+                        ((h.children[0] as HTMLElement | null)
+                            ?.firstChild as Text)?.wholeText?.trim() ?? '',
+                    distance: h.children[1]?.textContent?.trim() ?? '',
+                    beds: parseInt(h.children[2]?.textContent?.trim() ?? '-1'),
+                    department: !!h.children[isOwn ? 3 : 4].querySelector(
+                        '.label.label-success'
+                    ),
+                    id: getIdFromEl(alarmEl),
+                    list,
+                    tax: isOwn
+                        ? 0
+                        : parseInt(h.children[3]?.textContent?.trim() ?? '-1'),
+                    state: alarmEl?.classList.contains('btn-success')
+                        ? 'success'
+                        : alarmEl?.classList.contains('btn-warning')
+                        ? 'warning'
+                        : 'danger',
+                } as Hospital;
+            })
+            .filter(h => !!h) as Hospital[];
+    };
     return {
         id,
         building: {
@@ -213,7 +254,7 @@ export default <RedesignParser<VehicleWindow>>(({
                               innerText.match(/vehicle_graphics/)
                           )
                           ?.innerText.match(
-                              /(?<=vehicle_graphics(_sorted\[\d+])?\s*=\s*)\[(?:(?:(?:\[".*?",".*?","(?:true|false)"])|null),?)+]/
+                              /(?<=vehicle_graphics(_sorted\[\d+])?\s*=\s*)\[(?:(?:\[".*?",".*?","(?:true|false)"]|null),?)+]/
                           )?.[0] ?? '[]'
                   )[vehicleType]?.[0]
                 : imageEl?.src) ??
@@ -309,61 +350,8 @@ export default <RedesignParser<VehicleWindow>>(({
             ])
         ) as { mission_own: Mission[]; mission_alliance: Mission[] }),
         has_hospitals: hasHospitals,
-        ...(Object.fromEntries(
-            ['own_hospitals', 'alliance_hospitals'].map((key, index) => [
-                key,
-                hasHospitals
-                    ? Array.from(
-                          doc.querySelectorAll<HTMLTableRowElement>(
-                              `.col-md-9:first-of-type table:nth-of-type(${index +
-                                  1}) tbody tr`
-                          )
-                      )
-                          .map(h => {
-                              if (h.children.length <= 1) return null;
-                              const isOwn = key === 'own_hospitals';
-                              const alarmEl = h.children[
-                                  isOwn ? 4 : 5
-                              ].querySelector<HTMLAnchorElement>('a');
-                              return {
-                                  caption:
-                                      ((h.children[0] as HTMLElement | null)
-                                          ?.firstChild as Text)?.wholeText?.trim() ??
-                                      '',
-                                  distance:
-                                      h.children[1]?.textContent?.trim() ?? '',
-                                  beds: parseInt(
-                                      h.children[2]?.textContent?.trim() ?? '-1'
-                                  ),
-                                  department: !!h.children[
-                                      isOwn ? 3 : 4
-                                  ].querySelector('.label.label-success'),
-                                  id: getIdFromEl(alarmEl),
-                                  list: key,
-                                  tax: isOwn
-                                      ? 0
-                                      : parseInt(
-                                            h.children[3]?.textContent?.trim() ??
-                                                '-1'
-                                        ),
-                                  state: alarmEl?.classList.contains(
-                                      'btn-success'
-                                  )
-                                      ? 'success'
-                                      : alarmEl?.classList.contains(
-                                            'btn-warning'
-                                        )
-                                      ? 'warning'
-                                      : 'danger',
-                              };
-                          })
-                          .filter(h => !!h)
-                    : [],
-            ])
-        ) as {
-            own_hospitals: Hospital[];
-            alliance_hospitals: Hospital[];
-        }),
+        own_hospitals: get_hospitals('own_hospitals'),
+        alliance_hospitals: get_hospitals('alliance_hospitals'),
         load_all_hospitals: !!doc.querySelector<HTMLAnchorElement>(
             'a[href$="?load_all=true"]'
         ),

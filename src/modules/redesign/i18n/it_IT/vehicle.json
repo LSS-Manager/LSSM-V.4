@@ -1,0 +1,121 @@
+{
+	"approach": "Approccio",
+	"backalarm": "Allarme posteriore",
+	"cells": {
+		"cell": "Edificio",
+		"free": "Celle libere"
+	},
+	"color": "Modifica colore",
+	"current_mission": "Missione attuale",
+	"delete": {
+		"button": "elimina",
+		"cancel": "cancella",
+		"confirm": "Elimina",
+		"text": "Vuoi davvero distruggere **{caption}** all'edificio **{building}** permanentemente?",
+		"title": "Distruggi veicolo"
+	},
+	"distance": "Distanza",
+	"edit": "Modifica",
+	"false": "No",
+	"filter": {
+		"cells": {
+			"distance": "Distanza Massima",
+			"each": "Mostra x per ogni edificio",
+			"free": "Minimo celle libere",
+			"tax": "Tassa massima"
+		},
+		"hospitals": {
+			"beds": "Minimo letti liberi",
+			"department": {
+				"title": "Dipartimento: {department}"
+			},
+			"distance": "Distanza Massima",
+			"each": "Mostra x per ogni edificio",
+			"tax": "Tassa massima"
+		},
+		"missions": {
+			"credits": "Crediti Minimi",
+			"distance": "Distanza Massima",
+			"participation": {
+				"title": "Partecipazione"
+			},
+			"progress": "Progresso max. %",
+			"status": {
+				"green": "verde",
+				"red": "rosso",
+				"title": "Stato",
+				"yellow": "giallo"
+			}
+		},
+		"wlf": {
+			"distance": "Distanza Massima",
+			"same": "Stesso Edificio"
+		}
+	},
+	"fms": "FMS",
+	"fms_switch": {
+		"is_s2": "imposta S6",
+		"is_s6": "imposta S2"
+	},
+	"followup_missions": "Segui missione | Segui missioni",
+	"hospitals": {
+		"beds": "letti liberi",
+		"department": "Dipartimento: {department}",
+		"hospital": "Ospedale"
+	},
+	"load_all_hospitals": {
+		"btn": "Carica tutto ",
+		"text": "Solo 50 ospedali alleanza sono visualizzati. Caricamento di tutti gli ospedali può richiedere molto tempo a seconda della quantità!"
+	},
+	"max_staff": "Staff max.",
+	"mileage": "Chilometraggio",
+	"missions": {
+		"alarm": "Allarme",
+		"alarmed": "Missione attuale",
+		"credits": "Ricompensa",
+		"mission": "Missione",
+		"participation": "Partecipazione",
+		"patients": "Pazienti",
+		"progress": "Progresso"
+	},
+	"move": "Sposta",
+	"owner": "Proprietario",
+	"owner_pic_state": {
+		"offline": "{user} è offline!",
+		"online": "{user} è online!"
+	},
+	"release": {
+		"cancel": "Annulla",
+		"confirm": "Si, dimetti!",
+		"patient": {
+			"text": "Vuoi veramente congedare il paziente di questo veicolo? Nessun pagamento sarà accreditato per il paziente!",
+			"title": "Congeda paziente"
+		},
+		"prisoner": {
+			"text": "Vuoi davvero rilasciare **tutti** prigionieri di questa operazione? Non ci sarà nessun risarcimento accreditato per questi prigionieri!",
+			"title": "Rilascia Prigionieri"
+		}
+	},
+	"release_patient": "Dimetti paziente",
+	"release_prisoner": "Rilascia prigioniero",
+	"staff": {
+		"name": "Nome",
+		"schooling": "Addestramento",
+		"title": "Staff"
+	},
+	"station": "Edificio",
+	"stats": "Statistiche",
+	"tabs": {
+		"all": "tutto {type}: {amount}",
+		"alliance": "alleanza {type}: {amount}",
+		"cells": "Celle",
+		"hospitals": "Ospedali",
+		"missions": "Missioni",
+		"own": "proprietario {type}: {amount}"
+	},
+	"tax": "tasse",
+	"true": "si",
+	"vehicletype": "Tipo veicolo",
+	"water_amount": "Q.ta acqua",
+	"zuweisung": "Assegnamento staff"
+}

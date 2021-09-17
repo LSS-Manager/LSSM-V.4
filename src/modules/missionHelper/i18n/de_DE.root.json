@@ -12,6 +12,21 @@
 			"in": "additional",
 			"text": "Polizisten ⌀ mind. benötigt"
 		},
+		"min_pump_speed": {
+			"badge": true,
+			"in": "requirements",
+			"text": "Min.Pumpenleistung: {n}"
+		},
+		"pump_mission_mode": {
+			"badge": true,
+			"in": "additional",
+			"text": "Pumpeneinsatz: {n}"
+		},
+		"pump_water_amount": {
+			"badge": true,
+			"in": "additional",
+			"text": "Wasser abzupumpen (in Litern): {n}"
+		},
 		"water_needed": {
 			"badge": true,
 			"in": "requirements",
@@ -144,6 +159,10 @@
 				"description": "Zeigt die Überschrift \"Gefangene\" über den Details über mögliche Gefangene an.",
 				"title": "Gefangene (Titel)"
 			}
+		},
+		"subsequent": {
+			"description": "Listet mögliche Anschlusseinsätze bei Abschluss auf.",
+			"title": "Anschlusseinsatz"
 		},
 		"title": {
 			"description": "Zeigt den Einsatznamen, z.B. \"Mülleimerbrand\" als Titel an.",

@@ -1,5 +1,5 @@
+import axios from 'axios';
 import copydir from 'copy-dir';
-import fetch from 'node-fetch';
 import fs from 'fs';
 import path from 'path';
 
@@ -290,7 +290,7 @@ ${docsLangs
             )[];
         }
     > = {};
-    const noMapkitModules: Record<string, { title: string; f: string }[]> = {};
+    const noMapkitModules: Vue['$themeConfig']['variables']['noMapkitModules'] = {};
     const locales: Record<
         string,
         { lang: string; title: string; description: string }
@@ -422,13 +422,22 @@ sidebarDepth: 2
     });
 
 const fetchStableVersion = (): Promise<{ version: string }> =>
-    fetch(`${config.server}static/build_stats.json`)
+    axios(`${config.server}static/build_stats.json`)
         .then(res =>
             res.status === 200
-                ? res.json()
-                : new Promise(resolve => resolve({ version: '4.x.x' }))
+                ? (new Promise(resolve => resolve(res.data)) as Promise<{
+                      version: string;
+                  }>)
+                : (new Promise(resolve =>
+                      resolve({ version: '4.x.x' })
+                  ) as Promise<{ version: string }>)
         )
-        .catch(() => new Promise(resolve => resolve({ version: '4.x.x' })));
+        .catch(
+            () =>
+                new Promise(resolve =>
+                    resolve({ version: '4.x.x' })
+                ) as Promise<{ version: string }>
+        );
 
 module.exports = async () => {
     await setLocales();
@@ -472,6 +481,11 @@ module.exports = async () => {
                 },
                 browsers: config.browser,
                 noMapkitModules,
+                bugIssues: (
+                    await axios(
+                        `https://api.github.com/repos/${config.github.repo}/issues?labels=bug&per_page=100&sort=created`
+                    )
+                ).data,
             },
             locales: themeLocales,
             activeHeaderLinks: true,

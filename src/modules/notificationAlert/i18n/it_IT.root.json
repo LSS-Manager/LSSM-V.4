@@ -1,9 +1,9 @@
 {
 	"alertStyles": {
-		"danger": "Messaggio errore (red)",
-		"info": "Info (blue)",
-		"success": "Conferma (green)",
-		"warning": "Attenzione (orange)"
+		"danger": "Messaggio errore (rosso)",
+		"info": "Info (blu)",
+		"success": "Conferma (verde)",
+		"warning": "Attenzione (arancione)"
 	},
 	"description": "Ricevi notifiche dal browser e dal gioco per vari eventi - ovviamente completamente configurabile!",
 	"events": {

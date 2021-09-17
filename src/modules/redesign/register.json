@@ -1,7 +1,10 @@
 {
-	"alpha": true,
 	"locales": [
 		"de_DE",
+		"en_AU",
+		"en_GB",
+		"en_US",
+		"it_IT",
 		"nl_NL"
 	],
 	"location": ".*",

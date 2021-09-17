@@ -44,6 +44,8 @@
 		]
 	},
 	"prerequisites_long": {
+		"brush_extension": "Bushfire Expansion | Bushfire Expansions",
+		"fire_aviation_count": "Fire Air Base | Fire Air Bases",
 		"fire_stations": "Fire Station | Fire Stations",
 		"max_police_stations": "Maximum Police Stations",
 		"max_rescue_stations": "Maximum Rescue Stations",
@@ -53,6 +55,8 @@
 		"wasserrettung": "SES Unit | SES Units"
 	},
 	"prerequisites_short": {
+		"brush_extension": "Bushfire Expansion | Bushfire Expansions",
+		"fire_aviation_count": "Fire Air Base | Fire Air Bases",
 		"fire_stations": "Fire Station | Fire Stations",
 		"max_police_stations": "Maximum Police Stations",
 		"max_rescue_stations": "Maximum Rescue Stations",

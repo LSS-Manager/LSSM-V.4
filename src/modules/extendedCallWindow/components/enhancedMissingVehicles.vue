@@ -131,6 +131,7 @@ import {
     EnhancedMissingVehiclesMethods,
     EnhancedMissingVehiclesProps,
 } from 'typings/modules/ExtendedCallWindow/EnhancedMissingVehicles';
+import { InternalVehicle, Vehicle } from 'typings/Vehicle';
 
 export default Vue.extend<
     EnhancedMissingVehicles,
@@ -208,17 +209,28 @@ export default Vue.extend<
             ).sort((a, b) => {
                 let modifier = 1;
                 if (this.sortDir === 'desc') modifier = -1;
-                if (a[this.sort] < b[this.sort]) return -1 * modifier;
-                if (a[this.sort] > b[this.sort]) return modifier;
+                let left = a[this.sort];
+                if (typeof left !== 'number' && typeof left !== 'string')
+                    left = left.min;
+                let right = b[this.sort];
+                if (typeof right !== 'number' && typeof right !== 'string')
+                    right = right.min;
+                if (left < right) return -1 * modifier;
+                if (left > right) return modifier;
                 return 0;
             });
         },
         missingRequirementsCheck() {
             return this.requirements.every(
-                (req: { total: number; missing: number; selected: number }) => {
-                    if ((req.total ?? req.missing) <= req.selected) return true;
-                    else return false;
-                }
+                (req: {
+                    total: number;
+                    missing: number;
+                    selected: number | { min: number; max: number };
+                }) =>
+                    (req.total ?? req.missing) <=
+                    (typeof req.selected === 'number'
+                        ? req.selected
+                        : req.selected.min)
             );
         },
     },
@@ -361,14 +373,49 @@ export default Vue.extend<
                 defaultValue: false,
             })
             .then(hoverTip => (this.hoverTip = hoverTip));
+        this.$store
+            .dispatch('api/registerVehiclesUsage', { feature: 'emv' })
+            .then();
     },
     mounted() {
-        const vehicleGroups = (this.$m('vehiclesByRequirement') as unknown) as {
-            [group: string]: number[];
-        };
+        const vehicleGroupTranslation = (this.$m(
+            'vehiclesByRequirement'
+        ) as unknown) as
+            | {
+                  [group: string]: number[];
+              }
+            | string;
+        const staffGroupTranslation = (this.$m('staff') as unknown) as
+            | {
+                  [group: string]: number[];
+              }
+            | string;
+        const towingVehiclesTranslation = (this.$m(
+            'towingVehicles'
+        ) as unknown) as
+            | {
+                  [group: string]: number[];
+              }
+            | string;
+        const vehicleGroups =
+            typeof vehicleGroupTranslation === 'string'
+                ? {}
+                : vehicleGroupTranslation;
+        const staffGroups =
+            typeof staffGroupTranslation === 'string'
+                ? {}
+                : staffGroupTranslation;
+        const towingVehicles =
+            typeof towingVehiclesTranslation === 'string'
+                ? {}
+                : towingVehiclesTranslation;
         const water = this.$m('water').toString();
+        const foam = this.$m('foam').toString();
         const categoriesById = {} as {
             [id: number]: string[];
+        };
+        const doubleCountedById = {} as {
+            [id: number]: number[];
         };
         Object.entries(vehicleGroups).forEach(([group, ids]) => {
             Object.values(ids).forEach(id => {
@@ -376,37 +423,116 @@ export default Vue.extend<
                 categoriesById[id].push(group.replace(/(^\/)|(\/$)/g, ''));
             });
         });
+        Object.entries(staffGroups).forEach(([group, ids]) => {
+            Object.values(ids).forEach(id => {
+                if (!categoriesById.hasOwnProperty(id)) categoriesById[id] = [];
+                categoriesById[id].push(group.replace(/(^\/)|(\/$)/g, ''));
+            });
+        });
+        Object.entries(towingVehicles).forEach(([trailer, towings]) => {
+            Object.values(towings as Record<number, number>).forEach(towing => {
+                if (!doubleCountedById.hasOwnProperty(towing))
+                    doubleCountedById[towing] = [];
+                doubleCountedById[towing].push(parseInt(trailer));
+            });
+        });
         const vehicleList = document.getElementById('vehicle_show_table_all');
         if (!vehicleList) return;
         const amountObserver = new MutationObserver(() => {
-            this.requirements.forEach(req => (req.selected = 0));
+            const amountsOfVehicleType = {} as { [type: number]: number };
+            this.requirements.forEach(req =>
+                typeof req.selected === 'number'
+                    ? (req.selected = 0)
+                    : (req.selected = { min: 0, max: 0 })
+            );
             const waterReq = this.requirements.find(
                 ({ vehicle }) => vehicle === water
+            );
+            const foamReq = this.requirements.find(
+                ({ vehicle }) => vehicle === foam
             );
             if (waterReq) {
                 waterReq.selected = parseInt(
                     document
                         .querySelector<HTMLDivElement>(
-                            'div.progress-bar-mission-window-water[id^="mission_water_bar_selected_"]'
+                            '[id^="mission_water_holder_"] div.progress-bar-mission-window-water.progress-bar-danger, [id^="mission_water_holder_"] div.progress-bar-mission-window-water.progress-bar-success'
                         )
-                        ?.textContent?.match(/\d{1,3}([,.]\d{3})*/)?.[0]
-                        ?.replace(/[,.]/g, '') ?? '0'
+                        ?.textContent?.match(/\d{1,3}(([,.]|\s)\d{3})*/)?.[0]
+                        ?.replace(/[,.]|\s/g, '') ?? '0'
                 );
             }
+            if (foamReq) {
+                foamReq.selected = parseInt(
+                    document
+                        .querySelector<HTMLDivElement>(
+                            '[id^="mission_foam_holder_"] div.progress-bar-mission-window-water.progress-bar-danger, [id^="mission_foam_holder_"] div.progress-bar-mission-window-water.progress-bar-success'
+                        )
+                        ?.textContent?.match(/\d{1,3}(([,.]|\s)\d{3})*/)?.[0]
+                        ?.replace(/[,.]|\s/g, '') ?? '0'
+                );
+            }
+            const countVehicle = (vehicle: HTMLInputElement) => {
+                const vehicleType = parseInt(
+                    vehicle.getAttribute('vehicle_type_id') || '-1'
+                );
+                if (!amountsOfVehicleType.hasOwnProperty(vehicleType))
+                    amountsOfVehicleType[vehicleType] = 0;
+                amountsOfVehicleType[vehicleType]++;
+                const actualVehicle = this.$store.getters['api/vehicle'](
+                    parseInt(vehicle.value ?? '-1')
+                ) as Vehicle | undefined;
+                categoriesById[vehicleType]?.forEach(group => {
+                    const req = this.requirements.find(({ vehicle }) =>
+                        vehicle.match(new RegExp(group))
+                    );
+                    if (!req) return;
+                    if (typeof req.selected === 'number') {
+                        this.$set(req, 'selected', req.selected + 1);
+                    } else {
+                        const type = (this.$t('vehicles') as {
+                            [id: number]: InternalVehicle;
+                        })[vehicleType] as InternalVehicle;
+                        this.$set(
+                            req.selected,
+                            'min',
+                            req.selected.min + type.minPersonnel
+                        );
+                        this.$set(
+                            req.selected,
+                            'max',
+                            req.selected.max +
+                                (actualVehicle?.max_personnel_override ??
+                                    type.maxPersonnel)
+                        );
+                    }
+                });
+                if (actualVehicle?.tractive_vehicle_id) {
+                    const tractiveCheckbox = vehicleList.querySelector<
+                        HTMLInputElement
+                    >(`#vehicle_checkbox_${actualVehicle.tractive_vehicle_id}`);
+                    if (tractiveCheckbox && !tractiveCheckbox.checked)
+                        countVehicle(tractiveCheckbox);
+                }
+            };
             vehicleList
                 .querySelectorAll<HTMLInputElement>('.vehicle_checkbox:checked')
-                .forEach(vehicle => {
-                    categoriesById[
-                        parseInt(
-                            vehicle.getAttribute('vehicle_type_id') || '-1'
-                        )
-                    ]?.forEach(group => {
-                        const req = this.requirements.find(({ vehicle }) =>
-                            vehicle.match(new RegExp(group))
-                        );
-                        if (req) this.$set(req, 'selected', req.selected + 1);
-                    });
+                .forEach(countVehicle);
+            Object.entries(doubleCountedById).forEach(([towing, trailers]) => {
+                const amount = Math.max(
+                    amountsOfVehicleType[parseInt(towing)] ?? 0,
+                    trailers
+                        .map(trailer => amountsOfVehicleType[trailer] ?? 0)
+                        .reduce((a, b) => a + b, 0)
+                );
+                categoriesById[parseInt(towing)]?.forEach(group => {
+                    const req = this.requirements.find(({ vehicle }) =>
+                        vehicle.match(new RegExp(group))
+                    );
+                    if (!req) return;
+                    if (typeof req.selected === 'number')
+                        this.$set(req, 'selected', amount);
                 });
+            });
         });
         const amountElement = document.getElementById('vehicle_amount');
 

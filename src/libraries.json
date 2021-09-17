@@ -2,70 +2,81 @@
 	"@fortawesome/fontawesome-svg-core": {
 		"icon": "https://fontawesome.com/images/favicons/apple-icon-180x180.png",
 		"url": "https://fontawesome.com",
-		"version": "1.2.35"
+		"version": "1.2.36"
 	},
 	"@fortawesome/free-solid-svg-icons": {
 		"icon": "https://fontawesome.com/images/favicons/apple-icon-180x180.png",
 		"url": "https://fontawesome.com",
-		"version": "5.15.3"
+		"version": "5.15.4"
 	},
 	"@fortawesome/vue-fontawesome": {
 		"icon": "https://fontawesome.com/images/favicons/apple-icon-180x180.png",
 		"url": "https://github.com/FortAwesome/vue-fontawesome",
 		"version": "2.0.2"
 	},
+	"@primer/octicons": {
+		"url": "https://primer.style/octicons",
+		"version": "15.1.0"
+	},
 	"@types/combokeys": {
 		"version": "2.4.6"
 	},
 	"@types/he": {
-		"version": "1.1.1"
+		"url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/he",
+		"version": "1.1.2"
 	},
 	"@types/i18n-js": {
-		"version": "3.8.1"
+		"url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/i18n-js",
+		"version": "3.8.2"
 	},
 	"@types/jquery": {
-		"version": "3.5.5"
+		"url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/jquery",
+		"version": "3.5.6"
 	},
 	"@types/leaflet": {
 		"url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/leaflet",
-		"version": "1.7.3"
+		"version": "1.7.5"
 	},
 	"@types/lodash": {
-		"version": "4.14.170"
+		"url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/lodash",
+		"version": "4.14.173"
 	},
 	"@types/node": {
 		"url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/node",
-		"version": "15.12.5"
-	},
-	"@types/node-fetch": {
-		"version": "2.5.10"
+		"version": "16.9.2"
 	},
 	"@types/pdfmake": {
-		"version": "0.1.17"
+		"url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/pdfmake",
+		"version": "0.1.18"
 	},
 	"@types/semver": {
-		"version": "7.3.6"
+		"url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/semver",
+		"version": "7.3.8"
 	},
 	"@types/showdown": {
-		"version": "1.9.3"
+		"url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/showdown",
+		"version": "1.9.4"
 	},
 	"@types/speed-measure-webpack-plugin": {
-		"version": "1.3.3"
+		"url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/speed-measure-webpack-plugin",
+		"version": "1.3.4"
 	},
 	"@types/ua-parser-js": {
 		"version": "0.7.36"
 	},
 	"@types/vue-select": {
-		"version": "3.11.1"
+		"url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/vue-select",
+		"version": "3.11.2"
 	},
 	"@types/webpack-env": {
-		"version": "1.16.0"
+		"url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/webpack-env",
+		"version": "1.16.2"
 	},
 	"@typescript-eslint/eslint-plugin": {
-		"version": "4.28.1"
+		"version": "4.31.1"
 	},
 	"@typescript-eslint/parser": {
-		"version": "4.28.1"
+		"version": "4.31.1"
 	},
 	"@vuepress/plugin-active-header-links": {
 		"icon": "https://vuepress.vuejs.org/hero.png",
@@ -82,10 +93,14 @@
 		"url": "https://github.com/all-contributors/all-contributors-cli#readme",
 		"version": "6.20.0"
 	},
+	"axios": {
+		"url": "https://axios-http.com",
+		"version": "0.21.4"
+	},
 	"broadcast-channel": {
 		"icon": "https://raw.githubusercontent.com/pubkey/broadcast-channel/master/docs/files/icon.png",
 		"url": "https://github.com/pubkey/broadcast-channel#readme",
-		"version": "3.7.0"
+		"version": "4.2.0"
 	},
 	"cache-loader": {
 		"icon": "https://webpack.js.org/assets/icon-square-big.svg",
@@ -108,17 +123,17 @@
 	"eslint": {
 		"icon": "https://eslint.org/assets/img/favicon.512x512.png",
 		"url": "https://eslint.org",
-		"version": "7.29.0"
+		"version": "7.32.0"
 	},
 	"eslint-plugin-prettier": {
 		"icon": "https://prettier.io/icon.png",
 		"url": "https://github.com/prettier/eslint-plugin-prettier#readme",
-		"version": "3.4.0"
+		"version": "4.0.0"
 	},
 	"eslint-plugin-vue": {
 		"icon": "https://vuejs.org/images/logo.png",
 		"url": "https://eslint.vuejs.org",
-		"version": "7.12.1"
+		"version": "7.17.0"
 	},
 	"he": {
 		"url": "https://mths.be/he",
@@ -127,7 +142,7 @@
 	"highcharts": {
 		"icon": "https://www.highcharts.com/images/ico/favicon-192x192.png",
 		"url": "http://www.highcharts.com",
-		"version": "9.1.2"
+		"version": "9.2.2"
 	},
 	"html-loader": {
 		"icon": "https://webpack.js.org/assets/icon-square-big.svg",
@@ -136,7 +151,7 @@
 	},
 	"localforage": {
 		"url": "https://github.com/localForage/localForage",
-		"version": "1.9.0"
+		"version": "1.10.0"
 	},
 	"lodash": {
 		"icon": "https://lodash.com/assets/img/lodash.svg",
@@ -157,18 +172,14 @@
 		"url": "http://momentjs.com/timezone/",
 		"version": "0.5.33"
 	},
-	"node-fetch": {
-		"url": "https://github.com/bitinn/node-fetch",
-		"version": "2.6.1"
-	},
 	"pdfmake": {
 		"url": "http://pdfmake.org",
-		"version": "0.1.71"
+		"version": "0.2.2"
 	},
 	"sass": {
 		"icon": "https://sass-lang.com/assets/img/logos/logo-b6e1ef6e.svg",
 		"url": "https://github.com/sass/dart-sass",
-		"version": "1.35.1"
+		"version": "1.41.1"
 	},
 	"sass-loader": {
 		"icon": "https://webpack.js.org/assets/icon-square-big.svg",
@@ -196,7 +207,7 @@
 	"terser": {
 		"icon": "https://terser.org/img/terser-square-logo.png",
 		"url": "https://terser.org",
-		"version": "5.7.1"
+		"version": "5.8.0"
 	},
 	"ts-loader": {
 		"icon": "https://webpack.js.org/assets/icon-square-big.svg",
@@ -206,7 +217,7 @@
 	"typescript": {
 		"icon": "https://www.typescriptlang.org/icons/icon-512x512.png",
 		"url": "https://www.typescriptlang.org/",
-		"version": "4.3.4"
+		"version": "4.4.3"
 	},
 	"ua-parser-js": {
 		"icon": "https://raw.githubusercontent.com/faisalman/ua-parser-js/gh-pages/images/logo.png",
@@ -226,7 +237,7 @@
 	"vue-i18n": {
 		"icon": "https://kazupon.github.io/vue-i18n/vue-i18n-logo.png",
 		"url": "https://github.com/kazupon/vue-i18n#readme",
-		"version": "8.24.5"
+		"version": "8.25.1"
 	},
 	"vue-js-modal": {
 		"url": "http://vue-js-modal.yev.io/",
@@ -239,7 +250,7 @@
 	"vue-loader": {
 		"icon": "https://vuejs.org/images/logo.png",
 		"url": "https://github.com/vuejs/vue-loader",
-		"version": "15.9.7"
+		"version": "15.9.8"
 	},
 	"vue-notification": {
 		"version": "1.3.20"
@@ -251,7 +262,7 @@
 	"vue-select": {
 		"icon": "https://vuejs.org/images/logo.png",
 		"url": "https://vue-select.org",
-		"version": "3.11.2"
+		"version": "3.13.0"
 	},
 	"vue-slim-tabs": {
 		"url": "https://vue-slim-tabs.egoist.sh/",

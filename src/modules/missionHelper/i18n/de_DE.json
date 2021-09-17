@@ -37,12 +37,14 @@
 		"thw_zugtrupp_count": "THW-Ausbau: Zugtrupp | THW-Ausbauten: Zugtrupp",
 		"title": "Vorraussetzung | Vorraussetzungen",
 		"wasserrettung": "Wasserrettung | Wasserrettungen",
+		"water_damage_pump_count": "THW-Ausbau: Fachgruppe Wasserschaden/Pumpen| THW-Ausbauten: Fachgruppen Wasserschaden/Pumpen",
 		"werkfeuerwehr": "Werkfeuerwehr | Werkfeuerwehren"
 	},
 	"prisoners": {
 		"max_possible_prisoners": "Gefangener maximal | Gefangene maximal",
 		"title": "Gefangene | {n} Gefangener | {n} Gefangene"
 	},
+	"subsequent": "Anschlusseinsatz | Anschlusseinsätze",
 	"tip": {
 		"dragging": "Feld verschieben",
 		"maxState": "Maximale Anforderungen (de-)aktivieren",
@@ -83,6 +85,7 @@
 			"platform_trucks": "Drehleiter | Drehleitern",
 			"police_cars": "Funkstreifenwagen",
 			"police_helicopters": "Polizeihubschauber",
+			"pump": "Schmutzwasserpumpe | Schmutzwasserpumpen",
 			"rescue_dog_units": "Rettungshundestaffel | Rettungshundestaffeln",
 			"rettungstreppe": "Rettungstreppe | Rettungstreppen",
 			"seg_elw": "ELW 1 (SEG)",
@@ -97,6 +100,7 @@
 			"turboloescher": "Turbolöscher",
 			"ulf": "ULF mit Löscharm",
 			"wasserwerfer": "WaWe 10",
+			"water_damage_pump": "Feuerlöschpumpe | Feuerlöschpumpen",
 			"water_tankers": "Schlauchwagen"
 		},
 		"multifunctionals": {

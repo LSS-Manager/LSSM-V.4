@@ -529,6 +529,7 @@ export default Vue.extend<
                     allow_rw_instead_of_lf: false,
                     allow_arff_instead_of_lf: false,
                     allow_ktw_instead_of_rtw: false,
+                    allow_dlk_instead_of_lf: false,
                     allow_drone_instead_of_investigation: false,
                 },
                 patients: {

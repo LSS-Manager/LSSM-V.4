@@ -140,11 +140,24 @@ export default ((MODULE_ID, LSSM, $m) => {
             default: false,
             dependsOn: '.vehicles.content',
         },
-        'optionalAlternatives.allow_arff_instead_of_lf': <Toggle>{
-            type: 'toggle',
-            default: false,
-            dependsOn: '.vehicles.content',
-        },
+        ...(['de_DE', 'en_US', 'nl_NL'].includes(locale)
+            ? {
+                  'optionalAlternatives.allow_arff_instead_of_lf': <Toggle>{
+                      type: 'toggle',
+                      default: false,
+                      dependsOn: '.vehicles.content',
+                  },
+              }
+            : null),
+        ...(locale === 'en_US'
+            ? {
+                  'optionalAlternatives.allow_dlk_instead_of_lf': <Toggle>{
+                      type: 'toggle',
+                      default: false,
+                      dependsOn: '.vehicles.content',
+                  },
+              }
+            : null),
         ...(locale === 'en_US'
             ? {
                   'optionalAlternatives.allow_drone_instead_of_investigation': <
@@ -262,7 +275,7 @@ export default ((MODULE_ID, LSSM, $m) => {
             type: 'toggle',
             default: true,
         },
-        ...(['en_US', 'it_IT', 'en_AU', 'nb_NO'].includes(locale)
+        ...(['en_US', 'it_IT', 'en_AU', 'nb_NO', 'de_DE'].includes(locale)
             ? {
                   subsequent: <Toggle>{
                       type: 'toggle',

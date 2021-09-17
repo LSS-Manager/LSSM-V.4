@@ -117,6 +117,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 9,
             wtank: 2000,
+            pumpcap: 2000,
             icon: 'truck-moving',
         },
         1: {
@@ -127,6 +128,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 9,
             wtank: 1200,
+            pumpcap: 1000,
             icon: 'truck-moving',
         },
         2: {
@@ -181,6 +183,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 9,
             wtank: 600,
+            pumpcap: 800,
             icon: 'truck-moving',
         },
         7: {
@@ -191,6 +194,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 9,
             wtank: 1600,
+            pumpcap: 2000,
             icon: 'truck-moving',
         },
         8: {
@@ -201,6 +205,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 9,
             wtank: 600,
+            pumpcap: 1000,
             icon: 'truck-moving',
         },
         9: {
@@ -211,6 +216,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 9,
             wtank: 0,
+            pumpcap: 1600,
             icon: 'truck-moving',
         },
         10: {
@@ -305,6 +311,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 3,
             wtank: 2000,
+            pumpcap: 1000,
             icon: 'truck-moving',
         },
         18: {
@@ -315,6 +322,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 3,
             wtank: 3000,
+            pumpcap: 2000,
             icon: 'truck-moving',
         },
         19: {
@@ -325,6 +333,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 3,
             wtank: 800,
+            pumpcap: 800,
             icon: 'truck-moving',
         },
         20: {
@@ -335,6 +344,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 3,
             wtank: 1800,
+            pumpcap: 800,
             icon: 'truck-moving',
         },
         21: {
@@ -345,6 +355,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 3,
             wtank: 2400,
+            pumpcap: 1600,
             icon: 'truck-moving',
         },
         22: {
@@ -355,6 +366,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 6,
             wtank: 2400,
+            pumpcap: 1600,
             icon: 'truck-moving',
         },
         23: {
@@ -365,6 +377,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 3,
             wtank: 4500,
+            pumpcap: 1600,
             icon: 'truck-moving',
         },
         24: {
@@ -375,6 +388,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 3,
             wtank: 4000,
+            pumpcap: 2000,
             icon: 'truck-moving',
         },
         25: {
@@ -385,6 +399,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 3,
             wtank: 4000,
+            pumpcap: 2000,
             icon: 'truck-moving',
         },
         26: {
@@ -395,6 +410,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 3,
             wtank: 1800,
+            pumpcap: 1600,
             icon: 'truck-moving',
         },
         27: {
@@ -439,6 +455,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 9,
             wtank: 1600,
+            pumpcap: 2000,
             icon: 'truck-moving',
         },
         31: {
@@ -517,6 +534,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 6,
             wtank: 500,
+            pumpcap: 1000,
             icon: 'truck-moving',
         },
         38: {
@@ -857,7 +875,7 @@ export default {
             credits: 10000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            schooling: 'THW - Bergungstaucher Lehrgang',
+            schooling: 'THW - Fachgruppe Bergungstaucher',
             shownSchooling: 'GW-Taucher',
             icon: 'truck',
         },
@@ -1060,6 +1078,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 3,
             wtank: 4000,
+            pumpcap: 2000,
             icon: 'truck-moving',
         },
         88: {
@@ -1070,6 +1089,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 6,
             wtank: 500,
+            pumpcap: 1000,
             icon: 'truck-moving',
         },
         89: {
@@ -1080,6 +1100,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 6,
             wtank: 1000,
+            pumpcap: 1000,
             icon: 'truck-moving',
         },
         90: {
@@ -1090,6 +1111,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 9,
             wtank: 1000,
+            pumpcap: 1000,
             icon: 'truck-moving',
         },
         91: {
@@ -1123,7 +1145,7 @@ export default {
             credits: 19000,
             minPersonnel: 4,
             maxPersonnel: 5,
-            schooling: 'THW - Rettungshundeführer (THW)',
+            schooling: 'THW - Fachgruppe Rettungshundeführer',
             shownSchooling: 'Rettungshundeführer (THW)',
             icon: 'paw',
         },
@@ -1187,6 +1209,48 @@ export default {
             special:
                 'Kann FuStW in bestimmten Einsätzen ersetzen. Wird auf vorhandene Polizeistellplätze gestellt.',
             icon: 'taxi',
+        },
+        99: {
+            caption: 'LKW 7 Lbw',
+            color: '#36759e',
+            coins: 25,
+            credits: 15000,
+            minPersonnel: 1,
+            maxPersonnel: 3,
+            schooling: 'THW - Fachgruppe Wasserschaden/Pumpen',
+            shownSchooling: 'Fachgruppe Wasserschaden/Pumpen',
+            icon: 'truck',
+        },
+        100: {
+            caption: 'MLW 4',
+            color: '#36759e',
+            coins: 25,
+            credits: 15000,
+            minPersonnel: 1,
+            maxPersonnel: 7,
+            schooling: 'THW - Fachgruppe Wasserschaden/Pumpen',
+            shownSchooling: 'Fachgruppe Wasserschaden/Pumpen',
+            icon: 'truck',
+        },
+        101: {
+            caption: 'Anh SwPu',
+            color: '#36759e',
+            coins: 25,
+            credits: 15000,
+            minPersonnel: 0,
+            maxPersonnel: 0,
+            pumpcap: 15000,
+            icon: 'trailer',
+        },
+        102: {
+            caption: 'Anh 7',
+            color: '#36759e',
+            coins: 25,
+            credits: 15000,
+            minPersonnel: 0,
+            maxPersonnel: 0,
+            pumpcap: 12400,
+            icon: 'trailer',
         },
     },
     buildings: {
@@ -1538,6 +1602,12 @@ export default {
                 {
                     caption: 'Fachgruppe Ortung',
                     credits: 450_000,
+                    coins: 25,
+                    duration: '7 Tage',
+                },
+                {
+                    caption: 'Fachgruppe Wasserschaden/Pumpen',
+                    credits: 200_000,
                     coins: 25,
                     duration: '7 Tage',
                 },
@@ -2079,6 +2149,7 @@ export default {
                 'Zugtrupp': [40],
                 ['Fachgruppe Räumen']: [42, 43, 44, 45],
                 'Fachgruppe Ortung': [92, 93],
+                'Fachgruppe Wasserschade/Pumpen': [99, 100, 101, 102],
             },
             color: '#0000ff',
         },
@@ -2272,7 +2343,7 @@ export default {
         ],
         THW: [
             {
-                caption: 'Bergungstaucher Lehrgang',
+                caption: 'Fachgruppe Bergungstaucher',
                 duration: '5 Tage',
             },
             {
@@ -2280,15 +2351,19 @@ export default {
                 duration: '7 Tage',
             },
             {
-                caption: 'Rettungshundeführer (THW)',
+                caption: 'Fachgruppe Rettungshundeführer',
                 duration: '5 Tage',
             },
             {
-                caption: 'Wassergefahren Lehrgang',
+                caption: 'Fachgruppe Wassergefahren',
                 duration: '3 Tage',
             },
             {
                 caption: 'Zugtrupp',
+                duration: '7 Tage',
+            },
+            {
+                caption: 'Fachgruppe Wasserschaden/Pumpen',
                 duration: '7 Tage',
             },
         ],
@@ -2406,6 +2481,8 @@ export default {
         'Tunnel',
         'Klärwerk',
         'Innenstadt',
+        'Möbelhaus',
+        'Campingplatz',
     ],
     only_alliance_missions: [41, 43, 59, 75, 99, 207, 221, 222, 256, 350],
     transfer_missions: [147, 613],

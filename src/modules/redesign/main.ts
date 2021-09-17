@@ -31,6 +31,7 @@ export default (async (LSSM, MODULE_ID) => {
         }),
         ...((await getSetting('category.vehicles')) && {
             '^/vehicles/\\d+/?$': 'vehicle',
+            '^/fahrzeugfarbe/\\d+/?$': 'fahrzeugfarbe',
             // '^/vehicles/\\d+/(patient|gefangener)/\\d+/?': 'vehicle/nextfms',
         }),
         ...((await getSetting('category.profile')) && {
@@ -40,10 +41,11 @@ export default (async (LSSM, MODULE_ID) => {
             '^/profile/edit/?$': 'profile/edit',
             '^/freunde/?$': 'freunde',
         }),
-        ...((await getSetting('category.einsaetze')) && {
-            '^/einsaetze/?$': 'einsaetze',
-            '^/einsaetze/\\d+/?$': 'einsatz',
-        }),
+        ...(MODE === 'beta' &&
+            (await getSetting('category.einsaetze')) && {
+                '^/einsaetze/?$': 'einsaetze',
+                '^/einsaetze/\\d+/?$': 'einsatz',
+            }),
         ...((await getSetting('category.toplist')) && {
             '^/toplist/?$': 'toplist',
         }),

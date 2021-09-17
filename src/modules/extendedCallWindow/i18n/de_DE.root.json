@@ -74,6 +74,7 @@
 			"title": "Fahrzeuge nachladen in Kopfleiste"
 		},
 		"missionKeywords": {
+			"allMissions": "---: Alle Einsätze",
 			"autotextcolor": "automatische Schriftfarbe",
 			"color": "Hintergrundfarbe",
 			"description": "Lasse dir ein eigenes Stichwort neben dem Einsatznamen anzeigen. Du kannst Variablen verwenden, werf hierzu ein Blick ins <a class=\"lightbox-open\" href=\"{wiki}modules/extendedCallWindow.html#variablen\">Wiki</a>.",
@@ -240,7 +241,11 @@
 					68,
 					69,
 					92,
-					93
+					93,
+					99,
+					100,
+					101,
+					102
 				]
 			},
 			{

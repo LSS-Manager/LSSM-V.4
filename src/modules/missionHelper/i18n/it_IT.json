@@ -25,7 +25,7 @@
 		"police_helicopter_stations": "Stazione elicottero polizia | Stazioni elicottero polizia",
 		"police_stations": "Stazione di Polizia | Stazioni di Polizia",
 		"rescue_stations": "Stazione ambulanza | Stazioni ambulanze",
-		"title": "Prerequisito | Prerequisitp",
+		"title": "Prerequisito | Prerequisiti",
 		"wasserrettung": "Caserma soccorso acquatico VVF"
 	},
 	"prisoners": {
@@ -64,7 +64,7 @@
 			"mobile_air_vehicles": "Carro aria",
 			"mobile_command_vehicles": "UCL",
 			"platform_trucks": "Autoscala | Autoscale",
-			"police_cars": "Pattuglie",
+			"police_cars": "Pattuglia | Pattuglie",
 			"police_helicopters": "Elicottero della polizia",
 			"swat_armored_vehicle": "Furgone Antisommossa",
 			"swat_suv": "Suv UOPI",

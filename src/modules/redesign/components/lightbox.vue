@@ -96,6 +96,15 @@
                 :set-setting="setSetting()"
                 :type="type"
             ></Einsatz>
+            <Fahrzeugfarbe
+                v-else-if="type === 'fahrzeugfarbe'"
+                :fahrzeugfarbe="data"
+                :url="urlProp"
+                :lightbox="this"
+                :get-setting="getSetting()"
+                :set-setting="setSetting()"
+                :type="type"
+            ></Fahrzeugfarbe>
             <Freunde
                 v-else-if="type === 'freunde'"
                 :friends="data"
@@ -244,6 +253,10 @@ export default Vue.extend<
         Einsatz: () =>
             import(
                 /*webpackChunkName: "modules/redesign/windows/einsatz"*/ './einsatz.vue'
+            ),
+        Fahrzeugfarbe: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/fahrzeugfarbe"*/ './fahrzeugfarbe.vue'
             ),
         Freunde: () =>
             import(
@@ -495,7 +508,7 @@ export default Vue.extend<
                                     );
                                 } catch (e) {
                                     this.errors.push(e);
-                                    this.$store.dispatch('console/error', e);
+                                    this.$store.dispatch('console/error', [e]);
                                 }
                             }
                         );

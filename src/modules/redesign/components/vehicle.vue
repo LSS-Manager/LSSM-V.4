@@ -76,14 +76,15 @@
                                         :href="
                                             `/fahrzeugfarbe/${
                                                 vehicle.vehicle_type.id
-                                            }${
+                                            }?close-after-submit${
                                                 vehicle.vehicle_type.custom
-                                                    ? `?vehicle_type_caption=${vehicle.vehicle_type.caption}`
+                                                    ? `&vehicle_type_caption=${vehicle.vehicle_type.caption}`
                                                     : ''
                                             }`
                                         "
                                         class="btn btn-default btn-xs"
                                         :title="lightbox.$sm('color')"
+                                        lightbox-open
                                     >
                                         <font-awesome-icon
                                             :icon="faPalette"

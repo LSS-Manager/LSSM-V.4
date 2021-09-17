@@ -107,6 +107,11 @@ export default (async (LSSM, MODULE_ID, $m) => {
                 )
             ).default(LSSM, MODULE_ID);
         }
+        await (
+            await import(
+                /* webpackChunkName: "modules/extendedBuilding/personalAssignmentButton" */ './assets/personalAssignmentButton'
+            )
+        ).default(LSSM);
     } else if (
         window.location.pathname.match(/^\/vehicles\/\d+\/zuweisung\/?$/)
     ) {

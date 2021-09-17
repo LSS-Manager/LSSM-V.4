@@ -70,13 +70,13 @@ export default {
     error: {
         title: 'LSS Manager: Error',
         msg:
-            'Se questo erraore avviene frequentamente, per cortesia contatta il Team di LSSM!',
+            'Se questo errore avviene frequentamente, per cortesia contatta il Team di LSSM!',
     },
     warnings: {
         version: {
             title: 'Versione di LSS Manager sbagliata!',
             text:
-                "Gentile utente, purtroppo abbiamo dovuto scoprire che non disponi dell'ultima versione di LSS Manager. L'ultima versione è {version}, ma prima hai {curver}. Ricarica il gioco senza cache (con Ctrl + F5, sui dispositivi Apple Command + R), questo dovrebbe risolvere il bug. Se l'errore persiste, segnalalo al team! Se utilizzi una versione sbagliata, non possiamo garantire la piena funzionalità di LSS-Manager.",
+                "Gentile utente, abbiamo notato che non disponi dell'ultima versione di LSS Manager. L'ultima versione è {version}, ma hai {curver}. Ricarica il gioco senza cache (su Windows con Ctrl + F5, sui dispositivi Apple con Command + R), questo dovrebbe risolvere il bug. Se l'errore persiste, segnalalo al team! Se utilizzi una versione sbagliata, non possiamo garantire la piena funzionalità di LSS-Manager.",
             close: 'Chiudi il messaggio e ricarica il gioco (Raccomandato)',
             abort: 'Chiudi il messaggio senza ricaricare il gioco.',
         },
@@ -104,7 +104,7 @@ export default {
         },
         osmDarkTooltip: {
             description:
-                'Questa impostazione scurisce i tooltip sulla mappa se hai abilitato la modalità scura',
+                'Questa impostazione rende scuri i tooltip sulla mappa se hai abilitato la modalità scura',
             title: 'Tooltips scuri sulla mappa',
         },
     },
@@ -238,7 +238,7 @@ export default {
             coins: 30,
             credits: 300_000,
             minPersonnel: 1,
-            maxPersonnel: 2,
+            maxPersonnel: 5,
             schooling: 'Polizia - Reparto volo della polizia',
             shownSchooling: 'Reparto volo della polizia',
             special:
@@ -262,9 +262,9 @@ export default {
             credits: 7_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            schooling: 'Polizia - Specializzazione unità cinoflia',
-            shownSchooling: 'Specializzazione unità cinoflia',
-            special: 'Richiesto dopo aver costruito 6 stazioni di polizia',
+            schooling: 'Polizia - Specializzazione unità cinofila',
+            shownSchooling: 'Specializzazione unità cinofila',
+            special: 'Richiesta dopo aver costruito 6 stazioni di polizia',
         },
         16: {
             caption: 'Moto della Polizia',
@@ -438,7 +438,7 @@ export default {
             minPersonnel: 0,
             maxPersonnel: 0,
             special:
-                'Richiede 1 persona formato nel veicolo trainante (Autista Movimento Terra)',
+                'Richiede 1 persona addestrata per il veicolo trainante (Autista Movimento Terra)',
         },
         34: {
             caption: 'Elicottero Antincendio',
@@ -463,6 +463,16 @@ export default {
             schooling:
                 'Caserma dei vigili del fuoco - Pilota Velivoli Antincendio',
             shownSchooling: 'Pilota Velivoli Antincendio',
+        },
+        36: {
+            caption: 'P.M.A.',
+            color: '#f59f00',
+            coins: 15,
+            credits: 50_000,
+            minPersonnel: 1,
+            maxPersonnel: 4,
+            schooling: 'Soccorso - Corso Operatore MaxiEmergenze',
+            shownSchooling: 'Operatore MaxiEmergenze',
         },
     },
     buildings: {
@@ -490,9 +500,15 @@ export default {
                     coins: 15,
                     duration: '7 Giorni',
                 },
+                {
+                    caption: 'Soccorso di Massa',
+                    credits: 150_000,
+                    coins: 20,
+                    duration: '5 Giorni',
+                },
             ],
             levelcost: ['1. 10.000', '2. 50.000', '3.-24. 100.000'],
-            maxBuildings: '5.000 together with small fire stations',
+            maxBuildings: '5.000 includendo le stazioni piccole',
             maxLevel: 16,
             special:
                 'Dalla 24° Caserma ,i costi aumentano con questa formula: <code>100.000+200.000*LOG<sub>2</sub>(Numero di caserme dei vigili del fuoco esistenti − 22)</code>. Il prezzo delle monete rimane costante!',
@@ -512,7 +528,7 @@ export default {
                 duration: '7 giorni',
             }),
             levelcost: [],
-            maxBuildings: 'nessun limite',
+            maxBuildings: 'Nessun limite',
             maxLevel: 0,
             special:
                 "L'amministratore Finanziario dell'alleanza può costruire ed espandere le accademie usando i fondi dell'Alleanza, L'educatore dell'alleanza può aprire i corsi all'interno dell'accademia",
@@ -524,9 +540,16 @@ export default {
             color: '#ffa500',
             coins: 35,
             credits: 200_000,
-            extensions: [],
+            extensions: [
+                {
+                    caption: 'MaxiEmergenza',
+                    credits: 150_000,
+                    coins: 20,
+                    duration: '5 giorni',
+                },
+            ],
             levelcost: ['1. 10.000', '2. 50.000', '3.-16. 100.000'],
-            maxBuildings: 'No limit',
+            maxBuildings: 'Nessun limite',
             maxLevel: 16,
             special: '',
             startPersonnel: 3,
@@ -544,7 +567,7 @@ export default {
                 duration: '7 giorni',
             }),
             levelcost: [],
-            maxBuildings: 'nessun limite',
+            maxBuildings: 'Nessun limite',
             maxLevel: 0,
             special:
                 "L'amministratore Finanziario dell'alleanza può costruire ed espandere le accademie usando i fondi dell'Alleanza, L'educatore dell'alleanza può aprire i corsi all'interno dell'accademia",
@@ -658,7 +681,7 @@ export default {
             maxBuildings: 'No limit',
             maxLevel: 20,
             special:
-                'Amministratore finanziario ed Admin Alleanza ,possono espandere e costruire gli ospedali usando i fondi alleanza',
+                "L'Amministratore finanziario ed l'Admin Alleanza ,possono espandere e costruire gli ospedali usando i fondi alleanza",
             startPersonnel: 0,
             startVehicles: [],
         },
@@ -672,7 +695,7 @@ export default {
             maxBuildings: 'see specials',
             maxLevel: 0,
             special:
-                'Fino al 125esimo edificio (di tutti i tipi) potranno essere solo 4, arrivati a questo numero sarà possibile aumentrali di uno ogni 25 edifici',
+                'Fino al 125esimo edificio (di qualsiasi tipo) potranno essere solo 4, arrivati a questo numero sarà possibile aumentrali di uno ogni 25 edifici',
             startPersonnel: 0,
             startVehicles: [],
             maxBuildingsFunction: (buildingsAmountTotal: number): number =>
@@ -769,7 +792,7 @@ export default {
             maxBuildings: 1,
             maxLevel: 0,
             special:
-                "Puoi far stazionare quanti veicoli vuoi all'interno della base temporanea. Tuoi o dei membri della tua alleanza. Avrà una durata massima di ventiquattro  ore dopo di chie scadra rilasciando tutti i veicoli. potrai rinnovarla entro le 24 ore affinchè non sscada.",
+                "Puoi far stazionare quanti veicoli vuoi all'interno della base temporanea. Tuoi o dei membri della tua alleanza. Avrà una durata massima di ventiquattro ore, dopo di che scadrà, rilasciando tutti i veicoli. Potrai rinnovarla per altre 24 ore prima che scada.",
             startPersonnel: 0,
             startVehicles: [],
             maxBuildingsFunction: (): number => 1,
@@ -781,7 +804,7 @@ export default {
             credits: 500_000,
             extensions: [],
             levelcost: ['1. 10.000', '2. 50.000', '3.-5. 100.000'],
-            maxBuildings: 'No Limit',
+            maxBuildings: 'Nessun limite',
             maxLevel: 5,
             special: 'Avrete 10 persone e un Pickup SAF gratis.',
             startPersonnel: 10,
@@ -806,7 +829,7 @@ export default {
                 }),
             ],
             levelcost: [],
-            maxBuildings: 'No limit',
+            maxBuildings: 'Nessun limite',
             maxLevel: 0,
             special:
                 "Questo edificio può essere costruito solo dagli amministratori dell'alleanza",
@@ -823,9 +846,9 @@ export default {
                 '1. 10.000',
                 '2. 50.000',
                 '3.-5. 100.000',
-                'Conversione a caserma grande ,il costo della caserma piccola',
+                'Conversione a caserma grande: la differenza tra il costo della caserma piccola e quella grande',
             ],
-            maxBuildings: '5.000 together with fire stations',
+            maxBuildings: '5.000 includendo le stazioni grandi',
             maxLevel: 5,
             special:
                 'A partire dalla 24° caserma i costi aumenteranno secondo la seguente formula: <code>(100.000+200.000*LOG<sub>2</sub>(Number of existing fire stations − 22)) / 2</code>. max. 1 Million Credits. The Coins price remains constant!',
@@ -856,9 +879,9 @@ export default {
                 '1. 10.000',
                 '2. 50.000',
                 '3.-4. 100.000',
-                'Conversione a caserma grande ,il costo della caserma piccola',
+                'Conversione a caserma grande: la differenza tra il costo della caserma piccola e quella grande',
             ],
-            maxBuildings: '1.700 insieme alle stazioni di polizia',
+            maxBuildings: '1.700 includendo le stazioni di polizia',
             maxLevel: 4,
             special:
                 'A partire dalla 24° caserma i costi aumenteranno secondo la seguente formula:<code>(100.000+200.000*LOG<sub>2</sub>(Number of existing police stations − 22)) / 2</code>. The Coins price remains constant!',
@@ -876,9 +899,9 @@ export default {
                 '1. 10.000',
                 '2. 50.000',
                 '3.-5. 100.000',
-                'Conversione a caserma grande ,il costo della caserma piccola',
+                'Conversione a caserma grande: la differenza tra il costo della caserma piccola e quella grande',
             ],
-            maxBuildings: 'No limit',
+            maxBuildings: 'Nessun limite',
             maxLevel: 5,
             special: '',
             startPersonnel: 3,
@@ -942,7 +965,7 @@ export default {
             vehicles: {
                 Ambulanza: [4, 20, 27],
                 Elisoccorso: [8],
-                Medica: [18, 19],
+                Medica: [18, 19, 36],
             },
             color: '#ffa500',
         },
@@ -1028,6 +1051,10 @@ export default {
                 caption: 'Direttore Operazioni Spegnimento',
                 duration: '3 giorni',
             },
+            {
+                caption: 'Corso Operatore MaxiEmergenze',
+                duration: '5 giorni',
+            },
         ],
         'Polizia': [
             {
@@ -1039,7 +1066,7 @@ export default {
                 duration: '5 giorni',
             },
             {
-                caption: 'Specializzazione unità cinoflia',
+                caption: 'Specializzazione unità cinofila',
                 duration: '5 giorni',
             },
             {
@@ -1055,6 +1082,10 @@ export default {
             {
                 caption: 'Corso medico di emergenza',
                 duration: '7 giorni',
+            },
+            {
+                caption: 'Corso Operatore MaxiEmergenze ',
+                duration: '5 giorni',
             },
         ],
     },

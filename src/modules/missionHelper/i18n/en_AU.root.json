@@ -138,6 +138,10 @@
 				"title": "Prisoners (Title)"
 			}
 		},
+		"subsequent": {
+			"description": "Lists possible Subsequent missions on succes.",
+			"title": "Subsequent mission"
+		},
 		"title": {
 			"description": "Shows the mission name, e.g. \"Trashcan fire\" as title.",
 			"title": "mission name"
