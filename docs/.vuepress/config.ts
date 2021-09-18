@@ -512,7 +512,7 @@ module.exports = async () => {
                 },
             },
             'vuepress-plugin-code-copy': {
-                align: 'top'
+                align: 'top',
             },
             'vuepress-plugin-redirect': {
                 locales: true,
