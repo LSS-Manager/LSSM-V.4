@@ -21,7 +21,6 @@
         "@fortawesome/vue-fontawesome": "^2.0.2",
         "axios": "^0.21.4",
         "broadcast-channel": "^4.2.0",
-        "combokeys": "^3.0.1",
         "he": "^1.2.0",
         "highcharts": "^9.2.2",
         "localforage": "^1.10.0",
@@ -44,7 +43,6 @@
     },
     "devDependencies": {
         "@primer/octicons": "^15.1.0",
-        "@types/combokeys": "^2.4.6",
         "@types/he": "^1.1.2",
         "@types/i18n-js": "^3.8.2",
         "@types/jquery": "^3.5.6",
@@ -82,6 +80,7 @@
         "vue-loader": "^15.9.8",
         "vue-template-compiler": "^2.6.14",
         "vuepress": "^1.8.2",
+        "vuepress-plugin-code-copy": "^1.0.6",
         "vuepress-plugin-redirect": "^1.2.5",
         "vuepress-plugin-smooth-scroll": "^0.0.10",
         "vuepress-plugin-zooming": "^1.1.8",

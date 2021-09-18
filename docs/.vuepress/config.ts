@@ -511,6 +511,9 @@ module.exports = async () => {
                     return moment(timestamp).format('LLL');
                 },
             },
+            'vuepress-plugin-code-copy': {
+                align: 'top'
+            },
             'vuepress-plugin-redirect': {
                 locales: true,
             },
