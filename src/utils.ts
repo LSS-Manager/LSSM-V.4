@@ -7,6 +7,29 @@ export default (Vue: VueConstructor): void => {
         escapeRegex(s: string) {
             return s.replace(/[[\\^$.|?*+()]/g, '\\$&');
         },
+        getNumberFromText<Multiple extends boolean = false>(
+            text: string,
+            allNumbers: Multiple = false,
+            fallback = -1
+        ): Multiple extends true ? number[] : number {
+            const regex = new RegExp(
+                /\d{1,3}(?:(?:[,.]|\s)\d{3})*/,
+                allNumbers ? 'g' : ''
+            );
+            return allNumbers
+                ? text
+                      .match(regex)
+                      ?.map(match =>
+                          parseInt(
+                              match.replace(/[,.]|\s/g, '') ??
+                                  fallback.toString()
+                          )
+                      ) ?? []
+                : parseInt(
+                      text.match(regex)?.[0]?.replace(/[,.]|\s/g, '') ??
+                          fallback.toString()
+                  );
+        },
         getTextNodes(
             root: Node,
             filter?: (node: Node, ...args: unknown[]) => true

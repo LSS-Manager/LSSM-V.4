@@ -78,22 +78,20 @@ export default (LSSM: Vue, MODULE_ID: string, $m: $m): void => {
             const isWater = requirement.vehicle === water;
             const isFoam = requirement.vehicle === foam;
             if (isWater) {
-                requirement.driving = parseInt(
-                    document
-                        .querySelector<HTMLDivElement>(
-                            '[id^="mission_water_holder_"] div.progress-bar-mission-window-water.progress-bar-warning'
-                        )
-                        ?.textContent?.match(/\d{1,3}(([,.]|\s)\d{3})*/)?.[0]
-                        ?.replace(/[,.]|\s/g, '') ?? '0'
+                requirement.driving = LSSM.$utils.getNumberFromText(
+                    document.querySelector<HTMLDivElement>(
+                        '[id^="mission_water_holder_"] div.progress-bar-mission-window-water.progress-bar-warning'
+                    )?.textContent ?? '',
+                    false,
+                    0
                 );
             } else if (isFoam) {
-                requirement.driving = parseInt(
-                    document
-                        .querySelector<HTMLDivElement>(
-                            '[id^="mission_foam_holder_"] div.progress-bar-mission-window-water.progress-bar-warning'
-                        )
-                        ?.textContent?.match(/\d{1,3}(([,.]|\s)\d{3})*/)?.[0]
-                        ?.replace(/[,.]|\s/g, '') ?? '0'
+                requirement.driving = LSSM.$utils.getNumberFromText(
+                    document.querySelector<HTMLDivElement>(
+                        '[id^="mission_foam_holder_"] div.progress-bar-mission-window-water.progress-bar-warning'
+                    )?.textContent ?? '',
+                    false,
+                    0
                 );
             } else {
                 const vehicleGroupRequirement = Object.keys(

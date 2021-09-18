@@ -59,12 +59,7 @@ export default async (
     ]);
 
     const getNum = (el: Element | null) =>
-        parseInt(
-            el?.textContent
-                ?.trim()
-                .match(/-?\d{1,3}(([,.]|\s)\d{3})*/)?.[0]
-                ?.replace(/[,.]|\s/g, '') ?? '0'
-        );
+        LSSM.$utils.getNumberFromText(el?.textContent?.trim() ?? '', false, 0);
 
     return {
         entries: Array.from(
