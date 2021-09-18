@@ -1,6 +1,6 @@
 import { ModuleMainFunction } from 'typings/Module';
 
-import Hotkey from './assets/Hotkey';
+import HotkeyUtility from './assets/HotkeyUtility';
 
 export default (async () => {
     const input = document.createElement('input');
@@ -8,16 +8,16 @@ export default (async () => {
     trigger.textContent = 'click';
     document.body.append(input, trigger);
 
-    const h = new Hotkey();
+    const h = new HotkeyUtility();
     trigger.onclick = () =>
         h.record(
             document.body,
             sequence => (input.value = JSON.stringify(sequence))
         );
-    const shiftA = Hotkey.createListener(['shift+a'], () =>
+    const shiftA = HotkeyUtility.createListener(['shift+a'], () =>
         console.log('shift+a')
     );
-    const shiftB = Hotkey.createListener(['shift+b'], () =>
+    const shiftB = HotkeyUtility.createListener(['shift+b'], () =>
         console.log('shift+b')
     );
     const stopListen = h.listen([

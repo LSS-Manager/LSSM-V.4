@@ -8,7 +8,7 @@ type Listener = [NormalizedSequence, CallbackFunction];
 type ModifierAttributes = 'ctrlKey' | 'metaKey' | 'shiftKey' | 'altKey';
 type Modifiers = 'control' | 'meta' | 'shift' | 'alt';
 
-export default class Hotkey {
+export default class HotkeyUtility {
     private static readonly modifiers: Record<ModifierAttributes, Modifiers> = {
         ctrlKey: 'control',
         metaKey: 'meta',
@@ -34,7 +34,7 @@ export default class Hotkey {
     private recordedChar = false;
     private recording = false;
 
-    private recordCallback: CallbackFunction = Hotkey.defaultCallback;
+    private recordCallback: CallbackFunction = HotkeyUtility.defaultCallback;
 
     public record(inputField: HTMLElement, callback: CallbackFunction): void {
         this.reset();
@@ -43,7 +43,7 @@ export default class Hotkey {
         const eventListener = (event: KeyboardEvent) => this.handleKey(event);
 
         this.recordCallback = sequence => {
-            this.recordCallback = Hotkey.defaultCallback;
+            this.recordCallback = HotkeyUtility.defaultCallback;
             inputField.removeEventListener('keydown', eventListener);
             inputField.removeEventListener('keyup', eventListener);
             this.recording = false;
@@ -81,7 +81,7 @@ export default class Hotkey {
                                     1
                                 );
                             }
-                        }, Hotkey.timeoutLength);
+                        }, HotkeyUtility.timeoutLength);
                     }
                 });
             }
@@ -126,7 +126,7 @@ export default class Hotkey {
     private getKeyAndModifiers(event: KeyboardEvent): [string, Modifiers[]] {
         return [
             event.key.toLowerCase(),
-            Object.entries(Hotkey.modifiers)
+            Object.entries(HotkeyUtility.modifiers)
                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                 // @ts-ignore because I cannot tell TS that modifier is of type ModifierAttributes
                 .filter(([modifier]) => event[modifier])
@@ -149,7 +149,7 @@ export default class Hotkey {
         window.clearTimeout(this.timer);
         this.timer = window.setTimeout(
             () => this.finishRecording(),
-            Hotkey.timeoutLength
+            HotkeyUtility.timeoutLength
         );
     }
 
