@@ -2,7 +2,14 @@ import { ModuleMainFunction } from 'typings/Module';
 
 import HotkeyUtility from './assets/HotkeyUtility';
 
-export default (async () => {
+export default (async (LSSM, MODULE_ID) => {
+    const getSetting = (settingId: string) => {
+        return LSSM.$store.dispatch('settings/getSetting', {
+            moduleId: MODULE_ID,
+            settingId,
+        });
+    };
+
     const input = document.createElement('input');
     const trigger = document.createElement('button');
     trigger.textContent = 'click';
@@ -31,4 +38,13 @@ export default (async () => {
         ],
         shiftB,
     ]);
+
+    const example = await getSetting('exampleHotkey');
+    if (example) {
+        h.addListener(
+            HotkeyUtility.createListener(example.split(' '), () => {
+                alert("you've triggered example hotkey");
+            })
+        );
+    }
 }) as ModuleMainFunction;

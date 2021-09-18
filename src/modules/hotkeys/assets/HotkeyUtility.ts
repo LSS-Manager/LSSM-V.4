@@ -15,6 +15,9 @@ export default class HotkeyUtility {
         shiftKey: 'shift',
         altKey: 'alt',
     };
+    private static readonly nameReplacements: Record<string, string> = {
+        ' ': 'space',
+    };
     private static readonly defaultCallback = () => void 0;
     private static readonly timeoutLength = 1000;
 
@@ -55,10 +58,7 @@ export default class HotkeyUtility {
     }
 
     public listen(listeners: Listener[]): (listeners: Listener[]) => void {
-        listeners.forEach(listener => {
-            if (!this.listeners.includes(listener))
-                this.listeners.push(listener);
-        });
+        listeners.forEach(listener => this.addListener(listener));
 
         const eventListener = (event: KeyboardEvent) => {
             if (this.recording) return;
@@ -106,6 +106,10 @@ export default class HotkeyUtility {
         };
     }
 
+    public addListener(listener: Listener): void {
+        if (!this.listeners.includes(listener)) this.listeners.push(listener);
+    }
+
     private handleKey(event: KeyboardEvent) {
         const [key, modifiers] = this.getKeyAndModifiers(event);
         event.preventDefault();
@@ -124,8 +128,9 @@ export default class HotkeyUtility {
     }
 
     private getKeyAndModifiers(event: KeyboardEvent): [string, Modifiers[]] {
+        const key = event.key.toLowerCase();
         return [
-            event.key.toLowerCase(),
+            HotkeyUtility.nameReplacements[key] ?? key,
             Object.entries(HotkeyUtility.modifiers)
                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                 // @ts-ignore because I cannot tell TS that modifier is of type ModifierAttributes
