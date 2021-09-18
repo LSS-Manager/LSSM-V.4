@@ -1,7 +1,7 @@
 {
 	"dev": true,
 	"github": 15,
-	"location": ".*",
+	"location": "^/?$",
 	"noapp": true,
 	"settings": true
 }
