@@ -2,20 +2,20 @@
 	"commands": {
 		"main": {
 			"chat": {
-				"focus": "focus input field",
+				"focus": "focus invoerveld",
 				"title": "Chat"
 			},
-			"title": "Main window"
+			"title": "Hoofdscherm"
 		}
 	},
 	"description": "Bestuur het spel met sneltoetsen op het toetsenbord, die je zelf kunt instellen.",
 	"name": "Sneltoetsen",
 	"settings": {
-		"command": "Action",
-		"hotkey": "Hotkey",
+		"command": "Actie",
+		"hotkey": "Sneltoets",
 		"hotkeys": {
-			"description": "Set your own Hotkeys for certain actions here.",
-			"title": "Hotkeys"
+			"description": "Stel je sneltoetsen voor verschillende acties hier in.",
+			"title": "Sneltoetsen"
 		}
 	}
 }
