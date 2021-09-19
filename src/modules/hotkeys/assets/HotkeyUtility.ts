@@ -20,7 +20,7 @@ export default class HotkeyUtility {
         ' ': 'space',
     };
     private static readonly defaultCallback = () => void 0;
-    private static readonly timeoutLength = 1000;
+    private static readonly timeoutLength = 500;
 
     public static createListener(
         sequence: string[],

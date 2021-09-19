@@ -1,18 +1,21 @@
 {
+	"commands": {
+		"main": {
+			"chat": {
+				"focus": "focus input field",
+				"title": "Chat"
+			},
+			"title": "Main window"
+		}
+	},
 	"description": "Bestuur het spel met sneltoetsen op het toetsenbord, die je zelf kunt instellen.",
 	"name": "Sneltoetsen",
 	"settings": {
-		"nextElementKey": {
-			"description": "",
-			"title": "Volgende \"Element\""
-		},
-		"prevElementKey": {
-			"description": "",
-			"title": "Vorige \"Element\""
-		},
-		"prevNextElement": {
-			"description": "Bedenk een beschrijving hier",
-			"title": "prevNextElement"
+		"command": "Action",
+		"hotkey": "Hotkey",
+		"hotkeys": {
+			"description": "Set your own Hotkeys for certain actions here.",
+			"title": "Hotkeys"
 		}
 	}
 }

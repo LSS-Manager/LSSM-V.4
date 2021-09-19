@@ -7,14 +7,18 @@ import {
 } from 'typings/Setting';
 
 export default <ModuleSettingFunction>((MODULE_ID, LSSM, $m) => {
-    const commands: string[] = [
-        'main.chat.focus',
-        'main.chat.something',
-        'main.map.moveup',
-        '*.alert',
-    ];
-    const labels: string[] = commands.map(command =>
-        $m(`commands.${command}`).toString()
+    const commands: string[] = ['main.chat.focus'].sort();
+    const labels: string[] = commands.map(
+        command =>
+            `${command
+                .split('.')
+                .slice(0, -1)
+                .map((_, index, path) =>
+                    $m(
+                        `commands.${path.slice(0, index + 1).join('.')}.title`
+                    ).toString()
+                )
+                .join(' – ')}: ${$m(`commands.${command}`).toString()}`
     );
 
     return {
@@ -24,8 +28,8 @@ export default <ModuleSettingFunction>((MODULE_ID, LSSM, $m) => {
             listItem: [
                 <AppendableListSetting<Select>>{
                     name: 'command',
-                    title: $m('settings.command.title'),
-                    size: 3,
+                    title: $m('settings.command'),
+                    size: 5,
                     setting: {
                         type: 'select',
                         values: commands,
@@ -34,7 +38,7 @@ export default <ModuleSettingFunction>((MODULE_ID, LSSM, $m) => {
                 },
                 <AppendableListSetting<HotKey>>{
                     name: 'hotkey',
-                    title: $m('settings.hotkey.title'),
+                    title: $m('settings.hotkey'),
                     size: 0,
                     setting: {
                         type: 'hotkey',

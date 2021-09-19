@@ -1,16 +1,21 @@
 {
+	"commands": {
+		"main": {
+			"chat": {
+				"focus": "Eingabefeld fokusieren",
+				"title": "Chat"
+			},
+			"title": "Hauptfenster"
+		}
+	},
 	"description": "Steuere das Spiel mit Hotkeys auf der Tastatur, die du selbst festlegen kannst.",
 	"name": "Hotkeys",
 	"settings": {
-		"nextElementKey": {
-			"title": "Nächstes \"Element\""
-		},
-		"prevElementKey": {
-			"title": "Vorheriges \"Element\""
-		},
-		"prevNextElement": {
-			"description": "Think of a cool description here",
-			"title": "prevNextElement"
+		"command": "Aktion",
+		"hotkey": "Hotkey",
+		"hotkeys": {
+			"description": "Lege hier für bestimmte Aktionen eigene Hotkeys fest.",
+			"title": "Hotkeys"
 		}
 	}
 }
