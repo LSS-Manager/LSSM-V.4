@@ -1,51 +1,9 @@
 import { ModuleMainFunction } from 'typings/Module';
+import { Empty, Scope } from 'typings/modules/Hotkeys';
 
 import HotkeyUtility, { CallbackFunction } from './assets/HotkeyUtility';
 
-type Id<T> = T extends infer U ? { [K in keyof U]: U[K] } : never;
-// eslint-disable-next-line @typescript-eslint/ban-types
-type Empty = {};
-type Scope<
-    This extends Record<string, unknown> = Empty,
-    Scopes extends string[] = [],
-    Commands extends string[] = [],
-    Root extends boolean = false
-> = Id<
-    (Root extends false
-        ? {
-              validatorFunction(this: This): boolean;
-          }
-        : Empty) &
-        { [scope in Scopes[number]]: Scope<This> } &
-        {
-            [command in Commands[number]]: (
-                this: This,
-                ...args: Parameters<CallbackFunction>
-            ) => ReturnType<CallbackFunction>;
-        }
->;
-
-const commands: Scope<Empty, ['*', 'main'], [], true> = {
-    '*': <Scope<Empty, [], ['alert']>>{
-        validatorFunction: () => true,
-        alert: sequence => window.alert(JSON.stringify(sequence)),
-    },
-    'main': <Scope<Empty, ['chat']>>{
-        validatorFunction: () => window.location.pathname.length <= 1,
-        chat: <Scope<{ chatInput: HTMLInputElement }, [], ['focus']>>{
-            validatorFunction() {
-                const chatInput = document.querySelector<HTMLInputElement>(
-                    '#alliance_chat_message'
-                );
-                if (chatInput) this.chatInput = chatInput;
-                return !!chatInput;
-            },
-            focus() {
-                this.chatInput.focus();
-            },
-        },
-    },
-};
+const rootCommandScopes: ['*', 'main'] = ['*', 'main'];
 
 export default (async (LSSM, MODULE_ID) => {
     const getSetting = (settingId: string) => {
@@ -53,6 +11,27 @@ export default (async (LSSM, MODULE_ID) => {
             moduleId: MODULE_ID,
             settingId,
         });
+    };
+
+    const isMainWindow = window.location.pathname.length <= 1;
+
+    const commands: Scope<Empty, typeof rootCommandScopes, [], true> = {
+        '*': <Scope<Empty, [], ['alert']>>{
+            validatorFunction: () => true,
+            alert: sequence => window.alert(JSON.stringify(sequence)),
+        },
+        ...(isMainWindow
+            ? {
+                  main: {
+                      validatorFunction: () => isMainWindow,
+                      ...(
+                          await import(
+                              /* webpackChunkName: "modules/hotkeys/commands/main" */ './assets/commands/main'
+                          )
+                      ).default,
+                  },
+              }
+            : {}),
     };
 
     const hotkeyUtility = new HotkeyUtility();
@@ -74,6 +53,13 @@ export default (async (LSSM, MODULE_ID) => {
 
         for (const scope of path) {
             if (!base.hasOwnProperty(scope)) {
+                if (
+                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                    // @ts-ignore because TypeScript sometimes :)
+                    rootCommandScopes.includes(scope) &&
+                    !walkedPath.length
+                )
+                    return;
                 return LSSM.$store.dispatch('console/error', [
                     `Hotkeys: scope ${scope} does not exist on ${walkedPath.join(
                         '.'
@@ -98,7 +84,6 @@ export default (async (LSSM, MODULE_ID) => {
                     callback.bind(validationResult)
                 )
             );
-            console.log(hotkeyUtility.currentListeners);
         } else {
             return LSSM.$store.dispatch('console/error', [
                 `Hotkeys: ${command} is not a function! Cannot add it with hotkey »${hotkey}«`,
