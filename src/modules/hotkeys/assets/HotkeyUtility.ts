@@ -1,8 +1,9 @@
+import cloneDeep from 'lodash/cloneDeep';
 import isEqual from 'lodash/isEqual';
 
 type Sequence = string[][];
 type NormalizedSequence = string[];
-type CallbackFunction = (sequence: string[]) => void;
+export type CallbackFunction = (sequence: string[]) => void;
 type Listener = [NormalizedSequence, CallbackFunction];
 
 type ModifierAttributes = 'ctrlKey' | 'metaKey' | 'shiftKey' | 'altKey';
@@ -32,6 +33,10 @@ export default class HotkeyUtility {
     private readonly currentKeys: string[] = [];
     private readonly listeners: Listener[] = [];
     private readonly executedListeners: NormalizedSequence[] = [];
+
+    public get currentListeners(): Listener[] {
+        return cloneDeep(this.listeners);
+    }
 
     private timer = 0;
     private recordedChar = false;
@@ -112,7 +117,7 @@ export default class HotkeyUtility {
 
     private handleKey(event: KeyboardEvent) {
         const [key, modifiers] = this.getKeyAndModifiers(event);
-        event.preventDefault();
+        if (this.recording) event.preventDefault();
         switch (event.type) {
             case 'keydown':
                 if (key.length === 1 && this.recordedChar)
@@ -175,18 +180,22 @@ export default class HotkeyUtility {
     }
 
     private normalizeSequence(): NormalizedSequence {
-        return this.sequence.map(combo =>
-            combo
-                .sort((a, b) =>
-                    a.length > b.length
-                        ? -1
-                        : a.length < b.length
-                        ? 1
-                        : a > b
-                        ? 1
-                        : -1
-                )
-                .join('+')
-        );
+        return [
+            ...new Set([
+                ...this.sequence.map(combo =>
+                    combo
+                        .sort((a, b) =>
+                            a.length > b.length
+                                ? -1
+                                : a.length < b.length
+                                ? 1
+                                : a > b
+                                ? 1
+                                : -1
+                        )
+                        .join('+')
+                ),
+            ]),
+        ];
     }
 }
