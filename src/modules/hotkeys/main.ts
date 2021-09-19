@@ -2,23 +2,46 @@ import { ModuleMainFunction } from 'typings/Module';
 
 import HotkeyUtility, { CallbackFunction } from './assets/HotkeyUtility';
 
-type Scope = Record<string, CallbackFunction | ValidatedScope>;
-interface ValidatedScope extends Scope {
-    validatorFunction: () => boolean;
-}
+type Id<T> = T extends infer U ? { [K in keyof U]: U[K] } : never;
+// eslint-disable-next-line @typescript-eslint/ban-types
+type Empty = {};
+type Scope<
+    This extends Record<string, unknown> = Empty,
+    Scopes extends string[] = [],
+    Commands extends string[] = [],
+    Root extends boolean = false
+> = Id<
+    (Root extends false
+        ? {
+              validatorFunction(this: This): boolean;
+          }
+        : Empty) &
+        { [scope in Scopes[number]]: Scope<This> } &
+        {
+            [command in Commands[number]]: (
+                this: This,
+                ...args: Parameters<CallbackFunction>
+            ) => ReturnType<CallbackFunction>;
+        }
+>;
 
-const commands: Scope = {
-    '*': {
+const commands: Scope<Empty, ['*', 'main'], [], true> = {
+    '*': <Scope<Empty, [], ['alert']>>{
         validatorFunction: () => true,
-        alert,
+        alert: sequence => window.alert(JSON.stringify(sequence)),
     },
-    'main': {
+    'main': <Scope<Empty, ['chat']>>{
         validatorFunction: () => window.location.pathname.length <= 1,
-        chat: {
-            validatorFunction: () =>
-                !!document.getElementById('alliance_chat_message'),
+        chat: <Scope<{ chatInput: HTMLInputElement }, [], ['focus']>>{
+            validatorFunction() {
+                const chatInput = document.querySelector<HTMLInputElement>(
+                    '#alliance_chat_message'
+                );
+                if (chatInput) this.chatInput = chatInput;
+                return !!chatInput;
+            },
             focus() {
-                console.log('heyya, focusing the unfocused chat!');
+                this.chatInput.focus();
             },
         },
     },
@@ -42,10 +65,13 @@ export default (async (LSSM, MODULE_ID) => {
     if (hotkeys.length) hotkeyUtility.listen([]);
 
     hotkeys.forEach(({ command, hotkey }) => {
-        let base = commands;
+        let base: Scope<Empty, [], [], true> = commands;
         let callback: CallbackFunction | null = null;
         const path = command.split('.');
         const walkedPath: string[] = [];
+
+        const validationResult: Record<string, unknown> = {};
+
         for (const scope of path) {
             if (!base.hasOwnProperty(scope)) {
                 return LSSM.$store.dispatch('console/error', [
@@ -54,18 +80,23 @@ export default (async (LSSM, MODULE_ID) => {
                     )}! Cannot add command ${command} with hotkey »${hotkey}«`,
                 ]);
             }
-            const result = base[scope];
+            walkedPath.push(scope);
+            const result = base[scope as keyof typeof base] as
+                | CallbackFunction
+                | Scope;
             if (typeof result === 'function') {
-                callback = result;
+                callback = result as CallbackFunction;
             } else {
-                if (!result.validatorFunction()) return;
+                if (!result.validatorFunction.bind(validationResult)()) return;
                 base = result;
             }
-            walkedPath.push(scope);
         }
         if (callback) {
             hotkeyUtility.addListener(
-                HotkeyUtility.createListener(hotkey.split(' '), callback)
+                HotkeyUtility.createListener(
+                    hotkey.split(' '),
+                    callback.bind(validationResult)
+                )
             );
             console.log(hotkeyUtility.currentListeners);
         } else {
