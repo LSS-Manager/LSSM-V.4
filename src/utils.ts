@@ -13,7 +13,7 @@ export default (Vue: VueConstructor): void => {
             fallback = -1
         ): Multiple extends true ? number[] : number {
             const regex = new RegExp(
-                /\d{1,3}(?:(?:[,.]|\s)\d{3})*/,
+                /-?\d{1,3}(?:(?:[,.]|\s)\d{3})*/,
                 allNumbers ? 'g' : ''
             );
             return allNumbers
