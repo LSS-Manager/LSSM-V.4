@@ -73,7 +73,10 @@
                 </td>
                 <td>
                     <a
-                        v-if="vehicle.target_type"
+                        v-if="
+                            vehicle.target_type &&
+                                vehicle.target_type !== 'mission'
+                        "
                         class="lightbox-open"
                         :class="resolveLinkClass"
                         :data-resolve-type="vehicle.target_type"
@@ -86,6 +89,13 @@
                     >
                         {{ vehicle.target_id }}
                         <small>{{ vehicle.target_type }}</small>
+                    </a>
+                    <a
+                        v-if="vehicle.target_type === 'mission'"
+                        class="lightbox-open"
+                        :href="`/${vehicle.target_type}s/${vehicle.target_id}`"
+                    >
+                        {{ resolveMission(vehicle.target_id) }}
                     </a>
                 </td>
             </tr>
@@ -252,6 +262,17 @@ export default Vue.extend<
         endResolve() {
             if (this.resolving) window.clearTimeout(this.resolving);
             this.resolving = null;
+        },
+        resolveMission(id) {
+            let missionName =
+                document.getElementById(`mission_caption_${id}`)?.innerText ??
+                '';
+            missionName = missionName.replace(
+                document.getElementById(`mission_old_caption_${id}`)
+                    ?.innerText ?? '',
+                ''
+            );
+            return missionName.trim();
         },
     },
     beforeMount() {
