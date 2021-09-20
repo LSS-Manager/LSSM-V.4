@@ -1,6 +1,6 @@
 import { Empty, Scope } from 'typings/modules/Hotkeys';
 
-export default <Scope<Empty, ['chat'], [], true>>{
+export default <Scope<Empty, ['chat', 'map', 'missionlist'], [], true>>{
     chat: <Scope<{ chatInput: HTMLInputElement | null }, [], ['focus']>>{
         validatorFunction() {
             this.chatInput = document.querySelector<HTMLInputElement>(
@@ -25,6 +25,24 @@ export default <Scope<Empty, ['chat'], [], true>>{
             },
             focus() {
                 this.mapSearch?.focus();
+            },
+        },
+    },
+    missionlist: <Scope<Empty, ['search']>>{
+        validatorFunction() {
+            return !!document.getElementById('missions');
+        },
+        search: <
+            Scope<{ missionlistSearch: HTMLInputElement | null }, [], ['focus']>
+        >{
+            validatorFunction() {
+                this.missionlistSearch = document.querySelector<
+                    HTMLInputElement
+                >('#search_input_field_missions');
+                return !!this.missionlistSearch;
+            },
+            focus() {
+                this.missionlistSearch?.focus();
             },
         },
     },

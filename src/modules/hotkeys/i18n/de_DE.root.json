@@ -12,6 +12,13 @@
 				},
 				"title": "Karte"
 			},
+			"missionlist": {
+				"search": {
+					"focus": "Eingabefeld fokusieren",
+					"title": "Suche"
+				},
+				"title": "Einsatzliste"
+			},
 			"title": "Hauptfenster"
 		}
 	},

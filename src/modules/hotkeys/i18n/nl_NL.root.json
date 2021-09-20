@@ -12,6 +12,13 @@
 				},
 				"title": "Kaart"
 			},
+			"missionlist": {
+				"search": {
+					"focus": "focus invoerveld",
+					"title": "Zoeke"
+				},
+				"title": "Meldingenlijst"
+			},
 			"title": "Hoofdscherm"
 		}
 	},

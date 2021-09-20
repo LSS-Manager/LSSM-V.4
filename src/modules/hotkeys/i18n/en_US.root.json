@@ -12,6 +12,13 @@
 				},
 				"title": "Map"
 			},
+			"missionlist": {
+				"search": {
+					"focus": "focus input field",
+					"title": "Search"
+				},
+				"title": "Mission list"
+			},
 			"title": "Main window"
 		}
 	},
