@@ -1,16 +1,35 @@
 {
+	"commands": {
+		"main": {
+			"chat": {
+				"focus": "focus input field",
+				"title": "Chat"
+			},
+			"map": {
+				"search": {
+					"focus": "focus input field",
+					"title": "Location search"
+				},
+				"title": "Map"
+			},
+			"missionlist": {
+				"search": {
+					"focus": "focus input field",
+					"title": "Search"
+				},
+				"title": "Mission list"
+			},
+			"title": "Main window"
+		}
+	},
 	"description": "Control the game with hotkeys on the keyboard, which you can set yourself.",
 	"name": "Hotkeys",
 	"settings": {
-		"nextElementKey": {
-			"title": "Next \"Element\""
-		},
-		"prevElementKey": {
-			"title": "Previous \"Element\""
-		},
-		"prevNextElement": {
-			"description": "Think of a cool description here",
-			"title": "prevNextElement"
+		"command": "Action",
+		"hotkey": "Hotkey",
+		"hotkeys": {
+			"description": "Set your own Hotkeys for certain actions here.",
+			"title": "Hotkeys"
 		}
 	}
 }

@@ -2,6 +2,6 @@
 	"dev": true,
 	"github": 15,
 	"location": ".*",
-	"noapp": true,
+	"noapp": false,
 	"settings": true
 }

@@ -1,0 +1,8 @@
+{
+	"description": "Nella finestra di allarme, questo colore è impostato come sfondo della casella di controllo per tutti i veicoli di questo tipo.",
+	"noColor": "Nessun colore del veicolo è attualmente impostato",
+	"reset": "Elimina colore",
+	"save": "Salva",
+	"savedNote": "Il colore del veicolo è stato salvato con successo!",
+	"title": "Modifica colore veicolo: {type}"
+}

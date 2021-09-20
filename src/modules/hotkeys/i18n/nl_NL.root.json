@@ -1,18 +1,35 @@
 {
+	"commands": {
+		"main": {
+			"chat": {
+				"focus": "focus invoerveld",
+				"title": "Chat"
+			},
+			"map": {
+				"search": {
+					"focus": "focus invoerveld",
+					"title": "Plaatsen zoeken"
+				},
+				"title": "Kaart"
+			},
+			"missionlist": {
+				"search": {
+					"focus": "focus invoerveld",
+					"title": "Zoekveld"
+				},
+				"title": "Meldingenlijst"
+			},
+			"title": "Hoofdscherm"
+		}
+	},
 	"description": "Bestuur het spel met sneltoetsen op het toetsenbord, die je zelf kunt instellen.",
 	"name": "Sneltoetsen",
 	"settings": {
-		"nextElementKey": {
-			"description": "",
-			"title": "Volgende \"Element\""
-		},
-		"prevElementKey": {
-			"description": "",
-			"title": "Vorige \"Element\""
-		},
-		"prevNextElement": {
-			"description": "Bedenk een beschrijving hier",
-			"title": "prevNextElement"
+		"command": "Actie",
+		"hotkey": "Sneltoets",
+		"hotkeys": {
+			"description": "Stel je sneltoetsen voor verschillende acties hier in.",
+			"title": "Sneltoetsen"
 		}
 	}
 }
