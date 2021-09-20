@@ -28,6 +28,7 @@ export interface VehicleListMethods {
     ): VueI18n.TranslateResult;
     startResolve(type: 'mission' | 'building', id: number): void;
     endResolve(): void;
+    resolveMission(id: number): string;
 }
 
 export interface VehicleListComputed {
