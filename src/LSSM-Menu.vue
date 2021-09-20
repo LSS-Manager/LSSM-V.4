@@ -474,7 +474,12 @@ export default Vue.extend<
             height: 30.5px !important
             width: unset
 
-    .dropdown-menu label
-        padding: 3px 20px
-        font-weight: unset
+    .dropdown-menu[aria-labelledby="lssmv4-indicator_menu"]
+        label
+            padding: 3px 20px
+            font-weight: unset
+
+        a:focus
+            background-color: rgba(0, 0, 0, 0.3)
+            outline: none
 </style>

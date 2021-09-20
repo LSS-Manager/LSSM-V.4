@@ -5,6 +5,13 @@
 				"focus": "focus invoerveld",
 				"title": "Chat"
 			},
+			"lssm": {
+				"menu": {
+					"title": "Menu",
+					"toggle": "Open / Sluiten"
+				},
+				"title": "LSSM"
+			},
 			"map": {
 				"search": {
 					"focus": "focus invoerveld",

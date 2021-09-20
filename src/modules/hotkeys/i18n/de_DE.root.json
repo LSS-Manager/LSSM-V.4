@@ -5,6 +5,13 @@
 				"focus": "Eingabefeld fokusieren",
 				"title": "Chat"
 			},
+			"lssm": {
+				"menu": {
+					"title": "Menü",
+					"toggle": "Öffnen / Schließen"
+				},
+				"title": "LSSM"
+			},
 			"map": {
 				"search": {
 					"focus": "Eingabefeld fokusieren",

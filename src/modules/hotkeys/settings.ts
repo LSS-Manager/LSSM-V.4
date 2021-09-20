@@ -11,6 +11,7 @@ export default <ModuleSettingFunction>((MODULE_ID, LSSM, $m) => {
         'main.chat.focus',
         'main.map.search.focus',
         'main.missionlist.search.focus',
+        'main.lssm.menu.toggle',
     ].sort();
     const labels: string[] = commands.map(
         command =>
