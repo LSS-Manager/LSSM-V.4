@@ -66,7 +66,15 @@ export default class HotkeyUtility {
         listeners.forEach(listener => this.addListener(listener));
 
         const eventListener = (event: KeyboardEvent) => {
-            if (this.recording) return;
+            const target = event.target as HTMLElement | null;
+            if (
+                this.recording ||
+                ['INPUT', 'SELECT', 'TEXTAREA'].includes(
+                    target?.tagName ?? ''
+                ) ||
+                target?.contentEditable
+            )
+                return;
             this.handleKey(event);
             const normalized = this.normalizeSequence();
             if (event.type === 'keyup' && !this.currentKeys.length) {
