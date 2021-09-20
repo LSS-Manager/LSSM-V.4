@@ -4,6 +4,12 @@
 			"chat": {
 				"focus": "focus input field",
 				"title": "Chat"
+			},"map": {
+				"search": {
+					"focus": "focus input field",
+					"title": "Location search"
+				},
+				"title": "Map"
 			},
 			"title": "Main window"
 		}

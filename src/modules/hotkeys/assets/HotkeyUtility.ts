@@ -72,7 +72,7 @@ export default class HotkeyUtility {
                 ['INPUT', 'SELECT', 'TEXTAREA'].includes(
                     target?.tagName ?? ''
                 ) ||
-                target?.contentEditable
+                target?.isContentEditable
             )
                 return;
             this.handleKey(event);

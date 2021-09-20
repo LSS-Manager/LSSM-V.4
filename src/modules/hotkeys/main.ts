@@ -16,9 +16,8 @@ export default (async (LSSM, MODULE_ID) => {
     const isMainWindow = window.location.pathname.length <= 1;
 
     const commands: Scope<Empty, typeof rootCommandScopes, [], true> = {
-        '*': <Scope<Empty, [], ['alert']>>{
+        '*': <Scope>{
             validatorFunction: () => true,
-            alert: sequence => window.alert(JSON.stringify(sequence)),
         },
         ...(isMainWindow
             ? {

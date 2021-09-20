@@ -7,7 +7,10 @@ import {
 } from 'typings/Setting';
 
 export default <ModuleSettingFunction>((MODULE_ID, LSSM, $m) => {
-    const commands: string[] = ['main.chat.focus'].sort();
+    const commands: string[] = [
+        'main.chat.focus',
+        'main.map.search.focus',
+    ].sort();
     const labels: string[] = commands.map(
         command =>
             `${command

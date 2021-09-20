@@ -5,6 +5,13 @@
 				"focus": "Eingabefeld fokusieren",
 				"title": "Chat"
 			},
+			"map": {
+				"search": {
+					"focus": "Eingabefeld fokusieren",
+					"title": "Ortssuche"
+				},
+				"title": "Karte"
+			},
 			"title": "Hauptfenster"
 		}
 	},

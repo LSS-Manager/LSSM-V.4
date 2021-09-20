@@ -5,6 +5,13 @@
 				"focus": "focus invoerveld",
 				"title": "Chat"
 			},
+			"map": {
+				"search": {
+					"focus": "focus invoerveld",
+					"title": "Plaatsen zoeken"
+				},
+				"title": "Kaart"
+			},
 			"title": "Hoofdscherm"
 		}
 	},
