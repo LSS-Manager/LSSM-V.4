@@ -40,6 +40,8 @@ export default (
     let tabList = document.getElementById('tabs');
     let allTab = tabList?.querySelector('#tabs > li:first-child');
     let occupiedTab = tabList?.querySelector('#tabs > li:last-child');
+    const occupiedTabActive =
+        occupiedTab?.classList.contains('active') ?? false;
     let panelWrapper = document.querySelector(
         '#vehicle_list_step .tab-content'
     );
@@ -298,7 +300,9 @@ export default (
     }
 
     tabList
-        .querySelector<HTMLAnchorElement>('#tabs > li > a[href="#all"]')
+        .querySelector<HTMLAnchorElement>(
+            `#tabs > li > a[href="#${occupiedTabActive ? 'occupied' : 'all'}"]`
+        )
         ?.click();
 
     tabList.addEventListener('click', e => {
