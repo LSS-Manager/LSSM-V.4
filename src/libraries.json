@@ -16,7 +16,7 @@
 	},
 	"@primer/octicons": {
 		"url": "https://primer.style/octicons",
-		"version": "15.1.0"
+		"version": "15.2.0"
 	},
 	"@types/he": {
 		"url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/he",
