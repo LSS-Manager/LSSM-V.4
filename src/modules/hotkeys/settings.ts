@@ -50,6 +50,7 @@ export default <ModuleSettingFunction>((MODULE_ID, LSSM, $m) => {
                     name: 'command',
                     title: $m('settings.command'),
                     size: 5,
+                    unique: true,
                     setting: {
                         type: 'select',
                         values: commands,
@@ -60,6 +61,7 @@ export default <ModuleSettingFunction>((MODULE_ID, LSSM, $m) => {
                     name: 'hotkey',
                     title: $m('settings.hotkey'),
                     size: 0,
+                    unique: true,
                     setting: {
                         type: 'hotkey',
                     },
