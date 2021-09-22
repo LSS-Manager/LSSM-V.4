@@ -1,5 +1,5 @@
 {
-    "version": "4.3.1+20210921.1209",
+    "version": "4.3.1+20210922.0312",
     "license": "CC-BY-NC-SA-4.0",
     "scripts": {
         "predev": "tsc -b scripts && node scripts predev",
@@ -48,7 +48,7 @@
         "@types/jquery": "^3.5.6",
         "@types/leaflet": "^1.7.5",
         "@types/lodash": "^4.14.173",
-        "@types/node": "^16.9.4",
+        "@types/node": "^16.9.6",
         "@types/pdfmake": "^0.1.18",
         "@types/semver": "^7.3.8",
         "@types/showdown": "^1.9.4",
