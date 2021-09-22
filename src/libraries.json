@@ -40,7 +40,7 @@
 	},
 	"@types/node": {
 		"url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/node",
-		"version": "16.9.4"
+		"version": "16.9.6"
 	},
 	"@types/pdfmake": {
 		"url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/pdfmake",
