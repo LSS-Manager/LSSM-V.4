@@ -1,5 +1,14 @@
 {
 	"commands": {
+		"*": {
+			"credits": {
+				"daily": "Tageszusammenfassung öffnen",
+				"open": "Log öffnen",
+				"overview": "Übersicht der letzten Tage öffnen",
+				"title": "Credits"
+			},
+			"title": "Allgemein"
+		},
 		"main": {
 			"chat": {
 				"focus": "Eingabefeld fokusieren",
@@ -35,7 +44,7 @@
 		"command": "Aktion",
 		"hotkey": "Hotkey",
 		"hotkeys": {
-			"description": "Lege hier für bestimmte Aktionen eigene Hotkeys fest.",
+			"description": "Lege hier für bestimmte Aktionen eigene Hotkeys fest. Aktionen der Kategorie \"Allgemein\" funktionieren auf allen Seiten.",
 			"title": "Hotkeys"
 		}
 	}

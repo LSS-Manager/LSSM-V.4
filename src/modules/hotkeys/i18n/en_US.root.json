@@ -1,5 +1,14 @@
 {
 	"commands": {
+		"*": {
+			"credits": {
+				"daily": "Open daily summary",
+				"open": "Open log",
+				"overview": "Open overview of last 7 days",
+				"title": "Credits"
+			},
+			"title": "General"
+		},
 		"main": {
 			"chat": {
 				"focus": "focus input field",
@@ -35,7 +44,7 @@
 		"command": "Action",
 		"hotkey": "Hotkey",
 		"hotkeys": {
-			"description": "Set your own Hotkeys for certain actions here.",
+			"description": "Set your own Hotkeys for certain actions here. Actions of category \"General\" are available everywhere in game.",
 			"title": "Hotkeys"
 		}
 	}
