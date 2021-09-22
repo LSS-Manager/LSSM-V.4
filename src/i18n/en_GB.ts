@@ -485,7 +485,7 @@ export default {
             schooling: 'Rescue - SORT Training',
             shownSchooling: 'SORT',
             special:
-                'You can buy 1 EMS Operations Support Unit for every 20 ambulance stations (respectively 15 with premium account).',
+                'You can buy 1 Mass Casualty Equipment for every 20 ambulance stations (respectively 15 with premium account).',
         },
         34: {
             caption: 'Ambulance Officer',
