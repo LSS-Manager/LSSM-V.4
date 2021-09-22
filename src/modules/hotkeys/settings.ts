@@ -18,6 +18,7 @@ export default <ModuleSettingFunction>((MODULE_ID, LSSM, $m) => {
         '*.tasks.open',
         '*.profile.open',
         '*.profile.level',
+        '*.profile.awards',
     ].sort();
     const labels: string[] = commands.map(
         command =>

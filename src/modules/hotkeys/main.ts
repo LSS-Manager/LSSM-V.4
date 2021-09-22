@@ -16,36 +16,11 @@ export default (async (LSSM, MODULE_ID) => {
     const isMainWindow = window.location.pathname.length <= 1;
 
     const commands: Scope<Empty, typeof rootCommandScopes, [], true> = {
-        '*': <Scope<Empty, ['credits', 'profile', 'tasks']>>{
-            validatorFunction: () => true,
-            credits: <Scope<Empty, [], ['open', 'daily', 'overview']>>{
-                validatorFunction: () => true,
-                daily() {
-                    window.lightboxOpen('/credits/daily');
-                },
-                open() {
-                    window.lightboxOpen('/credits');
-                },
-                overview() {
-                    window.lightboxOpen('/credits/overview');
-                },
-            },
-            profile: <Scope<Empty, [], ['open', 'level']>>{
-                validatorFunction: () => true,
-                open() {
-                    window.lightboxOpen(`/profile/${window.user_id}`);
-                },
-                level() {
-                    window.lightboxOpen('/level');
-                },
-            },
-            tasks: <Scope<Empty, [], ['open']>>{
-                validatorFunction: () => true,
-                open() {
-                    window.lightboxOpen('/tasks/index');
-                },
-            },
-        },
+        '*': (
+            await import(
+                /* webpackChunkName: "modules/hotkeys/commands/general" */ './assets/commands/general'
+            )
+        ).default,
         ...(isMainWindow
             ? {
                   main: {
