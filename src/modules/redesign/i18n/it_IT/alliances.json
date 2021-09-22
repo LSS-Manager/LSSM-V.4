@@ -1,0 +1,16 @@
+{
+	"alliance": "Alleanza",
+	"amount": "{n} alleanza filtrata | {n} alleanze filtrate",
+	"credits": "Crediti Guadagnati",
+	"load": {
+		"next": "Carica pagina successiva",
+		"prev": "Carica pagina precedente"
+	},
+	"members": "Numero membri",
+	"name": "Alleanza",
+	"search_global": "Ricerca Globale",
+	"search_local": "Ricerca nelle alleanze caricate",
+	"search_subtitle": "Mostra {n} Alleanze da pagina {startPage} a {endPage} per un totale di {totalPages} pagine",
+	"subtitle": "Mostra {n} Alleanze da pagina {startPage} ({firstCredits}) a {endPage} ({lastCredits}) per un totale di {totalPages} pagine",
+	"title": "Lista Alleanze"
+}

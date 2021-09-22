@@ -40,7 +40,7 @@
                         :name="item.name"
                         :placeholder="item.title"
                         v-model="value[item.name]"
-                        @input="changeValue(index, value)"
+                        @input="changeValue(index, value, item)"
                         :disabled="false"
                     ></settings-text>
                     <settings-textarea
@@ -48,21 +48,21 @@
                         :name="item.name"
                         :placeholder="item.title"
                         v-model="value[item.name]"
-                        @input="changeValue(index, value)"
+                        @input="changeValue(index, value, item)"
                         :disabled="false"
                     ></settings-textarea>
                     <settings-toggle
                         v-else-if="item.setting.type === 'toggle'"
                         :name="item.name"
                         v-model="value[item.name]"
-                        @input="changeValue(index, value)"
+                        @input="changeValue(index, value, item)"
                         :pull-right="false"
                     ></settings-toggle>
                     <settings-color
                         v-else-if="item.setting.type === 'color'"
                         :name="item.name"
                         v-model="value[item.name]"
-                        @input="changeValue(index, value)"
+                        @input="changeValue(index, value, item)"
                     ></settings-color>
                     <settings-number
                         v-else-if="item.setting.type === 'number'"
@@ -72,30 +72,30 @@
                         :min="item.setting.min"
                         :max="item.setting.max"
                         :step="item.setting.step"
-                        @input="changeValue(index, value)"
+                        @input="changeValue(index, value, item)"
                     ></settings-number>
                     <settings-select
                         v-else-if="item.setting.type === 'select'"
                         :name="setting.name"
                         v-model="value[item.name]"
-                        :options="getOptions(item.setting)"
+                        :options="getOptions(item, value[item.name])"
                         :placeholder="item.title"
-                        @input="changeValue(index, value)"
+                        @input="changeValue(index, value, item)"
                     ></settings-select>
                     <settings-multi-select
                         v-else-if="item.setting.type === 'multiSelect'"
                         :name="item.name"
                         v-model="value[item.name]"
-                        :options="getOptions(item.setting)"
+                        :options="getOptions(item, value[item.name])"
                         :placeholder="item.title"
-                        @input="changeValue(index, value)"
+                        @input="changeValue(index, value, item)"
                     ></settings-multi-select>
                     <settings-hotkey
                         v-else-if="item.setting.type === 'hotkey'"
                         :name="item.name"
                         :placeholder="item.title"
                         v-model="value[item.name]"
-                        @input="changeValue(index, value)"
+                        @input="changeValue(index, value, item)"
                     ></settings-hotkey>
                     <div
                         v-else-if="item.setting.type === 'hidden'"
@@ -155,6 +155,7 @@ import {
     AppendableListMethods,
     AppendableListProps,
 } from 'typings/components/setting/AppendableList';
+import { AppendableListSetting } from 'typings/Setting';
 
 export default Vue.extend<
     AppendableList,
@@ -251,6 +252,11 @@ export default Vue.extend<
                 .filter(v => !!v)
                 .map(v => ({ ...this.setting.defaultItem, ...v }));
         },
+        uniqueColumns() {
+            return this.setting.listItem
+                .filter(item => item.hasOwnProperty('setting') && item.unique)
+                .map(item => (item as AppendableListSetting).name);
+        },
     },
     methods: {
         addItem() {
@@ -269,7 +275,33 @@ export default Vue.extend<
                 updated.filter(v => !!v)
             );
         },
-        changeValue(index, value) {
+        changeValue(index, value, { name: column, title }) {
+            if (
+                this.uniqueColumns.includes(column) &&
+                this.value.map(item => item[column]).includes(value[column])
+            ) {
+                this.$modal.show('dialog', {
+                    title: this.$t(
+                        'modules.settings.appendableList.unique.title'
+                    ),
+                    text: this.$t(
+                        'modules.settings.appendableList.unique.text',
+                        {
+                            value: value[column],
+                            title,
+                        }
+                    ),
+                    buttons: [
+                        {
+                            title: this.$t(
+                                'modules.settings.appendableList.unique.confirm'
+                            ),
+                            default: true,
+                        },
+                    ],
+                });
+                return this.$set(value, column, this.value[index][column]);
+            }
             const updated = cloneDeep(this.updateValues);
             updated[index] = value;
             this.$emit(
@@ -277,11 +309,19 @@ export default Vue.extend<
                 updated.filter(v => !!v)
             );
         },
-        getOptions(setting) {
-            return setting.values.map((v, vi) => ({
+        getOptions({ setting, unique, name }, currentValue) {
+            const options = setting.values.map((v, vi) => ({
                 label: setting.labels?.[vi] ?? v,
                 value: v,
             }));
+            if (unique) {
+                const usedValues = this.updateValues.map(item => item[name]);
+                return options.filter(
+                    ({ value }) =>
+                        !usedValues.includes(value) || value === currentValue
+                );
+            }
+            return options;
         },
         moveUp(index) {
             const updated = cloneDeep(this.updateValues);

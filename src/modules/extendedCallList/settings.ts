@@ -16,13 +16,24 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
     })) as Mission[];
     const missionIds = [] as string[];
     const missionNames = [] as string[];
+    const idLength = (missions.length - 1).toString().length;
+
+    const numToLength = (length: number, num: number): string => {
+        let numString = num.toString();
+        while (numString.length < length) numString = `0${numString}`;
+        return numString;
+    };
+
     missions.forEach(({ id, name }) => {
         missionIds.push(id.toString());
-        missionNames.push(`${id}: ${name}`);
+        missionNames.push(`${numToLength(idLength, id)}: ${name}`);
     });
 
     const defaultEventmissions = Object.entries(
-        $m('eventMissions.default') as Record<string, Record<number, number>>
+        ($m('eventMissions.default') as unknown) as Record<
+            string,
+            Record<number, number>
+        >
     ).map(([text, missions]) => ({
         text,
         missions: Object.values(missions),

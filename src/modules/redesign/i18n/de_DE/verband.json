@@ -2,10 +2,12 @@
 	"nav": {
 		"links": {
 			"/alliance_logfiles": "Protokoll",
+			"/alliance_messages": "Nachrichten",
 			"/alliance_threads": "Forum",
 			"/alliances/{id}": "Start",
 			"/schoolings": "Lehrgänge",
 			"/verband/bereitstellungsraume": "Bereitstellungsräume",
+			"/verband/bewerbungen": "Bewerbungen",
 			"/verband/gebauede": "Gebäude",
 			"/verband/kasse": "Verbandskasse",
 			"/verband/mitglieder/{id}": "Mitglieder",
@@ -26,11 +28,13 @@
 			"/verband/regeln/{id}",
 			"/alliance_logfiles",
 			"/alliance_threads",
+			"/alliance_messages",
 			"/verband/werbung",
 			"/schoolings",
 			"/verband/bereitstellungsraume",
 			"/verband/kasse",
-			"/verband/gebauede"
+			"/verband/gebauede",
+			"/verband/bewerbungen"
 		]
 	}
 }

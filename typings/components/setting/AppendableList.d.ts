@@ -2,6 +2,7 @@ import cloneDeep from 'lodash/cloneDeep';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import {
     AppendableList as AppendableListSetting,
+    AppendableListSetting as AppendableListSettingSetting,
     MultiSelect,
     Select,
     Setting,
@@ -19,6 +20,7 @@ export interface AppendableList {
 export interface AppendableListComputed {
     layout: number[];
     updateValues: AppendableListSetting['value']['value'];
+    uniqueColumns: string[];
 }
 
 export interface AppendableListMethods {
@@ -26,10 +28,12 @@ export interface AppendableListMethods {
     removeItem(index: number): void;
     changeValue(
         index: number,
-        value: AppendableListSetting['defaultItem']
+        value: AppendableListSetting['defaultItem'],
+        item: AppendableListSettingSetting
     ): void;
     getOptions(
-        setting: Select | MultiSelect
+        setting: AppendableListSettingSetting<Select | MultiSelect>,
+        currentValue: string
     ): { label: string; value: string }[];
     moveUp(index: number): void;
     moveDown(index: number): void;

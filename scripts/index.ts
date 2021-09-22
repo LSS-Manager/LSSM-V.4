@@ -1,4 +1,4 @@
-import { execSync } from 'child_process';
+import { ChildProcess, execSync } from 'child_process';
 
 import sort from './sort';
 
@@ -79,13 +79,15 @@ try {
         console.log('\n\n\n');
     });
 } catch (e) {
-    console.error(e);
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    const childProcess: ChildProcess = e;
+    console.error(childProcess);
     console.log(
-        `===output===\n${e.output
-            .map((o: string | null) => o?.toString())
-            .join('\n')}\n###output###`
+        `===stdout===\n${childProcess.stdout?.toString()}\n###stdout###`
     );
-    console.log(`===stdout===\n${e.stdout?.toString()}\n###stdout###`);
-    console.log(`===stderr===\n${e.stderr?.toString()}\n###stderr###`);
+    console.log(
+        `===stderr===\n${childProcess.stderr?.toString()}\n###stderr###`
+    );
     process.exit(-1);
 }

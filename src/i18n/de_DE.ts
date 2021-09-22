@@ -25,6 +25,14 @@ const modules = {
         reset: 'Reset',
         export: 'Exportieren',
         import: 'Importieren',
+        appendableList: {
+            unique: {
+                title: 'Doppelter Wert',
+                text:
+                    'In der Spalte **{title}** dürfen keine doppelten Werte vorkommen. Der Wert **{value}** ist bereits vorhanden!',
+                confirm: 'OK',
+            },
+        },
         resetWarning: {
             title: 'Zurücksetzen der Einstellungen',
             text:

@@ -31,5 +31,7 @@ På vårt <discord/> kan du få support i kanalen <discord-channel channel="lssm
 ## på GitHub
 Du kan också öppna ett problem på <a :href="$themeConfig.variables.github + '/issues'" target="_blank">GitHub</a>. Kontrollera här om det redan finns ett problem för detta problem och följ sedan upp det.
 
-## Nytt: Stöd direkt i spelet
-För att ge dig ännu snabbare och enklare support har vi integrerat vår egen supportchatt. Du kan komma åt den via LSSM-menyn i spelet. Vi kommer att göra vårt bästa för att hjälpa dig så snabbt och effektivt som möjligt, men igen, ju mer detaljerat du beskriver ditt problem från början, desto bättre kan vi hjälpa dig!
+## Planned: Support directly in the game
+In order to be able to give you support even faster and easier, we would like to integrate our own support chat. Once it is available, you can reach it via the LSSM menu in the game. We will do our best to help you as good and fast as possible, but again: The more detailed you describe your problem from the beginning, the better we can help you!
+
+As soon as it is so far we will of course inform you about it in the release notes :wink:

@@ -75,6 +75,14 @@ module.exports = {
         },
         selected: 'Selected',
         water: 'l. water',
+        staff: {
+            [/^TOG Personnel$/]: [15, 18],
+        },
+        towingVehicles: {
+            // Note: Only the ones that are towed by vehicles of the same group! If e.g. a MzB can be towed by vehicles of several groups, it MUST NOT be listed here.
+            21: [20],
+            22: [8],
+        },
         vehiclesByRequirement: {
             [/^Fire engine(s)?$/]: [0, 1, 12, 13, 19],
             [/^Turntable Ladder trucks?$/]: [2, 13],

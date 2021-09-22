@@ -26,6 +26,14 @@ const modules = {
         reset: 'Reset',
         export: 'Export',
         import: 'Import',
+        appendableList: {
+            unique: {
+                title: 'double value',
+                text:
+                    'There must be no duplicate values in the **{title}** column. The value **{value}** already exists!',
+                confirm: 'OK',
+            },
+        },
         resetWarning: {
             title: 'Reset the settings',
             text:
@@ -204,8 +212,10 @@ export default {
             color: '#e68319',
             coins: 30,
             credits: 300_000,
-            minPersonnel: 1,
-            maxPersonnel: 1,
+            minPersonnel: 3,
+            maxPersonnel: 5,
+            schooling: 'Rescue - Critical care',
+            shownSchooling: 'Critical care',
             special: ' A Air Ambulance for the most serious cases.',
         },
         10: {
@@ -465,6 +475,29 @@ export default {
             shownSchooling: 'SORT',
             special: ' A HazMat run by the ambulance service.',
         },
+        33: {
+            caption: 'Mass Casualty Equipment',
+            color: '#99631f',
+            coins: 15,
+            credits: 15_000,
+            minPersonnel: 1,
+            maxPersonnel: 2,
+            schooling: 'Rescue - SORT Training',
+            shownSchooling: 'SORT',
+            special:
+                'You can buy 1 Mass Casualty Equipment for every 20 ambulance stations (respectively 15 with premium account).',
+        },
+        34: {
+            caption: 'Ambulance Officer',
+            color: '#99631f',
+            coins: 15,
+            credits: 25_500,
+            minPersonnel: 1,
+            maxPersonnel: 1,
+            schooling: 'Rescue - Ambulance Officer',
+            shownSchooling: 'Ambulance Officer',
+            special: 'Required once you have built 15 Rescue stations',
+        },
     },
     buildings: {
         0: {
@@ -492,9 +525,9 @@ export default {
                     duration: '7 Days',
                 },
             ],
-            levelcost: ['1. 10.000', '2. 50.000', '3.-16. 100.000'],
+            levelcost: ['1. 10.000', '2. 50.000', '3.-24. 100.000'],
             maxBuildings: '5.000 together with small fire stations',
-            maxLevel: 16,
+            maxLevel: 24,
             special:
                 'From the 24th fire station onwards, the cost of building a new fire station increases according to the following formula: <code>100.000+200.000*LOG<sub>2</sub>(Number of existing fire stations − 22)</code>. The Coins price remains constant!',
             startPersonnel: 10,
@@ -525,10 +558,17 @@ export default {
             color: '#ffa500',
             coins: 35,
             credits: 200_000,
-            extensions: [],
-            levelcost: ['1. 10.000', '2. 50.000', '3.-16. 100.000'],
+            extensions: [
+                {
+                    caption: 'Mass Casualty Extension',
+                    credits: 150_000,
+                    coins: 20,
+                    duration: '5 Days',
+                },
+            ],
+            levelcost: ['1. 10.000', '2. 50.000', '3.-19. 100.000'],
             maxBuildings: 'No limit',
-            maxLevel: 16,
+            maxLevel: 19,
             special: '',
             startPersonnel: 3,
             startVehicles: ['Ambulance'],
@@ -629,12 +669,12 @@ export default {
             coins: 50,
             credits: 1_000_000,
             extensions: [],
-            levelcost: [],
+            levelcost: ['1.000.000 / 50 Coins'],
             maxBuildings: 'see specials',
-            maxLevel: 0,
+            maxLevel: 2,
             special:
                 'Up to the 125th building (of all types) a total of max. 4 landing sites can be built. After that the number increases by 1 every 25 buildings (starting at the 125th).',
-            startPersonnel: 0,
+            startPersonnel: 1,
             startVehicles: [],
             maxBuildingsFunction: (buildingsAmountTotal: number): number =>
                 buildingsAmountTotal < 125
@@ -662,11 +702,11 @@ export default {
             ],
             levelcost: ['1. 10.000', '2. 50.000', '3.-16. 100.000'],
             maxBuildings: '1.700 together with small police stations',
-            maxLevel: 16,
+            maxLevel: 19,
             special:
                 'From the 24th police station onwards, the costs for the new construction of a police station increase according to the following formula: <code>100.000+200.000*LOG<sub>2</sub>(Number of existing police stations − 22)</code>. The Coins price remains constant!',
             startPersonnel: 2,
-            startVehicles: ['Police Car'],
+            startVehicles: ['Incident response vehicle (IRV)'],
             maxBuildingsFunction: (): number => 1_700,
         },
         7: {
@@ -711,11 +751,11 @@ export default {
             coins: 50,
             credits: 1_000_000,
             extensions: [],
-            levelcost: ['1. 1.000.000 Credits / 50 Coins'],
+            levelcost: ['1-5. 1.000.000 Credits / 50 Coins'],
             maxBuildings: 'see specials',
-            maxLevel: 1,
+            maxLevel: 5,
             special:
-                'Up to 2 landing sites can be built per station (expansion stages). Up to the 125th building (of all types) a total of max. 4 landing sites can be built. After that the number increases by 1 every 25 buildings (starting at the 125th).',
+                'Up to 6 landing sites can be built per station (expansion stages). Up to the 125th building (of all types) a total of max. 4 landing sites can be built. After that the number increases by 1 every 25 buildings (starting at the 125th).',
             startPersonnel: 3,
             startVehicles: [],
             maxBuildingsFunction: (buildingsAmountTotal: number): number =>
@@ -732,7 +772,7 @@ export default {
             maxBuildings: 4,
             maxLevel: 0,
             special:
-                'You can station as many of your own vehicles as you like at a staging area, members of the association can use the room. A staging area remains for 24 hours, but you can reset it to 24 hours at any time.With Premium Account you can have 8 staging areas at the same time',
+                'You can station as many of your own vehicles as you like at a staging area, members of the alliance can use the staging area. A staging area remains for 24 hours, but you can reset it to 24 hours at any time.With Premium Account you can have 8 staging areas at the same time',
             startPersonnel: 0,
             startVehicles: [],
             maxBuildingsFunction: (): number => 4,
@@ -805,15 +845,15 @@ export default {
             levelcost: [
                 '1. 10.000',
                 '2. 50.000',
-                '3.-4. 100.000',
+                '3.-5. 100.000',
                 'Conversion to normal guard: difference price to normal guard',
             ],
             maxBuildings: '1.700 together with police stations',
-            maxLevel: 4,
+            maxLevel: 5,
             special:
                 'From the 24th police station onwards, the costs for the new construction of a police station are calculated according to the following formula: <code>(100.000+200.000*LOG<sub>2</sub>(Number of existing police stations − 22)) / 2</code>. The Coins price remains constant!',
             startPersonnel: 2,
-            startVehicles: ['Police Car'],
+            startVehicles: ['Incident response vehicle (IRV)'],
             maxBuildingsFunction: (): number => 1_700,
         },
         20: {
@@ -852,7 +892,7 @@ export default {
             maxLevel: 5,
             special: '',
             startPersonnel: 0,
-            startVehicles: ['Non. You can buy max. 2 Vehicles'],
+            startVehicles: ['None. You can buy max. 2 Vehicles'],
         },
         22: {
             caption: 'Home Response Location',
@@ -864,7 +904,7 @@ export default {
             maxBuildings: 'No limit',
             maxLevel: 0,
             special:
-                'It can only: Fire Officer, Rapid Response Vehicle, Operational Team Leader, General Practitioner, Community First Responder, Dog Support Unit (DSU) be stationed',
+                'It can only Store: Fire Officer, Rapid Response Vehicle, Operational Team Leader, General Practitioner, Community First Responder, Ambulance Officer, Dog Support Unit (DSU)',
             startPersonnel: 1,
             startVehicles: [''],
         },
@@ -873,7 +913,14 @@ export default {
             color: '#eeb611',
             coins: 25,
             credits: 400_000,
-            extensions: [],
+            extensions: [
+                {
+                    caption: 'Mass Casualty Extension',
+                    credits: 150_000,
+                    coins: 20,
+                    duration: '5 Days',
+                },
+            ],
             levelcost: [
                 '1. 10.000',
                 '2. 25.000',
@@ -921,7 +968,7 @@ export default {
                 'Ambulances': [5],
                 'HEMS': [9],
                 'Rapid Response Vehicles': [10, 19, 20, 21, 22],
-                'HART': [23, 27, 28, 29, 30, 31, 32],
+                'HART': [23, 27, 28, 29, 30, 31, 32, 33, 34],
             },
             color: '#ffa500',
         },
@@ -1021,6 +1068,10 @@ export default {
             {
                 caption: 'SORT Training',
                 duration: '3 Days',
+            },
+            {
+                caption: 'Ambulance Officer',
+                duration: '5 Days',
             },
         ],
     },
@@ -1143,6 +1194,8 @@ export default {
         'Golf course',
         'Moorland',
         'Theme Park',
+        'Abandoned Building',
+        'Festival',
     ],
     only_alliance_missions: [57, 74, 89],
     transfer_missions: [77],

@@ -12,6 +12,7 @@ import { CreditsListWindow } from '../../src/modules/redesign/parsers/credits/li
 import { CreditsOverviewWindow } from '../../src/modules/redesign/parsers/credits/overview';
 import { EinsaetzeWindow } from '../../src/modules/redesign/parsers/einsaetze';
 import { EinsatzWindow } from '../../src/modules/redesign/parsers/einsatz';
+import { FahrzeugfarbeWindow } from '../../src/modules/redesign/parsers/fahrzeugfarbe';
 import { FreundeWindow } from '../../src/modules/redesign/parsers/freunde';
 import { NextFMSWindow } from '../../src/modules/redesign/parsers/vehicle/nextfms';
 import { ProfileEditWindow } from '../../src/modules/redesign/parsers/profile/edit';
@@ -53,6 +54,7 @@ type types =
     | 'credits/overview'
     | 'einsaetze'
     | 'einsatz'
+    | 'fahrzeugfarbe'
     | 'freunde'
     | 'profile'
     | 'profile/edit'
@@ -82,6 +84,7 @@ type windows =
     | CreditsOverviewWindow
     | EinsaetzeWindow
     | EinsatzWindow
+    | FahrzeugfarbeWindow
     | FreundeWindow
     | NextFMSWindow
     | ProfileWindow

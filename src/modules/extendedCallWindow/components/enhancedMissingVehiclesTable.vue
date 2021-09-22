@@ -42,7 +42,10 @@
                 overRequirement:
                     (requirement.hasOwnProperty('total')
                         ? requirement.total
-                        : requirement.missing) <= requirement.selected,
+                        : requirement.missing) <=
+                    (typeof requirement.selected === 'number'
+                        ? requirement.selected
+                        : requirement.selected.min),
             }"
         >
             <td>
@@ -54,7 +57,13 @@
                 {{ requirement.total.toLocaleString() }}
             </td>
             <td v-else>{{ requirement.missing.toLocaleString() }}</td>
-            <td>{{ (requirement.selected || 0).toLocaleString() }}</td>
+            <td v-if="requirement.selected.hasOwnProperty('min')">
+                {{ (requirement.selected.min || 0).toLocaleString() }} -
+                {{ (requirement.selected.max || 0).toLocaleString() }}
+            </td>
+            <td v-else>
+                {{ (requirement.selected || 0).toLocaleString() }}
+            </td>
         </tr>
     </enhanced-table>
 </template>

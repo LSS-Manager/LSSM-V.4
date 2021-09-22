@@ -20,7 +20,7 @@
 		"pump_mission_mode": {
 			"badge": true,
 			"in": "additional",
-			"text": "Pumpeneinsatz"
+			"text": "Pumpeneinsatz: {n}"
 		},
 		"pump_water_amount": {
 			"badge": true,

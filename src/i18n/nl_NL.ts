@@ -25,6 +25,14 @@ const modules = {
         reset: 'Reset',
         export: 'Exporteer',
         import: 'Importeer',
+        appendableList: {
+            unique: {
+                title: 'Dubbele waarde',
+                text:
+                    'Er mag geen dubbele waarde zijn in de **{title}** kolom. De waarde **{value}** bestaat al!',
+                confirm: 'OK',
+            },
+        },
         resetWarning: {
             title: 'Reset de instellingen',
             text:

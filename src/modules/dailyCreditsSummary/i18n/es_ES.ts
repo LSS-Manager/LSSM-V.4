@@ -9,7 +9,7 @@ export default {
         },
         mission: {
             regex:
-                '^%missions%( \\(Sistema de alarma antiincendios\\))?( - False Alarm)?$',
+                '^%missions%( \\(Sistema de alarma antiincendios\\))?( - Falsa alarma)?$',
             title: 'Misiones Propias',
             backgroundColor: '#ff2400',
             textColor: 'white',
@@ -38,13 +38,13 @@ export default {
             textColor: 'black',
         },
         upgradeBuilding: {
-            regex: /(Instalación (upgraded( \(from small .*? station\))??|construida)|Cancel:|Refund Building upgrade)/,
+            regex: /(Instalación (upgraded( \(from small .*? station\))??|construida)|Cancel:|Refund Building upgrade|guardia extendida)/,
             title: 'Instalaciones Construidas',
             backgroundColor: '#000080',
             textColor: 'white',
         },
         task: {
-            regex: /Tarea ".*?"/,
+            regex: /Tarea («.*?»|".*?")/,
             title: 'Tareas Completadas',
             backgroundColor: '#bb3385',
             textColor: 'white',
@@ -84,8 +84,8 @@ export default {
             textColor: 'white',
         },
         fireAlarmSystemCancel: {
-            regex: /False Alarm/,
-            titel: 'False Alarms',
+            regex: /Falsa alarma/,
+            titel: 'Falsa alarma',
             backgroundColor: '#c80815',
             textColor: 'white',
         },

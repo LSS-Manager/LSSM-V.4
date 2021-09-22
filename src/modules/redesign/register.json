@@ -1,10 +1,11 @@
 {
 	"locales": [
 		"de_DE",
-		"nl_NL",
-		"en_US",
+		"en_AU",
 		"en_GB",
-		"en_AU"
+		"en_US",
+		"it_IT",
+		"nl_NL"
 	],
 	"location": ".*",
 	"settings": true

@@ -25,7 +25,7 @@
             <button
                 class="btn btn-success"
                 :href="`/credits/daily?page=${page + 1}`"
-                :disabled="page >= 0"
+                :disabled="page >= 1"
             >
                 +1
             </button>

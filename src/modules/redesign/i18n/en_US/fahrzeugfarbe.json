@@ -1,0 +1,8 @@
+{
+	"description": "In the alarm window, this color is set as the background of the checkbox for all vehicles of this vehicle type.",
+	"noColor": "No vehicle color is currently set",
+	"reset": "Delete color",
+	"save": "Save",
+	"savedNote": "The vehicle color has been successfully saved!",
+	"title": "Edit vehicle color: {type}"
+}

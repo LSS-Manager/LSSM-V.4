@@ -98,6 +98,11 @@ declare module 'vue/types/vue' {
         $utils: {
             urlRegex: RegExp;
             escapeRegex(s: string): string;
+            getNumberFromText<Multiple extends boolean = false>(
+                text: string,
+                allNumbers: Multiple = false,
+                fallback = -1
+            ): Multiple extends true ? number[] : number;
             getTextNodes(
                 root: Node,
                 filter: (node: Node, ...args: unknown[]) => boolean
