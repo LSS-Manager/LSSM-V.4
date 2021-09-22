@@ -485,7 +485,7 @@ export default {
             schooling: 'Rescue - SORT Training',
             shownSchooling: 'SORT',
             special:
-                'You can buy 1 Mass Casualty Equipment for every 20 ambulance stations (respectively 15 with premium account).',
+                'You can buy 1 Mass Casualty Equipment for every 20 ambulance stations (respectively 15 with premium account). It is required for missions that can spawn with over 30 patients',
         },
         34: {
             caption: 'Ambulance Officer',
@@ -496,7 +496,7 @@ export default {
             maxPersonnel: 1,
             schooling: 'Rescue - Ambulance Officer',
             shownSchooling: 'Ambulance Officer',
-            special: 'Required once you have built 15 Rescue stations',
+            special: 'Required once you have built 15 Rescue stations. It is required for missions that can spawn with over 20 patients to help command the scene. It is a dual unit between an OTL and an Ambulance Officer Requirements',
         },
     },
     buildings: {
