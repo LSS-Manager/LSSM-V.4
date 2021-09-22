@@ -19,6 +19,7 @@
 	"prerequisites": {
 		"fire_stations": "Fire Station | Fire Stations",
 		"hazard_response_ems_count": "HART Base | HART Bases",
+		"mass_casualty_count": "Mass Casualty Extension | Mass Casualty Extensions",
 		"max_police_stations": "Maximum Police Stations",
 		"max_rescue_stations": "Maximum Rescue Stations",
 		"police_helicopter_stations": "Police Helicopter Station | Police Helicopter Stations",
@@ -60,7 +61,9 @@
 			"rth": "HEMS",
 			"swat_suv": "Armed Response | Armed Response",
 			"traffic_car": "Traffic Car | Traffic Cars",
-			"water_tankers": "Water Carrier | Water Carriers"
+			"water_tankers": "Water Carrier | Water Carriers",
+			"mass_casualty_equipment": "Ambulance Officer | Ambulance Officers",
+			"ems_mobile_command": "Mass Casualty Equipment"
 		},
 		"multifunctionals": {
 			"battalion_chief_vehicles": {
