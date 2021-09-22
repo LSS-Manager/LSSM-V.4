@@ -16,9 +16,11 @@ export default (async (LSSM, MODULE_ID) => {
     const isMainWindow = window.location.pathname.length <= 1;
 
     const commands: Scope<Empty, typeof rootCommandScopes, [], true> = {
-        '*': <Scope>{
-            validatorFunction: () => true,
-        },
+        '*': (
+            await import(
+                /* webpackChunkName: "modules/hotkeys/commands/general" */ './assets/commands/general'
+            )
+        ).default,
         ...(isMainWindow
             ? {
                   main: {

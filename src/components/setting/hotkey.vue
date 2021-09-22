@@ -8,6 +8,7 @@
                 class="form-control"
                 :value="updateValue"
                 :readonly="readonly"
+                :style="`--length: ${updateValue.length}ch`"
                 @focus="startRecording"
                 @blur="readonly = true"
             />
@@ -51,12 +52,6 @@ export default Vue.extend<Hotkey, HotkeyMethods, HotkeyComputed, HotkeyProps>({
                 return this.value;
             },
             set(value) {
-                (this.$refs.input as
-                    | HTMLElement
-                    | undefined)?.style.setProperty(
-                    '--length',
-                    `${value.length}ch`
-                );
                 this.$emit('input', value);
             },
         },

@@ -46,4 +46,41 @@ export default <Scope<Empty, ['chat', 'map', 'missionlist'], [], true>>{
             },
         },
     },
+    lssm: <Scope<Empty, ['menu']>>{
+        validatorFunction() {
+            return !!window[PREFIX];
+        },
+        menu: <
+            Scope<
+                {
+                    lssmMenuTrigger: HTMLAnchorElement | null;
+                    lssmMenuIsOpened: () => boolean;
+                },
+                [],
+                ['toggle']
+            >
+        >{
+            validatorFunction() {
+                this.lssmMenuTrigger = document.querySelector<
+                    HTMLAnchorElement
+                >('#lssmv4-indicator_menu');
+
+                this.lssmMenuIsOpened = () =>
+                    this.lssmMenuTrigger?.getAttribute('aria-expanded') ===
+                    'true';
+
+                return !!this.lssmMenuTrigger;
+            },
+            toggle() {
+                if (this.lssmMenuTrigger) {
+                    this.lssmMenuTrigger.click();
+                    if (this.lssmMenuIsOpened()) {
+                        this.lssmMenuTrigger.nextElementSibling
+                            ?.querySelector('a')
+                            ?.focus();
+                    }
+                }
+            },
+        },
+    },
 };

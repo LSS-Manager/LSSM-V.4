@@ -1,9 +1,46 @@
 {
 	"commands": {
+		"*": {
+			"alliance": {
+				"buildings": "Open teamgebouwen overzicht",
+				"forum": "Open teamforum",
+				"funds": "Open teamkas venster",
+				"members": "Open ledenlijst",
+				"messages": "Open berichten",
+				"open": "Open teamvenster",
+				"schoolings": "Open opleidingenvenster",
+				"title": "Team"
+			},
+			"credits": {
+				"daily": "Open dagelijkse samenvatting",
+				"open": "Open overzicht",
+				"overview": "Open statistieken",
+				"title": "Credits"
+			},
+			"profile": {
+				"awards": "Open lijst awards",
+				"level": "Open lijst rangen",
+				"notes": "Open notities",
+				"open": "Open eigen profiel",
+				"title": "Profiel"
+			},
+			"tasks": {
+				"open": "Opel lijst huidige taken",
+				"title": "Taken en evenementen"
+			},
+			"title": "Algemeen"
+		},
 		"main": {
 			"chat": {
 				"focus": "focus invoerveld",
 				"title": "Chat"
+			},
+			"lssm": {
+				"menu": {
+					"title": "Menu",
+					"toggle": "Open / Sluiten"
+				},
+				"title": "LSSM"
 			},
 			"map": {
 				"search": {
@@ -28,7 +65,7 @@
 		"command": "Actie",
 		"hotkey": "Sneltoets",
 		"hotkeys": {
-			"description": "Stel je sneltoetsen voor verschillende acties hier in.",
+			"description": "Stel je sneltoetsen voor verschillende acties hier in. Acties van de categorie algemeen zijn overal in het spel beschikbaar.",
 			"title": "Sneltoetsen"
 		}
 	}

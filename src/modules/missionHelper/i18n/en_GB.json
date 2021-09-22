@@ -19,6 +19,7 @@
 	"prerequisites": {
 		"fire_stations": "Fire Station | Fire Stations",
 		"hazard_response_ems_count": "HART Base | HART Bases",
+		"mass_casualty_count": "Mass Casualty Extension | Mass Casualty Extensions",
 		"max_police_stations": "Maximum Police Stations",
 		"max_rescue_stations": "Maximum Rescue Stations",
 		"police_helicopter_stations": "Police Helicopter Station | Police Helicopter Stations",
@@ -44,6 +45,7 @@
 			"atv_carrier": "ATV Carrier | ATV Carriers",
 			"battalion_chief_vehicles": "Fire Officer | Fire Officers",
 			"emergency_welfare": "Welfare Vehicle | Welfare Vehicles",
+			"ems_mobile_command": "Mass Casualty Equipment",
 			"firetrucks": "Pump | Pumps",
 			"hazard_response_primary": "Primary Response Vehicle | Primary Response Vehicles",
 			"hazard_response_secondary": "Secondary Response Vehicle | Secondary Response Vehicles",
@@ -52,6 +54,7 @@
 			"helicopter": "HEMS",
 			"k9": "Dog Support Unit (DSU) | Dog Support Units (DSUs)",
 			"kdow_orgl": "Operational Team Leader | Operational Team Leaders",
+			"mass_casualty_equipment": "Ambulance Officer | Ambulance Officers",
 			"mobile_air_vehicles": "Breathing Apparatus Support Unit | Breathing Apparatus Support Unit",
 			"mobile_command_vehicles": "ICCU or Ambulance Control Unit | ICCU or Ambulance Control Units",
 			"platform_trucks": "Aerial Appliance | Aerial Appliances ",

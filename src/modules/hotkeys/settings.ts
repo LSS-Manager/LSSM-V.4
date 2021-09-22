@@ -11,6 +11,22 @@ export default <ModuleSettingFunction>((MODULE_ID, LSSM, $m) => {
         'main.chat.focus',
         'main.map.search.focus',
         'main.missionlist.search.focus',
+        'main.lssm.menu.toggle',
+        '*.credits.open',
+        '*.credits.daily',
+        '*.credits.overview',
+        '*.tasks.open',
+        '*.profile.open',
+        '*.profile.level',
+        '*.profile.awards',
+        '*.profile.notes',
+        '*.alliance.open',
+        '*.alliance.members',
+        '*.alliance.buildings',
+        '*.alliance.funds',
+        '*.alliance.forum',
+        '*.alliance.schoolings',
+        '*.alliance.messages',
     ].sort();
     const labels: string[] = commands.map(
         command =>
@@ -34,6 +50,7 @@ export default <ModuleSettingFunction>((MODULE_ID, LSSM, $m) => {
                     name: 'command',
                     title: $m('settings.command'),
                     size: 5,
+                    unique: true,
                     setting: {
                         type: 'select',
                         values: commands,
@@ -44,6 +61,7 @@ export default <ModuleSettingFunction>((MODULE_ID, LSSM, $m) => {
                     name: 'hotkey',
                     title: $m('settings.hotkey'),
                     size: 0,
+                    unique: true,
                     setting: {
                         type: 'hotkey',
                     },

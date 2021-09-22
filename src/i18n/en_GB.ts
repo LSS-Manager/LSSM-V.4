@@ -26,6 +26,14 @@ const modules = {
         reset: 'Reset',
         export: 'Export',
         import: 'Import',
+        appendableList: {
+            unique: {
+                title: 'double value',
+                text:
+                    'There must be no duplicate values in the **{title}** column. The value **{value}** already exists!',
+                confirm: 'OK',
+            },
+        },
         resetWarning: {
             title: 'Reset the settings',
             text:
@@ -204,8 +212,10 @@ export default {
             color: '#e68319',
             coins: 30,
             credits: 300_000,
-            minPersonnel: 1,
-            maxPersonnel: 1,
+            minPersonnel: 3,
+            maxPersonnel: 5,
+            schooling: 'Rescue - Critical care',
+            shownSchooling: 'Critical care',
             special: ' A Air Ambulance for the most serious cases.',
         },
         10: {
@@ -465,6 +475,30 @@ export default {
             shownSchooling: 'SORT',
             special: ' A HazMat run by the ambulance service.',
         },
+        33: {
+            caption: 'Mass Casualty Equipment',
+            color: '#99631f',
+            coins: 15,
+            credits: 15_000,
+            minPersonnel: 1,
+            maxPersonnel: 2,
+            schooling: 'Rescue - SORT Training',
+            shownSchooling: 'SORT',
+            special:
+                'You can buy 1 Mass Casualty Equipment for every 20 ambulance stations (respectively 15 with premium account). It is required for missions that can spawn with over 30 patients',
+        },
+        34: {
+            caption: 'Ambulance Officer',
+            color: '#99631f',
+            coins: 15,
+            credits: 25_500,
+            minPersonnel: 1,
+            maxPersonnel: 1,
+            schooling: 'Rescue - Ambulance Officer',
+            shownSchooling: 'Ambulance Officer',
+            special:
+                'Required once you have built 15 Rescue stations. It is required for missions that can spawn with over 20 patients to help command the scene. It is a dual unit between an OTL and an Ambulance Officer Requirements',
+        },
     },
     buildings: {
         0: {
@@ -525,7 +559,14 @@ export default {
             color: '#ffa500',
             coins: 35,
             credits: 200_000,
-            extensions: [],
+            extensions: [
+                {
+                    caption: 'Mass Casualty Extension',
+                    credits: 150_000,
+                    coins: 20,
+                    duration: '5 Days',
+                },
+            ],
             levelcost: ['1. 10.000', '2. 50.000', '3.-19. 100.000'],
             maxBuildings: 'No limit',
             maxLevel: 19,
@@ -864,7 +905,7 @@ export default {
             maxBuildings: 'No limit',
             maxLevel: 0,
             special:
-                'It can only Store: Fire Officer, Rapid Response Vehicle, Operational Team Leader, General Practitioner, Community First Responder, Dog Support Unit (DSU)',
+                'It can only Store: Fire Officer, Rapid Response Vehicle, Operational Team Leader, General Practitioner, Community First Responder, Ambulance Officer, Dog Support Unit (DSU)',
             startPersonnel: 1,
             startVehicles: [''],
         },
@@ -873,7 +914,14 @@ export default {
             color: '#eeb611',
             coins: 25,
             credits: 400_000,
-            extensions: [],
+            extensions: [
+                {
+                    caption: 'Mass Casualty Extension',
+                    credits: 150_000,
+                    coins: 20,
+                    duration: '5 Days',
+                },
+            ],
             levelcost: [
                 '1. 10.000',
                 '2. 25.000',
@@ -921,7 +969,7 @@ export default {
                 'Ambulances': [5],
                 'HEMS': [9],
                 'Rapid Response Vehicles': [10, 19, 20, 21, 22],
-                'HART': [23, 27, 28, 29, 30, 31, 32],
+                'HART': [23, 27, 28, 29, 30, 31, 32, 33, 34],
             },
             color: '#ffa500',
         },
@@ -1021,6 +1069,10 @@ export default {
             {
                 caption: 'SORT Training',
                 duration: '3 Days',
+            },
+            {
+                caption: 'Ambulance Officer',
+                duration: '5 Days',
             },
         ],
     },
@@ -1143,6 +1195,8 @@ export default {
         'Golf course',
         'Moorland',
         'Theme Park',
+        'Abandoned Building',
+        'Festival',
     ],
     only_alliance_missions: [57, 74, 89],
     transfer_missions: [77],

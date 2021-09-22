@@ -81,6 +81,7 @@ interface AppendableListSetting<type extends SettingType = SettingType> {
     size: number;
     name: string;
     title: string;
+    unique?: boolean;
 }
 
 export interface PreviewElement
