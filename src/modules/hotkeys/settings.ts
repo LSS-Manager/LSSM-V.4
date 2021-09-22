@@ -19,6 +19,7 @@ export default <ModuleSettingFunction>((MODULE_ID, LSSM, $m) => {
         '*.profile.open',
         '*.profile.level',
         '*.profile.awards',
+        '*.profile.notes',
         '*.alliance.open',
         '*.alliance.members',
         '*.alliance.buildings',

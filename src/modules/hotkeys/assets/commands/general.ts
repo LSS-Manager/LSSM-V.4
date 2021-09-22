@@ -52,7 +52,7 @@ export default <Scope<Empty, ['alliance', 'credits', 'profile', 'tasks']>>{
             window.lightboxOpen('/credits/overview');
         },
     },
-    profile: <Scope<Empty, [], ['open', 'level', 'awards']>>{
+    profile: <Scope<Empty, [], ['open', 'level', 'awards', 'notes']>>{
         validatorFunction: () => true,
         open() {
             window.lightboxOpen(`/profile/${window.user_id}`);
@@ -62,6 +62,9 @@ export default <Scope<Empty, ['alliance', 'credits', 'profile', 'tasks']>>{
         },
         awards() {
             window.lightboxOpen('/auszeichnungen');
+        },
+        notes() {
+            window.lightboxOpen('/note');
         },
     },
     tasks: <Scope<Empty, [], ['open']>>{
