@@ -9,6 +9,7 @@
 		"bronze": "Brons",
 		"gold": "Goud",
 		"max": "16",
+		"own": "Open eigen awards",
 		"silver": "Zilver",
 		"title": "Awards",
 		"title_amounts": "{sum} van {max} awards"

@@ -1,5 +1,24 @@
 {
 	"commands": {
+		"*": {
+			"credits": {
+				"daily": "Open dagelijkse samenvatting",
+				"open": "Open overzicht",
+				"overview": "Open statistieken",
+				"title": "Credits"
+			},
+			"profile": {
+				"awards": "Open lijst awards",
+				"level": "Open lijst rangen",
+				"open": "Open eigen profiel",
+				"title": "Profiel"
+			},
+			"tasks": {
+				"open": "Opel lijst huidige taken",
+				"title": "Taken en evenementen"
+			},
+			"title": "Algemeen"
+		},
 		"main": {
 			"chat": {
 				"focus": "focus invoerveld",
@@ -35,7 +54,7 @@
 		"command": "Actie",
 		"hotkey": "Sneltoets",
 		"hotkeys": {
-			"description": "Stel je sneltoetsen voor verschillende acties hier in.",
+			"description": "Stel je sneltoetsen voor verschillende acties hier in. Acties van de categorie algemeen zijn overal in het spel beschikbaar.",
 			"title": "Sneltoetsen"
 		}
 	}
