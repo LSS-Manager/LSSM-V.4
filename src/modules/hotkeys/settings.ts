@@ -15,6 +15,7 @@ export default <ModuleSettingFunction>((MODULE_ID, LSSM, $m) => {
         '*.credits.open',
         '*.credits.daily',
         '*.credits.overview',
+        '*.tasks.open',
     ].sort();
     const labels: string[] = commands.map(
         command =>

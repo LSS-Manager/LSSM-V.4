@@ -7,6 +7,10 @@
 				"overview": "Open overview of last 7 days",
 				"title": "Credits"
 			},
+			"tasks": {
+				"open": "Open list of current tasks",
+				"title": "Tasks and Events"
+			},
 			"title": "General"
 		},
 		"main": {

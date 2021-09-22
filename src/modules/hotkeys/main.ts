@@ -16,7 +16,7 @@ export default (async (LSSM, MODULE_ID) => {
     const isMainWindow = window.location.pathname.length <= 1;
 
     const commands: Scope<Empty, typeof rootCommandScopes, [], true> = {
-        '*': <Scope<Empty, ['credits']>>{
+        '*': <Scope<Empty, ['credits', 'tasks']>>{
             validatorFunction: () => true,
             credits: <Scope<Empty, [], ['open', 'daily', 'overview']>>{
                 validatorFunction: () => true,
@@ -28,6 +28,12 @@ export default (async (LSSM, MODULE_ID) => {
                 },
                 overview() {
                     window.lightboxOpen('/credits/overview');
+                },
+            },
+            tasks: <Scope<Empty, [], ['open']>>{
+                validatorFunction: () => true,
+                open() {
+                    window.lightboxOpen('/tasks/index');
                 },
             },
         },

@@ -7,11 +7,15 @@
 				"overview": "Übersicht der letzten Tage öffnen",
 				"title": "Credits"
 			},
+			"tasks": {
+				"open": "Aufgabenliste öffnen",
+				"title": "Aufgaben und Events"
+			},
 			"title": "Allgemein"
 		},
 		"main": {
 			"chat": {
-				"focus": "Eingabefeld fokusieren",
+				"focus": "Eingabefeld fokussieren",
 				"title": "Chat"
 			},
 			"lssm": {
@@ -23,14 +27,14 @@
 			},
 			"map": {
 				"search": {
-					"focus": "Eingabefeld fokusieren",
+					"focus": "Eingabefeld fokussieren",
 					"title": "Ortssuche"
 				},
 				"title": "Karte"
 			},
 			"missionlist": {
 				"search": {
-					"focus": "Eingabefeld fokusieren",
+					"focus": "Eingabefeld fokussieren",
 					"title": "Suche"
 				},
 				"title": "Einsatzliste"
