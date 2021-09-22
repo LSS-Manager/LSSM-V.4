@@ -36,7 +36,7 @@ export default {
             textColor: 'black',
         },
         upgradeBuilding: {
-            regex: /(Station (upgraded( \(from small .*? station\))??|constructed)|Cancel:|Refund Building upgrade|Extended guard)/,
+            regex: /(Station (upgraded( \(from small .*? station\))??|constructed)|Extended guard|Cancel:|Refund Building upgrade|Extended guard)/,
             title: 'Station constructed/extended',
             backgroundColor: '#000080',
             textColor: 'white',
