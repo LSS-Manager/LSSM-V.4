@@ -124,4 +124,7 @@ h2
     padding: 1rem
     &:hover
         box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2)
+
+    ::v-deep ul li
+        list-style: disc !important
 </style>
