@@ -7,6 +7,11 @@
 				"overview": "Übersicht der letzten Tage öffnen",
 				"title": "Credits"
 			},
+			"profile": {
+				"level": "Level-Seite öffnen",
+				"open": "Eigenes Profil öffnen",
+				"title": "Profil"
+			},
 			"tasks": {
 				"open": "Aufgabenliste öffnen",
 				"title": "Aufgaben und Events"

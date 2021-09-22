@@ -7,6 +7,11 @@
 				"overview": "Open overview of last 7 days",
 				"title": "Credits"
 			},
+			"profile": {
+				"level": "open list of levels",
+				"open": "open own profile",
+				"title": "Profile"
+			},
 			"tasks": {
 				"open": "Open list of current tasks",
 				"title": "Tasks and Events"
