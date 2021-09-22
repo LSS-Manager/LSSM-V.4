@@ -564,7 +564,7 @@ export default {
                     credits: 150_000,
                     coins: 20,
                     duration: '5 Days',
-                }
+                },
             ],
             levelcost: ['1. 10.000', '2. 50.000', '3.-19. 100.000'],
             maxBuildings: 'No limit',
@@ -919,7 +919,7 @@ export default {
                     credits: 150_000,
                     coins: 20,
                     duration: '5 Days',
-                }
+                },
             ],
             levelcost: [
                 '1. 10.000',
