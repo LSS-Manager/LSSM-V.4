@@ -1,7 +1,45 @@
 import { Empty, Scope } from 'typings/modules/Hotkeys';
 
-export default <Scope<Empty, ['credits', 'profile', 'tasks']>>{
+export default <Scope<Empty, ['alliance', 'credits', 'profile', 'tasks']>>{
     validatorFunction: () => true,
+    alliance: <
+        Scope<
+            Empty,
+            [],
+            [
+                'open',
+                'members',
+                'buildings',
+                'funds',
+                'forum',
+                'schoolings',
+                'messages'
+            ]
+        >
+    >{
+        validatorFunction: () => true,
+        open() {
+            window.lightboxOpen('/verband');
+        },
+        buildings() {
+            window.lightboxOpen('/verband/gebauede');
+        },
+        forum() {
+            window.lightboxOpen('/alliance_threads');
+        },
+        funds() {
+            window.lightboxOpen('/verband/kasse');
+        },
+        members() {
+            window.lightboxOpen('/verband/mitglieder');
+        },
+        messages() {
+            window.lightboxOpen('/alliance_messages');
+        },
+        schoolings() {
+            window.lightboxOpen('/schoolings');
+        },
+    },
     credits: <Scope<Empty, [], ['open', 'daily', 'overview']>>{
         validatorFunction: () => true,
         daily() {

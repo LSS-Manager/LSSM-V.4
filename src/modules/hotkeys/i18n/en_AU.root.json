@@ -1,10 +1,20 @@
 {
 	"commands": {
 		"*": {
+			"alliance": {
+				"buildings": "open alliance building overview",
+				"forum": "open board",
+				"funds": "open alliance funds window",
+				"members": "open memberlist",
+				"messages": "open messages",
+				"open": "open alliance window",
+				"schoolings": "open schoolings window",
+				"title": "Alliance"
+			},
 			"credits": {
-				"daily": "Open daily summary",
-				"open": "Open log",
-				"overview": "Open overview of last 7 days",
+				"daily": "open daily summary",
+				"open": "open log",
+				"overview": "open overview of last 7 days",
 				"title": "Credits"
 			},
 			"profile": {
@@ -14,7 +24,7 @@
 				"title": "Profile"
 			},
 			"tasks": {
-				"open": "Open list of current tasks",
+				"open": "open list of current tasks",
 				"title": "Tasks and Events"
 			},
 			"title": "General"

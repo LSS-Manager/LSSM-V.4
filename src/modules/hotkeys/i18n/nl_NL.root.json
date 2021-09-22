@@ -1,6 +1,16 @@
 {
 	"commands": {
 		"*": {
+			"alliance": {
+				"buildings": "Open teamgebouwen overzicht",
+				"forum": "Open teamforum",
+				"funds": "Open teamkas venster",
+				"members": "Open ledenlijst",
+				"messages": "Open berichten",
+				"open": "Open teamvenster",
+				"schoolings": "Open opleidingenvenster",
+				"title": "Team"
+			},
 			"credits": {
 				"daily": "Open dagelijkse samenvatting",
 				"open": "Open overzicht",
