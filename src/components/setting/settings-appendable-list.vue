@@ -149,13 +149,13 @@ import { faMinus } from '@fortawesome/free-solid-svg-icons/faMinus';
 import { faPlus } from '@fortawesome/free-solid-svg-icons/faPlus';
 import { faUndoAlt } from '@fortawesome/free-solid-svg-icons/faUndoAlt';
 
+import { AppendableListSetting } from 'typings/Setting';
 import {
     AppendableList,
     AppendableListComputed,
     AppendableListMethods,
     AppendableListProps,
 } from 'typings/components/setting/AppendableList';
-import { AppendableListSetting } from 'typings/Setting';
 
 export default Vue.extend<
     AppendableList,
