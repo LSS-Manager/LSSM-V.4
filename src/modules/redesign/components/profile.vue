@@ -216,6 +216,15 @@
                         </a>
                     </div>
                 </div>
+                <a
+                    v-if="profile.self"
+                    href="/auszeichnungen"
+                    lightbox-open
+                    class="btn btn-default btn-xs pull-right"
+                >
+                    {{ lightbox.$sm('awards.own') }}
+                </a>
+                <div class="clearfix"></div>
                 <img
                     v-if="profile.image"
                     :src="profile.image"

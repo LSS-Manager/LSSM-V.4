@@ -9,6 +9,7 @@
 		"bronze": "Bronze",
 		"gold": "Gold",
 		"max": "14",
+		"own": "Open your awards",
 		"silver": "Silver",
 		"title": "Awards",
 		"title_amounts": "{sum} from {max} Awards"
