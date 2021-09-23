@@ -13,7 +13,9 @@ export default <Scope<Empty, ['alliance', 'credits', 'profile', 'tasks']>>{
                 'funds',
                 'forum',
                 'schoolings',
-                'messages'
+                'messages',
+                'applications',
+                'logfiles'
             ]
         >
     >{
@@ -38,6 +40,12 @@ export default <Scope<Empty, ['alliance', 'credits', 'profile', 'tasks']>>{
         },
         schoolings() {
             window.lightboxOpen('/schoolings');
+        },
+        applications() {
+            window.lightboxOpen('/verband/bewerbungen');
+        },
+        logfiles() {
+            window.lightboxOpen('/alliance_logfiles');
         },
     },
     credits: <Scope<Empty, [], ['open', 'daily', 'overview']>>{

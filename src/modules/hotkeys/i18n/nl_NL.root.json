@@ -2,9 +2,11 @@
 	"commands": {
 		"*": {
 			"alliance": {
+				"applications": "Aanmeldingen",
 				"buildings": "Open teamgebouwen overzicht",
 				"forum": "Open teamforum",
 				"funds": "Open teamkas venster",
+				"logfiles": "Toezicht",
 				"members": "Open ledenlijst",
 				"messages": "Open berichten",
 				"open": "Open teamvenster",
