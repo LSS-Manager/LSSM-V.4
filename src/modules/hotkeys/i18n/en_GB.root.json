@@ -19,6 +19,7 @@
 				"overview": "open overview of last 7 days",
 				"title": "Credits"
 			},
+			"help": "Open this help",
 			"profile": {
 				"awards": "open list of awards",
 				"level": "open list of levels",
@@ -67,7 +68,7 @@
 		"command": "Action",
 		"hotkey": "Hotkey",
 		"hotkeys": {
-			"description": "Set your own Hotkeys for certain actions here. Actions of category \"General\" are available everywhere in game.",
+			"description": "Set your own Hotkeys for certain actions here. Actions of category \"General\" are available everywhere in game. By pressing F1, you can view an overview of the hotkeys you have opened at any time.",
 			"title": "Hotkeys"
 		}
 	}
