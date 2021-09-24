@@ -1,11 +1,12 @@
 import { ModuleMainFunction } from 'typings/Module';
 import { Empty, Scope } from 'typings/modules/Hotkeys';
 
+import getCommandName from './assets/getCommandName';
 import HotkeyUtility, { CallbackFunction } from './assets/HotkeyUtility';
 
 const rootCommandScopes: ['*', 'main'] = ['*', 'main'];
 
-export default (async (LSSM, MODULE_ID) => {
+export default (async (LSSM, MODULE_ID, $m) => {
     const getSetting = (settingId: string) => {
         return LSSM.$store.dispatch('settings/getSetting', {
             moduleId: MODULE_ID,
@@ -42,7 +43,24 @@ export default (async (LSSM, MODULE_ID) => {
         hotkey: string;
     }[];
 
-    if (hotkeys.length) hotkeyUtility.listen([]);
+    if (hotkeys.length) {
+        hotkeyUtility.listen([
+            HotkeyUtility.createListener(['f1'], () => {
+                LSSM.$modal.show(
+                    () =>
+                        import(
+                            /* webpackChunkName: "modules/hotkeys/help" */ './components/help.vue'
+                        ),
+                    {
+                        hotkeys,
+                        getCommandName: (command: string) =>
+                            getCommandName(command, $m),
+                    },
+                    { name: 'hotkeysHelp', height: 'auto' }
+                );
+            }),
+        ]);
+    }
 
     hotkeys.forEach(({ command, hotkey }) => {
         let base: Scope<Empty, [], [], true> = commands;
