@@ -69,7 +69,13 @@ export default Vue.extend<Hotkey, HotkeyMethods, HotkeyComputed, HotkeyProps>({
             };
             input.addEventListener('keyup', escEvent);
             this.utility.record(input, sequence => {
-                if (esc) this.updateValue = '';
+                if (
+                    esc ||
+                    sequence.find(combination =>
+                        combination.split('+').includes('f1')
+                    )
+                )
+                    this.updateValue = '';
                 else this.updateValue = sequence.join(' ');
                 input.removeEventListener('keyup', escEvent);
                 input.blur();
