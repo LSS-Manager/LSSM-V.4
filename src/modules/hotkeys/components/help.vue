@@ -15,6 +15,19 @@
             no-search
             :table-attrs="{ class: 'table table-striped' }"
         >
+            <tr>
+                <th>{{ getCommandName('*.help') }}</th>
+                <td class="hotkey-wrapper">
+                    <input
+                        type="text"
+                        readonly="readonly"
+                        class="form-control"
+                        :style="`--length: 2ch;`"
+                        disabled
+                        value="f1"
+                    />
+                </td>
+            </tr>
             <tr v-for="hotkey in hotkeys" :key="hotkey.command">
                 <th>{{ getCommandName(hotkey.command) }}</th>
                 <td class="hotkey-wrapper">

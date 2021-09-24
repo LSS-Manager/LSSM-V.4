@@ -19,6 +19,7 @@
 				"overview": "Open statistieken",
 				"title": "Credits"
 			},
+			"help": "Open dit overzicht",
 			"profile": {
 				"awards": "Open lijst awards",
 				"level": "Open lijst rangen",
@@ -67,7 +68,7 @@
 		"command": "Actie",
 		"hotkey": "Sneltoets",
 		"hotkeys": {
-			"description": "Stel je sneltoetsen voor verschillende acties hier in. Acties van de categorie algemeen zijn overal in het spel beschikbaar.",
+			"description": "Stel je sneltoetsen voor verschillende acties hier in. Acties van de categorie algemeen zijn overal in het spel beschikbaar. Door op F1 te drukken, kan je altijd een overzicht van de sneltoetsen openen.",
 			"title": "Sneltoetsen"
 		}
 	}
