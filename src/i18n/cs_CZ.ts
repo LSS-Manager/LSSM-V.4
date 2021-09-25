@@ -291,8 +291,8 @@ export default {
         20: {
             caption: 'Přívěs se člunem',
             color: '#990000',
-            coins: 0,
-            credits: 0_000,
+            coins: 12,
+            credits: 6_000,
             minPersonnel: 0,
             maxPersonnel: 0,
             special: 'Požadováno po vybudování 11 požárních stanic',
@@ -310,10 +310,10 @@ export default {
         22: {
             caption: 'Potápěčský automobil',
             color: '#990000',
-            coins: 0,
-            credits: 0_000,
-            minPersonnel: 0,
-            maxPersonnel: 0,
+            coins: 25,
+            credits: 10_000,
+            minPersonnel: 2,
+            maxPersonnel: 4,
             special: 'Požadováno po vybudování 11 požárních stanic',
         },
         23: {
