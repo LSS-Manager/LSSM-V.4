@@ -10,5 +10,4 @@ nvm install node # install latest node version
 echo "node: $(node -v) – npm: $(npm -v) – yarn: $(yarn -v) – nvm: $(nvm -v)"
 
 yarn --frozen-lockfile
-yarn run api
 yarn run $RUN_BRANCH
