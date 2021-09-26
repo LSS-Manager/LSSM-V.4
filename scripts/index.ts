@@ -65,7 +65,7 @@ const scriptHandlers = {
     showChanges() {
         console.log(execSync('git diff --color-words').toString());
     },
-    api() {
+    async api() {
         if (!fs.existsSync('./dist/api')) fs.mkdirSync('./dist/api');
 
         const exports = [
@@ -83,13 +83,14 @@ const scriptHandlers = {
         for (const locale of locales) {
             if (!fs.existsSync(`./dist/api/${locale}`))
                 fs.mkdirSync(`./dist/api/${locale}`);
-            import(`../src/i18n/${locale}`).then(({ default: t }) =>
-                exports.forEach(ex =>
+            await import(`../src/i18n/${locale}`).then(({ default: t }) =>
+                exports.forEach(ex => {
                     fs.writeFileSync(
                         `./dist/api/${locale}/${ex}.json`,
                         JSON.stringify(t[ex] ?? {})
-                    )
-                )
+                    );
+                    console.log(`./dist/api/${locale}/${ex}.json`);
+                })
             );
         }
     },
