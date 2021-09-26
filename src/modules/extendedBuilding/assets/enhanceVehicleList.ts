@@ -101,6 +101,11 @@ export default async (
             if (fmsSwitch) {
                 const fmsBtn = vehicle.querySelector('.building_list_fms');
                 fmsBtn?.addEventListener('click', () => {
+                    if (
+                        !fmsBtn.classList.contains('building_list_fms_2') &&
+                        !fmsBtn.classList.contains('building_list_fms_6')
+                    )
+                        return;
                     const nextFms = fmsBtn.classList.contains(
                         'building_list_fms_2'
                     )
