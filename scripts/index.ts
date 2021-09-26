@@ -15,7 +15,7 @@ const build = (mode: string) => {
 const scriptHandlers = {
     sort,
     emojis() {
-        console.log(execSync('node ./scripts/utils/fetchEmojis').toString());
+        console.log(execSync('ts-node ./scripts/utils/fetchEmojis').toString());
     },
     lint() {
         this.sort();
