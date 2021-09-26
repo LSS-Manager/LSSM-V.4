@@ -1,7 +1,5 @@
 //import { Building } from 'typings/Building';
 
-// Commented as dir ./sv_SE does not exist currently
-// const furtherFiles = require.context('./sv_SE/', true, /.*(\/index)?\.js(on)?/);
 const modules = {
     appstore: {
         save: 'Zapisz',
@@ -52,18 +50,8 @@ const modules = {
     },
 } as { [moduleId: string]: { [key: string]: unknown } };
 
-const t = {} as { [key: string]: unknown };
-
-// Commented as dir ./en_US does not exist currently
-// furtherFiles
-//     .keys()
-//     .forEach(
-//         key => (t[key.split('/')[1].replace(/\..*$/, '')] = furtherFiles(key))
-//     );
-
 export default {
     modules,
-    ...t,
     error: {
         title: 'LSS Manager: Błąd',
         msg: 'Jeśli ten błąd występuje często, zgłoś go zespołowi LSSM!',
