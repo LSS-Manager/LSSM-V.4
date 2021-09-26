@@ -14,7 +14,7 @@ export default async (): Promise<void> => {
     for (const locale of locales) {
         if (!fs.existsSync(`./dist/api/${locale}`))
             fs.mkdirSync(`./dist/api/${locale}`);
-        const t = (await import(`../src/i18n/${locale}`)).default;
+        const t = (await import(`./src/i18n/${locale}`)).default;
         types.forEach(type => {
             fs.writeFileSync(
                 `./dist/api/${locale}/${type}.json`,
