@@ -44,6 +44,9 @@ export default (async (LSSM, MODULE_ID, $m) => {
     }[];
 
     if (hotkeys.length) {
+        window.addEventListener('keydown', event => {
+            if (event.key.toLowerCase() === 'f1') event.preventDefault();
+        });
         hotkeyUtility.listen([
             HotkeyUtility.createListener(['f1'], () => {
                 LSSM.$modal.show(
