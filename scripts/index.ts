@@ -8,7 +8,7 @@ const scripts = process.argv.splice(2);
 
 const build = (mode: string) => {
     console.time('games');
-    console.log(execSync(`node build ${mode}`).toString());
+    console.log(execSync(`ts-node build ${mode}`).toString());
     console.timeEnd('games');
 };
 
@@ -30,11 +30,7 @@ const scriptHandlers = {
         this.lint();
         console.log(execSync('ts-node prebuild').toString());
     },
-    tscBuild() {
-        console.log(execSync('tsc -b build').toString());
-    },
     dev() {
-        this.tscBuild();
         build('development');
         this.showChanges();
     },
@@ -51,14 +47,13 @@ const scriptHandlers = {
         console.log(execSync('ts-node prebuild production').toString());
     },
     build() {
-        this.tscBuild();
         build('production');
         this.showChanges();
     },
     showChanges() {
         console.log(execSync('git diff --color-words').toString());
     },
-    async api() {
+    /*async api() {
         if (!fs.existsSync('./dist/api')) fs.mkdirSync('./dist/api');
 
         const exports = [
@@ -85,7 +80,7 @@ const scriptHandlers = {
                 console.log(`./dist/api/${locale}/${ex}.json`);
             });
         }
-    },
+    },*/
 } as { [key: string]: () => string | void | Promise<string | void> };
 
 (async () => {
