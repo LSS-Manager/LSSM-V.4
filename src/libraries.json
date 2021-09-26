@@ -207,6 +207,10 @@
 		"url": "https://github.com/TypeStrong/ts-loader",
 		"version": "9.0.0"
 	},
+	"ts-node": {
+		"url": "https://typestrong.org/ts-node",
+		"version": "10.2.1"
+	},
 	"typescript": {
 		"icon": "https://www.typescriptlang.org/icons/icon-512x512.png",
 		"url": "https://www.typescriptlang.org/",
