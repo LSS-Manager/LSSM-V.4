@@ -25,15 +25,9 @@ const scriptHandlers = {
             ).toString()
         );
     },
-    tscPrebuild() {
-        console.log(
-            execSync('tsc src/userscript.ts && tsc -b prebuild').toString()
-        );
-    },
     predev() {
         this.emojis();
         this.lint();
-        // this.tscPrebuild();
         console.log(execSync('ts-node prebuild').toString());
     },
     tscBuild() {
@@ -54,7 +48,6 @@ const scriptHandlers = {
     preBuild() {
         this.emojis();
         this.lint();
-        // this.tscPrebuild();
         console.log(execSync('ts-node prebuild production').toString());
     },
     build() {
@@ -83,15 +76,14 @@ const scriptHandlers = {
         for (const locale of locales) {
             if (!fs.existsSync(`./dist/api/${locale}`))
                 fs.mkdirSync(`./dist/api/${locale}`);
-            await import(`../src/i18n/${locale}`).then(({ default: t }) =>
-                exports.forEach(ex => {
-                    fs.writeFileSync(
-                        `./dist/api/${locale}/${ex}.json`,
-                        JSON.stringify(t[ex] ?? {})
-                    );
-                    console.log(`./dist/api/${locale}/${ex}.json`);
-                })
-            );
+            const t = (await import(`../src/i18n/${locale}`)).default;
+            exports.forEach(ex => {
+                fs.writeFileSync(
+                    `./dist/api/${locale}/${ex}.json`,
+                    JSON.stringify(t[ex] ?? {})
+                );
+                console.log(`./dist/api/${locale}/${ex}.json`);
+            });
         }
     },
 } as { [key: string]: () => string | void | Promise<string | void> };
