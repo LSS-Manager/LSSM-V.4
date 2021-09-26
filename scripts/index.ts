@@ -51,34 +51,6 @@ const scriptHandlers = {
     showChanges() {
         console.log(execSync('git diff --color-words').toString());
     },
-    /*async api() {
-        if (!fs.existsSync('./dist/api')) fs.mkdirSync('./dist/api');
-
-        const exports = [
-            'vehicles',
-            'buildings',
-            'schoolings',
-            'pois',
-            'ranks',
-        ];
-
-        const locales = Object.keys(config.games).filter(game =>
-            fs.existsSync(`./src/i18n/${game}.ts`)
-        );
-
-        for (const locale of locales) {
-            if (!fs.existsSync(`./dist/api/${locale}`))
-                fs.mkdirSync(`./dist/api/${locale}`);
-            const t = (await import(`../src/i18n/${locale}`)).default;
-            exports.forEach(ex => {
-                fs.writeFileSync(
-                    `./dist/api/${locale}/${ex}.json`,
-                    JSON.stringify(t[ex] ?? {})
-                );
-                console.log(`./dist/api/${locale}/${ex}.json`);
-            });
-        }
-    },*/
 } as { [key: string]: () => string | void | Promise<string | void> };
 
 (async () => {

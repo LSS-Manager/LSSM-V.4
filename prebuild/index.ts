@@ -17,7 +17,7 @@ import setVersion from './setVersion';
     console.info('\tcopyStatic');
     copyStatic();
     console.info('\tbuild API');
-    console.log(JSON.stringify(await buildAPI()));
+    await buildAPI();
     console.log('\tCollect Third-Party Libraries');
     getLibraries();
     console.log('Prebuild ran successfully, building...');
