@@ -33,8 +33,8 @@ const scriptHandlers = {
     predev() {
         this.emojis();
         this.lint();
-        this.tscPrebuild();
-        console.log(execSync('node prebuild').toString());
+        // this.tscPrebuild();
+        console.log(execSync('ts-node prebuild').toString());
     },
     tscBuild() {
         console.log(execSync('tsc -b build').toString());
@@ -54,8 +54,8 @@ const scriptHandlers = {
     preBuild() {
         this.emojis();
         this.lint();
-        this.tscPrebuild();
-        console.log(execSync('node prebuild production').toString());
+        // this.tscPrebuild();
+        console.log(execSync('ts-node prebuild production').toString());
     },
     build() {
         this.tscBuild();
@@ -95,29 +95,32 @@ const scriptHandlers = {
     },
 } as { [key: string]: () => string | void | Promise<string | void> };
 
-const execute = (script: string) => {
-    console.log(`### ${script} ###\n\n`);
-    console.time(script);
-    scriptHandlers[script]?.();
-    console.log(`\n\n=== end ${script} ===`);
-    console.timeEnd(script);
-};
+(async () => {
+    const execute = async (script: string) => {
+        console.log(`### ${script} ###\n\n`);
+        console.time(script);
+        await scriptHandlers[script]?.();
+        console.log(`\n\n=== end ${script} ===`);
+        console.timeEnd(script);
+    };
 
-try {
-    scripts.forEach(script => {
-        execute(script);
-        console.log('\n\n\n');
-    });
-} catch (e) {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    const childProcess: ChildProcess = e;
-    console.error(childProcess);
-    console.log(
-        `===stdout===\n${childProcess.stdout?.toString()}\n###stdout###`
-    );
-    console.log(
-        `===stderr===\n${childProcess.stderr?.toString()}\n###stderr###`
-    );
-    process.exit(-1);
-}
+    try {
+        for (let i = 0; i < scripts.length; i++) {
+            const script = scripts[i];
+            await execute(script);
+            console.log('\n\n\n');
+        }
+    } catch (e) {
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        const childProcess: ChildProcess = e;
+        console.error(childProcess);
+        console.log(
+            `===stdout===\n${childProcess.stdout?.toString()}\n###stdout###`
+        );
+        console.log(
+            `===stderr===\n${childProcess.stderr?.toString()}\n###stderr###`
+        );
+        process.exit(-1);
+    }
+})();
