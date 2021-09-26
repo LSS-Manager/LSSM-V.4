@@ -1,7 +1,5 @@
-import fs from 'fs';
 import { ChildProcess, execSync } from 'child_process';
 
-import config from '../src/config';
 import sort from './sort';
 
 const scripts = process.argv.splice(2);
