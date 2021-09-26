@@ -1,6 +1,5 @@
 import { Building } from 'typings/Building';
 
-const furtherFiles = require.context('./de_DE/', true, /.*(\/index)?\.js(on)?/);
 const modules = {
     appstore: {
         save: 'Speichern',
@@ -63,17 +62,8 @@ const modules = {
     },
 } as { [moduleId: string]: { [key: string]: unknown } };
 
-const t = {} as { [key: string]: unknown };
-
-furtherFiles
-    .keys()
-    .forEach(
-        key => (t[key.split('/')[1].replace(/\..*$/, '')] = furtherFiles(key))
-    );
-
 export default {
     modules,
-    ...t,
     error: {
         title: 'LSS-Manager: Fehler',
         msg:
@@ -83,7 +73,7 @@ export default {
         version: {
             title: 'Falsche LSS-Manager Version',
             text:
-                'Lieber Nutzer, leider mussten wir fetstellen, dass du nicht die neueste Version vom LSS-Manager hast. Die neuste Version ist {version}, du hast aber erst {curver}. Bitte lade das Spiel ohne Cache (mit Strg + F5, bei Apple-Geräten command + R) neu, das sollte den Fehler beheben. Sollte der Fehler weiterhin bestehen, bitte melde das an das Team! Bei der Nutzung einer falschen Version können wir nicht die volle Funktionalität des LSS-Managers gewährleisten.',
+                'Lieber Nutzer, leider mussten wir feststellen, dass du nicht die neueste Version vom LSS-Manager hast. Die neuste Version ist {version}, du hast aber erst {curver}. Bitte lade das Spiel ohne Cache (mit Strg + F5, bei Apple-Geräten command + R) neu, das sollte den Fehler beheben. Sollte der Fehler weiterhin bestehen, bitte melde das an das Team! Bei der Nutzung einer falschen Version können wir nicht die volle Funktionalität des LSS-Managers gewährleisten.',
             close: 'Meldung schließen und Spiel neu laden (empfohlen)',
             abort: 'Meldung schließen ohne Spiel neu zu laden',
         },
