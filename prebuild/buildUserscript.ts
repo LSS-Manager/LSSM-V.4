@@ -1,3 +1,4 @@
+import { execSync } from 'child_process';
 import fs from 'fs';
 import Terser from 'terser';
 
@@ -27,6 +28,8 @@ const gameIncludes = Object.keys(tlds).map(tld => {
     if (tlds[tld].length > 1) include += ')';
     return `${include}\\.${tld}`;
 });
+
+execSync('tsc src/userscript.ts');
 
 export default async (): Promise<void> =>
     fs.writeFileSync(
