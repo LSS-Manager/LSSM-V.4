@@ -9,6 +9,7 @@ interface Building {
     icon: string;
     lat: number;
     long: number;
+    canOpenSchooling: boolean;
 }
 
 export interface VerbandGebaeudeWindow extends VerbandWindow {
@@ -62,6 +63,9 @@ export default <RedesignParser<VerbandGebaeudeWindow>>(({
                     id: parseInt(id),
                     icon,
                     name: link.textContent?.trim() ?? '',
+                    canOpenSchooling: !!row.querySelector<HTMLAnchorElement>(
+                        `a.btn.btn-success[href="/buildings/${id}"]`
+                    ),
                 };
             }
         ),

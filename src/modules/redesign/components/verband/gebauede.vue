@@ -17,6 +17,7 @@
                         title: lightbox.$sm('name').toString(),
                         noSort: true,
                     },
+                    schooling: { title: '', noSort: true },
                 }"
                 :table-attrs="{ class: 'table table-striped' }"
                 no-search
@@ -40,9 +41,18 @@
                     <td>
                         <img :src="gebauede.icon" :alt="gebauede.name" />
                     </td>
-                    <td>
+                    <td :colspan="gebauede.canOpenSchooling ? 1 : 2">
                         <a lightbox-open :href="`/buildings/${gebauede.id}`">
                             {{ gebauede.name }}
+                        </a>
+                    </td>
+                    <td v-if="gebauede.canOpenSchooling">
+                        <a
+                            lightbox-open
+                            :href="`/buildings/${gebauede.id}`"
+                            class="btn btn-success"
+                        >
+                            {{ lightbox.$sm('openSchooling') }}
                         </a>
                     </td>
                 </tr>
