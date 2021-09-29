@@ -65,6 +65,16 @@
             :get-setting="getSetting"
             :set-setting="setSetting"
         ></VerbandEditText>
+        <VerbandGebauede
+            v-else-if="type === 'verband/gebauede'"
+            :gebauede="data"
+            :url="url"
+            :lightbox="lightbox"
+            :$m="$m"
+            :$mc="$mc"
+            :get-setting="getSetting"
+            :set-setting="setSetting"
+        ></VerbandGebauede>
         <VerbandHome
             v-else-if="type === 'verband/home'"
             :home="data"
@@ -184,6 +194,10 @@ export default Vue.extend<
         VerbandEditText: () =>
             import(
                 /*webpackChunkName: "modules/redesign/windows/verband/edit_text"*/ './verband/edit_text.vue'
+            ),
+        VerbandGebauede: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/verband/gebauede"*/ './verband/gebauede.vue'
             ),
         VerbandHome: () =>
             import(

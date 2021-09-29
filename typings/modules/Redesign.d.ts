@@ -24,6 +24,7 @@ import { VehicleWindow } from '../../src/modules/redesign/parsers/vehicle';
 import { VerbandBSRWindow } from '../../src/modules/redesign/parsers/verband/bsr';
 import { VerbandEditNameWindow } from '../../src/modules/redesign/parsers/verband/edit_name';
 import { VerbandEditTextWindow } from '../../src/modules/redesign/parsers/verband/edit_text';
+import { VerbandGebaeudeWindow } from '../../src/modules/redesign/parsers/verband/gebauede';
 import { VerbandHomeWindow } from '../../src/modules/redesign/parsers/verband/home';
 import { VerbandMitgliederWindow } from '../../src/modules/redesign/parsers/verband/mitglieder';
 import { VerbandNewsEditWindow } from '../../src/modules/redesign/parsers/verband/news/edit';
@@ -66,6 +67,7 @@ type types =
     | 'verband/bsr'
     | 'verband/edit_name'
     | 'verband/edit_text'
+    | 'verband/gebauede'
     | 'verband/home'
     | 'verband/mitglieder'
     | 'verband/news/edit'
@@ -96,6 +98,7 @@ type windows =
     | VerbandBSRWindow
     | VerbandEditNameWindow
     | VerbandEditTextWindow
+    | VerbandGebaeudeWindow
     | VerbandHomeWindow
     | VerbandMitgliederWindow
     | VerbandNewsEditWindow
