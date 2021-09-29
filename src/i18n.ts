@@ -27,8 +27,8 @@ export default async (Vue: VueConstructor): Promise<VueI18n> => {
                 ...(
                     await import(
                         /* webpackChunkName: "i18n/[request]" */
-                        /* webpackInclude: /[\\/]+i18n[\\/]+[^\\/]*?$/ */
-                        `./i18n/${locale}`
+                        /* webpackInclude: /[\\/]+i18n[\\/]+[a-z]{2}_[A-Z]{2}\.ts$/ */
+                        `./i18n/${locale}.ts`
                     )
                 ).default,
                 ...(highcharts ? { highcharts } : {}),
