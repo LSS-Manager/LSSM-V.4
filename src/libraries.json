@@ -1,78 +1,94 @@
 {
 	"@fortawesome/fontawesome-svg-core": {
-		"icon": "https://fontawesome.com/images/favicons/apple-icon-180x180.png",
+		"icon": "https://avatars.githubusercontent.com/u/1505683",
 		"url": "https://fontawesome.com",
 		"version": "1.2.36"
 	},
 	"@fortawesome/free-solid-svg-icons": {
-		"icon": "https://fontawesome.com/images/favicons/apple-icon-180x180.png",
+		"icon": "https://avatars.githubusercontent.com/u/1505683",
 		"url": "https://fontawesome.com",
 		"version": "5.15.4"
 	},
 	"@fortawesome/vue-fontawesome": {
-		"icon": "https://fontawesome.com/images/favicons/apple-icon-180x180.png",
+		"icon": "https://avatars.githubusercontent.com/u/1505683",
 		"url": "https://github.com/FortAwesome/vue-fontawesome",
 		"version": "2.0.2"
 	},
 	"@primer/octicons": {
+		"icon": "https://primer.style/octicons/icons/icon-512x512.png",
 		"url": "https://primer.style/octicons",
 		"version": "16.0.0"
 	},
 	"@types/he": {
+		"icon": "https://avatars.githubusercontent.com/u/3637556",
 		"url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/he",
 		"version": "1.1.2"
 	},
 	"@types/i18n-js": {
+		"icon": "https://avatars.githubusercontent.com/u/3637556",
 		"url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/i18n-js",
 		"version": "3.8.2"
 	},
 	"@types/jquery": {
+		"icon": "https://avatars.githubusercontent.com/u/3637556",
 		"url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/jquery",
 		"version": "3.5.6"
 	},
 	"@types/leaflet": {
+		"icon": "https://avatars.githubusercontent.com/u/3637556",
 		"url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/leaflet",
 		"version": "1.7.5"
 	},
 	"@types/lodash": {
+		"icon": "https://avatars.githubusercontent.com/u/3637556",
 		"url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/lodash",
 		"version": "4.14.175"
 	},
 	"@types/node": {
+		"icon": "https://avatars.githubusercontent.com/u/3637556",
 		"url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/node",
 		"version": "16.10.2"
 	},
 	"@types/pdfmake": {
+		"icon": "https://avatars.githubusercontent.com/u/3637556",
 		"url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/pdfmake",
 		"version": "0.1.19"
 	},
 	"@types/semver": {
+		"icon": "https://avatars.githubusercontent.com/u/3637556",
 		"url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/semver",
 		"version": "7.3.8"
 	},
 	"@types/showdown": {
+		"icon": "https://avatars.githubusercontent.com/u/3637556",
 		"url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/showdown",
 		"version": "1.9.4"
 	},
 	"@types/speed-measure-webpack-plugin": {
+		"icon": "https://avatars.githubusercontent.com/u/3637556",
 		"url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/speed-measure-webpack-plugin",
 		"version": "1.3.4"
 	},
 	"@types/ua-parser-js": {
+		"icon": "https://avatars.githubusercontent.com/u/3637556",
 		"version": "0.7.36"
 	},
 	"@types/vue-select": {
+		"icon": "https://avatars.githubusercontent.com/u/3637556",
 		"url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/vue-select",
 		"version": "3.11.2"
 	},
 	"@types/webpack-env": {
+		"icon": "https://avatars.githubusercontent.com/u/3637556",
 		"url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/webpack-env",
 		"version": "1.16.2"
 	},
 	"@typescript-eslint/eslint-plugin": {
+		"icon": "https://avatars.githubusercontent.com/u/46634674",
 		"version": "4.32.0"
 	},
 	"@typescript-eslint/parser": {
+		"icon": "https://avatars.githubusercontent.com/u/46634674",
 		"version": "4.32.0"
 	},
 	"@vuepress/plugin-active-header-links": {
@@ -91,6 +107,7 @@
 		"version": "6.20.0"
 	},
 	"axios": {
+		"icon": "https://avatars.githubusercontent.com/u/32372333",
 		"url": "https://axios-http.com",
 		"version": "0.21.4"
 	},
@@ -133,7 +150,7 @@
 		"version": "1.2.0"
 	},
 	"highcharts": {
-		"icon": "https://www.highcharts.com/images/ico/favicon-192x192.png",
+		"icon": "https://wp-assets.highcharts.com/www-highcharts-com/blog/wp-content/uploads/2021/05/19085042/favicon-1.ico",
 		"url": "http://www.highcharts.com",
 		"version": "9.2.2"
 	},
@@ -183,7 +200,7 @@
 		"version": "7.3.5"
 	},
 	"showdown": {
-		"icon": "https://raw.githubusercontent.com/showdownjs/logo/master/dist/logo.readme.png",
+		"icon": "http://showdownjs.com/apple-touch-icon.png",
 		"url": "http://showdownjs.com/",
 		"version": "1.9.1"
 	},
@@ -208,6 +225,7 @@
 		"version": "9.0.0"
 	},
 	"ts-node": {
+		"icon": "https://typestrong.org/ts-node/img/favicon/apple-touch-icon.png",
 		"url": "https://typestrong.org/ts-node",
 		"version": "10.2.1"
 	},
@@ -257,7 +275,6 @@
 		"version": "0.5.0"
 	},
 	"vue-select": {
-		"icon": "https://vuejs.org/images/logo.png",
 		"url": "https://vue-select.org",
 		"version": "3.13.0"
 	},
@@ -295,6 +312,7 @@
 		"version": "1.1.8"
 	},
 	"vuepress-theme-yuu": {
+		"icon": "https://camo.githubusercontent.com/d056a8ecc69b192f8e5fd6f8fe198c5701d3ac611d6e1c5bcdbc96a90edafd26/68747470733a2f2f692e696d6775722e636f6d2f6a3962665942792e706e67",
 		"url": "https://vuepress-theme-yuu.netlify.app/",
 		"version": "3.1.1"
 	},
