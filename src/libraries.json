@@ -133,7 +133,7 @@
 	"css-loader": {
 		"icon": "https://webpack.js.org/assets/icon-square-big.svg",
 		"url": "https://github.com/webpack-contrib/css-loader",
-		"version": "5.2.7"
+		"version": "6.3.0"
 	},
 	"eslint": {
 		"icon": "https://eslint.org/assets/img/favicon.512x512.png",
@@ -230,7 +230,7 @@
 	"sass-loader": {
 		"icon": "https://webpack.js.org/assets/icon-square-big.svg",
 		"url": "https://github.com/webpack-contrib/sass-loader",
-		"version": "10.2.1"
+		"version": "12.1.0"
 	},
 	"semver": {
 		"version": "7.3.5"
@@ -248,7 +248,7 @@
 	"string-replace-loader": {
 		"icon": "https://webpack.js.org/assets/icon-square-big.svg",
 		"url": "https://github.com/Va1/string-replace-loader",
-		"version": "2.3.0"
+		"version": "3.0.3"
 	},
 	"terser": {
 		"icon": "https://terser.org/img/terser-square-logo.png",
@@ -258,7 +258,7 @@
 	"ts-loader": {
 		"icon": "https://webpack.js.org/assets/icon-square-big.svg",
 		"url": "https://github.com/TypeStrong/ts-loader",
-		"version": "8.3.0"
+		"version": "9.2.6"
 	},
 	"ts-node": {
 		"icon": "https://typestrong.org/ts-node/img/favicon/apple-touch-icon.png",
@@ -360,7 +360,7 @@
 	"webpack": {
 		"icon": "https://webpack.js.org/assets/icon-square-big.svg",
 		"url": "https://github.com/webpack/webpack",
-		"version": "4.46.0"
+		"version": "5.55.1"
 	},
 	"webpack-loader-append-prepend": {
 		"icon": "https://webpack.js.org/assets/icon-square-big.svg",

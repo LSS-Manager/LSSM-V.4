@@ -1,8 +1,8 @@
+import * as fs from 'fs';
+import * as path from 'path';
 import DynamicImportQueryPlugin from './plugins/DynamicImportQueryPlugin';
-import fs from 'fs';
 import lodash from 'lodash';
 import moment from 'moment';
-import path from 'path';
 import SpeedMeasurePlugin from 'speed-measure-webpack-plugin';
 
 import addToBuildStats from './addToBuildStats';
@@ -22,8 +22,13 @@ const locales = Object.keys(config.games).filter(game =>
     fs.existsSync(`./src/i18n/${game}.ts`)
 );
 
+const mode = process.argv[3] || 'development';
+
 const entry = {
-    mode: process.argv[2] || 'development',
+    mode,
+    stats: {
+        errorDetails: true,
+    },
     entry: {
         core: path.resolve(__dirname, '../src/core.ts'),
     },
@@ -48,7 +53,7 @@ entry.plugins?.unshift(
     new webpack.DefinePlugin({
         PREFIX: JSON.stringify(config.prefix),
         VERSION: JSON.stringify(version),
-        MODE: process.argv[2] === 'production' ? '"stable"' : '"beta"',
+        MODE: mode === 'production' ? '"stable"' : '"beta"',
         MODULE_REGISTER_FILES: JSON.stringify(
             Object.fromEntries(
                 modules.map(module => [
@@ -88,7 +93,7 @@ entry.plugins?.push(
 console.log('Generated configurations. Building…');
 webpack(
     new SpeedMeasurePlugin({
-        disable: process.argv[2] !== 'development',
+        disable: mode !== 'development',
         outputFormat: 'humanVerbose',
     }).wrap(entry),
     (err, stats) => {
@@ -109,7 +114,7 @@ webpack(
         } else {
             fs.writeFileSync(
                 `./dist/webpack.out.${
-                    process.argv[2] === 'production' ? 'public' : 'beta'
+                    mode === 'production' ? 'public' : 'beta'
                 }.json`,
                 JSON.stringify(stats.toJson(), null, '\t')
             );
