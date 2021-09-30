@@ -96,7 +96,7 @@
 		],
 		"water_damage_pump_count": [
 			"9.8"
-		]
+		],
 		"werkfeuerwehr": [
 			"0.13"
 		]
@@ -121,7 +121,7 @@
 		"thw_gkw_count": "THW-Ortsverein oder 2. Technischer Zug - Grundvorraussetzungen | THW-Ortsvereine oder 2. Technischer Zug - Grundvorraussetzungen",
 		"thw_zugtrupp_count": "aktiver \"Zugtrupp\" THW-Ausbau | aktive \"Zugtrupp\" THW-Ausbauten",
 		"wasserrettung": "Wasserrettungswache oder aktiver Ausbau Wasserrettung bzw. Wassergefahren | Wasserrettungswachen oder aktiver Ausbauten Wasserrettung bzw. Wassergefahren",
-		"water_damage_pump_count": "aktiver \"BFachgruppe Wasserschaden/Pumpen\" THW-Ausbau | aktive \"Fachgruppen Wasserschaden/Pumpen\" THW-Ausbauten",
+		"water_damage_pump_count": "aktiver \"Fachgruppe Wasserschaden/Pumpen\" THW-Ausbau | aktive \"Fachgruppen Wasserschaden/Pumpen\" THW-Ausbauten",
 		"werkfeuerwehr": "aktive Werkfeuerwehr | aktive Werkfeuerwehren"
 	},
 	"prerequisites_short": {
