@@ -6,7 +6,7 @@ const scripts = process.argv.splice(2);
 
 const build = (mode: string) => {
     console.time('games');
-    console.log(execSync(`ts-node build ${mode}`).toString());
+    console.log(execSync(`ts-node build --esModuleInterop ${mode}`).toString());
     console.timeEnd('games');
 };
 

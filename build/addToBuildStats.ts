@@ -1,5 +1,5 @@
-import fs from 'fs';
-import path from 'path';
+import * as fs from 'fs';
+import * as path from 'path';
 
 const ROOT_PATH = path.join(__dirname, '../');
 const FILE_PATH = path.join(ROOT_PATH, 'dist/static/build_stats.json');
