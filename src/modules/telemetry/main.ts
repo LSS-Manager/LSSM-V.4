@@ -185,12 +185,12 @@ export default (
                                                     key: NOTE_STORAGE_KEY,
                                                     value: true,
                                                 } as StorageSet)
-                                                .then(
-                                                    () =>
-                                                        sendStats() &&
+                                                .then(() =>
+                                                    sendStats().then(() =>
                                                         LSSM.$modal.hide(
                                                             'dialog'
                                                         )
+                                                    )
                                                 );
                                             // Now we store if we allowed telemetry
                                             LSSM.$store.dispatch(

@@ -297,6 +297,9 @@ export default Vue.extend<
                                 'modules.settings.appendableList.unique.confirm'
                             ),
                             default: true,
+                            handler: () => {
+                                this.$modal.hide('dialog');
+                            },
                         },
                     ],
                 });
@@ -360,6 +363,9 @@ export default Vue.extend<
                             'modules.settings.resetWarningSetting.close'
                         ),
                         default: true,
+                        handler: () => {
+                            this.$modal.hide('dialog');
+                        },
                     },
                     {
                         title: this.$t(
