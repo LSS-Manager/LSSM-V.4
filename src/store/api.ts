@@ -806,6 +806,9 @@ export default {
                                                 title: LSSM.$t(
                                                     'warnings.version.abort'
                                                 ),
+                                                handler() {
+                                                    LSSM.$modal.hide('dialog');
+                                                },
                                             },
                                         ],
                                     });

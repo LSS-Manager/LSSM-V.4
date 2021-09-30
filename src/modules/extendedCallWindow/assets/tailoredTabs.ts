@@ -99,6 +99,9 @@ export default (
                 buttons: [
                     {
                         title: $m('tailoredTabs.vehicleMissing.hide'),
+                        handler() {
+                            LSSM.$modal.hide('dialog');
+                        },
                     },
                     {
                         title: $m('tailoredTabs.vehicleMissing.close'),

@@ -1,6 +1,5 @@
 <template>
     <div :id="id">
-        <modals-container />
         <v-dialog></v-dialog>
         <notifications
             v-for="group in notificationGroups"

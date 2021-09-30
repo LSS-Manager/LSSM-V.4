@@ -9571,10 +9571,10 @@ vue-i18n@^8.26.2:
   resolved "https://registry.yarnpkg.com/vue-i18n/-/vue-i18n-8.26.2.tgz#86a1ab9330bae7a56f58f23a52355f68aad00222"
   integrity sha512-koaC7gEYcedlzq9M8usTbD/v3DdLZ8suvwuanrs6aBIiM/sVqq2nQPbeuNPrpHaXgpR/pff2+/R+lFGKl7S1cQ==
 
-vue-js-modal@2.0.0-rc.3:
-  version "2.0.0-rc.3"
-  resolved "https://registry.yarnpkg.com/vue-js-modal/-/vue-js-modal-2.0.0-rc.3.tgz#c34b33305af10b4ccecdbb381dd58efbb19e2862"
-  integrity sha512-Q9L9FsIUMuzCKSuB41D8LxV+Yc2q+zWHzzUdWaQ2KeHPS+78+X6AAnBztVoophbjt8UXHO7rQSRgER1MMw5qsw==
+vue-js-modal@2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/vue-js-modal/-/vue-js-modal-2.0.1.tgz#748ba2533c5b5eaf8234c6320b148663357c1163"
+  integrity sha512-5FUwsH2zoxRKX4a7wkFAqX0eITCcIMunJDEfIxzHs2bHw9o20+Iqm+uQvBcg1jkzyo1+tVgThR/7NGU8djbD8Q==
   dependencies:
     resize-observer-polyfill "^1.5.1"
 

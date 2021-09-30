@@ -270,6 +270,9 @@ export default Vue.extend<
                                         'modules.appstore.closeWarning.abort'
                                     ),
                                     default: true,
+                                    handler() {
+                                        LSSM.$modal.hide('dialog');
+                                    },
                                 },
                             ],
                         });
@@ -336,6 +339,9 @@ export default Vue.extend<
                                         'modules.settings.closeWarning.abort'
                                     ),
                                     default: true,
+                                    handler() {
+                                        LSSM.$modal.hide('dialog');
+                                    },
                                 },
                             ],
                         });
