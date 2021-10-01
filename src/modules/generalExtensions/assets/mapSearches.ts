@@ -63,8 +63,23 @@ export default (
                         })
                         .then(res => res.json())
                         .then((result: { lat: number; lon: number }[]) => {
-                            if (result.length)
+                            if (result.length) {
                                 map.panTo([result[0].lat, result[0].lon]);
+                            } else {
+                                LSSM.$modal.show('dialog', {
+                                    text: window.I18n.t(
+                                        'javascript.location_not_found'
+                                    ),
+                                    buttons: [
+                                        {
+                                            title: 'Ok',
+                                            default: true,
+                                            handler: () =>
+                                                LSSM.$modal.hide('dialog'),
+                                        },
+                                    ],
+                                });
+                            }
                         });
                 });
 
