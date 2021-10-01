@@ -3,9 +3,10 @@ import { Map as LMap } from 'leaflet';
 export default (
     placeholder: string,
     addToPanelHeading: boolean,
+    mapSearchOnMap: boolean,
     LSSM: Vue
 ): void => {
-    const form = document.createElement('form');
+    let form = document.createElement('form');
     form.id = 'map_adress_search_form';
     form.classList.add('pull-right');
 
@@ -39,7 +40,9 @@ export default (
                     searchIcon.classList.add('fas', 'fa-search');
                     form.classList.add('hidden');
                     window.map = map;
-                    control.append(searchIcon, form);
+                    control.classList.add('pull-right');
+                    control.append(searchIcon);
+                    control.after(form);
                 });
         }
     };
@@ -57,7 +60,17 @@ export default (
         };
         window.map.addEventListener('moveend', resetNewBuildingMarker);
     }
-    addToMap();
+    if (window.location.pathname.match(/^\/?$/)) {
+        if (mapSearchOnMap) {
+            form =
+                document.querySelector<HTMLFormElement>(
+                    '#map_adress_search_form'
+                ) ?? form;
+            addToMap();
+        }
+    } else {
+        addToMap();
+    }
 
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore

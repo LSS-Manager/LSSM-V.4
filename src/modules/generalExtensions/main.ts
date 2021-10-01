@@ -100,13 +100,20 @@ export default (async (LSSM, MODULE_ID, $m) => {
         !!window.location.pathname.match(/^\/buildings\/\d+\/?$/) &&
         !!document.getElementById('tab_projected_missions');
 
-    if (isProfile || addToPanelHeading || isDispatchCenter) {
+    const mapSearchOnMap = await getSetting<boolean>('mapSearchOnMap');
+
+    if (isProfile || addToPanelHeading || isDispatchCenter || mapSearchOnMap) {
         LSSM.$store.commit('useFontAwesome');
         (
             await import(
                 /* webpackChunkName: "modules/generalExtensions/mapSearches" */ './assets/mapSearches'
             )
-        ).default(LSSM.$t('mapSearch').toString(), addToPanelHeading, LSSM);
+        ).default(
+            LSSM.$t('mapSearch').toString(),
+            addToPanelHeading,
+            mapSearchOnMap,
+            LSSM
+        );
     }
 
     if (isDispatchCenter) {

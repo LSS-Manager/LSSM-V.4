@@ -26,6 +26,10 @@
 			"title": "Link Preview",
 			"vehicles": "Vehicles"
 		},
+		"mapSearchOnMap": {
+			"description": "Moves the location search in the main window to the map",
+			"title": "Place search on the map"
+		},
 		"mapUndo": {
 			"description": "Center map on positions that were centered before. - Currently only works with map type \"OpenStreetMap\"",
 			"title": "Save map jumps"
