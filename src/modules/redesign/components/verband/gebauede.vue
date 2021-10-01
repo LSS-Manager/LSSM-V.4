@@ -5,7 +5,9 @@
                 id="verband-gebauede-map"
                 ref="map"
                 :layers="markers"
-                :center-group="markerFeatureGroup"
+                :center-group="
+                    gebauede.buildings.length ? markerFeatureGroup : null
+                "
             ></leaflet-map>
         </div>
         <div class="col-lg-6">

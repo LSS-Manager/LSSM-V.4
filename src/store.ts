@@ -321,19 +321,21 @@ export default (Vue: VueConstructor): Store<RootState> => {
                 }
             ) {
                 return new Promise(resolve => {
+                    const positionSelector = `#${mapId} .leaflet-control-container ${position
+                        .split('-')
+                        .map(p => `.leaflet-${p}`)
+                        .join('')}`;
                     if (
                         !state.osmBars.hasOwnProperty(mapId) ||
-                        !state.osmBars[mapId].hasOwnProperty(position)
+                        !state.osmBars[mapId].hasOwnProperty(position) ||
+                        !document.querySelector(
+                            `${positionSelector} .leaflet-bar.leaflet-control`
+                        )
                     ) {
                         const bar = document.createElement('div');
                         bar.classList.add('leaflet-bar', 'leaflet-control');
                         document
-                            .querySelector(
-                                `#${mapId} .leaflet-control-container ${position
-                                    .split('-')
-                                    .map(p => `.leaflet-${p}`)
-                                    .join('')}`
-                            )
+                            .querySelector(positionSelector)
                             ?.appendChild(bar);
                         commit('addOSMBar', { position, bar, mapId });
                     }

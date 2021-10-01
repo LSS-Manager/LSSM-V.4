@@ -5,7 +5,7 @@
                 id="verband-bsr-map"
                 ref="map"
                 :layers="markers"
-                :center-group="markerFeatureGroup"
+                :center-group="bsr.buildings.length ? markerFeatureGroup : null"
             ></leaflet-map>
         </div>
         <div class="col-lg-6">
@@ -164,6 +164,7 @@ export default Vue.extend<
                 );
             }
         );
+
         this.markerFeatureGroup = window.L.featureGroup(this.markers);
     },
     mounted() {
