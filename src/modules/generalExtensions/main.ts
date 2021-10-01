@@ -101,15 +101,12 @@ export default (async (LSSM, MODULE_ID, $m) => {
         !!document.getElementById('tab_projected_missions');
 
     if (isProfile || addToPanelHeading || isDispatchCenter) {
+        LSSM.$store.commit('useFontAwesome');
         (
             await import(
                 /* webpackChunkName: "modules/generalExtensions/mapSearches" */ './assets/mapSearches'
             )
-        ).default(LSSM.$t('mapSearch').toString(), {
-            isProfile,
-            addToPanelHeading,
-            isDispatchCenter,
-        });
+        ).default(LSSM.$t('mapSearch').toString(), addToPanelHeading, LSSM);
     }
 
     if (isDispatchCenter) {
