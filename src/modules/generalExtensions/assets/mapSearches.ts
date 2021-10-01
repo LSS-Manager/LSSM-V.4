@@ -25,11 +25,12 @@ export default (
         formGroup.appendChild(input);
         form.appendChild(formGroup);
 
-        if (
+        const isMainWindowSearch =
             window.location.pathname.match(/^\/?$/) &&
             mapSearchOnMap &&
-            !document.querySelector('.redesign-wrapper')
-        ) {
+            !document.querySelector('.redesign-wrapper');
+
+        if (isMainWindowSearch) {
             form =
                 document.querySelector<HTMLFormElement>(
                     '#map_adress_search_form'
@@ -47,41 +48,43 @@ export default (
                 searchIcon.classList.add('fas', 'fa-search');
                 form.classList.add('hidden');
 
-                form.addEventListener('submit', e => {
-                    e.preventDefault();
-                    const url = new URL(
-                        'https://nominatim.openstreetmap.org/search?format=json&limit=1&q='
-                    );
-                    url.searchParams.set('format', 'json');
-                    url.searchParams.set('limit', '1');
-                    url.searchParams.set('q', input.value);
+                if (!isMainWindowSearch) {
+                    form.addEventListener('submit', e => {
+                        e.preventDefault();
+                        const url = new URL(
+                            'https://nominatim.openstreetmap.org/search?format=json&limit=1&q='
+                        );
+                        url.searchParams.set('format', 'json');
+                        url.searchParams.set('limit', '1');
+                        url.searchParams.set('q', input.value);
 
-                    LSSM.$store
-                        .dispatch('api/request', {
-                            url: url.toString(),
-                            feature: 'mapsearch',
-                        })
-                        .then(res => res.json())
-                        .then((result: { lat: number; lon: number }[]) => {
-                            if (result.length) {
-                                map.panTo([result[0].lat, result[0].lon]);
-                            } else {
-                                LSSM.$modal.show('dialog', {
-                                    text: window.I18n.t(
-                                        'javascript.location_not_found'
-                                    ),
-                                    buttons: [
-                                        {
-                                            title: 'Ok',
-                                            default: true,
-                                            handler: () =>
-                                                LSSM.$modal.hide('dialog'),
-                                        },
-                                    ],
-                                });
-                            }
-                        });
-                });
+                        LSSM.$store
+                            .dispatch('api/request', {
+                                url: url.toString(),
+                                feature: 'mapsearch',
+                            })
+                            .then(res => res.json())
+                            .then((result: { lat: number; lon: number }[]) => {
+                                if (result.length) {
+                                    map.panTo([result[0].lat, result[0].lon]);
+                                } else {
+                                    LSSM.$modal.show('dialog', {
+                                        text: window.I18n.t(
+                                            'javascript.location_not_found'
+                                        ),
+                                        buttons: [
+                                            {
+                                                title: 'Ok',
+                                                default: true,
+                                                handler: () =>
+                                                    LSSM.$modal.hide('dialog'),
+                                            },
+                                        ],
+                                    });
+                                }
+                            });
+                    });
+                }
 
                 control.classList.add('pull-right');
                 control.append(searchIcon);
