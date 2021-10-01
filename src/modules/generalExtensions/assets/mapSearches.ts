@@ -1,15 +1,13 @@
+import { Map as LMap } from 'leaflet';
+
 export default (
     placeholder: string,
-    {
-        isProfile,
-        addToPanelHeading,
-        isDispatchCenter,
-    }: {
-        [k in 'isProfile' | 'addToPanelHeading' | 'isDispatchCenter']: boolean;
-    }
+    addToPanelHeading: boolean,
+    LSSM: Vue
 ): void => {
     const form = document.createElement('form');
     form.id = 'map_adress_search_form';
+    form.classList.add('pull-right');
 
     const formGroup = document.createElement('div');
     formGroup.classList.add('form-group');
@@ -28,7 +26,24 @@ export default (
         window.mapMoveToSearch();
     });
 
-    if (isProfile) document.getElementById('tabs')?.appendChild(form);
+    const addToMap = (map = window.map, id = 'map') => {
+        if (map && document.getElementById(id)) {
+            LSSM.$store
+                .dispatch('addOSMControl', { position: 'top-right', mapId: id })
+                .then((control: HTMLAnchorElement) => {
+                    control.style.setProperty('cursor', 'pointer');
+                    control.addEventListener('click', () =>
+                        form.classList.toggle('hidden')
+                    );
+                    const searchIcon = document.createElement('i');
+                    searchIcon.classList.add('fas', 'fa-search');
+                    form.classList.add('hidden');
+                    window.map = map;
+                    control.append(searchIcon, form);
+                });
+        }
+    };
+
     if (addToPanelHeading) {
         const resetNewBuildingMarker = () => {
             if (
@@ -41,13 +56,14 @@ export default (
                 window.building_move_marker_dragend();
         };
         window.map.addEventListener('moveend', resetNewBuildingMarker);
-        form.classList.add('pull-right');
-        document.querySelector<HTMLDivElement>('.panel-heading')?.prepend(form);
     }
-    if (isDispatchCenter) {
-        form.classList.add('pull-right');
-        document
-            .querySelector<HTMLDivElement>('#tab_projected_missions .col-lg-3')
-            ?.prepend(form);
-    }
+    addToMap();
+
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    window.addEventListener(
+        'lssmv4-map-loaded',
+        ({ detail: { id, map } }: CustomEvent<{ id: string; map: LMap }>) =>
+            addToMap(map, id)
+    );
 };

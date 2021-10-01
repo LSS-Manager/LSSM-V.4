@@ -34,6 +34,11 @@ export default Vue.extend<MapData, MapMethods, MapComputed, MapProps>({
             }).addTo(this.map);
             if (this.centerGroup)
                 this.map.fitBounds(this.centerGroup.getBounds());
+            window.dispatchEvent(
+                new CustomEvent('lssmv4-map-loaded', {
+                    detail: { id: this.mapId, map: this.map },
+                })
+            );
         },
         setView(lat, long, zoom = undefined) {
             this.map?.setView([lat, long], zoom ?? this.map?.getZoom() ?? 15);

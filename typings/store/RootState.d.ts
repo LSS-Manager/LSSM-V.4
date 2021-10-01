@@ -33,6 +33,6 @@ export interface RootState {
         inserted: boolean;
     };
     osmBars: {
-        [position: string]: HTMLDivElement;
+        [mapId: string]: { [position: string]: HTMLDivElement };
     };
 }

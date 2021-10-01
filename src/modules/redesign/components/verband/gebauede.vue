@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-lg-6">
             <leaflet-map
-                id="verband-bsr-map"
+                id="verband-gebauede-map"
                 ref="map"
                 :layers="markers"
                 :center-group="markerFeatureGroup"
