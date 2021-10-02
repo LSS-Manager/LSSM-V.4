@@ -49,11 +49,8 @@ export default (
     // Extension State
     if (buildingSettings.includes('switchExtensionState')) {
         const newState = (btn: HTMLElement): boolean => {
-            if (btn.innerText == $m('buildings.active')) {
-                return false;
-            } else {
-                return true;
-            }
+            if (btn.innerText == $m('buildings.active')) return false;
+            else return true;
         };
         const extensionStateBtns = Array.from(
             document.querySelectorAll(
@@ -105,6 +102,7 @@ export default (
                             label.innerText = newState(btn as HTMLElement)
                                 ? ($m('buildings.active') as string)
                                 : ($m('buildings.nonactive') as string);
+                            // eslint-disable-next-line no-unused-expressions
                             label.classList.contains('label-danger')
                                 ? label.classList.replace(
                                       'label-danger',

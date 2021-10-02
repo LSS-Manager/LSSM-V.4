@@ -16,6 +16,59 @@ sidebarDepth: 2
 
 [Game-Online-Status](https://stats.uptimerobot.com/OEKDJSpmvK)
 
+---
+title: LSS-Manager V.4
+lang: de_DE
+sidebarDepth: 2
+---
+
+# Wiki 🇩🇪 <Badge :text="'v.' + $themeConfig.variables.versions.short"/>
+
+> stable: <i>{{ $themeConfig.variables.versions.stable }}</i>
+> 
+> beta: <i>{{ $themeConfig.variables.versions.beta }}</i>
+
+<discord style="float: right;"><img src="https://discord.com/api/guilds/254167535446917120/embed.png?style=banner1" alt="Our Discord-Server: United Dispatch" data-prevent-zooming></discord>
+
+[LSSM-Server-Status](https://status.lss-manager.de)
+
+[Game-Online-Status](https://stats.uptimerobot.com/OEKDJSpmvK)
+
+---
+title: LSS-Manager V.4
+lang: de_DE
+sidebarDepth: 2
+---
+
+# Wiki 🇩🇪 <Badge :text="'v.' + $themeConfig.variables.versions.short"/>
+
+> stable: <i>{{ $themeConfig.variables.versions.stable }}</i>
+> 
+> beta: <i>{{ $themeConfig.variables.versions.beta }}</i>
+
+<discord style="float: right;"><img src="https://discord.com/api/guilds/254167535446917120/embed.png?style=banner1" alt="Our Discord-Server: United Dispatch" data-prevent-zooming></discord>
+
+[LSSM-Server-Status](https://status.lss-manager.de)
+
+[Game-Online-Status](https://stats.uptimerobot.com/OEKDJSpmvK)
+---
+title: LSS-Manager V.4
+lang: de_DE
+sidebarDepth: 2
+---
+
+# Wiki 🇩🇪 <Badge :text="'v.' + $themeConfig.variables.versions.short"/>
+
+> stable: <i>{{ $themeConfig.variables.versions.stable }}</i>
+> 
+> beta: <i>{{ $themeConfig.variables.versions.beta }}</i>
+
+<discord style="float: right;"><img src="https://discord.com/api/guilds/254167535446917120/embed.png?style=banner1" alt="Our Discord-Server: United Dispatch" data-prevent-zooming></discord>
+
+[LSSM-Server-Status](https://status.lss-manager.de)
+
+[Game-Online-Status](https://stats.uptimerobot.com/OEKDJSpmvK)
+
 ## Über den LSSM
 
 Der LSS-MANAGER V.4 ist eine Erweiterung für das [Leitstellenspiel.de](https://www.leitstellenspiel.de) und dessen anderssprachige Versionen.
