@@ -83,6 +83,10 @@
 				"firetrucks": "Fire Engine or Heavy Rescue or Rescue Engine | Fire Engines or Heavy Rescue or Rescue Engine"
 			}
 		},
+		"patient_additionals": {
+			"20": "Ambulance Officer",
+			"30": "Mass Casualty Equipment"
+		},
 		"title": "Vehicles"
 	}
 }
