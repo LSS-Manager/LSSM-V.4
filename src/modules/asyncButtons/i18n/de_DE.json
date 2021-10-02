@@ -1,8 +1,4 @@
 {
-	"buildings": {
-		"active": "Einsatzbereit",
-		"nonactive": "Nicht Einsatzbereit",
-	},
 	"buildingPersonal": {
 		"deleteModal": {
 			"btnCancel": "Abbrechen",
@@ -10,6 +6,10 @@
 			"text": "Möchtest du diese Person kündigen?",
 			"title": "Kündigen?"
 		}
+	},
+	"buildings": {
+		"active": "Einsatzbereit",
+		"nonactive": "Nicht Einsatzbereit"
 	},
 	"deleteARR": {
 		"deleteModal": {
