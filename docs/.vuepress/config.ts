@@ -375,7 +375,7 @@ ${docsLangs
                                     `/${path.posix.relative(
                                         DOCS_PATH,
                                         file.replace('.md', '')
-                                    )}`
+                                    ).replace(/\\/g, '')}`
                             ),
                     ],
                 },
