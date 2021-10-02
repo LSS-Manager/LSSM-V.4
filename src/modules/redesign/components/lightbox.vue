@@ -690,6 +690,7 @@ iframe
     justify-content: center
     align-items: center
     color: black
+    cursor: wait
 
     .error-list
         position: absolute
