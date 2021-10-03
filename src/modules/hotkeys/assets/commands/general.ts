@@ -9,6 +9,7 @@ export default <Scope<Empty, ['alliance', 'credits', 'profile', 'tasks']>>{
             [
                 'open',
                 'members',
+                'onlineMembers',
                 'buildings',
                 'funds',
                 'forum',
@@ -34,6 +35,9 @@ export default <Scope<Empty, ['alliance', 'credits', 'profile', 'tasks']>>{
         },
         members() {
             window.lightboxOpen('/verband/mitglieder');
+        },
+        onlineMembers() {
+            window.lightboxOpen('/verband/mitglieder?online=true');
         },
         messages() {
             window.lightboxOpen('/alliance_messages');

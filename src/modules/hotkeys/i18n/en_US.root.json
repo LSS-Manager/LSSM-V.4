@@ -9,6 +9,7 @@
 				"logfiles": "Logfiles",
 				"members": "open memberlist",
 				"messages": "open messages",
+				"onlineMembers": "open memberlist (show online players only)",
 				"open": "open alliance window",
 				"schoolings": "open schoolings window",
 				"title": "Alliance"

@@ -146,8 +146,8 @@
 				"title": "Vehicle requirements"
 			},
 			"patient_additionals": {
-				"description": "If there are currently more than 10 patients on site, EMS-Chief is automatically listed at the beginning of the vehicle requirements.",
-				"title": "Mention EMS-Chief extra"
+				"description": "If there are currently more than 20 patients on site, Ambulance Officer is automatically listed at the beginning of the vehicle requirements. If there are currently more than 30 patients on site, MCE is also automatically listed.",
+				"title": "Mention Ambulance Officer and MCE extra"
 			},
 			"sort": {
 				"amount": "Number of required vehicles",
