@@ -24,6 +24,7 @@ export default <ModuleSettingFunction>((MODULE_ID, LSSM, $m) => {
         '*.profile.notes',
         '*.alliance.open',
         '*.alliance.members',
+        '*.alliance.onlineMembers',
         '*.alliance.buildings',
         '*.alliance.funds',
         '*.alliance.forum',
