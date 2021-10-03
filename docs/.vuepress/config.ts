@@ -372,10 +372,12 @@ ${docsLangs
                             )
                             .map(
                                 ({ file }) =>
-                                    `/${path.relative(
-                                        DOCS_PATH,
-                                        file.replace('.md', '')
-                                    ).replace(/\\/g, '/')}`
+                                    `/${path
+                                        .relative(
+                                            DOCS_PATH,
+                                            file.replace('.md', '')
+                                        )
+                                        .replace(/\\/g, '/')}`
                             ),
                     ],
                 },

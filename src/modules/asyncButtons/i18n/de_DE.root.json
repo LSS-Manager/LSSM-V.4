@@ -2,6 +2,10 @@
 	"description": "Vermeide mit diesem Modul, dass das Spiel neu geladen wird, wenn du bestimmte Knöpfe drückst.",
 	"name": "Asynchrone Knöpfe",
 	"settings": {
+		"buildExtension": {
+			"description": "Verhindert ein Neuladen, wenn du eine Erweiterung baust.",
+			"title": "Bauen von Erweiterungen"
+		},
 		"buildingPersonal": {
 			"description": "Verhindert ein Neuladen, wenn du einer Person kündigst.",
 			"title": "Personal Kündigen"
@@ -31,10 +35,6 @@
 		"switchExtensionState": {
 			"description": "Verhindert ein Neuladen, wenn du eine Erweiterung aktivierst oder deaktivierst.",
 			"title": "(De-)aktivieren von Erweiterungen"
-		},
-		"buildExtension": {
-			"title": "Bauen von Erweiterungen",
-			"description": "Verhindert ein Neuladen, wenn du eine Erweiterung baust."
 		}
 	}
 }
