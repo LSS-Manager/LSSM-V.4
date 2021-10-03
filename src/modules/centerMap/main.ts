@@ -1,5 +1,3 @@
-import { mapFilterInitializer } from './assets/getMapFilterInitializer';
-
 import { ModuleMainFunction } from 'typings/Module';
 
 export default <ModuleMainFunction>(async (LSSM, MODULE_ID) => {
@@ -22,6 +20,7 @@ export default <ModuleMainFunction>(async (LSSM, MODULE_ID) => {
                 mapFilterLayers[filter_id].getLayers()
             )
         );
+        // eslint-disable-next-line no-console
         console.log(dynamicFilters, group);
     }
 });

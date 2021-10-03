@@ -27,6 +27,10 @@ export default (() => ({
         type: 'toggle',
         default: true,
     },
+    switchExtensionState: <Toggle>{
+        type: 'toggle',
+        default: true,
+    },
     buildingPersonal: <Toggle>{
         type: 'toggle',
         default: true,
