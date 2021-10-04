@@ -1,3 +1,4 @@
+import { AddStarrableButton } from './assets/starrableMissions/missionlist';
 import { ModuleMainFunction } from 'typings/Module';
 
 interface AppendableListSetting<valueType> {
@@ -6,7 +7,7 @@ interface AppendableListSetting<valueType> {
 }
 
 export default (async (LSSM, MODULE_ID) => {
-    const getSetting = <type = boolean>(settingId: string): Promise<type> => {
+    const getSetting = <Type = boolean>(settingId: string): Promise<Type> => {
         return LSSM.$store.dispatch('settings/getSetting', {
             moduleId: MODULE_ID,
             settingId,
@@ -22,6 +23,11 @@ export default (async (LSSM, MODULE_ID) => {
     }
 
     const starrableMissions = await getSetting('starrableMissions');
+    let starredMissions = (await getSetting<string[]>('starredMissions')) ?? [];
+
+    const starredMissionBtnClass = LSSM.$store.getters.nodeAttribute(
+        `${MODULE_ID}_starrable-mission_btn`
+    );
 
     if (
         window.location.pathname.match(/^\/missions\/\d+\/?/) &&
@@ -31,19 +37,41 @@ export default (async (LSSM, MODULE_ID) => {
             await import(
                 /* webpackChunkName: "modules/extendedCallList/starrableMissions/mission" */ './assets/starrableMissions/mission'
             )
-        ).default(LSSM, MODULE_ID);
+        ).default(LSSM, MODULE_ID, starredMissions, starredMissionBtnClass);
     }
 
-    if (starrableMissions) {
+    const collapsableMissions = await getSetting('collapsableMissions');
+
+    if (starrableMissions || collapsableMissions) {
+        starredMissions = starredMissions.filter(
+            missionId => !!document.getElementById(`mission_${missionId}`)
+        );
+        await LSSM.$store.dispatch('settings/setSetting', {
+            moduleId: MODULE_ID,
+            settingId: 'starredMissions',
+            value: starredMissions,
+        });
+
+        const addStarrableBtn: AddStarrableButton | null = starrableMissions
+            ? (
+                  await import(
+                      /* webpackChunkName: "modules/extendedCallList/starrableMissions/missionlist" */ './assets/starrableMissions/missionlist'
+                  )
+              ).default(
+                  LSSM,
+                  MODULE_ID,
+                  starredMissions,
+                  starredMissionBtnClass
+              )
+            : null;
+
         (
             await import(
-                /* webpackChunkName: "modules/extendedCallList/starrableMissions/missionlist" */ './assets/starrableMissions/missionlist'
+                /* webpackChunkName: "modules/extendedCallList/utils/btnGroup" */ './assets/utils/buttonGroup'
             )
-        ).default(
-            LSSM,
-            (await getSetting<string[]>('starredMissions')) ?? [],
-            MODULE_ID
-        );
+        ).default(LSSM, MODULE_ID, mission => {
+            addStarrableBtn?.(mission, starredMissionBtnClass);
+        });
     }
 
     if (await getSetting('remainingTime')) {
