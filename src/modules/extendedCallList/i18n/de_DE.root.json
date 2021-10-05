@@ -149,6 +149,10 @@
 			"description": "Lasse dir in der Einsatzliste kompakt anzeigen, wie viel Credits ein Einsatz im Durchschnitt gibt.",
 			"title": "Verdienst anzeigen"
 		},
+		"collapsableMissions": {
+			"description": "Klappe einzelne (oder alle) Einsätze ein, um Platz in der Einsatzliste zu sparen.",
+			"title": "Einsätze einklappen"
+		},
 		"eventMissions": {
 			"description": "Markiert Saisonale Einsätze. Optional kannst du das ganze individuell anpassen und auch nicht-saisonale Einsätze markieren.",
 			"missions": "Einsätze",
