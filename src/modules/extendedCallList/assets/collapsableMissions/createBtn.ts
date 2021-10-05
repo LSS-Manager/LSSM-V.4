@@ -1,3 +1,5 @@
+import toggle from './toggle';
+
 import { $m } from 'typings/Module';
 
 export interface CollapsableButton extends HTMLButtonElement {
@@ -38,6 +40,7 @@ export default (
     missionId: string,
     isCollapsed: boolean,
     collapsableMissionBtnClass: string,
+    collapsedClass: string,
     $m: $m
 ): CollapsableButton => {
     const btn: CollapsableButton = document.createElement('button');
@@ -68,10 +71,22 @@ export default (
                 handler(msg: CustomBroadcastMessage) {
                     document
                         .querySelectorAll<HTMLButtonElement>(
-                            `button.${msg.data.collapsableMissionBtnClass}[data-mission="${msg.data.missionId}"]`
+                            `#missions-panel-body button.${
+                                msg.data.collapsableMissionBtnClass
+                            }${
+                                missionId !== '-1'
+                                    ? `[data-mission="${msg.data.missionId}"]`
+                                    : `.${
+                                          btn.classList.contains(BTN_ACTIVE)
+                                              ? BTN_ACTIVE
+                                              : BTN_INACTIVE
+                                      }`
+                            }`
                         )
-                        // eslint-disable-next-line no-eval
-                        .forEach(eval(`${msg.data.switchBtnState}`));
+                        .forEach(btn =>
+                            // eslint-disable-next-line no-eval
+                            eval(`${msg.data.switchBtnState}`)(btn)
+                        );
                 },
                 data: {
                     missionId,
@@ -82,14 +97,14 @@ export default (
             .then();
 
     const store = async () => {
-        const missions: string[] = await LSSM.$store.dispatch(
-            'settings/getSetting',
-            {
-                moduleId: MODULE_ID,
-                settingId: 'collapsedMissions',
-                defaultValue: [],
-            }
-        );
+        const missions: string[] =
+            missionId === '-1'
+                ? await LSSM.$store.dispatch('settings/getSetting', {
+                      moduleId: MODULE_ID,
+                      settingId: 'collapsedMissions',
+                      defaultValue: [],
+                  })
+                : [];
         if (btn.classList.contains(BTN_ACTIVE)) {
             missions.splice(
                 missions.findIndex(mission => mission === missionId),
@@ -103,11 +118,40 @@ export default (
             settingId: 'collapsedMissions',
             value: missions,
         });
+        if (missionId === '-1') {
+            await LSSM.$store.dispatch('settings/setSetting', {
+                moduleId: MODULE_ID,
+                settingId: 'allMissionsCollapsed',
+                value: !btn.classList.contains(BTN_ACTIVE),
+            });
+        }
     };
 
     btn.switch = async () => {
         await store();
         await send();
+        if (missionId === '-1') {
+            document
+                .querySelectorAll<HTMLButtonElement>(
+                    `#missions-panel-body button.${collapsableMissionBtnClass}.${
+                        btn.classList.contains(BTN_ACTIVE)
+                            ? BTN_ACTIVE
+                            : BTN_INACTIVE
+                    }`
+                )
+                .forEach(btn => {
+                    switchBtnState(btn, $m);
+                    const btnGroup = btn.parentElement;
+                    if (btnGroup) {
+                        toggle(
+                            btnGroup,
+                            btn,
+                            btn.dataset.mission ?? '-1',
+                            collapsedClass
+                        );
+                    }
+                });
+        }
         switchBtnState(btn, $m);
     };
 

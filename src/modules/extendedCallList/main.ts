@@ -72,6 +72,8 @@ export default (async (LSSM, MODULE_ID, $m) => {
         ).filter(
             missionId => !!document.getElementById(`mission_${missionId}`)
         );
+        const allMissionsCollapsed =
+            (await getSetting<boolean>('allMissionsCollapsed')) ?? false;
         await LSSM.$store.dispatch('settings/setSetting', {
             moduleId: MODULE_ID,
             settingId: 'collapsedMissions',
@@ -89,6 +91,7 @@ export default (async (LSSM, MODULE_ID, $m) => {
                   LSSM,
                   MODULE_ID,
                   collapsedMissions,
+                  allMissionsCollapsed,
                   collapsedMissionBtnClass,
                   $m
               )

@@ -1,6 +1,8 @@
-import { $m } from 'typings/Module';
 import { ButtonGroupCallback } from '../utils/buttonGroup';
+import toggle from './toggle';
 import createBtn, { CollapsableButton } from './createBtn';
+
+import { $m } from 'typings/Module';
 
 export type AddCollapsableButton = (
     mission: ButtonGroupCallback,
@@ -11,14 +13,15 @@ export default (
     LSSM: Vue,
     MODULE_ID: string,
     missions: string[],
+    allMissionsCollapsed: boolean,
     collapsableMissionBtnClass: string,
     $m: $m
 ): AddCollapsableButton => {
     const buttons: CollapsableButton[] = [];
 
-    const collapsedClass = LSSM.$store.getters.nodeAttribute(
-        `${MODULE_ID}_collapsable-missions_collapsed`
-    );
+    const collapsedClass = LSSM.$store.getters
+        .nodeAttribute(`${MODULE_ID}_collapsable-missions_collapsed`)
+        .toString();
 
     LSSM.$store
         .dispatch('addStyles', [
@@ -76,81 +79,6 @@ export default (
         ])
         .then();
 
-    const toggle = (
-        btnGroup: HTMLSpanElement,
-        btn: HTMLButtonElement,
-        missionId: string
-    ) => {
-        const mission = document.querySelector<HTMLDivElement>(
-            `#mission_${missionId}`
-        );
-        const icon = mission?.querySelector<HTMLImageElement>(
-            `#mission_vehicle_state_${missionId}`
-        );
-        const progressBarWrapper = mission?.querySelector<HTMLDivElement>(
-            `#mission_bar_outer_${missionId}`
-        );
-        const progressBar = progressBarWrapper?.querySelector<HTMLDivElement>(
-            `#mission_bar_${missionId}`
-        );
-        const caption = mission?.querySelector<HTMLAnchorElement>(
-            `#mission_caption_${missionId}`
-        );
-        if (
-            !mission ||
-            !icon ||
-            !progressBarWrapper ||
-            !progressBar ||
-            !caption
-        )
-            return;
-        if (btn.classList.contains('btn-success')) {
-            mission.classList.remove(collapsedClass);
-
-            const iconPlaceholder = mission?.querySelector<HTMLDivElement>(
-                `[data-collapsable-icon-placeholder="${missionId}"]`
-            );
-            const progressbarPlaceholder = mission?.querySelector<
-                HTMLDivElement
-            >(`[data-collapsable-progressbar-placeholder="${missionId}"]`);
-            const captionPlaceholder = mission?.querySelector<HTMLDivElement>(
-                `[data-collapsable-caption-placeholder="${missionId}"]`
-            );
-            if (
-                !iconPlaceholder ||
-                !progressbarPlaceholder ||
-                !captionPlaceholder
-            )
-                return;
-
-            iconPlaceholder.after(icon);
-            iconPlaceholder.remove();
-
-            captionPlaceholder.after(caption);
-            captionPlaceholder.remove();
-            progressbarPlaceholder.after(progressBarWrapper);
-            progressbarPlaceholder.remove();
-        } else {
-            mission.classList.add(collapsedClass);
-
-            const iconPlaceholder = document.createElement('div');
-            iconPlaceholder.classList.add('hidden');
-            iconPlaceholder.dataset.collapsableIconPlaceholder = missionId;
-            icon.after(iconPlaceholder);
-            btnGroup.after(icon);
-
-            const progressbarPlaceholder = document.createElement('div');
-            progressbarPlaceholder.classList.add('hidden');
-            progressbarPlaceholder.dataset.collapsableProgressbarPlaceholder = missionId;
-            progressBarWrapper.after(progressbarPlaceholder);
-            const captionPlaceholder = document.createElement('div');
-            captionPlaceholder.classList.add('hidden');
-            captionPlaceholder.dataset.collapsableCaptionPlaceholder = missionId;
-            caption.after(captionPlaceholder, progressBarWrapper);
-            progressBar.prepend(caption);
-        }
-    };
-
     document
         .getElementById('missions-panel-body')
         ?.addEventListener('click', async e => {
@@ -171,21 +99,52 @@ export default (
             if (!button || !btnGroup) return;
             await button.switch?.();
 
-            toggle(btnGroup, btn, id);
+            toggle(btnGroup, btn, id, collapsedClass);
         });
 
+    const allBtn = createBtn(
+        LSSM,
+        MODULE_ID,
+        '-1',
+        false,
+        collapsableMissionBtnClass,
+        collapsedClass,
+        $m
+    );
+
+    allBtn.classList.add('btn-xs');
+    allBtn.addEventListener('click', async () => {
+        await allBtn.switch?.();
+    });
+
+    if (allMissionsCollapsed) allBtn.click();
+
+    document
+        .querySelector<HTMLDivElement>('#btn-group-mission-select')
+        ?.append(allBtn);
+
     return (mission, collapsableMissionBtnClass) => {
-        const collapsed = missions.includes(mission.id.toString());
+        const collapsed = allBtn.classList.contains('btn-danger')
+            ? true
+            : missions.includes(mission.id.toString());
         const btn = createBtn(
             LSSM,
             MODULE_ID,
             mission.id.toString(),
             collapsed,
             collapsableMissionBtnClass,
+            collapsedClass,
             $m
         );
         mission.btnGroup.append(btn);
         buttons.push(btn);
-        if (collapsed) toggle(mission.btnGroup, btn, mission.id.toString());
+        if (collapsed) {
+            toggle(
+                mission.btnGroup,
+                btn,
+                mission.id.toString(),
+                collapsedClass
+            );
+        }
     };
 };

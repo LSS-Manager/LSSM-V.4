@@ -70,6 +70,9 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
         collapsedMissions: <Hidden>{
             type: 'hidden',
         },
+        allMissionsCollapsed: <Hidden>{
+            type: 'hidden',
+        },
         eventMissions: <Omit<AppendableList, 'value' | 'isDisabled'>>{
             type: 'appendable-list',
             default: defaultEventmissions,
