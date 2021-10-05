@@ -15,6 +15,15 @@ export default (
         `${MODULE_ID}_btn-group_pre-alarm`
     );
 
+    LSSM.$store
+        .dispatch('addStyle', {
+            selectorText: `.${btnGroupClass}`,
+            style: {
+                display: 'flex',
+            },
+        })
+        .then();
+
     const addButtonGroup = (mission: HTMLDivElement) => {
         const btnGroup = document.createElement('span');
         btnGroup.classList.add('btn-group', btnGroupClass);
