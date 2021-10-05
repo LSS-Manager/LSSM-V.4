@@ -94,6 +94,11 @@ export default async (LSSM: Vue): Promise<void> => {
         },
     });
 
+    await LSSM.$store.dispatch('api/initialUpdate', {
+        type: 'buildings',
+        feature: 'mainpageCore-initial_update',
+    });
+
     await LSSM.$store.dispatch('hook', {
         event: 'buildingMarkerAdd',
         callback(buildingMarker: BuildingMarkerAdd) {
@@ -106,13 +111,13 @@ export default async (LSSM: Vue): Promise<void> => {
                 LSSM.$store
                     .dispatch('api/fetchBuilding', {
                         id: buildingMarker.id,
-                        feature: 'core-buildingMarkerAdd',
+                        feature: 'mainpageCore-buildingMarkerAdd',
                     })
                     .then(building =>
                         LSSM.$store
                             .dispatch('api/fetchVehiclesAtBuilding', {
                                 id: building.id,
-                                feature: 'core-buildingMarkerAdd',
+                                feature: 'mainpageCore-buildingMarkerAdd',
                             })
                             .then(
                                 async () =>
