@@ -19,7 +19,17 @@ export default (
     const caption = mission?.querySelector<HTMLAnchorElement>(
         `#mission_caption_${missionId}`
     );
-    if (!mission || !icon || !progressBarWrapper || !progressBar || !caption)
+    const countdown = mission?.querySelector<HTMLDivElement>(
+        `#mission_overview_countdown_${missionId}`
+    );
+    if (
+        !mission ||
+        !icon ||
+        !progressBarWrapper ||
+        !progressBar ||
+        !caption ||
+        !countdown
+    )
         return;
     if (btn.classList.contains('btn-success')) {
         mission.classList.remove(collapsedClass);
@@ -33,7 +43,15 @@ export default (
         const captionPlaceholder = mission?.querySelector<HTMLDivElement>(
             `[data-collapsable-caption-placeholder="${missionId}"]`
         );
-        if (!iconPlaceholder || !progressbarPlaceholder || !captionPlaceholder)
+        const countdownPlaceholder = mission?.querySelector<HTMLDivElement>(
+            `[data-collapsable-countdown-placeholder="${missionId}"]`
+        );
+        if (
+            !iconPlaceholder ||
+            !progressbarPlaceholder ||
+            !captionPlaceholder ||
+            !countdownPlaceholder
+        )
             return;
 
         iconPlaceholder.after(icon);
@@ -43,6 +61,10 @@ export default (
         captionPlaceholder.remove();
         progressbarPlaceholder.after(progressBarWrapper);
         progressbarPlaceholder.remove();
+
+        countdown.classList.remove('pull-right');
+        countdownPlaceholder.after(countdown);
+        countdownPlaceholder.remove();
     } else {
         mission.classList.add(collapsedClass);
 
@@ -61,5 +83,12 @@ export default (
         captionPlaceholder.dataset.collapsableCaptionPlaceholder = missionId;
         caption.after(captionPlaceholder, progressBarWrapper);
         progressBar.prepend(caption);
+
+        const countdownPlaceholder = document.createElement('div');
+        countdownPlaceholder.classList.add('hidden');
+        countdownPlaceholder.dataset.collapsableCountdownPlaceholder = missionId;
+        countdown.after(countdownPlaceholder);
+        countdown.classList.add('pull-right');
+        progressBarWrapper.append(countdown);
     }
 };
