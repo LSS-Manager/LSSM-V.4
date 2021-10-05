@@ -135,7 +135,7 @@ export default (
             iconPlaceholder.classList.add('hidden');
             iconPlaceholder.dataset.collapsableIconPlaceholder = missionId;
             icon.after(iconPlaceholder);
-            btnGroup.before(icon);
+            btnGroup.after(icon);
 
             const progressbarPlaceholder = document.createElement('div');
             progressbarPlaceholder.classList.add('hidden');
