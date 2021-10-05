@@ -1,3 +1,4 @@
+import { AddCollapsableButton } from './assets/collapsableMissions/missionlist';
 import { AddStarrableButton } from './assets/starrableMissions/missionlist';
 import { ModuleMainFunction } from 'typings/Module';
 
@@ -26,7 +27,7 @@ export default (async (LSSM, MODULE_ID) => {
     let starredMissions = (await getSetting<string[]>('starredMissions')) ?? [];
 
     const starredMissionBtnClass = LSSM.$store.getters.nodeAttribute(
-        `${MODULE_ID}_starrable-mission_btn`
+        `${MODULE_ID}_starrable-missions_btn`
     );
 
     if (
@@ -51,7 +52,6 @@ export default (async (LSSM, MODULE_ID) => {
             settingId: 'starredMissions',
             value: starredMissions,
         });
-
         const addStarrableBtn: AddStarrableButton | null = starrableMissions
             ? (
                   await import(
@@ -65,12 +65,39 @@ export default (async (LSSM, MODULE_ID) => {
               )
             : null;
 
+        const collapsedMissions = (
+            (await getSetting<string[]>('collapsedMissions')) ?? []
+        ).filter(
+            missionId => !!document.getElementById(`mission_${missionId}`)
+        );
+        await LSSM.$store.dispatch('settings/setSetting', {
+            moduleId: MODULE_ID,
+            settingId: 'collapsedMissions',
+            value: collapsedMissions,
+        });
+        const collapsedMissionBtnClass = LSSM.$store.getters.nodeAttribute(
+            `${MODULE_ID}_collapsable-missions_btn`
+        );
+        const addCollapsableBtn: AddCollapsableButton | null = collapsableMissions
+            ? (
+                  await import(
+                      /* webpackChunkName: "modules/extendedCallList/collapsableMissions" */ './assets/collapsableMissions/missionlist'
+                  )
+              ).default(
+                  LSSM,
+                  MODULE_ID,
+                  collapsedMissions,
+                  collapsedMissionBtnClass
+              )
+            : null;
+
         (
             await import(
                 /* webpackChunkName: "modules/extendedCallList/utils/btnGroup" */ './assets/utils/buttonGroup'
             )
         ).default(LSSM, MODULE_ID, mission => {
             addStarrableBtn?.(mission, starredMissionBtnClass);
+            addCollapsableBtn?.(mission, collapsedMissionBtnClass);
         });
     }
 

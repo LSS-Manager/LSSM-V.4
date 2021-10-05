@@ -21,7 +21,7 @@ export default (
         if (btn.classList.contains('btn-warning')) {
             const placeholder = document.createElement('div');
             placeholder.classList.add('hidden');
-            placeholder.setAttribute('data-mission-placeholder', id);
+            placeholder.dataset.missionPlaceholder = id;
             missionElement.after(placeholder);
             missionElement.parentElement?.prepend(missionElement);
         } else {
