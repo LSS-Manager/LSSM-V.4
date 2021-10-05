@@ -64,37 +64,44 @@ export default (
 
     btn.append(icon);
 
-    const send = () =>
+    const send = () => {
+        const handler = function(msg: CustomBroadcastMessage) {
+            document
+                .querySelectorAll<HTMLButtonElement>(
+                    `#missions-panel-body button.${
+                        msg.data.collapsableMissionBtnClass
+                    }${
+                        msg.data.missionId !== '-1'
+                            ? `[data-mission="${msg.data.missionId}"]`
+                            : `.${
+                                  (msg.data.btnClassList as string)
+                                      .split(' ')
+                                      .includes(msg.data.BTN_ACTIVE as string)
+                                      ? msg.data.BTN_ACTIVE
+                                      : msg.data.BTN_INACTIVE
+                              }`
+                    }`
+                )
+                .forEach(btn =>
+                    // eslint-disable-next-line no-eval
+                    eval(`${msg.data.switchBtnState}`)(btn)
+                );
+        };
         LSSM.$store
             .dispatch('broadcast/send_custom_message', {
                 name: 'collapsableMissions_update',
-                handler(msg: CustomBroadcastMessage) {
-                    document
-                        .querySelectorAll<HTMLButtonElement>(
-                            `#missions-panel-body button.${
-                                msg.data.collapsableMissionBtnClass
-                            }${
-                                missionId !== '-1'
-                                    ? `[data-mission="${msg.data.missionId}"]`
-                                    : `.${
-                                          btn.classList.contains(BTN_ACTIVE)
-                                              ? BTN_ACTIVE
-                                              : BTN_INACTIVE
-                                      }`
-                            }`
-                        )
-                        .forEach(btn =>
-                            // eslint-disable-next-line no-eval
-                            eval(`${msg.data.switchBtnState}`)(btn)
-                        );
-                },
+                handler,
                 data: {
                     missionId,
                     collapsableMissionBtnClass,
+                    btnClassList: btn.getAttribute('string') ?? '',
+                    BTN_ACTIVE,
+                    BTN_INACTIVE,
                     switchBtnState: switchBtnState.toString(),
                 },
             })
             .then();
+    };
 
     const store = async () => {
         const missions: string[] =
