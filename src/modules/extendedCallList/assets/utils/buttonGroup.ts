@@ -19,7 +19,7 @@ export default (
         .dispatch('addStyle', {
             selectorText: `.${btnGroupClass}`,
             style: {
-                display: 'flex',
+                display: 'inline-flex',
             },
         })
         .then();
