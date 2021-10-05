@@ -1,4 +1,12 @@
 {
+	"collapsableMissions": {
+		"all": {
+			"collapse": "Collapse all missions",
+			"expand": "Expand all missions"
+		},
+		"collapse": "Collapse this mission",
+		"expand": "Expand this mission"
+	},
 	"description": "Extends missionlist by some cool Features!",
 	"eventMissions": {
 		"default": {

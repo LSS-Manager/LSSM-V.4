@@ -1,3 +1,5 @@
+import { $m } from 'typings/Module';
+
 export interface CollapsableButton extends HTMLButtonElement {
     switch?(): Promise<void>;
 }
@@ -11,15 +13,23 @@ const ICON_INACTIVE = 'compress-alt';
 const BTN_ACTIVE = `btn-${COLOR_ACTIVE}`;
 const BTN_INACTIVE = `btn-${COLOR_INACTIVE}`;
 
-const switchBtnState = (btn: HTMLButtonElement) => {
+const getTitle = ($m: $m, collapsed: boolean, id: string) =>
+    $m(
+        `collapsableMissions.${id === '-1' ? 'all.' : ''}${
+            collapsed ? 'expand' : 'collapse'
+        }`
+    ).toString();
+
+const switchBtnState = (btn: HTMLButtonElement, $m: $m) => {
     const collapsed = btn.classList.contains(BTN_ACTIVE);
     const btnClassReplace: [string, string] = [BTN_INACTIVE, BTN_ACTIVE];
     if (collapsed) btnClassReplace.reverse();
     btn.classList.replace(...btnClassReplace);
-    btn.querySelector('svg')?.setAttribute(
-        'data-icon',
-        collapsed ? ICON_INACTIVE : ICON_ACTIVE
-    );
+    const icon = btn.querySelector('svg');
+    icon?.setAttribute('data-icon', collapsed ? ICON_INACTIVE : ICON_ACTIVE);
+    const title = getTitle($m, collapsed, btn.dataset.mission ?? '-1');
+    btn.setAttribute('title', title);
+    icon?.setAttribute('title', title);
 };
 
 export default (
@@ -27,7 +37,8 @@ export default (
     MODULE_ID: string,
     missionId: string,
     isCollapsed: boolean,
-    collapsableMissionBtnClass: string
+    collapsableMissionBtnClass: string,
+    $m: $m
 ): CollapsableButton => {
     const btn: CollapsableButton = document.createElement('button');
 
@@ -43,6 +54,11 @@ export default (
         `fas`,
         `fa-${isCollapsed ? ICON_ACTIVE : ICON_INACTIVE}`
     );
+
+    const title = getTitle($m, isCollapsed, missionId);
+    btn.setAttribute('title', title);
+    icon?.setAttribute('title', title);
+
     btn.append(icon);
 
     const send = () =>
@@ -92,7 +108,7 @@ export default (
     btn.switch = async () => {
         await store();
         await send();
-        switchBtnState(btn);
+        switchBtnState(btn, $m);
     };
 
     return btn;

@@ -1,4 +1,12 @@
 {
+	"collapsableMissions": {
+		"all": {
+			"collapse": "Alle Einsätze einklappen",
+			"expand": "Alle Einsätze ausklappen"
+		},
+		"collapse": "Diesen Einsatz einklappen",
+		"expand": "Diesen Einsatz ausklappen"
+	},
 	"description": "Erweitert die Einsatzliste um coole Features!",
 	"eventMissions": {
 		"default": {

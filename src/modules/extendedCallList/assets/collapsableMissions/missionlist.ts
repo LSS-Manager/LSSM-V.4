@@ -1,3 +1,4 @@
+import { $m } from 'typings/Module';
 import { ButtonGroupCallback } from '../utils/buttonGroup';
 import createBtn, { CollapsableButton } from './createBtn';
 
@@ -10,7 +11,8 @@ export default (
     LSSM: Vue,
     MODULE_ID: string,
     missions: string[],
-    collapsableMissionBtnClass: string
+    collapsableMissionBtnClass: string,
+    $m: $m
 ): AddCollapsableButton => {
     const buttons: CollapsableButton[] = [];
 
@@ -179,7 +181,8 @@ export default (
             MODULE_ID,
             mission.id.toString(),
             collapsed,
-            collapsableMissionBtnClass
+            collapsableMissionBtnClass,
+            $m
         );
         mission.btnGroup.append(btn);
         buttons.push(btn);

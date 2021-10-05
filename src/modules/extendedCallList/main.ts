@@ -7,7 +7,7 @@ interface AppendableListSetting<valueType> {
     enabled: boolean;
 }
 
-export default (async (LSSM, MODULE_ID) => {
+export default (async (LSSM, MODULE_ID, $m) => {
     const getSetting = <Type = boolean>(settingId: string): Promise<Type> => {
         return LSSM.$store.dispatch('settings/getSetting', {
             moduleId: MODULE_ID,
@@ -87,7 +87,8 @@ export default (async (LSSM, MODULE_ID) => {
                   LSSM,
                   MODULE_ID,
                   collapsedMissions,
-                  collapsedMissionBtnClass
+                  collapsedMissionBtnClass,
+                  $m
               )
             : null;
 
