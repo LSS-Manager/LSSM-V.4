@@ -44,6 +44,8 @@ export default (async (LSSM, MODULE_ID, $m) => {
     const collapsableMissions = await getSetting('collapsableMissions');
 
     if (starrableMissions || collapsableMissions) {
+        LSSM.$store.commit('useFontAwesome');
+
         starredMissions = starredMissions.filter(
             missionId => !!document.getElementById(`mission_${missionId}`)
         );
