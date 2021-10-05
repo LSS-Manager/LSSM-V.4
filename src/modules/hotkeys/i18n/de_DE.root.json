@@ -28,6 +28,7 @@
 				"open": "Eigenes Profil öffnen",
 				"title": "Profil"
 			},
+			"protocol": "Leitstellen-Protokoll öffnen",
 			"tasks": {
 				"open": "Aufgabenliste öffnen",
 				"title": "Aufgaben und Events"

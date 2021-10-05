@@ -1,6 +1,9 @@
+import { Building } from 'typings/Building';
 import { Empty, Scope } from 'typings/modules/Hotkeys';
 
-export default <Scope<Empty, ['alliance', 'credits', 'profile', 'tasks']>>{
+export default <
+    Scope<Empty, ['alliance', 'credits', 'profile', 'tasks'], ['protocol']>
+>{
     validatorFunction: () => true,
     alliance: <
         Scope<
@@ -84,5 +87,21 @@ export default <Scope<Empty, ['alliance', 'credits', 'profile', 'tasks']>>{
         open() {
             window.lightboxOpen('/tasks/index');
         },
+    },
+    async protocol() {
+        await (window[PREFIX] as Vue).$store.dispatch(
+            'api/registerBuildingsUsage',
+            {
+                feature: 'hotkeys-*.protocol',
+            }
+        );
+        const lstBuildings = Object.values(
+            (window[PREFIX] as Vue).$t('dispatchCenterBuildings')
+        );
+        const id = ((window[PREFIX] as Vue).$store.state.api
+            .buildings as Building[]).find(({ building_type }) =>
+            lstBuildings.includes(building_type)
+        )?.id;
+        if (id) window.lightboxOpen(`/buildings/${id}#tab_protocol`);
     },
 };

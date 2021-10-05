@@ -28,6 +28,7 @@
 				"open": "open own profile",
 				"title": "Profile"
 			},
+			"protocol": "Open Log in Dispatch Center",
 			"tasks": {
 				"open": "open list of current tasks",
 				"title": "Tasks and Events"
