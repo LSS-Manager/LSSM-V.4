@@ -65,7 +65,7 @@ Grundsätzlich möchten wir mit der Zeit alle Funktionen der V.3 in die V.4 inte
 |         Markiert Eventeinsätze         |  [Erweiterte Einsatzliste][extendedCallList]   | Saisonale Einsätze markieren |                                                              |
 |         Maßgeschneiderte Tabs          | [Erweitertes Alarmfenster][extendedCallWindow] |  Eigene Fahrzeugkategorien   |                                                              |
 |        Meldedatum für Einsätze         | [Erweitertes Alarmfenster][extendedCallWindow] |    Generierungszeitpunkt     |                                                              |
-|               MissionOut               |                                                |                              |                                                              |
+|               MissionOut               |  [Erweiterte Einsatzliste][extendedCallList]   |     Einsätze einklappen      |                                                              |
 |        Nachforderungen per FMS         |                                                |                              |                                                              |
 |           Notification Alert           |    [Benachrichtigungen][notificationAlert]     |                              | In der V.4 gibt es viele mögliche Benachrichtigungen zur Auswahl, die auch teilweise konfigurierbar sind. |
 |              Redesign 01               |                                                |                              |                                                              |
