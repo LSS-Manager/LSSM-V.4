@@ -55,7 +55,7 @@ Grundsätzlich möchten wir mit der Zeit alle Funktionen der V.3 in die V.4 inte
 |          Fahrzeuge umbenennen          |                                                |                              |                                                              |
 |           FMS 5 in der Karte           |                                                |                              |                                                              |
 |          Icon Gebäude Filter           | [Anpassbare Gebäudeliste][buildingListFilter]  |                              | Es werden keine Icons mehr Standardmäßig ersetzt. Dafür kann das Modul der V.4 viel mehr: Du kannst die Filter selbstständig festlegen, sowohl mit Text als auch mit Icons! |
-|          Keyboard Alarmierung          |                                                |                              | Wir werden in Zukunft ein Modul für viele selbst anpassbare Hotkeys anbieten |
+|          Keyboard Alarmierung          |               [Hotkeys][hotkeys]               |                              | Dieses Modul ist noch lange nicht fertig, aber mit der Zeit werden hier auch alle Hotkeys der V3 verfügbar sein. |
 |         Kreis- & Landesgrenzen         |                                                |                              |                                                              |
 |               Layout 01                |                                                |                              | Wir möchten ein Modul für viele Layouts anbieten, die man auch selbst anpassen kann. |
 |               Layout 02                |                                                |                              | Wir möchten ein Modul für viele Layouts anbieten, die man auch selbst anpassen kann. |
@@ -97,3 +97,4 @@ Grundsätzlich möchten wir mit der Zeit alle Funktionen der V.3 in die V.4 inte
 [overview]: modules/overview.md
 [buildingListFilter]: modules/buildingListFilter.md
 [extendedCallList]: modules/extendedCallList.md
+[hotkeys]: modules/hotkeys.md
