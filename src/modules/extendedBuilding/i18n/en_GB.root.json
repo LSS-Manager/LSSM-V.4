@@ -46,6 +46,10 @@
 			"description": "Shows the vehicle type (and if available the own vehicle class) in a separate column",
 			"title": "Vehicle type"
 		},
+		"vehicleTypesOnlyOwn": {
+			"description": "Shows if available only the own vehicle class. If not available it will show the default vehicle class.",
+			"title": "Show only own vehicle class"
+		},
 		"vehiclesPersonnelAssigned": {
 			"description": "Shows how many people are assigned to the vehicle.",
 			"title": "Assigned crew"
