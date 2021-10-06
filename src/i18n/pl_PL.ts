@@ -1142,7 +1142,7 @@ export default {
         },
     },
     buildingCategories: {
-        'Straż pożarna': {
+        ['Straż pożarna']: {
             buildings: [0, 1, 18],
             color: '#990000',
         },
@@ -1218,7 +1218,7 @@ export default {
     schoolBuildings: [1, 3, 8],
     dispatchCenterBuildings: [7],
     schoolings: {
-        'Posterunek straży pożarnej': [
+        ['Posterunek straży pożarnej']: [
             {
                 caption: 'Ratownictwo chemiczne',
                 duration: '3 Dni',
@@ -1248,7 +1248,7 @@ export default {
                 duration: '5 Dni',
             },
         ],
-        'Policja': [
+        Policja: [
             {
                 caption: 'Lotnictwo policyjne',
                 duration: '7 Dni',
@@ -1270,7 +1270,7 @@ export default {
                 duration: '3 Dni',
             },
         ],
-        'Ratownictwo': [
+        Ratownictwo: [
             {
                 caption: 'Szybkie ratownictwo wodne',
                 duration: '4 Dni',
