@@ -2,13 +2,14 @@
 	"commands": {
 		"*": {
 			"alliance": {
-				"applications": "Applications",
+				"applications": "open applications",
 				"buildings": "open alliance building overview",
 				"forum": "open board",
 				"funds": "open alliance funds window",
-				"logfiles": "Logfiles",
+				"logfiles": "open logfiles",
 				"members": "open memberlist",
 				"messages": "open messages",
+				"onlineMembers": "open memberlist (show online players only)",
 				"open": "open alliance window",
 				"schoolings": "open schoolings window",
 				"title": "Alliance"
@@ -27,6 +28,7 @@
 				"open": "open own profile",
 				"title": "Profile"
 			},
+			"protocol": "Open Log in Dispatch Center",
 			"tasks": {
 				"open": "open list of current tasks",
 				"title": "Tasks and Events"

@@ -1,4 +1,12 @@
 {
+	"collapsableMissions": {
+		"all": {
+			"collapse": "Alle meldingen inklappen",
+			"expand": "Alle meldingen uitklappen"
+		},
+		"collapse": "Deze melding inklappen",
+		"expand": "Deze melding uitklappen"
+	},
 	"description": "Breidt de meldingenlijst uit met leuke functies!",
 	"eventMissions": {
 		"default": {
@@ -172,6 +180,10 @@
 		"averageCredits": {
 			"description": "Toont de gemiddeld te verdienen credits op een compacte manier.",
 			"title": "Toon gemiddelde credits"
+		},
+		"collapsableMissions": {
+			"description": "Klap losse (of alle) meldingen in om ruimte in de meldingenlijst te besparen.",
+			"title": "Meldingen inklappen"
 		},
 		"eventMissions": {
 			"description": "Markeert seizoensmeldingen. Optioneel kan je het helemaal aanpassen en ook niet seizoensmeldingen markeren.",

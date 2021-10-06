@@ -1894,7 +1894,7 @@ export default {
                 'KLF',
                 'MLF',
                 'TSF-W',
-                '(HLF 20 und HLF 10 ab Dienstgrad "Gruppenfüher(in)" => Baukosten 15.000 höher)',
+                '(HLF 20 und HLF 10 ab Dienstgrad "Gruppenführer(in)" => Baukosten 15.000 höher)',
             ],
             maxBuildingsFunction: (): number => 5_000,
         },

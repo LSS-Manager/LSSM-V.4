@@ -24,6 +24,7 @@ export default <ModuleSettingFunction>((MODULE_ID, LSSM, $m) => {
         '*.profile.notes',
         '*.alliance.open',
         '*.alliance.members',
+        '*.alliance.onlineMembers',
         '*.alliance.buildings',
         '*.alliance.funds',
         '*.alliance.forum',
@@ -31,6 +32,7 @@ export default <ModuleSettingFunction>((MODULE_ID, LSSM, $m) => {
         '*.alliance.messages',
         '*.alliance.applications',
         '*.alliance.logfiles',
+        '*.protocol',
     ].sort();
     const labels: string[] = commands.map(command =>
         getCommandName(command, $m)

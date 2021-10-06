@@ -3,12 +3,19 @@ import verbandParser from './verbandParser';
 import { RedesignParser } from 'typings/modules/Redesign';
 import { VerbandWindow } from 'typings/modules/Redesign/Verband';
 
+interface Extension {
+    name: string;
+    id: number;
+    countdown: number;
+}
+
 interface Building {
     id: number;
     name: string;
     icon: string;
     lat: number;
     long: number;
+    extensions: Extension[];
     canOpenSchooling: boolean;
 }
 
@@ -18,6 +25,7 @@ export interface VerbandGebaeudeWindow extends VerbandWindow {
 
 export default <RedesignParser<VerbandGebaeudeWindow>>(({
     doc,
+    LSSM,
     getIdFromEl = () => -1,
 }) => {
     const markerScript = Array.from(doc.scripts)
@@ -62,6 +70,46 @@ export default <RedesignParser<VerbandGebaeudeWindow>>(({
                     long: parseFloat(long),
                     id: parseInt(id),
                     icon,
+                    extensions: Array.from(
+                        row.querySelectorAll<HTMLSpanElement>(
+                            'td:nth-child(4) span.label'
+                        )
+                    ).map((extension, index) => {
+                        if (!extension.parentElement) return null;
+                        extension.id = LSSM.$store.getters.nodeAttribute(
+                            `redesign-parser-gebauede-${id}-${index}`
+                        );
+                        const extensionID = parseInt(
+                            extension.parentElement
+                                .querySelector<HTMLSpanElement>(
+                                    `#${extension.id} + br + i > span[id^="extension_countdown_"]`
+                                )
+                                ?.id?.replace(/^extension_countdown_/, '') ??
+                                '-1'
+                        );
+                        if (extensionID < 0) return null;
+                        const countdown = Array.from(
+                            extension.parentElement.querySelectorAll<
+                                HTMLScriptElement
+                            >(`#${extension.id} + br + i + script`)
+                        )
+                            .map(script =>
+                                parseInt(
+                                    script.textContent?.match(
+                                        new RegExp(
+                                            `(?<=extensionCountdown\\(\\s*)\\d+(?=\\s*,\\s*${extensionID}\\s*\\))`
+                                        )
+                                    )?.[0] ?? '-1'
+                                )
+                            )
+                            .find(c => c >= 0);
+                        if (!countdown) return null;
+                        return {
+                            name: extension.textContent?.trim() ?? '',
+                            id: extensionID,
+                            countdown,
+                        };
+                    }),
                     name: link.textContent?.trim() ?? '',
                     canOpenSchooling: !!row.querySelector<HTMLAnchorElement>(
                         `a.btn.btn-success[href="/buildings/${id}"]`

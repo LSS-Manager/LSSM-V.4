@@ -43,19 +43,43 @@
                     <td>
                         <img :src="gebauede.icon" :alt="gebauede.name" />
                     </td>
-                    <td :colspan="gebauede.canOpenSchooling ? 1 : 2">
+                    <td
+                        :colspan="
+                            gebauede.canOpenSchooling || gebauede.extensions
+                                ? 1
+                                : 2
+                        "
+                    >
                         <a lightbox-open :href="`/buildings/${gebauede.id}`">
                             {{ gebauede.name }}
                         </a>
                     </td>
-                    <td v-if="gebauede.canOpenSchooling">
+                    <td v-if="gebauede.canOpenSchooling || gebauede.extensions">
                         <a
                             lightbox-open
                             :href="`/buildings/${gebauede.id}`"
                             class="btn btn-success"
+                            v-if="gebauede.canOpenSchooling"
                         >
                             {{ lightbox.$sm('openSchooling') }}
                         </a>
+                        <template v-if="gebauede.extensions">
+                            <div
+                                v-for="extension in gebauede.extensions"
+                                :key="extension.id"
+                            >
+                                <span class="label label-default">{{
+                                    extension.name
+                                }}</span>
+                                ({{ lightbox.$sm('remaining') }}:
+                                <span
+                                    :id="
+                                        `extension_countdown_${extension.id}_redesign`
+                                    "
+                                ></span
+                                >)
+                            </div>
+                        </template>
                     </td>
                 </tr>
             </enhanced-table>
@@ -163,6 +187,11 @@ export default Vue.extend<
     },
     mounted() {
         this.lightbox.finishLoading('verband/gebauede-mounted');
+        this.gebauede.buildings.forEach(({ extensions }) =>
+            extensions.forEach(({ id, countdown }) =>
+                window.extensionCountdown(countdown, `${id}_redesign`)
+            )
+        );
     },
 });
 </script>

@@ -24,6 +24,13 @@ Mit diesem Feature hast du die Möglichkeit, dir Einsätze zu markieren, so dass
 Dieses Feature zeigt dir an, wie viel ein Einsatz im Durchschnitt gibt:
 ![Verdienst anzeigen](verdienst.png)
 
+## Einsätze einklappen
+Dieses Feature ersetzt das Modul `Mission Out` der V3!
+
+Du kannst die Einsätze nach Belieben ein- und ausklappen oder eben alle auf einmal einklappen. Mit dem Knopf am rechten Rand der oberen Knopf-Leiste lassen sich alle Einsätze auf einmal umschalten. So sieht das ganze zum Beispiel aus:
+
+![Einsätze einklappen](einklappen.png)
+
 ## Saisonale Einsätze markieren
 Mit dieser Einstellung kannst du für jeden einzelnen Einsatz beliebig viele kurze Hinweise notieren, welche vor dem Namen in der Einsatzliste gezeigt werden. Standardmäßig sind hier saisonale Einsätze eingetragen (Sommer, Halloween, Fußbal etc.), daher auch der Name.
 

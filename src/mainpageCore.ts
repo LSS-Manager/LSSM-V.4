@@ -1,3 +1,4 @@
+import he from 'he';
 import LSSMMenu from './LSSM-Menu.vue';
 import telemetry from './modules/telemetry/main';
 
@@ -94,6 +95,11 @@ export default async (LSSM: Vue): Promise<void> => {
         },
     });
 
+    await LSSM.$store.dispatch('api/initialUpdate', {
+        type: 'buildings',
+        feature: 'mainpageCore-initial_update',
+    });
+
     await LSSM.$store.dispatch('hook', {
         event: 'buildingMarkerAdd',
         callback(buildingMarker: BuildingMarkerAdd) {
@@ -102,17 +108,20 @@ export default async (LSSM: Vue): Promise<void> => {
             const building = buildings.find(
                 ({ id }) => id === buildingMarker.id
             );
-            if (!building || building.caption !== buildingMarker.name) {
+            if (
+                !building ||
+                building.caption !== he.decode(buildingMarker.name)
+            ) {
                 LSSM.$store
                     .dispatch('api/fetchBuilding', {
                         id: buildingMarker.id,
-                        feature: 'core-buildingMarkerAdd',
+                        feature: 'mainpageCore-buildingMarkerAdd',
                     })
                     .then(building =>
                         LSSM.$store
                             .dispatch('api/fetchVehiclesAtBuilding', {
                                 id: building.id,
-                                feature: 'core-buildingMarkerAdd',
+                                feature: 'mainpageCore-buildingMarkerAdd',
                             })
                             .then(
                                 async () =>

@@ -47,7 +47,7 @@
 	"@types/node": {
 		"icon": "https://avatars.githubusercontent.com/u/3637556",
 		"url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/node",
-		"version": "16.10.2"
+		"version": "16.10.3"
 	},
 	"@types/pdfmake": {
 		"icon": "https://avatars.githubusercontent.com/u/3637556",
@@ -85,11 +85,11 @@
 	},
 	"@typescript-eslint/eslint-plugin": {
 		"icon": "https://avatars.githubusercontent.com/u/46634674",
-		"version": "4.32.0"
+		"version": "4.33.0"
 	},
 	"@typescript-eslint/parser": {
 		"icon": "https://avatars.githubusercontent.com/u/46634674",
-		"version": "4.32.0"
+		"version": "4.33.0"
 	},
 	"@vuepress/plugin-active-header-links": {
 		"icon": "https://vuepress.vuejs.org/hero.png",
@@ -109,7 +109,7 @@
 	"axios": {
 		"icon": "https://avatars.githubusercontent.com/u/32372333",
 		"url": "https://axios-http.com",
-		"version": "0.21.4"
+		"version": "0.22.0"
 	},
 	"broadcast-channel": {
 		"icon": "https://raw.githubusercontent.com/pubkey/broadcast-channel/master/docs/files/icon.png",
@@ -143,7 +143,7 @@
 	"eslint-plugin-vue": {
 		"icon": "https://vuejs.org/images/logo.png",
 		"url": "https://eslint.vuejs.org",
-		"version": "7.18.0"
+		"version": "7.19.0"
 	},
 	"he": {
 		"url": "https://mths.be/he",
@@ -252,7 +252,7 @@
 	"vue-i18n": {
 		"icon": "https://kazupon.github.io/vue-i18n/vue-i18n-logo.png",
 		"url": "https://github.com/kazupon/vue-i18n#readme",
-		"version": "8.26.4"
+		"version": "8.26.5"
 	},
 	"vue-js-modal": {
 		"url": "http://vue-js-modal.yev.io/",
