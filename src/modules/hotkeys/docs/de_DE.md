@@ -35,6 +35,8 @@ Diese Hotkeys sind im gesamten Spiel verfügbar.
 Wenn sie Seiten öffnen, so werden diese immer in einer Lightbox (also so einem Ingame-Popup) geöffnet.
 Somit brauchst du keine Angst zu haben, dass deine aktuelle Ansicht dadurch kaputtgeht.
 
+* Leitstellenprotokoll öffnen
+
 ### Credits
 
 * Log öffnen
@@ -57,6 +59,9 @@ Somit brauchst du keine Angst zu haben, dass deine aktuelle Ansicht dadurch kapu
 * Seite der Verbandskasse öffnen
 * Übersicht der Verbandsgebäude öffnen
 * Übersicht der aktuellen Lehrgänge öffnen
+* Liste der aktuellen Bewerbungen öffnen
+* Verbandsnachrichten öffnen
+* Verbandsprotokoll öffnen
 
 ### Aufgaben
 
