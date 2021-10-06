@@ -18,7 +18,7 @@ export default ((MODULE_ID: string) => ({
             !(
                 (settings[MODULE_ID].vehicleTypes as Toggle).value &&
                 (settings[MODULE_ID].enhanceVehicleList as Toggle).value
-            ),       
+            ),
     },
     fmsSwitch: <Toggle>{
         type: 'toggle',
