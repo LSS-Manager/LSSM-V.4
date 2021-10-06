@@ -49,8 +49,7 @@ export default (
     // Extension State
     if (buildingSettings.includes('switchExtensionState')) {
         const newState = (btn: HTMLElement): boolean => {
-            if (btn.innerText == $m('buildings.active')) return false;
-            else return true;
+            return btn.innerText != $m('buildings.active');
         };
         const extensionStateBtns = Array.from(
             document.querySelectorAll(
