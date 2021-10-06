@@ -2,11 +2,11 @@
 	"commands": {
 		"*": {
 			"alliance": {
-				"applications": "Bewerbungen",
+				"applications": "Bewerbungen öffnen",
 				"buildings": "Verbandsgebäudeübersicht öffnen",
 				"forum": "Forum öffnen",
 				"funds": "Seite der Verbandskasse öffnen",
-				"logfiles": "Verbandsprotokoll",
+				"logfiles": "Verbandsprotokoll öffnen",
 				"members": "Mitgliederliste öffnen",
 				"messages": "Nachrichten öffnen",
 				"onlineMembers": "Mitgliederliste öffnen (nur online Spieler anzeigen)",

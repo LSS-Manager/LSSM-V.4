@@ -2,11 +2,11 @@
 	"commands": {
 		"*": {
 			"alliance": {
-				"applications": "Applications",
+				"applications": "open applications",
 				"buildings": "open alliance building overview",
 				"forum": "open board",
 				"funds": "open alliance funds window",
-				"logfiles": "Logfiles",
+				"logfiles": "open logfiles",
 				"members": "open memberlist",
 				"messages": "open messages",
 				"onlineMembers": "open memberlist (show online players only)",
