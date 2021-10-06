@@ -1,3 +1,4 @@
+import he from 'he';
 import LSSMMenu from './LSSM-Menu.vue';
 import telemetry from './modules/telemetry/main';
 
@@ -107,7 +108,10 @@ export default async (LSSM: Vue): Promise<void> => {
             const building = buildings.find(
                 ({ id }) => id === buildingMarker.id
             );
-            if (!building || building.caption !== buildingMarker.name) {
+            if (
+                !building ||
+                building.caption !== he.decode(buildingMarker.name)
+            ) {
                 LSSM.$store
                     .dispatch('api/fetchBuilding', {
                         id: buildingMarker.id,
