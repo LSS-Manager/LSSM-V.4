@@ -104,15 +104,35 @@ export default (
     };
 
     const store = async () => {
-        const missions: string[] =
-            missionId === '-1'
-                ? await LSSM.$store.dispatch('settings/getSetting', {
-                      moduleId: MODULE_ID,
-                      settingId: 'collapsedMissions',
-                      defaultValue: [],
-                  })
-                : [];
-        if (btn.classList.contains(BTN_ACTIVE)) {
+        if (missionId === '-1') {
+            await LSSM.$store.dispatch('settings/setSetting', {
+                moduleId: MODULE_ID,
+                settingId: 'collapsedMissions',
+                value: [],
+            });
+            await LSSM.$store.dispatch('settings/setSetting', {
+                moduleId: MODULE_ID,
+                settingId: 'allMissionsCollapsed',
+                value: !btn.classList.contains(BTN_ACTIVE),
+            });
+            return;
+        }
+
+        const missions: string[] = await LSSM.$store.dispatch(
+            'settings/getSetting',
+            {
+                moduleId: MODULE_ID,
+                settingId: 'collapsedMissions',
+                defaultValue: [],
+            }
+        );
+        const allCollapsed = await LSSM.$store.dispatch('settings/getSetting', {
+            moduleId: MODULE_ID,
+            settingId: 'allMissionsCollapsed',
+            defaultValue: false,
+        });
+
+        if (btn.classList.contains(allCollapsed ? BTN_INACTIVE : BTN_ACTIVE)) {
             missions.splice(
                 missions.findIndex(mission => mission === missionId),
                 1
@@ -120,18 +140,12 @@ export default (
         } else {
             missions.push(missionId);
         }
+
         await LSSM.$store.dispatch('settings/setSetting', {
             moduleId: MODULE_ID,
             settingId: 'collapsedMissions',
             value: missions,
         });
-        if (missionId === '-1') {
-            await LSSM.$store.dispatch('settings/setSetting', {
-                moduleId: MODULE_ID,
-                settingId: 'allMissionsCollapsed',
-                value: !btn.classList.contains(BTN_ACTIVE),
-            });
-        }
     };
 
     btn.switch = async () => {

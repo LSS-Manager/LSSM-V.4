@@ -125,7 +125,7 @@ export default (
 
     return (mission, collapsableMissionBtnClass) => {
         const collapsed = allBtn.classList.contains('btn-danger')
-            ? true
+            ? !missions.includes(mission.id.toString())
             : missions.includes(mission.id.toString());
         const btn = createBtn(
             LSSM,
