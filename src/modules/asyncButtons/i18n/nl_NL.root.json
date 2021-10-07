@@ -29,6 +29,10 @@
 		"missionReply": {
 			"description": "Voorkomt herladen bij het versturen van een chatbericht in het inzetscherm",
 			"title": "Chatbericht in inzetscherm"
+		},
+		"switchExtensionState": {
+			"description": "Voorkomt herladen bij het (de)activeren van een uitbreiding",
+			"title": "(De-)activeren uitbreiding"
 		}
 	}
 }

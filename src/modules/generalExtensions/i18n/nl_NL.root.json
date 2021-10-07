@@ -26,6 +26,10 @@
 			"title": "Link Voorbeeld",
 			"vehicles": "Voertuigen"
 		},
+		"mapSearchOnMap": {
+			"description": "Plaats de locatie zoekbalk op van het hoofdscherm op de kaart",
+			"title": "Zoekbalk op de kaart"
+		},
 		"mapUndo": {
 			"description": "Kaart centreren op posities die eerder waren gecentreerd. - Werkt momenteel alleen met het kaarttype \"OpenStreetMap\"",
 			"title": "Bewaar kaart verplaatsingen"
