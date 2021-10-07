@@ -4063,10 +4063,10 @@ eslint-plugin-prettier@^4.0.0:
   dependencies:
     prettier-linter-helpers "^1.0.0"
 
-eslint-plugin-vue@^7.19.0:
-  version "7.19.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-vue/-/eslint-plugin-vue-7.19.0.tgz#4981f31c5df40fc1b2710d4fcb3e5e75fc644a48"
-  integrity sha512-pqsJY1q0cjdQerWSlGHo+NfnWZ8Xuc5tetddljJJ7726auWsnHty7F5qgj/EcjkPgyj8s5Lw4YGuhsFHkzIrkQ==
+eslint-plugin-vue@^7.19.1:
+  version "7.19.1"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-vue/-/eslint-plugin-vue-7.19.1.tgz#435fb2ce712842a9530b28eacb883680e8eaa4f3"
+  integrity sha512-e2pD7nW2sTY04ThH+66BgToNwC4n6dqfNhKE+ypdJFtZgn3Zn+nP8ZEIFPG0PGqCKQ3qxy8dJk1bzUsuQd3ANA==
   dependencies:
     eslint-utils "^2.1.0"
     natural-compare "^1.4.0"
@@ -9610,10 +9610,10 @@ vue-router@^3.4.5:
   resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-3.4.6.tgz#f7bda2c9a43d39837621c9a02ba7789f5daa24b2"
   integrity sha512-kaXnB3pfFxhAJl/Mp+XG1HJMyFqrL/xPqV7oXlpXn4AwMmm6VNgf0nllW8ksflmZANfI4kdo0bVn/FYSsAolPQ==
 
-vue-select@^3.13.0:
-  version "3.13.0"
-  resolved "https://registry.yarnpkg.com/vue-select/-/vue-select-3.13.0.tgz#78d519984139156adcbf56af260fb6c2a69093a6"
-  integrity sha512-+PcWtfA1i3WVtkVwBPQknnOZL6QWSD2XiAVbSn0xAQvjOrmGAg7z+o9HkezXhtGdEstloJOdM8SujrUVyphKqg==
+vue-select@^3.13.2:
+  version "3.13.2"
+  resolved "https://registry.yarnpkg.com/vue-select/-/vue-select-3.13.2.tgz#e9c0f6a0d3c4613aebd23b0bbee7d8568e81e25a"
+  integrity sha512-KfvUebV9cFwsov56Rx3pMYBhkSsVv28zsoZ5XmtMa2P5htVIaC12LImPx9IL/mtmdR4WOt9Fxx9UVEuXfUiWQg==
 
 vue-server-renderer@^2.6.10:
   version "2.6.14"

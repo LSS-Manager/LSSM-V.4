@@ -863,13 +863,13 @@ export default {
     vehicleCategories: {
         Incendie: {
             vehicles: {
-                'Fourgon dìncendie': [0, 1, 12, 13],
-                'Échelles': [2, 15],
-                'Véhicules spéciaux': [4, 6, 7, 10, 14, 31, 36, 37, 38],
+                ['Fourgon dìncendie']: [0, 1, 12, 13],
+                ['Échelles']: [2, 15],
+                ['Véhicules spéciaux']: [4, 6, 7, 10, 14, 31, 36, 37, 38],
                 'Chefs de groupe': [3, 11],
                 'Ambulance': [25, 26],
                 'Nautique': [16, 17],
-                'Feux de Forêt': [21, 22, 23, 24, 32, 33, 34, 35],
+                ['Feux de Forêt']: [21, 22, 23, 24, 32, 33, 34, 35],
             },
             color: '#ff2d2d',
         },
@@ -882,10 +882,10 @@ export default {
         },
         Police: {
             vehicles: {
-                'Véhicule de patrouille': [8],
-                'Unité motocycliste': [20],
-                'Choucas': [18],
-                'Équipe cynophile': [19],
+                ['Véhicule de patrouille']: [8],
+                ['Unité motocycliste']: [20],
+                Choucas: [18],
+                ['Équipe cynophile']: [19],
             },
             color: '#00ac00',
         },

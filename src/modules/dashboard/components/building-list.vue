@@ -90,7 +90,7 @@
                                     {{ dispatchBuilding.caption }}
                                     <button
                                         class="btn btn-xs btn-success pull-right"
-                                        style="marginleft: 1ch"
+                                        style="margin-left: 1ch"
                                         @click="
                                             setDispatchCenter(
                                                 building,

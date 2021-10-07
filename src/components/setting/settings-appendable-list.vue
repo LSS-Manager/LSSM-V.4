@@ -1,6 +1,6 @@
 <template>
     <div :class="{ disabled: !enabled }">
-        <div class="row" style="margin-left: 0px; margin-right: 0px;">
+        <div class="row" style="margin-left: 0; margin-right: 0;">
             <div class="col col-xs-11 row">
                 <div
                     class="col"

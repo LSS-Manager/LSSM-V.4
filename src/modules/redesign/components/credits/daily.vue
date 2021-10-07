@@ -325,7 +325,7 @@ export default Vue.extend<
                     JSON.stringify(Object.values(e))
                         .toLowerCase()
                         .match(this.search.trim().toLowerCase()) &&
-                    !!this.filter.type.types.some(a => e.types.includes(a))
+                    this.filter.type.types.some(a => e.types.includes(a))
                 ),
             }));
         },

@@ -120,7 +120,8 @@ export default async (
                         .then(({ status }) => {
                             if (status === 200) {
                                 fmsBtn.classList.replace(
-                                    `building_list_fms_${nextFms === 2 ? 6 : 2
+                                    `building_list_fms_${
+                                        nextFms === 2 ? 6 : 2
                                     }`,
                                     `building_list_fms_${nextFms}`
                                 );
@@ -137,7 +138,10 @@ export default async (
                 const typeWrapper = document.createElement('td');
                 vehicle.insertBefore(typeWrapper, linkWrapper);
                 if (storedVehicle) {
-                    if (!vehicleTypesOnlyOwn || !storedVehicle.vehicle_type_caption) {
+                    if (
+                        !vehicleTypesOnlyOwn ||
+                        !storedVehicle.vehicle_type_caption
+                    ) {
                         const vehicleTypeNode = document.createElement('a');
                         vehicleTypeNode.classList.add(
                             'btn',
@@ -211,23 +215,24 @@ export default async (
                         const assignedPersonnel = (await getSetting(
                             'vehiclesPersonnelColorized'
                         ))
-                            ? `<span style="color: ${assigned_personnel_count < maxPersonnel
-                                ? 'red'
-                                : 'green'
-                            };">${assigned_personnel_count}</span>`
+                            ? `<span style="color: ${
+                                  assigned_personnel_count < maxPersonnel
+                                      ? 'red'
+                                      : 'green'
+                              };">${assigned_personnel_count}</span>`
                             : assigned_personnel_count;
                         vehicle.children[
                             vehicle.children.length - 1
                         ].innerHTML = `(${lastRowItems
                             .map(
                                 item =>
-                                (({
-                                    vehiclesPersonnelCurrent: currentPersonnel,
-                                    vehiclesPersonnelMax: maxPersonnel,
-                                    vehiclesPersonnelAssigned: assignedPersonnel,
-                                } as {
-                                    [key: string]: number;
-                                })[item])
+                                    (({
+                                        vehiclesPersonnelCurrent: currentPersonnel,
+                                        vehiclesPersonnelMax: maxPersonnel,
+                                        vehiclesPersonnelAssigned: assignedPersonnel,
+                                    } as {
+                                        [key: string]: number;
+                                    })[item])
                             )
                             .join(' / ')})`;
                     })();
