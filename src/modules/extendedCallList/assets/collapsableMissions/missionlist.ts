@@ -22,6 +22,11 @@ export default (
     const collapsedClass = LSSM.$store.getters
         .nodeAttribute(`${MODULE_ID}_collapsable-missions_collapsed`)
         .toString();
+    const collapsedBarContentClass = LSSM.$store.getters
+        .nodeAttribute(
+            `${MODULE_ID}_collapsable-missions_collapsed-bar_content`
+        )
+        .toString();
 
     LSSM.$store
         .dispatch('addStyles', [
@@ -56,11 +61,27 @@ export default (
                 },
             },
             {
-                selectorText: `.${collapsedClass} .panel-heading .mission_progress[id^="mission_bar_outer_"] a[id^="mission_caption_"]`,
+                selectorText: `.${collapsedClass} .panel-heading .mission_progress[id^="mission_bar_outer_"] .${collapsedBarContentClass}`,
+                style: {
+                    'display': 'flex',
+                    'width': '100%',
+                    'position': 'absolute',
+                    'justify-content': 'space-between',
+                    'z-index': 1,
+                },
+            },
+            {
+                selectorText: `.${collapsedClass} .panel-heading .mission_progress[id^="mission_bar_outer_"] .${collapsedBarContentClass} a[id^="mission_caption_"]`,
                 style: {
                     'margin-left': '5px',
-                    'position': 'absolute',
-                    'z-index': 10,
+                },
+            },
+            {
+                selectorText: `.${collapsedClass} .panel-heading .mission_progress[id^="mission_bar_outer_"] .${collapsedBarContentClass} .mission_overview_countdown`,
+                style: {
+                    'margin-right': '5px',
+                    'flex-shrink': 0,
+                    'font-size': '14px',
                 },
             },
             {
@@ -99,7 +120,7 @@ export default (
             if (!button || !btnGroup) return;
             await button.switch?.();
 
-            toggle(btnGroup, btn, id, collapsedClass);
+            toggle(btnGroup, btn, id, collapsedClass, collapsedBarContentClass);
         });
 
     const allBtn = createBtn(
@@ -109,6 +130,7 @@ export default (
         false,
         collapsableMissionBtnClass,
         collapsedClass,
+        collapsedBarContentClass,
         $m
     );
 
@@ -134,6 +156,7 @@ export default (
             collapsed,
             collapsableMissionBtnClass,
             collapsedClass,
+            collapsedBarContentClass,
             $m
         );
         mission.btnGroup.append(btn);
@@ -143,7 +166,8 @@ export default (
                 mission.btnGroup,
                 btn,
                 mission.id.toString(),
-                collapsedClass
+                collapsedClass,
+                collapsedBarContentClass
             );
         }
     };

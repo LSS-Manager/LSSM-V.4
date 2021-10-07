@@ -2,7 +2,8 @@ export default (
     btnGroup: HTMLSpanElement,
     btn: HTMLButtonElement,
     missionId: string,
-    collapsedClass: string
+    collapsedClass: string,
+    collapsedBarContentClass: string
 ): void => {
     const mission = document.querySelector<HTMLDivElement>(
         `#mission_${missionId}`
@@ -62,9 +63,12 @@ export default (
         progressbarPlaceholder.after(progressBarWrapper);
         progressbarPlaceholder.remove();
 
-        countdown.classList.remove('pull-right');
         countdownPlaceholder.after(countdown);
         countdownPlaceholder.remove();
+
+        mission
+            ?.querySelector<HTMLDivElement>(`.${collapsedBarContentClass}`)
+            ?.remove();
     } else {
         mission.classList.add(collapsedClass);
 
@@ -82,13 +86,16 @@ export default (
         captionPlaceholder.classList.add('hidden');
         captionPlaceholder.dataset.collapsableCaptionPlaceholder = missionId;
         caption.after(captionPlaceholder, progressBarWrapper);
-        progressBar.prepend(caption);
 
         const countdownPlaceholder = document.createElement('div');
         countdownPlaceholder.classList.add('hidden');
         countdownPlaceholder.dataset.collapsableCountdownPlaceholder = missionId;
         countdown.after(countdownPlaceholder);
-        countdown.classList.add('pull-right');
         progressBarWrapper.append(countdown);
+
+        const barContent = document.createElement('div');
+        barContent.classList.add(collapsedBarContentClass);
+        barContent.append(caption, countdown);
+        progressBar.prepend(barContent);
     }
 };
