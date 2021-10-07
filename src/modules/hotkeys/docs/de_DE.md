@@ -24,6 +24,10 @@ Drücke die von dir gewünschte Tastenkombination oder Tastenfolge.
 
 ![Hotkey-Einstellungen](settings.png)
 
+Mit der Taste `F1` kannst du dir übrigens jederzeit eine schnelle Übersicht über die von dir gesetzten Hotkeys anzeigen lassen:
+
+![Hotkey-Übersicht](overview.png)
+
 
 Im Folgenden sind die bisher verfügbaren Aktionen aufgelistet.
 Weitere Vorschläge kannst du uns gerne im [Forum](https://forum.leitstellenspiel.de/index.php?thread/19176-lss-manager-v-4/), auf unserem <discord/> oder im <a :href="$themeConfig.variables.github + '/issues/15'" target="_blank">GitHub Issue #15</a> zukommen lassen.
