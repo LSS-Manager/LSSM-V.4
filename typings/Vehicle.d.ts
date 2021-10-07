@@ -56,5 +56,6 @@ export interface InternalVehicle {
     shownSchooling?: string;
     special?: string;
     icon: string;
-    [key: string]: string | number | undefined;
+    possibleBuildings: number[];
+    [key: string]: string | number | number[] | undefined;
 }

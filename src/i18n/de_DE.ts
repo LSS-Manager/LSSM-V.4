@@ -117,6 +117,7 @@ export default {
             wtank: 2000,
             pumpcap: 2000,
             icon: 'truck-moving',
+            possibleBuildings: [0, 18],
         },
         1: {
             caption: 'LF 10',
@@ -128,6 +129,7 @@ export default {
             wtank: 1200,
             pumpcap: 1000,
             icon: 'truck-moving',
+            possibleBuildings: [0, 18],
         },
         2: {
             caption: 'DLK 23',
@@ -139,6 +141,7 @@ export default {
             wtank: 0,
             special: 'Wird ab 3 Feuerwachen benötigt.',
             icon: 'truck',
+            possibleBuildings: [0, 18],
         },
         3: {
             caption: 'ELW 1',
@@ -150,6 +153,7 @@ export default {
             wtank: 0,
             special: 'Wird ab 6 Feuerwachen benötigt.',
             icon: 'car-side',
+            possibleBuildings: [0, 18],
         },
         4: {
             caption: 'RW',
@@ -161,6 +165,7 @@ export default {
             wtank: 0,
             special: 'Wird ab 4 Feuerwachen benötigt.',
             icon: 'truck',
+            possibleBuildings: [0, 18],
         },
         5: {
             caption: 'GW-A',
@@ -172,6 +177,7 @@ export default {
             wtank: 0,
             special: 'Wird ab 5 Feuerwachen benötigt.',
             icon: 'truck',
+            possibleBuildings: [0, 18],
         },
         6: {
             caption: 'LF 8/6',
@@ -183,6 +189,7 @@ export default {
             wtank: 600,
             pumpcap: 800,
             icon: 'truck-moving',
+            possibleBuildings: [0, 18],
         },
         7: {
             caption: 'LF 20/16',
@@ -194,6 +201,7 @@ export default {
             wtank: 1600,
             pumpcap: 2000,
             icon: 'truck-moving',
+            possibleBuildings: [0, 18],
         },
         8: {
             caption: 'LF 10/6',
@@ -205,6 +213,7 @@ export default {
             wtank: 600,
             pumpcap: 1000,
             icon: 'truck-moving',
+            possibleBuildings: [0, 18],
         },
         9: {
             caption: 'LF 16-TS',
@@ -216,6 +225,7 @@ export default {
             wtank: 0,
             pumpcap: 1600,
             icon: 'truck-moving',
+            possibleBuildings: [0, 18],
         },
         10: {
             caption: 'GW-Öl',
@@ -227,6 +237,7 @@ export default {
             wtank: 0,
             special: 'Wird ab 6 Feuerwachen benötigt.',
             icon: 'truck',
+            possibleBuildings: [0, 18],
         },
         11: {
             caption: 'GW-L2-Wasser',
@@ -239,6 +250,7 @@ export default {
             special:
                 'Ein Schlauchwagen wird ab 7 Feuerwachen benötigt. Er gibt 25% Bonus auf die Wassermenge, die durch (H/T)LF vor Ort ist.',
             icon: 'truck',
+            possibleBuildings: [0, 18],
         },
         12: {
             caption: 'GW-Messtechnik',
@@ -252,6 +264,7 @@ export default {
             shownSchooling: 'GW-Messtechnik',
             special: 'Wird ab 10 Feuerwachen benötigt.',
             icon: 'truck',
+            possibleBuildings: [0, 18],
         },
         13: {
             caption: 'SW 1000',
@@ -264,6 +277,7 @@ export default {
             special:
                 'Ein Schlauchwagen wird ab 7 Feuerwachen benötigt. Er gibt 25% Bonus auf die Wassermenge, die durch (H/T)LF vor Ort ist.',
             icon: 'truck',
+            possibleBuildings: [0, 18],
         },
         14: {
             caption: 'SW 2000',
@@ -276,6 +290,7 @@ export default {
             special:
                 'Ein Schlauchwagen wird ab 7 Feuerwachen benötigt. Er gibt 25% Bonus auf die Wassermenge, die durch (H/T)LF vor Ort ist.',
             icon: 'truck',
+            possibleBuildings: [0, 18],
         },
         15: {
             caption: 'SW 2000-Tr',
@@ -288,6 +303,7 @@ export default {
             special:
                 'Ein Schlauchwagen wird ab 7 Feuerwachen benötigt. Er gibt 25% Bonus auf die Wassermenge, die durch (H/T)LF vor Ort ist.',
             icon: 'truck',
+            possibleBuildings: [0, 18],
         },
         16: {
             caption: 'SW Kats',
@@ -300,6 +316,7 @@ export default {
             special:
                 'Ein Schlauchwagen wird ab 7 Feuerwachen benötigt. Er gibt 25% Bonus auf die Wassermenge, die durch (H/T)LF vor Ort ist.',
             icon: 'truck',
+            possibleBuildings: [0, 18],
         },
         17: {
             caption: 'TLF 2000',
@@ -311,6 +328,7 @@ export default {
             wtank: 2000,
             pumpcap: 1000,
             icon: 'truck-moving',
+            possibleBuildings: [0, 18],
         },
         18: {
             caption: 'TLF 3000',
@@ -322,6 +340,7 @@ export default {
             wtank: 3000,
             pumpcap: 2000,
             icon: 'truck-moving',
+            possibleBuildings: [0, 18],
         },
         19: {
             caption: 'TLF 8/8',
@@ -333,6 +352,7 @@ export default {
             wtank: 800,
             pumpcap: 800,
             icon: 'truck-moving',
+            possibleBuildings: [0, 18],
         },
         20: {
             caption: 'TLF 8/18',
@@ -344,6 +364,7 @@ export default {
             wtank: 1800,
             pumpcap: 800,
             icon: 'truck-moving',
+            possibleBuildings: [0, 18],
         },
         21: {
             caption: 'TLF 16/24-Tr',
@@ -355,6 +376,7 @@ export default {
             wtank: 2400,
             pumpcap: 1600,
             icon: 'truck-moving',
+            possibleBuildings: [0, 18],
         },
         22: {
             caption: 'TLF 16/25',
@@ -366,6 +388,7 @@ export default {
             wtank: 2400,
             pumpcap: 1600,
             icon: 'truck-moving',
+            possibleBuildings: [0, 18],
         },
         23: {
             caption: 'TLF 16/45',
@@ -377,6 +400,7 @@ export default {
             wtank: 4500,
             pumpcap: 1600,
             icon: 'truck-moving',
+            possibleBuildings: [0, 18],
         },
         24: {
             caption: 'TLF 20/40',
@@ -388,6 +412,7 @@ export default {
             wtank: 4000,
             pumpcap: 2000,
             icon: 'truck-moving',
+            possibleBuildings: [0, 18],
         },
         25: {
             caption: 'TLF 20/40-SL',
@@ -399,6 +424,7 @@ export default {
             wtank: 4000,
             pumpcap: 2000,
             icon: 'truck-moving',
+            possibleBuildings: [0, 18],
         },
         26: {
             caption: 'TLF 16',
@@ -410,6 +436,7 @@ export default {
             wtank: 1800,
             pumpcap: 1600,
             icon: 'truck-moving',
+            possibleBuildings: [0, 18],
         },
         27: {
             caption: 'GW-Gefahrgut',
@@ -423,6 +450,7 @@ export default {
             shownSchooling: 'GW-Gefahrgut',
             special: 'Wird ab 11 Feuerwachen benötigt.',
             icon: 'truck',
+            possibleBuildings: [0, 18],
         },
         28: {
             caption: 'RTW',
@@ -432,6 +460,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 2,
             icon: 'ambulance',
+            possibleBuildings: [0, 18, 2, 12, 20],
         },
         29: {
             caption: 'NEF',
@@ -444,6 +473,7 @@ export default {
             shownSchooling: 'Notarzt',
             special: 'Wird ab 3 Rettungswachen benötigt.',
             icon: 'car_side',
+            possibleBuildings: [0, 18, 2, 20],
         },
         30: {
             caption: 'HLF 20',
@@ -455,6 +485,7 @@ export default {
             wtank: 1600,
             pumpcap: 2000,
             icon: 'truck-moving',
+            possibleBuildings: [0, 18],
         },
         31: {
             caption: 'RTH',
@@ -467,6 +498,7 @@ export default {
             shownSchooling: 'Notarzt',
             special: 'Wird ab 3 Rettungswachen benötigt.',
             icon: 'helicopter',
+            possibleBuildings: [5],
         },
         32: {
             caption: 'FuStW',
@@ -476,6 +508,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 2,
             icon: 'taxi',
+            possibleBuildings: [6, 19],
         },
         33: {
             caption: 'GW-Höhenrettung',
@@ -489,6 +522,7 @@ export default {
             shownSchooling: 'GW-Höhenrettung',
             special: 'Wird ab 12 Feuerwachen benötigt.',
             icon: 'truck',
+            possibleBuildings: [0, 18],
         },
         34: {
             caption: 'ELW 2',
@@ -502,6 +536,7 @@ export default {
             shownSchooling: 'ELW 2',
             special: 'Wird ab 13 Feuerwachen benötigt.',
             icon: 'truck',
+            possibleBuildings: [0, 18],
         },
         35: {
             caption: 'leBefKw',
@@ -513,6 +548,7 @@ export default {
             schooling: 'Polizei - Zugführer (leBefKw)',
             shownSchooling: 'Zugführer (leBefKw)',
             icon: 'bus',
+            possibleBuildings: [11],
         },
         36: {
             caption: 'MTW',
@@ -523,6 +559,7 @@ export default {
             maxPersonnel: 9,
             wtank: 0,
             icon: 'shuttle-van',
+            possibleBuildings: [0, 18],
         },
         37: {
             caption: 'TSF-W',
@@ -534,6 +571,7 @@ export default {
             wtank: 500,
             pumpcap: 1000,
             icon: 'truck-moving',
+            possibleBuildings: [0, 18],
         },
         38: {
             caption: 'KTW',
@@ -543,6 +581,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 2,
             icon: 'ambulance',
+            possibleBuildings: [0, 2, 18, 20],
         },
         39: {
             caption: 'GKW',
@@ -552,6 +591,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 9,
             icon: 'truck-moving',
+            possibleBuildings: [9],
         },
         40: {
             caption: 'MTW-TZ',
@@ -563,6 +603,7 @@ export default {
             schooling: 'THW - Zugtrupp',
             shownSchooling: 'Zugtrupp',
             icon: 'shuttle-van',
+            possibleBuildings: [9],
         },
         41: {
             caption: 'MzKW',
@@ -572,6 +613,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 9,
             icon: 'truck-moving',
+            possibleBuildings: [9],
         },
         42: {
             caption: 'LKW K 9',
@@ -583,6 +625,7 @@ export default {
             schooling: 'THW - Fachgruppe Räumen',
             shownSchooling: 'Fachgruppe Räumen',
             icon: 'truck-pickup',
+            possibleBuildings: [9],
         },
         43: {
             caption: 'BRmG R',
@@ -593,6 +636,7 @@ export default {
             maxPersonnel: 0,
             special: 'Muss vom "LKW K 9" zum Einsatz gezogen werden',
             icon: 'snowplow',
+            possibleBuildings: [9],
         },
         44: {
             caption: 'Anh DLE',
@@ -604,6 +648,7 @@ export default {
             special:
                 'Muss von einem "GKW", "MzKW", "MTW-TZ" oder "MLW 5" zum Einsatz gezogen werden.',
             icon: 'trailer',
+            possibleBuildings: [9],
         },
         45: {
             caption: 'MLW 5',
@@ -615,6 +660,7 @@ export default {
             schooling: 'THW - Fachgruppe Räumen',
             shownSchooling: 'Fachgruppe Räumen',
             icon: 'truck-moving',
+            possibleBuildings: [9],
         },
         46: {
             caption: 'WLF',
@@ -627,6 +673,7 @@ export default {
             schooling: 'Feuerwehr - Wechsellader Lehrgang',
             shownSchooling: 'Wechsellader',
             truck: 'truck-pickup',
+            possibleBuildings: [0, 18],
         },
         47: {
             caption: 'AB-Rüst',
@@ -636,6 +683,7 @@ export default {
             minPersonnel: 0,
             maxPersonnel: 0,
             icon: 'square',
+            possibleBuildings: [0, 18],
         },
         48: {
             caption: 'AB-Atemschutz',
@@ -645,6 +693,7 @@ export default {
             minPersonnel: 0,
             maxPersonnel: 0,
             icon: 'square',
+            possibleBuildings: [0, 18],
         },
         49: {
             caption: 'AB-Öl',
@@ -654,6 +703,7 @@ export default {
             minPersonnel: 0,
             maxPersonnel: 0,
             icon: 'square',
+            possibleBuildings: [0, 18],
         },
         50: {
             caption: 'GruKw',
@@ -663,6 +713,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 9,
             icon: 'bus',
+            possibleBuildings: [11],
         },
         51: {
             caption: 'FüKw',
@@ -674,6 +725,7 @@ export default {
             schooling: 'Polizei - Hundertschaftsführer (FüKw)',
             shownSchooling: 'Hundertschaftsführer (FüKw)',
             icon: 'car-side',
+            possibleBuildings: [11],
         },
         52: {
             caption: 'GefKw',
@@ -683,6 +735,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 2,
             icon: 'bus-alt',
+            possibleBuildings: [11],
         },
         53: {
             caption: 'Dekon-P',
@@ -696,6 +749,7 @@ export default {
             special:
                 'Pro Dekon-P müssen 6 Personen mit Dekon-P-Ausbildung vor Ort sein. Wird ab 14 Feuerwachen benötigt.',
             icon: 'truck',
+            possibleBuildings: [0, 18],
         },
         54: {
             caption: 'AB-Dekon-P',
@@ -705,6 +759,7 @@ export default {
             minPersonnel: 0,
             maxPersonnel: 0,
             icon: 'square',
+            possibleBuildings: [0, 18],
         },
         55: {
             caption: 'KdoW-LNA',
@@ -718,6 +773,7 @@ export default {
             shownSchooling: 'LNA',
             special: 'Wird ab 5 Rettungswachen benötigt.',
             icon: 'car-side',
+            possibleBuildings: [2, 20],
         },
         56: {
             caption: 'KdoW-OrgL',
@@ -731,6 +787,7 @@ export default {
             shownSchooling: 'OrgL',
             special: 'Wird ab 10 Rettungswachen benötigt.',
             icon: 'car-side',
+            possibleBuildings: [2, 20],
         },
         57: {
             caption: 'FwK',
@@ -744,6 +801,7 @@ export default {
             shownSchooling: 'Feuerwehrkran',
             special: 'Wird ab 14 Feuerwachen benötigt.',
             icon: 'truck',
+            possibleBuildings: [0, 18],
         },
         58: {
             caption: 'KTW Typ B',
@@ -755,6 +813,7 @@ export default {
             special:
                 'Kann, wenn ein GW-San vor Ort ist, behandelte Patienten vom Einsatzort abtransportieren. Ein Transport mit Notarztbegleitung durch ein NEF ist auch möglich.',
             icon: 'ambulance',
+            possibleBuildings: [12],
         },
         59: {
             caption: 'ELW 1 (SEG)',
@@ -768,6 +827,7 @@ export default {
             special:
                 'Kann automatisch eingehende Sprechwünsche der eigenen Rettungsmittel bearbeiten und ihnen im Transportfall ein geeignetes Krankenhaus zuweisen. Die automatische Zuweisungsfunktion kann in dessen Einstellungen verändert werden.',
             icon: 'car-side',
+            possibleBuildings: [12],
         },
         60: {
             caption: 'GW-San',
@@ -781,6 +841,7 @@ export default {
             special:
                 'Pro GW-San können 5 KTW Typ B wie ein RTW arbeiten. Er behandelt die Patienten zwar größtenteils, aber für die letzten paar Prozente braucht man dann einen RTW, KTW Typ B oder ähnliches.',
             icon: 'truck',
+            possibleBuildings: [12],
         },
         61: {
             caption: 'Polizeihubschrauber',
@@ -792,6 +853,7 @@ export default {
             schooling: 'Polizei - Polizeihubschrauber',
             shownSchooling: 'Polizeihubschrauber',
             icon: 'helicopter',
+            possibleBuildings: [13],
         },
         62: {
             caption: 'AB-Schlauch',
@@ -801,6 +863,7 @@ export default {
             minPersonnel: 0,
             maxPersonnel: 0,
             icon: 'square',
+            possibleBuildings: [0, 18],
         },
         63: {
             caption: 'GW-Taucher',
@@ -812,6 +875,7 @@ export default {
             schooling: 'Rettungsdienst - GW-Taucher Lehrgang',
             shownSchooling: 'GW-Taucher',
             icon: 'truck',
+            possibleBuildings: [0, 12, 15, 22],
         },
         64: {
             caption: 'GW-Wasserrettung',
@@ -823,6 +887,7 @@ export default {
             schooling: 'Rettungsdienst - GW-Wasserrettung Lehrgang',
             shownSchooling: 'GW-Wasserrettung',
             icon: 'truck',
+            possibleBuildings: [0, 12, 15, 22],
         },
         65: {
             caption: 'LKW 7 Lkr 19 tm',
@@ -832,6 +897,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 2,
             icon: 'truck-pickup',
+            possibleBuildings: [9],
         },
         66: {
             caption: 'Anh MzB',
@@ -843,6 +909,7 @@ export default {
             special:
                 'Muss von einem "LKW 7 Lkr 19 tm" zum Einsatz gezogen werden. Pro gefordertem Boot müssen mind. 4 Personen mit der Ausbildung "GW-Wasserrettung" oder "Wassergefahren" vor Ort sein!',
             icon: 'trailer',
+            possibleBuildings: [9],
         },
         67: {
             caption: 'Anh SchlB',
@@ -854,6 +921,7 @@ export default {
             special:
                 'Muss von einem "LKW 7 Lkr 19 tm" zum Einsatz gezogen werden. Pro gefordertem Boot müssen mind. 4 Personen mit der Ausbildung "GW-Wasserrettung" oder "Wassergefahren" vor Ort sein!',
             icon: 'trailer',
+            possibleBuildings: [9],
         },
         68: {
             caption: 'Anh MzAB',
@@ -865,6 +933,7 @@ export default {
             special:
                 'Muss von einem "LKW 7 Lkr 19 tm" zum Einsatz gezogen werden. Pro gefordertem Boot müssen mind. 4 Personen mit der Ausbildung "GW-Wasserrettung" oder "Wassergefahren" vor Ort sein!',
             icon: 'trailer',
+            possibleBuildings: [9],
         },
         69: {
             caption: 'Tauchkraftwagen',
@@ -876,6 +945,7 @@ export default {
             schooling: 'THW - Fachgruppe Bergungstaucher',
             shownSchooling: 'GW-Taucher',
             icon: 'truck',
+            possibleBuildings: [9],
         },
         70: {
             caption: 'MZB',
@@ -887,6 +957,7 @@ export default {
             special:
                 'Muss von einem "GW-Wasserrettung" oder einem "GW-Taucher" zum Einsatz gezogen werden. Pro gefordertem Boot müssen mind. 4 Personen mit der Ausbildung "GW-Wasserrettung" oder "Wassergefahren" vor Ort sein!',
             icon: 'trailer',
+            possibleBuildings: [0, 12, 15, 22],
         },
         71: {
             caption: 'AB-MZB',
@@ -898,6 +969,7 @@ export default {
             special:
                 'Pro gefordertem Boot müssen mind. 4 Personen mit der Ausbildung "GW-Wasserrettung" oder "Wassergefahren" vor Ort sein!',
             icon: 'square',
+            possibleBuildings: [0, 18],
         },
         72: {
             caption: 'WaWe 10',
@@ -909,6 +981,7 @@ export default {
             schooling: 'Polizei - Wasserwerfer',
             shownSchooling: 'Wasserwerfer',
             icon: 'bus-alt',
+            possibleBuildings: [11],
         },
         73: {
             caption: 'GRTW',
@@ -920,6 +993,7 @@ export default {
             special:
                 'Der GRTW kann in zwei verschiedenen Modi alarmiert werden:<br>1.Für leichtverletzte Personen, die keinen Notarzt benötigen. Dann können in dem GRTW 7 Patienten gleichzeitig behandelt und abtransportiert werden.<br>2.Für schwerverletzte Personen, die einen Notarzt benötigen. Dann können in dem GRTW 3 Patienten gleichzeitig behandelt werden.<br>Pro 20 Rettungswachen (bzw. 15 Rettungswachen mit Premium Account) kann ein GRTW gekauft werden.',
             icon: 'ambulance',
+            possibleBuildings: [0, 2, 18, 20],
         },
         74: {
             caption: 'NAW',
@@ -933,6 +1007,7 @@ export default {
             special:
                 'Insgesamt so viele NAW kaufbar wie Rettungswachen (und auf einsatzbereit gestellte Rettungsdienst-Erweiterungen) vorhanden. Alle auch auf einer Wache patzierbar.',
             icon: 'ambulance',
+            possibleBuildings: [0, 2, 18, 20],
         },
         75: {
             caption: 'FLF',
@@ -945,6 +1020,7 @@ export default {
             schooling: 'Feuerwehr - Flugfeldlöschfahrzeug-Ausbildung',
             shownSchooling: 'Flugfeldlöschfahrzeug',
             icon: 'truck-moving',
+            possibleBuildings: [0],
         },
         76: {
             caption: 'Rettungstreppe',
@@ -957,6 +1033,7 @@ export default {
             schooling: 'Feuerwehr - Rettungstreppen-Ausbildung',
             shownSchooling: 'Rettungstreppe',
             icon: 'truck',
+            possibleBuildings: [0],
         },
         77: {
             caption: 'AB-Gefahrgut',
@@ -966,6 +1043,7 @@ export default {
             minPersonnel: 0,
             maxPersonnel: 0,
             icon: 'square',
+            possibleBuildings: [0, 18],
         },
         78: {
             caption: 'AB-Einsatzleitung',
@@ -975,6 +1053,7 @@ export default {
             minPersonnel: 0,
             maxPersonnel: 0,
             icon: 'square',
+            possibleBuildings: [0, 18],
         },
         79: {
             caption: 'SEK - ZF',
@@ -986,6 +1065,7 @@ export default {
             schooling: 'Polizei - SEK',
             shownSchooling: 'SEK',
             icon: 'shuttle-van',
+            possibleBuildings: [11, 17],
         },
         80: {
             caption: 'SEK - MTF',
@@ -997,6 +1077,7 @@ export default {
             schooling: 'Polizei - SEK',
             shownSchooling: 'SEK',
             icon: 'bus',
+            possibleBuildings: [11, 17],
         },
         81: {
             caption: 'MEK - ZF',
@@ -1008,6 +1089,7 @@ export default {
             schooling: 'Polizei - MEK',
             shownSchooling: 'MEK',
             icon: 'shuttle-van',
+            possibleBuildings: [11, 17],
         },
         82: {
             caption: 'MEK - MTF',
@@ -1019,6 +1101,7 @@ export default {
             schooling: 'Polizei - MEK',
             shownSchooling: 'MEK',
             icon: 'bus',
+            possibleBuildings: [11, 17],
         },
         83: {
             caption: 'GW-Werkfeuerwehr',
@@ -1031,6 +1114,7 @@ export default {
             schooling: 'Feuerwehr - Werkfeuerwehr-Ausbildung',
             shownSchooling: 'Werkfeuerwehr',
             icon: 'truck',
+            possibleBuildings: [0],
         },
         84: {
             caption: 'ULF mit Löscharm',
@@ -1043,6 +1127,7 @@ export default {
             schooling: 'Feuerwehr - Werkfeuerwehr-Ausbildung',
             shownSchooling: 'Werkfeuerwehr',
             icon: 'truck-moving',
+            possibleBuildings: [0],
         },
         85: {
             caption: 'TM 50',
@@ -1055,6 +1140,7 @@ export default {
             schooling: 'Feuerwehr - Werkfeuerwehr-Ausbildung',
             shownSchooling: 'Werkfeuerwehr',
             icon: 'truck',
+            possibleBuildings: [0],
         },
         86: {
             caption: 'Turbolöscher',
@@ -1067,6 +1153,7 @@ export default {
             schooling: 'Feuerwehr - Werkfeuerwehr-Ausbildung',
             shownSchooling: 'Werkfeuerwehr',
             icon: 'truck',
+            possibleBuildings: [0],
         },
         87: {
             caption: 'TLF 4000',
@@ -1078,6 +1165,7 @@ export default {
             wtank: 4000,
             pumpcap: 2000,
             icon: 'truck-moving',
+            possibleBuildings: [0, 18],
         },
         88: {
             caption: 'KLF',
@@ -1089,6 +1177,7 @@ export default {
             wtank: 500,
             pumpcap: 1000,
             icon: 'truck-moving',
+            possibleBuildings: [0, 18],
         },
         89: {
             caption: 'MLF',
@@ -1100,6 +1189,7 @@ export default {
             wtank: 1000,
             pumpcap: 1000,
             icon: 'truck-moving',
+            possibleBuildings: [0, 18],
         },
         90: {
             caption: 'HLF 10',
@@ -1111,6 +1201,7 @@ export default {
             wtank: 1000,
             pumpcap: 1000,
             icon: 'truck-moving',
+            possibleBuildings: [0, 18],
         },
         91: {
             caption: 'Rettungshundefahrzeug',
@@ -1124,6 +1215,7 @@ export default {
             special:
                 'Am Einsatzort sind ein "Rettungshundefahrzeug" und ein "Anh Hund" vom THW gleichwertig!',
             icon: 'paw',
+            possibleBuildings: [12, 21],
         },
         92: {
             caption: 'Anh Hund',
@@ -1135,6 +1227,7 @@ export default {
             special:
                 'Muss von einem "MTW-OV" an den Einsatzort gezogen werden. Am Einsatzort sind ein "Anh Hund" und ein "Rettungshundefahrzeug" vom Rettungsdienst gleichwertig!',
             icon: 'paw',
+            possibleBuildings: [9],
         },
         93: {
             caption: 'MTW-OV',
@@ -1146,6 +1239,7 @@ export default {
             schooling: 'THW - Fachgruppe Rettungshundeführer',
             shownSchooling: 'Rettungshundeführer (THW)',
             icon: 'paw',
+            possibleBuildings: [9],
         },
         94: {
             caption: 'DHuFüKw',
@@ -1157,6 +1251,7 @@ export default {
             schooling: 'Polizei - Hundeführer (Schutzhund)',
             shownSchooling: 'Hundeführer (Schutzhund)',
             icon: 'paw',
+            possibleBuildings: [6, 11, 17, 22],
         },
         95: {
             caption: 'Polizeimotorrad',
@@ -1170,6 +1265,7 @@ export default {
             special:
                 'Das Polizeimotorrad kann im Spiel anstelle eines FuStW verwendet werden. Der Nachteil: Es kann keine Gefangenen transportieren und arbeitet nur halb so schnell wie ein FuStW.',
             icon: 'motorcycle',
+            possibleBuildings: [6, 19],
         },
         96: {
             caption: 'Außenlastbehälter (allgemein)',
@@ -1181,6 +1277,7 @@ export default {
             special:
                 'Der Polizeihelikopter ist das Trägerfahrzeug hier von. Der Helikopter brauch min. 2 Ausgebildete Kräfte mit der Ausbildung "Brandbekämpfung"',
             icon: 'fill',
+            possibleBuildings: [13],
         },
         97: {
             caption: 'ITW',
@@ -1194,6 +1291,7 @@ export default {
             special:
                 'Kann auch als NAW eingesetzt werden. Verdienst bei der Mission: 30 Credits pro km, max. 1.500 Credits. Hat das angefahrene Krankenhaus nicht die erforderliche Abteilung, wird der Verdienst 30% weniger betragen. Kann alle 15 (10 mit Premium) Rettungswachen gekauft werden. 2 Leute brauchen die "Intensivpflege" Ausbildung, Eine weitere Person davon die Notarzt Ausbildung',
             icon: 'ambulance',
+            possibleBuildings: [0, 2, 20],
         },
         98: {
             caption: 'Zivilstreifenwagen',
@@ -1207,6 +1305,7 @@ export default {
             special:
                 'Kann FuStW in bestimmten Einsätzen ersetzen. Wird auf vorhandene Polizeistellplätze gestellt.',
             icon: 'taxi',
+            possibleBuildings: [6],
         },
         99: {
             caption: 'LKW 7 Lbw',
@@ -1218,6 +1317,7 @@ export default {
             schooling: 'THW - Fachgruppe Wasserschaden/Pumpen',
             shownSchooling: 'Fachgruppe Wasserschaden/Pumpen',
             icon: 'truck',
+            possibleBuildings: [9],
         },
         100: {
             caption: 'MLW 4',
@@ -1229,6 +1329,7 @@ export default {
             schooling: 'THW - Fachgruppe Wasserschaden/Pumpen',
             shownSchooling: 'Fachgruppe Wasserschaden/Pumpen',
             icon: 'truck',
+            possibleBuildings: [9],
         },
         101: {
             caption: 'Anh SwPu',
@@ -1239,6 +1340,7 @@ export default {
             maxPersonnel: 0,
             pumpcap: 15000,
             icon: 'trailer',
+            possibleBuildings: [9],
         },
         102: {
             caption: 'Anh 7',
@@ -1249,6 +1351,7 @@ export default {
             maxPersonnel: 0,
             pumpcap: 12400,
             icon: 'trailer',
+            possibleBuildings: [9],
         },
     },
     buildings: {
