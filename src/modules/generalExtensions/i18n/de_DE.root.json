@@ -26,6 +26,10 @@
 			"title": "Link-Vorschau",
 			"vehicles": "Fahrzeuge"
 		},
+		"mapSearchOnMap": {
+			"description": "Verschiebt die Ortssuche im Hauptfenster auf die Karte",
+			"title": "Ortssuche in der Karte"
+		},
 		"mapUndo": {
 			"description": "Zentriere Karte auf Positionen, auf die vorher zentriert wurde. – Funktioniert aktuell nur beim Kartentyp \"OpenStreetMap\"",
 			"title": "Kartensprünge speichern"

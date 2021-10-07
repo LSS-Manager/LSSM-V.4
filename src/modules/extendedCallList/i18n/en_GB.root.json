@@ -1,4 +1,12 @@
 {
+	"collapsableMissions": {
+		"all": {
+			"collapse": "Collapse all missions",
+			"expand": "Expand all missions"
+		},
+		"collapse": "Collapse this mission",
+		"expand": "Expand this mission"
+	},
 	"description": "Extends missionlist by some cool Features!",
 	"eventMissions": {
 		"default": {
@@ -104,6 +112,10 @@
 		"averageCredits": {
 			"description": "Shows the average earnable credits for each mission in a compact way.",
 			"title": "Show avg. credits"
+		},
+		"collapsableMissions": {
+			"description": "Collapse individual (or all) missions to reduce their size in mission list.",
+			"title": "Collapse missions"
 		},
 		"eventMissions": {
 			"description": "Marks seasonal missions. Optionally, you can customise the whole thing and also mark non-seasonal missions.",

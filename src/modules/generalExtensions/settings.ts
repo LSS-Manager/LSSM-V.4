@@ -62,4 +62,8 @@ export default (() => ({
         type: 'toggle',
         default: true,
     },
+    mapSearchOnMap: <Toggle>{
+        type: 'toggle',
+        default: false,
+    },
 })) as ModuleSettingFunction;

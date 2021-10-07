@@ -1,7 +1,5 @@
 //import { Building } from 'typings/Building';
 
-// Commented as dir ./sv_SE does not exist currently
-// const furtherFiles = require.context('./sv_SE/', true, /.*(\/index)?\.js(on)?/);
 const modules = {
     appstore: {
         save: 'Spara',
@@ -52,18 +50,8 @@ const modules = {
     },
 } as { [moduleId: string]: { [key: string]: unknown } };
 
-const t = {} as { [key: string]: unknown };
-
-// Commented as dir ./it_IT does not exist currently
-// furtherFiles
-//     .keys()
-//     .forEach(
-//         key => (t[key.split('/')[1].replace(/\..*$/, '')] = furtherFiles(key))
-//     );
-
 export default {
     modules,
-    ...t,
     error: {
         title: 'LSS Manager: Fel',
         msg: 'Om detta fel inträffar ofta, rapportera det till LSSM-teamet!',
@@ -819,7 +807,7 @@ export default {
         },
     },
     buildingCategories: {
-        Brandmän: {
+        ['Brandmän']: {
             buildings: [0, 1, 18, 21],
             color: '#ff2d2d',
         },
@@ -831,19 +819,19 @@ export default {
             buildings: [6, 8, 13, 19],
             color: '#00ac00',
         },
-        Övrig: {
+        ['Övrig']: {
             buildings: [7, 14],
             color: '#02a18c',
         },
     },
     vehicleCategories: {
-        Brandmän: {
+        ['Brandmän']: {
             vehicles: {
                 Brandbilar: [0, 1, 12],
                 Stegbilar: [2],
                 Specialfordon: [4, 6, 7, 10, 11, 19, 29],
-                Brandbefäl: [3],
-                Båtar: [18, 20],
+                ['Brandbefäl']: [3],
+                ['Båtar']: [18, 20],
                 Skogsbrandbilar: [21, 22, 23, 25, 26, 27],
             },
             color: '#ff2d2d',
@@ -863,7 +851,7 @@ export default {
                 'Polishelikopter': [13],
                 'Bepansrat Insatsfordon': [14],
                 'Insatsfordon': [17],
-                'Polishäst': [24],
+                ['Polishäst']: [24],
             },
             color: '#1e8900',
         },
@@ -949,7 +937,7 @@ export default {
                 duration: '3 dagar',
             },
         ],
-        Rädda: [
+        ['Rädda']: [
             {
                 caption: 'Intensivvårdsutbildning',
                 duration: '5 dagar',

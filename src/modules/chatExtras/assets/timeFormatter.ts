@@ -14,10 +14,12 @@ export default (LSSM: Vue, format: string): void => {
             if (msg_user_span.firstChild)
                 msg_user_span.firstChild.textContent = `[${timeStampModified}] `;
         });
-    LSSM.$store.dispatch('premodifyParams', {
-        event: 'allianceChat',
-        callback(e: AllianceChatMessage) {
-            e.date = moment(e.iso_timestamp).format(format);
-        },
-    });
+    LSSM.$store
+        .dispatch('premodifyParams', {
+            event: 'allianceChat',
+            callback(e: AllianceChatMessage) {
+                e.date = moment(e.iso_timestamp).format(format);
+            },
+        })
+        .then();
 };

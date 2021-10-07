@@ -7,6 +7,10 @@
 			"title": "Kündigen?"
 		}
 	},
+	"buildings": {
+		"active": "Einsatzbereit",
+		"nonactive": "Nicht Einsatzbereit"
+	},
 	"deleteARR": {
 		"deleteModal": {
 			"btnCancel": "Abbrechen",

@@ -323,8 +323,8 @@ ${docsLangs
             label: `${game.flag} ${game.name}`,
             nav: [
                 {
-                    text: `v.${shortVersion}`,
-                    link: `https://github.com/${config.github.repo}/releases/tag/v.${shortVersion}`,
+                    text: `v${shortVersion}`,
+                    link: `https://github.com/${config.github.repo}/releases/tag/v${shortVersion}`,
                 },
                 {
                     text: 'Discord',
@@ -372,10 +372,12 @@ ${docsLangs
                             )
                             .map(
                                 ({ file }) =>
-                                    `/${path.posix.relative(
-                                        DOCS_PATH,
-                                        file.replace('.md', '')
-                                    )}`
+                                    `/${path
+                                        .relative(
+                                            DOCS_PATH,
+                                            file.replace('.md', '')
+                                        )
+                                        .replace(/\\/g, '/')}`
                             ),
                     ],
                 },
@@ -405,7 +407,7 @@ lang: ${lang}
 sidebarDepth: 2
 ---
 
-# Wiki ${flag} <Badge :text="'v.' + $themeConfig.variables.versions.short"/>
+# Wiki ${flag} <Badge :text="'v' + $themeConfig.variables.versions.short"/>
 
 > stable: <i>{{ $themeConfig.variables.versions.stable }}</i>
 > 

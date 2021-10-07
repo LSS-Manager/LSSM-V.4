@@ -67,7 +67,9 @@ export default async (
         zoom: number;
     }[];
 
-    const historyBtn = await LSSM.$store.dispatch('addOSMControl', 'top-left');
+    const historyBtn = await LSSM.$store.dispatch('addOSMControl', {
+        position: 'top-left',
+    });
     historyBtn.id = historyBtnId;
 
     const historyIcon = document.createElement('i');

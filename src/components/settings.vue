@@ -492,6 +492,9 @@ export default Vue.extend<
                     {
                         title: this.$m('resetWarning.close'),
                         default: true,
+                        handler: () => {
+                            this.$modal.hide('dialog');
+                        },
                     },
                     {
                         title: this.$m('resetWarning.total'),

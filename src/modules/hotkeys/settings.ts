@@ -1,3 +1,5 @@
+import getCommandName from './assets/getCommandName';
+
 import { ModuleSettingFunction } from 'typings/Module';
 import {
     AppendableList,
@@ -22,23 +24,18 @@ export default <ModuleSettingFunction>((MODULE_ID, LSSM, $m) => {
         '*.profile.notes',
         '*.alliance.open',
         '*.alliance.members',
+        '*.alliance.onlineMembers',
         '*.alliance.buildings',
         '*.alliance.funds',
         '*.alliance.forum',
         '*.alliance.schoolings',
         '*.alliance.messages',
+        '*.alliance.applications',
+        '*.alliance.logfiles',
+        '*.protocol',
     ].sort();
-    const labels: string[] = commands.map(
-        command =>
-            `${command
-                .split('.')
-                .slice(0, -1)
-                .map((_, index, path) =>
-                    $m(
-                        `commands.${path.slice(0, index + 1).join('.')}.title`
-                    ).toString()
-                )
-                .join(' – ')}: ${$m(`commands.${command}`).toString()}`
+    const labels: string[] = commands.map(command =>
+        getCommandName(command, $m)
     );
 
     return {

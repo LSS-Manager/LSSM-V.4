@@ -24,6 +24,10 @@ Drücke die von dir gewünschte Tastenkombination oder Tastenfolge.
 
 ![Hotkey-Einstellungen](settings.png)
 
+Mit der Taste `F1` kannst du dir übrigens jederzeit eine schnelle Übersicht über die von dir gesetzten Hotkeys anzeigen lassen:
+
+![Hotkey-Übersicht](overview.png)
+
 
 Im Folgenden sind die bisher verfügbaren Aktionen aufgelistet.
 Weitere Vorschläge kannst du uns gerne im [Forum](https://forum.leitstellenspiel.de/index.php?thread/19176-lss-manager-v-4/), auf unserem <discord/> oder im <a :href="$themeConfig.variables.github + '/issues/15'" target="_blank">GitHub Issue #15</a> zukommen lassen.
@@ -34,6 +38,8 @@ Schau vorher bitte im GitHub Issue nach, ob dein Wunsch bereits notiert wurde, u
 Diese Hotkeys sind im gesamten Spiel verfügbar.
 Wenn sie Seiten öffnen, so werden diese immer in einer Lightbox (also so einem Ingame-Popup) geöffnet.
 Somit brauchst du keine Angst zu haben, dass deine aktuelle Ansicht dadurch kaputtgeht.
+
+* Leitstellenprotokoll öffnen
 
 ### Credits
 
@@ -57,6 +63,9 @@ Somit brauchst du keine Angst zu haben, dass deine aktuelle Ansicht dadurch kapu
 * Seite der Verbandskasse öffnen
 * Übersicht der Verbandsgebäude öffnen
 * Übersicht der aktuellen Lehrgänge öffnen
+* Liste der aktuellen Bewerbungen öffnen
+* Verbandsnachrichten öffnen
+* Verbandsprotokoll öffnen
 
 ### Aufgaben
 

@@ -196,13 +196,13 @@ export default Vue.extend<
                                             extension_available: building.extensions.filter(
                                                 e =>
                                                     e.caption === caption &&
-                                                    !!e.available
+                                                    e.available
                                             ).length,
                                             extension_enabled: building.extensions.filter(
                                                 e =>
                                                     e.caption === caption &&
-                                                    !!e.enabled &&
-                                                    !!e.available
+                                                    e.enabled &&
+                                                    e.available
                                             ).length,
                                             extension_unavailable: building.extensions.filter(
                                                 e =>

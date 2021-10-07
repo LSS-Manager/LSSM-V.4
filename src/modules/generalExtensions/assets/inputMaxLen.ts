@@ -93,14 +93,19 @@ export default (LSSM: Vue): void => {
         };
     };
 
-    LSSM.$store.dispatch('addStyle', {
-        selectorText: Object.keys(lengthMap)
-            .map(selector => `input[name=${JSON.stringify(selector)}]:invalid`)
-            .join(','),
-        style: {
-            'border-color': '#a94442',
-        },
-    });
+    LSSM.$store
+        .dispatch('addStyle', {
+            selectorText: Object.keys(lengthMap)
+                .map(
+                    selector =>
+                        `input[name=${JSON.stringify(selector)}]:invalid`
+                )
+                .join(','),
+            style: {
+                'border-color': '#a94442',
+            },
+        })
+        .then();
 
     document.addEventListener('input', e => {
         const target = e.target as HTMLInputElement;

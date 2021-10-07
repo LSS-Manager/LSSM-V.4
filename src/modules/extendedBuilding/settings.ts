@@ -11,6 +11,15 @@ export default ((MODULE_ID: string) => ({
         default: true,
         dependsOn: '.enhanceVehicleList',
     },
+    vehicleTypesOnlyOwn: <Toggle>{
+        type: 'toggle',
+        default: false,
+        disabled: (settings: ModuleSettings) =>
+            !(
+                (settings[MODULE_ID].vehicleTypes as Toggle).value &&
+                (settings[MODULE_ID].enhanceVehicleList as Toggle).value
+            ),
+    },
     fmsSwitch: <Toggle>{
         type: 'toggle',
         default: true,

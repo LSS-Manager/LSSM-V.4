@@ -2,11 +2,14 @@
 	"commands": {
 		"*": {
 			"alliance": {
+				"applications": "open applications",
 				"buildings": "open alliance building overview",
 				"forum": "open board",
 				"funds": "open alliance funds window",
+				"logfiles": "open logfiles",
 				"members": "open memberlist",
 				"messages": "open messages",
+				"onlineMembers": "open memberlist (show online players only)",
 				"open": "open alliance window",
 				"schoolings": "open schoolings window",
 				"title": "Alliance"
@@ -17,6 +20,7 @@
 				"overview": "open overview of last 7 days",
 				"title": "Credits"
 			},
+			"help": "Open this help",
 			"profile": {
 				"awards": "open list of awards",
 				"level": "open list of levels",
@@ -24,6 +28,7 @@
 				"open": "open own profile",
 				"title": "Profile"
 			},
+			"protocol": "Open Log in Dispatch Center",
 			"tasks": {
 				"open": "open list of current tasks",
 				"title": "Tasks and Events"
@@ -65,7 +70,7 @@
 		"command": "Action",
 		"hotkey": "Hotkey",
 		"hotkeys": {
-			"description": "Set your own Hotkeys for certain actions here. Actions of category \"General\" are available everywhere in game.",
+			"description": "Set your own Hotkeys for certain actions here. Actions of category \"General\" are available everywhere in game. By pressing F1, you can view an overview of the hotkeys you have opened at any time.",
 			"title": "Hotkeys"
 		}
 	}

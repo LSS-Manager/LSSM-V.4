@@ -2,11 +2,14 @@
 	"commands": {
 		"*": {
 			"alliance": {
+				"applications": "Open aanmeldingen",
 				"buildings": "Open teamgebouwen overzicht",
 				"forum": "Open teamforum",
 				"funds": "Open teamkas venster",
+				"logfiles": "Open toezicht",
 				"members": "Open ledenlijst",
 				"messages": "Open berichten",
+				"onlineMembers": "open ledenlijst (alleen online spelers tonen)",
 				"open": "Open teamvenster",
 				"schoolings": "Open opleidingenvenster",
 				"title": "Team"
@@ -17,6 +20,7 @@
 				"overview": "Open statistieken",
 				"title": "Credits"
 			},
+			"help": "Open dit overzicht",
 			"profile": {
 				"awards": "Open lijst awards",
 				"level": "Open lijst rangen",
@@ -24,6 +28,7 @@
 				"open": "Open eigen profiel",
 				"title": "Profiel"
 			},
+			"protocol": "Open afrondingsgeschiedenis in meldkamer",
 			"tasks": {
 				"open": "Opel lijst huidige taken",
 				"title": "Taken en evenementen"
@@ -65,7 +70,7 @@
 		"command": "Actie",
 		"hotkey": "Sneltoets",
 		"hotkeys": {
-			"description": "Stel je sneltoetsen voor verschillende acties hier in. Acties van de categorie algemeen zijn overal in het spel beschikbaar.",
+			"description": "Stel je sneltoetsen voor verschillende acties hier in. Acties van de categorie algemeen zijn overal in het spel beschikbaar. Door op F1 te drukken, kan je altijd een overzicht van de sneltoetsen openen.",
 			"title": "Sneltoetsen"
 		}
 	}

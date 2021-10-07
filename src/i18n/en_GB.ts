@@ -1,7 +1,5 @@
 // import { Building } from 'typings/Building';
 
-// Commented as dir ./en_US does not exist currently
-// const furtherFiles = require.context('./en_US/', true, /.*(\/index)?\.js(on)?/);
 const modules = {
     appstore: {
         save: 'Save',
@@ -64,18 +62,8 @@ const modules = {
     },
 } as { [moduleId: string]: { [key: string]: unknown } };
 
-const t = {} as { [key: string]: unknown };
-
-// Commented as dir ./en_US does not exist currently
-// furtherFiles
-//     .keys()
-//     .forEach(
-//         key => (t[key.split('/')[1].replace(/\..*$/, '')] = furtherFiles(key))
-//     );
-
 export default {
     modules,
-    ...t,
     error: {
         title: 'LSS Manager: Error',
         msg:
@@ -485,7 +473,7 @@ export default {
             schooling: 'Rescue - SORT Training',
             shownSchooling: 'SORT',
             special:
-                'You can buy 1 Mass Casualty Equipment for every 20 ambulance stations (respectively 15 with premium account).',
+                'You can buy 1 Mass Casualty Equipment for every 20 ambulance stations (respectively 15 with premium account). It is required for missions that can spawn with over 30 patients',
         },
         34: {
             caption: 'Ambulance Officer',
@@ -496,7 +484,8 @@ export default {
             maxPersonnel: 1,
             schooling: 'Rescue - Ambulance Officer',
             shownSchooling: 'Ambulance Officer',
-            special: 'Required once you have built 15 Rescue stations',
+            special:
+                'Required once you have built 15 Rescue stations. It is required for missions that can spawn with over 20 patients to help command the scene. It is a dual unit between an OTL and an Ambulance Officer Requirements',
         },
     },
     buildings: {

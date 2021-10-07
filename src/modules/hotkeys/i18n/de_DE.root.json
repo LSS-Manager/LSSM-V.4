@@ -2,11 +2,14 @@
 	"commands": {
 		"*": {
 			"alliance": {
+				"applications": "Bewerbungen öffnen",
 				"buildings": "Verbandsgebäudeübersicht öffnen",
 				"forum": "Forum öffnen",
 				"funds": "Seite der Verbandskasse öffnen",
+				"logfiles": "Verbandsprotokoll öffnen",
 				"members": "Mitgliederliste öffnen",
 				"messages": "Nachrichten öffnen",
+				"onlineMembers": "Mitgliederliste öffnen (nur online Spieler anzeigen)",
 				"open": "Startseite öffnen",
 				"schoolings": "Lehrgangsübersicht öffnen",
 				"title": "Verband"
@@ -17,6 +20,7 @@
 				"overview": "Übersicht der letzten Tage öffnen",
 				"title": "Credits"
 			},
+			"help": "Diese Hilfe öffnen",
 			"profile": {
 				"awards": "Eigene Auszeichnungen öffnen",
 				"level": "Level-Seite öffnen",
@@ -24,6 +28,7 @@
 				"open": "Eigenes Profil öffnen",
 				"title": "Profil"
 			},
+			"protocol": "Leitstellen-Protokoll öffnen",
 			"tasks": {
 				"open": "Aufgabenliste öffnen",
 				"title": "Aufgaben und Events"
@@ -65,7 +70,7 @@
 		"command": "Aktion",
 		"hotkey": "Hotkey",
 		"hotkeys": {
-			"description": "Lege hier für bestimmte Aktionen eigene Hotkeys fest. Aktionen der Kategorie \"Allgemein\" funktionieren auf allen Seiten.",
+			"description": "Lege hier für bestimmte Aktionen eigene Hotkeys fest. Aktionen der Kategorie \"Allgemein\" funktionieren auf allen Seiten. Mittels F1 kannst du jederzeit eine Übersicht der von dir geöffneten Hotkeys einsehen.",
 			"title": "Hotkeys"
 		}
 	}

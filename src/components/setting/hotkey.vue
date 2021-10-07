@@ -60,8 +60,24 @@ export default Vue.extend<Hotkey, HotkeyMethods, HotkeyComputed, HotkeyProps>({
         startRecording() {
             this.readonly = false;
             const input = this.$refs.input as HTMLInputElement;
+            let esc = false;
+            const escEvent = (event: KeyboardEvent) => {
+                if (event.key.toLowerCase() === 'escape') {
+                    event.cancelBubble = true;
+                    esc = true;
+                }
+            };
+            input.addEventListener('keyup', escEvent);
             this.utility.record(input, sequence => {
-                this.updateValue = sequence.join(' ');
+                if (
+                    esc ||
+                    sequence.find(combination =>
+                        combination.split('+').includes('f1')
+                    )
+                )
+                    this.updateValue = '';
+                else this.updateValue = sequence.join(' ');
+                input.removeEventListener('keyup', escEvent);
                 input.blur();
             });
         },

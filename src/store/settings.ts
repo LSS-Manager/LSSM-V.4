@@ -52,7 +52,7 @@ export default {
     } as MutationTree<SettingsState>,
     actions: {
         saveSettings(
-            { commit, dispatch }: SettingsActionStoreParams,
+            { commit }: SettingsActionStoreParams,
             { settings }: SettingsSave
         ) {
             commit('save', settings);

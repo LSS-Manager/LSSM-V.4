@@ -32,14 +32,14 @@ const openSupport = () =>
         {}
     );
 
-let menuItem = document.createElement('a');
+const menuItem = document.createElement('a');
 menuItem.href = '#';
 menuItem.innerHTML = `${window.lssmv4.$t(
     'modules.support.name'
 )} <span id="${window.lssmv4.$store.getters.nodeId(
     'support-badge'
 )}" class="badge">0</span>`;
-window.lssmv4.$store.dispatch('addMenuItem', { menuItem });
+window.lssmv4.$store.dispatch('addMenuItem', { menuItem }).then();
 
 menuItem.onclick = openSupport;
 

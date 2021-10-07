@@ -27,6 +27,12 @@ export default (
         ).includes(missionTypeID)
     )
         return;
+
+    const activeTabName =
+        document
+            ?.querySelector<HTMLLIElement>('#tabs > li.active')
+            ?.textContent?.trim() ?? '';
+
     Array.from(
         document.querySelectorAll(
             '#tabs > li > a:not([href="#all"]):not([href="#occupied"])'
@@ -99,6 +105,9 @@ export default (
                 buttons: [
                     {
                         title: $m('tailoredTabs.vehicleMissing.hide'),
+                        handler() {
+                            LSSM.$modal.hide('dialog');
+                        },
                     },
                     {
                         title: $m('tailoredTabs.vehicleMissing.close'),
@@ -204,6 +213,7 @@ export default (
     const vehicleTypeMap = {} as {
         [id: string]: string[];
     };
+    const idByName: Record<string, string> = {};
     tabs.forEach(({ name, vehicleTypes }) => {
         if (!tabList || !allTab || !occupiedTab || !panelWrapper) return;
         const tabId = LSSM.$store.getters.nodeAttribute(
@@ -282,6 +292,7 @@ export default (
         panels[tabId] = tabPane;
         tabBar[tabId] = { tablesorterId: `vehicle_show_table_${tabId}` };
         vehicleTypeMap[tabId] = vehicleTypes.map(v => v.toString());
+        idByName[name] = tabId;
     });
 
     if (stagingMode) {
@@ -298,12 +309,6 @@ export default (
                     .forEach(box => (box.checked = checkbox.checked));
             });
     }
-
-    tabList
-        .querySelector<HTMLAnchorElement>(
-            `#tabs > li > a[href="#${occupiedTabActive ? 'occupied' : 'all'}"]`
-        )
-        ?.click();
 
     tabList.addEventListener('click', e => {
         if (!tabList || !allTab || !occupiedTab || !panelWrapper) return;
@@ -362,4 +367,14 @@ export default (
             },
         });
     });
+
+    tabList
+        .querySelector<HTMLAnchorElement>(
+            `#tabs > li > a[href="#${
+                occupiedTabActive
+                    ? 'occupied'
+                    : idByName[activeTabName] || 'all'
+            }"]`
+        )
+        ?.click();
 };

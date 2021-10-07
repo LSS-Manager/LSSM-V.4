@@ -1,6 +1,6 @@
 <template>
     <div :class="{ disabled: !enabled }">
-        <div class="row" style="margin-left: 0px; margin-right: 0px;">
+        <div class="row" style="margin-left: 0; margin-right: 0;">
             <div class="col col-xs-11 row">
                 <div
                     class="col"
@@ -149,13 +149,13 @@ import { faMinus } from '@fortawesome/free-solid-svg-icons/faMinus';
 import { faPlus } from '@fortawesome/free-solid-svg-icons/faPlus';
 import { faUndoAlt } from '@fortawesome/free-solid-svg-icons/faUndoAlt';
 
+import { AppendableListSetting } from 'typings/Setting';
 import {
     AppendableList,
     AppendableListComputed,
     AppendableListMethods,
     AppendableListProps,
 } from 'typings/components/setting/AppendableList';
-import { AppendableListSetting } from 'typings/Setting';
 
 export default Vue.extend<
     AppendableList,
@@ -297,6 +297,9 @@ export default Vue.extend<
                                 'modules.settings.appendableList.unique.confirm'
                             ),
                             default: true,
+                            handler: () => {
+                                this.$modal.hide('dialog');
+                            },
                         },
                     ],
                 });
@@ -360,6 +363,9 @@ export default Vue.extend<
                             'modules.settings.resetWarningSetting.close'
                         ),
                         default: true,
+                        handler: () => {
+                            this.$modal.hide('dialog');
+                        },
                     },
                     {
                         title: this.$t(

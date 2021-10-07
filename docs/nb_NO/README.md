@@ -4,7 +4,7 @@ lang: nb_NO
 sidebarDepth: 2
 ---
 
-# Wiki 🇳🇴 <Badge :text="'v.' + $themeConfig.variables.versions.short"/>
+# Wiki 🇳🇴 <Badge :text="'v' + $themeConfig.variables.versions.short"/>
 
 > stable: <i>{{ $themeConfig.variables.versions.stable }}</i>
 > 

@@ -153,7 +153,7 @@ module.exports = {
             [/^Dienstbus(sen)? Arrestantenvervoer$/]: [58],
             [/^Er ontbre(ekt|ken):$/]: [],
             [/^Arrestanten zullen vervoerd worden$/]: [],
-            [/^(S|s)trandvoertuig(en)?$/]: [65, 66],
+            [/^[Ss]trandvoertuig(en)?$/]: [65, 66],
         },
     },
     tailoredTabs: {

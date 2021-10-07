@@ -105,7 +105,7 @@ export default (Vue: VueConstructor): Store<RootState> => {
                 if (state.fontAwesome.inserted) return;
                 const fa = document.createElement('script');
                 fa.src =
-                    'https://use.fontawesome.com/releases/v5.13.0/js/all.js';
+                    'https://use.fontawesome.com/releases/v5.15.4/js/all.js';
                 document.head.appendChild(fa);
                 state.fontAwesome.inserted = true;
             },
@@ -114,6 +114,7 @@ export default (Vue: VueConstructor): Store<RootState> => {
                 {
                     position,
                     bar,
+                    mapId,
                 }: {
                     position:
                         | 'top-left'
@@ -121,9 +122,12 @@ export default (Vue: VueConstructor): Store<RootState> => {
                         | 'bottom-left'
                         | 'bottom-right';
                     bar: HTMLDivElement;
+                    mapId: string;
                 }
             ) {
-                state.osmBars[position] = bar;
+                if (!state.osmBars.hasOwnProperty(mapId))
+                    state.osmBars[mapId] = {};
+                state.osmBars[mapId][position] = bar;
             },
         } as MutationTree<RootState>,
         getters: {
@@ -136,7 +140,7 @@ export default (Vue: VueConstructor): Store<RootState> => {
                     return res
                         .replace(/ /g, '_')
                         .replace(/["']/g, '')
-                        .replace(/[^a-zA-Z0-9_\-.]/g, '-');
+                        .replace(/[^a-zA-Z0-9_-]/g, '-');
                 }
                 return res;
             },
@@ -304,28 +308,39 @@ export default (Vue: VueConstructor): Store<RootState> => {
             },
             addOSMControl(
                 { state, commit }: ActionStoreParams,
-                position:
-                    | 'top-left'
-                    | 'top-right'
-                    | 'bottom-left'
-                    | 'bottom-right'
+                {
+                    position,
+                    mapId = 'map',
+                }: {
+                    position:
+                        | 'top-left'
+                        | 'top-right'
+                        | 'bottom-left'
+                        | 'bottom-right';
+                    mapId: string;
+                }
             ) {
                 return new Promise(resolve => {
-                    if (!state.osmBars.hasOwnProperty(position)) {
+                    const positionSelector = `#${mapId} .leaflet-control-container ${position
+                        .split('-')
+                        .map(p => `.leaflet-${p}`)
+                        .join('')}`;
+                    if (
+                        !state.osmBars.hasOwnProperty(mapId) ||
+                        !state.osmBars[mapId].hasOwnProperty(position) ||
+                        !document.querySelector(
+                            `${positionSelector} .leaflet-bar.leaflet-control`
+                        )
+                    ) {
                         const bar = document.createElement('div');
                         bar.classList.add('leaflet-bar', 'leaflet-control');
                         document
-                            .querySelector(
-                                `#map .leaflet-control-container ${position
-                                    .split('-')
-                                    .map(p => `.leaflet-${p}`)
-                                    .join('')}`
-                            )
+                            .querySelector(positionSelector)
                             ?.appendChild(bar);
-                        commit('addOSMBar', { position, bar });
+                        commit('addOSMBar', { position, bar, mapId });
                     }
                     const control = document.createElement('a');
-                    state.osmBars[position].appendChild(control);
+                    state.osmBars[mapId][position].appendChild(control);
                     resolve(control);
                 });
             },

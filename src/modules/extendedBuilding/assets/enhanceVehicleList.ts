@@ -23,6 +23,7 @@ export default async (
             'personnelAssignmentBtn'
         );
         const vehicleTypes = await getSetting('vehicleTypes');
+        const vehicleTypesOnlyOwn = await getSetting('vehicleTypesOnlyOwn');
         const lastRowSettings = {
             vehiclesPersonnelMax: await getSetting('vehiclesPersonnelMax'),
             vehiclesPersonnelCurrent: await getSetting(
@@ -101,6 +102,11 @@ export default async (
             if (fmsSwitch) {
                 const fmsBtn = vehicle.querySelector('.building_list_fms');
                 fmsBtn?.addEventListener('click', () => {
+                    if (
+                        !fmsBtn.classList.contains('building_list_fms_2') &&
+                        !fmsBtn.classList.contains('building_list_fms_6')
+                    )
+                        return;
                     const nextFms = fmsBtn.classList.contains(
                         'building_list_fms_2'
                     )
@@ -132,18 +138,23 @@ export default async (
                 const typeWrapper = document.createElement('td');
                 vehicle.insertBefore(typeWrapper, linkWrapper);
                 if (storedVehicle) {
-                    const vehicleTypeNode = document.createElement('a');
-                    vehicleTypeNode.classList.add(
-                        'btn',
-                        'btn-default',
-                        'btn-xs',
-                        'disabled'
-                    );
-                    vehicleTypeNode.textContent =
-                        internalVehicleTypes[
-                            storedVehicle.vehicle_type
-                        ]?.caption;
-                    typeWrapper.append(vehicleTypeNode);
+                    if (
+                        !vehicleTypesOnlyOwn ||
+                        !storedVehicle.vehicle_type_caption
+                    ) {
+                        const vehicleTypeNode = document.createElement('a');
+                        vehicleTypeNode.classList.add(
+                            'btn',
+                            'btn-default',
+                            'btn-xs',
+                            'disabled'
+                        );
+                        vehicleTypeNode.textContent =
+                            internalVehicleTypes[
+                                storedVehicle.vehicle_type
+                            ]?.caption;
+                        typeWrapper.append(vehicleTypeNode);
+                    }
                     if (storedVehicle.vehicle_type_caption) {
                         const customTypeNode = document.createElement('a');
                         customTypeNode.classList.add(

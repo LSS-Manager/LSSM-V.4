@@ -1,3 +1,4 @@
+import buildAPI from './api';
 import buildUserscript from './buildUserscript';
 import copyStatic from './copyStatic';
 import { emptyFolder } from './emptyDir';
@@ -15,6 +16,8 @@ import setVersion from './setVersion';
     emptyFolder('./dist');
     console.info('\tcopyStatic');
     copyStatic();
+    console.info('\tbuild API');
+    await buildAPI();
     console.log('\tCollect Third-Party Libraries');
     getLibraries();
     console.log('Prebuild ran successfully, building...');

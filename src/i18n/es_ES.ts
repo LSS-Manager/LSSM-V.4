@@ -1,7 +1,5 @@
 // import { Building } from 'typings/Building';
 
-// Commented as dir ./es_ES does not exist currently
-// const furtherFiles = require.context('./es_ES/', true, /.*(\/index)?\.js(on)?/);
 const modules = {
     appstore: {
         save: 'Guardar',
@@ -52,17 +50,8 @@ const modules = {
     },
 } as { [moduleId: string]: { [key: string]: unknown } };
 
-const t = {} as { [key: string]: unknown };
-
-// Commented as dir ./es_ES does not exist currently
-// furtherFiles
-//     .keys()
-//     .forEach(
-//         key => (t[key.split('/')[1].replace(/\..*$/, '')] = furtherFiles(key))
-//     );
 export default {
     modules,
-    ...t,
     error: {
         title: 'LSS Manager: Error',
         msg:
@@ -721,7 +710,7 @@ export default {
             buildings: [2, 3, 5, 20],
             color: '#ffa500',
         },
-        'Parques de policías': {
+        ['Parques de policías']: {
             buildings: [6, 8, 13, 16, 19],
             color: '#00ac00',
         },
@@ -731,25 +720,25 @@ export default {
         },
     },
     vehicleCategories: {
-        'Bomberos': {
+        Bomberos: {
             vehicles: {
                 'Camiones de bomberos': [0, 1, 12],
-                'Vehículos especiales': [2, 3, 4, 6, 7, 10, 11, 23, 24],
+                ['Vehículos especiales']: [2, 3, 4, 6, 7, 10, 11, 23, 24],
             },
             color: '#ff2d2d',
         },
-        'Vehículos de ambulancias': {
+        ['Vehículos de ambulancias']: {
             vehicles: {
                 Ambulancias: [5, 18, 19, 20, 21, 22],
                 HEMS: [9],
             },
             color: '#ffa500',
         },
-        'Vehículos de policías': {
+        ['Vehículos de policías']: {
             vehicles: {
                 'Coche patrulla': [8],
-                'Moto de policía': [17],
-                'Helicóptero de policía': [13],
+                ['Moto de policía']: [17],
+                ['Helicóptero de policía']: [13],
                 'Vehiculos especiales': [14, 15, 16],
             },
             color: '#00ac00',
@@ -800,7 +789,7 @@ export default {
                 duration: '5 Días',
             },
         ],
-        'Policía': [
+        ['Policía']: [
             {
                 caption: 'Piloto de Helicóptero',
                 duration: '7 Días',
