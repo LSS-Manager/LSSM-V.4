@@ -92,4 +92,11 @@ export default {
     title: 'Summary',
     total: 'Total',
     others: 'Others',
+    export: {
+        export: 'Export',
+        json: {
+            raw: 'JSON (raw)',
+            prettified: 'JSON (prettified)',
+        },
+    },
 };

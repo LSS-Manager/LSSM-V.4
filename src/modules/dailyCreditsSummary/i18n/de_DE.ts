@@ -92,4 +92,11 @@ export default {
     title: 'Zusammenfassung',
     total: 'Insgesamt',
     others: 'Sonstiges',
+    export: {
+        export: 'Exportieren',
+        json: {
+            raw: 'JSON (Rohformat)',
+            prettified: 'JSON (schöne Ausgabe)',
+        },
+    },
 };
