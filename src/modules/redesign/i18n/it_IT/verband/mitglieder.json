@@ -30,7 +30,6 @@
 		"coadmin": "Co-Amministratore dell'Alleanza",
 		"edit": "Modifica permessi",
 		"finance": "Finanze dell'Alleanza",
-		"staff": "Personale dell'alleanza",
 		"hide": "Chiudi",
 		"kick": {
 			"btn": "Espelli"
@@ -44,6 +43,7 @@
 		"schooling": "Formatore Alleanza",
 		"set": "Imposta come {role}",
 		"sprechwunsch_admin": "Richiesta Trasporto - Amministratore",
+		"staff": "Personale dell'alleanza",
 		"unset": "Rimuovi come {role}"
 	},
 	"roles": "Ruolo(i)",
