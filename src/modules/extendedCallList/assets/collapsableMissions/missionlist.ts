@@ -74,6 +74,7 @@ export default (
                 selectorText: `.${collapsedClass} .panel-heading .mission_progress[id^="mission_bar_outer_"] .${collapsedBarContentClass} a[id^="mission_caption_"]`,
                 style: {
                     'margin-left': '5px',
+                    'color': 'white',
                 },
             },
             {
