@@ -71,6 +71,10 @@
 			"text": "Testo",
 			"title": "Segna le missioni stagionali"
 		},
+		"collapsableMissions": {
+			"description": "Collassare le missioni individuali (o tutte) per ridurre la loro dimensione nella lista delle missioni.",
+			"title": "Crollo delle missioni"
+		},
 		"remainingTime": {
 			"description": "Mostra alle missioni per quanto tempo ogni missione è ancora in corso.",
 			"title": "Tempo missione rimanente"

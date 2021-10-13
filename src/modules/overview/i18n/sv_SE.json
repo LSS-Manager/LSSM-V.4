@@ -29,7 +29,8 @@
 			"minPersonnel": "Minimum personal",
 			"schooling": "Utbildning",
 			"special": "Special",
-			"wtank": "Vattentank"
+			"wtank": "Vattentank",
+			"ftank": "Skumtank"
 		}
 	}
 }

@@ -20,6 +20,7 @@
 		"commerce_police_stations": "Caserma della Finanza",
 		"fire_aviation_count": "Base Aerea Antincendio",
 		"fire_stations": "Caserma VVF | Caserme VVF",
+		"fire_support_count": "",
 		"max_police_stations": "Massimale delle polizze",
 		"max_rescue_stations": "Massimale di soccorso",
 		"police_helicopter_stations": "Stazione elicottero polizia | Stazioni elicottero polizia",
@@ -33,7 +34,8 @@
 		"title": "Prigionieri | {n} Prigioniere | {n} Prigionieri"
 	},
 	"requirements": {
-		"water_needed": "Acqua Necessaria"
+		"water_needed": "Acqua Necessaria",
+		"foam_needed": "Domanda di schiuma (l)"
 	},
 	"subsequent": "Missione successiva | Missioni successive",
 	"tip": {
@@ -69,7 +71,10 @@
 			"swat_armored_vehicle": "Furgone Antisommossa",
 			"swat_suv": "Suv UOPI",
 			"water_rescue": "Pickup SAF",
-			"water_tankers": "Kilolitriche"
+			"water_tankers": "Kilolitriche",
+			"foam": "",
+			"hose": "",
+			"pump": ""
 		},
 		"multifunctionals": {
 			"battalion_chief_vehicles": {

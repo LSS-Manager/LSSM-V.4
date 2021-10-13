@@ -33,7 +33,8 @@
 		"title": "Presos | {n} Preso | {n} Presos"
 	},
 	"requirements": {
-		"water_needed": "Demanda de agua (l)"
+		"water_needed": "Demanda de agua (l)",
+		"foam_needed": "Demanda de espuma (l)"
 	},
 	"subsequent": "Misión posterior | Misiones posteriores",
 	"tip": {

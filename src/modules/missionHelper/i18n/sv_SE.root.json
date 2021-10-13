@@ -17,6 +17,11 @@
 			"in": "additional",
 			"text": "Genomsnitt min. Insatspolis"
 		},
+		"foam_needed": {
+			"badge": true,
+			"in": "requirements",
+			"text": "Skum krävs: {n} l"
+		},
 		"water_needed": {
 			"badge": true,
 			"in": "requirements",
