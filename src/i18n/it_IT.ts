@@ -106,6 +106,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 3,
             wtank: 8_000,
+            ftank: 250,
         },
         1: {
             caption: 'AS',
@@ -187,6 +188,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 6,
             wtank: 2_500,
+            ftank: 400,
         },
         10: {
             caption: 'AF/ARIA',
@@ -463,6 +465,15 @@ export default {
             schooling: 'Soccorso - Corso Operatore MaxiEmergenze',
             shownSchooling: 'Operatore MaxiEmergenze',
         },
+        37: {
+            caption: 'ACT/SCHIUMA',
+            color: '#dc1818',
+            coins: 15,
+            credits: 35_000,
+            minPersonnel: 2,
+            maxPersonnel: 3,
+            ftank: 2_000,
+        },
     },
     buildings: {
         0: {
@@ -493,6 +504,12 @@ export default {
                     caption: 'Soccorso di Massa',
                     credits: 150_000,
                     coins: 20,
+                    duration: '5 Giorni',
+                },
+                {
+                    caption: 'Sistema schiumogeno',
+                    credits: 50_000,
+                    coins: 15,
                     duration: '5 Giorni',
                 },
             ],
@@ -944,7 +961,7 @@ export default {
             vehicles: {
                 'Autopompa': [0, 9],
                 'Kilolitrica': [5],
-                'Veicoli speciali': [1, 2, 3, 6, 10, 11, 12, 26],
+                'Veicoli speciali': [1, 2, 3, 6, 10, 11, 12, 26, 37],
                 'Soccorso in acqua': [23, 24, 25],
                 'Mezzi AIB': [28, 29, 30, 31, 32, 33, 34, 35],
             },
