@@ -32,7 +32,7 @@
 	"@types/jquery": {
 		"icon": "https://avatars.githubusercontent.com/u/3637556",
 		"url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/jquery",
-		"version": "3.5.6"
+		"version": "3.5.7"
 	},
 	"@types/leaflet": {
 		"icon": "https://avatars.githubusercontent.com/u/3637556",
@@ -47,7 +47,7 @@
 	"@types/node": {
 		"icon": "https://avatars.githubusercontent.com/u/3637556",
 		"url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/node",
-		"version": "16.10.3"
+		"version": "16.10.5"
 	},
 	"@types/pdfmake": {
 		"icon": "https://avatars.githubusercontent.com/u/3637556",
@@ -232,7 +232,7 @@
 	"typescript": {
 		"icon": "https://www.typescriptlang.org/icons/icon-512x512.png",
 		"url": "https://www.typescriptlang.org/",
-		"version": "4.4.3"
+		"version": "4.4.4"
 	},
 	"ua-parser-js": {
 		"icon": "https://raw.githubusercontent.com/faisalman/ua-parser-js/gh-pages/images/logo.png",
