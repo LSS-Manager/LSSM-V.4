@@ -12,15 +12,15 @@
 			"in": "additional",
 			"text": "Genomsnitt min. Polispersonal"
 		},
-		"swat_personnel": {
-			"badge": false,
-			"in": "additional",
-			"text": "Genomsnitt min. Insatspolis"
-		},
 		"foam_needed": {
 			"badge": true,
 			"in": "requirements",
 			"text": "Skum krävs: {n} l"
+		},
+		"swat_personnel": {
+			"badge": false,
+			"in": "additional",
+			"text": "Genomsnitt min. Insatspolis"
 		},
 		"water_needed": {
 			"badge": true,

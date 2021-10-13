@@ -25,12 +25,12 @@
 		"vehicles": {
 			"caption": "Fordonstyp",
 			"cost": "Kostnad",
+			"ftank": "Skumtank",
 			"maxPersonnel": "Maximal personal",
 			"minPersonnel": "Minimum personal",
 			"schooling": "Utbildning",
 			"special": "Special",
-			"wtank": "Vattentank",
-			"ftank": "Skumtank"
+			"wtank": "Vattentank"
 		}
 	}
 }

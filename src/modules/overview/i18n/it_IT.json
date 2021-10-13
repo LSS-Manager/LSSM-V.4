@@ -25,12 +25,12 @@
 		"vehicles": {
 			"caption": "Tipo di veicolo",
 			"cost": "Prezzo",
+			"ftank": "Quantità di schiuma",
 			"maxPersonnel": "Personale massimo",
 			"minPersonnel": "Personale minimo",
 			"schooling": "Formazione",
 			"special": "Speciale",
-			"wtank": "Quantità d'acqua",
-			"ftank": "Quantità di schiuma"
+			"wtank": "Quantità d'acqua"
 		}
 	}
 }

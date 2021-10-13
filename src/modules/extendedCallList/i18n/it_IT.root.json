@@ -65,15 +65,15 @@
 			"description": "Mostra la media dei crediti guadagnabili per ogni missione in modo compatto.",
 			"title": "Mostra i crediti medi"
 		},
+		"collapsableMissions": {
+			"description": "Collassare le missioni individuali (o tutte) per ridurre la loro dimensione nella lista delle missioni.",
+			"title": "Crollo delle missioni"
+		},
 		"eventMissions": {
 			"description": "Contrassegna le missioni stagionali. Opzionalmente, si può personalizzare il tutto e segnare anche le missioni non stagionali.",
 			"missions": "Missioni",
 			"text": "Testo",
 			"title": "Segna le missioni stagionali"
-		},
-		"collapsableMissions": {
-			"description": "Collassare le missioni individuali (o tutte) per ridurre la loro dimensione nella lista delle missioni.",
-			"title": "Crollo delle missioni"
 		},
 		"remainingTime": {
 			"description": "Mostra alle missioni per quanto tempo ogni missione è ancora in corso.",
