@@ -427,7 +427,9 @@ const fetchStableVersion = (): Promise<{ version: string }> =>
     axios(`${config.server}static/build_stats.json`)
         .then(res =>
             res.status === 200
-                ? (new Promise(resolve => resolve(res.data)) as Promise<{
+                ? // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                  // @ts-ignore
+                  (new Promise(resolve => resolve(res.data)) as Promise<{
                       version: string;
                   }>)
                 : (new Promise(resolve =>
