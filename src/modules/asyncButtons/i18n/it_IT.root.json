@@ -2,6 +2,10 @@
 	"description": "Evita con questo modulo, che il gioco venga ricaricato quando premi determinati pulsanti.",
 	"name": "Pulsanti asincroni",
 	"settings": {
+		"buildingPersonal": {
+			"description": "Impedisce di ricaricare quando si rilascia il personale.",
+			"title": "Rilascio di personale"
+		},
 		"buildingTax": {
 			"description": "Impedisce la ricarica mentre imposti il costo delle tue celle o di letti d'ospedale.",
 			"title": "Assorbimento dei costi delle celle e dei posti letto"
@@ -23,6 +27,10 @@
 		},
 		"missionReply": {
 			"title": "MissionReplys nella missione"
+		},
+		"switchExtensionState": {
+			"description": "Impedisce il ricaricamento quando si imposta lo stato di un'estensione",
+			"title": "(De-)attivare l'estensione"
 		}
 	}
 }

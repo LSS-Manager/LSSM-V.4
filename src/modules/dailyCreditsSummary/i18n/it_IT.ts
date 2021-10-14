@@ -8,13 +8,15 @@ export default {
             textColor: 'white',
         },
         mission: {
-            regex: '^%missions%( \\(Fire Alarm System\\))?( - False Alarm)?$',
+            regex:
+                '^%missions%( \\(Sistema di allarme antincendio\\))?( - Falso allarme)?$',
             title: 'Missioni Proprie',
             backgroundColor: '#ff2400',
             textColor: 'white',
         },
         cancelledMissions: {
-            regex: '^%missions%( \\(Fire Alarm System\\))? - [cC]anceled$',
+            regex:
+                '^%missions%( \\(Sistema di allarme antincendio\\))? - [aA]nnullata$',
             title: 'Missioni Cancellate',
             backgroundColor: '#7C7978',
             textColor: 'white',
@@ -30,19 +32,19 @@ export default {
             textColor: 'black',
         },
         buildings: {
-            regex: /(Building constructed|Refund Building$|Building demolished without refund)/,
+            regex: /(Building costruita|Refund Building$|Building demolished without refund)/,
             title: 'Building constructed/demolished',
             backgroundColor: '#ed872d',
             textColor: 'black',
         },
         upgradeBuilding: {
-            regex: /(Station (upgraded( \(from small .*? station\))??|constructed)|Cancel:|Refund Building upgrade)/,
+            regex: /(Stazione (upgraded( \(from small .*? station\))??|costruita)|Guardia estesa|Cancel:|Refund Building upgrade)/,
             title: 'Stazione costruita',
             backgroundColor: '#000080',
             textColor: 'white',
         },
         task: {
-            regex: /Completed task ".*?"/,
+            regex: /Attività ".*?"/,
             title: 'Completed Task',
             backgroundColor: '#bb3385',
             textColor: 'white',

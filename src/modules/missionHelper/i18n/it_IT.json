@@ -20,6 +20,7 @@
 		"commerce_police_stations": "Caserma della Finanza",
 		"fire_aviation_count": "Base Aerea Antincendio",
 		"fire_stations": "Caserma VVF | Caserme VVF",
+		"fire_support_count": "espansione Sistema schiumogeno",
 		"max_police_stations": "Massimale delle polizze",
 		"max_rescue_stations": "Massimale di soccorso",
 		"police_helicopter_stations": "Stazione elicottero polizia | Stazioni elicottero polizia",
@@ -33,6 +34,7 @@
 		"title": "Prigionieri | {n} Prigioniere | {n} Prigionieri"
 	},
 	"requirements": {
+		"foam_needed": "Domanda di schiuma (l)",
 		"water_needed": "Acqua Necessaria"
 	},
 	"subsequent": "Missione successiva | Missioni successive",

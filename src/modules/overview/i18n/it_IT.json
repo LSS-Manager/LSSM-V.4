@@ -25,6 +25,7 @@
 		"vehicles": {
 			"caption": "Tipo di veicolo",
 			"cost": "Prezzo",
+			"ftank": "Quantità di schiuma",
 			"maxPersonnel": "Personale massimo",
 			"minPersonnel": "Personale minimo",
 			"schooling": "Formazione",

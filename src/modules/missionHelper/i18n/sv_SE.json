@@ -20,6 +20,7 @@
 		"federalpolice_stations": "Federal Police Station | Federal Police Stations",
 		"fire_aviation_count": "Brandflygsstation",
 		"fire_stations": "Brandstation | Brandstationer",
+		"fire_support_count": "Brandstöds utbyggnad | Brandstöds utbyggnader",
 		"max_police_stations": "Maximala polisstationer",
 		"max_rescue_stations": "Maximala ambulansstationer",
 		"police_helicopter_stations": "Polisflyg | Polisflyg",
@@ -32,6 +33,7 @@
 		"title": "Fånge | {n} Fånge | {n} Fångar"
 	},
 	"requirements": {
+		"foam_needed": "Efterfrågan på skum (l)",
 		"water_needed": "Liter av vatten"
 	},
 	"tip": {
@@ -50,9 +52,11 @@
 			"diver_car": "Dykbil | Dykbilar",
 			"fire_aviation": "brandflygsenhet",
 			"firetrucks": "Släckbil | Släckbilar",
+			"foam": "Skumenheter",
 			"hazmat_vehicles": "Kemskyddsenhet | Kemskyddsenheter",
 			"heavy_rescue_vehicles": "Lastväxlare",
 			"helicopter": "Ambulanshelikopter",
+			"hose": "Slangbil",
 			"k9": "Hundenhet",
 			"kdow_orgl": "Ledningsfordon",
 			"large_fire_boat": "Stor brandbåt | Stora brandbåtar",
@@ -62,6 +66,7 @@
 			"platform_trucks": "Stegbil | Stegbilar",
 			"police_cars": "Radiobil | Radiobilar",
 			"police_helicopters": "Polishelikopter | Polishelikoptrar",
+			"pump": "Motorspruta",
 			"sheriff": "Polisfordon",
 			"swat_armored_vehicle": "Bepansrat insatsfordon",
 			"swat_suv": "Insatsfordon",

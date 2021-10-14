@@ -12,6 +12,11 @@
 			"in": "additional",
 			"text": "Media min. Personale di polizia"
 		},
+		"foam_needed": {
+			"badge": true,
+			"in": "requirements",
+			"text": "Schiuma necessaria: {n} l"
+		},
 		"water_needed": {
 			"badge": true,
 			"in": "requirements",

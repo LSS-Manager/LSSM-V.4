@@ -25,6 +25,7 @@
 		"vehicles": {
 			"caption": "Fordonstyp",
 			"cost": "Kostnad",
+			"ftank": "Skumtank",
 			"maxPersonnel": "Maximal personal",
 			"minPersonnel": "Minimum personal",
 			"schooling": "Utbildning",

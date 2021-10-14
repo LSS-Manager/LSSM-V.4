@@ -95,6 +95,7 @@ module.exports = {
         },
         selected: 'Selezionato',
         water: "l. d'acqua",
+        foam: 'l. schiuma',
         vehiclesByRequirement: {
             [/^APS\/ABP$/]: [0, 9],
             [/^Autogrù$/]: [12],
