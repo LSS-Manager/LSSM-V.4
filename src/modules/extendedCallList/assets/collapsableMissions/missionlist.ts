@@ -75,13 +75,13 @@ export default (
                 style: {
                     'margin-left': '5px',
                     'color': 'black',
+                    'width': '100%',
                 },
             },
             {
                 selectorText: `body.dark .${collapsedClass} .panel-heading .mission_progress[id^="mission_bar_outer_"] .${collapsedBarContentClass} a[id^="mission_caption_"]`,
                 style: {
-                    'margin-left': '5px',
-                    'color': 'white',
+                    color: 'white',
                 },
             },
             {
