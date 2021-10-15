@@ -47,7 +47,7 @@
 	"@types/node": {
 		"icon": "https://avatars.githubusercontent.com/u/3637556",
 		"url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/node",
-		"version": "16.10.9"
+		"version": "16.11.0"
 	},
 	"@types/pdfmake": {
 		"icon": "https://avatars.githubusercontent.com/u/3637556",
@@ -133,7 +133,7 @@
 	"eslint": {
 		"icon": "https://eslint.org/assets/img/favicon.512x512.png",
 		"url": "https://eslint.org",
-		"version": "8.0.0"
+		"version": "8.0.1"
 	},
 	"eslint-formatter-table": {
 		"version": "7.32.1"
