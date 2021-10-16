@@ -336,11 +336,15 @@ export default (Vue: VueConstructor): Store<RootState> => {
                         bar.classList.add('leaflet-bar', 'leaflet-control');
                         document
                             .querySelector(positionSelector)
-                            ?.appendChild(bar);
+                            ?.[position.match(/bottom/) ? 'prepend' : 'append'](
+                                bar
+                            );
                         commit('addOSMBar', { position, bar, mapId });
                     }
                     const control = document.createElement('a');
-                    state.osmBars[mapId][position].appendChild(control);
+                    state.osmBars[mapId][position][
+                        position.match(/bottom/) ? 'prepend' : 'append'
+                    ](control);
                     resolve(control);
                 });
             },

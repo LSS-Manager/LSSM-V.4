@@ -1,6 +1,12 @@
 {
 	"description": "Hiermee kun je algemene verbeteringen activeren, zoals klikbare links in het spel.",
 	"name": "Algemene verbeteringen",
+	"positions": {
+		"bottom-left": "Linksonder 🡧",
+		"bottom-right": "Rechtsonder 🡦",
+		"top-left": "Linksboven 🡤",
+		"top-right": "Rechtsboven 🡥"
+	},
 	"settings": {
 		"browserTitle": {
 			"description": "Past de titel van het browsertabblad aan zodat het laat zien wat er momenteel in het spel is geopend.",

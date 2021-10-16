@@ -1,6 +1,12 @@
 {
 	"description": "Ermöglicht dir allgemeine Verbesserungen, wie z.B klickbare Links im gesamten Spiel zu aktivieren.",
 	"name": "Allgemeine Verbesserungen",
+	"positions": {
+		"bottom-left": "Unten Links 🡧",
+		"bottom-right": "Unten Rechts 🡦",
+		"top-left": "Oben Links 🡤",
+		"top-right": "Oben Rechts 🡥"
+	},
 	"settings": {
 		"browserTitle": {
 			"description": "Passt den Titel des Browsertabs an, so dass da steht, was im Spiel gerade offen ist.",
@@ -29,6 +35,10 @@
 		"mapSearchOnMap": {
 			"description": "Verschiebt die Ortssuche im Hauptfenster auf die Karte",
 			"title": "Ortssuche in der Karte"
+		},
+		"mapSearchOnMapPosition": {
+			"description": "Wähle hier, wo auf der Karte die Kartensuche erscheinen soll",
+			"title": "Position der Kartensuche"
 		},
 		"mapUndo": {
 			"description": "Zentriere Karte auf Positionen, auf die vorher zentriert wurde. – Funktioniert aktuell nur beim Kartentyp \"OpenStreetMap\"",

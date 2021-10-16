@@ -112,6 +112,9 @@ export default (async (LSSM, MODULE_ID, $m) => {
             LSSM.$t('mapSearch').toString(),
             addToPanelHeading,
             mapSearchOnMap,
+            await getSetting<
+                'top-left' | 'top-right' | 'bottom-left' | 'bottom-right'
+            >('mapSearchOnMapPosition'),
             LSSM
         );
     }

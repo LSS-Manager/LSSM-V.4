@@ -1,6 +1,12 @@
 {
 	"description": "Allows you to activate general improvements such as clickable links throughout the game.",
 	"name": "General improvements",
+	"positions": {
+		"bottom-left": "Bottom left 🡧",
+		"bottom-right": "Bottom right 🡦",
+		"top-left": "Top left 🡤",
+		"top-right": "Top right 🡥"
+	},
 	"settings": {
 		"browserTitle": {
 			"description": "Adjusts the title of the browser tab so that it shows what is currently open in the game.",
@@ -29,6 +35,10 @@
 		"mapSearchOnMap": {
 			"description": "Moves the location search in the main window to the map",
 			"title": "Place search on the map"
+		},
+		"mapSearchOnMapPosition": {
+			"description": "Select, where on the map the search should appear",
+			"title": "Position of Map Search"
 		},
 		"mapUndo": {
 			"description": "Center map on positions that were centered before. - Currently only works with map type \"OpenStreetMap\"",
