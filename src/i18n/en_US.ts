@@ -726,7 +726,7 @@ export default {
             minPersonnel: 3,
             maxPersonnel: 3,
             special:
-                'To purchase with credits it requires the rank: Captain, <br>Lower ranked members can purchase the vehicle for 30 Coins.<br>Works as Heavy Resuce and Ambulance',
+                'To purchase with credits it requires the rank: Captain, <br>Lower ranked members can purchase the vehicle for 30 Coins.<br>Works as Heavy Rescue and Ambulance',
         },
         62: {
             caption: 'Fire Investigator Unit',
