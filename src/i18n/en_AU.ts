@@ -158,7 +158,6 @@ export default {
             credits: 5_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-
         },
         6: {
             caption: 'Bulk Water Tanker',
