@@ -182,6 +182,7 @@
                                 'aufsichtsrat',
                                 'finance',
                                 'schooling',
+                                'staff',
                             ]"
                         >
                             <br :key="`${user.id}_${right}_br`" />
@@ -268,6 +269,7 @@ type Component = RedesignSubComponent<
                 | 'aufsichtsrat'
                 | 'finance'
                 | 'schooling',
+                | 'staff',
             new_state: 0 | 1
         ): void;
         kick(user_id: number, username: string): void;

@@ -40,6 +40,7 @@
 		"coadmin": "Coadministrador de alianza",
 		"finance": "Economía de la alianza",
 		"schooling": "Formador de alianza",
-		"sprechwunsch_admin": "Petición de transporte (admin.)"
+		"sprechwunsch_admin": "Petición de transporte (admin.)",
+		"staff": "Personal de la alianza"
 	}
 }

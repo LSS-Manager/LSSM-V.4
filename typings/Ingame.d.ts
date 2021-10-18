@@ -11,6 +11,7 @@ export interface POIMarker extends Marker {
 export interface AllianceChatMessage {
     alliance_admin: string; // Yes, a stringified boolean
     alliance_coadmin: string; // Also a stringified boolean…
+    alliance_owner: string; // Also a stringified boolean…
     date: string; // Actually the time (for example: 17:23)
     date_hidden: string; // Datetime in a readble format
     iso_timestamp: string; //Time in ISO-Format

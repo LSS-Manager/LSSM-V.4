@@ -44,6 +44,7 @@
 		"coadmin": "Team-Co-Admin",
 		"finance": "Penningmeester",
 		"schooling": "Docent",
-		"sprechwunsch_admin": "Spraakaanvraag-Admin"
+		"sprechwunsch_admin": "Spraakaanvraag-Admin",
+		"staff": "Medewerker alliantie"
 	}
 }

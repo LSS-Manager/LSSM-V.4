@@ -20,6 +20,7 @@ interface User {
         aufsichtsrat: boolean;
         finance: boolean;
         schooling: boolean;
+        staff: boolean;
     };
 }
 
@@ -96,6 +97,7 @@ export default <RedesignParser<VerbandMitgliederWindow>>(({
                                       'aufsichtsrat',
                                       'finance',
                                       'schooling',
+                                      'staff',
                                   ].map(role => [
                                       role,
                                       !!user.children[5]

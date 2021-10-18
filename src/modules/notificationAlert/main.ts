@@ -65,7 +65,9 @@ export default (async (LSSM, MODULE_ID, $m, $mc) => {
                         )
                     ) ||
                         (ucmsg.match(/@admin/) &&
-                            (window.alliance_admin || window.alliance_coadmin)))
+                            (window.alliance_admin ||
+                                window.alliance_coadmin ||
+                                window.alliance_owner)))
                 );
                 const title = `${
                     mission_id ? '🔔 ' : ''

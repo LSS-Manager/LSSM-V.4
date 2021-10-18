@@ -42,6 +42,7 @@
 		},
 		"schooling": "Alliance Educator",
 		"set": "Set as {role}",
+		"staff": "Alliance Staff",
 		"sprechwunsch_admin": "Transport Request - Admin",
 		"unset": "Remove as {role}"
 	},

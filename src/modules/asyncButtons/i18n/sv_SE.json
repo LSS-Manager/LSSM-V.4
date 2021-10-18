@@ -40,6 +40,7 @@
 		"coadmin": "Vice administratör",
 		"finance": "Ekonomiansvarig",
 		"schooling": "Utbildare",
-		"sprechwunsch_admin": "Transportansvarig"
+		"sprechwunsch_admin": "Transportansvarig",
+		"staff": "Allianspersonal"
 	}
 }
