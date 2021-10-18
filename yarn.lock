@@ -949,10 +949,10 @@
   dependencies:
     "@fortawesome/fontawesome-common-types" "^0.2.36"
 
-"@fortawesome/vue-fontawesome@^2.0.2":
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/@fortawesome/vue-fontawesome/-/vue-fontawesome-2.0.2.tgz#5b86cd2fb7b4c17e5dede722c1c2855c97eceaea"
-  integrity sha512-ecpKSBUWXsxRJVi/dbOds4tkKwEcBQ1JSDZFzE2jTFpF8xIh3OgTX8POIor6bOltjibr3cdEyvnDjecMwUmxhQ==
+"@fortawesome/vue-fontawesome@^2.0.5":
+  version "2.0.5"
+  resolved "https://registry.yarnpkg.com/@fortawesome/vue-fontawesome/-/vue-fontawesome-2.0.5.tgz#147ed42f788f22bb44c2b1afd9e93e33add5798d"
+  integrity sha512-BktJiEuZhU+HxANJ37Pek6y+LRVVFgcU5CDd6b+t6XKj30QrYrh3ICsC5FQm5MuAdh3CPpYT99ywjk5v6nWteA==
 
 "@humanwhocodes/config-array@^0.6.0":
   version "0.6.0"
@@ -9648,10 +9648,10 @@ vue-router@^3.4.5:
   resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-3.4.6.tgz#f7bda2c9a43d39837621c9a02ba7789f5daa24b2"
   integrity sha512-kaXnB3pfFxhAJl/Mp+XG1HJMyFqrL/xPqV7oXlpXn4AwMmm6VNgf0nllW8ksflmZANfI4kdo0bVn/FYSsAolPQ==
 
-vue-select@^3.13.2:
-  version "3.13.2"
-  resolved "https://registry.yarnpkg.com/vue-select/-/vue-select-3.13.2.tgz#e9c0f6a0d3c4613aebd23b0bbee7d8568e81e25a"
-  integrity sha512-KfvUebV9cFwsov56Rx3pMYBhkSsVv28zsoZ5XmtMa2P5htVIaC12LImPx9IL/mtmdR4WOt9Fxx9UVEuXfUiWQg==
+vue-select@^3.15.0:
+  version "3.15.0"
+  resolved "https://registry.yarnpkg.com/vue-select/-/vue-select-3.15.0.tgz#6d90943891ac3a2181899f0b1ebd0c79f7e4ce20"
+  integrity sha512-w394b/awYfF/v2DYKjnx0WV8pEXHd6GHk+ApzWiTPotjlH+DR0xbHFxCISKJxxDBg40oh+D9ZfF3jGz6gGQrJQ==
 
 vue-server-renderer@^2.6.10:
   version "2.6.14"

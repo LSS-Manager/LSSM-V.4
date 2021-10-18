@@ -12,7 +12,7 @@
 	"@fortawesome/vue-fontawesome": {
 		"icon": "https://avatars.githubusercontent.com/u/1505683",
 		"url": "https://github.com/FortAwesome/vue-fontawesome",
-		"version": "2.0.2"
+		"version": "2.0.5"
 	},
 	"@primer/octicons": {
 		"icon": "https://primer.style/octicons/icons/icon-512x512.png",
@@ -47,7 +47,7 @@
 	"@types/node": {
 		"icon": "https://avatars.githubusercontent.com/u/3637556",
 		"url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/node",
-		"version": "16.11.0"
+		"version": "16.11.1"
 	},
 	"@types/pdfmake": {
 		"icon": "https://avatars.githubusercontent.com/u/3637556",
@@ -279,7 +279,7 @@
 	},
 	"vue-select": {
 		"url": "https://vue-select.org",
-		"version": "3.13.2"
+		"version": "3.15.0"
 	},
 	"vue-slim-tabs": {
 		"url": "https://vue-slim-tabs.egoist.sh/",
