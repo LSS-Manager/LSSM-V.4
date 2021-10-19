@@ -413,9 +413,14 @@ export default Vue.extend<
                               },
                           }
                         : null),
-                    ...(['es_ES', 'pl_PL', 'sv_SE', 'it_IT', 'en_US', 'nl_NL'].includes(
-                        this.$store.state.lang
-                    )
+                    ...([
+                        'es_ES',
+                        'pl_PL',
+                        'sv_SE',
+                        'it_IT',
+                        'en_US',
+                        'nl_NL',
+                    ].includes(this.$store.state.lang)
                         ? {
                               ftank: {
                                   title: this.$m('titles.vehicles.ftank'),

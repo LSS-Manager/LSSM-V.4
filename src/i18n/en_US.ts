@@ -770,7 +770,8 @@ export default {
             minPersonnel: 0,
             maxPersonnel: 0,
             ftank: 650,
-            special: 'Needed towing vehicle (Utility unit, Type 6 engine, Battalion chief unit, mcv)',
+            special:
+                'Needed towing vehicle (Utility unit, Type 6 engine, Battalion chief unit, mcv)',
         },
     },
     buildings: {

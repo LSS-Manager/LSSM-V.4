@@ -25,12 +25,12 @@
 		"vehicles": {
 			"caption": "Vehicle type",
 			"cost": "Price",
+			"ftank": "Foam Tank",
 			"maxPersonnel": "maximum personnel",
 			"minPersonnel": "minimum personnel",
 			"schooling": "Education",
 			"special": "Specials",
-			"wtank": "Water tank",
-			"ftank": "Foam Tank"
+			"wtank": "Water tank"
 		}
 	}
 }
