@@ -42,5 +42,6 @@ export default async (): Promise<void> => {
                 JSON.stringify(t[type] ?? {})
             );
         });
+        fs.rmSync(jsPath);
     }
 };
