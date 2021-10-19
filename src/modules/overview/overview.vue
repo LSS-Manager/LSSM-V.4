@@ -413,7 +413,7 @@ export default Vue.extend<
                               },
                           }
                         : null),
-                    ...(['es_ES', 'pl_PL', 'sv_SE', 'it_IT'].includes(
+                    ...(['es_ES', 'pl_PL', 'sv_SE', 'it_IT', 'en_US', 'nl_NL'].includes(
                         this.$store.state.lang
                     )
                         ? {

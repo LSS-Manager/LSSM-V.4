@@ -93,6 +93,7 @@ module.exports = {
             pushLeft: 'show this box at original position',
         },
         selected: 'Selected',
+        foam: 'gal. foam',
         water: 'gal. water',
         staff: {
             [/^SWAT Personnel$/]: [16, 26],
@@ -138,6 +139,7 @@ module.exports = {
             [/^DEA Clan Lab(s)?$/]: [52],
             [/^Warden('s)? Truck(s)?$/]: [56],
             [/^Fire Investigation(s)? Unit(s)?$/]: [62, 63],
+            [/^Foam Tender(s)?$/]: [64, 65],
         },
     },
     tailoredTabs: {
