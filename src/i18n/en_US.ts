@@ -753,7 +753,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 2,
         },
-        63: {
+        64: {
             caption: 'Foam Tender',
             color: '#9f1616',
             coins: 15,
@@ -762,7 +762,7 @@ export default {
             maxPersonnel: 3,
             ftank: 6_500,
         },
-        63: {
+        65: {
             caption: 'Foam Trailer',
             color: '#9f1616',
             coins: 10,
