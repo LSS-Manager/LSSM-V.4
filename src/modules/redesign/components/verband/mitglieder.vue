@@ -147,10 +147,7 @@
                 >
                     {{ user.tax }}%
                 </td>
-                <td
-                    v-if="mitglieder.edit_discount && user.edit"
-                    style="text-align: right"
-                >
+                <td v-if="user.edit" style="text-align: right">
                     <a
                         class="btn btn-default btn_edit_rights btn-xs"
                         :user_id="user.id"
