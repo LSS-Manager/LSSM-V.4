@@ -853,7 +853,8 @@ export default {
             credits: 15_000,
             coins: 10,
             ftank: 500,
-            special: 'Het gaat hier om een aanhanger dat een trekkend voertuig nodig heeft. (TS 8/9, TS-HV, TS 4/5, TS 6/7, HV, AB, SL)',
+            special:
+                'Het gaat hier om een aanhanger dat een trekkend voertuig nodig heeft. (TS 8/9, TS-HV, TS 4/5, TS 6/7, HV, AB, SL)',
             icon: 'trailer',
         },
         71: {
@@ -863,7 +864,8 @@ export default {
             maxPersonnel: 0,
             credits: 5_000,
             coins: 25,
-            special: 'Het gaat hier om een aanhanger dat een trekkend voertuig nodig heeft. (TS 8/9, TS-HV, TS 4/5, TS 6/7, HV, AB, SL, DA, DB-K). Deze aanhanger zorgt dat de aanwezige waterhoeveelheid wordt verhoogd met 5%',
+            special:
+                'Het gaat hier om een aanhanger dat een trekkend voertuig nodig heeft. (TS 8/9, TS-HV, TS 4/5, TS 6/7, HV, AB, SL, DA, DB-K). Deze aanhanger zorgt dat de aanwezige waterhoeveelheid wordt verhoogd met 5%',
             icon: 'trailer',
         },
         72: {
@@ -873,7 +875,8 @@ export default {
             maxPersonnel: 0,
             credits: 5_000,
             coins: 25,
-            special: 'Het gaat hier om een aanhanger dat een trekkend voertuig nodig heeft. (TS 8/9, TS-HV, TS 4/5, TS 6/7, HV, AB, SL, DA, DB-K). Deze aanhanger zorgt dat de aanwezige waterhoeveelheid wordt verhoogd met 10%',
+            special:
+                'Het gaat hier om een aanhanger dat een trekkend voertuig nodig heeft. (TS 8/9, TS-HV, TS 4/5, TS 6/7, HV, AB, SL, DA, DB-K). Deze aanhanger zorgt dat de aanwezige waterhoeveelheid wordt verhoogd met 10%',
             icon: 'trailer',
         },
     },
@@ -1359,7 +1362,7 @@ export default {
                     68,
                     70,
                     71,
-                    72
+                    72,
                 ],
                 'Waterongevallen': [33, 36, 49, 50, 65, 66, 67],
                 'Vliegtuigbrandbestrijding': [41, 42, 43, 44],

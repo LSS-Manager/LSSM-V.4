@@ -60,6 +60,7 @@
 			"elw3": "Commandovoertuig | Commandovoertuigen",
 			"elw_airport": "Airport Fire Officer / On Scene Commander",
 			"firetrucks": "Tankautospuit | Tankautospuiten",
+			"foam": "Schuimblusvoertuig | Schuimblusvoertuigs",
 			"gefkw": "Arrestantenvervoer",
 			"grukw": "ME Groepsvoertuig | ME Groepsvoertuig",
 			"gwmess": "Verkenningseenheid Brandweer | Verkenningseenheden Brandweer",
@@ -74,7 +75,6 @@
 			"police_cars": "Noodhulpvoertuig | Noodhulpvoertuigen",
 			"police_helicopters": "Politiehelikopter | Politiehelikopters",
 			"spokesman": "Voorlichter | Voorlichters",
-			"foam": "Schuimblusvoertuig | Schuimblusvoertuigs",
 			"water_rescue": "Strandvoertuig | Strandvoertuigen",
 			"water_tankers": "Slangenwagen of watertankwagen | Slangenwagens of watertankwagens"
 		},
