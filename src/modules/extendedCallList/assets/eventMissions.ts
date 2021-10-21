@@ -32,6 +32,14 @@ export default (
         wrapper.classList.add(wrapperClass);
         wrapper.style.setProperty('margin-right', '0.5rem');
         title.before(wrapper);
+
+        const searchAttr = panel.getAttribute('search_attribute') ?? '';
+        if (!searchAttr.includes(wrapper.innerText)) {
+            panel.setAttribute(
+                'search_attribute',
+                `${searchAttr} ${wrapper.innerText}`
+            );
+        }
     };
 
     document
