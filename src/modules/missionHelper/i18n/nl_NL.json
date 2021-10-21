@@ -18,6 +18,7 @@
 		"bereitschaftspolizei": "Hoofdbureau | Hoofdbureaus",
 		"detention_unit_count": "Aanhoudingseenheiduitbreiding | Aanhoudingseenheiduitbreidingen",
 		"fire_stations": "Brandweerkazerne | Brandweerkazernes",
+		"fire_support_count": "Schuimblusuitbreiding | Schuimblusuitbreidingen",
 		"max_police_stations": "Politiebureau maximaal | Politiebureaus maximaal",
 		"police_helicopter_stations": "Politiehelikopterstandplaats | Politiehelikopterstandplaats",
 		"police_stations": "Politiebureau | Politiebureaus",
@@ -33,6 +34,7 @@
 		"title": "Arrestant | {n} Arrestant | {n} Arrestanten"
 	},
 	"requirements": {
+		"foam_needed": "Schuim benodigd",
 		"water_needed": "Water benodigd"
 	},
 	"tip": {
@@ -72,6 +74,7 @@
 			"police_cars": "Noodhulpvoertuig | Noodhulpvoertuigen",
 			"police_helicopters": "Politiehelikopter | Politiehelikopters",
 			"spokesman": "Voorlichter | Voorlichters",
+			"foam": "Schuimblusvoertuig | Schuimblusvoertuigs",
 			"water_rescue": "Strandvoertuig | Strandvoertuigen",
 			"water_tankers": "Slangenwagen of watertankwagen | Slangenwagens of watertankwagens"
 		},

@@ -29,7 +29,8 @@
 			"minPersonnel": "Minimaal personeel",
 			"schooling": "Opleiding",
 			"special": "Bijzonderheden",
-			"wtank": "Watertank"
+			"wtank": "Watertank",
+			"ftank": "Schuimtank"
 		}
 	}
 }
