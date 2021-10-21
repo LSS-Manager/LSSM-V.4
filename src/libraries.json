@@ -42,7 +42,7 @@
 	"@types/lodash": {
 		"icon": "https://avatars.githubusercontent.com/u/3637556",
 		"url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/lodash",
-		"version": "4.14.175"
+		"version": "4.14.176"
 	},
 	"@types/node": {
 		"icon": "https://avatars.githubusercontent.com/u/3637556",
@@ -279,7 +279,7 @@
 	},
 	"vue-select": {
 		"url": "https://vue-select.org",
-		"version": "3.15.1"
+		"version": "3.16.0"
 	},
 	"vue-slim-tabs": {
 		"url": "https://vue-slim-tabs.egoist.sh/",
