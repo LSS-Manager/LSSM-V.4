@@ -72,6 +72,8 @@ export default (
         if (pumpingWrapper && pumpingbarPlaceholder) {
             pumpingbarPlaceholder.before(pumpingWrapper);
             pumpingbarPlaceholder.remove();
+        } else {
+            pumpingWrapper?.remove();
         }
 
         countdownPlaceholder.after(countdown);
