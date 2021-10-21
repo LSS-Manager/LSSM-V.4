@@ -17,6 +17,9 @@ export default (
     const progressBar = progressBarWrapper?.querySelector<HTMLDivElement>(
         `#mission_bar_${missionId}`
     );
+    const pumpingWrapper = mission?.querySelector<HTMLDivElement>(
+        `#pumping_bar_outer_${missionId}`
+    );
     const caption = mission?.querySelector<HTMLAnchorElement>(
         `#mission_caption_${missionId}`
     );
@@ -41,6 +44,9 @@ export default (
         const progressbarPlaceholder = mission?.querySelector<HTMLDivElement>(
             `[data-collapsable-progressbar-placeholder="${missionId}"]`
         );
+        const pumpingbarPlaceholder = mission?.querySelector<HTMLDivElement>(
+            `[data-collapsable-pumpingbar-placeholder="${missionId}"]`
+        );
         const captionPlaceholder = mission?.querySelector<HTMLDivElement>(
             `[data-collapsable-caption-placeholder="${missionId}"]`
         );
@@ -62,6 +68,11 @@ export default (
         captionPlaceholder.remove();
         progressbarPlaceholder.after(progressBarWrapper);
         progressbarPlaceholder.remove();
+
+        if (pumpingWrapper && pumpingbarPlaceholder) {
+            pumpingbarPlaceholder.before(pumpingWrapper);
+            pumpingbarPlaceholder.remove();
+        }
 
         countdownPlaceholder.after(countdown);
         countdownPlaceholder.remove();
@@ -86,6 +97,14 @@ export default (
         captionPlaceholder.classList.add('hidden');
         captionPlaceholder.dataset.collapsableCaptionPlaceholder = missionId;
         caption.after(captionPlaceholder, progressBarWrapper);
+
+        if (pumpingWrapper) {
+            const pumpingPlaceholder = document.createElement('div');
+            pumpingPlaceholder.classList.add('hidden');
+            pumpingPlaceholder.dataset.collapsablePumpingbarPlaceholder = missionId;
+            pumpingWrapper.after(pumpingPlaceholder);
+            progressBarWrapper.prepend(pumpingWrapper);
+        }
 
         const countdownPlaceholder = document.createElement('div');
         countdownPlaceholder.classList.add('hidden');

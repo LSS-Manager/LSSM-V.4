@@ -55,6 +55,14 @@ export default (
                 },
             },
             {
+                selectorText: `.${collapsedClass} .panel-heading .mission_progress[id^="mission_bar_outer_"] [id^="pumping_bar_outer_"]`,
+                style: {
+                    position: 'absolute',
+                    bottom: 0,
+                    width: '100%',
+                },
+            },
+            {
                 selectorText: `.${collapsedClass} .panel-heading .progress-bar[id^="mission_bar_"]`,
                 style: {
                     'text-align': 'left',
