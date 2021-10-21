@@ -43,13 +43,13 @@
 		"schooling": "Lehrgangsmeister",
 		"set": "Als {role} setzen",
 		"sprechwunsch_admin": "Sprechwunsch-Admin",
+		"staff": "Verbands-Personal",
 		"unset": "Als {role} entfernen"
 	},
 	"roles": "Rolle(n)",
 	"search_global": "Globale Suche",
 	"search_local": "Suche in geladenen Spielern",
 	"search_subtitle": "Zeige {n} Spieler der Seiten {startPage} bis {endPage} von insg. {totalPages} Seiten",
-	"staff": "Verbands-Personal",
 	"subtitle": "Zeige {n} Spieler der Seiten {startPage} ({firstCredits}) bis {endPage} ({lastCredits}) von insg. {totalPages} Seiten",
 	"tax": "Abgabenrate",
 	"title": "Mitglieder"
