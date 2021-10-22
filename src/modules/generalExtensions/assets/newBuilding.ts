@@ -165,7 +165,7 @@ export default async (
                         window.building_maps_redraw();
                         const currentCredits = parseInt(
                             script.innerHTML.match(
-                                /(?<=creditsUpdate\()\d+(?=\)$)/m
+                                /(?<=creditsUpdate\()\d+(?=\);$)/m
                             )?.[0] ?? '-1'
                         );
                         window.creditsUpdate(currentCredits);
