@@ -225,7 +225,7 @@ interface Requirements {
 }
 
 export interface Mission {
-    id: number | string;
+    id: string;
     name: string;
     place: string;
     place_array: string[];

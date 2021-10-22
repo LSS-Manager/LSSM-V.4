@@ -635,23 +635,24 @@ export default Vue.extend<
 
             this.missionSpecs = undefined;
 
-            const missionType = parseInt(
+            const missionType =
                 missionHelpBtn
                     ?.getAttribute('href')
-                    ?.match(/(?!^\/einsaetze\/)\d+/)?.[0] || '-1'
-            );
+                    ?.match(/(?!^\/einsaetze\/)\d+/)?.[0] || '-1';
 
             if (!this.isDiyMission) {
-                let specs = await this.getMission(missionType, force);
+                let specs;
                 const overlayIndex =
                     document
                         .getElementById('mission_general_info')
                         ?.getAttribute('data-overlay-index') ?? 'null';
-                if (overlayIndex !== 'null' && specs) {
+                if (overlayIndex !== 'null') {
                     specs = await this.getMission(
                         `${missionType}-${overlayIndex}`,
                         false
                     );
+                } else {
+                    specs = await this.getMission(missionType, force);
                 }
                 this.missionSpecs = specs;
             }
@@ -663,13 +664,16 @@ export default Vue.extend<
                 force,
                 feature: 'missionHelper-getMission',
             })) as Mission[];
-            const mission = missions?.find(spec => spec.id === id);
+            const mission: Mission | undefined = this.$store.getters[
+                'api/missionsById'
+            ][id];
             if (mission) {
                 if (this.settings.expansions && mission.additional) {
                     mission.additional.expansion_missions_names = Object.fromEntries(
                         mission.additional.expansion_missions_ids?.map(id => [
                             id,
-                            missions.find(spec => spec.id === id)?.name || '',
+                            missions.find(spec => spec.id === id.toString())
+                                ?.name || '',
                         ]) || []
                     );
                 }
@@ -677,7 +681,8 @@ export default Vue.extend<
                     mission.additional.followup_missions_names = Object.fromEntries(
                         mission.additional.followup_missions_ids?.map(id => [
                             id,
-                            missions.find(spec => spec.id === id)?.name || '',
+                            missions.find(spec => spec.id === id.toString())
+                                ?.name || '',
                         ]) || []
                     );
                 }
@@ -685,7 +690,8 @@ export default Vue.extend<
                     mission.additional.subsequent_missions_names = Object.fromEntries(
                         mission.additional.subsequent_missions_ids?.map(id => [
                             id,
-                            missions.find(spec => spec.id === id)?.name || '',
+                            missions.find(spec => spec.id === id.toString())
+                                ?.name || '',
                         ]) || []
                     );
                 }
@@ -965,7 +971,10 @@ export default Vue.extend<
                     0,
                     1
                 )?.[0];
-                const specs = await this.getMission(expansionId, false);
+                const specs = await this.getMission(
+                    expansionId.toString(),
+                    false
+                );
                 this.maxMissionSpecs.average_credits = Math.max(
                     this.maxMissionSpecs.average_credits ?? 0,
                     specs?.average_credits ?? 0
@@ -983,9 +992,13 @@ export default Vue.extend<
                 Object.entries(specs?.prerequisites ?? {}).forEach(
                     ([req, amount]) => {
                         if (this.maxMissionSpecs) {
+                            let maxReq = this.maxMissionSpecs.prerequisites[
+                                req
+                            ];
+                            if (typeof maxReq !== 'number') maxReq = 0;
                             this.maxMissionSpecs.prerequisites[req] = Math.max(
-                                this.maxMissionSpecs.prerequisites[req] ?? 0,
-                                amount ?? 0
+                                maxReq ?? 0,
+                                (typeof amount === 'number' ? amount : 0) ?? 0
                             );
                         }
                     }

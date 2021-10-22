@@ -16,16 +16,7 @@ export default async (
     })) as Mission[];
 
     const missionsString = missions
-        .flatMap(({ name, alternate_version }) =>
-            alternate_version
-                ? [
-                      LSSM.$utils.escapeRegex(name),
-                      LSSM.$utils.escapeRegex(
-                          alternate_version.mission_type.name
-                      ),
-                  ]
-                : LSSM.$utils.escapeRegex(name)
-        )
+        .map(({ name }) => LSSM.$utils.escapeRegex(name))
         .join('|');
 
     const credits_types: CreditsTypes = (

@@ -14,12 +14,11 @@ export default async (
     const missionHelpBtn = document.getElementById('mission_help');
     const missionTitle = document.getElementById('missionH1');
     if (!missionHelpBtn || !missionTitle) return;
-    const missionType = parseInt(
+    const missionType =
         missionHelpBtn
             ?.getAttribute('href')
-            ?.match(/(?!^\/einsaetze\/)\d+/)?.[0] || '-1'
-    );
-    if (missionType < 0) return;
+            ?.match(/(?!^\/einsaetze\/)\d+/)?.[0] || '-1';
+    if (missionType === '-1') return;
 
     const mission = ((await LSSM.$store.dispatch('api/getMissions', {
         force: false,
