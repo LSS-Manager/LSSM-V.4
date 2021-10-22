@@ -635,22 +635,24 @@ export default Vue.extend<
 
             this.missionSpecs = undefined;
 
+            const missionType = parseInt(
+                missionHelpBtn
+                    ?.getAttribute('href')
+                    ?.match(/(?!^\/einsaetze\/)\d+/)?.[0] || '-1'
+            );
+
             if (!this.isDiyMission) {
-                let specs = await this.getMission(
-                    parseInt(
-                        missionHelpBtn
-                            ?.getAttribute('href')
-                            ?.match(/(?!^\/einsaetze\/)\d+/)?.[0] || '-1'
-                    ),
-                    force
-                );
-                if (
+                let specs = await this.getMission(missionType, force);
+                const overlayIndex =
                     document
                         .getElementById('mission_general_info')
-                        ?.hasAttribute('data-overlay-index') &&
-                    specs
-                )
-                    specs = specs.alternate_version.mission_type;
+                        ?.getAttribute('data-overlay-index') ?? 'null';
+                if (overlayIndex !== 'null' && specs) {
+                    specs = await this.getMission(
+                        `${missionType}-${overlayIndex}`,
+                        false
+                    );
+                }
                 this.missionSpecs = specs;
             }
 

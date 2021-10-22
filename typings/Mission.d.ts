@@ -225,7 +225,7 @@ interface Requirements {
 }
 
 export interface Mission {
-    id: number;
+    id: number | string;
     name: string;
     place: string;
     place_array: string[];
@@ -236,7 +236,6 @@ export interface Mission {
     chances: Chances; // What is the chance for a need at scene?
     additional: Additional; // Any further information on this mission-type
     prerequisites: Prerequisites; // What is needed for the mission to be generated?
-    alternate_version: {
-        mission_type: Mission;
-    };
+    overlay_index: null | number;
+    base_mission_id: number;
 }
