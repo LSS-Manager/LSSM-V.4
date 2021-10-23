@@ -630,6 +630,11 @@ export default Vue.extend<
         async reloadSpecs(force = false) {
             this.isReloading = true;
 
+            await this.$store.dispatch('api/getMissions', {
+                force,
+                feature: 'missionHelper-getMission',
+            });
+
             const missionHelpBtn = document.getElementById('mission_help');
             this.isDiyMission = !missionHelpBtn;
 
@@ -648,18 +653,17 @@ export default Vue.extend<
                         ?.getAttribute('data-overlay-index') ?? 'null';
                 if (overlayIndex !== 'null') {
                     specs = await this.getMission(
-                        `${missionType}-${overlayIndex}`,
-                        false
+                        `${missionType}-${overlayIndex}`
                     );
                 } else {
-                    specs = await this.getMission(missionType, force);
+                    specs = await this.getMission(missionType);
                 }
                 this.missionSpecs = specs;
             }
 
             this.isReloading = false;
         },
-        async getMission(id, force) {
+        async getMission(id) {
             const missionsById: Record<string, Mission> = this.$store.getters[
                 'api/missionsById'
             ];
@@ -965,10 +969,7 @@ export default Vue.extend<
                     0,
                     1
                 )?.[0];
-                const specs = await this.getMission(
-                    expansionId.toString(),
-                    false
-                );
+                const specs = await this.getMission(expansionId.toString());
                 this.maxMissionSpecs.average_credits = Math.max(
                     this.maxMissionSpecs.average_credits ?? 0,
                     specs?.average_credits ?? 0
