@@ -2,6 +2,9 @@ import { Mission } from 'typings/Mission';
 import { MissionMarkerAdd } from 'typings/Ingame';
 
 export default (LSSM: Vue): void => {
+    const missionsById: Record<string, Mission> =
+        LSSM.$store.getters['api/missionsById'];
+
     const addCredits = (panel: HTMLDivElement): void => {
         let mission = panel.getAttribute('mission_type_id') ?? '-1';
         const bar = panel.querySelector<HTMLDivElement>(
@@ -22,9 +25,7 @@ export default (LSSM: Vue): void => {
             span.style.setProperty('color', 'black');
         const overlayIndex = panel.getAttribute('data-overlay-index') ?? 'null';
         if (overlayIndex !== 'null') mission += `-${overlayIndex}`;
-        const missionSpecs = (LSSM.$store.state.api.missions as Mission[]).find(
-            ({ id }) => id === mission
-        );
+        const missionSpecs: Mission | undefined = missionsById[mission];
         span.textContent = `~ ${missionSpecs?.average_credits?.toLocaleString() ??
             '–'}`;
         wrapper.append(span);
