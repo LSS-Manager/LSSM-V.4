@@ -4,6 +4,7 @@ export default (
     placeholder: string,
     addToPanelHeading: boolean,
     mapSearchOnMap: boolean,
+    position: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right',
     LSSM: Vue
 ): void => {
     const addToMap = (map = window.map, id = 'map') => {
@@ -14,7 +15,7 @@ export default (
             'map_adress_search_form',
             true
         );
-        form.classList.add('pull-right');
+        form.classList.add('navbar-form', 'navbar-left');
         const formGroup = document.createElement('div');
         formGroup.classList.add('form-group');
         const input = document.createElement('input');
@@ -38,15 +39,28 @@ export default (
         }
 
         LSSM.$store
-            .dispatch('addOSMControl', { position: 'top-right', mapId: id })
+            .dispatch('addOSMControl', { position, mapId: id })
             .then((control: HTMLAnchorElement) => {
                 control.style.setProperty('cursor', 'pointer');
-                control.addEventListener('click', () =>
-                    form.classList.toggle('hidden')
-                );
+                control.addEventListener('click', e => {
+                    if (
+                        (e.target as HTMLElement | null)?.closest(
+                            `#map_adress_search_form, #${input.id}`
+                        )
+                    )
+                        return;
+                    form.classList.toggle('hidden');
+                });
                 const searchIcon = document.createElement('i');
                 searchIcon.classList.add('fas', 'fa-search');
                 form.classList.add('hidden');
+
+                form.style.setProperty('position', 'relative');
+                form.style.setProperty('top', 'calc(-100% - 9px)');
+                form.style.setProperty('padding', '0');
+                if (position.match(/right/))
+                    form.style.setProperty('translate', '-100%');
+                else form.style.setProperty('left', '30px');
 
                 if (!isMainWindowSearch) {
                     form.addEventListener('submit', e => {
@@ -88,7 +102,7 @@ export default (
 
                 control.classList.add('pull-right');
                 control.append(searchIcon);
-                control.after(form);
+                control.append(form);
             });
     };
 

@@ -12,6 +12,11 @@
 			"in": "additional",
 			"text": "Genomsnitt min. Polispersonal"
 		},
+		"foam_needed": {
+			"badge": true,
+			"in": "requirements",
+			"text": "Skum krävs: {n} l"
+		},
 		"swat_personnel": {
 			"badge": false,
 			"in": "additional",

@@ -68,7 +68,7 @@ module.exports = {
             hondengeleider: 'Hondengeleider',
             ovd_p: 'Officier van Dienst - Politie',
             lebefkw: 'ME Commandovoertuig',
-            grukw: 'ME Groepsvoertuig',
+            grukw: 'ME Flexbus',
             spokesman: 'Voorlichters',
             at_c: 'AT-Commandant',
             at_o: 'AT-Operator',
@@ -76,6 +76,9 @@ module.exports = {
             police_car_3: 'NH-O',
             bike_police: 'DB-Bike',
             gefkw: 'DB-AV',
+            foam: 'Schuimblusvoertuig',
+            pump: 'Motorspuitaanhangwagen',
+            foam_amount: 'SVM (in Liters)',
             gw_wasserrettung: 'Strandvoertuig (DAT-RB of KHV)',
         },
     },
@@ -95,6 +98,7 @@ module.exports = {
         },
         selected: 'Geselecteerd',
         water: 'L. water',
+        foam: 'L. SVM',
         towingVehicles: {
             // Note: Only the ones that are towed by vehicles of the same group! If e.g. a MzB can be towed by vehicles of several groups, it MUST NOT be listed here.
             27: [26],
@@ -154,6 +158,8 @@ module.exports = {
             [/^Er ontbre(ekt|ken):$/]: [],
             [/^Arrestanten zullen vervoerd worden$/]: [],
             [/^[Ss]trandvoertuig(en)?$/]: [65, 66],
+            [/^schuimblusvoertuig(en)?$/]: [41, 42, 43, 68, 69, 70],
+            [/^Pompvoertuig(en)?$/]: [71, 72],
         },
     },
     tailoredTabs: {

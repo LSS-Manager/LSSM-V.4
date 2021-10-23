@@ -6,7 +6,9 @@
             :id="menuId"
             role="button"
             data-toggle="dropdown"
-            :style="`background-color: ${iconBg}`"
+            :style="
+                `background-color: ${iconBgAsNavBg ? 'transparent' : iconBg}`
+            "
         >
             <span v-if="labelInMenu" class="label label-success">
                 LSSM V.4

@@ -31,7 +31,7 @@ export default Vue.extend<
     computed: {
         mission() {
             return (this.$store.state.api.missions as Mission[]).find(
-                ({ id }) => id === this.type
+                ({ id }) => id === this.type.toString()
             );
         },
     },

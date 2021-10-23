@@ -54,6 +54,49 @@
                     :search="search"
                     @search="s => (search = s)"
                 >
+                    <template v-slot:head>
+                        <div class="btn-group pull-right">
+                            <button
+                                class="btn btn-default dropdown-toggle"
+                                data-toggle="dropdown"
+                                aria-expanded="false"
+                            >
+                                {{ $m('export.export') }}&nbsp;<span
+                                    class="caret"
+                                ></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a
+                                        download="credits.json"
+                                        :href="
+                                            `data:application/json;charset=utf-8,${encodeURIComponent(
+                                                JSON.stringify(creditsTypeSum)
+                                            )}`
+                                        "
+                                    >
+                                        {{ $m('export.json.raw') }}
+                                    </a>
+                                </li>
+                                <li>
+                                    <a
+                                        download="credits.json"
+                                        :href="
+                                            `data:application/json;charset=utf-8,${encodeURIComponent(
+                                                JSON.stringify(
+                                                    creditsTypeSum,
+                                                    null,
+                                                    4
+                                                )
+                                            )}`
+                                        "
+                                    >
+                                        {{ $m('export.json.prettified') }}
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </template>
                     <tr v-for="type in sorted" :key="type.desc">
                         <td>{{ type.desc }}</td>
                         <td

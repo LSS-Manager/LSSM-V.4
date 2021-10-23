@@ -12,6 +12,11 @@
 			"in": "additional",
 			"text": "Average min . Police Personnel"
 		},
+		"foam_needed": {
+			"badge": true,
+			"in": "requirements",
+			"text": "Foam: {n} gallon | Foam: {n} gallons"
+		},
 		"swat_personnel": {
 			"badge": false,
 			"in": "additional",

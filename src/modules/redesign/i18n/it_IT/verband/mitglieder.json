@@ -43,6 +43,7 @@
 		"schooling": "Formatore Alleanza",
 		"set": "Imposta come {role}",
 		"sprechwunsch_admin": "Richiesta Trasporto - Amministratore",
+		"staff": "Personale dell'alleanza",
 		"unset": "Rimuovi come {role}"
 	},
 	"roles": "Ruolo(i)",

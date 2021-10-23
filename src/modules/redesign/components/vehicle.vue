@@ -213,7 +213,10 @@
                                 </td>
                             </tr>
                             <tr v-if="Object.keys(vehicle.staff).length">
-                                <th>{{ lightbox.$sm('staff.title') }}</th>
+                                <th>
+                                    {{ lightbox.$sm('staff.title') }}:
+                                    {{ Object.keys(vehicle.staff).length }}
+                                </th>
                                 <td colspan="2">
                                     <table class="table">
                                         <thead>

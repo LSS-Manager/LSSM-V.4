@@ -38,6 +38,7 @@ declare global {
         user_premium: boolean;
         alliance_admin: boolean;
         alliance_coadmin: boolean;
+        alliance_owner: boolean;
         building_markers: BuildingMarker[];
         map_pois_service: {
             getMissionPoiMarkersArray(): POIMarker[];

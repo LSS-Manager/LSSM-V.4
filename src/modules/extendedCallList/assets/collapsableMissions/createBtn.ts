@@ -41,6 +41,7 @@ export default (
     isCollapsed: boolean,
     collapsableMissionBtnClass: string,
     collapsedClass: string,
+    collapsedBarContentClass: string,
     $m: $m
 ): CollapsableButton => {
     const btn: CollapsableButton = document.createElement('button');
@@ -168,7 +169,8 @@ export default (
                             btnGroup,
                             btn,
                             btn.dataset.mission ?? '-1',
-                            collapsedClass
+                            collapsedClass,
+                            collapsedBarContentClass
                         );
                     }
                 });

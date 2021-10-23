@@ -44,6 +44,7 @@
 		"coadmin": "Verbands-Co-Admin",
 		"finance": "Finanzminister",
 		"schooling": "Lehrgangsmeister",
-		"sprechwunsch_admin": "Sprechwunsch-Admin"
+		"sprechwunsch_admin": "Sprechwunsch-Admin",
+		"staff": "Verbands-Personal"
 	}
 }

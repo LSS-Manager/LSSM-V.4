@@ -65,7 +65,9 @@ export default (async (LSSM, MODULE_ID, $m, $mc) => {
                         )
                     ) ||
                         (ucmsg.match(/@admin/) &&
-                            (window.alliance_admin || window.alliance_coadmin)))
+                            (window.alliance_admin ||
+                                window.alliance_coadmin ||
+                                window.alliance_owner)))
                 );
                 const title = `${
                     mission_id ? '🔔 ' : ''
@@ -483,6 +485,44 @@ export default (async (LSSM, MODULE_ID, $m, $mc) => {
                         desktop: alert.desktop,
                         clickHandler() {
                             window.lightboxOpen('/alliance_threads');
+                        },
+                    })
+                );
+            },
+        });
+    }
+
+    // Tasks
+    if (events['tasks_update']) {
+        await LSSM.$store.dispatch('hook', {
+            event: 'tasksUpdate',
+            post: false,
+            callback(amount: number, newTasks: boolean) {
+                if (
+                    !amount ||
+                    newTasks ||
+                    document.getElementById('completed_tasks_counter')
+                        ?.textContent === amount.toString()
+                )
+                    return;
+                events['tasks_update'].forEach(async alert =>
+                    LSSM.$store.dispatch('notifications/sendNotification', {
+                        group: alert.position,
+                        type: alert.alertStyle,
+                        title: $m('messages.tasksUpdate.title'),
+                        text: $m('messages.tasksUpdate.body'),
+                        icon: (
+                            await import(
+                                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                                // @ts-ignore
+                                /* webpackChunkName: "modules/notificationAlert/tasks" */ './assets/tasks.svg'
+                            )
+                        ).default,
+                        duration: alert.duration,
+                        ingame: alert.ingame,
+                        desktop: alert.desktop,
+                        clickHandler() {
+                            window.lightboxOpen('/tasks/index');
                         },
                     })
                 );

@@ -43,6 +43,7 @@
 		"schooling": "Docent",
 		"set": "{role} maken",
 		"sprechwunsch_admin": "Spraakaanvraag-Admin",
+		"staff": "Medewerker alliantie",
 		"unset": "Als {role} verwijderen"
 	},
 	"roles": "Rol(len)",

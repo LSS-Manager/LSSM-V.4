@@ -635,7 +635,12 @@ export default Vue.extend<
                               HTMLAnchorElement | HTMLButtonElement
                           >('a, button');
                           const href = target?.getAttribute('href');
-                          if (!target || !href || ![0, 1].includes(e.button))
+                          if (
+                              !target ||
+                              !href ||
+                              ![0, 1].includes(e.button) ||
+                              target.hasAttribute('download')
+                          )
                               return;
                           e.preventDefault();
                           if (e.ctrlKey || e.button === 1)
@@ -652,7 +657,12 @@ export default Vue.extend<
                               HTMLAnchorElement | HTMLButtonElement
                           >('a, button');
                           const href = target?.getAttribute('href');
-                          if (!target || !href) return;
+                          if (
+                              !target ||
+                              !href ||
+                              target.hasAttribute('download')
+                          )
+                              return;
                           e.preventDefault();
                       });
                       window.addEventListener('popstate', () => {

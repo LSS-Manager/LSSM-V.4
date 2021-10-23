@@ -1,4 +1,12 @@
 {
+	"buildingPersonal": {
+		"deleteModal": {
+			"btnCancel": "Radera",
+			"btnConfirm": "Släpp ut",
+			"text": "Är du säker på att du vill släppa den här personen?",
+			"title": "Släpper du ut?"
+		}
+	},
 	"deleteARR": {
 		"deleteModal": {
 			"btnCancel": "Avbryt",
@@ -32,6 +40,7 @@
 		"coadmin": "Vice administratör",
 		"finance": "Ekonomiansvarig",
 		"schooling": "Utbildare",
-		"sprechwunsch_admin": "Transportansvarig"
+		"sprechwunsch_admin": "Transportansvarig",
+		"staff": "Allianspersonal"
 	}
 }

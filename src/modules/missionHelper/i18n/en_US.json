@@ -24,6 +24,7 @@
 		"fire_boat_docks": "fire boat dock | fire boat docks",
 		"fire_investigation_count": "Fire Marshal's Office | Fire Marshal's Offices",
 		"fire_stations": "Fire Station | Fire Stations",
+		"fire_support_count": "Foam Extension | Foam Extensions",
 		"game_warden_count": "Game Warden Expansion | Game Warden Expansions",
 		"max_police_stations": "Maximum Police Stations",
 		"max_rescue_stations": "Maximum Rescue Stations",
@@ -40,6 +41,7 @@
 		"title": "Prisoner | {n} Prisoner | {n} Prisoner"
 	},
 	"requirements": {
+		"foam_needed": "Foam demand (gal)",
 		"water_needed": "Water demand (gal)"
 	},
 	"subsequent": "Subsequent Mission | Subsequent Missions",
@@ -69,6 +71,7 @@
 			"fire_aviation": "Airborne Firefighting | Airborne Firefightings",
 			"fire_investigation": "Fire Investigation Unit | Fire Investigation Units",
 			"firetrucks": "Fire Engine | Fire Engines",
+			"foam": "Foam Tender | Foam Tenders",
 			"game_warden": "Warden Truck | Warden Trucks",
 			"hazmat_vehicles": "HazMat | HazMats",
 			"heavy_rescue_vehicles": "Heavy Rescue | Heavy Rescues",

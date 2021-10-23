@@ -18,10 +18,10 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
     const missionNames = [] as string[];
     const idLength = (missions.length - 1).toString().length;
 
-    const numToLength = (length: number, num: number): string => {
-        let numString = num.toString();
-        while (numString.length < length) numString = `0${numString}`;
-        return numString;
+    const numToLength = (length: number, num: string): string => {
+        let newString = num;
+        while (newString.length < length) newString = `0${newString}`;
+        return newString;
     };
 
     missions.forEach(({ id, name }) => {

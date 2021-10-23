@@ -113,7 +113,8 @@ export default {
             credits: 5_000,
             minPersonnel: 1,
             maxPersonnel: 6,
-            wtank: 0,
+            wtank: 750,
+            ftank: 25,
         },
         1: {
             caption: 'Type 2 fire engine',
@@ -122,7 +123,8 @@ export default {
             credits: 5_000,
             minPersonnel: 1,
             maxPersonnel: 3,
-            wtank: 0,
+            wtank: 500,
+            ftank: 25,
         },
         2: {
             caption: 'Platform truck',
@@ -242,7 +244,8 @@ export default {
             credits: 19_000,
             minPersonnel: 1,
             maxPersonnel: 6,
-            wtank: 0,
+            wtank: 500,
+            ftank: 25,
             special:
                 'To purchase with credits it requires the rank: Captain, <br>Lower ranked members can purchase the vehicle for 25 Coins. <br>Quint acts as a Platform Truck and a Fire Truck.',
         },
@@ -252,7 +255,7 @@ export default {
             coins: 30,
             credits: 300_000,
             minPersonnel: 1,
-            maxPersonnel: 2,
+            maxPersonnel: 3,
             wtank: 0,
             schooling: 'Police - Police Aviation',
             shownSchooling: 'Police Aviation',
@@ -270,7 +273,7 @@ export default {
             caption: 'SWAT Armoured Vehicle',
             color: '#68a512',
             coins: 25,
-            credits: 17_300,
+            credits: 10_000,
             minPersonnel: 6,
             maxPersonnel: 6,
             wtank: 0,
@@ -285,7 +288,8 @@ export default {
             credits: 20_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            wtank: 0,
+            wtank: 4500,
+            ftank: 650,
             schooling: 'Fire Station - ARFF-Training',
             shownSchooling: 'ARFF',
         },
@@ -296,7 +300,8 @@ export default {
             credits: 19_000,
             minPersonnel: 1,
             maxPersonnel: 6,
-            wtank: 0,
+            wtank: 750,
+            ftank: 25,
             special:
                 'To purchase with credits it requires the rank: Captain, <br>Lower ranked members can purchase the vehicle for 25 Coins.<br> The Rescue Engine acts as a Heavy Rescue and a Fire Engine.',
         },
@@ -427,6 +432,7 @@ export default {
             minPersonnel: 3,
             maxPersonnel: 5,
             wtank: 500,
+            ftank: 20,
         },
         31: {
             caption: 'Type 5 engine',
@@ -435,6 +441,7 @@ export default {
             credits: 8_000,
             minPersonnel: 1,
             maxPersonnel: 3,
+            wtank: 400,
         },
         32: {
             caption: 'Type 7 engine',
@@ -452,7 +459,8 @@ export default {
             credits: 19_000,
             minPersonnel: 1,
             maxPersonnel: 6,
-            wtank: 1500,
+            wtank: 2500,
+            ftank: 25,
         },
         34: {
             caption: 'Crew Carrier',
@@ -726,7 +734,7 @@ export default {
             minPersonnel: 3,
             maxPersonnel: 3,
             special:
-                'To purchase with credits it requires the rank: Captain, <br>Lower ranked members can purchase the vehicle for 30 Coins.<br>Works as Heavy Resuce and Ambulance',
+                'To purchase with credits it requires the rank: Captain, <br>Lower ranked members can purchase the vehicle for 30 Coins.<br>Works as Heavy Rescue and Ambulance',
         },
         62: {
             caption: 'Fire Investigator Unit',
@@ -745,6 +753,26 @@ export default {
             credits: 15_000,
             minPersonnel: 1,
             maxPersonnel: 2,
+        },
+        64: {
+            caption: 'Foam Tender',
+            color: '#9f1616',
+            coins: 15,
+            credits: 35_000,
+            minPersonnel: 2,
+            maxPersonnel: 3,
+            ftank: 6_500,
+        },
+        65: {
+            caption: 'Foam Trailer',
+            color: '#9f1616',
+            coins: 10,
+            credits: 10_000,
+            minPersonnel: 0,
+            maxPersonnel: 0,
+            ftank: 650,
+            special:
+                'Needed towing vehicle (Utility unit, Type 6 engine, Battalion chief unit, mcv)',
         },
     },
     buildings: {
@@ -777,6 +805,12 @@ export default {
                     credits: 150_000,
                     coins: 15,
                     duration: '7 Days',
+                },
+                {
+                    caption: 'Foam Extension',
+                    credits: 100_000,
+                    coins: 15,
+                    duration: '5 Days',
                 },
                 {
                     caption: 'Water rescue expansion',
@@ -1257,7 +1291,7 @@ export default {
             vehicles: {
                 'Fire trucks': [0, 1, 13, 18],
                 'WaterTanker': [7],
-                'Special vehicles': [2, 3, 4, 6, 8, 9, 12, 62, 63],
+                'Special vehicles': [2, 3, 4, 6, 8, 9, 12, 62, 63, 64, 65],
                 'Wildland vehicles': [30, 31, 32, 33, 34, 38, 39, 40, 41],
                 'Airport Vehicles': [17],
                 'Boats': [21, 22, 24],

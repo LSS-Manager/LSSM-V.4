@@ -147,10 +147,7 @@
                 >
                     {{ user.tax }}%
                 </td>
-                <td
-                    v-if="mitglieder.edit_discount && user.edit"
-                    style="text-align: right"
-                >
+                <td v-if="user.edit" style="text-align: right">
                     <a
                         class="btn btn-default btn_edit_rights btn-xs"
                         :user_id="user.id"
@@ -182,6 +179,7 @@
                                 'aufsichtsrat',
                                 'finance',
                                 'schooling',
+                                'staff',
                             ]"
                         >
                             <br :key="`${user.id}_${right}_br`" />
@@ -267,7 +265,8 @@ type Component = RedesignSubComponent<
                 | 'sprechwunsch_admin'
                 | 'aufsichtsrat'
                 | 'finance'
-                | 'schooling',
+                | 'schooling'
+                | 'staff',
             new_state: 0 | 1
         ): void;
         kick(user_id: number, username: string): void;

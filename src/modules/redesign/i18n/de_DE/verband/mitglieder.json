@@ -43,6 +43,7 @@
 		"schooling": "Lehrgangsmeister",
 		"set": "Als {role} setzen",
 		"sprechwunsch_admin": "Sprechwunsch-Admin",
+		"staff": "Verbands-Personal",
 		"unset": "Als {role} entfernen"
 	},
 	"roles": "Rolle(n)",

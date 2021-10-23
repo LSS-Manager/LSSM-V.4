@@ -630,44 +630,50 @@ export default Vue.extend<
         async reloadSpecs(force = false) {
             this.isReloading = true;
 
+            await this.$store.dispatch('api/getMissions', {
+                force,
+                feature: 'missionHelper-getMission',
+            });
+
             const missionHelpBtn = document.getElementById('mission_help');
             this.isDiyMission = !missionHelpBtn;
 
             this.missionSpecs = undefined;
 
+            const missionType =
+                missionHelpBtn
+                    ?.getAttribute('href')
+                    ?.match(/(?!^\/einsaetze\/)\d+/)?.[0] || '-1';
+
             if (!this.isDiyMission) {
-                let specs = await this.getMission(
-                    parseInt(
-                        missionHelpBtn
-                            ?.getAttribute('href')
-                            ?.match(/(?!^\/einsaetze\/)\d+/)?.[0] || '-1'
-                    ),
-                    force
-                );
-                if (
+                let specs;
+                const overlayIndex =
                     document
                         .getElementById('mission_general_info')
-                        ?.hasAttribute('data-overlay-index') &&
-                    specs
-                )
-                    specs = specs.alternate_version.mission_type;
+                        ?.getAttribute('data-overlay-index') ?? 'null';
+                if (overlayIndex !== 'null') {
+                    specs = await this.getMission(
+                        `${missionType}-${overlayIndex}`
+                    );
+                } else {
+                    specs = await this.getMission(missionType);
+                }
                 this.missionSpecs = specs;
             }
 
             this.isReloading = false;
         },
-        async getMission(id, force) {
-            const missions = (await this.$store.dispatch('api/getMissions', {
-                force,
-                feature: 'missionHelper-getMission',
-            })) as Mission[];
-            const mission = missions?.find(spec => spec.id === id);
+        async getMission(id) {
+            const missionsById: Record<string, Mission> = this.$store.getters[
+                'api/missionsById'
+            ];
+            const mission: Mission | undefined = missionsById[id];
             if (mission) {
                 if (this.settings.expansions && mission.additional) {
                     mission.additional.expansion_missions_names = Object.fromEntries(
                         mission.additional.expansion_missions_ids?.map(id => [
                             id,
-                            missions.find(spec => spec.id === id)?.name || '',
+                            missionsById[id.toString()]?.name || '',
                         ]) || []
                     );
                 }
@@ -675,7 +681,7 @@ export default Vue.extend<
                     mission.additional.followup_missions_names = Object.fromEntries(
                         mission.additional.followup_missions_ids?.map(id => [
                             id,
-                            missions.find(spec => spec.id === id)?.name || '',
+                            missionsById[id.toString()]?.name || '',
                         ]) || []
                     );
                 }
@@ -683,7 +689,7 @@ export default Vue.extend<
                     mission.additional.subsequent_missions_names = Object.fromEntries(
                         mission.additional.subsequent_missions_ids?.map(id => [
                             id,
-                            missions.find(spec => spec.id === id)?.name || '',
+                            missionsById[id.toString()]?.name || '',
                         ]) || []
                     );
                 }
@@ -963,7 +969,7 @@ export default Vue.extend<
                     0,
                     1
                 )?.[0];
-                const specs = await this.getMission(expansionId, false);
+                const specs = await this.getMission(expansionId.toString());
                 this.maxMissionSpecs.average_credits = Math.max(
                     this.maxMissionSpecs.average_credits ?? 0,
                     specs?.average_credits ?? 0
@@ -981,9 +987,13 @@ export default Vue.extend<
                 Object.entries(specs?.prerequisites ?? {}).forEach(
                     ([req, amount]) => {
                         if (this.maxMissionSpecs) {
+                            let maxReq = this.maxMissionSpecs.prerequisites[
+                                req
+                            ];
+                            if (typeof maxReq !== 'number') maxReq = 0;
                             this.maxMissionSpecs.prerequisites[req] = Math.max(
-                                this.maxMissionSpecs.prerequisites[req] ?? 0,
-                                amount ?? 0
+                                maxReq ?? 0,
+                                (typeof amount === 'number' ? amount : 0) ?? 0
                             );
                         }
                     }

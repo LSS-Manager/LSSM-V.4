@@ -25,6 +25,7 @@
 		"vehicles": {
 			"caption": "Voertuig type",
 			"cost": "Prijs",
+			"ftank": "Schuimtank",
 			"maxPersonnel": "Maximaal personeel",
 			"minPersonnel": "Minimaal personeel",
 			"schooling": "Opleiding",
