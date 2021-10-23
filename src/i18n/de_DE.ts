@@ -260,8 +260,13 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 3,
             wtank: 0,
-            schooling: 'Feuerwehr - GW-Messtechnik Lehrgang',
-            shownSchooling: 'GW-Messtechnik',
+            schooling: {
+                Feuerwehr: {
+                    'GW-Messtechnik Lehrgang': {
+                        all: true,
+                    },
+                },
+            },
             special: 'Wird ab 10 Feuerwachen benötigt.',
             icon: 'truck',
             possibleBuildings: [0, 18],
@@ -446,8 +451,13 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 3,
             wtank: 0,
-            schooling: 'Feuerwehr - GW-Gefahrgut Lehrgang',
-            shownSchooling: 'GW-Gefahrgut',
+            schooling: {
+                Feuerwehr: {
+                    'GW-Gefahrgut Lehrgang': {
+                        all: true,
+                    },
+                },
+            },
             special: 'Wird ab 11 Feuerwachen benötigt.',
             icon: 'truck',
             possibleBuildings: [0, 18],
@@ -469,8 +479,18 @@ export default {
             credits: 20000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            schooling: 'Rettungsdienst - Notarzt-Ausbildung',
-            shownSchooling: 'Notarzt',
+            schooling: {
+                Feuerwehr: {
+                    'Notarzt-Ausbildung': {
+                        all: true,
+                    },
+                },
+                Rettungsdienst: {
+                    'Notarzt-Ausbildung': {
+                        all: true,
+                    },
+                },
+            },
             special: 'Wird ab 3 Rettungswachen benötigt.',
             icon: 'car_side',
             possibleBuildings: [0, 18, 2, 20],
@@ -494,8 +514,13 @@ export default {
             credits: 300000,
             minPersonnel: 1,
             maxPersonnel: 1,
-            schooling: 'Rettungsdienst - Notarzt-Ausbildung',
-            shownSchooling: 'Notarzt',
+            schooling: {
+                Rettungsdienst: {
+                    'Notarzt-Ausbildung': {
+                        all: true,
+                    },
+                },
+            },
             special: 'Wird ab 3 Rettungswachen benötigt.',
             icon: 'helicopter',
             possibleBuildings: [5],
@@ -518,8 +543,13 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 9,
             wtank: 0,
-            schooling: 'Feuerwehr - Höhenrettung Lehrgang',
-            shownSchooling: 'GW-Höhenrettung',
+            schooling: {
+                Feuerwehr: {
+                    ['Höhenrettung Lehrgang']: {
+                        all: true,
+                    },
+                },
+            },
             special: 'Wird ab 12 Feuerwachen benötigt.',
             icon: 'truck',
             possibleBuildings: [0, 18],
@@ -532,8 +562,13 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 6,
             wtank: 0,
-            schooling: 'Feuerwehr - ELW 2 Lehrgang',
-            shownSchooling: 'ELW 2',
+            schooling: {
+                Feuerwehr: {
+                    'ELW 2 Lehrgang': {
+                        all: true,
+                    },
+                },
+            },
             special: 'Wird ab 13 Feuerwachen benötigt.',
             icon: 'truck',
             possibleBuildings: [0, 18],
@@ -545,8 +580,13 @@ export default {
             credits: 10000,
             minPersonnel: 1,
             maxPersonnel: 3,
-            schooling: 'Polizei - Zugführer (leBefKw)',
-            shownSchooling: 'Zugführer (leBefKw)',
+            schooling: {
+                Polizei: {
+                    ['Zugführer (leBefKw)']: {
+                        all: true,
+                    },
+                },
+            },
             icon: 'bus',
             possibleBuildings: [11],
         },
@@ -600,8 +640,13 @@ export default {
             credits: 2500,
             minPersonnel: 1,
             maxPersonnel: 4,
-            schooling: 'THW - Zugtrupp',
-            shownSchooling: 'Zugtrupp',
+            schooling: {
+                THW: {
+                    Zugtrupp: {
+                        all: true,
+                    },
+                },
+            },
             icon: 'shuttle-van',
             possibleBuildings: [9],
         },
@@ -622,8 +667,13 @@ export default {
             credits: 15000,
             minPersonnel: 1,
             maxPersonnel: 3,
-            schooling: 'THW - Fachgruppe Räumen',
-            shownSchooling: 'Fachgruppe Räumen',
+            schooling: {
+                THW: {
+                    ['Fachgruppe Räumen']: {
+                        all: true,
+                    },
+                },
+            },
             icon: 'truck-pickup',
             possibleBuildings: [9],
         },
@@ -657,8 +707,13 @@ export default {
             credits: 2500,
             minPersonnel: 1,
             maxPersonnel: 6,
-            schooling: 'THW - Fachgruppe Räumen',
-            shownSchooling: 'Fachgruppe Räumen',
+            schooling: {
+                THW: {
+                    ['Fachgruppe Räumen']: {
+                        all: true,
+                    },
+                },
+            },
             icon: 'truck-moving',
             possibleBuildings: [9],
         },
@@ -670,8 +725,13 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 3,
             wtank: 0,
-            schooling: 'Feuerwehr - Wechsellader Lehrgang',
-            shownSchooling: 'Wechsellader',
+            schooling: {
+                Feuerwehr: {
+                    'Wechsellader Lehrgang': {
+                        all: true,
+                    },
+                },
+            },
             truck: 'truck-pickup',
             possibleBuildings: [0, 18],
         },
@@ -722,8 +782,13 @@ export default {
             credits: 17500,
             minPersonnel: 1,
             maxPersonnel: 3,
-            schooling: 'Polizei - Hundertschaftsführer (FüKw)',
-            shownSchooling: 'Hundertschaftsführer (FüKw)',
+            schooling: {
+                Polizei: {
+                    ['Hundertschaftsführer (FüKw)']: {
+                        all: true,
+                    },
+                },
+            },
             icon: 'car-side',
             possibleBuildings: [11],
         },
@@ -744,8 +809,13 @@ export default {
             credits: 23100,
             minPersonnel: 1,
             maxPersonnel: 6,
-            schooling: 'Feuerwehr - Dekon-P Lehrgang',
-            shownSchooling: 'Dekon-P',
+            schooling: {
+                Feuerwehr: {
+                    'Dekon-P Lehrgang': {
+                        min: 0,
+                    },
+                },
+            },
             special:
                 'Pro Dekon-P müssen 6 Personen mit Dekon-P-Ausbildung vor Ort sein. Wird ab 14 Feuerwachen benötigt.',
             icon: 'truck',
@@ -769,8 +839,13 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 1,
             wtank: 0,
-            schooling: 'Rettungsdienst - LNA-Ausbildung',
-            shownSchooling: 'LNA',
+            schooling: {
+                Rettungsdienst: {
+                    'LNA-Ausbildung': {
+                        all: true,
+                    },
+                },
+            },
             special: 'Wird ab 5 Rettungswachen benötigt.',
             icon: 'car-side',
             possibleBuildings: [2, 20],
@@ -783,8 +858,13 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 1,
             wtank: 0,
-            schooling: 'Rettungsdienst - OrgL-Ausbildung',
-            shownSchooling: 'OrgL',
+            schooling: {
+                Rettungsdienst: {
+                    'OrgL-Ausbildung': {
+                        all: true,
+                    },
+                },
+            },
             special: 'Wird ab 10 Rettungswachen benötigt.',
             icon: 'car-side',
             possibleBuildings: [2, 20],
@@ -797,8 +877,13 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 2,
             wtank: 0,
-            schooling: 'Feuerwehr - Feuerwehrkran Lehrgang',
-            shownSchooling: 'Feuerwehrkran',
+            schooling: {
+                Feuerwehr: {
+                    'Feuerwehrkran Lehrgang': {
+                        all: true,
+                    },
+                },
+            },
             special: 'Wird ab 14 Feuerwachen benötigt.',
             icon: 'truck',
             possibleBuildings: [0, 18],
@@ -822,8 +907,13 @@ export default {
             credits: 25500,
             minPersonnel: 1,
             maxPersonnel: 2,
-            schooling: 'Rettungsdienst - SEG - Einsatzleitung',
-            shownSchooling: 'Einsatzleitung (SEG)',
+            schooling: {
+                Rettungsdienst: {
+                    'SEG - Einsatzleitung': {
+                        all: true,
+                    },
+                },
+            },
             special:
                 'Kann automatisch eingehende Sprechwünsche der eigenen Rettungsmittel bearbeiten und ihnen im Transportfall ein geeignetes Krankenhaus zuweisen. Die automatische Zuweisungsfunktion kann in dessen Einstellungen verändert werden.',
             icon: 'car-side',
@@ -836,8 +926,13 @@ export default {
             credits: 10000,
             minPersonnel: 6,
             maxPersonnel: 6,
-            schooling: 'Rettungsdienst - SEG - GW-San',
-            shownSchooling: 'GW-San',
+            schooling: {
+                Rettungsdienst: {
+                    'SEG - GW-San': {
+                        all: true,
+                    },
+                },
+            },
             special:
                 'Pro GW-San können 5 KTW Typ B wie ein RTW arbeiten. Er behandelt die Patienten zwar größtenteils, aber für die letzten paar Prozente braucht man dann einen RTW, KTW Typ B oder ähnliches.',
             icon: 'truck',
@@ -850,8 +945,13 @@ export default {
             credits: 300000,
             minPersonnel: 1,
             maxPersonnel: 3,
-            schooling: 'Polizei - Polizeihubschrauber',
-            shownSchooling: 'Polizeihubschrauber',
+            schooling: {
+                Polizei: {
+                    Polizeihubschrauber: {
+                        all: true,
+                    },
+                },
+            },
             icon: 'helicopter',
             possibleBuildings: [13],
         },
@@ -872,8 +972,18 @@ export default {
             credits: 10000,
             minPersonnel: 2,
             maxPersonnel: 2,
-            schooling: 'Rettungsdienst - GW-Taucher Lehrgang',
-            shownSchooling: 'GW-Taucher',
+            schooling: {
+                Feuerwehr: {
+                    'GW-Taucher Lehrgang': {
+                        all: true,
+                    },
+                },
+                Rettungsdienst: {
+                    'GW-Taucher Lehrgang': {
+                        all: true,
+                    },
+                },
+            },
             icon: 'truck',
             possibleBuildings: [0, 12, 15, 22],
         },
@@ -884,8 +994,18 @@ export default {
             credits: 10000,
             minPersonnel: 1,
             maxPersonnel: 6,
-            schooling: 'Rettungsdienst - GW-Wasserrettung Lehrgang',
-            shownSchooling: 'GW-Wasserrettung',
+            schooling: {
+                Feuerwehr: {
+                    'GW-Wasserrettung Lehrgang': {
+                        min: 0,
+                    },
+                },
+                Rettungsdienst: {
+                    'GW-Wasserrettung Lehrgang': {
+                        min: 0,
+                    },
+                },
+            },
             icon: 'truck',
             possibleBuildings: [0, 12, 15, 22],
         },
@@ -942,8 +1062,13 @@ export default {
             credits: 10000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            schooling: 'THW - Fachgruppe Bergungstaucher',
-            shownSchooling: 'GW-Taucher',
+            schooling: {
+                THW: {
+                    'Fachgruppe Bergungstaucher': {
+                        all: true,
+                    },
+                },
+            },
             icon: 'truck',
             possibleBuildings: [9],
         },
@@ -978,8 +1103,13 @@ export default {
             credits: 13000,
             minPersonnel: 5,
             maxPersonnel: 5,
-            schooling: 'Polizei - Wasserwerfer',
-            shownSchooling: 'Wasserwerfer',
+            schooling: {
+                Polizei: {
+                    Wasserwerfer: {
+                        all: true,
+                    },
+                },
+            },
             icon: 'bus-alt',
             possibleBuildings: [11],
         },
@@ -990,8 +1120,20 @@ export default {
             credits: 25000,
             minPersonnel: 6,
             maxPersonnel: 6,
+            schooling: {
+                Feuerwehr: {
+                    'Notarzt-Ausbildung': {
+                        min: 1,
+                    },
+                },
+                Rettungsdienst: {
+                    'Notarzt-Ausbildung': {
+                        min: 1,
+                    },
+                },
+            },
             special:
-                'Der GRTW kann in zwei verschiedenen Modi alarmiert werden:<br>1.Für leichtverletzte Personen, die keinen Notarzt benötigen. Dann können in dem GRTW 7 Patienten gleichzeitig behandelt und abtransportiert werden.<br>2.Für schwerverletzte Personen, die einen Notarzt benötigen. Dann können in dem GRTW 3 Patienten gleichzeitig behandelt werden.<br>Pro 20 Rettungswachen (bzw. 15 Rettungswachen mit Premium Account) kann ein GRTW gekauft werden.',
+                'Der GRTW kann in zwei verschiedenen Modi alarmiert werden:<br>1.Für leichtverletzte Personen, die keinen Notarzt benötigen. Dann können in dem GRTW 7 Patienten gleichzeitig behandelt und abtransportiert werden. Es wird kein Notarzt zum Ausrücken benötigt.<br>2.Für schwerverletzte Personen, die einen Notarzt benötigen. Dann können in dem GRTW 3 Patienten gleichzeitig behandelt werden. Es wird mind. 1 Notarzt zum Ausrücken benötigt.<br>Pro 20 Rettungswachen (bzw. 15 Rettungswachen mit Premium Account) kann ein GRTW gekauft werden.',
             icon: 'ambulance',
             possibleBuildings: [0, 2, 18, 20],
         },
@@ -1002,10 +1144,20 @@ export default {
             credits: 25000,
             minPersonnel: 3,
             maxPersonnel: 3,
-            schooling: 'Rettungsdienst - Notarzt-Ausbildung',
-            shownSchooling: 'Notarzt',
+            schooling: {
+                Feuerwehr: {
+                    'Notarzt-Ausbildung': {
+                        min: 1,
+                    },
+                },
+                Rettungsdienst: {
+                    'Notarzt-Ausbildung': {
+                        min: 1,
+                    },
+                },
+            },
             special:
-                'Insgesamt so viele NAW kaufbar wie Rettungswachen (und auf einsatzbereit gestellte Rettungsdienst-Erweiterungen) vorhanden. Alle auch auf einer Wache patzierbar.',
+                'Insgesamt so viele NAW kaufbar wie Rettungswachen (und auf einsatzbereit gestellte Rettungsdienst-Erweiterungen) vorhanden. Alle auch auf einer Wache platzierbar.',
             icon: 'ambulance',
             possibleBuildings: [0, 2, 18, 20],
         },
@@ -1017,8 +1169,13 @@ export default {
             minPersonnel: 2,
             maxPersonnel: 3,
             wtank: 12000,
-            schooling: 'Feuerwehr - Flugfeldlöschfahrzeug-Ausbildung',
-            shownSchooling: 'Flugfeldlöschfahrzeug',
+            schooling: {
+                Feuerwehr: {
+                    ['Flugfeldlöschfahrzeug-Ausbildung']: {
+                        all: true,
+                    },
+                },
+            },
             icon: 'truck-moving',
             possibleBuildings: [0],
         },
@@ -1030,8 +1187,13 @@ export default {
             minPersonnel: 2,
             maxPersonnel: 2,
             wtank: 0,
-            schooling: 'Feuerwehr - Rettungstreppen-Ausbildung',
-            shownSchooling: 'Rettungstreppe',
+            schooling: {
+                Feuerwehr: {
+                    'Rettungstreppen-Ausbildung': {
+                        all: true,
+                    },
+                },
+            },
             icon: 'truck',
             possibleBuildings: [0],
         },
@@ -1062,8 +1224,13 @@ export default {
             credits: 10000,
             minPersonnel: 3,
             maxPersonnel: 4,
-            schooling: 'Polizei - SEK',
-            shownSchooling: 'SEK',
+            schooling: {
+                Polizei: {
+                    SEK: {
+                        all: true,
+                    },
+                },
+            },
             icon: 'shuttle-van',
             possibleBuildings: [11, 17],
         },
@@ -1074,8 +1241,13 @@ export default {
             credits: 10000,
             minPersonnel: 9,
             maxPersonnel: 9,
-            schooling: 'Polizei - SEK',
-            shownSchooling: 'SEK',
+            schooling: {
+                Polizei: {
+                    SEK: {
+                        all: true,
+                    },
+                },
+            },
             icon: 'bus',
             possibleBuildings: [11, 17],
         },
@@ -1086,8 +1258,13 @@ export default {
             credits: 10000,
             minPersonnel: 3,
             maxPersonnel: 4,
-            schooling: 'Polizei - MEK',
-            shownSchooling: 'MEK',
+            schooling: {
+                Polizei: {
+                    MEK: {
+                        all: true,
+                    },
+                },
+            },
             icon: 'shuttle-van',
             possibleBuildings: [11, 17],
         },
@@ -1098,8 +1275,13 @@ export default {
             credits: 10000,
             minPersonnel: 9,
             maxPersonnel: 9,
-            schooling: 'Polizei - MEK',
-            shownSchooling: 'MEK',
+            schooling: {
+                Polizei: {
+                    MEK: {
+                        all: true,
+                    },
+                },
+            },
             icon: 'bus',
             possibleBuildings: [11, 17],
         },
@@ -1111,8 +1293,13 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 9,
             wtank: 0,
-            schooling: 'Feuerwehr - Werkfeuerwehr-Ausbildung',
-            shownSchooling: 'Werkfeuerwehr',
+            schooling: {
+                Feuerwehr: {
+                    'Werkfeuerwehr-Ausbildung': {
+                        all: true,
+                    },
+                },
+            },
             icon: 'truck',
             possibleBuildings: [0],
         },
@@ -1124,8 +1311,13 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 3,
             wtank: 5000,
-            schooling: 'Feuerwehr - Werkfeuerwehr-Ausbildung',
-            shownSchooling: 'Werkfeuerwehr',
+            schooling: {
+                Feuerwehr: {
+                    'Werkfeuerwehr-Ausbildung': {
+                        all: true,
+                    },
+                },
+            },
             icon: 'truck-moving',
             possibleBuildings: [0],
         },
@@ -1137,8 +1329,13 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 3,
             wtank: 0,
-            schooling: 'Feuerwehr - Werkfeuerwehr-Ausbildung',
-            shownSchooling: 'Werkfeuerwehr',
+            schooling: {
+                Feuerwehr: {
+                    'Werkfeuerwehr-Ausbildung': {
+                        all: true,
+                    },
+                },
+            },
             icon: 'truck',
             possibleBuildings: [0],
         },
@@ -1150,8 +1347,13 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 3,
             wtank: 0,
-            schooling: 'Feuerwehr - Werkfeuerwehr-Ausbildung',
-            shownSchooling: 'Werkfeuerwehr',
+            schooling: {
+                Feuerwehr: {
+                    'Werkfeuerwehr-Ausbildung': {
+                        all: true,
+                    },
+                },
+            },
             icon: 'truck',
             possibleBuildings: [0],
         },
@@ -1210,8 +1412,13 @@ export default {
             credits: 25000,
             minPersonnel: 4,
             maxPersonnel: 5,
-            schooling: 'Rettungsdienst - Rettungshundeführer (SEG)',
-            shownSchooling: 'Rettungshundeführer (SEG)',
+            schooling: {
+                Rettungsdienst: {
+                    ['Rettungshundeführer (SEG)']: {
+                        all: true,
+                    },
+                },
+            },
             special:
                 'Am Einsatzort sind ein "Rettungshundefahrzeug" und ein "Anh Hund" vom THW gleichwertig!',
             icon: 'paw',
@@ -1236,8 +1443,13 @@ export default {
             credits: 19000,
             minPersonnel: 4,
             maxPersonnel: 5,
-            schooling: 'THW - Fachgruppe Rettungshundeführer',
-            shownSchooling: 'Rettungshundeführer (THW)',
+            schooling: {
+                THW: {
+                    ['Fachgruppe Rettungshundeführer']: {
+                        all: true,
+                    },
+                },
+            },
             icon: 'paw',
             possibleBuildings: [9],
         },
@@ -1248,8 +1460,13 @@ export default {
             credits: 15000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            schooling: 'Polizei - Hundeführer (Schutzhund)',
-            shownSchooling: 'Hundeführer (Schutzhund)',
+            schooling: {
+                Polizei: {
+                    ['Hundeführer (Schutzhund)']: {
+                        all: true,
+                    },
+                },
+            },
             icon: 'paw',
             possibleBuildings: [6, 11, 17, 22],
         },
@@ -1260,8 +1477,13 @@ export default {
             credits: 3000,
             minPersonnel: 1,
             maxPersonnel: 1,
-            schooling: 'Polizei - Motorradstaffel',
-            shownSchooling: 'Motorradstaffel',
+            schooling: {
+                Polizei: {
+                    Motorradstaffel: {
+                        all: true,
+                    },
+                },
+            },
             special:
                 'Das Polizeimotorrad kann im Spiel anstelle eines FuStW verwendet werden. Der Nachteil: Es kann keine Gefangenen transportieren und arbeitet nur halb so schnell wie ein FuStW.',
             icon: 'motorcycle',
@@ -1286,8 +1508,24 @@ export default {
             credits: 30000,
             minPersonnel: 3,
             maxPersonnel: 3,
-            schooling: 'Rettungsdienst - Intensivpflege',
-            shownSchooling: 'Intensivpflege',
+            schooling: {
+                Feuerwehr: {
+                    'Intensivpflege': {
+                        min: 2,
+                    },
+                    'Notarzt-Ausbildung': {
+                        min: 1,
+                    },
+                },
+                Rettungsdienst: {
+                    'Intensivpflege': {
+                        min: 2,
+                    },
+                    'Notarzt-Ausbildung': {
+                        min: 1,
+                    },
+                },
+            },
             special:
                 'Kann auch als NAW eingesetzt werden. Verdienst bei der Mission: 30 Credits pro km, max. 1.500 Credits. Hat das angefahrene Krankenhaus nicht die erforderliche Abteilung, wird der Verdienst 30% weniger betragen. Kann alle 15 (10 mit Premium) Rettungswachen gekauft werden. 2 Leute brauchen die "Intensivpflege" Ausbildung, Eine weitere Person davon die Notarzt Ausbildung',
             icon: 'ambulance',
@@ -1300,8 +1538,13 @@ export default {
             credits: 5000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            schooling: 'Polizei - Kriminalpolizei',
-            shownSchooling: 'Kriminalpolizist',
+            schooling: {
+                Polizei: {
+                    Kriminalpolizei: {
+                        all: true,
+                    },
+                },
+            },
             special:
                 'Kann FuStW in bestimmten Einsätzen ersetzen. Wird auf vorhandene Polizeistellplätze gestellt.',
             icon: 'taxi',
@@ -1314,8 +1557,13 @@ export default {
             credits: 15000,
             minPersonnel: 1,
             maxPersonnel: 3,
-            schooling: 'THW - Fachgruppe Wasserschaden/Pumpen',
-            shownSchooling: 'Fachgruppe Wasserschaden/Pumpen',
+            schooling: {
+                THW: {
+                    'Fachgruppe Wasserschaden/Pumpen': {
+                        all: true,
+                    },
+                },
+            },
             icon: 'truck',
             possibleBuildings: [9],
         },
@@ -1326,8 +1574,13 @@ export default {
             credits: 15000,
             minPersonnel: 1,
             maxPersonnel: 7,
-            schooling: 'THW - Fachgruppe Wasserschaden/Pumpen',
-            shownSchooling: 'Fachgruppe Wasserschaden/Pumpen',
+            schooling: {
+                THW: {
+                    'Fachgruppe Wasserschaden/Pumpen': {
+                        all: true,
+                    },
+                },
+            },
             icon: 'truck',
             possibleBuildings: [9],
         },
@@ -1444,6 +1697,7 @@ export default {
                 'TSF-W',
                 '(HLF 20 und HLF 10 ab Dienstgrad "Gruppenfüher(in)" => Baukosten 20.000 höher)',
             ],
+            schoolingType: 'Feuerwehr',
             maxBuildingsFunction: (): number => 5_000,
         },
         1: {
@@ -1477,6 +1731,7 @@ export default {
             special: '',
             startPersonnel: 3,
             startVehicles: ['RTW'],
+            schoolingType: 'Rettungsdienst',
         },
         3: {
             caption: 'Rettungsschule',
@@ -1576,9 +1831,10 @@ export default {
             maxBuildings: 'siehe Besonderheiten',
             maxLevel: 6,
             special:
-                'Pro Station können bis zu 7 Landeplätze gebaut werden (Ausbaustufen). Bis zum 125. Gebäude (aller Art) können insgesamt max. 4 Landeplätze gebaut werden. Danach wächst die Zahl alle 25 Geäude um 1 (Beginnend beim 125.).',
+                'Pro Station können bis zu 7 Landeplätze gebaut werden (Ausbaustufen). Bis zum 125. Gebäude (aller Art) können insgesamt max. 4 Landeplätze gebaut werden. Danach wächst die Zahl alle 25 Gebäude um 1 (Beginnend beim 125.).',
             startPersonnel: 0,
             startVehicles: [],
+            schoolingType: 'Rettungsdienst',
             maxBuildingsFunction: (buildingsAmountTotal: number): number =>
                 buildingsAmountTotal < 125
                     ? 4
@@ -1616,6 +1872,7 @@ export default {
                 'Ab der 24. Polizeiwache steigen die Kosten für den Neubau einer Wache nach folgender Formel: <code>100.000+200.000*LOG<sub>2</sub>(Anzahl der vorhandenen Polizeiache − 22)</code>. Der Coins-Preis bleibt konstant!',
             startPersonnel: 2,
             startVehicles: ['FuStW'],
+            schoolingType: 'Polizei',
             maxBuildingsFunction: (): number => 1_700,
         },
         7: {
@@ -1720,6 +1977,7 @@ export default {
                 'Mit dem Bau eines THW-Ortsverbands bekommt man einen GKW und 9 Mitglieder geschenkt. Baukosten für weitere THW-Liegenschaften: 2. Ortsverband 300.000 Credits/ 35 Coins, 3. Ortsverband 358.496 Credits/ 35 Coins, 4. Ortsverband 432.193 Credits/ 35 Coins, 5. Ortsverband 458.496 Credits/ 35 Coins. Formel: <code>200.000+100.000*LOG<sub>2</sub>(Anzahl der vorhandenen Wachen + 1)</code>',
             startPersonnel: 9,
             startVehicles: ['GKW'],
+            schoolingType: 'THW',
         },
         10: {
             caption: 'THW Bundesschule',
@@ -1808,6 +2066,7 @@ export default {
                 'Mit dem Bau einer Bereitschaftspolizei bekommt man automatisch 4 Stellplätze für einen Zug (3 GruKw & 1 leBefKw) geschenkt. Die Wache generiert noch keine Einsätze. Um Einsätze zu erhalten muss man die erste Ausbaustufe bauen.',
             startPersonnel: 0,
             startVehicles: [],
+            schoolingType: 'Polizei',
         },
         12: {
             caption: 'Schnelleinsatzgruppe (SEG)',
@@ -1846,6 +2105,7 @@ export default {
             special: 'SEGs können ab der 5. Rettungswache gebaut werden.',
             startPersonnel: 0,
             startVehicles: ['KTW Typ B'],
+            schoolingType: 'Rettungsdienst',
         },
         13: {
             caption: 'Polizeihubschrauberstation',
@@ -1867,6 +2127,7 @@ export default {
                 'Pro Station können bis zu 7 Landeplätze gebaut werden (Ausbaustufen). Bis zum 125. Gebäude (aller Art) können insgesamt max. 4 Landeplätze gebaut werden. Danach wächst die Zahl alle 25 Geäude um 1 (Beginnend beim 125.).',
             startPersonnel: 0,
             startVehicles: [],
+            schoolingType: 'Polizei',
             maxBuildingsFunction: (buildingsAmountTotal: number): number =>
                 buildingsAmountTotal < 125
                     ? 4
@@ -1899,6 +2160,7 @@ export default {
                 'Beim Bau bekommst du 10 Leute sowie ein GW-Wasserrettung geschenkt.',
             startPersonnel: 6,
             startVehicles: ['GW-Wasserrettung'],
+            schoolingType: 'Rettungsdienst',
         },
         16: {
             caption: 'Verbandszellen',
@@ -1961,6 +2223,7 @@ export default {
             special: '',
             startPersonnel: 0,
             startVehicles: [],
+            schoolingType: 'Polizei',
         },
         18: {
             caption: 'Feuerwache (Kleinwache)',
@@ -1999,6 +2262,7 @@ export default {
                 'TSF-W',
                 '(HLF 20 und HLF 10 ab Dienstgrad "Gruppenführer(in)" => Baukosten 15.000 höher)',
             ],
+            schoolingType: 'Feuerwehr',
             maxBuildingsFunction: (): number => 5_000,
         },
         19: {
@@ -2024,6 +2288,7 @@ export default {
                 'Ab der 24. Polizeiwache berechnen sich die Kosten für den Neubau einer Wache nach folgender Formel: <code>(100.000+200.000*LOG<sub>2</sub>(Anzahl der vorhandenen Polizeiwachen − 22)) / 2</code>. Der Coins-Preis bleibt konstant!',
             startPersonnel: 2,
             startVehicles: ['FuStW'],
+            schoolingType: 'Polizei',
             maxBuildingsFunction: (): number => 1_700,
         },
         20: {
@@ -2043,6 +2308,7 @@ export default {
             special: '',
             startPersonnel: 3,
             startVehicles: ['RTW'],
+            schoolingType: 'Rettungsdienst',
         },
         21: {
             caption: 'Rettungshundestaffel',
@@ -2056,6 +2322,7 @@ export default {
             special: '',
             startPersonnel: 10,
             startVehicles: ['Rettungshundefahrzeug'],
+            schoolingType: 'Rettungsdienst',
         },
         22: {
             caption: 'Großer Komplex',
@@ -2308,164 +2575,203 @@ export default {
             {
                 caption: 'Dekon-P Lehrgang',
                 duration: '3 Tage',
+                staffList: 'Dekon-P',
             },
             {
                 caption: 'ELW 2 Lehrgang',
                 duration: '7 Tage',
+                staffList: 'ELW 2',
             },
             {
                 caption: 'Feuerwehrkran Lehrgang',
                 duration: '3 Tage',
+                staffList: 'Feuerwehrkran',
             },
             {
                 caption: 'Flugfeldlöschfahrzeug-Ausbildung',
                 duration: '7 Tage',
+                staffList: 'Flugfeldlöschfahrzeug',
             },
             {
                 caption: 'GW-Gefahrgut Lehrgang',
                 duration: '3 Tage',
+                staffList: 'GW-Gefahrgut',
             },
             {
                 caption: 'GW-Messtechnik Lehrgang',
                 duration: '3 Tage',
+                staffList: 'GW-Messtechnik',
             },
             {
                 caption: 'GW-Taucher Lehrgang',
                 duration: '5 Tage',
+                staffList: 'GW-Taucher',
             },
             {
                 caption: 'GW-Wasserrettung Lehrgang',
                 duration: '3 Tage',
+                staffList: 'GW-Wasserrettung',
             },
             {
                 caption: 'Höhenrettung Lehrgang',
                 duration: '4 Tage',
+                staffList: 'GW-Höhenrettung',
             },
             {
                 caption: 'Notarzt-Ausbildung',
                 duration: '7 Tage',
+                staffList: 'Notarzt',
             },
             {
                 caption: 'Rettungstreppen-Ausbildung',
                 duration: '2 Tage',
+                staffList: 'Rettungstreppe',
             },
             {
                 caption: 'Wechsellader Lehrgang',
                 duration: '2 Tage',
+                staffList: 'Wechsellader',
             },
             {
                 caption: 'Werkfeuerwehr-Ausbildung',
                 duration: '2 Tage',
+                staffList: 'Werkfeuerwehr',
             },
             {
                 caption: 'Intensivpflege',
                 duration: '3 Tage',
+                staffList: 'Intensivpflege',
             },
         ],
         Polizei: [
             {
                 caption: 'Hundeführer (Schutzhund)',
                 duration: '7 Tage',
+                staffList: 'Hundeführer (Schutzhund)',
             },
             {
                 caption: 'Hundertschaftsführer (FüKw)',
                 duration: '7 Tage',
+                staffList: 'Hundertschaftsführer (FüKw)',
             },
             {
                 caption: 'MEK',
                 duration: '7 Tage',
+                staffList: 'MEK',
             },
             {
                 caption: 'Brandbekämpfung',
                 duration: '3 Tage',
+                staffList: 'Brandbekämpfung',
             },
             {
                 caption: 'Motorradstaffel',
                 duration: '3 Tage',
+                staffList: 'Hundeführer (Schutzhund)',
             },
             {
                 caption: 'Polizeihubschrauber',
                 duration: '7 Tage',
+                staffList: 'Polizeihubschrauber',
             },
             {
                 caption: 'SEK',
                 duration: '7 Tage',
+                staffList: 'SEK',
             },
             {
                 caption: 'Wasserwerfer',
                 duration: '7 Tage',
+                staffList: 'Wasserwerfer',
             },
             {
                 caption: 'Zugführer (leBefKw)',
                 duration: '7 Tage',
+                staffList: 'Zugführer (leBefKw)',
             },
             {
                 caption: 'Kriminalpolizei',
                 duration: '7 Tage',
+                staffList: 'Kriminalpolizist',
             },
         ],
         Rettungsdienst: [
             {
                 caption: 'GW-Taucher Lehrgang',
                 duration: '5 Tage',
+                staffList: 'GW-Taucher',
             },
             {
                 caption: 'GW-Wasserrettung Lehrgang',
                 duration: '3 Tage',
+                staffList: 'GW-Wasserrettung',
             },
             {
                 caption: 'LNA-Ausbildung',
                 duration: '9 Tage',
+                staffList: 'LNA',
             },
             {
                 caption: 'Notarzt-Ausbildung',
                 duration: '7 Tage',
+                staffList: 'Notarzt',
             },
             {
                 caption: 'Rettungshundeführer (SEG)',
                 duration: '5 Tage',
+                staffList: 'Rettungshundeführer (SEG)',
             },
             {
                 caption: 'OrgL-Ausbildung',
                 duration: '11 Tage',
+                staffList: 'OrgL',
             },
             {
                 caption: 'SEG - Einsatzleitung',
                 duration: '4 Tage',
+                staffList: 'Einsatzleitung (SEG)',
             },
             {
                 caption: 'SEG - GW-San',
                 duration: '3 Tage',
+                staffList: 'GW-San',
             },
             {
                 caption: 'Intensivpflege',
                 duration: '3 Tage',
+                staffList: 'Intensivpflege',
             },
         ],
         THW: [
             {
                 caption: 'Fachgruppe Bergungstaucher',
                 duration: '5 Tage',
+                staffList: 'GW-Taucher',
             },
             {
                 caption: 'Fachgruppe Räumen',
                 duration: '7 Tage',
+                staffList: 'Fachgruppe Räumen',
             },
             {
                 caption: 'Fachgruppe Rettungshundeführer',
                 duration: '5 Tage',
+                staffList: 'Rettungshundeführer (THW)',
             },
             {
                 caption: 'Fachgruppe Wassergefahren',
                 duration: '3 Tage',
+                staffList: 'GW-Wasserrettung',
             },
             {
                 caption: 'Zugtrupp',
                 duration: '7 Tage',
+                staffList: 'Zugtrupp',
             },
             {
                 caption: 'Fachgruppe Wasserschaden/Pumpen',
                 duration: '7 Tage',
+                staffList: 'Fachgruppe Wasserschaden/Pumpen',
             },
         ],
     },

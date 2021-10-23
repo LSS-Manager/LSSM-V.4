@@ -5,6 +5,10 @@
 		"schoolings": "Lehrgänge",
 		"vehicles": "Fahrzeuge"
 	},
+	"schoolings": {
+		"min": "mind. {n}x",
+		"all": "alle"
+	},
 	"titles": {
 		"buildings": {
 			"caption": "Gebäudetyp",
@@ -20,7 +24,8 @@
 		"schoolings": {
 			"caption": "Lehrgangsname",
 			"duration": "Ausbildungsdauer",
-			"required_for": "Benötigt für"
+			"required_for": "Benötigt für",
+			"staffList": "Ausbildung"
 		},
 		"vehicles": {
 			"caption": "Fahrzeugtyp",

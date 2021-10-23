@@ -1,13 +1,18 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { $m } from 'typings/Module';
+import { Schooling } from 'typings/Schooling';
 import SchoolingSummary from '../components/schoolingSummary.vue';
+import { Building, InternalBuilding } from 'typings/Building';
 import {
     EachSchooling,
     SchoolingSummaryObject,
 } from 'typings/modules/ExtendedBuilding/schoolingSummary';
 import { InternalVehicle, Vehicle } from 'typings/Vehicle';
 
-export default (LSSM: Vue, $m: $m, MODULE_ID: string): void => {
+export default async (LSSM: Vue, $m: $m, MODULE_ID: string): Promise<void> => {
+    await LSSM.$store.dispatch('api/registerBuildingsUsage', {
+        feature: `${MODULE_ID}-schoolingSummary`,
+    });
     const dataList = document.querySelector<HTMLDataListElement>(
         'dl:last-of-type'
     );
@@ -70,6 +75,23 @@ export default (LSSM: Vue, $m: $m, MODULE_ID: string): void => {
         [id: number]: InternalVehicle;
     };
 
+    const schoolingType = (LSSM.$t('buildings') as Record<
+        number,
+        InternalBuilding
+    >)[
+        (LSSM.$store.state.api.buildings as Building[]).find(
+            ({ id }) => id === buildingId
+        )?.building_type ?? -1
+    ]?.schoolingType;
+
+    if (!schoolingType) return;
+
+    const schoolingStaffListByCaption = Object.fromEntries(
+        ((LSSM.$t('schoolings') as unknown) as Record<string, Schooling[]>)[
+            schoolingType
+        ].map(({ caption, staffList }) => [caption, staffList])
+    );
+
     LSSM.$store
         .dispatch('api/fetchVehiclesAtBuilding', {
             id: buildingId,
@@ -78,12 +100,22 @@ export default (LSSM: Vue, $m: $m, MODULE_ID: string): void => {
         .then((vehicles: Vehicle[]) => {
             vehicles.forEach(v => {
                 const type = vehicleTypes[v.vehicle_type];
-                const schooling = type.shownSchooling;
-                if (!schooling || !summaryEach.hasOwnProperty(schooling))
-                    return;
-                summaryEach[schooling].min += type.minPersonnel;
-                summaryEach[schooling].max +=
-                    v.max_personnel_override ?? type.maxPersonnel;
+                const vehicleSchoolings = type.schooling?.[schoolingType] ?? {};
+                Object.entries(vehicleSchoolings).forEach(
+                    ([schooling, { min, all }]) => {
+                        const staffListSchooling =
+                            schoolingStaffListByCaption[schooling];
+                        if (
+                            !staffListSchooling ||
+                            !summaryEach.hasOwnProperty(staffListSchooling)
+                        )
+                            return;
+                        summaryEach[staffListSchooling].min +=
+                            (all ? null : min) ?? type.minPersonnel;
+                        summaryEach[staffListSchooling].max +=
+                            v.max_personnel_override ?? type.maxPersonnel;
+                    }
+                );
             });
 
             new LSSM.$vue({

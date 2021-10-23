@@ -58,7 +58,55 @@
                                                         ? vehicle.coins.toLocaleString()
                                                         : NaN
                                                 }}
-                                                Coins </span
+                                                Coins
+                                            </span>
+                                            <span
+                                                v-else-if="attr === 'schooling'"
+                                            >
+                                                <template
+                                                    v-for="(schoolings,
+                                                    type) in vehicle[attr]"
+                                                >
+                                                    <span :key="type + '-t'"
+                                                        >{{ type }}:</span
+                                                    >
+                                                    <ul :key="type + '-ul'">
+                                                        <li
+                                                            v-for="(s,
+                                                            schooling) in schoolings"
+                                                            :key="
+                                                                type +
+                                                                    ' - ' +
+                                                                    schooling
+                                                            "
+                                                            class="vehicle-schoolings-list"
+                                                        >
+                                                            <template
+                                                                v-if="s.min"
+                                                            >
+                                                                {{
+                                                                    $mc(
+                                                                        'schoolings.min',
+                                                                        s.min
+                                                                    )
+                                                                }}:
+                                                            </template>
+                                                            <template
+                                                                v-else-if="
+                                                                    s.all
+                                                                "
+                                                            >
+                                                                {{
+                                                                    $m(
+                                                                        'schoolings.all'
+                                                                    )
+                                                                }}:
+                                                            </template>
+                                                            {{ type }} -
+                                                            {{ schooling }}
+                                                        </li>
+                                                    </ul>
+                                                </template> </span
                                             ><span
                                                 v-else-if="
                                                     typeof vehicle[attr] ===
@@ -291,19 +339,18 @@ export default Vue.extend<
                             group
                         ] = Object.values(vehicles as number[]).map(type => {
                             const v = vehicleTypes[type];
-                            if (v.schooling) {
-                                const [, school, schooling] = v.schooling.match(
-                                    /^(.*?) - (.*?)$/
-                                ) ?? [null, null, null];
-                                if (school && schooling) {
+                            Object.entries(
+                                v.schooling ?? {}
+                            ).forEach(([school, schoolings]) =>
+                                Object.keys(schoolings).forEach(schooling =>
                                     resolvedSchoolings[school]
                                         .find(
                                             ({ caption }) =>
                                                 caption === schooling
                                         )
-                                        ?.required_for.push(v.caption);
-                                }
-                            }
+                                        ?.required_for.push(v.caption)
+                                )
+                            );
                             return v;
                         }))
                 );
@@ -476,6 +523,9 @@ export default Vue.extend<
                         title: this.$m('titles.schoolings.required_for'),
                     },
                     duration: { title: this.$m('titles.schoolings.duration') },
+                    staffList: {
+                        title: this.$m('titles.schoolings.staffList'),
+                    },
                 },
                 search: '',
                 sort: 'caption',
@@ -576,6 +626,9 @@ export default Vue.extend<
         $m(key, args) {
             return this.$t(`modules.overview.${key}`, args);
         },
+        $mc(key, n, args) {
+            return this.$tc(`modules.overview.${key}`, n, args);
+        },
         setSortVehicles(type) {
             if (this.vehiclesTab.sort === type) {
                 return (this.vehiclesTab.sortDir =
@@ -620,4 +673,7 @@ export default Vue.extend<
 });
 </script>
 
-<style scoped></style>
+<style scoped lang="sass">
+.vehicle-schoolings-list
+    text-indent: -1em
+</style>

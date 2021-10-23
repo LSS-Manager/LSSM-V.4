@@ -55,6 +55,7 @@ export interface InternalBuilding {
     special: string;
     startPersonnel: number;
     startVehicles: string[];
+    schoolingType: string;
     maxBuildingsFunction?(buildingsAmountTotal?: number): number;
     [key: string]:
         | string
