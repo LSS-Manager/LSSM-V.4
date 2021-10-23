@@ -498,7 +498,7 @@ export default (async (LSSM, MODULE_ID, $m, $mc) => {
             event: 'tasksUpdate',
             post: false,
             callback(amount: number, newTasks: boolean) {
-                if (newTasks) return;
+                if (!amount || newTasks) return;
                 events['tasks_update'].forEach(async alert =>
                     LSSM.$store.dispatch('notifications/sendNotification', {
                         group: alert.position,
