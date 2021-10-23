@@ -20,10 +20,10 @@ export default async (
             ?.match(/(?!^\/einsaetze\/)\d+/)?.[0] || '-1';
     if (missionType === '-1') return;
 
-    const mission = ((await LSSM.$store.dispatch('api/getMissions', {
-        force: false,
-        feature: `ecw-missionKeywords-settings`,
-    })) as Mission[]).find(({ id }) => id === missionType);
+    const mission = (LSSM.$store.getters['api/missionsById'] as Record<
+        string,
+        Mission
+    >)[missionType];
 
     const addLabel = (
         text: string,
