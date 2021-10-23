@@ -498,7 +498,13 @@ export default (async (LSSM, MODULE_ID, $m, $mc) => {
             event: 'tasksUpdate',
             post: false,
             callback(amount: number, newTasks: boolean) {
-                if (!amount || newTasks) return;
+                if (
+                    !amount ||
+                    newTasks ||
+                    document.getElementById('completed_tasks_counter')
+                        ?.textContent === amount.toString()
+                )
+                    return;
                 events['tasks_update'].forEach(async alert =>
                     LSSM.$store.dispatch('notifications/sendNotification', {
                         group: alert.position,
