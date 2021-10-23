@@ -83,7 +83,7 @@ export default Vue.extend<
         minors() {
             const minors: Record<string, ReleaseNoteProps['notes']> = {};
             this.notes.forEach(([version, note]) => {
-                const minor = version.match(/^\d+\.\d+/)[0];
+                const minor = version.match(/^\d+\.\d+/)?.[0] ?? '0';
                 if (!minors.hasOwnProperty(minor)) minors[minor] = [];
                 minors[minor].push([version, note]);
             });
