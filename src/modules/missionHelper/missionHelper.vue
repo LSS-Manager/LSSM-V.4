@@ -660,20 +660,16 @@ export default Vue.extend<
             this.isReloading = false;
         },
         async getMission(id, force) {
-            const missions = (await this.$store.dispatch('api/getMissions', {
-                force,
-                feature: 'missionHelper-getMission',
-            })) as Mission[];
-            const mission: Mission | undefined = this.$store.getters[
+            const missionsById: Record<string, Mission> = this.$store.getters[
                 'api/missionsById'
-            ][id];
+            ];
+            const mission: Mission | undefined = missionsById[id];
             if (mission) {
                 if (this.settings.expansions && mission.additional) {
                     mission.additional.expansion_missions_names = Object.fromEntries(
                         mission.additional.expansion_missions_ids?.map(id => [
                             id,
-                            missions.find(spec => spec.id === id.toString())
-                                ?.name || '',
+                            missionsById[id.toString()]?.name || '',
                         ]) || []
                     );
                 }
@@ -681,8 +677,7 @@ export default Vue.extend<
                     mission.additional.followup_missions_names = Object.fromEntries(
                         mission.additional.followup_missions_ids?.map(id => [
                             id,
-                            missions.find(spec => spec.id === id.toString())
-                                ?.name || '',
+                            missionsById[id.toString()]?.name || '',
                         ]) || []
                     );
                 }
@@ -690,8 +685,7 @@ export default Vue.extend<
                     mission.additional.subsequent_missions_names = Object.fromEntries(
                         mission.additional.subsequent_missions_ids?.map(id => [
                             id,
-                            missions.find(spec => spec.id === id.toString())
-                                ?.name || '',
+                            missionsById[id.toString()]?.name || '',
                         ]) || []
                     );
                 }
