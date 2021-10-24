@@ -25,7 +25,7 @@
 			"caption": "Course name",
 			"duration": "Training period",
 			"required_for": "Required for",
-			"staffList": "Ausbildung"
+			"staffList": "Training"
 		},
 		"vehicles": {
 			"caption": "Vehicle type",
