@@ -82,6 +82,13 @@ export interface OverviewMethods {
             [key: string]: unknown;
         }
     ): VueI18n.TranslateResult;
+    $mc(
+        key: string,
+        n: number,
+        args?: {
+            [key: string]: unknown;
+        }
+    ): VueI18n.TranslateResult;
     setSortBuildings(type: string): void;
     setSortVehicles(type: string): void;
     setSortSchoolings(type: string): void;

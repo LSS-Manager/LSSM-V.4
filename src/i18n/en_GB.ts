@@ -113,7 +113,7 @@ export default {
             credits: 5_000,
             minPersonnel: 1,
             maxPersonnel: 9,
-            special: ' A standard pump used for fighting fires.',
+            special: 'A standard pump used for fighting fires.',
         },
         1: {
             caption: 'Light 4X4 Pump (L4P)',
@@ -122,7 +122,7 @@ export default {
             credits: 5_000,
             minPersonnel: 1,
             maxPersonnel: 5,
-            special: ' A smaller pump used in ruarl areas, will act as a pump.',
+            special: 'A smaller pump used in ruarl areas, will act as a pump.',
         },
         2: {
             caption: 'Aerial Appliance',
@@ -162,7 +162,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 2,
             special:
-                ' A standard ambulance for tackling your medical emergencys.',
+                'A standard ambulance for tackling your medical emergencys.',
         },
         6: {
             caption: 'Water Carrier',
@@ -181,8 +181,13 @@ export default {
             credits: 17_300,
             minPersonnel: 1,
             maxPersonnel: 6,
-            schooling: 'Fire Station - HazMat',
-            shownSchooling: 'HazMat Unit',
+            schooling: {
+                'Fire Station': {
+                    HazMat: {
+                        all: true,
+                    },
+                },
+            },
             special:
                 'Required once you have built 11 fire stations. A HazMat unit which can be used for a range of hazardous calls. ',
         },
@@ -193,7 +198,7 @@ export default {
             credits: 5_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            special: ' A standard patrol car for tackling your police calls.',
+            special: 'A standard patrol car for tackling your police calls.',
         },
         9: {
             caption: 'HEMS',
@@ -202,9 +207,14 @@ export default {
             credits: 300_000,
             minPersonnel: 3,
             maxPersonnel: 5,
-            schooling: 'Rescue - Critical care',
-            shownSchooling: 'Critical care',
-            special: ' A Air Ambulance for the most serious cases.',
+            schooling: {
+                Rescue: {
+                    'Critical care': {
+                        all: true,
+                    },
+                },
+            },
+            special: 'An Air Ambulance for the most serious cases.',
         },
         10: {
             caption: 'Rapid Response Vehicle',
@@ -214,7 +224,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 1,
             special:
-                ' A fast and angile ambulance car, very useful when a ambulance has a long response. ',
+                'A fast and angile ambulance car, very useful when a ambulance has a long response. ',
         },
         11: {
             caption: 'Police Helicopter',
@@ -223,10 +233,15 @@ export default {
             credits: 300_000,
             minPersonnel: 1,
             maxPersonnel: 3,
-            schooling: 'Police - Police aviation',
-            shownSchooling: 'Police aviation',
+            schooling: {
+                Police: {
+                    'Police aviation': {
+                        all: true,
+                    },
+                },
+            },
             special:
-                ' A Police Helicopter, useful for pursuits and firearms attacks.',
+                'A Police Helicopter, useful for pursuits and firearms attacks.',
         },
         12: {
             caption: 'Dog Support Unit (DSU)',
@@ -235,8 +250,13 @@ export default {
             credits: 7_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            schooling: 'Police - Dog handling',
-            shownSchooling: 'Dog handling',
+            schooling: {
+                Police: {
+                    'Dog handling': {
+                        all: true,
+                    },
+                },
+            },
             special:
                 'Required once you have built 6 police stations. Acts as a Dog Support Unit (DSU) and Incident Response Vehicle. A dog for tracking and chasing criminals.',
         },
@@ -247,8 +267,13 @@ export default {
             credits: 7_000,
             minPersonnel: 1,
             maxPersonnel: 4,
-            schooling: 'Police - Firearms training',
-            shownSchooling: 'Firearms training',
+            schooling: {
+                Police: {
+                    'Firearms training': {
+                        all: true,
+                    },
+                },
+            },
             special:
                 'Required once you have built 8 police stations. Acts as a Armed Response Vehicle and Incident Response Vehicle. Firearms unit for the worst calls.',
         },
@@ -269,8 +294,13 @@ export default {
             credits: 25_500,
             minPersonnel: 1,
             maxPersonnel: 6,
-            schooling: 'Fire Station - Mobile command',
-            shownSchooling: 'Level 1 Incident Commander Training',
+            schooling: {
+                'Fire Station': {
+                    'Mobile command': {
+                        all: true,
+                    },
+                },
+            },
             special:
                 'Required once you have built 13 fire stations. A command post for Major Incidents.',
         },
@@ -301,8 +331,13 @@ export default {
             credits: 19_000,
             minPersonnel: 1,
             maxPersonnel: 1,
-            schooling: 'Fire Station - Co-Responder Training',
-            shownSchooling: 'Co-Responder',
+            schooling: {
+                'Fire Station': {
+                    'Co-Responder Training': {
+                        all: true,
+                    },
+                },
+            },
             special:
                 'A Rapid Response Vehicle operated by the fire service where there is little to no ambulance coverage.',
         },
@@ -314,7 +349,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 3,
             special:
-                ' Acts as a Rapid Response Vehicle and Incident Response Vehicle. Perfect for calls that need police and alot of ambulances.',
+                'Acts as a Rapid Response Vehicle and Incident Response Vehicle. Perfect for calls that need police and alot of ambulances.',
         },
         20: {
             caption: 'Operational Team Leader',
@@ -333,8 +368,13 @@ export default {
             credits: 4_000,
             minPersonnel: 1,
             maxPersonnel: 1,
-            schooling: 'Rescue - Critical care',
-            shownSchooling: 'Critical care',
+            schooling: {
+                Rescue: {
+                    'Critical care': {
+                        all: true,
+                    },
+                },
+            },
             special:
                 'Can only be placed at the Home Response Location. A General Practitioner that can respond as a on call doctor currently. ',
         },
@@ -365,8 +405,13 @@ export default {
             credits: 10_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            schooling: 'Police - Roads Policing Officer Training',
-            shownSchooling: 'Roads Policing Officer',
+            schooling: {
+                Police: {
+                    'Roads Policing Officer Training': {
+                        all: true,
+                    },
+                },
+            },
             special:
                 'Acts as a Traffic Car and Incident Response Vehicle. A pursuit vehicle for high speed chases.',
         },
@@ -377,8 +422,16 @@ export default {
             credits: 19_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            schooling: 'Police - Firearms training',
-            shownSchooling: 'Firearms training',
+            schooling: {
+                Police: {
+                    'Firearms training': {
+                        all: true,
+                    },
+                    'Roads Policing Officer Training': {
+                        all: true,
+                    },
+                },
+            },
             special:
                 'Requires both, Firearms training and Roads Policing Officer Training. Works as a Traffic Car, Armed Response Vehicle and an Incident Response Vehicle. For highspeed chases and firearms incidents. ',
         },
@@ -399,10 +452,15 @@ export default {
             credits: 12_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            schooling: 'Rescue - HART Training',
-            shownSchooling: 'HART Training',
+            schooling: {
+                Rescue: {
+                    'HART Training': {
+                        all: true,
+                    },
+                },
+            },
             special:
-                ' Responds to the most serious of calls, where lives are in serious danger.',
+                'Responds to the most serious of calls, where lives are in serious danger.',
         },
         28: {
             caption: 'SRV',
@@ -411,10 +469,15 @@ export default {
             credits: 12_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            schooling: 'Rescue - HART Training',
-            shownSchooling: 'HART Training',
+            schooling: {
+                Rescue: {
+                    'HART Training': {
+                        all: true,
+                    },
+                },
+            },
             special:
-                ' Responds to the most serious of calls, where lives are in serious danger.',
+                'Responds to the most serious of calls, where lives are in serious danger.',
         },
         29: {
             caption: 'Welfare Vehicle',
@@ -423,10 +486,15 @@ export default {
             credits: 15_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            schooling: 'Rescue - HART Training',
-            shownSchooling: 'HART Training',
+            schooling: {
+                Rescue: {
+                    'HART Training': {
+                        all: true,
+                    },
+                },
+            },
             special:
-                ' Responds to the most serious of calls, Used for Major Fires.',
+                'Responds to the most serious of calls, Used for Major Fires.',
         },
         30: {
             caption: 'ATV Carrier',
@@ -435,10 +503,15 @@ export default {
             credits: 12_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            schooling: 'Rescue - HART Training',
-            shownSchooling: 'HART Training',
+            schooling: {
+                Rescue: {
+                    'HART Training': {
+                        all: true,
+                    },
+                },
+            },
             special:
-                ' Responds to the most serious of calls, where lives are in serious danger in ruarl areas.',
+                'Responds to the most serious of calls, where lives are in serious danger in ruarl areas.',
         },
         31: {
             caption: 'Ambulance Control Unit',
@@ -447,8 +520,13 @@ export default {
             credits: 50_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            schooling: 'Rescue - Tactical Command Course',
-            shownSchooling: 'Tactical Command Course',
+            schooling: {
+                Rescue: {
+                    'Tactical Command Course': {
+                        all: true,
+                    },
+                },
+            },
             special:
                 'Command Post run by the ambulance service for the most serious of calls.',
         },
@@ -459,9 +537,14 @@ export default {
             credits: 20_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            schooling: 'Rescue - SORT Training',
-            shownSchooling: 'SORT',
-            special: ' A HazMat run by the ambulance service.',
+            schooling: {
+                Rescue: {
+                    'SORT Training': {
+                        all: true,
+                    },
+                },
+            },
+            special: 'A HazMat run by the ambulance service.',
         },
         33: {
             caption: 'Mass Casualty Equipment',
@@ -470,8 +553,13 @@ export default {
             credits: 15_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            schooling: 'Rescue - SORT Training',
-            shownSchooling: 'SORT',
+            schooling: {
+                Rescue: {
+                    'SORT Training': {
+                        all: true,
+                    },
+                },
+            },
             special:
                 'You can buy 1 Mass Casualty Equipment for every 20 ambulance stations (respectively 15 with premium account). It is required for missions that can spawn with over 30 patients',
         },
@@ -482,8 +570,13 @@ export default {
             credits: 25_500,
             minPersonnel: 1,
             maxPersonnel: 1,
-            schooling: 'Rescue - Ambulance Officer',
-            shownSchooling: 'Ambulance Officer',
+            schooling: {
+                Rescue: {
+                    'Ambulance Officer': {
+                        all: true,
+                    },
+                },
+            },
             special:
                 'Required once you have built 15 Rescue stations. It is required for missions that can spawn with over 20 patients to help command the scene. It is a dual unit between an OTL and an Ambulance Officer Requirements',
         },
@@ -521,6 +614,7 @@ export default {
                 'From the 24th fire station onwards, the cost of building a new fire station increases according to the following formula: <code>100.000+200.000*LOG<sub>2</sub>(Number of existing fire stations − 22)</code>. The Coins price remains constant!',
             startPersonnel: 10,
             startVehicles: ['Water Ladder', 'Light 4X4 Pump (L4P)'],
+            schoolingTypes: ['Fire Station'],
             maxBuildingsFunction: (): number => 5_000,
         },
         1: {
@@ -561,6 +655,7 @@ export default {
             special: '',
             startPersonnel: 3,
             startVehicles: ['Ambulance'],
+            schoolingTypes: ['Rescue'],
         },
         3: {
             caption: 'Rescue (EMS) Academy',
@@ -665,6 +760,7 @@ export default {
                 'Up to the 125th building (of all types) a total of max. 4 landing sites can be built. After that the number increases by 1 every 25 buildings (starting at the 125th).',
             startPersonnel: 1,
             startVehicles: [],
+            schoolingTypes: ['Rescue'],
             maxBuildingsFunction: (buildingsAmountTotal: number): number =>
                 buildingsAmountTotal < 125
                     ? 4
@@ -696,6 +792,7 @@ export default {
                 'From the 24th police station onwards, the costs for the new construction of a police station increase according to the following formula: <code>100.000+200.000*LOG<sub>2</sub>(Number of existing police stations − 22)</code>. The Coins price remains constant!',
             startPersonnel: 2,
             startVehicles: ['Incident response vehicle (IRV)'],
+            schoolingTypes: ['Police'],
             maxBuildingsFunction: (): number => 1_700,
         },
         7: {
@@ -747,6 +844,7 @@ export default {
                 'Up to 6 landing sites can be built per station (expansion stages). Up to the 125th building (of all types) a total of max. 4 landing sites can be built. After that the number increases by 1 every 25 buildings (starting at the 125th).',
             startPersonnel: 3,
             startVehicles: [],
+            schoolingTypes: ['Police'],
             maxBuildingsFunction: (buildingsAmountTotal: number): number =>
                 buildingsAmountTotal < 125
                     ? 4
@@ -810,6 +908,7 @@ export default {
                 'From the 24th fire station onwards, the cost of building a new fire station increases according to the following formula: <code>(100.000+200.000*LOG<sub>2</sub>(Number of existing fire stations − 22)) / 2</code>. max. 1 Million Credits. The Coins price remains constant!',
             startPersonnel: 10,
             startVehicles: ['Water Ladder', 'Light 4X4 Pump (L4P)'],
+            schoolingTypes: ['Fire Station'],
             maxBuildingsFunction: (): number => 5_000,
         },
         19: {
@@ -843,6 +942,7 @@ export default {
                 'From the 24th police station onwards, the costs for the new construction of a police station are calculated according to the following formula: <code>(100.000+200.000*LOG<sub>2</sub>(Number of existing police stations − 22)) / 2</code>. The Coins price remains constant!',
             startPersonnel: 2,
             startVehicles: ['Incident response vehicle (IRV)'],
+            schoolingTypes: ['Police'],
             maxBuildingsFunction: (): number => 1_700,
         },
         20: {
@@ -862,6 +962,7 @@ export default {
             special: '',
             startPersonnel: 3,
             startVehicles: ['Ambulance'],
+            schoolingTypes: ['Rescue'],
         },
         21: {
             caption: 'Clinic',
@@ -882,6 +983,7 @@ export default {
             special: '',
             startPersonnel: 0,
             startVehicles: ['None. You can buy max. 2 Vehicles'],
+            schoolingTypes: ['Rescue'],
         },
         22: {
             caption: 'Home Response Location',
@@ -889,13 +991,14 @@ export default {
             coins: 10,
             credits: 100_000,
             extensions: [],
-            levelcost: ['not expandeble'],
+            levelcost: ['not expandable'],
             maxBuildings: 'No limit',
             maxLevel: 0,
             special:
                 'It can only Store: Fire Officer, Rapid Response Vehicle, Operational Team Leader, General Practitioner, Community First Responder, Ambulance Officer, Dog Support Unit (DSU)',
             startPersonnel: 1,
             startVehicles: [''],
+            schoolingTypes: ['Rescue', 'Police'],
         },
         25: {
             caption: 'HART Base',
@@ -923,6 +1026,7 @@ export default {
             special: '',
             startPersonnel: 10,
             startVehicles: [],
+            schoolingTypes: ['Rescue'],
         },
     },
     buildingCategories: {
@@ -1001,10 +1105,12 @@ export default {
             {
                 caption: 'HazMat',
                 duration: '3 Days',
+                staffList: 'HazMat Unit',
             },
             {
                 caption: 'Mobile command',
                 duration: '5 Days',
+                staffList: 'Level 1 Incident Commander Training',
             },
             {
                 caption: 'ARFF-Training',
@@ -1021,46 +1127,56 @@ export default {
             {
                 caption: 'Co-Responder Training',
                 duration: '3 Days',
+                staffList: 'Co-Responder',
             },
         ],
         'Police': [
             {
                 caption: 'Police aviation',
                 duration: '7 Days',
+                staffList: 'Police aviation',
             },
             {
                 caption: 'Firearms training',
                 duration: '5 Days',
+                staffList: 'Firearms training',
             },
             {
                 caption: 'Dog handling',
                 duration: '5 Days',
+                staffList: 'Dog handling',
             },
             {
                 caption: 'Roads Policing Officer Training',
                 duration: '3 Days',
+                staffList: 'Roads Policing Officer',
             },
         ],
         'Rescue': [
             {
                 caption: 'Critical care',
                 duration: '5 Days',
+                staffList: 'Critical care',
             },
             {
                 caption: 'HART Training',
                 duration: '5 Days',
+                staffList: 'HART Training',
             },
             {
                 caption: 'Tactical Command Course',
                 duration: '5 Days',
+                staffList: 'Tactical Command Course',
             },
             {
                 caption: 'SORT Training',
                 duration: '3 Days',
+                staffList: 'SORT',
             },
             {
                 caption: 'Ambulance Officer',
                 duration: '5 Days',
+                staffList: 'Ambulance Officer',
             },
         ],
     },

@@ -37,7 +37,7 @@ export default (
         if (!ownSchoolings.tabs.hasOwnProperty(category))
             ownSchoolings.tabs[category] = [];
         const element = {
-            id: btn.href.replace(/\D+/g, ''),
+            id: new URL(btn.href).pathname.replace(/\D+/g, ''),
             name,
             end,
             owner: owner.innerHTML,
@@ -78,7 +78,7 @@ export default (
         if (!openSchoolings.tabs.hasOwnProperty(category))
             openSchoolings.tabs[category] = [];
         const element = {
-            id: btn.href.replace(/\D+/g, ''),
+            id: new URL(btn.href).pathname.replace(/\D+/g, ''),
             name,
             seats,
             price,

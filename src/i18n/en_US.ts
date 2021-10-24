@@ -203,9 +203,14 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 6,
             wtank: 0,
+            schooling: {
+                'Fire Station': {
+                    HazMat: {
+                        all: true,
+                    },
+                },
+            },
             special: 'Required once you have built 11 firehouses',
-            schooling: 'Fire Station - HazMat',
-            shownSchooling: 'HazMat',
         },
         10: {
             caption: 'Patrol Car',
@@ -233,8 +238,13 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 6,
             wtank: 0,
-            schooling: 'Fire Station - Mobile command',
-            shownSchooling: 'Mobile Command',
+            schooling: {
+                'Fire Station': {
+                    'Mobile command': {
+                        all: true,
+                    },
+                },
+            },
             special: 'Required once you have built 13 firehouses',
         },
         13: {
@@ -257,8 +267,13 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 3,
             wtank: 0,
-            schooling: 'Police - Police Aviation',
-            shownSchooling: 'Police Aviation',
+            schooling: {
+                Police: {
+                    'Police Aviation': {
+                        all: true,
+                    },
+                },
+            },
         },
         15: {
             caption: 'Fly-Car',
@@ -277,8 +292,13 @@ export default {
             minPersonnel: 6,
             maxPersonnel: 6,
             wtank: 0,
-            schooling: 'Police - SWAT',
-            shownSchooling: 'SWAT',
+            schooling: {
+                Police: {
+                    SWAT: {
+                        all: true,
+                    },
+                },
+            },
             special: 'Required once you have built 8 police stations',
         },
         17: {
@@ -290,8 +310,13 @@ export default {
             maxPersonnel: 2,
             wtank: 4500,
             ftank: 650,
-            schooling: 'Fire Station - ARFF-Training',
-            shownSchooling: 'ARFF',
+            schooling: {
+                'Fire Station': {
+                    'ARFF-Training': {
+                        all: true,
+                    },
+                },
+            },
         },
         18: {
             caption: 'Rescue Engine',
@@ -313,8 +338,13 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 2,
             wtank: 0,
-            schooling: 'Police - K-9',
-            shownSchooling: 'K-9',
+            schooling: {
+                Police: {
+                    'K-9': {
+                        all: true,
+                    },
+                },
+            },
             special: 'Required from 6 Police stations',
         },
         20: {
@@ -336,8 +366,13 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 5,
             wtank: 0,
-            schooling: 'Fire Station - Swift water rescue',
-            shownSchooling: 'Swift water rescue',
+            schooling: {
+                'Fire Station': {
+                    'Swift water rescue': {
+                        all: true,
+                    },
+                },
+            },
             special:
                 'Combines the Heavy Rescue Vehicle/Utility Vehicle with an integrated boat.<br> No need for a boat trailer.',
         },
@@ -360,8 +395,13 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 1,
             wtank: 0,
-            schooling: 'Police - Police Motorcycle',
-            shownSchooling: 'Motor Officer',
+            schooling: {
+                Police: {
+                    'Police Motorcycle': {
+                        all: true,
+                    },
+                },
+            },
         },
         24: {
             caption: 'Large Fireboat',
@@ -371,8 +411,13 @@ export default {
             minPersonnel: 2,
             maxPersonnel: 7,
             wtank: 0,
-            schooling: 'Fire Station - Ocean Navigation',
-            shownSchooling: 'Ocean Navigation',
+            schooling: {
+                'Fire Station': {
+                    'Ocean Navigation': {
+                        all: true,
+                    },
+                },
+            },
         },
         25: {
             caption: 'Large Rescue Boat',
@@ -382,8 +427,13 @@ export default {
             minPersonnel: 2,
             maxPersonnel: 6,
             wtank: 0,
-            schooling: 'Fire Station - Ocean Navigation',
-            shownSchooling: 'Ocean Navigation',
+            schooling: {
+                'Fire Station': {
+                    'Ocean Navigation': {
+                        all: true,
+                    },
+                },
+            },
         },
         26: {
             caption: 'SWAT SUV',
@@ -393,9 +443,14 @@ export default {
             minPersonnel: 2,
             maxPersonnel: 4,
             wtank: 0,
+            schooling: {
+                Police: {
+                    SWAT: {
+                        all: true,
+                    },
+                },
+            },
             special: 'Required once you have built 8 police stations',
-            schooling: 'Police - SWAT',
-            shownSchooling: 'SWAT',
         },
         27: {
             caption: 'BLS Ambulance',
@@ -479,8 +534,13 @@ export default {
             minPersonnel: 2,
             maxPersonnel: 5,
             wtank: 2000,
-            schooling: 'Fire Station - Airborne firefighting',
-            shownSchooling: 'Airborne firefighting',
+            schooling: {
+                'Fire Station': {
+                    'Airborne firefighting': {
+                        all: true,
+                    },
+                },
+            },
         },
         36: {
             caption: 'Air Tanker',
@@ -490,8 +550,13 @@ export default {
             minPersonnel: 2,
             maxPersonnel: 5,
             wtank: 7200,
-            schooling: 'Fire Station - Airborne firefighting',
-            shownSchooling: 'Airborne firefighting',
+            schooling: {
+                'Fire Station': {
+                    'Airborne firefighting': {
+                        all: true,
+                    },
+                },
+            },
         },
         37: {
             caption: 'Heavy air tanker',
@@ -501,8 +566,13 @@ export default {
             minPersonnel: 2,
             maxPersonnel: 5,
             wtank: 12000,
-            schooling: 'Fire Station - Airborne firefighting',
-            shownSchooling: 'Airborne firefighting',
+            schooling: {
+                'Fire Station': {
+                    'Airborne firefighting': {
+                        all: true,
+                    },
+                },
+            },
         },
         38: {
             caption: 'Type 4 engine',
@@ -529,8 +599,13 @@ export default {
             credits: 20_000,
             minPersonnel: 0,
             maxPersonnel: 0,
-            schooling: 'Fire Station - Heavy Machinery Operating',
-            shownSchooling: 'Heavy Machinery Operating',
+            schooling: {
+                'Fire Station': {
+                    'Heavy Machinery Operating': {
+                        all: true,
+                    },
+                },
+            },
             special:
                 "Dozer Trailer that can be towed with the Crew cap semi. Requires Heavy Machinery Operating and Truck Driver's License trained personnel to operate.<br> The dozer trailer cannot be assigned personnel, <br>either assign your trained personnel to the towing vehicle, or assign them to a separate unit en route.",
         },
@@ -541,8 +616,18 @@ export default {
             credits: 5_000,
             minPersonnel: 1,
             maxPersonnel: 3,
-            schooling: "Fire Station - Truck Driver's License",
-            shownSchooling: "Truck Driver's License",
+            schooling: {
+                'Fire Station': {
+                    "Truck Driver's License": {
+                        all: true,
+                    },
+                },
+                'Rescue': {
+                    "Truck Driver's License": {
+                        all: true,
+                    },
+                },
+            },
         },
         42: {
             caption: 'FBI Unit',
@@ -567,8 +652,13 @@ export default {
             credits: 25_000,
             minPersonnel: 1,
             maxPersonnel: 4,
-            schooling: 'Police - FBI Mobile Center Commander',
-            shownSchooling: 'FBI Mobile Center Commander',
+            schooling: {
+                Police: {
+                    'FBI Mobile Center Commander': {
+                        all: true,
+                    },
+                },
+            },
         },
         45: {
             caption: 'FBI Bomb Technician Vehicle',
@@ -577,8 +667,13 @@ export default {
             credits: 35_500,
             minPersonnel: 1,
             maxPersonnel: 2,
-            schooling: 'Police - FBI Bomb Technician',
-            shownSchooling: 'FBI Bomb Technician',
+            schooling: {
+                Police: {
+                    'FBI Bomb Technician': {
+                        all: true,
+                    },
+                },
+            },
         },
         46: {
             caption: 'FBI Surveillance Drone',
@@ -587,8 +682,13 @@ export default {
             credits: 25_000,
             minPersonnel: 1,
             maxPersonnel: 1,
-            schooling: 'Police - FBI Drone Operator',
-            shownSchooling: 'FBI Drone Operator',
+            schooling: {
+                Police: {
+                    'FBI Drone Operator': {
+                        all: true,
+                    },
+                },
+            },
         },
         47: {
             caption: 'Sheriff Unit',
@@ -597,8 +697,13 @@ export default {
             credits: 15_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            schooling: 'Police - Sheriff',
-            shownSchooling: 'Sheriff',
+            schooling: {
+                Police: {
+                    Sheriff: {
+                        all: true,
+                    },
+                },
+            },
         },
         48: {
             caption: 'EMS Fire Engine/Ambulance',
@@ -607,8 +712,18 @@ export default {
             credits: 25_000,
             minPersonnel: 1,
             maxPersonnel: 6,
-            schooling: 'Rescue - ALS Medical Training for Fire Apparatus',
-            shownSchooling: 'ALS Medical Training for Fire Apparatus',
+            schooling: {
+                'Fire Station': {
+                    'ALS Medical Training for Fire Apparatus': {
+                        all: true,
+                    },
+                },
+                'Rescue': {
+                    'ALS Medical Training for Fire Apparatus': {
+                        all: true,
+                    },
+                },
+            },
             special: 'Works as Fire Engine and Ambulance',
         },
         49: {
@@ -618,8 +733,18 @@ export default {
             credits: 25_000,
             minPersonnel: 1,
             maxPersonnel: 3,
-            schooling: 'Rescue - Tactical Medic Training',
-            shownSchooling: 'Tactical Medic Training',
+            schooling: {
+                'Fire Station': {
+                    'Tactical Medic Training': {
+                        all: true,
+                    },
+                },
+                'Rescue': {
+                    'Tactical Medic Training': {
+                        all: true,
+                    },
+                },
+            },
             special: 'Works as Police Car and Ambulance',
         },
         50: {
@@ -629,8 +754,18 @@ export default {
             credits: 30_000,
             minPersonnel: 1,
             maxPersonnel: 3,
-            schooling: 'Rescue - Hazmat Medic Training',
-            shownSchooling: 'HazMat',
+            schooling: {
+                'Fire Station': {
+                    Hazmat: {
+                        all: true,
+                    },
+                },
+                'Rescue': {
+                    'Hazmat Medic Training': {
+                        all: true,
+                    },
+                },
+            },
             special:
                 'Required once you have built 11 firehouses, works as HazMat and Ambulance',
         },
@@ -673,8 +808,13 @@ export default {
             credits: 30_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            schooling: 'Police - Ocean Navigation',
-            shownSchooling: 'Ocean Navigation',
+            schooling: {
+                Police: {
+                    'Ocean Navigation': {
+                        all: true,
+                    },
+                },
+            },
         },
         56: {
             caption: "Warden's Truck",
@@ -683,8 +823,13 @@ export default {
             credits: 20_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            schooling: 'Police - Environmental Game Warden',
-            shownSchooling: 'Environmental Game Warden',
+            schooling: {
+                Police: {
+                    'Environmental Game Warden': {
+                        all: true,
+                    },
+                },
+            },
         },
         57: {
             caption: 'EMS Mass Casualty Trailer (large)',
@@ -704,7 +849,7 @@ export default {
             minPersonnel: 0,
             maxPersonnel: 0,
             special:
-                'Needed towing vehicle (Fly-Car, EMS Rescue, EMS Chief).Works like the Mass Casualty Unit but without transport.',
+                'Needed towing vehicle (Fly-Car, EMS Rescue, EMS Chief). Works like the Mass Casualty Unit but without transport.',
         },
         59: {
             caption: 'EMS Operations Support',
@@ -723,8 +868,18 @@ export default {
             credits: 40_000,
             minPersonnel: 6,
             maxPersonnel: 6,
-            schooling: 'Rescue - EMS Mobile Command',
-            shownSchooling: 'EMS Mobile Command',
+            schooling: {
+                'Fire Station': {
+                    'EMS Mobile Command': {
+                        all: true,
+                    },
+                },
+                'Rescue': {
+                    'EMS Mobile Command': {
+                        all: true,
+                    },
+                },
+            },
         },
         61: {
             caption: 'ALS Rescue Ambulance',
@@ -743,8 +898,13 @@ export default {
             credits: 25_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            schooling: 'Fire Station - Law Enforcement for Arson Investigation',
-            shownSchooling: 'Peace Officer',
+            schooling: {
+                'Fire Station': {
+                    'Law Enforcement for Arson Investigation': {
+                        all: true,
+                    },
+                },
+            },
         },
         63: {
             caption: 'Fire Prevention Unit',
@@ -826,6 +986,7 @@ export default {
                 'From the 24th fire station onwards, the cost of building a new fire station increases according to the following formula: <code>100.000+200.000*LOG<sub>2</sub>(Number of existing fire stations − 22)</code>. The Coins price remains constant!',
             startPersonnel: 10,
             startVehicles: ['Type 1 fire engine', 'Type 2 fire engine'],
+            schoolingTypes: ['Fire Station'],
             maxBuildingsFunction: (): number => 5_000,
         },
         1: {
@@ -931,6 +1092,7 @@ export default {
             special: '',
             startPersonnel: 3,
             startVehicles: ['ALS Ambulance'],
+            schoolingTypes: ['Rescue'],
         },
         4: {
             caption: 'Fire academy',
@@ -991,6 +1153,7 @@ export default {
                 'From the 24th police station onwards, the costs for the new construction of a police station increase according to the following formula: <code>100.000+200.000*LOG<sub>2</sub>(Number of existing police stations − 22)</code>. The Coins price remains constant!',
             startPersonnel: 2,
             startVehicles: ['Patrol car'],
+            schoolingTypes: ['Police'],
             maxBuildingsFunction: (): number => 1_700,
         },
         6: {
@@ -1006,6 +1169,7 @@ export default {
                 'Up to the 125th building (of all types) a total of max. 4 landing sites can be built. After that the number increases by 1 every 25 buildings (starting at the 125th).',
             startPersonnel: 0,
             startVehicles: [],
+            schoolingTypes: ['Rescue'],
             maxBuildingsFunction: (buildingsAmountTotal: number): number =>
                 buildingsAmountTotal < 125
                     ? 4
@@ -1045,6 +1209,7 @@ export default {
                 'Up to 2 landing sites can be built per station (expansion stages). Up to the 125th building (of all types) a total of max. 4 landing sites can be built. After that the number increases by 1 every 25 buildings (starting at the 125th).',
             startPersonnel: 3,
             startVehicles: [],
+            schoolingTypes: ['Police'],
             maxBuildingsFunction: (buildingsAmountTotal: number): number =>
                 buildingsAmountTotal < 125
                     ? 4
@@ -1102,6 +1267,7 @@ export default {
             special: '',
             startPersonnel: 2,
             startVehicles: [''],
+            schoolingTypes: ['Fire Station'],
         },
         12: {
             caption: 'Rescue Boat Dock',
@@ -1115,6 +1281,7 @@ export default {
             special: '',
             startPersonnel: 2,
             startVehicles: [''],
+            schoolingTypes: ['Fire Station'],
         },
         13: {
             caption: 'Fire station (Small station) ',
@@ -1134,6 +1301,7 @@ export default {
                 'From the 24th fire station onwards, the cost of building a new fire station increases according to the following formula: <code>(100.000+200.000*LOG<sub>2</sub>(Number of existing fire stations − 22)) / 2</code>. max. 1 Million Credits. The Coins price remains constant!',
             startPersonnel: 10,
             startVehicles: ['Type 1 fire engine', 'Type 2 fire engine'],
+            schoolingTypes: ['Fire Station'],
             maxBuildingsFunction: (): number => 5_000,
         },
         14: {
@@ -1155,6 +1323,7 @@ export default {
             special: '',
             startPersonnel: 0,
             startVehicles: ['Non. You can buy max. 2 Vehicles'],
+            schoolingTypes: ['Rescue'],
         },
         15: {
             caption: 'Police station (Small station)',
@@ -1174,6 +1343,7 @@ export default {
                 'From the 24th police station onwards, the costs for the new construction of a police station are calculated according to the following formula: <code>(100.000+200.000*LOG<sub>2</sub>(Number of existing police stations − 22)) / 2</code>. The Coins price remains constant!',
             startPersonnel: 2,
             startVehicles: ['Patrol Car'],
+            schoolingTypes: ['Police'],
             maxBuildingsFunction: (): number => 1_700,
         },
         16: {
@@ -1193,6 +1363,7 @@ export default {
             special: '',
             startPersonnel: 3,
             startVehicles: ['ALS Ambulance'],
+            schoolingTypes: ['Rescue'],
         },
         17: {
             caption: 'Firefighting plane station',
@@ -1206,6 +1377,7 @@ export default {
             special: '',
             startPersonnel: 2,
             startVehicles: ['Water drop helicopter'],
+            schoolingTypes: ['Fire Station'],
         },
         18: {
             caption: 'Federal Police Station',
@@ -1232,6 +1404,7 @@ export default {
             special: '',
             startPersonnel: 10,
             startVehicles: ['FBI Unit'],
+            schoolingTypes: ['Police'],
         },
         19: {
             caption: 'Rescue (EMS) academy',
@@ -1266,6 +1439,7 @@ export default {
             special: '',
             startPersonnel: 2,
             startVehicles: ['Fire Prevention Unit'],
+            schoolingTypes: ['Fire Station'],
         },
     },
     buildingCategories: {
@@ -1353,114 +1527,141 @@ export default {
             {
                 caption: 'HazMat',
                 duration: '3 Days',
+                staffList: 'HazMat',
             },
             {
                 caption: 'Mobile command',
                 duration: '5 Days',
+                staffList: 'Mobile Command',
             },
             {
                 caption: 'ARFF-Training',
                 duration: '3 Days',
+                staffList: 'ARFF',
             },
             {
                 caption: 'Swift water rescue',
                 duration: '4 Days',
+                staffList: 'Swift water rescue',
             },
             {
                 caption: 'Ocean Navigation',
                 duration: '5 Days',
+                staffList: 'Ocean Navigation',
             },
             {
                 caption: 'Airborne firefighting',
                 duration: '5 Days',
+                staffList: 'Airborne firefighting',
             },
             {
                 caption: 'Heavy Machinery Operating',
                 duration: '3 Days',
+                staffList: 'Heavy Machinery Operating',
             },
             {
                 caption: "Truck Driver's License",
                 duration: '2 Days',
+                staffList: "Truck Driver's License",
             },
             {
                 caption: 'ALS Medical Training for Fire Apparatus',
                 duration: '3 Days',
+                staffList: 'ALS Medical Training for Fire Apparatus',
             },
             {
                 caption: 'Tactical Medic Training',
                 duration: '4 Days',
+                staffList: 'Tactical Medic Training',
             },
             {
                 caption: 'EMS Mobile Command',
                 duration: '7 Days',
+                staffList: 'EMS Mobile Command',
             },
             {
                 caption: 'Law Enforcement for Arson Investigation',
                 duration: '4 Days',
+                staffList: 'Peace Officer',
             },
         ],
         'Police': [
             {
                 caption: 'Police Aviation',
                 duration: '7 Days',
+                staffList: 'Police Aviation',
             },
             {
                 caption: 'SWAT',
                 duration: '5 Days',
+                staffList: 'SWAT',
             },
             {
                 caption: 'K-9',
                 duration: '5 Days',
+                staffList: 'K-9',
             },
             {
                 caption: 'Police Motorcycle',
                 duration: '3 Days',
+                staffList: 'Motor Officer',
             },
             {
                 caption: 'FBI Mobile Center Commander',
                 duration: '7 Days',
+                staffList: 'FBI Mobile Center Commander',
             },
             {
                 caption: 'FBI Bomb Technician',
                 duration: '5 Days',
+                staffList: 'FBI Bomb Technician',
             },
             {
                 caption: 'FBI Drone Operator',
                 duration: '5 Days',
+                staffList: 'FBI Drone Operator',
             },
             {
                 caption: 'Sheriff',
                 duration: '5 Days',
+                staffList: 'Sheriff',
             },
             {
                 caption: 'Environmental Game Warden',
                 duration: '4 Days',
+                staffList: 'Environmental Game Warden',
             },
             {
                 caption: 'Ocean Navigation',
                 duration: '5 Days',
+                staffList: 'Ocean Navigation',
             },
         ],
         'Rescue': [
             {
                 caption: 'ALS Medical Training for Fire Apparatus',
                 duration: '3 Days',
+                staffList: 'ALS Medical Training for Fire Apparatus',
             },
             {
                 caption: 'Tactical Medic Training',
                 duration: '4 Days',
+                staffList: 'Tactical Medic Training',
             },
             {
                 caption: 'Hazmat Medic Training',
                 duration: '3 Days',
+                staffList: 'HazMat',
             },
             {
                 caption: 'EMS Mobile Command',
                 duration: '7 Days',
+                staffList: 'EMS Mobile Command',
             },
             {
                 caption: "Truck Driver's License",
                 duration: '2 Days',
+                staffList: "Truck Driver's License",
             },
         ],
     },

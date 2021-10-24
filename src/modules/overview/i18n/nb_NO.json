@@ -1,5 +1,9 @@
 {
 	"extensionTitle": "{caption} (up to {n} times)",
+	"schoolings": {
+		"all": "all",
+		"min": "min. {n}x"
+	},
 	"tabs": {
 		"buildings": "Buildings",
 		"schoolings": "Courses",
@@ -19,7 +23,9 @@
 		},
 		"schoolings": {
 			"caption": "Course name",
-			"duration": "Training period"
+			"duration": "Training period",
+			"required_for": "Required for",
+			"staffList": "Training"
 		},
 		"vehicles": {
 			"caption": "Vehicle type",

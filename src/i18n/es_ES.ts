@@ -166,9 +166,14 @@ export default {
             credits: 19_200,
             minPersonnel: 1,
             maxPersonnel: 3,
+            schooling: {
+                'Parque de bomberos': {
+                    Hazmat: {
+                        all: true,
+                    },
+                },
+            },
             special: 'Necesario cuando hayas construido 11 parques de bomberos',
-            schooling: 'Parque de bomberos - Hazmat',
-            shownSchooling: 'Hazmat',
         },
         8: {
             caption: 'Coche Patrulla',
@@ -202,9 +207,14 @@ export default {
             credits: 25_500,
             minPersonnel: 1,
             maxPersonnel: 6,
+            schooling: {
+                'Parque de bomberos': {
+                    ['Mando móvil']: {
+                        all: true,
+                    },
+                },
+            },
             special: 'Necesario cuando hayas construido 13 parques de bomberos',
-            schooling: 'Parque de bomberos - Mando móvil',
-            shownSchooling: 'Mando móvil',
         },
         12: {
             caption: 'Vehículo de rescate',
@@ -223,8 +233,13 @@ export default {
             credits: 300_000,
             minPersonnel: 1,
             maxPersonnel: 3,
-            schooling: 'Policía - Piloto de Helicóptero',
-            shownSchooling: 'Piloto de Helicóptero',
+            schooling: {
+                ['Policía']: {
+                    ['Piloto de Helicóptero']: {
+                        all: true,
+                    },
+                },
+            },
         },
         14: {
             caption: 'Unidad Antidisturbios',
@@ -233,8 +248,13 @@ export default {
             credits: 10_000,
             minPersonnel: 6,
             maxPersonnel: 6,
-            schooling: 'Policía - Fuerzas Especiales',
-            shownSchooling: 'Fuerzas Especiales',
+            schooling: {
+                ['Policía']: {
+                    'Fuerzas Especiales': {
+                        all: true,
+                    },
+                },
+            },
             special:
                 'Necesario cuando hayas construido 8 comisarías de policía',
         },
@@ -245,8 +265,13 @@ export default {
             credits: 7_000,
             minPersonnel: 2,
             maxPersonnel: 4,
-            schooling: 'Policía - Fuerzas Especiales',
-            shownSchooling: 'Fuerzas Especiales',
+            schooling: {
+                ['Policía']: {
+                    'Fuerzas Especiales': {
+                        all: true,
+                    },
+                },
+            },
             special:
                 'Necesario cuando hayas construido 8 comisarías de policía',
         },
@@ -257,8 +282,13 @@ export default {
             credits: 7_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            schooling: 'Policía - Guía Canino',
-            shownSchooling: 'Guía Canino',
+            schooling: {
+                ['Policía']: {
+                    ['Guía Canino']: {
+                        all: true,
+                    },
+                },
+            },
             special:
                 'Necesario cuando hayas construido 6 comisarías de policía',
         },
@@ -269,8 +299,13 @@ export default {
             credits: 2_500,
             minPersonnel: 1,
             maxPersonnel: 1,
-            schooling: 'Policía - Motorista',
-            shownSchooling: 'Motorista',
+            schooling: {
+                ['Policía']: {
+                    Motorista: {
+                        all: true,
+                    },
+                },
+            },
         },
         18: {
             caption: 'VIR',
@@ -297,8 +332,13 @@ export default {
             credits: 4_000,
             minPersonnel: 1,
             maxPersonnel: 1,
-            schooling: 'Rescate - Formación en cuidados intensivos',
-            shownSchooling: 'Formación en cuidados intensivos',
+            schooling: {
+                Rescate: {
+                    ['Formación en cuidados intensivos']: {
+                        all: true,
+                    },
+                },
+            },
         },
         21: {
             caption: 'Motocicleta de intervención rápida',
@@ -307,8 +347,13 @@ export default {
             credits: 12_000,
             minPersonnel: 1,
             maxPersonnel: 1,
-            schooling: 'Rescate - Motocicleta de intervención rápida',
-            shownSchooling: 'Motocicleta de intervención rápida',
+            schooling: {
+                Rescate: {
+                    ['Motocicleta de intervención rápida']: {
+                        all: true,
+                    },
+                },
+            },
         },
         22: {
             caption: 'Ambulancia SVB',
@@ -366,6 +411,7 @@ export default {
                 'A partir del 24º parque de bomberos en adelante, el coste de construcción de un nuevo parque de bomberos aumenta según la siguiente fórmula: <code>100.000+200.000*LOG<sub>2</sub>(Number of existing fire stations − 22)</code>. ¡El precio de las monedas es constante!',
             startPersonnel: 10,
             startVehicles: ['Camión BUP', 'Camión BUL', 'Vehículo de rescate'],
+            schoolingTypes: ['Parque de bomberos'],
             maxBuildingsFunction: (): number => 5_000,
         },
         1: {
@@ -408,6 +454,7 @@ export default {
             special: '',
             startPersonnel: 0,
             startVehicles: ['Ambulancia'],
+            schoolingTypes: ['Rescate'],
         },
         3: {
             caption: 'Academia de servicios de emergencia',
@@ -512,6 +559,7 @@ export default {
                 'Hasta el edificio 125 (de todos los tipos) un total de máx. 4 helipuertos médicos se pueden construir. Después de eso, el número aumenta en 1 cada 25 edificios (comenzando en el 125).',
             startPersonnel: 0,
             startVehicles: [],
+            schoolingTypes: ['Rescate'],
             maxBuildingsFunction: (buildingsAmountTotal: number): number =>
                 buildingsAmountTotal < 125
                     ? 4
@@ -544,6 +592,7 @@ export default {
                 'A partir de la comisaría 24 en adelante, los costes de la nueva construcción de una comisaría aumentan según la siguiente fórmula: <code>100.000+200.000*LOG<sub>2</sub>(Number of existing police stations − 22)</code>. ¡El precio de las monedas es constante!',
             startPersonnel: 2,
             startVehicles: ['Coche patrulla'],
+            schoolingTypes: ['Policía'],
             maxBuildingsFunction: (): number => 1_700,
         },
         7: {
@@ -595,6 +644,7 @@ export default {
                 'Se pueden construir hasta 2 sitios de aterrizaje por estación (etapas de expansión). Hasta el edificio 125 (de todos los tipos) un total de máx. 4 lugares de aterrizaje se pueden construir. Después de eso, el número aumenta en 1 cada 25 edificios (comenzando en el 125).',
             startPersonnel: 3,
             startVehicles: [],
+            schoolingTypes: ['Policía'],
             maxBuildingsFunction: (buildingsAmountTotal: number): number =>
                 buildingsAmountTotal < 125
                     ? 4
@@ -659,6 +709,7 @@ export default {
                 'A partir del 24º parque de bomberos en adelante, el coste de construcción de un nuevo parque de bomberos aumenta según la siguiente fórmula: <code>(100.000+200.000*LOG<sub>2</sub>(Number of existing fire stations − 22)) / 2</code>. max. 1 Million Credits. ¡El precio de las monedas es constante!',
             startPersonnel: 10,
             startVehicles: ['Camión BUP', 'Camión BUL', 'Vehículo de rescate'],
+            schoolingTypes: ['Parque de bomberos'],
             maxBuildingsFunction: (): number => 5_000,
         },
         19: {
@@ -680,6 +731,7 @@ export default {
                 'A partir de la comisaría 24º en adelante, los costes de la nueva construcción de una comisaría se calculan de acuerdo con la siguiente fórmula: <code>(100.000+200.000*LOG<sub>2</sub>(Number of existing police stations − 22)) / 2</code>. ¡El precio de las monedas es constante!',
             startPersonnel: 2,
             startVehicles: ['Coche patrulla'],
+            schoolingTypes: ['Policía'],
             maxBuildingsFunction: (): number => 1_700,
         },
         20: {
@@ -699,6 +751,7 @@ export default {
             special: '',
             startPersonnel: 3,
             startVehicles: ['Ambulancia'],
+            schoolingTypes: ['Rescate'],
         },
     },
     buildingCategories: {
@@ -771,10 +824,12 @@ export default {
             {
                 caption: 'Hazmat',
                 duration: '3 Días',
+                staffList: 'Hazmat',
             },
             {
                 caption: 'Mando móvil',
                 duration: '5 Días',
+                staffList: 'Mando móvil',
             },
             {
                 caption: 'Formación CBA',
@@ -793,28 +848,34 @@ export default {
             {
                 caption: 'Piloto de Helicóptero',
                 duration: '7 Días',
+                staffList: 'Piloto de Helicóptero',
             },
             {
                 caption: 'Fuerzas Especiales',
                 duration: '5 Días',
+                staffList: 'Fuerzas Especiales',
             },
             {
                 caption: 'Guía Canino',
                 duration: '5 Días',
+                staffList: 'Guía Canino',
             },
             {
                 caption: 'Motorista',
                 duration: '3 Días',
+                staffList: 'Motorista',
             },
         ],
         'Rescate': [
             {
                 caption: 'Formación en cuidados intensivos',
                 duration: '5 Días',
+                staffList: 'Formación en cuidados intensivos',
             },
             {
                 caption: 'Motocicleta de intervención rápida',
                 duration: '3 Días',
+                staffList: 'Motocicleta de intervención rápida',
             },
         ],
     },

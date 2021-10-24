@@ -160,9 +160,14 @@ export default {
             credits: 19_200,
             minPersonnel: 1,
             maxPersonnel: 6,
+            schooling: {
+                'Caserma dei vigili del fuoco': {
+                    'N.B.C.R.': {
+                        all: true,
+                    },
+                },
+            },
             special: 'Richiesto dopo aver costruito 11 caserme dei pompieri',
-            schooling: 'Caserma dei vigili del fuoco - N.B.C.R.',
-            shownSchooling: 'N.B.C.R.',
         },
         7: {
             caption: 'Volante',
@@ -206,9 +211,13 @@ export default {
             credits: 20_000,
             minPersonnel: 1,
             maxPersonnel: 6,
-            schooling:
-                'Caserma dei vigili del fuoco - Corso per funzionario (UCL)',
-            shownSchooling: 'Comando mobile',
+            schooling: {
+                'Caserma dei vigili del fuoco': {
+                    'Corso per funzionario (UCL)': {
+                        all: true,
+                    },
+                },
+            },
             special: 'Richiesto dopo aver costruito 13 caserme dei pompieri',
         },
         12: {
@@ -218,9 +227,13 @@ export default {
             credits: 18_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            schooling:
-                'Caserma dei vigili del fuoco - Corso autista di Autogrù',
-            shownSchooling: 'Autogrù',
+            schooling: {
+                'Caserma dei vigili del fuoco': {
+                    ['Corso autista di Autogrù']: {
+                        all: true,
+                    },
+                },
+            },
             special: 'Richiesto dopo aver costruito 8 caserme dei pompieri',
         },
         13: {
@@ -230,8 +243,13 @@ export default {
             credits: 300_000,
             minPersonnel: 1,
             maxPersonnel: 5,
-            schooling: 'Polizia - Reparto volo della polizia',
-            shownSchooling: 'Reparto volo della polizia',
+            schooling: {
+                Polizia: {
+                    'Reparto volo della polizia': {
+                        all: true,
+                    },
+                },
+            },
             special:
                 'Può essere acquistato con i crediti all raggiungimento del Rango:Caporeparto esperto.',
         },
@@ -242,8 +260,13 @@ export default {
             credits: 10_000,
             minPersonnel: 6,
             maxPersonnel: 9,
-            schooling: 'Polizia - Specializzazione antisommossa/UOPI',
-            shownSchooling: 'Specializzazione antisommossa/UOPI',
+            schooling: {
+                Polizia: {
+                    'Specializzazione antisommossa/UOPI': {
+                        all: true,
+                    },
+                },
+            },
             special: 'Richiesto dopo aver costruito 8 stazioni di polizia ',
         },
         15: {
@@ -253,8 +276,13 @@ export default {
             credits: 7_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            schooling: 'Polizia - Specializzazione unità cinofila',
-            shownSchooling: 'Specializzazione unità cinofila',
+            schooling: {
+                Polizia: {
+                    ['Specializzazione unità cinofila']: {
+                        all: true,
+                    },
+                },
+            },
             special: 'Richiesta dopo aver costruito 6 stazioni di polizia',
         },
         16: {
@@ -264,8 +292,13 @@ export default {
             credits: 2_500,
             minPersonnel: 1,
             maxPersonnel: 1,
-            schooling: 'Polizia - Specializzazione motociclista',
-            shownSchooling: 'Specializzazione motociclista',
+            schooling: {
+                Polizia: {
+                    'Specializzazione motociclista': {
+                        all: true,
+                    },
+                },
+            },
         },
         17: {
             caption: 'UOPI SUV',
@@ -274,9 +307,14 @@ export default {
             credits: 7_000,
             minPersonnel: 2,
             maxPersonnel: 4,
+            schooling: {
+                Polizia: {
+                    'Specializzazione antisommossa/UOPI': {
+                        all: true,
+                    },
+                },
+            },
             special: 'Richiesto dopo aver costruito 8 stazioni di polizia',
-            schooling: 'Polizia - Specializzazione antisommossa/UOPI',
-            shownSchooling: 'Specializzazione antisommossa/UOPI',
         },
         18: {
             caption: 'VLV',
@@ -285,9 +323,19 @@ export default {
             credits: 20_000,
             minPersonnel: 2,
             maxPersonnel: 3,
+            schooling: {
+                'Caserma dei vigili del fuoco': {
+                    'Corso medico di emergenza': {
+                        all: true,
+                    },
+                },
+                'Soccorso': {
+                    'Corso medico di emergenza': {
+                        all: true,
+                    },
+                },
+            },
             special: 'Richiesto dopo aver costruito 3 stazioni di soccorso ',
-            schooling: 'Soccorso - Corso medico di emergenza',
-            shownSchooling: 'Medico di emergenza',
         },
         19: {
             caption: 'MSA',
@@ -296,8 +344,18 @@ export default {
             credits: 25_000,
             minPersonnel: 2,
             maxPersonnel: 5,
-            schooling: 'Soccorso - Corso medico di emergenza',
-            shownSchooling: 'Medico di emergenza',
+            schooling: {
+                'Caserma dei vigili del fuoco': {
+                    'Corso medico di emergenza': {
+                        all: true,
+                    },
+                },
+                'Soccorso': {
+                    'Corso medico di emergenza': {
+                        all: true,
+                    },
+                },
+            },
         },
         20: {
             caption: 'Ambulanza ordinaria',
@@ -322,8 +380,13 @@ export default {
             credits: 35_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            schooling: 'Polizia - Corso Artificieri',
-            shownSchooling: 'Corso Artificieri',
+            schooling: {
+                Polizia: {
+                    'Corso Artificieri': {
+                        all: true,
+                    },
+                },
+            },
         },
         23: {
             caption: 'Camion NSSA',
@@ -332,9 +395,13 @@ export default {
             credits: 10_000,
             minPersonnel: 2,
             maxPersonnel: 2,
-            schooling:
-                'Caserma dei vigili del fuoco - Corso per operatore tecnico NSSA',
-            shownSchooling: 'Corso per operatore tecnico NSSA',
+            schooling: {
+                'Caserma dei vigili del fuoco': {
+                    'Corso per operatore tecnico NSSA': {
+                        all: true,
+                    },
+                },
+            },
         },
         24: {
             caption: 'Pickup SAF',
@@ -343,9 +410,13 @@ export default {
             credits: 10_000,
             minPersonnel: 3,
             maxPersonnel: 3,
-            schooling:
-                'Caserma dei vigili del fuoco - Corso per operatore tecnico SAF',
-            shownSchooling: 'Corso per operatore tecnico SAF',
+            schooling: {
+                'Caserma dei vigili del fuoco': {
+                    'Corso per operatore tecnico SAF': {
+                        all: true,
+                    },
+                },
+            },
         },
         25: {
             caption: 'Barca',
@@ -407,9 +478,13 @@ export default {
             credits: 20_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            schooling:
-                'Caserma dei vigili del fuoco - Direttore Operazioni Spegnimento',
-            shownSchooling: 'Direttore Operazioni Spegnimento',
+            schooling: {
+                'Caserma dei vigili del fuoco': {
+                    'Direttore Operazioni Spegnimento': {
+                        all: true,
+                    },
+                },
+            },
         },
         32: {
             caption: 'Camion con Rimorchio',
@@ -418,8 +493,16 @@ export default {
             credits: 5_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            schooling: 'Caserma dei vigili del fuoco - Autista Movimento Terra',
-            shownSchooling: 'Autista Movimento Terra',
+            schooling: {
+                'Caserma dei vigili del fuoco': {
+                    'Autista Movimento Terra': {
+                        min: 0,
+                    },
+                    'Autista Mezzi Pesanti': {
+                        all: true,
+                    },
+                },
+            },
         },
         33: {
             caption: 'Scavatore su Rimorchio',
@@ -439,9 +522,13 @@ export default {
             minPersonnel: 2,
             maxPersonnel: 2,
             wtank: 2_000,
-            schooling:
-                'Caserma dei vigili del fuoco - Pilota Velivoli Antincendio',
-            shownSchooling: 'Pilota Velivoli Antincendio',
+            schooling: {
+                'Caserma dei vigili del fuoco': {
+                    'Pilota Velivoli Antincendio': {
+                        all: true,
+                    },
+                },
+            },
         },
         35: {
             caption: 'Canadair',
@@ -451,9 +538,13 @@ export default {
             minPersonnel: 2,
             maxPersonnel: 5,
             wtank: 6_000,
-            schooling:
-                'Caserma dei vigili del fuoco - Pilota Velivoli Antincendio',
-            shownSchooling: 'Pilota Velivoli Antincendio',
+            schooling: {
+                'Caserma dei vigili del fuoco': {
+                    'Pilota Velivoli Antincendio': {
+                        all: true,
+                    },
+                },
+            },
         },
         36: {
             caption: 'P.M.A.',
@@ -462,8 +553,18 @@ export default {
             credits: 50_000,
             minPersonnel: 1,
             maxPersonnel: 4,
-            schooling: 'Soccorso - Corso Operatore MaxiEmergenze',
-            shownSchooling: 'Operatore MaxiEmergenze',
+            schooling: {
+                'Caserma dei vigili del fuoco': {
+                    'Corso Operatore MaxiEmergenze': {
+                        all: true,
+                    },
+                },
+                'Soccorso': {
+                    'Corso Operatore MaxiEmergenze': {
+                        all: true,
+                    },
+                },
+            },
         },
         37: {
             caption: 'ACT/SCHIUMA',
@@ -520,6 +621,7 @@ export default {
                 'Dalla 24° Caserma ,i costi aumentano con questa formula: <code>100.000+200.000*LOG<sub>2</sub>(Numero di caserme dei vigili del fuoco esistenti − 22)</code>. Il prezzo delle monete rimane costante!',
             startPersonnel: 10,
             startVehicles: ['ABP, APS'],
+            schoolingTypes: ['Caserma dei vigili del fuoco'],
             maxBuildingsFunction: (): number => 5_000,
         },
         1: {
@@ -560,6 +662,7 @@ export default {
             special: '',
             startPersonnel: 3,
             startVehicles: ['Ambulanza BLSD'],
+            schoolingTypes: ['Soccorso'],
         },
         3: {
             caption: 'Scuola di formazione emergenza sanitaria (EMS)',
@@ -704,6 +807,7 @@ export default {
                 'Fino al 125esimo edificio (di qualsiasi tipo) potranno essere solo 4, arrivati a questo numero sarà possibile aumentrali di uno ogni 25 edifici',
             startPersonnel: 0,
             startVehicles: [],
+            schoolingTypes: ['Soccorso'],
             maxBuildingsFunction: (buildingsAmountTotal: number): number =>
                 buildingsAmountTotal < 125
                     ? 4
@@ -735,6 +839,7 @@ export default {
                 'Dalla 24° caserma i costi aumenteranno secondo la seguente formula: <code>100.000+200.000*LOG<sub>2</sub>(Number of existing police stations − 22)</code>. The Coins price remains constant!',
             startPersonnel: 2,
             startVehicles: ['Volante'],
+            schoolingTypes: ['Polizia'],
             maxBuildingsFunction: (): number => 1_700,
         },
         7: {
@@ -784,6 +889,7 @@ export default {
                 '2 piste di atterraggio possono essere costruite per stazione . Fino al 125esimo edificio (di tutti i tipi) potranno essere solo 4, arrivati a questo numero sarà possibile aumentrali di uno ogni 25 edifici.',
             startPersonnel: 3,
             startVehicles: [],
+            schoolingTypes: ['Polizia'],
             maxBuildingsFunction: (buildingsAmountTotal: number): number =>
                 buildingsAmountTotal < 125
                     ? 4
@@ -815,6 +921,7 @@ export default {
             special: 'Avrete 10 persone e un Pickup SAF gratis.',
             startPersonnel: 10,
             startVehicles: ['Pickup SAF'],
+            schoolingTypes: ['Soccorso'],
         },
         16: {
             caption: 'Carcere',
@@ -860,6 +967,7 @@ export default {
                 'A partire dalla 24° caserma i costi aumenteranno secondo la seguente formula: <code>(100.000+200.000*LOG<sub>2</sub>(Number of existing fire stations − 22)) / 2</code>. max. 1 Million Credits. The Coins price remains constant!',
             startPersonnel: 10,
             startVehicles: ['ABP', 'APS'],
+            schoolingTypes: ['Caserma dei vigili del fuoco'],
             maxBuildingsFunction: (): number => 5_000,
         },
         19: {
@@ -893,6 +1001,7 @@ export default {
                 'A partire dalla 24° caserma i costi aumenteranno secondo la seguente formula:<code>(100.000+200.000*LOG<sub>2</sub>(Number of existing police stations − 22)) / 2</code>. The Coins price remains constant!',
             startPersonnel: 2,
             startVehicles: ['Volante'],
+            schoolingTypes: ['Polizia'],
             maxBuildingsFunction: (): number => 1_700,
         },
         20: {
@@ -912,6 +1021,7 @@ export default {
             special: '',
             startPersonnel: 3,
             startVehicles: ['Ambulanza BLSD'],
+            schoolingTypes: ['Soccorso'],
         },
         21: {
             caption: 'Caserma della Finanza',
@@ -924,6 +1034,7 @@ export default {
             maxLevel: 5,
             startPersonnel: 4,
             startVehicles: ['Volante Finanza'],
+            schoolingTypes: ['Polizia'],
         },
         24: {
             caption: 'Base Aerea Antincendio',
@@ -936,6 +1047,7 @@ export default {
             maxLevel: 5,
             startPersonnel: 2,
             startVehicles: ['Elicottero Antincendio'],
+            schoolingTypes: ['Caserma dei vigili del fuoco'],
         },
     },
     buildingCategories: {
@@ -1016,10 +1128,12 @@ export default {
             {
                 caption: 'N.B.C.R.',
                 duration: '3 giorni',
+                staffList: 'N.B.C.R.',
             },
             {
                 caption: 'Corso per funzionario (UCL)',
                 duration: '5 giorni',
+                staffList: 'Comando mobile',
             },
             {
                 caption: 'Servizio antincendio aeroportuale in addestramento',
@@ -1028,6 +1142,7 @@ export default {
             {
                 caption: 'Corso per operatore tecnico SAF',
                 duration: '3 giorni',
+                staffList: 'Corso per operatore tecnico SAF',
             },
             {
                 caption: 'Navigazione in oceano',
@@ -1036,62 +1151,76 @@ export default {
             {
                 caption: 'Corso autista di Autogrù',
                 duration: '3 giorni',
+                staffList: 'Autogrù',
             },
             {
                 caption: 'Corso medico di emergenza',
                 duration: '7 giorni',
+                staffList: 'Medico di emergenza',
             },
             {
                 caption: 'Corso per operatore tecnico NSSA',
                 duration: '5 giorni',
+                staffList: 'Corso per operatore tecnico NSSA',
             },
             {
                 caption: 'Autista Movimento Terra',
                 duration: '3 giorni',
+                staffList: 'Autista Movimento Terra',
             },
             {
                 caption: 'Pilota Velivoli Antincendio',
                 duration: '5 giorni',
+                staffList: 'Pilota Velivoli Antincendio',
             },
             {
                 caption: 'Direttore Operazioni Spegnimento',
                 duration: '3 giorni',
+                staffList: 'Direttore Operazioni Spegnimento',
             },
             {
                 caption: 'Corso Operatore MaxiEmergenze',
                 duration: '5 giorni',
+                staffList: 'Operatore MaxiEmergenze',
             },
         ],
         'Polizia': [
             {
                 caption: 'Reparto volo della polizia',
                 duration: '7 giorni',
+                staffList: 'Reparto volo della polizia',
             },
             {
                 caption: 'Specializzazione antisommossa/UOPI',
                 duration: '5 giorni',
+                staffList: 'Specializzazione antisommossa/UOPI',
             },
             {
                 caption: 'Specializzazione unità cinofila',
                 duration: '5 giorni',
+                staffList: 'Specializzazione unità cinofila',
             },
             {
                 caption: 'Specializzazione motociclista',
                 duration: '3 giorni',
+                staffList: 'Specializzazione motociclista',
             },
             {
                 caption: 'Corso Artificieri',
                 duration: '3 giorni',
+                staffList: 'Corso Artificieri',
             },
         ],
         'Soccorso': [
             {
                 caption: 'Corso medico di emergenza',
                 duration: '7 giorni',
+                staffList: 'Medico di emergenza',
             },
             {
-                caption: 'Corso Operatore MaxiEmergenze ',
+                caption: 'Corso Operatore MaxiEmergenze',
                 duration: '5 giorni',
+                staffList: 'Operatore MaxiEmergenze',
             },
         ],
     },
