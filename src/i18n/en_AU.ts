@@ -405,7 +405,12 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 2,
             schooling: {
-                Recue: {
+                'Fire Station': {
+                    'Intensive Care Education': {
+                        all: true,
+                    },
+                },
+                'Rescue': {
                     'Intensive Care Education': {
                         all: true,
                     },
@@ -420,7 +425,12 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 1,
             schooling: {
-                Recue: {
+                'Fire Station': {
+                    'Intensive Care Education': {
+                        all: true,
+                    },
+                },
+                'Rescue': {
                     'Intensive Care Education': {
                         all: true,
                     },
@@ -1043,6 +1053,7 @@ export default {
             {
                 caption: 'Intensive Care Education',
                 duration: '5 Days',
+                staffList: 'Intensive Care Paramedic',
             },
         ],
         'Police': [
