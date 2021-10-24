@@ -172,10 +172,15 @@ export default {
             credits: 19_200,
             minPersonnel: 1,
             maxPersonnel: 4,
+            schooling: {
+                'Centre de secours': {
+                    ['Véhicules risques chimiques']: {
+                        all: true,
+                    },
+                },
+            },
             special:
                 'Nécessaire dès lors que vous avez construit 7 bases de pompiers',
-            schooling: 'Centre de secours - Véhicules risques chimiques',
-            shownSchooling: 'Véhicules risques chimiques',
         },
         8: {
             caption: 'Véhicule de patrouille',
@@ -192,8 +197,18 @@ export default {
             credits: 300_000,
             minPersonnel: 3,
             maxPersonnel: 5,
-            schooling: 'Secours - Médecin',
-            shownSchooling: 'Médecin urgentiste',
+            schooling: {
+                'Centre de secours': {
+                    ['Médecin']: {
+                        all: true,
+                    },
+                },
+                'Secours': {
+                    ['Médecin']: {
+                        all: true,
+                    },
+                },
+            },
         },
         10: {
             caption: 'VAR',
@@ -210,8 +225,13 @@ export default {
             credits: 25_500,
             minPersonnel: 1,
             maxPersonnel: 6,
-            schooling: 'Centre de secours - Commandement mobile',
-            shownSchooling: 'VPC',
+            schooling: {
+                'Centre de secours': {
+                    'Commandement mobile': {
+                        all: true,
+                    },
+                },
+            },
             special:
                 'Nécessaire dès lors que vous avez construit 13 bases de pompiers',
         },
@@ -241,9 +261,13 @@ export default {
             credits: 19_000,
             minPersonnel: 2,
             maxPersonnel: 5,
-            schooling:
-                'Centre de secours - IMP (Intervention en Milieu Périlleux)',
-            shownSchooling: 'Spécialiste IMP',
+            schooling: {
+                'Centre de secours': {
+                    ['IMP (Intervention en Milieu Périlleux)']: {
+                        all: true,
+                    },
+                },
+            },
         },
         15: {
             caption: 'BEA',
@@ -260,8 +284,13 @@ export default {
             credits: 10_000,
             minPersonnel: 3,
             maxPersonnel: 3,
-            schooling: 'Centre de secours - PLG (Plongeur)',
-            shownSchooling: 'PLG (Plongeur)',
+            schooling: {
+                'Centre de secours': {
+                    'PLG (Plongeur)': {
+                        all: true,
+                    },
+                },
+            },
             special: 'Nécessite une formation spéciale (PLG (Plongeur))',
         },
         17: {
@@ -280,8 +309,13 @@ export default {
             credits: 300_000,
             minPersonnel: 2,
             maxPersonnel: 4,
-            schooling: 'Poste de police - Licence de pilote',
-            shownSchooling: 'Aviation policière',
+            schooling: {
+                'Poste de police': {
+                    'Licence de pilote': {
+                        all: true,
+                    },
+                },
+            },
         },
         19: {
             caption: 'Equipe cynophile',
@@ -290,8 +324,13 @@ export default {
             credits: 7_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            schooling: 'Poste de police - Maître chien',
-            shownSchooling: 'Brigade canine',
+            schooling: {
+                'Poste de police': {
+                    ['Maître chien']: {
+                        all: true,
+                    },
+                },
+            },
             special:
                 'Nécessaire dès lors que vous avez construit 6 postes de police.<br>Nécessite une formation spéciale (Maître chien)',
         },
@@ -302,8 +341,13 @@ export default {
             credits: 2_500,
             minPersonnel: 1,
             maxPersonnel: 1,
-            schooling: 'Poste de police - Formation motocycliste',
-            shownSchooling: 'Policie motocycliste',
+            schooling: {
+                'Poste de police': {
+                    'Formation motocycliste': {
+                        all: true,
+                    },
+                },
+            },
         },
         21: {
             caption: 'CCFS',
@@ -363,8 +407,18 @@ export default {
             credits: 4_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            schooling: 'Centre de secours - Médecin',
-            shownSchooling: 'Médecin urgentiste',
+            schooling: {
+                'Centre de secours': {
+                    ['Médecin']: {
+                        all: true,
+                    },
+                },
+                'Secours': {
+                    ['Médecin']: {
+                        all: true,
+                    },
+                },
+            },
         },
         27: {
             caption: 'VLM',
@@ -373,8 +427,18 @@ export default {
             credits: 4_000,
             minPersonnel: 3,
             maxPersonnel: 3,
-            schooling: 'Secours - Médecin',
-            shownSchooling: 'Médecin urgentiste',
+            schooling: {
+                'Centre de secours': {
+                    ['Médecin']: {
+                        all: true,
+                    },
+                },
+                'Secours': {
+                    ['Médecin']: {
+                        all: true,
+                    },
+                },
+            },
         },
         28: {
             caption: 'AR',
@@ -383,8 +447,18 @@ export default {
             credits: 10_000,
             minPersonnel: 3,
             maxPersonnel: 3,
-            schooling: 'Secours - Médecin',
-            shownSchooling: 'Médecin urgentiste',
+            schooling: {
+                'Centre de secours': {
+                    ['Médecin']: {
+                        all: true,
+                    },
+                },
+                'Secours': {
+                    ['Médecin']: {
+                        all: true,
+                    },
+                },
+            },
         },
         29: {
             caption: 'PC DSM',
@@ -393,8 +467,13 @@ export default {
             credits: 20_000,
             minPersonnel: 2,
             maxPersonnel: 3,
-            schooling: 'Secours - DSM',
-            shownSchooling: 'Chef du pôle urgences',
+            schooling: {
+                Secours: {
+                    DSM: {
+                        all: true,
+                    },
+                },
+            },
             special:
                 'Nécessaire dès lors que vous avez construit 6 postes de secours',
         },
@@ -510,6 +589,7 @@ export default {
                 'Le prix de vos postes augmente lorsque vous en possédez 25. Ainsi, le rythme de progression est constant une fois que vous possédez un grand flux de revenus à ces niveaux de jeu. La formule actuelle pour calculer le prix des postes est la suivante : <code>100.000+(200.000*LOG<sub>2</sub>(Number of existing fire stations − 22))</code>.',
             startPersonnel: 10,
             startVehicles: ['FPT', 'FPTL'],
+            schoolingTypes: ['Centre de secours'],
             maxBuildingsFunction: (): number => 5_000,
         },
         1: {
@@ -543,6 +623,7 @@ export default {
             special: '',
             startPersonnel: 3,
             startVehicles: ['UMH'],
+            schoolingTypes: ['Secours'],
         },
         3: {
             caption: 'École de médecine',
@@ -645,6 +726,7 @@ export default {
                 'Nombre de stations max : nombre de bâtiments divisé par 25.',
             startPersonnel: 0,
             startVehicles: [],
+            schoolingTypes: ['Secours'],
             maxBuildingsFunction: (buildingsAmountTotal: number): number =>
                 buildingsAmountTotal < 125
                     ? 4
@@ -674,6 +756,7 @@ export default {
             maxLevel: 14,
             startPersonnel: 2,
             startVehicles: ['Véhicule de patrouille'],
+            schoolingTypes: ['Poste de police'],
             maxBuildingsFunction: (): number => 1_700,
         },
         7: {
@@ -725,6 +808,7 @@ export default {
                 "Attention : Vous ne pouvez construire un maximum de 25 héliports de Gendarmerie. Il n'y a pas de différence si vous construisez un nouveau bâtiment ou une nouvelle extension. (Plus vous construisez de bâtiments et plus vous pourrez construire d'héliports).",
             startPersonnel: 3,
             startVehicles: [],
+            schoolingTypes: ['Poste de police'],
             maxBuildingsFunction: (buildingsAmountTotal: number): number =>
                 buildingsAmountTotal < 125
                     ? 4
@@ -788,6 +872,7 @@ export default {
                 'Le prix de vos postes augmente lorsque vous en possédez 25. Ainsi, le rythme de progression est constant une fois que vous possédez un grand flux de revenus à ces niveaux de jeu. La formule actuelle pour calculer le prix des postes est la suivante : <code>100.000+(200.000*LOG<sub>2</sub>(Number of existing fire stations − 22))</code>.',
             startPersonnel: 10,
             startVehicles: ['FPT', 'FPTL'],
+            schoolingTypes: ['Centre de secours'],
             maxBuildingsFunction: (): number => 5_000,
         },
         19: {
@@ -821,6 +906,7 @@ export default {
                 'Le prix de vos postes augmente lorsque vous en possédez 25. Ainsi, le rythme de progression est constant une fois que vous possédez un grand flux de revenus à ces niveaux de jeu. La formule actuelle pour calculer le prix des postes est la suivante : <code>100.000+(200.000*LOG<sub>2</sub>(Number of existing fire stations − 22))</code>.',
             startPersonnel: 2,
             startVehicles: ['Véhicule de patrouille'],
+            schoolingTypes: ['Poste de police'],
             maxBuildingsFunction: (): number => 1_700,
         },
         20: {
@@ -840,6 +926,7 @@ export default {
             special: '',
             startPersonnel: 3,
             startVehicles: ['UMH'],
+            schoolingTypes: ['Secours'],
         },
     },
     buildingCategories: {
@@ -919,10 +1006,12 @@ export default {
             {
                 caption: 'Véhicules risques chimiques',
                 duration: '3 jours',
+                staffList: 'Véhicules risques chimiques',
             },
             {
                 caption: 'Commandement mobile',
                 duration: '5 jours',
+                staffList: 'VPC',
             },
             {
                 caption: 'Formation SSLIA',
@@ -939,38 +1028,46 @@ export default {
             {
                 caption: 'IMP (Intervention en Milieu Périlleux',
                 duration: '4 jours',
+                staffList: 'Spécialiste IMP',
             },
             {
                 caption: 'PLG (Plongeur)',
                 duration: '5 jours',
+                staffList: 'PLG (Plongeur)',
             },
             {
                 caption: 'Médecin',
                 duration: '5 jours',
+                staffList: 'Médecin urgentiste',
             },
         ],
         'Secours': [
             {
                 caption: 'DSM',
                 duration: '7 jours',
+                staffList: 'Chef du pôle urgences',
             },
             {
                 caption: 'Médecin',
                 duration: '5 jours',
+                staffList: 'Médecin urgentiste',
             },
         ],
         'Poste de police': [
             {
                 caption: 'Licence de Pilote',
                 duration: '7 jours',
+                staffList: 'Aviation policière',
             },
             {
                 caption: 'Maître chien',
                 duration: '5 jours',
+                staffList: 'Brigade canine',
             },
             {
                 caption: 'Formation Motocycliste',
                 duration: '3 jours',
+                staffList: 'Policie motocycliste',
             },
         ],
     },
