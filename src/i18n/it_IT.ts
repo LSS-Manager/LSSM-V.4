@@ -496,6 +496,9 @@ export default {
             schooling: {
                 'Caserma dei vigili del fuoco': {
                     'Autista Movimento Terra': {
+                        min: 0,
+                    },
+                    'Autista Mezzi Pesanti': {
                         all: true,
                     },
                 },
