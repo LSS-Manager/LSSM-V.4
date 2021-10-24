@@ -198,12 +198,7 @@ export default {
             minPersonnel: 3,
             maxPersonnel: 5,
             schooling: {
-                'Centre de secours': {
-                    ['Médecin']: {
-                        all: true,
-                    },
-                },
-                'Secours': {
+                Secours: {
                     ['Médecin']: {
                         all: true,
                     },
@@ -343,7 +338,7 @@ export default {
             maxPersonnel: 1,
             schooling: {
                 'Poste de police': {
-                    'Formation motocycliste': {
+                    'Formation Motocycliste': {
                         all: true,
                     },
                 },
@@ -413,11 +408,6 @@ export default {
                         all: true,
                     },
                 },
-                'Secours': {
-                    ['Médecin']: {
-                        all: true,
-                    },
-                },
             },
         },
         27: {
@@ -428,12 +418,7 @@ export default {
             minPersonnel: 3,
             maxPersonnel: 3,
             schooling: {
-                'Centre de secours': {
-                    ['Médecin']: {
-                        all: true,
-                    },
-                },
-                'Secours': {
+                Secours: {
                     ['Médecin']: {
                         all: true,
                     },
@@ -448,12 +433,7 @@ export default {
             minPersonnel: 3,
             maxPersonnel: 3,
             schooling: {
-                'Centre de secours': {
-                    ['Médecin']: {
-                        all: true,
-                    },
-                },
-                'Secours': {
+                Secours: {
                     ['Médecin']: {
                         all: true,
                     },
@@ -1026,7 +1006,7 @@ export default {
                 duration: '5 jours',
             },
             {
-                caption: 'IMP (Intervention en Milieu Périlleux',
+                caption: 'IMP (Intervention en Milieu Périlleux)',
                 duration: '4 jours',
                 staffList: 'Spécialiste IMP',
             },
@@ -1067,7 +1047,7 @@ export default {
             {
                 caption: 'Formation Motocycliste',
                 duration: '3 jours',
-                staffList: 'Policie motocycliste',
+                staffList: 'Policier motocycliste',
             },
         ],
     },
