@@ -1218,7 +1218,7 @@ export default {
                 staffList: 'Medico di emergenza',
             },
             {
-                caption: 'Corso Operatore MaxiEmergenze ',
+                caption: 'Corso Operatore MaxiEmergenze',
                 duration: '5 giorni',
                 staffList: 'Operatore MaxiEmergenze',
             },
