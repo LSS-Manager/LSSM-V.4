@@ -306,7 +306,7 @@ export default {
             maxPersonnel: 4,
             schooling: {
                 'Poste de police': {
-                    'Licence de pilote': {
+                    'Licence de Pilote': {
                         all: true,
                     },
                 },
