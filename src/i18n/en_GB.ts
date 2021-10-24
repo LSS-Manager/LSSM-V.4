@@ -427,6 +427,9 @@ export default {
                     'Firearms training': {
                         all: true,
                     },
+                    'Roads Policing Officer Training': {
+                        all: true,
+                    },
                 },
             },
             special:
