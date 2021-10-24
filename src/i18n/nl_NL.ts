@@ -239,8 +239,8 @@ export default {
                 Brandweer: {
                     'Verkenningseenheid Brandweer': {
                         all: true,
-                    }
-                }
+                    },
+                },
             },
             special: 'Benodigd vanaf 10 brandweerposten.',
             icon: 'shuttle-van',
@@ -322,8 +322,8 @@ export default {
                 Brandweer: {
                     'Hoofd Officier van Dienst - Brandweer': {
                         all: true,
-                    }
-                }
+                    },
+                },
             },
             special: 'Benodigd vanaf 13 brandweerposten.',
             icon: 'car-side',
@@ -370,8 +370,8 @@ export default {
                 Ambulance: {
                     'MMT-Bemanningslid': {
                         all: true,
-                    }
-                }
+                    },
+                },
             },
             special:
                 'Per 25 gebouwen (alle gebouwen) kan één Lifeliner gekocht worden',
@@ -389,8 +389,8 @@ export default {
                 Brandweer: {
                     'Adviseur Gevaarlijke Stoffen': {
                         all: true,
-                    }
-                }
+                    },
+                },
             },
             special: 'Benodigd vanaf 11 brandweerposten.',
             icon: 'car-side',
@@ -417,8 +417,8 @@ export default {
                 Brandweer: {
                     'Brandweerchauffeur-zwaar': {
                         all: true,
-                    }
-                }
+                    },
+                },
             },
             icon: 'truck-pickup',
             possibleBuildings: [0],
@@ -445,8 +445,8 @@ export default {
                 Politie: {
                     Politiehelikopter: {
                         all: true,
-                    }
-                }
+                    },
+                },
             },
             icon: 'helicopter',
             possibleBuildings: [9],
@@ -484,8 +484,8 @@ export default {
                 Brandweer: {
                     'Brandweerchauffeur-zwaar': {
                         all: true,
-                    }
-                }
+                    },
+                },
             },
             special: 'Benodigd vanaf 14 brandweerposten.',
             icon: 'truck-moving',
@@ -513,8 +513,8 @@ export default {
                 Brandweer: {
                     'Duiker/Duikploegleider': {
                         all: true,
-                    }
-                }
+                    },
+                },
             },
             icon: 'shuttle-van',
             possibleBuildings: [0],
@@ -542,8 +542,8 @@ export default {
                 Politie: {
                     'Officier van Dienst - Politie': {
                         all: true,
-                    }
-                }
+                    },
+                },
             },
             icon: 'car-side',
             possibleBuildings: [11],
@@ -571,8 +571,8 @@ export default {
                 Ambulance: {
                     'MMT-Bemanningslid': {
                         all: true,
-                    }
-                }
+                    },
+                },
             },
             special:
                 'Per 10 Ambulanceposten (Standplaatsen, VWS-posten en uitbreidingen) kan één MMT-Auto gekocht worden',
@@ -590,8 +590,8 @@ export default {
                 Ambulance: {
                     'Officier van Dienst Geneeskunde': {
                         all: true,
-                    }
-                }
+                    },
+                },
             },
             special: 'Benodigd vanaf de 8 gebouwen en/of uitbreiding',
             icon: 'car-side',
@@ -608,8 +608,8 @@ export default {
                 Politie: {
                     'Mobiele Eenheid': {
                         all: true,
-                    }
-                }
+                    },
+                },
             },
             icon: 'shuttle-van',
             possibleBuildings: [11],
@@ -625,8 +625,8 @@ export default {
                 Politie: {
                     'Mobiele Eenheid': {
                         all: true,
-                    }
-                }
+                    },
+                },
             },
             icon: 'shuttle-van',
             possibleBuildings: [11],
@@ -644,8 +644,8 @@ export default {
                 Brandweer: {
                     Vliegtuigbrandbestrijding: {
                         all: true,
-                    }
-                }
+                    },
+                },
             },
             icon: 'truck-moving',
             possibleBuildings: [0],
@@ -663,8 +663,8 @@ export default {
                 Brandweer: {
                     Vliegtuigbrandbestrijding: {
                         all: true,
-                    }
-                }
+                    },
+                },
             },
             icon: 'truck-moving',
             possibleBuildings: [0],
@@ -682,8 +682,8 @@ export default {
                 Brandweer: {
                     Vliegtuigbrandbestrijding: {
                         all: true,
-                    }
-                }
+                    },
+                },
             },
             icon: 'truck-moving',
             possibleBuildings: [0],
@@ -699,8 +699,8 @@ export default {
                 Brandweer: {
                     'Airport Fire Officer / On Scene Commander': {
                         all: true,
-                    }
-                }
+                    },
+                },
             },
             icon: 'car-side',
             possibleBuildings: [0],
@@ -738,8 +738,8 @@ export default {
                 Politie: {
                     Hondengeleider: {
                         all: true,
-                    }
-                }
+                    },
+                },
             },
             icon: 'car-side',
             possibleBuildings: [11],
@@ -755,8 +755,8 @@ export default {
                 Politie: {
                     Hondengeleider: {
                         all: true,
-                    }
-                }
+                    },
+                },
             },
             icon: 'shuttle-van',
             possibleBuildings: [11],
@@ -772,8 +772,8 @@ export default {
                 Brandweer: {
                     Oppervlakteredder: {
                         all: true,
-                    }
-                }
+                    },
+                },
             },
             icon: 'truck-moving',
             possibleBuildings: [0],
@@ -790,8 +790,8 @@ export default {
                 Brandweer: {
                     Oppervlakteredder: {
                         all: true,
-                    }
-                }
+                    },
+                },
             },
             icon: 'truck-moving',
             possibleBuildings: [0],
@@ -828,8 +828,8 @@ export default {
                 Politie: {
                     'Operator AT': {
                         all: true,
-                    }
-                }
+                    },
+                },
             },
             icon: 'car-side',
             possibleBuildings: [11],
@@ -845,8 +845,8 @@ export default {
                 Politie: {
                     'Operator AT': {
                         all: true,
-                    }
-                }
+                    },
+                },
             },
             icon: 'car-side',
             possibleBuildings: [11],
@@ -862,8 +862,8 @@ export default {
                 Politie: {
                     'Operator AT': {
                         all: true,
-                    }
-                }
+                    },
+                },
             },
             icon: 'shuttle-van',
             possibleBuildings: [11],
@@ -879,8 +879,8 @@ export default {
                 Brandweer: {
                     Voorlichter: {
                         all: true,
-                    }
-                }
+                    },
+                },
             },
             special: 'Benodigd vanaf 14 brandweerposten.',
             icon: 'car-side',
@@ -897,8 +897,8 @@ export default {
                 Ambulance: {
                     'Officier van Dienst Geneeskunde': {
                         all: true,
-                    }
-                }
+                    },
+                },
             },
             special:
                 'Per 10 Ambulanceposten (Standplaatsen, VWS-posten en uitbreidingen) kan één OVDG-RR gekocht worden',
@@ -938,8 +938,8 @@ export default {
                 Politie: {
                     Biketeam: {
                         all: true,
-                    }
-                }
+                    },
+                },
             },
             icon: 'shuttle-van',
             possibleBuildings: [5],
@@ -989,8 +989,8 @@ export default {
                 Politie: {
                     'ME - Aanhoudingseenheid': {
                         all: true,
-                    }
-                }
+                    },
+                },
             },
             icon: 'shuttle-van',
             possibleBuildings: [11],
@@ -1006,8 +1006,8 @@ export default {
                 Brandweer: {
                     Waterredding: {
                         all: true,
-                    }
-                }
+                    },
+                },
             },
             icon: 'car-side',
             possibleBuildings: [16],
@@ -1023,8 +1023,8 @@ export default {
                 Brandweer: {
                     Waterredding: {
                         all: true,
-                    }
-                }
+                    },
+                },
             },
             icon: 'car-side',
             possibleBuildings: [16],
@@ -1053,8 +1053,8 @@ export default {
                 Brandweer: {
                     'Brandweerchauffeur-zwaar': {
                         all: true,
-                    }
-                }
+                    },
+                },
             },
             icon: 'truck-moving',
             possibleBuildings: [0],
@@ -1169,7 +1169,7 @@ export default {
                 'TST-NB 4/5',
                 'TS 6/7',
             ],
-            schoolingType: 'Brandweer',
+            schoolingTypes: ['Brandweer'],
             maxBuildingsFunction: (): number => 5_000,
         },
         1: {
@@ -1269,7 +1269,7 @@ export default {
             special: '',
             startPersonnel: 3,
             startVehicles: ['Ambulance'],
-            schoolingType: 'Ambulance',
+            schoolingTypes: ['Ambulance'],
         },
         4: {
             caption: 'Brandweer academie',
@@ -1316,7 +1316,7 @@ export default {
                 'Vanaf het 25e opkomstbureau stijgen de kosten voor de bouw van een nieuw opkomstbureau volgens de volgende formule: <code>100.000+200.000*LOG<sub>2</sub>(Aantal opkomstbureaus − 22)</code>. De Coins prijs blijft gelijk!',
             startPersonnel: 2,
             startVehicles: ['DA Noodhulp'],
-            schoolingType: 'Politie',
+            schoolingTypes: ['Politie'],
             maxBuildingsFunction: (): number => 1_700,
         },
         6: {
@@ -1331,7 +1331,7 @@ export default {
             special: '',
             startPersonnel: 3,
             startVehicles: [],
-            schoolingType: 'Ambulance',
+            schoolingTypes: ['Ambulance'],
         },
         7: {
             caption: 'Universiteit Geneeskunde',
@@ -1384,7 +1384,7 @@ export default {
                 'Tot het 125ste gebouw (van alle soorten) kunnen maximaal 4 landingsplaatsen worden gebouwd. Dan groeit het aantal met 1 per 25 gebouwen (vanaf 125).',
             startPersonnel: 0,
             startVehicles: [],
-            schoolingType: 'Politie',
+            schoolingTypes: ['Politie'],
             maxBuildingsFunction: (buildingsAmountTotal: number): number =>
                 buildingsAmountTotal < 125
                     ? 4
@@ -1460,7 +1460,7 @@ export default {
             special: '',
             startPersonnel: 10,
             startVehicles: ['Officier van Dienst - Politie'],
-            schoolingType: 'Politie',
+            schoolingTypes: ['Politie'],
         },
         12: {
             caption: 'Cellencomplex',
@@ -1501,7 +1501,7 @@ export default {
             special: '',
             startPersonnel: 3,
             startVehicles: ['Ambulance'],
-            schoolingType: 'Ambulance',
+            schoolingTypes: ['Ambulance'],
         },
         14: {
             caption: 'Groot gebouwencomplex',
@@ -1551,7 +1551,7 @@ export default {
             special: '',
             startPersonnel: 4,
             startVehicles: [],
-            schoolingType: 'Brandweer',
+            schoolingTypes: ['Brandweer'],
         },
     },
     buildingCategories: {

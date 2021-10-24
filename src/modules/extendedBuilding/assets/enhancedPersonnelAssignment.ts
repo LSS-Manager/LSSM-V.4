@@ -1,7 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { Building, InternalBuilding } from 'typings/Building';
 import { $m } from 'typings/Module';
 import { Schooling } from 'typings/Schooling';
+import { Building, InternalBuilding } from 'typings/Building';
 import { InternalVehicle, Vehicle } from 'typings/Vehicle';
 
 export default async (
@@ -38,35 +38,43 @@ export default async (
     };
     if (vehicleId < 0 || !vehicle) return;
 
-    const schoolingType = (LSSM.$t('buildings') as Record<
-        number,
-        InternalBuilding
-    >)[
+    const schools = (LSSM.$t('buildings') as Record<number, InternalBuilding>)[
         (LSSM.$store.state.api.buildings as Building[]).find(
             ({ id }) => id === vehicle.building_id
         )?.building_type ?? -1
-    ]?.schoolingType;
+    ]?.schoolingTypes;
 
-    if (!schoolingType) return;
+    if (!schools) return;
 
     const schoolingStaffListByCaption = Object.fromEntries(
-        ((LSSM.$t('schoolings') as unknown) as Record<string, Schooling[]>)[
-            schoolingType
-        ].map(({ caption, staffList }) => [caption, staffList])
+        schools.map(school => [
+            school,
+            Object.fromEntries(
+                ((LSSM.$t('schoolings') as unknown) as Record<
+                    string,
+                    Schooling[]
+                >)[school].map(({ caption, staffList }) => [caption, staffList])
+            ),
+        ])
     );
 
     const fittingRows = [] as HTMLTableRowElement[];
-    const schoolings = Object.keys(
-        vehicleTypes[vehicle.vehicle_type].schooling?.[schoolingType] ?? {}
-    );
-    schoolings.forEach(schoolingCaption => {
-        const staffList = schoolingStaffListByCaption[schoolingCaption];
-        personnel.forEach(row => {
-            if (
-                row.textContent?.match(LSSM.$utils.escapeRegex(staffList)) &&
-                !fittingRows.includes(row)
-            )
-                fittingRows.push(row);
+    schools.forEach(school => {
+        const schoolings = Object.keys(
+            vehicleTypes[vehicle.vehicle_type].schooling?.[school] ?? {}
+        );
+        schoolings.forEach(schoolingCaption => {
+            const staffList =
+                schoolingStaffListByCaption[school][schoolingCaption];
+            personnel.forEach(row => {
+                if (
+                    row.textContent?.match(
+                        LSSM.$utils.escapeRegex(staffList)
+                    ) &&
+                    !fittingRows.includes(row)
+                )
+                    fittingRows.push(row);
+            });
         });
     });
     const nonFittingRows = personnel.filter(row => !fittingRows.includes(row));

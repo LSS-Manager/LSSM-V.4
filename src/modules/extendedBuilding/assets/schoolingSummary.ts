@@ -75,21 +75,24 @@ export default async (LSSM: Vue, $m: $m, MODULE_ID: string): Promise<void> => {
         [id: number]: InternalVehicle;
     };
 
-    const schoolingType = (LSSM.$t('buildings') as Record<
-        number,
-        InternalBuilding
-    >)[
+    const schools = (LSSM.$t('buildings') as Record<number, InternalBuilding>)[
         (LSSM.$store.state.api.buildings as Building[]).find(
             ({ id }) => id === buildingId
         )?.building_type ?? -1
-    ]?.schoolingType;
+    ]?.schoolingTypes;
 
-    if (!schoolingType) return;
+    if (!schools) return;
 
     const schoolingStaffListByCaption = Object.fromEntries(
-        ((LSSM.$t('schoolings') as unknown) as Record<string, Schooling[]>)[
-            schoolingType
-        ].map(({ caption, staffList }) => [caption, staffList])
+        schools.map(school => [
+            school,
+            Object.fromEntries(
+                ((LSSM.$t('schoolings') as unknown) as Record<
+                    string,
+                    Schooling[]
+                >)[school].map(({ caption, staffList }) => [caption, staffList])
+            ),
+        ])
     );
 
     LSSM.$store
@@ -100,22 +103,25 @@ export default async (LSSM: Vue, $m: $m, MODULE_ID: string): Promise<void> => {
         .then((vehicles: Vehicle[]) => {
             vehicles.forEach(v => {
                 const type = vehicleTypes[v.vehicle_type];
-                const vehicleSchoolings = type.schooling?.[schoolingType] ?? {};
-                Object.entries(vehicleSchoolings).forEach(
-                    ([schooling, { min, all }]) => {
-                        const staffListSchooling =
-                            schoolingStaffListByCaption[schooling];
-                        if (
-                            !staffListSchooling ||
-                            !summaryEach.hasOwnProperty(staffListSchooling)
-                        )
-                            return;
-                        summaryEach[staffListSchooling].min +=
-                            (all ? null : min) ?? type.minPersonnel;
-                        summaryEach[staffListSchooling].max +=
-                            v.max_personnel_override ?? type.maxPersonnel;
-                    }
-                );
+                schools.forEach(school => {
+                    console.log(school);
+                    const vehicleSchoolings = type.schooling?.[school] ?? {};
+                    Object.entries(vehicleSchoolings).forEach(
+                        ([schooling, { min, all }]) => {
+                            const staffListSchooling =
+                                schoolingStaffListByCaption[school][schooling];
+                            if (
+                                !staffListSchooling ||
+                                !summaryEach.hasOwnProperty(staffListSchooling)
+                            )
+                                return;
+                            summaryEach[staffListSchooling].min +=
+                                (all ? null : min) ?? type.minPersonnel;
+                            summaryEach[staffListSchooling].max +=
+                                v.max_personnel_override ?? type.maxPersonnel;
+                        }
+                    );
+                });
             });
 
             new LSSM.$vue({

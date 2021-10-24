@@ -611,7 +611,7 @@ export default {
                 'From the 24th fire station onwards, the cost of building a new fire station increases according to the following formula: <code>100.000+200.000*LOG<sub>2</sub>(Number of existing fire stations − 22)</code>. The Coins price remains constant!',
             startPersonnel: 10,
             startVehicles: ['Water Ladder', 'Light 4X4 Pump (L4P)'],
-            schoolingType: 'Fire Station',
+            schoolingTypes: ['Fire Station'],
             maxBuildingsFunction: (): number => 5_000,
         },
         1: {
@@ -652,7 +652,7 @@ export default {
             special: '',
             startPersonnel: 3,
             startVehicles: ['Ambulance'],
-            schoolingType: 'Rescue',
+            schoolingTypes: ['Rescue'],
         },
         3: {
             caption: 'Rescue (EMS) Academy',
@@ -757,7 +757,7 @@ export default {
                 'Up to the 125th building (of all types) a total of max. 4 landing sites can be built. After that the number increases by 1 every 25 buildings (starting at the 125th).',
             startPersonnel: 1,
             startVehicles: [],
-            schoolingType: 'Rescue',
+            schoolingTypes: ['Rescue'],
             maxBuildingsFunction: (buildingsAmountTotal: number): number =>
                 buildingsAmountTotal < 125
                     ? 4
@@ -789,7 +789,7 @@ export default {
                 'From the 24th police station onwards, the costs for the new construction of a police station increase according to the following formula: <code>100.000+200.000*LOG<sub>2</sub>(Number of existing police stations − 22)</code>. The Coins price remains constant!',
             startPersonnel: 2,
             startVehicles: ['Incident response vehicle (IRV)'],
-            schoolingType: 'Police',
+            schoolingTypes: ['Police'],
             maxBuildingsFunction: (): number => 1_700,
         },
         7: {
@@ -841,7 +841,7 @@ export default {
                 'Up to 6 landing sites can be built per station (expansion stages). Up to the 125th building (of all types) a total of max. 4 landing sites can be built. After that the number increases by 1 every 25 buildings (starting at the 125th).',
             startPersonnel: 3,
             startVehicles: [],
-            schoolingType: 'Police',
+            schoolingTypes: ['Police'],
             maxBuildingsFunction: (buildingsAmountTotal: number): number =>
                 buildingsAmountTotal < 125
                     ? 4
@@ -905,7 +905,7 @@ export default {
                 'From the 24th fire station onwards, the cost of building a new fire station increases according to the following formula: <code>(100.000+200.000*LOG<sub>2</sub>(Number of existing fire stations − 22)) / 2</code>. max. 1 Million Credits. The Coins price remains constant!',
             startPersonnel: 10,
             startVehicles: ['Water Ladder', 'Light 4X4 Pump (L4P)'],
-            schoolingType: 'Fire Station',
+            schoolingTypes: ['Fire Station'],
             maxBuildingsFunction: (): number => 5_000,
         },
         19: {
@@ -939,7 +939,7 @@ export default {
                 'From the 24th police station onwards, the costs for the new construction of a police station are calculated according to the following formula: <code>(100.000+200.000*LOG<sub>2</sub>(Number of existing police stations − 22)) / 2</code>. The Coins price remains constant!',
             startPersonnel: 2,
             startVehicles: ['Incident response vehicle (IRV)'],
-            schoolingType: 'Police',
+            schoolingTypes: ['Police'],
             maxBuildingsFunction: (): number => 1_700,
         },
         20: {
@@ -959,7 +959,7 @@ export default {
             special: '',
             startPersonnel: 3,
             startVehicles: ['Ambulance'],
-            schoolingType: 'Rescue',
+            schoolingTypes: ['Rescue'],
         },
         21: {
             caption: 'Clinic',
@@ -980,7 +980,7 @@ export default {
             special: '',
             startPersonnel: 0,
             startVehicles: ['None. You can buy max. 2 Vehicles'],
-            schoolingType: 'Rescue',
+            schoolingTypes: ['Rescue'],
         },
         22: {
             caption: 'Home Response Location',
@@ -988,13 +988,14 @@ export default {
             coins: 10,
             credits: 100_000,
             extensions: [],
-            levelcost: ['not expandeble'],
+            levelcost: ['not expandable'],
             maxBuildings: 'No limit',
             maxLevel: 0,
             special:
                 'It can only Store: Fire Officer, Rapid Response Vehicle, Operational Team Leader, General Practitioner, Community First Responder, Ambulance Officer, Dog Support Unit (DSU)',
             startPersonnel: 1,
             startVehicles: [''],
+            schoolingTypes: ['Rescue', 'Police'],
         },
         25: {
             caption: 'HART Base',
@@ -1022,6 +1023,7 @@ export default {
             special: '',
             startPersonnel: 10,
             startVehicles: [],
+            schoolingTypes: ['Rescue'],
         },
     },
     buildingCategories: {

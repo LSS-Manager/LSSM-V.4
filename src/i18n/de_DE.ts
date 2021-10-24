@@ -1697,7 +1697,7 @@ export default {
                 'TSF-W',
                 '(HLF 20 und HLF 10 ab Dienstgrad "Gruppenfüher(in)" => Baukosten 20.000 höher)',
             ],
-            schoolingType: 'Feuerwehr',
+            schoolingTypes: ['Feuerwehr'],
             maxBuildingsFunction: (): number => 5_000,
         },
         1: {
@@ -1731,7 +1731,7 @@ export default {
             special: '',
             startPersonnel: 3,
             startVehicles: ['RTW'],
-            schoolingType: 'Rettungsdienst',
+            schoolingTypes: ['Rettungsdienst'],
         },
         3: {
             caption: 'Rettungsschule',
@@ -1834,7 +1834,7 @@ export default {
                 'Pro Station können bis zu 7 Landeplätze gebaut werden (Ausbaustufen). Bis zum 125. Gebäude (aller Art) können insgesamt max. 4 Landeplätze gebaut werden. Danach wächst die Zahl alle 25 Gebäude um 1 (Beginnend beim 125.).',
             startPersonnel: 0,
             startVehicles: [],
-            schoolingType: 'Rettungsdienst',
+            schoolingTypes: ['Rettungsdienst'],
             maxBuildingsFunction: (buildingsAmountTotal: number): number =>
                 buildingsAmountTotal < 125
                     ? 4
@@ -1872,7 +1872,7 @@ export default {
                 'Ab der 24. Polizeiwache steigen die Kosten für den Neubau einer Wache nach folgender Formel: <code>100.000+200.000*LOG<sub>2</sub>(Anzahl der vorhandenen Polizeiache − 22)</code>. Der Coins-Preis bleibt konstant!',
             startPersonnel: 2,
             startVehicles: ['FuStW'],
-            schoolingType: 'Polizei',
+            schoolingTypes: ['Polizei'],
             maxBuildingsFunction: (): number => 1_700,
         },
         7: {
@@ -1977,7 +1977,7 @@ export default {
                 'Mit dem Bau eines THW-Ortsverbands bekommt man einen GKW und 9 Mitglieder geschenkt. Baukosten für weitere THW-Liegenschaften: 2. Ortsverband 300.000 Credits/ 35 Coins, 3. Ortsverband 358.496 Credits/ 35 Coins, 4. Ortsverband 432.193 Credits/ 35 Coins, 5. Ortsverband 458.496 Credits/ 35 Coins. Formel: <code>200.000+100.000*LOG<sub>2</sub>(Anzahl der vorhandenen Wachen + 1)</code>',
             startPersonnel: 9,
             startVehicles: ['GKW'],
-            schoolingType: 'THW',
+            schoolingTypes: ['THW'],
         },
         10: {
             caption: 'THW Bundesschule',
@@ -2066,7 +2066,7 @@ export default {
                 'Mit dem Bau einer Bereitschaftspolizei bekommt man automatisch 4 Stellplätze für einen Zug (3 GruKw & 1 leBefKw) geschenkt. Die Wache generiert noch keine Einsätze. Um Einsätze zu erhalten muss man die erste Ausbaustufe bauen.',
             startPersonnel: 0,
             startVehicles: [],
-            schoolingType: 'Polizei',
+            schoolingTypes: ['Polizei'],
         },
         12: {
             caption: 'Schnelleinsatzgruppe (SEG)',
@@ -2105,7 +2105,7 @@ export default {
             special: 'SEGs können ab der 5. Rettungswache gebaut werden.',
             startPersonnel: 0,
             startVehicles: ['KTW Typ B'],
-            schoolingType: 'Rettungsdienst',
+            schoolingTypes: ['Rettungsdienst'],
         },
         13: {
             caption: 'Polizeihubschrauberstation',
@@ -2127,7 +2127,7 @@ export default {
                 'Pro Station können bis zu 7 Landeplätze gebaut werden (Ausbaustufen). Bis zum 125. Gebäude (aller Art) können insgesamt max. 4 Landeplätze gebaut werden. Danach wächst die Zahl alle 25 Geäude um 1 (Beginnend beim 125.).',
             startPersonnel: 0,
             startVehicles: [],
-            schoolingType: 'Polizei',
+            schoolingTypes: ['Polizei'],
             maxBuildingsFunction: (buildingsAmountTotal: number): number =>
                 buildingsAmountTotal < 125
                     ? 4
@@ -2160,7 +2160,7 @@ export default {
                 'Beim Bau bekommst du 10 Leute sowie ein GW-Wasserrettung geschenkt.',
             startPersonnel: 6,
             startVehicles: ['GW-Wasserrettung'],
-            schoolingType: 'Rettungsdienst',
+            schoolingTypes: ['Rettungsdienst'],
         },
         16: {
             caption: 'Verbandszellen',
@@ -2223,7 +2223,7 @@ export default {
             special: '',
             startPersonnel: 0,
             startVehicles: [],
-            schoolingType: 'Polizei',
+            schoolingTypes: ['Polizei'],
         },
         18: {
             caption: 'Feuerwache (Kleinwache)',
@@ -2262,7 +2262,7 @@ export default {
                 'TSF-W',
                 '(HLF 20 und HLF 10 ab Dienstgrad "Gruppenführer(in)" => Baukosten 15.000 höher)',
             ],
-            schoolingType: 'Feuerwehr',
+            schoolingTypes: ['Feuerwehr'],
             maxBuildingsFunction: (): number => 5_000,
         },
         19: {
@@ -2288,7 +2288,7 @@ export default {
                 'Ab der 24. Polizeiwache berechnen sich die Kosten für den Neubau einer Wache nach folgender Formel: <code>(100.000+200.000*LOG<sub>2</sub>(Anzahl der vorhandenen Polizeiwachen − 22)) / 2</code>. Der Coins-Preis bleibt konstant!',
             startPersonnel: 2,
             startVehicles: ['FuStW'],
-            schoolingType: 'Polizei',
+            schoolingTypes: ['Polizei'],
             maxBuildingsFunction: (): number => 1_700,
         },
         20: {
@@ -2308,7 +2308,7 @@ export default {
             special: '',
             startPersonnel: 3,
             startVehicles: ['RTW'],
-            schoolingType: 'Rettungsdienst',
+            schoolingTypes: ['Rettungsdienst'],
         },
         21: {
             caption: 'Rettungshundestaffel',
@@ -2322,7 +2322,7 @@ export default {
             special: '',
             startPersonnel: 10,
             startVehicles: ['Rettungshundefahrzeug'],
-            schoolingType: 'Rettungsdienst',
+            schoolingTypes: ['Rettungsdienst'],
         },
         22: {
             caption: 'Großer Komplex',
