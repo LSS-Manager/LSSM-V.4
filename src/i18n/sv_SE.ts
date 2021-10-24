@@ -478,6 +478,11 @@ export default {
                         all: true,
                     },
                 },
+                ['Räddar']: {
+                    ['Intensivvårdsutbildning']: {
+                        all: true,
+                    },
+                },
             },
         },
         33: {
@@ -498,6 +503,11 @@ export default {
             schooling: {
                 Brandstation: {
                     ['MC-Ambulans']: {
+                        all: true,
+                    },
+                },
+                ['Räddar']: {
+                    ['Intensivvårdsutbildning']: {
                         all: true,
                     },
                 },
