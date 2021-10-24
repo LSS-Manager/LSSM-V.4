@@ -622,6 +622,11 @@ export default {
                         all: true,
                     },
                 },
+                'Rescue': {
+                    "Truck Driver's License": {
+                        all: true,
+                    },
+                },
             },
         },
         42: {
@@ -750,7 +755,12 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 3,
             schooling: {
-                Rescue: {
+                'Fire Station': {
+                    Hazmat: {
+                        all: true,
+                    },
+                },
+                'Rescue': {
                     'Hazmat Medic Training': {
                         all: true,
                     },
