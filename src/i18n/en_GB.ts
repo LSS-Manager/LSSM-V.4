@@ -578,7 +578,7 @@ export default {
                 },
             },
             special:
-                'Required once you have built 15 Rescue stations. It is required for missions that can spawn with over 20 patients to help command the scene. It is a dual unit between an OTL and an Ambulance Officer Requirements',
+                'Required once you have built 15 Rescue stations. It is required for missions that can spawn with over 20 patients to help command the scene.',
         },
     },
     buildings: {
