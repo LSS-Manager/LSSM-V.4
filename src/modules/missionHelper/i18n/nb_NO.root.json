@@ -12,6 +12,11 @@
 			"in": "additional",
 			"text": "Gjennomsnittlig min. Politipersonell"
 		},
+		"foam_needed": {
+			"badge": true,
+			"in": "requirements",
+			"text": "skum: {n} liter"
+		},
 		"swat_personnel": {
 			"badge": false,
 			"in": "additional",
@@ -21,11 +26,6 @@
 			"badge": true,
 			"in": "requirements",
 			"text": "vann: {n} liter"
-		},
-		"foam_needed": {
-			"badge": true,
-			"in": "requirements",
-			"text": "skum: {n} liter"
 		}
 	},
 	"settings": {

@@ -30,12 +30,12 @@
 		"vehicles": {
 			"caption": "Vehicle type",
 			"cost": "Price",
+			"ftank": "Skumtank",
 			"maxPersonnel": "maximum personnel",
 			"minPersonnel": "minimum personnel",
 			"schooling": "Education",
 			"special": "Specials",
-			"wtank": "Water tank",
-			"ftank": "Skumtank"
+			"wtank": "Water tank"
 		}
 	}
 }
