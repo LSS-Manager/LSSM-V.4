@@ -164,13 +164,12 @@ export default {
             maxPersonnel: 6,
             special: 'Nødvendig etter at du har bygd 11 brannstasjoner.',
             schooling: {
-                'Brannstasjon': {
+                Brannstasjon: {
                     'CBRNe-enhet': {
                         all: true,
                     },
                 },
             },
-            schooling: 'Krever spesialistutdanning (CBRNe-enhet)',
             shownSchooling: 'CBRNe-enhet',
         },
         8: {
@@ -207,8 +206,8 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 2,
             schooling: {
-                'Politi': {
-                    'Politihelikopterflyvning': {
+                Politi: {
+                    Politihelikopterflyvning: {
                         all: true,
                     },
                 },
@@ -222,8 +221,8 @@ export default {
             minPersonnel: 6,
             maxPersonnel: 6,
             schooling: {
-                'Politi': {
-                    'Våpentrening': {
+                Politi: {
+                    Våpentrening: {
                         all: true,
                     },
                 },
@@ -238,8 +237,8 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 2,
             schooling: {
-                'Politi': {
-                    'Hundepatrulje': {
+                Politi: {
+                    Hundepatrulje: {
                         all: true,
                     },
                 },
@@ -254,8 +253,8 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 1,
             schooling: {
-                'Politi': {
-                    'Politimotorsykkel': {
+                Politi: {
+                    Politimotorsykkel: {
                         all: true,
                     },
                 },
@@ -269,8 +268,8 @@ export default {
             minPersonnel: 2,
             maxPersonnel: 4,
             schooling: {
-                'Politi': {
-                    'Våpentrening': {
+                Politi: {
+                    Våpentrening: {
                         all: true,
                     },
                 },
@@ -293,8 +292,8 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 6,
             schooling: {
-                'Brannstasjon': {
-                    'Skadestedsledelse': {
+                Brannstasjon: {
+                    Skadestedsledelse: {
                         all: true,
                     },
                 },
@@ -318,7 +317,7 @@ export default {
             minPersonnel: 4,
             maxPersonnel: 5,
             schooling: {
-                'Brannstasjon': {
+                Brannstasjon: {
                     'Redningsdykker kurs': {
                         all: true,
                     },
@@ -354,8 +353,8 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 2,
             schooling: {
-                'Politi': {
-                    'Utrykningspoliti': {
+                Politi: {
+                    Utrykningspoliti: {
                         all: true,
                     },
                 },
@@ -369,11 +368,11 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 2,
             schooling: {
-                'Politi': {
-                    'Utrykningspoliti': {
+                Politi: {
+                    Utrykningspoliti: {
                         all: true,
                     },
-                    'Våpentrening': {
+                    Våpentrening: {
                         all: true,
                     },
                 },
@@ -387,8 +386,8 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 1,
             schooling: {
-                'Redning': {
-                    'Intensivbehandling': {
+                Redning: {
+                    Intensivbehandling: {
                         all: true,
                     },
                 },
@@ -420,8 +419,8 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 1,
             schooling: {
-                'Redning': {
-                    'Ambulansemotorsykkel': {
+                Redning: {
+                    Ambulansemotorsykkel: {
                         all: true,
                     },
                 },
@@ -451,8 +450,8 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 1,
             schooling: {
-                'Redning': {
-                    'Intensivbehandling': {
+                Redning: {
+                    Intensivbehandling: {
                         all: true,
                     },
                 },
@@ -467,8 +466,8 @@ export default {
             minPersonnel: 3,
             maxPersonnel: 3,
             schooling: {
-                'Redning': {
-                    'Intensivbehandling': {
+                Redning: {
+                    Intensivbehandling: {
                         all: true,
                     },
                 },
@@ -492,7 +491,7 @@ export default {
             maxPersonnel: 5,
             wtank: 2_000,
             schooling: {
-                'Brannstasjon': {
+                Brannstasjon: {
                     'Skogbrann helikopterutdanning': {
                         all: true,
                     },
@@ -508,8 +507,8 @@ export default {
             maxPersonnel: 2,
             wtank: 2_000,
             schooling: {
-                'Brannstasjon': {
-                    'ATV': {
+                Brannstasjon: {
+                    ATV: {
                         all: true,
                     },
                 },
@@ -531,7 +530,8 @@ export default {
             credits: 10_000,
             minPersonnel: 0,
             maxPersonnel: 0,
-            special: 'Et egnet kjøretøy trengs for å trekke tilhengeren / båthenger. (Mannskapsbil, Lett mannskapsbil, Tankbil, Skum Tankbil)',
+            special:
+                'Et egnet kjøretøy trengs for å trekke tilhengeren / båthenger. (Mannskapsbil, Lett mannskapsbil, Tankbil, Skum Tankbil)',
         },
         37: {
             caption: 'Slangebil',
@@ -556,7 +556,8 @@ export default {
             credits: 20_000,
             minPersonnel: 0,
             maxPersonnel: 0,
-            special: 'Et egnet kjøretøy trengs for å trekke tilhengeren / båthenger. (Mannskapsbil, Lett mannskapsbil, Tankbil, Skum Tankbil)',
+            special:
+                'Et egnet kjøretøy trengs for å trekke tilhengeren / båthenger. (Mannskapsbil, Lett mannskapsbil, Tankbil, Skum Tankbil)',
         },
     },
     buildings: {
