@@ -102,7 +102,7 @@ export default <RedesignParser<VerbandskasseWindow>>(({
                       }),
                   },
                   spendings: {
-                      page: parseInt(searchParams.get('page') ?? '0'),
+                      page: parseInt(searchParams.get('page') ?? '1'),
                       lastPage: parseInt(
                           doc
                               .querySelector<HTMLAnchorElement>(

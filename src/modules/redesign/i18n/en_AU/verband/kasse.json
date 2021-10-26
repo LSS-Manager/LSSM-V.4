@@ -11,6 +11,7 @@
 		"credits": "Credits",
 		"date": "Date",
 		"desc": "Description",
+		"loadMore": "load 10 more entries",
 		"title": "Spendings",
 		"user": "Player"
 	},

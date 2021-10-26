@@ -148,6 +148,16 @@
                             </h4>
                         </div>
                         <div class="panel-body">
+                            <button
+                                class="btn btn-success"
+                                :disabled="
+                                    kasse.spendings.page >=
+                                        kasse.spendings.lastPage
+                                "
+                                @click="loadMoreSpendings"
+                            >
+                                {{ lightbox.$sm('spendings.loadMore') }}
+                            </button>
                             <enhanced-table
                                 :head="{
                                     credits: {
@@ -173,8 +183,9 @@
                                 :no-search="true"
                             >
                                 <tr
-                                    v-for="entry in kasse.spendings.spendings"
-                                    :key="entry.user.id"
+                                    v-for="(entry, id) in kasse.spendings
+                                        .spendings"
+                                    :key="id"
                                 >
                                     <td>
                                         {{ entry.credits.toLocaleString() }}
@@ -219,6 +230,7 @@ type Component = RedesignSubComponent<
         today(): void;
         earningsPrev(): void;
         earningsNext(): void;
+        loadMoreSpendings(): void;
     },
     { entriesSum: number }
 >;
@@ -432,6 +444,57 @@ export default Vue.extend<
                         }
                         this.lightbox.finishLoading(
                             'verband-kasse-earnings-next'
+                        );
+                    });
+                });
+        },
+        loadMoreSpendings() {
+            if (!this.kasse.enabled) return;
+            this.$set(this.lightbox, 'loading', true);
+            const url = new URL('/verband/kasse', window.location.origin);
+            url.searchParams.set(
+                'page',
+                (this.kasse.spendings.page + 1).toString()
+            );
+            this.$store
+                .dispatch('api/request', {
+                    url: url.toString(),
+                    feature: `redesign-verband-kasse-more-spendings`,
+                })
+                .then((res: Response) => res.text())
+                .then(async html => {
+                    import('../../parsers/verband/kasse').then(async parser => {
+                        const result = await parser.default({
+                            doc: new DOMParser().parseFromString(
+                                html,
+                                'text/html'
+                            ),
+                            href: url.toString(),
+                            getIdFromEl: this.lightbox.getIdFromEl,
+                            LSSM: this,
+                        });
+                        if (result.enabled && this.lightbox.data.enabled) {
+                            this.$set(
+                                this.lightbox.data.spendings,
+                                'page',
+                                result.spendings.page
+                            );
+                            this.$set(
+                                this.lightbox.data.spendings,
+                                'lastPage',
+                                result.spendings.lastPage
+                            );
+                            this.$set(
+                                this.lightbox.data.spendings,
+                                'spendings',
+                                [
+                                    ...this.lightbox.data.spendings.spendings,
+                                    ...result.spendings.spendings,
+                                ]
+                            );
+                        }
+                        this.lightbox.finishLoading(
+                            'verband-kasse-more-spendings'
                         );
                     });
                 });
