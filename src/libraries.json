@@ -47,7 +47,7 @@
 	"@types/node": {
 		"icon": "https://avatars.githubusercontent.com/u/3637556",
 		"url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/node",
-		"version": "16.11.4"
+		"version": "16.11.6"
 	},
 	"@types/pdfmake": {
 		"icon": "https://avatars.githubusercontent.com/u/3637556",
@@ -85,11 +85,11 @@
 	},
 	"@typescript-eslint/eslint-plugin": {
 		"icon": "https://avatars.githubusercontent.com/u/46634674",
-		"version": "5.1.0"
+		"version": "5.2.0"
 	},
 	"@typescript-eslint/parser": {
 		"icon": "https://avatars.githubusercontent.com/u/46634674",
-		"version": "5.1.0"
+		"version": "5.2.0"
 	},
 	"@vuepress/plugin-active-header-links": {
 		"icon": "https://vuepress.vuejs.org/hero.png",
@@ -109,7 +109,7 @@
 	"axios": {
 		"icon": "https://avatars.githubusercontent.com/u/32372333",
 		"url": "https://axios-http.com",
-		"version": "0.23.0"
+		"version": "0.24.0"
 	},
 	"broadcast-channel": {
 		"icon": "https://raw.githubusercontent.com/pubkey/broadcast-channel/master/docs/files/icon.png",
