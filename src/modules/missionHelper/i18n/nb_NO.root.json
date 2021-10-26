@@ -20,7 +20,12 @@
 		"water_needed": {
 			"badge": true,
 			"in": "requirements",
-			"text": "vann: {n} liter | vann: {n} liter"
+			"text": "vann: {n} liter"
+		},
+		"foam_needed": {
+			"badge": true,
+			"in": "requirements",
+			"text": "skum: {n} liter"
 		}
 	},
 	"settings": {

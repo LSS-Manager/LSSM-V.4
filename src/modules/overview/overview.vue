@@ -467,6 +467,7 @@ export default Vue.extend<
                         'it_IT',
                         'en_US',
                         'nl_NL',
+                        'sv_SE',
                     ].includes(this.$store.state.lang)
                         ? {
                               ftank: {

@@ -34,7 +34,8 @@
 			"minPersonnel": "minimum personnel",
 			"schooling": "Education",
 			"special": "Specials",
-			"wtank": "Water tank"
+			"wtank": "Water tank",
+			"ftank": "Skumtank"
 		}
 	}
 }

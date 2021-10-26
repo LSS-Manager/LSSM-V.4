@@ -21,6 +21,7 @@
 		"federalpolice_stations": "Federal Police Station | Federal Police Stations",
 		"fire_aviation_count": "Firefighting Plane Station | Firefighting Plane Stations",
 		"fire_stations": "Brannstasjon | Brannstasjoner",
+		"fire_support_count": "Brann Støtte utivdelser",
 		"max_police_stations": "Maksimalt politistasjoner",
 		"max_rescue_stations": "Maxminalt ambulansestasjoner",
 		"police_helicopter_stations": "Politiheliport | Politiheliporter",
@@ -33,6 +34,7 @@
 		"title": "Fange | {n} fange | {n} fanger"
 	},
 	"requirements": {
+		"foam_needed": "skum (lit)",
 		"water_needed": "vann (lit)"
 	},
 	"vehicles": {
@@ -60,6 +62,9 @@
 			"swat_armored_vehicle": "Delta kjøretøy | Delta kjøretøy",
 			"swat_suv": "Panstret kjøretøy | Pansdrede kjøretøy",
 			"traffic_car": "Utrykningspolitibil | Utrykningspolitibiler",
+			"foam": "Skum Tankbiler",
+			"hose": "Slangebiler",
+			"pump": "Tilhengerpumper",
 			"water_tankers": "Tankbil | Tankbiler"
 		},
 		"multifunctionals": {
