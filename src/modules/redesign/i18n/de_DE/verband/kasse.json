@@ -1,0 +1,21 @@
+{
+	"earnings": {
+		"credits": "Credits",
+		"daily": "Täglich",
+		"monthly": "Monatlich",
+		"sum": "Summe",
+		"title": "Einnahmen",
+		"user": "Spieler"
+	},
+	"spendings": {
+		"credits": "Credits",
+		"date": "Datum",
+		"desc": "Beschreibung",
+		"title": "Ausgaben",
+		"user": "Spieler"
+	},
+	"summary": {
+		"rate": "Abgaberate",
+		"title": "Verbandskasse"
+	}
+}

@@ -38,20 +38,24 @@
                         </div>
                         <div class="panel-body">
                             <div>
-                                <a
+                                <button
                                     class="btn btn-success"
                                     @click="earningsPrev"
                                 >
                                     -1
-                                </a>
-                                <b v-if="kasse.earnings.type === 'daily'">
+                                </button>
+                                <b
+                                    v-if="kasse.earnings.type === 'daily'"
+                                    class="today"
+                                    @click="today"
+                                >
                                     {{
                                         moment()
                                             .add(kasse.earnings.scroll, 'days')
                                             .format('ddd LL')
                                     }}
                                 </b>
-                                <b v-else>
+                                <b v-else class="today" @click="today">
                                     {{
                                         moment()
                                             .add(
@@ -61,15 +65,22 @@
                                             .format('MMMM YYYY')
                                     }}
                                 </b>
+                                <button
+                                    class="btn btn-success"
+                                    @click="earningsNext"
+                                    :disabled="kasse.earnings.scroll >= 0"
+                                >
+                                    +1
+                                </button>
                             </div>
                             <enhanced-table
                                 :head="{
                                     user: {
-                                        title: lightbox.$sm('user'),
+                                        title: lightbox.$sm('earnings.user'),
                                         noSort: true,
                                     },
                                     credits: {
-                                        title: lightbox.$sm('credits'),
+                                        title: lightbox.$sm('earnings.credits'),
                                         noSort: true,
                                     },
                                 }"
@@ -130,7 +141,58 @@
                             </div>
                         </div>
                     </div>
-                    <pre>{{ kasse.spendings }}</pre>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4>
+                                {{ lightbox.$sm('spendings.title') }}
+                            </h4>
+                        </div>
+                        <div class="panel-body">
+                            <enhanced-table
+                                :head="{
+                                    credits: {
+                                        title: lightbox.$sm(
+                                            'spendings.credits'
+                                        ),
+                                        noSort: true,
+                                    },
+                                    user: {
+                                        title: lightbox.$sm('spendings.user'),
+                                        noSort: true,
+                                    },
+                                    description: {
+                                        title: lightbox.$sm('spendings.desc'),
+                                        noSort: true,
+                                    },
+                                    date: {
+                                        title: lightbox.$sm('spendings.date'),
+                                        noSort: true,
+                                    },
+                                }"
+                                :table-attrs="{ class: 'table table-striped' }"
+                                :no-search="true"
+                            >
+                                <tr
+                                    v-for="entry in kasse.spendings.spendings"
+                                    :key="entry.user.id"
+                                >
+                                    <td>
+                                        {{ entry.credits.toLocaleString() }}
+                                    </td>
+                                    <td>
+                                        <a
+                                            :href="`/profile/${entry.user.id}`"
+                                            lightbox-open
+                                        >
+                                            {{ entry.user.name }}
+                                        </a>
+                                    </td>
+                                    <td>{{ entry.description }}</td>
+                                    <td>{{ entry.date }}</td>
+                                </tr>
+                            </enhanced-table>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -154,7 +216,9 @@ type Component = RedesignSubComponent<
         toggle(): void;
         changeRate(rate: number): void;
         setEarningsType(type: string): void;
+        today(): void;
         earningsPrev(): void;
+        earningsNext(): void;
     },
     { entriesSum: number }
 >;
@@ -259,6 +323,41 @@ export default Vue.extend<
                     });
                 });
         },
+        today() {
+            if (!this.kasse.enabled || !this.kasse.earnings.scroll) return;
+            this.$set(this.lightbox, 'loading', true);
+            const url = new URL('/verband/kasse', window.location.origin);
+            url.searchParams.set('type', this.kasse.earnings.type);
+            this.$store
+                .dispatch('api/request', {
+                    url: url.toString(),
+                    feature: `redesign-verband-kasse-earnings-today`,
+                })
+                .then((res: Response) => res.text())
+                .then(async html => {
+                    import('../../parsers/verband/kasse').then(async parser => {
+                        const result = await parser.default({
+                            doc: new DOMParser().parseFromString(
+                                html,
+                                'text/html'
+                            ),
+                            href: url.toString(),
+                            getIdFromEl: this.lightbox.getIdFromEl,
+                            LSSM: this,
+                        });
+                        if (result.enabled) {
+                            this.$set(
+                                this.lightbox.data,
+                                'earnings',
+                                result.earnings
+                            );
+                        }
+                        this.lightbox.finishLoading(
+                            'verband-kasse-earnings-today'
+                        );
+                    });
+                });
+        },
         earningsPrev() {
             if (!this.kasse.enabled) return;
             this.$set(this.lightbox, 'loading', true);
@@ -294,6 +393,45 @@ export default Vue.extend<
                         }
                         this.lightbox.finishLoading(
                             'verband-kasse-earnings-prev'
+                        );
+                    });
+                });
+        },
+        earningsNext() {
+            if (!this.kasse.enabled) return;
+            this.$set(this.lightbox, 'loading', true);
+            const url = new URL('/verband/kasse', window.location.origin);
+            url.searchParams.set('type', this.kasse.earnings.type);
+            url.searchParams.set(
+                'scroll',
+                (this.kasse.earnings.scroll + 1).toString()
+            );
+            this.$store
+                .dispatch('api/request', {
+                    url: url.toString(),
+                    feature: `redesign-verband-kasse-earnings-next`,
+                })
+                .then((res: Response) => res.text())
+                .then(async html => {
+                    import('../../parsers/verband/kasse').then(async parser => {
+                        const result = await parser.default({
+                            doc: new DOMParser().parseFromString(
+                                html,
+                                'text/html'
+                            ),
+                            href: url.toString(),
+                            getIdFromEl: this.lightbox.getIdFromEl,
+                            LSSM: this,
+                        });
+                        if (result.enabled) {
+                            this.$set(
+                                this.lightbox.data,
+                                'earnings',
+                                result.earnings
+                            );
+                        }
+                        this.lightbox.finishLoading(
+                            'verband-kasse-earnings-next'
                         );
                     });
                 });
@@ -344,4 +482,7 @@ export default Vue.extend<
 .row
     margin-left: 0
     margin-right: 0
+
+.today
+    cursor: pointer
 </style>

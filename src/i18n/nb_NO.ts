@@ -170,7 +170,6 @@ export default {
                     },
                 },
             },
-            shownSchooling: 'CBRNe-enhet',
         },
         8: {
             caption: 'Patruljebil',
