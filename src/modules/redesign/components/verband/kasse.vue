@@ -120,7 +120,7 @@
                         <div class="panel-body">
                             <h1>{{ kasse.value.toLocaleString() }} Credits</h1>
                             <div>
-                                {{ lightbox.$sm('rate') }}:
+                                {{ lightbox.$sm('summary.rate') }}:
                                 <div class="btn-group">
                                     <a
                                         v-for="rate in 10"
