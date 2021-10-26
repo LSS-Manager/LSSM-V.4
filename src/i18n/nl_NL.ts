@@ -1080,7 +1080,7 @@ export default {
             coins: 10,
             ftank: 500,
             special:
-                'Het gaat hier om een aanhanger dat een trekkend voertuig nodig heeft. (TS 8/9, TS-HV, TS 4/5, TS 6/7, HV, AB, SL)',
+                'Het gaat hier om een aanhanger dat een trekkend voertuig nodig heeft. (SI-2, TS 8/9, TS-OR, PM-OR, TS-HV, TS 4/5, TS 6/7, HV, AB, SL, DA, DB-K, TST 4/5, TST 6/7, TST 8/9, TST-NB 4/5, TST-NB 6/7, TST-NB 8/9, DB-VEB)',
             icon: 'trailer',
             possibleBuildings: [0],
         },
@@ -1092,7 +1092,7 @@ export default {
             credits: 10_000,
             coins: 10,
             special:
-                'Het gaat hier om een aanhanger dat een trekkend voertuig nodig heeft. (TS 8/9, TS-HV, TS 4/5, TS 6/7, HV, AB, SL, DA, DB-K). Deze aanhanger zorgt dat de aanwezige waterhoeveelheid wordt verhoogd met 5%',
+                'Het gaat hier om een aanhanger dat een trekkend voertuig nodig heeft. (SI-2, TS 8/9, TS-OR, PM-OR, TS-HV, TS 4/5, TS 6/7, HV, AB, SL, DA, DB-K, TST 4/5, TST 6/7, TST 8/9, TST-NB 4/5, TST-NB 6/7, TST-NB 8/9, DB-VEB). Deze aanhanger zorgt dat de aanwezige waterhoeveelheid wordt verhoogd met 5%',
             icon: 'trailer',
             possibleBuildings: [0],
         },
@@ -1104,7 +1104,7 @@ export default {
             credits: 15_000,
             coins: 10,
             special:
-                'Het gaat hier om een aanhanger dat een trekkend voertuig nodig heeft. (TS 8/9, TS-HV, TS 4/5, TS 6/7, HV, AB, SL, DA, DB-K). Deze aanhanger zorgt dat de aanwezige waterhoeveelheid wordt verhoogd met 10%',
+                'Het gaat hier om een aanhanger dat een trekkend voertuig nodig heeft. (SI-2, TS 8/9, TS-OR, PM-OR, TS-HV, TS 4/5, TS 6/7, HV, AB, SL, DA, DB-K, TST 4/5, TST 6/7, TST 8/9, TST-NB 4/5, TST-NB 6/7, TST-NB 8/9, DB-VEB). Deze aanhanger zorgt dat de aanwezige waterhoeveelheid wordt verhoogd met 10%',
             icon: 'trailer',
             possibleBuildings: [0],
         },
