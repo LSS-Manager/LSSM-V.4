@@ -39,10 +39,8 @@ export default Vue.extend({
     name: 'momentjs-short-forms',
     data() {
         return {
-            examples: {
-
-            }
-        }
+            examples: {},
+        };
     },
     computed: {
         moment_texts() {
