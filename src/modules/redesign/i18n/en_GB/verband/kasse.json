@@ -1,4 +1,5 @@
 {
+	"disabled": "Alliance funds are disabled in this alliance.",
 	"earnings": {
 		"credits": "Credits",
 		"daily": "Daily",
@@ -18,5 +19,9 @@
 	"summary": {
 		"rate": "Alliance contribution rate",
 		"title": "Alliance funds"
+	},
+	"toggle": {
+		"disable": "Disable alliance funds",
+		"enable": "Enable alliance funds"
 	}
 }

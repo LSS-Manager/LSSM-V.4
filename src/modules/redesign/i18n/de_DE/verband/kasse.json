@@ -1,4 +1,5 @@
 {
+	"disabled": "Die Verbandskasse ist in diesem Verband deaktiviert.",
 	"earnings": {
 		"credits": "Credits",
 		"daily": "Täglich",
@@ -18,5 +19,9 @@
 	"summary": {
 		"rate": "Abgaberate",
 		"title": "Verbandskasse"
+	},
+	"toggle": {
+		"disable": "Verbandskasse deaktivieren",
+		"enable": "Verbandskasse aktivieren"
 	}
 }
