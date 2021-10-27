@@ -104,7 +104,6 @@ export default async (LSSM: Vue, $m: $m, MODULE_ID: string): Promise<void> => {
             vehicles.forEach(v => {
                 const type = vehicleTypes[v.vehicle_type];
                 schools.forEach(school => {
-                    console.log(school);
                     const vehicleSchoolings = type.schooling?.[school] ?? {};
                     Object.entries(vehicleSchoolings).forEach(
                         ([schooling, { min, all }]) => {
