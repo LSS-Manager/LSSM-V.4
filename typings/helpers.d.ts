@@ -99,6 +99,11 @@ declare module 'vue/types/vue' {
         $utils: {
             urlRegex: RegExp;
             escapeRegex(s: string): string;
+            getMissionOptions(
+                LSSM: Vue,
+                MODULE_ID: string,
+                reason: string
+            ): Promise<{ missionIds: string[]; missionNames: string[] }>;
             getNumberFromText<Multiple extends boolean = false>(
                 text: string,
                 allNumbers: Multiple = false,
