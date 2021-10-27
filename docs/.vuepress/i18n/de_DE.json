@@ -6,5 +6,112 @@
 		"dev": "Dieses Modul ist noch in Entwicklung. Es ist möglich, dass noch einige Fehler vorhanden sind!",
 		"mapkit": "Aufgrund von Beschränkungen seitens Mapkit ist es uns leider derzeit nicht möglich, dieses Modul beim Kartentyp `Mapkit` anzubieten.",
 		"settings": "Dieses Modul hat Einstellungen! Pass es dir gerne nach deinem Geschmack an."
+	},
+	"moment": {
+		"shorts": {
+			"L": "Datum mit führenden Nullen",
+			"LL": "Datum mit Monat als Wort",
+			"LLL": "Datum mit Monat als Wort und Uhrzeit",
+			"LLLL": "Volles Datum mit Uhrzeit",
+			"LT": "Uhrzeit",
+			"LTS": "Uhrzeit mit Sekunden",
+			"l": "Datum ohne führende Nullen",
+			"ll": "Datum mit kurzem Monat als Wort",
+			"lll": "Datum mit kurzem Monat als Wort und Uhrzeit",
+			"llll": "Volles Datum in Kurzform mit Uhrzeit"
+		},
+		"titles": {
+			"shorts": {
+				"description": "Beschreibung",
+				"example": "Beispiel",
+				"variable": "Kurzform"
+			},
+			"variables": {
+				"Variable": "Variable",
+				"ampm": "AM / PM",
+				"category": "Kategorie",
+				"description": "Beschreibung",
+				"dom": "Tag (Monat)",
+				"dow": "Wochentag",
+				"doy": "Tag (Jahr)",
+				"hour": "Stunde",
+				"minute": "Minute",
+				"month": "Monat",
+				"output": "Ausgabe",
+				"quarter": "Quartal",
+				"second": "Sekunde",
+				"year": "Jahr"
+			}
+		},
+		"variables": {
+			"ampm": {
+				"A": "AM / PM",
+				"a": "am / pm"
+			},
+			"dom": {
+				"D": "Tag im Monat",
+				"DD": "Tag im Monat (mit führenden Nullen)",
+				"Do": "Tag im Monat (mit Punkt)"
+			},
+			"dow": {
+				"d": "Wochentag (Zahl [Sonntag ist 0])",
+				"dd": "Wochentag (Name, Kurzschreibweise)",
+				"ddd": "Wochentag (Name, Kurzschreibweise mit Punkt)",
+				"dddd": "Wochentag (Name)",
+				"do": "Wochentag (Zahl mit Punkt [Sonntag ist 0])"
+			},
+			"doy": {
+				"DDD": "Tag im Jahr",
+				"DDDD": "Tag im Jahr (mit führenden Nullen)",
+				"DDDo": "Tag im Jahr (mit Punkt)"
+			},
+			"hour": {
+				"H": "Stunde (24h)",
+				"HH": "Stunde (24h, mit führenden Nullen)",
+				"h": "Stunde (12h)",
+				"hh": "Stunde (12h, mit führenden Nullen)"
+			},
+			"minute": {
+				"M": "Minute (mit führenden Nullen)",
+				"m": "Minute"
+			},
+			"month": {
+				"MM": "aktueller Monat (Zahl mit führenden Nullen)",
+				"MMM": "aktueller Monat (Name, Kurzschreibweise)",
+				"MMMM": "aktueller Monat (Name)",
+				"Mo": "aktueller Monat (Zahl mit Punkt)",
+				"m": "aktueller Monat (Zahl)"
+			},
+			"order": [
+				"month",
+				"quarter",
+				"dom",
+				"doy",
+				"dow",
+				"week",
+				"year",
+				"ampm",
+				"hour",
+				"minute",
+				"second"
+			],
+			"quarter": {
+				"Q": "aktuelles Quartal",
+				"Qo": "aktuelles Quartal (mit Punkt)"
+			},
+			"second": {
+				"S": "Sekunde (mit führenden Nullen)",
+				"s": "Sekunde"
+			},
+			"week": {
+				"w": "Kalenderwoche",
+				"wo": "Kalenderwoche (mit Punkt)",
+				"ww": "Kalenderwoche (mit führenden Nullen)"
+			},
+			"year": {
+				"YY": "Jahr (zweistellig)",
+				"YYYY": "Jahr (vierstellig)"
+			}
+		}
 	}
 }
