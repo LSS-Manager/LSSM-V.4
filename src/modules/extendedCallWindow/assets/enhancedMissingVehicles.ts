@@ -35,26 +35,30 @@ export default (LSSM: Vue, MODULE_ID: string, $m: $m): void => {
     const staffGroups =
         typeof staffGroupTranslation === 'string' ? {} : staffGroupTranslation;
 
+    const numRegex = '\\d{1,3}(([,.]|\\s)?\\d{3})*';
+    const groupsRegex = Object.keys({
+        ...vehicleGroups,
+        ...staffGroups,
+    })
+        .map(r => r.replace(/^\/\^|\$\/$/g, ''))
+        .join('|');
+    const innerRegex = `${LSSM.$utils.escapeRegex(
+        water
+    )}|${LSSM.$utils.escapeRegex(foam)}|${groupsRegex}`;
+
     const missingRequirementMatches = missingRequirementsText.match(
         new RegExp(
-            `\\d{1,3}(([,.]|\\s)?\\d{3})*\\s+(${LSSM.$utils.escapeRegex(
-                water
-            )}|${LSSM.$utils.escapeRegex(foam)}|${Object.keys({
-                ...vehicleGroups,
-                ...staffGroups,
-            })
-                .map(r => r.replace(/^\/\^|\$\/$/g, ''))
-                .join('|')})(?=[,.]|$)`,
+            `((${numRegex}\\s+(${innerRegex}))|(${innerRegex}):\\s*${numRegex})(?=[,.]|$)`,
             'g'
         )
     );
     if (!missingRequirementMatches) return;
     const missingRequirements = missingRequirementMatches.map(req => {
         const requirement = req.trim();
-        const isColonMode = !!requirement.match(/^.*: \d+$/);
+        const isColonMode = !!requirement.match(/^.*:\s*\d+$/);
         const vehicle = requirement
             .trim()
-            .replace(isColonMode ? /: \d+$/ : /^\d+/, '')
+            .replace(isColonMode ? /:\s*\d+$/ : /^\d+/, '')
             .trim();
         return {
             missing: parseInt(
