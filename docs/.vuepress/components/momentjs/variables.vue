@@ -52,7 +52,7 @@ import Vue from 'vue';
 import moment from 'moment';
 
 export default Vue.extend({
-    name: 'momentjs-short-forms',
+    name: 'momentjs-variables',
     data() {
         return {
             examples: {

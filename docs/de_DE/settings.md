@@ -42,5 +42,18 @@ Dieser Abschnitt bietet dir eine Hilfestellung bei der Konfiguration von Daten u
 Wir nutzen [Moment.js](https://momentjs.com/), um dir eine möglichst breite Auswahl an Konfigurationsmöglichkeiten bieten zu können.
 Im Folgenden versuchen wir die Möglichkeiten so verständlich wie möglich aufzulisten. Das Original-Dokument dazu findest du in der [Moment.js Dokumentation](https://momentjscom.readthedocs.io/en/latest/moment/04-displaying/01-format/).
 
+### Live-Editor
+Probiere hier dein Format aus und sieh, was bei rauskommt! Informationen zur Konfiguration findest du in den Abschnitten darunter.
+
+<momentjs-preview/>
+
+### Variablen
 <momentjs-variables/>
+
+### Lokale Kurzformen
 <momentjs-shorts/>
+
+### Normaler Text
+Möchte man die aktuelle Uhrzeit mit nachfolgendem `Uhr` ausgeben lassen, also z.B. `08:33:31 Uhr`, kann man einfach `LTS Uhr` schreiben. Das Problem hierbei ist jedoch, dass das `h` ebenfalls ersetzt wird. Das Ergebnis wäre `08:33:31 U8r`.
+Deshalb kann man reinen Text "ausklammern", um eine Formatierung zu verhindern. Das geschieht, indem man ihn in eckige Klammern `[]` setzt. Eigentlich ist nur das umklammern von Variablen im reinen Text nötig, um eine schönere und lesbarere Formatierung zu erhalten kann man aber auch den gesamten Text in Klammern setzen.
+Das oben gewünschte Ergebnis von `08:33:31 Uhr` erreicht man über `LTS [Uhr]` oder `LTS U[h]r`. 

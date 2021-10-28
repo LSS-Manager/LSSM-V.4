@@ -73,8 +73,8 @@
 				"hh": "Stunde (12h, mit führenden Nullen)"
 			},
 			"minute": {
-				"M": "Minute (mit führenden Nullen)",
-				"m": "Minute"
+				"m": "Minute",
+				"mm": "Minute (mit führenden Nullen)"
 			},
 			"month": {
 				"M": "aktueller Monat (Zahl)",
@@ -101,8 +101,8 @@
 				"Qo": "aktuelles Quartal (mit Punkt)"
 			},
 			"second": {
-				"S": "Sekunde (mit führenden Nullen)",
-				"s": "Sekunde"
+				"s": "Sekunde",
+				"ss": "Sekunde (mit führenden Nullen)"
 			},
 			"week": {
 				"w": "Kalenderwoche",
