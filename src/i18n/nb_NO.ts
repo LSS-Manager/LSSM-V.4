@@ -134,7 +134,6 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 4,
             special: 'Nødvendig etter at du har bygd 4 brannstasjoner.',
-            ftank: 150,
         },
         5: {
             caption: 'Ambulanse',
@@ -307,6 +306,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 4,
             wtank: 2000,
+            ftank: 150,
         },
         19: {
             caption: 'Dykkerbil',
