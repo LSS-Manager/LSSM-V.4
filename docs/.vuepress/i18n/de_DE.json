@@ -40,6 +40,7 @@
 				"output": "Ausgabe",
 				"quarter": "Quartal",
 				"second": "Sekunde",
+				"week": "Kalenderwoche",
 				"year": "Jahr"
 			}
 		},
@@ -76,11 +77,11 @@
 				"m": "Minute"
 			},
 			"month": {
+				"M": "aktueller Monat (Zahl)",
 				"MM": "aktueller Monat (Zahl mit führenden Nullen)",
 				"MMM": "aktueller Monat (Name, Kurzschreibweise)",
 				"MMMM": "aktueller Monat (Name)",
-				"Mo": "aktueller Monat (Zahl mit Punkt)",
-				"m": "aktueller Monat (Zahl)"
+				"Mo": "aktueller Monat (Zahl mit Punkt)"
 			},
 			"order": [
 				"month",
