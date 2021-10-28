@@ -40,6 +40,7 @@
 				"output": "Ausgabe",
 				"quarter": "Quartal",
 				"second": "Sekunde",
+				"week": "Kalenderwoche",
 				"year": "Jahr"
 			}
 		},
@@ -72,15 +73,15 @@
 				"hh": "Stunde (12h, mit führenden Nullen)"
 			},
 			"minute": {
-				"M": "Minute (mit führenden Nullen)",
-				"m": "Minute"
+				"m": "Minute",
+				"mm": "Minute (mit führenden Nullen)"
 			},
 			"month": {
+				"M": "aktueller Monat (Zahl)",
 				"MM": "aktueller Monat (Zahl mit führenden Nullen)",
 				"MMM": "aktueller Monat (Name, Kurzschreibweise)",
 				"MMMM": "aktueller Monat (Name)",
-				"Mo": "aktueller Monat (Zahl mit Punkt)",
-				"m": "aktueller Monat (Zahl)"
+				"Mo": "aktueller Monat (Zahl mit Punkt)"
 			},
 			"order": [
 				"month",
@@ -100,8 +101,8 @@
 				"Qo": "aktuelles Quartal (mit Punkt)"
 			},
 			"second": {
-				"S": "Sekunde (mit führenden Nullen)",
-				"s": "Sekunde"
+				"s": "Sekunde",
+				"ss": "Sekunde (mit führenden Nullen)"
 			},
 			"week": {
 				"w": "Kalenderwoche",

@@ -70,7 +70,10 @@
                                                     <span :key="type + '-t'"
                                                         >{{ type }}:</span
                                                     >
-                                                    <ul :key="type + '-ul'">
+                                                    <ul
+                                                        :key="type + '-ul'"
+                                                        class="unstyled-list"
+                                                    >
                                                         <li
                                                             v-for="(s,
                                                             schooling) in schoolings"
@@ -677,4 +680,6 @@ export default Vue.extend<
 <style scoped lang="sass">
 .vehicle-schoolings-list
     text-indent: -1em
+.unstyled-list
+    list-style: none
 </style>

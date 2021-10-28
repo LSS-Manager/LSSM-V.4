@@ -18,3 +18,26 @@ Als u niet-opgeslagen wijzigingen heeft, kunt u de instellingen niet sluiten, u 
 ::: danger Reset de instellingen
 Let op: Als u instellingen reset, kunnen ze niet worden hersteld zonder voorafgaande export!
 :::
+
+
+## Moment.js
+This section provides some information on how to configure the date-time configs, e.g. in the module [clock](modules/clock.md).
+
+Wij gebruiken [Moment.js](https://momentjs.com/), om u een zo breed mogelijke keuze aan configuratie-opties te kunnen bieden.
+Hieronder proberen we de mogelijkheden zo duidelijk mogelijk op een rij te zetten. U vindt het originele document in de [Moment.js Documentatie](https://momentjscom.readthedocs.io/en/latest/moment/04-displaying/01-format/).
+
+### Live-Editor
+Try your own format here and see a live preview! See information on configuration below.
+
+<momentjs-preview/>
+
+### Variables
+<momentjs-variables/>
+
+### Locale short forms
+<momentjs-shorts/>
+
+### Normale Tekst
+Wil je normale tekst toevoegen in de datum/tijdnotatie, bijvoorbeeld: `Tijd: hh:mm`, dan zal de `d` door een weekdagnummer vervangen worden. Bijvoorbeeld: `Tij6: 08:33`.
+Dit kan je voorkomen door de normale tekst, in dit geval `Tijd:`, tussen blokhaken te zetten `[]`, dus in dit voorbeeld `[Tijd:] hh:mm`.
+Eigenlijk is het voldoende om de `d` tussen bloklhaken te zetten, maar voor de leesbaarheid van de jouw geschreven tekst is het beter om het hele woord er tussen te zetten.
