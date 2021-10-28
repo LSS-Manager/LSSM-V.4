@@ -15,12 +15,23 @@ export default <ModuleMainFunction>(async (LSSM, MODULE_ID) => {
         title: string;
         buildings: number[];
         state: 'enabled' | 'disabled';
-    }[] = (
-        await LSSM.$store.dispatch('settings/getSetting', {
-            moduleId: MODULE_ID,
-            settingId: 'filters',
-        })
-    ).value;
+    }[] = [
+        {
+            contentType: 'text',
+            icon_style: 'fas',
+            title: '',
+            buildings: [],
+            state: 'enabled',
+        },
+        ...(
+            await LSSM.$store.dispatch('settings/getSetting', {
+                moduleId: MODULE_ID,
+                settingId: 'filters',
+            })
+        ).value,
+    ];
+
+    let btns: [HTMLButtonElement, number[]][] = [];
 
     const enable = (
         btn: HTMLButtonElement,
@@ -28,19 +39,25 @@ export default <ModuleMainFunction>(async (LSSM, MODULE_ID) => {
         index: number
     ) => {
         btn.classList.replace('btn-danger', 'btn-success');
-        document
-            .querySelectorAll<HTMLDivElement>(
-                buildings
-                    .map(
-                        b =>
-                            `#buildings .building_list_li[building_type_id="${b}"]`
-                    )
-                    .join(',')
-            )
-            .forEach(b => {
-                b.classList.add('category_selected');
-                b.style.setProperty('display', 'block');
-            });
+        if (!index) {
+            filters.forEach(
+                (filter, index) => index && enable(...btns[index], index)
+            );
+        } else if (buildings.length) {
+            document
+                .querySelectorAll<HTMLDivElement>(
+                    buildings
+                        .map(
+                            b =>
+                                `#buildings .building_list_li[building_type_id="${b}"]`
+                        )
+                        .join(',')
+                )
+                .forEach(b => {
+                    b.classList.add('category_selected');
+                    b.style.setProperty('display', 'block');
+                });
+        }
         filters[index].state = 'enabled';
     };
     const disable = (
@@ -49,19 +66,25 @@ export default <ModuleMainFunction>(async (LSSM, MODULE_ID) => {
         index: number
     ) => {
         btn.classList.replace('btn-success', 'btn-danger');
-        document
-            .querySelectorAll<HTMLDivElement>(
-                buildings
-                    .map(
-                        b =>
-                            `#buildings .building_list_li[building_type_id="${b}"]`
-                    )
-                    .join(',')
-            )
-            .forEach(b => {
-                b.classList.remove('category_selected');
-                b.style.setProperty('display', 'none');
-            });
+        if (!index) {
+            filters.forEach(
+                (filter, index) => index && disable(...btns[index], index)
+            );
+        } else if (buildings.length) {
+            document
+                .querySelectorAll<HTMLDivElement>(
+                    buildings
+                        .map(
+                            b =>
+                                `#buildings .building_list_li[building_type_id="${b}"]`
+                        )
+                        .join(',')
+                )
+                .forEach(b => {
+                    b.classList.remove('category_selected');
+                    b.style.setProperty('display', 'none');
+                });
+        }
         filters[index].state = 'disabled';
     };
 
@@ -69,7 +92,7 @@ export default <ModuleMainFunction>(async (LSSM, MODULE_ID) => {
         LSSM.$store.dispatch('settings/setSetting', {
             moduleId: MODULE_ID,
             settingId: 'filters',
-            value: { value: filters, enabled: true },
+            value: { value: filters.slice(1), enabled: true },
         });
 
     const smallBuildings = (LSSM.$t('small_buildings') as unknown) as Record<
@@ -81,7 +104,7 @@ export default <ModuleMainFunction>(async (LSSM, MODULE_ID) => {
         wrapper = document.getElementById('btn-group-building-select');
         if (!wrapper) return;
         wrapper.querySelectorAll('a').forEach(a => a.remove());
-        const btns: [HTMLButtonElement, number[]][] = [];
+        btns = [];
 
         const buildingsByType: Record<number, Building[]> =
             LSSM.$store.getters['api/buildingsByType'];
@@ -112,7 +135,8 @@ export default <ModuleMainFunction>(async (LSSM, MODULE_ID) => {
                 const btn = document.createElement('button');
                 btn.classList.add('btn', 'btn-xs', 'btn-success');
                 if (contentType === 'text') {
-                    btn.innerText = title;
+                    if (title) btn.innerText = title;
+                    else btn.innerHTML = '&nbsp;';
                 } else {
                     const icon = document.createElement('i');
                     icon.classList.add(icon_style, `fa-${title}`, 'fa-fw');
@@ -125,16 +149,18 @@ export default <ModuleMainFunction>(async (LSSM, MODULE_ID) => {
                     updateSettings();
                     window.buildingsVehicleLoadVisible();
                 });
-                btn.addEventListener('dblclick', () => {
-                    btns.forEach(([btnI, buildings], index) => {
-                        if (btnI === btn) enable(btnI, buildings, index);
-                        else disable(btnI, buildings, index);
-                        updateSettings();
-                        window.buildingsVehicleLoadVisible();
+                if (index) {
+                    btn.addEventListener('dblclick', () => {
+                        btns.forEach(([btnI, buildings], index) => {
+                            if (btnI === btn) enable(btnI, buildings, index);
+                            else disable(btnI, buildings, index);
+                            updateSettings();
+                            window.buildingsVehicleLoadVisible();
+                        });
                     });
-                });
-                if (state === 'disabled') disable(btn, buildings, index);
-                else enable(btn, buildings, index);
+                    if (state === 'disabled') disable(btn, buildings, index);
+                    else enable(btn, buildings, index);
+                }
                 btns.push([btn, buildings]);
                 wrapper?.append(btn);
             }
