@@ -57,6 +57,7 @@
 		"is_s2": "set S6",
 		"is_s6": "set S2"
 	},
+	"foam_amount": "Foam amount",
 	"followup_missions": "Follow-up mission | Follow-up missions",
 	"hospitals": {
 		"beds": "free beds",

@@ -57,6 +57,7 @@
 		"is_s2": "S6 setzen",
 		"is_s6": "S2 setzen"
 	},
+	"foam_amount": "Schaummenge",
 	"followup_missions": "Folgeeinsatz | Folgeeinsätze",
 	"hospitals": {
 		"beds": "Freie Betten",
