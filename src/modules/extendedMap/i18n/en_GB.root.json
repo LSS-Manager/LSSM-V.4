@@ -1,0 +1,20 @@
+{
+	"description": "Improve the map with some cool features.",
+	"name": "Improved Map",
+	"positions": {
+		"bottomleft": "Bottom Left 🡧",
+		"bottomright": "Bottom Right 🡦",
+		"topleft": "Top Left 🡤",
+		"topright": "Top Right 🡥"
+	},
+	"settings": {
+		"mapScale": {
+			"description": "Shows a map-scale and current zoom level",
+			"title": "Scale"
+		},
+		"mapScalePosition": {
+			"description": "Select in which corner of the map the map-scale should appear",
+			"title": "Position of map-scale"
+		}
+	}
+}
