@@ -1,6 +1,6 @@
 {
 	"location": "^/?$",
 	"noMapkit": true,
-	"noapp": true,
+	"noapp": false,
 	"settings": true
 }

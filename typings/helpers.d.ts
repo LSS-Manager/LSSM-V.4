@@ -1,7 +1,6 @@
 import 'i18n-js';
 import { DefaultProps } from 'vue/types/options';
 import Highcharts from 'highcharts';
-import { MapFilterInitializer } from '../src/modules/centerMap/assets/getMapFilterInitializer';
 import { POI } from './modules/EnhancedPOI';
 import { sceditor } from './SCEditor';
 import { Store } from 'vuex';
@@ -45,7 +44,7 @@ declare global {
             leafletMissionPositionMarkerAdd(poi: POI): void;
         };
         map_filters_service: {
-            initialize(a: MapFilterInitializer): void;
+            // initialize(a: MapFilterInitializer): void;
             getMapFiltersLayersForMap(): Record<string, LayerGroup>;
             getMapFiltersLayers(): Record<string, LayerGroup>;
             getFilterLayerByBuildingParams(
