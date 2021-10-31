@@ -12,7 +12,9 @@
 			"description": "Zeigt einen Maßstab und das aktuelle Zoomlevel in der Karte an.",
 			"title": "Maßstab"
 		},
-		"mapScalePosition": {"description": "Wähle hier, wo auf der Karte der Maßstab erscheinen soll",
-			"title": "Position des Maßstabs"}
+		"mapScalePosition": {
+			"description": "Wähle hier, wo auf der Karte der Maßstab erscheinen soll",
+			"title": "Position des Maßstabs"
+		}
 	}
 }
