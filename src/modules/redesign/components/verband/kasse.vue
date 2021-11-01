@@ -241,7 +241,7 @@ export default Vue.extend<
     Component['Computed'],
     Component['Props']
 >({
-    name: 'verband-kasse',
+    name: 'lssmv4-redesign-verband-kasse',
     components: {
         EnhancedTable: () =>
             import(

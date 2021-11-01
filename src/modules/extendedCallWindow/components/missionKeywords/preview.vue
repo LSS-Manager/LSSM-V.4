@@ -15,7 +15,7 @@
 import Vue from 'vue';
 
 export default Vue.extend({
-    name: 'mk-preview',
+    name: 'lssmv4-mk-preview',
     props: {
         setting: {
             type: Object,

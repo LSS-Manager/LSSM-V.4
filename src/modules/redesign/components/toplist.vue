@@ -132,7 +132,7 @@ export default Vue.extend<
     Component['Computed'],
     Component['Props']
 >({
-    name: 'toplist',
+    name: 'lssmv4-redesign-toplist',
     components: {
         EnhancedTable: () =>
             import(

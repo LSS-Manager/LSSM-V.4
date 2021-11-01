@@ -85,7 +85,7 @@ export default Vue.extend<
         vehicles?: [number, string][];
     }
 >({
-    name: 'arr',
+    name: 'lssmv4-arr',
     computed: {
         style() {
             return this.bg_color

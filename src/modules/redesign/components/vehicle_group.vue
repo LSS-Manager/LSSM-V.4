@@ -90,7 +90,7 @@ export default Vue.extend<
     Component['Computed'],
     Component['Props']
 >({
-    name: 'vehicle_group-edit',
+    name: 'lssmv4-redesign-vehicle_group-edit',
     data() {
         return {
             faTrash,

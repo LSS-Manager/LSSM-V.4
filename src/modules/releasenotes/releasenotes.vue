@@ -65,7 +65,7 @@ export default Vue.extend<
     ReleaseNoteComputed,
     ReleaseNoteProps
 >({
-    name: 'releasenotes',
+    name: 'lssmv4-releasenotes',
     data() {
         return {
             moment,

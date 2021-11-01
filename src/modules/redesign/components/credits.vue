@@ -109,7 +109,7 @@ export default Vue.extend<
     Component['Computed'],
     Component['Props']
 >({
-    name: 'credits-lightbox',
+    name: 'lssmv4-redesign-credits-lightbox',
     components: {
         CreditsList: () =>
             import(

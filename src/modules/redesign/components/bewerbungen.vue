@@ -122,7 +122,7 @@ export default Vue.extend<
     Component['Computed'],
     Component['Props']
 >({
-    name: 'bewerbungen',
+    name: 'lssmv4-redesign-bewerbungen',
     components: {
         EnhancedTable: () =>
             import(

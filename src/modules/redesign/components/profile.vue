@@ -644,7 +644,7 @@ export default Vue.extend<
     Component['Computed'],
     Component['Props']
 >({
-    name: 'profile',
+    name: 'lssmv4-redesign-profile',
     components: {
         LeafletMap: () =>
             import(

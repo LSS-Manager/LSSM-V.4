@@ -109,7 +109,7 @@ export default Vue.extend<
     BuildingTypesComputed,
     DefaultProps
 >({
-    name: 'building-types',
+    name: 'lssmv4-dashboard-building-types',
     components: {
         EnhancedTable: () =>
             import(

@@ -8,6 +8,6 @@
 import Vue from 'vue';
 
 export default Vue.extend({
-    name: 'discord',
+    name: 'discord-link',
 });
 </script>

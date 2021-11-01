@@ -92,7 +92,7 @@ export default Vue.extend<
     AppstoreComputed,
     DefaultProps
 >({
-    name: 'appstore',
+    name: 'lssmv4-appstore',
     components: {
         Lightbox: () =>
             import(

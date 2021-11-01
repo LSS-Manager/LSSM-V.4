@@ -181,7 +181,7 @@ export default Vue.extend<
     Component['Computed'],
     Component['Props']
 >({
-    name: 'aaos',
+    name: 'lssmv4-redesign-aaos',
     components: {
         ARR: () =>
             import(

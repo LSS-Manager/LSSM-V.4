@@ -47,7 +47,7 @@ import VSelect from 'vue-select';
 const config = require('../../config');
 
 export default {
-    name: 'support',
+    name: 'lssmv4-support',
     components: { Chat, Lightbox, VSelect },
     data() {
         return {
@@ -81,9 +81,9 @@ export default {
             });
         },
         shownChat() {
-            if (this.chats.hasOwnProperty(this.selectedChat)) {
+            if (this.chats.hasOwnProperty(this.selectedChat))
                 return this.chats[this.selectedChat];
-            }
+
             return this.chats[Object.keys(this.$store.state.support.chats)[0]];
         },
     },

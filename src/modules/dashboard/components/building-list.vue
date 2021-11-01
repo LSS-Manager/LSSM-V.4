@@ -137,7 +137,7 @@ export default Vue.extend<
     BuildingListComputed,
     BuildingListProps
 >({
-    name: 'building-list',
+    name: 'lssmv4-dashboard-building-list',
     components: {
         Lightbox: () =>
             import(

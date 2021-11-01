@@ -298,7 +298,7 @@ export default Vue.extend<
     OverviewComputed,
     DefaultProps
 >({
-    name: 'overview',
+    name: 'lssmv4-overview',
     components: {
         Lightbox: () =>
             import(

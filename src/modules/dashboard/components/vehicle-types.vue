@@ -105,7 +105,7 @@ export default Vue.extend<
     VehicleTypesComputed,
     DefaultProps
 >({
-    name: 'vehicle-types',
+    name: 'lssmv4-dashboard-vehicle-types',
     components: {
         EnhancedTable: () =>
             import(

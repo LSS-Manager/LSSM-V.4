@@ -27,7 +27,7 @@ export default Vue.extend<
         missionId: number;
     }
 >({
-    name: 'einsatz-component',
+    name: 'lssmv4-redesign-einsatz-component',
     computed: {
         mission() {
             return (this.$store.state.api.missions as Mission[]).find(

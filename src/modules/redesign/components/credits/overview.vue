@@ -105,7 +105,7 @@ export default Vue.extend<
         setSetting: <T>(settingId: string, value: T) => Promise<void>;
     }
 >({
-    name: 'credits-overview',
+    name: 'lssmv4-redesign-credits-overview',
     components: {
         EnhancedTable: () =>
             import(

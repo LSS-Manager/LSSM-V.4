@@ -212,7 +212,7 @@ export default Vue.extend<
     RedesignLightbox['Computed'],
     RedesignLightbox['Props']
 >({
-    name: 'redesign-lightbox',
+    name: 'lssmv4-redesign-lightbox',
     components: {
         Lightbox: () =>
             import(

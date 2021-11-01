@@ -14,7 +14,7 @@
 import Vue from 'vue';
 
 export default Vue.extend({
-    name: 'blf-preview',
+    name: 'lssmv4-blf-preview',
     props: {
         setting: {
             type: Object,
