@@ -999,4 +999,19 @@ export default {
     ],
     only_alliance_missions: [57, 74],
     transfer_missions: [],
+    ranks: {
+        missionchief: {
+            0: 'Novato',
+            200: 'Bombero',
+            10_000: 'Bombero sénior',
+            100_000: 'Operador de vehículos antiincendios',
+            1_000_000: 'Teniente',
+            5_000_000: 'Capitán',
+            20_000_000: 'Capitán de personal',
+            50_000_000: 'Jefe de batallón',
+            1_000_000_000: 'Jefe de división',
+            2_000_000_000: 'Subjefe',
+            5_000_000_000: 'Jefe de bomberos',
+        },
+    },
 };
