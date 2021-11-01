@@ -41,6 +41,7 @@ interface NumberInput extends SettingTemplate {
     min?: number;
     max?: number;
     step?: number;
+    float?: boolean;
 }
 
 interface Select extends SettingTemplate {

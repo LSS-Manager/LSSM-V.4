@@ -209,6 +209,7 @@
                             :min="setting.min"
                             :max="setting.max"
                             :step="setting.step"
+                            :float="setting.float"
                             @input="update(moduleId, settingId)"
                             :disabled="setting.isDisabled"
                         ></settings-number>
