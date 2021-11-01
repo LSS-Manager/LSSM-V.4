@@ -360,7 +360,7 @@ export default Vue.extend<
     DispatchcenterViewComputed,
     DefaultProps
 >({
-    name: 'dispatchcenter-view',
+    name: 'lssmv4-dashboard-dispatchcenter-view',
     components: {
         VSelect: () =>
             import(

@@ -84,7 +84,7 @@ export default Vue.extend<
     Component['Computed'],
     Component['Props']
 >({
-    name: 'verband-edit-text',
+    name: 'lssmv4-redesign-verband-edit-text',
     data() {
         return {
             textId: this.$store.getters.nodeAttribute(

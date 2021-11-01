@@ -61,7 +61,7 @@ export default Vue.extend<
     Component['Computed'],
     Component['Props']
 >({
-    name: 'fahrzeugfarbe',
+    name: 'lssmv4-redesign-fahrzeugfarbe',
     data() {
         return {
             showSavedNote: false,

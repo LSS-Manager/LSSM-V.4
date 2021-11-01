@@ -36,7 +36,7 @@ export default Vue.extend<
     Component['Computed'],
     Component['Props']
 >({
-    name: 'profile-edit',
+    name: 'lssmv4-redesign-profile-edit',
     data() {
         return {};
     },

@@ -51,7 +51,7 @@ export default Vue.extend<
     OpenSchoolingTabsComputed,
     OpenSchoolingTabsProps
 >({
-    name: 'openSchoolingTabs',
+    name: 'lssmv4-so-openSchoolingTabs',
     components: {
         EnhancedTable: () =>
             import(

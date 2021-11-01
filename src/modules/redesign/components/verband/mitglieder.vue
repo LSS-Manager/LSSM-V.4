@@ -287,7 +287,7 @@ export default Vue.extend<
     Component['Computed'],
     Component['Props']
 >({
-    name: 'verband-mitglieder',
+    name: 'lssmv4-redesign-verband-mitglieder',
     components: {
         EnhancedTable: () =>
             import(

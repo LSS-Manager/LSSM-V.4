@@ -60,7 +60,7 @@ export default Vue.extend<
     DefaultComputed,
     LightboxProps
 >({
-    name: 'lightbox',
+    name: 'lssmv4-lightbox',
     data() {
         return {
             fullscreen: false,

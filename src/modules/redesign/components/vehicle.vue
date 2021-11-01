@@ -1206,7 +1206,7 @@ export default Vue.extend<
     Component['Computed'],
     Component['Props']
 >({
-    name: 'vehicle-lightbox',
+    name: 'lssmv4-redesign-vehicle-lightbox',
     components: {
         EnhancedTable: () =>
             import(

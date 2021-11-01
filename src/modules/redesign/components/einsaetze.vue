@@ -277,7 +277,7 @@ export default Vue.extend<
     Component['Computed'],
     Component['Props']
 >({
-    name: 'einsaetze',
+    name: 'lssmv4-redesign-einsaetze',
     components: {
         EnhancedTable: () =>
             import(

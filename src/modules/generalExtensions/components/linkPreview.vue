@@ -152,7 +152,7 @@ export default Vue.extend<
     LinkPreviewComputed,
     LinkPreviewProps
 >({
-    name: 'linkPreview',
+    name: 'lssmv4-linkPreview',
     data() {
         return {
             faParking,

@@ -123,7 +123,7 @@ export default Vue.extend<
     VehicleListComputed,
     VehicleListProps
 >({
-    name: 'vehicle-list',
+    name: 'lssmv4-dashboard-vehicle-list',
     components: {
         Lightbox: () =>
             import(

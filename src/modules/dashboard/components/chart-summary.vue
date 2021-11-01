@@ -122,7 +122,7 @@ export default Vue.extend<
     ChartSummaryComputed,
     DefaultProps
 >({
-    name: 'chart-summary',
+    name: 'lssmv4-dashboard-chart-summary',
     data() {
         return {
             buildingsId: this.$store.getters.nodeAttribute(

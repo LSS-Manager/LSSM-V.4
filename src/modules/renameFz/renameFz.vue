@@ -46,7 +46,7 @@
 import VSelect from 'vue-select';
 
 export default {
-    name: 'renameFz',
+    name: 'lssmv4-renameFz',
     components: { VSelect },
     data() {
         return {

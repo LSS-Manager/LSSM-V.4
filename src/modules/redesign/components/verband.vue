@@ -191,7 +191,7 @@ export default Vue.extend<
     Component['Computed'],
     Component['Props']
 >({
-    name: 'verband-lightbox',
+    name: 'lssmv4-redesign-verband-lightbox',
     components: {
         VerbandBSR: () =>
             import(

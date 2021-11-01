@@ -178,7 +178,7 @@ export default Vue.extend<
     LSSMAQLComputed,
     DefaultProps
 >({
-    name: 'lssmaql',
+    name: 'lssmv4-lssmaql-console',
     components: {
         Lightbox: () =>
             import(

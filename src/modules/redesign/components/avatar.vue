@@ -54,7 +54,7 @@ export default Vue.extend<
     Component['Computed'],
     Component['Props']
 >({
-    name: 'avatar-edit',
+    name: 'lssmv4-redesign-avatar-edit',
     data() {
         const input = document.createElement('input');
         input.type = 'file';

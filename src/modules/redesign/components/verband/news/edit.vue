@@ -64,7 +64,7 @@ export default Vue.extend<
     Component['Computed'],
     Component['Props']
 >({
-    name: 'verband-news-edit',
+    name: 'lssmv4-redesign-verband-news-edit',
     data() {
         return {
             captionId: this.$store.getters.nodeAttribute(

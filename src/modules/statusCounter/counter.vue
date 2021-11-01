@@ -44,7 +44,7 @@ export default Vue.extend<
     },
     { settings: { percentRounding: number } & Record<string, boolean> }
 >({
-    name: 'status-counter',
+    name: 'lssmv4-status-counter',
     data() {
         return {
             fmsReal2Show: (this.$t('fmsReal2Show') as unknown) as Record<

@@ -298,7 +298,7 @@ export default Vue.extend<
     SettingsComputed,
     DefaultProps
 >({
-    name: 'settings',
+    name: 'lssmv4-settings',
     components: {
         SettingsAppendableList: () =>
             import(

@@ -116,7 +116,7 @@ export default Vue.extend<
     Component['Computed'],
     Component['Props']
 >({
-    name: 'verband-home',
+    name: 'lssmv4-redesign-verband-home',
     data() {
         return {
             faEdit,

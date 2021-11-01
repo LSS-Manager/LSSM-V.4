@@ -34,7 +34,7 @@ export default Vue.extend<
     Component['Computed'],
     Component['Props']
 >({
-    name: 'schoolings',
+    name: 'lssmv4-redesign-schoolings',
     components: {
         SchoolingsOverview: () =>
             import(

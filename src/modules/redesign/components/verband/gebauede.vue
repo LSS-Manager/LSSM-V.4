@@ -114,7 +114,7 @@ export default Vue.extend<
     Component['Computed'],
     Component['Props']
 >({
-    name: 'verband-gebauede',
+    name: 'lssmv4-redesign-verband-gebauede',
     components: {
         LeafletMap: () =>
             import(

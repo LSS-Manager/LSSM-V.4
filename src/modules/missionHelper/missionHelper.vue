@@ -477,7 +477,7 @@ export default Vue.extend<
     MissionHelperComputed,
     DefaultProps
 >({
-    name: 'missionHelper',
+    name: 'lssmv4-missionHelper',
     data() {
         return {
             faSyncAlt,

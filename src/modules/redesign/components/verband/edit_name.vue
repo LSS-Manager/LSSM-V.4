@@ -39,7 +39,7 @@ export default Vue.extend<
     Component['Computed'],
     Component['Props']
 >({
-    name: 'verband-edit-name',
+    name: 'lssmv4-redesign-verband-edit-name',
     data() {
         return {};
     },

@@ -83,7 +83,7 @@ export default Vue.extend<
     Component['Computed'],
     Component['Props']
 >({
-    name: 'verband-bsr',
+    name: 'lssmv4-redesign-verband-bsr',
     components: {
         LeafletMap: () =>
             import(

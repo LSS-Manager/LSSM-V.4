@@ -68,7 +68,7 @@ export default Vue.extend<
     Component['Computed'],
     Component['Props']
 >({
-    name: 'awards',
+    name: 'lssmv4-redesign-awards',
     props: {
         awards: {
             type: Object,
