@@ -1,20 +1,20 @@
 {
-    "description": "Verbeter de kaart met een aantal coole functies.",
-    "name": "Verbeterde Kaart",
-    "positions": {
-        "bottomleft": "Linksonder 🡧",
-        "bottomright": "Rechtsonder 🡦",
-        "topleft": "Linksboven 🡤",
-        "topright": "Rechtsboven 🡥"
-    },
-    "settings": {
-        "mapScale": {
-            "description": "Toont een schaalstok en het huidige zoomniveau",
-            "title": "Schaalstok"
-        },
-        "mapScalePosition": {
-            "description": "Selecteer in welke hoek van de kaart de schaalstok moet verschijnen",
-            "title": "Positie van schaalstok"
-        }
-    }
+	"description": "Verbeter de kaart met een aantal coole functies.",
+	"name": "Verbeterde Kaart",
+	"positions": {
+		"bottomleft": "Linksonder 🡧",
+		"bottomright": "Rechtsonder 🡦",
+		"topleft": "Linksboven 🡤",
+		"topright": "Rechtsboven 🡥"
+	},
+	"settings": {
+		"mapScale": {
+			"description": "Toont een schaalstok en het huidige zoomniveau",
+			"title": "Schaalstok"
+		},
+		"mapScalePosition": {
+			"description": "Selecteer in welke hoek van de kaart de schaalstok moet verschijnen",
+			"title": "Positie van schaalstok"
+		}
+	}
 }
