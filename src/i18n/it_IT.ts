@@ -107,6 +107,7 @@ export default {
             maxPersonnel: 3,
             wtank: 8_000,
             ftank: 250,
+            possibleBuildings: [0, 18],
         },
         1: {
             caption: 'AS',
@@ -115,6 +116,7 @@ export default {
             credits: 10_000,
             minPersonnel: 1,
             maxPersonnel: 3,
+            possibleBuildings: [0, 18],
             special: 'Richiesto dopo aver costruito 3 caserme dei pompieri',
         },
         2: {
@@ -124,6 +126,7 @@ export default {
             credits: 10_000,
             minPersonnel: 1,
             maxPersonnel: 3,
+            possibleBuildings: [0, 18],
             special: 'Richiesto dopo aver costruito 6 caserme dei pompieri',
         },
         3: {
@@ -133,6 +136,7 @@ export default {
             credits: 12_180,
             minPersonnel: 1,
             maxPersonnel: 4,
+            possibleBuildings: [0, 18],
             special: 'Richiesto dopo aver costruito 4 caserme dei pompieri',
         },
         4: {
@@ -142,6 +146,7 @@ export default {
             credits: 5_000,
             minPersonnel: 2,
             maxPersonnel: 5,
+            possibleBuildings: [0, 2, 20],
         },
         5: {
             caption: 'KILO',
@@ -151,6 +156,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 3,
             wtank: 18_000,
+            possibleBuildings: [0, 18],
             special: 'Richiesta dopo aver costruito 7 caserme dei pompieri',
         },
         6: {
@@ -160,6 +166,7 @@ export default {
             credits: 19_200,
             minPersonnel: 1,
             maxPersonnel: 6,
+            possibleBuildings: [0, 18],
             schooling: {
                 'Caserma dei vigili del fuoco': {
                     'N.B.C.R.': {
@@ -176,6 +183,7 @@ export default {
             credits: 5_000,
             minPersonnel: 1,
             maxPersonnel: 2,
+            possibleBuildings: [6, 19],
         },
         8: {
             caption: 'Elisoccorso',
@@ -184,6 +192,7 @@ export default {
             credits: 300_000,
             minPersonnel: 1,
             maxPersonnel: 1,
+            possibleBuildings: [5],
         },
         9: {
             caption: 'APS',
@@ -194,6 +203,7 @@ export default {
             maxPersonnel: 6,
             wtank: 2_500,
             ftank: 400,
+            possibleBuildings: [0, 18],
         },
         10: {
             caption: 'AF/ARIA',
@@ -202,6 +212,7 @@ export default {
             credits: 10_000,
             minPersonnel: 1,
             maxPersonnel: 3,
+            possibleBuildings: [0, 18],
             special: 'Richiesto dopo aver cstruito 5 caserme dei pompieri.',
         },
         11: {
@@ -211,6 +222,7 @@ export default {
             credits: 20_000,
             minPersonnel: 1,
             maxPersonnel: 6,
+            possibleBuildings: [0, 18],
             schooling: {
                 'Caserma dei vigili del fuoco': {
                     'Corso per funzionario (UCL)': {
@@ -227,6 +239,7 @@ export default {
             credits: 18_000,
             minPersonnel: 1,
             maxPersonnel: 2,
+            possibleBuildings: [0, 18],
             schooling: {
                 'Caserma dei vigili del fuoco': {
                     ['Corso autista di Autogrù']: {
@@ -243,6 +256,7 @@ export default {
             credits: 300_000,
             minPersonnel: 1,
             maxPersonnel: 5,
+            possibleBuildings: [13],
             schooling: {
                 Polizia: {
                     'Reparto volo della polizia': {
@@ -260,6 +274,7 @@ export default {
             credits: 10_000,
             minPersonnel: 6,
             maxPersonnel: 9,
+            possibleBuildings: [6, 19, 21],
             schooling: {
                 Polizia: {
                     'Specializzazione antisommossa/UOPI': {
@@ -276,6 +291,7 @@ export default {
             credits: 7_000,
             minPersonnel: 1,
             maxPersonnel: 2,
+            possibleBuildings: [6, 19, 21],
             schooling: {
                 Polizia: {
                     ['Specializzazione unità cinofila']: {
@@ -292,6 +308,7 @@ export default {
             credits: 2_500,
             minPersonnel: 1,
             maxPersonnel: 1,
+            possibleBuildings: [6, 19],
             schooling: {
                 Polizia: {
                     'Specializzazione motociclista': {
@@ -307,6 +324,7 @@ export default {
             credits: 7_000,
             minPersonnel: 2,
             maxPersonnel: 4,
+            possibleBuildings: [6, 19, 21],
             schooling: {
                 Polizia: {
                     'Specializzazione antisommossa/UOPI': {
@@ -323,6 +341,7 @@ export default {
             credits: 20_000,
             minPersonnel: 2,
             maxPersonnel: 3,
+            possibleBuildings: [0, 2, 20],
             schooling: {
                 'Caserma dei vigili del fuoco': {
                     'Corso medico di emergenza': {
@@ -344,6 +363,7 @@ export default {
             credits: 25_000,
             minPersonnel: 2,
             maxPersonnel: 5,
+            possibleBuildings: [0, 2, 20],
             schooling: {
                 'Caserma dei vigili del fuoco': {
                     'Corso medico di emergenza': {
@@ -364,6 +384,7 @@ export default {
             credits: 5_000,
             minPersonnel: 2,
             maxPersonnel: 4,
+            possibleBuildings: [0, 2, 20],
         },
         21: {
             caption: 'Volante Finanza',
@@ -372,6 +393,7 @@ export default {
             credits: 15_000,
             minPersonnel: 1,
             maxPersonnel: 2,
+            possibleBuildings: [21],
         },
         22: {
             caption: 'Furgone artificieri',
@@ -380,6 +402,7 @@ export default {
             credits: 35_000,
             minPersonnel: 1,
             maxPersonnel: 2,
+            possibleBuildings: [6, 19],
             schooling: {
                 Polizia: {
                     'Corso Artificieri': {
@@ -395,6 +418,7 @@ export default {
             credits: 10_000,
             minPersonnel: 2,
             maxPersonnel: 2,
+            possibleBuildings: [0, 15],
             schooling: {
                 'Caserma dei vigili del fuoco': {
                     'Corso per operatore tecnico NSSA': {
@@ -410,6 +434,7 @@ export default {
             credits: 10_000,
             minPersonnel: 3,
             maxPersonnel: 3,
+            possibleBuildings: [0, 15],
             schooling: {
                 'Caserma dei vigili del fuoco': {
                     'Corso per operatore tecnico SAF': {
@@ -425,6 +450,7 @@ export default {
             credits: 6_000,
             minPersonnel: 0,
             maxPersonnel: 0,
+            possibleBuildings: [0, 15],
             special: 'Mezzo di rimorchio necessario (Pickup SAF, Camion NSSA)',
         },
         26: {
@@ -434,6 +460,7 @@ export default {
             credits: 10_000,
             minPersonnel: 1,
             maxPersonnel: 9,
+            possibleBuildings: [0, 18],
         },
         27: {
             caption: 'DTS',
@@ -442,6 +469,7 @@ export default {
             credits: 20_000,
             minPersonnel: 2,
             maxPersonnel: 3,
+            possibleBuildings: [2, 20],
             special: 'Richiesto dopo aver costruito 6 stazioni di soccorso',
         },
         28: {
@@ -452,6 +480,7 @@ export default {
             minPersonnel: 2,
             maxPersonnel: 4,
             wtank: 400,
+            possibleBuildings: [0, 18],
         },
         29: {
             caption: 'Autocarro AIB - AF/BOSC',
@@ -461,6 +490,7 @@ export default {
             minPersonnel: 2,
             maxPersonnel: 4,
             wtank: 1_000,
+            possibleBuildings: [0],
         },
         30: {
             caption: 'Autobotte AIB',
@@ -470,6 +500,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 3,
             wtank: 4_000,
+            possibleBuildings: [0],
         },
         31: {
             caption: 'Funzionario AIB - DOS',
@@ -478,6 +509,7 @@ export default {
             credits: 20_000,
             minPersonnel: 1,
             maxPersonnel: 2,
+            possibleBuildings: [0],
             schooling: {
                 'Caserma dei vigili del fuoco': {
                     'Direttore Operazioni Spegnimento': {
@@ -493,6 +525,7 @@ export default {
             credits: 5_000,
             minPersonnel: 1,
             maxPersonnel: 2,
+            possibleBuildings: [0],
             schooling: {
                 'Caserma dei vigili del fuoco': {
                     'Autista Movimento Terra': {
@@ -511,6 +544,7 @@ export default {
             credits: 20_000,
             minPersonnel: 0,
             maxPersonnel: 0,
+            possibleBuildings: [0],
             special:
                 'Richiede 1 persona addestrata per il veicolo trainante (Autista Movimento Terra)',
         },
@@ -522,6 +556,7 @@ export default {
             minPersonnel: 2,
             maxPersonnel: 2,
             wtank: 2_000,
+            possibleBuildings: [24],
             schooling: {
                 'Caserma dei vigili del fuoco': {
                     'Pilota Velivoli Antincendio': {
@@ -538,6 +573,7 @@ export default {
             minPersonnel: 2,
             maxPersonnel: 5,
             wtank: 6_000,
+            possibleBuildings: [24],
             schooling: {
                 'Caserma dei vigili del fuoco': {
                     'Pilota Velivoli Antincendio': {
@@ -553,6 +589,7 @@ export default {
             credits: 50_000,
             minPersonnel: 1,
             maxPersonnel: 4,
+            possibleBuildings: [0, 2],
             schooling: {
                 'Caserma dei vigili del fuoco': {
                     'Corso Operatore MaxiEmergenze': {
@@ -574,6 +611,7 @@ export default {
             minPersonnel: 2,
             maxPersonnel: 3,
             ftank: 2_000,
+            possibleBuildings: [0],
         },
     },
     buildings: {

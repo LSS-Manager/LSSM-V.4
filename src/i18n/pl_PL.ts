@@ -97,6 +97,7 @@ export default {
             maxPersonnel: 6,
             wtank: 5_000,
             ftank: 500,
+            possibleBuildings: [0, 18],
         },
         1: {
             caption: 'Średni samochód gaśniczy',
@@ -107,6 +108,7 @@ export default {
             maxPersonnel: 6,
             wtank: 2_500,
             ftank: 250,
+            possibleBuildings: [0, 18],
         },
         2: {
             caption: 'SD',
@@ -116,6 +118,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 3,
             wtank: 0,
+            possibleBuildings: [0, 18],
             special: 'Wymagane po zbudowaniu 3 remiz',
         },
         3: {
@@ -126,6 +129,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 4,
             wtank: 0,
+            possibleBuildings: [0, 18],
             special: 'Wymagane po zbudowaniu 6 remiz',
         },
         4: {
@@ -136,6 +140,7 @@ export default {
             minPersonnel: 3,
             maxPersonnel: 5,
             wtank: 0,
+            possibleBuildings: [0, 18],
             special: 'Wymagane po zbudowaniu 4 remiz',
         },
         5: {
@@ -146,6 +151,7 @@ export default {
             minPersonnel: 2,
             maxPersonnel: 2,
             wtank: 0,
+            possibleBuildings: [2, 20],
         },
         6: {
             caption: 'Cysterna gaśnicza',
@@ -155,6 +161,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 2,
             wtank: 25_000,
+            possibleBuildings: [0, 18],
             special: 'Wymagane po zbudowaniu 7 remiz',
         },
         7: {
@@ -165,6 +172,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 3,
             wtank: 0,
+            possibleBuildings: [0, 18],
             schooling: 'Szkoła Pożarnicza',
             shownSchooling:
                 'Wymaga specjalnej edukacji (Ratownictwo chemiczne)',
@@ -178,6 +186,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 2,
             wtank: 0,
+            possibleBuildings: [6, 19],
         },
         9: {
             caption: 'Śmigłowiec LPR',
@@ -187,6 +196,7 @@ export default {
             minPersonnel: 3,
             maxPersonnel: 3,
             wtank: 0,
+            possibleBuildings: [5],
         },
         10: {
             caption: 'SPGaz',
@@ -196,6 +206,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 3,
             wtank: 0,
+            possibleBuildings: [0, 18],
             special: 'Wymagane po zbudowaniu 5 remiz',
         },
         11: {
@@ -206,6 +217,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 2,
             wtank: 0,
+            possibleBuildings: [0, 18],
             schooling: 'Szkoła Pożarnicza',
             shownSchooling:
                 'Wymaga specjalnej edukacji (Szkolenie w dowodzeniu)',
@@ -220,6 +232,7 @@ export default {
             maxPersonnel: 6,
             wtank: 3_000,
             ftank: 250,
+            possibleBuildings: [0, 18],
             special: 'Potrzebujesz przynajmniej stopnia: Kapitan',
         },
         13: {
@@ -230,6 +243,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 3,
             wtank: 0,
+            possibleBuildings: [0, 18],
         },
         14: {
             caption: 'Helikopter Policyjny',
@@ -239,6 +253,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 1,
             wtank: 0,
+            possibleBuildings: [13],
             schooling: 'Akademia Policyjna',
             shownSchooling: 'Wymaga specjalnej edukacji (Lotnictwo policyjne)',
         },
@@ -250,6 +265,7 @@ export default {
             minPersonnel: 6,
             maxPersonnel: 6,
             wtank: 0,
+            possibleBuildings: [6, 19],
             schooling: 'Akademia Policyjna',
             shownSchooling: 'Wymaga specjalnej edukacji (SPKP)',
             special: 'Wymagane po zbudowaniu 8 posterunków policji',
@@ -262,6 +278,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 2,
             wtank: 0,
+            possibleBuildings: [6, 19],
             schooling: 'Akademia Policyjna',
             shownSchooling: 'Wymaga specjalnej edukacji (K-9)',
             special: 'Wymagane po zbudowaniu 8 posterunków policji',
@@ -274,6 +291,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 1,
             wtank: 0,
+            possibleBuildings: [6, 18],
             schooling: 'Akademia Policyjna',
             shownSchooling:
                 'Wymaga specjalnej edukacji (Funkcjonariusz na motocyklu)',
@@ -286,6 +304,7 @@ export default {
             minPersonnel: 2,
             maxPersonnel: 4,
             wtank: 0,
+            possibleBuildings: [6, 19],
             schooling: 'Akademia Policyjna',
             shownSchooling: 'Wymaga specjalnej edukacji (SPKP)',
             special: 'Wymagane po zbudowaniu 8 posterunków policji',
@@ -298,6 +317,7 @@ export default {
             minPersonnel: 2,
             maxPersonnel: 4,
             wtank: 0,
+            possibleBuildings: [15],
             schooling:
                 'Akademia Służb Ratownictwa Medycznego, Szkoła Pożarnicza',
             shownSchooling:
@@ -311,6 +331,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 1,
             wtank: 0,
+            possibleBuildings: [15],
             schooling:
                 'Akademia Służb Ratownictwa Medycznego, Szkoła Pożarnicza',
             shownSchooling:
@@ -324,6 +345,7 @@ export default {
             minPersonnel: 0,
             maxPersonnel: 0,
             wtank: 0,
+            possibleBuildings: [15],
             special:
                 'Potrzebna laweta (S.WOPR, Samochód SLRw, Samochód ratownictwa technicznego, SLOp, Ciężki samochód gaśniczy, Średni samochód gaśniczy, GBARt)',
         },
@@ -335,6 +357,7 @@ export default {
             minPersonnel: 0,
             maxPersonnel: 0,
             wtank: 0,
+            possibleBuildings: [15],
             special:
                 'Potrzebna laweta (S.WOPR, Quad, Samochód ratownictwa technicznego, SLOp, Ciężki samochód gaśniczy, Średni samochód gaśniczy, GBARt)',
         },
@@ -346,6 +369,7 @@ export default {
             minPersonnel: 0,
             maxPersonnel: 0,
             wtank: 0,
+            possibleBuildings: [15],
             special:
                 'Potrzebna laweta (S.WOPR, Quad, Samochód ratownictwa technicznego, SLOp, Ciężki samochód gaśniczy, Średni samochód gaśniczy, GBARt)',
         },
@@ -357,6 +381,7 @@ export default {
             minPersonnel: 2,
             maxPersonnel: 4,
             wtank: 0,
+            possibleBuildings: [15],
             schooling:
                 'Akademia Służb Ratownictwa Medycznego, Szkoła Pożarnicza',
             shownSchooling: 'Wymaga specjalnej edukacji (Kurs Nurka MSWiA)',
@@ -369,6 +394,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 3,
             wtank: 0,
+            possibleBuildings: [0, 18],
         },
         26: {
             caption: 'Łódź SP',
@@ -378,6 +404,7 @@ export default {
             minPersonnel: 0,
             maxPersonnel: 0,
             wtank: 0,
+            possibleBuildings: [15],
             special:
                 'Potrzebna laweta (S.WOPR, Quad, Samochód ratownictwa technicznego, SLOp, Ciężki samochód gaśniczy, Średni samochód gaśniczy, GBARt)',
         },
@@ -389,6 +416,7 @@ export default {
             minPersonnel: 3,
             maxPersonnel: 5,
             wtank: 0,
+            possibleBuildings: [0, 18],
             schooling: 'Szkoła Pożarnicza',
             shownSchooling:
                 'Wymaga specjalnej edukacji (Ratownictwo Wysokościowe)',
@@ -402,6 +430,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 4,
             wtank: 0,
+            possibleBuildings: [0, 18],
             special: 'Wymagane po zbudowaniu 6 remiz',
         },
         29: {
@@ -413,6 +442,7 @@ export default {
             maxPersonnel: 6,
             wtank: 1_000,
             ftank: 100,
+            possibleBuildings: [0, 18],
         },
         30: {
             caption: 'Radiowóz WRD',
@@ -422,6 +452,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 2,
             wtank: 0,
+            possibleBuildings: [6, 19],
             schooling: 'Akademia Policyjna',
             shownSchooling: 'Wymaga specjalnej edukacji (Szkolenie WRD)',
         },
@@ -435,6 +466,7 @@ export default {
             wtank: 0,
             schooling: 'Ratownictwo - Lekarz',
             shownSchooling: 'Lekarz',
+            possibleBuildings: [2, 20],
         },
         32: {
             caption: 'Samochód Lekarza',
@@ -445,6 +477,7 @@ export default {
             maxPersonnel: 1,
             schooling: 'Ratownictwo - Lekarz',
             shownSchooling: 'Lekarz',
+            possibleBuildings: [2, 20],
         },
         33: {
             caption: 'Motoambulans',
@@ -456,6 +489,7 @@ export default {
             wtank: 0,
             schooling: 'Ratownictwo - Motoambulans',
             shownSchooling: 'Motoambulans',
+            possibleBuildings: [2, 20],
         },
         34: {
             caption: 'Ambulans T',
@@ -465,6 +499,7 @@ export default {
             minPersonnel: 2,
             maxPersonnel: 2,
             wtank: 0,
+            possibleBuildings: [2, 20],
         },
         35: {
             caption: 'SRMed',
@@ -473,6 +508,7 @@ export default {
             credits: 4_000,
             minPersonnel: 2,
             maxPersonnel: 4,
+            possibleBuildings: [0, 18],
         },
         36: {
             caption: 'Kontenerowiec',
@@ -482,6 +518,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 2,
             wtank: 0,
+            possibleBuildings: [0],
         },
         37: {
             caption: 'SCRd',
@@ -491,6 +528,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 4,
             wtank: 0,
+            possibleBuildings: [0, 18],
         },
         38: {
             caption: 'GCBARt',
@@ -501,6 +539,7 @@ export default {
             maxPersonnel: 6,
             wtank: 6_500,
             ftank: 500,
+            possibleBuildings: [0, 18],
         },
         39: {
             caption: 'GLBARt',
@@ -511,6 +550,7 @@ export default {
             maxPersonnel: 6,
             wtank: 1_500,
             ftank: 100,
+            possibleBuildings: [0, 18],
         },
         40: {
             caption: 'Kontener inżynieryjno - techniczny',
@@ -520,6 +560,7 @@ export default {
             minPersonnel: 0,
             maxPersonnel: 0,
             wtank: 0,
+            possibleBuildings: [0],
         },
         41: {
             caption: 'Kontener dekontaminacyjny',
@@ -529,6 +570,7 @@ export default {
             minPersonnel: 0,
             maxPersonnel: 0,
             wtank: 0,
+            possibleBuildings: [0],
         },
         42: {
             caption: 'Kontener z AODO',
@@ -538,6 +580,7 @@ export default {
             minPersonnel: 0,
             maxPersonnel: 0,
             wtank: 0,
+            possibleBuildings: [0],
         },
         43: {
             caption: 'Kontener dowodzeniowy',
@@ -547,6 +590,7 @@ export default {
             minPersonnel: 0,
             maxPersonnel: 0,
             wtank: 0,
+            possibleBuildings: [0],
         },
         44: {
             caption: 'Kontener do przewozu środków gaśniczych',
@@ -557,6 +601,7 @@ export default {
             maxPersonnel: 0,
             wtank: 0,
             ftank: 800,
+            possibleBuildings: [0],
         },
         45: {
             caption: 'Kontener socjalno - sanitarny',
@@ -566,6 +611,7 @@ export default {
             minPersonnel: 0,
             maxPersonnel: 0,
             wtank: 0,
+            possibleBuildings: [0],
         },
         46: {
             caption: 'Kontener powodziowo - pompowy',
@@ -575,6 +621,7 @@ export default {
             minPersonnel: 0,
             maxPersonnel: 0,
             wtank: 0,
+            possibleBuildings: [0],
         },
         47: {
             caption: 'Kontener - cysterna',
@@ -584,6 +631,7 @@ export default {
             minPersonnel: 0,
             maxPersonnel: 0,
             wtank: 15_000,
+            possibleBuildings: [0],
         },
         48: {
             caption: 'Przyczepa pompowa',
@@ -593,6 +641,7 @@ export default {
             minPersonnel: 0,
             maxPersonnel: 0,
             wtank: 0,
+            possibleBuildings: [0, 18],
         },
         49: {
             caption: 'Przyczepa chemiczno - ekologiczna',
@@ -602,6 +651,7 @@ export default {
             minPersonnel: 0,
             maxPersonnel: 0,
             wtank: 0,
+            possibleBuildings: [0, 18],
         },
         50: {
             caption: 'Przyczepa dekontaminacyjna',
@@ -611,6 +661,7 @@ export default {
             minPersonnel: 0,
             maxPersonnel: 0,
             wtank: 0,
+            possibleBuildings: [0, 18],
         },
         51: {
             caption: 'Przyczepa przeciwpowodziowa',
@@ -620,6 +671,7 @@ export default {
             minPersonnel: 0,
             maxPersonnel: 0,
             wtank: 0,
+            possibleBuildings: [0, 18],
         },
         52: {
             caption: 'Przyczepa ze sprzętem AODO',
@@ -629,6 +681,7 @@ export default {
             minPersonnel: 0,
             maxPersonnel: 0,
             wtank: 0,
+            possibleBuildings: [0, 18],
         },
         53: {
             caption: 'Przyczepa ze sprzętem medycznym',
@@ -638,6 +691,7 @@ export default {
             minPersonnel: 0,
             maxPersonnel: 0,
             wtank: 0,
+            possibleBuildings: [0, 18],
         },
         54: {
             caption: 'Przyczepa z łódką strażacką',
@@ -647,6 +701,7 @@ export default {
             minPersonnel: 0,
             maxPersonnel: 0,
             wtank: 0,
+            possibleBuildings: [0, 18],
         },
         55: {
             caption: 'GCBAPr',
@@ -657,6 +712,7 @@ export default {
             maxPersonnel: 6,
             wtank: 6_000,
             ftank: 1500,
+            possibleBuildings: [0],
         },
         56: {
             caption: 'GBAPr',
@@ -667,6 +723,7 @@ export default {
             maxPersonnel: 6,
             wtank: 2_500,
             ftank: 750,
+            possibleBuildings: [0],
         },
         57: {
             caption: 'GCPr',
@@ -676,6 +733,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 4,
             ftank: 6000,
+            possibleBuildings: [0],
         },
         58: {
             caption: 'GPr',
@@ -685,6 +743,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 4,
             ftank: 3000,
+            possibleBuildings: [0],
         },
         59: {
             caption: 'GLPr',
@@ -694,6 +753,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 6,
             ftank: 750,
+            possibleBuildings: [0],
         },
         60: {
             caption: 'Przyczepa ze środkiem pianotwórczym',
@@ -703,6 +763,7 @@ export default {
             minPersonnel: 0,
             maxPersonnel: 0,
             ftank: 450,
+            possibleBuildings: [0, 18],
         },
         61: {
             caption: 'SW',
@@ -712,6 +773,7 @@ export default {
             minPersonnel: 0,
             maxPersonnel: 0,
             wtank: 0,
+            possibleBuildings: [0, 18],
         },
         62: {
             caption: 'Przyczepa wężowa',
@@ -721,6 +783,7 @@ export default {
             minPersonnel: 0,
             maxPersonnel: 0,
             wtank: 0,
+            possibleBuildings: [0, 18],
         },
         63: {
             caption: 'Przyczepa wielofunkcyjna',
@@ -730,6 +793,7 @@ export default {
             minPersonnel: 0,
             maxPersonnel: 0,
             wtank: 0,
+            possibleBuildings: [0, 18],
         },
         64: {
             caption: 'Kontener wężowy',
@@ -739,6 +803,7 @@ export default {
             minPersonnel: 0,
             maxPersonnel: 0,
             wtank: 0,
+            possibleBuildings: [0],
         },
     },
     buildings: {

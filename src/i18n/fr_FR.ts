@@ -106,6 +106,7 @@ export default {
             minPersonnel: 4,
             maxPersonnel: 6,
             wtank: 3000,
+            possibleBuildings: [0, 18],
         },
         1: {
             caption: 'FPTL',
@@ -115,6 +116,7 @@ export default {
             minPersonnel: 4,
             maxPersonnel: 6,
             wtank: 2000,
+            possibleBuildings: [0, 18],
         },
         2: {
             caption: 'EPA',
@@ -123,6 +125,7 @@ export default {
             credits: 10_000,
             minPersonnel: 1,
             maxPersonnel: 2,
+            possibleBuildings: [0, 18],
             special:
                 'Nécessaire dès lors que vous avez construit 3 bases de pompiers',
         },
@@ -133,6 +136,7 @@ export default {
             credits: 10_000,
             minPersonnel: 1,
             maxPersonnel: 1,
+            possibleBuildings: [0, 18],
             special:
                 'Nécessaire dès lors que vous avez construit 6 bases de pompiers',
         },
@@ -143,6 +147,7 @@ export default {
             credits: 12_180,
             minPersonnel: 2,
             maxPersonnel: 3,
+            possibleBuildings: [0, 18],
             special:
                 'Nécessaire dès lors que vous avez construit 4 bases de pompiers',
         },
@@ -153,6 +158,7 @@ export default {
             credits: 5_000,
             minPersonnel: 3,
             maxPersonnel: 3,
+            possibleBuildings: [2, 20],
         },
         6: {
             caption: 'CCGC',
@@ -162,6 +168,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 2,
             wtank: 11000,
+            possibleBuildings: [0, 18],
             special:
                 'Nécessaire dès lors que vous avez construit 7 bases de pompiers',
         },
@@ -172,6 +179,7 @@ export default {
             credits: 19_200,
             minPersonnel: 1,
             maxPersonnel: 4,
+            possibleBuildings: [0, 18],
             schooling: {
                 'Centre de secours': {
                     ['Véhicules risques chimiques']: {
@@ -189,6 +197,7 @@ export default {
             credits: 5_000,
             minPersonnel: 2,
             maxPersonnel: 4,
+            possibleBuildings: [6, 19],
         },
         9: {
             caption: 'Dragon',
@@ -197,6 +206,7 @@ export default {
             credits: 300_000,
             minPersonnel: 3,
             maxPersonnel: 5,
+            possibleBuildings: [5],
             schooling: {
                 Secours: {
                     ['Médecin']: {
@@ -212,6 +222,7 @@ export default {
             credits: 11_680,
             minPersonnel: 1,
             maxPersonnel: 3,
+            possibleBuildings: [0, 18],
         },
         11: {
             caption: 'VPC',
@@ -220,6 +231,7 @@ export default {
             credits: 25_500,
             minPersonnel: 1,
             maxPersonnel: 6,
+            possibleBuildings: [0, 18],
             schooling: {
                 'Centre de secours': {
                     'Commandement mobile': {
@@ -238,6 +250,7 @@ export default {
             minPersonnel: 2,
             maxPersonnel: 6,
             wtank: 3000,
+            possibleBuildings: [0, 18],
         },
         13: {
             caption: 'VTU',
@@ -246,6 +259,7 @@ export default {
             credits: 12_180,
             minPersonnel: 1,
             maxPersonnel: 3,
+            possibleBuildings: [0, 18],
             special:
                 'Nécessaire dès lors que vous avez construit 13 bases de pompiers',
         },
@@ -256,6 +270,7 @@ export default {
             credits: 19_000,
             minPersonnel: 2,
             maxPersonnel: 5,
+            possibleBuildings: [0, 18],
             schooling: {
                 'Centre de secours': {
                     ['IMP (Intervention en Milieu Périlleux)']: {
@@ -271,6 +286,7 @@ export default {
             credits: 19_000,
             minPersonnel: 2,
             maxPersonnel: 3,
+            possibleBuildings: [0, 18],
         },
         16: {
             caption: 'VPL',
@@ -279,6 +295,7 @@ export default {
             credits: 10_000,
             minPersonnel: 3,
             maxPersonnel: 3,
+            possibleBuildings: [0],
             schooling: {
                 'Centre de secours': {
                     'PLG (Plongeur)': {
@@ -295,6 +312,7 @@ export default {
             credits: 6_000,
             minPersonnel: 0,
             maxPersonnel: 0,
+            possibleBuildings: [0],
             special: 'Remorqueuse nécessaire (VPL, VTU)',
         },
         18: {
@@ -304,6 +322,7 @@ export default {
             credits: 300_000,
             minPersonnel: 2,
             maxPersonnel: 4,
+            possibleBuildings: [13],
             schooling: {
                 'Poste de police': {
                     'Licence de Pilote': {
@@ -319,6 +338,7 @@ export default {
             credits: 7_000,
             minPersonnel: 1,
             maxPersonnel: 2,
+            possibleBuildings: [6, 19],
             schooling: {
                 'Poste de police': {
                     ['Maître chien']: {
@@ -336,6 +356,7 @@ export default {
             credits: 2_500,
             minPersonnel: 1,
             maxPersonnel: 1,
+            possibleBuildings: [6, 19],
             schooling: {
                 'Poste de police': {
                     'Formation Motocycliste': {
@@ -352,6 +373,7 @@ export default {
             minPersonnel: 2,
             maxPersonnel: 4,
             wtank: 14500,
+            possibleBuildings: [0, 18],
             special:
                 'Nécessaire dès lors que vous avez construit 6 bases de pompiers',
         },
@@ -363,6 +385,7 @@ export default {
             minPersonnel: 2,
             maxPersonnel: 4,
             wtank: 4000,
+            possibleBuildings: [0, 18],
             special:
                 'Nécessaire dès lors que vous avez construit 6 bases de pompiers',
         },
@@ -374,6 +397,7 @@ export default {
             minPersonnel: 2,
             maxPersonnel: 4,
             wtank: 2000,
+            possibleBuildings: [0, 18],
             special:
                 'Nécessaire dès lors que vous avez construit 6 bases de pompiers',
         },
@@ -384,6 +408,7 @@ export default {
             credits: 10_000,
             minPersonnel: 1,
             maxPersonnel: 1,
+            possibleBuildings: [0, 18],
             special:
                 'Nécessaire dès lors que vous avez construit 6 bases de pompiers',
         },
@@ -394,6 +419,7 @@ export default {
             credits: 5_000,
             minPersonnel: 3,
             maxPersonnel: 3,
+            possibleBuildings: [0],
         },
         26: {
             caption: 'VL SSSM',
@@ -402,6 +428,7 @@ export default {
             credits: 4_000,
             minPersonnel: 1,
             maxPersonnel: 2,
+            possibleBuildings: [0],
             schooling: {
                 'Centre de secours': {
                     ['Médecin']: {
@@ -417,6 +444,7 @@ export default {
             credits: 4_000,
             minPersonnel: 3,
             maxPersonnel: 3,
+            possibleBuildings: [2, 20],
             schooling: {
                 Secours: {
                     ['Médecin']: {
@@ -432,6 +460,7 @@ export default {
             credits: 10_000,
             minPersonnel: 3,
             maxPersonnel: 3,
+            possibleBuildings: [2, 20],
             schooling: {
                 Secours: {
                     ['Médecin']: {
@@ -447,6 +476,7 @@ export default {
             credits: 20_000,
             minPersonnel: 2,
             maxPersonnel: 3,
+            possibleBuildings: [2, 20],
             schooling: {
                 Secours: {
                     DSM: {
@@ -464,6 +494,7 @@ export default {
             credits: 5_000,
             minPersonnel: 1,
             maxPersonnel: 2,
+            possibleBuildings: [2, 20],
         },
         31: {
             caption: 'VTP',
@@ -472,6 +503,7 @@ export default {
             credits: 10_000,
             minPersonnel: 1,
             maxPersonnel: 9,
+            possibleBuildings: [0, 18],
         },
         32: {
             caption: 'CCRL',
@@ -481,6 +513,7 @@ export default {
             minPersonnel: 2,
             maxPersonnel: 4,
             wtank: 1400,
+            possibleBuildings: [0, 18],
         },
         33: {
             caption: 'CCRM',
@@ -490,6 +523,7 @@ export default {
             minPersonnel: 2,
             maxPersonnel: 6,
             wtank: 2500,
+            possibleBuildings: [0, 18],
         },
         34: {
             caption: 'CCRSR',
@@ -499,6 +533,7 @@ export default {
             minPersonnel: 2,
             maxPersonnel: 6,
             wtank: 2000,
+            possibleBuildings: [0, 18],
         },
         35: {
             caption: 'FMOGP',
@@ -508,6 +543,7 @@ export default {
             minPersonnel: 2,
             maxPersonnel: 3,
             wtank: 12000,
+            possibleBuildings: [0],
         },
         36: {
             caption: 'CDHR',
@@ -516,6 +552,7 @@ export default {
             credits: 15_000,
             minPersonnel: 2,
             maxPersonnel: 3,
+            possibleBuildings: [0],
         },
         37: {
             caption: 'FDGP',
@@ -524,6 +561,7 @@ export default {
             credits: 35_000,
             minPersonnel: 2,
             maxPersonnel: 4,
+            possibleBuildings: [0],
         },
         38: {
             caption: 'MPR',
@@ -532,6 +570,7 @@ export default {
             credits: 10_000,
             minPersonnel: 0,
             maxPersonnel: 0,
+            possibleBuildings: [0],
             special:
                 'Remorqueuse nécessaire (FPT, FPTL, CCFS, CCFM, CCFL, CCRL, CCRM, CCGC, FMOGP, VLHR, CDHR, FDGP)',
         },
