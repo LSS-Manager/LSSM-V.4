@@ -18,4 +18,15 @@ export default <ModuleMainFunction>(async (LSSM, MODULE_ID) => {
             >('mapScalePosition')
         );
     }
+
+    if (await getSetting('centerMap')) {
+        await (
+            await import(
+                /* webpackChunkName: "modules/extendedMap/centerMap" */ './assets/centerMap'
+            )
+        ).default(
+            getSetting,
+            await getSetting<'dynamic' | 'static'>('centerMapType')
+        );
+    }
 });

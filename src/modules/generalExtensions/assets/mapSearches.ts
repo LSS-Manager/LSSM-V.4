@@ -29,7 +29,8 @@ export default (
         const isMainWindowSearch =
             window.location.pathname.match(/^\/?$/) &&
             mapSearchOnMap &&
-            !document.querySelector('.redesign-wrapper');
+            !document.querySelector('.redesign-wrapper') &&
+            !document.querySelector('#modals-container [data-modal$="_map"]');
 
         if (isMainWindowSearch) {
             form =

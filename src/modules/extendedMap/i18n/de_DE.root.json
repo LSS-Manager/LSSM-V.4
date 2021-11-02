@@ -8,6 +8,19 @@
 		"topright": "Oben Rechts 🡥"
 	},
 	"settings": {
+		"centerMap": {
+			"description": "Zentriere die Karte beim Öffnen des Spiels dynamisch oder auf einen statischen Punkt.",
+			"title": "Karte zentrieren"
+		},
+		"centerMapStaticLocation": {
+			"title": "Karte statisch zentrieren: Position"
+		},
+		"centerMapType": {
+			"description": "Wähle hier, ob die Karte dynamisch oder statisch zentriert werden soll. [Dynamisch ist noch nicht verfügbar]",
+			"dynamic": "Dynamisch",
+			"static": "Statisch",
+			"title": "Karte zentrieren: Typ"
+		},
 		"mapScale": {
 			"description": "Zeigt einen Maßstab und das aktuelle Zoomlevel in der Karte an.",
 			"title": "Maßstab"

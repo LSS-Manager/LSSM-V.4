@@ -59,6 +59,10 @@ const modules = {
             true: 'An',
             false: 'Aus',
         },
+        locationSelect: {
+            location: 'Position auswählen',
+            zoom: 'Position und Zoomstufe auswählen',
+        },
     },
 } as { [moduleId: string]: { [key: string]: unknown } };
 
