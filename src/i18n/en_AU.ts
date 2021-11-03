@@ -118,6 +118,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 6,
             wtank: 2_000,
+            possibleBuildings: [0, 18],
         },
         1: {
             caption: 'Medium Tanker',
@@ -127,6 +128,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 2,
             wtank: 1_800,
+            possibleBuildings: [0, 18],
         },
         2: {
             caption: 'Turntable Ladder',
@@ -135,6 +137,7 @@ export default {
             credits: 10_000,
             minPersonnel: 1,
             maxPersonnel: 3,
+            possibleBuildings: [0, 18],
             special: 'Required once you have built 3 firehouses',
         },
         3: {
@@ -144,6 +147,7 @@ export default {
             credits: 10_000,
             minPersonnel: 1,
             maxPersonnel: 3,
+            possibleBuildings: [0, 18],
             special: 'Required once you have built 6 firehouses',
         },
         4: {
@@ -153,6 +157,7 @@ export default {
             credits: 12_180,
             minPersonnel: 1,
             maxPersonnel: 4,
+            possibleBuildings: [0, 18],
             special: 'Required once you have built 4 firehouses',
         },
         5: {
@@ -162,6 +167,7 @@ export default {
             credits: 5_000,
             minPersonnel: 1,
             maxPersonnel: 2,
+            possibleBuildings: [0, 2, 20],
         },
         6: {
             caption: 'Bulk Water Tanker',
@@ -171,6 +177,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 3,
             wtank: 11_000,
+            possibleBuildings: [0, 18],
             special: 'Required once you have built 7 firehouses',
         },
         7: {
@@ -180,6 +187,7 @@ export default {
             credits: 17_300,
             minPersonnel: 1,
             maxPersonnel: 6,
+            possibleBuildings: [0, 18],
             schooling: {
                 'Fire Station': {
                     'HAZMAT Course': {
@@ -196,6 +204,7 @@ export default {
             credits: 5_000,
             minPersonnel: 1,
             maxPersonnel: 2,
+            possibleBuildings: [6, 19],
         },
         9: {
             caption: 'Air Ambulance',
@@ -204,6 +213,7 @@ export default {
             credits: 300_000,
             minPersonnel: 1,
             maxPersonnel: 4,
+            possibleBuildings: [5],
             schooling: {
                 Rescue: {
                     'Intensive Care Education': {
@@ -220,6 +230,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 3,
             wtank: 0,
+            possibleBuildings: [0, 18],
             special: 'Required from 5 fire stations',
         },
         11: {
@@ -230,6 +241,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 6,
             wtank: 0,
+            possibleBuildings: [0, 18],
             schooling: {
                 'Fire Station': {
                     'Mobile command': {
@@ -247,6 +259,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 6,
             wtank: 0,
+            possibleBuildings: [0, 18],
             special:
                 'To purchase with credits it requires the rank: Captain, <br>Lower ranked members can purchase the vehicle for 25 Coins. <br>Rescue Pump acts as a RSU and a Fire Truck.',
         },
@@ -258,6 +271,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 6,
             wtank: 0,
+            possibleBuildings: [0, 18],
             special:
                 'To purchase with credits it requires the rank: Captain, <br>Lower ranked members can purchase the vehicle for 25 Coins. <br>CARP acts as a Platform Truck and a Fire Truck.',
         },
@@ -268,6 +282,7 @@ export default {
             credits: 300_000,
             minPersonnel: 1,
             maxPersonnel: 2,
+            possibleBuildings: [13],
             schooling: {
                 Police: {
                     'Police Air Wing': {
@@ -283,6 +298,7 @@ export default {
             credits: 10_000,
             minPersonnel: 6,
             maxPersonnel: 10,
+            possibleBuildings: [6, 19],
             schooling: {
                 Police: {
                     TOG: {
@@ -300,6 +316,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 2,
             wtank: 0,
+            possibleBuildings: [6, 19],
             schooling: {
                 Police: {
                     'K-9': {
@@ -317,6 +334,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 1,
             wtank: 0,
+            possibleBuildings: [6, 19],
             schooling: {
                 Police: {
                     'Police Motorcycle': {
@@ -332,6 +350,7 @@ export default {
             credits: 7_000,
             minPersonnel: 2,
             maxPersonnel: 4,
+            possibleBuildings: [6, 19],
             schooling: {
                 Police: {
                     TOG: {
@@ -349,6 +368,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 5,
             wtank: 4_000,
+            possibleBuildings: [0, 18],
         },
         20: {
             caption: 'SES Vehicle',
@@ -358,6 +378,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 6,
             wtank: 0,
+            possibleBuildings: [15],
             schooling: {
                 'Fire Station': {
                     'SES Water Rescue': {
@@ -374,6 +395,7 @@ export default {
             minPersonnel: 0,
             maxPersonnel: 0,
             wtank: 0,
+            possibleBuildings: [15],
             special: 'SES Vehicle is the towing vehicle',
         },
         22: {
@@ -383,6 +405,7 @@ export default {
             credits: 15_000,
             minPersonnel: 0,
             maxPersonnel: 0,
+            possibleBuildings: [6, 19],
             schooling: {
                 Police: {
                     'Mounted Police Training': {
@@ -399,6 +422,7 @@ export default {
             credits: 20_000,
             minPersonnel: 1,
             maxPersonnel: 2,
+            possibleBuildings: [0, 2, 20],
             special: 'Required once you have built 6 Rescue stations',
         },
         24: {
@@ -408,6 +432,7 @@ export default {
             credits: 12_000,
             minPersonnel: 1,
             maxPersonnel: 2,
+            possibleBuildings: [0, 2, 20],
             schooling: {
                 'Fire Station': {
                     'Intensive Care Education': {
@@ -428,6 +453,7 @@ export default {
             credits: 12_000,
             minPersonnel: 1,
             maxPersonnel: 1,
+            possibleBuildings: [0, 2, 20],
             schooling: {
                 'Fire Station': {
                     'Intensive Care Education': {
@@ -448,6 +474,7 @@ export default {
             credits: 10_000,
             minPersonnel: 2,
             maxPersonnel: 4,
+            possibleBuildings: [0, 2, 20],
             special: 'Can work as MRU',
         },
         27: {
@@ -457,6 +484,7 @@ export default {
             credits: 25_000,
             minPersonnel: 4,
             maxPersonnel: 10,
+            possibleBuildings: [0, 2, 20],
             special:
                 'You can buy 1 Mass Casualty Vehicle for every 20 ambulance stations (respectively 15 with premium account).',
         },
@@ -468,6 +496,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 2,
             wtank: 500,
+            possibleBuildings: [0],
         },
         29: {
             caption: 'Light Tanker',
@@ -477,6 +506,7 @@ export default {
             minPersonnel: 2,
             maxPersonnel: 4,
             wtank: 3_000,
+            possibleBuildings: [0],
         },
         30: {
             caption: 'Pumper Tanker',
@@ -486,6 +516,7 @@ export default {
             minPersonnel: 4,
             maxPersonnel: 6,
             wtank: 3_000,
+            possibleBuildings: [0, 18],
         },
         31: {
             caption: 'Fire Helicopter',
@@ -495,6 +526,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 2,
             wtank: 1_500,
+            possibleBuildings: [23],
             schooling: {
                 'Fire Station': {
                     'Airborne firefighting': {
@@ -511,6 +543,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 1,
             wtank: 3_200,
+            possibleBuildings: [23],
             schooling: {
                 'Fire Station': {
                     'Airborne firefighting': {
@@ -527,6 +560,7 @@ export default {
             minPersonnel: 2,
             maxPersonnel: 3,
             wtank: 13_000,
+            possibleBuildings: [23],
             schooling: {
                 'Fire Station': {
                     'Airborne firefighting': {

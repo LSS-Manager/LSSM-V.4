@@ -117,6 +117,7 @@ export default {
             credits: 5_000,
             minPersonnel: 1,
             maxPersonnel: 9,
+            possibleBuildings: [0, 18],
             special: 'A standard pump used for fighting fires.',
         },
         1: {
@@ -126,6 +127,7 @@ export default {
             credits: 5_000,
             minPersonnel: 1,
             maxPersonnel: 5,
+            possibleBuildings: [0, 18],
             special: 'A smaller pump used in ruarl areas, will act as a pump.',
         },
         2: {
@@ -135,6 +137,7 @@ export default {
             credits: 10_000,
             minPersonnel: 1,
             maxPersonnel: 3,
+            possibleBuildings: [0, 18],
             special:
                 'Required once you have built 3 fire stations. An Aerial Asset, very useful for fighting fires in high rises and rescuing people.',
         },
@@ -145,6 +148,7 @@ export default {
             credits: 10_000,
             minPersonnel: 1,
             maxPersonnel: 3,
+            possibleBuildings: [0, 18, 22],
             special:
                 'Required once you have built 6 fire stations. A small car used for transporting Station Managers+ to calls, not uncommon to see 6-8 of these at Major Incidents.',
         },
@@ -155,6 +159,7 @@ export default {
             credits: 12_180,
             minPersonnel: 1,
             maxPersonnel: 5,
+            possibleBuildings: [0, 18],
             special:
                 'Required once you have built 4 fire stations. A big lorry with specialist rescue equipment, use full for Road Traffic Collisions.',
         },
@@ -165,6 +170,7 @@ export default {
             credits: 5_000,
             minPersonnel: 1,
             maxPersonnel: 2,
+            possibleBuildings: [0, 2, 20, 21, 25],
             special:
                 'A standard ambulance for tackling your medical emergencys.',
         },
@@ -175,6 +181,7 @@ export default {
             credits: 17_300,
             minPersonnel: 1,
             maxPersonnel: 3,
+            possibleBuildings: [0, 18],
             special:
                 'Required once you have built 7 fire stations. Used for conveying water to a fire, Very useful for rural fires.',
         },
@@ -185,6 +192,7 @@ export default {
             credits: 17_300,
             minPersonnel: 1,
             maxPersonnel: 6,
+            possibleBuildings: [0, 18],
             schooling: {
                 'Fire Station': {
                     HazMat: {
@@ -202,6 +210,7 @@ export default {
             credits: 5_000,
             minPersonnel: 1,
             maxPersonnel: 2,
+            possibleBuildings: [6, 19],
             special: 'A standard patrol car for tackling your police calls.',
         },
         9: {
@@ -211,6 +220,7 @@ export default {
             credits: 300_000,
             minPersonnel: 3,
             maxPersonnel: 5,
+            possibleBuildings: [5],
             schooling: {
                 Rescue: {
                     'Critical care': {
@@ -227,6 +237,7 @@ export default {
             credits: 4_000,
             minPersonnel: 1,
             maxPersonnel: 1,
+            possibleBuildings: [0, 2, 5, 20, 21, 22, 25],
             special:
                 'A fast and angile ambulance car, very useful when a ambulance has a long response. ',
         },
@@ -237,6 +248,7 @@ export default {
             credits: 300_000,
             minPersonnel: 1,
             maxPersonnel: 3,
+            possibleBuildings: [13],
             schooling: {
                 Police: {
                     'Police aviation': {
@@ -254,6 +266,7 @@ export default {
             credits: 7_000,
             minPersonnel: 1,
             maxPersonnel: 2,
+            possibleBuildings: [6, 19, 22],
             schooling: {
                 Police: {
                     'Dog handling': {
@@ -271,6 +284,7 @@ export default {
             credits: 7_000,
             minPersonnel: 1,
             maxPersonnel: 4,
+            possibleBuildings: [6, 19],
             schooling: {
                 Police: {
                     'Firearms training': {
@@ -288,6 +302,7 @@ export default {
             coins: 25,
             minPersonnel: 1,
             maxPersonnel: 3,
+            possibleBuildings: [0, 18],
             special:
                 'Required from 5 fire stations. Carrys air tanks to a call.',
         },
@@ -298,6 +313,7 @@ export default {
             credits: 25_500,
             minPersonnel: 1,
             maxPersonnel: 6,
+            possibleBuildings: [0, 18],
             schooling: {
                 'Fire Station': {
                     'Mobile command': {
@@ -315,6 +331,7 @@ export default {
             credits: 19_000,
             minPersonnel: 1,
             maxPersonnel: 9,
+            possibleBuildings: [0, 18],
             special:
                 'To purchase with credits it requires the rank: Captain, <br>Lower ranked members can purchase the vehicle for 25 Coins. A Pump with extraction tools. Perfect for your Road Traffic Collisions.',
         },
@@ -325,6 +342,7 @@ export default {
             credits: 19_000,
             minPersonnel: 1,
             maxPersonnel: 6,
+            possibleBuildings: [0, 18],
             special:
                 'To purchase with credits it requires the rank: Captain, <br>Lower ranked members can purchase the vehicle for 25 Coins. A Pump with an Aerial Asset on top, perfect for high rise fires and rescuing people form tall buildings ',
         },
@@ -335,6 +353,7 @@ export default {
             credits: 19_000,
             minPersonnel: 1,
             maxPersonnel: 1,
+            possibleBuildings: [0, 18],
             schooling: {
                 'Fire Station': {
                     'Co-Responder Training': {
@@ -352,6 +371,7 @@ export default {
             credits: 6_000,
             minPersonnel: 1,
             maxPersonnel: 3,
+            possibleBuildings: [2, 6, 19, 20, 25],
             special:
                 'Acts as a Rapid Response Vehicle and Incident Response Vehicle. Perfect for calls that need police and alot of ambulances.',
         },
@@ -362,6 +382,7 @@ export default {
             credits: 20_000,
             minPersonnel: 1,
             maxPersonnel: 1,
+            possibleBuildings: [2, 20, 21, 22, 25],
             special:
                 'Required from 6 ambulance stations. A medical command unit, usefull for co-ordinating scenes.',
         },
@@ -372,6 +393,7 @@ export default {
             credits: 4_000,
             minPersonnel: 1,
             maxPersonnel: 1,
+            possibleBuildings: [21, 22],
             schooling: {
                 Rescue: {
                     'Critical care': {
@@ -389,6 +411,7 @@ export default {
             credits: 2_500,
             minPersonnel: 1,
             maxPersonnel: 1,
+            possibleBuildings: [22],
             special:
                 'Can only be placed at the Home Response Location. A ambulance Rapid Response Vehicle but staffed with volunteers',
         },
@@ -399,6 +422,7 @@ export default {
             credits: 8_000,
             minPersonnel: 1,
             maxPersonnel: 12,
+            possibleBuildings: [0, 2, 18, 20, 25],
             special:
                 'Can be placed at HART bases and Fire Stations. Transporting many staff to a scene.',
         },
@@ -409,6 +433,7 @@ export default {
             credits: 10_000,
             minPersonnel: 1,
             maxPersonnel: 2,
+            possibleBuildings: [6, 19],
             schooling: {
                 Police: {
                     'Roads Policing Officer Training': {
@@ -426,6 +451,7 @@ export default {
             credits: 19_000,
             minPersonnel: 1,
             maxPersonnel: 2,
+            possibleBuildings: [6, 19],
             schooling: {
                 Police: {
                     'Firearms training': {
@@ -446,6 +472,7 @@ export default {
             credits: 25_000,
             minPersonnel: 1,
             maxPersonnel: 3,
+            possibleBuildings: [0, 18],
             special:
                 'Work as a Water Carrier and Water Ladder. Used in rural areas to save money.',
         },
@@ -456,6 +483,7 @@ export default {
             credits: 12_000,
             minPersonnel: 1,
             maxPersonnel: 2,
+            possibleBuildings: [25],
             schooling: {
                 Rescue: {
                     'HART Training': {
@@ -473,6 +501,7 @@ export default {
             credits: 12_000,
             minPersonnel: 1,
             maxPersonnel: 2,
+            possibleBuildings: [25],
             schooling: {
                 Rescue: {
                     'HART Training': {
@@ -490,6 +519,7 @@ export default {
             credits: 15_000,
             minPersonnel: 1,
             maxPersonnel: 2,
+            possibleBuildings: [25],
             schooling: {
                 Rescue: {
                     'HART Training': {
@@ -507,6 +537,7 @@ export default {
             credits: 12_000,
             minPersonnel: 1,
             maxPersonnel: 2,
+            possibleBuildings: [25],
             schooling: {
                 Rescue: {
                     'HART Training': {
@@ -524,6 +555,7 @@ export default {
             credits: 50_000,
             minPersonnel: 1,
             maxPersonnel: 2,
+            possibleBuildings: [2, 20, 21, 25],
             schooling: {
                 Rescue: {
                     'Tactical Command Course': {
@@ -541,6 +573,7 @@ export default {
             credits: 20_000,
             minPersonnel: 1,
             maxPersonnel: 2,
+            possibleBuildings: [2, 20, 21, 25],
             schooling: {
                 Rescue: {
                     'SORT Training': {
@@ -557,6 +590,7 @@ export default {
             credits: 15_000,
             minPersonnel: 1,
             maxPersonnel: 2,
+            possibleBuildings: [2, 25],
             schooling: {
                 Rescue: {
                     'SORT Training': {
@@ -574,6 +608,7 @@ export default {
             credits: 25_500,
             minPersonnel: 1,
             maxPersonnel: 1,
+            possibleBuildings: [2, 22, 25],
             schooling: {
                 Rescue: {
                     'Ambulance Officer': {
