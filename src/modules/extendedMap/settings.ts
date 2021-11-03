@@ -1,6 +1,6 @@
 // import { InternalBuilding } from 'typings/Building';
 import { ModuleSettingFunction } from 'typings/Module';
-import { Location, NumberInput, Select, Toggle } from 'typings/Setting';
+import { Location, Select, Toggle } from 'typings/Setting';
 
 export default <ModuleSettingFunction>((MODULE_ID, LSSM, $m) => {
     const positions = $m('positions');
@@ -48,14 +48,6 @@ export default <ModuleSettingFunction>((MODULE_ID, LSSM, $m) => {
                     settings.centerMapType.value === 'static'
                 ),
         },
-        // centerMapStaticZoom: <NumberInput>{
-        //     type: 'number',
-        //     min: 0,
-        //     max: 17,
-        //     step: 0.1,
-        //     float: true,
-        //     default: 13,
-        // },
         // centerMapDynamics: <Omit<MultiSelect, 'value' | 'isDisabled'>>{
         //     type: 'multiSelect',
         //     values: [...Object.keys(buildings).map(type => `building_${type}`)],
