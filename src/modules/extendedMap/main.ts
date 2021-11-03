@@ -24,9 +24,6 @@ export default <ModuleMainFunction>(async (LSSM, MODULE_ID) => {
             await import(
                 /* webpackChunkName: "modules/extendedMap/centerMap" */ './assets/centerMap'
             )
-        ).default(
-            getSetting,
-            await getSetting<'dynamic' | 'static'>('centerMapType')
-        );
+        ).default(LSSM, getSetting);
     }
 });
