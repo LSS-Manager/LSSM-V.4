@@ -76,7 +76,7 @@
 	"@types/vue-select": {
 		"icon": "https://avatars.githubusercontent.com/u/3637556",
 		"url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/vue-select",
-		"version": "3.11.2"
+		"version": "3.16.0"
 	},
 	"@types/webpack-env": {
 		"icon": "https://avatars.githubusercontent.com/u/3637556",
