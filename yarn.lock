@@ -1219,10 +1219,10 @@
   dependencies:
     source-map "^0.6.1"
 
-"@types/vue-select@^3.11.2":
-  version "3.11.2"
-  resolved "https://registry.yarnpkg.com/@types/vue-select/-/vue-select-3.11.2.tgz#e6de780375a92b9a182f673a346b7dc7d5ffae01"
-  integrity sha512-9+aQfKFOQ1K9rLOVdcRNKmW12YJ+tFOvCddDyNLC7CtdIqUMmPh0N3/DtKt4LL6bxiz30tgko/BlEN5SkKVSlA==
+"@types/vue-select@^3.16.0":
+  version "3.16.0"
+  resolved "https://registry.yarnpkg.com/@types/vue-select/-/vue-select-3.16.0.tgz#377d26d5e768c19a4863e101f36824df7e8c1592"
+  integrity sha512-eUNzHK8tY7fT6fWR3mcN3kq9BznRrFPFvmpBZ66DAz4k9aD27AwT54gvR58O9P+ql7/iC0yVvl5lUTjKZ7K1tA==
   dependencies:
     vue "^2.0.0"
 
@@ -2681,9 +2681,9 @@ caniuse-api@^3.0.0:
     lodash.uniq "^4.5.0"
 
 caniuse-lite@^1.0.0, caniuse-lite@^1.0.30001109, caniuse-lite@^1.0.30001219:
-  version "1.0.30001274"
-  resolved "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001274.tgz"
-  integrity sha512-+Nkvv0fHyhISkiMIjnyjmf5YJcQ1IQHZN6U9TLUMroWR38FNwpsC51Gb68yueafX1V6ifOisInSgP9WJFS13ew==
+  version "1.0.30001275"
+  resolved "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001275.tgz"
+  integrity sha512-ihJVvj8RX0kn9GgP43HKhb5q9s2XQn4nEQhdldEJvZhCsuiB2XOq6fAMYQZaN6FPWfsr2qU0cdL0CSbETwbJAg==
 
 caseless@~0.12.0:
   version "0.12.0"
