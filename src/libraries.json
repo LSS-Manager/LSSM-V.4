@@ -76,7 +76,7 @@
 	"@types/vue-select": {
 		"icon": "https://avatars.githubusercontent.com/u/3637556",
 		"url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/vue-select",
-		"version": "3.11.2"
+		"version": "3.16.0"
 	},
 	"@types/webpack-env": {
 		"icon": "https://avatars.githubusercontent.com/u/3637556",
@@ -255,7 +255,7 @@
 	"vue-i18n": {
 		"icon": "https://kazupon.github.io/vue-i18n/vue-i18n-logo.png",
 		"url": "https://github.com/kazupon/vue-i18n#readme",
-		"version": "8.26.5"
+		"version": "8.26.7"
 	},
 	"vue-js-modal": {
 		"url": "http://vue-js-modal.yev.io/",
