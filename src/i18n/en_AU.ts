@@ -261,7 +261,7 @@ export default {
             wtank: 0,
             possibleBuildings: [0, 18],
             special:
-                'To purchase with credits it requires the rank: Captain, <br>Lower ranked members can purchase the vehicle for 25 Coins. <br>Rescue Pump acts as a RSU and a Fire Truck.',
+                'To purchase with credits it requires the rank: Captain, <br>Lower ranked members can purchase the vehicle for 25 Coins. <br>Rescue Pump acts as a MRU and a Fire Truck.',
         },
         13: {
             caption: 'Aerial Pumper',
@@ -273,7 +273,7 @@ export default {
             wtank: 0,
             possibleBuildings: [0, 18],
             special:
-                'To purchase with credits it requires the rank: Captain, <br>Lower ranked members can purchase the vehicle for 25 Coins. <br>CARP acts as a Platform Truck and a Fire Truck.',
+                'To purchase with credits it requires the rank: Captain, <br>Lower ranked members can purchase the vehicle for 25 Coins. <br>Aerial Pumper acts as a Platform Truck and a Fire Truck.',
         },
         14: {
             caption: 'Police helicopter',
@@ -281,7 +281,7 @@ export default {
             coins: 30,
             credits: 300_000,
             minPersonnel: 1,
-            maxPersonnel: 2,
+            maxPersonnel: 3,
             possibleBuildings: [13],
             schooling: {
                 Police: {
