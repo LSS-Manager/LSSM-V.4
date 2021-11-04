@@ -10,7 +10,12 @@ import {
     AppstoreData,
     AppstoreMethods,
 } from 'typings/components/Appstore';
-import { BuildingMarker, BuildingMarkerAdd, POIMarker } from './Ingame';
+import {
+    BuildingMarker,
+    BuildingMarkerAdd,
+    PatientTimer,
+    POIMarker,
+} from './Ingame';
 import { CombinedVueInstance, VueConstructor } from 'vue/types/vue';
 import L, {
     LayerGroup,
@@ -61,6 +66,7 @@ declare global {
         building_new_marker?: Marker;
         building_move_marker?: Marker;
         mission_graphics: [string, string, string][];
+        patient_timers: PatientTimer[];
         lightboxOpen(link: string): void;
         mission_position_new_dragend(): void;
         building_move_marker_dragend(): void;

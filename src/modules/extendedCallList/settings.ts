@@ -38,6 +38,14 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
             default: true,
             dependsOn: '.remainingTime',
         },
+        remainingPatientTime: <Toggle>{
+            type: 'toggle',
+            default: false,
+        },
+        remainingPumpingTime: <Toggle>{
+            type: 'toggle',
+            default: false,
+        },
         starrableMissions: <Toggle>{
             type: 'toggle',
             default: false,
