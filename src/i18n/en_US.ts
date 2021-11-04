@@ -1857,6 +1857,7 @@ export default {
         'Village',
         'Valley',
         'Coast Line',
+        'Construction site',
     ],
     only_alliance_missions: [41, 61, 62, 112],
     transfer_missions: [246],

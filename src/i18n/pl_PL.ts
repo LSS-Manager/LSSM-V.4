@@ -1457,6 +1457,7 @@ export default {
         'Składowisko odpadów',
         'Parking',
         'Silos',
+        'Centrum Miasta',
     ],
     only_alliance_missions: [57, 74, 351],
     transfer_missions: [373],
