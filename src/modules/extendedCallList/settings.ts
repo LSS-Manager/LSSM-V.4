@@ -28,6 +28,8 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
         missions: number[];
     }[];
 
+    const locale = LSSM.$store.state.lang;
+
     return {
         remainingTime: <Toggle>{
             type: 'toggle',
@@ -42,10 +44,14 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
             type: 'toggle',
             default: false,
         },
-        remainingPumpingTime: <Toggle>{
-            type: 'toggle',
-            default: false,
-        },
+        ...(['de_DE'].includes(locale)
+            ? {
+                  remainingPumpingTime: <Toggle>{
+                      type: 'toggle',
+                      default: false,
+                  },
+              }
+            : {}),
         starrableMissions: <Toggle>{
             type: 'toggle',
             default: false,
