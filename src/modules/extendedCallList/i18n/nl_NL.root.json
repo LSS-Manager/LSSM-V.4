@@ -191,6 +191,10 @@
 			"text": "Tekst",
 			"title": "Seizoensmeldingen markeren"
 		},
+		"remainingPatientTime": {
+			"description": "Geeft bij patiënten aan, hoe lang de patiënt nog behandeld moet worden.",
+			"title": "Patiëntenbehandelingsduur"
+		},
 		"remainingTime": {
 			"description": "Toont bij inzetten hoe lang de melding nog duurt, voordat deze is afgerond.",
 			"title": "Resterende inzettijd"
