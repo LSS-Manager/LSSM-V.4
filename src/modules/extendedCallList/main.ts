@@ -30,15 +30,15 @@ export default (async (LSSM, MODULE_ID, $m) => {
         `${MODULE_ID}_starrable-missions_btn`
     );
 
-    if (
-        window.location.pathname.match(/^\/missions\/\d+\/?/) &&
-        starrableMissions
-    ) {
-        return (
-            await import(
-                /* webpackChunkName: "modules/extendedCallList/starrableMissions/mission" */ './assets/starrableMissions/mission'
-            )
-        ).default(LSSM, MODULE_ID, starredMissions, starredMissionBtnClass);
+    if (window.location.pathname.match(/^\/missions\/\d+\/?/)) {
+        if (starrableMissions) {
+            (
+                await import(
+                    /* webpackChunkName: "modules/extendedCallList/starrableMissions/mission" */ './assets/starrableMissions/mission'
+                )
+            ).default(LSSM, MODULE_ID, starredMissions, starredMissionBtnClass);
+        }
+        return;
     }
 
     const collapsableMissions = await getSetting('collapsableMissions');
