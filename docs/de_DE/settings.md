@@ -8,7 +8,7 @@ lang: de_DE
 In den Einstellungen werden die Einstellungen aller Module zentral verwaltet. Es können nur die Einstellungen aktiver Module verändert werden.
 
 Mittels der Knöpfe `Export` und `Import` kannst du deine Einstellungen in einer Datei sichern und / oder an deine Freunde weitergeben.
-Wir möchten in naher Zukunft die Möglichkeit bieten, Einstellungen Profilgebunden zu speichern. Damit sind Einstellungen nicht mehr Gerätegebunden.
+Wir möchten in naher Zukunft die Möglichkeit bieten, Einstellungen Profilgebunden zu speichern. Damit sind Einstellungen nicht mehr an ein Gerät gebunden.
 
 ::: tip Änderungen
 Sobald du die Einstellungen verlässt und gespeicherte Änderungen hast, wird das Spiel neu geladen, um alle Einstellungen problemlos zu übernehmen.
