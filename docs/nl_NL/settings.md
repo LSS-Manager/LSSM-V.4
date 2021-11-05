@@ -21,13 +21,13 @@ Let op: Als u instellingen reset, kunnen ze niet worden hersteld zonder voorafga
 
 
 ## Moment.js
-This section provides some information on how to configure the date-time configs, e.g. in the module [clock](modules/clock.md).
+Dit gedeelte geeft uitleg om de datum/tijd in te stellen, bijvoorbeeld in de module [clock](modules/clock.md).
 
 Wij gebruiken [Moment.js](https://momentjs.com/), om u een zo breed mogelijke keuze aan configuratie-opties te kunnen bieden.
 Hieronder proberen we de mogelijkheden zo duidelijk mogelijk op een rij te zetten. U vindt het originele document in de [Moment.js Documentatie](https://momentjscom.readthedocs.io/en/latest/moment/04-displaying/01-format/).
 
-### Live-Editor
-Try your own format here and see a live preview! See information on configuration below.
+### Live-Bewerker
+Probeer je eigen formaat hier en zie een live voorbeeld! Zie informatie voor de variabalen hieronder.
 
 <momentjs-preview/>
 
