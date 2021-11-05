@@ -18,7 +18,7 @@ export default (async (LSSM, MODULE_ID, $m) => {
     if (window.location.pathname.match(/^\/vehicles\/\d+\/?/)) {
         return await (
             await import(
-                /* webpackChunkName: "modules/extendedCallList/vehicleMissionParticipitationState" */ './assets/vehicleMissionParticipitationState'
+                /* webpackChunkName: "modules/extendedCallList/vehicleMissionParticipationState" */ './assets/vehicleMissionParticipationState'
             )
         ).default(LSSM, MODULE_ID);
     }
