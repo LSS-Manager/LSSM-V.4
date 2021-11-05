@@ -24,7 +24,7 @@ export default Vue.extend<
     Component['Computed'],
     Component['Props']
 >({
-    name: 'einsatz',
+    name: 'lssmv4-redesign-einsatz',
     components: {
         EinsatzComponent: () =>
             import(

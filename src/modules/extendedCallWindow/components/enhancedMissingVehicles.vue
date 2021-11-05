@@ -139,7 +139,7 @@ export default Vue.extend<
     EnhancedMissingVehiclesComputed,
     EnhancedMissingVehiclesProps
 >({
-    name: 'enhancedMissingVehicles',
+    name: 'lssmv4-emv',
     components: {
         EnhancedMissingVehiclesTable: () =>
             import(

@@ -108,11 +108,27 @@ export default (async (LSSM, MODULE_ID, $m) => {
     }
 
     if (await getSetting('remainingTime')) {
-        (
+        await (
             await import(
                 /* webpackChunkName: "modules/extendedCallList/remainingTime" */ './assets/remainingTime'
             )
         ).default(LSSM, await getSetting('remainingTimeGreenOnly'));
+    }
+
+    if (await getSetting('remainingPatientTime')) {
+        await (
+            await import(
+                /* webpackChunkName: "modules/extendedCallList/remainingPatientTime" */ './assets/remainingPatientTime'
+            )
+        ).default(LSSM);
+    }
+
+    if (await getSetting('remainingPumpingTime')) {
+        await (
+            await import(
+                /* webpackChunkName: "modules/extendedCallList/remainingPumpingTime" */ './assets/remainingPumpingTime'
+            )
+        ).default(LSSM);
     }
 
     if (await getSetting('averageCredits')) {

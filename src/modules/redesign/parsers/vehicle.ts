@@ -85,6 +85,7 @@ export interface VehicleWindow {
     }[];
     staff?: Record<string, string>;
     water_amount?: string;
+    foam_amount?: string;
     mission_own: Mission[];
     mission_alliance: Mission[];
     has_hospitals: boolean;
@@ -292,6 +293,9 @@ export default <RedesignParser<VehicleWindow>>(({
         ),
         water_amount:
             doc.getElementById('vehicle-attr-water-amount')?.textContent ??
+            undefined,
+        foam_amount:
+            doc.getElementById('vehicle-attr-foam-amount')?.textContent ??
             undefined,
         ...(Object.fromEntries(
             ['mission_own', 'mission_alliance'].map(list => [

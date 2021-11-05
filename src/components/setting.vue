@@ -40,7 +40,7 @@ export default Vue.extend<
     DefaultComputed,
     SettingProps
 >({
-    name: 'setting',
+    name: 'lssmv4-setting',
     props: {
         moduleId: {
             type: String,

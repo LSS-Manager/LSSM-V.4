@@ -4,10 +4,7 @@ import semverLte from 'semver/functions/lte';
 import semverRcompare from 'semver/functions/rcompare';
 import Showdown from 'showdown';
 
-import {
-    Releasenote,
-    Releasenotes,
-} from '../../../typings/modules/Releasenotes';
+import { Releasenote, Releasenotes } from 'typings/modules/Releasenotes';
 
 const LAST_VERSION_STORAGE_KEY = 'releasenotes_lastVersion';
 
@@ -32,7 +29,7 @@ export default async (LSSM: Vue): Promise<void> => {
     const notes: [string, Releasenote][] = Object.entries(
         (await LSSM.$store
             .dispatch('api/request', {
-                url: `${LSSM.$store.state.server}releasenotes/${LSSM.$store.state.lang}.json`,
+                url: `${LSSM.$store.state.server}releasenotes/${LSSM.$store.state.lang}.json?v=${VERSION}`,
                 init: {
                     method: 'GET',
                 },

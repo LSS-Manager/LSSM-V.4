@@ -152,7 +152,7 @@ export default Vue.extend<
     Component['Computed'],
     Component['Props']
 >({
-    name: 'verband-protokoll',
+    name: 'lssmv4-redesign-verband-protokoll',
     components: {
         EnhancedTable: () =>
             import(

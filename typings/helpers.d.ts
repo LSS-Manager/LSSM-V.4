@@ -1,7 +1,6 @@
 import 'i18n-js';
 import { DefaultProps } from 'vue/types/options';
 import Highcharts from 'highcharts';
-import { MapFilterInitializer } from '../src/modules/centerMap/assets/getMapFilterInitializer';
 import { POI } from './modules/EnhancedPOI';
 import { sceditor } from './SCEditor';
 import { Store } from 'vuex';
@@ -11,7 +10,12 @@ import {
     AppstoreData,
     AppstoreMethods,
 } from 'typings/components/Appstore';
-import { BuildingMarker, BuildingMarkerAdd, POIMarker } from './Ingame';
+import {
+    BuildingMarker,
+    BuildingMarkerAdd,
+    PatientTimer,
+    POIMarker,
+} from './Ingame';
 import { CombinedVueInstance, VueConstructor } from 'vue/types/vue';
 import L, {
     LayerGroup,
@@ -45,7 +49,7 @@ declare global {
             leafletMissionPositionMarkerAdd(poi: POI): void;
         };
         map_filters_service: {
-            initialize(a: MapFilterInitializer): void;
+            // initialize(a: MapFilterInitializer): void;
             getMapFiltersLayersForMap(): Record<string, LayerGroup>;
             getMapFiltersLayers(): Record<string, LayerGroup>;
             getFilterLayerByBuildingParams(
@@ -62,6 +66,7 @@ declare global {
         building_new_marker?: Marker;
         building_move_marker?: Marker;
         mission_graphics: [string, string, string][];
+        patient_timers: PatientTimer[];
         lightboxOpen(link: string): void;
         mission_position_new_dragend(): void;
         building_move_marker_dragend(): void;
@@ -99,6 +104,11 @@ declare module 'vue/types/vue' {
         $utils: {
             urlRegex: RegExp;
             escapeRegex(s: string): string;
+            getMissionOptions(
+                LSSM: Vue,
+                MODULE_ID: string,
+                reason: string
+            ): Promise<{ missionIds: string[]; missionNames: string[] }>;
             getNumberFromText<Multiple extends boolean = false>(
                 text: string,
                 allNumbers: Multiple = false,

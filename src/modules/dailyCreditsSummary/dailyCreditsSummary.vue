@@ -155,7 +155,7 @@ export default Vue.extend<
     DailyCreditsSummaryComputed,
     DailyCreditsSummaryProps
 >({
-    name: 'dailyCreditsSummary',
+    name: 'lssmv4-dcs',
     components: {
         EnhancedTable: () =>
             import(

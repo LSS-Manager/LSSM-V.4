@@ -2,7 +2,6 @@ import aipreview from './components/alarmIcons/preview.vue';
 import mkpreview from './components/missionKeywords/preview.vue';
 
 import { InternalVehicle } from 'typings/Vehicle';
-import { Mission } from 'typings/Mission';
 import { $m, ModuleSettingFunction } from 'typings/Module';
 import {
     AppendableList,
@@ -36,24 +35,11 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
         vehicleIds.push(id);
     });
 
-    const missions = (await LSSM.$store.dispatch('api/getMissions', {
-        force: false,
-        feature: `${MODULE_ID}-settings`,
-    })) as Mission[];
-    const missionIds = [] as string[];
-    const missionNames = [] as string[];
-    const idLength = (missions.length - 1).toString().length;
-
-    const numToLength = (length: number, num: string): string => {
-        let newString = num;
-        while (newString.length < length) newString = `0${newString}`;
-        return newString;
-    };
-
-    missions.forEach(({ id, name }) => {
-        missionIds.push(id.toString());
-        missionNames.push(`${numToLength(idLength, id)}: ${name}`);
-    });
+    const { missionIds, missionNames } = await LSSM.$utils.getMissionOptions(
+        LSSM,
+        MODULE_ID,
+        'settings'
+    );
 
     return {
         generationDate: <Toggle>{

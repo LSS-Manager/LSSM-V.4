@@ -96,6 +96,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 6,
             wtank: 3_000,
+            possibleBuildings: [0, 18],
         },
         1: {
             caption: 'BAS 2 - Släckbil',
@@ -105,6 +106,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 3,
             wtank: 1_500,
+            possibleBuildings: [0, 18],
         },
         2: {
             caption: 'Stegbil',
@@ -113,6 +115,7 @@ export default {
             credits: 10_000,
             minPersonnel: 1,
             maxPersonnel: 3,
+            possibleBuildings: [0, 18],
             special: 'Krävs när du har byggt 3 brandstationer',
         },
         3: {
@@ -122,6 +125,7 @@ export default {
             credits: 10_000,
             minPersonnel: 1,
             maxPersonnel: 3,
+            possibleBuildings: [0, 18],
             special: 'Krävs när du har byggt 6 brandstationer',
         },
         4: {
@@ -131,6 +135,7 @@ export default {
             credits: 12_180,
             minPersonnel: 1,
             maxPersonnel: 4,
+            possibleBuildings: [0, 18],
             special: 'Krävs när du har byggt 4 brandstationer',
         },
         5: {
@@ -140,6 +145,7 @@ export default {
             credits: 5_000,
             minPersonnel: 1,
             maxPersonnel: 2,
+            possibleBuildings: [2, 20],
         },
         6: {
             caption: 'Tankbil',
@@ -149,6 +155,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 3,
             wtank: 6_000,
+            possibleBuildings: [0, 18],
             special: 'Krävs när du har byggt 7 brandstationer',
         },
         7: {
@@ -158,9 +165,15 @@ export default {
             credits: 19_200,
             minPersonnel: 1,
             maxPersonnel: 6,
+            possibleBuildings: [0, 18],
+            schooling: {
+                Brandstation: {
+                    'Farligt gods': {
+                        all: true,
+                    },
+                },
+            },
             special: 'Krävs när du har byggt 11 brandstationer',
-            schooling: 'Brandstation - Farligt gods',
-            shownSchooling: 'Farligt gods',
         },
         8: {
             caption: 'Radiobil',
@@ -169,6 +182,7 @@ export default {
             credits: 5_000,
             minPersonnel: 2,
             maxPersonnel: 2,
+            possibleBuildings: [6, 19],
         },
         9: {
             caption: 'Ambulanshelikopter',
@@ -177,6 +191,7 @@ export default {
             credits: 300_000,
             minPersonnel: 3,
             maxPersonnel: 5,
+            possibleBuildings: [5],
         },
         10: {
             caption: 'Luftfordon',
@@ -185,6 +200,7 @@ export default {
             credits: 11_680,
             minPersonnel: 1,
             maxPersonnel: 3,
+            possibleBuildings: [0, 18],
             special: 'Krävs när du har byggt 5 brandstationer',
         },
         11: {
@@ -194,8 +210,14 @@ export default {
             credits: 25_500,
             minPersonnel: 1,
             maxPersonnel: 6,
-            schooling: 'Brandstation - Mobil ledning',
-            shownSchooling: 'Mobilt ledningsvehicle',
+            possibleBuildings: [0, 18],
+            schooling: {
+                Brandstation: {
+                    'Mobil ledning': {
+                        all: true,
+                    },
+                },
+            },
             special: 'Nödvändigt när du har byggt 13 Brandstationbaser',
         },
         12: {
@@ -205,6 +227,7 @@ export default {
             credits: 19_000,
             minPersonnel: 2,
             maxPersonnel: 6,
+            possibleBuildings: [0, 18],
             wtank: 3_000,
         },
         13: {
@@ -214,8 +237,14 @@ export default {
             credits: 300_000,
             minPersonnel: 2,
             maxPersonnel: 4,
-            schooling: 'Polis - Polishelikopterpilotutbildning',
-            shownSchooling: 'Polishelikopterpilotutbildning',
+            possibleBuildings: [13],
+            schooling: {
+                Polis: {
+                    Polishelikopterpilotutbildning: {
+                        all: true,
+                    },
+                },
+            },
         },
         14: {
             caption: 'Bepansrat insatsfordon',
@@ -224,8 +253,14 @@ export default {
             credits: 10_000,
             minPersonnel: 8,
             maxPersonnel: 8,
-            schooling: 'Polis - Insatspolisutbildning',
-            shownSchooling: 'Insatspolisutbildning',
+            possibleBuildings: [6, 19],
+            schooling: {
+                Polis: {
+                    Insatspolisutbildning: {
+                        all: true,
+                    },
+                },
+            },
         },
         15: {
             caption: 'Hundenhet',
@@ -234,8 +269,14 @@ export default {
             credits: 7_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            schooling: 'Polis - Hundförarutbildning',
-            shownSchooling: 'Hundförarutbildning',
+            possibleBuildings: [6, 19],
+            schooling: {
+                Polis: {
+                    ['Hundförarutbildning']: {
+                        all: true,
+                    },
+                },
+            },
             special: 'Krävs från 6 polisstationer',
         },
         16: {
@@ -245,8 +286,14 @@ export default {
             credits: 2_500,
             minPersonnel: 1,
             maxPersonnel: 1,
-            schooling: 'Polis - MC-Polisutbildning',
-            shownschooling: 'Polismotorcykel',
+            possibleBuildings: [6, 19],
+            schooling: {
+                Polis: {
+                    'MC-Polisutbildning': {
+                        all: true,
+                    },
+                },
+            },
         },
         17: {
             caption: 'Insatsfordon',
@@ -255,8 +302,14 @@ export default {
             credits: 6_000,
             minPersonnel: 3,
             maxPersonnel: 5,
-            schooling: 'Polis - Insatspolisutbildning',
-            shownSchooling: 'Insatspolisutbildning',
+            possibleBuildings: [6, 19],
+            schooling: {
+                Polis: {
+                    Insatspolisutbildning: {
+                        all: true,
+                    },
+                },
+            },
             special: 'Krävs när du har byggt 8 polisstationer',
         },
         18: {
@@ -266,8 +319,14 @@ export default {
             credits: 19_000,
             minPersonnel: 1,
             maxPersonnel: 6,
-            schooling: 'Brandstation - Dykarutbildning',
-            shownSchooling: 'Dykarutbildning',
+            possibleBuildings: [0],
+            schooling: {
+                Brandstation: {
+                    Dykarutbildning: {
+                        all: true,
+                    },
+                },
+            },
         },
         19: {
             caption: 'Tryckkammarbil',
@@ -276,8 +335,14 @@ export default {
             credits: 19_000,
             minPersonnel: 1,
             maxPersonnel: 6,
-            schooling: 'Brandstation - Livräddning',
-            shownSchooling: 'Livräddning',
+            possibleBuildings: [0],
+            schooling: {
+                Brandstation: {
+                    ['Livräddning']: {
+                        all: true,
+                    },
+                },
+            },
         },
         20: {
             caption: 'Liten räddningsbåt',
@@ -286,6 +351,7 @@ export default {
             credits: 6_000,
             minPersonnel: 0,
             maxPersonnel: 0,
+            possibleBuildings: [0],
             special:
                 'Tillbehörsbåt som kan bogseras med verktygenheten. Kräver att Liten räddningsbåt-utbildad personal ska fungera. <br> Båttrailern kan inte tilldelas personal, <br> antingen tilldela din utbildade personal till dragvehicleet eller tilldela dem till en separat enhet på väg.',
         },
@@ -296,6 +362,7 @@ export default {
             credits: 19_000,
             minPersonnel: 3,
             maxPersonnel: 5,
+            possibleBuildings: [0],
             special: '',
         },
         22: {
@@ -305,6 +372,7 @@ export default {
             credits: 8_000,
             minPersonnel: 1,
             maxPersonnel: 3,
+            possibleBuildings: [0],
             special: '',
         },
         23: {
@@ -314,6 +382,7 @@ export default {
             credits: 5_000,
             minPersonnel: 1,
             maxPersonnel: 2,
+            possibleBuildings: [0],
             special: '',
         },
         24: {
@@ -323,8 +392,14 @@ export default {
             credits: 10_000,
             minPersonnel: 0,
             maxPersonnel: 0,
-            schooling: 'Polis - Rytteriutbildning',
-            shownSchooling: 'Rytteriutbildning',
+            possibleBuildings: [6, 19],
+            schooling: {
+                Polis: {
+                    Rytteriutbildning: {
+                        all: true,
+                    },
+                },
+            },
             special: 'Nödvändigt dragvehicle (Radiobil)',
         },
         25: {
@@ -335,8 +410,14 @@ export default {
             minPersonnel: 2,
             maxPersonnel: 5,
             wtank: 7_500,
-            schooling: 'Brandstation - Luftburen brandbekämparutbildning',
-            shownSchooling: 'Luftburen brandbekämparutbildning',
+            possibleBuildings: [21],
+            schooling: {
+                Brandstation: {
+                    ['Luftburen brandbekämparutbildning']: {
+                        all: true,
+                    },
+                },
+            },
         },
         26: {
             caption: 'Vattenbombare',
@@ -346,8 +427,14 @@ export default {
             minPersonnel: 2,
             maxPersonnel: 5,
             wtank: 7_200,
-            schooling: 'Brandstation - Luftburen brandbekämparutbildning',
-            shownSchooling: 'Luftburen brandbekämparutbildning',
+            possibleBuildings: [21],
+            schooling: {
+                Brandstation: {
+                    ['Luftburen brandbekämparutbildning']: {
+                        all: true,
+                    },
+                },
+            },
         },
         27: {
             caption: 'Stor Vattenbombare',
@@ -357,8 +444,14 @@ export default {
             minPersonnel: 2,
             maxPersonnel: 5,
             wtank: 12_000,
-            schooling: 'Brandstation - Luftburen brandbekämparutbildning',
-            shownSchooling: 'Luftburen brandbekämparutbildning',
+            possibleBuildings: [21],
+            schooling: {
+                Brandstation: {
+                    ['Luftburen brandbekämparutbildning']: {
+                        all: true,
+                    },
+                },
+            },
         },
         28: {
             caption: 'Akutläkarbil',
@@ -367,6 +460,7 @@ export default {
             credits: 4_000,
             minPersonnel: 2,
             maxPersonnel: 2,
+            possibleBuildings: [0, 2, 20],
         },
         29: {
             caption: 'FIP',
@@ -375,8 +469,14 @@ export default {
             credits: 4_000,
             minPersonnel: 1,
             maxPersonnel: 1,
-            schooling: 'Brandstation - Insatsutbildning',
-            shownSchooling: 'Insatsutbildning',
+            possibleBuildings: [0, 18],
+            schooling: {
+                Brandstation: {
+                    Insatsutbildning: {
+                        all: true,
+                    },
+                },
+            },
         },
         30: {
             caption: 'Lättvårdsambulans',
@@ -385,6 +485,7 @@ export default {
             credits: 5_000,
             minPersonnel: 2,
             maxPersonnel: 2,
+            possibleBuildings: [2, 20],
         },
         31: {
             caption: 'Ledningsfordon',
@@ -393,7 +494,8 @@ export default {
             credits: 25_000,
             minPersonnel: 3,
             maxPersonnel: 5,
-            special: 'Krävs när du har byggt 10 ambulansstationer',
+            possibleBuildings: [2, 20],
+            special: 'Krävs när du har byggt 6 ambulansstationer',
         },
         32: {
             caption: 'Jourläkare',
@@ -402,8 +504,19 @@ export default {
             credits: 4_000,
             minPersonnel: 1,
             maxPersonnel: 1,
-            schooling: 'Rädda - Intensivvårdsutbildning',
-            shownSchooling: 'Intensivvårdsutbildning',
+            possibleBuildings: [0, 2],
+            schooling: {
+                Brandstation: {
+                    ['Intensivvårdsutbildning']: {
+                        all: true,
+                    },
+                },
+                ['Räddar']: {
+                    ['Intensivvårdsutbildning']: {
+                        all: true,
+                    },
+                },
+            },
         },
         33: {
             caption: 'IVPA',
@@ -412,6 +525,7 @@ export default {
             credits: 4_000,
             minPersonnel: 2,
             maxPersonnel: 4,
+            possibleBuildings: [2],
         },
         34: {
             caption: 'MC-Ambulans',
@@ -420,8 +534,19 @@ export default {
             credits: 12_000,
             minPersonnel: 1,
             maxPersonnel: 1,
-            schooling: 'Rädda - MC-Ambulans',
-            shownSchooling: 'MC-Ambulans',
+            possibleBuildings: [0, 2, 20],
+            schooling: {
+                Brandstation: {
+                    ['MC-Ambulans']: {
+                        all: true,
+                    },
+                },
+                ['Räddar']: {
+                    ['Intensivvårdsutbildning']: {
+                        all: true,
+                    },
+                },
+            },
         },
         35: {
             caption: 'Slangbil',
@@ -430,6 +555,7 @@ export default {
             credits: 15_000,
             minPersonnel: 2,
             maxPersonnel: 3,
+            possibleBuildings: [0],
         },
         36: {
             caption: 'Slangbil med pump',
@@ -438,6 +564,7 @@ export default {
             credits: 35_000,
             minPersonnel: 2,
             maxPersonnel: 4,
+            possibleBuildings: [0],
         },
         37: {
             caption: 'Skumenhet',
@@ -447,6 +574,7 @@ export default {
             minPersonnel: 2,
             maxPersonnel: 3,
             ftank: 3_000,
+            possibleBuildings: [0],
         },
         38: {
             caption: 'Motorspruta',
@@ -455,6 +583,7 @@ export default {
             credits: 10_000,
             minPersonnel: 0,
             maxPersonnel: 0,
+            possibleBuildings: [0],
             special:
                 'Nödvändigt dragfordon (BAS 1 - Släckbil, BAS 2 - Släckbil, Tankbil, Skumenhet, Slangbil, Slangbil med pump)',
         },
@@ -498,6 +627,7 @@ export default {
                 'Priset på dina positioner ökar när du äger 25. Så hastigheten på progressionen är konstant när du har en stor inkomstström på dessa spelnivåer. Den nuvarande formeln för att beräkna priset på positioner är följande: <kod> 100.000+ (200.000 * LOGG <sub> 2 </sub> (Antal befintliga brandstationer - 22)) </code>.',
             startPersonnel: 10,
             startVehicles: ['BAS 1 - Släckbil', 'BAS 2 - Släckbil'],
+            schoolingType: ['Brandstation'],
             maxBuildingsFunction: (): number => 5_000,
         },
         1: {
@@ -538,6 +668,7 @@ export default {
             special: '',
             startPersonnel: 3,
             startVehicles: ['Ambulans'],
+            schoolingType: ['Rädda'],
         },
         3: {
             caption: 'Vård- och hälsohögskola',
@@ -639,6 +770,7 @@ export default {
             special: 'Max antal stationer: antal buildings dividerat med 25.',
             startPersonnel: 0,
             startVehicles: [],
+            schoolingType: ['Rädda'],
             maxBuildingsFunction: (buildingsAmountTotal: number): number =>
                 buildingsAmountTotal < 125
                     ? 4
@@ -668,6 +800,7 @@ export default {
             maxLevel: 14,
             startPersonnel: 2,
             startVehicles: ['Radiobil'],
+            schoolingType: ['Polis'],
             maxBuildingsFunction: (): number => 1_700,
         },
         7: {
@@ -717,6 +850,7 @@ export default {
                 'Upp till 7 landningsplatser kan byggas per station (expansionssteg). Upp till den 125: e byggnaden (av alla typer) totalt max. Fyra landningsplatser kommer att byggas. Sedan ökar antalet med 1 var 25: e byggnad (börjar vid 125: e).',
             startPersonnel: 0,
             startVehicles: [],
+            schoolingType: ['Polis'],
             maxBuildingsFunction: (buildingsAmountTotal: number): number =>
                 buildingsAmountTotal < 125
                     ? 4
@@ -780,6 +914,7 @@ export default {
                 'Priset på dina positioner ökar när du äger 25. Så hastigheten på progressionen är konstant när du har en stor inkomstström på dessa spelnivåer. Den nuvarande formeln för att beräkna priset på positioner är följande: <kod> 100.000+ (200.000 * LOGG <sub> 2 </sub> (Antal befintliga brandstationer - 22)) </code>.',
             startPersonnel: 10,
             startVehicles: ['BAS 1 - Släckbil', 'BAS 2 - Släckbil'],
+            schoolingType: ['Brandstation'],
             maxBuildingsFunction: (): number => 5_000,
         },
         19: {
@@ -813,6 +948,7 @@ export default {
                 'Priset på dina positioner ökar när du äger 25. Så hastigheten på progressionen är konstant när du har en stor inkomstström på dessa spelnivåer. Den nuvarande formeln för att beräkna priset på positioner är följande: <kod> 100.000+ (200.000 * LOGG <sub> 2 </sub> (Antal befintliga brandstationer - 22)) </code>.',
             startPersonnel: 2,
             startVehicles: ['Radiobil'],
+            schoolingType: ['Polis'],
             maxBuildingsFunction: (): number => 1_700,
         },
         20: {
@@ -832,6 +968,7 @@ export default {
             special: '',
             startPersonnel: 3,
             startVehicles: ['Ambulans'],
+            schoolingType: ['Räddar'],
         },
         21: {
             caption: 'Brandflygsstation',
@@ -845,6 +982,7 @@ export default {
             special: '',
             startPersonnel: 2,
             startVehicles: ['Brandhelikopter'],
+            schoolingType: ['Brandstation'],
         },
     },
     buildingCategories: {
@@ -926,10 +1064,12 @@ export default {
             {
                 caption: 'Farligt gods',
                 duration: '3 dagar',
+                staffList: 'Farligt gods',
             },
             {
                 caption: 'Mobil ledning',
                 duration: '5 dagar',
+                staffList: 'Mobilt ledningsvehicle',
             },
             {
                 caption: 'Flygbrandsträning',
@@ -938,6 +1078,7 @@ export default {
             {
                 caption: 'Livräddning',
                 duration: '3 dagar',
+                staffList: 'Livräddning',
             },
             {
                 caption: 'Havsnavigering',
@@ -946,46 +1087,56 @@ export default {
             {
                 caption: 'Dykarutbildning',
                 duration: '5 dagar',
+                staffList: 'Dykarutbildning',
             },
             {
                 caption: 'Luftburen brandbekämparutbildning',
                 duration: '5 dagar',
+                staffList: 'Luftburen brandbekämparutbildning',
             },
             {
                 caption: 'Insatsutbildning',
                 duration: '3 dagar',
+                staffList: 'Insatsutbildning',
             },
         ],
         Polis: [
             {
                 caption: 'Polishelikopterpilotutbildning',
                 duration: '7 dagar',
+                staffList: 'Polishelikopterpilotutbildning',
             },
             {
                 caption: 'Insatspolisutbildning',
                 duration: '5 dagar',
+                staffList: 'Insatspolisutbildning',
             },
             {
                 caption: 'Hundförarutbildning',
                 duration: '5 dagar',
+                staffList: 'Hundförarutbildning',
             },
             {
                 caption: 'MC-Polisutbildning',
                 duration: '3 dagar',
+                staffList: 'Polismotorcykel',
             },
             {
                 caption: 'Rytteriutbildning',
                 duration: '3 dagar',
+                staffList: 'Rytteriutbildning',
             },
         ],
         ['Rädda']: [
             {
                 caption: 'Intensivvårdsutbildning',
                 duration: '5 dagar',
+                staffList: 'Intensivvårdsutbildning',
             },
             {
                 caption: 'MC-Ambulans',
                 duration: '3 dagar',
+                staffList: 'MC-Ambulans',
             },
         ],
     },
@@ -1099,7 +1250,42 @@ export default {
         'Torg',
         'Lägenhetskomplex',
         'Lekpark',
+        'Eldstad',
+        'Skogsstuga',
+        'Kärnkraftverk',
+        'Motorcross bana',
+        'Skyddad bostad',
+        'Sågverk',
+        'Oljeraffinaderi',
     ],
     only_alliance_missions: [57, 74],
     transfer_missions: [169],
+    ranks: {
+        missionchief: {
+            0: 'Nybörjare',
+            200: 'Brandman',
+            10_000: 'Brandveteran',
+            100_000: 'Brandoperatör',
+            1_000_000: 'Inspektör',
+            5_000_000: 'Kommissarie',
+            20_000_000: 'Gruppchef',
+            50_000_000: 'Bataljonschef',
+            1_000_000_000: 'Divisionschef',
+            2_000_000_000: 'Vicechef',
+            5_000_000_000: 'Brandchef',
+        },
+        policechief: {
+            0: 'Polisaspirant',
+            200: 'Polisassistent',
+            10_000: 'Polis-/kriminalinspektör',
+            100_000: 'Polis-/kriminalkommissarie',
+            1_000_000: 'Polissekreterare',
+            5_000_000: 'Polisintendent',
+            20_000_000: 'Polismästare/polisöverintendent',
+            50_000_000: 'Polismästare',
+            1_000_000_000: 'Polisdirektör',
+            2_000_000_000: 'Biträdande säkerhetspolischef',
+            5_000_000_000: 'Rikspolischef/säkerhetspolischef',
+        },
+    },
 };

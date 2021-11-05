@@ -27,6 +27,10 @@ export default (LSSM: Vue, showImg: boolean): void => {
                         imgNode.src = link.toString();
                         imgNode.alt = link.toString();
                         imgNode.style.maxWidth = '10%';
+                        imgNode.addEventListener('error', () => {
+                            imgNode.remove();
+                            linkNode.textContent = link.toString();
+                        });
                         linkNode.appendChild(imgNode);
                     } else {
                         linkNode.textContent = link.toString();

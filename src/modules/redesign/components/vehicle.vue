@@ -168,6 +168,12 @@
                                     {{ vehicle.water_amount }}
                                 </td>
                             </tr>
+                            <tr v-if="vehicle.foam_amount">
+                                <th>{{ lightbox.$sm('foam_amount') }}</th>
+                                <td colspan="2">
+                                    {{ vehicle.foam_amount }}
+                                </td>
+                            </tr>
                             <tr>
                                 <th>{{ lightbox.$sm('mileage') }}</th>
                                 <td colspan="2">
@@ -1200,7 +1206,7 @@ export default Vue.extend<
     Component['Computed'],
     Component['Props']
 >({
-    name: 'vehicle-lightbox',
+    name: 'lssmv4-redesign-vehicle-lightbox',
     components: {
         EnhancedTable: () =>
             import(

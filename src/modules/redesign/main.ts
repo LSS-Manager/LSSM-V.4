@@ -19,6 +19,7 @@ export default (async (LSSM, MODULE_ID) => {
             '^/veband/text/edit/?$': 'verband/edit_text',
             '^/verband/gebauede/?$': 'verband/gebauede',
             '^/(verband|alliances/\\d+)/?$': 'verband/home',
+            '^/verband/kasse/?$': 'verband/kasse',
             '^/verband/mitglieder(/\\d+)?/?$': 'verband/mitglieder',
             '^/alliance_newses/(new|\\d+/edit)/?$': 'verband/news/edit',
             '^/alliance_logfiles/?$': 'verband/protokoll',

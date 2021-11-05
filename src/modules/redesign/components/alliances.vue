@@ -121,7 +121,7 @@ export default Vue.extend<
     Component['Computed'],
     Component['Props']
 >({
-    name: 'alliances',
+    name: 'lssmv4-redesign-alliances',
     components: {
         EnhancedTable: () =>
             import(

@@ -121,7 +121,7 @@ const getRelativeTime = (d1, d2 = new Date()) => {
 };
 
 export default Vue.extend({
-    name: 'bugs',
+    name: 'bug-list',
     data() {
         return {
             octicons,

@@ -30,6 +30,7 @@ import { VerbandMitgliederWindow } from '../../src/modules/redesign/parsers/verb
 import { VerbandNewsEditWindow } from '../../src/modules/redesign/parsers/verband/news/edit';
 import { VerbandProtokollWindow } from '../../src/modules/redesign/parsers/verband/protokoll';
 import { VerbandRegelnWindow } from '../../src/modules/redesign/parsers/verband/regeln';
+import { VerbandskasseWindow } from '../../src/modules/redesign/parsers/verband/kasse';
 
 import { CombinedVueInstance } from 'vue/types/vue';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
@@ -69,6 +70,7 @@ type types =
     | 'verband/edit_text'
     | 'verband/gebauede'
     | 'verband/home'
+    | 'verband/kasse'
     | 'verband/mitglieder'
     | 'verband/news/edit'
     | 'verband/protokoll'
@@ -103,7 +105,8 @@ type windows =
     | VerbandMitgliederWindow
     | VerbandNewsEditWindow
     | VerbandProtokollWindow
-    | VerbandRegelnWindow;
+    | VerbandRegelnWindow
+    | VerbandskasseWindow;
 export type routeChecks = Record<string, types>;
 
 interface Data<T, W> {

@@ -86,7 +86,7 @@ export default Vue.extend<
     SchoolingOverviewComputed,
     SchoolingOverviewProps
 >({
-    name: 'schoolingsOverview',
+    name: 'lssmv4-schoolingsOverview',
     components: {
         EnhancedTable: () =>
             import(

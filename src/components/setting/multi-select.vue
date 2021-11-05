@@ -95,9 +95,16 @@ export default Vue.extend<
             },
         },
         filteredOptions() {
-            return this.options.filter(
+            const filtered = this.options.filter(
                 o => !this.updateValue.find(v => v.value === o.value)
             );
+            return filtered.every(({ label }) => label.match(/^\d+/))
+                ? filtered.sort((a, b) => {
+                      const aLabel = a.label.replace(/(?<=^\d+)-(?=\d+:)/, ':');
+                      const bLabel = b.label.replace(/(?<=^\d+)-(?=\d+:)/, ':');
+                      return aLabel > bLabel ? 1 : aLabel < bLabel ? -1 : 0;
+                  })
+                : filtered;
         },
     },
 });

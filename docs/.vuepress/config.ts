@@ -490,6 +490,9 @@ module.exports = async () => {
                         `https://api.github.com/repos/${config.github.repo}/issues?labels=bug&per_page=100&sort=created`
                     )
                 ).data,
+                moment: Object.fromEntries(
+                    LANGS.map(lang => [lang, getLocale(lang, 'moment')])
+                ),
             },
             locales: themeLocales,
             activeHeaderLinks: true,

@@ -46,7 +46,7 @@ export default Vue.extend<
     DefaultComputed,
     DefaultProps
 >({
-    name: 'dashboard',
+    name: 'lssmv4-dashboard',
     components: {
         DispatchcenterView: () =>
             import(

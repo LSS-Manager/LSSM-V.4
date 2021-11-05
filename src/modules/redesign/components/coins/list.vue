@@ -108,7 +108,7 @@ export default Vue.extend<
         setSetting: <T>(settingId: string, value: T) => Promise<void>;
     }
 >({
-    name: 'coins-list',
+    name: 'lssmv4-redesign-coins-list',
     components: {
         EnhancedTable: () =>
             import(

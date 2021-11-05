@@ -209,6 +209,7 @@
                             :min="setting.min"
                             :max="setting.max"
                             :step="setting.step"
+                            :float="setting.float"
                             @input="update(moduleId, settingId)"
                             :disabled="setting.isDisabled"
                         ></settings-number>
@@ -253,6 +254,19 @@
                             v-model="settings[moduleId][settingId].value"
                             @input="update(moduleId, settingId)"
                         ></settings-hotkey>
+                        <settings-location
+                            v-else-if="setting.type === 'location'"
+                            :name="setting.name"
+                            :placeholder="
+                                $t(
+                                    `modules.${moduleId}.settings.${settingId}.title`
+                                )
+                            "
+                            v-model="settings[moduleId][settingId].value"
+                            :zoom="setting.zoom"
+                            @input="update(moduleId, settingId)"
+                            :disabled="setting.isDisabled"
+                        ></settings-location>
                         <settings-appendable-list
                             v-else-if="setting.type === 'appendable-list'"
                             :setting="setting"
@@ -298,7 +312,7 @@ export default Vue.extend<
     SettingsComputed,
     DefaultProps
 >({
-    name: 'settings',
+    name: 'lssmv4-settings',
     components: {
         SettingsAppendableList: () =>
             import(
@@ -335,6 +349,10 @@ export default Vue.extend<
         SettingsHotkey: () =>
             import(
                 /* webpackChunkName: "components/setting/hotkey" */ './setting/hotkey.vue'
+            ),
+        SettingsLocation: () =>
+            import(
+                /* webpackChunkName: "components/setting/location" */ './setting/location.vue'
             ),
         Setting: () =>
             import(

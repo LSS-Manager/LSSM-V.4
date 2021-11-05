@@ -137,6 +137,14 @@
 			"text": "Text",
 			"title": "Mark seasonal missions"
 		},
+		"remainingPatientTime": {
+			"description": "Shows for patients how much time remains until they are fully treated",
+			"title": "Remaining time for patients"
+		},
+		"remainingPumpingTime": {
+			"description": "Shows for pumping progresses how much time remains until they are finished.",
+			"title": "Remaining time for pumping progress"
+		},
 		"remainingTime": {
 			"description": "Shows at missions how long each mission still is in progress.",
 			"title": "Remaining Missiontime"

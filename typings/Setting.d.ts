@@ -41,6 +41,7 @@ interface NumberInput extends SettingTemplate {
     min?: number;
     max?: number;
     step?: number;
+    float?: boolean;
 }
 
 interface Select extends SettingTemplate {
@@ -64,6 +65,13 @@ interface HotKey extends SettingTemplate {
     type: 'hotkey';
     default: string;
     value: string;
+}
+
+interface Location extends SettingTemplate {
+    type: 'location';
+    default: [number, number, number];
+    value: [number, number, number];
+    zoom?: boolean;
 }
 
 interface Hidden<Type = boolean> extends SettingTemplate {
@@ -113,6 +121,7 @@ type SettingType =
     | Color
     | NumberInput
     | HotKey
+    | Location
     | Hidden;
 
 export type Setting<type extends SettingType = SettingType> = type;

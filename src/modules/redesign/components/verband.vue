@@ -85,6 +85,16 @@
             :get-setting="getSetting"
             :set-setting="setSetting"
         ></VerbandHome>
+        <VerbandKasse
+            v-else-if="type === 'verband/kasse'"
+            :kasse="data"
+            :url="url"
+            :lightbox="lightbox"
+            :$m="$m"
+            :$mc="$mc"
+            :get-setting="getSetting"
+            :set-setting="setSetting"
+        ></VerbandKasse>
         <VerbandMitglieder
             v-else-if="type === 'verband/mitglieder'"
             :mitglieder="data"
@@ -181,7 +191,7 @@ export default Vue.extend<
     Component['Computed'],
     Component['Props']
 >({
-    name: 'verband-lightbox',
+    name: 'lssmv4-redesign-verband-lightbox',
     components: {
         VerbandBSR: () =>
             import(
@@ -202,6 +212,10 @@ export default Vue.extend<
         VerbandHome: () =>
             import(
                 /*webpackChunkName: "modules/redesign/windows/verband/home"*/ './verband/home.vue'
+            ),
+        VerbandKasse: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/verband/kasse"*/ './verband/kasse.vue'
             ),
         VerbandMitglieder: () =>
             import(

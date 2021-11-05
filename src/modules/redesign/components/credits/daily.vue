@@ -268,7 +268,7 @@ export default Vue.extend<
         setSetting: <T>(settingId: string, value: T) => Promise<void>;
     }
 >({
-    name: 'credits-daily',
+    name: 'lssmv4-redesign-credits-daily',
     components: {
         DailyCreditsSummary: () =>
             import(

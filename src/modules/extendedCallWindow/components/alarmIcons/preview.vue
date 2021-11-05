@@ -15,7 +15,7 @@
 import Vue from 'vue';
 
 export default Vue.extend({
-    name: 'ai-preview',
+    name: 'lssmv4-ai-preview',
     props: {
         setting: {
             type: Object,

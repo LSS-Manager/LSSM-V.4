@@ -138,6 +138,7 @@ module.exports = {
             [/^DEA Unit(s)?$/]: [51],
             [/^DEA Clan Lab(s)?$/]: [52],
             [/^Warden('s)? Truck(s)?$/]: [56],
+            [/^EMS Mobile Command$/]: [60],
             [/^Fire Investigation(s)? Unit(s)?$/]: [62, 63],
             [/^Foam Tender(s)?$/]: [64, 65],
         },

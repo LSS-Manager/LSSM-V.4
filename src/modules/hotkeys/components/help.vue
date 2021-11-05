@@ -55,7 +55,7 @@ export default Vue.extend<
         getCommandName(command: string): string;
     }
 >({
-    name: 'hotkeysHelp',
+    name: 'lssmv4-hotkeys-help',
     components: {
         Lightbox: () =>
             import(

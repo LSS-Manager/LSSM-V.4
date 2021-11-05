@@ -12,7 +12,15 @@ const i18nPath = path.join(rootPath, 'src', 'i18n');
 export default async (): Promise<void> => {
     if (!fs.existsSync(apiPath)) fs.mkdirSync(apiPath);
 
-    const types = ['vehicles', 'buildings', 'schoolings', 'pois', 'ranks'];
+    const types = [
+        'vehicles',
+        'vehicleCategories',
+        'buildings',
+        'buildingCategories',
+        'schoolings',
+        'pois',
+        'ranks',
+    ];
 
     const locales = Object.keys(config.games).filter(game =>
         fs.existsSync(path.join(i18nPath, `${game}.ts`))

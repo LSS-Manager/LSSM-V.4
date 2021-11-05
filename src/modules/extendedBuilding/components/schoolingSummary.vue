@@ -93,7 +93,7 @@ export default Vue.extend<
     SchoolingSummaryComputed,
     SchoolingSummaryProps
 >({
-    name: 'schoolingSummary',
+    name: 'lssmv4-schoolingSummary',
     components: {
         EnhancedTable: () =>
             import(

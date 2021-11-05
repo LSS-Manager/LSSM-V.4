@@ -72,6 +72,7 @@
                         :min="item.setting.min"
                         :max="item.setting.max"
                         :step="item.setting.step"
+                        :float="item.setting.float"
                         @input="changeValue(index, value, item)"
                     ></settings-number>
                     <settings-select

@@ -17,7 +17,7 @@
 	"@primer/octicons": {
 		"icon": "https://primer.style/octicons/icons/icon-512x512.png",
 		"url": "https://primer.style/octicons",
-		"version": "16.0.0"
+		"version": "16.1.1"
 	},
 	"@types/he": {
 		"icon": "https://avatars.githubusercontent.com/u/3637556",
@@ -47,7 +47,7 @@
 	"@types/node": {
 		"icon": "https://avatars.githubusercontent.com/u/3637556",
 		"url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/node",
-		"version": "16.11.2"
+		"version": "16.11.6"
 	},
 	"@types/pdfmake": {
 		"icon": "https://avatars.githubusercontent.com/u/3637556",
@@ -76,7 +76,7 @@
 	"@types/vue-select": {
 		"icon": "https://avatars.githubusercontent.com/u/3637556",
 		"url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/vue-select",
-		"version": "3.11.2"
+		"version": "3.16.0"
 	},
 	"@types/webpack-env": {
 		"icon": "https://avatars.githubusercontent.com/u/3637556",
@@ -85,11 +85,11 @@
 	},
 	"@typescript-eslint/eslint-plugin": {
 		"icon": "https://avatars.githubusercontent.com/u/46634674",
-		"version": "5.1.0"
+		"version": "5.3.0"
 	},
 	"@typescript-eslint/parser": {
 		"icon": "https://avatars.githubusercontent.com/u/46634674",
-		"version": "5.1.0"
+		"version": "5.3.0"
 	},
 	"@vuepress/plugin-active-header-links": {
 		"icon": "https://vuepress.vuejs.org/hero.png",
@@ -109,12 +109,12 @@
 	"axios": {
 		"icon": "https://avatars.githubusercontent.com/u/32372333",
 		"url": "https://axios-http.com",
-		"version": "0.23.0"
+		"version": "0.24.0"
 	},
 	"broadcast-channel": {
 		"icon": "https://raw.githubusercontent.com/pubkey/broadcast-channel/master/docs/files/icon.png",
 		"url": "https://github.com/pubkey/broadcast-channel#readme",
-		"version": "4.2.0"
+		"version": "4.4.0"
 	},
 	"cache-loader": {
 		"icon": "https://webpack.js.org/assets/icon-square-big.svg",
@@ -133,7 +133,7 @@
 	"eslint": {
 		"icon": "https://eslint.org/assets/img/favicon.512x512.png",
 		"url": "https://eslint.org",
-		"version": "8.0.1"
+		"version": "8.1.0"
 	},
 	"eslint-formatter-table": {
 		"version": "7.32.1"
@@ -146,7 +146,7 @@
 	"eslint-plugin-vue": {
 		"icon": "https://vuejs.org/images/logo.png",
 		"url": "https://eslint.vuejs.org",
-		"version": "7.20.0"
+		"version": "8.0.3"
 	},
 	"he": {
 		"url": "https://mths.be/he",
@@ -160,7 +160,7 @@
 	"html-loader": {
 		"icon": "https://webpack.js.org/assets/icon-square-big.svg",
 		"url": "https://github.com/webpack-contrib/html-loader",
-		"version": "3.0.0"
+		"version": "3.0.1"
 	},
 	"localforage": {
 		"url": "https://github.com/localForage/localForage",
@@ -192,7 +192,7 @@
 	"sass": {
 		"icon": "https://sass-lang.com/assets/img/logos/logo-b6e1ef6e.svg",
 		"url": "https://github.com/sass/dart-sass",
-		"version": "1.43.3"
+		"version": "1.43.4"
 	},
 	"sass-loader": {
 		"icon": "https://webpack.js.org/assets/icon-square-big.svg",
@@ -230,7 +230,7 @@
 	"ts-node": {
 		"icon": "https://typestrong.org/ts-node/img/favicon/apple-touch-icon.png",
 		"url": "https://typestrong.org/ts-node",
-		"version": "10.3.1"
+		"version": "10.4.0"
 	},
 	"typescript": {
 		"icon": "https://www.typescriptlang.org/icons/icon-512x512.png",
@@ -240,7 +240,7 @@
 	"ua-parser-js": {
 		"icon": "https://raw.githubusercontent.com/faisalman/ua-parser-js/gh-pages/images/logo.png",
 		"url": "https://github.com/faisalman/ua-parser-js",
-		"version": "0.7.28"
+		"version": "1.0.2"
 	},
 	"url-loader": {
 		"icon": "https://webpack.js.org/assets/icon-square-big.svg",
@@ -255,7 +255,7 @@
 	"vue-i18n": {
 		"icon": "https://kazupon.github.io/vue-i18n/vue-i18n-logo.png",
 		"url": "https://github.com/kazupon/vue-i18n#readme",
-		"version": "8.26.5"
+		"version": "8.26.7"
 	},
 	"vue-js-modal": {
 		"url": "http://vue-js-modal.yev.io/",

@@ -42,6 +42,11 @@ export interface ResolvedVehicleCategory {
     };
 }
 
+export type VehicleSchooling = Partial<{
+    all: boolean;
+    min: number;
+}>;
+
 export interface InternalVehicle {
     caption: string;
     color: string;
@@ -52,10 +57,16 @@ export interface InternalVehicle {
     wtank?: number;
     pumpcap?: number;
     ftank?: number;
-    schooling?: string;
-    shownSchooling?: string;
+    schooling?: Record<string, Record<string, VehicleSchooling>>;
     special?: string;
     icon: string;
     possibleBuildings: number[];
-    [key: string]: string | number | number[] | undefined;
+
+    // general
+    [key: string]:
+        | string
+        | number
+        | number[]
+        | Record<string, Record<string, VehicleSchooling>>
+        | undefined;
 }

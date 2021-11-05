@@ -23,7 +23,7 @@
 import Vue from 'vue';
 
 export default Vue.extend({
-    name: 'dcs-badge',
+    name: 'lssmv4-dcs-badge',
     props: {
         backgroundColor: {
             type: String,

@@ -57,6 +57,7 @@
 		"is_s2": "Status 6 toewijzen",
 		"is_s6": "Status 5 toewijzen"
 	},
+	"foam_amount": "Hoeveelheid schuim",
 	"followup_missions": "Vervolginzet | Vervolginzetten",
 	"hospitals": {
 		"beds": "Vrije bedden",

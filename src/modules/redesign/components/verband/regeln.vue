@@ -37,7 +37,7 @@ export default Vue.extend<
     Component['Computed'],
     Component['Props']
 >({
-    name: 'verband-regeln',
+    name: 'lssmv4-redesign-verband-regeln',
     data() {
         return {
             faEdit,

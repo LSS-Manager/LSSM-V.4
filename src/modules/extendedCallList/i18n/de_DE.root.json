@@ -159,6 +159,14 @@
 			"text": "Text",
 			"title": "Saisonale Einsätze markieren"
 		},
+		"remainingPatientTime": {
+			"description": "Zeigt bei Patienten an, wie lange der Patient noch behandelt werden muss.",
+			"title": "Patientenbehandlungsdauer"
+		},
+		"remainingPumpingTime": {
+			"description": "Zeigt bei Abpumpprozessen an, wie lange diese noch brauchen.",
+			"title": "Abpumpprozessdauer"
+		},
 		"remainingTime": {
 			"description": "Zeigt bei Einsätzen an, wie lange der Einsatz noch in Bearbeitung ist.",
 			"title": "Verbleibende Einsatzdauer"

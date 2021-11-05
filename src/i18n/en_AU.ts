@@ -59,6 +59,10 @@ const modules = {
             true: 'On',
             false: 'Off',
         },
+        locationSelect: {
+            location: 'Select position',
+            zoom: 'Select position and zoom',
+        },
     },
 } as { [moduleId: string]: { [key: string]: unknown } };
 
@@ -114,6 +118,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 6,
             wtank: 2_000,
+            possibleBuildings: [0, 18],
         },
         1: {
             caption: 'Medium Tanker',
@@ -123,6 +128,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 2,
             wtank: 1_800,
+            possibleBuildings: [0, 18],
         },
         2: {
             caption: 'Turntable Ladder',
@@ -131,6 +137,7 @@ export default {
             credits: 10_000,
             minPersonnel: 1,
             maxPersonnel: 3,
+            possibleBuildings: [0, 18],
             special: 'Required once you have built 3 firehouses',
         },
         3: {
@@ -140,6 +147,7 @@ export default {
             credits: 10_000,
             minPersonnel: 1,
             maxPersonnel: 3,
+            possibleBuildings: [0, 18],
             special: 'Required once you have built 6 firehouses',
         },
         4: {
@@ -149,6 +157,7 @@ export default {
             credits: 12_180,
             minPersonnel: 1,
             maxPersonnel: 4,
+            possibleBuildings: [0, 18],
             special: 'Required once you have built 4 firehouses',
         },
         5: {
@@ -158,6 +167,7 @@ export default {
             credits: 5_000,
             minPersonnel: 1,
             maxPersonnel: 2,
+            possibleBuildings: [0, 2, 20],
         },
         6: {
             caption: 'Bulk Water Tanker',
@@ -167,6 +177,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 3,
             wtank: 11_000,
+            possibleBuildings: [0, 18],
             special: 'Required once you have built 7 firehouses',
         },
         7: {
@@ -176,8 +187,14 @@ export default {
             credits: 17_300,
             minPersonnel: 1,
             maxPersonnel: 6,
-            schooling: 'Fire Station - HAZMAT Course',
-            shownSchooling: 'HazMat Unit',
+            possibleBuildings: [0, 18],
+            schooling: {
+                'Fire Station': {
+                    'HAZMAT Course': {
+                        all: true,
+                    },
+                },
+            },
             special: 'Required once you have built 11 firehouses',
         },
         8: {
@@ -187,6 +204,7 @@ export default {
             credits: 5_000,
             minPersonnel: 1,
             maxPersonnel: 2,
+            possibleBuildings: [6, 19],
         },
         9: {
             caption: 'Air Ambulance',
@@ -195,8 +213,14 @@ export default {
             credits: 300_000,
             minPersonnel: 1,
             maxPersonnel: 4,
-            schooling: 'Rescue - Intensive Care Education',
-            shownSchooling: 'Intensive Care Paramedic',
+            possibleBuildings: [5],
+            schooling: {
+                Rescue: {
+                    'Intensive Care Education': {
+                        all: true,
+                    },
+                },
+            },
         },
         10: {
             caption: 'BASU',
@@ -206,6 +230,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 3,
             wtank: 0,
+            possibleBuildings: [0, 18],
             special: 'Required from 5 fire stations',
         },
         11: {
@@ -216,8 +241,14 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 6,
             wtank: 0,
-            schooling: 'Fire Station - Mobile command',
-            shownSchooling: 'Mobile command',
+            possibleBuildings: [0, 18],
+            schooling: {
+                'Fire Station': {
+                    'Mobile command': {
+                        all: true,
+                    },
+                },
+            },
             special: 'Required once you have built 13 firehouses',
         },
         12: {
@@ -228,8 +259,9 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 6,
             wtank: 0,
+            possibleBuildings: [0, 18],
             special:
-                'To purchase with credits it requires the rank: Captain, <br>Lower ranked members can purchase the vehicle for 25 Coins. <br>Rescue Pump acts as a RSU and a Fire Truck.',
+                'To purchase with credits it requires the rank: Captain, <br>Lower ranked members can purchase the vehicle for 25 Coins. <br>Rescue Pump acts as a MRU and a Fire Truck.',
         },
         13: {
             caption: 'Aerial Pumper',
@@ -239,8 +271,9 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 6,
             wtank: 0,
+            possibleBuildings: [0, 18],
             special:
-                'To purchase with credits it requires the rank: Captain, <br>Lower ranked members can purchase the vehicle for 25 Coins. <br>CARP acts as a Platform Truck and a Fire Truck.',
+                'To purchase with credits it requires the rank: Captain, <br>Lower ranked members can purchase the vehicle for 25 Coins. <br>Aerial Pumper acts as a Platform Truck and a Fire Truck.',
         },
         14: {
             caption: 'Police helicopter',
@@ -248,9 +281,15 @@ export default {
             coins: 30,
             credits: 300_000,
             minPersonnel: 1,
-            maxPersonnel: 2,
-            schooling: 'Police - Police Air Wing',
-            shownSchooling: 'Police Air Wing',
+            maxPersonnel: 3,
+            possibleBuildings: [13],
+            schooling: {
+                Police: {
+                    'Police Air Wing': {
+                        all: true,
+                    },
+                },
+            },
         },
         15: {
             caption: 'TOG Armoured Bearcat',
@@ -259,8 +298,14 @@ export default {
             credits: 10_000,
             minPersonnel: 6,
             maxPersonnel: 10,
-            schooling: 'Police - TOG',
-            shownSchooling: 'TOG',
+            possibleBuildings: [6, 19],
+            schooling: {
+                Police: {
+                    TOG: {
+                        all: true,
+                    },
+                },
+            },
             special: 'Required once you have built 8 policestations',
         },
         16: {
@@ -271,8 +316,14 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 2,
             wtank: 0,
-            schooling: 'Police - K-9',
-            shownSchooling: 'K-9',
+            possibleBuildings: [6, 19],
+            schooling: {
+                Police: {
+                    'K-9': {
+                        all: true,
+                    },
+                },
+            },
             special: 'Required once you have built 6 policestations',
         },
         17: {
@@ -283,8 +334,14 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 1,
             wtank: 0,
-            schooling: 'Police - Police Motorcycle',
-            shownSchooling: 'Police Motorcycle',
+            possibleBuildings: [6, 19],
+            schooling: {
+                Police: {
+                    'Police Motorcycle': {
+                        all: true,
+                    },
+                },
+            },
         },
         18: {
             caption: 'TOG SUV',
@@ -293,8 +350,14 @@ export default {
             credits: 7_000,
             minPersonnel: 2,
             maxPersonnel: 4,
-            schooling: 'Police - TOG',
-            shownSchooling: 'TOG',
+            possibleBuildings: [6, 19],
+            schooling: {
+                Police: {
+                    TOG: {
+                        all: true,
+                    },
+                },
+            },
             special: 'Required once you have built 8 policestations',
         },
         19: {
@@ -305,6 +368,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 5,
             wtank: 4_000,
+            possibleBuildings: [0, 18],
         },
         20: {
             caption: 'SES Vehicle',
@@ -314,8 +378,14 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 6,
             wtank: 0,
-            schooling: 'Fire Station - SES Water Rescue',
-            shownSchooling: 'SES Water Rescue',
+            possibleBuildings: [15],
+            schooling: {
+                'Fire Station': {
+                    'SES Water Rescue': {
+                        all: true,
+                    },
+                },
+            },
         },
         21: {
             caption: 'Rescue Boat',
@@ -325,6 +395,7 @@ export default {
             minPersonnel: 0,
             maxPersonnel: 0,
             wtank: 0,
+            possibleBuildings: [15],
             special: 'SES Vehicle is the towing vehicle',
         },
         22: {
@@ -334,8 +405,14 @@ export default {
             credits: 15_000,
             minPersonnel: 0,
             maxPersonnel: 0,
-            schooling: 'Police - Mounted Police Training',
-            shownSchooling: 'Mounted Police Training',
+            possibleBuildings: [6, 19],
+            schooling: {
+                Police: {
+                    'Mounted Police Training': {
+                        all: true,
+                    },
+                },
+            },
             special: 'Towing Vehicle is Police Car',
         },
         23: {
@@ -345,6 +422,7 @@ export default {
             credits: 20_000,
             minPersonnel: 1,
             maxPersonnel: 2,
+            possibleBuildings: [0, 2, 20],
             special: 'Required once you have built 6 Rescue stations',
         },
         24: {
@@ -354,8 +432,19 @@ export default {
             credits: 12_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            schooling: 'Rescue - Intensive Care Education',
-            shownSchooling: 'Intensive Care Paramedic',
+            possibleBuildings: [0, 2, 20],
+            schooling: {
+                'Fire Station': {
+                    'Intensive Care Education': {
+                        all: true,
+                    },
+                },
+                'Rescue': {
+                    'Intensive Care Education': {
+                        all: true,
+                    },
+                },
+            },
         },
         25: {
             caption: 'ICS',
@@ -364,8 +453,19 @@ export default {
             credits: 12_000,
             minPersonnel: 1,
             maxPersonnel: 1,
-            schooling: 'Rescue - Intensive Care Education',
-            shownSchooling: 'Intensive Care Paramedic',
+            possibleBuildings: [0, 2, 20],
+            schooling: {
+                'Fire Station': {
+                    'Intensive Care Education': {
+                        all: true,
+                    },
+                },
+                'Rescue': {
+                    'Intensive Care Education': {
+                        all: true,
+                    },
+                },
+            },
         },
         26: {
             caption: 'Ambulance Rescue',
@@ -374,6 +474,7 @@ export default {
             credits: 10_000,
             minPersonnel: 2,
             maxPersonnel: 4,
+            possibleBuildings: [0, 2, 20],
             special: 'Can work as MRU',
         },
         27: {
@@ -383,6 +484,7 @@ export default {
             credits: 25_000,
             minPersonnel: 4,
             maxPersonnel: 10,
+            possibleBuildings: [0, 2, 20],
             special:
                 'You can buy 1 Mass Casualty Vehicle for every 20 ambulance stations (respectively 15 with premium account).',
         },
@@ -394,6 +496,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 2,
             wtank: 500,
+            possibleBuildings: [0],
         },
         29: {
             caption: 'Light Tanker',
@@ -403,6 +506,7 @@ export default {
             minPersonnel: 2,
             maxPersonnel: 4,
             wtank: 3_000,
+            possibleBuildings: [0],
         },
         30: {
             caption: 'Pumper Tanker',
@@ -412,6 +516,7 @@ export default {
             minPersonnel: 4,
             maxPersonnel: 6,
             wtank: 3_000,
+            possibleBuildings: [0, 18],
         },
         31: {
             caption: 'Fire Helicopter',
@@ -421,8 +526,14 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 2,
             wtank: 1_500,
-            schooling: 'Fire Station - Airborne firefighting',
-            shownSchooling: 'Airborne firefighting',
+            possibleBuildings: [23],
+            schooling: {
+                'Fire Station': {
+                    'Airborne firefighting': {
+                        all: true,
+                    },
+                },
+            },
         },
         32: {
             caption: 'Bomber',
@@ -432,8 +543,14 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 1,
             wtank: 3_200,
-            schooling: 'Fire Station - Airborne firefighting',
-            shownSchooling: 'Airborne firefighting',
+            possibleBuildings: [23],
+            schooling: {
+                'Fire Station': {
+                    'Airborne firefighting': {
+                        all: true,
+                    },
+                },
+            },
         },
         33: {
             caption: 'Large Air Tanker',
@@ -443,8 +560,14 @@ export default {
             minPersonnel: 2,
             maxPersonnel: 3,
             wtank: 13_000,
-            schooling: 'Fire Station - Airborne firefighting',
-            shownSchooling: 'Airborne firefighting',
+            possibleBuildings: [23],
+            schooling: {
+                'Fire Station': {
+                    'Airborne firefighting': {
+                        all: true,
+                    },
+                },
+            },
         },
     },
     buildings: {
@@ -474,6 +597,7 @@ export default {
                 'From the 24th fire station onwards, the cost of building a new fire station increases according to the following formula: <code>100.000+200.000*LOG<sub>2</sub>(Number of existing fire stations − 22)</code>. The Coins price remains constant!',
             startPersonnel: 10,
             startVehicles: ['Pumper', 'Medium Tanker', ' Heavy Tanker'],
+            schoolingTypes: ['Fire Station'],
             maxBuildingsFunction: (): number => 5_000,
         },
         1: {
@@ -509,6 +633,7 @@ export default {
             special: '',
             startPersonnel: 3,
             startVehicles: ['Ambulance'],
+            schoolingTypes: ['Rescue'],
         },
         3: {
             caption: 'Paramedic Training Centre',
@@ -613,6 +738,7 @@ export default {
                 'Up to the 125th building (of all types) a total of max. 4 landing sites can be built. After that the number increases by 1 every 25 buildings (starting at the 125th).',
             startPersonnel: 0,
             startVehicles: [],
+            schoolingTypes: ['Rescue'],
             maxBuildingsFunction: (buildingsAmountTotal: number): number =>
                 buildingsAmountTotal < 125
                     ? 4
@@ -644,6 +770,7 @@ export default {
                 'From the 24th police station onwards, the costs for the new construction of a police station increase according to the following formula: <code>100.000+200.000*LOG<sub>2</sub>(Number of existing police stations − 22)</code>. The Coins price remains constant!',
             startPersonnel: 2,
             startVehicles: ['Police Car'],
+            schoolingTypes: ['Police'],
             maxBuildingsFunction: (): number => 1_700,
         },
         7: {
@@ -695,6 +822,7 @@ export default {
                 'Up to 2 landing sites can be built per station (expansion stages). Up to the 125th building (of all types) a total of max. 4 landing sites can be built. After that the number increases by 1 every 25 buildings (starting at the 125th).',
             startPersonnel: 3,
             startVehicles: [],
+            schoolingTypes: ['Police'],
             maxBuildingsFunction: (buildingsAmountTotal: number): number =>
                 buildingsAmountTotal < 125
                     ? 4
@@ -726,6 +854,7 @@ export default {
             special: 'You will get 10 people and an SES vehicle for free.',
             startPersonnel: 10,
             startVehicles: ['SES Vehicle'],
+            schoolingTypes: ['Fire Station'],
         },
         16: {
             caption: 'Police Lockup',
@@ -771,6 +900,7 @@ export default {
                 'From the 24th fire station onwards, the cost of building a new fire station increases according to the following formula: <code>(100.000+200.000*LOG<sub>2</sub>(Number of existing fire stations − 22)) / 2</code>. max. 1 Million Credits. The Coins price remains constant!',
             startPersonnel: 10,
             startVehicles: ['Pumper', 'Medium Tanker', ' Heavy Tanker'],
+            schoolingTypes: ['Fire Station'],
             maxBuildingsFunction: (): number => 5_000,
         },
         19: {
@@ -804,6 +934,7 @@ export default {
                 'From the 24th police station onwards, the costs for the new construction of a police station are calculated according to the following formula: <code>(100.000+200.000*LOG<sub>2</sub>(Number of existing police stations − 22)) / 2</code>. The Coins price remains constant!',
             startPersonnel: 2,
             startVehicles: ['Police Car'],
+            schoolingTypes: ['Police'],
             maxBuildingsFunction: (): number => 1_700,
         },
         20: {
@@ -823,6 +954,7 @@ export default {
             special: '',
             startPersonnel: 3,
             startVehicles: ['Ambulance'],
+            schoolingTypes: ['Rescue'],
         },
         23: {
             caption: 'Fire Airbase',
@@ -837,6 +969,7 @@ export default {
                 'Up to the 125th building (of all types) a total of max. 3 landing sites can be built. After that the number increases by 1 every 25 buildings (starting at the 125th).',
             startPersonnel: 2,
             startVehicles: ['Fire Helicopter'],
+            schoolingTypes: ['Fire Station'],
             maxBuildingsFunction: (buildingsAmountTotal: number): number =>
                 buildingsAmountTotal < 125
                     ? 3
@@ -930,10 +1063,12 @@ export default {
             {
                 caption: 'HAZMAT Course',
                 duration: '3 Days',
+                staffList: 'HazMat Unit',
             },
             {
                 caption: 'Mobile command',
                 duration: '5 Days',
+                staffList: 'Mobile command',
             },
             {
                 caption: 'ARFF-Training',
@@ -942,6 +1077,7 @@ export default {
             {
                 caption: 'SES Water Rescue',
                 duration: '4 Days',
+                staffList: 'SES Water Rescue',
             },
             {
                 caption: 'Ocean Navigation',
@@ -950,38 +1086,46 @@ export default {
             {
                 caption: 'Airborne firefighting',
                 duration: '5 Days',
+                staffList: 'Airborne firefighting',
             },
             {
                 caption: 'Intensive Care Education',
                 duration: '5 Days',
+                staffList: 'Intensive Care Paramedic',
             },
         ],
         'Police': [
             {
                 caption: 'Police Air Wing',
                 duration: '7 Days',
+                staffList: 'Police Air Wing',
             },
             {
                 caption: 'TOG',
                 duration: '5 Days',
+                staffList: 'TOG',
             },
             {
                 caption: 'K-9',
                 duration: '5 Days',
+                staffList: 'K-9',
             },
             {
                 caption: 'Police Motorcycle',
                 duration: '3 Days',
+                staffList: 'Police Motorcycle',
             },
             {
                 caption: 'Mounted Police Training',
                 duration: '3 Days',
+                staffList: 'Mounted Police Training',
             },
         ],
         'Rescue': [
             {
                 caption: 'Intensive Care Education',
                 duration: '5 Days',
+                staffList: 'Intensive Care Paramedic',
             },
         ],
     },
@@ -1103,7 +1247,37 @@ export default {
         'Moorland',
         'Cabin',
         'Campsite',
+        'Cliff',
+        'Sawmill',
     ],
     only_alliance_missions: [57, 74],
     transfer_missions: [],
+    ranks: {
+        missionchief: {
+            0: 'Probie',
+            200: 'Firefighter',
+            10_000: 'Senior Firefighter',
+            100_000: 'Fire Apparatus Operator',
+            1_000_000: 'Lieutenant',
+            5_000_000: 'Captain',
+            20_000_000: 'Staff Captain',
+            50_000_000: 'Battalion Chief',
+            1_000_000_000: 'Division Chief',
+            2_000_000_000: 'Deputy Chief',
+            5_000_000_000: 'Fire Chief',
+        },
+        policechief: {
+            0: 'Probationary Constable',
+            200: 'Constable',
+            10_000: 'Senior Constable',
+            100_000: 'Leading Senior Constable',
+            1_000_000: 'Sergeant',
+            5_000_000: 'Senior Sergeant',
+            20_000_000: 'Inspector',
+            50_000_000: 'Superintendent',
+            1_000_000_000: 'Assistant Commissioner',
+            2_000_000_000: 'Deputy Commissioner',
+            5_000_000_000: 'Commissioner',
+        },
+    },
 };

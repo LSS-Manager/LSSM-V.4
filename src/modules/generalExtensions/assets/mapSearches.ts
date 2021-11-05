@@ -29,7 +29,8 @@ export default (
         const isMainWindowSearch =
             window.location.pathname.match(/^\/?$/) &&
             mapSearchOnMap &&
-            !document.querySelector('.redesign-wrapper');
+            !document.querySelector('.redesign-wrapper') &&
+            !document.querySelector('#modals-container [data-modal$="_map"]');
 
         if (isMainWindowSearch) {
             form =
@@ -59,7 +60,7 @@ export default (
                 form.style.setProperty('top', 'calc(-100% - 9px)');
                 form.style.setProperty('padding', '0');
                 if (position.match(/right/))
-                    form.style.setProperty('translate', '-100%');
+                    form.style.setProperty('transform', 'translateX(-100%)');
                 else form.style.setProperty('left', '30px');
 
                 if (!isMainWindowSearch) {
