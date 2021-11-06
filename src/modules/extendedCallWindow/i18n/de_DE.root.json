@@ -93,6 +93,10 @@
 			"description": "Umrandet die Generierungszeit rot, wenn der Einsatz in der kommenden Nacht verfallen wird.",
 			"title": "Rote Umrandung"
 		},
+		"remainingPatientTime": {
+			"description": "Zeigt bei Patienten an, wie lange der Patient noch behandelt werden muss.",
+			"title": "Patientenbehandlungsdauer"
+		},
 		"stagingAreaSelectedCounter": {
 			"description": "Zeigt auch in Bereitstellungsräumen neben dem \"Alarmieren\" Knopf die Zahl der ausgewählten Fahrzeuge",
 			"title": "Zähler im Bereitstellungsraum"

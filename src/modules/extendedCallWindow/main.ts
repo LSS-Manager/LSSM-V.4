@@ -176,6 +176,13 @@ export default (async (LSSM, MODULE_ID, $m, $mc) => {
                 )
             ).default(LSSM);
         }
+        if (await getSetting('remainingPatientTime')) {
+            await (
+                await import(
+                    /* webpackChunkName: "modules/extendedCallWindow/remainingPatientTime" */ './assets/remainingPatientTime'
+                )
+            ).default(LSSM);
+        }
     }
 
     const tailoredTabSettings = await getSetting<

@@ -94,6 +94,10 @@
 			"description": "De generatietijd krijgt een rood kader, als de inzet in de komende nacht vervalt.",
 			"title": "Rood kader"
 		},
+		"remainingPatientTime": {
+			"description": "Geeft bij patiënten aan, hoe lang de patiënt nog behandeld moet worden.",
+			"title": "Patiëntenbehandelingsduur"
+		},
 		"stagingAreaSelectedCounter": {
 			"description": "Geeft in de UGS naast de \"Alarmeren\" knop het aantal geselecteerde voertuigen weer.",
 			"title": "Voertuigselectieteller in UGS"
