@@ -207,6 +207,16 @@
 			"description": "Deel meldingen met het team direct vanuit de meldingenlijst.",
 			"title": "Deel meldingen"
 		},
+		"shareMissionsMinCredits": {
+			"description": "De knop om een melding te delen vanuit de meldingenlijst wordt alleen getoond vanaf het hier ingestelde aantal credits.",
+			"title": "Deel meldingen: minimum credits"
+		},
+		"shareMissionsTypes": {
+			"description": "Stel in voor welke type meldingen je de deelknop wilt tonen.",
+			"own": "Eigen meldingen",
+			"sicherheitswache": "Geplande meldingen",
+			"title": "Deel meldingen: Meldingstypes"
+		},
 		"starrableMissions": {
 			"description": "Markeer meldingen zodat ze bovenaan de meldingenlijst worden weergegeven. Je kan ze in de meldingenlijst of in de melding zelf markeren.",
 			"title": "Markeer meldingen"
