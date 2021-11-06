@@ -1,4 +1,8 @@
 import { AddCollapsableButton } from './assets/collapsableMissions/missionlist';
+import {
+    AddShareBtn,
+    UpdateShareBtn,
+} from './assets/shareMissions/missionlist';
 import { AddStarrableButton } from './assets/starrableMissions/missionlist';
 import { ModuleMainFunction } from 'typings/Module';
 
@@ -42,8 +46,9 @@ export default (async (LSSM, MODULE_ID, $m) => {
     }
 
     const collapsableMissions = await getSetting('collapsableMissions');
+    const shareMissions = await getSetting('shareMissions');
 
-    if (starrableMissions || collapsableMissions) {
+    if (starrableMissions || collapsableMissions || shareMissions) {
         LSSM.$store.commit('useFontAwesome');
 
         starredMissions = starredMissions.filter(
@@ -96,15 +101,36 @@ export default (async (LSSM, MODULE_ID, $m) => {
                   $m
               )
             : null;
+        const {
+            addShareBtn,
+            updateShareBtn,
+        }: {
+            addShareBtn: AddShareBtn | null;
+            updateShareBtn: UpdateShareBtn | null;
+        } = shareMissions
+            ? (
+                  await import(
+                      /* webpackChunkName: "modules/extendedCallList/shareMissions" */ './assets/shareMissions/missionlist'
+                  )
+              ).default(LSSM, MODULE_ID)
+            : { addShareBtn: null, updateShareBtn: null };
 
         (
             await import(
                 /* webpackChunkName: "modules/extendedCallList/utils/btnGroup" */ './assets/utils/buttonGroup'
             )
-        ).default(LSSM, MODULE_ID, mission => {
-            addStarrableBtn?.(mission, starredMissionBtnClass);
-            addCollapsableBtn?.(mission, collapsedMissionBtnClass);
-        });
+        ).default(
+            LSSM,
+            MODULE_ID,
+            mission => {
+                addStarrableBtn?.(mission, starredMissionBtnClass);
+                addCollapsableBtn?.(mission, collapsedMissionBtnClass);
+                addShareBtn?.(mission);
+            },
+            mission => {
+                updateShareBtn?.(mission);
+            }
+        );
     }
 
     if (await getSetting('remainingTime')) {

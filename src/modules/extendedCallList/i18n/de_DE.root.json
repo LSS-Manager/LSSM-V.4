@@ -175,6 +175,10 @@
 			"description": "Zeigt die Einsatzdauer nur bei grünen Einsätzen an.",
 			"title": "Einsatzdauer nur bei grünen Einsätzen"
 		},
+		"shareMissions": {
+			"description": "Teile Einsätze mit dem Verband direkt aus der Einsatzliste heraus.",
+			"title": "Einsätze teilen"
+		},
 		"starrableMissions": {
 			"description": "Markiere dir Einsätze, damit diese in der Einsatzliste oben angezeigt werden dürfen. Du kannst die Markierung im Einsatzfenster und in der Einsatzliste vornehmen.",
 			"title": "Einsätze markieren"

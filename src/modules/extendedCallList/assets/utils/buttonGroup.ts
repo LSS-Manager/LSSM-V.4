@@ -6,10 +6,16 @@ export interface ButtonGroupCallback {
     id: number;
 }
 
+export interface MissionUpdateCallback {
+    element: HTMLDivElement;
+    id: number;
+}
+
 export default (
     LSSM: Vue,
     MODULE_ID: string,
-    callback: (mission: ButtonGroupCallback) => void
+    callback: (mission: ButtonGroupCallback) => void,
+    onUpdate: (mission: MissionUpdateCallback) => void
 ): void => {
     const btnGroupClass = LSSM.$store.getters.nodeAttribute(
         `${MODULE_ID}_btn-group_pre-alarm`
@@ -49,8 +55,16 @@ export default (
                 const mission = document.querySelector<HTMLDivElement>(
                     `#mission_${marker.id}`
                 );
-                if (mission && !mission.querySelector(`.${btnGroupClass}`))
-                    addButtonGroup(mission);
+                if (mission) {
+                    if (!mission.querySelector(`.${btnGroupClass}`))
+                        addButtonGroup(mission);
+                    onUpdate({
+                        element: mission,
+                        id: parseInt(
+                            mission.getAttribute('mission_id') ?? '-1'
+                        ),
+                    });
+                }
             },
         })
         .then();
