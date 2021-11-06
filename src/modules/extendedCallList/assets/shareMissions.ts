@@ -36,8 +36,11 @@ export default (
                 !mission.element.closest(typesIdsSelector)
             )
                 return;
-            const missionType =
+            let missionType =
                 mission.element.getAttribute('mission_type_id') ?? '-1';
+            const overlayIndex =
+                mission.element.getAttribute('data-overlay-index') ?? 'null';
+            if (overlayIndex !== 'null') missionType += `-${missionType}`;
             if (
                 missionType !== '-1' &&
                 !acceptedMissionTypes.includes(missionType)
