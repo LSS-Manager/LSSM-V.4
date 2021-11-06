@@ -2671,7 +2671,7 @@ export default {
             {
                 caption: 'Motorradstaffel',
                 duration: '3 Tage',
-                staffList: 'Hundeführer (Schutzhund)',
+                staffList: 'Motorradstaffel',
             },
             {
                 caption: 'Polizeihubschrauber',
