@@ -157,6 +157,16 @@
 			"description": "Share missions with the alliance directly from the mission list.",
 			"title": "Share missions"
 		},
+		"shareMissionsMinCredits": {
+			"description": "The button for sharing a mission is only shown for missions that do have an average reward of more than what you've set here.",
+			"title": "Share missions: minimum credits"
+		},
+		"shareMissionsTypes": {
+			"description": "Set up which of the calls you want to enable the share button for.",
+			"own": "Emergency-Calls",
+			"sicherheitswache": "Planned missions",
+			"title": "Share missions: mission types"
+		},
 		"starrableMissions": {
 			"description": "Mark missions so that they are be displayed in the mission list at the top. You can mark them in the mission window and in the mission list.",
 			"title": "Mark Missions"

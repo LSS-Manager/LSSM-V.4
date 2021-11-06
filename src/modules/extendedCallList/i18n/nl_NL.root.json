@@ -203,6 +203,10 @@
 			"description": "Toont de resterende inzettijd alleen bij groene meldingen.",
 			"title": "Inzettijd alleen bij groene meldingen"
 		},
+		"shareMissions": {
+			"description": "Deel meldingen met het team direct vanuit de meldingenlijst.",
+			"title": "Deel meldingen"
+		},
 		"starrableMissions": {
 			"description": "Markeer meldingen zodat ze bovenaan de meldingenlijst worden weergegeven. Je kan ze in de meldingenlijst of in de melding zelf markeren.",
 			"title": "Markeer meldingen"

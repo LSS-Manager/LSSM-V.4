@@ -179,6 +179,16 @@
 			"description": "Teile Einsätze mit dem Verband direkt aus der Einsatzliste heraus.",
 			"title": "Einsätze teilen"
 		},
+		"shareMissionsMinCredits": {
+			"description": "Der Knopf zum Teilen von Einsätzen wird nur angezeigt, wenn der Einsatz im durchschnitt mehr als die hier festgelegte Zahl an Credits bringt.",
+			"title": "Einsätze teilen: Minimale Credits"
+		},
+		"shareMissionsTypes": {
+			"description": "Hiermit kannst du festlegen, dass der Knopf zum Teilen von Einsätzen nur bei bestimmten Einsätzen angezeigt werden soll.",
+			"own": "Notfall-Einsätze",
+			"sicherheitswache": "Geplante Einsätze",
+			"title": "Einsätze teilen: Einsatztypen"
+		},
 		"starrableMissions": {
 			"description": "Markiere dir Einsätze, damit diese in der Einsatzliste oben angezeigt werden dürfen. Du kannst die Markierung im Einsatzfenster und in der Einsatzliste vornehmen.",
 			"title": "Einsätze markieren"

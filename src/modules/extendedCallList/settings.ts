@@ -4,6 +4,7 @@ import {
     AppendableListSetting,
     Hidden,
     MultiSelect,
+    NumberInput,
     Text,
     Toggle,
 } from 'typings/Setting';
@@ -76,6 +77,23 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
         shareMissions: <Toggle>{
             type: 'toggle',
             default: false,
+        },
+        shareMissionsTypes: <Omit<MultiSelect, 'value' | 'isDisabled'>>{
+            type: 'multiSelect',
+            values: ['', 'sicherheitswache'],
+            labels: [
+                $m('settings.shareMissionsTypes.own'),
+                $m('settings.shareMissionsTypes.sicherheitswache'),
+            ],
+            default: ['', 'sicherheitswache'],
+            dependsOn: '.shareMissions',
+        },
+        shareMissionsMinCredits: <NumberInput>{
+            type: 'number',
+            default: 0,
+            min: 0,
+            step: 1,
+            dependsOn: '.shareMissions',
         },
         eventMissions: <Omit<AppendableList, 'value' | 'isDisabled'>>{
             type: 'appendable-list',

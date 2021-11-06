@@ -1,10 +1,7 @@
 import { AddCollapsableButton } from './assets/collapsableMissions/missionlist';
-import {
-    AddShareBtn,
-    UpdateShareBtn,
-} from './assets/shareMissions/missionlist';
 import { AddStarrableButton } from './assets/starrableMissions/missionlist';
 import { ModuleMainFunction } from 'typings/Module';
+import { AddShareBtn, UpdateShareBtn } from './assets/shareMissions';
 
 interface AppendableListSetting<valueType> {
     value: valueType;
@@ -110,9 +107,16 @@ export default (async (LSSM, MODULE_ID, $m) => {
         } = shareMissions
             ? (
                   await import(
-                      /* webpackChunkName: "modules/extendedCallList/shareMissions" */ './assets/shareMissions/missionlist'
+                      /* webpackChunkName: "modules/extendedCallList/shareMissions" */ './assets/shareMissions'
                   )
-              ).default(LSSM, MODULE_ID)
+              ).default(
+                  LSSM,
+                  MODULE_ID,
+                  await getSetting<('' | 'sicherheitswache')[]>(
+                      'shareMissionsTypes'
+                  ),
+                  await getSetting<number>('shareMissionsMinCredits')
+              )
             : { addShareBtn: null, updateShareBtn: null };
 
         (
