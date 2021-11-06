@@ -10,6 +10,7 @@ export default (LSSM: Vue, sticky: boolean, load: boolean): void => {
             'ecw-sticky_header-heightdiv',
             true
         );
+        clearfix.style.setProperty('margin-bottom', '15px');
         head.after(clearfix);
         head.style.zIndex = '2';
         head.style.position = 'fixed';
