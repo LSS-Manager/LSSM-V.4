@@ -189,9 +189,20 @@
 			"sicherheitswache": "Geplante Einsätze",
 			"title": "Einsätze teilen: Einsatztypen"
 		},
+		"sortMissions": {
+			"description": "Sortiere die Einsatzliste nach bestimmten Kriterien, z.B. Verdienst oder noch vorhandenen Patienten",
+			"title": "Einsätze sortieren"
+		},
 		"starrableMissions": {
 			"description": "Markiere dir Einsätze, damit diese in der Einsatzliste oben angezeigt werden dürfen. Du kannst die Markierung im Einsatzfenster und in der Einsatzliste vornehmen.",
 			"title": "Einsätze markieren"
+		}
+	},
+	"sort": {
+		"types": {
+			"credits": "Verdienst",
+			"id": "Alter",
+			"remaining_patients": "aktuelle Patienten"
 		}
 	}
 }

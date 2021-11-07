@@ -1,6 +1,7 @@
 import { AddCollapsableButton } from './assets/collapsableMissions/missionlist';
 import { AddStarrableButton } from './assets/starrableMissions/missionlist';
 import { ModuleMainFunction } from 'typings/Module';
+import { Sort } from './assets/sort';
 import { AddShareBtn, UpdateShareBtn } from './assets/shareMissions';
 
 interface AppendableListSetting<valueType> {
@@ -29,6 +30,9 @@ export default (async (LSSM, MODULE_ID, $m) => {
 
     const starredMissionBtnClass = LSSM.$store.getters.nodeAttribute(
         `${MODULE_ID}_starrable-missions_btn`
+    );
+    const starredMissionPanelClass = LSSM.$store.getters.nodeAttribute(
+        `${MODULE_ID}_starrable-missions-starred`
     );
 
     if (window.location.pathname.match(/^\/missions\/\d+\/?/)) {
@@ -65,7 +69,8 @@ export default (async (LSSM, MODULE_ID, $m) => {
                   LSSM,
                   MODULE_ID,
                   starredMissions,
-                  starredMissionBtnClass
+                  starredMissionBtnClass,
+                  starredMissionPanelClass
               )
             : null;
 
@@ -134,6 +139,22 @@ export default (async (LSSM, MODULE_ID, $m) => {
             mission => {
                 updateShareBtn?.(mission);
             }
+        );
+    }
+
+    if (await getSetting('sortMissions')) {
+        await (
+            await import(
+                /* webpackChunkName: "modules/extendedCallList/sort" */ './assets/sort'
+            )
+        ).default(
+            LSSM,
+            MODULE_ID,
+            (await getSetting<Sort>('sortMissionsType')) ?? 'id',
+            (await getSetting<'asc' | 'desc'>('sortMissionsDirection')) ??
+                'asc',
+            starredMissionPanelClass,
+            $m
         );
     }
 

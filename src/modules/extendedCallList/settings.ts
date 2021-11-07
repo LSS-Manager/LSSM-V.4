@@ -95,6 +95,16 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
             step: 1,
             dependsOn: '.shareMissions',
         },
+        sortMissions: <Toggle>{
+            type: 'toggle',
+            default: false,
+        },
+        sortMissionsType: <Hidden>{
+            type: 'hidden',
+        },
+        sortMissionsDirection: <Hidden>{
+            type: 'hidden',
+        },
         eventMissions: <Omit<AppendableList, 'value' | 'isDisabled'>>{
             type: 'appendable-list',
             default: defaultEventmissions,

@@ -168,9 +168,20 @@
 			"sicherheitswache": "Planned missions",
 			"title": "Share missions: mission types"
 		},
+		"sortMissions": {
+			"description": "Sort your mission list!",
+			"title": "Sort missions"
+		},
 		"starrableMissions": {
 			"description": "Mark missions so that they are be displayed in the mission list at the top. You can mark them in the mission window and in the mission list.",
 			"title": "Mark Missions"
+		}
+	},
+	"sort": {
+		"types": {
+			"credits": "Credits",
+			"id": "Age",
+			"remaining_patients": "Current patients"
 		}
 	}
 }
