@@ -109,16 +109,6 @@
                                 <td>
                                     <button
                                         v-if="
-                                            vehicle.current_mission &&
-                                                !vehicle.user
-                                        "
-                                        class="btn btn-default btn-xs"
-                                        @click="backalarm"
-                                    >
-                                        {{ lightbox.$sm('backalarm') }}
-                                    </button>
-                                    <button
-                                        v-if="
                                             (vehicle.fms === 2 ||
                                                 vehicle.fms === 6) &&
                                                 !vehicle.user
@@ -190,6 +180,16 @@
                                     >
                                         {{ vehicle.current_mission.caption }}
                                     </a>
+                                    <button
+                                        v-if="
+                                            vehicle.current_mission &&
+                                                !vehicle.user
+                                        "
+                                        class="btn btn-default btn-xs"
+                                        @click="backalarm"
+                                    >
+                                        {{ lightbox.$sm('backalarm') }}
+                                    </button>
                                 </td>
                             </tr>
                             <tr v-if="vehicle.followup_missions.length">
@@ -214,6 +214,32 @@
                                             >
                                                 {{ mission.caption }}
                                             </a>
+                                            <span class="btn-group">
+                                                <a
+                                                    class="btn btn-xs btn-default"
+                                                    @click="
+                                                        backalarmFollowUp(
+                                                            mission.id
+                                                        )
+                                                    "
+                                                >
+                                                    {{
+                                                        lightbox.$sm(
+                                                            'backalarm'
+                                                        )
+                                                    }}
+                                                </a>
+                                                <a
+                                                    class="btn btn-xs btn-default"
+                                                    @click="backalarmCurrent"
+                                                >
+                                                    {{
+                                                        lightbox.$sm(
+                                                            'backalarmNext'
+                                                        )
+                                                    }}
+                                                </a>
+                                            </span>
                                         </li>
                                     </ul>
                                 </td>
@@ -1154,6 +1180,8 @@ type Component = RedesignComponent<
         alarm(missionId: number): void;
         deleteVehicle(): void;
         backalarm(): void;
+        backalarmFollowUp(missionId: number): void;
+        backalarmCurrent(): void;
         switch_state(): void;
         updateFilter(filter: string, value: unknown): void;
         fms(url: string): void;
@@ -1777,6 +1805,34 @@ export default Vue.extend<
                         `/vehicles/${this.vehicle.id}`
                     )
                 );
+        },
+        backalarmFollowUp(missionId) {
+            this.$store
+                .dispatch('api/request', {
+                    url: `/vehicles/${this.vehicle.id}/backalarm?only_mission_id=${missionId}`,
+                    feature: `redesign-vehicle-backalarm-only_mission`,
+                })
+                .then(() => {
+                    this.$set(
+                        this.lightbox,
+                        'src',
+                        `/vehicles/${this.vehicle.id}`
+                    );
+                });
+        },
+        backalarmCurrent() {
+            this.$store
+                .dispatch('api/request', {
+                    url: `/vehicles/${this.vehicle.id}/backalarm?next_mission=1`,
+                    feature: `redesign-vehicle-backalarm-next_mission`,
+                })
+                .then(() => {
+                    this.$set(
+                        this.lightbox,
+                        'src',
+                        `/vehicles/${this.vehicle.id}`
+                    );
+                });
         },
         switch_state() {
             if (![2, 6].includes(this.vehicle.fms)) return;

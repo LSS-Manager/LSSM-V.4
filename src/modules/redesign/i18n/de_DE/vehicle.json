@@ -1,6 +1,7 @@
 {
 	"approach": "Anfahren",
 	"backalarm": "Rückalarmieren",
+	"backalarmNext": "direkt Anfahren",
 	"cells": {
 		"cell": "Gebäude",
 		"free": "Freie Zellen"
