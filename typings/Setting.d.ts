@@ -1,4 +1,10 @@
 import { ExtendedVue } from 'vue/types/vue';
+import {
+    DefaultComputed,
+    DefaultData,
+    DefaultMethods,
+    DefaultProps,
+} from 'vue/types/options';
 
 interface SettingTemplate {
     type: string;
@@ -74,6 +80,27 @@ interface Location extends SettingTemplate {
     zoom?: boolean;
 }
 
+interface Custom<
+    Data = unknown,
+    Properties extends Record<string, unknown> = Record<string, never>,
+    ComponentData extends DefaultData<Vue> = DefaultData<Vue>,
+    ComponentMethods extends DefaultMethods<Vue> = DefaultMethods<Vue>,
+    ComponentComputed extends DefaultComputed = DefaultComputed,
+    ComponentProps extends DefaultProps = DefaultProps
+> extends SettingTemplate {
+    type: 'custom';
+    default: Data;
+    value: Data;
+    properties: Properties;
+    component: ExtendedVue<
+        Vue,
+        ComponentData,
+        ComponentMethods,
+        ComponentComputed,
+        ComponentProps & { value: Data }
+    >;
+}
+
 interface Hidden<Type = boolean> extends SettingTemplate {
     type: 'hidden';
     default: Type;
@@ -84,8 +111,8 @@ interface AppendableListItem {
     [key: string]: unknown;
 }
 
-interface AppendableListSetting<type extends SettingType = SettingType> {
-    setting: Omit<type, 'value' | 'isDisabled'>;
+interface AppendableListSetting<Type extends SettingType = SettingType> {
+    setting: Omit<Type, 'value' | 'isDisabled'>;
     size: number;
     name: string;
     title: string;
@@ -111,7 +138,14 @@ export interface AppendableList extends SettingTemplate {
     orderable?: boolean;
 }
 
-type SettingType =
+type SettingType<
+    CustomData = unknown,
+    CustomProperties extends Record<string, unknown> = Record<string, never>,
+    CustomComponentData extends DefaultData<Vue> = DefaultData<Vue>,
+    CustomComponentMethods extends DefaultMethods<Vue> = DefaultMethods<Vue>,
+    CustomComponentComputed extends DefaultComputed = DefaultComputed,
+    CustomComponentProps extends DefaultProps = DefaultProps
+> =
     | Toggle
     | Text
     | Textarea
@@ -122,9 +156,17 @@ type SettingType =
     | NumberInput
     | HotKey
     | Location
+    | Custom<
+          CustomData,
+          CustomProperties,
+          CustomComponentData,
+          CustomComponentMethods,
+          CustomComponentComputed,
+          CustomComponentProps
+      >
     | Hidden;
 
-export type Setting<type extends SettingType = SettingType> = type;
+export type Setting<Type extends SettingType = SettingType> = Type;
 
 export interface Settings {
     [key: string]: Setting;
