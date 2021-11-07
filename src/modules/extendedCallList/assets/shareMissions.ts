@@ -11,7 +11,8 @@ export default (
     LSSM: Vue,
     MODULE_ID: string,
     types: ('' | 'sicherheitswache')[],
-    minCredits: number
+    minCredits: number,
+    buttonColor: string
 ): { addShareBtn: AddShareBtn; updateShareBtn: UpdateShareBtn } => {
     const typesIdsSelector = types
         .map(type => `#mission_list${type ? `_${type}` : ''}`)
@@ -47,7 +48,12 @@ export default (
             )
                 return;
             const btn = document.createElement('button');
-            btn.classList.add('btn', 'btn-success', 'btn-xs', shareBtnClass);
+            btn.classList.add(
+                'btn',
+                `btn-${buttonColor}`,
+                'btn-xs',
+                shareBtnClass
+            );
             const icon = document.createElement('i');
             icon.classList.add('fas', 'fa-share-alt');
             btn.append(icon);

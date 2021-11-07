@@ -5,6 +5,7 @@ import {
     Hidden,
     MultiSelect,
     NumberInput,
+    Select,
     Text,
     Toggle,
 } from 'typings/Setting';
@@ -94,6 +95,28 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
             min: 0,
             step: 1,
             dependsOn: '.shareMissions',
+        },
+        shareMissionsButtonColor: <Select>{
+            type: 'select',
+            default: 'success',
+            values: [
+                'success',
+                'warning',
+                'danger',
+                'primary',
+                'info',
+                'default',
+            ],
+            labels: [
+                'success',
+                'warning',
+                'danger',
+                'primary',
+                'info',
+                'default',
+            ].map(color =>
+                $m(`settings.shareMissionsButtonColor.${color}`).toString()
+            ),
         },
         sortMissions: <Toggle>{
             type: 'toggle',

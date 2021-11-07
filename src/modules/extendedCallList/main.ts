@@ -120,7 +120,8 @@ export default (async (LSSM, MODULE_ID, $m) => {
                   await getSetting<('' | 'sicherheitswache')[]>(
                       'shareMissionsTypes'
                   ),
-                  await getSetting<number>('shareMissionsMinCredits')
+                  await getSetting<number>('shareMissionsMinCredits'),
+                  await getSetting<string>('shareMissionsButtonColor')
               )
             : { addShareBtn: null, updateShareBtn: null };
 

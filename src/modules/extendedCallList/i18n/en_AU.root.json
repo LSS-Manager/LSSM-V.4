@@ -158,6 +158,16 @@
 			"description": "Share missions with the alliance directly from the mission list.",
 			"title": "Share missions"
 		},
+		"shareMissionsButtonColor": {
+			"danger": "Red",
+			"default": "Black or white (based on design)",
+			"description": "Select the background color of the share buttons",
+			"info": "Light blue",
+			"primary": "Dark blue",
+			"success": "Green",
+			"title": "Share missions: Button color",
+			"warning": "Orange"
+		},
 		"shareMissionsMinCredits": {
 			"description": "The button for sharing a mission is only shown for missions that do have an average reward of more than what you've set here.",
 			"title": "Share missions: minimum credits"

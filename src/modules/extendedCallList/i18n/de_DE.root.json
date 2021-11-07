@@ -179,6 +179,16 @@
 			"description": "Teile Einsätze mit dem Verband direkt aus der Einsatzliste heraus.",
 			"title": "Einsätze teilen"
 		},
+		"shareMissionsButtonColor": {
+			"danger": "Rot",
+			"default": "Schwarz bzw. Weiß (Je nach Design)",
+			"description": "Wähle, welche Farbe der Knopf zum Teilen von Einsätzen haben soll.",
+			"info": "Hellblau",
+			"primary": "Dunkelblau",
+			"success": "Grün",
+			"title": "Einsätze teilen: Knopffarbe",
+			"warning": "Orange"
+		},
 		"shareMissionsMinCredits": {
 			"description": "Der Knopf zum Teilen von Einsätzen wird nur angezeigt, wenn der Einsatz im durchschnitt mehr als die hier festgelegte Zahl an Credits bringt.",
 			"title": "Einsätze teilen: Minimale Credits"
