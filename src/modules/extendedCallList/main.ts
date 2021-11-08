@@ -154,6 +154,7 @@ export default (async (LSSM, MODULE_ID, $m) => {
             (await getSetting<Sort>('sortMissionsType')) ?? 'id',
             (await getSetting<'asc' | 'desc'>('sortMissionsDirection')) ??
                 'asc',
+            await getSetting<string>('sortMissionsButtonColor'),
             starredMissionPanelClass,
             $m
         );

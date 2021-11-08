@@ -167,6 +167,10 @@
 			"description": "Sort your mission list!",
 			"title": "Sort missions"
 		},
+		"sortMissionsButtonColor": {
+			"description": "Select the background color of the sorting button",
+			"title": "Sort missions: Button color"
+		},
 		"starrableMissions": {
 			"description": "Mark missions so that they are be displayed in the mission list at the top. You can mark them in the mission window and in the mission list.",
 			"title": "Mark Missions"

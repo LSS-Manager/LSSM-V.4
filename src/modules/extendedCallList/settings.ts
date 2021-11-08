@@ -32,6 +32,18 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
 
     const locale = LSSM.$store.state.lang;
 
+    const bootsTrapColors = [
+        'success',
+        'warning',
+        'danger',
+        'primary',
+        'info',
+        'default',
+    ];
+    const bootsTrapColorLabels = bootsTrapColors.map(color =>
+        $m(`settings.shareMissionsButtonColor.${color}`).toString()
+    );
+
     return {
         remainingTime: <Toggle>{
             type: 'toggle',
@@ -99,24 +111,8 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
         shareMissionsButtonColor: <Select>{
             type: 'select',
             default: 'success',
-            values: [
-                'success',
-                'warning',
-                'danger',
-                'primary',
-                'info',
-                'default',
-            ],
-            labels: [
-                'success',
-                'warning',
-                'danger',
-                'primary',
-                'info',
-                'default',
-            ].map(color =>
-                $m(`settings.shareMissionsButtonColor.${color}`).toString()
-            ),
+            values: bootsTrapColors,
+            labels: bootsTrapColorLabels,
             dependsOn: '.shareMissions',
         },
         sortMissions: <Toggle>{
@@ -128,6 +124,13 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
         },
         sortMissionsDirection: <Hidden>{
             type: 'hidden',
+        },
+        sortMissionsButtonColor: <Select>{
+            type: 'select',
+            default: 'default',
+            values: bootsTrapColors,
+            labels: bootsTrapColorLabels,
+            dependsOn: '.sortMissions',
         },
         eventMissions: <Omit<AppendableList, 'value' | 'isDisabled'>>{
             type: 'appendable-list',

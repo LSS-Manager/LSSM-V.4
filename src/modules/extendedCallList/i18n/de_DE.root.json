@@ -203,6 +203,10 @@
 			"description": "Sortiere die Einsatzliste nach bestimmten Kriterien, z.B. Verdienst oder noch vorhandenen Patienten",
 			"title": "Einsätze sortieren"
 		},
+		"sortMissionsButtonColor": {
+			"description": "Wähle, welche Farbe der Knopf zur Einsatzsortierung haben soll.",
+			"title": "Einsätze sortieren: Knopffarbe"
+		},
 		"starrableMissions": {
 			"description": "Markiere dir Einsätze, damit diese in der Einsatzliste oben angezeigt werden dürfen. Du kannst die Markierung im Einsatzfenster und in der Einsatzliste vornehmen.",
 			"title": "Einsätze markieren"

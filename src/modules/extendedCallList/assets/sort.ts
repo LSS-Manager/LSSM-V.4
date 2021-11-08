@@ -9,6 +9,7 @@ export default (
     MODULE_ID: string,
     sort: Sort,
     direction: 'asc' | 'desc',
+    buttonColor: string,
     starredMissionPanelClass: string,
     $m: $m
 ) => {
@@ -60,7 +61,12 @@ export default (
     }
 
     const sortBtn = document.createElement('button');
-    sortBtn.classList.add('btn', 'btn-xs', 'btn-default', 'dropdown-toggle');
+    sortBtn.classList.add(
+        'btn',
+        'btn-xs',
+        `btn-${buttonColor}`,
+        'dropdown-toggle'
+    );
     sortBtn.dataset.toggle = 'dropdown';
     const sortIcon = document.createElement('i');
     sortIcon.id = LSSM.$store.getters.nodeAttribute(
