@@ -38,7 +38,7 @@ export default (
         Number.MAX_SAFE_INTEGER.toString()
     );
     document.body.append(cssMaxIntDummy);
-    const maxCSSInteger = parseInt(getComputedStyle(cssMaxIntDummy).order);
+    const maxCSSInteger = Number(getComputedStyle(cssMaxIntDummy).order);
     cssMaxIntDummy.remove();
 
     const numToCSSRange = (num: number): number => {
