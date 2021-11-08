@@ -15,11 +15,12 @@
 
 <script lang="ts">
 import Vue from 'vue';
+
+import { DefaultData, DefaultMethods } from 'vue/types/options';
 import {
     TextComputed,
     TextProps,
 } from '../../../typings/components/setting/Text';
-import { DefaultData, DefaultMethods } from 'vue/types/options';
 
 export default Vue.extend<
     DefaultData<Vue>,

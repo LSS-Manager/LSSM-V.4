@@ -24,7 +24,7 @@ Daarom heeft het naast het idee van vrijwilligheid geen zin om geld aan te nemen
 :::
 
 ### Hoe kan ik bijdragen aan LSS Manager?
-De "normale" gebruiker kan [bugs melden][fout] of [suggesties doen][suggesties].
+De "normale" gebruiker kan [bugs melden][error] of [suggesties doen][suggestions].
 
 We zijn momenteel bezig met het ontwerpen van een stijlgids voor ontwikkelaars, zodat ook zij gemakkelijk hun eigen plug-ins aan LSSM kunnen toevoegen. We hebben ook geprobeerd onze codestructuur duidelijk en begrijpelijk te houden. Het toevoegen van een plug-in betekent echter op geen enkele manier dat u lid wordt van het team.
 
@@ -64,7 +64,7 @@ Een hier vermelde compatibiliteit garandeert geen functionaliteit. Dit is alleen
 </tbody>
 </table>
 
-::: danger Internet Explorer en Microsoft Edge
+::: danger Internet Explorer en Safari
 Deze twee browsers kunnen worden omschreven als de "probleemkinderen" van een moderne webontwikkelaar. Er zijn enkele functies die er niet in werken, of waarvoor extra code vereist is.
 
 We zien het nut niet in om dit overal te doen en ondersteunen deze twee browsers daarom **niet** officieel.

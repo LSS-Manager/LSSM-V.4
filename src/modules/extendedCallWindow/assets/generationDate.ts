@@ -1,8 +1,8 @@
 import moment from 'moment';
 
-moment.locale(BUILD_LANG);
-
 export default (LSSM: Vue, yellowBorder: number, redBorder: boolean): void => {
+    moment.locale(LSSM.$store.state.lang);
+
     LSSM.$store.commit('useFontAwesome');
 
     const generationDate = moment(
@@ -28,9 +28,10 @@ export default (LSSM: Vue, yellowBorder: number, redBorder: boolean): void => {
     if (yellowBorder && moment().diff(generationDate, 'hours') >= yellowBorder)
         generationDateNode.style.border = 'yellow 1px solid';
 
-    if (
-        redBorder &&
-        (generationDate.hours() <= 3 || generationDate.day() !== moment().day())
-    )
+    const nextDeletion = moment();
+    if (moment().hours() > 3) nextDeletion.add(1, 'd');
+    nextDeletion.hours(3).minutes(0);
+
+    if (redBorder && generationDate.isBefore(nextDeletion.subtract(1, 'd')))
         generationDateNode.style.border = 'red 1px solid';
 };

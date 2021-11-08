@@ -50,6 +50,13 @@ module.exports = {
             police_horse: 'Mounted Police',
             gw_wasserrettung: 'SES Vehicle',
             mzb: 'Rescue Boat',
+            wasser_amount: 'Litres of water',
+            brush_vehicle: 'Brush Truck',
+            brush_truck: 'Brush Truck',
+            fire_aviation: 'Fire Aviation',
+            water_drop_helicopter: 'Fire Helicopter',
+            air_tanker: 'Bomber',
+            heavy_air_tanker: 'Large Air tanker',
         },
     },
     enhancedMissingVehicles: {
@@ -67,11 +74,20 @@ module.exports = {
             pushLeft: 'show this box at original position',
         },
         selected: 'Selected',
+        water: 'l. water',
+        staff: {
+            [/^TOG Personnel$/]: [15, 18],
+        },
+        towingVehicles: {
+            // Note: Only the ones that are towed by vehicles of the same group! If e.g. a MzB can be towed by vehicles of several groups, it MUST NOT be listed here.
+            21: [20],
+            22: [8],
+        },
         vehiclesByRequirement: {
             [/^Fire engine(s)?$/]: [0, 1, 12, 13, 19],
             [/^Turntable Ladder trucks?$/]: [2, 13],
             [/^Support Vehicle(s)?$/]: [3, 11],
-            [/^Major Rescue Vehicles(s)?$/]: [4, 12],
+            [/^Major Rescue Vehicle(s)?$/]: [4, 12, 26],
             [/^BASU$/]: [10],
             [/^Water Carrier(s)?$/]: [6, 19],
             [/^Mobile Command Vehicle(s)?$/]: [11],
@@ -81,14 +97,24 @@ module.exports = {
             [/^HEMS$/]: [9],
             [/^Police Helicopter(s)?$/]: [14],
             [/^TOG Vehicles$/]: [15, 18],
-            [/^K-9 Unit(s)$/]: [16],
+            [/^K-9 Unit(s)?$/]: [16],
             [/^Mounted Police?$/]: [22],
             [/^SES?$/]: [20],
+            [/^Brush Truck(s)?$/]: [19, 28, 29, 30],
+            [/^Airborne firefighting vehicle(s)?$/]: [31, 32, 33],
         },
     },
     tailoredTabs: {
         allTab: 'All',
         occupiedTab: 'Follow-up',
+        vehicleMissing: {
+            title:
+                'One vehicle is not present in any tab | Several vehicles are not present in any tab',
+            text:
+                'The following vehicle types are only present in the "All" tab:',
+            hide: 'Hide Note',
+            close: 'Close Note till change',
+        },
     },
     hideVehicleList: {
         show: 'Show vehicle list',

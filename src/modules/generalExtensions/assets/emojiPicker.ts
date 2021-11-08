@@ -94,8 +94,8 @@ export default async (LSSM: Vue): Promise<void> => {
             name => emojiByName[name.toLowerCase()] ?? name
         );
         input.value = input.value.replace(emojiAliasRegex, name => {
-            name = name.replace(/ $/, '');
-            return `${emojiyByAlias[name] ?? name} `;
+            const trimmedName = name.replace(/ $/, '');
+            return `${emojiyByAlias[trimmedName] ?? trimmedName} `;
         });
         const end = input.value.match(/(?<=:)[^:]*?$/);
         if (
@@ -104,7 +104,7 @@ export default async (LSSM: Vue): Promise<void> => {
             !end[0].length
         )
             return (popupMap[input.name].style.display = 'none');
-        const search = end[0];
+        const [search] = end;
         const matching = emojiNames.filter(name =>
             name.toLowerCase().match(search.toLowerCase())
         );
@@ -168,11 +168,12 @@ export default async (LSSM: Vue): Promise<void> => {
                 if (
                     currentFocus ===
                     currentFocus.parentElement?.lastElementChild
-                )
+                ) {
                     currentFocus = currentFocus.parentElement
                         ?.firstElementChild as HTMLSpanElement | null;
-                else
+                } else {
                     currentFocus = currentFocus.nextElementSibling as HTMLSpanElement | null;
+                }
                 currentFocus?.classList.add('focused');
                 break;
             case 'ArrowLeft':
@@ -180,11 +181,12 @@ export default async (LSSM: Vue): Promise<void> => {
                 if (
                     currentFocus ===
                     currentFocus.parentElement?.firstElementChild
-                )
+                ) {
                     currentFocus = currentFocus.parentElement
                         ?.lastElementChild as HTMLSpanElement | null;
-                else
+                } else {
                     currentFocus = currentFocus.previousElementSibling as HTMLSpanElement | null;
+                }
                 currentFocus?.classList.add('focused');
                 break;
         }

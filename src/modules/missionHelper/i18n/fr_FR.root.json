@@ -16,6 +16,11 @@
 			"badge": false,
 			"in": "additional",
 			"text": "Spécialistes IMP requis"
+		},
+		"water_needed": {
+			"badge": true,
+			"in": "requirements",
+			"text": "Eau: {n} litre | Eau: {n} litres"
 		}
 	},
 	"settings": {
@@ -49,6 +54,10 @@
 			"description": "Cache le nombre de VLCG et affiche seulement les VPC.",
 			"title": "Cacher VLCG"
 		},
+		"hoverTip": {
+			"description": "Infobulles pour le bouton de superposition, par exemple.",
+			"title": "Infobulles"
+		},
 		"id": {
 			"description": "Affiche l'ID de la mission à côté de son titre.",
 			"title": "Mission ID"
@@ -76,25 +85,23 @@
 			"title": "Special requirements"
 		},
 		"optionalAlternatives": {
-			"allow_arff_instead_of_lf": {
-				"description": " Indicates, if instead of a firetruck arrfs are possible on site.",
-				"title": "Show if arrfs are allowed as firetrucks"
+			"allow_ktw_instead_of_rtw": {
+				"description": "Indique si une ambulance de type A peut être utilisée à la place d'une ASSU..",
+				"title": "Ambulance de type A au lieu d'ASSU"
 			},
 			"allow_rw_instead_of_lf": {
 				"description": "Indicates, if instead of a firetruck also heavy rescue or rescue engine is possible on site.",
 				"title": "Show Heavy Rescue / rescue engine instead of firetrucks"
 			}
 		},
-		"patient": {
-			"code_possible": {
-				"description": "Shows possible patient codes",
-				"title": "Details of possible patient codes"
-			}
-		},
 		"patients": {
 			"content": {
 				"description": "Affiche des détail sur les patients éventuels.",
 				"title": "Détails sur les patients"
+			},
+			"critical_care": {
+				"description": "Montre la Probabilité qu'un médecin soit requis",
+				"title": "Détails des éventuelles qu'un médecins"
 			},
 			"hideWhenNoNeed": {
 				"description": "Cache les détails sur les patients si il y a plus d'un patient et si les patients n'apparaissent qu'à la fin du traitement de mission.",
@@ -149,8 +156,8 @@
 				"title": "Vyepéhicule requis"
 			},
 			"patient_additionals": {
-				"description": "If there are currently more than 10 patients on site, EMS-Chief is automatically listed at the beginning of the vehicle requirements.",
-				"title": "Mention EMS-Chief extra"
+				"description": "S'il y a actuellement plus de 10 patients sur place, PC DSM est automatiquement inscrit au début des exigences relatives au véhicule.",
+				"title": "Mentionner PC DSM extra"
 			},
 			"sort": {
 				"amount": "Nombre de véhicules requis",
@@ -159,9 +166,17 @@
 				"percentage": "Probabilité",
 				"title": "Tri des véhicules requis"
 			},
+			"sortDesc": {
+				"description": "Trie les exigences du véhicule dans un ordre décroissant.",
+				"title": "Véhicules par ordre décroissant"
+			},
 			"title": {
 				"description": "Affiche l'en-tête \"Véhicules\" au dessus des véhicules requis.",
 				"title": "Véhicules (Title)"
+			},
+			"xAfterNumber": {
+				"description": "Met un x derrière le nombre de véhicules",
+				"title": "x derrière le montant"
 			}
 		}
 	}

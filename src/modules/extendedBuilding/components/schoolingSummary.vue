@@ -79,6 +79,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
+
 import {
     SchoolingSummary,
     SchoolingSummaryComputed,
@@ -92,7 +93,7 @@ export default Vue.extend<
     SchoolingSummaryComputed,
     SchoolingSummaryProps
 >({
-    name: 'schoolingSummary',
+    name: 'lssmv4-schoolingSummary',
     components: {
         EnhancedTable: () =>
             import(

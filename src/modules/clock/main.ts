@@ -1,5 +1,5 @@
-import moment from 'moment';
 import { ModuleMainFunction } from 'typings/Module';
+import moment from 'moment';
 
 export default (async (LSSM, MODULE_ID) => {
     const getSetting = (settingId: string) =>
@@ -9,7 +9,7 @@ export default (async (LSSM, MODULE_ID) => {
         });
     const className = LSSM.$store.getters.nodeAttribute('clock');
 
-    moment.locale(BUILD_LANG);
+    moment.locale(LSSM.$store.state.lang);
 
     const createClock = async (location: string) => {
         const clock = document.createElement('a');
@@ -34,7 +34,7 @@ export default (async (LSSM, MODULE_ID) => {
         const { x, y } = await LSSM.$store.dispatch('settings/getSetting', {
             moduleId: MODULE_ID,
             settingId: 'overlayPosition',
-            defaultValue: { x: '10px', y: '10px' },
+            defaultValue: { x: '0px', y: '0px' },
         });
         clock.style.top = y;
         clock.style.left = x;
@@ -45,14 +45,15 @@ export default (async (LSSM, MODULE_ID) => {
             drag.dataTransfer.effectAllowed = 'move';
             drag.dataTransfer.setDragImage(clock, 0, 0);
         });
-        clock.addEventListener('drag', drag => {
-            const bounds = clock.getBoundingClientRect();
-            clock.style.top = drag.screenY - bounds.height / 2 + 'px';
-            clock.style.left = drag.screenX - bounds.width / 2 + 'px';
-        });
+        /*clock.addEventListener('drag', drag => {
+            //const bounds = clock.getBoundingClientRect();
+            clock.style.top = `${drag.screenY}px`;
+            clock.style.left = `${drag.screenX}px`;
+        });*/
         clock.addEventListener('dragend', async drag => {
-            clock.style.top = drag.screenY + 'px';
-            clock.style.left = drag.screenX + 'px';
+            const bounds = clock.getBoundingClientRect();
+            clock.style.top = `${drag.screenY - bounds.height * 2.6}px`;
+            clock.style.left = `${drag.screenX}px`;
             await LSSM.$store.dispatch('settings/setSetting', {
                 moduleId: MODULE_ID,
                 settingId: 'overlayPosition',

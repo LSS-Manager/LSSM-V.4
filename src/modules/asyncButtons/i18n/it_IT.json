@@ -1,4 +1,12 @@
 {
+	"buildingPersonal": {
+		"deleteModal": {
+			"btnCancel": "Cancella",
+			"btnConfirm": "Rilasciare",
+			"text": "Sei sicuro di voler rilasciare questa persona?",
+			"title": "Rilasciare?"
+		}
+	},
 	"deleteARR": {
 		"deleteModal": {
 			"btnCancel": "Annulla",
@@ -32,6 +40,7 @@
 		"coadmin": "Co-Admin alleanza",
 		"finance": "Finanziere alleanza",
 		"schooling": "Istruttore alleanza",
-		"sprechwunsch_admin": "Admin - Richiesta trasporti"
+		"sprechwunsch_admin": "Admin - Richiesta trasporti",
+		"staff": "Personale dell'alleanza"
 	}
 }

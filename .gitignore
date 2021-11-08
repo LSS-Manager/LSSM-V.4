@@ -10,6 +10,7 @@ package-lock.json
 /static/beta.php
 /admin/
 /src/userscript.js
+LSSM_V4.zip
 
 # TypeScript Outputs
 webpack.config.js*
@@ -17,6 +18,7 @@ build/**/*.js*
 typings/**/*.js*
 prebuild/**/*.js*
 src/config.js*
+src/i18n/*.js
 docs/.vuepress/*.js*
 scripts/**/*.js*
 

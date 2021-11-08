@@ -39,17 +39,20 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import tokenizer from './assets/tokenizer';
-import parser from './assets/parser';
-import { faTerminal } from '@fortawesome/free-solid-svg-icons/faTerminal';
+
 import cloneDeep from 'lodash/cloneDeep';
-import {
-    LSSMAQL,
-    LSSMAQLMethods,
-    LSSMAQLComputed,
-} from 'typings/modules/LSSMAQL/LSSMAQL';
+import { faTerminal } from '@fortawesome/free-solid-svg-icons/faTerminal';
+
+import parser from './assets/parser';
+import tokenizer from './assets/tokenizer';
+
 import { DefaultProps } from 'vue/types/options';
 import { Condition, ObjectTree, QueryTree } from 'typings/modules/LSSMAQL';
+import {
+    LSSMAQL,
+    LSSMAQLComputed,
+    LSSMAQLMethods,
+} from 'typings/modules/LSSMAQL/LSSMAQL';
 
 const comparison = (
     left: unknown,
@@ -83,7 +86,7 @@ const parse_filter = (
     tree: ObjectTree,
     vm: Vue
 ) => {
-    const side = filter[0];
+    const [side] = filter;
     const oneside =
         side.type === 'string'
             ? side.value
@@ -116,14 +119,15 @@ const parse_filter = (
         if (!baseAttr) return;
         let newObject = vm.$store.state.api[baseAttr];
         sideObject.forEach(attr => {
-            if (Array.isArray(newObject) && typeof attr !== 'number')
+            if (Array.isArray(newObject) && typeof attr !== 'number') {
                 newObject = (newObject as never[]).map(e => e[attr]);
-            else
+            } else {
                 newObject = (newObject as Record<string, unknown>)[attr] as
                     | string
                     | number
                     | Record<string, unknown>
                     | never[];
+            }
         });
         sideObject = newObject;
     }
@@ -174,14 +178,14 @@ export default Vue.extend<
     LSSMAQLComputed,
     DefaultProps
 >({
-    name: 'lssmaql',
+    name: 'lssmv4-lssmaql-console',
     components: {
         Lightbox: () =>
             import(
                 /* webpackChunkName: "components/lightbox" */ '../../components/lightbox.vue'
             ),
     },
-    data: function() {
+    data() {
         return {
             faTerminal,
             query: '',
@@ -214,10 +218,19 @@ export default Vue.extend<
         },
     },
     beforeMount() {
-        this.$store.dispatch('api/registerAllianceinfoUsage');
-        this.$store.dispatch('api/registerBuildingsUsage');
-        this.$store.dispatch('api/registerVehiclesUsage');
-        this.$store.dispatch('api/getMissions', false);
+        this.$store.dispatch('api/registerAllianceinfoUsage', {
+            feature: 'lssmaql-beforeMount',
+        });
+        this.$store.dispatch('api/registerBuildingsUsage', {
+            feature: 'lssmaql-beforeMount',
+        });
+        this.$store.dispatch('api/registerVehiclesUsage', {
+            feature: 'lssmaql-beforeMount',
+        });
+        this.$store.dispatch('api/getMissions', {
+            force: false,
+            feature: 'lssmaql-beforeMount',
+        });
     },
 });
 </script>

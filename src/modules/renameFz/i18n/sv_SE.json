@@ -1,0 +1,10 @@
+{
+	"templates": {
+		"selection": "Välj mall ...",
+		"selectionHint": "Skapa en ny mall? Ange bara namnet och välj!",
+		"status": {
+			"template": "Vänta på mallval ...",
+			"waiting": "Väntar på inmatning ..."
+		}
+	}
+}

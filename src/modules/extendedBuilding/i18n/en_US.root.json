@@ -38,9 +38,17 @@
 			"description": "Shows in the staff overview of a building how many people have which training(s).",
 			"title": "Personnel summary"
 		},
+		"upgradeConfirmation": {
+			"description": "Asks if you really want to upgrade your building.",
+			"title": "Upgrade Building"
+		},
 		"vehicleTypes": {
 			"description": "Shows the vehicle type (and if available the own vehicle class) in a separate column",
 			"title": "Vehicle type"
+		},
+		"vehicleTypesOnlyOwn": {
+			"description": "Shows if available only the own vehicle class. If not available it will show the default vehicle class.",
+			"title": "Show only own vehicle class"
 		},
 		"vehiclesPersonnelAssigned": {
 			"description": "Shows how many people are assigned to the vehicle.",

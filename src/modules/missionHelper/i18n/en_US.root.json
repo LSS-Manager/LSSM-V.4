@@ -5,17 +5,22 @@
 		"average_min_fire_personnel": {
 			"badge": false,
 			"in": "additional",
-			"text": "Firefighters needed minimum"
+			"text": "Average min . Fire Personnel"
 		},
 		"average_min_police_personnel": {
 			"badge": false,
 			"in": "additional",
-			"text": "Police officers needed minimum in average"
+			"text": "Average min . Police Personnel"
+		},
+		"foam_needed": {
+			"badge": true,
+			"in": "requirements",
+			"text": "Foam: {n} gallon | Foam: {n} gallons"
 		},
 		"swat_personnel": {
 			"badge": false,
 			"in": "additional",
-			"text": "SWAT staff needed minimum in average"
+			"text": "Required SWAT Personnel"
 		},
 		"water_needed": {
 			"badge": true,
@@ -54,6 +59,10 @@
 			"description": "Hides Battalion Chief completely and shows only MCV.",
 			"title": "Hide Battalion Chiefs"
 		},
+		"hoverTip": {
+			"description": "Tooltips for as example the overlay button.",
+			"title": "Tooltips"
+		},
 		"id": {
 			"description": "Shows the Mission ID next to the title.",
 			"title": "Mission ID"
@@ -67,9 +76,9 @@
 				"description": "Subtracts the number of required firetrucks from the Heavy Rescue and hides firetrucks if the number drops below 0. This function is intended for people who drive a pure Rescue Engine system.",
 				"title": "Heavy Rescue Simple Rate"
 			},
-			"platform_trucks": {
-				"description": "Subtracts the number of firetrucks from the Quints and hides firetrucks if the number drops below 0.",
-				"title": "Quint Simple Rate"
+			"sheriff_unit": {
+				"description": "Subtracts the number of required patrol cars from the sheriff's and hides patrolcars if the number drops below 0.",
+				"title": "Sheriff Unit Simple Rate"
 			}
 		},
 		"noVehicleRequirements": {
@@ -80,6 +89,10 @@
 			"allow_arff_instead_of_lf": {
 				"description": " Indicates, if instead of a firetruck arrfs are possible on site.",
 				"title": "Show if arrfs are allowed as firetrucks"
+			},
+			"allow_dlk_instead_of_lf": {
+				"description": "Indicates, if instead of a firetruck also platform trucks is possible on site.",
+				"title": "Show Platform trucks instead of firetrucks"
 			},
 			"allow_drone_instead_of_investigation": {
 				"description": "Shows whether an FBI Surveillance Drone can replace an FBI Investigation wagon",
@@ -94,13 +107,11 @@
 				"title": "Show Heavy Rescue / rescue engine instead of firetrucks"
 			}
 		},
-		"patient": {
+		"patients": {
 			"code_possible": {
 				"description": "Shows possible patient codes",
 				"title": "Details of possible patient codes"
-			}
-		},
-		"patients": {
+			},
 			"content": {
 				"description": "Shows details about possible patients.",
 				"title": "Details of potential patients"
@@ -171,6 +182,10 @@
 				"description": "Define what the vehicle requirements should be sorted by.",
 				"percentage": "Probability",
 				"title": "Sorting the vehicle requirements"
+			},
+			"sortDesc": {
+				"description": "Sorts vehicle requirements in a descending order.",
+				"title": "Vehicles in descending Order"
 			},
 			"title": {
 				"description": "Displays the heading \"Vehicles\" above the vehicle requirements.",

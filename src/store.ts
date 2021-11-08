@@ -1,4 +1,29 @@
-import Vuex, {
+import Vuex from 'vuex';
+
+import api from './store/api';
+import broadcast from './store/broadcast';
+import config from './config';
+import console from './store/console';
+import event from './store/event';
+import notifications from './store/notifications';
+import settings from './store/settings';
+import storage from './store/storage';
+
+import { LSSMEvent } from '../typings/helpers';
+import { Modules } from '../typings/Module';
+import { RootState } from '../typings/store/RootState';
+import { VueConstructor } from 'vue/types/vue';
+import {
+    ActionStoreParams,
+    addStyle,
+    Hook,
+    ObserveAsyncTab,
+    premodifyParams,
+    ProxyParams,
+} from '../typings/store/Actions';
+// to seperate typings
+// eslint-disable-next-line no-duplicate-imports
+import {
     ActionTree,
     GetterTree,
     ModuleTree,
@@ -6,27 +31,6 @@ import Vuex, {
     Store,
     StoreOptions,
 } from 'vuex';
-import { RootState } from '../typings/store/RootState';
-import { VueConstructor } from 'vue/types/vue';
-import config from './config';
-import {
-    ActionStoreParams,
-    addStyle,
-    Hook,
-    HookPrototype,
-    ObserveAsyncTab,
-    premodifyParams,
-} from '../typings/store/Actions';
-import { LSSMEvent, returnTypeFunction } from '../typings/helpers';
-import storage from './store/storage';
-import settings from './store/settings';
-import api from './store/api';
-import console from './store/console';
-import notifications from './store/notifications';
-import broadcast from './store/broadcast';
-import modules from './registerModules';
-import { Modules } from '../typings/Module';
-import { LSSM } from './core';
 
 export default (Vue: VueConstructor): Store<RootState> => {
     Vue.use(Vuex);
@@ -39,23 +43,24 @@ export default (Vue: VueConstructor): Store<RootState> => {
             console,
             notifications,
             broadcast,
+            event,
         } as ModuleTree<RootState>,
         state: {
             prefix: PREFIX,
             version: VERSION,
             mode: MODE,
-            lang: BUILD_LANG,
-            discord: config.discord,
+            lang: window.I18n.locale,
+            discord: `https://discord.gg/${config.discord.invite}`,
             games: config.games,
             server: config.server,
             hooks: {},
-            prototypeHooks: {},
-            mapkit: 'undefined' !== typeof window.mapkit,
+            mapkit: typeof window.mapkit !== 'undefined',
             darkmode: document.body.classList.contains('dark'),
             premium: window.user_premium,
             policechief: window.gameFlavour === 'policechief',
             isRegistered: false,
-            modules,
+            modules: <Modules>MODULE_REGISTER_FILES,
+            coreModules: config.modules['core-modules'],
             appstore: {
                 changes: false,
                 reload: false,
@@ -79,23 +84,6 @@ export default (Vue: VueConstructor): Store<RootState> => {
                 // @ts-ignore
                 state.hooks[fullname] = base[event];
             },
-            addPrototypeHookBase(state: RootState, base: string) {
-                state.prototypeHooks[base] = {};
-            },
-            addPrototypeHook(
-                state: RootState,
-                {
-                    base,
-                    event,
-                    trueEvent,
-                }: {
-                    base: string;
-                    event: string;
-                    trueEvent: returnTypeFunction;
-                }
-            ) {
-                state.prototypeHooks[base][event] = trueEvent;
-            },
             setModuleActive(state: RootState, moduleId: keyof Modules) {
                 state.modules[moduleId].active = true;
             },
@@ -117,18 +105,16 @@ export default (Vue: VueConstructor): Store<RootState> => {
                 if (state.fontAwesome.inserted) return;
                 const fa = document.createElement('script');
                 fa.src =
-                    'https://use.fontawesome.com/releases/v5.13.0/js/all.js';
+                    'https://use.fontawesome.com/releases/v5.15.4/js/all.js';
                 document.head.appendChild(fa);
                 state.fontAwesome.inserted = true;
-            },
-            setRegisteredState(state: RootState, isRegistered: boolean) {
-                state.isRegistered = isRegistered;
             },
             addOSMBar(
                 state: RootState,
                 {
                     position,
                     bar,
+                    mapId,
                 }: {
                     position:
                         | 'top-left'
@@ -136,9 +122,12 @@ export default (Vue: VueConstructor): Store<RootState> => {
                         | 'bottom-left'
                         | 'bottom-right';
                     bar: HTMLDivElement;
+                    mapId: string;
                 }
             ) {
-                state.osmBars[position] = bar;
+                if (!state.osmBars.hasOwnProperty(mapId))
+                    state.osmBars[mapId] = {};
+                state.osmBars[mapId][position] = bar;
             },
         } as MutationTree<RootState>,
         getters: {
@@ -147,11 +136,12 @@ export default (Vue: VueConstructor): Store<RootState> => {
                 id = false
             ): string => {
                 const res = `${state.prefix}-${attr}`;
-                if (id)
+                if (id) {
                     return res
                         .replace(/ /g, '_')
                         .replace(/["']/g, '')
-                        .replace(/[^a-zA-Z0-9_\-.]/g, '-');
+                        .replace(/[^a-zA-Z0-9_-]/g, '-');
+                }
                 return res;
             },
             wiki: (state: RootState): string =>
@@ -162,21 +152,36 @@ export default (Vue: VueConstructor): Store<RootState> => {
             appModules: (state: RootState) =>
                 Object.fromEntries(
                     Object.entries(state.modules).filter(
-                        module => !module[1].noapp
+                        ([, module]) =>
+                            !(
+                                module.noapp ||
+                                (module.alpha && MODE !== 'beta') ||
+                                (module.locales?.length &&
+                                    !module.locales.includes(state.lang))
+                            )
                     )
                 ),
             modulesSorted(_, getters: GetterTree<RootState, RootState>) {
                 return Object.keys(getters.appModules).sort((a, b) => {
-                    a = LSSM.$t(`modules.${a}.name`).toString();
-                    b = LSSM.$t(`modules.${b}.name`).toString();
-                    return a < b ? -1 : a > b ? 1 : 0;
+                    const left = (window[PREFIX] as Vue)
+                        .$t(`modules.${a}.name`)
+                        .toString();
+                    const right = (window[PREFIX] as Vue)
+                        .$t(`modules.${b}.name`)
+                        .toString();
+                    return left < right ? -1 : left > right ? 1 : 0;
                 });
             },
         } as GetterTree<RootState, RootState>,
         actions: {
             hook(
                 { state, commit }: ActionStoreParams,
-                { post = true, event, callback = () => null }: Hook
+                {
+                    post = true,
+                    event,
+                    callback = () => null,
+                    abortOnFalse = false,
+                }: Hook
             ) {
                 if (!state.hooks.hasOwnProperty(event)) {
                     const split = event.split('.');
@@ -192,17 +197,23 @@ export default (Vue: VueConstructor): Store<RootState> => {
                     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                     // @ts-ignore
                     trueBase[trueEvent] = (...args: unknown[]) => {
-                        document.dispatchEvent(
-                            new CustomEvent(`${PREFIX}_${event}_before`, {
-                                detail: args,
-                            })
-                        );
-                        state.hooks[event](...args);
+                        if (!abortOnFalse) {
+                            document.dispatchEvent(
+                                new CustomEvent(`${PREFIX}_${event}_before`, {
+                                    detail: args,
+                                })
+                            );
+                        } else if (!callback(...args)) {
+                            return;
+                        }
+
+                        const result = state.hooks[event](...args);
                         document.dispatchEvent(
                             new CustomEvent(`${PREFIX}_${event}_after`, {
                                 detail: args,
                             })
                         );
+                        return result;
                     };
                 }
                 document.addEventListener(
@@ -211,17 +222,10 @@ export default (Vue: VueConstructor): Store<RootState> => {
                         callback(...((event as unknown) as LSSMEvent).detail)
                 );
             },
-            hookPrototype(
-                { state, commit }: ActionStoreParams,
-                {
-                    post = true,
-                    base,
-                    event,
-                    callback = () => null,
-                }: HookPrototype
-            ) {
-                const eventString = `${base}.${event}`;
-                const trueBase = base.split('.').reduce(
+            proxy(_, { post = true, name, callback, trap }: ProxyParams) {
+                const split = name.split('.');
+                const trueProp = split.pop();
+                const trueBase = split.reduce(
                     (previousValue, currentValue) =>
                         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                         // @ts-ignore
@@ -230,41 +234,20 @@ export default (Vue: VueConstructor): Store<RootState> => {
                 ) as unknown;
                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                 // @ts-ignore
-                const trueEvent = trueBase.__proto__[
-                    event
-                ] as returnTypeFunction;
-                if (!state.prototypeHooks.hasOwnProperty(base))
-                    commit('addPrototypeHookBase', base);
-                if (!state.prototypeHooks[base].hasOwnProperty(event)) {
-                    commit('addPrototypeHook', { base, event, trueEvent });
-                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                    // @ts-ignore
-                    trueBase.__proto__[event] = (...args: unknown[]) => {
-                        document.dispatchEvent(
-                            new CustomEvent(`${PREFIX}_${eventString}_before`, {
-                                detail: args,
-                            })
-                        );
-                        state.prototypeHooks[base][event].call(
-                            trueBase,
-                            ...args
-                        );
-                        document.dispatchEvent(
-                            new CustomEvent(`${PREFIX}_${eventString}_after`, {
-                                detail: args,
-                            })
-                        );
-                    };
-                }
-                document.addEventListener(
-                    `${PREFIX}_${eventString}_${post ? 'after' : 'before'}`,
-                    event =>
-                        callback(...((event as unknown) as LSSMEvent).detail)
-                );
+                trueBase[trueProp] = new Proxy(trueBase[trueProp], {
+                    [trap](...args: unknown[]) {
+                        if (!post) callback(...args);
+                        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                        // @ts-ignore
+                        const result = Reflect[trap](...args);
+                        if (post) callback(...args);
+                        return result;
+                    },
+                });
             },
             loadModule({ state }: ActionStoreParams, module: keyof Modules) {
                 const script = document.createElement('script');
-                script.src = `${config.server}${BUILD_LANG}/modules/${module}/main.js?uid=${BUILD_LANG}-${window.user_id}&v=${state.version}`;
+                script.src = `${config.server}${state.lang}/modules/${module}/main.js?uid=${state.lang}-${window.user_id}&v=${state.version}`;
                 document.body.appendChild(script);
             },
             addMenuItem({ commit }: ActionStoreParams, text: string) {
@@ -284,12 +267,13 @@ export default (Vue: VueConstructor): Store<RootState> => {
                 { selectorText, style }: addStyle
             ) {
                 if (!state.styles.inserted) commit('insertStyleSheet');
-                state.styles.styleSheet &&
-                    (state.styles.styleSheet.innerHTML += `${selectorText} {\n${Object.entries(
+                if (state.styles.styleSheet) {
+                    state.styles.styleSheet.innerHTML += `${selectorText} {\n${Object.entries(
                         style
                     )
                         .map(([rule, value]) => `\t${rule}: ${value};\n`)
-                        .join('')}\n}`);
+                        .join('')}\n}`;
+                }
             },
             premodifyParams(
                 _,
@@ -299,7 +283,7 @@ export default (Vue: VueConstructor): Store<RootState> => {
                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                 // @ts-ignore
                 window[event] = (...args) => {
-                    callback && callback(...args);
+                    callback?.(...args);
                     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                     // @ts-ignore
                     originalEvent(...args);
@@ -310,9 +294,12 @@ export default (Vue: VueConstructor): Store<RootState> => {
                 if (!tab) return;
                 const observer = new MutationObserver(mutations => {
                     mutations.forEach(record => {
-                        Array.from(record.addedNodes).find(
-                            node => node.nodeName === 'SCRIPT'
-                        ) && callback();
+                        if (
+                            Array.from(record.addedNodes).find(
+                                node => node.nodeName === 'SCRIPT'
+                            )
+                        )
+                            callback();
                     });
                 });
                 observer.observe(tab, {
@@ -321,28 +308,43 @@ export default (Vue: VueConstructor): Store<RootState> => {
             },
             addOSMControl(
                 { state, commit }: ActionStoreParams,
-                position:
-                    | 'top-left'
-                    | 'top-right'
-                    | 'bottom-left'
-                    | 'bottom-right'
+                {
+                    position,
+                    mapId = 'map',
+                }: {
+                    position:
+                        | 'top-left'
+                        | 'top-right'
+                        | 'bottom-left'
+                        | 'bottom-right';
+                    mapId: string;
+                }
             ) {
                 return new Promise(resolve => {
-                    if (!state.osmBars.hasOwnProperty(position)) {
+                    const positionSelector = `#${mapId} .leaflet-control-container ${position
+                        .split('-')
+                        .map(p => `.leaflet-${p}`)
+                        .join('')}`;
+                    if (
+                        !state.osmBars.hasOwnProperty(mapId) ||
+                        !state.osmBars[mapId].hasOwnProperty(position) ||
+                        !document.querySelector(
+                            `${positionSelector} .leaflet-bar.leaflet-control`
+                        )
+                    ) {
                         const bar = document.createElement('div');
                         bar.classList.add('leaflet-bar', 'leaflet-control');
                         document
-                            .querySelector(
-                                `#map .leaflet-control-container ${position
-                                    .split('-')
-                                    .map(p => `.leaflet-${p}`)
-                                    .join('')}`
-                            )
-                            ?.appendChild(bar);
-                        commit('addOSMBar', { position, bar });
+                            .querySelector(positionSelector)
+                            ?.[position.match(/bottom/) ? 'prepend' : 'append'](
+                                bar
+                            );
+                        commit('addOSMBar', { position, bar, mapId });
                     }
                     const control = document.createElement('a');
-                    state.osmBars[position].appendChild(control);
+                    state.osmBars[mapId][position][
+                        position.match(/bottom/) ? 'prepend' : 'append'
+                    ](control);
                     resolve(control);
                 });
             },

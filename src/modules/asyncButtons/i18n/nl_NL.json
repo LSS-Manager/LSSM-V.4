@@ -1,4 +1,16 @@
 {
+	"buildingPersonal": {
+		"deleteModal": {
+			"btnCancel": "Annuleren",
+			"btnConfirm": "Verwijderen",
+			"text": "Wil je deze persoon verwijderen?",
+			"title": "Verwijderen?"
+		}
+	},
+	"buildings": {
+		"active": "Beschikbaar",
+		"nonactive": "Niet beschikbaar"
+	},
 	"deleteARR": {
 		"deleteModal": {
 			"btnCancel": "Annuleren",
@@ -32,6 +44,7 @@
 		"coadmin": "Team-Co-Admin",
 		"finance": "Penningmeester",
 		"schooling": "Docent",
-		"sprechwunsch_admin": "Spraakaanvraag-Admin"
+		"sprechwunsch_admin": "Spraakaanvraag-Admin",
+		"staff": "Medewerker alliantie"
 	}
 }

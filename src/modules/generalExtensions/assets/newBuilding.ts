@@ -14,15 +14,29 @@ export default async (
     // Reset Marker for new building
     const resetNewBuildingMarker = () => {
         if (isBuildingMenu) {
-            window.building_new_marker &&
+            if (
+                window.building_new_marker &&
                 !window.map
                     .getBounds()
                     .contains(window.building_new_marker.getLatLng()) &&
-                window.building_new_marker.setLatLng(window.map.getCenter()) &&
+                window.building_new_marker.setLatLng(window.map.getCenter())
+            )
                 window.building_new_dragend();
         }
     };
     window.map.addEventListener('moveend', resetNewBuildingMarker);
+
+    const checkFormValidity = (form: HTMLFormElement) => {
+        const validForm =
+            (form.querySelector<HTMLInputElement>('#building_name')?.value
+                .length ?? 0) >= 2;
+        form.querySelectorAll<HTMLInputElement>(
+            '.coins_activate, .build_with_credits_step, .alliance_activate'
+        ).forEach(btn => {
+            btn.classList[validForm ? 'remove' : 'add']('disabled');
+            btn.disabled = !validForm;
+        });
+    };
 
     const observer = new MutationObserver(mutations => {
         mutations.forEach(mutation => {
@@ -35,6 +49,8 @@ export default async (
             }
             if (isBuildingMenu) return;
             isBuildingMenu = true;
+
+            checkFormValidity(form);
 
             if (saveLastBuildingType) {
                 const buildingTypeSelect = form.querySelector<
@@ -74,6 +90,7 @@ export default async (
             }
 
             form.addEventListener('submit', e => e.preventDefault());
+            form.addEventListener('keyup', () => checkFormValidity(form));
 
             form.addEventListener('click', e => {
                 const btn = (e.target as HTMLElement | null)?.closest(
@@ -108,6 +125,7 @@ export default async (
                             mode: 'cors',
                             body: url.searchParams.toString(),
                         },
+                        feature: `${MODULE_ID}-newBuilding`,
                     })
                     .then(res => res.text())
                     .then(res => {
@@ -121,6 +139,8 @@ export default async (
                         form.insertAdjacentElement('beforebegin', successAlert);
                         btn.setAttribute('type', 'submit');
                         form['building[name]'].value = '';
+                        form.build_with_coins.removeAttribute('value');
+                        form.build_as_alliance.removeAttribute('value');
 
                         const buildingId = parseInt(
                             successAlert
@@ -145,7 +165,7 @@ export default async (
                         window.building_maps_redraw();
                         const currentCredits = parseInt(
                             script.innerHTML.match(
-                                /(?<=creditsUpdate\()\d+(?=\)$)/m
+                                /(?<=creditsUpdate\()\d+(?=\);$)/m
                             )?.[0] ?? '-1'
                         );
                         window.creditsUpdate(currentCredits);
@@ -185,11 +205,13 @@ export default async (
                             );
                             coinsBtn.classList.add('disabled');
                         });
+                        checkFormValidity(form);
                     });
             });
         });
     });
 
     const buildingsElement = document.getElementById('buildings');
-    buildingsElement && observer.observe(buildingsElement, { childList: true });
+    if (buildingsElement)
+        observer.observe(buildingsElement, { childList: true });
 };

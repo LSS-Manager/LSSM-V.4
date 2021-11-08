@@ -1,6 +1,11 @@
 import { ModuleMainFunction } from 'typings/Module';
 
-export default (async (LSSM, MODULE_ID, $m) => {
+interface AppendableListSetting<valueType> {
+    value: valueType;
+    enabled: boolean;
+}
+
+export default (async (LSSM, MODULE_ID, $m, $mc) => {
     const defaultTailoredTabs = Object.values(
         $m('tailoredTabs.defaultTabs')
     ).map(({ name, vehicleTypes }) => ({
@@ -39,7 +44,14 @@ export default (async (LSSM, MODULE_ID, $m) => {
             },
         });
 
-        if (await getSetting('generationDate'))
+        if (await getSetting('vehicleTypeInList')) {
+            (
+                await import(
+                    /* webpackChunkName: "modules/extendedCallWindow/vehicleTypeInList" */ './assets/vehicleTypeInList'
+                )
+            ).default();
+        }
+        if (await getSetting('generationDate')) {
             (
                 await import(
                     /* webpackChunkName: "modules/extendedCallWindow/generationDate" */ './assets/generationDate'
@@ -49,119 +61,155 @@ export default (async (LSSM, MODULE_ID, $m) => {
                 await getSetting<number>('yellowBorder'),
                 await getSetting('redBorder')
             );
-        if (await getSetting('enhancedMissingVehicles'))
+        }
+        if (await getSetting('enhancedMissingVehicles')) {
             (
                 await import(
                     /* webpackChunkName: "modules/extendedCallWindow/enhancedMissingVehicles" */ './assets/enhancedMissingVehicles'
                 )
             ).default(LSSM, MODULE_ID, $m);
-        if (await getSetting('patientSummary'))
+        }
+        if (await getSetting('patientSummary')) {
             (
                 await import(
                     /* webpackChunkName: "modules/extendedCallWindow/patientSummary" */ './assets/patientSummary'
                 )
             ).default(LSSM);
+        }
         if (
             (await getSetting('arrCounter')) ||
             (await getSetting('arrClickHighlight')) ||
             (await getSetting('arrCounterResetSelection'))
-        )
+        ) {
             await (
                 await import(
                     /* webpackChunkName: "modules/extendedCallWindow/arrCounter" */ './assets/arrCounter'
                 )
             ).default(LSSM, getSetting, $m);
+        }
 
         const missionKeywordsSettings = await getSetting<
-            {
-                keyword: string;
-                color: string;
-                prefix: boolean;
-                missions: number[];
-            }[]
+            AppendableListSetting<
+                {
+                    keyword: string;
+                    color: string;
+                    autotextcolor: boolean;
+                    textcolor: string;
+                    prefix: boolean;
+                    missions: number[];
+                }[]
+            >
         >('missionKeywords');
 
-        if (missionKeywordsSettings.length)
-            (
+        if (missionKeywordsSettings.value.length) {
+            await (
                 await import(
                     /* webpackChunkName: "modules/extendedCallWindow/missionKeywords" */ './assets/missionKeywords'
                 )
-            ).default(LSSM, missionKeywordsSettings);
+            ).default(LSSM, missionKeywordsSettings.value);
+        }
 
-        if (await getSetting('arrMatchHighlight'))
+        if (await getSetting('arrMatchHighlight')) {
             (
                 await import(
                     /* webpackChunkName: "modules/extendedCallWindow/arrMatchHighlight" */ './assets/arrMatchHighlight'
                 )
             ).default(LSSM);
-        if (await getSetting('alarmTime'))
+        }
+        if (await getSetting('alarmTime')) {
             (
                 await import(
                     /* webpackChunkName: "modules/extendedCallWindow/alarmTime" */ './assets/alarmTime'
                 )
             ).default(LSSM);
+        }
 
         const alarmIconsSettings = await getSetting<
-            {
-                icon: string;
-                type: 'fas' | 'far' | 'fab';
-                vehicleTypes: (number | string)[];
-            }[]
+            AppendableListSetting<
+                {
+                    icon: string;
+                    type: 'fas' | 'far' | 'fab';
+                    vehicleTypes: (number | string)[];
+                }[]
+            >
         >('alarmIcons');
-        if (alarmIconsSettings.length)
+        if (alarmIconsSettings.value.length) {
             (
                 await import(
                     /* webpackChunkName: "modules/extendedCallWindow/alarmIcons" */ './assets/alarmIcons'
                 )
-            ).default(LSSM, alarmIconsSettings);
+            ).default(LSSM, alarmIconsSettings.value);
+        }
 
         const arrSpecs = await getSetting('arrSpecs');
         const arrTime = await getSetting('arrTime');
-        if (arrSpecs || arrTime)
+        if (arrSpecs || arrTime) {
             (
                 await import(
                     /* webpackChunkName: "modules/extendedCallWindow/arrHover" */ './assets/arrHover'
                 )
             ).default(LSSM, arrSpecs, arrTime, MODULE_ID, $m);
+        }
 
         const stickyHeader = await getSetting('stickyHeader');
         const loadMoreVehiclesInHeader = await getSetting(
             'loadMoreVehiclesInHeader'
         );
-        if (stickyHeader || loadMoreVehiclesInHeader)
+        if (stickyHeader || loadMoreVehiclesInHeader) {
             (
                 await import(
                     /* webpackChunkName: "modules/extendedCallWindow/enhancedHeader" */ './assets/enhancedHeader'
                 )
-            ).default(stickyHeader, loadMoreVehiclesInHeader);
-        if (await getSetting('hideVehicleList'))
+            ).default(LSSM, stickyHeader, loadMoreVehiclesInHeader);
+        }
+        if (await getSetting('hideVehicleList')) {
             (
                 await import(
                     /* webpackChunkName: "modules/extendedCallWindow/hideVehicleList" */ './assets/hideVehicleList'
                 )
             ).default(LSSM, MODULE_ID, $m);
-        if (await getSetting('centerMap'))
+        }
+        if (await getSetting('centerMap')) {
             (
                 await import(
                     /* webpackChunkName: "modules/extendedCallWindow/centerMap" */ './assets/centerMap'
                 )
             ).default(LSSM);
+        }
+        if (await getSetting('remainingPatientTime')) {
+            await (
+                await import(
+                    /* webpackChunkName: "modules/extendedCallWindow/remainingPatientTime" */ './assets/remainingPatientTime'
+                )
+            ).default(LSSM);
+        }
     }
 
-    const tailoredTabSettings = await getSetting<typeof defaultTailoredTabs>(
-        'tailoredTabs'
-    );
+    const tailoredTabSettings = await getSetting<
+        AppendableListSetting<typeof defaultTailoredTabs>
+    >('tailoredTabs');
     if (
-        !(
-            await import(
-                /* webpackChunkName: "node_modules/lodash/isEqual" */ 'lodash/isEqual'
-            )
-        ).default(tailoredTabSettings, defaultTailoredTabs) ||
+        (tailoredTabSettings.enabled &&
+            !(await import('lodash/isEqual')).default(
+                tailoredTabSettings.value,
+                defaultTailoredTabs
+            )) ||
         stagingMode
-    )
+    ) {
         (
             await import(
                 /* webpackChunkName: "modules/extendedCallWindow/tailoredTabs" */ './assets/tailoredTabs'
             )
-        ).default(LSSM, tailoredTabSettings, stagingMode, $m);
+        ).default(LSSM, tailoredTabSettings.value, stagingMode, $m, $mc);
+    }
+    if (
+        stagingMode &&
+        (await getSetting<boolean>('stagingAreaSelectedCounter'))
+    ) {
+        (
+            await import(
+                /* webpackChunkName: "modules/extendedCallWindow/stagingAreaSelectedCounter" */ './assets/stagingAreaSelectedCounter'
+            )
+        ).default(LSSM);
+    }
 }) as ModuleMainFunction;

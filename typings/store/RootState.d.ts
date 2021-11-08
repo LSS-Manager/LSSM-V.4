@@ -1,6 +1,6 @@
 import { Games } from '../Game';
-import { returnTypeFunction } from 'typings/helpers';
 import { Modules } from '../Module';
+import { returnTypeFunction } from 'typings/helpers';
 
 export interface RootState {
     readonly prefix: string;
@@ -13,17 +13,13 @@ export interface RootState {
     readonly hooks: {
         [event: string]: returnTypeFunction;
     };
-    readonly prototypeHooks: {
-        [base: string]: {
-            [event: string]: returnTypeFunction;
-        };
-    };
     readonly mapkit: boolean;
     readonly darkmode: boolean;
     readonly premium: boolean;
     readonly policechief: boolean;
     isRegistered: boolean;
     readonly modules: Modules;
+    readonly coreModules: string[];
     readonly appstore: {
         changes: boolean;
         reload: boolean;
@@ -37,6 +33,6 @@ export interface RootState {
         inserted: boolean;
     };
     osmBars: {
-        [position: string]: HTMLDivElement;
+        [mapId: string]: { [position: string]: HTMLDivElement };
     };
 }

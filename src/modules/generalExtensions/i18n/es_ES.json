@@ -1,0 +1,16 @@
+{
+	"inputMaxLen": "¡Este campo de entrada debte tener entre {min} y {max} carácteres!",
+	"protocolDeletionConfirmation": {
+		"all": {
+			"text": "¿Realmente quieres eliminar el protocolo? ¡Esto no se puede deshacer!",
+			"title": "Eliminar protocolo"
+		},
+		"cancel": "Cancelar",
+		"confirm": "Continuar",
+		"single": {
+			"text": "¿Realmente desea eliminar esta entrada de protocolo único? ¡Esto no se puede deshacer!",
+			"title": "Eliminar la entrada"
+		},
+		"toggleSingle": "Mostrar confirmación al eliminar entradas individuales"
+	}
+}

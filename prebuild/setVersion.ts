@@ -1,10 +1,13 @@
-import packageJson from '../package.json';
-import moment from 'moment';
 import fs from 'fs';
+import moment from 'moment-timezone';
+
+import packageJson from '../package.json';
 
 packageJson.version = packageJson.version.replace(
     /\+.*$/,
-    `+${moment().format('YYYYMMDD.HHmm')}`
+    `+${moment()
+        .tz('Europe/Berlin')
+        .format('YYYYMMDD.HHmm')}`
 );
 
 const staticConfigs = {} as Record<string, unknown>;

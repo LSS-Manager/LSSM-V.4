@@ -1,0 +1,10 @@
+{
+	"description": "Utökar missionlistan med några häftiga funktioner!",
+	"name": "Utökad uppdragslista",
+	"settings": {
+		"remainingTime": {
+			"description": "Visar vid uppdrag hur länge varje uppdrag fortfarande pågår.",
+			"title": "uppdragstid endast för gröna uppdrag"
+		}
+	}
+}

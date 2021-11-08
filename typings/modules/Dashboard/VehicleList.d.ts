@@ -1,5 +1,5 @@
-import { Vehicle } from 'typings/Vehicle';
 import { Building } from 'typings/Building';
+import { Vehicle } from 'typings/Vehicle';
 import VueI18n from 'vue-i18n';
 
 interface VehicleWithBuilding extends Vehicle {
@@ -13,6 +13,8 @@ export interface VehicleList {
     search: string;
     sort: string;
     sortDir: string;
+    resolveLinkClass: string;
+    resolving: number | null;
 }
 
 export interface VehicleListMethods {
@@ -24,6 +26,9 @@ export interface VehicleListMethods {
             [key: string]: unknown;
         }
     ): VueI18n.TranslateResult;
+    startResolve(type: 'mission' | 'building', id: number): void;
+    endResolve(): void;
+    resolveMission(id: number): string;
 }
 
 export interface VehicleListComputed {

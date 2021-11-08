@@ -1,71 +1,37 @@
-import schoolingOverview from './schoolingOverview.vue';
+import getSchoolings from './assets/getSchoolings';
 import openSchoolingTabs from './components/openSchoolingTabs.vue';
 import ownSchoolingTabs from './components/ownSchoolingTabs.vue';
-import {
-    OpenSchoolings,
-    OwnSchoolings,
-} from 'typings/modules/SchoolingOverview/main';
-import { Schooling } from 'typings/Schooling';
+import schoolingOverview from './schoolingOverview.vue';
+
 import { ModuleMainFunction } from 'typings/Module';
 
 export default (LSSM => {
-    const ownSchoolings = {} as OwnSchoolings;
-    document
-        .querySelectorAll('#schooling_own_table tbody tr')
-        .forEach(schooling => {
-            const name = schooling.querySelector('a.btn-success')?.textContent;
-            if (!name) return;
-            if (!ownSchoolings.hasOwnProperty(name)) ownSchoolings[name] = 0;
-            ownSchoolings[name]++;
-        });
-
-    const openSchoolings = {} as OpenSchoolings;
-    document
-        .querySelectorAll(
-            '#schooling_opened_table tr.schooling_opened_table_searchable'
-        )
-        .forEach(schooling => {
-            const name = schooling.querySelector('a.btn-success')?.textContent;
-            if (!name) return;
-            if (!openSchoolings.hasOwnProperty(name))
-                openSchoolings[name] = {
-                    amount: 0,
-                    seats: 0,
-                };
-            openSchoolings[name].amount++;
-            openSchoolings[name].seats += parseInt(
-                schooling.querySelector('td:nth-of-type(2)')?.textContent || '0'
-            );
-        });
-    Object.values(
-        Object.entries(
-            (LSSM.$t('schoolings') as unknown) as {
-                [category: string]: Schooling[];
-            }
-        ).flatMap(([cat, schoolings]) =>
-            Object.values(schoolings).map(
-                ({ caption }) => `${cat} - ${caption}`
-            )
-        )
-    ).forEach(
-        schooling =>
-            !openSchoolings.hasOwnProperty(schooling) &&
-            (openSchoolings[schooling] = { amount: 0, seats: 0 })
-    );
+    const { ownSchoolings, openSchoolings } = getSchoolings(LSSM);
 
     const clear = document.querySelector('.clear');
-    clear &&
+    if (clear) {
         new LSSM.$vue({
             store: LSSM.$store,
             i18n: LSSM.$i18n,
             render: h =>
                 h(schoolingOverview, {
                     props: {
-                        ownSchoolings,
-                        openSchoolings,
+                        ownSchoolings: ownSchoolings.amounts,
+                        openSchoolings: openSchoolings.amounts,
                     },
                 }),
         }).$mount(clear);
+    }
+
+    const ownTable = document.getElementById('schooling_own_table');
+    if (ownTable) {
+        new LSSM.$vue({
+            store: LSSM.$store,
+            i18n: LSSM.$i18n,
+            render: h =>
+                h(ownSchoolingTabs, { props: { tabs: ownSchoolings.tabs } }),
+        }).$mount(ownTable);
+    }
 
     const openTable = document.getElementById('schooling_opened_table');
     if (openTable) {
@@ -77,15 +43,8 @@ export default (LSSM => {
         new LSSM.$vue({
             store: LSSM.$store,
             i18n: LSSM.$i18n,
-            render: h => h(openSchoolingTabs),
+            render: h =>
+                h(openSchoolingTabs, { props: { tabs: openSchoolings.tabs } }),
         }).$mount(openTable);
     }
-
-    const ownTable = document.getElementById('schooling_own_table');
-    ownTable &&
-        new LSSM.$vue({
-            store: LSSM.$store,
-            i18n: LSSM.$i18n,
-            render: h => h(ownSchoolingTabs),
-        }).$mount(ownTable);
 }) as ModuleMainFunction;

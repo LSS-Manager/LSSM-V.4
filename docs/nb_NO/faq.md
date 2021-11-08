@@ -67,7 +67,7 @@ En kompilitet listet her garanterer ikke at det fungerer. Denne informasjonen er
 </tbody>
 </table>
 
-::: danger Internet Explorer og Microsoft Edge
+::: danger Internet Explorer og Safari
 Disse nettleserene kan beskrives som "problembarnene" til en moderne web-koder. 
 
 Det er noen funksjoner som ikke fungerer i dem og vi støtter offisielt ikke disse nettleserene.

@@ -17,7 +17,7 @@ Der LSS-Manager steht unter der [Creative Commons Attribution-NonCommercial-Shar
 Wir haben uns dazu entschieden, diese Lizenz zu verwenden, um ein Missbrauch unseres Codes zum Verstoß gegen die AGB des Spiels zu vermeiden.
 
 ## Das LSSM-Team
-Aktuell besteht das der LSS-Manager aus 4 Entwicklern und 6 zusätzlichen Unterstützern für unseren <a :href="$themeConfig.variables.discord" target="_blank">Discord-Server</a>. Auf Discord sind unsere Entwickler natürlich auch administrativ aktiv!
+Aktuell besteht das der LSS-Manager aus 4 Entwicklern und 6 zusätzlichen Unterstützern für unseren <discord/>. Auf Discord sind unsere Entwickler natürlich auch administrativ aktiv!
 
 ### Die Entwickler
 * Aisaka *[CEO, Serveradministrator, Senior Developer]*

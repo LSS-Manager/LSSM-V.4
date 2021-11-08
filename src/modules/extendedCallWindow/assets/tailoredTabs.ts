@@ -1,21 +1,25 @@
+import { InternalVehicle } from 'typings/Vehicle';
+import { StorageSet } from 'typings/store/storage/Actions';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { $m } from 'typings/Module';
+import { $m, $mc } from 'typings/Module';
 
 export default (
     LSSM: Vue,
     tabs: { name: string; vehicleTypes: (string | number)[] }[],
     stagingMode: boolean,
-    $m: $m
+    $m: $m,
+    $mc: $mc
 ): void => {
     const missionHelpBtn = document.getElementById('mission_help');
     const isDiyMission = !missionHelpBtn;
     let missionTypeID = -1;
-    if (!isDiyMission)
+    if (!isDiyMission) {
         missionTypeID = parseInt(
             missionHelpBtn
                 ?.getAttribute('href')
                 ?.match(/(?!^\/einsaetze\/)\d+/)?.[0] || '-1'
         );
+    }
     if (
         !stagingMode &&
         Object.values(
@@ -23,22 +27,117 @@ export default (
         ).includes(missionTypeID)
     )
         return;
+
+    const activeTabName =
+        document
+            ?.querySelector<HTMLLIElement>('#tabs > li.active')
+            ?.textContent?.trim() ?? '';
+
     Array.from(
         document.querySelectorAll(
             '#tabs > li > a:not([href="#all"]):not([href="#occupied"])'
         ) as NodeListOf<HTMLAnchorElement>
-    ).map(e => {
+    ).forEach(e => {
         const target = e.getAttribute('href');
-        target && document.querySelector(target)?.remove();
+        if (target) document.querySelector(target)?.remove();
         e.parentElement?.remove();
     });
 
     let tabList = document.getElementById('tabs');
     let allTab = tabList?.querySelector('#tabs > li:first-child');
     let occupiedTab = tabList?.querySelector('#tabs > li:last-child');
+    const occupiedTabActive =
+        occupiedTab?.classList.contains('active') ?? false;
     let panelWrapper = document.querySelector(
         '#vehicle_list_step .tab-content'
     );
+
+    const vehiclesInTabs = [
+        ...new Set(tabs.flatMap(({ vehicleTypes }) => vehicleTypes)),
+    ].map(vehicle => vehicle.toString());
+    const vehiclesNotInTabs = Object.keys(LSSM.$t('vehicles'))
+        .filter(vehicle => !vehiclesInTabs.includes(vehicle))
+        .sort();
+
+    if (vehiclesNotInTabs.length) {
+        const NOT_IN_TABS_ALERTED = 'ecw_tt_not_in_tabs_alerted';
+        const vehicleTypes = LSSM.$t('vehicles') as {
+            [type: number]: InternalVehicle;
+        };
+
+        const warningBtnWrapper = document.createElement('span');
+        const warningBtn = document.createElement('i');
+        warningBtn.classList.add(
+            'fas',
+            'fa-exclamation-triangle',
+            'text-warning'
+        );
+        warningBtn.id = LSSM.$store.getters.nodeAttribute('ecw-tt-missingbtn');
+        warningBtnWrapper.append(warningBtn);
+
+        document
+            .querySelector<HTMLDivElement>('#dispatch_buttons')
+            ?.parentElement?.before(warningBtnWrapper);
+        LSSM.$store
+            .dispatch('addStyle', {
+                selectorText: `#${warningBtn.id}`,
+                style: {
+                    cursor: 'pointer',
+                },
+            })
+            .then();
+
+        const showAlert = () => {
+            LSSM.$modal.show('dialog', {
+                title: $mc(
+                    'tailoredTabs.vehicleMissing.title',
+                    vehiclesNotInTabs.length
+                ),
+                text: `${$m(
+                    'tailoredTabs.vehicleMissing.text'
+                )}<ul>${vehiclesNotInTabs
+                    .map(
+                        type =>
+                            `<li>${vehicleTypes[parseInt(type)].caption}</li>`
+                    )
+                    .join('')}</ul>`,
+                options: {},
+                buttons: [
+                    {
+                        title: $m('tailoredTabs.vehicleMissing.hide'),
+                        handler() {
+                            LSSM.$modal.hide('dialog');
+                        },
+                    },
+                    {
+                        title: $m('tailoredTabs.vehicleMissing.close'),
+                        handler() {
+                            LSSM.$store
+                                .dispatch('storage/set', {
+                                    key: NOT_IN_TABS_ALERTED,
+                                    value: vehiclesNotInTabs,
+                                } as StorageSet)
+                                .then(() => LSSM.$modal.hide('dialog'));
+                        },
+                    },
+                ],
+            });
+        };
+
+        warningBtnWrapper?.addEventListener('click', showAlert);
+        LSSM.$store
+            .dispatch('storage/get', {
+                key: NOT_IN_TABS_ALERTED,
+                defaultValue: [],
+            })
+            .then(
+                async alerted =>
+                    !(await import('lodash/isEqual')).default(
+                        alerted.sort(),
+                        vehiclesNotInTabs
+                    ) && showAlert()
+            );
+    }
 
     if (!document.querySelector('#vehicle_list_step')) {
         const vehicleListStep = document.createElement('div');
@@ -114,6 +213,7 @@ export default (
     const vehicleTypeMap = {} as {
         [id: string]: string[];
     };
+    const idByName: Record<string, string> = {};
     tabs.forEach(({ name, vehicleTypes }) => {
         if (!tabList || !allTab || !occupiedTab || !panelWrapper) return;
         const tabId = LSSM.$store.getters.nodeAttribute(
@@ -192,9 +292,10 @@ export default (
         panels[tabId] = tabPane;
         tabBar[tabId] = { tablesorterId: `vehicle_show_table_${tabId}` };
         vehicleTypeMap[tabId] = vehicleTypes.map(v => v.toString());
+        idByName[name] = tabId;
     });
 
-    if (stagingMode)
+    if (stagingMode) {
         document
             .getElementById('vehicle_show_table_body_all')
             ?.addEventListener('change', ({ target }) => {
@@ -207,6 +308,7 @@ export default (
                     )
                     .forEach(box => (box.checked = checkbox.checked));
             });
+    }
 
     tabList.addEventListener('click', e => {
         if (!tabList || !allTab || !occupiedTab || !panelWrapper) return;
@@ -265,4 +367,14 @@ export default (
             },
         });
     });
+
+    tabList
+        .querySelector<HTMLAnchorElement>(
+            `#tabs > li > a[href="#${
+                occupiedTabActive
+                    ? 'occupied'
+                    : idByName[activeTabName] || 'all'
+            }"]`
+        )
+        ?.click();
 };

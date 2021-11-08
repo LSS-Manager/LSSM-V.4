@@ -2,6 +2,12 @@
     <div :class="{ disabled, hidden, wide }" class="setting">
         <h4>
             <b>{{ title }}</b>
+            &nbsp;
+            <toggle-button
+                labels
+                v-if="appendableListDisableable"
+                v-model="appendableListEnabledUpdate"
+            ></toggle-button>
         </h4>
         <slot v-if="beforeDescription"></slot>
         <span
@@ -20,12 +26,13 @@
 
 <script lang="ts">
 import Vue from 'vue';
+
+import { SettingProps } from '../../typings/components/Setting';
 import {
+    DefaultComputed,
     DefaultData,
     DefaultMethods,
-    DefaultComputed,
 } from 'vue/types/options';
-import { SettingProps } from '../../typings/components/Setting';
 
 export default Vue.extend<
     DefaultData<Vue>,
@@ -33,7 +40,7 @@ export default Vue.extend<
     DefaultComputed,
     SettingProps
 >({
-    name: 'setting',
+    name: 'lssmv4-setting',
     props: {
         moduleId: {
             type: String,
@@ -71,6 +78,24 @@ export default Vue.extend<
             type: Boolean,
             required: false,
             default: false,
+        },
+        appendableListDisableable: {
+            type: Boolean,
+            required: true,
+        },
+        appendableListEnabled: {
+            type: Boolean,
+            required: false,
+        },
+    },
+    computed: {
+        appendableListEnabledUpdate: {
+            get() {
+                return this.appendableListEnabled;
+            },
+            set(value) {
+                this.$emit('toggleEnabled', value);
+            },
         },
     },
 });

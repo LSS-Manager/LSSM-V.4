@@ -65,17 +65,24 @@
 			"description": "Normally hides the use list, then opens it by pressing a button.",
 			"title": "Hides the vehicle list"
 		},
+		"hoverTip": {
+			"description": "Tooltips for as example the overlay button.",
+			"title": "Tooltips"
+		},
 		"loadMoreVehiclesInHeader": {
 			"description": "Displays the button \"Reload vehicles\", if available, in the header bar.",
 			"title": "Reload vehicles in header"
 		},
 		"missionKeywords": {
+			"allMissions": "All Missions",
+			"autotextcolor": "Automatical text color",
 			"color": "background color",
 			"description": "Get your own keyword displayed next to the mission name",
 			"keyword": "keyword",
 			"missions": "missions",
 			"prepend": "Show before the missionname",
 			"preview": "Preview",
+			"textcolor": "Text color",
 			"title": "Mission keywords"
 		},
 		"patientSummary": {
@@ -86,16 +93,28 @@
 			"description": "Outlines the generation time in red if the bet will expire the following night.",
 			"title": "Red border"
 		},
+		"remainingPatientTime": {
+			"description": "Shows for patients how much time remains until they are fully treated",
+			"title": "Remaining time for patients"
+		},
+		"stagingAreaSelectedCounter": {
+			"description": "Shows in staging areas the amount of selected vehicles next to the alarm buttons",
+			"title": "Alarm-Counter within staging areas"
+		},
 		"stickyHeader": {
 			"description": "Always shows the top bar in the insert window, even when you scroll down.",
 			"title": "Always show header bar"
 		},
 		"tailoredTabs": {
 			"color": "Color",
-			"description": "Adjust the tabs in the insert window here. \"All\" and \"Continue alerting\" will always be visible,",
+			"description": "Adjust the tabs in the insert window here. \"All\" and \"Follow-up\" will always be visible,",
 			"name": "name",
 			"title": "vehicle categories",
 			"vehicles": "vehicle types"
+		},
+		"vehicleTypeInList": {
+			"description": "Displays the vehicle type in the Available Units list.",
+			"title": "Show vehicle type"
 		},
 		"yellowBorder": {
 			"description": "Borders the generation time yellow if the usage is older than the entered number of hours. If the number is 0, no border is drawn.",
@@ -130,7 +149,12 @@
 				"name": "Ambulance",
 				"vehicleTypes": [
 					5,
-					9
+					9,
+					23,
+					24,
+					25,
+					26,
+					27
 				]
 			},
 			{
@@ -142,6 +166,18 @@
 					17,
 					18,
 					22
+				]
+			},
+			{
+				"name": "Bushfire Vehicles",
+				"vehicleTypes": [
+					19,
+					28,
+					29,
+					30,
+					31,
+					32,
+					33
 				]
 			},
 			{

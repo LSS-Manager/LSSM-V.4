@@ -16,6 +16,7 @@ export interface Vehicle {
     ignore_aao: boolean;
     target_type: 'mission' | 'building' | null; // Where the vehicle is currently driving to
     target_id: number | null; // The ID of where the vehicle is currently driving to
+    tractive_vehicle_id: number | null;
     faPencilAlt: IconDefinition;
     faUsers: IconDefinition;
     [key: string]:
@@ -41,6 +42,11 @@ export interface ResolvedVehicleCategory {
     };
 }
 
+export type VehicleSchooling = Partial<{
+    all: boolean;
+    min: number;
+}>;
+
 export interface InternalVehicle {
     caption: string;
     color: string;
@@ -49,9 +55,18 @@ export interface InternalVehicle {
     minPersonnel: number;
     maxPersonnel: number;
     wtank?: number;
-    schooling?: string;
-    shownSchooling?: string;
+    pumpcap?: number;
+    ftank?: number;
+    schooling?: Record<string, Record<string, VehicleSchooling>>;
     special?: string;
     icon: string;
-    [key: string]: string | number | undefined;
+    possibleBuildings: number[];
+
+    // general
+    [key: string]:
+        | string
+        | number
+        | number[]
+        | Record<string, Record<string, VehicleSchooling>>
+        | undefined;
 }

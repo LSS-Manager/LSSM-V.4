@@ -37,21 +37,21 @@
 
 <script lang="ts">
 import Vue from 'vue';
+
 import {
     OpenSchoolingTabs,
-    OpenSchoolingTabsMethods,
     OpenSchoolingTabsComputed,
-    OpenSchooling,
+    OpenSchoolingTabsMethods,
+    OpenSchoolingTabsProps,
 } from 'typings/modules/SchoolingOverview/OpenSchoolingTabs';
-import { DefaultProps } from 'vue/types/options';
 
 export default Vue.extend<
     OpenSchoolingTabs,
     OpenSchoolingTabsMethods,
     OpenSchoolingTabsComputed,
-    DefaultProps
+    OpenSchoolingTabsProps
 >({
-    name: 'openSchoolingTabs',
+    name: 'lssmv4-so-openSchoolingTabs',
     components: {
         EnhancedTable: () =>
             import(
@@ -78,7 +78,6 @@ export default Vue.extend<
             heads,
             tabTitles,
             currentTab: tabTitles[0],
-            tabs: {},
             search: '',
             sort: 'name',
             sortDir: 'asc',
@@ -106,53 +105,17 @@ export default Vue.extend<
     },
     methods: {
         setSorting(key) {
-            let s = key;
+            const s = key;
             this.sortDir =
                 s === this.sort && this.sortDir === 'asc' ? 'desc' : 'asc';
             this.sort = s;
         },
     },
-    beforeMount() {
-        let tabs = { [this.all]: [] } as {
-            [tab: string]: OpenSchooling[];
-        };
-        document
-            .querySelectorAll(
-                '#schooling_opened_table tr.schooling_opened_table_searchable'
-            )
-            .forEach(schooling => {
-                let btn = schooling.querySelector(
-                    'a.btn-success'
-                ) as HTMLLinkElement;
-                if (!btn) return;
-                let name = btn.textContent || '';
-                let category =
-                    name
-                        ?.match(/^.*?-/)?.[0]
-                        .replace('-', '')
-                        .trim() || '';
-                const seatNode = schooling.querySelector('td:nth-of-type(2)');
-                const endNode = schooling.querySelector('td:nth-of-type(4)');
-                let owner = schooling.querySelector('td:nth-of-type(5)');
-                if (!seatNode || !endNode || !owner) return;
-                let seats = parseInt(seatNode.textContent || '0');
-                let price =
-                    schooling.querySelector('td:nth-of-type(3)')?.textContent ||
-                    '';
-                let end = parseInt(endNode.getAttribute('sortvalue') || '0');
-                if (!tabs.hasOwnProperty(category)) tabs[category] = [];
-                const element = {
-                    id: btn.href.replace(/\D+/g, ''),
-                    name,
-                    seats,
-                    price,
-                    end,
-                    owner: owner.innerHTML,
-                };
-                tabs[category].push(element);
-                tabs[this.all].push(element);
-            });
-        this.tabs = tabs;
+    props: {
+        tabs: {
+            type: Object,
+            required: true,
+        },
     },
 });
 </script>

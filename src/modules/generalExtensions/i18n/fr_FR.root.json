@@ -14,6 +14,10 @@
 			"description": "Affiche une séléction d'émoji quand vous tapez : suivi d'un texte.",
 			"title": "Émojis"
 		},
+		"extensionCloseCall": {
+			"description": "Closes propagation speech requests even if the button \"to mission\" is pressed.",
+			"title": "Spreading improved FMS 5"
+		},
 		"linkPreviews": {
 			"buildings": "Bâtiments",
 			"description": "Affiche une info-bulle au survol d'un lien. Choisissez ici pour quels lien les info-bulles sont actives :",

@@ -16,7 +16,7 @@ export default (LSSM: Vue): void => {
                 title.textContent
                     ?.trim()
                     .split(' ')
-                    .map(w => w.toLowerCase()) || []
+                    .map(w => LSSM.$utils.escapeRegex(w.toLowerCase())) || []
             ).filter(w => w.length > 3);
             Array.from(
                 document.querySelectorAll('.aao') as NodeListOf<

@@ -6,10 +6,10 @@ export interface Requirement {
     driving: number;
     total: number;
     vehicle: string;
-    selected: number;
+    selected: number | { min: number; max: number };
 
     // General
-    [key: string]: number | string;
+    [key: string]: number | string | { min: number; max: number };
 }
 
 export interface EnhancedMissingVehicles {
@@ -30,6 +30,7 @@ export interface EnhancedMissingVehicles {
     minified: boolean | undefined;
     textMode: boolean | undefined;
     pushedRight: boolean | undefined;
+    hoverTip: boolean;
     drag: {
         active: boolean;
         top: number;
@@ -50,6 +51,7 @@ export interface EnhancedMissingVehiclesProps {
 export interface EnhancedMissingVehiclesComputed {
     missingRequirementsFiltered: Requirement[];
     missingRequirementsSorted: Requirement[];
+    missingRequirementsCheck: boolean;
 }
 
 export interface EnhancedMissingVehiclesMethods {

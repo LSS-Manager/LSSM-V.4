@@ -1,0 +1,31 @@
+{
+	"enhancedPersonnelAssignment": {
+		"toggleFittingPersonnel": "Dölj personal utan lämplig utbildning"
+	},
+	"expansions": {
+		"notBuild": "Inte byggt ännu"
+	},
+	"fastDispatchChooser": {
+		"noDispatch": "Ingen larmcentral"
+	},
+	"personnelDemands": {
+		"additional": "",
+		"demand": "Personal som krävs"
+	},
+	"schoolingSummary": {
+		"all": "Alla kombinationer",
+		"amount": "Antal",
+		"bound": "Tilldelad",
+		"each": "Varje utbildning",
+		"max": "För närvarande maximalt krav",
+		"min": "För närvarande minimumkrav",
+		"noSchooling": "Ingen utbildning",
+		"schooling": "Utbildning",
+		"title": "Personalöversikt"
+	},
+	"vehiclePersonnel": {
+		"vehiclesPersonnelAssigned": "Tilldelad",
+		"vehiclesPersonnelCurrent": "Aktuell",
+		"vehiclesPersonnelMax": "Max"
+	}
+}

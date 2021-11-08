@@ -10,7 +10,7 @@ Návrh na zlepšení prosím co nejdetailněji vypracujte před zveřejněním. 
 :::
 
 ## přes Discord
-Na našem <a :href="$themeConfig.variables.discord" target="_blank">Discordu</a> můžete vytvořit návrh v kanálu <a :href="$themeConfig.variables.discord_support" target="_blank">`#support`</a>.
+Na našem <discord/> můžete vytvořit návrh v kanálu <discord-channel channel="suggestions"/>.
 
 ## přes GitHub
 Můžete také otevřít požadavek na <a :href="$themeConfig.variables.github + '/issues'" target="_blank">GitHubu</a>. Před zveřejněním návrhu prosím zkontrolujte, zda již tento požadavek neexistuje. 

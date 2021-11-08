@@ -1,0 +1,26 @@
+{
+	"add": {
+		"arr": "New ARR",
+		"group": "New Group"
+	},
+	"categories": "Own AAR Categories edited",
+	"delete": {
+		"all": {
+			"text": "Do you really want to delete ALL ARR entries? This can NOT be undone and all previous exports of your ARR will NOT work anymore!",
+			"title": "Delete complete ARR"
+		},
+		"arr": {
+			"text": "Do you really want to delete this one ARR entry? This cannot be undone! The entry will no longer appear in any existing exports!",
+			"title": "Delete ARR"
+		},
+		"cancel": "Cancel",
+		"confirm": "Delete!",
+		"vehicle_group": {
+			"text": "Do you really want to delete this one group? This cannot be undone!",
+			"title": "Group delete"
+		}
+	},
+	"delete_all": "Delete complete ARR!",
+	"export": "Export ARR",
+	"title": "Alarm and Response Regulations & Groups"
+}

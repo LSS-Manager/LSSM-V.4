@@ -1,3 +1,16 @@
 {
-	"inputMaxLen": "This input field must have between {min} and {max} characters!"
+	"inputMaxLen": "This input field must have between {min} and {max} characters!",
+	"protocolDeletionConfirmation": {
+		"all": {
+			"text": "Do you really want to delete the protocol? This cannot be undone!",
+			"title": "Delete protocol"
+		},
+		"cancel": "Cancel",
+		"confirm": "Proceed",
+		"single": {
+			"text": "Do you really want to delete this single protocol entry? This cannot be undone!",
+			"title": "Delete Entry"
+		},
+		"toggleSingle": "Show confirmation when deleting single entries"
+	}
 }

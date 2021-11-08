@@ -1,9 +1,20 @@
 {
+	"building-list": {
+		"actions": "",
+		"caption": "Naam",
+		"current": "Aantal (actief)",
+		"fastDispatchChooser": {
+			"noDispatch": "Geen meldkamer"
+		},
+		"type": "Type",
+		"unavailable": "In ontwikkeling"
+	},
 	"building-types": {
 		"building": "Gebouwen",
 		"current": "Aantal (actief)",
 		"extension": "Uitbreiding",
 		"maximum": "Maximaal mogelijk",
+		"title": "Alle {type}",
 		"unavailable": "In ontwikkeling"
 	},
 	"chart-summaries": {
@@ -20,6 +31,7 @@
 		}
 	},
 	"dispatchcenter-view": {
+		"building-selection": "Voeg gebouwen toe:",
 		"manage": {
 			"newBoard": "Nieuw dashboard",
 			"title": "Beheer dashboards",
@@ -35,7 +47,7 @@
 				"name": "Dashboard naam"
 			}
 		},
-		"no-buildings": "Geen gebouwn gevonden. Indien nodig, pas de filters aan voor dit dashboard in het \"Beheer dashboards\"-tab."
+		"no-buildings": "Geen gebouwen gevonden. Indien nodig, pas de filters aan voor dit dashboard in het \"Beheer dashboards\"-tab."
 	},
 	"tabs": {
 		"building-types": "Gebouw overzicht",
@@ -48,6 +60,7 @@
 		"building": "Gebouw",
 		"caption": "Naam",
 		"fms": "Status",
+		"target": "Bestemming",
 		"type": "Type"
 	},
 	"vehicle-types": {

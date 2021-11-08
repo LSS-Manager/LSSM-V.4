@@ -38,6 +38,15 @@
         <tr
             v-for="requirement in missingRequirements"
             :key="requirement.vehicle"
+            :class="{
+                overRequirement:
+                    (requirement.hasOwnProperty('total')
+                        ? requirement.total
+                        : requirement.missing) <=
+                    (typeof requirement.selected === 'number'
+                        ? requirement.selected
+                        : requirement.selected.min),
+            }"
         >
             <td>
                 <b>{{ requirement.vehicle }}</b>
@@ -48,18 +57,25 @@
                 {{ requirement.total.toLocaleString() }}
             </td>
             <td v-else>{{ requirement.missing.toLocaleString() }}</td>
-            <td>{{ (requirement.selected || 0).toLocaleString() }}</td>
+            <td v-if="requirement.selected.hasOwnProperty('min')">
+                {{ (requirement.selected.min || 0).toLocaleString() }} -
+                {{ (requirement.selected.max || 0).toLocaleString() }}
+            </td>
+            <td v-else>
+                {{ (requirement.selected || 0).toLocaleString() }}
+            </td>
         </tr>
     </enhanced-table>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
+
 import { EnhancedMissingVehiclesTableProps } from 'typings/modules/ExtendedCallWindow/EnhancedMissingVehiclesTable';
 import {
+    DefaultComputed,
     DefaultData,
     DefaultMethods,
-    DefaultComputed,
 } from 'vue/types/options';
 
 export default Vue.extend<
@@ -68,7 +84,7 @@ export default Vue.extend<
     DefaultComputed,
     EnhancedMissingVehiclesTableProps
 >({
-    name: 'enhancedMissingVehiclesTable',
+    name: 'lssmv4-emv-table',
     components: {
         EnhancedTable: () =>
             import(
@@ -101,4 +117,6 @@ export default Vue.extend<
 <style scoped lang="sass">
 th
     cursor: pointer
+.overRequirement
+    color: #00cc00
 </style>

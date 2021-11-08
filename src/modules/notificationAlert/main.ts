@@ -1,16 +1,18 @@
+import { ModuleMainFunction } from 'typings/Module';
 import { NotificationSetting } from 'typings/modules/NotificationAlert';
 import {
     AllianceChatMessage,
     MissionMarkerAdd,
     RadioMessage,
 } from 'typings/Ingame';
-import { ModuleMainFunction } from 'typings/Module';
 
 export default (async (LSSM, MODULE_ID, $m, $mc) => {
-    const alerts = (await LSSM.$store.dispatch('settings/getSetting', {
-        moduleId: MODULE_ID,
-        settingId: 'alerts',
-    })) as NotificationSetting[];
+    const alerts = (
+        await LSSM.$store.dispatch('settings/getSetting', {
+            moduleId: MODULE_ID,
+            settingId: 'alerts',
+        })
+    ).value as NotificationSetting[];
 
     const events = {} as {
         [event: string]: {
@@ -40,7 +42,7 @@ export default (async (LSSM, MODULE_ID, $m, $mc) => {
         'allianceChatMention',
         'allianceChatWhisper',
     ].filter(ce => events.hasOwnProperty(ce));
-    if (chatEvents.length)
+    if (chatEvents.length) {
         await LSSM.$store.dispatch('hook', {
             event: 'allianceChat',
             callback({
@@ -63,7 +65,9 @@ export default (async (LSSM, MODULE_ID, $m, $mc) => {
                         )
                     ) ||
                         (ucmsg.match(/@admin/) &&
-                            (window.alliance_admin || window.alliance_coadmin)))
+                            (window.alliance_admin ||
+                                window.alliance_coadmin ||
+                                window.alliance_owner)))
                 );
                 const title = `${
                     mission_id ? '🔔 ' : ''
@@ -72,7 +76,7 @@ export default (async (LSSM, MODULE_ID, $m, $mc) => {
                         ? `: [<a href="/missions/${mission_id}" class="lightbox-open">${mission_caption}</a>]`
                         : ``
                 }`;
-                if (isWhispered)
+                if (isWhispered) {
                     events['allianceChatWhisper'].forEach(async alert =>
                         LSSM.$store.dispatch('notifications/sendNotification', {
                             group: alert.position,
@@ -90,14 +94,15 @@ export default (async (LSSM, MODULE_ID, $m, $mc) => {
                             ingame: alert.ingame,
                             desktop: alert.desktop,
                             clickHandler() {
-                                if (mission_id)
+                                if (mission_id) {
                                     window.lightboxOpen(
                                         `/missions/${mission_id}`
                                     );
+                                }
                             },
                         })
                     );
-                else if (isMentioned)
+                } else if (isMentioned) {
                     events['allianceChatMention'].forEach(async alert =>
                         LSSM.$store.dispatch('notifications/sendNotification', {
                             group: alert.position,
@@ -115,14 +120,15 @@ export default (async (LSSM, MODULE_ID, $m, $mc) => {
                             ingame: alert.ingame,
                             desktop: alert.desktop,
                             clickHandler() {
-                                if (mission_id)
+                                if (mission_id) {
                                     window.lightboxOpen(
                                         `/missions/${mission_id}`
                                     );
+                                }
                             },
                         })
                     );
-                else
+                } else {
                     events['allianceChat']?.forEach(async alert =>
                         LSSM.$store.dispatch('notifications/sendNotification', {
                             group: alert.position,
@@ -140,15 +146,18 @@ export default (async (LSSM, MODULE_ID, $m, $mc) => {
                             ingame: alert.ingame,
                             desktop: alert.desktop,
                             clickHandler() {
-                                if (mission_id)
+                                if (mission_id) {
                                     window.lightboxOpen(
                                         `/missions/${mission_id}`
                                     );
+                                }
                             },
                         })
                     );
+                }
             },
         });
+    }
 
     // Radio messages
     const fmsEvents = [
@@ -166,7 +175,7 @@ export default (async (LSSM, MODULE_ID, $m, $mc) => {
         'sicherheitswache_success',
         'sicherheitswache_error',
     ].filter(ce => events.hasOwnProperty(ce));
-    if (fmsEvents.length)
+    if (fmsEvents.length) {
         await LSSM.$store.dispatch('hook', {
             event: 'radioMessage',
             async callback(message: RadioMessage) {
@@ -187,7 +196,7 @@ export default (async (LSSM, MODULE_ID, $m, $mc) => {
                     if (
                         (siwa_success && message.success) ||
                         (siwa_error && !message.success)
-                    )
+                    ) {
                         events[mode].forEach(alert =>
                             LSSM.$store.dispatch(
                                 'notifications/sendNotification',
@@ -208,6 +217,7 @@ export default (async (LSSM, MODULE_ID, $m, $mc) => {
                                 }
                             )
                         );
+                    }
                 }
 
                 const fmsAll = fmsEvents.includes('vehicle_fms');
@@ -230,7 +240,7 @@ export default (async (LSSM, MODULE_ID, $m, $mc) => {
                     }).toString();
                     const clickHandler = () =>
                         window.lightboxOpen(`/vehicles/${message.id}`);
-                    if (fmsStatuses.includes(mode))
+                    if (fmsStatuses.includes(mode)) {
                         events[mode].forEach(alert =>
                             LSSM.$store.dispatch(
                                 'notifications/sendNotification',
@@ -249,7 +259,7 @@ export default (async (LSSM, MODULE_ID, $m, $mc) => {
                                 }
                             )
                         );
-                    else if (fmsAll)
+                    } else if (fmsAll) {
                         events['vehicle_fms'].forEach(alert =>
                             LSSM.$store.dispatch(
                                 'notifications/sendNotification',
@@ -268,12 +278,14 @@ export default (async (LSSM, MODULE_ID, $m, $mc) => {
                                 }
                             )
                         );
+                    }
                 }
             },
         });
+    }
 
     // Private direct messages
-    if (events['dm'])
+    if (events['dm']) {
         await LSSM.$store.dispatch('hook', {
             event: 'messageUnreadUpdate',
             post: false,
@@ -308,9 +320,10 @@ export default (async (LSSM, MODULE_ID, $m, $mc) => {
                 );
             },
         });
+    }
 
     // Ingame news (Blog, Facebook)
-    if (events['ingame_news'])
+    if (events['ingame_news']) {
         await LSSM.$store.dispatch('hook', {
             event: 'newsNew',
             post: false,
@@ -336,9 +349,10 @@ export default (async (LSSM, MODULE_ID, $m, $mc) => {
                 );
             },
         });
+    }
 
     // Alliance Cadidature
-    if (events['allianceCandidature'])
+    if (events['allianceCandidature']) {
         await LSSM.$store.dispatch('hook', {
             event: 'allianceCandidatureCount',
             post: false,
@@ -380,9 +394,10 @@ export default (async (LSSM, MODULE_ID, $m, $mc) => {
                 );
             },
         });
+    }
 
     // Alliance messages
-    if (events['allianceMessage'])
+    if (events['allianceMessage']) {
         await LSSM.$store.dispatch('hook', {
             event: 'allianceMessageNew',
             post: false,
@@ -411,9 +426,10 @@ export default (async (LSSM, MODULE_ID, $m, $mc) => {
                 );
             },
         });
+    }
 
     // Alliance news
-    if (events['allianceNews'])
+    if (events['allianceNews']) {
         await LSSM.$store.dispatch('hook', {
             event: 'allianceNewsNew',
             post: false,
@@ -442,9 +458,10 @@ export default (async (LSSM, MODULE_ID, $m, $mc) => {
                 );
             },
         });
+    }
 
     // Alliance Forum
-    if (events['allianceForum'])
+    if (events['allianceForum']) {
         await LSSM.$store.dispatch('hook', {
             event: 'allianceForumNew',
             post: false,
@@ -473,6 +490,45 @@ export default (async (LSSM, MODULE_ID, $m, $mc) => {
                 );
             },
         });
+    }
+
+    // Tasks
+    if (events['tasks_update']) {
+        await LSSM.$store.dispatch('hook', {
+            event: 'tasksUpdate',
+            post: false,
+            callback(amount: number, newTasks: boolean) {
+                if (
+                    !amount ||
+                    newTasks ||
+                    document.getElementById('completed_tasks_counter')
+                        ?.textContent === amount.toString()
+                )
+                    return;
+                events['tasks_update'].forEach(async alert =>
+                    LSSM.$store.dispatch('notifications/sendNotification', {
+                        group: alert.position,
+                        type: alert.alertStyle,
+                        title: $m('messages.tasksUpdate.title'),
+                        text: $m('messages.tasksUpdate.body'),
+                        icon: (
+                            await import(
+                                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                                // @ts-ignore
+                                /* webpackChunkName: "modules/notificationAlert/tasks" */ './assets/tasks.svg'
+                            )
+                        ).default,
+                        duration: alert.duration,
+                        ingame: alert.ingame,
+                        desktop: alert.desktop,
+                        clickHandler() {
+                            window.lightboxOpen('/tasks/index');
+                        },
+                    })
+                );
+            },
+        });
+    }
 
     // Mission messages
     const missionEvents = [
@@ -485,7 +541,7 @@ export default (async (LSSM, MODULE_ID, $m, $mc) => {
         // 'mission_siwa_warning',
         // 'mission_siwa_warning_alliance',
     ].filter(ce => events.hasOwnProperty(ce));
-    if (missionEvents.length)
+    if (missionEvents.length) {
         await LSSM.$store.dispatch('hook', {
             event: 'missionMarkerAdd',
             post: false,
@@ -509,10 +565,12 @@ export default (async (LSSM, MODULE_ID, $m, $mc) => {
                               mission.vehicle_state
                           ]
                         : 0) || `/images/${mission.icon}.png`;
-                let caption = mission.caption;
+                const isEventMission =
+                    isAllianceMission && mission.user_id === null;
+                let { caption } = mission;
                 if (isAllianceMission) caption = `📤 ${caption}`;
                 if (color === 'red') {
-                    if (!missionElement && !isAllianceMission)
+                    if (!missionElement && !isAllianceMission) {
                         events['mission_new']?.forEach(alert =>
                             LSSM.$store.dispatch(
                                 'notifications/sendNotification',
@@ -533,7 +591,7 @@ export default (async (LSSM, MODULE_ID, $m, $mc) => {
                                 }
                             )
                         );
-                    else if (missionElement)
+                    } else if (missionElement) {
                         events[
                             `mission_getred${
                                 isAllianceMission ? '_alliance' : ''
@@ -565,8 +623,13 @@ export default (async (LSSM, MODULE_ID, $m, $mc) => {
                                 }
                             )
                         );
+                    }
                 }
-                if (isAllianceOnlyMission && !missionElement)
+                if (
+                    isAllianceOnlyMission &&
+                    !isEventMission &&
+                    !missionElement
+                ) {
                     events['mission_new_largescale']?.forEach(alert =>
                         LSSM.$store.dispatch('notifications/sendNotification', {
                             group: alert.position,
@@ -582,7 +645,7 @@ export default (async (LSSM, MODULE_ID, $m, $mc) => {
                             },
                         })
                     );
-                else if (isAllianceMission && !missionElement)
+                } else if (isAllianceMission && !missionElement) {
                     events['mission_share']?.forEach(alert =>
                         LSSM.$store.dispatch('notifications/sendNotification', {
                             group: alert.position,
@@ -598,6 +661,8 @@ export default (async (LSSM, MODULE_ID, $m, $mc) => {
                             },
                         })
                     );
+                }
             },
         });
+    }
 }) as ModuleMainFunction;

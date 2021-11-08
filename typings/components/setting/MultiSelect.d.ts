@@ -4,6 +4,7 @@ export interface MultiSelectProps {
     value: string[];
     options: Option[];
     disabled: boolean;
+    allOnNone: boolean;
 }
 
 interface Option {

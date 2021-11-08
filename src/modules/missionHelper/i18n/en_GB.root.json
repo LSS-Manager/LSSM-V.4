@@ -5,12 +5,12 @@
 		"average_min_fire_personnel": {
 			"badge": false,
 			"in": "additional",
-			"text": "Firefighters needed minimum"
+			"text": "Average min . Fire Personnel"
 		},
 		"swat_personnel": {
 			"badge": false,
 			"in": "additional",
-			"text": "Armed Response Personnel needed minimum in average"
+			"text": "Required Armed Response Personnel"
 		}
 	},
 	"settings": {
@@ -44,6 +44,10 @@
 			"description": "Hides Battalion Chief completely and shows only MCV.",
 			"title": "Hide Battalion Chiefs"
 		},
+		"hoverTip": {
+			"description": "Tooltips for as example the overlay button.",
+			"title": "Tooltips"
+		},
 		"id": {
 			"description": "Shows the Mission ID next to the title.",
 			"title": "Mission ID"
@@ -76,16 +80,18 @@
 				"title": "Show Heavy Rescue / rescue engine instead of firetrucks"
 			}
 		},
-		"patient": {
+		"patients": {
 			"code_possible": {
 				"description": "Shows possible patient codes",
 				"title": "Details of possible patient codes"
-			}
-		},
-		"patients": {
+			},
 			"content": {
 				"description": "Shows details about possible patients.",
 				"title": "Details of potential patients"
+			},
+			"critical_care": {
+				"description": "Shows the possible Critical Care Chance",
+				"title": "Details of possible Critical Chances"
 			},
 			"hideWhenNoNeed": {
 				"description": "Hides the patient details if there are no more patients and patients do not appear until the end of the assignment.",
@@ -140,8 +146,8 @@
 				"title": "Vehicle requirements"
 			},
 			"patient_additionals": {
-				"description": "If there are currently more than 10 patients on site, EMS-Chief is automatically listed at the beginning of the vehicle requirements.",
-				"title": "Mention EMS-Chief extra"
+				"description": "If there are currently more than 20 patients on site, Ambulance Officer is automatically listed at the beginning of the vehicle requirements. If there are currently more than 30 patients on site, MCE is also automatically listed.",
+				"title": "Mention Ambulance Officer and MCE extra"
 			},
 			"sort": {
 				"amount": "Number of required vehicles",
@@ -149,6 +155,10 @@
 				"description": "Define what the vehicle requirements should be sorted by.",
 				"percentage": "Probability",
 				"title": "Sorting the vehicle requirements"
+			},
+			"sortDesc": {
+				"description": "Sorts vehicle requirements in a descending order.",
+				"title": "Vehicles in descending Order"
 			},
 			"title": {
 				"description": "Displays the heading \"Vehicles\" above the vehicle requirements.",

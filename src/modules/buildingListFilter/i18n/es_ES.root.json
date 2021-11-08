@@ -1,0 +1,61 @@
+{
+	"default": [
+		{
+			"ids": [
+				0,
+				18
+			],
+			"name": "Bomberos"
+		},
+		{
+			"ids": [
+				2,
+				4,
+				5,
+				20
+			],
+			"name": "Rescate"
+		},
+		{
+			"ids": [
+				6,
+				13,
+				19
+			],
+			"name": "Policía"
+		},
+		{
+			"ids": [
+				1,
+				3,
+				8
+			],
+			"name": "Academias"
+		},
+		{
+			"ids": [
+				7
+			],
+			"name": "Centralita"
+		}
+	],
+	"description": "¡Personaliza los filtros de la lista de edificios!",
+	"name": "Lista de edificios personalizables",
+	"settings": {
+		"buildings": "Tipos de Edificios",
+		"contentType": {
+			"labels": [
+				"Text",
+				"Icon"
+			],
+			"title": "¿Texto o icono?"
+		},
+		"filters": {
+			"description": "Deje los iconos en el botón Mostrar \"Alarma\", según su selección. Puedes elegir entre <a href=\"https://fontawesome.com/icons?d=gallery&m=free\" target=\"_blank\">all free icons from Font-Awesome</a>. It is enough to specify the name of the icon. A live preview will then show you the icon.",
+			"title": "Filtro de lista de edificios"
+		},
+		"icon_style": "Tipo de icono",
+		"preview": "Avance",
+		"title": "Título (o icono)"
+	}
+}

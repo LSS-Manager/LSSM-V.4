@@ -12,6 +12,7 @@ export default ((MODULE_ID, LSSM, $m) => {
         noVehicleRequirements.push(key);
         noVehicleRequirementLabels.push(text);
     });
+    const locale = LSSM.$store.state.lang;
     return {
         'title': <Toggle>{
             type: 'toggle',
@@ -47,7 +48,21 @@ export default ((MODULE_ID, LSSM, $m) => {
             default: 'caption',
             dependsOn: '.vehicles.content',
         },
-        ...(['de_DE', 'en_US', 'nl_NL'].includes(BUILD_LANG)
+        'vehicles.sortDesc': <Toggle>{
+            type: 'toggle',
+            default: false,
+            dependsOn: '.vehicles.content',
+        },
+        ...([
+            'de_DE',
+            'en_US',
+            'nl_NL',
+            'nb_NO',
+            'en_AU',
+            'fr_FR',
+            'es_ES',
+            'en_GB',
+        ].includes(locale)
             ? {
                   'vehicles.patient_additionals': <Toggle>{
                       type: 'toggle',
@@ -69,15 +84,11 @@ export default ((MODULE_ID, LSSM, $m) => {
             default: false,
             dependsOn: '.chances.normal',
         },
-        ...(BUILD_LANG !== 'nl_NL'
-            ? {
-                  'multifunctionals.heavy_rescue_vehicles': <Toggle>{
-                      type: 'toggle',
-                      default: false,
-                      dependsOn: '.vehicles.content',
-                  },
-              }
-            : null),
+        'multifunctionals.heavy_rescue_vehicles': <Toggle>{
+            type: 'toggle',
+            default: false,
+            dependsOn: '.vehicles.content',
+        },
         'multifunctionals.battalion_chief_vehicles': <Toggle>{
             type: 'toggle',
             default: false,
@@ -85,7 +96,7 @@ export default ((MODULE_ID, LSSM, $m) => {
             // @ts-ignore
             disabled: (settings): boolean =>
                 !settings[MODULE_ID]['vehicles.content'].value ||
-                settings[MODULE_ID]['hide_battalion_chief_vehicles'].value,
+                !!settings[MODULE_ID]['hide_battalion_chief_vehicles'].value,
         },
         'hide_battalion_chief_vehicles': <Toggle>{
             type: 'toggle',
@@ -94,10 +105,11 @@ export default ((MODULE_ID, LSSM, $m) => {
             // @ts-ignore
             disabled: (settings): boolean =>
                 !settings[MODULE_ID]['vehicles.content'].value ||
-                settings[MODULE_ID]['multifunctionals.battalion_chief_vehicles']
-                    .value,
+                !!settings[MODULE_ID][
+                    'multifunctionals.battalion_chief_vehicles'
+                ].value,
         },
-        ...(BUILD_LANG === 'nl_NL'
+        ...(locale === 'nl_NL'
             ? {
                   'multifunctionals.police_cars': <Toggle>{
                       type: 'toggle',
@@ -106,7 +118,16 @@ export default ((MODULE_ID, LSSM, $m) => {
                   },
               }
             : null),
-        ...(BUILD_LANG === 'de_DE'
+        ...(locale === 'en_US'
+            ? {
+                  'multifunctionals.sheriff_unit': <Toggle>{
+                      type: 'toggle',
+                      default: false,
+                      dependsOn: '.vehicles.content',
+                  },
+              }
+            : null),
+        ...(locale === 'de_DE'
             ? {
                   'multifunctionals.platform_trucks': <Toggle>{
                       type: 'toggle',
@@ -120,12 +141,25 @@ export default ((MODULE_ID, LSSM, $m) => {
             default: false,
             dependsOn: '.vehicles.content',
         },
-        'optionalAlternatives.allow_arff_instead_of_lf': <Toggle>{
-            type: 'toggle',
-            default: false,
-            dependsOn: '.vehicles.content',
-        },
-        ...(BUILD_LANG === 'en_US'
+        ...(['de_DE', 'en_US', 'nl_NL'].includes(locale)
+            ? {
+                  'optionalAlternatives.allow_arff_instead_of_lf': <Toggle>{
+                      type: 'toggle',
+                      default: false,
+                      dependsOn: '.vehicles.content',
+                  },
+              }
+            : null),
+        ...(locale === 'en_US'
+            ? {
+                  'optionalAlternatives.allow_dlk_instead_of_lf': <Toggle>{
+                      type: 'toggle',
+                      default: false,
+                      dependsOn: '.vehicles.content',
+                  },
+              }
+            : null),
+        ...(locale === 'en_US'
             ? {
                   'optionalAlternatives.allow_drone_instead_of_investigation': <
                       Toggle
@@ -136,7 +170,9 @@ export default ((MODULE_ID, LSSM, $m) => {
                   },
               }
             : null),
-        ...(['de_DE', 'en_US', 'nl_NL', 'it_IT'].includes(BUILD_LANG)
+        ...(['de_DE', 'en_US', 'nl_NL', 'it_IT', 'fr_FR', 'nb_NO'].includes(
+            locale
+        )
             ? {
                   'optionalAlternatives.allow_ktw_instead_of_rtw': <Toggle>{
                       type: 'toggle',
@@ -161,15 +197,34 @@ export default ((MODULE_ID, LSSM, $m) => {
             type: 'toggle',
             default: true,
         },
-        ...(['en_GB', 'en_US', 'it_IT'].includes(BUILD_LANG)
+        ...(['en_GB', 'en_US', 'it_IT'].includes(locale)
             ? {
-                  'patient.code_possible': <Toggle>{
+                  'patients.code_possible': <Toggle>{
+                      type: 'toggle',
+                      default: false,
+                      disabled: () => true,
+                  },
+              }
+            : null),
+        ...([
+            'en_GB',
+            'nb_NO',
+            'da_DK',
+            'pl_PL',
+            'en_AU',
+            'fr_FR',
+            'es_ES',
+            'cs_CZ',
+            'sv_SE',
+        ].includes(locale)
+            ? {
+                  'patients.critical_care': <Toggle>{
                       type: 'toggle',
                       default: false,
                   },
               }
             : null),
-        ...(BUILD_LANG !== 'nl_NL'
+        ...(locale !== 'nl_NL'
             ? {
                   'patients.patient_allow_first_responder_chance': <Toggle>{
                       type: 'toggle',
@@ -217,7 +272,11 @@ export default ((MODULE_ID, LSSM, $m) => {
             type: 'toggle',
             default: true,
         },
-        ...(BUILD_LANG === 'en_US'
+        'hoverTip': <Toggle>{
+            type: 'toggle',
+            default: true,
+        },
+        ...(['en_US', 'it_IT', 'en_AU', 'nb_NO', 'de_DE'].includes(locale)
             ? {
                   subsequent: <Toggle>{
                       type: 'toggle',
@@ -225,7 +284,7 @@ export default ((MODULE_ID, LSSM, $m) => {
                   },
               }
             : null),
-        ...(BUILD_LANG !== 'nl_NL'
+        ...(locale !== 'nl_NL'
             ? {
                   followup: <Toggle>{
                       type: 'toggle',
@@ -241,7 +300,19 @@ export default ((MODULE_ID, LSSM, $m) => {
             type: 'hidden',
             default: false,
         },
-        ...(BUILD_LANG === 'de_DE'
+        'drag': <Hidden<unknown>>{
+            type: 'hidden',
+            default: {
+                active: false,
+                top: 60,
+                left: window.innerWidth * 0.03,
+                offset: {
+                    x: 0,
+                    y: 0,
+                },
+            },
+        },
+        ...(locale === 'de_DE'
             ? {
                   k9_only_if_needed: <Toggle>{
                       type: 'toggle',
@@ -249,7 +320,24 @@ export default ((MODULE_ID, LSSM, $m) => {
                   },
               }
             : null),
-        ...(BUILD_LANG === 'nl_NL'
+        ...(locale === 'de_DE'
+            ? {
+                  bucket_only_if_needed: <Toggle>{
+                      type: 'toggle',
+                      default: false,
+                  },
+              }
+            : null),
+        ...(locale === 'de_DE'
+            ? {
+                  max_civil_patrol_replace_police_cars: <Toggle>{
+                      type: 'toggle',
+                      default: false,
+                      disabled: () => true,
+                  },
+              }
+            : null),
+        ...(locale === 'nl_NL'
             ? {
                   bike_police_only_if_needed: <Toggle>{
                       type: 'toggle',

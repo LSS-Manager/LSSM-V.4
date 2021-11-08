@@ -66,17 +66,24 @@
 			"description": "Verbergt de voertuigenlijst en opent deze weer met een druk op de knop.",
 			"title": "Voertuigenlijst verbergen"
 		},
+		"hoverTip": {
+			"description": "Toont de naam van de knop als je met de muis er boven gaat staan. Bijvoorbeeld bij de overlay knop.",
+			"title": "Knopinfo"
+		},
 		"loadMoreVehiclesInHeader": {
 			"description": "Toont de knop \"Voertuigen laden\", indien beschikbaar, in de koptekst.",
 			"title": "Voertuigen laden knop in koptekst"
 		},
 		"missionKeywords": {
+			"allMissions": "Alle meldingen",
+			"autotextcolor": "Automatische tekstkleur",
 			"color": "Achtergrondkleur",
 			"description": "Laat je eigen trefwoord naast de meldingsnaam weergeven.",
 			"keyword": "Trefwoord",
 			"missions": "Meldingen",
 			"prepend": "Vóór de meldingsnaam weergeven",
 			"preview": "Voorvertoning",
+			"textcolor": "Tekstkleur",
 			"title": "Meldingstrefwoord"
 		},
 		"patientSummary": {
@@ -86,6 +93,14 @@
 		"redBorder": {
 			"description": "De generatietijd krijgt een rood kader, als de inzet in de komende nacht vervalt.",
 			"title": "Rood kader"
+		},
+		"remainingPatientTime": {
+			"description": "Geeft bij patiënten aan, hoe lang de patiënt nog behandeld moet worden.",
+			"title": "Patiëntenbehandelingsduur"
+		},
+		"stagingAreaSelectedCounter": {
+			"description": "Geeft in de UGS naast de \"Alarmeren\" knop het aantal geselecteerde voertuigen weer.",
+			"title": "Voertuigselectieteller in UGS"
 		},
 		"stickyHeader": {
 			"description": "Toont altijd de bovenste balk in het meldingenscherm, zelfs als je naar beneden scrolt.",
@@ -97,6 +112,10 @@
 			"name": "Naam",
 			"title": "Voertuigcategorieën",
 			"vehicles": "Voertuigtypen"
+		},
+		"vehicleTypeInList": {
+			"description": "Geeft het voertuigtype in de lijst met te selecteren voertuigen weer.",
+			"title": "Voertuigtype weergeven"
 		},
 		"yellowBorder": {
 			"description": "De generatietijd krijgt een geel kader als de inzet ouder is dan een ingesteld aantal uren. Bij 0 is er geen kader.",
@@ -118,7 +137,8 @@
 					14,
 					15,
 					17,
-					50
+					50,
+					62
 				]
 			},
 			{
@@ -140,7 +160,17 @@
 					32,
 					11,
 					24,
-					56
+					56,
+					26,
+					20,
+					21,
+					61,
+					62,
+					68,
+					69,
+					70,
+					71,
+					72
 				]
 			},
 			{
@@ -149,7 +179,10 @@
 					33,
 					49,
 					50,
-					36
+					36,
+					65,
+					66,
+					67
 				]
 			},
 			{
@@ -170,7 +203,8 @@
 					30,
 					23,
 					37,
-					38
+					38,
+					63
 				]
 			},
 			{
@@ -195,7 +229,8 @@
 					54,
 					55,
 					58,
-					60
+					60,
+					64
 				]
 			}
 		]

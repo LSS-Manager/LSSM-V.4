@@ -1,41 +1,65 @@
-export default (
+import { Mission } from 'typings/Mission';
+
+export default async (
     LSSM: Vue,
     settings: {
         keyword: string;
         color: string;
+        autotextcolor: boolean;
+        textcolor: string;
         prefix: boolean;
         missions: (string | number)[];
     }[]
-): void => {
+): Promise<void> => {
     const missionHelpBtn = document.getElementById('mission_help');
     const missionTitle = document.getElementById('missionH1');
     if (!missionHelpBtn || !missionTitle) return;
-    const missionType = parseInt(
+    const missionType =
         missionHelpBtn
             ?.getAttribute('href')
-            ?.match(/(?!^\/einsaetze\/)\d+/)?.[0] || '-1'
-    );
-    if (missionType < 0) return;
+            ?.match(/(?!^\/einsaetze\/)\d+/)?.[0] || '-1';
+    if (missionType === '-1') return;
 
-    const addLabel = (text: string, color: string, prefix: boolean) => {
+    const mission = (LSSM.$store.getters['api/missionsById'] as Record<
+        string,
+        Mission
+    >)[missionType];
+
+    const addLabel = (
+        text: string,
+        color: string,
+        autotextcolor: boolean,
+        textcolor: string,
+        prefix: boolean
+    ) => {
         const label = document.createElement('span');
         label.classList.add('label');
         label.style.backgroundColor = color;
         const textNode = document.createElement('span');
-        textNode.textContent = text;
-        textNode.style.background = 'inherit';
+        textNode.textContent = text
+            .replace(/{{type}}/g, missionType.toString())
+            .replace(
+                /{{credits}}/g,
+                (mission?.average_credits ?? 0).toLocaleString()
+            );
+        textNode.style.background = autotextcolor ? 'inherit' : 'transparent';
         textNode.style.backgroundClip = 'text';
         textNode.style.webkitBackgroundClip = 'text';
-        textNode.style.color = 'transparent';
-        textNode.style.filter = 'invert(1) grayscale(1) contrast(9)';
+        textNode.style.color = autotextcolor ? 'transparent' : textcolor;
+        textNode.style.filter = autotextcolor
+            ? 'invert(1) grayscale(1) contrast(9)'
+            : '';
         label.appendChild(textNode);
         if (!prefix) missionTitle.appendChild(label);
         else missionTitle.insertBefore(label, missionTitle.firstChild);
     };
 
     settings.forEach(s => {
-        if (!s.missions.map(m => m.toString()).includes(missionType.toString()))
+        if (
+            !s.missions.includes(-1) &&
+            !s.missions.map(m => m.toString()).includes(missionType.toString())
+        )
             return;
-        addLabel(s.keyword, s.color, s.prefix);
+        addLabel(s.keyword, s.color, s.autotextcolor, s.textcolor, s.prefix);
     });
 };

@@ -25,7 +25,7 @@ export default class DynamicImportQueryPlugin {
                     if (
                         source.includes('function jsonpScriptSrc') &&
                         !source.includes('webpackJsonpScriptSrc')
-                    )
+                    ) {
                         return `${source.replace(
                             'function jsonpScriptSrc',
                             'function webpackJsonpScriptSrc'
@@ -40,7 +40,9 @@ function jsonpScriptSrc(chunkId) {
     return url.toString();
 }
 `;
-                    else return source;
+                    } else {
+                        return source;
+                    }
                 }
             );
         });

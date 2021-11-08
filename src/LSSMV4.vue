@@ -1,6 +1,5 @@
 <template>
     <div :id="id">
-        <modals-container />
         <v-dialog></v-dialog>
         <notifications
             v-for="group in notificationGroups"
@@ -48,8 +47,9 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import { LSSMV4Data, LSSMV4Computed } from '../typings/LSSMV4';
+
 import { DefaultMethods, DefaultProps } from 'vue/types/options';
+import { LSSMV4Computed, LSSMV4Data } from '../typings/LSSMV4';
 
 export default Vue.extend<
     LSSMV4Data,
@@ -87,7 +87,7 @@ export default Vue.extend<
                         selectorText:
                             '.navbar-default, .navbar-default .dropdown-menu',
                         style: {
-                            'background-color': iconBg,
+                            'background-color': `${iconBg} !important`,
                         },
                     });
                 }
@@ -129,7 +129,7 @@ body.dark
         color: #f5f5f5
         background: #333
 
-    .leaflet-tooltip
+    &:not(.leaflet-no-dark-tooltip) .leaflet-tooltip
         background-color: #505050
         color: #ddd
         border: #505050
@@ -140,12 +140,22 @@ body.dark
         &.leaflet-tooltip-right::before
             border-right-color: #505050
 
-    h1, h2, h3, h4, h5, h6
-        small
-            color: #444
+    &.leaflet-no-dark-tooltip .leaflet-tooltip tr
+        background-color: unset
 
     .bg-danger
         background-color: #a94442
+
+    > :not(nav):not(#col_navbar_holder) .dropdown-menu
+        background-image: linear-gradient(to bottom, #505050 0, #000 100%)
+        color: #fff
+        border: #000
+
+        > li > a
+            color: #fff
+
+            &:focus,&:hover
+                background-image: linear-gradient(to bottom, #5a5a5a 0, #353535 100%)
 
 .vm--container
     z-index: 5001 !important
@@ -162,6 +172,7 @@ body.dark
 .vue-tablist
     list-style: none
     display: flex
+    flex-flow: wrap
     padding-left: 0
     border-bottom: 1px solid #e2e2e2
 

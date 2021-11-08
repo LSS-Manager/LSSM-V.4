@@ -1,4 +1,16 @@
 {
+	"buildingPersonal": {
+		"deleteModal": {
+			"btnCancel": "Abbrechen",
+			"btnConfirm": "Kündigen",
+			"text": "Möchtest du diese Person kündigen?",
+			"title": "Kündigen?"
+		}
+	},
+	"buildings": {
+		"active": "Einsatzbereit",
+		"nonactive": "Nicht Einsatzbereit"
+	},
 	"deleteARR": {
 		"deleteModal": {
 			"btnCancel": "Abbrechen",
@@ -32,6 +44,7 @@
 		"coadmin": "Verbands-Co-Admin",
 		"finance": "Finanzminister",
 		"schooling": "Lehrgangsmeister",
-		"sprechwunsch_admin": "Sprechwunsch-Admin"
+		"sprechwunsch_admin": "Sprechwunsch-Admin",
+		"staff": "Verbands-Personal"
 	}
 }

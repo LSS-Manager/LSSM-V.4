@@ -1,12 +1,13 @@
-import { InternalVehicle, Vehicle } from 'typings/Vehicle';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { $m } from 'typings/Module';
+import { InternalVehicle, Vehicle } from 'typings/Vehicle';
 
 export default async (
     LSSM: Vue,
     BUILDING_MODE: 'building' | 'dispatch',
     getSetting: (key: string) => Promise<boolean>,
-    $m: $m
+    $m: $m,
+    MODULE_ID: string
 ): Promise<void> => {
     const callback = async () => {
         const vehicles = Array.from(
@@ -22,6 +23,7 @@ export default async (
             'personnelAssignmentBtn'
         );
         const vehicleTypes = await getSetting('vehicleTypes');
+        const vehicleTypesOnlyOwn = await getSetting('vehicleTypesOnlyOwn');
         const lastRowSettings = {
             vehiclesPersonnelMax: await getSetting('vehiclesPersonnelMax'),
             vehiclesPersonnelCurrent: await getSetting(
@@ -53,13 +55,14 @@ export default async (
 
         if (personnelAssignmentBtn) LSSM.$store.commit('useFontAwesome');
 
-        if (fmsSwitch)
+        if (fmsSwitch) {
             await LSSM.$store.dispatch('addStyle', {
                 selectorText: '.building_list_fms_2, .building_list_fms_6',
                 style: {
                     cursor: 'pointer',
                 },
             });
+        }
 
         const lastRowItems = [
             'vehiclesPersonnelCurrent',
@@ -67,7 +70,7 @@ export default async (
             'vehiclesPersonnelMax',
         ].filter(setting => lastRowSettings[setting]);
 
-        if (lastRowItems.length) {
+        if (lastRowItems.length && BUILDING_MODE === 'building') {
             tableHead.children[
                 tableHead.children.length - 1
             ].textContent = `(${lastRowItems
@@ -99,6 +102,11 @@ export default async (
             if (fmsSwitch) {
                 const fmsBtn = vehicle.querySelector('.building_list_fms');
                 fmsBtn?.addEventListener('click', () => {
+                    if (
+                        !fmsBtn.classList.contains('building_list_fms_2') &&
+                        !fmsBtn.classList.contains('building_list_fms_6')
+                    )
+                        return;
                     const nextFms = fmsBtn.classList.contains(
                         'building_list_fms_2'
                     )
@@ -107,6 +115,7 @@ export default async (
                     LSSM.$store
                         .dispatch('api/request', {
                             url: `/vehicles/${vehicleId}/set_fms/${nextFms}`,
+                            feature: `${MODULE_ID}-enhanceVehicleList-fmsSwitch`,
                         })
                         .then(({ status }) => {
                             if (status === 200) {
@@ -129,20 +138,25 @@ export default async (
                 const typeWrapper = document.createElement('td');
                 vehicle.insertBefore(typeWrapper, linkWrapper);
                 if (storedVehicle) {
-                    const vehicleTypeNode = document.createElement('a');
-                    vehicleTypeNode.classList.add(
-                        'btn',
-                        'btn-default',
-                        'btn-xs',
-                        'disabled'
-                    );
-                    vehicleTypeNode.textContent =
-                        internalVehicleTypes[
-                            storedVehicle.vehicle_type
-                        ]?.caption;
-                    typeWrapper.append(vehicleTypeNode);
+                    if (
+                        !vehicleTypesOnlyOwn ||
+                        !storedVehicle.vehicle_type_caption
+                    ) {
+                        const vehicleTypeNode = document.createElement('a');
+                        vehicleTypeNode.classList.add(
+                            'btn',
+                            'btn-default',
+                            'btn-xs',
+                            'disabled'
+                        );
+                        vehicleTypeNode.textContent =
+                            internalVehicleTypes[
+                                storedVehicle.vehicle_type
+                            ]?.caption;
+                        typeWrapper.append(vehicleTypeNode);
+                    }
                     if (storedVehicle.vehicle_type_caption) {
-                        const customTypeNode = document.createElement('button');
+                        const customTypeNode = document.createElement('a');
                         customTypeNode.classList.add(
                             'btn',
                             'btn-default',
@@ -174,10 +188,11 @@ export default async (
                 if (lastRowItems.length && storedVehicle) {
                     (async () => {
                         let currentPersonnel = 0;
-                        if (lastRowItems.includes('vehiclesPersonnelCurrent'))
+                        if (lastRowItems.includes('vehiclesPersonnelCurrent')) {
                             currentPersonnel = await LSSM.$store
                                 .dispatch('api/request', {
                                     url: `/vehicles/${vehicleId}`,
+                                    feature: `${MODULE_ID}-enhanceVehicleList-personnel`,
                                 })
                                 .then(res => res.text())
                                 .then(
@@ -189,6 +204,7 @@ export default async (
                                                 '#vehicle_details table tbody tr'
                                             ).length
                                 );
+                        }
                         const assigned_personnel_count =
                             storedVehicle.assigned_personnel_count || 0;
                         const maxPersonnel =
@@ -233,11 +249,16 @@ export default async (
             tabSelector: '#tab_vehicle',
             callback,
         });
-        await LSSM.$store.dispatch('api/registerVehiclesUsage', false);
+        await LSSM.$store.dispatch('api/registerVehiclesUsage', {
+            feature: `${MODULE_ID}-enhanceVehicleList`,
+        });
     } else {
         const path = window.location.pathname.split('/').filter(s => !!s);
         const buildingId = parseInt(path[path.length - 1]);
-        await LSSM.$store.dispatch('api/fetchVehiclesAtBuilding', buildingId);
+        await LSSM.$store.dispatch('api/fetchVehiclesAtBuilding', {
+            id: buildingId,
+            feature: `${MODULE_ID}-enhanceVehicleList`,
+        });
         await callback();
     }
 };

@@ -1,7 +1,8 @@
+import { BroadcastChannel, createLeaderElection } from 'broadcast-channel';
+
+import { BroadcastActionStoreParams } from 'typings/store/broadcast/Actions';
 import { RootState } from '../../typings/store/RootState';
 import { ActionTree, Module } from 'vuex';
-import { BroadcastChannel, createLeaderElection } from 'broadcast-channel';
-import { BroadcastActionStoreParams } from 'typings/store/broadcast/Actions';
 
 const STORAGE_NAME_KEY = `${PREFIX}_windowname`;
 
@@ -52,7 +53,7 @@ channel.addEventListener('message', msg => {
             )?.[0];
             if (!key) return;
             value = {
-                value: value,
+                value,
                 lastUpdate: (window[PREFIX] as Vue).$store.state.api
                     .lastUpdates[key],
                 user_id: window.user_id,
@@ -74,6 +75,7 @@ channel.addEventListener('message', msg => {
             { root: true }
         );
     } else if (msg.type === 'custom') {
+        // eslint-disable-next-line no-eval
         eval(msg.handler)?.(msg);
     }
 });
@@ -154,7 +156,9 @@ export default {
                 sender: getWindowName(),
                 receiver,
                 name,
-                handler: `(${handler.toString()})`,
+                handler: `(${handler
+                    .toString()
+                    .replace(/^.*?(?=\()/, 'function')})`,
                 ...data,
             } as CustomBroadcastMessage);
         },

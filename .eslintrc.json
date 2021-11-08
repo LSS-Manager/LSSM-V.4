@@ -15,7 +15,7 @@
         "SharedArrayBuffer": "readonly",
         "process": "readonly",
         "__dirname": "readonly",
-        "MODULE_ID": "readonly"
+        "PREFIX": "readonly"
     },
     "parserOptions": {
         "parser": "@typescript-eslint/parser",
@@ -23,9 +23,56 @@
         "sourceType": "module"
     },
     "rules": {
-        "guard-for-in": 2,
-        "no-prototype-builtins": 0,
+        "array-callback-return": ["error"],
+        "block-scoped-var": "warn",
+        "curly": ["error", "multi-or-nest", "consistent"],
+        "default-case-last": "error",
+        "guard-for-in": "error",
+        "no-duplicate-imports": ["error", { "includeExports": true }],
+        "no-eval": "error",
+        "no-floating-decimal": "warn",
+        "no-loop-func": "error",
+        "no-loss-of-precision": "error",
+//        "no-magic-numbers": ["warn", {
+//            "ignoreArrayIndexes": true,
+//            "ignoreDefaultValues": true,
+//            "enforceConst": true
+//        }],
+        "no-multi-str": "warn",
+        "no-param-reassign": "error",
+        "no-prototype-builtins": "off",
+        "no-self-compare": "error",
+        "no-sequences": "error",
+        "no-template-curly-in-string": "warn",
+        "no-unmodified-loop-condition": "error",
+        "no-unreachable-loop": "error",
+        "no-unsafe-optional-chaining": "error",
+        "no-unused-expressions": "error",
+        "no-useless-concat": "warn",
+        "no-useless-rename": "error",
+        "no-useless-return": "warn",
+        "no-var": "error",
+        "object-shorthand": ["error", "always", { "avoidQuotes": true }],
+        "prefer-arrow-callback": "error",
+        "prefer-const": "error",
+        "prefer-regex-literals": ["error", {
+            "disallowRedundantWrapping": true
+        }],
+        "prefer-rest-params": "error",
+        "prefer-spread": "error",
+        "prefer-template": "error",
         "prettier/prettier": "error",
-        "semi": ["error", "always"]
+        "semi": ["error", "always"],
+        "sort-imports": ["warn", {
+            "allowSeparatedGroups": true,
+            "ignoreCase": true,
+            "memberSyntaxSortOrder": ["none", "all", "single", "multiple"]
+        }],
+        "template-curly-spacing": "error",
+        "vue/no-unused-refs": "warn",
+        "yoda": ["error", "never", {
+            "exceptRange": true
+        }]
+        // TODO: Style
     }
 }

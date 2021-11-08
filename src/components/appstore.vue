@@ -23,7 +23,7 @@
                 :key="moduleId"
                 class="card"
                 :class="{
-                    dev: modules[moduleId].dev,
+                    dev: modules[moduleId].dev || modules[moduleId].alpha,
                     mapkit: hasMapkitConflict(moduleId),
                 }"
             >
@@ -75,15 +75,16 @@
 
 <script lang="ts">
 import Vue from 'vue';
+
+import isEqual from 'lodash/isEqual';
+
+import { DefaultProps } from 'vue/types/options';
+import { Modules } from '../../typings/Module';
 import {
     AppstoreComputed,
     AppstoreData,
     AppstoreMethods,
 } from '../../typings/components/Appstore';
-import { LSSM } from '../core';
-import isEqual from 'lodash/isEqual';
-import { Modules } from '../../typings/Module';
-import { DefaultProps } from 'vue/types/options';
 
 export default Vue.extend<
     AppstoreData,
@@ -91,7 +92,7 @@ export default Vue.extend<
     AppstoreComputed,
     DefaultProps
 >({
-    name: 'appstore',
+    name: 'lssmv4-appstore',
     components: {
         Lightbox: () =>
             import(
@@ -99,7 +100,7 @@ export default Vue.extend<
             ),
     },
     data() {
-        let modules = this.$store.getters.appModules as Modules;
+        const modules = this.$store.getters.appModules as Modules;
         Object.keys(modules).forEach(
             moduleId =>
                 (modules[moduleId] = {
@@ -160,7 +161,7 @@ export default Vue.extend<
                     this.$store.commit('setAppstoreChanges', this.changes);
                     this.$store.commit('setAppstoreReload');
                 })
-                .catch(err => console.error(err));
+                .catch(err => this.$store.dispatch('console/error', err));
         },
         reset() {
             Object.keys(this.modules).forEach(module => {
@@ -175,7 +176,11 @@ export default Vue.extend<
             });
             this.$store.commit('setAppstoreChanges', this.changes);
         },
-        $m: (key, args) => LSSM.$t(`modules.appstore.${key}`, args),
+        $m: (key, args) =>
+            (window[PREFIX] as Vue).$t(`modules.appstore.${key}`, args),
+    },
+    mounted() {
+        (window[PREFIX] as Vue).$appstore = this;
     },
 });
 </script>

@@ -1,23 +1,22 @@
-import mkpreview from './components/missionKeywords/preview.vue';
 import aipreview from './components/alarmIcons/preview.vue';
+import mkpreview from './components/missionKeywords/preview.vue';
 
+import { InternalVehicle } from 'typings/Vehicle';
 import { $m, ModuleSettingFunction } from 'typings/Module';
 import {
     AppendableList,
     AppendableListSetting,
     Color,
     Hidden,
-    NumberInput,
-    Toggle,
-    Text,
     MultiSelect,
-    Select,
+    NumberInput,
     PreviewElement,
+    Select,
+    Text,
+    Toggle,
 } from 'typings/Setting';
-import { InternalVehicle } from 'typings/Vehicle';
-import { Mission } from 'typings/Mission';
 
-export default (async (_: string, LSSM: Vue, $m: $m) => {
+export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
     const defaultTailoredTabs = Object.values(
         $m('tailoredTabs.defaultTabs')
     ).map(({ name, vehicleTypes }) => ({
@@ -36,16 +35,11 @@ export default (async (_: string, LSSM: Vue, $m: $m) => {
         vehicleIds.push(id);
     });
 
-    const missions = (await LSSM.$store.dispatch(
-        'api/getMissions',
-        false
-    )) as Mission[];
-    const missionIds = [] as string[];
-    const missionNames = [] as string[];
-    missions.forEach(({ id, name }) => {
-        missionIds.push(id.toString());
-        missionNames.push(`${id}: ${name}`);
-    });
+    const { missionIds, missionNames } = await LSSM.$utils.getMissionOptions(
+        LSSM,
+        MODULE_ID,
+        'settings'
+    );
 
     return {
         generationDate: <Toggle>{
@@ -131,6 +125,22 @@ export default (async (_: string, LSSM: Vue, $m: $m) => {
             type: 'toggle',
             default: false,
         },
+        hoverTip: <Toggle>{
+            type: 'toggle',
+            default: true,
+        },
+        stagingAreaSelectedCounter: <Toggle>{
+            type: 'toggle',
+            default: true,
+        },
+        vehicleTypeInList: <Toggle>{
+            type: 'toggle',
+            default: false,
+        },
+        remainingPatientTime: <Toggle>{
+            type: 'toggle',
+            default: true,
+        },
         tailoredTabs: <Omit<AppendableList, 'value' | 'isDisabled'>>{
             type: 'appendable-list',
             default: defaultTailoredTabs,
@@ -159,6 +169,7 @@ export default (async (_: string, LSSM: Vue, $m: $m) => {
                 vehicleTypes: [],
             },
             orderable: true,
+            disableable: true,
         },
         missionKeywords: <Omit<AppendableList, 'value' | 'isDisabled'>>{
             type: 'appendable-list',
@@ -175,6 +186,22 @@ export default (async (_: string, LSSM: Vue, $m: $m) => {
                 <AppendableListSetting<Color>>{
                     name: 'color',
                     title: $m('settings.missionKeywords.color'),
+                    size: 1,
+                    setting: {
+                        type: 'color',
+                    },
+                },
+                <AppendableListSetting<Toggle>>{
+                    name: 'autotextcolor',
+                    title: $m('settings.missionKeywords.autotextcolor'),
+                    size: 2,
+                    setting: {
+                        type: 'toggle',
+                    },
+                },
+                <AppendableListSetting<Color>>{
+                    name: 'textcolor',
+                    title: $m('settings.missionKeywords.textcolor'),
                     size: 1,
                     setting: {
                         type: 'color',
@@ -200,18 +227,24 @@ export default (async (_: string, LSSM: Vue, $m: $m) => {
                     size: 0,
                     setting: {
                         type: 'multiSelect',
-                        values: missionIds,
-                        labels: missionNames,
+                        values: [-1, ...missionIds],
+                        labels: [
+                            $m('settings.missionKeywords.allMissions'),
+                            ...missionNames,
+                        ],
                     },
                 },
             ],
             defaultItem: {
                 keyword: '',
                 color: '#777777',
+                autotextcolor: true,
+                textcolor: '#ffffff',
                 prefix: false,
                 missions: [],
             },
             orderable: true,
+            disableable: false,
         },
         alarmIcons: <Omit<AppendableList, 'value' | 'isDisabled'>>{
             type: 'appendable-list',
@@ -258,6 +291,7 @@ export default (async (_: string, LSSM: Vue, $m: $m) => {
                 vehicleTypes: [],
             },
             orderable: true,
+            disableable: false,
         },
         overlay: <Hidden>{
             type: 'hidden',
@@ -274,6 +308,18 @@ export default (async (_: string, LSSM: Vue, $m: $m) => {
         pushRight: <Hidden>{
             type: 'hidden',
             default: false,
+        },
+        drag: <Hidden<unknown>>{
+            type: 'hidden',
+            default: {
+                active: false,
+                top: 60,
+                left: window.innerWidth * 0.03,
+                offset: {
+                    x: 0,
+                    y: 0,
+                },
+            },
         },
     };
 }) as ModuleSettingFunction;

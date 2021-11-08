@@ -62,7 +62,7 @@
                 >
                     |
                     <font-awesome-icon :icon="faProcedures"></font-awesome-icon>
-                    {{ building.level }}
+                    {{ building.level + 10 }}
                 </span>
                 <span
                     v-if="
@@ -128,21 +128,23 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import { faParking } from '@fortawesome/free-solid-svg-icons/faParking';
-import { faCar } from '@fortawesome/free-solid-svg-icons/faCar';
-import { faUsers } from '@fortawesome/free-solid-svg-icons/faUsers';
-import { faProcedures } from '@fortawesome/free-solid-svg-icons/faProcedures';
-import { faChalkboardTeacher } from '@fortawesome/free-solid-svg-icons/faChalkboardTeacher';
+
+import cloneDeep from 'lodash/cloneDeep';
 import { faBorderAll } from '@fortawesome/free-solid-svg-icons/faBorderAll';
+import { faCar } from '@fortawesome/free-solid-svg-icons/faCar';
+import { faChalkboardTeacher } from '@fortawesome/free-solid-svg-icons/faChalkboardTeacher';
+import { faParking } from '@fortawesome/free-solid-svg-icons/faParking';
+import { faProcedures } from '@fortawesome/free-solid-svg-icons/faProcedures';
+import { faUsers } from '@fortawesome/free-solid-svg-icons/faUsers';
+
+import { InternalBuilding } from 'typings/Building';
+import { InternalVehicle } from 'typings/Vehicle';
 import {
     LinkPreview,
-    LinkPreviewMethods,
     LinkPreviewComputed,
+    LinkPreviewMethods,
     LinkPreviewProps,
 } from 'typings/modules/GeneralExtensions/LinkPreview';
-import { InternalVehicle } from 'typings/Vehicle';
-import { InternalBuilding } from 'typings/Building';
-import cloneDeep from 'lodash/cloneDeep';
 
 export default Vue.extend<
     LinkPreview,
@@ -150,7 +152,7 @@ export default Vue.extend<
     LinkPreviewComputed,
     LinkPreviewProps
 >({
-    name: 'linkPreview',
+    name: 'lssmv4-linkPreview',
     data() {
         return {
             faParking,
@@ -235,8 +237,7 @@ export default Vue.extend<
             this.building = null;
             this.vehicle = null;
         },
-        _setIcon(icon) {
-            if (!icon) icon = '';
+        _setIcon(icon = '') {
             this.icon = icon;
         },
         _setType(type) {

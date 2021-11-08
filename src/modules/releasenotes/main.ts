@@ -1,27 +1,75 @@
-import { Releasenote } from '../../../typings/modules/Releasenotes';
+import coerce from 'semver/functions/coerce';
+import semverLt from 'semver/functions/lt';
+import semverLte from 'semver/functions/lte';
+import semverRcompare from 'semver/functions/rcompare';
+import Showdown from 'showdown';
+
+import { Releasenote, Releasenotes } from 'typings/modules/Releasenotes';
 
 const LAST_VERSION_STORAGE_KEY = 'releasenotes_lastVersion';
 
-export default (LSSM: Vue): void => {
+export default async (LSSM: Vue): Promise<void> => {
     const $m = (key: string, args?: { [key: string]: unknown }) =>
         LSSM.$t(`modules.releasenotes.${key}`, args);
-    const notes = (Object.values($m('notes')) as Releasenote[]).sort((a, b) =>
-        a.version > b.version ? -1 : a.version < b.version ? 1 : 0
-    );
 
-    const openNotes = (): void =>
+    const sdConverter = new Showdown.Converter({
+        headerLevelStart: 5,
+        literalMidWordUnderscores: true,
+        strikethrough: true,
+        tables: true,
+        tasklists: true,
+        smartIndentationFix: true,
+        disableForced4SpacesIndentedSublists: true,
+        simpleLineBreaks: true,
+        openLinksInNewWindow: true,
+    });
+
+    const currentVersion = coerce(VERSION) ?? '4.0.0';
+
+    const notes: [string, Releasenote][] = Object.entries(
+        (await LSSM.$store
+            .dispatch('api/request', {
+                url: `${LSSM.$store.state.server}releasenotes/${LSSM.$store.state.lang}.json?v=${VERSION}`,
+                init: {
+                    method: 'GET',
+                },
+                feature: 'releasenotes',
+            })
+            .then(res => res.json())) as Releasenotes
+    )
+        .filter(([version]) =>
+            semverLte(coerce(version) ?? '4.0.0', currentVersion)
+        )
+        .sort((a, b) =>
+            semverRcompare(coerce(a[0]) ?? '0', coerce(b[0]) ?? '0')
+        )
+        .map(([version, note]) => [
+            version,
+            {
+                ...note,
+                content: sdConverter.makeHtml(
+                    note.content.replace(
+                        /#(\d+)/g,
+                        ($0, $1) =>
+                            `[${$0}](https://github.com/LSS-Manager/LSSM-V.4/issues/${$1})`
+                    )
+                ),
+            },
+        ]);
+
+    const openNotes = (last_seen?: string): void =>
         LSSM.$modal.show(
             () =>
                 import(
                     /* webpackChunkName: "releasenotes/releasenotes" */ './releasenotes.vue'
                 ),
-            { notes },
+            { notes, last_seen: last_seen ?? notes[0][0] },
             { name: 'releasenotes', height: 'auto' },
             {
-                async 'before-close'() {
+                'before-close': async function() {
                     await LSSM.$store.dispatch('storage/set', {
                         key: LAST_VERSION_STORAGE_KEY,
-                        value: notes[0]?.version,
+                        value: notes[0][0],
                     });
                 },
             }
@@ -29,9 +77,15 @@ export default (LSSM: Vue): void => {
 
     LSSM.$store
         .dispatch('addMenuItem', $m('name').toString())
-        .then(element => (element.onclick = openNotes));
+        .then(element => (element.onclick = () => openNotes()));
 
     LSSM.$store
         .dispatch('storage/get', { key: LAST_VERSION_STORAGE_KEY })
-        .then(key => (key || 0).toString() < notes[0]?.version && openNotes());
+        .then(
+            key =>
+                semverLt(
+                    coerce(key) ?? '4.0.0',
+                    coerce(notes[0][0]) ?? '4.0.0'
+                ) && openNotes(key)
+        );
 };

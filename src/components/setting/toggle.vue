@@ -11,10 +11,11 @@
 
 <script lang="ts">
 import Vue from 'vue';
+
 import { DefaultData, DefaultMethods } from 'vue/types/options';
 import {
-    ToggleProps,
     ToggleComputed,
+    ToggleProps,
 } from '../../../typings/components/setting/Toggle';
 
 export default Vue.extend<

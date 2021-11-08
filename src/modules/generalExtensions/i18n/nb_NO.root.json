@@ -14,6 +14,10 @@
 			"description": "Shows you emojis for selection when you type : followed by text.",
 			"title": "Emoji picker"
 		},
+		"extensionCloseCall": {
+			"description": "Closes propagation speech requests even if the button \"to mission\" is pressed.",
+			"title": "Spreading improved FMS 5"
+		},
 		"linkPreviews": {
 			"buildings": "Buildings",
 			"description": "Shows a small info box when you wait with the mouse over a link for a short time. Here you can set for which links the infobox should be activated:",

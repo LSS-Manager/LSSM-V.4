@@ -6,14 +6,19 @@
             :options="options"
             :disabled="disabled"
             :clearable="false"
-        ></v-select>
+        >
+            <div slot="no-options">
+                {{ $t('noOptions') }}
+            </div>
+        </v-select>
     </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
-import { SelectComputed, SelectProps } from 'typings/components/setting/Select';
+
 import { DefaultData, DefaultMethods } from 'vue/types/options';
+import { SelectComputed, SelectProps } from 'typings/components/setting/Select';
 
 export default Vue.extend<
     DefaultData<Vue>,

@@ -16,6 +16,11 @@ interface Additional {
     only_alliance_mission?: boolean;
     max_possible_prisoners?: number;
     allow_arff_instead_of_lf?: boolean;
+    need_helicopter_bucket_only_if_present?: boolean;
+    need_elw_police_only_if_present?: boolean;
+    need_police_horse_only_if_present?: boolean;
+    max_civil_patrol_replacing_police_cars?: number;
+    pump_water_amount?: number;
 
     // Guard missions
     duration?: number;
@@ -43,6 +48,10 @@ interface Additional {
     patient_uk_code_possible?: string[]; // en_GB only
     patient_us_code_possible?: string[]; // en_US only
     patient_it_code_possible?: string[]; // it_IT only
+
+    // seasonal missions
+    date_start: string;
+    date_end: string;
 
     // General:
     [key: string]:
@@ -82,20 +91,26 @@ interface Chances {
     ovdp?: number;
     boats?: number; // de_DE: Boote
     elw_airport?: number;
+    elw_police?: number;
+    civil_patrolcar?: number;
 
     // Patients
     nef?: number;
     helicopter?: number; // de_DE: RTH
     patient_transport?: number;
     patient_other_treatment?: number; // de_DE: Tragehilfe
-    patient_critical_care?: number; // en_GB only
+    patient_critical_care?: number; // en_GB, nb_NO only
 
     // General:
     [key: string]: number | undefined;
 }
 
 interface Prerequisites {
+    main_building: number;
+    main_building_extensions?: Record<string, number>;
+
     fire_stations?: number;
+    commerce_police_stations?: number;
     max_police_stations?: number;
     rescue_stations?: number;
     police_stations?: number;
@@ -108,9 +123,24 @@ interface Prerequisites {
     sek?: number;
     werkfeuerwehr?: number;
     rescue_dog_units?: number;
+    federalpolice_stations?: number;
+    brush_extension?: number;
+    fire_aviation_count?: number;
+    divers_extension_count?: number;
+    guard_dog_count?: number;
+    game_warden_count?: number;
+    water_police_count?: number;
+    dea_count?: number;
+    atf_count?: number;
+    criminal_investigation_count?: number;
+    thw_bergung_count?: number;
+    thw_zugtrupp_count?: number;
+    thw_fg_raeumen_count?: number;
+    thw_gkw_count?: number;
+    fire_investigation_count?: number;
 
     // General:
-    [key: string]: number | undefined;
+    [key: string]: number | Record<string, number> | undefined;
 }
 
 interface Requirements {
@@ -142,6 +172,7 @@ interface Requirements {
     ambulances?: number; // de_DE: RTW oder KTW oder KTW-B
     gw_san?: number; // de_DE: GW-San
     police_helicopters?: number; // de_DE: Polizeihubschrauber
+    helicopter_bucket?: number; // de_DE: Aussenbehälter
     boats?: number; // de_DE: Boote
     diver_units?: number; // de_DE: Taucher
     wasserwerfer?: number; // de_DE: WaWe
@@ -164,15 +195,40 @@ interface Requirements {
     at_c?: number;
     at_m?: number;
     at_o?: number;
+    water_rescue?: number;
+    commerce_police?: number;
+    elw_police?: number;
+    police_horse?: number;
+    fbi?: number;
+    brush_truck?: number;
+    sheriff?: number;
+    fbi_mcc?: number;
+    fbi_drone?: number;
+    fbi_bomb?: number;
+    fbi_investigation?: number;
+    fire_aviation?: number;
+    police_boat?: number;
+    atf_unit?: number;
+    atf_lab_vehicle?: number;
+    dea_unit?: number;
+    dea_clan_lab?: number;
+    game_warden?: number;
+    hazard_response_primary?: number;
+    hazard_response_secondary?: number;
+    emergency_welfare?: number;
+    atv_carrier?: number;
+    civil_patrolcar?: number;
+    fire_investigation?: number;
 
     // General:
     [key: string]: number | undefined;
 }
 
 export interface Mission {
-    id: number;
+    id: string;
     name: string;
     place: string;
+    place_array: string[];
     average_credits?: number;
     generated_by: string;
     icons: string[3];
@@ -180,4 +236,6 @@ export interface Mission {
     chances: Chances; // What is the chance for a need at scene?
     additional: Additional; // Any further information on this mission-type
     prerequisites: Prerequisites; // What is needed for the mission to be generated?
+    overlay_index: null | number;
+    base_mission_id: number;
 }

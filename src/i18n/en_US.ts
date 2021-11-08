@@ -1,7 +1,5 @@
 // import { Building } from 'typings/Building';
 
-const moduleRootFiles = require.context('../', true, MODULE_ROOT_I18N_FILES);
-const furtherFiles = require.context('./en_US/', true, /.*(\/index)?\.js(on)?/);
 const modules = {
     appstore: {
         save: 'Save',
@@ -14,7 +12,9 @@ const modules = {
             title: 'Unsaved changes',
             text:
                 'You made changes in the AppStore that have not yet been saved. Reset them or save them to close the AppStore.',
-            close: 'Close message',
+            abort: 'Cancel',
+            saveAndExit: 'Save and Exit',
+            exit: 'Exit without saving',
         },
     },
     settings: {
@@ -24,6 +24,14 @@ const modules = {
         reset: 'Reset',
         export: 'Export',
         import: 'Import',
+        appendableList: {
+            unique: {
+                title: 'double value',
+                text:
+                    'There must be no duplicate values in the **{title}** column. The value **{value}** already exists!',
+                confirm: 'OK',
+            },
+        },
         resetWarning: {
             title: 'Reset the settings',
             text:
@@ -43,29 +51,23 @@ const modules = {
             title: 'Unsaved changes',
             text:
                 'You have made changes in the settings that are not yet saved. Reset them, discard them or save them to close the settings.',
-            close: 'Close message',
+            abort: 'Cancel',
+            saveAndExit: 'Save and Exit',
+            exit: 'Exit without saving',
         },
         changeList: {
             true: 'On',
             false: 'Off',
         },
+        locationSelect: {
+            location: 'Select position',
+            zoom: 'Select position and zoom',
+        },
     },
 } as { [moduleId: string]: { [key: string]: unknown } };
-moduleRootFiles
-    .keys()
-    .forEach(key => (modules[key.split('/')[2]] = moduleRootFiles(key)));
-
-const t = {} as { [key: string]: unknown };
-
-furtherFiles
-    .keys()
-    .forEach(
-        key => (t[key.split('/')[1].replace(/\..*$/, '')] = furtherFiles(key))
-    );
 
 export default {
     modules,
-    ...t,
     error: {
         title: 'LSS Manager: Error',
         msg:
@@ -101,6 +103,11 @@ export default {
                 'Color the whole navbar in the color of LSSM-Icon Background!',
             title: 'colorize navbar',
         },
+        osmDarkTooltip: {
+            description:
+                'This settings darkens tooltips on map if you have enabled the dark mode',
+            title: 'Dark tooltips on map',
+        },
     },
     vehicles: {
         0: {
@@ -110,7 +117,9 @@ export default {
             credits: 5_000,
             minPersonnel: 1,
             maxPersonnel: 6,
-            wtank: 0,
+            wtank: 750,
+            ftank: 25,
+            possibleBuildings: [0, 13],
         },
         1: {
             caption: 'Type 2 fire engine',
@@ -119,7 +128,9 @@ export default {
             credits: 5_000,
             minPersonnel: 1,
             maxPersonnel: 3,
-            wtank: 0,
+            wtank: 500,
+            ftank: 25,
+            possibleBuildings: [0, 13],
         },
         2: {
             caption: 'Platform truck',
@@ -129,6 +140,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 3,
             wtank: 0,
+            possibleBuildings: [0, 13],
             special: 'Required once you have built 3 firehouses',
         },
         3: {
@@ -139,6 +151,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 3,
             wtank: 0,
+            possibleBuildings: [0, 13],
             special: 'Required once you have built 6 firehouses',
         },
         4: {
@@ -149,16 +162,18 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 4,
             wtank: 0,
+            possibleBuildings: [0, 13],
             special: 'Required once you have built 4 firehouses',
         },
         5: {
             caption: 'ALS Ambulance',
-            color: '#9c1c1c',
+            color: '#9c6d1c',
             coins: 25,
             credits: 5_000,
             minPersonnel: 1,
             maxPersonnel: 3,
             wtank: 0,
+            possibleBuildings: [0, 3, 14, 16],
         },
         6: {
             caption: 'Mobile air',
@@ -168,6 +183,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 3,
             wtank: 0,
+            possibleBuildings: [0, 13],
             special: 'Required once you have built 5 firehouses',
         },
         7: {
@@ -178,6 +194,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 3,
             wtank: 3_000,
+            possibleBuildings: [0, 13],
             special: 'Required once you have built 7 firehouses',
         },
         8: {
@@ -188,6 +205,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 4,
             wtank: 0,
+            possibleBuildings: [0, 11, 12, 13],
             special: 'Required once you have built 4 firehouses',
         },
         9: {
@@ -198,27 +216,35 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 6,
             wtank: 0,
+            possibleBuildings: [0, 13],
+            schooling: {
+                'Fire Station': {
+                    HazMat: {
+                        all: true,
+                    },
+                },
+            },
             special: 'Required once you have built 11 firehouses',
-            schooling: 'Fire Station - Hazmat',
-            shownSchooling: 'Hazmat',
         },
         10: {
             caption: 'Patrol Car',
-            color: '#8b1818',
+            color: '#488b18',
             coins: 25,
             credits: 5_000,
             minPersonnel: 1,
             maxPersonnel: 2,
+            possibleBuildings: [5, 15],
             wtank: 0,
         },
         11: {
             caption: 'HEMS',
-            color: '#e61919',
+            color: '#e68319',
             coins: 30,
             credits: 300_000,
             minPersonnel: 1,
             maxPersonnel: 1,
             wtank: 0,
+            possibleBuildings: [6],
         },
         12: {
             caption: 'Mobile command vehicle',
@@ -228,8 +254,14 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 6,
             wtank: 0,
-            schooling: 'Fire Station - Mobile command',
-            shownSchooling: 'Mobile command',
+            possibleBuildings: [0, 13],
+            schooling: {
+                'Fire Station': {
+                    'Mobile command': {
+                        all: true,
+                    },
+                },
+            },
             special: 'Required once you have built 13 firehouses',
         },
         13: {
@@ -239,40 +271,55 @@ export default {
             credits: 19_000,
             minPersonnel: 1,
             maxPersonnel: 6,
-            wtank: 0,
+            wtank: 500,
+            ftank: 25,
+            possibleBuildings: [0, 13],
             special:
                 'To purchase with credits it requires the rank: Captain, <br>Lower ranked members can purchase the vehicle for 25 Coins. <br>Quint acts as a Platform Truck and a Fire Truck.',
         },
         14: {
             caption: 'Police helicopter',
-            color: '#ca1616',
+            color: '#70ca16',
             coins: 30,
             credits: 300_000,
             minPersonnel: 1,
-            maxPersonnel: 2,
+            maxPersonnel: 3,
             wtank: 0,
-            schooling: 'Police - Police Aviation',
-            shownSchooling: 'Police Aviation',
+            possibleBuildings: [8],
+            schooling: {
+                Police: {
+                    'Police Aviation': {
+                        all: true,
+                    },
+                },
+            },
         },
         15: {
             caption: 'Fly-Car',
-            color: '#b81414',
+            color: '#b88f14',
             coins: 20,
             credits: 4_000,
             minPersonnel: 1,
             maxPersonnel: 2,
             wtank: 0,
+            possibleBuildings: [0, 3, 12, 14, 16],
         },
         16: {
             caption: 'SWAT Armoured Vehicle',
-            color: '#a51212',
+            color: '#68a512',
             coins: 25,
-            credits: 17_300,
+            credits: 10_000,
             minPersonnel: 6,
             maxPersonnel: 6,
             wtank: 0,
-            schooling: 'Police - Swat',
-            shownSchooling: 'SWAT',
+            possibleBuildings: [5, 15],
+            schooling: {
+                Police: {
+                    SWAT: {
+                        all: true,
+                    },
+                },
+            },
             special: 'Required once you have built 8 police stations',
         },
         17: {
@@ -281,10 +328,17 @@ export default {
             coins: 25,
             credits: 20_000,
             minPersonnel: 1,
-            maxPersonnel: 3,
-            wtank: 0,
-            schooling: 'Fire Station - ARFF-Training',
-            shownSchooling: 'ARFF',
+            maxPersonnel: 2,
+            wtank: 4500,
+            ftank: 650,
+            possibleBuildings: [0],
+            schooling: {
+                'Fire Station': {
+                    'ARFF-Training': {
+                        all: true,
+                    },
+                },
+            },
         },
         18: {
             caption: 'Rescue Engine',
@@ -293,30 +347,39 @@ export default {
             credits: 19_000,
             minPersonnel: 1,
             maxPersonnel: 6,
-            wtank: 0,
+            wtank: 750,
+            ftank: 25,
+            possibleBuildings: [0, 13],
             special:
                 'To purchase with credits it requires the rank: Captain, <br>Lower ranked members can purchase the vehicle for 25 Coins.<br> The Rescue Engine acts as a Heavy Rescue and a Fire Engine.',
         },
         19: {
             caption: 'K-9 Unit',
-            color: '#aa2222',
+            color: '#30aa22',
             coins: 25,
             credits: 7_000,
             minPersonnel: 1,
             maxPersonnel: 2,
             wtank: 0,
-            schooling: 'Police - K-9',
-            shownSchooling: 'K-9',
+            possibleBuildings: [5, 15],
+            schooling: {
+                Police: {
+                    'K-9': {
+                        all: true,
+                    },
+                },
+            },
             special: 'Required from 6 Police stations',
         },
         20: {
             caption: 'Mass Casualty Unit',
-            color: '#992222',
+            color: '#996d22',
             coins: 25,
             credits: 25_000,
             minPersonnel: 6,
             maxPersonnel: 6,
             wtank: 0,
+            possibleBuildings: [0, 3, 16],
             special:
                 'The MCU can be alarmed in two different modes:<br>1. for lightly injured persons who do not need an emergency physician. Then 7 patients can be treated and removed simultaneously in the MCU.<br>2.For severely injured persons who need an emergency physician. Then 3 patients can be needled simultaneously in the MCU.<br>You can buy 1 Mass Casualty Vehicle for every 20 ambulance stations (respectively 15 with premium account).',
         },
@@ -326,10 +389,16 @@ export default {
             coins: 25,
             credits: 19_000,
             minPersonnel: 1,
-            maxPersonnel: 4,
+            maxPersonnel: 5,
             wtank: 0,
-            schooling: 'Fire Station - Swift water rescue',
-            shownSchooling: 'Swift water rescue',
+            possibleBuildings: [0],
+            schooling: {
+                'Fire Station': {
+                    'Swift water rescue': {
+                        all: true,
+                    },
+                },
+            },
             special:
                 'Combines the Heavy Rescue Vehicle/Utility Vehicle with an integrated boat.<br> No need for a boat trailer.',
         },
@@ -341,19 +410,26 @@ export default {
             minPersonnel: 0,
             maxPersonnel: 0,
             wtank: 0,
+            possibleBuildings: [0, 11, 12],
             special:
                 'Accessory boat that can be towed with the Utility Unit. Requires Swift Water Rescue trained personnel to operate.<br> The boat trailer cannot be assigned personnel, <br>either assign your trained personnel to the towing vehicle, or assign them to a separate unit en route.',
         },
         23: {
             caption: 'Police Motorcycle',
-            color: '#662222',
+            color: '#638a2a',
             coins: 18,
             credits: 2_500,
             minPersonnel: 1,
             maxPersonnel: 1,
             wtank: 0,
-            schooling: 'Police - Motor Officer',
-            shownSchooling: 'Motor Officer',
+            possibleBuildings: [5, 15],
+            schooling: {
+                Police: {
+                    'Police Motorcycle': {
+                        all: true,
+                    },
+                },
+            },
         },
         24: {
             caption: 'Large Fireboat',
@@ -363,40 +439,58 @@ export default {
             minPersonnel: 2,
             maxPersonnel: 7,
             wtank: 0,
-            schooling: 'Fire Station - Ocean Navigation',
-            shownSchooling: 'Ocean Navigation',
+            possibleBuildings: [11],
+            schooling: {
+                'Fire Station': {
+                    'Ocean Navigation': {
+                        all: true,
+                    },
+                },
+            },
         },
         25: {
             caption: 'Large Rescue Boat',
-            color: '#442222',
+            color: '#92702e',
             coins: 35,
             credits: 35_000,
             minPersonnel: 2,
             maxPersonnel: 6,
             wtank: 0,
-            schooling: 'Fire Station - Ocean Navigation',
-            shownSchooling: 'Ocean Navigation',
+            possibleBuildings: [12],
+            schooling: {
+                'Fire Station': {
+                    'Ocean Navigation': {
+                        all: true,
+                    },
+                },
+            },
         },
         26: {
             caption: 'SWAT SUV',
-            color: '#332222',
+            color: '#415a30',
             coins: 23,
             credits: 7_000,
             minPersonnel: 2,
             maxPersonnel: 4,
             wtank: 0,
+            possibleBuildings: [5, 15],
+            schooling: {
+                Police: {
+                    SWAT: {
+                        all: true,
+                    },
+                },
+            },
             special: 'Required once you have built 8 police stations',
-            schooling: 'Police - SWAT',
-            shownSchooling: 'SWAT',
         },
         27: {
             caption: 'BLS Ambulance',
-            color: '#681212',
+            color: '#a4752e',
             coins: 25,
             credits: 5_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            wtank: 0,
+            possibleBuildings: [0, 3, 14, 16],
         },
         28: {
             caption: 'EMS Rescue',
@@ -405,6 +499,7 @@ export default {
             credits: 12_180,
             minPersonnel: 1,
             maxPersonnel: 2,
+            possibleBuildings: [0, 3, 14, 16],
             special:
                 'No missions require a EMS Rescue at this time, however it is able to treat patients. And Works as a Heavy Rescue',
         },
@@ -415,6 +510,7 @@ export default {
             credits: 10_000,
             minPersonnel: 1,
             maxPersonnel: 2,
+            possibleBuildings: [0, 3, 14, 16],
             special: 'Required once you have built 10 Rescue stations',
         },
         30: {
@@ -425,23 +521,28 @@ export default {
             minPersonnel: 3,
             maxPersonnel: 5,
             wtank: 500,
+            ftank: 20,
+            possibleBuildings: [0],
         },
         31: {
             caption: 'Type 5 engine',
-            color: '#ddaa3c',
+            color: '#b01d2f',
             coins: 8,
             credits: 8_000,
             minPersonnel: 1,
             maxPersonnel: 3,
+            wtank: 400,
+            possibleBuildings: [0],
         },
         32: {
             caption: 'Type 7 engine',
-            color: '#005500',
+            color: '#a01717',
             coins: 5,
             credits: 5_000,
             minPersonnel: 1,
             maxPersonnel: 2,
             wtank: 50,
+            possibleBuildings: [0],
         },
         33: {
             caption: 'Pumper Tanker',
@@ -450,7 +551,9 @@ export default {
             credits: 19_000,
             minPersonnel: 1,
             maxPersonnel: 6,
-            wtank: 1500,
+            wtank: 2500,
+            ftank: 25,
+            possibleBuildings: [0, 13],
         },
         34: {
             caption: 'Crew Carrier',
@@ -460,17 +563,24 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 12,
             wtank: 0,
+            possibleBuildings: [0, 13],
         },
         35: {
             caption: 'Water drop helicopter',
-            color: '#288f28',
+            color: '#800e20',
             coins: 130,
             credits: 300_000,
             minPersonnel: 2,
             maxPersonnel: 5,
             wtank: 2000,
-            schooling: 'Fire Station - Airborne firefighting',
-            shownSchooling: 'Airborne firefighting',
+            possibleBuildings: [17],
+            schooling: {
+                'Fire Station': {
+                    'Airborne firefighting': {
+                        all: true,
+                    },
+                },
+            },
         },
         36: {
             caption: 'Air Tanker',
@@ -480,59 +590,90 @@ export default {
             minPersonnel: 2,
             maxPersonnel: 5,
             wtank: 7200,
-            schooling: 'Fire Station - Airborne firefighting',
-            shownSchooling: 'Airborne firefighting',
+            possibleBuildings: [17],
+            schooling: {
+                'Fire Station': {
+                    'Airborne firefighting': {
+                        all: true,
+                    },
+                },
+            },
         },
         37: {
             caption: 'Heavy air tanker',
-            color: '#220000',
+            color: '#5f0606',
             coins: 65,
             credits: 1_500_000,
             minPersonnel: 2,
             maxPersonnel: 5,
             wtank: 12000,
-            schooling: 'Fire Station - Airborne firefighting',
-            shownSchooling: 'Airborne firefighting',
+            possibleBuildings: [17],
+            schooling: {
+                'Fire Station': {
+                    'Airborne firefighting': {
+                        all: true,
+                    },
+                },
+            },
         },
         38: {
             caption: 'Type 4 engine',
-            color: '#ffb61a',
+            color: '#9f0d13',
             coins: 10,
             credits: 10_000,
             minPersonnel: 3,
             maxPersonnel: 5,
+            possibleBuildings: [0],
             wtank: 750,
         },
         39: {
             caption: 'Type 6 engine',
-            color: '#00138f',
+            color: '#a70e0e',
             coins: 5,
             credits: 5_000,
             minPersonnel: 1,
             maxPersonnel: 2,
+            possibleBuildings: [0],
             wtank: 150,
         },
         40: {
             caption: 'Dozer Trailer',
-            color: '#0016a3',
+            color: '#a30021',
             coins: 15,
             credits: 20_000,
             minPersonnel: 0,
             maxPersonnel: 0,
-            schooling: 'Fire Station - Heavy Machinery Operating',
-            shownSchooling: 'Heavy Machinery Operating',
+            possibleBuildings: [0],
+            schooling: {
+                'Fire Station': {
+                    'Heavy Machinery Operating': {
+                        all: true,
+                    },
+                },
+            },
             special:
                 "Dozer Trailer that can be towed with the Crew cap semi. Requires Heavy Machinery Operating and Truck Driver's License trained personnel to operate.<br> The dozer trailer cannot be assigned personnel, <br>either assign your trained personnel to the towing vehicle, or assign them to a separate unit en route.",
         },
         41: {
             caption: 'Crew cap semi',
-            color: '#0018b8',
+            color: '#9f1616',
             coins: 12,
             credits: 5_000,
             minPersonnel: 1,
             maxPersonnel: 3,
-            schooling: "Fire Station - Truck Driver's License",
-            shownSchooling: "Truck Driver's License",
+            possibleBuildings: [0, 3, 13],
+            schooling: {
+                'Fire Station': {
+                    "Truck Driver's License": {
+                        all: true,
+                    },
+                },
+                'Rescue': {
+                    "Truck Driver's License": {
+                        all: true,
+                    },
+                },
+            },
         },
         42: {
             caption: 'FBI Unit',
@@ -541,6 +682,7 @@ export default {
             credits: 10_000,
             minPersonnel: 2,
             maxPersonnel: 4,
+            possibleBuildings: [18],
         },
         43: {
             caption: 'FBI Investigation Wagon',
@@ -549,6 +691,7 @@ export default {
             credits: 10_000,
             minPersonnel: 2,
             maxPersonnel: 4,
+            possibleBuildings: [18],
         },
         44: {
             caption: 'FBI Mobile Command Center',
@@ -557,8 +700,14 @@ export default {
             credits: 25_000,
             minPersonnel: 1,
             maxPersonnel: 4,
-            schooling: 'Police - FBI Mobile Center Commander',
-            shownSchooling: 'FBI Mobile Center Commander',
+            possibleBuildings: [18],
+            schooling: {
+                Police: {
+                    'FBI Mobile Center Commander': {
+                        all: true,
+                    },
+                },
+            },
         },
         45: {
             caption: 'FBI Bomb Technician Vehicle',
@@ -567,28 +716,293 @@ export default {
             credits: 35_500,
             minPersonnel: 1,
             maxPersonnel: 2,
-            schooling: 'Police - FBI Bomb Technician',
-            shownSchooling: 'FBI Bomb Technician',
+            possibleBuildings: [18],
+            schooling: {
+                Police: {
+                    'FBI Bomb Technician': {
+                        all: true,
+                    },
+                },
+            },
         },
         46: {
             caption: 'FBI Surveillance Drone',
-            color: '#f04242',
+            color: '#4282f0',
             coins: 25,
             credits: 25_000,
             minPersonnel: 1,
             maxPersonnel: 1,
-            schooling: 'Police - FBI Drone Operator',
-            shownSchooling: 'FBI Drone Operator',
+            possibleBuildings: [18],
+            schooling: {
+                Police: {
+                    'FBI Drone Operator': {
+                        all: true,
+                    },
+                },
+            },
         },
         47: {
             caption: 'Sheriff Unit',
-            color: '#ad0e0e',
+            color: '#58ad0e',
             coins: 20,
             credits: 15_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            schooling: 'Police - Sheriff',
-            shownSchooling: 'Sheriff',
+            possibleBuildings: [5, 15],
+            schooling: {
+                Police: {
+                    Sheriff: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        48: {
+            caption: 'EMS Fire Engine/Ambulance',
+            color: '#cb9240',
+            coins: 30,
+            credits: 25_000,
+            minPersonnel: 1,
+            maxPersonnel: 6,
+            possibleBuildings: [0, 3, 14, 16],
+            schooling: {
+                'Fire Station': {
+                    'ALS Medical Training for Fire Apparatus': {
+                        all: true,
+                    },
+                },
+                'Rescue': {
+                    'ALS Medical Training for Fire Apparatus': {
+                        all: true,
+                    },
+                },
+            },
+            special: 'Works as Fire Engine and Ambulance',
+        },
+        49: {
+            caption: 'Tactical Ambulance',
+            color: '#a7741e',
+            coins: 30,
+            credits: 25_000,
+            minPersonnel: 1,
+            maxPersonnel: 3,
+            possibleBuildings: [0, 3, 14, 16],
+            schooling: {
+                'Fire Station': {
+                    'Tactical Medic Training': {
+                        all: true,
+                    },
+                },
+                'Rescue': {
+                    'Tactical Medic Training': {
+                        all: true,
+                    },
+                },
+            },
+            special: 'Works as Police Car and Ambulance',
+        },
+        50: {
+            caption: 'Hazmat Ambulance',
+            color: '#bc893d',
+            coins: 35,
+            credits: 30_000,
+            minPersonnel: 1,
+            maxPersonnel: 3,
+            possibleBuildings: [0, 3, 14, 16],
+            schooling: {
+                'Fire Station': {
+                    Hazmat: {
+                        all: true,
+                    },
+                },
+                'Rescue': {
+                    'Hazmat Medic Training': {
+                        all: true,
+                    },
+                },
+            },
+            special:
+                'Required once you have built 11 firehouses, works as HazMat and Ambulance',
+        },
+        51: {
+            caption: 'DEA Unit',
+            color: '#4282f0',
+            coins: 15,
+            credits: 10_000,
+            minPersonnel: 2,
+            maxPersonnel: 4,
+            possibleBuildings: [18],
+        },
+        52: {
+            caption: 'DEA Clan Lab',
+            color: '#4282f0',
+            coins: 20,
+            credits: 15_000,
+            minPersonnel: 1,
+            maxPersonnel: 2,
+            possibleBuildings: [18],
+        },
+        53: {
+            caption: 'ATF Unit',
+            color: '#4282f0',
+            coins: 15,
+            credits: 10_000,
+            minPersonnel: 2,
+            maxPersonnel: 4,
+            possibleBuildings: [18],
+        },
+        54: {
+            caption: 'ATF Lab Vehicle',
+            color: '#4282f0',
+            coins: 20,
+            credits: 15_000,
+            minPersonnel: 1,
+            maxPersonnel: 2,
+            possibleBuildings: [18],
+        },
+        55: {
+            caption: 'Patrol Boat',
+            color: '#4282f0',
+            coins: 30,
+            credits: 30_000,
+            minPersonnel: 1,
+            maxPersonnel: 2,
+            possibleBuildings: [5],
+            schooling: {
+                Police: {
+                    'Ocean Navigation': {
+                        all: true,
+                    },
+                },
+            },
+        },
+        56: {
+            caption: "Warden's Truck",
+            color: '#4282f0',
+            coins: 15,
+            credits: 20_000,
+            minPersonnel: 1,
+            maxPersonnel: 2,
+            possibleBuildings: [5],
+            schooling: {
+                Police: {
+                    'Environmental Game Warden': {
+                        all: true,
+                    },
+                },
+            },
+        },
+        57: {
+            caption: 'EMS Mass Casualty Trailer (large)',
+            color: '#bc893d',
+            coins: 30,
+            credits: 30_000,
+            minPersonnel: 0,
+            maxPersonnel: 0,
+            possibleBuildings: [3],
+            special:
+                'Needed towing vehicle (Crew cab semi). Works like the Mass Casualty Unit but without transport.',
+        },
+        58: {
+            caption: 'EMS Mass Casualty Trailer (small)',
+            color: '#bc893d',
+            coins: 15,
+            credits: 15_000,
+            minPersonnel: 0,
+            maxPersonnel: 0,
+            possibleBuildings: [3],
+            special:
+                'Needed towing vehicle (Fly-Car, EMS Rescue, EMS Chief). Works like the Mass Casualty Unit but without transport.',
+        },
+        59: {
+            caption: 'EMS Operations Support',
+            color: '#bc893d',
+            coins: 20,
+            credits: 25_000,
+            minPersonnel: 3,
+            maxPersonnel: 3,
+            possibleBuildings: [0, 3, 14, 16],
+            special:
+                'You can buy 1 EMS Operations Support Unit for every 20 ambulance stations (respectively 15 with premium account).',
+        },
+        60: {
+            caption: 'EMS Mobile Command Unit',
+            color: '#bc893d',
+            coins: 35,
+            credits: 40_000,
+            minPersonnel: 6,
+            maxPersonnel: 6,
+            possibleBuildings: [0, 3, 14, 16],
+            schooling: {
+                'Fire Station': {
+                    'EMS Mobile Command': {
+                        all: true,
+                    },
+                },
+                'Rescue': {
+                    'EMS Mobile Command': {
+                        all: true,
+                    },
+                },
+            },
+        },
+        61: {
+            caption: 'ALS Rescue Ambulance',
+            color: '#bc893d',
+            coins: 30,
+            credits: 25_000,
+            minPersonnel: 3,
+            maxPersonnel: 3,
+            possibleBuildings: [0, 3, 14, 16],
+            special:
+                'To purchase with credits it requires the rank: Captain, <br>Lower ranked members can purchase the vehicle for 30 Coins.<br>Works as Heavy Rescue and Ambulance',
+        },
+        62: {
+            caption: 'Fire Investigator Unit',
+            color: '#9f1616',
+            coins: 15,
+            credits: 25_000,
+            minPersonnel: 1,
+            maxPersonnel: 2,
+            possibleBuildings: [0, 22],
+            schooling: {
+                'Fire Station': {
+                    'Law Enforcement for Arson Investigation': {
+                        all: true,
+                    },
+                },
+            },
+        },
+        63: {
+            caption: 'Fire Prevention Unit',
+            color: '#9f1616',
+            coins: 15,
+            credits: 15_000,
+            minPersonnel: 1,
+            maxPersonnel: 2,
+            possibleBuildings: [0, 22],
+        },
+        64: {
+            caption: 'Foam Tender',
+            color: '#9f1616',
+            coins: 15,
+            credits: 35_000,
+            minPersonnel: 2,
+            maxPersonnel: 3,
+            possibleBuildings: [0],
+            ftank: 6_500,
+        },
+        65: {
+            caption: 'Foam Trailer',
+            color: '#9f1616',
+            coins: 10,
+            credits: 10_000,
+            minPersonnel: 0,
+            maxPersonnel: 0,
+            ftank: 650,
+            possibleBuildings: [0],
+            special:
+                'Needed towing vehicle (Utility unit, Type 6 engine, Battalion chief unit, mcv)',
         },
     },
     buildings: {
@@ -617,6 +1031,18 @@ export default {
                     duration: '7 Days',
                 },
                 {
+                    caption: 'Fire Investigation Extension',
+                    credits: 150_000,
+                    coins: 15,
+                    duration: '7 Days',
+                },
+                {
+                    caption: 'Foam Extension',
+                    credits: 100_000,
+                    coins: 15,
+                    duration: '5 Days',
+                },
+                {
                     caption: 'Water rescue expansion',
                     credits: 100_000,
                     coins: 20,
@@ -624,13 +1050,14 @@ export default {
                 },
             ],
             levelcost: ['1. 10.000', '2. 50.000', '3.-39. 100.000'],
-            maxBuildings: '4.400 together with small fire stations',
+            maxBuildings: '5.000 together with small fire stations',
             maxLevel: 39,
             special:
                 'From the 24th fire station onwards, the cost of building a new fire station increases according to the following formula: <code>100.000+200.000*LOG<sub>2</sub>(Number of existing fire stations − 22)</code>. The Coins price remains constant!',
             startPersonnel: 10,
             startVehicles: ['Type 1 fire engine', 'Type 2 fire engine'],
-            maxBuildingsFunction: (): number => 4_400,
+            schoolingTypes: ['Fire Station'],
+            maxBuildingsFunction: (): number => 5_000,
         },
         1: {
             caption: 'Dispatch Center',
@@ -721,13 +1148,21 @@ export default {
             color: '#ffa500',
             coins: 35,
             credits: 200_000,
-            extensions: [],
+            extensions: [
+                {
+                    caption: 'Mass Casualty Trailer Extension',
+                    credits: 200_000,
+                    coins: 25,
+                    duration: '7 Days',
+                },
+            ],
             levelcost: ['1. 10.000', '2. 50.000', '3.-39. 100.000'],
             maxBuildings: 'No limit',
             maxLevel: 39,
             special: '',
             startPersonnel: 3,
             startVehicles: ['ALS Ambulance'],
+            schoolingTypes: ['Rescue'],
         },
         4: {
             caption: 'Fire academy',
@@ -768,6 +1203,18 @@ export default {
                     coins: 5,
                     duration: '7 Days',
                 }),
+                {
+                    caption: 'Game Warden Office',
+                    credits: 20_000,
+                    coins: 20,
+                    duration: '3 Days',
+                },
+                {
+                    caption: 'Water Police Expansion',
+                    credits: 200_000,
+                    coins: 35,
+                    duration: '7 Days',
+                },
             ],
             levelcost: ['1. 10.000', '2. 50.000', '3.-39. 100.000'],
             maxBuildings: '1.700 together with small police stations',
@@ -776,6 +1223,7 @@ export default {
                 'From the 24th police station onwards, the costs for the new construction of a police station increase according to the following formula: <code>100.000+200.000*LOG<sub>2</sub>(Number of existing police stations − 22)</code>. The Coins price remains constant!',
             startPersonnel: 2,
             startVehicles: ['Patrol car'],
+            schoolingTypes: ['Police'],
             maxBuildingsFunction: (): number => 1_700,
         },
         6: {
@@ -791,6 +1239,7 @@ export default {
                 'Up to the 125th building (of all types) a total of max. 4 landing sites can be built. After that the number increases by 1 every 25 buildings (starting at the 125th).',
             startPersonnel: 0,
             startVehicles: [],
+            schoolingTypes: ['Rescue'],
             maxBuildingsFunction: (buildingsAmountTotal: number): number =>
                 buildingsAmountTotal < 125
                     ? 4
@@ -830,6 +1279,7 @@ export default {
                 'Up to 2 landing sites can be built per station (expansion stages). Up to the 125th building (of all types) a total of max. 4 landing sites can be built. After that the number increases by 1 every 25 buildings (starting at the 125th).',
             startPersonnel: 3,
             startVehicles: [],
+            schoolingTypes: ['Police'],
             maxBuildingsFunction: (buildingsAmountTotal: number): number =>
                 buildingsAmountTotal < 125
                     ? 4
@@ -844,7 +1294,7 @@ export default {
             maxBuildings: 4,
             maxLevel: 0,
             special:
-                'You can station as many of your own vehicles as you like at a staging area, members of the association can use the room. A staging area remains for 24 hours, but you can reset it to 24 hours at any time.With Premium Account you can have 8 stating areas at the same time',
+                'You can station as many of your own vehicles as you like at a staging area, members of the association can use the room. A staging area remains for 24 hours, but you can reset it to 24 hours at any time.With Premium Account you can have 8 staging areas at the same time',
             startPersonnel: 0,
             startVehicles: [],
             maxBuildingsFunction: (): number => 4,
@@ -887,6 +1337,7 @@ export default {
             special: '',
             startPersonnel: 2,
             startVehicles: [''],
+            schoolingTypes: ['Fire Station'],
         },
         12: {
             caption: 'Rescue Boat Dock',
@@ -900,6 +1351,7 @@ export default {
             special: '',
             startPersonnel: 2,
             startVehicles: [''],
+            schoolingTypes: ['Fire Station'],
         },
         13: {
             caption: 'Fire station (Small station) ',
@@ -913,13 +1365,14 @@ export default {
                 '3.-5. 100.000',
                 'Conversion to normal guard: difference price to normal guard',
             ],
-            maxBuildings: '4.400 together with fire stations',
+            maxBuildings: '5.000 together with fire stations',
             maxLevel: 5,
             special:
                 'From the 24th fire station onwards, the cost of building a new fire station increases according to the following formula: <code>(100.000+200.000*LOG<sub>2</sub>(Number of existing fire stations − 22)) / 2</code>. max. 1 Million Credits. The Coins price remains constant!',
             startPersonnel: 10,
             startVehicles: ['Type 1 fire engine', 'Type 2 fire engine'],
-            maxBuildingsFunction: (): number => 4_400,
+            schoolingTypes: ['Fire Station'],
+            maxBuildingsFunction: (): number => 5_000,
         },
         14: {
             caption: 'Clinic',
@@ -940,6 +1393,7 @@ export default {
             special: '',
             startPersonnel: 0,
             startVehicles: ['Non. You can buy max. 2 Vehicles'],
+            schoolingTypes: ['Rescue'],
         },
         15: {
             caption: 'Police station (Small station)',
@@ -953,12 +1407,13 @@ export default {
                 '3.-4. 100.000',
                 'Conversion to normal guard: difference price to normal guard',
             ],
-            maxBuildings: '1.700 mit Polizeiwachen zusammen',
+            maxBuildings: '1.700 together with small police stations',
             maxLevel: 4,
             special:
                 'From the 24th police station onwards, the costs for the new construction of a police station are calculated according to the following formula: <code>(100.000+200.000*LOG<sub>2</sub>(Number of existing police stations − 22)) / 2</code>. The Coins price remains constant!',
             startPersonnel: 2,
             startVehicles: ['Patrol Car'],
+            schoolingTypes: ['Police'],
             maxBuildingsFunction: (): number => 1_700,
         },
         16: {
@@ -978,6 +1433,7 @@ export default {
             special: '',
             startPersonnel: 3,
             startVehicles: ['ALS Ambulance'],
+            schoolingTypes: ['Rescue'],
         },
         17: {
             caption: 'Firefighting plane station',
@@ -991,28 +1447,78 @@ export default {
             special: '',
             startPersonnel: 2,
             startVehicles: ['Water drop helicopter'],
+            schoolingTypes: ['Fire Station'],
         },
         18: {
             caption: 'Federal Police Station',
-            color: '#268926',
+            color: '#264289',
             coins: 50,
-            credits: 5_000_000,
-            extensions: [],
+            credits: 500_000,
+            extensions: [
+                {
+                    caption: 'DEA Expansion',
+                    credits: 200_000,
+                    coins: 35,
+                    duration: '7 Days',
+                },
+                {
+                    caption: 'ATF Expansion',
+                    credits: 200_000,
+                    coins: 35,
+                    duration: '7 Days',
+                },
+            ],
             levelcost: ['1. 10.000', '2. 50.000', '3.-20. 100.000'],
             maxBuildings: 'No limit',
             maxLevel: 20,
             special: '',
             startPersonnel: 10,
             startVehicles: ['FBI Unit'],
+            schoolingTypes: ['Police'],
+        },
+        19: {
+            caption: 'Rescue (EMS) academy',
+            color: '#caa318',
+            coins: 50,
+            credits: 500_000,
+            extensions: [
+                ...new Array(3).fill({
+                    caption: 'Additional classroom',
+                    credits: 400_000,
+                    coins: 40,
+                    duration: '7 Days',
+                }),
+            ],
+            levelcost: [],
+            maxBuildings: 'No limit',
+            maxLevel: 0,
+            special:
+                "Finance ministers and admins can (expand) association police schools with the help of credits from the association's treasury.Training course masters and admins can start training courses at association police schools.",
+            startPersonnel: 0,
+            startVehicles: [],
+        },
+        22: {
+            caption: "Fire Marshal's Office",
+            color: '#db7918',
+            coins: 30,
+            credits: 250_000,
+            extensions: [],
+            levelcost: ['1.- 5. 150.000'],
+            maxBuildings: 'No limit',
+            maxLevel: 5,
+            special: '',
+            startPersonnel: 2,
+            startVehicles: ['Fire Prevention Unit'],
+            schoolingTypes: ['Fire Station'],
         },
     },
     buildingCategories: {
         'Fire Department': {
-            buildings: [0, 4, 11, 13, 17],
+            buildings: [0, 4, 11, 13, 17, 22],
             color: '#ff2d2d',
         },
         'Rescue Stations': {
-            buildings: [3, 6, 12, 16],
+            buildings: [3, 6, 12, 16, 19],
             color: '#ffa500',
         },
         'Police Stations': {
@@ -1029,7 +1535,7 @@ export default {
             vehicles: {
                 'Fire trucks': [0, 1, 13, 18],
                 'WaterTanker': [7],
-                'Special vehicles': [2, 3, 4, 6, 8, 9, 12],
+                'Special vehicles': [2, 3, 4, 6, 8, 9, 12, 62, 63, 64, 65],
                 'Wildland vehicles': [30, 31, 32, 33, 34, 38, 39, 40, 41],
                 'Airport Vehicles': [17],
                 'Boats': [21, 22, 24],
@@ -1039,11 +1545,11 @@ export default {
         },
         'Rescue Vehicles': {
             vehicles: {
-                'Ambulances': [5, 27],
+                'Ambulances': [5, 27, 48, 49, 50, 57, 58, 61],
                 'HEMS': [11],
                 'First Responder': [15],
                 'Rescue Boat': [25],
-                'Other EMS Vehicle': [20, 28, 29],
+                'Other EMS Vehicle': [20, 28, 29, 59, 60],
             },
             color: '#ffa500',
         },
@@ -1055,6 +1561,10 @@ export default {
                 'Police helicopter': [14],
                 'K-9 Unit': [19],
                 'FBI': [42, 43, 44, 45, 46],
+                'DEA': [51, 52],
+                'ATF': [53, 54],
+                'Boat': [55],
+                'Game Warden': [56],
                 'Sheriff': [47],
             },
             color: '#00ac00',
@@ -1065,7 +1575,7 @@ export default {
         3: 16,
         5: 15,
     },
-    vehicleBuildings: [0, 3, 5, 6, 8, 9, 11, 12, 13, 14, 15, 16, 17, 18],
+    vehicleBuildings: [0, 3, 5, 6, 8, 9, 11, 12, 13, 14, 15, 16, 17, 18, 22],
     cellBuildings: [5],
     cellExtensions: [
         '5_0',
@@ -1080,80 +1590,154 @@ export default {
         '5_9',
     ],
     bedBuildings: [2, 14],
-    schoolBuildings: [4, 7],
+    schoolBuildings: [4, 7, 19],
     dispatchCenterBuildings: [1],
     schoolings: {
         'Fire Station': [
             {
-                caption: 'Hazmat',
+                caption: 'HazMat',
                 duration: '3 Days',
+                staffList: 'HazMat',
             },
             {
                 caption: 'Mobile command',
                 duration: '5 Days',
+                staffList: 'Mobile Command',
             },
             {
                 caption: 'ARFF-Training',
                 duration: '3 Days',
+                staffList: 'ARFF',
             },
             {
                 caption: 'Swift water rescue',
                 duration: '4 Days',
+                staffList: 'Swift water rescue',
             },
             {
                 caption: 'Ocean Navigation',
                 duration: '5 Days',
+                staffList: 'Ocean Navigation',
             },
             {
                 caption: 'Airborne firefighting',
                 duration: '5 Days',
+                staffList: 'Airborne firefighting',
             },
             {
                 caption: 'Heavy Machinery Operating',
                 duration: '3 Days',
+                staffList: 'Heavy Machinery Operating',
             },
             {
                 caption: "Truck Driver's License",
                 duration: '2 Days',
+                staffList: "Truck Driver's License",
+            },
+            {
+                caption: 'ALS Medical Training for Fire Apparatus',
+                duration: '3 Days',
+                staffList: 'ALS Medical Training for Fire Apparatus',
+            },
+            {
+                caption: 'Tactical Medic Training',
+                duration: '4 Days',
+                staffList: 'Tactical Medic Training',
+            },
+            {
+                caption: 'EMS Mobile Command',
+                duration: '7 Days',
+                staffList: 'EMS Mobile Command',
+            },
+            {
+                caption: 'Law Enforcement for Arson Investigation',
+                duration: '4 Days',
+                staffList: 'Peace Officer',
             },
         ],
         'Police': [
             {
                 caption: 'Police Aviation',
                 duration: '7 Days',
+                staffList: 'Police Aviation',
             },
             {
                 caption: 'SWAT',
                 duration: '5 Days',
+                staffList: 'SWAT',
             },
             {
                 caption: 'K-9',
                 duration: '5 Days',
+                staffList: 'K-9',
             },
             {
                 caption: 'Police Motorcycle',
                 duration: '3 Days',
+                staffList: 'Motor Officer',
             },
             {
-                caption: 'FBI Mobile Center Commander ',
+                caption: 'FBI Mobile Center Commander',
                 duration: '7 Days',
+                staffList: 'FBI Mobile Center Commander',
             },
             {
                 caption: 'FBI Bomb Technician',
                 duration: '5 Days',
+                staffList: 'FBI Bomb Technician',
             },
             {
                 caption: 'FBI Drone Operator',
                 duration: '5 Days',
+                staffList: 'FBI Drone Operator',
             },
             {
                 caption: 'Sheriff',
                 duration: '5 Days',
+                staffList: 'Sheriff',
+            },
+            {
+                caption: 'Environmental Game Warden',
+                duration: '4 Days',
+                staffList: 'Environmental Game Warden',
+            },
+            {
+                caption: 'Ocean Navigation',
+                duration: '5 Days',
+                staffList: 'Ocean Navigation',
+            },
+        ],
+        'Rescue': [
+            {
+                caption: 'ALS Medical Training for Fire Apparatus',
+                duration: '3 Days',
+                staffList: 'ALS Medical Training for Fire Apparatus',
+            },
+            {
+                caption: 'Tactical Medic Training',
+                duration: '4 Days',
+                staffList: 'Tactical Medic Training',
+            },
+            {
+                caption: 'Hazmat Medic Training',
+                duration: '3 Days',
+                staffList: 'HazMat',
+            },
+            {
+                caption: 'EMS Mobile Command',
+                duration: '7 Days',
+                staffList: 'EMS Mobile Command',
+            },
+            {
+                caption: "Truck Driver's License",
+                duration: '2 Days',
+                staffList: "Truck Driver's License",
             },
         ],
     },
     amount: 'Quantity',
     search: 'Search',
+    mapSearch: 'Location search',
     alliance: 'Alliance',
     premiumNotice:
         'This feature extends a premium feature of the game and is therefore only available for players with a Missionchief game premium account!',
@@ -1169,6 +1753,7 @@ export default {
     station: 'Stations | Station | Stations',
     distance: 'Distance | Distances',
     vehicleType: 'Vehicle type',
+    noOptions: 'Sorry, no matching options.',
     fmsReal2Show: {
         1: 1,
         2: 2,
@@ -1263,7 +1848,45 @@ export default {
         'Fault line',
         'Carpentry Workshop',
         'Playground',
+        'Restaurant',
+        'City centre',
+        'Hill',
+        'Laboratory',
+        'Dirt Race Track',
+        'Sheltered housing facility',
+        'Village',
+        'Valley',
+        'Coast Line',
+        'Construction site',
     ],
     only_alliance_missions: [41, 61, 62, 112],
     transfer_missions: [246],
+    ranks: {
+        missionchief: {
+            0: 'Probie',
+            200: 'Firefighter',
+            10_000: 'Senior Firefighter',
+            100_000: 'Fire Apparatus Operator',
+            1_000_000: 'Lieutenant',
+            5_000_000: 'Captain',
+            20_000_000: 'Staff Captain',
+            50_000_000: 'Battalion Chief',
+            1_000_000_000: 'Division Chief',
+            2_000_000_000: 'Deputy Chief',
+            5_000_000_000: 'Fire Chief',
+        },
+        policechief: {
+            0: 'Police recruit',
+            200: 'Police cadet',
+            10_000: 'Police officer',
+            100_000: 'Police detective',
+            1_000_000: 'Police corporal',
+            5_000_000: 'Police sergeant',
+            20_000_000: 'Police lieutenant',
+            50_000_000: 'Police captain',
+            1_000_000_000: 'Police commander',
+            2_000_000_000: 'Deputy chief',
+            5_000_000_000: 'Chief of police',
+        },
+    },
 };
