@@ -133,7 +133,7 @@
 	"eslint": {
 		"icon": "https://eslint.org/assets/img/favicon.512x512.png",
 		"url": "https://eslint.org",
-		"version": "8.1.0"
+		"version": "8.2.0"
 	},
 	"eslint-formatter-table": {
 		"version": "7.32.1"
