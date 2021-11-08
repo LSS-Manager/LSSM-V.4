@@ -12,6 +12,8 @@ export default (
     starredMissionPanelClass: string,
     $m: $m
 ) => {
+    LSSM.$store.commit('useFontAwesome');
+
     const sorts: Sort[] = ['id', 'credits', 'remaining_patients'];
     let sortingType = sort;
     const sortingDirection = direction;
