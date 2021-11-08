@@ -187,7 +187,7 @@
 	},
 	"pdfmake": {
 		"url": "http://pdfmake.org",
-		"version": "0.2.2"
+		"version": "0.2.3"
 	},
 	"sass": {
 		"icon": "https://sass-lang.com/assets/img/logos/logo-b6e1ef6e.svg",
