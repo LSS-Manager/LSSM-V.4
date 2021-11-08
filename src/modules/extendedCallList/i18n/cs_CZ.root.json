@@ -1,0 +1,99 @@
+{
+	"collapsableMissions": {
+		"all": {
+			"collapse": "Sbalit všechny mise",
+			"expand": "Roztáhnout všechny mise"
+		},
+		"collapse": "Sbalit tuto misi",
+		"expand": "Roztáhnout tuto misi"
+	},
+	"description": "Rozšíří seznam misí o několik užitečných věcí!",
+	"eventMissions": {
+		"default": {}
+	},
+	"name": "Rozšíření výpisu misí",
+	"settings": {
+		"averageCredits": {
+			"description": "Zobrazí průměrný možný zisk kreditů pro každou misi.",
+			"title": "Zobrazit průměrné kredity"
+		},
+		"collapsableMissions": {
+			"description": "Sbalí konkrétní (nebo všechny) mise ke zmenšení řádků ve výpisu misí.",
+			"title": "Sbalit mise"
+		},
+		"currentPatients": {
+			"description": "Zobrazí aktuální počet pacientů u každé mise.",
+			"title": "Aktuálně pacientů"
+		},
+		"eventMissions": {
+			"description": "Marks seasonal missions. Optionally, you can customise the whole thing and also mark non-seasonal missions.",
+			"missions": "Missions",
+			"text": "Text",
+			"title": "Mark seasonal missions"
+		},
+		"hide0CurrentPatients": {
+			"description": "Skryje počet pacientů, pokud se na misi žádný nenachází.",
+			"title": "Skrýt 0 pacientů"
+		},
+		"remainingPatientTime": {
+			"description": "Zobrazí u pacientů kolik času zbývá do kompletního ošetření.",
+			"title": "Zbývající čas pro pacienty"
+		},
+		"remainingPumpingTime": {
+			"description": "Shows for pumping progresses how much time remains until they are finished.",
+			"title": "Remaining time for pumping progress"
+		},
+		"remainingTime": {
+			"description": "Zobrazí zbývající čas do dokončení mise.",
+			"title": "Zbývající čas"
+		},
+		"remainingTimeGreenOnly": {
+			"description": "Zobrazí zbývající čas pouze u zelených misí.",
+			"title": "Zbývající čas pouze pro zelené mise"
+		},
+		"shareMissions": {
+			"description": "Sdílet misi s aliancí přímo ze seznamu misí.",
+			"title": "Sdílet misi"
+		},
+		"shareMissionsButtonColor": {
+			"danger": "Červená",
+			"default": "Černá nebo bílá (dle verze hry)",
+			"description": "Zvolit pozadí barvy tlačítka ke sdílení",
+			"info": "Světle modrá",
+			"primary": "Tmavě modrá",
+			"success": "Zelená",
+			"title": "Sdílet misi: Barva tlačítka",
+			"warning": "Oranžová"
+		},
+		"shareMissionsMinCredits": {
+			"description": "Zobrazí tlačítko pro sdílení mise pouze v případě většího kreditového zisku než zde nastavená hodnota.",
+			"title": "Sdílet misi: Minimum kreditů"
+		},
+		"shareMissionsTypes": {
+			"description": "Nastavte, u kterých misí chcete tlačítko pro sdílení.",
+			"own": "Akutní výjezdy",
+			"sicherheitswache": "Plánované mise",
+			"title": "Sdílet misi: Typy misí"
+		},
+		"sortMissions": {
+			"description": "Seřaďte si seznam misí!",
+			"title": "Řazení misí"
+		},
+		"sortMissionsButtonColor": {
+			"description": "Zvolit barvu pozadí tlačítka k řazení",
+			"title": "Řazení misí: Barva tlačítka"
+		},
+		"starrableMissions": {
+			"description": "Označené mise jsou zobrazené nahoře nad všemi ostatními misemi. Misi můžete označit v seznamu misí či v detailu mise.",
+			"title": "Označit misi"
+		}
+	},
+	"sort": {
+		"types": {
+			"alphabet": "Dle abecedy",
+			"credits": "Dle kreditů",
+			"id": "Dle stáří",
+			"remaining_patients": "Dle pacientů"
+		}
+	}
+}
