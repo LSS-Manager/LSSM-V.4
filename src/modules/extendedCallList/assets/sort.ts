@@ -6,7 +6,7 @@ import {
     PatientMarkerAddCombined,
 } from 'typings/Ingame';
 
-export type Sort = 'id' | 'credits' | 'remaining_patients';
+export type Sort = 'id' | 'credits' | 'remaining_patients' | 'alphabet';
 
 export default (
     LSSM: Vue,
@@ -19,12 +19,19 @@ export default (
 ) => {
     LSSM.$store.commit('useFontAwesome');
 
-    const sorts: Sort[] = ['id', 'credits', 'remaining_patients'];
+    const sorts: Sort[] = ['id', 'credits', 'remaining_patients', 'alphabet'];
     let sortingType = sort;
     const sortingDirection = direction;
 
     const missionsById: Record<string, Mission> =
         LSSM.$store.getters['api/missionsById'];
+    const missionIdsByAlphabet: Record<string, number> = Object.fromEntries(
+        Object.values(missionsById)
+            .sort(({ name: nameA }, { name: nameB }) =>
+                nameA > nameB ? 1 : nameA < nameB ? -1 : 0
+            )
+            .map(({ id }, index) => [id, index])
+    );
 
     const reverseClass = LSSM.$store.getters.nodeAttribute(
         `${MODULE_ID}-missionlist-order-desc`
@@ -57,6 +64,7 @@ export default (
         id = 'history',
         credits = 'dollar-sign',
         remaining_patients = 'user-injured',
+        alphabet = 'font',
     }
 
     enum faDirectionIcon {
@@ -194,10 +202,7 @@ export default (
         ])
         .then();
 
-    const orderFunctions: Record<
-        string,
-        (mission: HTMLDivElement) => string
-    > = {
+    const orderFunctions: Record<Sort, (mission: HTMLDivElement) => string> = {
         id: mission =>
             numToCSSRange(
                 parseInt(mission.getAttribute('mission_id') ?? '0')
@@ -225,6 +230,15 @@ export default (
             return mission
                 .querySelectorAll('.patient_progress')
                 .length.toString();
+        },
+        alphabet: mission => {
+            let missionType = mission.getAttribute('mission_type_id') ?? '-1';
+            const overlayIndex =
+                mission.getAttribute('data-overlay-index') ?? 'null';
+            if (overlayIndex !== 'null') missionType += `-${overlayIndex}`;
+            return numToCSSRange(
+                missionIdsByAlphabet[missionType] ?? 0
+            ).toString();
         },
     };
 

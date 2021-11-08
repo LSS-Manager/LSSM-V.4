@@ -186,6 +186,7 @@
 	},
 	"sort": {
 		"types": {
+			"alphabet": "Alphabet",
 			"credits": "Credits",
 			"id": "Age",
 			"remaining_patients": "Current patients"

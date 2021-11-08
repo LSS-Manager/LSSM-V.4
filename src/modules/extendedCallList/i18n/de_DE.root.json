@@ -222,6 +222,7 @@
 	},
 	"sort": {
 		"types": {
+			"alphabet": "Alphabet",
 			"credits": "Verdienst",
 			"id": "Alter",
 			"remaining_patients": "aktuelle Patienten"
