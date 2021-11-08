@@ -1,5 +1,5 @@
 {
-    "version": "4.3.5+20211105.1127",
+    "version": "4.3.5+20211108.0831",
     "license": "CC-BY-NC-SA-4.0",
     "scripts": {
         "predev": "ts-node scripts predev",
@@ -21,9 +21,9 @@
         "@fortawesome/free-solid-svg-icons": "^5.15.4",
         "@fortawesome/vue-fontawesome": "^2.0.6",
         "axios": "^0.24.0",
-        "broadcast-channel": "^4.4.0",
+        "broadcast-channel": "^4.5.0",
         "he": "^1.2.0",
-        "highcharts": "^9.3.0",
+        "highcharts": "^9.3.1",
         "localforage": "^1.10.0",
         "lodash": ">=4.17.21",
         "mini-svg-data-uri": "^1.4.3",
