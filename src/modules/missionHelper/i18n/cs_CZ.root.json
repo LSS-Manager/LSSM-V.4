@@ -34,7 +34,7 @@
 		},
 		"followup": {
 			"description": "Zobrazí seznam možných rozšíření mise.",
-			"title": "Rozšíření mise" 
+			"title": "Rozšíření mise"
 		},
 		"generatedBy": {
 			"description": "Zobrazí, ze kterého typu budovy je daná mise vygenerována.",
