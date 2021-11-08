@@ -8,6 +8,7 @@ export default <ModuleMainFunction>(async (LSSM, MODULE_ID) => {
     await LSSM.$store.dispatch('api/registerBuildingsUsage', {
         feature: 'buildingListFilter-initial',
     });
+    LSSM.$store.commit('useFontAwesome');
 
     const filters: {
         contentType: 'text' | 'icon';
