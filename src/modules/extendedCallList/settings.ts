@@ -117,6 +117,7 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
             ].map(color =>
                 $m(`settings.shareMissionsButtonColor.${color}`).toString()
             ),
+            dependsOn: '.shareMissions',
         },
         sortMissions: <Toggle>{
             type: 'toggle',
