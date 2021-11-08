@@ -153,11 +153,19 @@
 			"description": "Klappe einzelne (oder alle) Einsätze ein, um Platz in der Einsatzliste zu sparen.",
 			"title": "Einsätze einklappen"
 		},
+		"currentPatients": {
+			"description": "Zeigt die aktuelle Zahl der Patienten bei jedem Einsatz an.",
+			"title": "Patientenzahl"
+		},
 		"eventMissions": {
 			"description": "Markiert Saisonale Einsätze. Optional kannst du das ganze individuell anpassen und auch nicht-saisonale Einsätze markieren.",
 			"missions": "Einsätze",
 			"text": "Text",
 			"title": "Saisonale Einsätze markieren"
+		},
+		"hide0CurrentPatients": {
+			"description": "Versteckt die Patientenzahl, wenn diese 0 beträgt.",
+			"title": "Verstecke 0 Patienten"
 		},
 		"remainingPatientTime": {
 			"description": "Zeigt bei Patienten an, wie lange der Patient noch behandelt werden muss.",

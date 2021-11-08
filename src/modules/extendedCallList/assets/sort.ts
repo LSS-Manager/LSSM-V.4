@@ -1,6 +1,10 @@
 import { $m } from 'typings/Module';
 import { Mission } from 'typings/Mission';
-import { MissionMarkerAdd } from 'typings/Ingame';
+import {
+    MissionMarkerAdd,
+    PatientMarkerAdd,
+    PatientMarkerAddCombined,
+} from 'typings/Ingame';
 
 export type Sort = 'id' | 'credits' | 'remaining_patients';
 
@@ -249,6 +253,48 @@ export default (
             callback(marker: MissionMarkerAdd) {
                 const panel = document.querySelector<HTMLDivElement>(
                     `#mission_${marker.id}`
+                );
+                if (panel) setMissionOrder(panel);
+            },
+        })
+        .then();
+
+    LSSM.$store
+        .dispatch('hook', {
+            event: 'patientMarkerAdd',
+            post: true,
+            callback(marker: PatientMarkerAdd) {
+                const panel = document.querySelector<HTMLDivElement>(
+                    `#mission_${marker.mission_id}`
+                );
+                if (panel) setMissionOrder(panel);
+            },
+        })
+        .then();
+
+    LSSM.$store
+        .dispatch('hook', {
+            event: 'patientMarkerAddCombined',
+            post: true,
+            callback(marker: PatientMarkerAddCombined) {
+                const panel = document.querySelector<HTMLDivElement>(
+                    `#mission_${marker.mission_id}`
+                );
+                if (panel) setMissionOrder(panel);
+            },
+        })
+        .then();
+
+    LSSM.$store
+        .dispatch('hook', {
+            event: 'patientDelete',
+            callback(patientId: number) {
+                const missionId = window.patient_timers.find(
+                    ({ patient_id }) => patient_id === patientId
+                )?.params.mission_id;
+                if (!missionId) return;
+                const panel = document.querySelector<HTMLDivElement>(
+                    `#mission_${missionId}`
                 );
                 if (panel) setMissionOrder(panel);
             },

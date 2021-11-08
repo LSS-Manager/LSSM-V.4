@@ -144,7 +144,7 @@ export default (async (LSSM, MODULE_ID, $m) => {
     }
 
     if (await getSetting('sortMissions')) {
-        await (
+        (
             await import(
                 /* webpackChunkName: "modules/extendedCallList/sort" */ './assets/sort'
             )
@@ -158,6 +158,14 @@ export default (async (LSSM, MODULE_ID, $m) => {
             starredMissionPanelClass,
             $m
         );
+    }
+
+    if (await getSetting('currentPatients')) {
+        (
+            await import(
+                /* webpackChunkName: "modules/extendedCallList/currentPatients" */ './assets/currentPatients'
+            )
+        ).default(LSSM, MODULE_ID, await getSetting('hide0CurrentPatients'));
     }
 
     if (await getSetting('remainingTime')) {

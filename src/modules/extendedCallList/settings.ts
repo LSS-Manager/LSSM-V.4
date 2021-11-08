@@ -132,6 +132,15 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
             labels: bootsTrapColorLabels,
             dependsOn: '.sortMissions',
         },
+        currentPatients: <Toggle>{
+            type: 'toggle',
+            default: false,
+        },
+        hide0CurrentPatients: <Toggle>{
+            type: 'toggle',
+            default: true,
+            dependsOn: '.currentPatients',
+        },
         eventMissions: <Omit<AppendableList, 'value' | 'isDisabled'>>{
             type: 'appendable-list',
             default: defaultEventmissions,
