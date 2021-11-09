@@ -1267,6 +1267,7 @@ export default {
     alliance: 'Alleanza',
     premiumNotice: "Quest'opzione è permessa solo ad utenti premium",
     credits: 'Crediti',
+    coins: 'Monete',
     close: 'Chiudi',
     fullscreen: {
         expand: 'Attiva modalità schermo intero',

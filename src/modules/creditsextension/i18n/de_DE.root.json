@@ -1,0 +1,20 @@
+{
+	"allianceFunds": {
+		"currently": "aktuell",
+		"title": "Verbandskasse",
+		"total": "insgesamt",
+		"updateNote": "Wird alle 5 Minuten aktualisiert."
+	},
+	"coins": {
+		"list": "Protokoll"
+	},
+	"credits": {
+		"daily": "Tageszusammenfassung",
+		"overview": "Übersicht"
+	},
+	"description": "Zeigt dir nützliche Infos zu Coins und Credits in der Navigationsleiste als Dropdown-Menü an.",
+	"name": "Creditserweiterung",
+	"nextRank": "Nächster Dienstgrad",
+	"nextRankMissing": "verbleibend",
+	"totalEarnedCredits": "Gesamt verdiente Credits"
+}

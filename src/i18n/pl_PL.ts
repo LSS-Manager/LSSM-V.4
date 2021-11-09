@@ -1359,7 +1359,8 @@ export default {
     alliance: 'Alliance',
     premiumNotice:
         'This feature extends a premium feature of the game and is therefore only available for players with a Missionchief game premium account!',
-    credits: 'Credits',
+    credits: 'Kredyty',
+    coins: 'Monety',
     close: 'Close',
     fullscreen: {
         expand: 'Activate full screen mode',

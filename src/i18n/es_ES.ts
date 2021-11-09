@@ -911,6 +911,7 @@ export default {
     premiumNotice:
         '¡Esta función amplía una función premium del juego y, por lo tanto, solo está disponible para jugadores con una cuenta premium del juego Centro de Mando!',
     credits: 'Créditos',
+    coins: 'Monedas',
     close: 'Cerrar',
     fullscreen: {
         expand: 'Activar el modo pantalla completa',

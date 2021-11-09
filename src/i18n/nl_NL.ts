@@ -1758,6 +1758,7 @@ export default {
     premiumNotice:
         'Deze functie breidt een premium functie van het spel uit en is daarom alleen beschikbaar voor spelers met een premium spelaccount!',
     credits: 'Credits',
+    coins: 'Coins',
     close: 'Sluiten',
     fullscreen: {
         expand: 'Gebruik full-screen modus',

@@ -1,0 +1,20 @@
+{
+	"allianceFunds": {
+		"currently": "currently",
+		"title": "Alliance funds",
+		"total": "total",
+		"updateNote": "Updated every 5 minutes."
+	},
+	"coins": {
+		"list": "Protocol"
+	},
+	"credits": {
+		"daily": "Daily summary",
+		"overview": "Overview"
+	},
+	"description": "Shows useful information about credits in a dropdown menu in main navbar.",
+	"name": "Credits Expansion",
+	"nextRank": "Next rank",
+	"nextRankMissing": "remaining",
+	"totalEarnedCredits": "Total earned Credits"
+}

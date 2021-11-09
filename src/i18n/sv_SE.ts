@@ -1146,6 +1146,7 @@ export default {
     premiumNotice:
         'Den här funktionen utökar en premiumfunktion i spelet och är därför endast tillgänglig för spelare med ett Larmcentralen-spelet premiumkonto!',
     credits: 'Krediter',
+    coins: 'Mynt',
     close: 'Stäng',
     fullscreen: {
         expand: 'Aktivera helskärmsläge',

@@ -1095,6 +1095,7 @@ export default {
     alliance: 'Alliance',
     premiumNotice: 'Compte premium de Opérateur112 nécessaire.',
     credits: 'Crédits',
+    coins: 'Pièces',
     close: 'Fermer',
     fullscreen: {
         expand: 'Active le mode plein écran',

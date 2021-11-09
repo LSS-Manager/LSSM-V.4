@@ -2786,6 +2786,7 @@ export default {
     premiumNotice:
         'Diese Funktion erweitert eine Premium-Funktion des Spiels und ist deshalb nur für Spieler mit einem Leitstellenspiel-Premium-Account verfügbar!',
     credits: 'Credits',
+    coins: 'Coins',
     close: 'Schließen',
     fullscreen: {
         expand: 'Vollbildmodus aktivieren',

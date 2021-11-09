@@ -21,6 +21,37 @@ export default async (LSSM: Vue): Promise<void> => {
         .querySelector('.navbar-default .navbar-right')
         ?.appendChild(indicatorWrapper);
 
+    LSSM.$store.commit(
+        'updateCredits',
+        LSSM.$utils.getNumberFromText(
+            document
+                .querySelector<HTMLSpanElement>('.credits-value')
+                ?.textContent?.trim() ?? '-1'
+        )
+    );
+    await LSSM.$store.dispatch('hook', {
+        event: 'creditsUpdate',
+        callback(credits: number) {
+            if (credits !== LSSM.$store.state.credits)
+                LSSM.$store.commit('updateCredits', credits);
+        },
+    });
+    LSSM.$store.commit(
+        'updateCoins',
+        LSSM.$utils.getNumberFromText(
+            document
+                .querySelector<HTMLSpanElement>('.coins-value')
+                ?.textContent?.trim() ?? '-1'
+        )
+    );
+    await LSSM.$store.dispatch('hook', {
+        event: 'coinsUpdate',
+        callback(coins: number) {
+            if (coins !== LSSM.$store.state.coins)
+                LSSM.$store.commit('updateCoins', coins);
+        },
+    });
+
     LSSM.$store
         .dispatch('settings/register', {
             moduleId: 'global',

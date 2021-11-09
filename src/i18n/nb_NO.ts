@@ -1133,6 +1133,7 @@ export default {
     premiumNotice:
         'Denne utvidelsen utvider en premium funksjon av spillet, og er derfor kun tilgjengelig for premium brukere av Nødsentralspillet.',
     credits: 'Kreditter',
+    coins: 'Mynter',
     close: 'Lukk',
     fullscreen: {
         expand: 'Aktiver fullskjerm',
