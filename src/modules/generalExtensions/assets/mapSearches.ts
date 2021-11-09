@@ -121,8 +121,6 @@ export default (
         window.map.addEventListener('moveend', resetNewBuildingMarker);
     }
 
-    addToMap();
-
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     window.addEventListener(
@@ -130,4 +128,8 @@ export default (
         ({ detail: { id, map } }: CustomEvent<{ id: string; map: LMap }>) =>
             addToMap(map, id)
     );
+
+    if (window.location.pathname === '/' && !mapSearchOnMap) return;
+
+    addToMap();
 };

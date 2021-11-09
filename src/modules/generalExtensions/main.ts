@@ -1,6 +1,8 @@
 import { ModuleMainFunction } from 'typings/Module';
 
 export default (async (LSSM, MODULE_ID, $m) => {
+    LSSM.$store.commit('useFontAwesome');
+
     const getSetting = <returnType>(settingId: string): Promise<returnType> => {
         return LSSM.$store.dispatch('settings/getSetting', {
             moduleId: MODULE_ID,
@@ -91,8 +93,6 @@ export default (async (LSSM, MODULE_ID, $m) => {
         );
     }
 
-    const isProfile =
-        !!window.location.pathname.match(/^\/profile\/\d+\/?$/) && !!window.map;
     const addToPanelHeading = !!window.location.pathname.match(
         /^\/(verband\/(bereitstellungsraume|gebauede|location)|buildings\/\d+\/move)\/?$/
     );
@@ -102,22 +102,19 @@ export default (async (LSSM, MODULE_ID, $m) => {
 
     const mapSearchOnMap = await getSetting<boolean>('mapSearchOnMap');
 
-    if (isProfile || addToPanelHeading || isDispatchCenter || mapSearchOnMap) {
-        LSSM.$store.commit('useFontAwesome');
-        (
-            await import(
-                /* webpackChunkName: "modules/generalExtensions/mapSearches" */ './assets/mapSearches'
-            )
-        ).default(
-            LSSM.$t('mapSearch').toString(),
-            addToPanelHeading,
-            mapSearchOnMap,
-            await getSetting<
-                'top-left' | 'top-right' | 'bottom-left' | 'bottom-right'
-            >('mapSearchOnMapPosition'),
-            LSSM
-        );
-    }
+    (
+        await import(
+            /* webpackChunkName: "modules/generalExtensions/mapSearches" */ './assets/mapSearches'
+        )
+    ).default(
+        LSSM.$t('mapSearch').toString(),
+        addToPanelHeading,
+        mapSearchOnMap,
+        await getSetting<
+            'top-left' | 'top-right' | 'bottom-left' | 'bottom-right'
+        >('mapSearchOnMapPosition'),
+        LSSM
+    );
 
     if (isDispatchCenter) {
         await (
