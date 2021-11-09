@@ -44,7 +44,7 @@ Grundsätzlich möchten wir mit der Zeit alle Funktionen der V.3 in die V.4 inte
 |      Alarmieren, Teilen & Posten       |                                                |                              |                                                              |
 |               Center-Map               |        [Verbesserte Karte][extendedMap]        |                              | Hier ist aktuell nur der statische Modus eingebaut. Der dynamische folgt nocht. |
 |                 Clock                  |                  [Uhr][clock]                  |   Uhr als Overlay anzeigen   |                                                              |
-|           Creditserweiterung           |                                                |                              |                                                              |
+|           Creditserweiterung           |     [Creditserweiterung][creditsextension]     |                              |                                                              |
 |               Dashboard                |             [Dashboard][dashboard]             |                              |                                                              |
 |          Eigene VGE speichern          |                                                |                              |                                                              |
 |             Einsatzhelfer              |         [Einsatzhelfer][missionHelper]         |                              |                                                              |
@@ -99,3 +99,4 @@ Grundsätzlich möchten wir mit der Zeit alle Funktionen der V.3 in die V.4 inte
 [extendedCallList]: modules/extendedCallList.md
 [hotkeys]: modules/hotkeys.md
 [extendedMap]: modules/extendedMap.md
+[creditsextension]: modules/creditsextension.md
