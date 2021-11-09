@@ -90,7 +90,7 @@
             <template v-if="$store.state.api.credits.credits_alliance_active">
                 <li class="divider"></li>
                 <li>
-                    <a href="/verband/kasse">
+                    <a href="/verband/kasse" class="lightbox-open">
                         {{ $m('allianceFunds.title') }}
                         <ul class="no-style-list">
                             <li>
