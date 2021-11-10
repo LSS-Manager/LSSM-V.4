@@ -17,6 +17,11 @@
 	"nextRank": "Next rank",
 	"nextRankMissing": "remaining",
 	"settings": {
+		"alerts": {
+			"credits": "",
+			"description": "As soon as you've reached one of the set amount of credits, credits expansion will be highlighted green until you click it.",
+			"title": "Goals"
+		},
 		"creditsInNavbar": {
 			"description": "Shows current credits in navbar instead of the cute piggy bank.",
 			"title": "Credits instead of piggy bank"

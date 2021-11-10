@@ -138,6 +138,11 @@ export default (Vue: VueConstructor): Store<RootState> => {
                 // @ts-ignore
                 this.state.api.credits.credits_user_current = value;
                 const diff = value - old;
+                window.dispatchEvent(
+                    new CustomEvent(`${PREFIX}_credits_update`, {
+                        detail: { old, new: value, diff },
+                    })
+                );
                 if (diff > 0) {
                     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                     // @ts-ignore

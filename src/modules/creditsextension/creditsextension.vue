@@ -1,17 +1,22 @@
 <template>
     <li
         class="dropdown"
-        :class="{ highlight: highlighted }"
+        :class="{
+            'highlight': highlighted,
+            'highlight-consistent': highlightedConsistend,
+        }"
         :id="id"
         :title="
             `${$t('credits')}: ${creditsLocalized}\n${$t(
                 'coins'
             )}: ${coinsLocalized}`
         "
+        @click="() => (highlightedConsistend = false)"
     >
         <a
             href="#"
             class="dropdown-toggle"
+            :class="{ 'piggy-bank-mode': !creditsInNav }"
             :id="menuId"
             role="button"
             data-toggle="dropdown"
@@ -151,6 +156,7 @@ export default Vue.extend<
         creditsIcon: string;
         coinsIcon: string;
         highlighted: boolean;
+        highlightedConsistend: boolean;
         ranks: Record<string, string>;
         creditsInNav: boolean;
     },
@@ -190,6 +196,7 @@ export default Vue.extend<
             creditsIcon: '',
             coinsIcon: '',
             highlighted: false,
+            highlightedConsistend: false,
             ranks: (this.$t(
                 `ranks.${
                     this.$store.state.policechief
@@ -285,6 +292,21 @@ export default Vue.extend<
         this.getSetting('creditsInNavbar').then(value =>
             this.$set(this, 'creditsInNav', value)
         );
+
+        this.getSetting<{ enabled: boolean; value: { credits: number }[] }>(
+            'alerts'
+        ).then(({ value: alerts }) =>
+            window.addEventListener(`${PREFIX}_credits_update`, ev => {
+                const { new: newValue, old: oldValue } = (<
+                    CustomEvent<{ new: number; old: number; diff: number }>
+                >ev).detail;
+                if (newValue < oldValue) return;
+                alerts.forEach(({ credits }) => {
+                    if (oldValue < credits && newValue >= credits)
+                        this.highlightedConsistend = true;
+                });
+            })
+        );
     },
 });
 </script>
@@ -292,8 +314,11 @@ export default Vue.extend<
 <style scoped lang="sass">
 @use "sass:math"
 
+.highlight-consistent
+    background: #62c462
+
 li.dropdown
-    > a.dropdown-toggle
+    > a.dropdown-toggle.piggy-bank-mode
         padding-top: math.div(50.5px - 29, 2)
         padding-bottom: math.div(50.5px - 29, 2)
 
