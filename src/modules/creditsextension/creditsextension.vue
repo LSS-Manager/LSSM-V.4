@@ -45,14 +45,14 @@
                 </a>
                 <button
                     href="/credits/daily"
-                    class="lightbox-open btn btn-default pull-right"
+                    class="lightbox-open btn btn-xs btn-default pull-right"
                     :title="$m('credits.daily')"
                 >
                     <font-awesome-icon :icon="faTable"></font-awesome-icon>
                 </button>
                 <button
                     href="/credits/overview"
-                    class="lightbox-open btn btn-default pull-right"
+                    class="lightbox-open btn btn-xs btn-default pull-right"
                     :title="$m('credits.overview')"
                 >
                     <font-awesome-icon :icon="faChartBar"></font-awesome-icon>
@@ -69,7 +69,7 @@
                 </a>
                 <button
                     href="/coins/list"
-                    class="lightbox-open btn btn-default pull-right"
+                    class="lightbox-open btn btn-xs btn-default pull-right"
                     :title="$m('coins.list')"
                 >
                     <font-awesome-icon :icon="faListUl"></font-awesome-icon>
@@ -302,6 +302,7 @@ li.dropdown
             display: flex
             align-items: center
             justify-content: space-between
+            padding-right: 10px
 
             > a
                 height: 19px + 3px + 3px
