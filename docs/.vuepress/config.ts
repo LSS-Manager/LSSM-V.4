@@ -244,18 +244,21 @@ ${content.replace(/(?<=!\[.*?]\().*?(?=\))/g, asset =>
                 getTargetPath(module, lang),
                 `${getYaml(i18n.name, lang)}
 ${getModuleHead(i18n.name, i18n.description, lang, register)}
-:::warning No module page existing yet
-Dear User,
+:::warning ${getLocale(lang, '404.title')}
+${getLocale(lang, '404.content')
+    .toString()
+    .replace(/{{module}}/g, `**${i18n.name}**`)
+    .replace(/{{lang}}/g, `\`${lang}\``)
+    .replace(
+        /{{github}}/g,
+        `[GitHub](https://github.com/${config.github.repo}/new/dev/src/modules/${module}/docs?filename=${lang}.md)`
+    )
+    .replace(
+        /{{docs_dir}}/g,
+        `[docs directory](https://github.com/${config.github.repo}/tree/dev/src/modules/${module}/docs)`
+    )}
 
-thanks for your interest in the Wiki page of **${i18n.name}**!
-Unfortunately, we weren't able to create the content for your language \`${lang}\` yet. If you want to contribute to our wiki, feel free to create this page [on GitHub](https://github.com/${
-                    config.github.repo
-                }/new/dev/src/modules/${module}/docs?filename=${lang}.md)!
-We suggest to have a look at the files of the other languages for examples in the [docs directory](https://github.com/${
-                    config.github.repo
-                }/tree/dev/src/modules/${module}/docs)
-
-This module already has a Wiki page in the following languages:
+${getLocale(lang, '404.languages')}
 ${docsLangs
     .map(
         l =>
