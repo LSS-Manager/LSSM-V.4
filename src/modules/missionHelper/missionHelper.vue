@@ -857,6 +857,11 @@ export default Vue.extend<
                 Object.keys(patientAdditionals).forEach(
                     patients =>
                         this.currentPatients >= parseInt(patients) &&
+                        !Object.values(vehicles).find(
+                            ({ caption }) =>
+                                caption ===
+                                patientAdditionals[parseInt(patients)]
+                        ) &&
                         (vehicles[`patients_${patients}`] = {
                             amount: 1,
                             caption: patientAdditionals[parseInt(patients)],
