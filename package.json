@@ -70,7 +70,7 @@
         "eslint-plugin-prettier": "^4.0.0",
         "eslint-plugin-vue": "^8.0.3",
         "html-loader": "^3.0.1",
-        "moment-timezone": "^0.5.33",
+        "moment-timezone": "^0.5.34",
         "sass": "^1.43.4",
         "sass-loader": "^10.1.1",
         "speed-measure-webpack-plugin": "^1.5.0",
