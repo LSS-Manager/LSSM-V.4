@@ -1,7 +1,7 @@
 {
 	"404": {
 		"content": "Hey,\n\nvielen Dank für dein Interesse in die Wikiseite des Moduls {{module}}! Leider existiert diese bislang nicht für die Sprache {{lang}}. Wenn du am Wiki mitwirken möchtest, darfst du gerne diese Seite auf {{github}} erstellen. Wir empfehlen hierzu, einen Blick auf anderssprachige Wikiseiten dieses Moduls im {{docs_dir}} zu werfen.",
-		"languages": "Dieses Modul hat bereits eine Wikiseiten für die folgenden Spielversionen:",
+		"languages": "Dieses Modul hat bereits eine Wikiseite für die folgenden Spielversionen:",
 		"title": "Keine Wiki-Seite"
 	},
 	"apps": "Apps",

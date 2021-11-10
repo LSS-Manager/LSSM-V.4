@@ -246,7 +246,7 @@ ${content.replace(/(?<=!\[.*?]\().*?(?=\))/g, asset =>
 ${getModuleHead(i18n.name, i18n.description, lang, register)}
 :::warning ${getLocale(lang, '404.title')}
 ${getLocale(lang, '404.content')
-    .toString()
+    ?.toString()
     .replace(/{{module}}/g, `**${i18n.name}**`)
     .replace(/{{lang}}/g, `\`${lang}\``)
     .replace(
