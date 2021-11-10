@@ -16,5 +16,11 @@
 	"name": "Creditserweiterung",
 	"nextRank": "Nächster Dienstgrad",
 	"nextRankMissing": "verbleibend",
+	"settings": {
+		"creditsInNavbar": {
+			"description": "Zeigt den aktuellen Creditswert statt des Sparschweins in der Navigationsleiste.",
+			"title": "Credits statt Sparschwein"
+		}
+	},
 	"totalEarnedCredits": "Gesamt verdiente Credits"
 }

@@ -16,7 +16,15 @@
             role="button"
             data-toggle="dropdown"
         >
-            <span class="fa-2x">
+            <template v-if="creditsInNav">
+                <img
+                    :src="creditsIcon"
+                    :alt="$t('credits')"
+                    class="navbar-icon"
+                />
+                {{ creditsLocalized }}
+            </template>
+            <span class="fa-2x" v-else>
                 <font-awesome-icon
                     :icon="faDollarSign"
                     transform="shrink-10"
@@ -144,6 +152,7 @@ export default Vue.extend<
         coinsIcon: string;
         highlighted: boolean;
         ranks: Record<string, string>;
+        creditsInNav: boolean;
     },
     {
         $m(
@@ -153,6 +162,7 @@ export default Vue.extend<
             }
         ): VueI18n.TranslateResult;
         highlight(): void;
+        getSetting<Type = boolean>(settingId: string): Promise<Type>;
     },
     {
         credits: number;
@@ -180,7 +190,14 @@ export default Vue.extend<
             creditsIcon: '',
             coinsIcon: '',
             highlighted: false,
-            ranks: {},
+            ranks: (this.$t(
+                `ranks.${
+                    this.$store.state.policechief
+                        ? 'policechief'
+                        : 'missionchief'
+                }`
+            ) as unknown) as Record<string, string>,
+            creditsInNav: false,
         };
     },
     props: {
@@ -235,6 +252,12 @@ export default Vue.extend<
             this.highlighted = false;
             window.setTimeout(() => (this.highlighted = true), 10);
         },
+        async getSetting(settingId: string) {
+            return this.$store.dispatch('settings/getSetting', {
+                moduleId: this.MODULE_ID,
+                settingId,
+            });
+        },
     },
     beforeMount() {
         const creditsIcon = document.querySelector<HTMLImageElement>(
@@ -259,11 +282,9 @@ export default Vue.extend<
                 )
             );
 
-        this.ranks = (this.$t(
-            `ranks.${
-                this.$store.state.policechief ? 'policechief' : 'missionchief'
-            }`
-        ) as unknown) as Record<string, string>;
+        this.getSetting('creditsInNavbar').then(value =>
+            this.$set(this, 'creditsInNav', value)
+        );
     },
 });
 </script>
