@@ -94,7 +94,11 @@
                             </tr>
                             <tr>
                                 <th>{{ lightbox.$sm('fms') }}</th>
-                                <td :colspan="vehicle.patient_doctor_transport ? 2 : 1">
+                                <td
+                                    :colspan="
+                                        vehicle.patient_doctor_transport ? 2 : 1
+                                    "
+                                >
                                     <span
                                         class="building_list_fms"
                                         :class="
