@@ -94,6 +94,7 @@ export interface VehicleWindow {
     load_all_hospitals: boolean;
     hospital_department: string;
     patient_releaseable: boolean;
+    patient_doctor_transport: boolean;
     has_cells: boolean;
     own_cells: Cell[];
     alliance_cells: Cell[];
@@ -179,6 +180,9 @@ export default <RedesignParser<VehicleWindow>>(({
     }
     const wlf_table = doc.querySelector<HTMLTableElement>(
         '#vehicle_show_table'
+    );
+    const hospital_departmentNode = doc.querySelector(
+        '.col-md-9 .alert.alert-info b'
     );
     // because missions may appear in own and alliance lists
     const mission_ids: number[] = [];
@@ -361,11 +365,11 @@ export default <RedesignParser<VehicleWindow>>(({
             'a[href$="?load_all=true"]'
         ),
         hospital_department: hasHospitals
-            ? doc
-                  .querySelector('.col-md-9 .alert.alert-info b')
-                  ?.textContent?.trim() ?? ''
+            ? hospital_departmentNode?.textContent?.trim() ?? ''
             : '',
         patient_releaseable: !!doc.querySelector('a[href$="/patient/-1"]'),
+        patient_doctor_transport: !!hospital_departmentNode?.nextSibling?.textContent?.trim()
+            .length,
         has_cells: hasCells,
         own_cells,
         alliance_cells,

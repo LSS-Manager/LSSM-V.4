@@ -86,6 +86,7 @@
 		"offline": "{user} ist offline!",
 		"online": "{user} ist online!"
 	},
+	"patient_doctor_transport": "Transport mit Arztbegleitung",
 	"release": {
 		"cancel": "Abbrechen",
 		"confirm": "Ja, entlassen!",

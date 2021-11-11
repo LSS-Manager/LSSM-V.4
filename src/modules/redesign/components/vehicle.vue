@@ -94,7 +94,7 @@
                             </tr>
                             <tr>
                                 <th>{{ lightbox.$sm('fms') }}</th>
-                                <td>
+                                <td colspan="2">
                                     <span
                                         class="building_list_fms"
                                         :class="
@@ -104,6 +104,16 @@
                                         {{
                                             $i18n.t('fmsReal2Show')[vehicle.fms]
                                         }}
+                                    </span>
+                                    <br/>
+                                    <span
+                                        v-if="vehicle.patient_doctor_transport"
+                                    >
+                                        ({{
+                                            lightbox.$sm(
+                                                'patient_doctor_transport'
+                                            )
+                                        }})
                                     </span>
                                 </td>
                                 <td>
