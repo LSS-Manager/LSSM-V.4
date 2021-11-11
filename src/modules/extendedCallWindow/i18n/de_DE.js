@@ -348,6 +348,9 @@ module.exports = {
             close: 'Hinweis für diese Konfiguration schliessen',
         },
     },
+    patientSummary: {
+        oncePerMission: ['LNA', 'OrgL'],
+    },
     hideVehicleList: {
         show: 'Fahrzeugliste zeigen',
         hide: 'Fahrzeugliste verstecken',

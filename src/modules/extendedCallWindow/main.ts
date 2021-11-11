@@ -74,7 +74,7 @@ export default (async (LSSM, MODULE_ID, $m, $mc) => {
                 await import(
                     /* webpackChunkName: "modules/extendedCallWindow/patientSummary" */ './assets/patientSummary'
                 )
-            ).default(LSSM);
+            ).default(LSSM, $m);
         }
         if (
             (await getSetting('arrCounter')) ||
