@@ -7,7 +7,7 @@ Zeig die aktuellen Credits anstelle eines Sparschweins an.
 
 |     **inaktiv** (Standard)     |                   **aktiv**                    |
 | :----------------------------: | :--------------------------------------------: |
-| ![Sparschwein](piggy-mode.png) | ![Credits statt Sparschwein](credits-mode-png) |
+| ![Sparschwein](piggy-mode.png) | ![Credits statt Sparschwein](credits-mode.png) |
 
 # Ziele
 Jedes Mal, wenn du eines der eingestellten Credits-Ziele erreicht hast, wird das Sparschwein bzw. der Creditsstand grün hervorgehoben, bis du das nächste Mal darauf klickst:
