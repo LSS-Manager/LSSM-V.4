@@ -105,7 +105,7 @@
                                             $i18n.t('fmsReal2Show')[vehicle.fms]
                                         }}
                                     </span>
-                                    <br/>
+                                    <br />
                                     <span
                                         v-if="vehicle.patient_doctor_transport"
                                     >
