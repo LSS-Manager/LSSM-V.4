@@ -33,13 +33,17 @@ export default (
         }
         let amount = count;
         if (!count) {
-            if (mission.querySelector('.mission_list_patient_icon')) {
+            if (
+                mission.querySelector(
+                    '[id^="mission_patients_"] [id^="patient_"]'
+                )
+            ) {
+                amount = mission.querySelectorAll('.patient_progress').length;
+            } else {
                 amount = LSSM.$utils.getNumberFromText(
                     mission.querySelector('.mission_list_patient_icon + strong')
                         ?.textContent ?? '0'
                 );
-            } else {
-                amount = mission.querySelectorAll('.patient_progress').length;
             }
         }
         patientHolder.textContent = amount.toLocaleString();

@@ -218,18 +218,21 @@ export default (
             ).toString();
         },
         remaining_patients: mission => {
-            if (mission.querySelector('.mission_list_patient_icon')) {
-                return LSSM.$utils
-                    .getNumberFromText(
-                        mission.querySelector(
-                            '.mission_list_patient_icon + strong'
-                        )?.textContent ?? '0'
-                    )
-                    .toString();
+            if (
+                mission.querySelector(
+                    '[id^="mission_patients_"] [id^="patient_"]'
+                )
+            ) {
+                return mission
+                    .querySelectorAll('.patient_progress')
+                    .length.toString();
             }
-            return mission
-                .querySelectorAll('.patient_progress')
-                .length.toString();
+            return LSSM.$utils
+                .getNumberFromText(
+                    mission.querySelector('.mission_list_patient_icon + strong')
+                        ?.textContent ?? '0'
+                )
+                .toString();
         },
         alphabet: mission => {
             let missionType = mission.getAttribute('mission_type_id') ?? '-1';
