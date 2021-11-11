@@ -62,6 +62,11 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
             type: 'toggle',
             default: false,
         },
+        emvMaxStaff: <Toggle>{
+            type: 'toggle',
+            default: false,
+            dependsOn: '.enhancedMissingVehicles',
+        },
         patientSummary: <Toggle>{
             type: 'toggle',
             default: true,

@@ -53,6 +53,10 @@
 			"description": "Ermöglicht es dir im Einsatzfenster auf Knopfdruck die Karte im Hauptfenster auf den Einsatzort zu zentrieren.",
 			"title": "Karte zentrieren"
 		},
+		"emvMaxStaff": {
+			"description": "Berechnet für 'Benötigte Fahrzeuge verschönern', dass alle Fahrzeuge mit maximalem Personal ausrücken.",
+			"title": "Maximalbesetzung"
+		},
 		"enhancedMissingVehicles": {
 			"description": "Wandelt die Anzeige der zusätzlich benötigten Fahrzeuge in eine übersichtlichere Tabelle um.",
 			"title": "Benötigte Fahrzeuge verschönern"

@@ -45,6 +45,8 @@
                         : requirement.missing) <=
                     (typeof requirement.selected === 'number'
                         ? requirement.selected
+                        : calcMaxStaff
+                        ? requirement.selected.max
                         : requirement.selected.min),
             }"
         >
@@ -109,6 +111,11 @@ export default Vue.extend<
             type: String,
             required: false,
             default: '',
+        },
+        calcMaxStaff: {
+            type: Boolean,
+            required: false,
+            default: false,
         },
     },
 });
