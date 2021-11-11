@@ -38,6 +38,8 @@ export default (LSSM: Vue, $m: $m): void => {
         .sort()
         .join(', ');
 
+    if (!reqStr.length) return;
+
     patientIcon.insertAdjacentHTML(
         'afterend',
         `&nbsp;|&nbsp;<i class="fas fa-user-injured"></i>&nbsp;${reqStr}`
