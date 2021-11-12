@@ -6,7 +6,7 @@ import { Mission } from 'typings/Mission';
 import { RootState } from '../../typings/store/RootState';
 import { Vehicle } from '../../typings/Vehicle';
 import { VehicleRadioMessage } from '../../typings/Ingame';
-import { ActionTree, GetterTree, Module } from 'vuex';
+import { ActionTree, GetterTree, Module, Store } from 'vuex';
 import {
     APIState,
     StorageAPIKey,
@@ -145,13 +145,17 @@ const get_api_values = async <API extends StorageAPIKey>(
 const set_api_storage = <API extends StorageAPIKey>(
     key: API,
     { value, lastUpdate }: StorageGetterReturn<API>,
-    { commit, dispatch }: APIActionStoreParams
+    { commit, dispatch }: Pick<APIActionStoreParams, 'commit' | 'dispatch'>,
+    commitFromRoot = false
 ) => {
     const disabled: string[] = JSON.parse(
         localStorage.getItem(STORAGE_DISABLED_KEY) || '[]'
     );
     try {
-        commit(MUTATION_SETTERS[key], { value, lastUpdate });
+        commit(`${commitFromRoot ? 'api/' : ''}${MUTATION_SETTERS[key]}`, {
+            value,
+            lastUpdate,
+        });
         if (!disabled.includes(key)) {
             sessionStorage.setItem(
                 STORAGE_KEYS[key],
@@ -172,7 +176,8 @@ const set_api_storage = <API extends StorageAPIKey>(
         if (key === 'vehicles') {
             updateVehicleStates(
                 value as StorageGetterReturn<'vehicles'>['value'],
-                commit
+                commit,
+                commitFromRoot
             );
         }
     } catch {
@@ -185,14 +190,15 @@ const set_api_storage = <API extends StorageAPIKey>(
 
 const updateVehicleStates = (
     vehicles: StorageGetterReturn<'vehicles'>['value'],
-    commit: APIActionStoreParams['commit']
+    commit: APIActionStoreParams['commit'],
+    commitFromRoot = false
 ) => {
     const states: Record<number, number> = {};
     vehicles?.forEach(({ fms_real }) => {
         if (!states.hasOwnProperty(fms_real)) states[fms_real] = 0;
         states[fms_real]++;
     });
-    commit('setVehicleStates', states);
+    commit(`${commitFromRoot ? 'api/' : ''}setVehicleStates`, states);
 };
 
 export default {
@@ -292,6 +298,17 @@ export default {
                 vehicle.target_type = null;
                 vehicle.target_id = null;
             }
+            set_api_storage(
+                'vehicles',
+                {
+                    value: state.vehicles,
+                    lastUpdate:
+                        state.lastUpdates.vehicles ?? new Date().getTime(),
+                    user_id: window.user_id,
+                },
+                (this as unknown) as Store<RootState>,
+                true
+            );
         },
         enableAutoUpdate(state: APIState, api: StorageAPIKey) {
             state.autoUpdates.push(api);
