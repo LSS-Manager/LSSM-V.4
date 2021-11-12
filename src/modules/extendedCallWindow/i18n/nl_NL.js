@@ -174,6 +174,9 @@ module.exports = {
             close: 'Sluit Meldingen tot wijziging',
         },
     },
+    patientSummary: {
+        oncePerMission: ['OvD-G'],
+    },
     hideVehicleList: {
         show: 'Toon voertuigenlijst',
         hide: 'Verberg voertuigenlijst',
