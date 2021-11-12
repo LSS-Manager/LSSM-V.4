@@ -1,6 +1,7 @@
 {
 	"approach": "Approach",
 	"backalarm": "Backalarm",
+	"backalarmNext": "approach directly",
 	"cells": {
 		"cell": "Building",
 		"free": "Free cells"

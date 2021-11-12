@@ -102,6 +102,12 @@
                         v-else-if="item.setting.type === 'hidden'"
                         class="hidden"
                     ></div>
+                    <component
+                        v-else-if="item.setting.type === 'custom'"
+                        :is="item.setting.component"
+                        v-model="value[item.name]"
+                        @update="changeValue(index, value, item)"
+                    ></component>
                     <pre v-else>{{ setting }}</pre>
                 </div>
             </div>

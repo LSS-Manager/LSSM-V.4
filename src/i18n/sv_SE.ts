@@ -984,6 +984,32 @@ export default {
             startVehicles: ['Brandhelikopter'],
             schoolingType: ['Brandstation'],
         },
+        22: {
+            caption: 'Stort komplex',
+            color: '#8B4513',
+            coins: 'För dyrt',
+            credits: 'För dyrt',
+            extensions: [],
+            levelcost: ['För dyrt'],
+            maxBuildings: 'Keine Grenze',
+            maxLevel: 5,
+            special: 'FÖR DYRT, KÖP DET INTE, BYGG INTE UT DET',
+            startPersonnel: 'there is none',
+            startVehicles: [''],
+        },
+        23: {
+            caption: 'Litet komplex',
+            color: '#8B4513',
+            coins: 'För dyrt',
+            credits: 'För dyrt',
+            extensions: [],
+            levelcost: ['För dyrt'],
+            maxBuildings: 'Keine Grenze',
+            maxLevel: 5,
+            special: 'FÖR DYRT, KÖP DET INTE, BYGG INTE UT DET',
+            startPersonnel: 'there is none',
+            startVehicles: [''],
+        },
     },
     buildingCategories: {
         ['Brandmän']: {
@@ -999,7 +1025,7 @@ export default {
             color: '#00ac00',
         },
         ['Övrig']: {
-            buildings: [7, 14],
+            buildings: [7, 14, 22, 23],
             color: '#02a18c',
         },
     },
@@ -1146,6 +1172,7 @@ export default {
     premiumNotice:
         'Den här funktionen utökar en premiumfunktion i spelet och är därför endast tillgänglig för spelare med ett Larmcentralen-spelet premiumkonto!',
     credits: 'Krediter',
+    coins: 'Mynt',
     close: 'Stäng',
     fullscreen: {
         expand: 'Aktivera helskärmsläge',

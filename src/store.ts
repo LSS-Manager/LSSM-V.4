@@ -73,6 +73,8 @@ export default (Vue: VueConstructor): Store<RootState> => {
             fontAwesome: {
                 inserted: false,
             },
+            credits: 0,
+            coins: 0,
             osmBars: {},
         },
         mutations: {
@@ -128,6 +130,30 @@ export default (Vue: VueConstructor): Store<RootState> => {
                 if (!state.osmBars.hasOwnProperty(mapId))
                     state.osmBars[mapId] = {};
                 state.osmBars[mapId][position] = bar;
+            },
+            updateCredits(state: RootState, value: number) {
+                const old = state.credits;
+                state.credits = value;
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
+                this.state.api.credits.credits_user_current = value;
+                const diff = value - old;
+                window.dispatchEvent(
+                    new CustomEvent(`${PREFIX}_credits_update`, {
+                        detail: { old, new: value, diff },
+                    })
+                );
+                if (diff > 0) {
+                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                    // @ts-ignore
+                    this.state.api.credits.credits_user_total =
+                        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                        // @ts-ignore
+                        this.state.api.credits.credits_user_total + diff;
+                }
+            },
+            updateCoins(state: RootState, value: number) {
+                state.coins = value;
             },
         } as MutationTree<RootState>,
         getters: {

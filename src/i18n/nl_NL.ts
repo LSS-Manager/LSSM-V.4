@@ -59,6 +59,10 @@ const modules = {
             true: 'Aan',
             false: 'Uit',
         },
+        locationSelect: {
+            location: 'Selecteer positie',
+            zoom: 'Selecteer positie en zoom',
+        },
     },
 } as { [moduleId: string]: { [key: string]: unknown } };
 
@@ -103,6 +107,11 @@ export default {
             description:
                 'Deze instelling maakt tooltips op de kaart donker als je de donkere spelmodus gebruikt',
             title: 'Donkere tooltips op de kaart',
+        },
+        v3MenuAsSubmenu: {
+            title: 'V3 menu als submenu',
+            description:
+                'Verplaatst het menu van LSSM V3 van de menubalk naar een knop in het menu van V4.',
         },
     },
     vehicles: {
@@ -1758,6 +1767,7 @@ export default {
     premiumNotice:
         'Deze functie breidt een premium functie van het spel uit en is daarom alleen beschikbaar voor spelers met een premium spelaccount!',
     credits: 'Credits',
+    coins: 'Coins',
     close: 'Sluiten',
     fullscreen: {
         expand: 'Gebruik full-screen modus',

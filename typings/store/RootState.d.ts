@@ -32,6 +32,8 @@ export interface RootState {
     readonly fontAwesome: {
         inserted: boolean;
     };
+    credits: number;
+    coins: number;
     osmBars: {
         [mapId: string]: { [position: string]: HTMLDivElement };
     };

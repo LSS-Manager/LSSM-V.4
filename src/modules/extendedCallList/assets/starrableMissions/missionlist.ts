@@ -10,7 +10,8 @@ export default (
     LSSM: Vue,
     MODULE_ID: string,
     missions: string[],
-    starredMissionBtnClass: string
+    starredMissionBtnClass: string,
+    starredMissionPanelClass: string
 ): AddStarrableButton => {
     const buttons: StarrableButton[] = [];
 
@@ -23,12 +24,14 @@ export default (
             placeholder.classList.add('hidden');
             placeholder.dataset.missionPlaceholder = id;
             missionElement.after(placeholder);
+            missionElement.classList.add(starredMissionPanelClass);
             missionElement.parentElement?.prepend(missionElement);
         } else {
             const placeholder = missionElement?.parentElement?.querySelector(
                 `[data-mission-placeholder="${id}"]`
             );
             if (!placeholder) return;
+            missionElement.classList.remove(starredMissionPanelClass);
             placeholder.after(missionElement);
             placeholder.remove();
         }

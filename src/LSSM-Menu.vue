@@ -13,7 +13,6 @@
             <span v-if="labelInMenu" class="label label-success">
                 LSSM V.4
             </span>
-            <!--suppress HtmlUnknownTarget -->
             <img
                 :src="lssmLogo"
                 alt="LSSM V.4"
@@ -24,7 +23,11 @@
             <b class="caret"></b>
         </a>
         <ul class="dropdown-menu" role="menu" :aria-labelledby="menuId">
-            <li role="presentation" style="text-align: center;">
+            <li
+                role="presentation"
+                style="text-align: center;"
+                :id="versionWrapperId"
+            >
                 <span class="label label-default">
                     {{ version }} [{{ mode }}]
                 </span>
@@ -201,6 +204,10 @@ export default Vue.extend<
                 navbar: null,
                 aborted: false,
             },
+            versionWrapperId: this.$store.getters.nodeAttribute(
+                'menu_version-wrapper',
+                true
+            ),
         };
     },
     computed: {
@@ -460,6 +467,54 @@ export default Vue.extend<
                 }
             });
     },
+    mounted() {
+        this.$store
+            .dispatch('settings/getSetting', {
+                moduleId: 'global',
+                settingId: 'v3MenuAsSubmenu',
+                default: false,
+            })
+            .then(v3MenuAsSubmenu => {
+                if (!v3MenuAsSubmenu) return;
+
+                const v3Dropdown = document.querySelector<HTMLLIElement>(
+                    '#lssm_dropdown'
+                );
+                const versionWrapper = this.$el.querySelector<HTMLLIElement>(
+                    `#${this.versionWrapperId}`
+                );
+                if (!v3Dropdown || !versionWrapper) return;
+
+                const divider = document.createElement('li');
+                divider.classList.add('divider');
+                divider.setAttribute('role', 'presentation');
+
+                versionWrapper.after(divider, v3Dropdown);
+
+                const v3MenuSwitch = v3Dropdown.querySelector<
+                    HTMLAnchorElement
+                >('#lssm_menu_switch');
+                if (v3MenuSwitch) {
+                    v3MenuSwitch.querySelector('b.caret')?.remove();
+                    const v3Label = v3MenuSwitch.querySelector(
+                        '.label.label-success'
+                    );
+                    if (v3Label) v3Label.textContent = 'LSS-Manager V.3';
+                    const submenuIcon = document.createElement('i');
+                    submenuIcon.classList.add('fas', 'fa-angle-double-left');
+                    submenuIcon.style.setProperty('margin-right', '1rem');
+                    v3MenuSwitch.prepend(submenuIcon);
+                }
+                const v3Menu = v3Dropdown.querySelector<HTMLUListElement>(
+                    '#lssm_menu'
+                );
+                if (!v3Menu) return;
+                v3Menu.classList.add(
+                    'dropdown-submenu',
+                    'dropdown-submenu-left'
+                );
+            });
+    },
 });
 </script>
 
@@ -490,4 +545,20 @@ export default Vue.extend<
         a:focus
             background-color: rgba(0, 0, 0, 0.3)
             outline: none
+
+        ::v-deep li
+            position: relative
+
+            .dropdown-submenu
+                display: none
+                position: absolute
+                left: 100%
+                top: -7px
+
+                &.dropdown-submenu-left
+                    right: 100%
+                    left: auto
+
+            &:hover > .dropdown-submenu
+                display: block
 </style>

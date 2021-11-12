@@ -6,10 +6,11 @@ Standardmäßig werden wieder die sog. Badges angezeigt:
 
 ![Badges](badges.png)
 
+Die Anzeige der Durchschnittswerte kannst du über die Einstellungen deaktivieren.
+
 Klickst du auf das kleine `i`, bekommst du zusätzlich eine sortierbare Tabelle präsentiert:
 
 ![Tabelle](table.png)
-
 
 Folgende Kategorien verwenden wir:
 

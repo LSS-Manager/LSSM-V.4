@@ -75,6 +75,7 @@
                     :sort="sort"
                     :sort-dir="sortDir"
                     :search="missingRequirementsSearch"
+                    :calc-max-staff="calcMaxStaff"
                     @sort="setSort"
                     @search="s => (missingRequirementsSearch = s)"
                 ></enhanced-missing-vehicles-table>
@@ -89,6 +90,7 @@
                     :sort="sort"
                     :sort-dir="sortDir"
                     :search="missingRequirementsSearch"
+                    :calc-max-staff="calcMaxStaff"
                     @sort="setSort"
                     @search="s => (missingRequirementsSearch = s)"
                 ></enhanced-missing-vehicles-table>
@@ -101,6 +103,7 @@
                     :sort="sort"
                     :sort-dir="sortDir"
                     :search="missingRequirementsSearch"
+                    :calc-max-staff="calcMaxStaff"
                     @sort="setSort"
                     @search="s => (missingRequirementsSearch = s)"
                 ></enhanced-missing-vehicles-table>
@@ -176,6 +179,7 @@ export default Vue.extend<
                     y: 0,
                 },
             },
+            calcMaxStaff: false,
         };
     },
     props: {
@@ -230,6 +234,8 @@ export default Vue.extend<
                     (req.total ?? req.missing) <=
                     (typeof req.selected === 'number'
                         ? req.selected
+                        : this.calcMaxStaff
+                        ? req.selected.max
                         : req.selected.min)
             );
         },
@@ -373,6 +379,13 @@ export default Vue.extend<
                 defaultValue: false,
             })
             .then(hoverTip => (this.hoverTip = hoverTip));
+        this.$store
+            .dispatch('settings/getSetting', {
+                moduleId: 'extendedCallWindow',
+                settingId: 'emvMaxStaff',
+                defaultValue: false,
+            })
+            .then(calcMaxStaff => (this.calcMaxStaff = calcMaxStaff));
         this.$store
             .dispatch('api/registerVehiclesUsage', { feature: 'emv' })
             .then();

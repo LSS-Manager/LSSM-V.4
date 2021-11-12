@@ -153,11 +153,19 @@
 			"description": "Klappe einzelne (oder alle) Einsätze ein, um Platz in der Einsatzliste zu sparen.",
 			"title": "Einsätze einklappen"
 		},
+		"currentPatients": {
+			"description": "Zeigt die aktuelle Zahl der Patienten bei jedem Einsatz an.",
+			"title": "Patientenzahl"
+		},
 		"eventMissions": {
 			"description": "Markiert Saisonale Einsätze. Optional kannst du das ganze individuell anpassen und auch nicht-saisonale Einsätze markieren.",
 			"missions": "Einsätze",
 			"text": "Text",
 			"title": "Saisonale Einsätze markieren"
+		},
+		"hide0CurrentPatients": {
+			"description": "Versteckt die Patientenzahl, wenn diese 0 beträgt.",
+			"title": "Verstecke 0 Patienten"
 		},
 		"remainingPatientTime": {
 			"description": "Zeigt bei Patienten an, wie lange der Patient noch behandelt werden muss.",
@@ -175,9 +183,49 @@
 			"description": "Zeigt die Einsatzdauer nur bei grünen Einsätzen an.",
 			"title": "Einsatzdauer nur bei grünen Einsätzen"
 		},
+		"shareMissions": {
+			"description": "Teile Einsätze mit dem Verband direkt aus der Einsatzliste heraus.",
+			"title": "Einsätze teilen"
+		},
+		"shareMissionsButtonColor": {
+			"danger": "Rot",
+			"default": "Schwarz bzw. Weiß (Je nach Design)",
+			"description": "Wähle, welche Farbe der Knopf zum Teilen von Einsätzen haben soll.",
+			"info": "Hellblau",
+			"primary": "Dunkelblau",
+			"success": "Grün",
+			"title": "Einsätze teilen: Knopffarbe",
+			"warning": "Orange"
+		},
+		"shareMissionsMinCredits": {
+			"description": "Der Knopf zum Teilen von Einsätzen wird nur angezeigt, wenn der Einsatz im durchschnitt mehr als die hier festgelegte Zahl an Credits bringt.",
+			"title": "Einsätze teilen: Minimale Credits"
+		},
+		"shareMissionsTypes": {
+			"description": "Hiermit kannst du festlegen, dass der Knopf zum Teilen von Einsätzen nur bei bestimmten Einsätzen angezeigt werden soll.",
+			"own": "Notfall-Einsätze",
+			"sicherheitswache": "Geplante Einsätze",
+			"title": "Einsätze teilen: Einsatztypen"
+		},
+		"sortMissions": {
+			"description": "Sortiere die Einsatzliste nach bestimmten Kriterien, z.B. Verdienst oder noch vorhandenen Patienten",
+			"title": "Einsätze sortieren"
+		},
+		"sortMissionsButtonColor": {
+			"description": "Wähle, welche Farbe der Knopf zur Einsatzsortierung haben soll.",
+			"title": "Einsätze sortieren: Knopffarbe"
+		},
 		"starrableMissions": {
 			"description": "Markiere dir Einsätze, damit diese in der Einsatzliste oben angezeigt werden dürfen. Du kannst die Markierung im Einsatzfenster und in der Einsatzliste vornehmen.",
 			"title": "Einsätze markieren"
+		}
+	},
+	"sort": {
+		"types": {
+			"alphabet": "Alphabet",
+			"credits": "Verdienst",
+			"id": "Alter",
+			"remaining_patients": "aktuelle Patienten"
 		}
 	}
 }

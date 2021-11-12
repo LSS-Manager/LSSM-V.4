@@ -1205,6 +1205,32 @@ export default {
             startPersonnel: 3,
             startVehicles: ['Ambulans P'],
         },
+        21: {
+            caption: 'Duży kompleks',
+            color: '#8B4513',
+            coins: 'Zbyt drogie',
+            credits: 'Zbyt drogie',
+            extensions: [],
+            levelcost: ['Zbyt drogie'],
+            maxBuildings: 'Keine Grenze',
+            maxLevel: 5,
+            special: 'ZA DROGI, NIE KUPUJ GO, NIE ROZBUDOWUJ GO',
+            startPersonnel: 'there is none',
+            startVehicles: [''],
+        },
+        22: {
+            caption: 'Mały kompleks',
+            color: '#8B4513',
+            coins: 'Zbyt drogie',
+            credits: 'Zbyt drogie',
+            extensions: [],
+            levelcost: ['Zbyt drogie'],
+            maxBuildings: 'Keine Grenze',
+            maxLevel: 5,
+            special: 'ZA DROGI, NIE KUPUJ GO, NIE ROZBUDOWUJ GO',
+            startPersonnel: 'there is none',
+            startVehicles: [''],
+        },
     },
     buildingCategories: {
         ['Straż pożarna']: {
@@ -1224,7 +1250,7 @@ export default {
             color: '#F9D74A',
         },
         'Inne': {
-            buildings: [7, 4, 14],
+            buildings: [7, 4, 14, 21, 22],
             color: '#02a18c',
         },
     },
@@ -1359,7 +1385,8 @@ export default {
     alliance: 'Alliance',
     premiumNotice:
         'This feature extends a premium feature of the game and is therefore only available for players with a Missionchief game premium account!',
-    credits: 'Credits',
+    credits: 'Kredyty',
+    coins: 'Monety',
     close: 'Close',
     fullscreen: {
         expand: 'Activate full screen mode',

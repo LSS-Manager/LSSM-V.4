@@ -40,6 +40,7 @@ export interface EnhancedMissingVehicles {
             y: number;
         };
     };
+    calcMaxStaff: boolean;
 }
 
 export interface EnhancedMissingVehiclesProps {

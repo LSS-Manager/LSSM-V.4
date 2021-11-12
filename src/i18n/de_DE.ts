@@ -109,6 +109,11 @@ export default {
                 'Diese Einstellung sorgt dafür, dass die Tooltips auf der Karte dunkel sind, wenn du das Spiel im dunklen Modus hast',
             title: 'Dunkle Tooltips in der Karte',
         },
+        v3MenuAsSubmenu: {
+            title: 'V3 Menü als Untermenü',
+            description:
+                'Verschiebt das Menü des LSSM V3 in das Menü der V4 um Platz in der Navigationsleiste zu sparen.',
+        },
     },
     vehicles: {
         0: {
@@ -2671,7 +2676,7 @@ export default {
             {
                 caption: 'Motorradstaffel',
                 duration: '3 Tage',
-                staffList: 'Hundeführer (Schutzhund)',
+                staffList: 'Motorradstaffel',
             },
             {
                 caption: 'Polizeihubschrauber',
@@ -2786,6 +2791,7 @@ export default {
     premiumNotice:
         'Diese Funktion erweitert eine Premium-Funktion des Spiels und ist deshalb nur für Spieler mit einem Leitstellenspiel-Premium-Account verfügbar!',
     credits: 'Credits',
+    coins: 'Coins',
     close: 'Schließen',
     fullscreen: {
         expand: 'Vollbildmodus aktivieren',

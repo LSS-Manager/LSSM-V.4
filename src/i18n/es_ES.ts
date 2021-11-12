@@ -778,6 +778,32 @@ export default {
             startVehicles: ['Ambulancia'],
             schoolingTypes: ['Rescate'],
         },
+        21: {
+            caption: 'Gran complejo',
+            color: '#8B4513',
+            coins: 'Demasiado caro',
+            credits: 'Demasiado caro',
+            extensions: [],
+            levelcost: ['Demasiado caro'],
+            maxBuildings: 'Keine Grenze',
+            maxLevel: 5,
+            special: 'Demasiado caro, NO LO COMPRES, NO LO AMPLÍES',
+            startPersonnel: 'there is none',
+            startVehicles: [''],
+        },
+        22: {
+            caption: 'Pequeño complejo',
+            color: '#8B4513',
+            coins: 'Demasiado caro',
+            credits: 'Demasiado caro',
+            extensions: [],
+            levelcost: ['Demasiado caro'],
+            maxBuildings: 'Keine Grenze',
+            maxLevel: 5,
+            special: 'Demasiado caro, NO LO COMPRES, NO LO AMPLÍES',
+            startPersonnel: 'there is none',
+            startVehicles: [''],
+        },
     },
     buildingCategories: {
         'Parques de bomberos': {
@@ -793,7 +819,7 @@ export default {
             color: '#00ac00',
         },
         'Otros': {
-            buildings: [4, 7, 14],
+            buildings: [4, 7, 14, 21, 22],
             color: '#02a18c',
         },
     },
@@ -911,6 +937,7 @@ export default {
     premiumNotice:
         '¡Esta función amplía una función premium del juego y, por lo tanto, solo está disponible para jugadores con una cuenta premium del juego Centro de Mando!',
     credits: 'Créditos',
+    coins: 'Monedas',
     close: 'Cerrar',
     fullscreen: {
         expand: 'Activar el modo pantalla completa',

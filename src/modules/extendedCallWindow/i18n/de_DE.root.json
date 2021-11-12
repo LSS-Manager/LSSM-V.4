@@ -53,6 +53,10 @@
 			"description": "Ermöglicht es dir im Einsatzfenster auf Knopfdruck die Karte im Hauptfenster auf den Einsatzort zu zentrieren.",
 			"title": "Karte zentrieren"
 		},
+		"emvMaxStaff": {
+			"description": "Berechnet für 'Benötigte Fahrzeuge verschönern', dass alle Fahrzeuge mit maximalem Personal ausrücken.",
+			"title": "Maximalbesetzung"
+		},
 		"enhancedMissingVehicles": {
 			"description": "Wandelt die Anzeige der zusätzlich benötigten Fahrzeuge in eine übersichtlichere Tabelle um.",
 			"title": "Benötigte Fahrzeuge verschönern"
@@ -92,6 +96,10 @@
 		"redBorder": {
 			"description": "Umrandet die Generierungszeit rot, wenn der Einsatz in der kommenden Nacht verfallen wird.",
 			"title": "Rote Umrandung"
+		},
+		"remainingPatientTime": {
+			"description": "Zeigt bei Patienten an, wie lange der Patient noch behandelt werden muss.",
+			"title": "Patientenbehandlungsdauer"
 		},
 		"stagingAreaSelectedCounter": {
 			"description": "Zeigt auch in Bereitstellungsräumen neben dem \"Alarmieren\" Knopf die Zahl der ausgewählten Fahrzeuge",

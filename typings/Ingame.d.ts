@@ -85,18 +85,27 @@ export interface MissionTimer extends MissionMarkerAdd {
     date_end_calc: number;
 }
 
+export interface PatientMarkerAdd {
+    id: number;
+    live_current_value: number;
+    miliseconds_by_percent: number;
+    missing_text: string | null;
+    mission_id: number;
+    name: string;
+    target_percent: number;
+}
+
+export interface PatientMarkerAddCombined {
+    mission_id: number;
+    count: number;
+    untouched: number;
+    errors: Record<string, number>;
+}
+
 export interface PatientTimer {
     miliseconds_by_percent: number;
     patient_id: number;
-    params: {
-        id: number;
-        live_current_value: number;
-        miliseconds_by_percent: number;
-        missing_text: string | null;
-        mission_id: number;
-        name: string;
-        target_percent: number;
-    };
+    params: PatientMarkerAdd;
 }
 
 export interface ProgressbarTimer {

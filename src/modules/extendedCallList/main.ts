@@ -1,6 +1,8 @@
 import { AddCollapsableButton } from './assets/collapsableMissions/missionlist';
 import { AddStarrableButton } from './assets/starrableMissions/missionlist';
 import { ModuleMainFunction } from 'typings/Module';
+import { Sort } from './assets/sort';
+import { AddShareBtn, UpdateShareBtn } from './assets/shareMissions';
 
 interface AppendableListSetting<valueType> {
     value: valueType;
@@ -18,7 +20,7 @@ export default (async (LSSM, MODULE_ID, $m) => {
     if (window.location.pathname.match(/^\/vehicles\/\d+\/?/)) {
         return await (
             await import(
-                /* webpackChunkName: "modules/extendedCallList/vehicleMissionParticipitationState" */ './assets/vehicleMissionParticipitationState'
+                /* webpackChunkName: "modules/extendedCallList/vehicleMissionParticipationState" */ './assets/vehicleMissionParticipationState'
             )
         ).default(LSSM, MODULE_ID);
     }
@@ -28,6 +30,9 @@ export default (async (LSSM, MODULE_ID, $m) => {
 
     const starredMissionBtnClass = LSSM.$store.getters.nodeAttribute(
         `${MODULE_ID}_starrable-missions_btn`
+    );
+    const starredMissionPanelClass = LSSM.$store.getters.nodeAttribute(
+        `${MODULE_ID}_starrable-missions-starred`
     );
 
     if (window.location.pathname.match(/^\/missions\/\d+\/?/)) {
@@ -42,8 +47,9 @@ export default (async (LSSM, MODULE_ID, $m) => {
     }
 
     const collapsableMissions = await getSetting('collapsableMissions');
+    const shareMissions = await getSetting('shareMissions');
 
-    if (starrableMissions || collapsableMissions) {
+    if (starrableMissions || collapsableMissions || shareMissions) {
         LSSM.$store.commit('useFontAwesome');
 
         starredMissions = starredMissions.filter(
@@ -63,7 +69,8 @@ export default (async (LSSM, MODULE_ID, $m) => {
                   LSSM,
                   MODULE_ID,
                   starredMissions,
-                  starredMissionBtnClass
+                  starredMissionBtnClass,
+                  starredMissionPanelClass
               )
             : null;
 
@@ -96,15 +103,69 @@ export default (async (LSSM, MODULE_ID, $m) => {
                   $m
               )
             : null;
+        const {
+            addShareBtn,
+            updateShareBtn,
+        }: {
+            addShareBtn: AddShareBtn | null;
+            updateShareBtn: UpdateShareBtn | null;
+        } = shareMissions
+            ? (
+                  await import(
+                      /* webpackChunkName: "modules/extendedCallList/shareMissions" */ './assets/shareMissions'
+                  )
+              ).default(
+                  LSSM,
+                  MODULE_ID,
+                  await getSetting<('' | 'sicherheitswache')[]>(
+                      'shareMissionsTypes'
+                  ),
+                  await getSetting<number>('shareMissionsMinCredits'),
+                  await getSetting<string>('shareMissionsButtonColor')
+              )
+            : { addShareBtn: null, updateShareBtn: null };
 
         (
             await import(
                 /* webpackChunkName: "modules/extendedCallList/utils/btnGroup" */ './assets/utils/buttonGroup'
             )
-        ).default(LSSM, MODULE_ID, mission => {
-            addStarrableBtn?.(mission, starredMissionBtnClass);
-            addCollapsableBtn?.(mission, collapsedMissionBtnClass);
-        });
+        ).default(
+            LSSM,
+            MODULE_ID,
+            mission => {
+                addStarrableBtn?.(mission, starredMissionBtnClass);
+                addCollapsableBtn?.(mission, collapsedMissionBtnClass);
+                addShareBtn?.(mission);
+            },
+            mission => {
+                updateShareBtn?.(mission);
+            }
+        );
+    }
+
+    if (await getSetting('sortMissions')) {
+        (
+            await import(
+                /* webpackChunkName: "modules/extendedCallList/sort" */ './assets/sort'
+            )
+        ).default(
+            LSSM,
+            MODULE_ID,
+            (await getSetting<Sort>('sortMissionsType')) ?? 'id',
+            (await getSetting<'asc' | 'desc'>('sortMissionsDirection')) ??
+                'asc',
+            await getSetting<string>('sortMissionsButtonColor'),
+            starredMissionPanelClass,
+            $m
+        );
+    }
+
+    if (await getSetting('currentPatients')) {
+        (
+            await import(
+                /* webpackChunkName: "modules/extendedCallList/currentPatients" */ './assets/currentPatients'
+            )
+        ).default(LSSM, MODULE_ID, await getSetting('hide0CurrentPatients'));
     }
 
     if (await getSetting('remainingTime')) {

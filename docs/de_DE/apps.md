@@ -42,14 +42,14 @@ Grundsätzlich möchten wir mit der Zeit alle Funktionen der V.3 in die V.4 inte
 |            AAO-Klickzähler             | [Erweitertes Alarmfenster][extendedCallWindow] |       AAO-Klickzähler        |                                                              |
 |               AAO-Suche                |                                                |                              |                                                              |
 |      Alarmieren, Teilen & Posten       |                                                |                              |                                                              |
-|               Center-Map               |                                                |                              |                                                              |
+|               Center-Map               |        [Verbesserte Karte][extendedMap]        |                              | Hier ist aktuell nur der statische Modus eingebaut. Der dynamische folgt nocht. |
 |                 Clock                  |                  [Uhr][clock]                  |   Uhr als Overlay anzeigen   |                                                              |
-|           Creditserweiterung           |                                                |                              |                                                              |
+|           Creditserweiterung           |     [Creditserweiterung][creditsextension]     |                              |                                                              |
 |               Dashboard                |             [Dashboard][dashboard]             |                              |                                                              |
 |          Eigene VGE speichern          |                                                |                              |                                                              |
 |             Einsatzhelfer              |         [Einsatzhelfer][missionHelper]         |                              |                                                              |
 |           Einsatzstichworte            | [Erweitertes Alarmfenster][extendedCallWindow] |      Einsatzstichworte       |                                                              |
-|           Einsätze freigeben           |                                                |                              |                                                              |
+|           Einsätze freigeben           |   [Erweitere Einsatzliste][extendedCallList]   |       Einsätze teilen        |                                                              |
 |            Einsätze suchen             |                                                |                              |                                                              |
 |       Erweiterte Gebäudeansicht        | [Erweiterte Gebäudeansicht][extendedBuilding]  |                              |                                                              |
 |          Fahrzeuge umbenennen          |                                                |                              |                                                              |
@@ -65,7 +65,7 @@ Grundsätzlich möchten wir mit der Zeit alle Funktionen der V.3 in die V.4 inte
 |         Markiert Eventeinsätze         |  [Erweiterte Einsatzliste][extendedCallList]   | Saisonale Einsätze markieren |                                                              |
 |         Maßgeschneiderte Tabs          | [Erweitertes Alarmfenster][extendedCallWindow] |  Eigene Fahrzeugkategorien   |                                                              |
 |        Meldedatum für Einsätze         | [Erweitertes Alarmfenster][extendedCallWindow] |    Generierungszeitpunkt     |                                                              |
-|               MissionOut               |  [Erweiterte Einsatzliste][extendedCallList]   |     Einsätze einklappen      |                                                              |
+|               MissionOut               |  [Erweiterte Einsatzliste][extendedCallList]   |     Einsätze einklappen      | Die Anzeige der Patientenzahl findet sich im selben Modul als Einstellung `Patientenzahl` |
 |        Nachforderungen per FMS         |                                                |                              |                                                              |
 |           Notification Alert           |    [Benachrichtigungen][notificationAlert]     |                              | In der V.4 gibt es viele mögliche Benachrichtigungen zur Auswahl, die auch teilweise konfigurierbar sind. |
 |              Redesign 01               |                                                |                              |                                                              |
@@ -98,3 +98,5 @@ Grundsätzlich möchten wir mit der Zeit alle Funktionen der V.3 in die V.4 inte
 [buildingListFilter]: modules/buildingListFilter.md
 [extendedCallList]: modules/extendedCallList.md
 [hotkeys]: modules/hotkeys.md
+[extendedMap]: modules/extendedMap.md
+[creditsextension]: modules/creditsextension.md

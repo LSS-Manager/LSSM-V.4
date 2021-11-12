@@ -3,7 +3,7 @@ Die Einsatzliste ist eines der zentralen Elemente des Spiels. Leider ist sie sei
 Mit diesem Modul möchten wir sie etwas aufpeppen. Dies sind die möglichen Einstellungen:
 
 ## verbleibende Einsatzdauer
-Du möchstest wissen, wie lange ein Einsatz noch braucht, bis er vollständig abgearbeitet ist?
+Du möchtest wissen, wie lange ein Einsatz noch braucht, bis er vollständig abgearbeitet ist?
 Diese Einstellung zeigt dir genau diese Information an:
 ![Einsatzdauer in der Einsatzliste](einsatzdauer.png)
 
@@ -11,12 +11,18 @@ Diese Einstellung zeigt dir genau diese Information an:
 Ist diese Einstellung deaktiviert (Standardmäßig ist sie aktiviert), werden die Zeiten auch angezeigt, wenn der Einsatz im Status `gelb` ist.
 
 Warum ist das so?
-> Für jeden Einsatz, der läuft führt das Spiel sekündlich eine Funktion aus. In dieser Funktion wird unteranderem berechnet, wann der Einsatz aufhört abgearbeitet zu werden. Und das ist eben einmal, wenn der Einsatz fertig ist, oder, wenn noch nicht alles benötigte vor Ort ist und der Einsatz trotzdem schon angefangen wurde.
-> Wir nutzen diese Berechnete "Endzeit" und berechnen dann, wie weit es bis dahin ist und formatieren dies dann schön..
+> Für jeden Einsatz, der läuft, führt das Spiel sekündlich eine Funktion aus. In dieser Funktion wird unter anderem berechnet, wann der Einsatz aufhört abgearbeitet zu werden. Und das ist eben einmal, wenn der Einsatz fertig ist, oder, wenn noch nicht alles benötigte vor Ort ist und der Einsatz trotzdem schon angefangen wurde.
+> Wir nutzen diese Berechnete "Endzeit" und berechnen dann, wie weit es bis dahin ist und formatieren dies dann schön.
 > Aus diesem Grund ist es möglich, dass die Einsatzdauer auch schon angezeigt wird, wenn der Einsatz noch nicht `grün` ist. 
 
+## Patientenbehandlungsdauer
+Damit wird bei Patienten in klein angezeigt, wie lange diese brauchen, bis sie vollständig behandelt sind.
+
+## Abpumpprozessdauer
+Damit wird bei Abpumpprozessen in klein angezeigt, wie lange diese noch brauchen.
+
 ## Einsätze markieren
-Mit diesem Feature hast du die Möglichkeit, dir Einsätze zu markieren, so dass sie stets oben in der Einsatzliste angezeigt werden. Du kannst die Markierung sowohl in der Einsatzliste als auch im Einsatzfenster vornehmen. Ein gelber Stern zeigt an, dass ein Einsatz markiert ist.
+Mit diesem Feature hast du die Möglichkeit, dir Einsätze zu markieren, sodass sie stets oben in der Einsatzliste angezeigt werden. Du kannst die Markierung sowohl in der Einsatzliste als auch im Einsatzfenster vornehmen. Ein gelber Stern zeigt an, dass ein Einsatz markiert ist.
 ![Markieren in der Einsatzliste](markieren.png)
 ![Markieren im Einsatzfenster](markieren_einsatz.png)
 
@@ -31,8 +37,35 @@ Du kannst die Einsätze nach Belieben ein- und ausklappen oder eben alle auf ein
 
 ![Einsätze einklappen](einklappen.png)
 
+## Einsätze teilen
+Dieses Feature ersetzt das Modul `Einsätze freigeben` der V3!
+
+Du kannst damit Einsätze direkt aus der Einsatzliste heraus im Verband freigeben. Mit den folgenden Einstellungen kannst du begrenzen, bei welchen Einsätzen ein "Teilen"-Knopf angezeigt werden soll.
+Zudem kannst du dir die Farbe der Knöpfe anpassen:
+
+![Einsätze teilen](shareMissions.png)
+
+### Einsätze teilen: Einsatztypen
+Wähle, ob die Knöpfe bei Notfalleinsätzen, bei Sicherheitswachen oder bei beiden erscheinen soll.
+
+### Einsätze teilen: Minimale Credits
+Nicht alle Einsätze möchte man freigeben, z.B. nur Einsätze, die im Schnitt mehr als 7.0000 Credits geben. Das kannst du über diese Einstellung regeln.
+
+## Einsätze sortieren
+Sortiere deine Einsatzliste nach bestimmten Kriterien! Auch hier lässt sich die Farbe des Knopfes anpassen.
+
+![Einsätze sortieren](missionSort.png)
+
+## Patientenzahl
+Zeigt am rechten Rand eines Einsatzes eine kleine Zahl an, wie viele Patienten gerade am Einsatzort sind:
+
+![Patientenzahl](patientenzahl.png)
+
+### Verstecke 0 Patienten
+Ist diese Einstellung aktiv, wird die Zahl der Patienten nur dann angezeigt, wenn diese größer 0 ist.
+
 ## Saisonale Einsätze markieren
-Mit dieser Einstellung kannst du für jeden einzelnen Einsatz beliebig viele kurze Hinweise notieren, welche vor dem Namen in der Einsatzliste gezeigt werden. Standardmäßig sind hier saisonale Einsätze eingetragen (Sommer, Halloween, Fußbal etc.), daher auch der Name.
+Mit dieser Einstellung kannst du für jeden einzelnen Einsatz beliebig viele kurze Hinweise notieren, welche vor dem Namen in der Einsatzliste gezeigt werden. Standardmäßig sind hier saisonale Einsätze eingetragen (Sommer, Halloween, Fußball etc.), daher auch der Name.
 
 So sieht das z.B. bei Standardeinstellung für einen Fußball-Einsatz aus:
 ![Eventmission bei einem Fußalleinsatz](eventMission.png)

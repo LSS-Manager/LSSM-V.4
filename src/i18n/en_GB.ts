@@ -108,6 +108,11 @@ export default {
                 'This settings darkens tooltips on map if you have enabled the dark mode',
             title: 'Dark tooltips on map',
         },
+        v3MenuAsSubmenu: {
+            title: 'V3 Menü als Untermenü',
+            description:
+                'Moves the menu of the LSSM V3 to the menu of the V4 to save some space in the navigation bar.',
+        },
     },
     vehicles: {
         0: {
@@ -1039,6 +1044,32 @@ export default {
             startVehicles: [''],
             schoolingTypes: ['Rescue', 'Police'],
         },
+        23: {
+            caption: 'Large complex',
+            color: '#8B4513',
+            coins: 'Too Expensive',
+            credits: 'Too Expensive',
+            extensions: [],
+            levelcost: ['Too Expensive'],
+            maxBuildings: 'Keine Grenze',
+            maxLevel: 5,
+            special: "TOO EXPENSIVE, DON'T BUY IT, DON'T EXPAND IT",
+            startPersonnel: 'there is none',
+            startVehicles: [''],
+        },
+        24: {
+            caption: 'Small complex',
+            color: '#8B4513',
+            coins: 'Too Expensive',
+            credits: 'Too Expensive',
+            extensions: [],
+            levelcost: ['Too Expensive'],
+            maxBuildings: 'Keine Grenze',
+            maxLevel: 5,
+            special: "TOO EXPENSIVE, DON'T BUY IT, DON'T EXPAND IT",
+            startPersonnel: 'there is none',
+            startVehicles: [''],
+        },
         25: {
             caption: 'HART Base',
             color: '#eeb611',
@@ -1082,7 +1113,7 @@ export default {
             color: '#00ac00',
         },
         'Other': {
-            buildings: [7, 4, 14, 22],
+            buildings: [7, 4, 14, 22, 23, 24],
             color: '#02a18c',
         },
     },
@@ -1226,6 +1257,7 @@ export default {
     premiumNotice:
         'This feature extends a premium feature of the game and is therefore only available for players with a Missionchief game premium account!',
     credits: 'Credits',
+    coins: 'Coins',
     close: 'Close',
     fullscreen: {
         expand: 'Activate full screen mode',

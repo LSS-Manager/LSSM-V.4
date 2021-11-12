@@ -74,7 +74,7 @@ export default (async (LSSM, MODULE_ID, $m, $mc) => {
                 await import(
                     /* webpackChunkName: "modules/extendedCallWindow/patientSummary" */ './assets/patientSummary'
                 )
-            ).default(LSSM);
+            ).default(LSSM, $m);
         }
         if (
             (await getSetting('arrCounter')) ||
@@ -173,6 +173,13 @@ export default (async (LSSM, MODULE_ID, $m, $mc) => {
             (
                 await import(
                     /* webpackChunkName: "modules/extendedCallWindow/centerMap" */ './assets/centerMap'
+                )
+            ).default(LSSM);
+        }
+        if (await getSetting('remainingPatientTime')) {
+            await (
+                await import(
+                    /* webpackChunkName: "modules/extendedCallWindow/remainingPatientTime" */ './assets/remainingPatientTime'
                 )
             ).default(LSSM);
         }

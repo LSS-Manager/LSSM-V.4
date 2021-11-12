@@ -62,6 +62,11 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
             type: 'toggle',
             default: false,
         },
+        emvMaxStaff: <Toggle>{
+            type: 'toggle',
+            default: false,
+            dependsOn: '.enhancedMissingVehicles',
+        },
         patientSummary: <Toggle>{
             type: 'toggle',
             default: true,
@@ -136,6 +141,10 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
         vehicleTypeInList: <Toggle>{
             type: 'toggle',
             default: false,
+        },
+        remainingPatientTime: <Toggle>{
+            type: 'toggle',
+            default: true,
         },
         tailoredTabs: <Omit<AppendableList, 'value' | 'isDisabled'>>{
             type: 'appendable-list',
