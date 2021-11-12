@@ -6,7 +6,7 @@ import {
     Toggle,
 } from 'typings/Setting';
 
-export default <ModuleSettingFunction>((_, __, $m) => ({
+export default <ModuleSettingFunction>(() => ({
     creditsInNavbar: <Toggle>{
         type: 'toggle',
         default: false,
