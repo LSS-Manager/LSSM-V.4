@@ -1108,7 +1108,7 @@ export default {
             color: '#00ac00',
         },
         'Other': {
-            buildings: [7, 4, 14, 22],
+            buildings: [7, 4, 14, 22, 23, 24],
             color: '#02a18c',
         },
     },

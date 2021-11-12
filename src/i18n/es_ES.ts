@@ -819,7 +819,7 @@ export default {
             color: '#00ac00',
         },
         'Otros': {
-            buildings: [4, 7, 14],
+            buildings: [4, 7, 14, 21, 22],
             color: '#02a18c',
         },
     },

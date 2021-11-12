@@ -1018,7 +1018,7 @@ export default {
             color: '#00ac00',
         },
         Annet: {
-            buildings: [0, 12],
+            buildings: [0, 12, 22, 23],
             color: '#02a18c',
         },
     },

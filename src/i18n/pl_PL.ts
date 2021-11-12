@@ -1250,7 +1250,7 @@ export default {
             color: '#F9D74A',
         },
         'Inne': {
-            buildings: [7, 4, 14],
+            buildings: [7, 4, 14, 21, 22],
             color: '#02a18c',
         },
     },

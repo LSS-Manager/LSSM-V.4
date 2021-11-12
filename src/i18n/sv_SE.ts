@@ -1025,7 +1025,7 @@ export default {
             color: '#00ac00',
         },
         ['Övrig']: {
-            buildings: [7, 14],
+            buildings: [7, 14, 22, 23],
             color: '#02a18c',
         },
     },
