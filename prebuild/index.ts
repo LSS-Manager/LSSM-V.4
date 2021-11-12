@@ -9,7 +9,7 @@ import setVersion from './setVersion';
     console.log('Running LSSM-Prebuild-Scripts...');
 
     console.info('\tsetVersion');
-    setVersion();
+    console.info(setVersion());
     console.info('\tbuildUserscript');
     await buildUserscript();
     console.info('\temptyDir');
