@@ -15,6 +15,7 @@ export interface lssmMenuData {
         navbar: HTMLElement | null;
         aborted: boolean;
     };
+    versionWrapperId: string;
 }
 
 export interface lssmMenuComputed {

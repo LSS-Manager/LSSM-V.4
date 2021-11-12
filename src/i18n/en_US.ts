@@ -108,6 +108,11 @@ export default {
                 'This settings darkens tooltips on map if you have enabled the dark mode',
             title: 'Dark tooltips on map',
         },
+        v3MenuAsSubmenu: {
+            title: 'V3 Menü als Untermenü',
+            description:
+                'Moves the menu of the LSSM V3 to the menu of the V4 to save some space in the navigation bar.',
+        },
     },
     vehicles: {
         0: {

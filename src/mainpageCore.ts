@@ -80,6 +80,10 @@ export default async (LSSM: Vue): Promise<void> => {
                     noMapkit: true,
                     disabled: () => !LSSM.$store.state.darkmode,
                 },
+                v3MenuAsSubmenu: <Toggle>{
+                    type: 'toggle',
+                    default: false,
+                },
             },
         })
         .then(() => {

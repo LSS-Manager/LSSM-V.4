@@ -109,6 +109,11 @@ export default {
                 'Diese Einstellung sorgt dafür, dass die Tooltips auf der Karte dunkel sind, wenn du das Spiel im dunklen Modus hast',
             title: 'Dunkle Tooltips in der Karte',
         },
+        v3MenuAsSubmenu: {
+            title: 'V3 Menü als Untermenü',
+            description:
+                'Verschiebt das Menü des LSSM V3 in das Menü der V4 um Platz in der Navigationsleiste zu sparen.',
+        },
     },
     vehicles: {
         0: {
