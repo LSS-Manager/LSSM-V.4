@@ -54,6 +54,10 @@
 			"description": "Hiermee kan je de kaart op het hoofdscherm centreren op de locatie van de melding met een knop in het meldingenscherm.",
 			"title": "Kaart centreren op melding"
 		},
+		"emvMaxStaff": {
+			"description": "'Benodigde voertuigen weergave' Gebruikt voor de berekeningen voor alle voertuigen de maximale capaciteit.",
+			"title": "Maximum personeel benodigde voertuigen weergave"
+		},
 		"enhancedMissingVehicles": {
 			"description": "Toont de benodigde voertuigen in een duidelijke tabel.",
 			"title": "Benodigde voertuigen weergave"

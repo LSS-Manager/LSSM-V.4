@@ -185,11 +185,19 @@
 			"description": "Klap losse (of alle) meldingen in om ruimte in de meldingenlijst te besparen.",
 			"title": "Meldingen inklappen"
 		},
+		"currentPatients": {
+			"description": "Laat het huidige aantal patiënten zien bij elke melding",
+			"title": "Huidige patiënten"
+		},
 		"eventMissions": {
 			"description": "Markeert seizoensmeldingen. Optioneel kan je het helemaal aanpassen en ook niet seizoensmeldingen markeren.",
 			"missions": "Melding",
 			"text": "Tekst",
 			"title": "Seizoensmeldingen markeren"
+		},
+		"hide0CurrentPatients": {
+			"description": "Verbergt het aantal patiënten als er geen patiënten meer zijn",
+			"title": "Verberg 0 patiënten"
 		},
 		"remainingPatientTime": {
 			"description": "Geeft bij patiënten aan, hoe lang de patiënt nog behandeld moet worden.",
@@ -207,6 +215,16 @@
 			"description": "Deel meldingen met het team direct vanuit de meldingenlijst.",
 			"title": "Deel meldingen"
 		},
+		"shareMissionsButtonColor": {
+			"danger": "Rood",
+			"default": "Zwart of wit (Afhankeling van donker of normaal design)",
+			"description": "Selecteer de achtergrondkleur van de deelknoppen",
+			"info": "Lichtblauw",
+			"primary": "Donkerblauw",
+			"success": "Groen",
+			"title": "Deel meldingen: Knop kleur",
+			"warning": "Oranje"
+		},
 		"shareMissionsMinCredits": {
 			"description": "De knop om een melding te delen vanuit de meldingenlijst wordt alleen getoond vanaf het hier ingestelde aantal credits.",
 			"title": "Deel meldingen: minimum credits"
@@ -217,9 +235,25 @@
 			"sicherheitswache": "Geplande meldingen",
 			"title": "Deel meldingen: Meldingstypes"
 		},
+		"sortMissions": {
+			"description": "Sorteer je meldingenlijst!",
+			"title": "Sorteer meldingen"
+		},
+		"sortMissionsButtonColor": {
+			"description": "Selecteer de achtergrond van de sorteerknop",
+			"title": "Sorteer meldingen: knop kleur"
+		},
 		"starrableMissions": {
 			"description": "Markeer meldingen zodat ze bovenaan de meldingenlijst worden weergegeven. Je kan ze in de meldingenlijst of in de melding zelf markeren.",
 			"title": "Markeer meldingen"
+		}
+	},
+	"sort": {
+		"types": {
+			"alphabet": "Alfabet",
+			"credits": "Credits",
+			"id": "Generatietijd",
+			"remaining_patients": "Huidige patiënten"
 		}
 	}
 }

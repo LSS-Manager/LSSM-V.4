@@ -1,6 +1,7 @@
 {
 	"approach": "Aanrijden",
 	"backalarm": "Terugroepen",
+	"backalarmNext": "Direct rijden",
 	"cells": {
 		"cell": "Gebouw",
 		"free": "Vrije cellen"
@@ -85,6 +86,7 @@
 		"offline": "{user} is offline!",
 		"online": "{user} is online!"
 	},
+	"patient_doctor_transport": "Transport met Artsbegeleiding",
 	"release": {
 		"cancel": "Annuleren",
 		"confirm": "Ja",
