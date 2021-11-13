@@ -105,10 +105,6 @@
 			"title": "vehicle categories",
 			"vehicles": "vehicle types"
 		},
-		"yellowBorder": {
-			"description": "Borders the generation time yellow if the usage is older than the entered number of hours. If the number is 0, no border is drawn.",
-			"title": "Yellow border"
-		},
 		"vehicleCounter": {
 			"description": "Zobrazí nahoře v misi vedle součtu zasahujícího personálu list kolik vozidel je vysláno na konkrétní misi. Kliknutím získáte tabulkový kompletní přehled.",
 			"title": "Součet vozidel"
@@ -122,6 +118,10 @@
 			"success": "zelená",
 			"title": "Součet vozidel: barva",
 			"warning": "oranžová"
+		},
+		"yellowBorder": {
+			"description": "Borders the generation time yellow if the usage is older than the entered number of hours. If the number is 0, no border is drawn.",
+			"title": "Yellow border"
 		}
 	},
 	"tailoredTabs": {
