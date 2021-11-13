@@ -676,7 +676,7 @@ export default {
             maxBuildings: 'No limit',
             maxLevel: 0,
             special:
-                "Finance ministers and admins can (expand) fire department schools with the help of credits from the association's treasury.Training course masters and admins can start training courses at association fire- brigade schools.",
+                "Finance ministers and admins can (expand) fire department schools with the help of credits from the association's funds. Alliance Educators and admins can start training courses at association fire- brigade schools.",
             startPersonnel: 0,
             startVehicles: [],
         },
@@ -718,7 +718,7 @@ export default {
             maxBuildings: 'No limit',
             maxLevel: 0,
             special:
-                "Finance ministers and admins can (expand) association rescue schools with the help of credits from the association's funds . Alliance Educators and admins can start training courses at association rescue schools.",
+                "Finance ministers and admins can (expand) association rescue schools with the help of credits from the association's funds. Alliance Educators and admins can start training courses at association rescue schools.",
             startPersonnel: 0,
             startVehicles: [],
         },
@@ -846,7 +846,7 @@ export default {
             credits: 0,
             extensions: [],
             levelcost: [],
-            maxBuildings: 'For every 25 buildings, , you can build one control center',
+            maxBuildings: 'For every 25 buildings, you can build one control center',
             maxLevel: 0,
             special: 'The control center is the administrative center.',
             startPersonnel: 0,
@@ -871,7 +871,7 @@ export default {
             maxBuildings: 'No limit',
             maxLevel: 0,
             special:
-                "Finance ministers and admins can (expand) association police schools with the help of credits from the association's treasury.Training course masters and admins can start training courses at association police schools.",
+                "Finance ministers and admins can (expand) association police schools with the help of credits from the association's Funds. Alliance Educators and admins can start training courses at association police schools.",
             startPersonnel: 0,
             startVehicles: [],
         },
