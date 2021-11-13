@@ -89,29 +89,17 @@
 			"textcolor": "Schriftfarbe",
 			"title": "Einsatzstichworte"
 		},
-		"vehicleCounter": {
-			"title": "Fahrzeugzähler",
-			"description": "Zeigt oben bei der Personalliste an, wie viele Fahrzeuge zum Einsatz alarmiert sind. Bei Klick öffnet sich eine Tabelle mit Detailangaben."
-		},
-		"vehicleCounterColor": {
-			"danger": "Rot",
-			"default": "Grau",
-			"description": "Wähle, welche Farbe das Label des Fahrzeugzählers haben soll.",
-			"info": "Hellblau",
-			"primary": "Dunkelblau",
-			"success": "Grün",
-			"title": "Fahrzeugzähler: Farbe",
-			"warning": "Orange"},
-		"playerCounterColor": {
-			"description": "Wähle, welche Farbe das Label des Spielerzähler haben soll.",
-			"title": "Spielerzähler: Farbe"},
-		"playerCounter": {
-			"title": "Spielerzähler",
-			"description": "Zeigt oben bei der Personalliste an, wie viele Spieler ein Fahrzeug zum Einsatz alarmiert haben. Bei Klick öffnet sich eine Tabelle mit Detailangaben."
-		},
 		"patientSummary": {
 			"description": "Zeigt neben der Zahl der Patienten an, welche Rettungsmittel diese zusammengefasst benötigen.",
 			"title": "Patientenzusammenfassung"
+		},
+		"playerCounter": {
+			"description": "Zeigt oben bei der Personalliste an, wie viele Spieler ein Fahrzeug zum Einsatz alarmiert haben. Bei Klick öffnet sich eine Tabelle mit Detailangaben.",
+			"title": "Spielerzähler"
+		},
+		"playerCounterColor": {
+			"description": "Wähle, welche Farbe das Label des Spielerzähler haben soll.",
+			"title": "Spielerzähler: Farbe"
 		},
 		"redBorder": {
 			"description": "Umrandet die Generierungszeit rot, wenn der Einsatz in der kommenden Nacht verfallen wird.",
@@ -135,6 +123,20 @@
 			"name": "Name",
 			"title": "Eigene Fahrzeugkategorien",
 			"vehicles": "Fahrzeugtypen"
+		},
+		"vehicleCounter": {
+			"description": "Zeigt oben bei der Personalliste an, wie viele Fahrzeuge zum Einsatz alarmiert sind. Bei Klick öffnet sich eine Tabelle mit Detailangaben.",
+			"title": "Fahrzeugzähler"
+		},
+		"vehicleCounterColor": {
+			"danger": "Rot",
+			"default": "Grau",
+			"description": "Wähle, welche Farbe das Label des Fahrzeugzählers haben soll.",
+			"info": "Hellblau",
+			"primary": "Dunkelblau",
+			"success": "Grün",
+			"title": "Fahrzeugzähler: Farbe",
+			"warning": "Orange"
 		},
 		"vehicleTypeInList": {
 			"description": "Zeigt den Fahrzeugtypen in der Liste der Verfügbaren Fahrzeuge an.",
