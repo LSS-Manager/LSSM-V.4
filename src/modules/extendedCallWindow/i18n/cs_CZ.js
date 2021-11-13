@@ -114,4 +114,12 @@ module.exports = {
         show: 'Zobrazit seznam vozidel',
         hide: 'Skrýt seznam vozidel',
     },
+    vehiclePlayerCounter: {
+        ' ': '',
+        'driving': 'Na cestě',
+        'atScene': 'Na místě',
+        'total': 'Celkem',
+        'vehicles': 'Vozidla',
+        'players': 'Hráči',
+    },
 };
