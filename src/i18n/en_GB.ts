@@ -846,7 +846,7 @@ export default {
             credits: 0,
             extensions: [],
             levelcost: [],
-            maxBuildings: 'For every 25 buildings, you get 1 control center',
+            maxBuildings: 'For every 25 buildings, , you can build one control center',
             maxLevel: 0,
             special: 'The control center is the administrative center.',
             startPersonnel: 0,
