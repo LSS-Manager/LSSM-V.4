@@ -209,12 +209,13 @@ export default (
             ).toString(),
         credits: mission => {
             let missionType = mission.getAttribute('mission_type_id') ?? '-1';
-            if (missionType === '-1') return maxCSSInteger.toString();
+            if (missionType === '-1' || missionType === 'null')
+                return maxCSSInteger.toString();
             const overlayIndex =
                 mission.getAttribute('data-overlay-index') ?? 'null';
             if (overlayIndex !== 'null') missionType += `-${overlayIndex}`;
             return numToCSSRange(
-                missionsById[missionType].average_credits ?? 0
+                missionsById[missionType]?.average_credits ?? 0
             ).toString();
         },
         remaining_patients: mission => {
