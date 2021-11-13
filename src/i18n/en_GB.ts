@@ -846,7 +846,8 @@ export default {
             credits: 0,
             extensions: [],
             levelcost: [],
-            maxBuildings: 'For every 25 buildings, you can build one control center',
+            maxBuildings:
+                'For every 25 buildings, you can build one control center',
             maxLevel: 0,
             special: 'The control center is the administrative center.',
             startPersonnel: 0,
@@ -1021,7 +1022,7 @@ export default {
                     duration: '7 Days',
                 },
             ],
-            levelcost: ['1-5. 20.000',],
+            levelcost: ['1-5. 20.000'],
             maxBuildings: 'No limit',
             maxLevel: 5,
             special: '',
