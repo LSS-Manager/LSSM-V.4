@@ -316,7 +316,7 @@ export default {
                         (this as unknown) as Store<RootState>,
                         true
                     ),
-                10000
+                1000
             );
         },
         enableAutoUpdate(state: APIState, api: StorageAPIKey) {
