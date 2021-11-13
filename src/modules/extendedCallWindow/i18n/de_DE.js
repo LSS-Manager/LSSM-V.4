@@ -26,7 +26,7 @@ module.exports = {
             attribute: 'Die Kombination, die in dieser Zeile beschrieben wird',
             free: 'So oft ist diese Kombination verfügbar',
             max:
-                'So oft kannt du diese AAO auswählen, bis diese Kombination nichtmehr verfügbar ist',
+                'So oft kannst du diese AAO auswählen, bis diese Kombination nicht mehr verfügbar ist',
         },
         arrSpecs: {
             fire: 'Löschfahrzeuge oder Tanklöschfahrzeuge',
@@ -345,7 +345,7 @@ module.exports = {
                 'Ein Fahrzeug ist in keinem Tab vorhanden | Mehrere Fahrzeuge sind in keinem Tab vorhanden',
             text: 'Folgende Fahrzeugtypen werden nur im "Alle" Tab angezeigt:',
             hide: 'Hinweis ausblenden',
-            close: 'Hinweis für diese Konfiguration schliessen',
+            close: 'Hinweis für diese Konfiguration schließen',
         },
     },
     patientSummary: {
@@ -354,5 +354,13 @@ module.exports = {
     hideVehicleList: {
         show: 'Fahrzeugliste zeigen',
         hide: 'Fahrzeugliste verstecken',
+    },
+    vehiclePlayerCounter: {
+        ' ': '',
+        'driving': 'auf Anfahrt',
+        'atScene': 'vor Ort',
+        'total': 'Gesamt',
+        'vehicles': 'Fahrzeuge',
+        'players': 'Spieler',
     },
 };

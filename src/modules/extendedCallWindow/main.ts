@@ -183,6 +183,19 @@ export default (async (LSSM, MODULE_ID, $m, $mc) => {
                 )
             ).default(LSSM);
         }
+
+        const vehicleCounter = await getSetting('vehicleCounter');
+        const playerCounter = await getSetting('playerCounter');
+        if (vehicleCounter || playerCounter) {
+            (
+                await import(
+                    /* webpackChunkName: "modules/extendedCallWindow/vehiclePlayerCounter" */ './assets/vehiclePlayerCounter'
+                )
+            ).default(LSSM, $m, vehicleCounter, playerCounter, {
+                players: await getSetting<string>('playerCounterColor'),
+                vehicles: await getSetting<string>('vehicleCounterColor'),
+            });
+        }
     }
 
     const tailoredTabSettings = await getSetting<

@@ -61,6 +61,26 @@
 			"description": "Converts the display of additionally required vehicles into a clearer table.",
 			"title": "Enhanced missing vehicles"
 		},
+		"vehicleCounter": {
+			"title": "vehicleCounter",
+			"description": "Displays at the top of the personnel list how many vehicles are dispatched to this mission. Click to open a table with details."
+		},
+		"vehicleCounterColor": {
+			"danger": "red",
+			"default": "Gray",
+			"description": "Choose what color you want the vehicle counter label to be.",
+			"info": "light blue",
+			"primary": "dark blue",
+			"success": "Green",
+			"title": "Vehicle counter: color",
+			"warning": "orange"},
+		"playerCounterColor": {
+			"description": "Choose what color you want the player counter label to be.",
+			"title": "PlayerCounter: Color"},
+		"playerCounter": {
+			"title": "PlayerCounter",
+			"description": "Displays at the top of the personnel list how many players have dispatched a vehicle for this mission. Click to open a table with details."
+		},
 		"generationDate": {
 			"description": "Shows next to the address when the mission was generated.",
 			"title": "Generation time"

@@ -129,4 +129,12 @@ module.exports = {
         show: 'Show vehicle list',
         hide: 'Hide vehicle list',
     },
+    vehiclePlayerCounter: {
+        ' ': '',
+        'driving': 'en Route',
+        'atScene': 'at Scene',
+        'total': 'Total',
+        'vehicles': 'Vehicles',
+        'players': 'Players',
+    },
 };
