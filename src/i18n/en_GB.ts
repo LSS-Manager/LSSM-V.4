@@ -718,7 +718,7 @@ export default {
             maxBuildings: 'No limit',
             maxLevel: 0,
             special:
-                "Finance ministers and admins can (expand) association rescue schools with the help of credits from the association's funds .Alliance Educators and admins can start training courses at association rescue schools.",
+                "Finance ministers and admins can (expand) association rescue schools with the help of credits from the association's funds . Alliance Educators and admins can start training courses at association rescue schools.",
             startPersonnel: 0,
             startVehicles: [],
         },
