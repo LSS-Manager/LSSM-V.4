@@ -116,6 +116,7 @@ export default (
         table.style.setProperty('border', '1px solid transparent');
         table.style.setProperty('border-radius', '4px');
         table.style.setProperty('box-shadow', '0 1px 2px rgba(0,0,0,.05)');
+        table.style.setProperty('z-index', '3');
         const thead = document.createElement('thead');
         const theadRow = document.createElement('tr');
         [' ', 'driving', 'atScene', 'total'].forEach(title => {
