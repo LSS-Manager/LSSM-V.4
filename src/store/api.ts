@@ -298,17 +298,17 @@ export default {
                 vehicle.target_type = null;
                 vehicle.target_id = null;
             }
-            set_api_storage(
-                'vehicles',
-                {
-                    value: state.vehicles,
-                    lastUpdate:
-                        state.lastUpdates.vehicles ?? new Date().getTime(),
-                    user_id: window.user_id,
-                },
-                (this as unknown) as Store<RootState>,
-                true
-            );
+            // set_api_storage(
+            //     'vehicles',
+            //     {
+            //         value: state.vehicles,
+            //         lastUpdate:
+            //             state.lastUpdates.vehicles ?? new Date().getTime(),
+            //         user_id: window.user_id,
+            //     },
+            //     (this as unknown) as Store<RootState>,
+            //     true
+            // );
         },
         enableAutoUpdate(state: APIState, api: StorageAPIKey) {
             state.autoUpdates.push(api);
