@@ -28,4 +28,5 @@ export interface lssmMenuMethods {
     showLibraries(): void;
     storeIconBg(): void;
     setNavbarBG(color: string): void;
+    resetIconBg(): void;
 }

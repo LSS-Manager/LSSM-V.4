@@ -77,6 +77,9 @@
             </li>
             <li role="presentation">
                 <label>
+                    <button @click="resetIconBg" class="pull-right">
+                        Reset
+                    </button>
                     Icon
                     <input
                         type="color"
@@ -408,6 +411,10 @@ export default Vue.extend<
                 'background-image',
                 `url("${dataURL}")`
             );
+        },
+        resetIconBg() {
+            this.iconBg = this.$store.state.policechief ? '#004997' : '#C9302C';
+            this.storeIconBg();
         },
     },
     beforeMount() {
