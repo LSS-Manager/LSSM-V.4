@@ -12,6 +12,7 @@ export default (async (LSSM, MODULE_ID) => {
         ...((await getSetting('category.alliance')) && {
             '^/verband/avatar/?$': 'alliance_avatar',
             '^/alliances/?$': 'alliances',
+            '^/alliance_chats/?$': 'chat',
             '^/schoolings/?$': 'schoolings',
             '^/verband/bewerbungen/?$': 'bewerbungen',
             '^/verband/bereitstellungsraume/?$': 'verband/bsr',
