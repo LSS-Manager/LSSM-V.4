@@ -64,8 +64,6 @@
                 :bewerbungen="data"
                 :url="url"
                 :lightbox="this"
-                :$m="$m"
-                :$mc="$mc"
                 :get-setting="getSetting"
                 :set-setting="setSetting"
             ></Bewerbungen>
