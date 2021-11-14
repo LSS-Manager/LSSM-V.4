@@ -44,7 +44,7 @@ export default async (
         )?.building_type ?? -1
     ]?.schoolingTypes;
 
-    if (!schools) return;
+    if (!schools || !vehicleTypes[vehicle.vehicle_type].schooling) return;
 
     const schoolingStaffListByCaption = Object.fromEntries(
         schools.map(school => [
