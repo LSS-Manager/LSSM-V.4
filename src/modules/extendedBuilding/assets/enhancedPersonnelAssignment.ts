@@ -44,7 +44,7 @@ export default async (
         )?.building_type ?? -1
     ]?.schoolingTypes;
 
-    if (!schools || !vehicleTypes[vehicle.vehicle_type].schooling) return;
+    if (!schools) return;
 
     const schoolingStaffListByCaption = Object.fromEntries(
         schools.map(school => [
@@ -58,25 +58,29 @@ export default async (
         ])
     );
 
-    const fittingRows = [] as HTMLTableRowElement[];
-    schools.forEach(school => {
-        const schoolings = Object.keys(
-            vehicleTypes[vehicle.vehicle_type].schooling?.[school] ?? {}
-        );
-        schoolings.forEach(schoolingCaption => {
-            const staffList =
-                schoolingStaffListByCaption[school][schoolingCaption];
-            personnel.forEach(row => {
-                if (
-                    row.textContent?.match(
-                        LSSM.$utils.escapeRegex(staffList)
-                    ) &&
-                    !fittingRows.includes(row)
-                )
-                    fittingRows.push(row);
+    const hasSchooling = vehicleTypes[vehicle.vehicle_type].schooling;
+
+    const fittingRows: HTMLTableRowElement[] = hasSchooling ? [] : personnel;
+    if (hasSchooling) {
+        schools.forEach(school => {
+            const schoolings = Object.keys(
+                vehicleTypes[vehicle.vehicle_type].schooling?.[school] ?? {}
+            );
+            schoolings.forEach(schoolingCaption => {
+                const staffList =
+                    schoolingStaffListByCaption[school][schoolingCaption];
+                personnel.forEach(row => {
+                    if (
+                        row.textContent?.match(
+                            LSSM.$utils.escapeRegex(staffList)
+                        ) &&
+                        !fittingRows.includes(row)
+                    )
+                        fittingRows.push(row);
+                });
             });
         });
-    });
+    }
     const nonFittingRows = personnel.filter(row => !fittingRows.includes(row));
 
     const toggleId = LSSM.$store.getters.nodeAttribute(
