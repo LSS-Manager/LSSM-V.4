@@ -6,6 +6,9 @@
 			"text": "Êtes-vous sûr de vouloir libérer cette personne ?",
 			"title": "Libérer ?"
 		}
+	"buildings": {
+		"active": "Prêt pour l'action",
+		"nonactive": "Pas prêt pour l'action"
 	},
 	"deleteARR": {
 		"deleteModal": {
