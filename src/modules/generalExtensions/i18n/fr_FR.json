@@ -1,3 +1,16 @@
 {
 	"inputMaxLen": "Doit être compris entre {min} et {max} caractères!"
+	"protocolDeletionConfirmation": {
+		"all": {
+			"text": "Voulez-vous vraiment supprimer le protocole ? Cela ne peut pas être annulé !",
+			"title": "Supprimer le protocole"
+		},
+		"cancel": "Annuler",
+		"confirm": "Continuer",
+		"single": {
+			"text": "Voulez-vous vraiment supprimer cette seule entrée de protocole ? Cela ne peut pas être annulé !",
+			"title": "Supprimer l'entrée"
+		},
+		"toggleSingle": "Afficher la confirmation lors de la suppression d'entrées individuelles"
+	}
 }
