@@ -1,0 +1,31 @@
+{
+	"allianceFunds": {
+		"currently": "actuellement",
+		"title": "Fonds de l'Alliance",
+		"total": "total",
+		"updateNote": "Mise à jour toutes les 5 minutes"
+	},
+	"coins": {
+		"list": "Protocol"
+	},
+	"credits": {
+		"daily": "Résumé quotidien",
+		"overview": "Aperçu"
+	},
+	"description": "Affiche des informations utiles sur les crédits dans un menu déroulant de la barre de navigation principale.",
+	"name": "Extension des crédits",
+	"nextRank": "Rang Suivant:",
+	"nextRankMissing": "restante",
+	"settings": {
+		"alerts": {
+			"credits": "",
+			"description": "Dès que vous avez atteint l'un des nombres de crédits définis, l'extension des crédits sera surlignée en vert jusqu'à ce que vous cliquiez dessus.",
+			"title": "Objectifs"
+		},
+		"creditsInNavbar": {
+			"description": "Affiche les crédits actuels dans la barre de navigation au lieu de la jolie tirelire.",
+			"title": "Des crédits au lieu de tirelire"
+		}
+	},
+	"totalEarnedCredits": "Total des crédits gagnés"
+}

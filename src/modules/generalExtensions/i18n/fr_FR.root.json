@@ -1,6 +1,12 @@
 {
 	"description": "Plein d'améliorations (les liens sont cliquables par exemple).",
 	"name": "Améliorations générales",
+	"positions": {
+		"bottom-left": "En bas à gauche 🡧",
+		"bottom-right": "En bas à droite 🡦",
+		"top-left": "En haut à gauche 🡤",
+		"top-right": "En haut à droite 🡥"
+	},
 	"settings": {
 		"browserTitle": {
 			"description": "Ajuste le titre de l'onglet du navigateur pour montrer ce qui est actuellement ouvert en jeu.",
@@ -25,6 +31,14 @@
 			"profile": "Profil",
 			"title": "Prévisualiser le lien",
 			"vehicles": "Véhicules"
+		},
+		"mapSearchOnMap": {
+			"description": "Déplace la recherche d'emplacement dans la fenêtre principale vers la carte",
+			"title": "Recherche de lieux sur la carte"
+		},
+		"mapSearchOnMapPosition": {
+			"description": "Sélectionnez l'endroit de la carte où la recherche doit apparaître.",
+			"title": "Position de la recherche sur la carte"
 		},
 		"mapUndo": {
 			"description": "Centre la carte sur la position du dernier centrage. Ne marche qu'avec \"OpenStreetMap\" pour le moment.",

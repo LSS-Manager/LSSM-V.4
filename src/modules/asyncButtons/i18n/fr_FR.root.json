@@ -27,6 +27,10 @@
 		},
 		"missionReply": {
 			"title": "Transports dans une mission"
+		},
+		"switchExtensionState": {
+			"description": "Empêche le rechargement lorsque vous définissez l'état d'une extension",
+			"title": "(Dé-)activer l'extension"
 		}
 	}
 }
