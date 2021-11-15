@@ -1,5 +1,5 @@
 {
-	"inputMaxLen": "Doit être compris entre {min} et {max} caractères!"
+	"inputMaxLen": "Doit être compris entre {min} et {max} caractères!",
 	"protocolDeletionConfirmation": {
 		"all": {
 			"text": "Voulez-vous vraiment supprimer le protocole ? Cela ne peut pas être annulé !",
