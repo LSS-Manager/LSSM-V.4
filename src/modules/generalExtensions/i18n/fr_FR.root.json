@@ -34,7 +34,7 @@
 		},
 		"mapSearchOnMap": {
 			"description": "Déplace la recherche d'emplacement dans la fenêtre principale vers la carte",
-			"title": "Recherche de lieux sur la carte
+			"title": "Recherche de lieux sur la carte"
 		},
 		"mapSearchOnMapPosition": {
 			"description": "Sélectionnez l'endroit de la carte où la recherche doit apparaître.",
