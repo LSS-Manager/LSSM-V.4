@@ -1,0 +1,56 @@
+{
+	"amount": "{n} joueur filtré | {n} joueurs filtrés",
+	"credits": "total des crédits obtenus",
+	"discount": "réduction",
+	"edit_caption": {
+		"save": "sauvegarder"
+	},
+	"load": {
+		"next": "Page suivante",
+		"prev": "Page précédente"
+	},
+	"name": "Joueur",
+	"online": {
+		"subtitle": "Seuls les membres en ligne sont affichés !",
+		"titles": {
+			"blue": "{user} est hors ligne et a été en ligne dans les 30 derniers jours !",
+			"gray": "{user} est hors ligne et a été en ligne dans les 7 derniers jours !",
+			"green": "{user} est en ligne !",
+			"red": "{user} est hors ligne depuis plus de 60 jours !",
+			"yellow": "{user} est hors ligne et a été en ligne dans les 60 derniers jours !"
+		},
+		"toggle": {
+			"false": "Afficher uniquement les joueurs en ligne",
+			"true": "Afficher tous les membres (également hors ligne)"
+		}
+	},
+	"rights": {
+		"admin": "Administrateur d’alliance",
+		"aufsichtsrat": "Journal de modération",
+		"coadmin": "Coadministrateur d’alliance",
+		"edit": "Droits d'édition",
+		"finance": "Finances de l'Alliance",
+		"hide": "Fermer",
+		"kick": {
+			"btn": "Kick"
+		},
+		"kickModal": {
+			"btnCancel": "Annuler",
+			"btnConfirm": "Kick",
+			"text": "Voulez-vous vraiment virer le joueur **{user}** de l'Alliance ?",
+			"title": "Kick?"
+		},
+		"schooling": "Formateur de l’alliance",
+		"set": "Ajouter le role {rôle}",
+		"sprechwunsch_admin": "Demande de transport - administrateur",
+		"staff": "Staff de l'Alliance",
+		"unset": "Retirer le role {rôle}"
+	},
+	"roles": "Role(s)",
+	"search_global": "Recherche globale",
+	"search_local": "rechercher les joueurs ",
+	"search_subtitle": "Afficher {n} joueurs de {startPage} à {endPage} de {totalPages} pages",
+	"subtitle": "Afficher {n} joueurs de {startPage} ({firstCredits}) à {endPage} ({lastCredits}) de {totalPages} pages",
+	"tax": "taux d'impôt",
+	"title": "Membres"
+}

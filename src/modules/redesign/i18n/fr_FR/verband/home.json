@@ -1,0 +1,14 @@
+{
+	"applied": "Vous avez posé votre candidature à cette Alliance, il ne vous reste plus qu'à être accepté par un (Co-)Admin de l'Alliance. Bonne chance !",
+	"apply": "Postuler",
+	"edit_logo": "Editer le logo",
+	"edit_name": "Renommer l'Alliance",
+	"edit_text": "Edit introduction text, rules, important alliance information and Discord webhooks",
+	"leave": {
+		"cancel": "Annuler",
+		"confirm": "Quiter !",
+		"text": "Voulez-vous vraiment quitter l'Alliance **{caption}** ? L'action ne peut être annulée !",
+		"title": "Retrait de l'Alliance"
+	},
+	"unapply": "Retirer la demande"
+}
