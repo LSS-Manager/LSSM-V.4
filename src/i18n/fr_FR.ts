@@ -95,6 +95,11 @@ export default {
             description:
                 'Ce paramètre assombrit les infobulles sur la carte si vous avez activé le mode sombre.',
             title: 'Infobulles foncées sur la carte',
+		},
+        v3MenuAsSubmenu: {
+            title: 'Menu V3 comme sous-menu',
+            description:
+                'Déplace le menu du LSSM V3 vers le menu du V4 pour gagner de l\'espace dans la barre de navigation.',
         },
     },
     vehicles: {
