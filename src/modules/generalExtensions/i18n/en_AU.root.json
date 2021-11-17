@@ -8,6 +8,10 @@
 		"top-right": "Top right 🡥"
 	},
 	"settings": {
+		"aaoExportQr": {
+			"description": "Shows a QR-Code for the export link when exporting an ARR.",
+			"title": "ARR-Export as QR-Code"
+		},
 		"browserTitle": {
 			"description": "Adjusts the title of the browser tab so that it shows what is currently open in the game.",
 			"title": "Title of the browser tab"
@@ -15,10 +19,6 @@
 		"clickableLinks": {
 			"description": "Links that are displayed as plain text (e.g. in chat, forum, messages, etc.) are made clickable. They open automatically in a new tab.",
 			"title": "Make links clickable"
-		},
-		"aaoExportQr": {
-			"title": "ARR-Export as QR-Code",
-			"description": "Shows a QR-Code for the export link when exporting an ARR."
 		},
 		"emojiPicker": {
 			"description": "Shows you emojis for selection when you type : followed by text.",

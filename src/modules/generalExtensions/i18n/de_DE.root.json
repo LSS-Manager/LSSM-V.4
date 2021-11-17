@@ -8,6 +8,10 @@
 		"top-right": "Oben Rechts 🡥"
 	},
 	"settings": {
+		"aaoExportQr": {
+			"description": "Zeigt einen QR-Code für den Export-Link an, wenn du eine AAO exportierst.",
+			"title": "AAO-Export als QR-Code"
+		},
 		"browserTitle": {
 			"description": "Passt den Titel des Browsertabs an, so dass da steht, was im Spiel gerade offen ist.",
 			"title": "Titel des Browsertabs"
@@ -19,10 +23,6 @@
 		"emojiPicker": {
 			"description": "Zeigt dir Emojis zur Auswahl an, wenn du : gefolgt von Text eingibst.",
 			"title": "Emoji-Picker"
-		},
-		"aaoExportQr": {
-			"title": "AAO-Export als QR-Code",
-			"description": "Zeigt einen QR-Code für den Export-Link an, wenn du eine AAO exportierst."
 		},
 		"extensionCloseCall": {
 			"description": "Schließt Ausbreitungssprechwünsche auch bei drücken des Buttons \"zum Einsatz\".",
