@@ -16,6 +16,10 @@
 			"description": "Links that are displayed as plain text (e.g. in chat, forum, messages, etc.) are made clickable. They open automatically in a new tab.",
 			"title": "Make links clickable"
 		},
+		"aaoExportQr": {
+			"title": "ARR-Export as QR-Code",
+			"description": "Shows a QR-Code for the export link when exporting an ARR."
+		},
 		"emojiPicker": {
 			"description": "Shows you emojis for selection when you type : followed by text.",
 			"title": "Emoji picker"

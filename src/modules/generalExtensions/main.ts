@@ -128,4 +128,12 @@ export default (async (LSSM, MODULE_ID, $m) => {
             MODULE_ID
         );
     }
+
+    if (window.location.pathname.match(/\/aao_exports\/?$/)) {
+        (
+            await import(
+                /* webpackChunkName: "modules/generalExtensions/aaoExportQr" */ './assets/aaoExportQr'
+            )
+        ).default();
+    }
 }) as ModuleMainFunction;

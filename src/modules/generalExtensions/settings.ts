@@ -77,5 +77,9 @@ export default ((_, __, $m) => {
             default: 'top-right',
             dependsOn: '.mapSearchOnMap',
         },
+        aaoExportQr: <Toggle>{
+            type: 'toggle',
+            default: false,
+        },
     };
 }) as ModuleSettingFunction;

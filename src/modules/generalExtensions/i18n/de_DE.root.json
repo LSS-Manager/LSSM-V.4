@@ -17,8 +17,12 @@
 			"title": "Links anklickbar machen"
 		},
 		"emojiPicker": {
-			"description": "Zeigt dir Emojis zur auswahl an, wenn du : gefolgt von Text eingibst.",
+			"description": "Zeigt dir Emojis zur Auswahl an, wenn du : gefolgt von Text eingibst.",
 			"title": "Emoji-Picker"
+		},
+		"aaoExportQr": {
+			"title": "AAO-Export als QR-Code",
+			"description": "Zeigt einen QR-Code für den Export-Link an, wenn du eine AAO exportierst."
 		},
 		"extensionCloseCall": {
 			"description": "Schließt Ausbreitungssprechwünsche auch bei drücken des Buttons \"zum Einsatz\".",
