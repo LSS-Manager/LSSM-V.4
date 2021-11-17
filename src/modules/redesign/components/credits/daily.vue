@@ -107,11 +107,14 @@
                         class="btn btn-xs btn-default"
                         :disabled="filter.type.types.length === types.length"
                         @click.prevent.stop="
-                            $set(
-                                filter.type,
-                                'types',
-                                Object.keys(credits.creditsTypes)
-                            )
+                            () => {
+                                $set(
+                                    filter.type,
+                                    'types',
+                                    Object.keys(credits.creditsTypes)
+                                );
+                                updateFilter('type.types', filter.type.types);
+                            }
                         "
                     >
                         {{ lightbox.$sm('filter.type.all_types') }}
@@ -119,7 +122,12 @@
                     <button
                         class="btn btn-xs btn-default"
                         :disabled="!filter.type.types.length"
-                        @click.prevent.stop="$set(filter.type, 'types', [])"
+                        @click.prevent.stop="
+                            () => {
+                                $set(filter.type, 'types', []);
+                                updateFilter('type.types', filter.type.types);
+                            }
+                        "
                     >
                         {{ lightbox.$sm('filter.type.no_types') }}
                     </button>
