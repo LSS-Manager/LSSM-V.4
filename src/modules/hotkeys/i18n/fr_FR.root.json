@@ -1,0 +1,77 @@
+{
+	"commands": {
+		"*": {
+			"alliance": {
+				"applications": "ouvrir les candidatures",
+				"buildings": "ouvrir la vue d'ensemble des bâtiments de l'alliance",
+				"forum": "ouvrir le mur",
+				"funds": "ouvrir la banque de l'alliance",
+				"logfiles": "ouvrir journal de modération",
+				"members": "ouvrir la liste des membres",
+				"messages": "ouvrir les messages",
+				"onlineMembers": "ouvrir la liste des membres (Afficher les joueurs en ligne uniquement)",
+				"open": "ouvrir une fenêtre d'alliance",
+				"schoolings": "ouvrir la fenêtre de formation",
+				"title": "Alliance"
+			},
+			"credits": {
+				"daily": "ouvrir le résumé quotidien",
+				"open": "ouvrir les log",
+				"overview": "ouvrir l'aperçu des 7 derniers jours",
+				"title": "Crédits"
+			},
+			"help": "Ouvrez cette aide",
+			"profile": {
+				"awards": "ouvrir la liste des récompenses",
+				"level": "ouvrir la liste des niveaux",
+				"notes": "ouvrir les notes",
+				"open": "ouvrir le profil perso",
+				"title": "profil"
+			},
+			"protocol": "Open Log in Dispatch Center",
+			"tasks": {
+				"open": "open list of current tasks",
+				"title": "Tasks and Events"
+			},
+			"title": "General"
+		},
+		"main": {
+			"chat": {
+				"focus": "focus input field",
+				"title": "Chat"
+			},
+			"lssm": {
+				"menu": {
+					"title": "Menu",
+					"toggle": "Ouvrir / Fermer"
+				},
+				"title": "LSSM"
+			},
+			"map": {
+				"search": {
+					"focus": "focus input field",
+					"title": "Location search"
+				},
+				"title": "Map"
+			},
+			"missionlist": {
+				"search": {
+					"focus": "focus input field",
+					"title": "Search"
+				},
+				"title": "Mission list"
+			},
+			"title": "Main window"
+		}
+	},
+	"description": "Control the game with hotkeys on the keyboard, which you can set yourself.",
+	"name": "Hotkeys",
+	"settings": {
+		"command": "Action",
+		"hotkey": "Hotkey",
+		"hotkeys": {
+			"description": "Set your own Hotkeys for certain actions here. Actions of category \"General\" are available everywhere in game. By pressing F1, you can view an overview of the hotkeys you have opened at any time.",
+			"title": "Hotkeys"
+		}
+	}
+}
