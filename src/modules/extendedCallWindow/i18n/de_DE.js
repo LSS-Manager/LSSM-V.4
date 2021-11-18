@@ -212,6 +212,7 @@ module.exports = {
                 94,
                 95,
                 98,
+                103,
             ],
         },
         towingVehicles: {
