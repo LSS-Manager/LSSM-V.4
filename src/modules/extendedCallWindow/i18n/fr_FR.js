@@ -129,5 +129,4 @@ module.exports = {
         'vehicles': 'Véhicules',
         'players': 'Joueurs',
     },					 
-    },
 };
