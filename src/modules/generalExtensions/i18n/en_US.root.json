@@ -8,6 +8,10 @@
 		"top-right": "Top right 🡥"
 	},
 	"settings": {
+		"aaoExportQr": {
+			"description": "Shows a QR-Code for the export link when exporting an ARR.",
+			"title": "ARR-Export as QR-Code"
+		},
 		"browserTitle": {
 			"description": "Adjusts the title of the browser tab so that it shows what is currently open in the game.",
 			"title": "Title of the browser tab"

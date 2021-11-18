@@ -1615,6 +1615,25 @@ export default {
             icon: 'trailer',
             possibleBuildings: [9],
         },
+        103: {
+            caption: 'FuStW (DGL)',
+            color: '#339900',
+            coins: 25,
+            credits: 25000,
+            minPersonnel: 1,
+            maxPersonnel: 2,
+            schooling: {
+                Polizei: {
+                    ['Dienstgruppenleitung']: {
+                        min: 1,
+                    },
+                },
+            },
+            icon: 'taxi',
+            special:
+                'Pro aktivierten Dienstgruppenleitung-Ausbau kann ein Funkstreifenwagen (Dienstgruppenleitung) gekauft werden.',
+            possibleBuildings: [6],
+        },
     },
     buildings: {
         0: {
@@ -1871,6 +1890,12 @@ export default {
                     caption: 'Kriminalpolizei-Erweiterung',
                     credits: 100_000,
                     coins: 20,
+                    duration: '7 Tage',
+                },
+                {
+                    caption: 'Dienstgruppenleitung-Erweiterung',
+                    credits: 200_000,
+                    coins: 25,
                     duration: '7 Tage',
                 },
             ],
@@ -2510,7 +2535,7 @@ export default {
         },
         Polizei: {
             vehicles: {
-                'Funkstreifenwagen': [32, 95, 98],
+                'Funkstreifenwagen': [32, 95, 98, 103],
                 'Bereitschaftspolizei-Fahrzeuge': [35, 50, 51, 52, 72],
                 'Polizeihubschrauber': [61, 96],
                 'SEK': [79, 80],
@@ -2702,6 +2727,11 @@ export default {
                 caption: 'Kriminalpolizei',
                 duration: '7 Tage',
                 staffList: 'Kriminalpolizist',
+            },
+            {
+                caption: 'Dienstgruppenleitung',
+                duration: '7 Tage',
+                staffList: 'Dienstgruppenleitung',
             },
         ],
         Rettungsdienst: [
