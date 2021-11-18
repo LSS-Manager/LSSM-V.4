@@ -1630,7 +1630,8 @@ export default {
                 },
             },
             icon: 'taxi',
-            special: 'Pro aktivierten Dienstgruppenleitung-Ausbau kann ein Funkstreifenwagen (Dienstgruppenleitung) gekauft werden.',
+            special:
+                'Pro aktivierten Dienstgruppenleitung-Ausbau kann ein Funkstreifenwagen (Dienstgruppenleitung) gekauft werden.',
             possibleBuildings: [6],
         },
     },

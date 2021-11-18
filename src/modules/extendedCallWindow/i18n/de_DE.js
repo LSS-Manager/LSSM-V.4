@@ -91,8 +91,7 @@ module.exports = {
             police_motorcycle: 'Polizeimotorrad',
             fustw_or_police_motorcycle:
                 'Funkstreifenwagen oder Polizeimotorrad',
-            police_car_or_service_group_leader:
-                'FuStW oder FuStW (DGL)',
+            police_car_or_service_group_leader: 'FuStW oder FuStW (DGL)',
             k9: 'DHuFüKw',
             lebefkw: 'Leichter Befehlskraftwagen (leBefKw)',
             fukw: 'FüKw (Führungskraftwagen)',
