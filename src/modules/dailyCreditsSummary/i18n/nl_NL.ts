@@ -94,4 +94,11 @@ export default {
     title: 'Samenvatting',
     total: 'Totaal',
     others: 'Overige',
+    export: {
+        export: 'Exporteren',
+        json: {
+            raw: 'JSON (Ruwe data)',
+            prettified: 'JSON (Mooie weergave)',
+        },
+    },
 };
