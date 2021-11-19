@@ -7,6 +7,10 @@
 			"title": "Libérer ?"
 		}
 	},
+	"buildings": {
+		"active": "Prêt pour l'action",
+		"nonactive": "Pas prêt pour l'action"
+	},
 	"deleteARR": {
 		"deleteModal": {
 			"btnCancel": "Annuler",

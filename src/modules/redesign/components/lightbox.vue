@@ -64,11 +64,17 @@
                 :bewerbungen="data"
                 :url="url"
                 :lightbox="this"
-                :$m="$m"
-                :$mc="$mc"
                 :get-setting="getSetting"
                 :set-setting="setSetting"
             ></Bewerbungen>
+            <Chat
+                v-if="type === 'chat'"
+                :chat="data"
+                :url="url"
+                :lightbox="this"
+                :get-setting="getSetting"
+                :set-setting="setSetting"
+            ></Chat>
             <Credits
                 v-else-if="type.startsWith('credits/') || type === 'coins/list'"
                 :data="data"
@@ -241,6 +247,10 @@ export default Vue.extend<
         Bewerbungen: () =>
             import(
                 /*webpackChunkName: "modules/redesign/windows/bewerbungen"*/ './bewerbungen.vue'
+            ),
+        Chat: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/chat"*/ './chat.vue'
             ),
         Credits: () =>
             import(

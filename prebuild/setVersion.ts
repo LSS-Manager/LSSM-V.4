@@ -17,10 +17,11 @@ staticConfigs.versions = {};
 // @ts-ignore
 staticConfigs.versions[process.argv[2] === 'production' ? 'stable' : 'beta'] =
     packageJson.version;
-export default (): void => {
+export default (): string => {
     fs.writeFileSync('./package.json', JSON.stringify(packageJson, null, 4));
     fs.writeFileSync(
         './static/.configs.json',
         JSON.stringify(staticConfigs, null, 4)
     );
+    return packageJson.version;
 };

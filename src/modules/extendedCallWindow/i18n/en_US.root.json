@@ -93,6 +93,14 @@
 			"description": "Shows next to the number of patients, which rescue equipment they need in combination.",
 			"title": "Patient Summary"
 		},
+		"playerCounter": {
+			"description": "Displays at the top of the personnel list how many players have dispatched a vehicle for this mission. Click to open a table with details.",
+			"title": "PlayerCounter"
+		},
+		"playerCounterColor": {
+			"description": "Choose what color you want the player counter label to be.",
+			"title": "PlayerCounter: Color"
+		},
 		"redBorder": {
 			"description": "Outlines the generation time in red if the bet will expire the following night.",
 			"title": "Red border"
@@ -115,6 +123,20 @@
 			"name": "name",
 			"title": "vehicle categories",
 			"vehicles": "vehicle types"
+		},
+		"vehicleCounter": {
+			"description": "Displays at the top of the personnel list how many vehicles are dispatched to this mission. Click to open a table with details.",
+			"title": "vehicleCounter"
+		},
+		"vehicleCounterColor": {
+			"danger": "red",
+			"default": "Gray",
+			"description": "Choose what color you want the vehicle counter label to be.",
+			"info": "light blue",
+			"primary": "dark blue",
+			"success": "Green",
+			"title": "Vehicle counter: color",
+			"warning": "orange"
 		},
 		"vehicleTypeInList": {
 			"description": "Displays the vehicle type in the Available Units list.",

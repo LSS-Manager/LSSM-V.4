@@ -41,6 +41,18 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
         'settings'
     );
 
+    const bootsTrapColors = [
+        'success',
+        'warning',
+        'danger',
+        'primary',
+        'info',
+        'default',
+    ];
+    const bootsTrapColorLabels = bootsTrapColors.map(color =>
+        $m(`settings.vehicleCounterColor.${color}`).toString()
+    );
+
     return {
         generationDate: <Toggle>{
             type: 'toggle',
@@ -145,6 +157,28 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
         remainingPatientTime: <Toggle>{
             type: 'toggle',
             default: true,
+        },
+        vehicleCounter: <Toggle>{
+            type: 'toggle',
+            default: false,
+        },
+        vehicleCounterColor: <Select>{
+            type: 'select',
+            default: 'info',
+            values: bootsTrapColors,
+            labels: bootsTrapColorLabels,
+            dependsOn: '.vehicleCounter',
+        },
+        playerCounter: <Toggle>{
+            type: 'toggle',
+            default: false,
+        },
+        playerCounterColor: <Select>{
+            type: 'select',
+            default: 'danger',
+            values: bootsTrapColors,
+            labels: bootsTrapColorLabels,
+            dependsOn: '.playerCounter',
         },
         tailoredTabs: <Omit<AppendableList, 'value' | 'isDisabled'>>{
             type: 'appendable-list',

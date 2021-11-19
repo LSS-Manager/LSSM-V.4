@@ -37,22 +37,26 @@
 	"@types/leaflet": {
 		"icon": "https://avatars.githubusercontent.com/u/3637556",
 		"url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/leaflet",
-		"version": "1.7.5"
+		"version": "1.7.6"
 	},
 	"@types/lodash": {
 		"icon": "https://avatars.githubusercontent.com/u/3637556",
 		"url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/lodash",
-		"version": "4.14.176"
+		"version": "4.14.177"
 	},
 	"@types/node": {
 		"icon": "https://avatars.githubusercontent.com/u/3637556",
 		"url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/node",
-		"version": "16.11.7"
+		"version": "16.11.8"
 	},
 	"@types/pdfmake": {
 		"icon": "https://avatars.githubusercontent.com/u/3637556",
 		"url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/pdfmake",
 		"version": "0.1.19"
+	},
+	"@types/qrcode": {
+		"url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/qrcode",
+		"version": "1.4.1"
 	},
 	"@types/semver": {
 		"icon": "https://avatars.githubusercontent.com/u/3637556",
@@ -85,11 +89,11 @@
 	},
 	"@typescript-eslint/eslint-plugin": {
 		"icon": "https://avatars.githubusercontent.com/u/46634674",
-		"version": "5.3.1"
+		"version": "5.4.0"
 	},
 	"@typescript-eslint/parser": {
 		"icon": "https://avatars.githubusercontent.com/u/46634674",
-		"version": "5.3.1"
+		"version": "5.4.0"
 	},
 	"@vuepress/plugin-active-header-links": {
 		"icon": "https://vuepress.vuejs.org/hero.png",
@@ -146,7 +150,7 @@
 	"eslint-plugin-vue": {
 		"icon": "https://vuejs.org/images/logo.png",
 		"url": "https://eslint.vuejs.org",
-		"version": "8.0.3"
+		"version": "8.1.1"
 	},
 	"he": {
 		"url": "https://mths.be/he",
@@ -189,6 +193,10 @@
 		"url": "http://pdfmake.org",
 		"version": "0.2.4"
 	},
+	"qrcode": {
+		"url": "http://github.com/soldair/node-qrcode",
+		"version": "1.4.4"
+	},
 	"sass": {
 		"icon": "https://sass-lang.com/assets/img/logos/logo-b6e1ef6e.svg",
 		"url": "https://github.com/sass/dart-sass",
@@ -220,7 +228,7 @@
 	"terser": {
 		"icon": "https://terser.org/img/terser-square-logo.png",
 		"url": "https://terser.org",
-		"version": "5.9.0"
+		"version": "5.10.0"
 	},
 	"ts-loader": {
 		"icon": "https://webpack.js.org/assets/icon-square-big.svg",
@@ -235,7 +243,7 @@
 	"typescript": {
 		"icon": "https://www.typescriptlang.org/icons/icon-512x512.png",
 		"url": "https://www.typescriptlang.org/",
-		"version": "4.4.4"
+		"version": "4.5.2"
 	},
 	"ua-parser-js": {
 		"icon": "https://raw.githubusercontent.com/faisalman/ua-parser-js/gh-pages/images/logo.png",

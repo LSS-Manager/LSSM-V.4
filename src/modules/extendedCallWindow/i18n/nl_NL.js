@@ -181,4 +181,12 @@ module.exports = {
         show: 'Toon voertuigenlijst',
         hide: 'Verberg voertuigenlijst',
     },
+    vehiclePlayerCounter: {
+        ' ': '',
+        'driving': 'Aanrijdend',
+        'atScene': 'Aanwezig',
+        'total': 'Totaal',
+        'vehicles': 'Voertuigen',
+        'players': 'Spelers',
+    },
 };

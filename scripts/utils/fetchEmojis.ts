@@ -37,43 +37,51 @@ const writeFile = (emojis: { [unicode: string]: string[] }) => {
     );
 };
 
-https.get(
-    'https://raw.githubusercontent.com/joypixels/emoji-toolkit/master/emoji.json',
-    res => {
-        let data = '';
-        res.on('data', chunk => {
-            data += chunk;
-        });
-        res.on('end', () => {
-            const emojis = JSON.parse(data) as {
-                [unicode: string]: EmojiData;
-            };
+export default () =>
+    https.get(
+        'https://raw.githubusercontent.com/joypixels/emoji-toolkit/master/emoji.json',
+        res => {
+            let data = '';
+            res.on('data', chunk => {
+                data += chunk;
+            });
+            res.on('end', () => {
+                const emojis = JSON.parse(data) as {
+                    [unicode: string]: EmojiData;
+                };
 
-            writeFile(
-                Object.fromEntries(
-                    Object.entries(emojis).map(
-                        ([
-                            unicode,
-                            { name, shortname, shortname_alternates, ascii },
-                        ]) => [
-                            unicode
-                                .split('-')
-                                .map(n => String.fromCodePoint(parseInt(n, 16)))
-                                .join(''),
-                            [
-                                ...new Set([
-                                    `:${name
-                                        .replace(/[: ,-]/g, '_')
-                                        .replace(/_+/g, '_')}:`,
+                writeFile(
+                    Object.fromEntries(
+                        Object.entries(emojis).map(
+                            ([
+                                unicode,
+                                {
+                                    name,
                                     shortname,
-                                    ...shortname_alternates,
-                                    ...ascii,
-                                ]),
-                            ],
-                        ]
+                                    shortname_alternates,
+                                    ascii,
+                                },
+                            ]) => [
+                                unicode
+                                    .split('-')
+                                    .map(n =>
+                                        String.fromCodePoint(parseInt(n, 16))
+                                    )
+                                    .join(''),
+                                [
+                                    ...new Set([
+                                        `:${name
+                                            .replace(/[: ,-]/g, '_')
+                                            .replace(/_+/g, '_')}:`,
+                                        shortname,
+                                        ...shortname_alternates,
+                                        ...ascii,
+                                    ]),
+                                ],
+                            ]
+                        )
                     )
-                )
-            );
-        });
-    }
-);
+                );
+            });
+        }
+    );

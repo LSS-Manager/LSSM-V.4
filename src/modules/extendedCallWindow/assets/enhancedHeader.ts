@@ -12,7 +12,7 @@ export default (LSSM: Vue, sticky: boolean, load: boolean): void => {
         );
         clearfix.style.setProperty('margin-bottom', '15px');
         head.after(clearfix);
-        head.style.zIndex = '2';
+        head.style.zIndex = '3';
         head.style.position = 'fixed';
         head.style.width = '100%';
         head.style.top = scrollY !== 0 ? '0px' : '';

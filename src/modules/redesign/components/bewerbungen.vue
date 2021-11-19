@@ -99,9 +99,9 @@ import { faEnvelope } from '@fortawesome/free-solid-svg-icons/faEnvelope';
 
 import { BewerbungenWindow } from '../parsers/bewerbungen';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-import { RedesignSubComponent } from 'typings/modules/Redesign';
+import { RedesignComponent } from 'typings/modules/Redesign';
 
-type Component = RedesignSubComponent<
+type Component = RedesignComponent<
     'bewerbungen',
     'bewerbungen',
     BewerbungenWindow,
@@ -211,14 +211,6 @@ export default Vue.extend<
         },
         lightbox: {
             type: Object,
-            required: true,
-        },
-        $m: {
-            type: Function,
-            required: true,
-        },
-        $mc: {
-            type: Function,
             required: true,
         },
         getSetting: {

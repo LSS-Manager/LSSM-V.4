@@ -22,6 +22,7 @@ import { TopListWindow } from '../../src/modules/redesign/parsers/toplist';
 import { VehicleGroupWindow } from 'modules/redesign/parsers/vehicle_group';
 import { VehicleWindow } from '../../src/modules/redesign/parsers/vehicle';
 import { VerbandBSRWindow } from '../../src/modules/redesign/parsers/verband/bsr';
+import { VerbandChatWindow } from '../../src/modules/redesign/parsers/chat';
 import { VerbandEditNameWindow } from '../../src/modules/redesign/parsers/verband/edit_name';
 import { VerbandEditTextWindow } from '../../src/modules/redesign/parsers/verband/edit_text';
 import { VerbandGebaeudeWindow } from '../../src/modules/redesign/parsers/verband/gebauede';
@@ -49,6 +50,7 @@ type types =
     | 'avatar'
     | 'awards'
     | 'bewerbungen'
+    | 'chat'
     | 'default'
     | 'coins/list'
     | 'credits/daily'
@@ -98,6 +100,7 @@ type windows =
     | VehicleGroupWindow
     | VehicleWindow
     | VerbandBSRWindow
+    | VerbandChatWindow
     | VerbandEditNameWindow
     | VerbandEditTextWindow
     | VerbandGebaeudeWindow

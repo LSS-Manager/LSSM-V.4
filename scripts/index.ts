@@ -1,5 +1,6 @@
 import { ChildProcess, execSync } from 'child_process';
 
+import fetchEmojis from './utils/fetchEmojis';
 import sort from './sort';
 
 const scripts = process.argv.splice(2);
@@ -13,7 +14,7 @@ const build = (mode: string) => {
 const scriptHandlers = {
     sort,
     emojis() {
-        console.log(execSync('ts-node ./scripts/utils/fetchEmojis').toString());
+        fetchEmojis();
     },
     lint() {
         this.sort();

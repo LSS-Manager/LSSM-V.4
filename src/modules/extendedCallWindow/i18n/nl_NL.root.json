@@ -94,6 +94,14 @@
 			"description": "Toont naast het aantal patiënten, welke reddingsvoertuigen ze nodig hebben.",
 			"title": "Patiëntensamenvatting"
 		},
+		"playerCounter": {
+			"description": "Toont aan de bovenkant van de personeelslijst hoeveel spelers er een voertuig naar de melding hebben gestuurd. Klik er op om een tabel met details te openen.",
+			"title": "Spelersteller"
+		},
+		"playerCounterColor": {
+			"description": "Kies welke kleur je de spelersteller wilt hebben.",
+			"title": "Spelersteller: kleur"
+		},
 		"redBorder": {
 			"description": "De generatietijd krijgt een rood kader, als de inzet in de komende nacht vervalt.",
 			"title": "Rood kader"
@@ -116,6 +124,20 @@
 			"name": "Naam",
 			"title": "Voertuigcategorieën",
 			"vehicles": "Voertuigtypen"
+		},
+		"vehicleCounter": {
+			"description": "Toont aan de bovenkant van de personeelslijst hoeveel voertuigen naar de melding zijn gestuurd. Klik er op om een tabel met details te openen.",
+			"title": "Voertuigteller"
+		},
+		"vehicleCounterColor": {
+			"danger": "Rood",
+			"default": "Grijs",
+			"description": "Kies welke kleur je de label van de voertuigteller wilt hebben.",
+			"info": "Licht blauw",
+			"primary": "Donker blauw",
+			"success": "Groen",
+			"title": "Voertuigteller: kleur",
+			"warning": "Oranje"
 		},
 		"vehicleTypeInList": {
 			"description": "Geeft het voertuigtype in de lijst met te selecteren voertuigen weer.",

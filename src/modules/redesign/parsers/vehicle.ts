@@ -227,6 +227,11 @@ export default <RedesignParser<VehicleWindow>>(({
             })
             .filter(h => !!h) as Hospital[];
     };
+    const imgVehicleGraphicId = imageEl?.getAttribute('vehicle_graphic_id');
+    const vehicleGraphicsRegex = `vehicle_graphics${
+        imgVehicleGraphicId ? `_sorted\\[${imgVehicleGraphicId}]` : ''
+    }\\s*=\\s*`;
+
     return {
         id,
         building: {
@@ -251,7 +256,7 @@ export default <RedesignParser<VehicleWindow>>(({
         image:
             imageEl?.getAttribute('image_replace_allowed') === 'true'
                 ? (doc.documentElement.innerHTML.match(
-                      /vehicle_graphics(_sorted\[\d+])?\s*=\s*/
+                      new RegExp(vehicleGraphicsRegex)
                   )
                       ? JSON.parse(
                             Array.from(doc.scripts)
@@ -259,7 +264,9 @@ export default <RedesignParser<VehicleWindow>>(({
                                     innerText.match(/vehicle_graphics/)
                                 )
                                 ?.innerText.match(
-                                    /(?<=vehicle_graphics(_sorted\[\d+])?\s*=\s*)\[(?:(?:\[".*?",".*?","(?:true|false)"]|null),?)+]/
+                                    new RegExp(
+                                        `(?<=${vehicleGraphicsRegex})\\[(?:(?:\\[".*?",".*?","(?:true|false)"]|null),?)+]`
+                                    )
                                 )?.[0] ?? '[]'
                         )[vehicleType]?.[0]
                       : imageEl?.src) ??

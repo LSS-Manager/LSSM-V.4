@@ -104,6 +104,9 @@ module.exports = {
             [/^Potápěčsk(ý(ch)?|é) automobil[yů]?$/]: [22],
             [/^SUV VZS ČČK nebo Dodávka VZS ČČK$/]: [23, 24],
             [/^Inspekto(r|ři|rů) provozu$/]: [26],
+            [/^VYA nebo AJ$/]: [28, 29],
+            [/^Dopravní(ch)? automobil[yů]?$/]: [30],
+            [/^Rychl(é|ý(ch)?) zásahov(é|ý(ch)?) automobil[yů]?$/]: [31],
         },
     },
     tailoredTabs: {
@@ -113,5 +116,13 @@ module.exports = {
     hideVehicleList: {
         show: 'Zobrazit seznam vozidel',
         hide: 'Skrýt seznam vozidel',
+    },
+    vehiclePlayerCounter: {
+        ' ': '',
+        'driving': 'Na cestě',
+        'atScene': 'Na místě',
+        'total': 'Celkem',
+        'vehicles': 'Vozidla',
+        'players': 'Hráči',
     },
 };

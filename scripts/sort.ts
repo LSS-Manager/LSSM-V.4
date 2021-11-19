@@ -35,6 +35,7 @@ export default (): string => {
             'typings',
         ].forEach(folder =>
             getJsons(`./${folder}`).forEach(file => {
+                if (file === './src/utils/emojis.json') return;
                 currentFile = file;
                 const sortArray = false;
                 fs.writeFileSync(
