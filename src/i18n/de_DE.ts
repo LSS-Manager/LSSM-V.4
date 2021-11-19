@@ -11,7 +11,7 @@ const modules = {
         closeWarning: {
             title: 'Ungespeicherte Änderungen',
             text:
-                'Du hast Änderungen im AppStore vorgenommen, die noch nicht gespeichert sind. Setze sie zurück oder speichere sie, um den AppStore zu schliessen.',
+                'Du hast Änderungen im AppStore vorgenommen, die noch nicht gespeichert sind. Setze sie zurück oder speichere sie, um den AppStore zu schließen.',
             abort: 'Abbrechen',
             saveAndExit: 'Speichern und verlassen',
             exit: 'Ohne Speichern verlassen',
@@ -50,7 +50,7 @@ const modules = {
         closeWarning: {
             title: 'Ungespeicherte Änderungen',
             text:
-                'Du hast Änderungen in den Einstellungen vorgenommen, die noch nicht gespeichert sind. Setze sie zurück, verwerfe sie oder speichere sie, um die Einstellungen zu schliessen.',
+                'Du hast Änderungen in den Einstellungen vorgenommen, die noch nicht gespeichert sind. Setze sie zurück, verwerfe sie oder speichere sie, um die Einstellungen zu schließen.',
             abort: 'Abbrechen',
             saveAndExit: 'Speichern und verlassen',
             exit: 'Ohne Speichern verlassen',
@@ -81,6 +81,13 @@ export default {
             close: 'Meldung schließen und Spiel neu laden (empfohlen)',
             abort: 'Meldung schließen ohne Spiel neu zu laden',
         },
+    },
+    anniversary1: {
+        closeNote:
+            'Tipp: Zum Schließen kannst du auch auf die Ballons klicken!',
+        title: '🎉 Es gibt Grund zu Feiern! 🎉',
+        content:
+            'Wow, wie schnell die Zeit vergeht!<br>Es ist nun schon <b>ein Jahr</b> her, dass der LSS-Manager V.4 online ging! In diesem Jahr hat sich natürlich einiges getan und deshalb möchten wir zu diesem besonderen Anlass ganz besonders euch, den Nutzern, danken. Die Freude, mit der Ihr unsere neuen Features austestet begeistert uns immer wieder und gibt uns immer wieder neue Motivation, weiter zu machen. Ebenfalls geht ein fettes Danke an unsere Übersetzer, die sich ehrenamtlich darum kümmern, den LSSM auch in anderen Versionen des Spiels nutzbar machen zu können.</br>Zur Feier des Tages möchten wir hier ein paar Fakten und Zahlen veröffentlichen:<ul><li><code>10.02.2020</code>: Der Erste Commit auf GitHub wurde gemacht: <a href="https://github.com/LSS-Manager/LSSM-V.4/commit/6e95836" target="_blank">6e95836</a>. Seitdem haben wir über 5.600 Commits getätigt!</li><li><code>19.09.2020</code>: Die V.4 wurde ein erstes Mal offiziell im Forum angekündigt: <a href="https://forum.leitstellenspiel.de/index.php?thread/19176-lss-manager-v-4/" target="_blank">LSS-Manager V.4</a>. Damit hat auch die Bewerbungsphase für Beta-Tester gestartet</li><li><code>17.10.2020</code>: Die Beta-Tester haben das erste Mal Zugriff auf die V.4 bekommen. Die 4-wöchige Beta-Phase hat damit begonnen</li><li><code>21.11.2020</code>: Der LSS-Manager V.4 geht für alle online!</li><li>Unsere Telemetrie verzeichnet aktuell rund 5.000 Nutzer in den vergangenen 6 Monaten. Davon waren über 2.200 in den letzten 14 Tagen aktiv. Die Dunkelziffer (Zahl der Nutzer, die die Telemetrie deaktiviert haben) ist nicht abschätzbar.</li><li>Unser Thread im Forum hat mittlerweile fast 1.200 Nachrichten erreicht. Das ist zwar einiges, aber der Thread der V.3, der aktuell an den 3.500 Antworten kratzt, ist noch lange nicht aufgeholt.</li><li>Weitere Statistiken findest du in unserem Thread im Forum: <a href="https://forum.leitstellenspiel.de/index.php?thread/19176-lss-manager-v-4/" target="_blank">LSS-Manager V.4</a></li></ul><br>Wir freuen uns auf viele weitere schöne Momente in der Zeit des LSSM V.4!<br>Euer LSSM-Team<br>Jan, Sanni & Ron',
     },
     globalSettings: {
         name: 'Allgemeine Einstellungen',
