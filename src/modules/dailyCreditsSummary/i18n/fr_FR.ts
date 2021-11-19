@@ -8,13 +8,13 @@ export default {
             textColor: 'white',
         },
         mission: {
-            regex: '^%missions%( \\(Fire Alarm System\\))?( - False Alarm)?$',
+            regex: '^%missions%( \\(Système d\'alarme\\))?( - Fausse alerte)?$',
             title: 'Missions personnel',
             backgroundColor: '#ff2400',
             textColor: 'white',
         },
         cancelledMissions: {
-            regex: '^%missions%( \\(Fire Alarm System\\))? - Annulée$',
+            regex: '^%missions%( \\(Système d\'alarme\\))? - Annulée$',
             title: 'Missions annulées',
             backgroundColor: '#7C7978',
             textColor: 'white',
@@ -82,7 +82,7 @@ export default {
             textColor: 'white',
         },
         fireAlarmSystemCancel: {
-            regex: /False Alarm/,
+            regex: /Fausse alerte/,
             titel: 'False Alarms',
             backgroundColor: '#c80815',
             textColor: 'white',
@@ -91,7 +91,7 @@ export default {
     category: 'Categorie',
     title: 'Sommaire',
     total: 'Total',
-    others: 'Others',
+    others: 'Autre',
     export: {
         export: 'Export',
         json: {
