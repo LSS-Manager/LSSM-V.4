@@ -54,6 +54,10 @@
 		"url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/pdfmake",
 		"version": "0.1.19"
 	},
+	"@types/qrcode": {
+		"url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/qrcode",
+		"version": "1.4.1"
+	},
 	"@types/semver": {
 		"icon": "https://avatars.githubusercontent.com/u/3637556",
 		"url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/semver",
@@ -189,6 +193,10 @@
 		"url": "http://pdfmake.org",
 		"version": "0.2.4"
 	},
+	"qrcode": {
+		"url": "http://github.com/soldair/node-qrcode",
+		"version": "1.4.4"
+	},
 	"sass": {
 		"icon": "https://sass-lang.com/assets/img/logos/logo-b6e1ef6e.svg",
 		"url": "https://github.com/sass/dart-sass",
@@ -235,7 +243,7 @@
 	"typescript": {
 		"icon": "https://www.typescriptlang.org/icons/icon-512x512.png",
 		"url": "https://www.typescriptlang.org/",
-		"version": "4.4.4"
+		"version": "4.5.2"
 	},
 	"ua-parser-js": {
 		"icon": "https://raw.githubusercontent.com/faisalman/ua-parser-js/gh-pages/images/logo.png",

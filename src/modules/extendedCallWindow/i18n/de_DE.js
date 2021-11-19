@@ -91,6 +91,7 @@ module.exports = {
             police_motorcycle: 'Polizeimotorrad',
             fustw_or_police_motorcycle:
                 'Funkstreifenwagen oder Polizeimotorrad',
+            police_car_or_service_group_leader: 'FuStW oder FuStW (DGL)',
             k9: 'DHuFüKw',
             lebefkw: 'Leichter Befehlskraftwagen (leBefKw)',
             fukw: 'FüKw (Führungskraftwagen)',
@@ -211,6 +212,7 @@ module.exports = {
                 94,
                 95,
                 98,
+                103,
             ],
         },
         towingVehicles: {
@@ -335,6 +337,7 @@ module.exports = {
                 102,
             ],
             [/^Schmutzwasserpumpe(n)?$/]: [101, 102],
+            [/^Funkstreifenwagen \(Dienstgruppenleitung\)?$/]: [103],
         },
     },
     tailoredTabs: {

@@ -138,6 +138,7 @@ interface Prerequisites {
     thw_fg_raeumen_count?: number;
     thw_gkw_count?: number;
     fire_investigation_count?: number;
+    police_service_group_leader?: number;
 
     // General:
     [key: string]: number | Record<string, number> | undefined;
@@ -219,6 +220,7 @@ interface Requirements {
     atv_carrier?: number;
     civil_patrolcar?: number;
     fire_investigation?: number;
+    police_service_group_leader?: number;
 
     // General:
     [key: string]: number | undefined;

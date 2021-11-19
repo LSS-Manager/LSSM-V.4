@@ -104,6 +104,9 @@ module.exports = {
             [/^Potápěčsk(ý(ch)?|é) automobil[yů]?$/]: [22],
             [/^SUV VZS ČČK nebo Dodávka VZS ČČK$/]: [23, 24],
             [/^Inspekto(r|ři|rů) provozu$/]: [26],
+            [/^VYA nebo AJ$/]: [28, 29],
+            [/^Dopravní(ch)? automobil[yů]?$/]: [30],
+            [/^Rychl(é|ý(ch)?) zásahov(é|ý(ch)?) automobil[yů]?$/]: [31],
         },
     },
     tailoredTabs: {
