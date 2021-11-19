@@ -4,7 +4,7 @@ import telemetry from './modules/telemetry/main';
 
 import { Building } from 'typings/Building';
 import { BuildingMarkerAdd, RadioMessage } from 'typings/Ingame';
-import { Color, Toggle } from 'typings/Setting';
+import { Color, Hidden, Toggle } from 'typings/Setting';
 
 export default async (LSSM: Vue): Promise<void> => {
     window.console.info(
@@ -83,6 +83,9 @@ export default async (LSSM: Vue): Promise<void> => {
                 v3MenuAsSubmenu: <Toggle>{
                     type: 'toggle',
                     default: false,
+                },
+                anniversary1Clicked: <Hidden>{
+                    type: 'hidden',
                 },
             },
         })
