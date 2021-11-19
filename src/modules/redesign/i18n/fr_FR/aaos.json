@@ -1,26 +1,26 @@
 {
 	"add": {
-		"arr": "New ARR",
-		"group": "New Group"
+		"arr": "Nouveau RAI",
+		"group": "Nouveau groupe"
 	},
-	"categories": "Own AAR Categories edited",
+	"categories": "Catégories de RAI éditées",
 	"delete": {
 		"all": {
-			"text": "Do you really want to delete ALL ARR entries? This can NOT be undone and all previous exports of your ARR will NOT work anymore!",
-			"title": "Delete complete ARR"
+			"text": "Voulez-vous vraiment supprimer TOUTES les entrées RAI ? Cette opération ne peut pas être annulée et toutes les exportations précédentes de vos RAI ne fonctionneront plus !",
+			"title": "Effacer complétement les RAI"
 		},
 		"arr": {
-			"text": "Do you really want to delete this one ARR entry? This cannot be undone! The entry will no longer appear in any existing exports!",
-			"title": "Delete ARR"
+			"text": "Voulez-vous vraiment supprimer cette entrée RAI ? Cela ne peut pas être annulé ! L'entrée n'apparaîtra plus dans les exportations existantes !",
+			"title": "Effacer les RAI"
 		},
-		"cancel": "Cancel",
-		"confirm": "Delete!",
+		"cancel": "Annuler",
+		"confirm": "Effacer!",
 		"vehicle_group": {
-			"text": "Do you really want to delete this one group? This cannot be undone!",
-			"title": "Group delete"
+			"text": "Voulez-vous vraiment supprimer ce groupe ? Cela ne peut pas être annulé !",
+			"title": "Effacer un groupe"
 		}
 	},
-	"delete_all": "Delete complete ARR!",
-	"export": "Export ARR",
-	"title": "Alarm and Response Regulations & Groups"
+	"delete_all": "Effacer completement les RAI!",
+	"export": "Exporté les RAI",
+	"title": "Régulations d’Alertes et d’Interventions"
 }

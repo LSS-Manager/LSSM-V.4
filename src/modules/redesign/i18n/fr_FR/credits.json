@@ -7,17 +7,17 @@
 			},
 			{
 				"href": "/credits/overview",
-				"text": "Overview"
+				"text": "Aperçu"
 			},
 			{
 				"href": "/credits/daily",
-				"text": "Summary day"
+				"text": "Résumé de la journée"
 			},
 			{
 				"href": "/coins/list",
 				"text": "Coins protocol"
 			}
 		],
-		"title": "Credits"
+		"title": "Crédits"
 	}
 }
