@@ -1,8 +1,8 @@
 {
 	"load": {
-		"next": "load 20 older messages",
-		"prev": "load 20 newer messages"
+		"next": "charger les 20 messages les plus anciens",
+		"prev": "charger les 20 messages les plus récents"
 	},
-	"subtitle": "Showing {n} Messages from page {startPage} ({firstDate}) to page {endPage} ({lastDate}) from a total of {totalPages} pages.",
-	"title": "Alliance Chat"
+	"subtitle": "Affichage de {n} messages de la page {startPage} ({firstDate}) à la page {endPage} ({lastDate}) pour un total de {totalPages} pages.",
+	"title": "Chat de l'Alliance"
 }

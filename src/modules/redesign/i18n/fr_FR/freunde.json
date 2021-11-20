@@ -1,8 +1,8 @@
 {
-	"amount": "{n} filtered friend | {n} filtered friends",
-	"name": "Name",
+	"amount": "{n} amis filtrés | {n} amis filtrés",
+	"name": "Nom",
 	"note": "Note",
-	"remove": "Remove from your friends",
-	"save": "Save Note",
-	"title": "Friends"
+	"remove": "Supprimer votre amis",
+	"save": "Sauver les notes",
+	"title": "Amis"
 }

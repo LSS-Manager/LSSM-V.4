@@ -1,16 +1,16 @@
 {
 	"alliance": "Alliance",
-	"amount": "{n} filtered alliance | {n} filtered alliances",
-	"credits": "Earned Credits",
+	"amount": "{n} alliance filtrée | {n} alliances filtrées",
+	"credits": "Crédits gagnés",
 	"load": {
-		"next": "Load next page",
-		"prev": "Load previous page"
+		"next": "Page suivante",
+		"prev": "Page précédente"
 	},
-	"members": "Member count",
+	"members": "Nombre de membres",
 	"name": "Alliance",
-	"search_global": "Global Search",
-	"search_local": "Search in loaded alliances",
-	"search_subtitle": "Show {n} Alliances of the pages {startPage} to {endPage} of total {totalPages} Sides",
-	"subtitle": "Show {n} Alliances of the pages {startPage} ({firstCredits}) to {endPage} ({lastCredits}) of total {totalPages} Sides",
-	"title": "Verbandsliste"
+	"search_global": "Recherche globale",
+	"search_local": "Recherche d'alliances chargées",
+	"search_subtitle": "Afficher {n} la page des alliances de {startPage} à {endPage} au total {totalPages} pages",
+	"subtitle": "Afficher {n} la page des alliances de {startPage} ({firstCredits}) à {endPage} ({lastCredits}) au total {totalPages} pages",
+	"title": "Liste de vérification"
 }

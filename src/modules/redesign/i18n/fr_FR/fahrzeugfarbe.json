@@ -1,8 +1,8 @@
 {
-	"description": "In the alarm window, this color is set as the background of the checkbox for all vehicles of this vehicle type.",
-	"noColor": "No vehicle color is currently set",
-	"reset": "Delete color",
-	"save": "Save",
-	"savedNote": "The vehicle color has been successfully saved!",
-	"title": "Edit vehicle color: {type}"
+	"description": "Dans la fenêtre d'alarme, cette couleur est définie comme l'arrière-plan de la case à cocher pour tous les véhicules de ce type.",
+	"noColor": "Aucune couleur de véhicule n'est actuellement définie",
+	"reset": "Supprimer la couleur",
+	"save": "Sauver",
+	"savedNote": "La couleur du véhicule a été enregistrée avec succès !",
+	"title": "Modifier la couleur du véhicule: {type}"
 }

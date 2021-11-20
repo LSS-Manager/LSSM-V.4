@@ -1,7 +1,7 @@
 {
 	"nav": {
 		"links": {
-			"/alliance_logfiles": "Protocole",
+			"/alliance_logfiles": "Journal de modération",
 			"/alliance_messages": "Messages",
 			"/alliance_threads": "Mur",
 			"/alliances/{id}": "Présentation",
