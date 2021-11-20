@@ -1,123 +1,123 @@
 {
-	"approach": "Approach",
-	"backalarm": "Backalarm",
-	"backalarmNext": "approach directly",
+	"approach": "Approche",
+	"backalarm": "Alarme de fond",
+	"backalarmNext": "approche directe",
 	"cells": {
-		"cell": "Building",
-		"free": "Free cells"
+		"cell": "Poste",
+		"free": "Cellules libres"
 	},
-	"color": "Adjust color",
-	"current_mission": "Current mission",
+	"color": "Ajuster la couleur",
+	"current_mission": "Mission actuelle",
 	"delete": {
-		"button": "delete",
-		"cancel": "cancel",
-		"confirm": "Delete",
-		"text": "Do you really want to destroy **{caption}** at building **{building}** permanently?",
-		"title": "Destroy vehicle"
+		"button": "Supprimer",
+		"cancel": "Annuler",
+		"confirm": "Supprimer",
+		"text": "Voulez-vous vraiment détruire **{caption}** du bâtiment **{bâtiment}** de façon permanente ?",
+		"title": "Détruire le véhicule"
 	},
 	"distance": "Distance",
-	"edit": "Edit",
-	"false": "No",
+	"edit": "Modifier",
+	"false": "Non",
 	"filter": {
 		"cells": {
-			"distance": "Maximum distance",
-			"each": "Show x buildings of each",
-			"free": "Minimum free cells",
-			"tax": "Maximum tax"
+			"distance": "Distance maximum",
+			"each": "Montrer x bâtiments de chaque",
+			"free": "Nombre minimum de cellules libres",
+			"tax": "Taxe maximum"
 		},
 		"hospitals": {
-			"beds": "Minimum free beds",
+			"beds": "Minimum de lits libres",
 			"department": {
-				"title": "Department: {department}"
+				"title": "Service: {department}"
 			},
-			"distance": "Maximum Distance",
-			"each": "Show x buildings of each",
-			"tax": "Maximum tax"
+			"distance": "Distance maximum",
+			"each": "Montrer x bâtiments de chaque",
+			"tax": "Taxe maximum"
 		},
 		"missions": {
-			"credits": "Minimum Credits",
-			"distance": "Maximum Distance",
+			"credits": "Crédits minimums",
+			"distance": "Distance maximum",
 			"participation": {
-				"title": "Participating"
+				"title": "Participant"
 			},
-			"progress": "Progress max %",
+			"progress": "Progression max %",
 			"status": {
-				"green": "green",
-				"red": "red",
+				"green": "vert",
+				"red": "rouge",
 				"title": "Status",
-				"yellow": "yellow"
+				"yellow": "jaune"
 			}
 		},
 		"wlf": {
-			"distance": "Maximum Distance",
-			"same": "Same Building"
+			"distance": "Distance maximum",
+			"same": "Même bâtiment"
 		}
 	},
-	"fms": "FMS",
+	"fms": "Radio",
 	"fms_switch": {
-		"is_s2": "set S6",
-		"is_s6": "set S2"
+		"is_s2": "définir S6",
+		"is_s6": "définir S2"
 	},
-	"foam_amount": "Foam amount",
-	"followup_missions": "Follow-up mission | Follow-up missions",
+	"foam_amount": "Quantité de FMOGP",
+	"followup_missions": "Mission de suivi | Missions de suivi",
 	"hospitals": {
-		"beds": "free beds",
-		"department": "Department: {department}",
-		"hospital": "Hospital"
+		"beds": "lits libres",
+		"department": "Service: {department}",
+		"hospital": "Hôpitals"
 	},
 	"load_all_hospitals": {
-		"btn": "Load all ",
-		"text": "Only 50 alliance hospitals are displayed. Loading all hospitals can take a long time depending on the quantity!"
+		"btn": "Chargez tout ",
+		"text": "Seuls 50 hôpitaux de l'alliance sont affichés. Le chargement de tous les hôpitaux peut prendre beaucoup de temps en fonction de la quantité !"
 	},
-	"max_staff": "Max. Staff",
-	"mileage": "Mileage",
+	"max_staff": "Max. Personnel",
+	"mileage": "Kilométrage",
 	"missions": {
-		"alarm": "Alarm",
-		"alarmed": "Current mission",
-		"credits": "Reward",
+		"alarm": "Alarmes",
+		"alarmed": "Mission actuelle",
+		"credits": "Récompense",
 		"mission": "Mission",
 		"participation": "Participation",
 		"patients": "Patients",
-		"progress": "Progress"
+		"progress": "progression"
 	},
-	"move": "Move",
-	"owner": "Owner",
+	"move": "Déplacements",
+	"owner": "Propriétaire",
 	"owner_pic_state": {
-		"offline": "{user} is offline!",
-		"online": "{user} is online!"
+		"offline": "{user} est hors ligne!",
+		"online": "{user} est en ligne!"
 	},
 	"release": {
-		"cancel": "Abort",
-		"confirm": "Yes, discharge!",
+		"cancel": "Annuler",
+		"confirm": "Oui, décharger!",
 		"patient": {
-			"text": "Do you really want to discharge the patient of this vehicle? No payment will be credited for the patient!",
-			"title": "Discharge patient"
+			"text": "Voulez-vous vraiment décharger le patient de ce véhicule ? Aucun paiement ne sera crédité pour le patient !",
+			"title": "Décharger le patient"
 		},
 		"prisoner": {
-			"text": "Do you really want to release **all** prisoners of this operation? There will be no compensation credited for these prisoners!",
-			"title": "Release prisoners"
+			"text": "Voulez-vous vraiment libérer **tous** les prisonniers de cette opération ? Il n'y aura aucune compensation créditée pour ces prisonniers !",
+			"title": "Libérer les prisonniers"
 		}
 	},
-	"release_patient": "Discharge patient",
-	"release_prisoner": "Release prisoners",
+	"release_patient": "Décharger le patient",
+	"release_prisoner": "Libérer les prisonniers"",
 	"staff": {
-		"name": "Name",
-		"schooling": "Training",
-		"title": "Staff"
+		"name": "Nom",
+		"schooling": "Formation",
+		"title": "Personnel"
 	},
-	"station": "Building",
-	"stats": "Statistics",
+	"station": "bâtiment",
+	"stats": "Statistiques",
 	"tabs": {
-		"all": "all {type}: {amount}",
+		"all": "Tout {type}: {amount}",
 		"alliance": "alliance {type}: {amount}",
-		"cells": "Cells",
-		"hospitals": "Hospitals",
+		"cells": "Cellule",
+		"hospitals": "Hôpitals",
 		"missions": "Missions",
-		"own": "own {type}: {amount}"
+		"own": "personnel {type} : {moyen}"
 	},
-	"tax": "tax",
-	"true": "yes",
-	"vehicletype": "Vehicle type",
-	"water_amount": "Water amount",
-	"zuweisung": "Staff assignment"
+	"tax": "taxe",
+	"true": "oui",
+	"vehicletype": "Type de véhicule",
+	"water_amount": "Quantité d'eau",
+	"zuweisung": "Affectation du personnel"
 }
