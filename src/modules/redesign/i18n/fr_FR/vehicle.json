@@ -12,7 +12,7 @@
 		"button": "Supprimer",
 		"cancel": "Annuler",
 		"confirm": "Supprimer",
-		"text": "Voulez-vous vraiment détruire **{caption}** du bâtiment **{bâtiment}** de façon permanente ?",
+		"text": "Voulez-vous vraiment détruire **{caption}** du bâtiment **{building}** de façon permanente ?",
 		"title": "Détruire le véhicule"
 	},
 	"distance": "Distance",
@@ -113,7 +113,7 @@
 		"cells": "Cellule",
 		"hospitals": "Hôpitals",
 		"missions": "Missions",
-		"own": "personnel {type} : {moyen}"
+		"own": "personnel {type} : {amount}"
 	},
 	"tax": "taxe",
 	"true": "oui",
