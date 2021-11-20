@@ -1,5 +1,5 @@
 export default {
-    amount: 'Amount',
+    amount: 'Quantité',
     categories: {
         allianceMission: {
             regex: /^\[Alliance]/,
@@ -30,14 +30,14 @@ export default {
             textColor: 'black',
         },
         buildings: {
-            regex: /(Poste construit|Refund Building$|Building demolished without refund)/,
-            title: 'Poste construit/demolished',
+            regex: /(Bâtiment  construit|Rembourser le bâtiment$|Building demolished without refund)/,
+            title: 'Bâtiment construit/demolished',
             backgroundColor: '#ed872d',
             textColor: 'black',
         },
         upgradeBuilding: {
-            regex: /(Station (upgraded( \(from small .*? station\))??|constructed)|Extended guard|Cancel:|Refund Building upgrade)/,
-            title: 'Station constructed/extended',
+            regex: /(Poste (upgraded( \(from small .*? station\))??|construit)|Garde prolongée|Cancel:|Refund Building upgrade)/,
+            title: 'Poste construit/extended',
             backgroundColor: '#000080',
             textColor: 'white',
         },
