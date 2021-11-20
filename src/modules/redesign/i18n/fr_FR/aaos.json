@@ -1,0 +1,26 @@
+{
+	"add": {
+		"arr": "Nouveau RAI",
+		"group": "Nouveau groupe"
+	},
+	"categories": "Catégories de RAI éditées",
+	"delete": {
+		"all": {
+			"text": "Voulez-vous vraiment supprimer TOUTES les entrées RAI ? Cette opération ne peut pas être annulée et toutes les exportations précédentes de vos RAI ne fonctionneront plus !",
+			"title": "Effacer complétement les RAI"
+		},
+		"arr": {
+			"text": "Voulez-vous vraiment supprimer cette entrée RAI ? Cela ne peut pas être annulé ! L'entrée n'apparaîtra plus dans les exportations existantes !",
+			"title": "Effacer les RAI"
+		},
+		"cancel": "Annuler",
+		"confirm": "Effacer!",
+		"vehicle_group": {
+			"text": "Voulez-vous vraiment supprimer ce groupe ? Cela ne peut pas être annulé !",
+			"title": "Effacer un groupe"
+		}
+	},
+	"delete_all": "Effacer completement les RAI!",
+	"export": "Exporté les RAI",
+	"title": "Régulations d’Alertes et d’Interventions"
+}

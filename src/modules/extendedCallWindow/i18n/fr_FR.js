@@ -5,10 +5,8 @@ module.exports = {
             highlight: 'Surbrillance régulations',
             selection: 'Séléction de véhicules',
             counter_highlight: 'Compteur de régulations / surbrillance',
-            counter_selection:
-                'Compteur de régulations et séléction de véhicules',
-            highlight_selection:
-                'Surbrillance des régulations et séléction des véhicules',
+            counter_selection: 'Compteur de régulations et séléction de véhicules',
+            highlight_selection: 'Surbrillance des régulations et séléction des véhicules',
             counter_highlight_selection:
                 'Compteur de régulations / bordure et séléction de véhicules',
         },
@@ -23,8 +21,7 @@ module.exports = {
             max: 'Max',
         },
         titles: {
-            set:
-                'Aussi souvent que cette combinaison est séléctionnée quand vous appuyez sur la régulation',
+            set: 'Aussi souvent que cette combinaison est séléctionnée quand vous appuyez sur la régulation',
             attribute: 'La combinaison décrite dans cette ligne',
             free: 'Aussi souvent que cette combinaison est disponible',
             max:
@@ -50,8 +47,7 @@ module.exports = {
             gwa: "Véhicule d'Assistance Respiratoire",
             fustw: 'Voiture de patrouille',
             police_motorcycle: 'Unité motocycliste',
-            fustw_or_police_motorcycle:
-                'Véhicule de patrouille ou Unité motocycliste',
+            fustw_or_police_motorcycle:'Véhicule de patrouille ou Unité motocycliste',
             polizeihubschrauber: 'Hélicoptère de police',
             k9: 'Brigade canine',
             rth_only: 'Hélicoptère',
@@ -78,8 +74,7 @@ module.exports = {
             minified: 'effondrement',
             overlay: 'superposition',
             reload: 'recharger',
-            pushRight:
-                'afficher cette case au-dessus de la liste des véhicules',
+            pushRight: 'afficher cette case au-dessus de la liste des véhicules',
             pushLeft: 'montrer cette boîte à la position originale',
         },
         selected: 'Séléctionné',
@@ -126,4 +121,12 @@ module.exports = {
         show: 'Afficher la liste des véhicules',
         hide: 'Cacher la liste des véhicules',
     },
+    vehiclePlayerCounter: {
+        ' ': '',
+        'driving': 'En intervention',
+        'atScene': 'Sur les lieux',
+        'total': 'Total',
+        'vehicles': 'Véhicules',
+        'players': 'Joueurs',
+    },					 
 };
