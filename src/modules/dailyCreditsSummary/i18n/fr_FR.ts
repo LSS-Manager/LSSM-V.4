@@ -3,18 +3,18 @@ export default {
     categories: {
         allianceMission: {
             regex: /^\[Alliance]/,
-            title: 'Missions d\'Alliance',
+            title: "Missions d'Alliance",
             backgroundColor: '#ff2800',
             textColor: 'white',
         },
         mission: {
-            regex: '^%missions%( \\(Système d\'alarme\\))?( - Fausse alerte)?$',
+            regex: "^%missions%( \\(Système d'alarme\\))?( - Fausse alerte)?$",
             title: 'Missions personnel',
             backgroundColor: '#ff2400',
             textColor: 'white',
         },
         cancelledMissions: {
-            regex: '^%missions%( \\(Système d\'alarme\\))? - Annulée$',
+            regex: "^%missions%( \\(Système d'alarme\\))? - Annulée$",
             title: 'Missions annulées',
             backgroundColor: '#7C7978',
             textColor: 'white',
