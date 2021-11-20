@@ -1,47 +1,47 @@
 {
 	"alerts": {
-		"alliance_ignored": "{name} it is forbidden to apply to your alliance!",
-		"friend": "{name} is on your friends list! 🥳",
-		"ignored": "You ignore this player. {name} can no longer send you messages!"
+		"alliance_ignored": "{name} il est interdit de postuler dans l'alliance !",
+		"friend": "{name} est sur votre liste d'amis ! 🥳",
+		"ignored": "Vous ignorez ce joueur. {name} ne peut plus vous envoyer de messages !"
 	},
 	"alliance": "Alliance",
 	"awards": {
 		"bronze": "Bronze",
-		"gold": "Gold",
-		"max": "15",
-		"own": "Open your awards",
-		"silver": "Silver",
-		"title": "Awards",
-		"title_amounts": "{sum} from {max} Awards"
+		"gold": "Or",
+		"max": "14",
+		"own": "Ouvrir vos trophées",
+		"silver": "Argent",
+		"title": "Trophée",
+		"title_amounts": "{sum} sur {max} Trophée"
 	},
 	"buildings": {
-		"amount": "{n} Buildings"
+		"amount": "{n} Bâtiments"
 	},
 	"buttons": {
 		"alliance_ignore": {
-			"add": "Forbid Alliance Application",
-			"destroy": "Allow Alliance Application"
+			"add": "Interdire la demande d'alliance",
+			"destroy": "Autoriser la demande d'alliance"
 		},
-		"avatar": "Edit profile picture",
+		"avatar": "Modifier la photo de profil",
 		"chat": {
-			"ban": "Ban from alliance chat",
-			"unban": "Unban from alliance chat"
+			"ban": "Bannir du chat de l'alliance",
+			"unban": "Débannir du chat de l'alliance"
 		},
-		"edit": "Edit profile",
+		"edit": "Modifier profil",
 		"friend": {
-			"do": "Add as Friend",
-			"undo": "Remove from your friends"
+			"do": "Ajouter comme ami",
+			"undo": "Supprimer l'ami"
 		},
-		"gift": "Send Gift",
+		"gift": "Envoyer un cadeau",
 		"ignore": {
-			"do": "Ignore the Player",
-			"undo": "Stop ignoring the Player"
+			"do": "Ignorer le joueur",
+			"undo": "Arrêtez d'ignorer le joueur"
 		},
-		"message": "Send a Message"
+		"message": "Envoyer un message"
 	},
-	"credits": "{credits} earned Credits",
+	"credits": "{credits} Crédits gagnés",
 	"map": "Map",
-	"rank": "Current Rank",
-	"registration": "Signup Date",
-	"text": "Profiltext"
+	"rank": "Rang actuel",
+	"registration": "Date d'inscription",
+	"text": "Texte du profil"
 }
