@@ -31,18 +31,18 @@ export default {
         },
         buildings: {
             regex: /(Bâtiment construit|Rembourser le bâtiment$|Building demolished without refund)/,
-            title: 'Bâtiment construit/demolished',
+            title: 'Bâtiment construit/démolis',
             backgroundColor: '#ed872d',
             textColor: 'black',
         },
         upgradeBuilding: {
             regex: /(Poste (upgraded( \(from small .*? station\))??|construit)|Garde prolongée|Cancel:|Refund Building upgrade)/,
-            title: 'Poste construit/extended',
+            title: 'Poste construit/Extension',
             backgroundColor: '#000080',
             textColor: 'white',
         },
         task: {
-            regex: /Tâche accomplie : («.*?»|".*?")/,
+            regex: /Tâche accomplie.*?/,
             title: 'Tâche accomplie',
             backgroundColor: '#bb3385',
             textColor: 'white',
@@ -65,13 +65,13 @@ export default {
         },
         prisoners: {
             regex: /Prisonnier transporté/,
-            title: 'Prisoner',
+            title: 'Prisonnier',
             backgroundColor: '#0bda51',
             textColor: 'black',
         },
         schoolings: {
             regex: /(education|Alliance Training Applicant)/,
-            title: 'Education',
+            title: 'Éducation',
             backgroundColor: '#ff00ff',
             textColor: 'white',
         },
@@ -83,20 +83,20 @@ export default {
         },
         fireAlarmSystemCancel: {
             regex: /Fausse alerte/,
-            titel: 'False Alarms',
+            title: 'Fausse alerte',
             backgroundColor: '#c80815',
             textColor: 'white',
         },
     },
-    category: 'Categorie',
+    category: 'Catégorie',
     title: 'Sommaire',
     total: 'Total',
     others: 'Autre',
     export: {
-        export: 'Export',
+        export: 'Exporter',
         json: {
-            raw: 'JSON (raw)',
-            prettified: 'JSON (prettified)',
+            raw: 'JSON (brut)',
+            prettified: 'JSON (simplifié)',
         },
     },
 };
