@@ -30,7 +30,7 @@ export default {
             textColor: 'black',
         },
         buildings: {
-            regex: /(Bâtiment  construit|Rembourser le bâtiment$|Building demolished without refund)/,
+            regex: /(Bâtiment construit|Rembourser le bâtiment$|Building demolished without refund)/,
             title: 'Bâtiment construit/demolished',
             backgroundColor: '#ed872d',
             textColor: 'black',
