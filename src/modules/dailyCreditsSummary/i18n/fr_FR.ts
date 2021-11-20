@@ -42,7 +42,7 @@ export default {
             textColor: 'white',
         },
         task: {
-            regex: /Tâche accomplie : («.*?»|".*?")/,
+            regex: /Tâche accomplie.*?/,
             title: 'Tâche accomplie',
             backgroundColor: '#bb3385',
             textColor: 'white',
