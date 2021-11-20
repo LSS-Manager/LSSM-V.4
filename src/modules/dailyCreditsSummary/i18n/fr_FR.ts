@@ -83,7 +83,7 @@ export default {
         },
         fireAlarmSystemCancel: {
             regex: /Fausse alerte/,
-            titel: 'Fausse alerte',
+            title: 'Fausse alerte',
             backgroundColor: '#c80815',
             textColor: 'white',
         },
