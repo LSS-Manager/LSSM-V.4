@@ -1,0 +1,33 @@
+{
+	"description": "Améliorez la carte en y ajoutant des fonctionnalités intéressantes.",
+	"name": "Améliorez la carte",
+	"positions": {
+		"bottom-left": "En bas à gauche 🡧",
+		"bottom-right": "En bas à droite 🡦",
+		"top-left": "En haut à gauche 🡤",
+		"top-right": "En haut à droite 🡥"
+	},
+	"settings": {
+		"centerMap": {
+			"description": "Centrer la carte dynamiquement ou sur une vue statique à l'ouverture du jeu",
+			"title": "Carte centrale"
+		},
+		"centerMapStaticLocation": {
+			"title": "Carte centrale statique : Position"
+		},
+		"centerMapType": {
+			"description": "Sélectionnez si vous souhaitez un centrage statique ou dynamique [le centrage dynamique n'est pas encore disponible].",
+			"dynamic": "dynamique",
+			"static": "statique",
+			"title": "Carte centrale: Mode"
+		},
+		"mapScale": {
+			"description": "Affiche l'échelle de la carte et le niveau de zoom actuel",
+			"title": "Échelle"
+		},
+		"mapScalePosition": {
+			"description": "Sélectionnez dans quel coin de la carte l'échelle doit apparaître.",
+			"title": "Position de l'échelle"
+		}
+	}
+}
