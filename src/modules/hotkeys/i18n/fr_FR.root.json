@@ -20,24 +20,24 @@
 				"overview": "ouvrir l'aperçu des 7 derniers jours",
 				"title": "Crédits"
 			},
-			"help": "Ouvrez cette aide",
+			"help": "ouvrir cette aide",
 			"profile": {
 				"awards": "ouvrir la liste des récompenses",
 				"level": "ouvrir la liste des niveaux",
 				"notes": "ouvrir les notes",
-				"open": "ouvrir le profil perso",
+				"open": "ouvrir le profil personnel",
 				"title": "profil"
 			},
-			"protocol": "Open Log in Dispatch Center",
+			"protocol": "ouvrir le journal des gestion des appelles",
 			"tasks": {
-				"open": "open list of current tasks",
-				"title": "Tasks and Events"
+				"open": "ouvrir la liste des Tâches et événements",
+				"title": "Tâches et événements"
 			},
-			"title": "General"
+			"title": "Général"
 		},
 		"main": {
 			"chat": {
-				"focus": "focus input field",
+				"focus": "focus sur le champ de saisie",
 				"title": "Chat"
 			},
 			"lssm": {
@@ -49,29 +49,29 @@
 			},
 			"map": {
 				"search": {
-					"focus": "focus input field",
-					"title": "Location search"
+					"focus": "focus sur le champ de saisie",
+					"title": "Recherche de lieu"
 				},
 				"title": "Map"
 			},
 			"missionlist": {
 				"search": {
-					"focus": "focus input field",
-					"title": "Search"
+					"focus": "focus sur le champ de saisie",
+					"title": "Recherche"
 				},
-				"title": "Mission list"
+				"title": "Liste des missions"
 			},
-			"title": "Main window"
+			"title": "Fenêtre principale"
 		}
 	},
-	"description": "Control the game with hotkeys on the keyboard, which you can set yourself.",
-	"name": "Hotkeys",
+	"description": "Contrôlez le jeu à l'aide de touches de raccourci sur le clavier, que vous pouvez définir vous-même.",
+	"name": "Touches de raccourci",
 	"settings": {
 		"command": "Action",
-		"hotkey": "Hotkey",
+		"hotkey": "Touches de raccourci",
 		"hotkeys": {
-			"description": "Set your own Hotkeys for certain actions here. Actions of category \"General\" are available everywhere in game. By pressing F1, you can view an overview of the hotkeys you have opened at any time.",
-			"title": "Hotkeys"
+			"description": "Définissez ici vos propres touches de raccourci pour certaines actions. Les actions de la catégorie \"Général\" sont disponibles partout dans le jeu. En appuyant sur F1, vous pouvez afficher un aperçu des raccourcis que vous avez activés à tout moment.",
+			"title": "Touches de raccourci"
 		}
 	}
 }
