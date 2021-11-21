@@ -418,9 +418,14 @@ sidebarDepth: 2
 
 <discord style="float: right;"><img src="https://discord.com/api/guilds/254167535446917120/embed.png?style=banner1" alt="Our Discord-Server: United Dispatch" data-prevent-zooming></discord>
 
-${/*`[${getLocale(lang, 'readme.serverStatus.lssm')}](https://status.lss-manager.de)`*/''}
+${
+    /*`[${getLocale(lang, 'readme.serverStatus.lssm')}](https://status.lss-manager.de)`*/ ''
+}
 
-[${getLocale(lang, 'readme.serverStatus.game')}](https://stats.uptimerobot.com/OEKDJSpmvK)
+[${getLocale(
+                    lang,
+                    'readme.serverStatus.game'
+                )}](https://stats.uptimerobot.com/OEKDJSpmvK)
 `
             )
         );
