@@ -11,8 +11,11 @@ Une petite aide, qui devrait vous aider à créer une demande d'assistance.
 
 ::: tip
 Si vous avez besoin d'aide, décrivez votre problème aussi précisément que possible. Plus vous décrirez votre problème de manière précise et détaillée, plus nous pourrons vous aider rapidement et efficacement.:::
+:::
+
 ::: warning
 Veuillez noter que nous ne prenons pas officiellement en charge les anciens navigateurs, les navigateurs mobiles et Microsoft Edge ou Internet Explorer. La prise en charge de ces navigateurs n'est donc ni garantie ni probable.:::
+:::
 
 ### 1. Formuler le problème
 Décrivez d'abord votre problème. Incluez toute les informations qui pourront être importantes. Expliquez également ce que vous avez déjà essayé.

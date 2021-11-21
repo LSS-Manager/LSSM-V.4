@@ -25,7 +25,7 @@ Cette section fournit des informations sur la façon de configurer les paramètr
 
 Nous utilisons [Moment.js](https://momentjs.com) pour offrir un large choix de configuration. Si vous souhaitez voir la documentation originale, vous pouvez la trouver [ici].(https://momentjscom.readthedocs.io/fr/latest/moment/04-displaying/01-format/).
 
-###Éditeur en direct
+### Éditeur en direct
 Essayez votre propre format ici et voyez un aperçu en direct ! Voir les informations sur la configuration ci-dessous.
 pour offrir un large choix de configuration. Si vous souhaitez voir l'original
 

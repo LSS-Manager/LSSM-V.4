@@ -16,10 +16,10 @@ LSS Manager est sous licence [Creative Commons Attribution-NonCommercial-ShareAl
 
 Nous avons décidé d'utiliser cette licence pour empêcher toute utilisation abusive de notre code pour violer les termes et conditions du jeu.
 
-## The LSSM Team
+## L'équipe de LSSM
 Actuellement, LSS Manager se compose de 4 développeurs et de 6 supporters supplémentaires pour notre <discord/>. Sur Discord, nos développeurs sont bien sûr également actifs sur le plan administratif !
 
-### The developers
+### Les développeurs
 * Aisaka *[PDG, Administrateur Serveur, Développeur principal]*
 * Jan *[Architecte et Développeur principal]*
 * Sanni *[Contrôle de qualité, Correcteur de bugs, Développeur junior]*
@@ -52,7 +52,7 @@ Tout d'abord, un grand merci à l'équipe de développement du jeu. Non seulemen
 
 Mais aussi pour les nombreuses aides qui nous facilitent le développement du LSSM !
 
-### Our beta testers
+### Aux beta testers
 Un petit groupe de joueurs actifs recevra les nouvelles fonctionnalités plus tôt que les autres afin de les tester. Ainsi, nous pourrons trouver et corriger certains problèmes avant qu'elles ne soient mises à la disposition de tous.
 
 :::tip

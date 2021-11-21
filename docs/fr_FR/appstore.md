@@ -3,7 +3,7 @@ title: Appstore 🛒
 lang: fr_FR
 ---
 
-# Appstore :shopping_cart :
+# Appstore :shopping_cart:
 
 L'Appstore est l'un des éléments centraux de LSS Manager. Vous pouvez y (dés)activer chaque module individuellement. Une brève description de chaque module est également fournie directement dans l'Appstore.
 Pour que vous puissiez facilement avoir un aperçu du module sans avoir à l'activer, l'aide de chaque module sur le wiki est accessible par le petit `i` bleu.
