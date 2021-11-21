@@ -125,7 +125,7 @@
 		},
 		"vehicleCounter": {
 			"description": "Affiche en haut de la liste du personnel combien de véhicules sont affectés à cette mission. Cliquez pour ouvrir un tableau avec les détails.",
-			"title": "compteur de véhicule"
+			"title": "Compteur de véhicules"
 		},
 		"vehicleCounterColor": {
 			"danger": "Rouge",

@@ -95,7 +95,7 @@ export default {
         iconBgAsNavBg: {
             description:
                 "Colorez toute la barre de navigation avec la couleur de fond de l'icône du LSSM!",
-            title: 'colorier la barre de navigation',
+            title: 'Colorier la barre de navigation',
         },
         osmDarkTooltip: {
             description:

@@ -4,7 +4,7 @@
 	"settings": {
 		"showAverage": {
 			"description": "Affiche les crédits moyens pour chaque catégorie.",
-			"title": "afficher la moyenne"
+			"title": "Afficher la moyenne"
 		}
 	}
 }
