@@ -6,7 +6,8 @@ sidebarDepth: 2
 
 # Suggestions :bulb:
 ::: tip
-Veuillez rédiger vos suggestions le mieux possible avant de les publier. Cela nous aide à comprendre votre suggestion et nous permet de poser moins de questions.:::
+Veuillez rédiger vos suggestions le mieux possible avant de les publier. Cela nous aide à comprendre votre suggestion et nous permet de poser moins de questions.
+:::
 
 ## via Discord
 Sur notre <discord/> vous pouvez faire des suggestions dans le <discord-channel channel="suggestions"/> canal.
