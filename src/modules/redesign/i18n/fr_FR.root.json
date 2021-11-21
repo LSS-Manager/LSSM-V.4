@@ -21,12 +21,12 @@
 				"title": "Profil"
 			},
 			"toplist": {
-				"description": "Une refonte de la toplist.",
-				"title": "Toplist"
+				"description": "Une refonte du classement.",
+				"title": "Classement"
 			},
 			"vehicles": {
 				"description": "Une refonte des pages des véhicules et de toutes les pages correspondantes.",
-				"title": "véhicules"
+				"title": "Véhicules"
 			}
 		}
 	}

@@ -46,6 +46,10 @@
 			"description": "Affiche le type de véhicule (et aussi sa classe propre) dans une colonne séparée.",
 			"title": "Type de véhicule"
 		},
+		"vehicleTypesOnlyOwn": {
+			"description": "Affiche, si elle est disponible, la classe du véhicule personnel. Si elle n'est pas disponible, la classe du véhicule par défaut sera affichée.",
+			"title": "Afficher la classe du véhicule"
+		},
 		"vehiclesPersonnelAssigned": {
 			"description": "Affiche le nombre d'employés affectés à un véhicule.",
 			"title": "Employés affectés"

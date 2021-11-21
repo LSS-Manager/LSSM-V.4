@@ -117,7 +117,7 @@
 			},
 			"title": {
 				"description": "Affiche l'en-tête \"Patients\" au dessus des détails pour de possibles patients.",
-				"title": "Patients (Title)"
+				"title": "Patients (Titre)"
 			}
 		},
 		"place": {
@@ -139,21 +139,21 @@
 			},
 			"title": {
 				"description": "Affiche l'en-tête \"Prisonniers\" au dessus des détails pour de possibles patients.",
-				"title": "Prisonniers (Title)"
+				"title": "Prisonniers (Titre)"
 			}
 		},
 		"title": {
 			"description": "Affiche le nom de la mission en titre, par ex. \"Feu de poubelle\".",
-			"title": "mission name"
+			"title": "Nom de la missions"
 		},
 		"type": {
-			"description": "Shows the type number of the mission next to the title.",
-			"title": "Type number"
+			"description": "Affiche le numéro de type de la mission à côté du titre.",
+			"title": "Numéro de type"
 		},
 		"vehicles": {
 			"content": {
 				"description": "Affiche les véhicules requis.",
-				"title": "Vyepéhicule requis"
+				"title": "Véhicules requis"
 			},
 			"patient_additionals": {
 				"description": "S'il y a actuellement plus de 10 patients sur place, PC DSM est automatiquement inscrit au début des exigences relatives au véhicule.",
@@ -172,11 +172,11 @@
 			},
 			"title": {
 				"description": "Affiche l'en-tête \"Véhicules\" au dessus des véhicules requis.",
-				"title": "Véhicules (Title)"
+				"title": "Véhicules (Titre)"
 			},
 			"xAfterNumber": {
 				"description": "Met un x derrière le nombre de véhicules",
-				"title": "x derrière le montant"
+				"title": "X derrière le montant"
 			}
 		}
 	}
