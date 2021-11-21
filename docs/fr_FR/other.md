@@ -1,4 +1,4 @@
-++++++++++++++---
+---
 title: Autre
 lang: fr_FR
 sidebarDepth: 2
