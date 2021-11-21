@@ -73,9 +73,9 @@ const getLocale = (lang: string, key: string): Translation | string => {
 
     const path = key.split('.');
 
-    const reqLang = walk(I18N[lang], path);
-    const en_US = walk(I18N.en_US, path);
-    const de_DE = walk(I18N.de_DE, path);
+    const reqLang = walk(I18N[lang], [...path]);
+    const en_US = walk(I18N.en_US, [...path]);
+    const de_DE = walk(I18N.de_DE, [...path]);
     return reqLang ?? en_US ?? de_DE;
 };
 
@@ -418,9 +418,9 @@ sidebarDepth: 2
 
 <discord style="float: right;"><img src="https://discord.com/api/guilds/254167535446917120/embed.png?style=banner1" alt="Our Discord-Server: United Dispatch" data-prevent-zooming></discord>
 
-[LSSM-Server-Status](https://status.lss-manager.de)
+${/*`[${getLocale(lang, 'readme.serverStatus.lssm')}](https://status.lss-manager.de)`*/''}
 
-[Game-Online-Status](https://stats.uptimerobot.com/OEKDJSpmvK)
+[${getLocale(lang, 'readme.serverStatus.game')}](https://stats.uptimerobot.com/OEKDJSpmvK)
 `
             )
         );

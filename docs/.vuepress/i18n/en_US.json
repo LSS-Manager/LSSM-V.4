@@ -119,5 +119,11 @@
 				"YYYY": "Year (4 numbers)"
 			}
 		}
+	},
+	"readme": {
+		"serverStatus": {
+			"game": "Game-Online-Status",
+			"lssm": "LSSM-Server-Status"
+		}
 	}
 }
