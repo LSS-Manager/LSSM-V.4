@@ -28,7 +28,7 @@ Les plugins qui ne sont pas activés ne seront pas non plus chargés - ce qui fa
 ## Installation 📥
 En utilisant LSSM, vous acceptez que nous recueillions des métadonnées. Vous trouverez de plus amples informations à ce sujet à l'adresse suivante [métadonnées](metadata.md)
 
-Un tableau avec les navigateurs compatibles avec LSSM se trouve dans notre site web. [FAQ](faq.md#Dans-quels-navigateurs-LSS-Manager-fonctionne-t-il)
+Un tableau avec les navigateurs compatibles avec LSSM se trouve dans notre site web. [FAQ](faq.md#dans-quels-navigateurs-lss-manager-fonctionne-t-il-)
 
 ::: tip Utiliser LSSM sur votre téléphone portable
 Officiellement, nous ne prenons pas en charge une version mobile. Cependant, le navigateur Firefox offre la possibilité d'utiliser des modules complémentaires même dans sa version mobile. Néanmoins, nous ne garantissons pas un design attrayant ou une fonctionnalité complète pour les navigateurs mobiles.
