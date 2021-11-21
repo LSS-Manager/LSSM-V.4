@@ -1,7 +1,7 @@
 ---
-titre : FAQ ❓
-lang : fr_FR
-sidebarDepth : 3
+titre: FAQ ❓
+lang: fr_FR
+sidebarDepth: 3
 ---
 
 # FAQ ❓
