@@ -38,4 +38,4 @@ pour offrir un large choix de configuration. Si vous souhaitez voir l'original
 <momentjs-shorts/>
 
 ### Texte normal
-Si vous voulez inclure un autre texte avec votre horloge, tel que `heure`, taper simplement `LTS heure` ne fonctionnera pas. Le résultat est "11:13:27 AM 11eure". Pour inclure du texte qui ne doit pas être formaté, entourez-le de "[]`". Si vous tapez `LTS [Heure]` ou `LTS [H]eure`, vous obtiendrez tous deux l'affichage de `11:13:27 AM Hour`.
+Si vous voulez inclure un autre texte avec votre horloge, tel que `heure`, taper simplement `LTS heure` ne fonctionnera pas. Le résultat est "11:13:27 AM 11eure". Pour inclure du texte qui ne doit pas être formaté, entourez-le de `[]`. Si vous tapez `LTS [Heure]` ou `LTS [H]eure`, vous obtiendrez tous deux l'affichage de `11:13:27 AM Hour`.
