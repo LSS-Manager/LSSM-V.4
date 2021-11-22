@@ -92,6 +92,7 @@ export default (
         const label = document.createElement('span');
         label.classList.add('label', `label-${counterColors[list]}`);
         label.style.setProperty('margin-left', '0.25rem');
+        label.style.setProperty('position', 'relative');
         const countFun = { vehicles: sum, players: length }[list];
         label.textContent = `${countFun(
             results.driving[list]
@@ -117,6 +118,7 @@ export default (
         table.style.setProperty('border-radius', '4px');
         table.style.setProperty('box-shadow', '0 1px 2px rgba(0,0,0,.05)');
         table.style.setProperty('z-index', '3');
+        table.style.setProperty('right', '0');
         const thead = document.createElement('thead');
         const theadRow = document.createElement('tr');
         [' ', 'driving', 'atScene', 'total'].forEach(title => {
