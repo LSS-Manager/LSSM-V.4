@@ -1,0 +1,8 @@
+{
+	"readme": {
+		"serverStatus": {
+			"game": "Statut du jeu en ligne",
+			"lssm": "Statut du serveur LSSM"
+		}
+	}
+}
