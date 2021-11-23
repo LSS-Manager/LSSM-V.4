@@ -14,17 +14,17 @@
 	},
 	"moment": {
 		"shorts": {
-			"L" : "Date avec des zéros initiaux",
-			"LL" : "Date avec le mois sous forme de mot",
-			"LLL" : "Date avec le mois sous forme de mot et heure",
-			"LLLL" : "Date complète avec heure",
-			"LT" : "Heure",
-			"LTS" : "Heure avec secondes",
-			"l" : "Date sans zéros initiaux",
-			"ll" : "Date avec le mois comme mot (forme courte)",
-			"lll" : "Date avec le mois sous forme de mot (forme courte) et heure",
-			"llll" : "Date complète (forme courte) avec heure"
-	},
+			"L": "Date avec des zéros initiaux",
+			"LL": "Date avec le mois sous forme de mot",
+			"LLL": "Date avec le mois sous forme de mot et heure",
+			"LLLL": "Date complète avec heure",
+			"LT": "Heure",
+			"LTS": "Heure avec secondes",
+			"l": "Date sans zéros initiaux",
+			"ll": "Date avec le mois comme mot (forme courte)",
+			"lll": "Date avec le mois sous forme de mot (forme courte) et heure",
+			"llll": "Date complète (forme courte) avec heure"
+		},
 		"titles": {
 			"shorts": {
 				"description": "Description",
