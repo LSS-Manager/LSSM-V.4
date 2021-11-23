@@ -23,7 +23,7 @@
 			"l" : "Date sans zéros initiaux",
 			"ll" : "Date avec le mois comme mot (forme courte)",
 			"lll" : "Date avec le mois sous forme de mot (forme courte) et heure",
-			"llll" : "Date complète (forme courte) avec heure".
+			"llll" : "Date complète (forme courte) avec heure"
 	},
 		"titles": {
 			"shorts": {
