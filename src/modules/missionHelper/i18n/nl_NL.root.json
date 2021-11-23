@@ -42,8 +42,8 @@
 			"title": "Uitbreidingen"
 		},
 		"followup": {
-			"description": "Toont mogelijke vervolg inzetten van de inzet",
-			"title": "Vervolg inzetten"
+			"description": "Lijst van mogelijke verspreidingsinzetten",
+            "title": "Verspreidingen"
 		},
 		"generatedBy": {
 			"description": "Toont vanaf welk gebouw de inzet is gegenereerd.",
@@ -132,6 +132,10 @@
 				"description": "Toont de kop \"arrestanten\" boven de details over mogelijke arrestanten.",
 				"title": "Arrestanten (Titel)"
 			}
+		},
+		"subsequent": {
+			"description": "Lijst van mogelijke vervolginzetten als de melding klaar is",
+            "title": "Vervolginzetten"
 		},
 		"title": {
 			"description": "Toont de inzetnaam, Bijv. \"Brandende afvalbak\" als titel.",
