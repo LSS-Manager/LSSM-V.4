@@ -16,6 +16,10 @@
 			"description": "Links die als platte tekst worden weergegeven (bijv. In chat, forum, berichten, etc.) worden klikbaar gemaakt. Ze openen automatisch in een nieuw tabblad.",
 			"title": "Maak links klikbaar"
 		},
+		"aaoExportQr": {
+			"title": "Inzetvoorstellen-Export als QR-Code",
+			"description": "Toont een QR-Code voor de exporteerlink, wanneer je inzetvoorstellen exporteerd."
+		},
 		"emojiPicker": {
 			"description": "Toont je emoji's die je kunt selecteren wanneer je typt : gevolgd door tekst.",
 			"title": "Emoji-kiezer"
