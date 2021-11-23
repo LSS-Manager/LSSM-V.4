@@ -1,4 +1,3 @@
-import anniversary from './components/anniversary.vue';
 import he from 'he';
 import LSSMMenu from './LSSM-Menu.vue';
 import telemetry from './modules/telemetry/main';
@@ -109,16 +108,19 @@ export default async (LSSM: Vue): Promise<void> => {
                     })
                     .then((clicked: boolean) => {
                         if (!clicked) {
-                            const anniversaryWrapper = document.createElement(
-                                'div'
-                            );
-                            anniversaryWrapper.id = 'aniwrap';
-                            document.body.append(anniversaryWrapper);
-                            new LSSM.$vue({
-                                store: LSSM.$store,
-                                i18n: LSSM.$i18n,
-                                render: h => h(anniversary),
-                            }).$mount(anniversaryWrapper);
+                            import(
+                                /* webpackChunkName: "components/anniversary" */ './components/anniversary.vue'
+                            ).then(({ default: anniversary }) => {
+                                const anniversaryWrapper = document.createElement(
+                                    'div'
+                                );
+                                document.body.append(anniversaryWrapper);
+                                new LSSM.$vue({
+                                    store: LSSM.$store,
+                                    i18n: LSSM.$i18n,
+                                    render: h => h(anniversary),
+                                }).$mount(anniversaryWrapper);
+                            });
                         }
                     });
             }
