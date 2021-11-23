@@ -46,12 +46,17 @@ export default (LSSM: Vue, MODULE_ID: string, $m: $m): void => {
         water
     )}|${LSSM.$utils.escapeRegex(foam)}|${groupsRegex}`;
 
-    const missingRequirementMatches = missingRequirementsText.match(
-        new RegExp(
-            `((${numRegex}\\s+(${innerRegex}))|(${innerRegex}):\\s*${numRegex})(?=[,.]|$)`,
-            'g'
-        )
+    const requirementRegex = new RegExp(
+        `((${numRegex}\\s+(${innerRegex}))|(${innerRegex}):\\s*${numRegex})(?=[,.]|$)`,
+        'g'
     );
+    const missingRequirementMatches = missingRequirementsText.match(
+        requirementRegex
+    );
+    const extras = missingRequirementsText
+        .replace(requirementRegex, '')
+        .replace(/(, )+/g, ', ')
+        .replace(/(^, )|(, $)/g, '');
     if (!missingRequirementMatches) return;
     const missingRequirements = missingRequirementMatches.map(req => {
         const requirement = req.trim();
@@ -72,7 +77,6 @@ export default (LSSM: Vue, MODULE_ID: string, $m: $m): void => {
                 : 0,
         };
     }) as Requirement[];
-    let extras = '';
     const drivingTable = document.querySelector(
         '#mission_vehicle_driving tbody'
     );
@@ -137,9 +141,6 @@ export default (LSSM: Vue, MODULE_ID: string, $m: $m): void => {
                     requirement.driving = drivingStaff;
                 } else {
                     if (!vehicleGroupRequirement) {
-                        extras += `, ${requirement.missing.toLocaleString()} ${
-                            requirement.vehicle
-                        }`;
                         requirement.vehicle = '';
                         return;
                     }
