@@ -70,7 +70,7 @@ export default {
             textColor: 'black',
         },
         schoolings: {
-            regex: /(education|Alliance Training Applicant)/,
+            regex: /(Formation|Alliance Training Applicant)/,
             title: 'Éducation',
             backgroundColor: '#ff00ff',
             textColor: 'white',
