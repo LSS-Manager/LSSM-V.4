@@ -8,6 +8,10 @@
 		"top-right": "Rechtsboven 🡥"
 	},
 	"settings": {
+		"aaoExportQr": {
+			"description": "Toont een QR-Code voor de exporteerlink, wanneer je inzetvoorstellen exporteerd.",
+			"title": "Inzetvoorstellen-Export als QR-Code"
+		},
 		"browserTitle": {
 			"description": "Past de titel van het browsertabblad aan zodat het laat zien wat er momenteel in het spel is geopend.",
 			"title": "Titel van het browsertabblad"
@@ -15,10 +19,6 @@
 		"clickableLinks": {
 			"description": "Links die als platte tekst worden weergegeven (bijv. In chat, forum, berichten, etc.) worden klikbaar gemaakt. Ze openen automatisch in een nieuw tabblad.",
 			"title": "Maak links klikbaar"
-		},
-		"aaoExportQr": {
-			"title": "Inzetvoorstellen-Export als QR-Code",
-			"description": "Toont een QR-Code voor de exporteerlink, wanneer je inzetvoorstellen exporteerd."
 		},
 		"emojiPicker": {
 			"description": "Toont je emoji's die je kunt selecteren wanneer je typt : gevolgd door tekst.",
