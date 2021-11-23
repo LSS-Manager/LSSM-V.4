@@ -23,7 +23,7 @@ Attention : Si vous réinitialisez les paramètres, ils ne peuvent être restaur
 ## Moment.js
 Cette section fournit des informations sur la façon de configurer les paramètres de date et d'heure, par exemple dans le module [clock](modules/clock.md).
 
-Nous utilisons [Moment.js](https://momentjs.com) pour offrir un large choix de configuration. Si vous souhaitez voir la documentation originale, vous pouvez la trouver [ici].(https://momentjscom.readthedocs.io/fr/latest/moment/04-displaying/01-format/).
+Nous utilisons [Moment.js](https://momentjs.com) pour offrir un large choix de configuration. Si vous souhaitez voir la documentation originale, vous pouvez la trouver [ici](https://momentjscom.readthedocs.io/fr/latest/moment/04-displaying/01-format/).
 
 ### Éditeur en direct
 Essayez votre propre format ici et voyez un aperçu en direct ! Voir les informations sur la configuration ci-dessous.
