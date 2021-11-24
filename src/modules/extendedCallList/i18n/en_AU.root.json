@@ -203,6 +203,7 @@
 		"types": {
 			"alphabet": "Alphabet",
 			"credits": "Credits",
+			"default": "no sorting",
 			"id": "Age",
 			"remaining_patients": "Current patients"
 		}
