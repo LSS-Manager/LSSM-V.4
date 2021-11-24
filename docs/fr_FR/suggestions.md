@@ -5,7 +5,7 @@ sidebarDepth: 2
 ---
 
 # Suggestions :bulb:
-::: tip
+::: tip Conseil
 Veuillez rédiger vos suggestions le mieux possible avant de les publier. Cela nous aide à comprendre votre suggestion et nous permet de poser moins de questions.
 :::
 
