@@ -4,12 +4,12 @@ Celles-ci te permettent d'effectuer certaines actions sans utiliser la souris.
 
 Tu peux déterminer librement quelles combinaisons de touches doivent être utilisées.
 
-:: : warning Combinaisons prédéfinies
+::: warning Combinaisons prédéfinies
 Tous les navigateurs ont déjà intégré des touches de raccourci pour leurs propres fonctionnalités. (par ex. `Ctrl+S` pour enregistrer une page ou `Ctrl+O` pour ouvrir un fichier).
 Actuellement, nous n'écrasons **PAS** ces touches de raccourci standard !
 Si tu définis une fonctionnalité LSSM sur `Ctrl+O`, le dialogue "Ouvrir fichier" de ton navigateur s'ouvrira également.
 La raison en est la structure de notre reconnaissance des hotkeys.
-:: :
+:::
 
 Tu peux utiliser comme touche de raccourci soit une seule lettre (par ex. `U` ou `P`), une combinaison de touches (par ex. `Alt+U` ou `Ctrl+Alt+P`) ou plusieurs de ces lettres à la suite (par ex. `U P`, `Alt+U P` ou `Ctrl+Alt+U P Alt+U`).
 Les majuscules et les minuscules ne sont pas prises en compte !
