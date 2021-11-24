@@ -275,12 +275,14 @@ export default (
             orderFunctions[sortingType]?.(mission) ?? orderFunctions.id(mission)
         );
 
-    const resetOrder = () =>
+    const resetOrder = () => {
         document
             .querySelectorAll<HTMLDivElement>(
                 '#missions-panel-body .missionSideBarEntry'
             )
             .forEach(panel => setMissionOrder(panel));
+        window.missionScrollUpdate();
+    };
 
     resetOrder();
 
