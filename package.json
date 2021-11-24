@@ -1,5 +1,5 @@
 {
-    "version": "4.4.1+20211123.1921",
+    "version": "4.4.1+20211124.1036",
     "license": "CC-BY-NC-SA-4.0",
     "scripts": {
         "predev": "ts-node scripts predev",
@@ -29,7 +29,7 @@
         "mini-svg-data-uri": "^1.4.3",
         "moment": "^2.29.1",
         "pdfmake": "^0.2.4",
-        "qrcode": "^1.4.4",
+        "qrcode": "^1.5.0",
         "semver": "^7.3.5",
         "showdown": "^1.9.1",
         "ua-parser-js": "^1.0.2",

@@ -55,7 +55,7 @@ Mais aussi pour les nombreuses aides qui nous facilitent le développement du LS
 ### Aux beta testers
 Un petit groupe de joueurs actifs recevra les nouvelles fonctionnalités plus tôt que les autres afin de les tester. Ainsi, nous pourrons trouver et corriger certains problèmes avant qu'elles ne soient mises à la disposition de tous.
 
-:::tip
+:::tip Conseil
 Le nombre de bêta-testeurs est limité et aucun nouveau n'est ajouté "entre deux". S'il y a une nouvelle phase de candidature, nous l'annoncerons en conséquence, afin que chacun ait la possibilité de devenir bêta-testeur - pour autant qu'il remplisse certaines conditions.
 :::
 

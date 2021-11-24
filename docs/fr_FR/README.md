@@ -43,7 +43,7 @@ Si vous n'avez pas encore installé Tampermonkey dans votre navigateur, vous dev
 
 Pour les autres navigateurs, vous pouvez télécharger Tampermonkey sur [tampermonkey.net](https://www.tampermonkey.net/).
 
-::: warning
+::: warning Attention
 Veuillez noter que nous ne prenons pas officiellement en charge les anciens navigateurs, les navigateurs mobiles et Microsoft Edge ou Internet Explorer. La prise en charge de ces navigateurs n'est donc pas garantie.
 :::
 
