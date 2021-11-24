@@ -55,6 +55,7 @@
 		"version": "0.1.19"
 	},
 	"@types/qrcode": {
+		"icon": "https://avatars.githubusercontent.com/u/3637556",
 		"url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/qrcode",
 		"version": "1.4.1"
 	},
@@ -140,6 +141,7 @@
 		"version": "8.3.0"
 	},
 	"eslint-formatter-table": {
+		"icon": "https://eslint.org/assets/img/favicon.512x512.png",
 		"version": "7.32.1"
 	},
 	"eslint-plugin-prettier": {
