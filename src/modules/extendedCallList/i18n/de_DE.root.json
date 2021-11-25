@@ -224,6 +224,7 @@
 		"types": {
 			"alphabet": "Alphabet",
 			"credits": "Verdienst",
+			"default": "keine Sortierung",
 			"id": "Alter",
 			"remaining_patients": "aktuelle Patienten"
 		}

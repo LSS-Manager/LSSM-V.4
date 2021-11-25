@@ -6,7 +6,12 @@ import {
     PatientMarkerAddCombined,
 } from 'typings/Ingame';
 
-export type Sort = 'id' | 'credits' | 'remaining_patients' | 'alphabet';
+export type Sort =
+    | 'id'
+    | 'credits'
+    | 'remaining_patients'
+    | 'alphabet'
+    | 'default';
 
 export default (
     LSSM: Vue,
@@ -19,7 +24,13 @@ export default (
 ) => {
     LSSM.$store.commit('useFontAwesome');
 
-    const sorts: Sort[] = ['id', 'credits', 'remaining_patients', 'alphabet'];
+    const sorts: Sort[] = [
+        'default',
+        'id',
+        'credits',
+        'remaining_patients',
+        'alphabet',
+    ];
     let sortingType = sort;
     const sortingDirection = direction;
 
@@ -65,6 +76,7 @@ export default (
         credits = 'dollar-sign',
         remaining_patients = 'user-injured',
         alphabet = 'font',
+        default = 'meh-rolling-eyes',
     }
 
     enum faDirectionIcon {
@@ -100,6 +112,10 @@ export default (
     sortBtn.append(sortIcon, directionIcon, caret);
 
     const sortSelectionList = document.createElement('ul');
+    sortSelectionList.id = LSSM.$store.getters.nodeAttribute(
+        `${MODULE_ID}-missionlist-sorting-selection-list`,
+        true
+    );
     sortSelectionList.classList.add('dropdown-menu', 'pull-right');
     sorts.forEach(sort => {
         const liAsc = document.createElement('li');
@@ -199,10 +215,17 @@ export default (
                     'margin-right': '0.2em',
                 },
             },
+            {
+                selectorText: `#${sortIcon.id}[data-icon="meh-rolling-eyes"], #${sortSelectionList.id} [data-icon="meh-rolling-eyes"]`,
+                style: {
+                    display: 'none',
+                },
+            },
         ])
         .then();
 
     const orderFunctions: Record<Sort, (mission: HTMLDivElement) => string> = {
+        default: () => '0',
         id: mission =>
             numToCSSRange(
                 parseInt(mission.getAttribute('mission_id') ?? '0')
@@ -252,12 +275,14 @@ export default (
             orderFunctions[sortingType]?.(mission) ?? orderFunctions.id(mission)
         );
 
-    const resetOrder = () =>
+    const resetOrder = () => {
         document
             .querySelectorAll<HTMLDivElement>(
                 '#missions-panel-body .missionSideBarEntry'
             )
             .forEach(panel => setMissionOrder(panel));
+        window.missionScrollUpdate();
+    };
 
     resetOrder();
 
