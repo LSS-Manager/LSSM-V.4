@@ -262,16 +262,6 @@
         "translation",
         "fr_FR"
       ]
-    },
-    {
-      "login": "goochy",
-      "name": "Goochy",
-      "avatar_url": "https://avatars.githubusercontent.com/u/12684404?v=4",
-      "profile": "https://github.com/goochy",
-      "contributions": [
-        "translation",
-        "en_GB"
-      ]
     }
   ],
   "contributorsPerLine": 7,
