@@ -27,7 +27,7 @@ Actuellement, LSS Manager se compose de 4 développeurs et de 6 supporters suppl
 
 ### The Discord-Team
 **Administration**:
-* Perdu
+* LOST
 
 **Modération**:
 * 🇩🇪
