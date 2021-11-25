@@ -100,6 +100,14 @@
                     </ul>
                 </a>
             </li>
+            <li v-if="toplistPositionInNavbar" role="presentation">
+                <a 
+                    href="{{toplistSite}}" 
+                    class="lightbox-open"
+                >
+                    Position: {{ toplistPosition.toLocaleString() }}:
+                </a>
+            </li>
             <template v-if="$store.state.api.credits.credits_alliance_active">
                 <li class="divider"></li>
                 <li>
@@ -205,6 +213,7 @@ export default Vue.extend<
                 }`
             ) as unknown) as Record<string, string>,
             creditsInNav: false,
+            toplistPositionInNavbar: false,
         };
     },
     props: {
@@ -241,6 +250,12 @@ export default Vue.extend<
         },
         nextRankMissing() {
             return this.nextRankCredits - this.totalCredits;
+        },
+        toplistPosition(){
+            return this.$store.state.api.credits.toplist_position;
+        },
+        toplistSite(){
+            return Math.ceil(this.toplistPosition/20);
         },
     },
     watch: {
