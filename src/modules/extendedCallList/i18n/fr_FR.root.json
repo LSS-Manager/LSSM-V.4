@@ -217,6 +217,7 @@
 		"types": {
 			"alphabet": "Alphabet",
 			"credits": "Crédits",
+			"default": "aucun tri",
 			"id": "Age",
 			"remaining_patients": "Patients actuels"
 		}
