@@ -1,4 +1,4 @@
-Il est essentiel de définir des points d'intérêt pour que certaines missions, comme le "Crash d'un gros avion au large de l'aéroport", puissent être lancées. Si vous ne souhaitez pas utiliser les POI des autres, vous devrez définir les vôtres. Ce module vous permet de définir des POIs plus facilement.
+Il est essentiel de définir des points d'intérêt pour que certaines missions, comme la mission "Personne sous un train", puissent être lancées. Si vous ne souhaitez pas utiliser les POI des autres, vous devrez définir les vôtres. Ce module vous permet de définir des POIs plus facilement.
 
 * Tous les POIs du type sélectionné sont mis en évidence.
   * La couleur de la surbrillance peut être modifiée dans les paramètres.
