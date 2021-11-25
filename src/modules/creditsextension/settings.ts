@@ -29,4 +29,8 @@ export default <ModuleSettingFunction>(() => ({
         orderable: false,
         disableable: false,
     },
+    toplistPositionInNavbar: <Toggle>{
+        type: 'toggle',
+        default: false,
+    },
 }));
