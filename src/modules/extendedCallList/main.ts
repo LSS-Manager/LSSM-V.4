@@ -151,7 +151,7 @@ export default (async (LSSM, MODULE_ID, $m) => {
         ).default(
             LSSM,
             MODULE_ID,
-            (await getSetting<Sort>('sortMissionsType')) ?? 'id',
+            (await getSetting<Sort>('sortMissionsType')) ?? 'default',
             (await getSetting<'asc' | 'desc'>('sortMissionsDirection')) ??
                 'asc',
             await getSetting<string>('sortMissionsButtonColor'),
