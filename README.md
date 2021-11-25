@@ -148,6 +148,8 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   <tr>
     <td align="center"><a href="https://github.com/Gooochy"><img src="https://avatars.githubusercontent.com/u/85019809?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Gooochy</b></sub></a><br /><a href="#translation-Gooochy" title="Translation">🌍</a> <a href="https://www.missionchief.co.uk" title="Translations for Missionchief.co.uk (en_GB)">🇬🇧</a></td>
     <td align="center"><a href="https://github.com/02Miki"><img src="https://avatars.githubusercontent.com/u/35926600?v=4?s=100" width="100px;" alt=""/><br /><sub><b>02Miki</b></sub></a><br /><a href="#translation-02Miki" title="Translation">🌍</a> <a href="https://www.operatore112.it" title="Translations for Operatore112.it (it_IT)">🇮🇹</a></td>
+    <td align="center"><a href="https://github.com/deoxis9001"><img src="https://avatars.githubusercontent.com/u/638243?v=4?s=100" width="100px;" alt=""/><br /><sub><b>deoxis9001</b></sub></a><br /><a href="https://github.com/LSS-Manager/LSSM-V.4/commits?author=deoxis9001" title="Documentation">📖</a> <a href="#translation-deoxis9001" title="Translation">🌍</a> <a href="https://www.operateur112.fr" title="Translations for Operateur112.fr (fr_FR)">🇫🇷</a></td>
+    <td align="center"><a href="https://github.com/goochy"><img src="https://avatars.githubusercontent.com/u/12684404?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Goochy</b></sub></a><br /><a href="#translation-goochy" title="Translation">🌍</a> <a href="https://www.missionchief.co.uk" title="Translations for Missionchief.co.uk (en_GB)">🇬🇧</a></td>
   </tr>
 </table>
 
