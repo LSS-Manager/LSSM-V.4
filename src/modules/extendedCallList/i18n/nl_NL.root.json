@@ -252,6 +252,7 @@
 		"types": {
 			"alphabet": "Alfabet",
 			"credits": "Credits",
+			"default": "Geen sortering",
 			"id": "Generatietijd",
 			"remaining_patients": "Huidige patiënten"
 		}
