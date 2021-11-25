@@ -6,7 +6,7 @@ import { Mission } from 'typings/Mission';
 import { RootState } from '../../typings/store/RootState';
 import { Vehicle } from '../../typings/Vehicle';
 import { VehicleRadioMessage } from '../../typings/Ingame';
-import { ActionTree, GetterTree, Module, Store } from 'vuex';
+import { ActionTree, GetterTree, Module /*, Store*/ } from 'vuex';
 import {
     APIState,
     StorageAPIKey,

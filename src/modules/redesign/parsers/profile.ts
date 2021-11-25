@@ -32,7 +32,7 @@ export interface ProfileWindow {
     alliance_ignored: boolean;
 }
 
-export default <RedesignParser<ProfileWindow>>(({ doc, href = '' }) => {
+export default <RedesignParser<ProfileWindow>>(({ LSSM, doc, href = '' }) => {
     const id = parseInt(
         new URL(href, window.location.origin).pathname.match(
             /\d+(?=\/?$)/
@@ -40,7 +40,7 @@ export default <RedesignParser<ProfileWindow>>(({ doc, href = '' }) => {
     );
     const self = id === window.user_id;
     const pageHeader = doc.querySelector<HTMLDivElement>('.page-header');
-    const headTexts: string[] = (window[PREFIX] as Vue).$utils
+    const headTexts: string[] = LSSM.$utils
         .getTextNodes(
             pageHeader ?? doc,
             (n: Node) => (n.textContent?.trim() ?? '').length > 0
@@ -60,11 +60,7 @@ export default <RedesignParser<ProfileWindow>>(({ doc, href = '' }) => {
             'img[src="/images/user_green.png"]'
         ),
         self,
-        credits: parseInt(
-            headTexts[1]
-                .match(/-?\d{1,3}([.,]\d{3})*/)?.[0]
-                ?.replace(/[.,]/g, '') ?? '-1'
-        ),
+        credits: LSSM.$utils.getNumberFromText(headTexts[1]),
         alliance: alliance
             ? {
                   id: parseInt(alliance.href.match(/\d+(?=\/?$)/)?.[0] ?? '-1'),
