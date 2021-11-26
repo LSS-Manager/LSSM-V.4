@@ -6,7 +6,7 @@
             :key="group"
             :group="group.replace(' ', '_')"
             :position="group"
-            :class="group"
+            :class="group.replace('_', ' ')"
         >
             <template slot="body" slot-scope="props">
                 <div

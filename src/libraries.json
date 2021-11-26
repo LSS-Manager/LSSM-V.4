@@ -32,7 +32,7 @@
 	"@types/jquery": {
 		"icon": "https://avatars.githubusercontent.com/u/3637556",
 		"url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/jquery",
-		"version": "3.5.8"
+		"version": "3.5.9"
 	},
 	"@types/leaflet": {
 		"icon": "https://avatars.githubusercontent.com/u/3637556",
@@ -47,7 +47,7 @@
 	"@types/node": {
 		"icon": "https://avatars.githubusercontent.com/u/3637556",
 		"url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/node",
-		"version": "16.11.8"
+		"version": "16.11.10"
 	},
 	"@types/pdfmake": {
 		"icon": "https://avatars.githubusercontent.com/u/3637556",
@@ -55,6 +55,7 @@
 		"version": "0.1.19"
 	},
 	"@types/qrcode": {
+		"icon": "https://avatars.githubusercontent.com/u/3637556",
 		"url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/qrcode",
 		"version": "1.4.1"
 	},
@@ -137,9 +138,10 @@
 	"eslint": {
 		"icon": "https://eslint.org/assets/img/favicon.512x512.png",
 		"url": "https://eslint.org",
-		"version": "8.2.0"
+		"version": "8.3.0"
 	},
 	"eslint-formatter-table": {
+		"icon": "https://eslint.org/assets/img/favicon.512x512.png",
 		"version": "7.32.1"
 	},
 	"eslint-plugin-prettier": {
@@ -195,12 +197,12 @@
 	},
 	"qrcode": {
 		"url": "http://github.com/soldair/node-qrcode",
-		"version": "1.4.4"
+		"version": "1.5.0"
 	},
 	"sass": {
 		"icon": "https://sass-lang.com/assets/img/logos/logo-b6e1ef6e.svg",
 		"url": "https://github.com/sass/dart-sass",
-		"version": "1.43.4"
+		"version": "1.43.5"
 	},
 	"sass-loader": {
 		"icon": "https://webpack.js.org/assets/icon-square-big.svg",

@@ -1,0 +1,10 @@
+{
+	"caption": "Titre",
+	"public": "Public (sera visible par tous les joueurs du jeu)",
+	"save": "Sauvegarder",
+	"text": "Contenu",
+	"title": {
+		"edit": "Nouvelles de l'Alliance éditées",
+		"new": "Créer des nouvelles"
+	}
+}

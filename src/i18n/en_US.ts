@@ -115,7 +115,7 @@ export default {
             title: 'Dark tooltips on map',
         },
         v3MenuAsSubmenu: {
-            title: 'V3 Menü als Untermenü',
+            title: 'V3 Menu as sub-menu',
             description:
                 'Moves the menu of the LSSM V3 to the menu of the V4 to save some space in the navigation bar.',
         },

@@ -96,6 +96,35 @@ export default async (LSSM: Vue): Promise<void> => {
                 render: h => h(LSSMMenu),
             }).$mount(indicatorWrapper);
 
+            if (
+                new Date() >= new Date('2021-11-20T00:00') &&
+                new Date() < new Date('2021-11-29T00:00')
+            ) {
+                LSSM.$store
+                    .dispatch('settings/getSetting', {
+                        moduleId: 'global',
+                        settingId: 'anniversary1Clicked',
+                        defaultValue: false,
+                    })
+                    .then((clicked: boolean) => {
+                        if (!clicked) {
+                            import(
+                                /* webpackChunkName: "components/anniversary" */ './components/anniversary.vue'
+                            ).then(({ default: anniversary }) => {
+                                const anniversaryWrapper = document.createElement(
+                                    'div'
+                                );
+                                document.body.append(anniversaryWrapper);
+                                new LSSM.$vue({
+                                    store: LSSM.$store,
+                                    i18n: LSSM.$i18n,
+                                    render: h => h(anniversary),
+                                }).$mount(anniversaryWrapper);
+                            });
+                        }
+                    });
+            }
+
             LSSM.$store
                 .dispatch('settings/getSetting', {
                     moduleId: 'global',

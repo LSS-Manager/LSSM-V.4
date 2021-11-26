@@ -53,6 +53,10 @@
 			"description": "Ajoute un bouton qui permet de centrer la carte sur la mission actuelle.",
 			"title": "Centrer la carte"
 		},
+		"emvMaxStaff": {
+			"description": "La fonction 'véhicules manquants améliorés' s'attend à ce que tous les véhicules aient un personnel complet pour ses calculs.",
+			"title": "Personnel maximum"
+		},
 		"enhancedMissingVehicles": {
 			"description": "Change l'affichage des véhicules requis additionnels vers un tableau plus clair.",
 			"title": "Vue améliorée des véhicules requis"
@@ -88,9 +92,21 @@
 			"description": "Affiche à côté du nombre de victimes les besoins en véhicules d'assistance.",
 			"title": "Aperçu des victimes"
 		},
+		"playerCounter": {
+			"description": "Affiche en haut de la liste du personnel le nombre de joueurs qui ont envoyé un véhicule pour cette mission. Cliquez pour ouvrir un tableau avec les détails.",
+			"title": "Compteur des joueurs"
+		},
+		"playerCounterColor": {
+			"description": "Choisissez la couleur que vous voulez donner à l'étiquette du compteur des joueurs",
+			"title": "Compteur des joueurs: Couleur"
+		},
 		"redBorder": {
 			"description": "Encadre en rouge l'heure de génération si la mission expire au cours de la nuit prochaine.",
 			"title": "Bordure rouge"
+		},
+		"remainingPatientTime": {
+			"description": "Indique pour chaque patient le temps qu'il reste jusqu'à ce qu'il soit entièrement traité.",
+			"title": "Temps restant pour les patients"
 		},
 		"stagingAreaSelectedCounter": {
 			"description": "Affiche le nombre de véhicules sélectionnés à côté des boutons \"Déployer\" dans la vue d'un Centre de Regroupement des Moyens.",
@@ -106,6 +122,20 @@
 			"name": "Nom de l'onglet",
 			"title": "Onglets personnalisés",
 			"vehicles": "types de véhicules"
+		},
+		"vehicleCounter": {
+			"description": "Affiche en haut de la liste du personnel combien de véhicules sont affectés à cette mission. Cliquez pour ouvrir un tableau avec les détails.",
+			"title": "Compteur de véhicules"
+		},
+		"vehicleCounterColor": {
+			"danger": "Rouge",
+			"default": "Gris",
+			"description": "Choisissez la couleur de l'étiquette du compteur de véhicules.",
+			"info": "Bleu clair",
+			"primary": "Bleu foncé",
+			"success": "Vert",
+			"title": "Compteur de véhicules : couleur",
+			"warning": "Orange"
 		},
 		"vehicleTypeInList": {
 			"description": "Affiche le type de véhicule dans la liste des unités disponibles.",

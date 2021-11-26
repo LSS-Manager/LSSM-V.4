@@ -210,13 +210,14 @@
 		},
 		"starrableMissions": {
 			"description": "Marquez les missions pour qu'elles soient affichées dans la liste des missions en haut de la page. Vous pouvez les marquer dans la fenêtre de mission et dans la liste des missions.",
-			"title": "Missions de Mark"
+			"title": "Missions marquées"
 		}
 	},
 	"sort": {
 		"types": {
 			"alphabet": "Alphabet",
 			"credits": "Crédits",
+			"default": "aucun tri",
 			"id": "Age",
 			"remaining_patients": "Patients actuels"
 		}

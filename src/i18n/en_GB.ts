@@ -115,7 +115,7 @@ export default {
             title: 'Dark tooltips on map',
         },
         v3MenuAsSubmenu: {
-            title: 'V3 Menü als Untermenü',
+            title: 'V3 Menu as sub-menu',
             description:
                 'Moves the menu of the LSSM V3 to the menu of the V4 to save some space in the navigation bar.',
         },
@@ -1046,7 +1046,7 @@ export default {
             maxBuildings: 'No limit',
             maxLevel: 0,
             special:
-                'It can only Store: Fire Officer, Rapid Response Vehicle, Operational Team Leader, General Practitioner, Community First Responder, Ambulance Officer, Dog Support Unit (DSU)',
+                'It can only Store: Fire Officer, Rapid Response Vehicle, Operational Team Leader, General Practitioner, Community First Responder, Ambulance Officer and the Dog Support Unit (DSU)',
             startPersonnel: 1,
             startVehicles: [''],
             schoolingTypes: ['Rescue', 'Police'],
@@ -1058,7 +1058,7 @@ export default {
             credits: 'Too Expensive',
             extensions: [],
             levelcost: ['Too Expensive'],
-            maxBuildings: 'Keine Grenze',
+            maxBuildings: 'No Limit',
             maxLevel: 5,
             special: "TOO EXPENSIVE, DON'T BUY IT, DON'T EXPAND IT",
             startPersonnel: 'there is none',
@@ -1071,7 +1071,7 @@ export default {
             credits: 'Too Expensive',
             extensions: [],
             levelcost: ['Too Expensive'],
-            maxBuildings: 'Keine Grenze',
+            maxBuildings: 'No Limit',
             maxLevel: 5,
             special: "TOO EXPENSIVE, DON'T BUY IT, DON'T EXPAND IT",
             startPersonnel: 'there is none',

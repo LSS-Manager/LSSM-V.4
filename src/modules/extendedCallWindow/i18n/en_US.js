@@ -119,7 +119,7 @@ module.exports = {
             [/^Policehelicopter(s)?$/]: [14],
             [/^SWAT Personells$/]: [16, 26],
             [/^SWAT$/]: [16, 26],
-            [/^ARFF/]: [17],
+            [/^ARFF$/]: [17],
             [/^K-9 Unit(s)?$/]: [19],
             [/^Large fire boat(s)?$/]: [24],
             [/^Large rescue boat(s)?$/]: [25],

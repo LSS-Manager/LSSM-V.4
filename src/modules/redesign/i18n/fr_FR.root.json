@@ -1,0 +1,33 @@
+{
+	"copy_url": "Copier le lien dans le presse-papiers: {url}",
+	"description": "Une refonte générale - actuellement en phase alpha et toujours en cours de développement.",
+	"name": "Redesign",
+	"settings": {
+		"category": {
+			"alliance": {
+				"description": "Une refonte pour les pages de l'alliance.",
+				"title": "Alliance"
+			},
+			"credits": {
+				"description": "Une refonte de l'aperçu des crédits et des pièces.",
+				"title": "Crédits et pièces"
+			},
+			"einsaetze": {
+				"description": "Une refonte de la liste des missions possibles et de la page \"Exigences pour cette mission\".",
+				"title": "Missions possibles"
+			},
+			"profile": {
+				"description": "Une refonte des pages de profil.",
+				"title": "Profil"
+			},
+			"toplist": {
+				"description": "Une refonte du classement.",
+				"title": "Classement"
+			},
+			"vehicles": {
+				"description": "Une refonte des pages des véhicules et de toutes les pages correspondantes.",
+				"title": "Véhicules"
+			}
+		}
+	}
+}

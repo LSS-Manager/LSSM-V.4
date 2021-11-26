@@ -8,6 +8,10 @@
 		"top-right": "En haut à droite 🡥"
 	},
 	"settings": {
+		"aaoExportQr": {
+			"description": "Affiche un QR-Code du lien d'exportation lors de l'exportation d'un RAI",
+			"title": "RAI-Exporter en tant que QR-Code"
+		},
 		"browserTitle": {
 			"description": "Ajuste le titre de l'onglet du navigateur pour montrer ce qui est actuellement ouvert en jeu.",
 			"title": "Titre de l'onglet"

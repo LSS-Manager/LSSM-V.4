@@ -19,8 +19,17 @@
 		"each": "Chaque formation",
 		"max": "maximum requis actuellement",
 		"min": "minimum requis actuellement",
+		"noSchooling": "Pas de formation",
 		"schooling": "Formation",
 		"title": "Vue d'ensemble des employés"
+	},
+	"upgradeConfirmation": {
+		"modal": {
+			"btnCancel": "Annuler",
+			"btnConfirm": "Confirmer",
+			"text": "Vous voulez vraiment améliorer ce bâtiment ?",
+			"title": "Améliorer le bâtiment ?"
+		}
 	},
 	"vehiclePersonnel": {
 		"vehiclesPersonnelAssigned": "assigné",

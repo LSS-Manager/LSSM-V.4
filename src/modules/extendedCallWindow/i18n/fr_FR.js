@@ -126,4 +126,12 @@ module.exports = {
         show: 'Afficher la liste des véhicules',
         hide: 'Cacher la liste des véhicules',
     },
+    vehiclePlayerCounter: {
+        ' ': '',
+        'driving': 'En intervention',
+        'atScene': 'Sur les lieux',
+        'total': 'Total',
+        'vehicles': 'Véhicules',
+        'players': 'Joueurs',
+    },
 };
