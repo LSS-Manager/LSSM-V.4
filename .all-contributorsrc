@@ -251,6 +251,17 @@
         "translation",
         "it_IT"
       ]
+    },
+    {
+      "login": "deoxis9001",
+      "name": "deoxis9001",
+      "avatar_url": "https://avatars.githubusercontent.com/u/638243?v=4",
+      "profile": "https://github.com/deoxis9001",
+      "contributions": [
+        "doc",
+        "translation",
+        "fr_FR"
+      ]
     }
   ],
   "contributorsPerLine": 7,
