@@ -199,7 +199,7 @@ export default {
                 },
             },
             special:
-                'Nécessaire dès lors que vous avez construit 7 bases de pompiers',
+                'Nécessaire dès lors que vous avez construit 11 bases de pompiers',
         },
         8: {
             caption: 'Véhicule de patrouille',
@@ -234,6 +234,8 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 3,
             possibleBuildings: [0, 18],
+            special:
+                'Nécessaire dès lors que vous avez construit 5 bases de pompiers',
         },
         11: {
             caption: 'VPC',
@@ -272,7 +274,7 @@ export default {
             maxPersonnel: 3,
             possibleBuildings: [0, 18],
             special:
-                'Nécessaire dès lors que vous avez construit 13 bases de pompiers',
+                'Nécessaire dès lors que vous avez construit 4 bases de pompiers',
         },
         14: {
             caption: 'VGRIMP',
@@ -289,6 +291,8 @@ export default {
                     },
                 },
             },
+            special:
+                'Nécessaire dès lors que vous avez construit 12 bases de pompiers',
         },
         15: {
             caption: 'BEA',
