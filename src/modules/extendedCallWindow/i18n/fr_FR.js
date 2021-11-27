@@ -61,6 +61,7 @@ module.exports = {
             brush_truck_1: 'CCFS',
             brush_truck_2: 'CCFM',
             brush_truck_3: 'CCFL',
+			wasser_amount: 'litres d\'eau',
             mzb: 'BLS',
         },
     },
