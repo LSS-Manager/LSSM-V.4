@@ -100,6 +100,14 @@
                     </ul>
                 </a>
             </li>
+            <li v-if="showToplistPosition" role="presentation">
+                <a 
+                    :href="toplistSite" 
+                    class="lightbox-open"
+                >
+                    {{$m('toplistPositionName')}}: {{ toplistPosition.toLocaleString() }}:
+                </a>
+            </li>
             <template v-if="$store.state.api.credits.credits_alliance_active">
                 <li class="divider"></li>
                 <li>
@@ -159,6 +167,7 @@ export default Vue.extend<
         highlightedConsistend: boolean;
         ranks: Record<string, string>;
         creditsInNav: boolean;
+        showToplistPosition: boolean;
     },
     {
         $m(
@@ -205,6 +214,7 @@ export default Vue.extend<
                 }`
             ) as unknown) as Record<string, string>,
             creditsInNav: false,
+            showToplistPosition: false,
         };
     },
     props: {
@@ -241,6 +251,12 @@ export default Vue.extend<
         },
         nextRankMissing() {
             return this.nextRankCredits - this.totalCredits;
+        },
+        toplistPosition(){
+            return this.$store.state.api.credits.toplist_position;
+        },
+        toplistSite(){
+            return "/toplist?page=" + Math.ceil(this.toplistPosition/20);
         },
     },
     watch: {
@@ -291,6 +307,9 @@ export default Vue.extend<
 
         this.getSetting('creditsInNavbar').then(value =>
             this.$set(this, 'creditsInNav', value)
+        );
+        this.getSetting('showToplistPosition').then(value =>
+            this.$set(this, 'showToplistPosition', value)
         );
 
         this.getSetting<{ enabled: boolean; value: { credits: number }[] }>(
