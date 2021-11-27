@@ -101,3 +101,7 @@ Ta barre de navigation est un peu surchargée ?
 Ce paramètre déplace la recherche de lieu de la barre de navigation vers la carte. Tu peux choisir la position par réglage. En cliquant sur la loupe, tu ouvres et fermes la fenêtre de saisie.
 
 ![recherche de lieu sur la carte](mapsearch.png)
+
+## RAI-Exporter en tant que QR-Code
+
+Ce paramètre propose de généré un QR-Code quand vous exportez vos RAIs.
