@@ -26,7 +26,7 @@
 			"description": "Shows current credits in navbar instead of the cute piggy bank.",
 			"title": "Credits instead of piggy bank"
 		},
-		"toplistPositionInNavbar": {
+		"showToplistPosition": {
 			"description": "Shows the current toplist-rank in the creditsextension.",
 			"title": "Toplist-Rank in creditsextension"
 		}
