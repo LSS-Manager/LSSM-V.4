@@ -27,10 +27,10 @@
 			"title": "Des crédits au lieu de tirelire"
 		},
 		"showToplistPosition": {
-			"description": "Indique le classement actuel dans l'extension de crédit.",
-			"title": "Classement par rang dans l'extension du crédit"
+			"description": "Affiche dans l'extension de crédit la position actuelle",
+			"title": "Classement dans les crédits"
 		}
 	},
-	"toplistPositionName": "Classement par rangs",
+	"toplistPositionName": "Classement",
 	"totalEarnedCredits": "Total des crédits gagnés"
 }
