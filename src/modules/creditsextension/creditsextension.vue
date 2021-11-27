@@ -101,11 +101,9 @@
                 </a>
             </li>
             <li v-if="showToplistPosition" role="presentation">
-                <a 
-                    :href="toplistSite" 
-                    class="lightbox-open"
-                >
-                    {{$m('toplistPositionName')}}: {{ toplistPosition.toLocaleString() }}:
+                <a :href="toplistSite" class="lightbox-open">
+                    {{ $m('toplistPositionName') }}:
+                    {{ toplistPosition.toLocaleString() }}
                 </a>
             </li>
             <template v-if="$store.state.api.credits.credits_alliance_active">
@@ -188,6 +186,8 @@ export default Vue.extend<
         nextRankCredits: number;
         nextRank: string;
         nextRankMissing: number;
+        toplistPosition: number;
+        toplistSite: string;
     },
     { MODULE_ID: string }
 >({
@@ -252,11 +252,11 @@ export default Vue.extend<
         nextRankMissing() {
             return this.nextRankCredits - this.totalCredits;
         },
-        toplistPosition(){
-            return this.$store.state.api.credits.toplist_position;
+        toplistPosition() {
+            return this.$store.state.api.credits.user_toplist_position;
         },
-        toplistSite(){
-            return "/toplist?page=" + Math.ceil(this.toplistPosition/20);
+        toplistSite() {
+            return `/toplist?page=${Math.ceil(this.toplistPosition / 20)}`;
         },
     },
     watch: {

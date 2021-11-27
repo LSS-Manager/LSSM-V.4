@@ -12,7 +12,7 @@
 		}
 	},
 	"info": {
-		"close": "Diesen Hinweis nichtmehr anzeigen",
+		"close": "Diesen Hinweis nicht mehr anzeigen",
 		"decline": "Erheben von Metadaten nicht erlauben",
 		"text": "Der LSS-Manager erhebt Metadaten, wie im <a href='{wiki}metadata.html' class='lightbox-open'>Wiki</a> beschrieben!<br>Du kannst deine Zustimmung jederzeit wiederrufen.",
 		"title": "Information zur Erhebung von Metadaten"
