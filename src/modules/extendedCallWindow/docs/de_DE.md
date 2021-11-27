@@ -27,6 +27,7 @@ Dieses Modul ist perfekt für alle Spieler, die bei vielen Patienten gerne den �
 
 ## AAO-Zähler
 Du willst wissen, wie oft bereits auf eine AAO geklickt wurde? Dann aktiviere dieses Modul, es zählt nämlich, wie oft auf eine AAO geklickt wurde. Natürlich gibt es auch einen Knopf zum Zurücksetzen des Zählers.
+![AAO-Zähler](aao2.png)
 
 ### AAO-Zähler als Badge
 Dieses Modul ist eine kleine Spielerei zum Modul AAO-Zähler. Seine Funktion ist, dass die Anzahl, wie oft auf eine AAO geklickt wurde, neben der AAO als kleiner roter Kreis angezeigt wird. Hierfür muss "AAO-Zähler" aktiviert sein.
