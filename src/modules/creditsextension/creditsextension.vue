@@ -167,6 +167,7 @@ export default Vue.extend<
         highlightedConsistend: boolean;
         ranks: Record<string, string>;
         creditsInNav: boolean;
+        toplistRankInNavbar: boolean;
     },
     {
         $m(
@@ -251,7 +252,7 @@ export default Vue.extend<
         nextRankMissing() {
             return this.nextRankCredits - this.totalCredits;
         },
-        toplistPosition(){
+        toplistPositionInNavbar(){
             return this.$store.state.api.credits.toplist_position;
         },
         toplistSite(){
@@ -306,6 +307,9 @@ export default Vue.extend<
 
         this.getSetting('creditsInNavbar').then(value =>
             this.$set(this, 'creditsInNav', value)
+        );
+        this.getSetting('toplistRankInNavbar').then(value =>
+            this.$set(this, 'toplistRankInNavbar', value)
         );
 
         this.getSetting<{ enabled: boolean; value: { credits: number }[] }>(
