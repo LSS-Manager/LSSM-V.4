@@ -15,3 +15,6 @@ Jedes Mal, wenn du eines der eingestellten Credits-Ziele erreicht hast, wird das
 |                    Sparschwein                    |                     Credits                     |
 | :-----------------------------------------------: | :---------------------------------------------: |
 | ![Credits-Ziel Sparschwein](alert-piggy-mode.png) | ![Credits-Ziel Credits](alert-credits-mode.png) |
+
+## Toplisten-Position
+Zeigt in der Creditserweiterung die aktuelle Position auf der Topliste. Dieses Modul ist rein optional.
