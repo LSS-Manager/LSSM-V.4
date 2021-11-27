@@ -26,7 +26,7 @@
 			"description": "Zeigt den aktuellen Creditswert statt des Sparschweins in der Navigationsleiste.",
 			"title": "Credits statt Sparschwein"
 		},
-		"toplistPositionInNavbar": {
+		"showToplistPosition": {
 			"description": "Zeigt den aktuellen Toplisten-Platz in der Creditserweiterung.",
 			"title": "Toplisten-Position in Creditserweiterung"
 		}
