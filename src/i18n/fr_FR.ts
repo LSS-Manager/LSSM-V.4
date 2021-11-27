@@ -264,8 +264,7 @@ export default {
             maxPersonnel: 6,
             wtank: 3000,
             possibleBuildings: [0, 18],
-            special:
-                'Vous devez posséder au moins le grade : Sergent-chef.',
+            special: 'Vous devez posséder au moins le grade : Sergent-chef.',
         },
         13: {
             caption: 'VTU',
@@ -531,8 +530,7 @@ export default {
             maxPersonnel: 4,
             wtank: 1400,
             possibleBuildings: [0, 18],
-            special:
-                'Vous devez posséder au moins le grade : Adjudant.',
+            special: 'Vous devez posséder au moins le grade : Adjudant.',
         },
         33: {
             caption: 'CCRM',
@@ -543,8 +541,7 @@ export default {
             maxPersonnel: 6,
             wtank: 2500,
             possibleBuildings: [0, 18],
-            special:
-                'Vous devez posséder au moins le grade : Adjudant.',
+            special: 'Vous devez posséder au moins le grade : Adjudant.',
         },
         34: {
             caption: 'CCRSR',
@@ -555,8 +552,7 @@ export default {
             maxPersonnel: 6,
             wtank: 2000,
             possibleBuildings: [0, 18],
-            special:
-                'Vous devez posséder au moins le grade : Adjudant.',
+            special: 'Vous devez posséder au moins le grade : Adjudant.',
         },
         35: {
             caption: 'FMOGP',
