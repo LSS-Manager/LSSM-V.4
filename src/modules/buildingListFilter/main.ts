@@ -288,6 +288,7 @@ export default <ModuleMainFunction>(async (LSSM, MODULE_ID) => {
         wrapper.style.setProperty('width', '100%');
         wrapper.prepend(searchBtn, sortBtn);
         wrapper.append(search);
+        window.buildingsVehicleLoadVisible();
     };
 
     const observer = new MutationObserver(updateFilters);
