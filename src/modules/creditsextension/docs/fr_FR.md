@@ -15,3 +15,6 @@ Chaque fois que tu as atteint l'un des objectifs de crédits définis, la tireli
 |                    Tirelire                        |                     Crédits                     |
 | :------------------------------------------------: | :---------------------------------------------: |
 | ![Objectif crédits tirelire](alert-piggy-mode.png) |   ![Objectif crédits](alert-credits-mode.png)   |
+
+## Classement dans les crédits
+Affiche dans l'extension de crédit la position actuelle . Ce module est purement optionnel.

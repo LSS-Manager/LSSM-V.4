@@ -25,7 +25,12 @@
 		"creditsInNavbar": {
 			"description": "Affiche les crédits actuels dans la barre de navigation au lieu de la jolie tirelire.",
 			"title": "Des crédits au lieu de tirelire"
+		},
+		"showToplistPosition": {
+			"description": "Affiche dans l'extension de crédit la position actuelle",
+			"title": "Classement dans les crédits"
 		}
 	},
+	"toplistPositionName": "Classement",
 	"totalEarnedCredits": "Total des crédits gagnés"
 }
