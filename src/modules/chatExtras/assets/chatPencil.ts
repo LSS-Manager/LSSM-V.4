@@ -1,4 +1,4 @@
-export default (LSSM: Vue, format: string): void => {
+export default (LSSM: Vue): void => {
 
     document
         .querySelectorAll<HTMLSpanElement>('.mission_chat_message_username')
