@@ -1,15 +1,9 @@
-import { Vehicle } from 'typings/Vehicle';
-
 export default async (LSSM: Vue, MODULE_ID: string): Promise<void> => {
     await LSSM.$store.dispatch('api/registerVehiclesUsage', {
         feature: `${MODULE_ID}-vehicleMissionParticipitationState`,
     });
 
-    const { vehicles }: { vehicles: Vehicle[] } = LSSM.$store.state.api;
-    const missions: number[] = [];
-    vehicles.forEach(({ target_type, target_id }) => {
-        if (target_type === 'mission' && target_id) missions.push(target_id);
-    });
+    const missions: number[] = LSSM.$store.getters['api/participatedMissions'];
     document
         .querySelectorAll<HTMLTableRowElement>(
             '#mission_own table tbody tr, #mission_alliance table tbody tr'

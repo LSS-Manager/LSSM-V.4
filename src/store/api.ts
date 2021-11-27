@@ -429,6 +429,25 @@ export default {
             });
             return result;
         },
+        participatedMissions(state) {
+            const missions: number[] = [];
+            state.vehicles.forEach(
+                ({ target_type, target_id, queued_mission_id }) => {
+                    if (
+                        target_type === 'mission' &&
+                        target_id &&
+                        !missions.includes(target_id)
+                    )
+                        missions.push(target_id);
+                    if (
+                        queued_mission_id &&
+                        !missions.includes(queued_mission_id)
+                    )
+                        missions.push(queued_mission_id);
+                }
+            );
+            return missions;
+        },
         missionsById(state) {
             return Object.fromEntries(state.missions.map(m => [m.id, m]));
         },
