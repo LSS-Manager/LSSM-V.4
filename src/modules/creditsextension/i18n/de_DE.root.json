@@ -25,7 +25,12 @@
 		"creditsInNavbar": {
 			"description": "Zeigt den aktuellen Creditswert statt des Sparschweins in der Navigationsleiste.",
 			"title": "Credits statt Sparschwein"
+		},
+		"toplistPositionInNavbar": {
+			"description": "Zeigt den aktuellen Toplisten-Platz in der Navigationsleiste.",
+			"title": "Toplisten-Position in Navigationsleiste"
 		}
 	},
-	"totalEarnedCredits": "Gesamt verdiente Credits"
+	"totalEarnedCredits": "Gesamt verdiente Credits",
+	"toplistPositionName":"Toplisten-Position"
 }
