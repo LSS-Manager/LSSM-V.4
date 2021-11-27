@@ -27,8 +27,8 @@
 			"title": "Credits instead of piggy bank"
 		},
 		"toplistPositionInNavbar": {
-			"description": "Shows the current toplist-rank in the navbar.",
-			"title": "Toplist-Rank in navbar"
+			"description": "Shows the current toplist-rank in the creditsextension.",
+			"title": "Toplist-Rank in creditsextension"
 		}
 	},
 	"totalEarnedCredits": "Total earned credits",
