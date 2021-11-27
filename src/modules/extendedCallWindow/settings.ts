@@ -226,7 +226,7 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
                 <AppendableListSetting<Color>>{
                     name: 'color',
                     title: $m('settings.missionKeywords.color'),
-                    size: 1,
+                    size: 2,
                     setting: {
                         type: 'color',
                     },

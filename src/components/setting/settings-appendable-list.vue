@@ -3,7 +3,7 @@
         <div class="row" style="margin-left: 0; margin-right: 0;">
             <div class="col col-xs-11 row">
                 <div
-                    class="col"
+                    class="col appendable-list-row"
                     v-for="(item, index) in setting.listItem"
                     :key="index"
                     :class="`col-xs-${layout[index]}`"
@@ -25,7 +25,7 @@
         >
             <div class="col col-xs-11 row">
                 <div
-                    class="col"
+                    class="col appendable-list-row"
                     v-for="(item, list_index) in setting.listItem"
                     :key="list_index"
                     :class="`col-xs-${layout[list_index]}`"
@@ -401,4 +401,7 @@ export default Vue.extend<
     pointer-events: none
     cursor: not-allowed
     opacity: 0.5
+
+.appendable-list-row
+    word-break: break-word
 </style>
