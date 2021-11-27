@@ -100,7 +100,7 @@
                     </ul>
                 </a>
             </li>
-            <li v-if="toplistPositionInNavbar" role="presentation">
+            <li v-if="showToplistPosition" role="presentation">
                 <a 
                     :href="{{toplistSite}}" 
                     class="lightbox-open"
@@ -252,7 +252,7 @@ export default Vue.extend<
         nextRankMissing() {
             return this.nextRankCredits - this.totalCredits;
         },
-        toplistPositionInNavbar(){
+        toplistPosition(){
             return this.$store.state.api.credits.toplist_position;
         },
         toplistSite(){
