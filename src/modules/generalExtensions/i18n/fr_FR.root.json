@@ -25,8 +25,8 @@
 			"title": "Émojis"
 		},
 		"extensionCloseCall": {
-			"description": "Closes propagation speech requests even if the button \"to mission\" is pressed.",
-			"title": "Spreading improved FMS 5"
+			"description": "Ferme les demandes de communication même si le bouton \"Allez en mission\" est activé.",
+			"title": "Diffusion d'un FMS amélioré 5"
 		},
 		"linkPreviews": {
 			"buildings": "Bâtiments",
@@ -46,7 +46,7 @@
 		},
 		"mapUndo": {
 			"description": "Centre la carte sur la position du dernier centrage. Ne marche qu'avec \"OpenStreetMap\" pour le moment.",
-			"title": "Sauvegarde centrage de carte"
+			"title": "Enregistrer le centrage de la carte"
 		},
 		"ownMapMarkers": {
 			"description": "Enregistrez vos propres lieux sur la carte pour y accéder en un seul clic !",
@@ -62,7 +62,7 @@
 		},
 		"showImg": {
 			"description": "Essaie de générer une miniature. Ne fonctionne que si \"Liens cliquables\" est activé aussi.",
-			"title": "Miniature de prévisualisation"
+			"title": "Aperçu des images"
 		}
 	}
 }
