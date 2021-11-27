@@ -86,7 +86,7 @@ Ainsi, dans le menu "Construire un bâtiment", le type de bâtiment que tu as ut
 
 ## Mémoriser le centre de contrôle
 
-Fonctionne de la même manière que ![Mémoriser le type de bâtiment](#mémoriser-le-type-de-bâtiment), mais pour la sélection du centre de contrôle.
+Fonctionne de la même manière que [Mémoriser le type de bâtiment](#mémoriser-le-type-de-bâtiment), mais pour la sélection du centre de contrôle.
 
 ## FMS amélioré 5
 
