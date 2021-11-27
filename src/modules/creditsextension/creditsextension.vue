@@ -102,10 +102,10 @@
             </li>
             <li v-if="toplistPositionInNavbar" role="presentation">
                 <a 
-                    href="{{toplistSite}}" 
+                    :href="{{toplistSite}}" 
                     class="lightbox-open"
                 >
-                    Position: {{ toplistPosition.toLocaleString() }}:
+                    {{$m('toplistPositionName')}}: {{ toplistPosition.toLocaleString() }}:
                 </a>
             </li>
             <template v-if="$store.state.api.credits.credits_alliance_active">
@@ -255,7 +255,7 @@ export default Vue.extend<
             return this.$store.state.api.credits.toplist_position;
         },
         toplistSite(){
-            return Math.ceil(this.toplistPosition/20);
+            return "/toplist?page=" + Math.ceil(this.toplistPosition/20);
         },
     },
     watch: {
