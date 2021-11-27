@@ -70,7 +70,7 @@
 			"title": "Hides the vehicle list"
 		},
 		"hoverTip": {
-			"description": "Tooltips for as example the overlay button.",
+			"description": "Tooltips for the buttons of \"Enhanced missing vehicles\".",
 			"title": "Tooltips"
 		},
 		"loadMoreVehiclesInHeader": {

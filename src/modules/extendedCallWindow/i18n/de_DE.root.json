@@ -70,7 +70,7 @@
 			"title": "Fahrzeugliste Verstecken"
 		},
 		"hoverTip": {
-			"description": "Tooltips für die Buttons wie der Overlay-Button",
+			"description": "Tooltips für die Knöpfe von \"Benötigte Fahrzeuge verschönern\".",
 			"title": "Tooltips"
 		},
 		"loadMoreVehiclesInHeader": {
