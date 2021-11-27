@@ -1,7 +1,9 @@
+import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { NotificationsState } from './store/notifications/State';
 
 export interface LSSMV4Data {
     id: string;
+    faTimes: IconDefinition;
 }
 
 export interface LSSMV4Computed {

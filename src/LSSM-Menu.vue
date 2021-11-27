@@ -230,6 +230,16 @@ export default Vue.extend<
         showAppstore() {
             // eslint-disable-next-line @typescript-eslint/no-this-alias
             const LSSM = this;
+            const closeWarningText = this.$t(
+                'modules.appstore.closeWarning.text'
+            ).toString();
+            const unloadListener = (event: BeforeUnloadEvent) => {
+                if (!this.$store.state.appstore.changes) return;
+                event.preventDefault();
+                event.returnValue = closeWarningText;
+                return closeWarningText;
+            };
+            window.addEventListener('beforeunload', unloadListener);
             this.$modal.show(
                 () =>
                     import(
@@ -255,7 +265,7 @@ export default Vue.extend<
                             title: LSSM.$t(
                                 'modules.appstore.closeWarning.title'
                             ),
-                            text: LSSM.$t('modules.appstore.closeWarning.text'),
+                            text: closeWarningText,
                             buttons: [
                                 {
                                     title: LSSM.$t(
@@ -265,6 +275,10 @@ export default Vue.extend<
                                         (window[
                                             PREFIX
                                         ] as Vue).$appstore.save();
+                                        window.removeEventListener(
+                                            'beforeunload',
+                                            unloadListener
+                                        );
                                         LSSM.$modal.hide('appstore');
                                     },
                                 },
@@ -276,6 +290,10 @@ export default Vue.extend<
                                         (window[
                                             PREFIX
                                         ] as Vue).$appstore.reset();
+                                        window.removeEventListener(
+                                            'beforeunload',
+                                            unloadListener
+                                        );
                                         LSSM.$modal.hide('appstore');
                                         LSSM.$modal.hide('dialog');
                                     },
@@ -298,6 +316,16 @@ export default Vue.extend<
         showSettings() {
             // eslint-disable-next-line @typescript-eslint/no-this-alias
             const LSSM = this;
+            const closeWarningText = this.$t(
+                'modules.settings.closeWarning.text'
+            ).toString();
+            const unloadListener = (event: BeforeUnloadEvent) => {
+                if (!this.$store.state.settings.changes) return;
+                event.preventDefault();
+                event.returnValue = closeWarningText;
+                return closeWarningText;
+            };
+            window.addEventListener('beforeunload', unloadListener);
             LSSM.$modal.show(
                 () =>
                     import(
@@ -323,7 +351,7 @@ export default Vue.extend<
                             title: LSSM.$t(
                                 'modules.settings.closeWarning.title'
                             ),
-                            text: LSSM.$t('modules.settings.closeWarning.text'),
+                            text: closeWarningText,
                             buttons: [
                                 {
                                     title: LSSM.$t(
@@ -332,9 +360,13 @@ export default Vue.extend<
                                     handler() {
                                         (window[PREFIX] as Vue).$settings
                                             .save()
-                                            .then(() =>
-                                                LSSM.$modal.hide('settings')
-                                            );
+                                            .then(() => {
+                                                window.removeEventListener(
+                                                    'beforeunload',
+                                                    unloadListener
+                                                );
+                                                LSSM.$modal.hide('settings');
+                                            });
                                     },
                                 },
                                 {
@@ -345,6 +377,10 @@ export default Vue.extend<
                                         (window[
                                             PREFIX
                                         ] as Vue).$settings.discard();
+                                        window.removeEventListener(
+                                            'beforeunload',
+                                            unloadListener
+                                        );
                                         LSSM.$modal.hide('dialog');
                                         LSSM.$modal.hide('settings');
                                     },
