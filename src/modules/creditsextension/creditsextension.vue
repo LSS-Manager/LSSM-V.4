@@ -102,7 +102,7 @@
             </li>
             <li v-if="showToplistPosition" role="presentation">
                 <a 
-                    :href="{{toplistSite}}" 
+                    :href="toplistSite" 
                     class="lightbox-open"
                 >
                     {{$m('toplistPositionName')}}: {{ toplistPosition.toLocaleString() }}:
