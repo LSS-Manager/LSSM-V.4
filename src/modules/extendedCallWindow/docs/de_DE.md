@@ -84,7 +84,7 @@ Mit diesem Modul wird euch die Kopfleiste immer angezeigt, auch wenn ihr im Eins
 ## Fahrzeuge nachladen in Kopfleiste
 Diese Einstellung erlaubt es euch, Fahrzeuge direkt in der Kpfleiste nachzuladen.
 
-![](alarmfenster2.png)
+![Fahrzeuge nachladen in Kopfleiste](alarmfenster2.png)
 
 ## Fahrzeugliste verstecken
 Dieses Modul erlaubt es dir, die komplette Fahrzeugliste zu verstecken und nur die AAO anzuzeigen.
