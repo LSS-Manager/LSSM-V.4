@@ -11,7 +11,7 @@ export default <ModuleSettingFunction>(() => ({
         type: 'toggle',
         default: false,
     },
-        showToplistPosition: <Toggle>{
+    showToplistPosition: <Toggle>{
         type: 'toggle',
         default: false,
     },
