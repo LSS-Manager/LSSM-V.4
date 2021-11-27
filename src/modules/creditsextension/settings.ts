@@ -11,6 +11,10 @@ export default <ModuleSettingFunction>(() => ({
         type: 'toggle',
         default: false,
     },
+        toplistPositionInNavbar: <Toggle>{
+        type: 'toggle',
+        default: false,
+    },
     alerts: <Omit<AppendableList, 'value' | 'isDisabled'>>{
         type: 'appendable-list',
         default: [],
@@ -28,9 +32,5 @@ export default <ModuleSettingFunction>(() => ({
         defaultItem: { credits: 0 },
         orderable: false,
         disableable: false,
-    },
-    toplistPositionInNavbar: <Toggle>{
-        type: 'toggle',
-        default: false,
     },
 }));
