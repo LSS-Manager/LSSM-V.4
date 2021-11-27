@@ -15,11 +15,11 @@ Es bleiben öfter mal Einsätze offen, die zu verfallen drohen. Am Abend davor d
 Wer kennt es nicht, grade wenn viele Fahrzeuge gefordert sind, ist die Nachforderung ziemlich unübersichtlicht und wenn man einmal etwas übersieht, dauert es noch länger, bis der Einsatz abgearbeitet wird. Dieses Feature hilft dir dabei, bei jedem Einsatz den Überblick zu bewahren, indem es die noch benötigeten fahrzeuge übersichtlich als Tabelle darstellt.
 ![Tabelle mit zusaätzlich benötigten Fahrzeugen](fahrzeugeVerschoenern.png)
 
-### Tooltips
-Mit dieser Einstellung werden zu den Buttons von "Benötigste Fahrzeuge verschönern" kleine Hinweisfelder ergänzt, die erscheinen, sobal man die Maus kurz auf dem jeweiligen Button ruhen lässt.
-
 ### Maximalbesetzung
 Manchmal wird am Einsatzort ja auch eine bestimmte Personalmenge gebraucht. Dieses Feature ergänzt die Personalrechnung, indem es davon ausgeht, dass jedes fahrzeug mit der Maximalen Personalmenge ausrückt.
+
+### Tooltips
+Mit dieser Einstellung werden zu den Buttons von "Benötigste Fahrzeuge verschönern" kleine Hinweisfelder ergänzt, die erscheinen, sobal man die Maus kurz auf dem jeweiligen Button ruhen lässt.
 
 ## Patientenzusammenfassung
 Dieses Modul ist perfekt für alle Spieler, die bei vielen Patienten gerne den Überblick behalten. Es zeigt, wie viele Rettungsfahrzeuge welcher Art noch am Einsatzort benötigt werden.
