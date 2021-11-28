@@ -11,8 +11,4 @@ export default (() => ({
         default: 'DD.MM LTS',
         dependsOn: '.chatTime',
     },
-    chatPencil: <Toggle>{
-        type: 'toggle',
-        default: false,
-    },
 })) as ModuleSettingFunction;
