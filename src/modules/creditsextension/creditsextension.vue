@@ -253,7 +253,7 @@ export default Vue.extend<
             return this.nextRankCredits - this.totalCredits;
         },
         toplistPosition() {
-            return this.$store.state.api.credits.user_toplist_position;
+            return this.$store.state.api.credits.user_toplist_position ?? 0;
         },
         toplistSite() {
             return `/toplist?page=${Math.ceil(this.toplistPosition / 20)}`;
