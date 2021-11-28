@@ -343,4 +343,17 @@ export default (
             },
         })
         .then();
+
+    LSSM.$store
+        .dispatch('hook', {
+            event: 'missionSelectionActive',
+            callback(toggleBtn: JQuery<HTMLAnchorElement>) {
+                document
+                    .querySelector<HTMLDivElement>(
+                        `#${toggleBtn.attr('classShow')}`
+                    )
+                    ?.style.setProperty('display', 'flex');
+            },
+        })
+        .then();
 };
