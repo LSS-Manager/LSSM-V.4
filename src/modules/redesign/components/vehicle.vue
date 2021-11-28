@@ -1128,7 +1128,6 @@ import { faUsers } from '@fortawesome/free-solid-svg-icons/faUsers';
 
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { RedesignComponent } from 'typings/modules/Redesign';
-import { Vehicle } from 'typings/Vehicle';
 import { VehicleWindow } from '../parsers/vehicle';
 
 type Component = RedesignComponent<
