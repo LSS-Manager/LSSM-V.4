@@ -10,6 +10,8 @@ Unter anderem wurde die Fahrzeugseite redesignt:
 
 ![Redesignte Fahrzeugseite](fahrzeug.png)
 
+![Redesignter Sprechwunsch](sprechwunsch.png)
+
 ### Gebäude
 
 Bei den Gebäuden wurde nur die Lightbox angepasst:
@@ -18,7 +20,12 @@ Bei den Gebäuden wurde nur die Lightbox angepasst:
 
 ### Verbandsseiten
 
-Im verband gibt es ja viele Seiten, auch
+Im Verband gibt es ja viele Seiten, auch diese wurden redesignt.
+
+![Redesignte Verbandsstartseite](verbandsstartseite.png)
+
+![Redesignte Mitgliederliste](verbandsmitglieder.png)
+
 ### Einsätze
 
 Einsätze wurden ebenfalls redesignt:
