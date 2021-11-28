@@ -165,7 +165,12 @@ export default (async (LSSM, MODULE_ID, $m) => {
             await import(
                 /* webpackChunkName: "modules/extendedCallList/currentPatients" */ './assets/currentPatients'
             )
-        ).default(LSSM, MODULE_ID, await getSetting('hide0CurrentPatients'));
+        ).default(
+            LSSM,
+            MODULE_ID,
+            await getSetting('hide0CurrentPatients'),
+            await getSetting('currentPatientsInTooltips')
+        );
     }
 
     if (await getSetting('remainingTime')) {

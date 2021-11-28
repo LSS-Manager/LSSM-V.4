@@ -13,6 +13,7 @@ import {
 import {
     BuildingMarker,
     BuildingMarkerAdd,
+    MissionMarker,
     PatientTimer,
     POIMarker,
 } from './Ingame';
@@ -44,6 +45,7 @@ declare global {
         alliance_coadmin: boolean;
         alliance_owner: boolean;
         building_markers: BuildingMarker[];
+        mission_markers: MissionMarker[];
         map_pois_service: {
             getMissionPoiMarkersArray(): POIMarker[];
             leafletMissionPositionMarkerAdd(poi: POI): void;
