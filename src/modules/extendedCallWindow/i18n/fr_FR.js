@@ -54,7 +54,7 @@ module.exports = {
             gwhoehenrettung: 'VGRIMP',
             hlf_only: 'Véhicule de secours',
             hose: 'Camion dévidoir',
-            hose_truck: 'Camion dévidoir',
+            hose_trucks: 'Camion dévidoir',
             k9: 'Brigade canine',
             ktw: 'Ambulance Type A',
             mzb: 'BLS',
