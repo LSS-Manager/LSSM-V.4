@@ -47,3 +47,5 @@ Im redesignten Spielerprofil kann man sich unter anderem die Gebäude der Verbnd
 ![Redesigntes Spielerprofil](profile3.png)
 
 ![Eigene Auzeichnungen](auszeichnungen.png)
+
+Dies Anzahl der maximal möglichen Auszeichnungen im Diagramm entspricht der die ein neuer User aktuell kriegen kann.
