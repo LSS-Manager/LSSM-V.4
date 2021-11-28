@@ -41,7 +41,7 @@ module.exports = {
             elw2: 'Véhicule poste de commandement',
             elw3: 'VLHR',
             fire: 'Fourgons d’incendie',
-			fly_car_any: 'VL SSSM / VLM',
+            fly_car_any: 'VL SSSM / VLM',
             foam: 'FMOGP',
             fustw: 'Voiture de patrouille',
             fustw_or_police_motorcycle:
