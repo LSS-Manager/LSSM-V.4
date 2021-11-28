@@ -32,8 +32,8 @@ export default {
             textColor: 'black',
         },
         buildings: {
-            regex: /(Building costruita|Refund Building$|Building demolished without refund)/,
-            title: 'Building constructed/demolished',
+            regex: /(Edificio costruito|Refund Building$|Building demolished without refund)/,
+            title: 'Edificio costruito/demolito',
             backgroundColor: '#ed872d',
             textColor: 'black',
         },
@@ -45,7 +45,7 @@ export default {
         },
         task: {
             regex: /Attività ".*?"/,
-            title: 'Completed Task',
+            title: 'Attività completata',
             backgroundColor: '#bb3385',
             textColor: 'white',
         },
