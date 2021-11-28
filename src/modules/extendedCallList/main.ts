@@ -1,7 +1,7 @@
 import { AddCollapsableButton } from './assets/collapsableMissions/missionlist';
 import { AddStarrableButton } from './assets/starrableMissions/missionlist';
 import { ModuleMainFunction } from 'typings/Module';
-import { Sort } from './assets/sort';
+import { Sort } from './assets/sort/callList';
 import { AddShareBtn, UpdateShareBtn } from './assets/shareMissions';
 
 interface AppendableListSetting<valueType> {
@@ -16,6 +16,8 @@ export default (async (LSSM, MODULE_ID, $m) => {
             settingId,
         });
     };
+
+    const sortMissions = await getSetting('sortMissions');
 
     if (window.location.pathname.match(/^\/vehicles\/\d+\/?/)) {
         return await (
@@ -143,10 +145,10 @@ export default (async (LSSM, MODULE_ID, $m) => {
         );
     }
 
-    if (await getSetting('sortMissions')) {
+    if (sortMissions) {
         (
             await import(
-                /* webpackChunkName: "modules/extendedCallList/sort" */ './assets/sort'
+                /* webpackChunkName: "modules/extendedCallList/sort/callList" */ './assets/sort/callList'
             )
         ).default(
             LSSM,

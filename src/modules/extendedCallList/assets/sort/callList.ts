@@ -33,6 +33,9 @@ export default (
     ];
     let sortingType = sort;
     const sortingDirection = direction;
+    let updateOrderListTimeout = 0;
+
+    const missionOrderValuesById: Record<string, Record<string, number>> = {};
 
     const missionsById: Record<string, Mission> =
         LSSM.$store.getters['api/missionsById'];
@@ -179,6 +182,8 @@ export default (
             settingId: 'sortMissionsDirection',
             value: sortDirection,
         });
+        if (updateOrderListTimeout) window.clearTimeout(updateOrderListTimeout);
+        updateOrderListTimeout = window.setTimeout(updateOrderList, 100);
         resetOrder();
     });
 
@@ -269,11 +274,49 @@ export default (
         },
     };
 
-    const setMissionOrder = (mission: HTMLDivElement) =>
-        mission.style.setProperty(
-            'order',
-            orderFunctions[sortingType]?.(mission) ?? orderFunctions.id(mission)
+    const updateOrderList = () =>
+        localStorage.setItem(
+            `${PREFIX}_${MODULE_ID}_sort_order`,
+            JSON.stringify(
+                Object.fromEntries(
+                    Object.entries(missionOrderValuesById).map(
+                        ([list, missions]) => [
+                            list,
+                            Object.entries(missions)
+                                .sort(([, valueA], [, valueB]) =>
+                                    panelBody.classList.contains(reverseClass)
+                                        ? valueB - valueA
+                                        : valueA - valueB
+                                )
+                                .map(([mission]) => mission),
+                        ]
+                    )
+                )
+            )
         );
+
+    const setMissionOrder = (mission: HTMLDivElement) => {
+        const missionId = mission.getAttribute('mission_id') ?? '0';
+        const orderValue =
+            orderFunctions[sortingType]?.(mission) ??
+            orderFunctions.id(mission);
+        mission.style.setProperty('order', orderValue);
+        const list =
+            mission.parentElement?.id?.replace(/^mission_list_?/, '') ?? '';
+        if (!missionOrderValuesById.hasOwnProperty(list))
+            missionOrderValuesById[list] = {};
+        if (mission.classList.contains('mission_deleted')) {
+            delete missionOrderValuesById[list][missionId];
+        } else if (
+            !missionOrderValuesById[list].hasOwnProperty(missionId) ||
+            missionOrderValuesById[list][missionId] !== parseInt(orderValue)
+        ) {
+            missionOrderValuesById[list][missionId] = parseInt(orderValue);
+            if (updateOrderListTimeout)
+                window.clearTimeout(updateOrderListTimeout);
+            updateOrderListTimeout = window.setTimeout(updateOrderList, 100);
+        }
+    };
 
     const resetOrder = () => {
         document
