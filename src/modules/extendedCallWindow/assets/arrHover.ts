@@ -309,6 +309,7 @@ export default (
         arr.append(infoBox);
         window.aao_available(arrId, time);
         infoBox.classList.remove('hidden');
+        infoBox.parentElement?.style.setProperty('z-index', '1');
     };
 
     ARRContainer.addEventListener('mouseover', e => {
@@ -329,6 +330,7 @@ export default (
             const hideInterval = window.setInterval(() => {
                 if (!infoBoxHovered) {
                     infoBox.classList.add('hidden');
+                    infoBox.parentElement?.style.removeProperty('z-index');
                     clearInterval(hideInterval);
                 }
             }, 100);
