@@ -157,6 +157,10 @@
 			"description": "Zeigt die aktuelle Zahl der Patienten bei jedem Einsatz an.",
 			"title": "Patientenzahl"
 		},
+		"currentPatientsInTooltips": {
+			"description": "Zeigt die aktuelle Zahl der Patienten auch in den Tooltips auf der Karte an.",
+			"title": "Patientenzahl in Tooltips"
+		},
 		"eventMissions": {
 			"description": "Markiert Saisonale Einsätze. Optional kannst du das ganze individuell anpassen und auch nicht-saisonale Einsätze markieren.",
 			"missions": "Einsätze",

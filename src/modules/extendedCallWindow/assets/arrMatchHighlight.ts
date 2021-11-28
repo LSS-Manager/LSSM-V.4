@@ -9,6 +9,7 @@ export default (LSSM: Vue): void => {
             selectorText: `.${greyClass}`,
             style: {
                 filter: 'grayscale(0.75) !important',
+                position: 'relative',
             },
         })
         .then(() => {

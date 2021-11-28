@@ -136,6 +136,10 @@
 			"description": "Shows current amount of patients for each mission",
 			"title": "Current Patients"
 		},
+		"currentPatientsInTooltips": {
+			"description": "Shows current amount of patients also in the tooltips on the map.",
+			"title": "Current Patients in Tooltips"
+		},
 		"eventMissions": {
 			"description": "Marks seasonal missions. Optionally, you can customise the whole thing and also mark non-seasonal missions.",
 			"missions": "Missions",

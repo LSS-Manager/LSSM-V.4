@@ -78,6 +78,7 @@
 			"title": "Bouton \"Véhicules limités\" dans l'en-tête"
 		},
 		"missionKeywords": {
+			"allMissions": "Toutes les missions",
 			"autotextcolor": "Couleur automatique du texte",
 			"color": "Couleur de fond",
 			"description": "Affiche votre mot-clef à côté du nom de la mission.",

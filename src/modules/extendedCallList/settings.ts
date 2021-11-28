@@ -141,6 +141,11 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
             default: true,
             dependsOn: '.currentPatients',
         },
+        currentPatientsInTooltips: <Toggle>{
+            type: 'toggle',
+            default: false,
+            dependsOn: '.currentPatients',
+        },
         eventMissions: <Omit<AppendableList, 'value' | 'isDisabled'>>{
             type: 'appendable-list',
             default: defaultEventmissions,
