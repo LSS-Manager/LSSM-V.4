@@ -150,6 +150,10 @@
 			"description": "Indique le nombre actuel de patients pour chaque mission",
 			"title": "Patients actuels"
 		},
+		"currentPatientsInTooltips": {
+			"description": "Affiche le nombre actuel de patients également dans les infobulles de la carte.",
+			"title": "Patients actuels dans les infobulles"
+		},
 		"eventMissions": {
 			"description": "Marque les missions saisonnières. En option, vous pouvez personnaliser l'ensemble et marquer également les missions non saisonnières.",
 			"missions": "Missions",
