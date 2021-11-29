@@ -219,6 +219,10 @@
 			"description": "Wähle, welche Farbe der Knopf zur Einsatzsortierung haben soll.",
 			"title": "Einsätze sortieren: Knopffarbe"
 		},
+		"sortMissionsInMissionwindow": {
+			"description": "Übernimmt die Sortierung im Einsatzfenster. Optional kannst du im Modul \"Hotkeys\" eigene Tastenkürzel dafür festlegen.",
+			"title": "Sortierung im Einsatzfenster"
+		},
 		"starrableMissions": {
 			"description": "Markiere dir Einsätze, damit diese in der Einsatzliste oben angezeigt werden dürfen. Du kannst die Markierung im Einsatzfenster und in der Einsatzliste vornehmen.",
 			"title": "Einsätze markieren"

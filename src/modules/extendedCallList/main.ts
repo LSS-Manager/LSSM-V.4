@@ -45,6 +45,19 @@ export default (async (LSSM, MODULE_ID, $m) => {
                 )
             ).default(LSSM, MODULE_ID, starredMissions, starredMissionBtnClass);
         }
+        if (sortMissions && (await getSetting('sortMissionsInMissionwindow'))) {
+            await (
+                await import(
+                    /* webpackChunkName: "modules/extendedCallList/sort/mission" */ './assets/sort/mission'
+                )
+            ).default(
+                LSSM,
+                MODULE_ID,
+                $m,
+                (await getSetting<Sort>('sortMissionsType')) ?? 'default',
+                (await getSetting('sortMissionsInMissionwindowChecked')) ?? true
+            );
+        }
         return;
     }
 

@@ -4,7 +4,7 @@ import { Empty, Scope } from 'typings/modules/Hotkeys';
 import getCommandName from './assets/getCommandName';
 import HotkeyUtility, { CallbackFunction } from './assets/HotkeyUtility';
 
-const rootCommandScopes: ['*', 'main'] = ['*', 'main'];
+const rootCommandScopes: ['*', 'main', 'mission'] = ['*', 'main', 'mission'];
 
 export default (async (LSSM, MODULE_ID, $m) => {
     const getSetting = (settingId: string) => {
@@ -15,6 +15,9 @@ export default (async (LSSM, MODULE_ID, $m) => {
     };
 
     const isMainWindow = window.location.pathname.length <= 1;
+    const isMissionWindow = !!window.location.pathname.match(
+        /^\/missions\/\d+\/?/
+    );
 
     const commands: Scope<Empty, typeof rootCommandScopes, [], true> = {
         '*': (
@@ -29,6 +32,18 @@ export default (async (LSSM, MODULE_ID, $m) => {
                       ...(
                           await import(
                               /* webpackChunkName: "modules/hotkeys/commands/main" */ './assets/commands/main'
+                          )
+                      ).default,
+                  },
+              }
+            : {}),
+        ...(isMissionWindow
+            ? {
+                  mission: {
+                      validatorFunction: () => isMissionWindow,
+                      ...(
+                          await import(
+                              /* webpackChunkName: "modules/hotkeys/commands/mission" */ './assets/commands/mission'
                           )
                       ).default,
                   },

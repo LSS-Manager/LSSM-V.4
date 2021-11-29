@@ -1,5 +1,15 @@
 {
 	"commands": {
+		"mission": {
+			"sorted": {
+				"alert_next": "Alarm and go to next mission",
+				"alert_share_next": "Alarm, Share and go to next mission",
+				"next": "next mission",
+				"prev": "previous mission",
+				"title": "Sorted missions"
+			},
+			"title": "Mission window"
+		},
 		"*": {
 			"alliance": {
 				"applications": "open applications",

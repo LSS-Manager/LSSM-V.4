@@ -1,7 +1,20 @@
 import { $m } from 'typings/Module';
 import { Sort } from './callList';
 
-export default async (LSSM: Vue, MODULE_ID: string, $m: $m, sort: Sort) => {
+export enum SortedMissionsRawButtonClasses {
+    alert_next = 'alert_next_sorted',
+    prev = 'prev_sorted',
+    next = 'next_sorted',
+    alert_share_next = 'alert_share_next_sorted',
+}
+
+export default async (
+    LSSM: Vue,
+    MODULE_ID: string,
+    $m: $m,
+    sort: Sort,
+    checked: boolean
+) => {
     if (sort === 'default') return;
     const order: Record<string, string[]> = JSON.parse(
         localStorage.getItem(`${PREFIX}_${MODULE_ID}_sort_order`) ?? '{}'
@@ -78,7 +91,8 @@ export default async (LSSM: Vue, MODULE_ID: string, $m: $m, sort: Sort) => {
         const toggleInput = document.createElement('input');
         toggleInput.type = 'checkbox';
         toggleInput.id = LSSM.$store.getters.nodeAttribute(
-            `${MODULE_ID}_sort_toggle-mission-buttons-mode`
+            `${MODULE_ID}_sort_toggle-mission-buttons-mode`,
+            true
         );
         toggleInput.style.setProperty('position', 'relative');
         toggleInput.style.setProperty('margin-left', '0');
@@ -103,7 +117,13 @@ export default async (LSSM: Vue, MODULE_ID: string, $m: $m, sort: Sort) => {
         ).map(btn => {
             const newBtn = document.createElement('a');
             newBtn.href = '#';
-            newBtn.classList.add('hidden', ...btn.classList);
+            newBtn.classList.add(
+                'hidden',
+                ...btn.classList,
+                LSSM.$store.getters.nodeAttribute(
+                    `${MODULE_ID}_sort-missions_${SortedMissionsRawButtonClasses['alert_next']}`
+                )
+            );
             newBtn.innerHTML = btn.innerHTML;
             newBtn.classList.replace(
                 'btn-success',
@@ -144,7 +164,13 @@ export default async (LSSM: Vue, MODULE_ID: string, $m: $m, sort: Sort) => {
                     order[missionList][missionListPosition - 1]
                 }`;
             }
-            newBtn.classList.add('hidden', ...btn.classList);
+            newBtn.classList.add(
+                'hidden',
+                ...btn.classList,
+                LSSM.$store.getters.nodeAttribute(
+                    `${MODULE_ID}_sort-missions_${SortedMissionsRawButtonClasses['prev']}`
+                )
+            );
             newBtn.classList.remove('btn-success', 'btn-default');
             newBtn.classList.add(
                 missionListPosition ? 'btn-primary' : 'btn-default'
@@ -174,7 +200,13 @@ export default async (LSSM: Vue, MODULE_ID: string, $m: $m, sort: Sort) => {
                     order[missionList][missionListPosition + 1]
                 }`;
             }
-            newBtn.classList.add('hidden', ...btn.classList);
+            newBtn.classList.add(
+                'hidden',
+                ...btn.classList,
+                LSSM.$store.getters.nodeAttribute(
+                    `${MODULE_ID}_sort-missions_${SortedMissionsRawButtonClasses['next']}`
+                )
+            );
             newBtn.classList.remove('btn-success', 'btn-default');
             newBtn.classList.add(isLastMission ? 'btn-default' : 'btn-primary');
             const icon = document.createElement('span');
@@ -205,7 +237,10 @@ export default async (LSSM: Vue, MODULE_ID: string, $m: $m, sort: Sort) => {
             newBtn.classList.add(
                 'hidden',
                 isLastMission ? 'btn-default' : 'btn-primary',
-                ...btn.classList
+                ...btn.classList,
+                LSSM.$store.getters.nodeAttribute(
+                    `${MODULE_ID}_sort-missions_${SortedMissionsRawButtonClasses['alert_share_next']}`
+                )
             );
             newBtn.classList.remove('btn-success');
             newBtn.addEventListener('click', () => {
@@ -230,7 +265,7 @@ export default async (LSSM: Vue, MODULE_ID: string, $m: $m, sort: Sort) => {
             return [btn, newBtn];
         });
 
-        toggleInput.addEventListener('change', () => {
+        toggleInput.addEventListener('change', async () => {
             [
                 ...alertNextBtns,
                 ...prevBtns,
@@ -244,7 +279,14 @@ export default async (LSSM: Vue, MODULE_ID: string, $m: $m, sort: Sort) => {
                     'hidden'
                 );
             });
+            await LSSM.$store.dispatch('settings/setSetting', {
+                moduleId: MODULE_ID,
+                settingId: 'sortMissionsInMissionwindowChecked',
+                value: toggleInput.checked,
+            });
         });
+
+        if (checked) toggleInput.click();
     }
 
     navHeader.prepend(toggleWrapper);

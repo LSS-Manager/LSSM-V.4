@@ -146,6 +146,10 @@
 			"text": "Text",
 			"title": "Mark seasonal missions"
 		},
+		"sortMissionsInMissionwindow": {
+			"description": "Implements the sorting in mission windows. Optionally, you may set custom Hotkeys in our Module \"Hotkeys\" for the modified buttons.",
+			"title": "Sorting in mission window"
+		},
 		"hide0CurrentPatients": {
 			"description": "Hides amount of patients if there are no patients at scene",
 			"title": "Hide 0 Patients"

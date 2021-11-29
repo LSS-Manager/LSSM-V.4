@@ -33,6 +33,10 @@ export default <ModuleSettingFunction>((MODULE_ID, LSSM, $m) => {
         '*.alliance.applications',
         '*.alliance.logfiles',
         '*.protocol',
+        'mission.sorted.alert_next',
+        'mission.sorted.prev',
+        'mission.sorted.next',
+        'mission.sorted.alert_share_next',
     ].sort();
     const labels: string[] = commands.map(command =>
         getCommandName(command, $m)
