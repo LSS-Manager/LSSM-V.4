@@ -145,8 +145,8 @@ export default async (LSSM: Vue, MODULE_ID: string, $m: $m, sort: Sort) => {
                 }`;
             }
             newBtn.classList.add('hidden', ...btn.classList);
-            newBtn.classList.replace(
-                'btn-success',
+            newBtn.classList.remove('btn-success', 'btn-default');
+            newBtn.classList.add(
                 missionListPosition ? 'btn-primary' : 'btn-default'
             );
             const icon = document.createElement('span');
@@ -175,10 +175,8 @@ export default async (LSSM: Vue, MODULE_ID: string, $m: $m, sort: Sort) => {
                 }`;
             }
             newBtn.classList.add('hidden', ...btn.classList);
-            newBtn.classList.replace(
-                'btn-success',
-                isLastMission ? 'btn-default' : 'btn-primary'
-            );
+            newBtn.classList.remove('btn-success', 'btn-default');
+            newBtn.classList.add(isLastMission ? 'btn-default' : 'btn-primary');
             const icon = document.createElement('span');
             icon.classList.add('glyphicon', 'glyphicon-arrow-right');
             icon.style.setProperty('margin-right', '0.1em');
@@ -195,19 +193,57 @@ export default async (LSSM: Vue, MODULE_ID: string, $m: $m, sort: Sort) => {
             return [btn, newBtn];
         });
 
-        let btnColors: [string, string] = ['btn-primary', 'btn-success'];
-        toggleInput.addEventListener('change', () => {
-            btnColors = btnColors.reverse() as [string, string];
-            [...alertNextBtns, ...prevBtns, ...nextBtns].forEach(
-                ([origBtn, sortedBtn]) => {
-                    origBtn.classList[toggleInput.checked ? 'add' : 'remove'](
-                        'hidden'
-                    );
-                    sortedBtn.classList[toggleInput.checked ? 'remove' : 'add'](
-                        'hidden'
-                    );
-                }
+        const alertNextShareBtns: [
+            HTMLAnchorElement,
+            HTMLAnchorElement
+        ][] = Array.from(
+            document.querySelectorAll<HTMLAnchorElement>('.alert_next_alliance')
+        ).map(btn => {
+            const newBtn = document.createElement('a');
+            newBtn.href = '#';
+            newBtn.innerHTML = btn.innerHTML;
+            newBtn.classList.add(
+                'hidden',
+                isLastMission ? 'btn-default' : 'btn-primary',
+                ...btn.classList
             );
+            newBtn.classList.remove('btn-success');
+            newBtn.addEventListener('click', () => {
+                alarm(true).then(() => {
+                    if (!isLastMission) {
+                        window.location.replace(
+                            `/missions/${
+                                order[missionList][missionListPosition + 1]
+                            }`
+                        );
+                    } else if (
+                        LSSM.$store.state.api.settings
+                            .mission_alarmed_successfull_close_window
+                    ) {
+                        window.location.replace('/missions/close');
+                    } else {
+                        window.location.reload();
+                    }
+                });
+            });
+            btn.after(newBtn);
+            return [btn, newBtn];
+        });
+
+        toggleInput.addEventListener('change', () => {
+            [
+                ...alertNextBtns,
+                ...prevBtns,
+                ...nextBtns,
+                ...alertNextShareBtns,
+            ].forEach(([origBtn, sortedBtn]) => {
+                origBtn.classList[toggleInput.checked ? 'add' : 'remove'](
+                    'hidden'
+                );
+                sortedBtn.classList[toggleInput.checked ? 'remove' : 'add'](
+                    'hidden'
+                );
+            });
         });
     }
 
