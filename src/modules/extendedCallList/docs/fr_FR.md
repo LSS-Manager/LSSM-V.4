@@ -24,7 +24,7 @@ Cette fonction te permet de marquer les missions afin qu'elles apparaissent touj
 ![Marquer dans la fenêtre d'intervention](markieren_einsatz.png)
 
 ## Afficher les gains
-Cette fonctionnalité t'indique combien rapporte en moyenne une mise :
+Cette fonctionnalité t'indique combien rapporte en moyenne une mission :
 ![Afficher les gains](verdienst.png)
 
 ## Réduire les missions
