@@ -62,6 +62,16 @@
 				"title": "Liste des missions"
 			},
 			"title": "Fenêtre principale"
+		},
+		"mission": {
+			"sorted": {
+				"alert_next": "Déployer et aller à la mission suivante",
+				"alert_share_next": "Déployer, partager et aller à la mission suivante",
+				"next": "prochaine mission",
+				"prev": "mission précédente",
+				"title": "Missions triées"
+			},
+			"title": "Mission window"
 		}
 	},
 	"description": "Contrôlez le jeu à l'aide de touches de raccourci sur le clavier, que vous pouvez définir vous-même.",

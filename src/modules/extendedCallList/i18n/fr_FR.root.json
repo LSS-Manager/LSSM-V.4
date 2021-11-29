@@ -212,6 +212,10 @@
 			"description": "Sélectionnez la couleur d'arrière-plan du bouton de tri",
 			"title": "Tri des missions: Couleur du bouton"
 		},
+		"sortMissionsInMissionwindow": {
+			"description": "Implémente le tri dans les fenêtres de mission. En option, vous pouvez définir des touches de raccourci personnalisées dans notre module \"Hotkeys\" pour les boutons modifiés.",
+			"title": "Triage dans la fenêtre de mission"
+		},
 		"starrableMissions": {
 			"description": "Marquez les missions pour qu'elles soient affichées dans la liste des missions en haut de la page. Vous pouvez les marquer dans la fenêtre de mission et dans la liste des missions.",
 			"title": "Missions marquées"
