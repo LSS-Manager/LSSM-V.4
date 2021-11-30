@@ -198,6 +198,10 @@
 			"description": "Select the background color of the sorting button",
 			"title": "Sort missions: Button color"
 		},
+		"sortMissionsInMissionwindow": {
+			"description": "Implements the sorting in mission windows. Optionally, you may set custom Hotkeys in our Module \"Hotkeys\" for the modified buttons.",
+			"title": "Sorting in mission window"
+		},
 		"starrableMissions": {
 			"description": "Mark missions so that they are be displayed in the mission list at the top. You can mark them in the mission window and in the mission list.",
 			"title": "Mark Missions"
