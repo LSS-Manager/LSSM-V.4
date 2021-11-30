@@ -24,6 +24,14 @@ const modules = {
         reset: 'Reset',
         export: 'Exporter',
         import: 'Importer',
+        appendableList: {
+            unique: {
+                title: 'valeur en double',
+                text:
+                    'Il ne doit pas y avoir de valeurs en double dans la colonne **{title}**. La valeur **{valeur}** existe déjà !',
+                confirm: 'OK',
+            },
+        },
         resetWarning: {
             title: 'Reset des paramètres',
             text:
@@ -50,6 +58,10 @@ const modules = {
         changeList: {
             true: 'On',
             false: 'Off',
+        },
+        locationSelect: {
+            location: 'Sélectionnez une position',
+            zoom: 'Sélectionner la position et le zoom',
         },
     },
 } as { [moduleId: string]: { [key: string]: unknown } };
