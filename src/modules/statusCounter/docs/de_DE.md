@@ -1,4 +1,4 @@
-Wenn du einen schnellen Überblick haben willst, wie viele deiner Fahrzeuge grade in welchen Status sin, dann ist dieses Modul ein Must-have.
+Wenn du einen schnellen Überblick haben willst, wie viele deiner Fahrzeuge grade in welchen Status sind, dann ist dieses Modul ein Must-have.
 
 Der, aus der V3 bekannte, Status-Zähler zeigt euch über eurem Funk an, welcher Anteil an Fahrzeuge sich grade im jeweiligen Status befindet. Das ganze sieht dann so aus:
 
