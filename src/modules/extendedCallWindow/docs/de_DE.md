@@ -1,12 +1,12 @@
 Das Einsatzfenster ist eines der zentralen Elemente des Spiels. Um es zu erweitern gibt es dieses Modul mit vielen verschiedenen Features:
 
 ## Generierungszeitpunkt
-Dir wird der Generieungszeitpunkt oben neben der Einsatzadresse angezeigt.
+Dir wird der Generierungszeitpunkt oben neben der Einsatzadresse angezeigt.
 
 ![Generierungszeitpunkt](zeitpunkt.png)
 
 ### Gelbe Umrandung
-Die Generierungszeit wird gelb umrandet, wenn seit der Genrierung mehr als x (einstellbar) Stunden vergangen sind. Die Einstellung "Generierungszeitpunkt" muss aktiviert sein. Du kannst dieses Feature deaktivieren, indem du bei Einstellungen `0` einträgst.
+Die Generierungszeit wird gelb umrandet, wenn seit der Generierung mehr als x (einstellbar) Stunden vergangen sind. Die Einstellung "Generierungszeitpunkt" muss aktiviert sein. Du kannst dieses Feature deaktivieren, indem du bei Einstellungen `0` einträgst.
 
 ![Gelb umrandete Generierungszeit](markerYellow.png)
 
@@ -54,17 +54,17 @@ Hier ein Bild, wie es mit einem lilanen Farbton (RGB: 230, 51, 197) und einem 5 
 ![Bild einer hervorgehobenen AAO mit einem lilanen Farbton (RGB: 230, 51, 197) und einem 5 Pixel breitem Rand](aao4.png)
 
 ## Fahrzeugauswahl zurücksetzen
-Neben dem Button `Hilfe zu diesem Einsatz` erscheint wie von zauberhand ein weiterer Button, der alle bereits ausgewählten Fahrzeuge zurücksetzt.
+Neben dem Button `Hilfe zu diesem Einsatz` erscheint wie von Zauberhand ein weiterer Button, der alle bereits ausgewählten Fahrzeuge zurücksetzt.
 
 ![Zurücksetzen-Button](fahrzeugwahlReset.png)
 
 ## Unpassende AAOs ausgrauen
-Suchst du immer ewigkeiten die passende AAO, weil du für jeden Einsatz eine andere AAO hast? Dieses Modul wirst du lieben. Es garut alle AAO's, in denen nicht mindestens ein Teil des Einsatzstichwortes vorkommt, aus.
+Suchst du immer Ewigkeiten die passende AAO, weil du für jeden Einsatz eine andere AAO hast? Dieses Modul wirst du lieben. Es graut alle AAO's, in denen nicht mindestens ein Teil des Einsatzstichwortes vorkommt aus.
 
 ![ausgegraute AAO's](aao5.png)
 
 ## AAO-Anfahrtszeit anzeigen
-Diese Einstellung zeigt an, wie lange das am längsten brauchende Fahrzeug der AAO braucht. Erscheint, die Maus kurz auf der AAO ruhen lässt.
+Diese Einstellung zeigt an, wie lange das am längsten brauchende Fahrzeug der AAO braucht. Erscheint, wenn du die Maus kurz auf der AAO ruhen lässt.
 
 ![AAO mit angezeigter Anfahrtszeit des am längsten brauchenden Fahrzeuges](aao6.png)
 
@@ -74,7 +74,7 @@ Dieses Modul zeigt dir viele Details zu einer AAO, unter anderem welche Fahrzeug
 ![Beispielbild einer AAO mit Deatils](aao8.png)
 
 ## Längste Anfahrtszeit
-Dieses Modul zeigt unten im Alarm-Button die Anfahrtszeit des fahrzeuges, welches am längsten zum Einsatzort braucht.
+Dieses Modul zeigt unten im Alarm-Button die Anfahrtszeit des Fahrzeuges, welches am längsten zum Einsatzort braucht.
 
 ![Alarmleiste mit Anzeige der Dauer, bis alle Fahrzeuge am Einsatzort sind](alarmfenster1.png)
 
@@ -141,8 +141,8 @@ Wow, ein tolles Feature. Mit diesem Feature ist es möglich, sich die Fahrzeuge 
 
 ## Einsatzstichworte
 
-Du wurdest dir gerne eigenen Text hinter oder vor den Einsatznamen schreiben? Kein Problem, dieses Modul macht es möglich. Guck dir am besten unten auf dem Bild die Einstellungsmöglichkeiten an.
-**Wichtig:** Damit es funktioniert, müüsst ihr ganz rechts Einsätze auswählen, auf die diese Einstellung angewendet werden soll.
+Du würdest dir gerne eigene Texte hinter oder vor den Einsatznamen schreiben? Kein Problem, dieses Modul macht es möglich. Guck dir am besten unten auf dem Bild die Einstellungsmöglichkeiten an.
+**Wichtig:** Damit es funktioniert, müsst ihr ganz rechts Einsätze auswählen, auf die diese Einstellung angewendet werden soll.
 
 ![Eigene Einsatzstichworte](einsatzstichworte.png)
 

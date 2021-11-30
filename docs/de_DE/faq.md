@@ -80,7 +80,7 @@ Ja, das geht. Klicke dazu einfach in den [Einstellungen][settings] auf `Export`,
 ## Gibt es eine Möglichkeit, Einstellungen Account-gebunden zu speichern, um sie an einem anderen Gerät nicht importieren zu müssen?
 Derzeit bieten wir das nicht an, eine Implementierung dieses Features ist aber geplant.
 
-## Wo so seh ich ob die LSSM-Server grad online sind? 
+## Wo seh ich ob die LSSM-Server grad online sind? 
 Am besten hier: [https://status.lss-manager.de/](https://status.lss-manager.de/)
 
 Oder im <discord-channel channel="uptime"/> auf unserem <discord/> 
