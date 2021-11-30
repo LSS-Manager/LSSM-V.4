@@ -286,7 +286,10 @@ export default async (
             });
         });
 
-        if (checked) toggleInput.click();
+        if (checked) {
+            toggleInput.checked = true;
+            toggleInput.dispatchEvent(new Event('change'));
+        }
     }
 
     navHeader.prepend(toggleWrapper);
