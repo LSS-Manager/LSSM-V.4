@@ -23,7 +23,7 @@
         "axios": "^0.24.0",
         "broadcast-channel": "^4.5.0",
         "he": "^1.2.0",
-        "highcharts": "^9.3.1",
+        "highcharts": "^9.3.2",
         "localforage": "^1.10.0",
         "lodash": ">=4.17.21",
         "mini-svg-data-uri": "^1.4.3",
