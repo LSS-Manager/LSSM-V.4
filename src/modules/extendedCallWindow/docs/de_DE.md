@@ -59,7 +59,7 @@ Neben dem Button `Hilfe zu diesem Einsatz` erscheint wie von Zauberhand ein weit
 ![Zurücksetzen-Button](fahrzeugwahlReset.png)
 
 ## Unpassende AAOs ausgrauen
-Suchst du immer Ewigkeiten die passende AAO, weil du für jeden Einsatz eine andere AAO hast? Dieses Modul wirst du lieben. Es graut alle AAO's, in denen nicht mindestens ein Teil des Einsatzstichwortes vorkommt aus.
+Suchst du immer Ewigkeiten die passende AAO, weil du für jeden Einsatz eine andere AAO hast? Dieses Modul wirst du lieben. Es graut alle AAO's, in denen nicht mindestens ein Teil des Einsatzstichwortes vorkommt, aus.
 
 ![ausgegraute AAO's](aao5.png)
 
