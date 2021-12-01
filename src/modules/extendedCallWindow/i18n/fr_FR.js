@@ -17,18 +17,18 @@ module.exports = {
     arrHover: {
         reset: 'La séléction de véhicule est mise à zéro avant !',
         headers: {
-            set: 'Set',
-            attribute: 'Name',
-            free: 'Free',
+            set: 'Sélectionner',
+            attribute: 'Nom',
+            free: 'Libre',
             max: 'Max',
         },
         titles: {
             set:
-                'Aussi souvent que cette combinaison est séléctionnée quand vous appuyez sur la régulation',
-            attribute: 'La combinaison décrite dans cette ligne',
-            free: 'Aussi souvent que cette combinaison est disponible',
+                "C'est le nombre de fois que cette régulations est sélectionnée lorsque tu appuies sur ce bouton.",
+            attribute: 'La régulations est décrite dans cette ligne',
+            free: "C'est le nombre de fois où la régulation est disponible",
             max:
-                'Vous pouvez séléctionner cette régulation tant que la combinaison est disponible',
+                "Tu peux sélectionner cette régulation autant de fois que nécessaire, jusqu'à ce que la régulations ne soit plus disponible.",
         },
         arrSpecs: {
             boot: 'Bateaux (généraux)',
@@ -124,6 +124,9 @@ module.exports = {
             hide: 'Cacher la note',
             close: "Fermer Note jusqu'au changement",
         },
+    },
+    patientSummary: {
+        oncePerMission: ['ASSU'],
     },
     hideVehicleList: {
         show: 'Afficher la liste des véhicules',
