@@ -1,14 +1,14 @@
 {
-	"description": "Prolonge le chat par quelques fonctions sympas",
-	"name": "Chat amélioré",
+	"description": "Ajoute quelques améliorations utiles au tchat",
+	"name": "Améliorations du tchat",
 	"settings": {
 		"chatTime": {
-			"description": "Ajustez l'horodatage au format que vous avez défini !",
-			"title": "Format d'horodatage propre"
+			"description": "Modifie l'horodatage. Tu peux adapter le format toi-même.",
+			"title": "Adapter l'horodatage dans le chat"
 		},
 		"chatTimeFormat": {
-			"description": "Ici vous pouvez choisir le format de votre choix. Pour l'aide c'est <a class=\"lightbox-open\" href=\"{wiki}modules/clock.html#configuration\">ici</a>.",
-			"title": "Format date et heure"
+			"description": "Ici, tu peux définir le format de ton choix. Tu trouveras une aide à ce sujet <a class=\"lightbox-open\" href=\"{wiki}modules/clock.html#configuration\">ici</a>.",
+			"title": "Format de la date et de l'heure du chat"
 		}
 	}
 }
