@@ -1,0 +1,36 @@
+{
+	"allianceFunds": {
+		"currently": "currently",
+		"title": "Alliansekapital",
+		"total": "totalt",
+		"updateNote": "Oppdateres hvert 5 minutt."
+	},
+	"coins": {
+		"list": "Protokoll"
+	},
+	"credits": {
+		"daily": "Oppsummering",
+		"overview": "Oversikt"
+	},
+	"description": "Viser nyttig informasjon om kreditter i en dropdown meny i navigasjonsbaren.",
+	"name": "Kredittutvidelse",
+	"nextRank": "Neste grad",
+	"nextRankMissing": "gjenstående",
+	"settings": {
+		"alerts": {
+			"credits": "",
+			"description": "Når du har nådd et satt antall kreditter vil menyen bli farget grønn til du trykker på det.",
+			"title": "Mål"
+		},
+		"creditsInNavbar": {
+			"description": "Viser gjeldende kreditter i navbar i stedet for den søte sparegrisen.",
+			"title": "Kreditter istedenfor sparegris"
+		},
+		"showToplistPosition": {
+			"description": "Viser gjeldende topplisterangering i kredittutvidelsen.",
+			"title": "Toppliste-rangering i kredittforlengelse"
+		}
+	},
+	"toplistPositionName": "Toppliste rank",
+	"totalEarnedCredits": "Totalt inntjente kreditter"
+}
