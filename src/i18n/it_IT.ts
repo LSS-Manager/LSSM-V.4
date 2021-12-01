@@ -138,7 +138,7 @@ export default {
         },
         4: {
             caption: 'Ambulanza BLSD',
-            color: '#9c1c1c',
+            color: '#9c6d1c',
             coins: 25,
             credits: 5_000,
             minPersonnel: 2,
@@ -166,7 +166,7 @@ export default {
         },
         7: {
             caption: 'Volante',
-            color: '#18468b',
+            color: '#2c8123',
             coins: 25,
             credits: 5_000,
             minPersonnel: 1,
@@ -174,7 +174,7 @@ export default {
         },
         8: {
             caption: 'Elisoccorso',
-            color: '#e61919',
+            color: '#e69b19',
             coins: 30,
             credits: 300_000,
             minPersonnel: 1,
@@ -223,7 +223,7 @@ export default {
         },
         13: {
             caption: 'Elicottero della Polizia',
-            color: '#0d28b0',
+            color: '#227723',
             coins: 30,
             credits: 300_000,
             minPersonnel: 1,
@@ -235,7 +235,7 @@ export default {
         },
         14: {
             caption: 'Furgone antisommossa',
-            color: '#1226a5',
+            color: '#12a521',
             coins: 25,
             credits: 10_000,
             minPersonnel: 6,
@@ -246,7 +246,7 @@ export default {
         },
         15: {
             caption: 'Unità cinofila antidroga',
-            color: '#2258aa',
+            color: '#36aa22',
             coins: 25,
             credits: 7_000,
             minPersonnel: 1,
@@ -257,7 +257,7 @@ export default {
         },
         16: {
             caption: 'Moto della Polizia',
-            color: '#222b66',
+            color: '#296622',
             coins: 18,
             credits: 2_500,
             minPersonnel: 1,
@@ -267,7 +267,7 @@ export default {
         },
         17: {
             caption: 'UOPI SUV',
-            color: '#133588',
+            color: '#178813',
             coins: 23,
             credits: 7_000,
             minPersonnel: 2,
@@ -720,7 +720,7 @@ export default {
         },
         21: {
             caption: 'Caserma della Finanza',
-            color: '#116612',
+            color: '#113a66',
             coins: 35,
             credits: 200_000,
             extensions: [],
@@ -931,11 +931,13 @@ export default {
         'Officina meccanica',
         'Uscita autostradale',
         'Mercatino di Natale',
+        '',
         'Discoteca',
         'Stadio',
         'Azienda agricola',
         'Edificio adibito a uffici',
         'Piscina',
+        '',
         'Teatro',
         'Luna park',
         'Fiume',

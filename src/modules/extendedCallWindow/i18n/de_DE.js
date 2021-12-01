@@ -96,6 +96,7 @@ module.exports = {
             grukw: 'GruKw (Gruppenkraftwagen)',
             gefkw: 'GefKw (Gefangenenkraftwagen)',
             polizeihubschrauber: 'Polizeihubschrauber',
+            helicopter_bucket: 'Außenlastbehälter (allgemein)',
             wasserwerfer: 'Wasserwerfer',
             sek_zf: 'SEK - ZF',
             sek_mtf: 'SEK - MTF',

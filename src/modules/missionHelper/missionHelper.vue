@@ -456,6 +456,7 @@ export default Vue.extend<
                     content: false,
                     patient_additionals: false,
                     sort: 'caption',
+                    sortDesc: false,
                     xAfterNumber: false,
                 },
                 chances: {
@@ -492,6 +493,7 @@ export default Vue.extend<
                 followup: false,
                 subsequent: false,
                 k9_only_if_needed: false,
+                bucket_only_if_needed: false,
                 hide_battalion_chief_vehicles: false,
                 bike_police_only_if_needed: false,
                 noVehicleRequirements: [],
@@ -549,6 +551,7 @@ export default Vue.extend<
                 nonbadge: string[];
             };
             this.settings.noVehicleRequirements?.forEach(req =>
+                reqi18n.hasOwnProperty(req) &&
                 this.missionSpecs?.[reqi18n[req].in][req]
                     ? reqs[reqi18n[req].badge ? 'badge' : 'nonbadge'].push(req)
                     : null
@@ -711,6 +714,14 @@ export default Vue.extend<
                         vehicleName = 'k9_only_if_needed';
                     if (
                         !isMaxReq &&
+                        vehicle === 'helicopter_bucket' &&
+                        missionSpecs?.additional
+                            .need_helicopter_bucket_only_if_present &&
+                        this.settings.bucket_only_if_needed
+                    )
+                        vehicleName = 'bucket_only_if_needed';
+                    if (
+                        !isMaxReq &&
                         vehicle === 'bike_police' &&
                         missionSpecs?.additional
                             .need_bike_police_only_if_present &&
@@ -753,7 +764,7 @@ export default Vue.extend<
                 Object.keys(patientAdditionals).forEach(
                     patients =>
                         this.currentPatients >= parseInt(patients) &&
-                        (vehicles[patients] = {
+                        (vehicles[`patients_${patients}`] = {
                             amount: 1,
                             caption: patientAdditionals[parseInt(patients)],
                         })
@@ -833,10 +844,14 @@ export default Vue.extend<
                 .sort(([, aVehicle], [, bVehicle]) =>
                     (aVehicle[this.settings.vehicles.sort] || 0) <
                     (bVehicle[this.settings.vehicles.sort] || 0)
-                        ? -1
+                        ? this.settings.vehicles.sortDesc
+                            ? 1
+                            : -1
                         : (aVehicle[this.settings.vehicles.sort] || 0) >
                           (bVehicle[this.settings.vehicles.sort] || 0)
-                        ? 1
+                        ? this.settings.vehicles.sortDesc
+                            ? -1
+                            : 1
                         : 0
                 )
                 .forEach(

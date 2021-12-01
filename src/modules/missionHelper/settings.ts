@@ -48,7 +48,12 @@ export default ((MODULE_ID, LSSM, $m) => {
             default: 'caption',
             dependsOn: '.vehicles.content',
         },
-        ...(['de_DE', 'en_US', 'nl_NL'].includes(locale)
+        'vehicles.sortDesc': <Toggle>{
+            type: 'toggle',
+            default: false,
+            dependsOn: '.vehicles.content',
+        },
+        ...(['de_DE', 'en_US', 'nl_NL', 'nb_NO'].includes(locale)
             ? {
                   'vehicles.patient_additionals': <Toggle>{
                       type: 'toggle',
@@ -245,6 +250,14 @@ export default ((MODULE_ID, LSSM, $m) => {
         ...(locale === 'de_DE'
             ? {
                   k9_only_if_needed: <Toggle>{
+                      type: 'toggle',
+                      default: false,
+                  },
+              }
+            : null),
+        ...(locale === 'de_DE'
+            ? {
+                  bucket_only_if_needed: <Toggle>{
                       type: 'toggle',
                       default: false,
                   },

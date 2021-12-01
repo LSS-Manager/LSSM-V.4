@@ -153,8 +153,8 @@
 				"title": "Vehicle requirements"
 			},
 			"patient_additionals": {
-				"description": "If there are currently more than 10 patients on site, EMS-Chief is automatically listed at the beginning of the vehicle requirements.",
-				"title": "Mention EMS-Chief extra"
+				"description": "Hvis det for tiden er mer enn 10 pasienter på stedet, blir Innsatslederbil helse automatisk oppført i begynnelsen av kjøretøyets krav.",
+				"title": "Nevn Innsatslederbil helse ekstra"
 			},
 			"sort": {
 				"amount": "Number of required vehicles",

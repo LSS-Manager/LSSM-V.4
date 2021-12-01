@@ -17,6 +17,7 @@ const STORAGE_KEYS = {
     vehicles: 'aVehicles',
     allianceinfo: 'aAlliance',
     settings: 'aSettings',
+    credits: 'aCreditsInfo',
 } as {
     [key in StorageAPIKey]: string;
 };
@@ -25,6 +26,7 @@ const MUTATION_SETTERS = {
     vehicles: 'setVehicles',
     allianceinfo: 'setAllianceinfo',
     settings: 'setSettings',
+    credits: 'setCreditsInfo',
 } as {
     [key in StorageAPIKey]: string;
 };
@@ -173,6 +175,7 @@ export default {
         key: null,
         lastUpdates: {},
         settings: {},
+        credits: {},
     },
     mutations: {
         setBuildings(
@@ -268,6 +271,16 @@ export default {
             if (!settings) return;
             state.lastUpdates.settings = lastUpdate;
             state.settings = settings;
+        },
+        setCreditsInfo(
+            state: APIState,
+            { value: credits, lastUpdate }: StorageGetterReturn<'credits'>
+        ) {
+            // eslint-disable-next-line no-console
+            console.log('setCreditsInfo');
+            if (!credits) return;
+            state.lastUpdates.credits = lastUpdate;
+            state.credits = credits;
         },
     },
     getters: {
@@ -525,6 +538,13 @@ export default {
                     API_MIN_UPDATE
                 );
             }
+        },
+        async fetchCreditsInfo(store: APIActionStoreParams) {
+            return new Promise(resolve =>
+                get_api_values('credits', store).then(({ value }) =>
+                    resolve(value)
+                )
+            );
         },
         async getMissions(
             { rootState, state, dispatch, commit }: APIActionStoreParams,

@@ -72,6 +72,6 @@ export interface VehicleTypesComputed {
     vehicleTypesFiltered: TypeList;
     vehicleTypesSorted: string[];
     sum: {
-        [state: number]: number;
+        [state: string]: Vehicle[];
     };
 }

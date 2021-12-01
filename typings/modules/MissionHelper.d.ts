@@ -44,6 +44,7 @@ export interface MissionHelper {
             content: boolean;
             patient_additionals: boolean;
             sort: string;
+            sortDesc: boolean;
             xAfterNumber: boolean;
         };
         chances: {
@@ -73,6 +74,7 @@ export interface MissionHelper {
         expansions: boolean;
         followup: boolean;
         k9_only_if_needed: boolean;
+        bucket_only_if_needed: boolean;
         noVehicleRequirements: string[];
 
         // General

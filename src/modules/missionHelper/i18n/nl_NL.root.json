@@ -139,6 +139,10 @@
 				"percentage": "Waarschijnlijkheid",
 				"title": "De voertuigvereisten sorteren"
 			},
+			"sortDesc": {
+				"description": "Sorteer de voertuigen op een aflopende volgorde.",
+				"title": "Sorteer voertuigen aflopend"
+			},
 			"title": {
 				"description": "Toont de kop \"Voertuigen\" boven de voertuigvereisten",
 				"title": "Voertuigen (Titel)"

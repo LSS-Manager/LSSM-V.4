@@ -15,6 +15,8 @@ This work is licensed under a [Creative Commons Attribution-NonCommercial-ShareA
 
 [LSSM-Server-Status](https://status.lss-manager.de/)
 
+[All Game-Server-Monitors](https://stats.uptimerobot.com/OEKDJSpmvK)
+
 ## Information on LSS-Manager V.4
 
 <details>

@@ -174,7 +174,8 @@ export default Vue.extend<
             });
             this.$store.commit('setAppstoreChanges', this.changes);
         },
-        $m: (key, args) => window[PREFIX].$t(`modules.appstore.${key}`, args),
+        $m: (key, args) =>
+            (window[PREFIX] as Vue).$t(`modules.appstore.${key}`, args),
     },
 });
 </script>

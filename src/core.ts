@@ -12,7 +12,6 @@ import utils from './utils';
 import telemetry from './modules/telemetry/main';
 import releasenotes from './modules/releasenotes/main';
 import { RadioMessage } from '../typings/Ingame';
-import { Credits } from 'typings/Credits';
 import { ModuleMainFunction, ModuleSettingFunction } from 'typings/Module';
 import { Color, Toggle } from 'typings/Setting';
 
@@ -97,14 +96,6 @@ require('./natives/lightbox');
     }
 
     if (window.location.pathname.match(/^\/users\//)) return;
-    LSSM.$store.commit(
-        'setRegisteredState',
-        !((await LSSM.$store
-            .dispatch('api/request', {
-                url: '/api/credits',
-            })
-            .then(res => res.json())) as Credits).user_directplay_registered
-    );
     LSSM.$store.commit(
         'api/setVehicleStates',
         await LSSM.$store

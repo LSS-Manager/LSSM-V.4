@@ -19,6 +19,10 @@
 		}
 	},
 	"settings": {
+		"bucket_only_if_needed": {
+			"description": "Zeigt an, wenn der Außenlastbehälter nur gefordert wird, wenn vorhanden.",
+			"title": "Optionale Außenlastbehälter"
+		},
 		"chances": {
 			"100": {
 				"description": "Zeigt auch Wahrscheinlichkeiten von 100% an.",
@@ -156,6 +160,10 @@
 				"description": "Stelle ein, nach was die Fahrzeuganforderungen sortiert sein sollen.",
 				"percentage": "Wahrscheinlichkeit",
 				"title": "Sortierung der Fahrzeuganforderungen"
+			},
+			"sortDesc": {
+				"description": "Sortiert die Fahrzeuganforderungen in absteigender Reihenfolge.",
+				"title": "Fahrzeuge absteigend sortieren"
 			},
 			"title": {
 				"description": "Zeigt die Überschrift \"Fahrzeuge\" über den Fahrzeuganforderungen an.",

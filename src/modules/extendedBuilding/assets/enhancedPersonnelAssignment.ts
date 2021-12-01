@@ -32,11 +32,15 @@ export default async (
 
     const fittingRows = [] as HTMLTableRowElement[];
     const nonFittingRows = [] as HTMLTableRowElement[];
-    const schooling = vehicleTypes[vehicle.vehicle_type].shownSchooling;
+    const schooling = vehicleTypes[vehicle.vehicle_type].schooling
+        ?.replace(/^.*? - /, '')
+        .trim();
+    const shownSchooling = vehicleTypes[vehicle.vehicle_type].shownSchooling;
     personnel.forEach(row => {
         (!schooling ||
-        (schooling &&
-            row.textContent?.match(LSSM.$utils.escapeRegex(schooling)))
+        !shownSchooling ||
+        row.textContent?.match(LSSM.$utils.escapeRegex(shownSchooling)) ||
+        row.textContent?.match(LSSM.$utils.escapeRegex(schooling))
             ? fittingRows
             : nonFittingRows
         ).push(row);

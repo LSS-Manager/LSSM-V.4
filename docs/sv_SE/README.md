@@ -4,7 +4,7 @@ lang: sv_SE
 sidebarDepth: 2
 ---
 
-# Wiki :sv: <Badge :text="'LSSM V.' + ($themeConfig.variables.versions.stable || 4)"/>
+# Wiki 🇸🇪 <Badge :text="'LSSM V.' + ($themeConfig.variables.versions.stable || 4)"/>
 
 *Current versions:*
 > Stable: <i>{{ $themeConfig.variables.versions.stable }}</i>
