@@ -100,6 +100,26 @@ Basta cliccare sul banner qui sotto per accedere al Server Discord di Supporto!
 L'uso dello script è a proprio rischio. Non siamo responsabili per eventuali danni o simili, che sono causati dall'uso di questo script. Shplay Gmbh non è in alcun modo responsabile del contenuto dello script.
 </details>
 
+<details>
+  <summary>🇫🇷</summary>
+Le LSS-MANAGER V.4 est une extension pour le jeu operateur112.fr et ses versions en d'autres langues.
+
+Avec cette extension, un Appstore est ajouté au jeu, qui permet d'installer des plugins. Toutes les fonctions sont modulaires - il est possible de déterminer jusqu'au dernier module ce qui doit être activé.
+
+### Wiki
+Dans notre [Wiki](https://proxy.lss-manager.de/v4/docs/) tu trouveras tout sur l'installation, la FAQ et une explication de toutes les fonctions.
+
+### Serveur de support
+
+Clique simplement sur la bannière ci-dessous pour accéder à notre serveur de support Discord !
+
+[![](https://discord.com/api/guilds/254167535446917120/embed.png?style=banner1)](https://discord.gg/RcTNjpB)
+
+## Responsabilité / Divers
+
+L'utilisation de ce script se fait à vos propres risques. Nous ne sommes pas responsables des éventuels dégâts ou autres qui pourraient résulter de l'utilisation de ce script. SHPlay GmbH n'est en aucun cas responsable du contenu de ce script.
+</details>
+
 ## Contributors & Contributing ✨
 
 ### [Code of Conduct](CODE_OF_CONDUCT.md)
