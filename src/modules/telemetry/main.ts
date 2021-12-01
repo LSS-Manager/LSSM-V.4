@@ -1,6 +1,8 @@
 import UAParser from 'ua-parser-js';
-import { StorageSet } from '../../../typings/store/storage/Actions';
+
 import config from '../../config';
+
+import { StorageSet } from '../../../typings/store/storage/Actions';
 
 const NOTE_STORAGE_KEY = 'telemetry_note_confirmed';
 const HIDE_BROWSER_NOTE_KEY = 'hide_browsersupport_note';
@@ -13,12 +15,15 @@ export default (
         LSSM.$t(`modules.telemetry.${key}`, args);
 
     const sendStats = async () => {
-        await LSSM.$store.dispatch('api/registerBuildingsUsage', false);
+        await LSSM.$store.dispatch('api/registerBuildingsUsage', {
+            feature: 'telemetry-sendStats',
+        });
         LSSM.$store.commit(
             'api/setKey',
             await LSSM.$store
                 .dispatch('api/request', {
                     url: `/profile/external_secret_key/${window.user_id}`,
+                    feature: `telemetry-getExternalKey`,
                 })
                 .then(res => res.json())
                 .then(({ code }) => code)
@@ -39,7 +44,7 @@ export default (
                 const browserSupport =
                     config.browser[browser.name?.toLowerCase() || ''];
 
-                if (!browserSupport)
+                if (!browserSupport) {
                     LSSM.$modal.show('dialog', {
                         title: $m('browsersupport.not.title'),
                         text: $m('browsersupport.not.text', {
@@ -62,7 +67,7 @@ export default (
                             },
                         ],
                     });
-                else if (browserMajor < browserSupport.supported)
+                } else if (browserMajor < browserSupport.supported) {
                     LSSM.$modal.show('dialog', {
                         title: $m('browsersupport.old.title'),
                         text: $m('browsersupport.old.text', {
@@ -89,6 +94,7 @@ export default (
                             },
                         ],
                     });
+                }
             });
 
         LSSM.$store
@@ -121,6 +127,7 @@ export default (
                         flag: config.games[LSSM.$i18n.locale].flag,
                     }),
                 },
+                feature: `telemetry-sendStats`,
             })
             .then(res => res.json())
             .catch(() => {
@@ -129,9 +136,9 @@ export default (
     };
 
     LSSM.$store
-        .dispatch('api/fetchCreditsInfo')
+        .dispatch('api/fetchCreditsInfo', 'telemetry')
         .then(({ user_directplay_registered }) => {
-            if (!user_directplay_registered)
+            if (!user_directplay_registered) {
                 LSSM.$store
                     .dispatch('storage/get', {
                         key: NOTE_STORAGE_KEY,
@@ -178,12 +185,12 @@ export default (
                                                     key: NOTE_STORAGE_KEY,
                                                     value: true,
                                                 } as StorageSet)
-                                                .then(
-                                                    () =>
-                                                        sendStats() &&
+                                                .then(() =>
+                                                    sendStats().then(() =>
                                                         LSSM.$modal.hide(
                                                             'dialog'
                                                         )
+                                                    )
                                                 );
                                             // Now we store if we allowed telemetry
                                             LSSM.$store.dispatch(
@@ -203,9 +210,8 @@ export default (
                         const allowTelemetry = await getSetting(
                             'allowTelemetry'
                         );
-                        if (allowTelemetry) {
-                            await sendStats();
-                        }
+                        if (allowTelemetry) await sendStats();
                     });
+            }
         });
 };

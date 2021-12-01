@@ -1,23 +1,22 @@
 import Vue from 'vue';
-import VueJSModal from 'vue-js-modal';
-import ToggleButton from 'vue-js-toggle-button';
+
 import * as Tabs from 'vue-slim-tabs';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import Notifications from 'vue-notification';
-import LSSMV4 from './LSSMV4.vue';
-import LSSMMenu from './LSSM-Menu.vue';
-import store from './store';
+import ToggleButton from 'vue-js-toggle-button';
+import VueJSModal from 'vue-js-modal';
+
 import i18n from './i18n';
+import LSSMV4 from './LSSMV4.vue';
+import store from './store';
 import utils from './utils';
-import telemetry from './modules/telemetry/main';
-import releasenotes from './modules/releasenotes/main';
-import { RadioMessage } from '../typings/Ingame';
+
 import { ModuleMainFunction, ModuleSettingFunction } from 'typings/Module';
-import { Color, Toggle } from 'typings/Setting';
 
 require('./natives/navTabsClicker');
 require('./natives/lightbox');
 (async () => {
+    if (window.location.pathname.match(/^\/users\//)) return;
     Vue.config.productionTip = false;
 
     const appContainer = document.createElement('div') as HTMLDivElement;
@@ -49,60 +48,14 @@ require('./natives/lightbox');
 
     window[PREFIX] = LSSM;
 
-    if (window.location.pathname === '/') {
-        window.console.info(
-            `Running %cLSSM%c in Version %c${VERSION}%c`,
-            'font-weight: bold;',
-            'font-weight: normal;',
-            'font-style: italic;'
-        );
-
-        const indicatorWrapper = document.createElement('li') as HTMLLIElement;
-        document
-            .querySelector('.navbar-default .navbar-right')
-            ?.appendChild(indicatorWrapper);
-
-        LSSM.$store
-            .dispatch('settings/register', {
-                moduleId: 'global',
-                settings: {
-                    labelInMenu: <Toggle>{
-                        type: 'toggle',
-                        default: false,
-                    },
-                    allowTelemetry: <Toggle>{
-                        type: 'toggle',
-                        default: true,
-                    },
-                    iconBg: <Color>{
-                        type: 'color',
-                        default: LSSM.$store.state.policechief
-                            ? '#004997'
-                            : '#C9302C',
-                    },
-                    iconBgAsNavBg: <Toggle>{
-                        type: 'toggle',
-                        default: false,
-                    },
-                },
-            })
-            .then(() => {
-                new LSSM.$vue({
-                    store: LSSM.$store,
-                    i18n: LSSM.$i18n,
-                    render: h => h(LSSMMenu),
-                }).$mount(indicatorWrapper);
-            });
-    }
-
-    if (window.location.pathname.match(/^\/users\//)) return;
-    LSSM.$store.commit(
+    await LSSM.$store.dispatch(
         'api/setVehicleStates',
-        await LSSM.$store
-            .dispatch('api/request', { url: '/api/vehicle_states' })
-            .then(res => res.json())
+        'core-initialVehicleStates'
     );
-    for (const moduleId of MODULES_OF_LOCALE[LSSM.$store.state.lang]) {
+    for (const moduleId of [
+        ...Object.keys(LSSM.$store.state.modules),
+        ...LSSM.$store.state.coreModules,
+    ]) {
         try {
             LSSM.$i18n.mergeLocaleMessage(LSSM.$store.state.lang, {
                 modules: {
@@ -120,49 +73,26 @@ require('./natives/lightbox');
         }
     }
     if (window.location.pathname === '/') {
-        telemetry(LSSM, settingId => {
-            return LSSM.$store.dispatch('settings/getSetting', {
-                moduleId: 'global',
-                settingId,
-            });
-        });
-        releasenotes(LSSM);
-        // TODO: Load core modules: [support] ← Will be done in a more efficient way than polling
-
-        await LSSM.$store.dispatch('hook', {
-            event: 'radioMessage',
-            post: false,
-            callback(radioMessage: RadioMessage) {
-                if (
-                    radioMessage.type !== 'vehicle_fms' ||
-                    radioMessage.user_id !== window.user_id
-                )
-                    return;
-                const { id, fms, fms_real, user_id, caption } = radioMessage;
-                if (user_id === window.user_id)
-                    LSSM.$store.commit('api/setVehicleState', {
-                        fms,
-                        fms_real,
-                        id,
-                        caption,
-                    });
-            },
-        });
+        import(
+            /* webpackChunkName: "mainpageCore" */ './mainpageCore'
+        ).then(core => core.default(LSSM));
     }
+
     LSSM.$store
         .dispatch('storage/get', {
             key: 'activeModules',
             defaultValue: [],
         })
         .then((activeModules: string[]) => {
-            activeModules = activeModules.filter(module =>
+            let filteredActiveModules = activeModules.filter(module =>
                 LSSM.$store.state.modules.hasOwnProperty(module)
             );
-            if (LSSM.$store.state.mapkit)
-                activeModules = activeModules.filter(
+            if (LSSM.$store.state.mapkit) {
+                filteredActiveModules = filteredActiveModules.filter(
                     module => !LSSM.$store.state.modules[module].noMapkit
                 );
-            activeModules.forEach(async moduleId => {
+            }
+            filteredActiveModules.forEach(async moduleId => {
                 LSSM.$store.commit('setModuleActive', moduleId);
                 const $m = (key: string, args?: { [key: string]: unknown }) =>
                     LSSM.$t(`modules.${moduleId}.${key}`, args);

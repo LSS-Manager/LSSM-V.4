@@ -1,6 +1,7 @@
 import fs from 'fs';
-import packageJson from '../package.json';
+
 import libraries from '../src/libraries.json';
+import packageJson from '../package.json';
 
 const dependencies = Object.keys({
     ...packageJson.dependencies,

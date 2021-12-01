@@ -6,59 +6,83 @@
         :id="id"
     >
         <font-awesome-icon
-            class="pull-right hover-tip"
+            class="pull-right"
+            :class="{ 'hover-tip': settings.hoverTip }"
             :icon="minified ? faExpandAlt : faCompressAlt"
             :fixed-width="true"
             @click="toggleMinified"
         ></font-awesome-icon>
-        <div class="alert alert-info">
+        <div v-if="settings.hoverTip" class="alert alert-info">
             {{ $m('tip.minified') }}
         </div>
         <font-awesome-icon
             v-show="overlay"
             :icon="faArrowsAlt"
-            class="pull-right dragging-field hover-tip"
+            class="pull-right dragging-field"
+            :class="{ 'hover-tip': settings.hoverTip }"
             :fixed-width="true"
             @mousedown="dragStart"
         ></font-awesome-icon>
-        <div class="alert alert-info">
+        <div v-if="settings.hoverTip" class="alert alert-info">
             {{ $m('tip.dragging') }}
         </div>
         <font-awesome-icon
-            class="pull-right hover-tip"
+            class="pull-right"
+            :class="{ 'hover-tip': settings.hoverTip }"
             :icon="faSyncAlt"
             :spin="isReloading"
             :fixed-width="true"
             @click="reloadSpecs(true)"
         ></font-awesome-icon>
-        <div class="alert alert-info">
+        <div v-if="settings.hoverTip" class="alert alert-info">
             {{ $m('tip.reload') }}
         </div>
         <font-awesome-icon
-            class="pull-right hover-tip"
+            class="pull-right"
+            :class="{ 'hover-tip': settings.hoverTip }"
             :icon="overlay ? faAngleDoubleDown : faAngleDoubleUp"
             :fixed-width="true"
             @click="toggleOverlay"
         ></font-awesome-icon>
-        <div class="alert alert-info">
+        <div v-if="settings.hoverTip" class="alert alert-info">
             {{ $m('tip.overlay') }}
         </div>
         <font-awesome-icon
-            class="pull-right hover-tip"
+            class="pull-right"
+            :class="{ 'hover-tip': settings.hoverTip }"
             :icon="maxState ? faSubscript : faSuperscript"
             :fixed-width="true"
             @click="toggleMaximum"
         ></font-awesome-icon>
-        <div class="alert alert-info">
+        <div v-if="settings.hoverTip" class="alert alert-info">
             {{ $m('tip.maxState') }}
         </div>
         <span v-if="isDiyMission">{{ $m('diyMission') }}</span>
         <div v-else-if="missionSpecs">
             <h3 v-if="settings.title">
                 {{ missionSpecs.name }}
-                <small v-if="settings.place && missionSpecs.place">{{
-                    missionSpecs.place
-                }}</small>
+                <small v-if="settings.place && missionSpecs.place_array.length">
+                    <span v-if="missionSpecs.place_array.length === 1">
+                        {{ missionSpecs.place_array[0] }}
+                    </span>
+                    <span v-else>
+                        <span
+                            @click="$refs.poiList.classList.toggle('active')"
+                            class="poi-list-toggle"
+                        >
+                            POI
+                            <span class="caret"></span>
+                        </span>
+                        <ul class="poi-list" ref="poiList">
+                            <li
+                                v-for="place in missionSpecs.place_array"
+                                :key="place"
+                            >
+                                {{ place }}
+                            </li>
+                        </ul>
+                    </span>
+                </small>
                 <small v-if="settings.type">Type: {{ missionSpecs.id }}</small>
                 <small v-if="settings.id">ID: {{ missionId }}</small>
             </h3>
@@ -163,6 +187,17 @@
                     )
                 </li>
                 <li
+                    v-if="
+                        missionSpecs.chances.patient_critical_care &&
+                            settings.patients.critical_care
+                    "
+                    :data-amount="
+                        `${missionSpecs.chances.patient_critical_care}%`
+                    "
+                >
+                    {{ $m('patients.critical_care') }}
+                </li>
+                <li
                     v-if="missionSpecs.chances.nef"
                     :data-amount="`${missionSpecs.chances.nef}%`"
                 >
@@ -173,6 +208,14 @@
                     :data-amount="`${missionSpecs.chances.helicopter}%`"
                 >
                     {{ $m('patients.helicopter') }}
+                </li>
+                <li
+                    v-if="missionSpecs.chances.patient_other_treatment"
+                    :data-amount="
+                        `${missionSpecs.chances.patient_other_treatment}%`
+                    "
+                >
+                    {{ $m('patients.patient_other_treatment') }}
                 </li>
                 <li
                     v-if="
@@ -249,6 +292,11 @@
                     v-for="(amount, req) in missionSpecs.prerequisites"
                     :key="req"
                     :data-amount="amount"
+                    v-show="
+                        !['main_building', 'main_building_extensions'].includes(
+                            req
+                        )
+                    "
                 >
                     {{ $mc(`prerequisites.${req}`, amount) }}
                 </li>
@@ -277,12 +325,17 @@
                 class="badge badge-default"
                 v-for="req in specialRequirements.badge"
                 :key="req"
+                :amount="
+                    (amount =
+                        missionSpecs[$m(`noVehicleRequirements.${req}.in`)][
+                            req
+                        ])
+                "
             >
                 {{
-                    $mc(
-                        `noVehicleRequirements.${req}.text`,
-                        missionSpecs[$m(`noVehicleRequirements.${req}.in`)][req]
-                    )
+                    $mc(`noVehicleRequirements.${req}.text`, amount, {
+                        n: amount.toLocaleString(),
+                    })
                 }}
             </span>
             <br />
@@ -398,23 +451,25 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import { faSyncAlt } from '@fortawesome/free-solid-svg-icons/faSyncAlt';
-import { faAngleDoubleUp } from '@fortawesome/free-solid-svg-icons/faAngleDoubleUp';
+
+import cloneDeep from 'lodash/cloneDeep';
 import { faAngleDoubleDown } from '@fortawesome/free-solid-svg-icons/faAngleDoubleDown';
+import { faAngleDoubleUp } from '@fortawesome/free-solid-svg-icons/faAngleDoubleUp';
 import { faArrowsAlt } from '@fortawesome/free-solid-svg-icons/faArrowsAlt';
 import { faCompressAlt } from '@fortawesome/free-solid-svg-icons/faCompressAlt';
 import { faExpandAlt } from '@fortawesome/free-solid-svg-icons/faExpandAlt';
-import { faSuperscript } from '@fortawesome/free-solid-svg-icons/faSuperscript';
 import { faSubscript } from '@fortawesome/free-solid-svg-icons/faSubscript';
+import { faSuperscript } from '@fortawesome/free-solid-svg-icons/faSuperscript';
+import { faSyncAlt } from '@fortawesome/free-solid-svg-icons/faSyncAlt';
+
+import { DefaultProps } from 'vue/types/options';
+import { Mission } from 'typings/Mission';
 import {
     MissionHelper,
-    MissionHelperMethods,
     MissionHelperComputed,
+    MissionHelperMethods,
     VehicleRequirements,
 } from 'typings/modules/MissionHelper';
-import { Mission } from 'typings/Mission';
-import { DefaultProps } from 'vue/types/options';
-import cloneDeep from 'lodash/cloneDeep';
 
 export default Vue.extend<
     MissionHelper,
@@ -422,7 +477,7 @@ export default Vue.extend<
     MissionHelperComputed,
     DefaultProps
 >({
-    name: 'missionHelper',
+    name: 'lssmv4-missionHelper',
     data() {
         return {
             faSyncAlt,
@@ -468,14 +523,18 @@ export default Vue.extend<
                     battalion_chief_vehicles: false,
                     platform_trucks: false,
                     police_cars: false,
+                    sheriff_unit: false,
                 },
                 optionalAlternatives: {
                     allow_rw_instead_of_lf: false,
                     allow_arff_instead_of_lf: false,
                     allow_ktw_instead_of_rtw: false,
+                    allow_dlk_instead_of_lf: false,
                     allow_drone_instead_of_investigation: false,
                 },
                 patients: {
+                    code_possible: false,
+                    critical_care: false,
                     title: false,
                     content: false,
                     live: false,
@@ -495,8 +554,10 @@ export default Vue.extend<
                 k9_only_if_needed: false,
                 bucket_only_if_needed: false,
                 hide_battalion_chief_vehicles: false,
+                max_civil_patrol_replace_police_cars: false,
                 bike_police_only_if_needed: false,
                 noVehicleRequirements: [],
+                hoverTip: false,
             },
             noVehicleRequirements: Object.keys(
                 this.$m('noVehicleRequirements')
@@ -569,51 +630,69 @@ export default Vue.extend<
         async reloadSpecs(force = false) {
             this.isReloading = true;
 
+            await this.$store.dispatch('api/getMissions', {
+                force,
+                feature: 'missionHelper-getMission',
+            });
+
             const missionHelpBtn = document.getElementById('mission_help');
             this.isDiyMission = !missionHelpBtn;
 
             this.missionSpecs = undefined;
 
-            if (!this.isDiyMission)
-                this.missionSpecs = await this.getMission(
-                    parseInt(
-                        missionHelpBtn
-                            ?.getAttribute('href')
-                            ?.match(/(?!^\/einsaetze\/)\d+/)?.[0] || '-1'
-                    ),
-                    force
-                );
+            const missionType =
+                missionHelpBtn
+                    ?.getAttribute('href')
+                    ?.match(/(?!^\/einsaetze\/)\d+/)?.[0] || '-1';
+
+            if (!this.isDiyMission) {
+                let specs;
+                const overlayIndex =
+                    document
+                        .getElementById('mission_general_info')
+                        ?.getAttribute('data-overlay-index') ?? 'null';
+                if (overlayIndex !== 'null') {
+                    specs = await this.getMission(
+                        `${missionType}-${overlayIndex}`
+                    );
+                } else {
+                    specs = await this.getMission(missionType);
+                }
+                this.missionSpecs = specs;
+            }
 
             this.isReloading = false;
         },
-        async getMission(id, force) {
-            const missions = (await this.$store.dispatch(
-                'api/getMissions',
-                force
-            )) as Mission[];
-            const mission = missions?.find(spec => spec.id === id);
+        async getMission(id) {
+            const missionsById: Record<string, Mission> = this.$store.getters[
+                'api/missionsById'
+            ];
+            const mission: Mission | undefined = missionsById[id];
             if (mission) {
-                if (this.settings.expansions && mission.additional)
+                if (this.settings.expansions && mission.additional) {
                     mission.additional.expansion_missions_names = Object.fromEntries(
                         mission.additional.expansion_missions_ids?.map(id => [
                             id,
-                            missions.find(spec => spec.id === id)?.name || '',
+                            missionsById[id.toString()]?.name || '',
                         ]) || []
                     );
-                if (this.settings.followup && mission.additional)
+                }
+                if (this.settings.followup && mission.additional) {
                     mission.additional.followup_missions_names = Object.fromEntries(
                         mission.additional.followup_missions_ids?.map(id => [
                             id,
-                            missions.find(spec => spec.id === id)?.name || '',
+                            missionsById[id.toString()]?.name || '',
                         ]) || []
                     );
-                if (this.settings.subsequent && mission.additional)
+                }
+                if (this.settings.subsequent && mission.additional) {
                     mission.additional.subsequent_missions_names = Object.fromEntries(
                         mission.additional.subsequent_missions_ids?.map(id => [
                             id,
-                            missions.find(spec => spec.id === id)?.name || '',
+                            missionsById[id.toString()]?.name || '',
                         ]) || []
                     );
+                }
             }
             return mission;
         },
@@ -680,6 +759,11 @@ export default Vue.extend<
         },
         async dragEnd() {
             this.drag.active = false;
+            await this.$store.dispatch('settings/setSetting', {
+                moduleId: 'missionHelper',
+                settingId: `drag`,
+                value: this.drag,
+            });
             document.body.classList.remove('lssm-is-dragging');
             document.removeEventListener('mouseup', this.dragEnd);
             document.removeEventListener('mousemove', this.dragging);
@@ -730,6 +814,14 @@ export default Vue.extend<
                         vehicleName = 'bike_police_only_if_needed';
                     if (
                         !isMaxReq &&
+                        vehicle === 'civil_patrol' &&
+                        missionSpecs?.additional
+                            .max_civil_patrol_replacing_police_cars &&
+                        this.settings.max_civil_patrol_replace_police_cars
+                    )
+                        vehicleName = 'max_civil_patrol_replace_police_cars';
+                    if (
+                        !isMaxReq &&
                         this.settings.hide_battalion_chief_vehicles &&
                         vehicle === 'battalion_chief_vehicles'
                     )
@@ -746,13 +838,14 @@ export default Vue.extend<
                         !isMaxReq &&
                         this.settings.hide_battalion_chief_vehicles &&
                         vehicle === 'mobile_command_vehicles'
-                    )
+                    ) {
                         vehicles[vehicle].amount = Math.max(
                             vehicles[vehicle].amount,
                             missionSpecs?.requirements[
                                 'battalion_chief_vehicles'
                             ] ?? 0
                         );
+                    }
                 });
 
             if (this.settings.vehicles.patient_additionals) {
@@ -764,6 +857,11 @@ export default Vue.extend<
                 Object.keys(patientAdditionals).forEach(
                     patients =>
                         this.currentPatients >= parseInt(patients) &&
+                        !Object.values(vehicles).find(
+                            ({ caption }) =>
+                                caption ===
+                                patientAdditionals[parseInt(patients)]
+                        ) &&
                         (vehicles[`patients_${patients}`] = {
                             amount: 1,
                             caption: patientAdditionals[parseInt(patients)],
@@ -787,7 +885,7 @@ export default Vue.extend<
                     if (
                         missionSpecs?.additional.hasOwnProperty(alt) &&
                         missionSpecs.additional[alt]
-                    )
+                    ) {
                         return Object.keys(optionalAlternatives[alt]).forEach(
                             rep => {
                                 if (
@@ -802,6 +900,7 @@ export default Vue.extend<
                                 ).toString();
                             }
                         );
+                    }
                 });
             }
             const multifunctionals = (this.$m(
@@ -834,7 +933,13 @@ export default Vue.extend<
                     ].additionalText =
                         this.$mc(
                             `vehicles.multifunctionals.${vehicle}.additional_text`,
-                            vehicles[vehicle].old || 0
+                            (vehicles[vehicle].old ?? 0) >
+                                vehicles[multifunctionals[vehicle].reduce_from]
+                                    .amount
+                                ? vehicles[
+                                      multifunctionals[vehicle].reduce_from
+                                  ].amount
+                                : vehicles[vehicle].old || 0
                         )?.toString() ?? '';
                 }
             });
@@ -869,36 +974,43 @@ export default Vue.extend<
                     0,
                     1
                 )?.[0];
-                const specs = await this.getMission(expansionId, false);
+                const specs = await this.getMission(expansionId.toString());
                 this.maxMissionSpecs.average_credits = Math.max(
                     this.maxMissionSpecs.average_credits ?? 0,
                     specs?.average_credits ?? 0
                 );
                 Object.entries(specs?.requirements ?? {}).forEach(
                     ([req, amount]) => {
-                        if (this.maxMissionSpecs)
+                        if (this.maxMissionSpecs) {
                             this.maxMissionSpecs.requirements[req] = Math.max(
                                 this.maxMissionSpecs.requirements[req] ?? 0,
                                 amount ?? 0
                             );
+                        }
                     }
                 );
                 Object.entries(specs?.prerequisites ?? {}).forEach(
                     ([req, amount]) => {
-                        if (this.maxMissionSpecs)
+                        if (this.maxMissionSpecs) {
+                            let maxReq = this.maxMissionSpecs.prerequisites[
+                                req
+                            ];
+                            if (typeof maxReq !== 'number') maxReq = 0;
                             this.maxMissionSpecs.prerequisites[req] = Math.max(
-                                this.maxMissionSpecs.prerequisites[req] ?? 0,
-                                amount ?? 0
+                                maxReq ?? 0,
+                                (typeof amount === 'number' ? amount : 0) ?? 0
                             );
+                        }
                     }
                 );
                 Object.entries(specs?.chances ?? {}).forEach(
                     ([req, amount]) => {
-                        if (this.maxMissionSpecs)
+                        if (this.maxMissionSpecs) {
                             this.maxMissionSpecs.chances[req] = Math.max(
                                 this.maxMissionSpecs.chances[req] ?? 100,
                                 amount ?? 100
                             );
+                        }
                     }
                 );
                 this.maxMissionSpecs?.additional?.expansion_missions_ids?.push(
@@ -936,7 +1048,7 @@ export default Vue.extend<
                     if (
                         this.maxMissionSpecs &&
                         this.maxMissionSpecs.additional.personnel_educations
-                    )
+                    ) {
                         this.maxMissionSpecs.additional.personnel_educations[
                             req
                         ] = Math.max(
@@ -944,6 +1056,7 @@ export default Vue.extend<
                                 .personnel_educations[req] ?? 0,
                             amount ?? 0
                         );
+                    }
                 });
                 if (
                     !this.maxMissionSpecs.additional.all_patient_specializations
@@ -954,10 +1067,11 @@ export default Vue.extend<
                     !this.maxMissionSpecs.additional.all_patient_specializations.includes(
                         specs?.additional.patient_specializations
                     )
-                )
+                ) {
                     this.maxMissionSpecs.additional.all_patient_specializations.push(
                         specs?.additional.patient_specializations
                     );
+                }
             }
         },
         toggleMaximum() {
@@ -986,6 +1100,13 @@ export default Vue.extend<
                 defaultValue: false,
             })
             .then(minified => (this.minified = minified));
+        this.$store
+            .dispatch('settings/getSetting', {
+                moduleId: 'missionHelper',
+                settingId: 'drag',
+                defaultValue: false,
+            })
+            .then(drag => (this.drag = drag));
     },
     mounted() {
         Object.keys(this.settings).forEach(id =>
@@ -1047,7 +1168,7 @@ export default Vue.extend<
         &.dragging-field
             cursor: move
 
-    ul li
+    ul:not(.poi-list) li
         list-style: none
 
         &::before
@@ -1073,4 +1194,14 @@ export default Vue.extend<
 
     .badge
         margin-right: 0.3rem
+
+
+    .poi-list-toggle
+        cursor: pointer
+
+    .poi-list
+        display: none
+
+        &.active
+            display: block
 </style>

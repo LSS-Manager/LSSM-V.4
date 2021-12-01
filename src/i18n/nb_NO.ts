@@ -1,7 +1,5 @@
 // import { Building } from 'typings/Building';
 
-// Commented as dir ./en_US does not exist currently
-// const furtherFiles = require.context('./en_US/', true, /.*(\/index)?\.js(on)?/);
 const modules = {
     appstore: {
         save: 'Lagre',
@@ -51,18 +49,8 @@ const modules = {
     },
 } as { [moduleId: string]: { [key: string]: unknown } };
 
-const t = {} as { [key: string]: unknown };
-
-// Commented as dir ./en_US does not exist currently
-// furtherFiles
-//     .keys()
-//     .forEach(
-//         key => (t[key.split('/')[1].replace(/\..*$/, '')] = furtherFiles(key))
-//     );
-
 export default {
     modules,
-    ...t,
     error: {
         title: 'LSS Manager: Error',
         msg:
@@ -76,6 +64,12 @@ export default {
             close: 'Lukk vindu og omlast spillet (anbefalt).',
             abort: 'Likk vindu uten å omlaste spillet',
         },
+    },
+    anniversary1: {
+        closeNote: 'Tip: You can also click on the balloons to close!',
+        title: '🎉 There is reason to celebrate! 🎉',
+        content:
+            'Wow, how fast time flies!<br>It\'s been <b>one year</b> since the LSS Manager V.4 went online! A lot has happened this year, of course, and so on this special occasion we would like to say a special thank you to you, the users. The joy with which you test our new features inspires us again and again and gives us new motivation to continue. Also, a big thank you goes out to our translators who volunteer their time to make the LSSM usable in other versions of the game.</br>To celebrate, we\'d like to share a few facts and figures here:<ul><li><code>February 10th 2020</code>: The First Commit on GitHub was made: <a href="https://github.com/LSS-Manager/LSSM-V.4/commit/6e95836" target="_blank">6e95836</a>. Since then we have made over 5,600 commits!</li><li><code>September 19th, 2020</code>: V.4 was officially announced for the first time on the forum: <a href="https://forum.leitstellenspiel.de/index.php?thread/19176-lss-manager-v-4/" target="_blank">LSS Manager V.4</a>. With this, the application phase for beta testers has also started</li><li><code>October 17th 2020</code>: Beta testers have been given access to V.4 for the first time. The 4-week beta phase has thus started</li><li><code>November 21st 2020</code>: LSS Manager V.4 goes online for everyone!</li><li>Our telemetry currently records around 5,000 users in the past 6 months. Of these, over 2,200 were active in the last 14 days. The dark figure (number of users who have deactivated telemetry) can not be estimated.</li><li>Our thread in the forum has now reached almost 1,200 messages. That\'s quite a bit, but the V.3 thread, which is currently scratching the 3,500 responses, is far from catching up.</li><li>For more stats, check out our thread in the forum:<a href="https://forum.leitstellenspiel.de/index.php?thread/19176-lss-manager-v-4/" target="_blank">LSS Manager V.4</a></li></ul><br>We\'re looking forward to many more great moments in the time of LSSM V.4!<br>Your LSSM Team<br>Jan, Sanni & Ron',
     },
     globalSettings: {
         name: 'Innstillinger',
@@ -107,6 +101,8 @@ export default {
             credits: 5_000,
             minPersonnel: 1,
             maxPersonnel: 6,
+            wtank: 2500,
+            ftank: 200,
         },
         1: {
             caption: 'Lett mannskapsbil',
@@ -115,6 +111,8 @@ export default {
             credits: 5_000,
             minPersonnel: 1,
             maxPersonnel: 3,
+            wtank: 500,
+            ftank: 50,
         },
         2: {
             caption: 'Stigebil',
@@ -158,6 +156,8 @@ export default {
             credits: 17_300,
             minPersonnel: 1,
             maxPersonnel: 3,
+            ftank: 400,
+            wtank: 10000,
             special: 'Nødvendig etter at du har bygd 7 brannstasjoner.',
         },
         7: {
@@ -168,8 +168,13 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 6,
             special: 'Nødvendig etter at du har bygd 11 brannstasjoner.',
-            schooling: 'Krever spesialistutdanning (CBRNe-enhet)',
-            shownSchooling: 'CBRNe-enhet',
+            schooling: {
+                Brannstasjon: {
+                    'CBRNe-enhet': {
+                        all: true,
+                    },
+                },
+            },
         },
         8: {
             caption: 'Patruljebil',
@@ -204,8 +209,13 @@ export default {
             credits: 300_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            schooling: 'Police - Police Aviation',
-            shownSchooling: 'Police Aviation',
+            schooling: {
+                Politi: {
+                    Politihelikopterflyvning: {
+                        all: true,
+                    },
+                },
+            },
         },
         12: {
             caption: 'Pansret kjøretøy',
@@ -214,8 +224,13 @@ export default {
             credits: 17_300,
             minPersonnel: 6,
             maxPersonnel: 6,
-            schooling: 'Police - Våpentrening',
-            shownSchooling: 'Våpentrening',
+            schooling: {
+                Politi: {
+                    Våpentrening: {
+                        all: true,
+                    },
+                },
+            },
             special: 'Nødvendig etter at du har bygt 8 politistasjoner.',
         },
         13: {
@@ -225,8 +240,13 @@ export default {
             credits: 7_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            schooling: 'Politi - Hundepatrulje',
-            shownSchooling: 'Hundepatrulje',
+            schooling: {
+                Politi: {
+                    Hundepatrulje: {
+                        all: true,
+                    },
+                },
+            },
             special: 'Nødvendig etter at du har bygt 6 politistasjoner.',
         },
         14: {
@@ -236,8 +256,13 @@ export default {
             credits: 2_500,
             minPersonnel: 1,
             maxPersonnel: 1,
-            schooling: 'Politi - Politimotorsykkel',
-            shownSchooling: 'Politimotorsykkel',
+            schooling: {
+                Politi: {
+                    Politimotorsykkel: {
+                        all: true,
+                    },
+                },
+            },
         },
         15: {
             caption: 'Delta kjøretøy',
@@ -246,9 +271,13 @@ export default {
             credits: 7_000,
             minPersonnel: 2,
             maxPersonnel: 4,
-            special: 'Required once you have built 8 police stations',
-            schooling: 'Politi - Våpentrening',
-            shownSchooling: 'Våpentrening',
+            schooling: {
+                Politi: {
+                    Våpentrening: {
+                        all: true,
+                    },
+                },
+            },
         },
         16: {
             caption: 'Røykdykkerbil',
@@ -266,8 +295,13 @@ export default {
             credits: 25_500,
             minPersonnel: 1,
             maxPersonnel: 6,
-            schooling: 'Krever spesialistutdanning (Skadestedsledelse) ',
-            shownSchooling: 'Innsatsstøttebil',
+            schooling: {
+                Brannstasjon: {
+                    Skadestedsledelse: {
+                        all: true,
+                    },
+                },
+            },
             special: 'Nødvendig etter at du har bygd 13 brannstasjoner.',
         },
         18: {
@@ -277,7 +311,8 @@ export default {
             credits: 12_180,
             minPersonnel: 1,
             maxPersonnel: 4,
-            special: 'Nødvendig etter at du har bygd 4 brannstasjoner.',
+            wtank: 2000,
+            ftank: 150,
         },
         19: {
             caption: 'Dykkerbil',
@@ -286,6 +321,13 @@ export default {
             credits: 10_000,
             minPersonnel: 4,
             maxPersonnel: 5,
+            schooling: {
+                Brannstasjon: {
+                    'Redningsdykker kurs': {
+                        all: true,
+                    },
+                },
+            },
             special: 'Krever spesialistutdanning (Redningsdykker kurs)',
         },
         20: {
@@ -305,6 +347,8 @@ export default {
             credits: 19_000,
             minPersonnel: 1,
             maxPersonnel: 6,
+            wtank: 8000,
+            ftank: 300,
         },
         22: {
             caption: 'Utrykningspolitibil',
@@ -313,8 +357,13 @@ export default {
             credits: 10_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            schooling: 'Politi - Utrykningspoliti',
-            shownSchooling: 'Utrykningspoliti',
+            schooling: {
+                Politi: {
+                    Utrykningspoliti: {
+                        all: true,
+                    },
+                },
+            },
         },
         23: {
             caption: 'Utrykningsenhetbil',
@@ -323,8 +372,16 @@ export default {
             credits: 19_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            schooling: 'Politi - Våpentrening',
-            shownSchooling: 'Våpentrening',
+            schooling: {
+                Politi: {
+                    Utrykningspoliti: {
+                        all: true,
+                    },
+                    Våpentrening: {
+                        all: true,
+                    },
+                },
+            },
         },
         24: {
             caption: 'Legebil',
@@ -333,8 +390,13 @@ export default {
             credits: 4_000,
             minPersonnel: 1,
             maxPersonnel: 1,
-            schooling: 'Redning - Legevaktslege',
-            shownSchooling: 'Legevaktslege',
+            schooling: {
+                Redning: {
+                    Intensivbehandling: {
+                        all: true,
+                    },
+                },
+            },
             special: 'Krever spesialistutdanning (Legevaktslege)',
         },
         25: {
@@ -345,6 +407,162 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 1,
             special: 'Nødvendig etter at du har bygd 10 redningsstasjoner',
+        },
+        26: {
+            caption: 'Akuttbil',
+            color: '#9c1c1c',
+            coins: 20,
+            credits: 4_000,
+            minPersonnel: 2,
+            maxPersonnel: 2,
+        },
+        27: {
+            caption: 'Ambulansemotorsykkel',
+            color: '#9c1c1c',
+            coins: 20,
+            credits: 4_000,
+            minPersonnel: 1,
+            maxPersonnel: 1,
+            schooling: {
+                Redning: {
+                    Ambulansemotorsykkel: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        28: {
+            caption: 'Syketransport',
+            color: '#9c1c1c',
+            coins: 12,
+            credits: 5_000,
+            minPersonnel: 2,
+            maxPersonnel: 2,
+        },
+        29: {
+            caption: 'First responder bil',
+            color: '#9c1c1c',
+            coins: 25,
+            credits: 4_000,
+            minPersonnel: 1,
+            maxPersonnel: 1,
+        },
+        30: {
+            caption: 'Akutthjelper',
+            color: '#9c1c1c',
+            coins: 12,
+            credits: 2_500,
+            minPersonnel: 1,
+            maxPersonnel: 1,
+            schooling: {
+                Redning: {
+                    Intensivbehandling: {
+                        all: true,
+                    },
+                },
+            },
+            special: 'Krever spesialistutdanning (Legevaktslege)',
+        },
+        31: {
+            caption: 'Intensivambulanse',
+            color: '#9c1c1c',
+            coins: 30,
+            credits: 10_000,
+            minPersonnel: 3,
+            maxPersonnel: 3,
+            schooling: {
+                Redning: {
+                    Intensivbehandling: {
+                        all: true,
+                    },
+                },
+            },
+            special: 'Krever spesialistutdanning (Legevaktslege)',
+        },
+        32: {
+            caption: 'Akuttbil',
+            color: '#9c1c1c',
+            coins: 20,
+            credits: 4_000,
+            minPersonnel: 2,
+            maxPersonnel: 4,
+        },
+        33: {
+            caption: 'Skogbrannhelikopter',
+            color: '#570f0f',
+            coins: 25,
+            credits: 300_000,
+            minPersonnel: 2,
+            maxPersonnel: 5,
+            wtank: 2_000,
+            schooling: {
+                Brannstasjon: {
+                    'Skogbrann helikopterutdanning': {
+                        all: true,
+                    },
+                },
+            },
+        },
+        34: {
+            caption: 'ATV',
+            color: '#570f0f',
+            coins: 5,
+            credits: 5_000,
+            minPersonnel: 1,
+            maxPersonnel: 2,
+            wtank: 2_000,
+            schooling: {
+                Brannstasjon: {
+                    ATV: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        35: {
+            caption: 'Skum Tankbil',
+            color: '#570f0f',
+            coins: 15,
+            credits: 35_000,
+            minPersonnel: 2,
+            maxPersonnel: 3,
+            ftank: 3_000,
+        },
+        36: {
+            caption: 'Tilhengerpumpe',
+            color: '#570f0f',
+            coins: 10,
+            credits: 10_000,
+            minPersonnel: 0,
+            maxPersonnel: 0,
+            special:
+                'Et egnet kjøretøy trengs for å trekke tilhengeren / båthenger. (Mannskapsbil, Lett mannskapsbil, Tankbil, Skum Tankbil)',
+        },
+        37: {
+            caption: 'Slangebil',
+            color: '#570f0f',
+            coins: 10,
+            credits: 20_000,
+            minPersonnel: 2,
+            maxPersonnel: 3,
+        },
+        38: {
+            caption: 'Slangebil med pumpe',
+            color: '#570f0f',
+            coins: 15,
+            credits: 40_000,
+            minPersonnel: 2,
+            maxPersonnel: 3,
+        },
+        39: {
+            caption: 'Slangetilhenger',
+            color: '#570f0f',
+            coins: 10,
+            credits: 20_000,
+            minPersonnel: 0,
+            maxPersonnel: 0,
+            special:
+                'Et egnet kjøretøy trengs for å trekke tilhengeren / båthenger. (Mannskapsbil, Lett mannskapsbil, Tankbil, Skum Tankbil)',
         },
     },
     buildings: {
@@ -367,20 +585,26 @@ export default {
                     duration: '7 dager',
                 },
                 {
+                    caption: 'Brann Støtte utvidelse',
+                    credits: 150_000,
+                    coins: 15,
+                    duration: '5 dager',
+                },
+                {
                     caption: 'Vannredningsutvidelse',
                     credits: 100_000,
                     coins: 20,
                     duration: '7 dager',
                 },
             ],
-            levelcost: ['1. 10.000', '2. 50.000', '3.-39. 100.000'],
-            maxBuildings: '4.400 sammen med små brannstasjoner',
-            maxLevel: 39,
+            levelcost: ['1. 10.000', '2. 50.000', '3.-24. 100.000'],
+            maxBuildings: '5.000 sammen med små brannstasjoner',
+            maxLevel: 24,
             special:
                 'Fra og med den 24. brannstasjonen øker kostnadene for å bygge en ny brannstasjon i henhold til følgende formel: <code> 100.000 + 200.000 * LOG <sub> 2 </sub> (Antall eksisterende brannstasjoner - 22) </code>. Myntprisen forblir konstant!',
             startPersonnel: 10,
             startVehicles: ['Mannskapsbil', 'Lett mannskapsbil'],
-            maxBuildingsFunction: (): number => 4_400,
+            maxBuildingsFunction: (): number => 5_000,
         },
         1: {
             caption: 'Brannskole',
@@ -406,7 +630,14 @@ export default {
             color: '#ffa500',
             coins: 35,
             credits: 200_000,
-            extensions: [],
+            extensions: [
+                {
+                    caption: 'Intensivbehandling utvidelse',
+                    credits: 200_000,
+                    coins: 25,
+                    duration: '7 dager',
+                },
+            ],
             levelcost: ['1. 10.000', '2. 50.000', '3.-39. 100.000'],
             maxBuildings: 'Ingen grense',
             maxLevel: 39,
@@ -654,13 +885,13 @@ export default {
                 '3.-5. 100.000',
                 'Konvertering til normal vakt: differansepris til normal vakt',
             ],
-            maxBuildings: '4.400 sammen med brannstasjoner',
+            maxBuildings: '5.000 sammen med brannstasjoner',
             maxLevel: 5,
             special:
                 'Fra og med den 24. brannstasjonen øker kostnadene for å bygge en ny brannstasjon i henhold til følgende formel: <code> (100.000 + 200.000 * LOG <sub> 2 </sub> (Antall eksisterende brannstasjoner - 22)) / 2 </code>. maks. 1 million kreditter. Myntprisen forblir konstant!',
             startPersonnel: 10,
             startVehicles: ['Mannskapsbil', 'Lett mannskapsbil'],
-            maxBuildingsFunction: (): number => 4_400,
+            maxBuildingsFunction: (): number => 5_000,
         },
         19: {
             caption: 'Politistasjon (liten)',
@@ -733,11 +964,55 @@ export default {
             startPersonnel: 0,
             startVehicles: ['Ikke. Du kan kjøpe maks. 2 Kjøretøy'],
         },
+        22: {
+            caption: 'Stort kompleks',
+            color: '#8B4513',
+            coins: 'For dyrt',
+            credits: 'For dyrt',
+            extensions: [],
+            levelcost: ['For dyrt'],
+            maxBuildings: 'Keine Grenze',
+            maxLevel: 5,
+            special: 'FOR DYRT, IKKE KJØP DEN, IKKE UTVIDD DEN',
+            startPersonnel: 'there is none',
+            startVehicles: [''],
+        },
+        23: {
+            caption: 'Lite kompleks',
+            color: '#8B4513',
+            coins: 'For dyrt',
+            credits: 'For dyrt',
+            extensions: [],
+            levelcost: ['For dyrt'],
+            maxBuildings: 'Keine Grenze',
+            maxLevel: 5,
+            special: 'FOR DYRT, IKKE KJØP DEN, IKKE UTVIDD DEN',
+            startPersonnel: 'there is none',
+            startVehicles: [''],
+        },
+        25: {
+            caption: 'Brannheliport',
+            color: '#148423',
+            coins: 50,
+            credits: 1_000_000,
+            extensions: [],
+            levelcost: ['1. 1.000.000 kreditter / 50 mynter'],
+            maxBuildings: 'se spesiells',
+            maxLevel: 1,
+            special:
+                'Opptil 3 landingsplasser kan bygges per stasjon (utvidelsesetapper). Opp til den 125. bygningen (av alle typer) totalt maks. Fire landingsplasser kan bygges. Deretter øker antallet med 1 hver 25. bygning (begynner på 125).',
+            startPersonnel: 2,
+            startVehicles: ['Skogbrannhelikopter'],
+            maxBuildingsFunction: (buildingsAmountTotal: number): number =>
+                buildingsAmountTotal < 125
+                    ? 3
+                    : Math.floor(buildingsAmountTotal / 25),
+        },
     },
 
     buildingCategories: {
         Brann: {
-            buildings: [1, 2, 3],
+            buildings: [1, 2, 3, 25],
             color: '#ff2d2d',
         },
         Helse: {
@@ -749,7 +1024,7 @@ export default {
             color: '#00ac00',
         },
         Annet: {
-            buildings: [0, 12],
+            buildings: [0, 12, 22, 23],
             color: '#02a18c',
         },
     },
@@ -758,14 +1033,14 @@ export default {
             vehicles: {
                 'Fire trucks': [0, 1, 10, 18, 20],
                 'WaterTanker': [6, 20],
-                'Special vehicles': [2, 3, 4, 6, 7, 10, 16, 17],
+                'Special vehicles': [2, 3, 4, 6, 7, 10, 16, 17, 29, 32],
                 'Boats': [19],
             },
             color: '#ff2d2d',
         },
         'Rescue Vehicles': {
             vehicles: {
-                'Ambulances': [5],
+                'Ambulances': [5, 26, 27, 28, 30, 31],
                 'HEMS': [9],
                 'First Responder': [0, 1],
                 'Rescue Boat': [19],
@@ -811,50 +1086,76 @@ export default {
             {
                 caption: 'CBRNe-enhet',
                 duration: '3 dager',
+                staffList: 'CBRNe-enhet',
             },
             {
                 caption: 'Skadestedsledelse',
                 duration: '5 dager',
+                staffList: 'Skadestedsledelse',
             },
             {
                 caption: 'ARFF-Training',
                 duration: '3 dager',
-            },
-            {
-                caption: 'Redningsdykker kurs',
-                duration: '4 dager',
+                staffList: 'ARFF-Training',
             },
             {
                 caption: 'Sjønavigering',
                 duration: '5 dager',
+                staffList: 'Sjønavigering',
+            },
+            {
+                caption: 'Redningsdykker kurs',
+                duration: '4 dager',
+                staffList: 'Redningsdykker kurs',
+            },
+            {
+                caption: 'Skogbrann helikopterutdanning',
+                duration: '5 dager',
+                staffList: 'Skogbrann helikopterutdanning',
+            },
+            {
+                caption: 'ATV',
+                duration: '3 dager',
+                staffList: 'ATV',
             },
         ],
         Politi: [
             {
                 caption: 'Politihelikopterflyvning',
                 duration: '7 dager',
+                staffList: 'Politihelikopterflyvning',
             },
             {
                 caption: 'Våpentrening',
                 duration: '5 dager',
+                staffList: 'Våpentrening',
             },
             {
                 caption: 'Hundepatrulje',
                 duration: '5 dager',
+                staffList: 'Hundepatrulje',
             },
             {
                 caption: 'Politimotorsykkel',
                 duration: '3 dager',
+                staffList: 'Politimotorsykkel',
             },
             {
                 caption: 'Utrykningspoliti',
                 duration: '3 dager',
+                staffList: 'Utrykningspoliti',
             },
         ],
         Redning: [
             {
-                caption: 'Legevaktslege',
+                caption: 'Intensivbehandling',
                 duration: '5 dager',
+                staffList: 'Intensivbehandling',
+            },
+            {
+                caption: 'Ambulansemotorsykkel',
+                duration: '3 dager',
+                staffList: 'Ambulansemotorsykkel',
             },
         ],
     },
@@ -864,6 +1165,7 @@ export default {
     premiumNotice:
         'Denne utvidelsen utvider en premium funksjon av spillet, og er derfor kun tilgjengelig for premium brukere av Nødsentralspillet.',
     credits: 'Kreditter',
+    coins: 'Mynter',
     close: 'Lukk',
     fullscreen: {
         expand: 'Aktiver fullskjerm',
@@ -875,6 +1177,7 @@ export default {
     station: 'Stasjoner | Stasjon | Stasjoner',
     distance: 'Distanse | Distanser',
     vehicleType: 'Kjøretøytype',
+    noOptions: 'Sorry, no matching options.',
     fmsReal2Show: {
         1: 1,
         2: 2,
@@ -931,7 +1234,7 @@ export default {
         'Gård',
         'Kontorbygning',
         'Basseng',
-        '',
+        'Planovergang',
         'Teater',
         'Tivoli',
         'Elv',
@@ -965,7 +1268,49 @@ export default {
         'Snekkerverksted',
         'Restaurant',
         'Sentrum',
+        'Ås',
+        'Brygge',
+        'Lekeplassutstyr',
+        'Motocrossbane',
+        'Omsorgsbolig',
+        'Atomkraftverk',
+        'Felt',
+        'Kratt',
+        'Lyng',
+        'Hytte',
+        'Campingplass',
+        'Klippe',
+        'Sagbruk',
+        'Propan lager',
     ],
     only_alliance_missions: [57, 74],
-    transfer_missions: [77],
+    transfer_missions: [306, 307],
+    ranks: {
+        missionchief: {
+            0: 'Brannaspirant',
+            200: 'Brannkonstabel',
+            10_000: 'Underbrannmester',
+            100_000: 'Brannmester',
+            1_000_000: 'Overbrannmester',
+            5_000_000: 'Brigadeleder',
+            20_000_000: 'Brigadesjef',
+            50_000_000: 'Seksjonsleder',
+            1_000_000_000: 'Avdelingsleder',
+            2_000_000_000: 'Varabrannsjef',
+            5_000_000_000: 'Brannsjef',
+        },
+        policechief: {
+            0: 'Politistudent',
+            200: 'Politibetjent 1',
+            10_000: 'Politibetjent 2',
+            100_000: 'Politibetjent 3',
+            1_000_000: 'Politiførstebetjent',
+            5_000_000: 'Politioverbetjent',
+            20_000_000: 'Politistasjonssjef',
+            50_000_000: 'Politifullmektig',
+            1_000_000_000: 'Politiadvokat',
+            2_000_000_000: 'Politimester',
+            5_000_000_000: 'Politidirektør',
+        },
+    },
 };

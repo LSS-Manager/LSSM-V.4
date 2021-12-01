@@ -1,14 +1,240 @@
 {
+	"collapsableMissions": {
+		"all": {
+			"collapse": "Alle Einsätze einklappen",
+			"expand": "Alle Einsätze ausklappen"
+		},
+		"collapse": "Diesen Einsatz einklappen",
+		"expand": "Diesen Einsatz ausklappen"
+	},
 	"description": "Erweitert die Einsatzliste um coole Features!",
+	"eventMissions": {
+		"default": {
+			"🌞": [
+				183,
+				184,
+				185,
+				461,
+				546,
+				547,
+				548,
+				646,
+				647,
+				648
+			],
+			"🌹": [
+				360,
+				361,
+				362,
+				363,
+				364,
+				365,
+				597,
+				598,
+				599,
+				600,
+				601,
+				602,
+				603,
+				604,
+				605
+			],
+			"🍂": [
+				672,
+				673,
+				674,
+				675,
+				676,
+				677,
+				678,
+				679,
+				680
+			],
+			"🍺": [
+				88,
+				216,
+				217,
+				218,
+				219,
+				220,
+				452,
+				453,
+				454,
+				456,
+				457,
+				626,
+				627,
+				628,
+				629,
+				630
+			],
+			"🎃": [
+				111,
+				112,
+				113,
+				114,
+				115,
+				116,
+				117,
+				118,
+				119
+			],
+			"🎅": [
+				52,
+				53,
+				54,
+				55,
+				56,
+				129,
+				130,
+				202,
+				203,
+				582,
+				583,
+				584,
+				585,
+				586,
+				587,
+				588,
+				589,
+				590
+			],
+			"🥅": [
+				371,
+				372,
+				373,
+				374,
+				375,
+				376,
+				641,
+				642
+			],
+			"🥚": [
+				284,
+				285,
+				286,
+				287,
+				288,
+				289,
+				290,
+				291,
+				442,
+				443,
+				444,
+				445,
+				446,
+				618
+			],
+			"🧨": [
+				259,
+				260,
+				261,
+				262,
+				263,
+				264,
+				265,
+				266,
+				267,
+				268,
+				269,
+				270,
+				326,
+				591
+			]
+		}
+	},
 	"name": "Erweiterte Einsatzliste",
 	"settings": {
+		"averageCredits": {
+			"description": "Lasse dir in der Einsatzliste kompakt anzeigen, wie viel Credits ein Einsatz im Durchschnitt gibt.",
+			"title": "Verdienst anzeigen"
+		},
+		"collapsableMissions": {
+			"description": "Klappe einzelne (oder alle) Einsätze ein, um Platz in der Einsatzliste zu sparen.",
+			"title": "Einsätze einklappen"
+		},
+		"currentPatients": {
+			"description": "Zeigt die aktuelle Zahl der Patienten bei jedem Einsatz an.",
+			"title": "Patientenzahl"
+		},
+		"currentPatientsInTooltips": {
+			"description": "Zeigt die aktuelle Zahl der Patienten auch in den Tooltips auf der Karte an.",
+			"title": "Patientenzahl in Tooltips"
+		},
+		"eventMissions": {
+			"description": "Markiert Saisonale Einsätze. Optional kannst du das ganze individuell anpassen und auch nicht-saisonale Einsätze markieren.",
+			"missions": "Einsätze",
+			"text": "Text",
+			"title": "Saisonale Einsätze markieren"
+		},
+		"hide0CurrentPatients": {
+			"description": "Versteckt die Patientenzahl, wenn diese 0 beträgt.",
+			"title": "Verstecke 0 Patienten"
+		},
+		"remainingPatientTime": {
+			"description": "Zeigt bei Patienten an, wie lange der Patient noch behandelt werden muss.",
+			"title": "Patientenbehandlungsdauer"
+		},
+		"remainingPumpingTime": {
+			"description": "Zeigt bei Abpumpprozessen an, wie lange diese noch brauchen.",
+			"title": "Abpumpprozessdauer"
+		},
 		"remainingTime": {
 			"description": "Zeigt bei Einsätzen an, wie lange der Einsatz noch in Bearbeitung ist.",
 			"title": "Verbleibende Einsatzdauer"
 		},
 		"remainingTimeGreenOnly": {
 			"description": "Zeigt die Einsatzdauer nur bei grünen Einsätzen an.",
-			"title": "Einsatzdauer nur bei grünen Einsätze"
+			"title": "Einsatzdauer nur bei grünen Einsätzen"
+		},
+		"shareMissions": {
+			"description": "Teile Einsätze mit dem Verband direkt aus der Einsatzliste heraus.",
+			"title": "Einsätze teilen"
+		},
+		"shareMissionsButtonColor": {
+			"danger": "Rot",
+			"default": "Schwarz bzw. Weiß (Je nach Design)",
+			"description": "Wähle, welche Farbe der Knopf zum Teilen von Einsätzen haben soll.",
+			"info": "Hellblau",
+			"primary": "Dunkelblau",
+			"success": "Grün",
+			"title": "Einsätze teilen: Knopffarbe",
+			"warning": "Orange"
+		},
+		"shareMissionsMinCredits": {
+			"description": "Der Knopf zum Teilen von Einsätzen wird nur angezeigt, wenn der Einsatz im durchschnitt mehr als die hier festgelegte Zahl an Credits bringt.",
+			"title": "Einsätze teilen: Minimale Credits"
+		},
+		"shareMissionsTypes": {
+			"description": "Hiermit kannst du festlegen, dass der Knopf zum Teilen von Einsätzen nur bei bestimmten Einsätzen angezeigt werden soll.",
+			"own": "Notfall-Einsätze",
+			"sicherheitswache": "Geplante Einsätze",
+			"title": "Einsätze teilen: Einsatztypen"
+		},
+		"sortMissions": {
+			"description": "Sortiere die Einsatzliste nach bestimmten Kriterien, z.B. Verdienst oder noch vorhandenen Patienten",
+			"title": "Einsätze sortieren"
+		},
+		"sortMissionsButtonColor": {
+			"description": "Wähle, welche Farbe der Knopf zur Einsatzsortierung haben soll.",
+			"title": "Einsätze sortieren: Knopffarbe"
+		},
+		"sortMissionsInMissionwindow": {
+			"description": "Übernimmt die Sortierung im Einsatzfenster. Optional kannst du im Modul \"Hotkeys\" eigene Tastenkürzel dafür festlegen.",
+			"title": "Sortierung im Einsatzfenster"
+		},
+		"starrableMissions": {
+			"description": "Markiere dir Einsätze, damit diese in der Einsatzliste oben angezeigt werden dürfen. Du kannst die Markierung im Einsatzfenster und in der Einsatzliste vornehmen.",
+			"title": "Einsätze markieren"
+		}
+	},
+	"sort": {
+		"types": {
+			"alphabet": "Alphabet",
+			"credits": "Verdienst",
+			"default": "keine Sortierung",
+			"id": "Alter",
+			"remaining_patients": "aktuelle Patienten"
 		}
 	}
 }

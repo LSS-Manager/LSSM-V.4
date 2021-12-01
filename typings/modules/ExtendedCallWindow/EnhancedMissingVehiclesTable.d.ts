@@ -5,4 +5,5 @@ export interface EnhancedMissingVehiclesTableProps {
     sort: string;
     sortDir: string;
     search: string;
+    calcMaxStaff: boolean;
 }

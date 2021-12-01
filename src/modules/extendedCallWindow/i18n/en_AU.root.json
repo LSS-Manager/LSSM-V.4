@@ -53,9 +53,13 @@
 			"description": "Allows you to center the map in the main window on the place of use at the touch of a button.",
 			"title": "Center Map"
 		},
+		"emvMaxStaff": {
+			"description": "'Enhanced missing vehicles' expects all vehicles to have full staff for it's calculations",
+			"title": "Maximum Staff"
+		},
 		"enhancedMissingVehicles": {
 			"description": "Converts the display of additionally required vehicles into a clearer table.",
-			"title": "Improve needed vehicles"
+			"title": "Enhanced missing vehicles"
 		},
 		"generationDate": {
 			"description": "Shows next to the address when the mission was generated.",
@@ -65,11 +69,16 @@
 			"description": "Normally hides the use list, then opens it by pressing a button.",
 			"title": "Hides the vehicle list"
 		},
+		"hoverTip": {
+			"description": "Tooltips for the buttons of \"Enhanced missing vehicles\".",
+			"title": "Tooltips"
+		},
 		"loadMoreVehiclesInHeader": {
 			"description": "Displays the button \"Reload vehicles\", if available, in the header bar.",
 			"title": "Reload vehicles in header"
 		},
 		"missionKeywords": {
+			"allMissions": "All Missions",
 			"autotextcolor": "Automatical text color",
 			"color": "background color",
 			"description": "Get your own keyword displayed next to the mission name",
@@ -84,9 +93,25 @@
 			"description": "Shows next to the number of patients, which rescue equipment they need in combination.",
 			"title": "Patient Summary"
 		},
+		"playerCounter": {
+			"description": "Displays at the top of the personnel list how many players have dispatched a vehicle for this mission. Click to open a table with details.",
+			"title": "PlayerCounter"
+		},
+		"playerCounterColor": {
+			"description": "Choose what color you want the player counter label to be.",
+			"title": "PlayerCounter: Color"
+		},
 		"redBorder": {
 			"description": "Outlines the generation time in red if the bet will expire the following night.",
 			"title": "Red border"
+		},
+		"remainingPatientTime": {
+			"description": "Shows for patients how much time remains until they are fully treated",
+			"title": "Remaining time for patients"
+		},
+		"stagingAreaSelectedCounter": {
+			"description": "Shows in staging areas the amount of selected vehicles next to the alarm buttons",
+			"title": "Alarm-Counter within staging areas"
 		},
 		"stickyHeader": {
 			"description": "Always shows the top bar in the insert window, even when you scroll down.",
@@ -94,10 +119,28 @@
 		},
 		"tailoredTabs": {
 			"color": "Color",
-			"description": "Adjust the tabs in the insert window here. \"All\" and \"Continue alerting\" will always be visible,",
+			"description": "Adjust the tabs in the insert window here. \"All\" and \"Follow-up\" will always be visible,",
 			"name": "name",
 			"title": "vehicle categories",
 			"vehicles": "vehicle types"
+		},
+		"vehicleCounter": {
+			"description": "Displays at the top of the personnel list how many vehicles are dispatched to this mission. Click to open a table with details.",
+			"title": "vehicleCounter"
+		},
+		"vehicleCounterColor": {
+			"danger": "red",
+			"default": "Gray",
+			"description": "Choose what color you want the vehicle counter label to be.",
+			"info": "light blue",
+			"primary": "dark blue",
+			"success": "Green",
+			"title": "Vehicle counter: color",
+			"warning": "orange"
+		},
+		"vehicleTypeInList": {
+			"description": "Displays the vehicle type in the Available Units list.",
+			"title": "Show vehicle type"
 		},
 		"yellowBorder": {
 			"description": "Borders the generation time yellow if the usage is older than the entered number of hours. If the number is 0, no border is drawn.",
@@ -132,7 +175,12 @@
 				"name": "Ambulance",
 				"vehicleTypes": [
 					5,
-					9
+					9,
+					23,
+					24,
+					25,
+					26,
+					27
 				]
 			},
 			{
@@ -144,6 +192,18 @@
 					17,
 					18,
 					22
+				]
+			},
+			{
+				"name": "Bushfire Vehicles",
+				"vehicleTypes": [
+					19,
+					28,
+					29,
+					30,
+					31,
+					32,
+					33
 				]
 			},
 			{

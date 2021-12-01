@@ -1,174 +1,50 @@
+import axios from 'axios';
+import copydir from 'copy-dir';
 import fs from 'fs';
 import path from 'path';
-import copydir from 'copy-dir';
 
+import addToBuildStats from '../../build/addToBuildStats';
 import config from '../../src/config';
+import { version } from '../../package.json';
 
-const langModules = fs
-    .readdirSync('./docs/')
-    .filter((x: string) => Object.keys(config.games).indexOf(x) >= 0);
+import { Module } from '../../typings/Module';
 
-const emptyFolder = (path: string, deleteFolder = true): void => {
-    if (fs.existsSync(path)) {
-        fs.readdirSync(path).forEach((file: string) => {
-            const curPath = path + '/' + file;
-            if (fs.lstatSync(curPath).isDirectory()) {
-                emptyFolder(curPath, true);
-            } else {
-                fs.unlinkSync(curPath);
-            }
-        });
-        if (deleteFolder) fs.rmdirSync(path);
+interface Translation {
+    [key: string]: Translation | string;
+}
+interface ModuleRegistration {
+    title: string;
+    description: string;
+    file: string;
+    register: Module;
+    hasSrc: boolean;
+}
+
+const BASE = '/v4/docs/';
+
+const ROOT_PATH = path.join(__dirname, '../../');
+const MODULES_PATH = path.join(ROOT_PATH, 'src/modules');
+const DOCS_PATH = path.join(ROOT_PATH, 'docs');
+const DOCS_I18N_PATH = path.join(DOCS_PATH, '.vuepress/i18n');
+
+const LANGS = Object.keys(config.games).filter(lang =>
+    fs.existsSync(path.join(DOCS_PATH, lang))
+);
+const MODULES = fs
+    .readdirSync(MODULES_PATH)
+    .filter(
+        module =>
+            !['template', ...config.modules['core-modules']].includes(module)
+    );
+const I18N: Record<string, Translation> = {};
+
+const setLocales = async () => {
+    if (Object.keys(I18N).length) return;
+    for (const lang of fs.readdirSync(DOCS_I18N_PATH)) {
+        I18N[lang.split('.')[0]] = await import(
+            path.join(DOCS_I18N_PATH, lang)
+        );
     }
-};
-emptyFolder('./dist/docs');
-langModules.forEach((x: string) => emptyFolder(`./docs/${x}/modules`));
-emptyFolder('./docs/.vuepress/public/assets', false);
-
-const moduleDirs = fs.readdirSync('./src/modules');
-const modulesSorted = {} as {
-    [lang: string]: { title: string; f: string; noMapkit: boolean }[];
-};
-moduleDirs.forEach((module: string) => {
-    if (
-        module !== 'template' &&
-        fs.existsSync(`./src/modules/${module}/docs`)
-    ) {
-        const docs = fs
-            .readdirSync(`./src/modules/${module}/docs`)
-            .filter((f: string) => f.match(/^[a-z]{2}_[A-Z]{2}\.md$/));
-        const availableLangs = [] as string[];
-        docs.forEach((f: string) => {
-            const lang = f.split('.')[0];
-            availableLangs.push(lang);
-            if (!modulesSorted.hasOwnProperty(lang)) modulesSorted[lang] = [];
-            if (!fs.existsSync(`./docs/${lang}/modules`))
-                fs.mkdirSync(`./docs/${lang}/modules`);
-            // eslint-disable-next-line @typescript-eslint/no-var-requires
-            const title = require(`../../src/modules/${module}/i18n/${lang}.root`)
-                .name;
-            modulesSorted[lang].push({
-                title,
-                f: `${lang}/modules/${f.replace(lang, module)}`,
-                // eslint-disable-next-line @typescript-eslint/no-var-requires
-                noMapkit: require(`../../src/modules/${module}/register`)
-                    .noMapkit,
-            });
-            fs.copyFileSync(
-                path.join(__dirname, `../../src/modules/${module}/docs/${f}`),
-                `./docs/${lang}/modules/${f.replace(lang, module)}`
-            );
-            const content = fs
-                .readFileSync(
-                    `./docs/${lang}/modules/${f.replace(lang, module)}`
-                )
-                .toString();
-            fs.writeFileSync(
-                `./docs/${lang}/modules/${f.replace(lang, module)}`,
-                `---
-title: ${title}
-lang: ${lang}
----
-
-# ${title}
-
-${content}`
-            );
-        });
-        if (!fs.existsSync(`./docs/.vuepress/public/assets`))
-            fs.mkdirSync(`./docs/.vuepress/public/assets`);
-        if (fs.existsSync(`./src/modules/${module}/docs/assets`)) {
-            if (!fs.existsSync(`./docs/.vuepress/public/assets/${module}`))
-                fs.mkdirSync(`./docs/.vuepress/public/assets/${module}`);
-            copydir.sync(
-                `./src/modules/${module}/docs/assets`,
-                `./docs/.vuepress/public/assets/${module}`
-            );
-        }
-
-        Object.keys(config.games).forEach(lang => {
-            if (
-                availableLangs.includes(lang) ||
-                !fs.existsSync(`./docs/${lang}`)
-            )
-                return;
-            if (!fs.existsSync(`./docs/${lang}/modules`))
-                fs.mkdirSync(`./docs/${lang}/modules`);
-            const rootFile = `./src/modules/${module}/i18n/${lang}.root`;
-            // eslint-disable-next-line @typescript-eslint/no-var-requires
-            let title = require(`../.${rootFile.replace(lang, 'en_US')}`).name;
-            try {
-                // eslint-disable-next-line @typescript-eslint/no-var-requires
-                title = require(`../.${rootFile}`).name;
-            } catch {
-                // Do nothing
-            }
-            fs.writeFileSync(
-                `./docs/${lang}/modules/${module}.md`,
-                `---
-title: ${title}
-lang: ${lang}
----
-
-# ${title}
-:::warning No module page existing yet
-Dear User,
-thanks for your interest in the Wiki page of **${title}**!
-Unfortunately, we weren't able to create the content for your language \`${lang}\` yet. If you want to contribute to our wiki, feel free to create this page [on GitHub](https://github.com/${
-                    config.github.repo
-                }/new/dev/src/modules/${module}/docs?filename=${lang}.md)!
-We suggest to have a look at the files of the other languages for examples in the [docs directory](https://github.com/${
-                    config.github.repo
-                }/tree/dev/src/modules/${module}/docs)
-
-This module already has a Wiki page in the following languages:
-${availableLangs
-    .map(
-        l =>
-            `* [${config.games[l].flag} ${config.games[l].name}](/v4/docs/${l}/modules/${module}.html)`
-    )
-    .join('\n')}
-:::
-`
-            );
-        });
-    }
-});
-const noMapkitModules = {} as {
-    [lang: string]: { title: string; f: string }[];
-};
-Object.keys(modulesSorted).forEach(lang => {
-    noMapkitModules[lang] = [
-        ...Object.values(modulesSorted[lang])
-            .filter(module => module.noMapkit)
-            .sort((a, b) =>
-                a.title < b.title ? -1 : a.title > b.title ? 1 : 0
-            )
-            .map(m => ({
-                title: m.title,
-                f: m.f.replace(/(^[a-z]{2}_[A-Z]{2}\/|\..*?$)/g, ''),
-            })),
-    ];
-    ((modulesSorted as unknown) as { [lang: string]: string[] })[lang] = [
-        ...Object.values(modulesSorted[lang])
-            .sort((a, b) =>
-                a.title < b.title ? -1 : a.title > b.title ? 1 : 0
-            )
-            .map(file => file.f),
-    ];
-    if (fs.existsSync(`./docs/${lang}/apps.md`))
-        ((modulesSorted as unknown) as { [lang: string]: string[] })[
-            lang
-        ].unshift(`${lang}/apps.md`);
-});
-
-const locales = {} as { [langPath: string]: { lang: string; title: string } };
-const themeLocales = {} as {
-    [langPath: string]: {
-        label: string;
-        nav: { text: string; link: string }[];
-        sidebar: unknown[];
-    };
 };
 
 const sidebar_lssm = ['', 'metadata'];
@@ -183,104 +59,488 @@ const sidebar_others = [
     'other',
 ];
 
-Object.keys(config.games).forEach(lang => {
-    if (!fs.existsSync(`./docs/${lang}`)) return;
-    const game = config.games[lang];
-    const langPath = `/${lang}/`;
-    locales[langPath] = {
-        lang,
-        title: `LSS-Manager V.4 Wiki ${game.flag}`,
+const getLocale = (lang: string, key: string): Translation | string => {
+    const walk = (
+        base: Translation | string,
+        path: string[]
+    ): Translation | string => {
+        if (typeof base === 'string' || !base) return base;
+        if (path.length === 1) return base[path[0]];
+        const attr = path.shift();
+        if (!attr) return base;
+        return walk(base[attr], path);
     };
-    themeLocales[langPath] = {
-        label: `${game.flag} ${game.name}`,
-        nav: [
-            {
-                text: 'Discord',
-                link: config.discord,
-            },
-        ],
-        sidebar: [
-            {
-                title: 'LSSM',
-                collapsable: false,
-                children: sidebar_lssm
-                    .filter(f =>
-                        fs.existsSync(`./docs${langPath}${f || 'README'}.md`)
-                    )
-                    .map(f => `${langPath}${f}`),
-            },
-            ...sidebar_others
-                .filter(f =>
-                    fs.existsSync(`./docs${langPath}${f || 'README'}.md`)
-                )
-                .map(f => `${langPath}${f}`),
-            {
-                title: 'Apps 📦',
-                collapsable: true,
-                children: modulesSorted[lang] || [],
-            },
-        ],
-    };
-});
 
-const options = {
-    title: 'LSS-Manager V.4 Wiki',
-    description: 'The Wiki for the LSS-Manager',
-    base: '/v4/docs/',
-    dest: './dist/docs',
-    head: [
-        [
-            'link',
-            {
-                rel: 'icon',
-                href: '/img/lssm.png',
-            },
-        ],
-    ],
-    markdown: {
-        sluglify: '',
-        lineNumbers: true,
-    },
-    themeConfig: {
-        logo: '/img/lssm.png',
-        variables: {
-            discord: config.discord,
-            discord_support: config.discord_support,
-            github: config.github.repo,
-            server: config.server,
-            // eslint-disable-next-line @typescript-eslint/no-var-requires
-            versions: require('../../static/.configs.json').versions,
-            browsers: config.browser,
-            noMapkitModules,
-        },
-        locales: themeLocales,
-        activeHeaderLinks: true,
-        repo: config.github.repo,
-        editLinks: false,
-    },
-    locales,
-    plugins: {
-        '@vuepress/active-header-links': {},
-        '@vuepress/back-to-top': {},
-        '@vuepress/last-updated': {
-            transformer(timestamp: number, lang: string) {
-                // eslint-disable-next-line @typescript-eslint/no-var-requires
-                const moment = require('moment');
-                moment.locale(lang);
-                return moment(timestamp).format('LLL');
-            },
-        },
-        'vuepress-plugin-redirect': {
-            locales: true,
-        },
-        'vuepress-plugin-smooth-scroll': {},
-        'vuepress-plugin-zooming': {
-            selector: 'img:not([data-prevent-zooming])',
-            options: {
-                bgColor: 'black',
-            },
-        },
-    },
+    const path = key.split('.');
+
+    const reqLang = walk(I18N[lang], [...path]);
+    const en_US = walk(I18N.en_US, [...path]);
+    const de_DE = walk(I18N.de_DE, [...path]);
+    return reqLang ?? en_US ?? de_DE;
 };
 
-module.exports = options;
+const updateConfigs = () => {
+    config.discord.invite = `https://discord.gg/${config.discord.invite}`;
+    config.discord.channels = Object.fromEntries(
+        Object.entries(config.discord.channels).map(([channel, id]) => [
+            channel,
+            `https://discordapp.com/channels/${config.discord.id}/${id}`,
+        ])
+    );
+};
+
+const emptyFolders = () => {
+    const emptyFolder = (rootPath: string, deleteFolder = false): void => {
+        const absPath = path.join(ROOT_PATH, rootPath);
+        if (fs.existsSync(absPath)) {
+            fs.readdirSync(absPath).forEach((file: string) => {
+                const curPath = `${absPath}/${file}`;
+                if (fs.lstatSync(curPath).isDirectory())
+                    emptyFolder(curPath, true);
+                else fs.unlinkSync(curPath);
+            });
+            if (deleteFolder) fs.rmdirSync(absPath);
+        }
+    };
+
+    [
+        'dist/docs',
+        ...fs
+            .readdirSync(path.join(ROOT_PATH, 'docs/'))
+            .filter((name: string) => LANGS.indexOf(name) >= 0)
+            .map(lang => `docs/${lang}/modules`),
+        'docs/.vuepress/public/assets',
+    ].forEach(folder => {
+        emptyFolder(folder);
+        if (!fs.existsSync(folder)) fs.mkdirSync(folder);
+    });
+};
+
+const processModules = async (shortVersion: string) => {
+    const HEAD_EMOJIS = {
+        alpha: '🧑‍🔬',
+        dev: '🐛',
+        settings: '⚙️',
+    };
+    const MODULES_BY_LANG: Record<
+        string,
+        ModuleRegistration[]
+    > = Object.fromEntries(LANGS.map(lang => [lang, []]));
+
+    const getRootI18n = (
+        module: string,
+        lang: string
+    ): Promise<{ name: string; description?: string }> =>
+        new Promise(resolve =>
+            import(path.join(MODULES_PATH, module, 'i18n', `${lang}.root`))
+                .then(({ name, description }) => resolve({ name, description }))
+                .catch(() =>
+                    import(path.join(MODULES_PATH, module, 'i18n/en_US.root'))
+                        .then(({ name, description }) =>
+                            resolve({ name, description })
+                        )
+                        .catch(() => resolve({ name: module }))
+                )
+        );
+
+    const getTargetPath = (module: string, lang: string) =>
+        path.join(DOCS_PATH, lang, 'modules', `${module}.md`);
+
+    const getYaml = (title: string, lang: string) => `---
+title: ${title}
+lang: ${lang}
+---
+`;
+
+    const getGithub = (issue: number) =>
+        `<a href="https://github.com/${config.github.repo}/issues/${issue}" title="Issue #${issue} on GitHub" target="_blank"><img src="https://github.githubassets.com/pinned-octocat.svg" alt="Issue #${issue} on GitHub" style="height: 1.5ex" data-prevent-zooming class="github-icon"/></a>`;
+
+    const getModuleHead = (
+        title: string,
+        description: string,
+        lang: string,
+        register: Module
+    ) => `
+# ${title} ${register.github ? getGithub(register.github) : ``}
+
+${
+    description
+        ? `
+> ℹ **${description}**
+>
+`
+        : ``
+}
+${(['alpha', 'dev', 'settings'] as ('alpha' | 'dev' | 'settings')[])
+    .filter(attr => register[attr])
+    .map(
+        attr =>
+            `> ${HEAD_EMOJIS[attr] ?? ''} ${getLocale(lang, `head.${attr}`)}`
+    )
+    .join('\n>\n')}
+${
+    register.noMapkit
+        ? `
+:::danger Mapkit
+${getLocale(lang, 'head.mapkit')}
+:::`
+        : ``
+}
+`;
+
+    for (const module of MODULES) {
+        const MODULE_PATH = path.join(MODULES_PATH, module);
+        const MODULE_DOC_PATH = path.join(MODULE_PATH, 'docs');
+        const register: Module = await import(
+            path.join(MODULE_PATH, 'register')
+        );
+        if (register.noapp) continue;
+        const usedLangs = LANGS.filter(lang =>
+            (register.locales ?? LANGS).includes(lang)
+        );
+        const noDocs: Record<
+            string,
+            { i18n: { name: string; description: string }; register: Module }
+        > = {};
+        for (const lang of usedLangs) {
+            const i18n = {
+                description: '',
+                ...(await getRootI18n(module, lang)),
+            };
+            const targetPath = getTargetPath(module, lang);
+            const srcPath = path.join(MODULE_DOC_PATH, `${lang}.md`);
+            const hasSrc = fs.existsSync(srcPath);
+            MODULES_BY_LANG[lang].push({
+                title: i18n.name,
+                description: i18n.description,
+                file: targetPath,
+                register,
+                hasSrc,
+            });
+            const content = hasSrc
+                ? fs
+                      .readFileSync(srcPath)
+                      .toString()
+                      .trim()
+                : '';
+            if (!hasSrc || !content.length) {
+                noDocs[lang] = { i18n, register };
+                continue;
+            }
+            fs.writeFileSync(
+                targetPath,
+                `${getYaml(i18n.name, lang)}
+${getModuleHead(i18n.name, i18n.description, lang, register)}
+${content.replace(/(?<=!\[.*?]\().*?(?=\))/g, asset =>
+    path.join(BASE, 'assets', module, lang, asset)
+)}`
+            );
+        }
+        const docsLangs = usedLangs.filter(
+            lang => !noDocs.hasOwnProperty(lang)
+        );
+        Object.entries(noDocs).forEach(([lang, { i18n, register }]) => {
+            fs.writeFileSync(
+                getTargetPath(module, lang),
+                `${getYaml(i18n.name, lang)}
+${getModuleHead(i18n.name, i18n.description, lang, register)}
+:::warning ${getLocale(lang, '404.title')}
+${getLocale(lang, '404.content')
+    ?.toString()
+    .replace(/{{module}}/g, `**${i18n.name}**`)
+    .replace(/{{lang}}/g, `\`${lang}\``)
+    .replace(
+        /{{github}}/g,
+        `[GitHub](https://github.com/${config.github.repo}/new/dev/src/modules/${module}/docs?filename=${lang}.md)`
+    )
+    .replace(
+        /{{docs_dir}}/g,
+        `[docs directory](https://github.com/${config.github.repo}/tree/dev/src/modules/${module}/docs)`
+    )}
+
+${getLocale(lang, '404.languages')}
+${docsLangs
+    .map(
+        l =>
+            `* [${config.games[l].flag} ${config.games[l].name}](/${l}/modules/${module}.html)`
+    )
+    .join('\n')}
+:::
+`
+            );
+        });
+
+        const assetDir = path.join(MODULE_DOC_PATH, 'assets');
+        const targetDir = path.join(
+            DOCS_PATH,
+            '.vuepress/public/assets',
+            module
+        );
+        if (fs.existsSync(assetDir)) {
+            if (!fs.existsSync(targetDir)) fs.mkdirSync(targetDir);
+            copydir.sync(assetDir, targetDir);
+        }
+    }
+
+    const themeLocales: Record<
+        string,
+        {
+            label: string;
+            nav: { text: string; link: string }[];
+            sidebar: (
+                | { title: string; collapsable: boolean; children: string[] }
+                | string
+            )[];
+        }
+    > = {};
+    const noMapkitModules: Vue['$themeConfig']['variables']['noMapkitModules'] = {};
+    const locales: Record<
+        string,
+        { lang: string; title: string; description: string }
+    > = {};
+
+    Object.entries(MODULES_BY_LANG).forEach(([lang, modules]) => {
+        MODULES_BY_LANG[lang] = modules.sort((a, b) =>
+            a.title < b.title ? -1 : a.title > b.title ? 1 : 0
+        );
+        noMapkitModules[lang] = MODULES_BY_LANG[lang]
+            .filter(({ register: { noMapkit } }) => noMapkit)
+            .map(m => ({
+                title: m.title,
+                f: path.relative(
+                    path.join(DOCS_PATH, lang),
+                    m.file.replace('.md', '')
+                ),
+            }));
+
+        const langPath = `/${lang}/`;
+        const game = config.games[lang];
+
+        locales[langPath] = {
+            lang,
+            title: `LSS-Manager V.4 Wiki ${game.flag}`,
+            description: getLocale(lang, 'description').toString(),
+        };
+
+        themeLocales[langPath] = {
+            label: `${game.flag} ${game.name}`,
+            nav: [
+                {
+                    text: `v${shortVersion}`,
+                    link: `https://github.com/${config.github.repo}/releases/tag/v${shortVersion}`,
+                },
+                {
+                    text: 'Discord',
+                    link: config.discord.invite,
+                },
+            ],
+            sidebar: [
+                {
+                    title: 'LSSM',
+                    collapsable: false,
+                    children: sidebar_lssm
+                        .filter(file =>
+                            fs.existsSync(
+                                path.posix.join(
+                                    DOCS_PATH,
+                                    lang,
+                                    `${file || 'README'}.md`
+                                )
+                            )
+                        )
+                        .map(file => `${langPath}${file}`),
+                },
+                ...sidebar_others
+                    .filter(file =>
+                        fs.existsSync(
+                            path.posix.join(
+                                DOCS_PATH,
+                                lang,
+                                `${file || 'README'}.md`
+                            )
+                        )
+                    )
+                    .map(file => `${langPath}${file}`),
+                {
+                    title: `${getLocale(lang, 'apps')} 📦`,
+                    collapsable: true,
+                    children: [
+                        ...(fs.existsSync(path.join(DOCS_PATH, lang, 'apps.md'))
+                            ? [`/${lang}/apps`]
+                            : []),
+                        ...MODULES_BY_LANG[lang]
+                            .filter(
+                                ({ hasSrc, file }) =>
+                                    hasSrc && fs.existsSync(file)
+                            )
+                            .map(
+                                ({ file }) =>
+                                    `/${path
+                                        .relative(
+                                            DOCS_PATH,
+                                            file.replace('.md', '')
+                                        )
+                                        .replace(/\\/g, '/')}`
+                            ),
+                    ],
+                },
+            ],
+        };
+    });
+
+    return {
+        locales,
+        themeLocales,
+        noMapkitModules,
+    };
+};
+
+const setReadmeHeads = () =>
+    LANGS.forEach(lang => {
+        if (!fs.existsSync(path.join(DOCS_PATH, lang))) return;
+        const filePath = path.join(DOCS_PATH, lang, 'README.md');
+        const flag = config.games[lang].flag;
+        fs.writeFileSync(
+            filePath,
+            (fs.readFileSync(filePath).toString() ?? '').replace(
+                /(.|\n)*?(?=\n## )/,
+                `---
+title: LSS-Manager V.4
+lang: ${lang}
+sidebarDepth: 2
+---
+
+# Wiki ${flag} <Badge :text="'v' + $themeConfig.variables.versions.short"/>
+
+> stable: <i>{{ $themeConfig.variables.versions.stable }}</i>
+> 
+> beta: <i>{{ $themeConfig.variables.versions.beta }}</i>
+
+<discord style="float: right;"><img src="https://discord.com/api/guilds/254167535446917120/embed.png?style=banner1" alt="Our Discord-Server: United Dispatch" data-prevent-zooming></discord>
+
+${
+    /*`[${getLocale(lang, 'readme.serverStatus.lssm')}](https://status.lss-manager.de)`*/ ''
+}
+
+[${getLocale(
+                    lang,
+                    'readme.serverStatus.game'
+                )}](https://stats.uptimerobot.com/OEKDJSpmvK)
+`
+            )
+        );
+    });
+
+const fetchStableVersion = (): Promise<{ version: string }> =>
+    axios(`${config.server}static/build_stats.json`)
+        .then(res =>
+            res.status === 200
+                ? // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                  // @ts-ignore
+                  (new Promise(resolve => resolve(res.data)) as Promise<{
+                      version: string;
+                  }>)
+                : (new Promise(resolve =>
+                      resolve({ version: '4.x.x' })
+                  ) as Promise<{ version: string }>)
+        )
+        .catch(
+            () =>
+                new Promise(resolve =>
+                    resolve({ version: '4.x.x' })
+                ) as Promise<{ version: string }>
+        );
+
+module.exports = async () => {
+    await setLocales();
+    updateConfigs();
+    emptyFolders();
+    setReadmeHeads();
+    const { version: stable } = await fetchStableVersion();
+    const shortVersion = stable.match(/4(\.(x|\d+)){2}/)?.[0] ?? '4.x.x';
+    const { locales, themeLocales, noMapkitModules } = await processModules(
+        shortVersion
+    );
+    const vuepressConfig = {
+        title: 'LSS-Manager V.4 Wiki',
+        description: 'The Wiki for the LSS-Manager',
+        base: BASE,
+        dest: './dist/docs',
+        head: [
+            [
+                'link',
+                {
+                    rel: 'icon',
+                    href: '/img/lssm.png',
+                },
+            ],
+        ],
+        markdown: {
+            sluglify: '',
+            lineNumbers: true,
+        },
+        theme: 'yuu',
+        themeConfig: {
+            logo: '/img/lssm.png',
+            variables: {
+                discord: config.discord,
+                github: `https://github.com/${config.github.repo}`,
+                server: config.server,
+                versions: {
+                    beta: version,
+                    stable,
+                    short: shortVersion,
+                },
+                browsers: config.browser,
+                noMapkitModules,
+                bugIssues: (
+                    await axios(
+                        `https://api.github.com/repos/${config.github.repo}/issues?labels=bug&per_page=100&sort=created`
+                    )
+                ).data,
+                moment: Object.fromEntries(
+                    LANGS.map(lang => [lang, getLocale(lang, 'moment')])
+                ),
+            },
+            locales: themeLocales,
+            activeHeaderLinks: true,
+            repo: config.github.repo,
+            editLinks: false,
+            yuu: {
+                defaultDarkTheme: true,
+                disableThemeIgnore: true,
+                labels: {
+                    darkTheme: '☀️ / 🌜',
+                },
+            },
+        },
+        locales,
+        plugins: {
+            '@vuepress/active-header-links': {},
+            '@vuepress/back-to-top': {},
+            '@vuepress/last-updated': {
+                transformer(timestamp: number, lang: string) {
+                    // eslint-disable-next-line @typescript-eslint/no-var-requires
+                    const moment = require('moment');
+                    moment.locale(lang);
+                    return moment(timestamp).format('LLL');
+                },
+            },
+            'vuepress-plugin-code-copy': {
+                align: 'top',
+            },
+            'vuepress-plugin-redirect': {
+                locales: true,
+            },
+            'vuepress-plugin-smooth-scroll': {},
+            'vuepress-plugin-zooming': {
+                selector: 'img:not([data-prevent-zooming]):not(.logo)',
+                options: {
+                    bgColor: 'black',
+                },
+            },
+        },
+    };
+    addToBuildStats({ docs_config: vuepressConfig });
+    return vuepressConfig;
+};

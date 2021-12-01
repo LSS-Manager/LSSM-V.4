@@ -1,9 +1,9 @@
 export interface CreditsInfo {
     credits_user_current: number;
     credits_user_total: number;
-    credits_alliance_current: number;
-    credits_alliance_total: number;
-    credits_alliance_active: boolean;
+    credits_alliance_current?: number;
+    credits_alliance_total?: number;
+    credits_alliance_active?: boolean;
     user_name: string;
     user_id: number;
     user_toplist_position: number;

@@ -5,6 +5,7 @@
 	"generated_by": "Skapad av",
 	"patients": {
 		"allow_ktw_instead_of_rtw": "En ambulans kan användas.",
+		"critical_care": "intensivvård behövs",
 		"helicopter": "Sannolikhet för ambulanshelikopter:",
 		"patient_at_end_of_mission": "Patienten visas bara i slutet av operationen!",
 		"patient_transport": "Sannolikhet för transport",
@@ -17,8 +18,9 @@
 	"prerequisites": {
 		"brush_extension": "Skogsexpansion | Skogsexpansion",
 		"federalpolice_stations": "Federal Police Station | Federal Police Stations",
-		"fire_aviation_count": "Firefighting Plane Station | Firefighting Plane Stations",
+		"fire_aviation_count": "Brandflygsstation",
 		"fire_stations": "Brandstation | Brandstationer",
+		"fire_support_count": "Brandstöds utbyggnad | Brandstöds utbyggnader",
 		"max_police_stations": "Maximala polisstationer",
 		"max_rescue_stations": "Maximala ambulansstationer",
 		"police_helicopter_stations": "Polisflyg | Polisflyg",
@@ -29,6 +31,10 @@
 	"prisoners": {
 		"max_possible_prisoners": "Maximalt antal fångar",
 		"title": "Fånge | {n} Fånge | {n} Fångar"
+	},
+	"requirements": {
+		"foam_needed": "Efterfrågan på skum (l)",
+		"water_needed": "Liter av vatten"
 	},
 	"tip": {
 		"dragging": "Dra fönster",
@@ -44,12 +50,15 @@
 			"boats": "Båt | Båtar",
 			"brush_truck": "Skogbrandbil",
 			"diver_car": "Dykbil | Dykbilar",
-			"fire_aviation": "Airborne Firefighting | Airborne Firefightings",
+			"fire_aviation": "brandflygsenhet",
 			"firetrucks": "Släckbil | Släckbilar",
+			"foam": "Skumenheter",
 			"hazmat_vehicles": "Kemskyddsenhet | Kemskyddsenheter",
 			"heavy_rescue_vehicles": "Lastväxlare",
 			"helicopter": "Ambulanshelikopter",
+			"hose": "Slangbil",
 			"k9": "Hundenhet",
+			"kdow_orgl": "Ledningsfordon",
 			"large_fire_boat": "Stor brandbåt | Stora brandbåtar",
 			"large_rescue_boat": "Stor räddningsbåt | Stora räddningsbåtar",
 			"mobile_air_vehicles": "Luftfordon",
@@ -57,6 +66,7 @@
 			"platform_trucks": "Stegbil | Stegbilar",
 			"police_cars": "Radiobil | Radiobilar",
 			"police_helicopters": "Polishelikopter | Polishelikoptrar",
+			"pump": "Motorspruta",
 			"sheriff": "Polisfordon",
 			"swat_armored_vehicle": "Bepansrat insatsfordon",
 			"swat_suv": "Insatsfordon",
@@ -75,6 +85,9 @@
 				"additional_text": "varav minst {n} är räddningsbil.",
 				"reduce_from": "firetrucks"
 			}
+		},
+		"patient_additionals": {
+			"8": "Ledningsfordon"
 		},
 		"title": "Nödvändiga fordon"
 	}

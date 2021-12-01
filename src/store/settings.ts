@@ -1,11 +1,16 @@
-import { ActionTree, Module, MutationTree } from 'vuex';
-import { SettingsState } from '../../typings/store/settings/State';
 import { RootState } from '../../typings/store/RootState';
-import { ModuleSettings, Setting, Settings } from '../../typings/Setting';
+import { SettingsState } from '../../typings/store/settings/State';
+import { ActionTree, Module, MutationTree } from 'vuex';
+import {
+    AppendableList,
+    ModuleSettings,
+    Setting,
+    Settings,
+} from '../../typings/Setting';
 import {
     SettingsActionStoreParams,
-    SettingsRegister,
     SettingsGet,
+    SettingsRegister,
     SettingsSave,
     SettingsSet,
 } from '../../typings/store/settings/Actions';
@@ -47,32 +52,11 @@ export default {
     } as MutationTree<SettingsState>,
     actions: {
         saveSettings(
-            { commit, dispatch }: SettingsActionStoreParams,
+            { commit }: SettingsActionStoreParams,
             { settings }: SettingsSave
         ) {
-            return new Promise<void>(resolve => {
-                commit('save', settings);
-                Object.entries(settings).forEach(
-                    async ([module, settings]) =>
-                        await dispatch(
-                            'storage/set',
-                            {
-                                key: `settings_${module}`,
-                                value: Object.fromEntries(
-                                    Object.entries(
-                                        settings
-                                    ).map(([setting, { value }]) => [
-                                        setting,
-                                        value,
-                                    ])
-                                ),
-                            },
-                            { root: true }
-                        )
-                );
-                commit('setSettingsReload');
-                resolve();
-            });
+            commit('save', settings);
+            commit('setSettingsReload');
         },
         register(
             { commit, dispatch }: SettingsActionStoreParams,
@@ -88,64 +72,113 @@ export default {
                     {
                         root: true,
                     }
-                ).then(storage => {
-                    if (storage)
+                ).then((storage: Setting) => {
+                    if (storage) {
                         Object.entries(storage).forEach(([key, value]) => {
                             if (settings.hasOwnProperty(key)) {
+                                const setting = settings[key];
+                                if (
+                                    setting.type === 'appendable-list' &&
+                                    Array.isArray(value)
+                                ) {
+                                    settings[key].value = {
+                                        value,
+                                        enabled: !setting.disableable,
+                                    };
+                                }
                                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                                 // @ts-ignore
-                                settings[key].value = value;
+                                else {
+                                    settings[key].value = value;
+                                }
                             }
                         });
-                    Object.values(settings).forEach(value => {
-                        value.value = value.value ?? (value as Setting).default;
+                    }
+                    Object.values(settings).forEach(setting => {
+                        if (setting.type === 'appendable-list') {
+                            setting.value = setting.value ?? {
+                                value: (setting as AppendableList).default,
+                                enabled: !(setting as AppendableList)
+                                    .disableable,
+                            };
+                        } else {
+                            setting.value =
+                                setting.value ?? (setting as Setting).default;
+                        }
                     });
                     commit('register', { moduleId, settings });
                     resolve();
                 })
             );
         },
-        getModule({ dispatch }: SettingsActionStoreParams, moduleId: string) {
-            return dispatch(
-                'storage/get',
-                { key: `settings_${moduleId}`, defaultValue: {} },
-                {
-                    root: true,
-                }
-            );
+        getModule(
+            { dispatch, state }: SettingsActionStoreParams,
+            moduleId: string
+        ) {
+            return new Promise(resolve => {
+                dispatch(
+                    'storage/get',
+                    { key: `settings_${moduleId}`, defaultValue: {} },
+                    {
+                        root: true,
+                    }
+                ).then(storage =>
+                    resolve({
+                        ...Object.fromEntries(
+                            Object.entries(
+                                state.settings[moduleId] ?? {}
+                            ).map(([key, { value, default: def }]) => [
+                                key,
+                                value ?? def,
+                            ])
+                        ),
+                        ...storage,
+                    })
+                );
+            });
         },
         setSetting(
             { commit, dispatch }: SettingsActionStoreParams,
             { moduleId, settingId, value }: SettingsSet
         ) {
             commit('modifyValue', { moduleId, settingId, value });
-            dispatch('getModule', moduleId).then(async module => {
-                await dispatch(
-                    'storage/set',
-                    {
-                        key: `settings_${moduleId}`,
-                        value: {
-                            ...module,
-                            [settingId]: value,
+            return new Promise(resolve =>
+                dispatch('getModule', moduleId).then(module => {
+                    dispatch(
+                        'storage/set',
+                        {
+                            key: `settings_${moduleId}`,
+                            value: {
+                                ...module,
+                                [settingId]: value,
+                            },
                         },
-                    },
-                    {
-                        root: true,
-                    }
-                );
-            });
+                        {
+                            root: true,
+                        }
+                    ).then(resolve);
+                })
+            );
         },
         async getSetting(
             { state, dispatch }: SettingsActionStoreParams,
             { moduleId, settingId, defaultValue = null }: SettingsGet
         ) {
             const setting = state.settings[moduleId]?.[settingId];
+            if (
+                setting?.type === 'appendable-list' &&
+                !setting.hasOwnProperty('value')
+            )
+                setting.value = { value: [], enabled: true };
             return (
                 (setting?.type === 'appendable-list'
-                    ? setting?.value.map(v => ({
-                          ...setting.defaultItem,
-                          ...v,
-                      }))
+                    ? {
+                          enabled: setting?.value.enabled ?? true,
+                          value: (setting?.value.value ?? []).map(v => ({
+                              ...setting.defaultItem,
+                              ...v,
+                          })),
+                      }
                     : setting?.value) ??
                 setting?.default ??
                 (await dispatch('getModule', moduleId))[settingId] ??

@@ -1,0 +1,13 @@
+{
+	"locales": [
+		"de_DE",
+		"en_AU",
+		"en_GB",
+		"en_US",
+		"it_IT",
+		"fr_FR",
+		"nl_NL"
+	],
+	"location": ".*",
+	"settings": true
+}

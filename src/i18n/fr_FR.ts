@@ -1,7 +1,5 @@
 // import { Building } from 'typings/Building';
 
-// Commented as dir ./en_US does not exist currently
-// const furtherFiles = require.context('./en_US/', true, /.*(\/index)?\.js(on)?/);
 const modules = {
     appstore: {
         save: 'Sauvegarder',
@@ -14,7 +12,9 @@ const modules = {
             title: 'Changements non sauvegardés',
             text:
                 "Des changements ont été faits dans l'AppStore qui n'ont pas été sauvegardés. Sauvegardez ou faites un Reset pour fermer l'Appstore.",
-            close: 'Fermer',
+            abort: 'Annuler',
+            saveAndExit: 'Sauvegarder et quitter',
+            exit: 'Quitter sans sauvegarder',
         },
     },
     settings: {
@@ -24,6 +24,14 @@ const modules = {
         reset: 'Reset',
         export: 'Exporter',
         import: 'Importer',
+        appendableList: {
+            unique: {
+                title: 'valeur en double',
+                text:
+                    'Il ne doit pas y avoir de valeurs en double dans la colonne **{title}**. La valeur **{valeur}** existe déjà !',
+                confirm: 'OK',
+            },
+        },
         resetWarning: {
             title: 'Reset des paramètres',
             text:
@@ -43,27 +51,23 @@ const modules = {
             title: 'Changements non sauvegardés',
             text:
                 "Des changements ont été faits dans les paramètres qui n'ont pas été sauvegardés. Faites un Reset, une annulation ou une sauvegarde pour fermer les paramètres.",
-            close: 'Fermer',
+            abort: 'Annuler',
+            saveAndExit: 'Sauvegarder et quitter',
+            exit: 'Quitter sans sauvegarder',
         },
         changeList: {
             true: 'On',
             false: 'Off',
         },
+        locationSelect: {
+            location: 'Sélectionnez une position',
+            zoom: 'Sélectionner la position et le zoom',
+        },
     },
 } as { [moduleId: string]: { [key: string]: unknown } };
 
-const t = {} as { [key: string]: unknown };
-
-// Commented as dir ./en_US does not exist currently
-// furtherFiles
-//     .keys()
-//     .forEach(
-//         key => (t[key.split('/')[1].replace(/\..*$/, '')] = furtherFiles(key))
-//     );
-
 export default {
     modules,
-    ...t,
     error: {
         title: 'LSS Manager: Erreur',
         msg:
@@ -77,6 +81,12 @@ export default {
             close: 'Fermer ce message et recharger le jeu (recommandé)',
             abort: 'Fermer ce message sans recharger le jeu',
         },
+    },
+    anniversary1: {
+        closeNote: 'Tip: You can also click on the balloons to close!',
+        title: '🎉 There is reason to celebrate! 🎉',
+        content:
+            'Wow, how fast time flies!<br>It\'s been <b>one year</b> since the LSS Manager V.4 went online! A lot has happened this year, of course, and so on this special occasion we would like to say a special thank you to you, the users. The joy with which you test our new features inspires us again and again and gives us new motivation to continue. Also, a big thank you goes out to our translators who volunteer their time to make the LSSM usable in other versions of the game.</br>To celebrate, we\'d like to share a few facts and figures here:<ul><li><code>February 10th 2020</code>: The First Commit on GitHub was made: <a href="https://github.com/LSS-Manager/LSSM-V.4/commit/6e95836" target="_blank">6e95836</a>. Since then we have made over 5,600 commits!</li><li><code>September 19th, 2020</code>: V.4 was officially announced for the first time on the forum: <a href="https://forum.leitstellenspiel.de/index.php?thread/19176-lss-manager-v-4/" target="_blank">LSS Manager V.4</a>. With this, the application phase for beta testers has also started</li><li><code>October 17th 2020</code>: Beta testers have been given access to V.4 for the first time. The 4-week beta phase has thus started</li><li><code>November 21st 2020</code>: LSS Manager V.4 goes online for everyone!</li><li>Our telemetry currently records around 5,000 users in the past 6 months. Of these, over 2,200 were active in the last 14 days. The dark figure (number of users who have deactivated telemetry) can not be estimated.</li><li>Our thread in the forum has now reached almost 1,200 messages. That\'s quite a bit, but the V.3 thread, which is currently scratching the 3,500 responses, is far from catching up.</li><li>For more stats, check out our thread in the forum:<a href="https://forum.leitstellenspiel.de/index.php?thread/19176-lss-manager-v-4/" target="_blank">LSS Manager V.4</a></li></ul><br>We\'re looking forward to many more great moments in the time of LSSM V.4!<br>Your LSSM Team<br>Jan, Sanni & Ron',
     },
     globalSettings: {
         name: 'Paramètres généraux',
@@ -97,7 +107,17 @@ export default {
         iconBgAsNavBg: {
             description:
                 "Colorez toute la barre de navigation avec la couleur de fond de l'icône du LSSM!",
-            title: 'colorier la barre de navigation',
+            title: 'Colorier la barre de navigation',
+        },
+        osmDarkTooltip: {
+            description:
+                'Ce paramètre assombrit les infobulles sur la carte si vous avez activé le mode sombre.',
+            title: 'Infobulles foncées sur la carte',
+        },
+        v3MenuAsSubmenu: {
+            title: 'Menu V3 comme sous-menu',
+            description:
+                "Déplace le menu du LSSM V3 vers le menu du V4 pour gagner de l'espace dans la barre de navigation.",
         },
     },
     vehicles: {
@@ -108,6 +128,8 @@ export default {
             credits: 5_000,
             minPersonnel: 4,
             maxPersonnel: 6,
+            wtank: 3000,
+            possibleBuildings: [0, 18],
         },
         1: {
             caption: 'FPTL',
@@ -116,6 +138,8 @@ export default {
             credits: 5_000,
             minPersonnel: 4,
             maxPersonnel: 6,
+            wtank: 2000,
+            possibleBuildings: [0, 18],
         },
         2: {
             caption: 'EPA',
@@ -124,6 +148,7 @@ export default {
             credits: 10_000,
             minPersonnel: 1,
             maxPersonnel: 2,
+            possibleBuildings: [0, 18],
             special:
                 'Nécessaire dès lors que vous avez construit 3 bases de pompiers',
         },
@@ -134,6 +159,7 @@ export default {
             credits: 10_000,
             minPersonnel: 1,
             maxPersonnel: 1,
+            possibleBuildings: [0, 18],
             special:
                 'Nécessaire dès lors que vous avez construit 6 bases de pompiers',
         },
@@ -144,16 +170,18 @@ export default {
             credits: 12_180,
             minPersonnel: 2,
             maxPersonnel: 3,
+            possibleBuildings: [0, 18],
             special:
                 'Nécessaire dès lors que vous avez construit 4 bases de pompiers',
         },
         5: {
-            caption: 'UMH',
+            caption: 'ASSU',
             color: '#9c691c',
             coins: 25,
             credits: 5_000,
             minPersonnel: 3,
             maxPersonnel: 3,
+            possibleBuildings: [2, 20],
         },
         6: {
             caption: 'CCGC',
@@ -162,6 +190,8 @@ export default {
             credits: 17_300,
             minPersonnel: 1,
             maxPersonnel: 2,
+            wtank: 11000,
+            possibleBuildings: [0, 18],
             special:
                 'Nécessaire dès lors que vous avez construit 7 bases de pompiers',
         },
@@ -172,10 +202,16 @@ export default {
             credits: 19_200,
             minPersonnel: 1,
             maxPersonnel: 4,
+            possibleBuildings: [0, 18],
+            schooling: {
+                'Centre de secours': {
+                    ['Véhicules risques chimiques']: {
+                        all: true,
+                    },
+                },
+            },
             special:
-                'Nécessaire dès lors que vous avez construit 7 bases de pompiers',
-            schooling: 'Centre de secours - Véhicules risques chimiques',
-            shownSchooling: 'Véhicules risques chimiques',
+                'Nécessaire dès lors que vous avez construit 11 bases de pompiers',
         },
         8: {
             caption: 'Véhicule de patrouille',
@@ -184,6 +220,7 @@ export default {
             credits: 5_000,
             minPersonnel: 2,
             maxPersonnel: 4,
+            possibleBuildings: [6, 19],
         },
         9: {
             caption: 'Dragon',
@@ -192,6 +229,14 @@ export default {
             credits: 300_000,
             minPersonnel: 3,
             maxPersonnel: 5,
+            possibleBuildings: [5],
+            schooling: {
+                Secours: {
+                    ['Médecin']: {
+                        all: true,
+                    },
+                },
+            },
         },
         10: {
             caption: 'VAR',
@@ -200,6 +245,9 @@ export default {
             credits: 11_680,
             minPersonnel: 1,
             maxPersonnel: 3,
+            possibleBuildings: [0, 18],
+            special:
+                'Nécessaire dès lors que vous avez construit 5 bases de pompiers',
         },
         11: {
             caption: 'VPC',
@@ -208,8 +256,14 @@ export default {
             credits: 25_500,
             minPersonnel: 1,
             maxPersonnel: 6,
-            schooling: 'Centre de secours - Commandement mobile',
-            shownSchooling: 'VPC',
+            possibleBuildings: [0, 18],
+            schooling: {
+                'Centre de secours': {
+                    'Commandement mobile': {
+                        all: true,
+                    },
+                },
+            },
             special:
                 'Nécessaire dès lors que vous avez construit 13 bases de pompiers',
         },
@@ -220,6 +274,9 @@ export default {
             credits: 19_000,
             minPersonnel: 2,
             maxPersonnel: 6,
+            wtank: 3000,
+            possibleBuildings: [0, 18],
+            special: 'Vous devez posséder au moins le grade : Sergent-chef.',
         },
         13: {
             caption: 'VTU',
@@ -228,8 +285,9 @@ export default {
             credits: 12_180,
             minPersonnel: 1,
             maxPersonnel: 3,
+            possibleBuildings: [0, 18],
             special:
-                'Nécessaire dès lors que vous avez construit 13 bases de pompiers',
+                'Nécessaire dès lors que vous avez construit 4 bases de pompiers',
         },
         14: {
             caption: 'VGRIMP',
@@ -238,9 +296,16 @@ export default {
             credits: 19_000,
             minPersonnel: 2,
             maxPersonnel: 5,
-            schooling:
-                'Centre de secours - IMP (Intervention en Milieu Périlleux)',
-            shownSchooling: 'Spécialiste IMP',
+            possibleBuildings: [0, 18],
+            schooling: {
+                'Centre de secours': {
+                    ['IMP (Intervention en Milieu Périlleux)']: {
+                        all: true,
+                    },
+                },
+            },
+            special:
+                'Nécessaire dès lors que vous avez construit 12 bases de pompiers',
         },
         15: {
             caption: 'BEA',
@@ -249,6 +314,7 @@ export default {
             credits: 19_000,
             minPersonnel: 2,
             maxPersonnel: 3,
+            possibleBuildings: [0, 18],
         },
         16: {
             caption: 'VPL',
@@ -257,8 +323,14 @@ export default {
             credits: 10_000,
             minPersonnel: 3,
             maxPersonnel: 3,
-            schooling: 'Centre de secours - PLG (Plongeur)',
-            shownSchooling: 'PLG (Plongeur)',
+            possibleBuildings: [0],
+            schooling: {
+                'Centre de secours': {
+                    'PLG (Plongeur)': {
+                        all: true,
+                    },
+                },
+            },
             special: 'Nécessite une formation spéciale (PLG (Plongeur))',
         },
         17: {
@@ -268,6 +340,7 @@ export default {
             credits: 6_000,
             minPersonnel: 0,
             maxPersonnel: 0,
+            possibleBuildings: [0],
             special: 'Remorqueuse nécessaire (VPL, VTU)',
         },
         18: {
@@ -277,8 +350,14 @@ export default {
             credits: 300_000,
             minPersonnel: 2,
             maxPersonnel: 4,
-            schooling: 'Poste de police - Licence de pilote',
-            shownSchooling: 'Aviation policière',
+            possibleBuildings: [13],
+            schooling: {
+                'Poste de police': {
+                    'Licence de Pilote': {
+                        all: true,
+                    },
+                },
+            },
         },
         19: {
             caption: 'Equipe cynophile',
@@ -287,10 +366,16 @@ export default {
             credits: 7_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            schooling: 'Poste de police - Maître chien',
-            shownSchooling: 'Brigade canine',
+            possibleBuildings: [6, 19],
+            schooling: {
+                'Poste de police': {
+                    ['Maître chien']: {
+                        all: true,
+                    },
+                },
+            },
             special:
-                'Nécessaire dès lors que vous avez construit 6 postes de police.<br>Nécessite une formation spéciale (Maître chien)',
+                'Nécessaire dès lors que vous avez construit 6 postes de police.',
         },
         20: {
             caption: 'Unité motocycliste',
@@ -299,16 +384,24 @@ export default {
             credits: 2_500,
             minPersonnel: 1,
             maxPersonnel: 1,
-            schooling: 'Poste de police - Formation motocycliste',
-            shownSchooling: 'Policie motocycliste',
+            possibleBuildings: [6, 19],
+            schooling: {
+                'Poste de police': {
+                    'Formation Motocycliste': {
+                        all: true,
+                    },
+                },
+            },
         },
         21: {
             caption: 'CCFS',
             color: '#d71919',
-            coins: 19,
+            coins: 25,
             credits: 19_000,
-            minPersonnel: 3,
-            maxPersonnel: 5,
+            minPersonnel: 2,
+            maxPersonnel: 4,
+            wtank: 14500,
+            possibleBuildings: [0, 18],
             special:
                 'Nécessaire dès lors que vous avez construit 6 bases de pompiers',
         },
@@ -317,8 +410,10 @@ export default {
             color: '#d71919',
             coins: 8,
             credits: 8_000,
-            minPersonnel: 1,
-            maxPersonnel: 3,
+            minPersonnel: 2,
+            maxPersonnel: 4,
+            wtank: 4000,
+            possibleBuildings: [0, 18],
             special:
                 'Nécessaire dès lors que vous avez construit 6 bases de pompiers',
         },
@@ -327,8 +422,10 @@ export default {
             color: '#d71919',
             coins: 5,
             credits: 5_000,
-            minPersonnel: 1,
-            maxPersonnel: 2,
+            minPersonnel: 2,
+            maxPersonnel: 4,
+            wtank: 2000,
+            possibleBuildings: [0, 18],
             special:
                 'Nécessaire dès lors que vous avez construit 6 bases de pompiers',
         },
@@ -339,8 +436,174 @@ export default {
             credits: 10_000,
             minPersonnel: 1,
             maxPersonnel: 1,
+            possibleBuildings: [0, 18],
             special:
                 'Nécessaire dès lors que vous avez construit 6 bases de pompiers',
+        },
+        25: {
+            caption: 'VSAV',
+            color: '#9c691c',
+            coins: 25,
+            credits: 5_000,
+            minPersonnel: 3,
+            maxPersonnel: 3,
+            possibleBuildings: [0],
+        },
+        26: {
+            caption: 'VL SSSM',
+            color: '#9c691c',
+            coins: 20,
+            credits: 4_000,
+            minPersonnel: 1,
+            maxPersonnel: 2,
+            possibleBuildings: [0],
+            schooling: {
+                'Centre de secours': {
+                    ['Médecin']: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        27: {
+            caption: 'VLM',
+            color: '#9c691c',
+            coins: 20,
+            credits: 4_000,
+            minPersonnel: 3,
+            maxPersonnel: 3,
+            possibleBuildings: [2, 20],
+            schooling: {
+                Secours: {
+                    ['Médecin']: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        28: {
+            caption: 'AR',
+            color: '#9c691c',
+            coins: 30,
+            credits: 10_000,
+            minPersonnel: 3,
+            maxPersonnel: 3,
+            possibleBuildings: [2, 20],
+            schooling: {
+                Secours: {
+                    ['Médecin']: {
+                        all: true,
+                    },
+                },
+            },
+        },
+        29: {
+            caption: 'PC DSM',
+            color: '#9c691c',
+            coins: 25,
+            credits: 20_000,
+            minPersonnel: 2,
+            maxPersonnel: 3,
+            possibleBuildings: [2, 20],
+            schooling: {
+                Secours: {
+                    DSM: {
+                        all: true,
+                    },
+                },
+            },
+            special:
+                'Nécessaire dès lors que vous avez construit 6 postes de secours',
+        },
+        30: {
+            caption: 'Ambulance Type A',
+            color: '#9c691c',
+            coins: 25,
+            credits: 5_000,
+            minPersonnel: 1,
+            maxPersonnel: 2,
+            possibleBuildings: [2, 20],
+        },
+        31: {
+            caption: 'VTP',
+            color: '#d71919',
+            coins: 10,
+            credits: 10_000,
+            minPersonnel: 1,
+            maxPersonnel: 9,
+            possibleBuildings: [0, 18],
+        },
+        32: {
+            caption: 'CCRL',
+            color: '#d71919',
+            coins: 10,
+            credits: 15_000,
+            minPersonnel: 2,
+            maxPersonnel: 4,
+            wtank: 1400,
+            possibleBuildings: [0, 18],
+            special: 'Vous devez posséder au moins le grade : Adjudant.',
+        },
+        33: {
+            caption: 'CCRM',
+            color: '#d71919',
+            coins: 10,
+            credits: 18_000,
+            minPersonnel: 2,
+            maxPersonnel: 6,
+            wtank: 2500,
+            possibleBuildings: [0, 18],
+            special: 'Vous devez posséder au moins le grade : Adjudant.',
+        },
+        34: {
+            caption: 'CCRSR',
+            color: '#d71919',
+            coins: 15,
+            credits: 30_000,
+            minPersonnel: 2,
+            maxPersonnel: 6,
+            wtank: 2000,
+            possibleBuildings: [0, 18],
+            special: 'Vous devez posséder au moins le grade : Adjudant.',
+        },
+        35: {
+            caption: 'FMOGP',
+            color: '#d71919',
+            coins: 15,
+            credits: 35_000,
+            minPersonnel: 2,
+            maxPersonnel: 3,
+            wtank: 12000,
+            possibleBuildings: [0],
+        },
+        36: {
+            caption: 'CDHR',
+            color: '#d71919',
+            coins: 10,
+            credits: 15_000,
+            minPersonnel: 2,
+            maxPersonnel: 3,
+            possibleBuildings: [0],
+        },
+        37: {
+            caption: 'FDGP',
+            color: '#d71919',
+            coins: 15,
+            credits: 35_000,
+            minPersonnel: 2,
+            maxPersonnel: 4,
+            possibleBuildings: [0],
+        },
+        38: {
+            caption: 'MPR',
+            color: '#d71919',
+            coins: 10,
+            credits: 10_000,
+            minPersonnel: 0,
+            maxPersonnel: 0,
+            possibleBuildings: [0],
+            special:
+                'Remorqueuse nécessaire (FPT, FPTL, CCFS, CCFM, CCFL, CCRL, CCRM, CCGC, FMOGP, VLHR, CDHR, FDGP)',
         },
     },
     buildings: {
@@ -357,20 +620,27 @@ export default {
                     duration: '7 jours',
                 },
                 {
+                    caption: 'Extension de soutien à incendie',
+                    credits: 75_000,
+                    coins: 15,
+                    duration: '3 jours',
+                },
+                {
                     caption: 'Unité nautique',
                     credits: 100_000,
                     coins: 20,
                     duration: '7 jours',
                 },
             ],
-            levelcost: ['1. 10.000', '2. 50.000', '3.-16. 100.000'],
-            maxBuildings: '4.400',
-            maxLevel: 16,
+            levelcost: ['1. 10.000', '2. 50.000', '3.-24. 100.000'],
+            maxBuildings: '5.000',
+            maxLevel: 24,
             special:
                 'Le prix de vos postes augmente lorsque vous en possédez 25. Ainsi, le rythme de progression est constant une fois que vous possédez un grand flux de revenus à ces niveaux de jeu. La formule actuelle pour calculer le prix des postes est la suivante : <code>100.000+(200.000*LOG<sub>2</sub>(Number of existing fire stations − 22))</code>.',
             startPersonnel: 10,
             startVehicles: ['FPT', 'FPTL'],
-            maxBuildingsFunction: (): number => 4_400,
+            schoolingTypes: ['Centre de secours'],
+            maxBuildingsFunction: (): number => 5_000,
         },
         1: {
             caption: 'Centre de Formation Départemental',
@@ -403,6 +673,26 @@ export default {
             special: '',
             startPersonnel: 3,
             startVehicles: ['UMH'],
+            schoolingTypes: ['Secours'],
+        },
+        3: {
+            caption: 'École de médecine',
+            color: '#ffa500',
+            coins: 50,
+            credits: 500_000,
+            extensions: new Array(3).fill({
+                caption: 'Plus de salles de cours',
+                credits: 400_000,
+                coins: 40,
+                duration: '7 jours',
+            }),
+            levelcost: [],
+            maxBuildings: 'Aucune limite',
+            maxLevel: 0,
+            special:
+                "Le chef des finances et les administrateurs peuvent améliorer le bâtiment grâce à la banque d'alliance.Les chefs de formation et les administrateurs peuvent lancer des formations.",
+            startPersonnel: 0,
+            startVehicles: [],
         },
         4: {
             caption: 'Centre Hospitalier',
@@ -486,6 +776,7 @@ export default {
                 'Nombre de stations max : nombre de bâtiments divisé par 25.',
             startPersonnel: 0,
             startVehicles: [],
+            schoolingTypes: ['Secours'],
             maxBuildingsFunction: (buildingsAmountTotal: number): number =>
                 buildingsAmountTotal < 125
                     ? 4
@@ -515,6 +806,7 @@ export default {
             maxLevel: 14,
             startPersonnel: 2,
             startVehicles: ['Véhicule de patrouille'],
+            schoolingTypes: ['Poste de police'],
             maxBuildingsFunction: (): number => 1_700,
         },
         7: {
@@ -566,6 +858,7 @@ export default {
                 "Attention : Vous ne pouvez construire un maximum de 25 héliports de Gendarmerie. Il n'y a pas de différence si vous construisez un nouveau bâtiment ou une nouvelle extension. (Plus vous construisez de bâtiments et plus vous pourrez construire d'héliports).",
             startPersonnel: 3,
             startVehicles: [],
+            schoolingTypes: ['Poste de police'],
             maxBuildingsFunction: (buildingsAmountTotal: number): number =>
                 buildingsAmountTotal < 125
                     ? 4
@@ -623,13 +916,14 @@ export default {
                 '3.-5. 100.000',
                 "Ceci est une petite caserne. Si vous souhaitez construire des extensions ou augmenter le nombre d'emplacements de véhicules, vous devez l'améliorer pour en faire une caserne ordinaire. Ce processus prend 24 heures.",
             ],
-            maxBuildings: '4400 casernes de pompiers',
+            maxBuildings: '5.000 casernes de pompiers',
             maxLevel: 5,
             special:
                 'Le prix de vos postes augmente lorsque vous en possédez 25. Ainsi, le rythme de progression est constant une fois que vous possédez un grand flux de revenus à ces niveaux de jeu. La formule actuelle pour calculer le prix des postes est la suivante : <code>100.000+(200.000*LOG<sub>2</sub>(Number of existing fire stations − 22))</code>.',
             startPersonnel: 10,
             startVehicles: ['FPT', 'FPTL'],
-            maxBuildingsFunction: (): number => 4_400,
+            schoolingTypes: ['Centre de secours'],
+            maxBuildingsFunction: (): number => 5_000,
         },
         19: {
             caption: 'Poste de police (petit)',
@@ -662,6 +956,7 @@ export default {
                 'Le prix de vos postes augmente lorsque vous en possédez 25. Ainsi, le rythme de progression est constant une fois que vous possédez un grand flux de revenus à ces niveaux de jeu. La formule actuelle pour calculer le prix des postes est la suivante : <code>100.000+(200.000*LOG<sub>2</sub>(Number of existing fire stations − 22))</code>.',
             startPersonnel: 2,
             startVehicles: ['Véhicule de patrouille'],
+            schoolingTypes: ['Poste de police'],
             maxBuildingsFunction: (): number => 1_700,
         },
         20: {
@@ -681,6 +976,33 @@ export default {
             special: '',
             startPersonnel: 3,
             startVehicles: ['UMH'],
+            schoolingTypes: ['Secours'],
+        },
+        21: {
+            caption: 'Grand complexe',
+            color: '#8B4513',
+            coins: 'Trop cher',
+            credits: 'Trop cher',
+            extensions: [],
+            levelcost: ['Trop cher'],
+            maxBuildings: 'Keine Grenze',
+            maxLevel: 5,
+            special: "TROP CHER, NE PAS L'ACHETER, NE PAS L'ÉTENDRE",
+            startPersonnel: 'there is none',
+            startVehicles: [''],
+        },
+        22: {
+            caption: 'Petit complexe',
+            color: '#8B4513',
+            coins: 'Trop cher',
+            credits: 'Trop cher',
+            extensions: [],
+            levelcost: ['Trop cher'],
+            maxBuildings: 'Keine Grenze',
+            maxLevel: 5,
+            special: "TROP CHER, NE PAS L'ACHETER, NE PAS L'ÉTENDRE",
+            startPersonnel: 'there is none',
+            startVehicles: [''],
         },
     },
     buildingCategories: {
@@ -689,7 +1011,7 @@ export default {
             color: '#ff2d2d',
         },
         Ambulances: {
-            buildings: [2, 4, 5, 20],
+            buildings: [2, 3, 4, 5, 20],
             color: '#ffa500',
         },
         Police: {
@@ -697,35 +1019,36 @@ export default {
             color: '#00ac00',
         },
         Autre: {
-            buildings: [7, 14],
+            buildings: [7, 14, 21, 22],
             color: '#02a18c',
         },
     },
     vehicleCategories: {
         Incendie: {
             vehicles: {
-                'Fourgon dìncendie': [0, 1, 12, 13],
-                'Échelles': [2, 15],
-                'Véhicules spéciaux': [4, 6, 7, 10, 14],
+                ['Fourgon dìncendie']: [0, 1, 12, 13],
+                ['Échelles']: [2, 15],
+                ['Véhicules spéciaux']: [4, 6, 7, 10, 14, 31, 36, 37, 38],
                 'Chefs de groupe': [3, 11],
+                'Ambulance': [25, 26],
                 'Nautique': [16, 17],
-                'Feux de Forêt': [21, 22, 23, 24],
+                ['Feux de Forêt']: [21, 22, 23, 24, 32, 33, 34, 35],
             },
             color: '#ff2d2d',
         },
         Ambulances: {
             vehicles: {
-                Ambulances: [5],
+                Ambulances: [5, 27, 28, 29, 30],
                 Dragon: [9],
             },
             color: '#ffa500',
         },
         Police: {
             vehicles: {
-                'Véhicule de patrouille': [8],
-                'Unité motocycliste': [20],
-                'Choucas': [18],
-                'Équipe cynophile': [19],
+                ['Véhicule de patrouille']: [8],
+                ['Unité motocycliste']: [20],
+                Choucas: [18],
+                ['Équipe cynophile']: [19],
             },
             color: '#00ac00',
         },
@@ -752,17 +1075,19 @@ export default {
         '19_1',
     ],
     bedBuildings: [4],
-    schoolBuildings: [1, 8],
+    schoolBuildings: [1, 3, 8],
     dispatchCenterBuildings: [7],
     schoolings: {
         'Centre de secours': [
             {
                 caption: 'Véhicules risques chimiques',
                 duration: '3 jours',
+                staffList: 'Véhicules risques chimiques',
             },
             {
                 caption: 'Commandement mobile',
                 duration: '5 jours',
+                staffList: 'VPC',
             },
             {
                 caption: 'Formation SSLIA',
@@ -777,26 +1102,48 @@ export default {
                 duration: '5 jours',
             },
             {
-                caption: 'IMP (Intervention en Milieu Périlleux',
+                caption: 'IMP (Intervention en Milieu Périlleux)',
                 duration: '4 jours',
+                staffList: 'Spécialiste IMP',
             },
             {
                 caption: 'PLG (Plongeur)',
                 duration: '5 jours',
+                staffList: 'PLG (Plongeur)',
+            },
+            {
+                caption: 'Médecin',
+                duration: '5 jours',
+                staffList: 'Médecin urgentiste',
+            },
+        ],
+        'Secours': [
+            {
+                caption: 'DSM',
+                duration: '7 jours',
+                staffList: 'Chef du pôle urgences',
+            },
+            {
+                caption: 'Médecin',
+                duration: '5 jours',
+                staffList: 'Médecin urgentiste',
             },
         ],
         'Poste de police': [
             {
                 caption: 'Licence de Pilote',
                 duration: '7 jours',
+                staffList: 'Aviation policière',
             },
             {
                 caption: 'Maître chien',
                 duration: '5 jours',
+                staffList: 'Brigade canine',
             },
             {
                 caption: 'Formation Motocycliste',
                 duration: '3 jours',
+                staffList: 'Policier motocycliste',
             },
         ],
     },
@@ -805,6 +1152,7 @@ export default {
     alliance: 'Alliance',
     premiumNotice: 'Compte premium de Opérateur112 nécessaire.',
     credits: 'Crédits',
+    coins: 'Pièces',
     close: 'Fermer',
     fullscreen: {
         expand: 'Active le mode plein écran',
@@ -816,6 +1164,7 @@ export default {
     station: 'Casernes | Caserne | Casernes',
     distance: 'Distance | Distances',
     vehicleType: 'Type de véhicule',
+    noOptions: 'Sorry, no matching options.',
     fmsReal2Show: {
         1: 1,
         2: 2,
@@ -874,7 +1223,7 @@ export default {
         'Ferme',
         'Bureaux',
         'Piscine',
-        '',
+        'Passage à niveau',
         'Théâtre',
         'Fête foraine',
         'Rivière',
@@ -910,7 +1259,41 @@ export default {
         'Atelier de menuiserie',
         'Centre-ville',
         'Colline',
+        'Quai',
+        'Terrain de jeux',
+        'Circuit de cross',
+        'Résidence Protégée',
+        'Falaise',
+        'Raffinerie de pétrole',
     ],
     only_alliance_missions: [57, 74],
-    transfer_missions: [],
+    transfer_missions: [325, 326],
+    ranks: {
+        missionchief: {
+            0: 'Auxiliaire',
+            200: 'Sapeur',
+            10_000: 'Caporal',
+            100_000: 'Caporal-chef',
+            1_000_000: 'Sergent',
+            5_000_000: 'Sergent-chef',
+            20_000_000: 'Adjudant',
+            50_000_000: 'Adjudant-chef',
+            1_000_000_000: 'Lieutenant',
+            2_000_000_000: 'Capitaine',
+            5_000_000_000: 'Commandant',
+        },
+        policechief: {
+            0: 'Adjoint/e de sécurité',
+            200: 'Gardien/ne de la paix',
+            10_000: 'Brigadier/ère de police',
+            100_000: 'Brigadier/ère chef de police',
+            1_000_000: 'Major de police',
+            5_000_000: 'Lieutenant de police',
+            20_000_000: 'Capitaine de police',
+            50_000_000: 'Commandant de police',
+            1_000_000_000: 'Commissaire de police',
+            2_000_000_000: 'Commissaire divisionnaire de police',
+            5_000_000_000: 'Directeur/trice général/e de la police',
+        },
+    },
 };

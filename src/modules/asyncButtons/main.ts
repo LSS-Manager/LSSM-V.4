@@ -8,7 +8,9 @@ export default (async (LSSM, MODULE_ID, $m) => {
         });
     };
 
-    const buildings = ['buildingTax'].filter(async s => await getSetting(s));
+    const buildings = ['buildingTax', 'switchExtensionState'].filter(
+        async s => await getSetting(s)
+    );
     const missions = ['missionPrisoners', 'missionReply'].filter(
         async s => await getSetting(s)
     );
@@ -17,42 +19,58 @@ export default (async (LSSM, MODULE_ID, $m) => {
         window.location.pathname.match(/^\/buildings\/\d+\/?$/) &&
         !document.querySelectorAll('[href*="profile"]').length &&
         buildings.length
-    )
+    ) {
         (
             await import(
                 /* webpackChunkName: "modules/asyncButtons/buildings" */ './assets/buildings'
             )
-        ).default(LSSM, buildings);
+        ).default(LSSM, buildings, $m, MODULE_ID);
+    }
+
+    if (
+        window.location.pathname.match(/^\/buildings\/\d+\/personals\/?$/) &&
+        (await getSetting('buildingPersonal'))
+    ) {
+        (
+            await import(
+                /* webpackChunkName: "modules/asyncButtons/buildingPersonal" */ './assets/buildingPersonal'
+            )
+        ).default(LSSM, $m, MODULE_ID);
+    }
 
     if (
         window.location.pathname.match(/^\/missions\/\d+\/?$/) &&
         missions.length
-    )
+    ) {
         import(
             /* webpackChunkName: "modules/asyncButtons/missions" */ './assets/missions'
-        ).then(a => a.default(LSSM, missions));
+        ).then(a => a.default(LSSM, missions, MODULE_ID));
+    }
 
     if (
         window.location.pathname.match(/^\/verband\/mitglieder(\/\d+)?\/?$/) &&
         (await getSetting('memberlistManageUser'))
-    )
+    ) {
         (
             await import(
                 /* webpackChunkName: "modules/asyncButtons/memberlist" */ './assets/memberlist'
             )
-        ).default(LSSM, $m);
+        ).default(LSSM, $m, MODULE_ID);
+    }
     if (
         window.location.pathname.match(
             /^\/alliance_threads\/\d+\/?(\?page=\d+)?$/
         ) &&
         (await getSetting('deleteForumPost'))
-    )
+    ) {
         import(
             /* webpackChunkName: "modules/asyncButtons/forumpost" */ './assets/forumpost'
-        ).then(a => a.default(LSSM, $m));
+        ).then(a => a.default(LSSM, $m, MODULE_ID));
+    }
 
-    if (window.location.pathname.match(/^\/aaos/))
+    if (window.location.pathname.match(/^\/aaos/)) {
         import(
             /* webpackChunkName: "modules/asyncButtons/arr" */ './assets/arr'
-        ).then(a => a.default(LSSM, $m));
+        ).then(a => a.default(LSSM, $m, MODULE_ID));
+    }
 }) as ModuleMainFunction;

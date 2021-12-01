@@ -1,19 +1,20 @@
 ---
-title: Allgemein
+title: LSS-Manager V.4
 lang: de_DE
 sidebarDepth: 2
 ---
 
-# Wiki :de: <Badge :text="'LSSM V.' + ($themeConfig.variables.versions.stable || 4)"/>
+# Wiki 🇩🇪 <Badge :text="'v' + $themeConfig.variables.versions.short"/>
 
-*Aktuelle Versionen:*
-> Stable: <i>{{ $themeConfig.variables.versions.stable }}</i>
+> stable: <i>{{ $themeConfig.variables.versions.stable }}</i>
+> 
+> beta: <i>{{ $themeConfig.variables.versions.beta }}</i>
 
-<a :href="$themeConfig.variables.discord" target="_blank" style="float: right;"><img src="https://discord.com/api/guilds/254167535446917120/embed.png?style=banner1" alt="Unser Discord-Server: United Dispatch" data-prevent-zooming></a>
+<discord style="float: right;"><img src="https://discord.com/api/guilds/254167535446917120/embed.png?style=banner1" alt="Our Discord-Server: United Dispatch" data-prevent-zooming></discord>
 
-[LSSM-Server-Status](https://status.lss-manager.de)
 
-[Game-Online-Status](https://stats.uptimerobot.com/OEKDJSpmvK)
+
+[Online-Status: Spiel](https://stats.uptimerobot.com/OEKDJSpmvK)
 
 ## Über den LSSM
 
@@ -38,17 +39,12 @@ Eine offizielle Unterstützung mobiler Browser ist derzeit **nicht** geplant.
 ### Schritt 1: Tampermonkey
 Sofern du Tampermonkey in deinem Browser noch nicht installiert hast, musst du dies noch tun. Hier eine Übersicht der Links für die häufigsten Browser:
 
-Browser|Link
--------|----
-Chrome | [Download](https://chrome.google.com/webstore/detail/dhdgffkkebhmkfjojejmpbldmpobfkfo)
-Firefox| [Download](https://addons.mozilla.org/en-US/firefox/addon/tampermonkey/)
-Safari | [Download](https://safari.tampermonkey.net/tampermonkey.safariextz)
-Opera  | [Download](https://addons.opera.com/en/extensions/details/tampermonkey-beta/)
+<tampermonkey-download-table/>
 
 Für sonstige Browser kann man Tampermonkey auf [tampermonkey.net](https://www.tampermonkey.net/) herunterladen.
 
-::: warning
-Bitte beachte, dass wir ältere Browser, sowie mobile Browser und Microsoft Edge bzw. Internet Explorer nicht offiziell unterstützen. Der Support für diese Browser ist also weder garantiert, noch wahrscheinlich.
+::: warning Hinweis
+Bitte beachte, dass wir ältere Browser, sowie mobile Browser, Safari und Microsoft Edge bzw. Internet Explorer nicht offiziell unterstützen. Der Support für diese Browser ist also weder garantiert, noch wahrscheinlich.
 :::
 
 ### Schritt 2: Userscript

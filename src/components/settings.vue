@@ -96,7 +96,6 @@
         <tabs
             :class="$store.getters.nodeAttribute('settings-tabs')"
             v-if="modulesSorted.length > 0"
-            ref="settingsTabs"
             :default-index="tab"
             :on-select="(_, i) => (this.tab = i)"
         >
@@ -148,6 +147,17 @@
                         "
                         :disabled="setting.isDisabled"
                         :hidden="setting.type === 'hidden'"
+                        :appendableListDisableable="
+                            !!settings[moduleId][settingId].disableable
+                        "
+                        :appendableListEnabled="
+                            setting.type === 'appendable-list'
+                                ? settings[moduleId][settingId].value.enabled
+                                : false
+                        "
+                        @toggleEnabled="
+                            updateAppendableList($event, moduleId, settingId)
+                        "
                     >
                         <settings-text
                             v-if="setting.type === 'text'"
@@ -161,6 +171,18 @@
                             @input="update(moduleId, settingId)"
                             :disabled="setting.isDisabled"
                         ></settings-text>
+                        <settings-textarea
+                            v-else-if="setting.type === 'textarea'"
+                            :name="setting.name"
+                            :placeholder="
+                                $t(
+                                    `modules.${moduleId}.settings.${settingId}.title`
+                                )
+                            "
+                            v-model="settings[moduleId][settingId].value"
+                            @input="update(moduleId, settingId)"
+                            :disabled="setting.isDisabled"
+                        ></settings-textarea>
                         <settings-toggle
                             v-else-if="setting.type === 'toggle'"
                             :name="setting.name"
@@ -187,6 +209,7 @@
                             :min="setting.min"
                             :max="setting.max"
                             :step="setting.step"
+                            :float="setting.float"
                             @input="update(moduleId, settingId)"
                             :disabled="setting.isDisabled"
                         ></settings-number>
@@ -231,14 +254,30 @@
                             v-model="settings[moduleId][settingId].value"
                             @input="update(moduleId, settingId)"
                         ></settings-hotkey>
+                        <settings-location
+                            v-else-if="setting.type === 'location'"
+                            :name="setting.name"
+                            :placeholder="
+                                $t(
+                                    `modules.${moduleId}.settings.${settingId}.title`
+                                )
+                            "
+                            v-model="settings[moduleId][settingId].value"
+                            :zoom="setting.zoom"
+                            @input="update(moduleId, settingId)"
+                            :disabled="setting.isDisabled"
+                        ></settings-location>
                         <settings-appendable-list
                             v-else-if="setting.type === 'appendable-list'"
                             :setting="setting"
-                            v-model="settings[moduleId][settingId].value"
+                            v-model="settings[moduleId][settingId].value.value"
                             @input="update(moduleId, settingId)"
                             :module-id="moduleId"
                             :setting-id="settingId"
                             :orderable="!!setting.orderable"
+                            :enabled="
+                                settings[moduleId][settingId].value.enabled
+                            "
                         ></settings-appendable-list>
                         <pre v-else>{{ setting }}</pre>
                     </setting>
@@ -250,16 +289,22 @@
 
 <script lang="ts">
 import Vue from 'vue';
+
+import cloneDeep from 'lodash/cloneDeep';
 import { faHistory } from '@fortawesome/free-solid-svg-icons/faHistory';
+import isEqual from 'lodash/isEqual';
+
+import { DefaultProps } from 'vue/types/options';
 import {
+    AppendableList,
+    ModuleSettings,
+    Setting as SettingType,
+} from '../../typings/Setting';
+import {
+    SettingsComputed,
     SettingsData,
     SettingsMethods,
-    SettingsComputed,
 } from '../../typings/components/Settings';
-import cloneDeep from 'lodash/cloneDeep';
-import isEqual from 'lodash/isEqual';
-import { DefaultProps } from 'vue/types/options';
-import { ModuleSettings, Setting as SettingType } from '../../typings/Setting';
 
 export default Vue.extend<
     SettingsData,
@@ -267,7 +312,7 @@ export default Vue.extend<
     SettingsComputed,
     DefaultProps
 >({
-    name: 'settings',
+    name: 'lssmv4-settings',
     components: {
         SettingsAppendableList: () =>
             import(
@@ -280,6 +325,10 @@ export default Vue.extend<
         SettingsText: () =>
             import(
                 /* webpackChunkName: "components/setting/text" */ './setting/text.vue'
+            ),
+        SettingsTextarea: () =>
+            import(
+                /* webpackChunkName: "components/setting/textarea" */ './setting/textarea.vue'
             ),
         SettingsSelect: () =>
             import(
@@ -300,6 +349,10 @@ export default Vue.extend<
         SettingsHotkey: () =>
             import(
                 /* webpackChunkName: "components/setting/hotkey" */ './setting/hotkey.vue'
+            ),
+        SettingsLocation: () =>
+            import(
+                /* webpackChunkName: "components/setting/location" */ './setting/location.vue'
             ),
         Setting: () =>
             import(
@@ -377,7 +430,7 @@ export default Vue.extend<
                                 .map(([setting, saved]) => [
                                     setting,
                                     {
-                                        saved: saved,
+                                        saved,
                                         current: this.liveValueMap[module][
                                             setting
                                         ],
@@ -415,19 +468,33 @@ export default Vue.extend<
                 );
             this.$store.commit('settings/setSettingsChanges', this.changes);
         },
-        save() {
-            this.$store
-                .dispatch('settings/saveSettings', {
-                    settings: this.settings,
-                })
-                .then(() => {
-                    this.settings = cloneDeep(
-                        this.$store.state.settings.settings
-                    );
-                    this.startSettings = cloneDeep(this.settings);
-                    this.update();
-                    this.getExportData();
-                });
+        updateAppendableList(state, moduleId, settingId) {
+            (this.settings[moduleId][
+                settingId
+            ] as AppendableList).value.enabled = state;
+            this.update(moduleId, settingId);
+        },
+        async save() {
+            for (const [moduleId, settings] of Object.entries(
+                this.changeList
+            )) {
+                for (const [settingId, { current }] of Object.entries(
+                    settings
+                )) {
+                    await this.$store.dispatch('settings/setSetting', {
+                        moduleId,
+                        settingId,
+                        value: current,
+                    });
+                }
+            }
+            await this.$store.dispatch('settings/saveSettings', {
+                settings: this.settings,
+            });
+            this.settings = cloneDeep(this.$store.state.settings.settings);
+            this.startSettings = cloneDeep(this.settings);
+            this.update();
+            this.getExportData();
         },
         discard() {
             this.settings = cloneDeep(this.startSettings);
@@ -443,15 +510,28 @@ export default Vue.extend<
                     {
                         title: this.$m('resetWarning.close'),
                         default: true,
+                        handler: () => {
+                            this.$modal.hide('dialog');
+                        },
                     },
                     {
                         title: this.$m('resetWarning.total'),
                         handler: () => {
                             Object.values(this.settings).forEach(module =>
                                 Object.values(module).forEach(setting =>
-                                    this.$set(setting, 'value', setting.default)
+                                    this.$set(
+                                        setting,
+                                        'value',
+                                        setting.type === 'appendable-list'
+                                            ? {
+                                                  value: setting.default,
+                                                  enabled: !setting.disableable,
+                                              }
+                                            : setting.default
+                                    )
                                 )
                             );
+                            this.update();
                             this.save();
                             this.key++;
                             this.$modal.hide('dialog');
@@ -472,8 +552,18 @@ export default Vue.extend<
                             Object.values(
                                 this.settings[this.modulesSorted[this.tab]]
                             ).forEach(setting =>
-                                this.$set(setting, 'value', setting.default)
+                                this.$set(
+                                    setting,
+                                    'value',
+                                    setting.type === 'appendable-list'
+                                        ? {
+                                              value: setting.default,
+                                              enabled: !setting.disableable,
+                                          }
+                                        : setting.default
+                                )
                             );
+                            this.update();
                             this.save();
                             this.key++;
                             this.$modal.hide('dialog');
@@ -489,7 +579,7 @@ export default Vue.extend<
             )
                 return true;
             let dependence = this.settings[moduleId][settingId].dependsOn;
-            let disabledFun = this.settings[moduleId][settingId].disabled;
+            const disabledFun = this.settings[moduleId][settingId].disabled;
             if (dependence) {
                 const invert = dependence.startsWith('!');
                 dependence = dependence.replace(/^!/, '');
@@ -497,18 +587,19 @@ export default Vue.extend<
                     ? this.settings[moduleId]
                     : this.settings;
                 dependence = dependence.replace(/^\./, '');
-                let setting = (dependence.split('/').reduce(
+                const setting = (dependence.split('/').reduce(
                     (previousValue, currentValue) =>
                         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                         // @ts-ignore
                         (previousValue || base)[currentValue],
                     base
                 ) as unknown) as SettingType;
-                if (invert)
+                if (invert) {
                     return (
                         setting?.isDisabled ||
                         (!!setting?.value ?? !!setting?.default)
                     );
+                }
                 return (
                     setting?.isDisabled ||
                     (!setting?.value ?? !setting?.default)
@@ -540,8 +631,8 @@ export default Vue.extend<
         },
         importSettings() {
             const { files } = this.$refs.import as HTMLInputElement;
-            if (!files) return;
-            const file = files[0];
+            if (!files || !files.length) return;
+            const [file] = files;
             const fileReader = new FileReader();
 
             fileReader.readAsText(file);
@@ -554,11 +645,12 @@ export default Vue.extend<
                               [key: string]: SettingType['value'];
                           };
                 };
-                if (result.activeModules)
+                if (result.activeModules) {
                     await this.$store.dispatch('storage/set', {
                         key: 'activeModules',
                         value: result.activeModules,
                     });
+                }
                 const resultEntries = Object.entries(result);
                 resultEntries.forEach(([module, value], index) => {
                     if (['activeModules'].includes(module)) return;
@@ -592,6 +684,7 @@ export default Vue.extend<
     mounted() {
         this.getExportData();
         this.$store.commit('useFontAwesome');
+        (window[PREFIX] as Vue).$settings = this;
     },
 });
 </script>
@@ -599,8 +692,11 @@ export default Vue.extend<
 <style scoped lang="sass">
 @import 'src/sass/mixins/autoSizedGrid'
 
-.vue-tab[aria-selected="true"]
-    border-bottom-color: white !important
+.vue-tablist
+    flex-flow: wrap
+
+    .vue-tab[aria-selected="true"]
+        border-bottom-color: white !important
 .vue-tabpanel
     transition: 0.5s
 

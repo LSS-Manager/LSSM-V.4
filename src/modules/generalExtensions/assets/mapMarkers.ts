@@ -15,6 +15,10 @@ export default async (
         'map-history-list',
         true
     );
+    const pinBtnId = LSSM.$store.getters.nodeAttribute(
+        'map-history-pin-btn',
+        true
+    );
 
     await LSSM.$store.dispatch('addStyles', [
         {
@@ -29,14 +33,22 @@ export default async (
             },
         },
         {
-            selectorText: `#${historyBtnId}:hover #${historyListId}`,
+            selectorText: `#${historyBtnId}:hover #${historyListId}, #${historyListId}.pinned`,
             style: {
                 display: 'block',
                 cursor: 'pointer',
             },
         },
         {
-            selectorText: `#${historyBtnId} #${historyListId} li`,
+            selectorText: `#${pinBtnId}`,
+            style: {
+                position: 'absolute',
+                right: '-1em',
+                bottom: '-1em',
+            },
+        },
+        {
+            selectorText: `#${historyBtnId} #${historyListId} li, #${historyListId}.pinned #${pinBtnId}`,
             style: {
                 transform: 'rotate(180deg)',
             },
@@ -55,7 +67,9 @@ export default async (
         zoom: number;
     }[];
 
-    const historyBtn = await LSSM.$store.dispatch('addOSMControl', 'top-left');
+    const historyBtn = await LSSM.$store.dispatch('addOSMControl', {
+        position: 'top-left',
+    });
     historyBtn.id = historyBtnId;
 
     const historyIcon = document.createElement('i');
@@ -65,7 +79,25 @@ export default async (
     const historyList = document.createElement('ul');
     historyList.id = historyListId;
 
-    historyBtn.appendChild(historyList);
+    const pinBtn = document.createElement('button');
+    pinBtn.classList.add('btn', 'btn-xs');
+    if (await getSetting<boolean>('mapMarkerPinned'))
+        historyList.classList.add('pinned');
+    pinBtn.id = pinBtnId;
+    const pinIcon = document.createElement('i');
+    pinIcon.classList.add('fas', 'fa-thumbtack');
+    pinBtn.addEventListener('click', () => {
+        historyList.classList.toggle('pinned');
+        LSSM.$store.dispatch('settings/setSetting', {
+            moduleId: MODULE_ID,
+            settingId: 'mapMarkerPinned',
+            value: historyList.classList.contains('pinned'),
+        });
+    });
+    pinBtn.append(pinIcon);
+
+    historyList.prepend(pinBtn);
+    historyBtn.append(historyList);
 
     let currentPreviewTimeout = null as number | null;
     let currentAddressTimeout = null as number | null;
@@ -177,6 +209,7 @@ export default async (
         LSSM.$store
             .dispatch('api/request', {
                 url: `/reverse_address?latitude=${lat}&longitude=${lng}`,
+                feature: `${MODULE_ID}-mapMarkers`,
             })
             .then(res => res.text())
             .then(address => {
@@ -195,11 +228,12 @@ export default async (
         if (!target) return;
         const span = target.querySelector<HTMLSpanElement>('span');
         if (!span) return;
-        if (span.getAttribute('data-address-resolved') !== 'true')
+        if (span.getAttribute('data-address-resolved') !== 'true') {
             currentAddressTimeout = window.setTimeout(
                 () => getAddress(span),
                 200
             );
+        }
         currentPreviewTimeout = window.setTimeout(() => mapPreview(span), 500);
     });
 
@@ -224,27 +258,31 @@ export default async (
         previewEnabled = false;
     });
 
-    if (mapUndo)
-        await LSSM.$store.dispatch('hookPrototype', {
+    if (mapUndo) {
+        await LSSM.$store.dispatch('proxy', {
             post: false,
-            base: 'map',
-            event: 'setView',
+            name: 'map.setView',
+            trap: 'apply',
             callback(
-                coordinates: [number, number] | { lat: number; lng: number },
-                zoom: number
+                _: unknown,
+                __: unknown,
+                [coordinates, zoom = window.map.getZoom()]: [
+                    [number, number] | { lat: number; lng: number },
+                    number
+                ]
             ) {
                 if (previewEnabled) return;
                 let latExtract;
                 let lngExtract;
-                if (Array.isArray(coordinates)) {
-                    latExtract = coordinates[0];
-                    lngExtract = coordinates[1];
-                } else return; // This happens at Zoom – we don't want to log zooming currently
+                if (Array.isArray(coordinates))
+                    [latExtract, lngExtract] = coordinates;
+                else return;
+                // This happens at Zoom – we don't want to log zooming currently
                 const lat = latExtract;
                 const lng = lngExtract;
-                zoom = zoom ?? window.map.getZoom();
                 history.push({ lat, lng, zoom });
                 updateHistoryList();
             },
         });
+    }
 };

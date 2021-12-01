@@ -1,0 +1,11 @@
+{
+	"faq": "FAQ",
+	"header": "Important Alliance Announcements",
+	"header_help": "Will be shown on the start page above the chat.",
+	"rules": "Alliancerules",
+	"save": "Save",
+	"text": "Description Text (Startpage)",
+	"title": "Alliance edit",
+	"webhook": "Discord-Webhook Link",
+	"webhook_help": "You can find more information about the Discord webhooks in our"
+}

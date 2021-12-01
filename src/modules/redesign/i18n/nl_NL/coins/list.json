@@ -1,0 +1,11 @@
+{
+	"amount": "Bedrag",
+	"date": "Datum",
+	"description": "Beschrijving",
+	"load": {
+		"next": "20 oudere transacties laden",
+		"prev": "20 nieuwere transacties laden"
+	},
+	"subtitle": "Geeft {n} transacties van pagina {startPage} ({firstDate}) tot {endPage} ({lastDate}) van totaal {totalPages} paginas",
+	"title": "Coins overzicht"
+}

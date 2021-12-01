@@ -11,3 +11,5 @@ Mit der Nutzung des `LSSM` (Leitstellenspiel Manager, Erweiterung für den Brows
 Diese Daten dienen zur Verbesserung der Erweiterung sowie als Anhaltspunkt für die Entwicklung bestehender bzw. zukünftiger Module.
 
 **Der User kann jeder Zeit die Erhebung dieser Daten per Nachricht an einen der Entwickler widerrufen.** Alle bereits erhobenen Daten des Users werden gelöscht & zukünfitg nicht mehr übertragen.
+
+Zudem lässt sich die Telemetrie über die [Einstellungen](settings.md) (de-)aktivieren.

@@ -1,0 +1,26 @@
+{
+	"add": {
+		"arr": "Nuovo ARR",
+		"group": "Nuovo Gruppo"
+	},
+	"categories": "Proprie categorie di AAR modificate",
+	"delete": {
+		"all": {
+			"text": "Vuoi veramente eliminare TUTTE le voci ARR? Questo non può essere annullato e tutte le esportazioni precedenti del tuo ARR NON funzioneranno più!",
+			"title": "Cancella ARR completamente"
+		},
+		"arr": {
+			"text": "Vuoi veramente eliminare questa voce ARR? Questo non può essere annullato! La voce non apparirà più in nessuna esportazione esistente!",
+			"title": "Cancella ARR"
+		},
+		"cancel": "Cancella",
+		"confirm": "Elimina!",
+		"vehicle_group": {
+			"text": "Vuoi veramente eliminare questo gruppo? Questo non può essere annullato!",
+			"title": "Cancella gruppo"
+		}
+	},
+	"delete_all": "Cancella ARR completamente!",
+	"export": "Esporta ARR",
+	"title": "Regolamenti e gruppi di allarme e risposta"
+}

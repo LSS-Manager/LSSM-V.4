@@ -18,15 +18,17 @@
 
 <script lang="ts">
 import Vue from 'vue';
+
+import { DefaultData } from 'vue/types/options';
 import {
-    NumberProps,
     NumberComputed,
-} from '../../../typings/components/setting/Number';
-import { DefaultData, DefaultMethods } from 'vue/types/options';
+    NumberMethods,
+    NumberProps,
+} from 'typings/components/setting/Number';
 
 export default Vue.extend<
     DefaultData<Vue>,
-    DefaultMethods<Vue>,
+    NumberMethods,
     NumberComputed,
     NumberProps
 >({
@@ -56,19 +58,36 @@ export default Vue.extend<
             type: Number,
             required: false,
         },
+        float: {
+            type: Boolean,
+            required: false,
+            default: false,
+        },
         disabled: {
             type: Boolean,
             required: false,
             default: false,
         },
     },
+    methods: {
+        normalize(num) {
+            return this.float
+                ? parseFloat(num.toString())
+                : parseInt(num.toString());
+        },
+    },
     computed: {
         updateValue: {
             get() {
-                return this.value;
+                const int = this.normalize(this.value);
+                return Number.isNaN(int) ? this.min ?? this.max ?? 0 : int;
             },
             set(value) {
-                this.$emit('input', value);
+                const int = this.normalize(value);
+                this.$emit(
+                    'input',
+                    Number.isNaN(int) ? this.min ?? this.max ?? 0 : int
+                );
             },
         },
     },

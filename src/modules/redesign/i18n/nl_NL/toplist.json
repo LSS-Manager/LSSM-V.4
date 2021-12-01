@@ -1,0 +1,15 @@
+{
+	"alliance": "Team",
+	"amount": "{n} gefilterde speler | {n} gefilterde spelers",
+	"credits": "Totaalverdiende Credits",
+	"load": {
+		"next": "Volgende pagina laden",
+		"prev": "Vorige pagina laden"
+	},
+	"name": "Speler",
+	"search_global": "Alles zoeken",
+	"search_local": "Zoeken in geladen spelers",
+	"search_subtitle": "Toont {n} spelers van pagina {startPage} tot {endPage} van totaal {totalPages} paginas",
+	"subtitle": "Toont {n} spelers van pagina {startPage} ({firstCredits}) tot {endPage} ({lastCredits}) van totaal {totalPages} paginas",
+	"title": "Spelerslijst"
+}

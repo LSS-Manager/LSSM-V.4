@@ -14,6 +14,10 @@
 			"description": "Visar dig emojis för val när du skriver: följt av text.",
 			"title": "Emoji-picker"
 		},
+		"extensionCloseCall": {
+			"description": "Closes propagation speech requests even if the button \"to mission\" is pressed.",
+			"title": "Spreading improved FMS 5"
+		},
 		"linkPreviews": {
 			"byggnader": "Byggnader",
 			"description": "Visar en liten inforuta när du väntar med musen över en länk en kort stund. Här kan du ställa in för vilka länkar infoboxen ska aktiveras:",

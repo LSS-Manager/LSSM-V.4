@@ -54,6 +54,10 @@
 			"description": "Hiermee kan je de kaart op het hoofdscherm centreren op de locatie van de melding met een knop in het meldingenscherm.",
 			"title": "Kaart centreren op melding"
 		},
+		"emvMaxStaff": {
+			"description": "'Benodigde voertuigen weergave' Gebruikt voor de berekeningen voor alle voertuigen de maximale capaciteit.",
+			"title": "Maximum personeel benodigde voertuigen weergave"
+		},
 		"enhancedMissingVehicles": {
 			"description": "Toont de benodigde voertuigen in een duidelijke tabel.",
 			"title": "Benodigde voertuigen weergave"
@@ -66,11 +70,16 @@
 			"description": "Verbergt de voertuigenlijst en opent deze weer met een druk op de knop.",
 			"title": "Voertuigenlijst verbergen"
 		},
+		"hoverTip": {
+			"description": "Toont de naam van de knop als je met de muis er boven gaat staan. Bijvoorbeeld bij de overlay knop.",
+			"title": "Knopinfo"
+		},
 		"loadMoreVehiclesInHeader": {
 			"description": "Toont de knop \"Voertuigen laden\", indien beschikbaar, in de koptekst.",
 			"title": "Voertuigen laden knop in koptekst"
 		},
 		"missionKeywords": {
+			"allMissions": "Alle meldingen",
 			"autotextcolor": "Automatische tekstkleur",
 			"color": "Achtergrondkleur",
 			"description": "Laat je eigen trefwoord naast de meldingsnaam weergeven.",
@@ -85,9 +94,25 @@
 			"description": "Toont naast het aantal patiënten, welke reddingsvoertuigen ze nodig hebben.",
 			"title": "Patiëntensamenvatting"
 		},
+		"playerCounter": {
+			"description": "Toont aan de bovenkant van de personeelslijst hoeveel spelers er een voertuig naar de melding hebben gestuurd. Klik er op om een tabel met details te openen.",
+			"title": "Spelersteller"
+		},
+		"playerCounterColor": {
+			"description": "Kies welke kleur je de spelersteller wilt hebben.",
+			"title": "Spelersteller: kleur"
+		},
 		"redBorder": {
 			"description": "De generatietijd krijgt een rood kader, als de inzet in de komende nacht vervalt.",
 			"title": "Rood kader"
+		},
+		"remainingPatientTime": {
+			"description": "Geeft bij patiënten aan, hoe lang de patiënt nog behandeld moet worden.",
+			"title": "Patiëntenbehandelingsduur"
+		},
+		"stagingAreaSelectedCounter": {
+			"description": "Geeft in de UGS naast de \"Alarmeren\" knop het aantal geselecteerde voertuigen weer.",
+			"title": "Voertuigselectieteller in UGS"
 		},
 		"stickyHeader": {
 			"description": "Toont altijd de bovenste balk in het meldingenscherm, zelfs als je naar beneden scrolt.",
@@ -99,6 +124,24 @@
 			"name": "Naam",
 			"title": "Voertuigcategorieën",
 			"vehicles": "Voertuigtypen"
+		},
+		"vehicleCounter": {
+			"description": "Toont aan de bovenkant van de personeelslijst hoeveel voertuigen naar de melding zijn gestuurd. Klik er op om een tabel met details te openen.",
+			"title": "Voertuigteller"
+		},
+		"vehicleCounterColor": {
+			"danger": "Rood",
+			"default": "Grijs",
+			"description": "Kies welke kleur je de label van de voertuigteller wilt hebben.",
+			"info": "Licht blauw",
+			"primary": "Donker blauw",
+			"success": "Groen",
+			"title": "Voertuigteller: kleur",
+			"warning": "Oranje"
+		},
+		"vehicleTypeInList": {
+			"description": "Geeft het voertuigtype in de lijst met te selecteren voertuigen weer.",
+			"title": "Voertuigtype weergeven"
 		},
 		"yellowBorder": {
 			"description": "De generatietijd krijgt een geel kader als de inzet ouder is dan een ingesteld aantal uren. Bij 0 is er geen kader.",
@@ -120,7 +163,8 @@
 					14,
 					15,
 					17,
-					50
+					50,
+					62
 				]
 			},
 			{
@@ -142,7 +186,17 @@
 					32,
 					11,
 					24,
-					56
+					56,
+					26,
+					20,
+					21,
+					61,
+					62,
+					68,
+					69,
+					70,
+					71,
+					72
 				]
 			},
 			{
@@ -151,7 +205,10 @@
 					33,
 					49,
 					50,
-					36
+					36,
+					65,
+					66,
+					67
 				]
 			},
 			{
@@ -172,7 +229,8 @@
 					30,
 					23,
 					37,
-					38
+					38,
+					63
 				]
 			},
 			{
@@ -197,7 +255,8 @@
 					54,
 					55,
 					58,
-					60
+					60,
+					64
 				]
 			}
 		]

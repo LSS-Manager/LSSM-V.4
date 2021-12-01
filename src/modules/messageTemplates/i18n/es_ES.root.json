@@ -1,0 +1,13 @@
+{
+	"description": "Escriba sus propias plantillas para mensajes en conversaciones privadas.",
+	"name": "Plantillas de mensajes",
+	"settings": {
+		"name": "Nombre",
+		"subject": "Sujeto",
+		"template": "Plantillas (variables (ver wiki): {{username}}, {{today[+n]}})",
+		"templates": {
+			"description": "Las variables están disponibles para las plantillas. Por favor, eche un vistazo a nuestro <a class=\"lightbox-open\" href=\"{wiki}modules/messageTemplates.html#variables\">Wiki</a>.",
+			"title": "Plantillas"
+		}
+	}
+}

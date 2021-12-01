@@ -1,0 +1,49 @@
+{
+	"desktopTest": {
+		"text": "¡Las notificaciones de escritorio se activaron con éxito!",
+		"title": "Notificaciones de escritorio"
+	},
+	"messages": {
+		"allianceCandidature": {
+			"body": "¡Tu alianza tiene una nueva aplicación! Aplicaciones abiertas actualmente: {n}",
+			"title": "¡Nueva aplicación! | ¡Nuevas aplicaciones!"
+		},
+		"allianceForum": {
+			"body": "¡Hay una nueva publicación en el foro de su alianza! Abra el foro con un clic en esta notificación.",
+			"title": "¡Nueva publicación en el foro de la alianza!"
+		},
+		"allianceMessage": {
+			"body": "¡Hay un nuevo mensaje de la Alianza! Míralo directamente haciendo clic en esta notificación.",
+			"title": "¡Nuevo mensaje de alianza!"
+		},
+		"allianceNews": {
+			"body": "¡Tu alianza ha publicado nuevas noticias! Haga clic en esta notificación para ir directamente a la página de noticias.",
+			"title": "¡Nuevas noticias de la Alianza!"
+		},
+		"dm": {
+			"body": "Tienes un total de {n} mensajes sin leer. | Tienes un total de {n} mensajes sin leer.",
+			"title": "¡Tienes {n} mensaje nuevo! | ¡Tienes {n} mensajes nuevos!"
+		},
+		"ingame_news": {
+			"body": "¡Hay nuevas funciones en el juego! ¡Eche un vistazo en Facebook para ver cuáles son las actualizaciones de hoy!",
+			"title": "Noticias en el juego"
+		},
+		"mission_getred": {
+			"body": "{address}<br>¡Esta misión necesita atención!"
+		},
+		"mission_getred_alliance": {
+			"body": "{address}<br>¡Esta misión de alianza necesita atención!"
+		},
+		"radioMessage": {
+			"title": "{vehicle} estado {status}!"
+		}
+	},
+	"noPermission": {
+		"text": "Su navegador está configurado para que el juego no tenga permiso para enviar notificaciones de escritorio. Si aún desea recibir estas notificaciones, primero debe restablecer esto en la configuración de su navegador.",
+		"title": "Notificaciones de escritorio"
+	},
+	"permission": {
+		"text": "¡Permita las notificaciones de escritorio haciendo clic en esta notificación!",
+		"title": "Activar notificaciones de escritorio"
+	}
+}

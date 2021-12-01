@@ -85,15 +85,18 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import vehicleList from './vehicle-list.vue';
+
 import { faCarSide } from '@fortawesome/free-solid-svg-icons/faCarSide';
-import { InternalVehicle, Vehicle } from '../../../../typings/Vehicle';
+
+import vehicleList from './vehicle-list.vue';
+
 import { DefaultProps } from 'vue/types/options';
+import { InternalVehicle, Vehicle } from '../../../../typings/Vehicle';
 import {
-    VehicleTypes,
-    VehicleTypesMethods,
-    VehicleTypesComputed,
     TypeList,
+    VehicleTypes,
+    VehicleTypesComputed,
+    VehicleTypesMethods,
 } from '../../../../typings/modules/Dashboard/VehicleTypes';
 
 export default Vue.extend<
@@ -102,7 +105,7 @@ export default Vue.extend<
     VehicleTypesComputed,
     DefaultProps
 >({
-    name: 'vehicle-types',
+    name: 'lssmv4-dashboard-vehicle-types',
     components: {
         EnhancedTable: () =>
             import(
@@ -168,7 +171,7 @@ export default Vue.extend<
             return types;
         },
         vehicleTypesFiltered() {
-            const vehicleTypes = this.vehicleTypes;
+            const { vehicleTypes } = this;
             const filtered = {} as TypeList;
             Object.keys(vehicleTypes).filter(
                 type =>
@@ -185,7 +188,7 @@ export default Vue.extend<
                 : this.vehicleTypes) as TypeList;
             return Object.entries(vehicleTypes)
                 .sort(([, a], [, b]) => {
-                    let modifier = this.sortDir === 'desc' ? -1 : 1;
+                    const modifier = this.sortDir === 'desc' ? -1 : 1;
                     let f, s;
                     if (this.sort.match(/s\d+/)) {
                         f = a.fms[this.sort].length;
@@ -237,7 +240,7 @@ export default Vue.extend<
                     title: this.$smc('title', status, { type: type.title }),
                     vehicles,
                 },
-                { name: 'vehicle-list', height: 'auto' }
+                { name: 'vehicle-list', height: 'auto', width: '45%' }
             );
         },
     },

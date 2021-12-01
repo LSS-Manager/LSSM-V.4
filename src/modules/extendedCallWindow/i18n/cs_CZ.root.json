@@ -54,12 +54,12 @@
 			"title": "Center Map"
 		},
 		"enhancedMissingVehicles": {
-			"description": "Converts the display of additionally required vehicles into a clearer table.",
-			"title": "Improve needed vehicles"
+			"description": "Změní zobrazení potřebné techniky do přehledné tabulky.",
+			"title": "Přehled potřebné techniky"
 		},
 		"generationDate": {
-			"description": "Shows next to the address when the mission was generated.",
-			"title": "Generation time"
+			"description": "Zobrazí vedle adresy čas vygenerování mise.",
+			"title": "Čas vygenerování"
 		},
 		"hideVehicleList": {
 			"description": "Normally hides the use list, then opens it by pressing a button.",
@@ -79,8 +79,16 @@
 			"title": "Mission keywords"
 		},
 		"patientSummary": {
-			"description": "Shows next to the number of patients, which rescue equipment they need in combination.",
-			"title": "Patient Summary"
+			"description": "Zobrazí vedle počtu pacientů, které záchranné prostředky budou potřeba.",
+			"title": "Přehled pacientů"
+		},
+		"playerCounter": {
+			"description": "Zobrazí nahoře v misi vedle součtu zasahujícího personálu list s počtem hráčů a jejich odeslané vozidla na konkrétní misi. Kliknutím získáte tabulkový kompletní přehled.",
+			"title": "Součet hráčů"
+		},
+		"playerCounterColor": {
+			"description": "Zvolte barvu, jakou se má zobrazovat pole Součet hráčů.",
+			"title": "Součet hráčů: Barva"
 		},
 		"redBorder": {
 			"description": "Outlines the generation time in red if the bet will expire the following night.",
@@ -97,6 +105,20 @@
 			"title": "vehicle categories",
 			"vehicles": "vehicle types"
 		},
+		"vehicleCounter": {
+			"description": "Zobrazí nahoře v misi vedle součtu zasahujícího personálu list kolik vozidel je vysláno na konkrétní misi. Kliknutím získáte tabulkový kompletní přehled.",
+			"title": "Součet vozidel"
+		},
+		"vehicleCounterColor": {
+			"danger": "červená",
+			"default": "šedá",
+			"description": "Zvolte barvu, jakou se má zobrazovat pole Součet vozidel.",
+			"info": "světle modrá",
+			"primary": "tmavě modrá",
+			"success": "zelená",
+			"title": "Součet vozidel: barva",
+			"warning": "oranžová"
+		},
 		"yellowBorder": {
 			"description": "Borders the generation time yellow if the usage is older than the entered number of hours. If the number is 0, no border is drawn.",
 			"title": "Yellow border"
@@ -110,8 +132,7 @@
 					0,
 					1,
 					13,
-					18,
-					33
+					18
 				]
 			},
 			{
@@ -126,20 +147,7 @@
 					9,
 					12,
 					17,
-					21,
-					22,
-					24,
-					30,
-					31,
-					32,
-					34,
-					35,
-					36,
-					37,
-					38,
-					39,
-					40,
-					41
+					21
 				]
 			},
 			{
@@ -150,9 +158,8 @@
 					15,
 					20,
 					25,
-					27,
-					28,
-					29
+					26,
+					27
 				]
 			},
 			{
@@ -162,9 +169,7 @@
 					14,
 					16,
 					19,
-					23,
-					26,
-					47
+					23
 				]
 			},
 			{
@@ -174,16 +179,6 @@
 					22,
 					24,
 					25
-				]
-			},
-			{
-				"name": "FBI",
-				"vehicleTypes": [
-					42,
-					43,
-					44,
-					45,
-					46
 				]
 			}
 		]

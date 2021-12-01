@@ -1,6 +1,6 @@
-import moment from 'moment';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { $m } from 'typings/Module';
+import moment from 'moment';
 
 export default (LSSM: Vue, MODULE_ID: string, $m: $m): void => {
     const expansionRows = document.querySelectorAll(
@@ -76,7 +76,11 @@ export default (LSSM: Vue, MODULE_ID: string, $m: $m): void => {
             expansion.querySelector('a[href*="extension_ready"]') ||
             successLabel
         ) {
-            label.classList.add('label-success');
+            label.classList.add(
+                expansion.querySelector('.label-danger')
+                    ? 'label-danger'
+                    : 'label-success'
+            );
             label.textContent =
                 successLabel?.textContent ??
                 expansion.querySelector('.label-danger')?.textContent ??
@@ -108,7 +112,7 @@ export default (LSSM: Vue, MODULE_ID: string, $m: $m): void => {
                         .add(remaining, 'seconds')
                         .calendar()})`)
             );
-            setTimeout(function() {
+            setTimeout(() => {
                 window.extensionCountdown(remaining - 1, id);
             }, 1000);
         }

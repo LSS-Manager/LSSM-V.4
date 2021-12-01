@@ -1,0 +1,19 @@
+{
+	"affected": "Affected",
+	"amount": "{n} filtered entry | {n} filtered entries",
+	"description": "description",
+	"executor": "trigger",
+	"filter": {
+		"all_types": "Show all types",
+		"no_types": "Do not display types",
+		"type": "displayed entry types"
+	},
+	"load": {
+		"next": "load next page",
+		"prev": "load previous page"
+	},
+	"search_local": "Search in loaded entries",
+	"subtitle": "Show {n} entries of pages {startPage} ({firstDate}) to {endPage} ({lastDate}) of {totalPages} pages",
+	"time": "time",
+	"title": "Alliance Protocol"
+}

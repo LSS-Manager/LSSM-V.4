@@ -23,6 +23,14 @@
 		"schooling": "Opleiding",
 		"title": "Personeelsoverzicht"
 	},
+	"upgradeConfirmation": {
+		"modal": {
+			"btnCancel": "Annuleer",
+			"btnConfirm": "Bevestig",
+			"text": "Wil je dit gebouw echt upgraden?",
+			"title": "Upgrade Gebouw?"
+		}
+	},
 	"vehiclePersonnel": {
 		"vehiclesPersonnelAssigned": "toegewezen",
 		"vehiclesPersonnelCurrent": "huidig",

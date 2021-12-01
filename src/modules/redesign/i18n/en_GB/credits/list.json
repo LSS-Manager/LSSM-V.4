@@ -1,0 +1,11 @@
+{
+	"amount": "Amount",
+	"date": "Date",
+	"description": "Description",
+	"load": {
+		"next": "20 Load older entries",
+		"prev": "20 Load newer entries"
+	},
+	"subtitle": "Show {n} Entries of the pages {startPage} ({firstCredits}) to {endPage} ({lastCredits}) of total {totalPages} Sides",
+	"title": "Transactions"
+}

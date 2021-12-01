@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
+import { ConsoleActionStoreParams } from '../../typings/store/console/Actions';
 import { RootState } from '../../typings/store/RootState';
 import { ActionTree, Module } from 'vuex';
-import { ConsoleActionStoreParams } from '../../typings/store/console/Actions';
 
 export default {
     namespaced: true,

@@ -3,6 +3,8 @@ You want to contribute to LSS-Manager? Here are some tips on how to contribute!
 
 **If you got any questions on contributing, you can contact LSSM Team at any time!**
 
+**Do NOT work on master branch or create branches from `master` branch. Do always use [`dev`](/tree/dev) as reference!**
+
 > *Please keep this file up to date!*
 
 ## Styleguide

@@ -1,7 +1,7 @@
 ## Samenvatting
 De samenvatting zal een snel overzicht over je aantal gebouwen en voertuigen geven.
 
-![Samenvatting](/v4/docs/assets/dashboard/img/nl_NL/dashboardSamenvatting.png)
+![Samenvatting](dashboardSamenvatting.png)
 
 #### Gebouwen
 Klik je in het gebouwenoverzicht op een categorie (bijv.: `Ambulance`), dan worden alleen die gebouwen weergegeven.
@@ -18,9 +18,9 @@ Je kan de tabel sorteren door op de kolomtitels te drukken.
 Als je met je muis over de tabel heen gaat zie je een knopje met een autootje, als je op dat knopje drukt, krijg je een lijst te zien van alle voertuigen die overeenkomen met de soort en status. 
 Je kan in het statusoverzicht ook snel voertuigen van status 5 naar 6 zetten of andersom. 
 
-![Statusoverzicht](/v4/docs/assets/dashboard/img/nl_NL/dashboardStatusoverzicht.png)
+![Statusoverzicht](dashboardStatusoverzicht.png)
 
-![Statusoverzicht voertuigen](/v4/docs/assets/dashboard/img/nl_NL/dashboardVehicles.png)
+![Statusoverzicht voertuigen](dashboardVehicles.png)
 
 ## Gebouw overzicht
 In het gebouwenoverzicht krijg je snel en gemakkelijk overzicht over al je gebouwen. 
@@ -28,7 +28,7 @@ In het gebouwenoverzicht krijg je snel en gemakkelijk overzicht over al je gebou
 Je zult per type gebouw zien hoeveel je er van hebt en hoeveel uitbreidingen je bij dat gebouwtype hebt. 
 Achter het aantal uitbreidingen staat tussen haakjes `()` hoeveel er actief van zijn. Tevens berekent het Dashboard automatisch het maximaal aantal mogelijke gebouwen en/of uitbreidingen van een type. 
 
-![Gebouw overzicht](/v4/docs/assets/dashboard/img/nl_NL/dashboardBuildings.png)
+![Gebouw overzicht](dashboardBuildings.png)
 
 ## Meldkameroverzicht
 :::warning Meldkameroverzicht

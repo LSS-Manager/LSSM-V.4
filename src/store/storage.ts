@@ -1,7 +1,8 @@
-import { ActionTree, Module } from 'vuex';
-import { StorageState } from '../../typings/store/storage/State';
-import { RootState } from '../../typings/store/RootState';
 import localforage from 'localforage';
+
+import { RootState } from '../../typings/store/RootState';
+import { StorageState } from '../../typings/store/storage/State';
+import { ActionTree, Module } from 'vuex';
 import {
     StorageActionStoreParams,
     StorageGet,
@@ -16,7 +17,7 @@ localforage.config({
 export default {
     namespaced: true,
     state: {
-        localforage: localforage,
+        localforage,
     },
     actions: {
         get(
@@ -33,10 +34,11 @@ export default {
             { state }: StorageActionStoreParams,
             { key, value }: StorageSet
         ): Promise<typeof value> {
-            if ('undefined' === typeof key || 'undefined' === typeof value)
+            if (typeof key === 'undefined' || typeof value === 'undefined') {
                 throw new Error(
                     `Trying to store a value for LSSM but one of the following Parameters is not defined: key: ${key}, value: ${value}`
                 );
+            }
             return state.localforage.setItem(key, value);
         },
         getAllItems({

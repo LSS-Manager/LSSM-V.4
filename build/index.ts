@@ -1,14 +1,16 @@
-import fs from 'fs';
-import path from 'path';
-import lodash from 'lodash';
-import { version } from '../package.json';
-import config from '../src/config';
-import webpackConfig from '../webpack.config';
-import webpack, { Configuration } from 'webpack';
-import moment from 'moment';
-import SpeedMeasurePlugin from 'speed-measure-webpack-plugin';
 import DynamicImportQueryPlugin from './plugins/DynamicImportQueryPlugin';
-import { Module } from '../typings/Module';
+import fs from 'fs';
+import lodash from 'lodash';
+import moment from 'moment';
+import path from 'path';
+import SpeedMeasurePlugin from 'speed-measure-webpack-plugin';
+
+import addToBuildStats from './addToBuildStats';
+import config from '../src/config';
+import { version } from '../package.json';
+import webpackConfig from '../webpack.config';
+
+import webpack, { Configuration } from 'webpack';
 
 console.time(`build`);
 
@@ -47,25 +49,13 @@ entry.plugins?.unshift(
         PREFIX: JSON.stringify(config.prefix),
         VERSION: JSON.stringify(version),
         MODE: process.argv[2] === 'production' ? '"stable"' : '"beta"',
-        MODULE_REGISTER_FILES: new RegExp(
-            `modules\\/(${modules.join('|')})\\/register\\.js(on)?`
-        ),
-        MODULES_OF_LOCALE: Object.fromEntries(
-            locales.map(locale => [
-                locale,
-                JSON.stringify(
-                    [...modules, ...config.modules['core-modules']].filter(
-                        module => {
-                            // eslint-disable-next-line @typescript-eslint/no-var-requires
-                            const registration = require(`../src/modules/${module}/register`) as Module;
-                            return (
-                                !registration.locales ||
-                                registration.locales?.includes(locale)
-                            );
-                        }
-                    )
-                ),
-            ])
+        MODULE_REGISTER_FILES: JSON.stringify(
+            Object.fromEntries(
+                modules.map(module => [
+                    module,
+                    require(`../src/modules/${module}/register`),
+                ])
+            )
         ),
     }),
     new webpack.ContextReplacementPlugin(
@@ -113,13 +103,18 @@ webpack(
             }
         }
 
-        if (stats)
+        if (!stats) {
+            console.error('Build Error: stats is a falsy value!');
+            return process.exit(-1);
+        } else {
             fs.writeFileSync(
                 `./dist/webpack.out.${
                     process.argv[2] === 'production' ? 'public' : 'beta'
                 }.json`,
                 JSON.stringify(stats.toJson(), null, '\t')
             );
+            addToBuildStats({ version });
+        }
         console.log('Stats:');
         console.log(stats?.toString({ colors: true }));
         console.timeEnd(`build`);

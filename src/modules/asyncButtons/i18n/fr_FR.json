@@ -1,4 +1,16 @@
 {
+	"buildingPersonal": {
+		"deleteModal": {
+			"btnCancel": "Annuler",
+			"btnConfirm": "Communiqué",
+			"text": "Êtes-vous sûr de vouloir libérer cette personne ?",
+			"title": "Libérer ?"
+		}
+	},
+	"buildings": {
+		"active": "Prêt pour l'action",
+		"nonactive": "Pas prêt pour l'action"
+	},
 	"deleteARR": {
 		"deleteModal": {
 			"btnCancel": "Annuler",
@@ -32,6 +44,7 @@
 		"coadmin": "Coadministrateur d'alliance",
 		"finance": "Finances de l'alliance",
 		"schooling": "Formateur de l'alliance",
-		"sprechwunsch_admin": "Demande de transport - administrateur"
+		"sprechwunsch_admin": "Demande de transport - administrateur",
+		"staff": "Personnel de l'alliance"
 	}
 }

@@ -1,7 +1,5 @@
 // import { Building } from 'typings/Building';
 
-// Commented as dir ./it_IT does not exist currently
-// const furtherFiles = require.context('./it_IT/', true, /.*(\/index)?\.js(on)?/);
 const modules = {
     appstore: {
         save: 'Save',
@@ -14,7 +12,9 @@ const modules = {
             title: 'Cambiamenti non salvati',
             text:
                 "Hai apportato modifiche nell'AppStore che non sono state ancora salvate. Resettali o salvali per chiudere l'AppStore.",
-            close: 'Chiudi il messaggio',
+            abort: 'Cancella',
+            saveAndExit: 'Salvare e uscire',
+            exit: 'Chiudi il messaggio',
         },
     },
     settings: {
@@ -29,7 +29,7 @@ const modules = {
             text:
                 'Vuoi davvero ripristinare le impostazioni ai valori predefiniti? Questo non può essere annullato!',
             close: 'Annulla',
-            total: 'All settings',
+            total: 'Tutte le impostazioni',
             module: 'Solo per questo modulo',
         },
         resetWarningSetting: {
@@ -43,7 +43,9 @@ const modules = {
             title: 'Cambiamenti non salvati',
             text:
                 'Hai apportato modifiche alle impostazioni che non sono ancora state salvate. Ripristinarli, eliminarli o salvarli per chiudere le impostazioni.',
-            close: 'Chiudi messaggio',
+            abort: 'Cancella',
+            saveAndExit: 'Salvare e uscire',
+            exit: 'Uscire senza salvare',
         },
         changeList: {
             true: 'Su',
@@ -52,31 +54,27 @@ const modules = {
     },
 } as { [moduleId: string]: { [key: string]: unknown } };
 
-const t = {} as { [key: string]: unknown };
-
-// Commented as dir ./it_IT does not exist currently
-// furtherFiles
-//     .keys()
-//     .forEach(
-//         key => (t[key.split('/')[1].replace(/\..*$/, '')] = furtherFiles(key))
-//     );
-
 export default {
     modules,
-    ...t,
     error: {
         title: 'LSS Manager: Error',
         msg:
-            'Se questo erraore avviene frequentamente, per cortesia contatta il Team di LSSM!',
+            'Se questo errore avviene frequentamente, per cortesia contatta il Team di LSSM!',
     },
     warnings: {
         version: {
             title: 'Versione di LSS Manager sbagliata!',
             text:
-                "Gentile utente, purtroppo abbiamo dovuto scoprire che non disponi dell'ultima versione di LSS Manager. L'ultima versione è {version}, ma prima hai {curver}. Ricarica il gioco senza cache (con Ctrl + F5, sui dispositivi Apple Command + R), questo dovrebbe risolvere il bug. Se l'errore persiste, segnalalo al team! Se utilizzi una versione sbagliata, non possiamo garantire la piena funzionalità di LSS-Manager.",
+                "Gentile utente, abbiamo notato che non disponi dell'ultima versione di LSS Manager. L'ultima versione è {version}, ma hai {curver}. Ricarica il gioco senza cache (su Windows con Ctrl + F5, sui dispositivi Apple con Command + R), questo dovrebbe risolvere il bug. Se l'errore persiste, segnalalo al team! Se utilizzi una versione sbagliata, non possiamo garantire la piena funzionalità di LSS-Manager.",
             close: 'Chiudi il messaggio e ricarica il gioco (Raccomandato)',
             abort: 'Chiudi il messaggio senza ricaricare il gioco.',
         },
+    },
+    anniversary1: {
+        closeNote: 'Tip: You can also click on the balloons to close!',
+        title: '🎉 There is reason to celebrate! 🎉',
+        content:
+            'Wow, how fast time flies!<br>It\'s been <b>one year</b> since the LSS Manager V.4 went online! A lot has happened this year, of course, and so on this special occasion we would like to say a special thank you to you, the users. The joy with which you test our new features inspires us again and again and gives us new motivation to continue. Also, a big thank you goes out to our translators who volunteer their time to make the LSSM usable in other versions of the game.</br>To celebrate, we\'d like to share a few facts and figures here:<ul><li><code>February 10th 2020</code>: The First Commit on GitHub was made: <a href="https://github.com/LSS-Manager/LSSM-V.4/commit/6e95836" target="_blank">6e95836</a>. Since then we have made over 5,600 commits!</li><li><code>September 19th, 2020</code>: V.4 was officially announced for the first time on the forum: <a href="https://forum.leitstellenspiel.de/index.php?thread/19176-lss-manager-v-4/" target="_blank">LSS Manager V.4</a>. With this, the application phase for beta testers has also started</li><li><code>October 17th 2020</code>: Beta testers have been given access to V.4 for the first time. The 4-week beta phase has thus started</li><li><code>November 21st 2020</code>: LSS Manager V.4 goes online for everyone!</li><li>Our telemetry currently records around 5,000 users in the past 6 months. Of these, over 2,200 were active in the last 14 days. The dark figure (number of users who have deactivated telemetry) can not be estimated.</li><li>Our thread in the forum has now reached almost 1,200 messages. That\'s quite a bit, but the V.3 thread, which is currently scratching the 3,500 responses, is far from catching up.</li><li>For more stats, check out our thread in the forum:<a href="https://forum.leitstellenspiel.de/index.php?thread/19176-lss-manager-v-4/" target="_blank">LSS Manager V.4</a></li></ul><br>We\'re looking forward to many more great moments in the time of LSSM V.4!<br>Your LSSM Team<br>Jan, Sanni & Ron',
     },
     globalSettings: {
         name: 'Impostazioni generali',
@@ -99,6 +97,11 @@ export default {
                 "Colora l'intera barra di navigazione con il colore di LSSM-Icon sfondo!",
             title: 'colorare la barra di navigazione',
         },
+        osmDarkTooltip: {
+            description:
+                'Questa impostazione rende scuri i tooltip sulla mappa se hai abilitato la modalità scura',
+            title: 'Tooltips scuri sulla mappa',
+        },
     },
     vehicles: {
         0: {
@@ -108,6 +111,9 @@ export default {
             credits: 5_000,
             minPersonnel: 1,
             maxPersonnel: 3,
+            wtank: 8_000,
+            ftank: 250,
+            possibleBuildings: [0, 18],
         },
         1: {
             caption: 'AS',
@@ -116,6 +122,7 @@ export default {
             credits: 10_000,
             minPersonnel: 1,
             maxPersonnel: 3,
+            possibleBuildings: [0, 18],
             special: 'Richiesto dopo aver costruito 3 caserme dei pompieri',
         },
         2: {
@@ -125,6 +132,7 @@ export default {
             credits: 10_000,
             minPersonnel: 1,
             maxPersonnel: 3,
+            possibleBuildings: [0, 18],
             special: 'Richiesto dopo aver costruito 6 caserme dei pompieri',
         },
         3: {
@@ -134,6 +142,7 @@ export default {
             credits: 12_180,
             minPersonnel: 1,
             maxPersonnel: 4,
+            possibleBuildings: [0, 18],
             special: 'Richiesto dopo aver costruito 4 caserme dei pompieri',
         },
         4: {
@@ -143,6 +152,7 @@ export default {
             credits: 5_000,
             minPersonnel: 2,
             maxPersonnel: 5,
+            possibleBuildings: [0, 2, 20],
         },
         5: {
             caption: 'KILO',
@@ -151,6 +161,8 @@ export default {
             credits: 17_300,
             minPersonnel: 1,
             maxPersonnel: 3,
+            wtank: 18_000,
+            possibleBuildings: [0, 18],
             special: 'Richiesta dopo aver costruito 7 caserme dei pompieri',
         },
         6: {
@@ -160,9 +172,15 @@ export default {
             credits: 19_200,
             minPersonnel: 1,
             maxPersonnel: 6,
+            possibleBuildings: [0, 18],
+            schooling: {
+                'Caserma dei vigili del fuoco': {
+                    'N.B.C.R.': {
+                        all: true,
+                    },
+                },
+            },
             special: 'Richiesto dopo aver costruito 11 caserme dei pompieri',
-            schooling: 'Caserma dei vigili del fuoco - N.B.C.R.',
-            shownSchooling: 'N.B.C.R.',
         },
         7: {
             caption: 'Volante',
@@ -171,6 +189,7 @@ export default {
             credits: 5_000,
             minPersonnel: 1,
             maxPersonnel: 2,
+            possibleBuildings: [6, 19],
         },
         8: {
             caption: 'Elisoccorso',
@@ -179,6 +198,7 @@ export default {
             credits: 300_000,
             minPersonnel: 1,
             maxPersonnel: 1,
+            possibleBuildings: [5],
         },
         9: {
             caption: 'APS',
@@ -187,6 +207,9 @@ export default {
             credits: 19_000,
             minPersonnel: 1,
             maxPersonnel: 6,
+            wtank: 2_500,
+            ftank: 400,
+            possibleBuildings: [0, 18],
         },
         10: {
             caption: 'AF/ARIA',
@@ -195,6 +218,7 @@ export default {
             credits: 10_000,
             minPersonnel: 1,
             maxPersonnel: 3,
+            possibleBuildings: [0, 18],
             special: 'Richiesto dopo aver cstruito 5 caserme dei pompieri.',
         },
         11: {
@@ -204,9 +228,14 @@ export default {
             credits: 20_000,
             minPersonnel: 1,
             maxPersonnel: 6,
-            schooling:
-                'Caserma dei vigili del fuoco - Corso per funzionario (UCL)',
-            shownSchooling: 'Comando mobile',
+            possibleBuildings: [0, 18],
+            schooling: {
+                'Caserma dei vigili del fuoco': {
+                    'Corso per funzionario (UCL)': {
+                        all: true,
+                    },
+                },
+            },
             special: 'Richiesto dopo aver costruito 13 caserme dei pompieri',
         },
         12: {
@@ -216,9 +245,14 @@ export default {
             credits: 18_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            schooling:
-                'Caserma dei vigili del fuoco - Corso autista di Autogrù',
-            shownSchooling: 'Autogrù',
+            possibleBuildings: [0, 18],
+            schooling: {
+                'Caserma dei vigili del fuoco': {
+                    ['Corso autista di Autogrù']: {
+                        all: true,
+                    },
+                },
+            },
             special: 'Richiesto dopo aver costruito 8 caserme dei pompieri',
         },
         13: {
@@ -227,9 +261,15 @@ export default {
             coins: 30,
             credits: 300_000,
             minPersonnel: 1,
-            maxPersonnel: 2,
-            schooling: 'Polizia - Reparto volo della polizia',
-            shownSchooling: 'Reparto volo della polizia',
+            maxPersonnel: 5,
+            possibleBuildings: [13],
+            schooling: {
+                Polizia: {
+                    'Reparto volo della polizia': {
+                        all: true,
+                    },
+                },
+            },
             special:
                 'Può essere acquistato con i crediti all raggiungimento del Rango:Caporeparto esperto.',
         },
@@ -240,8 +280,14 @@ export default {
             credits: 10_000,
             minPersonnel: 6,
             maxPersonnel: 9,
-            schooling: 'Polizia - Specializzazione antisommossa/UOPI',
-            shownSchooling: 'Specializzazione antisommossa/UOPI',
+            possibleBuildings: [6, 19, 21],
+            schooling: {
+                Polizia: {
+                    'Specializzazione antisommossa/UOPI': {
+                        all: true,
+                    },
+                },
+            },
             special: 'Richiesto dopo aver costruito 8 stazioni di polizia ',
         },
         15: {
@@ -251,9 +297,15 @@ export default {
             credits: 7_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            schooling: 'Polizia - Specializzazione unità cinoflia',
-            shownSchooling: 'Specializzazione unità cinoflia',
-            special: 'Richiesto dopo aver costruito 6 stazioni di polizia',
+            possibleBuildings: [6, 19, 21],
+            schooling: {
+                Polizia: {
+                    ['Specializzazione unità cinofila']: {
+                        all: true,
+                    },
+                },
+            },
+            special: 'Richiesta dopo aver costruito 6 stazioni di polizia',
         },
         16: {
             caption: 'Moto della Polizia',
@@ -262,8 +314,14 @@ export default {
             credits: 2_500,
             minPersonnel: 1,
             maxPersonnel: 1,
-            schooling: 'Polizia - Specializzazione motociclista',
-            shownSchooling: 'Specializzazione motociclista',
+            possibleBuildings: [6, 19],
+            schooling: {
+                Polizia: {
+                    'Specializzazione motociclista': {
+                        all: true,
+                    },
+                },
+            },
         },
         17: {
             caption: 'UOPI SUV',
@@ -272,9 +330,15 @@ export default {
             credits: 7_000,
             minPersonnel: 2,
             maxPersonnel: 4,
+            possibleBuildings: [6, 19, 21],
+            schooling: {
+                Polizia: {
+                    'Specializzazione antisommossa/UOPI': {
+                        all: true,
+                    },
+                },
+            },
             special: 'Richiesto dopo aver costruito 8 stazioni di polizia',
-            schooling: 'Polizia - Specializzazione antisommossa/UOPI',
-            shownSchooling: 'Specializzazione antisommossa/UOPI',
         },
         18: {
             caption: 'VLV',
@@ -283,9 +347,20 @@ export default {
             credits: 20_000,
             minPersonnel: 2,
             maxPersonnel: 3,
+            possibleBuildings: [0, 2, 20],
+            schooling: {
+                'Caserma dei vigili del fuoco': {
+                    'Corso medico di emergenza': {
+                        all: true,
+                    },
+                },
+                'Soccorso': {
+                    'Corso medico di emergenza': {
+                        all: true,
+                    },
+                },
+            },
             special: 'Richiesto dopo aver costruito 3 stazioni di soccorso ',
-            schooling: 'Soccorso - Corso medico di emergenza',
-            shownSchooling: 'Medico di emergenza',
         },
         19: {
             caption: 'MSA',
@@ -294,8 +369,19 @@ export default {
             credits: 25_000,
             minPersonnel: 2,
             maxPersonnel: 5,
-            schooling: 'Soccorso - Corso medico di emergenza',
-            shownSchooling: 'Medico di emergenza',
+            possibleBuildings: [0, 2, 20],
+            schooling: {
+                'Caserma dei vigili del fuoco': {
+                    'Corso medico di emergenza': {
+                        all: true,
+                    },
+                },
+                'Soccorso': {
+                    'Corso medico di emergenza': {
+                        all: true,
+                    },
+                },
+            },
         },
         20: {
             caption: 'Ambulanza ordinaria',
@@ -304,6 +390,7 @@ export default {
             credits: 5_000,
             minPersonnel: 2,
             maxPersonnel: 4,
+            possibleBuildings: [0, 2, 20],
         },
         21: {
             caption: 'Volante Finanza',
@@ -312,6 +399,7 @@ export default {
             credits: 15_000,
             minPersonnel: 1,
             maxPersonnel: 2,
+            possibleBuildings: [21],
         },
         22: {
             caption: 'Furgone artificieri',
@@ -320,8 +408,216 @@ export default {
             credits: 35_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            schooling: 'Polizia - Corso Artificieri',
-            shownSchooling: 'Corso Artificieri',
+            possibleBuildings: [6, 19],
+            schooling: {
+                Polizia: {
+                    'Corso Artificieri': {
+                        all: true,
+                    },
+                },
+            },
+        },
+        23: {
+            caption: 'Camion NSSA',
+            color: '#7181e7',
+            coins: 25,
+            credits: 10_000,
+            minPersonnel: 2,
+            maxPersonnel: 2,
+            possibleBuildings: [0, 15],
+            schooling: {
+                'Caserma dei vigili del fuoco': {
+                    'Corso per operatore tecnico NSSA': {
+                        all: true,
+                    },
+                },
+            },
+        },
+        24: {
+            caption: 'Pickup SAF',
+            color: '#6b7dee',
+            coins: 25,
+            credits: 10_000,
+            minPersonnel: 3,
+            maxPersonnel: 3,
+            possibleBuildings: [0, 15],
+            schooling: {
+                'Caserma dei vigili del fuoco': {
+                    'Corso per operatore tecnico SAF': {
+                        all: true,
+                    },
+                },
+            },
+        },
+        25: {
+            caption: 'Barca',
+            color: '#7187ff',
+            coins: 12,
+            credits: 6_000,
+            minPersonnel: 0,
+            maxPersonnel: 0,
+            possibleBuildings: [0, 15],
+            special: 'Mezzo di rimorchio necessario (Pickup SAF, Camion NSSA)',
+        },
+        26: {
+            caption: 'AF/BUS',
+            color: '#9b1624',
+            coins: 25,
+            credits: 10_000,
+            minPersonnel: 1,
+            maxPersonnel: 9,
+            possibleBuildings: [0, 18],
+        },
+        27: {
+            caption: 'DTS',
+            color: '#e09200',
+            coins: 25,
+            credits: 20_000,
+            minPersonnel: 2,
+            maxPersonnel: 3,
+            possibleBuildings: [2, 20],
+            special: 'Richiesto dopo aver costruito 6 stazioni di soccorso',
+        },
+        28: {
+            caption: 'Pickup con Modulo Boschivo',
+            color: '#dc1818',
+            coins: 5,
+            credits: 5_000,
+            minPersonnel: 2,
+            maxPersonnel: 4,
+            wtank: 400,
+            possibleBuildings: [0, 18],
+        },
+        29: {
+            caption: 'Autocarro AIB - AF/BOSC',
+            color: '#dc1818',
+            coins: 8,
+            credits: 8_000,
+            minPersonnel: 2,
+            maxPersonnel: 4,
+            wtank: 1_000,
+            possibleBuildings: [0],
+        },
+        30: {
+            caption: 'Autobotte AIB',
+            color: '#dc1818',
+            coins: 15,
+            credits: 19_000,
+            minPersonnel: 1,
+            maxPersonnel: 3,
+            wtank: 4_000,
+            possibleBuildings: [0],
+        },
+        31: {
+            caption: 'Funzionario AIB - DOS',
+            color: '#dc1818',
+            coins: 15,
+            credits: 20_000,
+            minPersonnel: 1,
+            maxPersonnel: 2,
+            possibleBuildings: [0],
+            schooling: {
+                'Caserma dei vigili del fuoco': {
+                    'Direttore Operazioni Spegnimento': {
+                        all: true,
+                    },
+                },
+            },
+        },
+        32: {
+            caption: 'Camion con Rimorchio',
+            color: '#dc1818',
+            coins: 10,
+            credits: 5_000,
+            minPersonnel: 1,
+            maxPersonnel: 2,
+            possibleBuildings: [0],
+            schooling: {
+                'Caserma dei vigili del fuoco': {
+                    'Autista Movimento Terra': {
+                        min: 0,
+                    },
+                    'Autista Mezzi Pesanti': {
+                        all: true,
+                    },
+                },
+            },
+        },
+        33: {
+            caption: 'Scavatore su Rimorchio',
+            color: '#dc1818',
+            coins: 15,
+            credits: 20_000,
+            minPersonnel: 0,
+            maxPersonnel: 0,
+            possibleBuildings: [0],
+            special:
+                'Richiede 1 persona addestrata per il veicolo trainante (Autista Movimento Terra)',
+        },
+        34: {
+            caption: 'Elicottero Antincendio',
+            color: '#dc1818',
+            coins: 25,
+            credits: 300_000,
+            minPersonnel: 2,
+            maxPersonnel: 2,
+            wtank: 2_000,
+            possibleBuildings: [24],
+            schooling: {
+                'Caserma dei vigili del fuoco': {
+                    'Pilota Velivoli Antincendio': {
+                        all: true,
+                    },
+                },
+            },
+        },
+        35: {
+            caption: 'Canadair',
+            color: '#dc1818',
+            coins: 25,
+            credits: 600_000,
+            minPersonnel: 2,
+            maxPersonnel: 5,
+            wtank: 6_000,
+            possibleBuildings: [24],
+            schooling: {
+                'Caserma dei vigili del fuoco': {
+                    'Pilota Velivoli Antincendio': {
+                        all: true,
+                    },
+                },
+            },
+        },
+        36: {
+            caption: 'P.M.A.',
+            color: '#f59f00',
+            coins: 15,
+            credits: 50_000,
+            minPersonnel: 1,
+            maxPersonnel: 4,
+            possibleBuildings: [0, 2],
+            schooling: {
+                'Caserma dei vigili del fuoco': {
+                    'Corso Operatore MaxiEmergenze': {
+                        all: true,
+                    },
+                },
+                'Soccorso': {
+                    'Corso Operatore MaxiEmergenze': {
+                        all: true,
+                    },
+                },
+            },
+        },
+        37: {
+            caption: 'ACT/SCHIUMA',
+            color: '#dc1818',
+            coins: 15,
+            credits: 35_000,
+            minPersonnel: 2,
+            maxPersonnel: 3,
+            ftank: 2_000,
+            possibleBuildings: [0],
         },
     },
     buildings: {
@@ -337,15 +633,40 @@ export default {
                     coins: 20,
                     duration: '7 Giorni',
                 },
+                {
+                    caption: 'Esentsione soccorso acquatico VVF',
+                    credits: 100_000,
+                    coins: 20,
+                    duration: '7 Giorni',
+                },
+                {
+                    caption: 'Anticendio Boschivo',
+                    credits: 50_000,
+                    coins: 15,
+                    duration: '7 Giorni',
+                },
+                {
+                    caption: 'Soccorso di Massa',
+                    credits: 150_000,
+                    coins: 20,
+                    duration: '5 Giorni',
+                },
+                {
+                    caption: 'Sistema schiumogeno',
+                    credits: 50_000,
+                    coins: 15,
+                    duration: '5 Giorni',
+                },
             ],
-            levelcost: ['1. 10.000', '2. 50.000', '3.-16. 100.000'],
-            maxBuildings: '4.400 together with small fire stations',
+            levelcost: ['1. 10.000', '2. 50.000', '3.-24. 100.000'],
+            maxBuildings: '5.000 includendo le stazioni piccole',
             maxLevel: 16,
             special:
                 'Dalla 24° Caserma ,i costi aumentano con questa formula: <code>100.000+200.000*LOG<sub>2</sub>(Numero di caserme dei vigili del fuoco esistenti − 22)</code>. Il prezzo delle monete rimane costante!',
             startPersonnel: 10,
             startVehicles: ['ABP, APS'],
-            maxBuildingsFunction: (): number => 4_400,
+            schoolingTypes: ['Caserma dei vigili del fuoco'],
+            maxBuildingsFunction: (): number => 5_000,
         },
         1: {
             caption: 'Scuola dei vigili del fuoco',
@@ -359,7 +680,7 @@ export default {
                 duration: '7 giorni',
             }),
             levelcost: [],
-            maxBuildings: 'nessun limite',
+            maxBuildings: 'Nessun limite',
             maxLevel: 0,
             special:
                 "L'amministratore Finanziario dell'alleanza può costruire ed espandere le accademie usando i fondi dell'Alleanza, L'educatore dell'alleanza può aprire i corsi all'interno dell'accademia",
@@ -371,13 +692,21 @@ export default {
             color: '#ffa500',
             coins: 35,
             credits: 200_000,
-            extensions: [],
+            extensions: [
+                {
+                    caption: 'MaxiEmergenza',
+                    credits: 150_000,
+                    coins: 20,
+                    duration: '5 giorni',
+                },
+            ],
             levelcost: ['1. 10.000', '2. 50.000', '3.-16. 100.000'],
-            maxBuildings: 'No limit',
+            maxBuildings: 'Nessun limite',
             maxLevel: 16,
             special: '',
             startPersonnel: 3,
             startVehicles: ['Ambulanza BLSD'],
+            schoolingTypes: ['Soccorso'],
         },
         3: {
             caption: 'Scuola di formazione emergenza sanitaria (EMS)',
@@ -391,7 +720,7 @@ export default {
                 duration: '7 giorni',
             }),
             levelcost: [],
-            maxBuildings: 'nessun limite',
+            maxBuildings: 'Nessun limite',
             maxLevel: 0,
             special:
                 "L'amministratore Finanziario dell'alleanza può costruire ed espandere le accademie usando i fondi dell'Alleanza, L'educatore dell'alleanza può aprire i corsi all'interno dell'accademia",
@@ -505,7 +834,7 @@ export default {
             maxBuildings: 'No limit',
             maxLevel: 20,
             special:
-                'Amministratore finanziario ed Admin Alleanza ,possono espandere e costruire gli ospedali usando i fondi alleanza',
+                "L'Amministratore finanziario ed l'Admin Alleanza ,possono espandere e costruire gli ospedali usando i fondi alleanza",
             startPersonnel: 0,
             startVehicles: [],
         },
@@ -519,9 +848,10 @@ export default {
             maxBuildings: 'see specials',
             maxLevel: 0,
             special:
-                'Fino al 125esimo edificio (di tutti i tipi) potranno essere solo 4, arrivati a questo numero sarà possibile aumentrali di uno ogni 25 edifici',
+                'Fino al 125esimo edificio (di qualsiasi tipo) potranno essere solo 4, arrivati a questo numero sarà possibile aumentrali di uno ogni 25 edifici',
             startPersonnel: 0,
             startVehicles: [],
+            schoolingTypes: ['Soccorso'],
             maxBuildingsFunction: (buildingsAmountTotal: number): number =>
                 buildingsAmountTotal < 125
                     ? 4
@@ -553,6 +883,7 @@ export default {
                 'Dalla 24° caserma i costi aumenteranno secondo la seguente formula: <code>100.000+200.000*LOG<sub>2</sub>(Number of existing police stations − 22)</code>. The Coins price remains constant!',
             startPersonnel: 2,
             startVehicles: ['Volante'],
+            schoolingTypes: ['Polizia'],
             maxBuildingsFunction: (): number => 1_700,
         },
         7: {
@@ -602,6 +933,7 @@ export default {
                 '2 piste di atterraggio possono essere costruite per stazione . Fino al 125esimo edificio (di tutti i tipi) potranno essere solo 4, arrivati a questo numero sarà possibile aumentrali di uno ogni 25 edifici.',
             startPersonnel: 3,
             startVehicles: [],
+            schoolingTypes: ['Polizia'],
             maxBuildingsFunction: (buildingsAmountTotal: number): number =>
                 buildingsAmountTotal < 125
                     ? 4
@@ -616,10 +948,24 @@ export default {
             maxBuildings: 1,
             maxLevel: 0,
             special:
-                "Puoi far stazionare quanti veicoli vuoi all'interno della base temporanea. Tuoi o dei membri della tua alleanza. Avrà una durata massima di ventiquattro  ore dopo di chie scadra rilasciando tutti i veicoli. potrai rinnovarla entro le 24 ore affinchè non sscada.",
+                "Puoi far stazionare quanti veicoli vuoi all'interno della base temporanea. Tuoi o dei membri della tua alleanza. Avrà una durata massima di ventiquattro ore, dopo di che scadrà, rilasciando tutti i veicoli. Potrai rinnovarla per altre 24 ore prima che scada.",
             startPersonnel: 0,
             startVehicles: [],
             maxBuildingsFunction: (): number => 1,
+        },
+        15: {
+            caption: 'Caserma soccorso acquatico VVF',
+            color: '#7fffd4',
+            coins: 50,
+            credits: 500_000,
+            extensions: [],
+            levelcost: ['1. 10.000', '2. 50.000', '3.-5. 100.000'],
+            maxBuildings: 'Nessun limite',
+            maxLevel: 5,
+            special: 'Avrete 10 persone e un Pickup SAF gratis.',
+            startPersonnel: 10,
+            startVehicles: ['Pickup SAF'],
+            schoolingTypes: ['Soccorso'],
         },
         16: {
             caption: 'Carcere',
@@ -640,7 +986,7 @@ export default {
                 }),
             ],
             levelcost: [],
-            maxBuildings: 'No limit',
+            maxBuildings: 'Nessun limite',
             maxLevel: 0,
             special:
                 "Questo edificio può essere costruito solo dagli amministratori dell'alleanza",
@@ -657,15 +1003,16 @@ export default {
                 '1. 10.000',
                 '2. 50.000',
                 '3.-5. 100.000',
-                'Conversione a caserma grande ,il costo della caserma piccola',
+                'Conversione a caserma grande: la differenza tra il costo della caserma piccola e quella grande',
             ],
-            maxBuildings: '4.400 together with fire stations',
+            maxBuildings: '5.000 includendo le stazioni grandi',
             maxLevel: 5,
             special:
                 'A partire dalla 24° caserma i costi aumenteranno secondo la seguente formula: <code>(100.000+200.000*LOG<sub>2</sub>(Number of existing fire stations − 22)) / 2</code>. max. 1 Million Credits. The Coins price remains constant!',
             startPersonnel: 10,
             startVehicles: ['ABP', 'APS'],
-            maxBuildingsFunction: (): number => 4_400,
+            schoolingTypes: ['Caserma dei vigili del fuoco'],
+            maxBuildingsFunction: (): number => 5_000,
         },
         19: {
             caption: 'Stazione di polizia (piccola)',
@@ -690,14 +1037,15 @@ export default {
                 '1. 10.000',
                 '2. 50.000',
                 '3.-4. 100.000',
-                'Conversione a caserma grande ,il costo della caserma piccola',
+                'Conversione a caserma grande: la differenza tra il costo della caserma piccola e quella grande',
             ],
-            maxBuildings: '1.700 insieme alle stazioni di polizia',
+            maxBuildings: '1.700 includendo le stazioni di polizia',
             maxLevel: 4,
             special:
                 'A partire dalla 24° caserma i costi aumenteranno secondo la seguente formula:<code>(100.000+200.000*LOG<sub>2</sub>(Number of existing police stations − 22)) / 2</code>. The Coins price remains constant!',
             startPersonnel: 2,
             startVehicles: ['Volante'],
+            schoolingTypes: ['Polizia'],
             maxBuildingsFunction: (): number => 1_700,
         },
         20: {
@@ -710,13 +1058,14 @@ export default {
                 '1. 10.000',
                 '2. 50.000',
                 '3.-5. 100.000',
-                'Conversione a caserma grande ,il costo della caserma piccola',
+                'Conversione a caserma grande: la differenza tra il costo della caserma piccola e quella grande',
             ],
-            maxBuildings: 'No limit',
+            maxBuildings: 'Nessun limite',
             maxLevel: 5,
             special: '',
             startPersonnel: 3,
             startVehicles: ['Ambulanza BLSD'],
+            schoolingTypes: ['Soccorso'],
         },
         21: {
             caption: 'Caserma della Finanza',
@@ -729,11 +1078,51 @@ export default {
             maxLevel: 5,
             startPersonnel: 4,
             startVehicles: ['Volante Finanza'],
+            schoolingTypes: ['Polizia'],
+        },
+        22: {
+            caption: 'Grande complesso',
+            color: '#8B4513',
+            coins: 'Troppo costoso',
+            credits: 'Troppo costoso',
+            extensions: [],
+            levelcost: ['Troppo costoso'],
+            maxBuildings: 'Keine Grenze',
+            maxLevel: 5,
+            special: 'TROPPO CARO, NON COMPRARLO, NON ESPANDERLO',
+            startPersonnel: 'there is none',
+            startVehicles: [''],
+        },
+        23: {
+            caption: 'Piccolo complesso',
+            color: '#8B4513',
+            coins: 'Troppo costoso',
+            credits: 'Troppo costoso',
+            extensions: [],
+            levelcost: ['Troppo costoso'],
+            maxBuildings: 'Keine Grenze',
+            maxLevel: 5,
+            special: 'TROPPO CARO, NON COMPRARLO, NON ESPANDERLO',
+            startPersonnel: 'there is none',
+            startVehicles: [''],
+        },
+        24: {
+            caption: 'Base Aerea Antincendio',
+            color: '#aa1112',
+            coins: 50,
+            credits: 1_000_000,
+            extensions: [],
+            levelcost: ['1.-5. 1.000.000'],
+            maxBuildings: '',
+            maxLevel: 5,
+            startPersonnel: 2,
+            startVehicles: ['Elicottero Antincendio'],
+            schoolingTypes: ['Caserma dei vigili del fuoco'],
         },
     },
     buildingCategories: {
         'Vigili del Fuoco': {
-            buildings: [0, 1, 18],
+            buildings: [0, 1, 15, 18, 24],
             color: '#ff2d2d',
         },
         'Soccorso': {
@@ -745,7 +1134,7 @@ export default {
             color: '#00ac00',
         },
         'Altro': {
-            buildings: [7, 14],
+            buildings: [7, 14, 22, 23],
             color: '#02a18c',
         },
     },
@@ -754,15 +1143,17 @@ export default {
             vehicles: {
                 'Autopompa': [0, 9],
                 'Kilolitrica': [5],
-                'Veicoli speciali': [1, 2, 3, 6, 10, 11, 12],
+                'Veicoli speciali': [1, 2, 3, 6, 10, 11, 12, 26, 37],
+                'Soccorso in acqua': [23, 24, 25],
+                'Mezzi AIB': [28, 29, 30, 31, 32, 33, 34, 35],
             },
             color: '#ff2d2d',
         },
         'Soccorso': {
             vehicles: {
-                Ambulanza: [4, 20],
+                Ambulanza: [4, 20, 27],
                 Elisoccorso: [8],
-                Medica: [18, 19],
+                Medica: [18, 19, 36],
             },
             color: '#ffa500',
         },
@@ -783,7 +1174,7 @@ export default {
         2: 20,
         6: 19,
     },
-    vehicleBuildings: [0, 2, 5, 6, 13, 14, 18, 19, 20, 21],
+    vehicleBuildings: [0, 2, 5, 6, 13, 14, 18, 19, 20, 21, 24],
     cellBuildings: [6, 19],
     cellExtensions: [
         '6_0',
@@ -807,18 +1198,21 @@ export default {
             {
                 caption: 'N.B.C.R.',
                 duration: '3 giorni',
+                staffList: 'N.B.C.R.',
             },
             {
                 caption: 'Corso per funzionario (UCL)',
                 duration: '5 giorni',
+                staffList: 'Comando mobile',
             },
             {
                 caption: 'Servizio antincendio aeroportuale in addestramento',
                 duration: '3 giorni',
             },
             {
-                caption: 'Soccorso acquatico rapido',
-                duration: '4 giorni',
+                caption: 'Corso per operatore tecnico SAF',
+                duration: '3 giorni',
+                staffList: 'Corso per operatore tecnico SAF',
             },
             {
                 caption: 'Navigazione in oceano',
@@ -827,38 +1221,76 @@ export default {
             {
                 caption: 'Corso autista di Autogrù',
                 duration: '3 giorni',
+                staffList: 'Autogrù',
             },
             {
-                caption: 'Corso medico di emergenza ',
+                caption: 'Corso medico di emergenza',
                 duration: '7 giorni',
+                staffList: 'Medico di emergenza',
+            },
+            {
+                caption: 'Corso per operatore tecnico NSSA',
+                duration: '5 giorni',
+                staffList: 'Corso per operatore tecnico NSSA',
+            },
+            {
+                caption: 'Autista Movimento Terra',
+                duration: '3 giorni',
+                staffList: 'Autista Movimento Terra',
+            },
+            {
+                caption: 'Pilota Velivoli Antincendio',
+                duration: '5 giorni',
+                staffList: 'Pilota Velivoli Antincendio',
+            },
+            {
+                caption: 'Direttore Operazioni Spegnimento',
+                duration: '3 giorni',
+                staffList: 'Direttore Operazioni Spegnimento',
+            },
+            {
+                caption: 'Corso Operatore MaxiEmergenze',
+                duration: '5 giorni',
+                staffList: 'Operatore MaxiEmergenze',
             },
         ],
         'Polizia': [
             {
                 caption: 'Reparto volo della polizia',
                 duration: '7 giorni',
+                staffList: 'Reparto volo della polizia',
             },
             {
                 caption: 'Specializzazione antisommossa/UOPI',
                 duration: '5 giorni',
+                staffList: 'Specializzazione antisommossa/UOPI',
             },
             {
-                caption: 'Specializzazione unità cinoflia',
+                caption: 'Specializzazione unità cinofila',
                 duration: '5 giorni',
+                staffList: 'Specializzazione unità cinofila',
             },
             {
                 caption: 'Specializzazione motociclista',
                 duration: '3 giorni',
+                staffList: 'Specializzazione motociclista',
             },
             {
                 caption: 'Corso Artificieri',
                 duration: '3 giorni',
+                staffList: 'Corso Artificieri',
             },
         ],
         'Soccorso': [
             {
                 caption: 'Corso medico di emergenza',
                 duration: '7 giorni',
+                staffList: 'Medico di emergenza',
+            },
+            {
+                caption: 'Corso Operatore MaxiEmergenze',
+                duration: '5 giorni',
+                staffList: 'Operatore MaxiEmergenze',
             },
         ],
     },
@@ -867,6 +1299,7 @@ export default {
     alliance: 'Alleanza',
     premiumNotice: "Quest'opzione è permessa solo ad utenti premium",
     credits: 'Crediti',
+    coins: 'Monete',
     close: 'Chiudi',
     fullscreen: {
         expand: 'Attiva modalità schermo intero',
@@ -878,6 +1311,7 @@ export default {
     station: 'stazioni | Stazione | Stazioni',
     distance: 'Distanza | Distanze',
     vehicleType: 'Tipo di veicolo',
+    noOptions: 'Sorry, no matching options.',
     fmsReal2Show: {
         1: 1,
         2: 2,
@@ -967,7 +1401,44 @@ export default {
         'Discarica',
         'Parcheggio coperto',
         'Silos',
+        'Centro della città',
+        'Laboratorio di Ricerca',
+        'Campo sportivo',
+        'Collina',
+        'Campo',
+        'Brughiera',
+        'Gariga',
+        'Cascina',
+        'Campeggio',
     ],
     only_alliance_missions: [57, 74],
     transfer_missions: [214],
+    ranks: {
+        missionchief: {
+            0: 'Vigile del fuoco',
+            200: 'Vigile del fuoco esperto',
+            10_000: 'Vigile del fuoco coordinatore',
+            100_000: 'Caposquadra',
+            1_000_000: 'Caposquadra esperto',
+            5_000_000: 'Caporeparto',
+            20_000_000: 'Caporeparto esperto',
+            50_000_000: 'Ispettore antincendi',
+            1_000_000_000: 'Direttore antincendi capo esperto',
+            2_000_000_000: 'Dirigente generale',
+            5_000_000_000: 'Dirigente generale Capo del Corpo',
+        },
+        policechief: {
+            0: 'Agente',
+            200: 'Agente scelto',
+            10_000: 'Assistente',
+            100_000: 'Assistente capo',
+            1_000_000: 'Sovrintendente',
+            5_000_000: 'Ispettore',
+            20_000_000: 'Ispettore capo',
+            50_000_000: 'Commissario',
+            1_000_000_000: 'Commissario capo',
+            2_000_000_000: 'Vice questore',
+            5_000_000_000: 'Questore',
+        },
+    },
 };

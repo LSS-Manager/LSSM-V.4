@@ -1,0 +1,16 @@
+{
+	"alliance": "Team",
+	"amount": "{n} gefiltert team | {n} gefilterde teams",
+	"credits": "Totaal verdiende credits",
+	"load": {
+		"next": "Volgende pagina laden",
+		"prev": "Vorige pagina laden"
+	},
+	"members": "Aantal leden",
+	"name": "Team",
+	"search_global": "Alles doorzoeken",
+	"search_local": "Zoeken in geladen teams",
+	"search_subtitle": "Geeft {n} teams van pagina {startPage} tot {endPage} van totaal {totalPages} pagina's",
+	"subtitle": "Geeft {n} teams van pagina {startPage} ({firstCredits}) tot {endPage} ({lastCredits}) van totaal {totalPages} pagina's",
+	"title": "Teamlijst"
+}

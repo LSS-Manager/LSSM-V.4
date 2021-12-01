@@ -1,8 +1,8 @@
-import * as Combokeys from 'combokeys';
+import HotkeyUtility from '../../../src/modules/hotkeys/assets/HotkeyUtility';
 
 export interface Hotkey {
     readonly: boolean;
-    combokeys: Combokeys.Combokeys;
+    utility: HotkeyUtility;
 }
 
 export interface HotkeyMethods {
@@ -11,7 +11,6 @@ export interface HotkeyMethods {
 
 export interface HotkeyProps {
     name: string;
-    placeholder: string;
     value: string;
 }
 

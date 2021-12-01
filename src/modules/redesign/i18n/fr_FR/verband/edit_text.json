@@ -1,0 +1,11 @@
+{
+	"faq": "FAQ",
+	"header": "Annonces importantes de l'Alliance",
+	"header_help": "Sera affiché sur la page de démarrage au-dessus du chat.",
+	"rules": "Règles de l'alliance",
+	"save": "Sauvegarder",
+	"text": "Description Text (Startpage)",
+	"title": "Modification de l'alliance",
+	"webhook": "Discord-Webhook Link",
+	"webhook_help": "Vous pouvez trouver plus d'informations sur les webhooks Discord dans notre section"
+}

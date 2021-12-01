@@ -2,6 +2,10 @@
 	"description": "Avoid with this module that the game is reloaded when you press certain buttons.",
 	"name": "Asynchronous buttons",
 	"settings": {
+		"buildingPersonal": {
+			"description": "Prevents reloading when you release personal.",
+			"title": "Release of personal"
+		},
 		"buildingTax": {
 			"description": "Prevents recharging when you set the cost of own cells or hospital beds.",
 			"title": "Cost absorption of cells and beds"
@@ -23,6 +27,10 @@
 		},
 		"missionReply": {
 			"title": "MissionReplys in the Mission"
+		},
+		"switchExtensionState": {
+			"description": "Prevents reloading when you set the state of an extension",
+			"title": "(De-)activate Extension"
 		}
 	}
 }

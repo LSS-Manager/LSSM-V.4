@@ -1,8 +1,8 @@
 <template>
-    <div :class="{ titleHidden }">
+    <div :class="{ titleHidden, fullHeight, ...extraClasses }">
         <div class="controlbtn-container">
             <span
-                v-if="!noXBtn"
+                v-if="!noXBtn && !noModal"
                 class="lightbox-close"
                 @click="$modal.hide(name)"
                 :title="$t('close')"
@@ -10,7 +10,7 @@
                 <font-awesome-icon :icon="faTimes"></font-awesome-icon>
             </span>
             <span
-                v-if="!noFullscreen && !fullscreen"
+                v-if="!noFullscreen && !fullscreen && !noModal"
                 class="toggle-modal-fullscreen"
                 @click="expand"
                 :title="$t('fullscreen.expand')"
@@ -18,7 +18,7 @@
                 <font-awesome-icon :icon="faExpand"></font-awesome-icon>
             </span>
             <span
-                v-if="!noFullscreen && fullscreen"
+                v-if="!noFullscreen && fullscreen && !noModal"
                 class="toggle-modal-fullscreen"
                 @click="compress"
                 :title="$t('fullscreen.compress')"
@@ -29,10 +29,11 @@
                 v-if="!noTitleHide"
                 class="toggle-title"
                 @click="titleHidden = !titleHidden"
-                :title="$tc('hideTitle', !titleHidden)"
+                :title="$tc('hideTitle', +!titleHidden)"
             >
                 <font-awesome-icon :icon="faChevronUp"></font-awesome-icon>
             </span>
+            <slot name="control-buttons"></slot>
         </div>
         <slot></slot>
     </div>
@@ -40,16 +41,18 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import { faTimes } from '@fortawesome/free-solid-svg-icons/faTimes';
-import { faExpand } from '@fortawesome/free-solid-svg-icons/faExpand';
-import { faCompress } from '@fortawesome/free-solid-svg-icons/faCompress';
+
 import { faChevronUp } from '@fortawesome/free-solid-svg-icons/faChevronUp';
+import { faCompress } from '@fortawesome/free-solid-svg-icons/faCompress';
+import { faExpand } from '@fortawesome/free-solid-svg-icons/faExpand';
+import { faTimes } from '@fortawesome/free-solid-svg-icons/faTimes';
+
+import { DefaultComputed } from 'vue/types/options';
 import {
     LightboxData,
     LightboxMethods,
     LightboxProps,
 } from '../../typings/components/Lightbox';
-import { DefaultComputed } from 'vue/types/options';
 
 export default Vue.extend<
     LightboxData,
@@ -57,13 +60,13 @@ export default Vue.extend<
     DefaultComputed,
     LightboxProps
 >({
-    name: 'lightbox',
+    name: 'lssmv4-lightbox',
     data() {
         return {
             fullscreen: false,
             fullscreenBefore: window.fullScreen,
-            origWidth: this.$parent.$parent.modal.width,
-            origHeight: this.$parent.$parent.modal.height,
+            origWidth: this.noModal ? 0 : this.$parent.$parent.modal.width,
+            origHeight: this.noModal ? 0 : this.$parent.$parent.modal.height,
             titleHidden: false,
             faTimes,
             faExpand,
@@ -91,9 +94,25 @@ export default Vue.extend<
             required: false,
             default: false,
         },
+        fullHeight: {
+            type: Boolean,
+            required: false,
+            default: false,
+        },
+        extraClasses: {
+            type: Object,
+            required: false,
+            default: () => ({}),
+        },
+        noModal: {
+            type: Boolean,
+            required: false,
+            default: () => false,
+        },
     },
     methods: {
         expand() {
+            if (this.noModal) return;
             this.fullscreen = true;
             this.$parent.$parent.modal.width = 100;
             this.$parent.$parent.modal.height = 100;
@@ -101,6 +120,7 @@ export default Vue.extend<
                 this.$parent.$parent.$el.requestFullscreen();
         },
         compress() {
+            if (this.noModal) return;
             this.fullscreen = false;
             this.$parent.$parent.modal.width = this.origWidth;
             this.$parent.$parent.modal.height = this.origHeight;
@@ -142,4 +162,7 @@ h1
 
     .toggle-title svg
         transform: rotate(180deg)
+
+.fullHeight
+    height: 100%
 </style>

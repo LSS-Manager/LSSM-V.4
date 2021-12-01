@@ -1,7 +1,7 @@
 import * as fs from 'fs';
-import sortJSON from './utils/sortJSON';
 
 import * as tsconfig from '../tsconfig.json';
+import sortJSON from './utils/sortJSON';
 
 fs.writeFileSync(
     '../tsconfig.json',
@@ -11,9 +11,9 @@ fs.writeFileSync(
 const getJsons = (folder: string): string[] => {
     const jsons = [] as string[];
     fs.readdirSync(folder, { withFileTypes: true }).forEach(item => {
-        if (item.isDirectory()) {
+        if (item.isDirectory())
             jsons.push(...getJsons(`${folder}/${item.name}`));
-        } else if (item.isFile() && item.name.endsWith('.json'))
+        else if (item.isFile() && item.name.endsWith('.json'))
             jsons.push(`${folder}/${item.name}`);
     });
     return jsons;
@@ -35,6 +35,7 @@ export default (): string => {
             'typings',
         ].forEach(folder =>
             getJsons(`./${folder}`).forEach(file => {
+                if (file === './src/utils/emojis.json') return;
                 currentFile = file;
                 const sortArray = false;
                 fs.writeFileSync(

@@ -58,7 +58,58 @@
                                                         ? vehicle.coins.toLocaleString()
                                                         : NaN
                                                 }}
-                                                Coins </span
+                                                Coins
+                                            </span>
+                                            <span
+                                                v-else-if="attr === 'schooling'"
+                                            >
+                                                <template
+                                                    v-for="(schoolings,
+                                                    type) in vehicle[attr]"
+                                                >
+                                                    <span :key="type + '-t'"
+                                                        >{{ type }}:</span
+                                                    >
+                                                    <ul
+                                                        :key="type + '-ul'"
+                                                        class="unstyled-list"
+                                                    >
+                                                        <li
+                                                            v-for="(s,
+                                                            schooling) in schoolings"
+                                                            :key="
+                                                                type +
+                                                                    ' - ' +
+                                                                    schooling
+                                                            "
+                                                            class="vehicle-schoolings-list"
+                                                        >
+                                                            <template
+                                                                v-if="s.min"
+                                                            >
+                                                                {{
+                                                                    $mc(
+                                                                        'schoolings.min',
+                                                                        s.min
+                                                                    )
+                                                                }}:
+                                                            </template>
+                                                            <template
+                                                                v-else-if="
+                                                                    s.all
+                                                                "
+                                                            >
+                                                                {{
+                                                                    $m(
+                                                                        'schoolings.all'
+                                                                    )
+                                                                }}:
+                                                            </template>
+                                                            {{ type }} -
+                                                            {{ schooling }}
+                                                        </li>
+                                                    </ul>
+                                                </template> </span
                                             ><span
                                                 v-else-if="
                                                     typeof vehicle[attr] ===
@@ -220,24 +271,26 @@
 
 <script lang="ts">
 import Vue from 'vue';
+
+import cloneDeep from 'lodash/cloneDeep';
+
 import { DefaultProps } from 'vue/types/options';
+import { Schooling } from 'typings/Schooling';
 import {
-    Overview,
-    OverviewMethods,
-    OverviewComputed,
-} from '../../../typings/modules/Overview';
+    BuildingCategory,
+    InternalBuilding,
+    ResolvedBuildingCategory,
+} from 'typings/Building';
 import {
     InternalVehicle,
     ResolvedVehicleCategory,
     VehicleCategory,
 } from '../../../typings/Vehicle';
 import {
-    BuildingCategory,
-    InternalBuilding,
-    ResolvedBuildingCategory,
-} from 'typings/Building';
-import cloneDeep from 'lodash/cloneDeep';
-import { Schooling } from 'typings/Schooling';
+    Overview,
+    OverviewComputed,
+    OverviewMethods,
+} from '../../../typings/modules/Overview';
 
 export default Vue.extend<
     Overview,
@@ -245,7 +298,7 @@ export default Vue.extend<
     OverviewComputed,
     DefaultProps
 >({
-    name: 'overview',
+    name: 'lssmv4-overview',
     components: {
         Lightbox: () =>
             import(
@@ -289,18 +342,18 @@ export default Vue.extend<
                             group
                         ] = Object.values(vehicles as number[]).map(type => {
                             const v = vehicleTypes[type];
-                            if (v.schooling) {
-                                const [, school, schooling] = v.schooling.match(
-                                    /^(.*?) - (.*?)$/
-                                ) ?? [null, null, null];
-                                if (school && schooling)
+                            Object.entries(
+                                v.schooling ?? {}
+                            ).forEach(([school, schoolings]) =>
+                                Object.keys(schoolings).forEach(schooling =>
                                     resolvedSchoolings[school]
                                         .find(
                                             ({ caption }) =>
                                                 caption === schooling
                                         )
-                                        ?.required_for.push(v.caption);
-                            }
+                                        ?.required_for.push(v.caption)
+                                )
+                            );
                             return v;
                         }))
                 );
@@ -333,19 +386,22 @@ export default Vue.extend<
                         if (!multipleExtensions.hasOwnProperty(e.caption))
                             multipleExtensions[e.caption] = 1;
                         multipleExtensions[e.caption]++;
-                    } else minifiedExtensions.push(extension);
+                    } else {
+                        minifiedExtensions.push(extension);
+                    }
                 });
                 Object.entries(multipleExtensions).forEach(
                     ([caption, amount]) => {
                         const e = minifiedExtensions.find(
                             e => e.caption === caption
                         );
-                        if (e)
+                        if (e) {
                             e.caption = this.$tc(
                                 `modules.overview.extensionTitle`,
                                 amount,
                                 { caption }
                             );
+                        }
                     }
                 );
                 return [
@@ -382,12 +438,43 @@ export default Vue.extend<
                     },
                     cost: { title: this.$m('titles.vehicles.cost') },
                     schooling: { title: this.$m('titles.vehicles.schooling') },
-                    ...(['de_DE', 'en_US', 'pl_PL'].includes(
-                        this.$store.state.lang
-                    )
+                    ...([
+                        'de_DE',
+                        'en_US',
+                        'pl_PL',
+                        'nl_NL',
+                        'sv_SE',
+                        'it_IT',
+                        'nb_NO',
+                        'en_AU',
+                        'fr_FR',
+                        'es_ES',
+                    ].includes(this.$store.state.lang)
                         ? {
                               wtank: {
                                   title: this.$m('titles.vehicles.wtank'),
+                              },
+                          }
+                        : null),
+                    ...(['de_DE'].includes(this.$store.state.lang)
+                        ? {
+                              pumpcap: {
+                                  title: this.$m('titles.vehicles.pumpcap'),
+                              },
+                          }
+                        : null),
+                    ...([
+                        'es_ES',
+                        'pl_PL',
+                        'sv_SE',
+                        'it_IT',
+                        'en_US',
+                        'nl_NL',
+                        'sv_SE',
+                    ].includes(this.$store.state.lang)
+                        ? {
+                              ftank: {
+                                  title: this.$m('titles.vehicles.ftank'),
                               },
                           }
                         : null),
@@ -440,6 +527,9 @@ export default Vue.extend<
                         title: this.$m('titles.schoolings.required_for'),
                     },
                     duration: { title: this.$m('titles.schoolings.duration') },
+                    staffList: {
+                        title: this.$m('titles.schoolings.staffList'),
+                    },
                 },
                 search: '',
                 sort: 'caption',
@@ -474,9 +564,9 @@ export default Vue.extend<
                     ? this.buildingsFiltered
                     : this.currentBuildings
             ).sort((a, b) => {
-                let modifier = this.buildingsTab.sortDir === 'desc' ? -1 : 1;
-                let f = a[this.buildingsTab.sort] || '';
-                let s = b[this.buildingsTab.sort] || '';
+                const modifier = this.buildingsTab.sortDir === 'desc' ? -1 : 1;
+                const f = a[this.buildingsTab.sort] || '';
+                const s = b[this.buildingsTab.sort] || '';
                 return f < s ? -1 * modifier : f > s ? modifier : 0;
             });
         },
@@ -502,9 +592,9 @@ export default Vue.extend<
                     ? this.schoolingsFiltered
                     : this.currentSchoolings
             ).sort((a, b) => {
-                let modifier = this.schoolingsTab.sortDir === 'desc' ? -1 : 1;
-                let f = a[this.schoolingsTab.sort] || '';
-                let s = b[this.schoolingsTab.sort] || '';
+                const modifier = this.schoolingsTab.sortDir === 'desc' ? -1 : 1;
+                const f = a[this.schoolingsTab.sort] || '';
+                const s = b[this.schoolingsTab.sort] || '';
                 return f < s ? -1 * modifier : f > s ? modifier : 0;
             });
         },
@@ -515,7 +605,7 @@ export default Vue.extend<
                     this.vehiclesTab.current.category
                 ]
             ];
-            let vehicles =
+            const vehicles =
                 category.vehicles[
                     Object.keys(category.vehicles)[
                         this.vehiclesTab.current.group
@@ -529,9 +619,9 @@ export default Vue.extend<
                   )
                 : vehicles
             ).sort((a, b) => {
-                let modifier = this.vehiclesTab.sortDir === 'desc' ? -1 : 1;
-                let f = a[this.vehiclesTab.sort] || '';
-                let s = b[this.vehiclesTab.sort] || '';
+                const modifier = this.vehiclesTab.sortDir === 'desc' ? -1 : 1;
+                const f = a[this.vehiclesTab.sort] || '';
+                const s = b[this.vehiclesTab.sort] || '';
                 return f < s ? -1 * modifier : f > s ? modifier : 0;
             });
         },
@@ -540,24 +630,30 @@ export default Vue.extend<
         $m(key, args) {
             return this.$t(`modules.overview.${key}`, args);
         },
+        $mc(key, n, args) {
+            return this.$tc(`modules.overview.${key}`, n, args);
+        },
         setSortVehicles(type) {
-            if (this.vehiclesTab.sort === type)
+            if (this.vehiclesTab.sort === type) {
                 return (this.vehiclesTab.sortDir =
                     this.vehiclesTab.sortDir === 'asc' ? 'desc' : 'asc');
+            }
             this.vehiclesTab.sort = type;
             this.vehiclesTab.sortDir = 'asc';
         },
         setSortBuildings(type) {
-            if (this.buildingsTab.sort === type)
+            if (this.buildingsTab.sort === type) {
                 return (this.buildingsTab.sortDir =
                     this.buildingsTab.sortDir === 'asc' ? 'desc' : 'asc');
+            }
             this.buildingsTab.sort = type;
             this.buildingsTab.sortDir = 'asc';
         },
         setSortSchoolings(type) {
-            if (this.schoolingsTab.sort === type)
+            if (this.schoolingsTab.sort === type) {
                 return (this.schoolingsTab.sortDir =
                     this.schoolingsTab.sortDir === 'asc' ? 'desc' : 'asc');
+            }
             this.schoolingsTab.sort = type;
             this.schoolingsTab.sortDir = 'asc';
         },
@@ -581,4 +677,9 @@ export default Vue.extend<
 });
 </script>
 
-<style scoped></style>
+<style scoped lang="sass">
+.vehicle-schoolings-list
+    text-indent: -1em
+.unstyled-list
+    list-style: none
+</style>

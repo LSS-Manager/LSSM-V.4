@@ -1,7 +1,5 @@
 // import { Building } from 'typings/Building';
 
-// Commented as dir ./en_US does not exist currently
-// const furtherFiles = require.context('./en_US/', true, /.*(\/index)?\.js(on)?/);
 const modules = {
     appstore: {
         save: 'Uložit',
@@ -52,18 +50,8 @@ const modules = {
     },
 } as { [moduleId: string]: { [key: string]: unknown } };
 
-const t = {} as { [key: string]: unknown };
-
-// Commented as dir ./en_US does not exist currently
-// furtherFiles
-//     .keys()
-//     .forEach(
-//         key => (t[key.split('/')[1].replace(/\..*$/, '')] = furtherFiles(key))
-//     );
-
 export default {
     modules,
-    ...t,
     error: {
         title: 'LSS Manager: Error',
         msg: 'Pokud k této chybě dochází často, prosím kontaktujte tým LSSM!',
@@ -76,6 +64,12 @@ export default {
             close: 'Uzavřít zprávu a znovunačíst hru(doporučeno)',
             abort: 'Zavřít zprávu bez znovunačtení hry',
         },
+    },
+    anniversary1: {
+        closeNote: 'Tip: You can also click on the balloons to close!',
+        title: '🎉 There is reason to celebrate! 🎉',
+        content:
+            'Wow, how fast time flies!<br>It\'s been <b>one year</b> since the LSS Manager V.4 went online! A lot has happened this year, of course, and so on this special occasion we would like to say a special thank you to you, the users. The joy with which you test our new features inspires us again and again and gives us new motivation to continue. Also, a big thank you goes out to our translators who volunteer their time to make the LSSM usable in other versions of the game.</br>To celebrate, we\'d like to share a few facts and figures here:<ul><li><code>February 10th 2020</code>: The First Commit on GitHub was made: <a href="https://github.com/LSS-Manager/LSSM-V.4/commit/6e95836" target="_blank">6e95836</a>. Since then we have made over 5,600 commits!</li><li><code>September 19th, 2020</code>: V.4 was officially announced for the first time on the forum: <a href="https://forum.leitstellenspiel.de/index.php?thread/19176-lss-manager-v-4/" target="_blank">LSS Manager V.4</a>. With this, the application phase for beta testers has also started</li><li><code>October 17th 2020</code>: Beta testers have been given access to V.4 for the first time. The 4-week beta phase has thus started</li><li><code>November 21st 2020</code>: LSS Manager V.4 goes online for everyone!</li><li>Our telemetry currently records around 5,000 users in the past 6 months. Of these, over 2,200 were active in the last 14 days. The dark figure (number of users who have deactivated telemetry) can not be estimated.</li><li>Our thread in the forum has now reached almost 1,200 messages. That\'s quite a bit, but the V.3 thread, which is currently scratching the 3,500 responses, is far from catching up.</li><li>For more stats, check out our thread in the forum:<a href="https://forum.leitstellenspiel.de/index.php?thread/19176-lss-manager-v-4/" target="_blank">LSS Manager V.4</a></li></ul><br>We\'re looking forward to many more great moments in the time of LSSM V.4!<br>Your LSSM Team<br>Jan, Sanni & Ron',
     },
     globalSettings: {
         name: 'Základní nastavení',
@@ -107,7 +101,6 @@ export default {
             credits: 5_000,
             minPersonnel: 4,
             maxPersonnel: 6,
-            wtank: 0,
         },
         1: {
             caption: 'CAS 30',
@@ -116,7 +109,6 @@ export default {
             credits: 5_000,
             minPersonnel: 1,
             maxPersonnel: 6,
-            wtank: 0,
         },
         2: {
             caption: 'AZ',
@@ -125,7 +117,6 @@ export default {
             credits: 10_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            wtank: 0,
             special: 'Požadováno po vybudování 3 požárních stanic',
         },
         3: {
@@ -135,7 +126,6 @@ export default {
             credits: 10_000,
             minPersonnel: 1,
             maxPersonnel: 1,
-            wtank: 0,
             special: 'Požadováno po vybudování 6 požárních stanic',
         },
         4: {
@@ -145,17 +135,15 @@ export default {
             credits: 12_180,
             minPersonnel: 2,
             maxPersonnel: 3,
-            wtank: 0,
             special: 'Požadováno po vybudování 4 požárních stanic',
         },
         5: {
-            caption: 'Sanitka',
+            caption: 'RZP',
             color: '#9c1c1c',
             coins: 25,
             credits: 5_000,
             minPersonnel: 3,
             maxPersonnel: 3,
-            wtank: 0,
         },
         6: {
             caption: 'KHA',
@@ -164,7 +152,6 @@ export default {
             credits: 17_300,
             minPersonnel: 1,
             maxPersonnel: 2,
-            wtank: 0,
             special: 'Požadováno po vybudování 7 požárních stanic',
         },
         7: {
@@ -174,7 +161,6 @@ export default {
             credits: 19_200,
             minPersonnel: 1,
             maxPersonnel: 3,
-            wtank: 3_000,
             schooling: 'Požární stanice - Nebezpečné látky',
             shownSchooling: 'Nebezpečné látky',
             special: 'Požadováno po vybudování 11 požárních stanic',
@@ -186,7 +172,6 @@ export default {
             credits: 5_000,
             minPersonnel: 2,
             maxPersonnel: 4,
-            wtank: 0,
         },
         9: {
             caption: 'Vrtulník LZS',
@@ -195,7 +180,6 @@ export default {
             credits: 300_000,
             minPersonnel: 3,
             maxPersonnel: 5,
-            wtank: 0,
         },
         10: {
             caption: 'AP',
@@ -204,7 +188,6 @@ export default {
             credits: 14_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            wtank: 0,
         },
         11: {
             caption: 'Policejní vrtulník',
@@ -213,7 +196,6 @@ export default {
             credits: 300_000,
             minPersonnel: 1,
             maxPersonnel: 3,
-            wtank: 0,
             schooling: 'Policie - Kurz Letecké služby PČR',
             shownSchooling: 'Členové Letecké služby PČR',
         },
@@ -224,7 +206,6 @@ export default {
             credits: 10_000,
             minPersonnel: 6,
             maxPersonnel: 6,
-            wtank: 0,
             schooling: 'Policie - URNA',
             shownSchooling: 'URNA',
             special: 'Požadováno po vybudování 8 Obvodních oddělení Policie',
@@ -236,7 +217,6 @@ export default {
             credits: 7_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            wtank: 0,
             schooling: 'Policie - Kynologové Policie',
             shownSchooling: 'Kynologové Policie',
             special: 'Požadováno po vybudování 6 Obvodních oddělení Policie',
@@ -248,7 +228,6 @@ export default {
             credits: 2_500,
             minPersonnel: 1,
             maxPersonnel: 1,
-            wtank: 0,
             schooling: 'Policie - Policejní motocykl',
             shownSchooling: 'Strážník na motocyklu',
         },
@@ -259,7 +238,6 @@ export default {
             credits: 7_000,
             minPersonnel: 2,
             maxPersonnel: 4,
-            wtank: 0,
             schooling: 'Policie - URNA',
             shownSchooling: 'URNA',
             special: 'Požadováno po vybudování 8 Obvodních oddělení Policie',
@@ -271,7 +249,6 @@ export default {
             credits: 11_680,
             minPersonnel: 1,
             maxPersonnel: 3,
-            wtank: 0,
             special: 'Požadováno po vybudování 5 požárních stanic',
         },
         17: {
@@ -281,7 +258,6 @@ export default {
             credits: 25_500,
             minPersonnel: 1,
             maxPersonnel: 6,
-            wtank: 0,
             schooling: 'Požární stanice - MOS (mobilní operační středisko)',
             shownSchooling: 'MOS',
             special: 'Požadováno po vybudování 13 požárních stanic',
@@ -293,7 +269,6 @@ export default {
             credits: 15_000,
             minPersonnel: 2,
             maxPersonnel: 3,
-            wtank: 0,
             schooling: 'Policie - vyšetřovatel DN',
             shownSchooling: 'Vyšetřovatel DN',
         },
@@ -304,15 +279,121 @@ export default {
             credits: 35_000,
             minPersonnel: 2,
             maxPersonnel: 3,
-            wtank: 0,
             schooling: 'Policie - Policejní pyrotechnik',
             shownSchooling: 'Policejní pyrotechnik',
         },
+        20: {
+            caption: 'Přívěs se člunem',
+            color: '#990000',
+            coins: 12,
+            credits: 6_000,
+            minPersonnel: 0,
+            maxPersonnel: 0,
+            special: 'Požadováno po vybudování 11 požárních stanic',
+        },
+        21: {
+            caption: 'Přívěs se člunem VZS ČČK',
+            color: '#990000',
+            coins: 12,
+            credits: 6_000,
+            minPersonnel: 0,
+            maxPersonnel: 0,
+            special:
+                'Je potřeba tažné vozidlo (SUV VZS ČČK, Dodávka VZS ČČK). Vyžaduje osoby(4) se speciálním vzděláním v oboru odtahové vozidlo',
+        },
+        22: {
+            caption: 'Potápěčský automobil',
+            color: '#990000',
+            coins: 25,
+            credits: 10_000,
+            minPersonnel: 2,
+            maxPersonnel: 4,
+            special: 'Požadováno po vybudování 11 požárních stanic',
+        },
+        23: {
+            caption: 'SUV VZS ČČK',
+            color: '#990000',
+            coins: 25,
+            credits: 10_000,
+            minPersonnel: 1,
+            maxPersonnel: 4,
+        },
+        24: {
+            caption: 'Dodávka VZS ČČK',
+            color: '#990000',
+            coins: 25,
+            credits: 10_000,
+            minPersonnel: 2,
+            maxPersonnel: 4,
+        },
+        25: {
+            caption: 'RV',
+            color: '#9c1c1c',
+            coins: 20,
+            credits: 4_000,
+            minPersonnel: 1,
+            maxPersonnel: 2,
+        },
+        26: {
+            caption: 'IP',
+            color: '#9c1c1c',
+            coins: 25,
+            credits: 25_000,
+            minPersonnel: 1,
+            maxPersonnel: 2,
+            special: 'Požadováno po vybudování 10 výjezdových stanovišť ZZS',
+            schooling: 'Záchranáři - Školení inspektora provoz',
+            shownSchooling: 'Školení inspektora provoz',
+        },
+        27: {
+            caption: 'RLP',
+            color: '#9c1c1c',
+            coins: 30,
+            credits: 10_000,
+            minPersonnel: 2,
+            maxPersonnel: 3,
+            schooling: 'Záchranáři - Školení lékaře',
+            shownSchooling: 'Školení lékaře',
+        },
+        28: {
+            caption: 'VYA',
+            color: '#791515',
+            coins: 10,
+            credits: 35_000,
+            minPersonnel: 1,
+            maxPersonnel: 2,
+            schooling: 'Požární stanice - ',
+            shownSchooling: '',
+        },
+        29: {
+            caption: 'AJ',
+            color: '#791515',
+            coins: 10,
+            credits: 35_000,
+            minPersonnel: 1,
+            maxPersonnel: 2,
+            schooling: 'Požární stanice - ',
+            shownSchooling: '',
+        },
+        30: {
+            caption: 'DA',
+            color: '#791515',
+            coins: 10,
+            credits: 10_000,
+            minPersonnel: 1,
+            maxPersonnel: 9,
+        },
+        31: {
+            caption: 'RZA',
+            color: '#791515',
+            coins: 10,
+            credits: 20_000,
+            minPersonnel: 2,
+            maxPersonnel: 3,
+        },
     },
-    //here ends
-
-    buildings: [
-        {
+    buildings: {
+        0: {
             caption: 'Fire station',
             color: '#bb0000',
             coins: 30,
@@ -331,12 +412,6 @@ export default {
                     duration: '7 Days',
                 },
                 {
-                    caption: 'Forestry Expansion',
-                    credits: 50_000,
-                    coins: 13,
-                    duration: '7 Days',
-                },
-                {
                     caption: 'Water rescue expansion',
                     credits: 100_000,
                     coins: 20,
@@ -344,15 +419,15 @@ export default {
                 },
             ],
             levelcost: ['1. 10.000', '2. 50.000', '3.-39. 100.000'],
-            maxBuildings: '4.000 together with small fire stations',
+            maxBuildings: '5.000 together with small fire stations',
             maxLevel: 39,
             special:
                 'From the 24th fire station onwards, the cost of building a new fire station increases according to the following formula: <code>100.000+200.000*LOG<sub>2</sub>(Number of existing fire stations − 22)</code>. The Coins price remains constant!',
             startPersonnel: 10,
             startVehicles: ['Type 1 fire engine', 'Type 2 fire engine'],
-            maxBuildingsFunction: (): number => 4_000,
+            maxBuildingsFunction: (): number => 5_000,
         },
-        {
+        1: {
             caption: 'Fire academy',
             color: '#992222',
             coins: 50,
@@ -371,7 +446,7 @@ export default {
             startPersonnel: 0,
             startVehicles: [],
         },
-        {
+        2: {
             caption: 'Ambulance station',
             color: '#ffa500',
             coins: 35,
@@ -384,7 +459,26 @@ export default {
             startPersonnel: 3,
             startVehicles: ['ALS Ambulance'],
         },
-        {
+        3: {
+            caption: 'ems academy',
+            color: '#992222',
+            coins: 50,
+            credits: 500_000,
+            extensions: new Array(3).fill({
+                caption: 'Additional classroom',
+                credits: 400_000,
+                coins: 40,
+                duration: '7 Days',
+            }),
+            levelcost: [],
+            maxBuildings: 'No limit',
+            maxLevel: 0,
+            special:
+                "Finance ministers and admins can (expand) fire department schools with the help of credits from the association's treasury.Training course masters and admins can start training courses at association fire- brigade schools.",
+            startPersonnel: 0,
+            startVehicles: [],
+        },
+        4: {
             caption: 'Hospital',
             color: '#bbe944',
             coins: 25,
@@ -453,7 +547,7 @@ export default {
             startPersonnel: 0,
             startVehicles: [],
         },
-        {
+        5: {
             caption: 'Helicopter station',
             color: '#e7ad2f',
             coins: 50,
@@ -471,7 +565,7 @@ export default {
                     ? 4
                     : Math.floor(buildingsAmountTotal / 25),
         },
-        {
+        6: {
             caption: 'Police station',
             color: '#007700',
             coins: 35,
@@ -493,7 +587,7 @@ export default {
             startVehicles: ['Patrol car'],
             maxBuildingsFunction: (): number => 1_500,
         },
-        {
+        7: {
             caption: 'Dispatch Center',
             color: '#24c3ae',
             coins: 0,
@@ -508,7 +602,7 @@ export default {
             maxBuildingsFunction: (buildingsAmountTotal: number): number =>
                 Math.floor(buildingsAmountTotal / 25) + 1,
         },
-        {
+        8: {
             caption: 'Police academy',
             color: '#225522',
             coins: 50,
@@ -527,7 +621,7 @@ export default {
             startPersonnel: 0,
             startVehicles: [],
         },
-        {
+        13: {
             caption: 'Police Aviation',
             color: '#148423',
             coins: 50,
@@ -545,7 +639,7 @@ export default {
                     ? 4
                     : Math.floor(buildingsAmountTotal / 25),
         },
-        {
+        14: {
             caption: 'Staging area',
             coins: 0,
             credits: 0,
@@ -559,7 +653,20 @@ export default {
             startVehicles: [],
             maxBuildingsFunction: (): number => 4,
         },
-        {
+        15: {
+            caption: 'Vodní záchranná služba ČČK/Waterrescue',
+            color: '#ffa500',
+            coins: 35,
+            credits: 200_000,
+            extensions: [],
+            levelcost: ['1. 10.000', '2. 50.000', '3.-39. 100.000'],
+            maxBuildings: 'No limit',
+            maxLevel: 39,
+            special: '',
+            startPersonnel: 3,
+            startVehicles: ['x'],
+        },
+        16: {
             caption: 'Prison Cells',
             coins: 'x',
             credits: 100_000,
@@ -577,7 +684,7 @@ export default {
             startPersonnel: 0,
             startVehicles: [],
         },
-        {
+        18: {
             caption: 'Fire station (Small station) ',
             color: '#aa1111',
             coins: 25,
@@ -589,15 +696,15 @@ export default {
                 '3.-5. 100.000',
                 'Conversion to normal guard: difference price to normal guard',
             ],
-            maxBuildings: '4.000 together with fire stations',
+            maxBuildings: '5.000 together with fire stations',
             maxLevel: 5,
             special:
                 'From the 24th fire station onwards, the cost of building a new fire station increases according to the following formula: <code>(100.000+200.000*LOG<sub>2</sub>(Number of existing fire stations − 22)) / 2</code>. max. 1 Million Credits. The Coins price remains constant!',
             startPersonnel: 10,
             startVehicles: ['Type 1 fire engine', 'Type 2 fire engine'],
-            maxBuildingsFunction: (): number => 4_000,
+            maxBuildingsFunction: (): number => 5_000,
         },
-        {
+        19: {
             caption: 'Police station (Small station)',
             color: '#116611',
             coins: 25,
@@ -617,7 +724,7 @@ export default {
             startVehicles: ['Patrol Car'],
             maxBuildingsFunction: (): number => 1_500,
         },
-        {
+        20: {
             caption: 'Ambulance station (Small station)',
             color: '#eeb611',
             coins: 25,
@@ -635,28 +742,8 @@ export default {
             startPersonnel: 3,
             startVehicles: ['ALS Ambulance'],
         },
-        {
-            caption: 'Clinic',
-            color: '#663300',
-            coins: 25,
-            credits: 100_000,
-            extensions: [
-                {
-                    caption: 'General Internal',
-                    credits: 10_000,
-                    coins: 10,
-                    duration: '7 Days',
-                },
-            ],
-            levelcost: ['1. 10.000', '2. 50.000', '3.-5. 100.000'],
-            maxBuildings: 'No limit',
-            maxLevel: 5,
-            special: '',
-            startPersonnel: 0,
-            startVehicles: ['Non. You can buy max. 2 Vehicles'],
-        },
-        {
-            caption: 'Federal Police Station',
+        21: {
+            caption: 'Pyrotechnická služba PČR',
             color: '#663300',
             coins: 50,
             credits: 5_000_000,
@@ -668,46 +755,26 @@ export default {
             startPersonnel: 10,
             startVehicles: ['FBI Unit'],
         },
-        {
-            caption: 'Rescue Boat Dock',
-            color: '#663300',
-            coins: 35,
+        22: {
+            caption: 'Školící středisko VZS ČČK',
+            color: '#225522',
+            coins: 50,
             credits: 500_000,
-            extensions: [],
-            levelcost: ['1. 10.000', '2. 50.000', '3.-16. 100.000'],
+            extensions: new Array(3).fill({
+                caption: 'Additional classroom',
+                credits: 400_000,
+                coins: 40,
+                duration: '7 Days',
+            }),
+            levelcost: [],
             maxBuildings: 'No limit',
-            maxLevel: 16,
-            special: '',
-            startPersonnel: 2,
-            startVehicles: [''],
+            maxLevel: 0,
+            special:
+                "Finance ministers and admins can (expand) association police schools with the help of credits from the association's treasury.Training course masters and admins can start training courses at association police schools.",
+            startPersonnel: 0,
+            startVehicles: [],
         },
-        {
-            caption: 'Fire Boat Dock',
-            color: '#663300',
-            coins: 35,
-            credits: 500_000,
-            extensions: [],
-            levelcost: ['1. 10.000', '2. 50.000', '3.-16. 100.000'],
-            maxBuildings: 'No limit',
-            maxLevel: 16,
-            special: '',
-            startPersonnel: 2,
-            startVehicles: [''],
-        },
-        {
-            caption: 'Firefighting plane station',
-            color: '#663300',
-            coins: 65,
-            credits: 1_500_000,
-            extensions: [],
-            levelcost: ['1. 1.500.000'],
-            maxBuildings: 'No limit',
-            maxLevel: 2,
-            special: '',
-            startPersonnel: 2,
-            startVehicles: ['Water drop helicopter'],
-        },
-    ],
+    },
     buildingCategories: {
         'Fire Department': {
             buildings: [0, 4, 11, 13, 17],
@@ -763,11 +830,11 @@ export default {
         },
     },
     small_buildings: {
-        0: 13,
-        3: 16,
-        5: 15,
+        0: 18,
+        2: 20,
+        6: 19,
     },
-    vehicleBuildings: [0, 3, 5, 6, 8, 9, 11, 12, 13, 14, 15, 16, 17, 18],
+    vehicleBuildings: [0, 5, 6, 8, 9, 11, 12, 13, 14, 15, 16, 17, 18],
     cellBuildings: [5],
     cellExtensions: [
         '5_0',
@@ -859,7 +926,8 @@ export default {
     alliance: 'Alliance',
     premiumNotice:
         'This feature extends a premium feature of the game and is therefore only available for players with a Missionchief game premium account!',
-    credits: 'Credits',
+    credits: 'Kredity',
+    coins: 'Mincí',
     close: 'Close',
     fullscreen: {
         expand: 'Activate full screen mode',
@@ -871,6 +939,7 @@ export default {
     station: 'Stations | Station | Stations',
     distance: 'Distance | Distances',
     vehicleType: 'Vehicle type',
+    noOptions: 'Sorry, no matching options.',
     fmsReal2Show: {
         1: 1,
         2: 2,
@@ -965,6 +1034,17 @@ export default {
         'Sklad pyrotechniky',
         'Autobusové nádraží',
         'Vlakové nádraží',
+        'Sklad uhlí',
+        'Náměstí',
+        'Centrum města',
+        'Motorest',
+        'Panelový dům',
+        'Prolézačky',
+        'Plnírna plyn',
+        'Pole',
+        'Bioplynová stanice',
+        'Elektrorozvodna',
+        'Staveniště',
     ],
     only_alliance_missions: [57, 74],
 };

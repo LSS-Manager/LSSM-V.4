@@ -53,6 +53,10 @@
 			"description": "Ermöglicht es dir im Einsatzfenster auf Knopfdruck die Karte im Hauptfenster auf den Einsatzort zu zentrieren.",
 			"title": "Karte zentrieren"
 		},
+		"emvMaxStaff": {
+			"description": "Berechnet für 'Benötigte Fahrzeuge verschönern', dass alle Fahrzeuge mit maximalem Personal ausrücken.",
+			"title": "Maximalbesetzung"
+		},
 		"enhancedMissingVehicles": {
 			"description": "Wandelt die Anzeige der zusätzlich benötigten Fahrzeuge in eine übersichtlichere Tabelle um.",
 			"title": "Benötigte Fahrzeuge verschönern"
@@ -65,15 +69,20 @@
 			"description": "Versteckt die Fahrzeugliste, öffnet diese dann per Knopfdruck.",
 			"title": "Fahrzeugliste Verstecken"
 		},
+		"hoverTip": {
+			"description": "Tooltips für die Knöpfe von \"Benötigte Fahrzeuge verschönern\".",
+			"title": "Tooltips"
+		},
 		"loadMoreVehiclesInHeader": {
 			"description": "Zeigt den Knopf \"Fahrzeuge nachladen\", wenn vorhanden, in der Kopfleiste an.",
 			"title": "Fahrzeuge nachladen in Kopfleiste"
 		},
 		"missionKeywords": {
+			"allMissions": "---: Alle Einsätze",
 			"autotextcolor": "automatische Schriftfarbe",
 			"color": "Hintergrundfarbe",
-			"description": "Lasse dir ein eigenes Stichwort neben dem Einsatznamen anzeigen",
-			"keyword": "Stichwort",
+			"description": "Lasse dir ein eigenes Stichwort neben dem Einsatznamen anzeigen. Du kannst Variablen verwenden, werf hierzu ein Blick ins <a class=\"lightbox-open\" href=\"{wiki}modules/extendedCallWindow.html#variablen\">Wiki</a>.",
+			"keyword": "Stichwort (Variablen: {{credits}}, {{type}})",
 			"missions": "Einsätze",
 			"prepend": "Vor dem Einsatznamen anzeigen",
 			"preview": "Vorschau",
@@ -84,9 +93,25 @@
 			"description": "Zeigt neben der Zahl der Patienten an, welche Rettungsmittel diese zusammengefasst benötigen.",
 			"title": "Patientenzusammenfassung"
 		},
+		"playerCounter": {
+			"description": "Zeigt oben bei der Personalliste an, wie viele Spieler ein Fahrzeug zum Einsatz alarmiert haben. Bei Klick öffnet sich eine Tabelle mit Detailangaben.",
+			"title": "Spielerzähler"
+		},
+		"playerCounterColor": {
+			"description": "Wähle, welche Farbe das Label des Spielerzähler haben soll.",
+			"title": "Spielerzähler: Farbe"
+		},
 		"redBorder": {
 			"description": "Umrandet die Generierungszeit rot, wenn der Einsatz in der kommenden Nacht verfallen wird.",
 			"title": "Rote Umrandung"
+		},
+		"remainingPatientTime": {
+			"description": "Zeigt bei Patienten an, wie lange der Patient noch behandelt werden muss.",
+			"title": "Patientenbehandlungsdauer"
+		},
+		"stagingAreaSelectedCounter": {
+			"description": "Zeigt auch in Bereitstellungsräumen neben dem \"Alarmieren\" Knopf die Zahl der ausgewählten Fahrzeuge",
+			"title": "Zähler im Bereitstellungsraum"
 		},
 		"stickyHeader": {
 			"description": "Zeigt die obere Leiste im Einsatzfenster immer an, auch wenn du nach unten scrollst.",
@@ -96,8 +121,26 @@
 			"color": "Farbe",
 			"description": "Passe dir hier die Tabs im Einsatzfenster an. \"Alle\" und \"Weiteralarmieren\" werden immer sichtbar sein.",
 			"name": "Name",
-			"title": "Fahrzeugkategorien",
+			"title": "Eigene Fahrzeugkategorien",
 			"vehicles": "Fahrzeugtypen"
+		},
+		"vehicleCounter": {
+			"description": "Zeigt oben bei der Personalliste an, wie viele Fahrzeuge zum Einsatz alarmiert sind. Bei Klick öffnet sich eine Tabelle mit Detailangaben.",
+			"title": "Fahrzeugzähler"
+		},
+		"vehicleCounterColor": {
+			"danger": "Rot",
+			"default": "Grau",
+			"description": "Wähle, welche Farbe das Label des Fahrzeugzählers haben soll.",
+			"info": "Hellblau",
+			"primary": "Dunkelblau",
+			"success": "Grün",
+			"title": "Fahrzeugzähler: Farbe",
+			"warning": "Orange"
+		},
+		"vehicleTypeInList": {
+			"description": "Zeigt den Fahrzeugtypen in der Liste der Verfügbaren Fahrzeuge an.",
+			"title": "Fahrzeugtyp anzeigen"
 		},
 		"yellowBorder": {
 			"description": "Umrandet die Generierungszeit gelb, wenn der Einsatz älter als die eingegebene Zahl der Stunden ist. Bei 0 wird nicht umrandet.",
@@ -184,7 +227,8 @@
 					60,
 					73,
 					74,
-					91
+					91,
+					97
 				]
 			},
 			{
@@ -193,7 +237,9 @@
 					32,
 					61,
 					95,
-					96
+					96,
+					98,
+					103
 				]
 			},
 			{
@@ -226,7 +272,11 @@
 					68,
 					69,
 					92,
-					93
+					93,
+					99,
+					100,
+					101,
+					102
 				]
 			},
 			{

@@ -1,6 +1,6 @@
-import VueI18n from 'vue-i18n';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { Mission } from 'typings/Mission';
+import VueI18n from 'vue-i18n';
 
 export interface VehicleRequirements {
     [vehicle: string]: {
@@ -60,6 +60,8 @@ export interface MissionHelper {
         patients: {
             title: boolean;
             content: boolean;
+            critical_care: boolean;
+            code_possible: boolean;
             live: boolean;
             hideWhenNoNeed: boolean;
             patient_allow_first_responder_chance: boolean;
@@ -75,7 +77,9 @@ export interface MissionHelper {
         followup: boolean;
         k9_only_if_needed: boolean;
         bucket_only_if_needed: boolean;
+        max_civil_patrol_replace_police_cars: boolean;
         noVehicleRequirements: string[];
+        hoverTip: boolean;
 
         // General
         [key: string]: boolean | unknown;
@@ -114,7 +118,7 @@ export interface MissionHelperMethods {
         }
     ): VueI18n.TranslateResult;
     reloadSpecs(force?: boolean): void;
-    getMission(id: number, force: boolean): Promise<Mission | undefined>;
+    getMission(id: string): Promise<Mission | undefined>;
     loadSetting(
         id: string,
         base: { [key: string]: unknown },

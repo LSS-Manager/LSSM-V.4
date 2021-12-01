@@ -71,13 +71,14 @@
 
 <script lang="ts">
 import Vue from 'vue';
+
+import { OpenSchoolings } from 'typings/modules/SchoolingOverview/main';
 import {
     SchoolingOverview,
     SchoolingOverviewComputed,
     SchoolingOverviewMethods,
     SchoolingOverviewProps,
 } from 'typings/modules/SchoolingOverview/SchoolingOverview';
-import { OpenSchoolings } from 'typings/modules/SchoolingOverview/main';
 
 export default Vue.extend<
     SchoolingOverview,
@@ -85,7 +86,7 @@ export default Vue.extend<
     SchoolingOverviewComputed,
     SchoolingOverviewProps
 >({
-    name: 'schoolingsOverview',
+    name: 'lssmv4-schoolingsOverview',
     components: {
         EnhancedTable: () =>
             import(

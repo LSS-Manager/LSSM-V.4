@@ -1,0 +1,16 @@
+{
+	"alliance": "Verband",
+	"amount": "{n} gefilterter Verband | {n} gefilterte Verbände",
+	"credits": "Gesamtverdiente Credits",
+	"load": {
+		"next": "nächste Seite laden",
+		"prev": "vorherige Seite laden"
+	},
+	"members": "Mitgliederzahl",
+	"name": "Verband",
+	"search_global": "Globale Suche",
+	"search_local": "Suche in geladenen Verbänden",
+	"search_subtitle": "Zeige {n} Verbände der Seiten {startPage} bis {endPage} von insg. {totalPages} Seiten",
+	"subtitle": "Zeige {n} Verbände der Seiten {startPage} ({firstCredits}) bis {endPage} ({lastCredits}) von insg. {totalPages} Seiten",
+	"title": "Verbandsliste"
+}

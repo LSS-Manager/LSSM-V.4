@@ -1,5 +1,5 @@
-import { Vehicle } from 'typings/Vehicle';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import { Vehicle } from 'typings/Vehicle';
 import VueI18n from 'vue-i18n';
 
 export interface VehicleTypes {

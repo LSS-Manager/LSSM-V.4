@@ -64,7 +64,7 @@ En kompatibilitet som anges här garanterar inte funktionalitet. Detta är endas
 </tbody>
 </table>
 
-::: danger Internet Explorer och Microsoft Edge
+::: danger Internet Explorer och Safari
 Dessa två webbläsare kan beskrivas som "moderna barn" för en modern webbutvecklare. Det finns vissa funktioner som inte fungerar i dem eller kräver ytterligare kod.
 
 Vi ser inte poängen med att göra detta överallt och officiellt ** stöder inte dessa två webbläsare.

@@ -1,4 +1,5 @@
 {
-	"location": "^/(profile/\\d+)?$",
+	"github": 29,
+	"location": "^/(profile/\\d+)?/?$",
 	"settings": true
 }

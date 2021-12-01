@@ -3,9 +3,11 @@ import { $m } from 'typings/Module';
 export default async (
     LSSM: Vue,
     $sm: $m,
-    singleState: boolean,
+    initialSingleState: boolean,
     MODULE_ID: string
 ): Promise<void> => {
+    let singleState = initialSingleState;
+
     const remove_single_entry = async (
         btn: HTMLAnchorElement,
         link: string
@@ -16,6 +18,7 @@ export default async (
         if (!row) return;
         await LSSM.$store.dispatch('api/request', {
             url: link,
+            feature: `${MODULE_ID}-protocolDeletionConfirmation`,
         });
         row.style.display = 'none';
     };

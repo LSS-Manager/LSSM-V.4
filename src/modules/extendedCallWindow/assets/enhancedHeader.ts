@@ -1,4 +1,4 @@
-export default (sticky: boolean, load: boolean): void => {
+export default (LSSM: Vue, sticky: boolean, load: boolean): void => {
     const head = document.querySelector(
         '.mission_header_info'
     ) as HTMLDivElement | null;
@@ -6,8 +6,13 @@ export default (sticky: boolean, load: boolean): void => {
     if (sticky) {
         const clearfix = document.createElement('div');
         clearfix.style.width = '100%';
+        clearfix.id = LSSM.$store.getters.nodeAttribute(
+            'ecw-sticky_header-heightdiv',
+            true
+        );
+        clearfix.style.setProperty('margin-bottom', '15px');
         head.after(clearfix);
-        head.style.zIndex = '2';
+        head.style.zIndex = '3';
         head.style.position = 'fixed';
         head.style.width = '100%';
         head.style.top = scrollY !== 0 ? '0px' : '';
@@ -19,7 +24,7 @@ export default (sticky: boolean, load: boolean): void => {
                     head.getBoundingClientRect().height
                 }px`)
         );
-        window.addEventListener('scroll', function() {
+        window.addEventListener('scroll', () => {
             head.style.top = scrollY !== 0 ? '0px' : '';
         });
     }
@@ -28,26 +33,34 @@ export default (sticky: boolean, load: boolean): void => {
     ) as HTMLAnchorElement | null;
     if (load && loadBtn) {
         const people_amount = document.getElementById('amount_of_people');
-        if (!people_amount || !people_amount.parentElement) return;
-        people_amount.parentElement.classList.add(
-            `col-md-${
-                head.querySelector('.pull-right [id^="mission_countdown_"]')
-                    ? 5
-                    : 7
-            }`
-        );
+        if (people_amount && people_amount.parentElement) {
+            people_amount.parentElement.classList.add(
+                `col-md-${
+                    head.querySelector('.pull-right [id^="mission_countdown_"]')
+                        ? 5
+                        : 7
+                }`
+            );
+        }
         const wrapper = document.createElement('div');
         wrapper.classList.add('row');
         const btnWrapper = document.createElement('div');
-        btnWrapper.classList.add('col-md-5');
+        if (people_amount && people_amount.parentElement)
+            btnWrapper.classList.add('col-md-5');
         const clonedBtn = loadBtn.cloneNode(true) as HTMLAnchorElement;
         clonedBtn.onclick = e => {
             e.preventDefault();
             loadBtn.click();
         };
         btnWrapper.append(clonedBtn);
-        people_amount.parentElement.before(wrapper);
-        wrapper.append(people_amount.parentElement);
+        if (people_amount && people_amount.parentElement) {
+            people_amount.parentElement.before(wrapper);
+            wrapper.append(people_amount.parentElement);
+        } else {
+            document
+                .querySelector('#mission_progress_info small')
+                ?.before(wrapper);
+        }
         wrapper.append(btnWrapper);
     }
 };

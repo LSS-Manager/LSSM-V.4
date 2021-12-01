@@ -26,7 +26,6 @@
                 <div
                     class="alert alert-info premiumNotice"
                     v-if="!$store.state.premium"
-                    ref="premiumNotice"
                 >
                     {{ $t('premiumNotice') }}
                 </div>
@@ -37,8 +36,9 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import { DefaultComputed, DefaultData, DefaultProps } from 'vue/types/options';
+
 import { DashboardMethods } from '../../../typings/modules/Dashboard/Dashboard';
+import { DefaultComputed, DefaultData, DefaultProps } from 'vue/types/options';
 
 export default Vue.extend<
     DefaultData<Vue>,
@@ -46,7 +46,7 @@ export default Vue.extend<
     DefaultComputed,
     DefaultProps
 >({
-    name: 'dashboard',
+    name: 'lssmv4-dashboard',
     components: {
         DispatchcenterView: () =>
             import(

@@ -1,0 +1,19 @@
+{
+	"amount": "Quantità",
+	"description": "Descrizione",
+	"filter": {
+		"total": {
+			"max": "Crediti totali massimi",
+			"min": "Crediti totali minimi"
+		},
+		"type": {
+			"all_types": "Mostra tutti i tipi",
+			"amount": "{n} voce filtrata | {n} voci filtrate",
+			"no_types": "Non mostrare i tipi",
+			"type": "Tipi di ingresso visualizzati"
+		}
+	},
+	"title": "Riepilogo",
+	"today": "Oggi",
+	"total": "Totale"
+}

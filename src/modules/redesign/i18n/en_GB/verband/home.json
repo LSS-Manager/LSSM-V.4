@@ -1,0 +1,14 @@
+{
+	"applied": "You have applied to this Alliance, you just need to be accepted by a (Co-)Admin of the Alliance. Good luck!",
+	"apply": "Apply",
+	"edit_logo": "Edit Logo",
+	"edit_name": "Rename Alliance",
+	"edit_text": "Edit introduction text, rules, important alliance information and Discord webhooks",
+	"leave": {
+		"cancel": "Cancel",
+		"confirm": "Leave!",
+		"text": "Do you really want to leave the Alliance **{caption}**? The action cannot be undone!",
+		"title": "Exit Alliance"
+	},
+	"unapply": "withdraw application"
+}

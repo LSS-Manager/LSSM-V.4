@@ -1,24 +1,20 @@
+import { ActionContext } from 'vuex';
 import { RootState } from './RootState';
-import { Commit, Dispatch, GetterTree } from 'vuex';
 
-export interface ActionStoreParams {
-    state: RootState;
-    commit: Commit;
-    dispatch: Dispatch;
-    getters: GetterTree<RootState, RootState>;
-}
+export type ActionStoreParams = ActionContext<RootState, RootState>;
 
 export interface Hook {
     post: boolean;
     event: string;
-    callback(...args: unknown[]): void;
+    abortOnFalse: boolean;
+    callback(...args: unknown[]): void | unknown;
 }
 
-export interface HookPrototype {
+export interface ProxyParams {
     post: boolean;
-    base: string;
-    event: string;
-    callback(...args: unknown[]): void;
+    name: string;
+    trap: keyof ProxyHandler<never>;
+    callback(...args: unknown[]): void | unknown;
 }
 
 export interface addStyle {

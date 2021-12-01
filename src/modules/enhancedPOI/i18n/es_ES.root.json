@@ -1,0 +1,21 @@
+{
+	"description": "Facilita la configuración de PIs a través de funciones pequeñas y útiles",
+	"name": "PI mejorado",
+	"settings": {
+		"custom_style": {
+			"title": "Estilo personalizado para resaltar"
+		},
+		"predefined_style": {
+			"brown": "Marrón",
+			"custom": "Manual",
+			"green": "Verde",
+			"red": "Rojo",
+			"title": "Marcador de resalto",
+			"white": "Blanco"
+		},
+		"shown_types": {
+			"description": "Especifique aquí qué tipos de PI deben mostrarse. También puede cambiar esta configuración directamente en el \"Set POI\"-Menú cambiar.",
+			"title": "Tipos de PI mostrados"
+		}
+	}
+}
