@@ -102,12 +102,12 @@ L'uso dello script è a proprio rischio. Non siamo responsabili per eventuali da
 
 <details>
   <summary>🇫🇷</summary>
-Le LSS-MANAGER V.4 est une extension pour le jeu operateur112.fr et ses versions en d'autres langues.
+LSS-MANAGER V.4 est une extension pour le jeu operateur112.fr et ses versions en d'autres langues.
 
 Avec cette extension, un Appstore est ajouté au jeu, qui permet d'installer des plugins. Toutes les fonctions sont modulaires - il est possible de déterminer jusqu'au dernier module ce qui doit être activé.
 
 ### Wiki
-Dans notre [Wiki](https://proxy.lss-manager.de/v4/docs/) tu trouveras tout sur l'installation, la FAQ et une explication de toutes les fonctions.
+Dans notre [Wiki](https://proxy.lss-manager.de/v4/docs/fr_FR/) tu trouveras tout sur l'installation, la FAQ et une explication de toutes les fonctions.
 
 ### Serveur de support
 
