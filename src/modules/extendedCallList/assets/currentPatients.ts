@@ -42,10 +42,19 @@ export default (
             ) {
                 amount = mission.querySelectorAll('.patient_progress').length;
             } else {
-                amount = LSSM.$utils.getNumberFromText(
-                    mission.querySelector('.mission_list_patient_icon + strong')
-                        ?.textContent ?? '0'
-                );
+                if (
+                    mission
+                        .querySelector<HTMLDivElement>(
+                            '[id^="mission_patient_summary_"]'
+                        )
+                        ?.style.getPropertyValue('display') !== 'none'
+                ) {
+                    amount = LSSM.$utils.getNumberFromText(
+                        mission.querySelector(
+                            '.mission_list_patient_icon + strong'
+                        )?.textContent ?? '0'
+                    );
+                }
             }
         }
         patientHolder.textContent = amount.toLocaleString();

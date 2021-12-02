@@ -256,12 +256,22 @@ export default (
                     .querySelectorAll('.patient_progress')
                     .length.toString();
             }
-            return LSSM.$utils
-                .getNumberFromText(
-                    mission.querySelector('.mission_list_patient_icon + strong')
-                        ?.textContent ?? '0'
-                )
-                .toString();
+            if (
+                mission
+                    .querySelector<HTMLDivElement>(
+                        '[id^="mission_patient_summary_"]'
+                    )
+                    ?.style.getPropertyValue('display') !== 'none'
+            ) {
+                return LSSM.$utils
+                    .getNumberFromText(
+                        mission.querySelector(
+                            '.mission_list_patient_icon + strong'
+                        )?.textContent ?? '0'
+                    )
+                    .toString();
+            }
+            return '0';
         },
         alphabet: mission => {
             let missionType = mission.getAttribute('mission_type_id') ?? '-1';
