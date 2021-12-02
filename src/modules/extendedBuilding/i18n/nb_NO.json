@@ -1,30 +1,30 @@
 {
 	"enhancedPersonnelAssignment": {
-		"toggleFittingPersonnel": "Hide personnel without suitable training"
+		"toggleFittingPersonnel": "Skjul personell uten relevant utdanning"
 	},
 	"expansions": {
-		"notBuild": "Not built yet"
+		"notBuild": "Ikke bygget ennå"
 	},
 	"fastDispatchChooser": {
-		"noDispatch": "No control center"
+		"noDispatch": "Ingen nødsentral"
 	},
 	"personnelDemands": {
-		"additional": "Values in brackets exclude vehicles in FMS 6.",
-		"demand": "Required personnel"
+		"additional": "Verdier i parentes ekskluderer kjøretøy med status 6.",
+		"demand": "Påkrevd personell"
 	},
 	"schoolingSummary": {
-		"all": "All combinations",
-		"amount": "Amount",
-		"bound": "Bound",
-		"each": "Each Courses",
-		"max": "currently maximum required",
-		"min": "currently minimum required",
-		"schooling": "Schooling",
-		"title": "Personnel overview"
+		"all": "Alle kombinasjoner",
+		"amount": "Mengde",
+		"bound": "Knyttet",
+		"each": "Hvert kurs",
+		"max": "for øyeblikket maksimalt nødvendig",
+		"min": "for øyeblikket minimumskrav",
+		"schooling": "Utdanning",
+		"title": "Personaloversikt"
 	},
 	"vehiclePersonnel": {
-		"vehiclesPersonnelAssigned": "assigned",
-		"vehiclesPersonnelCurrent": "current",
-		"vehiclesPersonnelMax": "max"
+		"vehiclesPersonnelAssigned": "tildelt",
+		"vehiclesPersonnelCurrent": "nåværende",
+		"vehiclesPersonnelMax": "maks"
 	}
 }
