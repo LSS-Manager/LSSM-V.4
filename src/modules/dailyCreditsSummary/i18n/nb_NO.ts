@@ -25,7 +25,7 @@ export default {
             textColor: 'white',
         },
         dailyLogin: {
-            regex: /Daily login reward/,
+            regex: /Fullført oppgaven/,
             backgroundColor: '#8db600',
             textColor: 'black',
         },
