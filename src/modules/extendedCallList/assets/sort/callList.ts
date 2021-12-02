@@ -401,11 +401,17 @@ export default (
         .dispatch('hook', {
             event: 'missionSelectionActive',
             callback(toggleBtn: JQuery<HTMLAnchorElement>) {
-                document
-                    .querySelector<HTMLDivElement>(
-                        `#${toggleBtn.attr('classShow')}`
+                const missionlist = document.querySelector<HTMLDivElement>(
+                    `#${toggleBtn.attr('classShow')}`
+                );
+                if (!missionlist) return;
+                missionlist?.style.setProperty('display', 'flex');
+                missionlist
+                    .querySelectorAll<HTMLDivElement>(
+                        '#missions-panel-body .missionSideBarEntry'
                     )
-                    ?.style.setProperty('display', 'flex');
+                    .forEach(panel => setMissionOrder(panel));
+                window.missionScrollUpdate();
             },
         })
         .then();
