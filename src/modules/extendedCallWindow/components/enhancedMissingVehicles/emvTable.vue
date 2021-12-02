@@ -90,7 +90,7 @@ export default Vue.extend<
     components: {
         EnhancedTable: () =>
             import(
-                /* webpackChunkName: "components/enhanced-table" */ '../../../components/enhanced-table.vue'
+                /* webpackChunkName: "components/enhanced-table" */ '../../../../components/enhanced-table.vue'
             ),
     },
     props: {
