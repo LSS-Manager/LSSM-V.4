@@ -6,6 +6,7 @@
 		"en_US",
 		"it_IT",
 		"fr_FR",
+		"nb_NO",
 		"nl_NL"
 	],
 	"location": ".*",
