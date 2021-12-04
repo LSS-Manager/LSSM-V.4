@@ -62,6 +62,16 @@
 				"title": "Meldingenlijst"
 			},
 			"title": "Hoofdscherm"
+		},
+		"mission": {
+			"sorted": {
+				"alert_next": "Alarmeer en ga naar de volgende melding",
+				"alert_share_next": "Alarmeer, deel en ga naar de volgende melding",
+				"next": "volgende melding",
+				"prev": "vorige melding",
+				"title": "Gesorteerde meldingen"
+			},
+			"title": "Meldingsscherm"
 		}
 	},
 	"description": "Bestuur het spel met sneltoetsen op het toetsenbord, die je zelf kunt instellen.",
