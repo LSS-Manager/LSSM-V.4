@@ -28,18 +28,6 @@ export default <Scope<Empty, ['sorted'], [], true>>{
             return true;
         },
         alert_next() {
-            console.log(
-                this.toggleId,
-                document.querySelector<HTMLInputElement>(`#${this.toggleId}`),
-                document.querySelector<HTMLInputElement>(`#${this.toggleId}`)
-                    ?.checked,
-                this.nodeAttr(SortedMissionsRawButtonClasses['alert_next']),
-                document.querySelector<HTMLAnchorElement>(
-                    `.${this.nodeAttr(
-                        SortedMissionsRawButtonClasses['alert_next']
-                    )}`
-                )
-            );
             if (
                 document.querySelector<HTMLInputElement>(`#${this.toggleId}`)
                     ?.checked

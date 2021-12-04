@@ -18,18 +18,30 @@
             </h4>
             <div
                 :class="{ 'col-lg-6': !hidden, 'col-lg-12': hidden }"
-                class="badges"
+                class="badges-charts"
             >
-                <dsc-badge
-                    v-for="type in sorted"
-                    :key="type.desc"
-                    :backgroundColor="type.backgroundColor"
-                    :textColor="type.textColor"
-                    :amount="type.amount"
-                    :total="type.total"
-                    :desc="type.desc"
-                    :show-average="showAverage"
-                ></dsc-badge>
+                <div class="badges">
+                    <dsc-badge
+                        v-for="type in sorted"
+                        :key="type.desc"
+                        :backgroundColor="type.backgroundColor"
+                        :textColor="type.textColor"
+                        :amount="type.amount"
+                        :total="type.total"
+                        :desc="type.desc"
+                        :show-average="showAverage"
+                    ></dsc-badge>
+                </div>
+                <div v-if="!hidden">
+                    <div class="col-lg-6">
+                        <highcharts :options="incomeChartOptions"></highcharts>
+                    </div>
+                    <div class="col-lg-6">
+                        <highcharts
+                            :options="expensesChartOptions"
+                        ></highcharts>
+                    </div>
+                </div>
             </div>
             <div v-if="!hidden" class="col-lg-6">
                 <enhanced-table
@@ -140,6 +152,8 @@
 <script lang="ts">
 import Vue from 'vue';
 
+import { Chart } from 'highcharts-vue';
+
 import { CreditsTypes } from 'typings/modules/dailyCreditsSummary/main';
 import {
     Category,
@@ -165,6 +179,7 @@ export default Vue.extend<
             import(
                 /* webpackChunkName: "modules/dailyCreditsSummary/components/dsc-badge" */ './components/dscBadge.vue'
             ),
+        Highcharts: Chart,
     },
     data() {
         return {
@@ -173,6 +188,30 @@ export default Vue.extend<
             sortDir: 'asc',
             search: '',
             showAverage: true,
+            basicChartOptions: {
+                chart: {
+                    type: 'pie',
+                    backgroundColor: 'rgba(0, 0, 0, 0.05)',
+                    margin: 0,
+                    spacing: [5, 10, 0, 10],
+                    height: '225px',
+                    borderRadius: '4px',
+                },
+                tooltip: {
+                    pointFormat:
+                        '{series.name}: <b>{point.value}</b> ({point.percentage:.1f}%)',
+                },
+                plotOptions: {
+                    pie: {
+                        cursor: 'pointer',
+                        dataLabels: {
+                            enabled: true,
+                            format:
+                                '<b>{point.name}</b>: {point.value} ({point.percentage:.1f}%)',
+                        },
+                    },
+                },
+            },
         } as DailyCreditsSummary;
     },
     props: {
@@ -232,6 +271,48 @@ export default Vue.extend<
             });
             return Object.values(result).filter(({ amount }) => amount > 0);
         },
+        incomeChartOptions() {
+            return {
+                ...this.basicChartOptions,
+                title: {
+                    text: this.$m('charts.income').toString(),
+                    align: 'left',
+                },
+                series: [
+                    {
+                        name: this.$m('charts.income').toString(),
+                        data: this.creditsTypeSum
+                            .filter(({ total }) => total > 0)
+                            .map(({ desc: name, total: y }) => ({
+                                name,
+                                y,
+                                value: y.toLocaleString(),
+                            })),
+                    },
+                ],
+            };
+        },
+        expensesChartOptions() {
+            return {
+                ...this.basicChartOptions,
+                title: {
+                    text: this.$m('charts.expenses').toString(),
+                    align: 'left',
+                },
+                series: [
+                    {
+                        name: this.$m('charts.expenses').toString(),
+                        data: this.creditsTypeSum
+                            .filter(({ total }) => total < 0)
+                            .map(({ desc: name, total: y }) => ({
+                                name,
+                                y: -y,
+                                value: y.toLocaleString(),
+                            })),
+                    },
+                ],
+            };
+        },
     },
     methods: {
         setSort(s) {
@@ -268,7 +349,13 @@ export default Vue.extend<
             margin-left: -15px
             width: 100%
 
-        .badges
+        .badges-charts
             display: flex
-            flex-wrap: wrap
+            flex-flow: column
+            height: calc(100% - 30px)
+
+            .badges
+                display: flex
+                flex-flow: row
+                flex-wrap: wrap
 </style>
