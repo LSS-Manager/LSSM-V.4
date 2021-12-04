@@ -76,6 +76,15 @@ export default (async (LSSM, MODULE_ID, $m, $mc) => {
                 )
             ).default(LSSM, $m);
         }
+        if (await getSetting('collapsablePatients')) {
+            (
+                await import(
+                    /* webpackChunkName: "modules/extendedCallWindow/collapsablePatients" */ './assets/collapsablePatients'
+                )
+            ).default(
+                await getSetting<number>('collapsablePatientsMinPatients')
+            );
+        }
         if (
             (await getSetting('arrCounter')) ||
             (await getSetting('arrClickHighlight')) ||
