@@ -2,28 +2,28 @@
 	"description": "Empêcher l'actualisation de la page quand vous appuyez sur certains boutons.",
 	"name": "Boutons asynchrones",
 	"settings": {
-		"buildExtension": {
-			"description": "Empêche le rechargement lorsque tu construis une extension.",
+		"buildExtension": {	
+			"description": "Empêche le rechargement lorsque vous construisez une extension.",
 			"title": "Construire des extensions"
 		},
 		"buildingPersonal": {
-			"description": "Empêche le rechargement lorsque tu résilies le contrat d'une personne.",
+			"description": "Empêche le rechargement lorsque vous résiliez le contrat d'une personne.",
 			"title": "Licenciement du personnel"
 		},
 		"buildingTax": {
-			"description": "Empêche le rechargement lorsque tu définis le coût de tes propres cellules ou lits d'hôpital..",
+			"description": "Empêche le rechargement lorsque vous définissez le coût de tes propres cellules ou lits d'hôpital..",
 			"title": "Prise en charge des coûts des cellules et des lits"
 		},
 		"deleteARR": {
-			"description": "Empêche le rechargement lorsque tu supprimes une entrée RAI.",
+			"description": "Empêche le rechargement lorsque vous supprimez une entrée RAI.",
 			"title": "Suppression d'entrées RAI"
 		},
 		"deleteForumPost": {
-			"description": "Empêche le rechargement lorsque tu supprimes un message du forum.",
+			"description": "Empêche le rechargement lorsque vous supprimez un message du forum.",
 			"title": "Suppression des messages du forum"
 		},
 		"memberlistManageUser": {
-			"description": "Empêche le rechargement si tu éjectes un membre de l'alliance ou si tu édites ses droits.",
+			"description": "Empêche le rechargement si vous virez un membre de l'alliance ou si vous éditez ses droits.",
 			"title": "Droits des membres de l'Alliance"
 		},
 		"missionPrisoners": {
@@ -33,7 +33,7 @@
 			"title": "Transports dans une mission"
 		},
 		"switchExtensionState": {
-			"description": "Empêche le rechargement lorsque tu actives ou désactives une extension.",
+			"description": "Empêche le rechargement lorsque vous activez ou désactivez une extension.",
 			"title": "(Dés)activer les extensions"
 		}
 	}

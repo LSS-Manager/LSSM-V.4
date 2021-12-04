@@ -1,5 +1,5 @@
 Il arrive souvent que l'on souhaite avoir un aperçu rapide de l'état d'un bâtiment.
-Avec ce module, tu obtiens les informations les plus importantes pour chaque poste, qui s'affiche sur la carte lorsque tu passes la souris sur l'image.
+Avec ce module, vous obtenez les informations les plus importantes pour chaque poste, qui s'affiche sur la carte lorsque vous passez la souris sur l'image.
 
 Les informations suivantes sont incluses :
 * nom du bâtiment

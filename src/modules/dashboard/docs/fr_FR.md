@@ -4,7 +4,7 @@ Le résumé a pour but de te donner un aperçu rapide du nombre de tes bâtiment
 ![Résumé](summary.png)
 
 #### Bâtiment
-Si tu cliques sur une catégorie dans l'aperçu des bâtiments (par ex. `Sauvetage`), seuls les bâtiments de la catégorie correspondante sont affichés.
+Si vous cliquez sur une catégorie dans l'aperçu des bâtiments (par ex. `Sauvetage`), seuls les bâtiments de la catégorie correspondante sont affichés.
 
 Ensuite, un clic sur un type de bâtiment offre un aperçu du nombre de véhicules sur les bâtiments de ce type.
 
@@ -12,7 +12,7 @@ Ensuite, un clic sur un type de bâtiment offre un aperçu du nombre de véhicul
 Il existe également des regroupements pour les véhicules. Un clic sur un groupe (par exemple : `Véhicules de police de garde`) n'affiche que les types de véhicules de ce groupe. Cela te permet d'avoir une meilleure vue d'ensemble des différentes catégories de véhicules.
 
 ## Aperçu des statuts
-Dans l'aperçu des statuts, tu trouves un tableau dans lequel tu peux voir de quel type de véhicule tu disposes, combien de véhicules et également combien ont quel statut. Le tableau peut être filtré et trié.
+Dans l'aperçu des statuts, vous trouvez un tableau dans lequel vous pouvez voir de quel type de véhicule vous disposez, combien de véhicules et également combien ont quel statut. Le tableau peut être filtré et trié.
 ![aperçu du statut](status_table.png)
 
 Si l'on passe la souris sur une cellule du tableau, un bouton apparaît, avec lequel on peut ouvrir une liste de véhicules. En voici quelques exemples :
@@ -27,7 +27,7 @@ Si l'on passe la souris sur une cellule du tableau, un bouton apparaît, avec le
 ![Tous les véhicules dans un statut](vehiclelist_status_all.png)
 
 ## Aperçu des bâtiments
-L'aperçu des bâtiments liste les types de bâtiments que tu as et en quelle quantité. Tu peux également voir le nombre d'extensions :
+L'aperçu des bâtiments liste les types de bâtiments que vous avez et en quelle quantité. Vous pouvez également voir le nombre d'extensions :
 
 ![aperçu des bâtiments](buildinglist.png)
 
