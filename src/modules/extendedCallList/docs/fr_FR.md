@@ -74,5 +74,5 @@ Si ce paramètre est activé, le nombre de patients n'est affiché que s'il est 
 ## Marquer les missions saisonnières
 Avec ce paramètre, vous pouvez noter pour chaque mission autant de brèves indications que vous voulez, qui seront affichées avant le nom dans la liste des interventions. Par défaut, les missions saisonnières sont inscrites ici (été, Halloween, football, etc.), d'où le nom.
 
-Voici par exemple comment se présente le paramètre par défaut pour une mission de type football :
-![Mission saisonnières lors d'une mission de football](eventMission.png)
+Voici par exemple comment se présente le paramètre par défaut pour une mission de type Anniversaire :
+![Mission saisonnières lors d'une mission d'Anniversaire](eventMission.png)
