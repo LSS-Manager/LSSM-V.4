@@ -2,12 +2,46 @@ import { CreditsDailyWindow } from 'modules/redesign/parsers/credits/daily';
 import { CreditsTypes } from './main';
 import VueI18n from 'vue-i18n';
 
+interface BasicChartOptions {
+    chart: {
+        type: 'pie';
+        backgroundColor: string;
+        margin: number;
+        spacing: number[];
+        height: string;
+        borderRadius: string;
+    };
+    tooltip: {
+        pointFormat: string;
+    };
+    plotOptions: {
+        pie: {
+            cursor: 'pointer';
+            dataLabels: {
+                enabled: true;
+                format: string;
+            };
+        };
+    };
+}
+
+interface ChartOptions extends BasicChartOptions {
+    title: { text: string; align: string };
+    series: [
+        {
+            name: string;
+            data: { name: string; y: number }[];
+        }
+    ];
+}
+
 export interface DailyCreditsSummary {
     hidden: boolean;
     sort: 'desc' | 'total' | 'amount';
     sortDir: 'asc' | 'desc';
     search: '';
     showAverage: boolean;
+    basicChartOptions: BasicChartOptions;
 }
 
 export interface Category {
@@ -22,6 +56,8 @@ export interface DailyCreditsSummaryComputed {
     sorted: Category[];
     filtered: Category[];
     creditsTypeSum: Category[];
+    incomeChartOptions: ChartOptions;
+    expensesChartOptions: ChartOptions;
 }
 
 export interface DailyCreditsSummaryMethods {

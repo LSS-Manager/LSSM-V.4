@@ -163,6 +163,10 @@
 		"url": "http://www.highcharts.com",
 		"version": "9.3.2"
 	},
+	"highcharts-vue": {
+		"url": "https://github.com/highcharts/highcharts-vue#readme",
+		"version": "1.4.0"
+	},
 	"html-loader": {
 		"icon": "https://webpack.js.org/assets/icon-square-big.svg",
 		"url": "https://github.com/webpack-contrib/html-loader",
