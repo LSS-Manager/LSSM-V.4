@@ -37,7 +37,8 @@ export default async (
                                           regex.replace(
                                               /%missions%/,
                                               `(${missionsString})`
-                                          )
+                                          ),
+                                          'u'
                                       )
                                     : regex,
                         }),
