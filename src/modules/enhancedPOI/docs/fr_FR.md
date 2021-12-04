@@ -6,5 +6,5 @@ Il est essentiel de définir des points d'intérêt pour que certaines missions,
 * Vous pouvez afficher et masquer chaque type de POI.
   * Ceci peut être contrôlé lorsque vous ouvrez le menu "Définir un nouveau POI".
  
- 
  ![Exemple](POI.png)
+ 
