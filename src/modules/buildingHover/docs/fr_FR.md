@@ -14,7 +14,7 @@ Les informations suivantes sont incluses :
 * nombre de salles de classe disponibles (écoles)
 * nombre de cellules terminées et nombre total entre parenthèses (terminées + en cours d'aménagement) pour les postes de police
 
-******
+***
 
 Voici à quoi cela ressemble par exemple dans une station d'ambulance :
 
