@@ -19,7 +19,7 @@
 	"settings": {
 		"alerts": {
 			"credits": "",
-			"description": "Dès que tu as atteint l'une des valeurs de crédits définies ici, le bouton devient vert en permanence - jusqu'à ce que tu ouvres une fois le menu de l'extension de crédits.",
+			"description": "Dès que vous avez atteint l'une des valeurs de crédits définies ici, le bouton devient vert en permanence - jusqu'à ce que vous ouvrez une fois le menu de l'extension de crédits.",
 			"title": "Objectifs"
 		},
 		"creditsInNavbar": {

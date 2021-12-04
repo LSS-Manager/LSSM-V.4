@@ -5,7 +5,7 @@ Chacune des fonctionnalités suivantes peut être (dés)activée individuellemen
 ### Activer l'aperçu des images
 *Fonctionne uniquement en combinaison avec `Rendre les liens cliquables`*.
 
-Parfois, on veut simplement intégrer une image dans le forum, le chat ou ailleurs. Ici, tu peux au moins activer un aperçu de l'image. Un clic ouvre alors l'image dans un nouvel onglet.
+Parfois, on veut simplement intégrer une image dans le forum, le chat ou ailleurs. Ici, vous pouvez au moins activer un aperçu de l'image. Un clic ouvre alors l'image dans un nouvel onglet.
 
 ::: warning Aperçus d'images
 Seul le lien direct vers les images fonctionne !
@@ -58,7 +58,7 @@ Les entrées disparaissent après un nouveau chargement de la page et ne sont pa
 Malheureusement, ce paramètre n'est actuellement pas compatible avec le type de carte `Mapkit` !
 :::
 
-Utilise cette option pour créer manuellement des signets sur la carte. Cette fonctionnalité fonctionne de manière assez similaire à [Enregistrer les centrages](#Enregistrer-le-centrage-de-la-carte), à la différence que tu crées toi-même les signets et qu'ils sont toujours disponibles après un nouveau chargement.
+Utilise cette option pour créer manuellement des signets sur la carte. Cette fonctionnalité fonctionne de manière assez similaire à [Enregistrer les centrages](#Enregistrer-le-centrage-de-la-carte), à la différence que vous créez toi-même les signets et qu'ils sont toujours disponibles après un nouveau chargement.
 
 ## Titre de l'onglet du navigateur
 
@@ -68,21 +68,21 @@ Cette fonction permet d'indiquer dans le navigateur quelle fenêtre du jeu est a
 
 ## Emoji picker
 
-Tu as besoin d'un emoji simple mais qui fonctionne bien ? Nous te le donnons !
+Vous avez besoin d'un emoji simple mais qui fonctionne bien ? Nous te le donnons !
 
-Il te suffit de taper deux points `:` dans n'importe quel champ de texte et de commencer à écrire. 0.5s après que tu aies cessé d'appuyer sur une touche, des propositions s'affichent. Si tu cliques sur une proposition, l'emoji correspondant sera inséré. Note qu'actuellement, seuls les noms officiels des emojis sont utilisés pour la recherche, par exemple `slightly_smiling_face` pour `🙂`. Tu pourras cependant te souvenir très rapidement des noms les plus importants 😉
+Il te suffit de taper deux points `:` dans n'importe quel champ de texte et de commencer à écrire. 0.5s après que vous ayez cessé d'appuyer sur une touche, des propositions s'affichent. Si vous cliquez sur une proposition, l'emoji correspondant sera inséré. Note qu'actuellement, seuls les noms officiels des emojis sont utilisés pour la recherche, par exemple `slightly_smiling_face` pour `🙂`. Vous pourrez cependant te souvenir très rapidement des noms les plus importants 😉
 
 ![Emoji-Picker](emojipicker.png)
 
 ::: tip Sélection au moyen du clavier
-Avec `←` et `→`, tu peux aussi parcourir les propositions et les insérer ensuite avec `Enter`. Ainsi, nous ne te forçons pas à utiliser cette construction bizarre qu'est la souris 😜
+Avec `←` et `→`, vous pouvez aussi parcourir les propositions et les insérer ensuite avec `Enter`. Ainsi, nous ne te forçons pas à utiliser cette construction bizarre qu'est la souris 😜
 :::
 
-Une caractéristique supplémentaire est le remplacement automatique des raccourcis courants. Par exemple, ` ;)` est remplacé par `😉` dès que tu mets un espace après.
+Une caractéristique supplémentaire est le remplacement automatique des raccourcis courants. Par exemple, ` ;)` est remplacé par `😉` dès que vous mettez un espace après.
 
 ## Mémoriser le type de bâtiment
 
-Ainsi, dans le menu "Construire un bâtiment", le type de bâtiment que tu as utilisé lors de la dernière construction reste sélectionné. Si tu construis beaucoup de bâtiments d'un même type, cela t'évite de cliquer à chaque fois. 
+Ainsi, dans le menu "Construire un bâtiment", le type de bâtiment que vous avez utilisé lors de la dernière construction reste sélectionné. Si vous construisez beaucoup de bâtiments d'un même type, cela t'évite de cliquer à chaque fois. 
 
 ## Mémoriser le centre de contrôle
 
@@ -90,7 +90,7 @@ Fonctionne de la même manière que [Mémoriser le type de bâtiment](#mémorise
 
 ## FMS amélioré 5
 
-Est-ce que cela t'énerve aussi que lors du transfert, la demande de communication ne soit pas terminée lorsque tu cliques sur "aller en intervention" ? Cette petite extension ajoute justement cela. 
+Est-ce que cela t'énerve aussi que lors du transfert, la demande de communication ne soit pas terminée lorsque vous cliquez sur "aller en intervention" ? Cette petite extension ajoute justement cela. 
 
 Les demandes d'appel sont également fermées lorsque l'on clique sur "Allez en mission".
 
@@ -98,7 +98,7 @@ Les demandes d'appel sont également fermées lorsque l'on clique sur "Allez en 
 
 Ta barre de navigation est un peu surchargée ?
 
-Ce paramètre déplace la recherche de lieu de la barre de navigation vers la carte. Tu peux choisir la position par réglage. En cliquant sur la loupe, tu ouvres et fermes la fenêtre de saisie.
+Ce paramètre déplace la recherche de lieu de la barre de navigation vers la carte. Vous pouvez choisir la position par réglage. En cliquant sur la loupe, vous ouvrez et fermez la fenêtre de saisie.
 
 ![recherche de lieu sur la carte](mapsearch.png)
 
