@@ -194,7 +194,7 @@ export default Vue.extend<
                     backgroundColor: 'rgba(0, 0, 0, 0.05)',
                     margin: 0,
                     spacing: [5, 10, 0, 10],
-                    height: '225px',
+                    height: '100%',
                     borderRadius: '4px',
                 },
                 tooltip: {
