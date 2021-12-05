@@ -11,7 +11,7 @@ En outre, les formations avec vos propres participants et les formations ouverte
 * Secours
 * Poste de police
 
-Et toujours dans cet ordre. Ici aussi, nous avons intégré des possibilités de tri et de recherche afin que tu puisses trouver rapidement le cours qui te convient.
+Et toujours dans cet ordre. Ici aussi, nous avons intégré des possibilités de tri et de recherche afin que vous puissiez trouver rapidement le cours qui vous convient.
 
 Voici par exemple ce qui se passe pour les formations avec vos propres participants :
 
