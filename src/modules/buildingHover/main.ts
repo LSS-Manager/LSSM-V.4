@@ -1,8 +1,8 @@
-import { Building } from '../../../typings/Building';
+import { Building } from 'typings/Building';
 import { ModuleMainFunction } from 'typings/Module';
 import { PointTuple } from 'leaflet';
-import { BuildingMarker, RadioMessage } from '../../../typings/Ingame';
-import { InternalVehicle, Vehicle } from '../../../typings/Vehicle';
+import { BuildingMarker, RadioMessage } from 'typings/Ingame';
+import { InternalVehicle, Vehicle } from 'typings/Vehicle';
 
 export default (async (LSSM, MODULE_ID) => {
     await LSSM.$store.dispatch('api/registerBuildingsUsage', {

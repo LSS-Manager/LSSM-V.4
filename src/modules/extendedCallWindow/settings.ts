@@ -88,6 +88,15 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
             type: 'toggle',
             default: true,
         },
+        // collapsablePatients: <Toggle>{
+        //     type: 'toggle',
+        //     default: false,
+        // },
+        // collapsablePatientsMinPatients: <NumberInput>{
+        //     type: 'number',
+        //     default: 7,
+        //     dependsOn: '.collapsablePatients',
+        // },
         arrCounter: <Toggle>{
             type: 'toggle',
             default: false,

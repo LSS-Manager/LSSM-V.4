@@ -19,6 +19,7 @@ export default (
     sort: Sort,
     direction: 'asc' | 'desc',
     buttonColor: string,
+    sortBtnId: string,
     starredMissionPanelClass: string,
     $m: $m
 ) => {
@@ -88,6 +89,7 @@ export default (
     }
 
     const sortBtn = document.createElement('button');
+    sortBtn.id = sortBtnId;
     sortBtn.classList.add(
         'btn',
         'btn-xs',

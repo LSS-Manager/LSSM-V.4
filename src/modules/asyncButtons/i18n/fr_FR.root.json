@@ -2,7 +2,7 @@
 	"description": "Empêcher l'actualisation de la page quand vous appuyez sur certains boutons.",
 	"name": "Boutons asynchrones",
 	"settings": {
-		"buildExtension": {	
+		"buildExtension": {
 			"description": "Empêche le rechargement lorsque vous construisez une extension.",
 			"title": "Construire des extensions"
 		},

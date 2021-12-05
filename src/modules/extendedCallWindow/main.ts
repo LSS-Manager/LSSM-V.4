@@ -21,6 +21,7 @@ export default (async (LSSM, MODULE_ID, $m, $mc) => {
         document.querySelector('.missionNotFound')
     )
         return;
+
     const stagingMode = !!window.location.pathname.match(
         /^\/buildings\/\d+\/?$/
     );
@@ -45,47 +46,51 @@ export default (async (LSSM, MODULE_ID, $m, $mc) => {
         });
 
         if (await getSetting('vehicleTypeInList')) {
-            (
-                await import(
-                    /* webpackChunkName: "modules/extendedCallWindow/vehicleTypeInList" */ './assets/vehicleTypeInList'
-                )
-            ).default();
+            import(
+                /* webpackChunkName: "modules/extendedCallWindow/vehicleTypeInList" */ './assets/vehicleTypeInList'
+            ).then(({ default: vehicleTypeInList }) => vehicleTypeInList());
         }
         if (await getSetting('generationDate')) {
-            (
-                await import(
-                    /* webpackChunkName: "modules/extendedCallWindow/generationDate" */ './assets/generationDate'
+            import(
+                /* webpackChunkName: "modules/extendedCallWindow/generationDate" */ './assets/generationDate'
+            ).then(async ({ default: generationDate }) =>
+                generationDate(
+                    LSSM,
+                    await getSetting<number>('yellowBorder'),
+                    await getSetting('redBorder')
                 )
-            ).default(
-                LSSM,
-                await getSetting<number>('yellowBorder'),
-                await getSetting('redBorder')
             );
         }
         if (await getSetting('enhancedMissingVehicles')) {
-            (
-                await import(
-                    /* webpackChunkName: "modules/extendedCallWindow/enhancedMissingVehicles" */ './assets/enhancedMissingVehicles'
-                )
-            ).default(LSSM, MODULE_ID, $m);
+            import(
+                /* webpackChunkName: "modules/extendedCallWindow/enhancedMissingVehicles" */ './assets/enhancedMissingVehicles'
+            ).then(({ default: emv }) => emv(LSSM, MODULE_ID, $m));
         }
         if (await getSetting('patientSummary')) {
-            (
-                await import(
-                    /* webpackChunkName: "modules/extendedCallWindow/patientSummary" */ './assets/patientSummary'
+            import(
+                /* webpackChunkName: "modules/extendedCallWindow/patientSummary" */ './assets/patientSummary'
+            ).then(({ default: patientSummary }) => patientSummary(LSSM, $m));
+        }
+        if (await getSetting('collapsablePatients')) {
+            import(
+                /* webpackChunkName: "modules/extendedCallWindow/collapsablePatients" */ './assets/collapsablePatients'
+            ).then(async ({ default: collapsablePatients }) =>
+                collapsablePatients(
+                    LSSM,
+                    await getSetting<number>('collapsablePatientsMinPatients')
                 )
-            ).default(LSSM, $m);
+            );
         }
         if (
             (await getSetting('arrCounter')) ||
             (await getSetting('arrClickHighlight')) ||
             (await getSetting('arrCounterResetSelection'))
         ) {
-            await (
-                await import(
-                    /* webpackChunkName: "modules/extendedCallWindow/arrCounter" */ './assets/arrCounter'
-                )
-            ).default(LSSM, getSetting, $m);
+            import(
+                /* webpackChunkName: "modules/extendedCallWindow/arrCounter" */ './assets/arrCounter'
+            ).then(({ default: arrCounter }) =>
+                arrCounter(LSSM, getSetting, $m)
+            );
         }
 
         const missionKeywordsSettings = await getSetting<
@@ -102,26 +107,22 @@ export default (async (LSSM, MODULE_ID, $m, $mc) => {
         >('missionKeywords');
 
         if (missionKeywordsSettings.value.length) {
-            await (
-                await import(
-                    /* webpackChunkName: "modules/extendedCallWindow/missionKeywords" */ './assets/missionKeywords'
-                )
-            ).default(LSSM, missionKeywordsSettings.value);
+            import(
+                /* webpackChunkName: "modules/extendedCallWindow/missionKeywords" */ './assets/missionKeywords'
+            ).then(({ default: missionKeywords }) =>
+                missionKeywords(LSSM, missionKeywordsSettings.value)
+            );
         }
 
         if (await getSetting('arrMatchHighlight')) {
-            (
-                await import(
-                    /* webpackChunkName: "modules/extendedCallWindow/arrMatchHighlight" */ './assets/arrMatchHighlight'
-                )
-            ).default(LSSM);
+            import(
+                /* webpackChunkName: "modules/extendedCallWindow/arrMatchHighlight" */ './assets/arrMatchHighlight'
+            ).then(({ default: arrMatchHighlight }) => arrMatchHighlight(LSSM));
         }
         if (await getSetting('alarmTime')) {
-            (
-                await import(
-                    /* webpackChunkName: "modules/extendedCallWindow/alarmTime" */ './assets/alarmTime'
-                )
-            ).default(LSSM);
+            import(
+                /* webpackChunkName: "modules/extendedCallWindow/alarmTime" */ './assets/alarmTime'
+            ).then(({ default: alarmTime }) => alarmTime(LSSM));
         }
 
         const alarmIconsSettings = await getSetting<
@@ -134,21 +135,21 @@ export default (async (LSSM, MODULE_ID, $m, $mc) => {
             >
         >('alarmIcons');
         if (alarmIconsSettings.value.length) {
-            (
-                await import(
-                    /* webpackChunkName: "modules/extendedCallWindow/alarmIcons" */ './assets/alarmIcons'
-                )
-            ).default(LSSM, alarmIconsSettings.value);
+            import(
+                /* webpackChunkName: "modules/extendedCallWindow/alarmIcons" */ './assets/alarmIcons'
+            ).then(({ default: alarmIcons }) =>
+                alarmIcons(LSSM, alarmIconsSettings.value)
+            );
         }
 
         const arrSpecs = await getSetting('arrSpecs');
         const arrTime = await getSetting('arrTime');
         if (arrSpecs || arrTime) {
-            (
-                await import(
-                    /* webpackChunkName: "modules/extendedCallWindow/arrHover" */ './assets/arrHover'
-                )
-            ).default(LSSM, arrSpecs, arrTime, MODULE_ID, $m);
+            import(
+                /* webpackChunkName: "modules/extendedCallWindow/arrHover" */ './assets/arrHover'
+            ).then(({ default: arrHover }) =>
+                arrHover(LSSM, arrSpecs, arrTime, MODULE_ID, $m)
+            );
         }
 
         const stickyHeader = await getSetting('stickyHeader');
@@ -156,45 +157,43 @@ export default (async (LSSM, MODULE_ID, $m, $mc) => {
             'loadMoreVehiclesInHeader'
         );
         if (stickyHeader || loadMoreVehiclesInHeader) {
-            (
-                await import(
-                    /* webpackChunkName: "modules/extendedCallWindow/enhancedHeader" */ './assets/enhancedHeader'
-                )
-            ).default(LSSM, stickyHeader, loadMoreVehiclesInHeader);
+            import(
+                /* webpackChunkName: "modules/extendedCallWindow/enhancedHeader" */ './assets/enhancedHeader'
+            ).then(({ default: enhancedHeader }) =>
+                enhancedHeader(LSSM, stickyHeader, loadMoreVehiclesInHeader)
+            );
         }
         if (await getSetting('hideVehicleList')) {
-            (
-                await import(
-                    /* webpackChunkName: "modules/extendedCallWindow/hideVehicleList" */ './assets/hideVehicleList'
-                )
-            ).default(LSSM, MODULE_ID, $m);
+            import(
+                /* webpackChunkName: "modules/extendedCallWindow/hideVehicleList" */ './assets/hideVehicleList'
+            ).then(({ default: hideVehicleList }) =>
+                hideVehicleList(LSSM, MODULE_ID, $m)
+            );
         }
         if (await getSetting('centerMap')) {
-            (
-                await import(
-                    /* webpackChunkName: "modules/extendedCallWindow/centerMap" */ './assets/centerMap'
-                )
-            ).default(LSSM);
+            import(
+                /* webpackChunkName: "modules/extendedCallWindow/centerMap" */ './assets/centerMap'
+            ).then(({ default: centerMap }) => centerMap(LSSM));
         }
         if (await getSetting('remainingPatientTime')) {
-            await (
-                await import(
-                    /* webpackChunkName: "modules/extendedCallWindow/remainingPatientTime" */ './assets/remainingPatientTime'
-                )
-            ).default(LSSM);
+            import(
+                /* webpackChunkName: "modules/extendedCallWindow/remainingPatientTime" */ './assets/remainingPatientTime'
+            ).then(({ default: remainingPatientTime }) =>
+                remainingPatientTime(LSSM)
+            );
         }
 
         const vehicleCounter = await getSetting('vehicleCounter');
         const playerCounter = await getSetting('playerCounter');
         if (vehicleCounter || playerCounter) {
-            (
-                await import(
-                    /* webpackChunkName: "modules/extendedCallWindow/vehiclePlayerCounter" */ './assets/vehiclePlayerCounter'
-                )
-            ).default(LSSM, $m, vehicleCounter, playerCounter, {
-                players: await getSetting<string>('playerCounterColor'),
-                vehicles: await getSetting<string>('vehicleCounterColor'),
-            });
+            import(
+                /* webpackChunkName: "modules/extendedCallWindow/vehiclePlayerCounter" */ './assets/vehiclePlayerCounter'
+            ).then(async ({ default: vehiclePlayerCounter }) =>
+                vehiclePlayerCounter(LSSM, $m, vehicleCounter, playerCounter, {
+                    players: await getSetting<string>('playerCounterColor'),
+                    vehicles: await getSetting<string>('vehicleCounterColor'),
+                })
+            );
         }
     }
 
@@ -209,20 +208,20 @@ export default (async (LSSM, MODULE_ID, $m, $mc) => {
             )) ||
         stagingMode
     ) {
-        (
-            await import(
-                /* webpackChunkName: "modules/extendedCallWindow/tailoredTabs" */ './assets/tailoredTabs'
-            )
-        ).default(LSSM, tailoredTabSettings.value, stagingMode, $m, $mc);
+        import(
+            /* webpackChunkName: "modules/extendedCallWindow/tailoredTabs" */ './assets/tailoredTabs'
+        ).then(({ default: tailoredTabs }) =>
+            tailoredTabs(LSSM, tailoredTabSettings.value, stagingMode, $m, $mc)
+        );
     }
     if (
         stagingMode &&
         (await getSetting<boolean>('stagingAreaSelectedCounter'))
     ) {
-        (
-            await import(
-                /* webpackChunkName: "modules/extendedCallWindow/stagingAreaSelectedCounter" */ './assets/stagingAreaSelectedCounter'
-            )
-        ).default(LSSM);
+        import(
+            /* webpackChunkName: "modules/extendedCallWindow/stagingAreaSelectedCounter" */ './assets/stagingAreaSelectedCounter'
+        ).then(({ default: stagingAreaSelectedCounter }) =>
+            stagingAreaSelectedCounter(LSSM)
+        );
     }
 }) as ModuleMainFunction;

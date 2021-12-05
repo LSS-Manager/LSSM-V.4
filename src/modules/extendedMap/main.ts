@@ -8,22 +8,20 @@ export default <ModuleMainFunction>(async (LSSM, MODULE_ID) => {
         });
 
     if (await getSetting('mapScale')) {
-        (
-            await import(
-                /* webpackChunkName: "modules/extendedMap/mapScale" */ './assets/mapScale'
+        import(
+            /* webpackChunkName: "modules/extendedMap/mapScale" */ './assets/mapScale'
+        ).then(async ({ default: mapScale }) =>
+            mapScale(
+                await getSetting<
+                    'bottomleft' | 'bottomright' | 'topleft' | 'topright'
+                >('mapScalePosition')
             )
-        ).default(
-            await getSetting<
-                'bottomleft' | 'bottomright' | 'topleft' | 'topright'
-            >('mapScalePosition')
         );
     }
 
     if (await getSetting('centerMap')) {
-        await (
-            await import(
-                /* webpackChunkName: "modules/extendedMap/centerMap" */ './assets/centerMap'
-            )
-        ).default(LSSM, getSetting);
+        import(
+            /* webpackChunkName: "modules/extendedMap/centerMap" */ './assets/centerMap'
+        ).then(({ default: centerMap }) => centerMap(LSSM, getSetting));
     }
 });
