@@ -1,4 +1,4 @@
-Dans le module "Aperçu", tu trouveras une liste de tous les types de véhicules et de bâtiments avec toutes les informations en un coup d'œil.
+Dans le module "Aperçu", vous trouverez une liste de tous les types de véhicules et de bâtiments avec toutes les informations en un coup d'œil.
 Il y a également une fonction de recherche et les tableaux peuvent être triés, comme on en a l'habitude dans le jeu.
 
 L'aperçu, s'il est activé, est accessible via le menu LSSM sous le point "Aperçu" :
