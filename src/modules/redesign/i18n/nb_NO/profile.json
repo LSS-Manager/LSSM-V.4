@@ -1,47 +1,47 @@
 {
 	"alerts": {
-	  "alliance_ignored": "{name} det er forbudt å søke i alliansen din!",
-	  "friend": "{name} er på vennelisten din! 🥳",
-	  "ignored": "Du ignorerer denne spilleren. {name} kan ikke lenger sende deg meldinger!"
+		"alliance_ignored": "{name} det er forbudt å søke i alliansen din!",
+		"friend": "{name} er på vennelisten din! 🥳",
+		"ignored": "Du ignorerer denne spilleren. {name} kan ikke lenger sende deg meldinger!"
 	},
-	"alliance": "Alliance",
+	"alliance": "Allianse",
 	"awards": {
-	  "bronze": "Bronse",
-	  "gold": "Gull",
-	  "max": "15",
-	  "own": "Åpne prisene dine",
-	  "silver": "Sølv",
-	  "title": "Awards",
-	  "title_amounts": "{sum} fra {max} Awards"
+		"bronze": "Bronse",
+		"gold": "Gull",
+		"max": "15",
+		"own": "Åpne medaljene dine",
+		"silver": "Sølv",
+		"title": "Medaljer",
+		"title_amounts": "{sum} av {max} medaljer"
 	},
 	"buildings": {
-	  "amount": "{name} er på vennelisten din! 🥳"
+		"amount": "{n} Byggninger"
 	},
 	"buttons": {
-	  "alliance_ignore": {
-		"add": "{name} er på vennelisten din! 🥳",
-		"destroy": "{name} er på vennelisten din! 🥳"
-	  },
-	  "avatar": "{name} er på vennelisten din! 🥳",
-	  "chat": {
-		"ban": "{name} er på vennelisten din! 🥳",
-		"unban": "{name} er på vennelisten din! 🥳"
-	  },
-	  "edit": "{name} er på vennelisten din! 🥳",
-	  "friend": {
-		"do": "{name} er på vennelisten din! 🥳",
-		"undo": "{name} er på vennelisten din! 🥳"
-	  },
-	  "gift": "{name} er på vennelisten din! 🥳",
-	  "ignore": {
-		"do": "Du ignorerer denne spilleren. {name} kan ikke lenger sende deg meldinger!0",
-		"undo": "Du ignorerer denne spilleren. {name} kan ikke lenger sende deg meldinger!1"
-	  },
-	  "message": "Du ignorerer denne spilleren. {name} kan ikke lenger sende deg meldinger!2"
+		"alliance_ignore": {
+			"add": "Forby alliansesøknad",
+			"destroy": "Tillat alliansesøknad"
+		},
+		"avatar": "Rediger profilbilde",
+		"chat": {
+			"ban": "Utesteng fra alliansechat",
+			"unban": "Opphev utestengelsen fra alliansens chat"
+		},
+		"edit": "Rediger profil",
+		"friend": {
+			"do": "Legg til som venn",
+			"undo": "Fjern fra vennene dine"
+		},
+		"gift": "Send gave",
+		"ignore": {
+			"do": "Ignorer spilleren",
+			"undo": "Slutt å ignorere spilleren"
+		},
+		"message": "Send en melding"
 	},
-	"credits": "Du ignorerer denne spilleren. {name} kan ikke lenger sende deg meldinger!3",
-	"map": "Du ignorerer denne spilleren. {name} kan ikke lenger sende deg meldinger!4",
-	"rank": "Du ignorerer denne spilleren. {name} kan ikke lenger sende deg meldinger!5",
-	"registration": "Du ignorerer denne spilleren. {name} kan ikke lenger sende deg meldinger!6",
-	"text": "Du ignorerer denne spilleren. {name} kan ikke lenger sende deg meldinger!7"
-  }
+	"credits": "{credits} opptjente kreditter",
+	"map": "Kart",
+	"rank": "Nåværende rangering",
+	"registration": "Registreringsdato",
+	"text": "Profiltekst"
+}
