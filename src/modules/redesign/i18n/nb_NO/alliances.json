@@ -3,8 +3,8 @@
 	"amount": "{n} filtrert allianse | {n} filtrerte allianser",
 	"credits": "Opptjente kreditter",
 	"load": {
-	  "next": "Last inn neste side",
-	  "prev": "Last inn forrige side"
+		"next": "Last inn neste side",
+		"prev": "Last inn forrige side"
 	},
 	"members": "Medlemsantallet",
 	"name": "Allianse",
@@ -13,4 +13,4 @@
 	"search_subtitle": "Vis {n} Allianser av sidene {startPage} til {endPage} av totalt {totalPages} sider",
 	"subtitle": "Vis {n} allianser av sidene {startPage} ({firstCredits}) til {endPage} ({lastCredits}) av totalt {totalPages} sider",
 	"title": "Alliansemedlemmer"
-  }
+}
