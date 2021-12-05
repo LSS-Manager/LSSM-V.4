@@ -9,8 +9,8 @@
 	"events": {
 		"allianceCandidature": "Nouvelle candidature dans l'alliance",
 		"allianceChat": "Message chat",
-		"allianceChatMention": "Message chat (seulement mentions)",
-		"allianceChatWhisper": "Message chat (seulement whispers)",
+		"allianceChatMention": "Message chat (uniquement les mentions)",
+		"allianceChatWhisper": "Message chat (uniquement les mentions privées)",
 		"allianceForum": "Nouveau message sur le forum",
 		"allianceMessage": "Nouveau message d'alliance",
 		"allianceNews": "Nouvelle actualité d'alliance",
@@ -48,7 +48,7 @@
 			"title": "Définir les notifications"
 		},
 		"desktop": "Envoyer les notifications sur le bureau",
-		"duration": "Temps d'affichage",
+		"duration": "Durée d'affichage (millisecondes, -1 pour \"permanent\")",
 		"eventTypes": "Évènements",
 		"ingame": "Envoyer les notifications en jeu",
 		"position": "Position"
