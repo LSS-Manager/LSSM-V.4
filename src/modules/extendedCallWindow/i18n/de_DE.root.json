@@ -58,7 +58,7 @@
 			"title": "Patienten einklappen"
 		},
 		"collapsablePatientsMinPatients": {
-			"description": "Set here, from how many patients, the minimizing should be activated.",
+			"description": "Lege hier fest, ab wie vielen Patienten das Zusammenfassen aktiviert werden soll.",
 			"title": "Patienten einklappen: Minimale Patientenzahl"
 		},
 		"emvMaxStaff": {

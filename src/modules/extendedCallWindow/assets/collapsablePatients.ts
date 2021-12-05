@@ -1,4 +1,4 @@
-export default (collapsablePatientsMinPatients: number) => {
+export default (LSSM: Vue, collapsablePatientsMinPatients: number) => {
     const patients = document.querySelectorAll<HTMLDivElement>(
         '.mission_patient'
     );
@@ -60,4 +60,90 @@ export default (collapsablePatientsMinPatients: number) => {
         patientLabelCombis[patientLabelCombiStringified]++;
     });
     console.log(requirements, labelColors, patientLabelCombis);
+
+    const summaryBox = document.createElement('div');
+    summaryBox.classList.add('alert', 'alert-danger', 'col-xs-12');
+    summaryBox.id = LSSM.$store.getters.nodeAttribute(
+        'ecw_collapsable-patients_summary-box',
+        true
+    );
+    const summaryTexts = document.createElement('div');
+    summaryTexts.classList.add('col-md-2', 'col-xs-4');
+    const summaryTextsList = document.createElement('ul');
+    summaryTexts.append(summaryTextsList);
+    Object.entries(requirements.red)
+        .sort(([reqA], [reqB]) => (reqA > reqB ? 1 : reqA < reqB ? -1 : 0))
+        .forEach(([req, amount]) => {
+            const listItem = document.createElement('li');
+            listItem.innerHTML = `<b>${amount.toLocaleString()}x</b> ${req}`;
+            summaryTextsList.append(listItem);
+        });
+
+    const summaryLabels = document.createElement('div');
+    summaryLabels.classList.add('col-md-5', 'col-xs-8');
+    const summaryLabelsList = document.createElement('ul');
+    summaryLabels.append(summaryLabelsList);
+    Object.entries(requirements.detailed)
+        .sort(([reqA], [reqB]) => (reqA > reqB ? 1 : reqA < reqB ? -1 : 0))
+        .forEach(([req, labels]) => {
+            const listItem = document.createElement('li');
+            Object.entries(labels)
+                .sort(([labelA], [labelB]) =>
+                    labelA > labelB ? 1 : labelA < labelB ? -1 : 0
+                )
+                .forEach(([value, amount]) => {
+                    const amountSpan = document.createElement('b');
+                    amountSpan.textContent = `${amount.toLocaleString()}x `;
+                    const descLabel = document.createElement('span');
+                    descLabel.classList.add(
+                        'label',
+                        'label-default',
+                        'label-left'
+                    );
+                    descLabel.textContent = req;
+                    const valueLabel = document.createElement('span');
+                    valueLabel.classList.add(
+                        'label',
+                        'label-right',
+                        labelColors[req][value]
+                    );
+                    valueLabel.textContent = value;
+                    listItem.append(amountSpan, descLabel, valueLabel);
+                });
+            summaryLabelsList.append(listItem);
+        });
+
+    summaryBox.append(summaryTexts, summaryLabels);
+
+    LSSM.$store
+        .dispatch('addStyles', [
+            {
+                selectorText: `#${summaryBox.id}`,
+                style: {
+                    'margin': '5px',
+                    'width': 'calc(100% - 10px)',
+                    'border-radius': '5px',
+                    'padding': '5px',
+                },
+            },
+            {
+                selectorText: `#${summaryBox.id} ul`,
+                style: {
+                    'list-style': 'none',
+                    'padding-left': 0,
+                    'margin-bottom': 0,
+                },
+            },
+            {
+                selectorText: `#${summaryBox.id} .label-right:not(:last-child)`,
+                style: {
+                    'margin-right': '0.2em',
+                },
+            },
+        ])
+        .then();
+
+    document
+        .querySelector<HTMLDivElement>('.mission_patient')
+        ?.before(summaryBox);
 };

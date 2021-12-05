@@ -82,6 +82,7 @@ export default (async (LSSM, MODULE_ID, $m, $mc) => {
                     /* webpackChunkName: "modules/extendedCallWindow/collapsablePatients" */ './assets/collapsablePatients'
                 )
             ).default(
+                LSSM,
                 await getSetting<number>('collapsablePatientsMinPatients')
             );
         }
