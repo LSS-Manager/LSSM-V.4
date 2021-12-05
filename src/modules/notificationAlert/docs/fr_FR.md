@@ -41,7 +41,7 @@ Vous trouverez ici une liste complète des événements pour lesquels vous pouve
 * Nouveau message d'alliance
 * Nouvelle actualité d'alliance
 * Nouveau message privé
-* ouveauté dans le jeu
+* Nouveauté dans le jeu
 * Une mission demande votre attention
 * Une mission partagée demande votre attention
 * Une mission a été générée
