@@ -15,6 +15,7 @@ export default (
     missions: string[],
     allMissionsCollapsed: boolean,
     collapsableMissionBtnClass: string,
+    sortBtnId: string,
     $m: $m
 ): AddCollapsableButton => {
     const buttons: CollapsableButton[] = [];
@@ -157,9 +158,14 @@ export default (
 
     if (allMissionsCollapsed) allBtn.click();
 
-    document
-        .querySelector<HTMLDivElement>('#btn-group-mission-select')
-        ?.append(allBtn);
+    const sortBtn = document.querySelector<HTMLButtonElement>(`#${sortBtnId}`);
+    if (sortBtn) {
+        sortBtn.before(allBtn);
+    } else {
+        document
+            .querySelector<HTMLDivElement>('#btn-group-mission-select')
+            ?.append(allBtn);
+    }
 
     return (mission, collapsableMissionBtnClass) => {
         const collapsed = allBtn.classList.contains('btn-danger')
