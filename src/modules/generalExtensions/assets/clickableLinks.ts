@@ -41,13 +41,9 @@ export default (LSSM: Vue, showImg: boolean): void => {
             });
     };
 
-    if (window.location.pathname === '/') {
-        clickableLinks(
-            document.querySelector('#mission_chat_messages') ?? document
-        );
-    } else {
-        clickableLinks(document);
-    }
+    if (window.location.pathname === '/')
+        clickableLinks(document.querySelector('#chat_panel_body') ?? document);
+    else clickableLinks(document);
 
     LSSM.$store
         .dispatch('premodifyParams', {
