@@ -1,12 +1,12 @@
-Ce module vous permet d'afficher une horloge personnalisable dans le jeu. Il existe un grand nombre de paramètres différents que vous pouvez utiliser afin de la personnaliser à votre goût. Vous trouverez de l'aide sur la configuration sous [Paramètres : Moment.js](/settings.md#moment-js).
+Pour que vous puissiez jeter un coup d'œil à l'horloge directement dans le jeu, nous avons conçu ce module.
+Et pour vous offrir un maximum de "confort", cette horloge est même éditable.
+Cela signifie que nous vous donnons la possibilité d'utiliser un grand nombre de variables afin d'afficher, entre autres, la date actuelle.
+Tu trouveras une aide à la configuration sous [Paramètres : Moment.js](settings.md#moment-js).
 
-L'horloge peut être placée à deux endroits :
-* A gauche de la barre de navigation
-![Horloge dans la barre de navigation](navbar.png)
-* En tant que fenêtre
-![Horloge en tant que fenêtre](chatOverlay.png)
-
-Le format dans les images ci-dessus est `DD[th] MMM YYYY LTS`.
+Actuellement, nous t'offrons la possibilité de mettre l'horloge aux endroits suivants :
+* Barre de navigation *Format ici : `DD[th] MMM YYYY LTS`* ![Horloge dans la barre de navigation](navbar.png)
+* En tant qu'overlay au-dessus de tous les éléments
+    * Nous avions déjà cela dans la V3 pour la carte, ici l'horloge est maintenant accessible dans toute la fenêtre. ![Horloge en tant que fenêtre](chatOverlay.png)
 
 ## Configuration
 

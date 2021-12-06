@@ -31,9 +31,9 @@
 		"hide": "Fermer",
 		"kickModal": {
 			"btnCancel": "Annuler",
-			"btnConfirm": "Kick",
-			"text": "Voulez-vous vraiment kicker ce joueur ?",
-			"title": "Kick ?"
+			"btnConfirm": "Virer",
+			"text": "Voulez-vous vraiment virer le joueur ?",
+			"title": "Virer ?"
 		},
 		"set": "Appliquer",
 		"unset": "Retirer"

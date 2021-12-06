@@ -1,4 +1,4 @@
-À de nombreux endroits dans le jeu, le jeu se recharge lorsque l'on appuie sur un simple bouton. Ce module doit empêcher le rechargement - mais uniquement aux endroits où tu le souhaites.
+À de nombreux endroits dans le jeu, le jeu se recharge lorsque l'on appuie sur un simple bouton. Ce module doit empêcher le rechargement - mais uniquement aux endroits où vous le souhaitez.
 
 Nous avons intégré cet asynchronisme à différents endroits :
 
@@ -16,12 +16,12 @@ Nous avons intégré cet asynchronisme à différents endroits :
 * (Dés)activation des extensions
 * licenciement du personnel
 
-### prévu :
+### Prévu :
 * Valider ou ne plus valider les cellules / lits d'hôpitaux dans l'alliance
 * construire des extensions
 
-## déploiements
+## Déploiements
 * Evacuer les prisonniers
 
-### prévu :
+### Prévu :
 * écrire une réponse

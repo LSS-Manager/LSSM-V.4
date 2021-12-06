@@ -10,45 +10,39 @@ export default (async (LSSM, MODULE_ID, $m) => {
         });
     };
 
-    (
-        await import(
-            /* webpackChunkName: "modules/generalExtensions/inputMaxLen" */ './assets/inputMaxLen'
-        )
-    ).default(LSSM);
+    import(
+        /* webpackChunkName: "modules/generalExtensions/inputMaxLen" */ './assets/inputMaxLen'
+    ).then(({ default: inputMaxLen }) => inputMaxLen(LSSM));
 
     if (await getSetting<boolean>('browserTitle')) {
-        (
-            await import(
-                /* webpackChunkName: "modules/generalExtensions/browserTitle" */ './assets/browserTitle'
-            )
-        ).default(LSSM);
+        import(
+            /* webpackChunkName: "modules/generalExtensions/browserTitle" */ './assets/browserTitle'
+        ).then(({ default: browserTitle }) => browserTitle(LSSM));
     }
 
     if (await getSetting<boolean>('emojiPicker')) {
-        await (
-            await import(
-                /* webpackChunkName: "modules/generalExtensions/emojiPicker" */ './assets/emojiPicker'
-            )
-        ).default(LSSM);
+        import(
+            /* webpackChunkName: "modules/generalExtensions/emojiPicker" */ './assets/emojiPicker'
+        ).then(({ default: emojiPicker }) => emojiPicker(LSSM));
     }
 
     if (
         !window.location.pathname.match(/^\/note\/?$/) &&
         (await getSetting<boolean>('clickableLinks'))
     ) {
-        (
-            await import(
-                /* webpackChunkName: "modules/generalExtensions/clickableLinks" */ './assets/clickableLinks'
-            )
-        ).default(LSSM, await getSetting('showImg'));
+        import(
+            /* webpackChunkName: "modules/generalExtensions/clickableLinks" */ './assets/clickableLinks'
+        ).then(async ({ default: clickableLinks }) =>
+            clickableLinks(LSSM, await getSetting('showImg'))
+        );
     }
     const linkPreviewSetting = await getSetting<string[]>('linkPreviews');
     if (linkPreviewSetting.length) {
-        await (
-            await import(
-                /* webpackChunkName: "modules/generalExtensions/linkPreviews" */ './assets/linkPreviews'
-            )
-        ).default(LSSM, linkPreviewSetting, MODULE_ID);
+        import(
+            /* webpackChunkName: "modules/generalExtensions/linkPreviews" */ './assets/linkPreviews'
+        ).then(({ default: linkPreviews }) =>
+            linkPreviews(LSSM, linkPreviewSetting, MODULE_ID)
+        );
     }
     const mapUndo = await getSetting<boolean>('mapUndo');
     const ownMapMarkers = await getSetting<boolean>('ownMapMarkers');
@@ -57,21 +51,19 @@ export default (async (LSSM, MODULE_ID, $m) => {
         !LSSM.$store.state.mapkit &&
         (mapUndo || ownMapMarkers)
     ) {
-        await (
-            await import(
-                /* webpackChunkName: "modules/generalExtensions/mapMarkers" */ './assets/mapMarkers'
-            )
-        ).default(LSSM, mapUndo, ownMapMarkers, getSetting, MODULE_ID);
+        import(
+            /* webpackChunkName: "modules/generalExtensions/mapMarkers" */ './assets/mapMarkers'
+        ).then(({ default: mapMarkers }) =>
+            mapMarkers(LSSM, mapUndo, ownMapMarkers, getSetting, MODULE_ID)
+        );
     }
     if (
         window.location.pathname === '/' &&
         (await getSetting<boolean>('extensionCloseCall'))
     ) {
-        (
-            await import(
-                /* webpackChunkName: "modules/generalExtensions/extensionCloseCall" */ './assets/extensionCloseCall'
-            )
-        ).default();
+        import(
+            /* webpackChunkName: "modules/generalExtensions/extensionCloseCall" */ './assets/extensionCloseCall'
+        ).then(({ default: extensionCloseCall }) => extensionCloseCall());
     }
     const saveLastBuildingType = await getSetting<boolean>(
         'saveLastBuildingType'
@@ -80,16 +72,16 @@ export default (async (LSSM, MODULE_ID, $m) => {
         'saveLastDispatchCenter'
     );
     if (window.location.pathname === '/') {
-        await (
-            await import(
-                /* webpackChunkName: "modules/generalExtensions/newBuilding" */ './assets/newBuilding'
+        import(
+            /* webpackChunkName: "modules/generalExtensions/newBuilding" */ './assets/newBuilding'
+        ).then(({ default: newBuilding }) =>
+            newBuilding(
+                LSSM,
+                saveLastBuildingType,
+                saveLastDispatchCenter,
+                getSetting,
+                MODULE_ID
             )
-        ).default(
-            LSSM,
-            saveLastBuildingType,
-            saveLastDispatchCenter,
-            getSetting,
-            MODULE_ID
         );
     }
 
@@ -102,38 +94,36 @@ export default (async (LSSM, MODULE_ID, $m) => {
 
     const mapSearchOnMap = await getSetting<boolean>('mapSearchOnMap');
 
-    (
-        await import(
-            /* webpackChunkName: "modules/generalExtensions/mapSearches" */ './assets/mapSearches'
+    import(
+        /* webpackChunkName: "modules/generalExtensions/mapSearches" */ './assets/mapSearches'
+    ).then(async ({ default: mapSearches }) =>
+        mapSearches(
+            LSSM.$t('mapSearch').toString(),
+            addToPanelHeading,
+            mapSearchOnMap,
+            await getSetting<
+                'top-left' | 'top-right' | 'bottom-left' | 'bottom-right'
+            >('mapSearchOnMapPosition'),
+            LSSM
         )
-    ).default(
-        LSSM.$t('mapSearch').toString(),
-        addToPanelHeading,
-        mapSearchOnMap,
-        await getSetting<
-            'top-left' | 'top-right' | 'bottom-left' | 'bottom-right'
-        >('mapSearchOnMapPosition'),
-        LSSM
     );
 
     if (isDispatchCenter) {
-        await (
-            await import(
-                /* webpackChunkName: "modules/generalExtensions/protocolDeletionConfirmation" */ './assets/protocolDeletionConfirmation'
+        import(
+            /* webpackChunkName: "modules/generalExtensions/protocolDeletionConfirmation" */ './assets/protocolDeletionConfirmation'
+        ).then(async ({ default: protocolDeletionConfirmation }) =>
+            protocolDeletionConfirmation(
+                LSSM,
+                t => $m(`protocolDeletionConfirmation.${t}`),
+                !!(await getSetting('deleteSingleProtocolEntry')),
+                MODULE_ID
             )
-        ).default(
-            LSSM,
-            t => $m(`protocolDeletionConfirmation.${t}`),
-            !!(await getSetting('deleteSingleProtocolEntry')),
-            MODULE_ID
         );
     }
 
     if (window.location.pathname.match(/\/aao_exports\/?$/)) {
-        (
-            await import(
-                /* webpackChunkName: "modules/generalExtensions/aaoExportQr" */ './assets/aaoExportQr'
-            )
-        ).default();
+        import(
+            /* webpackChunkName: "modules/generalExtensions/aaoExportQr" */ './assets/aaoExportQr'
+        ).then(({ default: aaoExportQr }) => aaoExportQr());
     }
 }) as ModuleMainFunction;

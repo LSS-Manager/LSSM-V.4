@@ -24,11 +24,11 @@ module.exports = {
         },
         titles: {
             set:
-                "C'est le nombre de fois que cette régulations est sélectionnée lorsque tu appuies sur ce bouton.",
+                "C'est le nombre de fois que cette régulations est sélectionnée lorsque vous appuiez sur ce bouton.",
             attribute: 'La régulations est décrite dans cette ligne',
             free: "C'est le nombre de fois où la régulation est disponible",
             max:
-                "Tu peux sélectionner cette régulation autant de fois que nécessaire, jusqu'à ce que la régulations ne soit plus disponible.",
+                "Vouc pouvez sélectionner cette régulation autant de fois que nécessaire, jusqu'à ce que la régulation ne soit plus disponible.",
         },
         arrSpecs: {
             boot: 'Bateaux (généraux)',

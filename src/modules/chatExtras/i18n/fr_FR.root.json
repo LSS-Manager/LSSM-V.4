@@ -3,11 +3,11 @@
 	"name": "Améliorations du tchat",
 	"settings": {
 		"chatTime": {
-			"description": "Modifie l'horodatage. Tu peux adapter le format toi-même.",
+			"description": "Modifie l'horodatage. Vous pouvez adapter le format toi-même.",
 			"title": "Adapter l'horodatage dans le chat"
 		},
 		"chatTimeFormat": {
-			"description": "Ici, tu peux définir le format de ton choix. Tu trouveras une aide à ce sujet <a class=\"lightbox-open\" href=\"{wiki}modules/clock.html#configuration\">ici</a>.",
+			"description": "Ici, vous pouvez définir le format de ton choix. vous trouverez une aide à ce sujet <a class=\"lightbox-open\" href=\"{wiki}modules/clock.html#configuration\">ici</a>.",
 			"title": "Format de la date et de l'heure du chat"
 		}
 	}
