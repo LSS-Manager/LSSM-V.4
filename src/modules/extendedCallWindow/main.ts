@@ -77,7 +77,9 @@ export default (async (LSSM, MODULE_ID, $m, $mc) => {
             ).then(async ({ default: collapsablePatients }) =>
                 collapsablePatients(
                     LSSM,
-                    await getSetting<number>('collapsablePatientsMinPatients')
+                    MODULE_ID,
+                    await getSetting<number>('collapsablePatientsMinPatients'),
+                    $m
                 )
             );
         }

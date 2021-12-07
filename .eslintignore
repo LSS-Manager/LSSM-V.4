@@ -6,6 +6,7 @@ docs/.vuepress/*.js
 prebuild/*.js
 scripts/**/*.js
 src/userscript.js
+src/config.js
 
 src/modules/support/*
 src/modules/renameFz/*

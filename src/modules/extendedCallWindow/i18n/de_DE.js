@@ -354,6 +354,10 @@ module.exports = {
     patientSummary: {
         oncePerMission: ['LNA', 'OrgL'],
     },
+    patientCollapse: {
+        combis: 'Kombinationen',
+        amount: 'Anzahl',
+    },
     hideVehicleList: {
         show: 'Fahrzeugliste zeigen',
         hide: 'Fahrzeugliste verstecken',
