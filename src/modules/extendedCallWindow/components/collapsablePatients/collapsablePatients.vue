@@ -1,20 +1,100 @@
 <template>
     <div class="alert alert-danger col-xs-12" :id="boxId">
-        <div></div>
-        <div></div>
-        <div></div>
+        <div v-if="hasRedTexts" class="col-md-2 col-xs-4">
+            <ul>
+                <li v-for="[req, amount] in redRequirements" :key="req">
+                    <b>{{ amount.toLocaleString() }}x</b> {{ req }}
+                </li>
+            </ul>
+        </div>
+        <div
+            v-if="hasLabels"
+            class="col-xs-8"
+            :class="hasRedTexts ? 'col-md-4' : 'col-md-6'"
+        >
+            <ul class="labels-list">
+                <li v-for="[label, details] in labels" :key="label">
+                    <span
+                        v-for="(amount, detail) in details"
+                        class="patient-label"
+                        :key="`${label}_${detail}`"
+                    >
+                        <b>{{ amount.toLocaleString() }}x</b>
+                        <span class="label label-default label-left">
+                            {{ label }}
+                        </span>
+                        <span
+                            class="label label-right"
+                            :class="labelColors[label][detail]"
+                        >
+                            {{ detail }}
+                        </span>
+                    </span>
+                </li>
+            </ul>
+        </div>
+        <div v-if="hasLabels" class="col-xs-12 col-md-6">
+            <enhanced-table
+                :head="{
+                    combi: {
+                        title: $m('patientCollapse.combis'),
+                        noSort: true,
+                    },
+                    amount: {
+                        title: $m('patientCollapse.amount'),
+                        noSort: true,
+                    },
+                }"
+                :table-attrs="{ class: 'table table-striped table-condensed' }"
+                no-search
+            >
+                <tr
+                    v-for="([combi, amount], index) in labelCombis"
+                    :key="index"
+                >
+                    <td>
+                        <span
+                            v-for="(detail, desc) in combi"
+                            :key="`${index}_${desc}_${detail}`"
+                            class="patient-label"
+                        >
+                            <span class="label label-default label-left">
+                                {{ desc }}
+                            </span>
+                            <span
+                                class="label label-right"
+                                :class="labelColors[desc][detail]"
+                            >
+                                {{ detail }}
+                            </span>
+                            <wbr />
+                        </span>
+                    </td>
+                    <td>
+                        <b>{{ amount.toLocaleString() }}</b>
+                    </td>
+                </tr>
+            </enhanced-table>
+        </div>
     </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
 
+import { $m } from 'typings/Module';
 import { DefaultMethods } from 'vue/types/options';
 
 export default Vue.extend<
     { boxId: string },
     DefaultMethods<Vue>,
-    { hasRedTexts: boolean; hasLabels: boolean },
+    {
+        hasRedTexts: boolean;
+        hasLabels: boolean;
+        redRequirements: [string, number][];
+        labels: [string, Record<string, number>][];
+        labelCombis: [Record<string, string>, number][];
+    },
     {
         featureId: string;
         requirements: {
@@ -23,9 +103,16 @@ export default Vue.extend<
         };
         labelColors: Record<string, Record<string, string>>;
         patientLabelCombis: Record<string, number>;
+        $m: $m;
     }
 >({
     name: 'lssmv4-collapsablePatients',
+    components: {
+        EnhancedTable: () =>
+            import(
+                /* webpackChunkName: "components/enhanced-table" */ '../../../../components/enhanced-table.vue'
+            ),
+    },
     data() {
         return {
             boxId: this.$store.getters.nodeAttribute(
@@ -40,6 +127,28 @@ export default Vue.extend<
         },
         hasLabels() {
             return !!Object.keys(this.requirements.detailed).length;
+        },
+        redRequirements() {
+            return Object.entries(
+                this.requirements.red
+            ).sort(([reqA], [reqB]) =>
+                reqA > reqB ? 1 : reqA < reqB ? -1 : 0
+            );
+        },
+        labels() {
+            return Object.entries(
+                this.requirements.detailed
+            ).sort(([reqA], [reqB]) =>
+                reqA > reqB ? 1 : reqA < reqB ? -1 : 0
+            );
+        },
+        labelCombis() {
+            return Object.entries(this.patientLabelCombis)
+                .sort(([, amountA], [, amountB]) => amountA - amountB)
+                .map(([combis, amount]) => [JSON.parse(combis), amount]) as [
+                Record<string, string>,
+                number
+            ][];
         },
     },
     props: {
@@ -59,6 +168,10 @@ export default Vue.extend<
             type: Object,
             required: true,
         },
+        $m: {
+            type: Function,
+            required: true,
+        },
     },
 });
 </script>
@@ -75,6 +188,15 @@ export default Vue.extend<
         padding-left: 0
         margin-bottom: 0
 
-        &.labels-list, &.labels-list > li > span:not(:first-child)
+        &.labels-list
             padding-left: 0.5em
+
+    span.patient-label
+        display: inline-block
+
+        &:not(:first-child)
+            padding-left: 0.5em
+
+    ::v-deep table
+        margin-bottom: 0
 </style>

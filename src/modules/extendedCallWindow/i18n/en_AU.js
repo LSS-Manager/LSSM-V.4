@@ -116,6 +116,10 @@ module.exports = {
             close: 'Close Note till change',
         },
     },
+    patientCollapse: {
+        combis: 'Combinations',
+        amount: 'Amount',
+    },
     hideVehicleList: {
         show: 'Show vehicle list',
         hide: 'Hide vehicle list',
