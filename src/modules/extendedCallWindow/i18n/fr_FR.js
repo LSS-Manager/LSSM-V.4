@@ -128,6 +128,10 @@ module.exports = {
     patientSummary: {
         oncePerMission: ['ASSU'],
     },
+    patientCollapse: {
+        combis: 'Combinaisons',
+        amount: 'Nombre',
+    },
     hideVehicleList: {
         show: 'Afficher la liste des véhicules',
         hide: 'Cacher la liste des véhicules',
