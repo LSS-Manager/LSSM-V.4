@@ -1,5 +1,9 @@
 <template>
-    <div class="alert alert-danger col-xs-12" :id="boxId">
+    <div
+        class="alert alert-danger col-xs-12"
+        :id="boxId"
+        :class="{ 'patients-collapsed': collapsed }"
+    >
         <div v-if="hasRedTexts" class="col-md-2 col-xs-4">
             <ul>
                 <li v-for="[req, amount] in redRequirements" :key="req">
@@ -76,17 +80,32 @@
                 </tr>
             </enhanced-table>
         </div>
+        <font-awesome-icon
+            class="pull-left"
+            :icon="collapsed ? faChevronCircleUp : faChevronCircleDown"
+            style="cursor: pointer"
+            @click="() => (collapsed = !collapsed)"
+        ></font-awesome-icon>
     </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
 
+import { faChevronCircleDown } from '@fortawesome/free-solid-svg-icons/faChevronCircleDown';
+import { faChevronCircleUp } from '@fortawesome/free-solid-svg-icons/faChevronCircleUp';
+
 import { $m } from 'typings/Module';
 import { DefaultMethods } from 'vue/types/options';
+import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 
 export default Vue.extend<
-    { boxId: string },
+    {
+        boxId: string;
+        faChevronCircleDown: IconDefinition;
+        faChevronCircleUp: IconDefinition;
+        collapsed: boolean;
+    },
     DefaultMethods<Vue>,
     {
         hasRedTexts: boolean;
@@ -119,6 +138,9 @@ export default Vue.extend<
                 `${this.featureId}_summary-box`,
                 true
             ),
+            faChevronCircleDown,
+            faChevronCircleUp,
+            collapsed: true,
         };
     },
     computed: {
@@ -199,4 +221,8 @@ export default Vue.extend<
 
     ::v-deep table
         margin-bottom: 0
+</style>
+<style lang="sass">
+#lssmv4-extendedCallWindow_collapsable-patients_summary-box.patients-collapsed ~ .mission_patient
+    display: none
 </style>
