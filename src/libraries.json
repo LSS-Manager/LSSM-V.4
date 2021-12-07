@@ -138,7 +138,7 @@
 	"eslint": {
 		"icon": "https://eslint.org/assets/img/favicon.512x512.png",
 		"url": "https://eslint.org",
-		"version": "8.4.0"
+		"version": "8.4.1"
 	},
 	"eslint-formatter-table": {
 		"icon": "https://eslint.org/assets/img/favicon.512x512.png",
@@ -152,7 +152,7 @@
 	"eslint-plugin-vue": {
 		"icon": "https://vuejs.org/images/logo.png",
 		"url": "https://eslint.vuejs.org",
-		"version": "8.1.1"
+		"version": "8.2.0"
 	},
 	"he": {
 		"url": "https://mths.be/he",
