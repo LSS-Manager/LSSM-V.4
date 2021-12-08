@@ -1,70 +1,32 @@
 <template>
-    <enhanced-table
-        :head="{
-            title: { title: $sm('type') },
-            ...statusHeads,
-            sum: { title: $sm('sum') },
-        }"
-        :table-attrs="{ class: 'table table-striped' }"
-        @sort="setSort"
-        :sort="sort"
-        :sort-dir="sortDir"
-        :search="search"
-        @search="s => (search = s)"
-    >
-        <tr
-            v-for="vehicleType in vehicleTypesSorted"
-            :stats="(stats = vehicleTypes[vehicleType])"
-            :key="`vehicles_${vehicleType}`"
+    <div>
+        <enhanced-table
+            :head="{
+                title: { title: $sm('type') },
+                ...statusHeads,
+                sum: { title: $sm('sum') },
+            }"
+            :table-attrs="{ class: 'table table-striped' }"
+            @sort="setSort"
+            :sort="sort"
+            :sort-dir="sortDir"
+            :search="search"
+            @search="s => (search = s)"
         >
-            <td>
-                {{ stats.title }}
-                <button
-                    class="btn btn-default btn-xs vehicle-btn"
-                    @click="
-                        showVehicles(
-                            0,
-                            vehicleTypes[vehicleType],
-                            vehicleTypes[vehicleType].vehicles
-                        )
-                    "
-                >
-                    <font-awesome-icon :icon="faCarSide"></font-awesome-icon>
-                </button>
-            </td>
-            <td v-for="status in statuses" :key="`${vehicleType}_${status}`">
-                {{ stats.fms[`s${status}`].length.toLocaleString() }}
-                <button
-                    class="btn btn-default btn-xs vehicle-btn"
-                    @click="
-                        showVehicles(
-                            status,
-                            vehicleTypes[vehicleType],
-                            vehicleTypes[vehicleType].fms[`s${status}`]
-                        )
-                    "
-                >
-                    <font-awesome-icon :icon="faCarSide"></font-awesome-icon>
-                </button>
-            </td>
-            <td>
-                {{ stats.sum.toLocaleString() }}
-            </td>
-        </tr>
-        <template v-slot:foot>
-            <tr>
-                <th>
-                    {{ $sm('sum') }}
-                </th>
-                <th v-for="status in statuses" :key="`sum_${status}`">
-                    {{ sum[`s${status}`].length.toLocaleString() }}
+            <tr
+                v-for="vehicleType in vehicleTypesSorted"
+                :stats="(stats = vehicleTypes[vehicleType])"
+                :key="`vehicles_${vehicleType}`"
+            >
+                <td>
+                    {{ stats.title }}
                     <button
                         class="btn btn-default btn-xs vehicle-btn"
                         @click="
                             showVehicles(
-                                status,
-                                { title: $smc('vehicles') },
-                                sum[`s${status}`]
+                                0,
+                                vehicleTypes[vehicleType],
+                                vehicleTypes[vehicleType].vehicles
                             )
                         "
                     >
@@ -72,32 +34,102 @@
                             :icon="faCarSide"
                         ></font-awesome-icon>
                     </button>
-                </th>
-                <th>
-                    {{
-                        Object.values(sum).reduce((s, c) => (s += c.length), 0)
-                    }}
-                </th>
+                </td>
+                <td
+                    v-for="status in statuses"
+                    :key="`${vehicleType}_${status}`"
+                >
+                    {{ stats.fms[`s${status}`].length.toLocaleString() }}
+                    <button
+                        class="btn btn-default btn-xs vehicle-btn"
+                        @click="
+                            showVehicles(
+                                status,
+                                vehicleTypes[vehicleType],
+                                vehicleTypes[vehicleType].fms[`s${status}`]
+                            )
+                        "
+                    >
+                        <font-awesome-icon
+                            :icon="faCarSide"
+                        ></font-awesome-icon>
+                    </button>
+                </td>
+                <td>
+                    {{ stats.sum.toLocaleString() }}
+                </td>
             </tr>
-        </template>
-    </enhanced-table>
+            <template v-slot:foot>
+                <tr>
+                    <th>
+                        {{ $sm('sum') }}
+                    </th>
+                    <th v-for="status in statuses" :key="`sum_${status}`">
+                        {{ sum[`s${status}`].length.toLocaleString() }}
+                        <button
+                            class="btn btn-default btn-xs vehicle-btn"
+                            @click="
+                                showVehicles(
+                                    status,
+                                    { title: $smc('vehicles') },
+                                    sum[`s${status}`]
+                                )
+                            "
+                        >
+                            <font-awesome-icon
+                                :icon="faCarSide"
+                            ></font-awesome-icon>
+                        </button>
+                    </th>
+                    <th>
+                        {{
+                            Object.values(sum).reduce(
+                                (s, c) => (s += c.length),
+                                0
+                            )
+                        }}
+                    </th>
+                </tr>
+            </template>
+        </enhanced-table>
+
+        <font-awesome-icon
+            :icon="faChartPie"
+            style="cursor: pointer"
+            @click="() => (showChart = !showChart)"
+        ></font-awesome-icon>
+        <highcharts v-if="showChart" :options="chart"></highcharts>
+    </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
 
 import { faCarSide } from '@fortawesome/free-solid-svg-icons/faCarSide';
+import { faChartPie } from '@fortawesome/free-solid-svg-icons/faChartPie';
 
+import { Chart } from 'highcharts-vue';
 import vehicleList from './vehicle-list.vue';
 
 import { DefaultProps } from 'vue/types/options';
-import { InternalVehicle, Vehicle } from '../../../../typings/Vehicle';
+import { InternalVehicle, Vehicle } from 'typings/Vehicle';
 import {
     TypeList,
     VehicleTypes,
     VehicleTypesComputed,
     VehicleTypesMethods,
-} from '../../../../typings/modules/Dashboard/VehicleTypes';
+} from 'typings/modules/Dashboard/VehicleTypes';
+
+enum statusColors {
+    s1 = '#5a97f3',
+    s2 = '#77dc81',
+    s3 = '#f3d470',
+    s4 = '#f58558',
+    s5 = '#ff0000',
+    s6 = '#000000',
+    s7 = '#ff8600',
+    s9 = '#f3d470',
+}
 
 export default Vue.extend<
     VehicleTypes,
@@ -111,6 +143,7 @@ export default Vue.extend<
             import(
                 /* webpackChunkName: "components/enhanced-table" */ '../../../components/enhanced-table.vue'
             ),
+        Highcharts: Chart,
     },
     data() {
         const statuses = Object.values(this.$sm('statuses')) as number[];
@@ -145,6 +178,8 @@ export default Vue.extend<
             sort: 'title',
             sortDir: 'asc',
             faCarSide,
+            faChartPie,
+            showChart: false,
         } as VehicleTypes;
     },
     computed: {
@@ -212,6 +247,52 @@ export default Vue.extend<
                 );
             });
             return FMSsum;
+        },
+        chart() {
+            return {
+                chart: {
+                    type: 'pie',
+                    backgroundColor: 'rgba(0, 0, 0, 0.05)',
+                    margin: 0,
+                    spacing: [5, 10, 0, 10],
+                    height: '500px',
+                    borderRadius: '4px',
+                },
+                tooltip: {
+                    pointFormat:
+                        '<b>{point.value}</b> ({point.percentage:.1f}%)',
+                },
+                plotOptions: {
+                    pie: {
+                        cursor: 'pointer',
+                        dataLabels: {
+                            enabled: true,
+                            format:
+                                '<b>{point.name}</b>: {point.value} ({point.percentage:.1f}%)',
+                        },
+                    },
+                },
+                title: {
+                    text: this.$sm('chart').toString(),
+                    align: 'left',
+                },
+                series: [
+                    {
+                        name: '',
+                        data: Object.entries(this.sum).map(
+                            ([status, { length: amount }]) => ({
+                                name: status.toUpperCase(),
+                                y: amount,
+                                value: amount.toLocaleString(),
+                                color:
+                                    statusColors[
+                                        <keyof typeof statusColors>status
+                                    ],
+                            })
+                        ),
+                    },
+                ],
+            };
         },
     },
     methods: {
