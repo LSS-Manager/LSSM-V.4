@@ -11,7 +11,7 @@
                 @click="copyUrl()"
                 :title="$m('copy_url', { url: fullUrl })"
             >
-                <i :id="cliboardIconId" class="fas fa-clipboard"></i>
+                <i :id="clipboardIconId" class="fas fa-clipboard"></i>
             </span>
         </template>
         <div
@@ -300,7 +300,7 @@ export default Vue.extend<
     data() {
         return {
             faSyncAlt,
-            cliboardIconId: this.$store.getters.nodeAttribute(
+            clipboardIconId: this.$store.getters.nodeAttribute(
                 'redesign-clipboard-icon',
                 true
             ),
@@ -310,6 +310,10 @@ export default Vue.extend<
             urlProp: '',
             loading: true,
             errors: [],
+            clickableLinks: {
+                enabled: false,
+                pictures: false,
+            },
         };
     },
     props: {
@@ -595,16 +599,23 @@ export default Vue.extend<
                 .then(event =>
                     this.$store.dispatch('event/dispatchEvent', event)
                 );
+            if (this.clickableLinks.enabled) {
+                import(
+                    /* webpackChunkName: "utils/clickableLinks" */ '../../generalExtensions/assets/clickableLinks/util'
+                ).then(({ default: clickableLinks }) =>
+                    clickableLinks(this, this.$el, this.clickableLinks.pictures)
+                );
+            }
         },
         copyUrl() {
             navigator.clipboard.writeText(this.fullUrl).then(() => {
                 this.$el
-                    .querySelector(`#${this.cliboardIconId}`)
+                    .querySelector(`#${this.clipboardIconId}`)
                     ?.setAttribute('data-icon', 'check');
                 window.setTimeout(
                     () =>
                         this.$el
-                            .querySelector(`#${this.cliboardIconId}`)
+                            .querySelector(`#${this.clipboardIconId}`)
                             ?.setAttribute('data-icon', 'clipboard'),
                     1000
                 );
@@ -633,8 +644,14 @@ export default Vue.extend<
     },
     mounted() {
         this.$store.commit('useFontAwesome');
+        this.$store
+            .dispatch('settings/getModule', 'generalExtensions')
+            .then(({ clickableLinks, showImg }) => {
+                this.clickableLinks.enabled = clickableLinks;
+                this.clickableLinks.pictures = showImg;
+            });
         window['lssmv4-redesign-lightbox'] = this;
-        const trySetIframe = () =>
+        const trySetIframe = (): void | number =>
             this.$refs.iframe
                 ? this.$nextTick(() => {
                       this.$set(this, 'src', this.url);
@@ -684,7 +701,7 @@ export default Vue.extend<
                           this.$set(this, 'src', url.toString());
                       });
                   })
-                : setTimeout(trySetIframe, 100);
+                : window.setTimeout(trySetIframe, 100);
         trySetIframe();
     },
 });

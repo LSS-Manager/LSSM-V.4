@@ -114,7 +114,7 @@ export type routeChecks = Record<string, types>;
 
 interface Data<T, W> {
     faSyncAlt: IconDefinition;
-    cliboardIconId: string;
+    clipboardIconId: string;
     type: T;
     data: W & {
         authenticity_token: string;
@@ -123,6 +123,10 @@ interface Data<T, W> {
     urlProp: string;
     loading: boolean;
     errors: Error[];
+    clickableLinks: {
+        enabled: boolean;
+        pictures: boolean;
+    };
 }
 
 export interface RedesignLightbox<
