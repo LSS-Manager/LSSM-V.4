@@ -4,7 +4,10 @@
         :id="boxId"
         :class="{ 'patients-collapsed': collapsed }"
     >
-        <div v-if="hasRedTexts" class="col-md-2 col-xs-4">
+        <div
+            v-if="hasRedTexts"
+            :class="hasLabels ? 'col-md-2 col-xs-4' : 'col-xs-12'"
+        >
             <ul>
                 <li v-for="[req, amount] in redRequirements" :key="req">
                     <b>{{ amount.toLocaleString() }}x</b> {{ req }}
