@@ -1148,7 +1148,7 @@ export default {
                 staffList: 'K-9',
             },
             {
-                caption: 'Motor Officer',
+                caption: 'Police Motorcycle',
                 duration: '3 Days',
                 staffList: 'Motor Officer',
             },
