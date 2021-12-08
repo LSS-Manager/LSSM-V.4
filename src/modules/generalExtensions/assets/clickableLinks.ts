@@ -18,6 +18,17 @@ export default async (LSSM: Vue, showImg: boolean): Promise<void> => {
         await scopedClickableLinks(document);
     }
 
+    document.querySelector('#mission_chat_messages')?.addEventListener(
+        'error',
+        e => {
+            const img = e.target as HTMLElement | null;
+            if (!img || img.nodeName !== 'IMG' || !img.parentElement) return;
+            img.parentElement.textContent = img.getAttribute('src');
+            img.remove();
+        },
+        true
+    );
+
     LSSM.$store
         .dispatch('premodifyParams', {
             event: 'allianceChat',
