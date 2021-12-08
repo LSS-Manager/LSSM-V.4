@@ -284,7 +284,7 @@ export default {
             wtank: 0,
             possibleBuildings: [0, 18],
             special:
-                'To purchase with credits it requires the rank: Captain, <br>Lower ranked members can purchase the vehicle for 25 Coins. <br>Aerial Pumper acts as a Platform Truck and a Fire Truck.',
+                'To purchase with credits it requires the rank: Captain, <br>Lower ranked members can purchase the vehicle for 25 Coins. <br>Aerial Pumper acts as a Turntable Ladder and a Fire Truck.',
         },
         14: {
             caption: 'Police helicopter',
@@ -317,7 +317,7 @@ export default {
                     },
                 },
             },
-            special: 'Required once you have built 8 policestations',
+            special: 'Required once you have built 8 police stations',
         },
         16: {
             caption: 'K-9 Unit',
@@ -335,7 +335,7 @@ export default {
                     },
                 },
             },
-            special: 'Required once you have built 6 policestations',
+            special: 'Required once you have built 6 police stations',
         },
         17: {
             caption: 'Police Motorcycle',
@@ -348,7 +348,7 @@ export default {
             possibleBuildings: [6, 19],
             schooling: {
                 Police: {
-                    'Police Motorcycle': {
+                    'Motor Officer': {
                         all: true,
                     },
                 },
@@ -369,7 +369,7 @@ export default {
                     },
                 },
             },
-            special: 'Required once you have built 8 policestations',
+            special: 'Required once you have built 8 police stations',
         },
         19: {
             caption: 'Heavy Tanker',
@@ -1148,9 +1148,9 @@ export default {
                 staffList: 'K-9',
             },
             {
-                caption: 'Police Motorcycle',
+                caption: 'Motor Officer',
                 duration: '3 Days',
-                staffList: 'Police Motorcycle',
+                staffList: 'Motor Officer',
             },
             {
                 caption: 'Mounted Police Training',
