@@ -1,9 +1,11 @@
-import clickableLinks from './clickableLinks/util';
-
 import { AllianceChatMessage } from 'typings/Ingame';
 
 export default async (LSSM: Vue, showImg: boolean): Promise<void> => {
     const { urlRegex } = LSSM.$utils;
+
+    const { default: clickableLinks } = await import(
+        /* webpackChunkName: "utils/clickableLinks" */ './clickableLinks/util'
+    );
 
     const scopedClickableLinks = (node: Node) =>
         clickableLinks(LSSM, node, showImg);

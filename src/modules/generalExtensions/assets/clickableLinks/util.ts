@@ -27,7 +27,12 @@ export default async (
                 if (!link) return;
                 const linkNode = document.createElement('a');
                 linkNode.href = link.toString();
-                linkNode.setAttribute('target', '_blank');
+                if (
+                    new URL(linkNode.href, window.location.origin).origin ===
+                    window.location.origin
+                )
+                    linkNode.classList.add('lightbox-open');
+                else linkNode.setAttribute('target', '_blank');
                 if (showImage) {
                     const imgNode = document.createElement('img');
                     imgNode.src = link.toString();
