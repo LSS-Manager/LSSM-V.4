@@ -677,7 +677,19 @@ export default Vue.extend<
                               target.hasAttribute('lightbox-open')
                           )
                               return window.lightboxOpen(href);
-                          else this.$set(this, 'src', href);
+                          if (target.hasAttribute('target')) {
+                              if (
+                                  new URL(href, window.location.origin)
+                                      .origin === window.location.origin
+                              )
+                                  return window.lightboxOpen(href);
+                              return window.open(
+                                  href,
+                                  target.getAttribute('target') ?? '_blank'
+                              );
+                          }
+
+                          this.$set(this, 'src', href);
                       });
                       this.$el.addEventListener('click', e => {
                           const target = (e.target as HTMLElement)?.closest<
