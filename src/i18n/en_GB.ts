@@ -139,7 +139,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 5,
             possibleBuildings: [0, 18],
-            special: 'A smaller pump used in ruarl areas, will act as a pump.',
+            special: 'A smaller pump used in rural areas, will act as a pump.',
         },
         2: {
             caption: 'Aerial Appliance',
@@ -172,7 +172,7 @@ export default {
             maxPersonnel: 5,
             possibleBuildings: [0, 18],
             special:
-                'Required once you have built 4 fire stations. A big lorry with specialist rescue equipment, use full for Road Traffic Collisions.',
+                'Required once you have built 4 fire stations. A big lorry with specialist rescue equipment, useful for Road Traffic Collisions.',
         },
         5: {
             caption: 'Ambulance',
@@ -194,7 +194,7 @@ export default {
             maxPersonnel: 3,
             possibleBuildings: [0, 18],
             special:
-                'Required once you have built 7 fire stations. Used for conveying water to a fire, Very useful for rural fires.',
+                'Required once you have built 7 fire stations. Used for conveying water to a fire, useful for rural fires.',
         },
         7: {
             caption: 'HazMat Unit',
@@ -361,7 +361,7 @@ export default {
             caption: 'Co-Responder Vehicle',
             color: '#bb2222',
             coins: 25,
-            credits: 19_000,
+            credits: 4_000,
             minPersonnel: 1,
             maxPersonnel: 1,
             possibleBuildings: [0, 18],
@@ -453,7 +453,7 @@ export default {
                 },
             },
             special:
-                'Acts as a Traffic Car and Incident Response Vehicle. A pursuit vehicle for high speed chases.',
+                'Acts as a Traffic Car and Incident Response Vehicle. A pursuit vehicle for high speed chases as well as RTCs.',
         },
         25: {
             caption: 'Armed Traffic Car',
