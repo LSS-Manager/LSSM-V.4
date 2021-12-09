@@ -75,6 +75,11 @@ Zeigt am rechten Rand eines Einsatzes eine kleine Zahl an, wie viele Patienten g
 ### Verstecke 0 Patienten
 Ist diese Einstellung aktiv, wird die Zahl der Patienten nur dann angezeigt, wenn diese größer 0 ist.
 
+### Patientenzahl in Tooltips
+Mit dieser Einstellung wird die aktuelle Zahl der Patienten auch in den Tooltips auf der Karte angezeigt:
+
+![Patientenzahl in Tooltips](patienten-tooltip.png)
+
 ## Saisonale Einsätze markieren
 Mit dieser Einstellung kannst du für jeden einzelnen Einsatz beliebig viele kurze Hinweise notieren, welche vor dem Namen in der Einsatzliste gezeigt werden. Standardmäßig sind hier saisonale Einsätze eingetragen (Sommer, Halloween, Fußball etc.), daher auch der Name.
 
