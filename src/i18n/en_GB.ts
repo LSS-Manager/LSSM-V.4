@@ -530,9 +530,9 @@ export default {
             credits: 15_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            possibleBuildings: [0,18,25],
+            possibleBuildings: [0, 18, 25],
             schooling: {
-                Rescue: {
+                'Rescue': {
                     'HART Training': {
                         all: true,
                     },
@@ -737,7 +737,8 @@ export default {
                     },
                 },
             },
-            special: 'Requires special education for personnel in towing vehicle (Mobile command)',
+            special:
+                'Requires special education for personnel in towing vehicle (Mobile command)',
             possibleBuildings: [0],
         },
         45: {
@@ -781,7 +782,8 @@ export default {
                     },
                 },
             },
-            special: 'Requires special education for personnel in towing vehicle (HazMat)',
+            special:
+                'Requires special education for personnel in towing vehicle (HazMat)',
             possibleBuildings: [0],
         },
         49: {
@@ -798,7 +800,8 @@ export default {
                     },
                 },
             },
-            special: 'Requires special education for personnel in towing vehicle (HazMat)',
+            special:
+                'Requires special education for personnel in towing vehicle (HazMat)',
             possibleBuildings: [0],
         },
         50: {
@@ -815,7 +818,8 @@ export default {
                     },
                 },
             },
-            special: 'Requires special education for personnel in towing vehicle (High Volume Pump Training)',
+            special:
+                'Requires special education for personnel in towing vehicle (High Volume Pump Training)',
             possibleBuildings: [0],
         },
     },
@@ -1334,7 +1338,20 @@ export default {
         'Fire Fighting Vehicles': {
             vehicles: {
                 'Pumps': [0, 1, 16, 26, 17],
-                'Special Vehicles': [4, 7, 14, 18, 6, 2, 40, 35, 36, 37, 38, 39],
+                'Special Vehicles': [
+                    4,
+                    7,
+                    14,
+                    18,
+                    6,
+                    2,
+                    40,
+                    35,
+                    36,
+                    37,
+                    38,
+                    39,
+                ],
                 'Command Vehicles': [15, 3],
                 'Container': [41, 42, 43, 44, 45, 46, 47, 48, 49, 50],
             },

@@ -94,7 +94,7 @@ module.exports = {
                 37,
                 38,
                 39,
-                40
+                40,
             ],
         },
         vehiclesByRequirement: {
