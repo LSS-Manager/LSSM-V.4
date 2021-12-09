@@ -1430,6 +1430,16 @@ export default {
                 duration: '3 Days',
                 staffList: 'Co-Responder',
             },
+            {
+                caption: 'High Volume Pump Training',
+                duration: '3 Days',
+                staffList: 'High Volume Pump Training',
+            },
+            {
+                caption: 'HART Training',
+                duration: '5 Days',
+                staffList: 'HART Training',
+            },
         ],
         'Police': [
             {
