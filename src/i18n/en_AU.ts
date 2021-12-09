@@ -348,7 +348,7 @@ export default {
             possibleBuildings: [6, 19],
             schooling: {
                 Police: {
-                    'Motor Officer': {
+                    'Police Motorcycle': {
                         all: true,
                     },
                 },
