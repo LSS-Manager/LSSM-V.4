@@ -645,7 +645,6 @@ export default {
             possibleBuildings: [0],
             special: 'Bulk Foam Unit, Fufills the foam unit requirement on missions. Used on hazardous fires and electrical fires.',        
         },
-        
         36: {
             caption: 'F/WrC',
             color: '#aa0000',
@@ -759,7 +758,7 @@ export default {
             minPersonnel: 0,
             maxPersonnel: 0,
             possibleBuildings: [0],
-            
+            special: 'Acts as a Welfare Unit',
         },
         46: {
             caption: 'BASU Pod',
@@ -779,7 +778,7 @@ export default {
             minPersonnel: 0,
             maxPersonnel: 0,
             possibleBuildings: [0],
-            special; 'Acts as a misting unit'
+            special: 'Acts as a misting unit'
         },
         48: {
             caption: 'Hazardous Materials Pod',
