@@ -244,6 +244,10 @@ export default (
             const overlayIndex =
                 mission.getAttribute('data-overlay-index') ?? 'null';
             if (overlayIndex !== 'null') missionType += `-${overlayIndex}`;
+            const additionalOverlay =
+                mission.getAttribute('data-additive-overlays') ?? 'null';
+            if (additionalOverlay !== 'null')
+                missionType += `/${additionalOverlay}`;
             return numToCSSRange(
                 missionsById[missionType]?.average_credits ?? 0
             ).toString();
@@ -280,6 +284,10 @@ export default (
             const overlayIndex =
                 mission.getAttribute('data-overlay-index') ?? 'null';
             if (overlayIndex !== 'null') missionType += `-${overlayIndex}`;
+            const additionalOverlay =
+                mission.getAttribute('data-additive-overlays') ?? 'null';
+            if (additionalOverlay !== 'null')
+                missionType += `/${additionalOverlay}`;
             return numToCSSRange(
                 missionIdsByAlphabet[missionType] ?? 0
             ).toString();

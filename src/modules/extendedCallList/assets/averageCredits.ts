@@ -25,6 +25,9 @@ export default (LSSM: Vue): void => {
             span.style.setProperty('color', 'black');
         const overlayIndex = panel.getAttribute('data-overlay-index') ?? 'null';
         if (overlayIndex !== 'null') mission += `-${overlayIndex}`;
+        const additionalOverlay =
+            panel.getAttribute('data-additive-overlays') ?? 'null';
+        if (additionalOverlay !== 'null') mission += `/${additionalOverlay}`;
         const missionSpecs: Mission | undefined = missionsById[mission];
         span.textContent = `~ ${missionSpecs?.average_credits?.toLocaleString() ??
             '–'}`;
