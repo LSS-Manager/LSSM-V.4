@@ -15,6 +15,10 @@ Il existe également des regroupements pour les véhicules. Un clic sur un group
 Dans l'aperçu des statuts, vous trouvez un tableau dans lequel vous pouvez voir de quel type de véhicule vous disposez, combien de véhicules et également combien ont quel statut. Le tableau peut être filtré et trié.
 ![aperçu du statut](status_table.png)
 
+Sous le tableau se trouve une petite icône. Un clic sur celle-ci ouvre et ferme un diagramme circulaire qui visualise la répartition actuelle des statuts :
+
+![répartition des statuts](statuschart.png)
+
 Si l'on passe la souris sur une cellule du tableau, un bouton apparaît, avec lequel on peut ouvrir une liste de véhicules. En voici quelques exemples :
 
 #### Tous les véhicules d'un type
