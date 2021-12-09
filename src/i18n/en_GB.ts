@@ -643,7 +643,9 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 2,
             possibleBuildings: [0],
+            special: 'Bulk Foam Unit, Fufills the foam unit requirement on missions. Used on hazardous fires and electrical fires.',        
         },
+        
         36: {
             caption: 'F/WrC',
             color: '#aa0000',
@@ -652,6 +654,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 2,
             possibleBuildings: [0],
+            special: 'Acts as a Bulk Foam Unit and a Water Carrier. Used on hazardous fires and electrical fires.',
         },
         37: {
             caption: 'WrL CAFS',
@@ -661,6 +664,7 @@ export default {
             minPersonnel: 2,
             maxPersonnel: 9,
             possibleBuildings: [0],
+            special: 'Acts as a Bulk Foam Unit and a Water Ladder (Pump). Used on hazardous fires and electrical fires.',
         },
         38: {
             caption: 'RP CAFS',
@@ -670,6 +674,7 @@ export default {
             minPersonnel: 2,
             maxPersonnel: 9,
             possibleBuildings: [0],
+            special: 'Acts as a Bulk Foam Unit, Rescue Support Vehicle and a Pump. Used on hazardous fires and electrical fires.',
         },
         39: {
             caption: 'OSU',
@@ -686,6 +691,7 @@ export default {
                 },
             },
             possibleBuildings: [0, 18],
+            special: 'Acts as A Breathing Appartus Support Unit, Hazmat Unit and a Welfare Unit',
         },
         40: {
             caption: 'PM',
@@ -695,6 +701,7 @@ export default {
             minPersonnel: 0,
             maxPersonnel: 2,
             possibleBuildings: [0, 18],
+            special: 'Carries Every Pod, which are different types of vehicles on the back of a lorry',
         },
         41: {
             caption: 'Water Pod',
@@ -704,6 +711,7 @@ export default {
             minPersonnel: 0,
             maxPersonnel: 0,
             possibleBuildings: [0],
+            special: 'Acts as a Water Carrier',
         },
         42: {
             caption: 'Bulk Foam Pod',
@@ -713,6 +721,7 @@ export default {
             minPersonnel: 0,
             maxPersonnel: 0,
             possibleBuildings: [0],
+            special: 'Acts as a Bulk Foam Unit. Used on hazardous fires and electrical fires.',
         },
         43: {
             caption: 'Rescue Pod',
@@ -722,6 +731,7 @@ export default {
             minPersonnel: 0,
             maxPersonnel: 0,
             possibleBuildings: [0],
+            special: 'Acts as a Rescue Support Unit.',
         },
         44: {
             caption: 'Command Pod',
@@ -738,7 +748,7 @@ export default {
                 },
             },
             special:
-                'Requires special education for personnel in towing vehicle (Mobile command)',
+                'Requires special education for personnel on Prime Mover (Mobile command). Acts as a Incident Command and Control Unit',
             possibleBuildings: [0],
         },
         45: {
@@ -749,6 +759,7 @@ export default {
             minPersonnel: 0,
             maxPersonnel: 0,
             possibleBuildings: [0],
+            
         },
         46: {
             caption: 'BASU Pod',
@@ -758,6 +769,7 @@ export default {
             minPersonnel: 0,
             maxPersonnel: 0,
             possibleBuildings: [0],
+            special: 'Acts as a Breathing Appartus Support Unit'
         },
         47: {
             caption: 'Misting Pod',
@@ -767,6 +779,7 @@ export default {
             minPersonnel: 0,
             maxPersonnel: 0,
             possibleBuildings: [0],
+            special; 'Acts as a misting unit'
         },
         48: {
             caption: 'Hazardous Materials Pod',
@@ -783,7 +796,7 @@ export default {
                 },
             },
             special:
-                'Requires special education for personnel in towing vehicle (HazMat)',
+                'Requires special education for personnel on Prime Mover (HazMat). Acts as a Hazmat Unit',
             possibleBuildings: [0],
         },
         49: {
@@ -801,7 +814,7 @@ export default {
                 },
             },
             special:
-                'Requires special education for personnel in towing vehicle (HazMat)',
+                'Requires special education for personnel in towing vehicle (HazMat). Acts as a Hazmat Unit',
             possibleBuildings: [0],
         },
         50: {
@@ -819,7 +832,7 @@ export default {
                 },
             },
             special:
-                'Requires special education for personnel in towing vehicle (High Volume Pump Training)',
+                'Requires special education for personnel on Prime Mover (High Volume Pump Training). Acts as a High Volume Pump',
             possibleBuildings: [0],
         },
     },
