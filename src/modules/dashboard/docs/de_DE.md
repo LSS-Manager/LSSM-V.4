@@ -15,6 +15,10 @@ Auch bei den Fahrzeugen gibt es Gruppierungen. Ein klick auf eine Gruppe (z.B: `
 In der Statusübersicht findest du eine Tabelle, in der du sehen kannst von welchem Fahrzeugtyp du wie viele Fahrzeuge hast und ebenfalls wie viele welchen Status haben. Die Tabelle lässt sich Filtern und sortieren.
 ![Statusübersicht](status_table.png)
 
+Unter der Tabelle findet sich ein kleines Icon. Ein Klick darauf öffnet & schließt ein Kreisdiagramm, welches die aktuelle Status-Verteilung visualisiert:
+
+![Statusverteilung](statuschart.png)
+
 Fährt man mit der Maus über eine Tabellenzelle erscheint ein Knopf, mit welchem man eine Fahrzeugliste öffnen kann. Hier ein paar Beispiele:
 
 #### Alle Fahrzeuge eines Typs

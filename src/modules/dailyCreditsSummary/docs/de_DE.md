@@ -12,6 +12,12 @@ Klickst du auf das kleine `i`, bekommst du zusätzlich eine sortierbare Tabelle 
 
 ![Tabelle](table.png)
 
+Zudem werden je ein Kreisdiagramm für Einnahmen und Ausgaben angezeigt.
+
+Über der Tabelle findest du einen Knopf, um die Daten zu exportieren.
+
+---
+
 Folgende Kategorien verwenden wir:
 
 * Verbandseinsätze
