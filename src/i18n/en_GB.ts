@@ -530,9 +530,14 @@ export default {
             credits: 15_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            possibleBuildings: [25],
+            possibleBuildings: [0,18,25],
             schooling: {
                 Rescue: {
+                    'HART Training': {
+                        all: true,
+                    },
+                },
+                'Fire Station': {
                     'HART Training': {
                         all: true,
                     },
@@ -630,6 +635,189 @@ export default {
             special:
                 'Required once you have built 15 Rescue stations. It is required for missions that can spawn with over 20 patients to help command the scene.',
         },
+        35: {
+            caption: 'BFU',
+            color: '#aa0000',
+            coins: 10,
+            credits: 17_300,
+            minPersonnel: 1,
+            maxPersonnel: 2,
+            possibleBuildings: [0],
+        },
+        36: {
+            caption: 'F/WrC',
+            color: '#aa0000',
+            coins: 15,
+            credits: 45_000,
+            minPersonnel: 1,
+            maxPersonnel: 2,
+            possibleBuildings: [0],
+        },
+        37: {
+            caption: 'WrL CAFS',
+            color: '#aa0000',
+            coins: 10,
+            credits: 17_300,
+            minPersonnel: 2,
+            maxPersonnel: 9,
+            possibleBuildings: [0],
+        },
+        38: {
+            caption: 'RP CAFS',
+            color: '#aa0000',
+            coins: 10,
+            credits: 25_000,
+            minPersonnel: 2,
+            maxPersonnel: 9,
+            possibleBuildings: [0],
+        },
+        39: {
+            caption: 'OSU',
+            color: '#aa0000',
+            coins: 15,
+            credits: 30_000,
+            minPersonnel: 1,
+            maxPersonnel: 6,
+            schooling: {
+                'Fire Station': {
+                    HazMat: {
+                        all: true,
+                    },
+                },
+            },
+            possibleBuildings: [0, 18],
+        },
+        40: {
+            caption: 'PM',
+            color: '#aa0000',
+            coins: 10,
+            credits: 10_000,
+            minPersonnel: 0,
+            maxPersonnel: 2,
+            possibleBuildings: [0, 18],
+        },
+        41: {
+            caption: 'Water Pod',
+            color: '#aa0000',
+            coins: 8,
+            credits: 17_300,
+            minPersonnel: 0,
+            maxPersonnel: 0,
+            possibleBuildings: [0],
+        },
+        42: {
+            caption: 'Bulk Foam Pod',
+            color: '#aa0000',
+            coins: 8,
+            credits: 17_300,
+            minPersonnel: 0,
+            maxPersonnel: 0,
+            possibleBuildings: [0],
+        },
+        43: {
+            caption: 'Rescue Pod',
+            color: '#aa0000',
+            coins: 8,
+            credits: 12_180,
+            minPersonnel: 0,
+            maxPersonnel: 0,
+            possibleBuildings: [0],
+        },
+        44: {
+            caption: 'Command Pod',
+            color: '#aa0000',
+            coins: 8,
+            credits: 25_500,
+            minPersonnel: 0,
+            maxPersonnel: 0,
+            schooling: {
+                'Fire Station': {
+                    'Mobile Command': {
+                        all: true,
+                    },
+                },
+            },
+            special: 'Requires special education for personnel in towing vehicle (Mobile command)',
+            possibleBuildings: [0],
+        },
+        45: {
+            caption: 'Welfare Pod',
+            color: '#aa0000',
+            coins: 8,
+            credits: 15_000,
+            minPersonnel: 0,
+            maxPersonnel: 0,
+            possibleBuildings: [0],
+        },
+        46: {
+            caption: 'BASU Pod',
+            color: '#aa0000',
+            coins: 8,
+            credits: 11_680,
+            minPersonnel: 0,
+            maxPersonnel: 0,
+            possibleBuildings: [0],
+        },
+        47: {
+            caption: 'Misting Pod',
+            color: '#aa0000',
+            coins: 8,
+            credits: 5_000,
+            minPersonnel: 0,
+            maxPersonnel: 0,
+            possibleBuildings: [0],
+        },
+        48: {
+            caption: 'Hazardous Materials Pod',
+            color: '#aa0000',
+            coins: 8,
+            credits: 19_200,
+            minPersonnel: 0,
+            maxPersonnel: 0,
+            schooling: {
+                'Fire Station': {
+                    HazMat: {
+                        all: true,
+                    },
+                },
+            },
+            special: 'Requires special education for personnel in towing vehicle (HazMat)',
+            possibleBuildings: [0],
+        },
+        49: {
+            caption: 'OSU Pod',
+            color: '#aa0000',
+            coins: 8,
+            credits: 30_000,
+            minPersonnel: 0,
+            maxPersonnel: 0,
+            schooling: {
+                'Fire Station': {
+                    HazMat: {
+                        all: true,
+                    },
+                },
+            },
+            special: 'Requires special education for personnel in towing vehicle (HazMat)',
+            possibleBuildings: [0],
+        },
+        50: {
+            caption: 'HVP',
+            color: '#aa0000',
+            coins: 8,
+            credits: 20_000,
+            minPersonnel: 0,
+            maxPersonnel: 0,
+            schooling: {
+                'Fire Station': {
+                    'High Volume Pump Training': {
+                        all: true,
+                    },
+                },
+            },
+            special: 'Requires special education for personnel in towing vehicle (High Volume Pump Training)',
+            possibleBuildings: [0],
+        },
     },
     buildings: {
         0: {
@@ -650,6 +838,24 @@ export default {
                     coins: 20,
                     duration: '7 Days',
                 },
+                {
+                    caption: 'Foam Extension',
+                    credits: 150_000,
+                    coins: 15,
+                    duration: '5 Days',
+                },
+                {
+                    caption: 'Swap Body Parking Space',
+                    credits: 50_000,
+                    coins: 20,
+                    duration: '7 Days',
+                },
+                ...new Array(11).fill({
+                    caption: 'Swap Body Parking Space',
+                    credits: 50_000,
+                    coins: 20,
+                    duration: '7 Days',
+                }),
                 {
                     caption: 'Water rescue expansion',
                     credits: 100_000,
@@ -1128,8 +1334,9 @@ export default {
         'Fire Fighting Vehicles': {
             vehicles: {
                 'Pumps': [0, 1, 16, 26, 17],
-                'Special Vehicles': [4, 7, 14, 18, 6, 2],
+                'Special Vehicles': [4, 7, 14, 18, 6, 2, 40, 35, 36, 37, 38, 39],
                 'Command Vehicles': [15, 3],
+                'Container': [41, 42, 43, 44, 45, 46, 47, 48, 49, 50],
             },
             color: '#ff2d2d',
         },

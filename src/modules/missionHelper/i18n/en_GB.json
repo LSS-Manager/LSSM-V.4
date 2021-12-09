@@ -18,6 +18,7 @@
 	},
 	"prerequisites": {
 		"fire_stations": "Fire Station | Fire Stations",
+		"fire_support_count": "Foam Extension | Foam Extensions",
 		"hazard_response_ems_count": "HART Base | HART Bases",
 		"mass_casualty_count": "Mass Casualty Extension | Mass Casualty Extensions",
 		"max_police_stations": "Maximum Police Stations",
@@ -47,6 +48,7 @@
 			"emergency_welfare": "Welfare Vehicle | Welfare Vehicles",
 			"ems_mobile_command": "Ambulance Officer | Ambulance Officers",
 			"firetrucks": "Pump | Pumps",
+			"foam": "Foam Unit | Foam Units",
 			"hazard_response_primary": "Primary Response Vehicle | Primary Response Vehicles",
 			"hazard_response_secondary": "Secondary Response Vehicle | Secondary Response Vehicles",
 			"hazmat_vehicles": "HazMat Unit or CBRN Vehicle | HazMat Units or CBRN Vehicles",
