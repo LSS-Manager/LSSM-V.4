@@ -1,9 +1,11 @@
-import clickableLinks from './clickableLinks/util';
-
 import { AllianceChatMessage } from 'typings/Ingame';
 
 export default async (LSSM: Vue, showImg: boolean): Promise<void> => {
     const { urlRegex } = LSSM.$utils;
+
+    const { default: clickableLinks } = await import(
+        /* webpackChunkName: "utils/clickableLinks" */ './clickableLinks/util'
+    );
 
     const scopedClickableLinks = (node: Node) =>
         clickableLinks(LSSM, node, showImg);
@@ -16,6 +18,17 @@ export default async (LSSM: Vue, showImg: boolean): Promise<void> => {
         await scopedClickableLinks(document);
     }
 
+    document.querySelector('#mission_chat_messages')?.addEventListener(
+        'error',
+        e => {
+            const img = e.target as HTMLElement | null;
+            if (!img || img.nodeName !== 'IMG' || !img.parentElement) return;
+            img.parentElement.textContent = img.getAttribute('src');
+            img.remove();
+        },
+        true
+    );
+
     LSSM.$store
         .dispatch('premodifyParams', {
             event: 'allianceChat',
@@ -27,7 +40,12 @@ export default async (LSSM: Vue, showImg: boolean): Promise<void> => {
                     if (text) e.message += text;
                     const link = links.shift();
                     if (link) {
-                        e.message += `<a href="${link}" target="_blank">${
+                        e.message += `<a href="${link}" ${
+                            new URL(link, window.location.origin).origin ===
+                            window.location.origin
+                                ? 'class="lightbox-open"'
+                                : 'target="_blank"'
+                        }>${
                             showImg
                                 ? `<img src="${link}" alt="${link}" style="max-width: 10%;"/>`
                                 : link

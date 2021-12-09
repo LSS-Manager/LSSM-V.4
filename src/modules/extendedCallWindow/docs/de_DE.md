@@ -1,4 +1,4 @@
-Das Einsatzfenster ist eines der zentralen Elemente des Spiels. Um es zu erweitern gibt es dieses Modul mit vielen verschiedenen Features:
+Das Einsatzfenster ist eines der zentralen Elemente des Spiels. Um es zu erweitern, gibt es dieses Modul mit vielen verschiedenen Features:
 
 ## Generierungszeitpunkt
 Dir wird der Generierungszeitpunkt oben neben der Einsatzadresse angezeigt.
@@ -14,19 +14,24 @@ Die Generierungszeit wird gelb umrandet, wenn seit der Generierung mehr als x (e
 Es bleiben öfter mal Einsätze offen, die zu verfallen drohen. Am Abend davor die Einsätze zu schließen, das ist die Schwierigkeit. Dieses Modul hilft dir dabei, indem es Einsätze, die zu verfallen drohen, rot markiert.
 
 ## Benötigte Fahrzeuge verschönern
-Wer kennt es nicht, grade wenn viele Fahrzeuge gefordert sind, ist die Nachforderung ziemlich unübersichtlicht und wenn man einmal etwas übersieht, dauert es noch länger, bis der Einsatz abgearbeitet wird. Dieses Feature hilft dir dabei, bei jedem Einsatz den Überblick zu bewahren, indem es die noch benötigeten fahrzeuge übersichtlich als Tabelle darstellt.
+Wer kennt es nicht, gerade wenn viele Fahrzeuge gefordert sind, ist die Nachforderung ziemlich unübersichtlich und wenn man einmal etwas übersieht, dauert es noch länger, bis der Einsatz abgearbeitet wird. Dieses Feature hilft dir dabei, bei jedem Einsatz den Überblick zu bewahren, indem es die noch benötigten fahrzeuge übersichtlich als Tabelle darstellt.
 
-![Tabelle mit zusaätzlich benötigten Fahrzeugen](fahrzeugeVerschoenern.png)
+![Tabelle mit zusätzlich benötigten Fahrzeugen](fahrzeugeVerschoenern.png)
 
 ### Maximalbesetzung
-Manchmal wird am Einsatzort ja auch eine bestimmte Personalmenge gebraucht. Dieses Feature ergänzt die Personalrechnung, indem es davon ausgeht, dass jedes fahrzeug mit der Maximalen Personalmenge ausrückt.
+Manchmal wird am Einsatzort ja auch eine bestimmte Personalmenge gebraucht. Dieses Feature ergänzt die Personalrechnung, indem es davon ausgeht, dass jedes fahrzeug mit der maximalen Personalmenge ausrückt.
 
 ### Tooltips
-Mit dieser Einstellung werden zu den Buttons von "Benötigste Fahrzeuge verschönern" kleine Hinweisfelder ergänzt, die erscheinen, sobal man die Maus kurz auf dem jeweiligen Button ruhen lässt.
+Mit dieser Einstellung werden zu den Buttons von "Benötigte Fahrzeuge verschönern" kleine Hinweisfelder ergänzt, die erscheinen, sobald man die Maus kurz auf dem jeweiligen Button ruhen lässt.
 
 ## Patientenzusammenfassung
-Dieses Modul ist perfekt für alle Spieler, die bei vielen Patienten gerne den Überblick behalten. Es zeigt, wie viele Rettungsfahrzeuge welcher Art noch am Einsatzort benötigt werden.
-![Patientenliste mit Zussamenfassung](patientList.png)
+Dieses Feature ist perfekt für alle Spieler, die bei vielen Patienten gerne den Überblick behalten. Es zeigt, wie viele Rettungsfahrzeuge welcher Art noch am Einsatzort benötigt werden.
+![Patientenliste mit Zusammenfassung](patientList.png)
+
+## Patienten einklappen
+gerade bei Einsätzen mit vielen Patienten nehmen diese viel Platz ein. Deswegen kannst du mit diesem Feature die Patienten einklappen. Stattdessen wird eine Zusammenfassung angezeigt. Mit dem kleinen Icon unten links kannst du die Patienten jederzeit anzeigen und ausblenden:
+
+![Patienten einklappen](patientcollapse.png)
 
 ## AAO-Zähler
 Du willst wissen, wie oft bereits auf eine AAO geklickt wurde? Dann aktiviere dieses Modul, es zählt nämlich, wie oft auf eine AAO geklickt wurde. Natürlich gibt es auch einen Knopf zum Zurücksetzen des Zählers.
@@ -39,12 +44,12 @@ Dieses Modul ist eine kleine Spielerei zum Modul AAO-Zähler. Seine Funktion ist
 ![AAO mit Fahrzeugzähler als Badge](aao3.png)
 
 ## angeklickte AAOs hervorheben
-Vielleicht kennst du das ja, du willst schnell wissen, welche AAO du schon angeklickt hast. Dieses Modul ist perfekt dafür, man sieht nämlich mit einem farbigen Rand, welche AAO man schon angegklickt hat.
+Vielleicht kennst du das ja, du willst schnell wissen, welche AAO du schon angeklickt hast. Dieses Modul ist perfekt dafür, man sieht nämlich mit einem farbigen Rand, welche AAO man schon angeklickt hat.
 
 ![Hervorgehobene AAO](aao1.png)
 
 ### Farbe der Hervorhebung
-Natürlich kannst du dir die Farbe, in der die AAO's hervorgehoben werden, selber einstellen. Nutze dazu den Color-Picker in den Einstellungen.
+Natürlich kannst du dir die Farbe, in der die AAOs hervorgehoben werden, selber einstellen. Nutze dazu den Color-Picker in den Einstellungen.
 
 ### Breite der Hervorhebung
 Natürlich kannst du dir auch die Breite der Hervorhebung anpassen. gemessen wird hier in Pixeln.
@@ -59,9 +64,9 @@ Neben dem Button `Hilfe zu diesem Einsatz` erscheint wie von Zauberhand ein weit
 ![Zurücksetzen-Button](fahrzeugwahlReset.png)
 
 ## Unpassende AAOs ausgrauen
-Suchst du immer Ewigkeiten die passende AAO, weil du für jeden Einsatz eine andere AAO hast? Dieses Modul wirst du lieben. Es graut alle AAO's, in denen nicht mindestens ein Teil des Einsatzstichwortes vorkommt, aus.
+Suchst du immer Ewigkeiten die passende AAO, weil du für jeden Einsatz eine andere AAO hast? Dieses Modul wirst du lieben. Es graut alle AAOs, in denen nicht mindestens ein Teil des Einsatzstichwortes vorkommt, aus.
 
-![ausgegraute AAO's](aao5.png)
+![ausgegraute AAOs](aao5.png)
 
 ## AAO-Anfahrtszeit anzeigen
 Diese Einstellung zeigt an, wie lange das am längsten brauchende Fahrzeug der AAO braucht. Erscheint, wenn du die Maus kurz auf der AAO ruhen lässt.
@@ -69,9 +74,9 @@ Diese Einstellung zeigt an, wie lange das am längsten brauchende Fahrzeug der A
 ![AAO mit angezeigter Anfahrtszeit des am längsten brauchenden Fahrzeuges](aao6.png)
 
 ## AAO Details anzeigen
-Dieses Modul zeigt dir viele Details zu einer AAO, unter anderem welche Fahrzeuge mit diser AAO alarmiert werden. Dieses Popup erscheint, wenn du mit der Maus kurz auf der AAO ruhst.
+Dieses Modul zeigt dir viele Details zu einer AAO, unter anderem welche Fahrzeuge mit dieser AAO alarmiert werden. Dieses Popup erscheint, wenn du mit der Maus kurz auf der AAO ruhst.
 
-![Beispielbild einer AAO mit Deatils](aao8.png)
+![Beispielbild einer AAO mit Details](aao8.png)
 
 ## Längste Anfahrtszeit
 Dieses Modul zeigt unten im Alarm-Button die Anfahrtszeit des Fahrzeuges, welches am längsten zum Einsatzort braucht.
@@ -82,7 +87,7 @@ Dieses Modul zeigt unten im Alarm-Button die Anfahrtszeit des Fahrzeuges, welche
 Mit diesem Modul wird euch die Kopfleiste immer angezeigt, auch wenn ihr im Einsatzfenster scrollt.
 
 ## Fahrzeuge nachladen in Kopfleiste
-Diese Einstellung erlaubt es euch, Fahrzeuge direkt in der Kpfleiste nachzuladen.
+Diese Einstellung erlaubt es euch, Fahrzeuge direkt in der Kopfleiste nachzuladen.
 
 ![Fahrzeuge nachladen in Kopfleiste](alarmfenster2.png)
 
@@ -115,7 +120,7 @@ Dieses Modul zeigt neben einem Patienten seine Restbehandlungsdauer an.
 
 ## Fahrzeugzähler
 
-Der Fahrzeugzähler zählt, wie viele Fahrzeug vor Ort sind. Bei Klick öffnet sich eine Tabelle mit vielen Detailangaben zu den aktuell vor Ort befindlichen Fahrzeugen.
+Der Fahrzeugzähler zählt, wie viele Fahrzeuge vor Ort sind. Bei Klick öffnet sich eine Tabelle mit vielen Detailangaben zu den aktuell vor Ort befindlichen Fahrzeugen.
 
 ![Fahrzeugzähler](fahrzeugzähler.png)
 
@@ -131,7 +136,7 @@ Der Spielerzähler zählt, wie viele Spieler grade am Einsatz anwesend sind. Auc
 
 ### Farbe
 
-Auch hier kann man einstellen, in welcher farbe das Label des Spielerzähler erscheinen soll.
+Auch hier kann man einstellen, in welcher farbe das Label des Spielerzählers erscheinen soll.
 
 ## Eigene Fahrzeugkategorien
 

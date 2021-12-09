@@ -139,7 +139,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 5,
             possibleBuildings: [0, 18],
-            special: 'A smaller pump used in ruarl areas, will act as a pump.',
+            special: 'A smaller pump used in rural areas, will act as a pump.',
         },
         2: {
             caption: 'Aerial Appliance',
@@ -172,7 +172,7 @@ export default {
             maxPersonnel: 5,
             possibleBuildings: [0, 18],
             special:
-                'Required once you have built 4 fire stations. A big lorry with specialist rescue equipment, use full for Road Traffic Collisions.',
+                'Required once you have built 4 fire stations. A big lorry with specialist rescue equipment, useful for Road Traffic Collisions.',
         },
         5: {
             caption: 'Ambulance',
@@ -194,7 +194,7 @@ export default {
             maxPersonnel: 3,
             possibleBuildings: [0, 18],
             special:
-                'Required once you have built 7 fire stations. Used for conveying water to a fire, Very useful for rural fires.',
+                'Required once you have built 7 fire stations. Used for conveying water to a fire, useful for rural fires.',
         },
         7: {
             caption: 'HazMat Unit',
@@ -361,7 +361,7 @@ export default {
             caption: 'Co-Responder Vehicle',
             color: '#bb2222',
             coins: 25,
-            credits: 19_000,
+            credits: 4_000,
             minPersonnel: 1,
             maxPersonnel: 1,
             possibleBuildings: [0, 18],
@@ -453,7 +453,7 @@ export default {
                 },
             },
             special:
-                'Acts as a Traffic Car and Incident Response Vehicle. A pursuit vehicle for high speed chases.',
+                'Acts as a Traffic Car and Incident Response Vehicle. A pursuit vehicle for high speed chases as well as RTCs.',
         },
         25: {
             caption: 'Armed Traffic Car',
@@ -530,9 +530,14 @@ export default {
             credits: 15_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            possibleBuildings: [25],
+            possibleBuildings: [0, 18, 25],
             schooling: {
-                Rescue: {
+                'Rescue': {
+                    'HART Training': {
+                        all: true,
+                    },
+                },
+                'Fire Station': {
                     'HART Training': {
                         all: true,
                     },
@@ -630,6 +635,212 @@ export default {
             special:
                 'Required once you have built 15 Rescue stations. It is required for missions that can spawn with over 20 patients to help command the scene.',
         },
+        35: {
+            caption: 'BFU',
+            color: '#aa0000',
+            coins: 10,
+            credits: 17_300,
+            minPersonnel: 1,
+            maxPersonnel: 2,
+            possibleBuildings: [0],
+            special:
+                'Bulk Foam Unit, Fufills the foam unit requirement on missions. Used on hazardous fires and electrical fires.',
+        },
+        36: {
+            caption: 'F/WrC',
+            color: '#aa0000',
+            coins: 15,
+            credits: 45_000,
+            minPersonnel: 1,
+            maxPersonnel: 2,
+            possibleBuildings: [0],
+            special:
+                'Acts as a Bulk Foam Unit and a Water Carrier. Used on hazardous fires and electrical fires.',
+        },
+        37: {
+            caption: 'WrL CAFS',
+            color: '#aa0000',
+            coins: 10,
+            credits: 17_300,
+            minPersonnel: 2,
+            maxPersonnel: 9,
+            possibleBuildings: [0],
+            special:
+                'Acts as a Bulk Foam Unit and a Water Ladder (Pump). Used on hazardous fires and electrical fires.',
+        },
+        38: {
+            caption: 'RP CAFS',
+            color: '#aa0000',
+            coins: 10,
+            credits: 25_000,
+            minPersonnel: 2,
+            maxPersonnel: 9,
+            possibleBuildings: [0],
+            special:
+                'Acts as a Bulk Foam Unit, Rescue Support Vehicle and a Pump. Used on hazardous fires and electrical fires.',
+        },
+        39: {
+            caption: 'OSU',
+            color: '#aa0000',
+            coins: 15,
+            credits: 30_000,
+            minPersonnel: 1,
+            maxPersonnel: 6,
+            schooling: {
+                'Fire Station': {
+                    HazMat: {
+                        all: true,
+                    },
+                },
+            },
+            possibleBuildings: [0, 18],
+            special:
+                'Acts as A Breathing Appartus Support Unit, Hazmat Unit and a Welfare Unit',
+        },
+        40: {
+            caption: 'PM',
+            color: '#aa0000',
+            coins: 10,
+            credits: 10_000,
+            minPersonnel: 0,
+            maxPersonnel: 2,
+            possibleBuildings: [0, 18],
+            special:
+                'Carries Every Pod, which are different types of vehicles on the back of a lorry',
+        },
+        41: {
+            caption: 'Water Pod',
+            color: '#aa0000',
+            coins: 8,
+            credits: 17_300,
+            minPersonnel: 0,
+            maxPersonnel: 0,
+            possibleBuildings: [0],
+            special: 'Acts as a Water Carrier',
+        },
+        42: {
+            caption: 'Bulk Foam Pod',
+            color: '#aa0000',
+            coins: 8,
+            credits: 17_300,
+            minPersonnel: 0,
+            maxPersonnel: 0,
+            possibleBuildings: [0],
+            special:
+                'Acts as a Bulk Foam Unit. Used on hazardous fires and electrical fires.',
+        },
+        43: {
+            caption: 'Rescue Pod',
+            color: '#aa0000',
+            coins: 8,
+            credits: 12_180,
+            minPersonnel: 0,
+            maxPersonnel: 0,
+            possibleBuildings: [0],
+            special: 'Acts as a Rescue Support Unit.',
+        },
+        44: {
+            caption: 'Command Pod',
+            color: '#aa0000',
+            coins: 8,
+            credits: 25_500,
+            minPersonnel: 0,
+            maxPersonnel: 0,
+            schooling: {
+                'Fire Station': {
+                    'Mobile Command': {
+                        all: true,
+                    },
+                },
+            },
+            special:
+                'Requires special education for personnel on Prime Mover (Mobile command). Acts as a Incident Command and Control Unit',
+            possibleBuildings: [0],
+        },
+        45: {
+            caption: 'Welfare Pod',
+            color: '#aa0000',
+            coins: 8,
+            credits: 15_000,
+            minPersonnel: 0,
+            maxPersonnel: 0,
+            possibleBuildings: [0],
+            special: 'Acts as a Welfare Unit',
+        },
+        46: {
+            caption: 'BASU Pod',
+            color: '#aa0000',
+            coins: 8,
+            credits: 11_680,
+            minPersonnel: 0,
+            maxPersonnel: 0,
+            possibleBuildings: [0],
+            special: 'Acts as a Breathing Appartus Support Unit',
+        },
+        47: {
+            caption: 'Misting Pod',
+            color: '#aa0000',
+            coins: 8,
+            credits: 5_000,
+            minPersonnel: 0,
+            maxPersonnel: 0,
+            possibleBuildings: [0],
+            special: 'Acts as a misting unit',
+        },
+        48: {
+            caption: 'Hazardous Materials Pod',
+            color: '#aa0000',
+            coins: 8,
+            credits: 19_200,
+            minPersonnel: 0,
+            maxPersonnel: 0,
+            schooling: {
+                'Fire Station': {
+                    HazMat: {
+                        all: true,
+                    },
+                },
+            },
+            special:
+                'Requires special education for personnel on Prime Mover (HazMat). Acts as a Hazmat Unit',
+            possibleBuildings: [0],
+        },
+        49: {
+            caption: 'OSU Pod',
+            color: '#aa0000',
+            coins: 8,
+            credits: 30_000,
+            minPersonnel: 0,
+            maxPersonnel: 0,
+            schooling: {
+                'Fire Station': {
+                    HazMat: {
+                        all: true,
+                    },
+                },
+            },
+            special:
+                'Requires special education for personnel in towing vehicle (HazMat). Acts as a Hazmat Unit',
+            possibleBuildings: [0],
+        },
+        50: {
+            caption: 'HVP',
+            color: '#aa0000',
+            coins: 8,
+            credits: 20_000,
+            minPersonnel: 0,
+            maxPersonnel: 0,
+            schooling: {
+                'Fire Station': {
+                    'High Volume Pump Training': {
+                        all: true,
+                    },
+                },
+            },
+            special:
+                'Requires special education for personnel on Prime Mover (High Volume Pump Training). Acts as a High Volume Pump',
+            possibleBuildings: [0],
+        },
     },
     buildings: {
         0: {
@@ -650,6 +861,24 @@ export default {
                     coins: 20,
                     duration: '7 Days',
                 },
+                {
+                    caption: 'Foam Extension',
+                    credits: 150_000,
+                    coins: 15,
+                    duration: '5 Days',
+                },
+                {
+                    caption: 'Swap Body Parking Space',
+                    credits: 50_000,
+                    coins: 20,
+                    duration: '7 Days',
+                },
+                ...new Array(11).fill({
+                    caption: 'Swap Body Parking Space',
+                    credits: 50_000,
+                    coins: 20,
+                    duration: '7 Days',
+                }),
                 {
                     caption: 'Water rescue expansion',
                     credits: 100_000,
@@ -1128,8 +1357,22 @@ export default {
         'Fire Fighting Vehicles': {
             vehicles: {
                 'Pumps': [0, 1, 16, 26, 17],
-                'Special Vehicles': [4, 7, 14, 18, 6, 2],
+                'Special Vehicles': [
+                    4,
+                    7,
+                    14,
+                    18,
+                    6,
+                    2,
+                    40,
+                    35,
+                    36,
+                    37,
+                    38,
+                    39,
+                ],
                 'Command Vehicles': [15, 3],
+                'Container': [41, 42, 43, 44, 45, 46, 47, 48, 49, 50],
             },
             color: '#ff2d2d',
         },
@@ -1205,6 +1448,16 @@ export default {
                 caption: 'Co-Responder Training',
                 duration: '3 Days',
                 staffList: 'Co-Responder',
+            },
+            {
+                caption: 'High Volume Pump Training',
+                duration: '3 Days',
+                staffList: 'High Volume Pump Training',
+            },
+            {
+                caption: 'HART Training',
+                duration: '5 Days',
+                staffList: 'HART Training',
             },
         ],
         'Police': [

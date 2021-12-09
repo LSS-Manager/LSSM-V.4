@@ -450,9 +450,6 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
-
-import cloneDeep from 'lodash/cloneDeep';
 import { faAngleDoubleDown } from '@fortawesome/free-solid-svg-icons/faAngleDoubleDown';
 import { faAngleDoubleUp } from '@fortawesome/free-solid-svg-icons/faAngleDoubleUp';
 import { faArrowsAlt } from '@fortawesome/free-solid-svg-icons/faArrowsAlt';
@@ -462,7 +459,7 @@ import { faSubscript } from '@fortawesome/free-solid-svg-icons/faSubscript';
 import { faSuperscript } from '@fortawesome/free-solid-svg-icons/faSuperscript';
 import { faSyncAlt } from '@fortawesome/free-solid-svg-icons/faSyncAlt';
 
-import { DefaultProps } from 'vue/types/options';
+import cloneDeep from 'lodash/cloneDeep';
 import { Mission } from 'typings/Mission';
 import {
     MissionHelper,
@@ -470,6 +467,9 @@ import {
     MissionHelperMethods,
     VehicleRequirements,
 } from 'typings/modules/MissionHelper';
+import Vue from 'vue';
+
+import { DefaultProps } from 'vue/types/options';
 
 export default Vue.extend<
     MissionHelper,
@@ -640,25 +640,25 @@ export default Vue.extend<
 
             this.missionSpecs = undefined;
 
-            const missionType =
+            let missionType =
                 missionHelpBtn
                     ?.getAttribute('href')
                     ?.match(/(?!^\/einsaetze\/)\d+/)?.[0] || '-1';
 
             if (!this.isDiyMission) {
-                let specs;
                 const overlayIndex =
                     document
                         .getElementById('mission_general_info')
                         ?.getAttribute('data-overlay-index') ?? 'null';
-                if (overlayIndex !== 'null') {
-                    specs = await this.getMission(
-                        `${missionType}-${overlayIndex}`
-                    );
-                } else {
-                    specs = await this.getMission(missionType);
-                }
-                this.missionSpecs = specs;
+                if (overlayIndex && overlayIndex !== 'null')
+                    missionType += `-${overlayIndex}`;
+                const additionalOverlay =
+                    document
+                        .getElementById('mission_general_info')
+                        ?.getAttribute('data-additive-overlays') ?? 'null';
+                if (additionalOverlay && additionalOverlay !== 'null')
+                    missionType += `/${additionalOverlay}`;
+                this.missionSpecs = await this.getMission(missionType);
             }
 
             this.isReloading = false;
