@@ -53,6 +53,14 @@
 			"description": "Ermöglicht es dir im Einsatzfenster auf Knopfdruck die Karte im Hauptfenster auf den Einsatzort zu zentrieren.",
 			"title": "Karte zentrieren"
 		},
+		"collapsablePatients": {
+			"description": "Klappt Patienten im Einsatzfenster zusammen und zeigt stattdessen eine kurze Zusammenfassung an.",
+			"title": "Patienten einklappen"
+		},
+		"collapsablePatientsMinPatients": {
+			"description": "Lege hier fest, ab wie vielen Patienten das Zusammenfassen aktiviert werden soll.",
+			"title": "Patienten einklappen: Minimale Patientenzahl"
+		},
 		"emvMaxStaff": {
 			"description": "Berechnet für 'Benötigte Fahrzeuge verschönern', dass alle Fahrzeuge mit maximalem Personal ausrücken.",
 			"title": "Maximalbesetzung"
@@ -70,7 +78,7 @@
 			"title": "Fahrzeugliste Verstecken"
 		},
 		"hoverTip": {
-			"description": "Tooltips für die Buttons wie der Overlay-Button",
+			"description": "Tooltips für die Knöpfe von \"Benötigte Fahrzeuge verschönern\".",
 			"title": "Tooltips"
 		},
 		"loadMoreVehiclesInHeader": {

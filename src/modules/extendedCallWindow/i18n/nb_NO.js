@@ -1,9 +1,9 @@
 module.exports = {
     arrCounter: {
         resetTexts: {
-            counter: 'AAR-Counter',
-            highlight: 'AAR outline',
-            selection: 'Vehicle selection',
+            counter: 'AAR-teller',
+            highlight: 'AAR disposisjon',
+            selection: 'Valg av kjøretøy',
             counter_highlight: 'AAR counter / outline',
             counter_selection: 'AAR counter and vehicle selection',
             highlight_selection: 'AAR outline and vehicle selection',
@@ -13,19 +13,19 @@ module.exports = {
         reset: '{text} reset',
     },
     arrHover: {
-        reset: 'The vehicle selection is reset before!',
+        reset: 'Kjøretøyvalget er tilbakestilt før!',
         headers: {
-            set: 'Set',
-            attribute: 'Name',
-            free: 'Free',
-            max: 'Max',
+            set: 'Sett',
+            attribute: 'NAVN',
+            free: 'Ledig',
+            max: 'Maks',
         },
         titles: {
-            set: 'So often this combination is selected when you press the AAR',
-            attribute: 'The combination described in this line',
-            free: 'So often this combination is available',
+            set: 'Så ofte velges denne kombinasjonen når du trykker på AAR',
+            attribute: 'Kombinasjonen beskrevet i denne linjen',
+            free: 'Så ofte er denne kombinasjonen tilgjengelig',
             max:
-                'You can select this AAR until this combination is no longer available',
+                'Du kan velge denne AAR til denne kombinasjonen ikke lenger er tilgjengelig',
         },
         arrSpecs: {
             fire: 'Brannbil',
@@ -68,11 +68,11 @@ module.exports = {
         inputFormat: 'MMMM DD., HH:mm',
     },
     enhancedMissingVehicles: {
-        vehicle: 'Vehicle type',
-        missing: 'Missing on mission',
-        driving: 'Approach',
-        total: 'Still needed',
-        selected: 'Selected',
+        vehicle: 'Kjøretøystype',
+        missing: 'Mangler fra oppdrag',
+        driving: 'Nærmer seg',
+        total: 'Fortsatt behov',
+        selected: 'Valgt',
         vehiclesByRequirement: {
             [/^Fire truck(s)$/]: [0, 1, 13, 18, 30, 33],
             [/^Platform truck(s)$/]: [2, 13],
@@ -104,11 +104,11 @@ module.exports = {
     tailoredTabs: {
         defaultTabs: [
             {
-                name: 'Firetruck',
+                name: 'Brannbil',
                 vehicleTypes: [0, 1, 13, 18, 33],
             },
             {
-                name: 'Other Fire Apparatus',
+                name: 'Andre brannbiler',
                 vehicleTypes: [
                     2,
                     3,
@@ -136,27 +136,23 @@ module.exports = {
                 ],
             },
             {
-                name: 'Ambulance',
+                name: 'Ambulanse',
                 vehicleTypes: [5, 11, 15, 20, 25, 27, 28, 29],
             },
             {
-                name: 'Police',
+                name: 'Politi',
                 vehicleTypes: [10, 14, 16, 19, 23, 26, 47],
             },
             {
-                name: 'Water',
+                name: 'Vann',
                 vehicleTypes: [21, 22, 24, 25],
             },
-            {
-                name: 'FBI',
-                vehicleTypes: [42, 43, 44, 45, 46],
-            },
         ],
-        allTab: 'All',
-        occupiedTab: 'Follow-up',
+        allTab: 'Alle',
+        occupiedTab: 'Oppfølging',
     },
     hideVehicleList: {
-        show: 'Show vehicle list',
-        hide: 'Hide vehicle list',
+        show: 'Vis kjøretøyliste',
+        hide: 'Skjul kjøretøyliste',
     },
 };

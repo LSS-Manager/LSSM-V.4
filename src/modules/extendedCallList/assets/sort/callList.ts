@@ -19,6 +19,7 @@ export default (
     sort: Sort,
     direction: 'asc' | 'desc',
     buttonColor: string,
+    sortBtnId: string,
     starredMissionPanelClass: string,
     $m: $m
 ) => {
@@ -33,6 +34,9 @@ export default (
     ];
     let sortingType = sort;
     const sortingDirection = direction;
+    let updateOrderListTimeout = 0;
+
+    const missionOrderValuesById: Record<string, Record<string, number>> = {};
 
     const missionsById: Record<string, Mission> =
         LSSM.$store.getters['api/missionsById'];
@@ -85,6 +89,7 @@ export default (
     }
 
     const sortBtn = document.createElement('button');
+    sortBtn.id = sortBtnId;
     sortBtn.classList.add(
         'btn',
         'btn-xs',
@@ -179,6 +184,8 @@ export default (
             settingId: 'sortMissionsDirection',
             value: sortDirection,
         });
+        if (updateOrderListTimeout) window.clearTimeout(updateOrderListTimeout);
+        updateOrderListTimeout = window.setTimeout(updateOrderList, 100);
         resetOrder();
     });
 
@@ -237,6 +244,10 @@ export default (
             const overlayIndex =
                 mission.getAttribute('data-overlay-index') ?? 'null';
             if (overlayIndex !== 'null') missionType += `-${overlayIndex}`;
+            const additionalOverlay =
+                mission.getAttribute('data-additive-overlays') ?? 'null';
+            if (additionalOverlay !== 'null')
+                missionType += `/${additionalOverlay}`;
             return numToCSSRange(
                 missionsById[missionType]?.average_credits ?? 0
             ).toString();
@@ -251,29 +262,82 @@ export default (
                     .querySelectorAll('.patient_progress')
                     .length.toString();
             }
-            return LSSM.$utils
-                .getNumberFromText(
-                    mission.querySelector('.mission_list_patient_icon + strong')
-                        ?.textContent ?? '0'
-                )
-                .toString();
+            if (
+                mission
+                    .querySelector<HTMLDivElement>(
+                        '[id^="mission_patient_summary_"]'
+                    )
+                    ?.style.getPropertyValue('display') !== 'none'
+            ) {
+                return LSSM.$utils
+                    .getNumberFromText(
+                        mission.querySelector(
+                            '.mission_list_patient_icon + strong'
+                        )?.textContent ?? '0'
+                    )
+                    .toString();
+            }
+            return '0';
         },
         alphabet: mission => {
             let missionType = mission.getAttribute('mission_type_id') ?? '-1';
             const overlayIndex =
                 mission.getAttribute('data-overlay-index') ?? 'null';
-            if (overlayIndex !== 'null') missionType += `-${overlayIndex}`;
+            if (overlayIndex && overlayIndex !== 'null')
+                missionType += `-${overlayIndex}`;
+            const additionalOverlay =
+                mission.getAttribute('data-additive-overlays') ?? 'null';
+            if (additionalOverlay && additionalOverlay !== 'null')
+                missionType += `/${additionalOverlay}`;
             return numToCSSRange(
                 missionIdsByAlphabet[missionType] ?? 0
             ).toString();
         },
     };
 
-    const setMissionOrder = (mission: HTMLDivElement) =>
-        mission.style.setProperty(
-            'order',
-            orderFunctions[sortingType]?.(mission) ?? orderFunctions.id(mission)
+    const updateOrderList = () =>
+        localStorage.setItem(
+            `${PREFIX}_${MODULE_ID}_sort_order`,
+            JSON.stringify(
+                Object.fromEntries(
+                    Object.entries(missionOrderValuesById).map(
+                        ([list, missions]) => [
+                            list,
+                            Object.entries(missions)
+                                .sort(([, valueA], [, valueB]) =>
+                                    panelBody.classList.contains(reverseClass)
+                                        ? valueB - valueA
+                                        : valueA - valueB
+                                )
+                                .map(([mission]) => mission),
+                        ]
+                    )
+                )
+            )
         );
+
+    const setMissionOrder = (mission: HTMLDivElement) => {
+        const missionId = mission.getAttribute('mission_id') ?? '0';
+        const orderValue =
+            orderFunctions[sortingType]?.(mission) ??
+            orderFunctions.id(mission);
+        mission.style.setProperty('order', orderValue);
+        const list =
+            mission.parentElement?.id?.replace(/^mission_list_?/, '') ?? '';
+        if (!missionOrderValuesById.hasOwnProperty(list))
+            missionOrderValuesById[list] = {};
+        if (mission.classList.contains('mission_deleted')) {
+            delete missionOrderValuesById[list][missionId];
+        } else if (
+            !missionOrderValuesById[list].hasOwnProperty(missionId) ||
+            missionOrderValuesById[list][missionId] !== parseInt(orderValue)
+        ) {
+            missionOrderValuesById[list][missionId] = parseInt(orderValue);
+            if (updateOrderListTimeout)
+                window.clearTimeout(updateOrderListTimeout);
+            updateOrderListTimeout = window.setTimeout(updateOrderList, 100);
+        }
+    };
 
     const resetOrder = () => {
         document
@@ -340,6 +404,19 @@ export default (
                     `#mission_${missionId}`
                 );
                 if (panel) setMissionOrder(panel);
+            },
+        })
+        .then();
+
+    LSSM.$store
+        .dispatch('hook', {
+            event: 'missionSelectionActive',
+            callback(toggleBtn: JQuery<HTMLAnchorElement>) {
+                document
+                    .querySelector<HTMLDivElement>(
+                        `#${toggleBtn.attr('classShow')}`
+                    )
+                    ?.style.setProperty('display', 'flex');
             },
         })
         .then();

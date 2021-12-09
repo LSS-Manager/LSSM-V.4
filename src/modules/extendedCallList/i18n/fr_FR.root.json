@@ -140,7 +140,7 @@
 	"settings": {
 		"averageCredits": {
 			"description": "Affiche la moyenne des crédits gagnés pour chaque mission de manière compacte.",
-			"title": "Afficher les crédits moyens"
+			"title": "Afficher les gains"
 		},
 		"collapsableMissions": {
 			"description": "Réduisez la taille des missions individuelles (ou toutes) dans la liste des missions.",
@@ -150,6 +150,10 @@
 			"description": "Indique le nombre actuel de patients pour chaque mission",
 			"title": "Patients actuels"
 		},
+		"currentPatientsInTooltips": {
+			"description": "Affiche le nombre actuel de patients également dans les infobulles de la carte.",
+			"title": "Patients actuels dans les infobulles"
+		},
 		"eventMissions": {
 			"description": "Marque les missions saisonnières. En option, vous pouvez personnaliser l'ensemble et marquer également les missions non saisonnières.",
 			"missions": "Missions",
@@ -158,11 +162,11 @@
 		},
 		"hide0CurrentPatients": {
 			"description": "Masque le nombre de patients s'il n'y en a pas sur place",
-			"title": "Masquer 0 patients"
+			"title": "Masquer 0 patient"
 		},
 		"remainingPatientTime": {
 			"description": "Indique pour le patient le temps qu'il lui reste avant d'être entièrement traité.",
-			"title": "Temps restant pour les patients"
+			"title": "Durée du traitement du patient"
 		},
 		"remainingPumpingTime": {
 			"description": "Indique, pour la progression du pompage, le temps restant jusqu'à ce qu'il soit terminé.",
@@ -170,15 +174,15 @@
 		},
 		"remainingTime": {
 			"description": "Montre pendant les missions combien de temps chaque mission est encore en cours.",
-			"title": "Temps de mission restant"
+			"title": "Durée des missions restantes"
 		},
 		"remainingTimeGreenOnly": {
 			"description": "Afficher le temps restant sur les missions vertes uniquement.",
-			"title": "Temps de mission pour les missions vertes uniquement"
+			"title": "Durée des missions uniquement pour les missions vertes"
 		},
 		"shareMissions": {
 			"description": "Partagez les missions avec l'alliance directement à partir de la liste des missions.",
-			"title": "Missions partagées"
+			"title": "Partager les missions"
 		},
 		"shareMissionsButtonColor": {
 			"danger": "Rouge",
@@ -192,25 +196,29 @@
 		},
 		"shareMissionsMinCredits": {
 			"description": "Le bouton permettant de partager une mission n'est affiché que pour les missions dont la récompense moyenne est supérieure à ce que vous avez défini ici.",
-			"title": "Missions partagées : crédits minimum"
+			"title": "Partager les missions : Crédits minimum"
 		},
 		"shareMissionsTypes": {
 			"description": "Définissez les appels pour lesquels vous souhaitez activer le bouton de partage.",
 			"own": "Appels d'urgence",
 			"sicherheitswache": "Missions planifiées",
-			"title": "Missions partagées : types de missions"
+			"title": "Partager les missions : Types de missions"
 		},
 		"sortMissions": {
 			"description": "Triez votre liste de missions !",
-			"title": "Tri des missions"
+			"title": "Trier les missions"
 		},
 		"sortMissionsButtonColor": {
 			"description": "Sélectionnez la couleur d'arrière-plan du bouton de tri",
-			"title": "Tri des missions: Couleur du bouton"
+			"title": "Trier les missions: Couleur du bouton"
+		},
+		"sortMissionsInMissionwindow": {
+			"description": "Implémente le tri dans les fenêtres de mission. En option, vous pouvez définir des touches de raccourci personnalisées dans notre module \"Hotkeys\" pour les boutons modifiés.",
+			"title": "Tri dans la fenêtre de déploiement"
 		},
 		"starrableMissions": {
 			"description": "Marquez les missions pour qu'elles soient affichées dans la liste des missions en haut de la page. Vous pouvez les marquer dans la fenêtre de mission et dans la liste des missions.",
-			"title": "Missions marquées"
+			"title": "Marquer les missions"
 		}
 	},
 	"sort": {

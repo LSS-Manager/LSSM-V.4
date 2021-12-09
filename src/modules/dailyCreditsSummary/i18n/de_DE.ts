@@ -1,5 +1,9 @@
 export default {
     amount: 'Anzahl',
+    charts: {
+        income: 'Einnahmen',
+        expenses: 'Ausgaben',
+    },
     categories: {
         allianceMission: {
             regex: /^\[Verband]/,

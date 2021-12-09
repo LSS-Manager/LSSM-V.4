@@ -24,6 +24,14 @@ const modules = {
         reset: 'Reset',
         export: 'Exporter',
         import: 'Importer',
+        appendableList: {
+            unique: {
+                title: 'valeur en double',
+                text:
+                    'Il ne doit pas y avoir de valeurs en double dans la colonne **{title}**. La valeur **{valeur}** existe déjà !',
+                confirm: 'OK',
+            },
+        },
         resetWarning: {
             title: 'Reset des paramètres',
             text:
@@ -50,6 +58,10 @@ const modules = {
         changeList: {
             true: 'On',
             false: 'Off',
+        },
+        locationSelect: {
+            location: 'Sélectionnez une position',
+            zoom: 'Sélectionner la position et le zoom',
         },
     },
 } as { [moduleId: string]: { [key: string]: unknown } };
@@ -199,7 +211,7 @@ export default {
                 },
             },
             special:
-                'Nécessaire dès lors que vous avez construit 7 bases de pompiers',
+                'Nécessaire dès lors que vous avez construit 11 bases de pompiers',
         },
         8: {
             caption: 'Véhicule de patrouille',
@@ -234,6 +246,8 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 3,
             possibleBuildings: [0, 18],
+            special:
+                'Nécessaire dès lors que vous avez construit 5 bases de pompiers',
         },
         11: {
             caption: 'VPC',
@@ -262,6 +276,7 @@ export default {
             maxPersonnel: 6,
             wtank: 3000,
             possibleBuildings: [0, 18],
+            special: 'Vous devez posséder au moins le grade : Sergent-chef.',
         },
         13: {
             caption: 'VTU',
@@ -272,7 +287,7 @@ export default {
             maxPersonnel: 3,
             possibleBuildings: [0, 18],
             special:
-                'Nécessaire dès lors que vous avez construit 13 bases de pompiers',
+                'Nécessaire dès lors que vous avez construit 4 bases de pompiers',
         },
         14: {
             caption: 'VGRIMP',
@@ -289,6 +304,8 @@ export default {
                     },
                 },
             },
+            special:
+                'Nécessaire dès lors que vous avez construit 12 bases de pompiers',
         },
         15: {
             caption: 'BEA',
@@ -358,7 +375,7 @@ export default {
                 },
             },
             special:
-                'Nécessaire dès lors que vous avez construit 6 postes de police.<br>Nécessite une formation spéciale (Maître chien)',
+                'Nécessaire dès lors que vous avez construit 6 postes de police.',
         },
         20: {
             caption: 'Unité motocycliste',
@@ -525,6 +542,7 @@ export default {
             maxPersonnel: 4,
             wtank: 1400,
             possibleBuildings: [0, 18],
+            special: 'Vous devez posséder au moins le grade : Adjudant.',
         },
         33: {
             caption: 'CCRM',
@@ -535,6 +553,7 @@ export default {
             maxPersonnel: 6,
             wtank: 2500,
             possibleBuildings: [0, 18],
+            special: 'Vous devez posséder au moins le grade : Adjudant.',
         },
         34: {
             caption: 'CCRSR',
@@ -545,6 +564,7 @@ export default {
             maxPersonnel: 6,
             wtank: 2000,
             possibleBuildings: [0, 18],
+            special: 'Vous devez posséder au moins le grade : Adjudant.',
         },
         35: {
             caption: 'FMOGP',

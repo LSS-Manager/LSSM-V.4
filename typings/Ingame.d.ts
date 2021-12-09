@@ -4,6 +4,15 @@ export interface BuildingMarker extends Marker {
     building_id: number;
 }
 
+export interface MissionMarker extends Marker {
+    mission_id: number;
+    user_id: number;
+    vehicle_state: 0 | 1 | 2; // red | yellow | green
+    krankentransport: boolean;
+    sicherheitswache: boolean;
+    involved: true; // why static? idk!
+}
+
 export interface POIMarker extends Marker {
     id: number;
 }

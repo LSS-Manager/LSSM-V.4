@@ -136,6 +136,10 @@
 			"description": "Shows current amount of patients for each mission",
 			"title": "Current Patients"
 		},
+		"currentPatientsInTooltips": {
+			"description": "Shows current amount of patients also in the tooltips on the map.",
+			"title": "Current Patients in Tooltips"
+		},
 		"eventMissions": {
 			"description": "Marks seasonal missions. Optionally, you can customise the whole thing and also mark non-seasonal missions.",
 			"missions": "Missions",
@@ -193,6 +197,10 @@
 		"sortMissionsButtonColor": {
 			"description": "Select the background color of the sorting button",
 			"title": "Sort missions: Button color"
+		},
+		"sortMissionsInMissionwindow": {
+			"description": "Implements the sorting in mission windows. Optionally, you may set custom Hotkeys in our Module \"Hotkeys\" for the modified buttons.",
+			"title": "Sorting in mission window"
 		},
 		"starrableMissions": {
 			"description": "Mark missions so that they are be displayed in the mission list at the top. You can mark them in the mission window and in the mission list.",

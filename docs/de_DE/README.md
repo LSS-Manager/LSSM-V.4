@@ -31,7 +31,7 @@ Mit der Nutzung des LSSM bist du damit einverstanden, dass wir Metadaten erheben
 Eine Tabelle mit welchen Browsern der LSSM kompatibel ist, findest du in unseren [FAQ](faq.md#in-welchen-browsern-funktioniert-der-lss-manager)
 
 ::: tip Den LSSM am Handy nutzen
-Offiziell unterstützen wir keine mobile Version. Jedoch bietet der Browser Firefox auch in seiner mobilen Version die Möglichkeit, Add-Ons zu nutzen. Wir übernehmen jeddoch keine Garantie für ein ansprechendes Design, sowie die volle Funktionalität bei mobilen Browsern.
+Offiziell unterstützen wir keine mobile Version. Jedoch bietet der Browser Firefox auch in seiner mobilen Version die Möglichkeit, Add-Ons zu nutzen (siehe [FAQ](faq.md#den-lssm-am-handy-nutzen)). Wir übernehmen jedoch keine Garantie für ein ansprechendes Design, sowie die volle Funktionalität bei mobilen Browsern.
 
 Eine offizielle Unterstützung mobiler Browser ist derzeit **nicht** geplant.
 :::

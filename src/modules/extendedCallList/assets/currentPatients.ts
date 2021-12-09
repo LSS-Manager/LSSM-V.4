@@ -1,3 +1,4 @@
+import { parseInt } from 'lodash';
 import {
     MissionMarkerAdd,
     PatientMarkerAdd,
@@ -7,7 +8,8 @@ import {
 export default (
     LSSM: Vue,
     MODULE_ID: string,
-    hide0CurrentPatients: boolean
+    hide0CurrentPatients: boolean,
+    currentPatientsInTooltips: boolean
 ) => {
     LSSM.$store.commit('useFontAwesome');
 
@@ -40,10 +42,19 @@ export default (
             ) {
                 amount = mission.querySelectorAll('.patient_progress').length;
             } else {
-                amount = LSSM.$utils.getNumberFromText(
-                    mission.querySelector('.mission_list_patient_icon + strong')
-                        ?.textContent ?? '0'
-                );
+                if (
+                    mission
+                        .querySelector<HTMLDivElement>(
+                            '[id^="mission_patient_summary_"]'
+                        )
+                        ?.style.getPropertyValue('display') !== 'none'
+                ) {
+                    amount = LSSM.$utils.getNumberFromText(
+                        mission.querySelector(
+                            '.mission_list_patient_icon + strong'
+                        )?.textContent ?? '0'
+                    );
+                }
             }
         }
         patientHolder.textContent = amount.toLocaleString();
@@ -51,6 +62,25 @@ export default (
         patientHolder.parentElement?.classList[
             hide0CurrentPatients && !amount ? 'add' : 'remove'
         ]('hidden');
+
+        if (
+            currentPatientsInTooltips &&
+            (amount || (!amount && !hide0CurrentPatients))
+        ) {
+            window.mission_markers
+                .find(
+                    m =>
+                        m.mission_id ==
+                        parseInt(mission.getAttribute('mission_id') ?? '-1')
+                )
+                ?.getTooltip()
+                ?.setContent(
+                    `${
+                        mission.querySelector(`a[id^="mission_caption_"]`)
+                            ?.innerHTML
+                    }<i class="fa fa-user-injured" style="margin-left: 0.2em; width: 0.875em"></i> ${amount.toLocaleString()}`
+                );
+        }
     };
 
     document

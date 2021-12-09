@@ -1,7 +1,9 @@
-Au fil du temps, ce module fournira des fonctionnalités utiles pour le chat. Il n'y a actuellement qu'une seule fonctionnalité pour ce module, mais d'autres viendront bientôt.
+Ce module devrait, avec le temps, fournir quelques fonctionnalités utiles pour le chat.
 
-## Ajuster l'horodatage dans le chat
+Nous te présentons ici les fonctionnalités déjà implémentées :
 
-Cette fonctionnalité vous permet d'ajuster l'horodatage dans le chat à ce que vous voulez qu'il soit au lieu du format standard `[heure:minute]`. 
-Vous pourriez le changer en `[Jour heure:minute:seconde]`. 
-Vous trouverez des informations sur la façon de personnaliser l'heure dans la section [Settings : Moment.js](settings.md#moment-js).
+##  Adapter l'horodatage dans le chat
+
+Cette fonction adapte l'horodatage dans le chat exactement comme vous le souhaitez. C'est-à-dire qu'au lieu du format standard `[heure:minute]`, vous pouvez par exemple faire `[minute:année-heure~jour de la semaine]` (même si ce format n'a pas vraiment de sens ;) ).
+
+Vous trouverez des informations sur la configuration du format dans la section [Paramètres : Moment.js]

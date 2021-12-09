@@ -119,5 +119,11 @@
 				"YYYY": "Jaar (Vier getallen)"
 			}
 		}
+	},
+	"readme": {
+		"serverStatus": {
+			"game": "Spel status",
+			"lssm": "LSSM server status"
+		}
 	}
 }

@@ -1128,7 +1128,6 @@ import { faUsers } from '@fortawesome/free-solid-svg-icons/faUsers';
 
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { RedesignComponent } from 'typings/modules/Redesign';
-import { Vehicle } from 'typings/Vehicle';
 import { VehicleWindow } from '../parsers/vehicle';
 
 type Component = RedesignComponent<
@@ -1203,7 +1202,7 @@ type Component = RedesignComponent<
         loadAllHospitals(): void;
     },
     {
-        participated_missions: string[];
+        participated_missions: number[];
         mission_head: {
             [key: string]: {
                 title: string;
@@ -1317,12 +1316,7 @@ export default Vue.extend<
     },
     computed: {
         participated_missions() {
-            return Object.keys(
-                (this.$store.getters['api/vehiclesByTarget'] as {
-                    mission?: { [id: number]: Vehicle[] };
-                    building?: { [id: number]: Vehicle[] };
-                }).mission ?? {}
-            );
+            return this.$store.getters['api/participatedMissions'];
         },
         mission_head() {
             return {
@@ -1373,9 +1367,7 @@ export default Vue.extend<
                 const missionType = this.$store.getters['api/missionsById'][
                     m.type
                 ];
-                const participation = this.participated_missions.includes(
-                    m.id.toString()
-                );
+                const participation = this.participated_missions.includes(m.id);
                 const credits = missionType
                     ? missionType.average_credits || 0
                     : Number.MAX_SAFE_INTEGER;

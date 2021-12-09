@@ -1,5 +1,9 @@
 export default {
     amount: 'Quantité',
+    charts: {
+        income: 'Revenu',
+        expenses: 'Dépenses',
+    },
     categories: {
         allianceMission: {
             regex: /^\[Alliance]/,
@@ -54,7 +58,7 @@ export default {
             textColor: 'black',
         },
         alliancePatients: {
-            regex: /Hopital - Alliance/,
+            regex: /Hôpital - Alliance/,
             backgroundColor: '#ffff99',
             textColor: 'black',
         },

@@ -14,6 +14,8 @@ export interface VehicleTypes {
     sort: string;
     sortDir: string;
     faCarSide: IconDefinition;
+    faChartPie: IconDefinition;
+    showChart: boolean;
 }
 
 interface Type {
@@ -73,5 +75,34 @@ export interface VehicleTypesComputed {
     vehicleTypesSorted: string[];
     sum: {
         [state: string]: Vehicle[];
+    };
+    chart: {
+        chart: {
+            type: 'pie';
+            backgroundColor: string;
+            margin: number;
+            spacing: number[];
+            height: string;
+            borderRadius: string;
+        };
+        tooltip: {
+            pointFormat: string;
+        };
+        plotOptions: {
+            pie: {
+                cursor: 'pointer';
+                dataLabels: {
+                    enabled: true;
+                    format: string;
+                };
+            };
+        };
+        title: { text: string; align: string };
+        series: [
+            {
+                name: string;
+                data: { name: string; y: number; value: string }[];
+            }
+        ];
     };
 }

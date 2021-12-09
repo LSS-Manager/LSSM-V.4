@@ -107,6 +107,9 @@ body.dark
         background-color: #505050
         color: white
 
+        .vue-dialog-button:hover
+            background-color: rgba(249, 249, 249, 0.25)
+
     .v-select
         .vs__dropdown-toggle
             border-color: dimgrey

@@ -34,11 +34,11 @@ module.exports = {
             ])
         ),
         s5noblink: {
-            title: 'Arrêt du clignotement pour s5',
+            title: 'Arrêt du clignotement pour le status 5',
             description: 'Désactive le clignotement du statut 5.',
         },
         s5blinkOnGt0: {
-            title: 'Clignotant pour S5 uniquement si nécessaire',
+            title: 'Clignotant pour le status 5 uniquement si nécessaire',
             description:
                 'Le compteur de statut 5 ne clignote que lorsque des véhicules sont en statut 5.',
         },

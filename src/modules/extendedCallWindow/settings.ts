@@ -79,9 +79,23 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
             default: false,
             dependsOn: '.enhancedMissingVehicles',
         },
+        hoverTip: <Toggle>{
+            type: 'toggle',
+            default: true,
+            dependsOn: '.enhancedMissingVehicles',
+        },
         patientSummary: <Toggle>{
             type: 'toggle',
             default: true,
+        },
+        collapsablePatients: <Toggle>{
+            type: 'toggle',
+            default: false,
+        },
+        collapsablePatientsMinPatients: <NumberInput>{
+            type: 'number',
+            default: 7,
+            dependsOn: '.collapsablePatients',
         },
         arrCounter: <Toggle>{
             type: 'toggle',
@@ -141,10 +155,6 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
         centerMap: <Toggle>{
             type: 'toggle',
             default: false,
-        },
-        hoverTip: <Toggle>{
-            type: 'toggle',
-            default: true,
         },
         stagingAreaSelectedCounter: <Toggle>{
             type: 'toggle',
@@ -225,7 +235,7 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
                 <AppendableListSetting<Color>>{
                     name: 'color',
                     title: $m('settings.missionKeywords.color'),
-                    size: 1,
+                    size: 2,
                     setting: {
                         type: 'color',
                     },

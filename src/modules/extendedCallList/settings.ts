@@ -132,6 +132,14 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
             labels: bootsTrapColorLabels,
             dependsOn: '.sortMissions',
         },
+        sortMissionsInMissionwindow: <Toggle>{
+            type: 'toggle',
+            default: true,
+            dependsOn: '.sortMissions',
+        },
+        sortMissionsInMissionwindowChecked: <Hidden>{
+            type: 'hidden',
+        },
         currentPatients: <Toggle>{
             type: 'toggle',
             default: false,
@@ -139,6 +147,11 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
         hide0CurrentPatients: <Toggle>{
             type: 'toggle',
             default: true,
+            dependsOn: '.currentPatients',
+        },
+        currentPatientsInTooltips: <Toggle>{
+            type: 'toggle',
+            default: false,
             dependsOn: '.currentPatients',
         },
         eventMissions: <Omit<AppendableList, 'value' | 'isDisabled'>>{

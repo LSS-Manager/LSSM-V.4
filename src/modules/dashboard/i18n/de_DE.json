@@ -64,6 +64,7 @@
 		"type": "Typ"
 	},
 	"vehicle-types": {
+		"chart": "Status-Zusammenfassung",
 		"status": "Status",
 		"statuses": [
 			1,

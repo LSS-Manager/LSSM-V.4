@@ -62,6 +62,16 @@
 				"title": "Einsatzliste"
 			},
 			"title": "Hauptfenster"
+		},
+		"mission": {
+			"sorted": {
+				"alert_next": "Alarmieren und weiter",
+				"alert_share_next": "Alarmieren, Teilen und weiter",
+				"next": "nächster Einsatz",
+				"prev": "vorheriger Einsatz",
+				"title": "Einsatzsortierung"
+			},
+			"title": "Einsatzfenster"
 		}
 	},
 	"description": "Steuere das Spiel mit Hotkeys auf der Tastatur, die du selbst festlegen kannst.",

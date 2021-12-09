@@ -3,9 +3,13 @@ Ce module remplace le "Total du résumé quotidien" de la V3, qui indiquait dans
 Ce module a été un peu pimenté pour la V4.
 
 Il y a les "badges" affichés par défaut (ils peuvent être désactivés dans les paramètres) :
+
 ![badges](badges.png)
 
+Vous pouvez désactiver l'affichage des moyennes dans les paramètres.
+
 Si vous cliquez sur le petit `i`, alors vous verrez un tableau triable :
+
 ![table](table.png)
 
 Ce module utilise les catégories suivantes :

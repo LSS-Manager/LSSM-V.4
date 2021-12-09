@@ -14,7 +14,7 @@ sidebarDepth: 2
 
 
 
-[Game-Online-Status](https://stats.uptimerobot.com/OEKDJSpmvK)
+[Spel status](https://stats.uptimerobot.com/OEKDJSpmvK)
 
 ## Over LSSM
 

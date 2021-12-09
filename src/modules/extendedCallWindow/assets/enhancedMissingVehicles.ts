@@ -1,6 +1,6 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { $m } from 'typings/Module';
-import enhancedMissingVehicles from '../components/enhancedMissingVehicles.vue';
+import enhancedMissingVehicles from '../components/enhancedMissingVehicles/emv.vue';
 import { Requirement } from 'typings/modules/ExtendedCallWindow/EnhancedMissingVehicles';
 
 export default (LSSM: Vue, MODULE_ID: string, $m: $m): void => {

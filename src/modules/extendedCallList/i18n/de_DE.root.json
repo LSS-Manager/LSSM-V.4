@@ -157,6 +157,10 @@
 			"description": "Zeigt die aktuelle Zahl der Patienten bei jedem Einsatz an.",
 			"title": "Patientenzahl"
 		},
+		"currentPatientsInTooltips": {
+			"description": "Zeigt die aktuelle Zahl der Patienten auch in den Tooltips auf der Karte an.",
+			"title": "Patientenzahl in Tooltips"
+		},
 		"eventMissions": {
 			"description": "Markiert Saisonale Einsätze. Optional kannst du das ganze individuell anpassen und auch nicht-saisonale Einsätze markieren.",
 			"missions": "Einsätze",
@@ -214,6 +218,10 @@
 		"sortMissionsButtonColor": {
 			"description": "Wähle, welche Farbe der Knopf zur Einsatzsortierung haben soll.",
 			"title": "Einsätze sortieren: Knopffarbe"
+		},
+		"sortMissionsInMissionwindow": {
+			"description": "Übernimmt die Sortierung im Einsatzfenster. Optional kannst du im Modul \"Hotkeys\" eigene Tastenkürzel dafür festlegen.",
+			"title": "Sortierung im Einsatzfenster"
 		},
 		"starrableMissions": {
 			"description": "Markiere dir Einsätze, damit diese in der Einsatzliste oben angezeigt werden dürfen. Du kannst die Markierung im Einsatzfenster und in der Einsatzliste vornehmen.",

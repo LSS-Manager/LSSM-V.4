@@ -189,6 +189,10 @@
 			"description": "Laat het huidige aantal patiënten zien bij elke melding",
 			"title": "Huidige patiënten"
 		},
+		"currentPatientsInTooltips": {
+			"description": "Toont het huidige aantal patiënten ook in de tooltips op de kaart.",
+			"title": "Huidige patiënten in tooltips"
+		},
 		"eventMissions": {
 			"description": "Markeert seizoensmeldingen. Optioneel kan je het helemaal aanpassen en ook niet seizoensmeldingen markeren.",
 			"missions": "Melding",
@@ -242,6 +246,10 @@
 		"sortMissionsButtonColor": {
 			"description": "Selecteer de achtergrond van de sorteerknop",
 			"title": "Sorteer meldingen: knop kleur"
+		},
+		"sortMissionsInMissionwindow": {
+			"description": "Sorteer meldingen in het meldingsscherm. Optioneel kan je ook de sneltoetsen in de module \"Sneltoetsen\" instellen voor de aangepaste knoppen.",
+			"title": "Sorteer meldingen in meldingsscherm"
 		},
 		"starrableMissions": {
 			"description": "Markeer meldingen zodat ze bovenaan de meldingenlijst worden weergegeven. Je kan ze in de meldingenlijst of in de melding zelf markeren.",

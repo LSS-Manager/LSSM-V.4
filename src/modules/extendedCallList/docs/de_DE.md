@@ -56,6 +56,17 @@ Sortiere deine Einsatzliste nach bestimmten Kriterien! Auch hier lässt sich die
 
 ![Einsätze sortieren](missionSort.png)
 
+### Sortierung im Einsatzfenster
+Mit dieser Einstellung kannst du die Sortierung ins Einsatzfenster übernehmen. Selbstverständlich kannst du auch [Hotkeys](hotkeys.md) für die modifizierten Knöpfe festlegen. Mit einer kleinen Checkbox kannst du im Einsatzfenster jederzeit zwischen den Modus der Knöpfe zwischen "sortiert" und "Standard" umschalten.
+
+Hast du keine Sortierung ausgewählt, werden die Knöpfe nicht modifiziert und es erscheint kein Haken.
+
+Den aktuellen Modus der Knöpfe kannst du ganz einfach der Farbe entnehmen: `Grün → Standard` und `Blau → Sortiert`:
+
+![Einsätze sortieren im Einsatzfenster: unsortiert](missionSortMissionsStandard.png)
+
+![Einsätze sortieren im Einsatzfenster: sortiert](missionSortMissionsModified.png)
+
 ## Patientenzahl
 Zeigt am rechten Rand eines Einsatzes eine kleine Zahl an, wie viele Patienten gerade am Einsatzort sind:
 
@@ -63,6 +74,11 @@ Zeigt am rechten Rand eines Einsatzes eine kleine Zahl an, wie viele Patienten g
 
 ### Verstecke 0 Patienten
 Ist diese Einstellung aktiv, wird die Zahl der Patienten nur dann angezeigt, wenn diese größer 0 ist.
+
+### Patientenzahl in Tooltips
+Mit dieser Einstellung wird die aktuelle Zahl der Patienten auch in den Tooltips auf der Karte angezeigt:
+
+![Patientenzahl in Tooltips](patienten-tooltip.png)
 
 ## Saisonale Einsätze markieren
 Mit dieser Einstellung kannst du für jeden einzelnen Einsatz beliebig viele kurze Hinweise notieren, welche vor dem Namen in der Einsatzliste gezeigt werden. Standardmäßig sind hier saisonale Einsätze eingetragen (Sommer, Halloween, Fußball etc.), daher auch der Name.
