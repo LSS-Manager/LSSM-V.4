@@ -41,11 +41,12 @@ export default (
                 mission.element.getAttribute('mission_type_id') ?? '-1';
             const overlayIndex =
                 mission.element.getAttribute('data-overlay-index') ?? 'null';
-            if (overlayIndex !== 'null') missionType += `-${overlayIndex}`;
+            if (overlayIndex && overlayIndex !== 'null')
+                missionType += `-${overlayIndex}`;
             const additionalOverlay =
                 mission.element.getAttribute('data-additive-overlays') ??
                 'null';
-            if (additionalOverlay !== 'null')
+            if (additionalOverlay && additionalOverlay !== 'null')
                 missionType += `/${additionalOverlay}`;
             if (
                 missionType !== '-1' &&

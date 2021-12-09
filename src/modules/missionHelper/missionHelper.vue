@@ -650,12 +650,13 @@ export default Vue.extend<
                     document
                         .getElementById('mission_general_info')
                         ?.getAttribute('data-overlay-index') ?? 'null';
-                if (overlayIndex !== 'null') missionType += `-${overlayIndex}`;
+                if (overlayIndex && overlayIndex !== 'null')
+                    missionType += `-${overlayIndex}`;
                 const additionalOverlay =
                     document
                         .getElementById('mission_general_info')
                         ?.getAttribute('data-additive-overlays') ?? 'null';
-                if (additionalOverlay !== 'null')
+                if (additionalOverlay && additionalOverlay !== 'null')
                     missionType += `/${additionalOverlay}`;
                 this.missionSpecs = await this.getMission(missionType);
             }
