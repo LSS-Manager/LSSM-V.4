@@ -71,9 +71,12 @@ export default async (
                     schoolingStaffListByCaption[school][schoolingCaption];
                 personnel.forEach(row => {
                     if (
-                        row.textContent?.match(
+                        (row.textContent?.match(
                             LSSM.$utils.escapeRegex(staffList)
-                        ) &&
+                        ) ||
+                            row.textContent?.match(
+                                LSSM.$utils.escapeRegex(schoolingCaption)
+                            )) &&
                         !fittingRows.includes(row)
                     )
                         fittingRows.push(row);
