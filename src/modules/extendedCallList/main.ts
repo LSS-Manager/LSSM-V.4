@@ -242,7 +242,7 @@ export default (async (LSSM, MODULE_ID, $m) => {
         AppendableListSetting<
             {
                 text: string;
-                missions: number[];
+                missions: string[];
             }[]
         >
     >('eventMissions');

@@ -67,32 +67,27 @@ export default (
         patientLabelCombis[patientLabelCombiStringified]++;
     });
 
-    const hasRedTexts = Object.keys(requirements.red).length;
-    const hasLabels = Object.keys(requirements.detailed).length;
-
-    if (hasRedTexts || hasLabels) {
-        const summaryBox = document.createElement('div');
-        document
-            .querySelector<HTMLDivElement>('.mission_patient')
-            ?.before(summaryBox);
-        import(
-            /* webpackChunkName: "modules/extendedCallWindow/components/collapsablePatients" */
-            '../components/collapsablePatients/collapsablePatients.vue'
-        ).then(({ default: collapsablePatients }) =>
-            new LSSM.$vue({
-                store: LSSM.$store,
-                i18n: LSSM.$i18n,
-                render: h =>
-                    h(collapsablePatients, {
-                        props: {
-                            featureId: `${MODULE_ID}_collapsable-patients`,
-                            requirements,
-                            labelColors,
-                            patientLabelCombis,
-                            $m,
-                        },
-                    }),
-            }).$mount(summaryBox)
-        );
-    }
+    const summaryBox = document.createElement('div');
+    document
+        .querySelector<HTMLDivElement>('.mission_patient')
+        ?.before(summaryBox);
+    import(
+        /* webpackChunkName: "modules/extendedCallWindow/components/collapsablePatients" */
+        '../components/collapsablePatients/collapsablePatients.vue'
+    ).then(({ default: collapsablePatients }) =>
+        new LSSM.$vue({
+            store: LSSM.$store,
+            i18n: LSSM.$i18n,
+            render: h =>
+                h(collapsablePatients, {
+                    props: {
+                        featureId: `${MODULE_ID}_collapsable-patients`,
+                        requirements,
+                        labelColors,
+                        patientLabelCombis,
+                        $m,
+                    },
+                }),
+        }).$mount(summaryBox)
+    );
 };
