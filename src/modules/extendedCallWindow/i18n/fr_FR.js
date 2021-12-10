@@ -86,7 +86,7 @@ module.exports = {
             pushLeft: 'montrer cette boîte à la position originale',
         },
         selected: 'Séléctionné',
-        water: "litres d'eau",
+        water: "l d’eau",
         vehiclesByRequirement: {
             [/^fourgon(s)? d’incendie$/]: [0, 1, 12, 13, 15, 32, 33, 34],
             [/^Moyen(s)? Élévateur(s)? Aérien(s)?$/]: [2, 15],
@@ -97,7 +97,6 @@ module.exports = {
             [/^véhicule(s)? risque(s)? technologique(s)?$/]: [7],
             [/^voiture de patrouille$/]: [8, 19, 20],
             [/^Hélicoptères de secours?$/]: [9],
-            [/^Véhicule d'Assistance Respiratoire$/]: [10],
             [/^véhicule(s)? poste de commandement$/]: [11],
             [/^Véhicule Tout Usage$/]: [13],
             [/^VGRIMP$/]: [14],
@@ -111,6 +110,8 @@ module.exports = {
             [/^camion(s)? dévidoir?$/]: [36, 37],
             [/^motopompe(s)?$/]: [37, 38],
             [/^FMOGP$/]: [35],
+			[/^VAR$/]: [10],
+			[/^VTP$/] : [31],
         },
     },
     tailoredTabs: {
