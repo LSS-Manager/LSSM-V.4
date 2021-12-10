@@ -98,7 +98,7 @@ module.exports = {
             ],
         },
         vehiclesByRequirement: {
-            [/^Fire engine(s)?$/]: [0, 1, 16, 17, 26, 37, 38],
+            [/^Fire engine(s)?$/]: [0, 1, 16, 17, 26, 37, 38, 47],
             [/^Aerial Appliance Trucks?$/]: [2, 17],
             [/^Fire Officer(s)?$/]: [3, 15, 44],
             [/^Rescue Support Unit(s)? or Rescue Pump(s)?$/]: [4, 16, 43],
@@ -119,7 +119,7 @@ module.exports = {
             [/^Secondary Response Vehicle(s)?$/]: [28],
             [/^Welfare Vehicle(s)?$/]: [29, 39, 45, 49],
             [/^Ambulance Officer(s)?$/]: [34],
-            [/^Foam Unit(s)?$/]: [35, 36, 37, 38, 42, 50],
+            [/^Foam Unit(s)?$/]: [35, 36, 37, 38, 42],
             [/^Mass Casualty Equipment?$/]: [33],
         },
     },
