@@ -695,7 +695,7 @@ export default {
             },
             possibleBuildings: [0, 18],
             special:
-                'Acts as a Breathing Appartus Support Unit, Hazmat Unit and a Welfare Unit',
+                'Acts as a Breathing Appartus Support Unit, Hazmat Unit and a Welfare Unit.',
         },
         40: {
             caption: 'PM',
@@ -706,7 +706,7 @@ export default {
             maxPersonnel: 2,
             possibleBuildings: [0, 18],
             special:
-                'Carries Every Pod, which are different types of vehicles on the back of a lorry',
+                'Carries Every Pod, which are different types of vehicles on the back of a lorry.',
         },
         41: {
             caption: 'Water Pod',
@@ -716,7 +716,7 @@ export default {
             minPersonnel: 0,
             maxPersonnel: 0,
             possibleBuildings: [0],
-            special: 'Acts as a Water Carrier',
+            special: 'Acts as a Water Carrier.',
         },
         42: {
             caption: 'Bulk Foam Pod',
@@ -754,7 +754,7 @@ export default {
                 },
             },
             special:
-                'Requires special education for personnel on Prime Mover (Mobile command). Acts as a Incident Command and Control Unit and a Fire Officer',
+                'Requires special education for personnel on Prime Mover (Mobile command). Acts as a Incident Command and Control Unit and a Fire Officer.',
             possibleBuildings: [0],
         },
         45: {
@@ -765,7 +765,7 @@ export default {
             minPersonnel: 0,
             maxPersonnel: 0,
             possibleBuildings: [0],
-            special: 'Acts as a Welfare Unit',
+            special: 'Acts as a Welfare Unit.',
         },
         46: {
             caption: 'BASU Pod',
@@ -775,7 +775,7 @@ export default {
             minPersonnel: 0,
             maxPersonnel: 0,
             possibleBuildings: [0],
-            special: 'Acts as a Breathing Appartus Support Unit',
+            special: 'Acts as a Breathing Appartus Support Unit.',
         },
         47: {
             caption: 'Misting Pod',
@@ -785,7 +785,7 @@ export default {
             minPersonnel: 0,
             maxPersonnel: 0,
             possibleBuildings: [0],
-            special: 'Acts as a Light 4x4 Pump Unit ',
+            special: 'Acts as a Light 4x4 Pump Unit. ',
         },
         48: {
             caption: 'Hazardous Materials Pod',
@@ -802,7 +802,7 @@ export default {
                 },
             },
             special:
-                'Requires special education for personnel on Prime Mover (HazMat). Acts as a Hazmat Unit',
+                'Requires special education for personnel on Prime Mover (HazMat). Acts as a Hazmat Unit.',
             possibleBuildings: [0],
         },
         49: {
@@ -820,7 +820,7 @@ export default {
                 },
             },
             special:
-                'Requires special education for personnel in towing vehicle (HazMat). Acts as a Hazmat Unit, Welfare Unit and a Breathing Apparatus Support Unit',
+                'Requires special education for personnel in Prime Mover (HazMat). Acts as a Hazmat Unit, Welfare Unit and a Breathing Apparatus Support Unit.',
             possibleBuildings: [0],
         },
         50: {
@@ -838,7 +838,7 @@ export default {
                 },
             },
             special:
-                'Requires special education for personnel on Prime Mover (High Volume Pump Training). Acts as a Water Carrier',
+                'Requires special education for personnel on Prime Mover (High Volume Pump Training). Acts as a Water Carrier.',
             possibleBuildings: [0],
         },
     },
@@ -1357,9 +1357,10 @@ export default {
         'Fire Fighting Vehicles': {
             vehicles: {
                 'Pumps': [0, 1, 16, 26, 17],
-                'Special Vehicles': [4, 7, 14, 18, 6, 2, 40, 35, 36, 39],
+                'Special Vehicles': [4, 7, 14, 18, 6, 2, 39],
                 'Command Vehicles': [15, 3],
                 'Pods and Prime Movers': [
+                    40,
                     41,
                     42,
                     43,
