@@ -86,7 +86,7 @@ module.exports = {
             pushLeft: 'montrer cette boîte à la position originale',
         },
         selected: 'Séléctionné',
-        water: "l d’eau",
+        water: 'l d’eau',
         vehiclesByRequirement: {
             [/^fourgon(s)? d’incendie$/]: [0, 1, 12, 13, 15, 32, 33, 34],
             [/^Moyen(s)? Élévateur(s)? Aérien(s)?$/]: [2, 15],
@@ -110,9 +110,9 @@ module.exports = {
             [/^camion(s)? dévidoir?$/]: [36, 37],
             [/^motopompe(s)?$/]: [37, 38],
             [/^FMOGP$/]: [35],
-			[/^VAR$/]: [10],
-			[/^VTP$/] : [31],
-			[/^Directeur des Secours Médicaux$/] : [29],
+            [/^VAR$/]: [10],
+            [/^VTP$/]: [31],
+            [/^Directeur des Secours Médicaux$/]: [29],
         },
     },
     tailoredTabs: {
