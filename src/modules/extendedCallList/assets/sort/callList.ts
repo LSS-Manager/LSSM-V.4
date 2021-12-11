@@ -243,10 +243,11 @@ export default (
                 return maxCSSInteger.toString();
             const overlayIndex =
                 mission.getAttribute('data-overlay-index') ?? 'null';
-            if (overlayIndex !== 'null') missionType += `-${overlayIndex}`;
+            if (overlayIndex && overlayIndex !== 'null')
+                missionType += `-${overlayIndex}`;
             const additionalOverlay =
                 mission.getAttribute('data-additive-overlays') ?? 'null';
-            if (additionalOverlay !== 'null')
+            if (additionalOverlay && additionalOverlay !== 'null')
                 missionType += `/${additionalOverlay}`;
             return numToCSSRange(
                 missionsById[missionType]?.average_credits ?? 0

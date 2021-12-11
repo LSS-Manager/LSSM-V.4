@@ -695,7 +695,7 @@ export default {
             },
             possibleBuildings: [0, 18],
             special:
-                'Acts as A Breathing Appartus Support Unit, Hazmat Unit and a Welfare Unit',
+                'Acts as a Breathing Appartus Support Unit, Hazmat Unit and a Welfare Unit',
         },
         40: {
             caption: 'PM',
@@ -785,7 +785,7 @@ export default {
             minPersonnel: 0,
             maxPersonnel: 0,
             possibleBuildings: [0],
-            special: 'Acts as a misting unit',
+            special: 'Acts as a Light 4x4 Pump Unit ',
         },
         48: {
             caption: 'Hazardous Materials Pod',
@@ -820,7 +820,7 @@ export default {
                 },
             },
             special:
-                'Requires special education for personnel in towing vehicle (HazMat). Acts as a Hazmat Unit',
+                'Requires special education for personnel in towing vehicle (HazMat). Acts as a Hazmat Unit, Welfare Unit and a Breathing Apparatus Support Unit',
             possibleBuildings: [0],
         },
         50: {
@@ -838,7 +838,7 @@ export default {
                 },
             },
             special:
-                'Requires special education for personnel on Prime Mover (High Volume Pump Training). Acts as a High Volume Pump',
+                'Requires special education for personnel on Prime Mover (High Volume Pump Training). Acts as a Water Carrier',
             possibleBuildings: [0],
         },
     },

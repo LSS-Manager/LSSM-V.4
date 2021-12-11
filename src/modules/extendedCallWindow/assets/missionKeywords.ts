@@ -14,10 +14,24 @@ export default async (
     const missionHelpBtn = document.getElementById('mission_help');
     const missionTitle = document.getElementById('missionH1');
     if (!missionHelpBtn || !missionTitle) return;
-    const missionType =
+    let missionType =
         missionHelpBtn
             ?.getAttribute('href')
             ?.match(/(?!^\/einsaetze\/)\d+/)?.[0] || '-1';
+
+    const overlayIndex =
+        document
+            .getElementById('mission_general_info')
+            ?.getAttribute('data-overlay-index') ?? 'null';
+    if (overlayIndex && overlayIndex !== 'null')
+        missionType += `-${overlayIndex}`;
+    const additionalOverlay =
+        document
+            .getElementById('mission_general_info')
+            ?.getAttribute('data-additive-overlays') ?? 'null';
+    if (additionalOverlay && additionalOverlay !== 'null')
+        missionType += `/${additionalOverlay}`;
+
     if (missionType === '-1') return;
 
     const mission = (LSSM.$store.getters['api/missionsById'] as Record<
