@@ -54,15 +54,15 @@
 		},
 		"multifunctionals": {
 			"battalion_chief_vehicles": {
-				"description": "Subtracts the number of required MCV from Battalion Chief and hides Battalion Chief if the number drops below 0.",
+				"description": "Subtracts the number of required Incident Command And Control Units from Fire Officers and hides Fire Officers if the number drops below 0.",
 				"title": "Battalion Chief Simple Rate"
 			},
 			"heavy_rescue_vehicles": {
-				"description": "Subtracts the number of required firetrucks from the Heavy Rescue and hides firetrucks if the number drops below 0. This function is intended for people who drive a pure Rescue Engine system.",
+				"description": "Subtracts the number of required Pumps from the Rescue Support Unit and hides Pumps if the number drops below 0. This function is intended for people who drive a pure Rescue Pump system.",
 				"title": "Heavy Rescue Simple Rate"
 			},
 			"platform_trucks": {
-				"description": "Subtracts the number of firetrucks from the Quints and hides firetrucks if the number drops below 0.",
+				"description": "Subtracts the number of Pumps from the CARP and hides Pumps if the number drops below 0.",
 				"title": "Quint Simple Rate"
 			}
 		},
@@ -72,12 +72,12 @@
 		},
 		"optionalAlternatives": {
 			"allow_arff_instead_of_lf": {
-				"description": " Indicates, if instead of a firetruck arrfs are possible on site.",
-				"title": "Show if arrfs are allowed as firetrucks"
+				"description": " Indicates, if instead of Pumps arrfs are possible on site.",
+				"title": "Show if arrfs are allowed as Pumps"
 			},
 			"allow_rw_instead_of_lf": {
-				"description": "Indicates, if instead of a firetruck also heavy rescue or rescue engine is possible on site.",
-				"title": "Show Heavy Rescue / rescue engine instead of firetrucks"
+				"description": "Indicates, if instead of a Pump also Rescue Support Unit or Rescue Pumps is possible on site.",
+				"title": "Show Rescue Support Vehicle / Rescue Pump instead of Pumps"
 			}
 		},
 		"patients": {
