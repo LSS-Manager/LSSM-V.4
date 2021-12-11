@@ -754,7 +754,7 @@ export default {
                 },
             },
             special:
-                'Requires special education for personnel on Prime Mover (Mobile command). Acts as a Incident Command and Control Unit',
+                'Requires special education for personnel on Prime Mover (Mobile command). Acts as a Incident Command and Control Unit and a Fire Officer',
             possibleBuildings: [0],
         },
         45: {
