@@ -112,6 +112,7 @@ module.exports = {
             [/^FMOGP$/]: [35],
 			[/^VAR$/]: [10],
 			[/^VTP$/] : [31],
+			[/^Directeur des Secours Médicaux$/] : [29],
         },
     },
     tailoredTabs: {
