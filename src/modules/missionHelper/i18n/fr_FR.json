@@ -88,7 +88,7 @@
 				"firetrucks": "Fire Engine or ARFF | Fire Engine or ARFF"
 			},
 			"allow_rw_instead_of_lf": {
-				"firetrucks": "Fire Engine or Heavy Rescue or Rescue Engine | Fire Engines or Heavy Rescue or Rescue Engine"
+				"firetrucks": "Fourgon d’incendie ou VSR | Fourgons d’incendie ou VSR"
 			}
 		},
 		"patient_additionals": {
