@@ -6,6 +6,9 @@
 	},
 	"apps": "Apps",
 	"description": "Das Wiki für den LSS-Manager V.4",
+	"edit": {
+		"module": "Seite bearbeiten"
+	},
 	"head": {
 		"alpha": "Dieses Modul steht noch in seinen absoluten Anfängen und ist aktuell nur für Beta-Tester verfügbar!",
 		"dev": "Dieses Modul ist noch in Entwicklung. Es ist möglich, dass noch einige Fehler vorhanden sind!",

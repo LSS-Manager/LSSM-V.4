@@ -32,7 +32,11 @@ declare module 'vue/types/vue' {
         $lang: string;
         $themeConfig: {
             variables: {
-                discord: string;
+                discord: {
+                    invite: string;
+                    id: string;
+                    channels: Record<string, string>; // string because are too big for numbers
+                };
                 github: string;
                 server: string;
                 versions: {
@@ -67,6 +71,7 @@ declare module 'vue/types/vue' {
                         > & { order: MomentVariableCategories[] };
                     }
                 >;
+                editModuleLinkText: Record<string, string>;
             };
         };
     }
