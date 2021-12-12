@@ -450,6 +450,8 @@
 </template>
 
 <script lang="ts">
+import Vue from 'vue';
+
 import { faAngleDoubleDown } from '@fortawesome/free-solid-svg-icons/faAngleDoubleDown';
 import { faAngleDoubleUp } from '@fortawesome/free-solid-svg-icons/faAngleDoubleUp';
 import { faArrowsAlt } from '@fortawesome/free-solid-svg-icons/faArrowsAlt';
@@ -467,7 +469,6 @@ import {
     MissionHelperMethods,
     VehicleRequirements,
 } from 'typings/modules/MissionHelper';
-import Vue from 'vue';
 
 import { DefaultProps } from 'vue/types/options';
 

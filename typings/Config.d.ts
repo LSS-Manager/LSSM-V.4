@@ -14,7 +14,7 @@ export interface Config {
     discord: {
         invite: string;
         id: string;
-        channels: Record<string, string>; // string because are to big for numbers
+        channels: Record<string, string>; // string because are too big for numbers
     };
     games: Games;
     github: {

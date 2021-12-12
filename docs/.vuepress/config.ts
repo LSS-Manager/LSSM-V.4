@@ -233,7 +233,9 @@ ${getLocale(lang, 'head.mapkit')}
 ${getModuleHead(i18n.name, i18n.description, lang, register)}
 ${content.replace(/(?<=!\[.*?]\().*?(?=\))/g, asset =>
     path.join(BASE, 'assets', module, lang, asset)
-)}`
+)}
+
+<edit-module module="${module}" />`
             );
         }
         const docsLangs = usedLangs.filter(
@@ -500,6 +502,9 @@ module.exports = async () => {
                 ).data,
                 moment: Object.fromEntries(
                     LANGS.map(lang => [lang, getLocale(lang, 'moment')])
+                ),
+                editModuleLinkText: Object.fromEntries(
+                    LANGS.map(lang => [lang, getLocale(lang, 'edit.module')])
                 ),
             },
             locales: themeLocales,
