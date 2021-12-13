@@ -39,6 +39,31 @@ Actuellement, LSS Manager se compose de 4 développeurs et de 6 supporters suppl
 * 🇳🇱
     * MPR
  
+## L'histoire
+Le `LSS-Manager` existe depuis septembre 2015, même si au début il ne modifiait que le design.
+
+On pouvait choisir entre 3 mises en page, que l'on retrouve encore aujourd'hui. En plus des mises en page, le jeu a également reçu un design plus frais.
+
+Trois mois plus tard, le projet "LSS Manager V2" a été lancé, avec de nouvelles fonctions et un nouveau design.
+
+Il était désormais possible de modifier les différentes mises en page directement dans le jeu, sans devoir installer plusieurs extensions au préalable. On pouvait désormais tout gérer et activer au même endroit. Les nouvelles fonctions étaient les suivantes : Panneau des paramètres, tableau de bord, mode nuit, redesigns, mises en page, planification des gardes, etc.
+
+30 mars 2017 - le support pour la version 2 a été arrêté. Comme quelques mois plus tôt, de nombreuses nouveautés pour Leitstellenspiel.de avaient malheureusement complètement bousillé le `LSSM V2`, nous nous sommes vus contraints de le retirer du réseau. Jusqu'au dernier moment, le `LSSM V2` comptait 3000 utilisateurs.
+
+Comme nous ne voulions pas décevoir nos utilisateurs, nous ne voulions pas laisser le projet mourir complètement. Nous avons donc décidé de réécrire le script à partir de zéro. Deux mois plus tard, LSSM V3 allait suivre.
+
+Comme nous étions désormais trois dans l'équipe (lost, Northdegree et Mausmajor), nous avons réussi à réécrire le script dans les délais prévus et à le publier à nouveau. Peu de temps après, DLRG-Dominik, MrWeezle, Sanni et Jan ont rejoint l'équipe.
+
+Le 8 juin 2017, le `LSS Manager V3` a été publié. Moins de 24 heures après, nous avions à nouveau 100 utilisateurs et moins d'une semaine plus tard, nous en avions déjà 300.
+
+Un an après la sortie, Jan nous a rejoints, a bien appris et a ensuite repris le développement principal avec le début du développement de la V.4.
+
+Vers la fin 2019, les premières planifications pour une `V.4` ont commencé, afin de concevoir une base de code plus belle et plus performante. Avec le temps, certains modules ont pris de l'âge et ont été améliorés, mais les utilisateurs ayant beaucoup de bâtiments et de véhicules ont continué à rencontrer des problèmes.
+
+Depuis lors, le développement du gestionnaire LSS V.4 est en cours afin d'offrir aux utilisateurs une toute nouvelle sensation lors de l'utilisation de l'LSSM. Pendant la période de développement de la V.4, Ron31 a participé au développement de la V.4. Jan et Ron31 ont écrit la majeure partie de la V4 en silence avant de rejoindre officiellement l'équipe LSSM le 5 septembre 2020.
+
+Dans les 24 heures suivant la sortie de la V.4, le 21 novembre 2020, nous avions déjà atteint 150 utilisateurs. Dans les 24 heures qui ont suivi, nous en avons eu 200 de plus ! En une semaine, nous avions déjà atteint 700 utilisateurs !
+
 ## Bibliothèques Open Source
 LSSM utilise bien sûr aussi des bibliothèques publiques de tiers - sinon, certaines fonctions seraient tout simplement trop lourdes à programmer.
 
