@@ -1175,7 +1175,38 @@ export default {
             color: '#aa1111',
             coins: 25,
             credits: 50_000,
-            extensions: [],
+            extensions: [
+                {
+                    caption: 'Ambulance extension',
+                    credits: 100_000,
+                    coins: 20,
+                    duration: '7 Days',
+                },
+                {
+                    caption: 'Airport extension',
+                    credits: 100_000,
+                    coins: 20,
+                    duration: '7 Days',
+                },
+                {
+                    caption: 'Swap Body Parking Space',
+                    credits: 50_000,
+                    coins: 20,
+                    duration: '7 Days',
+                },
+                ...new Array(1).fill({
+                    caption: 'Swap Body Parking Space',
+                    credits: 50_000,
+                    coins: 20,
+                    duration: '7 Days',
+                }),
+                {
+                    caption: 'Water rescue expansion',
+                    credits: 100_000,
+                    coins: 20,
+                    duration: '7 Days',
+                },
+            ],
             levelcost: [
                 '1. 10.000',
                 '2. 50.000',
@@ -1230,7 +1261,14 @@ export default {
             color: '#eeb611',
             coins: 25,
             credits: 100_000,
-            extensions: [],
+            extensions: [
+                {
+                    caption: 'Mass Casualty Extension',
+                    credits: 150_000,
+                    coins: 20,
+                    duration: '5 Days',
+                },
+            ],
             levelcost: [
                 '1. 10.000',
                 '2. 50.000',

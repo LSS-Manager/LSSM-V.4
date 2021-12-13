@@ -907,7 +907,32 @@ export default {
             color: '#aa1111',
             coins: 25,
             credits: 50_000,
-            extensions: [],
+            extensions: [
+                {
+                    caption: 'Ambulansutbyggnad',
+                    credits: 50_000,
+                    coins: 20,
+                    duration: '7 dagar',
+                },
+                {
+                    caption: 'Skogsexpansionen',
+                    credits: 50_000,
+                    coins: 13,
+                    duration: '7 dagar',
+                },
+                {
+                    caption: 'Brandstöds Expansionen',
+                    credits: 150_000,
+                    coins: 15,
+                    duration: '5 dagar',
+                },
+                {
+                    caption: 'Sjöräddning',
+                    credits: 100_000,
+                    coins: 20,
+                    duration: '7 dagar',
+                },
+            ],
             levelcost: [
                 '1. 10.000 ',
                 '2. 50.000 ',
@@ -962,7 +987,14 @@ export default {
             color: '#eeb611',
             coins: 25,
             credits: 100_000,
-            extensions: [],
+            extensions: [
+                {
+                    caption: 'Intensivvårdsavdelning',
+                    credits: 200_000,
+                    coins: 25,
+                    duration: '7 dagar',
+                },
+            ],
             levelcost: [
                 '1. 10.000',
                 '2. 50.000',
