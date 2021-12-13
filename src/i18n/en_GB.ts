@@ -606,7 +606,7 @@ export default {
             credits: 15_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            possibleBuildings: [2, 25],
+            possibleBuildings: [2, 20, 25],
             schooling: {
                 Rescue: {
                     'SORT Training': {
@@ -624,7 +624,7 @@ export default {
             credits: 25_500,
             minPersonnel: 1,
             maxPersonnel: 1,
-            possibleBuildings: [2, 22, 25],
+            possibleBuildings: [2, 20, 22, 25],
             schooling: {
                 Rescue: {
                     'Ambulance Officer': {
@@ -715,7 +715,7 @@ export default {
             credits: 17_300,
             minPersonnel: 0,
             maxPersonnel: 0,
-            possibleBuildings: [0],
+            possibleBuildings: [0, 18],
             special: 'Acts as a Water Carrier.',
         },
         42: {
@@ -736,7 +736,7 @@ export default {
             credits: 12_180,
             minPersonnel: 0,
             maxPersonnel: 0,
-            possibleBuildings: [0],
+            possibleBuildings: [0, 18],
             special: 'Acts as a Rescue Support Unit.',
         },
         44: {
@@ -755,7 +755,7 @@ export default {
             },
             special:
                 'Requires special education for personnel on Prime Mover (Mobile command). Acts as a Incident Command and Control Unit and a Fire Officer.',
-            possibleBuildings: [0],
+            possibleBuildings: [0, 18],
         },
         45: {
             caption: 'Welfare Pod',
@@ -774,7 +774,7 @@ export default {
             credits: 11_680,
             minPersonnel: 0,
             maxPersonnel: 0,
-            possibleBuildings: [0],
+            possibleBuildings: [0, 18],
             special: 'Acts as a Breathing Appartus Support Unit.',
         },
         47: {
@@ -784,7 +784,7 @@ export default {
             credits: 5_000,
             minPersonnel: 0,
             maxPersonnel: 0,
-            possibleBuildings: [0],
+            possibleBuildings: [0, 18],
             special: 'Acts as a Light 4x4 Pump Unit. ',
         },
         48: {
@@ -803,7 +803,7 @@ export default {
             },
             special:
                 'Requires special education for personnel on Prime Mover (HazMat). Acts as a Hazmat Unit.',
-            possibleBuildings: [0],
+            possibleBuildings: [0, 18],
         },
         49: {
             caption: 'OSU Pod',
@@ -821,7 +821,7 @@ export default {
             },
             special:
                 'Requires special education for personnel in Prime Mover (HazMat). Acts as a Hazmat Unit, Welfare Unit and a Breathing Apparatus Support Unit.',
-            possibleBuildings: [0],
+            possibleBuildings: [0, 18],
         },
         50: {
             caption: 'HVP',
@@ -839,7 +839,7 @@ export default {
             },
             special:
                 'Requires special education for personnel on Prime Mover (High Volume Pump Training). Acts as a Water Carrier.',
-            possibleBuildings: [0],
+            possibleBuildings: [0, 18],
         },
     },
     buildings: {
