@@ -832,6 +832,12 @@ export default {
                     duration: '7 Dni',
                 },
                 {
+                    caption: 'Rozbudowa dla pojazdów proszkowych',
+                    credits: 150_000,
+                    coins: 15,
+                    duration: '5 Dni',
+                },
+                {
                     caption: 'Rozbudowa dla kontenerów',
                     credits: 50_000,
                     coins: 20,
@@ -1140,7 +1146,38 @@ export default {
             color: '#990000',
             coins: 25,
             credits: 50_000,
-            extensions: [],
+            extensions: [
+                {
+                    caption: 'Rozbudowa dla pogotowia',
+                    credits: 100_000,
+                    coins: 20,
+                    duration: '7 Dni',
+                },
+                {
+                    caption: 'Ratownictwo Wodne',
+                    credits: 100_000,
+                    coins: 20,
+                    duration: '7 Dni',
+                },
+                {
+                    caption: 'Rozbudowa dla pojazdów proszkowych',
+                    credits: 150_000,
+                    coins: 15,
+                    duration: '5 Dni',
+                },
+                {
+                    caption: 'Rozbudowa dla kontenerów',
+                    credits: 50_000,
+                    coins: 20,
+                    duration: '7 Dni',
+                },
+                ...new Array(1).fill({
+                    caption: 'Rozbudowa dla kontenerów',
+                    credits: 80_000,
+                    coins: 20,
+                    duration: '7 Dni',
+                }),
+            ],
             levelcost: [
                 '1. 10.000',
                 '2. 50.000',

@@ -1369,7 +1369,44 @@ export default {
             color: '#aa1111',
             coins: 25,
             credits: 50_000,
-            extensions: [],
+            extensions: [
+                {
+                    caption: 'Ambulance extension',
+                    credits: 100_000,
+                    coins: 20,
+                    duration: '7 Days',
+                },
+                {
+                    caption: 'Airport extension',
+                    credits: 100_000,
+                    coins: 20,
+                    duration: '7 Days',
+                },
+                {
+                    caption: 'Forestry Expansion',
+                    credits: 50_000,
+                    coins: 13,
+                    duration: '7 Days',
+                },
+                {
+                    caption: 'Fire Investigation Extension',
+                    credits: 150_000,
+                    coins: 15,
+                    duration: '7 Days',
+                },
+                {
+                    caption: 'Foam Extension',
+                    credits: 100_000,
+                    coins: 15,
+                    duration: '5 Days',
+                },
+                {
+                    caption: 'Water rescue expansion',
+                    credits: 100_000,
+                    coins: 20,
+                    duration: '7 Days',
+                },
+            ],
             levelcost: [
                 '1. 10.000',
                 '2. 50.000',
@@ -1411,7 +1448,20 @@ export default {
             color: '#116611',
             coins: 25,
             credits: 50_000,
-            extensions: [],
+            extensions: [
+                {
+                    caption: 'Game Warden Office',
+                    credits: 20_000,
+                    coins: 20,
+                    duration: '3 Days',
+                },
+                {
+                    caption: 'Water Police Expansion',
+                    credits: 200_000,
+                    coins: 35,
+                    duration: '7 Days',
+                },
+            ],
             levelcost: [
                 '1. 10.000',
                 '2. 50.000',
@@ -1432,7 +1482,14 @@ export default {
             color: '#eeb611',
             coins: 25,
             credits: 100_000,
-            extensions: [],
+            extensions: [
+                {
+                    caption: 'Mass Casualty Trailer Extension',
+                    credits: 200_000,
+                    coins: 25,
+                    duration: '7 Days',
+                },
+            ],
             levelcost: [
                 '1. 10.000',
                 '2. 50.000',

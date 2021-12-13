@@ -55,8 +55,21 @@ export default (LSSM: Vue, MODULE_ID: string, $m: $m): void => {
     );
     const extras = missingRequirementsText
         .replace(requirementRegex, '')
+        .replace(
+            new RegExp(
+                Object.values(
+                    ($m(
+                        'enhancedMissingVehicles.staffPrefix'
+                    ) as unknown) as Record<number, RegExp>
+                ).join('|'),
+                'g'
+            ),
+            ''
+        )
         .replace(/(, )+/g, ', ')
-        .replace(/(^, )|(, $)/g, '');
+        .trim()
+        .replace(/(^[,.] ?)|([,.] ?$)/g, '')
+        .trim();
     if (!missingRequirementMatches) return;
     const missingRequirements = missingRequirementMatches.map(req => {
         const requirement = req.trim();

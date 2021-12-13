@@ -898,7 +898,14 @@ export default {
             color: '#aa1111',
             coins: 25,
             credits: 50_000,
-            extensions: [],
+            extensions: [
+                {
+                    caption: 'Bushfire Expansion',
+                    credits: 50_000,
+                    coins: 15,
+                    duration: '7 Days',
+                },
+            ],
             levelcost: [
                 '1. 10.000',
                 '2. 50.000',

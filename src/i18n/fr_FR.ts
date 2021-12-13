@@ -909,7 +909,26 @@ export default {
             color: '#aa1111',
             coins: 25,
             credits: 50_000,
-            extensions: [],
+            extensions: [
+                {
+                    caption: 'Service de Santé et de Secours Médical',
+                    credits: 100_000,
+                    coins: 20,
+                    duration: '7 jours',
+                },
+                {
+                    caption: 'Extension de soutien à incendie',
+                    credits: 75_000,
+                    coins: 15,
+                    duration: '3 jours',
+                },
+                {
+                    caption: 'Unité nautique',
+                    credits: 100_000,
+                    coins: 20,
+                    duration: '7 jours',
+                },
+            ],
             levelcost: [
                 '1. 10.000',
                 '2. 50.000',

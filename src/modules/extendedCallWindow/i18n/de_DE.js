@@ -149,6 +149,7 @@ module.exports = {
         },
         selected: 'Ausgewählt',
         water: 'l. Wasser',
+        staffPrefix: ['Wir benötigen noch min.'],
         staff: {
             [/^Feuerwehrleute$/]: [
                 0,

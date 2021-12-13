@@ -878,7 +878,32 @@ export default {
             color: '#aa1111',
             coins: 25,
             credits: 50_000,
-            extensions: [],
+            extensions: [
+                {
+                    caption: 'Ambulanseutvidelse',
+                    credits: 100_000,
+                    coins: 20,
+                    duration: '7 dager',
+                },
+                {
+                    caption: 'Flyplassutvidelse',
+                    credits: 100_000,
+                    coins: 20,
+                    duration: '7 dager',
+                },
+                {
+                    caption: 'Brann Støtte utvidelse',
+                    credits: 150_000,
+                    coins: 15,
+                    duration: '5 dager',
+                },
+                {
+                    caption: 'Vannredningsutvidelse',
+                    credits: 100_000,
+                    coins: 20,
+                    duration: '7 dager',
+                },
+            ],
             levelcost: [
                 '1. 10.000',
                 '2. 50.000',
@@ -931,7 +956,14 @@ export default {
             color: '#eeb611',
             coins: 25,
             credits: 100_000,
-            extensions: [],
+            extensions: [
+                {
+                    caption: 'Intensivbehandling utvidelse',
+                    credits: 200_000,
+                    coins: 25,
+                    duration: '7 dager',
+                },
+            ],
             levelcost: [
                 '1. 10.000',
                 '2. 50.000',

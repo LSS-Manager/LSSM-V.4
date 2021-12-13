@@ -726,7 +726,20 @@ export default {
             color: '#aa1111',
             coins: 25,
             credits: 50_000,
-            extensions: [],
+            extensions: [
+                {
+                    caption: 'Extensión de ambulancia',
+                    credits: 100_000,
+                    coins: 20,
+                    duration: '7 días',
+                },
+                {
+                    caption: 'Ampliación de apoyo en incendios',
+                    credits: 150_000,
+                    coins: 15,
+                    duration: '5 días',
+                },
+            ],
             levelcost: [
                 '1. 10.000',
                 '2. 50.000',
@@ -748,7 +761,20 @@ export default {
             color: '#116611',
             coins: 25,
             credits: 50_000,
-            extensions: [],
+            extensions: [
+                {
+                    caption: 'Calabozo',
+                    credits: 25_000,
+                    coins: 5,
+                    duration: '7 Días',
+                },
+                ...new Array(1).fill({
+                    caption: 'Más celdas',
+                    credits: 25_000,
+                    coins: 5,
+                    duration: '7 Días',
+                }),
+            ],
             levelcost: [
                 '1. 10.000',
                 '2. 50.000',
@@ -770,7 +796,14 @@ export default {
             color: '#eeb611',
             coins: 25,
             credits: 100_000,
-            extensions: [],
+            extensions: [
+                {
+                    caption: 'Expansión de cuidados de emergencia',
+                    credits: 200_000,
+                    coins: 25,
+                    duration: '7 Días',
+                },
+            ],
             levelcost: [
                 '1. 10.000',
                 '2. 50.000',
