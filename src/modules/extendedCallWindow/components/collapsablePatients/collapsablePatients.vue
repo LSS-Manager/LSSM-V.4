@@ -4,6 +4,12 @@
         :id="boxId"
         :class="{ 'patients-collapsed': collapsed }"
     >
+        <span class="col-xs-12">
+            <b>{{ amountPatients.toLocaleString() }}</b>
+            {{ $m('patientCollapse.summary.total') }},
+            <b>{{ amountTreatedPatients.toLocaleString() }}</b>
+            {{ $m('patientCollapse.summary.treated') }}
+        </span>
         <div
             v-if="hasRedTexts"
             :class="hasLabels ? 'col-md-2 col-xs-4' : 'col-xs-12'"
@@ -116,6 +122,8 @@ export default Vue.extend<
         redRequirements: [string, number][];
         labels: [string, Record<string, number>][];
         labelCombis: [Record<string, string>, number][];
+        amountPatients: number;
+        amountTreatedPatients: number;
     },
     {
         featureId: string;
@@ -174,6 +182,14 @@ export default Vue.extend<
                 Record<string, string>,
                 number
             ][];
+        },
+        amountPatients() {
+            return document.querySelectorAll('.mission_patient').length;
+        },
+        amountTreatedPatients() {
+            return document.querySelectorAll(
+                '.mission_patient .progress-striped-inner-active'
+            ).length;
         },
     },
     props: {
