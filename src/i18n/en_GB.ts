@@ -624,7 +624,7 @@ export default {
             credits: 25_500,
             minPersonnel: 1,
             maxPersonnel: 1,
-            possibleBuildings: [2, 20 22, 25],
+            possibleBuildings: [2, 20, 22, 25],
             schooling: {
                 Rescue: {
                     'Ambulance Officer': {
