@@ -1,4 +1,9 @@
 {
+	"automaticMessage": {
+		"content": "Automatische Willkommensnachricht: Nachricht",
+		"subject": "Automatische Willkommensnachricht: Betreff",
+		"title": "Automatische Willkommensnachricht"
+	},
 	"faq": "FAQ",
 	"header": "wichtige Notiz",
 	"header_help": "Dieser Text wird in einem blauen Kasten über dem Verbandschat angezeigt.",
