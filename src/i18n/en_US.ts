@@ -342,7 +342,7 @@ export default {
             maxPersonnel: 2,
             wtank: 4500,
             ftank: 650,
-            possibleBuildings: [0],
+            possibleBuildings: [0, 13],
             schooling: {
                 'Fire Station': {
                     'ARFF-Training': {
@@ -402,7 +402,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 5,
             wtank: 0,
-            possibleBuildings: [0],
+            possibleBuildings: [0, 13],
             schooling: {
                 'Fire Station': {
                     'Swift water rescue': {
@@ -421,7 +421,7 @@ export default {
             minPersonnel: 0,
             maxPersonnel: 0,
             wtank: 0,
-            possibleBuildings: [0, 11, 12],
+            possibleBuildings: [0, 11, 12, 13],
             special:
                 'Accessory boat that can be towed with the Utility Unit. Requires Swift Water Rescue trained personnel to operate.<br> The boat trailer cannot be assigned personnel, <br>either assign your trained personnel to the towing vehicle, or assign them to a separate unit en route.',
         },
@@ -533,7 +533,7 @@ export default {
             maxPersonnel: 5,
             wtank: 500,
             ftank: 20,
-            possibleBuildings: [0],
+            possibleBuildings: [0, 13],
         },
         31: {
             caption: 'Type 5 engine',
@@ -543,7 +543,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 3,
             wtank: 400,
-            possibleBuildings: [0],
+            possibleBuildings: [0 , 13],
         },
         32: {
             caption: 'Type 7 engine',
@@ -553,7 +553,7 @@ export default {
             minPersonnel: 1,
             maxPersonnel: 2,
             wtank: 50,
-            possibleBuildings: [0],
+            possibleBuildings: [0, 13],
         },
         33: {
             caption: 'Pumper Tanker',
@@ -634,7 +634,7 @@ export default {
             credits: 10_000,
             minPersonnel: 3,
             maxPersonnel: 5,
-            possibleBuildings: [0],
+            possibleBuildings: [0, 13],
             wtank: 750,
         },
         39: {
@@ -644,7 +644,7 @@ export default {
             credits: 5_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            possibleBuildings: [0],
+            possibleBuildings: [0, 13],
             wtank: 150,
         },
         40: {
@@ -654,7 +654,7 @@ export default {
             credits: 20_000,
             minPersonnel: 0,
             maxPersonnel: 0,
-            possibleBuildings: [0],
+            possibleBuildings: [0, 13],
             schooling: {
                 'Fire Station': {
                     'Heavy Machinery Operating': {
@@ -878,7 +878,7 @@ export default {
             credits: 30_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            possibleBuildings: [5],
+            possibleBuildings: [5, 15],
             schooling: {
                 Police: {
                     'Ocean Navigation': {
@@ -894,7 +894,7 @@ export default {
             credits: 20_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            possibleBuildings: [5],
+            possibleBuildings: [5, 15],
             schooling: {
                 Police: {
                     'Environmental Game Warden': {
@@ -910,7 +910,7 @@ export default {
             credits: 30_000,
             minPersonnel: 0,
             maxPersonnel: 0,
-            possibleBuildings: [3],
+            possibleBuildings: [3, 14],
             special:
                 'Needed towing vehicle (Crew cab semi). Works like the Mass Casualty Unit but without transport.',
         },
@@ -921,7 +921,7 @@ export default {
             credits: 15_000,
             minPersonnel: 0,
             maxPersonnel: 0,
-            possibleBuildings: [3],
+            possibleBuildings: [3, 14],
             special:
                 'Needed towing vehicle (Fly-Car, EMS Rescue, EMS Chief). Works like the Mass Casualty Unit but without transport.',
         },
@@ -975,7 +975,7 @@ export default {
             credits: 25_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            possibleBuildings: [0, 22],
+            possibleBuildings: [0, 13, 22],
             schooling: {
                 'Fire Station': {
                     'Law Enforcement for Arson Investigation': {
@@ -991,7 +991,7 @@ export default {
             credits: 15_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            possibleBuildings: [0, 22],
+            possibleBuildings: [0, 13, 22],
         },
         64: {
             caption: 'Foam Tender',
@@ -1000,7 +1000,7 @@ export default {
             credits: 35_000,
             minPersonnel: 2,
             maxPersonnel: 3,
-            possibleBuildings: [0],
+            possibleBuildings: [0, 13],
             ftank: 6_500,
         },
         65: {
@@ -1011,7 +1011,7 @@ export default {
             minPersonnel: 0,
             maxPersonnel: 0,
             ftank: 650,
-            possibleBuildings: [0],
+            possibleBuildings: [0, 13],
             special:
                 'Needed towing vehicle (Utility unit, Type 6 engine, Battalion chief unit, mcv)',
         },
