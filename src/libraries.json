@@ -164,6 +164,7 @@
 		"version": "9.3.2"
 	},
 	"highcharts-vue": {
+		"icon": "https://wp-assets.highcharts.com/www-highcharts-com/blog/wp-content/uploads/2021/05/19085042/favicon-1.ico",
 		"url": "https://github.com/highcharts/highcharts-vue#readme",
 		"version": "1.4.0"
 	},
@@ -171,6 +172,10 @@
 		"icon": "https://webpack.js.org/assets/icon-square-big.svg",
 		"url": "https://github.com/webpack-contrib/html-loader",
 		"version": "3.0.1"
+	},
+	"leaflet.heat": {
+		"url": "https://github.com/Leaflet/Leaflet.heat",
+		"version": "0.2.0"
 	},
 	"localforage": {
 		"url": "https://github.com/localForage/localForage",
