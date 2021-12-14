@@ -89,7 +89,7 @@ module.exports = {
         water: 'l d’eau',
         staffPrefix: ['Nous avons besoin de'],
         staff: {
-            [/^pompiers en plus$/]: [0, 1, 12, 13, 15, 32, 33, 34],
+            [/^pompier(s)? en plus$/]: [0, 1, 12, 13, 15, 32, 33, 34],
         },
         vehiclesByRequirement: {
             [/^fourgon(s)? d’incendie$/]: [0, 1, 12, 13, 15, 32, 33, 34],
