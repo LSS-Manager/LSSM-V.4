@@ -358,6 +358,10 @@ module.exports = {
     patientCollapse: {
         combis: 'Kombinationen',
         amount: 'Anzahl',
+        summary: {
+            total: 'Patienten',
+            treated: 'in Behandlung',
+        },
     },
     hideVehicleList: {
         show: 'Fahrzeugliste zeigen',

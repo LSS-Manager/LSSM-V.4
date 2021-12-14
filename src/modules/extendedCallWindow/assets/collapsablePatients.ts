@@ -21,6 +21,10 @@ export default (
     const labelColors: Record<string, Record<string, string>> = {};
     const patientLabelCombis: Record<string, number> = {};
 
+    const oncePerMission: string[] = Object.values(
+        $m('patientSummary.oncePerMission')
+    );
+
     patients.forEach(patient => {
         (
             patient
@@ -35,6 +39,8 @@ export default (
                 if (!requirements.red.hasOwnProperty(req))
                     requirements.red[req] = 0;
 
+                if (oncePerMission.includes(req) && requirements.red[req] >= 1)
+                    return;
                 requirements.red[req]++;
             });
         const patientLabelCombi: Record<string, string> = {};

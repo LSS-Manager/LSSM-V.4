@@ -177,6 +177,14 @@ module.exports = {
     patientSummary: {
         oncePerMission: ['OvD-G'],
     },
+    patientCollapse: {
+        combis: 'Combinaties',
+        amount: 'Aantal',
+        summary: {
+            total: 'patiënten',
+            treated: 'worden behandeld',
+        },
+    },
     hideVehicleList: {
         show: 'Toon voertuigenlijst',
         hide: 'Verberg voertuigenlijst',
