@@ -7,6 +7,8 @@ export NVM_DIR="$HOME/.nvm"
 nvm install 16 # install node 16
 nvm use 16
 
+npm install -g yarn
+
 # version output helps when there are debugging needs
 echo "node: $(node -v) – npm: $(npm -v) – yarn: $(yarn -v) – nvm: $(nvm -v)"
 
