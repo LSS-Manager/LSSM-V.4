@@ -1001,7 +1001,7 @@ export default {
                 },
             },
             icon: 'truck',
-            possibleBuildings: [0, 12, 15, 22],
+            possibleBuildings: [0, 12, 15, 18, 22],
         },
         64: {
             caption: 'GW-Wasserrettung',
@@ -1023,7 +1023,7 @@ export default {
                 },
             },
             icon: 'truck',
-            possibleBuildings: [0, 12, 15, 22],
+            possibleBuildings: [0, 12, 15, 18, 22],
         },
         65: {
             caption: 'LKW 7 Lkr 19 tm',
@@ -1098,7 +1098,7 @@ export default {
             special:
                 'Muss von einem "GW-Wasserrettung" oder einem "GW-Taucher" zum Einsatz gezogen werden. Pro gefordertem Boot müssen mind. 4 Personen mit der Ausbildung "GW-Wasserrettung" oder "Wassergefahren" vor Ort sein!',
             icon: 'trailer',
-            possibleBuildings: [0, 12, 15, 22],
+            possibleBuildings: [0, 12, 15, 18, 22],
         },
         71: {
             caption: 'AB-MZB',
@@ -1193,7 +1193,7 @@ export default {
                 },
             },
             icon: 'truck-moving',
-            possibleBuildings: [0],
+            possibleBuildings: [0, 18],
         },
         76: {
             caption: 'Rettungstreppe',
@@ -1211,7 +1211,7 @@ export default {
                 },
             },
             icon: 'truck',
-            possibleBuildings: [0],
+            possibleBuildings: [0, 18],
         },
         77: {
             caption: 'AB-Gefahrgut',
@@ -1317,7 +1317,7 @@ export default {
                 },
             },
             icon: 'truck',
-            possibleBuildings: [0],
+            possibleBuildings: [0, 18],
         },
         84: {
             caption: 'ULF mit Löscharm',
@@ -1335,7 +1335,7 @@ export default {
                 },
             },
             icon: 'truck-moving',
-            possibleBuildings: [0],
+            possibleBuildings: [0, 18],
         },
         85: {
             caption: 'TM 50',
@@ -1353,7 +1353,7 @@ export default {
                 },
             },
             icon: 'truck',
-            possibleBuildings: [0],
+            possibleBuildings: [0, 18],
         },
         86: {
             caption: 'Turbolöscher',
@@ -1371,7 +1371,7 @@ export default {
                 },
             },
             icon: 'truck',
-            possibleBuildings: [0],
+            possibleBuildings: [0, 18],
         },
         87: {
             caption: 'TLF 4000',
@@ -1484,7 +1484,7 @@ export default {
                 },
             },
             icon: 'paw',
-            possibleBuildings: [6, 11, 17, 22],
+            possibleBuildings: [6, 11, 17, 19, 22],
         },
         95: {
             caption: 'Polizeimotorrad',
@@ -1545,7 +1545,7 @@ export default {
             special:
                 'Kann auch als NAW eingesetzt werden. Verdienst bei der Mission: 30 Credits pro km, max. 1.500 Credits. Hat das angefahrene Krankenhaus nicht die erforderliche Abteilung, wird der Verdienst 30% weniger betragen. Kann alle 15 (10 mit Premium) Rettungswachen gekauft werden. 2 Leute brauchen die "Intensivpflege" Ausbildung, Eine weitere Person davon die Notarzt Ausbildung',
             icon: 'ambulance',
-            possibleBuildings: [0, 2, 20],
+            possibleBuildings: [0, 2, 18, 20],
         },
         98: {
             caption: 'Zivilstreifenwagen',
@@ -1564,7 +1564,7 @@ export default {
             special:
                 'Kann FuStW in bestimmten Einsätzen ersetzen. Wird auf vorhandene Polizeistellplätze gestellt.',
             icon: 'taxi',
-            possibleBuildings: [6],
+            possibleBuildings: [6, 19],
         },
         99: {
             caption: 'LKW 7 Lbw',
@@ -1639,7 +1639,7 @@ export default {
             icon: 'taxi',
             special:
                 'Pro aktivierten Dienstgruppenleitung-Ausbau kann ein Funkstreifenwagen (Dienstgruppenleitung) gekauft werden.',
-            possibleBuildings: [6],
+            possibleBuildings: [6, 19],
         },
     },
     buildings: {
@@ -2272,13 +2272,44 @@ export default {
             coins: 25,
             credits: 50_000,
             extensions: [
-                null,
+                {
+                    caption: 'Rettungsdienst-Erweiterung',
+                    credits: 100_000,
+                    coins: 20,
+                    duration: '7 Tage',
+                },
                 ...new Array(2).fill({
                     caption: 'Abrollbehälter-Stellplatz',
                     credits: 100_000,
                     coins: 20,
                     duration: '7 Tage',
                 }),
+                {
+                    caption: 'Wasserrettungs-Erweiterung',
+                    credits: 400_000,
+                    coins: 25,
+                    duration: '7 Tage',
+                },
+                {
+                    caption: 'Flughafen-Erweiterung',
+                    credits: 300_000,
+                    coins: 25,
+                    duration: '7 Tage',
+                    maxExtensionsFunction: (buildingsByType: {
+                        [type: number]: Building[];
+                    }): number =>
+                        Math.floor(
+                            ((buildingsByType[0]?.length ?? 0) +
+                                (buildingsByType[18]?.length ?? 0)) /
+                                10
+                        ),
+                },
+                {
+                    caption: 'Werkfeuerwehr',
+                    credits: 100_000,
+                    coins: 20,
+                    duration: '7 Tage',
+                },
             ],
             levelcost: [
                 '1. 10.000',
@@ -2311,12 +2342,32 @@ export default {
             color: '#116611',
             coins: 25,
             credits: 50_000,
-            extensions: new Array(2).fill({
-                caption: 'Zelle',
-                credits: 25_000,
-                coins: 5,
-                duration: '7 Tage',
-            }),
+            extensions: [
+                ...new Array(2).fill({
+                    caption: 'Zelle',
+                    credits: 25_000,
+                    coins: 5,
+                    duration: '7 Tage',
+                }),
+                {
+                    caption: 'Diensthundestaffel',
+                    credits: 100_000,
+                    coins: 10,
+                    duration: '5 Tage',
+                },
+                {
+                    caption: 'Kriminalpolizei-Erweiterung',
+                    credits: 100_000,
+                    coins: 20,
+                    duration: '7 Tage',
+                },
+                {
+                    caption: 'Dienstgruppenleitung-Erweiterung',
+                    credits: 200_000,
+                    coins: 25,
+                    duration: '7 Tage',
+                },
+            ],
             levelcost: [
                 '1. 10.000',
                 '2. 50.000',
