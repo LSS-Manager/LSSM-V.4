@@ -1,4 +1,6 @@
 #!/bin/bash
+apt-get update -y
+apt-get install -y rsync zip
 # this loads nvm and enables the node version installed by nvm
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
 export NVM_DIR="$HOME/.nvm"
