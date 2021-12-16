@@ -20,6 +20,7 @@
                     type="radio"
                     v-model="settings.heatmapMode"
                     value="vehicles"
+                    disabled
                 />
                 Vähikels
             </label>
@@ -88,6 +89,18 @@
                 step="1"
             />
         </div>
+        <div class="form-group">
+            <v-select
+                :placeholder="'...'"
+                multiple
+                v-model="settings[mode('Includes')]"
+                :options="includeOptions"
+            >
+                <div slot="no-options">
+                    {{ $t('noOptions') }}
+                </div>
+            </v-select>
+        </div>
     </lightbox>
 </template>
 
@@ -96,14 +109,15 @@ import Vue from 'vue';
 
 import { faSlidersH } from '@fortawesome/free-solid-svg-icons/faSlidersH';
 
-import { DefaultComputed } from 'vue/types/options';
 import { IconDefinition } from '@fortawesome/free-solid-svg-icons';
+import { InternalBuilding } from 'typings/Building';
+import { InternalVehicle } from 'typings/Vehicle';
 import { Layer } from 'leaflet';
 
-type Mode = 'buildings' | 'vehicles'
+type Mode = 'buildings' | 'vehicles';
 
 type Subsetting<Scope extends Mode | ''> = Record<`${Scope}StaticRadius`, boolean> &
-    Record<`${Scope}RadiusM` | `${Scope}RadiusPx`, number>;
+    Record<`${Scope}RadiusM` | `${Scope}RadiusPx`, number> & Record<`${Scope}Includes`, { value: number, label: string}[]>;
 
 export type Settings = { heatmapMode: Mode } &
     Subsetting<'buildings'> &
@@ -123,7 +137,7 @@ export default Vue.extend<
         mode: <Setting extends keyof Subsetting<''>>(setting: Setting) => `${Mode}${Setting}`
         save: () => Promise<void>;
     },
-    DefaultComputed,
+    { includeOptions: { value: number, label: string}[] },
     {
         heatLayer: Layer;
         setSetting: <T>(settingId: string, value: T) => Promise<void>;
@@ -132,6 +146,16 @@ export default Vue.extend<
     }
 >({
     name: 'lssmv4-heatmap-settings',
+    components: {
+        Lightbox: () =>
+            import(
+                /* webpackChunkName: "components/lightbox" */ '../../components/lightbox.vue'
+                ),
+        VSelect: () =>
+            import(
+                /* webpackChunkName: "components/vue-select" */ 'vue-select'
+                ),
+    },
     data() {
         const nodeAttribute = (attr: string, id = false) =>
             this.$store.getters.nodeAttribute(`heatmap-settings-${attr}`, id);
@@ -142,25 +166,22 @@ export default Vue.extend<
                 buildingsStaticRadius: false,
                 buildingsRadiusM: 0,
                 buildingsRadiusPx: 0,
+                buildingsIncludes: [],
                 vehiclesStaticRadius: false,
                 vehiclesRadiusM: 0,
                 vehiclesRadiusPx: 0,
+                vehiclesIncludes: []
             },
             ids: {
                 StaticRadius: nodeAttribute('static_radius', true),
                 RadiusM: nodeAttribute('radius_m', true),
                 RadiusPx: nodeAttribute('radius_px', true),
+                Includes: nodeAttribute('includes', true)
             },
             icons: { faSlidersH },
             radiusMAsRange: true,
             radiusPxAsRange: true,
         };
-    },
-    components: {
-        Lightbox: () =>
-            import(
-                /* webpackChunkName: "components/lightbox" */ '../../components/lightbox.vue'
-            ),
     },
     methods: {
         mode(setting) {
@@ -172,6 +193,11 @@ export default Vue.extend<
 
             this.updateSettings(this.settings);
         },
+    },
+    computed: {
+        includeOptions() {
+            return Object.entries(this.$t(this.settings.heatmapMode) as Record<number, InternalBuilding | InternalVehicle>).map(([id, {caption}]) => ({value: parseInt(id), label: caption})).sort(({label: labelA}, {label: labelB}) => labelA > labelB ? 1 : labelA < labelB ? -1 : 0);
+        }
     },
     props: {
         heatLayer: {

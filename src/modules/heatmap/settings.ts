@@ -2,25 +2,31 @@ import { Hidden } from 'typings/Setting';
 import { ModuleSettingFunction } from 'typings/Module';
 
 export default <ModuleSettingFunction>(() => ({
-    'heatmapMode': <Hidden>{
+    heatmapMode: <Hidden>{
         type: 'hidden',
     },
-    'buildings.staticRadius': <Hidden>{
+    buildingsStaticRadius: <Hidden>{
         type: 'hidden',
     },
-    'buildings.radiusM': <Hidden>{
+    buildingsRadiusM: <Hidden>{
         type: 'hidden',
     },
-    'buildings.radiusPx': <Hidden>{
+    buildingsRadiusPx: <Hidden>{
         type: 'hidden',
     },
-    'vehicles.staticRadius': <Hidden>{
+    buildingsIncludes: <Hidden>{
         type: 'hidden',
     },
-    'vehicles.radiusM': <Hidden>{
+    vehiclesStaticRadius: <Hidden>{
         type: 'hidden',
     },
-    'vehicles.radiusPx': <Hidden>{
+    vehiclesRadiusM: <Hidden>{
+        type: 'hidden',
+    },
+    vehiclesRadiusPx: <Hidden>{
+        type: 'hidden',
+    },
+    vehiclesIncludes: <Hidden>{
         type: 'hidden',
     },
 }));
