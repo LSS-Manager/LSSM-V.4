@@ -2342,30 +2342,32 @@ export default {
             color: '#116611',
             coins: 25,
             credits: 50_000,
-            extensions: new Array(2).fill({
-                caption: 'Zelle',
-                credits: 25_000,
-                coins: 5,
-                duration: '7 Tage',
-            },
-            {
-                caption: 'Diensthundestaffel',
-                credits: 100_000,
-                coins: 10,
-                duration: '5 Tage',
-            },
-            {
-                caption: 'Kriminalpolizei-Erweiterung',
-                credits: 100_000,
-                coins: 20,
-                duration: '7 Tage',
-            },
-            {
-                caption: 'Dienstgruppenleitung-Erweiterung',
-                credits: 200_000,
-                coins: 25,
-                duration: '7 Tage',
-            }),
+            extensions: [
+                ...new Array(2).fill({
+                    caption: 'Zelle',
+                    credits: 25_000,
+                    coins: 5,
+                    duration: '7 Tage',
+                }),
+                {
+                    caption: 'Diensthundestaffel',
+                    credits: 100_000,
+                    coins: 10,
+                    duration: '5 Tage',
+                },
+                {
+                    caption: 'Kriminalpolizei-Erweiterung',
+                    credits: 100_000,
+                    coins: 20,
+                    duration: '7 Tage',
+                },
+                {
+                    caption: 'Dienstgruppenleitung-Erweiterung',
+                    credits: 200_000,
+                    coins: 25,
+                    duration: '7 Tage',
+                },
+            ],
             levelcost: [
                 '1. 10.000',
                 '2. 50.000',
