@@ -32,7 +32,29 @@ export default <ModuleMainFunction>(async (LSSM, MODULE_ID) => {
 
     const settings = await getModuleSettings();
 
-    let radiusM = settings.radiusM ?? 31_415; // in meters
+    let heatmapMode = settings.heatmapMode ?? 'buildings';
+    const buildingsSettings = {
+        staticRadius: settings.buildingsStaticRadius ?? false,
+        radiusM: settings.buildingsRadiusM ?? 31_415,
+        radiusPx: settings.buildingsRadiusPx ?? 50,
+    };
+    const vehicleSettings = {
+        staticRadius: settings.vehiclesStaticRadius ?? false,
+        radiusM: settings.vehiclesRadiusM ?? 31_415,
+        radiusPx: settings.vehiclesRadiusPx ?? 50,
+    };
+
+    const getSubsettings = () =>
+        heatmapMode === 'buildings' ? buildingsSettings : vehicleSettings;
+
+    const getLayerOptions = () => {
+        const subsettings = getSubsettings();
+        return {
+            radius: subsettings.staticRadius
+                ? subsettings.radiusPx
+                : subsettings.radiusM / pxPerMeter(),
+        };
+    };
 
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
@@ -41,16 +63,22 @@ export default <ModuleMainFunction>(async (LSSM, MODULE_ID) => {
             ({ latitude, longitude }) =>
                 new window.L.LatLng(latitude, longitude, 100)
         ),
-        { radius: radiusM / pxPerMeter() }
+        getLayerOptions()
     ).addTo(window.map);
 
     window.map.on('zoomend', () => {
-        heatLayer.setOptions({ radius: radiusM / pxPerMeter() });
+        heatLayer.setOptions(getLayerOptions());
         heatLayer.redraw();
     });
 
-    const update: UpdateSettings = newRadiusM => {
-        radiusM = newRadiusM;
+    const update: UpdateSettings = updated => {
+        heatmapMode = updated.heatmapMode;
+        buildingsSettings.staticRadius = updated.buildingsStaticRadius;
+        buildingsSettings.radiusM = updated.buildingsRadiusM;
+        buildingsSettings.radiusPx = updated.buildingsRadiusPx;
+        vehicleSettings.staticRadius = updated.vehiclesStaticRadius;
+        vehicleSettings.radiusM = updated.vehiclesRadiusM;
+        vehicleSettings.radiusPx = updated.vehiclesRadiusPx;
 
         window.map.fireEvent('zoomend');
     };
