@@ -317,10 +317,10 @@ export default <RedesignParser<VehicleWindow>>(({
                     )
                 )
                     .map(m => {
-                        const linkEl = m.children[1]?.querySelector<
+                        const linkEl = m.children[2]?.querySelector<
                             HTMLAnchorElement
                         >('a[href^="/missions/"]');
-                        const progressEl = m.children[3]?.querySelector<
+                        const progressEl = m.children[4]?.querySelector<
                             HTMLDivElement
                         >('.progress .progress-bar');
                         const id = getIdFromEl(linkEl);
@@ -334,11 +334,11 @@ export default <RedesignParser<VehicleWindow>>(({
                             type: parseInt(
                                 m.getAttribute('data-mission-type') ?? '-1'
                             ),
-                            adress: Array.from(m.children[1]?.childNodes ?? [])
+                            adress: Array.from(m.children[2]?.childNodes ?? [])
                                 .map(c => (c as Text).wholeText ?? '')
                                 .join('')
                                 .trim(),
-                            distance: m.children[2]?.textContent?.trim() ?? '',
+                            distance: m.children[3]?.textContent?.trim() ?? '',
                             list,
                             progress: {
                                 active: !!progressEl?.querySelector(
@@ -350,10 +350,10 @@ export default <RedesignParser<VehicleWindow>>(({
                             },
                             patients: {
                                 current: parseInt(
-                                    m.children[4]?.textContent?.trim() ?? '-1'
+                                    m.children[5]?.textContent?.trim() ?? '-1'
                                 ),
                                 total: parseInt(
-                                    m.children[4]?.textContent
+                                    m.children[5]?.textContent
                                         ?.trim()
                                         ?.match(/\d+$/)?.[0] ?? '-1'
                                 ),

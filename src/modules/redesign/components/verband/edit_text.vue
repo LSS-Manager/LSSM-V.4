@@ -30,7 +30,7 @@
                     ></textarea>
                 </div>
             </details>
-            <details v-if="$store.state.lang !== 'de_DE'">
+            <details>
                 <summary>{{ lightbox.$sm('automaticMessage.title') }}</summary>
                 <div class="form-group">
                     <label :for="automaticMessage.subjectId">
@@ -185,24 +185,20 @@ export default Vue.extend<
             url.searchParams.append('alliance_text[content]', content);
             const rules = this.rulesEditor.getWysiwygEditorValue(true);
             url.searchParams.append('alliance_text[rules]', rules);
-            if (this.$store.state.lang !== 'de_DE') {
-                const autoMessageSubject =
-                    (this.$refs
-                        .automaticMessageSubject as HTMLInputElement | null)
-                        ?.value ?? '';
-                url.searchParams.append(
-                    'alliance_text[welcome_subject]',
-                    autoMessageSubject
-                );
-                const autoMessageContent =
-                    (this.$refs
-                        .automaticMessageContent as HTMLInputElement | null)
-                        ?.value ?? '';
-                url.searchParams.append(
-                    'alliance_text[welcome_text]',
-                    autoMessageContent
-                );
-            }
+            const autoMessageSubject =
+                (this.$refs.automaticMessageSubject as HTMLInputElement | null)
+                    ?.value ?? '';
+            url.searchParams.append(
+                'alliance_text[welcome_subject]',
+                autoMessageSubject
+            );
+            const autoMessageContent =
+                (this.$refs.automaticMessageContent as HTMLInputElement | null)
+                    ?.value ?? '';
+            url.searchParams.append(
+                'alliance_text[welcome_text]',
+                autoMessageContent
+            );
             const header =
                 (this.$refs.header as HTMLInputElement | null)?.value ?? '';
             url.searchParams.append('alliance_text[chat_header]', header);
