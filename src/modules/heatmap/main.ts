@@ -70,9 +70,7 @@ export default <ModuleMainFunction>(async (LSSM, MODULE_ID, $m) => {
 
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
-    const heatLayer = window.L.heatLayer([], getLayerOptions()).addTo(
-        window.map
-    );
+    const heatLayer = window.L.heatLayer([], getLayerOptions());
 
     window.map.on('zoomend', () => {
         heatLayer.setOptions(getLayerOptions());
@@ -151,7 +149,78 @@ export default <ModuleMainFunction>(async (LSSM, MODULE_ID, $m) => {
     LSSM.$store
         .dispatch('addOSMControl', { position: 'bottom-left' })
         .then((control: HTMLAnchorElement) => {
-            control.addEventListener('click', () =>
+            control.id = LSSM.$store.getters.nodeAttribute('heatmap-control');
+
+            const icon = document.createElement('i');
+            icon.classList.add('fas', 'fa-layer-group');
+
+            const dropup = document.createElement('ul');
+            dropup.classList.add('dropdown-menu');
+
+            const settingsLi = document.createElement('li');
+            const settingsBtn = document.createElement('button');
+            settingsBtn.classList.add('btn', 'btn-default', 'btn-xs');
+            settingsLi.append(settingsBtn);
+            const settingsIcon = document.createElement('i');
+            settingsIcon.classList.add('fas', 'fa-cogs');
+            settingsBtn.append(settingsIcon);
+
+            const toggleLi = document.createElement('li');
+            toggleLi.classList.add('checkbox');
+            const toggleLabel = document.createElement('label');
+            toggleLabel.textContent = $m('enable').toString();
+            const toggleCheckbox = document.createElement('input');
+            toggleCheckbox.type = 'checkbox';
+            toggleLabel.prepend(toggleCheckbox);
+            toggleLi.append(toggleLabel);
+
+            dropup.append(settingsLi, toggleLi);
+
+            control.append(icon, dropup);
+
+            control.addEventListener('click', e => {
+                if (
+                    !(e.target as HTMLElement | null)?.closest('.dropdown-menu')
+                )
+                    control.classList.toggle('open');
+            });
+
+            LSSM.$store.dispatch('addStyles', [
+                {
+                    selectorText: `#${control.id}`,
+                    style: {
+                        cursor: 'pointer',
+                    },
+                },
+                {
+                    selectorText: `#${control.id} ul`,
+                    style: {
+                        'top': 'auto',
+                        'bottom': '100%',
+                        'margin-bottom': '2px',
+                    },
+                },
+                {
+                    selectorText: `#${control.id}.open ul`,
+                    style: {
+                        display: 'block !important',
+                    },
+                },
+                {
+                    selectorText: `#${control.id}.open ul li`,
+                    style: {
+                        'padding-left': '1rem',
+                    },
+                },
+                {
+                    selectorText: `#${control.id}.open ul li.checkbox`,
+                    style: {
+                        margin: '0',
+                    },
+                },
+            ]);
+
+            settingsBtn.addEventListener('click', () =>
                 LSSM.$modal.show(
                     () =>
                         import(
@@ -164,6 +233,12 @@ export default <ModuleMainFunction>(async (LSSM, MODULE_ID, $m) => {
                         $m,
                     },
                     { name: 'heatmap-settings', height: '90%' }
+                )
+            );
+
+            toggleCheckbox.addEventListener('change', () =>
+                heatLayer[toggleCheckbox.checked ? 'addTo' : 'removeFrom'](
+                    window.map
                 )
             );
         });

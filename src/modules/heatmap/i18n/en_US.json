@@ -1,5 +1,6 @@
 {
 	"buildings": "Buildings",
+	"enable": "enable",
 	"includes": {
 		"buildings": "building types",
 		"vehicles": "vehicle types"

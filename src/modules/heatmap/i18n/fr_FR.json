@@ -1,5 +1,6 @@
 {
 	"buildings": "Bâtiments",
+	"enable": "activer",
 	"includes": {
 		"buildings": "Types de bâtiments",
 		"vehicles": "Types de véhicules"
