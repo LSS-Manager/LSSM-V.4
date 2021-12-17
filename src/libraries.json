@@ -57,7 +57,7 @@
 	"@types/qrcode": {
 		"icon": "https://avatars.githubusercontent.com/u/3637556",
 		"url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/qrcode",
-		"version": "1.4.1"
+		"version": "1.4.2"
 	},
 	"@types/semver": {
 		"icon": "https://avatars.githubusercontent.com/u/3637556",
