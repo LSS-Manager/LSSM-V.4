@@ -1,5 +1,5 @@
 #!/bin/bash
-# Install rysync and zip for deployment
+# Install rsync and zip for deployment
 sudo apt-get update -y
 sudo apt-get install -y rsync zip
 # this loads nvm and enables the node version installed by nvm
