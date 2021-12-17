@@ -9,12 +9,14 @@ Affiche les crédits actuels au lieu d'une tirelire.
 | :----------------------------: | :----------------------------------------------: |
 | ![tirelire](piggy-mode.png)    | ![crédits au lieu de tirelire](credits-mode.png) |
 
+## Position dans le classement en crédit
+Affiche ta position actuelle dans le classement. La valeur est mise à jour toutes les 5 minutes :
+
+![avec position dans la toplist](toplist.png)
+
 ## Objectifs
 Chaque fois que vous avez atteint l'un des objectifs de crédits définis, la tirelire ou le niveau de crédits est mis en évidence en vert jusqu'à ce que vous cliquez dessus la prochaine fois :
 
 |                    Tirelire                        |                     Crédits                     |
 | :------------------------------------------------: | :---------------------------------------------: |
 | ![Objectif crédits tirelire](alert-piggy-mode.png) |   ![Objectif crédits](alert-credits-mode.png)   |
-
-## Classement dans les crédits
-Affiche dans l'extension de crédit la position actuelle . Ce module est purement optionnel.

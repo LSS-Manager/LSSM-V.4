@@ -283,11 +283,18 @@ export default Vue.extend<
                         name: this.$m('charts.income').toString(),
                         data: this.creditsTypeSum
                             .filter(({ total }) => total > 0)
-                            .map(({ desc: name, total: y }) => ({
-                                name,
-                                y,
-                                value: y.toLocaleString(),
-                            })),
+                            .map(
+                                ({
+                                    desc: name,
+                                    total: y,
+                                    backgroundColor,
+                                }) => ({
+                                    name,
+                                    y,
+                                    value: y.toLocaleString(),
+                                    color: backgroundColor,
+                                })
+                            ),
                     },
                 ],
             };
@@ -304,11 +311,18 @@ export default Vue.extend<
                         name: this.$m('charts.expenses').toString(),
                         data: this.creditsTypeSum
                             .filter(({ total }) => total < 0)
-                            .map(({ desc: name, total: y }) => ({
-                                name,
-                                y: -y,
-                                value: y.toLocaleString(),
-                            })),
+                            .map(
+                                ({
+                                    desc: name,
+                                    total: y,
+                                    backgroundColor,
+                                }) => ({
+                                    name,
+                                    y: -y,
+                                    value: y.toLocaleString(),
+                                    color: backgroundColor,
+                                })
+                            ),
                     },
                 ],
             };

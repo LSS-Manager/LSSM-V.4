@@ -1,0 +1,13 @@
+{
+	"buildings": "Gebouwen",
+	"includes": {
+		"buildings": "Gebouw types",
+		"vehicles": "Voertuig types"
+	},
+	"intensity": "Intensiteit",
+	"radius": "Radius",
+	"save": "Opslaan",
+	"static": "Radius in pixels?",
+	"title": "Heatmap instellingen",
+	"vehicles": "Voertuigen"
+}

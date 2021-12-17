@@ -606,7 +606,7 @@ export default {
             credits: 15_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            possibleBuildings: [2, 25],
+            possibleBuildings: [2, 20, 25],
             schooling: {
                 Rescue: {
                     'SORT Training': {
@@ -624,7 +624,7 @@ export default {
             credits: 25_500,
             minPersonnel: 1,
             maxPersonnel: 1,
-            possibleBuildings: [2, 22, 25],
+            possibleBuildings: [2, 20, 22, 25],
             schooling: {
                 Rescue: {
                     'Ambulance Officer': {
@@ -695,7 +695,7 @@ export default {
             },
             possibleBuildings: [0, 18],
             special:
-                'Acts as A Breathing Appartus Support Unit, Hazmat Unit and a Welfare Unit',
+                'Acts as a Breathing Appartus Support Unit, Hazmat Unit and a Welfare Unit.',
         },
         40: {
             caption: 'PM',
@@ -706,7 +706,7 @@ export default {
             maxPersonnel: 2,
             possibleBuildings: [0, 18],
             special:
-                'Carries Every Pod, which are different types of vehicles on the back of a lorry',
+                'Carries Every Pod, which are different types of vehicles on the back of a lorry.',
         },
         41: {
             caption: 'Water Pod',
@@ -715,8 +715,8 @@ export default {
             credits: 17_300,
             minPersonnel: 0,
             maxPersonnel: 0,
-            possibleBuildings: [0],
-            special: 'Acts as a Water Carrier',
+            possibleBuildings: [0, 18],
+            special: 'Acts as a Water Carrier.',
         },
         42: {
             caption: 'Bulk Foam Pod',
@@ -736,7 +736,7 @@ export default {
             credits: 12_180,
             minPersonnel: 0,
             maxPersonnel: 0,
-            possibleBuildings: [0],
+            possibleBuildings: [0, 18],
             special: 'Acts as a Rescue Support Unit.',
         },
         44: {
@@ -754,8 +754,8 @@ export default {
                 },
             },
             special:
-                'Requires special education for personnel on Prime Mover (Mobile command). Acts as a Incident Command and Control Unit',
-            possibleBuildings: [0],
+                'Requires special education for personnel on Prime Mover (Mobile command). Acts as a Incident Command and Control Unit and a Fire Officer.',
+            possibleBuildings: [0, 18],
         },
         45: {
             caption: 'Welfare Pod',
@@ -765,7 +765,7 @@ export default {
             minPersonnel: 0,
             maxPersonnel: 0,
             possibleBuildings: [0],
-            special: 'Acts as a Welfare Unit',
+            special: 'Acts as a Welfare Unit.',
         },
         46: {
             caption: 'BASU Pod',
@@ -774,8 +774,8 @@ export default {
             credits: 11_680,
             minPersonnel: 0,
             maxPersonnel: 0,
-            possibleBuildings: [0],
-            special: 'Acts as a Breathing Appartus Support Unit',
+            possibleBuildings: [0, 18],
+            special: 'Acts as a Breathing Appartus Support Unit.',
         },
         47: {
             caption: 'Misting Pod',
@@ -784,8 +784,8 @@ export default {
             credits: 5_000,
             minPersonnel: 0,
             maxPersonnel: 0,
-            possibleBuildings: [0],
-            special: 'Acts as a misting unit',
+            possibleBuildings: [0, 18],
+            special: 'Acts as a Light 4x4 Pump Unit. ',
         },
         48: {
             caption: 'Hazardous Materials Pod',
@@ -802,8 +802,8 @@ export default {
                 },
             },
             special:
-                'Requires special education for personnel on Prime Mover (HazMat). Acts as a Hazmat Unit',
-            possibleBuildings: [0],
+                'Requires special education for personnel on Prime Mover (HazMat). Acts as a Hazmat Unit.',
+            possibleBuildings: [0, 18],
         },
         49: {
             caption: 'OSU Pod',
@@ -820,8 +820,8 @@ export default {
                 },
             },
             special:
-                'Requires special education for personnel in towing vehicle (HazMat). Acts as a Hazmat Unit',
-            possibleBuildings: [0],
+                'Requires special education for personnel in Prime Mover (HazMat). Acts as a Hazmat Unit, Welfare Unit and a Breathing Apparatus Support Unit.',
+            possibleBuildings: [0, 18],
         },
         50: {
             caption: 'HVP',
@@ -838,8 +838,8 @@ export default {
                 },
             },
             special:
-                'Requires special education for personnel on Prime Mover (High Volume Pump Training). Acts as a High Volume Pump',
-            possibleBuildings: [0],
+                'Requires special education for personnel on Prime Mover (High Volume Pump Training). Acts as a Water Carrier.',
+            possibleBuildings: [0, 18],
         },
     },
     buildings: {
@@ -911,7 +911,7 @@ export default {
             maxBuildings: 'No limit',
             maxLevel: 0,
             special:
-                "Finance ministers and admins can (expand) fire department schools with the help of credits from the association's funds. Alliance Educators and admins can start training courses at association fire- brigade schools.",
+                "Finance Admins and admins can (expand) fire department schools with the help of credits from the association's funds. Alliance Educators and admins can start training courses at association fire- brigade schools.",
             startPersonnel: 0,
             startVehicles: [],
         },
@@ -953,7 +953,7 @@ export default {
             maxBuildings: 'No limit',
             maxLevel: 0,
             special:
-                "Finance ministers and admins can (expand) association rescue schools with the help of credits from the association's funds. Alliance Educators and admins can start training courses at association rescue schools.",
+                "Finance Admins and admins can (expand) association rescue schools with the help of credits from the association's funds. Alliance Educators and admins can start training courses at association rescue schools.",
             startPersonnel: 0,
             startVehicles: [],
         },
@@ -1107,7 +1107,7 @@ export default {
             maxBuildings: 'No limit',
             maxLevel: 0,
             special:
-                "Finance ministers and admins can (expand) association police schools with the help of credits from the association's Funds. Alliance Educators and admins can start training courses at association police schools.",
+                "Finance Admins and admins can (expand) association police schools with the help of credits from the association's Funds. Alliance Educators and admins can start training courses at association police schools.",
             startPersonnel: 0,
             startVehicles: [],
         },
@@ -1175,7 +1175,38 @@ export default {
             color: '#aa1111',
             coins: 25,
             credits: 50_000,
-            extensions: [],
+            extensions: [
+                {
+                    caption: 'Ambulance extension',
+                    credits: 100_000,
+                    coins: 20,
+                    duration: '7 Days',
+                },
+                {
+                    caption: 'Airport extension',
+                    credits: 100_000,
+                    coins: 20,
+                    duration: '7 Days',
+                },
+                {
+                    caption: 'Swap Body Parking Space',
+                    credits: 50_000,
+                    coins: 20,
+                    duration: '7 Days',
+                },
+                ...new Array(1).fill({
+                    caption: 'Swap Body Parking Space',
+                    credits: 50_000,
+                    coins: 20,
+                    duration: '7 Days',
+                }),
+                {
+                    caption: 'Water rescue expansion',
+                    credits: 100_000,
+                    coins: 20,
+                    duration: '7 Days',
+                },
+            ],
             levelcost: [
                 '1. 10.000',
                 '2. 50.000',
@@ -1230,7 +1261,14 @@ export default {
             color: '#eeb611',
             coins: 25,
             credits: 100_000,
-            extensions: [],
+            extensions: [
+                {
+                    caption: 'Mass Casualty Extension',
+                    credits: 150_000,
+                    coins: 20,
+                    duration: '5 Days',
+                },
+            ],
             levelcost: [
                 '1. 10.000',
                 '2. 50.000',
@@ -1357,22 +1395,22 @@ export default {
         'Fire Fighting Vehicles': {
             vehicles: {
                 'Pumps': [0, 1, 16, 26, 17],
-                'Special Vehicles': [
-                    4,
-                    7,
-                    14,
-                    18,
-                    6,
-                    2,
-                    40,
-                    35,
-                    36,
-                    37,
-                    38,
-                    39,
-                ],
+                'Special Vehicles': [4, 7, 14, 18, 6, 2, 39],
                 'Command Vehicles': [15, 3],
-                'Container': [41, 42, 43, 44, 45, 46, 47, 48, 49, 50],
+                'Pods and Prime Movers': [
+                    40,
+                    41,
+                    42,
+                    43,
+                    44,
+                    45,
+                    46,
+                    47,
+                    48,
+                    49,
+                    50,
+                ],
+                'Foam Vehicles': [35, 36, 37, 38],
             },
             color: '#ff2d2d',
         },

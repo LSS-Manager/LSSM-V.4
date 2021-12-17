@@ -1,4 +1,9 @@
 {
+	"automaticMessage": {
+		"content": "Message de bienvenue automatique : message",
+		"subject": "Message de bienvenue automatique : Objet",
+		"title": "Message de bienvenue automatique"
+	},
 	"faq": "FAQ",
 	"header": "Annonces importantes de l'Alliance",
 	"header_help": "Sera affiché sur la page de démarrage au-dessus du chat.",

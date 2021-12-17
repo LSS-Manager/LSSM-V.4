@@ -54,7 +54,7 @@ const scriptHandlers = {
         console.log(execSync('git diff --color-words').toString());
     },
     browserlist() {
-        console.log(execSync('npx -y browserslist@latest --update-db'));
+        // console.log(execSync('npx -y browserslist@latest --update-db'));
     },
 } as { [key: string]: () => string | void | Promise<string | void> };
 

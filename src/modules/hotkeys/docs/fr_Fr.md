@@ -91,3 +91,13 @@ Ces touches de raccourci ne sont disponibles que dans la fenêtre principale (l�
 ### Liste des interventions
 
 * Focaliser le champ de recherche
+
+## Fenêtre de déploiement
+
+### Tri des interventions
+Ces touches de raccourci sont là pour les boutons modifiés du tri des interventions dans le module [Liste de mission étendue](extendedCallList.md#trier-les-missions) :
+
+* Alerter et continuer
+* Alerter, partager et continuer
+* Intervention suivante
+* Intervention précédente

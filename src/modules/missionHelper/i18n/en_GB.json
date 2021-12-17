@@ -79,10 +79,10 @@
 		},
 		"optional_alternatives": {
 			"allow_arff_instead_of_lf": {
-				"firetrucks": "Fire Engine or ARFF | Fire Engine or ARFF"
+				"firetrucks": "Pumps or ARFF | Pumps or ARFF"
 			},
 			"allow_rw_instead_of_lf": {
-				"firetrucks": "Fire Engine or Heavy Rescue or Rescue Engine | Fire Engines or Heavy Rescue or Rescue Engine"
+				"firetrucks": "Pumps or Rescue Support Vehicle or Rescue Pump | Pumps or Rescue Support Vehicles or Rescue Pumps"
 			}
 		},
 		"patient_additionals": {

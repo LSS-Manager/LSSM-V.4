@@ -149,6 +149,7 @@ module.exports = {
         },
         selected: 'Ausgewählt',
         water: 'l. Wasser',
+        staffPrefix: ['Wir benötigen noch min.'],
         staff: {
             [/^Feuerwehrleute$/]: [
                 0,
@@ -357,6 +358,10 @@ module.exports = {
     patientCollapse: {
         combis: 'Kombinationen',
         amount: 'Anzahl',
+        summary: {
+            total: 'Patienten',
+            treated: 'in Behandlung',
+        },
     },
     hideVehicleList: {
         show: 'Fahrzeugliste zeigen',

@@ -1,0 +1,13 @@
+{
+	"buildings": "Buildings",
+	"includes": {
+		"buildings": "building types",
+		"vehicles": "vehicle types"
+	},
+	"intensity": "intensity boost",
+	"radius": "radius",
+	"save": "Save",
+	"static": "radius in pixels?",
+	"title": "Heatmap settings",
+	"vehicles": "Vehicles"
+}

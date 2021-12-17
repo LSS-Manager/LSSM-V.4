@@ -998,7 +998,38 @@ export default {
             color: '#aa1111',
             coins: 25,
             credits: 50_000,
-            extensions: [],
+            extensions: [
+                {
+                    caption: 'Estensione ambulanze',
+                    credits: 100_000,
+                    coins: 20,
+                    duration: '7 Giorni',
+                },
+                {
+                    caption: 'Esentsione soccorso acquatico VVF',
+                    credits: 100_000,
+                    coins: 20,
+                    duration: '7 Giorni',
+                },
+                {
+                    caption: 'Anticendio Boschivo',
+                    credits: 50_000,
+                    coins: 15,
+                    duration: '7 Giorni',
+                },
+                {
+                    caption: 'Soccorso di Massa',
+                    credits: 150_000,
+                    coins: 20,
+                    duration: '5 Giorni',
+                },
+                {
+                    caption: 'Sistema schiumogeno',
+                    credits: 50_000,
+                    coins: 15,
+                    duration: '5 Giorni',
+                },
+            ],
             levelcost: [
                 '1. 10.000',
                 '2. 50.000',
@@ -1053,7 +1084,14 @@ export default {
             color: '#eeb611',
             coins: 25,
             credits: 100_000,
-            extensions: [],
+            extensions: [
+                {
+                    caption: 'MaxiEmergenza',
+                    credits: 150_000,
+                    coins: 20,
+                    duration: '5 giorni',
+                },
+            ],
             levelcost: [
                 '1. 10.000',
                 '2. 50.000',

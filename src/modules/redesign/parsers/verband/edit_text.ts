@@ -8,6 +8,10 @@ export interface VerbandEditTextWindow extends VerbandWindow {
     rules: string;
     header: string;
     webhook: string;
+    automaticMessage: {
+        subject: string;
+        content: string;
+    };
     faq: string;
 }
 
@@ -28,6 +32,16 @@ export default <RedesignParser<VerbandEditTextWindow>>(({
             form?.querySelector<HTMLTextAreaElement>(
                 'textarea[name="alliance_text[rules]"]'
             )?.value ?? '',
+        automaticMessage: {
+            subject:
+                form?.querySelector<HTMLTextAreaElement>(
+                    'input[name="alliance_text[welcome_subject]"]'
+                )?.value ?? '',
+            content:
+                form?.querySelector<HTMLTextAreaElement>(
+                    'textarea[name="alliance_text[welcome_text]"]'
+                )?.value ?? '',
+        },
         header:
             form?.querySelector<HTMLInputElement>(
                 'input[name="alliance_text[chat_header]"]'

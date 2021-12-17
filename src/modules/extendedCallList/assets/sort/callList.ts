@@ -305,9 +305,13 @@ export default (
                         ([list, missions]) => [
                             list,
                             Object.entries(missions)
-                                .sort(([, valueA], [, valueB]) =>
+                                .sort(([idA, valueA], [idB, valueB]) =>
                                     panelBody.classList.contains(reverseClass)
-                                        ? valueB - valueA
+                                        ? valueB === valueA
+                                            ? parseInt(idB) - parseInt(idA)
+                                            : valueB - valueA
+                                        : valueB === valueA
+                                        ? parseInt(idA) - parseInt(idB)
                                         : valueA - valueB
                                 )
                                 .map(([mission]) => mission),

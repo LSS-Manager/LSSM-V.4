@@ -60,9 +60,11 @@
 		"building": "Bâtiment",
 		"caption": "Nom",
 		"fms": "Radio",
+		"target": "Objectif",
 		"type": "Type"
 	},
 	"vehicle-types": {
+		"chart": "Résumé des statuts",
 		"status": "Status",
 		"statuses": [
 			1,

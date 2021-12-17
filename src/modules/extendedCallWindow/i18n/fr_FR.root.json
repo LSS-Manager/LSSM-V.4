@@ -53,6 +53,14 @@
 			"description": "Ajoute un bouton qui permet de centrer la carte sur la mission actuelle.",
 			"title": "Centrer la carte"
 		},
+		"collapsablePatients": {
+			"description": "Réduit les patients dans la fenêtre d'intervention et affiche à la place un bref résumé.",
+			"title": "Réduire les patients"
+		},
+		"collapsablePatientsMinPatients": {
+			"description": "Définis ici à partir de combien de patients le regroupement doit être activé",
+			"title": "Réduire le nombre de patients : Nombre de patients minimal"
+		},
 		"emvMaxStaff": {
 			"description": "La fonction 'véhicules manquants améliorés' s'attend à ce que tous les véhicules aient un personnel complet pour ses calculs.",
 			"title": "Personnel maximum"

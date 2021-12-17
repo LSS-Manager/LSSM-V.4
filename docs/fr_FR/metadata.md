@@ -11,3 +11,5 @@ En utilisant le `LSSM` (Leitstellenspiel Manager, extension pour le navigateur),
 Ces données sont utilisées pour améliorer l'extension ainsi que comme indice pour le développement de modules existants ou futurs.
 
 **L'utilisateur peut révoquer la collecte de ces données à tout moment en envoyant un message à l'un des développeurs** Toutes les données déjà collectées auprès de l'utilisateur seront supprimées et ne seront plus transférées à l'avenir.
+
+De plus, la télémétrie peut être (dé)activée via les [paramètres](settings.md).

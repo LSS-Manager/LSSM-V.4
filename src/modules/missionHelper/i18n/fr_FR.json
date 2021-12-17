@@ -53,7 +53,7 @@
 			"elw3": "VLHR",
 			"firetrucks": "Fourgon d'incendie | Fourgons d'incendie",
 			"foam": "FMOGP",
-			"hazmat_vehicles": "véhicule risques technologiques | véhicule risques technologiques",
+			"hazmat_vehicles": "Véhicule risques technologiques | Véhicule risques technologiques",
 			"heavy_rescue_vehicles": "Véhicule de secours routier | Véhicules de secours routier",
 			"helicopter": "Dragon",
 			"hose": "Camion dévidoir",
@@ -88,7 +88,7 @@
 				"firetrucks": "Fire Engine or ARFF | Fire Engine or ARFF"
 			},
 			"allow_rw_instead_of_lf": {
-				"firetrucks": "Fire Engine or Heavy Rescue or Rescue Engine | Fire Engines or Heavy Rescue or Rescue Engine"
+				"firetrucks": "Fourgon d’incendie ou VSR | Fourgons d’incendie ou VSR"
 			}
 		},
 		"patient_additionals": {

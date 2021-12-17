@@ -31,6 +31,7 @@ Cette fonctionnalité t'indique combien rapporte en moyenne une mission :
 Cette fonction remplace le module "Mission Out" de la V3 !
 
 Vous pouvez réduire ou ouvrir les missions à ta guise ou les réduire toutes en même temps. Le bouton situé sur le bord droit de la barre de boutons supérieure permet de basculer toutes les missions en une seule fois. Voici à quoi cela ressemble :
+
 ![Réduire les missions](einklappen.png)
 
 ## Partager les missions
@@ -69,7 +70,12 @@ Affiche sur le bord droit d'une missions un petit nombre indiquant combien de pa
 ![Nombre de patients](patientenzahl.png)
 
 ### Masquer 0 patient
-Si ce paramètre est activé, le nombre de patients n'est affiché que s'il est supérieur à 0.
+Si ce paramètre est activé, le nombre de patients n'est affiché que s'il est supérieur à 0 .
+
+### Nombre de patients dans les infobulles
+Avec ce réglage, le nombre actuel de patients est également affiché dans les infobulles sur la carte :
+
+![Nombre de patients dans les infobulles](patienten-tooltip.png)
 
 ## Marquer les missions saisonnières
 Avec ce paramètre, vous pouvez noter pour chaque mission autant de brèves indications que vous voulez, qui seront affichées avant le nom dans la liste des interventions. Par défaut, les missions saisonnières sont inscrites ici (été, Halloween, football, etc.), d'où le nom.

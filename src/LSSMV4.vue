@@ -288,4 +288,7 @@ body.dark
                 max-width: 100px
                 padding-right: 1ch
                 align-self: center
+
+.leaflet-layer.leaflet-heatmap-layer
+    background-color: transparent !important
 </style>
