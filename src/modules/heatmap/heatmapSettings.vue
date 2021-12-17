@@ -1,9 +1,9 @@
 <template>
     <lightbox name="heatmap-settings" no-fullscreen no-title-hide>
         <h1>
-            Hütmap Sättings
+            {{ $m('title') }}
             <button class="btn btn-success" @click="save">
-                Säif
+                {{ $m('save') }}
             </button>
         </h1>
         <div>
@@ -13,31 +13,29 @@
                     v-model="settings.heatmapMode"
                     value="buildings"
                 />
-                Büldüngs
+                {{ $m('buildings') }}
             </label>
             <label class="checkbox-inline">
                 <input
                     type="radio"
                     v-model="settings.heatmapMode"
                     value="vehicles"
-                    disabled
                 />
-                Vähikels
+                {{ $m('vehicles') }}
             </label>
         </div>
-        <pre>{{ settings.heatmapMode }}</pre>
         <div class="checkbox">
             <label>
                 <input
                     type="checkbox"
                     v-model="settings[mode('StaticRadius')]"
                 />
-                Statisch?
+                {{ $m('static') }}
             </label>
         </div>
         <div class="form-group" v-if="settings[mode('StaticRadius')]">
             <label :for="ids.RadiusPx">
-                Radius:
+                {{ $m('radius') }}:
                 <span>{{ settings[mode('RadiusPx')].toLocaleString() }}px</span>
             </label>
             <button
@@ -62,12 +60,10 @@
         </div>
         <div class="form-group" v-else>
             <label :for="ids.RadiusM">
-                Radius:
-                <span
-                    >{{
-                        (settings[mode('RadiusM')] / 1000).toLocaleString()
-                    }}km</span
-                >
+                {{ $m('radius') }}:
+                <span>
+                    {{ (settings[mode('RadiusM')] / 1000).toLocaleString() }}km
+                </span>
             </label>
             <button
                 class="pull-right btn btn-default btn-xs"
@@ -90,8 +86,35 @@
             />
         </div>
         <div class="form-group">
+            <label :for="ids.IntensityMaxZoom">
+                {{ $m('intensity') }}:
+                <span>{{
+                    settings[mode('IntensityMaxZoom')].toLocaleString()
+                }}</span>
+            </label>
+            <button
+                class="pull-right btn btn-default btn-xs"
+                @click="() => $set(this, 'intensityAsRange', !intensityAsRange)"
+            >
+                <font-awesome-icon
+                    v-if="!intensityAsRange"
+                    :icon="icons.faSlidersH"
+                ></font-awesome-icon>
+                <template v-else>123</template>
+            </button>
+            <input
+                class="form-control"
+                :id="ids.IntensityMaxZoom"
+                :type="intensityAsRange ? 'range' : 'number'"
+                v-model.number="settings[mode('IntensityMaxZoom')]"
+                min="0"
+                :max="maxZoom"
+                step="1"
+            />
+        </div>
+        <div class="form-group">
             <v-select
-                :placeholder="'...'"
+                :placeholder="$m(`includes.${settings.heatmapMode}`)"
                 multiple
                 v-model="settings[mode('Includes')]"
                 :options="includeOptions"
@@ -109,17 +132,17 @@ import Vue from 'vue';
 
 import { faSlidersH } from '@fortawesome/free-solid-svg-icons/faSlidersH';
 
+import { $m } from 'typings/Module';
 import { IconDefinition } from '@fortawesome/free-solid-svg-icons';
 import { InternalBuilding } from 'typings/Building';
 import { InternalVehicle } from 'typings/Vehicle';
-import { Layer } from 'leaflet';
 
 type Mode = 'buildings' | 'vehicles';
 
 type Subsetting<Scope extends Mode | ''> = Record<`${Scope}StaticRadius`, boolean> &
-    Record<`${Scope}RadiusM` | `${Scope}RadiusPx`, number> & Record<`${Scope}Includes`, { value: number, label: string}[]>;
+    Record<`${Scope}RadiusM` | `${Scope}RadiusPx` | `${Scope}IntensityMaxZoom`, number> & Record<`${Scope}Includes`, { value: number, label: string}[]>;
 
-export type Settings = { heatmapMode: Mode } &
+export type Settings = { heatmapMode: Mode} &
     Subsetting<'buildings'> &
     Subsetting<'vehicles'>;
 
@@ -130,8 +153,10 @@ export default Vue.extend<
         settings: Settings;
         ids: Record<keyof Subsetting<''>, string>;
         icons: { faSlidersH: IconDefinition };
+        maxZoom: number;
         radiusMAsRange: boolean;
         radiusPxAsRange: boolean;
+        intensityAsRange: boolean;
     },
     {
         mode: <Setting extends keyof Subsetting<''>>(setting: Setting) => `${Mode}${Setting}`
@@ -139,10 +164,10 @@ export default Vue.extend<
     },
     { includeOptions: { value: number, label: string}[] },
     {
-        heatLayer: Layer;
         setSetting: <T>(settingId: string, value: T) => Promise<void>;
         getModuleSettings: () => Promise<Settings>;
         updateSettings: UpdateSettings;
+        $m: $m;
     }
 >({
     name: 'lssmv4-heatmap-settings',
@@ -164,23 +189,28 @@ export default Vue.extend<
             settings: {
                 heatmapMode: 'buildings',
                 buildingsStaticRadius: false,
-                buildingsRadiusM: 0,
-                buildingsRadiusPx: 0,
+                buildingsRadiusM: 31_415,
+                buildingsRadiusPx: 50,
+                buildingsIntensityMaxZoom: window.map.getMaxZoom(),
                 buildingsIncludes: [],
                 vehiclesStaticRadius: false,
-                vehiclesRadiusM: 0,
-                vehiclesRadiusPx: 0,
+                vehiclesRadiusM: 31_415,
+                vehiclesRadiusPx: 50,
+                vehiclesIntensityMaxZoom: window.map.getMaxZoom(),
                 vehiclesIncludes: []
             },
             ids: {
                 StaticRadius: nodeAttribute('static_radius', true),
                 RadiusM: nodeAttribute('radius_m', true),
                 RadiusPx: nodeAttribute('radius_px', true),
+                IntensityMaxZoom: nodeAttribute('intensity_max_zoom', true),
                 Includes: nodeAttribute('includes', true)
             },
             icons: { faSlidersH },
+            maxZoom: window.map.getMaxZoom(),
             radiusMAsRange: true,
             radiusPxAsRange: true,
+            intensityAsRange: true,
         };
     },
     methods: {
@@ -200,10 +230,6 @@ export default Vue.extend<
         }
     },
     props: {
-        heatLayer: {
-            type: Object,
-            required: true,
-        },
         setSetting: {
             type: Function,
             required: true,
@@ -216,11 +242,15 @@ export default Vue.extend<
             type: Function,
             required: true,
         },
+        $m: {
+            type: Function,
+            required: true
+        }
     },
     mounted() {
         this.getModuleSettings().then(settings =>
             Object.entries(settings).forEach(([setting, value]) =>
-                this.$set(this.settings, setting, value ?? this.settings[value])
+                this.$set(this.settings, setting, value ?? this.settings[setting as keyof Settings])
             )
         );
     },

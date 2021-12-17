@@ -14,6 +14,9 @@ export default <ModuleSettingFunction>(() => ({
     buildingsRadiusPx: <Hidden>{
         type: 'hidden',
     },
+    buildingsIntensityMaxZoom: <Hidden>{
+        type: 'hidden',
+    },
     buildingsIncludes: <Hidden>{
         type: 'hidden',
     },
@@ -24,6 +27,9 @@ export default <ModuleSettingFunction>(() => ({
         type: 'hidden',
     },
     vehiclesRadiusPx: <Hidden>{
+        type: 'hidden',
+    },
+    vehiclesIntensityMaxZoom: <Hidden>{
         type: 'hidden',
     },
     vehiclesIncludes: <Hidden>{
