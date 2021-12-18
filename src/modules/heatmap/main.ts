@@ -147,7 +147,9 @@ export default <ModuleMainFunction>(async (LSSM, MODULE_ID, $m) => {
     };
 
     LSSM.$store
-        .dispatch('addOSMControl', { position: 'bottom-left' })
+        .dispatch('addOSMControl', {
+            position: settings.position ?? 'bottom-left',
+        })
         .then((control: HTMLAnchorElement) => {
             control.id = LSSM.$store.getters.nodeAttribute('heatmap-control');
 
@@ -156,6 +158,8 @@ export default <ModuleMainFunction>(async (LSSM, MODULE_ID, $m) => {
 
             const dropup = document.createElement('ul');
             dropup.classList.add('dropdown-menu');
+            if (settings.position.includes('right'))
+                dropup.classList.add('dropdown-menu-right');
 
             const settingsLi = document.createElement('li');
             const settingsBtn = document.createElement('button');
@@ -196,7 +200,9 @@ export default <ModuleMainFunction>(async (LSSM, MODULE_ID, $m) => {
                     selectorText: `#${control.id} ul`,
                     style: {
                         'top': 'auto',
-                        'bottom': '100%',
+                        'bottom': settings.position.includes('bottom')
+                            ? '100%'
+                            : 'unset',
                         'margin-bottom': '2px',
                     },
                 },
