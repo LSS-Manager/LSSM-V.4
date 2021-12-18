@@ -413,7 +413,7 @@ export default {
                 },
             },
             special:
-                'Can only be placed at the Home Response Location. A General Practitioner that can respond as a on call doctor currently. ',
+                'Can only be placed at the Home Response Location and Clinic. A General Practitioner that can respond as a on call doctor currently. ',
         },
         22: {
             caption: 'Community First Responder',
@@ -1316,7 +1316,7 @@ export default {
                 'It can only Store: Fire Officer, Rapid Response Vehicle, Operational Team Leader, General Practitioner, Community First Responder, Ambulance Officer and the Dog Support Unit (DSU)',
             startPersonnel: 1,
             startVehicles: [''],
-            schoolingTypes: ['Rescue', 'Police'],
+            schoolingTypes: ['Rescue', 'Police', 'Fire'],
         },
         23: {
             caption: 'Large complex',
