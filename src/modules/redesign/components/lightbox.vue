@@ -44,7 +44,7 @@
                 {{ $m('vehicle.nextfms.finished') }}
             </div>
             <component
-                v-else-if="type !== 'default'"
+                v-else-if="windows[type]"
                 :is="windows[type].component"
                 :url="urlProp"
                 :lightbox="this"
