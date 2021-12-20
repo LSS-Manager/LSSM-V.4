@@ -642,7 +642,7 @@ export default {
             credits: 17_300,
             minPersonnel: 1,
             maxPersonnel: 2,
-            possibleBuildings: [0],
+            possibleBuildings: [0, 18],
             special:
                 'Bulk Foam Unit, Fufills the foam unit requirement on missions. Used on hazardous fires and electrical fires.',
         },
@@ -653,7 +653,7 @@ export default {
             credits: 45_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            possibleBuildings: [0],
+            possibleBuildings: [0, 18],
             special:
                 'Acts as a Bulk Foam Unit and a Water Carrier. Used on hazardous fires and electrical fires.',
         },
@@ -664,7 +664,7 @@ export default {
             credits: 17_300,
             minPersonnel: 2,
             maxPersonnel: 9,
-            possibleBuildings: [0],
+            possibleBuildings: [0, 18],
             special:
                 'Acts as a Bulk Foam Unit and a Water Ladder (Pump). Used on hazardous fires and electrical fires.',
         },
@@ -675,7 +675,7 @@ export default {
             credits: 25_000,
             minPersonnel: 2,
             maxPersonnel: 9,
-            possibleBuildings: [0],
+            possibleBuildings: [0, 18],
             special:
                 'Acts as a Bulk Foam Unit, Rescue Support Vehicle and a Pump. Used on hazardous fires and electrical fires.',
         },
@@ -725,7 +725,7 @@ export default {
             credits: 17_300,
             minPersonnel: 0,
             maxPersonnel: 0,
-            possibleBuildings: [0],
+            possibleBuildings: [0, 18],
             special:
                 'Acts as a Bulk Foam Unit. Used on hazardous fires and electrical fires.',
         },
