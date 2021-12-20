@@ -55,7 +55,7 @@
                 :lightbox="this"
                 :get-setting="getSetting()"
                 :set-setting="setSetting()"
-                v-bind="{ [windows[type].data]: data }"
+                v-bind="{ [windows[type]]: data }"
             ></component>
         </div>
         <iframe
@@ -126,49 +126,9 @@ export default Vue.extend<
             import(
                 /* webpackChunkName: "components/lightbox" */ '../../../components/lightbox.vue'
             ),
-        Chat: () =>
-            import(
-                /*webpackChunkName: "modules/redesign/windows/chat"*/ './chat.vue'
-            ),
         Credits: () =>
             import(
                 /*webpackChunkName: "modules/redesign/windows/credits"*/ './credits.vue'
-            ),
-        Einsaetze: () =>
-            import(
-                /*webpackChunkName: "modules/redesign/windows/einsaetze"*/ './einsaetze.vue'
-            ),
-        Einsatz: () =>
-            import(
-                /*webpackChunkName: "modules/redesign/windows/einsatz"*/ './einsatz.vue'
-            ),
-        Fahrzeugfarbe: () =>
-            import(
-                /*webpackChunkName: "modules/redesign/windows/fahrzeugfarbe"*/ './fahrzeugfarbe.vue'
-            ),
-        Freunde: () =>
-            import(
-                /*webpackChunkName: "modules/redesign/windows/freunde"*/ './freunde.vue'
-            ),
-        Profile: () =>
-            import(
-                /*webpackChunkName: "modules/redesign/windows/profile"*/ './profile.vue'
-            ),
-        ProfileEdit: () =>
-            import(
-                /*webpackChunkName: "modules/redesign/windows/profile/edit"*/ './profile/edit.vue'
-            ),
-        Toplist: () =>
-            import(
-                /*webpackChunkName: "modules/redesign/windows/toplist"*/ './toplist.vue'
-            ),
-        VehicleGroup: () =>
-            import(
-                /*webpackChunkName: "modules/redesign/windows/vehicle_group"*/ './vehicle_group.vue'
-            ),
-        Vehicle: () =>
-            import(
-                /*webpackChunkName: "modules/redesign/windows/vehicle"*/ './vehicle.vue'
             ),
         Verband: () =>
             import(
