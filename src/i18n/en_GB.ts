@@ -1189,6 +1189,12 @@ export default {
                     duration: '7 Days',
                 },
                 {
+                    caption: 'Foam Extension',
+                    credits: 150_000,
+                    coins: 15,
+                    duration: '5 Days',
+                },
+                {
                     caption: 'Swap Body Parking Space',
                     credits: 50_000,
                     coins: 20,
