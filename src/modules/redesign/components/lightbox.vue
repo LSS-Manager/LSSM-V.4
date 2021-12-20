@@ -44,7 +44,7 @@
                 {{ $m('vehicle.nextfms.finished') }}
             </div>
             <component
-                v-else
+                v-else-if="type !== 'default'"
                 :is="
                     () =>
                         import(
