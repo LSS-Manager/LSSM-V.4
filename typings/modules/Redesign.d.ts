@@ -43,7 +43,7 @@ import {
     DefaultProps,
 } from 'vue/types/options';
 
-type types =
+type RedesignKeys =
     | 'aaos'
     | 'alliance_avatar'
     | 'alliances'
@@ -77,7 +77,7 @@ type types =
     | 'verband/news/edit'
     | 'verband/protokoll'
     | 'verband/regeln';
-type windows =
+type RedesignWindows =
     | AAOsWindow
     | AllianceAvatarWindow
     | AllianceListWindow
@@ -110,7 +110,7 @@ type windows =
     | VerbandProtokollWindow
     | VerbandRegelnWindow
     | VerbandskasseWindow;
-export type routeChecks = Record<string, types>;
+export type routeChecks = Record<string, RedesignKeys>;
 
 interface Data<T, W> {
     faSyncAlt: IconDefinition;
@@ -127,11 +127,33 @@ interface Data<T, W> {
         enabled: boolean;
         pictures: boolean;
     };
+    windows: Record<
+        Exclude<
+            RedesignKeys,
+            | 'default'
+            | 'coins/list'
+            | 'credits/daily'
+            | 'credits/list'
+            | 'credits/overview'
+            | 'vehicle/nextfms'
+            | 'verband/bsr'
+            | 'verband/edit_name'
+            | 'verband/edit_text'
+            | 'verband/gebauede'
+            | 'verband/home'
+            | 'verband/kasse'
+            | 'verband/mitglieder'
+            | 'verband/news/edit'
+            | 'verband/protokoll'
+            | 'verband/regeln'
+        >,
+        string
+    >;
 }
 
 export interface RedesignLightbox<
-    Type extends types | '' = types | '',
-    Window extends windows | null = windows | null
+    Type extends RedesignKeys | '' = RedesignKeys | '',
+    Window extends RedesignWindows | null = RedesignWindows | null
 > {
     Data: Data<Type, Window>;
     Methods: {
@@ -188,13 +210,13 @@ interface ParserParam {
     LSSM: Vue;
 }
 
-export type RedesignParser<Window extends windows = windows> = (
+export type RedesignParser<Window extends RedesignWindows = RedesignWindows> = (
     data: ParserParam
 ) => Window | Promise<Window>;
 
 export type RedesignLightboxVue<
-    Type extends types,
-    Window extends windows
+    Type extends RedesignKeys,
+    Window extends RedesignWindows
 > = CombinedVueInstance<
     Vue,
     RedesignLightbox<Type, Window>['Data'],
@@ -205,8 +227,8 @@ export type RedesignLightboxVue<
 
 export type RedesignComponent<
     DataName extends string,
-    Type extends types,
-    Window extends windows,
+    Type extends RedesignKeys,
+    Window extends RedesignWindows,
     Data = DefaultData<Vue>,
     Methods = DefaultMethods<Vue>,
     Computed = DefaultComputed,
@@ -226,8 +248,8 @@ export type RedesignComponent<
 
 export type RedesignSubComponent<
     DataName extends string,
-    Type extends types,
-    Window extends windows,
+    Type extends RedesignKeys,
+    Window extends RedesignWindows,
     Data = DefaultData<Vue>,
     Methods = DefaultMethods<Vue>,
     Computed = DefaultComputed,

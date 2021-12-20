@@ -19,64 +19,8 @@
             class="redesign-wrapper"
             :type="type"
         >
-            <AAOs
-                v-if="type === 'aaos'"
-                :aaos="data"
-                :url="urlProp"
-                :lightbox="this"
-                :get-setting="getSetting()"
-                :set-setting="setSetting()"
-            ></AAOs>
-            <AllianceAvatar
-                v-else-if="type === 'alliance_avatar'"
-                :alliance="data"
-                :url="urlProp"
-                :lightbox="this"
-                :get-setting="getSetting()"
-                :set-setting="setSetting()"
-            ></AllianceAvatar>
-            <Alliances
-                v-else-if="type === 'alliances'"
-                :alliances="data"
-                :url="urlProp"
-                :lightbox="this"
-                :get-setting="getSetting()"
-                :set-setting="setSetting()"
-            ></Alliances>
-            <Avatar
-                v-else-if="type === 'avatar'"
-                :profile="data"
-                :url="urlProp"
-                :lightbox="this"
-                :get-setting="getSetting()"
-                :set-setting="setSetting()"
-            ></Avatar>
-            <Awards
-                v-else-if="type === 'awards'"
-                :awards="data"
-                :url="urlProp"
-                :lightbox="this"
-                :get-setting="getSetting()"
-                :set-setting="setSetting()"
-            ></Awards>
-            <Bewerbungen
-                v-if="type === 'bewerbungen'"
-                :bewerbungen="data"
-                :url="url"
-                :lightbox="this"
-                :get-setting="getSetting"
-                :set-setting="setSetting"
-            ></Bewerbungen>
-            <Chat
-                v-if="type === 'chat'"
-                :chat="data"
-                :url="url"
-                :lightbox="this"
-                :get-setting="getSetting"
-                :set-setting="setSetting"
-            ></Chat>
             <Credits
-                v-else-if="type.startsWith('credits/') || type === 'coins/list'"
+                v-if="type.startsWith('credits/') || type === 'coins/list'"
                 :data="data"
                 :url="urlProp"
                 :lightbox="this"
@@ -84,82 +28,6 @@
                 :set-setting="setSetting()"
                 :type="type"
             ></Credits>
-            <Einsaetze
-                v-else-if="type === 'einsaetze'"
-                :window="data"
-                :url="urlProp"
-                :lightbox="this"
-                :get-setting="getSetting()"
-                :set-setting="setSetting()"
-                :type="type"
-            ></Einsaetze>
-            <Einsatz
-                v-else-if="type === 'einsatz'"
-                :mission="data"
-                :url="urlProp"
-                :lightbox="this"
-                :get-setting="getSetting()"
-                :set-setting="setSetting()"
-                :type="type"
-            ></Einsatz>
-            <Fahrzeugfarbe
-                v-else-if="type === 'fahrzeugfarbe'"
-                :fahrzeugfarbe="data"
-                :url="urlProp"
-                :lightbox="this"
-                :get-setting="getSetting()"
-                :set-setting="setSetting()"
-                :type="type"
-            ></Fahrzeugfarbe>
-            <Freunde
-                v-else-if="type === 'freunde'"
-                :friends="data"
-                :url="urlProp"
-                :lightbox="this"
-                :get-setting="getSetting()"
-                :set-setting="setSetting()"
-                :type="type"
-            ></Freunde>
-            <Profile
-                v-else-if="type === 'profile'"
-                :profile="data"
-                :url="urlProp"
-                :lightbox="this"
-                :get-setting="getSetting()"
-                :set-setting="setSetting()"
-            ></Profile>
-            <ProfileEdit
-                v-else-if="type === 'profile/edit'"
-                :profile="data"
-                :url="urlProp"
-                :lightbox="this"
-                :get-setting="getSetting()"
-                :set-setting="setSetting()"
-            ></ProfileEdit>
-            <Toplist
-                v-else-if="type === 'toplist'"
-                :toplist="data"
-                :url="urlProp"
-                :lightbox="this"
-                :get-setting="getSetting()"
-                :set-setting="setSetting()"
-            ></Toplist>
-            <VehicleGroup
-                v-else-if="type === 'vehicle_group'"
-                :vehicle_group="data"
-                :url="urlProp"
-                :lightbox="this"
-                :get-setting="getSetting()"
-                :set-setting="setSetting()"
-            ></VehicleGroup>
-            <Vehicle
-                v-else-if="type === 'vehicle'"
-                :vehicle="data"
-                :url="urlProp"
-                :lightbox="this"
-                :get-setting="getSetting()"
-                :set-setting="setSetting()"
-            ></Vehicle>
             <Verband
                 v-else-if="type.startsWith('verband/') || type === 'schoolings'"
                 :data="data"
@@ -175,6 +43,20 @@
             >
                 {{ $m('vehicle.nextfms.finished') }}
             </div>
+            <component
+                v-else
+                :is="
+                    () =>
+                        import(
+                            /*webpackChunkName: &quot;modules/redesign/windows/[request]&quot;*/ `./${type}.vue`
+                        )
+                "
+                :url="urlProp"
+                :lightbox="this"
+                :get-setting="getSetting()"
+                :set-setting="setSetting()"
+                v-bind="{ [windows[type].data]: data }"
+            ></component>
         </div>
         <iframe
             v-show="!type || type === 'default'"
@@ -212,6 +94,26 @@ import { faSyncAlt } from '@fortawesome/free-solid-svg-icons/faSyncAlt';
 
 import { RedesignLightbox, RedesignParser } from 'typings/modules/Redesign';
 
+const windows: RedesignLightbox['Data']['windows'] = {
+    'aaos': 'aaos',
+    'alliance_avatar': 'alliance',
+    'alliances': 'alliances',
+    'avatar': 'profile',
+    'awards': 'awards',
+    'bewerbungen': 'bewerbungen',
+    'chat': 'chat',
+    'einsaetze': 'window',
+    'einsatz': 'mission',
+    'fahrzeugfarbe': 'fahrzeugfarbe',
+    'freunde': 'friends',
+    'profile': 'profile',
+    'profile/edit': 'profile',
+    'schoolings': '',
+    'toplist': 'toplist',
+    'vehicle_group': 'vehicle_group',
+    'vehicle': 'vehicle',
+};
+
 export default Vue.extend<
     RedesignLightbox['Data'],
     RedesignLightbox['Methods'],
@@ -223,30 +125,6 @@ export default Vue.extend<
         Lightbox: () =>
             import(
                 /* webpackChunkName: "components/lightbox" */ '../../../components/lightbox.vue'
-            ),
-        AAOs: () =>
-            import(
-                /*webpackChunkName: "modules/redesign/windows/aaos"*/ './aaos.vue'
-            ),
-        AllianceAvatar: () =>
-            import(
-                /*webpackChunkName: "modules/redesign/windows/alliance_avatar"*/ './alliance_avatar.vue'
-            ),
-        Alliances: () =>
-            import(
-                /*webpackChunkName: "modules/redesign/windows/alliances"*/ './alliances.vue'
-            ),
-        Avatar: () =>
-            import(
-                /*webpackChunkName: "modules/redesign/windows/avatar"*/ './avatar.vue'
-            ),
-        Awards: () =>
-            import(
-                /*webpackChunkName: "modules/redesign/windows/awards"*/ './awards.vue'
-            ),
-        Bewerbungen: () =>
-            import(
-                /*webpackChunkName: "modules/redesign/windows/bewerbungen"*/ './bewerbungen.vue'
             ),
         Chat: () =>
             import(
@@ -314,6 +192,7 @@ export default Vue.extend<
                 enabled: false,
                 pictures: false,
             },
+            windows,
         };
     },
     props: {
