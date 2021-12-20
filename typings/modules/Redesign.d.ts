@@ -33,7 +33,7 @@ import { VerbandProtokollWindow } from '../../src/modules/redesign/parsers/verba
 import { VerbandRegelnWindow } from '../../src/modules/redesign/parsers/verband/regeln';
 import { VerbandskasseWindow } from '../../src/modules/redesign/parsers/verband/kasse';
 
-import { CombinedVueInstance } from 'vue/types/vue';
+import { CombinedVueInstance, ExtendedVue } from 'vue/types/vue';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import VueI18n from 'vue-i18n';
 import {
@@ -147,7 +147,10 @@ interface Data<T, W> {
             | 'verband/protokoll'
             | 'verband/regeln'
         >,
-        string
+        {
+            component: () => Promise<unknown>;
+            data: string;
+        }
     >;
 }
 

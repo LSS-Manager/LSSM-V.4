@@ -45,17 +45,12 @@
             </div>
             <component
                 v-else-if="type !== 'default'"
-                :is="
-                    () =>
-                        import(
-                            /*webpackChunkName: &quot;modules/redesign/windows/[request]&quot;*/ `./${type}.vue`
-                        )
-                "
+                :is="windows[type].component"
                 :url="urlProp"
                 :lightbox="this"
                 :get-setting="getSetting()"
                 :set-setting="setSetting()"
-                v-bind="{ [windows[type]]: data }"
+                v-bind="{ [windows[type].data]: data }"
             ></component>
         </div>
         <iframe
@@ -95,23 +90,125 @@ import { faSyncAlt } from '@fortawesome/free-solid-svg-icons/faSyncAlt';
 import { RedesignLightbox, RedesignParser } from 'typings/modules/Redesign';
 
 const windows: RedesignLightbox['Data']['windows'] = {
-    'aaos': 'aaos',
-    'alliance_avatar': 'alliance',
-    'alliances': 'alliances',
-    'avatar': 'profile',
-    'awards': 'awards',
-    'bewerbungen': 'bewerbungen',
-    'chat': 'chat',
-    'einsaetze': 'window',
-    'einsatz': 'mission',
-    'fahrzeugfarbe': 'fahrzeugfarbe',
-    'freunde': 'friends',
-    'profile': 'profile',
-    'profile/edit': 'profile',
-    'schoolings': '',
-    'toplist': 'toplist',
-    'vehicle_group': 'vehicle_group',
-    'vehicle': 'vehicle',
+    'aaos': {
+        component: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/aaos"*/ './aaos.vue'
+            ),
+        data: 'aaos',
+    },
+    'alliance_avatar': {
+        component: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/allianceAvatar"*/ './alliance_avatar.vue'
+            ),
+        data: 'alliance',
+    },
+    'alliances': {
+        component: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/alliances"*/ './alliances.vue'
+            ),
+        data: 'alliances',
+    },
+    'avatar': {
+        component: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/avatar"*/ './avatar.vue'
+            ),
+        data: 'profile',
+    },
+    'awards': {
+        component: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/awards"*/ './awards.vue'
+            ),
+        data: 'awards',
+    },
+    'bewerbungen': {
+        component: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/bewerbungen"*/ './bewerbungen.vue'
+            ),
+        data: 'bewerbungen',
+    },
+    'chat': {
+        component: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/chat"*/ './chat.vue'
+            ),
+        data: 'chat',
+    },
+    'einsaetze': {
+        component: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/einsaetze"*/ './einsaetze.vue'
+            ),
+        data: 'window',
+    },
+    'einsatz': {
+        component: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/einsatz"*/ './einsatz.vue'
+            ),
+        data: 'mission',
+    },
+    'fahrzeugfarbe': {
+        component: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/fahrzeugfarbe"*/ './fahrzeugfarbe.vue'
+            ),
+        data: 'fahrzeugfarbe',
+    },
+    'freunde': {
+        component: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/freunde"*/ './freunde.vue'
+            ),
+        data: 'friends',
+    },
+    'profile': {
+        component: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/profile"*/ './profile.vue'
+            ),
+        data: 'profile',
+    },
+    'profile/edit': {
+        component: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/profile/edit"*/ './profile/edit.vue'
+            ),
+        data: 'profile',
+    },
+    'schoolings': {
+        component: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/schoolings"*/ './schoolings.vue'
+            ),
+        data: '',
+    },
+    'toplist': {
+        component: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/toplist"*/ './toplist.vue'
+            ),
+        data: 'toplist',
+    },
+    'vehicle_group': {
+        component: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/vehicleGroup"*/ './vehicle_group.vue'
+            ),
+        data: 'vehicle_group',
+    },
+    'vehicle': {
+        component: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/vehicle"*/ './vehicle.vue'
+            ),
+        data: 'vehicle',
+    },
 };
 
 export default Vue.extend<
