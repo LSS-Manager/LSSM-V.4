@@ -37,14 +37,12 @@
 <script lang="ts">
 import Vue from 'vue';
 
-import { FahrzeugfarbeWindow } from '../parsers/fahrzeugfarbe';
 import { InternalVehicle } from 'typings/Vehicle';
 import { RedesignComponent } from 'typings/modules/Redesign';
 
 type Component = RedesignComponent<
     'fahrzeugfarbe',
     'fahrzeugfarbe',
-    FahrzeugfarbeWindow,
     { showSavedNote: boolean },
     { updateColor(): void; resetColor(): void },
     {

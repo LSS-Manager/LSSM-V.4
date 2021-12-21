@@ -27,14 +27,12 @@ import Vue from 'vue';
 
 import { faTrash } from '@fortawesome/free-solid-svg-icons/faTrash';
 
-import { AllianceAvatarWindow } from '../parsers/alliance_avatar';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { RedesignComponent } from 'typings/modules/Redesign';
 
 type Component = RedesignComponent<
     'alliance',
     'alliance_avatar',
-    AllianceAvatarWindow,
     {
         faTrash: IconDefinition;
         image: string;

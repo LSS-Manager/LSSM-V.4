@@ -153,7 +153,6 @@ import Vue from 'vue';
 
 import { DefaultData } from 'vue/types/options';
 import { RedesignComponent } from 'typings/modules/Redesign';
-import { VerbandHomeWindow } from '../parsers/verband/home';
 import VueI18n from 'vue-i18n';
 
 interface Link {
@@ -164,7 +163,6 @@ interface Link {
 type Component = RedesignComponent<
     'data',
     'verband/home',
-    VerbandHomeWindow,
     DefaultData<Vue>,
     {
         $m(

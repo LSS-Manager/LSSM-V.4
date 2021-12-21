@@ -1133,7 +1133,6 @@ import { VehicleWindow } from '../parsers/vehicle';
 type Component = RedesignComponent<
     'vehicle',
     'vehicle',
-    VehicleWindow,
     {
         faSitemap: IconDefinition;
         faPortrait: IconDefinition;

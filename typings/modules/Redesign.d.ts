@@ -33,7 +33,7 @@ import { VerbandProtokollWindow } from '../../src/modules/redesign/parsers/verba
 import { VerbandRegelnWindow } from '../../src/modules/redesign/parsers/verband/regeln';
 import { VerbandskasseWindow } from '../../src/modules/redesign/parsers/verband/kasse';
 
-import { CombinedVueInstance, ExtendedVue } from 'vue/types/vue';
+import { CombinedVueInstance } from 'vue/types/vue';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import VueI18n from 'vue-i18n';
 import {
@@ -43,80 +43,52 @@ import {
     DefaultProps,
 } from 'vue/types/options';
 
-type RedesignKeys =
-    | 'aaos'
-    | 'alliance_avatar'
-    | 'alliances'
-    | 'avatar'
-    | 'awards'
-    | 'bewerbungen'
-    | 'chat'
-    | 'default'
-    | 'coins/list'
-    | 'credits/daily'
-    | 'credits/list'
-    | 'credits/overview'
-    | 'einsaetze'
-    | 'einsatz'
-    | 'fahrzeugfarbe'
-    | 'freunde'
-    | 'profile'
-    | 'profile/edit'
-    | 'schoolings'
-    | 'toplist'
-    | 'vehicle_group'
-    | 'vehicle'
-    | 'vehicle/nextfms'
-    | 'verband/bsr'
-    | 'verband/edit_name'
-    | 'verband/edit_text'
-    | 'verband/gebauede'
-    | 'verband/home'
-    | 'verband/kasse'
-    | 'verband/mitglieder'
-    | 'verband/news/edit'
-    | 'verband/protokoll'
-    | 'verband/regeln';
-type RedesignWindows =
-    | AAOsWindow
-    | AllianceAvatarWindow
-    | AllianceListWindow
-    | AvatarWindow
-    | AwardsWindow
-    | BewerbungenWindow
-    | CoinsListWindow
-    | CreditsDailyWindow
-    | CreditsListWindow
-    | CreditsOverviewWindow
-    | EinsaetzeWindow
-    | EinsatzWindow
-    | FahrzeugfarbeWindow
-    | FreundeWindow
-    | NextFMSWindow
-    | ProfileWindow
-    | ProfileEditWindow
-    | SchoolingsWindow
-    | TopListWindow
-    | VehicleGroupWindow
-    | VehicleWindow
-    | VerbandBSRWindow
-    | VerbandChatWindow
-    | VerbandEditNameWindow
-    | VerbandEditTextWindow
-    | VerbandGebaeudeWindow
-    | VerbandHomeWindow
-    | VerbandMitgliederWindow
-    | VerbandNewsEditWindow
-    | VerbandProtokollWindow
-    | VerbandRegelnWindow
-    | VerbandskasseWindow;
-export type routeChecks = Record<string, RedesignKeys>;
+interface Redesigns {
+    'aaos': AAOsWindow;
+    'alliance_avatar': AllianceAvatarWindow;
+    'alliances': AllianceListWindow;
+    'avatar': AvatarWindow;
+    'awards': AwardsWindow;
+    'bewerbungen': BewerbungenWindow;
+    'chat': VerbandChatWindow;
+    'coins/list': CoinsListWindow;
+    'credits/daily': CreditsDailyWindow;
+    'credits/list': CreditsListWindow;
+    'credits/overview': CreditsOverviewWindow;
+    'einsaetze': EinsaetzeWindow;
+    'einsatz': EinsatzWindow;
+    'fahrzeugfarbe': FahrzeugfarbeWindow;
+    'freunde': FreundeWindow;
+    'profile': ProfileWindow;
+    'profile/edit': ProfileEditWindow;
+    'schoolings': SchoolingsWindow;
+    'toplist': TopListWindow;
+    'vehicle_group': VehicleGroupWindow;
+    'vehicle': VehicleWindow;
+    'vehicle/nextfms': NextFMSWindow;
+    'verband/bsr': VerbandBSRWindow;
+    'verband/edit_name': VerbandEditNameWindow;
+    'verband/edit_text': VerbandEditTextWindow;
+    'verband/gebauede': VerbandGebaeudeWindow;
+    'verband/home': VerbandHomeWindow;
+    'verband/kasse': VerbandskasseWindow;
+    'verband/mitglieder': VerbandMitgliederWindow;
+    'verband/news/edit': VerbandNewsEditWindow;
+    'verband/protokoll': VerbandProtokollWindow;
+    'verband/regeln': VerbandRegelnWindow;
+}
 
-interface Data<T, W> {
+type RedesignKey = keyof Redesigns;
+
+type RedesignWindow = Redesigns[RedesignKey];
+
+export type routeChecks = Record<string, RedesignKey>;
+
+interface Data<T extends RedesignKey | 'default' | ''> {
     faSyncAlt: IconDefinition;
     clipboardIconId: string;
     type: T;
-    data: W & {
+    data: (T extends keyof Redesigns ? Redesigns[T] : never) & {
         authenticity_token: string;
     };
     html: string;
@@ -129,8 +101,7 @@ interface Data<T, W> {
     };
     windows: Record<
         Exclude<
-            RedesignKeys,
-            | 'default'
+            RedesignKey,
             | 'coins/list'
             | 'credits/daily'
             | 'credits/list'
@@ -155,10 +126,9 @@ interface Data<T, W> {
 }
 
 export interface RedesignLightbox<
-    Type extends RedesignKeys | '' = RedesignKeys | '',
-    Window extends RedesignWindows | null = RedesignWindows | null
+    Type extends RedesignKey | 'default' | '' = RedesignKey | 'default' | ''
 > {
-    Data: Data<Type, Window>;
+    Data: Data<Type>;
     Methods: {
         $sm(
             key: string,
@@ -213,25 +183,21 @@ interface ParserParam {
     LSSM: Vue;
 }
 
-export type RedesignParser<Window extends RedesignWindows = RedesignWindows> = (
+export type RedesignParser<Window extends RedesignWindow = RedesignWindow> = (
     data: ParserParam
 ) => Window | Promise<Window>;
 
-export type RedesignLightboxVue<
-    Type extends RedesignKeys,
-    Window extends RedesignWindows
-> = CombinedVueInstance<
+export type RedesignLightboxVue<Type extends RedesignKey> = CombinedVueInstance<
     Vue,
-    RedesignLightbox<Type, Window>['Data'],
-    RedesignLightbox<Type, Window>['Methods'],
-    RedesignLightbox<Type, Window>['Computed'],
-    RedesignLightbox<Type, Window>['Props']
+    RedesignLightbox<Type>['Data'],
+    RedesignLightbox<Type>['Methods'],
+    RedesignLightbox<Type>['Computed'],
+    RedesignLightbox<Type>['Props']
 >;
 
 export type RedesignComponent<
     DataName extends string,
-    Type extends RedesignKeys,
-    Window extends RedesignWindows,
+    Type extends RedesignKey,
     Data = DefaultData<Vue>,
     Methods = DefaultMethods<Vue>,
     Computed = DefaultComputed,
@@ -241,9 +207,9 @@ export type RedesignComponent<
     Methods: Methods;
     Computed: Computed;
     Props: Props &
-        Record<DataName, Window & { authenticity_token: string }> & {
+        Record<DataName, Redesigns[Type] & { authenticity_token: string }> & {
             url: string;
-            lightbox: RedesignLightboxVue<Type, Window>;
+            lightbox: RedesignLightboxVue<Type>;
             getSetting: <T>(setting: string, defaultValue: T) => Promise<T>;
             setSetting: <T>(settingId: string, value: T) => Promise<void>;
         };
@@ -251,8 +217,7 @@ export type RedesignComponent<
 
 export type RedesignSubComponent<
     DataName extends string,
-    Type extends RedesignKeys,
-    Window extends RedesignWindows,
+    Type extends RedesignKey,
     Data = DefaultData<Vue>,
     Methods = DefaultMethods<Vue>,
     Computed = DefaultComputed,
@@ -260,7 +225,6 @@ export type RedesignSubComponent<
 > = RedesignComponent<
     DataName,
     Type,
-    Window,
     Data,
     Methods,
     Computed,

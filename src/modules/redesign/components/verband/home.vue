@@ -93,12 +93,10 @@ import { faImage } from '@fortawesome/free-solid-svg-icons/faImage';
 
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { RedesignSubComponent } from 'typings/modules/Redesign';
-import { VerbandHomeWindow } from '../../parsers/verband/home';
 
 type Component = RedesignSubComponent<
     'home',
     'verband/home',
-    VerbandHomeWindow,
     {
         faEdit: IconDefinition;
         faImage: IconDefinition;

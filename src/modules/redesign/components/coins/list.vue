@@ -90,7 +90,7 @@ export default Vue.extend<
     {
         coins: CoinsListWindow;
         url: string;
-        lightbox: RedesignLightboxVue<'coins/list', CoinsListWindow>;
+        lightbox: RedesignLightboxVue<'coins/list'>;
         $m(
             key: string,
             args?: {

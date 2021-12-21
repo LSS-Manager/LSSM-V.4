@@ -5,14 +5,12 @@
 <script lang="ts">
 import Vue from 'vue';
 
-import { EinsatzWindow } from '../parsers/einsatz';
 import { RedesignComponent } from 'typings/modules/Redesign';
 import { DefaultData, DefaultMethods } from 'vue/types/options';
 
 type Component = RedesignComponent<
     'mission',
     'einsatz',
-    EinsatzWindow,
     DefaultData<Vue>,
     DefaultMethods<Vue>,
     { type: number; missionId: number }

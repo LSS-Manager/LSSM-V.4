@@ -86,7 +86,6 @@ import { RedesignComponent } from 'typings/modules/Redesign';
 type Component = RedesignComponent<
     'alliances',
     'alliances',
-    AllianceListWindow,
     {
         search: string;
         sort: string;

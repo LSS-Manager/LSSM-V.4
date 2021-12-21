@@ -63,13 +63,11 @@ import { faMapMarkedAlt } from '@fortawesome/free-solid-svg-icons/faMapMarkedAlt
 
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { RedesignSubComponent } from 'typings/modules/Redesign';
-import { VerbandBSRWindow } from '../../parsers/verband/bsr';
 import { FeatureGroup, Marker } from 'leaflet';
 
 type Component = RedesignSubComponent<
     'bsr',
     'verband/bsr',
-    VerbandBSRWindow,
     {
         faMapMarkedAlt: IconDefinition;
         markers: Marker[];

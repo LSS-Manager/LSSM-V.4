@@ -572,7 +572,7 @@ import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { InternalBuilding } from 'typings/Building';
 import { LayerGroup } from 'leaflet';
 import { MapVue } from 'typings/components/LeafletMap';
-// to seperate typings
+// to separate typings
 // eslint-disable-next-line no-duplicate-imports
 import { PlotGaugeOptions } from 'highcharts';
 import { ProfileWindow } from '../parsers/profile';
@@ -595,7 +595,6 @@ type DispatchCenter = {
 type Component = RedesignComponent<
     'profile',
     'profile',
-    ProfileWindow,
     {
         moment: typeof moment;
         he: typeof he;

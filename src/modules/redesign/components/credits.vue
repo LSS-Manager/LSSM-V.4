@@ -76,10 +76,6 @@
 <script lang="ts">
 import Vue from 'vue';
 
-import { CoinsListWindow } from '../parsers/coins/list';
-import { CreditsDailyWindow } from '../parsers/credits/daily';
-import { CreditsListWindow } from '../parsers/credits/list';
-import { CreditsOverviewWindow } from '../parsers/credits/overview';
 import { RedesignComponent } from 'typings/modules/Redesign';
 import { DefaultData, DefaultMethods } from 'vue/types/options';
 
@@ -91,10 +87,6 @@ interface Link {
 type Component = RedesignComponent<
     'data',
     'credits/list' | 'credits/daily' | 'credits/overview' | 'coins/list',
-    | CreditsListWindow
-    | CreditsDailyWindow
-    | CreditsOverviewWindow
-    | CoinsListWindow,
     DefaultData<Vue>,
     DefaultMethods<Vue>,
     {

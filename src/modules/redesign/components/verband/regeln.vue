@@ -20,12 +20,10 @@ import { faEdit } from '@fortawesome/free-solid-svg-icons/faEdit';
 
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { RedesignSubComponent } from 'typings/modules/Redesign';
-import { VerbandRegelnWindow } from '../../parsers/verband/regeln';
 
 type Component = RedesignSubComponent<
     'rules',
     'verband/regeln',
-    VerbandRegelnWindow,
     {
         faEdit: IconDefinition;
     }

@@ -94,13 +94,11 @@ import { faMapMarkedAlt } from '@fortawesome/free-solid-svg-icons/faMapMarkedAlt
 
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { RedesignSubComponent } from 'typings/modules/Redesign';
-import { VerbandGebaeudeWindow } from '../../parsers/verband/gebauede';
 import { FeatureGroup, Marker } from 'leaflet';
 
 type Component = RedesignSubComponent<
     'gebauede',
     'verband/gebauede',
-    VerbandGebaeudeWindow,
     {
         faMapMarkedAlt: IconDefinition;
         markers: Marker[];

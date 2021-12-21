@@ -79,7 +79,6 @@ import { RedesignComponent } from 'typings/modules/Redesign';
 type Component = RedesignComponent<
     'friends',
     'freunde',
-    FreundeWindow,
     {
         faEdit: IconDefinition;
         faUserSlash: IconDefinition;

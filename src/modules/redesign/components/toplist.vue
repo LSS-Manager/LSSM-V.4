@@ -97,7 +97,6 @@ import { TopListWindow } from '../parsers/toplist';
 type Component = RedesignComponent<
     'toplist',
     'toplist',
-    TopListWindow,
     {
         search: string;
         sort: string;

@@ -119,7 +119,6 @@ type types = Exclude<VerbandProtokollWindow['entries'][0]['type'], ''>;
 type Component = RedesignSubComponent<
     'protokoll',
     'verband/protokoll',
-    VerbandProtokollWindow,
     {
         startPage: number;
         endPage: number;

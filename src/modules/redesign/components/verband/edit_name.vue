@@ -23,12 +23,10 @@ import Vue from 'vue';
 
 import { DefaultData } from 'vue/types/options';
 import { RedesignSubComponent } from 'typings/modules/Redesign';
-import { VerbandEditNameWindow } from '../../parsers/verband/edit_name';
 
 type Component = RedesignSubComponent<
     'alliance',
     'verband/edit_name',
-    VerbandEditNameWindow,
     DefaultData<Vue>,
     { submit(): void }
 >;
