@@ -1,4 +1,9 @@
 {
+	"automaticMessage": {
+		"content": "Automatisch welkomstbericht: Bericht",
+		"subject": "Automatisch welkomstbericht: Onderwerp",
+		"title": "Automatisch welkomstbericht"
+	},
 	"faq": "FAQ",
 	"header": "Belangrijke mededeling",
 	"header_help": "Deze tekst wordt in een blauwe balk boven de chat weergegeven.",
