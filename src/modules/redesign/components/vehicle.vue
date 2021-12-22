@@ -312,6 +312,7 @@
                         :href="`/vehicles/${vehicle.id}/stats`"
                         class="btn btn-default"
                         :title="lightbox.$sm('stats')"
+                        lightbox-open
                     >
                         <font-awesome-icon
                             :icon="faChartLine"

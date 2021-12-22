@@ -209,6 +209,13 @@ const windows: RedesignLightbox['Data']['windows'] = {
             ),
         data: 'vehicle',
     },
+    'vehicle/stats': {
+        component: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/vehicle/stats"*/ './vehicle/stats.vue'
+            ),
+        data: 'stats',
+    },
 };
 
 export default Vue.extend<

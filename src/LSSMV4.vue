@@ -163,6 +163,12 @@ body.dark
             &:focus, &:hover
                 background-image: linear-gradient(to bottom, #5a5a5a 0, #353535 100%)
 
+    .highcharts-axis-labels text,
+    .highcharts-legend-item text,
+    .highcharts-axis-title
+        color: white !important
+        fill: white !important
+
 .vm--container
     z-index: 5001 !important
 

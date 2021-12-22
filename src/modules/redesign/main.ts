@@ -34,6 +34,7 @@ export default (async (LSSM, MODULE_ID) => {
         }),
         ...((await getSetting('category.vehicles')) && {
             '^/vehicles/\\d+/?$': 'vehicle',
+            '^/vehicles/\\d+/stats/?$': 'vehicle/stats',
             '^/fahrzeugfarbe/\\d+/?$': 'fahrzeugfarbe',
             // '^/vehicles/\\d+/(patient|gefangener)/\\d+/?': 'vehicle/nextfms',
         }),

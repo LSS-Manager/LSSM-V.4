@@ -20,6 +20,7 @@ import { ProfileWindow } from '../../src/modules/redesign/parsers/profile';
 import { SchoolingsWindow } from '../../src/modules/redesign/parsers/schoolings';
 import { TopListWindow } from '../../src/modules/redesign/parsers/toplist';
 import { VehicleGroupWindow } from 'modules/redesign/parsers/vehicle_group';
+import { VehicleStatsWindow } from '../../src/modules/redesign/parsers/vehicle/stats';
 import { VehicleWindow } from '../../src/modules/redesign/parsers/vehicle';
 import { VerbandBSRWindow } from '../../src/modules/redesign/parsers/verband/bsr';
 import { VerbandChatWindow } from '../../src/modules/redesign/parsers/chat';
@@ -66,6 +67,7 @@ interface Redesigns {
     'vehicle_group': VehicleGroupWindow;
     'vehicle': VehicleWindow;
     'vehicle/nextfms': NextFMSWindow;
+    'vehicle/stats': VehicleStatsWindow;
     'verband/bsr': VerbandBSRWindow;
     'verband/edit_name': VerbandEditNameWindow;
     'verband/edit_text': VerbandEditTextWindow;

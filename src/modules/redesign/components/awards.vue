@@ -57,10 +57,9 @@
 <script lang="ts">
 import Vue from 'vue';
 
-import { AwardsWindow } from '../parsers/awards';
 import { RedesignComponent } from 'typings/modules/Redesign';
 
-type Component = RedesignComponent<'awards', 'awards', AwardsWindow>;
+type Component = RedesignComponent<'awards', 'awards'>;
 
 export default Vue.extend<
     Component['Data'],
