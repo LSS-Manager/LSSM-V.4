@@ -149,6 +149,17 @@ body.dark
     &.leaflet-no-dark-tooltip .leaflet-tooltip tr
         background-color: unset
 
+    &.leaflet-dark-controls
+        .leaflet-control-layers
+            background-color: #a0a0a0
+
+        .leaflet-bar
+            a
+                background-color: #a0a0a0
+
+                &:hover
+                    background-color: #dadada
+
     .bg-danger
         background-color: #a94442
 

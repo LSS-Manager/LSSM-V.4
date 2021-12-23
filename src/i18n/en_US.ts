@@ -111,8 +111,13 @@ export default {
         },
         osmDarkTooltip: {
             description:
-                'This settings darkens tooltips on map if you have enabled the dark mode',
+                'This setting darkens tooltips on map if you have enabled dark mode.',
             title: 'Dark tooltips on map',
+        },
+        osmDarkControls: {
+            description:
+                'This setting darkens buttons on map if you have enabled dark mode.',
+            title: 'Dark buttons on map',
         },
         v3MenuAsSubmenu: {
             title: 'V3 Menu as sub-menu',
