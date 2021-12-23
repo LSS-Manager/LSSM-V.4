@@ -92,6 +92,7 @@ declare global {
         lightboxClose(creation?: string): void; // creation Param only for LSSM Redesign
         buildingsVehicleLoadVisible(): void;
         missionScrollUpdate(): void;
+        mapExpand(design_big_map: boolean): void;
     }
 }
 
