@@ -114,6 +114,11 @@ export default {
                 'Ce paramètre assombrit les infobulles sur la carte si vous avez activé le mode sombre.',
             title: 'Infobulles foncées sur la carte',
         },
+        osmDarkControls: {
+            description:
+                'Ce paramètre assombrit les boutons sur la carte si vous avez activé le mode sombre.',
+            title: 'Boutons sombres sur la carte',
+        },
         v3MenuAsSubmenu: {
             title: 'Menu V3 comme sous-menu',
             description:
