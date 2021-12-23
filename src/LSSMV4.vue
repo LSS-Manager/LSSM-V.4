@@ -149,6 +149,17 @@ body.dark
     &.leaflet-no-dark-tooltip .leaflet-tooltip tr
         background-color: unset
 
+    &.leaflet-dark-controls
+        .leaflet-control-layers
+            background-color: #a0a0a0
+
+        .leaflet-bar
+            a
+                background-color: #a0a0a0
+
+                &:hover
+                    background-color: #dadada
+
     .bg-danger
         background-color: #a94442
 
@@ -162,6 +173,12 @@ body.dark
 
             &:focus, &:hover
                 background-image: linear-gradient(to bottom, #5a5a5a 0, #353535 100%)
+
+    .highcharts-axis-labels text,
+    .highcharts-legend-item text,
+    .highcharts-axis-title
+        color: white !important
+        fill: white !important
 
 .vm--container
     z-index: 5001 !important

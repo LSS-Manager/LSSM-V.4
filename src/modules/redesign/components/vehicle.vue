@@ -312,6 +312,7 @@
                         :href="`/vehicles/${vehicle.id}/stats`"
                         class="btn btn-default"
                         :title="lightbox.$sm('stats')"
+                        lightbox-open
                     >
                         <font-awesome-icon
                             :icon="faChartLine"
@@ -1133,7 +1134,6 @@ import { VehicleWindow } from '../parsers/vehicle';
 type Component = RedesignComponent<
     'vehicle',
     'vehicle',
-    VehicleWindow,
     {
         faSitemap: IconDefinition;
         faPortrait: IconDefinition;

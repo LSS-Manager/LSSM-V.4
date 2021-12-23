@@ -44,12 +44,10 @@ import Vue from 'vue';
 
 import { RedesignSubComponent } from 'typings/modules/Redesign';
 import { SCEditor } from 'typings/SCEditor/SCEditor';
-import { VerbandNewsEditWindow } from '../../../parsers/verband/news/edit';
 
 type Component = RedesignSubComponent<
     'news',
     'verband/news/edit',
-    VerbandNewsEditWindow,
     {
         captionId: string;
         contentId: string;

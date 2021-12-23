@@ -218,7 +218,6 @@ import Vue from 'vue';
 import moment from 'moment';
 
 import { Building } from 'typings/Building';
-import { EinsaetzeWindow } from '../parsers/einsaetze';
 import { Mission } from 'typings/Mission';
 import { RedesignComponent } from 'typings/modules/Redesign';
 
@@ -248,7 +247,6 @@ type sort = Exclude<cols, 'missing' | 'prerequisites'>;
 type Component = RedesignComponent<
     'window',
     'einsaetze',
-    EinsaetzeWindow,
     {
         moment: typeof moment;
         cols: cols[];

@@ -22,11 +22,7 @@ import { SchoolingsWindow } from '../parsers/schoolings';
 
 import { RedesignSubComponent } from 'typings/modules/Redesign';
 
-type Component = RedesignSubComponent<
-    'schoolings',
-    'schoolings',
-    SchoolingsWindow
->;
+type Component = RedesignSubComponent<'schoolings', 'schoolings'>;
 
 export default Vue.extend<
     Component['Data'],

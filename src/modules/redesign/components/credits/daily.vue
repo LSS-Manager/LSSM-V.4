@@ -258,7 +258,7 @@ export default Vue.extend<
     {
         credits: CreditsDailyWindow;
         url: string;
-        lightbox: RedesignLightboxVue<'credits/daily', CreditsDailyWindow>;
+        lightbox: RedesignLightboxVue<'credits/daily'>;
         $m(
             key: string,
             args?: {

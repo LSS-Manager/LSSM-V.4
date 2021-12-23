@@ -111,8 +111,13 @@ export default {
         },
         osmDarkTooltip: {
             description:
-                'Deze instelling maakt tooltips op de kaart donker als je de donkere spelmodus gebruikt',
+                'Deze instelling maakt tooltips op de kaart donker als je de donkere spelmodus gebruikt.',
             title: 'Donkere tooltips op de kaart',
+        },
+        osmDarkControls: {
+            description:
+                'Deze instelling zorgt dat er donkere knoppen op de kaart getoond worden als je een donker thema van het spel gebruikt.',
+            title: 'Donkere knoppen op de kaart',
         },
         v3MenuAsSubmenu: {
             title: 'V3 menu als submenu',

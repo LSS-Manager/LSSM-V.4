@@ -108,13 +108,18 @@ export default {
         },
         iconBgAsNavBg: {
             description:
-                'Wenn diese Einstellung aktiviert ist, nimmt die ganze Leiste oben die Hintergrundfarbe des LSSM-Icons an',
+                'Wenn diese Einstellung aktiviert ist, nimmt die ganze Leiste oben die Hintergrundfarbe des LSSM-Icons an.',
             title: 'Navigationsleiste einfärben',
         },
         osmDarkTooltip: {
             description:
-                'Diese Einstellung sorgt dafür, dass die Tooltips auf der Karte dunkel sind, wenn du das Spiel im dunklen Modus hast',
+                'Diese Einstellung sorgt dafür, dass die Tooltips auf der Karte dunkel sind, wenn du das Spiel im dunklen Modus hast.',
             title: 'Dunkle Tooltips in der Karte',
+        },
+        osmDarkControls: {
+            description:
+                'Zeigt die Knöpfe auf der Karte in einer dunkleren Farbe an, wenn du das Spiel im dunklen Modus hast.',
+            title: 'Dunkle Knöpfe in der Karte',
         },
         v3MenuAsSubmenu: {
             title: 'V3 Menü als Untermenü',

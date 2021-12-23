@@ -232,7 +232,6 @@ import { VerbandMitgliederWindow } from '../../parsers/verband/mitglieder';
 type Component = RedesignSubComponent<
     'mitglieder',
     'verband/mitglieder',
-    VerbandMitgliederWindow,
     {
         faEdit: IconDefinition;
         search: string;

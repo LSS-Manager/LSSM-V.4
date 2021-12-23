@@ -142,7 +142,7 @@ type Mode = 'buildings' | 'vehicles';
 type Subsetting<Scope extends Mode | ''> = Record<`${Scope}StaticRadius`, boolean> &
     Record<`${Scope}RadiusM` | `${Scope}RadiusPx` | `${Scope}IntensityMaxZoom`, number> & Record<`${Scope}Includes`, { value: number, label: string}[]>;
 
-export type Settings = { heatmapMode: Mode} &
+export type Settings = { position: 'bottom-left' | 'bottom-right' | 'top-left' | 'top-right', heatmapMode: Mode} &
     Subsetting<'buildings'> &
     Subsetting<'vehicles'>;
 
@@ -187,6 +187,7 @@ export default Vue.extend<
 
         return {
             settings: {
+                position: 'bottom-left',
                 heatmapMode: 'buildings',
                 buildingsStaticRadius: false,
                 buildingsRadiusM: 31_415,

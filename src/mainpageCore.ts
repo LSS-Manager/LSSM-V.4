@@ -80,6 +80,12 @@ export default async (LSSM: Vue): Promise<void> => {
                     noMapkit: true,
                     disabled: () => !LSSM.$store.state.darkmode,
                 },
+                osmDarkControls: <Toggle>{
+                    type: 'toggle',
+                    default: LSSM.$store.state.darkmode,
+                    noMapkit: true,
+                    disabled: () => !LSSM.$store.state.darkmode,
+                },
                 v3MenuAsSubmenu: <Toggle>{
                     type: 'toggle',
                     default: false,
@@ -136,7 +142,44 @@ export default async (LSSM: Vue): Promise<void> => {
                         !allowDark &&
                         document.body.classList.add('leaflet-no-dark-tooltip')
                 );
+
+            LSSM.$store
+                .dispatch('settings/getSetting', {
+                    moduleId: 'global',
+                    settingId: 'osmDarkControls',
+                    default: true,
+                })
+                .then(
+                    allowDark =>
+                        allowDark &&
+                        document.body.classList.add('leaflet-dark-controls')
+                );
         });
+
+    if (!window.location.search.includes('mapview=true') && !window.mapkit) {
+        LSSM.$store
+            .dispatch('addOSMControl', { position: 'top-left' })
+            .then((control: HTMLAnchorElement) => {
+                const icon = document.createElement('i');
+                icon.classList.add('fas', 'fa-expand-arrows-alt');
+                control.append(icon);
+                control.style.setProperty('cursor', 'pointer');
+                LSSM.$store
+                    .dispatch('api/registerSettings', {
+                        feature: 'mainpage-core_map-expand',
+                    })
+                    .then(() =>
+                        control.addEventListener('click', () => {
+                            window.mapExpand(
+                                LSSM.$store.state.settings.design_mode >= 3
+                            );
+                        })
+                    );
+                document
+                    .querySelector<HTMLDivElement>('.map-expand-button')
+                    ?.remove();
+            });
+    }
 
     telemetry(LSSM, settingId => {
         return LSSM.$store.dispatch('settings/getSetting', {

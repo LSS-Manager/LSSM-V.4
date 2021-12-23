@@ -90,7 +90,7 @@ export default Vue.extend<
     {
         credits: CreditsListWindow;
         url: string;
-        lightbox: RedesignLightboxVue<'credits/list', CreditsListWindow>;
+        lightbox: RedesignLightboxVue<'credits/list'>;
         $m(
             key: string,
             args?: {

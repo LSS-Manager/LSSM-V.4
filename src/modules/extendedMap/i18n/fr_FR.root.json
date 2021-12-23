@@ -2,10 +2,10 @@
 	"description": "Améliorez la carte en y ajoutant des fonctionnalités intéressantes.",
 	"name": "Améliorez la carte",
 	"positions": {
-		"bottom-left": "En bas à gauche 🡧",
-		"bottom-right": "En bas à droite 🡦",
-		"top-left": "En haut à gauche 🡤",
-		"top-right": "En haut à droite 🡥"
+		"bottomleft": "En bas à gauche 🡧",
+		"bottomright": "En bas à droite 🡦",
+		"topleft": "En haut à gauche 🡤",
+		"topright": "En haut à droite 🡥"
 	},
 	"settings": {
 		"centerMap": {

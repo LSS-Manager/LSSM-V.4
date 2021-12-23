@@ -47,12 +47,10 @@
 import Vue from 'vue';
 
 import { RedesignComponent } from 'typings/modules/Redesign';
-import { VerbandChatWindow } from '../parsers/chat';
 
 type Component = RedesignComponent<
     'chat',
     'chat',
-    VerbandChatWindow,
     {
         search: string;
         startPage: number;

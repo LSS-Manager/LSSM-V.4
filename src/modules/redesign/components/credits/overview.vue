@@ -45,7 +45,7 @@ import HighchartsMore from 'highcharts/highcharts-more';
 import moment from 'moment';
 
 import { CreditsOverviewWindow } from '../../parsers/credits/overview';
-// to seperate typings
+// to separate typings
 // eslint-disable-next-line no-duplicate-imports
 import { Options } from 'highcharts';
 import { RedesignLightboxVue } from 'typings/modules/Redesign';
@@ -84,10 +84,7 @@ export default Vue.extend<
     },
     {
         data: CreditsOverviewWindow;
-        lightbox: RedesignLightboxVue<
-            'credits/overview',
-            CreditsOverviewWindow
-        >;
+        lightbox: RedesignLightboxVue<'credits/overview'>;
         $m(
             key: string,
             args?: {

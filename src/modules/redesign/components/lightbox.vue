@@ -19,64 +19,8 @@
             class="redesign-wrapper"
             :type="type"
         >
-            <AAOs
-                v-if="type === 'aaos'"
-                :aaos="data"
-                :url="urlProp"
-                :lightbox="this"
-                :get-setting="getSetting()"
-                :set-setting="setSetting()"
-            ></AAOs>
-            <AllianceAvatar
-                v-else-if="type === 'alliance_avatar'"
-                :alliance="data"
-                :url="urlProp"
-                :lightbox="this"
-                :get-setting="getSetting()"
-                :set-setting="setSetting()"
-            ></AllianceAvatar>
-            <Alliances
-                v-else-if="type === 'alliances'"
-                :alliances="data"
-                :url="urlProp"
-                :lightbox="this"
-                :get-setting="getSetting()"
-                :set-setting="setSetting()"
-            ></Alliances>
-            <Avatar
-                v-else-if="type === 'avatar'"
-                :profile="data"
-                :url="urlProp"
-                :lightbox="this"
-                :get-setting="getSetting()"
-                :set-setting="setSetting()"
-            ></Avatar>
-            <Awards
-                v-else-if="type === 'awards'"
-                :awards="data"
-                :url="urlProp"
-                :lightbox="this"
-                :get-setting="getSetting()"
-                :set-setting="setSetting()"
-            ></Awards>
-            <Bewerbungen
-                v-if="type === 'bewerbungen'"
-                :bewerbungen="data"
-                :url="url"
-                :lightbox="this"
-                :get-setting="getSetting"
-                :set-setting="setSetting"
-            ></Bewerbungen>
-            <Chat
-                v-if="type === 'chat'"
-                :chat="data"
-                :url="url"
-                :lightbox="this"
-                :get-setting="getSetting"
-                :set-setting="setSetting"
-            ></Chat>
             <Credits
-                v-else-if="type.startsWith('credits/') || type === 'coins/list'"
+                v-if="type.startsWith('credits/') || type === 'coins/list'"
                 :data="data"
                 :url="urlProp"
                 :lightbox="this"
@@ -84,82 +28,6 @@
                 :set-setting="setSetting()"
                 :type="type"
             ></Credits>
-            <Einsaetze
-                v-else-if="type === 'einsaetze'"
-                :window="data"
-                :url="urlProp"
-                :lightbox="this"
-                :get-setting="getSetting()"
-                :set-setting="setSetting()"
-                :type="type"
-            ></Einsaetze>
-            <Einsatz
-                v-else-if="type === 'einsatz'"
-                :mission="data"
-                :url="urlProp"
-                :lightbox="this"
-                :get-setting="getSetting()"
-                :set-setting="setSetting()"
-                :type="type"
-            ></Einsatz>
-            <Fahrzeugfarbe
-                v-else-if="type === 'fahrzeugfarbe'"
-                :fahrzeugfarbe="data"
-                :url="urlProp"
-                :lightbox="this"
-                :get-setting="getSetting()"
-                :set-setting="setSetting()"
-                :type="type"
-            ></Fahrzeugfarbe>
-            <Freunde
-                v-else-if="type === 'freunde'"
-                :friends="data"
-                :url="urlProp"
-                :lightbox="this"
-                :get-setting="getSetting()"
-                :set-setting="setSetting()"
-                :type="type"
-            ></Freunde>
-            <Profile
-                v-else-if="type === 'profile'"
-                :profile="data"
-                :url="urlProp"
-                :lightbox="this"
-                :get-setting="getSetting()"
-                :set-setting="setSetting()"
-            ></Profile>
-            <ProfileEdit
-                v-else-if="type === 'profile/edit'"
-                :profile="data"
-                :url="urlProp"
-                :lightbox="this"
-                :get-setting="getSetting()"
-                :set-setting="setSetting()"
-            ></ProfileEdit>
-            <Toplist
-                v-else-if="type === 'toplist'"
-                :toplist="data"
-                :url="urlProp"
-                :lightbox="this"
-                :get-setting="getSetting()"
-                :set-setting="setSetting()"
-            ></Toplist>
-            <VehicleGroup
-                v-else-if="type === 'vehicle_group'"
-                :vehicle_group="data"
-                :url="urlProp"
-                :lightbox="this"
-                :get-setting="getSetting()"
-                :set-setting="setSetting()"
-            ></VehicleGroup>
-            <Vehicle
-                v-else-if="type === 'vehicle'"
-                :vehicle="data"
-                :url="urlProp"
-                :lightbox="this"
-                :get-setting="getSetting()"
-                :set-setting="setSetting()"
-            ></Vehicle>
             <Verband
                 v-else-if="type.startsWith('verband/') || type === 'schoolings'"
                 :data="data"
@@ -175,6 +43,15 @@
             >
                 {{ $m('vehicle.nextfms.finished') }}
             </div>
+            <component
+                v-else-if="windows[type]"
+                :is="windows[type].component"
+                :url="urlProp"
+                :lightbox="this"
+                :get-setting="getSetting()"
+                :set-setting="setSetting()"
+                v-bind="{ [windows[type].data]: data }"
+            ></component>
         </div>
         <iframe
             v-show="!type || type === 'default'"
@@ -212,6 +89,135 @@ import { faSyncAlt } from '@fortawesome/free-solid-svg-icons/faSyncAlt';
 
 import { RedesignLightbox, RedesignParser } from 'typings/modules/Redesign';
 
+const windows: RedesignLightbox['Data']['windows'] = {
+    'aaos': {
+        component: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/aaos"*/ './aaos.vue'
+            ),
+        data: 'aaos',
+    },
+    'alliance_avatar': {
+        component: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/allianceAvatar"*/ './alliance_avatar.vue'
+            ),
+        data: 'alliance',
+    },
+    'alliances': {
+        component: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/alliances"*/ './alliances.vue'
+            ),
+        data: 'alliances',
+    },
+    'avatar': {
+        component: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/avatar"*/ './avatar.vue'
+            ),
+        data: 'profile',
+    },
+    'awards': {
+        component: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/awards"*/ './awards.vue'
+            ),
+        data: 'awards',
+    },
+    'bewerbungen': {
+        component: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/bewerbungen"*/ './bewerbungen.vue'
+            ),
+        data: 'bewerbungen',
+    },
+    'chat': {
+        component: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/chat"*/ './chat.vue'
+            ),
+        data: 'chat',
+    },
+    'einsaetze': {
+        component: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/einsaetze"*/ './einsaetze.vue'
+            ),
+        data: 'window',
+    },
+    'einsatz': {
+        component: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/einsatz"*/ './einsatz.vue'
+            ),
+        data: 'mission',
+    },
+    'fahrzeugfarbe': {
+        component: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/fahrzeugfarbe"*/ './fahrzeugfarbe.vue'
+            ),
+        data: 'fahrzeugfarbe',
+    },
+    'freunde': {
+        component: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/freunde"*/ './freunde.vue'
+            ),
+        data: 'friends',
+    },
+    'profile': {
+        component: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/profile"*/ './profile.vue'
+            ),
+        data: 'profile',
+    },
+    'profile/edit': {
+        component: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/profile/edit"*/ './profile/edit.vue'
+            ),
+        data: 'profile',
+    },
+    'schoolings': {
+        component: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/schoolings"*/ './schoolings.vue'
+            ),
+        data: '',
+    },
+    'toplist': {
+        component: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/toplist"*/ './toplist.vue'
+            ),
+        data: 'toplist',
+    },
+    'vehicle_group': {
+        component: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/vehicleGroup"*/ './vehicle_group.vue'
+            ),
+        data: 'vehicle_group',
+    },
+    'vehicle': {
+        component: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/vehicle"*/ './vehicle.vue'
+            ),
+        data: 'vehicle',
+    },
+    'vehicle/stats': {
+        component: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/vehicle/stats"*/ './vehicle/stats.vue'
+            ),
+        data: 'stats',
+    },
+};
+
 export default Vue.extend<
     RedesignLightbox['Data'],
     RedesignLightbox['Methods'],
@@ -224,73 +230,9 @@ export default Vue.extend<
             import(
                 /* webpackChunkName: "components/lightbox" */ '../../../components/lightbox.vue'
             ),
-        AAOs: () =>
-            import(
-                /*webpackChunkName: "modules/redesign/windows/aaos"*/ './aaos.vue'
-            ),
-        AllianceAvatar: () =>
-            import(
-                /*webpackChunkName: "modules/redesign/windows/alliance_avatar"*/ './alliance_avatar.vue'
-            ),
-        Alliances: () =>
-            import(
-                /*webpackChunkName: "modules/redesign/windows/alliances"*/ './alliances.vue'
-            ),
-        Avatar: () =>
-            import(
-                /*webpackChunkName: "modules/redesign/windows/avatar"*/ './avatar.vue'
-            ),
-        Awards: () =>
-            import(
-                /*webpackChunkName: "modules/redesign/windows/awards"*/ './awards.vue'
-            ),
-        Bewerbungen: () =>
-            import(
-                /*webpackChunkName: "modules/redesign/windows/bewerbungen"*/ './bewerbungen.vue'
-            ),
-        Chat: () =>
-            import(
-                /*webpackChunkName: "modules/redesign/windows/chat"*/ './chat.vue'
-            ),
         Credits: () =>
             import(
                 /*webpackChunkName: "modules/redesign/windows/credits"*/ './credits.vue'
-            ),
-        Einsaetze: () =>
-            import(
-                /*webpackChunkName: "modules/redesign/windows/einsaetze"*/ './einsaetze.vue'
-            ),
-        Einsatz: () =>
-            import(
-                /*webpackChunkName: "modules/redesign/windows/einsatz"*/ './einsatz.vue'
-            ),
-        Fahrzeugfarbe: () =>
-            import(
-                /*webpackChunkName: "modules/redesign/windows/fahrzeugfarbe"*/ './fahrzeugfarbe.vue'
-            ),
-        Freunde: () =>
-            import(
-                /*webpackChunkName: "modules/redesign/windows/freunde"*/ './freunde.vue'
-            ),
-        Profile: () =>
-            import(
-                /*webpackChunkName: "modules/redesign/windows/profile"*/ './profile.vue'
-            ),
-        ProfileEdit: () =>
-            import(
-                /*webpackChunkName: "modules/redesign/windows/profile/edit"*/ './profile/edit.vue'
-            ),
-        Toplist: () =>
-            import(
-                /*webpackChunkName: "modules/redesign/windows/toplist"*/ './toplist.vue'
-            ),
-        VehicleGroup: () =>
-            import(
-                /*webpackChunkName: "modules/redesign/windows/vehicle_group"*/ './vehicle_group.vue'
-            ),
-        Vehicle: () =>
-            import(
-                /*webpackChunkName: "modules/redesign/windows/vehicle"*/ './vehicle.vue'
             ),
         Verband: () =>
             import(
@@ -314,6 +256,7 @@ export default Vue.extend<
                 enabled: false,
                 pictures: false,
             },
+            windows,
         };
     },
     props: {

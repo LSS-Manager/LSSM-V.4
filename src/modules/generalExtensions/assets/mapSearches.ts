@@ -42,6 +42,10 @@ export default (
         LSSM.$store
             .dispatch('addOSMControl', { position, mapId: id })
             .then((control: HTMLAnchorElement) => {
+                const clearfix = document.createElement('div');
+                clearfix.classList.add('clearfix');
+                control.after(clearfix);
+
                 control.style.setProperty('cursor', 'pointer');
                 control.addEventListener('click', e => {
                     if (

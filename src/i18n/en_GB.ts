@@ -111,8 +111,13 @@ export default {
         },
         osmDarkTooltip: {
             description:
-                'This settings darkens tooltips on map if you have enabled the dark mode',
+                'This setting darkens tooltips on map if you have enabled dark mode.',
             title: 'Dark tooltips on map',
+        },
+        osmDarkControls: {
+            description:
+                'This setting darkens buttons on map if you have enabled dark mode.',
+            title: 'Dark buttons on map',
         },
         v3MenuAsSubmenu: {
             title: 'V3 Menu as sub-menu',
@@ -413,7 +418,7 @@ export default {
                 },
             },
             special:
-                'Can only be placed at the Home Response Location. A General Practitioner that can respond as a on call doctor currently. ',
+                'Can only be placed at the Home Response Location and Clinic. A General Practitioner that can respond as a on call doctor currently. ',
         },
         22: {
             caption: 'Community First Responder',
@@ -642,7 +647,7 @@ export default {
             credits: 17_300,
             minPersonnel: 1,
             maxPersonnel: 2,
-            possibleBuildings: [0],
+            possibleBuildings: [0, 18],
             special:
                 'Bulk Foam Unit, Fufills the foam unit requirement on missions. Used on hazardous fires and electrical fires.',
         },
@@ -653,7 +658,7 @@ export default {
             credits: 45_000,
             minPersonnel: 1,
             maxPersonnel: 2,
-            possibleBuildings: [0],
+            possibleBuildings: [0, 18],
             special:
                 'Acts as a Bulk Foam Unit and a Water Carrier. Used on hazardous fires and electrical fires.',
         },
@@ -664,7 +669,7 @@ export default {
             credits: 17_300,
             minPersonnel: 2,
             maxPersonnel: 9,
-            possibleBuildings: [0],
+            possibleBuildings: [0, 18],
             special:
                 'Acts as a Bulk Foam Unit and a Water Ladder (Pump). Used on hazardous fires and electrical fires.',
         },
@@ -675,7 +680,7 @@ export default {
             credits: 25_000,
             minPersonnel: 2,
             maxPersonnel: 9,
-            possibleBuildings: [0],
+            possibleBuildings: [0, 18],
             special:
                 'Acts as a Bulk Foam Unit, Rescue Support Vehicle and a Pump. Used on hazardous fires and electrical fires.',
         },
@@ -725,7 +730,7 @@ export default {
             credits: 17_300,
             minPersonnel: 0,
             maxPersonnel: 0,
-            possibleBuildings: [0],
+            possibleBuildings: [0, 18],
             special:
                 'Acts as a Bulk Foam Unit. Used on hazardous fires and electrical fires.',
         },
@@ -1189,6 +1194,12 @@ export default {
                     duration: '7 Days',
                 },
                 {
+                    caption: 'Foam Extension',
+                    credits: 150_000,
+                    coins: 15,
+                    duration: '5 Days',
+                },
+                {
                     caption: 'Swap Body Parking Space',
                     credits: 50_000,
                     coins: 20,
@@ -1316,7 +1327,7 @@ export default {
                 'It can only Store: Fire Officer, Rapid Response Vehicle, Operational Team Leader, General Practitioner, Community First Responder, Ambulance Officer and the Dog Support Unit (DSU)',
             startPersonnel: 1,
             startVehicles: [''],
-            schoolingTypes: ['Rescue', 'Police'],
+            schoolingTypes: ['Rescue', 'Police', 'Fire'],
         },
         23: {
             caption: 'Large complex',

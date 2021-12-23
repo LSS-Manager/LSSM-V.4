@@ -47,7 +47,7 @@
 	"@types/node": {
 		"icon": "https://avatars.githubusercontent.com/u/3637556",
 		"url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/node",
-		"version": "16.11.14"
+		"version": "16.11.15"
 	},
 	"@types/pdfmake": {
 		"icon": "https://avatars.githubusercontent.com/u/3637556",
@@ -90,21 +90,21 @@
 	},
 	"@typescript-eslint/eslint-plugin": {
 		"icon": "https://avatars.githubusercontent.com/u/46634674",
-		"version": "5.7.0"
+		"version": "5.8.0"
 	},
 	"@typescript-eslint/parser": {
 		"icon": "https://avatars.githubusercontent.com/u/46634674",
-		"version": "5.7.0"
+		"version": "5.8.0"
 	},
 	"@vuepress/plugin-active-header-links": {
 		"icon": "https://vuepress.vuejs.org/hero.png",
 		"url": "https://github.com/vuejs/vuepress/blob/master/packages/@vuepress/plugin-active-header-links#readme",
-		"version": "1.8.2"
+		"version": "1.8.3"
 	},
 	"@vuepress/plugin-back-to-top": {
 		"icon": "https://vuepress.vuejs.org/hero.png",
 		"url": "https://github.com/vuejs/vuepress/tree/master/packages/%40vuepress/plugin-back-to-top#readme",
-		"version": "1.8.2"
+		"version": "1.8.3"
 	},
 	"all-contributors-cli": {
 		"icon": "https://avatars3.githubusercontent.com/u/46843839",
@@ -138,7 +138,7 @@
 	"eslint": {
 		"icon": "https://eslint.org/assets/img/favicon.512x512.png",
 		"url": "https://eslint.org",
-		"version": "8.4.1"
+		"version": "8.5.0"
 	},
 	"eslint-formatter-table": {
 		"icon": "https://eslint.org/assets/img/favicon.512x512.png",
@@ -211,7 +211,7 @@
 	"sass": {
 		"icon": "https://sass-lang.com/assets/img/logos/logo-b6e1ef6e.svg",
 		"url": "https://github.com/sass/dart-sass",
-		"version": "1.45.0"
+		"version": "1.45.1"
 	},
 	"sass-loader": {
 		"icon": "https://webpack.js.org/assets/icon-square-big.svg",
@@ -312,7 +312,7 @@
 	"vuepress": {
 		"icon": "https://vuepress.vuejs.org/hero.png",
 		"url": "https://github.com/vuejs/vuepress#readme",
-		"version": "1.8.2"
+		"version": "1.8.3"
 	},
 	"vuepress-plugin-code-copy": {
 		"url": "https://github.com/znicholasbrown/vuepress-plugin-code-copy#readme",

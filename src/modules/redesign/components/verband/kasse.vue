@@ -216,12 +216,10 @@ import Vue from 'vue';
 import moment from 'moment';
 
 import { RedesignSubComponent } from 'typings/modules/Redesign';
-import { VerbandskasseWindow } from '../../parsers/verband/kasse';
 
 type Component = RedesignSubComponent<
     'kasse',
     'verband/kasse',
-    VerbandskasseWindow,
     { moment: typeof moment },
     {
         toggle(): void;

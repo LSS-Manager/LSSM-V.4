@@ -97,14 +97,12 @@ import Vue from 'vue';
 
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons/faEnvelope';
 
-import { BewerbungenWindow } from '../parsers/bewerbungen';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { RedesignComponent } from 'typings/modules/Redesign';
 
 type Component = RedesignComponent<
     'bewerbungen',
     'bewerbungen',
-    BewerbungenWindow,
     {
         faEnvelope: IconDefinition;
         alertMsg: string;
