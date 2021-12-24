@@ -86,7 +86,7 @@
         "url-loader": "^4.1.1",
         "vue-loader": "^15.9.8",
         "vue-template-compiler": "^2.6.14",
-        "vuepress": "^1.8.3",
+        "vuepress": "^1.9.3",
         "vuepress-plugin-code-copy": "^1.0.6",
         "vuepress-plugin-redirect": "^1.2.5",
         "vuepress-plugin-smooth-scroll": "^0.0.10",
