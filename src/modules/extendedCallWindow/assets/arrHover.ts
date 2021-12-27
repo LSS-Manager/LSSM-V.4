@@ -259,7 +259,7 @@ export default (
         });
         const customSpecs = Object.fromEntries(
             Object.entries(
-                JSON.parse(arr.getAttribute('custom') ?? '{}') as Record<
+                JSON.parse(arr.getAttribute('custom') || '{}') as Record<
                     string,
                     number
                 >
