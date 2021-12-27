@@ -64,7 +64,7 @@
         "@typescript-eslint/eslint-plugin": "^5.8.0",
         "@typescript-eslint/parser": "^5.8.0",
         "@vuepress/plugin-active-header-links": "^1.8.3",
-        "@vuepress/plugin-back-to-top": "^1.8.3",
+        "@vuepress/plugin-back-to-top": "^1.9.5",
         "all-contributors-cli": "^6.20.0",
         "cache-loader": "^4.1.0",
         "copy-dir": "^1.3.0",
