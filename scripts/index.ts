@@ -33,12 +33,8 @@ const scriptHandlers = {
         build('development');
         this.showChanges();
     },
-    tscDocs() {
-        console.log(execSync('tsc -b docs/.vuepress/').toString());
-    },
     docs() {
         this.browserlist();
-        this.tscDocs();
         console.log(execSync('vuepress build docs').toString());
     },
     preBuild() {

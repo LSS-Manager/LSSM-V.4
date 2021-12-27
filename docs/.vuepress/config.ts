@@ -41,9 +41,10 @@ const I18N: Record<string, Translation> = {};
 const setLocales = async () => {
     if (Object.keys(I18N).length) return;
     for (const lang of fs.readdirSync(DOCS_I18N_PATH)) {
-        I18N[lang.split('.')[0]] = await import(
-            path.join(DOCS_I18N_PATH, lang)
-        );
+        const filePath = path.join(DOCS_I18N_PATH, lang);
+        I18N[lang.split('.')[0]] = lang.endsWith('.json')
+            ? JSON.parse(fs.readFileSync(filePath).toString())
+            : await import(filePath);
     }
 };
 
@@ -131,17 +132,40 @@ const processModules = async (shortVersion: string) => {
         module: string,
         lang: string
     ): Promise<{ name: string; description?: string }> =>
-        new Promise(resolve =>
-            import(path.join(MODULES_PATH, module, 'i18n', `${lang}.root`))
+        new Promise(resolve => {
+            const moduleI18nPath = path.join(MODULES_PATH, module, 'i18n');
+            const langRootPath = path.join(moduleI18nPath, `${lang}.root`);
+            const usRootPath = path.join(moduleI18nPath, 'en_US.root');
+            (fs.existsSync(`${langRootPath}.json`)
+                ? new Promise(resolve =>
+                      resolve(
+                          JSON.parse(
+                              fs.readFileSync(`${langRootPath}.json`).toString()
+                          )
+                      )
+                  )
+                : import(langRootPath)
+            )
                 .then(({ name, description }) => resolve({ name, description }))
                 .catch(() =>
-                    import(path.join(MODULES_PATH, module, 'i18n/en_US.root'))
+                    (fs.existsSync(`${usRootPath}.json`)
+                        ? new Promise(resolve =>
+                              resolve(
+                                  JSON.parse(
+                                      fs
+                                          .readFileSync(`${usRootPath}.json`)
+                                          .toString()
+                                  )
+                              )
+                          )
+                        : import(usRootPath)
+                    )
                         .then(({ name, description }) =>
                             resolve({ name, description })
                         )
                         .catch(() => resolve({ name: module }))
-                )
-        );
+                );
+        });
 
     const getTargetPath = (module: string, lang: string) =>
         path.join(DOCS_PATH, lang, 'modules', `${module}.md`);
@@ -191,9 +215,10 @@ ${getLocale(lang, 'head.mapkit')}
     for (const module of MODULES) {
         const MODULE_PATH = path.join(MODULES_PATH, module);
         const MODULE_DOC_PATH = path.join(MODULE_PATH, 'docs');
-        const register: Module = await import(
-            path.join(MODULE_PATH, 'register')
-        );
+        const registerPath = path.join(MODULE_PATH, 'register');
+        const register: Module = fs.existsSync(`${registerPath}.json`)
+            ? JSON.parse(fs.readFileSync(`${registerPath}.json`).toString())
+            : await import(path.join(MODULE_PATH, 'register'));
         if (register.noapp) continue;
         const usedLangs = LANGS.filter(lang =>
             (register.locales ?? LANGS).includes(lang)
@@ -465,7 +490,7 @@ module.exports = async () => {
     );
     const vuepressConfig = {
         title: 'LSS-Manager V.4 Wiki',
-        description: 'The Wiki for the LSS-Manager',
+        description: 'The Wiki for LSS-Manager V.4',
         base: BASE,
         dest: './dist/docs',
         head: [
@@ -523,14 +548,15 @@ module.exports = async () => {
         plugins: {
             '@vuepress/active-header-links': {},
             '@vuepress/back-to-top': {},
-            '@vuepress/last-updated': {
-                transformer(timestamp: number, lang: string) {
-                    // eslint-disable-next-line @typescript-eslint/no-var-requires
-                    const moment = require('moment');
-                    moment.locale(lang);
-                    return moment(timestamp).format('LLL');
-                },
-            },
+            // TODO: Find a way to make this work with vuepress@1.9.x
+            // '@vuepress/last-updated': {
+            //     transformer(timestamp: number, lang: string) {
+            //         // eslint-disable-next-line @typescript-eslint/no-var-requires
+            //         const moment = require('moment');
+            //         moment.locale(lang);
+            //         return moment(timestamp).format('LLL');
+            //     },
+            // },
             'vuepress-plugin-code-copy': {
                 align: 'top',
             },
