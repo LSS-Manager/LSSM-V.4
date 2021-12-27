@@ -34,7 +34,6 @@ const scriptHandlers = {
         this.showChanges();
     },
     docs() {
-        this.browserlist();
         console.log(execSync('vuepress build docs').toString());
     },
     preBuild() {
@@ -48,9 +47,6 @@ const scriptHandlers = {
     },
     showChanges() {
         console.log(execSync('git diff --color-words').toString());
-    },
-    browserlist() {
-        // console.log(execSync('npx -y browserslist@latest --update-db'));
     },
 } as { [key: string]: () => string | void | Promise<string | void> };
 
