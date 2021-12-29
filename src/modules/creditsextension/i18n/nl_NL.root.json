@@ -22,6 +22,10 @@
 			"description": "Zodra je het doel behaald hebt, zal de creditsuitbreiding groen blijven totdat je het hebt aangeklikt.",
 			"title": "Doelen"
 		},
+		"coinsInNavbar": {
+			"description": "Toont de huidige coins in de menubalk i.p.v. de het icoontje.",
+			"title": "Coins i.p.v. het icoon."
+		},
 		"creditsInNavbar": {
 			"description": "Toont de huidige credits in de menubalk i.p.v. de het icoontje.",
 			"title": "Credits i.p.v. het icoon."
