@@ -56,10 +56,10 @@
                 :class="{ hidden: !menuItems.length }"
             ></li>
             <li role="presentation">
-                <a :href="discord" target="_blank"> Discord </a>
+                <a :href="discord" target="_blank">Discord</a>
             </li>
             <li role="presentation">
-                <a class="lightbox-open" :href="wiki"> Wiki </a>
+                <a class="lightbox-open" :href="wiki">Wiki</a>
             </li>
             <li role="presentation">
                 <a class="lightbox-open" href="https://status.lss-manager.de/">
