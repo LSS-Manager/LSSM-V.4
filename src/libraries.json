@@ -133,7 +133,7 @@
 	"css-loader": {
 		"icon": "https://webpack.js.org/assets/icon-square-big.svg",
 		"url": "https://github.com/webpack-contrib/css-loader",
-		"version": "5.2.7"
+		"version": "5.2.4"
 	},
 	"eslint": {
 		"icon": "https://eslint.org/assets/img/favicon.512x512.png",
@@ -216,7 +216,7 @@
 	"sass-loader": {
 		"icon": "https://webpack.js.org/assets/icon-square-big.svg",
 		"url": "https://github.com/webpack-contrib/sass-loader",
-		"version": "10.2.0"
+		"version": "10.1.1"
 	},
 	"semver": {
 		"version": "7.3.5"
@@ -244,7 +244,7 @@
 	"ts-loader": {
 		"icon": "https://webpack.js.org/assets/icon-square-big.svg",
 		"url": "https://github.com/TypeStrong/ts-loader",
-		"version": "8.3.0"
+		"version": "9.0.0"
 	},
 	"ts-node": {
 		"icon": "https://typestrong.org/ts-node/img/favicon/apple-touch-icon.png",
