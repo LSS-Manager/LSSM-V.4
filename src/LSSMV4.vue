@@ -95,6 +95,15 @@ export default Vue.extend<
                     });
                 }
             });
+
+        // Workaround for when modals container appears behind V4 instance (dialogs are behind modals)
+        const modalsContainer = document.getElementById('modals-container');
+        if (
+            modalsContainer &&
+            this.$el.compareDocumentPosition(modalsContainer) &
+                Node.DOCUMENT_POSITION_FOLLOWING
+        )
+            this.$el.before(modalsContainer);
     },
 });
 </script>
