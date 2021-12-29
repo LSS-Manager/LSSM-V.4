@@ -87,8 +87,9 @@ module.exports = {
         },
         selected: 'Séléctionné',
         water: 'l d’eau',
-        staffPrefix: ['Nous avons besoin de'],
+        staffPrefix: ['Nous avons( encore)? besoin de'],
         staff: {
+            [/^agent(s)? de police$/]: [8, 19, 20],
             [/^pompier(s)? en plus$/]: [0, 1, 12, 13, 15, 32, 33, 34],
         },
         vehiclesByRequirement: {
@@ -100,7 +101,7 @@ module.exports = {
             [/^camion(s)?-citerne(s)?$/]: [6, 21, 35],
             [/^véhicule(s)? risque(s)? technologique(s)?$/]: [7],
             [/^voiture(s)? de patrouille$/]: [8, 19, 20],
-            [/^Hélicoptère(s)? de secours$/]: [9],
+            [/^[Hh]élicoptère(s)? de secours$/]: [9],
             [/^véhicule(s)? poste de commandement$/]: [11],
             [/^Véhicule(s) Tout Usage$/]: [13],
             [/^VGRIMP$/]: [14],
