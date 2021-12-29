@@ -139,11 +139,20 @@ import { InternalVehicle } from 'typings/Vehicle';
 
 type Mode = 'buildings' | 'vehicles';
 
-type Subsetting<Scope extends Mode | ''> = Record<`${Scope}StaticRadius`, boolean> &
-    Record<`${Scope}RadiusM` | `${Scope}RadiusPx` | `${Scope}IntensityMaxZoom`, number> & Record<`${Scope}Includes`, { value: number, label: string}[]>;
+type Subsetting<Scope extends Mode | ''> = Record<
+    `${Scope}StaticRadius`,
+    boolean
+> &
+    Record<
+        `${Scope}RadiusM` | `${Scope}RadiusPx` | `${Scope}IntensityMaxZoom`,
+        number
+    > &
+    Record<`${Scope}Includes`, { value: number; label: string }[]>;
 
-export type Settings = { position: 'bottom-left' | 'bottom-right' | 'top-left' | 'top-right', heatmapMode: Mode} &
-    Subsetting<'buildings'> &
+export type Settings = {
+    position: 'bottom-left' | 'bottom-right' | 'top-left' | 'top-right';
+    heatmapMode: Mode;
+} & Subsetting<'buildings'> &
     Subsetting<'vehicles'>;
 
 export type UpdateSettings = (updated: Settings) => void;
@@ -159,10 +168,12 @@ export default Vue.extend<
         intensityAsRange: boolean;
     },
     {
-        mode: <Setting extends keyof Subsetting<''>>(setting: Setting) => `${Mode}${Setting}`
+        mode: <Setting extends keyof Subsetting<''>>(
+            setting: Setting
+        ) => `${Mode}${Setting}`;
         save: () => Promise<void>;
     },
-    { includeOptions: { value: number, label: string}[] },
+    { includeOptions: { value: number; label: string }[] },
     {
         setSetting: <T>(settingId: string, value: T) => Promise<void>;
         getModuleSettings: () => Promise<Settings>;
@@ -175,11 +186,11 @@ export default Vue.extend<
         Lightbox: () =>
             import(
                 /* webpackChunkName: "components/lightbox" */ '../../components/lightbox.vue'
-                ),
+            ),
         VSelect: () =>
             import(
                 /* webpackChunkName: "components/vue-select" */ 'vue-select'
-                ),
+            ),
     },
     data() {
         const nodeAttribute = (attr: string, id = false) =>
@@ -198,14 +209,14 @@ export default Vue.extend<
                 vehiclesRadiusM: 31_415,
                 vehiclesRadiusPx: 50,
                 vehiclesIntensityMaxZoom: window.map.getMaxZoom(),
-                vehiclesIncludes: []
+                vehiclesIncludes: [],
             },
             ids: {
                 StaticRadius: nodeAttribute('static_radius', true),
                 RadiusM: nodeAttribute('radius_m', true),
                 RadiusPx: nodeAttribute('radius_px', true),
                 IntensityMaxZoom: nodeAttribute('intensity_max_zoom', true),
-                Includes: nodeAttribute('includes', true)
+                Includes: nodeAttribute('includes', true),
             },
             icons: { faSlidersH },
             maxZoom: window.map.getMaxZoom(),
@@ -227,8 +238,20 @@ export default Vue.extend<
     },
     computed: {
         includeOptions() {
-            return Object.entries(this.$t(this.settings.heatmapMode) as Record<number, InternalBuilding | InternalVehicle>).map(([id, {caption}]) => ({value: parseInt(id), label: caption})).sort(({label: labelA}, {label: labelB}) => labelA > labelB ? 1 : labelA < labelB ? -1 : 0);
-        }
+            return Object.entries(
+                this.$t(this.settings.heatmapMode) as Record<
+                    number,
+                    InternalBuilding | InternalVehicle
+                >
+            )
+                .map(([id, { caption }]) => ({
+                    value: parseInt(id),
+                    label: caption,
+                }))
+                .sort(({ label: labelA }, { label: labelB }) =>
+                    labelA > labelB ? 1 : labelA < labelB ? -1 : 0
+                );
+        },
     },
     props: {
         setSetting: {
@@ -245,13 +268,17 @@ export default Vue.extend<
         },
         $m: {
             type: Function,
-            required: true
-        }
+            required: true,
+        },
     },
     mounted() {
-        this.getModuleSettings().then(settings =>
+        this.getModuleSettings().then((settings) =>
             Object.entries(settings).forEach(([setting, value]) =>
-                this.$set(this.settings, setting, value ?? this.settings[setting as keyof Settings])
+                this.$set(
+                    this.settings,
+                    setting,
+                    value ?? this.settings[setting as keyof Settings]
+                )
             )
         );
     },

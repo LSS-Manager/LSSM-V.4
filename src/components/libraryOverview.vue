@@ -1,8 +1,6 @@
 <template>
     <lightbox name="libraryOverview">
-        <h1>
-            Open-Source Libraries
-        </h1>
+        <h1>Open-Source Libraries</h1>
         <label class="search_label">
             <input
                 type="search"

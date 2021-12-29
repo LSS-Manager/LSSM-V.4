@@ -127,9 +127,9 @@ export default async (
                                 );
                                 fmsBtn.textContent = ((LSSM.$t(
                                     'fmsReal2Show'
-                                ) as unknown) as { [status: number]: number })[
-                                    nextFms
-                                ].toString();
+                                ) as unknown) as {
+                                    [status: number]: number;
+                                })[nextFms].toString();
                             }
                         });
                 });

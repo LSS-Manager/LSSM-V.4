@@ -1063,6 +1063,7 @@ export default Vue.extend<
                     !this.maxMissionSpecs.additional.all_patient_specializations
                 )
                     this.maxMissionSpecs.additional.all_patient_specializations = [];
+
                 if (
                     specs?.additional.patient_specializations &&
                     !this.maxMissionSpecs.additional.all_patient_specializations.includes(

@@ -208,7 +208,9 @@ export default Vue.extend<
                     vehicle.fms_real = target;
                     vehicle.fms_show = ((this.$t(
                         'fmsReal2Show'
-                    ) as unknown) as { [status: number]: number })[target];
+                    ) as unknown) as {
+                        [status: number]: number;
+                    })[target];
                 });
         },
         startResolve(type, id) {

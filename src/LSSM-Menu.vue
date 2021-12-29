@@ -25,7 +25,7 @@
         <ul class="dropdown-menu" role="menu" :aria-labelledby="menuId">
             <li
                 role="presentation"
-                style="text-align: center;"
+                style="text-align: center"
                 :id="versionWrapperId"
             >
                 <span class="label label-default">
@@ -56,14 +56,10 @@
                 :class="{ hidden: !menuItems.length }"
             ></li>
             <li role="presentation">
-                <a :href="discord" target="_blank">
-                    Discord
-                </a>
+                <a :href="discord" target="_blank"> Discord </a>
             </li>
             <li role="presentation">
-                <a class="lightbox-open" :href="wiki">
-                    Wiki
-                </a>
+                <a class="lightbox-open" :href="wiki"> Wiki </a>
             </li>
             <li role="presentation">
                 <a class="lightbox-open" href="https://status.lss-manager.de/">
