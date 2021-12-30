@@ -15,30 +15,33 @@ import { ModuleMainFunction, ModuleSettingFunction } from 'typings/Module';
 
 require('./natives/navTabsClicker');
 require('./natives/lightbox');
+
+Vue.config.productionTip = false;
+
+const appContainer = document.createElement('div') as HTMLDivElement;
+document.body.appendChild(appContainer);
+
+window.keepAlive = true;
+
+Vue.use(VueJSModal, {
+    dynamic: true,
+    dynamicDefaults: {
+        adaptive: true,
+        scrollable: true,
+        clickToClose: true,
+    },
+    dialog: true,
+});
+Vue.use(ToggleButton);
+Vue.use(Tabs);
+Vue.use(Notifications);
+
+Vue.component('font-awesome-icon', FontAwesomeIcon);
+utils(Vue);
+
 (async () => {
+    // TODO: Remove for 4.4.7 but NOT before 4.4.6
     if (window.location.pathname.match(/^\/users\//)) return;
-    Vue.config.productionTip = false;
-
-    const appContainer = document.createElement('div') as HTMLDivElement;
-    document.body.appendChild(appContainer);
-
-    window.keepAlive = true;
-
-    Vue.use(VueJSModal, {
-        dynamic: true,
-        dynamicDefaults: {
-            adaptive: true,
-            scrollable: true,
-            clickToClose: true,
-        },
-        dialog: true,
-    });
-    Vue.use(ToggleButton);
-    Vue.use(Tabs);
-    Vue.use(Notifications);
-
-    Vue.component('font-awesome-icon', FontAwesomeIcon);
-    utils(Vue);
 
     const LSSM = new Vue({
         store: store(Vue),
