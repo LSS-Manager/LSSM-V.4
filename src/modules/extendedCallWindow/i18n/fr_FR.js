@@ -103,7 +103,7 @@ module.exports = {
             [/^voiture(s)? de patrouille$/]: [8, 19, 20],
             [/^[Hh]élicoptère(s)? de secours$/]: [9],
             [/^véhicule(s)? poste de commandement$/]: [11],
-            [/^Véhicule(s) Tout Usage$/]: [13],
+            [/^Véhicule(s)? Tout Usage$/]: [13],
             [/^VGRIMP$/]: [14],
             [/^VPL$/]: [16],
             [/^BLS$/]: [17],
