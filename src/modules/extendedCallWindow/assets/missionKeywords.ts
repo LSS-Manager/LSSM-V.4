@@ -34,10 +34,9 @@ export default async (
 
     if (missionType === '-1') return;
 
-    const mission = (LSSM.$store.getters['api/missionsById'] as Record<
-        string,
-        Mission
-    >)[missionType];
+    const mission = (
+        LSSM.$store.getters['api/missionsById'] as Record<string, Mission>
+    )[missionType];
 
     const addLabel = (
         text: string,

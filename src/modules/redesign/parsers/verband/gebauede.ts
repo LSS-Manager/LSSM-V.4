@@ -89,9 +89,9 @@ export default <RedesignParser<VerbandGebaeudeWindow>>(({
                         );
                         if (extensionID < 0) return null;
                         const countdown = Array.from(
-                            extension.parentElement.querySelectorAll<
-                                HTMLScriptElement
-                            >(`#${extension.id} + br + i + script`)
+                            extension.parentElement.querySelectorAll<HTMLScriptElement>(
+                                `#${extension.id} + br + i + script`
+                            )
                         )
                             .map(script =>
                                 parseInt(

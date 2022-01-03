@@ -6,12 +6,10 @@ const modules = {
         reset: 'Reset',
         noMapkit:
             'This module does not work with the map type "Mapkit" due to limitations of Mapkit!',
-        dev:
-            'This module is currently still under development. Activating it can lead to incomplete and faulty functions!',
+        dev: 'This module is currently still under development. Activating it can lead to incomplete and faulty functions!',
         closeWarning: {
             title: 'Unsaved changes',
-            text:
-                'You made changes in the AppStore that have not yet been saved. Reset them or save them to close the AppStore.',
+            text: 'You made changes in the AppStore that have not yet been saved. Reset them or save them to close the AppStore.',
             abort: 'Cancel',
             saveAndExit: 'Save and Exit',
             exit: 'Exit without saving',
@@ -27,30 +25,26 @@ const modules = {
         appendableList: {
             unique: {
                 title: 'double value',
-                text:
-                    'There must be no duplicate values in the **{title}** column. The value **{value}** already exists!',
+                text: 'There must be no duplicate values in the **{title}** column. The value **{value}** already exists!',
                 confirm: 'OK',
             },
         },
         resetWarning: {
             title: 'Reset the settings',
-            text:
-                'Do you really want to reset settings to their default values? This cannot be undone!',
+            text: 'Do you really want to reset settings to their default values? This cannot be undone!',
             close: 'Cancel',
             total: 'All settings',
             module: 'Only from this module',
         },
         resetWarningSetting: {
             title: 'Reset settings',
-            text:
-                'Do you really want to reset this one setting <b>{setting}</b> of the module <b>{module}</b> to its default value?',
+            text: 'Do you really want to reset this one setting <b>{setting}</b> of the module <b>{module}</b> to its default value?',
             close: 'Cancel',
             reset: 'Reset',
         },
         closeWarning: {
             title: 'Unsaved changes',
-            text:
-                'You have made changes in the settings that are not yet saved. Reset them, discard them or save them to close the settings.',
+            text: 'You have made changes in the settings that are not yet saved. Reset them, discard them or save them to close the settings.',
             abort: 'Cancel',
             saveAndExit: 'Save and Exit',
             exit: 'Exit without saving',
@@ -70,14 +64,12 @@ export default {
     modules,
     error: {
         title: 'LSS Manager: Error',
-        msg:
-            'If this error occurs frequently, please report it to the LSSM team!',
+        msg: 'If this error occurs frequently, please report it to the LSSM team!',
     },
     warnings: {
         version: {
             title: 'Wrong LSS Manager version',
-            text:
-                'Dear user, unfortunately we had to discover that you do not have the latest version of LSS Manager. The latest version is {version}, but you have {curver} first. Please reload the game without cache (with Ctrl + F5, on Apple devices command + R), this should fix the bug. If the error persists, please report it to the team! If you use a wrong version we cannot guarantee the full functionality of the LSS-Manager.',
+            text: 'Dear user, unfortunately we had to discover that you do not have the latest version of LSS Manager. The latest version is {version}, but you have {curver} first. Please reload the game without cache (with Ctrl + F5, on Apple devices command + R), this should fix the bug. If the error persists, please report it to the team! If you use a wrong version we cannot guarantee the full functionality of the LSS-Manager.',
             close: 'Close message and reload game (recommended)',
             abort: 'Close message without reloading game',
         },
@@ -1409,17 +1401,7 @@ export default {
                 'Special Vehicles': [4, 7, 14, 18, 6, 2, 39],
                 'Command Vehicles': [15, 3],
                 'Pods and Prime Movers': [
-                    40,
-                    41,
-                    42,
-                    43,
-                    44,
-                    45,
-                    46,
-                    47,
-                    48,
-                    49,
-                    50,
+                    40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50,
                 ],
                 'Foam Vehicles': [35, 36, 37, 38],
             },

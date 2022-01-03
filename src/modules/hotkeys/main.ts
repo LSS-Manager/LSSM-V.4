@@ -15,9 +15,8 @@ export default (async (LSSM, MODULE_ID, $m) => {
     };
 
     const isMainWindow = window.location.pathname.length <= 1;
-    const isMissionWindow = !!window.location.pathname.match(
-        /^\/missions\/\d+\/?/
-    );
+    const isMissionWindow =
+        !!window.location.pathname.match(/^\/missions\/\d+\/?/);
 
     const commands: Scope<Empty, typeof rootCommandScopes, [], true> = {
         '*': (

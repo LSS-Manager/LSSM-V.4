@@ -6,12 +6,10 @@ const modules = {
         reset: 'Reset',
         noMapkit:
             'Ten moduł nie działa z mapą typu „Mapkit” z powodu ograniczeń Mapkit!',
-        dev:
-            'Ten moduł jest obecnie nadal rozwijany. Aktywacja może prowadzić do niekompletnych i błędnych funkcji!',
+        dev: 'Ten moduł jest obecnie nadal rozwijany. Aktywacja może prowadzić do niekompletnych i błędnych funkcji!',
         closeWarning: {
             title: 'Niezapisane zmiany',
-            text:
-                'Wprowadziłeś zmiany w App Store, które nie zostały jeszcze zapisane. Zresetuj je lub zapisz, aby zamknąć App Store.',
+            text: 'Wprowadziłeś zmiany w App Store, które nie zostały jeszcze zapisane. Zresetuj je lub zapisz, aby zamknąć App Store.',
             close: 'Zamknij',
         },
     },
@@ -24,23 +22,20 @@ const modules = {
         import: 'Import',
         resetWarning: {
             title: 'Resetuj ustawienia',
-            text:
-                'Czy na pewno chcesz zresetować ustawienia do wartości domyślnych? Tego nie można cofnąć!',
+            text: 'Czy na pewno chcesz zresetować ustawienia do wartości domyślnych? Tego nie można cofnąć!',
             close: 'Anuluj',
             total: 'Wszystkie ustawienia',
             module: 'Tylko dla tego modułu',
         },
         resetWarningSetting: {
             title: 'Resetuj ustawienia',
-            text:
-                'Czy na pewno chcesz zresetować to ustawienie<b>{setting}</b>modułu<b>{module}</b>do jego wartości domyślnej?',
+            text: 'Czy na pewno chcesz zresetować to ustawienie<b>{setting}</b>modułu<b>{module}</b>do jego wartości domyślnej?',
             close: 'Anuluj',
             reset: 'Reset',
         },
         closeWarning: {
             title: 'Niezapisane zmiany',
-            text:
-                'Dokonałeś zmian w ustawieniach, które nie zostały jeszcze zapisane. Zresetuj je, odrzuć lub zapisz, aby zamknąć ustawienia.',
+            text: 'Dokonałeś zmian w ustawieniach, które nie zostały jeszcze zapisane. Zresetuj je, odrzuć lub zapisz, aby zamknąć ustawienia.',
             close: 'Zamknij',
         },
         changeList: {
@@ -59,8 +54,7 @@ export default {
     warnings: {
         version: {
             title: 'Zła wersja LSS Manager',
-            text:
-                'Drogi użytkowniku, niestety odkryliśmy, że nie masz najnowszej wersji LSS Manager. Najnowsza wersja to {version}, ale ty masz {curver}. Proszę przeładować grę  (Ctrl + F5, na urządzeniach Apple polecenie + R), to powinno naprawić błąd. Jeśli błąd będzie się powtarzał, zgłoś go zespołowi! W przypadku użycia złej wersji nie możemy zagwarantować pełnej funkcjonalności LSS-Manager.',
+            text: 'Drogi użytkowniku, niestety odkryliśmy, że nie masz najnowszej wersji LSS Manager. Najnowsza wersja to {version}, ale ty masz {curver}. Proszę przeładować grę  (Ctrl + F5, na urządzeniach Apple polecenie + R), to powinno naprawić błąd. Jeśli błąd będzie się powtarzał, zgłoś go zespołowi! W przypadku użycia złej wersji nie możemy zagwarantować pełnej funkcjonalności LSS-Manager.',
             close: 'Zamknij wiadomość i przeładuj grę (zalecane)',
             abort: 'Zmaknij wiadomość bez przeładowania',
         },

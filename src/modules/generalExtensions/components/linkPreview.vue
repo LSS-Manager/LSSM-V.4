@@ -21,7 +21,7 @@
                 <span
                     v-if="
                         type === 'buildings' &&
-                            vehicleBuildings.includes(building.building_type)
+                        vehicleBuildings.includes(building.building_type)
                     "
                 >
                     |
@@ -37,7 +37,7 @@
                 <span
                     v-if="
                         type === 'buildings' &&
-                            cellBuildings.includes(building.building_type)
+                        cellBuildings.includes(building.building_type)
                     "
                 >
                     |
@@ -57,7 +57,7 @@
                 <span
                     v-if="
                         type === 'buildings' &&
-                            bedBuildings.includes(building.building_type)
+                        bedBuildings.includes(building.building_type)
                     "
                 >
                     |
@@ -67,7 +67,7 @@
                 <span
                     v-if="
                         type === 'buildings' &&
-                            schoolBuildings.includes(building.building_type)
+                        schoolBuildings.includes(building.building_type)
                     "
                 >
                     |
@@ -94,7 +94,7 @@
             <table
                 v-else-if="
                     type === 'buildings' &&
-                        vehicleBuildings.includes(building.building_type)
+                    vehicleBuildings.includes(building.building_type)
                 "
             >
                 <tr v-for="vehicle in buildingVehicles" :key="vehicle.id">
@@ -170,7 +170,7 @@ export default Vue.extend<
                 x: 0,
                 y: 0,
             },
-            vehicleTypes: (this.$t('vehicles') as unknown) as {
+            vehicleTypes: this.$t('vehicles') as unknown as {
                 [id: number]: InternalVehicle;
             },
             vehicleBuildings: Object.values(

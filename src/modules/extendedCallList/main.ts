@@ -114,21 +114,22 @@ export default (async (LSSM, MODULE_ID, $m) => {
             const collapsedMissionBtnClass = LSSM.$store.getters.nodeAttribute(
                 `${MODULE_ID}_collapsable-missions_btn`
             );
-            const addCollapsableBtn: AddCollapsableButton | null = collapsableMissions
-                ? (
-                      await import(
-                          /* webpackChunkName: "modules/extendedCallList/collapsableMissions" */ './assets/collapsableMissions/missionlist'
+            const addCollapsableBtn: AddCollapsableButton | null =
+                collapsableMissions
+                    ? (
+                          await import(
+                              /* webpackChunkName: "modules/extendedCallList/collapsableMissions" */ './assets/collapsableMissions/missionlist'
+                          )
+                      ).default(
+                          LSSM,
+                          MODULE_ID,
+                          collapsedMissions,
+                          allMissionsCollapsed,
+                          collapsedMissionBtnClass,
+                          sortBtnId,
+                          $m
                       )
-                  ).default(
-                      LSSM,
-                      MODULE_ID,
-                      collapsedMissions,
-                      allMissionsCollapsed,
-                      collapsedMissionBtnClass,
-                      sortBtnId,
-                      $m
-                  )
-                : null;
+                    : null;
             const {
                 addShareBtn,
                 updateShareBtn,

@@ -5,7 +5,7 @@ export default (LSSM: Vue, $m: $m, MODULE_ID: string): void => {
     const $sm = (key: string, args?: Parameters<$m>[1]) =>
         $m(`memberlistManageUser.${key}`, args);
     const roles = {
-        ...(($m(`memberlistRoles`) as unknown) as {
+        ...($m(`memberlistRoles`) as unknown as {
             [role: string]: string;
         }),
         '': '',
@@ -80,9 +80,11 @@ export default (LSSM: Vue, $m: $m, MODULE_ID: string): void => {
 
     const setText = $sm('set').toString();
     const unsetText = $sm('unset').toString();
-    (document.querySelectorAll('td [id^="rights_"]') as NodeListOf<
-        HTMLDivElement
-    >).forEach(holder => {
+    (
+        document.querySelectorAll(
+            'td [id^="rights_"]'
+        ) as NodeListOf<HTMLDivElement>
+    ).forEach(holder => {
         const hideBtn = document.createElement('a');
         hideBtn.classList.add('btn', 'btn-xs', 'btn-default');
         hideBtn.href = '#';
@@ -98,9 +100,9 @@ export default (LSSM: Vue, $m: $m, MODULE_ID: string): void => {
         ) as HTMLElement | null;
         if (!roleHolder) return;
         const rights = Array.from(
-            holder.querySelectorAll('a[href$="/0"]') as NodeListOf<
-                HTMLAnchorElement
-            >
+            holder.querySelectorAll(
+                'a[href$="/0"]'
+            ) as NodeListOf<HTMLAnchorElement>
         ).map(a => roles[a.pathname.match(/(?<=\/verband\/)[^/]*/)?.[0] || '']);
         holder.addEventListener('click', async e => {
             e.preventDefault();

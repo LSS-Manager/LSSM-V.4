@@ -117,9 +117,8 @@ export default async (LSSM: Vue): Promise<void> => {
                             import(
                                 /* webpackChunkName: "components/anniversary" */ './components/anniversary.vue'
                             ).then(({ default: anniversary }) => {
-                                const anniversaryWrapper = document.createElement(
-                                    'div'
-                                );
+                                const anniversaryWrapper =
+                                    document.createElement('div');
                                 document.body.append(anniversaryWrapper);
                                 new LSSM.$vue({
                                     store: LSSM.$store,

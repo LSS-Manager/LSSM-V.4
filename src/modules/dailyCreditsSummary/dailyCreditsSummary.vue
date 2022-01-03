@@ -81,11 +81,9 @@
                                 <li>
                                     <a
                                         download="credits.json"
-                                        :href="
-                                            `data:application/json;charset=utf-8,${encodeURIComponent(
-                                                JSON.stringify(creditsTypeSum)
-                                            )}`
-                                        "
+                                        :href="`data:application/json;charset=utf-8,${encodeURIComponent(
+                                            JSON.stringify(creditsTypeSum)
+                                        )}`"
                                     >
                                         {{ $m('export.json.raw') }}
                                     </a>
@@ -93,15 +91,13 @@
                                 <li>
                                     <a
                                         download="credits.json"
-                                        :href="
-                                            `data:application/json;charset=utf-8,${encodeURIComponent(
-                                                JSON.stringify(
-                                                    creditsTypeSum,
-                                                    null,
-                                                    4
-                                                )
-                                            )}`
-                                        "
+                                        :href="`data:application/json;charset=utf-8,${encodeURIComponent(
+                                            JSON.stringify(
+                                                creditsTypeSum,
+                                                null,
+                                                4
+                                            )
+                                        )}`"
                                     >
                                         {{ $m('export.json.prettified') }}
                                     </a>
@@ -112,28 +108,24 @@
                     <tr v-for="type in sorted" :key="type.desc">
                         <td>{{ type.desc }}</td>
                         <td
-                            :class="
-                                `text-${
-                                    type.total > 0
-                                        ? 'success'
-                                        : type.total < 0
-                                        ? 'danger'
-                                        : ''
-                                }`
-                            "
+                            :class="`text-${
+                                type.total > 0
+                                    ? 'success'
+                                    : type.total < 0
+                                    ? 'danger'
+                                    : ''
+                            }`"
                         >
                             {{ type.total.toLocaleString() }}
                         </td>
                         <td
-                            :class="
-                                `text-${
-                                    type.total > 0
-                                        ? 'success'
-                                        : type.total < 0
-                                        ? 'danger'
-                                        : ''
-                                }`
-                            "
+                            :class="`text-${
+                                type.total > 0
+                                    ? 'success'
+                                    : type.total < 0
+                                    ? 'danger'
+                                    : ''
+                            }`"
                         >
                             {{
                                 Math.round(
@@ -206,8 +198,7 @@ export default Vue.extend<
                         cursor: 'pointer',
                         dataLabels: {
                             enabled: true,
-                            format:
-                                '<b>{point.name}</b>: {point.value} ({point.percentage:.1f}%)',
+                            format: '<b>{point.name}</b>: {point.value} ({point.percentage:.1f}%)',
                         },
                     },
                 },

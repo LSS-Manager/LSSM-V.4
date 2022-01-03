@@ -63,9 +63,7 @@
         <div
             id="redesign-loader"
             v-show="loading"
-            :style="
-                `width: ${size}%; height: ${size}%; top: ${loaderOffset}%; left: ${loaderOffset}%`
-            "
+            :style="`width: ${size}%; height: ${size}%; top: ${loaderOffset}%; left: ${loaderOffset}%`"
         >
             <font-awesome-icon
                 :icon="faSyncAlt"

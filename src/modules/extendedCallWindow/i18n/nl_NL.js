@@ -21,12 +21,10 @@ module.exports = {
             max: 'Max',
         },
         titles: {
-            set:
-                'Zo vaak wordt dit voertuigtype geselecteerd, als je op deze inzetvoorstel drukt',
+            set: 'Zo vaak wordt dit voertuigtype geselecteerd, als je op deze inzetvoorstel drukt',
             attribute: 'Het voertuigtype dat geselecteerd wordt',
             free: 'Zo vaak is dit voertuigtype beschikbaar',
-            max:
-                'Zo vaak kan je dit inzetvoorstel selecteren, totdat dit voertuigtype niet meer beschikbaar is',
+            max: 'Zo vaak kan je dit inzetvoorstel selecteren, totdat dit voertuigtype niet meer beschikbaar is',
         },
         arrSpecs: {
             fire: 'Tankautospuit',
@@ -110,18 +108,7 @@ module.exports = {
         },
         vehiclesByRequirement: {
             [/^Tankautospuit(en)?$/]: [
-                0,
-                1,
-                6,
-                7,
-                8,
-                9,
-                12,
-                14,
-                15,
-                17,
-                50,
-                62,
+                0, 1, 6, 7, 8, 9, 12, 14, 15, 17, 50, 62,
             ],
             [/^Redvoertuig(en)?$/]: [2, 18],
             [/^Officier(en)? van Dienst - Brandweer$/]: [3, 19],
@@ -134,9 +121,7 @@ module.exports = {
             [/^Verkenningseenh(eden|eid)$/]: [11],
             [/^Adviseur(s)? Gevaarlijke Stoffen$/]: [24],
             [/^Waterongevallenvoertuig(en)? \/ Oppervlaktereddingsteam(s)?$/]: [
-                33,
-                49,
-                50,
+                33, 49, 50,
             ],
             [/^WOA( of BA-RB)?$/]: [36, 67],
             [/^Crashtender(s)?$/]: [41, 42, 43],
@@ -166,10 +151,8 @@ module.exports = {
         allTab: 'Alles',
         occupiedTab: 'Dooralarmeren',
         vehicleMissing: {
-            title:
-                'Eén voertuig is op geen enkel tabblad aanwezig | Meerdere voertuigen zijn op geen enkel tabblad aanwezig',
-            text:
-                'De volgende voertuigtypes zijn alleen aanwezig op het tabblad `Alles`:',
+            title: 'Eén voertuig is op geen enkel tabblad aanwezig | Meerdere voertuigen zijn op geen enkel tabblad aanwezig',
+            text: 'De volgende voertuigtypes zijn alleen aanwezig op het tabblad `Alles`:',
             hide: 'Verberg Melding',
             close: 'Sluit Meldingen tot wijziging',
         },

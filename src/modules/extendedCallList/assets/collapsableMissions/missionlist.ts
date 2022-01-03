@@ -120,9 +120,9 @@ export default (
     document
         .getElementById('missions-panel-body')
         ?.addEventListener('click', async e => {
-            const btn: HTMLButtonElement | null = (e.target as HTMLElement).closest(
-                `.${collapsableMissionBtnClass}`
-            );
+            const btn: HTMLButtonElement | null = (
+                e.target as HTMLElement
+            ).closest(`.${collapsableMissionBtnClass}`);
             const id = btn?.dataset.mission;
             if (!btn || !id) return;
 

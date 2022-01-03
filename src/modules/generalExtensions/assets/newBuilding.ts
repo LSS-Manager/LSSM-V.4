@@ -40,9 +40,11 @@ export default async (
 
     const observer = new MutationObserver(mutations => {
         mutations.forEach(mutation => {
-            const form = (mutation.target as HTMLElement).querySelector<
-                HTMLFormElement
-            >('#new_building[action="/buildings"]');
+            const form = (
+                mutation.target as HTMLElement
+            ).querySelector<HTMLFormElement>(
+                '#new_building[action="/buildings"]'
+            );
             if (!form) {
                 isBuildingMenu = false;
                 return;
@@ -53,9 +55,10 @@ export default async (
             checkFormValidity(form);
 
             if (saveLastBuildingType) {
-                const buildingTypeSelect = form.querySelector<
-                    HTMLSelectElement
-                >('#building_building_type');
+                const buildingTypeSelect =
+                    form.querySelector<HTMLSelectElement>(
+                        '#building_building_type'
+                    );
                 if (buildingTypeSelect) {
                     buildingTypeSelect.value = lastBuildingType;
                     buildingTypeSelect.dispatchEvent(new Event('change'));
@@ -71,9 +74,10 @@ export default async (
                 }
             }
             if (saveLastDispatchCenter) {
-                const dispatchCenterSelect = form.querySelector<
-                    HTMLSelectElement
-                >('#building_leitstelle_building_id');
+                const dispatchCenterSelect =
+                    form.querySelector<HTMLSelectElement>(
+                        '#building_leitstelle_building_id'
+                    );
                 if (dispatchCenterSelect) {
                     dispatchCenterSelect.value = lastDispatchCenter;
                     dispatchCenterSelect.dispatchEvent(new Event('change'));
@@ -132,9 +136,10 @@ export default async (
                         const response = document
                             .createRange()
                             .createContextualFragment(res);
-                        const successAlert = response.querySelector<
-                            HTMLDivElement
-                        >('#building_panel_body .alert');
+                        const successAlert =
+                            response.querySelector<HTMLDivElement>(
+                                '#building_panel_body .alert'
+                            );
                         if (!successAlert) return;
                         form.insertAdjacentElement('beforebegin', successAlert);
                         btn.setAttribute('type', 'submit');

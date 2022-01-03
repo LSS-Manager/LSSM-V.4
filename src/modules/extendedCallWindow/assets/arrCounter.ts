@@ -82,9 +82,9 @@ export default async (
                 counter.parentElement?.classList.remove(highlightClass);
             });
         } else {
-            Array.from(
-                document.querySelectorAll(`.${highlightClass}`)
-            ).forEach(arr => arr.classList.remove(highlightClass));
+            Array.from(document.querySelectorAll(`.${highlightClass}`)).forEach(
+                arr => arr.classList.remove(highlightClass)
+            );
         }
         if (resetSelection) window.vehicleSelectionReset();
     };

@@ -36,7 +36,7 @@
             class="btn btn-success"
             :disabled="
                 endPage >= mitglieder.lastPage ||
-                    mitglieder.lastPage === Number.MAX_SAFE_INTEGER
+                mitglieder.lastPage === Number.MAX_SAFE_INTEGER
             "
             @click="loadNext"
         >
@@ -45,11 +45,9 @@
         <br />
         <a
             class="btn btn-xs btn-default"
-            :href="
-                `/verband/mitglieder/${mitglieder.meta.id}${
-                    mitglieder.online ? '' : '?online=true'
-                }`
-            "
+            :href="`/verband/mitglieder/${mitglieder.meta.id}${
+                mitglieder.online ? '' : '?online=true'
+            }`"
         >
             {{ lightbox.$sm(`online.toggle.${mitglieder.online}`) }}
         </a>
@@ -74,9 +72,11 @@
                         loading="lazy"
                         :title="
                             lightbox.$sm(
-                                `online.titles.${user.icon_src.match(
-                                    /(?<=user_)gray|green|blue|yellow|red(?=\.png)/
-                                )[0] || 'gray'}`,
+                                `online.titles.${
+                                    user.icon_src.match(
+                                        /(?<=user_)gray|green|blue|yellow|red(?=\.png)/
+                                    )[0] || 'gray'
+                                }`,
                                 { user: user.name }
                             )
                         "
@@ -129,13 +129,9 @@
                             :key="n"
                             @click="applyDiscount(user.id, n - 1)"
                             class="btn btn-xs"
-                            :class="
-                                `btn-${
-                                    n - 1 === user.discount
-                                        ? 'success'
-                                        : 'default'
-                                }`
-                            "
+                            :class="`btn-${
+                                n - 1 === user.discount ? 'success' : 'default'
+                            }`"
                         >
                             {{ (n - 1) * 10 }}%
                         </a>
@@ -192,11 +188,9 @@
                                     )
                                 "
                                 class="btn btn-xs"
-                                :class="
-                                    `btn-${
-                                        user.edit[right] ? 'danger' : 'success'
-                                    }`
-                                "
+                                :class="`btn-${
+                                    user.edit[right] ? 'danger' : 'success'
+                                }`"
                                 :key="`${user.id}_${right}_btn`"
                             >
                                 {{
@@ -435,9 +429,11 @@ export default Vue.extend<
                     this.mitglieder.authenticity_token
                 );
                 const caption =
-                    (this.$refs[
-                        `caption_form_${user_id}`
-                    ] as (HTMLInputElement | null)[])[0]?.value ?? '';
+                    (
+                        this.$refs[
+                            `caption_form_${user_id}`
+                        ] as (HTMLInputElement | null)[]
+                    )[0]?.value ?? '';
                 url.searchParams.append('user[caption]', caption);
                 this.$store.dispatch('api/request', {
                     url: `/verband/rolecaptionForm/${user_id}`,

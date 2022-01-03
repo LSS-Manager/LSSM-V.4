@@ -394,9 +394,8 @@ export default Vue.extend<
         const vehicleList = document.querySelector<HTMLTableSectionElement>(
             '#vehicle_show_table_body_all'
         );
-        const occupiedList = document.querySelector<HTMLDivElement>(
-            '#occupied'
-        );
+        const occupiedList =
+            document.querySelector<HTMLDivElement>('#occupied');
 
         const vehicleTypes = this.$t('vehicles') as Record<
             number,
@@ -415,10 +414,10 @@ export default Vue.extend<
 
             Object.entries(translations).forEach(([reg, vehicles]) => {
                 const regex = new RegExp(reg.replace(/^\/|\/$/g, ''));
-                const requirement = (this
-                    .missingRequirements as EnhancedMissingVehiclesProps['missingRequirements']).find(
-                    ({ vehicle }) => vehicle.match(regex)
-                );
+                const requirement = (
+                    this
+                        .missingRequirements as EnhancedMissingVehiclesProps['missingRequirements']
+                ).find(({ vehicle }) => vehicle.match(regex));
                 if (requirement) {
                     Object.values(vehicles).forEach(vehicle => {
                         if (!requirements.hasOwnProperty(vehicle))
@@ -442,13 +441,13 @@ export default Vue.extend<
             );
 
         const requirementsByVehicleID = getRequirementsByIDs(
-            (this.$m('vehiclesByRequirement') as unknown) as GroupTranslation
+            this.$m('vehiclesByRequirement') as unknown as GroupTranslation
         );
         const staffByVehicleID = getRequirementsByIDs(
-            (this.$m('staff') as unknown) as GroupTranslation
+            this.$m('staff') as unknown as GroupTranslation
         );
 
-        const towingVehicles = (this.$m('towingVehicles') as unknown) as Record<
+        const towingVehicles = this.$m('towingVehicles') as unknown as Record<
             number,
             Record<number, number>
         >;
@@ -563,16 +562,15 @@ export default Vue.extend<
                 ([vehicleType, vehicles]) => {
                     const vehicleIds = [...new Set(vehicles)];
 
-                    requirementsByVehicleID[
-                        parseInt(vehicleType)
-                    ]?.forEach(requirement =>
-                        this.$set(
-                            requirement,
-                            'selected',
-                            typeof requirement.selected === 'number'
-                                ? requirement.selected + vehicleIds.length
-                                : requirement.selected
-                        )
+                    requirementsByVehicleID[parseInt(vehicleType)]?.forEach(
+                        requirement =>
+                            this.$set(
+                                requirement,
+                                'selected',
+                                typeof requirement.selected === 'number'
+                                    ? requirement.selected + vehicleIds.length
+                                    : requirement.selected
+                            )
                     );
 
                     const type = vehicleTypes[parseInt(vehicleType)];

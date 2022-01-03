@@ -6,12 +6,10 @@ const modules = {
         reset: 'Reset',
         noMapkit:
             'Dieses Modul funktioniert mit dem Kartentyp "Mapkit" wegen Beschränkungen seitens Mapkit nicht!',
-        dev:
-            'Dieses Modul befindet sich aktuell noch in der Entwicklung. Ein Aktivieren kann zu unvollständigen und fehlerhaften Funktionen führen!',
+        dev: 'Dieses Modul befindet sich aktuell noch in der Entwicklung. Ein Aktivieren kann zu unvollständigen und fehlerhaften Funktionen führen!',
         closeWarning: {
             title: 'Ungespeicherte Änderungen',
-            text:
-                'Du hast Änderungen im AppStore vorgenommen, die noch nicht gespeichert sind. Setze sie zurück oder speichere sie, um den AppStore zu schließen.',
+            text: 'Du hast Änderungen im AppStore vorgenommen, die noch nicht gespeichert sind. Setze sie zurück oder speichere sie, um den AppStore zu schließen.',
             abort: 'Abbrechen',
             saveAndExit: 'Speichern und verlassen',
             exit: 'Ohne Speichern verlassen',
@@ -27,30 +25,26 @@ const modules = {
         appendableList: {
             unique: {
                 title: 'Doppelter Wert',
-                text:
-                    'In der Spalte **{title}** dürfen keine doppelten Werte vorkommen. Der Wert **{value}** ist bereits vorhanden!',
+                text: 'In der Spalte **{title}** dürfen keine doppelten Werte vorkommen. Der Wert **{value}** ist bereits vorhanden!',
                 confirm: 'OK',
             },
         },
         resetWarning: {
             title: 'Zurücksetzen der Einstellungen',
-            text:
-                'Möchtest du wirklich Einstellungen auf ihre Standardwerte zurücksetzen? Dies lässt sich nicht rückgängig machen!',
+            text: 'Möchtest du wirklich Einstellungen auf ihre Standardwerte zurücksetzen? Dies lässt sich nicht rückgängig machen!',
             close: 'Abbrechen',
             total: 'Alle Einstellungen',
             module: 'Nur von diesem Modul <b>{module}</b>',
         },
         resetWarningSetting: {
             title: 'Einstellung zurücksetzen',
-            text:
-                'Möchtest du wirklich diese eine Einstellung <b>{setting}</b> des Moduls <b>{module}</b> auf ihren Standartwert zurücksetzen?',
+            text: 'Möchtest du wirklich diese eine Einstellung <b>{setting}</b> des Moduls <b>{module}</b> auf ihren Standartwert zurücksetzen?',
             close: 'Abbrechen',
             reset: 'Zurücksetzen',
         },
         closeWarning: {
             title: 'Ungespeicherte Änderungen',
-            text:
-                'Du hast Änderungen in den Einstellungen vorgenommen, die noch nicht gespeichert sind. Setze sie zurück, verwerfe sie oder speichere sie, um die Einstellungen zu schließen.',
+            text: 'Du hast Änderungen in den Einstellungen vorgenommen, die noch nicht gespeichert sind. Setze sie zurück, verwerfe sie oder speichere sie, um die Einstellungen zu schließen.',
             abort: 'Abbrechen',
             saveAndExit: 'Speichern und verlassen',
             exit: 'Ohne Speichern verlassen',
@@ -70,14 +64,12 @@ export default {
     modules,
     error: {
         title: 'LSS-Manager: Fehler',
-        msg:
-            'Sollte dieser Fehler öfters auftreten, so melde ihn bitte an das LSSM-Team!',
+        msg: 'Sollte dieser Fehler öfters auftreten, so melde ihn bitte an das LSSM-Team!',
     },
     warnings: {
         version: {
             title: 'Falsche LSS-Manager Version',
-            text:
-                'Lieber Nutzer, leider mussten wir feststellen, dass du nicht die neueste Version vom LSS-Manager hast. Die neuste Version ist {version}, du hast aber erst {curver}. Bitte lade das Spiel ohne Cache (mit Strg + F5, bei Apple-Geräten command + R) neu, das sollte den Fehler beheben. Sollte der Fehler weiterhin bestehen, bitte melde das an das Team! Bei der Nutzung einer falschen Version können wir nicht die volle Funktionalität des LSS-Managers gewährleisten.',
+            text: 'Lieber Nutzer, leider mussten wir feststellen, dass du nicht die neueste Version vom LSS-Manager hast. Die neuste Version ist {version}, du hast aber erst {curver}. Bitte lade das Spiel ohne Cache (mit Strg + F5, bei Apple-Geräten command + R) neu, das sollte den Fehler beheben. Sollte der Fehler weiterhin bestehen, bitte melde das an das Team! Bei der Nutzung einer falschen Version können wir nicht die volle Funktionalität des LSS-Managers gewährleisten.',
             close: 'Meldung schließen und Spiel neu laden (empfohlen)',
             abort: 'Meldung schließen ohne Spiel neu zu laden',
         },
@@ -2566,17 +2558,7 @@ export default {
             vehicles: {
                 ['Löschfahrzeuge']: [0, 1, 6, 7, 8, 9, 30, 37, 88, 89, 90],
                 ['Tanklöschfahrzeuge']: [
-                    17,
-                    18,
-                    19,
-                    20,
-                    21,
-                    22,
-                    23,
-                    24,
-                    25,
-                    26,
-                    87,
+                    17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 87,
                 ],
                 Schlauchwagen: [11, 13, 14, 15, 16],
                 Sonderfahrzeuge: [2, 3, 4, 5, 10, 12, 27, 33, 34, 36, 53, 57],
@@ -2632,22 +2614,7 @@ export default {
         6: 19,
     },
     vehicleBuildings: [
-        0,
-        2,
-        5,
-        6,
-        9,
-        11,
-        12,
-        13,
-        15,
-        17,
-        18,
-        19,
-        20,
-        21,
-        22,
-        23,
+        0, 2, 5, 6, 9, 11, 12, 13, 15, 17, 18, 19, 20, 21, 22, 23,
     ],
     cellBuildings: [6, 19],
     cellExtensions: [

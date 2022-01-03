@@ -109,47 +109,45 @@ export default async (
         const isLastMission =
             missionListPosition === order[missionList].length - 1;
 
-        const alertNextBtns: [
-            HTMLAnchorElement,
-            HTMLAnchorElement
-        ][] = Array.from(
-            document?.querySelectorAll<HTMLAnchorElement>('.alert_next')
-        ).map(btn => {
-            const newBtn = document.createElement('a');
-            newBtn.href = '#';
-            newBtn.classList.add(
-                'hidden',
-                ...btn.classList,
-                LSSM.$store.getters.nodeAttribute(
-                    `${MODULE_ID}_sort-missions_${SortedMissionsRawButtonClasses['alert_next']}`
-                )
-            );
-            newBtn.innerHTML = btn.innerHTML;
-            newBtn.classList.replace(
-                'btn-success',
-                isLastMission ? 'btn-default' : 'btn-primary'
-            );
-            newBtn.addEventListener('click', () => {
-                alarm().then(() => {
-                    if (!isLastMission) {
-                        window.location.replace(
-                            `/missions/${
-                                order[missionList][missionListPosition + 1]
-                            }`
-                        );
-                    } else if (
-                        LSSM.$store.state.api.settings
-                            .mission_alarmed_successfull_close_window
-                    ) {
-                        window.location.replace('/missions/close');
-                    } else {
-                        window.location.reload();
-                    }
+        const alertNextBtns: [HTMLAnchorElement, HTMLAnchorElement][] =
+            Array.from(
+                document?.querySelectorAll<HTMLAnchorElement>('.alert_next')
+            ).map(btn => {
+                const newBtn = document.createElement('a');
+                newBtn.href = '#';
+                newBtn.classList.add(
+                    'hidden',
+                    ...btn.classList,
+                    LSSM.$store.getters.nodeAttribute(
+                        `${MODULE_ID}_sort-missions_${SortedMissionsRawButtonClasses['alert_next']}`
+                    )
+                );
+                newBtn.innerHTML = btn.innerHTML;
+                newBtn.classList.replace(
+                    'btn-success',
+                    isLastMission ? 'btn-default' : 'btn-primary'
+                );
+                newBtn.addEventListener('click', () => {
+                    alarm().then(() => {
+                        if (!isLastMission) {
+                            window.location.replace(
+                                `/missions/${
+                                    order[missionList][missionListPosition + 1]
+                                }`
+                            );
+                        } else if (
+                            LSSM.$store.state.api.settings
+                                .mission_alarmed_successfull_close_window
+                        ) {
+                            window.location.replace('/missions/close');
+                        } else {
+                            window.location.reload();
+                        }
+                    });
                 });
+                btn.after(newBtn);
+                return [btn, newBtn];
             });
-            btn.after(newBtn);
-            return [btn, newBtn];
-        });
 
         const prevBtns: [HTMLAnchorElement, HTMLAnchorElement][] = Array.from(
             document.querySelectorAll<HTMLAnchorElement>(
@@ -225,45 +223,45 @@ export default async (
             return [btn, newBtn];
         });
 
-        const alertNextShareBtns: [
-            HTMLAnchorElement,
-            HTMLAnchorElement
-        ][] = Array.from(
-            document.querySelectorAll<HTMLAnchorElement>('.alert_next_alliance')
-        ).map(btn => {
-            const newBtn = document.createElement('a');
-            newBtn.href = '#';
-            newBtn.innerHTML = btn.innerHTML;
-            newBtn.classList.add(
-                'hidden',
-                isLastMission ? 'btn-default' : 'btn-primary',
-                ...btn.classList,
-                LSSM.$store.getters.nodeAttribute(
-                    `${MODULE_ID}_sort-missions_${SortedMissionsRawButtonClasses['alert_share_next']}`
+        const alertNextShareBtns: [HTMLAnchorElement, HTMLAnchorElement][] =
+            Array.from(
+                document.querySelectorAll<HTMLAnchorElement>(
+                    '.alert_next_alliance'
                 )
-            );
-            newBtn.classList.remove('btn-success');
-            newBtn.addEventListener('click', () => {
-                alarm(true).then(() => {
-                    if (!isLastMission) {
-                        window.location.replace(
-                            `/missions/${
-                                order[missionList][missionListPosition + 1]
-                            }`
-                        );
-                    } else if (
-                        LSSM.$store.state.api.settings
-                            .mission_alarmed_successfull_close_window
-                    ) {
-                        window.location.replace('/missions/close');
-                    } else {
-                        window.location.reload();
-                    }
+            ).map(btn => {
+                const newBtn = document.createElement('a');
+                newBtn.href = '#';
+                newBtn.innerHTML = btn.innerHTML;
+                newBtn.classList.add(
+                    'hidden',
+                    isLastMission ? 'btn-default' : 'btn-primary',
+                    ...btn.classList,
+                    LSSM.$store.getters.nodeAttribute(
+                        `${MODULE_ID}_sort-missions_${SortedMissionsRawButtonClasses['alert_share_next']}`
+                    )
+                );
+                newBtn.classList.remove('btn-success');
+                newBtn.addEventListener('click', () => {
+                    alarm(true).then(() => {
+                        if (!isLastMission) {
+                            window.location.replace(
+                                `/missions/${
+                                    order[missionList][missionListPosition + 1]
+                                }`
+                            );
+                        } else if (
+                            LSSM.$store.state.api.settings
+                                .mission_alarmed_successfull_close_window
+                        ) {
+                            window.location.replace('/missions/close');
+                        } else {
+                            window.location.reload();
+                        }
+                    });
                 });
+                btn.after(newBtn);
+                return [btn, newBtn];
             });
-            btn.after(newBtn);
-            return [btn, newBtn];
-        });
 
         toggleInput.addEventListener('change', async () => {
             [

@@ -241,13 +241,13 @@ export default Vue.extend<
     },
     computed: {
         nav() {
-            const links = (this.lightbox.$m(
+            const links = this.lightbox.$m(
                 'verband.nav.links'
-            ) as unknown) as Record<string, string>;
+            ) as unknown as Record<string, string>;
             return Object.values(
-                (this.lightbox.$m(
+                this.lightbox.$m(
                     `verband.nav.${this.data.meta.self ? 'self' : 'other'}`
-                ) as unknown) as Record<number, string>
+                ) as unknown as Record<number, string>
             )
                 .filter(link => {
                     if (

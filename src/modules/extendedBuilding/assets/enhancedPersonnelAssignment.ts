@@ -18,9 +18,9 @@ export default async (
     });
 
     const personnel = Array.from(
-        document.querySelectorAll('#personal_table tbody tr') as NodeListOf<
-            HTMLTableRowElement
-        >
+        document.querySelectorAll(
+            '#personal_table tbody tr'
+        ) as NodeListOf<HTMLTableRowElement>
     );
 
     const vehicleId = parseInt(
@@ -50,10 +50,12 @@ export default async (
         schools.map(school => [
             school,
             Object.fromEntries(
-                ((LSSM.$t('schoolings') as unknown) as Record<
-                    string,
-                    Schooling[]
-                >)[school].map(({ caption, staffList }) => [caption, staffList])
+                (
+                    LSSM.$t('schoolings') as unknown as Record<
+                        string,
+                        Schooling[]
+                    >
+                )[school].map(({ caption, staffList }) => [caption, staffList])
             ),
         ])
     );

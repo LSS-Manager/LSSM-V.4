@@ -21,12 +21,10 @@ module.exports = {
             max: 'Max',
         },
         titles: {
-            set:
-                "Spesso questa combinazione viene selezionata quando si preme l'AAR",
+            set: "Spesso questa combinazione viene selezionata quando si preme l'AAR",
             attribute: 'La combinazione descritta in questa riga',
             free: 'Così spesso questa combinazione è disponibile',
-            max:
-                'Puoi selezionare questo AAR fino a quando questa combinazione non sarà più disponibile',
+            max: 'Puoi selezionare questo AAR fino a quando questa combinazione non sarà più disponibile',
         },
         arrSpecs: {
             fire: 'Autopompe',
@@ -127,10 +125,8 @@ module.exports = {
         allTab: 'Tutti',
         occupiedTab: 'Continua missioni',
         vehicleMissing: {
-            title:
-                'Un veicolo non è presente in nessuna scheda | Diversi veicoli non sono presenti in nessuna scheda',
-            text:
-                'I seguenti tipi di veicoli sono presenti solo nella scheda "Tutti":',
+            title: 'Un veicolo non è presente in nessuna scheda | Diversi veicoli non sono presenti in nessuna scheda',
+            text: 'I seguenti tipi di veicoli sono presenti solo nella scheda "Tutti":',
             hide: 'Nascondere la nota',
             close: 'Chiudere Nota fino al cambiamento',
         },

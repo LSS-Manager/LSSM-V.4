@@ -18,7 +18,7 @@
             class="btn btn-success"
             :disabled="
                 endPage >= credits.lastPage ||
-                    credits.lastPage === Number.MAX_SAFE_INTEGER
+                credits.lastPage === Number.MAX_SAFE_INTEGER
             "
             @click="loadNext"
         >

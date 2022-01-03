@@ -85,13 +85,14 @@ export default Vue.extend<
     computed: {
         schoolings() {
             const schoolings = this.tabs[this.currentTab] || [];
-            return (this.search
-                ? schoolings.filter(a =>
-                      JSON.stringify(Object.values(a))
-                          .toLowerCase()
-                          .match(this.search.toLowerCase())
-                  )
-                : schoolings
+            return (
+                this.search
+                    ? schoolings.filter(a =>
+                          JSON.stringify(Object.values(a))
+                              .toLowerCase()
+                              .match(this.search.toLowerCase())
+                      )
+                    : schoolings
             ).sort((a, b) => {
                 let modifier = 1;
                 if (this.sortDir === 'desc') modifier = -1;

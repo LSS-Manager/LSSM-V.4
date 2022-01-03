@@ -6,12 +6,13 @@ import { ActionTree, Module } from 'vuex';
 export default {
     namespaced: true,
     getters: {
-        prefixed: (_s, _g, rootState) => (params: unknown[]) => [
-            `%cLSSM V.${rootState.version}%c:`,
-            'font-weight: bold;',
-            'font-weight: normal;',
-            ...params,
-        ],
+        prefixed: (_s, _g, rootState) => (params: unknown[]) =>
+            [
+                `%cLSSM V.${rootState.version}%c:`,
+                'font-weight: bold;',
+                'font-weight: normal;',
+                ...params,
+            ],
     },
     actions: {
         warn({ getters }: ConsoleActionStoreParams, params: unknown[]) {

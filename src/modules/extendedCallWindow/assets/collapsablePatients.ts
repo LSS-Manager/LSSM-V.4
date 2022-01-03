@@ -6,9 +6,8 @@ export default (
     collapsablePatientsMinPatients: number,
     $m: $m
 ) => {
-    const patients = document.querySelectorAll<HTMLDivElement>(
-        '.mission_patient'
-    );
+    const patients =
+        document.querySelectorAll<HTMLDivElement>('.mission_patient');
     if (patients.length < collapsablePatientsMinPatients) return;
     const requirements: {
         red: Record<string, number>;

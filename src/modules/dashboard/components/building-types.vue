@@ -120,7 +120,7 @@ export default Vue.extend<
         const buildingTypes = this.$t('buildings') as {
             [id: number]: InternalBuilding;
         };
-        const categories = (this.$t('buildingCategories') as unknown) as {
+        const categories = this.$t('buildingCategories') as unknown as {
             [category: string]: BuildingCategory;
         };
         const categoryColors = Object.fromEntries(
@@ -193,22 +193,25 @@ export default Vue.extend<
                                             caption
                                         ].push({
                                             ...building,
-                                            extension_available: building.extensions.filter(
-                                                e =>
-                                                    e.caption === caption &&
-                                                    e.available
-                                            ).length,
-                                            extension_enabled: building.extensions.filter(
-                                                e =>
-                                                    e.caption === caption &&
-                                                    e.enabled &&
-                                                    e.available
-                                            ).length,
-                                            extension_unavailable: building.extensions.filter(
-                                                e =>
-                                                    e.caption === caption &&
-                                                    !e.available
-                                            ).length,
+                                            extension_available:
+                                                building.extensions.filter(
+                                                    e =>
+                                                        e.caption === caption &&
+                                                        e.available
+                                                ).length,
+                                            extension_enabled:
+                                                building.extensions.filter(
+                                                    e =>
+                                                        e.caption === caption &&
+                                                        e.enabled &&
+                                                        e.available
+                                                ).length,
+                                            extension_unavailable:
+                                                building.extensions.filter(
+                                                    e =>
+                                                        e.caption === caption &&
+                                                        !e.available
+                                                ).length,
                                         });
                                     });
                                 });
@@ -263,11 +266,12 @@ export default Vue.extend<
                                                 `${buildingType}_${caption}`,
                                                 {
                                                     type: 'extension',
-                                                    total:
-                                                        builtExtensions.length,
-                                                    enabled: builtExtensions.filter(
-                                                        ({ enabled }) => enabled
-                                                    ).length,
+                                                    total: builtExtensions.length,
+                                                    enabled:
+                                                        builtExtensions.filter(
+                                                            ({ enabled }) =>
+                                                                enabled
+                                                        ).length,
                                                     unavailable: (
                                                         extensionsOfType[
                                                             caption
@@ -329,11 +333,12 @@ export default Vue.extend<
                         if (currentExtensionColor === 'bright')
                             currentExtensionColor = 'dark';
                         else currentExtensionColor = 'bright';
-                        row.color = `${currentBuildingColor}-${currentExtensionColor}` as
-                            | 'bright-bright'
-                            | 'bright-dark'
-                            | 'dark-bright'
-                            | 'dark-dark';
+                        row.color =
+                            `${currentBuildingColor}-${currentExtensionColor}` as
+                                | 'bright-bright'
+                                | 'bright-dark'
+                                | 'dark-bright'
+                                | 'dark-dark';
                     }
                 });
             });

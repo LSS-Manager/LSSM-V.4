@@ -4,11 +4,11 @@
             class="pull-left alliance-home-sidebar"
             v-if="
                 home.image ||
-                    home.meta.self ||
-                    home.edit_text ||
-                    home.edit_name ||
-                    home.edit_logo ||
-                    home.apply
+                home.meta.self ||
+                home.edit_text ||
+                home.edit_name ||
+                home.edit_logo ||
+                home.apply
             "
         >
             <div

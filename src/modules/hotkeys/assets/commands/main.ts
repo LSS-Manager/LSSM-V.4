@@ -18,9 +18,10 @@ export default <Scope<Empty, ['chat', 'map', 'missionlist'], [], true>>{
         },
         search: <Scope<{ mapSearch: HTMLInputElement | null }, [], ['focus']>>{
             validatorFunction() {
-                this.mapSearch = document.querySelector<HTMLInputElement>(
-                    '#map_adress_search'
-                );
+                this.mapSearch =
+                    document.querySelector<HTMLInputElement>(
+                        '#map_adress_search'
+                    );
                 return !!this.mapSearch;
             },
             focus() {
@@ -36,9 +37,10 @@ export default <Scope<Empty, ['chat', 'map', 'missionlist'], [], true>>{
             Scope<{ missionlistSearch: HTMLInputElement | null }, [], ['focus']>
         >{
             validatorFunction() {
-                this.missionlistSearch = document.querySelector<
-                    HTMLInputElement
-                >('#search_input_field_missions');
+                this.missionlistSearch =
+                    document.querySelector<HTMLInputElement>(
+                        '#search_input_field_missions'
+                    );
                 return !!this.missionlistSearch;
             },
             focus() {
@@ -61,9 +63,10 @@ export default <Scope<Empty, ['chat', 'map', 'missionlist'], [], true>>{
             >
         >{
             validatorFunction() {
-                this.lssmMenuTrigger = document.querySelector<
-                    HTMLAnchorElement
-                >('#lssmv4-indicator_menu');
+                this.lssmMenuTrigger =
+                    document.querySelector<HTMLAnchorElement>(
+                        '#lssmv4-indicator_menu'
+                    );
 
                 this.lssmMenuIsOpened = () =>
                     this.lssmMenuTrigger?.getAttribute('aria-expanded') ===

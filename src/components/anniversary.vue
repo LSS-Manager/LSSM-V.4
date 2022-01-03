@@ -42,9 +42,10 @@ export default Vue.extend<
         let maxDuration = 0;
         let leftCarrier: HTMLSpanElement | null = null;
         let rightCarrier: HTMLSpanElement | null = null;
-        const modal = balloonContainer.querySelector<HTMLDivElement>(
-            '.anniversary-modal'
-        );
+        const modal =
+            balloonContainer.querySelector<HTMLDivElement>(
+                '.anniversary-modal'
+            );
         for (let i = 0; i < 102; i++) {
             const balloon = document.createElement('span');
             let carrier = false;

@@ -23,12 +23,10 @@ module.exports = {
             max: 'Max',
         },
         titles: {
-            set:
-                "C'est le nombre de fois que cette régulations est sélectionnée lorsque vous appuiez sur ce bouton.",
+            set: "C'est le nombre de fois que cette régulations est sélectionnée lorsque vous appuiez sur ce bouton.",
             attribute: 'La régulations est décrite dans cette ligne',
             free: "C'est le nombre de fois où la régulation est disponible",
-            max:
-                "Vouc pouvez sélectionner cette régulation autant de fois que nécessaire, jusqu'à ce que la régulation ne soit plus disponible.",
+            max: "Vouc pouvez sélectionner cette régulation autant de fois que nécessaire, jusqu'à ce que la régulation ne soit plus disponible.",
         },
         arrSpecs: {
             boot: 'Bateaux (généraux)',
@@ -124,10 +122,8 @@ module.exports = {
         allTab: 'Tout',
         occupiedTab: 'Poursuivre',
         vehicleMissing: {
-            title:
-                "Un véhicule n'est présent dans aucun onglet | Plusieurs véhicules ne sont présents dans aucun onglet",
-            text:
-                'Les types de véhicules suivants ne sont présents que dans l\'onglet "Tout" :',
+            title: "Un véhicule n'est présent dans aucun onglet | Plusieurs véhicules ne sont présents dans aucun onglet",
+            text: 'Les types de véhicules suivants ne sont présents que dans l\'onglet "Tout" :',
             hide: 'Cacher la note',
             close: "Fermer Note jusqu'au changement",
         },

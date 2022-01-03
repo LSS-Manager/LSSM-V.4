@@ -94,13 +94,15 @@ export default <RedesignParser<ProfileWindow>>(({ LSSM, doc, href = '' }) => {
                     ?.textContent?.trim() ?? '',
         })),
         has_map: !!doc.getElementById('profile_map'),
-        buildings: (Array.from(doc.scripts)
-            .flatMap(script =>
-                script.innerText.match(
-                    /(?<=buildingMarkerAdd\(){(?:".*?":(?:\d+(?:\.\d+)?|".*?"),?)+}(?=\);)/g
+        buildings: (
+            Array.from(doc.scripts)
+                .flatMap(script =>
+                    script.innerText.match(
+                        /(?<=buildingMarkerAdd\(){(?:".*?":(?:\d+(?:\.\d+)?|".*?"),?)+}(?=\);)/g
+                    )
                 )
-            )
-            .filter(b => !!b) as string[]).map(b => JSON.parse(b)),
+                .filter(b => !!b) as string[]
+        ).map(b => JSON.parse(b)),
         ignored: !!doc.querySelector<HTMLAnchorElement>(
             'a[href^="/ignoriert/entfernen/"]'
         ),

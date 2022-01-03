@@ -11,9 +11,7 @@
             <template slot="body" slot-scope="props">
                 <div
                     class="lssm-notification"
-                    :class="
-                        `alert-${props.item.type} notification-${props.item.type}`
-                    "
+                    :class="`alert-${props.item.type} notification-${props.item.type}`"
                     @click.capture="getHandler(props, $event)()"
                 >
                     <img

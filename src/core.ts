@@ -76,9 +76,9 @@ utils(Vue);
         }
     }
     if (window.location.pathname === '/') {
-        import(
-            /* webpackChunkName: "mainpageCore" */ './mainpageCore'
-        ).then(core => core.default(LSSM));
+        import(/* webpackChunkName: "mainpageCore" */ './mainpageCore').then(
+            core => core.default(LSSM)
+        );
     }
 
     LSSM.$store
@@ -113,14 +113,16 @@ utils(Vue);
                 ) {
                     await LSSM.$store.dispatch('settings/register', {
                         moduleId,
-                        settings: await ((
-                            await import(
-                                /* webpackChunkName: "modules/settings/[request]" */
-                                /* webpackInclude: /[\\/]+modules[\\/]+.*?[\\/]+settings\.ts/ */
-                                /* webpackExclude: /[\\/]+modules[\\/]+(telemetry|releasenotes|support)[\\/]+/ */
-                                `./modules/${moduleId}/settings`
-                            )
-                        ).default as ModuleSettingFunction)(moduleId, LSSM, $m),
+                        settings: await (
+                            (
+                                await import(
+                                    /* webpackChunkName: "modules/settings/[request]" */
+                                    /* webpackInclude: /[\\/]+modules[\\/]+.*?[\\/]+settings\.ts/ */
+                                    /* webpackExclude: /[\\/]+modules[\\/]+(telemetry|releasenotes|support)[\\/]+/ */
+                                    `./modules/${moduleId}/settings`
+                                )
+                            ).default as ModuleSettingFunction
+                        )(moduleId, LSSM, $m),
                     });
                 }
                 if (

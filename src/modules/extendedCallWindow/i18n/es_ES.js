@@ -21,12 +21,10 @@ module.exports = {
             max: 'Máximo',
         },
         titles: {
-            set:
-                'Muy a menudo, esta combinación se selecciona cuando presiona al ARR',
+            set: 'Muy a menudo, esta combinación se selecciona cuando presiona al ARR',
             attribute: 'La combinación se describe en esta línea',
             free: 'Muy a menudo esta combinación está disponible',
-            max:
-                'Puede seleccionar este ARR hasta que esta combinación ya no esté disponible',
+            max: 'Puede seleccionar este ARR hasta que esta combinación ya no esté disponible',
         },
         arrSpecs: {
             fire: 'Camiones de bomberos',
@@ -91,10 +89,8 @@ module.exports = {
         allTab: 'Todo',
         occupiedTab: 'Siguiente',
         vehicleMissing: {
-            title:
-                'Un vehículo no está presente en ninguna pestaña | Varios vehículos no están presentes en ninguna pestaña',
-            text:
-                'Los siguientes tipos de vehículos solo están presentes en la pestaña "Todo":',
+            title: 'Un vehículo no está presente en ninguna pestaña | Varios vehículos no están presentes en ninguna pestaña',
+            text: 'Los siguientes tipos de vehículos solo están presentes en la pestaña "Todo":',
             hide: 'Ocultar nota',
             close: 'Cerrar la nota hasta el cambio',
         },

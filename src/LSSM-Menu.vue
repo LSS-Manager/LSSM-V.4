@@ -6,9 +6,9 @@
             :id="menuId"
             role="button"
             data-toggle="dropdown"
-            :style="
-                `background-color: ${iconBgAsNavBg ? 'transparent' : iconBg}`
-            "
+            :style="`background-color: ${
+                iconBgAsNavBg ? 'transparent' : iconBg
+            }`"
         >
             <span v-if="labelInMenu" class="label label-success">
                 LSSM V.4
@@ -248,7 +248,7 @@ export default Vue.extend<
                     width: '96%',
                 },
                 {
-                    'before-close': function(event: { cancel: () => void }) {
+                    'before-close': function (event: { cancel: () => void }) {
                         if (!LSSM.$store.state.appstore.changes) {
                             if (LSSM.$store.state.appstore.reload) {
                                 event.cancel();
@@ -268,9 +268,9 @@ export default Vue.extend<
                                         'modules.appstore.closeWarning.saveAndExit'
                                     ),
                                     handler() {
-                                        (window[
-                                            PREFIX
-                                        ] as Vue).$appstore.save();
+                                        (
+                                            window[PREFIX] as Vue
+                                        ).$appstore.save();
                                         window.removeEventListener(
                                             'beforeunload',
                                             unloadListener
@@ -283,9 +283,9 @@ export default Vue.extend<
                                         'modules.appstore.closeWarning.exit'
                                     ),
                                     handler() {
-                                        (window[
-                                            PREFIX
-                                        ] as Vue).$appstore.reset();
+                                        (
+                                            window[PREFIX] as Vue
+                                        ).$appstore.reset();
                                         window.removeEventListener(
                                             'beforeunload',
                                             unloadListener
@@ -334,7 +334,7 @@ export default Vue.extend<
                     width: '96%',
                 },
                 {
-                    'before-close': function(event: { cancel: () => void }) {
+                    'before-close': function (event: { cancel: () => void }) {
                         if (!LSSM.$store.state.settings.changes) {
                             if (LSSM.$store.state.settings.reload) {
                                 event.cancel();
@@ -370,9 +370,9 @@ export default Vue.extend<
                                         'modules.settings.closeWarning.exit'
                                     ),
                                     handler() {
-                                        (window[
-                                            PREFIX
-                                        ] as Vue).$settings.discard();
+                                        (
+                                            window[PREFIX] as Vue
+                                        ).$settings.discard();
                                         window.removeEventListener(
                                             'beforeunload',
                                             unloadListener
@@ -476,10 +476,8 @@ export default Vue.extend<
                         const context = draw(img);
                         if (!context) return;
                         const colors = getColors(context);
-                        const mainColor = Object.entries(
-                            colors
-                        ).sort(([, a], [, b]) =>
-                            a < b ? 1 : a > b ? -1 : 0
+                        const mainColor = Object.entries(colors).sort(
+                            ([, a], [, b]) => (a < b ? 1 : a > b ? -1 : 0)
                         )?.[0]?.[0];
                         if (!mainColor) return (this.navbg.aborted = true);
                         const r = parseInt(mainColor.slice(0, 2), 16);
@@ -519,9 +517,8 @@ export default Vue.extend<
             .then(v3MenuAsSubmenu => {
                 if (!v3MenuAsSubmenu) return;
 
-                const v3Dropdown = document.querySelector<HTMLLIElement>(
-                    '#lssm_dropdown'
-                );
+                const v3Dropdown =
+                    document.querySelector<HTMLLIElement>('#lssm_dropdown');
                 const versionWrapper = this.$el.querySelector<HTMLLIElement>(
                     `#${this.versionWrapperId}`
                 );
@@ -533,9 +530,10 @@ export default Vue.extend<
 
                 versionWrapper.after(divider, v3Dropdown);
 
-                const v3MenuSwitch = v3Dropdown.querySelector<
-                    HTMLAnchorElement
-                >('#lssm_menu_switch');
+                const v3MenuSwitch =
+                    v3Dropdown.querySelector<HTMLAnchorElement>(
+                        '#lssm_menu_switch'
+                    );
                 if (v3MenuSwitch) {
                     v3MenuSwitch.querySelector('b.caret')?.remove();
                     const v3Label = v3MenuSwitch.querySelector(
@@ -547,9 +545,8 @@ export default Vue.extend<
                     submenuIcon.style.setProperty('margin-right', '1rem');
                     v3MenuSwitch.prepend(submenuIcon);
                 }
-                const v3Menu = v3Dropdown.querySelector<HTMLUListElement>(
-                    '#lssm_menu'
-                );
+                const v3Menu =
+                    v3Dropdown.querySelector<HTMLUListElement>('#lssm_menu');
                 if (!v3Menu) return;
                 v3Menu.classList.add(
                     'dropdown-submenu',

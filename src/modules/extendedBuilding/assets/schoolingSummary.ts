@@ -13,9 +13,8 @@ export default async (LSSM: Vue, $m: $m, MODULE_ID: string): Promise<void> => {
     await LSSM.$store.dispatch('api/registerBuildingsUsage', {
         feature: `${MODULE_ID}-schoolingSummary`,
     });
-    const dataList = document.querySelector<HTMLDataListElement>(
-        'dl:last-of-type'
-    );
+    const dataList =
+        document.querySelector<HTMLDataListElement>('dl:last-of-type');
 
     if (!dataList) return;
 
@@ -71,7 +70,7 @@ export default async (LSSM: Vue, $m: $m, MODULE_ID: string): Promise<void> => {
     );
     if (buildingId < 0) return;
 
-    const vehicleTypes = (LSSM.$t('vehicles') as unknown) as {
+    const vehicleTypes = LSSM.$t('vehicles') as unknown as {
         [id: number]: InternalVehicle;
     };
 
@@ -87,10 +86,12 @@ export default async (LSSM: Vue, $m: $m, MODULE_ID: string): Promise<void> => {
         schools.map(school => [
             school,
             Object.fromEntries(
-                ((LSSM.$t('schoolings') as unknown) as Record<
-                    string,
-                    Schooling[]
-                >)[school].map(({ caption, staffList }) => [caption, staffList])
+                (
+                    LSSM.$t('schoolings') as unknown as Record<
+                        string,
+                        Schooling[]
+                    >
+                )[school].map(({ caption, staffList }) => [caption, staffList])
             ),
         ])
     );

@@ -13,8 +13,8 @@
         <span
             v-if="
                 description &&
-                    description !==
-                        `modules.${moduleId}.settings.${settingId}.description`
+                description !==
+                    `modules.${moduleId}.settings.${settingId}.description`
             "
             v-html="description"
         >

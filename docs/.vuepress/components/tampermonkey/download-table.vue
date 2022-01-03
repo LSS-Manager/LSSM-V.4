@@ -23,12 +23,10 @@ export default Vue.extend({
     data() {
         return {
             browsers: {
-                Chrome:
-                    'https://chrome.google.com/webstore/detail/dhdgffkkebhmkfjojejmpbldmpobfkfo',
+                Chrome: 'https://chrome.google.com/webstore/detail/dhdgffkkebhmkfjojejmpbldmpobfkfo',
                 Firefox:
                     'https://addons.mozilla.org/firefox/addon/tampermonkey/',
-                Opera:
-                    'https://addons.opera.com/extensions/details/tampermonkey-beta/',
+                Opera: 'https://addons.opera.com/extensions/details/tampermonkey-beta/',
             },
         };
     },

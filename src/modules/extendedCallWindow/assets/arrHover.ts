@@ -14,7 +14,7 @@ export default (
 
     if (!ARRContainer) return;
 
-    const ARRSpecTranslations = ($m(`arrHover.arrSpecs`) as unknown) as {
+    const ARRSpecTranslations = $m(`arrHover.arrSpecs`) as unknown as {
         [spec: string]: string;
     };
 
@@ -228,11 +228,10 @@ export default (
 
         Object.keys(custom).forEach(
             vehicleType =>
-                (amounts[vehicleType] = document.querySelectorAll<
-                    HTMLInputElement
-                >(
-                    `#all tr[vehicle_type="${vehicleType}"] .vehicle_checkbox:not(:checked):not([ignore_aao="1"])`
-                ).length)
+                (amounts[vehicleType] =
+                    document.querySelectorAll<HTMLInputElement>(
+                        `#all tr[vehicle_type="${vehicleType}"] .vehicle_checkbox:not(:checked):not([ignore_aao="1"])`
+                    ).length)
         );
 
         return amounts;
@@ -280,16 +279,18 @@ export default (
                 arr.getAttribute('vehicle_type_captions') ?? '{}'
             );
             arrSpecs.append(
-                ...(Object.entries({
-                    ...ingameSpecs,
-                    ...customSpecs,
-                }).map(([name, amount]) => [
-                    name,
-                    ARRSpecTranslations[name] ??
-                        vehicleTypeCaptionsAttr[name] ??
+                ...(
+                    Object.entries({
+                        ...ingameSpecs,
+                        ...customSpecs,
+                    }).map(([name, amount]) => [
                         name,
-                    amount,
-                ]) as [string, string, number][])
+                        ARRSpecTranslations[name] ??
+                            vehicleTypeCaptionsAttr[name] ??
+                            name,
+                        amount,
+                    ]) as [string, string, number][]
+                )
                     .sort(([, a], [, b]) => (a < b ? -1 : a > b ? 1 : 0))
                     .map(([attr, name, amount]) => {
                         const rowElement = document.createElement('tr');
@@ -298,9 +299,11 @@ export default (
                             rowElement.classList.add('bg-danger');
                         rowElement.insertCell().textContent = `${amount.toLocaleString()}x`;
                         rowElement.insertCell().textContent = name;
-                        rowElement.insertCell().textContent = available.toLocaleString();
+                        rowElement.insertCell().textContent =
+                            available.toLocaleString();
                         const max = Math.floor(available / amount);
-                        rowElement.insertCell().textContent = max.toLocaleString();
+                        rowElement.insertCell().textContent =
+                            max.toLocaleString();
                         if (max < minimumAvailable) minimumAvailable = max;
                         return rowElement;
                     })

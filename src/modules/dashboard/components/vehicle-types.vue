@@ -218,9 +218,9 @@ export default Vue.extend<
             return filtered;
         },
         vehicleTypesSorted() {
-            const vehicleTypes = (this.search
-                ? this.vehicleTypesFiltered
-                : this.vehicleTypes) as TypeList;
+            const vehicleTypes = (
+                this.search ? this.vehicleTypesFiltered : this.vehicleTypes
+            ) as TypeList;
             return Object.entries(vehicleTypes)
                 .sort(([, a], [, b]) => {
                     const modifier = this.sortDir === 'desc' ? -1 : 1;
@@ -237,9 +237,9 @@ export default Vue.extend<
                 .map(e => e[0]);
         },
         sum() {
-            const vehicleTypes = (this.search
-                ? this.vehicleTypesFiltered
-                : this.vehicleTypes) as TypeList;
+            const vehicleTypes = (
+                this.search ? this.vehicleTypesFiltered : this.vehicleTypes
+            ) as TypeList;
             const FMSsum = {} as { [state: string]: Vehicle[] };
             Object.values(this.statuses).forEach(status => {
                 FMSsum[`s${status}`] = Object.values(vehicleTypes).flatMap(
@@ -267,8 +267,7 @@ export default Vue.extend<
                         cursor: 'pointer',
                         dataLabels: {
                             enabled: true,
-                            format:
-                                '<b>{point.name}</b>: {point.value} ({point.percentage:.1f}%)',
+                            format: '<b>{point.name}</b>: {point.value} ({point.percentage:.1f}%)',
                         },
                     },
                 },
@@ -284,10 +283,9 @@ export default Vue.extend<
                                 name: status.toUpperCase(),
                                 y: amount,
                                 value: amount.toLocaleString(),
-                                color:
-                                    statusColors[
-                                        <keyof typeof statusColors>status
-                                    ],
+                                color: statusColors[
+                                    <keyof typeof statusColors>status
+                                ],
                             })
                         ),
                     },

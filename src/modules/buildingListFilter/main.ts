@@ -96,7 +96,7 @@ export default <ModuleMainFunction>(async (LSSM, MODULE_ID) => {
             value: { value: filters.slice(1), enabled: true },
         });
 
-    const smallBuildings = (LSSM.$t('small_buildings') as unknown) as Record<
+    const smallBuildings = LSSM.$t('small_buildings') as unknown as Record<
         number,
         number
     >;
@@ -167,9 +167,8 @@ export default <ModuleMainFunction>(async (LSSM, MODULE_ID) => {
             }
         );
 
-        const buildingList = document.querySelector<HTMLUListElement>(
-            '#building_list'
-        );
+        const buildingList =
+            document.querySelector<HTMLUListElement>('#building_list');
         if (!buildingList) return;
 
         const buildings: [HTMLLIElement, string][] = Array.from(

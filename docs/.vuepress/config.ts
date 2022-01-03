@@ -123,10 +123,8 @@ const processModules = async (shortVersion: string) => {
         dev: '🐛',
         settings: '⚙️',
     };
-    const MODULES_BY_LANG: Record<
-        string,
-        ModuleRegistration[]
-    > = Object.fromEntries(LANGS.map(lang => [lang, []]));
+    const MODULES_BY_LANG: Record<string, ModuleRegistration[]> =
+        Object.fromEntries(LANGS.map(lang => [lang, []]));
 
     const getRootI18n = (
         module: string,
@@ -243,10 +241,7 @@ ${getLocale(lang, 'head.mapkit')}
                 hasSrc,
             });
             const content = hasSrc
-                ? fs
-                      .readFileSync(srcPath)
-                      .toString()
-                      .trim()
+                ? fs.readFileSync(srcPath).toString().trim()
                 : '';
             if (!hasSrc || !content.length) {
                 noDocs[lang] = { i18n, register };
@@ -320,7 +315,8 @@ ${docsLangs
             )[];
         }
     > = {};
-    const noMapkitModules: Vue['$themeConfig']['variables']['noMapkitModules'] = {};
+    const noMapkitModules: Vue['$themeConfig']['variables']['noMapkitModules'] =
+        {};
     const locales: Record<
         string,
         { lang: string; title: string; description: string }

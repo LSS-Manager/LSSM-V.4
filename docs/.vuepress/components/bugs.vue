@@ -53,9 +53,7 @@
                     <span class="bug-labels">
                         <a
                             class="bug-label"
-                            :href="
-                                `${$themeConfig.variables.github}/issues?q=is%3Aissue+is%3Aopen+label%3A${label.name}`
-                            "
+                            :href="`${$themeConfig.variables.github}/issues?q=is%3Aissue+is%3Aopen+label%3A${label.name}`"
                             target="_blank"
                             :title="label.description"
                             :style="labelStyle(label.color)"
@@ -142,27 +140,9 @@ export default Vue.extend({
     methods: {
         labelStyle(color) {
             const values = {
-                r: parseInt(
-                    color
-                        .split('')
-                        .splice(0, 2)
-                        .join(''),
-                    16
-                ),
-                g: parseInt(
-                    color
-                        .split('')
-                        .splice(2, 2)
-                        .join(''),
-                    16
-                ),
-                b: parseInt(
-                    color
-                        .split('')
-                        .splice(4, 2)
-                        .join(''),
-                    16
-                ),
+                r: parseInt(color.split('').splice(0, 2).join(''), 16),
+                g: parseInt(color.split('').splice(2, 2).join(''), 16),
+                b: parseInt(color.split('').splice(4, 2).join(''), 16),
                 h: 0,
                 s: 0,
                 l: 0,

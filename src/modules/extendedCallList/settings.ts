@@ -18,7 +18,7 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
     );
 
     const defaultEventmissions = Object.entries(
-        ($m('eventMissions.default') as unknown) as Record<
+        $m('eventMissions.default') as unknown as Record<
             string,
             Record<number, number>
         >

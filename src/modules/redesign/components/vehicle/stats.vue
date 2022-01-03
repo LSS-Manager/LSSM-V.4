@@ -72,9 +72,7 @@ export default Vue.extend<
                     categories: Array(this.stats.data.length)
                         .fill('')
                         .map((_, i) =>
-                            this.moment()
-                                .subtract(i, 'days')
-                                .format('L')
+                            this.moment().subtract(i, 'days').format('L')
                         )
                         .reverse(),
                 },

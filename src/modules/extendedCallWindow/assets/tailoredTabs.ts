@@ -23,7 +23,7 @@ export default (
     if (
         !stagingMode &&
         Object.values(
-            (LSSM.$t('transfer_missions') as unknown) as number[]
+            LSSM.$t('transfer_missions') as unknown as number[]
         ).includes(missionTypeID)
     )
         return;

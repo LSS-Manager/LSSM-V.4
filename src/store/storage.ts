@@ -41,9 +41,7 @@ export default {
             }
             return state.localforage.setItem(key, value);
         },
-        getAllItems({
-            state,
-        }: StorageActionStoreParams): Promise<{
+        getAllItems({ state }: StorageActionStoreParams): Promise<{
             [key: string]: unknown;
         }> {
             return new Promise<{

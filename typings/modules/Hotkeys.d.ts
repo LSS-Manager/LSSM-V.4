@@ -14,8 +14,7 @@ export type Scope<
               validatorFunction(this: This): boolean;
           }
         : Empty) &
-        Partial<{ [scope in Scopes[number]]: Scope<This> }> &
-        {
+        Partial<{ [scope in Scopes[number]]: Scope<This> }> & {
             [command in Commands[number]]: (
                 this: This,
                 ...args: Parameters<CallbackFunction>

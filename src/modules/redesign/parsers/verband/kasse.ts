@@ -86,9 +86,8 @@ export default <RedesignParser<VerbandskasseWindow>>(({
                               '#alliance-finances-earnings table tbody tr'
                           )
                       ).map(row => {
-                          const user = row.querySelector<HTMLAnchorElement>(
-                              'a'
-                          );
+                          const user =
+                              row.querySelector<HTMLAnchorElement>('a');
                           return {
                               user: {
                                   id: getIdFromEl(user),
@@ -115,9 +114,8 @@ export default <RedesignParser<VerbandskasseWindow>>(({
                               '#alliance-finances-spendings table tbody tr'
                           )
                       ).map(row => {
-                          const user = row.querySelector<HTMLAnchorElement>(
-                              'a'
-                          );
+                          const user =
+                              row.querySelector<HTMLAnchorElement>('a');
                           return {
                               credits: LSSM.$utils.getNumberFromText(
                                   row.children[0].textContent ?? '0'

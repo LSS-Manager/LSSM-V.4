@@ -224,9 +224,9 @@ export default {
             { value: buildings, lastUpdate }: StorageGetterReturn<'buildings'>
         ) {
             if (!buildings) return;
-            const smallBuildings = ((window[PREFIX] as Vue).$t(
+            const smallBuildings = (window[PREFIX] as Vue).$t(
                 'small_buildings'
-            ) as unknown) as {
+            ) as unknown as {
                 [type: number]: number;
             };
             buildings.forEach(
@@ -260,7 +260,7 @@ export default {
         },
         setVehicleStates(state: APIState, states: { [state: number]: number }) {
             const LSSM = window[PREFIX] as Vue;
-            const fmsReal2Show = (LSSM.$t('fmsReal2Show') as unknown) as {
+            const fmsReal2Show = LSSM.$t('fmsReal2Show') as unknown as {
                 [status: number]: number;
             };
             const states_show = {} as { [state: number]: number };
@@ -382,7 +382,7 @@ export default {
         },
         buildingsByCategory(state, getters) {
             const LSSM = window[PREFIX] as Vue;
-            const categories = (LSSM.$t('buildingCategories') as unknown) as {
+            const categories = LSSM.$t('buildingCategories') as unknown as {
                 [category: string]: BuildingCategory;
             };
             const buildingsByCategory = {} as {
@@ -523,18 +523,15 @@ export default {
                     })
                     .then(res => res.json())
                     .then(async (building: Building) => {
-                        const {
-                            value: buildings,
-                            lastUpdate,
-                        } = await get_api_values(
-                            'buildings',
-                            store,
-                            `store/api/fetchBuilding(${feature})`
-                        );
+                        const { value: buildings, lastUpdate } =
+                            await get_api_values(
+                                'buildings',
+                                store,
+                                `store/api/fetchBuilding(${feature})`
+                            );
                         if (!buildings) return reject();
-                        buildings[
-                            buildings.findIndex(b => b.id === id)
-                        ] = building;
+                        buildings[buildings.findIndex(b => b.id === id)] =
+                            building;
                         set_api_storage(
                             'buildings',
                             {
@@ -586,14 +583,12 @@ export default {
                     })
                     .then(res => res.json())
                     .then(async (vehicle: Vehicle) => {
-                        const {
-                            value: vehicles,
-                            lastUpdate,
-                        } = await get_api_values(
-                            'vehicles',
-                            store,
-                            `store/api/fetchVehicle(${feature})`
-                        );
+                        const { value: vehicles, lastUpdate } =
+                            await get_api_values(
+                                'vehicles',
+                                store,
+                                `store/api/fetchVehicle(${feature})`
+                            );
                         if (!vehicles) return reject();
                         const index = vehicles.findIndex(v => v.id === id);
                         if (index < 0) vehicles.push(vehicle);
@@ -623,14 +618,12 @@ export default {
                     })
                     .then(res => res.json())
                     .then(async (vehiclesAt: Vehicle[]) => {
-                        const {
-                            value: vehicles,
-                            lastUpdate,
-                        } = await get_api_values(
-                            'vehicles',
-                            store,
-                            `store/api/fetchVehiclesAtBuilding(${feature})`
-                        );
+                        const { value: vehicles, lastUpdate } =
+                            await get_api_values(
+                                'vehicles',
+                                store,
+                                `store/api/fetchVehiclesAtBuilding(${feature})`
+                            );
                         if (!vehicles) return reject();
                         vehiclesAt.forEach(vehicle => {
                             const index = vehicles.findIndex(

@@ -16,7 +16,7 @@
             class="btn btn-success"
             :disabled="
                 endPage >= protokoll.lastPage ||
-                    protokoll.lastPage === Number.MAX_SAFE_INTEGER
+                protokoll.lastPage === Number.MAX_SAFE_INTEGER
             "
             @click="loadNext"
         >
@@ -90,13 +90,11 @@
                         />
                         <a
                             lightbox-open
-                            :href="
-                                `/${
-                                    entry.affected.type === 'user'
-                                        ? 'profile'
-                                        : 'buildings'
-                                }/${entry.affected.id}`
-                            "
+                            :href="`/${
+                                entry.affected.type === 'user'
+                                    ? 'profile'
+                                    : 'buildings'
+                            }/${entry.affected.id}`"
                         >
                             {{ entry.affected.name }}
                         </a>
@@ -219,11 +217,13 @@ export default Vue.extend<
                 let s = b[this.sort] ?? '';
                 if (['executor', 'affected'].includes(this.sort)) {
                     f =
-                        (f as VerbandProtokollWindow['entries'][0]['executor'])?.name?.toLowerCase() ??
-                        '';
+                        (
+                            f as VerbandProtokollWindow['entries'][0]['executor']
+                        )?.name?.toLowerCase() ?? '';
                     s =
-                        (s as VerbandProtokollWindow['entries'][0]['executor'])?.name?.toLowerCase() ??
-                        '';
+                        (
+                            s as VerbandProtokollWindow['entries'][0]['executor']
+                        )?.name?.toLowerCase() ?? '';
                 }
                 return f < s ? -1 * modifier : f > s ? modifier : 0;
             });

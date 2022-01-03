@@ -6,12 +6,10 @@ const modules = {
         reset: 'Reset',
         noMapkit:
             'Ce module ne fonctionne pas avec "Mapkit" à cause des limitations de Mapkit !',
-        dev:
-            'Ce module est encore en développement. Son activation peut causer des erreurs !',
+        dev: 'Ce module est encore en développement. Son activation peut causer des erreurs !',
         closeWarning: {
             title: 'Changements non sauvegardés',
-            text:
-                "Des changements ont été faits dans l'AppStore qui n'ont pas été sauvegardés. Sauvegardez ou faites un Reset pour fermer l'Appstore.",
+            text: "Des changements ont été faits dans l'AppStore qui n'ont pas été sauvegardés. Sauvegardez ou faites un Reset pour fermer l'Appstore.",
             abort: 'Annuler',
             saveAndExit: 'Sauvegarder et quitter',
             exit: 'Quitter sans sauvegarder',
@@ -27,30 +25,26 @@ const modules = {
         appendableList: {
             unique: {
                 title: 'valeur en double',
-                text:
-                    'Il ne doit pas y avoir de valeurs en double dans la colonne **{title}**. La valeur **{valeur}** existe déjà !',
+                text: 'Il ne doit pas y avoir de valeurs en double dans la colonne **{title}**. La valeur **{valeur}** existe déjà !',
                 confirm: 'OK',
             },
         },
         resetWarning: {
             title: 'Reset des paramètres',
-            text:
-                'Voulez-vous remettre les paramètres par défaut ? Cela ne peut pas être annulé !',
+            text: 'Voulez-vous remettre les paramètres par défaut ? Cela ne peut pas être annulé !',
             close: 'Annuler',
             total: 'Tous les paramètres',
             module: 'Seulement pour ce module',
         },
         resetWarningSetting: {
             title: 'Réinitialisation des paramètres',
-            text:
-                'Voulez-vous vraiment remettre ce paramètre <b>{setting}</b> du module <b>{module}</b> à sa valeur par défaut ?',
+            text: 'Voulez-vous vraiment remettre ce paramètre <b>{setting}</b> du module <b>{module}</b> à sa valeur par défaut ?',
             close: 'Annuler',
             reset: 'Réinitialiser',
         },
         closeWarning: {
             title: 'Changements non sauvegardés',
-            text:
-                "Des changements ont été faits dans les paramètres qui n'ont pas été sauvegardés. Faites un Reset, une annulation ou une sauvegarde pour fermer les paramètres.",
+            text: "Des changements ont été faits dans les paramètres qui n'ont pas été sauvegardés. Faites un Reset, une annulation ou une sauvegarde pour fermer les paramètres.",
             abort: 'Annuler',
             saveAndExit: 'Sauvegarder et quitter',
             exit: 'Quitter sans sauvegarder',
@@ -70,14 +64,12 @@ export default {
     modules,
     error: {
         title: 'LSS Manager: Erreur',
-        msg:
-            "Si cette erreur arrive fréquemment, merci de le signaler à l'équipe LSSM !",
+        msg: "Si cette erreur arrive fréquemment, merci de le signaler à l'équipe LSSM !",
     },
     warnings: {
         version: {
             title: 'Mauvaise version de LSS Manager',
-            text:
-                "Cher utilisateur, malheureusement vous n'avez pas la dernière version de LSS Manager. La dernière version est {version} et vous avez la {current}. Merci de recharger le jeu en vidant le cache (Ctrl + F5 ou command + R sur Apple), cela devrait régler le problème. Si le problème persiste, merci de le signaler à l'équipe ! Si vous vous utilisez une mauvaise version nous ne pouvons garantir le plein fonctionnement de LSS-Manager.",
+            text: "Cher utilisateur, malheureusement vous n'avez pas la dernière version de LSS Manager. La dernière version est {version} et vous avez la {current}. Merci de recharger le jeu en vidant le cache (Ctrl + F5 ou command + R sur Apple), cela devrait régler le problème. Si le problème persiste, merci de le signaler à l'équipe ! Si vous vous utilisez une mauvaise version nous ne pouvons garantir le plein fonctionnement de LSS-Manager.",
             close: 'Fermer ce message et recharger le jeu (recommandé)',
             abort: 'Fermer ce message sans recharger le jeu',
         },

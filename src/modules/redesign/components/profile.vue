@@ -35,13 +35,9 @@
                     <div class="btn-group" v-if="profile.can_alliance_ignore">
                         <button
                             class="btn btn-xs"
-                            :class="
-                                `btn-${
-                                    profile.alliance_ignored
-                                        ? 'warning'
-                                        : 'danger'
-                                }`
-                            "
+                            :class="`btn-${
+                                profile.alliance_ignored ? 'warning' : 'danger'
+                            }`"
                             :title="
                                 lightbox.$sm(
                                     `buttons.alliance_ignore.${
@@ -68,9 +64,7 @@
                             <ul class="dropdown-menu">
                                 <li v-for="time in profile.ban" :key="time">
                                     <a
-                                        :href="
-                                            `/profile/${profile.id}/chatban/${time}`
-                                        "
+                                        :href="`/profile/${profile.id}/chatban/${time}`"
                                     >
                                         {{
                                             moment
@@ -93,18 +87,14 @@
                     <div class="btn-group" v-if="!profile.self">
                         <a
                             class="btn btn-xs"
-                            :class="
-                                `btn-${profile.ignored ? 'warning' : 'danger'}`
-                            "
-                            :href="
-                                `/ignoriert/${
-                                    profile.ignored
-                                        ? 'entfernen'
-                                        : 'hinzufuegen'
-                                }/${profile.id}?user=${encodeURIComponent(
-                                    profile.id
-                                )}`
-                            "
+                            :class="`btn-${
+                                profile.ignored ? 'warning' : 'danger'
+                            }`"
+                            :href="`/ignoriert/${
+                                profile.ignored ? 'entfernen' : 'hinzufuegen'
+                            }/${profile.id}?user=${encodeURIComponent(
+                                profile.id
+                            )}`"
                             :title="
                                 lightbox.$sm(
                                     `buttons.ignore.${
@@ -120,16 +110,14 @@
                         <a
                             v-if="!profile.ignored"
                             class="btn btn-xs"
-                            :class="
-                                `btn-${profile.friend ? 'danger' : 'success'}`
-                            "
-                            :href="
-                                `/freunde/${
-                                    profile.friend ? 'entfernen' : 'hinzufuegen'
-                                }/${profile.id}?user=${encodeURIComponent(
-                                    profile.id
-                                )}`
-                            "
+                            :class="`btn-${
+                                profile.friend ? 'danger' : 'success'
+                            }`"
+                            :href="`/freunde/${
+                                profile.friend ? 'entfernen' : 'hinzufuegen'
+                            }/${profile.id}?user=${encodeURIComponent(
+                                profile.id
+                            )}`"
                             :title="
                                 lightbox.$sm(
                                     `buttons.friend.${
@@ -152,11 +140,9 @@
                         <a
                             class="btn btn-success btn-xs"
                             lightbox-open
-                            :href="
-                                `/messages/new?target=${encodeURIComponent(
-                                    profile.name
-                                )}`
-                            "
+                            :href="`/messages/new?target=${encodeURIComponent(
+                                profile.name
+                            )}`"
                             :title="lightbox.$sm('buttons.message')"
                         >
                             <font-awesome-icon
@@ -166,11 +152,9 @@
                         <a
                             class="btn btn-success btn-xs"
                             lightbox-open
-                            :href="
-                                `/coins?gift_for_user=${encodeURIComponent(
-                                    profile.id
-                                )}`
-                            "
+                            :href="`/coins?gift_for_user=${encodeURIComponent(
+                                profile.id
+                            )}`"
                             :title="lightbox.$sm('buttons.gift')"
                         >
                             <font-awesome-icon
@@ -260,13 +244,11 @@
                             >
                                 <span
                                     class="label"
-                                    :class="
-                                        `label-${
-                                            hiddenFilters.includes(type)
-                                                ? 'danger'
-                                                : 'success'
-                                        }`
-                                    "
+                                    :class="`label-${
+                                        hiddenFilters.includes(type)
+                                            ? 'danger'
+                                            : 'success'
+                                    }`"
                                     v-if="buildings[0].buildingTypes.sum[type]"
                                     @click="toggleFilter(type)"
                                     @dblclick="onlyFilter(type)"
@@ -307,13 +289,11 @@
                             >
                                 <span
                                     class="label"
-                                    :class="
-                                        `label-${
-                                            hiddenFilters.includes(type)
-                                                ? 'danger'
-                                                : 'success'
-                                        }`
-                                    "
+                                    :class="`label-${
+                                        hiddenFilters.includes(type)
+                                            ? 'danger'
+                                            : 'success'
+                                    }`"
                                     v-if="buildings[0].buildingTypes.sum[type]"
                                     @click="toggleFilter(type)"
                                     @dblclick="onlyFilter(type)"
@@ -400,7 +380,7 @@
                                 class="panel-body"
                                 v-if="
                                     expandedDispatches.includes(dc.id) &&
-                                        dc.buildingTypes
+                                    dc.buildingTypes
                                 "
                             >
                                 <div class="dispatchcenter-summary">
@@ -480,9 +460,7 @@
                                                     :alt="building.name"
                                                 />
                                                 <a
-                                                    :href="
-                                                        `/buildings/${building.id}`
-                                                    "
+                                                    :href="`/buildings/${building.id}`"
                                                 >
                                                     {{
                                                         he.decode(building.name)
@@ -881,10 +859,9 @@ export default Vue.extend<
             return dispatchCenters;
         },
         dispatchCentersSorted() {
-            return Object.values(
-                this.buildings
-            ).sort(({ name: a }, { name: b }) =>
-                (a ?? '') < (b ?? '') ? -1 : (a ?? '') > (b ?? '') ? 1 : 0
+            return Object.values(this.buildings).sort(
+                ({ name: a }, { name: b }) =>
+                    (a ?? '') < (b ?? '') ? -1 : (a ?? '') > (b ?? '') ? 1 : 0
             );
         },
     },

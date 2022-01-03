@@ -14,7 +14,7 @@ import {
 
 export default <ModuleSettingFunction>((MODULE_ID, LSSM, $m) => {
     const defaultFilters = Object.values(
-        ($m('default') as unknown) as Record<
+        $m('default') as unknown as Record<
             number,
             {
                 ids: Record<number, number>;

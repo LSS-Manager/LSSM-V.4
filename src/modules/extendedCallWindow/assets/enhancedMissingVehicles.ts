@@ -14,16 +14,16 @@ export default (LSSM: Vue, MODULE_ID: string, $m: $m): void => {
 
     const water = $m('enhancedMissingVehicles.water').toString();
     const foam = $m('enhancedMissingVehicles.foam').toString();
-    const vehicleGroupTranslation = ($m(
+    const vehicleGroupTranslation = $m(
         'enhancedMissingVehicles.vehiclesByRequirement'
-    ) as unknown) as
+    ) as unknown as
         | {
               [group: string]: number[];
           }
         | string;
-    const staffGroupTranslation = ($m(
+    const staffGroupTranslation = $m(
         'enhancedMissingVehicles.staff'
-    ) as unknown) as
+    ) as unknown as
         | {
               [group: string]: number[];
           }
@@ -50,17 +50,16 @@ export default (LSSM: Vue, MODULE_ID: string, $m: $m): void => {
         `((${numRegex}\\s+(${innerRegex}))|(${innerRegex}):\\s*${numRegex})(?=[,.]|$)`,
         'g'
     );
-    const missingRequirementMatches = missingRequirementsText.match(
-        requirementRegex
-    );
+    const missingRequirementMatches =
+        missingRequirementsText.match(requirementRegex);
     const extras = missingRequirementsText
         .replace(requirementRegex, '')
         .replace(
             new RegExp(
                 Object.values(
-                    ($m(
+                    $m(
                         'enhancedMissingVehicles.staffPrefix'
-                    ) as unknown) as Record<number, RegExp>
+                    ) as unknown as Record<number, RegExp>
                 ).join('|'),
                 'g'
             ),
@@ -115,20 +114,18 @@ export default (LSSM: Vue, MODULE_ID: string, $m: $m): void => {
                     0
                 );
             } else {
-                const vehicleGroupRequirement = Object.keys(
-                    vehicleGroups
-                ).find(group =>
-                    requirement.vehicle.match(
-                        new RegExp(group.replace(/(^\/)|(\/$)/g, ''))
-                    )
+                const vehicleGroupRequirement = Object.keys(vehicleGroups).find(
+                    group =>
+                        requirement.vehicle.match(
+                            new RegExp(group.replace(/(^\/)|(\/$)/g, ''))
+                        )
                 );
 
-                const staffGroupRequirement = Object.keys(
-                    staffGroups
-                ).find(group =>
-                    requirement.vehicle.match(
-                        new RegExp(group.replace(/(^\/)|(\/$)/g, ''))
-                    )
+                const staffGroupRequirement = Object.keys(staffGroups).find(
+                    group =>
+                        requirement.vehicle.match(
+                            new RegExp(group.replace(/(^\/)|(\/$)/g, ''))
+                        )
                 );
                 if (staffGroupRequirement) {
                     const vehicleTypes: number[] = Object.values(

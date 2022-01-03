@@ -98,10 +98,9 @@ export default <
         const lstBuildings = Object.values(
             (window[PREFIX] as Vue).$t('dispatchCenterBuildings')
         );
-        const id = ((window[PREFIX] as Vue).$store.state.api
-            .buildings as Building[]).find(({ building_type }) =>
-            lstBuildings.includes(building_type)
-        )?.id;
+        const id = (
+            (window[PREFIX] as Vue).$store.state.api.buildings as Building[]
+        ).find(({ building_type }) => lstBuildings.includes(building_type))?.id;
         if (id) window.lightboxOpen(`/buildings/${id}#tab_protocol`);
     },
 };

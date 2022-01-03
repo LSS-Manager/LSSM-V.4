@@ -20,9 +20,9 @@ export default (LSSM: Vue): void => {
                     .map(w => LSSM.$utils.escapeRegex(w.toLowerCase())) || []
             ).filter(w => w.length > 3);
             Array.from(
-                document.querySelectorAll('.aao') as NodeListOf<
-                    HTMLAnchorElement
-                >
+                document.querySelectorAll(
+                    '.aao'
+                ) as NodeListOf<HTMLAnchorElement>
             ).forEach(arr => {
                 const arrText = arr.textContent?.trim().toLowerCase() || '';
                 if (!words.find(w => arrText.match(w)))

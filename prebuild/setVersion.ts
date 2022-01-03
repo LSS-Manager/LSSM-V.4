@@ -5,9 +5,7 @@ import packageJson from '../package.json';
 
 packageJson.version = packageJson.version.replace(
     /\+.*$/,
-    `+${moment()
-        .tz('Europe/Berlin')
-        .format('YYYYMMDD.HHmm')}`
+    `+${moment().tz('Europe/Berlin').format('YYYYMMDD.HHmm')}`
 );
 
 const staticConfigs = {} as Record<string, unknown>;

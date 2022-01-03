@@ -52,11 +52,9 @@
                     :key="category"
                     class="sunburst-chart"
                     :id="`${vehiclesId}_${category}`"
-                    :style="
-                        `flex: 1 0 min(100%, max(250px, calc(100%/${
-                            Object.keys(vehicleCategories).length
-                        })))`
-                    "
+                    :style="`flex: 1 0 min(100%, max(250px, calc(100%/${
+                        Object.keys(vehicleCategories).length
+                    })))`"
                 >
                     <div class="alert alert-danger">
                         {{
@@ -130,7 +128,7 @@ export default Vue.extend<
                 true
             ),
             buildings: this.$store.getters['api/buildingsByCategory'],
-            buildingCategories: (this.$t('buildingCategories') as unknown) as {
+            buildingCategories: this.$t('buildingCategories') as unknown as {
                 [category: string]: BuildingCategory;
             },
             buildingTypeNames: Object.fromEntries(
@@ -152,7 +150,7 @@ export default Vue.extend<
                 true
             ),
             vehicles: this.$store.getters['api/vehiclesByType'],
-            vehicleCategories: (this.$t('vehicleCategories') as unknown) as {
+            vehicleCategories: this.$t('vehicleCategories') as unknown as {
                 [category: string]: VehicleCategory;
             },
             vehicleTypeNames: Object.fromEntries(
@@ -237,8 +235,9 @@ export default Vue.extend<
                         id: `${category}_${group}`,
                         name: group,
                         parent: category,
-                        color: `#${'00000'.substring(0, 6 - color.length) +
-                            color}`,
+                        color: `#${
+                            '00000'.substring(0, 6 - color.length) + color
+                        }`,
                     });
                     types.forEach(type => data.push(type));
                 });
@@ -307,7 +306,7 @@ export default Vue.extend<
         },
         mountBuildingChart() {
             const buildingVehicleDrilldowns = [] as DrilldownOptions[];
-            Highcharts.chart(this.buildingsId, ({
+            Highcharts.chart(this.buildingsId, {
                 chart: {
                     type: this.buildingsAsColumn ? 'column' : 'waterfall',
                 },
@@ -426,10 +425,9 @@ export default Vue.extend<
                                                     name: this.vehicleTypeNames[
                                                         parseInt(vehicle_type)
                                                     ],
-                                                    y:
-                                                        vehicle_types[
-                                                            vehicle_type
-                                                        ],
+                                                    y: vehicle_types[
+                                                        vehicle_type
+                                                    ],
                                                     color: this
                                                         .vehicleTypeColors[
                                                         parseInt(vehicle_type)
@@ -460,7 +458,7 @@ export default Vue.extend<
                         ...buildingVehicleDrilldowns,
                     ],
                 },
-            } as unknown) as Options);
+            } as unknown as Options);
         },
     },
 });

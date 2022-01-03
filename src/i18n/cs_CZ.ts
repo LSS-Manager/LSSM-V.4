@@ -6,12 +6,10 @@ const modules = {
         reset: 'Resetovat',
         noMapkit:
             'Tento modul nefunguje s typem map "Mapkit" z důvodu omezení Mapkitu!',
-        dev:
-            'Tento modul je v současné době ve vývoji. Aktivací může vést k neúplným funkcím.',
+        dev: 'Tento modul je v současné době ve vývoji. Aktivací může vést k neúplným funkcím.',
         closeWarning: {
             title: 'Neulozené změny',
-            text:
-                'Ve sbírce aplikací jste provedli změny, které nejsou uloženy. Resetujte je nebo uložte a ukončete sbírku aplikací.',
+            text: 'Ve sbírce aplikací jste provedli změny, které nejsou uloženy. Resetujte je nebo uložte a ukončete sbírku aplikací.',
             close: 'Zavřít zprávu',
         },
     },
@@ -24,23 +22,20 @@ const modules = {
         import: 'Import',
         resetWarning: {
             title: 'Resetovat nastavení',
-            text:
-                'Opravdu chcete resetovat nastavení do počátečních hodnot? Tento krok nelze vrátit!',
+            text: 'Opravdu chcete resetovat nastavení do počátečních hodnot? Tento krok nelze vrátit!',
             close: 'Zavřít',
             total: 'Všechna nastavení',
             module: 'Pouze pro tento modul',
         },
         resetWarningSetting: {
             title: 'Resetovat nastavení',
-            text:
-                'Opravdu chcete resetovat toto jedno nastavení <b>{setting}</b> modulu <b>{module}</b> na výchozí hodnotu?',
+            text: 'Opravdu chcete resetovat toto jedno nastavení <b>{setting}</b> modulu <b>{module}</b> na výchozí hodnotu?',
             close: 'zrušení',
             reset: 'Resetovat',
         },
         closeWarning: {
             title: 'Neuložené změny',
-            text:
-                'V nastavení jste provedli změny, které nejsou uloženy. Resetujte je nebo uložte a zavřete nastavení.',
+            text: 'V nastavení jste provedli změny, které nejsou uloženy. Resetujte je nebo uložte a zavřete nastavení.',
             close: 'Zavřít zprávu',
         },
         changeList: {
@@ -59,8 +54,7 @@ export default {
     warnings: {
         version: {
             title: 'Špatná verze LSS Managera',
-            text:
-                'Vážený uživateli, bohužel jsme zjistili, že nemáte nejnovější verzi doplňku LSS Manager. Nejnovější verze je {version}, ale vy aktuálně máte {curver}. Prosíme o znovunačtení hry bez mezipaměti (pomocí Ctrl + F5, na zařízeních Apple příkaz + R), tímto může být chyba odstraněna. Pokud chyba přetrvává, prosím nahlašte to týmu LSSM! Pokud používáte špatnou verzi, nemůžeme garantovat plnou funkcionalitu doplňku LSS-Manager.',
+            text: 'Vážený uživateli, bohužel jsme zjistili, že nemáte nejnovější verzi doplňku LSS Manager. Nejnovější verze je {version}, ale vy aktuálně máte {curver}. Prosíme o znovunačtení hry bez mezipaměti (pomocí Ctrl + F5, na zařízeních Apple příkaz + R), tímto může být chyba odstraněna. Pokud chyba přetrvává, prosím nahlašte to týmu LSSM! Pokud používáte špatnou verzi, nemůžeme garantovat plnou funkcionalitu doplňku LSS-Manager.',
             close: 'Uzavřít zprávu a znovunačíst hru(doporučeno)',
             abort: 'Zavřít zprávu bez znovunačtení hry',
         },

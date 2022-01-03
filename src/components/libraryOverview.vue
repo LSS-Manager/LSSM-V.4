@@ -20,7 +20,7 @@
                     <img
                         :src="
                             lib.icon ||
-                                'https://github.githubassets.com/pinned-octocat.svg'
+                            'https://github.githubassets.com/pinned-octocat.svg'
                         "
                         :alt="libraryName"
                     />

@@ -31,8 +31,9 @@ export default (LSSM: Vue): void => {
         if (additionalOverlay && additionalOverlay !== 'null')
             mission += `/${additionalOverlay}`;
         const missionSpecs: Mission | undefined = missionsById[mission];
-        span.textContent = `~ ${missionSpecs?.average_credits?.toLocaleString() ??
-            '–'}`;
+        span.textContent = `~ ${
+            missionSpecs?.average_credits?.toLocaleString() ?? '–'
+        }`;
         wrapper.append(span);
         bar.before(wrapper);
     };

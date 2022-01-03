@@ -33,7 +33,7 @@
             class="btn btn-success"
             :disabled="
                 endPage >= alliances.lastPage ||
-                    alliances.lastPage === Number.MAX_SAFE_INTEGER
+                alliances.lastPage === Number.MAX_SAFE_INTEGER
             "
             @click="loadNext"
         >

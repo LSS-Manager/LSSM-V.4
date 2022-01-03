@@ -22,13 +22,11 @@
                                         v-for="type in ['daily', 'monthly']"
                                         :key="type"
                                         class="btn"
-                                        :class="
-                                            `btn-${
-                                                kasse.earnings.type === type
-                                                    ? 'success'
-                                                    : 'default'
-                                            }`
-                                        "
+                                        :class="`btn-${
+                                            kasse.earnings.type === type
+                                                ? 'success'
+                                                : 'default'
+                                        }`"
                                         @click="setEarningsType(type)"
                                     >
                                         {{ lightbox.$sm(`earnings.${type}`) }}
@@ -126,13 +124,11 @@
                                         v-for="rate in 10"
                                         :key="rate"
                                         class="btn btn-xs btn-discount"
-                                        :class="
-                                            `btn-${
-                                                rate === kasse.rate
-                                                    ? 'success'
-                                                    : 'default'
-                                            }`
-                                        "
+                                        :class="`btn-${
+                                            rate === kasse.rate
+                                                ? 'success'
+                                                : 'default'
+                                        }`"
                                         @click="changeRate(rate)"
                                     >
                                         {{ rate }}%
@@ -152,7 +148,7 @@
                                 class="btn btn-success"
                                 :disabled="
                                     kasse.spendings.page >=
-                                        kasse.spendings.lastPage
+                                    kasse.spendings.lastPage
                                 "
                                 @click="loadMoreSpendings"
                             >

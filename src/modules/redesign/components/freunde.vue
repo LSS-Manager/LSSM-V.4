@@ -155,9 +155,9 @@ export default Vue.extend<
                 'authenticity_token',
                 this.friends.authenticity_token
             );
-            const note = (this.$refs[
-                `notes_${friend_id}`
-            ] as HTMLTextAreaElement[])[0].value;
+            const note = (
+                this.$refs[`notes_${friend_id}`] as HTMLTextAreaElement[]
+            )[0].value;
             url.searchParams.append('friend[comment]', note);
             this.$store
                 .dispatch('api/request', {

@@ -40,11 +40,10 @@
                         <div v-if="award.progress" class="progress">
                             <div
                                 class="progress-bar"
-                                :style="
-                                    `width: ${(award.progress[0] /
-                                        award.progress[1]) *
-                                        100}%`
-                                "
+                                :style="`width: ${
+                                    (award.progress[0] / award.progress[1]) *
+                                    100
+                                }%`"
                             ></div>
                         </div>
                     </div>

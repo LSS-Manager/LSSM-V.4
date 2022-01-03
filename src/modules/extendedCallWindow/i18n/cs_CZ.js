@@ -24,8 +24,7 @@ module.exports = {
             set: 'So often this combination is selected when you press the ARR',
             attribute: 'The combination described in this line',
             free: 'So often this combination is available',
-            max:
-                'You can select this ARR until this combination is no longer available',
+            max: 'You can select this ARR until this combination is no longer available',
         },
         arrSpecs: {
             fire: 'Firetrucks',

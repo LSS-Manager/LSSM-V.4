@@ -201,13 +201,16 @@ export default <RedesignParser<VehicleWindow>>(({
             .map(h => {
                 if (h.children.length <= 1) return null;
                 const isOwn = list === 'own_hospitals';
-                const alarmEl = h.children[isOwn ? 4 : 5].querySelector<
-                    HTMLAnchorElement
-                >('a');
+                const alarmEl =
+                    h.children[isOwn ? 4 : 5].querySelector<HTMLAnchorElement>(
+                        'a'
+                    );
                 return {
                     caption:
-                        ((h.children[0] as HTMLElement | null)
-                            ?.firstChild as Text)?.wholeText?.trim() ?? '',
+                        (
+                            (h.children[0] as HTMLElement | null)
+                                ?.firstChild as Text
+                        )?.wholeText?.trim() ?? '',
                     distance: h.children[1]?.textContent?.trim() ?? '',
                     beds: parseInt(h.children[2]?.textContent?.trim() ?? '-1'),
                     department: !!h.children[isOwn ? 3 : 4].querySelector(
@@ -278,9 +281,9 @@ export default <RedesignParser<VehicleWindow>>(({
                   name: userEl.textContent ?? '',
                   id: getIdFromEl(userEl),
                   online:
-                      (userEl?.previousElementSibling as HTMLImageElement | null)?.src?.endsWith(
-                          '/images/user_green.png'
-                      ) ?? false,
+                      (
+                          userEl?.previousElementSibling as HTMLImageElement | null
+                      )?.src?.endsWith('/images/user_green.png') ?? false,
               }
             : undefined,
         current_mission: currentMissionEl
@@ -317,12 +320,14 @@ export default <RedesignParser<VehicleWindow>>(({
                     )
                 )
                     .map(m => {
-                        const linkEl = m.children[2]?.querySelector<
-                            HTMLAnchorElement
-                        >('a[href^="/missions/"]');
-                        const progressEl = m.children[4]?.querySelector<
-                            HTMLDivElement
-                        >('.progress .progress-bar');
+                        const linkEl =
+                            m.children[2]?.querySelector<HTMLAnchorElement>(
+                                'a[href^="/missions/"]'
+                            );
+                        const progressEl =
+                            m.children[4]?.querySelector<HTMLDivElement>(
+                                '.progress .progress-bar'
+                            );
                         const id = getIdFromEl(linkEl);
                         if (mission_ids.includes(id)) return null;
                         mission_ids.push(id);
@@ -375,8 +380,8 @@ export default <RedesignParser<VehicleWindow>>(({
             ? hospital_departmentNode?.textContent?.trim() ?? ''
             : '',
         patient_releaseable: !!doc.querySelector('a[href$="/patient/-1"]'),
-        patient_doctor_transport: !!hospital_departmentNode?.nextSibling?.textContent?.trim()
-            .length,
+        patient_doctor_transport:
+            !!hospital_departmentNode?.nextSibling?.textContent?.trim().length,
         has_cells: hasCells,
         own_cells,
         alliance_cells,
@@ -389,9 +394,8 @@ export default <RedesignParser<VehicleWindow>>(({
                   wlf_table.querySelectorAll<HTMLTableRowElement>('tbody tr')
               ).map(wlf => {
                   const building = wlf.children[3];
-                  const buildingA = building.querySelector<HTMLAnchorElement>(
-                      'a'
-                  );
+                  const buildingA =
+                      building.querySelector<HTMLAnchorElement>('a');
                   return {
                       id: parseInt(
                           wlf.children[0]

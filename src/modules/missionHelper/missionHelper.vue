@@ -124,8 +124,8 @@
                 <li
                     v-if="
                         missionSpecs.additional.possible_patient_min &&
-                            missionSpecs.additional.possible_patient_min !==
-                                missionSpecs.additional.possible_patient
+                        missionSpecs.additional.possible_patient_min !==
+                            missionSpecs.additional.possible_patient
                     "
                     :data-amount="missionSpecs.additional.possible_patient_min"
                 >
@@ -189,11 +189,9 @@
                 <li
                     v-if="
                         missionSpecs.chances.patient_critical_care &&
-                            settings.patients.critical_care
+                        settings.patients.critical_care
                     "
-                    :data-amount="
-                        `${missionSpecs.chances.patient_critical_care}%`
-                    "
+                    :data-amount="`${missionSpecs.chances.patient_critical_care}%`"
                 >
                     {{ $m('patients.critical_care') }}
                 </li>
@@ -211,9 +209,7 @@
                 </li>
                 <li
                     v-if="missionSpecs.chances.patient_other_treatment"
-                    :data-amount="
-                        `${missionSpecs.chances.patient_other_treatment}%`
-                    "
+                    :data-amount="`${missionSpecs.chances.patient_other_treatment}%`"
                 >
                     {{ $m('patients.patient_other_treatment') }}
                 </li>
@@ -221,20 +217,16 @@
                     v-if="
                         missionSpecs.additional
                             .patient_allow_first_responder_chance &&
-                            settings.patients
-                                .patient_allow_first_responder_chance
+                        settings.patients.patient_allow_first_responder_chance
                     "
-                    :data-amount="
-                        `${missionSpecs.additional.patient_allow_first_responder_chance}%`
-                    "
+                    :data-amount="`${missionSpecs.additional.patient_allow_first_responder_chance}%`"
                 >
                     {{ $m('patients.patient_allow_first_responder_chance') }}
                 </li>
                 <li
                     v-if="
                         missionSpecs.additional.allow_ktw_instead_of_rtw &&
-                            settings.optionalAlternatives
-                                .allow_ktw_instead_of_rtw
+                        settings.optionalAlternatives.allow_ktw_instead_of_rtw
                     "
                 >
                     {{ $m('patients.allow_ktw_instead_of_rtw') }}
@@ -242,7 +234,7 @@
                 <li
                     v-if="
                         !maxState &&
-                            missionSpecs.additional.patient_at_end_of_mission
+                        missionSpecs.additional.patient_at_end_of_mission
                     "
                 >
                     <b>
@@ -258,8 +250,8 @@
             <h4
                 v-if="
                     settings.prisoners.title &&
-                        missionSpecs.additional &&
-                        missionSpecs.additional.max_possible_prisoners
+                    missionSpecs.additional &&
+                    missionSpecs.additional.max_possible_prisoners
                 "
             >
                 {{ $mc('prisoners.title', 0) }}
@@ -349,9 +341,9 @@
             <div
                 v-if="
                     !maxState &&
-                        settings.expansions &&
-                        missionSpecs.additional &&
-                        missionSpecs.additional.expansion_missions_ids
+                    settings.expansions &&
+                    missionSpecs.additional &&
+                    missionSpecs.additional.expansion_missions_ids
                 "
             >
                 {{
@@ -382,9 +374,9 @@
             <div
                 v-if="
                     !maxState &&
-                        settings.followup &&
-                        missionSpecs.additional &&
-                        missionSpecs.additional.followup_missions_ids
+                    settings.followup &&
+                    missionSpecs.additional &&
+                    missionSpecs.additional.followup_missions_ids
                 "
             >
                 {{
@@ -415,9 +407,9 @@
             <div
                 v-if="
                     !maxState &&
-                        settings.subsequent &&
-                        missionSpecs.additional &&
-                        missionSpecs.additional.subsequent_missions_ids
+                    settings.subsequent &&
+                    missionSpecs.additional &&
+                    missionSpecs.additional.subsequent_missions_ids
                 "
             >
                 {{
@@ -601,7 +593,7 @@ export default Vue.extend<
             return this.getVehicles(this.missionSpecs, false);
         },
         specialRequirements() {
-            const reqi18n = (this.$m('noVehicleRequirements') as unknown) as {
+            const reqi18n = this.$m('noVehicleRequirements') as unknown as {
                 [key: string]: {
                     badge: boolean;
                     text: string;
@@ -665,34 +657,42 @@ export default Vue.extend<
             this.isReloading = false;
         },
         async getMission(id) {
-            const missionsById: Record<string, Mission> = this.$store.getters[
-                'api/missionsById'
-            ];
+            const missionsById: Record<string, Mission> =
+                this.$store.getters['api/missionsById'];
             const mission: Mission | undefined = missionsById[id];
             if (mission) {
                 if (this.settings.expansions && mission.additional) {
-                    mission.additional.expansion_missions_names = Object.fromEntries(
-                        mission.additional.expansion_missions_ids?.map(id => [
-                            id,
-                            missionsById[id.toString()]?.name || '',
-                        ]) || []
-                    );
+                    mission.additional.expansion_missions_names =
+                        Object.fromEntries(
+                            mission.additional.expansion_missions_ids?.map(
+                                id => [
+                                    id,
+                                    missionsById[id.toString()]?.name || '',
+                                ]
+                            ) || []
+                        );
                 }
                 if (this.settings.followup && mission.additional) {
-                    mission.additional.followup_missions_names = Object.fromEntries(
-                        mission.additional.followup_missions_ids?.map(id => [
-                            id,
-                            missionsById[id.toString()]?.name || '',
-                        ]) || []
-                    );
+                    mission.additional.followup_missions_names =
+                        Object.fromEntries(
+                            mission.additional.followup_missions_ids?.map(
+                                id => [
+                                    id,
+                                    missionsById[id.toString()]?.name || '',
+                                ]
+                            ) || []
+                        );
                 }
                 if (this.settings.subsequent && mission.additional) {
-                    mission.additional.subsequent_missions_names = Object.fromEntries(
-                        mission.additional.subsequent_missions_ids?.map(id => [
-                            id,
-                            missionsById[id.toString()]?.name || '',
-                        ]) || []
-                    );
+                    mission.additional.subsequent_missions_names =
+                        Object.fromEntries(
+                            mission.additional.subsequent_missions_ids?.map(
+                                id => [
+                                    id,
+                                    missionsById[id.toString()]?.name || '',
+                                ]
+                            ) || []
+                        );
                 }
             }
             return mission;
@@ -904,9 +904,9 @@ export default Vue.extend<
                     }
                 });
             }
-            const multifunctionals = (this.$m(
+            const multifunctionals = this.$m(
                 'vehicles.multifunctionals'
-            ) as unknown) as {
+            ) as unknown as {
                 [multi: string]: {
                     additional_text: string;
                     reduce_from: string;
@@ -971,10 +971,11 @@ export default Vue.extend<
             while (
                 this.maxMissionSpecs?.additional?.expansion_missions_ids?.length
             ) {
-                const expansionId = this.maxMissionSpecs?.additional?.expansion_missions_ids.splice(
-                    0,
-                    1
-                )?.[0];
+                const expansionId =
+                    this.maxMissionSpecs?.additional?.expansion_missions_ids.splice(
+                        0,
+                        1
+                    )?.[0];
                 const specs = await this.getMission(expansionId.toString());
                 this.maxMissionSpecs.average_credits = Math.max(
                     this.maxMissionSpecs.average_credits ?? 0,
@@ -993,9 +994,8 @@ export default Vue.extend<
                 Object.entries(specs?.prerequisites ?? {}).forEach(
                     ([req, amount]) => {
                         if (this.maxMissionSpecs) {
-                            let maxReq = this.maxMissionSpecs.prerequisites[
-                                req
-                            ];
+                            let maxReq =
+                                this.maxMissionSpecs.prerequisites[req];
                             if (typeof maxReq !== 'number') maxReq = 0;
                             this.maxMissionSpecs.prerequisites[req] = Math.max(
                                 maxReq ?? 0,
@@ -1017,20 +1017,24 @@ export default Vue.extend<
                 this.maxMissionSpecs?.additional?.expansion_missions_ids?.push(
                     ...(specs?.additional?.expansion_missions_ids ?? [])
                 );
-                this.maxMissionSpecs.additional.max_possible_prisoners = Math.max(
-                    this.maxMissionSpecs.additional.max_possible_prisoners ?? 0,
-                    specs?.additional.max_possible_prisoners ?? 0
-                );
-                this.maxMissionSpecs.additional.average_min_police_personnel = Math.max(
-                    this.maxMissionSpecs.additional
-                        .average_min_police_personnel ?? 0,
-                    specs?.additional.average_min_police_personnel ?? 0
-                );
-                this.maxMissionSpecs.additional.average_min_fire_personnel = Math.max(
-                    this.maxMissionSpecs.additional
-                        .average_min_fire_personnel ?? 0,
-                    specs?.additional.average_min_fire_personnel ?? 0
-                );
+                this.maxMissionSpecs.additional.max_possible_prisoners =
+                    Math.max(
+                        this.maxMissionSpecs.additional
+                            .max_possible_prisoners ?? 0,
+                        specs?.additional.max_possible_prisoners ?? 0
+                    );
+                this.maxMissionSpecs.additional.average_min_police_personnel =
+                    Math.max(
+                        this.maxMissionSpecs.additional
+                            .average_min_police_personnel ?? 0,
+                        specs?.additional.average_min_police_personnel ?? 0
+                    );
+                this.maxMissionSpecs.additional.average_min_fire_personnel =
+                    Math.max(
+                        this.maxMissionSpecs.additional
+                            .average_min_fire_personnel ?? 0,
+                        specs?.additional.average_min_fire_personnel ?? 0
+                    );
                 this.maxMissionSpecs.additional.swat_personnel = Math.max(
                     this.maxMissionSpecs.additional.swat_personnel ?? 0,
                     specs?.additional.swat_personnel ?? 0
@@ -1061,8 +1065,10 @@ export default Vue.extend<
                 });
                 if (
                     !this.maxMissionSpecs.additional.all_patient_specializations
-                )
-                    this.maxMissionSpecs.additional.all_patient_specializations = [];
+                ) {
+                    this.maxMissionSpecs.additional.all_patient_specializations =
+                        [];
+                }
 
                 if (
                     specs?.additional.patient_specializations &&

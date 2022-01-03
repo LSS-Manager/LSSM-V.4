@@ -24,9 +24,8 @@ export default async (
         feature: `${MODULE_ID}-linkPreviews`,
     });
 
-    const previewLinkClass = LSSM.$store.getters.nodeAttribute(
-        'is-previewLink'
-    );
+    const previewLinkClass =
+        LSSM.$store.getters.nodeAttribute('is-previewLink');
     const attrSelectors = previews.map(
         p => `a[href^="/${p}/"]:not(.${previewLinkClass})`
     );
@@ -87,7 +86,7 @@ export default async (
 
     if (!LinkPreviewInstance) return;
 
-    const buildingIcons = (LSSM.$t('buildingIcons') as unknown) as string[];
+    const buildingIcons = LSSM.$t('buildingIcons') as unknown as string[];
 
     const generateInfobox = (e: MouseEvent) => {
         const type = (e.target as Element)
@@ -101,8 +100,9 @@ export default async (
         LinkPreviewInstance.setMousePosition(e.clientX, e.clientY);
         // Building
         if (type === 'buildings') {
-            const building = (LSSM.$store.state.api
-                .buildings as Building[]).find(b => b.id === id);
+            const building = (
+                LSSM.$store.state.api.buildings as Building[]
+            ).find(b => b.id === id);
             if (!building) return;
             const icon = buildingIcons[building.building_type] || 'building';
             LinkPreviewInstance.setBuilding(building, icon);

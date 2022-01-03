@@ -26,13 +26,11 @@
                                 <td colspan="2">
                                     <a :href="`/profile/${vehicle.user.id}`">
                                         <img
-                                            :src="
-                                                `/images/user_${
-                                                    vehicle.user.online
-                                                        ? 'green'
-                                                        : 'gray'
-                                                }.png`
-                                            "
+                                            :src="`/images/user_${
+                                                vehicle.user.online
+                                                    ? 'green'
+                                                    : 'gray'
+                                            }.png`"
                                             :alt="
                                                 lightbox.$sm(
                                                     vehicle.user.online
@@ -50,9 +48,7 @@
                                 <th>{{ lightbox.$sm('station') }}</th>
                                 <td :colspan="vehicle.can_move ? 1 : 2">
                                     <a
-                                        :href="
-                                            `/buildings/${vehicle.building.id}`
-                                        "
+                                        :href="`/buildings/${vehicle.building.id}`"
                                     >
                                         {{ vehicle.building.caption }}
                                     </a>
@@ -73,15 +69,13 @@
                                 </td>
                                 <td>
                                     <a
-                                        :href="
-                                            `/fahrzeugfarbe/${
-                                                vehicle.vehicle_type.id
-                                            }?close-after-submit${
-                                                vehicle.vehicle_type.custom
-                                                    ? `&vehicle_type_caption=${vehicle.vehicle_type.caption}`
-                                                    : ''
-                                            }`
-                                        "
+                                        :href="`/fahrzeugfarbe/${
+                                            vehicle.vehicle_type.id
+                                        }?close-after-submit${
+                                            vehicle.vehicle_type.custom
+                                                ? `&vehicle_type_caption=${vehicle.vehicle_type.caption}`
+                                                : ''
+                                        }`"
                                         class="btn btn-default btn-xs"
                                         :title="lightbox.$sm('color')"
                                         lightbox-open
@@ -101,9 +95,7 @@
                                 >
                                     <span
                                         class="building_list_fms"
-                                        :class="
-                                            `building_list_fms_${vehicle.fms}`
-                                        "
+                                        :class="`building_list_fms_${vehicle.fms}`"
                                     >
                                         {{
                                             $i18n.t('fmsReal2Show')[vehicle.fms]
@@ -125,7 +117,7 @@
                                         v-if="
                                             (vehicle.fms === 2 ||
                                                 vehicle.fms === 6) &&
-                                                !vehicle.user
+                                            !vehicle.user
                                         "
                                         class="btn btn-default btn-xs"
                                         @click="switch_state"
@@ -188,16 +180,14 @@
                                 <th>{{ lightbox.$sm('current_mission') }}</th>
                                 <td colspan="2">
                                     <a
-                                        :href="
-                                            `/missions/${vehicle.current_mission.id}`
-                                        "
+                                        :href="`/missions/${vehicle.current_mission.id}`"
                                     >
                                         {{ vehicle.current_mission.caption }}
                                     </a>
                                     <button
                                         v-if="
                                             vehicle.current_mission &&
-                                                !vehicle.user
+                                            !vehicle.user
                                         "
                                         class="btn btn-default btn-xs"
                                         @click="backalarm"
@@ -222,9 +212,7 @@
                                             :key="mission.id"
                                         >
                                             <a
-                                                :href="
-                                                    `/missions/${mission.id}`
-                                                "
+                                                :href="`/missions/${mission.id}`"
                                             >
                                                 {{ mission.caption }}
                                             </a>
@@ -285,9 +273,9 @@
                                         </thead>
                                         <tbody>
                                             <tr
-                                                v-for="(schooling,
-                                                name,
-                                                index) in vehicle.staff"
+                                                v-for="(
+                                                    schooling, name, index
+                                                ) in vehicle.staff"
                                                 :key="index"
                                             >
                                                 <td>{{ name }}</td>
@@ -340,10 +328,10 @@
             <div
                 v-if="
                     !vehicle.user &&
-                        !vehicle.has_hospitals &&
-                        !vehicle.has_cells &&
-                        !vehicle.has_wlfs &&
-                        missionList.length
+                    !vehicle.has_hospitals &&
+                    !vehicle.has_cells &&
+                    !vehicle.has_wlfs &&
+                    missionList.length
                 "
                 class="table-tabs"
             >
@@ -562,14 +550,10 @@
                             <div class="progress">
                                 <div
                                     class="progress-bar"
-                                    :class="
-                                        `progress-bar-${
-                                            color2Class[mission.status]
-                                        }`
-                                    "
-                                    :style="
-                                        `width: ${mission.progress.width}%;`
-                                    "
+                                    :class="`progress-bar-${
+                                        color2Class[mission.status]
+                                    }`"
+                                    :style="`width: ${mission.progress.width}%;`"
                                 >
                                     <div
                                         class="progress-striped-inner"
@@ -598,8 +582,7 @@
                                 class="label label-default"
                                 v-if="
                                     vehicle.current_mission &&
-                                        mission.id ===
-                                            vehicle.current_mission.id
+                                    mission.id === vehicle.current_mission.id
                                 "
                             >
                                 {{ lightbox.$sm('missions.alarmed') }}
@@ -794,13 +777,9 @@
                         <td>
                             <span
                                 class="label"
-                                :class="
-                                    `label-${
-                                        hospital.department
-                                            ? 'success'
-                                            : 'warning'
-                                    }`
-                                "
+                                :class="`label-${
+                                    hospital.department ? 'success' : 'warning'
+                                }`"
                             >
                                 {{ lightbox.$sm(hospital.department) }}
                             </span>
@@ -1050,20 +1029,16 @@
                         <td>
                             <span
                                 class="label"
-                                :class="
-                                    `label-${
-                                        wlf.building.same ? 'success' : 'danger'
-                                    }`
-                                "
+                                :class="`label-${
+                                    wlf.building.same ? 'success' : 'danger'
+                                }`"
                             >
                                 {{ lightbox.$sm(wlf.building.same) }}
                             </span>
                         </td>
                         <td>
                             <button
-                                :href="
-                                    `/vehicles/${vehicle.id}/alarm?vehicle_ids%5B%5D=${wlf.id}`
-                                "
+                                :href="`/vehicles/${vehicle.id}/alarm?vehicle_ids%5B%5D=${wlf.id}`"
                                 class="btn btn-success"
                             >
                                 {{ lightbox.$sm('wlf.alarm') }}
@@ -1075,13 +1050,11 @@
             <div class="btn-group nav-btns">
                 <button
                     class="btn btn-xs"
-                    :class="
-                        `btn-${
-                            vehicle.id === vehicle.previous_vehicle_id
-                                ? 'default'
-                                : 'success'
-                        }`
-                    "
+                    :class="`btn-${
+                        vehicle.id === vehicle.previous_vehicle_id
+                            ? 'default'
+                            : 'success'
+                    }`"
                     :href="
                         vehicle.id === vehicle.previous_vehicle_id
                             ? '#'
@@ -1093,13 +1066,11 @@
                 </button>
                 <button
                     class="btn btn-xs"
-                    :class="
-                        `btn-${
-                            vehicle.id === vehicle.next_vehicle_id
-                                ? 'default'
-                                : 'success'
-                        }`
-                    "
+                    :class="`btn-${
+                        vehicle.id === vehicle.next_vehicle_id
+                            ? 'default'
+                            : 'success'
+                    }`"
                     :href="
                         vehicle.id === vehicle.next_vehicle_id
                             ? '#'
@@ -1364,9 +1335,8 @@ export default Vue.extend<
         },
         missionListFiltered() {
             return this.missionList.map(m => {
-                const missionType = this.$store.getters['api/missionsById'][
-                    m.type
-                ];
+                const missionType =
+                    this.$store.getters['api/missionsById'][m.type];
                 const participation = this.participated_missions.includes(m.id);
                 const credits = missionType
                     ? missionType.average_credits || 0
@@ -1953,8 +1923,9 @@ export default Vue.extend<
                                 return LSSM.$modal.hide('dialog');
                             }
                             const url = new URL(
-                                `/missions/${LSSM.vehicle.current_mission?.id ??
-                                    0}/gefangene/entlassen`,
+                                `/missions/${
+                                    LSSM.vehicle.current_mission?.id ?? 0
+                                }/gefangene/entlassen`,
                                 window.location.origin
                             );
                             url.searchParams.append('_method', 'post');

@@ -70,17 +70,18 @@ export default Vue.extend<
             get() {
                 return !this.value.length && this.allOnNone
                     ? this.options
-                    : (this.value
-                          .map(v =>
-                              this.options.find(
-                                  o => o.value.toString() === v.toString()
+                    : (
+                          this.value
+                              .map(v =>
+                                  this.options.find(
+                                      o => o.value.toString() === v.toString()
+                                  )
                               )
-                          )
-                          .filter(
-                              v => !!v
-                          ) as MultiSelectComputed['updateValue']).sort(
-                          (a, b) =>
-                              a.value > b.value ? 1 : a.value < b.value ? -1 : 0
+                              .filter(
+                                  v => !!v
+                              ) as MultiSelectComputed['updateValue']
+                      ).sort((a, b) =>
+                          a.value > b.value ? 1 : a.value < b.value ? -1 : 0
                       );
             },
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
