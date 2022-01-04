@@ -37,7 +37,7 @@
 	"@types/leaflet": {
 		"icon": "https://avatars.githubusercontent.com/u/3637556",
 		"url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/leaflet",
-		"version": "1.7.7"
+		"version": "1.7.8"
 	},
 	"@types/lodash": {
 		"icon": "https://avatars.githubusercontent.com/u/3637556",
@@ -90,11 +90,11 @@
 	},
 	"@typescript-eslint/eslint-plugin": {
 		"icon": "https://avatars.githubusercontent.com/u/46634674",
-		"version": "5.8.1"
+		"version": "5.9.0"
 	},
 	"@typescript-eslint/parser": {
 		"icon": "https://avatars.githubusercontent.com/u/46634674",
-		"version": "5.8.1"
+		"version": "5.9.0"
 	},
 	"@vuepress/plugin-active-header-links": {
 		"icon": "https://vuepress.vuejs.org/hero.png",
