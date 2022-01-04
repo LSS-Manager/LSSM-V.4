@@ -198,7 +198,14 @@
                         <a :href="`/alliances/${profile.alliance.id}`">
                             {{ profile.alliance.name }}
                         </a>
-                        <ul v-if="allianceUser" class="alliance-roles">
+                        <ul
+                            v-if="
+                                allianceUser &&
+                                (allianceUser.roles.length ||
+                                    allianceUser.caption)
+                            "
+                            class="alliance-roles"
+                        >
                             <li v-for="role in allianceUser.roles" :key="role">
                                 {{ role }}
                             </li>
