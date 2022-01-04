@@ -198,6 +198,16 @@
                         <a :href="`/alliances/${profile.alliance.id}`">
                             {{ profile.alliance.name }}
                         </a>
+                        <ul v-if="allianceUser" class="alliance-roles">
+                            <li v-for="role in allianceUser.roles" :key="role">
+                                {{ role }}
+                            </li>
+                            <li v-if="allianceUser.caption">
+                                <span class="label label-default">
+                                    {{ allianceUser.caption }}
+                                </span>
+                            </li>
+                        </ul>
                     </div>
                 </div>
                 <a
@@ -556,6 +566,7 @@ import { PlotGaugeOptions } from 'highcharts';
 import { ProfileWindow } from '../parsers/profile';
 import { RedesignComponent } from 'typings/modules/Redesign';
 import { TranslateResult } from 'vue-i18n';
+import { AllianceInfo, User } from 'typings/api/AllianceInfo';
 
 HighchartsMore(Highcharts);
 HighchartsSolidGauge(Highcharts);
@@ -597,6 +608,7 @@ type Component = RedesignComponent<
         search: string;
         hiddenFilters: number[];
         show_map: boolean;
+        allianceUser: User | undefined;
     },
     {
         allianceIgnore(): void;
@@ -671,6 +683,7 @@ export default Vue.extend<
             search: '',
             hiddenFilters: [],
             show_map: false,
+            allianceUser: undefined,
         };
     },
     methods: {
@@ -912,6 +925,15 @@ export default Vue.extend<
         this.getSetting('hiddenFilters', []).then(
             f => (this.hiddenFilters = f)
         );
+        this.$store
+            .dispatch('api/registerAllianceinfoUsage', {
+                feature: 'redesign-profile',
+            })
+            .then((allianceinfo: AllianceInfo) => {
+                this.allianceUser = allianceinfo.users.find(
+                    ({ id }) => id === this.profile.id
+                );
+            });
         this.maxAwards = parseInt(this.lightbox.$sm('awards.max').toString());
         if (this.$store.state.darkmode)
             Highcharts.setOptions(this.$utils.highChartsDarkMode);
@@ -1062,6 +1084,13 @@ export default Vue.extend<
             min-width: 90%
             display: block
             margin: auto
+
+        .alliance-roles
+            list-style: none
+            margin-bottom: 0
+
+            li
+                list-style: none
 
     .profile-tabs
         width: 100%

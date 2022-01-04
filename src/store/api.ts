@@ -676,6 +676,7 @@ export default {
                     API_MIN_UPDATE
                 );
             }
+            return allianceinfo;
         },
         async registerSettings(
             store: APIActionStoreParams,
