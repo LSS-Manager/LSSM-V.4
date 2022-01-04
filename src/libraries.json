@@ -141,6 +141,7 @@
 		"version": "8.6.0"
 	},
 	"eslint-config-prettier": {
+		"icon": "https://prettier.io/icon.png",
 		"version": "8.3.0"
 	},
 	"eslint-formatter-table": {
@@ -208,6 +209,7 @@
 		"version": "0.2.4"
 	},
 	"prettier": {
+		"icon": "https://prettier.io/icon.png",
 		"url": "https://prettier.io",
 		"version": "2.5.1"
 	},
