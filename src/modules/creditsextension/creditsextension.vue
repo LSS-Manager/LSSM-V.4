@@ -6,11 +6,9 @@
             'highlight-consistent': highlightedConsistend,
         }"
         :id="id"
-        :title="
-            `${$t('credits')}: ${creditsLocalized}\n${$t(
-                'coins'
-            )}: ${coinsLocalized}`
-        "
+        :title="`${$t('credits')}: ${creditsLocalized}\n${$t(
+            'coins'
+        )}: ${coinsLocalized}`"
         @click="() => (highlightedConsistend = false)"
     >
         <a
@@ -217,13 +215,13 @@ export default Vue.extend<
             coinsIcon: '',
             highlighted: false,
             highlightedConsistend: false,
-            ranks: (this.$t(
+            ranks: this.$t(
                 `ranks.${
                     this.$store.state.policechief
                         ? 'policechief'
                         : 'missionchief'
                 }`
-            ) as unknown) as Record<string, string>,
+            ) as unknown as Record<string, string>,
             creditsInNav: false,
             coinsInNav: false,
             showToplistPosition: false,

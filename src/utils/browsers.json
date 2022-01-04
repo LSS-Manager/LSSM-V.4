@@ -1,22 +1,22 @@
 {
-	"chrome": {
-		"download": "https://chrome.com",
-		"latest": 96,
-		"supported": 84
-	},
-	"edge": {
-		"download": "https://microsoft.com/edge",
-		"latest": 96,
-		"supported": 86
-	},
-	"firefox": {
-		"download": "https://firefox.com",
-		"latest": 95,
-		"supported": 79
-	},
-	"opera": {
-		"download": "https://opera.com",
-		"latest": 82,
-		"supported": 70
-	}
+    "chrome": {
+        "download": "https://chrome.com",
+        "latest": 96,
+        "supported": 84
+    },
+    "edge": {
+        "download": "https://microsoft.com/edge",
+        "latest": 96,
+        "supported": 86
+    },
+    "firefox": {
+        "download": "https://firefox.com",
+        "latest": 95,
+        "supported": 79
+    },
+    "opera": {
+        "download": "https://opera.com",
+        "latest": 82,
+        "supported": 70
+    }
 }

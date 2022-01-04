@@ -140,6 +140,9 @@
 		"url": "https://eslint.org",
 		"version": "8.6.0"
 	},
+	"eslint-config-prettier": {
+		"version": "8.3.0"
+	},
 	"eslint-formatter-table": {
 		"icon": "https://eslint.org/assets/img/favicon.512x512.png",
 		"version": "7.32.1"
@@ -203,6 +206,10 @@
 	"pdfmake": {
 		"url": "http://pdfmake.org",
 		"version": "0.2.4"
+	},
+	"prettier": {
+		"url": "https://prettier.io",
+		"version": "2.5.1"
 	},
 	"qrcode": {
 		"url": "http://github.com/soldair/node-qrcode",

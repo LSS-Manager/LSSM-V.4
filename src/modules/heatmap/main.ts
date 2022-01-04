@@ -81,8 +81,9 @@ export default <ModuleMainFunction>(async (LSSM, MODULE_ID, $m) => {
             const buildingTypes = buildingsSettings.includes.map(
                 ({ value }) => value
             );
-            const buildings = (LSSM.$store.state.api
-                .buildings as Building[]).filter(({ building_type }) =>
+            const buildings = (
+                LSSM.$store.state.api.buildings as Building[]
+            ).filter(({ building_type }) =>
                 buildingTypes.includes(building_type)
             );
             heatLayer.setLatLngs(
@@ -96,8 +97,7 @@ export default <ModuleMainFunction>(async (LSSM, MODULE_ID, $m) => {
                 ({ value }) => value
             );
             const buildingsById = Object.fromEntries(
-                (LSSM.$store.state.api
-                    .buildings as Building[]).map(
+                (LSSM.$store.state.api.buildings as Building[]).map(
                     ({ id, latitude, longitude }) => [
                         id,
                         { latitude, longitude },

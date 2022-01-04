@@ -272,7 +272,7 @@ export default Vue.extend<
         },
     },
     mounted() {
-        this.getModuleSettings().then((settings) =>
+        this.getModuleSettings().then(settings =>
             Object.entries(settings).forEach(([setting, value]) =>
                 this.$set(
                     this.settings,
