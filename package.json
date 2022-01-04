@@ -1,5 +1,5 @@
 {
-    "version": "4.4.5+20220103.0312",
+    "version": "4.4.5+20220104.1100",
     "license": "CC-BY-NC-SA-4.0",
     "scripts": {
         "predev": "ts-node scripts predev",
@@ -61,8 +61,8 @@
         "@types/ua-parser-js": "^0.7.36",
         "@types/vue-select": "^3.16.0",
         "@types/webpack-env": "^1.16.3",
-        "@typescript-eslint/eslint-plugin": "^5.8.1",
-        "@typescript-eslint/parser": "^5.8.1",
+        "@typescript-eslint/eslint-plugin": "^5.9.0",
+        "@typescript-eslint/parser": "^5.9.0",
         "@vuepress/plugin-active-header-links": "^1.9.5",
         "@vuepress/plugin-back-to-top": "^1.9.5",
         "all-contributors-cli": "^6.20.0",
