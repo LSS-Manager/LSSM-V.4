@@ -151,15 +151,16 @@ type Subsetting<Scope extends Mode | ''> = Record<
 
 export type Settings = {
     position: 'bottom-left' | 'bottom-right' | 'top-left' | 'top-right';
+    active: boolean;
     heatmapMode: Mode;
 } & Subsetting<'buildings'> &
     Subsetting<'vehicles'>;
 
-export type UpdateSettings = (updated: Settings) => void;
+export type UpdateSettings = (updated: Omit<Settings, 'active'>) => void;
 
 export default Vue.extend<
     {
-        settings: Settings;
+        settings: Omit<Settings, 'active'>;
         ids: Record<keyof Subsetting<''>, string>;
         icons: { faSlidersH: IconDefinition };
         maxZoom: number;
@@ -318,13 +319,18 @@ export default Vue.extend<
     },
     mounted() {
         this.getModuleSettings().then(settings =>
-            Object.entries(settings).forEach(([setting, value]) =>
-                this.$set(
-                    this.settings,
-                    setting,
-                    value ?? this.settings[setting as keyof Settings]
-                )
-            )
+            Object.entries(settings).forEach(([setting, value]) => {
+                if (setting !== 'active') {
+                    this.$set(
+                        this.settings,
+                        setting,
+                        value ??
+                            this.settings[
+                                setting as Exclude<keyof Settings, 'active'>
+                            ]
+                    );
+                }
+            })
         );
     },
 });

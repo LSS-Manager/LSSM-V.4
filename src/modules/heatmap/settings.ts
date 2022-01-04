@@ -10,6 +10,9 @@ export default <ModuleSettingFunction>((_, __, $m) => {
             labels: Object.values(positions),
             default: 'bottom-left',
         },
+        active: <Hidden>{
+            type: 'hidden',
+        },
         heatmapMode: <Hidden>{
             type: 'hidden',
         },

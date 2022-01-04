@@ -140,8 +140,6 @@ export default <ModuleMainFunction>(async (LSSM, MODULE_ID, $m) => {
         heatLayer.setLatLngs(points);
     };
 
-    setData();
-
     const update: UpdateSettings = updated => {
         heatmapMode = updated.heatmapMode;
         buildingsSettings.staticRadius = updated.buildingsStaticRadius;
@@ -256,10 +254,17 @@ export default <ModuleMainFunction>(async (LSSM, MODULE_ID, $m) => {
                 )
             );
 
-            toggleCheckbox.addEventListener('change', () =>
+            toggleCheckbox.addEventListener('change', () => {
                 heatLayer[toggleCheckbox.checked ? 'addTo' : 'removeFrom'](
                     window.map
-                )
-            );
+                );
+                if (toggleCheckbox.checked) setData();
+                setSetting('active', toggleCheckbox.checked).then();
+            });
+
+            if (settings.active) {
+                toggleCheckbox.checked = true;
+                toggleCheckbox.dispatchEvent(new Event('change'));
+            }
         });
 });
