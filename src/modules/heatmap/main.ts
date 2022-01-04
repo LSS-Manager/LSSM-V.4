@@ -106,8 +106,11 @@ export default <ModuleMainFunction>(async (LSSM, MODULE_ID, $m) => {
             );
             const points: LatLng[] = [];
             (LSSM.$store.state.api.vehicles as Vehicle[])
-                .filter(({ vehicle_type }) =>
-                    vehicleTypes.includes(vehicle_type)
+                .filter(
+                    ({ vehicle_type, vehicle_type_caption }) =>
+                        vehicleTypes.includes(vehicle_type) ||
+                        (vehicle_type_caption &&
+                            vehicleTypes.includes(vehicle_type_caption))
                 )
                 .forEach(({ building_id }) => {
                     const { latitude, longitude } = buildingsById[building_id];
