@@ -37,7 +37,7 @@
 	"@types/leaflet": {
 		"icon": "https://avatars.githubusercontent.com/u/3637556",
 		"url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/leaflet",
-		"version": "1.7.7"
+		"version": "1.7.8"
 	},
 	"@types/lodash": {
 		"icon": "https://avatars.githubusercontent.com/u/3637556",
