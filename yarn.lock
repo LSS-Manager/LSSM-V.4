@@ -1236,10 +1236,10 @@
   resolved "https://registry.yarnpkg.com/@types/json-schema/-/json-schema-7.0.9.tgz#97edc9037ea0c38585320b28964dde3b39e4660d"
   integrity sha512-qcUXuemtEu+E5wZSJHNxUXeCZhAfXKQ41D+duX+VYPde7xyEVZci+/oXKJL13tnRs9lR2pr4fod59GT6/X1/yQ==
 
-"@types/leaflet@^1.7.7":
-  version "1.7.7"
-  resolved "https://registry.yarnpkg.com/@types/leaflet/-/leaflet-1.7.7.tgz#3c9f629126e03405ed68cc1aa395e32df3312376"
-  integrity sha512-5/nNqTviSqUwPxbS3PlHl8ODjfnlpOXSFtUAi7dexnisO8E3pfyotChRY/hlIYGvbBiBcKNd6V18xA8O4OpHiQ==
+"@types/leaflet@^1.7.8":
+  version "1.7.8"
+  resolved "https://registry.yarnpkg.com/@types/leaflet/-/leaflet-1.7.8.tgz#fbae5a3a3d22780632715287764352f80bbe3d4a"
+  integrity sha512-prZwhmUznkwTYCTZVGTR4U1GzgPP3PAWYYQ3wDgVkIoiuQTheWoycsXx4Rz9ARYhlDTl0Ycd8lvhH2/rNSkqIg==
   dependencies:
     "@types/geojson" "*"
 
