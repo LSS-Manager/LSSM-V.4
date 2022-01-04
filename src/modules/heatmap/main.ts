@@ -1,10 +1,12 @@
 import 'leaflet.heat';
 
 import { Building } from 'typings/Building';
-import { LatLng } from 'leaflet';
 import { ModuleMainFunction } from 'typings/Module';
 import { Vehicle } from 'typings/Vehicle';
+import { LatLng, Map } from 'leaflet';
 import { Settings, UpdateSettings } from './heatmapSettings.vue';
+
+type HeatLayer = { setLatLngs: (points: LatLng[]) => void };
 
 export default <ModuleMainFunction>(async (LSSM, MODULE_ID, $m) => {
     await LSSM.$store.dispatch('api/registerBuildingsUsage', {
@@ -26,14 +28,13 @@ export default <ModuleMainFunction>(async (LSSM, MODULE_ID, $m) => {
     const getModuleSettings = (): Promise<Settings> =>
         LSSM.$store.dispatch('settings/getModule', MODULE_ID);
 
-    const pxPerMeter = () => {
-        const CenterOfMap = window.map.getSize().y / 2;
+    const pxPerMeter = (map: Map) => {
+        const CenterOfMap = map.getSize().y / 2;
         return (
-            window.map
+            map
                 .containerPointToLatLng([0, CenterOfMap])
-                .distanceTo(
-                    window.map.containerPointToLatLng([100, CenterOfMap])
-                ) / 100
+                .distanceTo(map.containerPointToLatLng([100, CenterOfMap])) /
+            100
         );
     };
 
@@ -60,25 +61,17 @@ export default <ModuleMainFunction>(async (LSSM, MODULE_ID, $m) => {
     const getSubsettings = () =>
         heatmapMode === 'buildings' ? buildingsSettings : vehicleSettings;
 
-    const getLayerOptions = () => {
+    const getLayerOptions = (map: Map) => {
         const subsettings = getSubsettings();
         return {
             radius: subsettings.staticRadius
                 ? subsettings.radiusPx
-                : subsettings.radiusM / pxPerMeter(),
+                : subsettings.radiusM / pxPerMeter(map),
             maxZoom: window.map.getMaxZoom() - subsettings.intensityMaxZoom,
         };
     };
 
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    const heatLayer = window.L.heatLayer([], getLayerOptions());
-
-    window.map.on('zoomend', () => {
-        heatLayer.setOptions(getLayerOptions());
-    });
-
-    const setData = () => {
+    const setData = (heatLayer: HeatLayer) => {
         const buildings = LSSM.$store.state.api.buildings as Building[];
         const buildingsById = Object.fromEntries(
             buildings.map(({ id, latitude, longitude }) => [
@@ -140,131 +133,159 @@ export default <ModuleMainFunction>(async (LSSM, MODULE_ID, $m) => {
         heatLayer.setLatLngs(points);
     };
 
-    const update: UpdateSettings = updated => {
-        heatmapMode = updated.heatmapMode;
-        buildingsSettings.staticRadius = updated.buildingsStaticRadius;
-        buildingsSettings.radiusM = updated.buildingsRadiusM;
-        buildingsSettings.radiusPx = updated.buildingsRadiusPx;
-        buildingsSettings.intensityMaxZoom = updated.buildingsIntensityMaxZoom;
-        buildingsSettings.includes = updated.buildingsIncludes;
-        vehicleSettings.staticRadius = updated.vehiclesStaticRadius;
-        vehicleSettings.radiusM = updated.vehiclesRadiusM;
-        vehicleSettings.radiusPx = updated.vehiclesRadiusPx;
-        vehicleSettings.intensityMaxZoom = updated.vehiclesIntensityMaxZoom;
-        vehicleSettings.includes = updated.vehiclesIncludes;
+    const update: (map: Map, heatLayer: HeatLayer) => UpdateSettings =
+        (map: Map, heatLayer: HeatLayer) => updated => {
+            heatmapMode = updated.heatmapMode;
+            buildingsSettings.staticRadius = updated.buildingsStaticRadius;
+            buildingsSettings.radiusM = updated.buildingsRadiusM;
+            buildingsSettings.radiusPx = updated.buildingsRadiusPx;
+            buildingsSettings.intensityMaxZoom =
+                updated.buildingsIntensityMaxZoom;
+            buildingsSettings.includes = updated.buildingsIncludes;
+            vehicleSettings.staticRadius = updated.vehiclesStaticRadius;
+            vehicleSettings.radiusM = updated.vehiclesRadiusM;
+            vehicleSettings.radiusPx = updated.vehiclesRadiusPx;
+            vehicleSettings.intensityMaxZoom = updated.vehiclesIntensityMaxZoom;
+            vehicleSettings.includes = updated.vehiclesIncludes;
 
-        setData();
+            setData(heatLayer);
 
-        window.map.fireEvent('zoomend');
+            map.fireEvent('zoomend');
+        };
+
+    const initHeatmap = (map: Map) => {
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        const heatLayer = window.L.heatLayer([], getLayerOptions(map));
+
+        map.on('zoomend', () => {
+            heatLayer.setOptions(getLayerOptions(map));
+        });
+
+        LSSM.$store
+            .dispatch('addOSMControl', {
+                mapId: map.getContainer().id,
+                position: settings.position ?? 'bottom-left',
+            })
+            .then((control: HTMLAnchorElement) => {
+                control.id =
+                    LSSM.$store.getters.nodeAttribute('heatmap-control');
+
+                const icon = document.createElement('i');
+                icon.classList.add('fas', 'fa-layer-group');
+
+                const dropup = document.createElement('ul');
+                dropup.classList.add('dropdown-menu');
+                if (settings.position.includes('right'))
+                    dropup.classList.add('dropdown-menu-right');
+
+                const settingsLi = document.createElement('li');
+                const settingsBtn = document.createElement('button');
+                settingsBtn.classList.add('btn', 'btn-default', 'btn-xs');
+                settingsLi.append(settingsBtn);
+                const settingsIcon = document.createElement('i');
+                settingsIcon.classList.add('fas', 'fa-cogs');
+                settingsBtn.append(settingsIcon);
+
+                const toggleLi = document.createElement('li');
+                toggleLi.classList.add('checkbox');
+                const toggleLabel = document.createElement('label');
+                toggleLabel.textContent = $m('enable').toString();
+                const toggleCheckbox = document.createElement('input');
+                toggleCheckbox.type = 'checkbox';
+                toggleLabel.prepend(toggleCheckbox);
+                toggleLi.append(toggleLabel);
+
+                dropup.append(settingsLi, toggleLi);
+
+                control.append(icon, dropup);
+
+                control.addEventListener('click', e => {
+                    if (
+                        !(e.target as HTMLElement | null)?.closest(
+                            '.dropdown-menu'
+                        )
+                    )
+                        control.classList.toggle('open');
+                });
+
+                LSSM.$store.dispatch('addStyles', [
+                    {
+                        selectorText: `#${control.id}`,
+                        style: {
+                            cursor: 'pointer',
+                        },
+                    },
+                    {
+                        selectorText: `#${control.id} ul`,
+                        style: {
+                            'top': 'auto',
+                            'bottom': settings.position.includes('bottom')
+                                ? '100%'
+                                : 'unset',
+                            'margin-bottom': '2px',
+                        },
+                    },
+                    {
+                        selectorText: `#${control.id}.open ul`,
+                        style: {
+                            display: 'block !important',
+                        },
+                    },
+                    {
+                        selectorText: `#${control.id}.open ul li`,
+                        style: {
+                            'padding-left': '1rem',
+                        },
+                    },
+                    {
+                        selectorText: `#${control.id}.open ul li.checkbox`,
+                        style: {
+                            margin: '0',
+                        },
+                    },
+                ]);
+
+                settingsBtn.addEventListener('click', () =>
+                    LSSM.$modal.show(
+                        () =>
+                            import(
+                                /* webpackChunkName: "modules/heatmap/settings" */ './heatmapSettings.vue'
+                            ),
+                        {
+                            setSetting,
+                            getModuleSettings,
+                            updateSettings: update(map, heatLayer),
+                            $m,
+                        },
+                        { name: 'heatmap-settings', height: '90%' }
+                    )
+                );
+
+                toggleCheckbox.addEventListener('change', () => {
+                    heatLayer[toggleCheckbox.checked ? 'addTo' : 'removeFrom'](
+                        map
+                    );
+                    if (toggleCheckbox.checked) setData(heatLayer);
+                    setSetting('active', toggleCheckbox.checked).then();
+                });
+
+                if (settings.active) {
+                    toggleCheckbox.checked = true;
+                    toggleCheckbox.dispatchEvent(new Event('change'));
+                }
+            });
     };
 
-    LSSM.$store
-        .dispatch('addOSMControl', {
-            position: settings.position ?? 'bottom-left',
-        })
-        .then((control: HTMLAnchorElement) => {
-            control.id = LSSM.$store.getters.nodeAttribute('heatmap-control');
+    if (window.map) initHeatmap(window.map);
 
-            const icon = document.createElement('i');
-            icon.classList.add('fas', 'fa-layer-group');
-
-            const dropup = document.createElement('ul');
-            dropup.classList.add('dropdown-menu');
-            if (settings.position.includes('right'))
-                dropup.classList.add('dropdown-menu-right');
-
-            const settingsLi = document.createElement('li');
-            const settingsBtn = document.createElement('button');
-            settingsBtn.classList.add('btn', 'btn-default', 'btn-xs');
-            settingsLi.append(settingsBtn);
-            const settingsIcon = document.createElement('i');
-            settingsIcon.classList.add('fas', 'fa-cogs');
-            settingsBtn.append(settingsIcon);
-
-            const toggleLi = document.createElement('li');
-            toggleLi.classList.add('checkbox');
-            const toggleLabel = document.createElement('label');
-            toggleLabel.textContent = $m('enable').toString();
-            const toggleCheckbox = document.createElement('input');
-            toggleCheckbox.type = 'checkbox';
-            toggleLabel.prepend(toggleCheckbox);
-            toggleLi.append(toggleLabel);
-
-            dropup.append(settingsLi, toggleLi);
-
-            control.append(icon, dropup);
-
-            control.addEventListener('click', e => {
-                if (
-                    !(e.target as HTMLElement | null)?.closest('.dropdown-menu')
-                )
-                    control.classList.toggle('open');
-            });
-
-            LSSM.$store.dispatch('addStyles', [
-                {
-                    selectorText: `#${control.id}`,
-                    style: {
-                        cursor: 'pointer',
-                    },
-                },
-                {
-                    selectorText: `#${control.id} ul`,
-                    style: {
-                        'top': 'auto',
-                        'bottom': settings.position.includes('bottom')
-                            ? '100%'
-                            : 'unset',
-                        'margin-bottom': '2px',
-                    },
-                },
-                {
-                    selectorText: `#${control.id}.open ul`,
-                    style: {
-                        display: 'block !important',
-                    },
-                },
-                {
-                    selectorText: `#${control.id}.open ul li`,
-                    style: {
-                        'padding-left': '1rem',
-                    },
-                },
-                {
-                    selectorText: `#${control.id}.open ul li.checkbox`,
-                    style: {
-                        margin: '0',
-                    },
-                },
-            ]);
-
-            settingsBtn.addEventListener('click', () =>
-                LSSM.$modal.show(
-                    () =>
-                        import(
-                            /* webpackChunkName: "modules/heatmap/settings" */ './heatmapSettings.vue'
-                        ),
-                    {
-                        setSetting,
-                        getModuleSettings,
-                        updateSettings: update,
-                        $m,
-                    },
-                    { name: 'heatmap-settings', height: '90%' }
-                )
-            );
-
-            toggleCheckbox.addEventListener('change', () => {
-                heatLayer[toggleCheckbox.checked ? 'addTo' : 'removeFrom'](
-                    window.map
-                );
-                if (toggleCheckbox.checked) setData();
-                setSetting('active', toggleCheckbox.checked).then();
-            });
-
-            if (settings.active) {
-                toggleCheckbox.checked = true;
-                toggleCheckbox.dispatchEvent(new Event('change'));
-            }
-        });
+    if (window.location.pathname.startsWith(`/profile/${window.user_id}`)) {
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        window.addEventListener(
+            'lssmv4-map-loaded',
+            ({ detail: { map } }: CustomEvent<{ id: string; map: Map }>) =>
+                initHeatmap(map)
+        );
+    }
 });
