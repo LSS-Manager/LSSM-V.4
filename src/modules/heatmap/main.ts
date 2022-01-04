@@ -116,7 +116,9 @@ export default <ModuleMainFunction>(async (LSSM, MODULE_ID, $m) => {
                         !(
                             vehicleTypes.includes(vehicle_type.toString()) ||
                             (vehicle_type_caption &&
-                                vehicleTypes.includes(vehicle_type_caption))
+                                vehicleTypes.includes(
+                                    `[${vehicle_type}] ${vehicle_type_caption}`
+                                ))
                         )
                     )
                         return;

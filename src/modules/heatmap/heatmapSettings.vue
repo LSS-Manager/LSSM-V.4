@@ -254,7 +254,7 @@ export default Vue.extend<
                     ...(this.$store.state.api.vehicles as Vehicle[])
                         .filter(v => v.vehicle_type_caption)
                         .map(({ vehicle_type, vehicle_type_caption = '' }) => ({
-                            value: `[${this.vehicleTypes[vehicle_type].caption}] ${vehicle_type_caption}`,
+                            value: `[${vehicle_type}] ${vehicle_type_caption}`,
                             label: `[${this.vehicleTypes[vehicle_type].caption}] ${vehicle_type_caption}`,
                         }))
                         .filter(
