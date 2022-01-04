@@ -264,31 +264,32 @@ export default Vue.extend<
                                 ) === index
                         ),
                 ].sort(({ label: labelA }, { label: labelB }) =>
-                    labelA > labelB ? 1 : labelA < labelB ? -1 : 0
+                    labelA.toUpperCase() > labelB.toUpperCase()
+                        ? 1
+                        : labelA.toUpperCase() < labelB.toUpperCase()
+                        ? -1
+                        : 0
                 );
             } else if (this.settings.heatmapMode === 'buildings') {
                 return Object.entries(
-                    this.$t('buildings') as Record<
-                        string | number,
-                        InternalBuilding
-                    >
+                    this.$t('buildings') as Record<number, InternalBuilding>
                 )
                     .flatMap(([id, { caption, extensions = [] }]) => [
                         { value: id, label: caption },
-                        // ...extensions
-                        //     .filter(e => e)
-                        //     .flatMap(({ caption: extensionCaption }, index) => [
-                        //         {
-                        //             value: `${id}-${index}`,
-                        //             label: `${caption} - ${extensionCaption}`,
-                        //         },
-                        //     ])
-                        //     .filter(
-                        //         ({ label: findLabel }, index, array) =>
-                        //             array.findIndex(
-                        //                 ({ label }) => label === findLabel
-                        //             ) === index
-                        //     ),
+                        ...extensions
+                            .filter(e => e)
+                            .flatMap(({ caption: extensionCaption }) => [
+                                {
+                                    value: `${id}-${extensionCaption}`,
+                                    label: `${caption} - ${extensionCaption}`,
+                                },
+                            ])
+                            .filter(
+                                ({ label: findLabel }, index, array) =>
+                                    array.findIndex(
+                                        ({ label }) => label === findLabel
+                                    ) === index
+                            ),
                     ])
                     .sort(({ label: labelA }, { label: labelB }) =>
                         labelA > labelB ? 1 : labelA < labelB ? -1 : 0

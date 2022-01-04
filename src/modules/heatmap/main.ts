@@ -14,6 +14,8 @@ export default <ModuleMainFunction>(async (LSSM, MODULE_ID, $m) => {
         feature: 'heatmap',
     });
 
+    LSSM.$store.commit('useFontAwesome');
+
     const setSetting = <T>(settingId: string, value: T): Promise<void> =>
         LSSM.$store.dispatch('settings/setSetting', {
             moduleId: MODULE_ID,
@@ -77,42 +79,47 @@ export default <ModuleMainFunction>(async (LSSM, MODULE_ID, $m) => {
     });
 
     const setData = () => {
+        const buildings = LSSM.$store.state.api.buildings as Building[];
+        const buildingsById = Object.fromEntries(
+            buildings.map(({ id, latitude, longitude }) => [
+                id,
+                { latitude, longitude },
+            ])
+        );
+
+        const points: LatLng[] = [];
+
         if (heatmapMode === 'buildings') {
-            const buildingTypes = buildingsSettings.includes.map(
+            const includedIds = buildingsSettings.includes.map(
                 ({ value }) => value
             );
-            const buildings = (
-                LSSM.$store.state.api.buildings as Building[]
-            ).filter(({ building_type }) =>
-                buildingTypes.includes(building_type)
-            );
-            heatLayer.setLatLngs(
-                buildings.map(
-                    ({ latitude, longitude }) =>
-                        new window.L.LatLng(latitude, longitude, 1)
-                )
+            buildings.forEach(
+                ({ building_type, latitude, longitude, extensions }) => {
+                    const point = new window.L.LatLng(latitude, longitude, 0);
+                    if (includedIds.includes(building_type.toString()))
+                        point.alt = (point.alt ?? 0) + 1;
+
+                    extensions.forEach(({ caption }) => {
+                        if (includedIds.includes(`${building_type}-${caption}`))
+                            point.alt = (point.alt ?? 0) + 1;
+                    });
+                    if (point.alt) points.push(point);
+                }
             );
         } else {
             const vehicleTypes = vehicleSettings.includes.map(
                 ({ value }) => value
             );
-            const buildingsById = Object.fromEntries(
-                (LSSM.$store.state.api.buildings as Building[]).map(
-                    ({ id, latitude, longitude }) => [
-                        id,
-                        { latitude, longitude },
-                    ]
-                )
-            );
-            const points: LatLng[] = [];
-            (LSSM.$store.state.api.vehicles as Vehicle[])
-                .filter(
-                    ({ vehicle_type, vehicle_type_caption }) =>
-                        vehicleTypes.includes(vehicle_type) ||
-                        (vehicle_type_caption &&
-                            vehicleTypes.includes(vehicle_type_caption))
-                )
-                .forEach(({ building_id }) => {
+            (LSSM.$store.state.api.vehicles as Vehicle[]).forEach(
+                ({ building_id, vehicle_type, vehicle_type_caption = '' }) => {
+                    if (
+                        !(
+                            vehicleTypes.includes(vehicle_type.toString()) ||
+                            (vehicle_type_caption &&
+                                vehicleTypes.includes(vehicle_type_caption))
+                        )
+                    )
+                        return;
                     const { latitude, longitude } = buildingsById[building_id];
                     const point = points.find(
                         ({ lat, lng }) => lat === latitude && lng === longitude
@@ -124,9 +131,11 @@ export default <ModuleMainFunction>(async (LSSM, MODULE_ID, $m) => {
                             new window.L.LatLng(latitude, longitude, 1)
                         );
                     }
-                });
-            heatLayer.setLatLngs(points);
+                }
+            );
         }
+
+        heatLayer.setLatLngs(points);
     };
 
     setData();

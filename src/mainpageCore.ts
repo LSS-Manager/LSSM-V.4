@@ -159,6 +159,7 @@ export default async (LSSM: Vue): Promise<void> => {
         LSSM.$store
             .dispatch('addOSMControl', { position: 'top-left' })
             .then((control: HTMLAnchorElement) => {
+                LSSM.$store.commit('useFontAwesome');
                 const icon = document.createElement('i');
                 icon.classList.add('fas', 'fa-expand-arrows-alt');
                 control.append(icon);
