@@ -165,6 +165,13 @@ const windows: RedesignLightbox['Data']['windows'] = {
             ),
         data: 'friends',
     },
+    'note': {
+        component: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/note"*/ './note.vue'
+            ),
+        data: 'note',
+    },
     'profile': {
         component: () =>
             import(
