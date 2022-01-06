@@ -9,12 +9,19 @@
             </a>
         </h1>
         <textarea
-            :disabled="!noteEdit"
+            v-show="noteEdit"
             class="input-group form-control note-message text optional"
-            id="note_message"
+            :id="noteId"
             v-model="noteText"
             rows="15"
         ></textarea>
+        <pre
+            v-show="!noteEdit"
+            disabled
+            class="input-group form-control note-message text optional"
+            :id="previewId"
+            >{{ noteText }}</pre
+        >
     </div>
 </template>
 
@@ -35,6 +42,8 @@ type Component = RedesignComponent<
         faSave: IconDefinition;
         noteEdit: boolean;
         noteText: string;
+        noteId: string;
+        previewId: string;
     },
     {
         saveNote(): void;
@@ -56,6 +65,14 @@ export default Vue.extend<
             faSave,
             noteEdit: false,
             noteText: this.note.note,
+            noteId: this.$store.getters.nodeAttribute(
+                'redesign-note-message',
+                true
+            ),
+            previewId: this.$store.getters.nodeAttribute(
+                'redesign-note-message_preview',
+                true
+            ),
         };
     },
     methods: {
@@ -68,21 +85,35 @@ export default Vue.extend<
                 this.note.authenticity_token
             );
             url.searchParams.append('note[message]', this.noteText);
-            this.$store.dispatch('api/request', {
-                url: `/note`,
-                init: {
-                    credentials: 'include',
-                    headers: {
-                        'Content-Type': 'application/x-www-form-urlencoded',
-                        'Upgrade-Insecure-Requests': '1',
+            this.$store
+                .dispatch('api/request', {
+                    url: `/note`,
+                    init: {
+                        credentials: 'include',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded',
+                            'Upgrade-Insecure-Requests': '1',
+                        },
+                        referrer: new URL(`/note`, window.location.origin),
+                        body: url.searchParams.toString(),
+                        method: 'POST',
+                        mode: 'cors',
                     },
-                    referrer: new URL(`/note`, window.location.origin),
-                    body: url.searchParams.toString(),
-                    method: 'POST',
-                    mode: 'cors',
-                },
-                feature: 'redesign-note',
-            });
+                    feature: 'redesign-note',
+                })
+                .then(() =>
+                    this.$store
+                        .dispatch('event/createEvent', {
+                            name: 'redesign-note-saved',
+                            detail: {
+                                content: this.noteText,
+                                previewId: this.previewId,
+                            },
+                        })
+                        .then(event =>
+                            this.$store.dispatch('event/dispatchEvent', event)
+                        )
+                );
         },
         toggleEdit() {
             if (this.noteEdit) {
@@ -93,7 +124,6 @@ export default Vue.extend<
             }
         },
     },
-    computed: {},
     props: {
         note: {
             type: Object,
