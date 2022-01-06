@@ -214,27 +214,6 @@ export default async (LSSM: Vue): Promise<void> => {
         feature: 'mainpageCore-initial_update',
     });
 
-    // Temp workaround until game JS updates mission entry
-    await LSSM.$store.dispatch('hook', {
-        event: 'missionMarkerAdd',
-        post: false,
-        callback({ id, mtid }: MissionMarkerAdd) {
-            const missionPanel = document.querySelector<HTMLDivElement>(
-                `#mission_${id}`
-            );
-            if (missionPanel) {
-                if (mtid) {
-                    missionPanel.setAttribute(
-                        'mission_type_id',
-                        mtid.toString()
-                    );
-                } else {
-                    missionPanel.removeAttribute('mission_type_id');
-                }
-            }
-        },
-    });
-
     await LSSM.$store.dispatch('hook', {
         event: 'buildingMarkerAdd',
         callback(buildingMarker: BuildingMarkerAdd) {
