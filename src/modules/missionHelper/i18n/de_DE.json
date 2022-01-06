@@ -118,6 +118,10 @@
 				"additional_text": "",
 				"reduce_from": "teleskopmast"
 			},
+			"police_service_group_leader": {
+				"additional_text": "davon mind. {n} FuStW (DGL)",
+				"reduce_from": "police_cars"
+			},
 			"thw_lkw": {
 				"additional_text": "mit {n} LKW K9",
 				"not_customizable": true,

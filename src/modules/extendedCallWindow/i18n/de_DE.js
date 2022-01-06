@@ -231,6 +231,7 @@ module.exports = {
             ],
             [/^Schmutzwasserpumpe(n)?$/]: [101, 102],
             [/^Funkstreifenwagen \(Dienstgruppenleitung\)?$/]: [103],
+            [/^Fahrzeug des THW (MzKW oder GKW)$/]: [39, 41],
         },
     },
     tailoredTabs: {
