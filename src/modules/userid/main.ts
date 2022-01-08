@@ -33,7 +33,7 @@ export default (async (LSSM, MODULE_ID) => {
             })`;
             if (small) small.textContent = content;
             else
-                h1.innerHTML += `&nbsp;<small id="${smallId}">${content}</small>`;
+                h1.innerHTML += `${redesign ? '' : '&nbsp;'}<small id="${smallId}">${content}</small>`;
         }
     };
     LSSM.$store
