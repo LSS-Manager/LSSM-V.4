@@ -31,9 +31,13 @@ export default (async (LSSM, MODULE_ID) => {
                     ? h1.getAttribute('id')
                     : window.location.pathname.replace(/\D+/g, '')
             })`;
-            if (small) small.textContent = content;
-            else
-                h1.innerHTML += `${redesign ? '' : '&nbsp;'}<small id="${smallId}">${content}</small>`;
+            if (small) {
+                small.textContent = content;
+            } else {
+                h1.innerHTML += `${
+                    redesign ? '' : '&nbsp;'
+                }<small id="${smallId}">${content}</small>`;
+            }
         }
     };
     LSSM.$store
