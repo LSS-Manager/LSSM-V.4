@@ -47,6 +47,10 @@
 			"description": "Kaart centreren op posities die eerder waren gecentreerd. - Werkt momenteel alleen met het kaarttype \"OpenStreetMap\"",
 			"title": "Bewaar kaart verplaatsingen"
 		},
+		"notePreview": {
+			"description": "Links in notities worden klikbaar gemaakt door een voorvertoning van de notitie te tonen.",
+			"title": "Notities"
+		},
 		"ownMapMarkers": {
 			"description": "Sla uw eigen locaties op de kaart op om ze met een enkele klik te openen!",
 			"title": "Bladwijzers voor de kaart"

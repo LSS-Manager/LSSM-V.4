@@ -44,6 +44,7 @@ export default (async (LSSM, MODULE_ID) => {
             '^/profile/\\d+/?$': 'profile',
             '^/profile/edit/?$': 'profile/edit',
             '^/freunde/?$': 'freunde',
+            '^/note/?$': 'note',
         }),
         ...(MODE === 'beta' &&
             (await getSetting('category.einsaetze')) && {
