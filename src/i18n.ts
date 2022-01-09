@@ -22,7 +22,6 @@ export default async (Vue: VueConstructor): Promise<VueI18n> => {
     const i18n = new VueI18n({
         locale,
         messages: {
-            // eslint-disable-next-line @typescript-eslint/no-var-requires
             [locale]: {
                 ...(
                     await import(

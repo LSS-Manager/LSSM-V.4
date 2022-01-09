@@ -3,7 +3,7 @@ declare let user_id: string | undefined;
 
 const loadLSSM = () => {
     const script = document.createElement('script');
-    // eslint-disable-next-line no-undef
+
     script.src = `${host}core.js?_=${new Date().getTime()}&uid=${
         I18n.locale
     }-${user_id}`;

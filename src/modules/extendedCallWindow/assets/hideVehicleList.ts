@@ -1,4 +1,3 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { $m } from 'typings/Module';
 
 export default (LSSM: Vue, MODULE_ID: string, $m: $m): void => {
