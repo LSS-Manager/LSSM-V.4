@@ -3,11 +3,7 @@ import LSSMMenu from './LSSM-Menu.vue';
 import telemetry from './modules/telemetry/main';
 
 import { Building } from 'typings/Building';
-import {
-    BuildingMarkerAdd,
-    MissionMarkerAdd,
-    RadioMessage,
-} from 'typings/Ingame';
+import { BuildingMarkerAdd, RadioMessage } from 'typings/Ingame';
 import { Color, Hidden, Toggle } from 'typings/Setting';
 
 export default async (LSSM: Vue): Promise<void> => {
@@ -212,27 +208,6 @@ export default async (LSSM: Vue): Promise<void> => {
     await LSSM.$store.dispatch('api/initialUpdate', {
         type: 'buildings',
         feature: 'mainpageCore-initial_update',
-    });
-
-    // Temp workaround until game JS updates mission entry
-    await LSSM.$store.dispatch('hook', {
-        event: 'missionMarkerAdd',
-        post: false,
-        callback({ id, mtid }: MissionMarkerAdd) {
-            const missionPanel = document.querySelector<HTMLDivElement>(
-                `#mission_${id}`
-            );
-            if (missionPanel) {
-                if (mtid) {
-                    missionPanel.setAttribute(
-                        'mission_type_id',
-                        mtid.toString()
-                    );
-                } else {
-                    missionPanel.removeAttribute('mission_type_id');
-                }
-            }
-        },
     });
 
     await LSSM.$store.dispatch('hook', {

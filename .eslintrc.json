@@ -74,6 +74,5 @@
         "yoda": ["error", "never", {
             "exceptRange": true
         }]
-        // TODO: Style
     }
 }

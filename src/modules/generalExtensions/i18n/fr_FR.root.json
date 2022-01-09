@@ -48,6 +48,10 @@
 			"description": "Centre la carte sur la position du dernier centrage. Ne marche qu'avec \"OpenStreetMap\" pour le moment.",
 			"title": "Enregistrer le centrage de la carte"
 		},
+		"notePreview": {
+			"description": "Les liens dans les notes sont rendus cliquables en affichant un aperçu des notes.",
+			"title": "Notes"
+		},
 		"ownMapMarkers": {
 			"description": "Enregistrez vos propres lieux sur la carte pour y accéder en un seul clic !",
 			"title": "Signets pour la carte"

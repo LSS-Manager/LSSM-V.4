@@ -1,4 +1,3 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { $m } from 'typings/Module';
 import { Schooling } from 'typings/Schooling';
 import SchoolingSummary from '../components/schoolingSummary.vue';
