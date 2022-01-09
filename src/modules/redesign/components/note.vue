@@ -10,14 +10,14 @@
         </h1>
         <textarea
             v-show="noteEdit"
-            class="input-group form-control note-message text optional"
+            class="input-group form-control text optional"
             :id="noteId"
             v-model="noteText"
             rows="15"
         ></textarea>
         <pre
             v-show="!noteEdit"
-            class="input-group form-control note-message text optional"
+            class="input-group form-control"
             :id="previewId"
             >{{ noteText }}</pre
         >
