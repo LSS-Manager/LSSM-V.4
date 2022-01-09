@@ -17,7 +17,6 @@
         ></textarea>
         <pre
             v-show="!noteEdit"
-            disabled
             class="input-group form-control note-message text optional"
             :id="previewId"
             >{{ noteText }}</pre
@@ -160,8 +159,14 @@ export default Vue.extend<
 <style scoped lang="sass">
 textarea
     resize: vertical
-body.dark .form-control[disabled]
-  background-color: #323232 !important
+
 .form-control[disabled]
-  background-color: inherit
+    background-color: inherit
+
+body.dark .form-control[disabled]
+    background-color: #323232
+
+pre
+    white-space: pre-wrap
+    overflow-wrap: break-word
 </style>
