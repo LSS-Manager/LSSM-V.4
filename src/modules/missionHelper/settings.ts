@@ -118,6 +118,15 @@ export default ((MODULE_ID, LSSM, $m) => {
                   },
               }
             : null),
+        ...(locale === 'de_DE'
+            ? {
+                  'multifunctionals.police_service_group_leader': <Toggle>{
+                      type: 'toggle',
+                      default: false,
+                      dependsOn: '.vehicles.content',
+                  },
+              }
+            : null),
         ...(locale === 'en_US'
             ? {
                   'multifunctionals.sheriff_unit': <Toggle>{

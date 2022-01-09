@@ -516,6 +516,7 @@ export default Vue.extend<
                     battalion_chief_vehicles: false,
                     platform_trucks: false,
                     police_cars: false,
+                    police_service_group_leader: false,
                     sheriff_unit: false,
                 },
                 optionalAlternatives: {
