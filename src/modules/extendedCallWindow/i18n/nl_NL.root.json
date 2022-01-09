@@ -54,6 +54,14 @@
 			"description": "Hiermee kan je de kaart op het hoofdscherm centreren op de locatie van de melding met een knop in het meldingenscherm.",
 			"title": "Kaart centreren op melding"
 		},
+		"collapsablePatients": {
+			"description": "Minimaliseer de patiënten in het meldingsvenster en toont alleen een korte samenvatting.",
+			"title": "Minimaliseer patiënten"
+		},
+		"collapsablePatientsMinPatients": {
+			"description": "Stel hier in vanaf hoeveel patiënten er in de melding moeten zijn voordat ze worden geminimaliseerd.",
+			"title": "Minimaliseer patiënten: minimum aantal"
+		},
 		"emvMaxStaff": {
 			"description": "'Benodigde voertuigen weergave' Gebruikt voor de berekeningen voor alle voertuigen de maximale capaciteit.",
 			"title": "Maximum personeel benodigde voertuigen weergave"
