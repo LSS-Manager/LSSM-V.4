@@ -65,7 +65,7 @@ export default async (
             );
             document
                 .querySelectorAll<HTMLInputElement>(
-                    '#vehicle_show_table_body_all .vehicle_checkbox:checked'
+                    '#vehicle_show_table_body_all .vehicle_checkbox:checked, #vehicle_show_table_body_occupied .vehicle_checkbox:checked'
                 )
                 ?.forEach(vehicle =>
                     url.searchParams.append('vehicle_ids[]', vehicle.value)
