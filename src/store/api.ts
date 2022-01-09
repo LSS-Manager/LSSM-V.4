@@ -730,9 +730,17 @@ export default {
             { force, feature }: { force: boolean; feature: string }
         ) {
             if (state.missions.length) return state.missions;
+            const STORAGE_KEY = `${rootState.prefix}_timed_mission_specs`;
+            const { missions, lastUpdate } = JSON.parse(
+                localStorage.getItem(STORAGE_KEY) || '{}'
+            ) as { missions?: Mission[]; lastUpdate?: string };
             if (
                 force ||
-                !sessionStorage.hasOwnProperty('mission_specs_cache')
+                !missions ||
+                // update every 12h
+                Date.now() - new Date(lastUpdate || 0).getTime() >
+                    12 * 60 * 60 * 1000 ||
+                !localStorage.hasOwnProperty(STORAGE_KEY)
             ) {
                 const missions = Object.values(
                     await dispatch('request', {
@@ -744,16 +752,16 @@ export default {
                         feature: `store/api/getMissions(${feature})`,
                     }).then(res => res.json())
                 );
-                sessionStorage.setItem(
-                    'mission_specs_cache',
-                    JSON.stringify(missions)
+                localStorage.setItem(
+                    STORAGE_KEY,
+                    JSON.stringify({
+                        missions,
+                        lastUpdate: new Date().toISOString(),
+                    })
                 );
                 commit('setMissions', missions);
                 return missions;
             } else {
-                const missions = JSON.parse(
-                    sessionStorage.getItem('mission_specs_cache') || '{}'
-                ) as Mission[];
                 commit('setMissions', missions);
                 return missions;
             }
