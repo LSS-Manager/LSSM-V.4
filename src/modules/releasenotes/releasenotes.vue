@@ -19,13 +19,9 @@
                         ><a
                             class="lightbox-open"
                             target="_blank"
-                            :href="
-                                `https://github.com/LSS-Manager/LSSM-V.4/releases/tag/v${
-                                    semverLt(note[0], coerce('4.3.3'))
-                                        ? '.'
-                                        : ''
-                                }${note[0]}`
-                            "
+                            :href="`https://github.com/LSS-Manager/LSSM-V.4/releases/tag/v${
+                                semverLt(note[0], coerce('4.3.3')) ? '.' : ''
+                            }${note[0]}`"
                             >{{ note[0] }}</a
                         ></b
                     >

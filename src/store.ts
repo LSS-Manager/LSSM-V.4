@@ -157,24 +157,24 @@ export default (Vue: VueConstructor): Store<RootState> => {
             },
         } as MutationTree<RootState>,
         getters: {
-            nodeAttribute: (state: RootState) => (
-                attr: string,
-                id = false
-            ): string => {
-                const res = `${state.prefix}-${attr}`;
-                if (id) {
-                    return res
-                        .replace(/ /g, '_')
-                        .replace(/["']/g, '')
-                        .replace(/[^a-zA-Z0-9_-]/g, '-');
-                }
-                return res;
-            },
+            nodeAttribute:
+                (state: RootState) =>
+                (attr: string, id = false): string => {
+                    const res = `${state.prefix}-${attr}`;
+                    if (id) {
+                        return res
+                            .replace(/ /g, '_')
+                            .replace(/["']/g, '')
+                            .replace(/[^a-zA-Z0-9_-]/g, '-');
+                    }
+                    return res;
+                },
             wiki: (state: RootState): string =>
                 `${config.server}docs/${state.lang}/`,
-            moduleWiki: (_, getters: GetterTree<RootState, RootState>) => (
-                moduleId: keyof Modules
-            ): string => `${getters.wiki}modules/${moduleId}.html`,
+            moduleWiki:
+                (_, getters: GetterTree<RootState, RootState>) =>
+                (moduleId: keyof Modules): string =>
+                    `${getters.wiki}modules/${moduleId}.html`,
             appModules: (state: RootState) =>
                 Object.fromEntries(
                     Object.entries(state.modules).filter(
@@ -244,8 +244,7 @@ export default (Vue: VueConstructor): Store<RootState> => {
                 }
                 document.addEventListener(
                     `${PREFIX}_${event}_${post ? 'after' : 'before'}`,
-                    event =>
-                        callback(...((event as unknown) as LSSMEvent).detail)
+                    event => callback(...(event as unknown as LSSMEvent).detail)
                 );
             },
             proxy(_, { post = true, name, callback, trap }: ProxyParams) {

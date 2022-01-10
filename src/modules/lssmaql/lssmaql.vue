@@ -98,15 +98,13 @@ const parse_filter = (
                   cloneDeep(filter),
                   [tree.base, ...tree.attributes].join('.')
               ) as ObjectTree);
-    let sideObject = (typeof oneside === 'string' ||
-    typeof oneside === 'number' ||
-    typeof oneside === 'boolean'
-        ? oneside
-        : [...oneside.base.split('.'), ...oneside.attributes]) as
-        | string
-        | number
-        | Record<string, unknown>
-        | (string | number)[];
+    let sideObject = (
+        typeof oneside === 'string' ||
+        typeof oneside === 'number' ||
+        typeof oneside === 'boolean'
+            ? oneside
+            : [...oneside.base.split('.'), ...oneside.attributes]
+    ) as string | number | Record<string, unknown> | (string | number)[];
     if (!sideObject) return;
     if (Array.isArray(sideObject)) {
         while (sideObject.includes('..')) {

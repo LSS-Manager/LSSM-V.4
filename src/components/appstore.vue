@@ -62,7 +62,7 @@
                     <span
                         v-if="
                             modules[moduleId].description !==
-                                `modules.${moduleId}.description`
+                            `modules.${moduleId}.description`
                         "
                     >
                         {{ modules[moduleId].description }}
@@ -170,9 +170,11 @@ export default Vue.extend<
                     'active',
                     this.activeStart.includes(module)
                 );
-                ((this.$refs[`moduleSwitch_${module}`] as unknown) as {
-                    toggled: boolean;
-                }[])[0].toggled = this.activeStart.includes(module);
+                (
+                    this.$refs[`moduleSwitch_${module}`] as unknown as {
+                        toggled: boolean;
+                    }[]
+                )[0].toggled = this.activeStart.includes(module);
             });
             this.$store.commit('setAppstoreChanges', this.changes);
         },

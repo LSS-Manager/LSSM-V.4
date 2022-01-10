@@ -1,4 +1,3 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { $m } from 'typings/Module';
 import { InternalVehicle, Vehicle } from 'typings/Vehicle';
 
@@ -11,9 +10,9 @@ export default async (
 ): Promise<void> => {
     const callback = async () => {
         const vehicles = Array.from(
-            document.querySelectorAll('#vehicle_table tbody tr') as NodeListOf<
-                HTMLTableRowElement
-            >
+            document.querySelectorAll(
+                '#vehicle_table tbody tr'
+            ) as NodeListOf<HTMLTableRowElement>
         );
 
         if (!vehicles.length) return;
@@ -89,15 +88,17 @@ export default async (
                 'a[href^="/vehicles/"][href$="/edit"]'
             );
 
-            const linkWrapper = (BUILDING_MODE === 'dispatch'
-                ? document.getElementById(`vehicle_caption_${vehicleId}`)
-                : vehicle.querySelector(`a[href="/vehicles/${vehicleId}"]`)
+            const linkWrapper = (
+                BUILDING_MODE === 'dispatch'
+                    ? document.getElementById(`vehicle_caption_${vehicleId}`)
+                    : vehicle.querySelector(`a[href="/vehicles/${vehicleId}"]`)
             )?.parentElement;
 
             if (!vehicleId || !linkWrapper) return;
 
-            const storedVehicle = (LSSM.$store.state.api
-                .vehicles as Vehicle[]).find(v => v.id === vehicleId);
+            const storedVehicle = (
+                LSSM.$store.state.api.vehicles as Vehicle[]
+            ).find(v => v.id === vehicleId);
 
             if (fmsSwitch) {
                 const fmsBtn = vehicle.querySelector('.building_list_fms');
@@ -125,11 +126,11 @@ export default async (
                                     }`,
                                     `building_list_fms_${nextFms}`
                                 );
-                                fmsBtn.textContent = ((LSSM.$t(
-                                    'fmsReal2Show'
-                                ) as unknown) as { [status: number]: number })[
-                                    nextFms
-                                ].toString();
+                                fmsBtn.textContent = (
+                                    LSSM.$t('fmsReal2Show') as unknown as {
+                                        [status: number]: number;
+                                    }
+                                )[nextFms].toString();
                             }
                         });
                 });
@@ -226,13 +227,17 @@ export default async (
                         ].innerHTML = `(${lastRowItems
                             .map(
                                 item =>
-                                    (({
-                                        vehiclesPersonnelCurrent: currentPersonnel,
-                                        vehiclesPersonnelMax: maxPersonnel,
-                                        vehiclesPersonnelAssigned: assignedPersonnel,
-                                    } as {
-                                        [key: string]: number;
-                                    })[item])
+                                    ((
+                                        {
+                                            vehiclesPersonnelCurrent:
+                                                currentPersonnel,
+                                            vehiclesPersonnelMax: maxPersonnel,
+                                            vehiclesPersonnelAssigned:
+                                                assignedPersonnel,
+                                        } as {
+                                            [key: string]: number;
+                                        }
+                                    )[item])
                             )
                             .join(' / ')})`;
                     })();

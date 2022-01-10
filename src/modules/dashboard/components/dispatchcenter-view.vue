@@ -46,15 +46,15 @@
                         <grid-item
                             :height="
                                 column.height ||
-                                    Math.ceil(
-                                        14 +
-                                            (
-                                                vehiclesByBuilding[
-                                                    column.building
-                                                ] || []
-                                            ).length *
-                                                1.5
-                                    )
+                                Math.ceil(
+                                    14 +
+                                        (
+                                            vehiclesByBuilding[
+                                                column.building
+                                            ] || []
+                                        ).length *
+                                            1.5
+                                )
                             "
                             :id="column.building"
                             :key="column.building"
@@ -99,12 +99,8 @@
                                     >
                                         <grid-item
                                             :height="1"
-                                            :id="
-                                                `${column.building}_${vehicle.id}`
-                                            "
-                                            :key="
-                                                `${column.building}_${vehicle.id}`
-                                            "
+                                            :id="`${column.building}_${vehicle.id}`"
+                                            :key="`${column.building}_${vehicle.id}`"
                                             :width="10"
                                             class="building-vehicle"
                                             v-for="vehicle in vehiclesByBuildingSorted[
@@ -113,17 +109,13 @@
                                             :maxHeight="1"
                                         >
                                             <span
-                                                :class="
-                                                    `building_list_fms_${vehicle.fms_real}`
-                                                "
+                                                :class="`building_list_fms_${vehicle.fms_real}`"
                                                 class="building_list_fms"
                                             >
                                                 {{ vehicle.fms_show }}
                                             </span>
                                             <a
-                                                :href="
-                                                    `/vehicles/${vehicle.id}`
-                                                "
+                                                :href="`/vehicles/${vehicle.id}`"
                                                 class="building_list_fms lightbox-open"
                                             >
                                                 {{ vehicle.caption }}
@@ -171,7 +163,8 @@
                                         <button
                                             :disabled="!buildingListHasPrevPage"
                                             @click="
-                                                buildingListOffset -= buildingLimit
+                                                buildingListOffset -=
+                                                    buildingLimit
                                             "
                                             class="btn btn-default"
                                         >
@@ -180,7 +173,8 @@
                                         <button
                                             :disabled="!buildingListHasNextPage"
                                             @click="
-                                                buildingListOffset += buildingLimit
+                                                buildingListOffset +=
+                                                    buildingLimit
                                             "
                                             class="btn btn-default"
                                         >
@@ -193,7 +187,8 @@
                                         <button
                                             :disabled="!buildingListHasPrevPage"
                                             @click="
-                                                buildingListOffset -= buildingLimit
+                                                buildingListOffset -=
+                                                    buildingLimit
                                             "
                                             class="btn btn-default"
                                         >
@@ -202,7 +197,8 @@
                                         <button
                                             :disabled="!buildingListHasNextPage"
                                             @click="
-                                                buildingListOffset += buildingLimit
+                                                buildingListOffset +=
+                                                    buildingLimit
                                             "
                                             class="btn btn-default"
                                         >
@@ -314,7 +310,7 @@
                                 <button
                                     v-if="
                                         boardId < boards.length - 1 &&
-                                            boards.length > 1
+                                        boards.length > 1
                                     "
                                     class="btn btn-xs btn-success"
                                     @click="boardDown(boardId)"
@@ -580,9 +576,8 @@ export default Vue.extend<
                 await this.$nextTick();
                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                 // @ts-ignore
-                const column = this.$refs[
-                    `building-${this.selectedBuilding}`
-                ][0].item;
+                const column =
+                    this.$refs[`building-${this.selectedBuilding}`][0].item;
                 this.selectedBuilding = null;
                 this.modifyBuilding({
                     id: column._id,
@@ -603,10 +598,12 @@ export default Vue.extend<
                 this.$refs.buildingListSelection[0].search = '';
                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                 // @ts-ignore
-                const title_field = this.$refs[
-                    `${this.currentBoard}_${title}_${this.board.titles.length -
-                        1}`
-                ][0].item;
+                const title_field =
+                    this.$refs[
+                        `${this.currentBoard}_${title}_${
+                            this.board.titles.length - 1
+                        }`
+                    ][0].item;
                 this.modifyTitle({
                     id: title_field._id,
                     width: title_field._width,
@@ -646,8 +643,8 @@ export default Vue.extend<
                     await this.$nextTick();
                     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                     // @ts-ignore
-                    const column = this.$refs[`building-${building.id}`][0]
-                        .item;
+                    const column =
+                        this.$refs[`building-${building.id}`][0].item;
                     this.selectedBuilding = null;
                     this.modifyBuilding({
                         id: column._id,

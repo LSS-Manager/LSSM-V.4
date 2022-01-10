@@ -17,6 +17,7 @@ export default async (): Promise<void> => {
         'vehicleCategories',
         'buildings',
         'buildingCategories',
+        'small_buildings',
         'schoolings',
         'pois',
         'ranks',

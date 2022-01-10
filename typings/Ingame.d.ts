@@ -85,6 +85,7 @@ export interface MissionMarkerAdd {
     user_id: number;
     vehicle_state: 0 | 1 | 2; // red | yellow | green
     overlay_index: null | number;
+    additive_overlays: null | string;
     pumping_mission_value: number;
     pumping_date_start: number;
     pumping_date_end: number;

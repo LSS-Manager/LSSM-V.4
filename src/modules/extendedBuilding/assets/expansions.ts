@@ -1,4 +1,3 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { $m } from 'typings/Module';
 import moment from 'moment';
 
@@ -49,8 +48,8 @@ export default (LSSM: Vue, MODULE_ID: string, $m: $m): void => {
     dlWrapper.append(expansionWrapper);
     const expansionIndex = {} as { [name: string]: HTMLSpanElement[] };
     expansionRows.forEach(expansion => {
-        const name = expansion.firstElementChild?.querySelector('b')
-            ?.textContent;
+        const name =
+            expansion.firstElementChild?.querySelector('b')?.textContent;
         if (!name) return;
         if (!expansionIndex.hasOwnProperty(name)) expansionIndex[name] = [];
         const label = document.createElement('span');
@@ -104,14 +103,14 @@ export default (LSSM: Vue, MODULE_ID: string, $m: $m): void => {
     moment.locale(LSSM.$store.state.lang);
     window.extensionCountdown = (remaining, id) => {
         if (remaining > 0) {
-            document.querySelectorAll(`.extension_countdown_${id}`).forEach(
-                countdown =>
-                    (countdown.textContent = `${window.formatTime(
-                        remaining
-                    )} (${moment()
-                        .add(remaining, 'seconds')
-                        .calendar()})`)
-            );
+            document
+                .querySelectorAll(`.extension_countdown_${id}`)
+                .forEach(
+                    countdown =>
+                        (countdown.textContent = `${window.formatTime(
+                            remaining
+                        )} (${moment().add(remaining, 'seconds').calendar()})`)
+                );
             setTimeout(() => {
                 window.extensionCountdown(remaining - 1, id);
             }, 1000);

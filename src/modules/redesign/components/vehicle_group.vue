@@ -46,8 +46,9 @@
                         :key="n"
                         :value="n"
                         :selected="vehicle_group.column === n.toString()"
-                        >{{ n }}</option
                     >
+                        {{ n }}
+                    </option>
                 </select>
             </div>
         </form>

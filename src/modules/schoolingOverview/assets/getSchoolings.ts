@@ -26,10 +26,7 @@ export default (
             ownSchoolings.amounts[name] = 0;
         ownSchoolings.amounts[name]++;
         const category =
-            name
-                ?.match(/^.*?-/)?.[0]
-                .replace('-', '')
-                .trim() || '';
+            name?.match(/^.*?-/)?.[0].replace('-', '').trim() || '';
         const endNode = schooling.querySelector('td:nth-of-type(2)');
         const owner = schooling.querySelector('td:nth-of-type(3)');
         if (!endNode || !owner) return;
@@ -59,10 +56,7 @@ export default (
         if (!btn) return;
         const name = btn.textContent || '';
         const category =
-            name
-                ?.match(/^.*?-/)?.[0]
-                .replace('-', '')
-                .trim() || '';
+            name?.match(/^.*?-/)?.[0].replace('-', '').trim() || '';
         if (!openSchoolings.amounts.hasOwnProperty(name))
             openSchoolings.amounts[name] = { amount: 0, seats: 0 };
         openSchoolings.amounts[name].amount++;
@@ -91,7 +85,7 @@ export default (
 
     Object.values(
         Object.entries(
-            (LSSM.$t('schoolings') as unknown) as {
+            LSSM.$t('schoolings') as unknown as {
                 [category: string]: Schooling[];
             }
         ).flatMap(([cat, schoolings]) =>

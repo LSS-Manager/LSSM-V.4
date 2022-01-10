@@ -42,7 +42,7 @@ export default (async (LSSM, MODULE_ID) => {
 
     updateBuildings();
 
-    const buildingIcons = (LSSM.$t('buildingIcons') as unknown) as string[];
+    const buildingIcons = LSSM.$t('buildingIcons') as unknown as string[];
 
     const setTooltip = (marker?: BuildingMarker, presetBuilding?: Building) => {
         if (!marker) return;
@@ -73,8 +73,9 @@ export default (async (LSSM, MODULE_ID) => {
                     building.building_type
                 )
             ) {
-                data += `<br><i class="fa fa-parking"></i>&nbsp;${building.level +
-                    1}&nbsp;<i class="fa fa-car"></i>&nbsp;${
+                data += `<br><i class="fa fa-parking"></i>&nbsp;${
+                    building.level + 1
+                }&nbsp;<i class="fa fa-car"></i>&nbsp;${
                     vehicles.length
                 }&nbsp;<i class="fa fa-users"></i>&nbsp;${
                     building.personal_count
@@ -116,15 +117,17 @@ export default (async (LSSM, MODULE_ID) => {
                     building.building_type
                 )
             ) {
-                data += `<br><i class="fa fa-procedures"></i>&nbsp;${building.level +
-                    10}`;
+                data += `<br><i class="fa fa-procedures"></i>&nbsp;${
+                    building.level + 10
+                }`;
             } else if (
                 Object.values(LSSM.$t('schoolBuildings')).includes(
                     building.building_type
                 )
             ) {
-                data += `<br><i class="fa fa-chalkboard-teacher"></i>&nbsp;${building
-                    .extensions.length + 1}`;
+                data += `<br><i class="fa fa-chalkboard-teacher"></i>&nbsp;${
+                    building.extensions.length + 1
+                }`;
             }
         }
 

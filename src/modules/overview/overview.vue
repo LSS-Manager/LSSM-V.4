@@ -8,8 +8,9 @@
                     :default-index="vehiclesTab.current.category"
                 >
                     <tab
-                        v-for="({ vehicles: groups },
-                        title) in vehicleCategories"
+                        v-for="(
+                            { vehicles: groups }, title
+                        ) in vehicleCategories"
                         :key="title"
                         :title="title"
                     >
@@ -38,8 +39,9 @@
                                         :key="vehicle.caption"
                                     >
                                         <td
-                                            v-for="(_,
-                                            attr) in vehiclesTab.head"
+                                            v-for="(
+                                                _, attr
+                                            ) in vehiclesTab.head"
                                             :key="attr"
                                         >
                                             <span v-if="attr === 'cost'">
@@ -64,8 +66,9 @@
                                                 v-else-if="attr === 'schooling'"
                                             >
                                                 <template
-                                                    v-for="(schoolings,
-                                                    type) in vehicle[attr]"
+                                                    v-for="(
+                                                        schoolings, type
+                                                    ) in vehicle[attr]"
                                                 >
                                                     <span :key="type + '-t'"
                                                         >{{ type }}:</span
@@ -75,12 +78,13 @@
                                                         class="unstyled-list"
                                                     >
                                                         <li
-                                                            v-for="(s,
-                                                            schooling) in schoolings"
+                                                            v-for="(
+                                                                s, schooling
+                                                            ) in schoolings"
                                                             :key="
                                                                 type +
-                                                                    ' - ' +
-                                                                    schooling
+                                                                ' - ' +
+                                                                schooling
                                                             "
                                                             class="vehicle-schoolings-list"
                                                         >
@@ -113,7 +117,7 @@
                                             ><span
                                                 v-else-if="
                                                     typeof vehicle[attr] ===
-                                                        'object'
+                                                    'object'
                                                 "
                                                 v-html="
                                                     Object.values(
@@ -183,8 +187,9 @@
                                     </span>
                                     <dl v-else-if="attr === 'extensions'">
                                         <span
-                                            v-for="(extension,
-                                            index) in building['extensions']"
+                                            v-for="(
+                                                extension, index
+                                            ) in building['extensions']"
                                             :key="index"
                                         >
                                             <dt>{{ extension.caption }}:</dt>
@@ -321,7 +326,7 @@ export default Vue.extend<
         const resolvedVehicleCategories = {} as {
             [name: string]: ResolvedVehicleCategory;
         };
-        const schoolings = (this.$t('schoolings') as unknown) as {
+        const schoolings = this.$t('schoolings') as unknown as {
             [category: string]: Schooling[];
         };
         const resolvedSchoolings = {} as Overview['schoolingCategories'];
@@ -338,24 +343,26 @@ export default Vue.extend<
                 resolvedVehicleCategories[category] = { color, vehicles: {} };
                 Object.entries(groups).forEach(
                     ([group, vehicles]) =>
-                        (resolvedVehicleCategories[category].vehicles[
-                            group
-                        ] = Object.values(vehicles as number[]).map(type => {
-                            const v = vehicleTypes[type];
-                            Object.entries(
-                                v.schooling ?? {}
-                            ).forEach(([school, schoolings]) =>
-                                Object.keys(schoolings).forEach(schooling =>
-                                    resolvedSchoolings[school]
-                                        .find(
-                                            ({ caption }) =>
-                                                caption === schooling
+                        (resolvedVehicleCategories[category].vehicles[group] =
+                            Object.values(vehicles as number[]).map(type => {
+                                const v = vehicleTypes[type];
+                                Object.entries(v.schooling ?? {}).forEach(
+                                    ([school, schoolings]) =>
+                                        Object.keys(schoolings).forEach(
+                                            schooling =>
+                                                resolvedSchoolings[school]
+                                                    .find(
+                                                        ({ caption }) =>
+                                                            caption ===
+                                                            schooling
+                                                    )
+                                                    ?.required_for.push(
+                                                        v.caption
+                                                    )
                                         )
-                                        ?.required_for.push(v.caption)
-                                )
-                            );
-                            return v;
-                        }))
+                                );
+                                return v;
+                            }))
                 );
             }
         );
@@ -413,18 +420,17 @@ export default Vue.extend<
                 ];
             })
         );
-        Object.entries(
-            buildingCategories
-        ).forEach(([category, { buildings }]) =>
-            Object.values(buildings).forEach(
-                (building, index) =>
-                    (buildingCategories[category].buildings[index] =
-                        buildingTypes[building])
-            )
+        Object.entries(buildingCategories).forEach(
+            ([category, { buildings }]) =>
+                Object.values(buildings).forEach(
+                    (building, index) =>
+                        (buildingCategories[category].buildings[index] =
+                            buildingTypes[building])
+                )
         );
         return {
             vehicles: Object.values(vehicleTypes),
-            vehicleCategories: (resolvedVehicleCategories as unknown) as {
+            vehicleCategories: resolvedVehicleCategories as unknown as {
                 [name: string]: ResolvedVehicleCategory;
             },
             vehiclesTab: {
@@ -489,7 +495,7 @@ export default Vue.extend<
                 },
             },
             buildings: Object.values(buildingTypes),
-            buildingCategories: (buildingCategories as unknown) as {
+            buildingCategories: buildingCategories as unknown as {
                 [name: string]: ResolvedBuildingCategory;
             },
             buildingsTab: {
@@ -600,24 +606,26 @@ export default Vue.extend<
         },
         vehicleTypes() {
             if (this.currentType !== 0) return [];
-            const category = this.vehicleCategories[
-                Object.keys(this.vehicleCategories)[
-                    this.vehiclesTab.current.category
-                ]
-            ];
+            const category =
+                this.vehicleCategories[
+                    Object.keys(this.vehicleCategories)[
+                        this.vehiclesTab.current.category
+                    ]
+                ];
             const vehicles =
                 category.vehicles[
                     Object.keys(category.vehicles)[
                         this.vehiclesTab.current.group
                     ]
                 ];
-            return (this.vehiclesTab.search
-                ? vehicles.filter(vehicle =>
-                      JSON.stringify(Object.values(vehicle))
-                          .toLowerCase()
-                          .match(this.vehiclesTab.search.toLowerCase())
-                  )
-                : vehicles
+            return (
+                this.vehiclesTab.search
+                    ? vehicles.filter(vehicle =>
+                          JSON.stringify(Object.values(vehicle))
+                              .toLowerCase()
+                              .match(this.vehiclesTab.search.toLowerCase())
+                      )
+                    : vehicles
             ).sort((a, b) => {
                 const modifier = this.vehiclesTab.sortDir === 'desc' ? -1 : 1;
                 const f = a[this.vehiclesTab.sort] || '';

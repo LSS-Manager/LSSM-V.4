@@ -3,7 +3,7 @@ declare let user_id: string | undefined;
 
 const loadLSSM = () => {
     const script = document.createElement('script');
-    // eslint-disable-next-line no-undef
+
     script.src = `${host}core.js?_=${new Date().getTime()}&uid=${
         I18n.locale
     }-${user_id}`;
@@ -17,6 +17,7 @@ if (
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
         window.frameElement?.src.startsWith('https')) &&
+    !window.location.pathname.match(/^\/users\//) &&
     typeof user_id !== 'undefined' &&
     typeof I18n !== 'undefined'
 ) {

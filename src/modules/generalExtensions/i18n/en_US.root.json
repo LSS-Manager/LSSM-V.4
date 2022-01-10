@@ -48,6 +48,10 @@
 			"description": "Center map on positions that were centered before. - Currently only works with map type \"OpenStreetMap\"",
 			"title": "Save map jumps"
 		},
+		"notePreview": {
+			"description": "Links in notes are made clickable by displaying a preview of the notes.",
+			"title": "Notes"
+		},
 		"ownMapMarkers": {
 			"description": "Save your own locations on the map to access them with a single click!",
 			"title": "Bookmarks for the map"

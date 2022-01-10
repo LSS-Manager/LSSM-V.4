@@ -11,9 +11,7 @@
             <template slot="body" slot-scope="props">
                 <div
                     class="lssm-notification"
-                    :class="
-                        `alert-${props.item.type} notification-${props.item.type}`
-                    "
+                    :class="`alert-${props.item.type} notification-${props.item.type}`"
                     @click.capture="getHandler(props, $event)()"
                 >
                     <img
@@ -95,6 +93,15 @@ export default Vue.extend<
                     });
                 }
             });
+
+        // Workaround for when modals container appears behind V4 instance (dialogs are behind modals)
+        const modalsContainer = document.getElementById('modals-container');
+        if (
+            modalsContainer &&
+            this.$el.compareDocumentPosition(modalsContainer) &
+                Node.DOCUMENT_POSITION_FOLLOWING
+        )
+            this.$el.before(modalsContainer);
     },
 });
 </script>

@@ -22,6 +22,10 @@
 			"description": "Når du har nådd et satt antall kreditter vil menyen bli farget grønn til du trykker på det.",
 			"title": "Mål"
 		},
+		"coinsInNavbar": {
+			"description": "Viser gjeldende mynter i navbar i stedet for den søte sparegrisen.",
+			"title": "Mynter istedenfor sparegris"
+		},
 		"creditsInNavbar": {
 			"description": "Viser gjeldende kreditter i navbar i stedet for den søte sparegrisen.",
 			"title": "Kreditter istedenfor sparegris"

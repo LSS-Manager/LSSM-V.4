@@ -38,9 +38,8 @@ export default <RedesignParser<AwardsWindow>>(({ doc }) => ({
                             )
                     )
                     ?.textContent?.trim() ?? '',
-            finished: !!award.querySelector<HTMLDivElement>(
-                '.label-award-gold'
-            ),
+            finished:
+                !!award.querySelector<HTMLDivElement>('.label-award-gold'),
             progress:
                 award
                     .querySelector<HTMLDivElement>('.progress')

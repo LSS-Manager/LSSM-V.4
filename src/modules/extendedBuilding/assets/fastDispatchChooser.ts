@@ -1,4 +1,3 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { $m } from 'typings/Module';
 import { Building } from 'typings/Building';
 
@@ -21,9 +20,11 @@ export default async (
             ) as NodeListOf<HTMLTableRowElement>
         ).forEach(row => {
             const id = parseInt(
-                (row.querySelector(
-                    'a[href*="/buildings/"]'
-                ) as HTMLAnchorElement).href.split('/buildings/')[1]
+                (
+                    row.querySelector(
+                        'a[href*="/buildings/"]'
+                    ) as HTMLAnchorElement
+                ).href.split('/buildings/')[1]
             );
             if (!id) return;
             buildingIds.push(id);
@@ -36,23 +37,23 @@ export default async (
         const buildingsByType = LSSM.$store.getters['api/buildingsByType'] as {
             [type: number]: Building[];
         };
-        (Object.values(
-            LSSM.$t('dispatchCenterBuildings')
-        ) as number[]).forEach(type =>
-            buildings.push(...(buildingsByType[type] ?? []))
+        (Object.values(LSSM.$t('dispatchCenterBuildings')) as number[]).forEach(
+            type => buildings.push(...(buildingsByType[type] ?? []))
         );
         buildingIds.forEach(buildingID => {
             const building = allBuildings.find(({ id }) => id === buildingID);
             if (!building) return;
-            const dispatchBtn = (BUILDING_MODE === 'building'
-                ? document.querySelector(
-                      `#building-navigation-container a${
-                          building.leitstelle_building_id
-                              ? `[href="/buildings/${building.leitstelle_building_id}"]`
-                              : ':nth-of-type(2)'
-                      }`
-                  )
-                : document.createElement('a')) as HTMLAnchorElement;
+            const dispatchBtn = (
+                BUILDING_MODE === 'building'
+                    ? document.querySelector(
+                          `#building-navigation-container a${
+                              building.leitstelle_building_id
+                                  ? `[href="/buildings/${building.leitstelle_building_id}"]`
+                                  : ':nth-of-type(2)'
+                          }`
+                      )
+                    : document.createElement('a')
+            ) as HTMLAnchorElement;
             if (BUILDING_MODE === 'dispatch') {
                 document
                     .querySelectorAll(`.building_leitstelle_set_${buildingID}`)
@@ -65,9 +66,11 @@ export default async (
                     'btn-xs',
                     'lightbox-open'
                 );
-                const dispatchId = (document.querySelector(
-                    `.building_leitstelle_set_${buildingID}.btn-success`
-                ) as HTMLAnchorElement).href.split('/leitstelle-set/')[1];
+                const dispatchId = (
+                    document.querySelector(
+                        `.building_leitstelle_set_${buildingID}.btn-success`
+                    ) as HTMLAnchorElement
+                ).href.split('/leitstelle-set/')[1];
                 dispatchBtn.href =
                     parseInt(dispatchId) !== 0
                         ? `/buildings/${dispatchId}`
@@ -77,9 +80,11 @@ export default async (
                         ? buildings.find(b => b.id === parseInt(dispatchId))
                               ?.caption ?? ''
                         : $m('fastDispatchChooser.noDispatch').toString();
-                (document.querySelector(
-                    `.building_leitstelle_set_${buildingID}`
-                ) as HTMLAnchorElement).before(dispatchBtn);
+                (
+                    document.querySelector(
+                        `.building_leitstelle_set_${buildingID}`
+                    ) as HTMLAnchorElement
+                ).before(dispatchBtn);
             }
 
             if (!dispatchBtn) return;

@@ -117,9 +117,8 @@ export default async (LSSM: Vue): Promise<void> => {
                             import(
                                 /* webpackChunkName: "components/anniversary" */ './components/anniversary.vue'
                             ).then(({ default: anniversary }) => {
-                                const anniversaryWrapper = document.createElement(
-                                    'div'
-                                );
+                                const anniversaryWrapper =
+                                    document.createElement('div');
                                 document.body.append(anniversaryWrapper);
                                 new LSSM.$vue({
                                     store: LSSM.$store,
@@ -160,6 +159,7 @@ export default async (LSSM: Vue): Promise<void> => {
         LSSM.$store
             .dispatch('addOSMControl', { position: 'top-left' })
             .then((control: HTMLAnchorElement) => {
+                LSSM.$store.commit('useFontAwesome');
                 const icon = document.createElement('i');
                 icon.classList.add('fas', 'fa-expand-arrows-alt');
                 control.append(icon);

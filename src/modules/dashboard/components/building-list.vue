@@ -43,13 +43,11 @@
                                     building.building_type
                                 ) && listType === 'building'
                             "
-                            :href="
-                                `${
-                                    building.leitstelle_building_id
-                                        ? `/buildings/${building.leitstelle_building_id}`
-                                        : '#'
-                                }`
-                            "
+                            :href="`${
+                                building.leitstelle_building_id
+                                    ? `/buildings/${building.leitstelle_building_id}`
+                                    : '#'
+                            }`"
                             class="btn btn-default btn-xs lightbox-open"
                             :id="`dispatch-btn-${building.id}`"
                         >
@@ -159,15 +157,17 @@ export default Vue.extend<
                 noSort?: boolean;
             };
         };
-        const headingsExtensions = (this.listType === 'extension'
-            ? {
-                  current: { title: this.$m('current'), noSort: true },
-                  unavailable: {
-                      title: this.$m('unavailable'),
-                      noSort: true,
-                  },
-              }
-            : {}) as {
+        const headingsExtensions = (
+            this.listType === 'extension'
+                ? {
+                      current: { title: this.$m('current'), noSort: true },
+                      unavailable: {
+                          title: this.$m('unavailable'),
+                          noSort: true,
+                      },
+                  }
+                : {}
+        ) as {
             [name: string]: {
                 title: string;
                 noSort?: boolean;

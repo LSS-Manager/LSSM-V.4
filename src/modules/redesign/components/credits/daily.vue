@@ -2,12 +2,7 @@
     <div>
         <h1>
             {{ $sm('title') }}:
-            {{
-                moment()
-                    .utc()
-                    .add(page, 'days')
-                    .format('L')
-            }}
+            {{ moment().utc().add(page, 'days').format('L') }}
             <button
                 class="btn btn-success"
                 :href="`/credits/daily?page=${page - 1}`"
@@ -40,15 +35,13 @@
                 </span>
                 |
                 <span
-                    :class="
-                        `text-${
-                            sum.total > 0
-                                ? 'success'
-                                : sum.total < 0
-                                ? 'danger'
-                                : ''
-                        }`
-                    "
+                    :class="`text-${
+                        sum.total > 0
+                            ? 'success'
+                            : sum.total < 0
+                            ? 'danger'
+                            : ''
+                    }`"
                     >{{
                         (sum.total > 0 ? '+' : '') + sum.total.toLocaleString()
                     }}</span

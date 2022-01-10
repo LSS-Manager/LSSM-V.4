@@ -20,7 +20,7 @@ const scriptHandlers = {
         this.sort();
         console.log(
             execSync(
-                'eslint ./docs/.vuepress/ ./static/ ./prebuild/ ./build/ ./src/ ./scripts/ ./typings/ --ext .js,.ts,.vue -f table --no-error-on-unmatched-pattern --fix'
+                'eslint ./docs/.vuepress/ ./static/ ./prebuild/ ./build/ ./src/ ./scripts/ ./typings/ --ext .js,.ts,.vue -f table --no-error-on-unmatched-pattern --fix --report-unused-disable-directives'
             ).toString()
         );
     },
@@ -33,12 +33,7 @@ const scriptHandlers = {
         build('development');
         this.showChanges();
     },
-    tscDocs() {
-        console.log(execSync('tsc -b docs/.vuepress/').toString());
-    },
     docs() {
-        this.browserlist();
-        this.tscDocs();
         console.log(execSync('vuepress build docs').toString());
     },
     preBuild() {
@@ -52,9 +47,6 @@ const scriptHandlers = {
     },
     showChanges() {
         console.log(execSync('git diff --color-words').toString());
-    },
-    browserlist() {
-        // console.log(execSync('npx -y browserslist@latest --update-db'));
     },
 } as { [key: string]: () => string | void | Promise<string | void> };
 

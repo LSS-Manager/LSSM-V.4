@@ -29,9 +29,8 @@ export default (
         );
         vehicles.forEach(v => {
             const type = v.getAttribute('vehicle_type_id');
-            const type_name = v.parentElement?.parentElement?.getAttribute(
-                'vehicle_type'
-            );
+            const type_name =
+                v.parentElement?.parentElement?.getAttribute('vehicle_type');
             ([type, type_name].filter(t => !!t) as string[]).forEach(vType =>
                 icons
                     .filter(icon =>

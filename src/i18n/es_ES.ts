@@ -6,12 +6,10 @@ const modules = {
         reset: 'Restablecer',
         noMapkit:
             '¡Este módulo no funciona con el tipo de mapa "Mapkit" debido a las limitaciones de Mapkit!',
-        dev:
-            'Este módulo aún se encuentra en desarrollo. ¡Activarlo puede provocar funciones incompletas y defectuosas!',
+        dev: 'Este módulo aún se encuentra en desarrollo. ¡Activarlo puede provocar funciones incompletas y defectuosas!',
         closeWarning: {
             title: 'Cambios no guardados',
-            text:
-                'Hizo cambios en la AppStore que aún no se han guardado. Reinícielos o guárdelos para cerrar la AppStore.',
+            text: 'Hizo cambios en la AppStore que aún no se han guardado. Reinícielos o guárdelos para cerrar la AppStore.',
             close: 'Cerrar mensaje',
         },
     },
@@ -24,23 +22,20 @@ const modules = {
         import: 'Importar',
         resetWarning: {
             title: 'Restablecer la configuración',
-            text:
-                '¿Realmente desea restablecer la configuración a sus valores predeterminados? ¡Esto no se puede deshacer!',
+            text: '¿Realmente desea restablecer la configuración a sus valores predeterminados? ¡Esto no se puede deshacer!',
             close: 'Cancelar',
             total: 'Todos los ajustes',
             module: 'Sólo de éste módulo',
         },
         resetWarningSetting: {
             title: 'Restablecer ajustes',
-            text:
-                '¿Quiere restablecer esta configuración <b>{setting}</b> del modulo <b>{module}</b> a su valor predeterminado?',
+            text: '¿Quiere restablecer esta configuración <b>{setting}</b> del modulo <b>{module}</b> a su valor predeterminado?',
             close: 'Cancelar',
             reset: 'Restablecer',
         },
         closeWarning: {
             title: 'Cambios no guardados',
-            text:
-                'Ha realizado cambios en la configuración que aún no se han guardado. Restablecerlos, descartarlos o guardarlos para cerrar la configuración.',
+            text: 'Ha realizado cambios en la configuración que aún no se han guardado. Restablecerlos, descartarlos o guardarlos para cerrar la configuración.',
             close: 'Cerrar mensaje',
         },
         changeList: {
@@ -54,14 +49,12 @@ export default {
     modules,
     error: {
         title: 'LSS Manager: Error',
-        msg:
-            'Si este error ocurre con frecuencia, ¡Infórmelo al equipo de LSSM!',
+        msg: 'Si este error ocurre con frecuencia, ¡Infórmelo al equipo de LSSM!',
     },
     warnings: {
         version: {
             title: 'Versión de LSS Manager incorrecta',
-            text:
-                'Estimado usuario, lamentablemente tuvimos que descubrir que no tiene la última versión de LSS Manager. La última versión es {version}, pero primero tienes {curver}. Vuelva a cargar el juego sin caché (con Ctrl + F5, en dispositivos Apple comando + R), esto debería corregir el error. Si el error persiste, ¡Infórmalo al equipo! Si usa una versión incorrecta, no podemos garantizar la funcionalidad completa del LSS-Manager.',
+            text: 'Estimado usuario, lamentablemente tuvimos que descubrir que no tiene la última versión de LSS Manager. La última versión es {version}, pero primero tienes {curver}. Vuelva a cargar el juego sin caché (con Ctrl + F5, en dispositivos Apple comando + R), esto debería corregir el error. Si el error persiste, ¡Infórmalo al equipo! Si usa una versión incorrecta, no podemos garantizar la funcionalidad completa del LSS-Manager.',
             close: 'Cerrar mensaje y recargar el juego (recomendado)',
             abort: 'Cerrar el mensaje sin recargar el juego',
         },

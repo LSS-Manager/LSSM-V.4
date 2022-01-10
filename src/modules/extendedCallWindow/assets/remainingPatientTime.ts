@@ -10,9 +10,10 @@ export default (LSSM: Vue): Promise<void> =>
                 );
                 const barOuter = bar?.parentElement;
                 if (!bar || !barOuter || patient.target_percent) return;
-                let outer = barOuter.parentElement?.querySelector<
-                    HTMLDivElement
-                >('.mission_overview_countdown');
+                let outer =
+                    barOuter.parentElement?.querySelector<HTMLDivElement>(
+                        '.mission_overview_countdown'
+                    );
                 if (!outer) {
                     outer = document.createElement('div');
                     outer.classList.add('mission_overview_countdown');

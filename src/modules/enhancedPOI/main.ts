@@ -33,9 +33,7 @@ export default (async (LSSM, MODULE_ID, $m: $m) => {
     })();
 
     const modifyMarker = (poi: POIMarker, caption: string) => {
-        poi.bindTooltip(caption)
-            .getElement()
-            ?.setAttribute('caption', caption);
+        poi.bindTooltip(caption).getElement()?.setAttribute('caption', caption);
         poi.getElement()?.classList.add('poi');
     };
 
@@ -102,9 +100,8 @@ export default (async (LSSM, MODULE_ID, $m: $m) => {
         }
     };
 
-    const poiHighlightedClass = LSSM.$store.getters.nodeAttribute(
-        'poi-highlighted'
-    );
+    const poiHighlightedClass =
+        LSSM.$store.getters.nodeAttribute('poi-highlighted');
     const poiSettingsWrapperId = LSSM.$store.getters.nodeAttribute(
         'poi-settings',
         true
@@ -126,9 +123,9 @@ export default (async (LSSM, MODULE_ID, $m: $m) => {
     ]);
 
     const colorMarkers = (caption: string) =>
-        (document.querySelectorAll('.poi') as NodeListOf<
-            HTMLImageElement
-        >).forEach(el =>
+        (
+            document.querySelectorAll('.poi') as NodeListOf<HTMLImageElement>
+        ).forEach(el =>
             el.classList[
                 el.getAttribute('caption') === caption ? 'add' : 'remove'
             ](poiHighlightedClass)
@@ -174,11 +171,11 @@ export default (async (LSSM, MODULE_ID, $m: $m) => {
             );
             if (!form) {
                 isPOIWindow = false;
-                (document.querySelectorAll(
-                    `.poi.${poiHighlightedClass}`
-                ) as NodeListOf<HTMLImageElement>).forEach(el =>
-                    el.classList.remove(poiHighlightedClass)
-                );
+                (
+                    document.querySelectorAll(
+                        `.poi.${poiHighlightedClass}`
+                    ) as NodeListOf<HTMLImageElement>
+                ).forEach(el => el.classList.remove(poiHighlightedClass));
                 return;
             }
             if (isPOIWindow && document.getElementById(poiSettingsWrapperId))

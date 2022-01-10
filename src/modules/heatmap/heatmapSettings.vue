@@ -135,34 +135,47 @@ import { faSlidersH } from '@fortawesome/free-solid-svg-icons/faSlidersH';
 import { $m } from 'typings/Module';
 import { IconDefinition } from '@fortawesome/free-solid-svg-icons';
 import { InternalBuilding } from 'typings/Building';
-import { InternalVehicle } from 'typings/Vehicle';
+import { InternalVehicle, Vehicle } from 'typings/Vehicle';
 
 type Mode = 'buildings' | 'vehicles';
 
-type Subsetting<Scope extends Mode | ''> = Record<`${Scope}StaticRadius`, boolean> &
-    Record<`${Scope}RadiusM` | `${Scope}RadiusPx` | `${Scope}IntensityMaxZoom`, number> & Record<`${Scope}Includes`, { value: number, label: string}[]>;
+type Subsetting<Scope extends Mode | ''> = Record<
+    `${Scope}StaticRadius`,
+    boolean
+> &
+    Record<
+        `${Scope}RadiusM` | `${Scope}RadiusPx` | `${Scope}IntensityMaxZoom`,
+        number
+    > &
+    Record<`${Scope}Includes`, { value: string | number; label: string }[]>;
 
-export type Settings = { position: 'bottom-left' | 'bottom-right' | 'top-left' | 'top-right', heatmapMode: Mode} &
-    Subsetting<'buildings'> &
+export type Settings = {
+    position: 'bottom-left' | 'bottom-right' | 'top-left' | 'top-right';
+    active: boolean;
+    heatmapMode: Mode;
+} & Subsetting<'buildings'> &
     Subsetting<'vehicles'>;
 
-export type UpdateSettings = (updated: Settings) => void;
+export type UpdateSettings = (updated: Omit<Settings, 'active'>) => void;
 
 export default Vue.extend<
     {
-        settings: Settings;
+        settings: Omit<Settings, 'active'>;
         ids: Record<keyof Subsetting<''>, string>;
         icons: { faSlidersH: IconDefinition };
         maxZoom: number;
         radiusMAsRange: boolean;
         radiusPxAsRange: boolean;
         intensityAsRange: boolean;
+        vehicleTypes: Record<number, InternalVehicle>;
     },
     {
-        mode: <Setting extends keyof Subsetting<''>>(setting: Setting) => `${Mode}${Setting}`
+        mode: <Setting extends keyof Subsetting<''>>(
+            setting: Setting
+        ) => `${Mode}${Setting}`;
         save: () => Promise<void>;
     },
-    { includeOptions: { value: number, label: string}[] },
+    { includeOptions: { value: string | number; label: string }[] },
     {
         setSetting: <T>(settingId: string, value: T) => Promise<void>;
         getModuleSettings: () => Promise<Settings>;
@@ -175,11 +188,11 @@ export default Vue.extend<
         Lightbox: () =>
             import(
                 /* webpackChunkName: "components/lightbox" */ '../../components/lightbox.vue'
-                ),
+            ),
         VSelect: () =>
             import(
                 /* webpackChunkName: "components/vue-select" */ 'vue-select'
-                ),
+            ),
     },
     data() {
         const nodeAttribute = (attr: string, id = false) =>
@@ -198,20 +211,24 @@ export default Vue.extend<
                 vehiclesRadiusM: 31_415,
                 vehiclesRadiusPx: 50,
                 vehiclesIntensityMaxZoom: window.map.getMaxZoom(),
-                vehiclesIncludes: []
+                vehiclesIncludes: [],
             },
             ids: {
                 StaticRadius: nodeAttribute('static_radius', true),
                 RadiusM: nodeAttribute('radius_m', true),
                 RadiusPx: nodeAttribute('radius_px', true),
                 IntensityMaxZoom: nodeAttribute('intensity_max_zoom', true),
-                Includes: nodeAttribute('includes', true)
+                Includes: nodeAttribute('includes', true),
             },
             icons: { faSlidersH },
             maxZoom: window.map.getMaxZoom(),
             radiusMAsRange: true,
             radiusPxAsRange: true,
             intensityAsRange: true,
+            vehicleTypes: this.$t('vehicles') as Record<
+                number,
+                InternalVehicle
+            >,
         };
     },
     methods: {
@@ -227,8 +244,60 @@ export default Vue.extend<
     },
     computed: {
         includeOptions() {
-            return Object.entries(this.$t(this.settings.heatmapMode) as Record<number, InternalBuilding | InternalVehicle>).map(([id, {caption}]) => ({value: parseInt(id), label: caption})).sort(({label: labelA}, {label: labelB}) => labelA > labelB ? 1 : labelA < labelB ? -1 : 0);
-        }
+            if (this.settings.heatmapMode === 'vehicles') {
+                return [
+                    ...Object.entries(this.vehicleTypes).map(
+                        ([id, { caption }]) => ({
+                            value: id,
+                            label: caption,
+                        })
+                    ),
+                    ...(this.$store.state.api.vehicles as Vehicle[])
+                        .filter(v => v.vehicle_type_caption)
+                        .map(({ vehicle_type, vehicle_type_caption = '' }) => ({
+                            value: `[${vehicle_type}] ${vehicle_type_caption}`,
+                            label: `[${this.vehicleTypes[vehicle_type].caption}] ${vehicle_type_caption}`,
+                        }))
+                        .filter(
+                            ({ label: findLabel }, index, array) =>
+                                array.findIndex(
+                                    ({ label }) => label === findLabel
+                                ) === index
+                        ),
+                ].sort(({ label: labelA }, { label: labelB }) =>
+                    labelA.toUpperCase() > labelB.toUpperCase()
+                        ? 1
+                        : labelA.toUpperCase() < labelB.toUpperCase()
+                        ? -1
+                        : 0
+                );
+            } else if (this.settings.heatmapMode === 'buildings') {
+                return Object.entries(
+                    this.$t('buildings') as Record<number, InternalBuilding>
+                )
+                    .flatMap(([id, { caption, extensions = [] }]) => [
+                        { value: id, label: caption },
+                        ...extensions
+                            .filter(e => e)
+                            .flatMap(({ caption: extensionCaption }) => [
+                                {
+                                    value: `${id}-${extensionCaption}`,
+                                    label: `${caption} - ${extensionCaption}`,
+                                },
+                            ])
+                            .filter(
+                                ({ label: findLabel }, index, array) =>
+                                    array.findIndex(
+                                        ({ label }) => label === findLabel
+                                    ) === index
+                            ),
+                    ])
+                    .sort(({ label: labelA }, { label: labelB }) =>
+                        labelA > labelB ? 1 : labelA < labelB ? -1 : 0
+                    );
+            }
+            return [];
+        },
     },
     props: {
         setSetting: {
@@ -245,14 +314,23 @@ export default Vue.extend<
         },
         $m: {
             type: Function,
-            required: true
-        }
+            required: true,
+        },
     },
     mounted() {
         this.getModuleSettings().then(settings =>
-            Object.entries(settings).forEach(([setting, value]) =>
-                this.$set(this.settings, setting, value ?? this.settings[setting as keyof Settings])
-            )
+            Object.entries(settings).forEach(([setting, value]) => {
+                if (setting !== 'active') {
+                    this.$set(
+                        this.settings,
+                        setting,
+                        value ??
+                            this.settings[
+                                setting as Exclude<keyof Settings, 'active'>
+                            ]
+                    );
+                }
+            })
         );
     },
 });

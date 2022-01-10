@@ -41,9 +41,10 @@ export default (LSSM: Vue): void => {
             const update = () => {
                 const { lastVehicle, alarmTime } = getLastVehicleTime();
                 setAlarmTime(alarmTime);
-                const calcTimeBtn = lastVehicle?.parentElement?.parentElement?.querySelector(
-                    '.calculateTime'
-                ) as HTMLAnchorElement;
+                const calcTimeBtn =
+                    lastVehicle?.parentElement?.parentElement?.querySelector(
+                        '.calculateTime'
+                    ) as HTMLAnchorElement;
                 if (calcTimeBtn && calcTimeBtn.parentElement) {
                     calcTimeBtn.click();
                     observer.observe(calcTimeBtn.parentElement, {

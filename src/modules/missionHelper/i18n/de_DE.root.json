@@ -96,6 +96,10 @@
 			"platform_trucks": {
 				"description": "Zieht die Zahl der benötigten TM 50 von den DLK ab und blendet DLK aus, falls die Anzahl unter 0 sinkt.",
 				"title": "DLK einfach werten"
+			},
+			"police_service_group_leader": {
+				"description": "Zieht die Zahl der benötigten FuStW von den FuStW (DGL) ab und blendet FuStW aus, falls die Anzahl unter 0 sinkt.",
+				"title": "FuStW einfach werten"
 			}
 		},
 		"noVehicleRequirements": {

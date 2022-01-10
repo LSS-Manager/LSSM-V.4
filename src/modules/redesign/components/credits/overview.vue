@@ -125,10 +125,7 @@ export default Vue.extend<
             return Array(this.data.entries.length)
                 .fill('')
                 .map((_, index) =>
-                    moment()
-                        .utc()
-                        .subtract(index, 'days')
-                        .format('L')
+                    moment().utc().subtract(index, 'days').format('L')
                 )
                 .reverse();
         },

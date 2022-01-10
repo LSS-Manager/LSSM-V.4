@@ -15,30 +15,33 @@ import { ModuleMainFunction, ModuleSettingFunction } from 'typings/Module';
 
 require('./natives/navTabsClicker');
 require('./natives/lightbox');
+
+Vue.config.productionTip = false;
+
+const appContainer = document.createElement('div') as HTMLDivElement;
+document.body.appendChild(appContainer);
+
+window.keepAlive = true;
+
+Vue.use(VueJSModal, {
+    dynamic: true,
+    dynamicDefaults: {
+        adaptive: true,
+        scrollable: true,
+        clickToClose: true,
+    },
+    dialog: true,
+});
+Vue.use(ToggleButton);
+Vue.use(Tabs);
+Vue.use(Notifications);
+
+Vue.component('font-awesome-icon', FontAwesomeIcon);
+utils(Vue);
+
 (async () => {
+    // TODO: Remove for 4.4.7 but NOT before 4.4.6
     if (window.location.pathname.match(/^\/users\//)) return;
-    Vue.config.productionTip = false;
-
-    const appContainer = document.createElement('div') as HTMLDivElement;
-    document.body.appendChild(appContainer);
-
-    window.keepAlive = true;
-
-    Vue.use(VueJSModal, {
-        dynamic: true,
-        dynamicDefaults: {
-            adaptive: true,
-            scrollable: true,
-            clickToClose: true,
-        },
-        dialog: true,
-    });
-    Vue.use(ToggleButton);
-    Vue.use(Tabs);
-    Vue.use(Notifications);
-
-    Vue.component('font-awesome-icon', FontAwesomeIcon);
-    utils(Vue);
 
     const LSSM = new Vue({
         store: store(Vue),
@@ -73,9 +76,9 @@ require('./natives/lightbox');
         }
     }
     if (window.location.pathname === '/') {
-        import(
-            /* webpackChunkName: "mainpageCore" */ './mainpageCore'
-        ).then(core => core.default(LSSM));
+        import(/* webpackChunkName: "mainpageCore" */ './mainpageCore').then(
+            core => core.default(LSSM)
+        );
     }
 
     LSSM.$store
@@ -110,14 +113,16 @@ require('./natives/lightbox');
                 ) {
                     await LSSM.$store.dispatch('settings/register', {
                         moduleId,
-                        settings: await ((
-                            await import(
-                                /* webpackChunkName: "modules/settings/[request]" */
-                                /* webpackInclude: /[\\/]+modules[\\/]+.*?[\\/]+settings\.ts/ */
-                                /* webpackExclude: /[\\/]+modules[\\/]+(telemetry|releasenotes|support)[\\/]+/ */
-                                `./modules/${moduleId}/settings`
-                            )
-                        ).default as ModuleSettingFunction)(moduleId, LSSM, $m),
+                        settings: await (
+                            (
+                                await import(
+                                    /* webpackChunkName: "modules/settings/[request]" */
+                                    /* webpackInclude: /[\\/]+modules[\\/]+.*?[\\/]+settings\.ts/ */
+                                    /* webpackExclude: /[\\/]+modules[\\/]+(telemetry|releasenotes|support)[\\/]+/ */
+                                    `./modules/${moduleId}/settings`
+                                )
+                            ).default as ModuleSettingFunction
+                        )(moduleId, LSSM, $m),
                     });
                 }
                 if (

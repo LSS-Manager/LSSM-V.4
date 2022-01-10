@@ -14,8 +14,8 @@
             :title="`Status ${show}: ${amount.toLocaleString()}`"
             v-show="
                 settings[`show_${show}`] &&
-                    (!settings[`hide_${show}`] ||
-                        (settings[`hide_${show}`] && amount))
+                (!settings[`hide_${show}`] ||
+                    (settings[`hide_${show}`] && amount))
             "
         >
             {{ amount.toLocaleString() }}
@@ -47,7 +47,7 @@ export default Vue.extend<
     name: 'lssmv4-status-counter',
     data() {
         return {
-            fmsReal2Show: (this.$t('fmsReal2Show') as unknown) as Record<
+            fmsReal2Show: this.$t('fmsReal2Show') as unknown as Record<
                 string,
                 number
             >,

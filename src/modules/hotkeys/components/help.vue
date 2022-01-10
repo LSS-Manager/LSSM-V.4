@@ -92,9 +92,10 @@ export default Vue.extend<
                 : this.namedHotkeys;
         },
         hotkeysSorted() {
-            return (this.search.trim().toLowerCase()
-                ? this.hotkeysFiltered
-                : this.namedHotkeys
+            return (
+                this.search.trim().toLowerCase()
+                    ? this.hotkeysFiltered
+                    : this.namedHotkeys
             ).sort((a, b) => {
                 let modifier = 1;
                 if (this.sortDir === 'desc') modifier = -1;

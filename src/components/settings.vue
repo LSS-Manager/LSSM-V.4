@@ -31,8 +31,9 @@
                             <table class="table table-striped table-condensed">
                                 <tbody>
                                     <tr
-                                        v-for="({ saved, current },
-                                        setting) in changes"
+                                        v-for="(
+                                            { saved, current }, setting
+                                        ) in changes"
                                         :key="setting"
                                     >
                                         <td>
@@ -431,9 +432,8 @@ export default Vue.extend<
                                     setting,
                                     {
                                         saved,
-                                        current: this.liveValueMap[module][
-                                            setting
-                                        ],
+                                        current:
+                                            this.liveValueMap[module][setting],
                                     },
                                 ])
                                 .filter(
@@ -469,9 +469,9 @@ export default Vue.extend<
             this.$store.commit('settings/setSettingsChanges', this.changes);
         },
         updateAppendableList(state, moduleId, settingId) {
-            (this.settings[moduleId][
-                settingId
-            ] as AppendableList).value.enabled = state;
+            (
+                this.settings[moduleId][settingId] as AppendableList
+            ).value.enabled = state;
             this.update(moduleId, settingId);
         },
         async save() {
@@ -587,13 +587,13 @@ export default Vue.extend<
                     ? this.settings[moduleId]
                     : this.settings;
                 dependence = dependence.replace(/^\./, '');
-                const setting = (dependence.split('/').reduce(
+                const setting = dependence.split('/').reduce(
                     (previousValue, currentValue) =>
                         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                         // @ts-ignore
                         (previousValue || base)[currentValue],
                     base
-                ) as unknown) as SettingType;
+                ) as unknown as SettingType;
                 if (invert) {
                     return (
                         setting?.isDisabled ||

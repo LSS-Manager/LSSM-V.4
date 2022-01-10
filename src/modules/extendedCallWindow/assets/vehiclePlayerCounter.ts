@@ -10,9 +10,8 @@ export default (
     playerCounter: boolean,
     counterColors: Record<List, string>
 ) => {
-    const amountOfPeopleSpan = document.querySelector<HTMLSpanElement>(
-        '#amount_of_people'
-    );
+    const amountOfPeopleSpan =
+        document.querySelector<HTMLSpanElement>('#amount_of_people');
 
     if (!amountOfPeopleSpan) return;
 

@@ -86,9 +86,9 @@ export default <RedesignParser<VerbandMitgliederWindow>>(({
                         '.btn_edit_rights'
                     )
                         ? {
-                              kick: !!user.children[5].querySelector<
-                                  HTMLAnchorElement
-                              >('a[href^="/verband/kick/"]'),
+                              kick: !!user.children[5].querySelector<HTMLAnchorElement>(
+                                  'a[href^="/verband/kick/"]'
+                              ),
                               ...Object.fromEntries(
                                   [
                                       'admin',

@@ -11,6 +11,10 @@ export default <ModuleSettingFunction>(() => ({
         type: 'toggle',
         default: false,
     },
+    coinsInNavbar: <Toggle>{
+        type: 'toggle',
+        default: false,
+    },
     showToplistPosition: <Toggle>{
         type: 'toggle',
         default: false,

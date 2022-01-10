@@ -66,7 +66,7 @@ export default async (LSSM: Vue): Promise<void> => {
             { notes, last_seen: last_seen ?? notes[0][0] },
             { name: 'releasenotes', height: 'auto' },
             {
-                'before-close': async function() {
+                'before-close': async function () {
                     await LSSM.$store.dispatch('storage/set', {
                         key: LAST_VERSION_STORAGE_KEY,
                         value: notes[0][0],

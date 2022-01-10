@@ -1,8 +1,6 @@
 <template>
     <lightbox name="libraryOverview">
-        <h1>
-            Open-Source Libraries
-        </h1>
+        <h1>Open-Source Libraries</h1>
         <label class="search_label">
             <input
                 type="search"
@@ -22,7 +20,7 @@
                     <img
                         :src="
                             lib.icon ||
-                                'https://github.githubassets.com/pinned-octocat.svg'
+                            'https://github.githubassets.com/pinned-octocat.svg'
                         "
                         :alt="libraryName"
                     />

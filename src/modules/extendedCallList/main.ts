@@ -114,21 +114,22 @@ export default (async (LSSM, MODULE_ID, $m) => {
             const collapsedMissionBtnClass = LSSM.$store.getters.nodeAttribute(
                 `${MODULE_ID}_collapsable-missions_btn`
             );
-            const addCollapsableBtn: AddCollapsableButton | null = collapsableMissions
-                ? (
-                      await import(
-                          /* webpackChunkName: "modules/extendedCallList/collapsableMissions" */ './assets/collapsableMissions/missionlist'
+            const addCollapsableBtn: AddCollapsableButton | null =
+                collapsableMissions
+                    ? (
+                          await import(
+                              /* webpackChunkName: "modules/extendedCallList/collapsableMissions" */ './assets/collapsableMissions/missionlist'
+                          )
+                      ).default(
+                          LSSM,
+                          MODULE_ID,
+                          collapsedMissions,
+                          allMissionsCollapsed,
+                          collapsedMissionBtnClass,
+                          sortBtnId,
+                          $m
                       )
-                  ).default(
-                      LSSM,
-                      MODULE_ID,
-                      collapsedMissions,
-                      allMissionsCollapsed,
-                      collapsedMissionBtnClass,
-                      sortBtnId,
-                      $m
-                  )
-                : null;
+                    : null;
             const {
                 addShareBtn,
                 updateShareBtn,
@@ -225,16 +226,45 @@ export default (async (LSSM, MODULE_ID, $m) => {
         );
     }
 
-    if (await getSetting('averageCredits')) {
+    const averageCredits = await getSetting('averageCredits');
+    if (averageCredits) {
         import(
-            /* webpackChunkName: "modules/extendedCallList/averageCredits" */ './assets/averageCredits'
-        ).then(({ default: averageCredits }) => {
-            LSSM.$store
-                .dispatch('api/getMissions', {
+            /* webpackChunkName: "modules/extendedCallList/utils/progressPrepend" */ './assets/utils/progressPrepend'
+        ).then(async ({ default: progressPrepend }) => {
+            if (averageCredits) {
+                await LSSM.$store.dispatch('api/getMissions', {
                     force: false,
                     feature: 'ecl-averageCredits',
-                })
-                .then(() => averageCredits(LSSM));
+                });
+            }
+
+            const { addAverageCredits, updateAverageCredits } = (
+                await import(
+                    /* webpackChunkName: "modules/extendedCallList/averageCredits" */ './assets/averageCredits'
+                )
+            ).default(LSSM, MODULE_ID);
+
+            progressPrepend(
+                LSSM,
+                MODULE_ID,
+                mission => {
+                    mission.progressbarWrapper.classList.forEach(c => {
+                        if (c.startsWith('col-xs-'))
+                            mission.progressbarWrapper.classList.remove(c);
+                    });
+
+                    let itemsLoaded = 0;
+                    if (averageCredits)
+                        itemsLoaded += addAverageCredits(mission);
+
+                    mission.progressbarWrapper.classList.add(
+                        `col-xs-${11 - itemsLoaded}`
+                    );
+                },
+                mission => {
+                    updateAverageCredits(mission);
+                }
+            );
         });
     }
 

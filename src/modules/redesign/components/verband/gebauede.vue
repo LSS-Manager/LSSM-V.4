@@ -73,9 +73,7 @@
                                 }}</span>
                                 ({{ lightbox.$sm('remaining') }}:
                                 <span
-                                    :id="
-                                        `extension_countdown_${extension.id}_redesign`
-                                    "
+                                    :id="`extension_countdown_${extension.id}_redesign`"
                                 ></span
                                 >)
                             </div>

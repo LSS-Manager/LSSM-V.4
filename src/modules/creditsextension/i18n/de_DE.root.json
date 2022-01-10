@@ -22,6 +22,10 @@
 			"description": "Sobald du einen der hier festgelegten Werte an Credits erreicht hast, wird die Schaltfläche dauerhaft grün hinterlegt – bis du das Menü der Creditserweiterung einmal öffnest.",
 			"title": "Ziele"
 		},
+		"coinsInNavbar": {
+			"description": "Zeigt den aktuellen Coinswert statt des Sparschweins in der Navigationsleiste.",
+			"title": "Coins statt Sparschwein"
+		},
 		"creditsInNavbar": {
 			"description": "Zeigt den aktuellen Creditswert statt des Sparschweins in der Navigationsleiste.",
 			"title": "Credits statt Sparschwein"

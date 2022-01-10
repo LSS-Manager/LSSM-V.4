@@ -15,5 +15,7 @@ npm install -g yarn
 # version output helps when there are debugging needs
 echo "node: $(node -v) – npm: $(npm -v) – yarn: $(yarn -v) – nvm: $(nvm -v)"
 
+npx -y browserslist@latest --update-db
+
 yarn --frozen-lockfile
 yarn run "$RUN_BRANCH"

@@ -6,12 +6,10 @@ const modules = {
         reset: 'Återställ',
         noMapkit:
             'Denna modul fungerar inte med "Mapkit" på grund av Mapkit-begränsningar!',
-        dev:
-            'Den här modulen är fortfarande under utveckling. Att aktivera det kan orsaka fel! ',
+        dev: 'Den här modulen är fortfarande under utveckling. Att aktivera det kan orsaka fel! ',
         closeWarning: {
             title: 'Osparade ändringar',
-            text:
-                'Du har gjort ändringar i AppStore som ännu inte har sparats. Återställ eller spara dem för att stänga AppStore.',
+            text: 'Du har gjort ändringar i AppStore som ännu inte har sparats. Återställ eller spara dem för att stänga AppStore.',
             close: 'Stäng meddelandet',
         },
     },
@@ -24,23 +22,20 @@ const modules = {
         import: 'Importera',
         resetWarning: {
             title: 'Återställ inställningar',
-            text:
-                'Vill du återställa standardinställningarna? Det kan inte bli ogjort! ',
+            text: 'Vill du återställa standardinställningarna? Det kan inte bli ogjort! ',
             close: 'Avbryt',
             total: 'Alla inställningar',
             module: 'Endast för den här modulen',
         },
         resetWarningSetting: {
             title: 'Återställ inställningar',
-            text:
-                'Vill du verkligen återställa den här inställningen <b>{setting}</b> för modulen <b>{module}</b> till dess standardvärde?',
+            text: 'Vill du verkligen återställa den här inställningen <b>{setting}</b> för modulen <b>{module}</b> till dess standardvärde?',
             close: 'Avbryt',
             reset: 'Återställ',
         },
         closeWarning: {
             title: 'Osparade ändringar',
-            text:
-                'Du har gjort ändringar i inställningarna som ännu inte har sparats. Återställ dem, avbryt dem eller spara dem för att stänga inställningarna.',
+            text: 'Du har gjort ändringar i inställningarna som ännu inte har sparats. Återställ dem, avbryt dem eller spara dem för att stänga inställningarna.',
             close: 'Stäng meddelandet',
         },
         changeList: {
@@ -59,8 +54,7 @@ export default {
     warnings: {
         version: {
             title: 'Fel version av LSS Manager',
-            text:
-                'Kära användare, tyvärr har du inte den senaste versionen av LSS Manager. Den senaste versionen är {version} och du har {aktuell}. Ladda om spelet genom att rensa cacheminnet (Ctrl + F5 eller kommando + R på Apple), detta bör lösa problemet. Om problemet kvarstår, vänligen rapportera det till teamet! Om du använder fel version kan vi inte garantera att LSS-Manager fungerar till fullo. ',
+            text: 'Kära användare, tyvärr har du inte den senaste versionen av LSS Manager. Den senaste versionen är {version} och du har {aktuell}. Ladda om spelet genom att rensa cacheminnet (Ctrl + F5 eller kommando + R på Apple), detta bör lösa problemet. Om problemet kvarstår, vänligen rapportera det till teamet! Om du använder fel version kan vi inte garantera att LSS-Manager fungerar till fullo. ',
             close: 'Stäng detta meddelande och ladda om spelet (rekommenderas)',
             abort: 'Stäng detta meddelande utan att ladda om spelet',
         },

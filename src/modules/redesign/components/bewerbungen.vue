@@ -31,11 +31,9 @@
                     <span class="btn-group">
                         <button
                             lightbox-open
-                            :href="
-                                `/messages/new?target=${encodeURIComponent(
-                                    user.name
-                                )}`
-                            "
+                            :href="`/messages/new?target=${encodeURIComponent(
+                                user.name
+                            )}`"
                             class="btn btn-xs btn-default"
                         >
                             <font-awesome-icon
@@ -51,17 +49,16 @@
                             </button>
                             <ul class="dropdown-menu">
                                 <li
-                                    v-for="({ name, subject, template },
-                                    index) in messageTemplates"
+                                    v-for="(
+                                        { name, subject, template }, index
+                                    ) in messageTemplates"
                                     :key="`${id}_${index}`"
                                 >
                                     <a
                                         lightbox-open
-                                        :href="
-                                            `/messages/new?target=${encodeURIComponent(
-                                                user.name
-                                            )}&template=${index}`
-                                        "
+                                        :href="`/messages/new?target=${encodeURIComponent(
+                                            user.name
+                                        )}&template=${index}`"
                                         :title="`${subject}\n---\n${template}`"
                                     >
                                         {{ name }}: {{ subject }}

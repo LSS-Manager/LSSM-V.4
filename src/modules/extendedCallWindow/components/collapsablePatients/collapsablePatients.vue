@@ -162,17 +162,13 @@ export default Vue.extend<
             return !!Object.keys(this.requirements.detailed).length;
         },
         redRequirements() {
-            return Object.entries(
-                this.requirements.red
-            ).sort(([reqA], [reqB]) =>
-                reqA > reqB ? 1 : reqA < reqB ? -1 : 0
+            return Object.entries(this.requirements.red).sort(
+                ([reqA], [reqB]) => (reqA > reqB ? 1 : reqA < reqB ? -1 : 0)
             );
         },
         labels() {
-            return Object.entries(
-                this.requirements.detailed
-            ).sort(([reqA], [reqB]) =>
-                reqA > reqB ? 1 : reqA < reqB ? -1 : 0
+            return Object.entries(this.requirements.detailed).sort(
+                ([reqA], [reqB]) => (reqA > reqB ? 1 : reqA < reqB ? -1 : 0)
             );
         },
         labelCombis() {

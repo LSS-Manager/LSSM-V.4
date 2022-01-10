@@ -33,7 +33,7 @@
             class="btn btn-success"
             :disabled="
                 endPage >= toplist.lastPage ||
-                    toplist.lastPage === Number.MAX_SAFE_INTEGER
+                toplist.lastPage === Number.MAX_SAFE_INTEGER
             "
             @click="loadNext"
         >
@@ -64,11 +64,9 @@
                 <td>{{ entry.credits.toLocaleString() }}</td>
                 <td>
                     <img
-                        :src="
-                            `/images/user_${
-                                entry.online ? 'green' : 'gray'
-                            }.png`
-                        "
+                        :src="`/images/user_${
+                            entry.online ? 'green' : 'gray'
+                        }.png`"
                         alt=""
                     />
                     <a :href="`/profile/${entry.id}`">

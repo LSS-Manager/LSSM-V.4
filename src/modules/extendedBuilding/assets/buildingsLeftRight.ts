@@ -12,7 +12,7 @@ export default (LSSM: Vue): void => {
     const buildingsByType = LSSM.$store.getters['api/buildingsByType'] as {
         [type: number]: Building[];
     };
-    const smallBuildings = (LSSM.$t('small_buildings') as unknown) as {
+    const smallBuildings = LSSM.$t('small_buildings') as unknown as {
         [type: number]: number;
     };
     const smallBuildingsArray: (string | number)[] = Object.entries(
@@ -33,7 +33,7 @@ export default (LSSM: Vue): void => {
     const btnGroup = document.getElementById('building-navigation-container');
     if (!btnGroup) return;
     btnGroup.children[0].textContent = `[←${position}] ${btnGroup.children[0].textContent}`;
-    btnGroup.children[
-        btnGroup.children.length - 1
-    ].textContent += ` [${buildings.length - position - 1}→]`;
+    btnGroup.children[btnGroup.children.length - 1].textContent += ` [${
+        buildings.length - position - 1
+    }→]`;
 };

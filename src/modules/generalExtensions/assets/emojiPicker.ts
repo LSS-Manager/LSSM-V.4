@@ -172,7 +172,8 @@ export default async (LSSM: Vue): Promise<void> => {
                     currentFocus = currentFocus.parentElement
                         ?.firstElementChild as HTMLSpanElement | null;
                 } else {
-                    currentFocus = currentFocus.nextElementSibling as HTMLSpanElement | null;
+                    currentFocus =
+                        currentFocus.nextElementSibling as HTMLSpanElement | null;
                 }
                 currentFocus?.classList.add('focused');
                 break;
@@ -185,7 +186,8 @@ export default async (LSSM: Vue): Promise<void> => {
                     currentFocus = currentFocus.parentElement
                         ?.lastElementChild as HTMLSpanElement | null;
                 } else {
-                    currentFocus = currentFocus.previousElementSibling as HTMLSpanElement | null;
+                    currentFocus =
+                        currentFocus.previousElementSibling as HTMLSpanElement | null;
                 }
                 currentFocus?.classList.add('focused');
                 break;

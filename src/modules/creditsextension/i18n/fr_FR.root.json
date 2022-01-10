@@ -22,6 +22,10 @@
 			"description": "Dès que vous avez atteint l'une des valeurs de crédits définies ici, le bouton devient vert en permanence - jusqu'à ce que vous ouvrez une fois le menu de l'extension de crédits.",
 			"title": "Objectifs"
 		},
+		"coinsInNavbar": {
+			"description": "Affiche la valeur actuelle des coins à la place de la tirelire dans la barre de navigation.",
+			"title": "Des coins au lieu d'une tirelire"
+		},
 		"creditsInNavbar": {
 			"description": "Affiche la valeur actuelle des crédits à la place de la tirelire dans la barre de navigation.",
 			"title": "Des crédits au lieu d'une tirelire"

@@ -6,12 +6,10 @@ const modules = {
         reset: 'Reset',
         noMapkit:
             'Questo modulo non funziona con il tipo di mappa "Mapkit" dovuto ad alcune limitazioni di Mapkit ',
-        dev:
-            "Questo modulo è attualmente ancora in fase di sviluppo. L'attivazione può portare a funzioni incomplete e difettose!",
+        dev: "Questo modulo è attualmente ancora in fase di sviluppo. L'attivazione può portare a funzioni incomplete e difettose!",
         closeWarning: {
             title: 'Cambiamenti non salvati',
-            text:
-                "Hai apportato modifiche nell'AppStore che non sono state ancora salvate. Resettali o salvali per chiudere l'AppStore.",
+            text: "Hai apportato modifiche nell'AppStore che non sono state ancora salvate. Resettali o salvali per chiudere l'AppStore.",
             abort: 'Cancella',
             saveAndExit: 'Salvare e uscire',
             exit: 'Chiudi il messaggio',
@@ -26,23 +24,20 @@ const modules = {
         import: 'Importa',
         resetWarning: {
             title: 'Resetta i cambiamenti',
-            text:
-                'Vuoi davvero ripristinare le impostazioni ai valori predefiniti? Questo non può essere annullato!',
+            text: 'Vuoi davvero ripristinare le impostazioni ai valori predefiniti? Questo non può essere annullato!',
             close: 'Annulla',
             total: 'Tutte le impostazioni',
             module: 'Solo per questo modulo',
         },
         resetWarningSetting: {
             title: 'Reset impostazioni',
-            text:
-                'Volete davvero ripristinare questa impostazione <b>{setting}</b> del modulo <b>{modul}</b> al suo valore di default?',
+            text: 'Volete davvero ripristinare questa impostazione <b>{setting}</b> del modulo <b>{modul}</b> al suo valore di default?',
             close: 'Annulla',
             reset: 'Resetta',
         },
         closeWarning: {
             title: 'Cambiamenti non salvati',
-            text:
-                'Hai apportato modifiche alle impostazioni che non sono ancora state salvate. Ripristinarli, eliminarli o salvarli per chiudere le impostazioni.',
+            text: 'Hai apportato modifiche alle impostazioni che non sono ancora state salvate. Ripristinarli, eliminarli o salvarli per chiudere le impostazioni.',
             abort: 'Cancella',
             saveAndExit: 'Salvare e uscire',
             exit: 'Uscire senza salvare',
@@ -58,14 +53,12 @@ export default {
     modules,
     error: {
         title: 'LSS Manager: Error',
-        msg:
-            'Se questo errore avviene frequentamente, per cortesia contatta il Team di LSSM!',
+        msg: 'Se questo errore avviene frequentamente, per cortesia contatta il Team di LSSM!',
     },
     warnings: {
         version: {
             title: 'Versione di LSS Manager sbagliata!',
-            text:
-                "Gentile utente, abbiamo notato che non disponi dell'ultima versione di LSS Manager. L'ultima versione è {version}, ma hai {curver}. Ricarica il gioco senza cache (su Windows con Ctrl + F5, sui dispositivi Apple con Command + R), questo dovrebbe risolvere il bug. Se l'errore persiste, segnalalo al team! Se utilizzi una versione sbagliata, non possiamo garantire la piena funzionalità di LSS-Manager.",
+            text: "Gentile utente, abbiamo notato che non disponi dell'ultima versione di LSS Manager. L'ultima versione è {version}, ma hai {curver}. Ricarica il gioco senza cache (su Windows con Ctrl + F5, sui dispositivi Apple con Command + R), questo dovrebbe risolvere il bug. Se l'errore persiste, segnalalo al team! Se utilizzi una versione sbagliata, non possiamo garantire la piena funzionalità di LSS-Manager.",
             close: 'Chiudi il messaggio e ricarica il gioco (Raccomandato)',
             abort: 'Chiudi il messaggio senza ricaricare il gioco.',
         },

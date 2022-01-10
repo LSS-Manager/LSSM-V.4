@@ -125,12 +125,12 @@ export default {
                 ).then(storage =>
                     resolve({
                         ...Object.fromEntries(
-                            Object.entries(
-                                state.settings[moduleId] ?? {}
-                            ).map(([key, { value, default: def }]) => [
-                                key,
-                                value ?? def,
-                            ])
+                            Object.entries(state.settings[moduleId] ?? {}).map(
+                                ([key, { value, default: def }]) => [
+                                    key,
+                                    value ?? def,
+                                ]
+                            )
                         ),
                         ...storage,
                     })

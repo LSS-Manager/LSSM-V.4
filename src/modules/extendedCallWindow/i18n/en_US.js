@@ -24,8 +24,7 @@ module.exports = {
             set: 'So often this combination is selected when you press the ARR',
             attribute: 'The combination described in this line',
             free: 'So often this combination is available',
-            max:
-                'You can select this ARR until this combination is no longer available',
+            max: 'You can select this ARR until this combination is no longer available',
         },
         arrSpecs: {
             fire: 'Firetrucks',
@@ -147,10 +146,8 @@ module.exports = {
         allTab: 'All',
         occupiedTab: 'Follow-up',
         vehicleMissing: {
-            title:
-                'One vehicle is not present in any tab | Several vehicles are not present in any tab',
-            text:
-                'The following vehicle types are only present in the "All" tab:',
+            title: 'One vehicle is not present in any tab | Several vehicles are not present in any tab',
+            text: 'The following vehicle types are only present in the "All" tab:',
             hide: 'Hide Note',
             close: 'Close Note till change',
         },

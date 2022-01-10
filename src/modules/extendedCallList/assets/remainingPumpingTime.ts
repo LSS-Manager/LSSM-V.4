@@ -8,9 +8,10 @@ export default (LSSM: Vue): Promise<void> =>
                 const bar = $element[0];
                 const barOuter = bar.parentElement;
                 if (!bar || !barOuter) return;
-                let outer = barOuter.parentElement?.querySelector<
-                    HTMLDivElement
-                >('.mission_overview_countdown');
+                let outer =
+                    barOuter.parentElement?.querySelector<HTMLDivElement>(
+                        '.mission_overview_countdown'
+                    );
                 if (!outer) {
                     outer = document.createElement('div');
                     outer.classList.add('mission_overview_countdown');

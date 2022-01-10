@@ -75,7 +75,7 @@
                     <a
                         v-if="
                             vehicle.target_type &&
-                                vehicle.target_type !== 'mission'
+                            vehicle.target_type !== 'mission'
                         "
                         class="lightbox-open"
                         :class="resolveLinkClass"
@@ -206,9 +206,11 @@ export default Vue.extend<
                 })
                 .then(() => {
                     vehicle.fms_real = target;
-                    vehicle.fms_show = ((this.$t(
-                        'fmsReal2Show'
-                    ) as unknown) as { [status: number]: number })[target];
+                    vehicle.fms_show = (
+                        this.$t('fmsReal2Show') as unknown as {
+                            [status: number]: number;
+                        }
+                    )[target];
                 });
         },
         startResolve(type, id) {

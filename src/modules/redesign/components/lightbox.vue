@@ -63,9 +63,7 @@
         <div
             id="redesign-loader"
             v-show="loading"
-            :style="
-                `width: ${size}%; height: ${size}%; top: ${loaderOffset}%; left: ${loaderOffset}%`
-            "
+            :style="`width: ${size}%; height: ${size}%; top: ${loaderOffset}%; left: ${loaderOffset}%`"
         >
             <font-awesome-icon
                 :icon="faSyncAlt"
@@ -166,6 +164,13 @@ const windows: RedesignLightbox['Data']['windows'] = {
                 /*webpackChunkName: "modules/redesign/windows/freunde"*/ './freunde.vue'
             ),
         data: 'friends',
+    },
+    'note': {
+        component: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/note"*/ './note.vue'
+            ),
+        data: 'note',
     },
     'profile': {
         component: () =>

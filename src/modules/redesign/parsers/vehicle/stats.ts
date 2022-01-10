@@ -5,14 +5,16 @@ export interface VehicleStatsWindow {
 }
 
 export default <RedesignParser<VehicleStatsWindow>>(({ doc }) => ({
-    data: (JSON.parse(
-        Array.from(doc.scripts)
-            .map(script =>
-                script.textContent?.match(
-                    /(?<=data\s*?=\s*?{(.|\n)*?datasets:\s*?\[\s*?{(.|\n)*?data:\s*?)\[(.|\n)*?]/ms
+    data: (
+        JSON.parse(
+            Array.from(doc.scripts)
+                .map(script =>
+                    script.textContent?.match(
+                        /(?<=data\s*?=\s*?{(.|\n)*?datasets:\s*?\[\s*?{(.|\n)*?data:\s*?)\[(.|\n)*?]/ms
+                    )
                 )
-            )
-            .find(s => !!s)?.[0]
-            ?.replace(/,(?=\W*]$)/, '') ?? '[]'
-    ) as string[]).map(km => parseFloat(km)),
+                .find(s => !!s)?.[0]
+                ?.replace(/,(?=\W*]$)/, '') ?? '[]'
+        ) as string[]
+    ).map(km => parseFloat(km)),
 }));

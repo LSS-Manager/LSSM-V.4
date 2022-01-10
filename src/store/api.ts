@@ -224,9 +224,9 @@ export default {
             { value: buildings, lastUpdate }: StorageGetterReturn<'buildings'>
         ) {
             if (!buildings) return;
-            const smallBuildings = ((window[PREFIX] as Vue).$t(
+            const smallBuildings = (window[PREFIX] as Vue).$t(
                 'small_buildings'
-            ) as unknown) as {
+            ) as unknown as {
                 [type: number]: number;
             };
             buildings.forEach(
@@ -260,7 +260,7 @@ export default {
         },
         setVehicleStates(state: APIState, states: { [state: number]: number }) {
             const LSSM = window[PREFIX] as Vue;
-            const fmsReal2Show = (LSSM.$t('fmsReal2Show') as unknown) as {
+            const fmsReal2Show = LSSM.$t('fmsReal2Show') as unknown as {
                 [status: number]: number;
             };
             const states_show = {} as { [state: number]: number };
@@ -382,7 +382,7 @@ export default {
         },
         buildingsByCategory(state, getters) {
             const LSSM = window[PREFIX] as Vue;
-            const categories = (LSSM.$t('buildingCategories') as unknown) as {
+            const categories = LSSM.$t('buildingCategories') as unknown as {
                 [category: string]: BuildingCategory;
             };
             const buildingsByCategory = {} as {
@@ -523,18 +523,15 @@ export default {
                     })
                     .then(res => res.json())
                     .then(async (building: Building) => {
-                        const {
-                            value: buildings,
-                            lastUpdate,
-                        } = await get_api_values(
-                            'buildings',
-                            store,
-                            `store/api/fetchBuilding(${feature})`
-                        );
+                        const { value: buildings, lastUpdate } =
+                            await get_api_values(
+                                'buildings',
+                                store,
+                                `store/api/fetchBuilding(${feature})`
+                            );
                         if (!buildings) return reject();
-                        buildings[
-                            buildings.findIndex(b => b.id === id)
-                        ] = building;
+                        buildings[buildings.findIndex(b => b.id === id)] =
+                            building;
                         set_api_storage(
                             'buildings',
                             {
@@ -586,14 +583,12 @@ export default {
                     })
                     .then(res => res.json())
                     .then(async (vehicle: Vehicle) => {
-                        const {
-                            value: vehicles,
-                            lastUpdate,
-                        } = await get_api_values(
-                            'vehicles',
-                            store,
-                            `store/api/fetchVehicle(${feature})`
-                        );
+                        const { value: vehicles, lastUpdate } =
+                            await get_api_values(
+                                'vehicles',
+                                store,
+                                `store/api/fetchVehicle(${feature})`
+                            );
                         if (!vehicles) return reject();
                         const index = vehicles.findIndex(v => v.id === id);
                         if (index < 0) vehicles.push(vehicle);
@@ -623,14 +618,12 @@ export default {
                     })
                     .then(res => res.json())
                     .then(async (vehiclesAt: Vehicle[]) => {
-                        const {
-                            value: vehicles,
-                            lastUpdate,
-                        } = await get_api_values(
-                            'vehicles',
-                            store,
-                            `store/api/fetchVehiclesAtBuilding(${feature})`
-                        );
+                        const { value: vehicles, lastUpdate } =
+                            await get_api_values(
+                                'vehicles',
+                                store,
+                                `store/api/fetchVehiclesAtBuilding(${feature})`
+                            );
                         if (!vehicles) return reject();
                         vehiclesAt.forEach(vehicle => {
                             const index = vehicles.findIndex(
@@ -683,6 +676,7 @@ export default {
                     API_MIN_UPDATE
                 );
             }
+            return allianceinfo;
         },
         async registerSettings(
             store: APIActionStoreParams,
@@ -736,13 +730,20 @@ export default {
             { force, feature }: { force: boolean; feature: string }
         ) {
             if (state.missions.length) return state.missions;
+            const STORAGE_KEY = `${rootState.prefix}_timed_mission_specs`;
+            const { missions, lastUpdate } = JSON.parse(
+                localStorage.getItem(STORAGE_KEY) || '{}'
+            ) as { missions?: Mission[]; lastUpdate?: string };
             if (
                 force ||
-                !sessionStorage.hasOwnProperty('mission_specs_cache')
+                !missions ||
+                // update every 12h
+                Date.now() - new Date(lastUpdate || 0).getTime() >
+                    12 * 60 * 60 * 1000 ||
+                !localStorage.hasOwnProperty(STORAGE_KEY)
             ) {
                 const missions = Object.values(
                     await dispatch('request', {
-                        // eslint-disable-next-line no-undef
                         url: `${rootState.server}missions/${rootState.lang}.json`,
                         init: {
                             method: 'GET',
@@ -750,16 +751,16 @@ export default {
                         feature: `store/api/getMissions(${feature})`,
                     }).then(res => res.json())
                 );
-                sessionStorage.setItem(
-                    'mission_specs_cache',
-                    JSON.stringify(missions)
+                localStorage.setItem(
+                    STORAGE_KEY,
+                    JSON.stringify({
+                        missions,
+                        lastUpdate: new Date().toISOString(),
+                    })
                 );
                 commit('setMissions', missions);
                 return missions;
             } else {
-                const missions = JSON.parse(
-                    sessionStorage.getItem('mission_specs_cache') || '{}'
-                ) as Mission[];
                 commit('setMissions', missions);
                 return missions;
             }

@@ -32,13 +32,11 @@ export default <ModuleMainFunction>(async (LSSM, MODULE_ID, $m) => {
         aEl.textContent = name;
         aEl.title = `${subject}\n---\n${template}`;
         aEl.onclick = () => {
-            const titleEl = document.querySelector<HTMLInputElement>(
-                '#message_subject'
-            );
+            const titleEl =
+                document.querySelector<HTMLInputElement>('#message_subject');
             if (titleEl) titleEl.value = subject;
-            const bodyEl = document.querySelector<HTMLTextAreaElement>(
-                '#message_body'
-            );
+            const bodyEl =
+                document.querySelector<HTMLTextAreaElement>('#message_body');
             if (bodyEl) {
                 bodyEl.value = template
                     .replace(

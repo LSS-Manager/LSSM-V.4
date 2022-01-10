@@ -6,12 +6,10 @@ const modules = {
         reset: 'Reset',
         noMapkit:
             'Deze module werkt niet met de Mapkit kaart door de beperkingen van Mapkit!',
-        dev:
-            'Deze module is nog in ontwikkeling. Activeren kan leiden tot incomplete en niet werkende functies!',
+        dev: 'Deze module is nog in ontwikkeling. Activeren kan leiden tot incomplete en niet werkende functies!',
         closeWarning: {
             title: 'Niet opgeslagen wijzigingen',
-            text:
-                'Je hebt aanpassingen gedaan in de AppStore die je nog niet hebt opgeslagen. Reset of sla de aanpassingen op om de AppStore te sluiten.',
+            text: 'Je hebt aanpassingen gedaan in de AppStore die je nog niet hebt opgeslagen. Reset of sla de aanpassingen op om de AppStore te sluiten.',
             abort: 'Annuleren',
             saveAndExit: 'Opslaan en sluiten',
             exit: 'Sluiten zonder op te slaan',
@@ -27,30 +25,26 @@ const modules = {
         appendableList: {
             unique: {
                 title: 'Dubbele waarde',
-                text:
-                    'Er mag geen dubbele waarde zijn in de **{title}** kolom. De waarde **{value}** bestaat al!',
+                text: 'Er mag geen dubbele waarde zijn in de **{title}** kolom. De waarde **{value}** bestaat al!',
                 confirm: 'OK',
             },
         },
         resetWarning: {
             title: 'Reset de instellingen',
-            text:
-                'Weet je zeker dat je de instellingen wilt reseten naar de standaard waarden? Dit kan niet ongedaan gemaakt worden!',
+            text: 'Weet je zeker dat je de instellingen wilt reseten naar de standaard waarden? Dit kan niet ongedaan gemaakt worden!',
             close: 'Annuleren',
             total: 'Alle instellingen',
             module: 'Alleen van de module <b>{module}</b>',
         },
         resetWarningSetting: {
             title: 'Reset instelling',
-            text:
-                'Wil je echt de instelling <b>{setting}</b> van de module <b>{module}</b> terugzetten naar de standaard instellingen?',
+            text: 'Wil je echt de instelling <b>{setting}</b> van de module <b>{module}</b> terugzetten naar de standaard instellingen?',
             close: 'Annuleren',
             reset: 'Resetten',
         },
         closeWarning: {
             title: 'Niet opgeslagen wijzigingen',
-            text:
-                'Je hebt aanpassingen gedaan die je nog niet hebt opgeslagen. Reset of sla de aanpassingen op om de instellingen te sluiten',
+            text: 'Je hebt aanpassingen gedaan die je nog niet hebt opgeslagen. Reset of sla de aanpassingen op om de instellingen te sluiten',
             abort: 'Annuleren',
             saveAndExit: 'Opslaan en sluiten',
             exit: 'Sluiten zonder op te slaan',
@@ -70,14 +64,12 @@ export default {
     modules,
     error: {
         title: 'LSS Manager: Error',
-        msg:
-            'Als deze foutmelding regelmatig optreedt, neem dan contact op met het LSSM team!',
+        msg: 'Als deze foutmelding regelmatig optreedt, neem dan contact op met het LSSM team!',
     },
     warnings: {
         version: {
             title: 'Verkeerde LSS Manager versie',
-            text:
-                'Beste gebruiker, helaas moeten we vaststellen dat je niet de laatste versie van LSS Manager gebruikt. De nieuwste versie is {version}, maar je gebruikt {curver}. Herlaad het spel zonder cache (met Ctrl + F5, op Apple apparaten command + R), dit zou de fout moeten oplossen. Als de fout blijft bestaand, meld het dan aan het LSS Manager team! Als je de verkeerde versie gebruikt, kunnen we niet de volledige functionaliteit garanderen van de LSS-Manager.',
+            text: 'Beste gebruiker, helaas moeten we vaststellen dat je niet de laatste versie van LSS Manager gebruikt. De nieuwste versie is {version}, maar je gebruikt {curver}. Herlaad het spel zonder cache (met Ctrl + F5, op Apple apparaten command + R), dit zou de fout moeten oplossen. Als de fout blijft bestaand, meld het dan aan het LSS Manager team! Als je de verkeerde versie gebruikt, kunnen we niet de volledige functionaliteit garanderen van de LSS-Manager.',
             close: 'Sluit melding en herlaad het spel (aanbevolen)',
             abort: 'Sluit melding zonder te herladen',
         },
@@ -1601,25 +1593,8 @@ export default {
             vehicles: {
                 'Tankautospuiten': [0, 1, 6, 7, 8, 9, 12, 14, 15, 17],
                 'Overige voertuigen': [
-                    2,
-                    3,
-                    4,
-                    5,
-                    10,
-                    11,
-                    18,
-                    19,
-                    20,
-                    21,
-                    24,
-                    31,
-                    34,
-                    56,
-                    62,
-                    68,
-                    70,
-                    71,
-                    72,
+                    2, 3, 4, 5, 10, 11, 18, 19, 20, 21, 24, 31, 34, 56, 62, 68,
+                    70, 71, 72,
                 ],
                 'Waterongevallen': [33, 36, 49, 50, 65, 66, 67],
                 'Vliegtuigbrandbestrijding': [41, 42, 43, 44],

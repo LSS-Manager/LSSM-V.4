@@ -94,9 +94,8 @@ export default (
                             btn.innerText = newState(btn as HTMLElement)
                                 ? ($m('buildings.active') as string)
                                 : ($m('buildings.nonactive') as string);
-                            const label = btn.parentElement?.querySelector(
-                                'span'
-                            );
+                            const label =
+                                btn.parentElement?.querySelector('span');
                             if (!label) return;
                             label.innerText = newState(btn as HTMLElement)
                                 ? ($m('buildings.active') as string)

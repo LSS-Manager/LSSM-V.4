@@ -6,8 +6,7 @@ const modules = {
         reset: 'Tilbakestill',
         noMapkit:
             'Denne utvidelsen fungerer ikke med karttypen "MapKit" grunnet begrensninger på MapKit!',
-        dev:
-            'Denne utvidelsen er fortsatt under utvikling, aktivering kan medføre feil.',
+        dev: 'Denne utvidelsen er fortsatt under utvikling, aktivering kan medføre feil.',
         closeWarning: {
             title: 'Ulagrede endringer',
             text: 'Du har gjort endringer som ikke har blitt lagret.',
@@ -23,23 +22,20 @@ const modules = {
         import: 'Importer',
         resetWarning: {
             title: 'Tilbakestill endringer',
-            text:
-                'Vil du virkelig tilbakestille alle innstillinger til standard?',
+            text: 'Vil du virkelig tilbakestille alle innstillinger til standard?',
             close: 'Avbryt',
             total: 'Alle innstillinger',
             module: 'Kun for denne modulen',
         },
         resetWarningSetting: {
             title: 'Tilbakestill innstillinger',
-            text:
-                'Vil du virkelig tilbakestille denne innstillingen <b>{setting}</b> for modulen <b>{module}</b> til standardverdien?',
+            text: 'Vil du virkelig tilbakestille denne innstillingen <b>{setting}</b> for modulen <b>{module}</b> til standardverdien?',
             close: 'Avbryt',
             reset: 'Nullstille',
         },
         closeWarning: {
             title: 'Ulagrede endringer',
-            text:
-                'Du har gjort endringer i innstillingene som ikke er lagret. Tilbakestill, fjern dem eller lagre dem for å lukke innstillinger.',
+            text: 'Du har gjort endringer i innstillingene som ikke er lagret. Tilbakestill, fjern dem eller lagre dem for å lukke innstillinger.',
             close: 'Lukk vindu',
         },
         changeList: {
@@ -53,14 +49,12 @@ export default {
     modules,
     error: {
         title: 'LSS Manager: Error',
-        msg:
-            'Om denne feilen skjer ofte, vennligst rapporter det til LSSM teamet!',
+        msg: 'Om denne feilen skjer ofte, vennligst rapporter det til LSSM teamet!',
     },
     warnings: {
         version: {
             title: 'Feil LSS Manager versjon',
-            text:
-                'Kjære bruker, vi ser at du ikke bruker siste versjon av LSS Manager. Den siste vesjonen er {version}, men du har {curver}. Last inn spillet på nytt med (Ctrl + F5, på Apple enheter Command + F5), dette bør fikse feilen. Om feilen fortsetter vennligst rapporter det til LSSM teamet.',
+            text: 'Kjære bruker, vi ser at du ikke bruker siste versjon av LSS Manager. Den siste vesjonen er {version}, men du har {curver}. Last inn spillet på nytt med (Ctrl + F5, på Apple enheter Command + F5), dette bør fikse feilen. Om feilen fortsetter vennligst rapporter det til LSSM teamet.',
             close: 'Lukk vindu og omlast spillet (anbefalt).',
             abort: 'Likk vindu uten å omlaste spillet',
         },

@@ -6,8 +6,9 @@ export interface ProfileEditWindow {
 
 export default <RedesignParser<ProfileEditWindow>>(({ doc }) => ({
     text:
-        (doc
-            .querySelector<HTMLFormElement>('form[id^="edit_profile_"]')
-            ?.elements.namedItem('profile[content]') as HTMLTextAreaElement)
-            ?.value ?? '',
+        (
+            doc
+                .querySelector<HTMLFormElement>('form[id^="edit_profile_"]')
+                ?.elements.namedItem('profile[content]') as HTMLTextAreaElement
+        )?.value ?? '',
 }));

@@ -118,12 +118,16 @@ if (getWindowName() !== 'leader') {
             channel.removeEventListener('message', name_receiver_handler);
             sessionStorage.setItem(
                 STORAGE_NAME_KEY,
-                `unnamed_${Math.max(
-                    0,
-                    ...collected_names
-                        .map(n => parseInt(n?.replace(/^unnamed_/, '') ?? '-1'))
-                        .filter(n => !Number.isNaN(n))
-                ) + 1}`
+                `unnamed_${
+                    Math.max(
+                        0,
+                        ...collected_names
+                            .map(n =>
+                                parseInt(n?.replace(/^unnamed_/, '') ?? '-1')
+                            )
+                            .filter(n => !Number.isNaN(n))
+                    ) + 1
+                }`
             );
         }, 1000);
     });

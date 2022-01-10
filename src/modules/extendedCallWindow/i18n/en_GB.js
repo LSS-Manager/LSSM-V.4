@@ -24,8 +24,7 @@ module.exports = {
             set: 'So often this combination is selected when you press the ARR',
             attribute: 'The combination described in this line',
             free: 'So often this combination is available',
-            max:
-                'You can select this ARR until this combination is no longer available',
+            max: 'You can select this ARR until this combination is no longer available',
         },
         arrSpecs: {
             fire: 'Fire engines',
@@ -75,26 +74,8 @@ module.exports = {
         staff: {
             [/^Armed Response Personnel$/]: [13, 25],
             [/^more firefighters$/]: [
-                0,
-                1,
-                2,
-                3,
-                4,
-                6,
-                7,
-                14,
-                15,
-                16,
-                17,
-                18,
-                23,
-                26,
-                35,
-                36,
-                37,
-                38,
-                39,
-                40,
+                0, 1, 2, 3, 4, 6, 7, 14, 15, 16, 17, 18, 23, 26, 35, 36, 37, 38,
+                39, 40,
             ],
         },
         vehiclesByRequirement: {
@@ -127,10 +108,8 @@ module.exports = {
         allTab: 'All',
         occupiedTab: 'Follow-up',
         vehicleMissing: {
-            title:
-                'One vehicle is not present in any tab | Several vehicles are not present in any tab',
-            text:
-                'The following vehicle types are only present in the "All" tab:',
+            title: 'One vehicle is not present in any tab | Several vehicles are not present in any tab',
+            text: 'The following vehicle types are only present in the "All" tab:',
             hide: 'Hide Note',
             close: 'Close Note till change',
         },

@@ -18,7 +18,7 @@
             class="btn btn-success"
             :disabled="
                 endPage >= chat.lastPage ||
-                    chat.lastPage === Number.MAX_SAFE_INTEGER
+                chat.lastPage === Number.MAX_SAFE_INTEGER
             "
             @click="loadNext"
         >

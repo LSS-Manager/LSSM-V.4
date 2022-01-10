@@ -6,28 +6,36 @@
             'highlight-consistent': highlightedConsistend,
         }"
         :id="id"
-        :title="
-            `${$t('credits')}: ${creditsLocalized}\n${$t(
-                'coins'
-            )}: ${coinsLocalized}`
-        "
+        :title="`${$t('credits')}: ${creditsLocalized}\n${$t(
+            'coins'
+        )}: ${coinsLocalized}`"
         @click="() => (highlightedConsistend = false)"
     >
         <a
             href="#"
             class="dropdown-toggle"
-            :class="{ 'piggy-bank-mode': !creditsInNav }"
+            :class="{ 'piggy-bank-mode': !(creditsInNav && coinsInNav) }"
             :id="menuId"
             role="button"
             data-toggle="dropdown"
         >
-            <template v-if="creditsInNav">
-                <img
-                    :src="creditsIcon"
-                    :alt="$t('credits')"
-                    class="navbar-icon"
-                />
-                {{ creditsLocalized }}
+            <template v-if="creditsInNav || coinsInNav">
+                <template v-if="creditsInNav">
+                    <img
+                        :src="creditsIcon"
+                        :alt="$t('credits')"
+                        class="navbar-icon"
+                    />
+                    {{ creditsLocalized }}
+                </template>
+                <template v-if="coinsInNav">
+                    <img
+                        :src="coinsIcon"
+                        :alt="$t('coins')"
+                        class="navbar-icon"
+                    />
+                    {{ coinsLocalized }}
+                </template>
             </template>
             <span class="fa-2x" v-else>
                 <font-awesome-icon
@@ -165,6 +173,7 @@ export default Vue.extend<
         highlightedConsistend: boolean;
         ranks: Record<string, string>;
         creditsInNav: boolean;
+        coinsInNav: boolean;
         showToplistPosition: boolean;
     },
     {
@@ -206,14 +215,15 @@ export default Vue.extend<
             coinsIcon: '',
             highlighted: false,
             highlightedConsistend: false,
-            ranks: (this.$t(
+            ranks: this.$t(
                 `ranks.${
                     this.$store.state.policechief
                         ? 'policechief'
                         : 'missionchief'
                 }`
-            ) as unknown) as Record<string, string>,
+            ) as unknown as Record<string, string>,
             creditsInNav: false,
+            coinsInNav: false,
             showToplistPosition: false,
         };
     },
@@ -308,6 +318,9 @@ export default Vue.extend<
         this.getSetting('creditsInNavbar').then(value =>
             this.$set(this, 'creditsInNav', value)
         );
+        this.getSetting('coinsInNavbar').then(value =>
+            this.$set(this, 'coinsInNav', value)
+        );
         this.getSetting('showToplistPosition').then(value =>
             this.$set(this, 'showToplistPosition', value)
         );
@@ -337,9 +350,14 @@ export default Vue.extend<
     background: #62c462
 
 li.dropdown
-    > a.dropdown-toggle.piggy-bank-mode
-        padding-top: math.div(50.5px - 29, 2)
-        padding-bottom: math.div(50.5px - 29, 2)
+    > a.dropdown-toggle
+
+        &.piggy-bank-mode
+            padding-top: math.div(50.5px - 29, 2)
+            padding-bottom: math.div(50.5px - 29, 2)
+
+        &:not(.piggy-bank-mode) img:nth-of-type(2)
+            margin-left: 0.5rem
 
     > ul.dropdown-menu
         > li.flex-li

@@ -93,7 +93,8 @@ export default (
 
         const progressbarPlaceholder = document.createElement('div');
         progressbarPlaceholder.classList.add('hidden');
-        progressbarPlaceholder.dataset.collapsableProgressbarPlaceholder = missionId;
+        progressbarPlaceholder.dataset.collapsableProgressbarPlaceholder =
+            missionId;
         progressBarWrapper.after(progressbarPlaceholder);
         const captionPlaceholder = document.createElement('div');
         captionPlaceholder.classList.add('hidden');
@@ -103,14 +104,16 @@ export default (
         if (pumpingWrapper) {
             const pumpingPlaceholder = document.createElement('div');
             pumpingPlaceholder.classList.add('hidden');
-            pumpingPlaceholder.dataset.collapsablePumpingbarPlaceholder = missionId;
+            pumpingPlaceholder.dataset.collapsablePumpingbarPlaceholder =
+                missionId;
             pumpingWrapper.after(pumpingPlaceholder);
             progressBarWrapper.prepend(pumpingWrapper);
         }
 
         const countdownPlaceholder = document.createElement('div');
         countdownPlaceholder.classList.add('hidden');
-        countdownPlaceholder.dataset.collapsableCountdownPlaceholder = missionId;
+        countdownPlaceholder.dataset.collapsableCountdownPlaceholder =
+            missionId;
         countdown.after(countdownPlaceholder);
         progressBarWrapper.append(countdown);
 

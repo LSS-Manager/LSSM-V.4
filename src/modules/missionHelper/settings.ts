@@ -5,7 +5,7 @@ export default ((MODULE_ID, LSSM, $m) => {
     const noVehicleRequirements = [] as string[];
     const noVehicleRequirementLabels = [] as string[];
     Object.entries(
-        ($m('noVehicleRequirements') as unknown) as {
+        $m('noVehicleRequirements') as unknown as {
             [key: string]: { badge: boolean; text: string };
         }
     ).forEach(([key, { text }]) => {
@@ -112,6 +112,15 @@ export default ((MODULE_ID, LSSM, $m) => {
         ...(locale === 'nl_NL'
             ? {
                   'multifunctionals.police_cars': <Toggle>{
+                      type: 'toggle',
+                      default: false,
+                      dependsOn: '.vehicles.content',
+                  },
+              }
+            : null),
+        ...(locale === 'de_DE'
+            ? {
+                  'multifunctionals.police_service_group_leader': <Toggle>{
                       type: 'toggle',
                       default: false,
                       dependsOn: '.vehicles.content',

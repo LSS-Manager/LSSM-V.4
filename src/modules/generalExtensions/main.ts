@@ -26,9 +26,10 @@ export default (async (LSSM, MODULE_ID, $m) => {
         ).then(({ default: emojiPicker }) => emojiPicker(LSSM));
     }
 
+    const isNotePage = window.location.pathname.match(/^\/note\/?/);
     if (
-        !window.location.pathname.match(/^\/note\/?$/) &&
-        (await getSetting<boolean>('clickableLinks'))
+        (await getSetting<boolean>('clickableLinks')) &&
+        (!isNotePage || (await getSetting('notePreview')))
     ) {
         import(
             /* webpackChunkName: "modules/generalExtensions/clickableLinks" */ './assets/clickableLinks'

@@ -129,13 +129,14 @@ export default Vue.extend<
                 [key: string]: string | number;
             }[];
 
-            return (this.ownSchoolingsSearch
-                ? schoolings.filter(schooling =>
-                      JSON.stringify(Object.values(schooling))
-                          .toLowerCase()
-                          .match(this.ownSchoolingsSearch.toLowerCase())
-                  )
-                : schoolings
+            return (
+                this.ownSchoolingsSearch
+                    ? schoolings.filter(schooling =>
+                          JSON.stringify(Object.values(schooling))
+                              .toLowerCase()
+                              .match(this.ownSchoolingsSearch.toLowerCase())
+                      )
+                    : schoolings
             ).sort((a, b) => {
                 let modifier = 1;
                 if (this.sortOwnDir === 'desc') modifier = -1;
@@ -160,13 +161,14 @@ export default Vue.extend<
                 [key: string]: string | number;
             }[];
 
-            return (this.openSchoolingsSearch
-                ? schoolings.filter(schooling =>
-                      JSON.stringify(Object.values(schooling))
-                          .toLowerCase()
-                          .match(this.openSchoolingsSearch.toLowerCase())
-                  )
-                : schoolings
+            return (
+                this.openSchoolingsSearch
+                    ? schoolings.filter(schooling =>
+                          JSON.stringify(Object.values(schooling))
+                              .toLowerCase()
+                              .match(this.openSchoolingsSearch.toLowerCase())
+                      )
+                    : schoolings
             ).sort((a, b) => {
                 let modifier = 1;
                 if (this.sortOpenDir === 'desc') modifier = -1;

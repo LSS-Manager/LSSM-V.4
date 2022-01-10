@@ -66,7 +66,7 @@ export default (
     btn.append(icon);
 
     const send = () => {
-        const handler = function(msg: CustomBroadcastMessage) {
+        const handler = function (msg: CustomBroadcastMessage) {
             document
                 .querySelectorAll<HTMLButtonElement>(
                     `#missions-panel-body button.${

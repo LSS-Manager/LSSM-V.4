@@ -1,4 +1,3 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { $m } from 'typings/Module';
 
 export default (
@@ -14,7 +13,7 @@ export default (
 
     if (!ARRContainer) return;
 
-    const ARRSpecTranslations = ($m(`arrHover.arrSpecs`) as unknown) as {
+    const ARRSpecTranslations = $m(`arrHover.arrSpecs`) as unknown as {
         [spec: string]: string;
     };
 
@@ -134,13 +133,14 @@ export default (
 
     const check_amount_available = (
         buildings: number[],
-        attributes: Record<string, number>
+        attributes: Record<string, number>,
+        custom: Record<string, number>
     ): { [attribute: string]: number } => {
         let hlf_or_rw_lf = 0;
         let naw_or_rtw_nef = 0;
         let naw_or_rtw_nef_rth = 0;
 
-        const amounts = {} as { [attribute: string]: number };
+        const amounts: Record<string, number> = {};
 
         document
             .querySelectorAll<HTMLInputElement>(
@@ -149,7 +149,9 @@ export default (
             .forEach(vehicle => {
                 if (
                     !vehicle.checked &&
-                    window.aao_building_check(buildings, window.$(vehicle))
+                    window.aao_building_check(buildings, window.$(vehicle)) &&
+                    vehicle.getAttribute('vehicle_type_ignore_default_aao') !==
+                        '1'
                 ) {
                     Object.keys(attributes).forEach(attr => {
                         if (!amounts.hasOwnProperty(attr)) amounts[attr] = 0;
@@ -222,16 +224,27 @@ export default (
                     });
                 }
             });
+
+        Object.keys(custom).forEach(
+            vehicleType =>
+                (amounts[vehicleType] =
+                    document.querySelectorAll<HTMLInputElement>(
+                        `#all tr[vehicle_type="${vehicleType}"] .vehicle_checkbox:not(:checked):not([ignore_aao="1"])`
+                    ).length)
+        );
+
         return amounts;
     };
 
     const updateSpecs = (buildingIds: number[], arr: HTMLAnchorElement) => {
-        const pspecs: Record<string, number> = {};
+        const ingameSpecs: Record<string, number> = {};
         Array.from(arr.attributes).forEach(({ name, value }) => {
-            if (name === 'vehicle_type_ids' /* || name === 'custom'*/) {
+            if (name === 'vehicle_type_ids') {
                 Object.entries(
                     JSON.parse(value) as Record<string, string>
-                ).forEach(([id, amount]) => (pspecs[id] = parseInt(amount)));
+                ).forEach(
+                    ([id, amount]) => (ingameSpecs[id] = parseInt(amount))
+                );
             } else {
                 const amount = parseInt(value);
                 if (
@@ -239,11 +252,23 @@ export default (
                     amount &&
                     !Number.isNaN(amount)
                 )
-                    pspecs[name] = amount;
+                    ingameSpecs[name] = amount;
             }
         });
-        const availabilities = check_amount_available(buildingIds, pspecs);
-        if (specs && pspecs && arrSpecs) {
+        const customSpecs = Object.fromEntries(
+            Object.entries(
+                JSON.parse(arr.getAttribute('custom') || '{}') as Record<
+                    string,
+                    number
+                >
+            ).filter(([, amount]) => amount > 0)
+        );
+        const availabilities = check_amount_available(
+            buildingIds,
+            ingameSpecs,
+            customSpecs
+        );
+        if (specs && ingameSpecs && arrSpecs) {
             resetNote?.classList[
                 arr.getAttribute('reset') === 'true' ? 'remove' : 'add'
             ]('hidden');
@@ -253,13 +278,18 @@ export default (
                 arr.getAttribute('vehicle_type_captions') ?? '{}'
             );
             arrSpecs.append(
-                ...(Object.entries(pspecs).map(([name, amount]) => [
-                    name,
-                    ARRSpecTranslations[name] ??
-                        vehicleTypeCaptionsAttr[name] ??
+                ...(
+                    Object.entries({
+                        ...ingameSpecs,
+                        ...customSpecs,
+                    }).map(([name, amount]) => [
                         name,
-                    amount,
-                ]) as [string, string, number][])
+                        ARRSpecTranslations[name] ??
+                            vehicleTypeCaptionsAttr[name] ??
+                            name,
+                        amount,
+                    ]) as [string, string, number][]
+                )
                     .sort(([, a], [, b]) => (a < b ? -1 : a > b ? 1 : 0))
                     .map(([attr, name, amount]) => {
                         const rowElement = document.createElement('tr');
@@ -268,9 +298,11 @@ export default (
                             rowElement.classList.add('bg-danger');
                         rowElement.insertCell().textContent = `${amount.toLocaleString()}x`;
                         rowElement.insertCell().textContent = name;
-                        rowElement.insertCell().textContent = available.toLocaleString();
+                        rowElement.insertCell().textContent =
+                            available.toLocaleString();
                         const max = Math.floor(available / amount);
-                        rowElement.insertCell().textContent = max.toLocaleString();
+                        rowElement.insertCell().textContent =
+                            max.toLocaleString();
                         if (max < minimumAvailable) minimumAvailable = max;
                         return rowElement;
                     })

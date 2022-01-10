@@ -31,9 +31,10 @@ export default (
                             feature: `${MODULE_ID}-missions-prisoners`,
                         })
                         .then(() => {
-                            const vehicleId = target.parentElement?.getAttribute(
-                                'vehicle_id'
-                            );
+                            const vehicleId =
+                                target.parentElement?.getAttribute(
+                                    'vehicle_id'
+                                );
                             const amount = 1;
                             let remainingCells = -1;
                             const newTextContent =
@@ -48,9 +49,11 @@ export default (
                                 ) || target.textContent;
                             Array.from(
                                 document.querySelectorAll(
-                                    `.vehicle_prisoner_select a.btn[href$="/gefangener/${target
-                                        .getAttribute('href')
-                                        ?.match(/\d+$/)?.[0] || '-1'}"]`
+                                    `.vehicle_prisoner_select a.btn[href$="/gefangener/${
+                                        target
+                                            .getAttribute('href')
+                                            ?.match(/\d+$/)?.[0] || '-1'
+                                    }"]`
                                 )
                             ).forEach(cell => {
                                 cell.textContent = newTextContent;
