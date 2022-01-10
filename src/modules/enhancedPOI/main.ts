@@ -123,13 +123,13 @@ export default (async (LSSM, MODULE_ID, $m: $m) => {
     ]);
 
     const colorMarkers = (caption: string) =>
-        (
-            document.querySelectorAll('.poi') as NodeListOf<HTMLImageElement>
-        ).forEach(el =>
-            el.classList[
-                el.getAttribute('caption') === caption ? 'add' : 'remove'
-            ](poiHighlightedClass)
-        );
+        document
+            .querySelectorAll<HTMLImageElement>('.poi')
+            .forEach(el =>
+                el.classList[
+                    el.getAttribute('caption') === caption ? 'add' : 'remove'
+                ](poiHighlightedClass)
+            );
 
     window.map.addEventListener('moveend', resetNewPoiMarker);
     window.map.addEventListener(
@@ -171,11 +171,11 @@ export default (async (LSSM, MODULE_ID, $m: $m) => {
             );
             if (!form) {
                 isPOIWindow = false;
-                (
-                    document.querySelectorAll(
+                document
+                    .querySelectorAll<HTMLImageElement>(
                         `.poi.${poiHighlightedClass}`
-                    ) as NodeListOf<HTMLImageElement>
-                ).forEach(el => el.classList.remove(poiHighlightedClass));
+                    )
+                    .forEach(el => el.classList.remove(poiHighlightedClass));
                 return;
             }
             if (isPOIWindow && document.getElementById(poiSettingsWrapperId))
@@ -239,14 +239,14 @@ export default (async (LSSM, MODULE_ID, $m: $m) => {
                             });
                             refresh_shown_pois();
                             Array.from(
-                                settingsWrapper.querySelectorAll(
+                                settingsWrapper.querySelectorAll<HTMLInputElement>(
                                     'input:not([name="all"]):not([name="none"])'
-                                ) as NodeListOf<HTMLInputElement>
+                                )
                             ).forEach(input => (input.checked = true));
                             Array.from(
-                                settingsWrapper.querySelectorAll(
+                                settingsWrapper.querySelectorAll<HTMLInputElement>(
                                     'input[name="all"], input[name="none"]'
-                                ) as NodeListOf<HTMLInputElement>
+                                )
                             ).forEach(input => (input.checked = false));
                         });
                     } else if (poi === 'none') {
@@ -260,14 +260,14 @@ export default (async (LSSM, MODULE_ID, $m: $m) => {
                             });
                             refresh_shown_pois();
                             Array.from(
-                                settingsWrapper.querySelectorAll(
+                                settingsWrapper.querySelectorAll<HTMLInputElement>(
                                     'input:not([name="all"]):not([name="none"])'
-                                ) as NodeListOf<HTMLInputElement>
+                                )
                             ).forEach(input => (input.checked = false));
                             Array.from(
-                                settingsWrapper.querySelectorAll(
+                                settingsWrapper.querySelectorAll<HTMLInputElement>(
                                     'input[name="all"], input[name="none"]'
-                                ) as NodeListOf<HTMLInputElement>
+                                )
                             ).forEach(input => (input.checked = false));
                         });
                     } else {

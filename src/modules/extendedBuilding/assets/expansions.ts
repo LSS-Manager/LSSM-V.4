@@ -2,9 +2,9 @@ import { $m } from 'typings/Module';
 import moment from 'moment';
 
 export default (LSSM: Vue, MODULE_ID: string, $m: $m): void => {
-    const expansionRows = document.querySelectorAll(
+    const expansionRows = document.querySelectorAll<HTMLTableRowElement>(
         '#ausbauten tbody tr'
-    ) as NodeListOf<HTMLTableRowElement>;
+    );
     const dlWrapper = document.createElement('div');
     dlWrapper.classList.add('row');
     const existingDl = document.querySelector(

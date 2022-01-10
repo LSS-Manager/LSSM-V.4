@@ -52,9 +52,9 @@ export default (
             return btn.innerText != $m('buildings.active');
         };
         const extensionStateBtns = Array.from(
-            document.querySelectorAll(
+            document.querySelectorAll<HTMLAnchorElement>(
                 'a[data-method="post"][href*="/extension_ready/"]'
-            ) as NodeListOf<HTMLAnchorElement>
+            )
         );
         extensionStateBtns.forEach(btn => {
             btn.addEventListener('click', async e => {

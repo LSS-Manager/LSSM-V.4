@@ -34,9 +34,9 @@ export default (
             ?.textContent?.trim() ?? '';
 
     Array.from(
-        document.querySelectorAll(
+        document.querySelectorAll<HTMLAnchorElement>(
             '#tabs > li > a:not([href="#all"]):not([href="#occupied"])'
-        ) as NodeListOf<HTMLAnchorElement>
+        )
     ).forEach(e => {
         const target = e.getAttribute('href');
         if (target) document.querySelector(target)?.remove();
@@ -331,9 +331,9 @@ export default (
         if (!tableSorterEl) return;
 
         const vehicles = Array.from(
-            document.querySelectorAll(
+            document.querySelectorAll<HTMLTableCellElement>(
                 '#vehicle_show_table_body_all tr td[vehicle_type_id]'
-            ) as NodeListOf<HTMLTableDataCellElement>
+            )
         )
             .filter(v =>
                 vehicleTypeMap[tab].includes(
