@@ -3,6 +3,7 @@
 		"danger": "Foutmelding (rood)",
 		"info": "Informatie (blauw)",
 		"success": "Bevestiging (groen)",
+		"unimportant": "Simpel (grijs)",
 		"warning": "Waarschuwing (geel)"
 	},
 	"description": "Krijg browser en in-game meldingen voor verschillende gebeurtenissen - uiteraard allemaal in te stellen!",
