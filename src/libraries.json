@@ -32,7 +32,7 @@
 	"@types/jquery": {
 		"icon": "https://avatars.githubusercontent.com/u/3637556",
 		"url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/jquery",
-		"version": "3.5.11"
+		"version": "3.5.12"
 	},
 	"@types/leaflet": {
 		"icon": "https://avatars.githubusercontent.com/u/3637556",
@@ -52,7 +52,7 @@
 	"@types/pdfmake": {
 		"icon": "https://avatars.githubusercontent.com/u/3637556",
 		"url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/pdfmake",
-		"version": "0.1.19"
+		"version": "0.1.20"
 	},
 	"@types/qrcode": {
 		"icon": "https://avatars.githubusercontent.com/u/3637556",
