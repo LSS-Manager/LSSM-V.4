@@ -84,6 +84,7 @@ export default (Vue: VueConstructor): void => {
                 'br',
                 'noscript',
                 'a',
+                'textarea',
             ];
             const children = Array.from(root.childNodes);
             const textChildren = children.filter(
