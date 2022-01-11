@@ -32,7 +32,7 @@
 	"@types/jquery": {
 		"icon": "https://avatars.githubusercontent.com/u/3637556",
 		"url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/jquery",
-		"version": "3.5.11"
+		"version": "3.5.12"
 	},
 	"@types/leaflet": {
 		"icon": "https://avatars.githubusercontent.com/u/3637556",
