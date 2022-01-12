@@ -1568,8 +1568,8 @@ export default {
         17: {
             caption: 'Brandweer, Kazerne (klein)',
             color: '#bb0000',
-            coins: 30,
-            credits: 100_000,
+            coins: 25,
+            credits: 50_000,
             extensions: [
                 {
                     caption: 'Ambulance standplaats',
@@ -1606,11 +1606,11 @@ export default {
                     duration: '5 Dagen',
                 },
             ],
-            levelcost: ['1. 10.000', '2. 50.000', '3.-5. 100.000'],
+            levelcost: ['1. 10.000', '2. 50.000', '3.-5. 100.000', 'Upgraden naar normale post : Verschil prijs naar normale post'],
             maxBuildings: '5.000',
             maxLevel: 6,
             special:
-                'Vanaf de 25e brandweerkazerne stijgen de kosten voor de bouw van een nieuwe brandweerkazerne volgens de volgende formule: <code>100.000+200.000*LOG<sub>2</sub>(Aantal brandweerposten − 22)</code>. De Coins prijs blijft gelijk!',
+                'Vanaf de 25e brandweerkazerne stijgen de kosten voor de bouw van een nieuwe brandweerkazerne volgens de volgende formule: <code>100.000+200.000*LOG<sub>2</sub>(Aantal brandweerposten − 22)</code>. max. 1 miljoen credits. De Coins prijs blijft gelijk!',
             startPersonnel: 10,
             startVehicles: [
                 'SI-2',
