@@ -1181,7 +1181,7 @@ export default {
             maxBuildings: '5.000 włącznie z JRG',
             maxLevel: 5,
             special:
-                'Przy posiadaniu powyżej 24 budynków straży pożarnej koszt budowy wzrasta według wzoru:<code>100.000+200.000*LOG<sub>2</sub>(Liczba istniejących straży pożarnej â’ 22)</code>, max 1 milion kredytów. Cena za Monety pozostaje bez zmian!',
+                'Przy posiadaniu powyżej 24 budynków straży pożarnej koszt budowy wzrasta według wzoru:<code>50.000+100.000*LOG<sub>2</sub>(Liczba istniejących straży pożarnej â’ 22)</code>, max 1 milion kredytów. Cena za Monety pozostaje bez zmian!',
             startPersonnel: 10,
             startVehicles: [
                 'Ciężki samochód gaśniczy',
@@ -1219,7 +1219,7 @@ export default {
             maxBuildings: '1.500 włącznie z Komendami Policji',
             maxLevel: 4,
             special:
-                'Przy posiadaniu powyżej 24 budynków policji koszt budowy wzrasta według wzoru:<code>100.000+200.000*LOG<sub>2</sub>(Liczba istniejących budynków policji â’ 22)</code>. Cena za Monety pozostaje bez zmian!',
+                'Przy posiadaniu powyżej 24 budynków policji koszt budowy wzrasta według wzoru:<code>50.000+100.000*LOG<sub>2</sub>(Liczba istniejących budynków policji â’ 22)</code>. Cena za Monety pozostaje bez zmian!',
             startPersonnel: 2,
             startVehicles: ['Radiowóz OPI'],
             maxBuildingsFunction: (): number => 1_700,

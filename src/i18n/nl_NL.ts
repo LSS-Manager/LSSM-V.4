@@ -1615,7 +1615,7 @@ export default {
             maxBuildings: '5.000',
             maxLevel: 6,
             special:
-                'Vanaf de 25e brandweerkazerne stijgen de kosten voor de bouw van een nieuwe brandweerkazerne volgens de volgende formule: <code>100.000+200.000*LOG<sub>2</sub>(Aantal brandweerposten − 22)</code>. max. 1 miljoen credits. De Coins prijs blijft gelijk!',
+                'Vanaf de 25e brandweerkazerne stijgen de kosten voor de bouw van een nieuwe brandweerkazerne volgens de volgende formule: <code>50.000+100.000*LOG<sub>2</sub>(Aantal brandweerposten − 22)</code>. max. 1 miljoen credits. De Coins prijs blijft gelijk!',
             startPersonnel: 10,
             startVehicles: [
                 'SI-2',
