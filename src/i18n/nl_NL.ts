@@ -1606,7 +1606,12 @@ export default {
                     duration: '5 Dagen',
                 },
             ],
-            levelcost: ['1. 10.000', '2. 50.000', '3.-5. 100.000', 'Upgraden naar normale post : Verschil prijs naar normale post'],
+            levelcost: [
+                '1. 10.000',
+                '2. 50.000',
+                '3.-5. 100.000',
+                'Upgraden naar normale post : Verschil prijs naar normale post',
+            ],
             maxBuildings: '5.000',
             maxLevel: 6,
             special:
