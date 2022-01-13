@@ -238,8 +238,7 @@ export default (async (LSSM, MODULE_ID, $m, $mc) => {
                         vehicle: message.caption,
                         status: message.fms,
                     }).toString();
-                    const clickHandler = () =>
-                        window.lightboxOpen(`/vehicles/${message.id}`);
+                    const clickHandler = message.additionalText ? () => window.lightboxOpen(`/missions/${message.mission_id}` ) : () => window.lightboxOpen(`/vehicles/${message.id}`);
                     if (fmsStatuses.includes(mode)) {
                         events[mode].forEach(alert =>
                             LSSM.$store.dispatch(
