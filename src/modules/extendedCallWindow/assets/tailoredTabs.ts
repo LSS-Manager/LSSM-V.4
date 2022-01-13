@@ -331,16 +331,23 @@ export default (
         if (!tableSorterEl) return;
 
         const vehicles = Array.from(
-            document.querySelectorAll<HTMLTableCellElement>(
-                '#vehicle_show_table_body_all tr td[vehicle_type_id]'
+            document.querySelectorAll<HTMLInputElement>(
+                '#vehicle_show_table_body_all tr td input.vehicle_checkbox[vehicle_type_id]'
             )
         )
-            .filter(v =>
-                vehicleTypeMap[tab].includes(
-                    v.getAttribute('vehicle_type_id') ?? ''
-                )
-            )
-            .map(v => v.parentElement)
+            .filter(v => {
+                const vehicleType = v.getAttribute('vehicle_type_id') ?? '';
+                const customVehicleType = `${vehicleType}-${
+                    v.parentElement?.parentElement?.getAttribute(
+                        'vehicle_type'
+                    ) ?? ''
+                }`;
+                return (
+                    vehicleTypeMap[tab].includes(vehicleType) ||
+                    vehicleTypeMap[tab].includes(customVehicleType)
+                );
+            })
+            .map(v => v.parentElement?.parentElement)
             .filter(v => !!v) as HTMLTableRowElement[];
 
         const tbody = tableSorterEl.querySelector('tbody');
