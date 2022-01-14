@@ -176,6 +176,15 @@ export default (async (LSSM, MODULE_ID, $m, $mc) => {
         'sicherheitswache_error',
     ].filter(ce => events.hasOwnProperty(ce));
     if (fmsEvents.length) {
+        const extensionCloseCall = await LSSM.$store.dispatch(
+            'settings/getSetting',
+            {
+                moduleId: 'generalExtensions',
+                settingId: 'extensionCloseCall',
+                defaultValue: true,
+            }
+        );
+
         await LSSM.$store.dispatch('hook', {
             event: 'radioMessage',
             async callback(message: RadioMessage) {
@@ -239,10 +248,21 @@ export default (async (LSSM, MODULE_ID, $m, $mc) => {
                         status: message.fms,
                     }).toString();
                     const clickHandler = message.additionalText
-                        ? () =>
-                              window.lightboxOpen(
-                                  `/missions/${message.mission_id}`
-                              )
+                        ? extensionCloseCall
+                            ? () => {
+                                  window.lightboxOpen(
+                                      `/missions/${message.mission_id}`
+                                  );
+                                  document
+                                      .getElementById(
+                                          `radio_message_vehicle_${message.id}`
+                                      )
+                                      ?.remove();
+                              }
+                            : () =>
+                                  window.lightboxOpen(
+                                      `/missions/${message.mission_id}`
+                                  )
                         : () => window.lightboxOpen(`/vehicles/${message.id}`);
                     if (fmsStatuses.includes(mode)) {
                         events[mode].forEach(alert =>
