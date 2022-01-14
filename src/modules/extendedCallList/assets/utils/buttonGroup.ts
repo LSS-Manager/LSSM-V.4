@@ -6,10 +6,7 @@ export interface ButtonGroupCallback {
     id: number;
 }
 
-export interface MissionUpdateCallback {
-    element: HTMLDivElement;
-    id: number;
-}
+export type MissionUpdateCallback = ButtonGroupCallback;
 
 export default (
     LSSM: Vue,
@@ -30,7 +27,7 @@ export default (
         })
         .then();
 
-    const addButtonGroup = (mission: HTMLDivElement) => {
+    const addButtonGroup = (mission: HTMLDivElement): HTMLSpanElement => {
         const btnGroup = document.createElement('span');
         btnGroup.classList.add('btn-group', btnGroupClass);
         btnGroup.dataset.mission = mission.getAttribute('mission_id') ?? '';
@@ -40,6 +37,7 @@ export default (
             btnGroup,
             id: parseInt(btnGroup.dataset.mission || '-1'),
         });
+        return btnGroup;
     };
 
     document
@@ -56,10 +54,13 @@ export default (
                     `#mission_${marker.id}`
                 );
                 if (mission) {
-                    if (!mission.querySelector(`.${btnGroupClass}`))
-                        addButtonGroup(mission);
+                    let btnGroup = mission.querySelector<HTMLSpanElement>(
+                        `.${btnGroupClass}`
+                    );
+                    if (!btnGroup) btnGroup = addButtonGroup(mission);
                     onUpdate({
                         element: mission,
+                        btnGroup,
                         id: parseInt(
                             mission.getAttribute('mission_id') ?? '-1'
                         ),
