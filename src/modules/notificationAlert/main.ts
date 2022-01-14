@@ -254,8 +254,8 @@ export default (async (LSSM, MODULE_ID, $m, $mc) => {
                                       `/missions/${message.mission_id}`
                                   );
                                   document
-                                      .getElementById(
-                                          `radio_message_vehicle_${message.id}`
+                                      .querySelector<HTMLLIElement>(
+                                          `.radio_message_vehicle_${message.id}`
                                       )
                                       ?.remove();
                               }
