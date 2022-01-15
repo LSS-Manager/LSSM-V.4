@@ -63,7 +63,7 @@
 			},
 			"platform_trucks": {
 				"description": "Subtracts the number of Pumps from the CARP and hides Pumps if the number drops below 0.",
-				"title": "Quint Simple Rate"
+				"title": "CARP Simple Rate"
 			}
 		},
 		"noVehicleRequirements": {
