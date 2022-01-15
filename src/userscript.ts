@@ -19,8 +19,7 @@ if (
         window.frameElement?.src.startsWith('https')) &&
     !window.location.pathname.match(/^\/users\//) &&
     typeof user_id !== 'undefined' &&
-    typeof I18n !== 'undefined' &&
-    !window.hasOwnProperty('lssmv4')
+    typeof I18n !== 'undefined'
 ) {
     if (
         window !== window.parent &&
