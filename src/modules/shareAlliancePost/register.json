@@ -1,4 +1,5 @@
 {
 	"location": "^/missions/\\d+/?$",
-	"settings": true
+	"settings": true,
+	"noapp": true
 }
