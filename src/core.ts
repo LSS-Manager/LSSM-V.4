@@ -40,8 +40,7 @@ Vue.component('font-awesome-icon', FontAwesomeIcon);
 utils(Vue);
 
 (async () => {
-    // TODO: Remove for 4.4.7 but NOT before 4.4.6
-    if (window.location.pathname.match(/^\/users\//)) return;
+    if (window.hasOwnProperty(PREFIX)) return;
 
     const LSSM = new Vue({
         store: store(Vue),
