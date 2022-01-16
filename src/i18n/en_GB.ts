@@ -247,7 +247,7 @@ export default {
             maxPersonnel: 1,
             possibleBuildings: [0, 2, 5, 20, 21, 22, 25],
             special:
-                'A fast and angile ambulance car, very useful when a ambulance has a long response time. ',
+                'A fast and angile ambulance car, very useful when a ambulance has a long response time.',
         },
         11: {
             caption: 'Police Helicopter',
@@ -352,7 +352,7 @@ export default {
             maxPersonnel: 6,
             possibleBuildings: [0, 18],
             special:
-                'To purchase with credits it requires the rank: Captain or 	Superintendent, <br>Lower ranked members can purchase the vehicle for 25 Coins. A Pump with an Aerial Asset on top, perfect for high rise fires and rescuing people form tall buildings ',
+                'To purchase with credits it requires the rank: Captain or Superintendent, <br>Lower ranked members can purchase the vehicle for 25 Coins. A Pump with an Aerial Asset on top, perfect for high rise fires and rescuing people form tall buildings.',
         },
         18: {
             caption: 'Co-Responder Vehicle',
