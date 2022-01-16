@@ -5,7 +5,7 @@ import schoolingOverview from './schoolingOverview.vue';
 
 import { ModuleMainFunction } from 'typings/Module';
 
-export default (LSSM => {
+export default <ModuleMainFunction>(({ LSSM }) => {
     const { ownSchoolings, openSchoolings } = getSchoolings(LSSM);
 
     const clear = document.querySelector('.clear');
@@ -47,4 +47,4 @@ export default (LSSM => {
                 h(openSchoolingTabs, { props: { tabs: openSchoolings.tabs } }),
         }).$mount(openTable);
     }
-}) as ModuleMainFunction;
+});

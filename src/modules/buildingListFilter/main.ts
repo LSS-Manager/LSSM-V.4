@@ -1,7 +1,7 @@
 import { Building } from 'typings/Building';
 import { ModuleMainFunction } from 'typings/Module';
 
-export default <ModuleMainFunction>(async (LSSM, MODULE_ID) => {
+export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID }) => {
     let wrapper = document.getElementById('btn-group-building-select');
     if (!wrapper) return;
 

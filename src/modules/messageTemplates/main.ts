@@ -2,7 +2,7 @@ import moment from 'moment';
 
 import { ModuleMainFunction } from 'typings/Module';
 
-export default <ModuleMainFunction>(async (LSSM, MODULE_ID, $m) => {
+export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, $m }) => {
     moment.locale(LSSM.$store.state.lang);
 
     window.moment = moment;

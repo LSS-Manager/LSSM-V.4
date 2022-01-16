@@ -1,9 +1,9 @@
 import { LayersControlEvent } from 'leaflet';
+import { ModuleMainFunction } from 'typings/Module';
 import { POI } from 'typings/modules/EnhancedPOI';
 import { POIMarker } from 'typings/Ingame';
-import { $m, ModuleMainFunction } from 'typings/Module';
 
-export default (async (LSSM, MODULE_ID, $m: $m) => {
+export default (async ({ LSSM, MODULE_ID, $m }) => {
     const poi_types = Object.values(LSSM.$t('pois')) as string[];
     poi_types.sort();
 

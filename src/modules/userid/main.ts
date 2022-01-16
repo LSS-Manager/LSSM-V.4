@@ -1,6 +1,6 @@
 import { ModuleMainFunction } from 'typings/Module';
 
-export default (async (LSSM, MODULE_ID) => {
+export default (async ({ LSSM, MODULE_ID }) => {
     const getSetting = (settingId: string) => {
         return LSSM.$store.dispatch('settings/getSetting', {
             moduleId: MODULE_ID,

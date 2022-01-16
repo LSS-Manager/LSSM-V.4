@@ -151,12 +151,12 @@ utils(Vue);
                         /* webpackExclude: /[\\/]+modules[\\/]+(telemetry|releasenotes|support)[\\/]+/ */
                         `./modules/${moduleId}/main`
                     ).then(module =>
-                        (module.default as ModuleMainFunction)(
+                        (module.default as ModuleMainFunction)({
                             LSSM,
-                            moduleId,
+                            MODULE_ID: moduleId,
                             $m,
-                            $mc
-                        )
+                            $mc,
+                        })
                     );
                 }
             });

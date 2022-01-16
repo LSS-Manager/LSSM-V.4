@@ -2,7 +2,7 @@ import creditsextension from './creditsextension.vue';
 
 import { ModuleMainFunction } from 'typings/Module';
 
-export default <ModuleMainFunction>(async (LSSM, MODULE_ID) => {
+export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID }) => {
     const wrapper = document.querySelector('#navigation_top')?.parentElement;
     if (wrapper) {
         new LSSM.$vue({

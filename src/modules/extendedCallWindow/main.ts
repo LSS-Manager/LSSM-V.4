@@ -5,7 +5,7 @@ interface AppendableListSetting<valueType> {
     enabled: boolean;
 }
 
-export default (async (LSSM, MODULE_ID, $m, $mc) => {
+export default (async ({ LSSM, MODULE_ID, $m, $mc }) => {
     const defaultTailoredTabs = Object.values(
         $m('tailoredTabs.defaultTabs')
     ).map(({ name, vehicleTypes }) => ({

@@ -1,6 +1,6 @@
 import { ModuleMainFunction } from 'typings/Module';
 
-export default (async (LSSM, MODULE_ID, $m) => {
+export default (async ({ LSSM, MODULE_ID, $m }) => {
     if (
         (!window.location.pathname.match(
             /^\/buildings\/\d+(\/(personals|vehicles\/new))?\/?$/

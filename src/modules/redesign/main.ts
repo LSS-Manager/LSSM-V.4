@@ -1,7 +1,7 @@
 import { ModuleMainFunction } from 'typings/Module';
 import { routeChecks } from 'typings/modules/Redesign';
 
-export default (async (LSSM, MODULE_ID) => {
+export default (async ({ LSSM, MODULE_ID }) => {
     const getSetting = <type = boolean>(settingId: string): Promise<type> => {
         return LSSM.$store.dispatch('settings/getSetting', {
             moduleId: MODULE_ID,

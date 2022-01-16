@@ -33,12 +33,12 @@ export type $mc = (
     args?: { [key: string]: unknown }
 ) => string;
 
-export type ModuleMainFunction = (
-    LSSM: Vue,
-    MODULE_ID: string,
-    $m: $m,
-    $mc: $mc
-) => void | Promise<void>;
+export type ModuleMainFunction = (parameters: {
+    LSSM: Vue;
+    MODULE_ID: string;
+    $m: $m;
+    $mc: $mc;
+}) => void | Promise<void>;
 
 export type ModuleSettingFunction =
     | ((MODULE_ID: string) => RegisterSettings | Promise<RegisterSettings>)

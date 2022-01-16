@@ -6,7 +6,7 @@ import HotkeyUtility, { CallbackFunction } from './assets/HotkeyUtility';
 
 const rootCommandScopes: ['*', 'main', 'mission'] = ['*', 'main', 'mission'];
 
-export default (async (LSSM, MODULE_ID, $m) => {
+export default (async ({ LSSM, MODULE_ID, $m }) => {
     const getSetting = (settingId: string) => {
         return LSSM.$store.dispatch('settings/getSetting', {
             moduleId: MODULE_ID,

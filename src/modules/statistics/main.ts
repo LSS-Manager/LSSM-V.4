@@ -13,7 +13,7 @@ import { ModuleMainFunction } from 'typings/Module';
 // @ts-ignore
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
-export default (async (LSSM, MODULE_ID) => {
+export default (async ({ LSSM, MODULE_ID }) => {
     if (
         !window.location.pathname.match(
             new RegExp(`/profile/${window.user_id}/?`)

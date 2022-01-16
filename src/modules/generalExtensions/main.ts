@@ -1,6 +1,6 @@
 import { ModuleMainFunction } from 'typings/Module';
 
-export default (async (LSSM, MODULE_ID, $m) => {
+export default (async ({ LSSM, MODULE_ID, $m }) => {
     LSSM.$store.commit('useFontAwesome');
 
     const getSetting = <returnType>(settingId: string): Promise<returnType> => {
