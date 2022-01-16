@@ -1,7 +1,7 @@
 import { Building } from 'typings/Building';
 import { ModuleMainFunction } from 'typings/Module';
 
-export default <ModuleMainFunction>(async (LSSM, MODULE_ID) => {
+export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
     let wrapper = document.getElementById('btn-group-building-select');
     if (!wrapper) return;
 
@@ -10,13 +10,14 @@ export default <ModuleMainFunction>(async (LSSM, MODULE_ID) => {
     });
     LSSM.$store.commit('useFontAwesome');
 
-    const filters: {
+    interface Filter {
         contentType: 'text' | 'icon';
         icon_style: 'fas' | 'far' | 'fab';
         title: string;
         buildings: number[];
         state: 'enabled' | 'disabled';
-    }[] = [
+    }
+    const filters = [
         {
             contentType: 'text',
             icon_style: 'fas',
@@ -24,12 +25,8 @@ export default <ModuleMainFunction>(async (LSSM, MODULE_ID) => {
             buildings: [],
             state: 'enabled',
         },
-        ...(
-            await LSSM.$store.dispatch('settings/getSetting', {
-                moduleId: MODULE_ID,
-                settingId: 'filters',
-            })
-        ).value,
+        ...(await getSetting<{ value: Filter[]; enabled: boolean }>('filters'))
+            .value,
     ];
 
     let btns: [HTMLButtonElement, number[]][] = [];
@@ -229,13 +226,7 @@ export default <ModuleMainFunction>(async (LSSM, MODULE_ID) => {
                 .then();
         });
 
-        if (
-            await LSSM.$store.dispatch('settings/getSetting', {
-                moduleId: MODULE_ID,
-                settingId: 'sortDesc',
-            })
-        )
-            sortBtn.click();
+        if (await getSetting('sortDesc')) sortBtn.click();
 
         let searchTimeout = null as number | null;
 

@@ -6,13 +6,12 @@ import {
     RadioMessage,
 } from 'typings/Ingame';
 
-export default (async (LSSM, MODULE_ID, $m, $mc) => {
+export default (async ({ LSSM, $m, $mc, getSetting }) => {
     const alerts = (
-        await LSSM.$store.dispatch('settings/getSetting', {
-            moduleId: MODULE_ID,
-            settingId: 'alerts',
-        })
-    ).value as NotificationSetting[];
+        await getSetting<{ value: NotificationSetting[]; enabled: boolean }>(
+            'alerts'
+        )
+    ).value;
 
     const events = {} as {
         [event: string]: {

@@ -1,25 +1,19 @@
 import { LayersControlEvent } from 'leaflet';
+import { ModuleMainFunction } from 'typings/Module';
 import { POI } from 'typings/modules/EnhancedPOI';
 import { POIMarker } from 'typings/Ingame';
-import { $m, ModuleMainFunction } from 'typings/Module';
 
-export default (async (LSSM, MODULE_ID, $m: $m) => {
+export default (async ({ LSSM, MODULE_ID, $m, getSetting }) => {
     const poi_types = Object.values(LSSM.$t('pois')) as string[];
     poi_types.sort();
 
     await LSSM.$store.dispatch('api/registerSettings', { feature: MODULE_ID });
 
     const style = await (async () => {
-        const predef = await LSSM.$store.dispatch('settings/getSetting', {
-            moduleId: MODULE_ID,
-            settingId: 'predefined_style',
-        });
-        if (predef === 'custom') {
-            return await LSSM.$store.dispatch('settings/getSetting', {
-                moduleId: MODULE_ID,
-                settingId: 'custom_style',
-            });
-        }
+        const predef = await getSetting<string>('predefined_style');
+        if (predef === 'custom')
+            return await getSetting<string>('custom_style');
+
         switch (predef) {
             case 'brown':
                 return 'sepia(100%) contrast(500%)';
@@ -38,11 +32,10 @@ export default (async (LSSM, MODULE_ID, $m: $m) => {
     };
 
     let modifiedMarkers = false;
-    let lastSavedPOIType: string =
-        (await LSSM.$store.dispatch('settings/getSetting', {
-            moduleId: MODULE_ID,
-            settingId: 'lastSavedPOIType',
-        })) ?? '';
+    let lastSavedPOIType: string = await getSetting<string>(
+        'lastSavedPOIType',
+        ''
+    );
 
     const modifyMarkers = () =>
         LSSM.$store
@@ -138,11 +131,7 @@ export default (async (LSSM, MODULE_ID, $m: $m) => {
             !modifiedMarkers && name.match(/app-pois-filter/) && modifyMarkers()
     );
 
-    let shown_types = (await LSSM.$store.dispatch('settings/getSetting', {
-        moduleId: MODULE_ID,
-        settingId: 'shown_types',
-        defaultValue: poi_types,
-    })) as string[];
+    let shown_types = await getSetting<string[]>('shown_types', poi_types);
 
     const refresh_shown_pois = () => {
         const selector = shown_types

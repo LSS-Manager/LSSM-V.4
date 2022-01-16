@@ -1,12 +1,6 @@
 import { ModuleMainFunction } from 'typings/Module';
 
-export default <ModuleMainFunction>(async (LSSM, MODULE_ID) => {
-    const getSetting = async <Type = boolean>(setting: string): Promise<Type> =>
-        await LSSM.$store.dispatch('settings/getSetting', {
-            moduleId: MODULE_ID,
-            settingId: setting,
-        });
-
+export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
     if (await getSetting('mapScale')) {
         import(
             /* webpackChunkName: "modules/extendedMap/mapScale" */ './assets/mapScale'

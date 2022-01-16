@@ -4,7 +4,7 @@ import { PointTuple } from 'leaflet';
 import { BuildingMarker, RadioMessage } from 'typings/Ingame';
 import { InternalVehicle, Vehicle } from 'typings/Vehicle';
 
-export default (async (LSSM, MODULE_ID) => {
+export default (async ({ LSSM, MODULE_ID }) => {
     await LSSM.$store.dispatch('api/registerBuildingsUsage', {
         autoUpdate: true,
         feature: MODULE_ID,

@@ -9,14 +9,7 @@ interface AppendableListSetting<valueType> {
     enabled: boolean;
 }
 
-export default (async (LSSM, MODULE_ID, $m) => {
-    const getSetting = <Type = boolean>(settingId: string): Promise<Type> => {
-        return LSSM.$store.dispatch('settings/getSetting', {
-            moduleId: MODULE_ID,
-            settingId,
-        });
-    };
-
+export default (async ({ LSSM, MODULE_ID, $m, getSetting }) => {
     const sortMissions = await getSetting('sortMissions');
 
     if (window.location.pathname.match(/^\/vehicles\/\d+\/?/)) {

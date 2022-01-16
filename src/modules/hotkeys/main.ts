@@ -6,14 +6,7 @@ import HotkeyUtility, { CallbackFunction } from './assets/HotkeyUtility';
 
 const rootCommandScopes: ['*', 'main', 'mission'] = ['*', 'main', 'mission'];
 
-export default (async (LSSM, MODULE_ID, $m) => {
-    const getSetting = (settingId: string) => {
-        return LSSM.$store.dispatch('settings/getSetting', {
-            moduleId: MODULE_ID,
-            settingId,
-        });
-    };
-
+export default (async ({ LSSM, $m, getSetting }) => {
     const isMainWindow = window.location.pathname.length <= 1;
     const isMissionWindow =
         !!window.location.pathname.match(/^\/missions\/\d+\/?/);
@@ -52,10 +45,14 @@ export default (async (LSSM, MODULE_ID, $m) => {
 
     const hotkeyUtility = new HotkeyUtility();
 
-    const hotkeys = (await getSetting('hotkeys')).value as {
+    type HotkeySetting = {
         command: string;
         hotkey: string;
     }[];
+
+    const hotkeys = (
+        await getSetting<{ value: HotkeySetting; enabled: boolean }>('hotkeys')
+    ).value;
 
     if (hotkeys.length) {
         window.addEventListener('keydown', event => {

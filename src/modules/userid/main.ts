@@ -1,13 +1,6 @@
 import { ModuleMainFunction } from 'typings/Module';
 
-export default (async (LSSM, MODULE_ID) => {
-    const getSetting = (settingId: string) => {
-        return LSSM.$store.dispatch('settings/getSetting', {
-            moduleId: MODULE_ID,
-            settingId,
-        });
-    };
-
+export default (async ({ LSSM, MODULE_ID, getSetting }) => {
     if (window.location.pathname === '/' && (await getSetting('navbar'))) {
         document
             .querySelector('#navbar-main-collapse > ul')

@@ -8,7 +8,7 @@ import { Settings, UpdateSettings } from './heatmapSettings.vue';
 
 type HeatLayer = { setLatLngs: (points: LatLng[]) => void };
 
-export default <ModuleMainFunction>(async (LSSM, MODULE_ID, $m) => {
+export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, $m }) => {
     await LSSM.$store.dispatch('api/registerBuildingsUsage', {
         feature: 'heatmap',
     });

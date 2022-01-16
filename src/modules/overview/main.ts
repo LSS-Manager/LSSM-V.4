@@ -1,6 +1,6 @@
 import { ModuleMainFunction } from 'typings/Module';
 
-export default ((LSSM, _, $m) => {
+export default (({ LSSM, $m }) => {
     const openOverview = (): void =>
         LSSM.$modal.show(
             () =>
