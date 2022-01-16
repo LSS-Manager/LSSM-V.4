@@ -10,10 +10,12 @@ export default (async (LSSM, MODULE_ID, $m, $mc) => {
         $m('tailoredTabs.defaultTabs')
     ).map(({ name, vehicleTypes }) => ({
         name,
-        vehicleTypes: Object.values(vehicleTypes),
+        vehicleTypes: (Object.values(vehicleTypes) as (number | string)[]).map(
+            t => t.toString()
+        ),
     })) as {
         name: string;
-        vehicleTypes: number[];
+        vehicleTypes: string[];
     }[];
 
     if (
@@ -200,8 +202,19 @@ export default (async (LSSM, MODULE_ID, $m, $mc) => {
     }
 
     const tailoredTabSettings = await getSetting<
-        AppendableListSetting<typeof defaultTailoredTabs>
+        AppendableListSetting<
+            {
+                name: string;
+                vehicleTypes: (string | number)[];
+            }[]
+        >
     >('tailoredTabs');
+    tailoredTabSettings.value = tailoredTabSettings.value.map(
+        ({ name, vehicleTypes }) => ({
+            name,
+            vehicleTypes: vehicleTypes.map(t => t.toString()),
+        })
+    );
     if (
         (tailoredTabSettings.enabled &&
             !(await import('lodash/isEqual')).default(

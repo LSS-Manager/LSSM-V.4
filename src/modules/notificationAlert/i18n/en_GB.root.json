@@ -3,6 +3,7 @@
 		"danger": "Error message (red)",
 		"info": "Info (blue)",
 		"success": "Confirmation (green)",
+		"unimportant": "Simple (grey)",
 		"warning": "Warning (orange)"
 	},
 	"description": "Get browser and in-game notifications for various events - of course completely configurable!",

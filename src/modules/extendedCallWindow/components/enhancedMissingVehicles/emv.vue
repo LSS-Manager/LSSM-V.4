@@ -452,7 +452,7 @@ export default Vue.extend<
             Record<number, number>
         >;
 
-        const specialRequirementList = ['water', 'foam'];
+        const specialRequirementList = ['water', 'foam', 'pumping'];
 
         const specialRequirements: Record<
             string,

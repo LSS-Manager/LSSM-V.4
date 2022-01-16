@@ -10,9 +10,9 @@ export default async (
 ): Promise<void> => {
     const callback = async () => {
         const vehicles = Array.from(
-            document.querySelectorAll(
+            document.querySelectorAll<HTMLTableRowElement>(
                 '#vehicle_table tbody tr'
-            ) as NodeListOf<HTMLTableRowElement>
+            )
         );
 
         if (!vehicles.length) return;

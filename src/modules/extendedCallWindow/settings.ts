@@ -1,7 +1,6 @@
 import aipreview from './components/alarmIcons/preview.vue';
 import mkpreview from './components/missionKeywords/preview.vue';
 
-import { InternalVehicle } from 'typings/Vehicle';
 import { $m, ModuleSettingFunction } from 'typings/Module';
 import {
     AppendableList,
@@ -15,6 +14,7 @@ import {
     Text,
     Toggle,
 } from 'typings/Setting';
+import { InternalVehicle, Vehicle } from 'typings/Vehicle';
 
 export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
     const defaultTailoredTabs = Object.values(
@@ -24,7 +24,7 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
         vehicleTypes: Object.values(vehicleTypes),
     })) as {
         name: string;
-        vehicleTypes: number[];
+        vehicleTypes: (number | string)[];
     }[];
 
     const vehicles = LSSM.$t('vehicles') as { [id: number]: InternalVehicle };
@@ -34,6 +34,19 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
         vehicleCaptions.push(caption);
         vehicleIds.push(id);
     });
+
+    await LSSM.$store.dispatch('api/registerVehiclesUsage', {
+        feature: `${MODULE_ID}_settings`,
+    });
+    (LSSM.$store.state.api.vehicles as Vehicle[])
+        .filter(v => v.vehicle_type_caption)
+        .forEach(({ vehicle_type, vehicle_type_caption = '' }) => {
+            const caption = `[${vehicles[vehicle_type].caption}] ${vehicle_type_caption}`;
+            if (!vehicle_type_caption || vehicleCaptions.includes(caption))
+                return;
+            vehicleCaptions.push(caption);
+            vehicleIds.push(`${vehicle_type}-${vehicle_type_caption}`);
+        });
 
     const { missionIds, missionNames } = await LSSM.$utils.getMissionOptions(
         LSSM,

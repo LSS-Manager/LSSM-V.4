@@ -1032,7 +1032,7 @@ export default {
             maxBuildings: '5.000 includendo le stazioni grandi',
             maxLevel: 5,
             special:
-                'A partire dalla 24° caserma i costi aumenteranno secondo la seguente formula: <code>(100.000+200.000*LOG<sub>2</sub>(Number of existing fire stations − 22)) / 2</code>. max. 1 Million Credits. The Coins price remains constant!',
+                'A partire dalla 24° caserma i costi aumenteranno secondo la seguente formula: <code>(50.000+100.000*LOG<sub>2</sub>(Number of existing fire stations − 22)) / 2</code>. max. 1 Million Credits. The Coins price remains constant!',
             startPersonnel: 10,
             startVehicles: ['ABP', 'APS'],
             schoolingTypes: ['Caserma dei vigili del fuoco'],
@@ -1066,7 +1066,7 @@ export default {
             maxBuildings: '1.700 includendo le stazioni di polizia',
             maxLevel: 4,
             special:
-                'A partire dalla 24° caserma i costi aumenteranno secondo la seguente formula:<code>(100.000+200.000*LOG<sub>2</sub>(Number of existing police stations − 22)) / 2</code>. The Coins price remains constant!',
+                'A partire dalla 24° caserma i costi aumenteranno secondo la seguente formula:<code>(50.000+100.000*LOG<sub>2</sub>(Number of existing police stations − 22)) / 2</code>. The Coins price remains constant!',
             startPersonnel: 2,
             startVehicles: ['Volante'],
             schoolingTypes: ['Polizia'],

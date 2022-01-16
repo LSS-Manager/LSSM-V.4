@@ -558,15 +558,20 @@ export default Vue.extend<
 </script>
 
 <style lang="sass">
-#main_navbar
-    .navbar-right
-        display: flex
-        align-items: center
+@media (min-width: 768px)
+    #main_navbar
+        .navbar-right
+            display: flex
+            align-items: center
 
-        .navbar-form,
-        .navbar-form input
-            margin: 0
+            .navbar-form,
+            .navbar-form input
+                margin: 0
+@media (max-width: 768px)
+    #main_navbar #map_adress_search_form
+        margin-right: 0
 </style>
+
 <style scoped lang="sass">
 #main_navbar .navbar-right #lssmv4-indicator
     #lssmv4-indicator_menu

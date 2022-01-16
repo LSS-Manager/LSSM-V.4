@@ -30,53 +30,51 @@ export default (
         )
         .map(([id]) => id);
 
+    const addShareBtn: AddShareBtn = mission => {
+        if (
+            mission.element.querySelector('.panel-success') ||
+            !mission.element.closest(typesIdsSelector)
+        )
+            return;
+        let missionType =
+            mission.element.getAttribute('mission_type_id') ?? '-1';
+        const overlayIndex =
+            mission.element.getAttribute('data-overlay-index') ?? 'null';
+        if (overlayIndex && overlayIndex !== 'null')
+            missionType += `-${overlayIndex}`;
+        const additionalOverlay =
+            mission.element.getAttribute('data-additive-overlays') ?? 'null';
+        if (additionalOverlay && additionalOverlay !== 'null')
+            missionType += `/${additionalOverlay}`;
+        if (missionType !== '-1' && !acceptedMissionTypes.includes(missionType))
+            return;
+        const btn = document.createElement('button');
+        btn.classList.add('btn', `btn-${buttonColor}`, 'btn-xs', shareBtnClass);
+        const icon = document.createElement('i');
+        icon.classList.add('fas', 'fa-share-alt');
+        btn.append(icon);
+        btn.addEventListener('click', () => {
+            btn.disabled = true;
+            LSSM.$store
+                .dispatch('api/request', {
+                    url: `/missions/${mission.id}/alliance`,
+                    feature: 'ecl-share-missions',
+                })
+                .then(() => btn.remove());
+        });
+        mission.btnGroup.append(btn);
+    };
+
     return {
-        addShareBtn: mission => {
-            if (
-                mission.element.querySelector('.panel-success') ||
-                !mission.element.closest(typesIdsSelector)
-            )
-                return;
-            let missionType =
-                mission.element.getAttribute('mission_type_id') ?? '-1';
-            const overlayIndex =
-                mission.element.getAttribute('data-overlay-index') ?? 'null';
-            if (overlayIndex && overlayIndex !== 'null')
-                missionType += `-${overlayIndex}`;
-            const additionalOverlay =
-                mission.element.getAttribute('data-additive-overlays') ??
-                'null';
-            if (additionalOverlay && additionalOverlay !== 'null')
-                missionType += `/${additionalOverlay}`;
-            if (
-                missionType !== '-1' &&
-                !acceptedMissionTypes.includes(missionType)
-            )
-                return;
-            const btn = document.createElement('button');
-            btn.classList.add(
-                'btn',
-                `btn-${buttonColor}`,
-                'btn-xs',
-                shareBtnClass
-            );
-            const icon = document.createElement('i');
-            icon.classList.add('fas', 'fa-share-alt');
-            btn.append(icon);
-            btn.addEventListener('click', () => {
-                btn.disabled = true;
-                LSSM.$store
-                    .dispatch('api/request', {
-                        url: `/missions/${mission.id}/alliance`,
-                        feature: 'ecl-share-missions',
-                    })
-                    .then(() => btn.remove());
-            });
-            mission.btnGroup.append(btn);
-        },
+        addShareBtn,
         updateShareBtn: mission => {
-            if (mission.element.querySelector('.panel-success'))
-                mission.element.querySelector(`.${shareBtnClass}`)?.remove();
+            if (mission.element.querySelector('.panel-success')) {
+                return mission.element
+                    .querySelector(`.${shareBtnClass}`)
+                    ?.remove();
+            }
+            if (!mission.element.querySelector(`.${shareBtnClass}`))
+                addShareBtn(mission);
         },
     };
 };

@@ -109,7 +109,9 @@ export default {
                 commit('addGroup', computedGroup);
             if (
                 !computedType ||
-                !computedType.match(/^(warning|danger|success|info)$/)
+                !computedType.match(
+                    /^(warning|danger|success|info|unimportant)$/
+                )
             )
                 computedType = 'info';
             if (ingame) {

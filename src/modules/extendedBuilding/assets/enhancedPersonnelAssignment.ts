@@ -17,9 +17,9 @@ export default async (
     });
 
     const personnel = Array.from(
-        document.querySelectorAll(
+        document.querySelectorAll<HTMLTableRowElement>(
             '#personal_table tbody tr'
-        ) as NodeListOf<HTMLTableRowElement>
+        )
     );
 
     const vehicleId = parseInt(

@@ -13,6 +13,10 @@ export default (LSSM: Vue, MODULE_ID: string, $m: $m): void => {
 
     const water = $m('enhancedMissingVehicles.water').toString();
     const foam = $m('enhancedMissingVehicles.foam').toString();
+    const pumping = $m('enhancedMissingVehicles.pumping').toString();
+    const pumpingSuffix = $m(
+        'enhancedMissingVehicles.pumpingSuffix'
+    ).toString();
     const vehicleGroupTranslation = $m(
         'enhancedMissingVehicles.vehiclesByRequirement'
     ) as unknown as
@@ -46,7 +50,11 @@ export default (LSSM: Vue, MODULE_ID: string, $m: $m): void => {
     )}|${LSSM.$utils.escapeRegex(foam)}|${groupsRegex}`;
 
     const requirementRegex = new RegExp(
-        `((${numRegex}\\s+(${innerRegex}))|(${innerRegex}):\\s*${numRegex})(?=[,.]|$)`,
+        `((${numRegex}\\s+(${innerRegex}))|(${innerRegex}):\\s*${numRegex}|(${LSSM.$utils.escapeRegex(
+            pumping
+        )})\\s*${numRegex}\\s*(?=${LSSM.$utils.escapeRegex(
+            pumpingSuffix
+        )}))(?=[,.]|$)`,
         'g'
     );
     const missingRequirementMatches =
@@ -96,6 +104,7 @@ export default (LSSM: Vue, MODULE_ID: string, $m: $m): void => {
         missingRequirements.forEach(requirement => {
             const isWater = requirement.vehicle === water;
             const isFoam = requirement.vehicle === foam;
+            const isPumping = requirement.vehicle === pumping;
             if (isWater) {
                 requirement.driving = LSSM.$utils.getNumberFromText(
                     document.querySelector<HTMLDivElement>(
@@ -108,6 +117,14 @@ export default (LSSM: Vue, MODULE_ID: string, $m: $m): void => {
                 requirement.driving = LSSM.$utils.getNumberFromText(
                     document.querySelector<HTMLDivElement>(
                         '[id^="mission_foam_holder_"] div.progress-bar-mission-window-water.progress-bar-warning'
+                    )?.textContent ?? '',
+                    false,
+                    0
+                );
+            } else if (isPumping) {
+                requirement.driving = LSSM.$utils.getNumberFromText(
+                    document.querySelector<HTMLDivElement>(
+                        '[id^="mission_pump_holder_"] div.progress-bar-mission-window-water.progress-bar-warning'
                     )?.textContent ?? '',
                     false,
                     0

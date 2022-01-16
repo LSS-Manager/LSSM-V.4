@@ -3,6 +3,7 @@
 		"danger": "Messaggio errore (rosso)",
 		"info": "Info (blu)",
 		"success": "Conferma (verde)",
+		"unimportant": "Semplice (grigio)",
 		"warning": "Attenzione (arancione)"
 	},
 	"description": "Ricevi notifiche dal browser e dal gioco per vari eventi - ovviamente completamente configurabile!",
