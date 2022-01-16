@@ -1,6 +1,6 @@
 import { ModuleMainFunction } from 'typings/Module';
 
-export default (async ({ LSSM, MODULE_ID, $m }) => {
+export default (async ({ LSSM, MODULE_ID, $m, getSetting }) => {
     if (
         (!window.location.pathname.match(
             /^\/buildings\/\d+(\/(personals|vehicles\/new))?\/?$/
@@ -11,13 +11,6 @@ export default (async ({ LSSM, MODULE_ID, $m }) => {
         document.querySelectorAll('[href*="profile"]').length
     )
         return;
-
-    const getSetting = (settingId: string): Promise<boolean> => {
-        return LSSM.$store.dispatch('settings/getSetting', {
-            moduleId: MODULE_ID,
-            settingId,
-        });
-    };
 
     if (window.location.pathname.match(/^\/buildings\/\d+\/?$/)) {
         const BUILDING_MODE = document.getElementById('tab_protocol')

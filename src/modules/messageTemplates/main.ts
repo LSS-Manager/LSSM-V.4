@@ -2,16 +2,16 @@ import moment from 'moment';
 
 import { ModuleMainFunction } from 'typings/Module';
 
-export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, $m }) => {
+export default <ModuleMainFunction>(async ({ LSSM, $m, getSetting }) => {
     moment.locale(LSSM.$store.state.lang);
 
     window.moment = moment;
 
-    const messages: { name: string; subject: string; template: string }[] = (
-        await LSSM.$store.dispatch('settings/getSetting', {
-            moduleId: MODULE_ID,
-            settingId: 'templates',
-        })
+    const messages = (
+        await getSetting<{
+            value: { name: string; subject: string; template: string }[];
+            enabled: boolean;
+        }>('templates')
     ).value;
 
     const preselected = parseInt(

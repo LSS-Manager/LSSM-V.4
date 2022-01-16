@@ -156,6 +156,12 @@ utils(Vue);
                             MODULE_ID: moduleId,
                             $m,
                             $mc,
+                            getSetting: (settingId, defaultValue = '') =>
+                                LSSM.$store.dispatch('settings/getSetting', {
+                                    moduleId,
+                                    settingId,
+                                    defaultValue,
+                                }),
                         })
                     );
                 }

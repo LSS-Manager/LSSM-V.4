@@ -1,13 +1,6 @@
 import { ModuleMainFunction } from 'typings/Module';
 
-export default (async ({ LSSM, MODULE_ID, $m }) => {
-    const getSetting = (settingId: string): Promise<boolean> => {
-        return LSSM.$store.dispatch('settings/getSetting', {
-            moduleId: MODULE_ID,
-            settingId,
-        });
-    };
-
+export default (async ({ LSSM, MODULE_ID, $m, getSetting }) => {
     const buildings = ['buildingTax', 'switchExtensionState'].filter(
         async s => await getSetting(s)
     );

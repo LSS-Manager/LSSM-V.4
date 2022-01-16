@@ -1,14 +1,7 @@
 import { ModuleMainFunction } from 'typings/Module';
 
-export default (async ({ LSSM, MODULE_ID, $m }) => {
+export default (async ({ LSSM, MODULE_ID, $m, getSetting }) => {
     LSSM.$store.commit('useFontAwesome');
-
-    const getSetting = <returnType>(settingId: string): Promise<returnType> => {
-        return LSSM.$store.dispatch('settings/getSetting', {
-            moduleId: MODULE_ID,
-            settingId,
-        });
-    };
 
     import(
         /* webpackChunkName: "modules/generalExtensions/inputMaxLen" */ './assets/inputMaxLen'
@@ -116,7 +109,7 @@ export default (async ({ LSSM, MODULE_ID, $m }) => {
             protocolDeletionConfirmation(
                 LSSM,
                 t => $m(`protocolDeletionConfirmation.${t}`),
-                !!(await getSetting('deleteSingleProtocolEntry')),
+                await getSetting('deleteSingleProtocolEntry'),
                 MODULE_ID
             )
         );
