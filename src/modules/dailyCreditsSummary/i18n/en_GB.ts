@@ -52,7 +52,7 @@ export default {
             textColor: 'white',
         },
         patients: {
-            regex: /Patient Treatment/,
+            regex: /Patient (Treatment|Transport)/,
             title: 'Patients',
             backgroundColor: '#fff600',
             textColor: 'black',
