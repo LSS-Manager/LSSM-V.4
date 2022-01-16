@@ -1,0 +1,13 @@
+{
+	"description": "Alarmiere, Teile den Einsatz und Poste eine Rückmeldung mit nur einem Klick.",
+	"name": "Share-Alliance-Post",
+	"settings": {
+		"message": "Rückmeldungstext",
+		"name": "Name",
+		"postInChat": "Rückmeldung im Chat posten?",
+		"templates": {
+			"description": "Lege hier Rückmeldungen fest, die du im Einsatzfenster auswählen kannst. Variablen werden unterstützt, schau hierzu in unser <a class=\"lightbox-open\" href=\"{wiki}modules/shareAlliancePost.html#variablen\">Wiki</a>! Du kannst jeder Rückmeldung einen kurzen Namen geben, damit du sie im Einsatzfenster schneller findest.",
+			"title": "Rückmeldungen"
+		}
+	}
+}
