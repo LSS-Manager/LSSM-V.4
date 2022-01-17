@@ -10,6 +10,8 @@ interface Message {
 export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
     await LSSM.$store.dispatch('api/getMissions', { feature: MODULE_ID });
 
+    LSSM.$store.commit('useFontAwesome');
+
     const messages = (
         await getSetting<{ value: Message[]; enabled: boolean }>('messages')
     ).value;
@@ -99,20 +101,80 @@ export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
 
     // phone-alt, share-alt, comment-dots, arrow-alt-circle-right
 
-    const modifiedMessages = messages.map(m => {
-        let message = m.message;
-        Object.entries(variables).forEach(([variable, replacer]) => {
-            if (variable.startsWith('/') && variable.endsWith('/')) {
-                message = message.replace(
-                    new RegExp(`{{${variable.replace(/^\/|\/$/g, '')}}}`, 'g'),
-                    replacer
-                );
-            } else {
-                message = message.replaceAll(`{{${variable}}}`, replacer);
-            }
+    const modifiedMessages: Message[] = [];
+    const modifyMessages = () =>
+        messages.forEach(m => {
+            let message = m.message;
+            Object.entries(variables).forEach(([variable, replacer]) => {
+                if (variable.startsWith('/') && variable.endsWith('/')) {
+                    message = message.replace(
+                        new RegExp(
+                            `{{${variable.replace(/^\/|\/$/g, '')}}}`,
+                            'g'
+                        ),
+                        replacer
+                    );
+                } else {
+                    message = message.replaceAll(`{{${variable}}}`, replacer);
+                }
+            });
+            modifiedMessages.push({ ...m, message });
         });
-        return { ...m, message };
+
+    const replyField = document.querySelector<HTMLInputElement>(
+        '#mission_reply_content'
+    );
+
+    const btn = document.createElement('button');
+    btn.classList.add('btn', 'btn-default', 'dropdown-toggle');
+    btn.dataset.toggle = 'dropdown';
+    const icon = document.createElement('i');
+    icon.classList.add('fas', 'fa-comment-dots');
+    icon.style.setProperty('margin-right', '4px');
+    const caret = document.createElement('span');
+    caret.classList.add('caret');
+    btn.append(icon, caret);
+
+    const dropdown = document.createElement('ul');
+    dropdown.classList.add('dropdown-menu');
+    btn.addEventListener('click', () => {
+        if (modifiedMessages.length || !messages.length) return;
+        modifyMessages();
+        modifiedMessages.forEach(({ name, message, postInChat }) => {
+            const li = document.createElement('li');
+            li.dataset.message = message;
+            li.dataset.post = postInChat.toString();
+            li.title = message;
+            const a = document.createElement('a');
+            a.textContent = name;
+            li.append(a);
+            dropdown.append(li);
+        });
     });
 
-    console.log(messages, modifiedMessages);
+    if (replyField) {
+        const allianceChatCheckbox = document.querySelector<HTMLInputElement>(
+            '#mission_reply_alliance_chat'
+        );
+
+        const addon = document.createElement('div');
+        addon.classList.add('input-group-btn');
+        dropdown.addEventListener('click', e => {
+            const target = e.target;
+            if (!target || !(target instanceof HTMLElement)) return;
+            e.preventDefault();
+            const liElement = target.closest<HTMLLIElement>(
+                'li[data-message][data-post]'
+            );
+            if (liElement) {
+                replyField.value = liElement.dataset.message ?? '';
+                if (allianceChatCheckbox) {
+                    allianceChatCheckbox.checked =
+                        liElement.dataset.post === 'true';
+                }
+            }
+        });
+        addon.append(btn, dropdown);
+        replyField.before(addon);
+    }
 });
