@@ -58,10 +58,16 @@ export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
     const patients = document
         .querySelectorAll('.mission_patient')
         .length.toLocaleString();
+
     const remainingVehicles =
-        document
-            .querySelector<HTMLDivElement>('#missing_text')
-            ?.textContent?.trim()
+        (
+            document
+                .querySelector<HTMLDivElement>('#missing_text')
+                ?.textContent?.trim() ??
+            document.querySelector<HTMLDivElement>(`#${PREFIX}-missing_text`)
+                ?.dataset.rawText ??
+            ''
+        )
             .replace(/^.*?:/, '')
             .trim() ?? '';
     const address = he.decode(

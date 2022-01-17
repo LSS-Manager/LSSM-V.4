@@ -9,6 +9,7 @@
         }"
         :style="`top: ${drag.top}px; left: ${drag.left}px`"
         :id="id"
+        :data-raw-text="missingText.trim()"
     >
         <font-awesome-icon
             class="pull-right"
