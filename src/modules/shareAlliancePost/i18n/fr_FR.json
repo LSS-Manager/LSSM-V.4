@@ -1,0 +1,13 @@
+{
+	"description": "Alerter, partager l'intervention et poster un message en un seul clic.",
+	"name": "Partager le message à l'Alliance",
+	"settings": {
+		"message": "Texte de réponse",
+		"name": "Nom",
+		"postInChat": "Poster un message dans le chat ?",
+		"templates": {
+			"description": "Définis ici les réactions que tu peux sélectionner dans la fenêtre d'intervention. Les variables sont prises en charge, consultez notre <a class=\"lightbox-open\" href=\"{wiki}modules/shareAlliancePost.html#variablen\">Wiki</a> pour plus d'info ! Vous pouvez donner un nom court à chaque réactions afin de la retrouver plus rapidement dans la fenêtre d'intervention.",
+			"title": "Réactions"
+		}
+	}
+}
