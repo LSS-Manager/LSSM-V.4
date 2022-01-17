@@ -22,6 +22,10 @@ Du kannst <code><span>{{</span>city<span>}}</span></code> nutzen, um nur Postlei
 
 <code><span>{{</span>patients<span>}}</span></code> fügt die Zahl der aktuellen Patienten ein.
 
+### Beginn eines geplanten Einsatzes
+
+<code><span>{{</span>beginAt<span>}}</span></code> fügt die Uhrzeit ein, zu der ein geplanter Einsatz beginnen wird.
+
 ### Uhrzeiten
 
 Du kannst auch Uhrzeiten, abhängig vom aktuellen Zeitpunkt einfügen lassen. Da das etwas komplizierter ist, empfehlen wir die konzentrierte Lektüre der folgenden Anleitung:

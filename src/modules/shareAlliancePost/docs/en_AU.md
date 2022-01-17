@@ -22,6 +22,10 @@ You can use <code><span>{{</span>city<span>}}</span></code> to insert postcode a
 
 <code><span>{{</span>patients<span>}}</span></code> is replaced by the amount of patients currently at the mission.
 
+### Start of a planned mission
+
+<code><span>{{</span>beginAt<span>}}</span></code> is replaced by the time, a planned mission will start at.
+
 ### Times
 
 You can also set time distances to now. The system is a bit complicated, so read carefully:

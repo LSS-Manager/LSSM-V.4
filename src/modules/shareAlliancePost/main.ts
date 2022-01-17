@@ -46,6 +46,11 @@ export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
 
     const addHoursToNow = (hours: number): Date =>
         new Date(Date.now() + hours * 60 * 60 * 1000);
+    const dateToTime = (date: Date): string =>
+        `${date.getHours().toString().padStart(2, '0')}:${date
+            .getMinutes()
+            .toString()
+            .padStart(2, '0')}`;
 
     const averageCredits = mission?.average_credits?.toLocaleString() ?? '–';
     const patients = document
@@ -58,6 +63,19 @@ export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
             .replace(/^.*?:/, '')
             .trim() ?? '';
 
+    let beginAtDate = '–';
+    LSSM.$store
+        .dispatch('hook', {
+            event: 'missionCountdown',
+            callback(beginInSeconds: number) {
+                beginAtDate =
+                    beginInSeconds <= 0
+                        ? '–'
+                        : dateToTime(addHoursToNow(beginInSeconds / 60 / 60));
+            },
+        })
+        .then();
+
     const variables: Record<
         string,
         (match: string, ...groups: string[]) => string
@@ -65,16 +83,9 @@ export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
         credits: () => averageCredits,
         patients: () => patients,
         remaining: () => remainingVehicles,
-        [/now\+(\d+(?:[.,]\d+)?)/.toString()]: (match, additive) => {
-            const resultDate = addHoursToNow(parseFloat(additive));
-            return `${resultDate
-                .getHours()
-                .toString()
-                .padStart(2, '0')}:${resultDate
-                .getMinutes()
-                .toString()
-                .padStart(2, '0')}`;
-        },
+        beginAt: () => beginAtDate,
+        [/now\+(\d+(?:[.,]\d+)?)/.toString()]: (match, additive) =>
+            dateToTime(addHoursToNow(parseFloat(additive))),
         [/now\+(\d+(?:[.,]\d+)?)r(-?\d+)/.toString()]: (
             match,
             additive,
