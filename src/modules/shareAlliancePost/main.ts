@@ -71,7 +71,7 @@ export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
             ?.textContent?.trim() ??
         '–';
     const addressSplit = address.split(',');
-    const city = addressSplit[addressSplit.length - 1].trim();
+    const city = addressSplit[addressSplit.length - 1]?.trim() ?? '–';
 
     let beginAtDate = '–';
     LSSM.$store
@@ -239,15 +239,15 @@ export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
 
         const alarmSharePostGroup = document.createElement('div');
         alarmSharePostGroup.classList.add('btn-group', 'dropup');
+        alarmSharePostGroup.id = LSSM.$store.getters.nodeAttribute(
+            `${MODULE_ID}_alarm-share-post`,
+            true
+        );
         const alarmSharePostBtn = btn.cloneNode(true) as HTMLButtonElement;
         alarmSharePostBtn.classList.add('btn', 'btn-success', 'btn-sm');
         alarmSharePostBtn.style.setProperty('font-size', '100%');
         alarmSharePostBtn.innerHTML = '';
         alarmSharePostBtn.append(phoneIcon, shareIcon, commentIcon);
-        alarmSharePostBtn.id = LSSM.$store.getters.nodeAttribute(
-            `${MODULE_ID}_alarm-share-post`,
-            true
-        );
         const alarmSharePostDropdown = dropdown.cloneNode(
             true
         ) as HTMLUListElement;
@@ -255,6 +255,10 @@ export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
 
         const alarmSharePostNextGroup = document.createElement('div');
         alarmSharePostNextGroup.classList.add('btn-group', 'dropup');
+        alarmSharePostNextGroup.id = LSSM.$store.getters.nodeAttribute(
+            `${MODULE_ID}_alarm-share-post-next`,
+            true
+        );
         const alarmSharePostNextBtn = btn.cloneNode(true) as HTMLButtonElement;
         alarmSharePostNextBtn.classList.add('btn', 'btn-success', 'btn-sm');
         alarmSharePostNextBtn.style.setProperty('font-size', '100%');
@@ -264,10 +268,6 @@ export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
             shareIcon.cloneNode(true),
             commentIcon.cloneNode(true),
             arrowIcon
-        );
-        alarmSharePostNextBtn.id = LSSM.$store.getters.nodeAttribute(
-            `${MODULE_ID}_alarm-share-post-next`,
-            true
         );
         const alarmSharePostNextDropdown = dropdown.cloneNode(
             true
@@ -379,7 +379,7 @@ export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
                 .then(() =>
                     document
                         .querySelector<HTMLAnchorElement>(
-                            liElement.closest(`#${alarmSharePostBtn.id}`)
+                            liElement.closest(`#${alarmSharePostGroup.id}`)
                                 ? '#mission_alarm_btn'
                                 : missionsSorted
                                 ? `.${sortedMissionClass}`
