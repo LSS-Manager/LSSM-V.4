@@ -1,0 +1,13 @@
+{
+	"description": "Alarm, Share the mission and post an incident note with a single click.",
+	"name": "Share-Alliance-Post",
+	"settings": {
+		"message": "Incident Note",
+		"name": "Name",
+		"postInChat": "Post note in chat?",
+		"templates": {
+			"description": "Set your incident notes here. You can use variables, please have a look at our <a class=\"lightbox-open\" href=\"{wiki}modules/shareAlliancePost.html#variables\">Wiki</a> therefore! Please assign a unique name to each response, to identify them quickly in alarm window.",
+			"title": "Responses"
+		}
+	}
+}

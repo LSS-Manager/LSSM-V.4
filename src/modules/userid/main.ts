@@ -1,6 +1,6 @@
 import { ModuleMainFunction } from 'typings/Module';
 
-export default (async ({ LSSM, MODULE_ID, getSetting }) => {
+export default (async ({ LSSM, getSetting }) => {
     if (window.location.pathname === '/' && (await getSetting('navbar'))) {
         document
             .querySelector('#navbar-main-collapse > ul')

@@ -1,6 +1,6 @@
 import { ModuleMainFunction } from 'typings/Module';
 
-export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
+export default <ModuleMainFunction>(async ({ LSSM, getSetting }) => {
     if (await getSetting('mapScale')) {
         import(
             /* webpackChunkName: "modules/extendedMap/mapScale" */ './assets/mapScale'

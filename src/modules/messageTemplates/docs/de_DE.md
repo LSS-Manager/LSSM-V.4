@@ -1,4 +1,4 @@
-Besonders (Co-)Admins eines Verbands schreiben oft die selben oder ähnliche Texte an ihre Verbandsmitglieder.
+Besonders (Co-)Admins eines Verbands schreiben oft dieselben oder ähnliche Texte an ihre Verbandsmitglieder.
 
 Da dies oft lästig ist, gibt es mit diesem Modul **Nachrichten Templates**, die es vorher nur als [Einzelscript](https://forum.leitstellenspiel.de/index.php?thread/18912-skript-wunsch-autofill-f%C3%BCr-nachrichten/) gab.
 
