@@ -12,14 +12,14 @@
 		"daily": "Daglig sammanställning",
 		"overview": "Översikt"
 	},
-  "description": "Visa användarbar information om tillgångar i menyn under den primära navigeringsmenyn",
+	"description": "Visa användarbar information om tillgångar i menyn under den primära navigeringsmenyn",
 	"name": "Credit Expansion",
 	"nextRank": "Nästa nivå",
 	"nextRankMissing": "kvarvarande",
 	"settings": {
 		"alerts": {
 			"credits": "krediter",
-      "description": "När du nått en av de fördefinerade kreditnivåerna kommer kredit expansionen markeras som grön tills du har tryckt på demn.",
+			"description": "När du nått en av de fördefinerade kreditnivåerna kommer kredit expansionen markeras som grön tills du har tryckt på demn.",
 			"title": "Mål"
 		},
 		"coinsInNavbar": {
