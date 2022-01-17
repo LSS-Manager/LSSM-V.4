@@ -22,9 +22,7 @@
       "description": "När du nått en av de fördefinerade kreditnivåerna kommer kredit expansionen markeras som grön tills du har tryckt på demn.",
 			"title": "Mål"
 		},
-		"coin​
-2
-sInNavbar": {
+		"coinsInNavbar": {
 			"description": "Visar nuvarande mynt i menyn istället för i den söta grisen.",
 			"title": "Mynt utan söta grisen"
 		},
