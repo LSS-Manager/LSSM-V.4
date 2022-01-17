@@ -62,6 +62,16 @@ export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
             ?.textContent?.trim()
             .replace(/^.*?:/, '')
             .trim() ?? '';
+    const address =
+        document
+            .querySelector<HTMLDivElement>('#mission_general_info')
+            ?.dataset.address?.trim() ??
+        document
+            .querySelector<HTMLElement>('#missionH1 + small')
+            ?.textContent?.trim() ??
+        '–';
+    const addressSplit = address.split(',');
+    const city = addressSplit[addressSplit.length - 1].trim();
 
     let beginAtDate = '–';
     LSSM.$store
@@ -83,6 +93,8 @@ export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
         credits: () => averageCredits,
         patients: () => patients,
         remaining: () => remainingVehicles,
+        address: () => address,
+        city: () => city,
         beginAt: () => beginAtDate,
         [/now\+(\d+(?:[.,]\d+)?)/.toString()]: (match, additive) =>
             dateToTime(addHoursToNow(parseFloat(additive))),
