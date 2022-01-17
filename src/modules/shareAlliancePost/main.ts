@@ -83,8 +83,11 @@ export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
     const addressSplit = address.split(',');
     const city = addressSplit[addressSplit.length - 1]?.trim() ?? '–';
     const cityWithoutZip = city
-        // matches digit-only, NL-Style and UK-Style ZIP-Codes
-        .replace(/^((\d{4} ?[A-Z]{2})|\d+|([A-Z0-9]{2,4} [A-Z0-9]{3}))/, '')
+        // matches all Zip-styles of the countries supported by LSSM
+        .replace(
+            /^((\d{4} ?[A-Z]{2})|((\d{4}|\d{2})[ -]\d{3})|\d+|([A-Z0-9]{2,4} [A-Z0-9]{3}))/,
+            ''
+        )
         .trim();
 
     let beginAtDate = '–';
