@@ -70,11 +70,16 @@ export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
             ?.dataset.address?.trim() ??
             document
                 .querySelector<HTMLElement>('#missionH1 + small')
-                ?.textContent?.trim() ??
+                ?.textContent?.replace(/\|(.|\n)*$/, '')
+                .trim() ??
             '–'
     );
     const addressSplit = address.split(',');
     const city = addressSplit[addressSplit.length - 1]?.trim() ?? '–';
+    const cityWithoutZip = city
+        // matches digit-only and UK-Style ZIP-Codes
+        .replace(/^(\d+|([A-Z0-9]{2,4} [A-Z0-9]{3}))/, '')
+        .trim();
 
     let beginAtDate = '–';
     LSSM.$store
@@ -98,6 +103,7 @@ export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
         remaining: () => remainingVehicles,
         address: () => address,
         city: () => city,
+        cityWithoutZip: () => cityWithoutZip,
         beginAt: () => beginAtDate,
         [/now\+(\d+(?:[.,]\d+)?)/.toString()]: (match, additive) =>
             dateToTime(addHoursToNow(parseFloat(additive))),

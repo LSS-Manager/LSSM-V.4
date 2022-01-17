@@ -14,6 +14,8 @@ Dieses Modul ermöglicht es, mit einem einzigen Klick zu alarmieren, zu teilen u
 
 Du kannst <code><span>{{</span>city<span>}}</span></code> nutzen, um nur Postleitzahl und Stadt/Gemeinde einzufügen.
 
+Um auch die Postleitzahl wegzulassen, verwende <code><span>{{</span>cityWithoutZip<span>}}</span></code>.
+
 ### Zusätzlich benötigte Fahrzeuge
 
 <code><span>{{</span>remaining<span>}}</span></code> fügt den Text der roten "Zusätzlich benötigte Fahrzeuge"-Box ein.

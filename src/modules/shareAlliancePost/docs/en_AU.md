@@ -12,7 +12,9 @@ This module allows you to alarm, share and post with a single click! You can set
 
 <code><span>{{</span>address<span>}}</span></code> is replaced by the complete missions address.
 
-You can use <code><span>{{</span>city<span>}}</span></code> to insert postcode and city name only. 
+You can use <code><span>{{</span>city<span>}}</span></code> to insert postcode and city name only.
+
+To also omit postcode/zipcode, simply use <code><span>{{</span>cityWithoutZip<span>}}</span></code>.
 
 ### Remaining
 

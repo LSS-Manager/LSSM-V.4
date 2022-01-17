@@ -14,6 +14,8 @@ This module allows you to alarm, share and post with a single click! You can set
 
 You can use <code><span>{{</span>city<span>}}</span></code> to insert postcode and city name only.
 
+To also omit postcode/zipcode, simply use <code><span>{{</span>cityWithoutZip<span>}}</span></code>.
+
 ### Remaining
 
 <code><span>{{</span>remaining<span>}}</span></code> is replaced by the vehicles that are still required for this mission. It mirrors exactly the text in the red "Needed vehicles" box.
