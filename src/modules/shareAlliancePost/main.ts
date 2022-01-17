@@ -1,3 +1,5 @@
+import he from 'he';
+
 import { Mission } from 'typings/Mission';
 import { ModuleMainFunction } from 'typings/Module';
 
@@ -62,14 +64,15 @@ export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
             ?.textContent?.trim()
             .replace(/^.*?:/, '')
             .trim() ?? '';
-    const address =
+    const address = he.decode(
         document
             .querySelector<HTMLDivElement>('#mission_general_info')
             ?.dataset.address?.trim() ??
-        document
-            .querySelector<HTMLElement>('#missionH1 + small')
-            ?.textContent?.trim() ??
-        '–';
+            document
+                .querySelector<HTMLElement>('#missionH1 + small')
+                ?.textContent?.trim() ??
+            '–'
+    );
     const addressSplit = address.split(',');
     const city = addressSplit[addressSplit.length - 1]?.trim() ?? '–';
 
