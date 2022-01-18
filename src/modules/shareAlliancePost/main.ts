@@ -69,10 +69,10 @@ export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
                 ?.textContent?.trim() ??
             document.querySelector<HTMLDivElement>(`#${PREFIX}-missing_text`)
                 ?.dataset.rawText ??
-            ''
+            '–'
         )
             .replace(/^.*?:/, '')
-            .trim() ?? '';
+            .trim() ?? '–';
     const address = he.decode(
         document
             .querySelector<HTMLDivElement>('#mission_general_info')
