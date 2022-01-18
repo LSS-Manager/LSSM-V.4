@@ -102,6 +102,7 @@ module.exports = {
             [/^Brush Truck(s)?$/]: [19, 28, 29, 30],
             [/^Airborne firefighting vehicle(s)?$/]: [31, 32, 33],
             [/^Boat(s)?$/]: [21],
+            [/^Paramedic Supervisor(s)?$/]: [23],
         },
     },
     tailoredTabs: {
