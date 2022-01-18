@@ -41,7 +41,7 @@ En principe, nous souhaitons intégrer à terme toutes les fonctionnalités de l
 | :------------------------------------: | :--------------------------------------------------------: | :-------------------------------: | :----------------------------------------------------------: |
 | Alarme Régulations Compteur d'alarmes  |    [Fenêtre de déploiement étendue][extendedCallWindow]    |      Compteur de régulations      |                                                              |
 |             Recherche AAO              |                                                            |                                   |                                                              |
-|      Alerter, Partager & Poster        |                                                            |                                   |                                                              |
+|      Alerter, Partager & Poster        |           [Partager le message à l'Alliance][sap]          |                                   |                                                              |
 |             Plan du centre             |             [Améliorez la carte][extendedMap]              |                                   | Actuellement, seul le mode statique est intégré ici. Le mode dynamique suivra. |
 |                Horloge                 |                      [Horloge][clock]                      |   Afficher l'horloge en overlay   |                                                              |
 |         L'expansion du crédit          |        [Extension de crédit][creditsextension]             |                                   |                                                              |
@@ -60,7 +60,7 @@ En principe, nous souhaitons intégrer à terme toutes les fonctionnalités de l
 |               Layout 02                |                                                            |                                   | Nous souhaitons proposer un module pour de nombreuses mises en page, que l'on peut également adapter soi-même. |
 |               Layout 03                |                                                            |                                   | Nous souhaitons proposer un module pour de nombreuses mises en page, que l'on peut également adapter soi-même. |
 |               Layout 04                |                                                            |                                   | Nous souhaitons proposer un module pour de nombreuses mises en page, que l'on peut également adapter soi-même. |
-|               LS-Heatmap               |                                                            |                                   |                                                              |
+|               LS-Heatmap               |                 [Carte thermique][heatmap]                 |                                   |                                                              |
 |           Événements marqués           |        [Liste de mission étendue][extendedCallList]        | Marquer les missions saisonnières |                                                              |
 |           Date de la mission           |    [Fenêtre de déploiement étendue][extendedCallWindow]    |  Heure de génération de mission   |                                                              |
 |               MissionOut               |        [Liste de mission étendue][extendedCallList]        |      Réduire les missions         | L'affichage du nombre de patients se trouve dans le même module sous le réglage `Patients actuels`. |
@@ -97,3 +97,5 @@ En principe, nous souhaitons intégrer à terme toutes les fonctionnalités de l
 [hotkeys]: modules/hotkeys.md
 [extendedMap]: modules/extendedMap.md
 [creditsextension]: modules/creditsextension.md
+[heatmap]: modules/heatmap.md
+[sap]: modules/shareAlliancePost.md
