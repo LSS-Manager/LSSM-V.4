@@ -63,7 +63,7 @@
         "@types/webpack-env": "^1.16.3",
         "@typescript-eslint/eslint-plugin": "^5.10.0",
         "@typescript-eslint/parser": "^5.10.0",
-        "@vuepress/plugin-active-header-links": "^1.9.5",
+        "@vuepress/plugin-active-header-links": "^1.9.7",
         "@vuepress/plugin-back-to-top": "^1.9.5",
         "all-contributors-cli": "^6.20.0",
         "cache-loader": "^4.1.0",
