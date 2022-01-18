@@ -27,7 +27,7 @@ On peut également calculer des dates dans le passé ou le futur en indiquant le
 
 Pour les nouveaux messages, cela ressemble par exemple à ceci :
 
-![Sémarrer la conversation](new_message.png)
+![Démarrer la conversation](new_message.png)
 
 ou après l'insertion du premier modèle :
 
