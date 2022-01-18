@@ -38,10 +38,10 @@ Im folgenden haben wir dir eine kleine Auflistung der Features der V.3 aufgelist
 Grundsätzlich möchten wir mit der Zeit alle Funktionen der V.3 in die V.4 integrieren!
 
 |              Feature V.3               |                   Modul V.4                    |       Einstellung V.4        |                    Änderungen / Hinweise                     |
-| :------------------------------------: | :--------------------------------------------: | :--------------------------: | :----------------------------------------------------------: |
+| :------------------------------------: |:----------------------------------------------:| :--------------------------: | :----------------------------------------------------------: |
 |            AAO-Klickzähler             | [Erweitertes Alarmfenster][extendedCallWindow] |       AAO-Klickzähler        |                                                              |
 |               AAO-Suche                |                                                |                              |                                                              |
-|      Alarmieren, Teilen & Posten       |                                                |                              |                                                              |
+|      Alarmieren, Teilen & Posten       |            [ShareAlliancePost][sap]            |                              |                                                              |
 |               Center-Map               |        [Verbesserte Karte][extendedMap]        |                              | Hier ist aktuell nur der statische Modus eingebaut. Der dynamische folgt nocht. |
 |                 Clock                  |                  [Uhr][clock]                  |   Uhr als Overlay anzeigen   |                                                              |
 |           Creditserweiterung           |     [Creditserweiterung][creditsextension]     |                              |                                                              |
@@ -61,7 +61,7 @@ Grundsätzlich möchten wir mit der Zeit alle Funktionen der V.3 in die V.4 inte
 |               Layout 02                |                                                |                              | Wir möchten ein Modul für viele Layouts anbieten, die man auch selbst anpassen kann. |
 |               Layout 03                |                                                |                              | Wir möchten ein Modul für viele Layouts anbieten, die man auch selbst anpassen kann. |
 |               Layout 04                |                                                |                              | Wir möchten ein Modul für viele Layouts anbieten, die man auch selbst anpassen kann. |
-|               LS-Heatmap               |                                                |                              |                                                              |
+|               LS-Heatmap               |               [Heatmap][heatmap]               |                              |                                                              |
 |         Markiert Eventeinsätze         |  [Erweiterte Einsatzliste][extendedCallList]   | Saisonale Einsätze markieren |                                                              |
 |         Maßgeschneiderte Tabs          | [Erweitertes Alarmfenster][extendedCallWindow] |  Eigene Fahrzeugkategorien   |                                                              |
 |        Meldedatum für Einsätze         | [Erweitertes Alarmfenster][extendedCallWindow] |    Generierungszeitpunkt     |                                                              |
@@ -100,3 +100,5 @@ Grundsätzlich möchten wir mit der Zeit alle Funktionen der V.3 in die V.4 inte
 [hotkeys]: modules/hotkeys.md
 [extendedMap]: modules/extendedMap.md
 [creditsextension]: modules/creditsextension.md
+[heatmap]: modules/heatmap.md
+[sap]: modules/shareAlliancePost.md
