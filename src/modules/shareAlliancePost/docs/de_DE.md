@@ -28,6 +28,10 @@ Um auch die Postleitzahl wegzulassen, verwende <code><span>{{</span>cityWithoutZ
 
 <code><span>{{</span>beginAt<span>}}</span></code> fügt die Uhrzeit ein, zu der ein geplanter Einsatz beginnen wird.
 
+### Längste Anfahrt
+
+<code><span>{{</span>longestDrive<span>}}</span></code> fügt ein, wie lange alle aktuell ausgewählten Fahrzeuge benötigen, um anzufahren.
+
 ### Uhrzeiten
 
 Du kannst auch Uhrzeiten, abhängig vom aktuellen Zeitpunkt einfügen lassen. Da das etwas komplizierter ist, empfehlen wir die konzentrierte Lektüre der folgenden Anleitung:

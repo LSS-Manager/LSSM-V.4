@@ -28,6 +28,10 @@ To also omit postcode/zipcode, simply use <code><span>{{</span>cityWithoutZip<sp
 
 <code><span>{{</span>beginAt<span>}}</span></code> is replaced by the time, a planned mission will start at.
 
+### Longest drive
+
+<code><span>{{</span>longestDrive<span>}}</span></code> is replaced by how long it takes till all selected vehicles are at scene.
+
 ### Times
 
 You can also set time distances to now. The system is a bit complicated, so read carefully:

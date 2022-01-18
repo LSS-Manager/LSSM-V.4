@@ -22,6 +22,9 @@ export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
         document.querySelector<HTMLMetaElement>('meta[name="csrf-token"]')
             ?.content ?? '';
     const missionId = window.location.pathname.split('/')[2];
+    const dropdownClass = LSSM.$store.getters.nodeAttribute(
+        `${MODULE_ID}-dropdown`
+    );
 
     const missionHelpBtn = document.getElementById('mission_help');
     let missionType =
@@ -103,6 +106,46 @@ export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
         })
         .then();
 
+    let longestDrive = '–';
+
+    const vehicleAmountElement =
+        document.querySelector<HTMLSpanElement>('#vehicle_amount');
+    if (vehicleAmountElement) {
+        new MutationObserver(() => {
+            const selectedVehicles =
+                document.querySelectorAll<HTMLInputElement>(
+                    '#vehicle_show_table_body_all .vehicle_checkbox:checked'
+                );
+            if (selectedVehicles.length) {
+                const lastSelectedVehicleId =
+                    selectedVehicles[selectedVehicles.length - 1].value;
+                longestDrive =
+                    Array.from(
+                        document.querySelector<HTMLTableCellElement>(
+                            `#vehicle_sort_${lastSelectedVehicleId}`
+                        )?.childNodes ?? []
+                    )
+                        .find(n => n.nodeType === Node.TEXT_NODE)
+                        ?.textContent?.trim() ?? '–';
+            } else {
+                longestDrive = '–';
+            }
+            document
+                .querySelectorAll<HTMLLIElement>(
+                    `.${dropdownClass} li[data-raw-message*="{{longestDrive}}"]`
+                )
+                .forEach(element => {
+                    element.dataset.message = getModifiedMessage(
+                        element.dataset.rawMessage ?? ''
+                    );
+                    element.title = element.dataset.message ?? '';
+                });
+        }).observe(vehicleAmountElement, {
+            childList: true,
+            characterData: true,
+        });
+    }
+
     const variables: Record<
         string,
         (match: string, ...groups: string[]) => string
@@ -114,6 +157,7 @@ export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
         city: () => city,
         cityWithoutZip: () => cityWithoutZip,
         beginAt: () => beginAtDate,
+        longestDrive: () => longestDrive,
         [/now\+(\d+(?:[.,]\d+)?)/.toString()]: (match, additive) =>
             dateToTime(addHoursToNow(parseFloat(additive))),
         [/now\+(\d+(?:[.,]\d+)?)r(-?\d+)/.toString()]: (
@@ -145,24 +189,26 @@ export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
         },
     };
 
-    const modifiedMessages: Message[] = [];
+    const getModifiedMessage = (message: string) => {
+        let newMessage = message;
+        Object.entries(variables).forEach(([variable, replacer]) => {
+            if (variable.startsWith('/') && variable.endsWith('/')) {
+                newMessage = newMessage.replace(
+                    new RegExp(`{{${variable.replace(/^\/|\/$/g, '')}}}`, 'g'),
+                    replacer
+                );
+            } else {
+                newMessage = newMessage.replaceAll(`{{${variable}}}`, replacer);
+            }
+        });
+        return newMessage;
+    };
+
+    const modifiedMessages: (Message & { raw: string })[] = [];
     const modifyMessages = () =>
         messages.forEach(m => {
-            let message = m.message;
-            Object.entries(variables).forEach(([variable, replacer]) => {
-                if (variable.startsWith('/') && variable.endsWith('/')) {
-                    message = message.replace(
-                        new RegExp(
-                            `{{${variable.replace(/^\/|\/$/g, '')}}}`,
-                            'g'
-                        ),
-                        replacer
-                    );
-                } else {
-                    message = message.replaceAll(`{{${variable}}}`, replacer);
-                }
-            });
-            modifiedMessages.push({ ...m, message });
+            const message = getModifiedMessage(m.message);
+            modifiedMessages.push({ ...m, message, raw: m.message });
         });
 
     const replyField = document.querySelector<HTMLInputElement>(
@@ -180,7 +226,7 @@ export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
     btn.append(icon, caret);
 
     const dropdown = document.createElement('ul');
-    dropdown.classList.add('dropdown-menu');
+    dropdown.classList.add('dropdown-menu', dropdownClass);
 
     const addMessagesToDropdown = (
         btn: HTMLButtonElement,
@@ -190,25 +236,28 @@ export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
             if (!messages.length) return;
             if (!modifiedMessages.length) modifyMessages();
             if (!dropdown.dataset.hasModifiedMessages) {
-                modifiedMessages.forEach(({ name, message, postInChat }) => {
-                    const li = document.createElement('li');
-                    li.dataset.message = message;
-                    li.dataset.post = postInChat.toString();
-                    li.title = message;
-                    const a = document.createElement('a');
-                    a.style.setProperty('margin', '0');
-                    a.style.setProperty('cursor', 'pointer');
-                    a.textContent = name;
-                    const icon = document.createElement('i');
-                    icon.classList.add(
-                        'pull-right',
-                        'fas',
-                        postInChat ? 'fa-comment' : 'fa-comment-slash'
-                    );
-                    a.append(icon);
-                    li.append(a);
-                    dropdown.append(li);
-                });
+                modifiedMessages.forEach(
+                    ({ name, message, postInChat, raw }) => {
+                        const li = document.createElement('li');
+                        li.dataset.message = message;
+                        li.dataset.rawMessage = raw;
+                        li.dataset.post = postInChat.toString();
+                        li.title = message;
+                        const a = document.createElement('a');
+                        a.style.setProperty('margin', '0');
+                        a.style.setProperty('cursor', 'pointer');
+                        a.textContent = name;
+                        const icon = document.createElement('i');
+                        icon.classList.add(
+                            'pull-right',
+                            'fas',
+                            postInChat ? 'fa-comment' : 'fa-comment-slash'
+                        );
+                        a.append(icon);
+                        li.append(a);
+                        dropdown.append(li);
+                    }
+                );
                 dropdown.dataset.hasModifiedMessages = '1';
             }
         });
