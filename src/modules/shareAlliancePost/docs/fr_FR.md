@@ -6,13 +6,15 @@ Ce module vous permet d'alerter, de partager et de poster en un seul clic ! Vous
 
 ### Crédits
 
-<code><span>{{</span>Credits<span>}}</span></code> sont remplacés par les crédits moyens, les récompenses de la mission.
+<code><span>{{</span>credits<span>}}</span></code> sont remplacés par les crédits moyens, les récompenses de la mission.
 
 ### Adresse
 
 <code><span>{{</span>address<span>}}</span></code> est remplacé par l'adresse complète de la mission.
 
 Vous pouvez utiliser <code><span>{{</span>city<span>}}</span></code> pour insérer uniquement le code postal et le nom de la ville.
+
+Pour ne pas avoir le code postal/zipcode, il suffit d'utiliser <code><span>{{</span>cityWithoutZip<span>}}</span></code>.
 
 ### Restant
 
@@ -21,6 +23,14 @@ Vous pouvez utiliser <code><span>{{</span>city<span>}}</span></code> pour insér
 ### Patients
 
 <code><span>{{</span>patients<span>}}</span></code> est remplacé par le nombre de patients actuellement présents à la mission.
+
+### Début d'une mission planifiée
+
+<code><span>{{</span>beginAt<span>}}</span></code> est remplacé par l'heure à laquelle une mission planifiée commencera.
+
+### Le trajet le plus long
+
+<code><span>{{</span>longestDrive<span>}}</span></code> est remplacé par le temps qu'il faut pour que tous les véhicules sélectionnés soient sur place.
 
 ### Temps
 
