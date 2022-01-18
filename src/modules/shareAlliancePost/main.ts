@@ -88,7 +88,7 @@ export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
     const cityWithoutZip = city
         // matches all Zip-styles of the countries supported by LSSM
         .replace(
-            /^((\d{4} ?[A-Z]{2})|((\d{4}|\d{2})[ -]\d{3})|\d+|([A-Z0-9]{2,4} [A-Z0-9]{3}))/,
+            /^((\d{4} ?[A-Z]{2})|((\d{4}|\d{2})[ -]\d{3})|(\d{3} \d{2})|\d+|([A-Z0-9]{2,4} [A-Z0-9]{3}))/,
             ''
         )
         .trim();
