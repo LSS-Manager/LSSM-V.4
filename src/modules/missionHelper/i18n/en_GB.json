@@ -19,7 +19,7 @@
 	"prerequisites": {
 		"fire_stations": "Fire Station | Fire Stations",
 		"fire_support_count": "Foam Extension | Foam Extensions",
-		"hazard_response_ems_count": "HART Base | HART Bases",
+		"hazard_response_ems": "HART Base | HART Bases",
 		"mass_casualty_count": "Mass Casualty Extension | Mass Casualty Extensions",
 		"max_police_stations": "Maximum Police Stations",
 		"max_rescue_stations": "Maximum Rescue Stations",
