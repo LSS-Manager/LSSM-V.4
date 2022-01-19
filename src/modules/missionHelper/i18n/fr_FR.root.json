@@ -74,7 +74,7 @@
 			"heavy_rescue_vehicles": {
 				"description": "Subtracts the number of required firetrucks from the Heavy Rescue and hides firetrucks if the number drops below 0. This function is intended for people who drive a pure Rescue Engine system.",
 				"title": "Heavy Rescue Simple Rate"
-			},
+			}
 		},
 		"noVehicleRequirements": {
 			"description": "Définissez ici les conditions particulières à afficher, si elles existent pour cette mission.",
