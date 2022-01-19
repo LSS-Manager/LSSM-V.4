@@ -198,7 +198,10 @@ export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
                     replacer
                 );
             } else {
-                newMessage = newMessage.replaceAll(`{{${variable}}}`, replacer);
+                newMessage = newMessage.replace(
+                    new RegExp(`{{${variable}}}`, 'g'),
+                    replacer
+                );
             }
         });
         return newMessage;
