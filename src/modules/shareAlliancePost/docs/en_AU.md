@@ -30,7 +30,7 @@ To also omit postcode/zipcode, simply use <code><span>{{</span>cityWithoutZip<sp
 
 ### Longest drive
 
-<code><span>{{</span>longestDrive<span>}}</span></code> is replaced by how long it takes till all selected vehicles are at scene.
+<code><span>{{</span>longestDrive<span>}}</span></code> is replaced by how long it takes till all selected vehicles are at scene. **Important**: This Variable is of course not available when sharing in the mission list!
 
 ### Times
 
