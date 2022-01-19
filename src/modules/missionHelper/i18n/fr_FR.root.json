@@ -1,6 +1,6 @@
 {
 	"description": "Montre les informations importantes de la mission dans la fenêtre de mission.",
-	"name": "Missionhelper",
+	"name": "Aide à la mission",
 	"noVehicleRequirements": {
 		"average_min_fire_personnel": {
 			"badge": false,
@@ -74,15 +74,11 @@
 			"heavy_rescue_vehicles": {
 				"description": "Subtracts the number of required firetrucks from the Heavy Rescue and hides firetrucks if the number drops below 0. This function is intended for people who drive a pure Rescue Engine system.",
 				"title": "Heavy Rescue Simple Rate"
-			},
-			"platform_trucks": {
-				"description": "Subtracts the number of firetrucks from the Quints and hides firetrucks if the number drops below 0.",
-				"title": "Quint Simple Rate"
 			}
 		},
 		"noVehicleRequirements": {
-			"description": "Set here which special requirements to show, if they exist for that mission.",
-			"title": "Special requirements"
+			"description": "Définissez ici les conditions particulières à afficher, si elles existent pour cette mission.",
+			"title": "Conditions particulières"
 		},
 		"optionalAlternatives": {
 			"allow_ktw_instead_of_rtw": {

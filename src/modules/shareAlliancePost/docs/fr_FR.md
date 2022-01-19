@@ -30,7 +30,7 @@ Pour ne pas avoir le code postal/zipcode, il suffit d'utiliser <code><span>{{</s
 
 ### Le trajet le plus long
 
-<code><span>{{</span>longestDrive<span>}}</span></code> est remplacé par le temps qu'il faut pour que tous les véhicules sélectionnés soient sur place.
+<code><span>{{</span>longestDrive<span>}}</span></code> est remplacé par le temps qu'il faut pour que tous les véhicules sélectionnés soient sur place. **Important** : Cette variable n'est évidemment pas disponible lors du partage dans la liste des missions !
 
 ### Temps
 

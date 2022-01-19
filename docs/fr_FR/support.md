@@ -12,7 +12,6 @@ Une petite aide, qui devrait vous aider à créer une demande d'assistance.
 ::: tip Conseil
 Si vous avez besoin d'aide, décrivez votre problème aussi précisément que possible. Plus vous décrirez votre problème de manière précise et détaillée, plus nous pourrons vous aider rapidement et efficacement.
 :::
-
 ::: warning Attention
 Veuillez noter que nous ne prenons pas officiellement en charge les anciens navigateurs, les navigateurs mobiles et Microsoft Edge ou Internet Explorer. La prise en charge de ces navigateurs n'est donc ni garantie ni probable.
 :::
