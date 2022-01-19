@@ -45,27 +45,27 @@
 	"vehicles": {
 		"captions": {
 			"ambulances": "Ambulance | Ambulances",
-			"battalion_chief_vehicles": "Support",
+			"battalion_chief_vehicles": "Support Vehicle | Support Vehicles",
 			"boats": "Boat | Boats",
 			"brush_truck": "Brush Truck | Brush Trucks",
-			"fire_aviation": "Airborne Firefighting | Airborne Firefightings",
+			"fire_aviation": "Airborne Firefighting Vehicle | Airborne Firefighting Vehicles",
 			"firetrucks": "Fire Engine | Fire Engines",
-			"gw_wasserrettung": "SES Unit",
-			"hazmat_vehicles": "HAZMAT | HAZMATS",
-			"heavy_rescue_vehicles": "Rescue",
-			"helicopter": "Air Ambulance",
+			"gw_wasserrettung": "SES Unit | SES Units",
+			"hazmat_vehicles": "HAZMAT Truck | HAZMATS Trucks",
+			"heavy_rescue_vehicles": "Major Rescue Vehicle",
+			"helicopter": "Air Ambulance | Air Ambulances",
 			"k9": "K-9 Unit | K-9 Units",
 			"kdow_orgl": "Paramedic Supervisor | Paramedic Supervisors",
 			"mobile_air_vehicles": "BASU",
 			"mobile_command_vehicles": "Mobile Command Vehicle | Mobile Command Vehicles",
-			"platform_trucks": "Turntable Ladder trucks",
+			"platform_trucks": "Turntable Ladder Truck | Turntable Ladder Trucks",
 			"police_cars": "Police Car | Police Cars",
 			"police_helicopters": "Police Helicopter | Police Helicopters",
 			"police_horse": "Mounted Police",
 			"swat_armored_vehicle": "TOG Armoured Vehicle | TOG Armoured Vehicles",
 			"swat_suv": "TOG SUV | TOG SUVs",
 			"water_rescue": "SES Vehicle | SES Vehicles",
-			"water_tankers": "Water Carrier | Water Carriers"
+			"water_tankers": "Bulk Water Tanker | Bulk Water Tankers s"
 		},
 		"multifunctionals": {
 			"battalion_chief_vehicles": {
