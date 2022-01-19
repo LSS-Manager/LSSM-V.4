@@ -51,7 +51,7 @@
 			"fire_aviation": "Airborne Firefighting Vehicle | Airborne Firefighting Vehicles",
 			"firetrucks": "Fire Engine | Fire Engines",
 			"gw_wasserrettung": "SES Unit | SES Units",
-			"hazmat_vehicles": "HAZMAT Truck | HAZMATS Trucks",
+			"hazmat_vehicles": "HAZMAT Truck | HAZMAT Trucks",
 			"heavy_rescue_vehicles": "Major Rescue Vehicle",
 			"helicopter": "Air Ambulance | Air Ambulances",
 			"k9": "K-9 Unit | K-9 Units",
@@ -65,7 +65,7 @@
 			"swat_armored_vehicle": "TOG Armoured Vehicle | TOG Armoured Vehicles",
 			"swat_suv": "TOG SUV | TOG SUVs",
 			"water_rescue": "SES Vehicle | SES Vehicles",
-			"water_tankers": "Bulk Water Tanker | Bulk Water Tankers s"
+			"water_tankers": "Bulk Water Tanker | Bulk Water Tankers"
 		},
 		"multifunctionals": {
 			"battalion_chief_vehicles": {
