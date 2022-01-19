@@ -2,21 +2,21 @@
     "chrome": {
         "download": "https://chrome.com",
         "latest": 97,
-        "supported": 84
+        "supported": 92
     },
     "edge": {
         "download": "https://microsoft.com/edge",
         "latest": 97,
-        "supported": 86
+        "supported": 92
     },
     "firefox": {
         "download": "https://firefox.com",
         "latest": 96,
-        "supported": 79
+        "supported": 91
     },
     "opera": {
         "download": "https://opera.com",
         "latest": 82,
-        "supported": 70
+        "supported": 77
     }
 }
