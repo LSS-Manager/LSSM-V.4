@@ -1,15 +1,30 @@
 import he from 'he';
 
+import {
+    addHoursToNow,
+    dateToTime,
+    getCityFromAddress,
+    getTimeReplacers,
+    removeZipFromCity,
+    sendReply,
+    shareMission,
+} from './assets/util';
+
 import { Mission } from 'typings/Mission';
 import { ModuleMainFunction } from 'typings/Module';
 
-interface Message {
+export interface Message {
     name: string;
     message: string;
     postInChat: boolean;
 }
 
-export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
+export default <ModuleMainFunction>(async ({
+    LSSM,
+    MODULE_ID,
+    getSetting,
+    $m,
+}) => {
     await LSSM.$store.dispatch('api/getMissions', { feature: MODULE_ID });
 
     LSSM.$store.commit('useFontAwesome');
@@ -49,14 +64,6 @@ export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
         LSSM.$store.getters['api/missionsById'] as Record<string, Mission>
     )[missionType];
 
-    const addHoursToNow = (hours: number): Date =>
-        new Date(Date.now() + hours * 60 * 60 * 1000);
-    const dateToTime = (date: Date): string =>
-        `${date.getHours().toString().padStart(2, '0')}:${date
-            .getMinutes()
-            .toString()
-            .padStart(2, '0')}`;
-
     const averageCredits = mission?.average_credits?.toLocaleString() ?? '–';
     const patients = document
         .querySelectorAll('.mission_patient')
@@ -83,15 +90,8 @@ export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
                 .trim() ??
             '–'
     );
-    const addressSplit = address.split(',');
-    const city = addressSplit[addressSplit.length - 1]?.trim() ?? '–';
-    const cityWithoutZip = city
-        // matches all Zip-styles of the countries supported by LSSM
-        .replace(
-            /^((\d{4} ?[A-Z]{2})|((\d{4}|\d{2})[ -]\d{3})|(\d{3} \d{2})|\d+|([A-Z0-9]{2,4} [A-Z0-9]{3}))/,
-            ''
-        )
-        .trim();
+    const city = getCityFromAddress(address);
+    const cityWithoutZip = removeZipFromCity(city);
 
     let beginAtDate = '–';
     LSSM.$store
@@ -158,35 +158,7 @@ export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
         cityWithoutZip: () => cityWithoutZip,
         beginAt: () => beginAtDate,
         longestDrive: () => longestDrive,
-        [/now\+(\d+(?:[.,]\d+)?)/.toString()]: (match, additive) =>
-            dateToTime(addHoursToNow(parseFloat(additive))),
-        [/now\+(\d+(?:[.,]\d+)?)r(-?\d+)/.toString()]: (
-            match,
-            additive,
-            round
-        ) => {
-            const resultDate = addHoursToNow(parseFloat(additive));
-            const roundTo = Math.abs(parseInt(round)) % 60;
-            const roundUp = !round.startsWith('-');
-            let resultHours = resultDate.getHours();
-            let resultMinutes = resultDate.getMinutes();
-            if (!roundTo) {
-                resultMinutes = 0;
-                if (roundUp) resultHours++;
-            } else {
-                if (roundUp)
-                    resultMinutes += roundTo - (resultMinutes % roundTo);
-                else resultMinutes -= resultMinutes % roundTo;
-            }
-            resultHours += Math.floor(resultMinutes / 60);
-            resultMinutes %= 60;
-            resultHours %= 24;
-            if (resultHours < 0) resultHours = 24 + resultHours;
-            if (resultMinutes < 0) resultMinutes = 60 + resultMinutes;
-            return `${resultHours.toString().padStart(2, '0')}:${resultMinutes
-                .toString()
-                .padStart(2, '0')}`;
-        },
+        ...getTimeReplacers(),
     };
 
     const getModifiedMessage = (message: string) => {
@@ -239,6 +211,17 @@ export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
             if (!messages.length) return;
             if (!modifiedMessages.length) modifyMessages();
             if (!dropdown.dataset.hasModifiedMessages) {
+                const noMessageLi = document.createElement('li');
+                noMessageLi.dataset.noMessage = '1';
+                const noMessageA = document.createElement('a');
+                noMessageA.style.setProperty('margin', '0');
+                noMessageA.style.setProperty('cursor', 'pointer');
+                noMessageA.textContent = $m('noMessage').toString();
+                noMessageLi.append(noMessageA);
+                const separatorLi = document.createElement('li');
+                separatorLi.classList.add('divider');
+                dropdown.append(noMessageLi, separatorLi);
+
                 modifiedMessages.forEach(
                     ({ name, message, postInChat, raw }) => {
                         const li = document.createElement('li');
@@ -253,6 +236,7 @@ export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
                         const icon = document.createElement('i');
                         icon.classList.add(
                             'pull-right',
+                            'fa-fw',
                             'fas',
                             postInChat ? 'fa-comment' : 'fa-comment-slash'
                         );
@@ -389,7 +373,7 @@ export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
             const target = e.target;
             if (!target || !(target instanceof HTMLElement)) return;
             const liElement = target.closest<HTMLLIElement>(
-                'li[data-message][data-post]'
+                'li[data-message][data-post], li[data-no-message]'
             );
             if (!liElement) return;
 
@@ -398,54 +382,18 @@ export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
             alarmSharePostBtn.disabled = true;
             alarmSharePostNextBtn.disabled = true;
 
-            LSSM.$store
-                .dispatch('api/request', {
-                    url: `${window.location.pathname.replace(
-                        /\/$/,
-                        ''
-                    )}/alliance`,
-                    feature: `${MODULE_ID}_share`,
-                })
-                .then(() => {
-                    const url = new URL(
-                        '/mission_replies',
-                        window.location.origin
-                    );
-                    url.searchParams.append('utf8', '✓');
-                    url.searchParams.append('authenticity_token', authToken);
-                    url.searchParams.append(
-                        'mission_reply[alliance_chat]',
-                        '0'
-                    );
-                    if (liElement.dataset.post === 'true') {
-                        url.searchParams.append(
-                            'mission_reply[alliance_chat]',
-                            '1'
-                        );
-                    }
-                    url.searchParams.append(
-                        'mission_reply[content]',
-                        liElement.dataset.message ?? ''
-                    );
-                    url.searchParams.append(
-                        'mission_reply[mission_id]',
-                        missionId
-                    );
-                    return LSSM.$store.dispatch('api/request', {
-                        url: '/mission_replies',
-                        feature: `${MODULE_ID}_reply`,
-                        init: {
-                            credentials: 'include',
-                            headers: {
-                                'Content-Type':
-                                    'application/x-www-form-urlencoded',
-                            },
-                            body: url.searchParams.toString(),
-                            method: 'POST',
-                            mode: 'cors',
-                        },
-                    });
-                })
+            shareMission(LSSM, missionId)
+                .then(() =>
+                    liElement.dataset.noMessage
+                        ? new Promise<void>(resolve => resolve())
+                        : sendReply(
+                              LSSM,
+                              missionId,
+                              liElement.dataset.message ?? '',
+                              liElement.dataset.post === 'true',
+                              authToken
+                          )
+                )
                 .then(() =>
                     document
                         .querySelector<HTMLAnchorElement>(

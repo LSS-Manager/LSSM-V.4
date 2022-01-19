@@ -1,6 +1,8 @@
 Viele SpielerInnen teilen regelmäßig Einsätze mit ihrem Verband und schreiben auch eine kurze Rückmeldung dazu.
 
-Dieses Modul ermöglicht es, mit einem einzigen Klick zu alarmieren, zu teilen und zu posten! In den Einstellungen kannst du dir eigene Templates anlegen und dabei sogar die folgenden Variablen zu nutzen:
+Dieses Modul ermöglicht es, mit einem einzigen Klick zu alarmieren, zu teilen und zu posten!
+In den Einstellungen kannst du dir eigene Templates anlegen und dabei sogar die untenstehenden Variablen nutzen.
+Zudem besitzt dieses Modul eine Integration in das Feature [Einsätze teilen](extendedCallList.md#einsatze-teilen) des Moduls `Erweiterte Einsatzliste`. Das heißt, wenn du hier die Einstellung `Integration in die Einsatzliste` aktiviert hast, wird der Teilen-Knopf in der Einsatzliste ebenfalls die von dir eingestellten Rückmeldungen als Auswahl-Optionen beinhalten.
 
 ## Variablen
 
@@ -30,7 +32,7 @@ Um auch die Postleitzahl wegzulassen, verwende <code><span>{{</span>cityWithoutZ
 
 ### Längste Anfahrt
 
-<code><span>{{</span>longestDrive<span>}}</span></code> fügt ein, wie lange alle aktuell ausgewählten Fahrzeuge benötigen, um anzufahren.
+<code><span>{{</span>longestDrive<span>}}</span></code> fügt ein, wie lange alle aktuell ausgewählten Fahrzeuge benötigen, um anzufahren. **Wichtig**: Diese Variable ist in Rückmeldungen aus der Einsatzliste heraus natürlich nicht verfügbar!
 
 ### Uhrzeiten
 
