@@ -1,6 +1,7 @@
 {
 	"description": "Alerter, partager l'intervention et poster un message en un seul clic.",
 	"name": "Partager le message à l'Alliance",
+	"noMessage": "Sans note d'incident",
 	"settings": {
 		"enableCallList": {
 			"description": "Intègre ce module dans le module \"Missions de partage\" de la liste d'appels.",
