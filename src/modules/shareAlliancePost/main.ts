@@ -254,6 +254,8 @@ export default <ModuleMainFunction>(async ({
             '#mission_reply_alliance_chat'
         );
 
+        btn.classList.add('btn-default');
+
         addMessagesToDropdown(btn, dropdown);
 
         const addon = document.createElement('div');
