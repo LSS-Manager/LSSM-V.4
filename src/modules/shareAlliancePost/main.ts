@@ -191,7 +191,7 @@ export default <ModuleMainFunction>(async ({
     );
 
     const btn = document.createElement('button');
-    btn.classList.add('btn', 'btn-default', 'dropdown-toggle');
+    btn.classList.add('btn', 'dropdown-toggle');
     btn.dataset.toggle = 'dropdown';
     const icon = document.createElement('i');
     icon.classList.add('fas', 'fa-comment-dots');
