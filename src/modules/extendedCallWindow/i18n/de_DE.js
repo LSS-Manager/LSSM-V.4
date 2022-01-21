@@ -147,8 +147,7 @@ module.exports = {
         },
         selected: 'Ausgewählt',
         water: 'l. Wasser',
-        pumping: 'Pumpenleistung',
-        pumpingSuffix: 'l/min',
+        pump: 'l/min Pumpenleistung',
         staffPrefix: ['Wir benötigen noch min.'],
         staff: {
             [/^Feuerwehrleute$/]: [
