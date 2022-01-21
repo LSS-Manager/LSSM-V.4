@@ -1,7 +1,6 @@
 Deze module breidt de meldingenlijst uit met enkele nuttige functies.
 
-### Resterende inzettijd
-Deze functie toont hoe lang een inzet nog duurt tot het einde. 
+## Resterende inzettijdDeze functie toont hoe lang een inzet nog duurt tot het einde. 
 ![Resterende inzettijd](remainingTime.png)
 
 ## Patiëntenbehandelingstijd
