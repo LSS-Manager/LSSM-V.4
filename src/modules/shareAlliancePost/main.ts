@@ -277,6 +277,14 @@ export default <ModuleMainFunction>(async ({
         });
         addon.append(btn, dropdown);
         replyField.before(addon);
+
+        replyField.addEventListener('keydown', e => {
+            if (e.key !== 'Enter') return;
+            e.preventDefault();
+            replyField.nextElementSibling
+                ?.querySelector<HTMLButtonElement>('button[type="submit"]')
+                ?.click();
+        });
     } else {
         const navbar = document.querySelector<HTMLDivElement>(
             '#container_navbar_alarm .navbar-header'
