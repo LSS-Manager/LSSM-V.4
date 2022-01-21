@@ -14,9 +14,7 @@ export default (LSSM: Vue, MODULE_ID: string, $m: $m): void => {
     const water = $m('enhancedMissingVehicles.water').toString();
     const foam = $m('enhancedMissingVehicles.foam').toString();
     const pumping = $m('enhancedMissingVehicles.pumping').toString();
-    const pumpingSuffix = $m(
-        'enhancedMissingVehicles.pumpingSuffix'
-    ).toString();
+
     const vehicleGroupTranslation = $m(
         'enhancedMissingVehicles.vehiclesByRequirement'
     ) as unknown as
@@ -47,14 +45,12 @@ export default (LSSM: Vue, MODULE_ID: string, $m: $m): void => {
         .join('|');
     const innerRegex = `${LSSM.$utils.escapeRegex(
         water
-    )}|${LSSM.$utils.escapeRegex(foam)}|${groupsRegex}`;
+    )}|${LSSM.$utils.escapeRegex(foam)}|${LSSM.$utils.escapeRegex(
+        pumping
+    )}|${groupsRegex}`;
 
     const requirementRegex = new RegExp(
-        `((${numRegex}\\s+(${innerRegex}))|(${innerRegex}):\\s*${numRegex}|(${LSSM.$utils.escapeRegex(
-            pumping
-        )})\\s*${numRegex}\\s*(?=${LSSM.$utils.escapeRegex(
-            pumpingSuffix
-        )}))(?=[,.]|$)`,
+        `(${numRegex}\\s+(${innerRegex}))|(${innerRegex}):\\s*${numRegex}`,
         'g'
     );
     const missingRequirementMatches =
