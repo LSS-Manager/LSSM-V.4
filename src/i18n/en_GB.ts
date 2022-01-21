@@ -247,7 +247,7 @@ export default {
             maxPersonnel: 1,
             possibleBuildings: [0, 2, 5, 20, 21, 22, 25],
             special:
-                'A fast and angile ambulance car, very useful when a ambulance has a long response. ',
+                'A fast and angile ambulance car, very useful when a ambulance has a long response time.',
         },
         11: {
             caption: 'Police Helicopter',
@@ -341,7 +341,7 @@ export default {
             maxPersonnel: 9,
             possibleBuildings: [0, 18],
             special:
-                'To purchase with credits it requires the rank: Captain, <br>Lower ranked members can purchase the vehicle for 25 Coins. A Pump with extraction tools. Perfect for your Road Traffic Collisions.',
+                'To purchase with credits it requires the rank: Captain or Superintendent, <br>Lower ranked members can purchase the vehicle for 25 Coins. A Pump with extraction tools. Perfect for your Road Traffic Collisions.',
         },
         17: {
             caption: 'CARP',
@@ -352,7 +352,7 @@ export default {
             maxPersonnel: 6,
             possibleBuildings: [0, 18],
             special:
-                'To purchase with credits it requires the rank: Captain, <br>Lower ranked members can purchase the vehicle for 25 Coins. A Pump with an Aerial Asset on top, perfect for high rise fires and rescuing people form tall buildings ',
+                'To purchase with credits it requires the rank: Captain or Superintendent, <br>Lower ranked members can purchase the vehicle for 25 Coins. A Pump with an Aerial Asset on top, perfect for high rise fires and rescuing people form tall buildings.',
         },
         18: {
             caption: 'Co-Responder Vehicle',
@@ -482,7 +482,7 @@ export default {
             maxPersonnel: 3,
             possibleBuildings: [0, 18],
             special:
-                'Work as a Water Carrier and Water Ladder. Used in rural areas to save money.',
+                'Unlocked at Fire Apparatus Operator or Sergeant Rank. Works as a Water Carrier and Water Ladder. Used in rural areas to save money.',
         },
         27: {
             caption: 'PRV',
@@ -692,14 +692,14 @@ export default {
             },
             possibleBuildings: [0, 18],
             special:
-                'Acts as a Breathing Appartus Support Unit, Hazmat Unit and a Welfare Unit.',
+                'Requires the rank Staff Captain or Chief Superintendent. Acts as a Breathing Appartus Support Unit, HazMat Unit and a Welfare Unit.',
         },
         40: {
             caption: 'PM',
             color: '#aa0000',
             coins: 10,
             credits: 10_000,
-            minPersonnel: 0,
+            minPersonnel: 1,
             maxPersonnel: 2,
             possibleBuildings: [0, 18],
             special:
@@ -799,7 +799,7 @@ export default {
                 },
             },
             special:
-                'Requires special education for personnel on Prime Mover (HazMat). Acts as a Hazmat Unit.',
+                'Requires special education for personnel on Prime Mover (HazMat). Acts as a HazMat Unit.',
             possibleBuildings: [0, 18],
         },
         49: {
@@ -1219,7 +1219,7 @@ export default {
             maxBuildings: '5.000 together with fire stations',
             maxLevel: 5,
             special:
-                'From the 24th fire station onwards, the cost of building a new fire station increases according to the following formula: <code>(100.000+200.000*LOG<sub>2</sub>(Number of existing fire stations − 22)) / 2</code>. max. 1 Million Credits. The Coins price remains constant!',
+                'From the 24th fire station onwards, the cost of building a new fire station increases according to the following formula: <code>(50.000+100.000*LOG<sub>2</sub>(Number of existing fire stations − 22)) / 2</code>. max. 1 Million Credits. The Coins price remains constant!',
             startPersonnel: 10,
             startVehicles: ['Water Ladder', 'Light 4X4 Pump (L4P)'],
             schoolingTypes: ['Fire Station'],
@@ -1253,7 +1253,7 @@ export default {
             maxBuildings: '1.700 together with police stations',
             maxLevel: 5,
             special:
-                'From the 24th police station onwards, the costs for the new construction of a police station are calculated according to the following formula: <code>(100.000+200.000*LOG<sub>2</sub>(Number of existing police stations − 22)) / 2</code>. The Coins price remains constant!',
+                'From the 24th police station onwards, the costs for the new construction of a police station are calculated according to the following formula: <code>(50.000+100.000*LOG<sub>2</sub>(Number of existing police stations − 22)) / 2</code>. The Coins price remains constant!',
             startPersonnel: 2,
             startVehicles: ['Incident response vehicle (IRV)'],
             schoolingTypes: ['Police'],
@@ -1604,7 +1604,7 @@ export default {
         'Goods station',
         'Supermarket (small)',
         'Supermarket (big)',
-        'Gas station',
+        'Petrol Station',
         'School',
         'Museum',
         'Mall',
@@ -1612,7 +1612,7 @@ export default {
         'Highway exit',
         'Christmas market',
         'Storehouse',
-        'Discotheque',
+        'Nightclub',
         'Stadium',
         'Farm',
         'Office Building',
@@ -1656,7 +1656,7 @@ export default {
         'Restaurant',
         'Market place',
         'Dirt Race Track',
-        'Sheltered housing schem',
+        'Sheltered housing scheme',
         'University',
         'Golf course',
         'Moorland',
@@ -1664,6 +1664,10 @@ export default {
         'Abandoned Building',
         'Festival',
         'Allotment',
+        'Container Holding Area',
+        'Small Fuel Storage Tank',
+        'Large Fuel Storage Tank',
+        'Fuel Storage Depot',
     ],
     only_alliance_missions: [57, 74, 89],
     transfer_missions: [77],

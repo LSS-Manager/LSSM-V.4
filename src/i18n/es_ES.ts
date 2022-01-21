@@ -743,7 +743,7 @@ export default {
                 '5.000 parques de bomberos junto con parques de bomberos pequeños',
             maxLevel: 5,
             special:
-                'A partir del 24º parque de bomberos en adelante, el coste de construcción de un nuevo parque de bomberos aumenta según la siguiente fórmula: <code>(100.000+200.000*LOG<sub>2</sub>(Number of existing fire stations − 22)) / 2</code>. max. 1 Million Credits. ¡El precio de las monedas es constante!',
+                'A partir del 24º parque de bomberos en adelante, el coste de construcción de un nuevo parque de bomberos aumenta según la siguiente fórmula: <code>(50.000+100.000*LOG<sub>2</sub>(Number of existing fire stations − 22)) / 2</code>. max. 1 Million Credits. ¡El precio de las monedas es constante!',
             startPersonnel: 10,
             startVehicles: ['Camión BUP', 'Camión BUL', 'Vehículo de rescate'],
             schoolingTypes: ['Parque de bomberos'],
@@ -778,7 +778,7 @@ export default {
                 '1.700 comisarías de polcía junto con comisarías de policías pequeños',
             maxLevel: 4,
             special:
-                'A partir de la comisaría 24º en adelante, los costes de la nueva construcción de una comisaría se calculan de acuerdo con la siguiente fórmula: <code>(100.000+200.000*LOG<sub>2</sub>(Number of existing police stations − 22)) / 2</code>. ¡El precio de las monedas es constante!',
+                'A partir de la comisaría 24º en adelante, los costes de la nueva construcción de una comisaría se calculan de acuerdo con la siguiente fórmula: <code>(50.000+100.000*LOG<sub>2</sub>(Number of existing police stations − 22)) / 2</code>. ¡El precio de las monedas es constante!',
             startPersonnel: 2,
             startVehicles: ['Coche patrulla'],
             schoolingTypes: ['Policía'],

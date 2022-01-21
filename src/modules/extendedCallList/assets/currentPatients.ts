@@ -1,4 +1,3 @@
-import { parseInt } from 'lodash';
 import {
     MissionMarkerAdd,
     PatientMarkerAdd,

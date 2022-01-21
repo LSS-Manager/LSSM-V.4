@@ -2,7 +2,7 @@ import counter from './counter.vue';
 
 import { ModuleMainFunction } from 'typings/Module';
 
-export default <ModuleMainFunction>(async (LSSM, MODULE_ID) => {
+export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID }) => {
     await LSSM.$store.dispatch('api/registerVehiclesUsage', {
         feature: 'statusCounter-initial',
     });

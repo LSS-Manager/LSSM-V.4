@@ -104,7 +104,7 @@
             <ul v-if="settings.vehicles.content">
                 <li
                     v-for="(vehicle, req) in vehicles"
-                    :key="req"
+                    :key="`${req}_${vehicle.caption}`"
                     :data-amount="vehicle.amount"
                     v-bind:class="{ 'class-x': settings.vehicles.xAfterNumber }"
                 >
@@ -356,9 +356,9 @@
                 }}:
                 <a
                     :href="`/einsaetze/${expansion}`"
-                    v-for="expansion in missionSpecs.additional
+                    v-for="(expansion, index) in missionSpecs.additional
                         .expansion_missions_ids"
-                    :key="expansion"
+                    :key="`${index}_expansion_${expansion}`"
                     :mission="
                         (mission =
                             missionSpecs.additional.expansion_missions_names[
@@ -389,9 +389,9 @@
                 }}:
                 <a
                     :href="`/einsaetze/${followup}`"
-                    v-for="followup in missionSpecs.additional
+                    v-for="(followup, index) in missionSpecs.additional
                         .followup_missions_ids"
-                    :key="followup"
+                    :key="`${index}_followup_${followup}`"
                     :mission="
                         (mission =
                             missionSpecs.additional.followup_missions_names[
@@ -422,9 +422,9 @@
                 }}:
                 <a
                     :href="`/einsaetze/${subsequent}`"
-                    v-for="subsequent in missionSpecs.additional
+                    v-for="(subsequent, index) in missionSpecs.additional
                         .subsequent_missions_ids"
-                    :key="subsequent"
+                    :key="`${index}_subsequent_${subsequent}`"
                     :mission="
                         (mission =
                             missionSpecs.additional.subsequent_missions_names[

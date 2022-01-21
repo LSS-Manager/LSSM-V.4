@@ -935,7 +935,7 @@ export default {
             maxBuildings: '5.000 casernes de pompiers',
             maxLevel: 5,
             special:
-                'Le prix de vos postes augmente lorsque vous en possédez 25. Ainsi, le rythme de progression est constant une fois que vous possédez un grand flux de revenus à ces niveaux de jeu. La formule actuelle pour calculer le prix des postes est la suivante : <code>100.000+(200.000*LOG<sub>2</sub>(Number of existing fire stations − 22))</code>.',
+                'Le prix de vos postes augmente lorsque vous en possédez 25. Ainsi, le rythme de progression est constant une fois que vous possédez un grand flux de revenus à ces niveaux de jeu. La formule actuelle pour calculer le prix des postes est la suivante : <code>(50.000+100.000*LOG<sub>2</sub>(Number of existing fire stations − 22))</code>.',
             startPersonnel: 10,
             startVehicles: ['FPT', 'FPTL'],
             schoolingTypes: ['Centre de secours'],
@@ -969,7 +969,7 @@ export default {
             maxBuildings: '1700 postes de police/gendarmerie',
             maxLevel: 4,
             special:
-                'Le prix de vos postes augmente lorsque vous en possédez 25. Ainsi, le rythme de progression est constant une fois que vous possédez un grand flux de revenus à ces niveaux de jeu. La formule actuelle pour calculer le prix des postes est la suivante : <code>100.000+(200.000*LOG<sub>2</sub>(Number of existing fire stations − 22))</code>.',
+                'Le prix de vos postes augmente lorsque vous en possédez 25. Ainsi, le rythme de progression est constant une fois que vous possédez un grand flux de revenus à ces niveaux de jeu. La formule actuelle pour calculer le prix des postes est la suivante : <code>(50.000+100.000*LOG<sub>2</sub>(Number of existing fire stations − 22))</code>.',
             startPersonnel: 2,
             startVehicles: ['Véhicule de patrouille'],
             schoolingTypes: ['Poste de police'],

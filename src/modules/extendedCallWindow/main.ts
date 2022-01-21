@@ -5,15 +5,17 @@ interface AppendableListSetting<valueType> {
     enabled: boolean;
 }
 
-export default (async (LSSM, MODULE_ID, $m, $mc) => {
+export default (async ({ LSSM, MODULE_ID, $m, $mc, getSetting }) => {
     const defaultTailoredTabs = Object.values(
         $m('tailoredTabs.defaultTabs')
     ).map(({ name, vehicleTypes }) => ({
         name,
-        vehicleTypes: Object.values(vehicleTypes),
+        vehicleTypes: (Object.values(vehicleTypes) as (number | string)[]).map(
+            t => t.toString()
+        ),
     })) as {
         name: string;
-        vehicleTypes: number[];
+        vehicleTypes: string[];
     }[];
 
     if (
@@ -27,14 +29,6 @@ export default (async (LSSM, MODULE_ID, $m, $mc) => {
     );
     if (stagingMode && !document.getElementById('education_schooling_-1'))
         return;
-    const getSetting = <returnType = boolean>(
-        settingId: string
-    ): Promise<returnType> => {
-        return LSSM.$store.dispatch('settings/getSetting', {
-            moduleId: MODULE_ID,
-            settingId,
-        });
-    };
 
     if (!stagingMode) {
         await LSSM.$store.dispatch('addStyle', {
@@ -200,8 +194,19 @@ export default (async (LSSM, MODULE_ID, $m, $mc) => {
     }
 
     const tailoredTabSettings = await getSetting<
-        AppendableListSetting<typeof defaultTailoredTabs>
+        AppendableListSetting<
+            {
+                name: string;
+                vehicleTypes: (string | number)[];
+            }[]
+        >
     >('tailoredTabs');
+    tailoredTabSettings.value = tailoredTabSettings.value.map(
+        ({ name, vehicleTypes }) => ({
+            name,
+            vehicleTypes: vehicleTypes.map(t => t.toString()),
+        })
+    );
     if (
         (tailoredTabSettings.enabled &&
             !(await import('lodash/isEqual')).default(

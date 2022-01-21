@@ -132,37 +132,63 @@ const processModules = async (shortVersion: string) => {
     ): Promise<{ name: string; description?: string }> =>
         new Promise(resolve => {
             const moduleI18nPath = path.join(MODULES_PATH, module, 'i18n');
-            const langRootPath = path.join(moduleI18nPath, `${lang}.root`);
-            const usRootPath = path.join(moduleI18nPath, 'en_US.root');
-            (fs.existsSync(`${langRootPath}.json`)
+            const langRootPath = path.join(moduleI18nPath, `${lang}.root.js`);
+            const langJsonPath = `${langRootPath}on`;
+            const langJsonExists = fs.existsSync(langJsonPath);
+            (langJsonExists
                 ? new Promise(resolve =>
                       resolve(
-                          JSON.parse(
-                              fs.readFileSync(`${langRootPath}.json`).toString()
-                          )
+                          JSON.parse(fs.readFileSync(langJsonPath).toString())
                       )
                   )
                 : import(langRootPath)
             )
-                .then(({ name, description }) => resolve({ name, description }))
-                .catch(() =>
-                    (fs.existsSync(`${usRootPath}.json`)
+                .then(translation =>
+                    resolve(
+                        langJsonExists
+                            ? {
+                                  name: translation.name,
+                                  description: translation.description,
+                              }
+                            : {
+                                  name: translation.default.name,
+                                  description: translation.default.description,
+                              }
+                    )
+                )
+                .catch(() => {
+                    const usRootPath = path.join(
+                        moduleI18nPath,
+                        'en_US.root.js'
+                    );
+                    const usJsonPath = `${usRootPath}on`;
+                    const usJsonExists = fs.existsSync(usJsonPath);
+                    (usJsonExists
                         ? new Promise(resolve =>
                               resolve(
                                   JSON.parse(
-                                      fs
-                                          .readFileSync(`${usRootPath}.json`)
-                                          .toString()
+                                      fs.readFileSync(usJsonPath).toString()
                                   )
                               )
                           )
                         : import(usRootPath)
                     )
-                        .then(({ name, description }) =>
-                            resolve({ name, description })
+                        .then(translation =>
+                            resolve(
+                                usJsonExists
+                                    ? {
+                                          name: translation.name,
+                                          description: translation.description,
+                                      }
+                                    : {
+                                          name: translation.default.name,
+                                          description:
+                                              translation.default.description,
+                                      }
+                            )
                         )
-                        .catch(() => resolve({ name: module }))
-                );
+                        .catch(() => resolve({ name: module }));
+                });
         });
 
     const getTargetPath = (module: string, lang: string) =>

@@ -147,6 +147,7 @@ module.exports = {
         },
         selected: 'Ausgewählt',
         water: 'l. Wasser',
+        pump: 'l/min Pumpenleistung',
         staffPrefix: ['Wir benötigen noch min.'],
         staff: {
             [/^Feuerwehrleute$/]: [
@@ -208,8 +209,8 @@ module.exports = {
             [/^Radlader \(BRmG R\)$/]: [43],
             [/^Rettungshundestaffel\/n$/]: [91, 92],
             [/^Rettungstreppen?$/]: [76],
-            [/^RTW$/]: [28],
-            [/^RTW oder KTW oder KTW-B$/]: [28, 38, 58],
+            [/^RTW$/]: [28, 74, 97],
+            [/^RTW oder KTW oder KTW-B$/]: [28, 38, 58, 74, 97],
             [/^Rüstwagen oder HLF$/]: [4, 30, 39, 47, 90],
             [/^SEK-Fahrzeuge?$/]: [79, 80],
             [/^DHuFüKw$/]: [94],

@@ -127,7 +127,7 @@ export default {
             coins: 25,
             wtank: 500,
             icon: 'shuttle-van',
-            possibleBuildings: [0],
+            possibleBuildings: [0, 17],
         },
         1: {
             caption: 'TS 8/9',
@@ -138,7 +138,7 @@ export default {
             coins: 25,
             wtank: 2000,
             icon: 'truck-moving',
-            possibleBuildings: [0],
+            possibleBuildings: [0, 17],
         },
         2: {
             caption: 'Autoladder',
@@ -149,7 +149,7 @@ export default {
             coins: 30,
             special: 'Benodigd vanaf 3 brandweerposten.',
             icon: 'truck-moving',
-            possibleBuildings: [0],
+            possibleBuildings: [0, 17],
         },
         3: {
             caption: 'DA - Officier van Dienst',
@@ -160,7 +160,7 @@ export default {
             coins: 25,
             special: 'Benodigd vanaf 6 brandweerposten.',
             icon: 'car-side',
-            possibleBuildings: [0],
+            possibleBuildings: [0, 17],
         },
         4: {
             caption: 'Hulpverleningsvoertuig',
@@ -171,7 +171,7 @@ export default {
             coins: 25,
             special: 'Benodigd vanaf 4 brandweerposten.',
             icon: 'truck-moving',
-            possibleBuildings: [0],
+            possibleBuildings: [0, 17],
         },
         5: {
             caption: 'Adembeschermingsvoertuig',
@@ -182,7 +182,7 @@ export default {
             coins: 25,
             special: 'Benodigd vanaf 5 brandweerposten.',
             icon: 'truck-moving',
-            possibleBuildings: [0],
+            possibleBuildings: [0, 17],
         },
         6: {
             caption: 'TST 8/9',
@@ -193,7 +193,7 @@ export default {
             coins: 25,
             wtank: 3000,
             icon: 'truck-moving',
-            possibleBuildings: [0],
+            possibleBuildings: [0, 17],
         },
         7: {
             caption: 'TST 6/7',
@@ -204,7 +204,7 @@ export default {
             coins: 25,
             wtank: 3000,
             icon: 'truck-moving',
-            possibleBuildings: [0],
+            possibleBuildings: [0, 17],
         },
         8: {
             caption: 'TST 4/5',
@@ -215,7 +215,7 @@ export default {
             coins: 25,
             wtank: 2000,
             icon: 'truck-moving',
-            possibleBuildings: [0],
+            possibleBuildings: [0, 17],
         },
         9: {
             caption: 'TS 4/5',
@@ -226,7 +226,7 @@ export default {
             coins: 25,
             wtank: 1500,
             icon: 'truck-moving',
-            possibleBuildings: [0],
+            possibleBuildings: [0, 17],
         },
         10: {
             caption: 'Slangenwagen',
@@ -238,7 +238,7 @@ export default {
             special:
                 'Benodigd vanaf 7 brandweerposten. De slangenwagen zorgt dat de aanwezige waterhoeveelheid wordt verhoogd met 15%',
             icon: 'truck-moving',
-            possibleBuildings: [0],
+            possibleBuildings: [0, 17],
         },
         11: {
             caption: 'Verkenningseenheid Brandweer',
@@ -256,7 +256,7 @@ export default {
             },
             special: 'Benodigd vanaf 10 brandweerposten.',
             icon: 'shuttle-van',
-            possibleBuildings: [0],
+            possibleBuildings: [0, 17],
         },
         12: {
             caption: 'TST-NB 8/9',
@@ -267,7 +267,7 @@ export default {
             coins: 25,
             wtank: 4000,
             icon: 'truck-moving',
-            possibleBuildings: [0],
+            possibleBuildings: [0, 17],
         },
         14: {
             caption: 'TST-NB 6/7',
@@ -278,7 +278,7 @@ export default {
             coins: 25,
             wtank: 4000,
             icon: 'truck-moving',
-            possibleBuildings: [0],
+            possibleBuildings: [0, 17],
         },
         15: {
             caption: 'TST-NB 4/5',
@@ -289,7 +289,7 @@ export default {
             coins: 25,
             wtank: 4000,
             icon: 'truck-moving',
-            possibleBuildings: [0],
+            possibleBuildings: [0, 17],
         },
         16: {
             caption: 'Ambulance',
@@ -310,7 +310,7 @@ export default {
             coins: 25,
             wtank: 2000,
             icon: 'truck-moving',
-            possibleBuildings: [0],
+            possibleBuildings: [0, 17],
         },
         18: {
             caption: 'Hoogwerker',
@@ -321,7 +321,7 @@ export default {
             coins: 30,
             special: 'Benodigd vanaf 3 brandweerposten.',
             icon: 'truck-moving',
-            possibleBuildings: [0],
+            possibleBuildings: [0, 17],
         },
         19: {
             caption: 'DA - Hoofdofficier van Dienst',
@@ -339,7 +339,7 @@ export default {
             },
             special: 'Benodigd vanaf 13 brandweerposten.',
             icon: 'car-side',
-            possibleBuildings: [0],
+            possibleBuildings: [0, 17],
         },
         20: {
             caption: 'DA',
@@ -349,7 +349,7 @@ export default {
             credits: 2_000,
             coins: 10,
             icon: 'car-side',
-            possibleBuildings: [0],
+            possibleBuildings: [0, 17],
         },
         21: {
             caption: 'DB Klein',
@@ -359,7 +359,7 @@ export default {
             credits: 2_500,
             coins: 12,
             icon: 'shuttle-van',
-            possibleBuildings: [0],
+            possibleBuildings: [0, 17],
         },
         22: {
             caption: 'DA Noodhulp',
@@ -406,7 +406,7 @@ export default {
             },
             special: 'Benodigd vanaf 11 brandweerposten.',
             icon: 'car-side',
-            possibleBuildings: [0],
+            possibleBuildings: [0, 17],
         },
         25: {
             caption: 'DB Noodhulp',
@@ -433,7 +433,7 @@ export default {
                 },
             },
             icon: 'truck-pickup',
-            possibleBuildings: [0],
+            possibleBuildings: [0, 17],
         },
         27: {
             caption: 'Adembeschermingshaakarmbak',
@@ -444,7 +444,7 @@ export default {
             coins: 12,
             special: 'Haakarmvoertuig benodigd',
             icon: 'square',
-            possibleBuildings: [0],
+            possibleBuildings: [0, 17],
         },
         28: {
             caption: 'Politiehelikopter',
@@ -473,7 +473,7 @@ export default {
             wtank: 10000,
             special: 'Haakarmvoertuig benodigd',
             icon: 'square',
-            possibleBuildings: [0],
+            possibleBuildings: [0, 17],
         },
         30: {
             caption: 'Zorgambulance',
@@ -501,7 +501,7 @@ export default {
             },
             special: 'Benodigd vanaf 14 brandweerposten.',
             icon: 'truck-moving',
-            possibleBuildings: [0],
+            possibleBuildings: [0, 17],
         },
         32: {
             caption: 'Commandohaakarmbak',
@@ -512,7 +512,7 @@ export default {
             coins: 12,
             special: 'Haakarmvoertuig benodigd',
             icon: 'square',
-            possibleBuildings: [0],
+            possibleBuildings: [0, 17],
         },
         33: {
             caption: 'Waterongevallenvoertuig',
@@ -529,7 +529,7 @@ export default {
                 },
             },
             icon: 'shuttle-van',
-            possibleBuildings: [0],
+            possibleBuildings: [0, 17],
         },
         34: {
             caption: 'Watertankwagen',
@@ -541,7 +541,7 @@ export default {
             wtank: 15000,
             special: 'Benodigd vanaf 7 brandweerposten.',
             icon: 'truck-moving',
-            possibleBuildings: [0],
+            possibleBuildings: [0, 17],
         },
         35: {
             caption: 'Officier van Dienst - Politie',
@@ -570,7 +570,7 @@ export default {
             special:
                 'TS, TST, TST-NB, WO, HV, DB-K, SL, VEB, PM-OR of TS-OR benodigd',
             icon: 'trailer',
-            possibleBuildings: [0],
+            possibleBuildings: [0, 17],
         },
         37: {
             caption: 'MMT-Auto',
@@ -660,7 +660,7 @@ export default {
                 },
             },
             icon: 'truck-moving',
-            possibleBuildings: [0],
+            possibleBuildings: [0, 17],
         },
         42: {
             caption: 'Crashtender (6x6)',
@@ -679,7 +679,7 @@ export default {
                 },
             },
             icon: 'truck-moving',
-            possibleBuildings: [0],
+            possibleBuildings: [0, 17],
         },
         43: {
             caption: 'Crashtender (4x4)',
@@ -698,7 +698,7 @@ export default {
                 },
             },
             icon: 'truck-moving',
-            possibleBuildings: [0],
+            possibleBuildings: [0, 17],
         },
         44: {
             caption: 'Airport Fire Officer / On Scene Commander',
@@ -715,7 +715,7 @@ export default {
                 },
             },
             icon: 'car-side',
-            possibleBuildings: [0],
+            possibleBuildings: [0, 17],
         },
         45: {
             caption: 'Dompelpomphaakarmbak',
@@ -727,7 +727,7 @@ export default {
             special:
                 'Haakarmvoertuig benodigd. Deze haakarmbak zorgt dat de aanwezige waterhoeveelheid wordt verhoogd met 25%',
             icon: 'square',
-            possibleBuildings: [0],
+            possibleBuildings: [0, 17],
         },
         46: {
             caption: 'DM Noodhulp',
@@ -788,7 +788,7 @@ export default {
                 },
             },
             icon: 'truck-moving',
-            possibleBuildings: [0],
+            possibleBuildings: [0, 17],
         },
         50: {
             caption: 'TS-OR | Tankautospuit - Oppervlakteredding',
@@ -806,7 +806,7 @@ export default {
                 },
             },
             icon: 'truck-moving',
-            possibleBuildings: [0],
+            possibleBuildings: [0, 17],
         },
         51: {
             caption: 'HulpverleningsHaakarmbak',
@@ -817,7 +817,7 @@ export default {
             coins: 12,
             special: 'Haakarmvoertuig benodigd',
             icon: 'square',
-            possibleBuildings: [0],
+            possibleBuildings: [0, 17],
         },
         52: {
             caption: 'Rapid Responder',
@@ -896,7 +896,7 @@ export default {
             },
             special: 'Benodigd vanaf 14 brandweerposten.',
             icon: 'car-side',
-            possibleBuildings: [0],
+            possibleBuildings: [0, 17],
         },
         57: {
             caption: 'DA Officier van Dienst - Geneeskundig / Rapid Responder',
@@ -966,7 +966,7 @@ export default {
             special:
                 'Haakarmvoertuig benodigd. Deze haakarmbak zorgt dat de aanwezige waterhoeveelheid wordt verhoogd met 15%',
             icon: 'square',
-            possibleBuildings: [0],
+            possibleBuildings: [0, 17],
         },
         62: {
             caption: 'TS-HV | Tankautospuit-Hulpverlening',
@@ -978,7 +978,7 @@ export default {
             wtank: 2000,
             special: 'Per 10 brandweerposten kan één TS-HV gekocht worden.',
             icon: 'truck-moving',
-            possibleBuildings: [0],
+            possibleBuildings: [0, 17],
         },
         63: {
             caption: 'DM - Rapid Responder',
@@ -1069,7 +1069,7 @@ export default {
                 },
             },
             icon: 'truck-moving',
-            possibleBuildings: [0],
+            possibleBuildings: [0, 17],
         },
         69: {
             caption: 'SBH',
@@ -1081,7 +1081,7 @@ export default {
             wtank: 8000,
             ftank: 1000,
             icon: 'square',
-            possibleBuildings: [0],
+            possibleBuildings: [0, 17],
         },
         70: {
             caption: 'SBA',
@@ -1094,7 +1094,7 @@ export default {
             special:
                 'Het gaat hier om een aanhanger dat een trekkend voertuig nodig heeft. (SI-2, TS 8/9, TS-OR, PM-OR, TS-HV, TS 4/5, TS 6/7, HV, AB, SL, DA, DB-K, TST 4/5, TST 6/7, TST 8/9, TST-NB 4/5, TST-NB 6/7, TST-NB 8/9, DB-VEB)',
             icon: 'trailer',
-            possibleBuildings: [0],
+            possibleBuildings: [0, 17],
         },
         71: {
             caption: 'MSA',
@@ -1106,7 +1106,7 @@ export default {
             special:
                 'Het gaat hier om een aanhanger dat een trekkend voertuig nodig heeft. (SI-2, TS 8/9, TS-OR, PM-OR, TS-HV, TS 4/5, TS 6/7, HV, AB, SL, DA, DB-K, TST 4/5, TST 6/7, TST 8/9, TST-NB 4/5, TST-NB 6/7, TST-NB 8/9, DB-VEB). Deze aanhanger zorgt dat de aanwezige waterhoeveelheid wordt verhoogd met 5%',
             icon: 'trailer',
-            possibleBuildings: [0],
+            possibleBuildings: [0, 17],
         },
         72: {
             caption: 'DPA',
@@ -1118,7 +1118,7 @@ export default {
             special:
                 'Het gaat hier om een aanhanger dat een trekkend voertuig nodig heeft. (SI-2, TS 8/9, TS-OR, PM-OR, TS-HV, TS 4/5, TS 6/7, HV, AB, SL, DA, DB-K, TST 4/5, TST 6/7, TST 8/9, TST-NB 4/5, TST-NB 6/7, TST-NB 8/9, DB-VEB). Deze aanhanger zorgt dat de aanwezige waterhoeveelheid wordt verhoogd met 10%',
             icon: 'trailer',
-            possibleBuildings: [0],
+            possibleBuildings: [0, 17],
         },
     },
     buildings: {
@@ -1565,10 +1565,77 @@ export default {
             startVehicles: [],
             schoolingTypes: ['Brandweer'],
         },
+        17: {
+            caption: 'Brandweer, Kazerne (klein)',
+            color: '#bb0000',
+            coins: 25,
+            credits: 50_000,
+            extensions: [
+                {
+                    caption: 'Ambulance standplaats',
+                    credits: 100_000,
+                    coins: 20,
+                    duration: '7 Dagen',
+                },
+                {
+                    caption: 'Waterongevallenbestrijding',
+                    credits: 400_000,
+                    coins: 25,
+                    duration: '7 Dagen',
+                },
+                {
+                    caption: 'Vliegtuigbrandbestrijding',
+                    credits: 400_000,
+                    coins: 25,
+                    duration: '7 Dagen',
+                    maxExtensionsFunction: (buildingsByType: {
+                        [type: number]: Building[];
+                    }): number =>
+                        Math.floor((buildingsByType[0]?.length ?? 0) / 10),
+                },
+                ...new Array(2).fill({
+                    caption: 'Haakarmbak parkeerplaats',
+                    credits: 100_000,
+                    coins: 20,
+                    duration: '7 Dagen',
+                }),
+                {
+                    caption: 'Schuimblussing',
+                    credits: 150_000,
+                    coins: 15,
+                    duration: '5 Dagen',
+                },
+            ],
+            levelcost: [
+                '1. 10.000',
+                '2. 50.000',
+                '3.-5. 100.000',
+                'Upgraden naar normale post : Verschil prijs naar normale post',
+            ],
+            maxBuildings: '5.000',
+            maxLevel: 6,
+            special:
+                'Vanaf de 25e brandweerkazerne stijgen de kosten voor de bouw van een nieuwe brandweerkazerne volgens de volgende formule: <code>50.000+100.000*LOG<sub>2</sub>(Aantal brandweerposten − 22)</code>. max. 1 miljoen credits. De Coins prijs blijft gelijk!',
+            startPersonnel: 10,
+            startVehicles: [
+                'SI-2',
+                'TS 8/9',
+                'TST 8/9',
+                'TST 6/7',
+                'TST 4/5',
+                'TS 4/5',
+                'TST-NB 8/9',
+                'TST-NB 6/7',
+                'TST-NB 4/5',
+                'TS 6/7',
+            ],
+            schoolingTypes: ['Brandweer'],
+            maxBuildingsFunction: (): number => 5_000,
+        },
     },
     buildingCategories: {
         Brandweer: {
-            buildings: [0, 4],
+            buildings: [0, 4, 17],
             color: '#ff2d2d',
         },
         Ambulance: {
@@ -1625,8 +1692,9 @@ export default {
     },
     small_buildings: {
         3: 13,
+        0: 17,
     },
-    vehicleBuildings: [0, 3, 5, 6, 9, 11, 13, 14, 15, 16],
+    vehicleBuildings: [0, 3, 5, 6, 9, 11, 13, 14, 15, 16, 17],
     cellBuildings: [5],
     cellExtensions: [
         '5_0',

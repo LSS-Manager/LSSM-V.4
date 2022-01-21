@@ -9,6 +9,7 @@
         }"
         :style="`top: ${drag.top}px; left: ${drag.left}px`"
         :id="id"
+        :data-raw-text="missingText.trim()"
     >
         <font-awesome-icon
             class="pull-right"
@@ -452,7 +453,7 @@ export default Vue.extend<
             Record<number, number>
         >;
 
-        const specialRequirementList = ['water', 'foam'];
+        const specialRequirementList = ['water', 'foam', 'pump'];
 
         const specialRequirements: Record<
             string,

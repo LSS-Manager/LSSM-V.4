@@ -3,6 +3,7 @@
 		"danger": "Message d'erreur (rouge)",
 		"info": "Info (bleu)",
 		"success": "Confirmation (vert)",
+		"unimportant": "Normal (gris)",
 		"warning": "Avertissement (orange)"
 	},
 	"description": "Notification de jeu et de bureau pour différents évènements. Tout est configurable",

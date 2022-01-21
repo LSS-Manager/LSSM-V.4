@@ -13,6 +13,8 @@ export default (LSSM: Vue, MODULE_ID: string, $m: $m): void => {
 
     const water = $m('enhancedMissingVehicles.water').toString();
     const foam = $m('enhancedMissingVehicles.foam').toString();
+    const pumping = $m('enhancedMissingVehicles.pump').toString();
+
     const vehicleGroupTranslation = $m(
         'enhancedMissingVehicles.vehiclesByRequirement'
     ) as unknown as
@@ -43,10 +45,12 @@ export default (LSSM: Vue, MODULE_ID: string, $m: $m): void => {
         .join('|');
     const innerRegex = `${LSSM.$utils.escapeRegex(
         water
-    )}|${LSSM.$utils.escapeRegex(foam)}|${groupsRegex}`;
+    )}|${LSSM.$utils.escapeRegex(foam)}|${LSSM.$utils.escapeRegex(
+        pumping
+    )}|${groupsRegex}`;
 
     const requirementRegex = new RegExp(
-        `((${numRegex}\\s+(${innerRegex}))|(${innerRegex}):\\s*${numRegex})(?=[,.]|$)`,
+        `(${numRegex}\\s+(${innerRegex}))|(${innerRegex}):\\s*${numRegex}`,
         'g'
     );
     const missingRequirementMatches =
@@ -96,6 +100,7 @@ export default (LSSM: Vue, MODULE_ID: string, $m: $m): void => {
         missingRequirements.forEach(requirement => {
             const isWater = requirement.vehicle === water;
             const isFoam = requirement.vehicle === foam;
+            const isPumping = requirement.vehicle === pumping;
             if (isWater) {
                 requirement.driving = LSSM.$utils.getNumberFromText(
                     document.querySelector<HTMLDivElement>(
@@ -108,6 +113,14 @@ export default (LSSM: Vue, MODULE_ID: string, $m: $m): void => {
                 requirement.driving = LSSM.$utils.getNumberFromText(
                     document.querySelector<HTMLDivElement>(
                         '[id^="mission_foam_holder_"] div.progress-bar-mission-window-water.progress-bar-warning'
+                    )?.textContent ?? '',
+                    false,
+                    0
+                );
+            } else if (isPumping) {
+                requirement.driving = LSSM.$utils.getNumberFromText(
+                    document.querySelector<HTMLDivElement>(
+                        '[id^="mission_pump_holder_"] div.progress-bar-mission-window-water.progress-bar-warning'
                     )?.textContent ?? '',
                     false,
                     0

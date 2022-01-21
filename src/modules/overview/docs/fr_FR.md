@@ -28,6 +28,7 @@ Tous les bâtiments sont listés dans un tableau commun qui contient les informa
 * Limite de construction
 * Extensions
 * Particularités
+
 ![L'aperçu des bâtiments](gebaeude.png)
 
 ## Formation

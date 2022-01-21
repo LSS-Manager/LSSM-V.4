@@ -19,6 +19,7 @@
                         :src="props.item.data.icon"
                         :alt="props.item.title"
                     />
+                    <div v-else></div>
                     <div>
                         <button
                             class="close"
@@ -109,6 +110,11 @@ export default Vue.extend<
 <style lang="sass">
 @import "~vue-select/src/scss/vue-select.scss"
 
+.alert-unimportant
+    background-image: linear-gradient(to bottom, #909090 0, #505050 100%)
+    border-color: #303030
+    color: #ffffff
+
 body.dark
     .vm--modal
         background-color: #505050
@@ -186,6 +192,11 @@ body.dark
     .highcharts-axis-title
         color: white !important
         fill: white !important
+
+    .alert-unimportant
+        background-color: #303030
+        border-color: #303030
+        background-image: none
 
 .vm--container
     z-index: 5001 !important
@@ -307,6 +318,9 @@ body.dark
 
             &.notification-success
                 border-color: #2b542c !important
+
+            &.notification-unimportant
+                border-color: #707070 !important
 
             img
                 max-width: 100px

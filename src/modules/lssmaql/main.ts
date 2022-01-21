@@ -1,6 +1,6 @@
 import { ModuleMainFunction } from 'typings/Module';
 
-export default (LSSM => {
+export default (({ LSSM }) => {
     LSSM.$store.dispatch('addMenuItem', 'LSSMAQL Console').then(
         element =>
             (element.onclick = () =>

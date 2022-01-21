@@ -15,9 +15,9 @@ export default async (
     const callback = () => {
         const buildingIds = BUILDING_MODE === 'building' ? [buildingId] : [];
         Array.from(
-            document.querySelectorAll(
+            document.querySelectorAll<HTMLTableRowElement>(
                 '#tab_buildings #building_table tbody tr'
-            ) as NodeListOf<HTMLTableRowElement>
+            )
         ).forEach(row => {
             const id = parseInt(
                 (

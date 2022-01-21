@@ -109,6 +109,9 @@ export default async (
         const isLastMission =
             missionListPosition === order[missionList].length - 1;
 
+        const alertNextBtnClass = LSSM.$store.getters.nodeAttribute(
+            `${MODULE_ID}_sort-missions_${SortedMissionsRawButtonClasses['alert_next']}`
+        );
         const alertNextBtns: [HTMLAnchorElement, HTMLAnchorElement][] =
             Array.from(
                 document?.querySelectorAll<HTMLAnchorElement>('.alert_next')
@@ -118,9 +121,7 @@ export default async (
                 newBtn.classList.add(
                     'hidden',
                     ...btn.classList,
-                    LSSM.$store.getters.nodeAttribute(
-                        `${MODULE_ID}_sort-missions_${SortedMissionsRawButtonClasses['alert_next']}`
-                    )
+                    alertNextBtnClass
                 );
                 newBtn.innerHTML = btn.innerHTML;
                 newBtn.classList.replace(
@@ -282,6 +283,17 @@ export default async (
                 settingId: 'sortMissionsInMissionwindowChecked',
                 value: toggleInput.checked,
             });
+            LSSM.$store
+                .dispatch('event/createEvent', {
+                    name: `${MODULE_ID}_sorted-missions_toggle-missionwindow`,
+                    detail: {
+                        sorted: toggleInput.checked,
+                        alertNextBtnClass,
+                    },
+                })
+                .then(event =>
+                    LSSM.$store.dispatch('event/dispatchEvent', event)
+                );
         });
 
         if (checked) {

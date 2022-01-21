@@ -1,0 +1,18 @@
+{
+	"description": "Alerter, partager l'intervention et poster un message en un seul clic.",
+	"name": "Partager le message à l'Alliance",
+	"noMessage": "Sans note d'incident",
+	"settings": {
+		"enableCallList": {
+			"description": "Intègre ce module dans le module \"Missions de partage\" de la liste d'appels.",
+			"title": "Intégration à la liste d'appels"
+		},
+		"message": "Texte de réponse",
+		"messages": {
+			"description": "Définis ici les réactions que tu peux sélectionner dans la fenêtre d'intervention. Les variables sont prises en charge, consultez notre <a class=\"lightbox-open\" href=\"{wiki}modules/shareAlliancePost.html#variables\">Wiki</a> pour plus d'info ! Vous pouvez donner un nom court à chaque réactions afin de la retrouver plus rapidement dans la fenêtre d'intervention.",
+			"title": "Réactions"
+		},
+		"name": "Nom",
+		"postInChat": "Poster le message dans le chat ?"
+	}
+}

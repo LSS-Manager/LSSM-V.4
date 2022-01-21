@@ -4,9 +4,9 @@ export default (LSSM: Vue, $m: $m, MODULE_ID: string): void => {
     const $sm = (key: string, args?: Parameters<$m>[1]) =>
         $m(`buildingPersonal.${key}`, args);
     const btns = Array.from(
-        document.querySelectorAll(
+        document.querySelectorAll<HTMLAnchorElement>(
             'a[href^="/personals/"][data-method="delete"]'
-        ) as NodeListOf<HTMLAnchorElement>
+        )
     );
     btns.forEach(btn => {
         btn.addEventListener('click', async e => {

@@ -936,7 +936,7 @@ export default {
             maxBuildings: '5.000 brandstationer',
             maxLevel: 5,
             special:
-                'Priset på dina positioner ökar när du äger 25. Så hastigheten på progressionen är konstant när du har en stor inkomstström på dessa spelnivåer. Den nuvarande formeln för att beräkna priset på positioner är följande: <kod> 100.000+ (200.000 * LOGG <sub> 2 </sub> (Antal befintliga brandstationer - 22)) </code>.',
+                'Priset på dina positioner ökar när du äger 25. Så hastigheten på progressionen är konstant när du har en stor inkomstström på dessa spelnivåer. Den nuvarande formeln för att beräkna priset på positioner är följande: <kod> (50.000+100.000 * LOGG <sub> 2 </sub> (Antal befintliga brandstationer - 22)) </code>.',
             startPersonnel: 10,
             startVehicles: ['BAS 1 - Släckbil', 'BAS 2 - Släckbil'],
             schoolingType: ['Brandstation'],
@@ -970,7 +970,7 @@ export default {
             maxBuildings: '1.700 polisstation',
             maxLevel: 4,
             special:
-                'Priset på dina positioner ökar när du äger 25. Så hastigheten på progressionen är konstant när du har en stor inkomstström på dessa spelnivåer. Den nuvarande formeln för att beräkna priset på positioner är följande: <kod> 100.000+ (200.000 * LOGG <sub> 2 </sub> (Antal befintliga brandstationer - 22)) </code>.',
+                'Priset på dina positioner ökar när du äger 25. Så hastigheten på progressionen är konstant när du har en stor inkomstström på dessa spelnivåer. Den nuvarande formeln för att beräkna priset på positioner är följande: <kod> (50.000+100.000 * LOGG <sub> 2 </sub> (Antal befintliga brandstationer - 22)) </code>.',
             startPersonnel: 2,
             startVehicles: ['Radiobil'],
             schoolingType: ['Polis'],

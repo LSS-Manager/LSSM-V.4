@@ -54,6 +54,9 @@ Si Tampermonkey a été installé avec succès dans votre navigateur, vous pouve
 
 ### Étape 3 : Activation
 L'indicateur LSSM est un texte surligné en vert `LSSM V.4`.
+
+Un clic sur l'indicateur ouvre un petit menu qui vous permet d'accéder à l'[Appstore](appstore.md) et aux [paramètres](settings.md). Dans les paramètres, seuls les modules que vous avez activés apparaissent, vous devez donc d'abord visiter l'AppStore !
+
 Si vous êtes dans operateur112 mais qur vous ne voyez pas l'indicateur dans le coin supérieur droit, cliquez sur l'icône tampermonkey dans votre navigateur et vérifiez si le commutateur pour le script LSS-Manager est réglé sur `on`.
 
 Si vous avez des problèmes, vous pouvez toujours contacter le [Support](support.md).

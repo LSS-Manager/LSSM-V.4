@@ -1,6 +1,6 @@
 {
 	"description": "Montre les informations importantes de la mission dans la fenêtre de mission.",
-	"name": "Missionhelper",
+	"name": "Aide à la mission",
 	"noVehicleRequirements": {
 		"average_min_fire_personnel": {
 			"badge": false,
@@ -72,17 +72,13 @@
 				"title": "VLCG restants"
 			},
 			"heavy_rescue_vehicles": {
-				"description": "Subtracts the number of required firetrucks from the Heavy Rescue and hides firetrucks if the number drops below 0. This function is intended for people who drive a pure Rescue Engine system.",
-				"title": "Heavy Rescue Simple Rate"
-			},
-			"platform_trucks": {
-				"description": "Subtracts the number of firetrucks from the Quints and hides firetrucks if the number drops below 0.",
-				"title": "Quint Simple Rate"
+				"description": "Soustrait le nombre de camions de pompiers requis du VSR. Cache le nombre de camion de pompier si il est inférieur à zéro.",
+				"title": "VSR restants"
 			}
 		},
 		"noVehicleRequirements": {
-			"description": "Set here which special requirements to show, if they exist for that mission.",
-			"title": "Special requirements"
+			"description": "Définissez ici les conditions particulières à afficher, si elles existent pour cette mission.",
+			"title": "Conditions particulières"
 		},
 		"optionalAlternatives": {
 			"allow_ktw_instead_of_rtw": {
@@ -90,8 +86,8 @@
 				"title": "Ambulance de type A au lieu d'ASSU"
 			},
 			"allow_rw_instead_of_lf": {
-				"description": "Indicates, if instead of a firetruck also heavy rescue or rescue engine is possible on site.",
-				"title": "Show Heavy Rescue / rescue engine instead of firetrucks"
+				"description": "Indique si, au lieu d'un camion de pompiers, il est possible d'utiliser un véhicule de secours routier ou une échelle pivotante automatique",
+				"title": "Afficher VSR/EPA au lieu des camions de pompiers"
 			}
 		},
 		"patients": {
@@ -112,8 +108,8 @@
 				"title": "Numbre de patients actuels"
 			},
 			"patient_allow_first_responder_chance": {
-				"description": "Shows with how much % any vehicle is sufficient to treat.",
-				"title": "First Responder Probability"
+				"description": "Affiche le pourcentage de tout véhicule nécessaire au traitement.",
+				"title": "Probabilité de traitement"
 			},
 			"title": {
 				"description": "Affiche l'en-tête \"Patients\" au dessus des détails pour de possibles patients.",

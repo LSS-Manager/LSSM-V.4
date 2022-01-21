@@ -6,13 +6,12 @@ import {
     RadioMessage,
 } from 'typings/Ingame';
 
-export default (async (LSSM, MODULE_ID, $m, $mc) => {
+export default (async ({ LSSM, $m, $mc, getSetting }) => {
     const alerts = (
-        await LSSM.$store.dispatch('settings/getSetting', {
-            moduleId: MODULE_ID,
-            settingId: 'alerts',
-        })
-    ).value as NotificationSetting[];
+        await getSetting<{ value: NotificationSetting[]; enabled: boolean }>(
+            'alerts'
+        )
+    ).value;
 
     const events = {} as {
         [event: string]: {
@@ -176,6 +175,15 @@ export default (async (LSSM, MODULE_ID, $m, $mc) => {
         'sicherheitswache_error',
     ].filter(ce => events.hasOwnProperty(ce));
     if (fmsEvents.length) {
+        const extensionCloseCall = await LSSM.$store.dispatch(
+            'settings/getSetting',
+            {
+                moduleId: 'generalExtensions',
+                settingId: 'extensionCloseCall',
+                defaultValue: true,
+            }
+        );
+
         await LSSM.$store.dispatch('hook', {
             event: 'radioMessage',
             async callback(message: RadioMessage) {
@@ -238,8 +246,23 @@ export default (async (LSSM, MODULE_ID, $m, $mc) => {
                         vehicle: message.caption,
                         status: message.fms,
                     }).toString();
-                    const clickHandler = () =>
-                        window.lightboxOpen(`/vehicles/${message.id}`);
+                    const clickHandler = message.additionalText
+                        ? extensionCloseCall
+                            ? () => {
+                                  window.lightboxOpen(
+                                      `/missions/${message.mission_id}`
+                                  );
+                                  document
+                                      .querySelector<HTMLLIElement>(
+                                          `.radio_message_vehicle_${message.id}`
+                                      )
+                                      ?.remove();
+                              }
+                            : () =>
+                                  window.lightboxOpen(
+                                      `/missions/${message.mission_id}`
+                                  )
+                        : () => window.lightboxOpen(`/vehicles/${message.id}`);
                     if (fmsStatuses.includes(mode)) {
                         events[mode].forEach(alert =>
                             LSSM.$store.dispatch(
