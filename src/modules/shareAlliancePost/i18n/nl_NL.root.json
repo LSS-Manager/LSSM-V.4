@@ -1,0 +1,18 @@
+{
+	"description": "Alarmeren, delen en post een chatbericht met 1 klik.",
+	"name": "Alarmeren, delen en posten",
+	"noMessage": "Zonder chatbericht",
+	"settings": {
+		"enableCallList": {
+			"description": "Integreert deze module in de functie \"Deel meldingen\" van de \"Uitgebreide meldingenlijst\".",
+			"title": "Integreert in de meldingenlijst"
+		},
+		"message": "Chatbericht",
+		"messages": {
+			"description": "Leg hier de chatberichten vast, die je in het meldingsvenster kan kiezen. Variabelen worden ondersteund, zie hiervoor onze <a class=\"lightbox-open\" href=\"{wiki}modules/shareAlliancePost.html#variablen\">Wiki</a>! Je kan ieder chatbericht een korte naam geven, zodat je hem sneller kan vinden in het meldingsvenster.",
+			"title": "Chatberichten"
+		},
+		"name": "Naam",
+		"postInChat": "Chatbericht ook in de chat posten?"
+	}
+}
