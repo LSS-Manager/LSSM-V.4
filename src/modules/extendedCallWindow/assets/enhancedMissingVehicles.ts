@@ -13,7 +13,7 @@ export default (LSSM: Vue, MODULE_ID: string, $m: $m): void => {
 
     const water = $m('enhancedMissingVehicles.water').toString();
     const foam = $m('enhancedMissingVehicles.foam').toString();
-    const pumping = $m('enhancedMissingVehicles.pumping').toString();
+    const pumping = $m('enhancedMissingVehicles.pump').toString();
 
     const vehicleGroupTranslation = $m(
         'enhancedMissingVehicles.vehiclesByRequirement'
