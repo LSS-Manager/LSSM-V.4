@@ -1712,7 +1712,7 @@ export default {
                 },
             ],
             levelcost: ['1. 10.000', '2. 50.000', '3.-16. 100.000'],
-            maxBuildings: '5.000 mit kleinen Feuerwachen zusammen',
+            maxBuildings: '6.000 mit kleinen Feuerwachen zusammen',
             maxLevel: 16,
             special:
                 'Ab der 24. Feuerwache steigen die Kosten für den Neubau einer Wache nach folgender Formel: <code>100.000+200.000*LOG<sub>2</sub>(Anzahl der vorhandenen Feuerwachen − 22)</code>. Der Coins-Preis bleibt konstant!',
@@ -1730,7 +1730,7 @@ export default {
                 '(HLF 20 und HLF 10 ab Dienstgrad "Gruppenfüher(in)" => Baukosten 20.000 höher)',
             ],
             schoolingTypes: ['Feuerwehr'],
-            maxBuildingsFunction: (): number => 5_000,
+            maxBuildingsFunction: (): number => 6_000,
         },
         1: {
             caption: 'Feuerwehrschule',
@@ -2314,7 +2314,7 @@ export default {
                 '3.-5. 100.000',
                 'Umbau zur normalen Wache: Differenz-Preis zur normalen Wache',
             ],
-            maxBuildings: '5.000 mit Feuerwachen zusammen',
+            maxBuildings: '6.000 mit Feuerwachen zusammen',
             maxLevel: 5,
             special:
                 'Ab der 24. Feuerwache steigen die Kosten für den Neubau einer Wache nach folgender Formel: <code>(50.000+100.000*LOG<sub>2</sub>(Anzahl der vorhandenen Feuerwachen − 22)) / 2</code>. max. 1 Million Credits. Der Coins-Preis bleibt konstant!',
@@ -2332,7 +2332,7 @@ export default {
                 '(HLF 20 und HLF 10 ab Dienstgrad "Gruppenführer(in)" => Baukosten 15.000 höher)',
             ],
             schoolingTypes: ['Feuerwehr'],
-            maxBuildingsFunction: (): number => 5_000,
+            maxBuildingsFunction: (): number => 6_000,
         },
         19: {
             caption: 'Polizeiwache (Kleinwache)',

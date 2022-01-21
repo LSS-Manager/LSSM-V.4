@@ -652,14 +652,14 @@ export default {
                 },
             ],
             levelcost: ['1. 10.000', '2. 50.000', '3.-24. 100.000'],
-            maxBuildings: '5.000 includendo le stazioni piccole',
+            maxBuildings: '6.000 includendo le stazioni piccole',
             maxLevel: 16,
             special:
                 'Dalla 24° Caserma ,i costi aumentano con questa formula: <code>100.000+200.000*LOG<sub>2</sub>(Numero di caserme dei vigili del fuoco esistenti − 22)</code>. Il prezzo delle monete rimane costante!',
             startPersonnel: 10,
             startVehicles: ['ABP, APS'],
             schoolingTypes: ['Caserma dei vigili del fuoco'],
-            maxBuildingsFunction: (): number => 5_000,
+            maxBuildingsFunction: (): number => 6_000,
         },
         1: {
             caption: 'Scuola dei vigili del fuoco',
@@ -1029,14 +1029,14 @@ export default {
                 '3.-5. 100.000',
                 'Conversione a caserma grande: la differenza tra il costo della caserma piccola e quella grande',
             ],
-            maxBuildings: '5.000 includendo le stazioni grandi',
+            maxBuildings: '6.000 includendo le stazioni grandi',
             maxLevel: 5,
             special:
                 'A partire dalla 24° caserma i costi aumenteranno secondo la seguente formula: <code>(50.000+100.000*LOG<sub>2</sub>(Number of existing fire stations − 22)) / 2</code>. max. 1 Million Credits. The Coins price remains constant!',
             startPersonnel: 10,
             startVehicles: ['ABP', 'APS'],
             schoolingTypes: ['Caserma dei vigili del fuoco'],
-            maxBuildingsFunction: (): number => 5_000,
+            maxBuildingsFunction: (): number => 6_000,
         },
         19: {
             caption: 'Stazione di polizia (piccola)',

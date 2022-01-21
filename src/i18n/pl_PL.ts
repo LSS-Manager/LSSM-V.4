@@ -845,7 +845,7 @@ export default {
                 }),
             ],
             levelcost: ['1. 10.000', '2. 50.000', '3.-16. 100.000'],
-            maxBuildings: '5.000 włącznie z Remizami',
+            maxBuildings: '6.000 włącznie z Remizami',
             maxLevel: 16,
             special:
                 'Przy posiadaniu powyżej 24 budynków straży pożarnej koszt budowy wzrasta według wzoru:<code>100.000+200.000*LOG<sub>2</sub>(Liczba istniejących straży pożarnej â’ 22)</code>. Cena za Monety pozostaje bez zmian!',
@@ -856,7 +856,7 @@ export default {
                 'GBARt',
                 'GLBA',
             ],
-            maxBuildingsFunction: (): number => 5_000,
+            maxBuildingsFunction: (): number => 6_000,
         },
         1: {
             caption: 'Szkoła pożarnicza',
@@ -1018,7 +1018,7 @@ export default {
                 }),
             ],
             levelcost: ['1. 10.000', '2. 50.000', '3.-16. 100.000'],
-            maxBuildings: '1.500 włącznie z Posterunkami Policji',
+            maxBuildings: '1.700 włącznie z Posterunkami Policji',
             maxLevel: 16,
             special:
                 'Przy posiadaniu powyżej 24 budynków policji koszt budowy wzrasta według wzoru:<code>100.000+200.000*LOG<sub>2</sub>(Liczba istniejących budynków policji â’ 22)</code>. Cena za Monety pozostaje bez zmian!',
@@ -1178,7 +1178,7 @@ export default {
                 '3.-5. 100.000',
                 'Ulepszenie do JRG wynosi różnicę w cenie budynków',
             ],
-            maxBuildings: '5.000 włącznie z JRG',
+            maxBuildings: '6.000 włącznie z JRG',
             maxLevel: 5,
             special:
                 'Przy posiadaniu powyżej 24 budynków straży pożarnej koszt budowy wzrasta według wzoru:<code>50.000+100.000*LOG<sub>2</sub>(Liczba istniejących straży pożarnej â’ 22)</code>, max 1 milion kredytów. Cena za Monety pozostaje bez zmian!',
@@ -1189,7 +1189,7 @@ export default {
                 'GBARt',
                 'GLBA',
             ],
-            maxBuildingsFunction: (): number => 5_000,
+            maxBuildingsFunction: (): number => 6_000,
         },
         19: {
             caption: 'Posterunek Policji',
@@ -1216,7 +1216,7 @@ export default {
                 '3.-4. 100.000',
                 'Cena przebudowy na Komendę Policji wynosi różnicę w cenach budynków ',
             ],
-            maxBuildings: '1.500 włącznie z Komendami Policji',
+            maxBuildings: '1.700 włącznie z Komendami Policji',
             maxLevel: 4,
             special:
                 'Przy posiadaniu powyżej 24 budynków policji koszt budowy wzrasta według wzoru:<code>50.000+100.000*LOG<sub>2</sub>(Liczba istniejących budynków policji â’ 22)</code>. Cena za Monety pozostaje bez zmian!',

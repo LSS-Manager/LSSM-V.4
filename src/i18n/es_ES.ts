@@ -429,14 +429,14 @@ export default {
             ],
             levelcost: ['1. 10.000', '2. 50.000', '3.-24. 100.000'],
             maxBuildings:
-                '5.000 edificios junto con pequeñas estaciones de bomberos',
+                '6.000 edificios junto con pequeñas estaciones de bomberos',
             maxLevel: 25,
             special:
                 'A partir del 24º parque de bomberos en adelante, el coste de construcción de un nuevo parque de bomberos aumenta según la siguiente fórmula: <code>100.000+200.000*LOG<sub>2</sub>(Number of existing fire stations − 22)</code>. ¡El precio de las monedas es constante!',
             startPersonnel: 10,
             startVehicles: ['Camión BUP', 'Camión BUL', 'Vehículo de rescate'],
             schoolingTypes: ['Parque de bomberos'],
-            maxBuildingsFunction: (): number => 5_000,
+            maxBuildingsFunction: (): number => 6_000,
         },
         1: {
             caption: 'Academia de bomberos',
@@ -740,14 +740,14 @@ export default {
                 'Convertir a parque de bombero normal: precio de la diferencia a parque de bombero normal',
             ],
             maxBuildings:
-                '5.000 parques de bomberos junto con parques de bomberos pequeños',
+                '6.000 parques de bomberos junto con parques de bomberos pequeños',
             maxLevel: 5,
             special:
                 'A partir del 24º parque de bomberos en adelante, el coste de construcción de un nuevo parque de bomberos aumenta según la siguiente fórmula: <code>(50.000+100.000*LOG<sub>2</sub>(Number of existing fire stations − 22)) / 2</code>. max. 1 Million Credits. ¡El precio de las monedas es constante!',
             startPersonnel: 10,
             startVehicles: ['Camión BUP', 'Camión BUL', 'Vehículo de rescate'],
             schoolingTypes: ['Parque de bomberos'],
-            maxBuildingsFunction: (): number => 5_000,
+            maxBuildingsFunction: (): number => 6_000,
         },
         19: {
             caption: 'Comisaría de policía (pequeño)',
