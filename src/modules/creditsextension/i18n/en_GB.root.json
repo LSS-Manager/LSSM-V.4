@@ -30,6 +30,14 @@
 			"description": "Shows current credits in navbar instead of the cute piggy bank.",
 			"title": "Credits instead of piggy bank"
 		},
+		"highlightSales": {
+			"description": "Highlights Coins green if a sale is available",
+			"title": "highlight Sales"
+		},
+		"showSales": {
+			"description": "Shows Sales for Coins when available.",
+			"title": "show Sales"
+		},
 		"showToplistPosition": {
 			"description": "Shows the current toplist-rank in the creditsextension.",
 			"title": "Toplist-Rank in creditsextension"

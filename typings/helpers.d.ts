@@ -69,6 +69,7 @@ declare global {
         building_move_marker?: Marker;
         mission_graphics: [string, string, string][];
         patient_timers: PatientTimer[];
+        sale_count_down: number;
         lightboxOpen(link: string): void;
         mission_position_new_dragend(): void;
         building_move_marker_dragend(): void;
