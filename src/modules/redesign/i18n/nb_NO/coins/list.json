@@ -6,6 +6,6 @@
 		"next": "20 Last eldre oppføringer",
 		"prev": "20 Last nyere oppføringer"
 	},
-	"subtitle": "Vis {n} oppføringer av sidene {startPage} ({firstCredits}) til {endPage} ({lastCredits}) av totalt {totalPages} sider",
+	"subtitle": "Vis {n} oppføringer av sidene {startPage} ({firstDate}) til {endPage} ({lastDate}) av totalt {totalPages} sider",
 	"title": "Mynter"
 }
