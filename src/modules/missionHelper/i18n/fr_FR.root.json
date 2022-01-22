@@ -105,7 +105,7 @@
 			},
 			"live": {
 				"description": "Affiche le nombre de patients actuellement sur la mission en haut des infos Mission Helper.",
-				"title": "Numbre de patients actuels"
+				"title": "Nombre de patients actuels"
 			},
 			"patient_allow_first_responder_chance": {
 				"description": "Affiche le pourcentage de tout véhicule nécessaire au traitement.",
