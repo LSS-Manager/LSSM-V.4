@@ -36,10 +36,10 @@
 	},
 	"name": "Notifications",
 	"positions": {
-		"bottom center": "En bas 🡣",
+		"bottom center": "En bas au milieu 🡣",
 		"bottom left": "En bas à gauche 🡧",
 		"bottom right": "En bas à droite 🡦",
-		"top center": "En haut 🡡",
+		"top center": "En haut au milieu 🡡",
 		"top left": "En haut à gauche 🡤",
 		"top right": "En haut à droite 🡥"
 	},
@@ -49,7 +49,7 @@
 			"title": "Définir les notifications"
 		},
 		"desktop": "Envoyer les notifications sur le bureau",
-		"duration": "Durée d'affichage (millisecondes, -1 pour \"permanent\")",
+		"duration": "Durée d'affichage",
 		"eventTypes": "Évènements",
 		"ingame": "Envoyer les notifications en jeu",
 		"position": "Position"
