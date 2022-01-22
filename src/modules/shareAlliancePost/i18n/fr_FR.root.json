@@ -1,18 +1,18 @@
 {
-	"description": "Alerter, partager l'intervention et poster un message en un seul clic.",
-	"name": "Partager le message à l'Alliance",
+	"description": Alarme, partage de la mission et publication d'une note d'incident en un seul clic.",
+	"name": "Partage-Alliance-Message",
 	"noMessage": "Sans note d'incident",
 	"settings": {
 		"enableCallList": {
 			"description": "Intègre ce module dans le module \"Missions de partage\" de la liste d'appels.",
 			"title": "Intégration à la liste d'appels"
 		},
-		"message": "Texte de réponse",
+		"message": "Note d'incident",
 		"messages": {
-			"description": "Définis ici les réactions que tu peux sélectionner dans la fenêtre d'intervention. Les variables sont prises en charge, consultez notre <a class=\"lightbox-open\" href=\"{wiki}modules/shareAlliancePost.html#variables\">Wiki</a> pour plus d'info ! Vous pouvez donner un nom court à chaque réactions afin de la retrouver plus rapidement dans la fenêtre d'intervention.",
-			"title": "Réactions"
+			"description": "Définissez vos notes d'incident ici. Vous pouvez utiliser des variables, jetez donc un coup d'oeil à notre <a class=\"lightbox-open\" href=\"{wiki}modules/shareAlliancePost.html#variables\">Wiki</a> ! Veuillez attribuer un nom unique à chaque réponse, afin de les identifier rapidement dans la fenêtre d'alarme. ",
+			"title": "Réponses"
 		},
 		"name": "Nom",
-		"postInChat": "Poster le message dans le chat ?"
+		"postInChat": "Afficher une note dans le chat ?"
 	}
 }
