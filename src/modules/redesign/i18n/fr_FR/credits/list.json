@@ -3,9 +3,9 @@
 	"date": "Date",
 	"description": "Description",
 	"load": {
-		"next": "Charger les 20 plus anciennes entrées",
-		"prev": "Charger les 20 plus récentes entrées"
+		"next": "Afficher les 20 entrées précédente",
+		"prev": "Afficher les 20 entrées suivante"
 	},
-	"subtitle": "Afficher {n} Entrées de la pages {startPage} ({firstCredits}) à {endPage} ({lastCredits}) au total {totalPages} pages",
+	"subtitle": "Afficher {n} Entrées de la pages {startPage} ({firstDate}) à {endPage} ({lastDate}) au total {totalPages} pages",
 	"title": "Transactions"
 }

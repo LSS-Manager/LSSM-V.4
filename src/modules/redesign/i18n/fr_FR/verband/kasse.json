@@ -4,15 +4,15 @@
 		"credits": "Crédits",
 		"daily": "Journalier",
 		"monthly": "Mensuel",
-		"sum": "Somme",
-		"title": "Gains",
-		"user": "Joueurs"
+		"sum": "Total",
+		"title": "Rémunération",
+		"user": "Joueur"
 	},
 	"spendings": {
 		"credits": "Crédits",
 		"date": "Date",
 		"desc": "Description",
-		"loadMore": "Charger les 20 entrées supplémentaire",
+		"loadMore": "Affichez 20 entrée supplémentaire",
 		"title": "Dépenses",
 		"user": "Joueur"
 	},

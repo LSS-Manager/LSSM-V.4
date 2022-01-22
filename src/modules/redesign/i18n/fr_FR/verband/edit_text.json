@@ -8,9 +8,9 @@
 	"header": "Annonces importantes de l'Alliance",
 	"header_help": "Sera affiché sur la page de démarrage au-dessus du chat.",
 	"rules": "Règles de l'alliance",
-	"save": "Sauvegarder",
-	"text": "Description Text (Startpage)",
+	"save": "Enregistrer",
+	"text": "Texte de description (page de démarrage)",
 	"title": "Modification de l'alliance",
-	"webhook": "Discord-Webhook Link",
+	"webhook": "lien Discord-Webhook",
 	"webhook_help": "Vous pouvez trouver plus d'informations sur les webhooks Discord dans notre section"
 }
