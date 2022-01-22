@@ -19,6 +19,15 @@ export default <ModuleSettingFunction>(() => ({
         type: 'toggle',
         default: false,
     },
+    showSales: <Toggle>{
+        type: 'toggle',
+        default: true,
+    },
+    highlightSales: <Toggle>{
+        type: 'toggle',
+        default: true,
+        dependsOn: '.showSales',
+    },
     alerts: <Omit<AppendableList, 'value' | 'isDisabled'>>{
         type: 'appendable-list',
         default: [],

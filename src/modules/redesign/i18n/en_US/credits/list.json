@@ -6,6 +6,6 @@
 		"next": "20 Load older entries",
 		"prev": "20 Load newer entries"
 	},
-	"subtitle": "Show {n} Entries of the pages {startPage} ({firstCredits}) to {endPage} ({lastCredits}) of total {totalPages} Sides",
+	"subtitle": "Show {n} Entries of the pages {startPage} ({firstDate}) to {endPage} ({lastDate}) of total {totalPages} Sides",
 	"title": "Transactions"
 }

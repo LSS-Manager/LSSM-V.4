@@ -30,6 +30,14 @@
 			"description": "Zeigt den aktuellen Creditswert statt des Sparschweins in der Navigationsleiste.",
 			"title": "Credits statt Sparschwein"
 		},
+		"highlightSales": {
+			"description": "Hebt Coins grün hervor, wenn es gerade einen Sale gibt.",
+			"title": "Sales hervorheben"
+		},
+		"showSales": {
+			"description": "Zeigt an, wenn es gerade ein Sale für Coins gibt.",
+			"title": "Sales anzeigen"
+		},
 		"showToplistPosition": {
 			"description": "Zeigt den aktuellen Toplisten-Platz in der Creditserweiterung.",
 			"title": "Toplisten-Position in Creditserweiterung"
