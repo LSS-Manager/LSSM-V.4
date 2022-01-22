@@ -14,6 +14,16 @@ Affiche ta position actuelle dans le classement. La valeur est mise à jour tout
 
 ![avec position dans la toplist](toplist.png)
 
+## Affiche les soldes  
+Affiche les soldes de pièces lorsqu'elles sont disponibles.
+
+![Affiche les soldes](showSales.png)
+
+## Mettre en évidence les soldes  
+Surligne les pièces en vert si des soldes est disponible
+
+![Surligne les pièces](highlightSales.png)
+
 ## Objectifs
 Chaque fois que vous avez atteint l'un des objectifs de crédits définis, la tirelire ou le niveau de crédits est mis en évidence en vert jusqu'à ce que vous cliquez dessus la prochaine fois :
 
