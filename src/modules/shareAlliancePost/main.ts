@@ -146,6 +146,16 @@ export default <ModuleMainFunction>(async ({
         });
     }
 
+    const missionName =
+        mission?.name ??
+        Array.from(
+            document.querySelector<HTMLHeadingElement>(`#missionH1`)
+                ?.childNodes ?? []
+        )
+            .find(n => n.nodeType === Node.TEXT_NODE && n.textContent?.trim())
+            ?.textContent?.trim() ??
+        '';
+
     const variables: Record<
         string,
         (match: string, ...groups: string[]) => string
@@ -158,6 +168,7 @@ export default <ModuleMainFunction>(async ({
         cityWithoutZip: () => cityWithoutZip,
         beginAt: () => beginAtDate,
         longestDrive: () => longestDrive,
+        name: () => missionName,
         ...getTimeReplacers(),
     };
 

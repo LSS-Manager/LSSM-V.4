@@ -28,6 +28,10 @@ To also omit postcode/zipcode, simply use <code><span>{{</span>cityWithoutZip<sp
 
 <code><span>{{</span>beginAt<span>}}</span></code> is replaced by the time, a planned mission will start at.
 
+### Name of a mission
+
+<code><span>{{</span>name<span>}}</span></code> is replaced by the name of a mission.
+
 ### Longest drive
 
 <code><span>{{</span>longestDrive<span>}}</span></code> is replaced by how long it takes till all selected vehicles are at scene. **Important**: This Variable is of course not available when sharing in the mission list!

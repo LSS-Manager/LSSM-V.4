@@ -61,6 +61,17 @@ export default (
     separatorLi.classList.add('divider');
     dropdown.append(separatorLi);
 
+    const missionName =
+        missionSpecs?.name ??
+        Array.from(
+            mission.element.querySelector<HTMLAnchorElement>(
+                `#mission_caption_${mission.id}`
+            )?.childNodes ?? []
+        )
+            .find(n => n.nodeType === Node.TEXT_NODE && n.textContent?.trim())
+            ?.textContent?.replace(/,$/, '')
+            .trim() ??
+        '';
     const address =
         mission.element
             .querySelector<HTMLSpanElement>(`#mission_address_${mission.id}`)
@@ -110,6 +121,7 @@ export default (
                     60
             )
         ),
+        name: missionName,
     };
 
     const modifyMessage = (raw: string) => {
