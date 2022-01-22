@@ -150,7 +150,7 @@ module.exports = {
         pump: 'l/min Pumpenleistung',
         staffPrefix: ['Wir benötigen noch min.'],
         staff: {
-            [/^Feuerwehrleute$/]: [
+            [/^Feuerwehr(mann|leute)$/]: [
                 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17,
                 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 30, 33, 34, 36, 37, 46,
                 53, 57, 75, 76, 83, 84, 85, 86, 87, 88, 89, 90,
