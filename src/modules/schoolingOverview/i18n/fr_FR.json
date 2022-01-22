@@ -1,10 +1,10 @@
 {
-	"all": "Toute",
-	"amount": "Nombre de formation",
+	"all": "Toutes",
+	"amount": "Nombre de formations",
 	"open": "Formation ouverte",
-	"own": "Formation avec ses participants",
+	"own": "Formation en cours",
 	"schooling": "Formation",
-	"seats": "Nombre de places",
+	"seats": "Places disponibles",
 	"titles": {
 		"end": "Temps restant",
 		"name": "Formation",

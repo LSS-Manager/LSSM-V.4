@@ -2,7 +2,7 @@
 	"accept": "Accepter",
 	"alert": {
 		"accepted": "{username} a été accepté avec succès dans l'alliance !",
-		"declined": "La candidature de **{username}** a été rejetée !"
+		"declined": "La candidature de **{username}** a été refusé !"
 	},
 	"decline": "Refuser",
 	"rules": "Règlements de candidature",

@@ -12,7 +12,7 @@
 			"/verband/kasse": "Banque",
 			"/verband/mitglieder/{id}": "Membres",
 			"/verband/news/{id}": "News",
-			"/verband/regeln/{id}": "Régle",
+			"/verband/regeln/{id}": "Règlement",
 			"/verband/werbung": "Publicités"
 		},
 		"other": [
