@@ -10,7 +10,7 @@ Tout le jeu devrait tourner plus vite.
 
 
 
-### Profil 
+## Profil 
 
 |                     Personnel                   |              D'un joueur de l'alliance                |                Des autres joueurs                 |
 | :---------------------------------------------: | :---------------------------------------------------: | :-----------------------------------------------: |
@@ -20,7 +20,7 @@ Tout le jeu devrait tourner plus vite.
 | ![ProfilePersoReward](Profile/Perso/Reward.png) | ![ProfileAllianceReward](Profile/Alliance/Reward.png) | ![ProfileMemberReward](Profile/Member/Reward.png) |
 |                                                 |                                                       | ![ProfileMemberIgnore](Profile/Member/Ignore.png) |
 
-caractéristiques :
+### Caractéristiques :
 * bord gauche :
 	* boutons connus
 	* Brèves informations (grade, crédits gagnés, association).
@@ -36,6 +36,16 @@ caractéristiques :
 	* Sauter à chaque bâtiment sur la carte du profil avec la petite icône à côté du nom du bâtiment.
 * Liste des récompense
 * Les fenêtres "Modifier le texte du profil" et "Modifier la photo du profil" ont également été redessinées afin d'obtenir une meilleure expérience globale.
-TODO dans le profil :
+
+### TODO dans le profil :
 * Meilleure performance pour les profils avec de nombreux bâtiments.
 * Quelques textes doivent encore être adaptés
+
+## Rai
+Jusqu'à présent, seul l'aperçu est complet. La création et l'édition des AAO/trains est en cours
+![AOOOverview](AOO/Overview.png)
+
+### Caractéristiques :
+* Pas de rechargement ennuyeux de la page lors de la suppression de l'AAO .
+* lors de la création / modification, une fois que les pages ont été redessinées.
+
