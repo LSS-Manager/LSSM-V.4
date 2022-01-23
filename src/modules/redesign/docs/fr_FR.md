@@ -10,18 +10,14 @@ Tout le jeu devrait tourner plus vite.
 
 
 
-##Profil
+##Profil 
 
-|                 Personnel                 |        D'un joueur de l'alliance          |            Des autres joueurs             |
-| :---------------------------------------: | :---------------------------------------: | :---------------------------------------: |
-|                                           |                                           |                                           |
-|                                           |                                           |                                           |
-|                                           |                                           |                                           |
-|                                           |                                           |                                           |
-|                                           |                                           |                                           |
-|                                           |                                           |                                           |
-|                                           |                                           |                                           |
-|                                           |                                           |                                           |
-|                                           |                                           |                                           |
+|                    Personnel                  |             D'un joueur de l'alliance               |            Des autres joueurs             |
+| :-------------------------------------------: | :-------------------------------------------------: | :---------------------------------------: |
+| ![ProfilePersoText](ProfilePersoText.png)     | ![ProfileAllianceText](ProfileAllianceText.png)     |                                           |
+| ![ProfilePersoMap](ProfilePersoMap.png)       | ![ProfileAllianceMap](ProfileAllianceMap.png)       |                                           |
+| ![ProfilePersoBuild](ProfilePersoBuild.png)   | ![ProfileAllianceBuild](ProfileAllianceBuild.png)   |                                           |
+| ![ProfilePersoReward](ProfilePersoReward.png) | ![ProfileAllianceReward](ProfileAllianceReward.png) |                                           |
+|                                               |                                                     |                                           |
 
 
