@@ -19,20 +19,21 @@ Tout le jeu devrait tourner plus vite.
 | ![ProfilePersoBuild](Profile/Perso/Build.png)   | ![ProfileAllianceBuild](Profile/Alliance/Build.png)   |                                                   |
 | ![ProfilePersoReward](Profile/Perso/Reward.png) | ![ProfileAllianceReward](Profile/Alliance/Reward.png) | ![ProfileMemberReward](Profile/Member/Reward.png) |
 |                                                 |                                                       | ![ProfileMemberIgnore](Profile/Member/Ignore.png) |
+
 caractéristiques :
 * bord gauche :
-** boutons connus
-** Brèves informations (grade, crédits gagnés, association).
-** Dans le profil personnel, bien sûr aussi la date de connexion
-** Photo de profil
-** Petit graphique pour un aperçu des récompenses
-*** Le chiffre 14 vient du fait qu'un utilisateur qui s'inscrit maintenant peut actuellement obtenir 14 récompense.
+	* boutons connus
+	* Brèves informations (grade, crédits gagnés, association).
+	* Dans le profil personnel, bien sûr aussi la date de connexion
+	* Photo de profil
+	* Petit graphique pour un aperçu des récompenses
+		* Le chiffre 14 vient du fait qu'un utilisateur qui s'inscrit maintenant peut actuellement obtenir 14 récompense.
 * Texte du profil
 * Carte avec le filtre de carte (boutons au-dessus de la carte) => seulement pour les membres de l'association et dans le propre profil
 * Liste des bâtiments
-** triée par centre de contrôle
-** avec filtre et recherche
-** Sauter à chaque bâtiment sur la carte du profil avec la petite icône à côté du nom du bâtiment.
+	* triée par centre de contrôle
+	* avec filtre et recherche
+	* Sauter à chaque bâtiment sur la carte du profil avec la petite icône à côté du nom du bâtiment.
 * Liste des récompense
 * Les fenêtres "Modifier le texte du profil" et "Modifier la photo du profil" ont également été redessinées afin d'obtenir une meilleure expérience globale.
 TODO dans le profil :
