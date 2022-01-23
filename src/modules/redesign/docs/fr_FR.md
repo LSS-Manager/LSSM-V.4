@@ -21,8 +21,8 @@ Tout le jeu devrait tourner plus vite.
 |                                                 |                                                       | ![ProfileMemberIgnore](Profile/Member/Ignore.png) |
 
 ### Caractéristiques :
-* bord gauche :
-	* boutons connus
+* Bord gauche :
+	* Boutons connus
 	* Brèves informations (grade, crédits gagnés, association).
 	* Dans le profil personnel, bien sûr aussi la date de connexion
 	* Photo de profil
@@ -52,4 +52,34 @@ Jusqu'à présent, seul l'aperçu est complet. La création et l'édition des AA
 ### Caractéristiques :
 * Pas de rechargement ennuyeux de la page lors de la suppression de l'AAO .
 * lors de la création / modification, une fois que les pages ont été redessinées.
+
+## Liste des alliances et le classement des joueurs
+
+
+|               Liste des alliances               |            Le classement des joueurs            |
+| :---------------------------------------------: | :---------------------------------------------: | 
+|                                                 |                                                 | 
+
+## Page des alliances
+
+|                 Nom de la page                  |                      Photo                      |                    Remarques                    |
+| :---------------------------------------------: | :---------------------------------------------: | :---------------------------------------------: |
+|                                                 |                                                 |                                                 |
+
+## Page des crédits et des pièces
+
+|                 Nom de la page                  |                      Photo                      |                    Remarques                    |
+| :---------------------------------------------: | :---------------------------------------------: | :---------------------------------------------: |
+|                                                 |                                                 |                                                 | 
+
+## Page des Véhicule
+
+|                 Nom de la page                  |                      Photo                      |                    Remarques                    |
+| :---------------------------------------------: | :---------------------------------------------: | :---------------------------------------------: |
+|                                                 |                                                 |                                                 | 
+
+##FAQ
+### Quand la refonte arrivera-t-elle ?
+Dès qu'elle sera prête et présentable
+
 
