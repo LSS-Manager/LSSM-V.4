@@ -116,8 +116,8 @@ declare module 'vue/types/vue' {
             ): Promise<{ missionIds: string[]; missionNames: string[] }>;
             getNumberFromText<Multiple extends boolean = false>(
                 text: string,
-                allNumbers: Multiple = false,
-                fallback = -1
+                allNumbers?: Multiple,
+                fallback?: number
             ): Multiple extends true ? number[] : number;
             getTextNodes(
                 root: Node,
