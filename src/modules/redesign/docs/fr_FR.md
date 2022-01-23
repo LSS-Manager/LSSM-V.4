@@ -42,6 +42,10 @@ Tout le jeu devrait tourner plus vite.
 * Quelques textes doivent encore être adaptés
 
 ## Rai
+:::danger Attention
+Cette partie est encore en cours de développement et n'est donc pas encore disponible ! 
+:::
+
 Jusqu'à présent, seul l'aperçu est complet. La création et l'édition des AAO/trains est en cours
 ![AOOOverview](AOO/Overview.png)
 
