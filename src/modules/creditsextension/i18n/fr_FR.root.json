@@ -13,7 +13,7 @@
 		"overview": "Aperçu"
 	},
 	"description": "Affiche des informations utiles sur les pièces et les crédits dans la barre de navigation sous forme de menu déroulant.",
-	"name": "Extension de crédit",
+	"name": "Extension des crédits",
 	"nextRank": "Rang Suivant:",
 	"nextRankMissing": "restant",
 	"settings": {
