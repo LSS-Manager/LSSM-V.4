@@ -12,12 +12,12 @@ Tout le jeu devrait tourner plus vite.
 
 ##Profil 
 
-|                    Personnel                  |             D'un joueur de l'alliance               |            Des autres joueurs             |
-| :-------------------------------------------: | :-------------------------------------------------: | :---------------------------------------: |
-| ![ProfilePersoText](ProfilePersoText.png)     | ![ProfileAllianceText](ProfileAllianceText.png)     |                                           |
-| ![ProfilePersoMap](ProfilePersoMap.png)       | ![ProfileAllianceMap](ProfileAllianceMap.png)       |                                           |
-| ![ProfilePersoBuild](ProfilePersoBuild.png)   | ![ProfileAllianceBuild](ProfileAllianceBuild.png)   |                                           |
-| ![ProfilePersoReward](ProfilePersoReward.png) | ![ProfileAllianceReward](ProfileAllianceReward.png) |                                           |
-|                                               |                                                     |                                           |
+|                     Personnel                   |              D'un joueur de l'alliance                |            Des autres joueurs             |
+| :---------------------------------------------: | :---------------------------------------------------: | :---------------------------------------: |
+| ![ProfilePersoText](Profile/Perso/Text.png)     | ![ProfileAllianceText](Profile/Alliance/Text.png)     |                                           |
+| ![ProfilePersoMap](Profile/Perso/Map.png)       | ![ProfileAllianceMap](Profile/Alliance/Map.png)       |                                           |
+| ![ProfilePersoBuild](Profile/Perso/Build.png)   | ![ProfileAllianceBuild](Profile/Alliance/Build.png)   |                                           |
+| ![ProfilePersoReward](Profile/Perso/Reward.png) | ![ProfileAllianceReward](Profile/Alliance/Reward.png) |                                           |
+|                                                 |                                                       |                                           |
 
 
