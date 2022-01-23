@@ -36,7 +36,7 @@ Comme décrit dans l'explication de l'[Appstore](appstore.md), il y a des module
 
 Ci-dessous, nous avons dressé une liste des fonctionnalités de la V.3 et de l'endroit où tu les trouveras dans la V.4.
 
-|           Fonctionnalité V.3           |                        Module V.4                          |            Réglage V.4            |                  Modifications / remarques                   |
+|           Fonctionnalité V.3           |                        Module V.4                          |            Réglage V.4            |                  Modifications / Remarques                   |
 | :------------------------------------: | :--------------------------------------------------------: | :-------------------------------: | :----------------------------------------------------------: |
 |           Aide à la mission            |                   [Aide à la mission][missionHelper]       |                                   |                                                              |
 |             Plan du centre             |           [Améliorations de la carte][extendedMap]         |                                   | Actuellement, seul le mode statique est intégré ici. Le mode dynamique suivra. |
@@ -70,7 +70,7 @@ Ci-dessous, nous avons dressé une liste des fonctionnalités de la V.3 et de l'
 En principe, nous souhaitons intégrer à terme toutes les fonctionnalités de la V.3 dans la V.4 !
 
 
-|           Fonctionnalité V.3           |                          remarques                           |
+|           Fonctionnalité V.3           |                          Remarques                           |
 | :------------------------------------: | :----------------------------------------------------------: |
 |             Recherche AAO              |                                                              |
 |Enregistrer les appels d'alliance créés |                                                              |
@@ -90,7 +90,7 @@ En principe, nous souhaitons intégrer à terme toutes les fonctionnalités de l
 
 ## Nouveauté de LSSM V.4 
 
-|                        Module V.4                          |                          remarques                           |
+|                        Module V.4                          |                          Remarques                           |
 | :--------------------------------------------------------: | :----------------------------------------------------------: |
 |              [Améliorations du tchat][chatExtras]          |                                                              |
 |             [Améliorations générales][generalExtensions]   |                                                              |
@@ -125,7 +125,7 @@ En principe, nous souhaitons intégrer à terme toutes les fonctionnalités de l
 [notificationAlert]: modules/notificationAlert.md
 [enhancedPOI]: modules/enhancedPOI.md
 [sap]: modules/shareAlliancePost.md
-[redesign]: module/redesign.md
+[redesign]: modules/redesign.md
 [dailyCreditsSummary]: modules/dailyCreditsSummary.md
 [dashboard]: modules/dashboard.md
 [hotkeys]: modules/hotkeys.md
