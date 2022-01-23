@@ -1,7 +1,7 @@
 Il s'agit avant tout d'une refonte des pages, sans la page principale.
 Tout le jeu devrait tourner plus vite.
 
-###La refonte n'offre pas que des avantages :
+### La refonte n'offre pas que des avantages :
 
 |                 Avantages                 |                                                Désavantage                                                |
 | :---------------------------------------: | :-------------------------------------------------------------------------------------------------------: |
@@ -10,14 +10,14 @@ Tout le jeu devrait tourner plus vite.
 
 
 
-##Profil 
+## Profil 
 
 |                     Personnel                   |              D'un joueur de l'alliance                |            Des autres joueurs             |
-| :---------------------------------------------: | :---------------------------------------------------: | :---------------------------------------: |
-| ![ProfilePersoText](Profile/Perso/Text.png)     | ![ProfileAllianceText](Profile/Alliance/Text.png)     |                                           |
-| ![ProfilePersoMap](Profile/Perso/Map.png)       | ![ProfileAllianceMap](Profile/Alliance/Map.png)       |                                           |
-| ![ProfilePersoBuild](Profile/Perso/Build.png)   | ![ProfileAllianceBuild](Profile/Alliance/Build.png)   |                                           |
-| ![ProfilePersoReward](Profile/Perso/Reward.png) | ![ProfileAllianceReward](Profile/Alliance/Reward.png) |                                           |
-|                                                 |                                                       |                                           |
+| :---------------------------------------------: | :---------------------------------------------------: | :-----------------------------------------------: |
+| ![ProfilePersoText](Profile/Perso/Text.png)     | ![ProfileAllianceText](Profile/Alliance/Text.png)     | ![ProfileMemberText](Profile/Member/Text.png)     |
+| ![ProfilePersoMap](Profile/Perso/Map.png)       | ![ProfileAllianceMap](Profile/Alliance/Map.png)       |                                                   |
+| ![ProfilePersoBuild](Profile/Perso/Build.png)   | ![ProfileAllianceBuild](Profile/Alliance/Build.png)   |                                                   |
+| ![ProfilePersoReward](Profile/Perso/Reward.png) | ![ProfileAllianceReward](Profile/Alliance/Reward.png) | ![ProfileMemberReward](Profile/Member/Reward.png) |
+|                                                 |                                                       | ![ProfileMemberIgnore](Profile/Member/Ignore.png) |
 
 
