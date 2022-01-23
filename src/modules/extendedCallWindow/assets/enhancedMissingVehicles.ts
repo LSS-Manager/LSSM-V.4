@@ -50,7 +50,7 @@ export default (LSSM: Vue, MODULE_ID: string, $m: $m): void => {
     )}|${groupsRegex}`;
 
     const requirementRegex = new RegExp(
-        `(${numRegex}\\s+(${innerRegex}))|(${innerRegex}):\\s*${numRegex}`,
+        `((${numRegex}\\s+(${innerRegex}))|(${innerRegex}):\\s*${numRegex})(?=[,.]|$)`,
         'g'
     );
     const missingRequirementMatches =
