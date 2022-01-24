@@ -2,9 +2,11 @@ import he from 'he';
 
 import {
     addHoursToNow,
+    createEditBtn,
     createIcon,
     dateToTime,
     getCityFromAddress,
+    getDropdownClickHandler,
     getTimeReplacers,
     removeZipFromCity,
     sendReply,
@@ -255,29 +257,11 @@ export default <ModuleMainFunction>(async ({
                             'fa-fw',
                             'pull-right'
                         );
-                        icon.style.setProperty('margin-right', '7px');
                         a.append(icon);
 
                         if (editable) {
-                            const editBtn = document.createElement('button');
-                            editBtn.classList.add(
-                                'btn',
-                                'btn-xs',
-                                'btn-default',
-                                editBtnClass
-                            );
-                            editBtn.style.setProperty('position', 'absolute');
-                            editBtn.style.setProperty('right', '0');
-                            editBtn.style.setProperty(
-                                'transform',
-                                'translateY(-3px)'
-                            );
-
-                            const btnIcon = createIcon('edit', 'fas', 'fa-fw');
-                            btnIcon.style.setProperty('pointer-events', 'none');
-
-                            editBtn.append(btnIcon);
-                            a.append(editBtn);
+                            icon.style.setProperty('margin-right', '7px');
+                            a.append(createEditBtn(editBtnClass));
                         }
 
                         li.append(a);
@@ -419,143 +403,43 @@ export default <ModuleMainFunction>(async ({
             `${MODULE_ID}_edit-msg_input-group`
         );
 
-        btnGroup.addEventListener('click', e => {
-            const target = e.target;
-            if (!target || !(target instanceof HTMLElement)) return;
-            const liElement = target.closest<HTMLLIElement>(
-                'li[data-message][data-post], li[data-no-message]'
-            );
-            if (target.closest(`.${inputGroupClass}`)) {
-                e.stopPropagation();
-                e.stopImmediatePropagation();
-                return;
-            }
-            if (!liElement) return;
+        btnGroup.addEventListener(
+            'click',
+            getDropdownClickHandler(
+                inputGroupClass,
+                editBtnClass,
+                liElement => {
+                    alarmSharePostBtn.disabled = true;
+                    alarmSharePostNextBtn.disabled = true;
 
-            e.preventDefault();
-
-            const editBtn = target.closest<HTMLButtonElement>(
-                `button.${editBtnClass}`
-            );
-            if (editBtn) {
-                e.stopPropagation();
-                e.stopImmediatePropagation();
-
-                editBtn.disabled = true;
-
-                const wrapper = document.createElement('div');
-                wrapper.classList.add('input-group', inputGroupClass);
-                wrapper.style.setProperty('position', 'absolute');
-                wrapper.style.setProperty('left', '100%');
-                wrapper.style.setProperty('transform', 'translateY(-26px)');
-
-                const abortBtnWrapper = document.createElement('div');
-                abortBtnWrapper.classList.add('input-group-addon');
-                abortBtnWrapper.style.setProperty('padding', '0');
-                const abortBtn = document.createElement('button');
-                abortBtn.classList.add('btn', 'btn-danger');
-                abortBtn.style.setProperty('padding', '6px 3px');
-                const abortIcon = createIcon('times', 'fas', 'fa-fw');
-                abortBtn.append(abortIcon);
-                abortBtnWrapper.append(abortBtn);
-                abortBtn.addEventListener('click', e => {
-                    e.stopPropagation();
-                    e.stopImmediatePropagation();
-                    wrapper.remove();
-                    editBtn.disabled = false;
-                });
-
-                const inputField = document.createElement('input');
-                inputField.classList.add('form-control');
-                inputField.style.setProperty(
-                    'width',
-                    'max(20em, calc(100vw / 3))'
-                );
-                inputField.type = 'text';
-                inputField.value = liElement.dataset.message ?? '';
-
-                const postWrapper = document.createElement('label');
-                postWrapper.classList.add('input-group-addon');
-                const postSpan = document.createElement('span');
-                postSpan.style.setProperty('display', 'flex');
-                const postInput = document.createElement('input');
-                postInput.type = 'checkbox';
-                postInput.checked = liElement.dataset.post === 'true';
-                const postIcon = createIcon(
-                    'comment',
-                    'fas',
-                    'fa-fw',
-                    'pull-right'
-                );
-                postSpan.append(postInput, postIcon);
-                postWrapper.append(postSpan);
-                postWrapper.addEventListener('click', e => {
-                    e.stopPropagation();
-                    e.stopImmediatePropagation();
-                });
-
-                const sendBtnWrapper = document.createElement('div');
-                sendBtnWrapper.classList.add('input-group-addon');
-                sendBtnWrapper.style.setProperty('padding', '0');
-                const sendBtn = document.createElement('button');
-                sendBtn.classList.add('btn', 'btn-success');
-                const sendIcon = createIcon('paper-plane', 'fas', 'fa-fw');
-                sendBtn.append(sendIcon);
-                sendBtnWrapper.append(sendBtn);
-                sendBtn.addEventListener('click', e => {
-                    e.stopPropagation();
-                    e.stopImmediatePropagation();
-                    abortBtn.disabled = true;
-                    inputField.disabled = true;
-                    postInput.disabled = true;
-                    sendBtn.disabled = true;
-                    liElement.dataset.message = liElement.dataset.raw =
-                        inputField.value.trim();
-                    liElement.dataset.post = postInput.checked.toString();
-                    liElement.click();
-                });
-
-                inputField.addEventListener('keydown', e => {
-                    if (e.key === 'Enter') sendBtn.click();
-                });
-
-                wrapper.append(
-                    abortBtnWrapper,
-                    inputField,
-                    postWrapper,
-                    sendBtnWrapper
-                );
-                editBtn.after(wrapper);
-                return;
-            }
-
-            alarmSharePostBtn.disabled = true;
-            alarmSharePostNextBtn.disabled = true;
-
-            shareMission(LSSM, missionId)
-                .then(() =>
-                    liElement.dataset.noMessage
-                        ? new Promise<void>(resolve => resolve())
-                        : sendReply(
-                              LSSM,
-                              missionId,
-                              liElement.dataset.message ?? '',
-                              liElement.dataset.post === 'true',
-                              authToken
-                          )
-                )
-                .then(() =>
-                    document
-                        .querySelector<HTMLAnchorElement>(
-                            liElement.closest(`#${alarmSharePostGroup.id}`)
-                                ? '#mission_alarm_btn'
-                                : missionsSorted
-                                ? `.${sortedMissionClass}`
-                                : '#alert_next_btn'
+                    shareMission(LSSM, missionId)
+                        .then(() =>
+                            liElement.dataset.noMessage
+                                ? new Promise<void>(resolve => resolve())
+                                : sendReply(
+                                      LSSM,
+                                      missionId,
+                                      liElement.dataset.message ?? '',
+                                      liElement.dataset.post === 'true',
+                                      authToken
+                                  )
                         )
-                        ?.click()
-                );
-        });
+                        .then(() =>
+                            document
+                                .querySelector<HTMLAnchorElement>(
+                                    liElement.closest(
+                                        `#${alarmSharePostGroup.id}`
+                                    )
+                                        ? '#mission_alarm_btn'
+                                        : missionsSorted
+                                        ? `.${sortedMissionClass}`
+                                        : '#alert_next_btn'
+                                )
+                                ?.click()
+                        );
+                }
+            )
+        );
 
         navbar?.append(btnGroup);
     }
