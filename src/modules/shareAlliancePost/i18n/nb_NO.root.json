@@ -1,0 +1,18 @@
+{
+	"description": "Alarm, del oppdraget og legg ut et hendelsesnotat med et enkelt klikk.",
+	"name": "Del-Allianse-Post",
+	"noMessage": "Uten hendelsesnotat",
+	"settings": {
+		"enableCallList": {
+			"description": "Integrerer denne modulen i \"Del oppdrag\" av utvidet anropsliste.",
+			"title": "Integrasjon til anropsliste"
+		},
+		"message": "Hendelsesnotat",
+		"messages": {
+			"description": "Angi hendelsesnotatene dine her. Du kan bruke variabler, vennligst ta en titt på vår <a class=\"lightbox-open\" href=\"{wiki}modules/shareAlliancePost.html#variables\">Wiki</a > derfor!Vennligst gi et unikt navn til hvert svar, for å identifisere dem raskt i alarmvinduet.",
+			"title": "Svar"
+		},
+		"name": "Name",
+		"postInChat": "Legg ut notat i chattent?"
+	}
+}

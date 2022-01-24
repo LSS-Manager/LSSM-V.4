@@ -1,0 +1,14 @@
+{
+	"buildings": "Byggninger",
+	"enable": "På",
+	"includes": {
+		"buildings": "Bygnings type",
+		"vehicles": "Bil type"
+	},
+	"intensity": "intensity boost",
+	"radius": "radius",
+	"save": "Save",
+	"static": "radius in pixels?",
+	"title": "Heatmap settings",
+	"vehicles": "Biler"
+}

@@ -30,6 +30,14 @@
 			"description": "Viser gjeldende kreditter i navbar i stedet for den søte sparegrisen.",
 			"title": "Kreditter istedenfor sparegris"
 		},
+		"highlightSales": {
+			"description": "Uthever Mynter grønne hvis et salg er tilgjengelig",
+			"title": "highlight Sales"
+		},
+		"showSales": {
+			"description": "Viser salg for mynter når det er tilgjengelig.",
+			"title": "Vis salg"
+		},
 		"showToplistPosition": {
 			"description": "Viser gjeldende topplisterangering i kredittutvidelsen.",
 			"title": "Toppliste-rangering i kredittforlengelse"
