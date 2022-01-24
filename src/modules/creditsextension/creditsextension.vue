@@ -48,8 +48,8 @@
                     </span>
                     <span
                         v-if="showSales"
-                        id="sale_countdown"
-                        ref="sale_countdown"
+                        ref="sale_countdown_clone"
+                        class="sale-countdown"
                     ></span>
                 </span>
             </template>
@@ -104,8 +104,8 @@
                     {{ $t('coins') }}: {{ coinsLocalized }}
                     <div
                         v-if="showSales"
-                        ref="sale_countdown_clone"
-                        class="sale-countdown"
+                        id="sale_countdown"
+                        ref="sale_countdown"
                     ></div>
                 </a>
                 <button
@@ -316,7 +316,7 @@ export default Vue.extend<
             return `/toplist?page=${Math.ceil(this.toplistPosition / 20)}`;
         },
         isPiggyBankMode() {
-            return !(this.creditsInNav && this.coinsInNav);
+            return !(this.creditsInNav || this.coinsInNav);
         },
     },
     watch: {
