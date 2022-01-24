@@ -102,3 +102,13 @@ export function sendReply(
         },
     });
 }
+
+export function createIcon(
+    icon: string,
+    style: 'fas' | 'far' | 'fab' = 'fas',
+    ...classes: string[]
+) {
+    const iconElement = document.createElement('i');
+    iconElement.classList.add(style, `fa-${icon}`, ...classes);
+    return iconElement;
+}

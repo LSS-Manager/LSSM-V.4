@@ -2,6 +2,7 @@ import he from 'he';
 
 import {
     addHoursToNow,
+    createIcon,
     dateToTime,
     getCityFromAddress,
     getTimeReplacers,
@@ -207,8 +208,7 @@ export default <ModuleMainFunction>(async ({
     const btn = document.createElement('button');
     btn.classList.add('btn', 'dropdown-toggle');
     btn.dataset.toggle = 'dropdown';
-    const icon = document.createElement('i');
-    icon.classList.add('fas', 'fa-comment-dots');
+    const icon = createIcon('comment-dots', 'fas');
     icon.style.setProperty('margin-right', '4px');
     const caret = document.createElement('span');
     caret.classList.add('caret');
@@ -249,12 +249,11 @@ export default <ModuleMainFunction>(async ({
                         a.style.setProperty('cursor', 'pointer');
                         a.textContent = name;
 
-                        const icon = document.createElement('i');
-                        icon.classList.add(
-                            'pull-right',
-                            'fa-fw',
+                        const icon = createIcon(
+                            postInChat ? 'comment' : 'comment-slash',
                             'fas',
-                            postInChat ? 'fa-comment' : 'fa-comment-slash'
+                            'fa-fw',
+                            'pull-right'
                         );
                         icon.style.setProperty('margin-right', '7px');
                         a.append(icon);
@@ -274,8 +273,7 @@ export default <ModuleMainFunction>(async ({
                                 'translateY(-3px)'
                             );
 
-                            const btnIcon = document.createElement('i');
-                            btnIcon.classList.add('fa-fw', 'fas', 'fa-edit');
+                            const btnIcon = createIcon('edit', 'fas', 'fa-fw');
                             btnIcon.style.setProperty('pointer-events', 'none');
 
                             editBtn.append(btnIcon);
@@ -333,14 +331,10 @@ export default <ModuleMainFunction>(async ({
         const btnGroup = document.createElement('div');
         btnGroup.classList.add('btn-group');
 
-        const phoneIcon = document.createElement('i');
-        phoneIcon.classList.add('fas', 'fa-fw', 'fa-phone-alt');
-        const shareIcon = document.createElement('i');
-        shareIcon.classList.add('fas', 'fa-fw', 'fa-share-alt');
-        const commentIcon = document.createElement('i');
-        commentIcon.classList.add('fas', 'fa-fw', 'fa-comment-dots');
-        const arrowIcon = document.createElement('i');
-        arrowIcon.classList.add('fas', 'fa-fw', 'fa-arrow-alt-circle-right');
+        const phoneIcon = createIcon('phone-alt', 'fas', 'fa-fw');
+        const shareIcon = createIcon('share-alt', 'fas', 'fa-fw');
+        const commentIcon = createIcon('comment-dots', 'fas', 'fa-fw');
+        const arrowIcon = createIcon('arrow-alt-circle-right', 'fas', 'fa-fw');
 
         const alarmSharePostGroup = document.createElement('div');
         alarmSharePostGroup.classList.add('btn-group', 'dropup');
@@ -461,8 +455,7 @@ export default <ModuleMainFunction>(async ({
                 const abortBtn = document.createElement('button');
                 abortBtn.classList.add('btn', 'btn-danger');
                 abortBtn.style.setProperty('padding', '6px 3px');
-                const abortIcon = document.createElement('i');
-                abortIcon.classList.add('fa-fw', 'fas', 'fa-times');
+                const abortIcon = createIcon('times', 'fas', 'fa-fw');
                 abortBtn.append(abortIcon);
                 abortBtnWrapper.append(abortBtn);
                 abortBtn.addEventListener('click', e => {
@@ -488,12 +481,11 @@ export default <ModuleMainFunction>(async ({
                 const postInput = document.createElement('input');
                 postInput.type = 'checkbox';
                 postInput.checked = liElement.dataset.post === 'true';
-                const postIcon = document.createElement('i');
-                postIcon.classList.add(
-                    'pull-right',
-                    'fa-fw',
+                const postIcon = createIcon(
+                    'comment',
                     'fas',
-                    'fa-comment'
+                    'fa-fw',
+                    'pull-right'
                 );
                 postSpan.append(postInput, postIcon);
                 postWrapper.append(postSpan);
@@ -507,8 +499,7 @@ export default <ModuleMainFunction>(async ({
                 sendBtnWrapper.style.setProperty('padding', '0');
                 const sendBtn = document.createElement('button');
                 sendBtn.classList.add('btn', 'btn-success');
-                const sendIcon = document.createElement('i');
-                sendIcon.classList.add('fa-fw', 'fas', 'fa-paper-plane');
+                const sendIcon = createIcon('paper-plane', 'fas', 'fa-fw');
                 sendBtn.append(sendIcon);
                 sendBtnWrapper.append(sendBtn);
                 sendBtn.addEventListener('click', e => {
@@ -522,6 +513,10 @@ export default <ModuleMainFunction>(async ({
                         inputField.value.trim();
                     liElement.dataset.post = postInput.checked.toString();
                     liElement.click();
+                });
+
+                inputField.addEventListener('keydown', e => {
+                    if (e.key === 'Enter') sendBtn.click();
                 });
 
                 wrapper.append(

@@ -1,5 +1,6 @@
 import {
     addHoursToNow,
+    createIcon,
     dateToTime,
     getCityFromAddress,
     getTimeReplacers,
@@ -22,8 +23,7 @@ const createLi = <I extends 'comment' | 'comment-slash'>(
     a.style.setProperty('cursor', 'pointer');
     a.textContent = content;
     if (icon) {
-        const iconEl = document.createElement('i');
-        iconEl.classList.add('pull-right', 'fa-fw', 'fas', `fa-${icon}`);
+        const iconEl = createIcon(icon, 'fas', 'fa-fw', 'pull-right');
         a.append(iconEl);
     }
     li.append(a);
