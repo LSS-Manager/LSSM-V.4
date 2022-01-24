@@ -36,96 +36,88 @@ export default <RedesignParser<VerbandMitgliederWindow>>(({
     doc,
     href = '',
     getIdFromEl = () => -1,
-}) => {
-    const getNum = (el: Element | null) =>
-        parseInt(
-            el?.textContent
-                ?.trim()
-                .match(/-?\d{1,3}([.,]\d{3})*/)?.[0]
-                ?.replace(/[.,]/g, '') ?? '-1'
-        );
-    return {
-        ...verbandParser({ doc, getIdFromEl }),
-        users: Array.from(
-            doc.querySelectorAll<HTMLTableRowElement>(
-                'table tbody:last-of-type tr'
-            )
-        ).map(
-            user =>
-                <User>{
-                    credits: getNum(user.children[2]),
-                    name: user.children[0]?.textContent?.trim() ?? '',
-                    id: getIdFromEl(
-                        user.children[0]?.querySelector<HTMLAnchorElement>('a')
-                    ),
-                    icon_src:
-                        user.children[0].querySelector<HTMLImageElement>(
-                            'img.online_icon'
-                        )?.src ?? '/images/user_gray.png',
-                    caption:
-                        user.children[1]
-                            .querySelector<HTMLSpanElement>(
-                                '.badge[id^="role_caption_"]'
-                            )
-                            ?.innerText?.trim() ?? '',
-                    roles:
-                        user.children[1]
-                            .querySelector<HTMLElement>('small')
-                            ?.innerText?.trim()
-                            .split(',')
-                            .map(r => r.trim())
-                            .filter(r => r.length)
-                            .sort() ?? [],
-                    discount: getIdFromEl(
-                        user.children[3]?.querySelector<HTMLAnchorElement>(
-                            'a.btn-success[href^="/verband/discount"]'
+    LSSM,
+}) => ({
+    ...verbandParser({ doc, getIdFromEl }),
+    users: Array.from(
+        doc.querySelectorAll<HTMLTableRowElement>('table tbody:last-of-type tr')
+    ).map(
+        user =>
+            <User>{
+                credits: LSSM.$utils.getNumberFromText(
+                    user.children[2]?.textContent?.trim() ?? ''
+                ),
+                name: user.children[0]?.textContent?.trim() ?? '',
+                id: getIdFromEl(
+                    user.children[0]?.querySelector<HTMLAnchorElement>('a')
+                ),
+                icon_src:
+                    user.children[0].querySelector<HTMLImageElement>(
+                        'img.online_icon'
+                    )?.src ?? '/images/user_gray.png',
+                caption:
+                    user.children[1]
+                        .querySelector<HTMLSpanElement>(
+                            '.badge[id^="role_caption_"]'
                         )
-                    ),
-                    tax: getNum(user.children[4]),
-                    edit: user.children[5]?.querySelector<HTMLAnchorElement>(
-                        '.btn_edit_rights'
+                        ?.innerText?.trim() ?? '',
+                roles:
+                    user.children[1]
+                        .querySelector<HTMLElement>('small')
+                        ?.innerText?.trim()
+                        .split(',')
+                        .map(r => r.trim())
+                        .filter(r => r.length)
+                        .sort() ?? [],
+                discount: getIdFromEl(
+                    user.children[3]?.querySelector<HTMLAnchorElement>(
+                        'a.btn-success[href^="/verband/discount"]'
                     )
-                        ? {
-                              kick: !!user.children[5].querySelector<HTMLAnchorElement>(
-                                  'a[href^="/verband/kick/"]'
-                              ),
-                              ...Object.fromEntries(
-                                  [
-                                      'admin',
-                                      'coadmin',
-                                      'sprechwunsch_admin',
-                                      'aufsichtsrat',
-                                      'finance',
-                                      'schooling',
-                                      'staff',
-                                  ].map(role => [
-                                      role,
-                                      !!user.children[5]
-                                          .querySelector<HTMLAnchorElement>(
-                                              `a[href^="/verband/${role}/"]`
-                                          )
-                                          ?.classList.contains('btn-danger'),
-                                  ])
-                              ),
-                          }
-                        : undefined,
-                }
-        ),
-        online: new URL(href, window.location.origin).searchParams.has(
-            'online'
-        ),
-        lastPage: parseInt(
-            doc
-                .querySelector<HTMLAnchorElement>(
-                    '.pagination.pagination li:nth-last-of-type(2)'
+                ),
+                tax: LSSM.$utils.getNumberFromText(
+                    user.children[4]?.textContent?.trim() ?? ''
+                ),
+                edit: user.children[5]?.querySelector<HTMLAnchorElement>(
+                    '.btn_edit_rights'
                 )
-                ?.textContent?.trim() ?? '1'
-        ),
-        edit_caption: !!doc.querySelector<HTMLAnchorElement>(
-            'a[href^="/verband/rolecaptionForm/"]'
-        ),
-        edit_discount: !!doc.querySelector<HTMLAnchorElement>(
-            'a[href^="/verband/discount/"]'
-        ),
-    };
-});
+                    ? {
+                          kick: !!user.children[5].querySelector<HTMLAnchorElement>(
+                              'a[href^="/verband/kick/"]'
+                          ),
+                          ...Object.fromEntries(
+                              [
+                                  'admin',
+                                  'coadmin',
+                                  'sprechwunsch_admin',
+                                  'aufsichtsrat',
+                                  'finance',
+                                  'schooling',
+                                  'staff',
+                              ].map(role => [
+                                  role,
+                                  !!user.children[5]
+                                      .querySelector<HTMLAnchorElement>(
+                                          `a[href^="/verband/${role}/"]`
+                                      )
+                                      ?.classList.contains('btn-danger'),
+                              ])
+                          ),
+                      }
+                    : undefined,
+            }
+    ),
+    online: new URL(href, window.location.origin).searchParams.has('online'),
+    lastPage: parseInt(
+        doc
+            .querySelector<HTMLAnchorElement>(
+                '.pagination.pagination li:nth-last-of-type(2)'
+            )
+            ?.textContent?.trim() ?? '1'
+    ),
+    edit_caption: !!doc.querySelector<HTMLAnchorElement>(
+        'a[href^="/verband/rolecaptionForm/"]'
+    ),
+    edit_discount: !!doc.querySelector<HTMLAnchorElement>(
+        'a[href^="/verband/discount/"]'
+    ),
+}));

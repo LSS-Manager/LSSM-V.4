@@ -469,7 +469,7 @@ export default Vue.extend<
                                         'height'
                                     );
                                 } catch (e) {
-                                    this.errors.push(e);
+                                    if (e instanceof Error) this.errors.push(e);
                                     this.$store.dispatch('console/error', [e]);
                                 }
                             }
