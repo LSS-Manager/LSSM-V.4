@@ -37,7 +37,7 @@
 	"@types/leaflet": {
 		"icon": "https://avatars.githubusercontent.com/u/3637556",
 		"url": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/leaflet",
-		"version": "1.7.8"
+		"version": "1.7.9"
 	},
 	"@types/lodash": {
 		"icon": "https://avatars.githubusercontent.com/u/3637556",
@@ -90,11 +90,11 @@
 	},
 	"@typescript-eslint/eslint-plugin": {
 		"icon": "https://avatars.githubusercontent.com/u/46634674",
-		"version": "5.10.0"
+		"version": "5.10.1"
 	},
 	"@typescript-eslint/parser": {
 		"icon": "https://avatars.githubusercontent.com/u/46634674",
-		"version": "5.10.0"
+		"version": "5.10.1"
 	},
 	"@vuepress/plugin-active-header-links": {
 		"icon": "https://vuepress.vuejs.org/hero.png",
@@ -225,7 +225,7 @@
 	"sass-loader": {
 		"icon": "https://webpack.js.org/assets/icon-square-big.svg",
 		"url": "https://github.com/webpack-contrib/sass-loader",
-		"version": "10.2.0"
+		"version": "10.2.1"
 	},
 	"semver": {
 		"version": "7.3.5"
