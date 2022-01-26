@@ -715,6 +715,10 @@ export default Vue.extend<
                           title: this.lightbox.$sm('discount').toString(),
                       },
                       tax: { title: this.lightbox.$sm('tax').toString() },
+                  }
+                : {}),
+            ...(this.mitglieder.edit_rights
+                ? {
                       edit: { title: '', noSort: true },
                   }
                 : {}),
