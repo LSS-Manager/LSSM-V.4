@@ -143,6 +143,26 @@ export default Vue.extend<
             const abortIcon = document.createElement('i');
             abortIcon.classList.add('fas', 'fa-times');
             abort.append(abortIcon);
+
+            const sync: HTMLAnchorElement = await this.$store.dispatch(
+                'addOSMControl',
+                {
+                    position: 'bottom-left',
+                    mapId,
+                }
+            );
+            sync.classList.add('btn', 'btn-default', 'btn-xs');
+            sync.style.setProperty('width', 'auto');
+            sync.style.setProperty('height', 'auto');
+            sync.addEventListener('click', e => {
+                e.preventDefault();
+                const center = window.map.getCenter();
+                map.setView(center, window.map.getZoom());
+                if (this.locationMarker) this.locationMarker.setLatLng(center);
+            });
+            sync.textContent = this.$t(
+                'modules.settings.locationSelect.sync'
+            ).toString();
         },
     },
     beforeMount() {

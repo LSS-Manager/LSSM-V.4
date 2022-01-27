@@ -56,6 +56,7 @@ const modules = {
         locationSelect: {
             location: 'Select position',
             zoom: 'Select position and zoom',
+            sync: 'use current position',
         },
     },
 } as { [moduleId: string]: { [key: string]: unknown } };

@@ -56,6 +56,7 @@ const modules = {
         locationSelect: {
             location: 'Selecteer positie',
             zoom: 'Selecteer positie en zoom',
+            sync: 'Gebruik huidige positie',
         },
     },
 } as { [moduleId: string]: { [key: string]: unknown } };
