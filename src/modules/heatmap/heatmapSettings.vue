@@ -118,6 +118,9 @@
                 multiple
                 v-model="settings[mode('Includes')]"
                 :options="includeOptions"
+                append-to-body
+                @open="dropdownOpened"
+                @close="dropdownClosed"
             >
                 <div slot="no-options">
                     {{ $t('noOptions') }}
@@ -168,12 +171,15 @@ export default Vue.extend<
         radiusPxAsRange: boolean;
         intensityAsRange: boolean;
         vehicleTypes: Record<number, InternalVehicle>;
+        dropdownStyle: HTMLStyleElement;
     },
     {
         mode: <Setting extends keyof Subsetting<''>>(
             setting: Setting
         ) => `${Mode}${Setting}`;
         save: () => Promise<void>;
+        dropdownOpened: () => void;
+        dropdownClosed: () => void;
     },
     { includeOptions: { value: string | number; label: string }[] },
     {
@@ -197,6 +203,9 @@ export default Vue.extend<
     data() {
         const nodeAttribute = (attr: string, id = false) =>
             this.$store.getters.nodeAttribute(`heatmap-settings-${attr}`, id);
+
+        const dropdownStyle = document.createElement('style');
+        dropdownStyle.textContent = `.vs__dropdown-menu{z-index: 6000;}`;
 
         return {
             settings: {
@@ -229,6 +238,7 @@ export default Vue.extend<
                 number,
                 InternalVehicle
             >,
+            dropdownStyle,
         };
     },
     methods: {
@@ -240,6 +250,12 @@ export default Vue.extend<
                 await this.setSetting(setting, value);
 
             this.updateSettings(this.settings);
+        },
+        dropdownOpened() {
+            document.head.append(this.dropdownStyle);
+        },
+        dropdownClosed() {
+            this.dropdownStyle.remove();
         },
     },
     computed: {

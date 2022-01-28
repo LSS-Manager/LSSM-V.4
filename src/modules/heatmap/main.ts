@@ -261,7 +261,11 @@ export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, $m }) => {
                             updateSettings: update(map, heatLayer),
                             $m,
                         },
-                        { name: 'heatmap-settings', height: '90%' }
+                        {
+                            name: 'heatmap-settings',
+                            height: 'auto',
+                            draggable: true,
+                        }
                     )
                 );
 
