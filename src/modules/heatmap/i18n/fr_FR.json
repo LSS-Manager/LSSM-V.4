@@ -6,7 +6,7 @@
 		"vehicles": "Types de véhicules"
 	},
 	"intensity": "augmentation de l'activité",
-	"livePreview": "Live-Preview (auto-save)",
+	"livePreview": "Aperçu en direct (auto-save)",
 	"radius": "rayon",
 	"save": "Sauver",
 	"static": "le rayon en pixels ?",
