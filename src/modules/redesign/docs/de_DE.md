@@ -85,11 +85,11 @@ Es kommen noch weitere Filter & Zusammenfassungen :)
 
 |                                Pic                                  |                             Bemerkungen                             |
 | :-----------------------------------------------------------------: | :-----------------------------------------------------------------: |
-| ![Vehicles](Vehicles/Vehicle.png)                                   | Manifestement, le calcul des revenus ne fonctionne pas              |
-| ![VehiclesFilter](Vehicles/Filter.png)                              | Triés par patients restants                                         |
-| ![VehiclesTransportPatient](Vehicles/TransportPatient.png)          | Demande de deplacement de patients avec fonctions de filtrage       |
-| ![VehiclesTransportPolice](Vehicles/TransportPolice.png)            | Demande de déplacement des prisonniers, avec fonction de filtrage   |
-| ![VehiclesOtherPlayer](Vehicles/OtherPlayer.png)                    | Véhicule d'un autre joueur                                          |
+| ![Vehicles](Vehicles/Vehicle.png)                                   | Offensichtlich funktioniert das mit dem Verdienst noch nicht? :/    |
+| ![VehiclesFilter](Vehicles/Filter.png)                              | sortiert nach verbleibenden Patienten                               |
+| ![VehiclesTransportPatient](Vehicles/TransportPatient.png)          | Sprechwunsch (Patienten) inklusive Filterfunktionen                 |
+| ![VehiclesTransportPolice](Vehicles/TransportPolice.png)            | Sprechwunsch (Gefangene) inklusive Filterfunktion                   |
+| ![VehiclesOtherPlayer](Vehicles/OtherPlayer.png)                    | Fahrzeug eines anderen Spielers                                     |
 
 ## FAQ
 
