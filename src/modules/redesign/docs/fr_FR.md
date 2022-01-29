@@ -56,30 +56,39 @@ Jusqu'à présent, seul l'aperçu est complet. La création et l'édition des AA
 ## Liste des alliances et le classement des joueurs
 
 
-|                    Liste des alliances                    |                 Le classement des joueurs                 |
-| :-------------------------------------------------------: | :-------------------------------------------------------: | 
-| ![ListAlliancesList](ListAlliances/List.png)              | ![TopListList](TopList/List.png)                          | 
-| ![ListAlliancesFilter](ListAlliances/Filter.png)          | ![TopListFilter](TopList/Filter.png)                      | 
+|                         Liste des alliances                         |                      Le classement des joueurs                      |
+| :-----------------------------------------------------------------: | :-----------------------------------------------------------------: |
+| ![ListAlliancesList](ListAlliances/List.png)                        | ![TopListList](TopList/List.png)                                    | 
+| ![ListAlliancesFilter](ListAlliances/Filter.png)                    | ![TopListFilter](TopList/Filter.png)                                | 
 
 ## Page des alliances
 
-|                       Nom de la page                      |                           Photo                           |                         Remarques                         |
-| :-------------------------------------------------------: | :-------------------------------------------------------: | :-------------------------------------------------------: |
-|                                                           |                                                           |                                                           |
+|                                Photo                                |                              Remarques                              |
+| :-----------------------------------------------------------------: | :-----------------------------------------------------------------: |
+|                                                                     |                                                                     |
+|                                                                     |                                                                     |
+|                                                                     |                                                                     |
+|                                                                     |                                                                     |
 
 ## Page des crédits et des pièces
 
-|                       Nom de la page                      |                           Photo                           |                         Remarques                         |
-| :-------------------------------------------------------: | :-------------------------------------------------------: | :-------------------------------------------------------: |
-|                                                           |                                                           |                                                           |
+
+|                                Photo                                |                              Remarques                              |
+| :-----------------------------------------------------------------: | :-----------------------------------------------------------------: |
+|                                                                     |                                                                     |
 
 ## Page des Véhicule
 
-|                       Nom de la page                      |                           Photo                           |                         Remarques                         |
-| :-------------------------------------------------------: | :-------------------------------------------------------: | :-------------------------------------------------------: |
-|                                                           |                                                           |                                                           |
+|                                Photo                                |                              Remarques                              |
+| :-----------------------------------------------------------------: | :-----------------------------------------------------------------: |
+| ![Vehicles](Vehicles/Vehicle.png)                                   | Manifestement, le calcul des revenus ne fonctionne pas              |
+| ![VehiclesFilter](Vehicles/Filter.png)                              | Triés par patients restants                                         |
+| ![VehiclesTransportPatient](Vehicles/TransportPatient.png)          | Demande de deplacement de patients avec fonctions de filtrage       |
+| ![VehiclesTransportPolice](Vehicles/TransportPolice.png)            | Demande de déplacement des prisonniers, avec fonction de filtrage   |
+| ![VehiclesOtherPlayer](Vehicles/OtherPlayer.png)                    | Véhicule d'un autre joueur                                          |
 
-##FAQ
+## FAQ
+
 ### Quand la refonte arrivera-t-elle ?
 Dès qu'elle sera prête et présentable
 
