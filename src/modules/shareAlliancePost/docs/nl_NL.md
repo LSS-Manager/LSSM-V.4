@@ -30,9 +30,17 @@ Om ook de postcode weg te laten, kan je <code><span>{{</span>cityWithoutZip<span
 
 <code><span>{{</span>beginAt<span>}}</span></code> voegt de tijd in, waarop een geplande inzet begint.
 
+### Naam van de inzet
+
+<code><span>{{</span>name<span>}}</span></code> voegt de naam van de inzet in.
+
 ### Langste aanrijdtijd
 
 <code><span>{{</span>longestDrive<span>}}</span></code> voegt in wat momenteel de langste aanrijdtijd is. **Belangrijk**: Deze variable werkt niet in de meldingenlijst!
+
+### Datum
+
+<code><span>{{</span>today<span>}}</span></code> voegt de huidige datum (dag en maand) in, bijvoorbeeld: `13.12`
 
 ### Tijd
 
