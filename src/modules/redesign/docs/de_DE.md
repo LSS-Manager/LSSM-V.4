@@ -64,12 +64,14 @@ Da ist bisher nur die Übersicht fertig. Das Anlegen und bearbeiten von AAOs / Z
 
 ## Verbandsseiten
 
+|                                Pic                                  |                                Pic                                  |
+| :-----------------------------------------------------------------: | :-----------------------------------------------------------------: |
 | ![AlliancesTitre](Alliances/Titre.png)                              | ![AlliancesRules](Alliances/Rules.png)                              | 
 | ![AlliancesIntro](Alliances/Intro.png)                              | ![AlliancesMember](Alliances/Member.png)                            | 
 
 ## Credits & Coins
 
-|                                                                     |                                                                     |
+|                                Pic                                  |                                Pic                                  |
 | :-----------------------------------------------------------------: | :-----------------------------------------------------------------: |
 | ![Credits](Credits/Credits.png)                                     | ![CreditsMultipages](Credits/CreditsMultiPages.png)                 | 
 | ![CreditsSommaire](Credits/Sommaire.png)                            |                                                                     | 
