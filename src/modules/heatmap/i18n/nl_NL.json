@@ -6,6 +6,7 @@
 		"vehicles": "Voertuig types"
 	},
 	"intensity": "Intensiteit",
+	"livePreview": "Live-Preview (auto-save)",
 	"radius": "Radius",
 	"save": "Opslaan",
 	"static": "Radius in pixels?",
