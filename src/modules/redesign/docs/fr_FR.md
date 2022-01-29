@@ -69,6 +69,12 @@ Jusqu'à présent, seul l'aperçu est complet. La création et l'édition des AA
 
 ## Page des crédits et des pièces
 
+| :-----------------------------------------------------------------: | :-----------------------------------------------------------------: |
+| ![Credits](Credits/Credits.png)                                     | ![CreditsMultipages](Credits/CreditsMultiPages.png)                 | 
+| ![CreditsSommaire](Credits/Sommaire.png)                            |                                                                     | 
+| ![CreditsMissions](Credits/Missions.png)                            | ![CreditsMissionsFilter](Credits/MissionsFilter.png)                | 
+| ![CreditsMissionsFilterDay-1](Credits/MissionsFilterDay-1.png)      |                                                                     | 
+| ![CreditsCoins](Credits/Coins.png)                                  | ![CreditsCoinsMultiPages](Credits/CoinsMultiPages.png)              | 
 
 
 
