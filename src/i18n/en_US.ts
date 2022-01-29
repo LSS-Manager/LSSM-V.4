@@ -1022,13 +1022,13 @@ export default {
             credits: 100_000,
             extensions: [
                 {
-                    caption: 'Ambulance extension',
+                    caption: 'Ambulance Extension',
                     credits: 100_000,
                     coins: 20,
                     duration: '7 Days',
                 },
                 {
-                    caption: 'Airport extension',
+                    caption: 'Airport Extension',
                     credits: 100_000,
                     coins: 20,
                     duration: '7 Days',
@@ -1052,7 +1052,7 @@ export default {
                     duration: '5 Days',
                 },
                 {
-                    caption: 'Water rescue expansion',
+                    caption: 'Water Rescue Expansion',
                     credits: 100_000,
                     coins: 20,
                     duration: '7 Days',
@@ -1369,13 +1369,13 @@ export default {
             credits: 50_000,
             extensions: [
                 {
-                    caption: 'Ambulance extension',
+                    caption: 'Ambulance Extension',
                     credits: 100_000,
                     coins: 20,
                     duration: '7 Days',
                 },
                 {
-                    caption: 'Airport extension',
+                    caption: 'Airport Extension',
                     credits: 100_000,
                     coins: 20,
                     duration: '7 Days',
@@ -1399,7 +1399,7 @@ export default {
                     duration: '5 Days',
                 },
                 {
-                    caption: 'Water rescue expansion',
+                    caption: 'Water Rescue Expansion',
                     credits: 100_000,
                     coins: 20,
                     duration: '7 Days',
