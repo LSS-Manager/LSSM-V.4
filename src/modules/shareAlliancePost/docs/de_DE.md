@@ -38,6 +38,10 @@ Um auch die Postleitzahl wegzulassen, verwende <code><span>{{</span>cityWithoutZ
 
 <code><span>{{</span>longestDrive<span>}}</span></code> fügt ein, wie lange alle aktuell ausgewählten Fahrzeuge benötigen, um anzufahren. **Wichtig**: Diese Variable ist in Rückmeldungen aus der Einsatzliste heraus natürlich nicht verfügbar!
 
+### Datum
+
+<code><span>{{</span>today<span>}}</span></code> fügt das heutige Datum (Tag und Monat) ein. z.B. `13.12`
+
 ### Uhrzeiten
 
 Du kannst auch Uhrzeiten, abhängig vom aktuellen Zeitpunkt einfügen lassen. Da das etwas komplizierter ist, empfehlen wir die konzentrierte Lektüre der folgenden Anleitung:

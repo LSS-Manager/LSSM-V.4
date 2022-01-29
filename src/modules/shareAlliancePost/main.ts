@@ -162,6 +162,9 @@ export default <ModuleMainFunction>(async ({
             ?.textContent?.trim() ??
         '';
 
+    const today =
+        new Date().toLocaleDateString().match(/\d{1,2}\D\d{1,2}/)?.[0] ?? '';
+
     const variables: Record<
         string,
         (match: string, ...groups: string[]) => string
@@ -175,6 +178,7 @@ export default <ModuleMainFunction>(async ({
         beginAt: () => beginAtDate,
         longestDrive: () => longestDrive,
         name: () => missionName,
+        today: () => today,
         ...getTimeReplacers(),
     };
 
