@@ -43,8 +43,8 @@ Dafür sollte das ganze Spiel schneller laufen. Mal sehen, ob das am Ende auch w
 
 ## AAOs
 
-:::danger Attention
-Cette partie est encore en cours de développement et n'est donc pas encore disponible ! 
+:::danger Achtung
+Dieser Teil befindet sich noch in der Entwicklung und ist daher noch nicht verfügbar! 
 :::
 
 Da ist bisher nur die Übersicht fertig. Das Anlegen und bearbeiten von AAOs / Zügen ist in Arbeit
