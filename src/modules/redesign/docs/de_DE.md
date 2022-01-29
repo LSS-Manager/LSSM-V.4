@@ -12,13 +12,13 @@ unbrauchbar macht.
 
 ## Profil
 
-|                 Eigenes Profil                  |            Profil eines Verbandsmitglieds             |               Profil anderer Nutzer               |
-|:-----------------------------------------------:|:-----------------------------------------------------:|:-------------------------------------------------:|
-|   ![ProfilePersoText](Profile/Perso/Text.png)   |   ![ProfileAllianceText](Profile/Alliance/Text.png)   |   ![ProfileMemberText](Profile/Member/Text.png)   |
-|    ![ProfilePersoMap](Profile/Perso/Map.png)    |    ![ProfileAllianceMap](Profile/Alliance/Map.png)    |                                                   |
-|  ![ProfilePersoBuild](Profile/Perso/Build.png)  |  ![ProfileAllianceBuild](Profile/Alliance/Build.png)  |                                                   |
-| ![ProfilePersoReward](Profile/Perso/Reward.png) | ![ProfileAllianceReward](Profile/Alliance/Reward.png) | ![ProfileMemberReward](Profile/Member/Reward.png) |
-|                                                 |                                                       | ![ProfileMemberIgnore](Profile/Member/Ignore.png) |
+|                       Eigenes Profil                        |                      Profil eines Verbandsmitglieds                       |                      Profil anderer Nutzer                       |
+|:-----------------------------------------------------------:|:-------------------------------------------------------------------------:|:----------------------------------------------------------------:|
+|       ![eigenes Profil: Text](profiles/self/text.png)       |       ![Verbandsmitglied: Text](profiles/alliance_members/text.png)       |       ![sonstiger Spieler: Text](profiles/others/text.png)       |
+|       ![eigenes Profil: Karte](profiles/self/map.png)       |       ![Verbandsmitglied: Karte](profiles/alliance_members/map.png)       |                                                                  |
+|   ![eigenes Profil: Gebäude](profiles/self/buildings.png)   |   ![Verbandsmitglied: Gebäude](profiles/alliance_members/buildings.png)   |                                                                  |
+| ![eigenes Profil: Auszeichnungen](profiles/self/awards.png) | ![Verbandsmitglied: Auszeichnungen](profiles/alliance_members/awards.png) | ![sonstiger Spieler: Auszeichnungen](profiles/others/awards.png) |
+|                                                             |                                                                           |   ![sonstiger Spieler: ignoriert](profiles/others/ignore.png)    |
 
 ### Features:
 
@@ -49,21 +49,24 @@ Die AAOs sind aktuell noch in Arbeit, deshalb gibt es hier leider nur eine Vorsc
 ganze schlussendlich vorstellen.
 :::
 
-![AOOOverview](AOO/Overview.png)
+![AAO Übersicht](aao/overview.png)
 
-## Verbandsliste & Topliste
+## Verbandsliste & Spielerliste
 
-|                  Verbandsliste                   |               Topliste               |
-|:------------------------------------------------:|:------------------------------------:|
-|   ![ListAlliancesList](ListAlliances/List.png)   |   ![TopListList](TopList/List.png)   | 
-| ![ListAlliancesFilter](ListAlliances/Filter.png) | ![TopListFilter](TopList/Filter.png) | 
+|                    Verbandsliste                     |                 Spielerliste                  |
+|:----------------------------------------------------:|:---------------------------------------------:|
+|       ![Verbandsliste](alliance_list/list.png)       |       ![Spielerliste](toplist/list.png)       | 
+| ![Verbandsliste mit Suche](alliance_list/search.png) | ![Spielerliste mit Suche](toplist/search.png) | 
 
 ## Verbandsseiten
 
-|             Beispielbilder             |              Beispielbilder              |
-|:--------------------------------------:|:----------------------------------------:|
-| ![AlliancesTitre](Alliances/Titre.png) |  ![AlliancesRules](Alliances/Rules.png)  | 
-| ![AlliancesIntro](Alliances/Intro.png) | ![AlliancesMember](Alliances/Member.png) | 
+|                           Beispielbilder                           |                          Beispielbilder                          |
+|:------------------------------------------------------------------:|:----------------------------------------------------------------:|
+|          ![Vorstellung des Verbands](alliances/intro.png)          |                  ![Regeln](alliances/rules.png)                  | 
+|             ![Bewerbungen](alliances/applications.png)             |            ![Mitgliederliste](alliances/members.png)             | 
+|    ![Verbandskasse (deaktiviert)](alliances/funds_disabled.png)    |    ![Verbandskasse (aktiviert)](alliances/funds_enabled.png)     | 
+|                ![Protokoll](alliances/protocol.png)                | ![Lehrgänge: Zusammenfassung](alliances/schoolings/overview.png) | 
+| ![Lehrgänge mit eigenen Teilnehmern](alliances/schoolings/own.png) |      ![Offene Lehrgänge](alliances/schoolings/alliance.png)      | 
 
 ## Credits & Coins
 
