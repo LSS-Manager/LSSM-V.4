@@ -56,6 +56,7 @@ const modules = {
         locationSelect: {
             location: 'Sélectionnez une position',
             zoom: 'Sélectionner la position et le zoom',
+            sync: 'utiliser la position actuelle',
         },
     },
 } as { [moduleId: string]: { [key: string]: unknown } };
@@ -630,14 +631,14 @@ export default {
                 },
             ],
             levelcost: ['1. 10.000', '2. 50.000', '3.-24. 100.000'],
-            maxBuildings: '5.000',
+            maxBuildings: '6.000',
             maxLevel: 24,
             special:
                 'Le prix de vos postes augmente lorsque vous en possédez 25. Ainsi, le rythme de progression est constant une fois que vous possédez un grand flux de revenus à ces niveaux de jeu. La formule actuelle pour calculer le prix des postes est la suivante : <code>100.000+(200.000*LOG<sub>2</sub>(Number of existing fire stations − 22))</code>.',
             startPersonnel: 10,
             startVehicles: ['FPT', 'FPTL'],
             schoolingTypes: ['Centre de secours'],
-            maxBuildingsFunction: (): number => 5_000,
+            maxBuildingsFunction: (): number => 6_000,
         },
         1: {
             caption: 'Centre de Formation Départemental',
@@ -932,14 +933,14 @@ export default {
                 '3.-5. 100.000',
                 "Ceci est une petite caserne. Si vous souhaitez construire des extensions ou augmenter le nombre d'emplacements de véhicules, vous devez l'améliorer pour en faire une caserne ordinaire. Ce processus prend 24 heures.",
             ],
-            maxBuildings: '5.000 casernes de pompiers',
+            maxBuildings: '6.000 casernes de pompiers',
             maxLevel: 5,
             special:
                 'Le prix de vos postes augmente lorsque vous en possédez 25. Ainsi, le rythme de progression est constant une fois que vous possédez un grand flux de revenus à ces niveaux de jeu. La formule actuelle pour calculer le prix des postes est la suivante : <code>(50.000+100.000*LOG<sub>2</sub>(Number of existing fire stations − 22))</code>.',
             startPersonnel: 10,
             startVehicles: ['FPT', 'FPTL'],
             schoolingTypes: ['Centre de secours'],
-            maxBuildingsFunction: (): number => 5_000,
+            maxBuildingsFunction: (): number => 6_000,
         },
         19: {
             caption: 'Poste de police (petit)',

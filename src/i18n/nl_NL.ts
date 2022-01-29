@@ -56,6 +56,7 @@ const modules = {
         locationSelect: {
             location: 'Selecteer positie',
             zoom: 'Selecteer positie en zoom',
+            sync: 'Gebruik huidige positie',
         },
     },
 } as { [moduleId: string]: { [key: string]: unknown } };
@@ -1164,7 +1165,7 @@ export default {
                 },
             ],
             levelcost: ['1. 10.000', '2. 50.000', '3.-24. 100.000'],
-            maxBuildings: '5.000',
+            maxBuildings: '6.000',
             maxLevel: 24,
             special:
                 'Vanaf de 25e brandweerkazerne stijgen de kosten voor de bouw van een nieuwe brandweerkazerne volgens de volgende formule: <code>100.000+200.000*LOG<sub>2</sub>(Aantal brandweerposten − 22)</code>. De Coins prijs blijft gelijk!',
@@ -1182,7 +1183,7 @@ export default {
                 'TS 6/7',
             ],
             schoolingTypes: ['Brandweer'],
-            maxBuildingsFunction: (): number => 5_000,
+            maxBuildingsFunction: (): number => 6_000,
         },
         1: {
             caption: 'Meldkamer',
@@ -1612,7 +1613,7 @@ export default {
                 '3.-5. 100.000',
                 'Upgraden naar normale post : Verschil prijs naar normale post',
             ],
-            maxBuildings: '5.000',
+            maxBuildings: '6.000',
             maxLevel: 6,
             special:
                 'Vanaf de 25e brandweerkazerne stijgen de kosten voor de bouw van een nieuwe brandweerkazerne volgens de volgende formule: <code>50.000+100.000*LOG<sub>2</sub>(Aantal brandweerposten − 22)</code>. max. 1 miljoen credits. De Coins prijs blijft gelijk!',
@@ -1630,7 +1631,7 @@ export default {
                 'TS 6/7',
             ],
             schoolingTypes: ['Brandweer'],
-            maxBuildingsFunction: (): number => 5_000,
+            maxBuildingsFunction: (): number => 6_000,
         },
     },
     buildingCategories: {

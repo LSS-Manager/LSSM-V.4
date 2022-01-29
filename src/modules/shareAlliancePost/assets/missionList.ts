@@ -1,7 +1,10 @@
 import {
     addHoursToNow,
+    createEditBtn,
+    createIcon,
     dateToTime,
     getCityFromAddress,
+    getDropdownClickHandler,
     getTimeReplacers,
     removeZipFromCity,
     sendReply,
@@ -14,7 +17,8 @@ import { Mission } from 'typings/Mission';
 
 const createLi = <I extends 'comment' | 'comment-slash'>(
     content: string,
-    icon?: I
+    icon?: I,
+    editBtnClass = ''
 ) => {
     const li = document.createElement('li');
     const a = document.createElement('a');
@@ -22,9 +26,9 @@ const createLi = <I extends 'comment' | 'comment-slash'>(
     a.style.setProperty('cursor', 'pointer');
     a.textContent = content;
     if (icon) {
-        const iconEl = document.createElement('i');
-        iconEl.classList.add('pull-right', 'fa-fw', 'fas', `fa-${icon}`);
-        a.append(iconEl);
+        const iconEl = createIcon(icon, 'fas', 'fa-fw', 'pull-right');
+        iconEl.style.setProperty('margin-right', '7px');
+        a.append(iconEl, createEditBtn(editBtnClass));
     }
     li.append(a);
     return li;
@@ -61,6 +65,17 @@ export default (
     separatorLi.classList.add('divider');
     dropdown.append(separatorLi);
 
+    const missionName =
+        missionSpecs?.name ??
+        Array.from(
+            mission.element.querySelector<HTMLAnchorElement>(
+                `#mission_caption_${mission.id}`
+            )?.childNodes ?? []
+        )
+            .find(n => n.nodeType === Node.TEXT_NODE && n.textContent?.trim())
+            ?.textContent?.replace(/,$/, '')
+            .trim() ??
+        '';
     const address =
         mission.element
             .querySelector<HTMLSpanElement>(`#mission_address_${mission.id}`)
@@ -110,6 +125,10 @@ export default (
                     60
             )
         ),
+        name: missionName,
+        today:
+            new Date().toLocaleDateString().match(/\d{1,2}\D\d{1,2}/)?.[0] ??
+            '',
     };
 
     const modifyMessage = (raw: string) => {
@@ -131,10 +150,18 @@ export default (
         return message;
     };
 
+    const editBtnClass = LSSM.$store.getters.nodeAttribute(
+        'sap-ecl-edit_msg-btn'
+    );
+    const inputGroupClass = LSSM.$store.getters.nodeAttribute(
+        'sap-ecl-edit_msg-input_group'
+    );
+
     messages.forEach(({ message: raw, name, postInChat }) => {
         const liElement = createLi(
             name,
-            postInChat ? 'comment' : 'comment-slash'
+            postInChat ? 'comment' : 'comment-slash',
+            editBtnClass
         );
         const message = modifyMessage(raw);
         liElement.dataset.raw = raw;
@@ -144,29 +171,28 @@ export default (
         dropdown.append(liElement);
     });
 
-    dropdown.addEventListener('click', e => {
-        const target = e.target;
-        if (!target || !(target instanceof HTMLElement)) return;
-        const liElement = target.closest<HTMLLIElement>(
-            'li[data-message][data-post]'
-        );
-        if (!liElement) return;
-
-        e.preventDefault();
-
-        btn.disabled = true;
-        shareMission(LSSM, mission.id, true)
-            .then(() =>
-                sendReply(
-                    LSSM,
-                    mission.id,
-                    liElement.dataset.message ?? '',
-                    liElement.dataset.post === 'true',
-                    authToken
-                )
-            )
-            .then(() => btn.remove());
-    });
+    dropdown.addEventListener(
+        'click',
+        getDropdownClickHandler(
+            inputGroupClass,
+            editBtnClass,
+            liElement => {
+                btn.disabled = true;
+                shareMission(LSSM, mission.id, true)
+                    .then(() =>
+                        sendReply(
+                            LSSM,
+                            mission.id,
+                            liElement.dataset.message ?? '',
+                            liElement.dataset.post === 'true',
+                            authToken
+                        )
+                    )
+                    .then(() => btn.remove());
+            },
+            true
+        )
+    );
 
     btn.after(dropdown);
 };

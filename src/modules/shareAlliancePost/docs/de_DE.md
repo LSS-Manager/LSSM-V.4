@@ -30,9 +30,17 @@ Um auch die Postleitzahl wegzulassen, verwende <code><span>{{</span>cityWithoutZ
 
 <code><span>{{</span>beginAt<span>}}</span></code> fügt die Uhrzeit ein, zu der ein geplanter Einsatz beginnen wird.
 
+### Name des Einsatzes
+
+<code><span>{{</span>name<span>}}</span></code> fügt den Namen des Einsatzes ein.
+
 ### Längste Anfahrt
 
 <code><span>{{</span>longestDrive<span>}}</span></code> fügt ein, wie lange alle aktuell ausgewählten Fahrzeuge benötigen, um anzufahren. **Wichtig**: Diese Variable ist in Rückmeldungen aus der Einsatzliste heraus natürlich nicht verfügbar!
+
+### Datum
+
+<code><span>{{</span>today<span>}}</span></code> fügt das heutige Datum (Tag und Monat) ein. z.B. `19.10`
 
 ### Uhrzeiten
 

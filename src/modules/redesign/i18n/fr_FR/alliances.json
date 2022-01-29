@@ -12,5 +12,5 @@
 	"search_local": "Recherche d'alliances chargées",
 	"search_subtitle": "Afficher {n} la page des alliances de {startPage} à {endPage} au total {totalPages} pages",
 	"subtitle": "Afficher {n} la page des alliances de {startPage} ({firstCredits}) à {endPage} ({lastCredits}) au total {totalPages} pages",
-	"title": "Liste de vérification"
+	"title": "Liste des alliances"
 }

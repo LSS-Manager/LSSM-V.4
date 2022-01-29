@@ -28,9 +28,17 @@ Pour ne pas avoir le code postal/zipcode, il suffit d'utiliser <code><span>{{</s
 
 <code><span>{{</span>beginAt<span>}}</span></code> est remplacé par l'heure à laquelle une mission planifiée commencera.
 
+### Nom de la mission
+
+<code><span>{{</span>name<span>}}</span></code> est remplacé par le nom de la mission.
+
 ### Le trajet le plus long
 
 <code><span>{{</span>longestDrive<span>}}</span></code> est remplacé par le temps qu'il faut pour que tous les véhicules sélectionnés soient sur place. **Important** : Cette variable n'est évidemment pas disponible lors du partage dans la liste des missions !
+
+### Date
+
+<code><span>{{</span>today<span>}}</span></code> est remplacé par la date local (jour et mois).
 
 ### Temps
 

@@ -69,6 +69,7 @@ declare global {
         building_move_marker?: Marker;
         mission_graphics: [string, string, string][];
         patient_timers: PatientTimer[];
+        sale_count_down: number;
         lightboxOpen(link: string): void;
         mission_position_new_dragend(): void;
         building_move_marker_dragend(): void;
@@ -115,8 +116,8 @@ declare module 'vue/types/vue' {
             ): Promise<{ missionIds: string[]; missionNames: string[] }>;
             getNumberFromText<Multiple extends boolean = false>(
                 text: string,
-                allNumbers: Multiple = false,
-                fallback = -1
+                allNumbers?: Multiple,
+                fallback?: number
             ): Multiple extends true ? number[] : number;
             getTextNodes(
                 root: Node,

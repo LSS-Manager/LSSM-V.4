@@ -202,7 +202,7 @@
 			"warning": "Orange"
 		},
 		"shareMissionsMinCredits": {
-			"description": "Der Knopf zum Teilen von Einsätzen wird nur angezeigt, wenn der Einsatz im durchschnitt mehr als die hier festgelegte Zahl an Credits bringt.",
+			"description": "Der Knopf zum Teilen von Einsätzen wird nur angezeigt, wenn der Einsatz im Durchschnitt mindestens die hier festgelegte Zahl an Credits bringt.",
 			"title": "Einsätze teilen: Minimale Credits"
 		},
 		"shareMissionsTypes": {

@@ -13,7 +13,7 @@
 		"overview": "Aperçu"
 	},
 	"description": "Affiche des informations utiles sur les pièces et les crédits dans la barre de navigation sous forme de menu déroulant.",
-	"name": "Extension de crédit",
+	"name": "Extension des crédits",
 	"nextRank": "Rang Suivant:",
 	"nextRankMissing": "restant",
 	"settings": {
@@ -29,6 +29,14 @@
 		"creditsInNavbar": {
 			"description": "Affiche la valeur actuelle des crédits à la place de la tirelire dans la barre de navigation.",
 			"title": "Des crédits au lieu d'une tirelire"
+		},
+		"highlightSales": {
+			"description": "Surligne les pièces en vert si des soldes est disponible",
+			"title": "Mettre en évidence les soldes"
+		},
+		"showSales": {
+			"description": "Affiche les soldes de pièces lorsqu'elles sont disponibles.",
+			"title": "Affiche les soldes"
 		},
 		"showToplistPosition": {
 			"description": "Affiche la position actuelle dans le classement de l'extension de crédit.",

@@ -3,7 +3,10 @@
         class="dropdown"
         :class="{
             'highlight': highlighted,
-            'highlight-consistent': highlightedConsistend,
+            'highlight-consistent':
+                highlightedConsistend ||
+                (isPiggyBankMode && highlightSales && saleActive),
+            'adjust-heights': coinsInNav && saleActive,
         }"
         :id="id"
         :title="`${$t('credits')}: ${creditsLocalized}\n${$t(
@@ -14,28 +17,41 @@
         <a
             href="#"
             class="dropdown-toggle"
-            :class="{ 'piggy-bank-mode': !(creditsInNav && coinsInNav) }"
+            :class="{ 'piggy-bank-mode': isPiggyBankMode }"
             :id="menuId"
             role="button"
             data-toggle="dropdown"
         >
             <template v-if="creditsInNav || coinsInNav">
-                <template v-if="creditsInNav">
+                <span v-if="creditsInNav">
                     <img
                         :src="creditsIcon"
                         :alt="$t('credits')"
                         class="navbar-icon"
                     />
                     {{ creditsLocalized }}
-                </template>
-                <template v-if="coinsInNav">
-                    <img
-                        :src="coinsIcon"
-                        :alt="$t('coins')"
-                        class="navbar-icon"
-                    />
-                    {{ coinsLocalized }}
-                </template>
+                </span>
+                <span
+                    v-if="coinsInNav"
+                    class="coins-span"
+                    :class="{
+                        'highlight-consistent': highlightSales && saleActive,
+                    }"
+                >
+                    <span>
+                        <img
+                            :src="coinsIcon"
+                            :alt="$t('coins')"
+                            class="navbar-icon"
+                        />
+                        {{ coinsLocalized }}
+                    </span>
+                    <span
+                        v-if="showSales"
+                        ref="sale_countdown_clone"
+                        class="sale-countdown"
+                    ></span>
+                </span>
             </template>
             <span class="fa-2x" v-else>
                 <font-awesome-icon
@@ -72,13 +88,25 @@
                 </button>
             </li>
             <li class="flex-li">
-                <a href="/coins" class="lightbox-open">
+                <a
+                    href="/coins"
+                    class="lightbox-open"
+                    :class="{
+                        'sale-active': saleActive,
+                        'highlight-consistent': highlightSales && saleActive,
+                    }"
+                >
                     <img
                         :src="coinsIcon"
                         :alt="$t('coins')"
                         class="navbar-icon"
                     />
                     {{ $t('coins') }}: {{ coinsLocalized }}
+                    <div
+                        v-if="showSales"
+                        id="sale_countdown"
+                        ref="sale_countdown"
+                    ></div>
                 </a>
                 <button
                     href="/coins/list"
@@ -175,6 +203,7 @@ export default Vue.extend<
         creditsInNav: boolean;
         coinsInNav: boolean;
         showToplistPosition: boolean;
+        saleActive: boolean;
     },
     {
         $m(
@@ -184,7 +213,6 @@ export default Vue.extend<
             }
         ): VueI18n.TranslateResult;
         highlight(): void;
-        getSetting<Type = boolean>(settingId: string): Promise<Type>;
     },
     {
         credits: number;
@@ -197,8 +225,14 @@ export default Vue.extend<
         nextRankMissing: number;
         toplistPosition: number;
         toplistSite: string;
+        isPiggyBankMode: boolean;
     },
-    { MODULE_ID: string }
+    {
+        MODULE_ID: string;
+        showSales: boolean;
+        highlightSales: boolean;
+        getSetting<Type = boolean>(settingId: string): Promise<Type>;
+    }
 >({
     name: 'lssmv4-creditsextension-menu',
     components: {},
@@ -225,11 +259,24 @@ export default Vue.extend<
             creditsInNav: false,
             coinsInNav: false,
             showToplistPosition: false,
+            saleActive: false,
         };
     },
     props: {
         MODULE_ID: {
             type: String,
+            required: true,
+        },
+        showSales: {
+            type: Boolean,
+            required: true,
+        },
+        highlightSales: {
+            type: Boolean,
+            required: true,
+        },
+        getSetting: {
+            type: Function,
             required: true,
         },
     },
@@ -268,6 +315,9 @@ export default Vue.extend<
         toplistSite() {
             return `/toplist?page=${Math.ceil(this.toplistPosition / 20)}`;
         },
+        isPiggyBankMode() {
+            return !(this.creditsInNav || this.coinsInNav);
+        },
     },
     watch: {
         credits() {
@@ -284,12 +334,6 @@ export default Vue.extend<
         highlight() {
             this.highlighted = false;
             window.setTimeout(() => (this.highlighted = true), 10);
-        },
-        async getSetting(settingId: string) {
-            return this.$store.dispatch('settings/getSetting', {
-                moduleId: this.MODULE_ID,
-                settingId,
-            });
         },
     },
     beforeMount() {
@@ -339,6 +383,38 @@ export default Vue.extend<
                 });
             })
         );
+
+        if (this.showSales) {
+            (async () => {
+                // eslint-disable-next-line @typescript-eslint/no-this-alias
+                const ce = this;
+                await this.$store.dispatch('hook', {
+                    event: 'coinsUpdate',
+                    callback() {
+                        ce.$set(
+                            ce,
+                            'saleActive',
+                            window.sale_count_down > Date.now()
+                        );
+                    },
+                });
+                await this.$store.dispatch('hook', {
+                    event: 'updateSaleCountDown',
+                    callback() {
+                        if (
+                            ce.$refs.sale_countdown &&
+                            ce.$refs.sale_countdown_clone &&
+                            ce.$refs.sale_countdown instanceof HTMLElement &&
+                            ce.$refs.sale_countdown_clone instanceof HTMLElement
+                        ) {
+                            ce.$refs.sale_countdown_clone.textContent =
+                                ce.$refs.sale_countdown.textContent ?? '';
+                        }
+                    },
+                });
+                window.coinsUpdate(this.$store.state.coins);
+            })().then();
+        }
     },
 });
 </script>
@@ -348,6 +424,28 @@ export default Vue.extend<
 
 .highlight-consistent
     background: #62c462
+
+.adjust-heights
+    $adjusted-height: 50.5px
+    height: $adjusted-height
+
+    > a
+        height: $adjusted-height
+        display: flex
+        align-items: center
+        padding-top: 0
+        padding-bottom: 0
+
+        > *:not(:last-child)
+            margin-right: 5px
+
+        > span.coins-span
+            height: 100%
+            display: flex
+            align-items: center
+            padding: 5px
+            flex-flow: column
+            justify-content: space-between
 
 li.dropdown
     > a.dropdown-toggle
@@ -369,6 +467,14 @@ li.dropdown
             > a
                 height: 19px + 3px + 3px
                 width: 100%
+
+                &.sale-active
+                    min-height: calc(2em + 9px)
+
+                    .sale-countdown
+                        display: block
+                        text-align: center
+                        font-size: 12px
 
         > li.no-link
             padding: 3px 20px

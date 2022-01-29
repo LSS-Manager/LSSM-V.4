@@ -2,8 +2,11 @@ import he from 'he';
 
 import {
     addHoursToNow,
+    createEditBtn,
+    createIcon,
     dateToTime,
     getCityFromAddress,
+    getDropdownClickHandler,
     getTimeReplacers,
     removeZipFromCity,
     sendReply,
@@ -39,6 +42,9 @@ export default <ModuleMainFunction>(async ({
     const missionId = window.location.pathname.split('/')[2];
     const dropdownClass = LSSM.$store.getters.nodeAttribute(
         `${MODULE_ID}-dropdown`
+    );
+    const editBtnClass = LSSM.$store.getters.nodeAttribute(
+        `${MODULE_ID}-edit_msg`
     );
 
     const missionHelpBtn = document.getElementById('mission_help');
@@ -146,6 +152,19 @@ export default <ModuleMainFunction>(async ({
         });
     }
 
+    const missionName =
+        mission?.name ??
+        Array.from(
+            document.querySelector<HTMLHeadingElement>(`#missionH1`)
+                ?.childNodes ?? []
+        )
+            .find(n => n.nodeType === Node.TEXT_NODE && n.textContent?.trim())
+            ?.textContent?.trim() ??
+        '';
+
+    const today =
+        new Date().toLocaleDateString().match(/\d{1,2}\D\d{1,2}/)?.[0] ?? '';
+
     const variables: Record<
         string,
         (match: string, ...groups: string[]) => string
@@ -158,6 +177,8 @@ export default <ModuleMainFunction>(async ({
         cityWithoutZip: () => cityWithoutZip,
         beginAt: () => beginAtDate,
         longestDrive: () => longestDrive,
+        name: () => missionName,
+        today: () => today,
         ...getTimeReplacers(),
     };
 
@@ -193,8 +214,7 @@ export default <ModuleMainFunction>(async ({
     const btn = document.createElement('button');
     btn.classList.add('btn', 'dropdown-toggle');
     btn.dataset.toggle = 'dropdown';
-    const icon = document.createElement('i');
-    icon.classList.add('fas', 'fa-comment-dots');
+    const icon = createIcon('comment-dots', 'fas');
     icon.style.setProperty('margin-right', '4px');
     const caret = document.createElement('span');
     caret.classList.add('caret');
@@ -205,7 +225,8 @@ export default <ModuleMainFunction>(async ({
 
     const addMessagesToDropdown = (
         btn: HTMLButtonElement,
-        dropdown: HTMLUListElement
+        dropdown: HTMLUListElement,
+        editable = false
     ) =>
         btn.addEventListener('click', () => {
             if (!messages.length) return;
@@ -233,14 +254,20 @@ export default <ModuleMainFunction>(async ({
                         a.style.setProperty('margin', '0');
                         a.style.setProperty('cursor', 'pointer');
                         a.textContent = name;
-                        const icon = document.createElement('i');
-                        icon.classList.add(
-                            'pull-right',
-                            'fa-fw',
+
+                        const icon = createIcon(
+                            postInChat ? 'comment' : 'comment-slash',
                             'fas',
-                            postInChat ? 'fa-comment' : 'fa-comment-slash'
+                            'fa-fw',
+                            'pull-right'
                         );
                         a.append(icon);
+
+                        if (editable) {
+                            icon.style.setProperty('margin-right', '7px');
+                            a.append(createEditBtn(editBtnClass));
+                        }
+
                         li.append(a);
                         dropdown.append(li);
                     }
@@ -277,6 +304,14 @@ export default <ModuleMainFunction>(async ({
         });
         addon.append(btn, dropdown);
         replyField.before(addon);
+
+        replyField.addEventListener('keydown', e => {
+            if (e.key !== 'Enter') return;
+            e.preventDefault();
+            replyField.nextElementSibling
+                ?.querySelector<HTMLButtonElement>('button[type="submit"]')
+                ?.click();
+        });
     } else {
         const navbar = document.querySelector<HTMLDivElement>(
             '#container_navbar_alarm .navbar-header'
@@ -284,14 +319,10 @@ export default <ModuleMainFunction>(async ({
         const btnGroup = document.createElement('div');
         btnGroup.classList.add('btn-group');
 
-        const phoneIcon = document.createElement('i');
-        phoneIcon.classList.add('fas', 'fa-fw', 'fa-phone-alt');
-        const shareIcon = document.createElement('i');
-        shareIcon.classList.add('fas', 'fa-fw', 'fa-share-alt');
-        const commentIcon = document.createElement('i');
-        commentIcon.classList.add('fas', 'fa-fw', 'fa-comment-dots');
-        const arrowIcon = document.createElement('i');
-        arrowIcon.classList.add('fas', 'fa-fw', 'fa-arrow-alt-circle-right');
+        const phoneIcon = createIcon('phone-alt', 'fas', 'fa-fw');
+        const shareIcon = createIcon('share-alt', 'fas', 'fa-fw');
+        const commentIcon = createIcon('comment-dots', 'fas', 'fa-fw');
+        const arrowIcon = createIcon('arrow-alt-circle-right', 'fas', 'fa-fw');
 
         const alarmSharePostGroup = document.createElement('div');
         alarmSharePostGroup.classList.add('btn-group', 'dropup');
@@ -333,10 +364,11 @@ export default <ModuleMainFunction>(async ({
             alarmSharePostNextDropdown
         );
 
-        addMessagesToDropdown(alarmSharePostBtn, alarmSharePostDropdown);
+        addMessagesToDropdown(alarmSharePostBtn, alarmSharePostDropdown, true);
         addMessagesToDropdown(
             alarmSharePostNextBtn,
-            alarmSharePostNextDropdown
+            alarmSharePostNextDropdown,
+            true
         );
 
         btnGroup.append(alarmSharePostGroup, alarmSharePostNextGroup);
@@ -371,43 +403,47 @@ export default <ModuleMainFunction>(async ({
             })
             .then();
 
-        btnGroup.addEventListener('click', e => {
-            const target = e.target;
-            if (!target || !(target instanceof HTMLElement)) return;
-            const liElement = target.closest<HTMLLIElement>(
-                'li[data-message][data-post], li[data-no-message]'
-            );
-            if (!liElement) return;
+        const inputGroupClass = LSSM.$store.getters.nodeAttribute(
+            `${MODULE_ID}_edit-msg_input-group`
+        );
 
-            e.preventDefault();
+        btnGroup.addEventListener(
+            'click',
+            getDropdownClickHandler(
+                inputGroupClass,
+                editBtnClass,
+                liElement => {
+                    alarmSharePostBtn.disabled = true;
+                    alarmSharePostNextBtn.disabled = true;
 
-            alarmSharePostBtn.disabled = true;
-            alarmSharePostNextBtn.disabled = true;
-
-            shareMission(LSSM, missionId)
-                .then(() =>
-                    liElement.dataset.noMessage
-                        ? new Promise<void>(resolve => resolve())
-                        : sendReply(
-                              LSSM,
-                              missionId,
-                              liElement.dataset.message ?? '',
-                              liElement.dataset.post === 'true',
-                              authToken
-                          )
-                )
-                .then(() =>
-                    document
-                        .querySelector<HTMLAnchorElement>(
-                            liElement.closest(`#${alarmSharePostGroup.id}`)
-                                ? '#mission_alarm_btn'
-                                : missionsSorted
-                                ? `.${sortedMissionClass}`
-                                : '#alert_next_btn'
+                    shareMission(LSSM, missionId)
+                        .then(() =>
+                            liElement.dataset.noMessage
+                                ? new Promise<void>(resolve => resolve())
+                                : sendReply(
+                                      LSSM,
+                                      missionId,
+                                      liElement.dataset.message ?? '',
+                                      liElement.dataset.post === 'true',
+                                      authToken
+                                  )
                         )
-                        ?.click()
-                );
-        });
+                        .then(() =>
+                            document
+                                .querySelector<HTMLAnchorElement>(
+                                    liElement.closest(
+                                        `#${alarmSharePostGroup.id}`
+                                    )
+                                        ? '#mission_alarm_btn'
+                                        : missionsSorted
+                                        ? `.${sortedMissionClass}`
+                                        : '#alert_next_btn'
+                                )
+                                ?.click()
+                        );
+                }
+            )
+        );
 
         navbar?.append(btnGroup);
     }

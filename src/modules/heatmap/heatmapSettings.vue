@@ -2,16 +2,28 @@
     <lightbox name="heatmap-settings" no-fullscreen no-title-hide>
         <h1>
             {{ $m('title') }}
-            <button class="btn btn-success" @click="save">
+            <button
+                class="btn btn-success"
+                @click="save"
+                v-if="!settings.livePreview"
+            >
                 {{ $m('save') }}
             </button>
         </h1>
+        <div>
+            <label class="checkbox-inline">
+                <input type="checkbox" v-model="settings.livePreview" />
+                {{ $m('livePreview') }}
+            </label>
+        </div>
+        <div style="height: 1rem"></div>
         <div>
             <label class="checkbox-inline">
                 <input
                     type="radio"
                     v-model="settings.heatmapMode"
                     value="buildings"
+                    @input="inputHandler"
                 />
                 {{ $m('buildings') }}
             </label>
@@ -20,6 +32,7 @@
                     type="radio"
                     v-model="settings.heatmapMode"
                     value="vehicles"
+                    @input="inputHandler"
                 />
                 {{ $m('vehicles') }}
             </label>
@@ -29,6 +42,7 @@
                 <input
                     type="checkbox"
                     v-model="settings[mode('StaticRadius')]"
+                    @input="inputHandler"
                 />
                 {{ $m('static') }}
             </label>
@@ -56,6 +70,7 @@
                 min="10"
                 max="1500"
                 step="1"
+                @input="inputHandler"
             />
         </div>
         <div class="form-group" v-else>
@@ -83,6 +98,7 @@
                 min="1000"
                 max="100000"
                 step="1"
+                @input="inputHandler"
             />
         </div>
         <div class="form-group">
@@ -110,6 +126,7 @@
                 min="0"
                 :max="maxZoom"
                 step="1"
+                @input="inputHandler"
             />
         </div>
         <div class="form-group">
@@ -118,6 +135,10 @@
                 multiple
                 v-model="settings[mode('Includes')]"
                 :options="includeOptions"
+                append-to-body
+                @open="dropdownOpened"
+                @close="dropdownClosed"
+                @input="inputHandler"
             >
                 <div slot="no-options">
                     {{ $t('noOptions') }}
@@ -152,6 +173,7 @@ type Subsetting<Scope extends Mode | ''> = Record<
 export type Settings = {
     position: 'bottom-left' | 'bottom-right' | 'top-left' | 'top-right';
     active: boolean;
+    livePreview: boolean;
     heatmapMode: Mode;
 } & Subsetting<'buildings'> &
     Subsetting<'vehicles'>;
@@ -168,14 +190,20 @@ export default Vue.extend<
         radiusPxAsRange: boolean;
         intensityAsRange: boolean;
         vehicleTypes: Record<number, InternalVehicle>;
+        dropdownStyle: HTMLStyleElement;
     },
     {
         mode: <Setting extends keyof Subsetting<''>>(
             setting: Setting
         ) => `${Mode}${Setting}`;
         save: () => Promise<void>;
+        dropdownOpened: () => void;
+        dropdownClosed: () => void;
     },
-    { includeOptions: { value: string | number; label: string }[] },
+    {
+        includeOptions: { value: string | number; label: string }[];
+        inputHandler: () => void | Promise<void>;
+    },
     {
         setSetting: <T>(settingId: string, value: T) => Promise<void>;
         getModuleSettings: () => Promise<Settings>;
@@ -198,9 +226,13 @@ export default Vue.extend<
         const nodeAttribute = (attr: string, id = false) =>
             this.$store.getters.nodeAttribute(`heatmap-settings-${attr}`, id);
 
+        const dropdownStyle = document.createElement('style');
+        dropdownStyle.textContent = `.vs__dropdown-menu{z-index: 6000;}`;
+
         return {
             settings: {
                 position: 'bottom-left',
+                livePreview: false,
                 heatmapMode: 'buildings',
                 buildingsStaticRadius: false,
                 buildingsRadiusM: 31_415,
@@ -229,6 +261,7 @@ export default Vue.extend<
                 number,
                 InternalVehicle
             >,
+            dropdownStyle,
         };
     },
     methods: {
@@ -240,6 +273,12 @@ export default Vue.extend<
                 await this.setSetting(setting, value);
 
             this.updateSettings(this.settings);
+        },
+        dropdownOpened() {
+            document.head.append(this.dropdownStyle);
+        },
+        dropdownClosed() {
+            this.dropdownStyle.remove();
         },
     },
     computed: {
@@ -297,6 +336,9 @@ export default Vue.extend<
                     );
             }
             return [];
+        },
+        inputHandler() {
+            return this.settings.livePreview ? this.save : () => void 0;
         },
     },
     props: {

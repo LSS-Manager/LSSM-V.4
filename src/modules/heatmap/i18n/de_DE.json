@@ -6,6 +6,7 @@
 		"vehicles": "Fahrzeugtypen"
 	},
 	"intensity": "Intensitätsverstärkung",
+	"livePreview": "Live-Preview (automatisches Speichern)",
 	"radius": "Radius",
 	"save": "Speichern",
 	"static": "Radius in Pixeln?",

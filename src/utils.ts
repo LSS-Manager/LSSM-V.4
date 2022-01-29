@@ -49,26 +49,28 @@ export default (Vue: VueConstructor): void => {
         },
         getNumberFromText<Multiple extends boolean = false>(
             text: string,
-            allNumbers: Multiple = false,
+            allNumbers?: Multiple,
             fallback = -1
         ): Multiple extends true ? number[] : number {
             const regex = new RegExp(
                 /-?\d{1,3}(?:(?:[,.]|\s)\d{3})*/,
                 allNumbers ? 'g' : ''
             );
-            return allNumbers
-                ? text
-                      .match(regex)
-                      ?.map(match =>
-                          parseInt(
-                              match.replace(/[,.]|\s/g, '') ??
-                                  fallback.toString()
-                          )
-                      ) ?? []
-                : parseInt(
-                      text.match(regex)?.[0]?.replace(/[,.]|\s/g, '') ??
-                          fallback.toString()
-                  );
+            return (
+                allNumbers
+                    ? text
+                          .match(regex)
+                          ?.map(match =>
+                              parseInt(
+                                  match.replace(/[,.]|\s/g, '') ??
+                                      fallback.toString()
+                              )
+                          ) ?? []
+                    : parseInt(
+                          text.match(regex)?.[0]?.replace(/[,.]|\s/g, '') ??
+                              fallback.toString()
+                      )
+            ) as Multiple extends true ? number[] : number;
         },
         getTextNodes(
             root: Node,
