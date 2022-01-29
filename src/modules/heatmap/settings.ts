@@ -13,6 +13,9 @@ export default <ModuleSettingFunction>((_, __, $m) => {
         active: <Hidden>{
             type: 'hidden',
         },
+        livePreview: <Hidden>{
+            type: 'hidden',
+        },
         heatmapMode: <Hidden>{
             type: 'hidden',
         },

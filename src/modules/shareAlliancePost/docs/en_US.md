@@ -36,6 +36,10 @@ To also omit postcode/zipcode, simply use <code><span>{{</span>cityWithoutZip<sp
 
 <code><span>{{</span>longestDrive<span>}}</span></code> is replaced by how long it takes till all selected vehicles are at scene. **Important**: This Variable is of course not available when sharing in the mission list!
 
+### Date
+
+<code><span>{{</span>today<span>}}</span></code> is replaced by the current locale date (day and month).
+
 ### Times
 
 You can also set time distances to now. The system is a bit complicated, so read carefully:

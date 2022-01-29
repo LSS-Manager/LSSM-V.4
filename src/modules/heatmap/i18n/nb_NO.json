@@ -6,6 +6,7 @@
 		"vehicles": "Bil type"
 	},
 	"intensity": "intensity boost",
+	"livePreview": "Live-Preview (auto-save)",
 	"radius": "radius",
 	"save": "Save",
 	"static": "radius in pixels?",

@@ -42,6 +42,11 @@ const modules = {
             true: 'På',
             false: 'Av',
         },
+        locationSelect: {
+            location: 'Velg posisjon',
+            zoom: 'Velg posisjon og zoom',
+            sync: 'bruk nåværende posisjon',
+        },
     },
 } as { [moduleId: string]: { [key: string]: unknown } };
 

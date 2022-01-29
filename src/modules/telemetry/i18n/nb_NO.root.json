@@ -13,6 +13,7 @@
 	},
 	"info": {
 		"close": "Ikke vis dette notatet igjen",
+		"decline": "Avslå telemetri",
 		"text": "LSS-administratoren samler inn metadata som beskrevet i <a href='{wiki}metadata.html' class='lightbox-open'>Wiki</a> beskrevet.<br>Du kan alltid trekke tilbake avtalen din på et senere tidspunkt.",
 		"title": "Informasjon om innsamling av metadata"
 	},

@@ -17,7 +17,7 @@
 	"@primer/octicons": {
 		"icon": "https://primer.style/octicons/icons/icon-512x512.png",
 		"url": "https://primer.style/octicons",
-		"version": "16.2.0"
+		"version": "16.3.0"
 	},
 	"@types/he": {
 		"icon": "https://avatars.githubusercontent.com/u/3637556",
@@ -156,7 +156,7 @@
 	"eslint-plugin-vue": {
 		"icon": "https://vuejs.org/images/logo.png",
 		"url": "https://eslint.vuejs.org",
-		"version": "8.3.0"
+		"version": "8.4.0"
 	},
 	"he": {
 		"url": "https://mths.be/he",
