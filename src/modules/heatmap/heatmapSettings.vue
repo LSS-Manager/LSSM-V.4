@@ -16,6 +16,7 @@
                 {{ $m('livePreview') }}
             </label>
         </div>
+        <div style="height: 1rem"></div>
         <div>
             <label class="checkbox-inline">
                 <input
