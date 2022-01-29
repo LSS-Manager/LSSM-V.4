@@ -40,7 +40,7 @@ Om ook de postcode weg te laten, kan je <code><span>{{</span>cityWithoutZip<span
 
 ### Datum
 
-<code><span>{{</span>today<span>}}</span></code> voegt de huidige datum (dag en maand) in, bijvoorbeeld: `13.12`
+<code><span>{{</span>today<span>}}</span></code> voegt de huidige datum (dag en maand) in, bijvoorbeeld: `19.10`
 
 ### Tijd
 
