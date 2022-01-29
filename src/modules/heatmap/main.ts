@@ -249,6 +249,17 @@ export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, $m }) => {
                     },
                 ]);
 
+                const backgroundStyle = document.createElement('style');
+                backgroundStyle.textContent = `#modals-container .vm--container {
+                    pointer-events: none;
+                }
+                #modals-container .vm--container .vm--overlay[data-modal="heatmap-settings"] {
+                    display: none;
+                }
+                #modals-container .vm--container .vm--overlay[data-modal="heatmap-settings"] + .vm--modal {
+                    pointer-events: all;
+                }`;
+
                 settingsBtn.addEventListener('click', () =>
                     LSSM.$modal.show(
                         () =>
@@ -265,6 +276,14 @@ export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, $m }) => {
                             name: 'heatmap-settings',
                             height: 'auto',
                             draggable: true,
+                            clickToClose: false,
+                            shiftX: 0.98,
+                            shiftY: 0.1,
+                        },
+                        {
+                            'before-open': () =>
+                                document.head.append(backgroundStyle),
+                            'closed': () => backgroundStyle.remove(),
                         }
                     )
                 );
