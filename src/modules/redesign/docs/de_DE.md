@@ -70,20 +70,21 @@ ganze schlussendlich vorstellen.
 
 ## Credits & Coins
 
-|                         Beispielbilder                         |                     Beispielbilder                     |
-|:--------------------------------------------------------------:|:------------------------------------------------------:|
-|                ![Credits](Credits/Credits.png)                 |  ![CreditsMultipages](Credits/CreditsMultiPages.png)   | 
-|            ![CreditsSommaire](Credits/Sommaire.png)            |                                                        | 
-|            ![CreditsMissions](Credits/Missions.png)            |  ![CreditsMissionsFilter](Credits/MissionsFilter.png)  | 
-| ![CreditsMissionsFilterDay-1](Credits/MissionsFilterDay-1.png) |                                                        | 
-|               ![CreditsCoins](Credits/Coins.png)               | ![CreditsCoinsMultiPages](Credits/CoinsMultiPages.png) |
+|                           Beispielbilder                            |                              Beispielbilder                               |
+|:-------------------------------------------------------------------:|:-------------------------------------------------------------------------:|
+|          ![Einzeltransaktionen](credits/credits_list.png)           |      ![Einzeltransaktionen](credits/credits_list_multiple_pages.png)      | 
+|              ![Übersicht](credits/credits_summary.png)              |                                                                           | 
+|         ![Tageszusammenfassung](credits/credits_daily.png)          |         ![Tageszusammenfassung](credits/credits_daily_filter.png)         | 
+| ![Tageszusammenfassung](credits/credits_daily_filter_yesterday.png) |                                                                           | 
+|           Mittlerweile gibt es sogar einen neuen Filter:            | ![Der neue Filter der Tageszusammenfassung](credits/daily_new_filter.png) |
+|                     ![Coins](credits/coins.png)                     |                ![Coins](credits/coins_multiple_pages.png)                 |
 
 ## Fahrzeuge
 
-|                       Beispielbilder                       |                     Bemerkungen                     |
-|:----------------------------------------------------------:|:---------------------------------------------------:|
-|             ![Vehicles](Vehicles/Vehicle.png)              |                                                     |
-|           ![VehiclesFilter](Vehicles/Filter.png)           |        sortiert nach verbleibenden Patienten        |
-| ![VehiclesTransportPatient](Vehicles/TransportPatient.png) | Sprechwunsch (Patienten) inklusive Filterfunktionen |
-|  ![VehiclesTransportPolice](Vehicles/TransportPolice.png)  |  Sprechwunsch (Gefangene) inklusive Filterfunktion  |
-|      ![VehiclesOtherPlayer](Vehicles/OtherPlayer.png)      |           Fahrzeug eines anderen Spielers           |
+|                        Beispielbilder                         |                     Bemerkungen                     |
+|:-------------------------------------------------------------:|:---------------------------------------------------:|
+|              ![Einsätze](vehicles/missions.png)               |                                                     |
+|     ![Einsätze (sortiert)](vehicles/missions_sorted.png)      |     sortiert nach durchschnittlichem Verdienst      |
+|    ![Krankenhaus auswählen](vehicles/choose_hospital.png)     | Sprechwunsch (Patienten) inklusive Filterfunktionen |
+|        ![Zellen auswählen](vehicles/choose_prison.png)        |  Sprechwunsch (Gefangene) inklusive Filterfunktion  |
+| ![Fahrzeug eines anderen Spielers](vehicles/other_player.png) |           Fahrzeug eines anderen Spielers           |
