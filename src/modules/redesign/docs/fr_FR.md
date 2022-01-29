@@ -64,11 +64,15 @@ Jusqu'à présent, seul l'aperçu est complet. La création et l'édition des AA
 
 ## Page des alliances
 
+|                         Liste des alliances                         |                      Le classement des joueurs                      |
+| :-----------------------------------------------------------------: | :-----------------------------------------------------------------: |
 | ![AlliancesTitre](Alliances/Titre.png)                              | ![AlliancesRules](Alliances/Rules.png)                              | 
 | ![AlliancesIntro](Alliances/Intro.png)                              | ![AlliancesMember](Alliances/Member.png)                            | 
 
 ## Page des crédits et des pièces
 
+|                                                                     |                                                                     |
+| :-----------------------------------------------------------------: | :-----------------------------------------------------------------: |
 | ![Credits](Credits/Credits.png)                                     | ![CreditsMultipages](Credits/CreditsMultiPages.png)                 | 
 | ![CreditsSommaire](Credits/Sommaire.png)                            |                                                                     | 
 | ![CreditsMissions](Credits/Missions.png)                            | ![CreditsMissionsFilter](Credits/MissionsFilter.png)                | 

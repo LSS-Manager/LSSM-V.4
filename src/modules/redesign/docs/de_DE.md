@@ -69,6 +69,8 @@ Da ist bisher nur die Übersicht fertig. Das Anlegen und bearbeiten von AAOs / Z
 
 ## Credits & Coins
 
+|                                                                     |                                                                     |
+| :-----------------------------------------------------------------: | :-----------------------------------------------------------------: |
 | ![Credits](Credits/Credits.png)                                     | ![CreditsMultipages](Credits/CreditsMultiPages.png)                 | 
 | ![CreditsSommaire](Credits/Sommaire.png)                            |                                                                     | 
 | ![CreditsMissions](Credits/Missions.png)                            | ![CreditsMissionsFilter](Credits/MissionsFilter.png)                | 
@@ -79,7 +81,7 @@ Es kommen noch weitere Filter & Zusammenfassungen :)
 
 ## Fahrzeuge
 
-|                                Photo                                |                              Remarques                              |
+|                                Pic                                  |                             Bemerkungen                             |
 | :-----------------------------------------------------------------: | :-----------------------------------------------------------------: |
 | ![Vehicles](Vehicles/Vehicle.png)                                   | Manifestement, le calcul des revenus ne fonctionne pas              |
 | ![VehiclesFilter](Vehicles/Filter.png)                              | Triés par patients restants                                         |
