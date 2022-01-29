@@ -96,6 +96,7 @@ module.exports = {
         water: 'gal. water',
         staff: {
             [/^SWAT Personnel$/]: [16, 26],
+            [/^EMS Mobile Command$/]: [60],
         },
         towingVehicles: {
             // Note: Only the ones that are towed by vehicles of the same group! If e.g. a MzB can be towed by vehicles of several groups, it MUST NOT be listed here.
