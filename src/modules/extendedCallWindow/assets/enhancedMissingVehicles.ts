@@ -55,14 +55,17 @@ export default (LSSM: Vue, MODULE_ID: string, $m: $m): void => {
     );
     const missingRequirementMatches =
         missingRequirementsText.match(requirementRegex);
+    const staffPrefix = $m('enhancedMissingVehicles.staffPrefix') as unknown as
+        | Record<number, RegExp>
+        | string;
     const extras = missingRequirementsText
         .replace(requirementRegex, '')
+        .replace(/^\./, '')
+        .trim()
         .replace(
             new RegExp(
                 Object.values(
-                    $m(
-                        'enhancedMissingVehicles.staffPrefix'
-                    ) as unknown as Record<number, RegExp>
+                    typeof staffPrefix === 'string' ? {} : staffPrefix
                 ).join('|'),
                 'g'
             ),
