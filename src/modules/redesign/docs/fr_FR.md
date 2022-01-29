@@ -8,8 +8,6 @@ Tout le jeu devrait tourner plus vite.
 | L'ensemble du jeu tourne un peu plus vite |  Il se peut que certains scripts ne fonctionnent pas sans travail supplémentaire avec le nouveau design.  |
 |             Un design moderne             | Nous veillerons bien sûr à ce que tous les scripts courants soient compatibles avant la sortie du module. |
 
-
-
 ## Profil 
 
 |                     Personnel                   |              D'un joueur de l'alliance                |                Des autres joueurs                 |
@@ -21,6 +19,7 @@ Tout le jeu devrait tourner plus vite.
 |                                                 |                                                       | ![ProfileMemberIgnore](Profile/Member/Ignore.png) |
 
 ### Caractéristiques :
+
 * Bord gauche :
 	* Boutons connus
 	* Brèves informations (grade, crédits gagnés, association).
@@ -38,10 +37,12 @@ Tout le jeu devrait tourner plus vite.
 * Les fenêtres "Modifier le texte du profil" et "Modifier la photo du profil" ont également été redessinées afin d'obtenir une meilleure expérience globale.
 
 ### TODO dans le profil :
+
 * Meilleure performance pour les profils avec de nombreux bâtiments.
 * Quelques textes doivent encore être adaptés
 
 ## Rai
+
 :::danger Attention
 Cette partie est encore en cours de développement et n'est donc pas encore disponible ! 
 :::
@@ -50,11 +51,11 @@ Jusqu'à présent, seul l'aperçu est complet. La création et l'édition des AA
 ![AOOOverview](AOO/Overview.png)
 
 ### Caractéristiques :
+
 * Pas de rechargement ennuyeux de la page lors de la suppression de l'AAO .
-* lors de la création / modification, une fois que les pages ont été redessinées.
+	* lors de la création / modification, une fois que les pages ont été redessinées.
 
 ## Liste des alliances et le classement des joueurs
-
 
 |                         Liste des alliances                         |                      Le classement des joueurs                      |
 | :-----------------------------------------------------------------: | :-----------------------------------------------------------------: |
@@ -74,8 +75,6 @@ Jusqu'à présent, seul l'aperçu est complet. La création et l'édition des AA
 | ![CreditsMissionsFilterDay-1](Credits/MissionsFilterDay-1.png)      |                                                                     | 
 | ![CreditsCoins](Credits/Coins.png)                                  | ![CreditsCoinsMultiPages](Credits/CoinsMultiPages.png)              | 
 
-
-
 D'autres filtres & résumés sont à venir :)
 
 ## Page des Véhicule
@@ -91,6 +90,5 @@ D'autres filtres & résumés sont à venir :)
 ## FAQ
 
 ### Quand la refonte arrivera-t-elle ?
+
 Dès qu'elle sera prête et présentable
-
-
