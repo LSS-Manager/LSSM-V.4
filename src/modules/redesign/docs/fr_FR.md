@@ -63,19 +63,16 @@ Jusqu'à présent, seul l'aperçu est complet. La création et l'édition des AA
 
 ## Page des alliances
 
-|                                Photo                                |                              Remarques                              |
 | :-----------------------------------------------------------------: | :-----------------------------------------------------------------: |
-|                                                                     |                                                                     |
-|                                                                     |                                                                     |
-|                                                                     |                                                                     |
-|                                                                     |                                                                     |
+| ![AlliancesTitre](Alliances/Titre.png)                              | ![AlliancesRules](Alliances/Rules.png)                              | 
+| ![AlliancesIntro](Alliances/Intro.png)                              | ![AlliancesMember](Alliances/Member.png)                            | 
 
 ## Page des crédits et des pièces
 
 
-|                                Photo                                |                              Remarques                              |
-| :-----------------------------------------------------------------: | :-----------------------------------------------------------------: |
-|                                                                     |                                                                     |
+
+
+D'autres filtres & résumés sont à venir :)
 
 ## Page des Véhicule
 
