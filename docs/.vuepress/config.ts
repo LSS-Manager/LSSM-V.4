@@ -510,6 +510,9 @@ module.exports = async () => {
     const { locales, themeLocales, noMapkitModules } = await processModules(
         shortVersion
     );
+    const contributorsFile = JSON.parse(
+        fs.readFileSync(path.join(ROOT_PATH, '.all-contributorsrc')).toString()
+    );
     const vuepressConfig = {
         title: 'LSS-Manager V.4 Wiki',
         description: 'The Wiki for LSS-Manager V.4',
@@ -553,6 +556,8 @@ module.exports = async () => {
                 editModuleLinkText: Object.fromEntries(
                     LANGS.map(lang => [lang, getLocale(lang, 'edit.module')])
                 ),
+                contributors: contributorsFile.contributors,
+                contributionTypes: contributorsFile.types,
             },
             locales: themeLocales,
             activeHeaderLinks: true,
