@@ -26,7 +26,6 @@ Currently, LSS Manager consists of 4 developers and 6 additional supporters for 
 * Ron31 *[Bugfixer, Junior Developer]*
 
 ### The Discord-Team
-### Das Discord-Team
 **Administration**:
 * lost
 
