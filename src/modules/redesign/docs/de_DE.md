@@ -65,6 +65,7 @@ ganze schlussendlich vorstellen.
 |          ![Vorstellung des Verbands](alliances/intro.png)          |                  ![Regeln](alliances/rules.png)                  | 
 |             ![Bewerbungen](alliances/applications.png)             |            ![Mitgliederliste](alliances/members.png)             | 
 |    ![Verbandskasse (deaktiviert)](alliances/funds_disabled.png)    |    ![Verbandskasse (aktiviert)](alliances/funds_enabled.png)     | 
+|        ![Bereitstellungsräume](alliances/staging_areas.png)        |           ![Verbandsgebäude](alliances/buildings.png)            |
 |                ![Protokoll](alliances/protocol.png)                | ![Lehrgänge: Zusammenfassung](alliances/schoolings/overview.png) | 
 | ![Lehrgänge mit eigenen Teilnehmern](alliances/schoolings/own.png) |      ![Offene Lehrgänge](alliances/schoolings/alliance.png)      | 
 
