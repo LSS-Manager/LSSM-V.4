@@ -38,6 +38,12 @@ Actuellement, LSS Manager se compose de 4 développeurs et de 6 supporters suppl
     * Buggs
 * 🇳🇱
     * MPR
+
+### Nos traducteurs <3
+Nous remercions vivement nos traducteurs bénévoles qui nous aident à réaliser les portages dans d'autres langues. En tant que petite équipe de développement, nous ne parlons évidemment pas toutes les langues, c'est pourquoi nous ne fournissons que les textes en allemand et en anglais.
+
+Pour rendre un peu hommage aux traducteurs, nous avons établi une liste ici :
+<translators/>
  
 ## L'histoire
 Le `LSS-Manager` existe depuis septembre 2015, même si au début il ne modifiait que le design.
