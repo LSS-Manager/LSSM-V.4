@@ -62,6 +62,7 @@ Nous ne pouvons qu'espérer que l'ensemble du projet aboutira.
 | ![Présentation de l'alliances](alliances/intro.png)               | ![Règlement](alliances/rules.png)                                 | 
 | ![Candidatures](alliances/applications.png)                       | ![Liste des membres](alliances/members.png)                       | 
 | ![Banque de l'alliance (desactivé)](alliances/funds_disabled.png) | ![Banque de l'alliance (activé)](alliances/funds_enabled.png)     | 
+| ![zones de rassemblement](alliances/staging_areas.png)            | ![Bâtiment de l'alliance](alliances/buildings.png)                |
 | ![Journal](alliances/protocol.png)                                | ![Cours de formation : résumé](alliances/schoolings/overview.png) | 
 | ![Cours de formation](alliances/schoolings/own.png)               | ![Formations ouvertes](alliances/schoolings/alliance.png)         | 
 
