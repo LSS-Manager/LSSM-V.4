@@ -72,6 +72,21 @@ declare module 'vue/types/vue' {
                     }
                 >;
                 editModuleLinkText: Record<string, string>;
+                contributors: {
+                    avatar_url: string;
+                    contributions: string[];
+                    login: string;
+                    name: string;
+                    profile: string;
+                }[];
+                contributionTypes: Record<
+                    string,
+                    {
+                        description: string;
+                        link: string;
+                        symbol: string;
+                    }
+                >;
             };
         };
     }
