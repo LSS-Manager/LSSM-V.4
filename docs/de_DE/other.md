@@ -39,7 +39,7 @@ Aktuell besteht das der LSS-Manager aus 4 Entwicklern und 6 zusätzlichen Unters
 * 🇳🇱
     * MPR
 
-### Unsre Übersetzer
+### Unsre Übersetzer <3
 Jede Menge Dank geht an unsere freiwilligen Übersetzer, die uns mit der Portierung in andere Sprachversionen helfen. Wir als kleines Entwicklungsteam sprechen natürlich nicht alle Sprachen, deshalb gibt es von uns nur die deutschen und englischen Texte.
 
 Um die Übersetzer etwas zu würdigen haben wir hier eine Liste erstellt:
