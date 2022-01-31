@@ -1,0 +1,78 @@
+{
+	"default": [
+		{
+			"ids": [
+				0,
+				11,
+				13,
+				17
+			],
+			"name": "Firehouse"
+		},
+		{
+			"ids": [
+				2,
+				3,
+				6,
+				12,
+				14,
+				16
+			],
+			"name": "Rescue"
+		},
+		{
+			"ids": [
+				5,
+				8,
+				15
+			],
+			"name": "Police"
+		},
+		{
+			"ids": [
+				4,
+				7,
+				19
+			],
+			"name": "School"
+		},
+		{
+			"ids": [
+				1
+			],
+			"name": "Dispatch Center"
+		},
+		{
+			"ids": [
+				18
+			],
+			"name": "FBI"
+		},
+		{
+			"ids": [
+				20,
+				21
+			],
+			"name": "Complex"
+		}
+	],
+	"description": "Anpassa filtrena för byggnadslistan!",
+	"name": "Anpassningsbara byggnadslistor",
+	"settings": {
+		"buildings": "Byggnadslista",
+		"contentType": {
+			"labels": [
+				"Text",
+				"Ikon"
+			],
+			"title": "Text eller Ikon?"
+		},
+		"filters": {
+			"description": "Visa Ikoner i \"Alarm\" visnings knappen, baserat på dina val. Du kan välja melllan alla <a href=\"https://fontawesome.com/icons?d=gallery&m=free\" target=\"_blank\">alla gratis ikoner ifrån Font-Awesome</a>.  Du kan direkt förhandsgranska den valda ikonen.",
+			"title": "Buildinglist filter"
+		},
+		"icon_style": "Ikontyp",
+		"preview": "Förhandsgransta",
+		"title": "Titel (eller Ikon)"
+	}
+}
