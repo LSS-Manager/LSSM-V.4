@@ -30,6 +30,14 @@
 			"description": "Visar nuvarade krediter i menyn utan att gå via den gulliga grisen.",
 			"title": "Krediter utan gullig gris"
 		},
+		"highlightSales": {
+			"description": "Markera Mynt med grönt om försäljning är tillgänlig",
+			"title": "Markera Försäljningar"
+		},
+		"showSales": {
+			"description": "Visa försäljningar för Mynt när det är tillgängligt.",
+			"title": "Visa Försäljningar"
+		},		
 		"showToplistPosition": {
 			"description": "Visar nuvarande ranking i 'creditsextension'.",
 			"title": "Rankning i 'creditsextension'"
