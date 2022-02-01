@@ -13,7 +13,8 @@
 	},
 	"info": {
 		"close": "Visa inte den här anteckningen igen",
-		"text": "LSS-chefen samlar in metadata enligt beskrivningen i <a href='{wiki}metadata.html' class='lightbox-open'>Wiki</a>. <br> Du kan alltid återkalla ditt avtal på en senare punkt. ",
+		"decline": "Tillåt ej insamling",
+		"text": "LSS Manager samlar in metadata enligt beskrivningen i <a href='{wiki}metadata.html' class='lightbox-open'>Wiki</a>. <br> Du kan alltid återkalla detta avtal vid en senare punkt. ",
 		"title": "Information om insamlingen av metadata"
 	},
 	"name": "Telemetri"
