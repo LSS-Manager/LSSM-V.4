@@ -619,7 +619,7 @@ export default Vue.extend<
                               return;
                           e.preventDefault();
                           if (e.ctrlKey || e.button === 1)
-                              return window.open(href, '_blank');
+                              return window.open(href, '_blank', 'noopener');
                           if (
                               e.button === 0 &&
                               target.hasAttribute('lightbox-open')
@@ -633,7 +633,8 @@ export default Vue.extend<
                                   return window.lightboxOpen(href);
                               return window.open(
                                   href,
-                                  target.getAttribute('target') ?? '_blank'
+                                  target.getAttribute('target') ?? '_blank',
+                                  'noopener'
                               );
                           }
 
