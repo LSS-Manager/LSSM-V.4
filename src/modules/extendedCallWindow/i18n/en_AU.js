@@ -83,7 +83,7 @@ module.exports = {
             22: [8],
         },
         vehiclesByRequirement: {
-            [/^Fire engine(s)?$/]: [0, 1, 12, 13, 19],
+            [/^Fire engine(s)?$/]: [0, 1, 12, 13, 19, 30],
             [/^Turntable Ladder trucks?$/]: [2, 13],
             [/^Support Vehicle(s)?$/]: [3, 11],
             [/^Major Rescue Vehicle(s)?$/]: [4, 12, 26],
