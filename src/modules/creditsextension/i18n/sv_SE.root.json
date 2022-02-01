@@ -37,7 +37,7 @@
 		"showSales": {
 			"description": "Visa försäljningar för Mynt när det är tillgängligt.",
 			"title": "Visa Försäljningar"
-		},		
+		},
 		"showToplistPosition": {
 			"description": "Visar nuvarande ranking i 'creditsextension'.",
 			"title": "Rankning i 'creditsextension'"
