@@ -60,9 +60,12 @@
 		"building": "Byggnader",
 		"caption": "Namn",
 		"fms": "FMS",
+		"status": "Mål",
 		"type": "Typ"
+
 	},
 	"vehicle-types": {
+		"chart": "Status sammanställning",
 		"status": "Status",
 		"statuses": [
 			1,
