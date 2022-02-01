@@ -8,7 +8,7 @@ lang: de_DE
 In den Einstellungen werden die Einstellungen aller Module zentral verwaltet. Es können nur die Einstellungen aktiver Module verändert werden.
 
 Mittels der Knöpfe `Export` und `Import` kannst du deine Einstellungen in einer Datei sichern und / oder an deine Freunde weitergeben.
-Wir möchten in naher Zukunft die Möglichkeit bieten, Einstellungen Profilgebunden zu speichern. Damit sind Einstellungen nicht mehr an ein Gerät gebunden.
+Wir möchten in naher Zukunft die Möglichkeit bieten, Einstellungen profilgebunden zu speichern. Damit sind Einstellungen nicht mehr an ein Gerät gebunden.
 
 ::: tip Änderungen
 Sobald du die Einstellungen verlässt und gespeicherte Änderungen hast, wird das Spiel neu geladen, um alle Einstellungen problemlos zu übernehmen.
@@ -60,5 +60,5 @@ Probiere hier dein Format aus und sieh, was bei rauskommt! Informationen zur Kon
 
 ### Normaler Text
 Möchte man die aktuelle Uhrzeit mit nachfolgendem `Uhr` ausgeben lassen, also z.B. `08:33:31 Uhr`, kann man einfach `LTS Uhr` schreiben. Das Problem hierbei ist jedoch, dass das `h` ebenfalls ersetzt wird. Das Ergebnis wäre `08:33:31 U8r`.
-Deshalb kann man reinen Text "ausklammern", um eine Formatierung zu verhindern. Das geschieht, indem man ihn in eckige Klammern `[]` setzt. Eigentlich ist nur das umklammern von Variablen im reinen Text nötig, um eine schönere und lesbarere Formatierung zu erhalten kann man aber auch den gesamten Text in Klammern setzen.
+Deshalb kann man reinen Text "ausklammern", um eine Formatierung zu verhindern. Das geschieht, indem man ihn in eckige Klammern `[]` setzt. Eigentlich ist nur das Umklammern von Variablen im reinen Text nötig, um eine schönere und lesbarere Formatierung zu erhalten kann man aber auch den gesamten Text in Klammern setzen.
 Das oben gewünschte Ergebnis von `08:33:31 Uhr` erreicht man über `LTS [Uhr]` oder `LTS U[h]r`. 

@@ -7,7 +7,7 @@ sidebarDepth: 3
 # FAQ ❓
 
 ## Was kostet der LSS-Manager?
-Der LSS-Manager ist ein kostenloses Angebot - Wir haben auch nicht vor, dies zu ändern.
+Der LSS-Manager ist ein kostenloses Angebot - wir haben auch nicht vor, dies zu ändern.
 Auch wenn er sicherlich einen Mehrwert liefert, liegt keine Mehrwertsteuer auf diesem Produkt :wink:
 
 ::: warning Spenden
