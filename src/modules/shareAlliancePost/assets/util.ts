@@ -24,6 +24,15 @@ export function dateToTime(date: Date): string {
         .padStart(2, '0')}`;
 }
 
+export function getDateFromToday(addDays = 0): string {
+    return (
+        new Date(Date.now() + addDays * 1000 * 60 * 60 * 24)
+            .toLocaleDateString()
+            .match(/\d{1,2}\D\d{1,2}/)?.[0]
+            .replace(/(?<=^|\D)\d(?=\D|$)/g, $0 => `0${$0}`) ?? ''
+    );
+}
+
 export function getTimeReplacers(): Record<
     string,
     (match: string, ...groups: string[]) => string

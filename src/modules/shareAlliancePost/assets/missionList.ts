@@ -4,6 +4,7 @@ import {
     createIcon,
     dateToTime,
     getCityFromAddress,
+    getDateFromToday,
     getDropdownClickHandler,
     getTimeReplacers,
     removeZipFromCity,
@@ -126,9 +127,8 @@ export default (
             )
         ),
         name: missionName,
-        today:
-            new Date().toLocaleDateString().match(/\d{1,2}\D\d{1,2}/)?.[0] ??
-            '',
+        today: getDateFromToday(),
+        tomorrow: getDateFromToday(1),
     };
 
     const modifyMessage = (raw: string) => {

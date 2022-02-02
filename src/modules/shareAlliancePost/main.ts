@@ -6,6 +6,7 @@ import {
     createIcon,
     dateToTime,
     getCityFromAddress,
+    getDateFromToday,
     getDropdownClickHandler,
     getTimeReplacers,
     removeZipFromCity,
@@ -162,8 +163,8 @@ export default <ModuleMainFunction>(async ({
             ?.textContent?.trim() ??
         '';
 
-    const today =
-        new Date().toLocaleDateString().match(/\d{1,2}\D\d{1,2}/)?.[0] ?? '';
+    const today = getDateFromToday();
+    const tomorrow = getDateFromToday(1);
 
     const variables: Record<
         string,
@@ -179,6 +180,7 @@ export default <ModuleMainFunction>(async ({
         longestDrive: () => longestDrive,
         name: () => missionName,
         today: () => today,
+        tomorrow: () => tomorrow,
         ...getTimeReplacers(),
     };
 
