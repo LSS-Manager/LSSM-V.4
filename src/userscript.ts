@@ -25,9 +25,10 @@ if (
         window !== window.parent &&
         window.parent.hasOwnProperty('lssmv4-redesign-lightbox')
     ) {
-        window.parent.addEventListener(
-            'lssmv4-redesign-iframe-trigger-lssm-load',
-            loadLSSM
+        const redesignTriggerEvent = 'lssmv4-redesign-iframe-trigger-lssm-load';
+        window.parent.addEventListener(redesignTriggerEvent, loadLSSM);
+        window.addEventListener('pagehide', () =>
+            window.parent.removeEventListener(redesignTriggerEvent, loadLSSM)
         );
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore

@@ -373,6 +373,18 @@ export default (
 
     LSSM.$store
         .dispatch('hook', {
+            event: 'missionDelete',
+            callback(missionId: number) {
+                Object.keys(missionOrderValuesById).forEach(
+                    list => delete missionOrderValuesById[list][missionId]
+                );
+                updateOrderList();
+            },
+        })
+        .then();
+
+    LSSM.$store
+        .dispatch('hook', {
             event: 'patientMarkerAdd',
             post: true,
             callback(marker: PatientMarkerAdd) {

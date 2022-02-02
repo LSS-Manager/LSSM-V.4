@@ -33,7 +33,7 @@ export default <RedesignParser<VerbandBSRWindow>>(({
         ...verbandParser({ doc, getIdFromEl }),
         buildings: Array.from(
             markerScript.matchAll(
-                /(?<=L\.marker\(\[)(?<lat>\d+(?:\.\d+)?)\W*,\W*(?<long>\d+(?:\.\d+)?)(?=])(?=].*?\))(?:.|\n)*?(?<=\/buildings\/)(?<id>\d+)/g
+                /(?<=L\.marker\(\[)(?<lat>-?\d+(?:\.\d+)?)\W*,\W*?(?<long>-?\d+(?:\.\d+)?)(?=])(?=].*?\))(?:.|\n)*?(?<=\/buildings\/)(?<id>\d+)/g
             )
         ).map(
             ({
