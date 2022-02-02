@@ -84,6 +84,13 @@ export default (
     const city = getCityFromAddress(address);
     const cityWithoutZip = removeZipFromCity(city);
 
+    const remaining =
+        mission.element
+            .querySelector<HTMLDivElement>(`#mission_missing_${mission.id}`)
+            ?.textContent?.trim()
+            ?.replace(/^.*?:/, '')
+            .trim() ?? '–';
+
     const replacements: Record<string, string> = {
         credits: missionSpecs.average_credits?.toLocaleString() ?? '–',
         patients: (
@@ -103,12 +110,8 @@ export default (
                   )
                 : 0) || '–'
         ).toLocaleString(),
-        remaining:
-            mission.element
-                .querySelector<HTMLDivElement>(`#mission_missing_${mission.id}`)
-                ?.textContent?.trim()
-                ?.replace(/^.*?:/, '')
-                .trim() ?? '–',
+        remaining,
+        remainingSpecial: remaining,
         address,
         city,
         cityWithoutZip,

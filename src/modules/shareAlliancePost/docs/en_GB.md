@@ -20,6 +20,8 @@ To also omit postcode/zipcode, simply use <code><span>{{</span>cityWithoutZip<sp
 
 <code><span>{{</span>remaining<span>}}</span></code> is replaced by the vehicles that are still required for this mission. It mirrors exactly the text in the red "Needed vehicles" box.
 
+**Only available in mission window** is <code><span>{{</span>remainingSpecial<span>}}</span></code>, which takes the driving and selected vehicles in account. In the missions list, the text of the red box is used without any adjustments.
+
 ### Patients
 
 <code><span>{{</span>patients<span>}}</span></code> is replaced by the amount of patients currently at the mission.
