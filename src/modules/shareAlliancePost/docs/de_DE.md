@@ -40,7 +40,9 @@ Um auch die Postleitzahl wegzulassen, verwende <code><span>{{</span>cityWithoutZ
 
 ### Datum
 
-<code><span>{{</span>today<span>}}</span></code> fügt das heutige Datum (Tag und Monat) ein. z.B. `19.10`
+<code><span>{{</span>today<span>}}</span></code> fügt das heutige Datum (Tag und Monat) ein. z.B. `19.10`.
+
+Analog gibt <code><span>{{</span>tomorrow<span>}}</span></code> das morgige Datum (Tag und Monat) aus. z.B. `20.10`.
 
 ### Uhrzeiten
 

@@ -40,6 +40,8 @@ To also omit postcode/zipcode, simply use <code><span>{{</span>cityWithoutZip<sp
 
 <code><span>{{</span>today<span>}}</span></code> is replaced by the current locale date (day and month).
 
+Similarly, <code><span>{{</span>tomorrow<span>}}</span></code> outputs tomorrow's date (day and month).
+
 ### Times
 
 You can also set time distances to now. The system is a bit complicated, so read carefully:
