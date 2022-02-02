@@ -40,6 +40,8 @@ Pour ne pas avoir le code postal/zipcode, il suffit d'utiliser <code><span>{{</s
 
 <code><span>{{</span>today<span>}}</span></code> est remplacé par la date local (jour et mois).
 
+De même, <code><span>{{</span>tomorrow<span>}}</span></code> produit la date de demain (jour et mois).
+
 ### Temps
 
 Vous pouvez également définir des distances temporelles. Le système est un peu compliqué, alors lisez attentivement :
