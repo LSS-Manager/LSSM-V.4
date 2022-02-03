@@ -32,6 +32,8 @@ Pour ne pas avoir le code postal/zipcode, il suffit d'utiliser <code><span>{{</s
 
 <code><span>{{</span>name<span>}}</span></code> est remplacé par le nom de la mission.
 
+**Uniquement disponible dans la fenêtre de mission** <code><span>{{</span>remainingSpecial<span>}}</span></code> est remplacé par les véhicules en approche et ceux sélectionnés. Donc ceux de la liste des Interventions (le contenu de la boîte rouge).
+
 ### Le trajet le plus long
 
 <code><span>{{</span>longestDrive<span>}}</span></code> est remplacé par le temps qu'il faut pour que tous les véhicules sélectionnés soient sur place. **Important** : Cette variable n'est évidemment pas disponible lors du partage dans la liste des missions !
