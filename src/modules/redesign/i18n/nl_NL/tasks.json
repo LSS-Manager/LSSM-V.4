@@ -1,4 +1,7 @@
 {
-	"collectionTaskText": "Maak \\d+ \"(.*?)\" evenementopdrachten af",
+	"collectionTasks": {
+		"taskName": "Maak \\d+ \"(.*?)\" evenementopdrachten af",
+		"title": "Collective tasks"
+	},
 	"title": "Taken en evenementen"
 }

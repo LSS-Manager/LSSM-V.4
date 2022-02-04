@@ -1,4 +1,7 @@
 {
-	"collectionTaskText": "Fullfør \\d+ \"(.*?)\"-hendelsesoppgaver",
+	"collectionTasks": {
+		"taskName": "Fullfør \\d+ \"(.*?)\"-hendelsesoppgaver",
+		"title": "Collective Tasks"
+	},
 	"title": "Oppgaver og hendelser"
 }

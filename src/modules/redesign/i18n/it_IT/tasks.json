@@ -1,4 +1,7 @@
 {
-	"collectionTaskText": "Porta a termine \\d+ attività dell'evento \"(.*?)\"",
+	"collectionTasks": {
+		"taskName": "Porta a termine \\d+ attività dell'evento \"(.*?)\"",
+		"title": "Collective Tasks"
+	},
 	"title": "Attività ed eventi"
 }

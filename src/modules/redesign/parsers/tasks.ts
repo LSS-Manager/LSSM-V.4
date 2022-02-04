@@ -9,6 +9,7 @@ interface Task {
     total: number;
     category: string;
     isCollectionTask: boolean;
+    hasNextTask: boolean;
 }
 
 export interface TasksWindow {
@@ -26,7 +27,7 @@ export default <RedesignParser<TasksWindow>>(({ doc, $sm }) => ({
             const category =
                 name.match(/(?<=^\[).*?(?=])/)?.[0] ??
                 name.match(
-                    new RegExp($sm('collectionTaskText').toString())
+                    new RegExp($sm('collectionTasks.taskName').toString())
                 )?.[1] ??
                 '';
             const countdownEl = task.querySelector<HTMLSpanElement>(
@@ -60,6 +61,7 @@ export default <RedesignParser<TasksWindow>>(({ doc, $sm }) => ({
                 total,
                 category,
                 isCollectionTask,
+                hasNextTask: !!task.querySelector<HTMLDivElement>('.next_task'),
             };
         }
     ),

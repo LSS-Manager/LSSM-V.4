@@ -1,4 +1,7 @@
 {
-	"collectionTaskText": "Erledige \\d+ \"(.*?)\" Event-Aufgaben",
+	"collectionTasks": {
+		"taskName": "Erledige \\d+ \"(.*?)\" Event-Aufgaben",
+		"title": "Sammelaufgaben"
+	},
 	"title": "Aufgaben und Events"
 }

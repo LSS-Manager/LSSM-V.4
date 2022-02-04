@@ -1,4 +1,7 @@
 {
-	"collectionTaskText": "Finir \\d+ tâches de l’évènement \"(.*?)\"",
+	"collectionTasks": {
+		"taskName": "Finir \\d+ tâches de l’évènement \"(.*?)\"",
+		"title": "Tâches collective"
+	},
 	"title": "Tâches et événements"
 }
