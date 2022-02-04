@@ -193,6 +193,13 @@ const windows: RedesignLightbox['Data']['windows'] = {
             ),
         data: '',
     },
+    'tasks': {
+        component: () =>
+            import(
+                /*webpackChunkName: "modules/redesign/windows/tasks"*/ './tasks.vue'
+            ),
+        data: 'tasks',
+    },
     'toplist': {
         component: () =>
             import(
@@ -452,6 +459,16 @@ export default Vue.extend<
                                             getIdFromEl: this.getIdFromEl,
                                             doc,
                                             LSSM: this,
+                                            $m: this.$m,
+                                            $mc: this.$mc,
+                                            $sm: (key, args) =>
+                                                this.$m(`${type}.${key}`, args),
+                                            $smc: (key, amount, args) =>
+                                                this.$mc(
+                                                    `${type}.${key}`,
+                                                    amount,
+                                                    args
+                                                ),
                                         })),
                                         authenticity_token:
                                             doc.querySelector<HTMLMetaElement>(

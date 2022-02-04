@@ -19,6 +19,7 @@ import { NoteWindow } from '../../src/modules/redesign/parsers/note';
 import { ProfileEditWindow } from '../../src/modules/redesign/parsers/profile/edit';
 import { ProfileWindow } from '../../src/modules/redesign/parsers/profile';
 import { SchoolingsWindow } from '../../src/modules/redesign/parsers/schoolings';
+import { TasksWindow } from '../../src/modules/redesign/parsers/tasks';
 import { TopListWindow } from '../../src/modules/redesign/parsers/toplist';
 import { VehicleGroupWindow } from 'modules/redesign/parsers/vehicle_group';
 import { VehicleStatsWindow } from '../../src/modules/redesign/parsers/vehicle/stats';
@@ -38,6 +39,7 @@ import { VerbandskasseWindow } from '../../src/modules/redesign/parsers/verband/
 import { CombinedVueInstance } from 'vue/types/vue';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import VueI18n from 'vue-i18n';
+import { $m, $mc } from 'typings/Module';
 import {
     DefaultComputed,
     DefaultData,
@@ -65,6 +67,7 @@ interface Redesigns {
     'profile/edit': ProfileEditWindow;
     'note': NoteWindow;
     'schoolings': SchoolingsWindow;
+    'tasks': TasksWindow;
     'toplist': TopListWindow;
     'vehicle_group': VehicleGroupWindow;
     'vehicle': VehicleWindow;
@@ -160,19 +163,8 @@ export interface RedesignLightbox<
     };
     Props: {
         url: string;
-        $m(
-            key: string,
-            args?: {
-                [key: string]: unknown;
-            }
-        ): VueI18n.TranslateResult;
-        $mc(
-            key: string,
-            amount: number,
-            args?: {
-                [key: string]: unknown;
-            }
-        ): VueI18n.TranslateResult;
+        $m: $m;
+        $mc: $mc;
         routeChecks: routeChecks;
         noModal: boolean;
         creation: string;
@@ -185,6 +177,10 @@ interface ParserParam {
     href?: string;
     getIdFromEl?: (el: HTMLAnchorElement | null) => number;
     LSSM: Vue;
+    $m: $m;
+    $sm: $m;
+    $mc: $mc;
+    $smc: $mc;
 }
 
 export type RedesignParser<Window extends RedesignWindow = RedesignWindow> = (
@@ -233,18 +229,7 @@ export type RedesignSubComponent<
     Methods,
     Computed,
     Props & {
-        $m(
-            key: string,
-            args?: {
-                [key: string]: unknown;
-            }
-        ): VueI18n.TranslateResult;
-        $mc(
-            key: string,
-            amount: number,
-            args?: {
-                [key: string]: unknown;
-            }
-        ): VueI18n.TranslateResult;
+        $m: $m;
+        $mc: $mc;
     }
 >;

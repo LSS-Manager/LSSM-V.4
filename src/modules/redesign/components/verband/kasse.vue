@@ -276,6 +276,10 @@ export default Vue.extend<
                             href: url.toString(),
                             getIdFromEl: this.lightbox.getIdFromEl,
                             LSSM: this,
+                            $m: this.lightbox.$m,
+                            $sm: this.lightbox.$sm,
+                            $mc: this.lightbox.$mc,
+                            $smc: this.lightbox.$smc,
                         });
                         this.$set(this.lightbox, 'data', result);
                         this.lightbox.finishLoading('verband-kasse-toggle');
@@ -315,6 +319,10 @@ export default Vue.extend<
                             href: url.toString(),
                             getIdFromEl: this.lightbox.getIdFromEl,
                             LSSM: this,
+                            $m: this.lightbox.$m,
+                            $sm: this.lightbox.$sm,
+                            $mc: this.lightbox.$mc,
+                            $smc: this.lightbox.$smc,
                         });
                         if (result.enabled) {
                             this.$set(
@@ -350,6 +358,10 @@ export default Vue.extend<
                             href: url.toString(),
                             getIdFromEl: this.lightbox.getIdFromEl,
                             LSSM: this,
+                            $m: this.lightbox.$m,
+                            $sm: this.lightbox.$sm,
+                            $mc: this.lightbox.$mc,
+                            $smc: this.lightbox.$smc,
                         });
                         if (result.enabled) {
                             this.$set(
@@ -389,6 +401,10 @@ export default Vue.extend<
                             href: url.toString(),
                             getIdFromEl: this.lightbox.getIdFromEl,
                             LSSM: this,
+                            $m: this.lightbox.$m,
+                            $sm: this.lightbox.$sm,
+                            $mc: this.lightbox.$mc,
+                            $smc: this.lightbox.$smc,
                         });
                         if (result.enabled) {
                             this.$set(
@@ -428,6 +444,10 @@ export default Vue.extend<
                             href: url.toString(),
                             getIdFromEl: this.lightbox.getIdFromEl,
                             LSSM: this,
+                            $m: this.lightbox.$m,
+                            $sm: this.lightbox.$sm,
+                            $mc: this.lightbox.$mc,
+                            $smc: this.lightbox.$smc,
                         });
                         if (result.enabled) {
                             this.$set(
@@ -466,6 +486,10 @@ export default Vue.extend<
                             href: url.toString(),
                             getIdFromEl: this.lightbox.getIdFromEl,
                             LSSM: this,
+                            $m: this.lightbox.$m,
+                            $sm: this.lightbox.$sm,
+                            $mc: this.lightbox.$mc,
+                            $smc: this.lightbox.$smc,
                         });
                         if (result.enabled && this.lightbox.data.enabled) {
                             this.$set(
