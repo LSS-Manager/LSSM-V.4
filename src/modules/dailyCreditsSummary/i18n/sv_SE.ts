@@ -12,7 +12,7 @@ export default {
             textColor: 'white',
         },
         mission: {
-            regex: '^%missions%( \\(Fire Alarm System\\))?( - False Alarm)?$',
+            regex: '^%missions%( \\(Automatlarm\\))?( - Falskt alarm)?$',
             title: 'Egna uppdrag',
             backgroundColor: '#ff2400',
             textColor: 'white',
@@ -34,25 +34,25 @@ export default {
             textColor: 'black',
         },
         buildings: {
-            regex: /(Byggnad uppförd|Återlämna byggnad|Byggnad förstörd utan återbetalning)/,
+            regex: /(Byggnad uppförd|Återlämna byggnad|Byggnad förstörd utan återbetalning|Station byggd)/,
             title: 'Byggnader',
             backgroundColor: '#ed872d',
             textColor: 'black',
         },
         upgradeBuilding: {
-            regex: /(Utbyggnad|Avbryt:|Refund Building upgrade)/,
+            regex: /(– Utbyggnad$|Avbryt:|Refund Building upgrade)/,
             title: 'Stationsuppgraderingar',
             backgroundColor: '#000080',
             textColor: 'white',
         },
         task: {
-            regex: /Completed task («.*?»|".*?")/,
-            title: 'Avslutad uppgift',
+            regex: /^Klarade uppgiften/,
+            title: 'Avslutade uppgifter',
             backgroundColor: '#bb3385',
             textColor: 'white',
         },
         patients: {
-            regex: /(Patientbehandling|Patientbehandling och transport|Patientbehandling och transport via Ambulanshelikopter)/,
+            regex: /Patientbehandling/,
             title: 'Patientbehandling och transport',
             backgroundColor: '#fff600',
             textColor: 'black',
@@ -63,7 +63,7 @@ export default {
             textColor: 'black',
         },
         alliancePrisoners: {
-            regex: /Police - Alliance/,
+            regex: /Polis – Allians/,
             backgroundColor: '#ffff99',
             textColor: 'black',
         },
@@ -74,7 +74,7 @@ export default {
             textColor: 'black',
         },
         schoolings: {
-            regex: /(Personalutbildning|Alliance Training Applicant)/,
+            regex: /(Personalutbildning|utbildning($| Avbrutet))/,
             title: 'Utbildning',
             backgroundColor: '#ff00ff',
             textColor: 'white',
@@ -86,7 +86,7 @@ export default {
             textColor: 'white',
         },
         fireAlarmSystemCancel: {
-            regex: /False Alarm/,
+            regex: /Falskt alarm/,
             titel: 'Falska larm',
             backgroundColor: '#c80815',
             textColor: 'white',
