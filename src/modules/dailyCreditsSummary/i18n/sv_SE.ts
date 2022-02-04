@@ -34,13 +34,13 @@ export default {
             textColor: 'black',
         },
         buildings: {
-            regex: /(Byggnad uppförd|Återlämna byggnad|Byggnad förstörd utan återbetalning|Station byggd)/,
+            regex: /(Byggnad uppförd|Återlämna byggnad|Byggnad förstörd utan återbetalning|Station uppgraderad|Återlämna byggnadsuppgradering)/,
             title: 'Byggnader',
             backgroundColor: '#ed872d',
             textColor: 'black',
         },
         upgradeBuilding: {
-            regex: /(– Utbyggnad$|Avbryt:|Refund Building upgrade)/,
+            regex: /(– Utbyggnad$|Avbryt:|Station uppgraderad)/,
             title: 'Stationsuppgraderingar',
             backgroundColor: '#000080',
             textColor: 'white',
