@@ -6,7 +6,7 @@ export default {
     },
     categories: {
         allianceMission: {
-            regex: /^\[Alliance]/,
+            regex: /^\[Allians]/,
             title: 'Alliansuppdrag',
             backgroundColor: '#ff2800',
             textColor: 'white',
@@ -35,13 +35,13 @@ export default {
         },
         buildings: {
             regex: /(Byggnad uppförd|Återlämna byggnad|Byggnad förstörd utan återbetalning)/,
-            title: 'Byggnader: Uppförda/Återbetalade/Rivna',
+            title: 'Byggnader',
             backgroundColor: '#ed872d',
             textColor: 'black',
         },
         upgradeBuilding: {
-            regex: /(Station (upgraded( \(from small .*? station\))??|constructed)|Extended guard|Cancel:|Refund Building upgrade)/,
-            title: 'Uppgraderade stationer',
+            regex: /(Utbyggnad|Avbryt:|Refund Building upgrade)/,
+            title: 'Stationsuppgraderingar',
             backgroundColor: '#000080',
             textColor: 'white',
         },
