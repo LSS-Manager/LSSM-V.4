@@ -42,7 +42,10 @@
                             "
                         ></lssmv4-redesign-task>
                     </tab>
-                    <tab :title="lightbox.$sm('collectionTasks.title')">
+                    <tab
+                        v-if="category.collection.length"
+                        :title="lightbox.$sm('collectionTasks.title')"
+                    >
                         <lssmv4-redesign-task
                             v-for="task in category.collection"
                             :key="task.id"
