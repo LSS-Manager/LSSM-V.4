@@ -16,13 +16,13 @@
 				"description": "Une refonte de la liste des missions possibles et de la page \"Exigences pour cette mission\".",
 				"title": "Missions possibles"
 			},
-			"tasks": {
-				"description": "Une refonte de la liste des tâches",
-				"title": "Tâches"
-			},
 			"profile": {
 				"description": "Une refonte des pages de profil.",
 				"title": "Profil"
+			},
+			"tasks": {
+				"description": "Une refonte de la liste des tâches",
+				"title": "Tâches"
 			},
 			"toplist": {
 				"description": "Une refonte du classement.",

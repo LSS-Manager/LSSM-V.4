@@ -16,13 +16,13 @@
 				"description": "A redesign of the possible missions list and the \"Requirements for this Mission\"-page.",
 				"title": "Possible missions"
 			},
-			"tasks": {
-				"description": "A redesign of the task list",
-				"title": "Tasks"
-			},
 			"profile": {
 				"description": "A redesign of the profile pages.",
 				"title": "Profile"
+			},
+			"tasks": {
+				"description": "A redesign of the task list",
+				"title": "Tasks"
 			},
 			"toplist": {
 				"description": "A redesign of the toplist.",
