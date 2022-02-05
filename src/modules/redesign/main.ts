@@ -48,9 +48,9 @@ export default (async ({ LSSM, MODULE_ID, getSetting }) => {
         ...((await getSetting('category.toplist')) && {
             '^/toplist/?$': 'toplist',
         }),
-        ...((await getSetting('category.tasks')) && {
-            '^/tasks/index/?$': 'tasks',
-        }),
+        // ...((await getSetting('category.tasks')) && {
+        //     '^/tasks/index/?$': 'tasks',
+        // }),
     };
     LSSM.$store
         .dispatch('hook', {
