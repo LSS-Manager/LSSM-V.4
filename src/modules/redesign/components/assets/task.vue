@@ -26,6 +26,11 @@
                 <span class="task_name">
                     {{ task.name }}
                 </span>
+                <div v-if="collapsed">
+                    <span>{{ $sm('end') }}:</span>
+                    <span :id="task.countdownId"></span>
+                    <span>({{ task.endString }})</span>
+                </div>
             </div>
             <div>
                 {{ task.reward }}
@@ -35,7 +40,7 @@
                 </div>
             </div>
         </div>
-        <div class="task_body">
+        <div class="task_body" v-if="!collapsed">
             <div class="progress-info">
                 <div>
                     <span>{{ $sm('end') }}:</span>
@@ -155,7 +160,4 @@ export default Vue.extend<
 
         > *:not(:last-child)
             margin-right: 1rem
-
-    .task_body
-        display: none
 </style>
