@@ -87,7 +87,7 @@ Nous ne pouvons qu'espérer que l'ensemble du projet aboutira.
 | ![Choisir une prison](vehicles/choose_prison.png)          | Demande de déplacement des prisonniers, avec fonction de filtrage   |
 | ![Véhicule d'un autre joueur](vehicles/other_player.png)   | Véhicule d'un autre joueur                                          |
 
-### Aufgaben
+## Tâches
 
 Nous avons aussi la page [Tâches et événements](https://www.operateur112.fr/tasks/index) qui a été modifié:
 
