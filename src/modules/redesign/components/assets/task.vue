@@ -21,7 +21,7 @@
             <div class="progress-info">
                 <div>
                     <span>{{ $sm('end') }}:</span>
-                    <span :id="countdownId"></span>
+                    <span :id="task.countdownId"></span>
                     <span>({{ task.endString }})</span>
                 </div>
                 <span class="progress_value">
@@ -66,7 +66,6 @@ export default Vue.extend<
     DefaultComputed,
     {
         task: ModifiedTask;
-        countdownId: string;
         $sm: $m;
     }
 >({
@@ -79,14 +78,13 @@ export default Vue.extend<
             type: Object,
             required: true,
         },
-        countdownId: {
-            type: String,
-            required: true,
-        },
         $sm: {
             type: Function,
             required: true,
         },
+    },
+    mounted() {
+        this.task.triggerCountdownInit();
     },
 });
 </script>

@@ -32,7 +32,6 @@
                             v-for="task in group"
                             :key="task.id"
                             :task="task"
-                            :countdown-id="getTaskId(task.id, 'countdown')"
                             :$sm="lightbox.$sm"
                             @claim="claimReward(task.progressId)"
                         ></lssmv4-redesign-task>
@@ -42,7 +41,6 @@
                             v-for="task in category.collection"
                             :key="task.id"
                             :task="task"
-                            :countdown-id="getTaskId(task.id, 'countdown')"
                             :$sm="lightbox.$sm"
                             @claim="claimReward(task.progressId)"
                         ></lssmv4-redesign-task>
@@ -61,7 +59,11 @@ import moment from 'moment';
 import { RedesignComponent } from 'typings/modules/Redesign';
 import { TasksWindow } from '../parsers/tasks';
 
-export type ModifiedTask = TasksWindow['tasks'][0] & { endString: string };
+export type ModifiedTask = TasksWindow['tasks'][0] & {
+    endString: string;
+    countdownId: string;
+    triggerCountdownInit(): void;
+};
 
 type Category = Record<string, ModifiedTask[]>;
 type Categories = Record<
@@ -72,7 +74,7 @@ type Categories = Record<
 type Component = RedesignComponent<
     'tasks',
     'tasks',
-    { moment: typeof moment },
+    { moment: typeof moment; activeCountdowns: number[] },
     {
         getTaskId: (id: number, extra: string) => string;
         claimReward: (id: number) => void;
@@ -98,6 +100,7 @@ export default Vue.extend<
         moment.locale(this.$store.state.lang);
         return {
             moment,
+            activeCountdowns: [],
         };
     },
     methods: {
@@ -206,6 +209,13 @@ export default Vue.extend<
                 const endString = moment()
                     .add(task.countdown, 'seconds')
                     .format('llll');
+                const countdownId = this.getTaskId(task.id, 'countdown');
+                const triggerCountdownInit = () => {
+                    if (!this.activeCountdowns.includes(task.progressId)) {
+                        this.$utils.countdown(countdownId, task.countdown);
+                        this.activeCountdowns.push(task.progress);
+                    }
+                };
 
                 if (!categories.hasOwnProperty(task.category))
                     categories[task.category] = { times: {}, collection: [] };
@@ -214,6 +224,8 @@ export default Vue.extend<
                     return categories[task.category].collection.push({
                         ...task,
                         endString,
+                        countdownId,
+                        triggerCountdownInit,
                     });
                 }
 
@@ -222,6 +234,8 @@ export default Vue.extend<
                 categories[task.category].times[endString].push({
                     ...task,
                     endString,
+                    countdownId,
+                    triggerCountdownInit,
                 });
             });
             return categories;

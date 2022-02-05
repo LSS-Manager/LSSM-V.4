@@ -105,6 +105,16 @@ export default (Vue: VueConstructor): void => {
                 ...elementChildren.map(n => this.getTextNodes(n, filter)),
             ].flat();
         },
+        countdown(id: string, countdown: number) {
+            const element = document.getElementById(id);
+            if (!element || countdown <= 0) return;
+            element.textContent = window.formatTime(countdown);
+            window.setTimeout(
+                () =>
+                    (window[PREFIX] as Vue).$utils.countdown(id, countdown - 1),
+                1000
+            );
+        },
         highChartsDarkMode: {
             chart: {
                 backgroundColor: 'transparent',
