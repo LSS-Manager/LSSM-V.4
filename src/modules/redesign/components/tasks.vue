@@ -32,6 +32,21 @@
                 :title="title"
             >
                 <tabs>
+                    <tab :title="`[${lightbox.$sm('all')}]`">
+                        <lssmv4-redesign-task
+                            v-for="task in category.all"
+                            :key="task.id"
+                            :task="task"
+                            :$sm="lightbox.$sm"
+                            @claim="
+                                checkConfirmation(
+                                    task.claimConfirmation,
+                                    claimReward,
+                                    task.progressId
+                                )
+                            "
+                        ></lssmv4-redesign-task>
+                    </tab>
                     <tab
                         v-for="(group, countdown) in category.times"
                         :key="`${title}_${countdown}`"
@@ -100,7 +115,7 @@ export type ModifiedTask = Task & {
 type Category = Record<string, ModifiedTask[]>;
 type Categories = Record<
     string,
-    { times: Category; collection: ModifiedTask[] }
+    { all: ModifiedTask[]; times: Category; collection: ModifiedTask[] }
 >;
 
 type Component = RedesignComponent<
@@ -358,39 +373,54 @@ export default Vue.extend<
     computed: {
         categories() {
             const categories: Categories = {};
-            this.tasks.tasks.forEach(task => {
-                const endString = moment()
-                    .add(task.countdown, 'seconds')
-                    .format('llll');
-                const countdownId = this.getTaskId(task.id, 'countdown');
-                const triggerCountdownInit = () => {
-                    if (!this.activeCountdowns.includes(task.progressId)) {
-                        this.$utils.countdown(countdownId, task.countdown);
-                        this.activeCountdowns.push(task.progress);
-                    }
-                };
 
-                if (!categories.hasOwnProperty(task.category))
-                    categories[task.category] = { times: {}, collection: [] };
+            const allCategory = `[${this.lightbox.$sm('all')}]`;
 
-                if (task.isCollectionTask) {
-                    return categories[task.category].collection.push({
+            const addToCategory = (category: string, task: ModifiedTask) => {
+                if (!categories.hasOwnProperty(category)) {
+                    categories[category] = {
+                        all: [],
+                        times: {},
+                        collection: [],
+                    };
+                }
+
+                categories[category].all.push(task);
+
+                if (task.isCollectionTask)
+                    return categories[category].collection.push(task);
+
+                if (!categories[category].times.hasOwnProperty(task.endString))
+                    categories[category].times[task.endString] = [];
+                categories[category].times[task.endString].push(task);
+            };
+
+            const tasks = this.tasks.tasks;
+
+            tasks
+                .sort((a, b) => a.countdown - b.countdown)
+                .forEach(task => {
+                    const endString = moment()
+                        .add(task.countdown, 'seconds')
+                        .format('llll');
+                    const countdownId = this.getTaskId(task.id, 'countdown');
+                    const triggerCountdownInit = () => {
+                        if (!this.activeCountdowns.includes(task.progressId)) {
+                            this.$utils.countdown(countdownId, task.countdown);
+                            this.activeCountdowns.push(task.progress);
+                        }
+                    };
+
+                    const modifiedTask = {
                         ...task,
                         endString,
                         countdownId,
                         triggerCountdownInit,
-                    });
-                }
+                    };
 
-                if (!categories[task.category].times.hasOwnProperty(endString))
-                    categories[task.category].times[endString] = [];
-                categories[task.category].times[endString].push({
-                    ...task,
-                    endString,
-                    countdownId,
-                    triggerCountdownInit,
+                    addToCategory(allCategory, modifiedTask);
+                    addToCategory(task.category, modifiedTask);
                 });
-            });
             return categories;
         },
         claimableTasks() {
@@ -435,18 +465,3 @@ export default Vue.extend<
     },
 });
 </script>
-
-<style scoped lang="sass">
-textarea
-    resize: vertical
-
-.form-control[disabled]
-    background-color: inherit
-
-body.dark .form-control[disabled]
-    background-color: #323232
-
-pre
-    white-space: pre-wrap
-    overflow-wrap: break-word
-</style>

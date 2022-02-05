@@ -1,4 +1,5 @@
 {
+	"all": "All",
 	"claim": "Claim",
 	"claimAll": "Claim all ({amount})",
 	"collectionTasks": {
