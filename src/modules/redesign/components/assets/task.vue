@@ -100,7 +100,9 @@ export default Vue.extend<
         return {
             faCompressAlt,
             faExpandAlt,
-            collapsed: collapsedTasks.includes(this.task.id),
+            collapsed:
+                collapsedTasks.includes(this.task.id) ||
+                collapsedTasks.includes(-1),
         };
     },
     methods: {

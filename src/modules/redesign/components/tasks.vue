@@ -15,6 +15,15 @@
                     }}
                 </button>
             </span>
+            <button
+                class="btn btn-xs collapse-button"
+                :class="collapseAll ? 'btn-danger' : 'btn-success'"
+                @click="toggleCollapseAll"
+            >
+                <font-awesome-icon
+                    :icon="collapseAll ? faExpandAlt : faCompressAlt"
+                ></font-awesome-icon>
+            </button>
         </h1>
         <tabs>
             <tab
@@ -71,8 +80,12 @@ import Vue from 'vue';
 
 import moment from 'moment';
 
-import { RedesignComponent } from 'typings/modules/Redesign';
-import { TasksWindow } from '../parsers/tasks';
+import { faCompressAlt } from '@fortawesome/free-solid-svg-icons/faCompressAlt';
+import { faExpandAlt } from '@fortawesome/free-solid-svg-icons/faExpandAlt';
+
+import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import type { RedesignComponent } from 'typings/modules/Redesign';
+import type { TasksWindow } from '../parsers/tasks';
 
 export const collapsedLocalStorageKey = `${PREFIX}_redesign_tasks_collapsed`;
 
@@ -93,7 +106,13 @@ type Categories = Record<
 type Component = RedesignComponent<
     'tasks',
     'tasks',
-    { moment: typeof moment; activeCountdowns: number[] },
+    {
+        moment: typeof moment;
+        activeCountdowns: number[];
+        faCompressAlt: IconDefinition;
+        faExpandAlt: IconDefinition;
+        collapseAll: boolean;
+    },
     {
         getTaskId: (id: number, extra: string) => string;
         checkConfirmation(
@@ -104,6 +123,7 @@ type Component = RedesignComponent<
         claimReward: (id: number) => void;
         claimAll: () => void;
         cleanUpCollapsedTasks: () => void;
+        toggleCollapseAll: () => void;
     },
     {
         categories: Categories;
@@ -127,9 +147,15 @@ export default Vue.extend<
     },
     data() {
         moment.locale(this.$store.state.lang);
+        const collapsedTasks: number[] = JSON.parse(
+            localStorage.getItem(collapsedLocalStorageKey) || '[]'
+        );
         return {
             moment,
             activeCountdowns: [],
+            faCompressAlt,
+            faExpandAlt,
+            collapseAll: collapsedTasks.includes(-1),
         };
     },
     methods: {
@@ -306,10 +332,26 @@ export default Vue.extend<
                             localStorage.getItem(collapsedLocalStorageKey) ||
                                 '[]'
                         ) as number[]
-                    ).filter(task =>
-                        this.tasks.tasks.find(({ id }) => task === id)
+                    ).filter(
+                        task =>
+                            this.tasks.tasks.find(({ id }) => task === id) ||
+                            task === -1
                     )
                 )
+            );
+        },
+        toggleCollapseAll() {
+            this.collapseAll = !this.collapseAll;
+            this.$el
+                .querySelectorAll<HTMLButtonElement>(
+                    `.task_panel .collapse-button.btn-${
+                        this.collapseAll ? 'success' : 'danger'
+                    }`
+                )
+                .forEach(btn => btn.click());
+            localStorage.setItem(
+                collapsedLocalStorageKey,
+                this.collapseAll ? '[-1]' : '[]'
             );
         },
     },
