@@ -86,3 +86,9 @@ Nous ne pouvons qu'espérer que l'ensemble du projet aboutira.
 | ![Choisir un hôpital](vehicles/choose_hospital.png)        | Demande de deplacement de patients avec fonctions de filtrage       |
 | ![Choisir une prison](vehicles/choose_prison.png)          | Demande de déplacement des prisonniers, avec fonction de filtrage   |
 | ![Véhicule d'un autre joueur](vehicles/other_player.png)   | Véhicule d'un autre joueur                                          |
+
+### Aufgaben
+
+Nous avons aussi la page [Tâches et événements](https://www.operateur112.fr/tasks/index) qui a été modifié:
+
+![Tâches et événements](tasks.png)
