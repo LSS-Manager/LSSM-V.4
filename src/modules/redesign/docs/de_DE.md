@@ -89,3 +89,9 @@ ganze schlussendlich vorstellen.
 |    ![Krankenhaus auswählen](vehicles/choose_hospital.png)     | Sprechwunsch (Patienten) inklusive Filterfunktionen |
 |        ![Zellen auswählen](vehicles/choose_prison.png)        |  Sprechwunsch (Gefangene) inklusive Filterfunktion  |
 | ![Fahrzeug eines anderen Spielers](vehicles/other_player.png) |           Fahrzeug eines anderen Spielers           |
+
+### Aufgaben
+
+Wir haben auch die Seite [Aufgaben und Events](https://leitstellenspiel.de/tasks/index) redesigned:
+
+![Aufgaben & Events](tasks.png)
