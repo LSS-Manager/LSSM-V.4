@@ -2010,7 +2010,7 @@ export default Vue.extend<
                             false
                         );
                         this.lightbox.finishLoading(
-                            'toplist-vehicle-load_all_hospitals'
+                            'vehicle-load_all_hospitals'
                         );
                     });
                 });

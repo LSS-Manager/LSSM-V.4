@@ -1,7 +1,11 @@
 {
+	"claim": "Abholen",
+	"claimAll": "Alle abholen ({amount})",
 	"collectionTasks": {
 		"taskName": "Erledige \\d+ \"(.*?)\" Event-Aufgaben",
 		"title": "Sammelaufgaben"
 	},
+	"end": "Ende",
+	"nextTask": "Nach dem Abholen gibt es eine neue Aufgabe!",
 	"title": "Aufgaben und Events"
 }

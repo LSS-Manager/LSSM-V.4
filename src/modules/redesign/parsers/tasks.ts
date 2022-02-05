@@ -4,6 +4,7 @@ interface Task {
     name: string;
     reward: string;
     id: number;
+    progressId: number;
     countdown: number;
     progress: number;
     total: number;
@@ -16,7 +17,7 @@ export interface TasksWindow {
     tasks: Task[];
 }
 
-export default <RedesignParser<TasksWindow>>(({ doc, $sm }) => ({
+export default <RedesignParser<TasksWindow>>(({ LSSM, doc, $sm }) => ({
     tasks: Array.from(doc.querySelectorAll<HTMLDivElement>('.task_panel')).map(
         task => {
             const name =
@@ -30,6 +31,12 @@ export default <RedesignParser<TasksWindow>>(({ doc, $sm }) => ({
                     new RegExp($sm('collectionTasks.taskName').toString())
                 )?.[1] ??
                 '';
+            const progressId = parseInt(
+                new URL(
+                    task.querySelector<HTMLFormElement>('form')?.action ?? '',
+                    window.location.origin
+                ).searchParams.get('task_progress_id') ?? '-1'
+            );
             const countdownEl = task.querySelector<HTMLSpanElement>(
                 '[id^="task_countdown_"]'
             );
@@ -47,7 +54,7 @@ export default <RedesignParser<TasksWindow>>(({ doc, $sm }) => ({
                 .querySelector('.task_body .progress_value')
                 ?.textContent?.trim()
                 .split('/')
-                .map(v => parseInt(v.trim())) ?? [0, 0];
+                .map(v => LSSM.$utils.getNumberFromText(v.trim())) ?? [0, 0];
             const reward =
                 task
                     .querySelector('.panel-heading div:nth-child(2)')
@@ -55,6 +62,7 @@ export default <RedesignParser<TasksWindow>>(({ doc, $sm }) => ({
             return {
                 name,
                 reward,
+                progressId,
                 id,
                 countdown,
                 progress,
