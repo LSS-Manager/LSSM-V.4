@@ -94,4 +94,6 @@ ganze schlussendlich vorstellen.
 
 Wir haben auch die Seite [Aufgaben und Events](https://leitstellenspiel.de/tasks/index) redesigned:
 
-![Aufgaben & Events](tasks.png)
+![Aufgaben](tasks/full_size.png)
+
+![Aufgaben im eingeklappten Status](tasks/collapsed.png)
