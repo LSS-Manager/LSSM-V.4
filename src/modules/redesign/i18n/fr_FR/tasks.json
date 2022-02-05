@@ -5,6 +5,11 @@
 		"taskName": "Finir \\d+ tâches de l’évènement \"(.*?)\"",
 		"title": "Tâches collective"
 	},
+	"confirmation": {
+		"cancel": "Annuler",
+		"confirm": "Continuer",
+		"title": "Attention:"
+	},
 	"end": "Fin",
 	"nextTask": "Après la réclamation, une nouvelle tâche apparaîtra !",
 	"title": "Tâches et événements"
