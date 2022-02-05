@@ -8,8 +8,9 @@ export default (LSSM: Vue): void => {
         let title =
             window.location.pathname === '/'
                 ? ''
-                : heading?.textContent
-                      ?.trim()
+                : Array.from(heading?.childNodes ?? [])
+                      ?.find(node => node.nodeType === Node.TEXT_NODE)
+                      ?.textContent?.trim()
                       .replace(/\n/g, ' ')
                       .replace(/ {2,}/g, ' ') ||
                   window.location.pathname.replace(/^\/|\/$/g, '');
