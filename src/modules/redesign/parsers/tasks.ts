@@ -11,6 +11,7 @@ interface Task {
     category: string;
     isCollectionTask: boolean;
     hasNextTask: boolean;
+    claimConfirmation: string | false;
 }
 
 export interface TasksWindow {
@@ -59,6 +60,10 @@ export default <RedesignParser<TasksWindow>>(({ LSSM, doc, $sm }) => ({
                 task
                     .querySelector('.panel-heading div:nth-child(2)')
                     ?.textContent?.trim() ?? '';
+            const claimConfirmation =
+                task.querySelector<HTMLInputElement>(
+                    'form input[type="submit"]'
+                )?.dataset.confirm ?? false;
             return {
                 name,
                 reward,
@@ -70,6 +75,7 @@ export default <RedesignParser<TasksWindow>>(({ LSSM, doc, $sm }) => ({
                 category,
                 isCollectionTask,
                 hasNextTask: !!task.querySelector<HTMLDivElement>('.next_task'),
+                claimConfirmation,
             };
         }
     ),

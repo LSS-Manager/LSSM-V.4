@@ -33,7 +33,13 @@
                             :key="task.id"
                             :task="task"
                             :$sm="lightbox.$sm"
-                            @claim="claimReward(task.progressId)"
+                            @claim="
+                                checkConfirmation(
+                                    task.claimConfirmation,
+                                    claimReward,
+                                    task.progressId
+                                )
+                            "
                         ></lssmv4-redesign-task>
                     </tab>
                     <tab :title="lightbox.$sm('collectionTasks.title')">
@@ -42,7 +48,13 @@
                             :key="task.id"
                             :task="task"
                             :$sm="lightbox.$sm"
-                            @claim="claimReward(task.progressId)"
+                            @claim="
+                                checkConfirmation(
+                                    task.claimConfirmation,
+                                    claimReward,
+                                    task.progressId
+                                )
+                            "
                         ></lssmv4-redesign-task>
                     </tab>
                 </tabs>
@@ -59,7 +71,9 @@ import moment from 'moment';
 import { RedesignComponent } from 'typings/modules/Redesign';
 import { TasksWindow } from '../parsers/tasks';
 
-export type ModifiedTask = TasksWindow['tasks'][0] & {
+type Task = TasksWindow['tasks'][0];
+
+export type ModifiedTask = Task & {
     endString: string;
     countdownId: string;
     triggerCountdownInit(): void;
@@ -77,10 +91,19 @@ type Component = RedesignComponent<
     { moment: typeof moment; activeCountdowns: number[] },
     {
         getTaskId: (id: number, extra: string) => string;
+        checkConfirmation(
+            confirmation: string | false,
+            callback: (id: number) => void,
+            id: number
+        ): void;
         claimReward: (id: number) => void;
         claimAll: () => void;
     },
-    { categories: Categories; amountOfClaimableTasks: number }
+    {
+        categories: Categories;
+        claimableTasks: Task[];
+        amountOfClaimableTasks: number;
+    }
 >;
 
 export default Vue.extend<
@@ -108,6 +131,31 @@ export default Vue.extend<
             return this.$store.getters.nodeAttribute(
                 `redesign-tasks-${id}-${extra}`
             );
+        },
+        checkConfirmation(confirmation, callback, id) {
+            if (!confirmation) return callback(id);
+            // eslint-disable-next-line @typescript-eslint/no-this-alias
+            const LSSM = this;
+            this.$modal.show('dialog', {
+                title: this.lightbox.$sm(`confirmation.title`),
+                text: confirmation,
+                buttons: [
+                    {
+                        title: this.lightbox.$sm('confirmation.cancel'),
+                        default: true,
+                        handler() {
+                            LSSM.$modal.hide('dialog');
+                        },
+                    },
+                    {
+                        title: this.lightbox.$sm('confirmation.confirm'),
+                        handler() {
+                            callback(id);
+                            LSSM.$modal.hide('dialog');
+                        },
+                    },
+                ],
+            });
         },
         claimReward(id) {
             this.$set(this.lightbox, 'loading', true);
@@ -156,50 +204,90 @@ export default Vue.extend<
                 });
         },
         claimAll() {
-            this.$set(this.lightbox, 'loading', true);
-            this.$store
-                .dispatch('api/request', {
-                    url: `/tasks/claim_all_rewards`,
-                    init: {
-                        credentials: 'include',
-                        headers: {
-                            'Content-Type': 'application/x-www-form-urlencoded',
-                        },
-                        referrer: new URL(
-                            'tasks/index',
-                            window.location.origin
-                        ),
-                        body: `authenticity_token=${encodeURIComponent(
-                            this.tasks.authenticity_token
-                        )}`,
-                        method: 'POST',
-                        mode: 'cors',
-                    },
-                    feature: `redesign-tasks-claim-all`,
-                })
-                .then((res: Response) => res.text())
-                .then(async html => {
-                    import('../parsers/tasks').then(async parser => {
-                        const result = await parser.default({
-                            doc: new DOMParser().parseFromString(
-                                html,
-                                'text/html'
-                            ),
-                            href: new URL(
+            const confirmations = [
+                ...new Set(
+                    this.claimableTasks
+                        .map(({ claimConfirmation }) => claimConfirmation)
+                        .filter(c => c)
+                ),
+            ].join('<br>');
+
+            const claimAll = () => {
+                this.$set(this.lightbox, 'loading', true);
+                this.$store
+                    .dispatch('api/request', {
+                        url: `/tasks/claim_all_rewards`,
+                        init: {
+                            credentials: 'include',
+                            headers: {
+                                'Content-Type':
+                                    'application/x-www-form-urlencoded',
+                            },
+                            referrer: new URL(
                                 'tasks/index',
                                 window.location.origin
-                            ).toString(),
-                            getIdFromEl: this.lightbox.getIdFromEl,
-                            LSSM: this,
-                            $m: this.lightbox.$m,
-                            $sm: this.lightbox.$sm,
-                            $mc: this.lightbox.$mc,
-                            $smc: this.lightbox.$smc,
+                            ),
+                            body: `authenticity_token=${encodeURIComponent(
+                                this.tasks.authenticity_token
+                            )}`,
+                            method: 'POST',
+                            mode: 'cors',
+                        },
+                        feature: `redesign-tasks-claim-all`,
+                    })
+                    .then((res: Response) => res.text())
+                    .then(async html => {
+                        import('../parsers/tasks').then(async parser => {
+                            const result = await parser.default({
+                                doc: new DOMParser().parseFromString(
+                                    html,
+                                    'text/html'
+                                ),
+                                href: new URL(
+                                    'tasks/index',
+                                    window.location.origin
+                                ).toString(),
+                                getIdFromEl: this.lightbox.getIdFromEl,
+                                LSSM: this,
+                                $m: this.lightbox.$m,
+                                $sm: this.lightbox.$sm,
+                                $mc: this.lightbox.$mc,
+                                $smc: this.lightbox.$smc,
+                            });
+                            this.$set(
+                                this.lightbox.data,
+                                'tasks',
+                                result.tasks
+                            );
+                            this.lightbox.finishLoading('tasks-updated-tasks');
                         });
-                        this.$set(this.lightbox.data, 'tasks', result.tasks);
-                        this.lightbox.finishLoading('tasks-updated-tasks');
                     });
-                });
+            };
+
+            if (!confirmations) return claimAll();
+
+            // eslint-disable-next-line @typescript-eslint/no-this-alias
+            const LSSM = this;
+            this.$modal.show('dialog', {
+                title: this.lightbox.$sm(`confirmation.title`),
+                text: confirmations,
+                buttons: [
+                    {
+                        title: this.lightbox.$sm('confirmation.cancel'),
+                        default: true,
+                        handler() {
+                            LSSM.$modal.hide('dialog');
+                        },
+                    },
+                    {
+                        title: this.lightbox.$sm('confirmation.confirm'),
+                        handler() {
+                            claimAll();
+                            LSSM.$modal.hide('dialog');
+                        },
+                    },
+                ],
+            });
         },
     },
     computed: {
@@ -240,10 +328,13 @@ export default Vue.extend<
             });
             return categories;
         },
-        amountOfClaimableTasks() {
+        claimableTasks() {
             return this.tasks.tasks.filter(
                 ({ progress, total }) => progress === total
-            ).length;
+            );
+        },
+        amountOfClaimableTasks() {
+            return this.claimableTasks.length;
         },
     },
     props: {
