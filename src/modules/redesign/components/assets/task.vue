@@ -1,7 +1,19 @@
 <template>
-    <div class="panel panel-default mission_panel_green task_panel">
+    <div
+        class="panel panel-default mission_panel_green task_panel"
+        :class="{ collapsed }"
+    >
         <div class="panel-heading">
             <div>
+                <button
+                    class="btn btn-xs collapse-button"
+                    :class="collapsed ? 'btn-danger' : 'btn-success'"
+                    @click="toggleCollapsedState"
+                >
+                    <font-awesome-icon
+                        :icon="collapsed ? faExpandAlt : faCompressAlt"
+                    ></font-awesome-icon>
+                </button>
                 <span class="reward_button">
                     <button
                         class="btn btn-block"
@@ -15,7 +27,13 @@
                     {{ task.name }}
                 </span>
             </div>
-            <div>{{ task.reward }}</div>
+            <div>
+                {{ task.reward }}
+                <div v-if="collapsed" class="progress_value">
+                    {{ task.progress.toLocaleString() }} /
+                    {{ task.total.toLocaleString() }}
+                </div>
+            </div>
         </div>
         <div class="task_body">
             <div class="progress-info">
@@ -52,17 +70,22 @@
 <script lang="ts">
 import Vue from 'vue';
 
-import { $m } from 'typings/Module';
-import { ModifiedTask } from '../tasks.vue';
-import {
-    DefaultComputed,
-    DefaultData,
-    DefaultMethods,
-} from 'vue/types/options';
+import { faCompressAlt } from '@fortawesome/free-solid-svg-icons/faCompressAlt';
+import { faExpandAlt } from '@fortawesome/free-solid-svg-icons/faExpandAlt';
+
+import { collapsedLocalStorageKey, type ModifiedTask } from '../tasks.vue';
+
+import type { $m } from 'typings/Module';
+import type { DefaultComputed } from 'vue/types/options';
+import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 
 export default Vue.extend<
-    DefaultData<Vue>,
-    DefaultMethods<Vue>,
+    {
+        faCompressAlt: IconDefinition;
+        faExpandAlt: IconDefinition;
+        collapsed: boolean;
+    },
+    { toggleCollapsedState(): void },
     DefaultComputed,
     {
         task: ModifiedTask;
@@ -71,7 +94,34 @@ export default Vue.extend<
 >({
     name: 'lssmv4-redesign-task',
     data() {
-        return {};
+        const collapsedTasks: number[] = JSON.parse(
+            localStorage.getItem(collapsedLocalStorageKey) || '[]'
+        );
+        return {
+            faCompressAlt,
+            faExpandAlt,
+            collapsed: collapsedTasks.includes(this.task.id),
+        };
+    },
+    methods: {
+        toggleCollapsedState() {
+            this.collapsed = !this.collapsed;
+            const collapsedTasks: number[] = JSON.parse(
+                localStorage.getItem(collapsedLocalStorageKey) || '[]'
+            );
+            if (this.collapsed) {
+                collapsedTasks.push(this.task.id);
+            } else if (collapsedTasks.includes(this.task.id)) {
+                collapsedTasks.splice(
+                    collapsedTasks.findIndex(task => task === this.task.id),
+                    1
+                );
+            }
+            localStorage.setItem(
+                collapsedLocalStorageKey,
+                JSON.stringify(collapsedTasks)
+            );
+        },
     },
     props: {
         task: {
@@ -88,3 +138,22 @@ export default Vue.extend<
     },
 });
 </script>
+
+<style scoped lang="sass">
+.collapse-button
+    margin-right: 1rem
+
+.task_panel.collapsed
+    width: max-content
+    display: inline flow-root
+    margin-right: 2rem
+
+    .panel-heading
+        min-height: unset
+
+        > *:not(:last-child)
+            margin-right: 1rem
+
+    .task_body
+        display: none
+</style>

@@ -74,6 +74,8 @@ import moment from 'moment';
 import { RedesignComponent } from 'typings/modules/Redesign';
 import { TasksWindow } from '../parsers/tasks';
 
+export const collapsedLocalStorageKey = `${PREFIX}_redesign_tasks_collapsed`;
+
 type Task = TasksWindow['tasks'][0];
 
 export type ModifiedTask = Task & {
@@ -101,6 +103,7 @@ type Component = RedesignComponent<
         ): void;
         claimReward: (id: number) => void;
         claimAll: () => void;
+        cleanUpCollapsedTasks: () => void;
     },
     {
         categories: Categories;
@@ -202,6 +205,7 @@ export default Vue.extend<
                             $smc: this.lightbox.$smc,
                         });
                         this.$set(this.lightbox.data, 'tasks', result.tasks);
+                        this.cleanUpCollapsedTasks();
                         this.lightbox.finishLoading('tasks-updated-tasks');
                     });
                 });
@@ -262,6 +266,7 @@ export default Vue.extend<
                                 'tasks',
                                 result.tasks
                             );
+                            this.cleanUpCollapsedTasks();
                             this.lightbox.finishLoading('tasks-updated-tasks');
                         });
                     });
@@ -291,6 +296,21 @@ export default Vue.extend<
                     },
                 ],
             });
+        },
+        cleanUpCollapsedTasks() {
+            localStorage.setItem(
+                collapsedLocalStorageKey,
+                JSON.stringify(
+                    (
+                        JSON.parse(
+                            localStorage.getItem(collapsedLocalStorageKey) ||
+                                '[]'
+                        ) as number[]
+                    ).filter(task =>
+                        this.tasks.tasks.find(({ id }) => task === id)
+                    )
+                )
+            );
         },
     },
     computed: {
@@ -369,6 +389,7 @@ export default Vue.extend<
     },
     mounted() {
         this.lightbox.finishLoading('tasks-mounted');
+        this.cleanUpCollapsedTasks();
     },
 });
 </script>
