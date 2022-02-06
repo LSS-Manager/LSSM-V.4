@@ -2,85 +2,85 @@
 	"commands": {
 		"*": {
 			"alliance": {
-				"applications": "open applications",
-				"buildings": "open alliance building overview",
-				"forum": "open board",
-				"funds": "open alliance funds window",
-				"logfiles": "open logfiles",
-				"members": "open memberlist",
-				"messages": "open messages",
-				"onlineMembers": "open memberlist (show online players only)",
-				"open": "open alliance window",
-				"schoolings": "open schoolings window",
-				"title": "Alliance"
+				"applications": "visa medlemsansökningara",
+				"buildings": "visa alliansbyggnader",
+				"forum": "visa forumet",
+				"funds": "visa allianskassan",
+				"logfiles": "visa loggen",
+				"members": "visa medlemslistan",
+				"messages": "visa alliansmeddelanden",
+				"onlineMembers": "visa medlemslistan (filtrerat på bara online)",
+				"open": "visa aliansen",
+				"schoolings": "visa utbildningar",
+				"title": "Allians"
 			},
 			"credits": {
-				"daily": "open daily summary",
-				"open": "open log",
-				"overview": "open overview of last 7 days",
-				"title": "Credits"
+				"daily": "visa ekonomisk sammanställning",
+				"open": "visa ekonomisidorna",
+				"overview": "visa ekonomisk översikt för de 7 senaste dagarna",
+				"title": "Krediter"
 			},
-			"help": "Open this help",
+			"help": "visa Hotkeys hjälpen",
 			"profile": {
-				"awards": "open list of awards",
-				"level": "open list of levels",
-				"notes": "open notes",
-				"open": "open own profile",
-				"title": "Profile"
+				"awards": "visa belöningslistan",
+				"level": "visa ranklistan",
+				"notes": "visa ateckningr",
+				"open": "visa egen profil",
+				"title": "Profil"
 			},
-			"protocol": "Open Log in Dispatch Center",
+			"protocol": "visa Larmlogg i larmcentralen",
 			"tasks": {
-				"open": "open list of current tasks",
-				"title": "Tasks and Events"
+				"open": "visa listan av pågående larm/even",
+				"title": "Uppgifter och event"
 			},
-			"title": "General"
+			"title": "Generella"
 		},
 		"main": {
 			"chat": {
-				"focus": "focus input field",
+				"focus": "välj chattfönstrets skrivruta",
 				"title": "Chat"
 			},
 			"lssm": {
 				"menu": {
-					"title": "Menu",
-					"toggle": "Open / Close"
+					"title": "Meny",
+					"toggle": "visa / Stäng"
 				},
 				"title": "LSSM"
 			},
 			"map": {
 				"search": {
-					"focus": "focus input field",
-					"title": "Location search"
+					"focus": "välj karfönstrets sökruta",
+					"title": "Platssökning"
 				},
-				"title": "Map"
+				"title": "karta"
 			},
 			"missionlist": {
 				"search": {
-					"focus": "focus input field",
-					"title": "Search"
+					"focus": "välj uppdragets fordonsökningslista",
+					"title": "Sök"
 				},
-				"title": "Mission list"
+				"title": "Uppdragslista"
 			},
-			"title": "Main window"
+			"title": "Huvudfönster"
 		},
 		"mission": {
 			"sorted": {
-				"alert_next": "Alarm and go to next mission",
-				"alert_share_next": "Alarm, Share and go to next mission",
-				"next": "next mission",
-				"prev": "previous mission",
-				"title": "Sorted missions"
+				"alert_next": "Skicka enheter och gå till nästa",
+				"alert_share_next": "Skicka enheter, dela och gå till nästa",
+				"next": "nästa uppdrag",
+				"prev": "föregående upptrag",
+				"title": "Sortara uppdrag"
 			},
-			"title": "Mission window"
+			"title": "Huvud fönster"
 		}
 	},
-	"description": "Control the game with hotkeys on the keyboard, which you can set yourself.",
+	"description": "Styr spelet med hotkeys som du själv kan definera.",
 	"name": "Hotkeys",
 	"settings": {
-		"command": "Action",
+		"command": "Handling",
 		"hotkey": "Hotkey",
 		"hotkeys": {
-			"description": "Set your own Hotkeys for certain actions here. Actions of category \"General\" are available everywhere in game. By pressing F1, you can view an overview of the hotkeys you have opened at any time.",
+			"description": "Här kan du binda dina egna hotkeys för specifika handlignar. Handlingar i kategorin \"Generella\" är tillgängliga överallt i spelet. Genom att trycka F1 samt statistik hur du använder dom",
 			"title": "Hotkeys"
 		}
 	}
