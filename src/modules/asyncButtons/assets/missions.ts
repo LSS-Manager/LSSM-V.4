@@ -94,42 +94,106 @@ export default (
     }
 
     // MissionReply [WIP]
-    /*if (
-        document.getElementById('mission_reply_mission_id') &&
-        missionSettings.includes('missionReply')
-    )
-        (() => {
-            const reply_form = document.getElementById(
-                'new_mission_reply'
-            ) as HTMLFormElement | null;
-            if (!reply_form) return;
+    const replyButton = document.querySelector<HTMLButtonElement>(
+        '#mission_reply_content ~ div button[type="submit"]'
+    );
+    const replyInputField = document.querySelector<HTMLInputElement>(
+        '#mission_reply_content'
+    );
+    if (
+        missionSettings.includes('missionReply') &&
+        replyButton &&
+        replyInputField
+    ) {
+        replyButton.disabled = !replyInputField.value;
+        replyInputField.addEventListener(
+            'input',
+            () => (replyButton.disabled = !replyInputField.value)
+        );
+        replyButton.addEventListener('click', e => {
+            e.preventDefault();
 
-            reply_form.addEventListener('submit', e => {
-                e.preventDefault();
-                const form = document.getElementById(
-                    'new_mission_reply'
-                ) as HTMLFormElement | null;
-                if (!form) return;
-                Array.from(form.elements).forEach(item => {
-                    item.classList.add('disabled');
-                    item.setAttribute('disabled', 'true');
-                });
-                LSSM.$store
-                    .dispatch('api/request', {
-                        url: '/mission_replies',
-                        init: {
-                            method: 'POST',
-                            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                            // @ts-ignore
-                            body: new URLSearchParams(new FormData(form)),
+            const message = replyInputField.value;
+            if (!message) return;
+
+            replyButton.disabled = true;
+            replyInputField.disabled = true;
+
+            const url = new URL('/mission_replies', window.location.origin);
+            url.searchParams.append('utf8', '✓');
+            const authToken =
+                document.querySelector<HTMLMetaElement>(
+                    'meta[name="csrf-token"]'
+                )?.content ?? '';
+            url.searchParams.append('authenticity_token', authToken);
+            url.searchParams.append('mission_reply[alliance_chat]', '0');
+            if (
+                document.querySelector<HTMLInputElement>(
+                    '#mission_reply_alliance_chat'
+                )?.checked
+            )
+                url.searchParams.append('mission_reply[alliance_chat]', '1');
+
+            url.searchParams.append('mission_reply[content]', message);
+
+            const missionId = window.location.pathname.split('/')[2];
+            url.searchParams.append(
+                'mission_reply[mission_id]',
+                missionId.toString()
+            );
+            LSSM.$store
+                .dispatch('api/request', {
+                    url: '/mission_replies',
+                    feature: `${MODULE_ID}_missionReply`,
+                    init: {
+                        credentials: 'include',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded',
                         },
-                    })
-                    .then(() => {
-                        Array.from(form.elements).forEach(item => {
-                            item.classList.remove('disabled');
-                            item.removeAttribute('disabled');
-                        });
-                    });
-            });
-        })();*/
+                        body: url.searchParams.toString(),
+                        method: 'POST',
+                        mode: 'cors',
+                    },
+                })
+                .then(() => {
+                    let missionReplies =
+                        document.querySelector<HTMLUListElement>(
+                            '#mission_replies'
+                        );
+                    if (!missionReplies) {
+                        missionReplies = document.createElement('ul');
+                        missionReplies.id = 'mission_replies';
+                        document
+                            .querySelector<HTMLDivElement>(
+                                '#new_mission_reply + .clearfix'
+                            )
+                            ?.after(missionReplies);
+                    }
+
+                    const reply = document.createElement('li');
+                    reply.setAttribute('title', new Date().toLocaleString());
+                    const userLink = document.createElement('a');
+                    userLink.setAttribute('href', `/profile/${user_id}`);
+                    userLink.textContent =
+                        window.user_name ??
+                        LSSM.$store.state.api.credits.user_name ??
+                        '¶'; // TODO: Remove fallbacks once name is available ingame
+                    reply.append(
+                        document.createTextNode(
+                            `[${new Date()
+                                .toLocaleTimeString()
+                                .replace(/:\d{2}$/, '')}] `
+                        ),
+                        userLink,
+                        document.createTextNode(`: ${message}`)
+                    );
+
+                    missionReplies.prepend(reply);
+
+                    replyButton.disabled = false;
+                    replyInputField.value = '';
+                    replyInputField.disabled = false;
+                });
+        });
+    }
 };
