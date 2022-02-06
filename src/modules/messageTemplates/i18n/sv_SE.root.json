@@ -1,0 +1,13 @@
+{
+	"description": "Skriv den egen meddelandemall för privata meddelanden.",
+	"name": "Meddelande-Mall",
+	"settings": {
+		"name": "Namn",
+		"subject": "Rubrik",
+		"template": "Mall (variabler (se wikin): {{username}}, {{today[+n]}})",
+		"templates": {
+			"description": "Du kan använda variabler för i mallarna. Se <a class=\"lightbox-open\" href=\"{wiki}modules/messageTemplates.html#variables\">Wikin</a> för mer info.",
+			"title": "Mallar"
+		}
+	}
+}
