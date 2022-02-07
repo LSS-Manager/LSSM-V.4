@@ -58,7 +58,7 @@
 			"helicopter": "Ambulanshelikopter",
 			"hose": "Slangbil",
 			"k9": "Hundenhet",
-			"kdow_orgl": "Ledningsfordon",
+			"kdow_orgl": "Ledningsfordon, ambulans",
 			"large_fire_boat": "Stor brandbåt | Stora brandbåtar",
 			"large_rescue_boat": "Stor räddningsbåt | Stora räddningsbåtar",
 			"mobile_air_vehicles": "Luftfordon",
@@ -88,7 +88,7 @@
 			}
 		},
 		"patient_additionals": {
-			"8": "Ledningsfordon"
+			"8": "Ledningsfordon, ambulans"
 		},
 		"title": "Nödvändiga fordon"
 	}
