@@ -1,7 +1,6 @@
 module.exports = {
     name: 'Statusräknare',
-    description:
-        'Visa en sammanställning över vilken status dina fordon har.',
+    description: 'Visa en sammanställning över vilken status dina fordon har.',
     settings: {
         percentRounding: {
             title: 'Avrunda precenttal',
@@ -35,11 +34,13 @@ module.exports = {
         ),
         s5noblink: {
             title: 'Blinka inte för status 5 när fordon är i status 5',
-            description: 'Inaktivera blinkande för status 5 när fordon är i status 5.',
+            description:
+                'Inaktivera blinkande för status 5 när fordon är i status 5.',
         },
         s5blinkOnGt0: {
             title: 'Blinka för status 5 när fordon är i status 5',
-            description: 'Aktivera blinkande för status 5 när fordon är i status 5.',
+            description:
+                'Aktivera blinkande för status 5 när fordon är i status 5.',
         },
     },
 };
