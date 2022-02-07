@@ -1,7 +1,7 @@
 {
 	"diyMission": "Det här uppdraget verkar vara ett storskaligt alliansuppdrag!",
 	"expansions": "Uppdrag att utöka:",
-	"followups": "Uppföljningsuppdrag | Uppföljningsuppdrag",
+	"followups": "Påföljande uppdrag vid avklarat uppdrag | Påföljande uppdrag vid avklarade uppdrag",
 	"generated_by": "Skapad av",
 	"patients": {
 		"allow_ktw_instead_of_rtw": "En ambulans kan användas.",
