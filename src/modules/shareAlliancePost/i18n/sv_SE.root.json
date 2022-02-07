@@ -5,7 +5,7 @@
 	"settings": {
 		"enableCallList": {
 			"description": "Integrerar denna modul med  \"Dela uppdrag\" från modulen Utökad uppdragslista.",
-			"title": "Integration to Call-list"
+			"title": "Integration i utlarmingslistan"
 		},
 		"message": "Incidentrapport",
 		"messages": {
