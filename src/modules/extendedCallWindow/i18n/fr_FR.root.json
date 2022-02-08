@@ -41,10 +41,6 @@
 			"description": "Grise les régulations qui ne contiennent pas un des mots du nom de la mission.",
 			"title": "Griser régulations non adaptées"
 		},
-		"arrSpecs": {
-			"description": "Affiche le détail des catégories de véhicules sélectionnés par cette régulation lors du survol.",
-			"title": "Détail de la régulation"
-		},
 		"arrSearch": {
 			"description": "Affiche une barre de recherche au-dessus des RAIs qui permet de filtrer vos Rais.",
 			"title": "RAI-Recherche"
@@ -56,6 +52,10 @@
 		"arrSearchDropdown": {
 			"description": "Masque complètement l'RAI et affiche à la place une liste déroulante avec possibilité de recherche. Permet un RAI très compact.",
 			"title": "RAI-Recherche en liste déroulante"
+		},
+		"arrSpecs": {
+			"description": "Affiche le détail des catégories de véhicules sélectionnés par cette régulation lors du survol.",
+			"title": "Détail de la régulation"
 		},
 		"arrTime": {
 			"description": "Affiche le temps de trajet le plus long de la régulation lors du survol.",
