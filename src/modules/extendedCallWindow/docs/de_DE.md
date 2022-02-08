@@ -154,11 +154,11 @@ Mit dieser Einstellung wird das Suchfeld automatisch fokussiert, sodass du direk
 
 Diese Option verwandelt die komplette AAO in ein einziges kompaktes Dropdown. Die Suche wird natürlich weiterhin unterstützt, genauso wie alle weiteren AAO-Features (Klickzähler, Ausgrauen, Details, ...)!
 
-![AAO-Suche: Dropdown: Keine Suche](arrSearch/dropdown_no_search)
+![AAO-Suche: Dropdown: Keine Suche](arrSearch/dropdown_no_search.png)
 
-![AAO-Suche: Dropdown: Suche aktiv](arrSearch/dropdown_search)
+![AAO-Suche: Dropdown: Suche aktiv](arrSearch/dropdown_search.png)
 
-![AAO-Suche: Dropdown: Ausgewählte AAOs](arrSearch/dropdown_selected)
+![AAO-Suche: Dropdown: Ausgewählte AAOs](arrSearch/dropdown_selected.png)
 
 ## Eigene Fahrzeugkategorien
 
