@@ -6,6 +6,8 @@
         multiple
         :placeholder="$sm('settings.arrSearch.title')"
         :selectable="option => !option.category"
+        :close-on-select="false"
+        :clear-search-on-select="false"
         :components="{ Deselect }"
         @option:selecting="selected"
         v-model="clickedARRs"
