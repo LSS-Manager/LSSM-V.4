@@ -761,6 +761,8 @@ export default Vue.extend<
         },
         async dragEnd() {
             this.drag.active = false;
+            if (this.drag.top < 0) this.drag.top = 0;
+            if (this.drag.right < 0) this.drag.right = 0;
             await this.$store.dispatch('settings/setSetting', {
                 moduleId: 'missionHelper',
                 settingId: `drag`,
@@ -774,9 +776,11 @@ export default Vue.extend<
             if (!this.drag.active) return;
             e.preventDefault();
             const current = { x: e.clientX, y: e.clientY };
-            this.drag.top = current.y + this.drag.offset.y;
-            this.drag.right =
-                window.innerWidth - current.x - this.drag.offset.x;
+            this.drag.top = Math.max(current.y + this.drag.offset.y, 0);
+            this.drag.right = Math.max(
+                window.innerWidth - current.x - this.drag.offset.x,
+                0
+            );
         },
         getVehicles(missionSpecs, isMaxReq = false) {
             const vehicles = {} as VehicleRequirements;
