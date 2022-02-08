@@ -106,7 +106,7 @@ export default (Vue: VueConstructor): Store<RootState> => {
             useFontAwesome(state: RootState) {
                 if (state.fontAwesome.inserted) return;
                 const fa = document.createElement('script');
-                fa.src = 'https://kit.fontawesome.com/4d53a22a6e.js';
+                fa.src = `${state.server}static/fontawesome_free_6.0.0_all.min.js`;
                 fa.crossOrigin = 'anonymous';
                 document.head.appendChild(fa);
                 state.fontAwesome.inserted = true;
