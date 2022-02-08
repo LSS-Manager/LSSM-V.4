@@ -18,7 +18,7 @@
     },
     "dependencies": {
         "@fortawesome/fontawesome-svg-core": "^1.2.36",
-        "@fortawesome/free-solid-svg-icons": "^5.15.4",
+        "@fortawesome/free-solid-svg-icons": "^6.0.0",
         "@fortawesome/vue-fontawesome": "^2.0.6",
         "axios": "^0.25.0",
         "broadcast-channel": "^4.10.0",
@@ -46,7 +46,7 @@
         "vuex": "^3.6.2"
     },
     "devDependencies": {
-        "@primer/octicons": "^16.3.0",
+        "@primer/octicons": "^16.3.1",
         "@types/he": "^1.1.2",
         "@types/i18n-js": "^3.8.2",
         "@types/jquery": "^3.5.13",
