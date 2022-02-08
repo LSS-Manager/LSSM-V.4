@@ -56,7 +56,7 @@
 			"title": "Testo o Icona?"
 		},
 		"filters": {
-			"description": "Lascia le icone nel pulsante Mostra \"Allarme\", in base alla tua selezione. Puoi scegliere tra <a href=\"https://fontawesome.com/icons?d=gallery&m=free\" target=\"_blank\">tutte le icone gratuite di Font-Awesome</a>. È sufficiente specificare il nome dell'icona. Un'anteprima dal vivo ti mostrerà l'icona.",
+			"description": "Lascia le icone nel pulsante Mostra \"Allarme\", in base alla tua selezione. Puoi scegliere tra <a href=\"https://fontawesome.com/v6.0/icons?m=free\" target=\"_blank\">tutte le icone gratuite di Font-Awesome</a>. È sufficiente specificare il nome dell'icona. Un'anteprima dal vivo ti mostrerà l'icona.",
 			"title": "Filtro lista edificio"
 		},
 		"icon_style": "Tipo Icona",

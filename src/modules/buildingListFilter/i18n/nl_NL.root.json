@@ -85,7 +85,7 @@
 			"title": "Tekst of afbeelding?"
 		},
 		"filters": {
-			"description": "Stel hier de filters in. Je kan kiezen voor een tekst of een afbeelding voor de knoppen. Voor de afbeelding kun je kiezen uit <a href=\"https://fontawesome.com/icons?d=gallery&m=free\" target=\"_blank\">alle gratis afbeeldingen van Font-Awesome</a>. Het is genoeg om de naam van de afbeelding op te geven. Een live voorvertoning zal dan worden weergegeven.",
+			"description": "Stel hier de filters in. Je kan kiezen voor een tekst of een afbeelding voor de knoppen. Voor de afbeelding kun je kiezen uit <a href=\"https://fontawesome.com/v6.0/icons?m=free\" target=\"_blank\">alle gratis afbeeldingen van Font-Awesome</a>. Het is genoeg om de naam van de afbeelding op te geven. Een live voorvertoning zal dan worden weergegeven.",
 			"title": "Gebouwenfilter"
 		},
 		"icon_style": "Afbeeldingstype",

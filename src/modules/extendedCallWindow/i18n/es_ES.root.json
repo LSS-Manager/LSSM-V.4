@@ -2,7 +2,7 @@
 	"name": "Ventana de alarma ampliada",
 	"settings": {
 		"alarmIcons": {
-			"description": "Deja los iconos en el boton mostrar \"Alarm\" según su seleccion. Puede elegir entre <a href=\"https://fontawesome.com/icons?d=gallery&m=free\" target=\"_blank\">todos los iconos gratuitos de Font-Awesome</a>. Suficiente con especificar el nombre del icono. Una vista previa en directo le mostrará el icono",
+			"description": "Deja los iconos en el boton mostrar \"Alarm\" según su seleccion. Puede elegir entre <a href=\"https://fontawesome.com/v6.0/icons?m=free\" target=\"_blank\">todos los iconos gratuitos de Font-Awesome</a>. Suficiente con especificar el nombre del icono. Una vista previa en directo le mostrará el icono",
 			"icon": "Icono",
 			"preview": "Avance",
 			"style": "tipo de icono",

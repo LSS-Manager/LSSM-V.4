@@ -2,7 +2,7 @@
 	"name": "Finestra estesa d'allarme",
 	"settings": {
 		"alarmIcons": {
-			"description": "Lascia le icone mostrate in \"Alarm\" , basate sulla tua selezione. Puoi scegliere tra <a href=\"https://fontawesome.com/icons?d=gallery&m=free\" target=\"_blank\">tutte le icone gratuite di Font-Awesome</a>. Questo è sufficiente per specificare il nome dell'icona. Un'anteprima dal vivo ti mostrerà quindi l'icona.",
+			"description": "Lascia le icone mostrate in \"Alarm\" , basate sulla tua selezione. Puoi scegliere tra <a href=\"https://fontawesome.com/v6.0/icons?m=free\" target=\"_blank\">tutte le icone gratuite di Font-Awesome</a>. Questo è sufficiente per specificare il nome dell'icona. Un'anteprima dal vivo ti mostrerà quindi l'icona.",
 			"icon": "Icona",
 			"preview": "Anteprima",
 			"style": "Tipo icona",
