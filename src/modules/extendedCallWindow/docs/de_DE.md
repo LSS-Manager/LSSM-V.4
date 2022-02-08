@@ -138,6 +138,28 @@ Der Spielerzähler zählt, wie viele Spieler grade am Einsatz anwesend sind. Auc
 
 Auch hier kann man einstellen, in welcher farbe das Label des Spielerzählers erscheinen soll.
 
+## AAO-Suche
+
+Dieses Feature fügt eine Suche über den AAO hinzu, welche eine schnelle Filterung der AAO ermöglicht:
+
+![AAO-Suche: Keine Suche](arrSearch/text_no_search.png)
+
+![AAO-Suche: Aktiv](arrSearch/text_search.png)
+
+### Automatisch fokussieren
+
+Mit dieser Einstellung wird das Suchfeld automatisch fokussiert, sodass du direkt nach dem Laden mit dem Suchen loslegen kannst.
+
+### AAO-Suche als Dropdown
+
+Diese Option verwandelt die komplette AAO in ein einziges kompaktes Dropdown. Die Suche wird natürlich weiterhin unterstützt, genauso wie alle weiteren AAO-Features (Klickzähler, Ausgrauen, Details, ...)!
+
+![AAO-Suche: Dropdown: Keine Suche](arrSearch/dropdown_no_search)
+
+![AAO-Suche: Dropdown: Suche aktiv](arrSearch/dropdown_search)
+
+![AAO-Suche: Dropdown: Ausgewählte AAOs](arrSearch/dropdown_selected)
+
 ## Eigene Fahrzeugkategorien
 
 Wow, ein tolles Feature. Mit diesem Feature ist es möglich, sich die Fahrzeuge selber in Tabs aufzuteilen und diese Tabs zu benennen. Du hast die völlige Freiheit! Soll der Tab jetzt `SEG` oder `Schnelleinsatzgruppe` heißen? Du entscheidest! Sollen die Rettungshunde mit zur SEG oder soll es einen eigenen Tab `Hunde` geben? Du hast die freie Wahl.
