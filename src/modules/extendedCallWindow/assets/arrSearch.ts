@@ -40,7 +40,7 @@ export default (LSSM: Vue, autoFocus: boolean, dropdown: boolean, $sm: $m) => {
         if (autoFocus) searchField.focus();
     } else {
         const wrapper = document.createElement('div');
-        aaoGroupElement.before(wrapper);
+        aaoGroupElement.prepend(wrapper);
         import(
             /* webpackChunkName: "modules/extendedCallWindow/components/arrSearchDropdown" */
             '../components/arrSearch/arrSearchDropdown.vue'
@@ -50,7 +50,7 @@ export default (LSSM: Vue, autoFocus: boolean, dropdown: boolean, $sm: $m) => {
                 i18n: LSSM.$i18n,
                 render: h =>
                     h(arrSearchDropdown, {
-                        props: {},
+                        props: { $sm },
                     }),
             }).$mount(wrapper)
         );
