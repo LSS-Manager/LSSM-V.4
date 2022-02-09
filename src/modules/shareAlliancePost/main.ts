@@ -6,6 +6,7 @@ import {
     createIcon,
     dateToTime,
     getCityFromAddress,
+    getDateFromToday,
     getDropdownClickHandler,
     getTimeReplacers,
     removeZipFromCity,
@@ -15,6 +16,7 @@ import {
 
 import { Mission } from 'typings/Mission';
 import { ModuleMainFunction } from 'typings/Module';
+import VueI18n from 'vue-i18n';
 
 export interface Message {
     name: string;
@@ -46,6 +48,26 @@ export default <ModuleMainFunction>(async ({
     const editBtnClass = LSSM.$store.getters.nodeAttribute(
         `${MODULE_ID}-edit_msg`
     );
+
+    const emv$m =
+        (addEmvKey = true) =>
+        (
+            key: string,
+            args?: { [key: string]: unknown }
+        ): VueI18n.TranslateResult =>
+            LSSM.$t(
+                `modules.extendedCallWindow.${
+                    addEmvKey ? 'enhancedMissingVehicles.' : ''
+                }${key}`,
+                args
+            );
+    LSSM.$i18n.mergeLocaleMessage(LSSM.$store.state.lang, {
+        modules: {
+            extendedCallWindow: await import(
+                /* webpackChunkName: "modules/i18n/extendedCallWindow-i18n-de_DE" */ `../extendedCallWindow/i18n/${LSSM.$store.state.lang}.js`
+            ),
+        },
+    });
 
     const missionHelpBtn = document.getElementById('mission_help');
     let missionType =
@@ -114,6 +136,21 @@ export default <ModuleMainFunction>(async ({
 
     let longestDrive = '–';
 
+    const missingRequirementsFn = (
+        await import(
+            /* webpackChunkName: "modules/extendedCallWindow/enhancedMissingVehicles/getMissingRequirements"*/ '../extendedCallWindow/assets/emv/getMissingRequirements'
+        )
+    ).default;
+    let missingRequirements: ReturnType<typeof missingRequirementsFn>;
+    const getMissingRequirementsListHandler = (
+        await import(
+            /* webpackChunkName: "modules/extendedCallWindow/enhancedMissingVehicles/getVehicleListObserveHandler"*/ '../extendedCallWindow/assets/emv/getVehicleListObserveHandler'
+        )
+    ).default;
+    let missingRequirementsListHandler: ReturnType<
+        typeof getMissingRequirementsListHandler
+    >;
+
     const vehicleAmountElement =
         document.querySelector<HTMLSpanElement>('#vehicle_amount');
     if (vehicleAmountElement) {
@@ -136,9 +173,41 @@ export default <ModuleMainFunction>(async ({
             } else {
                 longestDrive = '–';
             }
+
+            if (!missingRequirements) {
+                missingRequirements = missingRequirementsFn(
+                    LSSM,
+                    remainingVehicles,
+                    emv$m(false)
+                );
+            }
+            if (!missingRequirements) return;
+            if (!missingRequirementsListHandler) {
+                missingRequirementsListHandler =
+                    getMissingRequirementsListHandler(
+                        LSSM,
+                        missingRequirements.missingRequirements,
+                        missingRequirements.missingRequirements,
+                        (requirement, value) => {
+                            const req =
+                                missingRequirements?.missingRequirements.find(
+                                    ({ vehicle }) =>
+                                        requirement.vehicle === vehicle
+                                );
+                            if (req) req.selected = value;
+                        },
+                        emv$m()
+                    );
+            }
+            missingRequirementsListHandler?.();
             document
                 .querySelectorAll<HTMLLIElement>(
-                    `.${dropdownClass} li[data-raw-message*="{{longestDrive}}"]`
+                    ['longestDrive', 'remainingSpecial']
+                        .map(
+                            variable =>
+                                `.${dropdownClass} li[data-raw-message*="{{${variable}}"]`
+                        )
+                        .join(', ')
                 )
                 .forEach(element => {
                     element.dataset.message = getModifiedMessage(
@@ -162,8 +231,8 @@ export default <ModuleMainFunction>(async ({
             ?.textContent?.trim() ??
         '';
 
-    const today =
-        new Date().toLocaleDateString().match(/\d{1,2}\D\d{1,2}/)?.[0] ?? '';
+    const today = getDateFromToday();
+    const tomorrow = getDateFromToday(1);
 
     const variables: Record<
         string,
@@ -172,6 +241,31 @@ export default <ModuleMainFunction>(async ({
         credits: () => averageCredits,
         patients: () => patients,
         remaining: () => remainingVehicles,
+        remainingSpecial: () => {
+            if (!missingRequirements) {
+                missingRequirements = missingRequirementsFn(
+                    LSSM,
+                    remainingVehicles,
+                    emv$m(false)
+                );
+            }
+            return (
+                missingRequirements?.missingRequirements
+                    .map(
+                        ({ vehicle, total, missing, selected }) =>
+                            `${(
+                                total ??
+                                (typeof selected === 'number'
+                                    ? missing - selected
+                                    : missing - selected.max) ??
+                                0
+                            ).toLocaleString()} ${vehicle}`
+                    )
+                    .join(', ') ??
+                remainingVehicles ??
+                '¶'
+            );
+        },
         address: () => address,
         city: () => city,
         cityWithoutZip: () => cityWithoutZip,
@@ -179,6 +273,7 @@ export default <ModuleMainFunction>(async ({
         longestDrive: () => longestDrive,
         name: () => missionName,
         today: () => today,
+        tomorrow: () => tomorrow,
         ...getTimeReplacers(),
     };
 

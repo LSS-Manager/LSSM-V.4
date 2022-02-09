@@ -129,7 +129,8 @@ import { faExpandAlt } from '@fortawesome/free-solid-svg-icons/faExpandAlt';
 import { faParagraph } from '@fortawesome/free-solid-svg-icons/faParagraph';
 import { faTable } from '@fortawesome/free-solid-svg-icons/faTable';
 
-import { InternalVehicle } from 'typings/Vehicle';
+import vehicleListObserveHandler from '../../assets/emv/getVehicleListObserveHandler';
+
 import {
     EnhancedMissingVehicles,
     EnhancedMissingVehiclesComputed,
@@ -298,6 +299,8 @@ export default Vue.extend<
         },
         async dragEnd() {
             this.drag.active = false;
+            if (this.drag.top < 0) this.drag.top = 0;
+            if (this.drag.left < 0) this.drag.left = 0;
             await this.$store.dispatch('settings/setSetting', {
                 moduleId: 'extendedCallWindow',
                 settingId: `drag`,
@@ -311,8 +314,8 @@ export default Vue.extend<
             if (!this.drag.active) return;
             e.preventDefault();
             const current = { x: e.clientX, y: e.clientY };
-            this.drag.top = current.y + this.drag.offset.y;
-            this.drag.left = current.x + this.drag.offset.x;
+            this.drag.top = Math.max(current.y + this.drag.offset.y, 0);
+            this.drag.left = Math.max(current.x + this.drag.offset.x, 0);
         },
         toggleRight() {
             this.$store
@@ -392,232 +395,23 @@ export default Vue.extend<
             .then();
     },
     mounted() {
-        const vehicleList = document.querySelector<HTMLTableSectionElement>(
-            '#vehicle_show_table_body_all'
+        const observeHandler = vehicleListObserveHandler(
+            this,
+            this.missingRequirements,
+            this.requirements,
+            (requirement, value) => this.$set(requirement, 'selected', value),
+            this.$m
         );
-        const occupiedList =
-            document.querySelector<HTMLDivElement>('#occupied');
-
-        const vehicleTypes = this.$t('vehicles') as Record<
-            number,
-            InternalVehicle
-        >;
-
-        if (!vehicleList || !occupiedList) return;
-
-        type GroupTranslation = Record<string, Record<number, number>>;
-
-        const getRequirementsByIDs = (translations: GroupTranslation) => {
-            const requirements: Record<
-                number,
-                EnhancedMissingVehiclesProps['missingRequirements']
-            > = {};
-
-            Object.entries(translations).forEach(([reg, vehicles]) => {
-                const regex = new RegExp(reg.replace(/^\/|\/$/g, ''));
-                const requirement = (
-                    this
-                        .missingRequirements as EnhancedMissingVehiclesProps['missingRequirements']
-                ).find(({ vehicle }) => vehicle.match(regex));
-                if (requirement) {
-                    Object.values(vehicles).forEach(vehicle => {
-                        if (!requirements.hasOwnProperty(vehicle))
-                            requirements[vehicle] = [];
-                        requirements[vehicle].push(requirement);
-                    });
-                }
-            });
-            return requirements;
-        };
-
-        const getSpecialRequirement = (requirement: string) =>
-            this.requirements.find(({ vehicle }) =>
-                vehicle.match(
-                    new RegExp(
-                        this.$m(requirement)
-                            .toString()
-                            .replace(/^\/|\/$/g, '')
-                    )
-                )
-            );
-
-        const requirementsByVehicleID = getRequirementsByIDs(
-            this.$m('vehiclesByRequirement') as unknown as GroupTranslation
-        );
-        const staffByVehicleID = getRequirementsByIDs(
-            this.$m('staff') as unknown as GroupTranslation
-        );
-
-        const towingVehicles = this.$m('towingVehicles') as unknown as Record<
-            number,
-            Record<number, number>
-        >;
-
-        const specialRequirementList = ['water', 'foam', 'pump'];
-
-        const specialRequirements: Record<
-            string,
-            EnhancedMissingVehiclesProps['missingRequirements'][0]
-        > = Object.fromEntries(
-            specialRequirementList
-                .map(req => [req, getSpecialRequirement(req)])
-                .filter(([, req]) => req)
-        );
-
-        const getProgressBarSelected = (requirement: string) =>
-            this.$utils.getNumberFromText(
-                document.querySelector<HTMLDivElement>(
-                    `[id^="mission_${requirement}_holder_"] div[class*="mission_water_bar_selected"]`
-                )?.textContent ?? '',
-                false,
-                0
-            );
-
-        const amountObserver = new MutationObserver(() => {
-            const selectedVehicles: Record<number, number[]> = {};
-            const definiteTractives: Record<number, number> = {};
-            const possibleTractives: Record<number, number> = {};
-
-            [
-                ...vehicleList.querySelectorAll<HTMLInputElement>(
-                    '.vehicle_checkbox:checked'
-                ),
-                ...occupiedList.querySelectorAll<HTMLInputElement>(
-                    '.vehicle_checkbox:checked'
-                ),
-            ].forEach(checkbox => {
-                const vehicleType = parseInt(
-                    checkbox.getAttribute('vehicle_type_id') ?? '-1'
-                );
-                const vehicleID = parseInt(
-                    checkbox.getAttribute('value') ?? '-1'
-                );
-                if (vehicleType < 0 || vehicleID < 0) return;
-
-                if (!selectedVehicles.hasOwnProperty(vehicleType))
-                    selectedVehicles[vehicleType] = [];
-                selectedVehicles[vehicleType].push(vehicleID);
-
-                const tractiveVehicleID = checkbox.getAttribute(
-                    'tractive_vehicle_id'
-                );
-                let tractiveCounted = false;
-                if (
-                    tractiveVehicleID &&
-                    checkbox.getAttribute('tractive_random') === '0' &&
-                    tractiveVehicleID !== '0'
-                ) {
-                    const tractive = this.$store.getters['api/vehicle'](
-                        parseInt(tractiveVehicleID)
-                    );
-                    const tractiveType = tractive.vehicle_type;
-                    if (tractive) {
-                        if (!selectedVehicles.hasOwnProperty(tractiveType))
-                            selectedVehicles[tractiveType] = [];
-                        selectedVehicles[tractiveType].push(
-                            parseInt(tractiveVehicleID)
-                        );
-                        if (!definiteTractives.hasOwnProperty(tractiveType))
-                            definiteTractives[tractiveType] = 0;
-                        definiteTractives[tractiveType]++;
-                        tractiveCounted = true;
-                    }
-                }
-                if (
-                    !tractiveCounted &&
-                    towingVehicles.hasOwnProperty(vehicleType)
-                ) {
-                    const tractiveType = towingVehicles[vehicleType][0];
-                    if (!possibleTractives.hasOwnProperty(tractiveType))
-                        possibleTractives[tractiveType] = 0;
-                    possibleTractives[tractiveType]++;
-                }
-            });
-
-            this.requirements.forEach(requirement =>
-                this.$set(
-                    requirement,
-                    'selected',
-                    typeof requirement.selected === 'number'
-                        ? 0
-                        : { min: 0, max: 0 }
-                )
-            );
-
-            Object.entries(possibleTractives).forEach(
-                ([tractiveType, amount]) => {
-                    const type = parseInt(tractiveType);
-                    if (!selectedVehicles.hasOwnProperty(type))
-                        selectedVehicles[type] = [];
-                    while (
-                        selectedVehicles[type].length <
-                        amount + (definiteTractives[type] ?? 0)
-                    ) {
-                        selectedVehicles[type].push(
-                            selectedVehicles[type].length * -1
-                        );
-                    }
-                }
-            );
-            Object.entries(selectedVehicles).forEach(
-                ([vehicleType, vehicles]) => {
-                    const vehicleIds = [...new Set(vehicles)];
-
-                    requirementsByVehicleID[parseInt(vehicleType)]?.forEach(
-                        requirement =>
-                            this.$set(
-                                requirement,
-                                'selected',
-                                typeof requirement.selected === 'number'
-                                    ? requirement.selected + vehicleIds.length
-                                    : requirement.selected
-                            )
-                    );
-
-                    const type = vehicleTypes[parseInt(vehicleType)];
-
-                    staffByVehicleID[parseInt(vehicleType)]?.forEach(
-                        requirement => {
-                            this.$set(
-                                requirement,
-                                'selected',
-                                typeof requirement.selected === 'number'
-                                    ? requirement.selected + 1
-                                    : {
-                                          min:
-                                              requirement.selected.min +
-                                              type.minPersonnel *
-                                                  vehicleIds.length,
-                                          max:
-                                              requirement.selected.max +
-                                              vehicleIds
-                                                  .map(
-                                                      id =>
-                                                          this.$store.getters[
-                                                              'api/vehicle'
-                                                          ](id)
-                                                              ?.max_personnel_override ??
-                                                          type.maxPersonnel
-                                                  )
-                                                  .reduce((a, b) => a + b, 0),
-                                      }
-                            );
-                        }
-                    );
-                }
-            );
-            Object.entries(specialRequirements).forEach(([key, requirement]) =>
-                this.$set(requirement, 'selected', getProgressBarSelected(key))
-            );
-        });
         const amountElement = document.getElementById('vehicle_amount');
 
-        if (amountElement) {
-            amountObserver.observe(amountElement, {
-                childList: true,
-                characterData: true,
-            });
-        }
+        if (!observeHandler || !amountElement) return;
+
+        const amountObserver = new MutationObserver(observeHandler);
+
+        amountObserver.observe(amountElement, {
+            childList: true,
+            characterData: true,
+        });
     },
 });
 </script>

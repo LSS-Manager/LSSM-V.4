@@ -53,9 +53,12 @@ utils(Vue);
     window.addEventListener('pagehide', () => {
         LSSM.$destroy();
         window[PREFIX] = null;
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
-        Object.keys(LSSM).forEach(key => (LSSM[key] = null));
+        const readonly = ['$attrs', '$listeners'];
+        Object.keys(LSSM).forEach(key => {
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-ignore
+            if (key in LSSM && !readonly.includes(key)) LSSM[key] = null;
+        });
     });
 
     await LSSM.$store.dispatch(

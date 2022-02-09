@@ -7,5 +7,5 @@
 		"prev": "Afficher les 20 entrées suivante"
 	},
 	"subtitle": "Afficher {n} Entrées de la pages {startPage} ({firstDate}) à {endPage} ({lastDate}) au total {totalPages} pages",
-	"title": "Liste des pièces"
+	"title": "Journal des pièces"
 }

@@ -1,10 +1,10 @@
 {
 	"description": "Summerar en daglig översikt i olika kategorier, så att du enkelt och snabbt kan se var dina krediter kommer ifrån.",
-	"name": "Credit summary",
+	"name": "Kreditsammanställning",
 	"settings": {
 		"showAverage": {
 			"description": "Visar medelvärdet för intjänade krediter per kategori.",
-			"title": "visa medelvärdet"
+			"title": "Visa medelvärdet"
 		}
 	}
 }

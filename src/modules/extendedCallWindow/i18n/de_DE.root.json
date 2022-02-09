@@ -41,6 +41,18 @@
 			"description": "Legt einen Graufilter über alle AAOs in denen kein Wort des Einsatznamens vorkommt.",
 			"title": "Unpassende AAOs ausgrauen"
 		},
+		"arrSearch": {
+			"description": "Zeigt ein Suchfeld über den AAOs an, mit dem sich die AAO durchsuchen lässt.",
+			"title": "AAO-Suche"
+		},
+		"arrSearchAutoFocus": {
+			"description": "Fokussiert das AAO-Suchfeld beim Laden automatisch.",
+			"title": "AAO-Suche: Automatisch fokussieren"
+		},
+		"arrSearchDropdown": {
+			"description": "Blendet die komplette AAO aus und zeigt stattdessen ein durchsuchbares Dropdown an. Ermöglicht eine sehr kompakte AAO-Darstellung.",
+			"title": "AAO-Suche als Dropdown"
+		},
 		"arrSpecs": {
 			"description": "Zeigt die gespeicherten Anforderungen in der AAO an, wenn man mit der Maus kurz über einer AAO bleibt",
 			"title": "AAO Details anzeigen"

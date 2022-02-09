@@ -203,6 +203,20 @@ export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
             labels: bootsTrapColorLabels,
             dependsOn: '.playerCounter',
         },
+        arrSearch: <Toggle>{
+            type: 'toggle',
+            default: false,
+        },
+        arrSearchAutoFocus: <Toggle>{
+            type: 'toggle',
+            default: false,
+            dependsOn: '.arrSearch',
+        },
+        arrSearchDropdown: <Toggle>{
+            type: 'toggle',
+            default: false,
+            dependsOn: '.arrSearch',
+        },
         tailoredTabs: <Omit<AppendableList, 'value' | 'isDisabled'>>{
             type: 'appendable-list',
             default: defaultTailoredTabs,

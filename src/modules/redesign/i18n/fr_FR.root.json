@@ -20,6 +20,10 @@
 				"description": "Une refonte des pages de profil.",
 				"title": "Profil"
 			},
+			"tasks": {
+				"description": "Une refonte de la liste des tâches",
+				"title": "Tâches"
+			},
 			"toplist": {
 				"description": "Une refonte du classement.",
 				"title": "Classement"

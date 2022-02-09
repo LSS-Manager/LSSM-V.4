@@ -123,6 +123,12 @@ declare module 'vue/types/vue' {
                 root: Node,
                 filter: (node: Node, ...args: unknown[]) => boolean
             ): Text[];
+            activeCountdowns: string[];
+            countdown(
+                id: string,
+                countdown: number,
+                initialCall?: boolean
+            ): void;
             highChartsDarkMode: Highcharts.Options;
         };
         $appstore: CombinedVueInstance<

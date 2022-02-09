@@ -1860,6 +1860,10 @@ export default Vue.extend<
                                     href: url,
                                     getIdFromEl: this.lightbox.getIdFromEl,
                                     LSSM: this,
+                                    $m: this.lightbox.$m,
+                                    $sm: this.lightbox.$sm,
+                                    $mc: this.lightbox.$mc,
+                                    $smc: this.lightbox.$smc,
                                 }
                             );
                             if (next_vehicle < 0) {
@@ -1990,6 +1994,10 @@ export default Vue.extend<
                             href: url.toString(),
                             getIdFromEl: this.lightbox.getIdFromEl,
                             LSSM: this,
+                            $m: this.lightbox.$m,
+                            $sm: this.lightbox.$sm,
+                            $mc: this.lightbox.$mc,
+                            $smc: this.lightbox.$smc,
                         });
                         this.$set(
                             this.lightbox.data,
@@ -2002,7 +2010,7 @@ export default Vue.extend<
                             false
                         );
                         this.lightbox.finishLoading(
-                            'toplist-vehicle-load_all_hospitals'
+                            'vehicle-load_all_hospitals'
                         );
                     });
                 });

@@ -71,6 +71,7 @@ module.exports = {
             pushLeft: 'show this box at original position',
         },
         selected: 'Selected',
+        staffPrefix: ['We need'],
         staff: {
             [/^Armed Response Personnel$/]: [13, 25],
             [/^more firefighters$/]: [

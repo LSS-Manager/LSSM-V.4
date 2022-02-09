@@ -105,6 +105,28 @@ export default (Vue: VueConstructor): void => {
                 ...elementChildren.map(n => this.getTextNodes(n, filter)),
             ].flat();
         },
+        activeCountdowns: [] as string[],
+        countdown(id: string, countdown: number, initialCall = true) {
+            const $utils = (window[PREFIX] as Vue).$utils;
+            if (initialCall && $utils.activeCountdowns.includes(id)) return;
+
+            const element = document.getElementById(id);
+            const activeIndex = $utils.activeCountdowns.findIndex(
+                cd => id === cd
+            );
+            if (!element || countdown <= 0) {
+                if (activeIndex >= 0)
+                    $utils.activeCountdowns.splice(activeIndex, 1);
+                return;
+            }
+            if (activeIndex < 0) $utils.activeCountdowns.push(id);
+
+            element.textContent = window.formatTime(countdown);
+            window.setTimeout(
+                () => $utils.countdown(id, countdown - 1, false),
+                1000
+            );
+        },
         highChartsDarkMode: {
             chart: {
                 backgroundColor: 'transparent',

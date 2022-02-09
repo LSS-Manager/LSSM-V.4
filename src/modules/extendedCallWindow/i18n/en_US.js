@@ -94,6 +94,7 @@ module.exports = {
         selected: 'Selected',
         foam: 'gal. foam',
         water: 'gal. water',
+        staffPrefix: ['We need'],
         staff: {
             [/^SWAT Personnel$/]: [16, 26],
         },

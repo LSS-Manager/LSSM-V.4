@@ -22,6 +22,8 @@ Um auch die Postleitzahl wegzulassen, verwende <code><span>{{</span>cityWithoutZ
 
 <code><span>{{</span>remaining<span>}}</span></code> fügt den Text der roten "Zusätzlich benötigte Fahrzeuge"-Box ein.
 
+**Nur im Einsatzfenster verfügbar** ist auch <code><span>{{</span>remainingSpecial<span>}}</span></code>, welches die Fahrzeuge auf Anfahrt und die ausgewählten Fahrzeuge mit beachtet. In der Einsatzliste wird einfach der normale Inhalt der roten Box eingefügt.
+
 ### Patienten
 
 <code><span>{{</span>patients<span>}}</span></code> fügt die Zahl der aktuellen Patienten ein.
@@ -40,7 +42,9 @@ Um auch die Postleitzahl wegzulassen, verwende <code><span>{{</span>cityWithoutZ
 
 ### Datum
 
-<code><span>{{</span>today<span>}}</span></code> fügt das heutige Datum (Tag und Monat) ein. z.B. `19.10`
+<code><span>{{</span>today<span>}}</span></code> fügt das heutige Datum (Tag und Monat) ein. z.B. `19.10`.
+
+Analog gibt <code><span>{{</span>tomorrow<span>}}</span></code> das morgige Datum (Tag und Monat) aus. z.B. `20.10`.
 
 ### Uhrzeiten
 

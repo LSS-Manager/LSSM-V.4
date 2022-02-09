@@ -10,14 +10,9 @@ export interface CreditsOverviewWindow {
     entries: Entry[];
 }
 
-export default <RedesignParser<CreditsOverviewWindow>>(({ doc }) => {
+export default <RedesignParser<CreditsOverviewWindow>>(({ LSSM, doc }) => {
     const getNum = (el: Element | null) =>
-        parseInt(
-            el?.textContent
-                ?.trim()
-                .match(/-?\d{1,3}([.,]\d{3})*/)?.[0]
-                ?.replace(/[.,]/g, '') ?? '0'
-        );
+        LSSM.$utils.getNumberFromText(el?.textContent?.trim() ?? '0');
     return {
         entries: Array.from(
             doc.querySelectorAll<HTMLTableRowElement>('table tbody tr')

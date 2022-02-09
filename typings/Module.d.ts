@@ -29,9 +29,9 @@ export type $m = (
 
 export type $mc = (
     key: string,
-    amount?: number,
+    amount: number,
     args?: { [key: string]: unknown }
-) => string;
+) => VueI18n.TranslateResult;
 
 export type ModuleMainFunction = (parameters: {
     LSSM: Vue;

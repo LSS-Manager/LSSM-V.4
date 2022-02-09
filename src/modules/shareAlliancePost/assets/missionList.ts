@@ -4,6 +4,7 @@ import {
     createIcon,
     dateToTime,
     getCityFromAddress,
+    getDateFromToday,
     getDropdownClickHandler,
     getTimeReplacers,
     removeZipFromCity,
@@ -83,6 +84,13 @@ export default (
     const city = getCityFromAddress(address);
     const cityWithoutZip = removeZipFromCity(city);
 
+    const remaining =
+        mission.element
+            .querySelector<HTMLDivElement>(`#mission_missing_${mission.id}`)
+            ?.textContent?.trim()
+            ?.replace(/^.*?:/, '')
+            .trim() ?? '–';
+
     const replacements: Record<string, string> = {
         credits: missionSpecs.average_credits?.toLocaleString() ?? '–',
         patients: (
@@ -102,12 +110,8 @@ export default (
                   )
                 : 0) || '–'
         ).toLocaleString(),
-        remaining:
-            mission.element
-                .querySelector<HTMLDivElement>(`#mission_missing_${mission.id}`)
-                ?.textContent?.trim()
-                ?.replace(/^.*?:/, '')
-                .trim() ?? '–',
+        remaining,
+        remainingSpecial: remaining,
         address,
         city,
         cityWithoutZip,
@@ -126,9 +130,8 @@ export default (
             )
         ),
         name: missionName,
-        today:
-            new Date().toLocaleDateString().match(/\d{1,2}\D\d{1,2}/)?.[0] ??
-            '',
+        today: getDateFromToday(),
+        tomorrow: getDateFromToday(1),
     };
 
     const modifyMessage = (raw: string) => {

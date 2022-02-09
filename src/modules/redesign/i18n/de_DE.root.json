@@ -20,6 +20,10 @@
 				"description": "Ein Redesign der Profile.",
 				"title": "Profile"
 			},
+			"tasks": {
+				"description": "Ein Redesign der Aufgabenliste",
+				"title": "Aufgaben"
+			},
 			"toplist": {
 				"description": "Ein Redesign der Spielerliste.",
 				"title": "Toplist"

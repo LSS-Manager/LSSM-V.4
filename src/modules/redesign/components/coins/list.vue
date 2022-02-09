@@ -174,6 +174,10 @@ export default Vue.extend<
                                 'text/html'
                             ),
                             LSSM: this,
+                            $m: this.lightbox.$m,
+                            $sm: this.lightbox.$sm,
+                            $mc: this.lightbox.$mc,
+                            $smc: this.lightbox.$smc,
                         });
                         this.$set(
                             this.lightbox.data,
@@ -206,6 +210,10 @@ export default Vue.extend<
                                 'text/html'
                             ),
                             LSSM: this,
+                            $m: this.lightbox.$m,
+                            $sm: this.lightbox.$sm,
+                            $mc: this.lightbox.$mc,
+                            $smc: this.lightbox.$smc,
                         });
                         this.$set(
                             this.lightbox.data,

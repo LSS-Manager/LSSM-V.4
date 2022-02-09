@@ -58,4 +58,8 @@ export default (() => ({
         type: 'toggle',
         default: true,
     },
+    'category.tasks': <Toggle>{
+        type: 'toggle',
+        default: true,
+    },
 })) as ModuleSettingFunction;
