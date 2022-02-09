@@ -17,7 +17,7 @@
 	"@primer/octicons": {
 		"icon": "https://primer.style/octicons/icons/icon-512x512.png",
 		"url": "https://primer.style/octicons",
-		"version": "16.3.0"
+		"version": "16.3.1"
 	},
 	"@types/he": {
 		"icon": "https://avatars.githubusercontent.com/u/3637556",
@@ -90,11 +90,11 @@
 	},
 	"@typescript-eslint/eslint-plugin": {
 		"icon": "https://avatars.githubusercontent.com/u/46634674",
-		"version": "5.10.2"
+		"version": "5.11.0"
 	},
 	"@typescript-eslint/parser": {
 		"icon": "https://avatars.githubusercontent.com/u/46634674",
-		"version": "5.10.2"
+		"version": "5.11.0"
 	},
 	"@vuepress/plugin-active-header-links": {
 		"icon": "https://vuepress.vuejs.org/hero.png",
@@ -258,7 +258,7 @@
 	"ts-node": {
 		"icon": "https://typestrong.org/ts-node/img/favicon/apple-touch-icon.png",
 		"url": "https://typestrong.org/ts-node",
-		"version": "10.4.0"
+		"version": "10.5.0"
 	},
 	"typescript": {
 		"icon": "https://www.typescriptlang.org/icons/icon-512x512.png",

@@ -191,6 +191,19 @@ export default (async ({ LSSM, MODULE_ID, $m, $mc, getSetting }) => {
                 })
             );
         }
+
+        if (await getSetting('arrSearch')) {
+            import(
+                /* webpackChunkName: "modules/extendedCallWindow/arrSearch" */ './assets/arrSearch'
+            ).then(async ({ default: arrSearch }) =>
+                arrSearch(
+                    LSSM,
+                    await getSetting('arrSearchAutoFocus'),
+                    await getSetting('arrSearchDropdown'),
+                    $m
+                )
+            );
+        }
     }
 
     const tailoredTabSettings = await getSetting<

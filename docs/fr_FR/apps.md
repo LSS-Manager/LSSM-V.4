@@ -47,6 +47,7 @@ Ci-dessous, nous avons dressé une liste des fonctionnalités de la V.3 et de l'
 | Alarme Régulations Compteur d'alarmes  |      [Fenêtre de déploiement étendue][extendedCallWindow]  |      Compteur de régulations      |                                                              |
 |           Date de la mission           |      [Fenêtre de déploiement étendue][extendedCallWindow]  |  Heure de génération de mission   |                                                              |
 |        Mots-clés de la mission         |      [Fenêtre de déploiement étendue][extendedCallWindow]  |       Mots-clefs de mission       |                                                              |
+|             Recherche AAO              |      [Fenêtre de déploiement étendue][extendedCallWindow]  |           RAI-Recherche           |                                                              |
 |                Horloge                 |                             [Horloge][clock]               |   Afficher l'horloge en overlay   |                                                              |
 |          État de la station            |         [Infobulle sur les bâtiments][buildingHover]       |                                   |                                                              |
 |           Événements marqués           |            [Liste de mission étendue][extendedCallList]    | Marquer les missions saisonnières |                                                              |
@@ -62,6 +63,7 @@ Ci-dessous, nous avons dressé une liste des fonctionnalités de la V.3 et de l'
 |                User-ID                 |                             [User-ID][userid]              |                                   |                                                              |
 |        Vue agrandie du bâtiment        |         [Vue améliorée des bâtiments][extendedBuilding]    |                                   |                                                              |
 |             Release Notes              |                                                            |                                   | Les releasenotes sont intégrées nativement dans la V.4 et ne peuvent pas être désactivées ;) |
+
  
    
 
@@ -72,7 +74,6 @@ En principe, nous souhaitons intégrer à terme toutes les fonctionnalités de l
 
 |           Fonctionnalité V.3           |                          Remarques                           |
 | :------------------------------------: | :----------------------------------------------------------: |
-|             Recherche AAO              |                                                              |
 |Enregistrer les appels d'alliance créés |                                                              |
 |          Recherche par mission         |                                                              |
 |          Renommer le véhicule          |                                                              |

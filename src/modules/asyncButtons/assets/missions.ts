@@ -174,10 +174,7 @@ export default (
                     reply.setAttribute('title', new Date().toLocaleString());
                     const userLink = document.createElement('a');
                     userLink.setAttribute('href', `/profile/${user_id}`);
-                    userLink.textContent =
-                        window.user_name ??
-                        LSSM.$store.state.api.credits.user_name ??
-                        '¶'; // TODO: Remove fallbacks once name is available ingame
+                    userLink.textContent = window.username;
                     reply.append(
                         document.createTextNode(
                             `[${new Date()

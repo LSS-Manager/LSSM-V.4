@@ -74,6 +74,7 @@ module.exports = {
         },
         selected: 'Selected',
         water: 'l. water',
+        staffPrefix: ['We need'],
         staff: {
             [/^TOG Personnel$/]: [15, 18],
         },

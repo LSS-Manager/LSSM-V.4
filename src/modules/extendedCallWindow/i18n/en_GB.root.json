@@ -41,6 +41,18 @@
 			"description": "Sets a gray filter over all ARRs that do not contain a word of the mission name.",
 			"title": "Grey out unsuitable ARRs"
 		},
+		"arrSearch": {
+			"description": "Shows a search bar above the ARRs that makes filtering your ARRs available.",
+			"title": "ARR-Search"
+		},
+		"arrSearchAutoFocus": {
+			"description": "Automatically focuses ARR-Search so that you can start typing without clicking the search field before.",
+			"title": "ARR-Search: autofocus"
+		},
+		"arrSearchDropdown": {
+			"description": "Hides the ARR completely and shows a searchable dropdown instead. Allows a very compact ARR.",
+			"title": "ARR-Search as Dropdown"
+		},
 		"arrSpecs": {
 			"description": "Shows the stored requests in the ARR, if you stay with the mouse briefly over an ARR",
 			"title": " Show ARR details"

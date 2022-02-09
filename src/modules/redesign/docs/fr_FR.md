@@ -91,4 +91,6 @@ Nous ne pouvons qu'espérer que l'ensemble du projet aboutira.
 
 Nous avons aussi la page [Tâches et événements](https://www.operateur112.fr/tasks/index) qui a été modifié:
 
-![Tâches et événements](tasks.png)
+![Tâches](tasks/full_size.png)
+
+![Tâches à l'état réduit](tasks/collapsed.png)
