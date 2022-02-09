@@ -93,7 +93,7 @@ export default (
         }
     }
 
-    // MissionReply [WIP]
+    // MissionReply
     const replyButton = document.querySelector<HTMLButtonElement>(
         '#mission_reply_content ~ div button[type="submit"]'
     );
