@@ -10,6 +10,7 @@ export interface LightboxData {
     faExpand: IconDefinition;
     faCompress: IconDefinition;
     faChevronUp: IconDefinition;
+    verticalBtns: boolean;
 }
 
 export interface LightboxProps {

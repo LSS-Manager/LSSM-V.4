@@ -1,6 +1,6 @@
 <template>
     <div :class="{ titleHidden, fullHeight, ...extraClasses }">
-        <div class="controlbtn-container">
+        <div class="controlbtn-container" :class="{ vertical: verticalBtns }">
             <span
                 v-if="!noXBtn && !noModal"
                 class="lightbox-close"
@@ -52,7 +52,7 @@ import {
     LightboxData,
     LightboxMethods,
     LightboxProps,
-} from '../../typings/components/Lightbox';
+} from 'typings/components/Lightbox';
 
 export default Vue.extend<
     LightboxData,
@@ -72,6 +72,7 @@ export default Vue.extend<
             faExpand,
             faCompress,
             faChevronUp,
+            verticalBtns: false,
         };
     },
     props: {
@@ -135,11 +136,14 @@ export default Vue.extend<
 .controlbtn-container
     display: flex
     justify-content: end
-    width: calc(3 * 34px)
+    width: auto
     position: absolute
     right: 1rem
     top: 1rem
     flex-direction: row-reverse
+
+    &.vertical
+        flex-flow: column
 
     > span
         cursor: pointer
