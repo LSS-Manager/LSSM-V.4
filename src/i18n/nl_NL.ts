@@ -921,7 +921,7 @@ export default {
         58: {
             caption: 'DB Arrestantenvervoer',
             color: '#0B21F7',
-            minPersonnel: 2,
+            minPersonnel: 1,
             maxPersonnel: 2,
             credits: 20_000,
             coins: 25,
