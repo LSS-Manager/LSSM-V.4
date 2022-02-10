@@ -25,4 +25,5 @@ export interface Config {
     };
     prefix: string;
     server: string;
+    fontAwesomeIconSearch: string;
 }

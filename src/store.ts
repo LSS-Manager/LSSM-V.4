@@ -53,6 +53,7 @@ export default (Vue: VueConstructor): Store<RootState> => {
             discord: `https://discord.gg/${config.discord.invite}`,
             games: config.games,
             server: config.server,
+            fontAwesomeIconSearch: config.fontAwesomeIconSearch,
             hooks: {},
             mapkit: typeof window.mapkit !== 'undefined',
             darkmode: document.body.classList.contains('dark'),
@@ -106,8 +107,8 @@ export default (Vue: VueConstructor): Store<RootState> => {
             useFontAwesome(state: RootState) {
                 if (state.fontAwesome.inserted) return;
                 const fa = document.createElement('script');
-                fa.src =
-                    'https://use.fontawesome.com/releases/v5.15.4/js/all.js';
+                fa.src = `${state.server}static/fontawesome_free_6.0.0_all.min.js`;
+                fa.crossOrigin = 'anonymous';
                 document.head.appendChild(fa);
                 state.fontAwesome.inserted = true;
             },

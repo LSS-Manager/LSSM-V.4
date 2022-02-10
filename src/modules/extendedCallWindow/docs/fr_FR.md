@@ -94,4 +94,4 @@ La couleur du texte, du fond, ainsi que l'affichage avant ou après le nom de la
 ### Pictos de déploiement
 Permet l'affichage de pictogrammes à gauche du bouton `Déployer` en bas à gauche en fonction des types de véhicules sélectionnés.
 
-Le choix des pictogrammes se fait parmi les catégories `Solid`, `Regular` et `Brands` fournies par la police « Font Awesome ». [Voir la liste](https://fontawesome.com/v5.15/icons?d=gallery&p=2&s=brands,regular,solid&m=free).
+Le choix des pictogrammes se fait parmi les catégories `Solid`, `Regular` et `Brands` fournies par la police « Font Awesome ». <a :href="$themeConfig.variables.fontAwesomeIconSearchLink" target="_blank">Voir a liste</a>.

@@ -10,6 +10,7 @@ export interface RootState {
     readonly discord: string;
     readonly games: Games;
     readonly server: string;
+    readonly fontAwesomeIconSearch: string;
     readonly hooks: {
         [event: string]: returnTypeFunction;
     };

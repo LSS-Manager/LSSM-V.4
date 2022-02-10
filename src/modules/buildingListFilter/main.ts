@@ -215,8 +215,8 @@ export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
             const icon = sortBtn.querySelector('svg');
             if (!icon) return;
             const state = buildingList.classList.toggle(reversedListClass);
-            if (state) icon.setAttribute('data-icon', 'sort-alpha-up-alt');
-            else icon.setAttribute('data-icon', 'sort-alpha-down');
+            if (state) icon.setAttribute('data-icon', 'arrow-up-a-z');
+            else icon.setAttribute('data-icon', 'arrow-down-z-a');
             LSSM.$store
                 .dispatch('settings/setSetting', {
                     moduleId: MODULE_ID,
