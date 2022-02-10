@@ -67,7 +67,7 @@
 			"title": "Tekst eller ikon?"
 		},
 		"filters": {
-			"description": "La ikonene stå i \"Alarm\" Vis-knappen, basert på valget ditt. Du kan velge mellom <a href=\"https://fontawesome.com/v6.0/icons?m=free\" target=\"_blank\">alle gratis ikoner fra Font-Awesome</a>. Det er nok å spesifisere navnet på ikonet. En direkte forhåndsvisning vil da vise deg ikonet.",
+			"description": "La ikonene stå i \"Alarm\" Vis-knappen, basert på valget ditt. Du kan velge mellom <a href=\"{fontAwesomeIconSearch}\" target=\"_blank\">alle gratis ikoner fra Font-Awesome</a>. Det er nok å spesifisere navnet på ikonet. En direkte forhåndsvisning vil da vise deg ikonet.",
 			"title": "Bygningslistefilter"
 		},
 		"icon_style": "Ikon-type",

@@ -64,7 +64,7 @@
 			"title": "Text or Icon?"
 		},
 		"filters": {
-			"description": "Leave icons in the \"Alarm\" Show button, based on your selection. You can choose between <a href=\"https://fontawesome.com/v6.0/icons?m=free\" target=\"_blank\">all free icons from Font-Awesome</a>. It is enough to specify the name of the icon. A live preview will then show you the icon.",
+			"description": "Leave icons in the \"Alarm\" Show button, based on your selection. You can choose between <a href=\"{fontAwesomeIconSearch}\" target=\"_blank\">all free icons from Font-Awesome</a>. It is enough to specify the name of the icon. A live preview will then show you the icon.",
 			"title": "Buildinglist filter"
 		},
 		"icon_style": "Icon-Type",

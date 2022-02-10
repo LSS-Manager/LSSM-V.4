@@ -2,7 +2,7 @@
 	"name": "Fenêtre de déploiement étendue",
 	"settings": {
 		"alarmIcons": {
-			"description": "Affiche des pictogrammes devant le bouton \"Déployer\" selon les véhicules sélectionnés. Le choix se fait parmi les pictos gratuits de <a href=\"https://fontawesome.com/v6.0/icons?m=free\" target=\"_blank\">Font-Awesome</a>. Il suffit d'indiquer le nom de l'icône. La prévisualisation se fait directement.",
+			"description": "Affiche des pictogrammes devant le bouton \"Déployer\" selon les véhicules sélectionnés. Le choix se fait parmi les pictos gratuits de <a href=\"{fontAwesomeIconSearch}\" target=\"_blank\">Font-Awesome</a>. Il suffit d'indiquer le nom de l'icône. La prévisualisation se fait directement.",
 			"icon": "Nom",
 			"preview": "Prévisualiser",
 			"style": "Type de pictogramme",

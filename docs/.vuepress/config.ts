@@ -538,6 +538,7 @@ module.exports = async () => {
                 discord: config.discord,
                 github: `https://github.com/${config.github.repo}`,
                 server: config.server,
+                fontAwesomeIconSearchLink: config.fontAwesomeIconSearch,
                 versions: {
                     beta: version,
                     stable,

@@ -53,6 +53,7 @@ export default (Vue: VueConstructor): Store<RootState> => {
             discord: `https://discord.gg/${config.discord.invite}`,
             games: config.games,
             server: config.server,
+            fontAwesomeIconSearch: config.fontAwesomeIconSearch,
             hooks: {},
             mapkit: typeof window.mapkit !== 'undefined',
             darkmode: document.body.classList.contains('dark'),

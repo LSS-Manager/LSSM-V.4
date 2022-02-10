@@ -3,7 +3,7 @@
 	"name": "Uitgebreid meldingsvenster",
 	"settings": {
 		"alarmIcons": {
-			"description": "Laat de iconen in \"Alarmeren\" knop zien, gebasseerd op je selectie. U kunt kiezen uit <a href=\"https://fontawesome.com/v6.0/icons?m=free\" target=\"_blank\">alle gratis Icons van Font-Awesome</a>. Het is genoeg om de naam van het icoon in te voeren. Een live voorvertoning laat je dan het icoon zien.",
+			"description": "Laat de iconen in \"Alarmeren\" knop zien, gebasseerd op je selectie. U kunt kiezen uit <a href=\"{fontAwesomeIconSearch}\" target=\"_blank\">alle gratis Icons van Font-Awesome</a>. Het is genoeg om de naam van het icoon in te voeren. Een live voorvertoning laat je dan het icoon zien.",
 			"icon": "Icoon",
 			"preview": "Voorvertoning",
 			"style": "Icoon-Type",

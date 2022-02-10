@@ -137,6 +137,8 @@
                                 ),
                                 {
                                     wiki: $store.getters.wiki,
+                                    fontAwesomeIconSearch:
+                                        $store.state.fontAwesomeIconSearch,
                                 }
                             )
                         "

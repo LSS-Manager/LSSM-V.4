@@ -165,4 +165,5 @@ export default {
     },
     prefix: 'lssmv4',
     server: 'https://proxy.lss-manager.de/v4/',
+    fontAwesomeIconSearch: 'https://fontawesome.com/v6.0/icons?m=free',
 } as Config;

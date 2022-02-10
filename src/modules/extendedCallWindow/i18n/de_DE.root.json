@@ -2,7 +2,7 @@
 	"name": "Erweitertes Alarmfenster",
 	"settings": {
 		"alarmIcons": {
-			"description": "Lasse dir Icons im \"Alarmieren\" Knopf anzeigen, basierend auf deiner Auswahl. Zur Auswahl stehen dir <a href=\"https://fontawesome.com/v6.0/icons?m=free\" target=\"_blank\">alle kostenlosen Icons von Font-Awesome</a>. Es reicht, den Namen des Icons anzugeben. Eine Live-Vorschau wird dir dann das Icon anzeigen.",
+			"description": "Lasse dir Icons im \"Alarmieren\" Knopf anzeigen, basierend auf deiner Auswahl. Zur Auswahl stehen dir <a href=\"{fontAwesomeIconSearch}\" target=\"_blank\">alle kostenlosen Icons von Font-Awesome</a>. Es reicht, den Namen des Icons anzugeben. Eine Live-Vorschau wird dir dann das Icon anzeigen.",
 			"icon": "Icon",
 			"preview": "Vorschau",
 			"style": "Icon-Typ",
