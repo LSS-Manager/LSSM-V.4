@@ -140,6 +140,13 @@ utils(Vue);
                         LSSM.$store.state.modules[moduleId].location
                     )
                 ) {
+                    if (moduleId === 'redesign') {
+                        document
+                            .querySelector<HTMLButtonElement>(
+                                '#lightbox_close_inside'
+                            )
+                            ?.remove();
+                    }
                     try {
                         LSSM.$i18n.mergeLocaleMessage(LSSM.$store.state.lang, {
                             modules: {
