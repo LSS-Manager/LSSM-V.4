@@ -7,10 +7,10 @@ export interface CollapsableButton extends HTMLButtonElement {
 }
 
 const COLOR_ACTIVE = 'danger';
-const ICON_ACTIVE = 'arrow-up-right-and-arrow-down-left-from-center';
+const ICON_ACTIVE = 'up-right-and-down-left-from-center';
 
 const COLOR_INACTIVE = 'success';
-const ICON_INACTIVE = 'arrow-down-left-and-arrow-up-right-to-center';
+const ICON_INACTIVE = 'down-left-and-up-right-to-center';
 
 const BTN_ACTIVE = `btn-${COLOR_ACTIVE}`;
 const BTN_INACTIVE = `btn-${COLOR_INACTIVE}`;
@@ -55,7 +55,7 @@ export default (
     btn.dataset.mission = missionId;
     const icon = document.createElement('i');
     icon.classList.add(
-        `fa-solid`,
+        `fas`,
         `fa-${isCollapsed ? ICON_ACTIVE : ICON_INACTIVE}`
     );
 
