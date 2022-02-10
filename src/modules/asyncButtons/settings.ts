@@ -13,7 +13,6 @@ export default (() => ({
     missionReply: <Toggle>{
         type: 'toggle',
         default: false,
-        disabled: () => true,
     },
     memberlistManageUser: <Toggle>{
         type: 'toggle',

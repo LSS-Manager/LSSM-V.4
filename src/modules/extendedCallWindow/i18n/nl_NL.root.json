@@ -42,6 +42,18 @@
 			"description": "Zet een grijsfilter over alle inzetvoorstellen waarin geen woord van de naam van de inzet voorkomt.",
 			"title": "Niet passende inzetvoorstellen grijs"
 		},
+		"arrSearch": {
+			"description": "Toont een zoekbalk boven de inzetvoorstellen om deze te filteren.",
+			"title": "Inzetvoorstellen zoeken"
+		},
+		"arrSearchAutoFocus": {
+			"description": "Automatisch focussen op de zoekbalk, zodat je direct kan typen zonder er op te klikken.",
+			"title": "Inzetvoorstellen zoeken: Focussen"
+		},
+		"arrSearchDropdown": {
+			"description": "Verbergt de inzetvoorstellen volledig en toont een zoekbare dropdown.",
+			"title": "Inzetvoorstellen als dropdown"
+		},
 		"arrSpecs": {
 			"description": "Geeft de instellingen van het inzetvoorstel weer als je er met je muis op gaat staan.",
 			"title": "Inzetvoorstel details"

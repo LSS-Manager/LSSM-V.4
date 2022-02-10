@@ -20,6 +20,10 @@
 				"description": "Een redesign voor diverse pagina's van je profiel.",
 				"title": "Profiel"
 			},
+			"tasks": {
+				"description": "Een redesign van de taken en evenementen",
+				"title": "Taken en evenementen"
+			},
 			"toplist": {
 				"description": "Een redesign van de lijst van beste spelers.",
 				"title": "Beste spelers"
