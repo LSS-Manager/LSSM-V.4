@@ -191,14 +191,14 @@ export type RedesignLightboxVue<Type extends RedesignKey> = CombinedVueInstance<
     RedesignLightbox<Type>['Props']
 >;
 
-export type RedesignComponent<
+export interface RedesignComponent<
     DataName extends string,
     Type extends RedesignKey,
     Data = DefaultData<Vue>,
     Methods = DefaultMethods<Vue>,
     Computed = DefaultComputed,
     Props = DefaultProps
-> = {
+> {
     Data: Data;
     Methods: Methods;
     Computed: Computed;
@@ -209,7 +209,7 @@ export type RedesignComponent<
             getSetting: <T>(setting: string, defaultValue: T) => Promise<T>;
             setSetting: <T>(settingId: string, value: T) => Promise<void>;
         };
-};
+}
 
 export type RedesignSubComponent<
     DataName extends string,

@@ -32,7 +32,11 @@ import type { $m } from 'typings/Module';
 import type { DefaultComputed } from 'vue/types/options';
 import type { VueSelectProps } from 'vue-select';
 
-type ARROption = { label: string; id: string; html: string };
+interface ARROption {
+    label: string;
+    id: string;
+    html: string;
+}
 
 type ARRs = (ARROption | { label: string; id: string; category: true })[];
 

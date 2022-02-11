@@ -26,6 +26,7 @@
     "rules": {
         "@typescript-eslint/array-type": ["error"],
         "@typescript-eslint/consistent-indexed-object-style": [ "error", "record"],
+        "@typescript-eslint/consistent-type-definitions": ["error", "interface"],
         "array-callback-return": ["error"],
         "block-scoped-var": "warn",
         "curly": ["error", "multi-or-nest", "consistent"],

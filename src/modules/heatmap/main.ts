@@ -6,7 +6,9 @@ import { Vehicle } from 'typings/Vehicle';
 import { LatLng, Map } from 'leaflet';
 import { Settings, UpdateSettings } from './heatmapSettings.vue';
 
-type HeatLayer = { setLatLngs: (points: LatLng[]) => void };
+interface HeatLayer {
+    setLatLngs: (points: LatLng[]) => void;
+}
 
 export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, $m }) => {
     if (window.location.pathname === '/' && window.hasOwnProperty('mapkit'))
