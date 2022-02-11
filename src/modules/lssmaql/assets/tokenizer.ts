@@ -19,7 +19,7 @@ const regexes = {
     string: /"[^"]*"|'[^']*'/,
     number: /\d+/,
     boolean: /true|false/,
-    identifier: /[a-z][a-z_]*/,
+    identifier: /[a-z][_a-z]*/,
 } as TokenRegexes;
 
 const consume = (query: string, token_list: Token[]): string => {

@@ -69,7 +69,7 @@ export default () =>
                                 [
                                     ...new Set([
                                         `:${name
-                                            .replace(/[: ,-]/g, '_')
+                                            .replace(/[ ,:-]/g, '_')
                                             .replace(/_+/g, '_')}:`,
                                         shortname,
                                         ...shortname_alternates,

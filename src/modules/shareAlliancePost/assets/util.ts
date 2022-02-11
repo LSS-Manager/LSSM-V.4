@@ -38,9 +38,9 @@ export function getTimeReplacers(): Record<
     (match: string, ...groups: string[]) => string
 > {
     return {
-        [/now\+(\d+(?:[.,]\d+)?)/.toString()]: (match, additive) =>
+        [/now\+(\d+(?:[,.]\d+)?)/.toString()]: (match, additive) =>
             dateToTime(addHoursToNow(parseFloat(additive))),
-        [/now\+(\d+(?:[.,]\d+)?)r(-?\d+)/.toString()]: (
+        [/now\+(\d+(?:[,.]\d+)?)r(-?\d+)/.toString()]: (
             match,
             additive,
             round
