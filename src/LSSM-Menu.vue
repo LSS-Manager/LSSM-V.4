@@ -463,7 +463,8 @@ export default Vue.extend<
                 this.iconBgAsNavBg = iconBgAsNavBg;
 
                 if (iconBgAsNavBg) {
-                    this.navbg.navbar = document.getElementById('main_navbar');
+                    this.navbg.navbar =
+                        document.querySelector<HTMLElement>('#main_navbar');
                     const bgImg = this.navbg.navbar
                         ? window.getComputedStyle(this.navbg.navbar)
                               .backgroundImage

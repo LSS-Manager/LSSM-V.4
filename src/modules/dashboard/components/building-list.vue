@@ -270,9 +270,10 @@ export default Vue.extend<
                     feature: `dashboard-buildingList-fastDispatchChooser`,
                 })
                 .then(() => {
-                    const dispatchBtn = document.getElementById(
-                        `dispatch-btn-${building.id}`
-                    );
+                    const dispatchBtn =
+                        document.querySelector<HTMLButtonElement>(
+                            `#dispatch-btn-${building.id}`
+                        );
                     if (!dispatchBtn) return;
                     dispatchBtn.setAttribute(
                         'href',

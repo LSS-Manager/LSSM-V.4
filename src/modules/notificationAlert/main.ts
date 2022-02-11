@@ -317,7 +317,7 @@ export default (async ({ LSSM, $m, $mc, getSetting }) => {
                 const newAmount = parseInt(amount);
                 const prevAmount = parseInt(
                     document
-                        .getElementById('message_top')
+                        .querySelector<HTMLSpanElement>('#message_top')
                         ?.textContent?.trim() || '-1'
                 );
                 if (newAmount <= prevAmount) return;
@@ -384,7 +384,9 @@ export default (async ({ LSSM, $m, $mc, getSetting }) => {
                 const newAmount = parseInt(amount);
                 const prevAmount = parseInt(
                     document
-                        .getElementById('alliance_candidature_count')
+                        .querySelector<HTMLSpanElement>(
+                            '#alliance_candidature_count'
+                        )
                         ?.textContent?.trim()
                         ?.replace(/(^\()|\)$/g, '') || '-1'
                 );
@@ -525,8 +527,9 @@ export default (async ({ LSSM, $m, $mc, getSetting }) => {
                 if (
                     !amount ||
                     newTasks ||
-                    document.getElementById('completed_tasks_counter')
-                        ?.textContent === amount.toString()
+                    document.querySelector<HTMLSpanElement>(
+                        '#completed_tasks_counter'
+                    )?.textContent === amount.toString()
                 )
                     return;
                 events['tasks_update'].forEach(async alert =>
@@ -574,8 +577,8 @@ export default (async ({ LSSM, $m, $mc, getSetting }) => {
                     mission.vehicle_state
                 ] as 'green' | 'red' | 'yellow';
                 // mission_getred(_alliance)? | mission_new
-                const missionElement = document.getElementById(
-                    `mission_${mission.id}`
+                const missionElement = document.querySelector<HTMLDivElement>(
+                    `#mission_${mission.id}`
                 );
                 const isAllianceMission = mission.user_id !== window.user_id;
                 const isAllianceOnlyMission =

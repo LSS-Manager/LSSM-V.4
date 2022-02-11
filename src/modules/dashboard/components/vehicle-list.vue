@@ -231,8 +231,9 @@ export default Vue.extend<
                             let subtitle = '';
                             if (type === 'mission') {
                                 title =
-                                    doc.getElementById('missionH1')
-                                        ?.textContent ?? '';
+                                    doc.querySelector<HTMLHeadingElement>(
+                                        '#missionH1'
+                                    )?.textContent ?? '';
                                 subtitle =
                                     doc.querySelector<HTMLElement>(
                                         '#missionH1 + small'
@@ -266,11 +267,13 @@ export default Vue.extend<
         },
         resolveMission(id) {
             let missionName =
-                document.getElementById(`mission_caption_${id}`)?.innerText ??
-                '';
+                document.querySelector<HTMLAnchorElement>(
+                    `#mission_caption_${id}`
+                )?.innerText ?? '';
             missionName = missionName.replace(
-                document.getElementById(`mission_old_caption_${id}`)
-                    ?.innerText ?? '',
+                document.querySelector<HTMLSpanElement>(
+                    `#mission_old_caption_${id}`
+                )?.innerText ?? '',
                 ''
             );
             return missionName.trim();

@@ -10,7 +10,8 @@ export default (
     $m: $m,
     $mc: $mc
 ): void => {
-    const missionHelpBtn = document.getElementById('mission_help');
+    const missionHelpBtn =
+        document.querySelector<HTMLAnchorElement>('#mission_help');
     const isDiyMission = !missionHelpBtn;
     let missionTypeID = -1;
     if (!isDiyMission) {
@@ -43,12 +44,16 @@ export default (
         e.parentElement?.remove();
     });
 
-    let tabList = document.getElementById('tabs');
-    let allTab = tabList?.querySelector('#tabs > li:first-child');
-    let occupiedTab = tabList?.querySelector('#tabs > li:last-child');
+    let tabList = document.querySelector<HTMLUListElement>('#tabs');
+    let allTab = tabList?.querySelector<HTMLLIElement>(
+        '#tabs > li:first-child'
+    );
+    let occupiedTab = tabList?.querySelector<HTMLLIElement>(
+        '#tabs > li:last-child'
+    );
     const occupiedTabActive =
         occupiedTab?.classList.contains('active') ?? false;
-    let panelWrapper = document.querySelector(
+    let panelWrapper = document.querySelector<HTMLDivElement>(
         '#vehicle_list_step .tab-content'
     );
 
@@ -295,7 +300,9 @@ export default (
 
     if (stagingMode) {
         document
-            .getElementById('vehicle_show_table_body_all')
+            .querySelector<HTMLTableSectionElement>(
+                '#vehicle_show_table_body_all'
+            )
             ?.addEventListener('change', ({ target }) => {
                 const checkbox = target as HTMLInputElement;
                 document
@@ -317,15 +324,21 @@ export default (
 
         tabList.querySelector('li.active')?.classList.remove('active');
         tabSelector.parentElement?.classList.add('active');
-        document.getElementById('all')?.classList.remove('active');
-        document.getElementById('occupied')?.classList.remove('active');
+        document
+            .querySelector<HTMLDivElement>('#all')
+            ?.classList.remove('active');
+        document
+            .querySelector<HTMLDivElement>('#occupied')
+            ?.classList.remove('active');
         Object.entries(panels).forEach(([id, panel]) =>
             panel.classList[id === tab ? 'add' : 'remove']('active')
         );
 
         const tableSorterId = tabBar[tab].tablesorterId;
         if (!tableSorterId) return;
-        const tableSorterEl = document.getElementById(tableSorterId);
+        const tableSorterEl = document.querySelector<HTMLTableElement>(
+            `#${tableSorterId}`
+        );
         if (!tableSorterEl) return;
 
         const vehicles = Array.from(

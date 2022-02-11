@@ -118,7 +118,7 @@ export default (
         .then();
 
     document
-        .getElementById('missions-panel-body')
+        .querySelector<HTMLDivElement>('#missions-panel-body')
         ?.addEventListener('click', async e => {
             const btn: HTMLButtonElement | null = (
                 e.target as HTMLElement

@@ -31,7 +31,9 @@ export default (LSSM: Vue): void => {
         .sort((a, b) => (a < b ? -1 : a > b ? 1 : 0));
     const position = buildings.indexOf(buildingId);
     if (position < 0) return;
-    const btnGroup = document.getElementById('building-navigation-container');
+    const btnGroup = document.querySelector<HTMLDivElement>(
+        '#building-navigation-container'
+    );
     if (!btnGroup) return;
     btnGroup.children[0].textContent = `[←${position}] ${btnGroup.children[0].textContent}`;
     btnGroup.children[btnGroup.children.length - 1].textContent += ` [${

@@ -7,9 +7,8 @@ export default (
     MODULE_ID: string,
     $m: $m
 ): void => {
-    const ARRContainer = document.getElementById(
-        'mission-aao-group'
-    ) as HTMLDivElement;
+    const ARRContainer =
+        document.querySelector<HTMLDivElement>('#mission-aao-group');
 
     if (!ARRContainer) return;
 
@@ -317,9 +316,9 @@ export default (
         .dispatch('hook', {
             event: 'aao_available',
             callback(id: number) {
-                const arr = document.getElementById(
-                    `aao_${id}`
-                ) as HTMLAnchorElement | null;
+                const arr = document.querySelector<HTMLAnchorElement>(
+                    `#aao_${id}`
+                );
                 if (!arr) return;
                 const buildingIds: number[] = JSON.parse(
                     arr.getAttribute('building_ids') || '[]'

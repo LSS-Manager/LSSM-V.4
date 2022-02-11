@@ -8,7 +8,7 @@ export default (
     LSSM: Vue
 ): void => {
     const addToMap = (map = window.map, id = 'map') => {
-        if (!(map && document.getElementById(id))) return;
+        if (!(map && document.querySelector<HTMLDivElement>(`#${id}`))) return;
 
         let form = document.createElement('form');
         form.id = LSSM.$store.getters.nodeAttribute(

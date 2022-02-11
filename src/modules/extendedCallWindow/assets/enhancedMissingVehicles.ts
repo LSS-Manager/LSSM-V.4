@@ -20,8 +20,8 @@ export default (LSSM: Vue, MODULE_ID: string, $m: $m): void => {
             .then(pushedRight => {
                 if (pushedRight) {
                     document
-                        .getElementById('mission-form')
-                        ?.insertAdjacentElement('afterbegin', missingDialog);
+                        .querySelector<HTMLFormElement>('#mission-form')
+                        ?.prepend(missingDialog);
                 }
                 new LSSM.$vue({
                     store: LSSM.$store,

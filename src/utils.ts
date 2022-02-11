@@ -110,7 +110,7 @@ export default (Vue: VueConstructor): void => {
             const $utils = (window[PREFIX] as Vue).$utils;
             if (initialCall && $utils.activeCountdowns.includes(id)) return;
 
-            const element = document.getElementById(id);
+            const element = document.querySelector<HTMLElement>(`#${id}`);
             const activeIndex = $utils.activeCountdowns.findIndex(
                 cd => id === cd
             );

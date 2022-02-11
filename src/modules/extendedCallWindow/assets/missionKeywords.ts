@@ -11,8 +11,10 @@ export default async (
         missions: (number | string)[];
     }[]
 ): Promise<void> => {
-    const missionHelpBtn = document.getElementById('mission_help');
-    const missionTitle = document.getElementById('missionH1');
+    const missionHelpBtn =
+        document.querySelector<HTMLAnchorElement>('#mission_help');
+    const missionTitle =
+        document.querySelector<HTMLHeadingElement>('#missionH1');
     if (!missionHelpBtn || !missionTitle) return;
     let missionType =
         missionHelpBtn
@@ -21,13 +23,13 @@ export default async (
 
     const overlayIndex =
         document
-            .getElementById('mission_general_info')
+            .querySelector<HTMLDivElement>('#mission_general_info')
             ?.getAttribute('data-overlay-index') ?? 'null';
     if (overlayIndex && overlayIndex !== 'null')
         missionType += `-${overlayIndex}`;
     const additionalOverlay =
         document
-            .getElementById('mission_general_info')
+            .querySelector<HTMLDivElement>('#mission_general_info')
             ?.getAttribute('data-additive-overlays') ?? 'null';
     if (additionalOverlay && additionalOverlay !== 'null')
         missionType += `/${additionalOverlay}`;

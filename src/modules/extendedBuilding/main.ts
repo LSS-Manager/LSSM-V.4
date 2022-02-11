@@ -13,7 +13,9 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting }) => {
         return;
 
     if (window.location.pathname.match(/^\/buildings\/\d+\/?$/)) {
-        const BUILDING_MODE = document.getElementById('tab_protocol')
+        const BUILDING_MODE = document.querySelector<HTMLDivElement>(
+            '#tab_protocol'
+        )
             ? 'dispatch'
             : 'building';
 
@@ -42,7 +44,7 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting }) => {
         if (BUILDING_MODE === 'building') {
             if (
                 (await getSetting('personnelDemands')) &&
-                document.getElementById('vehicle_table')
+                document.querySelector<HTMLTableElement>('#vehicle_table')
             ) {
                 import(
                     /* webpackChunkName: "modules/extendedBuilding/personnelDemands" */ './assets/personnelDemands'

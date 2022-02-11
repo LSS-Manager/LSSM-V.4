@@ -10,8 +10,9 @@ export default (async ({ LSSM }) => {
 
     const clear = document.createElement('div');
     clear.classList.add('clearfix');
-    const missionForm = document.getElementById('mission-form');
-    missionForm?.insertBefore(clear, missionForm.childNodes[0]);
+    const missionForm =
+        document.querySelector<HTMLFormElement>('#mission-form');
+    missionForm?.before(clear, missionForm.childNodes[0]);
 
     new LSSM.$vue({
         store: LSSM.$store,

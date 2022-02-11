@@ -8,8 +8,11 @@ export default (
 ): void => {
     LSSM.$store.commit('useFontAwesome');
 
-    const alarmBtn = document.getElementById('mission_alarm_btn');
-    const vehicleList = document.getElementById('vehicle_show_table_all');
+    const alarmBtn =
+        document.querySelector<HTMLAnchorElement>('#mission_alarm_btn');
+    const vehicleList = document.querySelector<HTMLTableElement>(
+        '#vehicle_show_table_all'
+    );
     if (!alarmBtn || !vehicleList) return;
 
     alarmBtn.insertAdjacentHTML('afterbegin', '&nbsp;');

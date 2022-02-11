@@ -12,8 +12,8 @@ export default async (
         btn: HTMLAnchorElement,
         link: string
     ) => {
-        const row = document.getElementById(
-            `protocol_entry_${btn.getAttribute('protocol_id')}`
+        const row = document.querySelector<HTMLTableRowElement>(
+            `#protocol_entry_${btn.getAttribute('protocol_id')}`
         );
         if (!row) return;
         await LSSM.$store.dispatch('api/request', {

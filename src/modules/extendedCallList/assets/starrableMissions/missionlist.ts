@@ -16,7 +16,9 @@ export default (
     const buttons: StarrableButton[] = [];
 
     const move = (btn: HTMLButtonElement, id: string) => {
-        const missionElement = document.getElementById(`mission_${id}`);
+        const missionElement = document.querySelector<HTMLDivElement>(
+            `#mission_${id}`
+        );
         if (!missionElement) return;
 
         if (btn.classList.contains('btn-warning')) {
@@ -38,7 +40,7 @@ export default (
     };
 
     document
-        .getElementById('missions-panel-body')
+        .querySelector<HTMLDivElement>('#missions-panel-body')
         ?.addEventListener('click', async e => {
             const btn: HTMLButtonElement | null = (
                 e.target as HTMLElement

@@ -252,10 +252,12 @@ export default <RedesignParser<VehicleWindow>>(({
         can_move: !!doc.querySelector('a[href$="/move"]'),
         fms,
         max_staff: parseInt(
-            doc.getElementById('vehicle-attr-max-personnel')?.textContent ??
-                '-1'
+            doc.querySelector<HTMLDivElement>('#vehicle-attr-max-personnel')
+                ?.textContent ?? '-1'
         ),
-        mileage: doc.getElementById('vehicle-attr-total-km')?.textContent ?? '',
+        mileage:
+            doc.querySelector<HTMLDivElement>('#vehicle-attr-total-km')
+                ?.textContent ?? '',
         image:
             imageEl?.getAttribute('image_replace_allowed') === 'true'
                 ? (doc.documentElement.innerHTML.match(
@@ -306,11 +308,11 @@ export default <RedesignParser<VehicleWindow>>(({
             )
         ),
         water_amount:
-            doc.getElementById('vehicle-attr-water-amount')?.textContent ??
-            undefined,
+            doc.querySelector<HTMLDivElement>('#vehicle-attr-water-amount')
+                ?.textContent ?? undefined,
         foam_amount:
-            doc.getElementById('vehicle-attr-foam-amount')?.textContent ??
-            undefined,
+            doc.querySelector<HTMLDivElement>('#vehicle-attr-foam-amount')
+                ?.textContent ?? undefined,
         ...(Object.fromEntries(
             ['mission_own', 'mission_alliance'].map(list => [
                 list,

@@ -14,7 +14,7 @@ export default <Scope<Empty, ['chat', 'map', 'missionlist'], [], true>>{
     },
     map: <Scope<Empty, ['search']>>{
         validatorFunction() {
-            return !!document.getElementById('map');
+            return !!document.querySelector<HTMLDivElement>('#map');
         },
         search: <Scope<{ mapSearch: HTMLInputElement | null }, [], ['focus']>>{
             validatorFunction() {
@@ -31,7 +31,7 @@ export default <Scope<Empty, ['chat', 'map', 'missionlist'], [], true>>{
     },
     missionlist: <Scope<Empty, ['search']>>{
         validatorFunction() {
-            return !!document.getElementById('missions');
+            return !!document.querySelector<HTMLDivElement>('#missions');
         },
         search: <
             Scope<{ missionlistSearch: HTMLInputElement | null }, [], ['focus']>

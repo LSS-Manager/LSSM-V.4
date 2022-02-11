@@ -1,5 +1,5 @@
 export default (LSSM: Vue): void => {
-    const title = document.getElementById('missionH1');
+    const title = document.querySelector<HTMLHeadingElement>('#missionH1');
     if (!title) return;
 
     const greyClass = LSSM.$store.getters.nodeAttribute('arr-grey');

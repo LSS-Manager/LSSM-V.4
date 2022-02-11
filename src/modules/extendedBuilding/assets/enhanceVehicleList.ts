@@ -89,8 +89,12 @@ export default async (
 
             const linkWrapper = (
                 BUILDING_MODE === 'dispatch'
-                    ? document.getElementById(`vehicle_caption_${vehicleId}`)
-                    : vehicle.querySelector(`a[href="/vehicles/${vehicleId}"]`)
+                    ? document.querySelector<HTMLSpanElement>(
+                          `#vehicle_caption_${vehicleId}`
+                      )
+                    : vehicle.querySelector<HTMLAnchorElement>(
+                          `a[href="/vehicles/${vehicleId}"]`
+                      )
             )?.parentElement;
 
             if (!vehicleId || !linkWrapper) return;

@@ -5,9 +5,8 @@ export default async (
     getSetting: (key: string) => Promise<boolean>,
     $m: $m
 ): Promise<void> => {
-    const ARRContainer = document.getElementById(
-        'mission-aao-group'
-    ) as HTMLDivElement;
+    const ARRContainer =
+        document.querySelector<HTMLDivElement>('#mission-aao-group');
 
     if (!ARRContainer) return;
 
@@ -137,9 +136,9 @@ export default async (
         });
     }
 
-    let resetBtnHolder = document.querySelector(
+    let resetBtnHolder = document.querySelector<HTMLDivElement>(
         '#container_navbar_alarm .navbar-right'
-    ) as HTMLDivElement;
+    );
 
     if (!resetBtnHolder) {
         resetBtnHolder = document.createElement('div');
@@ -151,11 +150,13 @@ export default async (
         );
         resetBtnHolder.id = 'navbar-right-help-button';
         document
-            .querySelector('#container_navbar_alarm .container-fluid')
+            .querySelector<HTMLElement>(
+                '#container_navbar_alarm .container-fluid'
+            )
             ?.appendChild(resetBtnHolder);
     }
     document
-        .getElementById('navbar-right-help-button')
+        .querySelector<HTMLDivElement>('#navbar-right-help-button')
         ?.classList.add('btn-group');
 
     const resetBtnTexts = [];

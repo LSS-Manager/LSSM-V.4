@@ -72,7 +72,10 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting }) => {
             LSSM.$store.commit('useFontAwesome');
 
             starredMissions = starredMissions.filter(
-                missionId => !!document.getElementById(`mission_${missionId}`)
+                missionId =>
+                    !!document.querySelector<HTMLDivElement>(
+                        `#mission_${missionId}`
+                    )
             );
             await LSSM.$store.dispatch('settings/setSetting', {
                 moduleId: MODULE_ID,
@@ -96,7 +99,10 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting }) => {
             const collapsedMissions = (
                 (await getSetting<string[]>('collapsedMissions')) ?? []
             ).filter(
-                missionId => !!document.getElementById(`mission_${missionId}`)
+                missionId =>
+                    !!document.querySelector<HTMLDivElement>(
+                        `#mission_${missionId}`
+                    )
             );
             const allMissionsCollapsed =
                 (await getSetting<boolean>('allMissionsCollapsed')) ?? false;

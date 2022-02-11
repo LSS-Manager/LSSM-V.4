@@ -8,13 +8,14 @@ export default (
         document.querySelector('.vehicle_prisoner_select') &&
         missionSettings.includes('missionPrisoners')
     ) {
-        const prisonersLabel = document.getElementById('h2_prisoners');
+        const prisonersLabel =
+            document.querySelector<HTMLHeadingElement>('#h2_prisoners');
         let currentPrisoners = parseInt(
             prisonersLabel?.textContent?.trim().match(/^\d+/)?.[0] || '0'
         );
         if (prisonersLabel && currentPrisoners) {
             document
-                .getElementById('mission_vehicle_at_mission')
+                .querySelector<HTMLTableElement>('#mission_vehicle_at_mission')
                 ?.addEventListener('click', e => {
                     const target = e.target as HTMLElement;
                     if (
@@ -70,7 +71,9 @@ export default (
                             });
 
                             document
-                                .getElementById(`vehicle_row_${vehicleId}`)
+                                .querySelector<HTMLTableRowElement>(
+                                    `#vehicle_row_${vehicleId}`
+                                )
                                 ?.remove();
                             target.parentElement?.parentElement?.remove();
                             currentPrisoners -= amount;

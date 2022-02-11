@@ -93,6 +93,7 @@
         "unicorn/prefer-modern-dom-apis": ["error"],
         "unicorn/prefer-negative-index": ["error"],
         "unicorn/prefer-object-from-entries": ["error"],
+        "unicorn/prefer-query-selector": ["error"],
         "vue/no-unused-refs": "warn",
         "yoda": ["error", "never", {
             "exceptRange": true

@@ -69,7 +69,8 @@ export default <ModuleMainFunction>(async ({
         },
     });
 
-    const missionHelpBtn = document.getElementById('mission_help');
+    const missionHelpBtn =
+        document.querySelector<HTMLAnchorElement>('#mission_help');
     let missionType =
         missionHelpBtn
             ?.getAttribute('href')
@@ -77,13 +78,13 @@ export default <ModuleMainFunction>(async ({
     if (missionType !== '-1') {
         const overlayIndex =
             document
-                .getElementById('mission_general_info')
+                .querySelector<HTMLDivElement>('#mission_general_info')
                 ?.getAttribute('data-overlay-index') ?? 'null';
         if (overlayIndex && overlayIndex !== 'null')
             missionType += `-${overlayIndex}`;
         const additionalOverlay =
             document
-                .getElementById('mission_general_info')
+                .querySelector<HTMLDivElement>('#mission_general_info')
                 ?.getAttribute('data-additive-overlays') ?? 'null';
         if (additionalOverlay && additionalOverlay !== 'null')
             missionType += `/${additionalOverlay}`;

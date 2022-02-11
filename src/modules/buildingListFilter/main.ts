@@ -2,7 +2,9 @@ import type { Building } from 'typings/Building';
 import type { ModuleMainFunction } from 'typings/Module';
 
 export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
-    let wrapper = document.getElementById('btn-group-building-select');
+    let wrapper = document.querySelector<HTMLDivElement>(
+        '#btn-group-building-select'
+    );
     if (!wrapper) return;
 
     await LSSM.$store.dispatch('api/registerBuildingsUsage', {
@@ -99,7 +101,9 @@ export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
     >;
 
     const updateFilters = async () => {
-        wrapper = document.getElementById('btn-group-building-select');
+        wrapper = document.querySelector<HTMLDivElement>(
+            '#btn-group-building-select'
+        );
         if (!wrapper) return;
         wrapper.querySelectorAll('a').forEach(a => a.remove());
         btns = [];
@@ -283,7 +287,8 @@ export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
 
     const observer = new MutationObserver(updateFilters);
 
-    const buildingsElement = document.getElementById('buildings');
+    const buildingsElement =
+        document.querySelector<HTMLDivElement>('#buildings');
     if (buildingsElement)
         observer.observe(buildingsElement, { childList: true });
 

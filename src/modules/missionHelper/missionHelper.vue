@@ -574,7 +574,7 @@ export default Vue.extend<
         currentPrisoners() {
             return parseInt(
                 document
-                    .getElementById('h2_prisoners')
+                    .querySelector<HTMLHeadingElement>('#h2_prisoners')
                     ?.textContent?.trim()
                     .match(/^\d+/)?.[0] || '0'
             );
@@ -632,7 +632,8 @@ export default Vue.extend<
                 feature: 'missionHelper-getMission',
             });
 
-            const missionHelpBtn = document.getElementById('mission_help');
+            const missionHelpBtn =
+                document.querySelector<HTMLAnchorElement>('#mission_help');
             this.isDiyMission = !missionHelpBtn;
 
             this.missionSpecs = undefined;
@@ -645,13 +646,13 @@ export default Vue.extend<
             if (!this.isDiyMission) {
                 const overlayIndex =
                     document
-                        .getElementById('mission_general_info')
+                        .querySelector<HTMLDivElement>('#mission_general_info')
                         ?.getAttribute('data-overlay-index') ?? 'null';
                 if (overlayIndex && overlayIndex !== 'null')
                     missionType += `-${overlayIndex}`;
                 const additionalOverlay =
                     document
-                        .getElementById('mission_general_info')
+                        .querySelector<HTMLDivElement>('#mission_general_info')
                         ?.getAttribute('data-additive-overlays') ?? 'null';
                 if (additionalOverlay && additionalOverlay !== 'null')
                     missionType += `/${additionalOverlay}`;

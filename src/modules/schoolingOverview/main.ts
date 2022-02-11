@@ -23,7 +23,9 @@ export default <ModuleMainFunction>(({ LSSM }) => {
         }).$mount(clear);
     }
 
-    const ownTable = document.getElementById('schooling_own_table');
+    const ownTable = document.querySelector<HTMLTableElement>(
+        '#schooling_own_table'
+    );
     if (ownTable) {
         new LSSM.$vue({
             store: LSSM.$store,
@@ -33,7 +35,9 @@ export default <ModuleMainFunction>(({ LSSM }) => {
         }).$mount(ownTable);
     }
 
-    const openTable = document.getElementById('schooling_opened_table');
+    const openTable = document.querySelector<HTMLTableElement>(
+        '#schooling_opened_table'
+    );
     if (openTable) {
         document
             .querySelector(

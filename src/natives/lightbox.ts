@@ -1,4 +1,4 @@
-if (!document.getElementById('lightbox_background')) {
+if (!document.querySelector<HTMLDivElement>('#lightbox_background')) {
     const bg = document.createElement('div');
     bg.id = 'lightbox_background';
     bg.addEventListener('click', () => window.lightboxClose());
@@ -13,6 +13,5 @@ if (!document.getElementById('lightbox_background')) {
     close.append(times);
     close.addEventListener('click', () => window.lightboxClose());
     box.append(close);
-    document.body.append(bg);
-    document.body.append(box);
+    document.body.append(bg, box);
 }

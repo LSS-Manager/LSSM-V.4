@@ -6,7 +6,7 @@ export default (
     $m: $m,
     MODULE_ID: string
 ): void => {
-    const BUILDING_MODE = document.getElementById('ausbauten')
+    const BUILDING_MODE = document.querySelector<HTMLDivElement>('#ausbauten')
         ? 'building'
         : 'dispatch';
 

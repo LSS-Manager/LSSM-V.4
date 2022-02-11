@@ -191,9 +191,9 @@ export default Vue.extend<
         },
     },
     mounted() {
-        const contentArea = document.getElementById(
-            this.contentId
-        ) as HTMLTextAreaElement | null;
+        const contentArea = document.querySelector<HTMLTextAreaElement>(
+            `#${this.contentId}`
+        );
         if (contentArea) {
             window.sceditor.create(contentArea, {
                 format: 'bbcode',

@@ -214,8 +214,9 @@ export default (async ({ LSSM, MODULE_ID, getSetting }) => {
                             },
                         }),
                 }).$mount(
-                    document.getElementById('iframe-inside-container') ??
-                        document.body
+                    document.querySelector<HTMLDivElement>(
+                        '#iframe-inside-container'
+                    ) ?? document.body
                 );
                 lightboxAdjust();
             });
