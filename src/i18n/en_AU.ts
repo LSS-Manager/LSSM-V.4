@@ -237,7 +237,7 @@ export default {
             credits: 11_680,
             coins: 25,
             minPersonnel: 1,
-            maxPersonnel: 3,            
+            maxPersonnel: 3,
             possibleBuildings: [0, 18],
             special: 'Required from 5 fire stations',
         },
@@ -247,7 +247,7 @@ export default {
             coins: 25,
             credits: 25_500,
             minPersonnel: 1,
-            maxPersonnel: 6,            
+            maxPersonnel: 6,
             possibleBuildings: [0, 18],
             schooling: {
                 'Fire Station': {
@@ -264,7 +264,7 @@ export default {
             coins: 25,
             credits: 19_000,
             minPersonnel: 1,
-            maxPersonnel: 6,            
+            maxPersonnel: 6,
             possibleBuildings: [0, 18],
             special:
                 'To purchase with credits it requires the rank: Captain, <br>Lower ranked members can purchase the vehicle for 25 Coins. <br>Rescue Pump acts as a MRU and a Fire Truck.',
@@ -275,7 +275,7 @@ export default {
             coins: 25,
             credits: 19_000,
             minPersonnel: 1,
-            maxPersonnel: 6,            
+            maxPersonnel: 6,
             possibleBuildings: [0, 18],
             special:
                 'To purchase with credits it requires the rank: Captain, <br>Lower ranked members can purchase the vehicle for 25 Coins. <br>Aerial Pumper acts as a Turntable Ladder and a Fire Truck.',
@@ -319,7 +319,7 @@ export default {
             coins: 25,
             credits: 7_000,
             minPersonnel: 1,
-            maxPersonnel: 2,            
+            maxPersonnel: 2,
             possibleBuildings: [6, 19],
             schooling: {
                 Police: {
@@ -336,7 +336,7 @@ export default {
             coins: 18,
             credits: 2_500,
             minPersonnel: 1,
-            maxPersonnel: 1,            
+            maxPersonnel: 1,
             possibleBuildings: [6, 19],
             schooling: {
                 Police: {
@@ -379,7 +379,7 @@ export default {
             coins: 25,
             credits: 10_000,
             minPersonnel: 1,
-            maxPersonnel: 6,            
+            maxPersonnel: 6,
             possibleBuildings: [15],
             schooling: {
                 'Fire Station': {
@@ -395,7 +395,7 @@ export default {
             coins: 12,
             credits: 6_000,
             minPersonnel: 0,
-            maxPersonnel: 0,            
+            maxPersonnel: 0,
             possibleBuildings: [15],
             special: 'SES Vehicle is the towing vehicle',
         },

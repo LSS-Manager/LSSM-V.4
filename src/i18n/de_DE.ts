@@ -151,7 +151,7 @@ export default {
             coins: 30,
             credits: 10000,
             minPersonnel: 1,
-            maxPersonnel: 3,            
+            maxPersonnel: 3,
             special: 'Wird ab 3 Feuerwachen benötigt.',
             icon: 'truck',
             possibleBuildings: [0, 18],
@@ -162,7 +162,7 @@ export default {
             coins: 25,
             credits: 10000,
             minPersonnel: 1,
-            maxPersonnel: 3,            
+            maxPersonnel: 3,
             special: 'Wird ab 6 Feuerwachen benötigt.',
             icon: 'car-side',
             possibleBuildings: [0, 18],
@@ -173,7 +173,7 @@ export default {
             coins: 25,
             credits: 12180,
             minPersonnel: 1,
-            maxPersonnel: 3,            
+            maxPersonnel: 3,
             special: 'Wird ab 4 Feuerwachen benötigt.',
             icon: 'truck',
             possibleBuildings: [0, 18],
@@ -184,7 +184,7 @@ export default {
             coins: 25,
             credits: 11680,
             minPersonnel: 1,
-            maxPersonnel: 3,            
+            maxPersonnel: 3,
             special: 'Wird ab 5 Feuerwachen benötigt.',
             icon: 'truck',
             possibleBuildings: [0, 18],
@@ -231,7 +231,7 @@ export default {
             coins: 25,
             credits: 5000,
             minPersonnel: 1,
-            maxPersonnel: 9,            
+            maxPersonnel: 9,
             pumpcap: 1600,
             icon: 'truck-moving',
             possibleBuildings: [0, 18],
@@ -242,7 +242,7 @@ export default {
             coins: 25,
             credits: 12000,
             minPersonnel: 1,
-            maxPersonnel: 3,            
+            maxPersonnel: 3,
             special: 'Wird ab 6 Feuerwachen benötigt.',
             icon: 'truck',
             possibleBuildings: [0, 18],
@@ -253,7 +253,7 @@ export default {
             coins: 25,
             credits: 17300,
             minPersonnel: 1,
-            maxPersonnel: 3,            
+            maxPersonnel: 3,
             special:
                 'Ein Schlauchwagen wird ab 7 Feuerwachen benötigt. Er gibt 25% Bonus auf die Wassermenge, die durch (H/T)LF vor Ort ist.',
             icon: 'truck',
@@ -265,7 +265,7 @@ export default {
             coins: 25,
             credits: 18300,
             minPersonnel: 1,
-            maxPersonnel: 3,            
+            maxPersonnel: 3,
             schooling: {
                 Feuerwehr: {
                     'GW-Messtechnik Lehrgang': {
@@ -283,7 +283,7 @@ export default {
             coins: 25,
             credits: 17300,
             minPersonnel: 1,
-            maxPersonnel: 3,            
+            maxPersonnel: 3,
             special:
                 'Ein Schlauchwagen wird ab 7 Feuerwachen benötigt. Er gibt 25% Bonus auf die Wassermenge, die durch (H/T)LF vor Ort ist.',
             icon: 'truck',
@@ -295,7 +295,7 @@ export default {
             coins: 25,
             credits: 17300,
             minPersonnel: 1,
-            maxPersonnel: 6,            
+            maxPersonnel: 6,
             special:
                 'Ein Schlauchwagen wird ab 7 Feuerwachen benötigt. Er gibt 25% Bonus auf die Wassermenge, die durch (H/T)LF vor Ort ist.',
             icon: 'truck',
@@ -307,7 +307,7 @@ export default {
             coins: 25,
             credits: 17300,
             minPersonnel: 1,
-            maxPersonnel: 3,            
+            maxPersonnel: 3,
             special:
                 'Ein Schlauchwagen wird ab 7 Feuerwachen benötigt. Er gibt 25% Bonus auf die Wassermenge, die durch (H/T)LF vor Ort ist.',
             icon: 'truck',
@@ -319,7 +319,7 @@ export default {
             coins: 25,
             credits: 17300,
             minPersonnel: 1,
-            maxPersonnel: 3,            
+            maxPersonnel: 3,
             special:
                 'Ein Schlauchwagen wird ab 7 Feuerwachen benötigt. Er gibt 25% Bonus auf die Wassermenge, die durch (H/T)LF vor Ort ist.',
             icon: 'truck',
@@ -451,7 +451,7 @@ export default {
             coins: 25,
             credits: 19200,
             minPersonnel: 1,
-            maxPersonnel: 3,            
+            maxPersonnel: 3,
             schooling: {
                 Feuerwehr: {
                     'GW-Gefahrgut Lehrgang': {
@@ -542,7 +542,7 @@ export default {
             coins: 25,
             credits: 19500,
             minPersonnel: 1,
-            maxPersonnel: 9,            
+            maxPersonnel: 9,
             schooling: {
                 Feuerwehr: {
                     ['Höhenrettung Lehrgang']: {
@@ -560,7 +560,7 @@ export default {
             coins: 25,
             credits: 25500,
             minPersonnel: 1,
-            maxPersonnel: 6,            
+            maxPersonnel: 6,
             schooling: {
                 Feuerwehr: {
                     'ELW 2 Lehrgang': {
@@ -595,7 +595,7 @@ export default {
             coins: 12,
             credits: 2500,
             minPersonnel: 1,
-            maxPersonnel: 9,            
+            maxPersonnel: 9,
             icon: 'shuttle-van',
             possibleBuildings: [0, 18],
         },
@@ -721,7 +721,7 @@ export default {
             coins: 12,
             credits: 5000,
             minPersonnel: 1,
-            maxPersonnel: 3,            
+            maxPersonnel: 3,
             schooling: {
                 Feuerwehr: {
                     'Wechsellader Lehrgang': {
@@ -834,7 +834,7 @@ export default {
             coins: 25,
             credits: 20000,
             minPersonnel: 1,
-            maxPersonnel: 1,            
+            maxPersonnel: 1,
             schooling: {
                 Rettungsdienst: {
                     'LNA-Ausbildung': {
@@ -852,7 +852,7 @@ export default {
             coins: 25,
             credits: 20000,
             minPersonnel: 1,
-            maxPersonnel: 1,            
+            maxPersonnel: 1,
             schooling: {
                 Rettungsdienst: {
                     'OrgL-Ausbildung': {
@@ -870,7 +870,7 @@ export default {
             coins: 25,
             credits: 30000,
             minPersonnel: 1,
-            maxPersonnel: 2,            
+            maxPersonnel: 2,
             schooling: {
                 Feuerwehr: {
                     'Feuerwehrkran Lehrgang': {
@@ -1179,7 +1179,7 @@ export default {
             coins: 25,
             credits: 20000,
             minPersonnel: 2,
-            maxPersonnel: 2,            
+            maxPersonnel: 2,
             schooling: {
                 Feuerwehr: {
                     'Rettungstreppen-Ausbildung': {
@@ -1284,7 +1284,7 @@ export default {
             coins: 30,
             credits: 15000,
             minPersonnel: 1,
-            maxPersonnel: 9,            
+            maxPersonnel: 9,
             schooling: {
                 Feuerwehr: {
                     'Werkfeuerwehr-Ausbildung': {
@@ -1319,7 +1319,7 @@ export default {
             coins: 30,
             credits: 20000,
             minPersonnel: 1,
-            maxPersonnel: 3,            
+            maxPersonnel: 3,
             schooling: {
                 Feuerwehr: {
                     'Werkfeuerwehr-Ausbildung': {
@@ -1336,7 +1336,7 @@ export default {
             coins: 30,
             credits: 12500,
             minPersonnel: 1,
-            maxPersonnel: 3,            
+            maxPersonnel: 3,
             schooling: {
                 Feuerwehr: {
                     'Werkfeuerwehr-Ausbildung': {
