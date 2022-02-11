@@ -83,6 +83,8 @@
         "unicorn/numeric-separators-style": ["error"],
         "unicorn/prefer-add-event-listener": ["error"],
         "unicorn/prefer-array-find": ["error"],
+        "unicorn/prefer-array-flat": ["error"],
+        "unicorn/prefer-array-flat-map": ["error"],
         "vue/no-unused-refs": "warn",
         "yoda": ["error", "never", {
             "exceptRange": true
