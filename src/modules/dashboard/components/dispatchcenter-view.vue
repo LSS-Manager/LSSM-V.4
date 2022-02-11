@@ -341,10 +341,10 @@
 <script lang="ts">
 import Vue from 'vue';
 
-import { DefaultProps } from 'vue/types/options';
-import { Vehicle } from 'typings/Vehicle';
-import { Building, InternalBuilding } from 'typings/Building';
-import {
+import type { DefaultProps } from 'vue/types/options';
+import type { Vehicle } from 'typings/Vehicle';
+import type { Building, InternalBuilding } from 'typings/Building';
+import type {
     DispatchcenterView,
     DispatchcenterViewComputed,
     DispatchcenterViewMethods,

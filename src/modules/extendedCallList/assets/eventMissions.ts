@@ -1,4 +1,4 @@
-import { MissionMarkerAdd } from 'typings/Ingame';
+import type { MissionMarkerAdd } from 'typings/Ingame';
 
 export default (
     LSSM: Vue,

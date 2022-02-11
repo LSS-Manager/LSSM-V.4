@@ -1,9 +1,9 @@
-import { AllianceInfo } from 'typings/api/AllianceInfo';
-import { Building } from '../../Building';
-import { CreditsInfo } from 'typings/api/Credits';
-import { Mission } from 'typings/Mission';
-import { Settings } from 'typings/api/Settings';
-import { Vehicle } from '../../Vehicle';
+import type { AllianceInfo } from 'typings/api/AllianceInfo';
+import type { Building } from '../../Building';
+import type { CreditsInfo } from 'typings/api/Credits';
+import type { Mission } from 'typings/Mission';
+import type { Settings } from 'typings/api/Settings';
+import type { Vehicle } from '../../Vehicle';
 
 export interface StorageAPIs {
     buildings: Building[];

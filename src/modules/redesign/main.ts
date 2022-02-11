@@ -1,5 +1,5 @@
-import { ModuleMainFunction } from 'typings/Module';
-import { routeChecks } from 'typings/modules/Redesign';
+import type { ModuleMainFunction } from 'typings/Module';
+import type { routeChecks } from 'typings/modules/Redesign';
 
 export default (async ({ LSSM, MODULE_ID, getSetting }) => {
     const routeChecks: routeChecks = {

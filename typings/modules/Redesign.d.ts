@@ -1,46 +1,46 @@
-import Vue from 'vue';
+import type Vue from 'vue';
 
-import { AAOsWindow } from '../../src/modules/redesign/parsers/aaos';
-import { AllianceAvatarWindow } from '../../src/modules/redesign/parsers/alliance_avatar';
-import { AllianceListWindow } from '../../src/modules/redesign/parsers/alliances';
-import { AvatarWindow } from '../../src/modules/redesign/parsers/avatar';
-import { AwardsWindow } from '../../src/modules/redesign/parsers/awards';
-import { BewerbungenWindow } from '../../src/modules/redesign/parsers/bewerbungen';
-import { CoinsListWindow } from '../../src/modules/redesign/parsers/coins/list';
-import { CreditsDailyWindow } from '../../src/modules/redesign/parsers/credits/daily';
-import { CreditsListWindow } from '../../src/modules/redesign/parsers/credits/list';
-import { CreditsOverviewWindow } from '../../src/modules/redesign/parsers/credits/overview';
-import { EinsaetzeWindow } from '../../src/modules/redesign/parsers/einsaetze';
-import { EinsatzWindow } from '../../src/modules/redesign/parsers/einsatz';
-import { FahrzeugfarbeWindow } from '../../src/modules/redesign/parsers/fahrzeugfarbe';
-import { FreundeWindow } from '../../src/modules/redesign/parsers/freunde';
-import { NextFMSWindow } from '../../src/modules/redesign/parsers/vehicle/nextfms';
-import { NoteWindow } from '../../src/modules/redesign/parsers/note';
-import { ProfileEditWindow } from '../../src/modules/redesign/parsers/profile/edit';
-import { ProfileWindow } from '../../src/modules/redesign/parsers/profile';
-import { SchoolingsWindow } from '../../src/modules/redesign/parsers/schoolings';
-import { TasksWindow } from '../../src/modules/redesign/parsers/tasks';
-import { TopListWindow } from '../../src/modules/redesign/parsers/toplist';
-import { VehicleGroupWindow } from 'modules/redesign/parsers/vehicle_group';
-import { VehicleStatsWindow } from '../../src/modules/redesign/parsers/vehicle/stats';
-import { VehicleWindow } from '../../src/modules/redesign/parsers/vehicle';
-import { VerbandBSRWindow } from '../../src/modules/redesign/parsers/verband/bsr';
-import { VerbandChatWindow } from '../../src/modules/redesign/parsers/chat';
-import { VerbandEditNameWindow } from '../../src/modules/redesign/parsers/verband/edit_name';
-import { VerbandEditTextWindow } from '../../src/modules/redesign/parsers/verband/edit_text';
-import { VerbandGebaeudeWindow } from '../../src/modules/redesign/parsers/verband/gebauede';
-import { VerbandHomeWindow } from '../../src/modules/redesign/parsers/verband/home';
-import { VerbandMitgliederWindow } from '../../src/modules/redesign/parsers/verband/mitglieder';
-import { VerbandNewsEditWindow } from '../../src/modules/redesign/parsers/verband/news/edit';
-import { VerbandProtokollWindow } from '../../src/modules/redesign/parsers/verband/protokoll';
-import { VerbandRegelnWindow } from '../../src/modules/redesign/parsers/verband/regeln';
-import { VerbandskasseWindow } from '../../src/modules/redesign/parsers/verband/kasse';
+import type { AAOsWindow } from '../../src/modules/redesign/parsers/aaos';
+import type { AllianceAvatarWindow } from '../../src/modules/redesign/parsers/alliance_avatar';
+import type { AllianceListWindow } from '../../src/modules/redesign/parsers/alliances';
+import type { AvatarWindow } from '../../src/modules/redesign/parsers/avatar';
+import type { AwardsWindow } from '../../src/modules/redesign/parsers/awards';
+import type { BewerbungenWindow } from '../../src/modules/redesign/parsers/bewerbungen';
+import type { CoinsListWindow } from '../../src/modules/redesign/parsers/coins/list';
+import type { CreditsDailyWindow } from '../../src/modules/redesign/parsers/credits/daily';
+import type { CreditsListWindow } from '../../src/modules/redesign/parsers/credits/list';
+import type { CreditsOverviewWindow } from '../../src/modules/redesign/parsers/credits/overview';
+import type { EinsaetzeWindow } from '../../src/modules/redesign/parsers/einsaetze';
+import type { EinsatzWindow } from '../../src/modules/redesign/parsers/einsatz';
+import type { FahrzeugfarbeWindow } from '../../src/modules/redesign/parsers/fahrzeugfarbe';
+import type { FreundeWindow } from '../../src/modules/redesign/parsers/freunde';
+import type { NextFMSWindow } from '../../src/modules/redesign/parsers/vehicle/nextfms';
+import type { NoteWindow } from '../../src/modules/redesign/parsers/note';
+import type { ProfileEditWindow } from '../../src/modules/redesign/parsers/profile/edit';
+import type { ProfileWindow } from '../../src/modules/redesign/parsers/profile';
+import type { SchoolingsWindow } from '../../src/modules/redesign/parsers/schoolings';
+import type { TasksWindow } from '../../src/modules/redesign/parsers/tasks';
+import type { TopListWindow } from '../../src/modules/redesign/parsers/toplist';
+import type { VehicleGroupWindow } from 'modules/redesign/parsers/vehicle_group';
+import type { VehicleStatsWindow } from '../../src/modules/redesign/parsers/vehicle/stats';
+import type { VehicleWindow } from '../../src/modules/redesign/parsers/vehicle';
+import type { VerbandBSRWindow } from '../../src/modules/redesign/parsers/verband/bsr';
+import type { VerbandChatWindow } from '../../src/modules/redesign/parsers/chat';
+import type { VerbandEditNameWindow } from '../../src/modules/redesign/parsers/verband/edit_name';
+import type { VerbandEditTextWindow } from '../../src/modules/redesign/parsers/verband/edit_text';
+import type { VerbandGebaeudeWindow } from '../../src/modules/redesign/parsers/verband/gebauede';
+import type { VerbandHomeWindow } from '../../src/modules/redesign/parsers/verband/home';
+import type { VerbandMitgliederWindow } from '../../src/modules/redesign/parsers/verband/mitglieder';
+import type { VerbandNewsEditWindow } from '../../src/modules/redesign/parsers/verband/news/edit';
+import type { VerbandProtokollWindow } from '../../src/modules/redesign/parsers/verband/protokoll';
+import type { VerbandRegelnWindow } from '../../src/modules/redesign/parsers/verband/regeln';
+import type { VerbandskasseWindow } from '../../src/modules/redesign/parsers/verband/kasse';
 
-import { CombinedVueInstance } from 'vue/types/vue';
-import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-import VueI18n from 'vue-i18n';
-import { $m, $mc } from 'typings/Module';
-import {
+import type { CombinedVueInstance } from 'vue/types/vue';
+import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import type VueI18n from 'vue-i18n';
+import type { $m, $mc } from 'typings/Module';
+import type {
     DefaultComputed,
     DefaultData,
     DefaultMethods,

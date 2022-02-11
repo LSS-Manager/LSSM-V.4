@@ -1,4 +1,4 @@
-import { Building } from '../../typings/Building';
+import type { Building } from '../../typings/Building';
 
 const modules = {
     appstore: {

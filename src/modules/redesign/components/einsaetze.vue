@@ -207,9 +207,9 @@ import Vue from 'vue';
 
 import moment from 'moment';
 
-import { Building } from 'typings/Building';
-import { Mission } from 'typings/Mission';
-import { RedesignComponent } from 'typings/modules/Redesign';
+import type { Building } from 'typings/Building';
+import type { Mission } from 'typings/Mission';
+import type { RedesignComponent } from 'typings/modules/Redesign';
 
 type MissionEntry = Omit<Mission, 'prerequisites'> & {
     prerequisites: Record<string, number>;

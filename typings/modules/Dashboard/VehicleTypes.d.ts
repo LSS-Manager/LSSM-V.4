@@ -1,6 +1,6 @@
-import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-import { Vehicle } from 'typings/Vehicle';
-import VueI18n from 'vue-i18n';
+import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import type { Vehicle } from 'typings/Vehicle';
+import type VueI18n from 'vue-i18n';
 
 export interface VehicleTypes {
     vehicleTypeNames: Record<number, string>;

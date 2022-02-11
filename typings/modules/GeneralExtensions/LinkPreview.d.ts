@@ -1,6 +1,6 @@
-import { Building } from 'typings/Building';
-import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-import { InternalVehicle, Vehicle } from 'typings/Vehicle';
+import type { Building } from 'typings/Building';
+import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import type { InternalVehicle, Vehicle } from 'typings/Vehicle';
 
 export interface LinkPreview {
     faParking: IconDefinition;

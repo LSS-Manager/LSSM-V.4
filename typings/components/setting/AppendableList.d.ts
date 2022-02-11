@@ -1,6 +1,6 @@
-import cloneDeep from 'lodash/cloneDeep';
-import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-import {
+import type cloneDeep from 'lodash/cloneDeep';
+import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import type {
     AppendableList as AppendableListSetting,
     AppendableListSetting as AppendableListSettingSetting,
     MultiSelect,

@@ -151,9 +151,9 @@
 <script lang="ts">
 import Vue from 'vue';
 
-import { DefaultData } from 'vue/types/options';
-import { RedesignComponent } from 'typings/modules/Redesign';
-import VueI18n from 'vue-i18n';
+import type { DefaultData } from 'vue/types/options';
+import type { RedesignComponent } from 'typings/modules/Redesign';
+import type VueI18n from 'vue-i18n';
 
 interface Link {
     href: string;

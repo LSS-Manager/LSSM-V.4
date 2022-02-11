@@ -4,10 +4,10 @@ import moment from 'moment';
 
 import config from '../../config';
 
-import { AllianceInfo } from 'typings/api/AllianceInfo';
-import { Building } from 'typings/Building';
-import { CreditsInfo } from 'typings/api/Credits';
-import { ModuleMainFunction } from 'typings/Module';
+import type { AllianceInfo } from 'typings/api/AllianceInfo';
+import type { Building } from 'typings/Building';
+import type { CreditsInfo } from 'typings/api/Credits';
+import type { ModuleMainFunction } from 'typings/Module';
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore

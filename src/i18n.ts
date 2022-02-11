@@ -1,4 +1,4 @@
-import { VueConstructor } from 'vue/types/vue';
+import type { VueConstructor } from 'vue/types/vue';
 import VueI18n from 'vue-i18n';
 
 export default async (Vue: VueConstructor): Promise<VueI18n> => {

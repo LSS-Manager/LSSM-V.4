@@ -121,8 +121,8 @@ import Vue from 'vue';
 
 import { faPencilAlt } from '@fortawesome/free-solid-svg-icons/faPencilAlt';
 
-import { Building, InternalBuilding } from 'typings/Building';
-import {
+import type { Building, InternalBuilding } from 'typings/Building';
+import type {
     BuildingList,
     BuildingListComputed,
     BuildingListMethods,

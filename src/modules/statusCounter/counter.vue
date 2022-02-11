@@ -33,7 +33,7 @@
 <script lang="ts">
 import Vue from 'vue';
 
-import { DefaultMethods } from 'vue/types/options';
+import type { DefaultMethods } from 'vue/types/options';
 
 export default Vue.extend<
     { fmsReal2Show: Record<string, number> },

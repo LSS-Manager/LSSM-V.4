@@ -42,8 +42,8 @@
 <script lang="ts">
 import Vue from 'vue';
 
-import { RedesignSubComponent } from 'typings/modules/Redesign';
-import { SCEditor } from 'typings/SCEditor/SCEditor';
+import type { RedesignSubComponent } from 'typings/modules/Redesign';
+import type { SCEditor } from 'typings/SCEditor/SCEditor';
 
 type Component = RedesignSubComponent<
     'news',

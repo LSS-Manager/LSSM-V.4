@@ -11,7 +11,7 @@ import LSSMV4 from './LSSMV4.vue';
 import store from './store';
 import utils from './utils';
 
-import { ModuleMainFunction, ModuleSettingFunction } from 'typings/Module';
+import type { ModuleMainFunction, ModuleSettingFunction } from 'typings/Module';
 
 require('./natives/navTabsClicker');
 require('./natives/lightbox');

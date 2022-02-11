@@ -56,7 +56,7 @@
 <script lang="ts">
 import Vue from 'vue';
 
-import { RedesignComponent } from 'typings/modules/Redesign';
+import type { RedesignComponent } from 'typings/modules/Redesign';
 
 type Component = RedesignComponent<'awards', 'awards'>;
 

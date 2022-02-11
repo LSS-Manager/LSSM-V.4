@@ -2,7 +2,7 @@ import UAParser from 'ua-parser-js';
 
 import config from '../../config';
 
-import { StorageSet } from '../../../typings/store/storage/Actions';
+import type { StorageSet } from '../../../typings/store/storage/Actions';
 
 const NOTE_STORAGE_KEY = 'telemetry_note_confirmed';
 const HIDE_BROWSER_NOTE_KEY = 'hide_browsersupport_note';

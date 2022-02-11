@@ -1,4 +1,4 @@
-import { ModuleMainFunction } from 'typings/Module';
+import type { ModuleMainFunction } from 'typings/Module';
 
 interface AppendableListSetting<valueType> {
     value: valueType;

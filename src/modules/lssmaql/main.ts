@@ -1,4 +1,4 @@
-import { ModuleMainFunction } from 'typings/Module';
+import type { ModuleMainFunction } from 'typings/Module';
 
 export default (({ LSSM }) => {
     LSSM.$store.dispatch('addMenuItem', 'LSSMAQL Console').then(

@@ -1,7 +1,7 @@
-import { $m } from 'typings/Module';
-import { CreditsDailyWindow } from 'modules/redesign/parsers/credits/daily';
-import { CreditsTypes } from 'typings/modules/dailyCreditsSummary/main';
-import { Mission } from 'typings/Mission';
+import type { $m } from 'typings/Module';
+import type { CreditsDailyWindow } from 'modules/redesign/parsers/credits/daily';
+import type { CreditsTypes } from 'typings/modules/dailyCreditsSummary/main';
+import type { Mission } from 'typings/Mission';
 
 export default async (
     LSSM: Vue,

@@ -46,9 +46,9 @@ import Vue from 'vue';
 
 import moment from 'moment';
 
-import { CreditsListWindow } from '../../parsers/credits/list';
-import { RedesignLightboxVue } from 'typings/modules/Redesign';
-import VueI18n from 'vue-i18n';
+import type { CreditsListWindow } from '../../parsers/credits/list';
+import type { RedesignLightboxVue } from 'typings/modules/Redesign';
+import type VueI18n from 'vue-i18n';
 
 export default Vue.extend<
     {

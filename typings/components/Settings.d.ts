@@ -1,7 +1,7 @@
-import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-import { Modules } from '../Module';
-import VueI18n from 'vue-i18n';
-import { ModuleSettings, MultiSelect, Select, Setting } from '../Setting';
+import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import type { Modules } from '../Module';
+import type VueI18n from 'vue-i18n';
+import type { ModuleSettings, MultiSelect, Select, Setting } from '../Setting';
 
 export interface SettingsData {
     faHistory: IconDefinition;

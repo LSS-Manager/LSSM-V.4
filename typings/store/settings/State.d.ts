@@ -1,4 +1,4 @@
-import { ModuleSettings } from '../../Setting';
+import type { ModuleSettings } from '../../Setting';
 
 export interface SettingsState {
     settings: ModuleSettings;

@@ -13,8 +13,8 @@ import Vue from 'vue';
 import { Chart } from 'highcharts-vue';
 import moment from 'moment';
 
-import { DefaultMethods } from 'vue/types/options';
-import { RedesignComponent } from 'typings/modules/Redesign';
+import type { DefaultMethods } from 'vue/types/options';
+import type { RedesignComponent } from 'typings/modules/Redesign';
 
 type Component = RedesignComponent<
     'stats',

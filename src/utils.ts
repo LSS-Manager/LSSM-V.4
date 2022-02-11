@@ -1,5 +1,5 @@
-import { Mission } from 'typings/Mission';
-import { VueConstructor } from 'vue/types/vue';
+import type { Mission } from 'typings/Mission';
+import type { VueConstructor } from 'vue/types/vue';
 
 export default (Vue: VueConstructor): void => {
     Vue.prototype.$vue = Vue;

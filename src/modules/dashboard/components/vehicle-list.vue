@@ -109,8 +109,8 @@ import Vue from 'vue';
 import { faPencilAlt } from '@fortawesome/free-solid-svg-icons/faPencilAlt';
 import { faUsers } from '@fortawesome/free-solid-svg-icons/faUsers';
 
-import { InternalVehicle } from 'typings/Vehicle';
-import {
+import type { InternalVehicle } from 'typings/Vehicle';
+import type {
     VehicleList,
     VehicleListComputed,
     VehicleListMethods,

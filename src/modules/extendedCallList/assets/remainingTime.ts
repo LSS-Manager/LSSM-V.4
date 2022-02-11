@@ -1,4 +1,4 @@
-import { MissionTimer } from 'typings/Ingame';
+import type { MissionTimer } from 'typings/Ingame';
 
 export default (LSSM: Vue, greenOnly: boolean): Promise<void> =>
     LSSM.$store

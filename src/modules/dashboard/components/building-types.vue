@@ -89,14 +89,14 @@ import { faBuilding } from '@fortawesome/free-solid-svg-icons/faBuilding';
 
 import buildingList from './building-list.vue';
 
-import { DefaultProps } from 'vue/types/options';
-import {
+import type { DefaultProps } from 'vue/types/options';
+import type {
     Building,
     BuildingCategory,
     Extension,
     InternalBuilding,
 } from 'typings/Building';
-import {
+import type {
     BuildingTypes,
     BuildingTypesComputed,
     BuildingTypesMethods,

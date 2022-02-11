@@ -1,4 +1,4 @@
-import { OpenSchoolings } from 'typings/modules/SchoolingOverview/main';
+import type { OpenSchoolings } from 'typings/modules/SchoolingOverview/main';
 
 export interface OpenSchooling {
     end: number;

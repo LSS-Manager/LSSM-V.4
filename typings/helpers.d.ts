@@ -1,30 +1,25 @@
 import 'i18n-js';
-import { DefaultProps } from 'vue/types/options';
-import Highcharts from 'highcharts';
-import { POI } from './modules/EnhancedPOI';
-import { sceditor } from './SCEditor';
-import { Store } from 'vuex';
-import VueI18n from 'vue-i18n';
-import {
+import type { DefaultProps } from 'vue/types/options';
+import type Highcharts from 'highcharts';
+import type L from 'leaflet';
+import type { POI } from './modules/EnhancedPOI';
+import type { sceditor } from './SCEditor';
+import type { Store } from 'vuex';
+import type VueI18n from 'vue-i18n';
+import type {
     AppstoreComputed,
     AppstoreData,
     AppstoreMethods,
 } from 'typings/components/Appstore';
-import {
+import type {
     BuildingMarker,
     BuildingMarkerAdd,
     MissionMarker,
     PatientTimer,
     POIMarker,
 } from './Ingame';
-import { CombinedVueInstance, VueConstructor } from 'vue/types/vue';
-import L, {
-    LayerGroup,
-    LayersControlEventHandlerFn,
-    Map,
-    Marker,
-} from 'leaflet';
-import {
+import type { CombinedVueInstance, VueConstructor } from 'vue/types/vue';
+import type {
     SettingsComputed,
     SettingsData,
     SettingsMethods,
@@ -52,21 +47,21 @@ declare global {
         };
         map_filters_service: {
             // initialize(a: MapFilterInitializer): void;
-            getMapFiltersLayersForMap(): Record<string, LayerGroup>;
-            getMapFiltersLayers(): Record<string, LayerGroup>;
+            getMapFiltersLayersForMap(): Record<string, L.LayerGroup>;
+            getMapFiltersLayers(): Record<string, L.LayerGroup>;
             getFilterLayerByBuildingParams(
                 building: BuildingMarkerAdd
-            ): LayerGroup | Map;
-            onOverlayChanged: LayersControlEventHandlerFn;
+            ): L.LayerGroup | L.Map;
+            onOverlayChanged: L.LayersControlEventHandlerFn;
             massFiltersChange(filter_id: string, add: boolean): void;
             decorateFilterText(text: string, filter_id: string): string;
         };
         [PREFIX: string]: Vue | unknown;
-        map: Map;
+        map: L.Map;
         L: typeof L;
-        mission_position_new_marker?: Marker;
-        building_new_marker?: Marker;
-        building_move_marker?: Marker;
+        mission_position_new_marker?: L.Marker;
+        building_new_marker?: L.Marker;
+        building_move_marker?: L.Marker;
         mission_graphics: [string, string, string][];
         patient_timers: PatientTimer[];
         sale_count_down: number;

@@ -1,6 +1,6 @@
 import dailyCreditssummary from './dailyCreditsSummary.vue';
 import getEntries from './assets/getEntries';
-import { ModuleMainFunction } from 'typings/Module';
+import type { ModuleMainFunction } from 'typings/Module';
 
 export default (async ({ LSSM }) => {
     const { entries, creditsTypes } = await getEntries(LSSM);

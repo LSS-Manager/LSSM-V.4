@@ -1,5 +1,5 @@
-import { ExtendedVue } from 'vue/types/vue';
-import {
+import type { ExtendedVue } from 'vue/types/vue';
+import type {
     DefaultComputed,
     DefaultData,
     DefaultMethods,

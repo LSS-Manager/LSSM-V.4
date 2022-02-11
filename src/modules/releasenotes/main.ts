@@ -4,7 +4,7 @@ import semverLte from 'semver/functions/lte';
 import semverRcompare from 'semver/functions/rcompare';
 import Showdown from 'showdown';
 
-import { Releasenote, Releasenotes } from 'typings/modules/Releasenotes';
+import type { Releasenote, Releasenotes } from 'typings/modules/Releasenotes';
 
 const LAST_VERSION_STORAGE_KEY = 'releasenotes_lastVersion';
 

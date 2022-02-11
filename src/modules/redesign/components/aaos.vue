@@ -148,10 +148,10 @@ import { faFileExport } from '@fortawesome/free-solid-svg-icons/faFileExport';
 import { faPlus } from '@fortawesome/free-solid-svg-icons/faPlus';
 import { faTrash } from '@fortawesome/free-solid-svg-icons/faTrash';
 
-import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-import { RedesignComponent } from 'typings/modules/Redesign';
+import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import type { RedesignComponent } from 'typings/modules/Redesign';
 
-import { AAOsWindow } from '../parsers/aaos';
+import type { AAOsWindow } from '../parsers/aaos';
 
 type Component = RedesignComponent<
     'aaos',

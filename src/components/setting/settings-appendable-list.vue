@@ -156,8 +156,8 @@ import { faMinus } from '@fortawesome/free-solid-svg-icons/faMinus';
 import { faPlus } from '@fortawesome/free-solid-svg-icons/faPlus';
 import { faUndoAlt } from '@fortawesome/free-solid-svg-icons/faUndoAlt';
 
-import { AppendableListSetting } from 'typings/Setting';
-import {
+import type { AppendableListSetting } from 'typings/Setting';
+import type {
     AppendableList,
     AppendableListComputed,
     AppendableListMethods,

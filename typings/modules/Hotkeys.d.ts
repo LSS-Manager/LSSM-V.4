@@ -1,4 +1,4 @@
-import { CallbackFunction } from '../../src/modules/hotkeys/assets/HotkeyUtility';
+import type { CallbackFunction } from '../../src/modules/hotkeys/assets/HotkeyUtility';
 
 type Id<T> = T extends infer U ? { [K in keyof U]: U[K] } : never;
 

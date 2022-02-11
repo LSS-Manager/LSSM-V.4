@@ -1,4 +1,4 @@
-import { Empty, Scope } from 'typings/modules/Hotkeys';
+import type { Empty, Scope } from 'typings/modules/Hotkeys';
 
 export default <Scope<Empty, ['chat', 'map', 'missionlist'], [], true>>{
     chat: <Scope<{ chatInput: HTMLInputElement | null }, [], ['focus']>>{

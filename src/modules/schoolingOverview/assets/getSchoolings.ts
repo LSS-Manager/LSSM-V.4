@@ -1,5 +1,5 @@
-import { Schooling } from 'typings/Schooling';
-import {
+import type { Schooling } from 'typings/Schooling';
+import type {
     OpenSchoolings,
     OwnSchoolings,
 } from 'typings/modules/SchoolingOverview/main';

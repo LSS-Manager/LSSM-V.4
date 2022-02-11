@@ -1,5 +1,5 @@
-import { Mission } from 'typings/Mission';
-import {
+import type { Mission } from 'typings/Mission';
+import type {
     MissionUpdateCallback,
     ProgressPrependCallback,
 } from './utils/progressPrepend';

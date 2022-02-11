@@ -1,6 +1,6 @@
 import toggle from './toggle';
 
-import { $m } from 'typings/Module';
+import type { $m } from 'typings/Module';
 
 export interface CollapsableButton extends HTMLButtonElement {
     switch?(): Promise<void>;

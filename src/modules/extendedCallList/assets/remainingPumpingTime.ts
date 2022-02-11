@@ -1,4 +1,4 @@
-import { ProgressbarTimer } from 'typings/Ingame';
+import type { ProgressbarTimer } from 'typings/Ingame';
 
 export default (LSSM: Vue): Promise<void> =>
     LSSM.$store

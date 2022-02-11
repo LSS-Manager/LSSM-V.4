@@ -137,9 +137,9 @@ import { faParking } from '@fortawesome/free-solid-svg-icons/faParking';
 import { faProcedures } from '@fortawesome/free-solid-svg-icons/faProcedures';
 import { faUsers } from '@fortawesome/free-solid-svg-icons/faUsers';
 
-import { InternalBuilding } from 'typings/Building';
-import { InternalVehicle } from 'typings/Vehicle';
-import {
+import type { InternalBuilding } from 'typings/Building';
+import type { InternalVehicle } from 'typings/Vehicle';
+import type {
     LinkPreview,
     LinkPreviewComputed,
     LinkPreviewMethods,

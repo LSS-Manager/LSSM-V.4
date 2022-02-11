@@ -211,7 +211,7 @@ import Vue from 'vue';
 
 import moment from 'moment';
 
-import { RedesignSubComponent } from 'typings/modules/Redesign';
+import type { RedesignSubComponent } from 'typings/modules/Redesign';
 
 type Component = RedesignSubComponent<
     'kasse',

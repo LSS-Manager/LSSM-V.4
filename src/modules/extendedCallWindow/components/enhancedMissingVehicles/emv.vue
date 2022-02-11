@@ -131,7 +131,7 @@ import { faTable } from '@fortawesome/free-solid-svg-icons/faTable';
 
 import vehicleListObserveHandler from '../../assets/emv/getVehicleListObserveHandler';
 
-import {
+import type {
     EnhancedMissingVehicles,
     EnhancedMissingVehiclesComputed,
     EnhancedMissingVehiclesMethods,

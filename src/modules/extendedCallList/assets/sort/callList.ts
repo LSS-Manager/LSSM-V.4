@@ -1,6 +1,6 @@
-import { $m } from 'typings/Module';
-import { Mission } from 'typings/Mission';
-import {
+import type { $m } from 'typings/Module';
+import type { Mission } from 'typings/Mission';
+import type {
     MissionMarkerAdd,
     PatientMarkerAdd,
     PatientMarkerAddCombined,

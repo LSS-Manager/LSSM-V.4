@@ -1,18 +1,18 @@
-import Vue from 'vue';
+import type Vue from 'vue';
 
-import { ActionStoreParams } from 'typings/store/Actions';
-import { APIActionStoreParams } from '../../typings/store/api/Actions';
-import { Mission } from 'typings/Mission';
-import { RootState } from '../../typings/store/RootState';
-import { Vehicle } from '../../typings/Vehicle';
-import { VehicleRadioMessage } from '../../typings/Ingame';
-import { ActionTree, GetterTree, Module /*, Store*/ } from 'vuex';
-import {
+import type { ActionStoreParams } from 'typings/store/Actions';
+import type { APIActionStoreParams } from '../../typings/store/api/Actions';
+import type { Mission } from 'typings/Mission';
+import type { RootState } from '../../typings/store/RootState';
+import type { Vehicle } from '../../typings/Vehicle';
+import type { VehicleRadioMessage } from '../../typings/Ingame';
+import type { ActionTree, GetterTree, Module /*, Store*/ } from 'vuex';
+import type {
     APIState,
     StorageAPIKey,
     StorageGetterReturn,
 } from '../../typings/store/api/State';
-import { Building, BuildingCategory } from '../../typings/Building';
+import type { Building, BuildingCategory } from '../../typings/Building';
 
 const STORAGE_KEYS = {
     buildings: 'aBuildings',

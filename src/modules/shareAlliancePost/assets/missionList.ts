@@ -12,9 +12,9 @@ import {
     shareMission,
 } from './util';
 
-import { ButtonGroupCallback } from '../../extendedCallList/assets/utils/buttonGroup';
-import { Message } from '../main';
-import { Mission } from 'typings/Mission';
+import type { ButtonGroupCallback } from '../../extendedCallList/assets/utils/buttonGroup';
+import type { Message } from '../main';
+import type { Mission } from 'typings/Mission';
 
 const createLi = <I extends 'comment' | 'comment-slash'>(
     content: string,

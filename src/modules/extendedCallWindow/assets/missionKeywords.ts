@@ -1,4 +1,4 @@
-import { Mission } from 'typings/Mission';
+import type { Mission } from 'typings/Mission';
 
 export default async (
     LSSM: Vue,

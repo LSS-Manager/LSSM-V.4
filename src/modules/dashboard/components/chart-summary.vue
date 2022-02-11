@@ -81,27 +81,30 @@ import HighchartsMore from 'highcharts/highcharts-more';
 import HighchartsOfflineExporting from 'highcharts/modules/offline-exporting';
 import HighchartsSunburst from 'highcharts/modules/sunburst';
 
-import { DefaultProps } from 'vue/types/options';
-import { TranslateResult } from 'vue-i18n';
-import {
+import type { DefaultProps } from 'vue/types/options';
+import type { TranslateResult } from 'vue-i18n';
+import type {
     Building,
     BuildingCategory,
     InternalBuilding,
 } from '../../../../typings/Building';
-import {
+import type {
     ChartSummary,
     ChartSummaryComputed,
     ChartSummaryMethods,
 } from '../../../../typings/modules/Dashboard/ChartSummary';
 // to seperate types
 // eslint-disable-next-line no-duplicate-imports
-import {
+import type {
     DrilldownOptions,
     Options,
     PointOptionsObject,
     SeriesSunburstOptions,
 } from 'highcharts';
-import { InternalVehicle, VehicleCategory } from '../../../../typings/Vehicle';
+import type {
+    InternalVehicle,
+    VehicleCategory,
+} from '../../../../typings/Vehicle';
 
 HighchartsMore(Highcharts);
 HighchartsDrilldown(Highcharts);

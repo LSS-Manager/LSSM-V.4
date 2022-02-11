@@ -49,8 +49,8 @@ import Vue from 'vue';
 
 import { faTimes } from '@fortawesome/free-solid-svg-icons/faTimes';
 
-import { DefaultMethods, DefaultProps } from 'vue/types/options';
-import { LSSMV4Computed, LSSMV4Data } from 'typings/LSSMV4';
+import type { DefaultMethods, DefaultProps } from 'vue/types/options';
+import type { LSSMV4Computed, LSSMV4Data } from 'typings/LSSMV4';
 
 export default Vue.extend<
     LSSMV4Data,

@@ -1,7 +1,7 @@
-import { InternalVehicle } from 'typings/Vehicle';
-import { StorageSet } from 'typings/store/storage/Actions';
+import type { InternalVehicle } from 'typings/Vehicle';
+import type { StorageSet } from 'typings/store/storage/Actions';
 
-import { $m, $mc } from 'typings/Module';
+import type { $m, $mc } from 'typings/Module';
 
 export default (
     LSSM: Vue,

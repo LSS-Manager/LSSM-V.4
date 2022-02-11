@@ -1,8 +1,8 @@
-import { ButtonGroupCallback } from '../utils/buttonGroup';
+import type { ButtonGroupCallback } from '../utils/buttonGroup';
 import toggle from './toggle';
-import createBtn, { CollapsableButton } from './createBtn';
+import createBtn, { type CollapsableButton } from './createBtn';
 
-import { $m } from 'typings/Module';
+import type { $m } from 'typings/Module';
 
 export type AddCollapsableButton = (
     mission: ButtonGroupCallback,

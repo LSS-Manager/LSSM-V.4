@@ -1,6 +1,6 @@
 import counter from './counter.vue';
 
-import { ModuleMainFunction } from 'typings/Module';
+import type { ModuleMainFunction } from 'typings/Module';
 
 export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID }) => {
     await LSSM.$store.dispatch('api/registerVehiclesUsage', {

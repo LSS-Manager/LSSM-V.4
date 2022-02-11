@@ -1,4 +1,4 @@
-import { PatientTimer } from 'typings/Ingame';
+import type { PatientTimer } from 'typings/Ingame';
 
 export default (LSSM: Vue): Promise<void> =>
     LSSM.$store

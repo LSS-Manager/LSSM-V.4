@@ -1,5 +1,5 @@
-import { Building } from 'typings/Building';
-import VueI18n from 'vue-i18n';
+import type { Building } from 'typings/Building';
+import type VueI18n from 'vue-i18n';
 
 interface buildingWithExtension extends Building {
     extension_available: number;

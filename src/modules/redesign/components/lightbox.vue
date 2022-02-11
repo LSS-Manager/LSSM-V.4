@@ -85,7 +85,10 @@ import Vue from 'vue';
 
 import { faSyncAlt } from '@fortawesome/free-solid-svg-icons/faSyncAlt';
 
-import { RedesignLightbox, RedesignParser } from 'typings/modules/Redesign';
+import type {
+    RedesignLightbox,
+    RedesignParser,
+} from 'typings/modules/Redesign';
 
 const windows: RedesignLightbox['Data']['windows'] = {
     'aaos': {

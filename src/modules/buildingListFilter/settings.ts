@@ -1,8 +1,8 @@
 import preview from './components/preview.vue';
 
-import { InternalBuilding } from 'typings/Building';
-import { ModuleSettingFunction } from 'typings/Module';
-import {
+import type { InternalBuilding } from 'typings/Building';
+import type { ModuleSettingFunction } from 'typings/Module';
+import type {
     AppendableList,
     AppendableListSetting,
     Hidden,

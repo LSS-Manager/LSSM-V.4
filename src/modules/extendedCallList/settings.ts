@@ -1,5 +1,5 @@
-import { $m, ModuleSettingFunction } from 'typings/Module';
-import {
+import type { $m, ModuleSettingFunction } from 'typings/Module';
+import type {
     AppendableList,
     AppendableListSetting,
     Hidden,

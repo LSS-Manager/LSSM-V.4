@@ -14,9 +14,9 @@ import {
     shareMission,
 } from './assets/util';
 
-import { Mission } from 'typings/Mission';
-import { ModuleMainFunction } from 'typings/Module';
-import VueI18n from 'vue-i18n';
+import type { Mission } from 'typings/Mission';
+import type { ModuleMainFunction } from 'typings/Module';
+import type VueI18n from 'vue-i18n';
 
 export interface Message {
     name: string;

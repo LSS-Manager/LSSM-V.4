@@ -454,15 +454,15 @@ import { faSuperscript } from '@fortawesome/free-solid-svg-icons/faSuperscript';
 import { faSyncAlt } from '@fortawesome/free-solid-svg-icons/faSyncAlt';
 
 import cloneDeep from 'lodash/cloneDeep';
-import { Mission } from 'typings/Mission';
-import {
+import type { Mission } from 'typings/Mission';
+import type {
     MissionHelper,
     MissionHelperComputed,
     MissionHelperMethods,
     VehicleRequirements,
 } from 'typings/modules/MissionHelper';
 
-import { DefaultProps } from 'vue/types/options';
+import type { DefaultProps } from 'vue/types/options';
 
 export default Vue.extend<
     MissionHelper,

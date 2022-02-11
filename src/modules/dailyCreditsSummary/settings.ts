@@ -1,5 +1,5 @@
-import { ModuleSettingFunction } from 'typings/Module';
-import { Toggle } from 'typings/Setting';
+import type { ModuleSettingFunction } from 'typings/Module';
+import type { Toggle } from 'typings/Setting';
 
 export default <ModuleSettingFunction>(() => ({
     showAverage: <Toggle>{

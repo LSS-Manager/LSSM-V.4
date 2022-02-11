@@ -153,10 +153,10 @@ import Vue from 'vue';
 
 import { faSlidersH } from '@fortawesome/free-solid-svg-icons/faSlidersH';
 
-import { $m } from 'typings/Module';
-import { IconDefinition } from '@fortawesome/free-solid-svg-icons';
-import { InternalBuilding } from 'typings/Building';
-import { InternalVehicle, Vehicle } from 'typings/Vehicle';
+import type { $m } from 'typings/Module';
+import type { IconDefinition } from '@fortawesome/free-solid-svg-icons';
+import type { InternalBuilding } from 'typings/Building';
+import type { InternalVehicle, Vehicle } from 'typings/Vehicle';
 
 type Mode = 'buildings' | 'vehicles';
 

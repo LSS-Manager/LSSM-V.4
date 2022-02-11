@@ -1,4 +1,4 @@
-import { Marker } from 'leaflet';
+import type { Marker } from 'leaflet';
 
 export interface BuildingMarker extends Marker {
     building_id: number;

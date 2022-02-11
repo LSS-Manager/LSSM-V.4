@@ -100,8 +100,8 @@ import svgToMiniDataURI from 'mini-svg-data-uri';
 import LibraryOverview from './components/libraryOverview.vue';
 import lssmLogo from './img/lssm_logo';
 
-import { DefaultProps } from 'vue/types/options';
-import {
+import type { DefaultProps } from 'vue/types/options';
+import type {
     lssmMenuComputed,
     lssmMenuData,
     lssmMenuMethods,

@@ -1,4 +1,4 @@
-import { ModuleMainFunction } from 'typings/Module';
+import type { ModuleMainFunction } from 'typings/Module';
 
 export default (async ({ LSSM, MODULE_ID, $m, getSetting }) => {
     const buildings = ['buildingTax', 'switchExtensionState'].filter(

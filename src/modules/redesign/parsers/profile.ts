@@ -1,5 +1,5 @@
-import { BuildingMarkerAdd } from 'typings/Ingame';
-import { RedesignParser } from 'typings/modules/Redesign';
+import type { BuildingMarkerAdd } from 'typings/Ingame';
+import type { RedesignParser } from 'typings/modules/Redesign';
 
 type Building = BuildingMarkerAdd;
 

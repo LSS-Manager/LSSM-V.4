@@ -18,8 +18,8 @@
 <script lang="ts">
 import Vue from 'vue';
 
-import { DefaultData } from 'vue/types/options';
-import { RedesignComponent } from 'typings/modules/Redesign';
+import type { DefaultData } from 'vue/types/options';
+import type { RedesignComponent } from 'typings/modules/Redesign';
 
 type Component = RedesignComponent<
     'profile',

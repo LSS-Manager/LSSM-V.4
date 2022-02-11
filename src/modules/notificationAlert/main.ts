@@ -1,6 +1,6 @@
-import { ModuleMainFunction } from 'typings/Module';
-import { NotificationSetting } from 'typings/modules/NotificationAlert';
-import {
+import type { ModuleMainFunction } from 'typings/Module';
+import type { NotificationSetting } from 'typings/modules/NotificationAlert';
+import type {
     AllianceChatMessage,
     MissionMarkerAdd,
     RadioMessage,

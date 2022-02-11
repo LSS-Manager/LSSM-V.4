@@ -1,5 +1,5 @@
-import { Modules } from '../Module';
-import VueI18n from 'vue-i18n';
+import type { Modules } from '../Module';
+import type VueI18n from 'vue-i18n';
 
 export interface AppstoreData {
     modules: Modules;

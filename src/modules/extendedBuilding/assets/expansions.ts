@@ -1,4 +1,4 @@
-import { $m } from 'typings/Module';
+import type { $m } from 'typings/Module';
 import moment from 'moment';
 
 export default (LSSM: Vue, MODULE_ID: string, $m: $m): void => {

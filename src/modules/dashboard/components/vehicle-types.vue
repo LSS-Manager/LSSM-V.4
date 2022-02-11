@@ -111,9 +111,9 @@ import { faChartPie } from '@fortawesome/free-solid-svg-icons/faChartPie';
 import { Chart } from 'highcharts-vue';
 import vehicleList from './vehicle-list.vue';
 
-import { DefaultProps } from 'vue/types/options';
-import { InternalVehicle, Vehicle } from 'typings/Vehicle';
-import {
+import type { DefaultProps } from 'vue/types/options';
+import type { InternalVehicle, Vehicle } from 'typings/Vehicle';
+import type {
     TypeList,
     VehicleTypes,
     VehicleTypesComputed,

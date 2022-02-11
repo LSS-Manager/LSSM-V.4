@@ -1,5 +1,5 @@
-import { $m } from 'typings/Module';
-import { Building } from 'typings/Building';
+import type { $m } from 'typings/Module';
+import type { Building } from 'typings/Building';
 
 export default async (
     LSSM: Vue,

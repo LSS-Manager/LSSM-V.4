@@ -3,7 +3,7 @@ import openSchoolingTabs from './components/openSchoolingTabs.vue';
 import ownSchoolingTabs from './components/ownSchoolingTabs.vue';
 import schoolingOverview from './schoolingOverview.vue';
 
-import { ModuleMainFunction } from 'typings/Module';
+import type { ModuleMainFunction } from 'typings/Module';
 
 export default <ModuleMainFunction>(({ LSSM }) => {
     const { ownSchoolings, openSchoolings } = getSchoolings(LSSM);

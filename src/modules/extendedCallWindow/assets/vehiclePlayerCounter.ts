@@ -1,4 +1,4 @@
-import { $m } from 'typings/Module';
+import type { $m } from 'typings/Module';
 
 type Table = 'driving' | 'atScene';
 type List = 'vehicles' | 'players';

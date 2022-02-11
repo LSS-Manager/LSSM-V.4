@@ -146,8 +146,8 @@ import Vue from 'vue';
 
 import { Chart } from 'highcharts-vue';
 
-import { CreditsTypes } from 'typings/modules/dailyCreditsSummary/main';
-import {
+import type { CreditsTypes } from 'typings/modules/dailyCreditsSummary/main';
+import type {
     Category,
     DailyCreditsSummary,
     DailyCreditsSummaryComputed,

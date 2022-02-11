@@ -36,7 +36,7 @@
 <script lang="ts">
 import Vue from 'vue';
 
-import {
+import type {
     OwnSchoolingTabs,
     OwnSchoolingTabsComputed,
     OwnSchoolingTabsMethods,

@@ -1,6 +1,6 @@
-import { Games } from './Game';
-import { RegisterSettings } from './Setting';
-import VueI18n from 'vue-i18n';
+import type { Games } from './Game';
+import type { RegisterSettings } from './Setting';
+import type VueI18n from 'vue-i18n';
 
 export type Module = { location: RegExp | string } & Partial<{
     active: boolean;

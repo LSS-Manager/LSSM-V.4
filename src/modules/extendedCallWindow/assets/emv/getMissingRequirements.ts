@@ -1,5 +1,5 @@
-import { $m } from 'typings/Module';
-import { Requirement } from 'typings/modules/ExtendedCallWindow/EnhancedMissingVehicles';
+import type { $m } from 'typings/Module';
+import type { Requirement } from 'typings/modules/ExtendedCallWindow/EnhancedMissingVehicles';
 
 export default (LSSM: Vue, missingDialogContent: string, $m: $m) => {
     const missingRequirementsText = missingDialogContent

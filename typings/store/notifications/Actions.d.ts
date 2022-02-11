@@ -1,6 +1,6 @@
-import { ActionContext } from 'vuex';
-import { NotificationsState } from './State';
-import { RootState } from '../RootState';
+import type { ActionContext } from 'vuex';
+import type { NotificationsState } from './State';
+import type { RootState } from '../RootState';
 
 export type NotificationsActionStoreParams = ActionContext<
     NotificationsState,

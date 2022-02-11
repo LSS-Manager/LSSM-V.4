@@ -7,7 +7,7 @@ import addToBuildStats from '../../build/addToBuildStats';
 import config from '../../src/config';
 import { version } from '../../package.json';
 
-import { Module } from '../../typings/Module';
+import type { Module } from '../../typings/Module';
 
 interface Translation {
     [key: string]: Translation | string;

@@ -1,10 +1,10 @@
 import 'leaflet.heat';
 
-import { Building } from 'typings/Building';
-import { ModuleMainFunction } from 'typings/Module';
-import { Vehicle } from 'typings/Vehicle';
-import { LatLng, Map } from 'leaflet';
-import { Settings, UpdateSettings } from './heatmapSettings.vue';
+import type { Building } from 'typings/Building';
+import type { ModuleMainFunction } from 'typings/Module';
+import type { Vehicle } from 'typings/Vehicle';
+import type { LatLng, Map } from 'leaflet';
+import type { Settings, UpdateSettings } from './heatmapSettings.vue';
 
 interface HeatLayer {
     setLatLngs: (points: LatLng[]) => void;

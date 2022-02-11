@@ -1,4 +1,4 @@
-import { Games } from './Game';
+import type { Games } from './Game';
 
 interface Browser {
     latest: number;

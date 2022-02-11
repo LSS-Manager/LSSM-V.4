@@ -1,4 +1,4 @@
-import { ChildProcess, execSync } from 'child_process';
+import { type ChildProcess, execSync } from 'child_process';
 
 import fetchEmojis from './utils/fetchEmojis';
 import sort from './sort';

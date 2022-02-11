@@ -1,6 +1,6 @@
 import moment from 'moment';
 
-import { RedesignParser } from 'typings/modules/Redesign';
+import type { RedesignParser } from 'typings/modules/Redesign';
 
 interface User {
     name: string;

@@ -1,4 +1,4 @@
-import { Map as LMap } from 'leaflet';
+import type { Map as LMap } from 'leaflet';
 
 export default (
     placeholder: string,

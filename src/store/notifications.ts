@@ -1,9 +1,9 @@
 import lssm_logo from '../img/lssm_logo';
 
-import { NotificationsState } from 'typings/store/notifications/State';
-import { RootState } from 'typings/store/RootState';
-import { ActionTree, Module, MutationTree } from 'vuex';
-import {
+import type { NotificationsState } from 'typings/store/notifications/State';
+import type { RootState } from 'typings/store/RootState';
+import type { ActionTree, Module, MutationTree } from 'vuex';
+import type {
     NotificationsActionStoreParams,
     NotificationsSend,
 } from 'typings/store/notifications/Actions';

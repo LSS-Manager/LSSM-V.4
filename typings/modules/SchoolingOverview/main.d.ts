@@ -1,5 +1,5 @@
-import { OpenSchooling } from 'typings/modules/SchoolingOverview/OpenSchoolingTabs';
-import { OwnSchooling } from 'typings/modules/SchoolingOverview/OwnSchoolingTabs';
+import type { OpenSchooling } from 'typings/modules/SchoolingOverview/OpenSchoolingTabs';
+import type { OwnSchooling } from 'typings/modules/SchoolingOverview/OwnSchoolingTabs';
 
 export interface OwnSchoolings {
     amounts: Record<string, number>;

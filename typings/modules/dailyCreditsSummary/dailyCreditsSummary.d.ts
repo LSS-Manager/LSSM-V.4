@@ -1,6 +1,6 @@
-import { CreditsDailyWindow } from 'modules/redesign/parsers/credits/daily';
-import { CreditsTypes } from './main';
-import VueI18n from 'vue-i18n';
+import type { CreditsDailyWindow } from 'modules/redesign/parsers/credits/daily';
+import type { CreditsTypes } from './main';
+import type VueI18n from 'vue-i18n';
 
 interface BasicChartOptions {
     chart: {

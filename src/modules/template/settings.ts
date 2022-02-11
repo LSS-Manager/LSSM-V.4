@@ -1,5 +1,5 @@
-import { ModuleSettingFunction } from 'typings/Module';
-import { Toggle } from 'typings/Setting';
+import type { ModuleSettingFunction } from 'typings/Module';
+import type { Toggle } from 'typings/Setting';
 
 // The exported function may be async if required. Parameters are available (see Type-Declarations)
 export default (() => ({

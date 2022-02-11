@@ -563,17 +563,17 @@ import HighchartsMore from 'highcharts/highcharts-more';
 import HighchartsSolidGauge from 'highcharts/modules/solid-gauge';
 import moment from 'moment';
 
-import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-import { InternalBuilding } from 'typings/Building';
-import { LayerGroup } from 'leaflet';
-import { MapVue } from 'typings/components/LeafletMap';
+import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import type { InternalBuilding } from 'typings/Building';
+import type { LayerGroup } from 'leaflet';
+import type { MapVue } from 'typings/components/LeafletMap';
 // to separate typings
 // eslint-disable-next-line no-duplicate-imports
-import { PlotGaugeOptions } from 'highcharts';
-import { ProfileWindow } from '../parsers/profile';
-import { RedesignComponent } from 'typings/modules/Redesign';
-import { TranslateResult } from 'vue-i18n';
-import { AllianceInfo, User } from 'typings/api/AllianceInfo';
+import type { PlotGaugeOptions } from 'highcharts';
+import type { ProfileWindow } from '../parsers/profile';
+import type { RedesignComponent } from 'typings/modules/Redesign';
+import type { TranslateResult } from 'vue-i18n';
+import type { AllianceInfo, User } from 'typings/api/AllianceInfo';
 
 HighchartsMore(Highcharts);
 HighchartsSolidGauge(Highcharts);

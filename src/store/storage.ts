@@ -1,9 +1,9 @@
 import localforage from 'localforage';
 
-import { RootState } from '../../typings/store/RootState';
-import { StorageState } from '../../typings/store/storage/State';
-import { ActionTree, Module } from 'vuex';
-import {
+import type { RootState } from '../../typings/store/RootState';
+import type { StorageState } from '../../typings/store/storage/State';
+import type { ActionTree, Module } from 'vuex';
+import type {
     StorageActionStoreParams,
     StorageGet,
     StorageSet,

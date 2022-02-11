@@ -44,12 +44,12 @@ import Highcharts from 'highcharts';
 import HighchartsMore from 'highcharts/highcharts-more';
 import moment from 'moment';
 
-import { CreditsOverviewWindow } from '../../parsers/credits/overview';
+import type { CreditsOverviewWindow } from '../../parsers/credits/overview';
 // to separate typings
 // eslint-disable-next-line no-duplicate-imports
-import { Options } from 'highcharts';
-import { RedesignLightboxVue } from 'typings/modules/Redesign';
-import VueI18n, { TranslateResult } from 'vue-i18n';
+import type { Options } from 'highcharts';
+import type { RedesignLightboxVue } from 'typings/modules/Redesign';
+import type VueI18n from 'vue-i18n';
 
 HighchartsMore(Highcharts);
 
@@ -175,7 +175,10 @@ export default Vue.extend<
             Highcharts.setOptions(this.$utils.highChartsDarkMode);
         Highcharts.setOptions({
             lang: {
-                ...(this.$t('highcharts') as Record<string, TranslateResult>),
+                ...(this.$t('highcharts') as Record<
+                    string,
+                    VueI18n.TranslateResult
+                >),
             },
         });
         Highcharts.chart(this.chartId, {

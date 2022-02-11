@@ -1,6 +1,6 @@
-import config from '../../src/config';
+import type config from '../../src/config';
 
-import { Issue } from './types/issues';
+import type { Issue } from './types/issues';
 
 declare module 'vue/types/vue' {
     type MomentShort =

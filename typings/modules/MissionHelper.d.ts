@@ -1,6 +1,6 @@
-import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-import { Mission } from 'typings/Mission';
-import VueI18n from 'vue-i18n';
+import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import type { Mission } from 'typings/Mission';
+import type VueI18n from 'vue-i18n';
 
 export type VehicleRequirements = Record<
     string,

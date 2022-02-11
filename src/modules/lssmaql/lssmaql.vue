@@ -46,9 +46,9 @@ import { faTerminal } from '@fortawesome/free-solid-svg-icons/faTerminal';
 import parser from './assets/parser';
 import tokenizer from './assets/tokenizer';
 
-import { DefaultProps } from 'vue/types/options';
-import { Condition, ObjectTree, QueryTree } from 'typings/modules/LSSMAQL';
-import {
+import type { DefaultProps } from 'vue/types/options';
+import type { Condition, ObjectTree, QueryTree } from 'typings/modules/LSSMAQL';
+import type {
     LSSMAQL,
     LSSMAQLComputed,
     LSSMAQLMethods,

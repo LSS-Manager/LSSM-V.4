@@ -1,8 +1,8 @@
 import aipreview from './components/alarmIcons/preview.vue';
 import mkpreview from './components/missionKeywords/preview.vue';
 
-import { $m, ModuleSettingFunction } from 'typings/Module';
-import {
+import type { $m, ModuleSettingFunction } from 'typings/Module';
+import type {
     AppendableList,
     AppendableListSetting,
     Color,
@@ -14,7 +14,7 @@ import {
     Text,
     Toggle,
 } from 'typings/Setting';
-import { InternalVehicle, Vehicle } from 'typings/Vehicle';
+import type { InternalVehicle, Vehicle } from 'typings/Vehicle';
 
 export default (async (MODULE_ID: string, LSSM: Vue, $m: $m) => {
     const defaultTailoredTabs = Object.values(

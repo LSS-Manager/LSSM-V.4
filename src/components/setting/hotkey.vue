@@ -21,7 +21,7 @@ import Vue from 'vue';
 
 import HotkeyUtility from '../../modules/hotkeys/assets/HotkeyUtility';
 
-import {
+import type {
     Hotkey,
     HotkeyComputed,
     HotkeyMethods,

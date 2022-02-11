@@ -279,19 +279,19 @@ import Vue from 'vue';
 
 import cloneDeep from 'lodash/cloneDeep';
 
-import { DefaultProps } from 'vue/types/options';
-import { Schooling } from 'typings/Schooling';
-import {
+import type { DefaultProps } from 'vue/types/options';
+import type { Schooling } from 'typings/Schooling';
+import type {
     BuildingCategory,
     InternalBuilding,
     ResolvedBuildingCategory,
 } from 'typings/Building';
-import {
+import type {
     InternalVehicle,
     ResolvedVehicleCategory,
     VehicleCategory,
 } from '../../../typings/Vehicle';
-import {
+import type {
     Overview,
     OverviewComputed,
     OverviewMethods,

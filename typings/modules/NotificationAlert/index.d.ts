@@ -1,4 +1,4 @@
-import { NotificationsState } from 'typings/store/notifications/State';
+import type { NotificationsState } from 'typings/store/notifications/State';
 
 export interface NotificationSetting {
     events: string[];

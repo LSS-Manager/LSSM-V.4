@@ -1,6 +1,6 @@
 import moment from 'moment';
 
-import { ModuleMainFunction } from 'typings/Module';
+import type { ModuleMainFunction } from 'typings/Module';
 
 export default <ModuleMainFunction>(async ({ LSSM, $m, getSetting }) => {
     moment.locale(LSSM.$store.state.lang);

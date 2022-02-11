@@ -9,11 +9,11 @@ import notifications from './store/notifications';
 import settings from './store/settings';
 import storage from './store/storage';
 
-import { LSSMEvent } from '../typings/helpers';
-import { Modules } from '../typings/Module';
-import { RootState } from '../typings/store/RootState';
-import { VueConstructor } from 'vue/types/vue';
-import {
+import type { LSSMEvent } from '../typings/helpers';
+import type { Modules } from '../typings/Module';
+import type { RootState } from '../typings/store/RootState';
+import type { VueConstructor } from 'vue/types/vue';
+import type {
     ActionStoreParams,
     addStyle,
     Hook,
@@ -23,7 +23,7 @@ import {
 } from '../typings/store/Actions';
 // to seperate typings
 // eslint-disable-next-line no-duplicate-imports
-import {
+import type {
     ActionTree,
     GetterTree,
     ModuleTree,

@@ -1,9 +1,9 @@
-import { AddCollapsableButton } from './assets/collapsableMissions/missionlist';
-import { AddStarrableButton } from './assets/starrableMissions/missionlist';
-import { Message } from '../shareAlliancePost/main';
-import { ModuleMainFunction } from 'typings/Module';
-import { Sort } from './assets/sort/callList';
-import { AddShareBtn, UpdateShareBtn } from './assets/shareMissions';
+import type { AddCollapsableButton } from './assets/collapsableMissions/missionlist';
+import type { AddStarrableButton } from './assets/starrableMissions/missionlist';
+import type { Message } from '../shareAlliancePost/main';
+import type { ModuleMainFunction } from 'typings/Module';
+import type { Sort } from './assets/sort/callList';
+import type { AddShareBtn, UpdateShareBtn } from './assets/shareMissions';
 
 interface AppendableListSetting<valueType> {
     value: valueType;

@@ -46,9 +46,9 @@ import Vue from 'vue';
 
 import moment from 'moment';
 
-import { CoinsListWindow } from '../../parsers/coins/list';
-import { RedesignLightboxVue } from 'typings/modules/Redesign';
-import VueI18n from 'vue-i18n';
+import type { CoinsListWindow } from '../../parsers/coins/list';
+import type { RedesignLightboxVue } from 'typings/modules/Redesign';
+import type VueI18n from 'vue-i18n';
 
 export default Vue.extend<
     {
