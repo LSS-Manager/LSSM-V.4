@@ -218,7 +218,7 @@ export default Vue.extend<
     directives: {
         child: {
             inserted(el, dir) {
-                el.appendChild(dir.value);
+                el.append(dir.value);
             },
         },
     },

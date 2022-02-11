@@ -28,7 +28,7 @@ export default (async ({ LSSM, MODULE_ID }) => {
 
     const btnIcon = document.createElement('i');
     btnIcon.classList.add('fas', 'fa-chart-line');
-    generationBtn.appendChild(btnIcon);
+    generationBtn.append(btnIcon);
 
     const header = document.querySelector<HTMLHeadingElement>('h1');
     if (!header) return;

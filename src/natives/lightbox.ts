@@ -10,9 +10,9 @@ if (!document.getElementById('lightbox_background')) {
     close.id = 'lightbox_close';
     const times = document.createElement('span');
     times.innerHTML = '&times;';
-    close.appendChild(times);
+    close.append(times);
     close.addEventListener('click', () => window.lightboxClose());
-    box.appendChild(close);
-    document.body.appendChild(bg);
-    document.body.appendChild(box);
+    box.append(close);
+    document.body.append(bg);
+    document.body.append(box);
 }

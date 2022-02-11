@@ -62,8 +62,8 @@ export default async (
         textNode.style.filter = autotextcolor
             ? 'invert(1) grayscale(1) contrast(9)'
             : '';
-        label.appendChild(textNode);
-        if (!prefix) missionTitle.appendChild(label);
+        label.append(textNode);
+        if (!prefix) missionTitle.append(label);
         else missionTitle.insertBefore(label, missionTitle.firstChild);
     };
 

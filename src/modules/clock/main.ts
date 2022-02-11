@@ -58,7 +58,7 @@ export default (async ({ LSSM, MODULE_ID, getSetting }) => {
                 },
             });
         });
-        document.body.appendChild(clock);
+        document.body.append(clock);
     }
 
     const clocks = document.querySelectorAll(`.${className}`);

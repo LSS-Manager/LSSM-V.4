@@ -19,7 +19,7 @@ require('./natives/lightbox');
 Vue.config.productionTip = false;
 
 const appContainer = document.createElement('div') as HTMLDivElement;
-document.body.appendChild(appContainer);
+document.body.append(appContainer);
 
 window.keepAlive = true;
 

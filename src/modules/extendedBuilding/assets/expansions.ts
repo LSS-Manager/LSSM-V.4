@@ -63,7 +63,7 @@ export default (LSSM: Vue, MODULE_ID: string, $m: $m): void => {
         if (countdown) {
             countdown.classList.add(countdown.id);
             label.classList.add(countdown.id);
-            label.appendChild(countdown.cloneNode(true));
+            label.append(countdown.cloneNode(true));
             label.classList.add(
                 `label-${
                     expansion.querySelector('a[href*="extension_finish"]')

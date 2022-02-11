@@ -176,5 +176,5 @@ export default async (
     resetBtn.textContent = $m('arrCounter.reset', {
         text: $m(`arrCounter.resetTexts.${resetBtnTexts.join('_')}`),
     }).toString();
-    resetBtnHolder.appendChild(resetBtn);
+    resetBtnHolder.append(resetBtn);
 };

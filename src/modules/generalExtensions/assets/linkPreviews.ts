@@ -56,12 +56,12 @@ export default async (
     const infoBox = document.createElement('div');
     infoBox.classList.add(infoBoxClass, 'hidden', 'panel', 'panel-default');
     const infoBoxContent = document.createElement('div');
-    infoBox.appendChild(infoBoxContent);
+    infoBox.append(infoBoxContent);
 
     infoBox.addEventListener('mouseover', () => (infoBoxHovered = true));
     infoBox.addEventListener('mouseout', () => (infoBoxHovered = false));
 
-    document.body.appendChild(infoBox);
+    document.body.append(infoBox);
 
     const LinkPreviewInstance = new LSSM.$vue<
         LinkPreview,

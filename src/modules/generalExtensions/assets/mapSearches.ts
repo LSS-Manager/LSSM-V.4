@@ -23,8 +23,8 @@ export default (
         input.classList.add('form-controls');
         input.id = LSSM.$store.getters.nodeAttribute('map_adress_search', true);
         input.placeholder = placeholder;
-        formGroup.appendChild(input);
-        form.appendChild(formGroup);
+        formGroup.append(input);
+        form.append(formGroup);
 
         const isMainWindowSearch =
             window.location.pathname.match(/^\/?$/) &&

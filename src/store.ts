@@ -101,7 +101,7 @@ export default (Vue: VueConstructor): Store<RootState> => {
             },
             insertStyleSheet(state: RootState) {
                 state.styles.styleSheet = document.createElement('style');
-                document.head.appendChild(state.styles.styleSheet);
+                document.head.append(state.styles.styleSheet);
                 state.styles.inserted = true;
             },
             useFontAwesome(state: RootState) {
@@ -109,7 +109,7 @@ export default (Vue: VueConstructor): Store<RootState> => {
                 const fa = document.createElement('script');
                 fa.src = `${state.server}static/fontawesome_free_6.0.0_all.min.js?uid=${state.lang}-${window.user_id}`;
                 fa.crossOrigin = 'anonymous';
-                document.head.appendChild(fa);
+                document.head.append(fa);
                 state.fontAwesome.inserted = true;
             },
             addOSMBar(
@@ -274,7 +274,7 @@ export default (Vue: VueConstructor): Store<RootState> => {
             loadModule({ state }: ActionStoreParams, module: keyof Modules) {
                 const script = document.createElement('script');
                 script.src = `${config.server}${state.lang}/modules/${module}/main.js?uid=${state.lang}-${window.user_id}&v=${state.version}`;
-                document.body.appendChild(script);
+                document.body.append(script);
             },
             addMenuItem({ commit }: ActionStoreParams, text: string) {
                 const menuItem = document.createElement('a');

@@ -101,7 +101,7 @@ export default async (
             dropdownBtn.setAttribute('aria-expanded', 'false');
             const dropdownCaret = document.createElement('span');
             dropdownCaret.classList.add('caret');
-            dropdownBtn.appendChild(dropdownCaret);
+            dropdownBtn.append(dropdownCaret);
             const dropdown = document.createElement('ul');
             dropdown.classList.add('dropdown-menu');
             buildings
@@ -149,10 +149,10 @@ export default async (
                     });
                     const setCheck = document.createElement('i');
                     setCheck.classList.add('fas', 'fa-check');
-                    setBtn.appendChild(setCheck);
-                    link.appendChild(setBtn);
-                    wrapper.appendChild(link);
-                    dropdown.appendChild(wrapper);
+                    setBtn.append(setCheck);
+                    link.append(setBtn);
+                    wrapper.append(link);
+                    dropdown.append(wrapper);
                 });
             dispatchBtn.after(dropdownBtn, dropdown);
         });

@@ -174,8 +174,8 @@ export default async (
                     if (!editBtn?.parentElement) return;
                     const actionsWrapper = document.createElement('div');
                     actionsWrapper.classList.add('btn-group');
-                    editBtn.parentElement.appendChild(actionsWrapper);
-                    actionsWrapper.appendChild(editBtn);
+                    editBtn.parentElement.append(actionsWrapper);
+                    actionsWrapper.append(editBtn);
                     const pABtn = document.createElement('a');
                     pABtn.classList.add('btn', 'btn-default', 'btn-xs');
                     pABtn.setAttribute(
@@ -183,7 +183,7 @@ export default async (
                         `/vehicles/${vehicleId}/zuweisung`
                     );
                     pABtn.innerHTML = '<i class="fas fa-users"></i>';
-                    actionsWrapper.appendChild(pABtn);
+                    actionsWrapper.append(pABtn);
                 }
                 if (lastRowItems.length && storedVehicle) {
                     (async () => {

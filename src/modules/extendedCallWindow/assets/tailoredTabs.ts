@@ -169,8 +169,8 @@ export default (
         allTabA.setAttribute('data-toggle', 'tab');
         allTabA.setAttribute('aria-expanded', 'true');
         allTabA.innerText = $m(`tailoredTabs.allTab`) as string;
-        allTab.appendChild(allTabA);
-        tabList.appendChild(allTab);
+        allTab.append(allTabA);
+        tabList.append(allTab);
     }
     if (!occupiedTab) {
         occupiedTab = document.createElement('li');
@@ -180,8 +180,8 @@ export default (
         occupiedTabA.setAttribute('href', '#occupied');
         occupiedTabA.setAttribute('tabload', 'occupied');
         occupiedTabA.innerText = <string>$m(`tailoredTabs.occupiedTab`);
-        occupiedTab.appendChild(occupiedTabA);
-        tabList.appendChild(occupiedTab);
+        occupiedTab.append(occupiedTabA);
+        tabList.append(occupiedTab);
     }
     if (!panelWrapper) {
         panelWrapper = document.createElement('div');
@@ -196,7 +196,7 @@ export default (
         if (!allVehicleTable) return;
         allVehicleTable?.setAttribute('role', 'grid');
         panelDiv.append(allVehicleTable);
-        panelWrapper.appendChild(panelDiv);
+        panelWrapper.append(panelDiv);
         document.querySelector('#vehicle_list_step')?.appendChild(panelWrapper);
     }
 
@@ -225,7 +225,7 @@ export default (
         tabLink.href = `#${tabId}`;
         tabLink.setAttribute('tabload', tabId);
         tabLink.textContent = name;
-        tabSelector.appendChild(tabLink);
+        tabSelector.append(tabLink);
         tabList.insertBefore(tabSelector, occupiedTab);
 
         const tabPane = document.createElement('div');
@@ -270,22 +270,22 @@ export default (
         const tbody = document.createElement('tbody');
         tbody.id = `vehicle_show_table_body_${tabId}`;
 
-        searchLink.appendChild(searchSpan);
-        searchHead.appendChild(searchLink);
-        headRow.appendChild(searchHead);
-        headRow.appendChild(emptyHead);
-        headRow.appendChild(vehicleHead);
-        headRow.appendChild(distanceHead);
-        headRow.appendChild(stationHead);
-        thead.appendChild(headRow);
-        searchWrapper.appendChild(searchInput);
-        searchRow.appendChild(searchWrapper);
-        thead.appendChild(searchRow);
-        tabTable.appendChild(thead);
-        tabTable.appendChild(tbody);
-        tabPane.appendChild(tabTable);
+        searchLink.append(searchSpan);
+        searchHead.append(searchLink);
+        headRow.append(searchHead);
+        headRow.append(emptyHead);
+        headRow.append(vehicleHead);
+        headRow.append(distanceHead);
+        headRow.append(stationHead);
+        thead.append(headRow);
+        searchWrapper.append(searchInput);
+        searchRow.append(searchWrapper);
+        thead.append(searchRow);
+        tabTable.append(thead);
+        tabTable.append(tbody);
+        tabPane.append(tabTable);
 
-        panelWrapper.appendChild(tabPane);
+        panelWrapper.append(tabPane);
 
         panels[tabId] = tabPane;
         tabBar[tabId] = { tablesorterId: `vehicle_show_table_${tabId}` };
