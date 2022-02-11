@@ -97,7 +97,7 @@ export default Vue.extend<
         },
         filteredOptions() {
             const filtered = this.options.filter(
-                o => !this.updateValue.find(v => v.value === o.value)
+                o => !this.updateValue.some(v => v.value === o.value)
             );
             return filtered.every(({ label }) => label.match(/^\d+/))
                 ? filtered.sort((a, b) => {

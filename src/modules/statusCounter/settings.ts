@@ -7,7 +7,7 @@ export default <ModuleSettingFunction>((MODULE_ID: string, LSSM: Vue) => ({
         default: 2,
         min: 0,
         disabled: settings =>
-            !Object.entries(settings[MODULE_ID]).find(
+            !Object.entries(settings[MODULE_ID]).some(
                 ([key, { value }]) => key.startsWith('percent_') && value
             ),
     },

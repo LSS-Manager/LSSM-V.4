@@ -459,7 +459,7 @@ export default Vue.extend<
                         this.settings[moduleId][settingId].value,
                         this.startSettings[moduleId][settingId].value
                     )) ||
-                !!Object.entries(this.settings).find(([module, settings]) =>
+                Object.entries(this.settings).some(([module, settings]) =>
                     Object.entries(settings).find(
                         ([setting, { value }]) =>
                             !isEqual(

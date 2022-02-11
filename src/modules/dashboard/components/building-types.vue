@@ -186,9 +186,7 @@ export default Vue.extend<
                                         if (
                                             buildingsWithExtensionOfType[
                                                 caption
-                                            ].find(
-                                                b => b.id === building.id
-                                            ) !== undefined
+                                            ].some(b => b.id === building.id)
                                         )
                                             return;
                                         buildingsWithExtensionOfType[

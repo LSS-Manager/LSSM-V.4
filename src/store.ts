@@ -321,7 +321,7 @@ export default (Vue: VueConstructor): Store<RootState> => {
                 const observer = new MutationObserver(mutations => {
                     mutations.forEach(record => {
                         if (
-                            Array.from(record.addedNodes).find(
+                            Array.from(record.addedNodes).some(
                                 node => node.nodeName === 'SCRIPT'
                             )
                         )

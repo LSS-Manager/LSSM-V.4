@@ -23,7 +23,7 @@ export default (LSSM: Vue): void => {
                 document.querySelectorAll<HTMLAnchorElement>('.aao')
             ).forEach(arr => {
                 const arrText = arr.textContent?.trim().toLowerCase() || '';
-                if (!words.find(w => arrText.match(w)))
+                if (!words.some(w => arrText.match(w)))
                     arr.classList.add(greyClass);
             });
         });

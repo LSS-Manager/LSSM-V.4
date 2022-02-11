@@ -471,7 +471,7 @@ export default Vue.extend<
                                 )
                             ) &&
                         vehicleBuildingTypes.includes(building.building_type) &&
-                        !Object.values(this.columns).find(
+                        !Object.values(this.columns).some(
                             column => column.building === building.id
                         )
                     );
@@ -573,9 +573,9 @@ export default Vue.extend<
             if (this.selectedBuilding) {
                 this.columns.push({ building: this.selectedBuilding });
                 await this.$nextTick();
-                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                // @ts-ignore
                 const column =
+                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                    // @ts-ignore
                     this.$refs[`building-${this.selectedBuilding}`][0].item;
                 this.selectedBuilding = null;
                 this.modifyBuilding({
@@ -595,9 +595,9 @@ export default Vue.extend<
                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                 // @ts-ignore
                 this.$refs.buildingListSelection[0].search = '';
-                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                // @ts-ignore
                 const title_field =
+                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                    // @ts-ignore
                     this.$refs[
                         `${this.currentBoard}_${title}_${
                             this.board.titles.length - 1
@@ -640,9 +640,9 @@ export default Vue.extend<
                         currentRow = 0;
                     }
                     await this.$nextTick();
-                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                    // @ts-ignore
                     const column =
+                        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                        // @ts-ignore
                         this.$refs[`building-${building.id}`][0].item;
                     this.selectedBuilding = null;
                     this.modifyBuilding({

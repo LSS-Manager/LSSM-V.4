@@ -77,7 +77,7 @@ export default (LSSM: Vue, missingDialogContent: string, $m: $m) => {
                 requirement.match(isColonMode ? /\d+$/ : /^\d+/)?.[0] || '0'
             ),
             vehicle,
-            selected: Object.keys(staffGroups).find(group =>
+            selected: Object.keys(staffGroups).some(group =>
                 vehicle.match(new RegExp(group.replace(/(^\/)|(\/$)/g, '')))
             )
                 ? { min: 0, max: 0 }

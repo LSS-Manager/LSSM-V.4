@@ -85,6 +85,7 @@
         "unicorn/prefer-array-find": ["error"],
         "unicorn/prefer-array-flat": ["error"],
         "unicorn/prefer-array-flat-map": ["error"],
+        "unicorn/prefer-array-some": ["error"],
         "vue/no-unused-refs": "warn",
         "yoda": ["error", "never", {
             "exceptRange": true
