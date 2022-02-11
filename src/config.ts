@@ -1,6 +1,6 @@
 import browsers from './utils/browsers.json';
 
-import { Config } from '../typings/Config';
+import type { Config } from '../typings/Config';
 
 export default {
     admins: ['de_DE-205976', 'de_DE-675'],
