@@ -17,7 +17,7 @@ export default (LSSM: Vue, MODULE_ID: string, $m: $m): void => {
             '#group_max_distance'
         );
         group_max_distance?.classList.toggle('hidden');
-        btn.innerText = $m(
+        btn.textContent = $m(
             `hideVehicleList.${
                 vehicle_list_step?.classList.contains('hidden')
                     ? 'show'

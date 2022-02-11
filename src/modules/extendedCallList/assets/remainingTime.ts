@@ -10,7 +10,7 @@ export default (LSSM: Vue, greenOnly: boolean): Promise<void> =>
                     `mission_overview_countdown_${id}`
                 );
                 if (timeElement) {
-                    timeElement.innerText = window.formatTime(
+                    timeElement.textContent = window.formatTime(
                         Math.floor(date_end_calc - window.unix_timestamp()),
                         false
                     );

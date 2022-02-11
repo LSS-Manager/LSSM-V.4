@@ -263,8 +263,8 @@ export default <RedesignParser<VehicleWindow>>(({
                   )
                       ? JSON.parse(
                             Array.from(doc.scripts)
-                                .find(({ innerText }) =>
-                                    innerText.match(/vehicle_graphics/)
+                                .find(({ textContent }) =>
+                                    textContent?.match(/vehicle_graphics/)
                                 )
                                 ?.innerText.match(
                                     new RegExp(

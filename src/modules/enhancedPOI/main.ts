@@ -144,7 +144,7 @@ export default (async ({ LSSM, MODULE_ID, $m, getSetting }) => {
         document.getElementById(extraStyleId)?.remove();
         const style = document.createElement('style');
         style.id = extraStyleId;
-        style.innerText = `${selector} {display: block !important;}`;
+        style.textContent = `${selector} {display: block !important;}`;
         document.body.append(style);
     };
     refresh_shown_pois();

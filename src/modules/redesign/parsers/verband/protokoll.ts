@@ -76,14 +76,14 @@ export default <RedesignParser<VerbandProtokollWindow>>(async ({
                       icon:
                           cell.querySelector<HTMLImageElement>('img')?.src ??
                           '',
-                      name: cell.innerText.trim(),
+                      name: cell.textContent?.trim() ?? '',
                       id: getIdFromEl(
                           cell.querySelector<HTMLAnchorElement>('a')
                       ),
                       type: 'user',
                   }
                 : {
-                      name: cell.innerText.trim(),
+                      name: cell.textContent?.trim() ?? '',
                       id: getIdFromEl(
                           cell.querySelector<HTMLAnchorElement>('a')
                       ),

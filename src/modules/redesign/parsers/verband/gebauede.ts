@@ -29,7 +29,7 @@ export default <RedesignParser<VerbandGebaeudeWindow>>(({
     getIdFromEl = () => -1,
 }) => {
     const markerScript = Array.from(doc.scripts)
-        .map(({ innerText }) => innerText.trim())
+        .map(({ textContent }) => textContent?.trim() ?? '')
         .find(t => t.match(/L\.map/));
     if (!markerScript)
         throw new Error('Could not find a script that sets the map!');

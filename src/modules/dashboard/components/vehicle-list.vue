@@ -249,8 +249,8 @@ export default Vue.extend<
                                 .forEach(link => {
                                     const small = link.querySelector('small');
                                     if (small)
-                                        small.innerText = subtitle.trim();
-                                    link.innerText = title.trim();
+                                        small.textContent = subtitle.trim();
+                                    link.textContent = title.trim();
                                     link.classList.remove(
                                         this.resolveLinkClass
                                     );

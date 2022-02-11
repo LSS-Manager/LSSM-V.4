@@ -35,16 +35,16 @@ export default (
         )
             return;
         const wrapper = document.createElement('span');
-        wrapper.innerText = `[${eventsById[mission].join(' ')}]`;
+        wrapper.textContent = `[${eventsById[mission].join(' ')}]`;
         wrapper.classList.add(wrapperClass);
         wrapper.style.setProperty('margin-right', '0.5rem');
         title.before(wrapper);
 
         const searchAttr = panel.getAttribute('search_attribute') ?? '';
-        if (!searchAttr.includes(wrapper.innerText)) {
+        if (!searchAttr.includes(wrapper.textContent)) {
             panel.setAttribute(
                 'search_attribute',
-                `${searchAttr} ${wrapper.innerText}`
+                `${searchAttr} ${wrapper.textContent}`
             );
         }
     };

@@ -168,7 +168,7 @@ export default (
         allTabA.setAttribute('role', 'tab');
         allTabA.setAttribute('data-toggle', 'tab');
         allTabA.setAttribute('aria-expanded', 'true');
-        allTabA.innerText = $m(`tailoredTabs.allTab`) as string;
+        allTabA.textContent = $m(`tailoredTabs.allTab`) as string;
         allTab.append(allTabA);
         tabList.append(allTab);
     }
@@ -179,7 +179,7 @@ export default (
         const occupiedTabA = document.createElement('a');
         occupiedTabA.setAttribute('href', '#occupied');
         occupiedTabA.setAttribute('tabload', 'occupied');
-        occupiedTabA.innerText = <string>$m(`tailoredTabs.occupiedTab`);
+        occupiedTabA.textContent = <string>$m(`tailoredTabs.occupiedTab`);
         occupiedTab.append(occupiedTabA);
         tabList.append(occupiedTab);
     }

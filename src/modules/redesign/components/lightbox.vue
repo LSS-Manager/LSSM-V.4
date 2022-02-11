@@ -438,8 +438,9 @@ export default Vue.extend<
                                         'text/html'
                                     );
                                     const script = Array.from(doc.scripts)
-                                        .map(({ innerText }) =>
-                                            innerText.trim()
+                                        .map(
+                                            ({ textContent }) =>
+                                                textContent?.trim() ?? ''
                                         )
                                         .join('\n');
                                     window.coinsUpdate(

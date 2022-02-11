@@ -279,7 +279,7 @@ export default (Vue: VueConstructor): Store<RootState> => {
             addMenuItem({ commit }: ActionStoreParams, text: string) {
                 const menuItem = document.createElement('a');
                 menuItem.href = '#';
-                menuItem.innerText = text;
+                menuItem.textContent = text;
                 commit('addMenuItem', menuItem);
                 return menuItem;
             },

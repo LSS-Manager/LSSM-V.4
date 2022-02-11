@@ -97,7 +97,7 @@ export default <RedesignParser<ProfileWindow>>(({ LSSM, doc, href = '' }) => {
         buildings: (
             Array.from(doc.scripts)
                 .flatMap(script =>
-                    script.innerText.match(
+                    script.textContent?.match(
                         /(?<=buildingMarkerAdd\(){(?:".*?":(?:\d+(?:\.\d+)?|".*?"),?)+}(?=\);)/g
                     )
                 )

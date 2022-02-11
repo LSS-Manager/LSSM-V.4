@@ -54,7 +54,7 @@ export default <RedesignParser<AAOsWindow>>(({ doc }) => {
                 Array.from(
                     doc.querySelectorAll<HTMLAnchorElement>('#aao-tabs li a')
                 ).map(tab => [
-                    tab.innerText.trim(),
+                    tab.textContent?.trim() ?? '',
                     getAAOCategory(new URL(tab.href).hash.replace(/^#/, '')),
                 ])
             ),

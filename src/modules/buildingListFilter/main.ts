@@ -133,7 +133,7 @@ export default <ModuleMainFunction>(async ({ LSSM, MODULE_ID, getSetting }) => {
                 const btn = document.createElement('button');
                 btn.classList.add('btn', 'btn-xs', 'btn-success');
                 if (contentType === 'text') {
-                    if (title) btn.innerText = title;
+                    if (title) btn.textContent = title;
                     else btn.innerHTML = '&nbsp;';
                 } else {
                     const icon = document.createElement('i');
